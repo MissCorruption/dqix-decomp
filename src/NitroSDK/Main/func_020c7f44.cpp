@@ -2,41 +2,41 @@
 #include "NitroSDK/ProcessorContext.h"
 #include "NitroSDK/Interrupts.h"
 
-struct MessageQueue
+struct Struct_020c7f44
 {
-    BlockedContextList sendQueue;
-    BlockedContextList receiveQueue;
-    void** messages;
-    int capacity;
-    int first;
-    int count;
+    BlockedContextList unknown_0_;
+    BlockedContextList unknown_8_;
+    void** unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
 
 // USA: func_020c7f44
-extern "C" ARM int func_020c7f44(MessageQueue* queue, void* message, int flags)
+extern "C" ARM int func_020c7f44(Struct_020c7f44* arg0, void* arg1, int arg2)
 {
-    int priorState = DisableIRQInterrupts();
+    int var0 = DisableIRQInterrupts();
 
-    int capacity;
-    if ((capacity = queue->capacity) <= queue->count)
+    int var1;
+    if ((var1 = arg0->unknown_14_) <= arg0->unknown_1c_)
     {
         do
         {
-            if (!(flags & 1))
+            if (!(arg2 & 1))
             {
-                SetIRQInterruptState(priorState);
+                SetIRQInterruptState(var0);
                 return false;
             }
-            BlockCurrentContext(&queue->sendQueue);
-        } while ((capacity = queue->capacity) <= queue->count);
+            BlockCurrentContext(&arg0->unknown_0_);
+        } while ((var1 = arg0->unknown_14_) <= arg0->unknown_1c_);
     }
 
-    queue->first = (queue->first + capacity - 1) % capacity;
-    queue->messages[queue->first] = message;
-    queue->count++;
+    arg0->unknown_18_ = (arg0->unknown_18_ + var1 - 1) % var1;
+    arg0->unknown_10_[arg0->unknown_18_] = arg1;
+    arg0->unknown_1c_++;
 
-    UnblockContexts(&queue->receiveQueue);
+    UnblockContexts(&arg0->unknown_8_);
 
-    SetIRQInterruptState(priorState);
+    SetIRQInterruptState(var0);
     return true;
 }

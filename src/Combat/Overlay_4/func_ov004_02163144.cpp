@@ -3,72 +3,72 @@
 
 
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-struct List0204af64;
-extern "C" void func_0204af64(struct List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-extern "C" void func_0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
-struct SelfTag0204b3a0;
-extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
+struct Struct_02020cb8_6;
+extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
 
 
-struct LocalListStruct02163144 {
-    unsigned char pad0[0x1c];
-    unsigned char lo : 4;
-    unsigned char hi : 4;
-    unsigned char pad1d[3];
+struct Struct_ov004_02163144 {
+    unsigned char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_[3];
 };
 
 #if defined(jpn)
-struct Struct021707e8_02163144 { char pad0[0x10]; int handle; char pad14[0xc]; int state; };
+struct Struct_ov004_021707e8_9 { char unknown_0_[0x10]; int unknown_20_; char unknown_14_[0xc]; int unknown_24_; };
 #else
-struct Struct021707e8_02163144 { char pad0[0x20]; int handle; int state; };
+struct Struct_ov004_021707e8_9 { char unknown_0_[0x20]; int unknown_20_; int unknown_24_; };
 #endif
-extern Struct021707e8_02163144 data_ov004_021707e8;
+extern Struct_ov004_021707e8_9 data_ov004_021707e8;
 extern char data_ov004_02170542;
 
 // USA: func_ov004_02163144
 extern "C" ARM int func_ov004_02163144() {
-    int ret = 1;
-    int data4 = (int)BackgroundLoader::GetInstance();
+    int var0 = 1;
+    int var1 = (int)BackgroundLoader::GetInstance();
 
-    if (data_ov004_021707e8.state == 0) {
+    if (data_ov004_021707e8.unknown_24_ == 0) {
         *(int*)0x4001010 = 0;
         *(int*)0x4001014 = 0;
-        data_ov004_021707e8.handle = ((BackgroundLoader*)(data4))->QueueLoadFile((const char*)((int)&data_ov004_02170542), (SafeAllocator*)(0));
-        data_ov004_021707e8.state = data_ov004_021707e8.state + 1;
-    } else if (data_ov004_021707e8.state == 1) {
-        if (((BackgroundLoader*)(data4))->GetTaskStatus((int)(data_ov004_021707e8.handle))) {
-            int recListHead;
-            int val2Ignored;
-            int dummyOut44;
-            void* dummyPtr;
-            LocalListStruct02163144 s;
+        data_ov004_021707e8.unknown_20_ = ((BackgroundLoader*)(var1))->QueueLoadFile((const char*)((int)&data_ov004_02170542), (SafeAllocator*)(0));
+        data_ov004_021707e8.unknown_24_ = data_ov004_021707e8.unknown_24_ + 1;
+    } else if (data_ov004_021707e8.unknown_24_ == 1) {
+        if (((BackgroundLoader*)(var1))->GetTaskStatus((int)(data_ov004_021707e8.unknown_20_))) {
+            int var2;
+            int var3;
+            int var4;
+            void* var5;
+            Struct_ov004_02163144 var6;
 
-            ((BackgroundLoader*)((struct List0202fec8*)data4))->GetLoadedFileByID((int)(data_ov004_021707e8.handle), (void**)(&recListHead), (unsigned int*)(&val2Ignored));
-            int count = func_02046900((struct ActiveEntry02046900*)recListHead);
-            func_0204af64((struct List0204af64*)&s);
-            s.lo = 1;
-            s.hi = 1;
-            for (int i = 0; i < count; i++) {
-                void* rec = func_020467f0((struct Rec020467f0*)recListHead, i, &dummyPtr, &dummyOut44);
-                if (rec) {
-                    func_0204b2e0(&s, (char*)rec);
-                    func_0204b3a0((struct SelfTag0204b3a0*)&s, (char*)rec);
+            ((BackgroundLoader*)((struct Struct_020534ac*)var1))->GetLoadedFileByID((int)(data_ov004_021707e8.unknown_20_), (void**)(&var2), (unsigned int*)(&var3));
+            int var7 = func_02046900((struct Struct_02020cb8_4*)var2);
+            func_0204af64((struct Struct_02020cb8*)&var6);
+            var6.unknown_1c_0_ = 1;
+            var6.unknown_1c_4_ = 1;
+            for (int var8 = 0; var8 < var7; var8++) {
+                void* var9 = func_020467f0((struct Struct_02020aec*)var2, var8, &var5, &var4);
+                if (var9) {
+                    func_0204b2e0(&var6, (char*)var9);
+                    func_0204b3a0((struct Struct_02020cb8_6*)&var6, (char*)var9);
                 }
             }
-            ((BackgroundLoader*)(data4))->RemoveTask((int)(data_ov004_021707e8.handle));
-            data_ov004_021707e8.handle = -1;
-            ret = 0;
+            ((BackgroundLoader*)(var1))->RemoveTask((int)(data_ov004_021707e8.unknown_20_));
+            data_ov004_021707e8.unknown_20_ = -1;
+            var0 = 0;
         }
     }
-    return ret;
+    return var0;
 }

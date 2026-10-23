@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kNodeOffset = 0x43c };
+enum { Enum_02019508_1052 = 0x43c };
 #else
-enum { kNodeOffset = 0x41c };
+enum { Enum_02019508_1052 = 0x41c };
 #endif
 
 
-struct Entry02019508 {
-    unsigned short f0;
-    unsigned char pad[0x6e];
+struct Struct_02019508 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[0x6e];
 };
 
-struct Node02019508 {
-    int f0;
-    unsigned char pad4[0x10];
-    int f14;
-    unsigned char pad18[0x2c];
-    struct Entry02019508* f44;
-    unsigned char pad48[0xc];
-    struct Node02019508* f54;
+struct Struct_02019508_2 {
+    int unknown_0_;
+    unsigned char unknown_4_[0x10];
+    int unknown_14_;
+    unsigned char unknown_18_[0x2c];
+    struct Struct_02019508* unknown_44_;
+    unsigned char unknown_48_[0xc];
+    struct Struct_02019508_2* unknown_54_;
 };
 
-struct Base02019508 {
-    unsigned char pad0[kNodeOffset];
-    struct Node02019508* f41c;
+struct Struct_02019508_3 {
+    unsigned char unknown_0_[Enum_02019508_1052];
+    struct Struct_02019508_2* unknown_41c_;
 };
 
 // USA: func_02019508
-extern "C" ARM struct Entry02019508* func_02019508(struct Base02019508* base, int key1, int key2) {
-    struct Entry02019508* result;
-    struct Node02019508* node;
-    result = 0;
-    node = base->f41c;
-    while (node != 0) {
-        if (node->f0 == key1) {
-            int count = node->f14;
-            struct Entry02019508* e = node->f44;
-            int i;
-            for (i = 0; i < count; i++, e++) {
-                if (e->f0 == key2) {
-                    result = e;
+extern "C" ARM struct Struct_02019508* func_02019508(struct Struct_02019508_3* arg0, int arg1, int arg2) {
+    struct Struct_02019508* var0;
+    struct Struct_02019508_2* var1;
+    var0 = 0;
+    var1 = arg0->unknown_41c_;
+    while (var1 != 0) {
+        if (var1->unknown_0_ == arg1) {
+            int var2 = var1->unknown_14_;
+            struct Struct_02019508* var3 = var1->unknown_44_;
+            int var4;
+            for (var4 = 0; var4 < var2; var4++, var3++) {
+                if (var3->unknown_0_ == arg2) {
+                    var0 = var3;
                     break;
                 }
             }
         }
-        node = node->f54;
+        var1 = var1->unknown_54_;
     }
-    return result;
+    return var0;
 }

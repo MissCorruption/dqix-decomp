@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct SessionAddress {
-    unsigned char octets[4];
+struct Struct_ov031_02235fb0 {
+    unsigned char unknown_0_[4];
 };
 
-struct SessionLog {
-    unsigned char padding[0x4c4];
-    SessionAddress address;
+struct Struct_ov031_02235fb0_2 {
+    unsigned char unknown_0_[0x4c4];
+    Struct_ov031_02235fb0 unknown_4c4_;
 };
 
-extern SessionLog* data_ov031_02290cfc;
+extern Struct_ov031_02235fb0_2* data_ov031_02290cfc;
 extern const char data_ov031_0224be50[];
 extern "C" int func_020c7130(char*, const char*, ...);
 
 // USA: func_ov031_02235fb0
-extern "C" ARM void func_ov031_02235fb0(char* destination) {
-    SessionAddress* address = &data_ov031_02290cfc->address;
-    unsigned char first = data_ov031_02290cfc->address.octets[0];
-    unsigned char second = address->octets[1];
-    unsigned char third = address->octets[2];
-    unsigned char fourth = address->octets[3];
-    func_020c7130(destination, data_ov031_0224be50, first, second, third, fourth);
+extern "C" ARM void func_ov031_02235fb0(char* arg0) {
+    Struct_ov031_02235fb0* var0 = &data_ov031_02290cfc->unknown_4c4_;
+    unsigned char var1 = data_ov031_02290cfc->unknown_4c4_.unknown_0_[0];
+    unsigned char var2 = var0->unknown_0_[1];
+    unsigned char var3 = var0->unknown_0_[2];
+    unsigned char var4 = var0->unknown_0_[3];
+    func_020c7130(arg0, data_ov031_0224be50, var1, var2, var3, var4);
 }

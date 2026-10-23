@@ -4,144 +4,144 @@
 #include "Resource/GameResources.h"
 #include "World/Object3D.h"
 
-struct GeometryTriangle {
-    Vector3fix vertices[3];
-    Vector3fix normal;
+struct Struct_020312bc {
+    Vector3fix unknown_0_[3];
+    Vector3fix unknown_24_;
 };
 
-struct FourHalfwords02033f7c {
-    unsigned short f0;
-    unsigned short f2;
-    unsigned short f4;
-    unsigned short f6;
+struct Struct_02033f6c {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
-struct PolygonHeader {
-    int type;
+struct Struct_ov017_02192b48_5 {
+    int unknown_0_;
 };
 
-struct PolygonData {
-    PolygonHeader* header;
-    unsigned char pad_4[0x10];
-    FourHalfwords02033f7c* materials;
+struct Struct_ov017_02192b48_6 {
+    Struct_ov017_02192b48_5* unknown_0_;
+    unsigned char unknown_4_[0x10];
+    Struct_02033f6c* unknown_14_;
 };
 
-struct GeometryData {
-    int unused;
-    PolygonData* polygons;
+struct Struct_ov017_02192b48_7 {
+    int unknown_0_;
+    Struct_ov017_02192b48_6* unknown_4_;
 };
 
-struct TerrainNode {
-    unsigned char pad_0[0x24];
-    GeometryData* geometry;
+struct Struct_ov017_02192b48_8 {
+    unsigned char unknown_0_[0x24];
+    Struct_ov017_02192b48_7* unknown_24_;
 };
 
-struct Zone02193dc4 {
+struct Struct_ov017_02193dc4_3 {
 #if defined(jpn)
-    unsigned char unknown0[0x844];
+    unsigned char unknown_0_[0x844];
 #else
-    unsigned char unknown0[0x824];
+    unsigned char unknown1_0_[0x824];
 #endif
-    TerrainNode** terrain;
-    unsigned char pad_828[0x4];
-    int terrainCount;
+    Struct_ov017_02192b48_8** unknown_824_;
+    unsigned char unknown_828_[0x4];
+    int unknown_82c_;
 };
 
-struct TerrainGrid02193dc4 {
-    short cells[96][12];
-    int unused900;
-    int scale;
-    Vector3i position;
-    int unused914;
-    int angle;
-    int unused91c;
-    unsigned char materialIndex[96];
+struct Struct_ov017_02193dc4_4 {
+    short unknown_0_[96][12];
+    int unknown_900_;
+    int unknown_904_;
+    Vector3i unknown_908_;
+    int unknown_914_;
+    int unknown_918_;
+    int unknown_91c_;
+    unsigned char unknown_920_[96];
 };
 
-struct Probe02193dc4 {
-    Vector3i top;
-    Vector3i bottom;
+struct Struct_ov017_02193dc4 {
+    Vector3i unknown_0_;
+    Vector3i unknown_c_;
 };
 
-class Actor02193dc4 : public Object3D {
+class Struct_ov017_02193dc4_2 : public Object3D {
 public:
-    short fieldAC;
+    short unknown_ac_;
 };
 
 extern "C" void* func_02012fe4(void);
-extern "C" void func_02031188(GeometryTriangle* dst, short* src);
+extern "C" void func_02031188(Struct_020312bc* arg0, short* arg1);
 extern "C" long long func_020c32f8(int);
 extern "C" long long func_020c3260(int);
 extern "C" float func_0200c700(long long);
-extern "C" int func_020312bc(GeometryTriangle* triangles, int count, Vector3fix* start, Vector3fix* end, Vector3fix* point);
-extern "C" int func_02017d90(Zone02193dc4* zone, int index, TerrainGrid02193dc4* grid, Probe02193dc4 probe, Actor02193dc4* self);
-extern "C" void func_02033f2c(struct ByteFlags02033f2c* p);
-extern "C" void func_02033f6c(void* obj, FourHalfwords02033f7c* src);
+extern "C" int func_020312bc(Struct_020312bc* arg0, int arg1, Vector3fix* arg2, Vector3fix* arg3, Vector3fix* arg4);
+extern "C" int func_02017d90(Struct_ov017_02193dc4_3* arg0, int arg1, Struct_ov017_02193dc4_4* arg2, Struct_ov017_02193dc4 arg3, Struct_ov017_02193dc4_2* arg4);
+extern "C" void func_02033f2c(struct Struct_02033f2c* arg0);
+extern "C" void func_02033f6c(void* arg0, Struct_02033f6c* arg1);
 
 // USA: func_ov017_02193dc4
-extern "C" ARM int func_ov017_02193dc4(Actor02193dc4* self) {
-    TerrainGrid02193dc4 grid;
-    GeometryTriangle samples[96];
-    Zone02193dc4* zone;
-    int total;
-    int i;
+extern "C" ARM int func_ov017_02193dc4(Struct_ov017_02193dc4_2* arg0) {
+    Struct_ov017_02193dc4_4 var0;
+    Struct_020312bc var1[96];
+    Struct_ov017_02193dc4_3* var2;
+    int var3;
+    int var4;
 
     GameState::GetInstance();
     GetGameResources();
-    zone = (Zone02193dc4*)func_02012fe4();
-    Probe02193dc4 probe;
-    Vector3i pos = self->position_;
-    total = 0;
-    probe.top = pos;
-    probe.bottom = pos;
-    probe.top.x += self->GetRadius() / 2;
-    probe.top.y += self->GetHeight();
-    probe.top.z += self->GetRadius() / 2;
-    probe.bottom.x -= self->GetRadius() / 2;
-    probe.bottom.y -= 0x28000;
-    probe.bottom.z -= self->GetRadius() / 2;
-    func_02033f2c((ByteFlags02033f2c*)self);
-    for (i = 0; i < zone->terrainCount; i++) {
-        int count = func_02017d90(zone, i, &grid, probe, self);
-        if (count > 0) {
-            total += count;
-            for (int k = 0; k < count; k++) {
-                func_02031188(&samples[k], grid.cells[k]);
-                Vector3fixMultiplyScalar(&samples[k].vertices[0], grid.scale << 12, &samples[k].vertices[0]);
-                Vector3fixMultiplyScalar(&samples[k].vertices[1], grid.scale << 12, &samples[k].vertices[1]);
-                Vector3fixMultiplyScalar(&samples[k].vertices[2], grid.scale << 12, &samples[k].vertices[2]);
+    var2 = (Struct_ov017_02193dc4_3*)func_02012fe4();
+    Struct_ov017_02193dc4 var5;
+    Vector3i var6 = arg0->position_;
+    var3 = 0;
+    var5.unknown_0_ = var6;
+    var5.unknown_c_ = var6;
+    var5.unknown_0_.x += arg0->GetRadius() / 2;
+    var5.unknown_0_.y += arg0->GetHeight();
+    var5.unknown_0_.z += arg0->GetRadius() / 2;
+    var5.unknown_c_.x -= arg0->GetRadius() / 2;
+    var5.unknown_c_.y -= 0x28000;
+    var5.unknown_c_.z -= arg0->GetRadius() / 2;
+    func_02033f2c((Struct_02033f2c*)arg0);
+    for (var4 = 0; var4 < var2->unknown_82c_; var4++) {
+        int var7 = func_02017d90(var2, var4, &var0, var5, arg0);
+        if (var7 > 0) {
+            var3 += var7;
+            for (int var8 = 0; var8 < var7; var8++) {
+                func_02031188(&var1[var8], var0.unknown_0_[var8]);
+                Vector3fixMultiplyScalar(&var1[var8].unknown_0_[0], var0.unknown_904_ << 12, &var1[var8].unknown_0_[0]);
+                Vector3fixMultiplyScalar(&var1[var8].unknown_0_[1], var0.unknown_904_ << 12, &var1[var8].unknown_0_[1]);
+                Vector3fixMultiplyScalar(&var1[var8].unknown_0_[2], var0.unknown_904_ << 12, &var1[var8].unknown_0_[2]);
             }
-            Vector3i local = pos;
-            Matrix3x3 rotation;
-            Vector3i top;
-            Vector3i bottom;
-            Vector3i hit;
-            Vector3fix_Subtract(&local, &grid.position, &local);
-            int rotationAngle = -(grid.angle - 25735);
-            int cosine = (int)(4096.0f * (func_0200c700(func_020c32f8(rotationAngle)) / 4294967296.0f));
-            int sine = (int)(4096.0f * (func_0200c700(func_020c3260(rotationAngle)) / 4294967296.0f));
-            Mat3x3_WriteRotationY(&rotation, sine, cosine);
-            Mat3x3_ApplyToVector(&local, &rotation, &local);
-            top = local;
-            top.y += 0x800;
-            bottom = local;
-            bottom.y -= 0x28000;
-            int idx = func_020312bc(samples, count, &top, &bottom, &hit);
-            if (idx != -1) {
-                hit.y += 0x199;
-                Vector3fix_Add(&hit, &grid.position, &hit);
-                TerrainNode* node = zone->terrain[i];
-                GeometryData* geometry;
-                PolygonData* polygons;
-                if (node != NULL && (geometry = node->geometry) != NULL && (polygons = geometry->polygons) != NULL) {
-                    if (polygons->header->type == 3) {
-                        FourHalfwords02033f7c material = polygons->materials[grid.materialIndex[idx]];
-                        func_02033f6c(self, &material);
+            Vector3i var9 = var6;
+            Matrix3x3 var10;
+            Vector3i var11;
+            Vector3i var12;
+            Vector3i var13;
+            Vector3fix_Subtract(&var9, &var0.unknown_908_, &var9);
+            int var14 = -(var0.unknown_918_ - 25735);
+            int var15 = (int)(4096.0f * (func_0200c700(func_020c32f8(var14)) / 4294967296.0f));
+            int var16 = (int)(4096.0f * (func_0200c700(func_020c3260(var14)) / 4294967296.0f));
+            Mat3x3_WriteRotationY(&var10, var16, var15);
+            Mat3x3_ApplyToVector(&var9, &var10, &var9);
+            var11 = var9;
+            var11.y += 0x800;
+            var12 = var9;
+            var12.y -= 0x28000;
+            int var17 = func_020312bc(var1, var7, &var11, &var12, &var13);
+            if (var17 != -1) {
+                var13.y += 0x199;
+                Vector3fix_Add(&var13, &var0.unknown_908_, &var13);
+                Struct_ov017_02192b48_8* var18 = var2->unknown_824_[var4];
+                Struct_ov017_02192b48_7* var19;
+                Struct_ov017_02192b48_6* var20;
+                if (var18 != NULL && (var19 = var18->unknown_24_) != NULL && (var20 = var19->unknown_4_) != NULL) {
+                    if (var20->unknown_0_->unknown_0_ == 3) {
+                        Struct_02033f6c var21 = var20->unknown_14_[var0.unknown_920_[var17]];
+                        func_02033f6c(arg0, &var21);
                     }
                 }
             }
         }
     }
-    self->fieldAC = 0;
-    return total;
+    arg0->unknown_ac_ = 0;
+    return var3;
 }

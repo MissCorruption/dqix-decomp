@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct PackedNibbleArray0206e120 {
-    unsigned char pad[0x2CC];
-    unsigned char bits[1];
+struct Struct_0205faf4_3 {
+    unsigned char unknown_0_[0x2CC];
+    unsigned char unknown_2cc_[1];
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* obj);
-extern "C" void func_ov017_021d0924(unsigned char a, unsigned char b, unsigned short c, unsigned short d);
+extern "C" int func_0202c508(void* arg0);
+extern "C" void func_ov017_021d0924(unsigned char arg0, unsigned char arg1, unsigned short arg2, unsigned short arg3);
 
 // USA: func_0206e164
-extern "C" ARM void func_0206e164(struct PackedNibbleArray0206e120* obj, int index, int value) {
-    if (index >= 0xCC || index < 0) {
+extern "C" ARM void func_0206e164(struct Struct_0205faf4_3* arg0, int arg1, int arg2) {
+    if (arg1 >= 0xCC || arg1 < 0) {
         return;
     }
-    int byteIndex = index / 2;
-    if (index % 2) {
-        unsigned char n = obj->bits[byteIndex] >> 4;
-        n = (n & 0xc) | value;
-        obj->bits[byteIndex] &= 0xf;
-        obj->bits[byteIndex] |= n << 4;
+    int var0 = arg1 / 2;
+    if (arg1 % 2) {
+        unsigned char var1 = arg0->unknown_2cc_[var0] >> 4;
+        var1 = (var1 & 0xc) | arg2;
+        arg0->unknown_2cc_[var0] &= 0xf;
+        arg0->unknown_2cc_[var0] |= var1 << 4;
     } else {
-        unsigned char n = obj->bits[byteIndex] & 0xf;
-        n = (n & 0xc) | value;
-        obj->bits[byteIndex] &= 0xf0;
-        obj->bits[byteIndex] |= n;
+        unsigned char var2 = arg0->unknown_2cc_[var0] & 0xf;
+        var2 = (var2 & 0xc) | arg2;
+        arg0->unknown_2cc_[var0] &= 0xf0;
+        arg0->unknown_2cc_[var0] |= var2;
     }
     if (func_0202c508(func_0202ae18()) == 0) {
         return;
     }
-    if (index < 0xAE) {
+    if (arg1 < 0xAE) {
         return;
     }
-    func_ov017_021d0924(7, 0, index, value);
+    func_ov017_021d0924(7, 0, arg1, arg2);
 }

@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct ResetStruct;
+struct Struct_0201f040;
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
-struct DataStruct02109404 {
-    char pad0;
-    unsigned char f1;
-    unsigned char f2;
-    char pad3[3];
-    unsigned short f6;
+struct Struct_02109404_6 {
+    char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    char unknown_3_[3];
+    unsigned short unknown_6_;
 };
-extern struct DataStruct02109404 data_02109404;
+extern struct Struct_02109404_6 data_02109404;
 extern short data_020f13d8;
 extern char data_020f13dc[];
 
 // USA: func_020957f4
-extern "C" ARM int func_020957f4(void* unused, struct StreamHeader* buffer, int length) {
-    char local[0x430];
+extern "C" ARM int func_020957f4(void* arg0, struct Struct_02013fb4* arg1, int arg2) {
+    char var0[0x430];
 
-    data_02109404.f6 = 0;
-    data_02109404.f1 = 1;
-    data_02109404.f2 = 0;
+    data_02109404.unknown_6_ = 0;
+    data_02109404.unknown_1_ = 1;
+    data_02109404.unknown_2_ = 0;
     data_020f13d8 = -1;
 
-    ((Script*)((struct ResetStruct*)local))->Initialize();
-    ((Script*)local)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f13dc);
-    ((Script*)((struct StreamState*)local))->Load(buffer, length);
-    ((Script*)((struct Struct02030774*)local))->Execute();
+    ((Script*)((struct Struct_0201f040*)var0))->Initialize();
+    ((Script*)var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f13dc);
+    ((Script*)((struct Struct_0201f040_2*)var0))->Load(arg1, arg2);
+    ((Script*)((struct Struct_0201f040_3*)var0))->Execute();
 
-    return data_02109404.f6;
+    return data_02109404.unknown_6_;
 }

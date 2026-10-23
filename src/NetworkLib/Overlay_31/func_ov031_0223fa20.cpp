@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern int data_ov031_02290fa4;
-struct RefNode020c80f8;
+struct Struct_ov031_02290f8c;
 struct Mutex;
 void UnlockMutex(Mutex*);
 

@@ -1,207 +1,207 @@
 #include <globaldefs.h>
 #if defined(jpn)
 enum {
-    kRegion800 = 0x77c
+    Enum_ov003_02177dd4_2048 = 0x77c
 };
 enum {
-    kRegion89c = 0x818
+    Enum_ov003_02177dd4_2204 = 0x818
 };
 enum {
-    kRegion8a0 = 0x81c
+    Enum_ov003_02177dd4_2208 = 0x81c
 };
 enum {
-    kRegion100c = 0xf88
+    Enum_ov003_02177dd4_4108 = 0xf88
 };
 #else
 enum {
-    kRegion800 = 0x800
+    Enum_ov003_02177dd4_2048 = 0x800
 };
 enum {
-    kRegion89c = 0x89c
+    Enum_ov003_02177dd4_2204 = 0x89c
 };
 enum {
-    kRegion8a0 = 0x8a0
+    Enum_ov003_02177dd4_2208 = 0x8a0
 };
 enum {
-    kRegion100c = 0x100c
+    Enum_ov003_02177dd4_4108 = 0x100c
 };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" unsigned char func_0207ca94(int index);
-extern "C" int func_ov003_02175f90(void *obj);
-struct S_a0b8c {
-    short* keys;
-    signed char* values;
-    short count;
+extern "C" unsigned char func_0207ca94(int arg0);
+extern "C" int func_ov003_02175f90(void *arg0);
+struct Struct_020a0b8c {
+    short* unknown_0_;
+    signed char* unknown_4_;
+    short unknown_8_;
 };
-struct PoolTables0207c258 {
-    char pad0[0xbd0];
-    short* group1[8];
-    unsigned char* group2[8];
-    short counts[8];
-    unsigned char index[8];
-    unsigned char used[8];
+struct Struct_0207c258 {
+    char unknown_0_[0xbd0];
+    short* unknown_bd0_[8];
+    unsigned char* unknown_bf0_[8];
+    short unknown_c10_[8];
+    unsigned char unknown_c20_[8];
+    unsigned char unknown_c28_[8];
 };
-struct Inventory02177dd4 {
-    S_a0b8c list;
-    short keys[152];
-    signed char values[152];
-    PoolTables0207c258 categories;
+struct Struct_ov003_02177dd4_2 {
+    Struct_020a0b8c unknown_0_;
+    short unknown_c_[152];
+    signed char unknown_13c_[152];
+    Struct_0207c258 unknown_1d4_;
 };
-extern "C" int func_020a0b8c(struct S_a0b8c *p);
-struct Obj2081;
-extern "C" void func_02080c20(struct Obj2081 *obj, int key);
-extern "C" void func_02080c68(void *obj, int id, int value);
-extern "C" void func_02080bac(void *obj, int id);
-extern "C" void func_0208065c(void *obj, int id);
-extern "C" void func_02081130(void *obj, int id, int set);
-extern "C" void func_020806b0(void *obj, int id);
-extern "C" int func_02080b2c(void *obj, int id);
-extern "C" int func_0207c6b8(unsigned char *obj, unsigned int index, int target);
-struct Element020de650;
-struct Container020dedd0 {
-    unsigned short count;
-    unsigned char pad[10];
-    struct Element020de650* base;
-    unsigned char pad2[4];
-    unsigned char useBinarySearch;
+extern "C" int func_020a0b8c(struct Struct_020a0b8c *arg0);
+struct Struct_0207fdcc_2;
+extern "C" void func_02080c20(struct Struct_0207fdcc_2 *arg0, int arg1);
+extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
+extern "C" void func_02080bac(void *arg0, int arg1);
+extern "C" void func_0208065c(void *arg0, int arg1);
+extern "C" void func_02081130(void *arg0, int arg1, int arg2);
+extern "C" void func_020806b0(void *arg0, int arg1);
+extern "C" int func_02080b2c(void *arg0, int arg1);
+extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
+struct Struct_0201099c_9;
+struct Struct_0201099c_10 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[10];
+    struct Struct_0201099c_9* unknown_c_;
+    unsigned char unknown_10_[4];
+    unsigned char unknown_14_;
 };
-struct Element020de650 {
-    char pad0[4];
-    int value;
-    char pad8[0x1a - 8];
-    unsigned short count;
+struct Struct_0201099c_9 {
+    char unknown_0_[4];
+    int unknown_4_;
+    char unknown_8_[0x1a - 8];
+    unsigned short unknown_1a_;
 };
-extern "C" struct Element020de650 *func_020dedd0(struct Container020dedd0 *c, int key);
-extern "C" short func_0207c72c(void *obj, unsigned int index, short n);
-extern "C" void func_ov003_0217818c(void *self, struct Element020de650 *elem, int id, int value);
-extern "C" void func_020805f4(void *obj, int value);
-struct Container02080f8c;
-extern "C" void func_02080f8c(struct Container02080f8c *obj, int id, int value);
-struct Container02080fa8;
-extern "C" void func_02080fa8(struct Container02080fa8 *obj, int id, int value);
-extern "C" int func_02081010(void *obj, int key);
-extern "C" void func_020813ec(void *obj, int key);
+extern "C" struct Struct_0201099c_9 *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" short func_0207c72c(void *arg0, unsigned int arg1, short arg2);
+extern "C" void func_ov003_0217818c(void *arg0, struct Struct_0201099c_9 *arg1, int arg2, int arg3);
+extern "C" void func_020805f4(void *arg0, int arg1);
+struct Struct_02080f8c;
+extern "C" void func_02080f8c(struct Struct_02080f8c *arg0, int arg1, int arg2);
+struct Struct_02080fa8;
+extern "C" void func_02080fa8(struct Struct_02080fa8 *arg0, int arg1, int arg2);
+extern "C" int func_02081010(void *arg0, int arg1);
+extern "C" void func_020813ec(void *arg0, int arg1);
 
-struct ListMenu_02177dd4 {
-    unsigned char pad0[kRegion800 + 0x74];
-    struct Container020dedd0 container;
-    unsigned char paddingAfterContainer[kRegion89c - kRegion800 - 0x74 - sizeof(Container020dedd0)];
-    struct Obj2081 *elemObj;
-    unsigned char pad8a0[kRegion100c - kRegion8a0];
-    short mode;
-    short cursor;
-    short field_0x1010;
-    short tableCursor;
-    short page;
-    short pageCount;
+struct Struct_ov003_02177dd4 {
+    unsigned char unknown_0_[Enum_ov003_02177dd4_2048 + 0x74];
+    struct Struct_0201099c_10 unknown_874_;
+    unsigned char unknown_88c_[Enum_ov003_02177dd4_2204 - Enum_ov003_02177dd4_2048 - 0x74 - sizeof(Struct_0201099c_10)];
+    struct Struct_0207fdcc_2 *unknown_89c_;
+    unsigned char unknown_8a0_[Enum_ov003_02177dd4_4108 - Enum_ov003_02177dd4_2208];
+    short unknown_100c_;
+    short unknown_100e_;
+    short unknown_1010_;
+    short unknown_1012_;
+    short unknown_1014_;
+    short unknown_1016_;
 };
 
 // JPN: func_ov003_02177dd4 (02176d60)
 // USA: func_ov003_02177dd4
-extern "C" ARM void func_ov003_02177dd4(ListMenu_02177dd4 *self) {
-    Inventory02177dd4* inventory = static_cast<Inventory02177dd4*>(func_02010828(GameState::GetInstance()));
-    unsigned int table  = 0;
-    short hdr;
-    short idD;
-    short pageId;
-    short pageCountId;
-    short key;
-    int count;
-    short *keys             = 0;
-    signed char *vals       = 0;
-    struct Obj2081 *elemObj = self->elemObj;
-    int group               = 0x16;
-    hdr                     = 0xa6;
-    short idA               = 0xa7;
-    short idB               = 0xaf;
-    short idC               = 0xb7;
-    idD                     = 0xbf;
-    short idE               = 0xc7;
-    pageId                  = 0xcf;
-    pageCountId             = 0xd0;
-    short perPage           = 8;
+extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
+    Struct_ov003_02177dd4_2* var0 = static_cast<Struct_ov003_02177dd4_2*>(func_02010828(GameState::GetInstance()));
+    unsigned int var1  = 0;
+    short var2;
+    short var3;
+    short var4;
+    short var5;
+    short var6;
+    int var7;
+    short *var8             = 0;
+    signed char *var9       = 0;
+    struct Struct_0207fdcc_2 *var10 = arg0->unknown_89c_;
+    int var11               = 0x16;
+    var2                     = 0xa6;
+    short var12               = 0xa7;
+    short var13               = 0xaf;
+    short var14               = 0xb7;
+    var3                     = 0xbf;
+    short var15               = 0xc7;
+    var4                  = 0xcf;
+    var5             = 0xd0;
+    short var16           = 8;
 
-    if (self->mode == 0x77) {
-        short tableIndex = self->tableCursor - 0x11e;
-        table            = func_0207ca94(tableIndex);
-        count            = func_ov003_02175f90(self);
-        self->pageCount  = (count + 4) / 5;
-        if (self->pageCount == 0) {
-            self->pageCount = 1;
+    if (arg0->unknown_100c_ == 0x77) {
+        short var17 = arg0->unknown_1012_ - 0x11e;
+        var1            = func_0207ca94(var17);
+        var7            = func_ov003_02175f90(arg0);
+        arg0->unknown_1016_  = (var7 + 4) / 5;
+        if (arg0->unknown_1016_ == 0) {
+            arg0->unknown_1016_ = 1;
         }
-        idA         = 0x127;
-        key         = tableIndex + 0x11e;
-        group       = 0x1e;
-        hdr         = 0x126;
-        idB         = 0x12c;
-        idC         = 0x131;
-        idD         = 0x136;
-        idE         = 0x13b;
-        pageId      = 0x140;
-        pageCountId = 0x141;
-        perPage     = 5;
+        var12         = 0x127;
+        var6         = var17 + 0x11e;
+        var11       = 0x1e;
+        var2         = 0x126;
+        var13         = 0x12c;
+        var14         = 0x131;
+        var3         = 0x136;
+        var15         = 0x13b;
+        var4      = 0x140;
+        var5 = 0x141;
+        var16     = 5;
     } else {
-        count = func_020a0b8c(&inventory->list);
-        keys  = inventory->keys;
-        vals  = inventory->values;
-        key   = 0x7a;
+        var7 = func_020a0b8c(&var0->unknown_0_);
+        var8  = var0->unknown_c_;
+        var9  = var0->unknown_13c_;
+        var6   = 0x7a;
     }
 
-    func_02080c20(elemObj, group);
-    func_02080c68(elemObj, group, 0);
-    func_02080bac(elemObj, group);
-    func_0208065c(elemObj, group);
-    func_02081130(elemObj, group, perPage < count);
+    func_02080c20(var10, var11);
+    func_02080c68(var10, var11, 0);
+    func_02080bac(var10, var11);
+    func_0208065c(var10, var11);
+    func_02081130(var10, var11, var16 < var7);
 
-    short i              = self->page * perPage;
-    short end            = i + perPage;
-    for (; i < end; i++) {
-        if (count <= i) {
-            func_020806b0(elemObj, idA);
-            func_02080b2c(elemObj, idA);
-            func_02080b2c(elemObj, idB);
-            func_02080b2c(elemObj, idC);
-            func_02080b2c(elemObj, idD);
-            func_02080b2c(elemObj, idE);
+    short var18              = arg0->unknown_1014_ * var16;
+    short var19            = var18 + var16;
+    for (; var18 < var19; var18++) {
+        if (var7 <= var18) {
+            func_020806b0(var10, var12);
+            func_02080b2c(var10, var12);
+            func_02080b2c(var10, var13);
+            func_02080b2c(var10, var14);
+            func_02080b2c(var10, var3);
+            func_02080b2c(var10, var15);
         } else {
-            int value = 0;
-            int num   = 0;
-            int k;
-            if (keys != 0) {
-                k = keys[i];
+            int var20 = 0;
+            int var21   = 0;
+            int var22;
+            if (var8 != 0) {
+                var22 = var8[var18];
             } else {
-                k = func_0207c6b8(((unsigned char*)(&inventory->categories)), table, i);
+                var22 = func_0207c6b8(((unsigned char*)(&var0->unknown_1d4_)), var1, var18);
             }
-            struct Element020de650 *elem = func_020dedd0(&self->container, k);
-            if (elem != NULL) {
-                value = elem->value;
-                num   = elem->count;
+            struct Struct_0201099c_9 *var23 = func_020dedd0(&arg0->unknown_874_, var22);
+            if (var23 != NULL) {
+                var20 = var23->unknown_4_;
+                var21   = var23->unknown_1a_;
             }
-            int extra;
-            if (vals != 0) {
-                extra = vals[i];
+            int var24;
+            if (var9 != 0) {
+                var24 = var9[var18];
             } else {
-                extra = func_0207c72c(&inventory->categories, table, i);
+                var24 = func_0207c72c(&var0->unknown_1d4_, var1, var18);
             }
-            func_ov003_0217818c(self, elem, idB, idC);
+            func_ov003_0217818c(arg0, var23, var13, var14);
 #if !defined(jpn)
-            func_020805f4(elemObj, idA);
+            func_020805f4(var10, var12);
 #endif
-            func_02080f8c((struct Container02080f8c *) elemObj, idA, value);
-            func_02080fa8((struct Container02080fa8 *) elemObj, idB, num);
-            func_02080fa8((struct Container02080fa8 *) elemObj, idE, extra);
+            func_02080f8c((struct Struct_02080f8c *) var10, var12, var20);
+            func_02080fa8((struct Struct_02080fa8 *) var10, var13, var21);
+            func_02080fa8((struct Struct_02080fa8 *) var10, var15, var24);
         }
-        idA++;
-        idB++;
-        idC++;
-        idD++;
-        idE++;
+        var12++;
+        var13++;
+        var14++;
+        var3++;
+        var15++;
     }
 
-    func_02080f8c((struct Container02080f8c *) elemObj, hdr, func_02081010(elemObj, key));
-    func_02080fa8((struct Container02080fa8 *) elemObj, pageId, self->page + 1);
-    func_02080fa8((struct Container02080fa8 *) elemObj, pageCountId, self->pageCount);
-    func_020813ec(elemObj, group);
+    func_02080f8c((struct Struct_02080f8c *) var10, var2, func_02081010(var10, var6));
+    func_02080fa8((struct Struct_02080fa8 *) var10, var4, arg0->unknown_1014_ + 1);
+    func_02080fa8((struct Struct_02080fa8 *) var10, var5, arg0->unknown_1016_);
+    func_020813ec(var10, var11);
 }

@@ -1,75 +1,75 @@
 #include <globaldefs.h>
 
-struct SpriteSize_020e1438 {
-    unsigned char width;
-    unsigned char height;
-    unsigned char pad[2];
-    unsigned int attr;
+struct Struct_020ee958 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[2];
+    unsigned int unknown_4_;
 };
 
-struct SpriteRect_020e1438 {
-    unsigned int attr;
-    unsigned int reserved;
-    unsigned char x;
-    unsigned char y;
-    unsigned char width;
-    unsigned char height;
+struct Struct_020e1438 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
 };
 
-extern SpriteSize_020e1438 data_020ee958[];
+extern Struct_020ee958 data_020ee958[];
 
 #pragma opt_common_subs off
 
 // USA: func_020e1438
-extern "C" ARM unsigned int func_020e1438(SpriteRect_020e1438* out, unsigned int maxCount,
-                                                      unsigned int x, unsigned int yBase,
-                                                      unsigned int width, unsigned int height) {
-    unsigned int count;
-    unsigned int y;
-    unsigned char left;
+extern "C" ARM unsigned int func_020e1438(Struct_020e1438* arg0, unsigned int arg1,
+                                                      unsigned int arg2, unsigned int arg3,
+                                                      unsigned int arg4, unsigned int arg5) {
+    unsigned int var0;
+    unsigned int var1;
+    unsigned char var2;
 
-    if (maxCount == 0) {
+    if (arg1 == 0) {
         return 0;
     }
-    count = 0;
-    y = 0;
-    left = (unsigned char)x;
+    var0 = 0;
+    var1 = 0;
+    var2 = (unsigned char)arg2;
 
-    while (y < height) {
-        SpriteSize_020e1438* best = 0;
-        SpriteSize_020e1438* e = data_020ee958;
-        unsigned int i = 0;
-        unsigned int remaining = height - y;
+    while (var1 < arg5) {
+        Struct_020ee958* var3 = 0;
+        Struct_020ee958* var4 = data_020ee958;
+        unsigned int var5 = 0;
+        unsigned int var6 = arg5 - var1;
 
-        while (i < 12) {
-            if (e->width == width && e->height <= remaining) {
-                best = e;
+        while (var5 < 12) {
+            if (var4->unknown_0_ == arg4 && var4->unknown_1_ <= var6) {
+                var3 = var4;
                 break;
             }
-            i++;
-            e++;
+            var5++;
+            var4++;
         }
 
-        if (best != 0) {
-            out[count].x = left;
-            out[count].y = (unsigned char)(y + yBase);
-            out[count].width = best->width;
-            out[count].height = best->height;
-            out[count].attr = best->attr;
-            count++;
-            y += best->height;
+        if (var3 != 0) {
+            arg0[var0].unknown_8_ = var2;
+            arg0[var0].unknown_9_ = (unsigned char)(var1 + arg3);
+            arg0[var0].unknown_a_ = var3->unknown_0_;
+            arg0[var0].unknown_b_ = var3->unknown_1_;
+            arg0[var0].unknown_0_ = var3->unknown_4_;
+            var0++;
+            var1 += var3->unknown_1_;
         } else {
-            unsigned int half = width >> 1;
-            unsigned int rest = height - y;
-            count += func_020e1438(out + count, maxCount - count, x, y, half, rest);
-            count += func_020e1438(out + count, maxCount - count, x + (width >> 1), y,
-                                               half, rest);
+            unsigned int var7 = arg4 >> 1;
+            unsigned int var8 = arg5 - var1;
+            var0 += func_020e1438(arg0 + var0, arg1 - var0, arg2, var1, var7, var8);
+            var0 += func_020e1438(arg0 + var0, arg1 - var0, arg2 + (arg4 >> 1), var1,
+                                               var7, var8);
             break;
         }
 
-        if (count >= maxCount) {
+        if (var0 >= arg1) {
             break;
         }
     }
-    return count;
+    return var0;
 }

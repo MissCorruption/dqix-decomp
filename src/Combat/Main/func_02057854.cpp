@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct ListNode02057854 {
-    char pad0[0x4];
-    unsigned int field4;
-    unsigned int field8;
-    unsigned char byteC;
-    char pad_d[0x34 - 0xd];
-    struct ListNode02057854* head34;
-    unsigned char byte38;
-    unsigned char byte39;
-    char pad_3a[0x148 - 0x3a];
-    struct ListNode02057854* next148;
+struct Struct_02057334_2 {
+    char unknown_0_[0x4];
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned char unknown_c_;
+    char unknown_d_[0x34 - 0xd];
+    struct Struct_02057334_2* unknown_34_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
+    char unknown_3a_[0x148 - 0x3a];
+    struct Struct_02057334_2* unknown_148_;
 };
 
 // USA: func_02057854
-extern "C" ARM int func_02057854(struct ListNode02057854* node) {
-    struct ListNode02057854* child;
-    if (node->byteC != 0) return 0;
-    if (node->byte39 != 0) return 0;
-    if (node->byte38 == 0) {
-        for (child = node->head34; child != 0; child = child->next148) {
-            int ok;
-            if (child->byteC != 0) {
-                ok = 0;
+extern "C" ARM int func_02057854(struct Struct_02057334_2* arg0) {
+    struct Struct_02057334_2* var0;
+    if (arg0->unknown_c_ != 0) return 0;
+    if (arg0->unknown_39_ != 0) return 0;
+    if (arg0->unknown_38_ == 0) {
+        for (var0 = arg0->unknown_34_; var0 != 0; var0 = var0->unknown_148_) {
+            int var1;
+            if (var0->unknown_c_ != 0) {
+                var1 = 0;
             } else {
-                ok = child->field8 <= child->field4;
+                var1 = var0->unknown_8_ <= var0->unknown_4_;
             }
-            if (!ok) return 0;
+            if (!var1) return 0;
         }
     }
-    return node->field8 < node->field4;
+    return arg0->unknown_8_ < arg0->unknown_4_;
 }

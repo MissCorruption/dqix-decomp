@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 #include <NitroSDK/Matrix.h>
 
-struct Vec3_020406f8 : Vector3i {};
-struct Node020406f8;
-extern "C" void func_020406f8(Vec3_020406f8* dst, Node020406f8* n);
+struct Struct_0203de84 : Vector3i {};
+struct Struct_0203de84_2;
+extern "C" void func_020406f8(Struct_0203de84* arg0, Struct_0203de84_2* arg1);
 
-struct Entry_02164418 { int type; char pad[8]; void* field_c; };
+struct Struct_ov001_02164418 { int unknown_0_; char unknown_4_[8]; void* unknown_c_; };
 
 // USA: func_ov001_02164418
-extern "C" ARM int func_ov001_02164418(Entry_02164418* table, int index, Vector3i* dst) {
-    Entry_02164418* entry;
-    void* member;
-    if (index < 0 || index >= 0x20) return 0;
-    entry = &table[index];
-    switch (entry->type) {
+extern "C" ARM int func_ov001_02164418(Struct_ov001_02164418* arg0, int arg1, Vector3i* arg2) {
+    Struct_ov001_02164418* var0;
+    void* var1;
+    if (arg1 < 0 || arg1 >= 0x20) return 0;
+    var0 = &arg0[arg1];
+    switch (var0->unknown_0_) {
         case 0:
         case 1:
         case 4:
         case 5:
-            member = entry->field_c;
-            if (member == 0) return 0;
-            *dst = *(Vector3i*)((char*)member + 0x44);
+            var1 = var0->unknown_c_;
+            if (var1 == 0) return 0;
+            *arg2 = *(Vector3i*)((char*)var1 + 0x44);
             return 1;
         case 2:
         case 6: {
-            Vec3_020406f8 tmp;
-            member = entry->field_c;
-            if (member == 0) return 0;
-            func_020406f8(&tmp, (Node020406f8*)member);
-            *dst = tmp;
+            Struct_0203de84 var2;
+            var1 = var0->unknown_c_;
+            if (var1 == 0) return 0;
+            func_020406f8(&var2, (Struct_0203de84_2*)var1);
+            *arg2 = var2;
             return 1;
         }
         default:

@@ -1,68 +1,68 @@
 #include <globaldefs.h>
 
-struct Node0208036c {
-    char pad0[0x18];
-    struct Node0208036c* f18;
-    struct Node0208036c* f1c;
-    struct Node0208036c* f20;
-    struct Node0208036c* f24;
-    char pad1[0x2a - 0x28];
-    unsigned char f2a;
+struct Struct_020800fc_3 {
+    char unknown_0_[0x18];
+    struct Struct_020800fc_3* unknown_18_;
+    struct Struct_020800fc_3* unknown_1c_;
+    struct Struct_020800fc_3* unknown_20_;
+    struct Struct_020800fc_3* unknown_24_;
+    char unknown_28_[0x2a - 0x28];
+    unsigned char unknown_2a_;
 };
 
-struct Flags0208036c {
-    unsigned int f0;
+struct Struct_020800fc {
+    unsigned int unknown_0_;
 };
 
 // USA: func_0208036c
-extern "C" ARM struct Node0208036c* func_0208036c(void* unused, struct Node0208036c* start, int mode, struct Flags0208036c* flags, unsigned char setFlag) {
-    struct Node0208036c* cur;
-    struct Node0208036c* next;
-    if (start == NULL) {
+extern "C" ARM struct Struct_020800fc_3* func_0208036c(void* arg0, struct Struct_020800fc_3* arg1, int arg2, struct Struct_020800fc* arg3, unsigned char arg4) {
+    struct Struct_020800fc_3* var0;
+    struct Struct_020800fc_3* var1;
+    if (arg1 == NULL) {
         return NULL;
     }
-    cur = start;
-    switch (mode) {
+    var0 = arg1;
+    switch (arg2) {
     case 0x40:
-        while ((next = cur->f1c) != NULL) {
-            if (next->f2a & 0x2) {
+        while ((var1 = var0->unknown_1c_) != NULL) {
+            if (var1->unknown_2a_ & 0x2) {
                 break;
             }
-            cur = next;
+            var0 = var1;
         }
         break;
     case 0x80:
-        while ((next = cur->f18) != NULL) {
-            if (next->f2a & 0x2) {
+        while ((var1 = var0->unknown_18_) != NULL) {
+            if (var1->unknown_2a_ & 0x2) {
                 break;
             }
-            cur = next;
+            var0 = var1;
         }
         break;
     case 0x20:
-        if (setFlag) {
-            flags->f0 |= 0x20;
+        if (arg4) {
+            arg3->unknown_0_ |= 0x20;
         } else {
-            while ((next = cur->f24) != NULL) {
-                if (next->f2a & 0x2) {
+            while ((var1 = var0->unknown_24_) != NULL) {
+                if (var1->unknown_2a_ & 0x2) {
                     break;
                 }
-                cur = next;
+                var0 = var1;
             }
         }
         break;
     case 0x10:
-        if (setFlag) {
-            flags->f0 |= 0x10;
+        if (arg4) {
+            arg3->unknown_0_ |= 0x10;
         } else {
-            while ((next = cur->f20) != NULL) {
-                if (next->f2a & 0x2) {
+            while ((var1 = var0->unknown_20_) != NULL) {
+                if (var1->unknown_2a_ & 0x2) {
                     break;
                 }
-                cur = next;
+                var0 = var1;
             }
         }
         break;
     }
-    return cur;
+    return var0;
 }

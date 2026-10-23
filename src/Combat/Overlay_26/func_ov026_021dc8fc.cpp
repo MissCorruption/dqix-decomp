@@ -2,226 +2,226 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum CommandLayoutOffsets { kCombatantCommandsOffset = 0x144, kSpecialListOffset = 0x8b8, kEligibilityOffset = 0xc7 };
+enum Enum_02000c9c_F { Enum_02000c9c_F_336 = 0x144, Enum_02000c9c_F_2384 = 0x8b8, Enum_02000c9c_F_135 = 0xc7 };
 #else
-enum CommandLayoutOffsets { kCombatantCommandsOffset = 0x150, kSpecialListOffset = 0x950, kEligibilityOffset = 0x87 };
+enum Enum_02000c9c_F { Enum_02000c9c_F_336 = 0x150, Enum_02000c9c_F_2384 = 0x950, Enum_02000c9c_F_135 = 0x87 };
 #endif
 
 #include "GameState/GameState.h"
 
-struct Struct0217193c;
-struct Struct02171614;
-struct Struct02171b3c;
-struct S02171698;
-struct S021719c0;
-struct Holder0209a9dc;
-struct BitArray020839dc;
-struct Slots02083960;
-struct Container02083554;
-struct FlagObj_021dce1c;
-struct CommandEntry {
-    char pad0[8];
-    unsigned int category : 4;
-    unsigned int learnedType : 5;
-    unsigned int reserved9 : 1;
-    unsigned int availability : 2;
-    unsigned int reserved12 : 20;
-    char padc[8];
-    unsigned short bitIndex;
-    char pad16[2];
-    unsigned int typeReserved : 12;
-    unsigned int commandType : 4;
-    unsigned int reserved16 : 16;
+struct Struct_ov000_0217193c;
+struct Struct_ov000_02171614;
+struct Struct_ov000_02171b3c;
+struct Struct_ov000_02171640;
+struct Struct_ov000_02171968;
+struct Struct_0209a9dc_2;
+struct Struct_020839dc;
+struct Struct_0207d300;
+struct Struct_0206f81c;
+struct Struct_ov026_021dc8fc_4;
+struct Struct_ov026_021dc8fc_5 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 5;
+    unsigned int unknown_9_1_ : 1;
+    unsigned int unknown_9_2_ : 2;
+    unsigned int unknown_9_4_ : 20;
+    char unknown_c_[8];
+    unsigned short unknown_14_;
+    char unknown_16_[2];
+    unsigned int unknown_18_0_ : 12;
+    unsigned int unknown_19_4_ : 4;
+    unsigned int unknown_1a_0_ : 16;
 };
-struct Element020de650 {
-    char pad0[8];
-    unsigned int category : 4;
-    unsigned int learnedType : 5;
-    unsigned int reserved9 : 23;
-    char padc[8];
-    unsigned short bitIndex;
-    char pad16[10];
+struct Struct_0201099c_9 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 5;
+    unsigned int unknown_9_1_ : 23;
+    char unknown_c_[8];
+    unsigned short unknown_14_;
+    char unknown_16_[10];
 };
-struct Entry02083554 {
-    char pad0[8];
-    unsigned int category : 4;
-    unsigned int reserved4 : 28;
-    char padc[0xc];
-    short id;
-    char pad1a[6];
+struct Struct_0206f81c_8 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 28;
+    char unknown_c_[0xc];
+    short unknown_18_;
+    char unknown_1a_[6];
 };
-struct Container020dedd0 { char data[0x18]; };
-struct Container_021dae60 { char pad0[0xd0]; Container020dedd0 commands; };
-struct CommandSlot {
-    char pad0[0x10];
-    unsigned char selections[8];
-    signed char selection;
-    char pad19[kEligibilityOffset - 0x19];
-    unsigned char eligible;
+struct Struct_0201099c_10 { char unknown_0_[0x18]; };
+struct Struct_ov026_021d8ba0_4 { char unknown_0_[0xd0]; Struct_0201099c_10 unknown_d0_; };
+struct Struct_ov026_021db090_4 {
+    char unknown_0_[0x10];
+    unsigned char unknown_10_[8];
+    signed char unknown_18_;
+    char unknown_19_[Enum_02000c9c_F_135 - 0x19];
+    unsigned char unknown_87_;
 };
-struct LearnedCommands {
-    char pad0[0x454];
-    short equipped[8];
-    char pad464[0x488 - 0x464];
-    short equipment[9];
-    char pad49a[kSpecialListOffset - 0x49a];
-    int useSpecialList;
+struct Struct_ov026_021dc8fc {
+    char unknown_0_[0x454];
+    short unknown_454_[8];
+    char unknown_464_[0x488 - 0x464];
+    short unknown_488_[9];
+    char unknown_49a_[Enum_02000c9c_F_2384 - 0x49a];
+    int unknown_950_;
 };
-struct CombatantView { char pad0[kCombatantCommandsOffset]; LearnedCommands* commands; };
-struct AbilityEntry { unsigned short id, command; char pad4[6]; unsigned short order; };
-struct Entry0209a9dc { unsigned short id, command; };
-struct PartyRoster { char pad0[0xf78]; unsigned char ids[4]; unsigned char count; };
-struct StatusView {
-    char pad0[0x22];
-    unsigned short reserved0 : 2;
-    unsigned short blocked : 4;
-    unsigned short reserved6 : 10;
+struct Struct_ov017_021af66c_5 { char unknown_0_[Enum_02000c9c_F_336]; Struct_ov026_021dc8fc* unknown_150_; };
+struct Struct_ov026_021dc8fc_2 { unsigned short unknown_0_, unknown_2_; char unknown_4_[6]; unsigned short unknown_a_; };
+struct Struct_0209a9dc_3 { unsigned short unknown_0_, unknown_2_; };
+struct Struct_0208ab34_3 { char unknown_0_[0xf78]; unsigned char unknown_f78_[4]; unsigned char unknown_f7c_; };
+struct Struct_ov026_021dc8fc_3 {
+    char unknown_0_[0x22];
+    unsigned short unknown_22_0_ : 2;
+    unsigned short unknown_22_2_ : 4;
+    unsigned short unknown_22_6_ : 10;
 };
 
 extern "C" int func_02053c6c(unsigned char*);
-extern "C" CommandSlot* func_ov026_021dae60(Container_021dae60*, int);
-extern "C" void func_ov000_0217193c(Struct0217193c*);
-extern "C" void func_ov000_02171614(Struct02171614*);
-extern "C" Element020de650* func_020dedd0(Container020dedd0*, int);
+extern "C" Struct_ov026_021db090_4* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
+extern "C" void func_ov000_0217193c(Struct_ov000_0217193c*);
+extern "C" void func_ov000_02171614(Struct_ov000_02171614*);
+extern "C" Struct_0201099c_9* func_020dedd0(Struct_0201099c_10*, int);
 extern "C" void func_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int func_02083b00(unsigned char*, int);
-extern "C" int func_020839dc(BitArray020839dc*, unsigned char*, int);
-extern "C" Entry0209a9dc* func_0209a9dc(Holder0209a9dc*, int);
-extern "C" CommandEntry* func_02079e2c(char*, int);
-extern "C" void func_ov000_02171640(S02171698*, int, int);
-extern "C" void func_ov000_02171968(S021719c0*, int, int);
-extern "C" int func_02083960(Slots02083960*);
-extern "C" void func_ov000_02171b3c(Struct02171b3c*);
+extern "C" int func_020839dc(Struct_020839dc*, unsigned char*, int);
+extern "C" Struct_0209a9dc_3* func_0209a9dc(Struct_0209a9dc_2*, int);
+extern "C" Struct_ov026_021dc8fc_5* func_02079e2c(char*, int);
+extern "C" void func_ov000_02171640(Struct_ov000_02171640*, int, int);
+extern "C" void func_ov000_02171968(Struct_ov000_02171968*, int, int);
+extern "C" int func_02083960(Struct_0207d300*);
+extern "C" void func_ov000_02171b3c(Struct_ov000_02171b3c*);
 extern "C" void func_ov000_02171b68(void*, int, void*);
-extern "C" Entry02083554* func_02083554(Container02083554*, int);
+extern "C" Struct_0206f81c_8* func_02083554(Struct_0206f81c*, int);
 extern "C" int func_020882f8(unsigned char*);
-extern "C" int func_ov026_021dce1c(FlagObj_021dce1c*);
-extern "C" AbilityEntry* func_0209a594(void*, int);
-extern "C" int func_0209ab7c(Holder0209a9dc*, GameObject*, unsigned char*);
+extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
+extern "C" Struct_ov026_021dc8fc_2* func_0209a594(void*, int);
+extern "C" int func_0209ab7c(Struct_0209a9dc_2*, GameObject*, unsigned char*);
 
 // USA: func_ov026_021dc8fc
-extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Container_021dae60* work,
-                                        void* abilities, Holder0209a9dc* holder, int id) {
-    GameState* game = GameState::GetInstance();
-    GameObject* object = func_0200ff1c(game, id);
-    if (!object) return;
-    LearnedCommands* learned = (LearnedCommands*)func_02053c6c((unsigned char*)object);
-    if (!learned) return;
-    CommandSlot* slot = func_ov026_021dae60(work, id);
-    if (!slot) return;
-    func_ov000_0217193c((Struct0217193c*)slot);
-    func_ov000_02171614((Struct02171614*)slot);
-    short commandIds[0x11f];
-    unsigned char extraIds[0x42];
-    CommandEntry* entries[0xd5];
-    int equippedIds[8];
-    int count = 0;
-    memset(commandIds, -1, sizeof(commandIds));
-    for (int key = 0x56f9; key <= 0x5712; ++key) {
-        short* equipped = ((CombatantView*)object)->commands->equipped;
-        int found = 0;
-        for (int i = 0; i < 8; ++i) {
-            if (key == equipped[i]) { found = 1; break; }
+extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8ba0_4* arg3,
+                                        void* arg4, Struct_0209a9dc_2* arg5, int arg6) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = func_0200ff1c(var0, arg6);
+    if (!var1) return;
+    Struct_ov026_021dc8fc* var2 = (Struct_ov026_021dc8fc*)func_02053c6c((unsigned char*)var1);
+    if (!var2) return;
+    Struct_ov026_021db090_4* var3 = func_ov026_021dae60(arg3, arg6);
+    if (!var3) return;
+    func_ov000_0217193c((Struct_ov000_0217193c*)var3);
+    func_ov000_02171614((Struct_ov000_02171614*)var3);
+    short var4[0x11f];
+    unsigned char var5[0x42];
+    Struct_ov026_021dc8fc_5* var6[0xd5];
+    int var7[8];
+    int var8 = 0;
+    memset(var4, -1, sizeof(var4));
+    for (int var9 = 0x56f9; var9 <= 0x5712; ++var9) {
+        short* var10 = ((Struct_ov017_021af66c_5*)var1)->unknown_150_->unknown_454_;
+        int var11 = 0;
+        for (int var12 = 0; var12 < 8; ++var12) {
+            if (var9 == var10[var12]) { var11 = 1; break; }
         }
-        Element020de650* entry = func_020dedd0(&work->commands, (short)key);
-        if (entry && entry->learnedType == 0x1f) {
-            if (found) func_02083acc((unsigned char*)learned, entry->bitIndex);
-            else func_02083b28((unsigned char*)learned, entry->bitIndex);
+        Struct_0201099c_9* var13 = func_020dedd0(&arg3->unknown_d0_, (short)var9);
+        if (var13 && var13->unknown_8_4_ == 0x1f) {
+            if (var11) func_02083acc((unsigned char*)var2, var13->unknown_14_);
+            else func_02083b28((unsigned char*)var2, var13->unknown_14_);
         }
     }
-    for (unsigned short i = 0; i < 0x11f; ++i) {
-        if (func_02083b00((unsigned char*)learned, i)) {
-            AbilityEntry* ability = func_0209a594(abilities, i);
-            if (ability && ability->command) {
-                commandIds[ability->order] = ability->command;
-                ++count;
+    for (unsigned short var14 = 0; var14 < 0x11f; ++var14) {
+        if (func_02083b00((unsigned char*)var2, var14)) {
+            Struct_ov026_021dc8fc_2* var15 = func_0209a594(arg4, var14);
+            if (var15 && var15->unknown_2_) {
+                var4[var15->unknown_a_] = var15->unknown_2_;
+                ++var8;
             }
         }
     }
-    for (int i = 0; i < 0x11e; ++i) {
-        if (commandIds[i] < 0) {
-            for (int j = i + 1; j < 0x11f; ++j) {
-                if (commandIds[j] >= 0) {
-                    commandIds[i] = commandIds[j];
-                    commandIds[j] = -1;
+    for (int var16 = 0; var16 < 0x11e; ++var16) {
+        if (var4[var16] < 0) {
+            for (int var17 = var16 + 1; var17 < 0x11f; ++var17) {
+                if (var4[var17] >= 0) {
+                    var4[var16] = var4[var17];
+                    var4[var17] = -1;
                     break;
                 }
             }
         }
     }
-    int extraCount;
-    if (((CombatantView*)object)->commands->useSpecialList == 0)
-        extraCount = func_020839dc((BitArray020839dc*)learned, extraIds, 0x80);
-    else extraCount = func_0209ab7c(holder, object, extraIds);
-    for (int i = 0; i < extraCount; ++i) {
-        Entry0209a9dc* entry = func_0209a9dc(holder, extraIds[i]);
-        if (entry && entry->command) commandIds[count++] = entry->command;
+    int var18;
+    if (((Struct_ov017_021af66c_5*)var1)->unknown_150_->unknown_950_ == 0)
+        var18 = func_020839dc((Struct_020839dc*)var2, var5, 0x80);
+    else var18 = func_0209ab7c(arg5, var1, var5);
+    for (int var19 = 0; var19 < var18; ++var19) {
+        Struct_0209a9dc_3* var20 = func_0209a9dc(arg5, var5[var19]);
+        if (var20 && var20->unknown_2_) var4[var8++] = var20->unknown_2_;
     }
-    ActionDataTables* commandTable = func_020797dc();
-    for (int i = 0; i < count; ++i) entries[i] = func_02079e2c((char*)commandTable, commandIds[i]);
-    int secondaryCount = 0;
-    int commandIndex;
-    int primaryCount = 0;
-    for (commandIndex = 0; commandIndex < count; ++commandIndex) {
-        CommandEntry* entry = entries[commandIndex];
-        if (entry && (entry->availability & 2)) {
-            if (entry->commandType == 2) {
-                func_ov000_02171640((S02171698*)slot, secondaryCount, (int)entry);
-                ++secondaryCount;
-            } else if (entry->commandType == 1) {
-                func_ov000_02171968((S021719c0*)slot, primaryCount, (int)entry);
-                ++primaryCount;
+    Struct_02108e10* var21 = func_020797dc();
+    for (int var22 = 0; var22 < var8; ++var22) var6[var22] = func_02079e2c((char*)var21, var4[var22]);
+    int var23 = 0;
+    int var24;
+    int var25 = 0;
+    for (var24 = 0; var24 < var8; ++var24) {
+        Struct_ov026_021dc8fc_5* var26 = var6[var24];
+        if (var26 && (var26->unknown_9_2_ & 2)) {
+            if (var26->unknown_19_4_ == 2) {
+                func_ov000_02171640((Struct_ov000_02171640*)var3, var23, (int)var26);
+                ++var23;
+            } else if (var26->unknown_19_4_ == 1) {
+                func_ov000_02171968((Struct_ov000_02171968*)var3, var25, (int)var26);
+                ++var25;
             }
         }
     }
-    int equippedCount = func_02083960((Slots02083960*)learned);
-    for (int i = 0; i < 8; ++i) equippedIds[i] = learned->equipped[i];
-    short* equipment = learned->equipment;
-    int stored;
-    unsigned char order[8] = {7, 8, 0, 1, 6, 4, 5, 0xff};
-    int equipmentIndex;
-    stored = 0;
-    func_ov000_02171b3c((Struct02171b3c*)slot);
-    for (equipmentIndex = 0; equipmentIndex < 16; ++equipmentIndex) {
-        if (equipmentIndex < 8) {
-            if (equipmentIndex < equippedCount) {
-                Element020de650* entry = func_020dedd0(&work->commands, (short)equippedIds[equipmentIndex]);
-                if (entry) {
-                    func_ov000_02171b68(slot, stored, entry);
-                    ++stored;
+    int var27 = func_02083960((Struct_0207d300*)var2);
+    for (int var28 = 0; var28 < 8; ++var28) var7[var28] = var2->unknown_454_[var28];
+    short* var29 = var2->unknown_488_;
+    int var30;
+    unsigned char var31[8] = {7, 8, 0, 1, 6, 4, 5, 0xff};
+    int var32;
+    var30 = 0;
+    func_ov000_02171b3c((Struct_ov000_02171b3c*)var3);
+    for (var32 = 0; var32 < 16; ++var32) {
+        if (var32 < 8) {
+            if (var32 < var27) {
+                Struct_0201099c_9* var33 = func_020dedd0(&arg3->unknown_d0_, (short)var7[var32]);
+                if (var33) {
+                    func_ov000_02171b68(var3, var30, var33);
+                    ++var30;
                 }
             }
         } else {
-            if (equipmentIndex == 8) {
-                if (stored > 4) stored = 8;
-                else if (stored > 0) stored = 4;
+            if (var32 == 8) {
+                if (var30 > 4) var30 = 8;
+                else if (var30 > 0) var30 = 4;
             }
-            unsigned char index = order[equipmentIndex - 8];
-            if (index == 0xff) continue;
-            Entry02083554* entry = func_02083554((Container02083554*)learned, equipment[index]);
-            if (entry && entry->id > 0) {
-                int usable = entry->category <= 7 ? 1 : 0;
-                if (usable) {
-                    func_ov000_02171b68(slot, stored, entry);
-                    ++stored;
+            unsigned char var34 = var31[var32 - 8];
+            if (var34 == 0xff) continue;
+            Struct_0206f81c_8* var35 = func_02083554((Struct_0206f81c*)var2, var29[var34]);
+            if (var35 && var35->unknown_18_ > 0) {
+                int var36 = var35->unknown_8_0_ <= 7 ? 1 : 0;
+                if (var36) {
+                    func_ov000_02171b68(var3, var30, var35);
+                    ++var30;
                 }
             }
         }
     }
-    int listed = 0;
-    slot->eligible = 0;
-    PartyRoster* roster = (PartyRoster*)func_02010828(game);
-    for (int i = 0; i < roster->count; ++i) {
-        if (id == roster->ids[i]) { listed = 1; break; }
+    int var37 = 0;
+    var3->unknown_87_ = 0;
+    Struct_0208ab34_3* var38 = (Struct_0208ab34_3*)func_02010828(var0);
+    for (int var39 = 0; var39 < var38->unknown_f7c_; ++var39) {
+        if (arg6 == var38->unknown_f78_[var39]) { var37 = 1; break; }
     }
-    GameObject* combatant = game->GetCombatantByIndex(id);
-    if (combatant) {
-        if (func_020882f8((unsigned char*)combatant->currentStats_) ||
-            ((StatusView*)combatant->currentStats_)->blocked ||
-            func_ov026_021dce1c((FlagObj_021dce1c*)combatant)) {
-            slot->eligible = 0;
-            slot->selections[slot->selection] = 100;
-        } else if (listed) slot->eligible = 1;
+    GameObject* var40 = var0->GetCombatantByIndex(arg6);
+    if (var40) {
+        if (func_020882f8((unsigned char*)var40->currentStats_) ||
+            ((Struct_ov026_021dc8fc_3*)var40->currentStats_)->unknown_22_2_ ||
+            func_ov026_021dce1c((Struct_ov026_021dc8fc_4*)var40)) {
+            var3->unknown_87_ = 0;
+            var3->unknown_10_[var3->unknown_18_] = 100;
+        } else if (var37) var3->unknown_87_ = 1;
     }
 }

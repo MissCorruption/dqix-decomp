@@ -9,145 +9,145 @@
 #define REGION_LAYOUT(jpnValue, usaValue) usaValue
 #endif
 
-struct BattleState;
-struct Actor0209c678;
-struct FlagWord020466f4;
-struct List020727d8;
-struct TableA68;
-struct ArrayContainsByteStruct;
+struct Struct_ov000_02161e30;
+struct Struct_02109bf4_4;
+struct Struct_02038598_4;
+struct Struct_020727d8;
+struct Struct_02072a68_2;
+struct Struct_02048150;
 
-struct Cmd {
-    unsigned char b[4];
-    signed char c;
-    unsigned short d;
-    unsigned short e;
+struct Struct_ov026_021d8ba0 {
+    unsigned char unknown_0_[4];
+    signed char unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
 };
 
-struct PartyState {
-    char pad0[0x8];
-    unsigned short id;
-    char pad0a[0x20];
-    signed char kind;
+struct Struct_ov000_0217e870_2 {
+    char unknown_0_[0x8];
+    unsigned short unknown_8_;
+    char unknown_a_[0x20];
+    signed char unknown_2a_;
 };
 
-struct MessageWork {
-    char pad0[0x30];
-    unsigned char numMembers;
-    unsigned char numAlive;
-    char pad32[REGION_LAYOUT(0x836, 0x966)];
-    int busy;
+struct Struct_ov023_021f4c04 {
+    char unknown_0_[0x30];
+    unsigned char unknown_30_;
+    unsigned char unknown_31_;
+    char unknown_32_[REGION_LAYOUT(0x836, 0x966)];
+    int unknown_998_;
 };
 
-struct Stats021f4c04 {
-    unsigned int flags;
+struct Struct_ov023_021f4c04_2 {
+    unsigned int unknown_0_;
 };
 
-struct Combatant021f4c04 {
-    char pad0[0x130];
-    Stats021f4c04* stats;
+struct Struct_ov023_021f4c04_3 {
+    char unknown_0_[0x130];
+    Struct_ov023_021f4c04_2* unknown_130_;
 };
 
-struct BattleWork {
-    char pad0[0x30];
-    char alloc[REGION_LAYOUT(0x108, 0x11c)];
-    char stateA[REGION_LAYOUT(0xe0, 0x150)];
-    BattleState* battle;
-    PartyState* party;
-    char pad2a4[0x974];
-    char view[0x220];
-    unsigned char dispMode;
-    unsigned char posInit;
-    char pade3a[0x5e];
-    char scriptA[0x8];
-    char scriptB[0x8];
-    char padea8[0x4];
-    int state;
-    char padeb0[0x4];
-    unsigned char cursorLock;
-    unsigned char revivePending;
-    char padeb6[0x12];
-    char ctxEc8[REGION_LAYOUT(0x28d8, 0x2898)];
-    char list[0xb8];
-    char msgBox[0xc4];
-    int activeSlot;
-    char pad38e0[0x7d0];
-    int turnCount;
-    unsigned char battleKind;
-    char pad40b5[REGION_LAYOUT(0x124f, 0x11b7)];
-    char ownerNames[REGION_LAYOUT(0x1f0, 0x150)];
-    char memberNames[REGION_LAYOUT(0x1c0, 0xc0)];
-    int memberRanks[8];
-    int memberIds[8];
-    unsigned char groupKind;
-    char pad54bd[0x3];
-    signed char slotStatus[8];
-    signed char slotCursor;
-    char pad54c9[0x9];
-    unsigned short uiFlags;
-    char pad54d4[0x4];
-    unsigned char versusFlag;
-    char pad54d9[0x7];
-    unsigned char ready;
-    unsigned char readyPrev;
-    char pad54e2[0x2];
-    Cmd cmd;
-    char pad54ee[0x2];
-    int curSlot;
-    int slotDone[4];
-    char pad5504[REGION_LAYOUT(0xd0, 0xd4)];
-    int field55d8;
-    char pad55dc[0x18];
-    int workFlags;
-    char pad55f8[0x130];
-    char ctx5728[0x1a6];
-    unsigned short reviveCount;
-    char pad58d0[0x34];
-    char rosterList[0xc];
-    char ctx5910[0x40];
-    unsigned char resultKind;
-    char pad5951[0x3];
-    char iconA[0xac];
-    char iconB[0x23c];
-    char ctx5c3c[0x1200];
-    int randHi;
-    int randLo;
-    char pad6e44[0x8cc];
-    signed char fadeTimer;
-    unsigned char fadeActive;
-    signed char phase;
-    char pad7713[0x1];
-    short objId;
-    short objIds[4];
-    short objId771e;
-    short objId7720;
-    short objId7722;
-    short objId7724;
-    char pad7726[0x9];
-    unsigned char inputOn;
-    char pad7730[0x4];
-    int savedWorkFlags;
-    int savedField;
-    char pad773c[0xc];
-    unsigned char turnFlag;
-    unsigned char reinitFlag;
-    unsigned char slotsDirty;
-    char pad774b[0x1];
-    char cmdAlloc[0x14];
-    char stateB[0x150];
+struct Struct_ov000_02160da0 {
+    char unknown_0_[0x30];
+    char unknown_30_[REGION_LAYOUT(0x108, 0x11c)];
+    char unknown_14c_[REGION_LAYOUT(0xe0, 0x150)];
+    Struct_ov000_02161e30* unknown_29c_;
+    Struct_ov000_0217e870_2* unknown_2a0_;
+    char unknown_2a4_[0x974];
+    char unknown_c18_[0x220];
+    unsigned char unknown_e38_;
+    unsigned char unknown_e39_;
+    char unknown_e3a_[0x5e];
+    char unknown_e98_[0x8];
+    char unknown_ea0_[0x8];
+    char unknown_ea8_[0x4];
+    int unknown_eac_;
+    char unknown_eb0_[0x4];
+    unsigned char unknown_eb4_;
+    unsigned char unknown_eb5_;
+    char unknown_eb6_[0x12];
+    char unknown_ec8_[REGION_LAYOUT(0x28d8, 0x2898)];
+    char unknown_3760_[0xb8];
+    char unknown_3818_[0xc4];
+    int unknown_38dc_;
+    char unknown_38e0_[0x7d0];
+    int unknown_40b0_;
+    unsigned char unknown_40b4_;
+    char unknown_40b5_[REGION_LAYOUT(0x124f, 0x11b7)];
+    char unknown_526c_[REGION_LAYOUT(0x1f0, 0x150)];
+    char unknown_53bc_[REGION_LAYOUT(0x1c0, 0xc0)];
+    int unknown_547c_[8];
+    int unknown_549c_[8];
+    unsigned char unknown_54bc_;
+    char unknown_54bd_[0x3];
+    signed char unknown_54c0_[8];
+    signed char unknown_54c8_;
+    char unknown_54c9_[0x9];
+    unsigned short unknown_54d2_;
+    char unknown_54d4_[0x4];
+    unsigned char unknown_54d8_;
+    char unknown_54d9_[0x7];
+    unsigned char unknown_54e0_;
+    unsigned char unknown_54e1_;
+    char unknown_54e2_[0x2];
+    Struct_ov026_021d8ba0 unknown_54e4_;
+    char unknown_54ee_[0x2];
+    int unknown_54f0_;
+    int unknown_54f4_[4];
+    char unknown_5504_[REGION_LAYOUT(0xd0, 0xd4)];
+    int unknown_55d8_;
+    char unknown_55dc_[0x18];
+    int unknown_55f4_;
+    char unknown_55f8_[0x130];
+    char unknown_5728_[0x1a6];
+    unsigned short unknown_58ce_;
+    char unknown_58d0_[0x34];
+    char unknown_5904_[0xc];
+    char unknown_5910_[0x40];
+    unsigned char unknown_5950_;
+    char unknown_5951_[0x3];
+    char unknown_5954_[0xac];
+    char unknown_5a00_[0x23c];
+    char unknown_5c3c_[0x1200];
+    int unknown_6e3c_;
+    int unknown_6e40_;
+    char unknown_6e44_[0x8cc];
+    signed char unknown_7710_;
+    unsigned char unknown_7711_;
+    signed char unknown_7712_;
+    char unknown_7713_[0x1];
+    short unknown_7714_;
+    short unknown_7716_[4];
+    short unknown_771e_;
+    short unknown_7720_;
+    short unknown_7722_;
+    short unknown_7724_;
+    char unknown_7726_[0x9];
+    unsigned char unknown_772f_;
+    char unknown_7730_[0x4];
+    int unknown_7734_;
+    int unknown_7738_;
+    char unknown_773c_[0xc];
+    unsigned char unknown_7748_;
+    unsigned char unknown_7749_;
+    unsigned char unknown_774a_;
+    char unknown_774b_[0x1];
+    char unknown_774c_[0x14];
+    char unknown_7760_[0x150];
 };
 
-struct Global021ffefc {
-    void* inner;
-    unsigned int elapsed;
-    unsigned int flags;
+struct Struct_ov023_021ed9f8 {
+    void* unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
 };
 
-inline Global021ffefc& GetGlobal021ffefc() {
-    static Global021ffefc s;
+inline Struct_ov023_021ed9f8& inline_ov023_021f4c04() {
+    static Struct_ov023_021ed9f8 s;
     return s;
 }
 
-extern Actor0209c678 data_02109bf4;
+extern Struct_02109bf4_4 data_02109bf4;
 extern const char data_ov023_021fe1d8[];
 extern const char data_ov023_021fe1ee[];
 #if defined(jpn)
@@ -156,151 +156,151 @@ extern "C" void func_02073864(void*, void*, const char*, int, int, int);
 extern "C" void func_0204500c(void*, const char*, int);
 #endif
 
-extern "C" MessageWork* func_020421a0();
-extern "C" int func_0200fb8c(int* obj);
+extern "C" Struct_ov023_021f4c04* func_020421a0();
+extern "C" int func_0200fb8c(int* arg0);
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_020d6c00();
-extern "C" void* func_02010828(GameState* gameState);
+extern "C" void* func_02010828(GameState* arg0);
 extern "C" void* func_0202ae18(void);
-extern "C" void func_0201075c(char* obj, unsigned char value);
-extern "C" unsigned char func_02010750(char* obj);
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
-extern "C" int func_0202b7d8(int* obj);
+extern "C" void func_0201075c(char* arg0, unsigned char arg1);
+extern "C" unsigned char func_02010750(char* arg0);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int func_0202b7d8(int* arg0);
 extern "C" void func_ov017_021d2400(void);
-extern "C" void func_0209c678(Actor0209c678* actor, int arg);
-extern "C" void func_ov000_02160fa8(void* work, int mask);
-extern "C" void func_020466f4(FlagWord020466f4* word, unsigned int mask);
-extern "C" void func_020727d8(List020727d8* list);
-extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath,
-                                    unsigned int* outSize);
-extern "C" void func_020728ac(void* list, void* alloc, void* buffer, int length, int a4, int a5,
-                              int a6);
+extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1,
+                                    unsigned int* arg2);
+extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5,
+                              int arg6);
 extern "C" void func_ov023_021f50fc();
-extern "C" int func_ov000_02163c80(void* work, int mode);
-extern "C" GameObject* func_ov017_021a278c(void* unused, int val);
-extern "C" void func_ov017_021c9b20(int a, int b);
-extern "C" int func_02076ccc(void* obj, int mode);
-extern "C" void func_ov017_021a23b0(void* base, int v);
-extern "C" unsigned char func_020114ec(char* obj, void* dst);
-extern "C" void func_ov000_0216d370(void* obj, int flagA, int flagB, int flagC);
-extern "C" void* func_02072a68(TableA68* table, int key);
-extern "C" int sprintf(char* buffer, const char* format, ...);
+extern "C" int func_ov000_02163c80(void* arg0, int arg1);
+extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" void func_ov017_021c9b20(int arg0, int arg1);
+extern "C" int func_02076ccc(void* arg0, int arg1);
+extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
+extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* obj, const char* text, int mode, int tag);
+extern "C" void func_0204500c(void* arg0, const char* arg1, int arg2, int arg3);
 #endif
-extern "C" void func_0209c6d8(void* actor, int arg);
+extern "C" void func_0209c6d8(void* arg0, int arg1);
 extern "C" int func_ov017_021959b4(void);
-extern "C" int func_02086ef0(ArrayContainsByteStruct* s, int val);
-extern "C" void func_ov017_021cbfb8(unsigned short a, unsigned char b);
-extern "C" void func_0209c7fc(void* obj);
-extern "C" void func_02043204(char* obj);
-extern "C" void func_02043124(void* obj);
-extern "C" void func_ov000_02160d80(void* p, int val);
+extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" void func_ov017_021cbfb8(unsigned short arg0, unsigned char arg1);
+extern "C" void func_0209c7fc(void* arg0);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_02043124(void* arg0);
+extern "C" void func_ov000_02160d80(void* arg0, int arg1);
 
 // USA: func_ov023_021f4c04
-extern "C" ARM void func_ov023_021f4c04(BattleWork* self) {
-    char text[REGION_LAYOUT(0x50, 0xb4)];
+extern "C" ARM void func_ov023_021f4c04(Struct_ov000_02160da0* arg0) {
+    char var0[REGION_LAYOUT(0x50, 0xb4)];
 #if !defined(jpn)
-    unsigned int len;
-    unsigned char ids[4];
+    unsigned int var1;
+    unsigned char var2[4];
 #endif
 
-    GameState* gs = GameState::GetInstance();
-    MessageWork* ctrl = func_020421a0();
-    int res = func_0200fb8c((int*)gs);
+    GameState* var3 = GameState::GetInstance();
+    Struct_ov023_021f4c04* var4 = func_020421a0();
+    int var5 = func_0200fb8c((int*)var3);
     func_02012fe4();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    FlagWord020466f4* flags = (FlagWord020466f4*)func_020d6c00();
-    void* battle = func_02010828(gs);
-    void* owner = func_0202ae18();
+    BackgroundLoader* var6 = BackgroundLoader::GetInstance();
+    Struct_02038598_4* var7 = (Struct_02038598_4*)func_020d6c00();
+    void* var8 = func_02010828(var3);
+    void* var9 = func_0202ae18();
 
-    GetGlobal021ffefc().elapsed += gs->GetEffectiveDeltaTime();
-    int state = self->state;
+    inline_ov023_021f4c04().unknown_4_ += var3->GetEffectiveDeltaTime();
+    int var10 = arg0->unknown_eac_;
 
-    if (state == 0) {
-        func_0201075c((char*)gs, 1);
-        for (int i = 0; i < 4; i++) {
-            GameObject* member = gs->GetPartyMemberByIndex(i);
-            if (member == NULL) continue;
-            if (((Combatant021f4c04*)member)->stats->flags & 1) continue;
-            if (func_020a35e0((unsigned char*)self->party, i)) continue;
-            func_0201075c((char*)gs, 0);
+    if (var10 == 0) {
+        func_0201075c((char*)var3, 1);
+        for (int var11 = 0; var11 < 4; var11++) {
+            GameObject* var12 = var3->GetPartyMemberByIndex(var11);
+            if (var12 == NULL) continue;
+            if (((Struct_ov023_021f4c04_3*)var12)->unknown_130_->unknown_0_ & 1) continue;
+            if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var11)) continue;
+            func_0201075c((char*)var3, 0);
         }
-        if (func_02010750((char*)gs) != 0 && func_0202b7d8((int*)owner) != 0) {
+        if (func_02010750((char*)var3) != 0 && func_0202b7d8((int*)var9) != 0) {
             func_ov017_021d2400();
         }
         func_0209c678(&data_02109bf4, 0x1e);
-        func_ov000_02160fa8(self, 0x800000);
-        func_020466f4(flags, 0x40000);
-        GetGlobal021ffefc().elapsed = 0;
-        self->state = 1;
-    } else if (state == 1) {
-        if (GetGlobal021ffefc().elapsed < 1000) return;
-        if (loader->GetNumQueuedTasks() > 0) return;
-        ((SafeAllocator*)self->alloc)->Reset();
-        func_020727d8((List020727d8*)self->rosterList);
+        func_ov000_02160fa8(arg0, 0x800000);
+        func_020466f4(var7, 0x40000);
+        inline_ov023_021f4c04().unknown_4_ = 0;
+        arg0->unknown_eac_ = 1;
+    } else if (var10 == 1) {
+        if (inline_ov023_021f4c04().unknown_4_ < 1000) return;
+        if (var6->GetNumQueuedTasks() > 0) return;
+        ((SafeAllocator*)arg0->unknown_30_)->Reset();
+        func_020727d8((Struct_020727d8*)arg0->unknown_5904_);
 #if defined(jpn)
-        func_02073864(self->rosterList, self->alloc, data_ov023_021fd49e, 0, 0, 0);
+        func_02073864(arg0->unknown_5904_, arg0->unknown_30_, data_ov023_021fd49e, 0, 0, 0);
 #else
         BackgroundLoader::AddLockGlobal();
-        len = 0;
-        void* file = ExtractFileFromGP2(data_ov023_021fe1d8, data_ov023_021fe1ee, &len);
-        if (file != NULL) {
-            func_020728ac(self->rosterList, self->alloc, file, len, 0, 0, 0);
+        var1 = 0;
+        void* var13 = ExtractFileFromGP2(data_ov023_021fe1d8, data_ov023_021fe1ee, &var1);
+        if (var13 != NULL) {
+            func_020728ac(arg0->unknown_5904_, arg0->unknown_30_, var13, var1, 0, 0, 0);
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif
         func_ov023_021f50fc();
-        int id = self->party->id;
-        if (func_ov000_02163c80(self, 1)) {
-            GameObject* target = func_ov017_021a278c((void*)res, id);
-            if (target != NULL) {
-                func_ov017_021c9b20((unsigned short)id, 1);
-                func_02076ccc(target, 1);
-                *(unsigned char*)((char*)target + 0x17d) &= ~0x80;
+        int var14 = arg0->unknown_2a0_->unknown_8_;
+        if (func_ov000_02163c80(arg0, 1)) {
+            GameObject* var15 = func_ov017_021a278c((void*)var5, var14);
+            if (var15 != NULL) {
+                func_ov017_021c9b20((unsigned short)var14, 1);
+                func_02076ccc(var15, 1);
+                *(unsigned char*)((char*)var15 + 0x17d) &= ~0x80;
             }
         } else {
-            func_ov017_021c9b20((unsigned short)id, 0);
-            func_ov017_021a23b0((void*)res, id);
+            func_ov017_021c9b20((unsigned short)var14, 0);
+            func_ov017_021a23b0((void*)var5, var14);
         }
 #if !defined(jpn)
-        unsigned char count = func_020114ec((char*)gs, ids);
-        unsigned char numMembers = 0;
-        unsigned char numAlive = 0;
-        for (int j = 0; j < count; j++) {
-            GameObject* member = gs->GetCombatantByIndex(ids[j]);
-            if (member == NULL) continue;
-            if (!func_020a35e0((unsigned char*)self->party, ids[j])) continue;
-            numMembers++;
-            if ((((Combatant021f4c04*)member)->stats->flags & 1) == 0) numAlive++;
+        unsigned char var16 = func_020114ec((char*)var3, var2);
+        unsigned char var17 = 0;
+        unsigned char var18 = 0;
+        for (int var19 = 0; var19 < var16; var19++) {
+            GameObject* var20 = var3->GetCombatantByIndex(var2[var19]);
+            if (var20 == NULL) continue;
+            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var2[var19])) continue;
+            var17++;
+            if ((((Struct_ov023_021f4c04_3*)var20)->unknown_130_->unknown_0_ & 1) == 0) var18++;
         }
-        ctrl->numMembers = numMembers;
-        ctrl->numAlive = numAlive;
+        var4->unknown_30_ = var17;
+        var4->unknown_31_ = var18;
 #endif
-        func_ov000_0216d370(self->view, 0, 0, 1);
+        func_ov000_0216d370(arg0->unknown_c18_, 0, 0, 1);
 #if defined(jpn)
-        int value = *(int*)((char*)gs->GetProtagonist() + 0x134);
-        sprintf(text, (const char*)func_02072a68((TableA68*)self->rosterList, 0x14), value);
-        func_0204500c(ctrl, text, 1);
+        int var21 = *(int*)((char*)var3->GetProtagonist() + 0x134);
+        sprintf(var0, (const char*)func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x14), var21);
+        func_0204500c(var4, var0, 1);
 #else
-        gs->GetProtagonist();
-        sprintf(text, (const char*)func_02072a68((TableA68*)self->rosterList, 0x14));
-        func_0204500c(ctrl, text, 1, 0xe3);
+        var3->GetProtagonist();
+        sprintf(var0, (const char*)func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x14));
+        func_0204500c(var4, var0, 1, 0xe3);
 #endif
-        ctrl->busy = 1;
+        var4->unknown_998_ = 1;
         func_0209c6d8(&data_02109bf4, 0x3a);
-        self->state = 2;
-    } else if (state == 2) {
-        if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)gs + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
-            if (ctrl->busy != 0) return;
+        arg0->unknown_eac_ = 2;
+    } else if (var10 == 2) {
+        if (func_ov017_021959b4() == 0 && *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) == 0) {
+            if (var4->unknown_998_ != 0) return;
         }
-        if (func_02086ef0((ArrayContainsByteStruct*)battle, self->party->kind)) {
-            func_ov017_021cbfb8(self->party->id, 1);
+        if (func_02086ef0((Struct_02048150*)var8, arg0->unknown_2a0_->unknown_2a_)) {
+            func_ov017_021cbfb8(arg0->unknown_2a0_->unknown_8_, 1);
         }
-        *(unsigned char*)((char*)gs + REGION_LAYOUT(0x54c8, 0x5728)) = 0;
+        *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) = 0;
         func_0209c7fc(&data_02109bf4);
-        func_02043204((char*)ctrl);
-        func_02043124(ctrl);
-        func_ov000_02160d80(self, 4);
+        func_02043204((char*)var4);
+        func_02043124(var4);
+        func_ov000_02160d80(arg0, 4);
     }
 }

@@ -8,231 +8,231 @@
 struct Struct_0205bef8;
 struct Struct_0205ba68;
 struct Struct_0205bb84;
-struct Node0205bacc;
-struct Obj0205eaa0;
+struct Struct_0205bacc;
+struct Struct_02108760;
 extern "C" void func_0205bef8(Struct_0205bef8*);
 extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Node0205bacc*, int);
+extern "C" void func_0205bacc(Struct_0205bacc*, int);
 extern "C" int func_0205bafc(void*);
 extern "C" int func_0205bb84(Struct_0205bb84*);
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
-extern "C" int func_ov009_0218a8b4(CharacterCreationUI*, int, int);
-extern "C" int func_ov009_0218aab0(CharacterCreationUI*, unsigned char);
+extern "C" int func_ov009_0218a8b4(Struct_ov009_021842a0*, int, int);
+extern "C" int func_ov009_0218aab0(Struct_ov009_021842a0*, unsigned char);
 extern "C" void func_ov009_0218ad0c(void*);
-extern "C" void func_ov009_0218b200(CharacterCreationUI*, int);
-extern "C" void func_ov009_0218b850(CharacterCreationUI*);
-extern "C" void func_0205bb04(CreationNavigation*, int);
-extern "C" int func_0205bf58(CreationNavigation*, unsigned int);
-extern "C" void func_ov009_02188c2c(CharacterCreationUI*);
-extern "C" void func_ov009_02188e70(CharacterCreationUI*, int);
-extern "C" void func_ov009_02188944(CharacterCreationUI*, int);
-extern "C" int func_ov009_02188b14(CharacterCreationUI*, int, int);
+extern "C" void func_ov009_0218b200(Struct_ov009_021842a0*, int);
+extern "C" void func_ov009_0218b850(Struct_ov009_021842a0*);
+extern "C" void func_0205bb04(Struct_ov009_02188c2c*, int);
+extern "C" int func_0205bf58(Struct_ov009_02188c2c*, unsigned int);
+extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0*);
+extern "C" void func_ov009_02188e70(Struct_ov009_021842a0*, int);
+extern "C" void func_ov009_02188944(Struct_ov009_021842a0*, int);
+extern "C" int func_ov009_02188b14(Struct_ov009_021842a0*, int, int);
 
-struct PartyMemberAppearance {
-    short models[10];
-    unsigned char female : 1;
-    unsigned char eyeColor : 3;
-    unsigned char skinColor : 4;
-    unsigned char hairColor : 4;
-    unsigned char unused : 4;
-    short field16, width, height;
+struct Struct_ov009_02187b34 {
+    short unknown_0_[10];
+    unsigned char unknown_14_0_ : 1;
+    unsigned char unknown_14_1_ : 3;
+    unsigned char unknown_14_4_ : 4;
+    unsigned char unknown_15_0_ : 4;
+    unsigned char unknown_15_4_ : 4;
+    short unknown_16_, unknown_18_, unknown_1a_;
 };
-struct PartyMemberData { char unknown0[0x488]; PartyMemberAppearance appearance; };
-extern Obj0205eaa0 data_02108760;
+struct Struct_ov005_0215840c_2 { char unknown_0_[0x488]; Struct_ov009_02187b34 unknown_488_; };
+extern Struct_02108760 data_02108760;
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
-    CreationNavigation* navigation = &self->navigation; \
+    Struct_ov009_02188c2c* navigation = &arg0->unknown_bec_; \
     func_0205bef8((Struct_0205bef8*)navigation); \
     func_0205ba68((Struct_0205ba68*)navigation, columns, rows, 1); \
-    func_0205bacc((Node0205bacc*)navigation, total); \
-    navigation->field4 = 1; \
+    func_0205bacc((Struct_0205bacc*)navigation, total); \
+    navigation->unknown_4_ = 1; \
     func_0205bb04(navigation, selected); \
-    navigation->flags3d = 0
+    navigation->unknown_3d_ = 0
 
 #define TAB_CURSOR(selected) \
-    self->cursorX = ((selected) << 4) + 0x78; \
-    self->cursorY = 8; \
-    self->cursorWidth = 16; \
-    self->cursorHeight = 16
+    arg0->unknown_c4c_ = ((selected) << 4) + 0x78; \
+    arg0->unknown_c4e_ = 8; \
+    arg0->unknown_c50_ = 16; \
+    arg0->unknown_c52_ = 16
 
-static inline unsigned char GetEyeColor(CharacterCreationUI* self) { return self->eyeColor[self->sex]; }
-static inline unsigned char GetSkinColor(CharacterCreationUI* self) { return self->skinColor[self->sex]; }
-static inline unsigned char GetHairColor(CharacterCreationUI* self) { return self->hairColor[self->sex]; }
+static inline unsigned char inline_ov009_02188ee8(Struct_ov009_021842a0* arg0) { return arg0->unknown_daa_[arg0->unknown_da3_]; }
+static inline unsigned char inline_ov009_02188ee8_2(Struct_ov009_021842a0* arg0) { return arg0->unknown_da8_[arg0->unknown_da3_]; }
+static inline unsigned char inline_ov009_02188ee8_3(Struct_ov009_021842a0* arg0) { return arg0->unknown_dae_[arg0->unknown_da3_]; }
 
-extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
+extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0* arg0)
 {
-    self->flags &= ~0x20;
-    self->flags &= ~0x40;
-    int result = -1;
-    int choice = -1;
-    int x, y;
-    g_touchInput.GetTouchPoint(&x, &y);
-    int touched = 0;
+    arg0->unknown_d9c_ &= ~0x20;
+    arg0->unknown_d9c_ &= ~0x40;
+    int var0 = -1;
+    int var1 = -1;
+    int var2, var3;
+    g_touchInput.GetTouchPoint(&var2, &var3);
+    int var4 = 0;
     if (g_touchInput.pressed_) {
-        touched = 1;
-        choice = func_ov009_0218a8b4(self, x, y);
-        self->touchedChoice = choice;
-        if ((unsigned int)(choice + 3) <= 1) {
-            if (choice == -2) self->flags |= 0x20;
-            else if (choice == -3) self->flags |= 0x40;
-            result = choice;
+        var4 = 1;
+        var1 = func_ov009_0218a8b4(arg0, var2, var3);
+        arg0->unknown_d8c_ = var1;
+        if ((unsigned int)(var1 + 3) <= 1) {
+            if (var1 == -2) arg0->unknown_d9c_ |= 0x20;
+            else if (var1 == -3) arg0->unknown_d9c_ |= 0x40;
+            var0 = var1;
             func_0205eaa0(&data_02108760, 1, 0);
-        } else if (choice >= 101 && choice <= 108) {
-            result = choice;
-            if (choice - 100 <= self->furthestState[self->sex] && choice - 100 != self->state)
+        } else if (var1 >= 101 && var1 <= 108) {
+            var0 = var1;
+            if (var1 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var1 - 100 != arg0->unknown_c58_)
                 func_0205eaa0(&data_02108760, 1, 0);
-        } else if (choice >= 0) {
-            func_0205bb04(&self->navigation, choice);
-            if (self->state == 8) {
-                func_ov009_0218aab0(self, (unsigned char)choice);
-                if (self->flags & 0x200000) {
-                    self->flags &= ~0x200000;
-                    result = -2;
+        } else if (var1 >= 0) {
+            func_0205bb04(&arg0->unknown_bec_, var1);
+            if (arg0->unknown_c58_ == 8) {
+                func_ov009_0218aab0(arg0, (unsigned char)var1);
+                if (arg0->unknown_d9c_ & 0x200000) {
+                    arg0->unknown_d9c_ &= ~0x200000;
+                    var0 = -2;
                 }
-                self->flags |= 0x100;
+                arg0->unknown_d9c_ |= 0x100;
             }
-            self->lastCursorX = self->cursorX;
-            self->lastCursorY = self->cursorY;
+            arg0->unknown_c54_ = arg0->unknown_c4c_;
+            arg0->unknown_c56_ = arg0->unknown_c4e_;
         }
-    } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) touched = 1;
-    else if (g_touchInput.released_) touched = 1;
-    if (!touched) {
-        unsigned int ticks = GameState::GetInstance()->GetTickCount();
-        if (!ticks) ticks = 1;
-        int previous = self->navigation.row;
-        if (func_0205bf58(&self->navigation, ticks))
-            choice = func_0205bb84((Struct_0205bb84*)&self->navigation);
-        if (self->state == 8) {
-            int rows = self->navigation.rows;
-            int count = func_0205bafc(&self->navigation);
-            if (rows == 1 && count == 8) {
-                if (choice >= self->furthestState[self->sex]) {
-                    func_0205bb04(&self->navigation, self->furthestState[self->sex] - 1);
-                    choice = self->furthestState[self->sex] - 1;
+    } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) var4 = 1;
+    else if (g_touchInput.released_) var4 = 1;
+    if (!var4) {
+        unsigned int var5 = GameState::GetInstance()->GetTickCount();
+        if (!var5) var5 = 1;
+        int var6 = arg0->unknown_bec_.unknown_1c_;
+        if (func_0205bf58(&arg0->unknown_bec_, var5))
+            var1 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_);
+        if (arg0->unknown_c58_ == 8) {
+            int var7 = arg0->unknown_bec_.unknown_c_;
+            int var8 = func_0205bafc(&arg0->unknown_bec_);
+            if (var7 == 1 && var8 == 8) {
+                if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
+                    func_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    var1 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
-                    RESET_NAVIGATION(11, 6, 66, self->keyboardChoice);
-                    func_0205bb04(&self->navigation, self->navigation.column);
-                    self->keyboardChoice = func_0205bb84((Struct_0205bb84*)&self->navigation);
-                    self->flags |= 0x2000;
-                    func_ov009_02188e70(self, func_0205bb84((Struct_0205bb84*)&self->navigation));
+                    RESET_NAVIGATION(11, 6, 66, arg0->unknown1_d8c_);
+                    func_0205bb04(&arg0->unknown_bec_, arg0->unknown_bec_.unknown_18_);
+                    arg0->unknown1_d8c_ = func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_);
+                    arg0->unknown_d9c_ |= 0x2000;
+                    func_ov009_02188e70(arg0, func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_));
                     return -1;
                 }
-                if (choice >= 0) { TAB_CURSOR(choice); }
+                if (var1 >= 0) { TAB_CURSOR(var1); }
                 if (g_keyManager.TestKeysPressed(1)) {
-                    result = func_0205bb84((Struct_0205bb84*)&self->navigation) + 101;
-                    if (result - 100 <= self->furthestState[self->sex] && result - 100 != self->state)
+                    var0 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_) + 101;
+                    if (var0 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var0 - 100 != arg0->unknown_c58_)
                         func_0205eaa0(&data_02108760, 1, 0);
                 } else if (g_keyManager.TestKeysPressed(2)) {
-                    if (func_02001aec(self->names[self->sex], (const void*)func_020e0434(&self->texts, 0x4272), 10) == 0)
-                        result = -3;
+                    if (func_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)func_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
+                        var0 = -3;
                     else {
-                        func_ov009_0218b200(self, 0);
-                        self->flags |= 0x8100;
+                        func_ov009_0218b200(arg0, 0);
+                        arg0->unknown_d9c_ |= 0x8100;
                     }
                 }
-                return result;
-            } else if (rows == 6) {
-                if (g_keyManager.TestKeysPressed(0x40) && previous == 0) {
-                    RESET_NAVIGATION(8, 1, 8, self->state - 1);
-                    navigation->flags3c = 0;
-                    TAB_CURSOR(self->state - 1);
-                    self->flags |= 0x2000;
+                return var0;
+            } else if (var7 == 6) {
+                if (g_keyManager.TestKeysPressed(0x40) && var6 == 0) {
+                    RESET_NAVIGATION(8, 1, 8, arg0->unknown_c58_ - 1);
+                    navigation->unknown_3c_ = 0;
+                    TAB_CURSOR(arg0->unknown_c58_ - 1);
+                    arg0->unknown_d9c_ |= 0x2000;
                     return -1;
                 }
                 if (g_keyManager.TestKeysPressed(8)) {
-                    func_ov009_0218ad0c(self);
+                    func_ov009_0218ad0c(arg0);
                 } else if (g_keyManager.TestKeysPressed(4)) {
-                    func_ov009_0218b850(self);
-                    self->flags |= 0x8100;
+                    func_ov009_0218b850(arg0);
+                    arg0->unknown_d9c_ |= 0x8100;
                 } else if (g_keyManager.TestKeysPressed(1)) {
-                    if (func_ov009_0218aab0(self, self->keyboardChoice) && self->nameFlags[self->sex] == 5) {
-                        choice = 65;
-                        func_0205bb04(&self->navigation, choice);
+                    if (func_ov009_0218aab0(arg0, arg0->unknown1_d8c_) && arg0->unknown_d8a_[arg0->unknown_da3_] == 5) {
+                        var1 = 65;
+                        func_0205bb04(&arg0->unknown_bec_, var1);
                     }
-                    if (!(self->flags & 0x200000)) self->flags |= 0xa100;
+                    if (!(arg0->unknown_d9c_ & 0x200000)) arg0->unknown_d9c_ |= 0xa100;
                     else {
-                        func_ov009_0218ad0c(self);
-                        self->flags &= ~0x200000;
+                        func_ov009_0218ad0c(arg0);
+                        arg0->unknown_d9c_ &= ~0x200000;
                     }
                 } else if (g_keyManager.TestKeysPressed(2)) {
-                    if (func_02001aec(self->names[self->sex], (const void*)func_020e0434(&self->texts, 0x4272), 10) == 0)
-                        result = -3;
+                    if (func_02001aec(arg0->unknown_d74_[arg0->unknown_da3_], (const void*)func_020e0434(&arg0->unknown_e0_, 0x4272), 10) == 0)
+                        var0 = -3;
                     else {
-                        func_ov009_0218b200(self, 0);
-                        self->flags |= 0x8100;
+                        func_ov009_0218b200(arg0, 0);
+                        arg0->unknown_d9c_ |= 0x8100;
                     }
                 }
             }
-        } else if (self->state != 8) {
-            int rows = self->navigation.rows;
-            int count = func_0205bafc(&self->navigation);
-            if (rows == 1 && count == 8) {
-                if (choice >= self->furthestState[self->sex]) {
-                    func_0205bb04(&self->navigation, self->furthestState[self->sex] - 1);
-                    choice = self->furthestState[self->sex] - 1;
+        } else if (arg0->unknown_c58_ != 8) {
+            int var9 = arg0->unknown_bec_.unknown_c_;
+            int var10 = func_0205bafc(&arg0->unknown_bec_);
+            if (var9 == 1 && var10 == 8) {
+                if (var1 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
+                    func_0205bb04(&arg0->unknown_bec_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    var1 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
-                    func_ov009_02188c2c(self);
-                    self->flags |= 0x2000;
-                    func_ov009_02188e70(self, func_0205bb84((Struct_0205bb84*)&self->navigation));
+                    func_ov009_02188c2c(arg0);
+                    arg0->unknown_d9c_ |= 0x2000;
+                    func_ov009_02188e70(arg0, func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_));
                     return -1;
                 }
-                if (choice >= 0) { TAB_CURSOR(choice); }
+                if (var1 >= 0) { TAB_CURSOR(var1); }
                 if (g_keyManager.TestKeysPressed(1)) {
-                    result = func_0205bb84((Struct_0205bb84*)&self->navigation) + 101;
-                    if (result - 100 <= self->furthestState[self->sex] && result - 100 != self->state)
+                    var0 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_bec_) + 101;
+                    if (var0 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var0 - 100 != arg0->unknown_c58_)
                         func_0205eaa0(&data_02108760, 1, 0);
-                } else if (g_keyManager.TestKeysPressed(2)) result = -3;
-                return result;
+                } else if (g_keyManager.TestKeysPressed(2)) var0 = -3;
+                return var0;
             }
-            if (g_keyManager.TestKeysPressed(0x40) && previous == 0) {
-                RESET_NAVIGATION(8, 1, 8, self->state - 1);
-                navigation->flags3c = 0;
-                TAB_CURSOR(self->state - 1);
-                self->flags |= 0x2000;
+            if (g_keyManager.TestKeysPressed(0x40) && var6 == 0) {
+                RESET_NAVIGATION(8, 1, 8, arg0->unknown_c58_ - 1);
+                navigation->unknown_3c_ = 0;
+                TAB_CURSOR(arg0->unknown_c58_ - 1);
+                arg0->unknown_d9c_ |= 0x2000;
                 return -1;
             }
             if (g_keyManager.TestKeysPressed(1)) {
-                result = -2;
+                var0 = -2;
                 func_0205eaa0(&data_02108760, 1, 0);
-            } else if (g_keyManager.TestKeysPressed(2)) result = -3;
+            } else if (g_keyManager.TestKeysPressed(2)) var0 = -3;
         }
     }
-    self->flags &= ~0x10;
-    if (choice >= 0 && !(choice >= 101 && choice <= 108)) {
-        switch (self->state) {
-        case 1: if (self->sex != choice) self->flags |= 0x10; self->sex = choice; break;
-        case 2: if (self->bodyType[self->sex] != choice) self->flags |= 0x10; self->bodyType[self->sex] = choice; break;
-        case 3: if (self->hairStyle[self->sex] != choice) self->flags |= 0x10; self->hairStyle[self->sex] = choice; break;
-        case 4: if (self->hairColor[self->sex] != choice) self->flags |= 0x10; self->hairColor[self->sex] = choice; break;
-        case 5: if (self->faceStyle[self->sex] != choice) self->flags |= 0x10; self->faceStyle[self->sex] = choice; break;
-        case 6: if (self->eyeColor[self->sex] != choice) self->flags |= 0x10; self->eyeColor[self->sex] = choice; break;
-        case 7: if (self->skinColor[self->sex] != choice) self->flags |= 0x10; self->skinColor[self->sex] = choice; break;
-        case 8: if (self->keyboardChoice != choice) self->flags |= 0x10; self->keyboardChoice = choice; break;
+    arg0->unknown_d9c_ &= ~0x10;
+    if (var1 >= 0 && !(var1 >= 101 && var1 <= 108)) {
+        switch (arg0->unknown_c58_) {
+        case 1: if (arg0->unknown_da3_ != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_da3_ = var1; break;
+        case 2: if (arg0->unknown_da4_[arg0->unknown_da3_] != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_da4_[arg0->unknown_da3_] = var1; break;
+        case 3: if (arg0->unknown_dac_[arg0->unknown_da3_] != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_dac_[arg0->unknown_da3_] = var1; break;
+        case 4: if (arg0->unknown_dae_[arg0->unknown_da3_] != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_dae_[arg0->unknown_da3_] = var1; break;
+        case 5: if (arg0->unknown_da6_[arg0->unknown_da3_] != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_da6_[arg0->unknown_da3_] = var1; break;
+        case 6: if (arg0->unknown_daa_[arg0->unknown_da3_] != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_daa_[arg0->unknown_da3_] = var1; break;
+        case 7: if (arg0->unknown_da8_[arg0->unknown_da3_] != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown_da8_[arg0->unknown_da3_] = var1; break;
+        case 8: if (arg0->unknown1_d8c_ != var1) arg0->unknown_d9c_ |= 0x10; arg0->unknown1_d8c_ = var1; break;
         }
     }
-    if (self->flags & 0x10) {
-        if (self->state != 8 || !touched) func_0205eaa0(&data_02108760, 2, 0);
-        func_ov009_02188944(self, choice);
-        if (self->state == 1) {
-            PartyMemberAppearance* appearance = &((PartyMemberData*)self->characterData)->appearance;
-            self->flags |= 0x60000;
-            unsigned char eyeColor = GetEyeColor(self);
-            appearance->eyeColor = eyeColor;
-            unsigned char skinColor = GetSkinColor(self);
-            appearance->skinColor = skinColor;
-            unsigned char hairColor = GetHairColor(self);
-            appearance->hairColor = hairColor;
-            appearance->models[2] = func_ov009_02188b14(self, 5, self->faceStyle[self->sex]) + 0x233c;
-            appearance->models[3] = func_ov009_02188b14(self, 3, self->hairStyle[self->sex]) + 0x2328;
+    if (arg0->unknown_d9c_ & 0x10) {
+        if (arg0->unknown_c58_ != 8 || !var4) func_0205eaa0(&data_02108760, 2, 0);
+        func_ov009_02188944(arg0, var1);
+        if (arg0->unknown_c58_ == 1) {
+            Struct_ov009_02187b34* var11 = &((Struct_ov005_0215840c_2*)arg0->unknown_d88_)->unknown_488_;
+            arg0->unknown_d9c_ |= 0x60000;
+            unsigned char var12 = inline_ov009_02188ee8(arg0);
+            var11->unknown_14_1_ = var12;
+            unsigned char var13 = inline_ov009_02188ee8_2(arg0);
+            var11->unknown_14_4_ = var13;
+            unsigned char var14 = inline_ov009_02188ee8_3(arg0);
+            var11->unknown_15_0_ = var14;
+            var11->unknown_0_[2] = func_ov009_02188b14(arg0, 5, arg0->unknown_da6_[arg0->unknown_da3_]) + 0x233c;
+            var11->unknown_0_[3] = func_ov009_02188b14(arg0, 3, arg0->unknown_dac_[arg0->unknown_da3_]) + 0x2328;
         }
-        if (!touched) func_ov009_02188e70(self, choice);
-        self->flags |= 0x6100;
+        if (!var4) func_ov009_02188e70(arg0, var1);
+        arg0->unknown_d9c_ |= 0x6100;
     }
-    return result;
+    return var0;
 }
 #undef RESET_NAVIGATION
 #undef TAB_CURSOR
@@ -244,234 +244,234 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
 struct Struct_0205bef8;
 struct Struct_0205ba68;
 struct Struct_0205bb84;
-struct Node0205bacc;
-struct Obj0205eaa0;
+struct Struct_0205bacc;
+struct Struct_02108760;
 extern "C" void func_0205bef8(Struct_0205bef8*);
 extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Node0205bacc*, int);
+extern "C" void func_0205bacc(Struct_0205bacc*, int);
 extern "C" int func_0205bafc(void*);
 extern "C" int func_0205bb84(Struct_0205bb84*);
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
 
-struct TouchState {
-    char pad0[0x24];
-    unsigned short pressure;
-    char pad26[0x2e];
-    unsigned char repeating;
-    unsigned char pressed;
-    char pad56[9];
-    unsigned char held;
+struct Struct_02000c9c_93 {
+    char unknown_0_[0x24];
+    unsigned short unknown_24_;
+    char unknown_26_[0x2e];
+    unsigned char unknown_54_;
+    unsigned char unknown_55_;
+    char unknown_56_[9];
+    unsigned char unknown_5f_;
 };
-struct Navigation {
-    int field0, field4, field8, rows, field10, field14, field18, selection;
-    char pad20[0x18];
-    unsigned short count;
-    char pad3a[2];
-    unsigned char field3c, field3d;
-    char pad3e[2];
+struct Struct_ov009_02188ee8 {
+    int unknown_0_, unknown_4_, unknown_8_, unknown_c_, unknown_10_, unknown_14_, unknown_18_, unknown_1c_;
+    char unknown_20_[0x18];
+    unsigned short unknown_38_;
+    char unknown_3a_[2];
+    unsigned char unknown_3c_, unknown_3d_;
+    char unknown_3e_[2];
 };
-struct ChoiceList { void* entries; char pad4[0x14]; int selection; unsigned short counter; };
-struct PartyMemberAppearance {
-    short models[10];
-    unsigned char female : 1;
-    unsigned char eyeColor : 3;
-    unsigned char skinColor : 4;
-    unsigned char hairColor : 4;
-    unsigned char unused : 4;
-    short field16, width, height;
+struct Struct_ov009_02188ee8_2 { void* unknown_0_; char unknown_4_[0x14]; int unknown_18_; unsigned short unknown_1c_; };
+struct Struct_ov009_02187b34 {
+    short unknown_0_[10];
+    unsigned char unknown_14_0_ : 1;
+    unsigned char unknown_14_1_ : 3;
+    unsigned char unknown_14_4_ : 4;
+    unsigned char unknown_15_0_ : 4;
+    unsigned char unknown_15_4_ : 4;
+    short unknown_16_, unknown_18_, unknown_1a_;
 };
-struct PartyMemberData { char pad0[0x488]; PartyMemberAppearance appearance; };
-struct CharacterControls { char pad0[0x800]; Navigation navigation; };
-struct CharacterCreation {
-    char pad0[0xbc];
-    void* savedEntries;
-    ChoiceList* list;
-    char padc4[0x3ec - 0xc4];
-    CharacterControls controls;
-    char grid[0x20];
-    short cursorX, cursorY, cursorWidth, cursorHeight, lastX, lastY;
-    signed char state;
-    char padc59[0xd88 - 0xc59];
-    PartyMemberData* member;
-    int touchedChoice;
-    char padd90[0xc];
-    unsigned int flags;
-    signed char maxSteps[3];
-    unsigned char gender;
-    unsigned char body[2], face[2], skin[2], eyes[2], hair[2], hairColor[2];
-    char paddb0[5];
-    unsigned char blocked;
+struct Struct_ov005_0215840c_2 { char unknown_0_[0x488]; Struct_ov009_02187b34 unknown_488_; };
+struct Struct_ov009_02188ee8_3 { char unknown_0_[0x800]; Struct_ov009_02188ee8 unknown_800_; };
+struct Struct_ov009_021842a0_2 {
+    char unknown_0_[0xbc];
+    void* unknown_bc_;
+    Struct_ov009_02188ee8_2* unknown_c0_;
+    char unknown_c4_[0x3ec - 0xc4];
+    Struct_ov009_02188ee8_3 unknown_3ec_;
+    char unknown_c2c_[0x20];
+    short unknown_c4c_, unknown_c4e_, unknown_c50_, unknown_c52_, unknown_c54_, unknown_c56_;
+    signed char unknown_c58_;
+    char unknown_c59_[0xd88 - 0xc59];
+    Struct_ov005_0215840c_2* unknown_d88_;
+    int unknown_d8c_;
+    char unknown_d90_[0xc];
+    unsigned int unknown_d9c_;
+    signed char unknown_da0_[3];
+    unsigned char unknown_da3_;
+    unsigned char unknown_da4_[2], unknown_da6_[2], unknown_da8_[2], unknown_daa_[2], unknown_dac_[2], unknown_dae_[2];
+    char unknown_db0_[5];
+    unsigned char unknown_db5_;
 };
-extern Obj0205eaa0 data_02108760;
-extern "C" int func_ov009_02189854(CharacterCreation*, int, int);
-extern "C" void func_0205bb04(Navigation*, int);
-extern "C" int func_0205bf58(Navigation*, unsigned int);
-extern "C" void func_ov009_02188c2c(CharacterCreation*);
-extern "C" void func_ov009_02188e70(CharacterCreation*, int);
-extern "C" void func_ov009_02188944(CharacterCreation*, int);
-extern "C" int func_ov009_02188b14(CharacterCreation*, int, int);
+extern Struct_02108760 data_02108760;
+extern "C" int func_ov009_02189854(Struct_ov009_021842a0_2*, int, int);
+extern "C" void func_0205bb04(Struct_ov009_02188ee8*, int);
+extern "C" int func_0205bf58(Struct_ov009_02188ee8*, unsigned int);
+extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0_2*);
+extern "C" void func_ov009_02188e70(Struct_ov009_021842a0_2*, int);
+extern "C" void func_ov009_02188944(Struct_ov009_021842a0_2*, int);
+extern "C" int func_ov009_02188b14(Struct_ov009_021842a0_2*, int, int);
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
-    CharacterControls* controls = &self->controls; \
-    func_0205bef8((Struct_0205bef8*)&controls->navigation); \
-    func_0205ba68((Struct_0205ba68*)&controls->navigation, columns, rows, 1); \
-    func_0205bacc((Node0205bacc*)&controls->navigation, total); \
-    controls->navigation.field4 = 1; \
-    func_0205bb04(&controls->navigation, selected); \
-    controls->navigation.field3d = 0
+    Struct_ov009_02188ee8_3* controls = &arg0->unknown_3ec_; \
+    func_0205bef8((Struct_0205bef8*)&controls->unknown_800_); \
+    func_0205ba68((Struct_0205ba68*)&controls->unknown_800_, columns, rows, 1); \
+    func_0205bacc((Struct_0205bacc*)&controls->unknown_800_, total); \
+    controls->unknown_800_.unknown_4_ = 1; \
+    func_0205bb04(&controls->unknown_800_, selected); \
+    controls->unknown_800_.unknown_3d_ = 0
 
 #define TAB_CURSOR(selected) \
-    self->cursorX = ((selected) << 4) + 0x78; \
-    self->cursorY = 8; \
-    self->cursorWidth = 16; \
-    self->cursorHeight = 16
+    arg0->unknown_c4c_ = ((selected) << 4) + 0x78; \
+    arg0->unknown_c4e_ = 8; \
+    arg0->unknown_c50_ = 16; \
+    arg0->unknown_c52_ = 16
 
-static inline unsigned char GetEyeColor(CharacterCreation* self) { return self->eyes[self->gender]; }
-static inline unsigned char GetSkinColor(CharacterCreation* self) { return self->skin[self->gender]; }
-static inline unsigned char GetHairColor(CharacterCreation* self) { return self->hairColor[self->gender]; }
+static inline unsigned char inline_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) { return arg0->unknown_daa_[arg0->unknown_da3_]; }
+static inline unsigned char inline_ov009_02188ee8_2(Struct_ov009_021842a0_2* arg0) { return arg0->unknown_da8_[arg0->unknown_da3_]; }
+static inline unsigned char inline_ov009_02188ee8_3(Struct_ov009_021842a0_2* arg0) { return arg0->unknown_dae_[arg0->unknown_da3_]; }
 
 // USA: func_ov009_02188ee8
-extern "C" ARM int func_ov009_02188ee8(CharacterCreation* self) {
-    self->flags &= ~0x60;
-    int result = -1;
-    int choice = -1;
-    int x, y;
-    g_touchInput.GetTouchPoint(&x, &y);
-    int touched = 0;
+extern "C" ARM int func_ov009_02188ee8(Struct_ov009_021842a0_2* arg0) {
+    arg0->unknown_d9c_ &= ~0x60;
+    int var15 = -1;
+    int var16 = -1;
+    int var17, var18;
+    g_touchInput.GetTouchPoint(&var17, &var18);
+    int var19 = 0;
     if (g_touchInput.pressed_) {
-        touched = 1;
-        choice = func_ov009_02189854(self, x, y);
-        self->touchedChoice = choice;
-        if ((unsigned int)(choice + 3) <= 1) {
-            if (choice == -2) self->flags |= 0x20;
-            else if (choice == -3) self->flags |= 0x40;
-            result = choice;
+        var19 = 1;
+        var16 = func_ov009_02189854(arg0, var17, var18);
+        arg0->unknown_d8c_ = var16;
+        if ((unsigned int)(var16 + 3) <= 1) {
+            if (var16 == -2) arg0->unknown_d9c_ |= 0x20;
+            else if (var16 == -3) arg0->unknown_d9c_ |= 0x40;
+            var15 = var16;
             func_0205eaa0(&data_02108760, 1, 0);
-        } else if (choice >= 101 && choice <= 108) {
-            result = choice;
-            if (choice - 100 <= self->maxSteps[self->gender] && choice - 100 != self->state)
+        } else if (var16 >= 101 && var16 <= 108) {
+            var15 = var16;
+            if (var16 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var16 - 100 != arg0->unknown_c58_)
                 func_0205eaa0(&data_02108760, 1, 0);
-        } else if (choice >= 0) {
-            func_0205bb04(&self->controls.navigation, choice);
-            if (self->state == 8) {
-                if (self->flags & 0x200000) {
-                    self->flags &= ~0x200000;
-                    result = -2;
+        } else if (var16 >= 0) {
+            func_0205bb04(&arg0->unknown_3ec_.unknown_800_, var16);
+            if (arg0->unknown_c58_ == 8) {
+                if (arg0->unknown_d9c_ & 0x200000) {
+                    arg0->unknown_d9c_ &= ~0x200000;
+                    var15 = -2;
                 }
-                self->flags |= 0x100;
+                arg0->unknown_d9c_ |= 0x100;
             }
-            self->lastX = self->cursorX;
-            self->lastY = self->cursorY;
+            arg0->unknown_c54_ = arg0->unknown_c4c_;
+            arg0->unknown_c56_ = arg0->unknown_c4e_;
         }
-    } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) touched = 1;
-    else if (g_touchInput.released_) touched = 1;
-    if (!touched) {
-        unsigned int ticks = GameState::GetInstance()->GetTickCount();
-        if (!ticks) ticks = 1;
-        int previous = self->controls.navigation.selection;
-        if (func_0205bf58(&self->controls.navigation, ticks)) choice = func_0205bb84((Struct_0205bb84*)&self->controls.navigation);
-        if (self->state == 8) {
-            int rows = self->controls.navigation.rows;
-            int count = func_0205bafc(&self->controls.navigation);
-            if (rows == 1 && count == 8) {
-                if (choice >= self->maxSteps[self->gender]) {
-                    func_0205bb04(&self->controls.navigation, self->maxSteps[self->gender] - 1);
-                    choice = self->maxSteps[self->gender] - 1;
+    } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) var19 = 1;
+    else if (g_touchInput.released_) var19 = 1;
+    if (!var19) {
+        unsigned int var20 = GameState::GetInstance()->GetTickCount();
+        if (!var20) var20 = 1;
+        int var21 = arg0->unknown_3ec_.unknown_800_.unknown_1c_;
+        if (func_0205bf58(&arg0->unknown_3ec_.unknown_800_, var20)) var16 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_3ec_.unknown_800_);
+        if (arg0->unknown_c58_ == 8) {
+            int var22 = arg0->unknown_3ec_.unknown_800_.unknown_c_;
+            int var23 = func_0205bafc(&arg0->unknown_3ec_.unknown_800_);
+            if (var22 == 1 && var23 == 8) {
+                if (var16 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
+                    func_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    var16 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
                     RESET_NAVIGATION(11, 6, 66, 0);
-                    self->flags |= 0x2000;
-                    if (self->savedEntries) self->list->entries = self->savedEntries;
-                    self->list->selection = 0;
-                    self->list->counter = 0;
+                    arg0->unknown_d9c_ |= 0x2000;
+                    if (arg0->unknown_bc_) arg0->unknown_c0_->unknown_0_ = arg0->unknown_bc_;
+                    arg0->unknown_c0_->unknown_18_ = 0;
+                    arg0->unknown_c0_->unknown_1c_ = 0;
                     return -1;
                 }
-                if (choice >= 0) { TAB_CURSOR(choice); }
+                if (var16 >= 0) { TAB_CURSOR(var16); }
                 if (g_keyManager.TestKeysPressed(1)) {
-                    result = func_0205bb84((Struct_0205bb84*)&self->controls.navigation) + 101;
-                    if (result - 100 <= self->maxSteps[self->gender] && result - 100 != self->state)
+                    var15 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_3ec_.unknown_800_) + 101;
+                    if (var15 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var15 - 100 != arg0->unknown_c58_)
                         func_0205eaa0(&data_02108760, 1, 0);
                 }
-                return result;
+                return var15;
             }
-            if (!self->blocked && g_keyManager.TestKeysPressed(0x40)) {
-                self->savedEntries = self->list->entries;
-                self->list->entries = 0;
-                RESET_NAVIGATION(8, 1, 8, self->state - 1);
-                controls->navigation.field3c = 0;
-                TAB_CURSOR(self->state - 1);
+            if (!arg0->unknown_db5_ && g_keyManager.TestKeysPressed(0x40)) {
+                arg0->unknown_bc_ = arg0->unknown_c0_->unknown_0_;
+                arg0->unknown_c0_->unknown_0_ = 0;
+                RESET_NAVIGATION(8, 1, 8, arg0->unknown_c58_ - 1);
+                controls->unknown_800_.unknown_3c_ = 0;
+                TAB_CURSOR(arg0->unknown_c58_ - 1);
             }
-        } else if (self->state != 8) {
-            int rows = self->controls.navigation.rows;
-            int count = func_0205bafc(&self->controls.navigation);
-            if (rows == 1 && count == 8) {
-                if (choice >= self->maxSteps[self->gender]) {
-                    func_0205bb04(&self->controls.navigation, self->maxSteps[self->gender] - 1);
-                    choice = self->maxSteps[self->gender] - 1;
+        } else if (arg0->unknown_c58_ != 8) {
+            int var24 = arg0->unknown_3ec_.unknown_800_.unknown_c_;
+            int var25 = func_0205bafc(&arg0->unknown_3ec_.unknown_800_);
+            if (var24 == 1 && var25 == 8) {
+                if (var16 >= arg0->unknown_da0_[arg0->unknown_da3_]) {
+                    func_0205bb04(&arg0->unknown_3ec_.unknown_800_, arg0->unknown_da0_[arg0->unknown_da3_] - 1);
+                    var16 = arg0->unknown_da0_[arg0->unknown_da3_] - 1;
                 }
                 if (g_keyManager.TestKeysPressed(0x80)) {
-                    func_ov009_02188c2c(self);
-                    self->flags |= 0x2000;
-                    func_ov009_02188e70(self, func_0205bb84((Struct_0205bb84*)&self->controls.navigation));
+                    func_ov009_02188c2c(arg0);
+                    arg0->unknown_d9c_ |= 0x2000;
+                    func_ov009_02188e70(arg0, func_0205bb84((Struct_0205bb84*)&arg0->unknown_3ec_.unknown_800_));
                     return -1;
                 }
-                if (choice >= 0) { TAB_CURSOR(choice); }
+                if (var16 >= 0) { TAB_CURSOR(var16); }
                 if (g_keyManager.TestKeysPressed(1)) {
-                    result = func_0205bb84((Struct_0205bb84*)&self->controls.navigation) + 101;
-                    if (result - 100 <= self->maxSteps[self->gender] && result - 100 != self->state)
+                    var15 = func_0205bb84((Struct_0205bb84*)&arg0->unknown_3ec_.unknown_800_) + 101;
+                    if (var15 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var15 - 100 != arg0->unknown_c58_)
                         func_0205eaa0(&data_02108760, 1, 0);
-                } else if (g_keyManager.TestKeysPressed(2)) result = -3;
-                if (result == 108) func_0205ba68((Struct_0205ba68*)&self->controls.navigation, 11, 6, 0);
-                return result;
+                } else if (g_keyManager.TestKeysPressed(2)) var15 = -3;
+                if (var15 == 108) func_0205ba68((Struct_0205ba68*)&arg0->unknown_3ec_.unknown_800_, 11, 6, 0);
+                return var15;
             }
-            if (g_keyManager.TestKeysPressed(0x40) && previous == 0) {
-                RESET_NAVIGATION(8, 1, 8, self->state - 1);
-                controls->navigation.field3c = 0;
-                TAB_CURSOR(self->state - 1);
-                self->flags |= 0x2000;
+            if (g_keyManager.TestKeysPressed(0x40) && var21 == 0) {
+                RESET_NAVIGATION(8, 1, 8, arg0->unknown_c58_ - 1);
+                controls->unknown_800_.unknown_3c_ = 0;
+                TAB_CURSOR(arg0->unknown_c58_ - 1);
+                arg0->unknown_d9c_ |= 0x2000;
                 return -1;
             }
             if (g_keyManager.TestKeysPressed(1)) {
-                result = -2;
+                var15 = -2;
                 func_0205eaa0(&data_02108760, 1, 0);
-            } else if (g_keyManager.TestKeysPressed(2)) result = -3;
+            } else if (g_keyManager.TestKeysPressed(2)) var15 = -3;
         }
     }
-    self->flags &= ~0x10;
-    if (choice >= 0 && !(choice >= 101 && choice <= 108)) {
-        unsigned char* genderValue = &self->gender;
-        switch (self->state) {
+    arg0->unknown_d9c_ &= ~0x10;
+    if (var16 >= 0 && !(var16 >= 101 && var16 <= 108)) {
+        unsigned char* var26 = &arg0->unknown_da3_;
+        switch (arg0->unknown_c58_) {
         case 8: break;
-        case 1: { if (*genderValue != choice) self->flags |= 0x10; *genderValue = choice; break; }
-        case 2: { unsigned char* values = self->body; int gender = self->gender; unsigned char prior = values[gender]; if (prior != choice) self->flags |= 0x10; values[gender] = choice; break; }
-        case 3: { unsigned char* values = self->hair; int gender = self->gender; unsigned char prior = values[gender]; if (prior != choice) self->flags |= 0x10; values[gender] = choice; break; }
-        case 4: { unsigned char* values = self->hairColor; int gender = self->gender; unsigned char prior = values[gender]; if (prior != choice) self->flags |= 0x10; values[gender] = choice; break; }
-        case 5: { unsigned char* values = self->face; int gender = self->gender; unsigned char prior = values[gender]; if (prior != choice) self->flags |= 0x10; values[gender] = choice; break; }
-        case 6: { unsigned char* values = self->eyes; int gender = self->gender; unsigned char prior = values[gender]; if (prior != choice) self->flags |= 0x10; values[gender] = choice; break; }
-        case 7: { unsigned char* values = self->skin; int gender = self->gender; unsigned char prior = values[gender]; if (prior != choice) self->flags |= 0x10; values[gender] = choice; break; }
+        case 1: { if (*var26 != var16) arg0->unknown_d9c_ |= 0x10; *var26 = var16; break; }
+        case 2: { unsigned char* var27 = arg0->unknown_da4_; int var28 = arg0->unknown_da3_; unsigned char var29 = var27[var28]; if (var29 != var16) arg0->unknown_d9c_ |= 0x10; var27[var28] = var16; break; }
+        case 3: { unsigned char* var30 = arg0->unknown_dac_; int var31 = arg0->unknown_da3_; unsigned char var32 = var30[var31]; if (var32 != var16) arg0->unknown_d9c_ |= 0x10; var30[var31] = var16; break; }
+        case 4: { unsigned char* var33 = arg0->unknown_dae_; int var34 = arg0->unknown_da3_; unsigned char var35 = var33[var34]; if (var35 != var16) arg0->unknown_d9c_ |= 0x10; var33[var34] = var16; break; }
+        case 5: { unsigned char* var36 = arg0->unknown_da6_; int var37 = arg0->unknown_da3_; unsigned char var38 = var36[var37]; if (var38 != var16) arg0->unknown_d9c_ |= 0x10; var36[var37] = var16; break; }
+        case 6: { unsigned char* var39 = arg0->unknown_daa_; int var40 = arg0->unknown_da3_; unsigned char var41 = var39[var40]; if (var41 != var16) arg0->unknown_d9c_ |= 0x10; var39[var40] = var16; break; }
+        case 7: { unsigned char* var42 = arg0->unknown_da8_; int var43 = arg0->unknown_da3_; unsigned char var44 = var42[var43]; if (var44 != var16) arg0->unknown_d9c_ |= 0x10; var42[var43] = var16; break; }
         }
     }
-    if (self->flags & 0x10) {
-        if (self->state != 8 || !touched) func_0205eaa0(&data_02108760, 2, 0);
-        func_ov009_02188944(self, choice);
-        if (self->state == 1) {
-            PartyMemberAppearance* appearance = &self->member->appearance;
-            self->flags |= 0x60000;
-            unsigned char eyeColor = GetEyeColor(self);
-            appearance->eyeColor = eyeColor;
-            unsigned char skinColor = GetSkinColor(self);
-            appearance->skinColor = skinColor;
-            unsigned char hairColor = GetHairColor(self);
-            appearance->hairColor = hairColor;
-            appearance->models[2] = func_ov009_02188b14(self, 5, self->face[self->gender]) + 0x233c;
-            appearance->models[3] = func_ov009_02188b14(self, 3, self->hair[self->gender]) + 0x2328;
+    if (arg0->unknown_d9c_ & 0x10) {
+        if (arg0->unknown_c58_ != 8 || !var19) func_0205eaa0(&data_02108760, 2, 0);
+        func_ov009_02188944(arg0, var16);
+        if (arg0->unknown_c58_ == 1) {
+            Struct_ov009_02187b34* var45 = &arg0->unknown_d88_->unknown_488_;
+            arg0->unknown_d9c_ |= 0x60000;
+            unsigned char var46 = inline_ov009_02188ee8(arg0);
+            var45->unknown_14_1_ = var46;
+            unsigned char var47 = inline_ov009_02188ee8_2(arg0);
+            var45->unknown_14_4_ = var47;
+            unsigned char var48 = inline_ov009_02188ee8_3(arg0);
+            var45->unknown_15_0_ = var48;
+            var45->unknown_0_[2] = func_ov009_02188b14(arg0, 5, arg0->unknown_da6_[arg0->unknown_da3_]) + 0x233c;
+            var45->unknown_0_[3] = func_ov009_02188b14(arg0, 3, arg0->unknown_dac_[arg0->unknown_da3_]) + 0x2328;
         }
-        if (!touched) func_ov009_02188e70(self, choice);
-        self->flags |= 0x6100;
+        if (!var19) func_ov009_02188e70(arg0, var16);
+        arg0->unknown_d9c_ |= 0x6100;
     }
-    if (result == 108 && result - 100 <= self->maxSteps[self->gender] && result - 100 != self->state)
-        func_0205ba68((Struct_0205ba68*)&self->controls.navigation, 11, 6, 0);
-    return result;
+    if (var15 == 108 && var15 - 100 <= arg0->unknown_da0_[arg0->unknown_da3_] && var15 - 100 != arg0->unknown_c58_)
+        func_0205ba68((Struct_0205ba68*)&arg0->unknown_3ec_.unknown_800_, 11, 6, 0);
+    return var15;
 }
 
 #endif

@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 
-struct Sub_02205a38 {
-	char pad[0xfe];
-	signed char flagFE;
+struct Struct_ov031_02205a38_2 {
+	char unknown_0_[0xfe];
+	signed char unknown_fe_;
 };
 
-struct Obj_02205a38 {
-	char pad0[0x64];
-	Sub_02205a38* field64;
-	char pad1[0x73 - 0x68];
-	signed char field73;
+struct Struct_ov031_02205a38 {
+	char unknown_0_[0x64];
+	Struct_ov031_02205a38_2* unknown_64_;
+	char unknown_68_[0x73 - 0x68];
+	signed char unknown_73_;
 };
 
-extern "C" int func_ov031_02205ef8(Obj_02205a38* obj, int b, int c, int d, int e, int f);
-extern "C" int func_ov031_02205e60(Obj_02205a38* obj);
+extern "C" int func_ov031_02205ef8(Struct_ov031_02205a38* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_ov031_02205e60(Struct_ov031_02205a38* arg0);
 
-struct Obj_02205ad4;
-extern "C" int func_ov031_02205ad4(Obj_02205ad4* obj, int b, int c, int d, int e, int f);
+struct Struct_ov031_02205a38_3;
+extern "C" int func_ov031_02205ad4(Struct_ov031_02205a38_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 // USA: func_ov031_02205a38
-extern "C" ARM int func_ov031_02205a38(Obj_02205a38* obj, int b, int c, int d, int e, int f, int flags) {
-	Sub_02205a38* sub = obj->field64;
-	bool hasFlag = ((flags & 2) != 0) && (sub != NULL);
-	signed char oldByte;
-	if (hasFlag) {
-		oldByte = sub->flagFE;
-		sub->flagFE = 1;
+extern "C" ARM int func_ov031_02205a38(Struct_ov031_02205a38* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	Struct_ov031_02205a38_2* var0 = arg0->unknown_64_;
+	bool var1 = ((arg6 & 2) != 0) && (var0 != NULL);
+	signed char var2;
+	if (var1) {
+		var2 = var0->unknown_fe_;
+		var0->unknown_fe_ = 1;
 	}
-	int result;
-	if (obj->field73 == 1) {
-		result = func_ov031_02205ef8(obj, b, c, d, e, f);
+	int var3;
+	if (arg0->unknown_73_ == 1) {
+		var3 = func_ov031_02205ef8(arg0, arg1, arg2, arg3, arg4, arg5);
 	} else {
-		result = func_ov031_02205ad4((Obj_02205ad4*)obj, b, c, d, e, f);
-		if (result >= 0) {
-			func_ov031_02205e60(obj);
+		var3 = func_ov031_02205ad4((Struct_ov031_02205a38_3*)arg0, arg1, arg2, arg3, arg4, arg5);
+		if (var3 >= 0) {
+			func_ov031_02205e60(arg0);
 		}
 	}
-	if (hasFlag) {
-		sub->flagFE = oldByte;
+	if (var1) {
+		var0->unknown_fe_ = var2;
 	}
-	return result;
+	return var3;
 }

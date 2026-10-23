@@ -2,99 +2,99 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
-struct List0202fec8;
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310*, int);
-extern "C" char* func_020e046c(char* buf, void* b, void* c, int idx);
-extern "C" void func_020df83c(void* p);
-struct Struct020dfc40;
-extern "C" void func_020dfc6c(struct Struct020dfc40* p);
+struct Struct_020534ac;
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" char* func_020e046c(char* arg0, void* arg1, void* arg2, int arg3);
+extern "C" void func_020df83c(void* arg0);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc6c(struct Struct_0201099c_14* arg0);
 
 extern "C" {
-    void func_ov023_021ddf5c(void* obj);
-    void func_ov023_021df218(void* obj);
-    void func_ov023_021df558(void* obj);
+    void func_ov023_021ddf5c(void* arg0);
+    void func_ov023_021df218(void* arg0);
+    void func_ov023_021df558(void* arg0);
 }
 
-struct DataStruct021e0690 {
-    unsigned char pad[0x14];
-    struct Container020e0310* field14;
+struct Struct_ov023_021ff9e0_14 {
+    unsigned char unknown_0_[0x14];
+    struct Struct_0201099c_3* unknown_14_;
 };
-extern struct DataStruct021e0690 data_ov023_021ff9e0;
+extern struct Struct_ov023_021ff9e0_14 data_ov023_021ff9e0;
 
-struct BitField021e0690 {
-    unsigned int low4 : 4;
+struct Struct_ov023_021e0690 {
+    unsigned int unknown_0_0_ : 4;
 };
 
 #if defined(jpn)
 extern char data_ov023_021fcf09[];
 #endif
 // USA: func_ov023_021e0690
-extern "C" ARM int func_ov023_021e0690(void* obj_) {
+extern "C" ARM int func_ov023_021e0690(void* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x6f0, regionalOffset1=0x62c, regionalOffset2=0x80, regionalOffset3=0x6bc, regionalOffset4=0x6ec};
+ enum {Enum_ov023_021e0690_1908=0x6f0, Enum_ov023_021e0690_1584=0x62c, Enum_ov023_021e0690_256=0x80, Enum_ov023_021e0690_1856=0x6bc, Enum_ov023_021e0690_1904=0x6ec};
 #else
- enum {regionalOffset0=0x774, regionalOffset1=0x630, regionalOffset2=0x100, regionalOffset3=0x740, regionalOffset4=0x770};
+ enum {Enum_ov023_021e0690_1908=0x774, Enum_ov023_021e0690_1584=0x630, Enum_ov023_021e0690_256=0x100, Enum_ov023_021e0690_1856=0x740, Enum_ov023_021e0690_1904=0x770};
 #endif
 #if defined(jpn)
-    int listPtr = (int)BackgroundLoader::GetInstance();
-    char* obj = (char*)obj_;
+    int var1 = (int)BackgroundLoader::GetInstance();
+    char* var0 = (char*)arg0;
 #else
-    char* obj = (char*)obj_;
-    int listPtr = (int)BackgroundLoader::GetInstance();
+    char* var0 = (char*)arg0;
+    int var1 = (int)BackgroundLoader::GetInstance();
 #endif
 
-    unsigned short flags = *(unsigned short*)(obj + regionalOffset0);
-    if ((flags & 0x1000) || ((BackgroundLoader*)(listPtr))->GetTaskStatus((int)(*(int*)(obj + regionalOffset3)))) {
-        memset(obj + regionalOffset1, 0, regionalOffset2);
-        flags = *(unsigned short*)(obj + regionalOffset0);
-        if (flags & 0x1000) {
+    unsigned short var2 = *(unsigned short*)(var0 + Enum_ov023_021e0690_1908);
+    if ((var2 & 0x1000) || ((BackgroundLoader*)(var1))->GetTaskStatus((int)(*(int*)(var0 + Enum_ov023_021e0690_1856)))) {
+        memset(var0 + Enum_ov023_021e0690_1584, 0, Enum_ov023_021e0690_256);
+        var2 = *(unsigned short*)(var0 + Enum_ov023_021e0690_1908);
+        if (var2 & 0x1000) {
 #if defined(jpn)
-            strcpy(obj + regionalOffset1, data_ov023_021fcf09);
+            strcpy(var0 + Enum_ov023_021e0690_1584, data_ov023_021fcf09);
 #else
-            char* s = (char*)func_020e0434(data_ov023_021ff9e0.field14, 0x29);
-            strcpy(obj + regionalOffset1, s);
+            char* var3 = (char*)func_020e0434(data_ov023_021ff9e0.unknown_14_, 0x29);
+            strcpy(var0 + Enum_ov023_021e0690_1584, var3);
 #endif
 
         } else {
-            int out1, out2;
-            ((BackgroundLoader*)((struct List0202fec8*)listPtr))->GetLoadedFileByID((int)(*(int*)(obj + regionalOffset3)), (void**)(&out1), (unsigned int*)(&out2));
+            int var4, var5;
+            ((BackgroundLoader*)((struct Struct_020534ac*)var1))->GetLoadedFileByID((int)(*(int*)(var0 + Enum_ov023_021e0690_1856)), (void**)(&var4), (unsigned int*)(&var5));
 #if defined(jpn)
             {
 #else
-            if (out1 != 0 && out2 != 0) {
+            if (var4 != 0 && var5 != 0) {
 #endif
 
-                int v = *(short*)(obj + regionalOffset4);
-                func_020e046c(obj + regionalOffset1, (void*)out1, (void*)out2, v);
+                int var6 = *(short*)(var0 + Enum_ov023_021e0690_1904);
+                func_020e046c(var0 + Enum_ov023_021e0690_1584, (void*)var4, (void*)var5, var6);
             }
-            ((BackgroundLoader*)(listPtr))->RemoveTask((int)(*(int*)(obj + regionalOffset3)));
-            *(int*)(obj + regionalOffset3) = -1;
+            ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)(var0 + Enum_ov023_021e0690_1856)));
+            *(int*)(var0 + Enum_ov023_021e0690_1856) = -1;
         }
 
-        func_020df83c(obj + 0x6c);
-        func_020dfc6c((struct Struct020dfc40*)(obj + 0x8c));
-        func_020df83c(obj + 0x7c);
-        func_020dfc6c((struct Struct020dfc40*)(obj + 0xa4));
+        func_020df83c(var0 + 0x6c);
+        func_020dfc6c((struct Struct_0201099c_14*)(var0 + 0x8c));
+        func_020df83c(var0 + 0x7c);
+        func_020dfc6c((struct Struct_0201099c_14*)(var0 + 0xa4));
 
-        void* p = *(void**)(obj + 0x4c);
-        if (p == NULL) {
+        void* var7 = *(void**)(var0 + 0x4c);
+        if (var7 == NULL) {
             return -1;
         }
 
-        struct BitField021e0690* bf = (struct BitField021e0690*)((char*)p + 8);
-        int cond = (bf->low4 <= 7) ? 1 : 0;
-        if (cond) {
-            func_ov023_021ddf5c(obj);
-            func_ov023_021df218(obj);
-            func_ov023_021df558(obj);
+        struct Struct_ov023_021e0690* var8 = (struct Struct_ov023_021e0690*)((char*)var7 + 8);
+        int var9 = (var8->unknown_0_0_ <= 7) ? 1 : 0;
+        if (var9) {
+            func_ov023_021ddf5c(var0);
+            func_ov023_021df218(var0);
+            func_ov023_021df558(var0);
             return -1;
         }
 
-        func_ov023_021df558(obj);
-        flags = *(unsigned short*)(obj + regionalOffset0);
-        return (flags & 0x400) ? -1 : 9;
+        func_ov023_021df558(var0);
+        var2 = *(unsigned short*)(var0 + Enum_ov023_021e0690_1908);
+        return (var2 & 0x400) ? -1 : 9;
     }
 
-    return (*(int*)(obj + regionalOffset3) != -1) ? 7 : -1;
+    return (*(int*)(var0 + Enum_ov023_021e0690_1856) != -1) ? 7 : -1;
 }

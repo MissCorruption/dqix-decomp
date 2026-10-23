@@ -5,115 +5,115 @@
 #include "World/ZoneObjectResourceLoading.h"
 #include "GameState/GameState.h"
 
-struct Struct0200fb08;
-struct NodeList02057de0;
-struct Obj021e8bac;
-struct RemoveList021eb084;
+struct Struct_02000c9c_8;
+struct Struct_02057de0_2;
+struct Struct_ov025_021e267c_2;
+struct Struct_ov025_021e27c8;
 
-struct Node021e8bac {
-    unsigned char byte0;
-    unsigned char byte1;
-    unsigned short half2;
-    unsigned short half4;
-    struct Node021e8bac* next;
+struct Struct_ov025_021e267c_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    struct Struct_ov025_021e267c_3* unknown_8_;
 };
 
-struct BattleUi021e27c8 {
+struct Struct_ov025_021ef988_3 {
 #if defined(jpn)
-    char pad0[4];
-    char* ui;
-    char pad8[12];
-    int loadedCount;
+    char unknown_0_[4];
+    char* unknown_c_;
+    char unknown_8_[12];
+    int unknown1_8_;
 #else
-    char pad0[8];
-    int loadedCount;
-    char* ui;
+    char unknown1_0_[8];
+    int unknown1_8_;
+    char* unknown_c_;
 #endif
 
 };
 
-extern "C" SafeAllocator* func_ov025_021e8a54(char* obj);
-extern "C" char* func_ov025_021e8a64(char* obj);
-extern "C" NodeList02057de0* func_02057924(void);
-extern "C" unsigned char func_0200fb08(Struct0200fb08* obj);
-extern "C" int func_ov025_021e24d0(char* s, char* out2, char* out1);
-extern "C" void func_ov025_021e8bac(Obj021e8bac* obj, Node021e8bac* node);
-extern "C" int func_02057de0(NodeList02057de0* list, int id, SafeAllocator* alloc, int data, int size);
-extern "C" void func_ov025_021eb084(RemoveList021eb084* obj, int val);
-extern "C" void __clear(void* p, int n);
+extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
+extern "C" char* func_ov025_021e8a64(char* arg0);
+extern "C" Struct_02057de0_2* func_02057924(void);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
+extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2* arg0, Struct_ov025_021e267c_3* arg1);
+extern "C" int func_02057de0(Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
+extern "C" void func_ov025_021eb084(Struct_ov025_021e27c8* arg0, int arg1);
+extern "C" void __clear(void* arg0, int arg1);
 
-extern BattleUi021e27c8 data_ov025_021ef988;
+extern Struct_ov025_021ef988_3 data_ov025_021ef988;
 
 // USA: func_ov025_021e27c8
-extern "C" ARM void func_ov025_021e27c8(char* name, int id) {
-    char archive[0x50];
-    char inner[0x50];
+extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
+    char var0[0x50];
+    char var1[0x50];
 #if defined(jpn)
 
 #else
-    char path[0x50];
+    char var2[0x50];
 #endif
 
-    void* data;
-    unsigned int size;
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    func_ov025_021e8a54(data_ov025_021ef988.ui);
-    func_ov025_021e8a64(data_ov025_021ef988.ui);
+    void* var3;
+    unsigned int var4;
+    BackgroundLoader* var5 = BackgroundLoader::GetInstance();
+    func_ov025_021e8a54(data_ov025_021ef988.unknown_c_);
+    func_ov025_021e8a64(data_ov025_021ef988.unknown_c_);
     func_02057924();
 #if defined(jpn)
 
 #else
-    int language = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
+    int var6 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
 #endif
 
-    data = 0;
+    var3 = 0;
 #if defined(jpn)
 
 #else
-    __clear(path, 0x50);
-    StringReplaceLanguageTag(name, path, language);
+    __clear(var2, 0x50);
+    StringReplaceLanguageTag(arg0, var2, var6);
 #endif
 
-    int task;
-    if (func_ov025_021e24d0(name, archive, inner)) {
-        task = loader->GetLoadedFileInArchive(archive, inner, &data, &size);
+    int var7;
+    if (func_ov025_021e24d0(arg0, var0, var1)) {
+        var7 = var5->GetLoadedFileInArchive(var0, var1, &var3, &var4);
     } else {
 #if defined(jpn)
-        task = loader->GetLoadedFileByName(name, &data, &size);
+        var7 = var5->GetLoadedFileByName(arg0, &var3, &var4);
 #else
-        task = loader->GetLoadedFileByName(path, &data, &size);
+        var7 = var5->GetLoadedFileByName(var2, &var3, &var4);
 #endif
 
     }
-    void* src = data;
-    if (src != 0) {
-        unsigned int len = size;
+    void* var8 = var3;
+    if (var8 != 0) {
+        unsigned int var9 = var4;
         BackgroundLoader::GetInstance();
-        char* tables;
-        SafeAllocator* alloc;
-        void* copy;
-        NodeList02057de0* list;
-        alloc = func_ov025_021e8a54(data_ov025_021ef988.ui);
-        tables = func_ov025_021e8a64(data_ov025_021ef988.ui);
-        list = func_02057924();
-        copy = alloc->Allocate(len);
-        if (copy != 0) {
-            memcpy(copy, src, len);
-            if (id < 0) id = data_ov025_021ef988.loadedCount + 0x64;
-            Node021e8bac* node = (Node021e8bac*)alloc->Allocate(0xc);
-            if (node != 0) {
-                node->byte0 = 1;
-                node->half4 = id;
-                func_ov025_021e8bac((Obj021e8bac*)data_ov025_021ef988.ui, node);
-                func_0207df90(tables);
-                func_02057de0(list, id, alloc, (int)copy, len);
-                func_0207dfac(tables);
-                data_ov025_021ef988.loadedCount++;
+        char* var10;
+        SafeAllocator* var11;
+        void* var12;
+        Struct_02057de0_2* var13;
+        var11 = func_ov025_021e8a54(data_ov025_021ef988.unknown_c_);
+        var10 = func_ov025_021e8a64(data_ov025_021ef988.unknown_c_);
+        var13 = func_02057924();
+        var12 = var11->Allocate(var9);
+        if (var12 != 0) {
+            memcpy(var12, var8, var9);
+            if (arg1 < 0) arg1 = data_ov025_021ef988.unknown1_8_ + 0x64;
+            Struct_ov025_021e267c_3* var14 = (Struct_ov025_021e267c_3*)var11->Allocate(0xc);
+            if (var14 != 0) {
+                var14->unknown_0_ = 1;
+                var14->unknown_4_ = arg1;
+                func_ov025_021e8bac((Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var14);
+                func_0207df90(var10);
+                func_02057de0(var13, arg1, var11, (int)var12, var9);
+                func_0207dfac(var10);
+                data_ov025_021ef988.unknown1_8_++;
             }
         }
     }
-    if (task >= 0) {
-        loader->RemoveTask(task);
-        func_ov025_021eb084((RemoveList021eb084*)data_ov025_021ef988.ui, task);
+    if (var7 >= 0) {
+        var5->RemoveTask(var7);
+        func_ov025_021eb084((Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var7);
     }
 }

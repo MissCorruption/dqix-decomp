@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-extern "C" void func_0203aa80(void* obj, int arg2);
+extern "C" void func_0203aa80(void* arg0, int arg1);
 
-struct Obj0205eb08 {
-    char pad_00[0xb8];
-    int field_b8;
-    char pad_bc[4];
-    int field_c0;
+struct Struct_02108760_4 {
+    char unknown_0_[0xb8];
+    int unknown_b8_;
+    char unknown_bc_[4];
+    int unknown_c0_;
 };
 
 // USA: func_0205eb08
-extern "C" ARM void func_0205eb08(struct Obj0205eb08* obj) {
-    func_0203aa80(obj, obj->field_b8);
-    obj->field_c0 = obj->field_b8;
+extern "C" ARM void func_0205eb08(struct Struct_02108760_4* arg0) {
+    func_0203aa80(arg0, arg0->unknown_b8_);
+    arg0->unknown_c0_ = arg0->unknown_b8_;
 }

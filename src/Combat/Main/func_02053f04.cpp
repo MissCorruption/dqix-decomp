@@ -2,19 +2,19 @@
 #include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
-enum { scalarFieldOffset = 0x150, firstVectorOffset = 0x154, secondVectorOffset = 0x160, defaultValueIndex = 4 };
+enum { Enum_02053f04_348 = 0x150, Enum_02053f04_352 = 0x154, Enum_02053f04_364 = 0x160, Enum_02053f04_1 = 4 };
 #else
-enum { scalarFieldOffset = 0x15c, firstVectorOffset = 0x160, secondVectorOffset = 0x16c, defaultValueIndex = 1 };
+enum { Enum_02053f04_348 = 0x15c, Enum_02053f04_352 = 0x160, Enum_02053f04_364 = 0x16c, Enum_02053f04_1 = 1 };
 #endif
 
-extern "C" void __clear(void* buf, int n);
+extern "C" void __clear(void* arg0, int arg1);
 extern int data_020f0420[];
 
 // USA: func_02053f04
-extern "C" ARM void func_02053f04(void* obj) {
-    Vector3i buf;
-    __clear(&buf, 0xc);
-    *(int*)((char*)obj + scalarFieldOffset) = data_020f0420[defaultValueIndex];
-    *(Vector3i*)((char*)obj + firstVectorOffset) = buf;
-    *(Vector3i*)((char*)obj + secondVectorOffset) = buf;
+extern "C" ARM void func_02053f04(void* arg0) {
+    Vector3i var0;
+    __clear(&var0, 0xc);
+    *(int*)((char*)arg0 + Enum_02053f04_348) = data_020f0420[Enum_02053f04_1];
+    *(Vector3i*)((char*)arg0 + Enum_02053f04_352) = var0;
+    *(Vector3i*)((char*)arg0 + Enum_02053f04_364) = var0;
 }

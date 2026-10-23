@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
-union CopyVector0200fbb4 { int words[3]; };
-union CopyBlock0200fbb4 { int words[12]; };
+union Struct_0200fbb4 { int unknown_0_[3]; };
+union Struct_0200fbb4_2 { int unknown_0_[12]; };
 
-struct CopyRecord0200fbb4 {
-    unsigned short field00;
-    unsigned char field02, field03, field04, field05, field06, field07;
-    unsigned char field08, field09, field0a;
-    signed char field0b;
-    unsigned char field0c, field0d, field0e;
-    unsigned char padding0f;
-    CopyVector0200fbb4 field10;
-    short field1c, field1e;
-    int field20, field24, field28, field2c;
-    CopyBlock0200fbb4 field30;
-    unsigned char field60, field61, field62, field63, field64;
-    unsigned char field65, field66, field67, field68, field69;
-    short field6a, field6c;
-    unsigned char field6e;
+struct Struct_0200fba4 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_, unknown_3_, unknown_4_, unknown_5_, unknown_6_, unknown_7_;
+    unsigned char unknown_8_, unknown_9_, unknown_a_;
+    signed char unknown_b_;
+    unsigned char unknown_c_, unknown_d_, unknown_e_;
+    unsigned char unknown_f_;
+    Struct_0200fbb4 unknown_10_;
+    short unknown_1c_, unknown_1e_;
+    int unknown_20_, unknown_24_, unknown_28_, unknown_2c_;
+    Struct_0200fbb4_2 unknown_30_;
+    unsigned char unknown_60_, unknown_61_, unknown_62_, unknown_63_, unknown_64_;
+    unsigned char unknown_65_, unknown_66_, unknown_67_, unknown_68_, unknown_69_;
+    short unknown_6a_, unknown_6c_;
+    unsigned char unknown_6e_;
 };
 
 // USA: func_0200fbb4
-extern "C" ARM CopyRecord0200fbb4* func_0200fbb4(CopyRecord0200fbb4* dst, const CopyRecord0200fbb4* src) {
-    dst->field00 = src->field00;
-    dst->field02 = src->field02;
-    dst->field03 = src->field03;
-    dst->field04 = src->field04;
-    dst->field05 = src->field05;
-    dst->field06 = src->field06;
-    dst->field07 = src->field07;
-    dst->field08 = src->field08;
-    dst->field09 = src->field09;
-    dst->field0a = src->field0a;
-    dst->field0b = src->field0b;
-    dst->field0c = src->field0c;
-    dst->field0d = src->field0d;
-    dst->field0e = src->field0e;
-    dst->field10 = src->field10;
-    dst->field1c = src->field1c;
-    dst->field1e = src->field1e;
-    dst->field20 = src->field20;
-    dst->field24 = src->field24;
-    dst->field28 = src->field28;
-    dst->field2c = src->field2c;
-    dst->field30 = src->field30;
-    dst->field60 = src->field60;
-    dst->field61 = src->field61;
-    dst->field62 = src->field62;
-    dst->field63 = src->field63;
-    dst->field64 = src->field64;
-    dst->field65 = src->field65;
-    dst->field66 = src->field66;
-    dst->field67 = src->field67;
-    dst->field68 = src->field68;
-    dst->field69 = src->field69;
-    dst->field6a = src->field6a;
-    dst->field6c = src->field6c;
-    dst->field6e = src->field6e;
-    return dst;
+extern "C" ARM Struct_0200fba4* func_0200fbb4(Struct_0200fba4* arg0, const Struct_0200fba4* arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
+    arg0->unknown_2_ = arg1->unknown_2_;
+    arg0->unknown_3_ = arg1->unknown_3_;
+    arg0->unknown_4_ = arg1->unknown_4_;
+    arg0->unknown_5_ = arg1->unknown_5_;
+    arg0->unknown_6_ = arg1->unknown_6_;
+    arg0->unknown_7_ = arg1->unknown_7_;
+    arg0->unknown_8_ = arg1->unknown_8_;
+    arg0->unknown_9_ = arg1->unknown_9_;
+    arg0->unknown_a_ = arg1->unknown_a_;
+    arg0->unknown_b_ = arg1->unknown_b_;
+    arg0->unknown_c_ = arg1->unknown_c_;
+    arg0->unknown_d_ = arg1->unknown_d_;
+    arg0->unknown_e_ = arg1->unknown_e_;
+    arg0->unknown_10_ = arg1->unknown_10_;
+    arg0->unknown_1c_ = arg1->unknown_1c_;
+    arg0->unknown_1e_ = arg1->unknown_1e_;
+    arg0->unknown_20_ = arg1->unknown_20_;
+    arg0->unknown_24_ = arg1->unknown_24_;
+    arg0->unknown_28_ = arg1->unknown_28_;
+    arg0->unknown_2c_ = arg1->unknown_2c_;
+    arg0->unknown_30_ = arg1->unknown_30_;
+    arg0->unknown_60_ = arg1->unknown_60_;
+    arg0->unknown_61_ = arg1->unknown_61_;
+    arg0->unknown_62_ = arg1->unknown_62_;
+    arg0->unknown_63_ = arg1->unknown_63_;
+    arg0->unknown_64_ = arg1->unknown_64_;
+    arg0->unknown_65_ = arg1->unknown_65_;
+    arg0->unknown_66_ = arg1->unknown_66_;
+    arg0->unknown_67_ = arg1->unknown_67_;
+    arg0->unknown_68_ = arg1->unknown_68_;
+    arg0->unknown_69_ = arg1->unknown_69_;
+    arg0->unknown_6a_ = arg1->unknown_6a_;
+    arg0->unknown_6c_ = arg1->unknown_6c_;
+    arg0->unknown_6e_ = arg1->unknown_6e_;
+    return arg0;
 }

@@ -2,35 +2,35 @@
 
 #include <globaldefs.h>
 
-struct List0204af64;
-struct Node0207f7f0 {
-    Node0207f7f0* prev;
-    List0204af64* lists;
-    unsigned char unknown8[0xd8];
+struct Struct_02020cb8;
+struct Struct_0207f7f0_2 {
+    Struct_0207f7f0_2* unknown_0_;
+    Struct_02020cb8* unknown_4_;
+    unsigned char unknown_8_[0xd8];
 };
 
-struct Manager0207f7f0 {
-    int field0;
-    unsigned char sub4[8];
-    unsigned char arrC[8];
-    int field14;
-    int field18;
-    int field1c;
+struct Struct_0207f7f0 {
+    int unknown_0_;
+    unsigned char unknown_4_[8];
+    unsigned char unknown_c_[8];
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 #if !defined(jpn)
-    int tasks[3];
+    int unknown_20_[3];
 #endif
-    List0204af64* lists;
-    Node0207f7f0* nodes;
-    short field34;
-    short field36;
-    unsigned char mode;
-    unsigned char count;
-    unsigned char active;
-    unsigned char field3b;
-    unsigned char field3c;
+    Struct_02020cb8* unknown_2c_;
+    Struct_0207f7f0_2* unknown_30_;
+    short unknown_34_;
+    short unknown_36_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
+    unsigned char unknown_3a_;
+    unsigned char unknown_3b_;
+    unsigned char unknown_3c_;
 };
 
-extern "C" void func_0207f84c(Manager0207f7f0*);
-extern "C" void func_0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
+extern "C" void func_0207f84c(Struct_0207f7f0*);
+extern "C" void func_0207f7f0(Struct_0207f7f0*, Struct_0207f7f0_2*, int);
 
-extern "C" void func_0207f8bc(Manager0207f7f0*);
+extern "C" void func_0207f8bc(Struct_0207f7f0*);

@@ -3,10 +3,10 @@
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
 
-struct Struct0200fb08;
-extern "C" int func_0200fb08(Struct0200fb08*);
-extern "C" int sprintf(char* dst, const char* fmt, ...);
-extern "C" void func_02047b40(Foo02048004* sprite, const void* file, SafeAllocator* allocator);
+struct Struct_02000c9c_8;
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
+extern "C" void func_02047b40(Struct_02012fa4* arg0, const void* arg1, SafeAllocator* arg2);
 
 extern const char data_ov000_02184184[];
 extern const char data_ov000_02184186[];
@@ -37,9 +37,9 @@ extern const char data_ov000_02184204[];
 extern const char data_ov000_02184209[];
 extern const char data_ov000_0218420e[];
 
-struct ComboSpriteBinding {
-    const char* suffix;
-    Foo02048004* sprite;
+struct Struct_ov000_0218214c {
+    const char* unknown_0_;
+    Struct_02012fa4* unknown_4_;
 };
 
 #if defined(jpn)
@@ -61,98 +61,98 @@ extern const char data_ov000_021852fc[];
 
 // USA: func_ov000_0218214c
 
-extern "C" ARM void func_ov000_0218214c(Foo02048004* comboSprites, SafeAllocator* allocator, const void* narc) {
+extern "C" ARM void func_ov000_0218214c(Struct_02012fa4* arg0, SafeAllocator* arg1, const void* arg2) {
 #if defined(jpn)
-    char buf[0x28];
-    ComboSpriteBinding bindings[13] = {
-        {data_ov000_021852d2, &comboSprites[0]},
-        {data_ov000_021852d0, &comboSprites[1]},
-        {data_ov000_021852d4, &comboSprites[2]},
-        {data_ov000_021852e5, &comboSprites[3]},
-        {data_ov000_021852d9, &comboSprites[4]},
-        {data_ov000_021852d6, &comboSprites[5]},
-        {data_ov000_021852df, &comboSprites[6]},
-        {data_ov000_021852f0, &comboSprites[7]},
-        {data_ov000_021852f6, &comboSprites[8]},
-        {data_ov000_021852dc, &comboSprites[9]},
-        {data_ov000_021852e8, &comboSprites[10]},
-        {data_ov000_021852ec, &comboSprites[11]},
-        {data_ov000_021852e2, &comboSprites[12]}
+    char var0[0x28];
+    Struct_ov000_0218214c var1[13] = {
+        {data_ov000_021852d2, &arg0[0]},
+        {data_ov000_021852d0, &arg0[1]},
+        {data_ov000_021852d4, &arg0[2]},
+        {data_ov000_021852e5, &arg0[3]},
+        {data_ov000_021852d9, &arg0[4]},
+        {data_ov000_021852d6, &arg0[5]},
+        {data_ov000_021852df, &arg0[6]},
+        {data_ov000_021852f0, &arg0[7]},
+        {data_ov000_021852f6, &arg0[8]},
+        {data_ov000_021852dc, &arg0[9]},
+        {data_ov000_021852e8, &arg0[10]},
+        {data_ov000_021852ec, &arg0[11]},
+        {data_ov000_021852e2, &arg0[12]}
     };
-    for (int j = 0; j < 13; ++j) {
-        sprintf(buf, data_ov000_021852fc, bindings[j].suffix);
-        unsigned int fileSize = 0;
-        const void* fileData = 0;
-        GetFileInNarc(narc, buf, &fileData, &fileSize, 0);
-        func_02047b40(bindings[j].sprite, fileData, allocator);
+    for (int var2 = 0; var2 < 13; ++var2) {
+        sprintf(var0, data_ov000_021852fc, var1[var2].unknown_0_);
+        unsigned int var3 = 0;
+        const void* var4 = 0;
+        GetFileInNarc(arg2, var0, &var4, &var3, 0);
+        func_02047b40(var1[var2].unknown_4_, var4, arg1);
     }
-    bindings[0].sprite->word0 = 0x3e;
-    bindings[1].sprite->word0 = 0x3e;
-    bindings[2].sprite->word0 = 0x3e;
+    var1[0].unknown_4_->unknown_0_ = 0x3e;
+    var1[1].unknown_4_->unknown_0_ = 0x3e;
+    var1[2].unknown_4_->unknown_0_ = 0x3e;
 #else
-    char buf[0x28];
-    ComboSpriteBinding bindings[13];
-    int i;
-    int j;
-    int skip;
-    int mode = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
-    int count;
+    char var5[0x28];
+    Struct_ov000_0218214c var6[13];
+    int var7;
+    int var8;
+    int var9;
+    int var10 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
+    int var11;
 
-    skip = 2;
-    bindings[0].suffix = data_ov000_02184184;
-    bindings[1].suffix = data_ov000_02184186;
-    bindings[2].suffix = data_ov000_02184188;
-    bindings[3].suffix = data_ov000_0218418a;
-    bindings[4].suffix = data_ov000_02184190;
-    if (mode == 1) {
-        bindings[5].suffix = data_ov000_02184193;
-        bindings[6].suffix = data_ov000_02184197;
+    var9 = 2;
+    var6[0].unknown_0_ = data_ov000_02184184;
+    var6[1].unknown_0_ = data_ov000_02184186;
+    var6[2].unknown_0_ = data_ov000_02184188;
+    var6[3].unknown_0_ = data_ov000_0218418a;
+    var6[4].unknown_0_ = data_ov000_02184190;
+    if (var10 == 1) {
+        var6[5].unknown_0_ = data_ov000_02184193;
+        var6[6].unknown_0_ = data_ov000_02184197;
     } else {
-        bindings[5].suffix = data_ov000_0218419b;
-        bindings[6].suffix = data_ov000_021841a0;
+        var6[5].unknown_0_ = data_ov000_0218419b;
+        var6[6].unknown_0_ = data_ov000_021841a0;
     }
-    bindings[7].suffix = data_ov000_021841a5;
+    var6[7].unknown_0_ = data_ov000_021841a5;
 
-    if (mode == 1) {
-        bindings[8].suffix = data_ov000_021841a8;
-        bindings[9].suffix = data_ov000_021841ae;
-        bindings[10].suffix = data_ov000_021841b3;
-    } else if (mode == 2) {
-        bindings[8].suffix = data_ov000_021841b8;
-        bindings[9].suffix = data_ov000_021841c1;
-        bindings[10].suffix = data_ov000_021841c6;
-    } else if (mode == 3) {
-        bindings[8].suffix = data_ov000_021841cb;
-        bindings[9].suffix = data_ov000_021841d4;
-        bindings[10].suffix = data_ov000_021841d9;
-    } else if (mode == 4) {
-        bindings[8].suffix = data_ov000_021841de;
-        bindings[9].suffix = data_ov000_021841e7;
-        bindings[10].suffix = data_ov000_021841ec;
-    } else if (mode == 5) {
-        bindings[8].suffix = data_ov000_021841f1;
-        bindings[9].suffix = data_ov000_021841fa;
-        bindings[10].suffix = data_ov000_021841ff;
-        bindings[11].suffix = data_ov000_02184204;
-        bindings[12].suffix = data_ov000_02184209;
-        skip = 0;
+    if (var10 == 1) {
+        var6[8].unknown_0_ = data_ov000_021841a8;
+        var6[9].unknown_0_ = data_ov000_021841ae;
+        var6[10].unknown_0_ = data_ov000_021841b3;
+    } else if (var10 == 2) {
+        var6[8].unknown_0_ = data_ov000_021841b8;
+        var6[9].unknown_0_ = data_ov000_021841c1;
+        var6[10].unknown_0_ = data_ov000_021841c6;
+    } else if (var10 == 3) {
+        var6[8].unknown_0_ = data_ov000_021841cb;
+        var6[9].unknown_0_ = data_ov000_021841d4;
+        var6[10].unknown_0_ = data_ov000_021841d9;
+    } else if (var10 == 4) {
+        var6[8].unknown_0_ = data_ov000_021841de;
+        var6[9].unknown_0_ = data_ov000_021841e7;
+        var6[10].unknown_0_ = data_ov000_021841ec;
+    } else if (var10 == 5) {
+        var6[8].unknown_0_ = data_ov000_021841f1;
+        var6[9].unknown_0_ = data_ov000_021841fa;
+        var6[10].unknown_0_ = data_ov000_021841ff;
+        var6[11].unknown_0_ = data_ov000_02184204;
+        var6[12].unknown_0_ = data_ov000_02184209;
+        var9 = 0;
     }
-    count = 13 - skip;
+    var11 = 13 - var9;
 
-    for (i = 0; i < count; i++) {
-        bindings[i].sprite = &comboSprites[i];
-    }
-
-    for (j = 0; j < count; j++) {
-        sprintf(buf, data_ov000_0218420e, bindings[j].suffix);
-        unsigned int fileSize = 0;
-        const void* fileData = 0;
-        GetFileInNarc(narc, buf, &fileData, &fileSize, 0);
-        func_02047b40(bindings[j].sprite, fileData, allocator);
+    for (var7 = 0; var7 < var11; var7++) {
+        var6[var7].unknown_4_ = &arg0[var7];
     }
 
-    bindings[0].sprite->word0 = 0x3e;
-    bindings[1].sprite->word0 = 0x3e;
-    bindings[2].sprite->word0 = 0x3e;
+    for (var8 = 0; var8 < var11; var8++) {
+        sprintf(var5, data_ov000_0218420e, var6[var8].unknown_0_);
+        unsigned int var12 = 0;
+        const void* var13 = 0;
+        GetFileInNarc(arg2, var5, &var13, &var12, 0);
+        func_02047b40(var6[var8].unknown_4_, var13, arg1);
+    }
+
+    var6[0].unknown_4_->unknown_0_ = 0x3e;
+    var6[1].unknown_4_->unknown_0_ = 0x3e;
+    var6[2].unknown_4_->unknown_0_ = 0x3e;
 #endif
 }

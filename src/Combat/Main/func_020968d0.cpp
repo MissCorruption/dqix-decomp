@@ -1,60 +1,60 @@
 #include <globaldefs.h>
 
-struct Vec3s32_020c3030 { int x; int y; int z; };
-extern "C" int Vector3fix_Distance(struct Vec3s32_020c3030* a, struct Vec3s32_020c3030* b);
+struct Struct_02028460_3 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" int Vector3fix_Distance(struct Struct_02028460_3* arg0, struct Struct_02028460_3* arg1);
 
-extern "C" void __clear(void* ptr, int size);
+extern "C" void __clear(void* arg0, int arg1);
 
-struct Obj020968d0 {
-    unsigned char pad[0x220];
-    unsigned char b0;
-    unsigned char b1;
-    unsigned char b2;
-    unsigned char b3;
-    unsigned char flag;
+struct Struct_020968d0 {
+    unsigned char unknown_0_[0x220];
+    unsigned char unknown_220_;
+    unsigned char unknown_221_;
+    unsigned char unknown_222_;
+    unsigned char unknown_223_;
+    unsigned char unknown_224_;
 };
 
 // USA: func_020968d0
-extern "C" ARM int func_020968d0(struct Obj020968d0* obj, int* outDist) {
-    int v0, v1, v2, v3;
-    int dist;
-    struct Vec3s32_020c3030 a, b;
-    int scaled;
-    float f;
+extern "C" ARM int func_020968d0(struct Struct_020968d0* arg0, int* arg1) {
+    int var0, var1, var2, var3;
+    int var4;
+    struct Struct_02028460_3 var5, var6;
+    int var7;
+    float var8;
 
-    if (obj->flag == 0) {
+    if (arg0->unknown_224_ == 0) {
         return 0;
     }
 
-    scaled = (int)obj->b0 << 12;
-    if (obj->b0 != 0) f = 0.5f + (float)scaled;
-    else f = (float)scaled - 0.5f;
-    v0 = (int)f;
+    var7 = (int)arg0->unknown_220_ << 12;
+    if (arg0->unknown_220_ != 0) var8 = 0.5f + (float)var7;
+    else var8 = (float)var7 - 0.5f;
+    var0 = (int)var8;
 
-    scaled = (int)obj->b1 << 12;
-    if (obj->b1 != 0) f = 0.5f + (float)scaled;
-    else f = (float)scaled - 0.5f;
-    v1 = (int)f;
+    var7 = (int)arg0->unknown_221_ << 12;
+    if (arg0->unknown_221_ != 0) var8 = 0.5f + (float)var7;
+    else var8 = (float)var7 - 0.5f;
+    var1 = (int)var8;
 
-    scaled = (int)obj->b2 << 12;
-    if (obj->b2 != 0) f = 0.5f + (float)scaled;
-    else f = (float)scaled - 0.5f;
-    v2 = (int)f;
+    var7 = (int)arg0->unknown_222_ << 12;
+    if (arg0->unknown_222_ != 0) var8 = 0.5f + (float)var7;
+    else var8 = (float)var7 - 0.5f;
+    var2 = (int)var8;
 
-    scaled = (int)obj->b3 << 12;
-    if (obj->b3 != 0) f = 0.5f + (float)scaled;
-    else f = (float)scaled - 0.5f;
-    v3 = (int)f;
+    var7 = (int)arg0->unknown_223_ << 12;
+    if (arg0->unknown_223_ != 0) var8 = 0.5f + (float)var7;
+    else var8 = (float)var7 - 0.5f;
+    var3 = (int)var8;
 
-    __clear(&a, 0xc);
-    a.x = v0;
-    a.y = v1;
-    __clear(&b, 0xc);
-    b.x = v2;
-    b.y = v3;
+    __clear(&var5, 0xc);
+    var5.unknown_0_ = var0;
+    var5.unknown_4_ = var1;
+    __clear(&var6, 0xc);
+    var6.unknown_0_ = var2;
+    var6.unknown_4_ = var3;
 
-    dist = Vector3fix_Distance(&a, &b);
-    if (outDist != NULL) *outDist = dist;
-    if (dist < 0x8000) return 0;
+    var4 = Vector3fix_Distance(&var5, &var6);
+    if (arg1 != NULL) *arg1 = var4;
+    if (var4 < 0x8000) return 0;
     return 1;
 }

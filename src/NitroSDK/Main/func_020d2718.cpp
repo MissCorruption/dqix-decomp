@@ -3,27 +3,27 @@
 unsigned int DisableIRQInterrupts();
 unsigned int SetIRQInterruptState(int mask);
 
-struct GlobalListState020d2718 {
-    unsigned int field0;
-    unsigned int field4;
+struct Struct_02112780_6 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
 };
-extern struct GlobalListState020d2718 data_02112780;
+extern struct Struct_02112780_6 data_02112780;
 
 
 // USA: func_020d2718
-extern "C" ARM int func_020d2718(unsigned int x) {
-    unsigned int mask = DisableIRQInterrupts();
-    unsigned int cur = data_02112780.field4;
-    int result;
-    if (x > cur) {
-        if ((x - cur) < 0x80000000u) {
-            result = 0;
+extern "C" ARM int func_020d2718(unsigned int arg0) {
+    unsigned int var0 = DisableIRQInterrupts();
+    unsigned int var1 = data_02112780.unknown_4_;
+    int var2;
+    if (arg0 > var1) {
+        if ((arg0 - var1) < 0x80000000u) {
+            var2 = 0;
         } else {
-            result = 1;
+            var2 = 1;
         }
     } else {
-        result = (cur - x) < 0x80000000u;
+        var2 = (var1 - arg0) < 0x80000000u;
     }
-    SetIRQInterruptState(mask);
-    return result;
+    SetIRQInterruptState(var0);
+    return var2;
 }

@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct List0207f0ac;
-struct Entry0207f0ac;
-extern "C" Entry0207f0ac* func_0207f0ac(List0207f0ac* list, int id);
+struct Struct_0207f0ac;
+struct Struct_0207f0ac_2;
+extern "C" Struct_0207f0ac_2* func_0207f0ac(Struct_0207f0ac* arg0, int arg1);
 
-struct List0207f6ac;
-struct Entry0207f6ac;
-extern "C" Entry0207f6ac* func_0207f6ac(List0207f6ac* list, int id);
+struct Struct_0207f524;
+struct Struct_0207f6ac;
+extern "C" Struct_0207f6ac* func_0207f6ac(Struct_0207f524* arg0, int arg1);
 
 // USA: func_020809c4
-extern "C" ARM void func_020809c4(void* obj, int id, int id2, short* out1, short* out2) {
-    Entry0207f0ac* e = func_0207f0ac((List0207f0ac*)((char*)obj + 0xc), id);
-    if (e == NULL) {
+extern "C" ARM void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4) {
+    Struct_0207f0ac_2* var0 = func_0207f0ac((Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    if (var0 == NULL) {
         return;
     }
-    *out1 = (short)(*(short*)((char*)e + 0xa) << 3);
-    *out2 = (short)(*(short*)((char*)e + 0xc) << 3);
-    for (unsigned char i = 0; i < *(unsigned char*)((char*)e + 0x13); i++) {
-        short* arr = *(short**)((char*)e);
-        if (id2 == arr[i]) {
-            Entry0207f6ac* e2 = func_0207f6ac((List0207f6ac*)((char*)obj + 4), id2);
-            if (e2 == NULL) {
+    *arg3 = (short)(*(short*)((char*)var0 + 0xa) << 3);
+    *arg4 = (short)(*(short*)((char*)var0 + 0xc) << 3);
+    for (unsigned char var1 = 0; var1 < *(unsigned char*)((char*)var0 + 0x13); var1++) {
+        short* var2 = *(short**)((char*)var0);
+        if (arg2 == var2[var1]) {
+            Struct_0207f6ac* var3 = func_0207f6ac((Struct_0207f524*)((char*)arg0 + 4), arg2);
+            if (var3 == NULL) {
                 return;
             }
-            *out1 = *out1 + *(short*)((char*)e2 + 0x6);
-            *out2 = *out2 + *(short*)((char*)e2 + 0x8);
+            *arg3 = *arg3 + *(short*)((char*)var3 + 0x6);
+            *arg4 = *arg4 + *(short*)((char*)var3 + 0x8);
             return;
         }
     }

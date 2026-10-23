@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { kStepOffset = 0x1340, kFirstResetOffset = 0x1300, kSecondResetOffset = 0x1308, kCardOffset = 0xd0c, kFinishedOffset = 0x1364 };
+enum { Enum_ov012_02189264_4976 = 0x1340, Enum_ov012_02189264_4892 = 0x1300, Enum_ov012_02189264_4900 = 0x1308, Enum_ov012_02189264_3368 = 0xd0c, Enum_ov012_02189264_5020 = 0x1364 };
 #else
-enum { kStepOffset = 0x1370, kFirstResetOffset = 0x131c, kSecondResetOffset = 0x1324, kCardOffset = 0xd28, kFinishedOffset = 0x139c };
+enum { Enum_ov012_02189264_4976 = 0x1370, Enum_ov012_02189264_4892 = 0x131c, Enum_ov012_02189264_4900 = 0x1324, Enum_ov012_02189264_3368 = 0xd28, Enum_ov012_02189264_5020 = 0x139c };
 #endif
 
 #include <globaldefs.h>
@@ -10,30 +10,30 @@ enum { kStepOffset = 0x1370, kFirstResetOffset = 0x131c, kSecondResetOffset = 0x
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" void func_ov023_021e7340(void* arg);
-extern "C" void func_ov023_021e6594(void* self);
+extern "C" void func_ov023_021e7340(void* arg0);
+extern "C" void func_ov023_021e6594(void* arg0);
 extern "C" void* func_020d6c00(void);
-struct FlagWord020466f4;
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 
 // USA: func_ov012_02189264
-extern "C" ARM void func_ov012_02189264(char* self) {
-    GameResources* handle = GetGameResources();
-    unsigned char state = *(unsigned char*)(self + kStepOffset);
-    if (state == 0) {
-        SetSubBrightness(handle, ~0xf, 0xf);
-        (*(unsigned char*)(self + kStepOffset))++;
+extern "C" ARM void func_ov012_02189264(char* arg0) {
+    GameResources* var0 = GetGameResources();
+    unsigned char var1 = *(unsigned char*)(arg0 + Enum_ov012_02189264_4976);
+    if (var1 == 0) {
+        SetSubBrightness(var0, ~0xf, 0xf);
+        (*(unsigned char*)(arg0 + Enum_ov012_02189264_4976))++;
         return;
     }
-    if (state != 1) return;
-    if (IsSubBrightnessTransitionActive(handle) != 0) return;
+    if (var1 != 1) return;
+    if (IsSubBrightnessTransitionActive(var0) != 0) return;
 
-    *(int*)(self + kFirstResetOffset) = 0;
-    *(int*)(self + kSecondResetOffset) = 0;
-    func_ov023_021e7340(self + kCardOffset);
-    func_ov023_021e6594(self);
-    func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 0xf);
-    ClearFlags00(handle, 0x10);
-    *(int*)(self + kFinishedOffset) = 1;
-    *(unsigned char*)(self + kStepOffset) = 0;
+    *(int*)(arg0 + Enum_ov012_02189264_4892) = 0;
+    *(int*)(arg0 + Enum_ov012_02189264_4900) = 0;
+    func_ov023_021e7340(arg0 + Enum_ov012_02189264_3368);
+    func_ov023_021e6594(arg0);
+    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 0xf);
+    ClearFlags00(var0, 0x10);
+    *(int*)(arg0 + Enum_ov012_02189264_5020) = 1;
+    *(unsigned char*)(arg0 + Enum_ov012_02189264_4976) = 0;
 }

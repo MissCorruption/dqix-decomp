@@ -2,63 +2,63 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern AllocatorUnion data_02114e20;
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 
-struct ResetStruct0218eef0;
-extern "C" void func_ov015_0218eef0(struct ResetStruct0218eef0* s);
+struct Struct_ov015_0218eef0;
+extern "C" void func_ov015_0218eef0(struct Struct_ov015_0218eef0* arg0);
 
-struct Obj0218ef7c;
-struct SrcState0218ef7c;
-struct P0218ef7c;
-extern "C" int func_ov015_0218ef7c(struct Obj0218ef7c* obj, struct SrcState0218ef7c* src, struct P0218ef7c* p);
+struct Struct_ov015_0218ef7c_2;
+struct Struct_ov015_0218ef7c_3;
+struct Struct_ov015_0218ef7c;
+extern "C" int func_ov015_0218ef7c(struct Struct_ov015_0218ef7c_2* arg0, struct Struct_ov015_0218ef7c_3* arg1, struct Struct_ov015_0218ef7c* arg2);
 
-extern "C" int func_ov015_0218f27c(void* p, void* q);
-extern "C" void func_ov015_0218f0c4(void* p);
+extern "C" int func_ov015_0218f27c(void* arg0, void* arg1);
+extern "C" void func_ov015_0218f0c4(void* arg0);
 
-struct ListNode021919e4 { void* payload; struct ListNode021919e4* next; };
+struct Struct_ov015_021919e4 { void* unknown_0_; struct Struct_ov015_021919e4* unknown_4_; };
 
-struct Obj021919e4 {
-    char pad0[0x2c];
-    struct ListNode021919e4* list;
+struct Struct_ov015_021919e4_2 {
+    char unknown_0_[0x2c];
+    struct Struct_ov015_021919e4* unknown_2c_;
 };
 
 // USA: func_ov015_021919e4
-extern "C" ARM void* func_ov015_021919e4(struct Obj021919e4* obj, void* p1) {
-    struct ListNode021919e4* node = (struct ListNode021919e4*)func_02012d88(&data_02114e20, 8);
-    if (node == 0) {
+extern "C" ARM void* func_ov015_021919e4(struct Struct_ov015_021919e4_2* arg0, void* arg1) {
+    struct Struct_ov015_021919e4* var0 = (struct Struct_ov015_021919e4*)func_02012d88(&data_02114e20, 8);
+    if (var0 == 0) {
         return 0;
     }
-    node->payload = 0;
-    node->next = 0;
-    node->payload = func_02012d88(&data_02114e20, 0x5c);
-    if (node->payload == 0) {
-        func_02012da4(&data_02114e20, node);
+    var0->unknown_0_ = 0;
+    var0->unknown_4_ = 0;
+    var0->unknown_0_ = func_02012d88(&data_02114e20, 0x5c);
+    if (var0->unknown_0_ == 0) {
+        func_02012da4(&data_02114e20, var0);
         return 0;
     }
-    void* payload = node->payload;
+    void* var1 = var0->unknown_0_;
 
-    func_ov015_0218eef0((struct ResetStruct0218eef0*)payload);
-    int status = func_ov015_0218ef7c((struct Obj0218ef7c*)payload, (struct SrcState0218ef7c*)obj, (struct P0218ef7c*)p1);
-    if (status == 0) {
-        func_02012da4(&data_02114e20, node->payload);
-        node->payload = 0;
-        func_02012da4(&data_02114e20, node);
-        return 0;
-    }
-
-    if (!func_ov015_0218f27c(payload, p1)) {
-        func_ov015_0218f0c4(node->payload);
-        func_02012da4(&data_02114e20, node->payload);
-        node->payload = 0;
-        func_02012da4(&data_02114e20, node);
+    func_ov015_0218eef0((struct Struct_ov015_0218eef0*)var1);
+    int var2 = func_ov015_0218ef7c((struct Struct_ov015_0218ef7c_2*)var1, (struct Struct_ov015_0218ef7c_3*)arg0, (struct Struct_ov015_0218ef7c*)arg1);
+    if (var2 == 0) {
+        func_02012da4(&data_02114e20, var0->unknown_0_);
+        var0->unknown_0_ = 0;
+        func_02012da4(&data_02114e20, var0);
         return 0;
     }
 
-    struct ListNode021919e4** pp = &obj->list;
-    while (*pp != 0) {
-        pp = &(*pp)->next;
+    if (!func_ov015_0218f27c(var1, arg1)) {
+        func_ov015_0218f0c4(var0->unknown_0_);
+        func_02012da4(&data_02114e20, var0->unknown_0_);
+        var0->unknown_0_ = 0;
+        func_02012da4(&data_02114e20, var0);
+        return 0;
     }
-    *pp = node;
-    return node->payload;
+
+    struct Struct_ov015_021919e4** var3 = &arg0->unknown_2c_;
+    while (*var3 != 0) {
+        var3 = &(*var3)->unknown_4_;
+    }
+    *var3 = var0;
+    return var0->unknown_0_;
 }

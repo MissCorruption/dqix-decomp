@@ -1,71 +1,71 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct TableEntry_021d4ce4 {
-    int key;
-    int offset;
+struct Struct_ov017_021d4ce4_3 {
+    int unknown_0_;
+    int unknown_4_;
 };
-struct SearchTable_021d4ce4 {
-    int unk0;
-    int defaultOffset;
-    int unk8;
-    int entriesOffset;
-    int entryCount;
+struct Struct_ov017_021d4ce4 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
 };
-struct TypeEntry_021d4ce4 {
-    int field0;
-    int unk4;
-    int field8;
-    int fieldC;
+struct Struct_ov017_021d4ce4_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-extern "C" void func_ov017_021d4e38(void* obj, int arg1);
+extern "C" void func_ov017_021d4e38(void* arg0, int arg1);
 
 // USA: func_ov017_021d4ce4
-extern "C" ARM int func_ov017_021d4ce4(void* objRaw, int key) {
-    unsigned char* obj = (unsigned char*)objRaw;
-    if (*(struct SearchTable_021d4ce4**)(obj + 0x44) == NULL) {
+extern "C" ARM int func_ov017_021d4ce4(void* arg0, int arg1) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    if (*(struct Struct_ov017_021d4ce4**)(var0 + 0x44) == NULL) {
         return -1;
     }
 
-    *(int*)(obj + 0x14) = *(int*)(obj + 0x10);
-    *(int*)(obj + 0x28) = *(int*)(obj + 0x24);
-    *(struct TypeEntry_021d4ce4**)(obj + 0x34) = NULL;
+    *(int*)(var0 + 0x14) = *(int*)(var0 + 0x10);
+    *(int*)(var0 + 0x28) = *(int*)(var0 + 0x24);
+    *(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) = NULL;
 
-    if (key < 0) {
-        struct SearchTable_021d4ce4* table = *(struct SearchTable_021d4ce4**)(obj + 0x44);
-        *(struct TypeEntry_021d4ce4**)(obj + 0x34) = (struct TypeEntry_021d4ce4*)((char*)table + table->defaultOffset);
+    if (arg1 < 0) {
+        struct Struct_ov017_021d4ce4* var1 = *(struct Struct_ov017_021d4ce4**)(var0 + 0x44);
+        *(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) = (struct Struct_ov017_021d4ce4_2*)((char*)var1 + var1->unknown_4_);
     } else {
-        struct TableEntry_021d4ce4* entry;
-        int i;
-        struct SearchTable_021d4ce4* table = *(struct SearchTable_021d4ce4**)(obj + 0x44);
-        entry = (struct TableEntry_021d4ce4*)((char*)table + table->entriesOffset);
-        for (i = 0; i < table->entryCount; i++, entry++) {
-            if (entry->key == key) {
-                *(struct TypeEntry_021d4ce4**)(obj + 0x34) = (struct TypeEntry_021d4ce4*)((char*)table + entry->offset);
+        struct Struct_ov017_021d4ce4_3* var2;
+        int var3;
+        struct Struct_ov017_021d4ce4* var4 = *(struct Struct_ov017_021d4ce4**)(var0 + 0x44);
+        var2 = (struct Struct_ov017_021d4ce4_3*)((char*)var4 + var4->unknown_c_);
+        for (var3 = 0; var3 < var4->unknown_10_; var3++, var2++) {
+            if (var2->unknown_0_ == arg1) {
+                *(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) = (struct Struct_ov017_021d4ce4_2*)((char*)var4 + var2->unknown_4_);
                 break;
             }
         }
     }
 
-    if (*(struct TypeEntry_021d4ce4**)(obj + 0x34) == NULL) {
+    if (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) == NULL) {
         return -1;
     }
 
-    int newField30 = *(int*)(obj + 0x14) - (*(struct TypeEntry_021d4ce4**)(obj + 0x34))->fieldC * 8;
-    *(int*)(obj + 0x30) = newField30;
-    *(int*)(obj + 0x14) = newField30 + (*(struct TypeEntry_021d4ce4**)(obj + 0x34))->field8 * 8;
+    int var5 = *(int*)(var0 + 0x14) - (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_c_ * 8;
+    *(int*)(var0 + 0x30) = var5;
+    *(int*)(var0 + 0x14) = var5 + (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_8_ * 8;
 
-    int dst = *(int*)(obj + 0x30) + (*(struct TypeEntry_021d4ce4**)(obj + 0x34))->fieldC * 8;
-    int size = ((*(struct TypeEntry_021d4ce4**)(obj + 0x34))->field8 - (*(struct TypeEntry_021d4ce4**)(obj + 0x34))->fieldC) * 8;
-    memset((void*)dst, 0, size);
+    int var6 = *(int*)(var0 + 0x30) + (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_c_ * 8;
+    int var7 = ((*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_8_ - (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_c_) * 8;
+    memset((void*)var6, 0, var7);
 
-    int callArg = *(int*)(obj + 0x48) + (*(struct TypeEntry_021d4ce4**)(obj + 0x34))->field0;
-    *(int*)(obj + 0x3c) = 0;
-    *(int*)(obj + 0x40) = 0;
-    *(int*)(obj + 0x50) = 0;
+    int var8 = *(int*)(var0 + 0x48) + (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_0_;
+    *(int*)(var0 + 0x3c) = 0;
+    *(int*)(var0 + 0x40) = 0;
+    *(int*)(var0 + 0x50) = 0;
 
-    func_ov017_021d4e38(obj, callArg);
+    func_ov017_021d4e38(var0, var8);
 
-    return (*(int*)(obj + 0x3c) == 0) ? 1 : 0;
+    return (*(int*)(var0 + 0x3c) == 0) ? 1 : 0;
 }

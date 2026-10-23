@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 
-struct Words021e60c4 { unsigned int a, b, c; };
-extern "C" void func_ov023_021e60e0(void* obj, unsigned int val);
-extern "C" void func_ov023_021e6088(void* obj, Words021e60c4* src);
-extern "C" void func_ov023_021e613c(Words021e60c4* dst, char* src);
-extern "C" void func_ov023_021e6158(void* obj, int index);
+struct Struct_ov009_02188454 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
+extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void func_ov023_021e6088(void* arg0, Struct_ov009_02188454* arg1);
+extern "C" void func_ov023_021e613c(Struct_ov009_02188454* arg0, char* arg1);
+extern "C" void func_ov023_021e6158(void* arg0, int arg1);
 
-struct Obj021e447c {
+struct Struct_ov023_021e447c {
 #if defined(jpn)
-    char pad0[0x124];
+    char unknown_0_[0x124];
 #else
-    char pad0[0x128];
+    char unknown1_0_[0x128];
 #endif
-    void* f128;
-    void* f12c;
+    void* unknown_128_;
+    void* unknown_12c_;
 #if defined(jpn)
-    char pad1[0x56c - 0x12c];
+    char unknown1_12c_[0x56c - 0x12c];
 #else
-    char pad1[0x634 - 0x130];
+    char unknown_130_[0x634 - 0x130];
 #endif
-    unsigned short f634;
+    unsigned short unknown_634_;
 };
 
 // USA: func_ov023_021e447c
-extern "C" ARM void func_ov023_021e447c(Obj021e447c* obj) {
-    if (!(obj->f634 & 0x8)) return;
-    if (*(unsigned char*)((char*)obj->f12c + 0xc12) != 0) return;
-    if (obj->f634 & 0x40) {
-        func_ov023_021e60e0(obj->f128, 0x1eb);
-        func_ov023_021e60e0(obj->f12c, 0x1eb);
+extern "C" ARM void func_ov023_021e447c(Struct_ov023_021e447c* arg0) {
+    if (!(arg0->unknown_634_ & 0x8)) return;
+    if (*(unsigned char*)((char*)arg0->unknown_12c_ + 0xc12) != 0) return;
+    if (arg0->unknown_634_ & 0x40) {
+        func_ov023_021e60e0(arg0->unknown_128_, 0x1eb);
+        func_ov023_021e60e0(arg0->unknown_12c_, 0x1eb);
     } else {
-        Words021e60c4 tmp;
-        func_ov023_021e613c(&tmp, (char*)obj->f128);
-        func_ov023_021e6088(obj->f12c, &tmp);
+        Struct_ov009_02188454 var0;
+        func_ov023_021e613c(&var0, (char*)arg0->unknown_128_);
+        func_ov023_021e6088(arg0->unknown_12c_, &var0);
     }
-    void* t = obj->f128;
-    obj->f128 = obj->f12c;
-    obj->f12c = t;
-    func_ov023_021e6158(obj->f12c, 0);
-    func_ov023_021e6158(obj->f12c, 1);
-    func_ov023_021e6158(obj->f12c, 5);
-    func_ov023_021e6158(obj->f12c, 6);
-    func_ov023_021e6158(obj->f12c, 2);
-    func_ov023_021e6158(obj->f12c, 3);
-    func_ov023_021e6158(obj->f12c, 4);
-    obj->f634 &= ~0x8;
-    obj->f634 &= ~0x40;
+    void* var1 = arg0->unknown_128_;
+    arg0->unknown_128_ = arg0->unknown_12c_;
+    arg0->unknown_12c_ = var1;
+    func_ov023_021e6158(arg0->unknown_12c_, 0);
+    func_ov023_021e6158(arg0->unknown_12c_, 1);
+    func_ov023_021e6158(arg0->unknown_12c_, 5);
+    func_ov023_021e6158(arg0->unknown_12c_, 6);
+    func_ov023_021e6158(arg0->unknown_12c_, 2);
+    func_ov023_021e6158(arg0->unknown_12c_, 3);
+    func_ov023_021e6158(arg0->unknown_12c_, 4);
+    arg0->unknown_634_ &= ~0x8;
+    arg0->unknown_634_ &= ~0x40;
 }

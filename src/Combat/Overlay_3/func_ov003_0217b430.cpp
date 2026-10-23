@@ -8,269 +8,269 @@
 #define REGIONAL_OFFSET(jp, us) us
 #endif
 
-struct Obj2081;
-struct Cont0207fdf0;
-struct Obj0205eaa0;
-struct Obj0208203c;
-struct Container020dedd0;
-struct Obj02179e18;
-struct Obj021dcae0;
+struct Struct_0207fdcc_2;
+struct Struct_0207fdf0_2;
+struct Struct_02108760;
+struct Struct_02081f20_2;
+struct Struct_0201099c_10;
+struct Struct_ov003_02179e18;
+struct Struct_ov003_02178910;
 
-extern "C" void *func_02010828(GameState *gs);
+extern "C" void *func_02010828(GameState *arg0);
 
-extern "C" int func_ov003_02179f34(char *obj);
-extern "C" short func_02080468(void *obj, int id);
-extern "C" int func_ov003_02175f20(void *obj);
-extern "C" void func_ov003_02177dd4(void *obj);
-extern "C" void func_ov003_021769ec(void *obj);
-extern "C" void func_02081ea4(struct Obj2081 *obj, int id, int value);
-extern "C" void func_02080c68(void *obj, int id, int value);
-extern "C" void func_0208203c(struct Obj0208203c *obj);
-extern "C" void func_ov003_021748c4(unsigned char *self);
-extern "C" void func_ov003_0217a14c(void *p);
-extern "C" void func_ov023_021dcae0(struct Obj021dcae0 *obj, int val);
-extern "C" int func_ov003_021765b4(void *self);
-extern "C" void func_0205eaa0(struct Obj0205eaa0 *obj, int a, int b);
-struct Element020de650 {
-    char pad[8];
-    unsigned int word;
+extern "C" int func_ov003_02179f34(char *arg0);
+extern "C" short func_02080468(void *arg0, int arg1);
+extern "C" int func_ov003_02175f20(void *arg0);
+extern "C" void func_ov003_02177dd4(void *arg0);
+extern "C" void func_ov003_021769ec(void *arg0);
+extern "C" void func_02081ea4(struct Struct_0207fdcc_2 *arg0, int arg1, int arg2);
+extern "C" void func_02080c68(void *arg0, int arg1, int arg2);
+extern "C" void func_0208203c(struct Struct_02081f20_2 *arg0);
+extern "C" void func_ov003_021748c4(unsigned char *arg0);
+extern "C" void func_ov003_0217a14c(void *arg0);
+extern "C" void func_ov023_021dcae0(struct Struct_ov003_02178910 *arg0, int arg1);
+extern "C" int func_ov003_021765b4(void *arg0);
+extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
+struct Struct_0201099c_9 {
+    char unknown_0_[8];
+    unsigned int unknown_8_;
 };
-extern "C" struct Element020de650 *func_020dedd0(struct Container020dedd0 *c, int key);
-extern "C" void func_0207fdf0(struct Cont0207fdf0 *obj, int key);
-extern "C" int func_ov003_02179da8(void *obj, int flag);
-extern "C" int func_ov003_021766e8(void *self);
-extern "C" void func_ov003_02177208(char *obj);
-extern "C" void func_ov003_0217726c(char *obj);
-extern "C" int func_ov003_02178218(void *self);
-extern "C" int func_02081f20(void *obj, int scaleCount);
-extern "C" unsigned short func_ov003_0217b200(void **obj);
-extern "C" int func_0207c7a0(void *map, int value, int key);
-extern "C" unsigned int func_ov003_02179e18(struct Obj02179e18 *obj);
-extern "C" int func_ov003_021782a0(struct Obj2081 *obj);
-extern "C" void func_0207fdcc(struct Obj2081 *obj, int key);
-extern "C" void func_ov003_02176468(unsigned char *self);
-extern "C" int func_ov003_021764f4(unsigned char *self);
-extern "C" void func_ov003_02175d78(char *obj);
-extern "C" void func_ov003_02175df4(void *self);
+extern "C" struct Struct_0201099c_9 *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" void func_0207fdf0(struct Struct_0207fdf0_2 *arg0, int arg1);
+extern "C" int func_ov003_02179da8(void *arg0, int arg1);
+extern "C" int func_ov003_021766e8(void *arg0);
+extern "C" void func_ov003_02177208(char *arg0);
+extern "C" void func_ov003_0217726c(char *arg0);
+extern "C" int func_ov003_02178218(void *arg0);
+extern "C" int func_02081f20(void *arg0, int arg1);
+extern "C" unsigned short func_ov003_0217b200(void **arg0);
+extern "C" int func_0207c7a0(void *arg0, int arg1, int arg2);
+extern "C" unsigned int func_ov003_02179e18(struct Struct_ov003_02179e18 *arg0);
+extern "C" int func_ov003_021782a0(struct Struct_0207fdcc_2 *arg0);
+extern "C" void func_0207fdcc(struct Struct_0207fdcc_2 *arg0, int arg1);
+extern "C" void func_ov003_02176468(unsigned char *arg0);
+extern "C" int func_ov003_021764f4(unsigned char *arg0);
+extern "C" void func_ov003_02175d78(char *arg0);
+extern "C" void func_ov003_02175df4(void *arg0);
 
-extern struct Obj0205eaa0 data_02108760;
+extern struct Struct_02108760 data_02108760;
 
-static inline int ElemKind(struct Element020de650 *e) {
-    unsigned int w = e->word;
-    return (int) ((w << 18) >> 30);
+static inline int inline_ov003_0217b430(struct Struct_0201099c_9 *arg0) {
+    unsigned int var0 = arg0->unknown_8_;
+    return (int) ((var0 << 18) >> 30);
 }
 
 // USA: func_ov003_0217b430
-extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
-    GameState *battle = GameState::GetInstance();
-    char *battleSum   = (char *) func_02010828(battle);
-    void *elemObj     = *(void **) (self + REGIONAL_OFFSET(0x818, 0x89c));
-    int state         = *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f);
+extern "C" ARM void func_ov003_0217b430(unsigned char *arg0) {
+    GameState *var0 = GameState::GetInstance();
+    char *var1   = (char *) func_02010828(var0);
+    void *var2     = *(void **) (arg0 + REGIONAL_OFFSET(0x818, 0x89c));
+    int var3         = *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f);
 
-    if (state == 0) {
-        int cnt               = func_ov003_02179f34((char *) self);
-        unsigned short *flags = (unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46);
-        *flags                = (unsigned short) (*flags & ~0x400);
-        if (cnt > 5) {
-            *flags = (unsigned short) (*flags | 0x400);
+    if (var3 == 0) {
+        int var4               = func_ov003_02179f34((char *) arg0);
+        unsigned short *var5 = (unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46);
+        *var5                = (unsigned short) (*var5 & ~0x400);
+        if (var4 > 5) {
+            *var5 = (unsigned short) (*var5 | 0x400);
         }
-        *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)) = 0x1e;
-        if (*(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe) < 0) {
-            *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe) = func_02080468(elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)));
+        *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)) = 0x1e;
+        if (*(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe) < 0) {
+            *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe) = func_02080468(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)));
         }
-        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)         = (short) func_ov003_02175f20(self);
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = 1;
-        func_ov003_02177dd4(self);
-        func_ov003_021769ec(self);
-        func_02081ea4((struct Obj2081 *) elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
-        func_02080c68(elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
-        func_0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-        *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8))                 = 0;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 1;
-        func_ov003_021748c4(self);
+        *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)         = (short) func_ov003_02175f20(arg0);
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = 1;
+        func_ov003_02177dd4(arg0);
+        func_ov003_021769ec(arg0);
+        func_02081ea4((struct Struct_0207fdcc_2 *) var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
+        func_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
+        func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+        *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8))                 = 0;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 1;
+        func_ov003_021748c4(arg0);
         return;
     }
 
-    if (state == 1) {
-        short saved               = *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a);
-        *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8)) = self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe;
-        func_ov003_0217a14c(self);
-        func_ov023_021dcae0((struct Obj021dcae0 *) (self + 0x3c), *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
-        if (func_ov003_021765b4(self) != 0 && saved == *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)) {
+    if (var3 == 1) {
+        short var6               = *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a);
+        *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe;
+        func_ov003_0217a14c(arg0);
+        func_ov023_021dcae0((struct Struct_ov003_02178910 *) (arg0 + 0x3c), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
+        if (func_ov003_021765b4(arg0) != 0 && var6 == *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)) {
             func_0205eaa0(&data_02108760, 1, 0);
-            func_0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-            *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
-            *(void **) (self + 8) =
-                func_020dedd0((struct Container020dedd0 *) (self + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
-            if (*(void **) (self + 8) == 0) return;
-            *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x78, 0xfc)) = *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe));
-            func_02080c68(elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);
-            func_02080c68(elemObj, 4, 1);
-            func_02080c68(elemObj, 5, 1);
-            func_02080c68(elemObj, 6, 1);
-            func_02080c68(elemObj, 7, 1);
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 2;
-            if (ElemKind(*(struct Element020de650 **) (self + 8)) == 0) {
-                func_0207fdf0((struct Cont0207fdf0 *) elemObj, 0);
-                *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x12;
-                *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
-                unsigned short f                           = *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46);
+            func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
+            *(void **) (arg0 + 8) =
+                func_020dedd0((struct Struct_0201099c_10 *) (arg0 + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
+            if (*(void **) (arg0 + 8) == 0) return;
+            *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x78, 0xfc)) = *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe));
+            func_02080c68(var2, *(short *) (arg0 + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);
+            func_02080c68(var2, 4, 1);
+            func_02080c68(var2, 5, 1);
+            func_02080c68(var2, 6, 1);
+            func_02080c68(var2, 7, 1);
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 2;
+            if (inline_ov003_0217b430(*(struct Struct_0201099c_9 **) (arg0 + 8)) == 0) {
+                func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
+                *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x12;
+                *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
+                unsigned short var7                           = *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46);
 #if defined(jpn)
-                f = (unsigned short) (f | 0x20);
+                var7 = (unsigned short) (var7 | 0x20);
 #else
-                f                                          = (unsigned short) ((f | 0x20) & ~0x2000);
+                var7                                          = (unsigned short) ((var7 | 0x20) & ~0x2000);
 #endif
-                *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = f;
+                *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = var7;
                 return;
             }
-            int tier = func_ov003_02179da8(*(void **) (self + 8), 1);
-            switch (tier) {
+            int var8 = func_ov003_02179da8(*(void **) (arg0 + 8), 1);
+            switch (var8) {
                 case 1:
-                    func_0207fdf0((struct Cont0207fdf0 *) elemObj, 0);
-                    *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0xd;
-                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
-                    *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
-                        (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
-                    if (ElemKind(*(struct Element020de650 **) (self + 8)) != 2) return;
-                    *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
-                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
+                    func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
+                    *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0xd;
+                    *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
+                    *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
+                        (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
+                    if (inline_ov003_0217b430(*(struct Struct_0201099c_9 **) (arg0 + 8)) != 2) return;
+                    *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
+                    *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
                     return;
                 case 2:
-                    func_0207fdf0((struct Cont0207fdf0 *) elemObj, 0);
-                    *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x1c;
-                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e) = 1;
-                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
-                    *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
-                        (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
+                    func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
+                    *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x1c;
+                    *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e) = 1;
+                    *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
+                    *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
+                        (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
                     return;
                 default: return;
             }
         }
-        if (func_ov003_021766e8(self) == 0) return;
-        func_0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-        *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
-        func_0207fdf0((struct Cont0207fdf0 *) elemObj, 0);
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 1;
-        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
+        if (func_ov003_021766e8(arg0) == 0) return;
+        func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+        *(void **) (arg0 + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
+        func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 1;
+        *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
         return;
     }
 
-    if (state == 2) {
-        func_ov003_02177208((char *) self);
-        func_ov003_0217726c((char *) self);
-        func_0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 3;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
+    if (var3 == 2) {
+        func_ov003_02177208((char *) arg0);
+        func_ov003_0217726c((char *) arg0);
+        func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 3;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
         return;
     }
 
-    if (state == 3) {
-        int delta             = 0;
-        unsigned char counter = *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a);
-        if (counter < 5) {
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = (unsigned char) (counter + 1);
+    if (var3 == 3) {
+        int var9             = 0;
+        unsigned char var10 = *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a);
+        if (var10 < 5) {
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = (unsigned char) (var10 + 1);
         } else {
-            delta = func_ov003_02178218(self);
-            if (delta != 0) {
-                *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
+            var9 = func_ov003_02178218(arg0);
+            if (var9 != 0) {
+                *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
             }
         }
-        GameState *b2 = GameState::GetInstance();
-        int ticks     = (int) b2->GetTickCount();
-        int ratio     = func_02081f20(self + REGIONAL_OFFSET(0x808, 0x88c), ticks);
-        if ((unsigned short) (ratio + 0xffff) <= 1) {
-            unsigned short v = func_ov003_0217b200((void **) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-            if (v == 0x40)
-                delta = 1;
-            else if (v == 0x80)
-                delta = -1;
-            else if (v == 0x20)
-                delta = 0x63;
-            else if (v == 0x10)
-                delta = ~0x62;
+        GameState *var11 = GameState::GetInstance();
+        int var12     = (int) var11->GetTickCount();
+        int var13     = func_02081f20(arg0 + REGIONAL_OFFSET(0x808, 0x88c), var12);
+        if ((unsigned short) (var13 + 0xffff) <= 1) {
+            unsigned short var14 = func_ov003_0217b200((void **) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            if (var14 == 0x40)
+                var9 = 1;
+            else if (var14 == 0x80)
+                var9 = -1;
+            else if (var14 == 0x20)
+                var9 = 0x63;
+            else if (var14 == 0x10)
+                var9 = ~0x62;
         }
-        if (delta != 0) {
-            int newCap          = *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) + delta;
-            int keyed           = func_0207c7a0(battleSum + 0x1d4, *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a), 9);
-            unsigned int remain = func_ov003_02179e18(*(struct Obj02179e18 **) (self + 8));
-            if ((int) remain < keyed) keyed = (int) remain;
-            if (keyed < newCap) newCap = keyed;
-            if (newCap <= 1) newCap = 1;
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4b) = (*(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) < newCap) ? 1 : 0;
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4c) = (newCap < *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c)) ? 1 : 0;
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = (unsigned char) newCap;
-            func_ov003_02177208((char *) self);
-            func_ov003_0217726c((char *) self);
+        if (var9 != 0) {
+            int var15          = *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) + var9;
+            int var16           = func_0207c7a0(var1 + 0x1d4, *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a), 9);
+            unsigned int var17 = func_ov003_02179e18(*(struct Struct_ov003_02179e18 **) (arg0 + 8));
+            if ((int) var17 < var16) var16 = (int) var17;
+            if (var16 < var15) var15 = var16;
+            if (var15 <= 1) var15 = 1;
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4b) = (*(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) < var15) ? 1 : 0;
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4c) = (var15 < *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c)) ? 1 : 0;
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = (unsigned char) var15;
+            func_ov003_02177208((char *) arg0);
+            func_ov003_0217726c((char *) arg0);
         }
-        int hit = func_ov003_021782a0((struct Obj2081 *) self);
-        if (g_keyManager.TestKeysPressed(0x401) != 0 || hit == 1) {
+        int var18 = func_ov003_021782a0((struct Struct_0207fdcc_2 *) arg0);
+        if (g_keyManager.TestKeysPressed(0x401) != 0 || var18 == 1) {
             func_0205eaa0(&data_02108760, 1, 0);
-            func_0207fdf0((struct Cont0207fdf0 *) elemObj, 0);
-            *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0xd;
-            if (*(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) > 1) {
-                *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0x20;
+            func_0207fdf0((struct Struct_0207fdf0_2 *) var2, 0);
+            *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0xd;
+            if (*(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) > 1) {
+                *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0x20;
             }
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
-            *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
-                (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
-            func_0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-            if (ElemKind(*(struct Element020de650 **) (self + 8)) != 2) return;
-            *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
+            *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
+                (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
+            func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            if (inline_ov003_0217b430(*(struct Struct_0201099c_9 **) (arg0 + 8)) != 2) return;
+            *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
             return;
         }
-        if (g_keyManager.TestKeysPressed(2) != 0 || hit == -1) {
-            func_0207fdcc((struct Obj2081 *) elemObj, 9);
-            func_0207fdcc((struct Obj2081 *) elemObj, 0xa);
-            func_0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
-            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
+        if (g_keyManager.TestKeysPressed(2) != 0 || var18 == -1) {
+            func_0207fdcc((struct Struct_0207fdcc_2 *) var2, 9);
+            func_0207fdcc((struct Struct_0207fdcc_2 *) var2, 0xa);
+            func_0208203c((struct Struct_02081f20_2 *) (arg0 + REGIONAL_OFFSET(0x808, 0x88c)));
+            *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
         }
         return;
     }
 
-    if (state == 4) {
-        func_ov003_02176468(self);
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 5;
+    if (var3 == 4) {
+        func_ov003_02176468(arg0);
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 5;
         return;
     }
 
-    if (state == 5) {
-        int res = func_ov003_021764f4(self);
-        if (res == -1) goto fail5;
-        if (res != 1) return;
-        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x10;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
+    if (var3 == 5) {
+        int var19 = func_ov003_021764f4(arg0);
+        if (var19 == -1) goto fail5;
+        if (var19 != 1) return;
+        *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x10;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
         return;
     fail5:
-        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x30;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
-        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
+        *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x30;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
+        *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
         return;
     }
 
-    if (state == 6) {
-        func_ov003_02176468(self);
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 7;
+    if (var3 == 6) {
+        func_ov003_02176468(arg0);
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 7;
         return;
     }
 
-    if (state == 7) {
-        int res = func_ov003_021764f4(self);
-        if (res == -1) goto fail7;
-        if (res != 1) return;
-        func_ov003_02175d78((char *) self);
-        func_ov003_02175df4(self);
-        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0xe;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 1;
-        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
+    if (var3 == 7) {
+        int var20 = func_ov003_021764f4(arg0);
+        if (var20 == -1) goto fail7;
+        if (var20 != 1) return;
+        func_ov003_02175d78((char *) arg0);
+        func_ov003_02175df4(arg0);
+        *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0xe;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 1;
+        *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
         return;
     fail7:
-        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x30;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 8;
-        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
-        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
+        *(short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x30;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 8;
+        *(unsigned char *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
+        *(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (arg0 + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
         return;
     }
 }

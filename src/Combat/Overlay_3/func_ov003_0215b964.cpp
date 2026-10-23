@@ -3,47 +3,47 @@
 #include "Resource/CharacterCreationUI.h"
 #include "std_library_functions.h"
 
-struct StoreStruct { void* object; };
-struct Status0215b964 { unsigned int flags; unsigned short currentHP; };
-struct Combatant0215b964 {
-    unsigned char padding_0[4];
-    short id;
-    unsigned char padding_6[0x12a];
-    Status0215b964* status;
-    BaseCombatStats* baseStats;
+struct Struct_020465c0 { void* unknown_0_; };
+struct Struct_ov003_0215b964 { unsigned int unknown_0_; unsigned short unknown_4_; };
+struct Struct_ov003_0215b964_2 {
+    unsigned char unknown_0_[4];
+    short unknown_4_;
+    unsigned char unknown_6_[0x12a];
+    Struct_ov003_0215b964* unknown_130_;
+    BaseCombatStats* unknown_134_;
 };
-struct Detail0215b964 {
-    unsigned char padding_0[0x16c];
-    unsigned short values[13];
+struct Struct_ov003_0215b964_3 {
+    unsigned char unknown_0_[0x16c];
+    unsigned short unknown_16c_[13];
 #if defined(jpn)
-    unsigned char paddingAfterValues[0x8b8 - 0x186];
+    unsigned char unknown_186_[0x8b8 - 0x186];
 #else
-    unsigned char paddingAfterValues[0x950 - 0x186];
+    unsigned char unknown1_186_[0x950 - 0x186];
 #endif
-    int selected;
+    int unknown_950_;
 };
-struct TextBuffers0215b964 {
-    char padding_0[0x8e0];
-    char formatted[0x40];
-    char input[0x40];
+struct Struct_ov003_0215b964_4 {
+    char unknown_0_[0x8e0];
+    char unknown_8e0_[0x40];
+    char unknown_920_[0x40];
 };
-struct PartyMenu0215b964 {
-    unsigned char padding_0[0x64];
-    Container020e0310 texts;
+struct Struct_ov003_0215b964_5 {
+    unsigned char unknown_0_[0x64];
+    Struct_0201099c_3 unknown_64_;
 #if defined(jpn)
-    unsigned char paddingAfterTexts[0x585 - 0x64 - sizeof(Container020e0310)];
+    unsigned char unknown1_6c_[0x585 - 0x64 - sizeof(Struct_0201099c_3)];
 #else
-    unsigned char padding_6c[0x10];
-    TextBuffers0215b964* buffers;
-    unsigned char padding_80[0x505];
+    unsigned char unknown_6c_[0x10];
+    Struct_ov003_0215b964_4* unknown_7c_;
+    unsigned char unknown_80_[0x505];
 #endif
-    signed char cursor;
-    unsigned char padding_586[0xa];
-    unsigned char count;
-    unsigned char combatants[1];
+    signed char unknown_585_;
+    unsigned char unknown_586_[0xa];
+    unsigned char unknown_590_;
+    unsigned char unknown_591_[1];
 };
 extern "C" int func_020421a0();
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02053c6c(unsigned char*);
 #if defined(jpn)
 extern "C" int func_02042638(char*, int, int);
@@ -60,7 +60,7 @@ extern "C" int func_02041b70(char*, int, const char*);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" void func_02046380(void*);
 extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" int func_020e51cc(int);
@@ -73,108 +73,108 @@ extern "C" void func_020474a8(void*, int, char*, char*);
 
 // JPN: func_ov003_0215b964 (0215cd60)
 // USA: func_ov003_0215b964
-extern "C" ARM void func_ov003_0215b964(PartyMenu0215b964* menu, char* output, int showFrame) {
+extern "C" ARM void func_ov003_0215b964(Struct_ov003_0215b964_5* arg0, char* arg1, int arg2) {
 #if !defined(jpn)
-    TextBuffers0215b964* buffers;
+    Struct_ov003_0215b964_4* var0;
 #endif
-    if (!output) return;
-    StoreStruct* formatter = (StoreStruct*)func_020421a0();
-    int cursor = menu->cursor;
+    if (!arg1) return;
+    Struct_020465c0* var1 = (Struct_020465c0*)func_020421a0();
+    int var2 = arg0->unknown_585_;
 #if !defined(jpn)
-    buffers = menu->buffers;
+    var0 = arg0->unknown_7c_;
 #endif
-    if (cursor == -1) {
+    if (var2 == -1) {
 #if defined(jpn)
-        func_02042638(output, func_020e0434(&menu->texts, 10), 14);
+        func_02042638(arg1, func_020e0434(&arg0->unknown_64_, 10), 14);
 #else
-        func_02041fac(output, func_020e0434(&menu->texts, 10), 14);
+        func_02041fac(arg1, func_020e0434(&arg0->unknown_64_, 10), 14);
 #endif
     } else {
 #if defined(jpn)
-        func_02042638(output, func_020e0434(&menu->texts, 11), 14);
+        func_02042638(arg1, func_020e0434(&arg0->unknown_64_, 11), 14);
 #else
-        func_02041fac(output, func_020e0434(&menu->texts, 11), 14);
+        func_02041fac(arg1, func_020e0434(&arg0->unknown_64_, 11), 14);
 #endif
-        if (showFrame) func_02041c08(output, cursor, 8, 5, 5, 5);
-        func_02041ea4(output, cursor);
+        if (arg2) func_02041c08(arg1, var2, 8, 5, 5, 5);
+        func_02041ea4(arg1, var2);
     }
-    GameState* game = GameState::GetInstance();
-    for (int index = 0; index < menu->count; ++index) {
-        Combatant0215b964* combatant = (Combatant0215b964*)func_0200ff1c(game, menu->combatants[index]);
-        Detail0215b964* detail = (Detail0215b964*)func_02053c6c((unsigned char*)combatant);
-        float ratio;
-        int maximumHP;
-        Status0215b964* status = combatant->status;
-        unsigned int flags = status->flags;
-        maximumHP = combatant->baseStats->primaryStats.maxHP;
-        if (0.0f == (float)maximumHP) ratio = 0.0f;
+    GameState* var3 = GameState::GetInstance();
+    for (int var4 = 0; var4 < arg0->unknown_590_; ++var4) {
+        Struct_ov003_0215b964_2* var5 = (Struct_ov003_0215b964_2*)func_0200ff1c(var3, arg0->unknown_591_[var4]);
+        Struct_ov003_0215b964_3* var6 = (Struct_ov003_0215b964_3*)func_02053c6c((unsigned char*)var5);
+        float var7;
+        int var8;
+        Struct_ov003_0215b964* var9 = var5->unknown_130_;
+        unsigned int var10 = var9->unknown_0_;
+        var8 = var5->unknown_134_->primaryStats.maxHP;
+        if (0.0f == (float)var8) var7 = 0.0f;
         else {
-            float currentHP = (float)(int)status->currentHP;
-            ratio = currentHP / (float)maximumHP;
+            float var11 = (float)(int)var9->unknown_4_;
+            var7 = var11 / (float)var8;
         }
-        if (flags & 1) func_02041e70(output, 9);
-        else if (ratio <= 0.08f) func_02041e70(output, 11);
-        else if (ratio <= 0.25f) func_02041e70(output, 13);
-        else func_02041e70(output, 15);
+        if (var10 & 1) func_02041e70(arg1, 9);
+        else if (var7 <= 0.08f) func_02041e70(arg1, 11);
+        else if (var7 <= 0.25f) func_02041e70(arg1, 13);
+        else func_02041e70(arg1, 15);
 #if defined(jpn)
-        func_02041a28(output, 12);
+        func_02041a28(arg1, 12);
 #else
-        func_02041a90(output, 12, index * 14 + 20);
+        func_02041a90(arg1, 12, var4 * 14 + 20);
 #endif
-        const char* name;
-        if (cursor == -1) {
-            name = combatant->baseStats->unk;
-            func_02042058(output, name);
+        const char* var12;
+        if (var2 == -1) {
+            var12 = var5->unknown_134_->unk;
+            func_02042058(arg1, var12);
         } else {
-            name = combatant->baseStats->unk;
-            func_02041b70(output, index, name);
+            var12 = var5->unknown_134_->unk;
+            func_02041b70(arg1, var4, var12);
         }
 #if defined(jpn)
-        if (combatant->status->flags & 1)
-            func_02042058(output, ((const char*)(func_020e0434(&menu->texts, 13))));
-        else if (flags & 2)
-            func_02042058(output, ((const char*)(func_020e0434(&menu->texts, 14))));
-        else if (flags & 4)
-            func_02042058(output, ((const char*)(func_020e0434(&menu->texts, 15))));
-        if (!(combatant->status->flags & 1) && !(flags & 6)) {
-            func_02046380(formatter);
-            func_020465c0(formatter, 0, detail->values[detail->selected]);
-            func_020465f0(((unsigned char*)(formatter)), 0, 2);
-            func_020465d8(((unsigned char*)(formatter)), 0, 1);
-            char formatted[0x40];
-            __clear(formatted, sizeof(formatted));
-            func_020474a8(formatter, 10, ((char*)(func_020e0434(&menu->texts, 12))), formatted);
-            func_02042058(output, formatted);
+        if (var5->unknown_130_->unknown_0_ & 1)
+            func_02042058(arg1, ((const char*)(func_020e0434(&arg0->unknown_64_, 13))));
+        else if (var10 & 2)
+            func_02042058(arg1, ((const char*)(func_020e0434(&arg0->unknown_64_, 14))));
+        else if (var10 & 4)
+            func_02042058(arg1, ((const char*)(func_020e0434(&arg0->unknown_64_, 15))));
+        if (!(var5->unknown_130_->unknown_0_ & 1) && !(var10 & 6)) {
+            func_02046380(var1);
+            func_020465c0(var1, 0, var6->unknown_16c_[var6->unknown_950_]);
+            func_020465f0(((unsigned char*)(var1)), 0, 2);
+            func_020465d8(((unsigned char*)(var1)), 0, 1);
+            char var13[0x40];
+            __clear(var13, sizeof(var13));
+            func_020474a8(var1, 10, ((char*)(func_020e0434(&arg0->unknown_64_, 12))), var13);
+            func_02042058(arg1, var13);
         }
-        if (index != menu->count - 1) func_02042058(output, data_ov003_0217fe7f);
+        if (var4 != arg0->unknown_590_ - 1) func_02042058(arg1, data_ov003_0217fe7f);
 #else
-        memset(buffers->formatted, 0, 0x40);
-        memset(buffers->input, 0, 0x40);
-        func_02041a28(buffers->input, 0x40);
-        if (combatant->status->flags & 1)
-            func_02042058(buffers->input, (const char*)func_020e0434(&menu->texts, 13));
-        else if (flags & 2)
-            func_02042058(buffers->input, (const char*)func_020e0434(&menu->texts, 14));
-        else if (flags & 4)
-            func_02042058(buffers->input, (const char*)func_020e0434(&menu->texts, 15));
-        unsigned int descriptor[3];
-        func_020e4bf4(descriptor, combatant->id);
-        func_02046380(formatter);
-        formatter->object = descriptor;
-        func_02046608(formatter, 10, buffers->input, buffers->formatted, 0x100, 0, 0);
-        func_02042058(output, buffers->formatted);
-        if (!(combatant->status->flags & 1) && !(flags & 6)) {
-            func_02046380(formatter);
-            func_020465c0(formatter, 0, detail->values[detail->selected]);
-            func_020465f0((unsigned char*)formatter, 0, 2);
-            func_020465d8((unsigned char*)formatter, 0, 1);
-            memset(buffers->formatted, 0, 0x40);
-            memset(buffers->input, 0, 0x40);
-            func_02041a28(buffers->input, 0x40);
-            func_02042058(buffers->input, (const char*)func_020e51cc(0x3f3));
-            func_02042058(buffers->input, (const char*)func_020e0434(&menu->texts, 12));
-            func_02046608(formatter, 10, buffers->input, buffers->formatted, 0x100, 0, 0);
-            func_02042058(output, buffers->formatted);
+        memset(var0->unknown_8e0_, 0, 0x40);
+        memset(var0->unknown_920_, 0, 0x40);
+        func_02041a28(var0->unknown_920_, 0x40);
+        if (var5->unknown_130_->unknown_0_ & 1)
+            func_02042058(var0->unknown_920_, (const char*)func_020e0434(&arg0->unknown_64_, 13));
+        else if (var10 & 2)
+            func_02042058(var0->unknown_920_, (const char*)func_020e0434(&arg0->unknown_64_, 14));
+        else if (var10 & 4)
+            func_02042058(var0->unknown_920_, (const char*)func_020e0434(&arg0->unknown_64_, 15));
+        unsigned int var14[3];
+        func_020e4bf4(var14, var5->unknown_4_);
+        func_02046380(var1);
+        var1->unknown_0_ = var14;
+        func_02046608(var1, 10, var0->unknown_920_, var0->unknown_8e0_, 0x100, 0, 0);
+        func_02042058(arg1, var0->unknown_8e0_);
+        if (!(var5->unknown_130_->unknown_0_ & 1) && !(var10 & 6)) {
+            func_02046380(var1);
+            func_020465c0(var1, 0, var6->unknown_16c_[var6->unknown_950_]);
+            func_020465f0((unsigned char*)var1, 0, 2);
+            func_020465d8((unsigned char*)var1, 0, 1);
+            memset(var0->unknown_8e0_, 0, 0x40);
+            memset(var0->unknown_920_, 0, 0x40);
+            func_02041a28(var0->unknown_920_, 0x40);
+            func_02042058(var0->unknown_920_, (const char*)func_020e51cc(0x3f3));
+            func_02042058(var0->unknown_920_, (const char*)func_020e0434(&arg0->unknown_64_, 12));
+            func_02046608(var1, 10, var0->unknown_920_, var0->unknown_8e0_, 0x100, 0, 0);
+            func_02042058(arg1, var0->unknown_8e0_);
         }
 #endif
     }

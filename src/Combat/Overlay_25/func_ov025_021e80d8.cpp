@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kGlobalHolderInnerOffset = 0x4 };
+enum { Enum_ov025_021e80d8_12 = 0x4 };
 #else
-enum { kGlobalHolderInnerOffset = 0xc };
+enum { Enum_ov025_021e80d8_12 = 0xc };
 #endif
 
-struct Holder021e80d8 {
-    char pad0[kGlobalHolderInnerOffset];
-    unsigned char* inner;
+struct Struct_ov025_021ef988_32 {
+    char unknown_0_[Enum_ov025_021e80d8_12];
+    unsigned char* unknown_c_;
 };
 
-extern struct Holder021e80d8 data_ov025_021ef988;
-extern "C" void func_ov025_021ed344(unsigned char* obj, int val);
+extern struct Struct_ov025_021ef988_32 data_ov025_021ef988;
+extern "C" void func_ov025_021ed344(unsigned char* arg0, int arg1);
 
 // USA: func_ov025_021e80d8
-extern "C" ARM int func_ov025_021e80d8(unsigned short* in) {
-    func_ov025_021ed344(data_ov025_021ef988.inner + 0x5e8, in[4]);
+extern "C" ARM int func_ov025_021e80d8(unsigned short* arg0) {
+    func_ov025_021ed344(data_ov025_021ef988.unknown_c_ + 0x5e8, arg0[4]);
     return 1;
 }

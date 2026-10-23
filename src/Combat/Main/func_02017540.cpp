@@ -4,61 +4,61 @@
 
 extern Vector3i data_020e6e2c;
 extern Vector3i data_020e6e38;
-extern "C" void func_02016d8c(void* rotation);
+extern "C" void func_02016d8c(void* arg0);
 
 // USA: func_02017540
-extern "C" ARM void func_02017540(Zone3D* zone) {
-    if (zone->chestRenderingEnabled_274c_ == 0) return;
-    NSBXXInternalModel* models[3] = {};
-    models[0] = zone->models_498_[0].rawInternalModel_;
-    models[1] = zone->models_498_[1].rawInternalModel_;
-    NSBXXTex* textures[3] = {};
-    textures[0] = zone->models_498_[0].GetTEX0();
-    textures[1] = zone->models_498_[1].GetTEX0();
-    Vector3i scale = data_020e6e2c;
-    RenderConfig::SetObjectScale(&scale);
-    int* palette = zone->chestPaletteOffsets_5f0_;
-    for (int pass = 0; pass < 2; pass++) {
-        NSBXXTex** texture;
-        NSBXXInternalModel** model;
-        model = models;
-        texture = textures;
-        while (*texture != NULL && *model != NULL) {
-            int offset = *palette;
-            palette++;
-            NSBXX_Tex_WritePaletteVRAMOffset(*texture, offset);
-            NSBXX_DetachTexturePaletteFromModel(*model);
-            NSBXXInternalModel* currentModel = *model++;
-            NSBXXTex* currentTexture = *texture++;
-            NSBXX_AttachTexturePaletteToModel(currentModel, currentTexture);
+extern "C" ARM void func_02017540(Zone3D* arg0) {
+    if (arg0->unknown_274c_ == 0) return;
+    NSBXXInternalModel* var0[3] = {};
+    var0[0] = arg0->models_498_[0].rawInternalModel_;
+    var0[1] = arg0->models_498_[1].rawInternalModel_;
+    NSBXXTex* var1[3] = {};
+    var1[0] = arg0->models_498_[0].GetTEX0();
+    var1[1] = arg0->models_498_[1].GetTEX0();
+    Vector3i var2 = data_020e6e2c;
+    RenderConfig::SetObjectScale(&var2);
+    int* var3 = arg0->unknown_5f0_;
+    for (int var4 = 0; var4 < 2; var4++) {
+        NSBXXTex** var5;
+        NSBXXInternalModel** var6;
+        var6 = var0;
+        var5 = var1;
+        while (*var5 != NULL && *var6 != NULL) {
+            int var7 = *var3;
+            var3++;
+            NSBXX_Tex_WritePaletteVRAMOffset(*var5, var7);
+            NSBXX_DetachTexturePaletteFromModel(*var6);
+            NSBXXInternalModel* var8 = *var6++;
+            NSBXXTex* var9 = *var5++;
+            NSBXX_AttachTexturePaletteToModel(var8, var9);
         }
-        ZoneChestRenderRecord* record = zone->unknown_47c_;
-        for (int i = 0; i < zone->numChests_; record++, i++) {
-            if (record->active != 0 && ((pass == 0 && record->secondPass == 0) || (pass == 1 && record->secondPass != 0))) {
-                Vector3i position = record->position;
-                short angleY = record->angleY;
-                short angleX = record->angleX;
-                RenderConfig::SetObjectPosition(&position);
-                Matrix3x3 rotationY;
-                fix32_t cosineY = fix32cos(angleY);
-                fix32_t sineY = fix32sin(angleY);
-                Mat3x3_WriteRotationY(&rotationY, sineY, cosineY);
-                func_02016d8c(&rotationY);
+        Struct_020133fc* var10 = arg0->unknown_47c_;
+        for (int var11 = 0; var11 < arg0->numChests_; var10++, var11++) {
+            if (var10->unknown_16_ != 0 && ((var4 == 0 && var10->unknown_17_ == 0) || (var4 == 1 && var10->unknown_17_ != 0))) {
+                Vector3i var12 = var10->unknown_0_;
+                short var13 = var10->unknown_c_;
+                short var14 = var10->unknown_e_;
+                RenderConfig::SetObjectPosition(&var12);
+                Matrix3x3 var15;
+                fix32_t var16 = fix32cos(var13);
+                fix32_t var17 = fix32sin(var13);
+                Mat3x3_WriteRotationY(&var15, var17, var16);
+                func_02016d8c(&var15);
                 RenderConfig::SubmitToFifo();
-                zone->models_498_[0].DrawMeshWithMaterial(true, 0, 0, 1);
-                Vector3i offset = data_020e6e38;
-                Mat3x3_ApplyToVector(&offset, &rotationY, &offset);
-                Vector3fix_Add(&position, &offset, &position);
-                RenderConfig::SetObjectPosition(&position);
-                Matrix3x3 rotationX;
-                fix32_t cosineX = fix32cos(angleX);
-                fix32_t sineX = fix32sin(angleX);
-                Mat3x3_WriteRotationX(&rotationX, sineX, cosineX);
-                Matrix3x3 rotation;
-                Mat3x3_Multiply(&rotationX, &rotationY, &rotation);
-                func_02016d8c(&rotation);
+                arg0->models_498_[0].DrawMeshWithMaterial(true, 0, 0, 1);
+                Vector3i var18 = data_020e6e38;
+                Mat3x3_ApplyToVector(&var18, &var15, &var18);
+                Vector3fix_Add(&var12, &var18, &var12);
+                RenderConfig::SetObjectPosition(&var12);
+                Matrix3x3 var19;
+                fix32_t var20 = fix32cos(var14);
+                fix32_t var21 = fix32sin(var14);
+                Mat3x3_WriteRotationX(&var19, var21, var20);
+                Matrix3x3 var22;
+                Mat3x3_Multiply(&var19, &var15, &var22);
+                func_02016d8c(&var22);
                 RenderConfig::SubmitToFifo();
-                zone->models_498_[1].DrawMeshWithMaterial(true, 0, 0, 1);
+                arg0->models_498_[1].DrawMeshWithMaterial(true, 0, 0, 1);
             }
         }
     }

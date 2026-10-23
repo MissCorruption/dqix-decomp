@@ -3,63 +3,63 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
-struct Struct02030b7c;
-struct Variant02030b0c;
-extern "C" int func_020d2ff0(const char* s);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+struct Struct_0201c3a4;
+struct Struct_0201c1c8;
+extern "C" int func_020d2ff0(const char* arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 
-struct Entry0218b9d4 {
-    int a;
-    int b;
-    unsigned short c;
-    unsigned char d;
-    unsigned char e;
+struct Struct_ov015_0218b5c8 {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
 };
-struct List0218b9d4 {
-    Entry0218b9d4* arr;
-    int pad4;
-    int count;
+struct Struct_ov015_0218b9d4 {
+    Struct_ov015_0218b5c8* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
-extern "C" void func_ov015_0218b9d4(struct List0218b9d4* list, struct Entry0218b9d4* src);
+extern "C" void func_ov015_0218b9d4(struct Struct_ov015_0218b9d4* arg0, struct Struct_ov015_0218b5c8* arg1);
 
 extern AllocatorUnion data_02114e20;
-extern struct List0218b9d4* data_ov015_02194560;
+extern struct Struct_ov015_0218b9d4* data_ov015_02194560;
 
 // USA: func_ov015_0218b5c8
-extern "C" ARM int func_ov015_0218b5c8(char* obj) {
-    char* n1 = (char*)(void*)((Script::Parameter*)((struct Struct02030b7c*)obj))->ToString();
-    char* n2 = (char*)(void*)((Script::Parameter*)((struct Struct02030b7c*)(obj + 8)))->ToString();
-    int v1 = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 0x10)))->ToInt();
-    int v2 = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 0x18)))->ToInt();
-    int v3 = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 0x20)))->ToInt();
+extern "C" ARM int func_ov015_0218b5c8(char* arg0) {
+    char* var0 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c3a4*)arg0))->ToString();
+    char* var1 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c3a4*)(arg0 + 8)))->ToString();
+    int var2 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x10)))->ToInt();
+    int var3 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x18)))->ToInt();
+    int var4 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x20)))->ToInt();
 
-    struct Entry0218b9d4 entry;
-    entry.a = 0;
-    entry.b = 0;
-    entry.c = 0;
-    entry.d = 0;
-    entry.e = 0;
+    struct Struct_ov015_0218b5c8 var5;
+    var5.unknown_0_ = 0;
+    var5.unknown_4_ = 0;
+    var5.unknown_8_ = 0;
+    var5.unknown_a_ = 0;
+    var5.unknown_b_ = 0;
 
-    if (n1 != 0) {
-        int len = func_020d2ff0(n1);
-        char* buf = (char*)func_02012d88(&data_02114e20, len + 1);
-        entry.a = (int)buf;
-        if (buf != 0) {
-            strcpy(buf, n1);
+    if (var0 != 0) {
+        int var6 = func_020d2ff0(var0);
+        char* var7 = (char*)func_02012d88(&data_02114e20, var6 + 1);
+        var5.unknown_0_ = (int)var7;
+        if (var7 != 0) {
+            strcpy(var7, var0);
         }
     }
-    if (n2 != 0) {
-        int len = func_020d2ff0(n2);
-        char* buf = (char*)func_02012d88(&data_02114e20, len + 1);
-        entry.b = (int)buf;
-        if (buf != 0) {
-            strcpy(buf, n2);
+    if (var1 != 0) {
+        int var8 = func_020d2ff0(var1);
+        char* var9 = (char*)func_02012d88(&data_02114e20, var8 + 1);
+        var5.unknown_4_ = (int)var9;
+        if (var9 != 0) {
+            strcpy(var9, var1);
         }
     }
 
-    entry.c = (unsigned short)v1;
-    entry.d = (unsigned char)v2;
-    entry.e = (unsigned char)v3;
-    func_ov015_0218b9d4(data_ov015_02194560, &entry);
+    var5.unknown_8_ = (unsigned short)var2;
+    var5.unknown_a_ = (unsigned char)var3;
+    var5.unknown_b_ = (unsigned char)var4;
+    func_ov015_0218b9d4(data_ov015_02194560, &var5);
     return 1;
 }

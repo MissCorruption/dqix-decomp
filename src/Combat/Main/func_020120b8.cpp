@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
 // USA: func_020120b8
-extern "C" ARM int* func_020120b8(char* obj, int index) {
+extern "C" ARM int* func_020120b8(char* arg0, int arg1) {
 #if defined(jpn)
-    int* arr = (int*)(obj + 0x5a7c);
+    int* var0 = (int*)(arg0 + 0x5a7c);
 #else
-    int* arr = (int*)(obj + 0x5cdc);
+    int* var0 = (int*)(arg0 + 0x5cdc);
 #endif
-    int* p = &arr[index];
-    if (((unsigned int)*p >> 31) == 0) {
-        p = 0;
+    int* var1 = &var0[arg1];
+    if (((unsigned int)*var1 >> 31) == 0) {
+        var1 = 0;
     }
-    return p;
+    return var1;
 }

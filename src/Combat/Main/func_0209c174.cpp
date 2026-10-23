@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 
-extern "C" void func_0203a914(void* obj);
-extern "C" void func_020bc078(int* field);
-extern "C" void func_0209c2e0(void* obj, int a, int b);
-extern "C" void func_0209ca70(void* obj, int val);
+extern "C" void func_0203a914(void* arg0);
+extern "C" void func_020bc078(int* arg0);
+extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+extern "C" void func_0209ca70(void* arg0, int arg1);
 
-struct Actor0209c174 {
-    char pad0[0xb0];
-    int state;               // 0xb0
-    int field_b4;             // 0xb4
-    short field_b8;             // 0xb8
-    short field_ba;               // 0xba
-    void* fieldBC;                 // 0xbc
-    void* fieldC0;                   // 0xc0
-    void* fieldC4;                     // 0xc4
-    unsigned char field_c8;              // 0xc8
-    unsigned char field_c9;                // 0xc9
-    short field_ca;                          // 0xca
-    unsigned char field_cc;                    // 0xcc
-    unsigned char field_cd;                      // 0xcd
-    short field_ce;                                // 0xce
+struct Struct_02000c9c_16 {
+    char unknown_0_[0xb0];
+    int unknown_b0_;               // 0xb0
+    int unknown_b4_;             // 0xb4
+    short unknown_b8_;             // 0xb8
+    short unknown_ba_;               // 0xba
+    void* unknown_bc_;                 // 0xbc
+    void* unknown_c0_;                   // 0xc0
+    void* unknown_c4_;                     // 0xc4
+    unsigned char unknown_c8_;              // 0xc8
+    unsigned char unknown_c9_;                // 0xc9
+    short unknown_ca_;                          // 0xca
+    unsigned char unknown_cc_;                    // 0xcc
+    unsigned char unknown_cd_;                      // 0xcd
+    short unknown_ce_;                                // 0xce
 };
 
 // USA: func_0209c174
-extern "C" ARM void func_0209c174(struct Actor0209c174* self) {
-    func_0203a914(self);
-    self->state = 0;
-    self->field_b4 = 0;
-    self->field_b8 = -1;
-    func_020bc078((int*)&self->fieldBC);
-    self->field_ba = -1;
-    func_020bc078((int*)&self->fieldC0);
-    func_020bc078((int*)&self->fieldC4);
-    self->field_c8 &= ~1;
-    func_0209c2e0(self, 0x7f, 0);
-    func_0209ca70(self, 3);
-    self->field_ce = -1;
-    self->field_c9 = 0;
-    self->field_ca = 0;
-    self->field_c8 &= ~4;
-    self->field_c8 &= ~8;
+extern "C" ARM void func_0209c174(struct Struct_02000c9c_16* arg0) {
+    func_0203a914(arg0);
+    arg0->unknown_b0_ = 0;
+    arg0->unknown_b4_ = 0;
+    arg0->unknown_b8_ = -1;
+    func_020bc078((int*)&arg0->unknown_bc_);
+    arg0->unknown_ba_ = -1;
+    func_020bc078((int*)&arg0->unknown_c0_);
+    func_020bc078((int*)&arg0->unknown_c4_);
+    arg0->unknown_c8_ &= ~1;
+    func_0209c2e0(arg0, 0x7f, 0);
+    func_0209ca70(arg0, 3);
+    arg0->unknown_ce_ = -1;
+    arg0->unknown_c9_ = 0;
+    arg0->unknown_ca_ = 0;
+    arg0->unknown_c8_ &= ~4;
+    arg0->unknown_c8_ &= ~8;
 }

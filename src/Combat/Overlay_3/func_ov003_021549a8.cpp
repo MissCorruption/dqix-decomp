@@ -1,120 +1,120 @@
 #include <globaldefs.h>
 #include "Combat/MenuNodeChain.h"
 #if defined(jpn)
-enum { kRegion2d8 = 0x228 };
-enum { kRegion2dc = 0x22c };
-enum { kRegion2e6 = 0x236 };
-enum { kRegion2e7 = 0x237 };
-enum { kRegion998 = 0x868 };
-enum { kRegion160 = 0x15c };
-enum { kRegion1d0 = 0x1cc };
-enum { kRegion1d4 = 0x1d0 };
-enum { kRegion204 = 0x200 };
-enum { kRegion208 = 0x204 };
-enum { kRegion20c = 0x208 };
+enum { Enum_ov003_021549a8_728 = 0x228 };
+enum { Enum_ov003_021549a8_732 = 0x22c };
+enum { Enum_ov003_021549a8_742 = 0x236 };
+enum { Enum_ov003_021549a8_743 = 0x237 };
+enum { Enum_ov003_021549a8_2456 = 0x868 };
+enum { Enum_ov003_021549a8_352 = 0x15c };
+enum { Enum_ov003_021549a8_464 = 0x1cc };
+enum { Enum_ov003_021549a8_468 = 0x1d0 };
+enum { Enum_ov003_021549a8_516 = 0x200 };
+enum { Enum_ov003_021549a8_520 = 0x204 };
+enum { Enum_ov003_021549a8_524 = 0x208 };
 #else
-enum { kRegion2d8 = 0x2d8 };
-enum { kRegion2dc = 0x2dc };
-enum { kRegion2e6 = 0x2e6 };
-enum { kRegion2e7 = 0x2e7 };
-enum { kRegion998 = 0x998 };
-enum { kRegion160 = 0x160 };
-enum { kRegion1d0 = 0x1d0 };
-enum { kRegion1d4 = 0x1d4 };
-enum { kRegion204 = 0x204 };
-enum { kRegion208 = 0x208 };
-enum { kRegion20c = 0x20c };
+enum { Enum_ov003_021549a8_728 = 0x2d8 };
+enum { Enum_ov003_021549a8_732 = 0x2dc };
+enum { Enum_ov003_021549a8_742 = 0x2e6 };
+enum { Enum_ov003_021549a8_743 = 0x2e7 };
+enum { Enum_ov003_021549a8_2456 = 0x998 };
+enum { Enum_ov003_021549a8_352 = 0x160 };
+enum { Enum_ov003_021549a8_464 = 0x1d0 };
+enum { Enum_ov003_021549a8_468 = 0x1d4 };
+enum { Enum_ov003_021549a8_516 = 0x204 };
+enum { Enum_ov003_021549a8_520 = 0x208 };
+enum { Enum_ov003_021549a8_524 = 0x20c };
 #endif
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
-extern "C" void func_ov023_021eb26c(void* obj);
-struct Struct02074bd0;
-extern "C" void func_02074bd0(struct Struct02074bd0* obj);
-struct Obj0207fcb8;
-extern "C" void func_0207fcb8(struct Obj0207fcb8* obj);
-struct Cont0207fd44;
-extern "C" void func_0207fd44(struct Cont0207fd44* obj);
-struct Cont0207fd88;
-extern "C" void func_0207fd88(struct Cont0207fd88* obj);
+extern "C" void func_ov023_021eb26c(void* arg0);
+struct Struct_02074bd0;
+extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct Struct_0207fcb8;
+extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
+struct Struct_0207fd44_2;
+extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
+struct Struct_0207fd88;
+extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
-extern "C" void func_02043204(char* obj);
-extern "C" void func_02043124(void* self);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_02043124(void* arg0);
 
-struct Controller020421a0 {
-    char pad0[kRegion2d8];
-    int field_0x2d8;
-    char pad2dc[kRegion2e6 - kRegion2dc];
-    unsigned char field_0x2e6;
-    char pad2e7[kRegion998 - kRegion2e7];
-    int active;
+struct Struct_ov003_021549a8 {
+    char unknown_0_[Enum_ov003_021549a8_728];
+    int unknown_2d8_;
+    char unknown_2dc_[Enum_ov003_021549a8_742 - Enum_ov003_021549a8_732];
+    unsigned char unknown_2e6_;
+    char unknown_2e7_[Enum_ov003_021549a8_2456 - Enum_ov003_021549a8_743];
+    int unknown_998_;
 };
-extern "C" Controller020421a0* func_020421a0(void);
+extern "C" Struct_ov003_021549a8* func_020421a0(void);
 
-struct Ctrl021549a8 {
-    SafeAllocator* allocs;
-    char pad04[0xc - 0x4];
-    void* charBuf;
-    char pad10[0x18 - 0x10];
-    Manager0207f7f0* list;
-    char pad1c[kRegion160 - 0x1c];
-    char flags160[kRegion1d0 - kRegion160];
-    int task;
-    char pad1d4[kRegion204 - kRegion1d4];
-    void* scene;
-    char pad208[kRegion20c - kRegion208];
-    int task2;
+struct Struct_ov003_021549a8_2 {
+    SafeAllocator* unknown_0_;
+    char unknown_4_[0xc - 0x4];
+    void* unknown_c_;
+    char unknown_10_[0x18 - 0x10];
+    Struct_0207f7f0* unknown_18_;
+    char unknown_1c_[Enum_ov003_021549a8_352 - 0x1c];
+    char unknown_160_[Enum_ov003_021549a8_464 - Enum_ov003_021549a8_352];
+    int unknown_1d0_;
+    char unknown_1d4_[Enum_ov003_021549a8_516 - Enum_ov003_021549a8_468];
+    void* unknown_204_;
+    char unknown_208_[Enum_ov003_021549a8_524 - Enum_ov003_021549a8_520];
+    int unknown_20c_;
 };
 
 // USA: func_ov003_021549a8
-extern "C" ARM void func_ov003_021549a8(Ctrl021549a8* self) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (self->task >= 0) {
-        loader->RemoveTask(self->task);
-        self->task = -1;
+extern "C" ARM void func_ov003_021549a8(Struct_ov003_021549a8_2* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    if (arg0->unknown_1d0_ >= 0) {
+        var0->RemoveTask(arg0->unknown_1d0_);
+        arg0->unknown_1d0_ = -1;
     }
-    if (self->task2 >= 0) {
-        loader->RemoveTask(self->task2);
-        self->task2 = -1;
+    if (arg0->unknown_20c_ >= 0) {
+        var0->RemoveTask(arg0->unknown_20c_);
+        arg0->unknown_20c_ = -1;
     }
-    if (self->scene != NULL) {
-        func_ov023_021eb26c(self->scene);
-        self->scene = NULL;
+    if (arg0->unknown_204_ != NULL) {
+        func_ov023_021eb26c(arg0->unknown_204_);
+        arg0->unknown_204_ = NULL;
     }
 
-    unsigned int* reg = (unsigned int*)0x4000000;
-    *reg = (*reg & ~0x1f00) | 0x100;
+    unsigned int* var1 = (unsigned int*)0x4000000;
+    *var1 = (*var1 & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    func_02074bd0((struct Struct02074bd0*)self->flags160);
+    func_02074bd0((struct Struct_02074bd0*)arg0->unknown_160_);
 
-    Manager0207f7f0* list = self->list;
-    if (list != NULL) {
-        func_0207fcb8((struct Obj0207fcb8*)list);
-        func_0207fd44((struct Cont0207fd44*)list);
-        func_0207fd88((struct Cont0207fd88*)list);
-        func_0207f8bc(list);
+    Struct_0207f7f0* var2 = arg0->unknown_18_;
+    if (var2 != NULL) {
+        func_0207fcb8((struct Struct_0207fcb8*)var2);
+        func_0207fd44((struct Struct_0207fd44_2*)var2);
+        func_0207fd88((struct Struct_0207fd88*)var2);
+        func_0207f8bc(var2);
     }
 
-    if (self->charBuf != NULL) {
-        memset(self->charBuf, 0, 0x20);
-        CleanInvalidateCacheRange(self->charBuf, 0x20);
-        LoadToMainBG1CharacterData((int)self->charBuf, 0, 0x20);
+    if (arg0->unknown_c_ != NULL) {
+        memset(arg0->unknown_c_, 0, 0x20);
+        CleanInvalidateCacheRange(arg0->unknown_c_, 0x20);
+        LoadToMainBG1CharacterData((int)arg0->unknown_c_, 0, 0x20);
     }
-    self->charBuf = NULL;
+    arg0->unknown_c_ = NULL;
 
-    Controller020421a0* g = func_020421a0();
-    if (g->active != 0) {
-        func_02043204((char*)g);
-        func_02043124(g);
+    Struct_ov003_021549a8* var3 = func_020421a0();
+    if (var3->unknown_998_ != 0) {
+        func_02043204((char*)var3);
+        func_02043124(var3);
     }
-    g->field_0x2d8 = 0;
-    g->field_0x2e6 = 1;
+    var3->unknown_2d8_ = 0;
+    var3->unknown_2e6_ = 1;
 
-    if (self->allocs != NULL) {
-        for (unsigned char i = 0; i < 8; i++) {
-            self->allocs[i].Destroy();
+    if (arg0->unknown_0_ != NULL) {
+        for (unsigned char var4 = 0; var4 < 8; var4++) {
+            arg0->unknown_0_[var4].Destroy();
         }
     }
 }

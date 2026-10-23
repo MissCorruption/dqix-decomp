@@ -2,16 +2,16 @@
 
 extern "C" unsigned short* func_02012fe4(void);
 
-struct Obj0208b494 {
-    char pad[0xac];
-    int captured;   // 0xac
-    int done;       // 0xb0
+struct Struct_0208b494 {
+    char unknown_0_[0xac];
+    int unknown_ac_;   // 0xac
+    int unknown_b0_;       // 0xb0
 };
 
 // USA: func_0208b494
-extern "C" ARM void func_0208b494(struct Obj0208b494* obj) {
-    if (obj->done == 0) {
-        obj->done = 1;
-        obj->captured = *func_02012fe4();
+extern "C" ARM void func_0208b494(struct Struct_0208b494* arg0) {
+    if (arg0->unknown_b0_ == 0) {
+        arg0->unknown_b0_ = 1;
+        arg0->unknown_ac_ = *func_02012fe4();
     }
 }

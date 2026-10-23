@@ -1,74 +1,74 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct TextContext {
-    char pad_0[0x19dc];
-    unsigned char fontTable;
+struct Struct_0206b37c {
+    char unknown_0_[0x19dc];
+    unsigned char unknown_19dc_;
 };
 
-struct Entry0204254c {
-    int key;
-    signed char width;
-    signed char size : 6;
-    signed char flags : 2;
-    char pad_6[2];
+struct Struct_0204254c {
+    int unknown_0_;
+    signed char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 2;
+    char unknown_6_[2];
 };
 
 extern "C" int func_02042648(int);
 extern "C" bool func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
 extern "C" int func_020425e4(int, int, int);
-extern "C" Entry0204254c* func_0204254c(int, int);
+extern "C" Struct_0204254c* func_0204254c(int, int);
 extern "C" int func_020424e4(int, int);
 extern "C" int func_02067ad8(int, void*);
 
 // USA: func_0206b37c
-extern "C" ARM int func_0206b37c(TextContext* context, char* text) {
-    if (!text) return 0;
-    unsigned char defaultWidth = func_02042648(context->fontTable);
-    int current = 0xff;
-    unsigned char previous = current;
-    int payloadWords;
-    int step;
-    int width = 0;
-    unsigned short command;
-    short argument;
-    while (!func_02067ad8((int)context, text)) {
-        memcpy(&command, text, 2);
-        if (func_02044494(context, &command)) {
-            payloadWords = func_02044420(context, &command);
-            switch (command) {
+extern "C" ARM int func_0206b37c(Struct_0206b37c* arg0, char* arg1) {
+    if (!arg1) return 0;
+    unsigned char var0 = func_02042648(arg0->unknown_19dc_);
+    int var1 = 0xff;
+    unsigned char var2 = var1;
+    int var3;
+    int var4;
+    int var5 = 0;
+    unsigned short var6;
+    short var7;
+    while (!func_02067ad8((int)arg0, arg1)) {
+        memcpy(&var6, arg1, 2);
+        if (func_02044494(arg0, &var6)) {
+            var3 = func_02044420(arg0, &var6);
+            switch (var6) {
             case 0xff19:
-                previous = 0xff;
-                width += func_020425e4(previous, current, context->fontTable);
+                var2 = 0xff;
+                var5 += func_020425e4(var2, var1, arg0->unknown_19dc_);
                 break;
             case 0xff20:
-                previous = 0xff;
-                memcpy(&argument, text + 2, 2);
-                if (width < argument) width = argument;
+                var2 = 0xff;
+                memcpy(&var7, arg1 + 2, 2);
+                if (var5 < var7) var5 = var7;
                 break;
             case 0xff23:
-                previous = 0xff;
-                memcpy(&argument, text + 2, 2);
-                width += argument;
+                var2 = 0xff;
+                memcpy(&var7, arg1 + 2, 2);
+                var5 += var7;
                 break;
             }
-            text = text + 2 + payloadWords * 2;
+            arg1 = arg1 + 2 + var3 * 2;
         } else {
-            step = 1;
-            int glyphWidth = defaultWidth;
-            Entry0204254c* entry = func_0204254c((int)text, context->fontTable);
-            if (entry) {
-                current = (unsigned char)func_020424e4((int)text, context->fontTable);
-                width += func_020425e4(previous, current, context->fontTable);
-                previous = current;
-                current = 0xff;
-                step = entry->size;
-                glyphWidth = entry->width;
+            var4 = 1;
+            int var8 = var0;
+            Struct_0204254c* var9 = func_0204254c((int)arg1, arg0->unknown_19dc_);
+            if (var9) {
+                var1 = (unsigned char)func_020424e4((int)arg1, arg0->unknown_19dc_);
+                var5 += func_020425e4(var2, var1, arg0->unknown_19dc_);
+                var2 = var1;
+                var1 = 0xff;
+                var4 = var9->unknown_5_0_;
+                var8 = var9->unknown_4_;
             }
-            width += glyphWidth + 1;
-            text += step;
+            var5 += var8 + 1;
+            arg1 += var4;
         }
     }
-    return width;
+    return var5;
 }

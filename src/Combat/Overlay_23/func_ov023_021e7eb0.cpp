@@ -4,40 +4,40 @@
 #include "Resource/CharacterCreationUI.h"
 
 namespace {
-struct ProfileResetLoopState {
-    unsigned char unknown0[0x78];
-    CreationWindow window;
-    unsigned char unknownAfterWindow[0x5d8 - 0x78 - sizeof(CreationWindow)];
-    char* text;
+struct Struct_ov023_021e7eb0 {
+    unsigned char unknown_0_[0x78];
+    Struct_ov023_021d9c7c unknown_78_;
+    unsigned char unknown_134_[0x5d8 - 0x78 - sizeof(Struct_ov023_021d9c7c)];
+    char* unknown_5d8_;
 };
 }
 
-class PMFObj021e7eb0 { public: virtual void Dummy021e7eb0(); };
-typedef void (PMFObj021e7eb0::*MemFn021e7eb0)();
-struct DispatchTable021e7eb0 { MemFn021e7eb0 fns[3]; };
+class Struct_ov023_021e7eb0_2 { public: virtual void inline_ov023_021e7eb0(); };
+typedef void (Struct_ov023_021e7eb0_2::*Type_0200f3a4_4)();
+struct Struct_ov023_021fd7e4 { Type_0200f3a4_4 unknown_0_[3]; };
 #if defined(jpn)
 #define data_ov023_021fd7e4 data_ov023_021fca68
 #endif
-extern const DispatchTable021e7eb0 data_ov023_021fd7e4;
+extern const Struct_ov023_021fd7e4 data_ov023_021fd7e4;
 
 extern "C" void func_02046380(void*);
 extern "C" int func_020421a0(void);
 
 // USA: func_ov023_021e7eb0
 // JPN: func_ov023_021e8094
-extern "C" ARM void func_ov023_021e7eb0(PMFObj021e7eb0 *obj) {
-	ProfileResetLoopState* state = ((ProfileResetLoopState*)(obj));
-	DispatchTable021e7eb0 table = data_ov023_021fd7e4;
-	int g = func_020421a0();
-	for (unsigned char i = 0; i < 3; i++) {
-		func_02046380((void*)g);
+extern "C" ARM void func_ov023_021e7eb0(Struct_ov023_021e7eb0_2 *arg0) {
+	Struct_ov023_021e7eb0* var0 = ((Struct_ov023_021e7eb0*)(arg0));
+	Struct_ov023_021fd7e4 var1 = data_ov023_021fd7e4;
+	int var2 = func_020421a0();
+	for (unsigned char var3 = 0; var3 < 3; var3++) {
+		func_02046380((void*)var2);
 #if defined(jpn)
-		memset(state->text, 0, 0x800);
+		memset(var0->unknown_5d8_, 0, 0x800);
 #else
-		memset(state->text, 0, 0x960);
+		memset(var0->unknown_5d8_, 0, 0x960);
 #endif
-		(obj->*table.fns[i])();
-		func_0205d5d0(((StructA0205d5d0*)(&state->window)), i, ((int)(state->text)), 1
+		(arg0->*var1.unknown_0_[var3])();
+		func_0205d5d0(((Struct_0205d5d0*)(&var0->unknown_78_)), var3, ((int)(var0->unknown_5d8_)), 1
 #if !defined(jpn)
 			, 0
 #endif

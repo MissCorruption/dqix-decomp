@@ -1,74 +1,74 @@
 #include <globaldefs.h>
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" int func_02001aec(const void* a, const void* b, unsigned int len);
+extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void func_ov031_0223e2c0(int, void*);
 
-typedef void (*NotifyCallback_022379f0)(int);
+typedef void (*Type_02001aec_2)(int);
 
-struct NameSlot_022379f0 {
-    char name[6];
-    unsigned char inUse;
+struct Struct_02001aec_2 {
+    char unknown_0_[6];
+    unsigned char unknown_6_;
 };
 
-struct SystemState_022379f0 {
-    unsigned char reserved0[0x1300];
-    NameSlot_022379f0 slots[16];
-    NotifyCallback_022379f0 callback;
-    unsigned char reserved1[0x814];
-    unsigned long long lastTime;
-    void* timer;
-    unsigned char reserved2[2];
-    unsigned char expired;
+struct Struct_ov031_022379f0 {
+    unsigned char unknown_0_[0x1300];
+    Struct_02001aec_2 unknown_1300_[16];
+    Type_02001aec_2 unknown_1370_;
+    unsigned char unknown_1374_[0x814];
+    unsigned long long unknown_1b88_;
+    void* unknown_1b90_;
+    unsigned char unknown_1b94_[2];
+    unsigned char unknown_1b96_;
 };
 
-extern SystemState_022379f0* data_ov031_02290d0c;
+extern Struct_ov031_022379f0* data_ov031_02290d0c;
 extern char data_ov031_02249280[];
 
 // USA: func_ov031_022379f0
-extern "C" ARM void func_ov031_022379f0(void* arg) {
-    unsigned long long now = GetCurrentTimestamp();
-    SystemState_022379f0* state = data_ov031_02290d0c;
-    int i;
-    int used;
-    int freeSlot;
-    char* name;
-    char* entry;
+extern "C" ARM void func_ov031_022379f0(void* arg0) {
+    unsigned long long var0 = GetCurrentTimestamp();
+    Struct_ov031_022379f0* var1 = data_ov031_02290d0c;
+    int var2;
+    int var3;
+    int var4;
+    char* var5;
+    char* var6;
 
-    if (now < state->lastTime + 0x17f898) {
+    if (var0 < var1->unknown_1b88_ + 0x17f898) {
         return;
     }
-    freeSlot = 0;
-    used = 0;
-    i = 0;
-    entry = (char*)state;
-    name = (char*)state + 0x1300;
+    var4 = 0;
+    var3 = 0;
+    var2 = 0;
+    var6 = (char*)var1;
+    var5 = (char*)var1 + 0x1300;
     do {
-        if (func_02001aec(name, data_ov031_02249280, 6) != 0) {
-            if (*(unsigned char*)(entry + 0x1306) != 0) {
-                used = 1;
+        if (func_02001aec(var5, data_ov031_02249280, 6) != 0) {
+            if (*(unsigned char*)(var6 + 0x1306) != 0) {
+                var3 = 1;
             } else {
-                freeSlot = 1;
+                var4 = 1;
             }
         }
-        i++;
-        name += 7;
-        entry += 7;
-    } while (i < 16);
-    if (used && freeSlot) {
-        if (state->callback != 0) {
-            state->callback(2);
+        var2++;
+        var5 += 7;
+        var6 += 7;
+    } while (var2 < 16);
+    if (var3 && var4) {
+        if (var1->unknown_1370_ != 0) {
+            var1->unknown_1370_(2);
         }
-    } else if (used) {
-        if (state->callback != 0) {
-            state->callback(1);
+    } else if (var3) {
+        if (var1->unknown_1370_ != 0) {
+            var1->unknown_1370_(1);
         }
-    } else if (!freeSlot) {
-        if (state->callback != 0) {
-            state->callback(0);
+    } else if (!var4) {
+        if (var1->unknown_1370_ != 0) {
+            var1->unknown_1370_(0);
         }
     }
-    data_ov031_02290d0c->timer = 0;
-    data_ov031_02290d0c->expired = 1;
-    func_ov031_0223e2c0(0, arg);
+    data_ov031_02290d0c->unknown_1b90_ = 0;
+    data_ov031_02290d0c->unknown_1b96_ = 1;
+    func_ov031_0223e2c0(0, arg0);
 }

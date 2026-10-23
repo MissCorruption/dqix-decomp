@@ -7,142 +7,142 @@
 
 struct Struct_0205c53c;
 struct Struct_0205ba68;
-struct Node0205bacc;
+struct Struct_0205bacc;
 struct Struct_0205bcdc;
 
-struct MenuList {
-    int unk_0;
-    int active_;
-    char unk_8[0x30 - 0x8];
+struct Struct_ov005_021571d0 {
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[0x30 - 0x8];
 };
 
-struct MenuChannelA : MenuList {
-    char unknown30[0x50 - 0x30];
+struct Struct_02001aac : Struct_ov005_021571d0 {
+    char unknown_30_[0x50 - 0x30];
 };
 
-struct MenuChannelB : MenuList {
-    char unknown30[0x40 - 0x30];
+struct Struct_02001aac_2 : Struct_ov005_021571d0 {
+    char unknown_30_[0x40 - 0x30];
 };
 
-struct MenuWindow {
-    int unk_0;
-    MenuChannelA listA_;
-    MenuChannelB listB_;
-    char unknown94[0xa0 - 0x94];
-    short widthTiles;
-    short heightTiles;
-    short tileX;
-    short tileY;
-    short x_;
-    short y_;
-    short width_;
-    short height_;
-    char unk_b0;
-    unsigned char visible_;
-    char unk_b2[0xb5 - 0xb2];
-    unsigned char unk_b5;
-    unsigned char unk_b6;
-    unsigned char unk_b7;
+struct Struct_ov005_02158ed0 {
+    int unknown_0_;
+    Struct_02001aac unknown_4_;
+    Struct_02001aac_2 unknown_54_;
+    char unknown_94_[0xa0 - 0x94];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
+    char unknown_b2_[0xb5 - 0xb2];
+    unsigned char unknown_b5_;
+    unsigned char unknown_b6_;
+    unsigned char unknown_b7_;
 };
 
-struct EquipmentMenu {
-    char unk_0[0xe10];
-    char* textBuffer_;
-    char unk_e14[LOW_REGION(0xee0, 0xee4) - 0xe14];
-    MenuWindow window_;
-    char unk_f9c[LOW_REGION(0x3d33, 0x3dbb) - LOW_REGION(0xee0, 0xee4) - sizeof(MenuWindow)];
-    signed char slot_;
-    char unk_3dbc[LOW_REGION(0x3d54, 0x3ddc) - LOW_REGION(0x3d34, 0x3dbc)];
-    unsigned char menuStep_;
-    unsigned char menuResult_;
-    signed char menuChoice_;
-    unsigned char menuState_;
+struct Struct_ov005_02153954 {
+    char unknown_0_[0xe10];
+    char* unknown_e10_;
+    char unknown_e14_[LOW_REGION(0xee0, 0xee4) - 0xe14];
+    Struct_ov005_02158ed0 unknown_ee4_;
+    char unknown_f9c_[LOW_REGION(0x3d33, 0x3dbb) - LOW_REGION(0xee0, 0xee4) - sizeof(Struct_ov005_02158ed0)];
+    signed char unknown_3dbb_;
+    char unknown_3dbc_[LOW_REGION(0x3d54, 0x3ddc) - LOW_REGION(0x3d34, 0x3dbc)];
+    unsigned char unknown_3ddc_;
+    unsigned char unknown_3ddd_;
+    signed char unknown_3dde_;
+    unsigned char unknown_3ddf_;
 
-    MenuWindow* GetWindow() { return &window_; }
+    Struct_ov005_02158ed0* inline_ov005_02158e04() { return &unknown_ee4_; }
 };
 
-extern "C" void func_0205c53c(Struct_0205c53c* s);
-extern "C" void func_0205ba68(Struct_0205ba68* s, int a, int count, int mode);
-extern "C" void func_0205bacc(Node0205bacc* s, int val);
-extern "C" void func_0205bcdc(Struct_0205bcdc* s, int index);
-extern "C" void func_0205bb04(void* s, int index);
-extern "C" void* memset(void* dst, int c, unsigned int n);
-extern "C" void func_ov005_02159a30(EquipmentMenu* self, char* buffer, int arg);
+extern "C" void func_0205c53c(Struct_0205c53c* arg0);
+extern "C" void func_0205ba68(Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0205bacc(Struct_0205bacc* arg0, int arg1);
+extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
+extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
+extern "C" void func_ov005_02159a30(Struct_ov005_02153954* arg0, char* arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov005_02159904
-extern "C" ARM void func_ov005_02159904(EquipmentMenu* self) {
-    MenuWindow* window = self->GetWindow();
-    func_0205c53c((Struct_0205c53c*)window);
+extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
+    Struct_ov005_02158ed0* var0 = arg0->inline_ov005_02158e04();
+    func_0205c53c((Struct_0205c53c*)var0);
 #if defined(jpn)
-    if (self->slot_ >= 0 && self->slot_ < 8) {
-    func_0205ba68((Struct_0205ba68*)&window->listA_, 1, 3, 0);
-    func_0205ba68((Struct_0205ba68*)&window->listB_, 1, 3, 0);
-    func_0205bacc((Node0205bacc*)&window->listA_, 3);
-    func_0205bacc((Node0205bacc*)&window->listB_, 3);
-    window->listA_.active_ = 1;
-    window->listB_.active_ = 1;
-    int choice = self->menuChoice_;
-    func_0205bcdc((Struct_0205bcdc*)&window->listA_, choice);
-    func_0205bb04(&window->listB_, choice);
+    if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
+    func_0205ba68((Struct_0205ba68*)&var0->unknown_4_, 1, 3, 0);
+    func_0205ba68((Struct_0205ba68*)&var0->unknown_54_, 1, 3, 0);
+    func_0205bacc((Struct_0205bacc*)&var0->unknown_4_, 3);
+    func_0205bacc((Struct_0205bacc*)&var0->unknown_54_, 3);
+    var0->unknown_4_.unknown_4_ = 1;
+    var0->unknown_54_.unknown_4_ = 1;
+    int var1 = arg0->unknown_3dde_;
+    func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var1);
+    func_0205bb04(&var0->unknown_54_, var1);
     } else {
-    func_0205ba68((Struct_0205ba68*)&window->listA_, 1, 4, 0);
-    func_0205ba68((Struct_0205ba68*)&window->listB_, 1, 4, 0);
-    func_0205bacc((Node0205bacc*)&window->listA_, 4);
-    func_0205bacc((Node0205bacc*)&window->listB_, 4);
-    window->listA_.active_ = 1;
-    window->listB_.active_ = 1;
-    int choice = self->menuChoice_;
-    func_0205bcdc((Struct_0205bcdc*)&window->listA_, choice);
-    func_0205bb04(&window->listB_, choice);
+    func_0205ba68((Struct_0205ba68*)&var0->unknown_4_, 1, 4, 0);
+    func_0205ba68((Struct_0205ba68*)&var0->unknown_54_, 1, 4, 0);
+    func_0205bacc((Struct_0205bacc*)&var0->unknown_4_, 4);
+    func_0205bacc((Struct_0205bacc*)&var0->unknown_54_, 4);
+    var0->unknown_4_.unknown_4_ = 1;
+    var0->unknown_54_.unknown_4_ = 1;
+    int var2 = arg0->unknown_3dde_;
+    func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var2);
+    func_0205bb04(&var0->unknown_54_, var2);
     }
 #else
-    int count = 4;
-    if (self->slot_ >= 0 && self->slot_ < 8)
-        count = 3;
-    func_0205ba68((Struct_0205ba68*)&window->listA_, 1, count, 0);
-    func_0205ba68((Struct_0205ba68*)&window->listB_, 1, count, 0);
-    func_0205bacc((Node0205bacc*)&window->listA_, count);
-    func_0205bacc((Node0205bacc*)&window->listB_, count);
-    window->listA_.active_ = 1;
-    window->listB_.active_ = 1;
-    int choice = self->menuChoice_;
-    func_0205bcdc((Struct_0205bcdc*)&window->listA_, choice);
-    func_0205bb04(&window->listB_, choice);
+    int var3 = 4;
+    if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8)
+        var3 = 3;
+    func_0205ba68((Struct_0205ba68*)&var0->unknown_4_, 1, var3, 0);
+    func_0205ba68((Struct_0205ba68*)&var0->unknown_54_, 1, var3, 0);
+    func_0205bacc((Struct_0205bacc*)&var0->unknown_4_, var3);
+    func_0205bacc((Struct_0205bacc*)&var0->unknown_54_, var3);
+    var0->unknown_4_.unknown_4_ = 1;
+    var0->unknown_54_.unknown_4_ = 1;
+    int var4 = arg0->unknown_3dde_;
+    func_0205bcdc((Struct_0205bcdc*)&var0->unknown_4_, var4);
+    func_0205bb04(&var0->unknown_54_, var4);
 #endif
 #if defined(jpn)
-    self->window_.widthTiles = 8;
-    self->window_.heightTiles = 7;
-    self->window_.tileX = 0xc;
-    self->window_.tileY = 9;
-    self->window_.x_ = 0xc;
-    self->window_.y_ = 8;
-    self->window_.width_ = 0xa;
-    self->window_.height_ = 0xe;
-    self->GetWindow()->unk_b7 = 0xa;
-    self->GetWindow()->visible_ = 1;
-    self->GetWindow()->unk_b5 = 0;
-    self->GetWindow()->unk_b6 = 0;
+    arg0->unknown_ee4_.unknown_a0_ = 8;
+    arg0->unknown_ee4_.unknown_a2_ = 7;
+    arg0->unknown_ee4_.unknown_a4_ = 0xc;
+    arg0->unknown_ee4_.unknown_a6_ = 9;
+    arg0->unknown_ee4_.unknown_a8_ = 0xc;
+    arg0->unknown_ee4_.unknown_aa_ = 8;
+    arg0->unknown_ee4_.unknown_ac_ = 0xa;
+    arg0->unknown_ee4_.unknown_ae_ = 0xe;
+    arg0->inline_ov005_02158e04()->unknown_b7_ = 0xa;
+    arg0->inline_ov005_02158e04()->unknown_b1_ = 1;
+    arg0->inline_ov005_02158e04()->unknown_b5_ = 0;
+    arg0->inline_ov005_02158e04()->unknown_b6_ = 0;
 #else
-    window = self->GetWindow();
-    window->x_ = 0xc;
-    window->y_ = 8;
-    window->width_ = 0xa;
-    window->height_ = 0xe;
-    window->unk_b7 = 0xa;
-    window->visible_ = 1;
-    window->unk_b5 = 0;
-    window->unk_b6 = 0;
+    var0 = arg0->inline_ov005_02158e04();
+    var0->unknown_a8_ = 0xc;
+    var0->unknown_aa_ = 8;
+    var0->unknown_ac_ = 0xa;
+    var0->unknown_ae_ = 0xe;
+    var0->unknown_b7_ = 0xa;
+    var0->unknown_b1_ = 1;
+    var0->unknown_b5_ = 0;
+    var0->unknown_b6_ = 0;
 #endif
-    memset(self->textBuffer_, 0, LOW_REGION(0x800, 0x960));
-    func_ov005_02159a30(self, self->textBuffer_, 0);
+    memset(arg0->unknown_e10_, 0, LOW_REGION(0x800, 0x960));
+    func_ov005_02159a30(arg0, arg0->unknown_e10_, 0);
 #if defined(jpn)
-    func_0205d304(self->GetWindow(), self->textBuffer_, 0, 1, 0, 0, 0);
+    func_0205d304(arg0->inline_ov005_02158e04(), arg0->unknown_e10_, 0, 1, 0, 0, 0);
 #else
-    func_0205d304(window, self->textBuffer_, 0, 1, 0, 0, 0, 0);
+    func_0205d304(var0, arg0->unknown_e10_, 0, 1, 0, 0, 0, 0);
 #endif
 }

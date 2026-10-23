@@ -13,193 +13,193 @@
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
 
-struct Foo02048004;
-struct Foo0207df50;
-struct Vec3Target0203a46c;
-struct Obj02155d38;
+struct Struct_02012fa4;
+struct Struct_0203d028;
+struct Struct_0203a46c;
+struct Struct_ov005_021556e4_2;
 
-struct MenuModel {
-    char unk_0[0x80];
-    short alpha_;
-    short unk_82;
-    char unk_84[4];
+struct Struct_ov005_02155d6c_2 {
+    char unknown_0_[0x80];
+    short unknown_80_;
+    short unknown_82_;
+    char unknown_84_[4];
 };
 
-struct VRAMManagerState {
-    char unk_0[0x70];
+struct Struct_ov005_02155d6c {
+    char unknown_0_[0x70];
 };
 
-extern "C" void func_02047230(Foo02048004* model);
-extern "C" void func_0207df50(Foo0207df50* state);
-extern "C" void func_0207df90(char* state);
-extern "C" void func_02047b40(MenuModel* model, void* file, SafeAllocator* allocator);
-extern "C" void func_0207dfac(char* state);
-extern "C" void func_0203a46c(Vec3Target0203a46c* model, int x, int y, int z);
-extern "C" void func_ov005_02155d38(Obj02155d38* slot);
+extern "C" void func_02047230(Struct_02012fa4* arg0);
+extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_02047b40(Struct_ov005_02155d6c_2* arg0, void* arg1, SafeAllocator* arg2);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_0203a46c(Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
-struct EquipmentSlot {
-    short item_;
-    signed char count_;
-    unsigned char equipped_;
-    VRAMManagerState* vramState_;
-    MenuModel* model_;
-    int x_;
-    int y_;
-    int offset_;
-    short loadedItem_;
+struct Struct_ov005_02153ba4 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    Struct_ov005_02155d6c* unknown_4_;
+    Struct_ov005_02155d6c_2* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    short unknown_18_;
 };
 
-struct EquipmentMenu {
-    SafeAllocator allocator_;
-    SafeAllocator modelAllocator_;
-    SafeAllocator equippedAllocators_[8];
-    SafeAllocator itemAllocators_[16];
-    SafeAllocator dragAllocator_;
-    char unk_21c[0xd84 - 0x21c];
-    VRAMManagerState dragVramState_;
-    char unk_df4[LOW_REGION(0x2d08 - 0xdf4, 0x2d90 - 0xdf4)];
-    EquipmentSlot slots_[24];
-    MenuModel slotModels_[24];
-    MenuModel dragModel_;
-    short dragged_;
-    char unk_3d7a[0x3d88 - 0x3d7a];
-    char* pageFiles_;
-    char* dragFile_;
-    char* equippedFiles_;
-    char* itemFile_;
-    short itemCounts_[8];
-    unsigned char unk_3da8;
-    unsigned char equippedStep_;
-    unsigned char pageStep_;
-    unsigned char dragStep_;
-    unsigned short unk_3dac;
-    unsigned short equippedStart_;
-    unsigned short equippedEnd_;
-    unsigned short pageStart_;
-    unsigned short pageEnd_;
-    char unk_3db6;
-    unsigned char loading_;
-    char unk_3db8[0x3dcc - 0x3db8];
-    unsigned int flags_;
+struct Struct_ov005_02153954 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_[8];
+    SafeAllocator unknown_c8_[16];
+    SafeAllocator unknown_208_;
+    char unknown_21c_[0xd84 - 0x21c];
+    Struct_ov005_02155d6c unknown_d84_;
+    char unknown_df4_[LOW_REGION(0x2d08 - 0xdf4, 0x2d90 - 0xdf4)];
+    Struct_ov005_02153ba4 unknown_2d90_[24];
+    Struct_ov005_02155d6c_2 unknown_3030_[24];
+    Struct_ov005_02155d6c_2 unknown_3cf0_;
+    short unknown_3d78_;
+    char unknown_3d7a_[0x3d88 - 0x3d7a];
+    char* unknown_3d88_;
+    char* unknown_3d8c_;
+    char* unknown_3d90_;
+    char* unknown_3d94_;
+    short unknown_3d98_[8];
+    unsigned char unknown_3da8_;
+    unsigned char unknown_3da9_;
+    unsigned char unknown_3daa_;
+    unsigned char unknown_3dab_;
+    unsigned short unknown_3dac_;
+    unsigned short unknown_3dae_;
+    unsigned short unknown_3db0_;
+    unsigned short unknown_3db2_;
+    unsigned short unknown_3db4_;
+    char unknown_3db6_;
+    unsigned char unknown_3db7_;
+    char unknown_3db8_[0x3dcc - 0x3db8];
+    unsigned int unknown_3dcc_;
 };
 
 // USA: func_ov005_02155d6c
-extern "C" ARM void func_ov005_02155d6c(EquipmentMenu* self) {
-    unsigned char loading = self->loading_;
-    if (loading != 0) {
-        if (self->dragStep_ == 1) {
-            EquipmentSlot* slot = &self->slots_[self->dragged_];
-            if (slot->offset_ == 0) {
-                func_02047230((Foo02048004*)&self->dragModel_);
-                func_0207df50((Foo0207df50*)&self->dragVramState_);
-                func_0207df90((char*)&self->dragVramState_);
-                self->dragAllocator_.Reset();
-                func_02047b40(&self->dragModel_, self->dragFile_, &self->dragAllocator_);
-                func_0207dfac((char*)&self->dragVramState_);
+extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
+    unsigned char var0 = arg0->unknown_3db7_;
+    if (var0 != 0) {
+        if (arg0->unknown_3dab_ == 1) {
+            Struct_ov005_02153ba4* var1 = &arg0->unknown_2d90_[arg0->unknown_3d78_];
+            if (var1->unknown_14_ == 0) {
+                func_02047230((Struct_02012fa4*)&arg0->unknown_3cf0_);
+                func_0207df50((Struct_0203d028*)&arg0->unknown_d84_);
+                func_0207df90((char*)&arg0->unknown_d84_);
+                arg0->unknown_208_.Reset();
+                func_02047b40(&arg0->unknown_3cf0_, arg0->unknown_3d8c_, &arg0->unknown_208_);
+                func_0207dfac((char*)&arg0->unknown_d84_);
             }
-            slot->offset_ = -1;
-            slot->equipped_ = 0;
-            memset(self->dragFile_, 0, 0x200);
-            self->loading_--;
-            self->dragStep_ = 0;
-        } else if (self->unk_3da8 == 1) {
-            EquipmentSlot* slot = &self->slots_[self->unk_3dac];
-            VRAMManagerState* vramState = slot->vramState_;
-            MenuModel* model = slot->model_;
-            if (slot->offset_ == 0) {
-                func_ov005_02155d38((Obj02155d38*)slot);
-                func_0207df90((char*)vramState);
-                self->equippedAllocators_[self->unk_3dac].Reset();
-                func_02047b40(model, self->itemFile_, &self->equippedAllocators_[self->unk_3dac]);
-                slot->loadedItem_ = slot->item_;
-                func_0207dfac((char*)vramState);
+            var1->unknown_14_ = -1;
+            var1->unknown_3_ = 0;
+            memset(arg0->unknown_3d8c_, 0, 0x200);
+            arg0->unknown_3db7_--;
+            arg0->unknown_3dab_ = 0;
+        } else if (arg0->unknown_3da8_ == 1) {
+            Struct_ov005_02153ba4* var2 = &arg0->unknown_2d90_[arg0->unknown_3dac_];
+            Struct_ov005_02155d6c* var3 = var2->unknown_4_;
+            Struct_ov005_02155d6c_2* var4 = var2->unknown_8_;
+            if (var2->unknown_14_ == 0) {
+                func_ov005_02155d38((Struct_ov005_021556e4_2*)var2);
+                func_0207df90((char*)var3);
+                arg0->unknown_28_[arg0->unknown_3dac_].Reset();
+                func_02047b40(var4, arg0->unknown_3d94_, &arg0->unknown_28_[arg0->unknown_3dac_]);
+                var2->unknown_18_ = var2->unknown_0_;
+                func_0207dfac((char*)var3);
             }
-            model->unk_82 = 0x1f;
-            model->alpha_ = 0x7fff;
-            func_0203a46c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
-            slot->offset_ = -1;
-            slot->equipped_ = 0;
-            memset(self->itemFile_, 0, 0x200);
-            self->loading_--;
-            self->unk_3da8 = 0;
-        } else if (self->equippedStep_ == 1) {
-            for (int i = 0; i < 8; i++)
-                self->equippedAllocators_[i].Reset();
-            self->equippedStep_++;
-        } else if (self->equippedStep_ == 2) {
-            signed char count = 0;
-            int i = self->equippedStart_;
-            for (; i < self->equippedEnd_; i++) {
-                if (count == 4)
+            var4->unknown_82_ = 0x1f;
+            var4->unknown_80_ = 0x7fff;
+            func_0203a46c((Struct_0203a46c*)var4, var2->unknown_c_, var2->unknown_10_, 0);
+            var2->unknown_14_ = -1;
+            var2->unknown_3_ = 0;
+            memset(arg0->unknown_3d94_, 0, 0x200);
+            arg0->unknown_3db7_--;
+            arg0->unknown_3da8_ = 0;
+        } else if (arg0->unknown_3da9_ == 1) {
+            for (int var5 = 0; var5 < 8; var5++)
+                arg0->unknown_28_[var5].Reset();
+            arg0->unknown_3da9_++;
+        } else if (arg0->unknown_3da9_ == 2) {
+            signed char var6 = 0;
+            int var7 = arg0->unknown_3dae_;
+            for (; var7 < arg0->unknown_3db0_; var7++) {
+                if (var6 == 4)
                     break;
-                EquipmentSlot* slot = &self->slots_[i];
-                VRAMManagerState* vramState = slot->vramState_;
-                int offset = slot->offset_;
-                MenuModel* model = slot->model_;
-                if (offset >= 0) {
-                    func_ov005_02155d38((Obj02155d38*)slot);
-                    func_0207df90((char*)vramState);
-                    self->equippedAllocators_[i].Reset();
-                    func_02047b40(model, self->equippedFiles_ + offset, &self->equippedAllocators_[i]);
-                    slot->loadedItem_ = slot->item_;
-                    func_0207dfac((char*)vramState);
+                Struct_ov005_02153ba4* var8 = &arg0->unknown_2d90_[var7];
+                Struct_ov005_02155d6c* var9 = var8->unknown_4_;
+                int var10 = var8->unknown_14_;
+                Struct_ov005_02155d6c_2* var11 = var8->unknown_8_;
+                if (var10 >= 0) {
+                    func_ov005_02155d38((Struct_ov005_021556e4_2*)var8);
+                    func_0207df90((char*)var9);
+                    arg0->unknown_28_[var7].Reset();
+                    func_02047b40(var11, arg0->unknown_3d90_ + var10, &arg0->unknown_28_[var7]);
+                    var8->unknown_18_ = var8->unknown_0_;
+                    func_0207dfac((char*)var9);
                 }
-                model->unk_82 = 0x1f;
-                model->alpha_ = 0x7fff;
-                func_0203a46c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
-                slot->offset_ = -1;
-                slot->equipped_ = 0;
-                count++;
+                var11->unknown_82_ = 0x1f;
+                var11->unknown_80_ = 0x7fff;
+                func_0203a46c((Struct_0203a46c*)var11, var8->unknown_c_, var8->unknown_10_, 0);
+                var8->unknown_14_ = -1;
+                var8->unknown_3_ = 0;
+                var6++;
             }
-            memset(self->equippedFiles_, 0, 0x800);
-            self->equippedStart_ += count;
-        } else if (self->equippedStep_ == 3) {
-            self->loading_ = loading - 1;
-            self->equippedStep_ = 0;
-        } else if (self->pageStep_ == 1) {
-            for (int i = 0; i < 16; i++) {
-                if (self->slots_[i + 8].equipped_ == 0)
-                    self->itemAllocators_[i].Reset();
+            memset(arg0->unknown_3d90_, 0, 0x800);
+            arg0->unknown_3dae_ += var6;
+        } else if (arg0->unknown_3da9_ == 3) {
+            arg0->unknown_3db7_ = var0 - 1;
+            arg0->unknown_3da9_ = 0;
+        } else if (arg0->unknown_3daa_ == 1) {
+            for (int var12 = 0; var12 < 16; var12++) {
+                if (arg0->unknown_2d90_[var12 + 8].unknown_3_ == 0)
+                    arg0->unknown_c8_[var12].Reset();
             }
-            self->pageStep_++;
-        } else if (self->pageStep_ == 3) {
-            signed char count = 0;
-            int i = self->pageStart_;
-            for (; i < self->pageEnd_; i++) {
-                if (count == 4)
+            arg0->unknown_3daa_++;
+        } else if (arg0->unknown_3daa_ == 3) {
+            signed char var13 = 0;
+            int var14 = arg0->unknown_3db2_;
+            for (; var14 < arg0->unknown_3db4_; var14++) {
+                if (var13 == 4)
                     break;
-                EquipmentSlot* slot = &self->slots_[i];
-                VRAMManagerState* vramState = slot->vramState_;
-                MenuModel* model = slot->model_;
-                if (slot->equipped_ != 0) {
-                    count++;
+                Struct_ov005_02153ba4* var15 = &arg0->unknown_2d90_[var14];
+                Struct_ov005_02155d6c* var16 = var15->unknown_4_;
+                Struct_ov005_02155d6c_2* var17 = var15->unknown_8_;
+                if (var15->unknown_3_ != 0) {
+                    var13++;
                     continue;
                 }
-                int offset = slot->offset_;
-                if (offset >= 0) {
-                    func_ov005_02155d38((Obj02155d38*)slot);
-                    func_0207df90((char*)vramState);
-                    self->itemAllocators_[i - 8].Reset();
-                    func_02047b40(model, self->pageFiles_ + offset, &self->itemAllocators_[i - 8]);
-                    slot->loadedItem_ = slot->item_;
-                    func_0207dfac((char*)vramState);
+                int var18 = var15->unknown_14_;
+                if (var18 >= 0) {
+                    func_ov005_02155d38((Struct_ov005_021556e4_2*)var15);
+                    func_0207df90((char*)var16);
+                    arg0->unknown_c8_[var14 - 8].Reset();
+                    func_02047b40(var17, arg0->unknown_3d88_ + var18, &arg0->unknown_c8_[var14 - 8]);
+                    var15->unknown_18_ = var15->unknown_0_;
+                    func_0207dfac((char*)var16);
                 }
-                model->unk_82 = 0x1f;
-                model->alpha_ = 0x7fff;
-                func_0203a46c((Vec3Target0203a46c*)model, slot->x_, slot->y_, 0);
-                slot->offset_ = -1;
-                slot->equipped_ = 0;
-                count++;
+                var17->unknown_82_ = 0x1f;
+                var17->unknown_80_ = 0x7fff;
+                func_0203a46c((Struct_0203a46c*)var17, var15->unknown_c_, var15->unknown_10_, 0);
+                var15->unknown_14_ = -1;
+                var15->unknown_3_ = 0;
+                var13++;
             }
-            memset(self->pageFiles_, 0, 0x800);
-            self->pageStart_ += count;
-            self->pageStep_ = 2;
-        } else if (self->pageStep_ == 4) {
-            self->loading_ = loading - 1;
-            self->pageStep_ = 0;
+            memset(arg0->unknown_3d88_, 0, 0x800);
+            arg0->unknown_3db2_ += var13;
+            arg0->unknown_3daa_ = 2;
+        } else if (arg0->unknown_3daa_ == 4) {
+            arg0->unknown_3db7_ = var0 - 1;
+            arg0->unknown_3daa_ = 0;
         }
-        self->flags_ |= 2;
+        arg0->unknown_3dcc_ |= 2;
         return;
     }
-    self->flags_ &= ~2;
+    arg0->unknown_3dcc_ &= ~2;
 }

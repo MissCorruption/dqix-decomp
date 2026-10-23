@@ -3,10 +3,10 @@ struct LootableContainerManager;
 
 #pragma define_section initcode ".init" RX
 
-extern "C" ARM char* _ZN24LootableContainerManagerC1Ev(char* obj);
-extern "C" ARM LootableContainerManager* func_020269d0(LootableContainerManager* obj);
+extern "C" ARM char* _ZN24LootableContainerManagerC1Ev(char* arg0);
+extern "C" ARM LootableContainerManager* func_020269d0(LootableContainerManager* arg0);
 
-extern "C" void __register_global_object(int c, int b, void* node);
+extern "C" void __register_global_object(int arg0, int arg1, void* arg2);
 
 extern char data_02108e90;
 extern int data_02108e84;

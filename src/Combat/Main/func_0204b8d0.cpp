@@ -2,22 +2,22 @@
 
 extern "C" void func_0204b620(void*, void*, int, int, int, int, int, int, int, int);
 
-struct Obj0204b8d0 {
-    char pad0[0x10];
-    int field10;
-    void* field14;
-    char pad18[5];
-    unsigned char field1d;
+struct Struct_0204b8d0 {
+    char unknown_0_[0x10];
+    int unknown_10_;
+    void* unknown_14_;
+    char unknown_18_[5];
+    unsigned char unknown_1d_;
 };
 
 // USA: func_0204b8d0
-extern "C" ARM void func_0204b8d0(struct Obj0204b8d0* obj, unsigned int a1, int a2, int a3,
-                              short a4, short a5, short a6, short a7, unsigned short a8) {
-    if (obj->field1d <= a1) return;
-    int v = obj->field10;
-    if (v == 0) return;
-    v += a1 << 4;
-    void* p = obj->field14;
-    if (p == NULL) return;
-    func_0204b620(obj, p, v, a2, a3, a4, a5, a6, a7, a8);
+extern "C" ARM void func_0204b8d0(struct Struct_0204b8d0* arg0, unsigned int arg1, int arg2, int arg3,
+                              short arg4, short arg5, short arg6, short arg7, unsigned short arg8) {
+    if (arg0->unknown_1d_ <= arg1) return;
+    int var0 = arg0->unknown_10_;
+    if (var0 == 0) return;
+    var0 += arg1 << 4;
+    void* var1 = arg0->unknown_14_;
+    if (var1 == NULL) return;
+    func_0204b620(arg0, var1, var0, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 }

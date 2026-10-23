@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct ListHeader021d99f8 {
-    char pad4[4];
-    void* arr;
-    unsigned short size;
+struct Struct_ov028_021d9208_3 {
+    char unknown_0_[4];
+    void* unknown_4_;
+    unsigned short unknown_8_;
 };
 
 // USA: func_ov028_021d99f8
-extern "C" ARM void* func_ov028_021d99f8(struct ListHeader021d99f8* list, unsigned int idx) {
-    void* result = 0;
-    if (idx < list->size) {
-        result = (char*)list->arr + idx * 0xc;
+extern "C" ARM void* func_ov028_021d99f8(struct Struct_ov028_021d9208_3* arg0, unsigned int arg1) {
+    void* var0 = 0;
+    if (arg1 < arg0->unknown_8_) {
+        var0 = (char*)arg0->unknown_4_ + arg1 * 0xc;
     }
-    return result;
+    return var0;
 }

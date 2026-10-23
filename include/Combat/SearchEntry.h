@@ -1,33 +1,33 @@
 #pragma once
 
-struct SearchStruct;
+struct Struct_0202b2f0;
 
-struct SearchEntry0202c178 {
+struct Struct_0202b2f0_2 {
     union {
-        unsigned short raw;
+        unsigned short unknown_0_;
         struct {
-            unsigned short selected : 3;
-            unsigned short reserved : 5;
-            unsigned short kind : 8;
+            unsigned short unknown_0_0_ : 3;
+            unsigned short unknown_0_3_ : 5;
+            unsigned short unknown_1_0_ : 8;
         };
-    } flags;
-    unsigned short active : 1;
-    unsigned short members : 4;
-    unsigned short selector1 : 2;
-    unsigned short selector2 : 2;
-    unsigned short selector3 : 2;
-    unsigned short bit11 : 1;
-    unsigned short bit12 : 1;
-    unsigned short bit13 : 1;
-    unsigned short bit14 : 1;
-    unsigned short bit15 : 1;
-    unsigned short mask;
-    unsigned short field6;
-    short x;
-    short y;
-    short z;
-    short angle;
+    } unknown_0_;
+    unsigned short unknown_2_0_ : 1;
+    unsigned short unknown_2_1_ : 4;
+    unsigned short unknown_2_5_ : 2;
+    unsigned short unknown_2_7_ : 2;
+    unsigned short unknown_3_1_ : 2;
+    unsigned short unknown_3_3_ : 1;
+    unsigned short unknown_3_4_ : 1;
+    unsigned short unknown_3_5_ : 1;
+    unsigned short unknown_3_6_ : 1;
+    unsigned short unknown_3_7_ : 1;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    short unknown_8_;
+    short unknown_a_;
+    short unknown_c_;
+    short unknown_e_;
 };
 
-extern "C" SearchEntry0202c178* func_0202c178(SearchStruct* object, int value);
-extern "C" void func_0202c478(SearchStruct* object);
+extern "C" Struct_0202b2f0_2* func_0202c178(Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c478(Struct_0202b2f0* arg0);

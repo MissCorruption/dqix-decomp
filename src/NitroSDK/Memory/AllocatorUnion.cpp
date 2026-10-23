@@ -4,32 +4,32 @@
 // JPN: func_020b1938
 void* AllocatorUnion::Allocate(unsigned int len)
 {
-    return versions.base.pVTable->allocate(&versions.base, len);
+    return versions.unknown_0_.pVTable->allocate(&versions.unknown_0_, len);
 }
 
 // USA: func_020afe80
 // JPN: func_020b194c
 void AllocatorUnion::Free(void* data)
 {
-    versions.base.pVTable->free(&versions.base, data);
+    versions.unknown_0_.pVTable->free(&versions.unknown_0_, data);
 }
 
 // USA: func_020afe94
 // JPN: func_020b1960
 void AllocatorUnion::InitializeTypeB(HPXEAllocator* pAlloc, int align)
 {
-    versions.typeB.pVTable = &AllocatorTypeB::s_vtable;
-    versions.typeB.pHPXEAllocator = pAlloc;
-    versions.typeB.alignmentAndDir = align;
-    versions.typeB.unknown = 0;
+    versions.unknown2_0_.pVTable = &AllocatorTypeB::s_vtable;
+    versions.unknown2_0_.pHPXEAllocator = pAlloc;
+    versions.unknown2_0_.alignmentAndDir = align;
+    versions.unknown2_0_.unknown = 0;
 }
 
 // USA: func_020afeac
 // JPN: func_020b1978
 void AllocatorUnion::InitializeTypeA(HMRFAllocator* pAlloc, int align)
 {
-    versions.typeA.pVTable = &AllocatorTypeA::s_vtable;
-    versions.typeA.pHMRFAllocator = pAlloc;
-    versions.typeA.alignmentAndDir = align;
-    versions.typeA.unknown = 0;
+    versions.unknown1_0_.pVTable = &AllocatorTypeA::s_vtable;
+    versions.unknown1_0_.pHMRFAllocator = pAlloc;
+    versions.unknown1_0_.alignmentAndDir = align;
+    versions.unknown1_0_.unknown = 0;
 }

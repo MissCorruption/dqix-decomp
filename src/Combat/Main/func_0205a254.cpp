@@ -1,45 +1,45 @@
 #include <globaldefs.h>
-struct Frame0205a254 { unsigned short duration; unsigned short field2; };
-struct Elem0205a3d0 {
-    int mode; int field4; unsigned short key, count;
-    Frame0205a254* frames;
-    unsigned short index, elapsed;
-    unsigned char field14, flags; unsigned short field16;
+struct Struct_0205a254_3 { unsigned short unknown_0_; unsigned short unknown_2_; };
+struct Struct_0205a254_2 {
+    int unknown_0_; int unknown_4_; unsigned short unknown_8_, unknown_a_;
+    Struct_0205a254_3* unknown_c_;
+    unsigned short unknown_10_, unknown_12_;
+    unsigned char unknown_14_, unknown_15_; unsigned short unknown_16_;
 };
-struct Container0205a3d0;
-extern "C" Elem0205a3d0* func_0205a3d0(Container0205a3d0*, int);
-extern "C" void func_0205a3ac(Container0205a3d0*, int);
+struct Struct_0205a254;
+extern "C" Struct_0205a254_2* func_0205a3d0(Struct_0205a254*, int);
+extern "C" void func_0205a3ac(Struct_0205a254*, int);
 // USA: func_0205a254
-extern "C" ARM void func_0205a254(Container0205a3d0* container, int key, int delta) {
-    Frame0205a254* frames;
-    unsigned short elapsed;
-    int frameOffset;
-    unsigned short increment = delta;
-    Elem0205a3d0* entry = func_0205a3d0(container, key);
-    if (!entry) return;
-    if (!(entry->flags & 2) || !entry->mode) return;
-    entry->elapsed += increment;
-    frames = entry->frames;
-    frameOffset = entry->index;
-    const unsigned short& duration = frames[frameOffset].duration;
-    elapsed = entry->elapsed;
-    if (duration <= elapsed) {
-        entry->elapsed = elapsed - duration;
-        switch (entry->mode) {
+extern "C" ARM void func_0205a254(Struct_0205a254* arg0, int arg1, int arg2) {
+    Struct_0205a254_3* var0;
+    unsigned short var1;
+    int var2;
+    unsigned short var3 = arg2;
+    Struct_0205a254_2* var4 = func_0205a3d0(arg0, arg1);
+    if (!var4) return;
+    if (!(var4->unknown_15_ & 2) || !var4->unknown_0_) return;
+    var4->unknown_12_ += var3;
+    var0 = var4->unknown_c_;
+    var2 = var4->unknown_10_;
+    const unsigned short& var5 = var0[var2].unknown_0_;
+    var1 = var4->unknown_12_;
+    if (var5 <= var1) {
+        var4->unknown_12_ = var1 - var5;
+        switch (var4->unknown_0_) {
         case 0: break;
         case 1:
-            entry->index++;
-            elapsed = entry->index;
-            if (entry->count > elapsed) return;
+            var4->unknown_10_++;
+            var1 = var4->unknown_10_;
+            if (var4->unknown_a_ > var1) return;
             {
-                entry->index = elapsed - 1;
-                entry->elapsed = frames[frameOffset].duration;
-                func_0205a3ac(container, entry->key);
+                var4->unknown_10_ = var1 - 1;
+                var4->unknown_12_ = var0[var2].unknown_0_;
+                func_0205a3ac(arg0, var4->unknown_8_);
             }
             break;
         case 2:
-            entry->index++;
-            if (entry->count <= entry->index) entry->index = 0;
+            var4->unknown_10_++;
+            if (var4->unknown_a_ <= var4->unknown_10_) var4->unknown_10_ = 0;
             break;
         case 3: break;
         case 4: break;

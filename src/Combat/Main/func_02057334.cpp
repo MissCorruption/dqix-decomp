@@ -1,144 +1,144 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
-struct S02055080;
-struct Struct02058c88
+struct Struct_020546c8;
+struct Struct_02055ed0_3
 {
-    unsigned char padding[0x148];
-    Struct02058c88* next;
+    unsigned char unknown_0_[0x148];
+    Struct_02055ed0_3* unknown_148_;
 };
-struct Obj02055c30;
+struct Struct_02055c30;
 
-struct ListNode02057854
+struct Struct_02057334_2
 {
-    unsigned char padding_0x0[4];
-    unsigned int frame;
-    unsigned int endFrame;
-    unsigned char repeat;
-    unsigned char padding_0xd[0x23];
-    S02055080* resource;
-    Struct02058c88* head;
-    unsigned char flags;
-    unsigned char padding_0x39[0x13];
-    float channelSlopes[4];
-    unsigned char padding_0x5c[8];
-    float translationSlopes[3];
-    float rotationSlopes[3];
-    float scaleSlopes[3];
-    unsigned char padding_0x88[0x14];
-    float durationSlope;
-    unsigned char padding_0xa0[4];
-    float extraSlopes[3];
-    float vectorSlopes[3];
-    unsigned char padding_0xbc[0x5c];
-    float channels[4];
-    float translation[3];
-    float rotation[3];
-    float scale[3];
-    float duration;
-    int delay;
-    unsigned int finalFrame;
-    float extra[3];
-    float vector[3];
-};
-
-struct AnimationTiming02057334
-{
-    unsigned char padding[6];
-    unsigned char interval;
+    unsigned char unknown_0_[4];
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_[0x23];
+    Struct_020546c8* unknown_30_;
+    Struct_02055ed0_3* unknown_34_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_[0x13];
+    float unknown_4c_[4];
+    unsigned char unknown_5c_[8];
+    float unknown_64_[3];
+    float unknown_70_[3];
+    float unknown_7c_[3];
+    unsigned char unknown_88_[0x14];
+    float unknown_9c_;
+    unsigned char unknown_a0_[4];
+    float unknown_a4_[3];
+    float unknown_b0_[3];
+    unsigned char unknown_bc_[0x5c];
+    float unknown_118_[4];
+    float unknown_128_[3];
+    float unknown_134_[3];
+    float unknown_140_[3];
+    float unknown_14c_;
+    int unknown_150_;
+    unsigned int unknown_154_;
+    float unknown_158_[3];
+    float unknown_164_[3];
 };
 
-extern "C" int func_02057854(ListNode02057854*);
-extern "C" void func_02058c88(Struct02058c88*);
-extern "C" void* func_020550c0(S02055080*);
-extern "C" void func_02055c30(Obj02055c30*);
-extern "C" void func_02056d80(ListNode02057854*);
-extern "C" void func_020557a4(ListNode02057854*);
-extern "C" void func_020559cc(ListNode02057854*);
-extern "C" void func_02055ccc(ListNode02057854*);
-extern "C" void func_02059720(Struct02058c88*);
-extern "C" void func_02055f5c(ListNode02057854*, int, int);
+struct Struct_02057334
+{
+    unsigned char unknown_0_[6];
+    unsigned char unknown_6_;
+};
+
+extern "C" int func_02057854(Struct_02057334_2*);
+extern "C" void func_02058c88(Struct_02055ed0_3*);
+extern "C" void* func_020550c0(Struct_020546c8*);
+extern "C" void func_02055c30(Struct_02055c30*);
+extern "C" void func_02056d80(Struct_02057334_2*);
+extern "C" void func_020557a4(Struct_02057334_2*);
+extern "C" void func_020559cc(Struct_02057334_2*);
+extern "C" void func_02055ccc(Struct_02057334_2*);
+extern "C" void func_02059720(Struct_02055ed0_3*);
+extern "C" void func_02055f5c(Struct_02057334_2*, int, int);
 
 // USA: func_02057334
-extern "C" ARM int func_02057334(ListNode02057854* self)
+extern "C" ARM int func_02057334(Struct_02057334_2* arg0)
 {
-    int steps = 0;
-    int skip = 0;
-    int ticks = GameState::GetInstance()->GetTickCount();
-    if (!func_02057854(self))
+    int var0 = 0;
+    int var1 = 0;
+    int var2 = GameState::GetInstance()->GetTickCount();
+    if (!func_02057854(arg0))
     {
-        if (self->frame > self->endFrame && self->flags)
+        if (arg0->unknown_4_ > arg0->unknown_8_ && arg0->unknown_38_)
         {
-            Struct02058c88* child = self->head;
-            while (child)
+            Struct_02055ed0_3* var3 = arg0->unknown_34_;
+            while (var3)
             {
-                func_02058c88(child);
-                child = child->next;
+                func_02058c88(var3);
+                var3 = var3->unknown_148_;
             }
         }
-        else if (self->frame > self->endFrame && !self->flags)
+        else if (arg0->unknown_4_ > arg0->unknown_8_ && !arg0->unknown_38_)
         {
-            skip = 1;
+            var1 = 1;
         }
-        if (self->frame > self->endFrame && self->repeat)
+        if (arg0->unknown_4_ > arg0->unknown_8_ && arg0->unknown_c_)
         {
-            func_02056d80(self);
-            skip = 1;
+            func_02056d80(arg0);
+            var1 = 1;
         }
-        if (!skip)
+        if (!var1)
         {
-            if (self->frame > self->finalFrame)
+            if (arg0->unknown_4_ > arg0->unknown_154_)
             {
-                self->delay -= ticks;
-                if (self->delay < 0)
+                arg0->unknown_150_ -= var2;
+                if (arg0->unknown_150_ < 0)
                 {
-                    int interval = ((AnimationTiming02057334*)func_020550c0(self->resource))->interval;
-                    self->delay = interval;
-                    if (ticks < interval + 1)
+                    int var4 = ((Struct_02057334*)func_020550c0(arg0->unknown_30_))->unknown_6_;
+                    arg0->unknown_150_ = var4;
+                    if (var2 < var4 + 1)
                     {
-                        steps = 1;
+                        var0 = 1;
                     }
                     else
                     {
-                        steps = ticks / (interval + 1);
+                        var0 = var2 / (var4 + 1);
                     }
                 }
             }
-            self->channels[0] += self->channelSlopes[0] * (float)ticks;
-            self->channels[1] += self->channelSlopes[1] * (float)ticks;
-            self->channels[2] += self->channelSlopes[2] * (float)ticks;
-            self->channels[3] += self->channelSlopes[3] * (float)ticks;
-            for (int i = 0; i < 3; i++)
+            arg0->unknown_118_[0] += arg0->unknown_4c_[0] * (float)var2;
+            arg0->unknown_118_[1] += arg0->unknown_4c_[1] * (float)var2;
+            arg0->unknown_118_[2] += arg0->unknown_4c_[2] * (float)var2;
+            arg0->unknown_118_[3] += arg0->unknown_4c_[3] * (float)var2;
+            for (int var5 = 0; var5 < 3; var5++)
             {
-                self->translation[i] += (float)ticks * self->translationSlopes[i];
-                self->rotation[i] += (float)ticks * self->rotationSlopes[i];
-                self->scale[i] += (float)ticks * self->scaleSlopes[i];
-                self->extra[i] += (float)ticks * self->extraSlopes[i];
-                self->vector[i] += (float)ticks * self->vectorSlopes[i];
+                arg0->unknown_128_[var5] += (float)var2 * arg0->unknown_64_[var5];
+                arg0->unknown_134_[var5] += (float)var2 * arg0->unknown_70_[var5];
+                arg0->unknown_140_[var5] += (float)var2 * arg0->unknown_7c_[var5];
+                arg0->unknown_158_[var5] += (float)var2 * arg0->unknown_a4_[var5];
+                arg0->unknown_164_[var5] += (float)var2 * arg0->unknown_b0_[var5];
             }
-            self->duration += self->durationSlope * (float)ticks;
-            func_020557a4(self);
-            func_020559cc(self);
-            func_02055c30((Obj02055c30*)self);
-            func_02055ccc(self);
+            arg0->unknown_14c_ += arg0->unknown_9c_ * (float)var2;
+            func_020557a4(arg0);
+            func_020559cc(arg0);
+            func_02055c30((Struct_02055c30*)arg0);
+            func_02055ccc(arg0);
         }
     }
-    if (!func_02057854(self) || !self->flags)
+    if (!func_02057854(arg0) || !arg0->unknown_38_)
     {
-        Struct02058c88* child = self->head;
-        while (child)
+        Struct_02055ed0_3* var6 = arg0->unknown_34_;
+        while (var6)
         {
-            func_02059720(child);
-            child = child->next;
+            func_02059720(var6);
+            var6 = var6->unknown_148_;
         }
     }
-    if (steps)
+    if (var0)
     {
-        func_02055f5c(self, ticks, steps);
+        func_02055f5c(arg0, var2, var0);
     }
-    if (!func_02057854(self))
+    if (!func_02057854(arg0))
     {
-        self->frame += ticks;
+        arg0->unknown_4_ += var2;
     }
-    return steps != 0;
+    return var0 != 0;
 }

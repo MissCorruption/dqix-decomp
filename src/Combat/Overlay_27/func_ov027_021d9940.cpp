@@ -18,36 +18,36 @@
 
 extern char* data_ov027_021e33ec;
 
-extern "C" ARM void func_ov027_021d9d5c(int index);
-extern "C" ARM int func_ov027_021da8d4(void* out, void* table, unsigned int key, void* rawElems);
-extern "C" void* func_ov027_021dd638(void* in, void* out);
-extern "C" ARM int func_ov027_021dd180(void* obj, unsigned int addr, void* buf, unsigned int size);
-extern "C" ARM int func_ov027_021dd3e0(void* p);
-extern "C" ARM void func_ov027_021dd3f8(void* a0, unsigned int a1, unsigned int a2, unsigned int a3);
+extern "C" ARM void func_ov027_021d9d5c(int arg0);
+extern "C" ARM int func_ov027_021da8d4(void* arg0, void* arg1, unsigned int arg2, void* arg3);
+extern "C" void* func_ov027_021dd638(void* arg0, void* arg1);
+extern "C" ARM int func_ov027_021dd180(void* arg0, unsigned int arg1, void* arg2, unsigned int arg3);
+extern "C" ARM int func_ov027_021dd3e0(void* arg0);
+extern "C" ARM void func_ov027_021dd3f8(void* arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3);
 extern "C" ARM void func_020c9be0(void);
-extern "C" int func_ov027_021dab00(int a, int b, void* c);
+extern "C" int func_ov027_021dab00(int arg0, int arg1, void* arg2);
 
-struct Base_021d989c;
-extern "C" ARM void func_ov027_021d989c(Base_021d989c* p);
+struct Struct_ov027_021d989c;
+extern "C" ARM void func_ov027_021d989c(Struct_ov027_021d989c* arg0);
 
-struct InputDD638_021d9940 {
-    unsigned char type;
-    unsigned short field2;
-    unsigned short field4;
+struct Struct_ov027_021d9940 {
+    unsigned char unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
 };
 
-struct Out_021da8d4_021d9940 {
-    int f0;
-    int f4;
-    int f8;
-    unsigned char fc;
+struct Struct_ov027_021d9940_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned char unknown_c_;
 };
 
-struct RegionEntry_021d9940 {
-    unsigned int base;
-    unsigned int limit;
-    unsigned int target;
-    unsigned int status;
+struct Struct_ov027_021d9940_3 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
 };
 
 #pragma optimize_for_size off
@@ -57,87 +57,87 @@ extern "C" ARM int func_ov027_021d9940(void) {
         return 0x15;
     }
 
-    unsigned char attempts = 0;
-    unsigned char cursor;
+    unsigned char var0 = 0;
+    unsigned char var1;
     for (;;) {
         *(unsigned char*)(data_ov027_021e33ec + 0x1525) =
             (unsigned char)((*(unsigned char*)(data_ov027_021e33ec + 0x1525) + 1) % 0x10);
-        cursor = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
-        char* entry = data_ov027_021e33ec + cursor * 0x5d4;
-        if (*(unsigned char*)(entry + 0x1d52) != 0 && *(unsigned short*)(entry + 0x1d4c) != 0) {
+        var1 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
+        char* var2 = data_ov027_021e33ec + var1 * 0x5d4;
+        if (*(unsigned char*)(var2 + 0x1d52) != 0 && *(unsigned short*)(var2 + 0x1d4c) != 0) {
             break;
         }
-        attempts = (attempts + 1) & 0xff;
-        if (attempts >= 0x10) break;
+        var0 = (var0 + 1) & 0xff;
+        if (var0 >= 0x10) break;
     }
-    if (attempts == 0x10) {
+    if (var0 == 0x10) {
         return 0x15;
     }
-    func_ov027_021d9d5c(cursor);
+    func_ov027_021d9d5c(var1);
 
-    char* base = data_ov027_021e33ec;
-    unsigned char cursor2 = *(unsigned char*)(base + 0x1525);
-    int off2 = cursor2 * 0x5d4;
-    Out_021da8d4_021d9940 out;
-    unsigned short key = *(unsigned short*)(base + off2 + 0x1d48);
-    if (!func_ov027_021da8d4(&out, base + 0x1d2c + off2, key, base + 0x1788 + off2)) {
+    char* var3 = data_ov027_021e33ec;
+    unsigned char var4 = *(unsigned char*)(var3 + 0x1525);
+    int var5 = var4 * 0x5d4;
+    Struct_ov027_021d9940_2 var6;
+    unsigned short var7 = *(unsigned short*)(var3 + var5 + 0x1d48);
+    if (!func_ov027_021da8d4(&var6, var3 + 0x1d2c + var5, var7, var3 + 0x1788 + var5)) {
         return 0x15;
     }
 
-    InputDD638_021d9940 in;
-    in.type = 4;
-    unsigned char cursor3 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
-    in.field2 = cursor3;
-    cursor3 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
-    in.field4 = *(unsigned short*)(data_ov027_021e33ec + cursor3 * 0x5d4 + 0x1d48);
-    void* res = func_ov027_021dd638(&in, data_ov027_021e33ec);
+    Struct_ov027_021d9940 var8;
+    var8.unknown_0_ = 4;
+    unsigned char var9 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
+    var8.unknown_2_ = var9;
+    var9 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
+    var8.unknown_4_ = *(unsigned short*)(data_ov027_021e33ec + var9 * 0x5d4 + 0x1d48);
+    void* var10 = func_ov027_021dd638(&var8, data_ov027_021e33ec);
 
-    unsigned char idx = out.fc;
-    unsigned char cursor4 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
-    int f8v = out.f8;
-    int f4v = out.f4;
-    char* entry2 = data_ov027_021e33ec + cursor4 * 0x5d4;
-    void** d58 = *(void***)(entry2 + 0x1000 + 0xd58);
-    int wordArrIdx = *(int*)(entry2 + idx * 4 + 0x1000 + 0xd2c);
-    int addr = (f8v - wordArrIdx) + (int)d58[idx];
-    void* obj = *(void**)(entry2 + 0x1000 + 0xd54);
-    if (!func_ov027_021dd180(obj, addr, res, f4v)) {
-        char* c7ce0 = data_ov027_021e33ec + 0x7ce0;
-        if (func_ov027_021dd3e0(c7ce0)) {
+    unsigned char var11 = var6.unknown_c_;
+    unsigned char var12 = *(unsigned char*)(data_ov027_021e33ec + 0x1525);
+    int var13 = var6.unknown_8_;
+    int var14 = var6.unknown_4_;
+    char* var15 = data_ov027_021e33ec + var12 * 0x5d4;
+    void** var16 = *(void***)(var15 + 0x1000 + 0xd58);
+    int var17 = *(int*)(var15 + var11 * 4 + 0x1000 + 0xd2c);
+    int var18 = (var13 - var17) + (int)var16[var11];
+    void* var19 = *(void**)(var15 + 0x1000 + 0xd54);
+    if (!func_ov027_021dd180(var19, var18, var10, var14)) {
+        char* var20 = data_ov027_021e33ec + 0x7ce0;
+        if (func_ov027_021dd3e0(var20)) {
             goto fail;
         }
-        if (*(int*)obj != 0) {
-            *(int*)obj -= 1;
+        if (*(int*)var19 != 0) {
+            *(int*)var19 -= 1;
             goto fail;
         }
-        RegionEntry_021d9940* arr = (RegionEntry_021d9940*)((char*)obj + 0x30);
-        RegionEntry_021d9940* best = 0;
-        int i = 0;
-        RegionEntry_021d9940* p = arr;
+        Struct_ov027_021d9940_3* var21 = (Struct_ov027_021d9940_3*)((char*)var19 + 0x30);
+        Struct_ov027_021d9940_3* var22 = 0;
+        int var23 = 0;
+        Struct_ov027_021d9940_3* var24 = var21;
         do {
-            if (arr[i].status == 2) {
-                if (best == 0 || best->base > arr[i].base) {
-                    best = p;
+            if (var21[var23].unknown_c_ == 2) {
+                if (var22 == 0 || var22->unknown_0_ > var21[var23].unknown_0_) {
+                    var22 = var24;
                 }
             }
-            p++;
-            i++;
-        } while (i < 4);
-        if (best == 0) {
+            var24++;
+            var23++;
+        } while (var23 < 4);
+        if (var22 == 0) {
             func_020c9be0();
         }
-        *(int*)obj = 2;
-        best->status = 1;
-        best->base = addr & ~0x1f;
-        *(void**)(c7ce0 + 0x10) = best;
-        *(void**)(c7ce0 + 0x14) = obj;
-        func_ov027_021dd3f8(c7ce0, (unsigned int)&func_ov027_021d989c, 0, 4);
+        *(int*)var19 = 2;
+        var22->unknown_c_ = 1;
+        var22->unknown_0_ = var18 & ~0x1f;
+        *(void**)(var20 + 0x10) = var22;
+        *(void**)(var20 + 0x14) = var19;
+        func_ov027_021dd3f8(var20, (unsigned int)&func_ov027_021d989c, 0, 4);
         goto fail;
     fail:
         return 0x15;
     }
 
-    unsigned short counter = *(unsigned short*)(data_ov027_021e33ec +
+    unsigned short var25 = *(unsigned short*)(data_ov027_021e33ec +
         (*(unsigned char*)(data_ov027_021e33ec + 0x1525)) * 0x5d4 + 0x1d4c);
-    return func_ov027_021dab00(out.f4 + 6, counter, data_ov027_021e33ec);
+    return func_ov027_021dab00(var6.unknown_4_ + 6, var25, data_ov027_021e33ec);
 }

@@ -2,43 +2,43 @@
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 
-struct Entry_02028bd0 {
-    unsigned short id;
-    unsigned short field2 : 2;
+struct Struct_020fdd44 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 2;
     unsigned short : 14;
 };
-extern "C" struct Entry_02028bd0* func_02027ca4(void);
-extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
+extern "C" struct Struct_020fdd44* func_02027ca4(void);
+extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" GameObject* func_ov017_021a2738(void* unused, int value);
+extern "C" int func_0202b7d8(int* arg0);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" GameObject* func_ov017_021a2738(void* arg0, int arg1);
 
 // USA: func_ov017_0219e180
-extern "C" ARM void func_ov017_0219e180(void* param, int id) {
-    GameState* bs = GameState::GetInstance();
-    struct Entry_02028bd0* table = func_02027ca4();
-    void* search = func_0202ae18();
-    if (func_0202b7d8((int*)search) != 0) {
-        if (func_0202c1a4((struct SearchStruct0202c1a4*)search) != 0) {
+extern "C" ARM void func_ov017_0219e180(void* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_020fdd44* var1 = func_02027ca4();
+    void* var2 = func_0202ae18();
+    if (func_0202b7d8((int*)var2) != 0) {
+        if (func_0202c1a4((struct Struct_0202c1a4*)var2) != 0) {
             return;
         }
     }
-    struct Entry_02028bd0* entry = func_02028bd0(table, id);
-    if (entry == NULL) {
+    struct Struct_020fdd44* var3 = func_02028bd0(var1, arg1);
+    if (var3 == NULL) {
         return;
     }
-    int group = entry->field2;
-    for (int i = 0; i < 0xc; i++) {
-        GameObject* monster = bs->GetMaybeFieldMonsterByIndex(group * 0xc + 0x70 + i);
-        if (monster == NULL) {
+    int var4 = var3->unknown_2_0_;
+    for (int var5 = 0; var5 < 0xc; var5++) {
+        GameObject* var6 = var0->GetMaybeFieldMonsterByIndex(var4 * 0xc + 0x70 + var5);
+        if (var6 == NULL) {
             continue;
         }
-        GameObject* found = func_ov017_021a2738(param, monster->obj3D_.unknown_2_);
-        if (found == NULL) {
+        GameObject* var7 = func_ov017_021a2738(arg0, var6->obj3D_.unknown_2_);
+        if (var7 == NULL) {
             continue;
         }
-        found->obj3D_.ShallowCloneModelAndAnimationsTo(&monster->obj3D_);
+        var7->obj3D_.ShallowCloneModelAndAnimationsTo(&var6->obj3D_);
     }
 }

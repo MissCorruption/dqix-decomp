@@ -3,20 +3,20 @@
 
 extern "C" unsigned short* func_02012fe4(void);
 
-struct Obj0208b4d4 {
-    char pad[0xac];
-    int captured;   // 0xac
-    int done;       // 0xb0
+struct Struct_0208b088_2 {
+    char unknown_0_[0xac];
+    int unknown_ac_;   // 0xac
+    int unknown_b0_;       // 0xb0
 };
 
 // USA: func_0208b4d4
-extern "C" ARM int func_0208b4d4(struct Obj0208b4d4* obj) {
-    unsigned short cur;
+extern "C" ARM int func_0208b4d4(struct Struct_0208b088_2* arg0) {
+    unsigned short var0;
     (int)GetGameResources();
-    cur = *func_02012fe4();
-    if (cur != obj->captured) {
-        obj->done = 0;
-        obj->captured = -1;
+    var0 = *func_02012fe4();
+    if (var0 != arg0->unknown_ac_) {
+        arg0->unknown_b0_ = 0;
+        arg0->unknown_ac_ = -1;
     }
-    return obj->done;
+    return arg0->unknown_b0_;
 }

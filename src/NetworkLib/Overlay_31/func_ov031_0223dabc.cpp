@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-struct Node0223d858;
-struct SlotArray0223dabc;
-struct SlotLink0223dabc {
-    void* previous;
-    void* next;
-    unsigned short unknown_0x8;
-    unsigned char padding[2];
+struct Struct_ov031_0223d858;
+struct Struct_ov031_0223dabc_2;
+struct Struct_ov031_0223dabc_3 {
+    void* unknown_0_;
+    void* unknown_4_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[2];
 };
-struct Slot0223dabc {
-    unsigned char entries[0x180];
-    SlotLink0223dabc firstLink;
-    SlotLink0223dabc secondLink;
-    Node0223d858* list;
-    SlotArray0223dabc* slotArray;
+struct Struct_ov031_0223dabc {
+    unsigned char unknown_0_[0x180];
+    Struct_ov031_0223dabc_3 unknown_180_;
+    Struct_ov031_0223dabc_3 unknown_18c_;
+    Struct_ov031_0223d858* unknown_198_;
+    Struct_ov031_0223dabc_2* unknown_19c_;
 };
-extern Slot0223dabc* data_ov031_02290d64;
+extern Struct_ov031_0223dabc* data_ov031_02290d64;
 extern "C" void* func_ov031_0223cf4c(unsigned int, int);
-extern "C" SlotArray0223dabc* func_ov031_0223beec(int, int, int);
-extern "C" Node0223d858* func_ov031_0223d858();
+extern "C" Struct_ov031_0223dabc_2* func_ov031_0223beec(int, int, int);
+extern "C" Struct_ov031_0223d858* func_ov031_0223d858();
 extern "C" int func_ov031_0223d918(char*);
 extern "C" int func_ov031_0223d908(char*);
-typedef void (*AppendSlotLink0223dabc)(Node0223d858*, SlotLink0223dabc*);
+typedef void (*Type_ov031_0223dabc)(Struct_ov031_0223d858*, Struct_ov031_0223dabc_3*);
 
-static inline Slot0223dabc* GetSlot0223dabc(int offset) {
-    return (Slot0223dabc*)((unsigned char*)data_ov031_02290d64 + offset);
+static inline Struct_ov031_0223dabc* inline_ov031_0223dabc(int arg0) {
+    return (Struct_ov031_0223dabc*)((unsigned char*)data_ov031_02290d64 + arg0);
 }
 
 // USA: func_ov031_0223dabc
 extern "C" ARM void func_ov031_0223dabc() {
-    data_ov031_02290d64 = (Slot0223dabc*)func_ov031_0223cf4c(0x340, 4);
-    int index = 0;
-    int offset = 0;
+    data_ov031_02290d64 = (Struct_ov031_0223dabc*)func_ov031_0223cf4c(0x340, 4);
+    int var0 = 0;
+    int var1 = 0;
     do {
-        SlotArray0223dabc* array = func_ov031_0223beec(0x20, (int)GetSlot0223dabc(offset)->entries, 0xc);
-        GetSlot0223dabc(offset)->slotArray = array;
-        Node0223d858* list = func_ov031_0223d858();
-        GetSlot0223dabc(offset)->list = list;
-        GetSlot0223dabc(offset)->firstLink.unknown_0x8 = 0x300;
-        GetSlot0223dabc(offset)->secondLink.unknown_0x8 = 0x400;
-        ((AppendSlotLink0223dabc)func_ov031_0223d918)(GetSlot0223dabc(offset)->list, &GetSlot0223dabc(offset)->firstLink);
-        ((AppendSlotLink0223dabc)func_ov031_0223d908)(GetSlot0223dabc(offset)->list, &GetSlot0223dabc(offset)->secondLink);
-        index++;
-        offset += sizeof(Slot0223dabc);
-    } while (index < 2);
+        Struct_ov031_0223dabc_2* var2 = func_ov031_0223beec(0x20, (int)inline_ov031_0223dabc(var1)->unknown_0_, 0xc);
+        inline_ov031_0223dabc(var1)->unknown_19c_ = var2;
+        Struct_ov031_0223d858* var3 = func_ov031_0223d858();
+        inline_ov031_0223dabc(var1)->unknown_198_ = var3;
+        inline_ov031_0223dabc(var1)->unknown_180_.unknown_8_ = 0x300;
+        inline_ov031_0223dabc(var1)->unknown_18c_.unknown_8_ = 0x400;
+        ((Type_ov031_0223dabc)func_ov031_0223d918)(inline_ov031_0223dabc(var1)->unknown_198_, &inline_ov031_0223dabc(var1)->unknown_180_);
+        ((Type_ov031_0223dabc)func_ov031_0223d908)(inline_ov031_0223dabc(var1)->unknown_198_, &inline_ov031_0223dabc(var1)->unknown_18c_);
+        var0++;
+        var1 += sizeof(Struct_ov031_0223dabc);
+    } while (var0 < 2);
 }

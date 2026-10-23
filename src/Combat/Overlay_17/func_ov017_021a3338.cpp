@@ -3,34 +3,34 @@
 #include "Combat/Overlay_1/EventArgs.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" int func_02018fbc(int seed, EventVec3* v);
-struct Entry_02028bd0;
-extern "C" struct Entry_02028bd0* func_02027cb0(void);
+extern "C" int func_02018fbc(int arg0, Struct_ov001_02158efc* arg1);
+struct Struct_020fdd44;
+extern "C" struct Struct_020fdd44* func_02027cb0(void);
 struct Vector3i;
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 
-struct PtrWithU16_021a3338 { unsigned short field0; };
-struct EntryField2_021a3338 { unsigned char pad0[2]; unsigned short field2 : 2; unsigned short pad3 : 14; };
+struct Struct_ov017_021a3338 { unsigned short unknown_0_; };
+struct Struct_ov017_021a3338_2 { unsigned char unknown_0_[2]; unsigned short unknown_2_0_ : 2; unsigned short unknown_2_2_ : 14; };
 
 // USA: func_ov017_021a3338
 extern "C" ARM void func_ov017_021a3338(void*) {
-    GameState* battleStruct = GameState::GetInstance();
-    struct PtrWithU16_021a3338* ptr = (struct PtrWithU16_021a3338*)func_02012fe4();
-    unsigned short value = ptr->field0;
-    struct Entry_02028bd0* entry = func_02027cb0();
-    if (entry == NULL) return;
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov017_021a3338* var1 = (struct Struct_ov017_021a3338*)func_02012fe4();
+    unsigned short var2 = var1->unknown_0_;
+    struct Struct_020fdd44* var3 = func_02027cb0();
+    if (var3 == NULL) return;
 
-    int i;
-    for (i = 0; i < 0xc; i++) {
-        int idx = ((struct EntryField2_021a3338*)entry)->field2;
-        int base = idx * 0xc + 0x70;
-        GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(i + base);
-        if (combatant) {
-            if (value == ((Object3D*)((struct U16Field0x6_020375f8*)combatant))->GetField06()) {
-                EventVec3 v = *(EventVec3*)((char*)combatant + 0x44);
-                v.b = func_02018fbc((int)ptr, &v);
-                *(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)&v);
+    int var4;
+    for (var4 = 0; var4 < 0xc; var4++) {
+        int var5 = ((struct Struct_ov017_021a3338_2*)var3)->unknown_2_0_;
+        int var6 = var5 * 0xc + 0x70;
+        GameObject* var7 = var0->GetMaybeFieldMonsterByIndex(var4 + var6);
+        if (var7) {
+            if (var2 == ((Object3D*)((struct Struct_02039df4*)var7))->GetField06()) {
+                Struct_ov001_02158efc var8 = *(Struct_ov001_02158efc*)((char*)var7 + 0x44);
+                var8.unknown_4_ = func_02018fbc((int)var1, &var8);
+                *(Vector3i*)(&var7->obj3D_.position_.x) = *(Vector3i const*)((int*)&var8);
             }
         }
     }

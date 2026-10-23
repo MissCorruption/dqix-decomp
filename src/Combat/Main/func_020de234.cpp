@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct StructDE234_020de234 {
-    int a, b, c, d;
-    unsigned int field10Low : 10;
-    unsigned int field10Mid : 10;
-    unsigned int field10High : 12;
-    short e, f, g, h, i;
+struct Struct_02015ef4_4 {
+    int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
+    unsigned int unknown_10_0_ : 10;
+    unsigned int unknown_11_2_ : 10;
+    unsigned int unknown_12_4_ : 12;
+    short unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
 };
 
 // USA: func_020de234
-extern "C" ARM unsigned short func_020de234(StructDE234_020de234* p, int preferMid) {
-    if (p->g <= 0) {
+extern "C" ARM unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1) {
+    if (arg0->unknown_18_ <= 0) {
         return 999;
     }
-    if (!preferMid) {
-        if (p->field10Low != 999) {
-            return p->field10Low;
+    if (!arg1) {
+        if (arg0->unknown_10_0_ != 999) {
+            return arg0->unknown_10_0_;
         }
-        return p->field10Mid;
+        return arg0->unknown_11_2_;
     } else {
-        if (p->field10Mid != 999) {
-            return p->field10Mid;
+        if (arg0->unknown_11_2_ != 999) {
+            return arg0->unknown_11_2_;
         }
-        return p->field10Low;
+        return arg0->unknown_10_0_;
     }
 }

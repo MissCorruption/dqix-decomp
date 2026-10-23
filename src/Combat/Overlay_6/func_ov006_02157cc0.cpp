@@ -14,82 +14,82 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct StructInit36e0;
-struct AlchemyPot;
+struct Struct_ov006_021536e0;
+struct Struct_ov006_02154614;
 
-extern "C" void func_ov006_021547c8(AlchemyPot*);
-extern "C" void func_ov006_02153730(StructInit36e0*);
+extern "C" void func_ov006_021547c8(Struct_ov006_02154614*);
+extern "C" void func_ov006_02153730(Struct_ov006_021536e0*);
 extern "C" char* func_020421a0();
 
-struct AlchemyMenu {
+struct Struct_ov006_02157a60 {
 #if !defined(jpn)
-    int textPosition_;
-    char** texts_;
+    int unknown_0_;
+    char** unknown_4_;
 #endif
-    void* canvasBuffer_;
-    SafeAllocator* allocators_;
-    AlchemyPot* pot_;
-    void* menu_;
-    void* choice_;
-    void* backgrounds_;
-    void* canvases_;
-    void* sprites_;
-    void* animations_;
-    void* recipes_;
-    void* pageStart_;
-    void* recipe_;
-    void* records_;
-    char save_[8];
-    short* cursor_;
-    short** items_;
-    unsigned char** counts_;
-    unsigned short* sizes_;
-    int subBackground_[0x20 / 4];
-    int ingredients_[0x28 / 4];
-    int repeat_[0xc / 4];
-    unsigned short buttons_;
-    unsigned char unk_aa;
-    int renderer_[0x54 / 4];
-    int layout_[0x4c / 4];
-    int table_[0xc / 4];
-    int menuTexts_[0x18 / 4];
-    char itemNames_[0xc];
-    int results_[4][0x74 / 4];
+    void* unknown_8_;
+    SafeAllocator* unknown_c_;
+    Struct_ov006_02154614* unknown_10_;
+    void* unknown_14_;
+    void* unknown_18_;
+    void* unknown_1c_;
+    void* unknown_20_;
+    void* unknown_24_;
+    void* unknown_28_;
+    void* unknown_2c_;
+    void* unknown_30_;
+    void* unknown_34_;
+    void* unknown_38_;
+    char unknown_3c_[8];
+    short* unknown_44_;
+    short** unknown_48_;
+    unsigned char** unknown_4c_;
+    unsigned short* unknown_50_;
+    int unknown_54_[0x20 / 4];
+    int unknown_74_[0x28 / 4];
+    int unknown_9c_[0xc / 4];
+    unsigned short unknown_a8_;
+    unsigned char unknown_aa_;
+    int unknown_ac_[0x54 / 4];
+    int unknown_100_[0x4c / 4];
+    int unknown_14c_[0xc / 4];
+    int unknown_158_[0x18 / 4];
+    char unknown_170_[0xc];
+    int unknown_17c_[4][0x74 / 4];
 #if defined(jpn)
-    char regionalPad[8];
+    char unknown_344_[8];
 #endif
-    int ticks_;
-    int menuResult_;
-    int task_;
-    int unk_358;
+    int unknown_34c_;
+    int unknown_350_;
+    int unknown_354_;
+    int unknown_358_;
 };
 
 // USA: func_ov006_02157cc0
-extern "C" ARM void func_ov006_02157cc0(AlchemyMenu* self)
+extern "C" ARM void func_ov006_02157cc0(Struct_ov006_02157a60* arg0)
 {
-    if (self->pot_ != 0)
+    if (arg0->unknown_10_ != 0)
     {
-        func_ov006_021547c8(self->pot_);
-        self->pot_ = 0;
+        func_ov006_021547c8(arg0->unknown_10_);
+        arg0->unknown_10_ = 0;
     }
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (self->task_ >= 0)
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    if (arg0->unknown_354_ >= 0)
     {
-        loader->RemoveTask(self->task_);
-        self->task_ = -1;
+        var0->RemoveTask(arg0->unknown_354_);
+        arg0->unknown_354_ = -1;
     }
-    if (self->unk_358 >= 0)
+    if (arg0->unknown_358_ >= 0)
     {
-        loader->RemoveTask(self->unk_358);
-        self->unk_358 = -1;
+        var0->RemoveTask(arg0->unknown_358_);
+        arg0->unknown_358_ = -1;
     }
-    func_ov006_02153730((StructInit36e0*)self->ingredients_);
+    func_ov006_02153730((Struct_ov006_021536e0*)arg0->unknown_74_);
     *(int*)(func_020421a0() + R(0x228, 0x2d8)) = 0;
-    if (self->allocators_ == 0)
+    if (arg0->unknown_c_ == 0)
         return;
-    for (unsigned char i = 0; i < 10; i++)
+    for (unsigned char var1 = 0; var1 < 10; var1++)
     {
-        if (self->allocators_[i].GetSignedAllocator() != 0)
-            self->allocators_[i].Destroy();
+        if (arg0->unknown_c_[var1].GetSignedAllocator() != 0)
+            arg0->unknown_c_[var1].Destroy();
     }
 }

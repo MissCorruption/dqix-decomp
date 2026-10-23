@@ -1,51 +1,51 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Node0216e8f0 {
-    char pad[0xc];
-    unsigned char field0xc;
+struct Struct_ov004_0216e8f0 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_;
 };
 
-struct Obj_02184ad8;
-extern "C" void func_ov011_02184ad8(struct Obj_02184ad8* obj);
-extern "C" void func_02012028(void* obj, unsigned char value);
-extern "C" void* func_ov011_021849c8(void* a);
-extern "C" Node0216e8f0* func_ov023_021f6880(void* obj, int key);
-extern "C" int func_ov024_021f6f10(void* self);
+struct Struct_ov004_0216b7bc;
+extern "C" void func_ov011_02184ad8(struct Struct_ov004_0216b7bc* arg0);
+extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" Struct_ov004_0216e8f0* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" int func_ov024_021f6f10(void* arg0);
 #if defined(jpn)
-extern "C" int func_ov023_021f6f10(void* self);
+extern "C" int func_ov023_021f6f10(void* arg0);
 #endif
-static inline int GetSyncNodeType(void* node) {
+static inline int inline_ov004_0216e8f0(void* arg0) {
 #if defined(jpn)
-    return func_ov023_021f6f10(node);
+    return func_ov023_021f6f10(arg0);
 #else
-    return func_ov024_021f6f10(node);
+    return func_ov024_021f6f10(arg0);
 #endif
 }
 
 extern unsigned char data_ov004_02171034[];
 
 // USA: func_ov004_0216e8f0
-extern "C" ARM int func_ov004_0216e8f0(void* obj) {
+extern "C" ARM int func_ov004_0216e8f0(void* arg0) {
 #if defined(jpn)
-    enum { keyOffset = 0x8, stateOffset = 5 };
+    enum { Enum_ov004_0216e8f0_10 = 0x8, Enum_ov004_0216e8f0_3 = 5 };
 #else
-    enum { keyOffset = 0xa, stateOffset = 3 };
+    enum { Enum_ov004_0216e8f0_10 = 0xa, Enum_ov004_0216e8f0_3 = 3 };
 #endif
-    void* p = func_ov011_021849c8(obj);
-    if (p) {
-        Node0216e8f0* node = func_ov023_021f6880(p, *(unsigned short*)(data_ov004_02171034 + keyOffset));
-        if (node) {
-            node->field0xc &= ~0x10;
+    void* var0 = func_ov011_021849c8(arg0);
+    if (var0) {
+        Struct_ov004_0216e8f0* var1 = func_ov023_021f6880(var0, *(unsigned short*)(data_ov004_02171034 + Enum_ov004_0216e8f0_10));
+        if (var1) {
+            var1->unknown_c_ &= ~0x10;
         }
     }
-    func_ov011_02184ad8((struct Obj_02184ad8*)obj);
-    GameState* bs = GameState::GetInstance();
-    if (data_ov004_02171034[stateOffset] != 6) {
-        Node0216e8f0* node2 = func_ov023_021f6880(p, 1);
-        if (node2 && GetSyncNodeType(node2) == 0xb) {
-            node2->field0xc &= ~0x8;
-            func_02012028(bs, 1);
+    func_ov011_02184ad8((struct Struct_ov004_0216b7bc*)arg0);
+    GameState* var2 = GameState::GetInstance();
+    if (data_ov004_02171034[Enum_ov004_0216e8f0_3] != 6) {
+        Struct_ov004_0216e8f0* var3 = func_ov023_021f6880(var0, 1);
+        if (var3 && inline_ov004_0216e8f0(var3) == 0xb) {
+            var3->unknown_c_ &= ~0x8;
+            func_02012028(var2, 1);
         }
     }
     return 0;

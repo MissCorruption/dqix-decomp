@@ -4,80 +4,80 @@
 #include "NitroSDK/Matrix.h"
 #include "Input/Input.h"
 
-extern "C" void func_020968a4(unsigned char* src, int* out);
+extern "C" void func_020968a4(unsigned char* arg0, int* arg1);
 
-struct Camera0218d8cc {
-    int field_0x0;
-    Vector3fix position;
+struct Struct_ov017_0218d8cc {
+    int unknown_0_;
+    Vector3fix unknown_4_;
 };
 
-struct Input0218d8cc {
-    char pad0[0x224];
-    unsigned char hasStick;
+struct Struct_ov017_0218d8cc_2 {
+    char unknown_0_[0x224];
+    unsigned char unknown_224_;
 };
 
-struct Battle0218d8cc {
+struct Struct_ov017_0218d8cc_3 {
 #if defined(jpn)
-    char pad0[0x4108];
+    char unknown_0_[0x4108];
 #else
-    char pad0[0x4328];
+    char unknown1_0_[0x4328];
 #endif
-    Input0218d8cc* input;
+    Struct_ov017_0218d8cc_2* unknown_4328_;
 #if defined(jpn)
-    char pad432c[0x4188 - 0x410c];
+    char unknown_410c_[0x4188 - 0x410c];
 #else
-    char pad432c[0x4438 - 0x432c];
+    char unknown_432c_[0x4438 - 0x432c];
 #endif
-    Vector3fix moveDir;
+    Vector3fix unknown_4438_;
 };
 
 // USA: func_ov017_0218d8cc
-extern "C" ARM void func_ov017_0218d8cc(Battle0218d8cc* self) {
-    GameState* gs = GameState::GetInstance();
-    GameObject* player = gs->GetUnknownGameObject();
-    Camera0218d8cc* camera = (Camera0218d8cc*)func_020100bc(gs);
-    if (player == 0 || camera == 0) {
+extern "C" ARM void func_ov017_0218d8cc(Struct_ov017_0218d8cc_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetUnknownGameObject();
+    Struct_ov017_0218d8cc* var2 = (Struct_ov017_0218d8cc*)func_020100bc(var0);
+    if (var1 == 0 || var2 == 0) {
         return;
     }
 
-    Vector3fix diff;
-    Vector3fix_Subtract(&player->obj3D_.position_, &camera->position, &diff);
+    Vector3fix var3;
+    Vector3fix_Subtract(&var1->obj3D_.position_, &var2->unknown_4_, &var3);
 
-    Vector3fix forward;
-    forward.x = diff.x;
-    forward.y = 0;
-    forward.z = diff.z;
-    Vector3fix back;
-    back.x = -diff.x;
-    back.y = 0;
-    back.z = -diff.z;
-    Vector3fix left;
-    left.x = diff.z;
-    left.y = 0;
-    left.z = -diff.x;
-    Vector3fix right;
-    right.x = -diff.z;
-    right.y = 0;
-    right.z = diff.x;
+    Vector3fix var4;
+    var4.x = var3.x;
+    var4.y = 0;
+    var4.z = var3.z;
+    Vector3fix var5;
+    var5.x = -var3.x;
+    var5.y = 0;
+    var5.z = -var3.z;
+    Vector3fix var6;
+    var6.x = var3.z;
+    var6.y = 0;
+    var6.z = -var3.x;
+    Vector3fix var7;
+    var7.x = -var3.z;
+    var7.y = 0;
+    var7.z = var3.x;
 
-    self->moveDir.x = 0;
-    self->moveDir.y = 0;
-    self->moveDir.z = 0;
+    arg0->unknown_4438_.x = 0;
+    arg0->unknown_4438_.y = 0;
+    arg0->unknown_4438_.z = 0;
 
     if (g_keyManager.TestKeysHeld(0x40)) {
-        Vector3fix_Add(&self->moveDir, &forward, &self->moveDir);
+        Vector3fix_Add(&arg0->unknown_4438_, &var4, &arg0->unknown_4438_);
     } else if (g_keyManager.TestKeysHeld(0x80)) {
-        Vector3fix_Add(&self->moveDir, &back, &self->moveDir);
+        Vector3fix_Add(&arg0->unknown_4438_, &var5, &arg0->unknown_4438_);
     }
 
     if (g_keyManager.TestKeysHeld(0x20)) {
-        Vector3fix_Add(&self->moveDir, &left, &self->moveDir);
+        Vector3fix_Add(&arg0->unknown_4438_, &var6, &arg0->unknown_4438_);
     } else if (g_keyManager.TestKeysHeld(0x10)) {
-        Vector3fix_Add(&self->moveDir, &right, &self->moveDir);
+        Vector3fix_Add(&arg0->unknown_4438_, &var7, &arg0->unknown_4438_);
     }
 
-    if (self->input->hasStick) {
-        func_020968a4((unsigned char*)self->input, &self->moveDir.x);
+    if (arg0->unknown_4328_->unknown_224_) {
+        func_020968a4((unsigned char*)arg0->unknown_4328_, &arg0->unknown_4438_.x);
     }
-    Vector3fix_Normalize(&self->moveDir, &self->moveDir);
+    Vector3fix_Normalize(&arg0->unknown_4438_, &arg0->unknown_4438_);
 }

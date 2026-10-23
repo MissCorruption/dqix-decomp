@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov000_02174da4(int unused, void* dest);
-extern "C" int func_ov000_0217542c(void* obj);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" void* func_ov000_02174da4(int arg0, void* arg1);
+extern "C" int func_ov000_0217542c(void* arg0);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_020e51cc(int value);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_020e51cc(int arg0);
 
 extern short data_ov000_021834c4[4];
 
 #if defined(jpn)
-struct MenuLabels0217737c { char names[4][9]; };
-extern const MenuLabels0217737c data_ov000_021845c6;
+struct Struct_ov000_021845c6 { char unknown_0_[4][9]; };
+extern const Struct_ov000_021845c6 data_ov000_021845c6;
 #endif
 
 // USA: func_ov000_0217737c
-extern "C" ARM void func_ov000_0217737c(void* objRaw, char* dst) {
-    char* obj = (char*)objRaw;
-    if (dst == 0) {
+extern "C" ARM void func_ov000_0217737c(void* arg0, char* arg1) {
+    char* var0 = (char*)arg0;
+    if (arg1 == 0) {
         return;
     }
-    int localArr[4];
-    func_ov000_02174da4((int)obj, localArr);
+    int var1[4];
+    func_ov000_02174da4((int)var0, var1);
 #if defined(jpn)
-    int nameIdx = 0;
-    MenuLabels0217737c labels(data_ov000_021845c6);
-    signed char cursorId = *(signed char*)(obj + 0x1fa1);
+    int var4 = 0;
+    Struct_ov000_021845c6 var2(data_ov000_021845c6);
+    signed char var3 = *(signed char*)(var0 + 0x1fa1);
 #else
-    signed char cursorId = *(signed char*)(obj + 0x1d69);
+    signed char var3 = *(signed char*)(var0 + 0x1d69);
 #endif
 #if !defined(jpn)
-    int nameIdx = 0;
+    int var4 = 0;
 #endif
-    if (func_ov000_0217542c(obj)) {
-        func_02041c08(dst, cursorId, 8, 5, 5, 5);
+    if (func_ov000_0217542c(var0)) {
+        func_02041c08(arg1, var3, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursorId);
-    int keyArg = 0;
-    for (int i = 0; i < 4; i++) {
-        int v = localArr[i];
-        if (v < 0) {
+    func_02041ea4(arg1, var3);
+    int var5 = 0;
+    for (int var6 = 0; var6 < 4; var6++) {
+        int var7 = var1[var6];
+        if (var7 < 0) {
             continue;
         }
-        if (nameIdx != 0) {
-            int f = func_020e0434((struct Container020e0310*)(obj + 0xb8), keyArg);
-            func_02042058(dst, (const char*)f);
+        if (var4 != 0) {
+            int var8 = func_020e0434((struct Struct_0201099c_3*)(var0 + 0xb8), var5);
+            func_02042058(arg1, (const char*)var8);
         }
 #if defined(jpn)
-        char* r = labels.names[v];
+        char* var9 = var2.unknown_0_[var7];
 #else
-        int r = func_020e51cc(data_ov000_021834c4[v]);
+        int var9 = func_020e51cc(data_ov000_021834c4[var7]);
 #endif
-        func_02041b70(dst, nameIdx, (const char*)r);
-        nameIdx++;
+        func_02041b70(arg1, var4, (const char*)var9);
+        var4++;
     }
 }

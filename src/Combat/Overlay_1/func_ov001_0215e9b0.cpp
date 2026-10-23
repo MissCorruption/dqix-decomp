@@ -3,29 +3,29 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-struct Struct02012dd0;
-extern "C" unsigned int func_02012dd0(struct Struct02012dd0*);
+struct Struct_02114e20;
+extern "C" unsigned int func_02012dd0(struct Struct_02114e20*);
 
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 
 extern SafeAllocator* data_ov001_021658b8[8];
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov001_0215e9b0
-extern "C" ARM int func_ov001_0215e9b0(void* self) {
-    int idx = func_ov017_021d60f4(self);
-    if (idx < 0 || idx >= 8) {
+extern "C" ARM int func_ov001_0215e9b0(void* arg0) {
+    int var0 = func_ov017_021d60f4(arg0);
+    if (var0 < 0 || var0 >= 8) {
         return 0;
     }
-    unsigned int maxAlloc = func_02012dd0((struct Struct02012dd0*)&data_02114e20);
+    unsigned int var1 = func_02012dd0((struct Struct_02114e20*)&data_02114e20);
     if (data_ov001_021658b8[0] != NULL) {
         if (data_ov001_021658b8[0]->GetMaxPossibleAllocation() <= 0x14) {
             return 0;
         }
     }
-    SafeAllocator* buf = (SafeAllocator*)data_ov001_021658b8[0]->Allocate(0x14);
-    buf->ResetAllocatorPointer();
-    void* p = func_02012d88(&data_02114e20, maxAlloc);
-    buf->CreateTypeA(p, maxAlloc);
+    SafeAllocator* var2 = (SafeAllocator*)data_ov001_021658b8[0]->Allocate(0x14);
+    var2->ResetAllocatorPointer();
+    void* var3 = func_02012d88(&data_02114e20, var1);
+    var2->CreateTypeA(var3, var1);
     return 1;
 }

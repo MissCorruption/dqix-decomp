@@ -10,7 +10,7 @@ extern "C" void SDK_SYS_STACKSIZE(void);
 // USA: func_020c745c
 extern "C" ARM void func_020c745c()
 {
-    unsigned int stackTop;
+    unsigned int var0;
 
     if (data_021112e0.hasSetupPrimaryContext)
     {
@@ -29,12 +29,12 @@ extern "C" ARM void func_020c745c()
     data_021112e0.substruct_24.firstContext = &data_021113d4;
     data_021112e0.substruct_24.activeContext = &data_021113d4;
 
-    stackTop = (long)SDK_SYS_STACKSIZE <= 0
+    var0 = (long)SDK_SYS_STACKSIZE <= 0
         ? 0x027e0080 - (long)SDK_SYS_STACKSIZE
         : (unsigned long)data_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE - (long)SDK_SYS_STACKSIZE;
 
     data_021112e0.contextB.stackBottom = (unsigned long)data_027e0000 + 0x3f80 - (long)SDK_IRQ_STACKSIZE;
-    data_021112e0.contextB.stackTop = stackTop;
+    data_021112e0.contextB.stackTop = var0;
     data_021112e0.contextB.stackUnknownTopSubspaceSize = 0;
 
     *(unsigned int*)(data_021112e0.contextB.stackBottom - sizeof(unsigned int)) = STACK_BOTTOM_MAGIC;

@@ -4,113 +4,113 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
-struct Struct0209c830;
+struct Struct_02109bf4_2;
 
-struct Scene0217c2bc {
-    SafeAllocator *allocator;
-    SafeAllocator allocA;
-    char unk_18[0x80 - 4 - sizeof(SafeAllocator)];
-    char object[0x140 - 0x80];
-    unsigned char mode;
-    signed char state;
-    unsigned char timer;
+struct Struct_ov003_0217c2bc {
+    SafeAllocator *unknown_0_;
+    SafeAllocator unknown_4_;
+    char unknown_18_[0x80 - 4 - sizeof(SafeAllocator)];
+    char unknown_80_[0x140 - 0x80];
+    unsigned char unknown_140_;
+    signed char unknown_141_;
+    unsigned char unknown_142_;
 };
 
-extern "C" void func_0205ebfc(void *obj, int a, int b);
-extern "C" void func_ov003_0217cb3c(Scene0217c2bc *self, int mainScreen, int alternate);
-extern "C" void func_020c5588(int a, int b, int c, int d, int e);
-extern "C" void func_ov003_0217c974(Scene0217c2bc *self);
-extern "C" void func_0209c830(Struct0209c830*, int);
+extern "C" void func_0205ebfc(void *arg0, int arg1, int arg2);
+extern "C" void func_ov003_0217cb3c(Struct_ov003_0217c2bc *arg0, int arg1, int arg2);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_ov003_0217c974(Struct_ov003_0217c2bc *arg0);
+extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 
 extern int data_02108760;
-extern struct Struct0209c830 data_02109bf4;
+extern struct Struct_02109bf4_2 data_02109bf4;
 
 // USA: func_ov003_0217c2bc
-extern "C" ARM void func_ov003_0217c2bc(Scene0217c2bc *self) {
-    GameResources *resources = GetGameResources();
+extern "C" ARM void func_ov003_0217c2bc(Struct_ov003_0217c2bc *arg0) {
+    GameResources *var0 = GetGameResources();
 
-    if (self->state == 0) {
-        self->timer = 0x4b;
-        self->state++;
-    } else if (self->state == 1) {
-        if (--self->timer != 0) return;
+    if (arg0->unknown_141_ == 0) {
+        arg0->unknown_142_ = 0x4b;
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 1) {
+        if (--arg0->unknown_142_ != 0) return;
         func_0205ebfc(&data_02108760, 0, 0);
-        func_ov003_0217cb3c(self, 1, 0);
-        ((Object3D*)self->object)->MakeVisible();
+        func_ov003_0217cb3c(arg0, 1, 0);
+        ((Object3D*)arg0->unknown_80_)->MakeVisible();
         func_020c5588(0, 0, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x300;
-        SetBrightness(resources, 0x10, 0xa);
-        self->state++;
-    } else if (self->state == 2) {
-        if (IsBrightnessTransitionActive(resources)) return;
-        SetBrightness(resources, 7, 0x14);
-        self->state++;
-    } else if (self->state == 3) {
-        if (IsBrightnessTransitionActive(resources)) return;
-        SetBrightness(resources, 0x10, 0xf);
-        self->state++;
-    } else if (self->state == 4) {
-        if (IsBrightnessTransitionActive(resources)) return;
-        SetBrightness(resources, -16, 0x46);
-        self->timer = 0x3c;
-        self->state++;
-    } else if (self->state == 5) {
-        if (--self->timer != 0) return;
-        SetBrightness(resources, 0x10, 7);
-        self->state++;
-    } else if (self->state == 6) {
-        if (IsBrightnessTransitionActive(resources)) return;
-        SetBrightness(resources, -16, 0x1e);
-        self->state++;
-    } else if (self->state == 7) {
-        if (IsBrightnessTransitionActive(resources)) return;
+        SetBrightness(var0, 0x10, 0xa);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 2) {
+        if (IsBrightnessTransitionActive(var0)) return;
+        SetBrightness(var0, 7, 0x14);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 3) {
+        if (IsBrightnessTransitionActive(var0)) return;
+        SetBrightness(var0, 0x10, 0xf);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 4) {
+        if (IsBrightnessTransitionActive(var0)) return;
+        SetBrightness(var0, -16, 0x46);
+        arg0->unknown_142_ = 0x3c;
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 5) {
+        if (--arg0->unknown_142_ != 0) return;
+        SetBrightness(var0, 0x10, 7);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 6) {
+        if (IsBrightnessTransitionActive(var0)) return;
+        SetBrightness(var0, -16, 0x1e);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 7) {
+        if (IsBrightnessTransitionActive(var0)) return;
         func_020c5588(0, 0x1f, 0x7fff, 0, 0);
         *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
-        self->allocA.Reset();
-        ((Object3D*)self->object)->Initialize();
-        func_ov003_0217c974(self);
-        self->timer = 0x3c;
-        self->state++;
-    } else if (self->state == 8) {
-        if (--self->timer != 0) return;
-        func_ov003_0217cb3c(self, 0, 0);
-        SetMainBrightness(resources, 0, 0x5a);
-        self->timer = 0x28;
-        self->state++;
-    } else if (self->state == 9) {
-        if (--self->timer != 0) return;
-        SetSubBrightness(resources, 0, 2);
-        self->state++;
-    } else if (self->state == 10) {
-        if (IsSubBrightnessTransitionActive(resources)) return;
-        SetSubBrightness(resources, -16, 5);
-        self->state++;
-    } else if (self->state == 11) {
-        if (IsMainBrightnessTransitionActive(resources)) return;
-        SetBrightness(resources, 0x10, 0xa);
-        self->state++;
-    } else if (self->state == 12) {
-        if (IsBrightnessTransitionActive(resources)) return;
+        arg0->unknown_4_.Reset();
+        ((Object3D*)arg0->unknown_80_)->Initialize();
+        func_ov003_0217c974(arg0);
+        arg0->unknown_142_ = 0x3c;
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 8) {
+        if (--arg0->unknown_142_ != 0) return;
+        func_ov003_0217cb3c(arg0, 0, 0);
+        SetMainBrightness(var0, 0, 0x5a);
+        arg0->unknown_142_ = 0x28;
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 9) {
+        if (--arg0->unknown_142_ != 0) return;
+        SetSubBrightness(var0, 0, 2);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 10) {
+        if (IsSubBrightnessTransitionActive(var0)) return;
+        SetSubBrightness(var0, -16, 5);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 11) {
+        if (IsMainBrightnessTransitionActive(var0)) return;
+        SetBrightness(var0, 0x10, 0xa);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 12) {
+        if (IsBrightnessTransitionActive(var0)) return;
         func_0209c830(&data_02109bf4, 0x43);
-        SetBrightness(resources, 0, 0x3c);
-        func_ov003_0217cb3c(self, 0, 1);
-        self->state++;
-    } else if (self->state == 13) {
-        if (IsBrightnessTransitionActive(resources)) return;
-        self->timer = 0xf;
-        self->state++;
-    } else if (self->state == 14) {
-        if (--self->timer != 0) return;
-        SetBrightness(resources, 0x10, 0xa);
-        self->state++;
-    } else if (self->state == 15) {
-        if (IsBrightnessTransitionActive(resources)) return;
-        SetBrightness(resources, 0, 0x1e);
-        self->state++;
-    } else if (self->state == 16) {
-        if (!IsBrightnessTransitionActive(resources)) {
-            self->mode  = 3;
-            self->state = 0;
+        SetBrightness(var0, 0, 0x3c);
+        func_ov003_0217cb3c(arg0, 0, 1);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 13) {
+        if (IsBrightnessTransitionActive(var0)) return;
+        arg0->unknown_142_ = 0xf;
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 14) {
+        if (--arg0->unknown_142_ != 0) return;
+        SetBrightness(var0, 0x10, 0xa);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 15) {
+        if (IsBrightnessTransitionActive(var0)) return;
+        SetBrightness(var0, 0, 0x1e);
+        arg0->unknown_141_++;
+    } else if (arg0->unknown_141_ == 16) {
+        if (!IsBrightnessTransitionActive(var0)) {
+            arg0->unknown_140_  = 3;
+            arg0->unknown_141_ = 0;
         }
     }
 }

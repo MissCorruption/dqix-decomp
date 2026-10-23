@@ -2,29 +2,29 @@
 #include "Resource/GameResources.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_0200fd0c(GameState* battleStruct);
-extern "C" void func_ov017_0219bcac(unsigned char flag);
+extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void func_ov017_0219bcac(unsigned char arg0);
 extern "C" int* func_020936f8(void);
 extern "C" void func_02094030(int*, short, short, signed char);
 
 // USA: func_ov017_0219bf04
-extern "C" ARM void func_ov017_0219bf04(unsigned char flag, int mode) {
+extern "C" ARM void func_ov017_0219bf04(unsigned char arg0, int arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x4200, regionalOffset1=0x2};
+ enum {Enum_ov017_0219bf04_17408=0x4200, Enum_ov017_0219bf04_178=0x2};
 #else
- enum {regionalOffset0=0x4400, regionalOffset1=0xb2};
+ enum {Enum_ov017_0219bf04_17408=0x4400, Enum_ov017_0219bf04_178=0xb2};
 #endif
-	GameState* battleStruct = GameState::GetInstance();
-	GameResources* ov = GetGameResources();
-	func_ov017_0219bcac(flag);
-	char* obj = (char*)func_0200fd0c(battleStruct);
-	obj[0x6e] = 1;
-	obj[0xa] = 0;
-	obj[0x67] = 1;
-	if (mode == 0) {
-		*(short*)((char*)ov + regionalOffset0 + regionalOffset1) = 0x4e23;
+	GameState* var0 = GameState::GetInstance();
+	GameResources* var1 = GetGameResources();
+	func_ov017_0219bcac(arg0);
+	char* var2 = (char*)func_0200fd0c(var0);
+	var2[0x6e] = 1;
+	var2[0xa] = 0;
+	var2[0x67] = 1;
+	if (arg1 == 0) {
+		*(short*)((char*)var1 + Enum_ov017_0219bf04_17408 + Enum_ov017_0219bf04_178) = 0x4e23;
 		return;
 	}
-	int* g = func_020936f8();
-	func_02094030(g, 0x4e23, -1, 0);
+	int* var3 = func_020936f8();
+	func_02094030(var3, 0x4e23, -1, 0);
 }

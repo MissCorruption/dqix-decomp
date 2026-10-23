@@ -11,21 +11,21 @@ extern "C"
     void func_020a1a40(int);
     void func_020a1ccc(int);
 
-    void func_020c9b10(void* out);
+    void func_020c9b10(void* arg0);
 }
 
 struct AllocatorUnion;
-extern "C" void* func_02012d88(struct AllocatorUnion* a, unsigned int n);
+extern "C" void* func_02012d88(struct AllocatorUnion* arg0, unsigned int arg1);
 extern AllocatorUnion data_02114e20;
 
-extern "C" void _ZN16BackgroundLoader4TaskaSERKS0_(BackgroundLoader::Task* dst,
-                                                   const BackgroundLoader::Task* src);
+extern "C" void _ZN16BackgroundLoader4TaskaSERKS0_(BackgroundLoader::Task* arg0,
+                                                   const BackgroundLoader::Task* arg1);
 #define TASK_ASSIGN(dst, src) _ZN16BackgroundLoader4TaskaSERKS0_(&(dst), &(src))
 
-extern Ov34BackgroundLoader data_ov034_022a2a6c;
+extern Struct_ov034_022a2a6c data_ov034_022a2a6c;
 
 // USA: func_ov034_022a21a8
-int Ov34BackgroundLoader::Process()
+int Struct_ov034_022a2a6c::Process()
 {
     GPCFile* pGPC;
     LockResourceMutex();

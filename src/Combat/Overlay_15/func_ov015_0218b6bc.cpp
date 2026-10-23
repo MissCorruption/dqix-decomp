@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct List8_0218b9ac;
-extern "C" void func_ov015_0218b9ac(List8_0218b9ac* obj, int n);
+struct Struct_ov015_0218b6bc;
+extern "C" void func_ov015_0218b9ac(Struct_ov015_0218b6bc* arg0, int arg1);
 
-extern List8_0218b9ac* data_ov015_02194560;
+extern Struct_ov015_0218b6bc* data_ov015_02194560;
 
 // USA: func_ov015_0218b6bc
-extern "C" ARM int func_ov015_0218b6bc(Script::Parameter* params, int count) {
-    List8_0218b9ac* list = data_ov015_02194560;
-    func_ov015_0218b9ac(list, params->ToInt());
+extern "C" ARM int func_ov015_0218b6bc(Script::Parameter* arg0, int arg1) {
+    Struct_ov015_0218b6bc* var0 = data_ov015_02194560;
+    func_ov015_0218b9ac(var0, arg0->ToInt());
     return 1;
 }

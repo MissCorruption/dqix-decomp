@@ -2,27 +2,27 @@
 #include "Input/Input.h"
 
 struct Struct_0205d81c;
-struct Elem_0205d81c;
-extern "C" Elem_0205d81c* func_0205d81c(Struct_0205d81c*, int);
+struct Struct_0205d0e0;
+extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c*, int);
 
-struct ShortArrays0204c610;
-extern "C" void func_0204c610(struct ShortArrays0204c610* base, int index, short* out0, short* out1, short* out2, short* out3);
+struct Struct_0204c610;
+extern "C" void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
 
 // USA: func_ov013_021842a0
-extern "C" ARM int func_ov013_021842a0(void* obj, int index) {
+extern "C" ARM int func_ov013_021842a0(void* arg0, int arg1) {
     if (!g_touchInput.repeatFired_) goto fail;
 
     {
-    Elem_0205d81c* elem = func_0205d81c((Struct_0205d81c*)obj, 0);
-    if (elem == 0) goto fail;
+    Struct_0205d0e0* var0 = func_0205d81c((Struct_0205d81c*)arg0, 0);
+    if (var0 == 0) goto fail;
 
-    short elemAc = *(short*)((char*)elem + 0xac);
-    short elemAe = *(short*)((char*)elem + 0xae);
+    short var1 = *(short*)((char*)var0 + 0xac);
+    short var2 = *(short*)((char*)var0 + 0xae);
 
-    short out0, out1, out2, out3;
-    func_0204c610((struct ShortArrays0204c610*)elem, (short)index, &out0, &out1, &out2, &out3);
+    short var3, var4, var5, var6;
+    func_0204c610((struct Struct_0204c610*)var0, (short)arg1, &var3, &var4, &var5, &var6);
 
-    return g_touchInput.TestHoldInRectangle(out0 + (short)(elemAc << 3), out1 + (short)(elemAe << 3), out2, out3);
+    return g_touchInput.TestHoldInRectangle(var3 + (short)(var1 << 3), var4 + (short)(var2 << 3), var5, var6);
     }
 
 fail:

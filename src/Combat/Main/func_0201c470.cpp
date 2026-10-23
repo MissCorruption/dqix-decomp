@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Name0201c470 { unsigned char v[31]; };
-struct Elem0201c470 { struct Name0201c470 name; unsigned char flag; };
-struct Obj0201c470 {
-    struct Elem0201c470* base;   // 0x0
-    int cap;                     // 0x4
-    int count;                   // 0x8
+struct Struct_0201c470 { unsigned char unknown_0_[31]; };
+struct Struct_0201c3a4_2 { struct Struct_0201c470 unknown_0_; unsigned char unknown_1f_; };
+struct Struct_0201c470_2 {
+    struct Struct_0201c3a4_2* unknown_0_;   // 0x0
+    int unknown_4_;                     // 0x4
+    int unknown_8_;                   // 0x8
 };
 
 // USA: func_0201c470
-extern "C" ARM void func_0201c470(struct Obj0201c470* obj, struct Elem0201c470* src) {
-    struct Elem0201c470* base = obj->base;
-    if (base != NULL) {
-        struct Elem0201c470* dst;
-        if (obj->count >= obj->cap) return;
-        dst = &base[obj->count];
-        dst->name = src->name;
-        dst->flag = src->flag;
-        obj->count++;
+extern "C" ARM void func_0201c470(struct Struct_0201c470_2* arg0, struct Struct_0201c3a4_2* arg1) {
+    struct Struct_0201c3a4_2* var0 = arg0->unknown_0_;
+    if (var0 != NULL) {
+        struct Struct_0201c3a4_2* var1;
+        if (arg0->unknown_8_ >= arg0->unknown_4_) return;
+        var1 = &var0[arg0->unknown_8_];
+        var1->unknown_0_ = arg1->unknown_0_;
+        var1->unknown_1f_ = arg1->unknown_1f_;
+        arg0->unknown_8_++;
         return;
     }
-    obj->count++;
+    arg0->unknown_8_++;
 }

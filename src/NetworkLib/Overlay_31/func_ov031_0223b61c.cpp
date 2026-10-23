@@ -7,44 +7,44 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-struct FileBlock_0223b61c { unsigned char pad[0x84]; void* slotArray; };
-struct Outer_0223b61c { FileBlock_0223b61c* p; };
-extern struct Outer_0223b61c data_ov031_02290d24;
+struct Struct_ov031_0223b61c { unsigned char unknown_0_[0x84]; void* unknown_84_; };
+struct Struct_ov031_02290d24_3 { Struct_ov031_0223b61c* unknown_0_; };
+extern struct Struct_ov031_02290d24_3 data_ov031_02290d24;
 
 extern "C" void func_ov031_0223bfa0(void*);
 extern "C" void func_020c9be0(void);
 extern "C" int func_ov031_0223b744(char*, char*, int);
-extern "C" void* func_ov031_0223cf4c(unsigned int len, int align);
+extern "C" void* func_ov031_0223cf4c(unsigned int arg0, int arg1);
 extern "C" void func_020ca7e8(void*, void*);
-extern "C" unsigned int func_ov031_0223cf70(void** a);
+extern "C" unsigned int func_ov031_0223cf70(void** arg0);
 extern char data_ov031_0224c56c[];
 
 // USA: func_ov031_0223b61c
-extern "C" ARM void* func_ov031_0223b61c(char* path, unsigned int* outSize, int align) {
-    func_ov031_0223bfa0(data_ov031_02290d24.p->slotArray);
+extern "C" ARM void* func_ov031_0223b61c(char* arg0, unsigned int* arg1, int arg2) {
+    func_ov031_0223bfa0(data_ov031_02290d24.unknown_0_->unknown_84_);
 
-    NitroVM vm;
-    NitroVM_Initialize(&vm);
-    if (!NitroVM_PrepareReadFileByPath(&vm, path))
+    NitroVM var0;
+    NitroVM_Initialize(&var0);
+    if (!NitroVM_PrepareReadFileByPath(&var0, arg0))
         func_020c9be0();
 
-    unsigned int size = vm.fileInfo.endOffset - vm.fileInfo.startOffset;
-    if (outSize) *outSize = size;
+    unsigned int var1 = var0.fileInfo.unknown_8_ - var0.fileInfo.unknown_4_;
+    if (arg1) *arg1 = var1;
 
-    int allocAlign = func_ov031_0223b744(path, data_ov031_0224c56c, 2) ? -4 : align;
+    int var2 = func_ov031_0223b744(arg0, data_ov031_0224c56c, 2) ? -4 : arg2;
 
-    void* ptr = func_ov031_0223cf4c(size, allocAlign);
-    NitroVM_ReadSync(&vm, ptr, size);
-    NitroVM_FinishRead(&vm);
+    void* var3 = func_ov031_0223cf4c(var1, var2);
+    NitroVM_ReadSync(&var0, var3, var1);
+    NitroVM_FinishRead(&var0);
 
-    if (allocAlign > 0) {
-        return ptr;
+    if (var2 > 0) {
+        return var3;
     }
 
-    unsigned int derived = *(unsigned int*)ptr >> 8;
-    if (outSize) *outSize = derived;
-    void* newPtr = func_ov031_0223cf4c(derived, align);
-    func_020ca7e8(ptr, newPtr);
-    func_ov031_0223cf70(&ptr);
-    return newPtr;
+    unsigned int var4 = *(unsigned int*)var3 >> 8;
+    if (arg1) *arg1 = var4;
+    void* var5 = func_ov031_0223cf4c(var4, arg2);
+    func_020ca7e8(var3, var5);
+    func_ov031_0223cf70(&var3);
+    return var5;
 }

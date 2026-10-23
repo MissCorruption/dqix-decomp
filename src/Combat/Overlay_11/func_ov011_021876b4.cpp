@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 
-struct TaggedNumber02184c30;
-extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
+struct Struct_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 extern "C" void* func_ov017_021b2164(void);
 extern "C" void* func_ov011_021849c8(void*);
 
 // Two virtual calls on the same object; target methods at vtable indices
 // 0x84/4 = 33 and 0x8c/4 = 35. See func_ov011_02187cd8.cpp.
-class VObj021876b4 {
+class Struct_ov011_021876b4 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-    virtual void v32();
-    virtual void Method84(int a);
-    virtual void v34();
-    virtual void Method8c(int a);
+    virtual void inline_ov011_021876b4_9(); virtual void inline_ov011_021876b4_10(); virtual void inline_ov011_021876b4_11(); virtual void inline_ov011_021876b4_12();
+    virtual void inline_ov011_021876b4_13(); virtual void inline_ov011_021876b4_14(); virtual void inline_ov011_021876b4_15(); virtual void inline_ov011_021876b4_16();
+    virtual void inline_ov011_021876b4_17(); virtual void inline_ov011_021876b4_18(); virtual void inline_ov011_021876b4_19(); virtual void inline_ov011_021876b4_20();
+    virtual void inline_ov011_021876b4_21(); virtual void inline_ov011_021876b4_22(); virtual void inline_ov011_021876b4_23(); virtual void inline_ov011_021876b4_24();
+    virtual void inline_ov011_021876b4_25(); virtual void inline_ov011_021876b4_26(); virtual void inline_ov011_021876b4_27(); virtual void inline_ov011_021876b4_28();
+    virtual void inline_ov011_021876b4_29(); virtual void inline_ov011_021876b4_30(); virtual void inline_ov011_021876b4_31(); virtual void inline_ov011_021876b4_32();
+    virtual void inline_ov011_021876b4_33(); virtual void inline_ov011_021876b4_34(); virtual void inline_ov011_021876b4_35(); virtual void inline_ov011_021876b4_36();
+    virtual void inline_ov011_021876b4(); virtual void inline_ov011_021876b4_2(); virtual void inline_ov011_021876b4_3(); virtual void inline_ov011_021876b4_4();
+    virtual void inline_ov011_021876b4_5();
+    virtual void inline_ov011_021876b4_6(int arg0);
+    virtual void inline_ov011_021876b4_7();
+    virtual void inline_ov011_021876b4_8(int arg0);
 };
-extern "C" struct VObj021876b4* func_ov023_021f6880(void*, int);
+extern "C" struct Struct_ov011_021876b4* func_ov023_021f6880(void*, int);
 
 // USA: func_ov011_021876b4
-extern "C" ARM int func_ov011_021876b4(struct TaggedNumber02184c30* tagged) {
-    int v0 = func_ov011_02184c30(tagged);
-    int v1 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 8));
-    int v2 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 0x10));
-    struct VObj021876b4* node = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), v0);
-    if (node) {
-        node->Method84(v1);
-        node->Method8c(v2);
+extern "C" ARM int func_ov011_021876b4(struct Struct_ov011_02184c30* arg0) {
+    int var0 = func_ov011_02184c30(arg0);
+    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
+    int var2 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x10));
+    struct Struct_ov011_021876b4* var3 = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), var0);
+    if (var3) {
+        var3->inline_ov011_021876b4_6(var1);
+        var3->inline_ov011_021876b4_8(var2);
     }
     return 1;
 }

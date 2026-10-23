@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
 // USA: func_02011af0
-extern "C" ARM void func_02011af0(void* obj) {
-    unsigned char* base = (unsigned char*)obj;
+extern "C" ARM void func_02011af0(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 #if defined(jpn)
-    int keep = ((base + 0x6000)[0x17c] & 0x10) != 0;
+    int var1 = ((var0 + 0x6000)[0x17c] & 0x10) != 0;
 #else
-    int keep = ((base + 0x6000)[0x3dc] & 0x10) != 0;
+    int var1 = ((var0 + 0x6000)[0x3dc] & 0x10) != 0;
 #endif
 #if defined(jpn)
-    (base + 0x6000)[0x17c] = 0;
+    (var0 + 0x6000)[0x17c] = 0;
 #else
-    (base + 0x6000)[0x3dc] = 0;
+    (var0 + 0x6000)[0x3dc] = 0;
 #endif
-    if (keep) {
+    if (var1) {
 #if defined(jpn)
-        (base + 0x6000)[0x17c] |= 0x10;
+        (var0 + 0x6000)[0x17c] |= 0x10;
 #else
-        (base + 0x6000)[0x3dc] |= 0x10;
+        (var0 + 0x6000)[0x3dc] |= 0x10;
 #endif
     }
 }

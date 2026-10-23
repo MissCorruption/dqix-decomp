@@ -12,52 +12,52 @@
 
 extern "C" void func_020c976c(unsigned long cycles);
 
-static inline void SendToArm7(unsigned long data)
+static inline void inline_020d0fc4(unsigned long arg0)
 {
-    while (SendCommandToArm7(IPC_COMMAND_CARD, data, true) < 0)
+    while (SendCommandToArm7(IPC_COMMAND_CARD, arg0, true) < 0)
     {
     }
 }
 
 // USA: func_020d0fc4
-extern "C" ARM int func_020d0fc4(CardReadManager* manager, int request, int retries)
+extern "C" ARM int func_020d0fc4(CardReadManager* arg0, int arg1, int arg2)
 {
-    if (!(manager->flags & (1 << READ_MANAGER_FLAG_INIT_REQUEST_SENT)))
+    if (!(arg0->flags & (1 << READ_MANAGER_FLAG_INIT_REQUEST_SENT)))
     {
-        manager->flags |= 1 << READ_MANAGER_FLAG_INIT_REQUEST_SENT;
+        arg0->flags |= 1 << READ_MANAGER_FLAG_INIT_REQUEST_SENT;
         while (!IsIPCCommandHandlerRegistered(IPC_COMMAND_CARD, IPCSide_Arm7))
         {
             func_020c976c(100);
         }
-        func_020d0fc4(manager, CARD_REQUEST_INIT, 1);
+        func_020d0fc4(arg0, CARD_REQUEST_INIT, 1);
     }
 
-    CleanInvalidateCacheRange(manager->pSharedData, sizeof(Arm7CardReadData));
+    CleanInvalidateCacheRange(arg0->pSharedData, sizeof(Arm7CardReadData));
     DrainWriteBuffer();
 
     do
     {
-        manager->unknown_4 = request;
-        manager->flags |= 1 << READ_MANAGER_FLAG_AWAITING_ARM7_ACTION;
-        SendToArm7(request);
+        arg0->unknown_4 = arg1;
+        arg0->flags |= 1 << READ_MANAGER_FLAG_AWAITING_ARM7_ACTION;
+        inline_020d0fc4(arg1);
 
-        switch (request)
+        switch (arg1)
         {
         case CARD_REQUEST_INIT:
-            SendToArm7((unsigned long)manager->pSharedData);
+            inline_020d0fc4((unsigned long)arg0->pSharedData);
             break;
         }
 
         {
-            int priorState = DisableIRQInterrupts();
-            while (manager->flags & (1 << READ_MANAGER_FLAG_AWAITING_ARM7_ACTION))
+            int var0 = DisableIRQInterrupts();
+            while (arg0->flags & (1 << READ_MANAGER_FLAG_AWAITING_ARM7_ACTION))
             {
                 BlockCurrentContext(NULL);
             }
-            SetIRQInterruptState(priorState);
+            SetIRQInterruptState(var0);
         }
-        InvalidateDataCacheRange(manager->pSharedData, sizeof(Arm7CardReadData));
-    } while (manager->pSharedData->unknown_0 == CARD_RESULT_TIMEOUT && --retries > 0);
+        InvalidateDataCacheRange(arg0->pSharedData, sizeof(Arm7CardReadData));
+    } while (arg0->pSharedData->unknown_0 == CARD_RESULT_TIMEOUT && --arg2 > 0);
 
-    return manager->pSharedData->unknown_0 == CARD_RESULT_SUCCESS;
+    return arg0->pSharedData->unknown_0 == CARD_RESULT_SUCCESS;
 }

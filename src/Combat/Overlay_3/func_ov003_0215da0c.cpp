@@ -2,90 +2,90 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue98_B0 = 0xb0 };
-enum { kRegionValue3B8_3D0 = 0x3d0 };
-enum { kRegionValue3F0_408 = 0x408 };
-enum { kRegionValue3BD_3D5 = 0x3d5 };
-enum { kRegionValue998_868 = 0x868 };
+enum { Enum_ov003_0215da0c_152 = 0xb0 };
+enum { Enum_ov003_0215da0c_952 = 0x3d0 };
+enum { Enum_ov003_0215da0c_1008 = 0x408 };
+enum { Enum_ov003_0215da0c_957 = 0x3d5 };
+enum { Enum_ov003_0215da0c_2456 = 0x868 };
 #else
-enum { kRegionValue98_B0 = 0x98 };
-enum { kRegionValue3B8_3D0 = 0x3b8 };
-enum { kRegionValue3F0_408 = 0x3f0 };
-enum { kRegionValue3BD_3D5 = 0x3bd };
-enum { kRegionValue998_868 = 0x998 };
+enum { Enum_ov003_0215da0c_152 = 0x98 };
+enum { Enum_ov003_0215da0c_952 = 0x3b8 };
+enum { Enum_ov003_0215da0c_1008 = 0x3f0 };
+enum { Enum_ov003_0215da0c_957 = 0x3bd };
+enum { Enum_ov003_0215da0c_2456 = 0x998 };
 #endif
 
-struct Container020e0310;
-struct Entry_0205d6a0;
+struct Struct_0201099c_3;
+struct Struct_0205d6a0;
 
 extern "C" char* func_020421a0();
-extern "C" void func_02043204(char* ctrl);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" void func_0205d6a0(struct Entry_0205d6a0* list, int flag);
+extern "C" void func_02043204(char* arg0);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* obj);
-extern "C" void func_ov003_0215cab0(void* self, int msg);
+extern "C" int func_0202c508(void* arg0);
+extern "C" void func_ov003_0215cab0(void* arg0, int arg1);
 
-struct BattleMenu_0215da0c {
-    char unk_0[0x64];
-    char messages[kRegionValue98_B0 - 0x64];
-    char entries[kRegionValue3B8_3D0 - kRegionValue98_B0];
-    unsigned char step;
-    char unk_3b9[3];
-    unsigned char mode;
-    char unk_3bd[kRegionValue3F0_408 - kRegionValue3BD_3D5];
-    unsigned char showResult;
-    unsigned char resultFlag;
-    unsigned char unk_3f2;
-    unsigned char skipMessage;
+struct Struct_ov003_0215da0c {
+    char unknown_0_[0x64];
+    char unknown_64_[Enum_ov003_0215da0c_152 - 0x64];
+    char unknown_98_[Enum_ov003_0215da0c_952 - Enum_ov003_0215da0c_152];
+    unsigned char unknown_3b8_;
+    char unknown_3b9_[3];
+    unsigned char unknown_3bc_;
+    char unknown_3bd_[Enum_ov003_0215da0c_1008 - Enum_ov003_0215da0c_957];
+    unsigned char unknown_3f0_;
+    unsigned char unknown_3f1_;
+    unsigned char unknown_3f2_;
+    unsigned char unknown_3f3_;
 };
 
 // USA: func_ov003_0215da0c
-extern "C" ARM void func_ov003_0215da0c(struct BattleMenu_0215da0c* self) {
-    char* global;
-    GameState* gs;
-    void* ctx;
-    unsigned char step;
-    int zero;
-    int nonZero;
+extern "C" ARM void func_ov003_0215da0c(struct Struct_ov003_0215da0c* arg0) {
+    char* var0;
+    GameState* var1;
+    void* var2;
+    unsigned char var3;
+    int var4;
+    int var5;
 
-    gs = GameState::GetInstance();
-    global = func_020421a0();
-    ctx = func_0202ae18();
+    var1 = GameState::GetInstance();
+    var0 = func_020421a0();
+    var2 = func_0202ae18();
 
-    zero = 0;
-    if (func_0202c508(ctx) && gs->GetUnknownGameObject()->obj3D_.unknown_4_ == 0) {
-        zero = 1;
+    var4 = 0;
+    if (func_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ == 0) {
+        var4 = 1;
     }
-    nonZero = 0;
-    if (func_0202c508(ctx) && gs->GetUnknownGameObject()->obj3D_.unknown_4_ != 0) {
-        nonZero = 1;
+    var5 = 0;
+    if (func_0202c508(var2) && var1->GetUnknownGameObject()->obj3D_.unknown_4_ != 0) {
+        var5 = 1;
     }
 
-    step = self->step;
-    if (step == 0) {
-        if (self->skipMessage) {
-            func_02043204(global);
-            self->step++;
+    var3 = arg0->unknown_3b8_;
+    if (var3 == 0) {
+        if (arg0->unknown_3f3_) {
+            func_02043204(var0);
+            arg0->unknown_3b8_++;
             return;
         }
-        int key = 0x442;
-        if (self->showResult) {
-            if (zero) {
-                self->resultFlag = 1;
-                key = 0x6e;
-            } else if (nonZero) {
-                key = 0x74;
+        int var6 = 0x442;
+        if (arg0->unknown_3f0_) {
+            if (var4) {
+                arg0->unknown_3f1_ = 1;
+                var6 = 0x6e;
+            } else if (var5) {
+                var6 = 0x74;
             } else {
-                key = 0x73;
+                var6 = 0x73;
             }
         }
-        func_ov003_0215cab0(self, func_020e0434((struct Container020e0310*)self->messages, key));
-        self->step++;
+        func_ov003_0215cab0(arg0, func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var6));
+        arg0->unknown_3b8_++;
     }
-    if (step == 1 && *(int*)(global + kRegionValue998_868) == 0) {
-        func_0205d6a0((struct Entry_0205d6a0*)self->entries, 1);
-        self->mode = 5;
-        self->step = 0;
+    if (var3 == 1 && *(int*)(var0 + Enum_ov003_0215da0c_2456) == 0) {
+        func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_98_, 1);
+        arg0->unknown_3bc_ = 5;
+        arg0->unknown_3b8_ = 0;
     }
 }

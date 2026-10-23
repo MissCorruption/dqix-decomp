@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
 struct Struct_0205ba68;
-struct Node0205bacc;
-extern "C" void func_0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
-extern "C" void func_0205bacc(struct Node0205bacc* s, int val);
+struct Struct_0205bacc;
+extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
 
 // USA: func_ov020_0218c7f0
-extern "C" ARM void func_ov020_0218c7f0(unsigned char* obj, int a, int b) {
-    func_0205ba68((struct Struct_0205ba68*)(obj + 0x20), a, b, 0);
-    func_0205ba68((struct Struct_0205ba68*)(obj + 0x70), a, b, 0);
-    int prod = a * b;
-    func_0205bacc((struct Node0205bacc*)(obj + 0x20), prod);
-    func_0205bacc((struct Node0205bacc*)(obj + 0x70), prod);
+extern "C" ARM void func_ov020_0218c7f0(unsigned char* arg0, int arg1, int arg2) {
+    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x20), arg1, arg2, 0);
+    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x70), arg1, arg2, 0);
+    int var0 = arg1 * arg2;
+    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x20), var0);
+    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x70), var0);
 }

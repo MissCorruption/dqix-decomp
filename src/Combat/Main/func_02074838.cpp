@@ -2,12 +2,12 @@
 #include "Util/Random.h"
 
 // USA: func_02074838
-extern "C" ARM float func_02074838(int value, int narrow, struct Random* random) {
-    if (random == NULL) {
-        random = &data_02108ddc;
+extern "C" ARM float func_02074838(int arg0, int arg1, struct Random* arg2) {
+    if (arg2 == NULL) {
+        arg2 = &data_02108ddc;
     }
-    if (narrow != 0) {
-        return (float)value * NextRandomFloatBetween(random, 0.95f, 1.05f);
+    if (arg1 != 0) {
+        return (float)arg0 * NextRandomFloatBetween(arg2, 0.95f, 1.05f);
     }
-    return (float)value * NextRandomFloatBetween(random, 1.5f, 2.0f);
+    return (float)arg0 * NextRandomFloatBetween(arg2, 1.5f, 2.0f);
 }

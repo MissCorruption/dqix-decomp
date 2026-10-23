@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 
-struct Entry02214854 {
-	unsigned char state;
-	unsigned char id;
-	unsigned char level;
-	unsigned char lowBits : 7;
-	unsigned char topBit : 1;
+struct Struct_ov031_02214854_3 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_;
+	unsigned char unknown_2_;
+	unsigned char unknown_3_0_ : 7;
+	unsigned char unknown_3_7_ : 1;
 };
 
-struct Record02214854 {
-	unsigned char pad[0x36];
-	unsigned short maxVal;
-	unsigned char rest[0x88];
+struct Struct_ov031_02214854 {
+	unsigned char unknown_0_[0x36];
+	unsigned short unknown_36_;
+	unsigned char unknown_38_[0x88];
 };
 
-struct State02214854 {
-	unsigned char pad[0x444];
-	Entry02214854 entries[11];
-	Record02214854 records[11];
-	unsigned char pad2[0x62];
-	unsigned char count;
+struct Struct_ov031_02214854_2 {
+	unsigned char unknown_0_[0x444];
+	Struct_ov031_02214854_3 unknown_444_[11];
+	Struct_ov031_02214854 unknown_470_[11];
+	unsigned char unknown_cb0_[0x62];
+	unsigned char unknown_d12_;
 };
 
 // USA: func_ov031_02214854
-extern "C" ARM int func_ov031_02214854(void* obj) {
-	State02214854* s = (State02214854*)obj;
-	int i;
-	unsigned char result = 0;
-	for (i = 0; i < s->count; i++) {
-		if (s->entries[i].state == 0 && s->records[i].maxVal - 1 != s->entries[i].lowBits) {
-			s->entries[i].topBit = 0;
-			result++;
+extern "C" ARM int func_ov031_02214854(void* arg0) {
+	Struct_ov031_02214854_2* var0 = (Struct_ov031_02214854_2*)arg0;
+	int var1;
+	unsigned char var2 = 0;
+	for (var1 = 0; var1 < var0->unknown_d12_; var1++) {
+		if (var0->unknown_444_[var1].unknown_0_ == 0 && var0->unknown_470_[var1].unknown_36_ - 1 != var0->unknown_444_[var1].unknown_3_0_) {
+			var0->unknown_444_[var1].unknown_3_7_ = 0;
+			var2++;
 		} else {
-			s->entries[i].topBit = 1;
+			var0->unknown_444_[var1].unknown_3_7_ = 1;
 		}
 	}
-	return result;
+	return var2;
 }

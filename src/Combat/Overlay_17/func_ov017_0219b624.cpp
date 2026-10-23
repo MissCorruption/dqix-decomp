@@ -5,37 +5,37 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
 
-struct Foo0207df50;
-struct Struct0200fb08;
+struct Struct_0203d028;
+struct Struct_02000c9c_8;
 #if defined(jpn)
-enum { PairTablesOffset = 0x4ac };
+enum { Enum_ov017_0219b624_1276 = 0x4ac };
 #define data_ov017_021d656c data_ov017_021d69bc
 #define data_ov017_021d751f data_ov017_021d797b
 #define data_ov017_021d7544 data_ov017_021d7982
 #define data_ov017_021d7555 data_ov017_021d7993
 #define data_ov017_021d7567 data_ov017_021d79a5
 #else
-enum { PairTablesOffset = 0x4fc };
+enum { Enum_ov017_0219b624_1276 = 0x4fc };
 #endif
-struct ResourceFile0219b624 { int index; const char* name; };
-extern const ResourceFile0219b624 data_ov017_021d656c[];
+struct Struct_ov017_021d656c { int unknown_0_; const char* unknown_4_; };
+extern const Struct_ov017_021d656c data_ov017_021d656c[];
 extern int data_0211e33c __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 bool GetFileInNarc(const void*, const char*, const void**, unsigned int*, unsigned int);
 extern const char data_ov017_021d7504[], data_ov017_021d7510[], data_ov017_021d751b[];
 extern const char data_ov017_021d751f[], data_ov017_021d7526[], data_ov017_021d7530[], data_ov017_021d753a[];
 extern const char data_ov017_021d7544[], data_ov017_021d7555[], data_ov017_021d7567[];
-extern "C" void func_0207df50(Foo0207df50*);
+extern "C" void func_0207df50(Struct_0203d028*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_0207dfac(char*);
-extern "C" int func_0200fb08(Struct0200fb08*);
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" void* func_0208e9e8();
 extern "C" void func_02096604(char*, int);
 extern "C" {
 Zone3D* func_02012fe4();
 void func_02018d28(Zone3D*, SafeAllocator*, void*, unsigned int);
 void func_0204719c(void*);
-void func_02047b40(Foo02048004*, const void*, SafeAllocator*);
+void func_02047b40(Struct_02012fa4*, const void*, SafeAllocator*);
 void func_02057924();
 void func_0208f36c(void*, Object3D*);
 void func_02013d24(Zone3D*);
@@ -43,91 +43,91 @@ int sprintf(char*, const char*, ...);
 }
 
 // USA: func_ov017_0219b624
-extern "C" ARM void func_ov017_0219b624(GameResources* self) {
-    Foo02048004* sprites;
-    Zone3D* globals;
-    SafeAllocator* allocator;
+extern "C" ARM void func_ov017_0219b624(GameResources* arg0) {
+    Struct_02012fa4* var0;
+    Zone3D* var1;
+    SafeAllocator* var2;
 #if !defined(jpn)
-    GameState* game = GameState::GetInstance();
+    GameState* var3 = GameState::GetInstance();
 #endif
-    globals = func_02012fe4();
+    var1 = func_02012fe4();
     BackgroundLoader::GetInstance();
-    allocator = &self->allocator_array_38[5];
-    Foo0207df50* pairs = reinterpret_cast<Foo0207df50*>(reinterpret_cast<char*>(self) + PairTablesOffset);
-    allocator->Reset();
-    func_0207df50(pairs);
+    var2 = &arg0->allocator_array_38[5];
+    Struct_0203d028* var4 = reinterpret_cast<Struct_0203d028*>(reinterpret_cast<char*>(arg0) + Enum_ov017_0219b624_1276);
+    var2->Reset();
+    func_0207df50(var4);
     BackgroundLoader::AddLockGlobal();
-    char path[0x50];
-    unsigned int length;
-    sprintf(path, data_ov017_021d7504, data_ov017_021d7510);
-    if (!LoadFileIntoMemory(path, &data_0211e33c, &length)) {
+    char var5[0x50];
+    unsigned int var6;
+    sprintf(var5, data_ov017_021d7504, data_ov017_021d7510);
+    if (!LoadFileIntoMemory(var5, &data_0211e33c, &var6)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_0207df90((char*)pairs);
-    NarcHandle archive;
-    if (!archive.Initialize(data_ov017_021d751b, (const unsigned char*)&data_0211e33c)) {
+    func_0207df90((char*)var4);
+    NarcHandle var7;
+    if (!var7.Initialize(data_ov017_021d751b, (const unsigned char*)&data_0211e33c)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_02018d28(globals, allocator, &data_0211e33c, length);
-    char name[0x50];
-    int i = 0;
-    for (; data_ov017_021d656c[i].index >= 0; i++) {
-        sprites = self->substruct_array_2b90;
-        int index = data_ov017_021d656c[i].index;
-        sprintf(name, data_ov017_021d751f, data_ov017_021d656c[i].name);
-        func_0204719c(&sprites[index]);
-        const void* file = GetFileFromNARCInMemory(name);
-        if (file != 0) func_02047b40(&sprites[index], file, allocator);
+    func_02018d28(var1, var2, &data_0211e33c, var6);
+    char var8[0x50];
+    int var9 = 0;
+    for (; data_ov017_021d656c[var9].unknown_0_ >= 0; var9++) {
+        var0 = arg0->substruct_array_2b90;
+        int var10 = data_ov017_021d656c[var9].unknown_0_;
+        sprintf(var8, data_ov017_021d751f, data_ov017_021d656c[var9].unknown_4_);
+        func_0204719c(&var0[var10]);
+        const void* var11 = GetFileFromNARCInMemory(var8);
+        if (var11 != 0) func_02047b40(&var0[var10], var11, var2);
     }
 #if !defined(jpn)
-    sprintf(name, data_ov017_021d751f, data_ov017_021d7526);
-    switch (func_0200fb08((Struct0200fb08*)game)) {
-    case 3: sprintf(name, data_ov017_021d751f, data_ov017_021d7530); break;
-    case 5: sprintf(name, data_ov017_021d751f, data_ov017_021d753a); break;
+    sprintf(var8, data_ov017_021d751f, data_ov017_021d7526);
+    switch (func_0200fb08((Struct_02000c9c_8*)var3)) {
+    case 3: sprintf(var8, data_ov017_021d751f, data_ov017_021d7530); break;
+    case 5: sprintf(var8, data_ov017_021d751f, data_ov017_021d753a); break;
     }
-    func_0204719c(&self->substruct_array_2b90[0]);
+    func_0204719c(&arg0->substruct_array_2b90[0]);
     {
-        const void* file = GetFileFromNARCInMemory(name);
-        if (file != 0) func_02047b40(&self->substruct_array_2b90[0], file, allocator);
+        const void* var12 = GetFileFromNARCInMemory(var8);
+        if (var12 != 0) func_02047b40(&arg0->substruct_array_2b90[0], var12, var2);
     }
 #endif
-    const void* file;
-    file = GetFileFromNARCInMemory(data_ov017_021d7544);
-    if (file != 0) {
-        func_0204719c(&self->unknown_3520);
-        func_02047b40(&self->unknown_3520, file, allocator);
+    const void* var13;
+    var13 = GetFileFromNARCInMemory(data_ov017_021d7544);
+    if (var13 != 0) {
+        func_0204719c(&arg0->unknown_3520);
+        func_02047b40(&arg0->unknown_3520, var13, var2);
     }
-    file = GetFileFromNARCInMemory(data_ov017_021d7555);
-    if (file != 0) {
-        func_0204719c(&(*reinterpret_cast<Foo02048004*>(self->unknown_35a8)));
-        func_02047b40(&(*reinterpret_cast<Foo02048004*>(self->unknown_35a8)), file, allocator);
+    var13 = GetFileFromNARCInMemory(data_ov017_021d7555);
+    if (var13 != 0) {
+        func_0204719c(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8)));
+        func_02047b40(&(*reinterpret_cast<Struct_02012fa4*>(arg0->unknown_35a8)), var13, var2);
     }
-    archive.Destroy();
+    var7.Destroy();
     func_02057924();
-    unsigned int size;
-    if (GetFileInNarc(&data_0211e33c, data_ov017_021d7567, &file, &size, 0)) {
-        Object3D* object = (Object3D*)allocator->Allocate(0xac);
-        if (object != 0) {
-            object->Initialize();
-            ObjectArchiveLoadInfo info;
-            info.fileData = file;
-            info.unk_8 = size;
-            info.allocator = allocator;
-            info.unk_10 = 1;
-            object->LoadFromCHRArchive(&info);
-            func_0208f36c(func_0208e9e8(), object);
+    unsigned int var14;
+    if (GetFileInNarc(&data_0211e33c, data_ov017_021d7567, &var13, &var14, 0)) {
+        Object3D* var15 = (Object3D*)var2->Allocate(0xac);
+        if (var15 != 0) {
+            var15->Initialize();
+            ObjectArchiveLoadInfo var16;
+            var16.fileData = var13;
+            var16.unk_8 = var14;
+            var16.allocator = var2;
+            var16.unk_10 = 1;
+            var15->LoadFromCHRArchive(&var16);
+            func_0208f36c(func_0208e9e8(), var15);
         }
     }
     BackgroundLoader::RemoveLockGlobal();
-    func_02096604(static_cast<char*>(self->unknown_ptr_4328), (int)allocator);
-    func_0207dfac((char*)pairs);
-    globals->lootableTemplates_[0] = &self->substruct_array_2b90[5];
-    globals->lootableTemplates_[1] = &self->substruct_array_2b90[6];
-    globals->lootableTemplates_[2] = &self->substruct_array_2b90[7];
-    globals->lootableTemplates_[3] = &self->substruct_array_2b90[8];
-    globals->lootableTemplates_[4] = &self->substruct_array_2b90[9];
-    globals->lootableTemplates_[5] = &self->substruct_array_2b90[10];
-    func_02013d24(globals);
+    func_02096604(static_cast<char*>(arg0->unknown_ptr_4328), (int)var2);
+    func_0207dfac((char*)var4);
+    var1->unknown_480_[0] = &arg0->substruct_array_2b90[5];
+    var1->unknown_480_[1] = &arg0->substruct_array_2b90[6];
+    var1->unknown_480_[2] = &arg0->substruct_array_2b90[7];
+    var1->unknown_480_[3] = &arg0->substruct_array_2b90[8];
+    var1->unknown_480_[4] = &arg0->substruct_array_2b90[9];
+    var1->unknown_480_[5] = &arg0->substruct_array_2b90[10];
+    func_02013d24(var1);
 }

@@ -5,41 +5,41 @@ extern "C" void MapVRAMBanksToTextureImage(int handle);
 extern "C" void MapVRAMBanksToTexturePalette(int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToMainObj(int mode);
-extern "C" ARM void func_020bb48c(unsigned int mode, int installHandlers);
+extern "C" ARM void func_020bb48c(unsigned int arg0, int arg1);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 void UpdateVRAMStagingVRAMBanks(void);
 void UnlockStagedTextureVRAMCopying(void);
 
-struct Obj02097c18 {
-    char pad[0x1e];
-    unsigned char field1e;
+struct Struct_02097c18 {
+    char unknown_0_[0x1e];
+    unsigned char unknown_1e_;
 };
 
 // USA: func_02097c18
-extern "C" ARM void func_02097c18(struct Obj02097c18* obj, unsigned char flags, unsigned int field0Val, int field4Val, int field8Val, int fieldcVal, int field10Val, int field14Val) {
+extern "C" ARM void func_02097c18(struct Struct_02097c18* arg0, unsigned char arg1, unsigned int arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
     LockStagedTextureVRAMCopying();
-    obj->field1e = flags;
-    if (flags & 1) {
-        unsigned int mask;
-        unsigned short count;
+    arg0->unknown_1e_ = arg1;
+    if (arg1 & 1) {
+        unsigned int var0;
+        unsigned short var1;
 
-        MapVRAMBanksToTextureImage(field0Val);
-        MapVRAMBanksToTexturePalette(field4Val);
-        MapVRAMBanksToMainBG(field8Val);
-        MapVRAMBanksToMainObj(fieldcVal);
+        MapVRAMBanksToTextureImage(arg2);
+        MapVRAMBanksToTexturePalette(arg3);
+        MapVRAMBanksToMainBG(arg4);
+        MapVRAMBanksToMainObj(arg5);
 
-        mask = field0Val;
-        count = 0;
-        while (mask != 0) {
-            count = count + 1;
-            mask &= mask - 1;
+        var0 = arg2;
+        var1 = 0;
+        while (var0 != 0) {
+            var1 = var1 + 1;
+            var0 &= var0 - 1;
         }
-        func_020bb48c(count, 1);
+        func_020bb48c(var1, 1);
     }
-    if (flags & 2) {
-        MapVRAMBanksToSubBG(field10Val);
-        MapVRAMBanksToSubObj(field14Val);
+    if (arg1 & 2) {
+        MapVRAMBanksToSubBG(arg6);
+        MapVRAMBanksToSubObj(arg7);
     }
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();

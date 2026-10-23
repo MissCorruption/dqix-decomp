@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion89c = 0x818 };
-enum { kRegion8a0 = 0x81c };
-enum { kRegion100c = 0xf88 };
-enum { kRegion1016 = 0xf92 };
-enum { kRegion103a = 0xfb6 };
+enum { Enum_ov003_02179ff0_2204 = 0x818 };
+enum { Enum_ov003_02179ff0_2208 = 0x81c };
+enum { Enum_ov003_02179ff0_4108 = 0xf88 };
+enum { Enum_ov003_02179ff0_4118 = 0xf92 };
+enum { Enum_ov003_02179ff0_4154 = 0xfb6 };
 #else
-enum { kRegion89c = 0x89c };
-enum { kRegion8a0 = 0x8a0 };
-enum { kRegion100c = 0x100c };
-enum { kRegion1016 = 0x1016 };
-enum { kRegion103a = 0x103a };
+enum { Enum_ov003_02179ff0_2204 = 0x89c };
+enum { Enum_ov003_02179ff0_2208 = 0x8a0 };
+enum { Enum_ov003_02179ff0_4108 = 0x100c };
+enum { Enum_ov003_02179ff0_4118 = 0x1016 };
+enum { Enum_ov003_02179ff0_4154 = 0x103a };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" short func_02080468(void* obj, int id);
-extern "C" unsigned char func_0207ca94(int index);
-extern "C" short func_0207c638(void* base, unsigned int index);
-extern "C" int func_0207c6b8(unsigned char* obj, unsigned int index, int target);
-struct S_a0b8c;
-extern "C" int func_020a0b8c(struct S_a0b8c* p);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" unsigned char func_0207ca94(int arg0);
+extern "C" short func_0207c638(void* arg0, unsigned int arg1);
+extern "C" int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg2);
+struct Struct_020a0b8c;
+extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
 
-struct ListMenu_02179ff0 {
-    unsigned char pad0[kRegion89c];
-    void* memberMap;
-    unsigned char pad8a0[kRegion100c - kRegion8a0];
-    short mode;
-    short cursor;
-    short field_0x1010;
-    short tableCursor;
-    short page;
-    unsigned char pad1016[kRegion103a - kRegion1016];
-    short selectedId;
+struct Struct_ov003_02179ff0 {
+    unsigned char unknown_0_[Enum_ov003_02179ff0_2204];
+    void* unknown_89c_;
+    unsigned char unknown_8a0_[Enum_ov003_02179ff0_4108 - Enum_ov003_02179ff0_2208];
+    short unknown_100c_;
+    short unknown_100e_;
+    short unknown_1010_;
+    short unknown_1012_;
+    short unknown_1014_;
+    unsigned char unknown_1016_[Enum_ov003_02179ff0_4154 - Enum_ov003_02179ff0_4118];
+    short unknown_103a_;
 };
 
 // USA: func_ov003_02179ff0
-extern "C" ARM void func_ov003_02179ff0(ListMenu_02179ff0* menu) {
-    void* memberMap = menu->memberMap;
-    unsigned char* list = (unsigned char*)func_02010828(GameState::GetInstance());
-    if (menu->mode == 0x77) {
-        short tableIndex = menu->tableCursor - func_02080468(memberMap, 0x1d);
-        unsigned int table =func_0207ca94(tableIndex);
-        int count = func_0207c638(list + 0x1d4, table);
-        short row = menu->cursor - func_02080468(memberMap, 0x1e);
-        short sel = row + menu->page * 5;
-        if (count <= sel) sel = count - 1;
-        menu->selectedId = func_0207c6b8(list + 0x1d4, table, sel);
-        menu->cursor = sel % 5 + func_02080468(memberMap, 0x1e);
+extern "C" ARM void func_ov003_02179ff0(Struct_ov003_02179ff0* arg0) {
+    void* var0 = arg0->unknown_89c_;
+    unsigned char* var1 = (unsigned char*)func_02010828(GameState::GetInstance());
+    if (arg0->unknown_100c_ == 0x77) {
+        short var2 = arg0->unknown_1012_ - func_02080468(var0, 0x1d);
+        unsigned int var3 =func_0207ca94(var2);
+        int var4 = func_0207c638(var1 + 0x1d4, var3);
+        short var5 = arg0->unknown_100e_ - func_02080468(var0, 0x1e);
+        short var6 = var5 + arg0->unknown_1014_ * 5;
+        if (var4 <= var6) var6 = var4 - 1;
+        arg0->unknown_103a_ = func_0207c6b8(var1 + 0x1d4, var3, var6);
+        arg0->unknown_100e_ = var6 % 5 + func_02080468(var0, 0x1e);
     } else {
-        int count = func_020a0b8c((struct S_a0b8c*)list);
-        short row = menu->cursor - func_02080468(memberMap, 0x16);
-        short sel = row + menu->page * 8;
-        if (count <= sel) sel = count - 1;
-        menu->selectedId = ((short*)(list + 0xc))[sel];
-        menu->cursor = sel % 8 + func_02080468(memberMap, 0x16);
+        int var7 = func_020a0b8c((struct Struct_020a0b8c*)var1);
+        short var8 = arg0->unknown_100e_ - func_02080468(var0, 0x16);
+        short var9 = var8 + arg0->unknown_1014_ * 8;
+        if (var7 <= var9) var9 = var7 - 1;
+        arg0->unknown_103a_ = ((short*)(var1 + 0xc))[var9];
+        arg0->unknown_100e_ = var9 % 8 + func_02080468(var0, 0x16);
     }
 }

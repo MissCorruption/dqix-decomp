@@ -6,51 +6,51 @@
 
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
-struct Fields020407b4;
-extern "C" void func_020407b4(struct Fields020407b4* obj, int a, int b, int c);
+struct Struct_02040774_2;
+extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
 
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern AllocatorUnion data_02114e20;
 
 // USA: func_02046e70
-extern "C" ARM void func_02046e70(void* self, void* a1, Object3D* a2) {
-    *(int*)((char*)self + 0x4) = *(int*)((char*)self + 0x0) = 0;
-    *(int*)((char*)self + 0x20) = 0;
-    *(int*)((char*)self + 0x8) = 0;
-    *(int*)((char*)self + 0xc) = 0x41700000;
-    *(int*)((char*)self + 0xec) = -1;
-    *(unsigned char*)((char*)self + 0x1c) = 1;
-    *(unsigned char*)((char*)self + 0x1d) = 1;
+extern "C" ARM void func_02046e70(void* arg0, void* arg1, Object3D* arg2) {
+    *(int*)((char*)arg0 + 0x4) = *(int*)((char*)arg0 + 0x0) = 0;
+    *(int*)((char*)arg0 + 0x20) = 0;
+    *(int*)((char*)arg0 + 0x8) = 0;
+    *(int*)((char*)arg0 + 0xc) = 0x41700000;
+    *(int*)((char*)arg0 + 0xec) = -1;
+    *(unsigned char*)((char*)arg0 + 0x1c) = 1;
+    *(unsigned char*)((char*)arg0 + 0x1d) = 1;
 
     GameState::GetInstance();
-    ((Object3D*)((char*)self + 0x3c))->Initialize();
-    ((SafeAllocator*)((char*)self + 0x24))->ResetAllocatorPointer();
+    ((Object3D*)((char*)arg0 + 0x3c))->Initialize();
+    ((SafeAllocator*)((char*)arg0 + 0x24))->ResetAllocatorPointer();
 
-    *(Object3D**)((char*)self + 0xe8) = a2;
-    if (a2 != NULL) {
-        NSBXX_Model_SetPolygonID(*(void**)(*(char**)((char*)a2 + 8) + 0x54), 0x3d);
-        Object3D* o1 = *(Object3D**)((char*)self + 0xe8);
-        o1->SetScale(0x1000, 0x1000, 0x1000);
-        Object3D* o2 = *(Object3D**)((char*)self + 0xe8);
-        func_020407b4((struct Fields020407b4*)o2, 0, -0xa000, 0x1000);
-        Object3D* o3 = *(Object3D**)((char*)self + 0xe8);
-        o3->MaybeSetBCFGAnimation(0, 0);
+    *(Object3D**)((char*)arg0 + 0xe8) = arg2;
+    if (arg2 != NULL) {
+        NSBXX_Model_SetPolygonID(*(void**)(*(char**)((char*)arg2 + 8) + 0x54), 0x3d);
+        Object3D* var0 = *(Object3D**)((char*)arg0 + 0xe8);
+        var0->SetScale(0x1000, 0x1000, 0x1000);
+        Object3D* var1 = *(Object3D**)((char*)arg0 + 0xe8);
+        func_020407b4((struct Struct_02040774_2*)var1, 0, -0xa000, 0x1000);
+        Object3D* var2 = *(Object3D**)((char*)arg0 + 0xe8);
+        var2->MaybeSetBCFGAnimation(0, 0);
     }
 
-    *(void**)((char*)self + 0x38) = a1;
-    if (a1 != NULL) {
+    *(void**)((char*)arg0 + 0x38) = arg1;
+    if (arg1 != NULL) {
         return;
     }
-    void* buf = func_02012d88(&data_02114e20, 0x301c);
-    if (buf != NULL) {
-        SafeAllocator* alloc = (SafeAllocator*)((char*)self + 0x24);
-        alloc->ResetAllocatorPointer();
-        alloc->CreateTypeA(buf, 0x301c);
-        alloc->Reset();
+    void* var3 = func_02012d88(&data_02114e20, 0x301c);
+    if (var3 != NULL) {
+        SafeAllocator* var4 = (SafeAllocator*)((char*)arg0 + 0x24);
+        var4->ResetAllocatorPointer();
+        var4->CreateTypeA(var3, 0x301c);
+        var4->Reset();
         return;
     }
 
-    *(unsigned char*)((char*)self + 0x1d) = 0;
-    ((SafeAllocator*)((char*)self + 0x24))->ResetAllocatorPointer();
-    *(int*)((char*)self + 0x0) = -1;
+    *(unsigned char*)((char*)arg0 + 0x1d) = 0;
+    ((SafeAllocator*)((char*)arg0 + 0x24))->ResetAllocatorPointer();
+    *(int*)((char*)arg0 + 0x0) = -1;
 }

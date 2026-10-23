@@ -579,18 +579,18 @@ void RenderCommand_6(RenderCommandHandler* handler, int modifier)
 
                     targetData->rotationMatrix_.entries[form] = unit;
 
-                    uint8_t indexA = data_020e9260[form].a;
-                    uint8_t indexB = data_020e9260[form].b;
+                    uint8_t indexA = data_020e9260[form].unknown_0_;
+                    uint8_t indexB = data_020e9260[form].unknown_1_;
 
                     targetData->rotationMatrix_.entries[indexA] = entryA;
                     targetData->rotationMatrix_.entries[indexB] = entryB;
 
                     fix32_t entryC = (boneMatrix->flags_ & 0x200) ? -entryB : entryB;
-                    uint8_t indexC = data_020e9260[form].c;
+                    uint8_t indexC = data_020e9260[form].unknown_2_;
                     targetData->rotationMatrix_.entries[indexC] = entryC;
 
                     fix32_t entryD = (boneMatrix->flags_ & 0x400) ? -entryA : entryA;
-                    uint8_t indexD = data_020e9260[form].d;
+                    uint8_t indexD = data_020e9260[form].unknown_3_;
                     targetData->rotationMatrix_.entries[indexD] = entryD;
                     boneMatrixExtraPtr += sizeof(*pivot);
                 }
@@ -969,7 +969,7 @@ void RenderCommand_9(RenderCommandHandler* handler, int modifier)
         unsigned int inverseBindIndex = instructionPtr[1];
         
         int inBitfield = TestBitfieldBit(handler->invBindBitfield_, inverseBindIndex);
-        cachedPosMatrix = &data_0210b078.matrixData[inverseBindIndex].mat4x4;
+        cachedPosMatrix = &data_0210b078.unknown_600_[inverseBindIndex].mat4x4;
         if (!inBitfield)
         {
             SetBitfieldBit(handler->invBindBitfield_, inverseBindIndex);
@@ -1012,7 +1012,7 @@ void RenderCommand_9(RenderCommandHandler* handler, int modifier)
         localCopy.mat4x3.entries[11] += (weight * cachedPosMatrix->entries[14]) >> 12;
 
         instructionPtr += 3;
-        cachedDirMatrix = &data_0210b078.matrixData[inverseBindIndex].mat3x3;
+        cachedDirMatrix = &data_0210b078.unknown_600_[inverseBindIndex].mat3x3;
         if (!inBitfield)
         {
             while (func_020c552c(cachedDirMatrix) != 0) {}

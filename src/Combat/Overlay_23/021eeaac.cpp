@@ -5,36 +5,36 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
-struct List020727d8;
-struct SearchStruct;
-struct Pair0209a338;
-struct Ctx0209a470;
-struct Ctx0209a8b4;
-struct StreamHeader;
-struct Reset_021eefac;
+struct Struct_020727d8;
+struct Struct_0202b2f0;
+struct Struct_0200f3a4_8;
+struct Struct_0209a470;
+struct Struct_02086f24_6;
+struct Struct_02013fb4;
+struct Struct_ov023_021eeaac_2;
 
-extern "C" void func_020a1940(unsigned int id);
-extern "C" void func_020727d8(List020727d8* list);
-extern "C" void func_020728ac(void* a, void* b, int c, int d, int e, int f, int g);
-extern "C" void func_ov000_0215fa84(void* obj, short* a, short* b, short* c);
+extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void func_020728ac(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 extern "C" int func_ov023_021ed92c();
-extern "C" void func_020de848(void* obj);
-extern "C" int func_020de9a4(void* list, void* alloc, void* data, unsigned int size, void* entries, unsigned short count);
-extern "C" void* func_020de824(void* obj);
-extern "C" void func_0207cbe8(char* obj);
-extern "C" int func_0207d300(void* buf, int a, int b, int c);
-extern "C" int func_0207ccf0(void* buf, int a, int b, int c, int d, int e, int f);
+extern "C" void func_020de848(void* arg0);
+extern "C" int func_020de9a4(void* arg0, void* arg1, void* arg2, unsigned int arg3, void* arg4, unsigned short arg5);
+extern "C" void* func_020de824(void* arg0);
+extern "C" void func_0207cbe8(char* arg0);
+extern "C" int func_0207d300(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
-extern "C" int func_020100a8(GameState* gs);
-extern "C" SearchStruct* func_0202ae18(void);
-extern "C" int func_0202c1c0(SearchStruct* search, int index);
-extern "C" void func_0209a338(Pair0209a338* pair);
-extern "C" void func_0209a470(Ctx0209a470* ctx, SafeAllocator* alloc, StreamHeader* data, int length);
-extern "C" void func_0209a804(int* field);
-extern "C" void func_0209a8b4(Ctx0209a8b4* ctx, SafeAllocator* alloc, StreamHeader* data, int length);
-extern "C" void func_ov023_021eefac(Reset_021eefac* s);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" Struct_0202b2f0* func_0202ae18(void);
+extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
+extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void func_0209a804(int* arg0);
+extern "C" void func_0209a8b4(Struct_02086f24_6* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 
-extern "C" int* _ZZ17GetGlobal021ffefcvE1s;
+extern "C" int* _ZZ21inline_ov023_021f4c04vE1s;
 extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 extern char data_ov023_021fe1d8;
@@ -45,177 +45,177 @@ extern char data_ov023_021fe218;
 extern char data_ov023_021fd49e[];
 #endif
 
-struct Entry021eeaac {
-    short id;
-    unsigned short flags;
-    char pad;
-    signed char slot;
+struct Struct_ov023_021eeaac {
+    short unknown_0_;
+    unsigned short unknown_2_;
+    char unknown_4_;
+    signed char unknown_5_;
 };
 
-static inline SafeAllocator* GetAllocator(GameResources* res, int index) {
-    return &res->allocator_array_38[index];
+static inline SafeAllocator* inline_ov000_02166804(GameResources* arg0, int arg1) {
+    return &arg0->allocator_array_38[arg1];
 }
 
 // USA: func_ov023_021eeaac
-extern "C" ARM int func_ov023_021eeaac(char* self) {
+extern "C" ARM int func_ov023_021eeaac(char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0xe28, regionalOffset1=0x5af4, regionalOffset2=0x5af0, regionalOffset3=0x5ac0, regionalOffset4=0x218, regionalOffset5=0x5afc, regionalOffset6=0x5af1};
+ enum {Enum_ov023_021eeaac_3756=0xe28, Enum_ov023_021eeaac_22788=0x5af4, Enum_ov023_021eeaac_22784=0x5af0, Enum_ov023_021eeaac_22736=0x5ac0, Enum_ov023_021eeaac_668=0x218, Enum_ov023_021eeaac_22796=0x5afc, Enum_ov023_021eeaac_22785=0x5af1};
 #else
- enum {regionalOffset0=0xeac, regionalOffset1=0x5904, regionalOffset2=0x5900, regionalOffset3=0x58d0, regionalOffset4=0x29c, regionalOffset5=0x590c, regionalOffset6=0x5901};
+ enum {Enum_ov023_021eeaac_3756=0xeac, Enum_ov023_021eeaac_22788=0x5904, Enum_ov023_021eeaac_22784=0x5900, Enum_ov023_021eeaac_22736=0x58d0, Enum_ov023_021eeaac_668=0x29c, Enum_ov023_021eeaac_22796=0x590c, Enum_ov023_021eeaac_22785=0x5901};
 #endif
-    GameResources* res = GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int* g = _ZZ17GetGlobal021ffefcvE1s;
-    SafeAllocator* alloc = GetAllocator(res, 5);
-    if (g[0] == 0) {
+    GameResources* var0 = GetGameResources();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    int* var2 = _ZZ21inline_ov023_021f4c04vE1s;
+    SafeAllocator* var3 = inline_ov000_02166804(var0, 5);
+    if (var2[0] == 0) {
         func_020a1940(OVERLAY_ID(13));
 #if defined(jpn)
-        g[1] = loader->QueueLoadFile(data_ov023_021fd49e, NULL);
+        var2[1] = var1->QueueLoadFile(data_ov023_021fd49e, NULL);
 #else
-        g[1] = loader->QueueLoadFileInGP2(&data_ov023_021fe1d8, &data_ov023_021fe1ee, NULL);
+        var2[1] = var1->QueueLoadFileInGP2(&data_ov023_021fe1d8, &data_ov023_021fe1ee, NULL);
 #endif
 
-        g[0]++;
-    } else if (g[0] == 1) {
-        if (loader->GetTaskStatus(g[1]) == 0) {
-            return *(int*)(self + regionalOffset0);
+        var2[0]++;
+    } else if (var2[0] == 1) {
+        if (var1->GetTaskStatus(var2[1]) == 0) {
+            return *(int*)(arg0 + Enum_ov023_021eeaac_3756);
         }
-        unsigned int length;
-        void* data;
-        loader->GetLoadedFileByID(g[1], &data, &length);
-        func_020727d8((List020727d8*)(self + regionalOffset1));
-        func_020728ac(self + regionalOffset1, alloc, (int)data, length, 0, 0, 0);
-        loader->RemoveTask(g[1]);
+        unsigned int var4;
+        void* var5;
+        var1->GetLoadedFileByID(var2[1], &var5, &var4);
+        func_020727d8((Struct_020727d8*)(arg0 + Enum_ov023_021eeaac_22788));
+        func_020728ac(arg0 + Enum_ov023_021eeaac_22788, var3, (int)var5, var4, 0, 0, 0);
+        var1->RemoveTask(var2[1]);
 #if defined(jpn)
-        g[1] = loader->QueueLoadGP1(data_020f2a38, NULL);
+        var2[1] = var1->QueueLoadGP1(data_020f2a38, NULL);
 #else
-        g[1] = loader->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, NULL);
+        var2[1] = var1->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, NULL);
 #endif
 
-        g[0]++;
-    } else if (g[0] == 2) {
-        int slot;
-        unsigned int length;
-        void* data;
-        int count;
-        short ids[10];
-        short* dst;
-        unsigned short* src;
-        int i;
-        int k;
-        short kind;
-        short c;
-        short b;
-        char buf[0x38];
-        void* list;
-        Entry021eeaac* entry;
-        int present;
-        GameState* gs;
-        char* party;
-        int found;
-        char obj[0x38];
-        int result;
-        int j;
-        int current;
-        if (loader->GetTaskStatus(g[1]) == 0) {
-            return *(int*)(self + regionalOffset0);
+        var2[0]++;
+    } else if (var2[0] == 2) {
+        int var6;
+        unsigned int var7;
+        void* var8;
+        int var9;
+        short var10[10];
+        short* var11;
+        unsigned short* var12;
+        int var13;
+        int var14;
+        short var15;
+        short var16;
+        short var17;
+        char var18[0x38];
+        void* var19;
+        Struct_ov023_021eeaac* var20;
+        int var21;
+        GameState* var22;
+        char* var23;
+        int var24;
+        char var25[0x38];
+        int var26;
+        int var27;
+        int var28;
+        if (var1->GetTaskStatus(var2[1]) == 0) {
+            return *(int*)(arg0 + Enum_ov023_021eeaac_3756);
         }
-        loader->GetLoadedFileByID(g[1], &data, &length);
-        count = *(unsigned char*)(self + regionalOffset2);
-        if (count > 8) {
-            count = 8;
+        var1->GetLoadedFileByID(var2[1], &var8, &var7);
+        var9 = *(unsigned char*)(arg0 + Enum_ov023_021eeaac_22784);
+        if (var9 > 8) {
+            var9 = 8;
         }
-        dst = ids;
-        src = (unsigned short*)(self + regionalOffset3);
-        for (i = 0; i < count; i++) {
-            *dst = *src;
-            dst++;
-            src += 3;
+        var11 = var10;
+        var12 = (unsigned short*)(arg0 + Enum_ov023_021eeaac_22736);
+        for (var13 = 0; var13 < var9; var13++) {
+            *var11 = *var12;
+            var11++;
+            var12 += 3;
         }
-        if (*(short*)(*(char**)(self + regionalOffset4) + 0x8e4a) > 0) {
-            func_ov000_0215fa84(*(void**)(self + regionalOffset4), &kind, &b, &c);
-            ids[count] = c;
-            count++;
-            if (kind == 0x18 && func_ov023_021ed92c()) {
-                *(unsigned char*)(*(char**)(self + regionalOffset4) + 0x8e97) = 1;
+        if (*(short*)(*(char**)(arg0 + Enum_ov023_021eeaac_668) + 0x8e4a) > 0) {
+            func_ov000_0215fa84(*(void**)(arg0 + Enum_ov023_021eeaac_668), &var15, &var17, &var16);
+            var10[var9] = var16;
+            var9++;
+            if (var15 == 0x18 && func_ov023_021ed92c()) {
+                *(unsigned char*)(*(char**)(arg0 + Enum_ov023_021eeaac_668) + 0x8e97) = 1;
             }
         }
-        *(void**)(self + regionalOffset5) = alloc->Allocate(0x18);
-        func_020de848(*(void**)(self + regionalOffset5));
-        func_020de9a4(*(void**)(self + regionalOffset5), alloc, data, length, ids, count);
-        loader->RemoveTask(g[1]);
-        if (*(short*)(*(char**)(self + regionalOffset4) + 0x8e4a) > 0) {
-            count--;
-            ((SafeAllocator*)buf)->ResetAllocatorPointer();
-            func_020de824(buf + 0x14);
-            func_0207cbe8(buf);
-            func_0207cbe8(buf);
-            *(void**)(buf + 0x2c) = *(void**)(self + regionalOffset5);
-            func_0207d300(buf, ids[count], 1, 0);
+        *(void**)(arg0 + Enum_ov023_021eeaac_22796) = var3->Allocate(0x18);
+        func_020de848(*(void**)(arg0 + Enum_ov023_021eeaac_22796));
+        func_020de9a4(*(void**)(arg0 + Enum_ov023_021eeaac_22796), var3, var8, var7, var10, var9);
+        var1->RemoveTask(var2[1]);
+        if (*(short*)(*(char**)(arg0 + Enum_ov023_021eeaac_668) + 0x8e4a) > 0) {
+            var9--;
+            ((SafeAllocator*)var18)->ResetAllocatorPointer();
+            func_020de824(var18 + 0x14);
+            func_0207cbe8(var18);
+            func_0207cbe8(var18);
+            *(void**)(var18 + 0x2c) = *(void**)(arg0 + Enum_ov023_021eeaac_22796);
+            func_0207d300(var18, var10[var9], 1, 0);
         }
-        list = *(void**)(self + regionalOffset5);
-        entry = (Entry021eeaac*)(self + regionalOffset3);
-        present = *(signed char*)(self + regionalOffset6);
-        gs = GameState::GetInstance();
-        party = (char*)func_02010828(gs);
-        found = 0;
-        for (k = 0; k < *(unsigned char*)(party + 0xf7c); k++) {
-            if (present & (1 << *(unsigned char*)(party + k + 0xf78))) {
-                found = 1;
+        var19 = *(void**)(arg0 + Enum_ov023_021eeaac_22796);
+        var20 = (Struct_ov023_021eeaac*)(arg0 + Enum_ov023_021eeaac_22736);
+        var21 = *(signed char*)(arg0 + Enum_ov023_021eeaac_22785);
+        var22 = GameState::GetInstance();
+        var23 = (char*)func_02010828(var22);
+        var24 = 0;
+        for (var14 = 0; var14 < *(unsigned char*)(var23 + 0xf7c); var14++) {
+            if (var21 & (1 << *(unsigned char*)(var23 + var14 + 0xf78))) {
+                var24 = 1;
                 break;
             }
         }
-        if (found) {
-            current = func_020100a8(gs);
-            for (j = 0; j < count; j++, entry++) {
-                ((SafeAllocator*)obj)->ResetAllocatorPointer();
-                func_020de824(obj + 0x14);
-                func_0207cbe8(obj);
-                func_0207cbe8(obj);
-                *(void**)(obj + 0x2c) = list;
-                slot = entry->slot;
-                if (slot < 0) {
-                    result = func_0207d300(obj, entry->id, 1, 1);
+        if (var24) {
+            var28 = func_020100a8(var22);
+            for (var27 = 0; var27 < var9; var27++, var20++) {
+                ((SafeAllocator*)var25)->ResetAllocatorPointer();
+                func_020de824(var25 + 0x14);
+                func_0207cbe8(var25);
+                func_0207cbe8(var25);
+                *(void**)(var25 + 0x2c) = var19;
+                var6 = var20->unknown_5_;
+                if (var6 < 0) {
+                    var26 = func_0207d300(var25, var20->unknown_0_, 1, 1);
                 } else {
-                    if (current != slot && (func_0202c1c0(func_0202ae18(), slot) != 0 || current != 0)) {
-                        if (present & (1 << current)) {
-                            slot = current;
+                    if (var28 != var6 && (func_0202c1c0(func_0202ae18(), var6) != 0 || var28 != 0)) {
+                        if (var21 & (1 << var28)) {
+                            var6 = var28;
                         }
                     }
-                    result = func_0207ccf0(obj, entry->id, 1, slot, 1, 0, 1);
+                    var26 = func_0207ccf0(var25, var20->unknown_0_, 1, var6, 1, 0, 1);
                 }
-                entry->flags &= ~0x8000;
-                if (result == 2) {
-                    entry->flags |= 0x8000;
+                var20->unknown_2_ &= ~0x8000;
+                if (var26 == 2) {
+                    var20->unknown_2_ |= 0x8000;
                 }
             }
         }
-        g[1] = loader->QueueLoadFile(&data_ov023_021fe200, NULL);
-        g[0]++;
-    } else if (g[0] == 3) {
-        if (loader->GetTaskStatus(g[1]) == 0) {
-            return *(int*)(self + regionalOffset0);
+        var2[1] = var1->QueueLoadFile(&data_ov023_021fe200, NULL);
+        var2[0]++;
+    } else if (var2[0] == 3) {
+        if (var1->GetTaskStatus(var2[1]) == 0) {
+            return *(int*)(arg0 + Enum_ov023_021eeaac_3756);
         }
-        unsigned int length;
-        void* data;
-        loader->GetLoadedFileByID(g[1], &data, &length);
-        func_0209a338((Pair0209a338*)(g + 0xe8 / 4));
-        func_0209a470((Ctx0209a470*)(g + 0xe8 / 4), alloc, (StreamHeader*)data, length);
-        loader->RemoveTask(g[1]);
-        g[1] = loader->QueueLoadFile(&data_ov023_021fe218, NULL);
-        g[0]++;
-    } else if (g[0] == 4) {
-        if (loader->GetTaskStatus(g[1]) == 0) {
-            return *(int*)(self + regionalOffset0);
+        unsigned int var29;
+        void* var30;
+        var1->GetLoadedFileByID(var2[1], &var30, &var29);
+        func_0209a338((Struct_0200f3a4_8*)(var2 + 0xe8 / 4));
+        func_0209a470((Struct_0209a470*)(var2 + 0xe8 / 4), var3, (Struct_02013fb4*)var30, var29);
+        var1->RemoveTask(var2[1]);
+        var2[1] = var1->QueueLoadFile(&data_ov023_021fe218, NULL);
+        var2[0]++;
+    } else if (var2[0] == 4) {
+        if (var1->GetTaskStatus(var2[1]) == 0) {
+            return *(int*)(arg0 + Enum_ov023_021eeaac_3756);
         }
-        unsigned int length;
-        void* data;
-        loader->GetLoadedFileByID(g[1], &data, &length);
-        func_0209a804(g + 0xf0 / 4);
-        func_0209a8b4((Ctx0209a8b4*)(g + 0xf0 / 4), alloc, (StreamHeader*)data, length);
-        loader->RemoveTask(g[1]);
-        func_ov023_021eefac((Reset_021eefac*)g);
+        unsigned int var31;
+        void* var32;
+        var1->GetLoadedFileByID(var2[1], &var32, &var31);
+        func_0209a804(var2 + 0xf0 / 4);
+        func_0209a8b4((Struct_02086f24_6*)(var2 + 0xf0 / 4), var3, (Struct_02013fb4*)var32, var31);
+        var1->RemoveTask(var2[1]);
+        func_ov023_021eefac((Struct_ov023_021eeaac_2*)var2);
         return 3;
     }
-    return *(int*)(self + regionalOffset0);
+    return *(int*)(arg0 + Enum_ov023_021eeaac_3756);
 }

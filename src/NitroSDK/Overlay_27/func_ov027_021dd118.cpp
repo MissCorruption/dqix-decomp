@@ -7,37 +7,37 @@
 
 extern "C" void func_020c9be0(void);
 
-struct Slot021dd118 {
-    void* f0;
-    void* f4;
-    void* f8;
-    unsigned int fc;
+struct Struct_ov027_021dd118 {
+    void* unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    unsigned int unknown_c_;
 };
 
-struct Container021dd118 {
-    unsigned char pad0[0x30];
-    Slot021dd118 slots[4];
+struct Struct_ov027_021dd118_2 {
+    unsigned char unknown_0_[0x30];
+    Struct_ov027_021dd118 unknown_30_[4];
 };
 
 // USA: func_ov027_021dd118
-extern "C" ARM void func_ov027_021dd118(Container021dd118* obj, void* p1, void* p2, void* p3, unsigned int p4) {
-    Slot021dd118* end;
-    int ime;
-    ime = DisableIRQInterrupts();
-    Slot021dd118* slot = obj->slots;
-    end = obj->slots + 4;
+extern "C" ARM void func_ov027_021dd118(Struct_ov027_021dd118_2* arg0, void* arg1, void* arg2, void* arg3, unsigned int arg4) {
+    Struct_ov027_021dd118* var0;
+    int var1;
+    var1 = DisableIRQInterrupts();
+    Struct_ov027_021dd118* var2 = arg0->unknown_30_;
+    var0 = arg0->unknown_30_ + 4;
     for (;;) {
-        if (slot >= end) {
+        if (var2 >= var0) {
             func_020c9be0();
         }
-        if (slot->fc == 0) {
-            slot->f0 = p1;
-            slot->f4 = p2;
-            slot->f8 = p3;
-            slot->fc = p4;
+        if (var2->unknown_c_ == 0) {
+            var2->unknown_0_ = arg1;
+            var2->unknown_4_ = arg2;
+            var2->unknown_8_ = arg3;
+            var2->unknown_c_ = arg4;
             break;
         }
-        slot++;
+        var2++;
     }
-    SetIRQInterruptState(ime);
+    SetIRQInterruptState(var1);
 }

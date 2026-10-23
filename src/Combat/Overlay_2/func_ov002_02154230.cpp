@@ -3,97 +3,97 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-struct ArrayContainsByteStruct;
-extern "C" int func_02086ef0(ArrayContainsByteStruct *arr, int value);
-extern "C" int func_0202b7d8(int *p);
-extern "C" int func_ov002_02154b94(void *self, int id);
-extern "C" int func_ov002_02154a34(void *self, int id);
+struct Struct_02048150;
+extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int func_0202b7d8(int *arg0);
+extern "C" int func_ov002_02154b94(void *arg0, int arg1);
+extern "C" int func_ov002_02154a34(void *arg0, int arg1);
 extern "C" int *func_0202ae18(void);
-extern "C" void func_ov002_02153e90(char *entry);
-extern "C" int func_ov002_02154a6c(char *self, int id, int arg);
-extern "C" int func_ov002_02153be0(char *self, int target, int arg);
-extern "C" void func_02048150(GameObject *m, int amount, int flag);
-extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
-extern "C" void func_ov017_02191108(GameResources *r, int a, int b, int c, int d);
+extern "C" void func_ov002_02153e90(char *arg0);
+extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
+extern "C" int func_ov002_02153be0(char *arg0, int arg1, int arg2);
+extern "C" void func_02048150(GameObject *arg0, int arg1, int arg2);
+extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov017_02191108(GameResources *arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct Act02154230 {
-    short kind;
-    signed char arg;
-    unsigned char count;
-    signed char ids[4];
+struct Struct_ov002_02154230 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    signed char unknown_4_[4];
 };
 
-struct Rec02154230 {
-    unsigned char state;
-    unsigned char pad;
-    short amount;
-    unsigned char flag;
-    unsigned char pad5;
+struct Struct_ov002_02154230_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
 };
 
 // USA: func_ov002_02154230
-extern "C" ARM int func_ov002_02154230(char *base, struct Act02154230 *act, int target, int alt) {
-    if (act == NULL) return 0;
-    if (target == 0) return 0;
-    GameState *gs                  = GameState::GetInstance();
-    GameResources *res             = GetGameResources();
-    ArrayContainsByteStruct *party = (ArrayContainsByteStruct *) func_02010828(gs);
-    int *ctx                       = func_0202ae18();
-    struct Rec02154230 *recs       = (struct Rec02154230 *) ((char *) act + 8);
-    unsigned char any              = 0;
-    if (alt) recs = (struct Rec02154230 *) ((char *) act + 0x20);
-    for (int i = 0; i < 4; i++) {
-        func_ov002_02153e90((char *) &recs[i]);
+extern "C" ARM int func_ov002_02154230(char *arg0, struct Struct_ov002_02154230 *arg1, int arg2, int arg3) {
+    if (arg1 == NULL) return 0;
+    if (arg2 == 0) return 0;
+    GameState *var0                  = GameState::GetInstance();
+    GameResources *var1             = GetGameResources();
+    Struct_02048150 *var2 = (Struct_02048150 *) func_02010828(var0);
+    int *var3                       = func_0202ae18();
+    struct Struct_ov002_02154230_2 *var4       = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 8);
+    unsigned char var5              = 0;
+    if (arg3) var4 = (struct Struct_ov002_02154230_2 *) ((char *) arg1 + 0x20);
+    for (int var6 = 0; var6 < 4; var6++) {
+        func_ov002_02153e90((char *) &var4[var6]);
     }
-    for (int i = 0; i < act->count; i++) {
-        struct Rec02154230 *rec = &recs[i];
-        int id                  = act->ids[i];
-        if (!func_02086ef0(party, id)) rec->flag = 1;
-        if (!func_ov002_02154a6c(base, id, act->arg)) {
-            rec->state = 1;
+    for (int var7 = 0; var7 < arg1->unknown_3_; var7++) {
+        struct Struct_ov002_02154230_2 *var8 = &var4[var7];
+        int var9                  = arg1->unknown_4_[var7];
+        if (!func_02086ef0(var2, var9)) var8->unknown_4_ = 1;
+        if (!func_ov002_02154a6c(arg0, var9, arg1->unknown_2_)) {
+            var8->unknown_0_ = 1;
             continue;
         }
-        if (func_ov002_02154b94(base, id)) {
-            rec->state = 2;
+        if (func_ov002_02154b94(arg0, var9)) {
+            var8->unknown_0_ = 2;
             continue;
         }
-        if (func_ov002_02154a34(base, id)) continue;
-        int amount       = 0;
-        unsigned char ok = 0;
-        GameObject *m    = func_0200ff1c(gs, id);
-        if (m == NULL) continue;
-        if (act->kind == 0x27) {
-            ok     = 1;
-            amount = m->baseStats_->primaryStats.maxHP / 2;
-            if (m->baseStats_->primaryStats.maxHP % 2) amount++;
-        } else if (act->kind == 0x26) {
-            ok       = 0;
-            int rate = func_ov002_02153be0(base, target, act->arg);
-            if (NextRandomMax(GetBTRandom(), 100) < rate) {
-                ok     = 1;
-                int v  = m->baseStats_->primaryStats.maxHP * (rate - 25);
-                amount = v / 100;
-                if (v % 100) amount++;
+        if (func_ov002_02154a34(arg0, var9)) continue;
+        int var10       = 0;
+        unsigned char var11 = 0;
+        GameObject *var12    = func_0200ff1c(var0, var9);
+        if (var12 == NULL) continue;
+        if (arg1->unknown_0_ == 0x27) {
+            var11     = 1;
+            var10 = var12->baseStats_->primaryStats.maxHP / 2;
+            if (var12->baseStats_->primaryStats.maxHP % 2) var10++;
+        } else if (arg1->unknown_0_ == 0x26) {
+            var11       = 0;
+            int var13 = func_ov002_02153be0(arg0, arg2, arg1->unknown_2_);
+            if (NextRandomMax(GetBTRandom(), 100) < var13) {
+                var11     = 1;
+                int var14  = var12->baseStats_->primaryStats.maxHP * (var13 - 25);
+                var10 = var14 / 100;
+                if (var14 % 100) var10++;
             }
-        } else if (act->kind == 0x197) {
-            ok     = 1;
-            amount = 999;
+        } else if (arg1->unknown_0_ == 0x197) {
+            var11     = 1;
+            var10 = 999;
         }
-        if (!ok) continue;
-        rec->state = 3;
-        if (rec->flag) {
-            rec->amount = amount;
-            rec->state  = 3;
+        if (!var11) continue;
+        var8->unknown_0_ = 3;
+        if (var8->unknown_4_) {
+            var8->unknown_2_ = var10;
+            var8->unknown_0_  = 3;
         } else {
-            func_02048150(m, amount, 1);
+            func_02048150(var12, var10, 1);
         }
-        if (func_0202b7d8(ctx) && func_02086ef0(party, id)) {
-            func_ov017_021c9e00(id, 1, 0, 1);
+        if (func_0202b7d8(var3) && func_02086ef0(var2, var9)) {
+            func_ov017_021c9e00(var9, 1, 0, 1);
         }
-        if (func_02086ef0(party, id)) {
-            func_ov017_02191108(res, 1, 1, 1, 1);
+        if (func_02086ef0(var2, var9)) {
+            func_ov017_02191108(var1, 1, 1, 1, 1);
         }
-        any = 1;
+        var5 = 1;
     }
-    return any;
+    return var5;
 }

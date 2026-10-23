@@ -2,27 +2,27 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-extern "C" void __clear(void* destination, int size);
+extern "C" void __clear(void* arg0, int arg1);
 
-struct ObjectVectors02049c08 {
-    int unknown0;
-    Vector3i vector4;
-    Vector3i vector10;
+struct Struct_02049c08 {
+    int unknown_0_;
+    Vector3i unknown_4_;
+    Vector3i unknown_10_;
 };
 
-struct Obj02049c08 {
-    GameObject base;
-    ObjectVectors02049c08* vectors;
+struct Struct_02049c08_2 {
+    GameObject unknown_0_;
+    Struct_02049c08* unknown_13c_;
 };
 
-extern "C" ARM Vector3i func_02049c08(Obj02049c08* object) {
-    Vector3i result;
-    __clear(&result, sizeof(result));
-    if (object->vectors == NULL) return result;
-    fix32_t x = object->vectors->vector10.x;
-    fix32_t z = object->vectors->vector10.z;
-    result.x = x;
-    result.y = 0xcc;
-    result.z = z;
-    return result;
+extern "C" ARM Vector3i func_02049c08(Struct_02049c08_2* arg0) {
+    Vector3i var0;
+    __clear(&var0, sizeof(var0));
+    if (arg0->unknown_13c_ == NULL) return var0;
+    fix32_t var1 = arg0->unknown_13c_->unknown_10_.x;
+    fix32_t var2 = arg0->unknown_13c_->unknown_10_.z;
+    var0.x = var1;
+    var0.y = 0xcc;
+    var0.z = var2;
+    return var0;
 }

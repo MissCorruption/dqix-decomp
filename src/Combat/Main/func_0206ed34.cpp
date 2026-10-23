@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
 // USA: func_0206ed34
-extern "C" ARM int func_0206ed34(struct Variant02030b0c* p) {
-    ((Script::Parameter*)p)->ToInt();
+extern "C" ARM int func_0206ed34(struct Struct_0201c1c8* arg0) {
+    ((Script::Parameter*)arg0)->ToInt();
     return 1;
 }

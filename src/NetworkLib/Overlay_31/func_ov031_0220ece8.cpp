@@ -2,61 +2,61 @@
 
 extern "C" int func_ov031_0220d60c(void);
 
-struct Entry0220ece8 {
-	unsigned char used;
-	unsigned char pad0[3];
-	int id;
-	Entry0220ece8* next;
-	Entry0220ece8* prev;
-	unsigned char pad1[0xd0 - 0x10];
+struct Struct_ov031_0220ece8_3 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[3];
+	int unknown_4_;
+	Struct_ov031_0220ece8_3* unknown_8_;
+	Struct_ov031_0220ece8_3* unknown_c_;
+	unsigned char unknown_10_[0xd0 - 0x10];
 };
 
-struct Header0220ece8 {
-	int count;
-	Entry0220ece8* tail;
-	Entry0220ece8* head;
+struct Struct_ov031_0220ece8 {
+	int unknown_0_;
+	Struct_ov031_0220ece8_3* unknown_4_;
+	Struct_ov031_0220ece8_3* unknown_8_;
 };
 
-struct BaseCtx0220ece8 {
-	unsigned char pad0[0x270];
-	Header0220ece8* header;
-	unsigned int rawCapacity;
+struct Struct_ov031_0220ece8_2 {
+	unsigned char unknown_0_[0x270];
+	Struct_ov031_0220ece8* unknown_270_;
+	unsigned int unknown_274_;
 };
 
 // USA: func_ov031_0220ece8
-extern "C" ARM Entry0220ece8* func_ov031_0220ece8(void) {
-	int base = func_ov031_0220d60c();
-	BaseCtx0220ece8* ctx = (BaseCtx0220ece8*)(base + 0x2000);
-	Header0220ece8* h = ctx->header;
-	Entry0220ece8* e = 0;
-	if (h == 0) return e;
-	if (ctx->rawCapacity <= 0xc) return e;
+extern "C" ARM Struct_ov031_0220ece8_3* func_ov031_0220ece8(void) {
+	int var0 = func_ov031_0220d60c();
+	Struct_ov031_0220ece8_2* var1 = (Struct_ov031_0220ece8_2*)(var0 + 0x2000);
+	Struct_ov031_0220ece8* var2 = var1->unknown_270_;
+	Struct_ov031_0220ece8_3* var3 = 0;
+	if (var2 == 0) return var3;
+	if (var1->unknown_274_ <= 0xc) return var3;
 
-	unsigned int capacity = (ctx->rawCapacity - 0xc) / 0xd0;
-	if (capacity == 0) return e;
-	if (capacity <= (unsigned int)h->count) return e;
+	unsigned int var4 = (var1->unknown_274_ - 0xc) / 0xd0;
+	if (var4 == 0) return var3;
+	if (var4 <= (unsigned int)var2->unknown_0_) return var3;
 
-	int i = 0;
-	if (i < capacity) {
-		Entry0220ece8* arr = (Entry0220ece8*)((char*)h + 0xc);
+	int var5 = 0;
+	if (var5 < var4) {
+		Struct_ov031_0220ece8_3* var6 = (Struct_ov031_0220ece8_3*)((char*)var2 + 0xc);
 		do {
-			e = (Entry0220ece8*)((char*)arr + i * sizeof(Entry0220ece8));
-			if (e->used == 0) break;
-			i++;
-		} while (i < capacity);
+			var3 = (Struct_ov031_0220ece8_3*)((char*)var6 + var5 * sizeof(Struct_ov031_0220ece8_3));
+			if (var3->unknown_0_ == 0) break;
+			var5++;
+		} while (var5 < var4);
 	}
-	if (i >= capacity) return e;
+	if (var5 >= var4) return var3;
 
-	e->used = 1;
-	e->id = h->count;
-	e->prev = 0;
-	e->next = h->head;
-	h->head = e;
-	if (e->next != 0) {
-		e->next->prev = e;
+	var3->unknown_0_ = 1;
+	var3->unknown_4_ = var2->unknown_0_;
+	var3->unknown_c_ = 0;
+	var3->unknown_8_ = var2->unknown_8_;
+	var2->unknown_8_ = var3;
+	if (var3->unknown_8_ != 0) {
+		var3->unknown_8_->unknown_c_ = var3;
 	} else {
-		h->tail = e;
+		var2->unknown_4_ = var3;
 	}
-	h->count = h->count + 1;
-	return e;
+	var2->unknown_0_ = var2->unknown_0_ + 1;
+	return var3;
 }

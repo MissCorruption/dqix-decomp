@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void func_ov017_021b8b6c(char* p);
-extern "C" void func_ov017_021a23b0(void* self, int val);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void func_ov017_021b8b6c(char* arg0);
+extern "C" void func_ov017_021a23b0(void* arg0, int arg1);
 
-struct Src021c5e80 {
-	unsigned char pad0[4];
-	unsigned char field4;
-	unsigned char pad1;
-	unsigned short field6;
+struct Struct_ov017_021c5e80 {
+	unsigned char unknown_0_[4];
+	unsigned char unknown_4_;
+	unsigned char unknown_5_;
+	unsigned short unknown_6_;
 };
 
 // USA: func_ov017_021c5e80
-extern "C" ARM void func_ov017_021c5e80(int unused0, Src021c5e80* src, int unused2, unsigned char* base, struct SearchStruct0202c1a4* search) {
+extern "C" ARM void func_ov017_021c5e80(int arg0, Struct_ov017_021c5e80* arg1, int arg2, unsigned char* arg3, struct Struct_0202c1a4* arg4) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021c5e80_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021c5e80_1816=0x718};
 #endif
-	unsigned char field4 = src->field4;
-	unsigned short field6;
-	void* r6 = *(void**)(base + 0x3000 + regionalOffset0);
-	field6 = src->field6;
-	signed char val = func_0202c1a4(search);
-	if (field4 != val) {
-		if (*((unsigned char*)r6 + 2) == 0) return;
-		void* g = func_ov017_021b8478(r6);
-		if (!g) return;
-		if (*(unsigned short*)((char*)g + 8) != field6) return;
-		func_ov017_021b8b6c((char*)r6);
-		func_ov017_021a23b0(base, field6);
+	unsigned char var0 = arg1->unknown_4_;
+	unsigned short var1;
+	void* var2 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c5e80_1816);
+	var1 = arg1->unknown_6_;
+	signed char var3 = func_0202c1a4(arg4);
+	if (var0 != var3) {
+		if (*((unsigned char*)var2 + 2) == 0) return;
+		void* var4 = func_ov017_021b8478(var2);
+		if (!var4) return;
+		if (*(unsigned short*)((char*)var4 + 8) != var1) return;
+		func_ov017_021b8b6c((char*)var2);
+		func_ov017_021a23b0(arg3, var1);
 		return;
 	}
-	func_ov017_021b8b6c((char*)r6);
-	func_ov017_021a23b0(base, field6);
+	func_ov017_021b8b6c((char*)var2);
+	func_ov017_021a23b0(arg3, var1);
 }

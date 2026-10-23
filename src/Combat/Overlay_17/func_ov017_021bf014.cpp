@@ -6,43 +6,43 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-struct EntryA68 { short key; void* value; };
-struct TableA68 { EntryA68* entries; short count; };
-struct GrottoDialogState { char pad[8]; int state; TableA68 text; SafeAllocator allocator; int task; };
-struct Obj02046574;
+struct Struct_02072a68 { short unknown_0_; void* unknown_4_; };
+struct Struct_02072a68_2 { Struct_02072a68* unknown_0_; short unknown_4_; };
+struct Struct_ov017_021bf014 { char unknown_0_[8]; int unknown_8_; Struct_02072a68_2 unknown_c_; SafeAllocator unknown_14_; int unknown_28_; };
+struct Struct_02046574_2;
 #if defined(jpn)
-enum { TextOffset = 0x28, ChoiceOffset = 0x218, DialogOffset = 0x868,
-       PendingOffset = 0x870, ChoiceFlagOffset = 0x17e2, TextHeapSize = 0x1f4 };
+enum { Enum_ov017_021bf014_92 = 0x28, Enum_ov017_021bf014_712 = 0x218, Enum_ov017_021bf014_2456 = 0x868,
+       Enum_ov017_021bf014_2464 = 0x870, Enum_ov017_021bf014_6578 = 0x17e2, Enum_ov017_021bf014_800 = 0x1f4 };
 extern const char data_ov017_021d86d4[];
 #else
-enum { TextOffset = 0x5c, ChoiceOffset = 0x2c8, DialogOffset = 0x998,
-       PendingOffset = 0x9a0, ChoiceFlagOffset = 0x19b2, TextHeapSize = 0x320 };
+enum { Enum_ov017_021bf014_92 = 0x5c, Enum_ov017_021bf014_712 = 0x2c8, Enum_ov017_021bf014_2456 = 0x998,
+       Enum_ov017_021bf014_2464 = 0x9a0, Enum_ov017_021bf014_6578 = 0x19b2, Enum_ov017_021bf014_800 = 0x320 };
 #endif
 
-struct Obj020d7aa0;
-struct Obj020397cc;
+struct Struct_020d7aa0_2;
+struct Struct_02018300_3;
 extern AllocatorUnion data_02114e20;
 extern char data_ov017_021d7ec0[];
 extern char data_ov017_021d7ed5[];
 extern "C" void func_0202ae18();
-extern "C" Obj02046574* func_020421a0();
+extern "C" Struct_02046574_2* func_020421a0();
 extern "C" void* func_02012fe4();
 extern "C" unsigned char* func_020100f8(char*);
-extern "C" Obj020d7aa0* func_020d7a50();
-extern "C" void func_020d7aa0(Obj020d7aa0*);
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" Struct_020d7aa0_2* func_020d7a50();
+extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a27b8(unsigned char*);
 extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_020728ac(TableA68*, SafeAllocator*, void*, unsigned int, int, int, int);
-extern "C" void func_02046380(Obj02046574*);
-extern "C" void func_02046574(Obj02046574*, int, char*);
-extern "C" char* func_02072a68(TableA68*, int);
-extern "C" void func_0204500c(Obj02046574*, char*, int
+extern "C" void func_020728ac(Struct_02072a68_2*, SafeAllocator*, void*, unsigned int, int, int, int);
+extern "C" void func_02046380(Struct_02046574_2*);
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void func_0204500c(Struct_02046574_2*, char*, int
 #if !defined(jpn)
     , int
 #endif
 );
-extern "C" int func_020457e0(Obj02046574*);
+extern "C" int func_020457e0(Struct_02046574_2*);
 extern "C" void func_020116c8(void*);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_02043204(char*);
@@ -50,91 +50,91 @@ extern "C" void func_020397c0(void*);
 extern "C" void func_ov017_021bf398(char*);
 
 // USA: func_ov017_021bf014
-extern "C" ARM void func_ov017_021bf014(GrottoDialogState* self) {
-    GameState* game = GameState::GetInstance();
+extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
+    GameState* var0 = GameState::GetInstance();
     func_0202ae18();
     GetGameResources();
-    Obj02046574* controller = func_020421a0();
+    Struct_02046574_2* var1 = func_020421a0();
     func_02012fe4();
-    GrottoStruct* grotto = game->GetGrottoStruct();
-    GameObject* combatant = game->GetUnknownGameObject();
-    unsigned char* field = func_020100f8((char*)game);
-    if (self->state == 0) {
+    GrottoStruct* var2 = var0->GetGrottoStruct();
+    GameObject* var3 = var0->GetUnknownGameObject();
+    unsigned char* var4 = func_020100f8((char*)var0);
+    if (arg0->unknown_8_ == 0) {
         func_020d7aa0(func_020d7a50());
-        func_020397cc((Obj020397cc*)combatant, 1);
-        func_020a27b8(field);
-        void* buffer = func_02012d88(&data_02114e20, TextHeapSize);
-        self->allocator.CreateTypeA(buffer, TextHeapSize);
+        func_020397cc((Struct_02018300_3*)var3, 1);
+        func_020a27b8(var4);
+        void* var5 = func_02012d88(&data_02114e20, Enum_ov017_021bf014_800);
+        arg0->unknown_14_.CreateTypeA(var5, Enum_ov017_021bf014_800);
 #if defined(jpn)
-        self->task = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d86d4, 0);
+        arg0->unknown_28_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d86d4, 0);
 #else
-        self->task = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_ov017_021d7ec0, data_ov017_021d7ed5, 0);
+        arg0->unknown_28_ = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_ov017_021d7ec0, data_ov017_021d7ed5, 0);
 #endif
-        self->state = 1;
-    } else if (self->state == 1) {
-        if (!BackgroundLoader::GetInstance()->GetTaskStatus(self->task)) return;
-        void* file;
-        unsigned int length;
-        BackgroundLoader::GetInstance()->GetLoadedFileByID(self->task, &file, &length);
-        self->allocator.Reset();
-        func_020728ac(&self->text, &self->allocator, file, length, 0, 0, 0);
-        BackgroundLoader::GetInstance()->RemoveTask(self->task);
-        self->task = -1;
-        func_02046380(controller);
-        func_02046574(controller, 0, game->GetUnknownGameObject()->baseStats_->unk);
+        arg0->unknown_8_ = 1;
+    } else if (arg0->unknown_8_ == 1) {
+        if (!BackgroundLoader::GetInstance()->GetTaskStatus(arg0->unknown_28_)) return;
+        void* var6;
+        unsigned int var7;
+        BackgroundLoader::GetInstance()->GetLoadedFileByID(arg0->unknown_28_, &var6, &var7);
+        arg0->unknown_14_.Reset();
+        func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var6, var7, 0, 0, 0);
+        BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_28_);
+        arg0->unknown_28_ = -1;
+        func_02046380(var1);
+        func_02046574(var1, 0, var0->GetUnknownGameObject()->baseStats_->unk);
         func_02094b30(func_02094a00(), 0x203, 0);
-        self->state = 2;
+        arg0->unknown_8_ = 2;
     }
-    if (self->state == 2) {
+    if (arg0->unknown_8_ == 2) {
         if (!func_02094b4c(func_02094a00())) return;
-        if (grotto->activeMapData.GetDiscoveryState() == DiscoveryState_Undiscovered) self->state = 3;
-        else self->state = 4;
-    } else if (self->state == 3) {
-        char* text = (*reinterpret_cast<char**>(reinterpret_cast<char*>(controller) + TextOffset));
-        strcpy(text, func_02072a68(&self->text, 1));
-        func_0204500c(controller, text, 0
+        if (var2->activeMapData.GetDiscoveryState() == DiscoveryState_Undiscovered) arg0->unknown_8_ = 3;
+        else arg0->unknown_8_ = 4;
+    } else if (arg0->unknown_8_ == 3) {
+        char* var8 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_92));
+        strcpy(var8, func_02072a68(&arg0->unknown_c_, 1));
+        func_0204500c(var1, var8, 0
 #if !defined(jpn)
             , 0xe3
 #endif
         );
-        (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(controller) + ChoiceFlagOffset)) = 0;
-        (*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + ChoiceOffset)) = 0;
-        (*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + DialogOffset)) = 1;
-        self->state = 5;
-    } else if (self->state == 4) {
-        char* text = (*reinterpret_cast<char**>(reinterpret_cast<char*>(controller) + TextOffset));
-        strcpy(text, func_02072a68(&self->text, 2));
-        func_0204500c(controller, text, 0
+        (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_6578)) = 0;
+        (*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_712)) = 0;
+        (*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2456)) = 1;
+        arg0->unknown_8_ = 5;
+    } else if (arg0->unknown_8_ == 4) {
+        char* var9 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_92));
+        strcpy(var9, func_02072a68(&arg0->unknown_c_, 2));
+        func_0204500c(var1, var9, 0
 #if !defined(jpn)
             , 0xe3
 #endif
         );
-        (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(controller) + ChoiceFlagOffset)) = 0;
-        (*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + DialogOffset)) = 1;
-        (*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + ChoiceOffset)) = 0;
-        self->state = 5;
-    } else if (self->state == 5) {
-        func_020397cc((Obj020397cc*)combatant, 1);
-        if ((*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + DialogOffset))) return;
-        grotto->unknown_0[2] = 1;
-        int result = func_020457e0(controller);
-        if (result == 0) self->state = 6;
-        else if (result == 1) self->state = 9;
-    } else if (self->state == 6) {
-        func_020116c8(game);
+        (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_6578)) = 0;
+        (*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2456)) = 1;
+        (*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_712)) = 0;
+        arg0->unknown_8_ = 5;
+    } else if (arg0->unknown_8_ == 5) {
+        func_020397cc((Struct_02018300_3*)var3, 1);
+        if ((*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2456))) return;
+        var2->unknown_0[2] = 1;
+        int var10 = func_020457e0(var1);
+        if (var10 == 0) arg0->unknown_8_ = 6;
+        else if (var10 == 1) arg0->unknown_8_ = 9;
+    } else if (arg0->unknown_8_ == 6) {
+        func_020116c8(var0);
         func_020dc2d0(0);
-        self->state = 7;
-    } else if (self->state == 7) {
-        self->state = 8;
-    } else if (self->state == 8) {
-        func_020397cc((Obj020397cc*)combatant, 1);
-        if (!(*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + PendingOffset))) self->state = 9;
-    } else if (self->state == 9) {
-        func_02043204((char*)controller);
-        func_020397c0(combatant);
-        FontBankLoader* global = func_02094a00();
-        func_02094b38(global, 0x203);
-        func_02094ab0(global);
-        func_ov017_021bf398((char*)self);
+        arg0->unknown_8_ = 7;
+    } else if (arg0->unknown_8_ == 7) {
+        arg0->unknown_8_ = 8;
+    } else if (arg0->unknown_8_ == 8) {
+        func_020397cc((Struct_02018300_3*)var3, 1);
+        if (!(*reinterpret_cast<int*>(reinterpret_cast<char*>(var1) + Enum_ov017_021bf014_2464))) arg0->unknown_8_ = 9;
+    } else if (arg0->unknown_8_ == 9) {
+        func_02043204((char*)var1);
+        func_020397c0(var3);
+        Struct_0208cb08* var11 = func_02094a00();
+        func_02094b38(var11, 0x203);
+        func_02094ab0(var11);
+        func_ov017_021bf398((char*)arg0);
     }
 }

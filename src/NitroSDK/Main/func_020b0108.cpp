@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 
-struct Hdr02b0074;
-extern "C" unsigned char* func_020b0074(Hdr02b0074* h);
-struct Hdr02b00e0;
-extern "C" unsigned char* func_020b00e0(Hdr02b00e0* h, unsigned int i);
-extern "C" void func_020b0094(char* base);
+struct Struct_020b0074;
+extern "C" unsigned char* func_020b0074(Struct_020b0074* arg0);
+struct Struct_0205a658_2;
+extern "C" unsigned char* func_020b00e0(Struct_0205a658_2* arg0, unsigned int arg1);
+extern "C" void func_020b0094(char* arg0);
 
-struct EntryField020b0108 {
-    char pad[4];
-    int offset4;
+struct Struct_020b0108 {
+    char unknown_0_[4];
+    int unknown_4_;
 };
 
-struct Table020b0108 {
-    unsigned short count;
-    unsigned short flags;
-    unsigned char* base;
-    char pad1[0xc - 0x8];
-    EntryField020b0108* sub;
-    char pad2[0x14 - 0x10];
-    char* offsetArrayBase;
+struct Struct_020b0108_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned char* unknown_4_;
+    char unknown_8_[0xc - 0x8];
+    Struct_020b0108* unknown_c_;
+    char unknown_10_[0x14 - 0x10];
+    char* unknown_14_;
 };
 
 // USA: func_020b0108
-extern "C" ARM void func_020b0108(Table020b0108* self) {
-    self->base = self->base + (unsigned int)self;
-    unsigned char* tableEnd = func_020b0074((Hdr02b0074*)self);
-    unsigned short i = 0;
-    if (i < self->count) {
+extern "C" ARM void func_020b0108(Struct_020b0108_2* arg0) {
+    arg0->unknown_4_ = arg0->unknown_4_ + (unsigned int)arg0;
+    unsigned char* var0 = func_020b0074((Struct_020b0074*)arg0);
+    unsigned short var1 = 0;
+    if (var1 < arg0->unknown_0_) {
         do {
-            EntryField020b0108* e = (EntryField020b0108*)func_020b00e0((Hdr02b00e0*)self, i);
-            e->offset4 = e->offset4 + (int)tableEnd;
-            i = i + 1;
-        } while (i < self->count);
+            Struct_020b0108* var2 = (Struct_020b0108*)func_020b00e0((Struct_0205a658_2*)arg0, var1);
+            var2->unknown_4_ = var2->unknown_4_ + (int)var0;
+            var1 = var1 + 1;
+        } while (var1 < arg0->unknown_0_);
     }
-    if (self->sub != 0) {
-        EntryField020b0108* sub = (EntryField020b0108*)((char*)self->sub + (unsigned int)self);
-        self->sub = sub;
-        sub->offset4 = sub->offset4 + (int)sub;
-        self->sub = sub;
+    if (arg0->unknown_c_ != 0) {
+        Struct_020b0108* var3 = (Struct_020b0108*)((char*)arg0->unknown_c_ + (unsigned int)arg0);
+        arg0->unknown_c_ = var3;
+        var3->unknown_4_ = var3->unknown_4_ + (int)var3;
+        arg0->unknown_c_ = var3;
     }
-    if (self->offsetArrayBase != 0) {
-        self->offsetArrayBase = self->offsetArrayBase + (unsigned int)self;
-        func_020b0094(self->offsetArrayBase);
+    if (arg0->unknown_14_ != 0) {
+        arg0->unknown_14_ = arg0->unknown_14_ + (unsigned int)arg0;
+        func_020b0094(arg0->unknown_14_);
     }
 }

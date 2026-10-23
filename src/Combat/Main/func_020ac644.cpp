@@ -1,22 +1,22 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include <globaldefs.h>
 
-extern "C" void func_020ac614(struct BattleRecordPlayClock* clock, int amount);
+extern "C" void func_020ac614(struct Struct_020ac4f8* arg0, int arg1);
 
 // USA: func_020ac644
-extern "C" ARM void func_020ac644(struct BattleRecordPlayClock* clock, int amount) {
-    clock->minutes = clock->minutes + amount;
-    unsigned char mins = clock->minutes;
-    if (mins <= 0x3b) return;
+extern "C" ARM void func_020ac644(struct Struct_020ac4f8* arg0, int arg1) {
+    arg0->unknown_2_ = arg0->unknown_2_ + arg1;
+    unsigned char var0 = arg0->unknown_2_;
+    if (var0 <= 0x3b) return;
 
-    unsigned short carryHours = mins / 0x3c;
-    if ((int)(clock->hours + carryHours) > 0x270f) {
-        clock->hours = 0x270f;
-        clock->minutes = 0x3b;
-        clock->seconds = 0x3b;
+    unsigned short var1 = var0 / 0x3c;
+    if ((int)(arg0->unknown_0_ + var1) > 0x270f) {
+        arg0->unknown_0_ = 0x270f;
+        arg0->unknown_2_ = 0x3b;
+        arg0->unknown_3_ = 0x3b;
         return;
     }
 
-    func_020ac614(clock, carryHours);
-    clock->minutes = clock->minutes % 0x3c;
+    func_020ac614(arg0, var1);
+    arg0->unknown_2_ = arg0->unknown_2_ % 0x3c;
 }

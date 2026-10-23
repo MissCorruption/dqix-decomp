@@ -2,87 +2,87 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue89C_818 = 0x818 };
-enum { kRegionValue100C_F88 = 0xf88 };
-enum { kRegionValue8A0_81C = 0x81c };
-enum { kRegionValue101C_F98 = 0xf98 };
-enum { kRegionValue1012_F8E = 0xf8e };
-enum { kRegionValue103A_FB6 = 0xfb6 };
-enum { kRegionValue1034_FB0 = 0xfb0 };
+enum { Enum_ov003_02175df4_2204 = 0x818 };
+enum { Enum_ov003_02175df4_4108 = 0xf88 };
+enum { Enum_ov003_02175df4_2208 = 0x81c };
+enum { Enum_ov003_02175df4_4124 = 0xf98 };
+enum { Enum_ov003_02175df4_4114 = 0xf8e };
+enum { Enum_ov003_02175df4_4154 = 0xfb6 };
+enum { Enum_ov003_02175df4_4148 = 0xfb0 };
 #else
-enum { kRegionValue89C_818 = 0x89c };
-enum { kRegionValue100C_F88 = 0x100c };
-enum { kRegionValue8A0_81C = 0x8a0 };
-enum { kRegionValue101C_F98 = 0x101c };
-enum { kRegionValue1012_F8E = 0x1012 };
-enum { kRegionValue103A_FB6 = 0x103a };
-enum { kRegionValue1034_FB0 = 0x1034 };
+enum { Enum_ov003_02175df4_2204 = 0x89c };
+enum { Enum_ov003_02175df4_4108 = 0x100c };
+enum { Enum_ov003_02175df4_2208 = 0x8a0 };
+enum { Enum_ov003_02175df4_4124 = 0x101c };
+enum { Enum_ov003_02175df4_4114 = 0x1012 };
+enum { Enum_ov003_02175df4_4154 = 0x103a };
+enum { Enum_ov003_02175df4_4148 = 0x1034 };
 #endif
 
-struct KeyedList0207c484;
-struct KeyMap020a0a08;
-struct Slots0208386c;
+struct Struct_0207c484;
+struct Struct_02061c04_23;
+struct Struct_02061c04_22;
 
-extern "C" int func_0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
-extern "C" short func_02080468(void* obj, int id);
-extern "C" struct Slots0208386c* func_02053c6c(unsigned char* obj);
-extern "C" void func_0208386c(struct Slots0208386c* s, int idx);
-extern "C" int func_020a0a08(struct KeyMap020a0a08* map, int key, int amount);
+extern "C" int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3);
+extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" struct Struct_02061c04_22* func_02053c6c(unsigned char* arg0);
+extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
+extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
 
-struct Owner02175df4 {
-    char unk_0[0x8];
-    unsigned int category_ : 4;
+struct Struct_ov003_02175df4 {
+    char unknown_0_[0x8];
+    unsigned int unknown_8_0_ : 4;
 };
 
-struct Ctx02175df4 {
-    char unk_0[0x8];
-    Owner02175df4* owner_;
-    char unk_c[kRegionValue89C_818 - 0xc];
-    void* members_;
-    char unk_8a0[kRegionValue100C_F88 - kRegionValue8A0_81C];
-    short mode_;
-    short slot_;
-    short index_;
-    char unk_1012[kRegionValue101C_F98 - kRegionValue1012_F8E];
-    int memberIds_[5];
-    int kind_;
-    char unk_1034[kRegionValue103A_FB6 - kRegionValue1034_FB0];
-    short key_;
-    signed char amount_;
+struct Struct_ov003_02175df4_2 {
+    char unknown_0_[0x8];
+    Struct_ov003_02175df4* unknown_8_;
+    char unknown_c_[Enum_ov003_02175df4_2204 - 0xc];
+    void* unknown_89c_;
+    char unknown_8a0_[Enum_ov003_02175df4_4108 - Enum_ov003_02175df4_2208];
+    short unknown_100c_;
+    short unknown_100e_;
+    short unknown_1010_;
+    char unknown_1012_[Enum_ov003_02175df4_4124 - Enum_ov003_02175df4_4114];
+    int unknown_101c_[5];
+    int unknown_1030_;
+    char unknown_1034_[Enum_ov003_02175df4_4154 - Enum_ov003_02175df4_4148];
+    short unknown_103a_;
+    signed char unknown_103c_;
 };
 
 // USA: func_ov003_02175df4
-extern "C" ARM int func_ov003_02175df4(Ctx02175df4* self) {
-    GameState* bs = GameState::GetInstance();
-    char* bag = (char*)func_02010828(bs);
-    if (self->mode_ == 0x77) {
-        return func_0207c484((struct KeyedList0207c484*)(bag + 0x1d4), self->key_, self->amount_, self->owner_->category_);
+extern "C" ARM int func_ov003_02175df4(Struct_ov003_02175df4_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = (char*)func_02010828(var0);
+    if (arg0->unknown_100c_ == 0x77) {
+        return func_0207c484((struct Struct_0207c484*)(var1 + 0x1d4), arg0->unknown_103a_, arg0->unknown_103c_, arg0->unknown_8_->unknown_8_0_);
     }
-    int id;
-    switch (self->kind_) {
+    int var2;
+    switch (arg0->unknown_1030_) {
     case 1:
-        id = 0x11;
+        var2 = 0x11;
         break;
     case 2:
-        id = 0x12;
+        var2 = 0x12;
         break;
     case 3:
-        id = 0x13;
+        var2 = 0x13;
         break;
     case 4:
-        id = 0x14;
+        var2 = 0x14;
         break;
     }
-    short idx = self->index_ - func_02080468(self->members_, id);
-    if (self->kind_ > idx) {
-        GameObject* member = bs->GetPartyMemberByIndex(self->memberIds_[idx]);
-        if (member == NULL) {
+    short var3 = arg0->unknown_1010_ - func_02080468(arg0->unknown_89c_, var2);
+    if (arg0->unknown_1030_ > var3) {
+        GameObject* var4 = var0->GetPartyMemberByIndex(arg0->unknown_101c_[var3]);
+        if (var4 == NULL) {
             return 0;
         }
-        short slot = self->slot_ - func_02080468(self->members_, 0x15);
-        func_0208386c(func_02053c6c((unsigned char*)member), (signed char)slot);
+        short var5 = arg0->unknown_100e_ - func_02080468(arg0->unknown_89c_, 0x15);
+        func_0208386c(func_02053c6c((unsigned char*)var4), (signed char)var5);
         return 1;
     }
-    func_020a0a08((struct KeyMap020a0a08*)bag, self->key_, self->amount_);
+    func_020a0a08((struct Struct_02061c04_23*)var1, arg0->unknown_103a_, arg0->unknown_103c_);
     return 1;
 }

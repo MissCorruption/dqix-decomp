@@ -56,232 +56,232 @@ extern char data_02109bf4[];
 extern const char *data_020f2a38;
 extern const char *data_020f2a30;
 
-struct Obj0215704c {
-    char pad0[0x36];
-    short f36;
-    char pad38[0x59 - 0x38];
-    signed char f59;
-    char pad5a[0x5d - 0x5a];
-    unsigned char f5d;
+struct Struct_ov003_0215704c {
+    char unknown_0_[0x36];
+    short unknown_36_;
+    char unknown_38_[0x59 - 0x38];
+    signed char unknown_59_;
+    char unknown_5a_[0x5d - 0x5a];
+    unsigned char unknown_5d_;
 };
 
-struct Cmb0215704c {
-    char pad0[0x130];
-    unsigned char *f130;
+struct Struct_ov003_0215704c_2 {
+    char unknown_0_[0x130];
+    unsigned char *unknown_130_;
 };
 
-struct Rec0215704c {
-    unsigned int pad : 17;
-    unsigned int a : 1;
-    unsigned int b : 1;
-    unsigned int rest : 13;
-    char pad4[0xc];
+struct Struct_ov003_0215704c_3 {
+    unsigned int unknown_0_0_ : 17;
+    unsigned int unknown_2_1_ : 1;
+    unsigned int unknown_2_2_ : 1;
+    unsigned int unknown_2_3_ : 13;
+    char unknown_4_[0xc];
 };
 
-struct Glob0215704c {
-    unsigned char count;
-    char pad1[3];
-    struct Rec0215704c recs[1];
+struct Struct_ov003_0215704c_4 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    struct Struct_ov003_0215704c_3 unknown_4_[1];
 };
 
-struct Ctrl0215704c {
-    void *alloc;
-    struct Obj0215704c *f04;
-    void *f08;
-    char pad0c[0x18 - 0xc];
-    void *f18;
-    char pad1c[0x80 - 0x1c];
+struct Struct_ov003_0215704c_5 {
+    void *unknown_0_;
+    struct Struct_ov003_0215704c *unknown_4_;
+    void *unknown_8_;
+    char unknown_c_[0x18 - 0xc];
+    void *unknown_18_;
+    char unknown_1c_[0x80 - 0x1c];
 #if defined(jpn)
-    char sub80[0x174 - 0x80];
+    char unknown_80_[0x174 - 0x80];
 #else
-    char sub80[0x178 - 0x80];
+    char unknown_80_[0x178 - 0x80];
 #endif
-    char sub178[0x1d0 - 0x178];
-    int task;
-    int f1d4;
-    char pad1d8[4];
-    int f1dc;
-    char pad1e0[4];
-    short f1e4;
-    short f1e6;
-    short f1e8;
-    char pad1ea[2];
-    short cmd;
-    short cmd2;
-    char pad1f0[7];
-    signed char f1f7;
-    unsigned char mode;
-    unsigned char state;
-    char pad1fa[2];
-    unsigned int flags;
-    char pad200[0x280 - 0x200];
-    char obj280[0x32c - 0x280];
-    int f32c;
-    char pad330[8];
-    unsigned char f338;
+    char unknown_178_[0x1d0 - 0x178];
+    int unknown_1d0_;
+    int unknown_1d4_;
+    char unknown_1d8_[4];
+    int unknown_1dc_;
+    char unknown_1e0_[4];
+    short unknown_1e4_;
+    short unknown_1e6_;
+    short unknown_1e8_;
+    char unknown_1ea_[2];
+    short unknown_1ec_;
+    short unknown_1ee_;
+    char unknown_1f0_[7];
+    signed char unknown_1f7_;
+    unsigned char unknown_1f8_;
+    unsigned char unknown_1f9_;
+    char unknown_1fa_[2];
+    unsigned int unknown_1fc_;
+    char unknown_200_[0x280 - 0x200];
+    char unknown_280_[0x32c - 0x280];
+    int unknown_32c_;
+    char unknown_330_[8];
+    unsigned char unknown_338_;
 };
 
 // USA: func_ov003_0215704c
-extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
-    void *gs              = GameState::GetInstance();
-    int state             = self->state;
-    void *p               = self->f18;
-    struct Obj0215704c *o = self->f04;
+extern "C" ARM void func_ov003_0215704c(struct Struct_ov003_0215704c_5 *arg0) {
+    void *var0              = GameState::GetInstance();
+    int var1             = arg0->unknown_1f9_;
+    void *var2               = arg0->unknown_18_;
+    struct Struct_ov003_0215704c *var3 = arg0->unknown_4_;
 
-    if (state == 0) {
-        o->f59 = self->f1f7;
-        func_ov003_0215385c(o);
-        self->f1e6 = 6;
-        if (self->f1e4 < 0) {
-            self->f1e4 = func_02080468(p, self->f1e6);
-            self->f1e8 = self->f1e4;
+    if (var1 == 0) {
+        var3->unknown_59_ = arg0->unknown_1f7_;
+        func_ov003_0215385c(var3);
+        arg0->unknown_1e6_ = 6;
+        if (arg0->unknown_1e4_ < 0) {
+            arg0->unknown_1e4_ = func_02080468(var2, arg0->unknown_1e6_);
+            arg0->unknown_1e8_ = arg0->unknown_1e4_;
         }
 #if defined(jpn)
-        ((short *) p)[0x2a / 2] = self->f1e4;
+        ((short *) var2)[0x2a / 2] = arg0->unknown_1e4_;
 #else
-        ((short *) p)[0x36 / 2] = self->f1e4;
+        ((short *) var2)[0x36 / 2] = arg0->unknown_1e4_;
 #endif
-        func_ov003_02158480(self);
-        func_0208203c(self->sub80);
-        self->f08   = 0;
-        self->state = self->state + 1;
-    } else if (state == 1) {
-        self->f08 = &self->f1e4;
-        int ok    = 1;
-        func_ov003_021538f4(o, func_ov003_02156034(self));
-        if (o->f5d & 1) {
-            ok = 0;
+        func_ov003_02158480(arg0);
+        func_0208203c(arg0->unknown_80_);
+        arg0->unknown_8_   = 0;
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+    } else if (var1 == 1) {
+        arg0->unknown_8_ = &arg0->unknown_1e4_;
+        int var4    = 1;
+        func_ov003_021538f4(var3, func_ov003_02156034(arg0));
+        if (var3->unknown_5d_ & 1) {
+            var4 = 0;
         }
-        void *res = func_0200fb8c(GameState::GetInstance());
-        if (IsBrightnessWithinValidRange((GameResources*)res, true) == 0) {
-            ok = 0;
+        void *var5 = func_0200fb8c(GameState::GetInstance());
+        if (IsBrightnessWithinValidRange((GameResources*)var5, true) == 0) {
+            var4 = 0;
         }
-        if (_Z31IsSubBrightnessTransitionActiveP13GameResources(res) != 0) {
-            ok = 0;
+        if (_Z31IsSubBrightnessTransitionActiveP13GameResources(var5) != 0) {
+            var4 = 0;
         }
-        if (func_ov003_021550dc(self) != 0 && ok != 0) {
+        if (func_ov003_021550dc(arg0) != 0 && var4 != 0) {
             func_0205eaa0(data_02108760, 1, 0);
-            func_0208203c(self->sub80);
-            self->f08   = 0;
-            self->cmd   = 0xa;
-            self->state = self->state + 1;
-            func_0207fe44(p);
-            if (func_ov003_02155f40(self, self->f1f7)) {
-                self->flags = self->flags | 2;
-                self->cmd   = 0x30;
-                self->cmd2  = 9;
-                self->state = 0;
+            func_0208203c(arg0->unknown_80_);
+            arg0->unknown_8_   = 0;
+            arg0->unknown_1ec_   = 0xa;
+            arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+            func_0207fe44(var2);
+            if (func_ov003_02155f40(arg0, arg0->unknown_1f7_)) {
+                arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
+                arg0->unknown_1ec_   = 0x30;
+                arg0->unknown_1ee_  = 9;
+                arg0->unknown_1f9_ = 0;
                 return;
             }
-        } else if (func_ov003_02155208(self) != 0 && ok != 0) {
-            self->f08  = 0;
-            self->cmd  = 7;
-            self->mode = 7;
-            func_0207fe44(p);
-            o->f59 = -1;
-            func_ov003_02153874(o);
+        } else if (func_ov003_02155208(arg0) != 0 && var4 != 0) {
+            arg0->unknown_8_  = 0;
+            arg0->unknown_1ec_  = 7;
+            arg0->unknown_1f8_ = 7;
+            func_0207fe44(var2);
+            var3->unknown_59_ = -1;
+            func_ov003_02153874(var3);
         }
-    } else if (state == 2) {
-        func_ov003_02155580(self, 0);
-        self->state = self->state + 1;
-    } else if (state == 3) {
-        int r = func_ov003_02155618(self);
-        if (r != -1) {
-            if (r == 1) {
-                self->cmd             = 0xc;
-                struct Cmb0215704c *c = (struct Cmb0215704c *) func_0200ff1c((GameState *)gs, self->f1f7);
-                if (c != 0) {
-                    c->f130[8] = 0;
+    } else if (var1 == 2) {
+        func_ov003_02155580(arg0, 0);
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+    } else if (var1 == 3) {
+        int var6 = func_ov003_02155618(arg0);
+        if (var6 != -1) {
+            if (var6 == 1) {
+                arg0->unknown_1ec_             = 0xc;
+                struct Struct_ov003_0215704c_2 *var7 = (struct Struct_ov003_0215704c_2 *) func_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
+                if (var7 != 0) {
+                    var7->unknown_130_[8] = 0;
                 }
-                self->state = self->state + 1;
+                arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
             }
         } else {
-            self->flags = self->flags | 2;
-            self->cmd   = 0xb;
-            self->state = 0;
+            arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
+            arg0->unknown_1ec_   = 0xb;
+            arg0->unknown_1f9_ = 0;
         }
-    } else if (state == 4) {
+    } else if (var1 == 4) {
 #if defined(jpn)
-        self->task  = BackgroundLoader::GetInstance()->QueueLoadGP1(data_020f2a38, 0);
+        arg0->unknown_1d0_  = BackgroundLoader::GetInstance()->QueueLoadGP1(data_020f2a38, 0);
 #else
-        self->task  = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+        arg0->unknown_1d0_  = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
 #endif
-        self->state = self->state + 1;
-    } else if (state == 5) {
-        BackgroundLoader *loader = BackgroundLoader::GetInstance();
-        if (loader->GetTaskStatus(self->task)) {
-            void *file;
-            unsigned int size;
-            loader->GetLoadedFileByID(self->task, &file, &size);
-            _ZN13SafeAllocator5ResetEv((char *) self->alloc + 0x78);
-            void *pm = GameState::GetInstance()->GetPartyMemberByIndex(self->f1f7);
-            if (pm != 0) {
-                char *f = (char *) func_02053c6c(pm);
-                if (f != 0) {
-                    void *slot =
-                        func_ov003_02155e14(f + 0xa4 + 0x400, func_ov003_02156034(self));
-                    func_020de9a4(self->sub178, (char *) self->alloc + 0x78, file, size, slot, 8);
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+    } else if (var1 == 5) {
+        BackgroundLoader *var8 = BackgroundLoader::GetInstance();
+        if (var8->GetTaskStatus(arg0->unknown_1d0_)) {
+            void *var9;
+            unsigned int var10;
+            var8->GetLoadedFileByID(arg0->unknown_1d0_, &var9, &var10);
+            _ZN13SafeAllocator5ResetEv((char *) arg0->unknown_0_ + 0x78);
+            void *var11 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_1f7_);
+            if (var11 != 0) {
+                char *var12 = (char *) func_02053c6c(var11);
+                if (var12 != 0) {
+                    void *var13 =
+                        func_ov003_02155e14(var12 + 0xa4 + 0x400, func_ov003_02156034(arg0));
+                    func_020de9a4(arg0->unknown_178_, (char *) arg0->unknown_0_ + 0x78, var9, var10, var13, 8);
                 }
             }
-            loader->RemoveTask(self->task);
-            self->task = -1;
-            func_ov003_0215873c(self);
-            self->state = 0x32;
-            self->f338  = 1;
+            var8->RemoveTask(arg0->unknown_1d0_);
+            arg0->unknown_1d0_ = -1;
+            func_ov003_0215873c(arg0);
+            arg0->unknown_1f9_ = 0x32;
+            arg0->unknown_338_  = 1;
         }
-    } else if (state == 6) {
-        self->f1d4 = 0;
+    } else if (var1 == 6) {
+        arg0->unknown_1d4_ = 0;
         func_02043204(func_020421a0());
-        func_ov003_02158a50(self);
+        func_ov003_02158a50(arg0);
         func_0209c830(data_02109bf4, 0x34);
-        self->state = self->state + 1;
-    } else if (state == 7) {
-        self->f1d4 = self->f1d4 + self->f1dc;
-        if (self->f1d4 > 0x8c) {
-            func_ov003_0215582c(self);
-            self->state = self->state + 1;
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+    } else if (var1 == 7) {
+        arg0->unknown_1d4_ = arg0->unknown_1d4_ + arg0->unknown_1dc_;
+        if (arg0->unknown_1d4_ > 0x8c) {
+            func_ov003_0215582c(arg0);
+            arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         }
-    } else if (state == 8) {
-        char *x = (char *) GetGameResources();
-        if (func_02046b24(*(void **) (x + 0x3000 + JPN_OFS(0x4f0, 0x700))) == 0x13) {
+    } else if (var1 == 8) {
+        char *var14 = (char *) GetGameResources();
+        if (func_02046b24(*(void **) (var14 + 0x3000 + JPN_OFS(0x4f0, 0x700))) == 0x13) {
             return;
         }
-        self->state = self->state + 1;
-    } else if (state == 9) {
-        if (_ZNK8Object3D19HasAnimationStoppedEv(self->obj280) == 0) {
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+    } else if (var1 == 9) {
+        if (_ZNK8Object3D19HasAnimationStoppedEv(arg0->unknown_280_) == 0) {
             return;
         }
-        self->f32c = 0;
+        arg0->unknown_32c_ = 0;
         if (func_0202b7d8(func_0202ae18()) != 0) {
-            func_ov017_021c3fb4(self->f1f7, 0);
-            func_ov017_021c4418(self->f1f7, -1);
-            func_ov017_021cf078(self->f1f7, (unsigned char) func_ov003_02156034(self), 0);
-            func_ov017_021ccc34(self->f1f7);
-            func_ov017_021cc730(self->f1f7, 1, 0, 0);
+            func_ov017_021c3fb4(arg0->unknown_1f7_, 0);
+            func_ov017_021c4418(arg0->unknown_1f7_, -1);
+            func_ov017_021cf078(arg0->unknown_1f7_, (unsigned char) func_ov003_02156034(arg0), 0);
+            func_ov017_021ccc34(arg0->unknown_1f7_);
+            func_ov017_021cc730(arg0->unknown_1f7_, 1, 0, 0);
         }
-        void *c2 = func_0200ff1c((GameState *)gs, self->f1f7);
-        if (c2 != 0) {
-            func_02083e28(*(void **) ((char *) c2 + JPN_OFS(0x144, 0x150)), 0);
+        void *var15 = func_0200ff1c((GameState *)var0, arg0->unknown_1f7_);
+        if (var15 != 0) {
+            func_02083e28(*(void **) ((char *) var15 + JPN_OFS(0x144, 0x150)), 0);
         }
-        func_ov003_02155740(self);
-        struct Glob0215704c *g = (struct Glob0215704c *) func_02094d6c();
-        struct Rec0215704c *rp = g->recs;
-        unsigned char cnt      = g->count;
-        int i;
-        for (i = 0; i < cnt; i++, rp++) {
-            if (rp->a) {
-                rp->b = 1;
+        func_ov003_02155740(arg0);
+        struct Struct_ov003_0215704c_4 *var16 = (struct Struct_ov003_0215704c_4 *) func_02094d6c();
+        struct Struct_ov003_0215704c_3 *var17 = var16->unknown_4_;
+        unsigned char var18      = var16->unknown_0_;
+        int var19;
+        for (var19 = 0; var19 < var18; var19++, var17++) {
+            if (var17->unknown_2_1_) {
+                var17->unknown_2_2_ = 1;
             }
         }
-        self->f338  = 0;
-        self->cmd   = 0xd;
-        self->state = self->state + 1;
-    } else if (state == 0xa) {
-        self->mode = 7;
+        arg0->unknown_338_  = 0;
+        arg0->unknown_1ec_   = 0xd;
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
+    } else if (var1 == 0xa) {
+        arg0->unknown_1f8_ = 7;
     }
-    if (self->state == 0x32) {
-        if (func_ov003_02158754(self) != 0) {
-            self->state = 6;
+    if (arg0->unknown_1f9_ == 0x32) {
+        if (func_ov003_02158754(arg0) != 0) {
+            arg0->unknown_1f9_ = 6;
         }
     }
 }

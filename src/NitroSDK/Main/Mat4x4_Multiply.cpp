@@ -3,92 +3,92 @@
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020c223c
-extern "C" ARM void Mat4x4_Multiply(const Matrix4x4* inA, const Matrix4x4* inB, Matrix4x4* out)
+extern "C" ARM void Mat4x4_Multiply(const Matrix4x4* arg0, const Matrix4x4* arg1, Matrix4x4* arg2)
 {
-    Matrix4x4 tmp;
-    Matrix4x4* p;
-    register long x, y, z, w;
-    register long xx, yy, zz, ww;
+    Matrix4x4 var0;
+    Matrix4x4* var1;
+    register long var2, var3, var4, var5;
+    register long var6, var7, var8, var9;
 
-    if (out == inB)
+    if (arg2 == arg1)
     {
-        p = &tmp;
+        var1 = &var0;
     }
     else
     {
-        p = out;
+        var1 = arg2;
     }
 
-    x = inA->entries[0];
-    y = inA->entries[1];
-    z = inA->entries[2];
-    w = inA->entries[3];
+    var2 = arg0->entries[0];
+    var3 = arg0->entries[1];
+    var4 = arg0->entries[2];
+    var5 = arg0->entries[3];
 
-    p->entries[0] = (long)(((int64_t)x * inB->entries[0] + (int64_t)y * inB->entries[4] + (int64_t)z * inB->entries[8]
-                            + (int64_t)w * inB->entries[12]) >> 12);
-    p->entries[1] = (long)(((int64_t)x * inB->entries[1] + (int64_t)y * inB->entries[5] + (int64_t)z * inB->entries[9]
-                            + (int64_t)w * inB->entries[13]) >> 12);
-    p->entries[3] = (long)(((int64_t)x * inB->entries[3] + (int64_t)y * inB->entries[7] + (int64_t)z * inB->entries[11]
-                            + (int64_t)w * inB->entries[15]) >> 12);
+    var1->entries[0] = (long)(((int64_t)var2 * arg1->entries[0] + (int64_t)var3 * arg1->entries[4] + (int64_t)var4 * arg1->entries[8]
+                            + (int64_t)var5 * arg1->entries[12]) >> 12);
+    var1->entries[1] = (long)(((int64_t)var2 * arg1->entries[1] + (int64_t)var3 * arg1->entries[5] + (int64_t)var4 * arg1->entries[9]
+                            + (int64_t)var5 * arg1->entries[13]) >> 12);
+    var1->entries[3] = (long)(((int64_t)var2 * arg1->entries[3] + (int64_t)var3 * arg1->entries[7] + (int64_t)var4 * arg1->entries[11]
+                            + (int64_t)var5 * arg1->entries[15]) >> 12);
 
-    xx = inB->entries[2];
-    yy = inB->entries[6];
-    zz = inB->entries[10];
-    ww = inB->entries[14];
+    var6 = arg1->entries[2];
+    var7 = arg1->entries[6];
+    var8 = arg1->entries[10];
+    var9 = arg1->entries[14];
 
-    p->entries[2] = (long)(((int64_t)x * xx + (int64_t)y * yy + (int64_t)z * zz + (int64_t)w * ww) >> 12);
+    var1->entries[2] = (long)(((int64_t)var2 * var6 + (int64_t)var3 * var7 + (int64_t)var4 * var8 + (int64_t)var5 * var9) >> 12);
 
-    x = inA->entries[4];
-    y = inA->entries[5];
-    z = inA->entries[6];
-    w = inA->entries[7];
+    var2 = arg0->entries[4];
+    var3 = arg0->entries[5];
+    var4 = arg0->entries[6];
+    var5 = arg0->entries[7];
 
-    p->entries[6] = (long)(((int64_t)x * xx + (int64_t)y * yy + (int64_t)z * zz + (int64_t)w * ww) >> 12);
-    p->entries[5] = (long)(((int64_t)x * inB->entries[1] + (int64_t)y * inB->entries[5] + (int64_t)z * inB->entries[9]
-                            + (int64_t)w * inB->entries[13]) >> 12);
-    p->entries[7] = (long)(((int64_t)x * inB->entries[3] + (int64_t)y * inB->entries[7] + (int64_t)z * inB->entries[11]
-                            + (int64_t)w * inB->entries[15]) >> 12);
+    var1->entries[6] = (long)(((int64_t)var2 * var6 + (int64_t)var3 * var7 + (int64_t)var4 * var8 + (int64_t)var5 * var9) >> 12);
+    var1->entries[5] = (long)(((int64_t)var2 * arg1->entries[1] + (int64_t)var3 * arg1->entries[5] + (int64_t)var4 * arg1->entries[9]
+                            + (int64_t)var5 * arg1->entries[13]) >> 12);
+    var1->entries[7] = (long)(((int64_t)var2 * arg1->entries[3] + (int64_t)var3 * arg1->entries[7] + (int64_t)var4 * arg1->entries[11]
+                            + (int64_t)var5 * arg1->entries[15]) >> 12);
 
-    xx = inB->entries[0];
-    yy = inB->entries[4];
-    zz = inB->entries[8];
-    ww = inB->entries[12];
+    var6 = arg1->entries[0];
+    var7 = arg1->entries[4];
+    var8 = arg1->entries[8];
+    var9 = arg1->entries[12];
 
-    p->entries[4] = (long)(((int64_t)x * xx + (int64_t)y * yy + (int64_t)z * zz + (int64_t)w * ww) >> 12);
+    var1->entries[4] = (long)(((int64_t)var2 * var6 + (int64_t)var3 * var7 + (int64_t)var4 * var8 + (int64_t)var5 * var9) >> 12);
 
-    x = inA->entries[8];
-    y = inA->entries[9];
-    z = inA->entries[10];
-    w = inA->entries[11];
+    var2 = arg0->entries[8];
+    var3 = arg0->entries[9];
+    var4 = arg0->entries[10];
+    var5 = arg0->entries[11];
 
-    p->entries[8] = (long)(((int64_t)x * xx + (int64_t)y * yy + (int64_t)z * zz + (int64_t)w * ww) >> 12);
-    p->entries[9] = (long)(((int64_t)x * inB->entries[1] + (int64_t)y * inB->entries[5] + (int64_t)z * inB->entries[9]
-                            + (int64_t)w * inB->entries[13]) >> 12);
-    p->entries[11] = (long)(((int64_t)x * inB->entries[3] + (int64_t)y * inB->entries[7] + (int64_t)z * inB->entries[11]
-                             + (int64_t)w * inB->entries[15]) >> 12);
+    var1->entries[8] = (long)(((int64_t)var2 * var6 + (int64_t)var3 * var7 + (int64_t)var4 * var8 + (int64_t)var5 * var9) >> 12);
+    var1->entries[9] = (long)(((int64_t)var2 * arg1->entries[1] + (int64_t)var3 * arg1->entries[5] + (int64_t)var4 * arg1->entries[9]
+                            + (int64_t)var5 * arg1->entries[13]) >> 12);
+    var1->entries[11] = (long)(((int64_t)var2 * arg1->entries[3] + (int64_t)var3 * arg1->entries[7] + (int64_t)var4 * arg1->entries[11]
+                             + (int64_t)var5 * arg1->entries[15]) >> 12);
 
-    xx = inB->entries[2];
-    yy = inB->entries[6];
-    zz = inB->entries[10];
-    ww = inB->entries[14];
+    var6 = arg1->entries[2];
+    var7 = arg1->entries[6];
+    var8 = arg1->entries[10];
+    var9 = arg1->entries[14];
 
-    p->entries[10] = (long)(((int64_t)x * xx + (int64_t)y * yy + (int64_t)z * zz + (int64_t)w * ww) >> 12);
+    var1->entries[10] = (long)(((int64_t)var2 * var6 + (int64_t)var3 * var7 + (int64_t)var4 * var8 + (int64_t)var5 * var9) >> 12);
 
-    x = inA->entries[12];
-    y = inA->entries[13];
-    z = inA->entries[14];
-    w = inA->entries[15];
+    var2 = arg0->entries[12];
+    var3 = arg0->entries[13];
+    var4 = arg0->entries[14];
+    var5 = arg0->entries[15];
 
-    p->entries[14] = (long)(((int64_t)x * xx + (int64_t)y * yy + (int64_t)z * zz + (int64_t)w * ww) >> 12);
-    p->entries[13] = (long)(((int64_t)x * inB->entries[1] + (int64_t)y * inB->entries[5] + (int64_t)z * inB->entries[9]
-                             + (int64_t)w * inB->entries[13]) >> 12);
-    p->entries[12] = (long)(((int64_t)x * inB->entries[0] + (int64_t)y * inB->entries[4] + (int64_t)z * inB->entries[8]
-                             + (int64_t)w * inB->entries[12]) >> 12);
-    p->entries[15] = (long)(((int64_t)x * inB->entries[3] + (int64_t)y * inB->entries[7] + (int64_t)z * inB->entries[11]
-                             + (int64_t)w * inB->entries[15]) >> 12);
+    var1->entries[14] = (long)(((int64_t)var2 * var6 + (int64_t)var3 * var7 + (int64_t)var4 * var8 + (int64_t)var5 * var9) >> 12);
+    var1->entries[13] = (long)(((int64_t)var2 * arg1->entries[1] + (int64_t)var3 * arg1->entries[5] + (int64_t)var4 * arg1->entries[9]
+                             + (int64_t)var5 * arg1->entries[13]) >> 12);
+    var1->entries[12] = (long)(((int64_t)var2 * arg1->entries[0] + (int64_t)var3 * arg1->entries[4] + (int64_t)var4 * arg1->entries[8]
+                             + (int64_t)var5 * arg1->entries[12]) >> 12);
+    var1->entries[15] = (long)(((int64_t)var2 * arg1->entries[3] + (int64_t)var3 * arg1->entries[7] + (int64_t)var4 * arg1->entries[11]
+                             + (int64_t)var5 * arg1->entries[15]) >> 12);
 
-    if (p == &tmp)
+    if (var1 == &var0)
     {
-        *out = tmp;
+        *arg2 = var0;
     }
 }

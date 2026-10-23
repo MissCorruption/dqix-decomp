@@ -2,59 +2,59 @@
 #include "Resource/Script.h"
 #include "World/ZoneFeatures.h"
 
-struct Variant02030b0c { int tag; union { int i; float f; } u; };
+struct Struct_0201c1c8 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
 
-struct TaggedValue02030b44 { int type; union { int i; float f; } value; };
+struct Struct_0201d530 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
 struct Vector3i;
 
 int fix32ReduceAngle0To2Pi(int value);
 
-static inline int FixedMulRound0201d530(int a, int b) {
-    return (int)(((long long)a * b + 0x800) >> 12);
+static inline int inline_0201d530(int arg0, int arg1) {
+    return (int)(((long long)arg0 * arg1 + 0x800) >> 12);
 }
 
-struct Record0201d530 {
-    short f0;
-    int f4;
-    int vecA[3];
-    int vecB[3];
-    short f20;
-    short f22;
-    int f24;
-    char pad28[0x74 - 0x28];
+struct Struct_0201d530_2 {
+    short unknown_0_;
+    int unknown_4_;
+    int unknown_8_[3];
+    int unknown_14_[3];
+    short unknown_20_;
+    short unknown_22_;
+    int unknown_24_;
+    char unknown_28_[0x74 - 0x28];
 };
 
-struct GlobalCtx0201d530 {
-    void* lastEntry;
-    int pad4;
-    ZoneFeatures* arr;
+struct Struct_020fdc20_8 {
+    void* unknown_0_;
+    int unknown_4_;
+    Struct_020134e0* unknown_8_;
 };
-extern struct GlobalCtx0201d530 data_020fdc20;
+extern struct Struct_020fdc20_8 data_020fdc20;
 
 // USA: func_0201d530
 extern "C" ARM int func_0201d530(Script::Parameter* arg0, int) {
-    struct Variant02030b0c* param0 = (struct Variant02030b0c*)arg0;
-    struct Record0201d530 rec;
-    int tmp[3];
+    struct Struct_0201c1c8* var0 = (struct Struct_0201c1c8*)arg0;
+    struct Struct_0201d530_2 var1;
+    int var2[3];
 
-    ((ZoneFeatures::Opcode6aEntry*)((char*)&rec))->func_0201d424();
-    rec.f4 = ((Script::Parameter*)param0)->ToInt();
+    ((Struct_020134e0::Struct_02018300*)((char*)&var1))->func_0201d424();
+    var1.unknown_4_ = ((Script::Parameter*)var0)->ToInt();
 
-    struct TaggedValue02030b44* next = (extern TaggedValue02030b44*)((Script::Parameter*)((struct TaggedValue02030b44*)((char*)param0 + 8)))->ToVec3fix((Vector3i*)tmp);
-    *(Vector3i*)rec.vecA = *(Vector3i const*)tmp;
+    struct Struct_0201d530* var3 = (extern Struct_0201d530*)((Script::Parameter*)((struct Struct_0201d530*)((char*)var0 + 8)))->ToVec3fix((Vector3i*)var2);
+    *(Vector3i*)var1.unknown_8_ = *(Vector3i const*)var2;
 
-    next = (extern TaggedValue02030b44*)((Script::Parameter*)next)->ToVec3fix((Vector3i*)tmp);
-    *(Vector3i*)rec.vecB = *(Vector3i const*)tmp;
+    var3 = (extern Struct_0201d530*)((Script::Parameter*)var3)->ToVec3fix((Vector3i*)var2);
+    *(Vector3i*)var1.unknown_14_ = *(Vector3i const*)var2;
 
-    rec.f22 = (short)fix32ReduceAngle0To2Pi((int)(4096.0f * ((Script::Parameter*)next)->ToFloat()));
-    rec.f20 = (short)(int)(4096.0f * ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)next + 8)))->ToFloat());
+    var1.unknown_22_ = (short)fix32ReduceAngle0To2Pi((int)(4096.0f * ((Script::Parameter*)var3)->ToFloat()));
+    var1.unknown_20_ = (short)(int)(4096.0f * ((Script::Parameter*)((struct Struct_0201d530*)((char*)var3 + 8)))->ToFloat());
 
-    int halfX = rec.vecB[0] / 2;
-    int halfZ = rec.vecB[2] / 2;
-    int qz = FixedMulRound0201d530(halfZ, halfZ);
-    int qx = FixedMulRound0201d530(halfX, halfX);
-    rec.f24 = qx + qz;
+    int var4 = var1.unknown_14_[0] / 2;
+    int var5 = var1.unknown_14_[2] / 2;
+    int var6 = inline_0201d530(var5, var5);
+    int var7 = inline_0201d530(var4, var4);
+    var1.unknown_24_ = var7 + var6;
 
-    data_020fdc20.lastEntry = data_020fdc20.arr->func_0201e710(*(ZoneFeatures::Opcode6aEntry*)&rec);
+    data_020fdc20.unknown_0_ = data_020fdc20.unknown_8_->func_0201e710(*(Struct_020134e0::Struct_02018300*)&var1);
     return 1;
 }

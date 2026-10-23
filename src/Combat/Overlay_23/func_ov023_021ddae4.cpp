@@ -9,46 +9,46 @@
 #define REGION(j,u) (u)
 #endif
 
-struct InfoWindowLoad021ddae4 {
-    char beforeAllocator[0x44];
-    SafeAllocator* allocator;
-    char beforeRenderer[REGION(0x128,0x12c) - 0x48];
-    SpriteContext0205ac40 renderer;
-    char beforeDisplayState[REGION(0x6f9,0x77d) - REGION(0x128,0x12c) - sizeof(SpriteContext0205ac40)];
-    signed char displayState;
-    signed char pendingState;
-    int task;
+struct Struct_ov023_021ddae4 {
+    char unknown_0_[0x44];
+    SafeAllocator* unknown_44_;
+    char unknown_48_[REGION(0x128,0x12c) - 0x48];
+    Struct_0205ac40 unknown_12c_;
+    char unknown_17d_[REGION(0x6f9,0x77d) - REGION(0x128,0x12c) - sizeof(Struct_0205ac40)];
+    signed char unknown_77d_;
+    signed char unknown_77e_;
+    int unknown_780_;
 };
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(ActiveEntry02046900* entry);
-struct Rec020467f0;
-extern "C" void* func_020467f0(Rec020467f0* rec, int index, void** out, int* out44);
-extern "C" int func_0205a528(void* renderer, void* data, int kind, int allocator);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(Struct_02020cb8_4* arg0);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" int func_0205a528(void* arg0, void* arg1, int arg2, int arg3);
 
 // USA: func_ov023_021ddae4
-extern "C" ARM void func_ov023_021ddae4(void* obj) {
-    InfoWindowLoad021ddae4* view = (InfoWindowLoad021ddae4*)obj;
-    if (view->task < 0) return;
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (!loader->GetTaskStatus(view->task)) return;
-    view->allocator->Reset();
-    void* record;
-    void* file;
-    unsigned int length;
-    int kind;
-    loader->GetLoadedFileByID(view->task, &file, &length);
+extern "C" ARM void func_ov023_021ddae4(void* arg0) {
+    Struct_ov023_021ddae4* var0 = (Struct_ov023_021ddae4*)arg0;
+    if (var0->unknown_780_ < 0) return;
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    if (!var1->GetTaskStatus(var0->unknown_780_)) return;
+    var0->unknown_44_->Reset();
+    void* var2;
+    void* var3;
+    unsigned int var4;
+    int var5;
+    var1->GetLoadedFileByID(var0->unknown_780_, &var3, &var4);
 #if !defined(jpn)
-    if (file != 0 && length != 0)
+    if (var3 != 0 && var4 != 0)
 #endif
     {
-        int count = func_02046900((ActiveEntry02046900*)file);
-        for (int i = 0; i < count; i++) {
-            void* data = func_020467f0((Rec020467f0*)file, i, &record, &kind);
-            func_0205a528(&view->renderer, data, kind, (int)view->allocator);
+        int var6 = func_02046900((Struct_02020cb8_4*)var3);
+        for (int var7 = 0; var7 < var6; var7++) {
+            void* var8 = func_020467f0((Struct_02020aec*)var3, var7, &var2, &var5);
+            func_0205a528(&var0->unknown_12c_, var8, var5, (int)var0->unknown_44_);
         }
     }
-    view->displayState = view->pendingState;
-    loader->RemoveTask(view->task);
-    view->task = -1;
+    var0->unknown_77d_ = var0->unknown_77e_;
+    var1->RemoveTask(var0->unknown_780_);
+    var0->unknown_780_ = -1;
 }

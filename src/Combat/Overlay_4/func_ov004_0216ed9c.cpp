@@ -4,244 +4,244 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { listOffset = 0x4ec, fiveOffset = 0x928, readyOffset = 0x1e4, serialBase = 0x120, serialPage = 0x6000 };
+enum { Enum_ov004_0216ed9c_1788 = 0x4ec, Enum_ov004_0216ed9c_2888 = 0x928, Enum_ov004_0216ed9c_1172 = 0x1e4, Enum_ov004_0216ed9c_9088 = 0x120, Enum_ov004_0216ed9c_16384 = 0x6000 };
 #else
-enum { listOffset = 0x6fc, fiveOffset = 0xb48, readyOffset = 0x494, serialBase = 0x2380, serialPage = 0x4000 };
+enum { Enum_ov004_0216ed9c_1788 = 0x6fc, Enum_ov004_0216ed9c_2888 = 0xb48, Enum_ov004_0216ed9c_1172 = 0x494, Enum_ov004_0216ed9c_9088 = 0x2380, Enum_ov004_0216ed9c_16384 = 0x4000 };
 #endif
 
 extern "C" int rand(void);
 
-struct Vec3_0216ed9c { int x, y, z; };
+struct Struct_ov004_0216ed9c_2 { int unknown_0_, unknown_4_, unknown_8_; };
 
-class Node0216ed9c {
+class Struct_ov004_0216ed9c_3 {
 public:
-    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
-    virtual void v4(); virtual void v5(); virtual void v6();
-    virtual void SetPosition(const Vec3_0216ed9c* v);
+    virtual void inline_ov004_0216ed9c_2(); virtual void inline_ov004_0216ed9c_3(); virtual void inline_ov004_0216ed9c_4(); virtual void inline_ov004_0216ed9c_5();
+    virtual void inline_ov004_0216ed9c_6(); virtual void inline_ov004_0216ed9c_7(); virtual void inline_ov004_0216ed9c_8();
+    virtual void inline_ov004_0216ed9c_9(const Struct_ov004_0216ed9c_2* arg0);
 };
 
-struct PackedField017 {
-    unsigned int low : 12;
-    unsigned int f12 : 4;
-    unsigned int f16 : 5;
-    unsigned int f21 : 5;
-    unsigned int top : 6;
+struct Struct_ov004_021589e8 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 5;
+    unsigned int unknown_3_2_ : 6;
 };
 
-struct Ov004Block_0216ed9c {
-    unsigned int word00;
-    unsigned int word04;
-    unsigned int word08;
-    unsigned short half0c;
-    unsigned char pad0e[0x20];
-    unsigned char flags2e[6];
-    signed char flag34;
-    PackedField017 cfg;
-    unsigned char counts[12];
-    int numSpawned;
+struct Struct_ov004_0216ed9c_4 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned short unknown_c_;
+    unsigned char unknown_e_[0x20];
+    unsigned char unknown_2e_[6];
+    signed char unknown_34_;
+    Struct_ov004_021589e8 unknown_38_;
+    unsigned char unknown_3c_[12];
+    int unknown_48_;
 };
 
-struct Struct02171048_0216ed9c {
-    unsigned char shown0;
-    unsigned char shown1;
-    char pad[2];
-    Ov004Block_0216ed9c* ptr;
+struct Struct_ov004_02171048_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[2];
+    Struct_ov004_0216ed9c_4* unknown_4_;
 };
-extern Struct02171048_0216ed9c data_ov004_02171048;
+extern Struct_ov004_02171048_3 data_ov004_02171048;
 
-struct MonthDays_0216ed9c { unsigned int days[12]; };
-extern MonthDays_0216ed9c data_ov004_0217028c;
+struct Struct_ov004_0217028c { unsigned int unknown_0_[12]; };
+extern Struct_ov004_0217028c data_ov004_0217028c;
 
-struct QuestView0216ed9c {
-    unsigned char unknown00[0x44];
-    PackedField017 identifier;
+struct Struct_ov004_0216ed9c {
+    unsigned char unknown_0_[0x44];
+    Struct_ov004_021589e8 unknown_44_;
 };
 
-struct TableA68;
-struct StoreStruct;
-struct Obj24_021b2024;
-struct Obj24_021b2038;
-struct Obj24_021b204c;
-struct Obj24_021b1fe8;
-struct Obj24_021b1ffc;
+struct Struct_02072a68_2;
+struct Struct_020465c0;
+struct Struct_ov004_021583a8_4;
+struct Struct_ov004_021583a8_5;
+struct Struct_ov004_0215883c_3;
+struct Struct_ov004_021583a8;
+struct Struct_ov004_021583a8_2;
 
-extern "C" void* func_ov004_0216ea38(void* ctx, int key);
+extern "C" void* func_ov004_0216ea38(void* arg0, int arg1);
 extern "C" int func_020421a0(void);
 extern "C" int func_020d4ac8(void);
 extern "C" void* func_ov011_021849c8(void*);
-extern "C" Node0216ed9c* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov004_0216ed9c_3* func_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
-extern "C" void func_ov023_021fb27c(void* node, unsigned short v);
-extern "C" void func_ov017_021b1e24(void* a, void* b);
-extern "C" int func_ov017_021b1fd4(void* obj);
-extern "C" void func_ov023_021fa078(void* obj, void* ctx, unsigned short val, Vec3_0216ed9c* srcVec, int p5, int p6);
-extern "C" unsigned char func_ov017_021b2024(Obj24_021b2024* obj);
-extern "C" unsigned char func_ov017_021b2038(Obj24_021b2038* obj);
-extern "C" void* func_02072a68(TableA68* table, int key);
+extern "C" void func_ov023_021fb27c(void* arg0, unsigned short arg1);
+extern "C" void func_ov017_021b1e24(void* arg0, void* arg1);
+extern "C" int func_ov017_021b1fd4(void* arg0);
+extern "C" void func_ov023_021fa078(void* arg0, void* arg1, unsigned short arg2, Struct_ov004_0216ed9c_2* arg3, int arg4, int arg5);
+extern "C" unsigned char func_ov017_021b2024(Struct_ov004_021583a8_4* arg0);
+extern "C" unsigned char func_ov017_021b2038(Struct_ov004_021583a8_5* arg0);
+extern "C" void* func_02072a68(Struct_02072a68_2* arg0, int arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(void* field, void* buf, int p2);
+extern "C" void func_0204500c(void* arg0, void* arg1, int arg2);
 #define FUNC_0204500C(g, b) func_0204500c(g, b, 0)
-enum { kGBusy = 0x868, kGState = 0x870, kGText = 0x28, kGTextSize = 0x800 };
+enum { Enum_ov004_0216ed9c_2456 = 0x868, Enum_ov004_0216ed9c_2464 = 0x870, Enum_ov004_0216ed9c_92 = 0x28, Enum_ov004_0216ed9c_2400 = 0x800 };
 #else
-extern "C" void func_0204500c(void* field, void* buf, int p2, int p3);
+extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
 #define FUNC_0204500C(g, b) func_0204500c(g, b, 0, 0xe3)
-enum { kGBusy = 0x998, kGState = 0x9a0, kGText = 0x5c, kGTextSize = 0x960 };
+enum { Enum_ov004_0216ed9c_2456 = 0x998, Enum_ov004_0216ed9c_2464 = 0x9a0, Enum_ov004_0216ed9c_92 = 0x5c, Enum_ov004_0216ed9c_2400 = 0x960 };
 #endif
-extern "C" unsigned char func_ov017_021b204c(Obj24_021b204c* obj);
-extern "C" unsigned char func_ov017_021b1fe8(Obj24_021b1fe8* obj);
-extern "C" void* func_ov017_021b1fc0(void* obj);
-extern "C" void func_ov011_021848a0(void* obj, int val);
-extern "C" int func_020ac7b4(int flag);
-extern "C" int func_ov017_021b1ffc(Obj24_021b1ffc* obj);
-extern "C" void func_02046380(void* g);
-extern "C" void func_020465c0(StoreStruct* base, int index, int value);
+extern "C" unsigned char func_ov017_021b204c(Struct_ov004_0215883c_3* arg0);
+extern "C" unsigned char func_ov017_021b1fe8(Struct_ov004_021583a8* arg0);
+extern "C" void* func_ov017_021b1fc0(void* arg0);
+extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" int func_020ac7b4(int arg0);
+extern "C" int func_ov017_021b1ffc(Struct_ov004_021583a8_2* arg0);
+extern "C" void func_02046380(void* arg0);
+extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
 
-static inline char* GetFive(char* actor) {
-    return *(char**)(actor + 0x3000 + fiveOffset);
+static inline char* inline_ov004_0216ed9c(char* arg0) {
+    return *(char**)(arg0 + 0x3000 + Enum_ov004_0216ed9c_2888);
 }
 
 // USA: func_ov004_0216ed9c
-extern "C" ARM int func_ov004_0216ed9c(void* self) {
-    Node0216ed9c* node;
-    GameState* gs = GameState::GetInstance();
-    char* actor = (char*)GetGameResources();
-    void* list = *(void**)(actor + 0x3000 + listOffset);
-    char* five = GetFive(actor);
-    TableA68* table = (TableA68*)func_ov004_0216ea38(self, 4);
-    int g = func_020421a0();
-    unsigned char state = data_ov004_02171048.ptr->flags2e[0];
+extern "C" ARM int func_ov004_0216ed9c(void* arg0) {
+    Struct_ov004_0216ed9c_3* var0;
+    GameState* var1 = GameState::GetInstance();
+    char* var2 = (char*)GetGameResources();
+    void* var3 = *(void**)(var2 + 0x3000 + Enum_ov004_0216ed9c_1788);
+    char* var4 = inline_ov004_0216ed9c(var2);
+    Struct_02072a68_2* var5 = (Struct_02072a68_2*)func_ov004_0216ea38(arg0, 4);
+    int var6 = func_020421a0();
+    unsigned char var7 = data_ov004_02171048.unknown_4_->unknown_2e_[0];
 
-    if (state == 2) {
-        int v = func_020d4ac8();
-        node = func_ov023_021f6880(func_ov011_021849c8(self), 0x97);
-        if (node == 0 || func_ov023_021f6f10(node) != 1) {
-            node = 0;
+    if (var7 == 2) {
+        int var8 = func_020d4ac8();
+        var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x97);
+        if (var0 == 0 || func_ov023_021f6f10(var0) != 1) {
+            var0 = 0;
         }
-        func_ov023_021fb27c(node, v + 8);
-        func_ov017_021b1e24(five, list);
+        func_ov023_021fb27c(var0, var8 + 8);
+        func_ov017_021b1e24(var4, var3);
         {
-            int slot;
-            Ov004Block_0216ed9c* blk;
-            Ov004Block_0216ed9c* block;
-            int n;
-            int i;
-            Node0216ed9c* coin;
-            int id;
-            int total = func_ov017_021b1fd4(five) >> 12;
-            int count = total - data_ov004_02171048.ptr->numSpawned;
-            if (count == 0) goto spawned;
+            int var9;
+            Struct_ov004_0216ed9c_4* var10;
+            Struct_ov004_0216ed9c_4* var11;
+            int var12;
+            int var13;
+            Struct_ov004_0216ed9c_3* var14;
+            int var15;
+            int var16 = func_ov017_021b1fd4(var4) >> 12;
+            int var17 = var16 - data_ov004_02171048.unknown_4_->unknown_48_;
+            if (var17 == 0) goto spawned;
 
-            for (i = 0; i < count; i++) {
-                slot = rand() % 12;
-                blk = data_ov004_02171048.ptr;
-                while (blk->counts[slot] >= 10) {
-                    slot = (slot + 1) % 12;
+            for (var13 = 0; var13 < var17; var13++) {
+                var9 = rand() % 12;
+                var10 = data_ov004_02171048.unknown_4_;
+                while (var10->unknown_3c_[var9] >= 10) {
+                    var9 = (var9 + 1) % 12;
                 }
-                blk->counts[slot]++;
+                var10->unknown_3c_[var9]++;
 
-                block = data_ov004_02171048.ptr;
-                n = block->counts[slot];
-                id = block->numSpawned + 0x578 + i;
+                var11 = data_ov004_02171048.unknown_4_;
+                var12 = var11->unknown_3c_[var9];
+                var15 = var11->unknown_48_ + 0x578 + var13;
 
-                coin = func_ov023_021f6880(func_ov011_021849c8(self), id);
-                if (coin == 0 || func_ov023_021f6f10(coin) != 0) {
-                    coin = 0;
+                var14 = func_ov023_021f6880(func_ov011_021849c8(arg0), var15);
+                if (var14 == 0 || func_ov023_021f6f10(var14) != 0) {
+                    var14 = 0;
                 }
-                if (!coin) goto spawned;
+                if (!var14) goto spawned;
 
-                Vec3_0216ed9c dst;
-                Vec3_0216ed9c pos;
-                pos.x = (slot * 21) << 12;
-                pos.y = (n * -19) << 12;
-                pos.z = 0;
-                coin->SetPosition(&pos);
+                Struct_ov004_0216ed9c_2 var18;
+                Struct_ov004_0216ed9c_2 var19;
+                var19.unknown_0_ = (var9 * 21) << 12;
+                var19.unknown_4_ = (var12 * -19) << 12;
+                var19.unknown_8_ = 0;
+                var14->inline_ov004_0216ed9c_9(&var19);
 
-                dst.x = (slot * 21) << 12;
-                dst.y = (0xc0 - n * 19) << 12;
-                dst.z = 0;
+                var18.unknown_0_ = (var9 * 21) << 12;
+                var18.unknown_4_ = (0xc0 - var12 * 19) << 12;
+                var18.unknown_8_ = 0;
 
-                void* effect = func_ov023_021f6880(func_ov011_021849c8(self), 0xffff);
-                if (!effect) goto spawned;
-                func_ov023_021fa078(effect, self, id, &dst, 0xd000, 0xd000);
+                void* var20 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0xffff);
+                if (!var20) goto spawned;
+                func_ov023_021fa078(var20, arg0, var15, &var18, 0xd000, 0xd000);
             }
-            data_ov004_02171048.ptr->numSpawned = total;
+            data_ov004_02171048.unknown_4_->unknown_48_ = var16;
         }
 spawned:
 
-        unsigned char a = func_ov017_021b2024((Obj24_021b2024*)five);
-        unsigned char b = func_ov017_021b2038((Obj24_021b2038*)five);
-        if (data_ov004_02171048.shown1 == 0 && a == 5 && b == 0) {
-            FUNC_0204500C((void*)g, func_02072a68(table, 0xcc));
-            *(int*)(g + kGBusy) = 1;
-            data_ov004_02171048.shown1 = 1;
+        unsigned char var21 = func_ov017_021b2024((Struct_ov004_021583a8_4*)var4);
+        unsigned char var22 = func_ov017_021b2038((Struct_ov004_021583a8_5*)var4);
+        if (data_ov004_02171048.unknown_1_ == 0 && var21 == 5 && var22 == 0) {
+            FUNC_0204500C((void*)var6, func_02072a68(var5, 0xcc));
+            *(int*)(var6 + Enum_ov004_0216ed9c_2456) = 1;
+            data_ov004_02171048.unknown_1_ = 1;
         }
-        if (data_ov004_02171048.shown0 == 0 && a == 5 && b == 5) {
-            FUNC_0204500C((void*)g, func_02072a68(table, 0xcd));
-            *(int*)(g + kGBusy) = 1;
-            data_ov004_02171048.shown0 = 1;
+        if (data_ov004_02171048.unknown_0_ == 0 && var21 == 5 && var22 == 5) {
+            FUNC_0204500C((void*)var6, func_02072a68(var5, 0xcd));
+            *(int*)(var6 + Enum_ov004_0216ed9c_2456) = 1;
+            data_ov004_02171048.unknown_0_ = 1;
         }
-        if (*(int*)(actor + 0x4000 + readyOffset) == 0) {
-            data_ov004_02171048.ptr->flags2e[0]++;
+        if (*(int*)(var2 + 0x4000 + Enum_ov004_0216ed9c_1172) == 0) {
+            data_ov004_02171048.unknown_4_->unknown_2e_[0]++;
             GameState::GetInstance();
         }
-    } else if (state == 3) {
-        if (*(int*)(g + kGState) != 3) return 1;
+    } else if (var7 == 3) {
+        if (*(int*)(var6 + Enum_ov004_0216ed9c_2464) != 3) return 1;
 
-        Node0216ed9c* node = func_ov023_021f6880(func_ov011_021849c8(self), 0x97);
-        if (node) {
-            *((unsigned char*)node + 0xc) |= 8;
+        Struct_ov004_0216ed9c_3* var23 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x97);
+        if (var23) {
+            *((unsigned char*)var23 + 0xc) |= 8;
         }
-        char* buf = *(char**)(g + kGText);
-        memset(buf, 0, kGTextSize);
+        char* var24 = *(char**)(var6 + Enum_ov004_0216ed9c_92);
+        memset(var24, 0, Enum_ov004_0216ed9c_2400);
 
-        if (func_ov017_021b204c((Obj24_021b204c*)five)) {
-            const char* s = (const char*)func_02072a68(table, 0x71);
-            memcpy(buf, s, strlen(s));
-        } else if (func_ov017_021b1fe8((Obj24_021b1fe8*)five) & 2) {
-            func_ov017_021b1fc0(five);
-            data_ov004_02171048.ptr->flags2e[1] = 1;
-            const char* s = (const char*)func_02072a68(table, 0xca);
-            int len = strlen(s);
-            memcpy(buf, s, len);
-            if (data_ov004_02171048.ptr->flags2e[3]) {
-                const char* s2 = (const char*)func_02072a68(table, 0xd6);
-                memcpy(buf + len, s2, strlen(s2));
+        if (func_ov017_021b204c((Struct_ov004_0215883c_3*)var4)) {
+            const char* var25 = (const char*)func_02072a68(var5, 0x71);
+            memcpy(var24, var25, strlen(var25));
+        } else if (func_ov017_021b1fe8((Struct_ov004_021583a8*)var4) & 2) {
+            func_ov017_021b1fc0(var4);
+            data_ov004_02171048.unknown_4_->unknown_2e_[1] = 1;
+            const char* var26 = (const char*)func_02072a68(var5, 0xca);
+            int var27 = strlen(var26);
+            memcpy(var24, var26, var27);
+            if (data_ov004_02171048.unknown_4_->unknown_2e_[3]) {
+                const char* var28 = (const char*)func_02072a68(var5, 0xd6);
+                memcpy(var24 + var27, var28, strlen(var28));
             }
-            func_ov011_021848a0(self, 0xca);
+            func_ov011_021848a0(arg0, 0xca);
 
-            Ov004Block_0216ed9c* blk = data_ov004_02171048.ptr;
-            PackedField017* date = &blk->cfg;
-            date->f16++;
-            if (date->f16 == 0) date->f16 = 1;
-            MonthDays_0216ed9c month = data_ov004_0217028c;
-            if ((&month.days[-1])[date->f12] < date->f16 || date->f16 == 0) {
-                date->f16 = 1;
-                date->f12++;
-                if (date->f12 > 12) {
-                    date->f12 = 1;
-                    date->low++;
+            Struct_ov004_0216ed9c_4* var29 = data_ov004_02171048.unknown_4_;
+            Struct_ov004_021589e8* var30 = &var29->unknown_38_;
+            var30->unknown_2_0_++;
+            if (var30->unknown_2_0_ == 0) var30->unknown_2_0_ = 1;
+            Struct_ov004_0217028c var31 = data_ov004_0217028c;
+            if ((&var31.unknown_0_[-1])[var30->unknown_1_4_] < var30->unknown_2_0_ || var30->unknown_2_0_ == 0) {
+                var30->unknown_2_0_ = 1;
+                var30->unknown_1_4_++;
+                if (var30->unknown_1_4_ > 12) {
+                    var30->unknown_1_4_ = 1;
+                    var30->unknown_0_0_++;
                 }
             }
-            memcpy(&((QuestView0216ed9c*)((char*)gs + serialBase + serialPage))->identifier, &data_ov004_02171048.ptr->cfg, 4);
+            memcpy(&((Struct_ov004_0216ed9c*)((char*)var1 + Enum_ov004_0216ed9c_9088 + Enum_ov004_0216ed9c_16384))->unknown_44_, &data_ov004_02171048.unknown_4_->unknown_38_, 4);
             if (!func_020ac7b4(0)) return 0;
             if (!func_020ac7b4(1)) return 0;
         } else {
-            const char* s = (const char*)func_02072a68(table, 0xcb);
-            memcpy(buf, s, strlen(s));
-            int w = func_ov017_021b1ffc((Obj24_021b1ffc*)five);
-            func_02046380((void*)g);
-            func_020465c0((StoreStruct*)g, 0, w);
-            func_ov011_021848a0(self, 0xcb);
-            data_ov004_02171048.ptr->flags2e[1] = 0;
+            const char* var32 = (const char*)func_02072a68(var5, 0xcb);
+            memcpy(var24, var32, strlen(var32));
+            int var33 = func_ov017_021b1ffc((Struct_ov004_021583a8_2*)var4);
+            func_02046380((void*)var6);
+            func_020465c0((Struct_020465c0*)var6, 0, var33);
+            func_ov011_021848a0(arg0, 0xcb);
+            data_ov004_02171048.unknown_4_->unknown_2e_[1] = 0;
         }
 
-        FUNC_0204500C((void*)g, *(char**)(g + kGText));
-        *(int*)(g + kGBusy) = 1;
-        five[1] = 1;
-        data_ov004_02171048.ptr->flags2e[0] = 0;
-        Ov004Block_0216ed9c* blk = data_ov004_02171048.ptr;
-        memset(blk->counts, 0, 0xc);
-        blk->numSpawned = 0;
+        FUNC_0204500C((void*)var6, *(char**)(var6 + Enum_ov004_0216ed9c_92));
+        *(int*)(var6 + Enum_ov004_0216ed9c_2456) = 1;
+        var4[1] = 1;
+        data_ov004_02171048.unknown_4_->unknown_2e_[0] = 0;
+        Struct_ov004_0216ed9c_4* var34 = data_ov004_02171048.unknown_4_;
+        memset(var34->unknown_3c_, 0, 0xc);
+        var34->unknown_48_ = 0;
         return 0;
     }
     return 1;

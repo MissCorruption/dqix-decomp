@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_0215fd24(int unused, int id);
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" int func_ov000_0215fd24(int arg0, int arg1);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 
-struct Ctx_021e5be4 { char pad[0x10]; void* field0x10; };
-struct P2_021e5be4 { char pad[0x32]; short val0x32; };
+struct Struct_ov024_021e5be4 { char unknown_0_[0x10]; void* unknown_10_; };
+struct Struct_ov024_021e5be4_2 { char unknown_0_[0x32]; short unknown_32_; };
 
 // USA: func_ov024_021e5be4
-extern "C" ARM void func_ov024_021e5be4(struct Ctx_021e5be4* obj, int id, struct P2_021e5be4* p2, int unused3) {
-	GameState* bs = GameState::GetInstance();
-	void* field2a04 = func_02010828(bs);
-	if (func_ov000_0215fd24((int)obj->field0x10, id)) {
-		*(int*)((char*)field2a04 + 0xf6c) -= p2->val0x32;
+extern "C" ARM void func_ov024_021e5be4(struct Struct_ov024_021e5be4* arg0, int arg1, struct Struct_ov024_021e5be4_2* arg2, int arg3) {
+	GameState* var0 = GameState::GetInstance();
+	void* var1 = func_02010828(var0);
+	if (func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
+		*(int*)((char*)var1 + 0xf6c) -= arg2->unknown_32_;
 		return;
 	}
-	int base;
-	int* arr;
-	int idx;
-	if (func_0200ff58(bs, id) != 0) {
-		idx = 0;
-		base = *(int*)((char*)obj->field0x10 + 0x8000 + 0xe84);
-		arr = (int*)((char*)obj->field0x10 + 0x284 + 0x8c00);
+	int var2;
+	int* var3;
+	int var4;
+	if (func_0200ff58(var0, arg1) != 0) {
+		var4 = 0;
+		var2 = *(int*)((char*)arg0->unknown_10_ + 0x8000 + 0xe84);
+		var3 = (int*)((char*)arg0->unknown_10_ + 0x284 + 0x8c00);
 	} else {
-		arr = (int*)((char*)obj->field0x10 + 0x284 + 0x8c00);
-		base = arr[id];
-		idx = id;
+		var3 = (int*)((char*)arg0->unknown_10_ + 0x284 + 0x8c00);
+		var2 = var3[arg1];
+		var4 = arg1;
 	}
-	arr[(short)idx] = base - p2->val0x32;
+	var3[(short)var4] = var2 - arg2->unknown_32_;
 }

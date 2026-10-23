@@ -3,28 +3,28 @@
 unsigned int DisableIRQInterrupts();
 unsigned int SetIRQInterruptState(int mask);
 
-struct ListNode020d27a4 {
-    struct ListNode020d27a4* next;
+struct Struct_020d27a4 {
+    struct Struct_020d27a4* unknown_0_;
 };
-struct GlobalListState020d27a4 {
-    struct ListNode020d27a4* field0;
-    struct ListNode020d27a4* field4;
-    struct ListNode020d27a4* head8;
+struct Struct_02112780_8 {
+    struct Struct_020d27a4* unknown_0_;
+    struct Struct_020d27a4* unknown_4_;
+    struct Struct_020d27a4* unknown_8_;
 };
-extern struct GlobalListState020d27a4 data_02112780;
+extern struct Struct_02112780_8 data_02112780;
 
 // USA: func_020d27a4
 // Kept as extern "C" func_020d27a4: func_020d27e0 references this symbol.
 extern "C" ARM int func_020d27a4(void) {
-    unsigned int mask = DisableIRQInterrupts();
-    struct ListNode020d27a4* node = data_02112780.head8;
-    int count = 0;
-    if (node != NULL) {
+    unsigned int var0 = DisableIRQInterrupts();
+    struct Struct_020d27a4* var1 = data_02112780.unknown_8_;
+    int var2 = 0;
+    if (var1 != NULL) {
         do {
-            node = node->next;
-            count++;
-        } while (node != NULL);
+            var1 = var1->unknown_0_;
+            var2++;
+        } while (var1 != NULL);
     }
-    SetIRQInterruptState(mask);
-    return count;
+    SetIRQInterruptState(var0);
+    return var2;
 }

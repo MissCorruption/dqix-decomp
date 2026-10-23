@@ -3,6 +3,6 @@
 #include "Combat/EntryGetterTypes.h"
 
 // USA: func_0203cdd0
-extern "C" ARM int func_0203cdd0(struct StructF0x60_0203cdd0* obj) {
-    return obj->field60;
+extern "C" ARM int func_0203cdd0(struct Struct_0203cdd0* arg0) {
+    return arg0->unknown_60_;
 }

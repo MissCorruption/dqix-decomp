@@ -8,20 +8,20 @@ extern float data_021079cc[8];
 // USA: func_020e5e2c
 extern "C" __declspec(initcode) ARM void __sinit_020e5e2c(void) {
 #if defined(jpn)
-    enum { inputIndex0 = 6, inputIndex2 = 0, inputIndex4 = 2, outputIndex0 = 3, outputIndex1 = 2, outputIndex2 = 4, outputIndex3 = 0, outputIndex4 = 1 };
+    enum { Enum_020e5e2c_0 = 6, Enum_020e5e2c_2 = 0, Enum_020e5e2c_4 = 2, Enum_020e5e2c_0_2 = 3, Enum_020e5e2c_1 = 2, Enum_020e5e2c_2_2 = 4, Enum_020e5e2c_3 = 0, Enum_020e5e2c_4_2 = 1 };
 #else
-    enum { inputIndex0 = 0, inputIndex2 = 2, inputIndex4 = 4, outputIndex0 = 0, outputIndex1 = 1, outputIndex2 = 2, outputIndex3 = 3, outputIndex4 = 4 };
+    enum { Enum_020e5e2c_0 = 0, Enum_020e5e2c_2 = 2, Enum_020e5e2c_4 = 4, Enum_020e5e2c_0_2 = 0, Enum_020e5e2c_1 = 1, Enum_020e5e2c_2_2 = 2, Enum_020e5e2c_3 = 3, Enum_020e5e2c_4_2 = 4 };
 #endif
-    float t;
-    float a;
-    float b;
-    data_021079cc[outputIndex1] = data_020f0420[3] + (data_020f0420[inputIndex0] + (data_020f0420[inputIndex4] + data_020f0420[inputIndex2]));
-    t = data_021079cc[outputIndex0] + data_020f0420[inputIndex4];
-    a = data_020f0420[inputIndex2];
-    data_021079cc[outputIndex4] = t;
-    t = t + a;
-    b = data_020f0420[inputIndex0];
-    data_021079cc[outputIndex3] = t;
-    t = t + b;
-    data_021079cc[outputIndex2] = t;
+    float var0;
+    float var1;
+    float var2;
+    data_021079cc[Enum_020e5e2c_1] = data_020f0420[3] + (data_020f0420[Enum_020e5e2c_0] + (data_020f0420[Enum_020e5e2c_4] + data_020f0420[Enum_020e5e2c_2]));
+    var0 = data_021079cc[Enum_020e5e2c_0_2] + data_020f0420[Enum_020e5e2c_4];
+    var1 = data_020f0420[Enum_020e5e2c_2];
+    data_021079cc[Enum_020e5e2c_4_2] = var0;
+    var0 = var0 + var1;
+    var2 = data_020f0420[Enum_020e5e2c_0];
+    data_021079cc[Enum_020e5e2c_3] = var0;
+    var0 = var0 + var2;
+    data_021079cc[Enum_020e5e2c_2_2] = var0;
 }

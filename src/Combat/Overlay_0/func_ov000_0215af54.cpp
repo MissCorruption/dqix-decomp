@@ -2,132 +2,132 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct S_10088;
-struct OutStruct0215ccbc;
+struct Struct_02010088;
+struct Struct_ov000_021584e8;
 
-struct ActionNode0215af54 {
-    unsigned short actionId;
-    char pad2[0xb - 0x2];
-    unsigned char flags;
-    char padC[0x28 - 0xc];
+struct Struct_ov000_0215af54 {
+    unsigned short unknown_0_;
+    char unknown_2_[0xb - 0x2];
+    unsigned char unknown_b_;
+    char unknown_c_[0x28 - 0xc];
 };
 
-struct ActorNode0215af54 {
-    char pad0[0x1c];
-    short field1C;
-    char pad1E[0x20 - 0x1e];
-    short combatantId;
-    unsigned short hp;
-    unsigned short mp;
-    char pad26[0x30 - 0x26];
-    int field30;
+struct Struct_ov000_0215af54_2 {
+    char unknown_0_[0x1c];
+    short unknown_1c_;
+    char unknown_1e_[0x20 - 0x1e];
+    short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned short unknown_24_;
+    char unknown_26_[0x30 - 0x26];
+    int unknown_30_;
 };
 
-struct TargetNode0215af54 {
-    char pad0[0xe];
-    short combatantId;
-    char pad10[0x17 - 0x10];
-    unsigned char field17;
-    char pad18[0x24 - 0x18];
+struct Struct_ov000_0215af54_3 {
+    char unknown_0_[0xe];
+    short unknown_e_;
+    char unknown_10_[0x17 - 0x10];
+    unsigned char unknown_17_;
+    char unknown_18_[0x24 - 0x18];
 };
 
-struct EffectNode0215af54 {
-    char pad0[0x20];
-    int field20;
+struct Struct_ov000_0215af54_4 {
+    char unknown_0_[0x20];
+    int unknown_20_;
 };
 
-struct Battle0215af54 {
-    char pad0[0x6d30];
-    struct ActionNode0215af54 actions[16];
-    struct ActorNode0215af54 actors[16];
-    struct TargetNode0215af54 targets[16];
-    struct EffectNode0215af54 effects[16];
-    char pad7770[0x8e10 - 0x7770];
-    unsigned char actionCount;
-    unsigned char actorCount;
-    unsigned char targetCount;
-    unsigned char effectCount;
+struct Struct_ov000_0215af54_5 {
+    char unknown_0_[0x6d30];
+    struct Struct_ov000_0215af54 unknown_6d30_[16];
+    struct Struct_ov000_0215af54_2 unknown_6fb0_[16];
+    struct Struct_ov000_0215af54_3 unknown_72f0_[16];
+    struct Struct_ov000_0215af54_4 unknown_7530_[16];
+    char unknown_7770_[0x8e10 - 0x7770];
+    unsigned char unknown_8e10_;
+    unsigned char unknown_8e11_;
+    unsigned char unknown_8e12_;
+    unsigned char unknown_8e13_;
 };
 
-extern "C" int func_02010088(struct S_10088* obj);
-extern "C" int func_ov000_02153c0c(GameObject* combatant);
-extern "C" void func_ov000_02160030(void* obj);
-extern "C" void func_ov000_02157cdc(void* obj);
-extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
-extern "C" void func_ov000_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
-                            short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
-extern "C" void func_ov000_0215ffc4(void* obj, void* node, int idx);
-struct Obj02160068;
-struct Node02160068;
-struct Obj021600cc;
-struct Node021600cc;
-extern "C" void func_ov000_02160068(struct Obj02160068* obj, struct Node02160068* newNode);
-extern "C" void func_ov000_021600cc(struct Obj021600cc* obj, struct Node021600cc* newNode);
+extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int func_ov000_02153c0c(GameObject* arg0);
+extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void func_ov000_02157cdc(void* arg0);
+extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void func_ov000_0215ccbc(int arg0, struct Struct_ov000_021584e8* arg1, GameObject* arg2,
+                            short arg3, short arg4, short arg5, unsigned long long arg6, unsigned char arg7);
+extern "C" void func_ov000_0215ffc4(void* arg0, void* arg1, int arg2);
+struct Struct_ov000_0215767c_7;
+struct Struct_ov000_0215767c_6;
+struct Struct_ov000_0215767c_5;
+struct Struct_ov000_0215767c_4;
+extern "C" void func_ov000_02160068(struct Struct_ov000_0215767c_7* arg0, struct Struct_ov000_0215767c_6* arg1);
+extern "C" void func_ov000_021600cc(struct Struct_ov000_0215767c_5* arg0, struct Struct_ov000_0215767c_4* arg1);
 
-static inline int IsPartyIndex(int index) {
-    return index >= 0 && index <= 3;
+static inline int inline_ov000_02156cc4_2(int arg0) {
+    return arg0 >= 0 && arg0 <= 3;
 }
 
-static inline short CurrHP(GameObject* c) { SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currHP; }
-static inline short CurrMP(GameObject* c) { SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currMP; }
+static inline short inline_ov000_021584e8(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
+static inline short inline_ov000_021584e8_2(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currMP; }
 
 // USA: func_ov000_0215af54
-extern "C" ARM void func_ov000_0215af54(struct Battle0215af54* battle, int index, int mode) {
-    struct ActionNode0215af54* action;
-    struct ActorNode0215af54* actor;
-    struct TargetNode0215af54* target;
-    struct EffectNode0215af54* effect;
-    if (battle->actionCount >= 16 || battle->actorCount >= 16 || battle->targetCount >= 16 || battle->effectCount >= 16) {
+extern "C" ARM void func_ov000_0215af54(struct Struct_ov000_0215af54_5* arg0, int arg1, int arg2) {
+    struct Struct_ov000_0215af54* var0;
+    struct Struct_ov000_0215af54_2* var1;
+    struct Struct_ov000_0215af54_3* var2;
+    struct Struct_ov000_0215af54_4* var3;
+    if (arg0->unknown_8e10_ >= 16 || arg0->unknown_8e11_ >= 16 || arg0->unknown_8e12_ >= 16 || arg0->unknown_8e13_ >= 16) {
         return;
     }
-    GameObject* c = GameState::GetInstance()->GetCombatantByIndex(index);
-    if (c == NULL) {
+    GameObject* var4 = GameState::GetInstance()->GetCombatantByIndex(arg1);
+    if (var4 == NULL) {
         return;
     }
-    if (func_02010088((struct S_10088*)c)) {
+    if (func_02010088((struct Struct_02010088*)var4)) {
         return;
     }
-    if (func_ov000_02153c0c(c)) {
+    if (func_ov000_02153c0c(var4)) {
         return;
     }
 
-    action = &battle->actions[battle->actionCount];
-    func_ov000_02160030(action);
-    actor = &battle->actors[battle->actorCount];
-    memset(actor, 0, 0x30);
-    actor->field1C = -1;
-    actor->field30 = 0;
-    target = &battle->targets[battle->targetCount];
-    func_ov000_02157cdc(target);
-    effect = &battle->effects[battle->effectCount];
-    memset(effect, 0, 0x20);
-    effect->field20 = 0;
+    var0 = &arg0->unknown_6d30_[arg0->unknown_8e10_];
+    func_ov000_02160030(var0);
+    var1 = &arg0->unknown_6fb0_[arg0->unknown_8e11_];
+    memset(var1, 0, 0x30);
+    var1->unknown_1c_ = -1;
+    var1->unknown_30_ = 0;
+    var2 = &arg0->unknown_72f0_[arg0->unknown_8e12_];
+    func_ov000_02157cdc(var2);
+    var3 = &arg0->unknown_7530_[arg0->unknown_8e13_];
+    memset(var3, 0, 0x20);
+    var3->unknown_20_ = 0;
 
-    if (mode == 0) {
-        if (IsPartyIndex(index)) {
-            action->actionId = 0x39c;
+    if (arg2 == 0) {
+        if (inline_ov000_02156cc4_2(arg1)) {
+            var0->unknown_0_ = 0x39c;
         } else {
-            action->actionId = 0x39d;
+            var0->unknown_0_ = 0x39d;
         }
-        func_ov000_0215a88c(battle, effect, 0x35);
+        func_ov000_0215a88c(arg0, var3, 0x35);
     } else {
-        action->actionId = 0x39a;
-        func_ov000_0215a88c(battle, effect, 0x213);
+        var0->unknown_0_ = 0x39a;
+        func_ov000_0215a88c(arg0, var3, 0x213);
     }
-    action->flags |= 4;
+    var0->unknown_b_ |= 4;
 
-    actor->combatantId = index;
-    actor->hp = c->currentStats_->primaryStats.currHP;
-    actor->mp = c->currentStats_->primaryStats.currMP;
-    func_ov000_0215ccbc((int)battle, (struct OutStruct0215ccbc*)effect, c, 0, CurrHP(c), CurrMP(c), 0, 0);
-    target->combatantId = index;
-    target->field17 = 1;
-    func_ov000_0215ffc4(target, effect, 0);
-    func_ov000_02160068((struct Obj02160068*)action, (struct Node02160068*)actor);
-    func_ov000_021600cc((struct Obj021600cc*)action, (struct Node021600cc*)target);
+    var1->unknown_20_ = arg1;
+    var1->unknown_22_ = var4->currentStats_->primaryStats.currHP;
+    var1->unknown_24_ = var4->currentStats_->primaryStats.currMP;
+    func_ov000_0215ccbc((int)arg0, (struct Struct_ov000_021584e8*)var3, var4, 0, inline_ov000_021584e8(var4), inline_ov000_021584e8_2(var4), 0, 0);
+    var2->unknown_e_ = arg1;
+    var2->unknown_17_ = 1;
+    func_ov000_0215ffc4(var2, var3, 0);
+    func_ov000_02160068((struct Struct_ov000_0215767c_7*)var0, (struct Struct_ov000_0215767c_6*)var1);
+    func_ov000_021600cc((struct Struct_ov000_0215767c_5*)var0, (struct Struct_ov000_0215767c_4*)var2);
 
-    battle->actionCount++;
-    battle->actorCount++;
-    battle->targetCount++;
-    battle->effectCount++;
+    arg0->unknown_8e10_++;
+    arg0->unknown_8e11_++;
+    arg0->unknown_8e12_++;
+    arg0->unknown_8e13_++;
 }

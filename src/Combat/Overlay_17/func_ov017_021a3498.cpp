@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-struct ClearList02046968;
-extern "C" void func_02046968(struct ClearList02046968* list);
-extern "C" void func_ov017_021a3544(void* self, void* ptr0);
+struct Struct_02046968;
+extern "C" void func_02046968(struct Struct_02046968* arg0);
+extern "C" void func_ov017_021a3544(void* arg0, void* arg1);
 
-struct Buf72_021a3498 {
-    int words[18];
+struct Struct_ov017_021d6a34 {
+    int unknown_0_[18];
 };
-extern struct Buf72_021a3498 data_ov017_021d6a34;
+extern struct Struct_ov017_021d6a34 data_ov017_021d6a34;
 
-struct Ctx021a3498 {
-    void* field0;
+struct Struct_0203d028_4 {
+    void* unknown_0_;
 };
 
 // USA: func_ov017_021a3498
-extern "C" ARM void func_ov017_021a3498(struct Ctx021a3498* self) {
+extern "C" ARM void func_ov017_021a3498(struct Struct_0203d028_4* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x134};
+ enum {Enum_ov017_021a3498_852=0x134};
 #else
- enum {regionalOffset0=0x354};
+ enum {Enum_ov017_021a3498_852=0x354};
 #endif
-    void* ptr = self->field0;
-    if (ptr != NULL && *((unsigned char*)ptr + 1) != 0) {
-        int obj = (int)GetGameResources();
-        if (obj != 0) {
-            struct Buf72_021a3498 local = data_ov017_021d6a34;
-            int* p = local.words;
-            while (*p != 0xffff) {
-                signed char val = *(signed char*)self->field0;
-                if (val == *p) {
-                    *((unsigned char*)(long)obj + 0x4000 + regionalOffset0) = 0xc;
+    void* var0 = arg0->unknown_0_;
+    if (var0 != NULL && *((unsigned char*)var0 + 1) != 0) {
+        int var1 = (int)GetGameResources();
+        if (var1 != 0) {
+            struct Struct_ov017_021d6a34 var2 = data_ov017_021d6a34;
+            int* var3 = var2.unknown_0_;
+            while (*var3 != 0xffff) {
+                signed char var4 = *(signed char*)arg0->unknown_0_;
+                if (var4 == *var3) {
+                    *((unsigned char*)(long)var1 + 0x4000 + Enum_ov017_021a3498_852) = 0xc;
                     break;
                 }
-                p++;
+                var3++;
             }
         }
     }
-    func_02046968((struct ClearList02046968*)self);
-    func_ov017_021a3544(self, self->field0);
+    func_02046968((struct Struct_02046968*)arg0);
+    func_ov017_021a3544(arg0, arg0->unknown_0_);
 }

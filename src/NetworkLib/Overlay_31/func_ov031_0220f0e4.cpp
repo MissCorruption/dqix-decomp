@@ -3,15 +3,15 @@
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 
-struct Global0224e540 {
-	int pad[10]; /* 0x0-0x24 */
-	int field28;
+struct Struct_ov031_0224e540_3 {
+	int unknown_0_[10]; /* 0x0-0x24 */
+	int unknown_28_;
 };
-extern Global0224e540 data_ov031_0224e540;
+extern Struct_ov031_0224e540_3 data_ov031_0224e540;
 
 // USA: func_ov031_0220f0e4
-extern "C" ARM void func_ov031_0220f0e4(int v) {
-	unsigned int mask = DisableIRQInterrupts();
-	data_ov031_0224e540.field28 = v;
-	SetIRQInterruptState(mask);
+extern "C" ARM void func_ov031_0220f0e4(int arg0) {
+	unsigned int var0 = DisableIRQInterrupts();
+	data_ov031_0224e540.unknown_28_ = arg0;
+	SetIRQInterruptState(var0);
 }

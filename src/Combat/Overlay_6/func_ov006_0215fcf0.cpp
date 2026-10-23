@@ -1,37 +1,37 @@
 // USA: func_ov006_0215fcf0
 #include <globaldefs.h>
 
-struct StatusOwner02081164;
-struct Obj2081;
+struct Struct_02081164;
+struct Struct_0207fdcc_2;
 extern "C" void func_0208103c(void*, int, int);
 extern "C" void func_02080798(void*, int, int);
-extern "C" void func_02081164(StatusOwner02081164*, int, int);
+extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" int func_020813ec(void*, int);
 extern "C" void func_02080c68(void*, int, int);
-extern "C" void func_02080c20(Obj2081*, int);
+extern "C" void func_02080c20(Struct_0207fdcc_2*, int);
 
-struct Obj0215fcf0 {
+struct Struct_ov006_0215fcf0 {
 #if defined(jpn)
-    unsigned char unknown[0xc];
-    void* menu;
-    unsigned char unknownAfterMenu[0x386 - 0x10];
+    unsigned char unknown_0_[0xc];
+    void* unknown_14_;
+    unsigned char unknown_10_[0x386 - 0x10];
 #else
-    unsigned char unknown[0x14];
-    void* menu;
-    unsigned char unknownAfterMenu[0x386 - 0x18];
+    unsigned char unknown1_0_[0x14];
+    void* unknown_14_;
+    unsigned char unknown_18_[0x386 - 0x18];
 #endif
-    unsigned char sortMode;
+    unsigned char unknown_386_;
 };
 
-extern "C" ARM void func_ov006_0215fcf0(Obj0215fcf0* owner) {
-    void* menu = owner->menu;
-    int textKey = (short)(owner->sortMode + 0x29);
-    func_0208103c(menu, 0x5a, textKey);
+extern "C" ARM void func_ov006_0215fcf0(Struct_ov006_0215fcf0* arg0) {
+    void* var0 = arg0->unknown_14_;
+    int var1 = (short)(arg0->unknown_386_ + 0x29);
+    func_0208103c(var0, 0x5a, var1);
 #if !defined(jpn)
-    func_02080798(menu, 0x5a, 1);
+    func_02080798(var0, 0x5a, 1);
 #endif
-    func_02081164((StatusOwner02081164*)menu, 0xf, 1);
-    func_020813ec(menu, 0xf);
-    func_02080c68(menu, 0xf, 2);
-    func_02080c20((Obj2081*)menu, 0xf);
+    func_02081164((Struct_02081164*)var0, 0xf, 1);
+    func_020813ec(var0, 0xf);
+    func_02080c68(var0, 0xf, 2);
+    func_02080c20((Struct_0207fdcc_2*)var0, 0xf);
 }

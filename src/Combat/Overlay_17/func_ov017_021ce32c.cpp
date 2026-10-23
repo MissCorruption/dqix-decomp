@@ -2,44 +2,44 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
-extern "C" int func_020546a8(void* obj);
-extern "C" int func_020546bc(void* obj);
-extern "C" int func_02039860(void* obj);
-extern "C" int func_02039874(void* obj);
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" int func_020546a8(void* arg0);
+extern "C" int func_020546bc(void* arg0);
+extern "C" int func_02039860(void* arg0);
+extern "C" int func_02039874(void* arg0);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 
-struct LocalEvt021ce32c {
-	unsigned char tag;
-	unsigned char pad0[3];
-	unsigned short field4;
-	unsigned char field6;
-	unsigned char field7;
-	unsigned char field8;
-	unsigned char field9;
-	unsigned char fielda;
-	unsigned char pad1[9];
+struct Struct_ov017_021ce32c {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[3];
+	unsigned short unknown_4_;
+	unsigned char unknown_6_;
+	unsigned char unknown_7_;
+	unsigned char unknown_8_;
+	unsigned char unknown_9_;
+	unsigned char unknown_a_;
+	unsigned char unknown_b_[9];
 };
 
 // USA: func_ov017_021ce32c
-extern "C" ARM void func_ov017_021ce32c(int id) {
+extern "C" ARM void func_ov017_021ce32c(int arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x2c6};
+ enum {Enum_ov017_021ce32c_722=0x2c6};
 #else
- enum {regionalOffset0=0x2d2};
+ enum {Enum_ov017_021ce32c_722=0x2d2};
 #endif
-	void* p = func_0202ae24();
-	GameObject* c = func_0200ff58(GameState::GetInstance(), id);
-	if (c == NULL) {
+	void* var0 = func_0202ae24();
+	GameObject* var1 = func_0200ff58(GameState::GetInstance(), arg0);
+	if (var1 == NULL) {
 		return;
 	}
-	LocalEvt021ce32c buf;
-	buf.tag = 0x26;
-	buf.field4 = id;
-	buf.field6 = func_020546a8(c);
-	buf.field7 = func_020546bc(c);
-	buf.field8 = func_02039860(c);
-	buf.field9 = func_02039874(c);
-	buf.fielda = *(unsigned char*)((char*)c + regionalOffset0);
-	func_0205e330(p, &buf, 0);
+	Struct_ov017_021ce32c var2;
+	var2.unknown_0_ = 0x26;
+	var2.unknown_4_ = arg0;
+	var2.unknown_6_ = func_020546a8(var1);
+	var2.unknown_7_ = func_020546bc(var1);
+	var2.unknown_8_ = func_02039860(var1);
+	var2.unknown_9_ = func_02039874(var1);
+	var2.unknown_a_ = *(unsigned char*)((char*)var1 + Enum_ov017_021ce32c_722);
+	func_0205e330(var0, &var2, 0);
 }

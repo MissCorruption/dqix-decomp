@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct LocalBuf021ccc34 {
-    unsigned char tag;
-    unsigned char pad0[3];
-    unsigned char bits0_2 : 3;
-    unsigned char bit3 : 1;
-    unsigned char rest : 4;
-    unsigned char data[15];
+struct Struct_ov017_021ccc34 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned char unknown_4_0_ : 3;
+    unsigned char unknown_4_3_ : 1;
+    unsigned char unknown_4_4_ : 4;
+    unsigned char unknown_5_[15];
 };
 
-struct Table464View021ccc34 {
-    char pad[0x464];
-    unsigned char b;
+struct Struct_ov017_021ccc34_2 {
+    char unknown_0_[0x464];
+    unsigned char unknown_464_;
 };
 
 // USA: func_ov017_021ccc34
-extern "C" ARM void func_ov017_021ccc34(int combatantId) {
-    GameState* bs = GameState::GetInstance();
-    GameObject* c = func_0200ff1c(bs, combatantId);
-    if (!c) return;
-    int field150 = func_02053c6c((unsigned char*)c);
-    if (!field150) return;
+extern "C" ARM void func_ov017_021ccc34(int arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = func_0200ff1c(var0, arg0);
+    if (!var1) return;
+    int var2 = func_02053c6c((unsigned char*)var1);
+    if (!var2) return;
 
-    void* p = func_0202ae24();
-    struct LocalBuf021ccc34 buf;
-    unsigned char x = (unsigned char)combatantId;
-    buf.tag = 0xe;
-    buf.bits0_2 = x;
-    buf.bit3 = 0;
-    int i;
-    for (i = 0; i < 15; i++) {
-        buf.data[i] = *(unsigned char*)((char*)field150 + 0x464 + i);
+    void* var3 = func_0202ae24();
+    struct Struct_ov017_021ccc34 var4;
+    unsigned char var5 = (unsigned char)arg0;
+    var4.unknown_0_ = 0xe;
+    var4.unknown_4_0_ = var5;
+    var4.unknown_4_3_ = 0;
+    int var6;
+    for (var6 = 0; var6 < 15; var6++) {
+        var4.unknown_5_[var6] = *(unsigned char*)((char*)var2 + 0x464 + var6);
     }
-    func_0205e330(p, &buf, 0);
+    func_0205e330(var3, &var4, 0);
 
-    buf.bit3 = 1;
-    for (i = 0; i < 12; i++) {
-        struct Table464View021ccc34* p2 = (struct Table464View021ccc34*)((char*)field150 + (i + 15));
-        buf.data[i] = p2->b;
+    var4.unknown_4_3_ = 1;
+    for (var6 = 0; var6 < 12; var6++) {
+        struct Struct_ov017_021ccc34_2* var7 = (struct Struct_ov017_021ccc34_2*)((char*)var2 + (var6 + 15));
+        var4.unknown_5_[var6] = var7->unknown_464_;
     }
-    func_0205e330(p, &buf, 0);
+    func_0205e330(var3, &var4, 0);
 }

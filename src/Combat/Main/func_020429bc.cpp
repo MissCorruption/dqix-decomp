@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 #include "Resource/FontGlyphTable.h"
 
-struct FontTableGlobals {
+struct Struct_02107800_2 {
 #if defined(jpn)
-    char unknown0[0x14];
-    FontGlyphTable* font6;
-    char unknown18[8];
-    FontGlyphTable* font8;
-    FontGlyphTable* font10;
-    FontGlyphTable* font12;
+    char unknown_0_[0x14];
+    Struct_0203bebc* unknown_14_;
+    char unknown_18_[8];
+    Struct_0203bebc* unknown_20_;
+    Struct_0203bebc* unknown_24_;
+    Struct_0203bebc* unknown_28_;
 #else
-    char unknown0[0x10];
-    FontGlyphTable* font8;
+    char unknown1_0_[0x10];
+    Struct_0203bebc* unknown_10_;
 #endif
 };
 
-extern FontTableGlobals data_02107800;
+extern Struct_02107800_2 data_02107800;
 
 // USA: func_020429bc
-extern "C" ARM FontGlyphTable* func_020429bc(int pixelSize) {
-    FontGlyphTable* table = NULL;
+extern "C" ARM Struct_0203bebc* func_020429bc(int arg0) {
+    Struct_0203bebc* var0 = NULL;
 #if defined(jpn)
-    switch (pixelSize) {
-    case 6: table = data_02107800.font6; break;
-    case 8: table = data_02107800.font8; break;
-    case 10: table = data_02107800.font10; break;
-    case 12: table = data_02107800.font12; break;
+    switch (arg0) {
+    case 6: var0 = data_02107800.unknown_14_; break;
+    case 8: var0 = data_02107800.unknown_20_; break;
+    case 10: var0 = data_02107800.unknown_24_; break;
+    case 12: var0 = data_02107800.unknown_28_; break;
     }
 #else
-    if (pixelSize == 8) table = data_02107800.font8;
+    if (arg0 == 8) var0 = data_02107800.unknown_10_;
 #endif
-    return table;
+    return var0;
 }

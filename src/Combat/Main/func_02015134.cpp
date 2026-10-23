@@ -3,37 +3,37 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kOffset68 = 0x88 };
+enum { Enum_02015134_104 = 0x88 };
 #else
-enum { kOffset68 = 0x68 };
+enum { Enum_02015134_104 = 0x68 };
 #endif
 
-extern "C" void func_02014d18(int id, char* ext, char* outBuf);
+extern "C" void func_02014d18(int arg0, char* arg1, char* arg2);
 void* GetFileFromNARCInMemory(const char* path);
-extern "C" void func_0204bf30(void* p);
-struct RenderParams0204bf44;
-struct RenderSource0204bf44;
-extern "C" void func_0204bf44(RenderParams0204bf44*, void*, RenderSource0204bf44*, unsigned int);
+extern "C" void func_0204bf30(void* arg0);
+struct Struct_02015134_3;
+struct Struct_02015134_4;
+extern "C" void func_0204bf44(Struct_02015134_3*, void*, Struct_02015134_4*, unsigned int);
 
 extern char data_020ef1ee;
 
 // USA: func_02015134
-extern "C" ARM int func_02015134(Zone3D* zone, Struct02012ff0* tracker, Src02015134* src) {
-    Ctx02015134* ctx = (Ctx02015134*)zone;
-    Out02015134* out = (Out02015134*)tracker;
-    void* allocator = *(void**)((char*)ctx + kOffset68);
-    char buf[0x50];
-    unsigned int size;
-    func_02014d18(src->id, &data_020ef1ee, buf);
-    void* fileData = GetFileFromNARCInMemory(buf);
-    if (fileData) {
-        out->field4 = ((SafeAllocator*)allocator)->Allocate(0x4c);
-        if (out->field4 == 0) return 0;
-        void* decompressed = DecompressLZ77FileIntoAllocatedSpace(*(SafeAllocator*)allocator, fileData, size);
-        if (decompressed == 0) return 0;
-        func_0204bf30(out->field4);
-        func_0204bf44((RenderParams0204bf44*)out->field4, allocator, (RenderSource0204bf44*)decompressed, size);
+extern "C" ARM int func_02015134(Zone3D* arg0, Struct_02012ff0* arg1, Struct_02014a24* arg2) {
+    Struct_02015134* var0 = (Struct_02015134*)arg0;
+    Struct_02015134_2* var1 = (Struct_02015134_2*)arg1;
+    void* var2 = *(void**)((char*)var0 + Enum_02015134_104);
+    char var3[0x50];
+    unsigned int var4;
+    func_02014d18(arg2->unknown_4_, &data_020ef1ee, var3);
+    void* var5 = GetFileFromNARCInMemory(var3);
+    if (var5) {
+        var1->unknown_4_ = ((SafeAllocator*)var2)->Allocate(0x4c);
+        if (var1->unknown_4_ == 0) return 0;
+        void* var6 = DecompressLZ77FileIntoAllocatedSpace(*(SafeAllocator*)var2, var5, var4);
+        if (var6 == 0) return 0;
+        func_0204bf30(var1->unknown_4_);
+        func_0204bf44((Struct_02015134_3*)var1->unknown_4_, var2, (Struct_02015134_4*)var6, var4);
     }
-    out->flag = 1;
+    var1->unknown_0_ = 1;
     return 1;
 }

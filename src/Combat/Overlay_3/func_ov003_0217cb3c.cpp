@@ -3,96 +3,96 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Graphics.h"
 
-struct List0204af64;
-extern "C" void func_0204af64(List0204af64* graphics);
-extern "C" void func_0204b5b4(void* graphics, int priority);
-extern "C" void func_0204b11c(unsigned char* graphics, int value);
-struct Obj0204b5e8;
-extern "C" void func_0204b5e8(Obj0204b5e8* graphics, int a, int b);
-struct AllocTarget0204b12c;
-extern "C" void func_0204b12c(AllocTarget0204b12c* graphics, SafeAllocator* allocator);
-struct Foo0204af38;
-extern "C" void func_0204af38(Foo0204af38* graphics, int count, SafeAllocator* allocator);
-struct ActiveEntry02046900;
-extern "C" int func_02046900(ActiveEntry02046900* pac);
-struct Rec020467f0;
-extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
-extern "C" void func_0204b174(void* graphics, void* file, SafeAllocator* allocator, unsigned int size);
-struct Obj0204b8d0;
-extern "C" void func_0204b8d0(Obj0204b8d0* graphics, unsigned int a, int b, int c, short d, short e, short width, short height, unsigned short f);
-struct List0204b0e8;
-extern "C" void func_0204b0e8(List0204b0e8* graphics, void* characters);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(Struct_02020cb8* arg0);
+extern "C" void func_0204b5b4(void* arg0, int arg1);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+struct Struct_02020cb8_5;
+extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
+struct Struct_0204b12c;
+extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
+struct Struct_0204af38;
+extern "C" void func_0204af38(Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(Struct_02020cb8_4* arg0);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" void func_0204b174(void* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
+struct Struct_0204b8d0;
+extern "C" void func_0204b8d0(Struct_0204b8d0* arg0, unsigned int arg1, int arg2, int arg3, short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
 
-struct BackgroundGraphics0217cb3c {
-    char unk_0[0x1c];
-    unsigned char screen_ : 4;
-    unsigned char palette_ : 4;
-    char unk_1d[3];
+struct Struct_ov003_0217cb3c {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    char unknown_1d_[3];
 };
 
-struct Screen0217cb3c {
-    char unk_0[0x18];
-    SafeAllocator subAllocator_;
-    SafeAllocator mainAllocator_;
-    BackgroundGraphics0217cb3c subBackground_;
-    BackgroundGraphics0217cb3c mainBackground_;
-    char unk_80[0xb4];
-    int fileIds_[2];
+struct Struct_ov003_0217cb3c_2 {
+    char unknown_0_[0x18];
+    SafeAllocator unknown_18_;
+    SafeAllocator unknown_2c_;
+    Struct_ov003_0217cb3c unknown_40_;
+    Struct_ov003_0217cb3c unknown_60_;
+    char unknown_80_[0xb4];
+    int unknown_134_[2];
 };
 
 // USA: func_ov003_0217cb3c
-extern "C" ARM void func_ov003_0217cb3c(Screen0217cb3c* self, int mainScreen, int alternate) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    BackgroundGraphics0217cb3c* background;
-    SafeAllocator* allocator;
+extern "C" ARM void func_ov003_0217cb3c(Struct_ov003_0217cb3c_2* arg0, int arg1, int arg2) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    Struct_ov003_0217cb3c* var1;
+    SafeAllocator* var2;
 
-    if (mainScreen != 0) {
+    if (arg1 != 0) {
         BG1CNT = (BG1CNT & 0x43) | 0xf00;
-        background = &self->mainBackground_;
+        var1 = &arg0->unknown_60_;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x300;
-        allocator = &self->mainAllocator_;
-        func_0204af64((List0204af64*)background);
-        background->screen_ = 0;
-        background->palette_ = 1;
-        func_0204b5b4(background, 1);
+        var2 = &arg0->unknown_2c_;
+        func_0204af64((Struct_02020cb8*)var1);
+        var1->unknown_1c_0_ = 0;
+        var1->unknown_1c_4_ = 1;
+        func_0204b5b4(var1, 1);
     } else {
         BG0CNTSUB = (BG0CNTSUB & 0x43) | 0xf00;
-        background = &self->subBackground_;
+        var1 = &arg0->unknown_40_;
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
-        allocator = &self->subAllocator_;
-        func_0204af64((List0204af64*)background);
-        background->screen_ = 1;
-        background->palette_ = 0;
-        func_0204b5b4(background, 0);
+        var2 = &arg0->unknown_18_;
+        func_0204af64((Struct_02020cb8*)var1);
+        var1->unknown_1c_0_ = 1;
+        var1->unknown_1c_4_ = 0;
+        func_0204b5b4(var1, 0);
     }
 
-    allocator->Reset();
+    var2->Reset();
 
-    int fileId;
-    if (alternate != 0) {
-        fileId = self->fileIds_[1];
+    int var3;
+    if (arg2 != 0) {
+        var3 = arg0->unknown_134_[1];
     } else {
-        fileId = self->fileIds_[0];
+        var3 = arg0->unknown_134_[0];
     }
 
-    func_0204b11c((unsigned char*)background, 0);
-    func_0204b5e8((Obj0204b5e8*)background, 0, 0);
-    func_0204b12c((AllocTarget0204b12c*)background, allocator);
-    func_0204af38((Foo0204af38*)background, 1, allocator);
+    func_0204b11c((unsigned char*)var1, 0);
+    func_0204b5e8((Struct_02020cb8_5*)var1, 0, 0);
+    func_0204b12c((Struct_0204b12c*)var1, var2);
+    func_0204af38((Struct_0204af38*)var1, 1, var2);
 
-    void* name;
-    void* file;
-    unsigned int size;
-    loader->GetLoadedFileByID(fileId, &file, &size);
-    int numFiles = func_02046900((ActiveEntry02046900*)file);
-    for (int i = 0; i < numFiles; i++) {
-        unsigned int dataSize;
-        void* data = func_020467f0((Rec020467f0*)file, i, &name, (int*)&dataSize);
-        if (data != NULL) {
-            func_0204b174(background, data, allocator, dataSize);
+    void* var4;
+    void* var5;
+    unsigned int var6;
+    var0->GetLoadedFileByID(var3, &var5, &var6);
+    int var7 = func_02046900((Struct_02020cb8_4*)var5);
+    for (int var8 = 0; var8 < var7; var8++) {
+        unsigned int var9;
+        void* var10 = func_020467f0((Struct_02020aec*)var5, var8, &var4, (int*)&var9);
+        if (var10 != NULL) {
+            func_0204b174(var1, var10, var2, var9);
         }
     }
 
-    func_0204b8d0((Obj0204b8d0*)background, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
-    func_0204b0e8((List0204b0e8*)background, NULL);
+    func_0204b8d0((Struct_0204b8d0*)var1, 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+    func_0204b0e8((Struct_02020cb8_2*)var1, NULL);
 }

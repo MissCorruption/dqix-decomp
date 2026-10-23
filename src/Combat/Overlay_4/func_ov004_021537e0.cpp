@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Elem021537e0 {
-    unsigned char pad0[2];
-    short f2;
-    unsigned char pad4;
-    unsigned char f5;
+struct Struct_ov004_021537e0 {
+    unsigned char unknown_0_[2];
+    short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
 };
 
-extern Elem021537e0* data_ov004_021707c0;
+extern Struct_ov004_021537e0* data_ov004_021707c0;
 
 // USA: func_ov004_021537e0
 extern "C" ARM int func_ov004_021537e0() {
-    short accum = 0;
-    short lr = 0;
-    Elem021537e0* elem;
-    Elem021537e0* arr;
-    while (lr <= 0xb) {
-        unsigned char idx = 0;
-        arr = data_ov004_021707c0;
-        while (idx < 20) {
-            elem = &arr[idx];
-            if (elem->f2 == lr) goto found;
-            idx = (unsigned char)(idx + 1);
+    short var0 = 0;
+    short var1 = 0;
+    Struct_ov004_021537e0* var2;
+    Struct_ov004_021537e0* var3;
+    while (var1 <= 0xb) {
+        unsigned char var4 = 0;
+        var3 = data_ov004_021707c0;
+        while (var4 < 20) {
+            var2 = &var3[var4];
+            if (var2->unknown_2_ == var1) goto found;
+            var4 = (unsigned char)(var4 + 1);
         }
-        elem = 0;
+        var2 = 0;
 found:
-        if (elem) accum = (short)(accum + elem->f5);
-        lr = (short)(lr + 1);
+        if (var2) var0 = (short)(var0 + var2->unknown_5_);
+        var1 = (short)(var1 + 1);
     }
-    return accum;
+    return var0;
 }

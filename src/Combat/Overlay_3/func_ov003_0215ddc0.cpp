@@ -1,74 +1,74 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion98 = 0xb0 };
-enum { kRegion38 = 0x50 };
-enum { kRegion3a = 0x52 };
-enum { kRegion3c = 0x54 };
-enum { kRegion3e = 0x56 };
-enum { kRegion40 = 0x58 };
-enum { kRegion42 = 0x5a };
-enum { kRegion44 = 0x5c };
-enum { kRegion46 = 0x5e };
-enum { kRegion14f = 0x167 };
-enum { kRegion149 = 0x161 };
-enum { kRegion14d = 0x165 };
-enum { kRegion7c = 0x94 };
-enum { kRegion960 = 0x800 };
+enum { Enum_ov003_0215ddc0_152 = 0xb0 };
+enum { Enum_ov003_0215ddc0_56 = 0x50 };
+enum { Enum_ov003_0215ddc0_58 = 0x52 };
+enum { Enum_ov003_0215ddc0_60 = 0x54 };
+enum { Enum_ov003_0215ddc0_62 = 0x56 };
+enum { Enum_ov003_0215ddc0_64 = 0x58 };
+enum { Enum_ov003_0215ddc0_66 = 0x5a };
+enum { Enum_ov003_0215ddc0_68 = 0x5c };
+enum { Enum_ov003_0215ddc0_70 = 0x5e };
+enum { Enum_ov003_0215ddc0_335 = 0x167 };
+enum { Enum_ov003_0215ddc0_329 = 0x161 };
+enum { Enum_ov003_0215ddc0_333 = 0x165 };
+enum { Enum_ov003_0215ddc0_124 = 0x94 };
+enum { Enum_ov003_0215ddc0_2400 = 0x800 };
 #else
-enum { kRegion98 = 0x98 };
-enum { kRegion38 = 0x38 };
-enum { kRegion3a = 0x3a };
-enum { kRegion3c = 0x3c };
-enum { kRegion3e = 0x3e };
-enum { kRegion40 = 0x40 };
-enum { kRegion42 = 0x42 };
-enum { kRegion44 = 0x44 };
-enum { kRegion46 = 0x46 };
-enum { kRegion14f = 0x14f };
-enum { kRegion149 = 0x149 };
-enum { kRegion14d = 0x14d };
-enum { kRegion7c = 0x7c };
-enum { kRegion960 = 0x960 };
+enum { Enum_ov003_0215ddc0_152 = 0x98 };
+enum { Enum_ov003_0215ddc0_56 = 0x38 };
+enum { Enum_ov003_0215ddc0_58 = 0x3a };
+enum { Enum_ov003_0215ddc0_60 = 0x3c };
+enum { Enum_ov003_0215ddc0_62 = 0x3e };
+enum { Enum_ov003_0215ddc0_64 = 0x40 };
+enum { Enum_ov003_0215ddc0_66 = 0x42 };
+enum { Enum_ov003_0215ddc0_68 = 0x44 };
+enum { Enum_ov003_0215ddc0_70 = 0x46 };
+enum { Enum_ov003_0215ddc0_335 = 0x14f };
+enum { Enum_ov003_0215ddc0_329 = 0x149 };
+enum { Enum_ov003_0215ddc0_333 = 0x14d };
+enum { Enum_ov003_0215ddc0_124 = 0x7c };
+enum { Enum_ov003_0215ddc0_2400 = 0x960 };
 #endif
 
 #if defined(jpn)
-enum { kRows = 4 };
+enum { Enum_ov003_0215ddc0_2 = 4 };
 extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
 #else
-enum { kRows = 2 };
+enum { Enum_ov003_0215ddc0_2 = 2 };
 #endif
 #include "std_library_functions.h"
 
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
-extern "C" void func_ov003_0215de6c(char* base, void* buf);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void func_ov003_0215de6c(char* arg0, void* arg1);
 #if !defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, int p6, int p7);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov003_0215ddc0
-extern "C" ARM void func_ov003_0215ddc0(char* base) {
-    func_0205de24((struct Struct0205de24*)(base + kRegion98), 0, 2);
+extern "C" ARM void func_ov003_0215ddc0(char* arg0) {
+    func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov003_0215ddc0_152), 0, 2);
 
-    *(unsigned short*)(base + 0x100 + kRegion38) = 0xb;
-    *(unsigned short*)(base + 0x100 + kRegion3a) = 2;
-    *(unsigned short*)(base + 0x100 + kRegion3c) = 0x14;
-    *(unsigned short*)(base + 0x100 + kRegion3e) = 0;
-    *(unsigned short*)(base + 0x100 + kRegion40) = 0x10;
-    *(unsigned short*)(base + 0x100 + kRegion42) = kRows;
-    *(unsigned short*)(base + 0x100 + kRegion44) = 8;
-    *(unsigned short*)(base + 0x100 + kRegion46) = 8;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_56) = 0xb;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_58) = 2;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_60) = 0x14;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_62) = 0;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_64) = 0x10;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_66) = Enum_ov003_0215ddc0_2;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_68) = 8;
+    *(unsigned short*)(arg0 + 0x100 + Enum_ov003_0215ddc0_70) = 8;
 
-    *(unsigned char*)(base + kRegion14f) = 8;
-    *(unsigned char*)(base + kRegion149) = 0;
-    *(unsigned char*)(base + kRegion14d) = 1;
+    *(unsigned char*)(arg0 + Enum_ov003_0215ddc0_335) = 8;
+    *(unsigned char*)(arg0 + Enum_ov003_0215ddc0_329) = 0;
+    *(unsigned char*)(arg0 + Enum_ov003_0215ddc0_333) = 1;
 
-    memset(*(void**)(base + kRegion7c), 0, kRegion960);
-    func_ov003_0215de6c(base, *(void**)(base + kRegion7c));
+    memset(*(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, Enum_ov003_0215ddc0_2400);
+    func_ov003_0215de6c(arg0, *(void**)(arg0 + Enum_ov003_0215ddc0_124));
 
 #if defined(jpn)
-    func_0205d304(base + kRegion98, *(void**)(base + kRegion7c), 0, 0, 0, 1, 0);
+    func_0205d304(arg0 + Enum_ov003_0215ddc0_152, *(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(base + kRegion98, *(void**)(base + kRegion7c), 0, 0, 0, 1, 0, 0);
+    func_0205d304(arg0 + Enum_ov003_0215ddc0_152, *(void**)(arg0 + Enum_ov003_0215ddc0_124), 0, 0, 0, 1, 0, 0);
 #endif
 }

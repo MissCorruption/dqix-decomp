@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
 // USA: func_020d1b68
-extern "C" ARM void func_020d1b68(const unsigned char* table, unsigned char* pcrc, const unsigned char* data, unsigned int len) {
-    unsigned char crc = *pcrc;
-    unsigned int i = 0;
-    if (i < len) {
+extern "C" ARM void func_020d1b68(const unsigned char* arg0, unsigned char* arg1, const unsigned char* arg2, unsigned int arg3) {
+    unsigned char var0 = *arg1;
+    unsigned int var1 = 0;
+    if (var1 < arg3) {
         do {
-            crc = table[(unsigned char)(crc ^ *data++)];
-            i++;
-        } while (i < len);
+            var0 = arg0[(unsigned char)(var0 ^ *arg2++)];
+            var1++;
+        } while (var1 < arg3);
     }
-    *pcrc = crc;
+    *arg1 = var0;
 }

@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 
-extern "C" unsigned int _u32_div_f(unsigned int a, unsigned int b);
+extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
 
 extern int data_0210fcf4;
 extern int data_0210fcb4;
 
-struct Obj_020bcd30 {
-    char pad0[0x20];
-    int f20;
-    char pad24[4];
-    int f28;
-    int f2c;
-    int f30;
-    int f34;
-    int f38;
-    char pad3c[0x48 - 0x3c];
-    int f48;
-    unsigned char f4c[1];
+struct Struct_020bcd30 {
+    char unknown_0_[0x20];
+    int unknown_20_;
+    char unknown_24_[4];
+    int unknown_28_;
+    int unknown_2c_;
+    int unknown_30_;
+    int unknown_34_;
+    int unknown_38_;
+    char unknown_3c_[0x48 - 0x3c];
+    int unknown_48_;
+    unsigned char unknown_4c_[1];
 };
 
-struct TableEntry_020bcd30 {
-    int a;
-    int b;
+struct Struct_020bcd30_2 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-typedef int (*Callback_020bcd30)(void*, int, int*, unsigned int, int, int);
+typedef int (*Type_020bcd30)(void*, int, int*, unsigned int, int, int);
 
 // USA: func_020bcd30
-extern "C" ARM void func_020bcd30(Obj_020bcd30* obj, void* param2) {
-    unsigned int divResult = _u32_div_f(obj->f28, obj->f2c);
-    int mulVal = divResult * obj->f38;
-    int i = 0;
-    if (obj->f48 > 0) {
+extern "C" ARM void func_020bcd30(Struct_020bcd30* arg0, void* arg1) {
+    unsigned int var0 = _u32_div_f(arg0->unknown_28_, arg0->unknown_2c_);
+    int var1 = var0 * arg0->unknown_38_;
+    int var2 = 0;
+    if (arg0->unknown_48_ > 0) {
         do {
-            unsigned char idx = obj->f4c[i];
-            int word = ((TableEntry_020bcd30*)&data_0210fcf4)[idx].a;
-            ((int*)&data_0210fcb4)[i] = word + mulVal;
-            i++;
-        } while (i < obj->f48);
+            unsigned char var3 = arg0->unknown_4c_[var2];
+            int var4 = ((Struct_020bcd30_2*)&data_0210fcf4)[var3].unknown_0_;
+            ((int*)&data_0210fcb4)[var2] = var4 + var1;
+            var2++;
+        } while (var2 < arg0->unknown_48_);
     }
-    Callback_020bcd30 cb = (Callback_020bcd30)obj->f30;
-    cb(param2, obj->f48, (int*)&data_0210fcb4, divResult, obj->f20, obj->f34);
+    Type_020bcd30 var5 = (Type_020bcd30)arg0->unknown_30_;
+    var5(arg1, arg0->unknown_48_, (int*)&data_0210fcb4, var0, arg0->unknown_20_, arg0->unknown_34_);
 
-    int newCount = obj->f38 + 1;
-    obj->f38 = newCount;
-    if (newCount >= obj->f2c) {
-        obj->f38 = 0;
+    int var6 = arg0->unknown_38_ + 1;
+    arg0->unknown_38_ = var6;
+    if (var6 >= arg0->unknown_2c_) {
+        arg0->unknown_38_ = 0;
     }
 }

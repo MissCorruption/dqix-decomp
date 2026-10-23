@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct GlobalStruct022496fc {
-	int field0;
-	int field4;
+struct Struct_ov031_022496fc {
+	int unknown_0_;
+	int unknown_4_;
 };
 
-extern GlobalStruct022496fc data_ov031_022496fc;
+extern Struct_ov031_022496fc data_ov031_022496fc;
 
 // USA: func_ov031_02207cd0
 extern "C" ARM int func_ov031_02207cd0() {
-	return data_ov031_022496fc.field4;
+	return data_ov031_022496fc.unknown_4_;
 }

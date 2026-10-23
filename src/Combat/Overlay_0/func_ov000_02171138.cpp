@@ -22,60 +22,60 @@
 
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-struct Obj0203c108;
-extern "C" void func_0203c108(struct Obj0203c108* obj, char* fmt);
+struct Struct_0203c108_3;
+extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 
-extern "C" void func_ov000_0216fe9c(void* obj);
+extern "C" void func_ov000_0216fe9c(void* arg0);
 
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* arg0);
 
 // USA: func_ov000_02171138
-extern "C" ARM void func_ov000_02171138(void* objRaw) {
-    char* obj = (char*)objRaw;
-    int combatantId = *(int*)(obj + 0x4c);
-    if (combatantId < 0) {
+extern "C" ARM void func_ov000_02171138(void* arg0) {
+    char* var0 = (char*)arg0;
+    int var1 = *(int*)(var0 + 0x4c);
+    if (var1 < 0) {
         return;
     }
-    GameState* bs = GameState::GetInstance();
-    combatantId = *(int*)(obj + 0x4c);
-    GameObject* c = func_0200ff1c(bs, combatantId);
-    if (!c) {
+    GameState* var2 = GameState::GetInstance();
+    var1 = *(int*)(var0 + 0x4c);
+    GameObject* var3 = func_0200ff1c(var2, var1);
+    if (!var3) {
         return;
     }
-    char* field150 = (char*)(int)func_02053c6c((unsigned char*)c);
-    if (!field150) {
+    char* var4 = (char*)(int)func_02053c6c((unsigned char*)var3);
+    if (!var4) {
         return;
     }
-    int off134 = *(int*)((char*)c + 0x134);
-    func_0203c108((struct Obj0203c108*)(obj + REGION_OFFSET_0), (char*)off134);
-    *(int*)(obj + REGION_OFFSET_1) = 2;
-    int idx950 = *(int*)(field150 + REGION_OFFSET_2);
-    *(unsigned char*)(obj + REGION_OFFSET_3) = (unsigned char)idx950;
-    idx950 = *(int*)(field150 + REGION_OFFSET_2);
-    char* p = field150 + idx950 * 2 + 0x100;
-    unsigned short val = *(unsigned short*)(p + 0x6c);
-    *(unsigned char*)(obj + REGION_OFFSET_4) = (unsigned char)val;
+    int var5 = *(int*)((char*)var3 + 0x134);
+    func_0203c108((struct Struct_0203c108_3*)(var0 + REGION_OFFSET_0), (char*)var5);
+    *(int*)(var0 + REGION_OFFSET_1) = 2;
+    int var6 = *(int*)(var4 + REGION_OFFSET_2);
+    *(unsigned char*)(var0 + REGION_OFFSET_3) = (unsigned char)var6;
+    var6 = *(int*)(var4 + REGION_OFFSET_2);
+    char* var7 = var4 + var6 * 2 + 0x100;
+    unsigned short var8 = *(unsigned short*)(var7 + 0x6c);
+    *(unsigned char*)(var0 + REGION_OFFSET_4) = (unsigned char)var8;
 
-    short savedC = *(short*)(obj + 0xc);
-    short saved8 = *(short*)(obj + 0x8);
-    short savedE = *(short*)(obj + 0xe);
-    short savedA = *(short*)(obj + 0xa);
-    func_ov000_0216fe9c(obj + 8);
-    *(short*)(obj + 0xc) = savedC;
-    *(short*)(obj + 0x8) = saved8;
-    *(short*)(obj + 0xe) = savedE;
-    *(short*)(obj + 0xa) = savedA;
+    short var9 = *(short*)(var0 + 0xc);
+    short var10 = *(short*)(var0 + 0x8);
+    short var11 = *(short*)(var0 + 0xe);
+    short var12 = *(short*)(var0 + 0xa);
+    func_ov000_0216fe9c(var0 + 8);
+    *(short*)(var0 + 0xc) = var9;
+    *(short*)(var0 + 0x8) = var10;
+    *(short*)(var0 + 0xe) = var11;
+    *(short*)(var0 + 0xa) = var12;
 
-    *(int*)(obj + 0x28) = *(int*)(field150 + 0xa8);
-    *(unsigned char*)(obj + 0x1c) = 0;
-    *(unsigned short*)(obj + REGION_OFFSET_5) = 0;
-    *(unsigned short*)(obj + REGION_OFFSET_6) = 0;
-    *(unsigned char*)(obj + REGION_OFFSET_7) = 0;
-    int fieldVal = func_020100a8(bs);
-    if (*(int*)(obj + 0x4c) == fieldVal) {
-        *(unsigned char*)(obj + 0x24) |= 2;
+    *(int*)(var0 + 0x28) = *(int*)(var4 + 0xa8);
+    *(unsigned char*)(var0 + 0x1c) = 0;
+    *(unsigned short*)(var0 + REGION_OFFSET_5) = 0;
+    *(unsigned short*)(var0 + REGION_OFFSET_6) = 0;
+    *(unsigned char*)(var0 + REGION_OFFSET_7) = 0;
+    int var13 = func_020100a8(var2);
+    if (*(int*)(var0 + 0x4c) == var13) {
+        *(unsigned char*)(var0 + 0x24) |= 2;
     }
-    *(unsigned char*)(obj + 0x24) &= ~1;
+    *(unsigned char*)(var0 + 0x24) &= ~1;
 }

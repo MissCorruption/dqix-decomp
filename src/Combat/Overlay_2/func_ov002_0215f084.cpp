@@ -6,8 +6,8 @@ extern "C" void *func_020421a0();
 extern "C" void func_02046380();
 struct Struct_ov002_02157d40_2;
 extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
-struct Container020e0310;
-extern "C" int func_020e0434(Container020e0310*, int);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_02046608(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
 #if defined(jpn)
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
     func_020465f0((Struct_ov002_02157d40_2*)var10, 1, 3);
     func_020465d8((Struct_ov002_02157d40_2*)var10, 1, 0);
 #endif
-    int var11 = func_020e0434((Container020e0310*)(var0 + RG(0x20, 0x8)), 0xbb8);
+    int var11 = func_020e0434((Struct_0201099c_3*)(var0 + RG(0x20, 0x8)), 0xbb8);
 #if defined(jpn)
     func_020474a8(var10, 0xa, var11, arg1);
 #else

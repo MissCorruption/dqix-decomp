@@ -5,196 +5,196 @@ extern "C" int func_0204234c(char*, int);
 extern "C" int func_020423d4(char*, int, int, int, int);
 #endif
 
-struct SkillPointMenu {
+struct Struct_ov013_021846a0_2 {
 #if defined(jpn)
-    char unknown0[0x5ac];
+    char unknown_0_[0x5ac];
 #else
-    char unknown0[0x620];
+    char unknown1_0_[0x620];
 #endif
-    char texts[0x18];
-    unsigned char unknownStateBytes[4];
-    unsigned char state;
-    unsigned char previousState;
-    unsigned char step;
-    bool stateChanged;
-    bool subScreen;
-    unsigned int ticks;
-    int windowInput;
+    char unknown_620_[0x18];
+    unsigned char unknown_638_[4];
+    unsigned char unknown_63c_;
+    unsigned char unknown_63d_;
+    unsigned char unknown_63e_;
+    bool unknown_63f_;
+    bool unknown_640_;
+    unsigned int unknown_644_;
+    int unknown_648_;
 #if !defined(jpn)
-    int previousWindowInput;
+    int unknown_64c_;
 #endif
-    int task;
-    void* canvasPixels;
-    char* text;
-    int selectedSkill;
-    int confirmationChoice;
-    unsigned char unknownAfterChoice[4];
-    int availablePoints;
-    int remainingPoints;
-    int pointCap;
-    int skillPoints[5];
-    int allocatedPoints[5];
-    unsigned char lockedSkills[5];
-    char unknownAfterLocks[8];
-    unsigned char skillIds[5];
+    int unknown_650_;
+    void* unknown_654_;
+    char* unknown_658_;
+    int unknown_65c_;
+    int unknown_660_;
+    unsigned char unknown_664_[4];
+    int unknown_668_;
+    int unknown_66c_;
+    int unknown_670_;
+    int unknown_674_[5];
+    int unknown_688_[5];
+    unsigned char unknown_69c_[5];
+    char unknown_6a1_[8];
+    unsigned char unknown_6a9_[5];
 };
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" void* __clear(void* dst, int count);
-extern "C" int func_020420e8(char* str, int id);
-extern "C" int func_02041a28(char* dst, int x);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" int func_02041fac(char* buf, int a, int b);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02041e70(char* dst, int palette);
-extern "C" int func_02041a5c(char* dst, int y);
-extern "C" int func_02041cc0(char* dst, int a1);
-extern "C" int func_02041d48(char* dst, int a1, int a2, int a3, int a4);
-extern "C" int sprintf(char* dst, const char* fmt, ...);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void* __clear(void* arg0, int arg1);
+extern "C" int func_020420e8(char* arg0, int arg1);
+extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int func_02041a5c(char* arg0, int arg1);
+extern "C" int func_02041cc0(char* arg0, int arg1);
+extern "C" int func_02041d48(char* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
 // USA: func_ov013_02185424
-extern "C" ARM void func_ov013_02185424(SkillPointMenu* menu, char* out) {
-    char buf[0x100];
-    __clear(buf, 0x100);
+extern "C" ARM void func_ov013_02185424(Struct_ov013_021846a0_2* arg0, char* arg1) {
+    char var0[0x100];
+    __clear(var0, 0x100);
 
 #if defined(jpn)
-    int length = 0x10;
-    int x = 0x78 - (int)(((float)length / 4.0f) * 12.0f);
-    int heading = func_020e0434((Container020e0310*)menu->texts, 0x2718);
-    sprintf(buf, (const char*)heading, x);
-    func_02042058(out, buf);
+    int var1 = 0x10;
+    int var2 = 0x78 - (int)(((float)var1 / 4.0f) * 12.0f);
+    int var3 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2718);
+    sprintf(var0, (const char*)var3, var2);
+    func_02042058(arg1, var0);
 #else
-    char* str = (char*)func_020e0434((struct Container020e0310*)menu->texts, 0x2718);
-    int len = func_020420e8(str, 0);
-    func_02041a28(buf, (0xf0 - len) >> 1);
-    func_02042058(buf, str);
-    func_02041fac(out, (int)buf, 0x10);
+    char* var4 = (char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2718);
+    int var5 = func_020420e8(var4, 0);
+    func_02041a28(var0, (0xf0 - var5) >> 1);
+    func_02042058(var0, var4);
+    func_02041fac(arg1, (int)var0, 0x10);
 
 #endif
 
-    if (menu->windowInput == 2) {
-        func_02041c08(out, menu->selectedSkill, 8, 3, 6, 2);
+    if (arg0->unknown_648_ == 2) {
+        func_02041c08(arg1, arg0->unknown_65c_, 8, 3, 6, 2);
     }
-    func_02041ea4(out, menu->selectedSkill);
+    func_02041ea4(arg1, arg0->unknown_65c_);
 
-    for (unsigned char id = 0; id < 5; id++) {
-        if (menu->lockedSkills[id] == 0) {
-            func_02041e70(out, 0xf);
+    for (unsigned char var6 = 0; var6 < 5; var6++) {
+        if (arg0->unknown_69c_[var6] == 0) {
+            func_02041e70(arg1, 0xf);
         } else {
-            func_02041e70(out, 3);
+            func_02041e70(arg1, 3);
         }
-        int key = (short)(menu->skillIds[id] + 0x64);
-        int v1 = func_020e0434((struct Container020e0310*)menu->texts, key);
-        int fmt = func_020e0434((struct Container020e0310*)menu->texts, 0x2711);
-        sprintf(buf, (const char*)fmt, id, v1);
-        func_02042058(out, buf);
-        if (id != 4) {
-            int v3 = func_020e0434((struct Container020e0310*)menu->texts, 0);
-            sprintf(buf, (const char*)v3);
+        int var7 = (short)(arg0->unknown_6a9_[var6] + 0x64);
+        int var8 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, var7);
+        int var9 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2711);
+        sprintf(var0, (const char*)var9, var6, var8);
+        func_02042058(arg1, var0);
+        if (var6 != 4) {
+            int var10 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0);
+            sprintf(var0, (const char*)var10);
         }
-        func_02042058(out, buf);
+        func_02042058(arg1, var0);
     }
 
 #if defined(jpn)
-    func_020420e8(out, 0x15);
+    func_020420e8(arg1, 0x15);
 #else
-    func_02041a5c(out, 0x15);
+    func_02041a5c(arg1, 0x15);
 #endif
 
 #if defined(jpn)
-    for (int i = 0; i < 5; i++) {
-        int fmt;
-        if (menu->lockedSkills[i] == 1) {
-            fmt = func_020e0434((Container020e0310*)menu->texts, 0x2712);
-            sprintf(buf, (const char*)fmt, i * 0xd + 0x16, menu->allocatedPoints[i], menu->skillPoints[i]);
-        } else if (i == menu->selectedSkill) {
-            if (menu->allocatedPoints[i] == 0x64) {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2713);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, i + 5, menu->allocatedPoints[i], i + 0xa, menu->skillPoints[i], menu->skillPoints[i] + menu->allocatedPoints[i]);
+    for (int var11 = 0; var11 < 5; var11++) {
+        int var12;
+        if (arg0->unknown_69c_[var11] == 1) {
+            var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2712);
+            sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11]);
+        } else if (var11 == arg0->unknown_65c_) {
+            if (arg0->unknown_688_[var11] == 0x64) {
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
-            else if (menu->allocatedPoints[i] >= 0xa) {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2713);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, i + 5, menu->allocatedPoints[i], i + 0xa, menu->skillPoints[i], menu->skillPoints[i] + menu->allocatedPoints[i]);
+            else if (arg0->unknown_688_[var11] >= 0xa) {
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
-            else if (menu->allocatedPoints[i] != 0) {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2713);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, i + 5, menu->allocatedPoints[i], i + 0xa, menu->skillPoints[i], menu->skillPoints[i] + menu->allocatedPoints[i]);
+            else if (arg0->unknown_688_[var11] != 0) {
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2714);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, i + 5, menu->allocatedPoints[i], i + 0xa, menu->skillPoints[i]);
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2714);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, var11 + 5, arg0->unknown_688_[var11], var11 + 0xa, arg0->unknown_674_[var11]);
             }
         } else {
-            if (menu->allocatedPoints[i] == 0x64) {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2715);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, menu->allocatedPoints[i], menu->skillPoints[i], menu->skillPoints[i] + menu->allocatedPoints[i]);
+            if (arg0->unknown_688_[var11] == 0x64) {
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
-            else if (menu->allocatedPoints[i] >= 0xa) {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2715);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, menu->allocatedPoints[i], menu->skillPoints[i], menu->skillPoints[i] + menu->allocatedPoints[i]);
+            else if (arg0->unknown_688_[var11] >= 0xa) {
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
-            else if (menu->allocatedPoints[i] != 0) {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2715);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, menu->allocatedPoints[i], menu->skillPoints[i], menu->skillPoints[i] + menu->allocatedPoints[i]);
+            else if (arg0->unknown_688_[var11] != 0) {
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11], arg0->unknown_674_[var11] + arg0->unknown_688_[var11]);
             }
             else {
-                fmt = func_020e0434((Container020e0310*)menu->texts, 0x2716);
-                sprintf(buf, (const char*)fmt, i * 0xd + 0x16, menu->allocatedPoints[i], menu->skillPoints[i]);
+                var12 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0x2716);
+                sprintf(var0, (const char*)var12, var11 * 0xd + 0x16, arg0->unknown_688_[var11], arg0->unknown_674_[var11]);
             }
         }
-        func_02042058(out, buf);
-        if (i != 4) {
-            int v0 = func_020e0434((Container020e0310*)menu->texts, 0);
-            func_02042058(out, (const char*)v0);
+        func_02042058(arg1, var0);
+        if (var11 != 4) {
+            int var13 = func_020e0434((Struct_0201099c_3*)arg0->unknown_620_, 0);
+            func_02042058(arg1, (const char*)var13);
         }
     }
 
 #else
-    int n, i;
-    for (i = 0; i < 5; i++) {
-        n = i * 0xd;
-        int v674 = menu->skillPoints[i];
-        int v688 = menu->allocatedPoints[i];
-        int fmt;
-        if (menu->lockedSkills[i] == 1) {
-            fmt = func_020e0434((struct Container020e0310*)menu->texts, 0x2712);
-            sprintf(buf, (const char*)fmt, n + 0x16, v688, v674);
-        } else if (i == menu->selectedSkill) {
-            if (v688 == 0) {
-                fmt = func_020e0434((struct Container020e0310*)menu->texts, 0x2714);
-                sprintf(buf, (const char*)fmt, n + 0x16, 0xa, v688, 0xb, v674);
+    int var14, var15;
+    for (var15 = 0; var15 < 5; var15++) {
+        var14 = var15 * 0xd;
+        int var16 = arg0->unknown_674_[var15];
+        int var17 = arg0->unknown_688_[var15];
+        int var18;
+        if (arg0->unknown_69c_[var15] == 1) {
+            var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2712);
+            sprintf(var0, (const char*)var18, var14 + 0x16, var17, var16);
+        } else if (var15 == arg0->unknown_65c_) {
+            if (var17 == 0) {
+                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2714);
+                sprintf(var0, (const char*)var18, var14 + 0x16, 0xa, var17, 0xb, var16);
             } else {
-                fmt = func_020e0434((struct Container020e0310*)menu->texts, 0x2713);
-                sprintf(buf, (const char*)fmt, n + 0x16, 0xa, v688, 0xb, v674, v674 + v688);
+                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2713);
+                sprintf(var0, (const char*)var18, var14 + 0x16, 0xa, var17, 0xb, var16, var16 + var17);
             }
         } else {
-            if (v688 == 0) {
-                fmt = func_020e0434((struct Container020e0310*)menu->texts, 0x2716);
-                sprintf(buf, (const char*)fmt, n + 0x16, v688, v674);
+            if (var17 == 0) {
+                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2716);
+                sprintf(var0, (const char*)var18, var14 + 0x16, var17, var16);
             } else {
-                fmt = func_020e0434((struct Container020e0310*)menu->texts, 0x2715);
-                sprintf(buf, (const char*)fmt, n + 0x16, v688, v674, v674 + v688);
+                var18 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2715);
+                sprintf(var0, (const char*)var18, var14 + 0x16, var17, var16, var16 + var17);
             }
         }
-        func_02042058(out, buf);
-        if (i != 4) {
-            int v0 = func_020e0434((struct Container020e0310*)menu->texts, 0);
-            func_02042058(out, (const char*)v0);
+        func_02042058(arg1, var0);
+        if (var15 != 4) {
+            int var19 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0);
+            func_02042058(arg1, (const char*)var19);
         }
     }
 
 #endif
 #if defined(jpn)
-    func_0204234c(out, 0x57);
-    func_020423d4(out, 0x7fff, 0x4a, 0x10, 0x57);
+    func_0204234c(arg1, 0x57);
+    func_020423d4(arg1, 0x7fff, 0x4a, 0x10, 0x57);
 #else
-    func_02041cc0(out, 0x57);
-    func_02041d48(out, 0x7fff, 0x5a, 0x10, 0x57);
+    func_02041cc0(arg1, 0x57);
+    func_02041d48(arg1, 0x7fff, 0x5a, 0x10, 0x57);
 #endif
 
-    int fmtEnd = func_020e0434((struct Container020e0310*)menu->texts, 0x2717);
-    sprintf(buf, (const char*)fmtEnd, menu->remainingPoints);
-    func_02042058(out, buf);
+    int var20 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_620_, 0x2717);
+    sprintf(var0, (const char*)var20, arg0->unknown_66c_);
+    func_02042058(arg1, var0);
 }

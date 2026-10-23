@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Copy0208e000;
-extern "C" void func_0208e000(struct Copy0208e000* dst, struct Copy0208e000* src);
+struct Struct_0208dc84_2;
+extern "C" void func_0208e000(struct Struct_0208dc84_2* arg0, struct Struct_0208dc84_2* arg1);
 
-struct Node0208df94 {
-    short field0;
-    unsigned short field2;
-    int field4;
+struct Struct_0208df94 {
+    short unknown_0_;
+    unsigned short unknown_2_;
+    int unknown_4_;
 #if defined(jpn)
-    int regionalField8;
+    int unknown_8_;
 #endif
-    struct Node0208df94* next;
+    struct Struct_0208df94* unknown1_8_;
 };
 
-struct List0208df94 {
-    struct Node0208df94* head;
-    short count;
+struct Struct_0208dc84 {
+    struct Struct_0208df94* unknown_0_;
+    short unknown_4_;
 };
 
 // USA: func_0208df94
-extern "C" ARM void func_0208df94(struct List0208df94* list, SafeAllocator* alloc, struct Copy0208e000* src) {
-    struct Node0208df94* node = (struct Node0208df94*)alloc->Allocate(sizeof(Node0208df94));
-    struct Node0208df94* tail = list->head;
-    if (tail != NULL) {
-        while (tail->next != NULL) {
-            tail = tail->next;
+extern "C" ARM void func_0208df94(struct Struct_0208dc84* arg0, SafeAllocator* arg1, struct Struct_0208dc84_2* arg2) {
+    struct Struct_0208df94* var0 = (struct Struct_0208df94*)arg1->Allocate(sizeof(Struct_0208df94));
+    struct Struct_0208df94* var1 = arg0->unknown_0_;
+    if (var1 != NULL) {
+        while (var1->unknown1_8_ != NULL) {
+            var1 = var1->unknown1_8_;
         }
-        func_0208e000((struct Copy0208e000*)node, src);
-        tail->next = node;
+        func_0208e000((struct Struct_0208dc84_2*)var0, arg2);
+        var1->unknown1_8_ = var0;
     } else {
-        list->head = node;
-        func_0208e000((struct Copy0208e000*)node, src);
+        arg0->unknown_0_ = var0;
+        func_0208e000((struct Struct_0208dc84_2*)var0, arg2);
     }
-    list->count++;
+    arg0->unknown_4_++;
 }

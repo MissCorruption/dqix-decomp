@@ -2,8 +2,8 @@
 
 extern "C" void func_020c976c(unsigned int id);
 extern "C" int func_020cede0(void);
-extern "C" int func_020ce6d0(int a, int b);
-extern "C" int func_020cedc0(int a);
+extern "C" int func_020ce6d0(int arg0, int arg1);
+extern "C" int func_020cedc0(int arg0);
 
 // USA: func_020cef94
 extern "C" ARM void func_020cef94(void) {

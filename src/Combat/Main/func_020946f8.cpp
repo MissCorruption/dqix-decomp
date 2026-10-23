@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct PackFields020946f8Struct {
-    unsigned int attributes01;
-    unsigned short attributes2;
-    short affineParameter;
+struct Struct_02094654_2 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    short unknown_6_;
 };
 
 enum {
-    SpriteBitmapMode = 3,
-    SpriteAffineEffect = 0x100,
-    SpriteDoubleSizeAffineEffect = 0x300
+    Enum_020946f8_3 = 3,
+    Enum_020946f8_256 = 0x100,
+    Enum_020946f8_768 = 0x300
 };
 
 // USA: func_020946f8
-extern "C" ARM void func_020946f8(PackFields020946f8Struct* sprite, int x, int y, int priority,
-                            int mode, int mosaic, int effect, int shape, int colorMode,
-                            int characterIndex, int paletteOrAlpha, int affineIndex) {
-    if (effect == SpriteAffineEffect || effect == SpriteDoubleSizeAffineEffect) {
-        if (mode == SpriteBitmapMode) {
-            sprite->attributes01 = (y & 0xff) | (affineIndex << 25) | (mode << 10) | (mosaic << 12) | shape | ((x & 0x1ff) << 16) | effect;
+extern "C" ARM void func_020946f8(Struct_02094654_2* arg0, int arg1, int arg2, int arg3,
+                            int arg4, int arg5, int arg6, int arg7, int arg8,
+                            int arg9, int arg10, int arg11) {
+    if (arg6 == Enum_020946f8_256 || arg6 == Enum_020946f8_768) {
+        if (arg4 == Enum_020946f8_3) {
+            arg0->unknown_0_ = (arg2 & 0xff) | (arg11 << 25) | (arg4 << 10) | (arg5 << 12) | arg7 | ((arg1 & 0x1ff) << 16) | arg6;
         } else {
-            sprite->attributes01 = (y & 0xff) | ((affineIndex << 25) | (colorMode << 13)) | (mode << 10) | (mosaic << 12) | shape | ((x & 0x1ff) << 16) | effect;
+            arg0->unknown_0_ = (arg2 & 0xff) | ((arg11 << 25) | (arg8 << 13)) | (arg4 << 10) | (arg5 << 12) | arg7 | ((arg1 & 0x1ff) << 16) | arg6;
         }
     } else {
-        if (mode == SpriteBitmapMode) {
-            sprite->attributes01 = (y & 0xff) | (mode << 10) | (mosaic << 12) | shape | ((x & 0x1ff) << 16) | effect;
+        if (arg4 == Enum_020946f8_3) {
+            arg0->unknown_0_ = (arg2 & 0xff) | (arg4 << 10) | (arg5 << 12) | arg7 | ((arg1 & 0x1ff) << 16) | arg6;
         } else {
-            sprite->attributes01 = (y & 0xff) | (colorMode << 13) | (mode << 10) | (mosaic << 12) | shape | ((x & 0x1ff) << 16) | effect;
+            arg0->unknown_0_ = (arg2 & 0xff) | (arg8 << 13) | (arg4 << 10) | (arg5 << 12) | arg7 | ((arg1 & 0x1ff) << 16) | arg6;
         }
     }
-    sprite->attributes2 = characterIndex | (priority << 10) | (paletteOrAlpha << 12);
+    arg0->unknown_4_ = arg9 | (arg3 << 10) | (arg10 << 12);
 }

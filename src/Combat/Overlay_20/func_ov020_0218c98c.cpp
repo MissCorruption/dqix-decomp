@@ -16,129 +16,129 @@
 
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int v);
-extern "C" void func_ov020_0218c7bc(int a, int b, int c, int d, int e);
-extern "C" void func_ov020_0218cd64(int a, int b, int c, int d, int e);
+extern "C" void func_ov020_0218c7bc(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_ov020_0218cd64(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_0204b5b4(void*, int);
 
-struct Foo0204af38;
-extern "C" void func_0204b174(struct Foo0204af38* obj, void* data, SafeAllocator* alloc, int field44);
+struct Struct_0204af38;
+extern "C" void func_0204b174(struct Struct_0204af38* arg0, void* arg1, SafeAllocator* arg2, int arg3);
 
-struct List0204af64;
-extern "C" void func_0204af64(struct List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 
-struct AllocTarget0204b12c;
-extern "C" void func_0204b12c(struct AllocTarget0204b12c* obj, SafeAllocator* alloc);
+struct Struct_0204b12c;
+extern "C" void func_0204b12c(struct Struct_0204b12c* arg0, SafeAllocator* arg1);
 
-extern "C" void func_0204af38(struct Foo0204af38* obj, int count, SafeAllocator* alloc);
+extern "C" void func_0204af38(struct Struct_0204af38* arg0, int arg1, SafeAllocator* arg2);
 
-struct Obj0204b5e8;
-extern "C" int func_0204b5e8(struct Obj0204b5e8* obj, int a, int b);
+struct Struct_02020cb8_5;
+extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-struct Obj0204b8d0;
-extern "C" void func_0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+struct Struct_0204b8d0;
+extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
 
-struct List0204b0e8;
-extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
 
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 
-extern "C" void func_020c39a0(short* out, int value);
+extern "C" void func_020c39a0(short* arg0, int arg1);
 
 extern int data_ov020_0218d95c;
 extern int data_ov020_0218d968;
 extern int data_ov020_0218dc9d;
 
-struct ThreeInts_0218c98c {
-    int a, b, c;
+struct Struct_ov020_0218c98c {
+    int unknown_0_, unknown_4_, unknown_8_;
 };
 
-struct SelfLayout_0218c98c {
-    char pad0[REGION(0x448, 0x4b8)];
-    unsigned char bits1_lo : 4;
-    unsigned char bits1_hi : 4;
-    char pad1[REGION(0x468, 0x4d8) - REGION(0x449, 0x4b9)];
-    unsigned char bits2_lo : 4;
-    unsigned char bits2_hi : 4;
+struct Struct_ov020_0218c98c_2 {
+    char unknown_0_[REGION(0x448, 0x4b8)];
+    unsigned char unknown_4b8_0_ : 4;
+    unsigned char unknown_4b8_4_ : 4;
+    char unknown_4b9_[REGION(0x468, 0x4d8) - REGION(0x449, 0x4b9)];
+    unsigned char unknown_4d8_0_ : 4;
+    unsigned char unknown_4d8_4_ : 4;
 };
 
 // USA: func_ov020_0218c98c
-extern "C" ARM void func_ov020_0218c98c(void* self) {
-    char* base = (char*)self;
+extern "C" ARM void func_ov020_0218c98c(void* arg0) {
+    char* var0 = (char*)arg0;
 
-    ((SafeAllocator*)(base + REGION(0x400, 0x470)))->Reset();
+    ((SafeAllocator*)(var0 + REGION(0x400, 0x470)))->Reset();
     MapVRAMBanksToMainBG(8);
     func_ov020_0218c7bc(0, 1, 1, 1, 0);
 
-    func_0204af64((struct List0204af64*)(base + REGION(0x42c, 0x49c)));
-    func_0204b11c((unsigned char*)(base + REGION(0x42c, 0x49c)), 0);
-    ((struct SelfLayout_0218c98c*)self)->bits1_lo = 0;
-    ((struct SelfLayout_0218c98c*)self)->bits1_hi = 1;
-    func_0204b5b4(base + REGION(0x42c, 0x49c), 1);
-    func_0204b12c((struct AllocTarget0204b12c*)(base + REGION(0x42c, 0x49c)), (SafeAllocator*)(base + REGION(0x400, 0x470)));
-    func_0204af38((struct Foo0204af38*)(base + REGION(0x42c, 0x49c)), 1, (SafeAllocator*)(base + REGION(0x400, 0x470)));
-    func_0204b5e8((struct Obj0204b5e8*)(base + REGION(0x42c, 0x49c)), 0, 0);
+    func_0204af64((struct Struct_02020cb8*)(var0 + REGION(0x42c, 0x49c)));
+    func_0204b11c((unsigned char*)(var0 + REGION(0x42c, 0x49c)), 0);
+    ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4b8_0_ = 0;
+    ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4b8_4_ = 1;
+    func_0204b5b4(var0 + REGION(0x42c, 0x49c), 1);
+    func_0204b12c((struct Struct_0204b12c*)(var0 + REGION(0x42c, 0x49c)), (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    func_0204af38((struct Struct_0204af38*)(var0 + REGION(0x42c, 0x49c)), 1, (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    func_0204b5e8((struct Struct_02020cb8_5*)(var0 + REGION(0x42c, 0x49c)), 0, 0);
 
     MapVRAMBanksToSubBG(4);
     func_ov020_0218cd64(0, 1, 1, 1, 0);
 
-    func_0204af64((struct List0204af64*)(base + REGION(0x44c, 0x4bc)));
-    func_0204b11c((unsigned char*)(base + REGION(0x44c, 0x4bc)), 0);
-    ((struct SelfLayout_0218c98c*)self)->bits2_lo = 1;
-    ((struct SelfLayout_0218c98c*)self)->bits2_hi = 0;
-    func_0204b5b4(base + REGION(0x44c, 0x4bc), 0);
-    func_0204b12c((struct AllocTarget0204b12c*)(base + REGION(0x44c, 0x4bc)), (SafeAllocator*)(base + REGION(0x400, 0x470)));
-    func_0204af38((struct Foo0204af38*)(base + REGION(0x44c, 0x4bc)), 1, (SafeAllocator*)(base + REGION(0x400, 0x470)));
-    func_0204b5e8((struct Obj0204b5e8*)(base + REGION(0x44c, 0x4bc)), 0, 0);
+    func_0204af64((struct Struct_02020cb8*)(var0 + REGION(0x44c, 0x4bc)));
+    func_0204b11c((unsigned char*)(var0 + REGION(0x44c, 0x4bc)), 0);
+    ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4d8_0_ = 1;
+    ((struct Struct_ov020_0218c98c_2*)arg0)->unknown_4d8_4_ = 0;
+    func_0204b5b4(var0 + REGION(0x44c, 0x4bc), 0);
+    func_0204b12c((struct Struct_0204b12c*)(var0 + REGION(0x44c, 0x4bc)), (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    func_0204af38((struct Struct_0204af38*)(var0 + REGION(0x44c, 0x4bc)), 1, (SafeAllocator*)(var0 + REGION(0x400, 0x470)));
+    func_0204b5e8((struct Struct_02020cb8_5*)(var0 + REGION(0x44c, 0x4bc)), 0, 0);
 
-    int handle;
-    BackgroundLoader* data4 = BackgroundLoader::GetInstance();
-    data4->MaybeReset();
-    handle = data4->QueueLoadFile((char const*)((int)&data_ov020_0218dc9d), (SafeAllocator*)0);
+    int var1;
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+    var2->MaybeReset();
+    var1 = var2->QueueLoadFile((char const*)((int)&data_ov020_0218dc9d), (SafeAllocator*)0);
 
     for (;;) {
-        if (data4->GetTaskStatus(handle)) {
-            void* dummyPtr;
-            int recListHead, dummy2;
-            data4->GetLoadedFileByID(handle, (void**)&recListHead, (unsigned int*)&dummy2);
-            int count = func_02046900((struct ActiveEntry02046900*)recListHead);
-            void* arrayC[5];
-            int arrayB[5];
-            for (int i = 0; i < count; i++) {
-                arrayC[i] = func_020467f0((struct Rec020467f0*)recListHead, i, &dummyPtr, &arrayB[i]);
+        if (var2->GetTaskStatus(var1)) {
+            void* var3;
+            int var4, var5;
+            var2->GetLoadedFileByID(var1, (void**)&var4, (unsigned int*)&var5);
+            int var6 = func_02046900((struct Struct_02020cb8_4*)var4);
+            void* var7[5];
+            int var8[5];
+            for (int var9 = 0; var9 < var6; var9++) {
+                var7[var9] = func_020467f0((struct Struct_02020aec*)var4, var9, &var3, &var8[var9]);
             }
 
-            int idxA = 0;
-            struct ThreeInts_0218c98c tbl_d95c = *(struct ThreeInts_0218c98c*)&data_ov020_0218d95c;
-            struct ThreeInts_0218c98c tbl_d968 = *(struct ThreeInts_0218c98c*)&data_ov020_0218d968;
-            int idxB = 0;
-            for (int j = 0; j < count; j++) {
-                if (j == ((int*)&tbl_d95c)[idxA]) {
-                    func_0204b174((struct Foo0204af38*)(base + REGION(0x2c, 0x9c) + 0x400), arrayC[j], (SafeAllocator*)(base + REGION(0x400, 0x470)), arrayB[j]);
-                    idxA++;
+            int var10 = 0;
+            struct Struct_ov020_0218c98c var11 = *(struct Struct_ov020_0218c98c*)&data_ov020_0218d95c;
+            struct Struct_ov020_0218c98c var12 = *(struct Struct_ov020_0218c98c*)&data_ov020_0218d968;
+            int var13 = 0;
+            for (int var14 = 0; var14 < var6; var14++) {
+                if (var14 == ((int*)&var11)[var10]) {
+                    func_0204b174((struct Struct_0204af38*)(var0 + REGION(0x2c, 0x9c) + 0x400), var7[var14], (SafeAllocator*)(var0 + REGION(0x400, 0x470)), var8[var14]);
+                    var10++;
                 }
-                if (j == ((int*)&tbl_d968)[idxB]) {
-                    func_0204b174((struct Foo0204af38*)(base + REGION(0x4c, 0xbc) + 0x400), arrayC[j], (SafeAllocator*)(base + REGION(0x400, 0x470)), arrayB[j]);
-                    idxB++;
+                if (var14 == ((int*)&var12)[var13]) {
+                    func_0204b174((struct Struct_0204af38*)(var0 + REGION(0x4c, 0xbc) + 0x400), var7[var14], (SafeAllocator*)(var0 + REGION(0x400, 0x470)), var8[var14]);
+                    var13++;
                 }
             }
 
-            data4->RemoveTask(handle);
+            var2->RemoveTask(var1);
 
-            func_0204b8d0((struct Obj0204b8d0*)(base + REGION(0x42c, 0x49c)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
-            func_0204b8d0((struct Obj0204b8d0*)(base + REGION(0x44c, 0x4bc)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
-            func_0204b0e8((struct List0204b0e8*)(base + REGION(0x42c, 0x49c)), 0);
-            func_0204b0e8((struct List0204b0e8*)(base + REGION(0x44c, 0x4bc)), 0);
+            func_0204b8d0((struct Struct_0204b8d0*)(var0 + REGION(0x42c, 0x49c)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
+            func_0204b8d0((struct Struct_0204b8d0*)(var0 + REGION(0x44c, 0x4bc)), 0, 0, 0, 0, 0, 0x20, 0x19, 0);
+            func_0204b0e8((struct Struct_02020cb8_2*)(var0 + REGION(0x42c, 0x49c)), 0);
+            func_0204b0e8((struct Struct_02020cb8_2*)(var0 + REGION(0x44c, 0x4bc)), 0);
             break;
         }
-        data4->RemoveAllLocks();
+        var2->RemoveAllLocks();
     }
 
     *(short*)0x4000050 = 0;

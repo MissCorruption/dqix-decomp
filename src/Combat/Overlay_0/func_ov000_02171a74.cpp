@@ -1,62 +1,62 @@
 #include <globaldefs.h>
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" void func_020e46c4(void* buf);
-extern "C" void func_020e4bf4(void* obj, int combatantId);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_020e46c4(void* arg0);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
 extern "C" void* func_020421a0(void);
-extern "C" void func_02046380(void* g);
-extern "C" void func_02046608(void* a, int b, int c, void* d, int e, int f, int g);
+extern "C" void func_02046380(void* arg0);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 
-struct Obj02171a74 {
-    char pad0[4];
-    void* field4;
-    char pad1[0x28 - 8];
-    int field28;
-    char pad2[0x4c - 0x2c];
-    int field4c;
+struct Struct_ov000_02171a74 {
+    char unknown_0_[4];
+    void* unknown_4_;
+    char unknown_8_[0x28 - 8];
+    int unknown_28_;
+    char unknown_2c_[0x4c - 0x2c];
+    int unknown_4c_;
 };
 
 // USA: func_ov000_02171a74
-extern "C" ARM int func_ov000_02171a74(struct Obj02171a74* obj
+extern "C" ARM int func_ov000_02171a74(struct Struct_ov000_02171a74* arg0
 #if !defined(jpn)
-    , int param
+    , int arg1
 #endif
 ) {
 #if !defined(jpn)
-    if (obj->field4 == 0) {
+    if (arg0->unknown_4_ == 0) {
         return -1;
     }
 #endif
-    int flags = obj->field28;
-    int key = -1;
-    if (flags & 1) {
-        key = 4;
-    } else if (flags & 8) {
-        key = 2;
-    } else if (flags & 0x10) {
-        key = 3;
-    } else if (flags & 0x80000) {
-        key = 0x26;
+    int var0 = arg0->unknown_28_;
+    int var1 = -1;
+    if (var0 & 1) {
+        var1 = 4;
+    } else if (var0 & 8) {
+        var1 = 2;
+    } else if (var0 & 0x10) {
+        var1 = 3;
+    } else if (var0 & 0x80000) {
+        var1 = 0x26;
     }
 #if !defined(jpn)
-    if (key < 0) {
+    if (var1 < 0) {
         goto end;
     }
     {
-        int val = func_020e0434((struct Container020e0310*)obj->field4, key);
-        if (val == 0) {
+        int var2 = func_020e0434((struct Struct_0201099c_3*)arg0->unknown_4_, var1);
+        if (var2 == 0) {
             goto end;
         }
-        char buf[0xc];
-        func_020e46c4(buf);
-        func_020e4bf4(buf, obj->field4c);
-        void* g = func_020421a0();
-        func_02046380(g);
-        *(void**)g = buf;
-        func_02046608(g, 0xa, val, (void*)param, 0x100, 0, 0);
+        char var3[0xc];
+        func_020e46c4(var3);
+        func_020e4bf4(var3, arg0->unknown_4c_);
+        void* var4 = func_020421a0();
+        func_02046380(var4);
+        *(void**)var4 = var3;
+        func_02046608(var4, 0xa, var2, (void*)arg1, 0x100, 0, 0);
     }
 end:
 #endif
-    return key;
+    return var1;
 }

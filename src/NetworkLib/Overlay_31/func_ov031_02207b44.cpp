@@ -3,57 +3,57 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/Timing.h"
 
-struct Entry02207b44 {
-	char pad[0x20];
-	char copyData[0x30];
-	int field50;
-	int field54;
-	unsigned short field58;
-	unsigned char field5a;
-	char pad2[0x5c - 0x5b];
+struct Struct_ov031_0224e3b8_3 {
+	char unknown_0_[0x20];
+	char unknown_20_[0x30];
+	int unknown_50_;
+	int unknown_54_;
+	unsigned short unknown_58_;
+	unsigned char unknown_5a_;
+	char unknown_5b_[0x5c - 0x5b];
 };
 
-extern Entry02207b44 data_ov031_0224e3b8[4];
+extern Struct_ov031_0224e3b8_3 data_ov031_0224e3b8[4];
 
 // USA: func_ov031_02207b44
-extern "C" ARM void func_ov031_02207b44(void* obj, int a, int b) {
-	int i;
-	Entry02207b44* best;
-	unsigned int bestAge;
-	int oldIRQ;
-	unsigned int now;
-	Entry02207b44* entry;
-	oldIRQ = DisableIRQInterrupts();
-	now = (unsigned int)(GetCurrentTimestamp() >> 16);
-	best = data_ov031_0224e3b8;
-	bestAge = 0;
-	i = 0;
-	entry = best;
+extern "C" ARM void func_ov031_02207b44(void* arg0, int arg1, int arg2) {
+	int var0;
+	Struct_ov031_0224e3b8_3* var1;
+	unsigned int var2;
+	int var3;
+	unsigned int var4;
+	Struct_ov031_0224e3b8_3* var5;
+	var3 = DisableIRQInterrupts();
+	var4 = (unsigned int)(GetCurrentTimestamp() >> 16);
+	var1 = data_ov031_0224e3b8;
+	var2 = 0;
+	var0 = 0;
+	var5 = var1;
 	do {
-		if (entry->field5a != 0 && a != 0 && a == entry->field54 && b != 0 && b == entry->field58) {
-			best = entry;
+		if (var5->unknown_5a_ != 0 && arg1 != 0 && arg1 == var5->unknown_54_ && arg2 != 0 && arg2 == var5->unknown_58_) {
+			var1 = var5;
 			break;
 		}
-		if (bestAge != 0xffffffffu) {
-			if (entry->field5a == 0) {
-				bestAge = 0xffffffffu;
-				best = entry;
+		if (var2 != 0xffffffffu) {
+			if (var5->unknown_5a_ == 0) {
+				var2 = 0xffffffffu;
+				var1 = var5;
 			} else {
-				unsigned int age = now - (unsigned int)entry->field50;
-				if (age > bestAge) {
-					bestAge = age;
-					best = entry;
+				unsigned int var6 = var4 - (unsigned int)var5->unknown_50_;
+				if (var6 > var2) {
+					var2 = var6;
+					var1 = var5;
 				}
 			}
 		}
-		i++;
-		entry++;
-	} while (i < 4);
-	VectorizedInvertedMemcpy((char*)obj + 0x74, best, 0x20);
-	VectorizedInvertedMemcpy(obj, (char*)best + 0x20, 0x30);
-	best->field50 = (int)now;
-	best->field5a = 1;
-	best->field54 = a;
-	best->field58 = b;
-	SetIRQInterruptState(oldIRQ);
+		var0++;
+		var5++;
+	} while (var0 < 4);
+	VectorizedInvertedMemcpy((char*)arg0 + 0x74, var1, 0x20);
+	VectorizedInvertedMemcpy(arg0, (char*)var1 + 0x20, 0x30);
+	var1->unknown_50_ = (int)var4;
+	var1->unknown_5a_ = 1;
+	var1->unknown_54_ = arg1;
+	var1->unknown_58_ = arg2;
+	SetIRQInterruptState(var3);
 }

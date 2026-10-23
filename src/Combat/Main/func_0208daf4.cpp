@@ -2,80 +2,80 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct TaggedValue02030b44 {
-    int type;
-    union { int i; float f; } value;
+struct Struct_0201d530 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct Struct02030b7c {
-    int field0;
-    void* field4;
+struct Struct_0201c3a4 {
+    int unknown_0_;
+    void* unknown_4_;
 };
 
 struct Vector3i;
 
-struct DestStruct0208daf4 {
-    unsigned char byte0;
-    char pad1;
-    unsigned short short2;
-    unsigned char raw[0x10];
-    unsigned char byte0x14;
-    char pad2[3];
-    float floatField;
-    int vec[3];
-    unsigned short short0x28;
-    unsigned short short0x2a;
+struct Struct_0208daf4 {
+    unsigned char unknown_0_;
+    char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_[0x10];
+    unsigned char unknown_14_;
+    char unknown_15_[3];
+    float unknown_18_;
+    int unknown_1c_[3];
+    unsigned short unknown_28_;
+    unsigned short unknown_2a_;
 };
 
-struct Data02108fc8Struct {
-    int status;
-    unsigned short* refPtr;
-    struct DestStruct0208daf4* dest;
+struct Struct_02108fc8 {
+    int unknown_0_;
+    unsigned short* unknown_4_;
+    struct Struct_0208daf4* unknown_8_;
 };
 
-extern struct Data02108fc8Struct data_02108fc8;
+extern struct Struct_02108fc8 data_02108fc8;
 
 // USA: func_0208daf4
-extern "C" ARM int func_0208daf4(struct TaggedValue02030b44* obj) {
-    int a, b, c, e;
-    void* d;
-    unsigned short ref;
-    struct TaggedValue02030b44* next;
+extern "C" ARM int func_0208daf4(struct Struct_0201d530* arg0) {
+    int var0, var1, var2, var3;
+    void* var4;
+    unsigned short var5;
+    struct Struct_0201d530* var6;
 
-    if (data_02108fc8.status == 1) {
+    if (data_02108fc8.unknown_0_ == 1) {
         return 0;
     }
 
-    a = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 0)))->ToInt();
-    b = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 1)))->ToInt();
-    c = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 2)))->ToInt();
+    var0 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0)))->ToInt();
+    var1 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 1)))->ToInt();
+    var2 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 2)))->ToInt();
 
-    ref = *data_02108fc8.refPtr;
-    if (b != ref && c != ref) {
+    var5 = *data_02108fc8.unknown_4_;
+    if (var1 != var5 && var2 != var5) {
         return 0;
     }
 
-    data_02108fc8.dest->byte0 = (unsigned char)a;
-    data_02108fc8.dest->short2 = (unsigned short)b;
-    data_02108fc8.dest->short0x2a = (unsigned short)c;
+    data_02108fc8.unknown_8_->unknown_0_ = (unsigned char)var0;
+    data_02108fc8.unknown_8_->unknown_2_ = (unsigned short)var1;
+    data_02108fc8.unknown_8_->unknown_2a_ = (unsigned short)var2;
 
-    d = (void*)((Script::Parameter*)((struct Struct02030b7c*)(obj + 3)))->ToString();
-    memcpy(data_02108fc8.dest->raw, d, 0x10);
-    data_02108fc8.dest->raw[0xf] = 0;
+    var4 = (void*)((Script::Parameter*)((struct Struct_0201c3a4*)(arg0 + 3)))->ToString();
+    memcpy(data_02108fc8.unknown_8_->unknown_4_, var4, 0x10);
+    data_02108fc8.unknown_8_->unknown_4_[0xf] = 0;
 
-    e = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 4)))->ToInt();
-    data_02108fc8.dest->byte0x14 = (unsigned char)e;
+    var3 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 4)))->ToInt();
+    data_02108fc8.unknown_8_->unknown_14_ = (unsigned char)var3;
 
-    data_02108fc8.dest->floatField = ((Script::Parameter*)((struct TaggedValue02030b44*)(obj + 5)))->ToFloat();
+    data_02108fc8.unknown_8_->unknown_18_ = ((Script::Parameter*)((struct Struct_0201d530*)(arg0 + 5)))->ToFloat();
 
-    next = (TaggedValue02030b44*)((Script::Parameter*)(obj + 6))->ToVec3fix((Vector3i*)data_02108fc8.dest->vec);
-    data_02108fc8.dest->short0x28 = (unsigned short)(int)(4096.0f * ((Script::Parameter*)next)->ToFloat());
+    var6 = (Struct_0201d530*)((Script::Parameter*)(arg0 + 6))->ToVec3fix((Vector3i*)data_02108fc8.unknown_8_->unknown_1c_);
+    data_02108fc8.unknown_8_->unknown_28_ = (unsigned short)(int)(4096.0f * ((Script::Parameter*)var6)->ToFloat());
 
-    data_02108fc8.status = 1;
+    data_02108fc8.unknown_0_ = 1;
     return 1;
 }

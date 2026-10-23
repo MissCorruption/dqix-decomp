@@ -3,12 +3,12 @@
 #include "Memory/PlacementNew.h"
 
 // USA: func_020133cc
-extern "C" ARM void func_020133cc(ZoneLootableRecord* base)
+extern "C" ARM void func_020133cc(Struct_020133cc* arg0)
 {
-    ZoneLootableRecord* record = new (static_cast<void*>(base)) ZoneLootableRecord;
-    record->id = 0;
-    record->field2 = -1;
-    record->field4 = 0;
-    func_0204719c(&record->primary[0]);
-    func_0204719c(&record->primary[1]);
+    Struct_020133cc* var0 = new (static_cast<void*>(arg0)) Struct_020133cc;
+    var0->unknown_0_ = 0;
+    var0->unknown_2_ = -1;
+    var0->unknown_4_ = 0;
+    func_0204719c(&var0->unknown_8_[0]);
+    func_0204719c(&var0->unknown_8_[1]);
 }

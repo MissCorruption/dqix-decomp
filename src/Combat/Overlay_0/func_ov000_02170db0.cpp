@@ -4,134 +4,134 @@
 #define data_ov000_02183ff4 data_ov000_02185118
 #endif
 
-struct CombatantExt02170db0 {
+struct Struct_ov000_02170db0_2 {
     #if defined(jpn)
-    char pad0[0x8b4];
+    char unknown_0_[0x8b4];
 #else
-    char pad0[0x94c];
+    char unknown1_0_[0x94c];
 #endif
-    int field94c;
+    int unknown_94c_;
 };
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" struct CombatantExt02170db0* func_02053c6c(unsigned char* obj);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" struct Struct_ov000_02170db0_2* func_02053c6c(unsigned char* arg0);
 
-struct Obj0203c108 {
+struct Struct_0203c108_3 {
     #if defined(jpn)
-    char pad0[0x2c];
+    char unknown_0_[0x2c];
 #else
-    char pad0[0x10];
+    char unknown1_0_[0x10];
 #endif
-    int dirty;
-    short idx;
+    int unknown_10_;
+    short unknown_14_;
 };
-extern "C" void func_0203c108(struct Obj0203c108* obj, char* fmt);
+extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 
-extern "C" void __clear(void* buf, int count);
+extern "C" void __clear(void* arg0, int arg1);
 
-struct Obj02170db0 {
-    char pad0[4];
-    struct Container020e0310* container;
-    char pad8[0x1c - 0x8];
-    signed char kind;
-    char pad1d[0x26 - 0x1d];
-    unsigned short entryKey;
-    char pad28[0x2c - 0x28];
-    short itemId;
-    char pad2e[0x4c - 0x2e];
-    int combatantId;
-    struct Obj0203c108 label;
-};
-
-struct Entry02170cf8 {
-    void* text;
+struct Struct_ov000_02170db0_3 {
+    char unknown_0_[4];
+    struct Struct_0201099c_3* unknown_4_;
+    char unknown_8_[0x1c - 0x8];
+    signed char unknown_1c_;
+    char unknown_1d_[0x26 - 0x1d];
+    unsigned short unknown_26_;
+    char unknown_28_[0x2c - 0x28];
+    short unknown_2c_;
+    char unknown_2e_[0x4c - 0x2e];
+    int unknown_4c_;
+    struct Struct_0203c108_3 unknown_50_;
 };
 
-struct Equipment02171d90 {
-    char pad0[4];
-    void* text;
-    char pad8[0x18 - 0x8];
-    short count;
+struct Struct_ov000_02170cf8 {
+    void* unknown_0_;
 };
 
-extern "C" struct Entry02170cf8* func_ov000_02170cf8(struct Obj02170db0* obj, int val);
-extern "C" struct Equipment02171d90* func_ov000_02171d90(struct Obj02170db0* obj, int itemId);
-extern "C" int func_ov000_021719f8(int* obj);
+struct Struct_ov000_02170db0 {
+    char unknown_0_[4];
+    void* unknown_4_;
+    char unknown_8_[0x18 - 0x8];
+    short unknown_18_;
+};
+
+extern "C" struct Struct_ov000_02170cf8* func_ov000_02170cf8(struct Struct_ov000_02170db0_3* arg0, int arg1);
+extern "C" struct Struct_ov000_02170db0* func_ov000_02171d90(struct Struct_ov000_02170db0_3* arg0, int arg1);
+extern "C" int func_ov000_021719f8(int* arg0);
 #if defined(jpn)
-extern "C" int func_ov000_02171a74(struct Obj02170db0* obj);
+extern "C" int func_ov000_02171a74(struct Struct_ov000_02170db0_3* arg0);
 #else
-extern "C" int func_ov000_02171a74(struct Obj02170db0* obj, char* buf);
+extern "C" int func_ov000_02171a74(struct Struct_ov000_02170db0_3* arg0, char* arg1);
 #endif
-extern "C" void func_020e4864(void* src, char* dst, int a, int b, int c, int d);
-extern "C" void func_0206819c(const char* src, char* dst, int flag);
+extern "C" void func_020e4864(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
 extern "C" int func_020421a0(void);
-extern "C" void func_02046608(int messages, int mode, char* input, char* output, int size, int a, int b);
-extern "C" void func_ov000_0217616c(struct Obj02170db0* obj);
+extern "C" void func_02046608(int arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_ov000_0217616c(struct Struct_ov000_02170db0_3* arg0);
 
 extern char data_ov000_02183ff4[];
 
 // USA: func_ov000_02170db0
-extern "C" ARM void func_ov000_02170db0(struct Obj02170db0* obj) {
-    struct Entry02170cf8* entry = func_ov000_02170cf8(obj, obj->entryKey);
-    struct Equipment02171d90* equip = func_ov000_02171d90(obj, obj->itemId);
-    GameObject* c = func_0200ff1c(GameState::GetInstance(), obj->combatantId);
-    if (c == NULL) {
+extern "C" ARM void func_ov000_02170db0(struct Struct_ov000_02170db0_3* arg0) {
+    struct Struct_ov000_02170cf8* var0 = func_ov000_02170cf8(arg0, arg0->unknown_26_);
+    struct Struct_ov000_02170db0* var1 = func_ov000_02171d90(arg0, arg0->unknown_2c_);
+    GameObject* var2 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    if (var2 == NULL) {
         return;
     }
-    struct CombatantExt02170db0* ext = func_02053c6c((unsigned char*)c);
-    obj->label.dirty = 1;
-    if (func_ov000_021719f8((int*)obj)) {
+    struct Struct_ov000_02170db0_2* var3 = func_02053c6c((unsigned char*)var2);
+    arg0->unknown_50_.unknown_10_ = 1;
+    if (func_ov000_021719f8((int*)arg0)) {
 #if defined(jpn)
-        char* text = (char*)func_020e0434(obj->container, func_ov000_02171a74(obj));
-        if (text != NULL) {
-            func_0203c108(&obj->label, text);
+        char* var4 = (char*)func_020e0434(arg0->unknown_4_, func_ov000_02171a74(arg0));
+        if (var4 != NULL) {
+            func_0203c108(&arg0->unknown_50_, var4);
         }
 #else
-        char buf[0x80];
-        __clear(buf, sizeof(buf));
-        if (func_ov000_02171a74(obj, buf) >= 0) {
-            func_0203c108(&obj->label, buf);
+        char var5[0x80];
+        __clear(var5, sizeof(var5));
+        if (func_ov000_02171a74(arg0, var5) >= 0) {
+            func_0203c108(&arg0->unknown_50_, var5);
         }
 #endif
-    } else if (ext != NULL && (signed char)ext->field94c != 5 && obj->kind != 6) {
-        char* text = (char*)func_020e0434(obj->container, (short)((signed char)ext->field94c + 0x753e));
-        if (text != NULL) {
-            func_0203c108(&obj->label, text);
+    } else if (var3 != NULL && (signed char)var3->unknown_94c_ != 5 && arg0->unknown_1c_ != 6) {
+        char* var6 = (char*)func_020e0434(arg0->unknown_4_, (short)((signed char)var3->unknown_94c_ + 0x753e));
+        if (var6 != NULL) {
+            func_0203c108(&arg0->unknown_50_, var6);
         } else {
-            func_0203c108(&obj->label, data_ov000_02183ff4);
+            func_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
         }
-    } else if (entry != NULL) {
+    } else if (var0 != NULL) {
 #if defined(jpn)
-        func_0203c108(&obj->label, (char*)entry->text);
+        func_0203c108(&arg0->unknown_50_, (char*)var0->unknown_0_);
 #else
-        char raw[0x80];
-        char name[0x80];
-        __clear(raw, sizeof(raw));
-        __clear(name, sizeof(name));
-        func_020e4864(entry->text, raw, 1, 0, 0, 0);
-        func_0206819c(raw, name, 0);
-        func_0203c108(&obj->label, name);
+        char var7[0x80];
+        char var8[0x80];
+        __clear(var7, sizeof(var7));
+        __clear(var8, sizeof(var8));
+        func_020e4864(var0->unknown_0_, var7, 1, 0, 0, 0);
+        func_0206819c(var7, var8, 0);
+        func_0203c108(&arg0->unknown_50_, var8);
 #endif
-    } else if (equip != NULL) {
-        if (equip->count > 0) {
+    } else if (var1 != NULL) {
+        if (var1->unknown_18_ > 0) {
 #if defined(jpn)
-            func_0203c108(&obj->label, (char*)equip->text);
+            func_0203c108(&arg0->unknown_50_, (char*)var1->unknown_4_);
 #else
-            char raw[0x80];
-            char name[0x80];
-            __clear(raw, sizeof(raw));
-            __clear(name, sizeof(name));
-            func_020e4864(equip->text, raw, 1, 0, 0, 0);
-            func_0206819c(raw, name, 0);
-            func_02046608(func_020421a0(), 10, name, raw, 0x100, 0, 0);
-            func_0203c108(&obj->label, raw);
+            char var9[0x80];
+            char var10[0x80];
+            __clear(var9, sizeof(var9));
+            __clear(var10, sizeof(var10));
+            func_020e4864(var1->unknown_4_, var9, 1, 0, 0, 0);
+            func_0206819c(var9, var10, 0);
+            func_02046608(func_020421a0(), 10, var10, var9, 0x100, 0, 0);
+            func_0203c108(&arg0->unknown_50_, var9);
 #endif
         }
-    } else if (obj->kind == 6) {
-        func_0203c108(&obj->label, (char*)func_020e0434(obj->container, 0x7531));
+    } else if (arg0->unknown_1c_ == 6) {
+        func_0203c108(&arg0->unknown_50_, (char*)func_020e0434(arg0->unknown_4_, 0x7531));
     } else {
-        func_0203c108(&obj->label, data_ov000_02183ff4);
+        func_0203c108(&arg0->unknown_50_, data_ov000_02183ff4);
     }
-    func_ov000_0217616c(obj);
+    func_ov000_0217616c(arg0);
 }

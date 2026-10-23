@@ -2,25 +2,25 @@
 #include "World/Object3D.h"
 #include "Input/Input.h"
 
-struct S0218e5c0 {
-    char pad0x24[0x24];
-    void* field0x24;
-    char pad0x28[0x12];
-    unsigned char field0x3a;
+struct Struct_ov015_0218e5c0 {
+    char unknown_0_[0x24];
+    void* unknown_24_;
+    char unknown_28_[0x12];
+    unsigned char unknown_3a_;
 };
 
 // USA: func_ov015_0218e5c0
-extern "C" ARM void func_ov015_0218e5c0(struct S0218e5c0* obj) {
-    int ok = 0;
-    if (obj->field0x3a != 0) {
+extern "C" ARM void func_ov015_0218e5c0(struct Struct_ov015_0218e5c0* arg0) {
+    int var0 = 0;
+    if (arg0->unknown_3a_ != 0) {
         if (g_keyManager.TestKeysPressed(0x100) != 0) {
-            ok = 1;
+            var0 = 1;
         }
     } else {
-        ok = 1;
+        var0 = 1;
     }
-    if (ok == 0) {
+    if (var0 == 0) {
         return;
     }
-    ((Object3D*)obj->field0x24)->AdvanceEffects();
+    ((Object3D*)arg0->unknown_24_)->AdvanceEffects();
 }

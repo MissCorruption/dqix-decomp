@@ -3,18 +3,18 @@
 #pragma opt_arithtransformation off
 
 // USA: func_ov023_021f6c3c
-extern "C" ARM void func_ov023_021f6c3c(void* base, unsigned int idx1, unsigned int startBit,
-                                unsigned int count) {
-    if (startBit >= 0x80) {
+extern "C" ARM void func_ov023_021f6c3c(void* arg0, unsigned int arg1, unsigned int arg2,
+                                unsigned int arg3) {
+    if (arg2 >= 0x80) {
         return;
     }
-    unsigned short i = 0;
-    while (i < count) {
-        unsigned int* arr = (unsigned int*)((char*)base + 8 + (idx1 << 4));
-        unsigned int word = arr[startBit >> 2];
-        unsigned int mask = ~(1u << (startBit & 3));
-        arr[startBit >> 2] = word & mask;
-        startBit++;
-        i++;
+    unsigned short var0 = 0;
+    while (var0 < arg3) {
+        unsigned int* var1 = (unsigned int*)((char*)arg0 + 8 + (arg1 << 4));
+        unsigned int var2 = var1[arg2 >> 2];
+        unsigned int var3 = ~(1u << (arg2 & 3));
+        var1[arg2 >> 2] = var2 & var3;
+        arg2++;
+        var0++;
     }
 }

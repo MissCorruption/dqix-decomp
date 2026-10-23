@@ -5,36 +5,36 @@
 
 extern AllocatorUnion data_02114e20;
 
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" void func_020397c0(void* obj);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void func_020397c0(void* arg0);
 
 extern "C" void* func_02057924();
-extern "C" void func_02057f00(void* head, int value);
-extern "C" void func_ov010_021842a0(void* param);
+extern "C" void func_02057f00(void* arg0, int arg1);
+extern "C" void func_ov010_021842a0(void* arg0);
 
-struct Struct021842d8 {
-    unsigned char pad0[4];
-    int field4;
-    unsigned char pad8[0xc];
-    SafeAllocator safeAlloc;
+struct Struct_ov010_021842d8 {
+    unsigned char unknown_0_[4];
+    int unknown_4_;
+    unsigned char unknown_8_[0xc];
+    SafeAllocator unknown_14_;
 };
 
 // USA: func_ov010_021842d8
-extern "C" ARM void func_ov010_021842d8(struct Struct021842d8* obj) {
+extern "C" ARM void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0) {
     func_02057f00(func_02057924(), 0x11);
-    void* p = obj->safeAlloc.GetSignedAllocator();
-    if (p != NULL) {
-        obj->safeAlloc.Destroy();
-        func_02012da4(&data_02114e20, p);
+    void* var0 = arg0->unknown_14_.GetSignedAllocator();
+    if (var0 != NULL) {
+        arg0->unknown_14_.Destroy();
+        func_02012da4(&data_02114e20, var0);
     }
-    if (obj->field4 >= 0) {
-        int x = (int)BackgroundLoader::GetInstance();
-        ((BackgroundLoader*)(x))->RemoveTask((int)(obj->field4));
-        obj->field4 = -1;
+    if (arg0->unknown_4_ >= 0) {
+        int var1 = (int)BackgroundLoader::GetInstance();
+        ((BackgroundLoader*)(var1))->RemoveTask((int)(arg0->unknown_4_));
+        arg0->unknown_4_ = -1;
     }
-    GameObject* c = GameState::GetInstance()->GetUnknownGameObject();
-    if (c != NULL) {
-        func_020397c0(c);
+    GameObject* var2 = GameState::GetInstance()->GetUnknownGameObject();
+    if (var2 != NULL) {
+        func_020397c0(var2);
     }
-    func_ov010_021842a0(obj);
+    func_ov010_021842a0(arg0);
 }

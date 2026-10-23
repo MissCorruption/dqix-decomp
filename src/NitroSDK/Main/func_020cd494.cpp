@@ -1,83 +1,83 @@
 #include <globaldefs.h>
 #include "NitroSDK/Filesystem/OverlayFSManagement.h"
 
-struct DestructorChain
+struct Struct_020cd494
 {
-    DestructorChain* next;
-    void (*destructor)(void* object);
-    void* object;
+    Struct_020cd494* unknown_0_;
+    void (*unknown_4_)(void* object);
+    void* unknown_8_;
 };
 
 int DisableIRQInterrupts();
 int SetIRQInterruptState(int);
 
-extern DestructorChain* data_020f33b0;
+extern Struct_020cd494* data_020f33b0;
 
 // USA: func_020cd494
-extern "C" ARM void func_020cd494(const OverlayMetadata& overlay)
+extern "C" ARM void func_020cd494(const OverlayMetadata& arg0)
 {
     for (;;)
     {
-        DestructorChain* head = NULL;
-        DestructorChain* tail = NULL;
-        const unsigned int regionStart = overlay.loadAddress;
-        const unsigned int regionEnd = regionStart + (overlay.uncompressedSize + overlay.bssSectionSize);
+        Struct_020cd494* var0 = NULL;
+        Struct_020cd494* var1 = NULL;
+        const unsigned int var2 = arg0.loadAddress;
+        const unsigned int var3 = var2 + (arg0.uncompressedSize + arg0.bssSectionSize);
 
         {
-            int priorState = DisableIRQInterrupts();
-            DestructorChain* prev = NULL;
-            DestructorChain* base = data_020f33b0;
-            DestructorChain* entry = base;
+            int var4 = DisableIRQInterrupts();
+            Struct_020cd494* var5 = NULL;
+            Struct_020cd494* var6 = data_020f33b0;
+            Struct_020cd494* var7 = var6;
 
-            while (entry)
+            while (var7)
             {
-                DestructorChain* next = entry->next;
-                const unsigned int destructor = (unsigned int)entry->destructor;
-                const unsigned int object = (unsigned int)entry->object;
+                Struct_020cd494* var8 = var7->unknown_0_;
+                const unsigned int var9 = (unsigned int)var7->unknown_4_;
+                const unsigned int var10 = (unsigned int)var7->unknown_8_;
 
-                if (object == 0 && destructor >= regionStart && destructor < regionEnd ||
-                    object >= regionStart && object < regionEnd)
+                if (var10 == 0 && var9 >= var2 && var9 < var3 ||
+                    var10 >= var2 && var10 < var3)
                 {
-                    if (!tail)
+                    if (!var1)
                     {
-                        head = entry;
+                        var0 = var7;
                     }
                     else
                     {
-                        tail->next = entry;
+                        var1->unknown_0_ = var7;
                     }
-                    if (base == entry)
+                    if (var6 == var7)
                     {
-                        base = data_020f33b0 = next;
+                        var6 = data_020f33b0 = var8;
                     }
-                    tail = entry, entry->next = NULL;
-                    if (prev)
+                    var1 = var7, var7->unknown_0_ = NULL;
+                    if (var5)
                     {
-                        prev->next = next;
+                        var5->unknown_0_ = var8;
                     }
                 }
                 else
                 {
-                    prev = entry;
+                    var5 = var7;
                 }
-                entry = next;
+                var7 = var8;
             }
-            SetIRQInterruptState(priorState);
+            SetIRQInterruptState(var4);
         }
 
-        if (!head)
+        if (!var0)
         {
             break;
         }
 
         do
         {
-            DestructorChain* next = head->next;
-            if (head->destructor)
+            Struct_020cd494* var11 = var0->unknown_0_;
+            if (var0->unknown_4_)
             {
-                head->destructor(head->object);
+                var0->unknown_4_(var0->unknown_8_);
             }
-            head = next;
-        } while (head);
+            var0 = var11;
+        } while (var0);
     }
 }

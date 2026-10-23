@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Obj3a8Timer_02159fb0 {
-    char unk[0x3a8];
-    unsigned int field3a8;
-    int unk3ac;
-    int field3b0;
+struct Struct_ov006_02159fb0 {
+    char unknown_0_[0x3a8];
+    unsigned int unknown_3a8_;
+    int unknown_3ac_;
+    int unknown_3b0_;
 };
 
-extern "C" void func_ov006_02159f94(struct Obj3a8Timer_02159fb0* obj);
-extern "C" void func_ov006_02159f0c(struct Obj3a8Timer_02159fb0* obj);
+extern "C" void func_ov006_02159f94(struct Struct_ov006_02159fb0* arg0);
+extern "C" void func_ov006_02159f0c(struct Struct_ov006_02159fb0* arg0);
 
 // USA: func_ov006_02159fb0
-extern "C" ARM void func_ov006_02159fb0(struct Obj3a8Timer_02159fb0* obj) {
-    if (obj->field3b0 < 0) {
-        obj->field3a8 = 0;
-        func_ov006_02159f94(obj);
+extern "C" ARM void func_ov006_02159fb0(struct Struct_ov006_02159fb0* arg0) {
+    if (arg0->unknown_3b0_ < 0) {
+        arg0->unknown_3a8_ = 0;
+        func_ov006_02159f94(arg0);
         return;
     }
-    if (obj->field3a8 > 0x3c) {
-        obj->field3a8 = 0;
-        func_ov006_02159f94(obj);
-        func_ov006_02159f0c(obj);
+    if (arg0->unknown_3a8_ > 0x3c) {
+        arg0->unknown_3a8_ = 0;
+        func_ov006_02159f94(arg0);
+        func_ov006_02159f0c(arg0);
     }
-    obj->field3a8 += GameState::GetInstance()->GetEffectiveDeltaTime();
+    arg0->unknown_3a8_ += GameState::GetInstance()->GetEffectiveDeltaTime();
 }

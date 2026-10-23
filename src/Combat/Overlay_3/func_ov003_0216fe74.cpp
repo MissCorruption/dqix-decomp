@@ -1,101 +1,101 @@
 #include <globaldefs.h>
 
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
-extern "C" void* __clear(void* dst, int count);
+extern "C" void* __clear(void* arg0, int arg1);
 
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
-struct Container020e0310;
-extern "C" short func_ov003_0216df38(char* dst, struct Container020e0310* c, int flag);
+struct Struct_0201099c_3;
+extern "C" short func_ov003_0216df38(char* arg0, struct Struct_0201099c_3* arg1, int arg2);
 
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 #if defined(jpn)
-extern "C" int sprintf(char* dst, const char* fmt, ...);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" const char* func_020e0434(struct Container020e0310* c, int key);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" const char* func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern char data_ov003_0217ea90[];
 extern char data_ov003_0217eaac[];
 extern char data_ov003_0217eabf[];
 extern char data_ov003_0217ea6f[];
-extern "C" int func_0205d5d0(struct StructA0205d5d0* a, int b, int c, int d);
+extern "C" int func_0205d5d0(struct Struct_0205d5d0* arg0, int arg1, int arg2, int arg3);
 #else
-extern "C" int func_0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, unsigned char e);
+extern "C" int func_0205d5d0(struct Struct_0205d5d0* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 #endif
 
 // USA: func_ov003_0216fe74
-extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
-    char* field3c = *(char**)(self + 0x3c);
-    if (field3c == 0) {
+extern "C" ARM void func_ov003_0216fe74(char* arg0, int arg1, int arg2, int arg3) {
+    char* var0 = *(char**)(arg0 + 0x3c);
+    if (var0 == 0) {
         return;
     }
-    func_0205de24((struct Struct0205de24*)field3c, 0, 1);
+    func_0205de24((struct Struct_0205de24_2*)var0, 0, 1);
 
-    (*(char**)(self + 0x3c))[0xb1] = 0;
+    (*(char**)(arg0 + 0x3c))[0xb1] = 0;
 
-    field3c = *(char**)(self + 0x3c);
-    *(short*)(field3c + 0xa0) = 0x11;
-    *(short*)(field3c + 0xa2) = 9;
+    var0 = *(char**)(arg0 + 0x3c);
+    *(short*)(var0 + 0xa0) = 0x11;
+    *(short*)(var0 + 0xa2) = 9;
 
-    field3c = *(char**)(self + 0x3c);
-    *(short*)(field3c + 0xa4) = 6;
-    *(short*)(field3c + 0xa6) = 6;
+    var0 = *(char**)(arg0 + 0x3c);
+    *(short*)(var0 + 0xa4) = 6;
+    *(short*)(var0 + 0xa6) = 6;
 
-    field3c = *(char**)(self + 0x3c);
+    var0 = *(char**)(arg0 + 0x3c);
 #if defined(jpn)
-    *(short*)(field3c + 0xa8) = 0;
+    *(short*)(var0 + 0xa8) = 0;
 #else
-    *(short*)(field3c + 0xa8) = 0xc;
+    *(short*)(var0 + 0xa8) = 0xc;
 #endif
-    *(short*)(field3c + 0xaa) = 0xe;
+    *(short*)(var0 + 0xaa) = 0xe;
 
-    field3c = *(char**)(self + 0x3c);
-    *(short*)(field3c + 0xac) = 0xa;
-    *(short*)(field3c + 0xae) = 0x10;
+    var0 = *(char**)(arg0 + 0x3c);
+    *(short*)(var0 + 0xac) = 0xa;
+    *(short*)(var0 + 0xae) = 0x10;
 
-    (*(char**)(self + 0x3c))[0xb5] = 1;
+    (*(char**)(arg0 + 0x3c))[0xb5] = 1;
 
 #if defined(jpn)
-    char buf[0x200];
-    char line[0x80];
-    __clear(buf, 0x200);
-    __clear(line, 0x80);
+    char var1[0x200];
+    char var2[0x80];
+    __clear(var1, 0x200);
+    __clear(var2, 0x80);
 
-    if (p3 != -1) {
-        func_02041c08(buf, p3, 8, 5, 5, 5);
+    if (arg3 != -1) {
+        func_02041c08(var1, arg3, 8, 5, 5, 5);
     }
 
-    if (p1) {
-        sprintf(line, data_ov003_0217ea90, func_020e0434((struct Container020e0310*)(self + 0xdc), 6));
+    if (arg1) {
+        sprintf(var2, data_ov003_0217ea90, func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 6));
     } else {
-        sprintf(line, data_ov003_0217ea90, func_020e0434((struct Container020e0310*)(self + 0xdc), 5));
+        sprintf(var2, data_ov003_0217ea90, func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 5));
     }
-    func_02042058(buf, line);
-    sprintf(line, data_ov003_0217eaac, func_020e0434((struct Container020e0310*)(self + 0xdc), 7));
-    func_02042058(buf, line);
-    sprintf(line, data_ov003_0217eabf, data_ov003_0217ea6f);
-    func_02042058(buf, line);
+    func_02042058(var1, var2);
+    sprintf(var2, data_ov003_0217eaac, func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xdc), 7));
+    func_02042058(var1, var2);
+    sprintf(var2, data_ov003_0217eabf, data_ov003_0217ea6f);
+    func_02042058(var1, var2);
 
-    func_0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1);
+    func_0205d5d0((struct Struct_0205d5d0*)*(char**)(arg0 + 0x3c), 0, (int)var1, 1);
 #else
-    char buf[0x200];
-    __clear(buf, 0x200);
+    char var3[0x200];
+    __clear(var3, 0x200);
 
-    if (p3 != -1) {
-        func_02041c08(buf, p3, 8, 5, 5, 5);
+    if (arg3 != -1) {
+        func_02041c08(var3, arg3, 8, 5, 5, 5);
     }
 
-    short w = func_ov003_0216df38(buf, (struct Container020e0310*)(self + 0xdc), p1);
+    short var4 = func_ov003_0216df38(var3, (struct Struct_0201099c_3*)(arg0 + 0xdc), arg1);
 
-    field3c = *(char**)(self + 0x3c);
-    *(short*)(field3c + 0xa4) = (short)((0x20 - w) >> 1);
-    *(short*)(field3c + 0xa6) = 6;
+    var0 = *(char**)(arg0 + 0x3c);
+    *(short*)(var0 + 0xa4) = (short)((0x20 - var4) >> 1);
+    *(short*)(var0 + 0xa6) = 6;
 
-    field3c = *(char**)(self + 0x3c);
-    *(short*)(field3c + 0xa0) = w;
-    *(short*)(field3c + 0xa2) = 9;
+    var0 = *(char**)(arg0 + 0x3c);
+    *(short*)(var0 + 0xa0) = var4;
+    *(short*)(var0 + 0xa2) = 9;
 
-    func_0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1, 0);
+    func_0205d5d0((struct Struct_0205d5d0*)*(char**)(arg0 + 0x3c), 0, (int)var3, 1, 0);
 #endif
 }

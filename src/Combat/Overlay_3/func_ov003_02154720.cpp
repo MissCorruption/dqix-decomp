@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #if defined(jpn)
-enum { kClearSize=0x48 };
+enum { Enum_ov003_02154720_76=0x48 };
 #else
-enum { kClearSize=0x4c };
+enum { Enum_ov003_02154720_76=0x4c };
 #endif
-struct Cache02154720 { unsigned int flags; unsigned short hp,maxHP,mp,maxMP; unsigned char table,vocation,pad[2]; };
-struct Party02154720 { char pad[0xf78]; unsigned char ids[4],count; };
-struct Scene02154720 {
- void* p0;void* p4;void* p8;void* pc;void* p10;void* p14;void* p18;void* p1c;void* p20;void* p24;void* p28;
- char init2c[0x54];char selector[0xc];char sub[4];char clear90[0x54];char resetE4[0x18];char resetFc[0x18];char clear114[kClearSize];
- char controller[0x10];unsigned char flag170,flag171;char pad172[2];unsigned int display;
- char zero178[0x18];Cache02154720 cache[4];int task,field1d4,changed;unsigned int scale;
- short field1e0,field1e2,field1e4,element,previous,field1ea,pending,field1ee,field1f0;
- unsigned char ids[4],count,current,state,flag1f9,flag1fa,multiplayer;unsigned int flags;int field200,skip;
- char pad208[0x330-0x208];int field330,field334;unsigned char blocked,reset,started;
+struct Struct_02000c9c_81 { unsigned int unknown_0_; unsigned short unknown_4_,unknown_6_,unknown_8_,unknown_a_; unsigned char unknown_c_,unknown_d_,unknown_e_[2]; };
+struct Struct_ov003_02154720 { char unknown_0_[0xf78]; unsigned char unknown_f78_[4],unknown_f7c_; };
+struct Struct_ov003_02154720_2 {
+ void* unknown_0_;void* unknown_4_;void* unknown_8_;void* unknown_c_;void* unknown_10_;void* unknown_14_;void* unknown_18_;void* unknown_1c_;void* unknown_20_;void* unknown_24_;void* unknown_28_;
+ char unknown_2c_[0x54];char unknown_80_[0xc];char unknown_8c_[4];char unknown_90_[0x54];char unknown_e4_[0x18];char unknown_fc_[0x18];char unknown_114_[Enum_ov003_02154720_76];
+ char unknown_160_[0x10];unsigned char unknown_170_,unknown_171_;char unknown_172_[2];unsigned int unknown_174_;
+ char unknown_178_[0x18];Struct_02000c9c_81 unknown_190_[4];int unknown_1d0_,unknown_1d4_,unknown_1d8_;unsigned int unknown_1dc_;
+ short unknown_1e0_,unknown_1e2_,unknown_1e4_,unknown_1e6_,unknown_1e8_,unknown_1ea_,unknown_1ec_,unknown_1ee_,unknown_1f0_;
+ unsigned char unknown_1f2_[4],unknown_1f6_,unknown_1f7_,unknown_1f8_,unknown_1f9_,unknown_1fa_,unknown_1fb_;unsigned int unknown_1fc_;int unknown_200_,unknown_204_;
+ char unknown_208_[0x330-0x208];int unknown_330_,unknown_334_;unsigned char unknown_338_,unknown_339_,unknown_33a_;
 };
 extern "C" void func_02074af4(void*);
 extern "C" void func_0205a444(char*);
-struct Obj02081ee4;
-struct Sub02081ee4;
-extern "C" void func_02081ee4(Obj02081ee4*, Sub02081ee4*);
+struct Struct_02081ee4;
+struct Struct_02081ee4_2;
+extern "C" void func_02081ee4(Struct_02081ee4*, Struct_02081ee4_2*);
 extern "C" void func_0208247c(void*);
-struct Struct020dfc40;
-extern "C" void func_020dfc40(Struct020dfc40*);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc40(Struct_0201099c_14*);
 extern "C" void func_ov023_021e20c0(void*);
 extern "C" void func_020de848(void*);
 extern "C" unsigned int func_020100a8(GameState*);
@@ -31,47 +31,47 @@ extern "C" void* memset(void*,int,unsigned int);
 extern "C" unsigned int func_020114ec(char*, void*);
 extern "C" void func_ov003_0215873c(void*);
 // USA: func_ov003_02154720
-extern "C" ARM void func_ov003_02154720(void* memory,unsigned char flagIn) {
- unsigned char flag=flagIn;
- Scene02154720* self=(Scene02154720*)memory;
- Party02154720* party;
- unsigned char count;
- int k;
- GameState* gs;
- int init;
- self->flag170=0;self->flag171=0;func_02074af4(self->controller);
- self->display=(*(volatile unsigned int*)0x04000000&0x1f00)>>8;
+extern "C" ARM void func_ov003_02154720(void* arg0,unsigned char arg1) {
+ unsigned char var0=arg1;
+ Struct_ov003_02154720_2* var1=(Struct_ov003_02154720_2*)arg0;
+ Struct_ov003_02154720* var2;
+ unsigned char var3;
+ int var4;
+ GameState* var5;
+ int var6;
+ var1->unknown_170_=0;var1->unknown_171_=0;func_02074af4(var1->unknown_160_);
+ var1->unknown_174_=(*(volatile unsigned int*)0x04000000&0x1f00)>>8;
  *(volatile unsigned int*)0x04000000=(*(volatile unsigned int*)0x04000000&~0x1f00)|0x100;
- gs=GameState::GetInstance();
- party=(Party02154720*)func_02010828(gs);
- self->p0=0;self->p4=0;self->pc=0;self->p8=0;self->p10=0;self->p14=0;self->p18=0;self->p20=0;self->p24=0;self->p28=0;
- func_0205a444((char*)self->init2c);
- func_02081ee4((Obj02081ee4*)self->selector, (Sub02081ee4*)self->sub);
- func_0208247c(self->clear90);
- func_020dfc40((Struct020dfc40*)self->resetE4);
- func_020dfc40((Struct020dfc40*)self->resetFc);
- func_ov023_021e20c0(self->clear114);
- func_020de848(self->zero178);
- self->task=-1;self->field1d4=0;self->changed=0;self->scale=0;
- self->field1e0=-1;self->field1e2=-1;self->field1e4=-1;self->element=-1;self->previous=-1;self->field1ea=-1;self->field1ee=-1;self->pending=self->field1ee;self->field1f0=-1;
- self->current=func_020100a8(gs);
- self->state=0;self->flag1f9=0;self->flag1fa=0;self->multiplayer=0;self->flags=0;self->field200=0;self->skip=0;
- self->field330=0;self->field334=0;self->blocked=0;self->reset=0;self->started=0;
- for(init=0;init<4;init++) { self->ids[init]=0;memset(&self->cache[init],0,4); }
- self->count=func_020114ec((char*)gs, self->ids);
- Party02154720* currentParty=(Party02154720*)func_02010828(gs);
- count=self->count;
- for(int i=0;i<count;i++) {
-  int id;
-  bool found=false;
-  id=(signed char)self->ids[i];
-  for(int j=0;j<currentParty->count;j++) if(id==currentParty->ids[j]) found=true;
-  if(!found) { self->ids[i]=0xff;self->count--; }
+ var5=GameState::GetInstance();
+ var2=(Struct_ov003_02154720*)func_02010828(var5);
+ var1->unknown_0_=0;var1->unknown_4_=0;var1->unknown_c_=0;var1->unknown_8_=0;var1->unknown_10_=0;var1->unknown_14_=0;var1->unknown_18_=0;var1->unknown_20_=0;var1->unknown_24_=0;var1->unknown_28_=0;
+ func_0205a444((char*)var1->unknown_2c_);
+ func_02081ee4((Struct_02081ee4*)var1->unknown_80_, (Struct_02081ee4_2*)var1->unknown_8c_);
+ func_0208247c(var1->unknown_90_);
+ func_020dfc40((Struct_0201099c_14*)var1->unknown_e4_);
+ func_020dfc40((Struct_0201099c_14*)var1->unknown_fc_);
+ func_ov023_021e20c0(var1->unknown_114_);
+ func_020de848(var1->unknown_178_);
+ var1->unknown_1d0_=-1;var1->unknown_1d4_=0;var1->unknown_1d8_=0;var1->unknown_1dc_=0;
+ var1->unknown_1e0_=-1;var1->unknown_1e2_=-1;var1->unknown_1e4_=-1;var1->unknown_1e6_=-1;var1->unknown_1e8_=-1;var1->unknown_1ea_=-1;var1->unknown_1ee_=-1;var1->unknown_1ec_=var1->unknown_1ee_;var1->unknown_1f0_=-1;
+ var1->unknown_1f7_=func_020100a8(var5);
+ var1->unknown_1f8_=0;var1->unknown_1f9_=0;var1->unknown_1fa_=0;var1->unknown_1fb_=0;var1->unknown_1fc_=0;var1->unknown_200_=0;var1->unknown_204_=0;
+ var1->unknown_330_=0;var1->unknown_334_=0;var1->unknown_338_=0;var1->unknown_339_=0;var1->unknown_33a_=0;
+ for(var6=0;var6<4;var6++) { var1->unknown_1f2_[var6]=0;memset(&var1->unknown_190_[var6],0,4); }
+ var1->unknown_1f6_=func_020114ec((char*)var5, var1->unknown_1f2_);
+ Struct_ov003_02154720* var7=(Struct_ov003_02154720*)func_02010828(var5);
+ var3=var1->unknown_1f6_;
+ for(int var8=0;var8<var3;var8++) {
+  int var9;
+  bool var10=false;
+  var9=(signed char)var1->unknown_1f2_[var8];
+  for(int var11=0;var11<var7->unknown_f7c_;var11++) if(var9==var7->unknown_f78_[var11]) var10=true;
+  if(!var10) { var1->unknown_1f2_[var8]=0xff;var1->unknown_1f6_--; }
  }
- for(k=0;k<count-1;k++) {
-  if(self->ids[k]==0xff) for(int j=k+1;j<count;j++) if(self->ids[j]!=0xff) {self->ids[k]=self->ids[j];self->ids[j]=0xff;break;}
+ for(var4=0;var4<var3-1;var4++) {
+  if(var1->unknown_1f2_[var4]==0xff) for(int var12=var4+1;var12<var3;var12++) if(var1->unknown_1f2_[var12]!=0xff) {var1->unknown_1f2_[var4]=var1->unknown_1f2_[var12];var1->unknown_1f2_[var12]=0xff;break;}
  }
- func_ov003_0215873c(self);
- if(flag) self->flags|=1;
- self->multiplayer=party->count!=1;
+ func_ov003_0215873c(var1);
+ if(var0) var1->unknown_1fc_|=1;
+ var1->unknown_1fb_=var2->unknown_f7c_!=1;
 }

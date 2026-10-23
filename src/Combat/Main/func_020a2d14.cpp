@@ -3,246 +3,246 @@
 #include "Graphics/Vector.h"
 #include "Input/Input.h"
 
-struct GlobalObj0202e6a8;
-struct Obj0202ea4c;
-struct Vec3;
+struct Struct_0202e6a8;
+struct Struct_0202ea4c;
+struct Struct_ov009_0218aa28;
 
-struct CamState0202e6c0 {
-    int unk0;
-    Vector3fix target;
-    Vector3fix position;
-    char pad1C[0x70 - 0x1C];
-    fix32_t yaw;
-    fix32_t height;
-    fix32_t distance;
-    char pad7C[0x218 - 0x7C];
-    int mode;
+struct Struct_0202e6c0 {
+    int unknown_0_;
+    Vector3fix unknown_4_;
+    Vector3fix unknown_10_;
+    char unknown_1c_[0x70 - 0x1C];
+    fix32_t unknown_70_;
+    fix32_t unknown_74_;
+    fix32_t unknown_78_;
+    char unknown_7c_[0x218 - 0x7C];
+    int unknown_218_;
 };
 
-extern "C" void func_0202e784(struct GlobalObj0202e6a8* obj, int val);
-extern "C" int func_0202e800(void* obj);
-extern "C" int func_0202e7f8(void* obj);
-extern "C" void func_0202e6c0(struct CamState0202e6c0* obj, int value);
-extern "C" void func_0202e9f4(void* obj, struct Vec3* v);
-extern "C" void func_0202ea4c(struct Obj0202ea4c* obj);
-extern "C" int func_0202e858(void* obj, int n);
-extern "C" void func_0202ec5c(char* obj, int* src);
+extern "C" void func_0202e784(struct Struct_0202e6a8* arg0, int arg1);
+extern "C" int func_0202e800(void* arg0);
+extern "C" int func_0202e7f8(void* arg0);
+extern "C" void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1);
+extern "C" void func_0202e9f4(void* arg0, struct Struct_ov009_0218aa28* arg1);
+extern "C" void func_0202ea4c(struct Struct_0202ea4c* arg0);
+extern "C" int func_0202e858(void* arg0, int arg1);
+extern "C" void func_0202ec5c(char* arg0, int* arg1);
 
-static inline fix32_t FxMul(fix32_t a, fix32_t b) {
-    return (fix32_t)(((int64_t)a * b + 0x800) >> 12);
+static inline fix32_t inline_02061c04_5(fix32_t arg0, fix32_t arg1) {
+    return (fix32_t)(((int64_t)arg0 * arg1 + 0x800) >> 12);
 }
 
-static inline void SetCameraPlacement(struct CamState0202e6c0* cam, const Vector3fix* position, const Vector3fix* target) {
-    cam->position = *position;
-    func_0202ea4c((struct Obj0202ea4c*)cam);
-    cam->target = *target;
+static inline void inline_020a2d14(struct Struct_0202e6c0* arg0, const Vector3fix* arg1, const Vector3fix* arg2) {
+    arg0->unknown_10_ = *arg1;
+    func_0202ea4c((struct Struct_0202ea4c*)arg0);
+    arg0->unknown_4_ = *arg2;
 }
 
 // USA: func_020a2d14
-extern "C" ARM void func_020a2d14(struct CamState0202e6c0* cam) {
-    int pressA;
-    int pressB;
-    int pressX;
-    int pressY;
-    int pressL;
-    int pressR;
-    int pressUp;
-    int pressDown;
-    int pressLeft;
-    int pressRight;
-    int slow;
-    float speed;
-    float scale;
-    int moved;
-    fix32_t angle;
+extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    int var10;
+    float var11;
+    float var12;
+    int var13;
+    fix32_t var14;
 
-    if (cam->mode == 0) {
+    if (arg0->unknown_218_ == 0) {
         return;
     }
 
-    Vector3fix pos = cam->position;
-    pressA = g_keyManager.TestKeysHeld(1);
-    pressB = g_keyManager.TestKeysHeld(2);
-    pressX = g_keyManager.TestKeysHeld(0x400);
-    pressY = g_keyManager.TestKeysHeld(0x800);
-    pressL = g_keyManager.TestKeysHeld(0x200);
-    pressR = g_keyManager.TestKeysHeld(0x100);
-    pressUp = g_keyManager.TestKeysHeld(0x40);
-    pressDown = g_keyManager.TestKeysHeld(0x80);
-    pressLeft = g_keyManager.TestKeysHeld(0x20);
-    pressRight = g_keyManager.TestKeysHeld(0x10);
-    slow = g_keyManager.TestKeysHeld(8);
-    speed = 1.0f;
-    if (slow) {
-        speed = 0.1f;
+    Vector3fix var15 = arg0->unknown_10_;
+    var0 = g_keyManager.TestKeysHeld(1);
+    var1 = g_keyManager.TestKeysHeld(2);
+    var2 = g_keyManager.TestKeysHeld(0x400);
+    var3 = g_keyManager.TestKeysHeld(0x800);
+    var4 = g_keyManager.TestKeysHeld(0x200);
+    var5 = g_keyManager.TestKeysHeld(0x100);
+    var6 = g_keyManager.TestKeysHeld(0x40);
+    var7 = g_keyManager.TestKeysHeld(0x80);
+    var8 = g_keyManager.TestKeysHeld(0x20);
+    var9 = g_keyManager.TestKeysHeld(0x10);
+    var10 = g_keyManager.TestKeysHeld(8);
+    var11 = 1.0f;
+    if (var10) {
+        var11 = 0.1f;
     }
 
-    if (cam->mode == 2 && pressX == 0 && pressY == 0) {
+    if (arg0->unknown_218_ == 2 && var2 == 0 && var3 == 0) {
         return;
     }
 
-    if ((cam->mode == 1 && pressR == 0 && cam->mode == 1 && pressL == 0) || (cam->mode == 2 && pressY == 0)) {
-        if (pressLeft) {
-            func_0202e784((struct GlobalObj0202e6a8*)cam, -(int)(4096.0f * (0.05f * speed)));
+    if ((arg0->unknown_218_ == 1 && var5 == 0 && arg0->unknown_218_ == 1 && var4 == 0) || (arg0->unknown_218_ == 2 && var3 == 0)) {
+        if (var8) {
+            func_0202e784((struct Struct_0202e6a8*)arg0, -(int)(4096.0f * (0.05f * var11)));
         }
-        if (pressRight) {
-            func_0202e784((struct GlobalObj0202e6a8*)cam, (int)(4096.0f * (0.05f * speed)));
+        if (var9) {
+            func_0202e784((struct Struct_0202e6a8*)arg0, (int)(4096.0f * (0.05f * var11)));
         }
-        if (pressUp) {
-            fix32_t dist = func_0202e800(cam);
-            fix32_t height = func_0202e7f8(cam);
-            fix32_t heightSq = FxMul(height, height);
-            fix32_t distSq = FxMul(dist, dist);
-            fix32_t horiz = fix32_Sqrt(distSq - heightSq);
-            Vector3fix v = {horiz, height, 0};
-            Matrix4x3 m = RotationMatrixZ((int)(178.72223f * speed));
-            Mat4x3_ApplyToVector(&v, &m, &v);
-            func_0202e6c0(cam, v.y);
+        if (var6) {
+            fix32_t var16 = func_0202e800(arg0);
+            fix32_t var17 = func_0202e7f8(arg0);
+            fix32_t var18 = inline_02061c04_5(var17, var17);
+            fix32_t var19 = inline_02061c04_5(var16, var16);
+            fix32_t var20 = fix32_Sqrt(var19 - var18);
+            Vector3fix var21 = {var20, var17, 0};
+            Matrix4x3 var22 = RotationMatrixZ((int)(178.72223f * var11));
+            Mat4x3_ApplyToVector(&var21, &var22, &var21);
+            func_0202e6c0(arg0, var21.y);
         }
-        if (pressDown) {
-            fix32_t dist = func_0202e800(cam);
-            fix32_t height = func_0202e7f8(cam);
-            fix32_t heightSq = FxMul(height, height);
-            fix32_t distSq = FxMul(dist, dist);
-            fix32_t horiz = fix32_Sqrt(distSq - heightSq);
-            Vector3fix v = {horiz, height, 0};
-            Matrix4x3 m = RotationMatrixZ(fix32ReduceAngle0To2Pi((int)(-178.72223f * speed)));
-            Mat4x3_ApplyToVector(&v, &m, &v);
-            func_0202e6c0(cam, v.y);
-        }
-    }
-
-    scale = (float)func_0202e800(cam) / 10.0f / 4096.0f;
-    moved = 0;
-
-    if ((cam->mode == 1 && pressR) || (cam->mode == 2 && pressY)) {
-        Vector3fix dir;
-        func_0202e9f4(cam, (struct Vec3*)&dir);
-        dir.y = 0;
-        Vector3fix_Normalize(&dir, &dir);
-        Vector3fixMultiplyScalar(&dir, (int)(4096.0f * (0.2f * speed * scale)), &dir);
-        angle = 0;
-        if (pressUp && pressLeft) {
-            angle = 0xC91;
-            moved = 1;
-        } else if (pressUp && pressRight) {
-            angle = 0x57F7;
-            moved = 1;
-        } else if (pressDown && pressLeft) {
-            angle = 0x25B3;
-            moved = 1;
-        } else if (pressDown && pressRight) {
-            angle = 0x3ED5;
-            moved = 1;
-        } else if (pressUp) {
-            moved = 1;
-        } else if (pressDown) {
-            angle = 0x3244;
-            moved = 1;
-        } else if (pressLeft) {
-            angle = 0x1922;
-            moved = 1;
-        } else if (pressRight) {
-            angle = 0x4B66;
-            moved = 1;
-        }
-        if (moved) {
-            Matrix4x3 m = RotationMatrixY(angle);
-            Mat4x3_ApplyToVector(&dir, &m, &dir);
-            Vector3fix_Add(&pos, &dir, &pos);
+        if (var7) {
+            fix32_t var23 = func_0202e800(arg0);
+            fix32_t var24 = func_0202e7f8(arg0);
+            fix32_t var25 = inline_02061c04_5(var24, var24);
+            fix32_t var26 = inline_02061c04_5(var23, var23);
+            fix32_t var27 = fix32_Sqrt(var26 - var25);
+            Vector3fix var28 = {var27, var24, 0};
+            Matrix4x3 var29 = RotationMatrixZ(fix32ReduceAngle0To2Pi((int)(-178.72223f * var11)));
+            Mat4x3_ApplyToVector(&var28, &var29, &var28);
+            func_0202e6c0(arg0, var28.y);
         }
     }
 
-    if (cam->mode == 1 && pressL) {
-        Vector3fix dir;
-        Vector3fix newPos = pos;
-        int changed;
-        fix32_t step;
-        func_0202e9f4(cam, (struct Vec3*)&dir);
-        dir.y = 0;
-        Vector3fix_Normalize(&dir, &dir);
-        Vector3fixMultiplyScalar(&dir, (int)(4096.0f * (0.2f * speed * scale)), &dir);
-        angle = 0;
-        if (pressUp && pressLeft) {
-            angle = 0xC91;
-            moved = 1;
-        } else if (pressUp && pressRight) {
-            angle = 0x57F7;
-            moved = 1;
-        } else if (pressDown && pressLeft) {
-            angle = 0x25B3;
-            moved = 1;
-        } else if (pressDown && pressRight) {
-            angle = 0x3ED5;
-            moved = 1;
-        } else if (pressUp) {
-            moved = 1;
-        } else if (pressDown) {
-            angle = 0x3244;
-            moved = 1;
-        } else if (pressLeft) {
-            angle = 0x1922;
-            moved = 1;
-        } else if (pressRight) {
-            angle = 0x4B66;
-            moved = 1;
+    var12 = (float)func_0202e800(arg0) / 10.0f / 4096.0f;
+    var13 = 0;
+
+    if ((arg0->unknown_218_ == 1 && var5) || (arg0->unknown_218_ == 2 && var3)) {
+        Vector3fix var30;
+        func_0202e9f4(arg0, (struct Struct_ov009_0218aa28*)&var30);
+        var30.y = 0;
+        Vector3fix_Normalize(&var30, &var30);
+        Vector3fixMultiplyScalar(&var30, (int)(4096.0f * (0.2f * var11 * var12)), &var30);
+        var14 = 0;
+        if (var6 && var8) {
+            var14 = 0xC91;
+            var13 = 1;
+        } else if (var6 && var9) {
+            var14 = 0x57F7;
+            var13 = 1;
+        } else if (var7 && var8) {
+            var14 = 0x25B3;
+            var13 = 1;
+        } else if (var7 && var9) {
+            var14 = 0x3ED5;
+            var13 = 1;
+        } else if (var6) {
+            var13 = 1;
+        } else if (var7) {
+            var14 = 0x3244;
+            var13 = 1;
+        } else if (var8) {
+            var14 = 0x1922;
+            var13 = 1;
+        } else if (var9) {
+            var14 = 0x4B66;
+            var13 = 1;
         }
-        if (moved) {
-            Matrix4x3 m = RotationMatrixY(angle);
-            Mat4x3_ApplyToVector(&dir, &m, &dir);
-            Vector3fix_Add(&newPos, &dir, &newPos);
-            SetCameraPlacement(cam, &newPos, &cam->target);
+        if (var13) {
+            Matrix4x3 var31 = RotationMatrixY(var14);
+            Mat4x3_ApplyToVector(&var30, &var31, &var30);
+            Vector3fix_Add(&var15, &var30, &var15);
+        }
+    }
+
+    if (arg0->unknown_218_ == 1 && var4) {
+        Vector3fix var32;
+        Vector3fix var33 = var15;
+        int var34;
+        fix32_t var35;
+        func_0202e9f4(arg0, (struct Struct_ov009_0218aa28*)&var32);
+        var32.y = 0;
+        Vector3fix_Normalize(&var32, &var32);
+        Vector3fixMultiplyScalar(&var32, (int)(4096.0f * (0.2f * var11 * var12)), &var32);
+        var14 = 0;
+        if (var6 && var8) {
+            var14 = 0xC91;
+            var13 = 1;
+        } else if (var6 && var9) {
+            var14 = 0x57F7;
+            var13 = 1;
+        } else if (var7 && var8) {
+            var14 = 0x25B3;
+            var13 = 1;
+        } else if (var7 && var9) {
+            var14 = 0x3ED5;
+            var13 = 1;
+        } else if (var6) {
+            var13 = 1;
+        } else if (var7) {
+            var14 = 0x3244;
+            var13 = 1;
+        } else if (var8) {
+            var14 = 0x1922;
+            var13 = 1;
+        } else if (var9) {
+            var14 = 0x4B66;
+            var13 = 1;
+        }
+        if (var13) {
+            Matrix4x3 var36 = RotationMatrixY(var14);
+            Mat4x3_ApplyToVector(&var32, &var36, &var32);
+            Vector3fix_Add(&var33, &var32, &var33);
+            inline_020a2d14(arg0, &var33, &arg0->unknown_4_);
             return;
         }
-        changed = 0;
-        step = (int)(4096.0f * (0.2f * speed * scale));
-        if (pressX) {
-            newPos.y += step;
-            changed = 1;
+        var34 = 0;
+        var35 = (int)(4096.0f * (0.2f * var11 * var12));
+        if (var2) {
+            var33.y += var35;
+            var34 = 1;
         }
-        if (pressY) {
-            newPos.y -= step;
-            changed = 1;
+        if (var3) {
+            var33.y -= var35;
+            var34 = 1;
         }
-        if (changed) {
-            SetCameraPlacement(cam, &newPos, &cam->target);
+        if (var34) {
+            inline_020a2d14(arg0, &var33, &arg0->unknown_4_);
             return;
         }
     }
 
-    if (cam->mode == 1) {
-        fix32_t step = (int)(4096.0f * (0.3f * speed * scale));
-        if (pressA) {
-            func_0202e858(cam, step);
+    if (arg0->unknown_218_ == 1) {
+        fix32_t var37 = (int)(4096.0f * (0.3f * var11 * var12));
+        if (var0) {
+            func_0202e858(arg0, var37);
         }
-        if (pressB) {
-            func_0202e858(cam, -step);
-        }
-    }
-
-    if (cam->mode == 1) {
-        fix32_t step = (int)(4096.0f * (0.2f * speed * scale));
-        if (pressX) {
-            pos.y += step;
-        }
-        if (pressY) {
-            pos.y -= step;
+        if (var1) {
+            func_0202e858(arg0, -var37);
         }
     }
 
-    if (cam->mode == 2 && moved == 0) {
-        fix32_t move = (int)(4096.0f * (0.2f * speed * scale));
-        fix32_t zoom = (int)(4096.0f * (0.3f * speed * scale));
-        if (pressY && pressR) {
-            pos.y += move;
-        } else if (pressY && pressL) {
-            pos.y -= move;
-        } else if (pressR) {
-            func_0202e858(cam, zoom);
-        } else if (pressL) {
-            func_0202e858(cam, -zoom);
+    if (arg0->unknown_218_ == 1) {
+        fix32_t var38 = (int)(4096.0f * (0.2f * var11 * var12));
+        if (var2) {
+            var15.y += var38;
+        }
+        if (var3) {
+            var15.y -= var38;
         }
     }
 
-    func_0202ec5c((char*)cam, (int*)&pos);
+    if (arg0->unknown_218_ == 2 && var13 == 0) {
+        fix32_t var39 = (int)(4096.0f * (0.2f * var11 * var12));
+        fix32_t var40 = (int)(4096.0f * (0.3f * var11 * var12));
+        if (var3 && var5) {
+            var15.y += var39;
+        } else if (var3 && var4) {
+            var15.y -= var39;
+        } else if (var5) {
+            func_0202e858(arg0, var40);
+        } else if (var4) {
+            func_0202e858(arg0, -var40);
+        }
+    }
+
+    func_0202ec5c((char*)arg0, (int*)&var15);
 }

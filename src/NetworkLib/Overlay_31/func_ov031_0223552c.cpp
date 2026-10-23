@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct Ctx_0223552c {
-	unsigned char pad0[0x12];
-	unsigned short field12;
-	unsigned char pad1[0x19 - 0x14];
-	unsigned char field19;
-	unsigned char pad2[0x1b - 0x1a];
-	unsigned char field1b;
-	unsigned char pad3[0x1d - 0x1c];
-	unsigned char field1d;
+struct Struct_ov031_0223552c {
+	unsigned char unknown_0_[0x12];
+	unsigned short unknown_12_;
+	unsigned char unknown_14_[0x19 - 0x14];
+	unsigned char unknown_19_;
+	unsigned char unknown_1a_[0x1b - 0x1a];
+	unsigned char unknown_1b_;
+	unsigned char unknown_1c_[0x1d - 0x1c];
+	unsigned char unknown_1d_;
 };
-extern Ctx_0223552c* data_ov031_02290cf4;
+extern Struct_ov031_0223552c* data_ov031_02290cf4;
 extern unsigned char data_ov031_022491f4[];
 
-struct Pair_0223552c { unsigned short a; unsigned short b; };
+struct Struct_ov031_0223552c_2 { unsigned short unknown_0_; unsigned short unknown_2_; };
 extern "C" int func_ov031_0223d69c(void*);
 extern "C" ARM void func_ov031_02235744(int);
 
 // USA: func_ov031_0223552c
 extern "C" ARM void func_ov031_0223552c(void) {
-	struct Pair_0223552c buf;
-	func_ov031_0223d69c(&buf);
-	Ctx_0223552c* ctx = data_ov031_02290cf4;
-	unsigned int t = data_ov031_022491f4[ctx->field1b];
-	int v = buf.b - ctx->field12;
-	v -= t >> 1;
-	if (v < 0) {
-		v = 0;
+	struct Struct_ov031_0223552c_2 var0;
+	func_ov031_0223d69c(&var0);
+	Struct_ov031_0223552c* var1 = data_ov031_02290cf4;
+	unsigned int var2 = data_ov031_022491f4[var1->unknown_1b_];
+	int var3 = var0.unknown_2_ - var1->unknown_12_;
+	var3 -= var2 >> 1;
+	if (var3 < 0) {
+		var3 = 0;
 	} else {
-		int lim = ctx->field19 - t;
-		if (v >= lim) v = lim;
+		int var4 = var1->unknown_19_ - var2;
+		if (var3 >= var4) var3 = var4;
 	}
-	func_ov031_02235744(v);
-	data_ov031_02290cf4->field1d = 3;
+	func_ov031_02235744(var3);
+	data_ov031_02290cf4->unknown_1d_ = 3;
 }

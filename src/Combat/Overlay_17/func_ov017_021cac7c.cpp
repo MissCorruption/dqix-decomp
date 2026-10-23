@@ -1,87 +1,87 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8470(void* obj);
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" int func_020100a8(GameState* arg0);
 
-struct Bits11_021cac7c {
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char bit3 : 1;
-    unsigned char nibble : 4;
+struct Struct_ov017_021cac7c {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 1;
+    unsigned char unknown_0_2_ : 1;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 4;
 };
 
-struct Bits13_021cac7c {
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char bit3 : 1;
-    unsigned char bit4 : 1;
-    unsigned char bit5 : 1;
-    unsigned char bit6 : 1;
+struct Struct_ov017_021cac7c_2 {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 1;
+    unsigned char unknown_0_2_ : 1;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 1;
+    unsigned char unknown_0_5_ : 1;
+    unsigned char unknown_0_6_ : 1;
 };
 
-struct SrcEntry_021cac7c {
-    char pad0[4];
-    unsigned short field4;
-    unsigned short field6;
-    short field8;
-    short fielda;
-    unsigned short fieldc;
-    unsigned short fielde;
-    unsigned char field10;
-    struct Bits11_021cac7c bits11;
-    unsigned char field12;
-    struct Bits13_021cac7c bits13;
+struct Struct_ov017_021cac7c_3 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    short unknown_8_;
+    short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned char unknown_10_;
+    struct Struct_ov017_021cac7c unknown_11_;
+    unsigned char unknown_12_;
+    struct Struct_ov017_021cac7c_2 unknown_13_;
 };
 
 // USA: func_ov017_021cac7c
-extern "C" ARM void func_ov017_021cac7c(int unused0, struct SrcEntry_021cac7c* src, GameState* battleStruct, unsigned char* base) {
+extern "C" ARM void func_ov017_021cac7c(int arg0, struct Struct_ov017_021cac7c_3* arg1, GameState* arg2, unsigned char* arg3) {
 #if defined(jpn)
-    void* table = *(void**)(base + 0x3000 + 0x508);
+    void* var0 = *(void**)(arg3 + 0x3000 + 0x508);
 #else
-    void* table = *(void**)(base + 0x3000 + 0x718);
+    void* var0 = *(void**)(arg3 + 0x3000 + 0x718);
 #endif
-    void* obj = func_ov017_021b8470(table);
-    if (obj == NULL) {
+    void* var1 = func_ov017_021b8470(var0);
+    if (var1 == NULL) {
         return;
     }
-    unsigned char* header = *(unsigned char**)((char*)obj + 0x8000 + 0xe18);
-    if (header == NULL) {
+    unsigned char* var2 = *(unsigned char**)((char*)var1 + 0x8000 + 0xe18);
+    if (var2 == NULL) {
         return;
     }
-    if (*(signed char*)(header + 0x2a) == func_020100a8(battleStruct)) {
+    if (*(signed char*)(var2 + 0x2a) == func_020100a8(arg2)) {
         return;
     }
-    if (*(unsigned short*)(header + 8) != src->field4) {
+    if (*(unsigned short*)(var2 + 8) != arg1->unknown_4_) {
         return;
     }
-    int idx = src->field6 - 0xc0;
-    if (idx < 0) {
+    int var3 = arg1->unknown_6_ - 0xc0;
+    if (var3 < 0) {
         return;
     }
-    if (idx >= 8) {
+    if (var3 >= 8) {
         return;
     }
-    unsigned char* dest = header + 0x158 + idx * 0xa4;
-    *(short*)(dest + 0x32) = src->field8;
-    *(short*)(dest + 0x34) = src->fielda;
-    *(unsigned short*)(dest + 0x30) = src->fielde;
-    *(dest + 0x38) = src->field10;
-    ((struct Bits11_021cac7c*)(dest + 0x3b))->bit0 = src->bits11.bit0;
-    ((struct Bits11_021cac7c*)(dest + 0x3b))->bit1 = src->bits11.bit1;
-    ((struct Bits11_021cac7c*)(dest + 0x3b))->bit2 = src->bits11.bit2;
-    ((struct Bits11_021cac7c*)(dest + 0x3b))->bit3 = src->bits11.bit3;
-    ((struct Bits11_021cac7c*)(dest + 0x3b))->nibble = src->bits11.nibble;
-    *(dest + 0x39) = 0;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit0 = src->bits13.bit0;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit1 = src->bits13.bit1;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit2 = src->bits13.bit2;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit3 = src->bits13.bit3;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit4 = src->bits13.bit4;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit5 = src->bits13.bit5;
-    ((struct Bits13_021cac7c*)(dest + 0x3c))->bit6 = src->bits13.bit6;
-    *(dest + 0x3d) = src->field12;
-    *(unsigned short*)(dest + 0xc) = src->fieldc;
+    unsigned char* var4 = var2 + 0x158 + var3 * 0xa4;
+    *(short*)(var4 + 0x32) = arg1->unknown_8_;
+    *(short*)(var4 + 0x34) = arg1->unknown_a_;
+    *(unsigned short*)(var4 + 0x30) = arg1->unknown_e_;
+    *(var4 + 0x38) = arg1->unknown_10_;
+    ((struct Struct_ov017_021cac7c*)(var4 + 0x3b))->unknown_0_0_ = arg1->unknown_11_.unknown_0_0_;
+    ((struct Struct_ov017_021cac7c*)(var4 + 0x3b))->unknown_0_1_ = arg1->unknown_11_.unknown_0_1_;
+    ((struct Struct_ov017_021cac7c*)(var4 + 0x3b))->unknown_0_2_ = arg1->unknown_11_.unknown_0_2_;
+    ((struct Struct_ov017_021cac7c*)(var4 + 0x3b))->unknown_0_3_ = arg1->unknown_11_.unknown_0_3_;
+    ((struct Struct_ov017_021cac7c*)(var4 + 0x3b))->unknown_0_4_ = arg1->unknown_11_.unknown_0_4_;
+    *(var4 + 0x39) = 0;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_0_ = arg1->unknown_13_.unknown_0_0_;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_1_ = arg1->unknown_13_.unknown_0_1_;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_2_ = arg1->unknown_13_.unknown_0_2_;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_3_ = arg1->unknown_13_.unknown_0_3_;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_4_ = arg1->unknown_13_.unknown_0_4_;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_5_ = arg1->unknown_13_.unknown_0_5_;
+    ((struct Struct_ov017_021cac7c_2*)(var4 + 0x3c))->unknown_0_6_ = arg1->unknown_13_.unknown_0_6_;
+    *(var4 + 0x3d) = arg1->unknown_12_;
+    *(unsigned short*)(var4 + 0xc) = arg1->unknown_c_;
 }

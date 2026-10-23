@@ -12,35 +12,35 @@
 #endif
 #include <globaldefs.h>
 
-struct Cont0205d1e0;
-extern "C" void func_0205d1e0(struct Cont0205d1e0*);
-struct Cont0205d228;
-extern "C" void func_0205d228(struct Cont0205d228*);
-struct Cont0205d274;
-extern "C" void func_0205d274(struct Cont0205d274*);
-extern "C" void func_ov008_02188730(void* obj);
-extern "C" void func_ov008_02188934(void* obj);
-struct Obj021889f8;
-extern "C" void func_ov008_021889f8(struct Obj021889f8* obj);
-extern "C" void func_ov008_02188870(void* obj);
-extern "C" void func_ov023_021eb4b8(void* obj);
+struct Struct_0205d1e0;
+extern "C" void func_0205d1e0(struct Struct_0205d1e0*);
+struct Struct_0205d228;
+extern "C" void func_0205d228(struct Struct_0205d228*);
+struct Struct_0205d274;
+extern "C" void func_0205d274(struct Struct_0205d274*);
+extern "C" void func_ov008_02188730(void* arg0);
+extern "C" void func_ov008_02188934(void* arg0);
+struct Struct_ov008_02184878;
+extern "C" void func_ov008_021889f8(struct Struct_ov008_02184878* arg0);
+extern "C" void func_ov008_02188870(void* arg0);
+extern "C" void func_ov023_021eb4b8(void* arg0);
 
 // USA: func_ov008_02184878
-extern "C" ARM void func_ov008_02184878(char* obj) {
-    signed char state = *(signed char*)(obj + 0xb10);
-    if (state == 0 || state == 1 || state == 0xe) return;
-    if (*(void**)(obj + 0xb08) == 0) {
-        func_0205d1e0((Cont0205d1e0*)(obj + 0x130));
-        func_0205d228((Cont0205d228*)(obj + 0x130));
-        func_0205d274((Cont0205d274*)(obj + 0x130));
+extern "C" ARM void func_ov008_02184878(char* arg0) {
+    signed char var0 = *(signed char*)(arg0 + 0xb10);
+    if (var0 == 0 || var0 == 1 || var0 == 0xe) return;
+    if (*(void**)(arg0 + 0xb08) == 0) {
+        func_0205d1e0((Struct_0205d1e0*)(arg0 + 0x130));
+        func_0205d228((Struct_0205d228*)(arg0 + 0x130));
+        func_0205d274((Struct_0205d274*)(arg0 + 0x130));
     }
-    if (*(int*)(obj + 0xb24) == 1) return;
-    if (*(signed char*)(obj + 0xb10) == 3 && *(unsigned char*)(obj + 0xb11) < 1) return;
-    func_ov008_02188730(obj);
-    func_ov008_02188934(obj);
-    func_ov008_021889f8((struct Obj021889f8*)obj);
-    func_ov008_02188870(obj);
-    if (*(void**)(obj + 0xb08) != 0) {
-        func_ov023_021eb4b8(*(void**)(obj + 0xb08));
+    if (*(int*)(arg0 + 0xb24) == 1) return;
+    if (*(signed char*)(arg0 + 0xb10) == 3 && *(unsigned char*)(arg0 + 0xb11) < 1) return;
+    func_ov008_02188730(arg0);
+    func_ov008_02188934(arg0);
+    func_ov008_021889f8((struct Struct_ov008_02184878*)arg0);
+    func_ov008_02188870(arg0);
+    if (*(void**)(arg0 + 0xb08) != 0) {
+        func_ov023_021eb4b8(*(void**)(arg0 + 0xb08));
     }
 }

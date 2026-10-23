@@ -1,44 +1,44 @@
 #include "Combat/TryApplyElemFields.h"
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion12c0 = 0x1150 };
-enum { kRegion1324 = 0x11b4 };
+enum { Enum_ov003_0216dc58_4800 = 0x1150 };
+enum { Enum_ov003_0216dc58_4900 = 0x11b4 };
 #else
-enum { kRegion12c0 = 0x12c0 };
-enum { kRegion1324 = 0x1324 };
+enum { Enum_ov003_0216dc58_4800 = 0x12c0 };
+enum { Enum_ov003_0216dc58_4900 = 0x1324 };
 #endif
 
-extern "C" void __clear(void* buf, int len);
+extern "C" void __clear(void* arg0, int arg1);
 
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* s);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 #if defined(jpn)
 #endif
 // USA: func_ov003_0216dc58
-extern "C" ARM void func_ov003_0216dc58(char* obj) {
-	char buf1[0x100];
-	char buf2[0x40];
-	int field;
-	__clear(buf1, 0x100);
-	__clear(buf2, 0x40);
-	if (*(int*)(obj + 0x10) == 2) {
-		int sum = func_0205d794(*(struct Struct_0205c570**)(obj + kRegion12c0));
-		func_02041c08(buf1, sum, 8, 5, 5, 5);
+extern "C" ARM void func_ov003_0216dc58(char* arg0) {
+	char var0[0x100];
+	char var1[0x40];
+	int var2;
+	__clear(var0, 0x100);
+	__clear(var1, 0x40);
+	if (*(int*)(arg0 + 0x10) == 2) {
+		int var3 = func_0205d794(*(struct Struct_0205c570**)(arg0 + Enum_ov003_0216dc58_4800));
+		func_02041c08(var0, var3, 8, 5, 5, 5);
 	}
-	field = func_020e0434((struct Container020e0310*)(obj + kRegion1324), 0x5c);
-	func_02042058(buf1, (const char*)field);
+	var2 = func_020e0434((struct Struct_0201099c_3*)(arg0 + Enum_ov003_0216dc58_4900), 0x5c);
+	func_02042058(var0, (const char*)var2);
 #if defined(jpn)
-	func_0205d5d0((struct StructA0205d5d0*)(*(void**)(obj + kRegion12c0)), 0, (int)buf1, 1);
+	func_0205d5d0((struct Struct_0205d5d0*)(*(void**)(arg0 + Enum_ov003_0216dc58_4800)), 0, (int)var0, 1);
 #else
-	func_0205d5d0((struct StructA0205d5d0*)(*(void**)(obj + kRegion12c0)), 0, (int)buf1, 1, 0);
+	func_0205d5d0((struct Struct_0205d5d0*)(*(void**)(arg0 + Enum_ov003_0216dc58_4800)), 0, (int)var0, 1, 0);
 #endif
 }

@@ -3,11 +3,11 @@
 extern "C" void func_020939ac(void*);
 
 // USA: func_020939fc
-extern "C" ARM void func_020939fc(unsigned char* obj) {
+extern "C" ARM void func_020939fc(unsigned char* arg0) {
 #if defined(jpn)
-    obj[0x139] &= ~1;
+    arg0[0x139] &= ~1;
 #else
-    obj[0x3c9] &= ~1;
+    arg0[0x3c9] &= ~1;
 #endif
-    func_020939ac(obj);
+    func_020939ac(arg0);
 }

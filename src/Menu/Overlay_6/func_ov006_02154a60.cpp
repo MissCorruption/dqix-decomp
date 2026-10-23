@@ -14,130 +14,130 @@
 #include "NitroSDK/NSBXX/RenderConfig.h"
 #include "GameState/GameState.h"
 
-struct AlchemyProjectedWidgetView {
-    char unknown00[0x14];
-    void* resource;
-    char unknown18[0x2c];
-    int resourceIndex;
-    char unknown48[4];
-    int renderFlags;
-    char unknown50[0x26];
-    short x;
-    short y;
-    char unknown7a[2];
+struct Struct_ov006_02154a60 {
+    char unknown_0_[0x14];
+    void* unknown_14_;
+    char unknown_18_[0x2c];
+    int unknown_44_;
+    char unknown_48_[4];
+    int unknown_4c_;
+    char unknown_50_[0x26];
+    short unknown_76_;
+    short unknown_78_;
+    char unknown_7a_[2];
 };
-struct AlchemyProjectionView {
-    char unknown00[R(0x54, 0x1d4)];
-    void* auxiliary;
-    char unknown1d8[0x130];
-    int phase;
-    char unknown30c[0x1c];
-    Vector3fix position;
-    char unknown334[0x560];
-    AlchemyProjectedWidgetView widgets[4];
-    char unknowna84[0x58];
-    unsigned char active;
-    char unknownadd[5];
-    unsigned short flags;
-    char unknownae4[R(0x717, 0x79b)];
-    unsigned char unknownMode : 1;
-    unsigned char hidden : 1;
-    unsigned char otherModeFlags : 6;
-    char unknown1280[0x3b];
-    unsigned char layout;
+struct Struct_ov006_02154a60_2 {
+    char unknown_0_[R(0x54, 0x1d4)];
+    void* unknown_1d4_;
+    char unknown_1d8_[0x130];
+    int unknown_308_;
+    char unknown_30c_[0x1c];
+    Vector3fix unknown_328_;
+    char unknown_334_[0x560];
+    Struct_ov006_02154a60 unknown_894_[4];
+    char unknown_a84_[0x58];
+    unsigned char unknown_adc_;
+    char unknown_add_[5];
+    unsigned short unknown_ae2_;
+    char unknown_ae4_[R(0x717, 0x79b)];
+    unsigned char unknown_127f_0_ : 1;
+    unsigned char unknown_127f_1_ : 1;
+    unsigned char unknown_127f_2_ : 6;
+    char unknown_1280_[0x3b];
+    unsigned char unknown_12bb_;
 };
 extern "C" {
 void func_0207fcb8(void*);
 void func_0207fd44(void*);
 void func_020c5414();
 extern Matrix4x3* data_ov006_0216038c[3];
-struct AlchemyProjectionLayout { unsigned char entries[4][4]; };
-extern AlchemyProjectionLayout data_ov006_0215ff6c;
+struct Struct_ov006_0215ff6c { unsigned char unknown_0_[4][4]; };
+extern Struct_ov006_0215ff6c data_ov006_0215ff6c;
 extern int data_0210a00c;
 void* func_020100bc(GameState*);
 void func_0202ec84(void*, const Vector3fix*, int*, int*);
 void func_0203bd08();
 void* func_0203be40();
-void func_02076988(AlchemyProjectedWidgetView*, int, int);
-void func_02075db0(AlchemyProjectedWidgetView*, short, short);
+void func_02076988(Struct_ov006_02154a60*, int, int);
+void func_02075db0(Struct_ov006_02154a60*, short, short);
 }
-inline int MultiplyProjected(int a, int b)
+inline int inline_ov006_02154a60(int arg0, int arg1)
 {
-    return (int)(((int64_t)a * b + 0x800) >> 12);
+    return (int)(((int64_t)arg0 * arg1 + 0x800) >> 12);
 }
-extern "C" ARM void func_ov006_02154a60(AlchemyProjectionView* state)
+extern "C" ARM void func_ov006_02154a60(Struct_ov006_02154a60_2* arg0)
 {
-    if (state->hidden) return;
-    if (!state->active) return;
-    void* auxiliary = state->auxiliary;
-    func_0207fcb8(auxiliary);
-    func_0207fd44(auxiliary);
-    if (state->flags & 8) return;
-    Matrix4x3 matrices[3];
-    for (int index = 0; index < 3; index++) data_ov006_0216038c[index] = &matrices[index];
+    if (arg0->unknown_127f_1_) return;
+    if (!arg0->unknown_adc_) return;
+    void* var0 = arg0->unknown_1d4_;
+    func_0207fcb8(var0);
+    func_0207fd44(var0);
+    if (arg0->unknown_ae2_ & 8) return;
+    Matrix4x3 var1[3];
+    for (int var2 = 0; var2 < 3; var2++) data_ov006_0216038c[var2] = &var1[var2];
     func_020c5414();
     RenderConfig::SubmitToFifo();
-    ((Object3D*)((char*)state + R(0x368, 0x4e8)))->MaybeUpdateBonePositions();
-    for (int index = 0; index < 3; index++) data_ov006_0216038c[index] = NULL;
-    Vector3fix positions[3] = {
-        {matrices[0].translation.x, matrices[0].translation.y, matrices[0].translation.z},
-        {matrices[1].translation.x, matrices[1].translation.y, matrices[1].translation.z},
-        {matrices[2].translation.x, matrices[2].translation.y, matrices[2].translation.z}};
-    int widths[3] = {matrices[0].entries[0], matrices[1].entries[0], matrices[2].entries[0]};
-    int heights[3] = {matrices[0].entries[4], matrices[1].entries[4], matrices[2].entries[4]};
-    for (int index = 0; index < 3; index++) {
-        if (widths[index] < 40) widths[index] = 40;
-        if (heights[index] < 40) heights[index] = 40;
+    ((Object3D*)((char*)arg0 + R(0x368, 0x4e8)))->MaybeUpdateBonePositions();
+    for (int var3 = 0; var3 < 3; var3++) data_ov006_0216038c[var3] = NULL;
+    Vector3fix var4[3] = {
+        {var1[0].translation.x, var1[0].translation.y, var1[0].translation.z},
+        {var1[1].translation.x, var1[1].translation.y, var1[1].translation.z},
+        {var1[2].translation.x, var1[2].translation.y, var1[2].translation.z}};
+    int var5[3] = {var1[0].entries[0], var1[1].entries[0], var1[2].entries[0]};
+    int var6[3] = {var1[0].entries[4], var1[1].entries[4], var1[2].entries[4]};
+    for (int var7 = 0; var7 < 3; var7++) {
+        if (var5[var7] < 40) var5[var7] = 40;
+        if (var6[var7] < 40) var6[var7] = 40;
     }
-    unsigned char layout = state->layout;
-    AlchemyProjectionLayout lookup = data_ov006_0215ff6c;
-    void* camera = func_020100bc(GameState::GetInstance());
-    if (camera) {
-        AlchemyProjectedWidgetView* widget = state->widgets;
-        for (unsigned char index = 0; index < 4; index++, widget++) {
-            Vector3fix position = positions[lookup.entries[layout][index]];
-            position.x = MultiplyProjected(position.x, ((Object3D*)((char*)state + R(0x164, 0x2e4)))->GetScale().x);
-            position.y = MultiplyProjected(position.y, ((Object3D*)((char*)state + R(0x164, 0x2e4)))->GetScale().y);
-            position.z = MultiplyProjected(position.z, ((Object3D*)((char*)state + R(0x164, 0x2e4)))->GetScale().z);
-            Vector3fix world;
-            Vector3fix offset = state->position;
-            Vector3fix_Add(&position, &offset, &world);
-            int x, y;
-            func_0202ec84(camera, &world, &x, &y);
-            widget->x = x - 18;
-            widget->y = y - 12;
+    unsigned char var8 = arg0->unknown_12bb_;
+    Struct_ov006_0215ff6c var9 = data_ov006_0215ff6c;
+    void* var10 = func_020100bc(GameState::GetInstance());
+    if (var10) {
+        Struct_ov006_02154a60* var11 = arg0->unknown_894_;
+        for (unsigned char var12 = 0; var12 < 4; var12++, var11++) {
+            Vector3fix var13 = var4[var9.unknown_0_[var8][var12]];
+            var13.x = inline_ov006_02154a60(var13.x, ((Object3D*)((char*)arg0 + R(0x164, 0x2e4)))->GetScale().x);
+            var13.y = inline_ov006_02154a60(var13.y, ((Object3D*)((char*)arg0 + R(0x164, 0x2e4)))->GetScale().y);
+            var13.z = inline_ov006_02154a60(var13.z, ((Object3D*)((char*)arg0 + R(0x164, 0x2e4)))->GetScale().z);
+            Vector3fix var14;
+            Vector3fix var15 = arg0->unknown_328_;
+            Vector3fix_Add(&var13, &var15, &var14);
+            int var16, var17;
+            func_0202ec84(var10, &var14, &var16, &var17);
+            var11->unknown_76_ = var16 - 18;
+            var11->unknown_78_ = var17 - 12;
         }
     }
     func_0203bd08();
-    void* resource = func_0203be40();
-    AlchemyProjectedWidgetView* widget;
-    unsigned char index;
-    int phase = state->phase;
-    if ((state->flags & 0x2000) || (state->flags & 0x80)) {
-        if (!((Object3D*)((char*)state + R(0x368, 0x4e8)))->HasAnimationStopped()) {
-            index = 1;
-            widget = &state->widgets[1];
-            for (; index < 4; index++) {
-                int positionIndex = lookup.entries[layout][index];
-                int resourceOffset = index * 4 + 0x20;
-                widget->renderFlags = 0x300;
-                widget->resource = (char*)resource + resourceOffset * 8;
-                widget->resourceIndex = resourceOffset / 4;
-                func_02076988(widget, widths[positionIndex], heights[positionIndex]);
-                func_02075db0(widget, widget->x, widget->y);
-                widget++;
+    void* var18 = func_0203be40();
+    Struct_ov006_02154a60* var19;
+    unsigned char var20;
+    int var21 = arg0->unknown_308_;
+    if ((arg0->unknown_ae2_ & 0x2000) || (arg0->unknown_ae2_ & 0x80)) {
+        if (!((Object3D*)((char*)arg0 + R(0x368, 0x4e8)))->HasAnimationStopped()) {
+            var20 = 1;
+            var19 = &arg0->unknown_894_[1];
+            for (; var20 < 4; var20++) {
+                int var22 = var9.unknown_0_[var8][var20];
+                int var23 = var20 * 4 + 0x20;
+                var19->unknown_4c_ = 0x300;
+                var19->unknown_14_ = (char*)var18 + var23 * 8;
+                var19->unknown_44_ = var23 / 4;
+                func_02076988(var19, var5[var22], var6[var22]);
+                func_02075db0(var19, var19->unknown_76_, var19->unknown_78_);
+                var19++;
             }
         }
     }
-    if (state->flags & 0x200) {
+    if (arg0->unknown_ae2_ & 0x200) {
         data_0210a00c = 0;
-        AlchemyProjectedWidgetView* widget = &state->widgets[0];
-        if (phase > 983 && widget->y < 192) {
-            widget->renderFlags = 0x300;
-            widget->resource = (char*)resource + 0x120;
-            widget->resourceIndex = 9;
-            func_02076988(widget, widths[0], heights[0]);
-            func_02075db0(widget, widget->x, widget->y);
+        Struct_ov006_02154a60* var24 = &arg0->unknown_894_[0];
+        if (var21 > 983 && var24->unknown_78_ < 192) {
+            var24->unknown_4c_ = 0x300;
+            var24->unknown_14_ = (char*)var18 + 0x120;
+            var24->unknown_44_ = 9;
+            func_02076988(var24, var5[0], var6[0]);
+            func_02075db0(var24, var24->unknown_76_, var24->unknown_78_);
         }
     }
 }

@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct RangeParam_0223d49c { unsigned short f0, f1, f2, f3; };
-struct SelectionColumn_0222938c { unsigned short value; unsigned short padding[3]; };
-extern RangeParam_0223d49c data_ov031_02248dfa[3];
-extern SelectionColumn_0222938c data_ov031_02248e12[];
-extern SelectionColumn_0222938c data_ov031_02248e16[];
-extern SelectionColumn_0222938c data_ov031_02248e14[];
-extern SelectionColumn_0222938c data_ov031_02248e18[];
+struct Struct_ov031_02248d8e { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
+struct Struct_ov031_02248e12 { unsigned short unknown_0_; unsigned short unknown_2_[3]; };
+extern Struct_ov031_02248d8e data_ov031_02248dfa[3];
+extern Struct_ov031_02248e12 data_ov031_02248e12[];
+extern Struct_ov031_02248e12 data_ov031_02248e16[];
+extern Struct_ov031_02248e12 data_ov031_02248e14[];
+extern Struct_ov031_02248e12 data_ov031_02248e18[];
 extern signed char data_ov031_02290c5c;
-extern "C" int func_ov031_0223d49c(RangeParam_0223d49c*);
+extern "C" int func_ov031_0223d49c(Struct_ov031_02248d8e*);
 extern "C" void func_ov031_02222e20(int);
 extern "C" int func_ov031_0223d354(int);
 extern "C" int func_ov031_0223d394(int);
@@ -17,23 +17,23 @@ extern "C" void func_ov031_022237dc(int, int, int, int);
 
 // USA: func_ov031_0222938c
 extern "C" ARM void func_ov031_0222938c() {
-    unsigned int index = 0;
-    RangeParam_0223d49c* range = data_ov031_02248dfa;
+    unsigned int var0 = 0;
+    Struct_ov031_02248d8e* var1 = data_ov031_02248dfa;
     do {
-        if (func_ov031_0223d49c(range)) {
+        if (func_ov031_0223d49c(var1)) {
             func_ov031_02222e20(1);
-            unsigned char selected = index;
-            unsigned short first = data_ov031_02248e12[selected].value;
-            unsigned short second = data_ov031_02248e16[selected].value;
-            unsigned short third = data_ov031_02248e14[selected].value;
-            unsigned short fourth = data_ov031_02248e18[selected].value;
-            data_ov031_02290c5c = index;
-            func_ov031_022237dc(first, second, third, fourth);
+            unsigned char var2 = var0;
+            unsigned short var3 = data_ov031_02248e12[var2].unknown_0_;
+            unsigned short var4 = data_ov031_02248e16[var2].unknown_0_;
+            unsigned short var5 = data_ov031_02248e14[var2].unknown_0_;
+            unsigned short var6 = data_ov031_02248e18[var2].unknown_0_;
+            data_ov031_02290c5c = var0;
+            func_ov031_022237dc(var3, var4, var5, var6);
             return;
         }
-        ++index;
-        ++range;
-    } while (index < 3);
+        ++var0;
+        ++var1;
+    } while (var0 < 3);
     if (func_ov031_0223d354(1)) {
         func_ov031_02222e20(1);
         return;

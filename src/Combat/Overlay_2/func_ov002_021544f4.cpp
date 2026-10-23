@@ -1,65 +1,65 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-struct ArrayContainsByteStruct;
+struct Struct_02048150;
 
-extern "C" void *func_02010828(GameState *gameState);
+extern "C" void *func_02010828(GameState *arg0);
 extern "C" int *func_0202ae18();
-extern "C" int func_02086ef0(ArrayContainsByteStruct *arr, int value);
-extern "C" int func_ov002_02154b94(void *self, int id);
-extern "C" int func_ov002_02154a34(void *self, int id);
-extern "C" void *func_02079ee0(void *table, int key);
-extern "C" int func_0202b7d8(int *p);
-extern "C" void func_ov002_02153e90(char *entry);
-extern "C" int func_ov002_02154a6c(char *self, int id, int arg);
-extern "C" int func_ov002_021538e4(char *self, char *q, void *elem, int arg);
-extern "C" int func_ov002_02154944(char *self, int id, int value, unsigned char *entry);
-extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
+extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int func_ov002_02154b94(void *arg0, int arg1);
+extern "C" int func_ov002_02154a34(void *arg0, int arg1);
+extern "C" void *func_02079ee0(void *arg0, int arg1);
+extern "C" int func_0202b7d8(int *arg0);
+extern "C" void func_ov002_02153e90(char *arg0);
+extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
+extern "C" int func_ov002_021538e4(char *arg0, char *arg1, void *arg2, int arg3);
+extern "C" int func_ov002_02154944(char *arg0, int arg1, int arg2, unsigned char *arg3);
+extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov002_021544f4
-extern "C" ARM int func_ov002_021544f4(char *self, char *p, char *q, int flag) {
-    if (p == 0) return 0;
-    if (q == 0) return 0;
-    ArrayContainsByteStruct *arr = (ArrayContainsByteStruct *) func_02010828(GameState::GetInstance());
-    int *x                       = func_0202ae18();
-    int result                   = 0;
-    char *entries                = p + 8;
-    if (flag) entries = p + 0x20;
-    for (int i = 0; i < 4; i++) {
-        func_ov002_02153e90(entries + i * 6);
+extern "C" ARM int func_ov002_021544f4(char *arg0, char *arg1, char *arg2, int arg3) {
+    if (arg1 == 0) return 0;
+    if (arg2 == 0) return 0;
+    Struct_02048150 *var0 = (Struct_02048150 *) func_02010828(GameState::GetInstance());
+    int *var1                       = func_0202ae18();
+    int var2                   = 0;
+    char *var3                = arg1 + 8;
+    if (arg3) var3 = arg1 + 0x20;
+    for (int var4 = 0; var4 < 4; var4++) {
+        func_ov002_02153e90(var3 + var4 * 6);
     }
-    for (int j = 0; j < *(unsigned char *) (p + 3); j++) {
-        unsigned char *e = (unsigned char *) (entries + j * 6);
-        int id           = *(signed char *) (p + 4 + j);
-        if (!func_02086ef0(arr, id)) e[4] = 1;
-        if (!func_ov002_02154a6c(self, id, *(signed char *) (p + 2))) {
-            e[0] = 1;
+    for (int var5 = 0; var5 < *(unsigned char *) (arg1 + 3); var5++) {
+        unsigned char *var6 = (unsigned char *) (var3 + var5 * 6);
+        int var7           = *(signed char *) (arg1 + 4 + var5);
+        if (!func_02086ef0(var0, var7)) var6[4] = 1;
+        if (!func_ov002_02154a6c(arg0, var7, *(signed char *) (arg1 + 2))) {
+            var6[0] = 1;
             continue;
         }
-        if (func_ov002_02154b94(self, id)) {
-            e[0] = 2;
+        if (func_ov002_02154b94(arg0, var7)) {
+            var6[0] = 2;
             continue;
         }
-        if (!func_ov002_02154a34(self, id)) continue;
-        int v;
-        if (*(short *) p == 411) {
-            v = 999;
+        if (!func_ov002_02154a34(arg0, var7)) continue;
+        int var8;
+        if (*(short *) arg1 == 411) {
+            var8 = 999;
         } else {
-            void *elem = func_02079ee0(*(void **) self, (*(unsigned int *) (q + 8) << 10) >> 24);
-            if (elem == 0) continue;
-            v = func_ov002_021538e4(self, q, elem, *(signed char *) (p + 2));
+            void *var9 = func_02079ee0(*(void **) arg0, (*(unsigned int *) (arg2 + 8) << 10) >> 24);
+            if (var9 == 0) continue;
+            var8 = func_ov002_021538e4(arg0, arg2, var9, *(signed char *) (arg1 + 2));
         }
-        if (e[4]) {
-            *(short *) (e + 2) = v;
-            e[0]               = 3;
+        if (var6[4]) {
+            *(short *) (var6 + 2) = var8;
+            var6[0]               = 3;
         } else {
-            *(short *) (e + 2) = func_ov002_02154944(self, id, v, e);
+            *(short *) (var6 + 2) = func_ov002_02154944(arg0, var7, var8, var6);
         }
-        if (e[0] == 0) continue;
-        if (func_0202b7d8(x) && func_02086ef0(arr, id)) {
-            func_ov017_021c9e00(id, 0, 0, 1);
+        if (var6[0] == 0) continue;
+        if (func_0202b7d8(var1) && func_02086ef0(var0, var7)) {
+            func_ov017_021c9e00(var7, 0, 0, 1);
         }
-        result = 1;
+        var2 = 1;
     }
-    return result;
+    return var2;
 }

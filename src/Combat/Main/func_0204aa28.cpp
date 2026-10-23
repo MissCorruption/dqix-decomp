@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct ScaledElementList0204aa28 {
-    unsigned int baseOffset;
-    short firstTile;
-    char unknown6[4];
-    unsigned char uses64ByteTiles;
+struct Struct_0204aa28 {
+    unsigned int unknown_0_;
+    short unknown_4_;
+    char unknown_6_[4];
+    unsigned char unknown_a_;
 };
 
 // USA: func_0204aa28
-extern "C" ARM unsigned int func_0204aa28(struct ScaledElementList0204aa28* layout) {
-    int tileShift = 5;
-    if (layout->uses64ByteTiles) {
-        tileShift = 6;
+extern "C" ARM unsigned int func_0204aa28(struct Struct_0204aa28* arg0) {
+    int var0 = 5;
+    if (arg0->unknown_a_) {
+        var0 = 6;
     }
-    return layout->baseOffset + (layout->firstTile << tileShift);
+    return arg0->unknown_0_ + (arg0->unknown_4_ << var0);
 }

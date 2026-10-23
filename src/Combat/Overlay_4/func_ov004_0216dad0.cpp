@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_02012028(void* obj, unsigned char value);
-extern "C" int func_020ab9c0(int flag);
+extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" int func_020ab9c0(int arg0);
 
-extern "C" int func_020ab5d4(void* buf, int a, int b, void* out);
+extern "C" int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3);
 
-struct State_0216dad0 {
-    unsigned char mode;
-    unsigned char f1;
-    unsigned char f2;
-    unsigned char status;
-    unsigned char f4;
-    unsigned char f5;
-    unsigned char b6;
-    unsigned char b7;
-    unsigned short id;
-    unsigned char pada[2];
-    void* fc;
-    void* buf;
+struct Struct_ov004_02171034_6 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[2];
+    void* unknown_c_;
+    void* unknown_10_;
 };
-extern State_0216dad0 data_ov004_02171034;
+extern Struct_ov004_02171034_6 data_ov004_02171034;
 
 // USA: func_ov004_0216dad0
 extern "C" ARM int func_ov004_0216dad0(void) {
-    GameState* gs = GameState::GetInstance();
-    func_02012028(gs, 1);
-    data_ov004_02171034.status = 0;
-    data_ov004_02171034.mode = 0;
-    int s0 = func_020ab9c0(0);
-    int s1 = func_020ab9c0(1);
-    if (s0 == 1 || s1 == 1) {
-        data_ov004_02171034.status = 6;
+    GameState* var0 = GameState::GetInstance();
+    func_02012028(var0, 1);
+    data_ov004_02171034.unknown_3_ = 0;
+    data_ov004_02171034.unknown_0_ = 0;
+    int var1 = func_020ab9c0(0);
+    int var2 = func_020ab9c0(1);
+    if (var1 == 1 || var2 == 1) {
+        data_ov004_02171034.unknown_3_ = 6;
         return 0;
     }
-    if (s1 == 4) {
-        data_ov004_02171034.status = 0;
-        if (s0 == 3) {
-            data_ov004_02171034.mode = 1;
+    if (var2 == 4) {
+        data_ov004_02171034.unknown_3_ = 0;
+        if (var1 == 3) {
+            data_ov004_02171034.unknown_0_ = 1;
         }
         return 0;
     }
-    if (s1 == 2) {
-        data_ov004_02171034.status = 7;
+    if (var2 == 2) {
+        data_ov004_02171034.unknown_3_ = 7;
         return 0;
     }
-    if (s0 == 2) {
-        data_ov004_02171034.status = 4;
+    if (var1 == 2) {
+        data_ov004_02171034.unknown_3_ = 4;
         return 0;
     }
-    if (s0 == 0) {
-        data_ov004_02171034.status = 1;
-    } else if (s0 == 3) {
-        data_ov004_02171034.status = 2;
+    if (var1 == 0) {
+        data_ov004_02171034.unknown_3_ = 1;
+    } else if (var1 == 3) {
+        data_ov004_02171034.unknown_3_ = 2;
     }
-    if (data_ov004_02171034.status == 1) {
-        unsigned char info[3];
-        if (func_020ab5d4(data_ov004_02171034.buf, 0, 0, info) == 0) {
-            unsigned char v = gs->unknown_5cc8_;
-            if (v == 0) {
-                data_ov004_02171034.status = 6;
-            } else if (v == 2) {
-                data_ov004_02171034.status = 4;
+    if (data_ov004_02171034.unknown_3_ == 1) {
+        unsigned char var3[3];
+        if (func_020ab5d4(data_ov004_02171034.unknown_10_, 0, 0, var3) == 0) {
+            unsigned char var4 = var0->unknown_5cc8_;
+            if (var4 == 0) {
+                data_ov004_02171034.unknown_3_ = 6;
+            } else if (var4 == 2) {
+                data_ov004_02171034.unknown_3_ = 4;
             }
             return 0;
         }
-        data_ov004_02171034.id = *(unsigned short*)info;
-        data_ov004_02171034.b7 = info[2];
-        data_ov004_02171034.b6 = info[3];
+        data_ov004_02171034.unknown_8_ = *(unsigned short*)var3;
+        data_ov004_02171034.unknown_7_ = var3[2];
+        data_ov004_02171034.unknown_6_ = var3[3];
     }
     return 0;
 }

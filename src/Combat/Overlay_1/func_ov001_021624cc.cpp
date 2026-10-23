@@ -4,96 +4,96 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/VRAM.h"
 
-extern "C" int func_ov017_021d612c(void* obj);
+extern "C" int func_ov017_021d612c(void* arg0);
 extern char data_ov001_02165745[];
 
-extern "C" unsigned int func_ov001_0215a750(const char* path, void** outPtr);
-extern "C" void func_ov001_02162678(int a, int b, int c, int d);
+extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
+extern "C" void func_ov001_02162678(int arg0, int arg1, int arg2, int arg3);
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-struct List0204af64;
-extern "C" void func_0204af64(struct List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 
 extern "C" void func_0204b5b4(void*, int);
 
-struct Obj0204b5e8;
-extern "C" int func_0204b5e8(struct Obj0204b5e8* obj, int a, int b);
+struct Struct_02020cb8_5;
+extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 
 extern "C" void func_020c9820();
 
-extern "C" void func_0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
-struct SelfTag0204b3a0;
-extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
+struct Struct_02020cb8_6;
+extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
 
-struct List0204b0e8;
-extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
 
-struct List0204afb4;
-extern "C" void func_0204afb4(struct List0204afb4* obj);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
 
-struct LocalListStruct021624cc {
-    unsigned char pad0[0x1c];
-    unsigned char lo : 4;
-    unsigned char hi : 4;
-    unsigned char pad1d[3];
+struct Struct_ov001_021624cc {
+    unsigned char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_[3];
 };
 
 // USA: func_ov001_021624cc
-extern "C" ARM int func_ov001_021624cc(void* self) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    char* records[3];
-    int sizes[3];
-    LocalListStruct021624cc s;
-    void* fileData;
-    unsigned int size;
-    void* dummyPtr;
-    char path[0x50];
+extern "C" ARM int func_ov001_021624cc(void* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    char* var1[3];
+    int var2[3];
+    Struct_ov001_021624cc var3;
+    void* var4;
+    unsigned int var5;
+    void* var6;
+    char var7[0x50];
 
-    sprintf(path, data_ov001_02165745, func_ov017_021d612c(self));
-    int locked = 0;
-    fileData = NULL;
-    size = 0;
-    loader->GetLoadedFileByName(path, &fileData, &size);
-    if (fileData == NULL) {
+    sprintf(var7, data_ov001_02165745, func_ov017_021d612c(arg0));
+    int var8 = 0;
+    var4 = NULL;
+    var5 = 0;
+    var0->GetLoadedFileByName(var7, &var4, &var5);
+    if (var4 == NULL) {
         BackgroundLoader::AddLockGlobal();
-        locked = 1;
-        if (func_ov001_0215a750(path, &fileData) == 0) {
+        var8 = 1;
+        if (func_ov001_0215a750(var7, &var4) == 0) {
             BackgroundLoader::RemoveLockGlobal();
             return 0;
         }
     }
-    int count = func_02046900((struct ActiveEntry02046900*)fileData);
-    for (int i = 0; i < count; i++) {
-        records[i] = (char*)func_020467f0((struct Rec020467f0*)fileData, i, &dummyPtr, &sizes[i]);
+    int var9 = func_02046900((struct Struct_02020cb8_4*)var4);
+    for (int var10 = 0; var10 < var9; var10++) {
+        var1[var10] = (char*)func_020467f0((struct Struct_02020aec*)var4, var10, &var6, &var2[var10]);
     }
     ReleaseMainBGVRAMBanks();
     MapVRAMBanksToMainBG(0x10);
     DISPCNT = (DISPCNT & ~0x1f00) | 0x800;
     func_ov001_02162678(0, 1, 1, 1);
-    func_0204af64((struct List0204af64*)&s);
-    s.lo = 0;
-    s.hi = 3;
-    func_0204b5b4(&s, 0);
-    func_0204b11c((unsigned char*)&s, 0);
-    func_0204b5e8((struct Obj0204b5e8*)&s, 0, 0);
+    func_0204af64((struct Struct_02020cb8*)&var3);
+    var3.unknown_1c_0_ = 0;
+    var3.unknown_1c_4_ = 3;
+    func_0204b5b4(&var3, 0);
+    func_0204b11c((unsigned char*)&var3, 0);
+    func_0204b5e8((struct Struct_02020cb8_5*)&var3, 0, 0);
     func_020c9820();
-    for (int i = 0; i < count; i++) {
-        char* record = records[i];
-        func_0204b2e0(&s, record);
-        func_0204b3a0((struct SelfTag0204b3a0*)&s, record);
+    for (int var11 = 0; var11 < var9; var11++) {
+        char* var12 = var1[var11];
+        func_0204b2e0(&var3, var12);
+        func_0204b3a0((struct Struct_02020cb8_6*)&var3, var12);
     }
-    if (locked) {
+    if (var8) {
         BackgroundLoader::RemoveLockGlobal();
     }
-    func_0204b0e8((struct List0204b0e8*)&s, 0);
-    func_0204afb4((struct List0204afb4*)&s);
+    func_0204b0e8((struct Struct_02020cb8_2*)&var3, 0);
+    func_0204afb4((struct Struct_02020cb8_3*)&var3);
     return 1;
 }

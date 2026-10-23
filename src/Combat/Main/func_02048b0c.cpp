@@ -1,57 +1,57 @@
 #include <globaldefs.h>
 
-extern "C" void func_020891cc(void* obj);
+extern "C" void func_020891cc(void* arg0);
 
-struct Stats02048b0c {
-    unsigned short w00;
-    unsigned short w02;
-    char pad02[0x10];
-    unsigned int w14;
-    char pad18[0xc];
-    unsigned char b24;
+struct Struct_02048b0c_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    char unknown_4_[0x10];
+    unsigned int unknown_14_;
+    char unknown_18_[0xc];
+    unsigned char unknown_24_;
 };
 
-struct Status02048b0c {
-    unsigned int f0;
-    unsigned short f4;
-    unsigned short f6;
-    unsigned char f8;
+struct Struct_02048b0c {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
 };
 
-struct Owner02048b0c {
-    char pad[0x130];
-    struct Status02048b0c* status;
-    unsigned int pad134;
-    struct Stats02048b0c* stats;
+struct Struct_02048b0c_2 {
+    char unknown_0_[0x130];
+    struct Struct_02048b0c* unknown_130_;
+    unsigned int unknown_134_;
+    struct Struct_02048b0c_3* unknown_138_;
 };
 
 // USA: func_02048b0c
-extern "C" ARM void func_02048b0c(struct Owner02048b0c* self, int flag) {
-    self->status->f4 = self->stats->w00;
-    self->status->f6 = self->stats->w02;
+extern "C" ARM void func_02048b0c(struct Struct_02048b0c_2* arg0, int arg1) {
+    arg0->unknown_130_->unknown_4_ = arg0->unknown_138_->unknown_0_;
+    arg0->unknown_130_->unknown_6_ = arg0->unknown_138_->unknown_2_;
 
-    int count;
-    count = self->stats->b24;
-    count = count - 1;
-    if (count < 0) {
-        count = 0;
+    int var0;
+    var0 = arg0->unknown_138_->unknown_24_;
+    var0 = var0 - 1;
+    if (var0 < 0) {
+        var0 = 0;
     }
-    if (flag != 0)
-        self->status->f8 = count;
+    if (arg1 != 0)
+        arg0->unknown_130_->unknown_8_ = var0;
     else
-        self->status->f8 = 0;
+        arg0->unknown_130_->unknown_8_ = 0;
 
-    self->status->f0 = 0;
+    arg0->unknown_130_->unknown_0_ = 0;
 
-    if ((self->stats->w14 & 2) != 0) {
-        self->status->f0 |= 2;
+    if ((arg0->unknown_138_->unknown_14_ & 2) != 0) {
+        arg0->unknown_130_->unknown_0_ |= 2;
     }
-    if ((self->stats->w14 & 1) != 0) {
-        self->status->f0 = 1;
+    if ((arg0->unknown_138_->unknown_14_ & 1) != 0) {
+        arg0->unknown_130_->unknown_0_ = 1;
     }
-    if ((self->stats->w14 & 4) != 0) {
-        self->status->f0 |= 4;
+    if ((arg0->unknown_138_->unknown_14_ & 4) != 0) {
+        arg0->unknown_130_->unknown_0_ |= 4;
     }
 
-    func_020891cc(self->stats);
+    func_020891cc(arg0->unknown_138_);
 }

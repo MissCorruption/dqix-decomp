@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-struct Pair020b0d80 { unsigned short key; unsigned short value; };
+struct Struct_020b0d80 { unsigned short unknown_0_; unsigned short unknown_2_; };
 
 // USA: func_020b0d80
-extern "C" ARM unsigned short func_020b0d80(void* obj, unsigned short input) {
-    unsigned short result = 0xffff;
-    unsigned short mode = *(unsigned short*)((char*)obj + 4);
-    switch (mode) {
+extern "C" ARM unsigned short func_020b0d80(void* arg0, unsigned short arg1) {
+    unsigned short var0 = 0xffff;
+    unsigned short var1 = *(unsigned short*)((char*)arg0 + 4);
+    switch (var1) {
     case 0: {
-        unsigned short base = *(unsigned short*)obj;
-        unsigned short val = *(unsigned short*)((char*)obj + 0xc);
-        result = (unsigned short)(val + (input - base));
+        unsigned short var2 = *(unsigned short*)arg0;
+        unsigned short var3 = *(unsigned short*)((char*)arg0 + 0xc);
+        var0 = (unsigned short)(var3 + (arg1 - var2));
         break;
     }
     case 1: {
-        unsigned short base = *(unsigned short*)obj;
-        result = *(unsigned short*)((char*)obj + 0xc + (input - base) * 2);
+        unsigned short var4 = *(unsigned short*)arg0;
+        var0 = *(unsigned short*)((char*)arg0 + 0xc + (arg1 - var4) * 2);
         break;
     }
     case 2: {
-        unsigned short count = *(unsigned short*)((char*)obj + 0xc);
-        Pair020b0d80* arr = (Pair020b0d80*)((char*)obj + 0xe);
-        Pair020b0d80* lo = arr;
-        Pair020b0d80* hi = arr + (count - 1);
-        if (lo <= hi) {
+        unsigned short var5 = *(unsigned short*)((char*)arg0 + 0xc);
+        Struct_020b0d80* var6 = (Struct_020b0d80*)((char*)arg0 + 0xe);
+        Struct_020b0d80* var7 = var6;
+        Struct_020b0d80* var8 = var6 + (var5 - 1);
+        if (var7 <= var8) {
             do {
-                Pair020b0d80* mid = lo + (hi - lo) / 2;
-                if (mid->key < input) lo = mid + 1;
-                else if (input < mid->key) hi = mid - 1;
-                else { result = mid->value; break; }
-            } while (lo <= hi);
+                Struct_020b0d80* var9 = var7 + (var8 - var7) / 2;
+                if (var9->unknown_0_ < arg1) var7 = var9 + 1;
+                else if (arg1 < var9->unknown_0_) var8 = var9 - 1;
+                else { var0 = var9->unknown_2_; break; }
+            } while (var7 <= var8);
         }
         break;
     }
     }
-    return result;
+    return var0;
 }

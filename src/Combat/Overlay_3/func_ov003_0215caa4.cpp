@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { flagOffset = 0x40c };
+enum { Enum_ov003_0215caa4_1012 = 0x40c };
 #else
-enum { flagOffset = 0x3f4 };
+enum { Enum_ov003_0215caa4_1012 = 0x3f4 };
 #endif
-struct ObjField3f4_0215caa4 { char pad[flagOffset]; unsigned char field3f4; };
+struct Struct_ov003_0215caa4 { char unknown_0_[Enum_ov003_0215caa4_1012]; unsigned char unknown_3f4_; };
 
 // USA: func_ov003_0215caa4
-extern "C" ARM void func_ov003_0215caa4(struct ObjField3f4_0215caa4* obj) {
-	obj->field3f4 = 1;
+extern "C" ARM void func_ov003_0215caa4(struct Struct_ov003_0215caa4* arg0) {
+	arg0->unknown_3f4_ = 1;
 }

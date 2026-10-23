@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct PhaseState_0223a374 {
-    int pad[0x10];
-    int mode;
-    int step;
+struct Struct_ov031_0223a374 {
+    int unknown_0_[0x10];
+    int unknown_40_;
+    int unknown_44_;
 };
 
-typedef void (*ReportFn_0223a374)(int, const char*, ...);
+typedef void (*Type_ov031_0223a374)(int, const char*, ...);
 
-struct PhaseContext_0223a374 {
-    ReportFn_0223a374 Report;
-    PhaseState_0223a374* state;
+struct Struct_ov031_02290d18_27 {
+    Type_ov031_0223a374 unknown_0_;
+    Struct_ov031_0223a374* unknown_4_;
 };
 
-extern PhaseContext_0223a374 data_ov031_02290d18;
+extern Struct_ov031_02290d18_27 data_ov031_02290d18;
 extern const char data_ov031_0224c4fc[];
 extern const char data_ov031_0224c520[];
 
@@ -26,29 +26,29 @@ extern "C" int func_ov031_02239954();
 
 // USA: func_ov031_0223a374
 extern "C" ARM void func_ov031_0223a374(void) {
-    int phase = data_ov031_02290d18.state->mode;
-    if (phase == 1) {
-        ReportFn_0223a374 report = data_ov031_02290d18.Report;
-        if (report != 0) {
-            report(0x8000000, data_ov031_0224c4fc);
+    int var0 = data_ov031_02290d18.unknown_4_->unknown_40_;
+    if (var0 == 1) {
+        Type_ov031_0223a374 var1 = data_ov031_02290d18.unknown_0_;
+        if (var1 != 0) {
+            var1(0x8000000, data_ov031_0224c4fc);
         }
         return;
     }
     {
-        ReportFn_0223a374 reportBusy = data_ov031_02290d18.Report;
-        if (reportBusy != 0) {
-            reportBusy(0x8000000, data_ov031_0224c520, phase);
+        Type_ov031_0223a374 var2 = data_ov031_02290d18.unknown_0_;
+        if (var2 != 0) {
+            var2(0x8000000, data_ov031_0224c520, var0);
         }
     }
 
-    int mode = data_ov031_02290d18.state->mode;
-    if (mode != 6 && mode != 5 && mode != 4) {
+    int var3 = data_ov031_02290d18.unknown_4_->unknown_40_;
+    if (var3 != 6 && var3 != 5 && var3 != 4) {
         func_ov031_02239368(3);
         func_ov031_0223a358();
         return;
     }
     func_ov031_02239368(3);
-    switch (data_ov031_02290d18.state->step) {
+    switch (data_ov031_02290d18.unknown_4_->unknown_44_) {
     case 3:
         if (func_ov031_02239a24() == 0) {
             func_ov031_0223a358();

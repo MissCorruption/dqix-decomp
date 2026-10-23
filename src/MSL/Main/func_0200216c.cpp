@@ -1,136 +1,136 @@
 #include <globaldefs.h>
 
-enum justification_options {
-    left_justification,
-    right_justification,
-    zero_fill
+enum Enum_02001bdc_C {
+    Enum_02001bdc_C_0_2,
+    Enum_02001bdc_C_1_2,
+    Enum_02001bdc_C_2_2
 };
 
-enum sign_options {
-    only_minus,
-    sign_always,
-    space_holder
+enum Enum_02001bdc {
+    Enum_02001bdc_0_2,
+    Enum_02001bdc_1_2,
+    Enum_02001bdc_2_2
 };
 
 typedef struct {
-    unsigned char justification_options;
-    unsigned char sign_options;
-    unsigned char precision_specified;
-    unsigned char alternate_form;
-    unsigned char argument_options;
-    unsigned char conversion_char;
-    int field_width;
-    int precision;
-} print_format;
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    int unknown_8_;
+    int unknown_c_;
+} Struct_02001bdc;
 
 #define conversion_max 509
 
 // USA: func_0200216c
-extern "C" ARM char*func_0200216c(long num, char* buff, print_format format) {
-    unsigned long unsigned_num, base;
-    char*         p;
-    int           n, digits;
-    int           minus = 0;
-    unsigned_num        = num;
-    minus               = 0;
+extern "C" ARM char*func_0200216c(long arg0, char* arg1, Struct_02001bdc arg2) {
+    unsigned long var0, var1;
+    char*         var2;
+    int           var3, var4;
+    int           var5 = 0;
+    var0        = arg0;
+    var5               = 0;
 
-    p      = buff;
-    *--p   = 0;
-    digits = 0;
+    var2      = arg1;
+    *--var2   = 0;
+    var4 = 0;
 
-    if (!num && !format.precision && !(format.alternate_form && format.conversion_char == 'o')) {
-        return p;
+    if (!arg0 && !arg2.unknown_c_ && !(arg2.unknown_3_ && arg2.unknown_5_ == 'o')) {
+        return var2;
     }
 
-    switch (format.conversion_char) {
+    switch (arg2.unknown_5_) {
         case 'd':
         case 'i':
-            base = 10;
+            var1 = 10;
 
-            if (num < 0) {
-                if (num != 0x80000000) {
-                    unsigned_num = -num;
+            if (arg0 < 0) {
+                if (arg0 != 0x80000000) {
+                    var0 = -arg0;
                 }
 
-                minus = 1;
+                var5 = 1;
             }
             break;
 
         case 'o':
-            base                = 8;
-            format.sign_options = only_minus;
+            var1                = 8;
+            arg2.unknown_1_ = Enum_02001bdc_0_2;
             break;
 
         case 'u':
-            base                = 10;
-            format.sign_options = only_minus;
+            var1                = 10;
+            arg2.unknown_1_ = Enum_02001bdc_0_2;
             break;
 
         case 'x':
         case 'X':
-            base                = 16;
-            format.sign_options = only_minus;
+            var1                = 16;
+            arg2.unknown_1_ = Enum_02001bdc_0_2;
             break;
     }
 
     do {
-        n = unsigned_num % base;
-        unsigned_num /= base;
+        var3 = var0 % var1;
+        var0 /= var1;
 
-        if (n < 10) {
-            n += '0';
+        if (var3 < 10) {
+            var3 += '0';
         } else {
-            n -= 10;
+            var3 -= 10;
 
-            if (format.conversion_char == 'x') {
-                n += 'a';
+            if (arg2.unknown_5_ == 'x') {
+                var3 += 'a';
             } else {
-                n += 'A';
+                var3 += 'A';
             }
         }
 
-        *--p = n;
-        ++digits;
-    } while (unsigned_num != 0);
+        *--var2 = var3;
+        ++var4;
+    } while (var0 != 0);
 
-    if (base == 8 && format.alternate_form && *p != '0') {
-        *--p = '0';
-        ++digits;
+    if (var1 == 8 && arg2.unknown_3_ && *var2 != '0') {
+        *--var2 = '0';
+        ++var4;
     }
 
-    if (format.justification_options == zero_fill) {
-        format.precision = format.field_width;
+    if (arg2.unknown_0_ == Enum_02001bdc_C_2_2) {
+        arg2.unknown_c_ = arg2.unknown_8_;
 
-        if (minus || format.sign_options != only_minus) {
-            --format.precision;
+        if (var5 || arg2.unknown_1_ != Enum_02001bdc_0_2) {
+            --arg2.unknown_c_;
         }
 
-        if (base == 16 && format.alternate_form) {
-            format.precision -= 2;
+        if (var1 == 16 && arg2.unknown_3_) {
+            arg2.unknown_c_ -= 2;
         }
     }
 
-    if (buff - p + format.precision > conversion_max) {
+    if (arg1 - var2 + arg2.unknown_c_ > conversion_max) {
         return 0;
     }
 
-    while (digits < format.precision) {
-        *--p = '0';
-        ++digits;
+    while (var4 < arg2.unknown_c_) {
+        *--var2 = '0';
+        ++var4;
     }
 
-    if (base == 16 && format.alternate_form) {
-        *--p = format.conversion_char;
-        *--p = '0';
+    if (var1 == 16 && arg2.unknown_3_) {
+        *--var2 = arg2.unknown_5_;
+        *--var2 = '0';
     }
 
-    if (minus) {
-        *--p = '-';
-    } else if (format.sign_options == sign_always) {
-        *--p = '+';
-    } else if (format.sign_options == space_holder) {
-        *--p = ' ';
+    if (var5) {
+        *--var2 = '-';
+    } else if (arg2.unknown_1_ == Enum_02001bdc_1_2) {
+        *--var2 = '+';
+    } else if (arg2.unknown_1_ == Enum_02001bdc_2_2) {
+        *--var2 = ' ';
     }
 
-    return p;
+    return var2;
 }

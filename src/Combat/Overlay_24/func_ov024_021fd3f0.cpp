@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct S88514;
-extern "C" int func_02088514(struct S88514* obj);
+struct Struct_02088514;
+extern "C" int func_02088514(struct Struct_02088514* arg0);
 
-struct Ptr668Obj_021fd3f0 {
-    char unk[0x138];
-    struct S88514* inner138;
+struct Struct_ov024_021fd3f0 {
+    char unknown_0_[0x138];
+    struct Struct_02088514* unknown_138_;
 };
 
-struct Obj_021fd3f0 {
-    char unk[0x661];
-    unsigned char flag661;
-    char unk2[0x668 - 0x661 - 1];
-    struct Ptr668Obj_021fd3f0* ptr668;
+struct Struct_ov024_021fd3f0_2 {
+    char unknown_0_[0x661];
+    unsigned char unknown_661_;
+    char unknown_662_[0x668 - 0x661 - 1];
+    struct Struct_ov024_021fd3f0* unknown_668_;
 };
 
-extern "C" void func_ov024_021fd160(void* obj, int mode);
+extern "C" void func_ov024_021fd160(void* arg0, int arg1);
 
 // USA: func_ov024_021fd3f0
-extern "C" ARM void func_ov024_021fd3f0(struct Obj_021fd3f0* obj) {
-    if (func_02088514(obj->ptr668->inner138)) {
-        if (!obj->flag661) {
-            func_ov024_021fd160(obj, 2);
+extern "C" ARM void func_ov024_021fd3f0(struct Struct_ov024_021fd3f0_2* arg0) {
+    if (func_02088514(arg0->unknown_668_->unknown_138_)) {
+        if (!arg0->unknown_661_) {
+            func_ov024_021fd160(arg0, 2);
         }
     }
 }

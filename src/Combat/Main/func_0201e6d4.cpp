@@ -2,17 +2,17 @@
 #include "World/ZoneFeatures.h"
 
 // USA: func_0201e6d4
-extern "C" ARM ZoneFeatures::Opcode6aEntry* func_0201e6d4(ZoneFeatures* owner, int id) {
-    ZoneFeatures::Opcode6aEntry* node;
-    if (id < 0) {
+extern "C" ARM Struct_020134e0::Struct_02018300* func_0201e6d4(Struct_020134e0* arg0, int arg1) {
+    Struct_020134e0::Struct_02018300* var0;
+    if (arg1 < 0) {
         return 0;
     }
-    node = owner->entries6aByType_[9];
-    while (node != 0) {
-        if (node->maybeType == 9 && node->unk_2c.type9.unk_0 == id) {
-            return node;
+    var0 = arg0->unknown_3c_[9];
+    while (var0 != 0) {
+        if (var0->unknown_4_ == 9 && var0->unknown_2c_.unknown5_0_.unknown_0_ == arg1) {
+            return var0;
         }
-        node = node->pNext;
+        var0 = var0->unknown_70_;
     }
     return 0;
 }

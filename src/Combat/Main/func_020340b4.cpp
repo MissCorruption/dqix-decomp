@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Flags020340b4 {
-    char pad[0xc2];
-    unsigned char flags;
+struct Struct_020340b4 {
+    char unknown_0_[0xc2];
+    unsigned char unknown_c2_;
 };
 
 // USA: func_020340b4
-extern "C" ARM void func_020340b4(struct Flags020340b4* p) {
-    p->flags |= 0x80;
+extern "C" ARM void func_020340b4(struct Struct_020340b4* arg0) {
+    arg0->unknown_c2_ |= 0x80;
 }

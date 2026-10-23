@@ -359,17 +359,17 @@ int NitroVM_SearchFileOrDirectory(NitroVM* vm, const char* inPath,
     }
 
     vm->linkedHandle = accessor.handle;
-    vm->args_GetFileOrDirectoryByName.path = path;
-    vm->args_GetFileOrDirectoryByName.searchDirectory = accessor;
+    vm->args_GetFileOrDirectoryByName.unknown_c_ = path;
+    vm->args_GetFileOrDirectoryByName.unknown_0_ = accessor;
     if (outDirData != NULL)
     {
-        vm->args_GetFileOrDirectoryByName.searchForDirectory = 1;
-        vm->args_GetFileOrDirectoryByName.output = outDirData;
+        vm->args_GetFileOrDirectoryByName.unknown_10_ = 1;
+        vm->args_GetFileOrDirectoryByName.unknown_14_ = outDirData;
     }
     else
     {
-        vm->args_GetFileOrDirectoryByName.searchForDirectory = 0;
-        vm->args_GetFileOrDirectoryByName.output = outFileData;
+        vm->args_GetFileOrDirectoryByName.unknown_10_ = 0;
+        vm->args_GetFileOrDirectoryByName.unknown_14_ = outFileData;
     }
 
     return NitroVM_QueueCommand(vm, NITROVM_OPCODE_GET_FILE_OR_DIRECTORY_BY_NAME);
@@ -377,8 +377,8 @@ int NitroVM_SearchFileOrDirectory(NitroVM* vm, const char* inPath,
 
 int NitroVM_Read(NitroVM* vm, void* dst, int capacity, CBool async)
 {
-    int srcStart = vm->fileInfo.cursorPos;
-    int srcEnd = vm->fileInfo.endOffset;
+    int srcStart = vm->fileInfo.unknown_c_;
+    int srcEnd = vm->fileInfo.unknown_8_;
     
     int remainingLength = srcEnd - srcStart;
     
@@ -391,9 +391,9 @@ int NitroVM_Read(NitroVM* vm, void* dst, int capacity, CBool async)
     if (lengthToCopy < 0)
         lengthToCopy = 0;
     
-    vm->args_Read.destination = (char*)dst;
-    vm->args_Read.unknown = copyOfCapacity;
-    vm->args_Read.length = lengthToCopy;
+    vm->args_Read.unknown_0_ = (char*)dst;
+    vm->args_Read.unknown_4_ = copyOfCapacity;
+    vm->args_Read.unknown_8_ = lengthToCopy;
     
     if (!async)
         vm->flags |= (1 << NITROVM_FLAG_SYNCHRONOUS);
@@ -403,7 +403,7 @@ int NitroVM_Read(NitroVM* vm, void* dst, int capacity, CBool async)
     if (!async)
     {
         if (NitroVM_AwaitCommandCompletion(vm))
-            lengthToCopy = vm->fileInfo.cursorPos - srcStart;
+            lengthToCopy = vm->fileInfo.unknown_c_ - srcStart;
         else
             lengthToCopy = -1;
     }

@@ -3,16 +3,16 @@
 
 extern "C" void func_ov017_021bff2c(void);
 
-struct Obj021bfee8 { unsigned char pad[8]; unsigned short field8; };
+struct Struct_ov017_021bfee8 { unsigned char unknown_0_[8]; unsigned short unknown_8_; };
 
 // USA: func_ov017_021bfee8
-extern "C" ARM int func_ov017_021bfee8(Obj021bfee8* p) {
-    unsigned int t = (unsigned int)GameState::GetInstance()->GetEffectiveDeltaTime();
-    if (t < p->field8) {
-        p->field8 = (unsigned short)(p->field8 - t);
+extern "C" ARM int func_ov017_021bfee8(Struct_ov017_021bfee8* arg0) {
+    unsigned int var0 = (unsigned int)GameState::GetInstance()->GetEffectiveDeltaTime();
+    if (var0 < arg0->unknown_8_) {
+        arg0->unknown_8_ = (unsigned short)(arg0->unknown_8_ - var0);
         return 6;
     }
-    p->field8 = 0;
+    arg0->unknown_8_ = 0;
     func_ov017_021bff2c();
     return 8;
 }

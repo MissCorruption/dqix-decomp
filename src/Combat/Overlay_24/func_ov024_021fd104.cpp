@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct AddEntryList_021f6a1c;
-extern "C" void func_ov024_021f6a1c(struct AddEntryList_021f6a1c* obj, void* src);
+struct Struct_ov024_021f6a1c;
+extern "C" void func_ov024_021f6a1c(struct Struct_ov024_021f6a1c* arg0, void* arg1);
 
-struct Entry3W_021fd104 { unsigned int v[3]; };
-struct EntryFields_021fd104 {
-    float value;
-    unsigned char id;
-    unsigned char pad5;
-    unsigned char pad6;
-    unsigned char hundred;
-    unsigned char code;
-    unsigned char pad9, pad10, pad11;
+struct Struct_ov024_021fd104 { unsigned int unknown_0_[3]; };
+struct Struct_ov024_021fd104_2 {
+    float unknown_0_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_, unknown_a_, unknown_b_;
 };
-union EntryU_021fd104 {
-    Entry3W_021fd104 raw;
-    EntryFields_021fd104 f;
+union Struct_ov024_021fd104_3 {
+    Struct_ov024_021fd104 unknown_0_;
+    Struct_ov024_021fd104_2 unknown1_0_;
 };
 
 // USA: func_ov024_021fd104
-extern "C" ARM void func_ov024_021fd104(char* self, unsigned char id) {
-    union EntryU_021fd104 e;
-    e.raw = *(Entry3W_021fd104*)(self + 0x65c);
-    short s = *(short*)(*(char**)(self + 0x64c) + 0x32);
-    float v = (float)s;
-    e.f.id = id;
-    e.f.hundred = 0x64;
-    e.f.code = 7;
-    e.f.value = v;
-    func_ov024_021f6a1c(*(struct AddEntryList_021f6a1c**)(self + 0x658), &e);
+extern "C" ARM void func_ov024_021fd104(char* arg0, unsigned char arg1) {
+    union Struct_ov024_021fd104_3 var0;
+    var0.unknown_0_ = *(Struct_ov024_021fd104*)(arg0 + 0x65c);
+    short var1 = *(short*)(*(char**)(arg0 + 0x64c) + 0x32);
+    float var2 = (float)var1;
+    var0.unknown1_0_.unknown_4_ = arg1;
+    var0.unknown1_0_.unknown_7_ = 0x64;
+    var0.unknown1_0_.unknown_8_ = 7;
+    var0.unknown1_0_.unknown_0_ = var2;
+    func_ov024_021f6a1c(*(struct Struct_ov024_021f6a1c**)(arg0 + 0x658), &var0);
 }

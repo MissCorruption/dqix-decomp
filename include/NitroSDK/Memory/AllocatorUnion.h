@@ -9,9 +9,9 @@ class AllocatorUnion
 public:
     union 
     {
-        AllocatorBase base;
-        AllocatorTypeA typeA;
-        AllocatorTypeB typeB;
+        AllocatorBase unknown_0_;
+        AllocatorTypeA unknown1_0_;
+        AllocatorTypeB unknown2_0_;
     } versions;
     
     void* Allocate(unsigned int len);

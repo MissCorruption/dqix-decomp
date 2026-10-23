@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-struct LookupEntry020dee58 {
-    short key;
-    short val;
+struct Struct_020ee798 {
+    short unknown_0_;
+    short unknown_2_;
 };
 
-extern struct LookupEntry020dee58 data_020ee798[];
-extern struct LookupEntry020dee58 data_020ee7c8[];
+extern struct Struct_020ee798 data_020ee798[];
+extern struct Struct_020ee798 data_020ee7c8[];
 
-struct Obj020dee58 {
-    unsigned char pad[8];
-    unsigned int lowNibble : 4;
-    unsigned int midField : 5;
-    unsigned int rest : 23;
+struct Struct_020dee58 {
+    unsigned char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 5;
+    unsigned int unknown_9_1_ : 23;
 };
 
 // USA: func_020dee58
-extern "C" ARM short func_020dee58(struct Obj020dee58* obj) {
-    struct LookupEntry020dee58* entry;
-    short key;
-    if (obj == NULL) {
+extern "C" ARM short func_020dee58(struct Struct_020dee58* arg0) {
+    struct Struct_020ee798* var0;
+    short var1;
+    if (arg0 == NULL) {
         return 0x13;
     }
-    key = obj->midField;
-    entry = data_020ee7c8;
-    if (obj->lowNibble != 0) {
-        key = obj->lowNibble;
-        entry = data_020ee798;
+    var1 = arg0->unknown_8_4_;
+    var0 = data_020ee7c8;
+    if (arg0->unknown_8_0_ != 0) {
+        var1 = arg0->unknown_8_0_;
+        var0 = data_020ee798;
     }
-    while (entry->key >= 0) {
-        if (entry->key == key) {
-            return entry->val;
+    while (var0->unknown_0_ >= 0) {
+        if (var0->unknown_0_ == var1) {
+            return var0->unknown_2_;
         }
-        entry++;
+        var0++;
     }
     return 0x13;
 }

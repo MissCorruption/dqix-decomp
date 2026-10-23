@@ -1,196 +1,196 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Format02003418 {
-    unsigned char alignment;
-    unsigned char sign;
-    unsigned char precisionPresent;
-    unsigned char alternate;
-    unsigned char length;
-    unsigned char conversion;
-    unsigned char field6[2];
-    int width;
-    int precision;
+struct Struct_02003418 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_[2];
+    int unknown_8_;
+    int unknown_c_;
 };
-typedef char* FormatArguments02003418;
-typedef __typeof__((char*)0 - (char*)0) FormatPointerDifference02003418;
+typedef char* Type_02003418;
+typedef __typeof__((char*)0 - (char*)0) Type_02003418_2;
 #define FORMAT_FOURBYTE_ALIGN02003418(n) (((unsigned long)(n) + 3U) & ~3U)
 #define FORMAT_ARGUMENT02003418(ap, type) (*(type*)((ap += FORMAT_FOURBYTE_ALIGN02003418(sizeof(type))) - FORMAT_FOURBYTE_ALIGN02003418(sizeof(type))))
-typedef int (*Write02003418)(void*, const char*, unsigned int);
-extern "C" const char* func_02001bdc(const char*, FormatArguments02003418*, Format02003418*);
-extern "C" char* func_0200216c(int, char*, Format02003418);
-extern "C" char* func_020023b8(long long, char*, Format02003418);
-extern "C" char* func_02002cb4(double, char*, Format02003418);
-extern "C" char* func_020026b4(double, char*, Format02003418);
+typedef int (*Type_02003418_3)(void*, const char*, unsigned int);
+extern "C" const char* func_02001bdc(const char*, Type_02003418*, Struct_02003418*);
+extern "C" char* func_0200216c(int, char*, Struct_02003418);
+extern "C" char* func_020023b8(long long, char*, Struct_02003418);
+extern "C" char* func_02002cb4(double, char*, Struct_02003418);
+extern "C" char* func_020026b4(double, char*, Struct_02003418);
 extern "C" int func_020019c8(char*, const unsigned short*, unsigned int);
 extern "C" char* func_02001ac0(const char*, int, unsigned int);
 extern const unsigned short data_020eef28[];
 extern const char data_020eef2c[];
 
 // USA: func_02003418
-extern "C" ARM int func_02003418(Write02003418 write, void* state, const char* format, FormatArguments02003418 args) {
-    char padding[1];
-    char space;
-    Format02003418 spec;
-    char buffer[512];
-    long long wideValue;
-    const char* percent;
-    const char* text;
-    int width;
-    int value;
-    int length;
-    int total = 0;
-    padding[0] = ' ';
-    if (*format) do {
-        percent = strchr(format, '%');
-        if (percent == 0) {
-            unsigned int tail = strlen(format);
-            total += tail;
-            if (tail && !write(state, format, tail)) return -1;
+extern "C" ARM int func_02003418(Type_02003418_3 arg0, void* arg1, const char* arg2, Type_02003418 arg3) {
+    char var0[1];
+    char var1;
+    Struct_02003418 var2;
+    char var3[512];
+    long long var4;
+    const char* var5;
+    const char* var6;
+    int var7;
+    int var8;
+    int var9;
+    int var10 = 0;
+    var0[0] = ' ';
+    if (*arg2) do {
+        var5 = strchr(arg2, '%');
+        if (var5 == 0) {
+            unsigned int var11 = strlen(arg2);
+            var10 += var11;
+            if (var11 && !arg0(arg1, arg2, var11)) return -1;
             break;
         }
-        unsigned int literal = percent - format;
-        total += literal;
-        if (literal && !write(state, format, literal)) return -1;
-        format = func_02001bdc(percent, &args, &spec);
-        switch (spec.conversion) {
+        unsigned int var12 = var5 - arg2;
+        var10 += var12;
+        if (var12 && !arg0(arg1, arg2, var12)) return -1;
+        arg2 = func_02001bdc(var5, &arg3, &var2);
+        switch (var2.unknown_5_) {
         case 'd': case 'i':
-            if (spec.length == 3) value = FORMAT_ARGUMENT02003418(args, long);
-            else if (spec.length == 4) wideValue = FORMAT_ARGUMENT02003418(args, long long);
-            else if (spec.length == 6) wideValue = FORMAT_ARGUMENT02003418(args, long long);
-            else if (spec.length == 7) value = FORMAT_ARGUMENT02003418(args, size_t);
-            else if (spec.length == 8) value = FORMAT_ARGUMENT02003418(args, FormatPointerDifference02003418);
+            if (var2.unknown_4_ == 3) var8 = FORMAT_ARGUMENT02003418(arg3, long);
+            else if (var2.unknown_4_ == 4) var4 = FORMAT_ARGUMENT02003418(arg3, long long);
+            else if (var2.unknown_4_ == 6) var4 = FORMAT_ARGUMENT02003418(arg3, long long);
+            else if (var2.unknown_4_ == 7) var8 = FORMAT_ARGUMENT02003418(arg3, size_t);
+            else if (var2.unknown_4_ == 8) var8 = FORMAT_ARGUMENT02003418(arg3, Type_02003418_2);
             else {
-                value = FORMAT_ARGUMENT02003418(args, int);
+                var8 = FORMAT_ARGUMENT02003418(arg3, int);
             }
-            if (spec.length == 2) value = (short)value;
-            if (spec.length == 1) value = (signed char)value;
-            if (spec.length == 4 || spec.length == 6) {
-                text = func_020023b8(wideValue, buffer + sizeof(buffer), spec);
-                if (text == 0) goto invalid;
+            if (var2.unknown_4_ == 2) var8 = (short)var8;
+            if (var2.unknown_4_ == 1) var8 = (signed char)var8;
+            if (var2.unknown_4_ == 4 || var2.unknown_4_ == 6) {
+                var6 = func_020023b8(var4, var3 + sizeof(var3), var2);
+                if (var6 == 0) goto invalid;
             } else {
-                text = func_0200216c(value, buffer + sizeof(buffer), spec);
-                if (text == 0) goto invalid;
+                var6 = func_0200216c(var8, var3 + sizeof(var3), var2);
+                if (var6 == 0) goto invalid;
             }
-            length = buffer + sizeof(buffer) - 1 - text;
+            var9 = var3 + sizeof(var3) - 1 - var6;
             break;
         case 'o': case 'u': case 'x': case 'X':
-            if (spec.length == 3) value = FORMAT_ARGUMENT02003418(args, unsigned long);
-            else if (spec.length == 4) wideValue = FORMAT_ARGUMENT02003418(args, unsigned long long);
-            else if (spec.length == 6) wideValue = FORMAT_ARGUMENT02003418(args, unsigned long long);
-            else if (spec.length == 7) value = FORMAT_ARGUMENT02003418(args, size_t);
-            else if (spec.length == 8) value = FORMAT_ARGUMENT02003418(args, FormatPointerDifference02003418);
+            if (var2.unknown_4_ == 3) var8 = FORMAT_ARGUMENT02003418(arg3, unsigned long);
+            else if (var2.unknown_4_ == 4) var4 = FORMAT_ARGUMENT02003418(arg3, unsigned long long);
+            else if (var2.unknown_4_ == 6) var4 = FORMAT_ARGUMENT02003418(arg3, unsigned long long);
+            else if (var2.unknown_4_ == 7) var8 = FORMAT_ARGUMENT02003418(arg3, size_t);
+            else if (var2.unknown_4_ == 8) var8 = FORMAT_ARGUMENT02003418(arg3, Type_02003418_2);
             else {
-                value = FORMAT_ARGUMENT02003418(args, unsigned int);
+                var8 = FORMAT_ARGUMENT02003418(arg3, unsigned int);
             }
-            if (spec.length == 2) value = (unsigned short)value;
-            if (spec.length == 1) value = (unsigned char)value;
-            if (spec.length == 4 || spec.length == 6) {
-                text = func_020023b8(wideValue, buffer + sizeof(buffer), spec);
-                if (text == 0) goto invalid;
+            if (var2.unknown_4_ == 2) var8 = (unsigned short)var8;
+            if (var2.unknown_4_ == 1) var8 = (unsigned char)var8;
+            if (var2.unknown_4_ == 4 || var2.unknown_4_ == 6) {
+                var6 = func_020023b8(var4, var3 + sizeof(var3), var2);
+                if (var6 == 0) goto invalid;
             } else {
-                text = func_0200216c(value, buffer + sizeof(buffer), spec);
-                if (text == 0) goto invalid;
+                var6 = func_0200216c(var8, var3 + sizeof(var3), var2);
+                if (var6 == 0) goto invalid;
             }
-            length = buffer + sizeof(buffer) - 1 - text;
+            var9 = var3 + sizeof(var3) - 1 - var6;
             break;
         case 'e': case 'E': case 'f': case 'F': case 'g': case 'G': {
-            long double real;
-            if (spec.length == 9) {
-                real = FORMAT_ARGUMENT02003418(args, long double);
+            long double var13;
+            if (var2.unknown_4_ == 9) {
+                var13 = FORMAT_ARGUMENT02003418(arg3, long double);
             } else {
-                real = FORMAT_ARGUMENT02003418(args, double);
+                var13 = FORMAT_ARGUMENT02003418(arg3, double);
             }
-            text = func_02002cb4(real, buffer + sizeof(buffer), spec);
-            if (text == 0) goto invalid;
-            length = buffer + sizeof(buffer) - 1 - text;
+            var6 = func_02002cb4(var13, var3 + sizeof(var3), var2);
+            if (var6 == 0) goto invalid;
+            var9 = var3 + sizeof(var3) - 1 - var6;
             break;
         }
         case 'a': case 'A': {
-            long double real;
-            if (spec.length == 9) {
-                real = FORMAT_ARGUMENT02003418(args, long double);
+            long double var14;
+            if (var2.unknown_4_ == 9) {
+                var14 = FORMAT_ARGUMENT02003418(arg3, long double);
             } else {
-                real = FORMAT_ARGUMENT02003418(args, double);
+                var14 = FORMAT_ARGUMENT02003418(arg3, double);
             }
-            text = func_020026b4(real, buffer + sizeof(buffer), spec);
-            if (text == 0) goto invalid;
-            length = buffer + sizeof(buffer) - 1 - text;
+            var6 = func_020026b4(var14, var3 + sizeof(var3), var2);
+            if (var6 == 0) goto invalid;
+            var9 = var3 + sizeof(var3) - 1 - var6;
             break;
         }
         case 's':
-            if (spec.length == 5) {
-                const unsigned short* wide = FORMAT_ARGUMENT02003418(args, const unsigned short*);
-                if (wide == 0) wide = data_020eef28;
-                if (func_020019c8(buffer, wide, sizeof(buffer)) < 0) goto invalid;
-                text = buffer;
-            } else text = FORMAT_ARGUMENT02003418(args, char*);
-            if (text == 0) text = data_020eef2c;
-            if (spec.alternate) {
-                length = (unsigned char)*text++;
-                if (spec.precisionPresent && length > spec.precision) length = spec.precision;
-            } else if (spec.precisionPresent) {
-                length = spec.precision;
-                const char* end = func_02001ac0(text, 0, length);
-                if (end) length = end - text;
-            } else length = strlen(text);
+            if (var2.unknown_4_ == 5) {
+                const unsigned short* var15 = FORMAT_ARGUMENT02003418(arg3, const unsigned short*);
+                if (var15 == 0) var15 = data_020eef28;
+                if (func_020019c8(var3, var15, sizeof(var3)) < 0) goto invalid;
+                var6 = var3;
+            } else var6 = FORMAT_ARGUMENT02003418(arg3, char*);
+            if (var6 == 0) var6 = data_020eef2c;
+            if (var2.unknown_3_) {
+                var9 = (unsigned char)*var6++;
+                if (var2.unknown_2_ && var9 > var2.unknown_c_) var9 = var2.unknown_c_;
+            } else if (var2.unknown_2_) {
+                var9 = var2.unknown_c_;
+                const char* var16 = func_02001ac0(var6, 0, var9);
+                if (var16) var9 = var16 - var6;
+            } else var9 = strlen(var6);
             break;
         case 'n': {
-            void* destination = FORMAT_ARGUMENT02003418(args, void*);
-            switch (spec.length) {
-            case 0: *(int*)destination = total; break;
-            case 2: *(short*)destination = total; break;
-            case 3: *(long*)destination = total; break;
-            case 6: *(long long*)destination = total; break;
-            case 7: *(size_t*)destination = total; break;
-            case 8: *(FormatPointerDifference02003418*)destination = total; break;
-            case 4: *(long long*)destination = total; break;
+            void* var17 = FORMAT_ARGUMENT02003418(arg3, void*);
+            switch (var2.unknown_4_) {
+            case 0: *(int*)var17 = var10; break;
+            case 2: *(short*)var17 = var10; break;
+            case 3: *(long*)var17 = var10; break;
+            case 6: *(long long*)var17 = var10; break;
+            case 7: *(size_t*)var17 = var10; break;
+            case 8: *(Type_02003418_2*)var17 = var10; break;
+            case 4: *(long long*)var17 = var10; break;
             default: goto next;
             }
             goto next;
         }
         case 'c':
-            buffer[0] = FORMAT_ARGUMENT02003418(args, int);
-            text = buffer;
-            length = 1;
+            var3[0] = FORMAT_ARGUMENT02003418(arg3, int);
+            var6 = var3;
+            var9 = 1;
             break;
         case '%':
-            buffer[0] = '%';
-            text = buffer;
-            length = 1;
+            var3[0] = '%';
+            var6 = var3;
+            var9 = 1;
             break;
         case 255:
         default:
         invalid:
             {
-                int remainder = strlen(percent);
-                if (remainder && !write(state, percent, remainder)) return -1;
-                return total + remainder;
+                int var18 = strlen(var5);
+                if (var18 && !arg0(arg1, var5, var18)) return -1;
+                return var10 + var18;
             }
         }
-        width = length;
-        if (spec.alignment) {
-            padding[0] = spec.alignment == 2 ? '0' : ' ';
-            if ((*text == '+' || *text == '-' || *text == ' ') && padding[0] == '0') {
-                if (!write(state, text, 1)) return -1;
-                text++;
-                length--;
+        var7 = var9;
+        if (var2.unknown_0_) {
+            var0[0] = var2.unknown_0_ == 2 ? '0' : ' ';
+            if ((*var6 == '+' || *var6 == '-' || *var6 == ' ') && var0[0] == '0') {
+                if (!arg0(arg1, var6, 1)) return -1;
+                var6++;
+                var9--;
             }
-            if (width < spec.width) do {
-                if (!write(state, padding, 1)) return -1;
-                width++;
-            } while (width < spec.width);
+            if (var7 < var2.unknown_8_) do {
+                if (!arg0(arg1, var0, 1)) return -1;
+                var7++;
+            } while (var7 < var2.unknown_8_);
         }
-        if (length && !write(state, text, length)) return -1;
-        if (spec.alignment == 0 && width < spec.width) {
+        if (var9 && !arg0(arg1, var6, var9)) return -1;
+        if (var2.unknown_0_ == 0 && var7 < var2.unknown_8_) {
             do {
-                space = ' ';
-                if (!write(state, &space, 1)) return -1;
-                width++;
-            } while (width < spec.width);
+                var1 = ' ';
+                if (!arg0(arg1, &var1, 1)) return -1;
+                var7++;
+            } while (var7 < var2.unknown_8_);
         }
-        total += width;
+        var10 += var7;
     next:;
-    } while (*format);
-    return total;
+    } while (*arg2);
+    return var10;
 }

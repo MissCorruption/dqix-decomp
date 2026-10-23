@@ -1,68 +1,68 @@
 #if defined(jpn)
-enum { RegionalOffset = 0x43c };
+enum { Enum_02019568_1052 = 0x43c };
 #else
-enum { RegionalOffset = 0x41c };
+enum { Enum_02019568_1052 = 0x41c };
 #endif
 
 #include <globaldefs.h>
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 
-struct Manager_1f2a4;
-struct Element_1f2a4;
-extern "C" struct Element_1f2a4* func_0201f2a4(struct Manager_1f2a4* manager, int index);
+struct Struct_020177d4;
+struct Struct_02019568;
+extern "C" struct Struct_02019568* func_0201f2a4(struct Struct_020177d4* arg0, int arg1);
 
-struct Struct02013380;
-extern "C" void func_02013380(struct Struct02013380* obj, int unused, int clear4);
+struct Struct_02013380;
+extern "C" void func_02013380(struct Struct_02013380* arg0, int arg1, int arg2);
 
-struct Entry02019568 {
-    unsigned short field0;
-    unsigned short field2;
+struct Struct_02019568_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
 // USA: func_02019568
-extern "C" ARM void func_02019568(void* a, int b) {
+extern "C" ARM void func_02019568(void* arg0, int arg1) {
     GameState::GetInstance();
-    void* d = LightingManager::GetInstance();
-    int shiftAmt = *(int*)((char*)d + 0x98);
+    void* var0 = LightingManager::GetInstance();
+    int var1 = *(int*)((char*)var0 + 0x98);
 
-    void* node = *(void**)((char*)a + RegionalOffset);
-    while (node != NULL) {
-        int rawId = *(int*)node;
-        int id = 0;
-        if (rawId >= 0) {
-            id = rawId & 0xff;
+    void* var2 = *(void**)((char*)arg0 + Enum_02019568_1052);
+    while (var2 != NULL) {
+        int var3 = *(int*)var2;
+        int var4 = 0;
+        if (var3 >= 0) {
+            var4 = var3 & 0xff;
         }
-        for (int j = 0; j < *(int*)((char*)node + 0x14); j++) {
-            struct Element_1f2a4* e2 = func_0201f2a4((struct Manager_1f2a4*)((char*)node + 4), j);
-            struct Entry02019568* entry = (struct Entry02019568*)((char*)(*(void**)((char*)node + 0x44)) + j * 0x70);
+        for (int var5 = 0; var5 < *(int*)((char*)var2 + 0x14); var5++) {
+            struct Struct_02019568* var6 = func_0201f2a4((struct Struct_020177d4*)((char*)var2 + 4), var5);
+            struct Struct_02019568_2* var7 = (struct Struct_02019568_2*)((char*)(*(void**)((char*)var2 + 0x44)) + var5 * 0x70);
 
-            if (entry->field2 & 4) {
-                entry->field2 &= ~0x20;
+            if (var7->unknown_2_ & 4) {
+                var7->unknown_2_ &= ~0x20;
             } else {
-                entry->field2 |= 0x20;
+                var7->unknown_2_ |= 0x20;
             }
 
-            if (*(unsigned short*)((char*)e2 + 6) & 0x10) {
-                func_02013380((struct Struct02013380*)entry, id, 1);
+            if (*(unsigned short*)((char*)var6 + 6) & 0x10) {
+                func_02013380((struct Struct_02013380*)var7, var4, 1);
             }
 
-            if (!(*(unsigned short*)((char*)e2 + 6) & (1 << shiftAmt))) {
-                func_02013380((struct Struct02013380*)entry, id, 0);
+            if (!(*(unsigned short*)((char*)var6 + 6) & (1 << var1))) {
+                func_02013380((struct Struct_02013380*)var7, var4, 0);
             }
 
-            if (b != 0) {
-                if (*(unsigned short*)((char*)e2 + 6) & 0x20) {
-                    func_02013380((struct Struct02013380*)entry, id, 0);
+            if (arg1 != 0) {
+                if (*(unsigned short*)((char*)var6 + 6) & 0x20) {
+                    func_02013380((struct Struct_02013380*)var7, var4, 0);
                 }
             } else {
-                if (*(unsigned short*)((char*)e2 + 6) & 0x40) {
-                    func_02013380((struct Struct02013380*)entry, id, 0);
+                if (*(unsigned short*)((char*)var6 + 6) & 0x40) {
+                    func_02013380((struct Struct_02013380*)var7, var4, 0);
                 }
             }
 
-            entry->field2 &= ~0x40;
+            var7->unknown_2_ &= ~0x40;
         }
-        node = *(void**)((char*)node + 0x54);
+        var2 = *(void**)((char*)var2 + 0x54);
     }
 }

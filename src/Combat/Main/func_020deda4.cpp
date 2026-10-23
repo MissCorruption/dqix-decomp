@@ -2,17 +2,17 @@
 
 extern "C" int func_020ded1c(int, int, int, int);
 
-struct Fields020deda4 {
-    unsigned char pad0[0x10];
-    unsigned int lo10 : 10;
-    unsigned int mid10 : 10;
-    unsigned int rest : 12;
+struct Struct_020deda4 {
+    unsigned char unknown_0_[0x10];
+    unsigned int unknown_10_0_ : 10;
+    unsigned int unknown_11_2_ : 10;
+    unsigned int unknown_12_4_ : 12;
 };
 
 // USA: func_020deda4
-extern "C" ARM int func_020deda4(int a, int b, struct Fields020deda4* c) {
-    if (c != NULL) {
-        return func_020ded1c(a, b, c->lo10, c->mid10);
+extern "C" ARM int func_020deda4(int arg0, int arg1, struct Struct_020deda4* arg2) {
+    if (arg2 != NULL) {
+        return func_020ded1c(arg0, arg1, arg2->unknown_10_0_, arg2->unknown_11_2_);
     }
     return 0;
 }

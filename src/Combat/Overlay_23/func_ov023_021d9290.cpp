@@ -1,44 +1,39 @@
-struct Container020e0310;
-struct BattleResultMemberName {
-    unsigned char id;
-    unsigned char vocation;
-    unsigned char level;
-    unsigned char dead;
-    int experience;
+struct Struct_0201099c_3;
+struct Struct_ov023_021d9290_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    int unknown_4_;
 #if defined(jpn)
-    char name[0xc];
+    char unknown_8_[0xc];
 #else
-    char name[0x30];
+    char unknown_8_[0x30];
 #endif
 };
 
-struct BattleResultTagWindow {
-    Container020e0310* texts;
-    char unknown004[0xc0 - 4];
-    short width;
-    short height;
-    char unknown0c4[0xdc - 0xc4];
-    int resultCounts[4];
-    char unknown0ec[0x119 - 0xec];
-    unsigned char rows;
-    char unknown11a[0x120 - 0x11a];
-    BattleResultMemberName* members;
-    unsigned char memberIds[4];
-    unsigned char memberCount;
+struct Struct_ov023_021d9290_2 {
+    Struct_0201099c_3* unknown_0_;
+    char unknown_4_[0xc0 - 4];
+    short unknown_c0_;
+    short unknown_c2_;
+    char unknown_c4_[0xdc - 0xc4];
+    int unknown_dc_[4];
+    char unknown_ec_[0x119 - 0xec];
+    unsigned char unknown_119_;
+    char unknown_11a_[0x120 - 0x11a];
+    Struct_ov023_021d9290_3* unknown_120_;
+    unsigned char unknown_124_[4];
+    unsigned char unknown_128_;
 };
 
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-typedef char ResultCountOffsetCheck[offsetof(BattleResultTagWindow, resultCounts) == 0xdc ? 1 : -1];
-typedef char ResultMembersOffsetCheck[offsetof(BattleResultTagWindow, members) == 0x120 ? 1 : -1];
-typedef char ResultIdsOffsetCheck[offsetof(BattleResultTagWindow, memberIds) == 0x124 ? 1 : -1];
-typedef char ResultCountByteOffsetCheck[offsetof(BattleResultTagWindow, memberCount) == 0x128 ? 1 : -1];
-typedef char ResultNameOffsetCheck[offsetof(BattleResultMemberName, name) == 8 ? 1 : -1];
 
-struct Container020e0310;
-extern "C" int func_020e0434(Container020e0310*, int);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_020421a0(void);
 extern "C" int func_020420e8(void*, int);
 extern "C" int func_02041a28(char*, int);
@@ -50,81 +45,81 @@ extern "C" int func_02042058(char*, const char*);
 extern "C" void func_02046380(int);
 extern "C" ARM void func_020e4bf4(void*, int);
 extern "C" int func_020426a4(int, int);
-struct StoreStruct;
-extern "C" void func_020465c0(struct StoreStruct*, int, int);
+struct Struct_020465c0;
+extern "C" void func_020465c0(struct Struct_020465c0*, int, int);
 extern "C" void func_02046608(int, int, void*, void*, int, int, int);
 extern "C" int func_02041a90(char*, int, int);
 extern "C" int sprintf(char*, const char*, ...);
 
-struct EntryLocal_021d9290 {
-    void* f0;
-    void* f4;
-    int f8;
+struct Struct_ov023_021d9290 {
+    void* unknown_0_;
+    void* unknown_4_;
+    int unknown_8_;
 };
 
 // USA: func_ov023_021d9290
-extern "C" ARM void func_ov023_021d9290(char* obj, char* buf, unsigned char count) {
-    BattleResultTagWindow* window = (BattleResultTagWindow*)obj;
-    if (!buf) return;
+extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char arg2) {
+    Struct_ov023_021d9290_2* var0 = (Struct_ov023_021d9290_2*)arg0;
+    if (!arg1) return;
 
     GameState::GetInstance();
-    int g = func_020421a0();
+    int var1 = func_020421a0();
 
-    char* fieldStr = (char*)func_020e0434(window->texts, 0x75f8);
-    int len = func_020420e8(fieldStr, 0);
-    func_02041a28(buf, (0xc0 - len) >> 1);
-    func_02041b00(buf, 1);
-    func_02041fac(buf, (int)fieldStr, 0x10);
+    char* var2 = (char*)func_020e0434(var0->unknown_0_, 0x75f8);
+    int var3 = func_020420e8(var2, 0);
+    func_02041a28(arg1, (0xc0 - var3) >> 1);
+    func_02041b00(arg1, 1);
+    func_02041fac(arg1, (int)var2, 0x10);
 
-    unsigned char* idArr = window->memberIds;
-    int a2 = window->height;
-    int b = window->rows;
-    int loopCount = window->memberCount;
-    int found = 0;
-    signed char adj = (signed char)(((a2 << 3) - (b * 10 + 0x1d)) / (b - 1));
-    int total8 = a2 << 3;
+    unsigned char* var4 = var0->unknown_124_;
+    int var5 = var0->unknown_c2_;
+    int var6 = var0->unknown_119_;
+    int var7 = var0->unknown_128_;
+    int var8 = 0;
+    signed char var9 = (signed char)(((var5 << 3) - (var6 * 10 + 0x1d)) / (var6 - 1));
+    int var10 = var5 << 3;
 
-    if (window->members == NULL) return;
+    if (var0->unknown_120_ == NULL) return;
 
-    char* fieldStr2 = (char*)func_020e0434(window->texts, 0x75f9);
-    int i;
-    for (i = 0; i < loopCount; i++) {
-        if (window->resultCounts[i] != 0 && count != 0) {
-            int id = idArr[i];
-            BattleResultMemberName* entry = (BattleResultMemberName*)func_ov023_021d994c(obj, id);
-            if (entry != NULL) {
-                char buf1[0x100];
-                char buf2[0x100];
-                __clear(buf1, 0x100);
-                __clear(buf2, 0x100);
-                if (found != 0) {
-                    char* fieldStr0 = (char*)func_020e0434(window->texts, 0);
-                    func_02042058(buf, fieldStr0);
-                    func_02041b00(buf, adj);
+    char* var11 = (char*)func_020e0434(var0->unknown_0_, 0x75f9);
+    int var12;
+    for (var12 = 0; var12 < var7; var12++) {
+        if (var0->unknown_dc_[var12] != 0 && arg2 != 0) {
+            int var13 = var4[var12];
+            Struct_ov023_021d9290_3* var14 = (Struct_ov023_021d9290_3*)func_ov023_021d994c(arg0, var13);
+            if (var14 != NULL) {
+                char var15[0x100];
+                char var16[0x100];
+                __clear(var15, 0x100);
+                __clear(var16, 0x100);
+                if (var8 != 0) {
+                    char* var17 = (char*)func_020e0434(var0->unknown_0_, 0);
+                    func_02042058(arg1, var17);
+                    func_02041b00(arg1, var9);
                 }
-                func_02046380(g);
-                struct EntryLocal_021d9290 local;
-                func_020e4bf4(&local, id);
-                void* val = entry->name;
-                local.f0 = val;
-                local.f4 = val;
-                *(void**)(g + 0x10) = &local;
-                int applyResult = func_020426a4(8, window->resultCounts[i]);
-                sprintf(buf2, fieldStr2, 0x94 - applyResult);
-                func_020465c0((struct StoreStruct*)g, 1, window->resultCounts[i]);
-                func_02046608(g, 0xa, buf2, buf1, 0x100, 0, 0);
-                func_02042058(buf, buf1);
-                found = 1;
-                count = count - 1;
+                func_02046380(var1);
+                struct Struct_ov023_021d9290 var18;
+                func_020e4bf4(&var18, var13);
+                void* var19 = var14->unknown_8_;
+                var18.unknown_0_ = var19;
+                var18.unknown_4_ = var19;
+                *(void**)(var1 + 0x10) = &var18;
+                int var20 = func_020426a4(8, var0->unknown_dc_[var12]);
+                sprintf(var16, var11, 0x94 - var20);
+                func_020465c0((struct Struct_020465c0*)var1, 1, var0->unknown_dc_[var12]);
+                func_02046608(var1, 0xa, var16, var15, 0x100, 0, 0);
+                func_02042058(arg1, var15);
+                var8 = 1;
+                arg2 = arg2 - 1;
             }
         }
     }
 
-    if (found == 0) {
-        char* fieldStr3 = (char*)func_020e0434(window->texts, 0x75fa);
-        int len3 = func_020420e8(fieldStr3, 0);
-        len3 = 0xc0 - len3;
-        func_02041a90(buf, len3 >> 1, (total8 - 0x1a) / 2 + 0x10);
-        func_02042058(buf, fieldStr3);
+    if (var8 == 0) {
+        char* var21 = (char*)func_020e0434(var0->unknown_0_, 0x75fa);
+        int var22 = func_020420e8(var21, 0);
+        var22 = 0xc0 - var22;
+        func_02041a90(arg1, var22 >> 1, (var10 - 0x1a) / 2 + 0x10);
+        func_02042058(arg1, var21);
     }
 }

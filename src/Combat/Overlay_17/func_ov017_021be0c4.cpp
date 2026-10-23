@@ -6,44 +6,44 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-struct State021be0c4 { unsigned char pad0, done; char pad2[6]; int step, elapsed; };
-struct Obj02046574 {
+struct Struct_ov017_021be0c4 { unsigned char unknown_0_, unknown_1_; char unknown_2_[6]; int unknown_8_, unknown_c_; };
+struct Struct_02046574_2 {
 #if defined(jpn)
-    char pad0[0x28];
+    char unknown_0_[0x28];
 #else
-    char pad0[0x5c];
+    char unknown1_0_[0x5c];
 #endif
-    char* buffer;
+    char* unknown_5c_;
 #if defined(jpn)
-    char pad60[0x868 - 0x2c];
+    char unknown_2c_[0x868 - 0x2c];
 #else
-    char pad60[0x938];
+    char unknown_60_[0x938];
 #endif
-    int active;
-    char pad99c[4];
-    int busy;
+    int unknown_998_;
+    char unknown_99c_[4];
+    int unknown_9a0_;
 #if defined(jpn)
-    char pad9a4[0x17de - 0x874];
+    char unknown_874_[0x17de - 0x874];
 #else
-    char pad9a4[0x100a];
+    char unknown_9a4_[0x100a];
 #endif
-    unsigned char field_19ae;
-    char pad19af[3];
-    unsigned char field_19b2;
+    unsigned char unknown_19ae_;
+    char unknown_19af_[3];
+    unsigned char unknown_19b2_;
 };
-struct Context021be0c4 {
+struct Struct_ov017_021be0c4_2 {
 #if defined(jpn)
-    char pad[0x26a4];
+    char unknown_0_[0x26a4];
 #else
-    char pad[0x2664];
+    char unknown1_0_[0x2664];
 #endif
-    char map[4];
+    char unknown_2664_[4];
 };
-struct Obj020397cc;
-extern "C" Context021be0c4* func_02012fe4();
+struct Struct_02018300_3;
+extern "C" Struct_ov017_021be0c4_2* func_02012fe4();
 extern "C" int* func_0202ae18();
-extern "C" Obj02046574* func_020421a0();
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" Struct_02046574_2* func_020421a0();
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0205ebc0(void*, int, int);
 extern "C" void func_0205ebfc(void*, int, int);
 extern "C" void func_0205ebec(void*);
@@ -54,7 +54,7 @@ extern "C" void func_020426bc(BaseCombatStats*, char*, int);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 extern "C" void func_02011744(GameState*);
 extern "C" const char* func_020e51cc(int);
-extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
 extern char data_ov017_021d8658[];
 #endif
@@ -70,78 +70,78 @@ extern "C" void func_020397c0(void*);
 
 // USA: func_ov017_021be0c4
 // JPN: func_ov017_021be6bc
-extern "C" ARM void func_ov017_021be0c4(State021be0c4* state) {
-    GameState* game = GameState::GetInstance();
+extern "C" ARM void func_ov017_021be0c4(Struct_ov017_021be0c4* arg0) {
+    GameState* var0 = GameState::GetInstance();
     func_0202ae18();
-    GameResources* resources = GetGameResources();
-    Obj02046574* controller = func_020421a0();
+    GameResources* var1 = GetGameResources();
+    Struct_02046574_2* var2 = func_020421a0();
     func_02012fe4();
-    GrottoStruct* grotto = game->GetGrottoStruct();
-    if (state->step == 0) {
-        func_020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
-        FontBankLoader* global = func_02094a00();
-        func_02094b30(global, 0x203, 0);
-        if (func_02094b4c(global)) state->step = 1;
-    } else if (state->step == 1) {
-        SetMainBrightness(resources, 0x10, 0xf);
+    GrottoStruct* var3 = var0->GetGrottoStruct();
+    if (arg0->unknown_8_ == 0) {
+        func_020397cc((Struct_02018300_3*)var0->GetUnknownGameObject(), 1);
+        Struct_0208cb08* var4 = func_02094a00();
+        func_02094b30(var4, 0x203, 0);
+        if (func_02094b4c(var4)) arg0->unknown_8_ = 1;
+    } else if (arg0->unknown_8_ == 1) {
+        SetMainBrightness(var1, 0x10, 0xf);
         func_0205ebc0(data_02108760, 0x83, 0x83);
         func_0205ebfc(data_02108760, 0, 0);
-        state->step = 2;
-    } else if (state->step == 2) {
-        if (!IsMainBrightnessTransitionActive(resources)) {
-            if (func_0208f748(func_02012fe4()->map, &grotto->entranceX)) {
-                grotto->activeMapData.SetDiscoveryState(DiscoveryState_Discovered);
-                if (grotto->activeMapData.DiscoveredBy[0] == 0) {
+        arg0->unknown_8_ = 2;
+    } else if (arg0->unknown_8_ == 2) {
+        if (!IsMainBrightnessTransitionActive(var1)) {
+            if (func_0208f748(func_02012fe4()->unknown_2664_, &var3->entranceX)) {
+                var3->activeMapData.SetDiscoveryState(DiscoveryState_Discovered);
+                if (var3->activeMapData.DiscoveredBy[0] == 0) {
 #if defined(jpn)
-                    VectorizedInvertedMemcpy(game->GetProtagonist()->baseStats_, grotto->activeMapData.DiscoveredBy, 10);
+                    VectorizedInvertedMemcpy(var0->GetProtagonist()->baseStats_, var3->activeMapData.DiscoveredBy, 10);
 #else
-                    char name[10];
-                    __clear(name, 10);
-                    func_020426bc(game->GetProtagonist()->baseStats_, name, 1);
-                    VectorizedInvertedMemcpy(name, grotto->activeMapData.DiscoveredBy, 10);
+                    char var5[10];
+                    __clear(var5, 10);
+                    func_020426bc(var0->GetProtagonist()->baseStats_, var5, 1);
+                    VectorizedInvertedMemcpy(var5, var3->activeMapData.DiscoveredBy, 10);
 #endif
                 }
-                func_02011744(game);
-                state->step = 3;
-            } else state->step = 5;
+                func_02011744(var0);
+                arg0->unknown_8_ = 3;
+            } else arg0->unknown_8_ = 5;
         }
-    } else if (state->step == 3) {
-        SetMainBrightness(resources, 0, 0xf);
-        state->elapsed = 0;
-        state->step = 4;
-    } else if (state->step == 4) {
-        state->elapsed += game->GetTickCount();
-        if (!IsMainBrightnessTransitionActive(resources) && state->elapsed > 30) {
-            char* buffer = controller->buffer;
+    } else if (arg0->unknown_8_ == 3) {
+        SetMainBrightness(var1, 0, 0xf);
+        arg0->unknown_c_ = 0;
+        arg0->unknown_8_ = 4;
+    } else if (arg0->unknown_8_ == 4) {
+        arg0->unknown_c_ += var0->GetTickCount();
+        if (!IsMainBrightnessTransitionActive(var1) && arg0->unknown_c_ > 30) {
+            char* var6 = var2->unknown_5c_;
 #if defined(jpn)
-            sprintf(buffer, data_ov017_021d8658, game->GetUnknownGameObject()->baseStats_->unk);
-            func_0204500c((MessageSystem*)controller, buffer, 0);
+            sprintf(var6, data_ov017_021d8658, var0->GetUnknownGameObject()->baseStats_->unk);
+            func_0204500c((Struct_02021b84*)var2, var6, 0);
 #else
-            sprintf(buffer, func_020e51cc(0x3f));
-            func_02046574(controller, 0, (char*)game->GetUnknownGameObject()->baseStats_);
-            func_0204500c((MessageSystem*)controller, buffer, 0, 0xe3);
+            sprintf(var6, func_020e51cc(0x3f));
+            func_02046574(var2, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
+            func_0204500c((Struct_02021b84*)var2, var6, 0, 0xe3);
 #endif
-            controller->field_19b2 = 0;
-            controller->active = 1;
-            int* field = func_0202ae18();
-            if (func_0202b7d8(field) && func_0202c508(field)) {
+            var2->unknown_19b2_ = 0;
+            var2->unknown_998_ = 1;
+            int* var7 = func_0202ae18();
+            if (func_0202b7d8(var7) && func_0202c508(var7)) {
                 func_ov017_021cf730(-1, 0);
-                func_ov017_021d1810(0x2713, -1, func_020100a8(game));
+                func_ov017_021d1810(0x2713, -1, func_020100a8(var0));
             }
-            func_02011408(game);
+            func_02011408(var0);
             func_ov017_021d3ec8();
-            state->step = 5;
+            arg0->unknown_8_ = 5;
         }
-    } else if (state->step == 5) {
-        controller->field_19ae = 0;
-        if (!controller->busy) {
-            func_02043204((char*)controller);
-            func_020397c0(game->GetUnknownGameObject());
-            FontBankLoader* global = func_02094a00();
-            func_02094b38(global, 0x203);
-            func_02094ab0(global);
+    } else if (arg0->unknown_8_ == 5) {
+        var2->unknown_19ae_ = 0;
+        if (!var2->unknown_9a0_) {
+            func_02043204((char*)var2);
+            func_020397c0(var0->GetUnknownGameObject());
+            Struct_0208cb08* var8 = func_02094a00();
+            func_02094b38(var8, 0x203);
+            func_02094ab0(var8);
             func_0205ebec(data_02108760);
-            state->done = 1;
+            arg0->unknown_1_ = 1;
         }
     }
 }

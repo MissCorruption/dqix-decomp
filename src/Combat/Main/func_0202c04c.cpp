@@ -2,71 +2,71 @@
 
 extern "C" int func_020d4ac8(void);
 
-struct TurnCounter_0202c04c {
-    int seq;
-    int reset;
+struct Struct_0202c04c_3 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-inline TurnCounter_0202c04c& GetTurnCounter() {
-    static TurnCounter_0202c04c s;
+inline Struct_0202c04c_3& inline_0202c04c() {
+    static Struct_0202c04c_3 s;
     return s;
 }
 
-struct TurnFlags_0202c04c {
-    unsigned short type : 3;
-    unsigned short state : 2;
-    unsigned short actor : 3;
-    unsigned short pad0 : 8;
-    unsigned short pad1 : 5;
-    unsigned short slotA : 2;
-    unsigned short slotB : 2;
-    unsigned short slotC : 2;
+struct Struct_0202c04c {
+    unsigned short unknown_0_0_ : 3;
+    unsigned short unknown_0_3_ : 2;
+    unsigned short unknown_0_5_ : 3;
+    unsigned short unknown_1_0_ : 8;
+    unsigned short unknown_2_0_ : 5;
+    unsigned short unknown_2_5_ : 2;
+    unsigned short unknown_2_7_ : 2;
+    unsigned short unknown_3_1_ : 2;
 };
 
-struct BattleTurn_0202c04c {
-    char pad000[8];
-    int swing;
-    char pad00c[0x7b4];
-    TurnFlags_0202c04c flags;
-    char pad7c4[0x7fc];
-    int guard;
-    char padfc4[0x40];
-    int actorId;
-    int pendingActor;
-    char pad100c[0x2c];
-    char pad1038;
-    signed char slotA;
-    signed char slotB;
-    signed char slotC;
+struct Struct_0202c04c_2 {
+    char unknown_0_[8];
+    int unknown_8_;
+    char unknown_c_[0x7b4];
+    Struct_0202c04c unknown_7c0_;
+    char unknown_7c4_[0x7fc];
+    int unknown_fc0_;
+    char unknown_fc4_[0x40];
+    int unknown_1004_;
+    int unknown_1008_;
+    char unknown_100c_[0x2c];
+    char unknown_1038_;
+    signed char unknown_1039_;
+    signed char unknown_103a_;
+    signed char unknown_103b_;
 };
 
 // USA: func_0202c04c
-extern "C" ARM void func_0202c04c(BattleTurn_0202c04c* turn) {
-    if (turn->guard != 0) {
+extern "C" ARM void func_0202c04c(Struct_0202c04c_2* arg0) {
+    if (arg0->unknown_fc0_ != 0) {
         return;
     }
-    turn->flags.type = 1;
-    GetTurnCounter().seq++;
-    turn->flags.actor = (unsigned short)turn->actorId;
-    TurnFlags_0202c04c* flags = &turn->flags;
-    turn->flags.state = (unsigned short)func_020d4ac8();
+    arg0->unknown_7c0_.unknown_0_0_ = 1;
+    inline_0202c04c().unknown_0_++;
+    arg0->unknown_7c0_.unknown_0_5_ = (unsigned short)arg0->unknown_1004_;
+    Struct_0202c04c* var0 = &arg0->unknown_7c0_;
+    arg0->unknown_7c0_.unknown_0_3_ = (unsigned short)func_020d4ac8();
 
-    int pending = turn->pendingActor;
-    if (pending != -1) {
-        flags->actor = (unsigned short)pending;
-        turn->pendingActor = -1;
+    int var1 = arg0->unknown_1008_;
+    if (var1 != -1) {
+        var0->unknown_0_5_ = (unsigned short)var1;
+        arg0->unknown_1008_ = -1;
     }
 
-    int swing = turn->swing;
-    if (swing != 0) {
-        if (swing > 0) {
-            turn->swing = 1 - swing;
+    int var2 = arg0->unknown_8_;
+    if (var2 != 0) {
+        if (var2 > 0) {
+            arg0->unknown_8_ = 1 - var2;
         } else {
-            turn->swing = -1 - swing;
+            arg0->unknown_8_ = -1 - var2;
         }
     }
 
-    flags->slotA = turn->slotA;
-    flags->slotB = turn->slotB;
-    flags->slotC = turn->slotC;
+    var0->unknown_2_5_ = arg0->unknown_1039_;
+    var0->unknown_2_7_ = arg0->unknown_103a_;
+    var0->unknown_3_1_ = arg0->unknown_103b_;
 }

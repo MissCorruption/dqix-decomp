@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void __clear(void* dst, int size);
-extern "C" int func_02001aec(const void* a, const void* b, unsigned int length);
-extern "C" int func_0205a658(void* obj, void* data, int arg2, int arg3);
-extern "C" int func_0205a984(void* obj, void* data, int arg2, int arg3);
-struct Obj0205aaf8;
-extern "C" int func_0205aaf8(Obj0205aaf8*, void*, int);
-extern "C" int func_0205ab78(void* obj, void* data, int arg2);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int func_0205a658(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" int func_0205a984(void* arg0, void* arg1, int arg2, int arg3);
+struct Struct_0205a528;
+extern "C" int func_0205aaf8(Struct_0205a528*, void*, int);
+extern "C" int func_0205ab78(void* arg0, void* arg1, int arg2);
 
 extern char data_020f0504[];
 extern char data_020f0509[];
@@ -15,24 +15,24 @@ extern char data_020f050e[];
 extern char data_020f0513[];
 
 // USA: func_0205a528
-extern "C" ARM int func_0205a528(void* obj, void* data, int arg2, int arg3) {
-    char magic[5];
+extern "C" ARM int func_0205a528(void* arg0, void* arg1, int arg2, int arg3) {
+    char var0[5];
 
-    __clear(magic, 5);
-    memcpy(magic, data, 4);
+    __clear(var0, 5);
+    memcpy(var0, arg1, 4);
 
-    if (func_02001aec(magic, data_020f0504, 4) == 0 && func_0205a658(obj, data, arg2, arg3)) {
+    if (func_02001aec(var0, data_020f0504, 4) == 0 && func_0205a658(arg0, arg1, arg2, arg3)) {
         return 1;
-    } else if (func_02001aec(magic, data_020f0509, 4) == 0) {
-        if (func_0205a984(obj, data, arg2, arg3)) {
+    } else if (func_02001aec(var0, data_020f0509, 4) == 0) {
+        if (func_0205a984(arg0, arg1, arg2, arg3)) {
             return 1;
         }
-    } else if (func_02001aec(magic, data_020f050e, 4) == 0) {
-        if (func_0205aaf8((Obj0205aaf8*)obj, data, arg2)) {
+    } else if (func_02001aec(var0, data_020f050e, 4) == 0) {
+        if (func_0205aaf8((Struct_0205a528*)arg0, arg1, arg2)) {
             return 1;
         }
-    } else if (func_02001aec(magic, data_020f0513, 4) == 0) {
-        if (func_0205ab78(obj, data, arg2)) {
+    } else if (func_02001aec(var0, data_020f0513, 4) == 0) {
+        if (func_0205ab78(arg0, arg1, arg2)) {
             return 1;
         }
     }

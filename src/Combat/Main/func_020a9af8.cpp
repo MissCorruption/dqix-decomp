@@ -5,15 +5,15 @@
 extern "C" void func_020120d4(unsigned char*, unsigned char);
 
 #if defined(jpn)
-enum { kBattleRegionOffset = 0x5a7c };
+enum { Enum_020a9af8_23772 = 0x5a7c };
 #else
-enum { kBattleRegionOffset = 0x5cdc };
+enum { Enum_020a9af8_23772 = 0x5cdc };
 #endif
 
 // USA: func_020a9af8
-extern "C" ARM int func_020a9af8(unsigned char* arg) {
-    GameState* bs = GameState::GetInstance();
-    func_020120d4((unsigned char*)bs, arg[0]);
-    memcpy((char*)bs + kBattleRegionOffset, arg + 4, 0x190);
+extern "C" ARM int func_020a9af8(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    func_020120d4((unsigned char*)var0, arg0[0]);
+    memcpy((char*)var0 + Enum_020a9af8_23772, arg0 + 4, 0x190);
     return 1;
 }

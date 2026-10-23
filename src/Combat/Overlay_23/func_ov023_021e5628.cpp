@@ -3,8 +3,8 @@
 #include "NitroSDK/NSBXX/GeometryFifo.h"
 
 extern "C" unsigned short (*func_02099cac(void))[2];
-extern "C" int func_020c555c(int a);
-extern "C" void func_02031234(int angle);
+extern "C" int func_020c555c(int arg0);
+extern "C" void func_02031234(int arg0);
 
 extern char data_ov023_021fdcef;
 extern char data_ov023_021fdcf4;
@@ -13,115 +13,115 @@ extern char data_ov023_021fdd00;
 extern char data_ov023_021fdd08;
 extern char data_ov023_021fdd10;
 
-struct TagObj021e5628 {
-    Object3D field0;
-    Object3D fieldAc;
-    Object3D field158;
-    Object3D field204;
-    Object3D field2b0;
-    Object3D field35c;
-    Object3D field408;
-    Object3D field4b4;
-    Object3D field560;
-    Object3D field60c;
-    unsigned char pad3[0xc10 - 0x6b8];
-    unsigned char field_c10;
-    unsigned char pad4[0xc12 - 0xc11];
-    unsigned char field_c12;
-    unsigned char pad5[0xc14 - 0xc13];
-    unsigned char field_c14;
+struct Struct_ov023_021e5628 {
+    Object3D unknown_0_;
+    Object3D unknown_ac_;
+    Object3D unknown_158_;
+    Object3D unknown_204_;
+    Object3D unknown_2b0_;
+    Object3D unknown_35c_;
+    Object3D unknown_408_;
+    Object3D unknown_4b4_;
+    Object3D unknown_560_;
+    Object3D unknown_60c_;
+    unsigned char unknown_6b8_[0xc10 - 0x6b8];
+    unsigned char unknown_c10_;
+    unsigned char unknown_c11_[0xc12 - 0xc11];
+    unsigned char unknown_c12_;
+    unsigned char unknown_c13_[0xc14 - 0xc13];
+    unsigned char unknown_c14_;
 };
 
-struct CtxObj021e5628 {
-    Object3D* field0;
-    Object3D* field4;
+struct Struct_ov023_021e5628_2 {
+    Object3D* unknown_0_;
+    Object3D* unknown_4_;
 };
 
 // USA: func_ov023_021e5628
-extern "C" ARM void func_ov023_021e5628(TagObj021e5628* obj, CtxObj021e5628* ctx) {
-    if (obj->field_c12 != 0) return;
-    if (obj->field_c14 == 0) return;
+extern "C" ARM void func_ov023_021e5628(Struct_ov023_021e5628* arg0, Struct_ov023_021e5628_2* arg1) {
+    if (arg0->unknown_c12_ != 0) return;
+    if (arg0->unknown_c14_ == 0) return;
 
-    unsigned short (*table)[2] = func_02099cac();
-    if (table == 0) return;
+    unsigned short (*var0)[2] = func_02099cac();
+    if (var0 == 0) return;
 
-    unsigned short v = *(unsigned short*)((char*)table + 0x128);
-    unsigned short buf[8] = {v, v, v, v, v, v, v, v};
-    func_020c555c((int)buf);
+    unsigned short var1 = *(unsigned short*)((char*)var0 + 0x128);
+    unsigned short var2[8] = {var1, var1, var1, var1, var1, var1, var1, var1};
+    func_020c555c((int)var2);
 
-    if (obj->field0.unknown_2_ >= 0) {
-        obj->field0.AdvanceEffects();
-        fix32_t f1c = obj->field0.animationTime_;
-        obj->field408.SetCurrentAnimationTime(f1c);
-        obj->fieldAc.SetCurrentAnimationTime(f1c);
-        obj->field35c.SetCurrentAnimationTime(f1c);
+    if (arg0->unknown_0_.unknown_2_ >= 0) {
+        arg0->unknown_0_.AdvanceEffects();
+        fix32_t var3 = arg0->unknown_0_.animationTime_;
+        arg0->unknown_408_.SetCurrentAnimationTime(var3);
+        arg0->unknown_ac_.SetCurrentAnimationTime(var3);
+        arg0->unknown_35c_.SetCurrentAnimationTime(var3);
     }
-    if (obj->field0.unknown_2_ <= -1) return;
+    if (arg0->unknown_0_.unknown_2_ <= -1) return;
 
-    obj->field0.Draw(true);
+    arg0->unknown_0_.Draw(true);
 
-    Model3D* strObj;
-    Model3D* p = *(Model3D**)((char*)obj + 8);
-    if (p == 0) goto skipMessages;
-    if (!p->unknown_flags_a8_0_) p = 0;
-    if (p == 0) goto skipMessages;
+    Model3D* var4;
+    Model3D* var5 = *(Model3D**)((char*)arg0 + 8);
+    if (var5 == 0) goto skipMessages;
+    if (!var5->unknown_flags_a8_0_) var5 = 0;
+    if (var5 == 0) goto skipMessages;
 
     {
-        strObj = obj->field0.pModel_;
-        if (strObj == 0) return;
+        var4 = arg0->unknown_0_.pModel_;
+        if (var4 == 0) return;
 
-        int boneIndex = strObj->GetBoneIndex(&data_ov023_021fdcef);
-        if (boneIndex > -1) {
-            GetModelBonePositionAndDirectionMatrices(&p->renderContext_, 0, 0, boneIndex);
-            if (ctx != 0 && ctx->field4 != 0) {
-                ctx->field4->DrawSimple2(false);
+        int var6 = var4->GetBoneIndex(&data_ov023_021fdcef);
+        if (var6 > -1) {
+            GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+            if (arg1 != 0 && arg1->unknown_4_ != 0) {
+                arg1->unknown_4_->DrawSimple2(false);
             }
-            obj->field158.SendTransformToFifo();
-            obj->field158.DrawSimple2(false);
-            obj->field204.DrawSimple2(false);
-            obj->field4b4.DrawSimple2(false);
+            arg0->unknown_158_.SendTransformToFifo();
+            arg0->unknown_158_.DrawSimple2(false);
+            arg0->unknown_204_.DrawSimple2(false);
+            arg0->unknown_4b4_.DrawSimple2(false);
 
-            if (obj->field_c10 != 0) {
-                boneIndex = strObj->GetBoneIndex(&data_ov023_021fdcf4);
-                if (boneIndex > -1 && obj->field560.unknown_2_ > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&p->renderContext_, 0, 0, boneIndex);
-                    obj->field560.DrawSimple2(false);
+            if (arg0->unknown_c10_ != 0) {
+                var6 = var4->GetBoneIndex(&data_ov023_021fdcf4);
+                if (var6 > -1 && arg0->unknown_560_.unknown_2_ > -1) {
+                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    arg0->unknown_560_.DrawSimple2(false);
                 }
-                boneIndex = strObj->GetBoneIndex(&data_ov023_021fdcfa);
-                if (boneIndex > -1 && obj->field560.unknown_2_ > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&p->renderContext_, 0, 0, boneIndex);
+                var6 = var4->GetBoneIndex(&data_ov023_021fdcfa);
+                if (var6 > -1 && arg0->unknown_560_.unknown_2_ > -1) {
+                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
                     func_02031234(0x3244);
-                    obj->field560.DrawSimple2(false);
+                    arg0->unknown_560_.DrawSimple2(false);
                 }
             } else {
-                boneIndex = strObj->GetBoneIndex(&data_ov023_021fdd00);
-                if (boneIndex > -1 && obj->field560.unknown_2_ > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&p->renderContext_, 0, 0, boneIndex);
-                    obj->field560.DrawSimple2(false);
+                var6 = var4->GetBoneIndex(&data_ov023_021fdd00);
+                if (var6 > -1 && arg0->unknown_560_.unknown_2_ > -1) {
+                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    arg0->unknown_560_.DrawSimple2(false);
                 }
             }
 
-            boneIndex = strObj->GetBoneIndex(&data_ov023_021fdd08);
-            if (boneIndex > -1 && obj->field60c.unknown_2_ > -1) {
-                GetModelBonePositionAndDirectionMatrices(&p->renderContext_, 0, 0, boneIndex);
-                obj->field60c.DrawSimple2(false);
+            var6 = var4->GetBoneIndex(&data_ov023_021fdd08);
+            if (var6 > -1 && arg0->unknown_60c_.unknown_2_ > -1) {
+                GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                arg0->unknown_60c_.DrawSimple2(false);
             }
 
-            if (ctx != 0 && ctx->field0 != 0) {
-                boneIndex = strObj->GetBoneIndex(&data_ov023_021fdd10);
-                if (boneIndex > -1) {
-                    GetModelBonePositionAndDirectionMatrices(&p->renderContext_, 0, 0, boneIndex);
-                    ctx->field0->DrawSimple2(false);
+            if (arg1 != 0 && arg1->unknown_0_ != 0) {
+                var6 = var4->GetBoneIndex(&data_ov023_021fdd10);
+                if (var6 > -1) {
+                    GetModelBonePositionAndDirectionMatrices(&var5->renderContext_, 0, 0, var6);
+                    arg1->unknown_0_->DrawSimple2(false);
                 }
             }
         }
     }
 
 skipMessages:
-    obj->field0.ApplyAnimations(&obj->field408);
-    obj->field408.Draw(true);
-    obj->field0.ApplyAnimations(&obj->fieldAc);
-    obj->fieldAc.Draw(true);
-    obj->field0.ApplyAnimations(&obj->field35c);
-    obj->field35c.Draw(true);
+    arg0->unknown_0_.ApplyAnimations(&arg0->unknown_408_);
+    arg0->unknown_408_.Draw(true);
+    arg0->unknown_0_.ApplyAnimations(&arg0->unknown_ac_);
+    arg0->unknown_ac_.Draw(true);
+    arg0->unknown_0_.ApplyAnimations(&arg0->unknown_35c_);
+    arg0->unknown_35c_.Draw(true);
 }

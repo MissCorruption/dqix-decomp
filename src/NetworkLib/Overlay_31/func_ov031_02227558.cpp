@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct BitfieldStruct02227558 {
-    unsigned int low4 : 4;
-    unsigned int rest : 28;
+struct Struct_ov031_02227558 {
+    unsigned int unknown_0_0_ : 4;
+    unsigned int unknown_0_4_ : 28;
 };
 
 extern int data_ov031_02250c0c;
 
 // USA: func_ov031_02227558
 extern "C" ARM unsigned int func_ov031_02227558(void) {
-    struct BitfieldStruct02227558* s = (struct BitfieldStruct02227558*)((char*)&data_ov031_02250c0c + 0x8);
-    return s->low4;
+    struct Struct_ov031_02227558* var0 = (struct Struct_ov031_02227558*)((char*)&data_ov031_02250c0c + 0x8);
+    return var0->unknown_0_0_;
 }

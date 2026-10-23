@@ -670,38 +670,38 @@ void SendStagedVRAMDataToVRAM(void* vramStagingManagerUserdata)
     ((VRAMStagingManager*)vramStagingManagerUserdata)->SendReadyDataToVRAM();
 }
 
-extern "C" VRAMStagingManager::Task* _ZN18VRAMStagingManager4TaskC1Ev(VRAMStagingManager::Task* self)
+extern "C" VRAMStagingManager::Task* _ZN18VRAMStagingManager4TaskC1Ev(VRAMStagingManager::Task* arg0)
 {
-    self->Reset();
-    return self;
+    arg0->Reset();
+    return arg0;
 }
 
 extern "C" VRAMStagingManager::StagingSpaceAllocation* _ZN18VRAMStagingManager22StagingSpaceAllocationC1Ev(
-    VRAMStagingManager::StagingSpaceAllocation* self)
+    VRAMStagingManager::StagingSpaceAllocation* arg0)
 {
-    self->flags_ = 0;
-    self->start_ = 0;
-    self->size_ = 0;
-    return self;
+    arg0->flags_ = 0;
+    arg0->start_ = 0;
+    arg0->size_ = 0;
+    return arg0;
 }
 
 extern "C" VRAMStagingManager::CommonVRAMRegionTaskSet* _ZN18VRAMStagingManager23CommonVRAMRegionTaskSetC1EPht(
-    VRAMStagingManager::CommonVRAMRegionTaskSet* self, unsigned char* pendingTaskIndices, unsigned short maxNumTasks)
+    VRAMStagingManager::CommonVRAMRegionTaskSet* arg0, unsigned char* arg1, unsigned short arg2)
 {
-    self->pendingTaskIndices_ = pendingTaskIndices;
-    self->maxNumTasks_ = maxNumTasks;
-    self->Reset();
-    return self;
+    arg0->pendingTaskIndices_ = arg1;
+    arg0->maxNumTasks_ = arg2;
+    arg0->Reset();
+    return arg0;
 }
 
-extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerC1Ev(VRAMStagingManager* self)
+extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerC1Ev(VRAMStagingManager* arg0)
 {
-    self->ZeroInitialize();
-    return self;
+    arg0->ZeroInitialize();
+    return arg0;
 }
 
-extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerD1Ev(VRAMStagingManager* self)
+extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerD1Ev(VRAMStagingManager* arg0)
 {
-    self->CancelAllTasks();
-    return self;
+    arg0->CancelAllTasks();
+    return arg0;
 }

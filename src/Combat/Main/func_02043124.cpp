@@ -8,45 +8,45 @@
 #include <std_library_functions.h>
 #include <Graphics/VRAMStaging.h>
 #include <NitroSDK/BGBases.h>
-struct FlagOwner;
-extern "C" void func_020e1cb8(FlagOwner*);
+struct Struct_020e1cb8;
+extern "C" void func_020e1cb8(Struct_020e1cb8*);
 #if defined(jpn)
-struct StorageView { char pad[0x30]; void* pointer; };
-extern StorageView data_02107800;
+struct Struct_02107800_3 { char unknown_0_[0x30]; void* unknown_30_; };
+extern Struct_02107800_3 data_02107800;
 #else
 extern void* data_02107800;
 #endif
-struct Object02043124 {
-    char padding_0x0[IS_JPN ? 4 : 0x38];
-    FlagOwner* owner;
-    char padding_0x3c[IS_JPN ? 0x860 : 0x95c];
-    int field_0x998, field_0x99c, field_0x9a0;
-    char padding_0x9a4[IS_JPN ? 0xf89 : 0x1028];
-    unsigned char needsReset;
+struct Struct_02043124 {
+    char unknown_0_[IS_JPN ? 4 : 0x38];
+    Struct_020e1cb8* unknown_38_;
+    char unknown_3c_[IS_JPN ? 0x860 : 0x95c];
+    int unknown_998_, unknown_99c_, unknown_9a0_;
+    char unknown_9a4_[IS_JPN ? 0xf89 : 0x1028];
+    unsigned char unknown_19cc_;
 };
 #define REG_BG_OFFSET (*(volatile unsigned int*)0x04000018)
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 // USA: func_02043124
-extern "C" ARM void func_02043124(Object02043124* object) {
-    object->field_0x9a0 = 0;
-    object->field_0x998 = 0;
-    if (object->needsReset) {
-        object->needsReset = 0;
+extern "C" ARM void func_02043124(Struct_02043124* arg0) {
+    arg0->unknown_9a0_ = 0;
+    arg0->unknown_998_ = 0;
+    if (arg0->unknown_19cc_) {
+        arg0->unknown_19cc_ = 0;
         #if defined(jpn)
-        void* storage = data_02107800.pointer;
+        void* var0 = data_02107800.unknown_30_;
 #else
-        void* storage = data_02107800;
+        void* var0 = data_02107800;
 #endif
-        memset(storage, 0, 0x1000);
-        StageMemoryToVRAM((VRAMSubregion)7, storage, 0, 0x800, true, false);
-        StageMemoryToVRAM((VRAMSubregion)9, storage, 0, 0x800, true, false);
-        void* screen = (void*)GetMainBG1ScreenBase();
-        if (screen) memset(screen, 0, 0x800);
+        memset(var0, 0, 0x1000);
+        StageMemoryToVRAM((VRAMSubregion)7, var0, 0, 0x800, true, false);
+        StageMemoryToVRAM((VRAMSubregion)9, var0, 0, 0x800, true, false);
+        void* var1 = (void*)GetMainBG1ScreenBase();
+        if (var1) memset(var1, 0, 0x800);
         REG_BG_OFFSET = 0;
         REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | 0x1300;
     }
-    if (object->owner) {
-        func_020e1cb8(object->owner);
+    if (arg0->unknown_38_) {
+        func_020e1cb8(arg0->unknown_38_);
     }
-    object->owner = 0;
+    arg0->unknown_38_ = 0;
 }

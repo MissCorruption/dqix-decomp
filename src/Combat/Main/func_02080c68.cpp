@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct List0207f0ac;
-struct Obj2081;
+struct Struct_0207f0ac;
+struct Struct_0207fdcc_2;
 
-struct Entry02080c68 {
-    char pad[0x8];
-    short elemKey;
-    char pad2[0x12 - 0xa];
+struct Struct_02080c68_2 {
+    char unknown_0_[0x8];
+    short unknown_8_;
+    char unknown_a_[0x12 - 0xa];
     union {
-        unsigned char raw;
-        struct { unsigned char lo : 4; unsigned char hi : 4; } nib;
-    } state;
+        unsigned char unknown_0_;
+        struct { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; } unknown1_0_;
+    } unknown_12_;
 };
 
-struct Elem02080c68 {
-    char pad[0xc2];
-    short field0xc2;
+struct Struct_02080c68 {
+    char unknown_0_[0xc2];
+    short unknown_c2_;
 };
 
-extern "C" struct Entry02080c68* func_0207f0ac(struct List0207f0ac* list, int id);
-extern "C" struct Elem02080c68* func_02081da8(struct Obj2081* obj, int key);
+extern "C" struct Struct_02080c68_2* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1);
+extern "C" struct Struct_02080c68* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
 
 // USA: func_02080c68
-extern "C" ARM void func_02080c68(void* obj, int id, int value) {
-    struct Entry02080c68* e = func_0207f0ac((struct List0207f0ac*)((char*)obj + 0xc), id);
-    struct Elem02080c68* elem;
-    if (e == NULL) {
+extern "C" ARM void func_02080c68(void* arg0, int arg1, int arg2) {
+    struct Struct_02080c68_2* var0 = func_0207f0ac((struct Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    struct Struct_02080c68* var1;
+    if (var0 == NULL) {
         return;
     }
-    e->state.raw = (e->state.raw & ~0xf) | (value & 0xf);
-    elem = func_02081da8((struct Obj2081*)obj, e->elemKey);
-    if (elem != NULL) {
-        elem->field0xc2 = e->state.nib.lo & 0xf;
+    var0->unknown_12_.unknown_0_ = (var0->unknown_12_.unknown_0_ & ~0xf) | (arg2 & 0xf);
+    var1 = func_02081da8((struct Struct_0207fdcc_2*)arg0, var0->unknown_8_);
+    if (var1 != NULL) {
+        var1->unknown_c2_ = var0->unknown_12_.unknown1_0_.unknown_0_0_ & 0xf;
     }
 }

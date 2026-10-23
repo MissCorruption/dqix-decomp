@@ -6,192 +6,192 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct NatEntry {
-    unsigned short key_;
-    unsigned short groupIndex_ : 12;
-    unsigned short numGroups_ : 4;
+struct Struct_ov014_02188d48 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 12;
+    unsigned short unknown_3_4_ : 4;
 };
 
-struct NatGroup {
-    unsigned short pointerIndex_;
-    unsigned short flag_ : 1;
-    unsigned short firstIndex_ : 11;
-    unsigned short numIndices_ : 4;
+struct Struct_ov014_02188d48_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 1;
+    unsigned short unknown_2_1_ : 11;
+    unsigned short unknown_3_4_ : 4;
 };
 
-struct NatTable {
-    unsigned short numEntries_;
-    unsigned short numGroups_;
-    unsigned short numIndices_;
-    unsigned short numPointers_;
-    unsigned int dataSize_ : 31;
-    unsigned int relocated_ : 1;
-    NatEntry* entries_;
-    char* data_;
+struct Struct_ov014_02188d48_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_0_ : 31;
+    unsigned int unknown_b_7_ : 1;
+    Struct_ov014_02188d48* unknown_c_;
+    char* unknown_10_;
 };
 
-struct HabitatTable : public NatTable {
-    short monsterID_;
-    short state_;
-    int taskID_;
-    SafeAllocator* allocator_;
+struct Struct_ov014_02188bfc : public Struct_ov014_02188d48_3 {
+    short unknown_14_;
+    short unknown_16_;
+    int unknown_18_;
+    SafeAllocator* unknown_1c_;
 };
 
-struct S02189244;
-struct Obj_0201bb78;
+struct Struct_ov014_02188d48_4;
+struct Struct_0201bb78;
 
-extern "C" unsigned int func_ov014_0218934c(NatTable* table);
-extern "C" bool func_ov014_02188b20(NatTable* table, bool alreadyRelocated);
-extern "C" void func_ov014_02189244(S02189244* table, S02189244* file, char* alreadyRelocated, int func);
-extern "C" int func_ov014_02188b18(NatEntry* entry);
-extern "C" NatEntry* func_ov014_021892d4(NatTable* table, int key, int (*getKey)(NatEntry* entry));
-extern "C" char* func_ov014_02188ba0(NatTable* table, char* pointer, char* defaultValue);
+extern "C" unsigned int func_ov014_0218934c(Struct_ov014_02188d48_3* arg0);
+extern "C" bool func_ov014_02188b20(Struct_ov014_02188d48_3* arg0, bool arg1);
+extern "C" void func_ov014_02189244(Struct_ov014_02188d48_4* arg0, Struct_ov014_02188d48_4* arg1, char* arg2, int arg3);
+extern "C" int func_ov014_02188b18(Struct_ov014_02188d48* arg0);
+extern "C" Struct_ov014_02188d48* func_ov014_021892d4(Struct_ov014_02188d48_3* arg0, int arg1, int (*arg2)(Struct_ov014_02188d48* entry));
+extern "C" char* func_ov014_02188ba0(Struct_ov014_02188d48_3* arg0, char* arg1, char* arg2);
 extern "C" char* func_0205ec34();
-extern "C" bool func_0206dfb0(int, unsigned char*, int flag);
+extern "C" bool func_0206dfb0(int, unsigned char*, int arg2);
 extern "C" void* func_02012fe4();
-extern "C" char* func_020da150(SafeAllocator* allocator, const char* string);
-extern "C" bool func_0201b588(int zoneID);
-extern "C" bool func_0201bb78(Obj_0201bb78* zoneStruct, unsigned int zoneID);
+extern "C" char* func_020da150(SafeAllocator* arg0, const char* arg1);
+extern "C" bool func_0201b588(int arg0);
+extern "C" bool func_0201bb78(Struct_0201bb78* arg0, unsigned int arg1);
 
 // USA: func_ov014_02188d48
-extern "C" ARM bool func_ov014_02188d48(HabitatTable* self, SafeAllocator* allocator, void* file, unsigned int fileSize, short monsterID) {
-    if (allocator == NULL || file == NULL || fileSize == 0)
+extern "C" ARM bool func_ov014_02188d48(Struct_ov014_02188bfc* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, short arg4) {
+    if (arg1 == NULL || arg2 == NULL || arg3 == 0)
         return false;
 
-    if (monsterID < 0) {
-        if (allocator != NULL && file != NULL) {
-            unsigned int tablesSize;
-            unsigned int dataSize;
+    if (arg4 < 0) {
+        if (arg1 != NULL && arg2 != NULL) {
+            unsigned int var0;
+            unsigned int var1;
 
-            memcpy(self, file, 0xc);
-            tablesSize = func_ov014_0218934c(self);
-            dataSize = self->dataSize_;
-            if (tablesSize != 0)
-                self->entries_ = (NatEntry*)allocator->Allocate(tablesSize);
+            memcpy(arg0, arg2, 0xc);
+            var0 = func_ov014_0218934c(arg0);
+            var1 = arg0->unknown_8_0_;
+            if (var0 != 0)
+                arg0->unknown_c_ = (Struct_ov014_02188d48*)arg1->Allocate(var0);
             else
-                self->entries_ = NULL;
-            if (dataSize != 0)
-                self->data_ = (char*)allocator->Allocate(dataSize);
+                arg0->unknown_c_ = NULL;
+            if (var1 != 0)
+                arg0->unknown_10_ = (char*)arg1->Allocate(var1);
             else
-                self->data_ = NULL;
-            if (self->entries_ != NULL)
-                memcpy(self->entries_, (char*)file + 0xc, tablesSize);
-            if (self->data_ != NULL)
-                memcpy(self->data_, (char*)file + (func_ov014_0218934c(self) + 0xc), dataSize);
-            self->relocated_ = true;
+                arg0->unknown_10_ = NULL;
+            if (arg0->unknown_c_ != NULL)
+                memcpy(arg0->unknown_c_, (char*)arg2 + 0xc, var0);
+            if (arg0->unknown_10_ != NULL)
+                memcpy(arg0->unknown_10_, (char*)arg2 + (func_ov014_0218934c(arg0) + 0xc), var1);
+            arg0->unknown_b_7_ = true;
         }
-        func_ov014_02188b20(self, false);
+        func_ov014_02188b20(arg0, false);
     } else {
-        NatTable source;
-        bool alreadyRelocated;
-        NatEntry* entry;
+        Struct_ov014_02188d48_3 var2;
+        bool var3;
+        Struct_ov014_02188d48* var4;
 
-        memset(&source, 0, sizeof(source));
-        func_ov014_02189244((S02189244*)&source, (S02189244*)file, (char*)&alreadyRelocated, NULL);
-        entry = func_ov014_021892d4(&source, monsterID, func_ov014_02188b18);
-        if (entry != NULL) {
-            char* flags;
-            bool grottosKnown;
-            void* zoneStruct;
-            NatGroup* groups;
-            unsigned short* indices;
-            char** pointers;
-            int numGroups;
-            int numIndices;
-            NatGroup* entryGroups;
-            NatGroup* entryGroup;
-            NatTable table;
-            char* buffer;
+        memset(&var2, 0, sizeof(var2));
+        func_ov014_02189244((Struct_ov014_02188d48_4*)&var2, (Struct_ov014_02188d48_4*)arg2, (char*)&var3, NULL);
+        var4 = func_ov014_021892d4(&var2, arg4, func_ov014_02188b18);
+        if (var4 != NULL) {
+            char* var5;
+            bool var6;
+            void* var7;
+            Struct_ov014_02188d48_2* var8;
+            unsigned short* var9;
+            char** var10;
+            int var11;
+            int var12;
+            Struct_ov014_02188d48_2* var13;
+            Struct_ov014_02188d48_2* var14;
+            Struct_ov014_02188d48_3 var15;
+            char* var16;
 
-            flags = func_0205ec34();
-            grottosKnown = func_0206dfb0((int)flags, (unsigned char*)(flags + 0x8c), 0x79d) != false;
-            zoneStruct = func_02012fe4();
+            var5 = func_0205ec34();
+            var6 = func_0206dfb0((int)var5, (unsigned char*)(var5 + 0x8c), 0x79d) != false;
+            var7 = func_02012fe4();
 
-            groups = (NatGroup*)(source.entries_ + source.numEntries_);
-            indices = (unsigned short*)(groups + source.numGroups_);
-            pointers = (char**)((char*)source.entries_ + (((char*)(indices + source.numIndices_) - (char*)source.entries_ + 3) & ~3));
-            numGroups = entry->numGroups_;
-            entryGroups = groups + entry->groupIndex_;
-            numIndices = 0;
-            entryGroup = entryGroups;
-            for (int i = 0; i < numGroups; i++, entryGroup++)
-                numIndices += entryGroup->numIndices_;
+            var8 = (Struct_ov014_02188d48_2*)(var2.unknown_c_ + var2.unknown_0_);
+            var9 = (unsigned short*)(var8 + var2.unknown_2_);
+            var10 = (char**)((char*)var2.unknown_c_ + (((char*)(var9 + var2.unknown_4_) - (char*)var2.unknown_c_ + 3) & ~3));
+            var11 = var4->unknown_3_4_;
+            var13 = var8 + var4->unknown_2_0_;
+            var12 = 0;
+            var14 = var13;
+            for (int var17 = 0; var17 < var11; var17++, var14++)
+                var12 += var14->unknown_3_4_;
 
-            table.numEntries_ = 1;
-            table.numGroups_ = numGroups;
-            table.numIndices_ = numIndices;
-            table.numPointers_ = numGroups;
-            table.dataSize_ = 0;
-            buffer = (char*)allocator->Allocate(func_ov014_0218934c(&table));
-            table.entries_ = (NatEntry*)buffer;
-            table.data_ = NULL;
-            if (buffer != NULL) {
-                NatGroup* newGroups;
-                unsigned short* newIndices;
-                NatGroup* group;
-                int indexTotal;
-                int count;
-                int pointerIndex;
-                unsigned short* zoneID;
-                char** newPointers;
-                bool swapped;
+            var15.unknown_0_ = 1;
+            var15.unknown_2_ = var11;
+            var15.unknown_4_ = var12;
+            var15.unknown_6_ = var11;
+            var15.unknown_8_0_ = 0;
+            var16 = (char*)arg1->Allocate(func_ov014_0218934c(&var15));
+            var15.unknown_c_ = (Struct_ov014_02188d48*)var16;
+            var15.unknown_10_ = NULL;
+            if (var16 != NULL) {
+                Struct_ov014_02188d48_2* var18;
+                unsigned short* var19;
+                Struct_ov014_02188d48_2* var20;
+                int var21;
+                int var22;
+                int var23;
+                unsigned short* var24;
+                char** var25;
+                bool var26;
 
-                newGroups = (NatGroup*)(buffer + sizeof(NatEntry));
-                newIndices = (unsigned short*)(newGroups + numGroups);
-                newPointers = (char**)(buffer + (((char*)(newIndices + numIndices) - buffer + 3) & ~3));
-                memcpy(buffer, entry, sizeof(NatEntry));
-                memcpy(newGroups, entryGroups, numGroups * sizeof(NatGroup));
-                group = newGroups;
-                ((NatEntry*)buffer)->groupIndex_ = 0;
+                var18 = (Struct_ov014_02188d48_2*)(var16 + sizeof(Struct_ov014_02188d48));
+                var19 = (unsigned short*)(var18 + var11);
+                var25 = (char**)(var16 + (((char*)(var19 + var12) - var16 + 3) & ~3));
+                memcpy(var16, var4, sizeof(Struct_ov014_02188d48));
+                memcpy(var18, var13, var11 * sizeof(Struct_ov014_02188d48_2));
+                var20 = var18;
+                ((Struct_ov014_02188d48*)var16)->unknown_2_0_ = 0;
 
-                indexTotal = 0;
-                pointerIndex = 0;
-                for (int i = 0; i < numGroups; i++) {
-                    bool known;
+                var21 = 0;
+                var23 = 0;
+                for (int var27 = 0; var27 < var11; var27++) {
+                    bool var28;
 
-                    count = group->numIndices_;
-                    memcpy(newIndices, indices + group->firstIndex_, count * sizeof(unsigned short));
-                    memcpy(newPointers, pointers + group->pointerIndex_, sizeof(char*));
-                    group->pointerIndex_ = pointerIndex;
-                    group->firstIndex_ = indexTotal;
-                    *newPointers = func_020da150(allocator, func_ov014_02188ba0(&source, *newPointers, NULL));
+                    var22 = var20->unknown_3_4_;
+                    memcpy(var19, var9 + var20->unknown_2_1_, var22 * sizeof(unsigned short));
+                    memcpy(var25, var10 + var20->unknown_0_, sizeof(char*));
+                    var20->unknown_0_ = var23;
+                    var20->unknown_2_1_ = var21;
+                    *var25 = func_020da150(arg1, func_ov014_02188ba0(&var2, *var25, NULL));
 
-                    known = count == 0;
-                    zoneID = newIndices;
-                    for (int j = 0; j < count; j++, zoneID++) {
-                        known = (func_0201b588(*zoneID) && grottosKnown) || func_0201bb78((Obj_0201bb78*)zoneStruct, *zoneID);
-                        if (known)
+                    var28 = var22 == 0;
+                    var24 = var19;
+                    for (int var29 = 0; var29 < var22; var29++, var24++) {
+                        var28 = (func_0201b588(*var24) && var6) || func_0201bb78((Struct_0201bb78*)var7, *var24);
+                        if (var28)
                             break;
                     }
-                    group->flag_ = known;
+                    var20->unknown_2_0_ = var28;
 
-                    newIndices += count;
-                    newPointers++;
-                    indexTotal += count;
-                    group++;
-                    pointerIndex++;
+                    var19 += var22;
+                    var25++;
+                    var21 += var22;
+                    var20++;
+                    var23++;
                 }
 
                 do {
-                    swapped = false;
-                    group = newGroups;
-                    for (int i = 0; i < numGroups - 1; i++, group++) {
-                        if (!group[0].flag_ && group[1].flag_) {
-                            NatGroup temp;
-                            memcpy(&temp, &group[0], sizeof(NatGroup));
-                            memcpy(&group[0], &group[1], sizeof(NatGroup));
-                            memcpy(&group[1], &temp, sizeof(NatGroup));
-                            swapped = true;
+                    var26 = false;
+                    var20 = var18;
+                    for (int var30 = 0; var30 < var11 - 1; var30++, var20++) {
+                        if (!var20[0].unknown_2_0_ && var20[1].unknown_2_0_) {
+                            Struct_ov014_02188d48_2 var31;
+                            memcpy(&var31, &var20[0], sizeof(Struct_ov014_02188d48_2));
+                            memcpy(&var20[0], &var20[1], sizeof(Struct_ov014_02188d48_2));
+                            memcpy(&var20[1], &var31, sizeof(Struct_ov014_02188d48_2));
+                            var26 = true;
                         }
                     }
-                } while (swapped);
+                } while (var26);
             } else {
-                table.numEntries_ = 0;
-                table.numGroups_ = 0;
-                table.numIndices_ = 0;
-                table.numPointers_ = 0;
+                var15.unknown_0_ = 0;
+                var15.unknown_2_ = 0;
+                var15.unknown_4_ = 0;
+                var15.unknown_6_ = 0;
             }
-            memcpy(self, &table, sizeof(NatTable));
+            memcpy(arg0, &var15, sizeof(Struct_ov014_02188d48_3));
         }
     }
     return true;

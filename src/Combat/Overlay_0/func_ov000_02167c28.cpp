@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { randomOffset = 0x218 };
+enum { Enum_ov000_02167c28_668 = 0x218 };
 #else
-enum { randomOffset = 0x29c };
+enum { Enum_ov000_02167c28_668 = 0x29c };
 #endif
 #include "GameState/GameState.h"
 
-extern "C" int func_ov000_02167bb4(unsigned char* obj, int id);
+extern "C" int func_ov000_02167bb4(unsigned char* arg0, int arg1);
 
 // USA: func_ov000_02167c28
-extern "C" ARM int func_ov000_02167c28(unsigned char* obj, int id) {
-    GameState* battle = GameState::GetInstance();
-    GameObject* combatant = battle->GetCombatantByIndex(id);
-    if (!combatant) return -1;
+extern "C" ARM int func_ov000_02167c28(unsigned char* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetCombatantByIndex(arg1);
+    if (!var1) return -1;
 
-    for (int i = 0; i < 8; i++) {
-        int* p = (int*)((char*)*(void**)(obj + randomOffset) + 0x8000 + 0xde0);
-        int val = p[i] & 0xff;
-        if (val == id) {
-            p[i] = -1;
+    for (int var2 = 0; var2 < 8; var2++) {
+        int* var3 = (int*)((char*)*(void**)(arg0 + Enum_ov000_02167c28_668) + 0x8000 + 0xde0);
+        int var4 = var3[var2] & 0xff;
+        if (var4 == arg1) {
+            var3[var2] = -1;
             break;
         }
     }
 
-    int threshold = ((Object3D*)((unsigned char*)combatant))->GetRadius();
-    for (int j = 0; j < 8; j++) {
-        if (func_ov000_02167bb4(obj, j) < threshold) continue;
-        *(int*)((char*)*(void**)(obj + randomOffset) + j * 4 + 0x8000 + 0xde0) = id;
-        return j;
+    int var5 = ((Object3D*)((unsigned char*)var1))->GetRadius();
+    for (int var6 = 0; var6 < 8; var6++) {
+        if (func_ov000_02167bb4(arg0, var6) < var5) continue;
+        *(int*)((char*)*(void**)(arg0 + Enum_ov000_02167c28_668) + var6 * 4 + 0x8000 + 0xde0) = arg1;
+        return var6;
     }
     return -1;
 }

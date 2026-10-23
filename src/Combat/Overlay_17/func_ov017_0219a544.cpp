@@ -1,47 +1,47 @@
 #if defined(jpn)
-enum { RegionOffset4084 = 0x3e64, RegionLabelExtra = 10 };
+enum { Enum_ov017_0219a544_16516 = 0x3e64, Enum_ov017_0219a544_0 = 10 };
 #else
-enum { RegionOffset4084 = 0x4084, RegionLabelExtra = 0 };
+enum { Enum_ov017_0219a544_16516 = 0x4084, Enum_ov017_0219a544_0 = 0 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02041f70(char* buf, int a, int b);
-extern "C" int func_02041a28(char* dst, int x);
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02039730(void* unused, int index);
-extern "C" int func_02042084(char* buffer, char* label, int width, int extra);
+extern "C" int func_02041f70(char* arg0, int arg1, int arg2);
+extern "C" int func_02041a28(char* arg0, int arg1);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02039730(void* arg0, int arg1);
+extern "C" int func_02042084(char* arg0, char* arg1, int arg2, int arg3);
 
-struct Table_0219a544 { int values[5]; };
-extern struct Table_0219a544 data_ov017_021d6470;
+struct Struct_ov017_021d6470 { int unknown_0_[5]; };
+extern struct Struct_ov017_021d6470 data_ov017_021d6470;
 extern int data_ov017_021d6460[4];
 
 // USA: func_ov017_0219a544
-extern "C" ARM void func_ov017_0219a544(unsigned char* a, char* buf, int type, int value) {
-	if (!buf) return;
-	if (type == 3 && value > 0) {
-		func_02041f70(buf, 3, 2);
+extern "C" ARM void func_ov017_0219a544(unsigned char* arg0, char* arg1, int arg2, int arg3) {
+	if (!arg1) return;
+	if (arg2 == 3 && arg3 > 0) {
+		func_02041f70(arg1, 3, 2);
 	}
-	int resultByte = value;
-	if (type == 3 && value <= 0) {
-		struct Table_0219a544 local = data_ov017_021d6470;
-		GameObject* combatant;
-		int idx = 0;
-		GameState* battle = GameState::GetInstance();
-		combatant = battle->GetProtagonist();
-		while (((volatile int*)local.values)[idx] != 7) {
-			resultByte = (signed char)func_02039730(combatant, ((volatile int*)local.values)[idx]);
-			if (resultByte > 0) break;
-			idx = (idx + 1) & 0xff;
+	int var0 = arg3;
+	if (arg2 == 3 && arg3 <= 0) {
+		struct Struct_ov017_021d6470 var1 = data_ov017_021d6470;
+		GameObject* var2;
+		int var3 = 0;
+		GameState* var4 = GameState::GetInstance();
+		var2 = var4->GetProtagonist();
+		while (((volatile int*)var1.unknown_0_)[var3] != 7) {
+			var0 = (signed char)func_02039730(var2, ((volatile int*)var1.unknown_0_)[var3]);
+			if (var0 > 0) break;
+			var3 = (var3 + 1) & 0xff;
 		}
 	}
-	int key = (resultByte < 0) ? 0 : resultByte;
-	struct Container020e0310* container = *(struct Container020e0310**)(a + RegionOffset4084);
-	int fieldResult = func_020e0434(container, key);
-	if (!fieldResult) return;
-	func_02041a28(buf, 0);
-	int width = data_ov017_021d6460[type];
-	func_02042084(buf, (char*)fieldResult, width, RegionLabelExtra);
+	int var5 = (var0 < 0) ? 0 : var0;
+	struct Struct_0201099c_3* var6 = *(struct Struct_0201099c_3**)(arg0 + Enum_ov017_0219a544_16516);
+	int var7 = func_020e0434(var6, var5);
+	if (!var7) return;
+	func_02041a28(arg1, 0);
+	int var8 = data_ov017_021d6460[arg2];
+	func_02042084(arg1, (char*)var7, var8, Enum_ov017_0219a544_0);
 }

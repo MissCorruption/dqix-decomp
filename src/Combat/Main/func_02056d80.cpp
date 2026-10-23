@@ -1,209 +1,209 @@
 #include <globaldefs.h>
 #include <NitroSDK/Memory/SignedAllocator.h>
 
-struct AnimationKeyframe02056d80 {
-    int x;
+struct Struct_02056d80_6 {
+    int unknown_0_;
     union {
-        float y;
-        unsigned int duration;
+        float unknown_4_;
+        unsigned int unknown1_4_;
     };
-    float z;
-    float w;
+    float unknown_8_;
+    float unknown_c_;
 };
-struct Wrap020578e8 {
-    AnimationKeyframe02056d80* keyframe;
+struct Struct_020557a4 {
+    Struct_02056d80_6* unknown_0_;
 };
-struct S02055080 {
-    unsigned char padding[8];
-    SignedAllocatorList translation[3];
-    SignedAllocatorList rotation[3];
-    SignedAllocatorList scale[3];
-    SignedAllocatorList duration;
-    SignedAllocatorList extra[3];
-    SignedAllocatorList vector;
-    SignedAllocatorList nextChannels[4];
-    unsigned char padding_0xe0[12];
-    SignedAllocatorList firstChannels[4];
-    SignedAllocatorList final;
+struct Struct_020546c8 {
+    unsigned char unknown_0_[8];
+    SignedAllocatorList unknown_8_[3];
+    SignedAllocatorList unknown_2c_[3];
+    SignedAllocatorList unknown_50_[3];
+    SignedAllocatorList unknown_74_;
+    SignedAllocatorList unknown_80_[3];
+    SignedAllocatorList unknown_a4_;
+    SignedAllocatorList unknown_b0_[4];
+    unsigned char unknown_e0_[12];
+    SignedAllocatorList unknown_ec_[4];
+    SignedAllocatorList unknown_11c_;
 };
-struct Counts02056d80 {
-    unsigned char padding[16];
-    unsigned char channels[4];
+struct Struct_02056d80_5 {
+    unsigned char unknown_0_[16];
+    unsigned char unknown_10_[4];
 };
-struct TransformCounts02056d80 {
-    unsigned char padding[0x24];
-    unsigned char translation[3];
-    unsigned char rotation[3];
-    unsigned char scale[3];
+struct Struct_02056d80_7 {
+    unsigned char unknown_0_[0x24];
+    unsigned char unknown_24_[3];
+    unsigned char unknown_27_[3];
+    unsigned char unknown_2a_[3];
 };
-struct DurationCounts02056d80 {
-    unsigned char padding[4];
-    unsigned char count;
+struct Struct_02056d80_8 {
+    unsigned char unknown_0_[4];
+    unsigned char unknown_4_;
 };
-struct ExtraCounts02056d80 {
-    unsigned char padding[16];
-    unsigned char channels[3];
-    unsigned char vector;
+struct Struct_02056d80 {
+    unsigned char unknown_0_[16];
+    unsigned char unknown_10_[3];
+    unsigned char unknown_13_;
 };
-struct Settings02056d80 {
-    unsigned char begin;
-    unsigned char delay;
-    unsigned char repeat;
-    unsigned char flags;
+struct Struct_02056d80_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
-struct Header02056d80 {
-    unsigned char padding[12];
-    unsigned short finalCount;
+struct Struct_02056d80_3 {
+    unsigned char unknown_0_[12];
+    unsigned short unknown_c_;
 };
-struct Animation02056d80 {
-    int field_0x0;
-    int frame;
-    int endFrame;
-    unsigned char repeat;
-    unsigned char padding_0xd[0x1b];
-    void* active;
-    int field_0x2c;
-    S02055080* resource;
-    unsigned char padding_0x34[4];
-    unsigned char flags;
-    unsigned char padding_0x39[0x13];
-    float channelSlopes[4];
-    unsigned short channelIndices[4];
-    float translationSlopes[3];
-    float rotationSlopes[3];
-    float scaleSlopes[3];
-    unsigned short translationIndices[3];
-    unsigned short rotationIndices[3];
-    unsigned short scaleIndices[3];
-    unsigned char padding_0x9a[2];
-    float durationSlope;
-    unsigned short durationIndex;
-    unsigned char padding_0xa2[2];
-    float extraSlopes[3];
-    float vectorSlopes[3];
-    unsigned short extraIndices[3];
-    unsigned short vectorIndex;
-    unsigned char padding_0xc4[0x54];
-    float channels[4];
-    float translation[3];
-    float rotation[3];
-    float scale[3];
-    float duration;
-    int finalValue;
-    int delay;
-    float extra[3];
-    float vector[3];
+struct Struct_02056d80_4 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_[0x1b];
+    void* unknown_28_;
+    int unknown_2c_;
+    Struct_020546c8* unknown_30_;
+    unsigned char unknown_34_[4];
+    unsigned char unknown_38_;
+    unsigned char unknown_39_[0x13];
+    float unknown_4c_[4];
+    unsigned short unknown_5c_[4];
+    float unknown_64_[3];
+    float unknown_70_[3];
+    float unknown_7c_[3];
+    unsigned short unknown_88_[3];
+    unsigned short unknown_8e_[3];
+    unsigned short unknown_94_[3];
+    unsigned char unknown_9a_[2];
+    float unknown_9c_;
+    unsigned short unknown_a0_;
+    unsigned char unknown_a2_[2];
+    float unknown_a4_[3];
+    float unknown_b0_[3];
+    unsigned short unknown_bc_[3];
+    unsigned short unknown_c2_;
+    unsigned char unknown_c4_[0x54];
+    float unknown_118_[4];
+    float unknown_128_[3];
+    float unknown_134_[3];
+    float unknown_140_[3];
+    float unknown_14c_;
+    int unknown_150_;
+    int unknown_154_;
+    float unknown_158_[3];
+    float unknown_164_[3];
 };
 
-extern "C" int func_02055168(S02055080*);
-extern "C" void* func_020550a8(S02055080*);
-extern "C" void* func_020550c0(S02055080*);
-extern "C" void* func_020550d8(S02055080*);
-extern "C" void* func_020550f0(S02055080*);
-extern "C" void* func_02055090(S02055080*);
-extern "C" float func_020578e8(Wrap020578e8*, Wrap020578e8*);
+extern "C" int func_02055168(Struct_020546c8*);
+extern "C" void* func_020550a8(Struct_020546c8*);
+extern "C" void* func_020550c0(Struct_020546c8*);
+extern "C" void* func_020550d8(Struct_020546c8*);
+extern "C" void* func_020550f0(Struct_020546c8*);
+extern "C" void* func_02055090(Struct_020546c8*);
+extern "C" float func_020578e8(Struct_020557a4*, Struct_020557a4*);
 
 // USA: func_02056d80
-extern "C" ARM void func_02056d80(Animation02056d80* self) {
-    if (!self->resource || !self->active) return;
-    Counts02056d80* counts = (Counts02056d80*)func_02055168(self->resource);
-    Wrap020578e8* previous;
-    Wrap020578e8* next;
-    previous = (Wrap020578e8*)self->resource->firstChannels[0].ElementAfter(0);
-    self->channels[0] = previous->keyframe->y;
-    if (counts->channels[0] > 1) {
-        self->channelIndices[0] = 1;
-        next = (Wrap020578e8*)self->resource->nextChannels[0].GetNthElement(1);
-        if (next) self->channelSlopes[0] = func_020578e8(previous, next);
+extern "C" ARM void func_02056d80(Struct_02056d80_4* arg0) {
+    if (!arg0->unknown_30_ || !arg0->unknown_28_) return;
+    Struct_02056d80_5* var0 = (Struct_02056d80_5*)func_02055168(arg0->unknown_30_);
+    Struct_020557a4* var1;
+    Struct_020557a4* var2;
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_ec_[0].ElementAfter(0);
+    arg0->unknown_118_[0] = var1->unknown_0_->unknown_4_;
+    if (var0->unknown_10_[0] > 1) {
+        arg0->unknown_5c_[0] = 1;
+        var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_b0_[0].GetNthElement(1);
+        if (var2) arg0->unknown_4c_[0] = func_020578e8(var1, var2);
     }
-    previous = (Wrap020578e8*)self->resource->firstChannels[1].ElementAfter(0);
-    self->channels[1] = previous->keyframe->y;
-    if (counts->channels[1] > 1) {
-        self->channelIndices[1] = 1;
-        next = (Wrap020578e8*)self->resource->nextChannels[1].GetNthElement(1);
-        if (next) self->channelSlopes[1] = func_020578e8(previous, next);
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_ec_[1].ElementAfter(0);
+    arg0->unknown_118_[1] = var1->unknown_0_->unknown_4_;
+    if (var0->unknown_10_[1] > 1) {
+        arg0->unknown_5c_[1] = 1;
+        var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_b0_[1].GetNthElement(1);
+        if (var2) arg0->unknown_4c_[1] = func_020578e8(var1, var2);
     }
-    previous = (Wrap020578e8*)self->resource->firstChannels[2].ElementAfter(0);
-    self->channels[2] = previous->keyframe->y;
-    if (counts->channels[2] > 1) {
-        self->channelIndices[2] = 1;
-        next = (Wrap020578e8*)self->resource->nextChannels[2].GetNthElement(1);
-        if (next) self->channelSlopes[2] = func_020578e8(previous, next);
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_ec_[2].ElementAfter(0);
+    arg0->unknown_118_[2] = var1->unknown_0_->unknown_4_;
+    if (var0->unknown_10_[2] > 1) {
+        arg0->unknown_5c_[2] = 1;
+        var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_b0_[2].GetNthElement(1);
+        if (var2) arg0->unknown_4c_[2] = func_020578e8(var1, var2);
     }
-    previous = (Wrap020578e8*)self->resource->firstChannels[3].ElementAfter(0);
-    self->channels[3] = previous->keyframe->y;
-    if (counts->channels[3] > 1) {
-        self->channelIndices[3] = 1;
-        next = (Wrap020578e8*)self->resource->nextChannels[3].GetNthElement(1);
-        if (next) self->channelSlopes[3] = func_020578e8(previous, next);
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_ec_[3].ElementAfter(0);
+    arg0->unknown_118_[3] = var1->unknown_0_->unknown_4_;
+    if (var0->unknown_10_[3] > 1) {
+        arg0->unknown_5c_[3] = 1;
+        var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_b0_[3].GetNthElement(1);
+        if (var2) arg0->unknown_4c_[3] = func_020578e8(var1, var2);
     }
-    TransformCounts02056d80* transforms = (TransformCounts02056d80*)func_020550a8(self->resource);
-    for (int i = 0; i < 3; i++) {
-        previous = (Wrap020578e8*)self->resource->translation[i].ElementAfter(0);
-        self->translation[i] = previous->keyframe->y;
-        if (transforms->translation[i] > 1) {
-            self->translationIndices[i] = 1;
-            next = (Wrap020578e8*)self->resource->translation[i].GetNthElement(self->translationIndices[i]);
-            if (next) self->translationSlopes[i] = func_020578e8(previous, next);
+    Struct_02056d80_7* var3 = (Struct_02056d80_7*)func_020550a8(arg0->unknown_30_);
+    for (int var4 = 0; var4 < 3; var4++) {
+        var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_8_[var4].ElementAfter(0);
+        arg0->unknown_128_[var4] = var1->unknown_0_->unknown_4_;
+        if (var3->unknown_24_[var4] > 1) {
+            arg0->unknown_88_[var4] = 1;
+            var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_8_[var4].GetNthElement(arg0->unknown_88_[var4]);
+            if (var2) arg0->unknown_64_[var4] = func_020578e8(var1, var2);
         }
     }
-    for (int i = 0; i < 3; i++) {
-        previous = (Wrap020578e8*)self->resource->rotation[i].ElementAfter(0);
-        self->rotation[i] = previous->keyframe->y;
-        if (transforms->rotation[i] > 1) {
-            self->rotationIndices[i] = 1;
-            next = (Wrap020578e8*)self->resource->rotation[i].GetNthElement(self->rotationIndices[i]);
-            if (next) self->rotationSlopes[i] = func_020578e8(previous, next);
+    for (int var5 = 0; var5 < 3; var5++) {
+        var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_2c_[var5].ElementAfter(0);
+        arg0->unknown_134_[var5] = var1->unknown_0_->unknown_4_;
+        if (var3->unknown_27_[var5] > 1) {
+            arg0->unknown_8e_[var5] = 1;
+            var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_2c_[var5].GetNthElement(arg0->unknown_8e_[var5]);
+            if (var2) arg0->unknown_70_[var5] = func_020578e8(var1, var2);
         }
     }
-    for (int i = 0; i < 3; i++) {
-        previous = (Wrap020578e8*)self->resource->scale[i].ElementAfter(0);
-        self->scale[i] = previous->keyframe->y;
-        if (transforms->scale[i] > 1) {
-            self->scaleIndices[i] = 1;
-            next = (Wrap020578e8*)self->resource->scale[i].GetNthElement(self->scaleIndices[i]);
-            if (next) self->scaleSlopes[i] = func_020578e8(previous, next);
+    for (int var6 = 0; var6 < 3; var6++) {
+        var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_50_[var6].ElementAfter(0);
+        arg0->unknown_140_[var6] = var1->unknown_0_->unknown_4_;
+        if (var3->unknown_2a_[var6] > 1) {
+            arg0->unknown_94_[var6] = 1;
+            var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_50_[var6].GetNthElement(arg0->unknown_94_[var6]);
+            if (var2) arg0->unknown_7c_[var6] = func_020578e8(var1, var2);
         }
     }
-    DurationCounts02056d80* duration = (DurationCounts02056d80*)func_020550c0(self->resource);
-    previous = (Wrap020578e8*)self->resource->duration.ElementAfter(0);
-    self->duration = (float)previous->keyframe->duration;
-    if (duration->count > 1) {
-        self->durationIndex = 1;
-        next = (Wrap020578e8*)self->resource->duration.GetNthElement(1);
-        if (next) self->durationSlope = func_020578e8(previous, next);
+    Struct_02056d80_8* var7 = (Struct_02056d80_8*)func_020550c0(arg0->unknown_30_);
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_74_.ElementAfter(0);
+    arg0->unknown_14c_ = (float)var1->unknown_0_->unknown1_4_;
+    if (var7->unknown_4_ > 1) {
+        arg0->unknown_a0_ = 1;
+        var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_74_.GetNthElement(1);
+        if (var2) arg0->unknown_9c_ = func_020578e8(var1, var2);
     }
-    ExtraCounts02056d80* extra = (ExtraCounts02056d80*)func_020550d8(self->resource);
-    for (int i = 0; i < 3; i++) {
-        previous = (Wrap020578e8*)self->resource->extra[i].ElementAfter(0);
-        self->extra[i] = previous->keyframe->y;
-        if (extra->channels[i] > 1) {
-            self->extraIndices[i] = 1;
-            next = (Wrap020578e8*)self->resource->extra[i].GetNthElement(self->extraIndices[i]);
-            if (next) self->extraSlopes[i] = func_020578e8(previous, next);
+    Struct_02056d80* var8 = (Struct_02056d80*)func_020550d8(arg0->unknown_30_);
+    for (int var9 = 0; var9 < 3; var9++) {
+        var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_80_[var9].ElementAfter(0);
+        arg0->unknown_158_[var9] = var1->unknown_0_->unknown_4_;
+        if (var8->unknown_10_[var9] > 1) {
+            arg0->unknown_bc_[var9] = 1;
+            var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_80_[var9].GetNthElement(arg0->unknown_bc_[var9]);
+            if (var2) arg0->unknown_a4_[var9] = func_020578e8(var1, var2);
         }
     }
-    previous = (Wrap020578e8*)self->resource->vector.ElementAfter(0);
-    self->vector[0] = previous->keyframe->y;
-    self->vector[1] = previous->keyframe->z;
-    self->vector[2] = previous->keyframe->w;
-    if (extra->vector > 1) {
-        self->vectorIndex = 1;
-        next = (Wrap020578e8*)self->resource->vector.GetNthElement(1);
-        if (next) {
-            self->vectorSlopes[0] = (next->keyframe->y - previous->keyframe->y) / (float)(next->keyframe->x - previous->keyframe->x);
-            self->vectorSlopes[1] = (next->keyframe->z - previous->keyframe->z) / (float)(next->keyframe->x - previous->keyframe->x);
-            self->vectorSlopes[2] = (next->keyframe->w - previous->keyframe->w) / (float)(next->keyframe->x - previous->keyframe->x);
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_a4_.ElementAfter(0);
+    arg0->unknown_164_[0] = var1->unknown_0_->unknown_4_;
+    arg0->unknown_164_[1] = var1->unknown_0_->unknown_8_;
+    arg0->unknown_164_[2] = var1->unknown_0_->unknown_c_;
+    if (var8->unknown_13_ > 1) {
+        arg0->unknown_c2_ = 1;
+        var2 = (Struct_020557a4*)arg0->unknown_30_->unknown_a4_.GetNthElement(1);
+        if (var2) {
+            arg0->unknown_b0_[0] = (var2->unknown_0_->unknown_4_ - var1->unknown_0_->unknown_4_) / (float)(var2->unknown_0_->unknown_0_ - var1->unknown_0_->unknown_0_);
+            arg0->unknown_b0_[1] = (var2->unknown_0_->unknown_8_ - var1->unknown_0_->unknown_8_) / (float)(var2->unknown_0_->unknown_0_ - var1->unknown_0_->unknown_0_);
+            arg0->unknown_b0_[2] = (var2->unknown_0_->unknown_c_ - var1->unknown_0_->unknown_c_) / (float)(var2->unknown_0_->unknown_0_ - var1->unknown_0_->unknown_0_);
         }
     }
-    Settings02056d80* settings = (Settings02056d80*)func_020550f0(self->resource);
-    self->frame = 0;
-    self->endFrame = settings->begin + settings->delay;
-    self->repeat = settings->repeat;
-    self->flags = settings->flags;
-    self->delay = settings->delay;
-    if (settings->repeat) self->repeat = 1;
-    if (((Header02056d80*)func_02055090(self->resource))->finalCount == 0) return;
-    previous = (Wrap020578e8*)self->resource->final.ElementAfter(0);
-    self->finalValue = previous->keyframe->x;
+    Struct_02056d80_2* var10 = (Struct_02056d80_2*)func_020550f0(arg0->unknown_30_);
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = var10->unknown_0_ + var10->unknown_1_;
+    arg0->unknown_c_ = var10->unknown_2_;
+    arg0->unknown_38_ = var10->unknown_3_;
+    arg0->unknown_154_ = var10->unknown_1_;
+    if (var10->unknown_2_) arg0->unknown_c_ = 1;
+    if (((Struct_02056d80_3*)func_02055090(arg0->unknown_30_))->unknown_c_ == 0) return;
+    var1 = (Struct_020557a4*)arg0->unknown_30_->unknown_11c_.ElementAfter(0);
+    arg0->unknown_150_ = var1->unknown_0_->unknown_0_;
 }

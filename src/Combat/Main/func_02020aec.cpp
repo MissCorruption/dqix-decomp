@@ -8,46 +8,46 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/MapDisplay.h"
 
-struct List0202fec8;
+struct Struct_020534ac;
 
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203be4c(void);
 
-struct Rec020467f0;
-extern "C" int func_0205a498(void* a, struct Rec020467f0* b, int flag, void* d);
+struct Struct_02020aec;
+extern "C" int func_0205a498(void* arg0, struct Struct_02020aec* arg1, int arg2, void* arg3);
 
-extern "C" void func_0205af38(int a, char* obj, int c, int d);
+extern "C" void func_0205af38(int arg0, char* arg1, int arg2, int arg3);
 
 // USA: func_02020aec
-extern "C" ARM void func_02020aec(MapDisplay* self, MapDisplayTaskHandle handle, SafeAllocator* allocator) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    void* fileData = 0;
-    unsigned int fileLength = 0;
+extern "C" ARM void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, SafeAllocator* arg2) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    void* var1 = 0;
+    unsigned int var2 = 0;
     #if defined(jpn)
-    loader->GetLoadedFileByID(handle, &fileData, &fileLength);
+    var0->GetLoadedFileByID(arg1, &var1, &var2);
 #else
-    loader->GetLoadedFileByID(*handle, &fileData, &fileLength);
+    var0->GetLoadedFileByID(*arg1, &var1, &var2);
 #endif
 
-    char* g = (char*)func_0203bd14();
-    *(int*)(g + (IS_JPN ? 0x608 : 0x508)) = 0x2000;
+    char* var3 = (char*)func_0203bd14();
+    *(int*)(var3 + (IS_JPN ? 0x608 : 0x508)) = 0x2000;
     func_0203bd08();
 
-    char* p = (char*)func_0203be4c() + 0x2c0;
-    g = (char*)func_0203bd14();
-    *(char**)g = p;
+    char* var4 = (char*)func_0203be4c() + 0x2c0;
+    var3 = (char*)func_0203bd14();
+    *(char**)var3 = var4;
 
-    func_0205a498(&self->entryList, (Rec020467f0*)fileData, fileLength, allocator);
+    func_0205a498(&arg0->unknown_94_, (Struct_02020aec*)var1, var2, arg2);
 
-    loader = BackgroundLoader::GetInstance();
+    var0 = BackgroundLoader::GetInstance();
 #if defined(jpn)
-    loader->RemoveTask(handle);
+    var0->RemoveTask(arg1);
 #else
-    loader->RemoveTask(*handle);
-    *handle = -1;
+    var0->RemoveTask(*arg1);
+    *arg1 = -1;
 #endif
 
-    func_0205af38((int)&self->entryList, (char*)&self->records[9], 1, 1);
-    func_0205af38((int)&self->entryList, (char*)&self->records[11], 1, 1);
+    func_0205af38((int)&arg0->unknown_94_, (char*)&arg0->unknown_e8_[9], 1, 1);
+    func_0205af38((int)&arg0->unknown_94_, (char*)&arg0->unknown_e8_[11], 1, 1);
 }

@@ -5,174 +5,174 @@
 #include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
-struct Global0216bcfc {
+struct Struct_ov003_0216bcfc_2 {
 #if defined(jpn)
-    char unk_0[0x28];
-    char *text_;
-    char unk_2c[0x868 - 0x2c];
+    char unknown_0_[0x28];
+    char *unknown_28_;
+    char unknown_2c_[0x868 - 0x2c];
 #else
-    char unk_0[0x5c];
-    char *text_;
-    char unk_60[0x998 - 0x60];
+    char unknown1_0_[0x5c];
+    char *unknown_5c_;
+    char unknown_60_[0x998 - 0x60];
 #endif
-    int unk_998;
-    char unk_99c[4];
-    int unk_9a0;
+    int unknown_998_;
+    char unknown_99c_[4];
+    int unknown_9a0_;
 };
 
-struct Menu0216bcfc {
-    char unk_0[4];
-    short state_;
-    short step_;
-    char unk_8[4];
-    int task_;
+struct Struct_ov003_0216bcfc_3 {
+    char unknown_0_[4];
+    short unknown_4_;
+    short unknown_6_;
+    char unknown_8_[4];
+    int unknown_c_;
 #if defined(jpn)
-    char unk_10[0x428 - 0x10];
-    char sub_410[0x500 - 0x428];
-    void *unk_4e8;
-    char unk_4ec[0x10f4 - 0x504];
+    char unknown_10_[0x428 - 0x10];
+    char unknown_410_[0x500 - 0x428];
+    void *unknown_4e8_;
+    char unknown_504_[0x10f4 - 0x504];
 #else
-    char unk_10[0x410 - 0x10];
-    char sub_410[0x4e8 - 0x410];
-    void *unk_4e8;
-    char unk_4ec[0x1264 - 0x4ec];
+    char unknown1_10_[0x410 - 0x10];
+    char unknown_410_[0x4e8 - 0x410];
+    void *unknown_4e8_;
+    char unknown_4ec_[0x1264 - 0x4ec];
 #endif
-    int unk_1264;
-    int unk_1268;
-    char unk_126c[0x12a8 - 0x126c];
-    int unk_12a8;
-    int unk_12ac;
-    char unk_12b0[0x12b8 - 0x12b0];
-    short unk_12b8;
-    char unk_12ba[2];
-    unsigned char unk_12bc;
-    char unk_12bd[0x12d4 - 0x12bd];
-    SafeAllocator allocator_;
-    char unk_12e8[0x1310 - 0x12e8];
-    SafeAllocator allocators_[1];
-    char unk_1324[0x1334 - 0x1324];
+    int unknown_1264_;
+    int unknown_1268_;
+    char unknown_126c_[0x12a8 - 0x126c];
+    int unknown_12a8_;
+    int unknown_12ac_;
+    char unknown_12b0_[0x12b8 - 0x12b0];
+    short unknown_12b8_;
+    char unknown_12ba_[2];
+    unsigned char unknown_12bc_;
+    char unknown_12bd_[0x12d4 - 0x12bd];
+    SafeAllocator unknown_12d4_;
+    char unknown_12e8_[0x1310 - 0x12e8];
+    SafeAllocator unknown_1310_[1];
+    char unknown_1324_[0x1334 - 0x1324];
 };
 
 struct AllocatorUnion;
-struct S021700bc;
-struct ActiveEntry02046900;
-struct Rec020467f0;
+struct Struct_ov003_0216bcfc;
+struct Struct_02020cb8_4;
+struct Struct_02020aec;
 
-extern "C" int func_0202b7d8(int *p);
-extern "C" int func_02046900(ActiveEntry02046900 *archive);
-extern "C" void *func_020467f0(Rec020467f0 *archive, int index, void **name, int *size);
-extern "C" void *func_02012d88(AllocatorUnion *alloc, unsigned int size);
-extern "C" void func_02012da4(AllocatorUnion *alloc, void *p);
-extern "C" void func_0205a494(void *p);
-extern "C" void func_ov003_021700bc(S021700bc *p);
+extern "C" int func_0202b7d8(int *arg0);
+extern "C" int func_02046900(Struct_02020cb8_4 *arg0);
+extern "C" void *func_020467f0(Struct_02020aec *arg0, int arg1, void **arg2, int *arg3);
+extern "C" void *func_02012d88(AllocatorUnion *arg0, unsigned int arg1);
+extern "C" void func_02012da4(AllocatorUnion *arg0, void *arg1);
+extern "C" void func_0205a494(void *arg0);
+extern "C" void func_ov003_021700bc(Struct_ov003_0216bcfc *arg0);
 extern "C" void *func_0202ae18();
 extern "C" void func_0202c288();
-extern "C" void func_02043124(void *p);
-extern "C" void func_0205a528(void *renderer, void *file, unsigned int size, SafeAllocator *allocator);
+extern "C" void func_02043124(void *arg0);
+extern "C" void func_0205a528(void *arg0, void *arg1, unsigned int arg2, SafeAllocator *arg3);
 #if defined(jpn)
-extern "C" void func_ov003_0216d8d4(void *self, int a);
-extern "C" void func_ov003_0216e02c(void *sub, SafeAllocator *allocator);
+extern "C" void func_ov003_0216d8d4(void *arg0, int arg1);
+extern "C" void func_ov003_0216e02c(void *arg0, SafeAllocator *arg1);
 extern char data_ov003_0217e985[];
 #define func_ov003_0216d8d4(self, a, b, c, d) func_ov003_0216d8d4(self, a)
 #define data_ov003_021801c9 data_ov003_0217e985
 #else
-extern "C" void func_ov003_0216d8d4(void *self, int a, int b, int c, int d);
-extern "C" void func_ov003_0216e02c(void *sub, SafeAllocator *allocator);
+extern "C" void func_ov003_0216d8d4(void *arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_ov003_0216e02c(void *arg0, SafeAllocator *arg1);
 #endif
-extern "C" int func_ov003_0216e124(void *sub);
-extern "C" void func_ov003_021700dc(void *sub);
+extern "C" int func_ov003_0216e124(void *arg0);
+extern "C" void func_ov003_021700dc(void *arg0);
 extern "C" void *func_020421a0();
-extern "C" void *memset(void *dst, int value, unsigned int length);
+extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 
 extern char data_02114e20;
 extern char data_ov003_021801c9[];
 
 // USA: func_ov003_0216bcfc
-extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
-    Global0216bcfc *global   = (Global0216bcfc *) func_020421a0();
-    BackgroundLoader *loader = BackgroundLoader::GetInstance();
-    void *obj                = func_0202ae18();
+extern "C" ARM void func_ov003_0216bcfc(Struct_ov003_0216bcfc_3 *arg0) {
+    Struct_ov003_0216bcfc_2 *var0   = (Struct_ov003_0216bcfc_2 *) func_020421a0();
+    BackgroundLoader *var1 = BackgroundLoader::GetInstance();
+    void *var2                = func_0202ae18();
 
-    if (self->step_ == 0) {
+    if (arg0->unknown_6_ == 0) {
         func_0202c288();
-        if (func_0202b7d8((int *) obj) != 0 && (int) *((unsigned char *) obj + 0x100d) > 1) {
-            func_ov003_0216d8d4(self, 0x5d, -1, -1, -1);
-            self->step_  = 0;
-            self->state_ = 2;
-            self->step_  = 0;
+        if (func_0202b7d8((int *) var2) != 0 && (int) *((unsigned char *) var2 + 0x100d) > 1) {
+            func_ov003_0216d8d4(arg0, 0x5d, -1, -1, -1);
+            arg0->unknown_6_  = 0;
+            arg0->unknown_4_ = 2;
+            arg0->unknown_6_  = 0;
             return;
         }
-        Global0216bcfc *global2 = (Global0216bcfc *) func_020421a0();
+        Struct_ov003_0216bcfc_2 *var3 = (Struct_ov003_0216bcfc_2 *) func_020421a0();
 #if defined(jpn)
-        memset(global2->text_, 0, 0x800);
+        memset(var3->unknown_28_, 0, 0x800);
 #else
-        memset(global2->text_, 0, 0x960);
+        memset(var3->unknown_5c_, 0, 0x960);
 #endif
-        void *buffer = func_02012d88((AllocatorUnion *) &data_02114e20, 0x8000);
-        VectorizedMemset(buffer, 0, 0x8000);
-        self->allocator_.CreateTypeA(buffer, 0x8000);
-        self->allocator_.Reset();
-        func_ov003_021700bc((S021700bc *) self->sub_410);
-        func_ov003_0216e02c(self->sub_410, &self->allocator_);
-        self->unk_4e8 = &self->unk_1324;
-        char pixels[0x20];
-        memset(pixels, 0, 0x20);
-        CleanInvalidateCacheRange(pixels, 0x20);
-        LoadToMainBG1CharacterData(pixels, 0, 0x20);
-        self->step_ = 1;
-        func_02043124(global2);
+        void *var4 = func_02012d88((AllocatorUnion *) &data_02114e20, 0x8000);
+        VectorizedMemset(var4, 0, 0x8000);
+        arg0->unknown_12d4_.CreateTypeA(var4, 0x8000);
+        arg0->unknown_12d4_.Reset();
+        func_ov003_021700bc((Struct_ov003_0216bcfc *) arg0->unknown_410_);
+        func_ov003_0216e02c(arg0->unknown_410_, &arg0->unknown_12d4_);
+        arg0->unknown_4e8_ = &arg0->unknown_1324_;
+        char var5[0x20];
+        memset(var5, 0, 0x20);
+        CleanInvalidateCacheRange(var5, 0x20);
+        LoadToMainBG1CharacterData(var5, 0, 0x20);
+        arg0->unknown_6_ = 1;
+        func_02043124(var3);
     }
-    if (self->step_ == 1) {
-        if (func_ov003_0216e124(self->sub_410) == 0) self->step_ = 2;
+    if (arg0->unknown_6_ == 1) {
+        if (func_ov003_0216e124(arg0->unknown_410_) == 0) arg0->unknown_6_ = 2;
     }
-    if (self->step_ == 2) {
-        func_ov003_021700dc(self->sub_410);
-        SignedAllocatorHeader *signedAlloc = self->allocator_.GetSignedAllocator();
-        if (signedAlloc != 0) {
-            self->allocator_.Destroy();
-            func_02012da4((AllocatorUnion *) &data_02114e20, signedAlloc);
+    if (arg0->unknown_6_ == 2) {
+        func_ov003_021700dc(arg0->unknown_410_);
+        SignedAllocatorHeader *var6 = arg0->unknown_12d4_.GetSignedAllocator();
+        if (var6 != 0) {
+            arg0->unknown_12d4_.Destroy();
+            func_02012da4((AllocatorUnion *) &data_02114e20, var6);
         }
 #if defined(jpn)
-        func_0205a494((char *) self + 0x10fc);
+        func_0205a494((char *) arg0 + 0x10fc);
 #else
-        func_0205a494((char *) self + 0x126c);
+        func_0205a494((char *) arg0 + 0x126c);
 #endif
-        self->unk_12bc = 0;
-        self->unk_12ac = self->unk_1264;
-        self->unk_12b8 = 0xf;
-        self->unk_12a8 = self->unk_1268;
-        self->allocators_[0].Reset();
-        self->task_ = loader->QueueLoadFile(data_ov003_021801c9, 0);
-        self->step_ = 3;
+        arg0->unknown_12bc_ = 0;
+        arg0->unknown_12ac_ = arg0->unknown_1264_;
+        arg0->unknown_12b8_ = 0xf;
+        arg0->unknown_12a8_ = arg0->unknown_1268_;
+        arg0->unknown_1310_[0].Reset();
+        arg0->unknown_c_ = var1->QueueLoadFile(data_ov003_021801c9, 0);
+        arg0->unknown_6_ = 3;
     }
-    if (self->step_ == 3 && loader->GetTaskStatus(self->task_) != 0) {
-        void *name;
-        void *file;
-        unsigned int size;
-        int fileSize;
-        loader->GetLoadedFileByID(self->task_, &file, &size);
-        int count            = func_02046900((ActiveEntry02046900 *) file);
-        SafeAllocator *alloc = &self->allocators_[0];
-        for (int i = 0; i < count; i++) {
-            void *data = func_020467f0((Rec020467f0 *) file, i, &name, &fileSize);
+    if (arg0->unknown_6_ == 3 && var1->GetTaskStatus(arg0->unknown_c_) != 0) {
+        void *var7;
+        void *var8;
+        unsigned int var9;
+        int var10;
+        var1->GetLoadedFileByID(arg0->unknown_c_, &var8, &var9);
+        int var11            = func_02046900((Struct_02020cb8_4 *) var8);
+        SafeAllocator *var12 = &arg0->unknown_1310_[0];
+        for (int var13 = 0; var13 < var11; var13++) {
+            void *var14 = func_020467f0((Struct_02020aec *) var8, var13, &var7, &var10);
 #if defined(jpn)
-            func_0205a528((char *) self + 0x10fc, data, fileSize, alloc);
+            func_0205a528((char *) arg0 + 0x10fc, var14, var10, var12);
 #else
-            func_0205a528((char *) self + 0x126c, data, fileSize, alloc);
+            func_0205a528((char *) arg0 + 0x126c, var14, var10, var12);
 #endif
         }
-        loader->RemoveTask(self->task_);
-        self->task_ = -1;
-        func_ov003_0216d8d4(self, 0x29, -1, -1, -1);
-        global->unk_998 = 1;
-        self->step_     = 0;
-        self->state_    = 2;
-        self->step_     = 0;
+        var1->RemoveTask(arg0->unknown_c_);
+        arg0->unknown_c_ = -1;
+        func_ov003_0216d8d4(arg0, 0x29, -1, -1, -1);
+        var0->unknown_998_ = 1;
+        arg0->unknown_6_     = 0;
+        arg0->unknown_4_    = 2;
+        arg0->unknown_6_     = 0;
     }
-    if (self->step_ == 0xc8 && global->unk_9a0 == 0) {
-        func_ov003_0216d8d4(self, 0x29, -1, -1, -1);
-        self->step_  = 0;
-        self->state_ = 2;
-        self->step_  = 0;
+    if (arg0->unknown_6_ == 0xc8 && var0->unknown_9a0_ == 0) {
+        func_ov003_0216d8d4(arg0, 0x29, -1, -1, -1);
+        arg0->unknown_6_  = 0;
+        arg0->unknown_4_ = 2;
+        arg0->unknown_6_  = 0;
     }
 }

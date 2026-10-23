@@ -29,45 +29,45 @@
 #endif
 
 extern "C" void func_0202ae18(void);
-extern "C" int func_020100a8(GameState* battleStruct);
-extern "C" void func_ov000_0215faa4(struct Random* random, unsigned int stateHi, unsigned int stateLo);
-extern "C" void func_ov000_02169850(void* obj);
-extern "C" void ProcessCombatTurn(void* a, void* allocator);
-extern "C" void func_ov000_0215e6e8(void* p);
-extern "C" void func_ov000_02160fbc(void* work, int mask);
-extern "C" void func_ov000_02160e48(void* obj);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void func_ov000_0215faa4(struct Random* arg0, unsigned int arg1, unsigned int arg2);
+extern "C" void func_ov000_02169850(void* arg0);
+extern "C" void ProcessCombatTurn(void* arg0, void* arg1);
+extern "C" void func_ov000_0215e6e8(void* arg0);
+extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
+extern "C" void func_ov000_02160e48(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
-extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" void* func_02010828(GameState* arg0);
 extern "C" void func_ov017_021d0d58(void);
 
 // USA: func_ov000_02169770
-extern "C" ARM void func_ov000_02169770(unsigned char* obj) {
-    GameState* battle = GameState::GetInstance();
+extern "C" ARM void func_ov000_02169770(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
     func_0202ae18();
-    void* ptr29c = *(void**)(obj + REGION_OFFSET_0);
-    func_020100a8(battle);
-    func_ov000_0215faa4((struct Random*)ptr29c,
-        *(unsigned int*)(obj + REGION_OFFSET_1 + REGION_OFFSET_2),
-        *(unsigned int*)(obj + REGION_OFFSET_1 + REGION_OFFSET_3));
-    func_ov000_02169850(obj);
-    ((class SafeAllocator*)(obj + 0x30))->Reset();
+    void* var1 = *(void**)(arg0 + REGION_OFFSET_0);
+    func_020100a8(var0);
+    func_ov000_0215faa4((struct Random*)var1,
+        *(unsigned int*)(arg0 + REGION_OFFSET_1 + REGION_OFFSET_2),
+        *(unsigned int*)(arg0 + REGION_OFFSET_1 + REGION_OFFSET_3));
+    func_ov000_02169850(arg0);
+    ((class SafeAllocator*)(arg0 + 0x30))->Reset();
 
-    if (*(unsigned char*)(obj + 0x5000 + REGION_OFFSET_4) != 2) {
-        ProcessCombatTurn(ptr29c, obj + 0x30);
-        func_ov000_0215e6e8(ptr29c);
+    if (*(unsigned char*)(arg0 + 0x5000 + REGION_OFFSET_4) != 2) {
+        ProcessCombatTurn(var1, arg0 + 0x30);
+        func_ov000_0215e6e8(var1);
     }
 
-    ((class SafeAllocator*)(obj + 0x30))->Reset();
-    *(unsigned char*)(obj + 0x5000 + REGION_OFFSET_4) = 1;
-    func_ov000_02160fbc(obj, 0x800000);
-    func_ov000_02160e48(obj);
+    ((class SafeAllocator*)(arg0 + 0x30))->Reset();
+    *(unsigned char*)(arg0 + 0x5000 + REGION_OFFSET_4) = 1;
+    func_ov000_02160fbc(arg0, 0x800000);
+    func_ov000_02160e48(arg0);
 
-    if (*(int*)((char*)*(int**)(obj + REGION_OFFSET_5) + 0xc) == 0x19 &&
-        *(signed char*)((char*)*(void**)(obj + REGION_OFFSET_0) + 0x8e00 + 0x14) == 1) {
-        void* ctx = func_0205ec34();
-        func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, 3, 1);
-        *(int*)((char*)func_02010828(battle) + 0x2000 + 0xc94) = 0x6d;
+    if (*(int*)((char*)*(int**)(arg0 + REGION_OFFSET_5) + 0xc) == 0x19 &&
+        *(signed char*)((char*)*(void**)(arg0 + REGION_OFFSET_0) + 0x8e00 + 0x14) == 1) {
+        void* var2 = func_0205ec34();
+        func_0206df6c(var2, (unsigned char*)var2 + 0x8c, 3, 1);
+        *(int*)((char*)func_02010828(var0) + 0x2000 + 0xc94) = 0x6d;
         func_ov017_021d0d58();
     }
 }

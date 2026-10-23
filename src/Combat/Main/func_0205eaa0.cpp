@@ -4,12 +4,12 @@
 #endif
 extern "C" void func_0203ac40(void*, int, int, int);
 
-struct Obj0205eaa0 {
-    char pad_00[0xb4];
-    short field_b4;
+struct Struct_02108760 {
+    char unknown_0_[0xb4];
+    short unknown_b4_;
 };
 
 // USA: func_0205eaa0
-extern "C" ARM void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b) {
-    func_0203ac40(obj, obj->field_b4, a, b);
+extern "C" ARM void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2) {
+    func_0203ac40(arg0, arg0->unknown_b4_, arg1, arg2);
 }

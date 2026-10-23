@@ -8,120 +8,120 @@
 
 struct Struct_0205c570;
 extern "C" int func_020421a0(void);
-extern "C" int func_0205c570(struct Struct_0205c570* s);
-extern "C" void func_02042b10(void* obj, void* value);
-extern "C" void func_0202f404(void* obj, int a, int b);
-extern "C" void func_02042b1c(unsigned char* base);
-extern "C" int func_0205cde8(unsigned char* p);
+extern "C" int func_0205c570(struct Struct_0205c570* arg0);
+extern "C" void func_02042b10(void* arg0, void* arg1);
+extern "C" void func_0202f404(void* arg0, int arg1, int arg2);
+extern "C" void func_02042b1c(unsigned char* arg0);
+extern "C" int func_0205cde8(unsigned char* arg0);
 #if defined(jpn)
-extern "C" void func_02046c78(void* ctx, void* ptr, int x, int y, int color, int a, int b, int flag);
+extern "C" void func_02046c78(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #else
-extern "C" void func_02045f3c(void* ctx, void* ptr, int x, int y, int color, int a, int b, int flag, int c, int d);
+extern "C" void func_02045f3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 #endif
 
-struct Container0205a3d0;
-struct Entry0205a3d0 {
-    char pad0[4];
-    unsigned short f4;
-    unsigned short f6;
-    char pad8[0xd];
-    unsigned char f15;
+struct Struct_0205a254;
+struct Struct_0205c96c {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    char unknown_8_[0xd];
+    unsigned char unknown_15_;
 };
-extern "C" void func_0205a370(struct Container0205a3d0* c, int key);
-extern "C" struct Entry0205a3d0* func_0205a3d0(struct Container0205a3d0* c, int key);
-extern "C" void func_0205ae8c(void* obj);
+extern "C" void func_0205a370(struct Struct_0205a254* arg0, int arg1);
+extern "C" struct Struct_0205c96c* func_0205a3d0(struct Struct_0205a254* arg0, int arg1);
+extern "C" void func_0205ae8c(void* arg0);
 
-static inline int GetCursorColumn(unsigned char* obj) { return *(int*)(obj + 0x88); }
-static inline int GetCursorRow(unsigned char* obj) { return *(int*)(obj + 0x8c); }
+static inline int inline_0205c96c(unsigned char* arg0) { return *(int*)(arg0 + 0x88); }
+static inline int inline_0205c96c_2(unsigned char* arg0) { return *(int*)(arg0 + 0x8c); }
 
 // USA: func_0205c96c
-extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
-    unsigned char* ctx;
-    int cursor;
-    int end;
-    int sum;
-    int color;
-    int x;
-    int y;
-    int top;
-    int i;
-    int perRow;
-    int column;
-    int row;
-    void* list;
-    struct Container0205a3d0* entries;
-    unsigned short key;
-    struct Entry0205a3d0* entry;
+extern "C" ARM void func_0205c96c(unsigned char* arg0, int arg1) {
+    unsigned char* var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
+    void* var12;
+    struct Struct_0205a254* var13;
+    unsigned short var14;
+    struct Struct_0205c96c* var15;
 
-    if (obj[RG(0x233, 0x1c3)] == 0 || obj[RG(0x232, 0x1c2)] == 0) {
+    if (arg0[RG(0x233, 0x1c3)] == 0 || arg0[RG(0x232, 0x1c2)] == 0) {
         return;
     }
 
-    ctx = (unsigned char*)func_020421a0();
-    cursor = *(int*)(obj + 0x50);
-    sum = func_0205c570((struct Struct_0205c570*)(obj + 0x1c));
-    color = 0x7fff;
-    if (obj[RG(0x234, 0x1c4)] == 0) {
-        color = 0x3def;
+    var0 = (unsigned char*)func_020421a0();
+    var1 = *(int*)(arg0 + 0x50);
+    var3 = func_0205c570((struct Struct_0205c570*)(arg0 + 0x1c));
+    var4 = 0x7fff;
+    if (arg0[RG(0x234, 0x1c4)] == 0) {
+        var4 = 0x3def;
     }
 
-    if (flag == 0) {
-        *(short*)(obj + 0xcc) = color;
-        func_02042b10(ctx, obj + 0xb4);
-        func_0202f404(ctx + RG(0x19e0, 0x1804), 1, 1);
-        func_02042b1c(ctx);
+    if (arg1 == 0) {
+        *(short*)(arg0 + 0xcc) = var4;
+        func_02042b10(var0, arg0 + 0xb4);
+        func_0202f404(var0 + RG(0x19e0, 0x1804), 1, 1);
+        func_02042b1c(var0);
     }
 
-    if (func_0205cde8(obj) == 0) {
+    if (func_0205cde8(arg0) == 0) {
         return;
     }
 
-    ctx[RG(0x19b0, 0x17e0)] = 1;
+    var0[RG(0x19b0, 0x17e0)] = 1;
 
-    perRow = *(int*)(obj + 0x7c);
-    i = perRow * *(int*)(obj + 0x84);
-    x = *(short*)(obj + 0xb4) + 0xc;
-    y = *(short*)(obj + 0xb6) + 8;
-    end = i + perRow;
-    top = y;
+    var9 = *(int*)(arg0 + 0x7c);
+    var8 = var9 * *(int*)(arg0 + 0x84);
+    var5 = *(short*)(arg0 + 0xb4) + 0xc;
+    var6 = *(short*)(arg0 + 0xb6) + 8;
+    var2 = var8 + var9;
+    var7 = var6;
 
-    for (; i < end; i++) {
-        int c = color;
-        if (i == cursor && cursor == sum) {
-            c = 0xf0a;
+    for (; var8 < var2; var8++) {
+        int var16 = var4;
+        if (var8 == var1 && var1 == var3) {
+            var16 = 0xf0a;
         }
 #if defined(jpn)
-        func_02046c78(ctx, (unsigned short*)(obj + 0x120) + *(unsigned short*)(obj + 0x1b0 + i * 2), x, y, c, 0xc, 0x14, flag);
+        func_02046c78(var0, (unsigned short*)(arg0 + 0x120) + *(unsigned short*)(arg0 + 0x1b0 + var8 * 2), var5, var6, var16, 0xc, 0x14, arg1);
 #else
-        func_02045f3c(ctx, (unsigned short*)(obj + 0x120) + *(unsigned short*)(obj + 0x220 + i * 2), x, y, c, 0xc, 0x14, flag, 1, 0x11);
+        func_02045f3c(var0, (unsigned short*)(arg0 + 0x120) + *(unsigned short*)(arg0 + 0x220 + var8 * 2), var5, var6, var16, 0xc, 0x14, arg1, 1, 0x11);
 #endif
-        y += *(int*)(obj + 0xd8);
+        var6 += *(int*)(arg0 + 0xd8);
     }
 
-    if ((obj[0xb0] | obj[0xb1]) == 0) {
+    if ((arg0[0xb0] | arg0[0xb1]) == 0) {
         return;
     }
 
-    column = GetCursorColumn(obj);
-    row = GetCursorRow(obj);
-    x = column * *(int*)(obj + 0xd4) + (x - 0x10);
-    y = row * *(int*)(obj + 0xd8) + (top - 2);
-    list = *(void**)(ctx + RG(0x2d8, 0x228));
-    entries = *(struct Container0205a3d0**)(ctx + RG(0x2e0, 0x230));
-    key = *(unsigned short*)(ctx + RG(0x2e4, 0x234));
-    if (list == NULL || entries == NULL) {
+    var10 = inline_0205c96c(arg0);
+    var11 = inline_0205c96c_2(arg0);
+    var5 = var10 * *(int*)(arg0 + 0xd4) + (var5 - 0x10);
+    var6 = var11 * *(int*)(arg0 + 0xd8) + (var7 - 2);
+    var12 = *(void**)(var0 + RG(0x2d8, 0x228));
+    var13 = *(struct Struct_0205a254**)(var0 + RG(0x2e0, 0x230));
+    var14 = *(unsigned short*)(var0 + RG(0x2e4, 0x234));
+    if (var12 == NULL || var13 == NULL) {
         return;
     }
 
-    func_0205a370(entries, key);
-    entry = func_0205a3d0(entries, key);
-    if (entry != NULL) {
-        entry->f15 |= 8;
+    func_0205a370(var13, var14);
+    var15 = func_0205a3d0(var13, var14);
+    if (var15 != NULL) {
+        var15->unknown_15_ |= 8;
     }
-    entry = func_0205a3d0(entries, key);
-    if (entry != NULL) {
-        entry->f4 = x;
-        entry->f6 = y;
+    var15 = func_0205a3d0(var13, var14);
+    if (var15 != NULL) {
+        var15->unknown_4_ = var5;
+        var15->unknown_6_ = var6;
     }
-    func_0205ae8c(list);
+    func_0205ae8c(var12);
 }

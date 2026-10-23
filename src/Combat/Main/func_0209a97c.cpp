@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct Pair0209a97c { unsigned short a; unsigned short b; };
-struct PairArray0209a97c { struct Pair0209a97c pairs[20]; };
-struct Base0209a97c {
-    unsigned char pad[0x10c];
-    struct PairArray0209a97c slotPairs[13];
-    int counts[16];
+struct Struct_0209a7bc { unsigned short unknown_0_; unsigned short unknown_2_; };
+struct Struct_0209a97c_3 { struct Struct_0209a7bc unknown_0_[20]; };
+struct Struct_0209a97c_2 {
+    unsigned char unknown_0_[0x10c];
+    struct Struct_0209a97c_3 unknown_10c_[13];
+    int unknown_51c_[16];
 };
-struct Holder0209a97c {
-    struct Base0209a97c* base;
+struct Struct_0209a97c {
+    struct Struct_0209a97c_2* unknown_0_;
 };
 
 // USA: func_0209a97c
-extern "C" ARM void func_0209a97c(struct Holder0209a97c* h, int slot, struct Pair0209a97c* src) {
-    struct Base0209a97c* b = h->base;
-    int count;
-    if (b == NULL) return;
-    count = b->counts[slot];
-    if (count >= 0x14) return;
-    b->counts[slot]++;
+extern "C" ARM void func_0209a97c(struct Struct_0209a97c* arg0, int arg1, struct Struct_0209a7bc* arg2) {
+    struct Struct_0209a97c_2* var0 = arg0->unknown_0_;
+    int var1;
+    if (var0 == NULL) return;
+    var1 = var0->unknown_51c_[arg1];
+    if (var1 >= 0x14) return;
+    var0->unknown_51c_[arg1]++;
     {
-        struct Pair0209a97c* dst = &h->base->slotPairs[slot].pairs[count];
-        dst->a = src->a;
-        dst->b = src->b;
+        struct Struct_0209a7bc* var2 = &arg0->unknown_0_->unknown_10c_[arg1].unknown_0_[var1];
+        var2->unknown_0_ = arg2->unknown_0_;
+        var2->unknown_2_ = arg2->unknown_2_;
     }
 }

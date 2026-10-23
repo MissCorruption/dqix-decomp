@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct GetElementByIndex0209bd80Element;
-struct GetElementByIndex0209bd80Container;
-extern "C" struct GetElementByIndex0209bd80Element* func_0209bd80(struct GetElementByIndex0209bd80Container* c, int index);
+struct Struct_0209bd80;
+struct Struct_02073ec4;
+extern "C" struct Struct_0209bd80* func_0209bd80(struct Struct_02073ec4* arg0, int arg1);
 
-extern "C" int func_0209bd38(char* obj);
+extern "C" int func_0209bd38(char* arg0);
 
 
-extern "C" int func_02032370(int n);
+extern "C" int func_02032370(int arg0);
 
-struct EntryTable0209bd94;
-struct Entry0209bd94;
-extern "C" struct Entry0209bd94* func_0209bd94(struct EntryTable0209bd94* table, int key);
+struct Struct_02073ec4_2;
+struct Struct_02073ec4_3;
+extern "C" struct Struct_02073ec4_3* func_0209bd94(struct Struct_02073ec4_2* arg0, int arg1);
 
-struct Entry02073ec4 {
-    unsigned short field0;
-    unsigned short pad2;
-    unsigned int type : 3;
-    unsigned int rsvd1 : 10;
-    unsigned int flags8 : 8;
-    unsigned int rsvd2 : 11;
-    unsigned char pad8[0x20 - 8];
+struct Struct_02073ec4_4 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned int unknown_4_0_ : 3;
+    unsigned int unknown_4_3_ : 10;
+    unsigned int unknown_5_5_ : 8;
+    unsigned int unknown_6_5_ : 11;
+    unsigned char unknown_8_[0x20 - 8];
 };
 
 // USA: func_02073ec4
-extern "C" ARM struct Entry0209bd94* func_02073ec4(int mask, void* list) {
-    GameState* battleStruct = GameState::GetInstance();
-    int arr2[6];
-    int arr1[6];
-    int count2 = 0;
-    int count1 = 0;
-    int i;
+extern "C" ARM struct Struct_02073ec4_3* func_02073ec4(int arg0, void* arg1) {
+    GameState* var0 = GameState::GetInstance();
+    int var1[6];
+    int var2[6];
+    int var3 = 0;
+    int var4 = 0;
+    int var5;
 
-    for (i = 0; i < func_0209bd38((char*)list); i++) {
-        struct Entry02073ec4* entry = (struct Entry02073ec4*)func_0209bd80((struct GetElementByIndex0209bd80Container*)list, i);
-        if (!entry) continue;
+    for (var5 = 0; var5 < func_0209bd38((char*)arg1); var5++) {
+        struct Struct_02073ec4_4* var6 = (struct Struct_02073ec4_4*)func_0209bd80((struct Struct_02073ec4*)arg1, var5);
+        if (!var6) continue;
 
-        if (entry->type == 0 && battleStruct->GetTimeOfDay() == 0) continue;
-        if (entry->type == 1 && battleStruct->GetTimeOfDay() != 0) continue;
+        if (var6->unknown_4_0_ == 0 && var0->GetTimeOfDay() == 0) continue;
+        if (var6->unknown_4_0_ == 1 && var0->GetTimeOfDay() != 0) continue;
 
         {
-            int flags8 = entry->flags8;
-            int field0 = entry->field0;
-            arr1[count1++] = field0;
-            if (flags8 != 0 && (flags8 & mask) == 0) continue;
-            arr2[count2++] = field0;
+            int var7 = var6->unknown_5_5_;
+            int var8 = var6->unknown_0_;
+            var2[var4++] = var8;
+            if (var7 != 0 && (var7 & arg0) == 0) continue;
+            var1[var3++] = var8;
         }
     }
 
-    if (count2 == 0) {
-        int key;
-        if (count1 == 0) return NULL;
-        key = arr1[func_02032370(count1)];
-        return func_0209bd94((struct EntryTable0209bd94*)list, key);
+    if (var3 == 0) {
+        int var9;
+        if (var4 == 0) return NULL;
+        var9 = var2[func_02032370(var4)];
+        return func_0209bd94((struct Struct_02073ec4_2*)arg1, var9);
     } else {
-        int key = arr2[func_02032370(count2)];
-        return func_0209bd94((struct EntryTable0209bd94*)list, key);
+        int var10 = var1[func_02032370(var3)];
+        return func_0209bd94((struct Struct_02073ec4_2*)arg1, var10);
     }
 }

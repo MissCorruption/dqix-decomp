@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 
-struct Entry_02028bd0;
-extern "C" struct Entry_02028bd0* func_02027ca4(void);
-struct Element0x318_02028bac;
-extern "C" struct Element0x318_02028bac* func_02028bac(struct Element0x318_02028bac* base, int index);
+struct Struct_020fdd44;
+extern "C" struct Struct_020fdd44* func_02027ca4(void);
+struct Struct_02028bac;
+extern "C" struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1);
 
-struct Obj02090294 {
+struct Struct_02090294 {
 #if defined(jpn)
-    char pad0[0x296];
+    char unknown_0_[0x296];
 #else
-    char pad0[0x276];
+    char unknown1_0_[0x276];
 #endif
-    signed char field276;
+    signed char unknown_276_;
 };
 
 // USA: func_02090294
-extern "C" ARM int func_02090294(struct Obj02090294* obj) {
-    struct Element0x318_02028bac* table = (struct Element0x318_02028bac*)func_02027ca4();
-    int i = 0;
-    int j;
+extern "C" ARM int func_02090294(struct Struct_02090294* arg0) {
+    struct Struct_02028bac* var0 = (struct Struct_02028bac*)func_02027ca4();
+    int var1 = 0;
+    int var2;
 retry:
-    if (obj->field276 > 4) {
-        obj->field276 = 0;
+    if (arg0->unknown_276_ > 4) {
+        arg0->unknown_276_ = 0;
     }
-    for (j = i; j < 4; j++) {
-        struct Element0x318_02028bac* entry = func_02028bac(table, j);
-        if (entry != 0) {
-            if (*((signed char*)entry + 0xd) == obj->field276) {
-                obj->field276++;
+    for (var2 = var1; var2 < 4; var2++) {
+        struct Struct_02028bac* var3 = func_02028bac(var0, var2);
+        if (var3 != 0) {
+            if (*((signed char*)var3 + 0xd) == arg0->unknown_276_) {
+                arg0->unknown_276_++;
                 goto retry;
             }
         }
     }
-    int k;
-    for (k = 0; k < 4; k++) {
-        func_02028bac(table, k);
+    int var4;
+    for (var4 = 0; var4 < 4; var4++) {
+        func_02028bac(var0, var4);
     }
-    signed char old = obj->field276;
-    obj->field276 = old + 1;
-    return old;
+    signed char var5 = arg0->unknown_276_;
+    arg0->unknown_276_ = var5 + 1;
+    return var5;
 }

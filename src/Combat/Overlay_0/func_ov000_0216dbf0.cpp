@@ -1,79 +1,79 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_ov000_0216d370(char* obj, int flagA, int flagB, int flagC);
+extern "C" void func_ov000_0216d370(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov000_0216d530(void*, int);
-extern "C" void func_0202e694(void* obj, int* vec);
+extern "C" void func_0202e694(void* arg0, int* arg1);
 
 extern Vector3i data_ov000_02183280;
 
 // USA: func_ov000_0216dbf0
-extern "C" ARM void func_ov000_0216dbf0(char* self, int* ids, int count, short flag) {
-    func_ov000_0216d370(self, 1, 1, 1);
-    *(unsigned char*)(self + 0x220) = 3;
+extern "C" ARM void func_ov000_0216dbf0(char* arg0, int* arg1, int arg2, short arg3) {
+    func_ov000_0216d370(arg0, 1, 1, 1);
+    *(unsigned char*)(arg0 + 0x220) = 3;
 
-    Vector3i c = data_ov000_02183280;
-    Vector3i v;
-    v.x = 0x5e38;
+    Vector3i var0 = data_ov000_02183280;
+    Vector3i var1;
+    var1.x = 0x5e38;
 
-    GameState* gs = GameState::GetInstance();
+    GameState* var2 = GameState::GetInstance();
 
-    int dist = 0;
-    int rad = 0;
-    int hgt = 0x2000;
+    int var3 = 0;
+    int var4 = 0;
+    int var5 = 0x2000;
 
-    if (count == 1) {
-        GameObject* o = gs->GetGameObjectByIndex(*ids);
-        if (o != 0) {
-            func_ov000_0216d530(self, *ids);
-            rad = o->obj3D_.GetRadius() >> 1;
-            hgt = o->obj3D_.GetHeight();
+    if (arg2 == 1) {
+        GameObject* var6 = var2->GetGameObjectByIndex(*arg1);
+        if (var6 != 0) {
+            func_ov000_0216d530(arg0, *arg1);
+            var4 = var6->obj3D_.GetRadius() >> 1;
+            var5 = var6->obj3D_.GetHeight();
         }
     } else {
-        for (int i = 0; i < count; i++, ids++) {
-            GameObject* o = gs->GetGameObjectByIndex(*ids);
-            if (o != 0) {
-                Vector3i pos = o->obj3D_.position_;
-                int len = Vector3fix_Length(&pos);
-                if (dist < len) {
-                    dist = len;
-                    rad = o->obj3D_.GetRadius() >> 1;
+        for (int var7 = 0; var7 < arg2; var7++, arg1++) {
+            GameObject* var8 = var2->GetGameObjectByIndex(*arg1);
+            if (var8 != 0) {
+                Vector3i var9 = var8->obj3D_.position_;
+                int var10 = Vector3fix_Length(&var9);
+                if (var3 < var10) {
+                    var3 = var10;
+                    var4 = var8->obj3D_.GetRadius() >> 1;
                 }
-                if (hgt < o->obj3D_.GetHeight()) {
-                    hgt = o->obj3D_.GetHeight();
+                if (var5 < var8->obj3D_.GetHeight()) {
+                    var5 = var8->obj3D_.GetHeight();
                 }
             }
         }
     }
 
-    c.y = hgt >> 1;
-    v.y = 0x1000;
-    int a = (int)((((unsigned long long)((long long)(dist + rad) * 0x3000)) + 0x800ULL) >> 12);
-    int b = (int)((((unsigned long long)((long long)hgt * 0x3000)) + 0x800ULL) >> 12);
+    var0.y = var5 >> 1;
+    var1.y = 0x1000;
+    int var11 = (int)((((unsigned long long)((long long)(var3 + var4) * 0x3000)) + 0x800ULL) >> 12);
+    int var12 = (int)((((unsigned long long)((long long)var5 * 0x3000)) + 0x800ULL) >> 12);
 
-    if (b < a) {
-        v.z = a;
+    if (var12 < var11) {
+        var1.z = var11;
     } else {
-        v.z = b;
+        var1.z = var12;
     }
 
-    if (!(flag != 0)) {
-        v.y = 0x1000;
-        if (v.z < 0x7000) {
-            v.z = 0x7000;
-        } else if (v.z > 0x10000) {
-            v.y = v.y + (v.z - 0x10000) / 2;
+    if (!(arg3 != 0)) {
+        var1.y = 0x1000;
+        if (var1.z < 0x7000) {
+            var1.z = 0x7000;
+        } else if (var1.z > 0x10000) {
+            var1.y = var1.y + (var1.z - 0x10000) / 2;
         }
     } else {
-        c.y = 0xb85;
-        v.y = 0x3999;
-        if (v.z < 0xe000) {
-            v.z = 0xe000;
+        var0.y = 0xb85;
+        var1.y = 0x3999;
+        if (var1.z < 0xe000) {
+            var1.z = 0xe000;
         }
     }
 
-    *(Vector3i*)(self + 0x10) = c;
-    func_0202e694(self, (int*)&v);
-    *(int*)(self + 0x238) = 0x1c;
-    *(int*)(self + 0x23c) = 0x14;
+    *(Vector3i*)(arg0 + 0x10) = var0;
+    func_0202e694(arg0, (int*)&var1);
+    *(int*)(arg0 + 0x238) = 0x1c;
+    *(int*)(arg0 + 0x23c) = 0x14;
 }

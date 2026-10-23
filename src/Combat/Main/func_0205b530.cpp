@@ -1,36 +1,36 @@
 #include <globaldefs.h>
-struct Rect0205b1ac { int offset; short x, y, w, h; };
-struct Canvas0205b530 { unsigned char* pixels; Rect0205b1ac* rects; unsigned char count; };
-extern "C" Rect0205b1ac* func_0205b1ac(Rect0205b1ac*, unsigned int, int, int);
+struct Struct_0205b1ac { int unknown_0_; short unknown_4_, unknown_6_, unknown_8_, unknown_a_; };
+struct Struct_0205b530 { unsigned char* unknown_0_; Struct_0205b1ac* unknown_4_; unsigned char unknown_8_; };
+extern "C" Struct_0205b1ac* func_0205b1ac(Struct_0205b1ac*, unsigned int, int, int);
 // USA: func_0205b530
-extern "C" ARM void func_0205b530(Canvas0205b530* self, unsigned char* src, short x, short y) {
-    if (!src) return;
-    unsigned char count = self->count;
-    unsigned char* pixels = self->pixels;
-    Rect0205b1ac* rects = self->rects;
-    short px;
-    for (short row = 0; row < 8; src += 4, y++, row++) {
-        px = x;
-        for (short col = 0; col < 8; px++, col++) {
-            Rect0205b1ac* rect = func_0205b1ac(rects, count, px, y);
-            if (rect) {
-                short rx = px - rect->x;
-                short ry = y - rect->y;
-                short width = rect->w >> 3;
-                unsigned char* base = pixels + rect->offset;
-                short byteX = (short)(rx & 7) >> 1;
-                short byteY = ry & 7;
-                int byte;
-                unsigned char* tile = base + (((short)(ry >> 3) * width + (rx >> 3)) << 5);
-                byte = (byteY << 2) + byteX;
-                int value = src[col >> 1];
-                unsigned char nibble;
-                if (rx & 1) {
-                    if (col & 1) nibble = value & 0xf0; else nibble = (value << 4) & 0xf0;
-                    if (nibble) { tile[byte] &= 15; tile[byte] |= nibble; }
+extern "C" ARM void func_0205b530(Struct_0205b530* arg0, unsigned char* arg1, short arg2, short arg3) {
+    if (!arg1) return;
+    unsigned char var0 = arg0->unknown_8_;
+    unsigned char* var1 = arg0->unknown_0_;
+    Struct_0205b1ac* var2 = arg0->unknown_4_;
+    short var3;
+    for (short var4 = 0; var4 < 8; arg1 += 4, arg3++, var4++) {
+        var3 = arg2;
+        for (short var5 = 0; var5 < 8; var3++, var5++) {
+            Struct_0205b1ac* var6 = func_0205b1ac(var2, var0, var3, arg3);
+            if (var6) {
+                short var7 = var3 - var6->unknown_4_;
+                short var8 = arg3 - var6->unknown_6_;
+                short var9 = var6->unknown_8_ >> 3;
+                unsigned char* var10 = var1 + var6->unknown_0_;
+                short var11 = (short)(var7 & 7) >> 1;
+                short var12 = var8 & 7;
+                int var13;
+                unsigned char* var14 = var10 + (((short)(var8 >> 3) * var9 + (var7 >> 3)) << 5);
+                var13 = (var12 << 2) + var11;
+                int var15 = arg1[var5 >> 1];
+                unsigned char var16;
+                if (var7 & 1) {
+                    if (var5 & 1) var16 = var15 & 0xf0; else var16 = (var15 << 4) & 0xf0;
+                    if (var16) { var14[var13] &= 15; var14[var13] |= var16; }
                 } else {
-                    if (col & 1) nibble = (value >> 4) & 15; else nibble = value & 15;
-                    if (nibble) { tile[byte] &= 0xf0; tile[byte] |= nibble; }
+                    if (var5 & 1) var16 = (var15 >> 4) & 15; else var16 = var15 & 15;
+                    if (var16) { var14[var13] &= 0xf0; var14[var13] |= var16; }
                 }
             }
         }

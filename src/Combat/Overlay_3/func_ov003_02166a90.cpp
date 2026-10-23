@@ -11,78 +11,78 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-struct Struct020865b0;
-struct Obj02033874;
-struct FlagWord020466f4;
-struct HeadNode02046b24;
-struct SlotState02082d6c;
-struct SlotRecord02082d6c;
-struct SelectionPage02166a90 {
+struct Struct_0201099c_16;
+struct Struct_02033834;
+struct Struct_02038598_4;
+struct Struct_02015438;
+struct Struct_02082d6c;
+struct Struct_02082d6c_2;
+struct Struct_ov003_02166a90_5 {
 #if defined(jpn)
-    unsigned char pad0[0x2ca];
-    signed char slot;
-    unsigned char pad4a3[0x2e4 - 0x2cb];
+    unsigned char unknown_0_[0x2ca];
+    signed char unknown_4a2_;
+    unsigned char unknown_2cb_[0x2e4 - 0x2cb];
 #else
-    unsigned char pad0[0x4a2];
-    signed char slot;
-    unsigned char pad4a3[0x4bc - 0x4a3];
+    unsigned char unknown1_0_[0x4a2];
+    signed char unknown_4a2_;
+    unsigned char unknown_4a3_[0x4bc - 0x4a3];
 #endif
-    unsigned char step;
+    unsigned char unknown_4bc_;
 };
-struct SelectedEntry02166a90 {
-    unsigned char pad0[2];
-    unsigned char metadataValues[13];
-    unsigned char padf[0x13f - 0xf];
-    unsigned char kind : 3;
-    unsigned char remainingKindBits : 5;
-    unsigned char name[0x34];
+struct Struct_ov003_02166a90_6 {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_[13];
+    unsigned char unknown_f_[0x13f - 0xf];
+    unsigned char unknown_13f_0_ : 3;
+    unsigned char unknown_13f_3_ : 5;
+    unsigned char unknown_140_[0x34];
 };
-struct PartyRecord02166a90 {
-    unsigned char pad0[0x568];
-    short slot;
+struct Struct_ov003_02166a90_7 {
+    unsigned char unknown_0_[0x568];
+    short unknown_568_;
 };
-struct Combatant02166a90 {
-    Object3D object;
-    unsigned char padac[0x134 - 0xac];
-    char* name;
+struct Struct_ov003_02166a90 {
+    Object3D unknown_0_;
+    unsigned char unknown_ac_[0x134 - 0xac];
+    char* unknown_134_;
 };
-struct Appearance02166a90 {
-    unsigned char pad0[0x16c];
-    unsigned short values[16];
+struct Struct_ov003_02166a90_2 {
+    unsigned char unknown_0_[0x16c];
+    unsigned short unknown_16c_[16];
 };
-struct EventState02166a90 {
-    unsigned char pad0[0xb];
-    unsigned char flags;
+struct Struct_ov003_02166a90_3 {
+    unsigned char unknown_0_[0xb];
+    unsigned char unknown_b_;
 };
-struct PartyFlags02166a90 {
-    unsigned char pad0[0x8c];
-    unsigned char flags[1];
+struct Struct_ov003_02166a90_4 {
+    unsigned char unknown_0_[0x8c];
+    unsigned char unknown_8c_[1];
 };
 extern Vector3i data_ov003_0217f4b8[3];
 
-extern "C" SelectedEntry02166a90* func_ov003_02160bf8(SelectionPage02166a90*, int);
+extern "C" Struct_ov003_02166a90_6* func_ov003_02160bf8(Struct_ov003_02166a90_5*, int);
 extern "C" int func_0200fb8c(int*);
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_020108f0(void*, int);
 extern "C" void* func_02010954(char*);
 extern "C" void func_02086380(unsigned char*);
-extern "C" void func_02082d6c(SlotState02082d6c*, SlotRecord02082d6c*);
+extern "C" void func_02082d6c(Struct_02082d6c*, Struct_02082d6c_2*);
 extern "C" void func_ov017_0218f064(GameResources*, int, int, int, int);
 extern "C" GameObject* func_0200ff58(GameState*, int);
-extern "C" void func_02033874(Obj02033874*, int);
+extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov017_021a4658(unsigned char*, int);
 extern "C" int func_020100a8(GameState*);
 extern "C" void func_020546a0(void*, int);
 extern "C" int func_020546a8(void*);
 extern "C" void func_020546b4(void*, int);
-typedef void (*ByteSetterWithIntArgument02166a90)(void*, int);
+typedef void (*Type_ov003_02166a90)(void*, int);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void func_02042764(unsigned char*, char*, int);
-extern "C" int func_020865b0(Struct020865b0*);
+extern "C" int func_020865b0(Struct_0201099c_16*);
 extern "C" void func_02083ca0(unsigned char*, int);
 extern "C" void* func_020d6c00(void);
 extern "C" void func_020466e4(unsigned int*, unsigned int);
-extern "C" int func_02046b24(HeadNode02046b24**);
+extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202b7d8(int*);
 extern "C" void func_ov017_021cc340(int, int, int);
@@ -93,7 +93,7 @@ extern "C" void func_ov017_021ccb58(int, int);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206e424(void*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 extern "C" void func_ov017_02191234(unsigned char*);
 extern "C" void func_020dc2d0(int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
@@ -102,125 +102,125 @@ extern "C" void func_ov017_021d0dbc(void);
 extern "C" void func_ov017_021cee78(int, unsigned char);
 
 // USA: func_ov003_02166a90
-extern "C" ARM int func_ov003_02166a90(SelectionPage02166a90* self, int key) {
-    SelectedEntry02166a90* entry = func_ov003_02160bf8(self, key);
-    if (entry == 0) {
+extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) {
+    Struct_ov003_02166a90_6* var0 = func_ov003_02160bf8(arg0, arg1);
+    if (var0 == 0) {
         return 0;
     }
-    int special = 0;
-    if (entry->kind == 2 || entry->kind == 3 || entry->kind == 4) {
-        special = 1;
+    int var1 = 0;
+    if (var0->unknown_13f_0_ == 2 || var0->unknown_13f_0_ == 3 || var0->unknown_13f_0_ == 4) {
+        var1 = 1;
     }
-    GameState* state = GameState::GetInstance();
-    GameResources* resources = (GameResources*)func_0200fb8c((int*)state);
-    unsigned short* field06 = (unsigned short*)func_02012fe4();
-    if (self->step == 0) {
-        int freeSlot = -1;
-        for (int slot = 3; slot >= 0; slot--) {
-            if (state->GetGameObjectByIndex(slot) == 0) {
-                freeSlot = slot;
+    GameState* var2 = GameState::GetInstance();
+    GameResources* var3 = (GameResources*)func_0200fb8c((int*)var2);
+    unsigned short* var4 = (unsigned short*)func_02012fe4();
+    if (arg0->unknown_4bc_ == 0) {
+        int var5 = -1;
+        for (int var6 = 3; var6 >= 0; var6--) {
+            if (var2->GetGameObjectByIndex(var6) == 0) {
+                var5 = var6;
                 break;
             }
         }
-        if (freeSlot >= 0) {
-            self->slot = freeSlot;
-            SetSubBrightness(resources, -16, 20);
-            self->step++;
+        if (var5 >= 0) {
+            arg0->unknown_4a2_ = var5;
+            SetSubBrightness(var3, -16, 20);
+            arg0->unknown_4bc_++;
         } else {
-            self->step = 0;
+            arg0->unknown_4bc_ = 0;
             return -1;
         }
     }
-    if (self->step == 1) {
-        if (IsSubBrightnessTransitionActive(resources) != 0) {
+    if (arg0->unknown_4bc_ == 1) {
+        if (IsSubBrightnessTransitionActive(var3) != 0) {
             return 0;
         }
-        PartyRecord02166a90* record = (PartyRecord02166a90*)func_020108f0(state, self->slot);
-        if (record == 0) {
-            record = (PartyRecord02166a90*)func_02010954((char*)state);
+        Struct_ov003_02166a90_7* var7 = (Struct_ov003_02166a90_7*)func_020108f0(var2, arg0->unknown_4a2_);
+        if (var7 == 0) {
+            var7 = (Struct_ov003_02166a90_7*)func_02010954((char*)var2);
         }
-        record->slot = self->slot;
-        func_02086380((unsigned char*)record);
-        func_02082d6c((SlotState02082d6c*)record, (SlotRecord02082d6c*)entry);
-        func_ov017_0218f064(resources, self->slot, 0x1000, 1, 0);
-        GameObject* member = func_0200ff58(state, self->slot);
-        if (member == 0) {
+        var7->unknown_568_ = arg0->unknown_4a2_;
+        func_02086380((unsigned char*)var7);
+        func_02082d6c((Struct_02082d6c*)var7, (Struct_02082d6c_2*)var0);
+        func_ov017_0218f064(var3, arg0->unknown_4a2_, 0x1000, 1, 0);
+        GameObject* var8 = func_0200ff58(var2, arg0->unknown_4a2_);
+        if (var8 == 0) {
             return 0;
         }
-        member->obj3D_.SetField06(*field06);
-        state->GetProtagonist();
-        member->obj3D_.position_ = data_ov003_0217f4b8[self->slot - 1];
-        func_02033874((Obj02033874*)member, 0x323d);
-        EventState02166a90* event = (EventState02166a90*)func_ov017_021a4658((unsigned char*)resources, self->slot);
-        if (special == 0) {
-            event->flags |= 8;
+        var8->obj3D_.SetField06(*var4);
+        var2->GetProtagonist();
+        var8->obj3D_.position_ = data_ov003_0217f4b8[arg0->unknown_4a2_ - 1];
+        func_02033874((Struct_02033834*)var8, 0x323d);
+        Struct_ov003_02166a90_3* var9 = (Struct_ov003_02166a90_3*)func_ov017_021a4658((unsigned char*)var3, arg0->unknown_4a2_);
+        if (var1 == 0) {
+            var9->unknown_b_ |= 8;
         }
-        int group = func_020100a8(state);
-        ((ByteSetterWithIntArgument02166a90)func_020546a0)(member, group);
-        int sameGroup = 0;
-        for (int slot = 0; slot < 4; slot++) {
-            GameObject* other = func_0200ff58(state, slot);
-            if (other != 0 && slot != self->slot) {
-                if (group == func_020546a8(other)) {
-                    sameGroup++;
+        int var10 = func_020100a8(var2);
+        ((Type_ov003_02166a90)func_020546a0)(var8, var10);
+        int var11 = 0;
+        for (int var12 = 0; var12 < 4; var12++) {
+            GameObject* var13 = func_0200ff58(var2, var12);
+            if (var13 != 0 && var12 != arg0->unknown_4a2_) {
+                if (var10 == func_020546a8(var13)) {
+                    var11++;
                 }
             }
         }
-        ((ByteSetterWithIntArgument02166a90)func_020546b4)(member, sameGroup);
-        func_02010828(state);
-        Appearance02166a90* appearance = (Appearance02166a90*)func_02053c6c((unsigned char*)member);
+        ((Type_ov003_02166a90)func_020546b4)(var8, var11);
+        func_02010828(var2);
+        Struct_ov003_02166a90_2* var14 = (Struct_ov003_02166a90_2*)func_02053c6c((unsigned char*)var8);
 #if defined(jpn)
-        strcpy(((Combatant02166a90*)member)->name, (char*)entry->name);
+        strcpy(((Struct_ov003_02166a90*)var8)->unknown_134_, (char*)var0->unknown_140_);
 #else
-        char name[0x30] = {0};
-        func_02042764(entry->name, name, 1);
-        strcpy(((Combatant02166a90*)member)->name, name);
+        char var15[0x30] = {0};
+        func_02042764(var0->unknown_140_, var15, 1);
+        strcpy(((Struct_ov003_02166a90*)var8)->unknown_134_, var15);
 #endif
-        int index = func_020865b0((Struct020865b0*)entry);
-        appearance->values[index] = entry->metadataValues[func_020865b0((Struct020865b0*)entry)];
-        func_02083ca0((unsigned char*)appearance, func_020865b0((Struct020865b0*)entry));
-        self->step++;
+        int var16 = func_020865b0((Struct_0201099c_16*)var0);
+        var14->unknown_16c_[var16] = var0->unknown_2_[func_020865b0((Struct_0201099c_16*)var0)];
+        func_02083ca0((unsigned char*)var14, func_020865b0((Struct_0201099c_16*)var0));
+        arg0->unknown_4bc_++;
     }
-    if (self->step == 2) {
-        HeadNode02046b24** head = (HeadNode02046b24**)resources->unknown_ptr_array_36fc[1];
+    if (arg0->unknown_4bc_ == 2) {
+        Struct_02015438** var17 = (Struct_02015438**)var3->unknown_ptr_array_36fc[1];
         func_020466e4((unsigned int*)func_020d6c00(), 0x41);
-        if (func_02046b24(head) != 0x13) {
-            self->step++;
+        if (func_02046b24(var17) != 0x13) {
+            arg0->unknown_4bc_++;
         }
     }
-    if (self->step == 3) {
+    if (arg0->unknown_4bc_ == 3) {
         if (func_0202b7d8((int*)func_0202ae18()) != 0) {
-            func_ov017_021cc340(self->slot, 1, -1);
-            for (int i = 0; i < 13; i++) {
-                func_ov017_021cf078(self->slot, (unsigned char)i, 0);
+            func_ov017_021cc340(arg0->unknown_4a2_, 1, -1);
+            for (int var18 = 0; var18 < 13; var18++) {
+                func_ov017_021cf078(arg0->unknown_4a2_, (unsigned char)var18, 0);
             }
-            func_ov017_021cc97c(self->slot);
-            func_ov017_021cca5c(self->slot, 0);
-            func_ov017_021cca5c(self->slot, 1);
-            func_ov017_021ccb58(self->slot, 1);
-            func_ov017_021ccb58(self->slot, 4);
-            func_ov017_021ccb58(self->slot, 7);
-            func_ov017_021ccb58(self->slot, 10);
+            func_ov017_021cc97c(arg0->unknown_4a2_);
+            func_ov017_021cca5c(arg0->unknown_4a2_, 0);
+            func_ov017_021cca5c(arg0->unknown_4a2_, 1);
+            func_ov017_021ccb58(arg0->unknown_4a2_, 1);
+            func_ov017_021ccb58(arg0->unknown_4a2_, 4);
+            func_ov017_021ccb58(arg0->unknown_4a2_, 7);
+            func_ov017_021ccb58(arg0->unknown_4a2_, 10);
         }
-        func_0206e424(func_0205ec34(), self->slot);
-        state->GetPartyMemberByIndex(self->slot);
-        PartyFlags02166a90* flags = (PartyFlags02166a90*)func_0205ec34();
-        func_0206df6c(flags, flags->flags, 0x784, 1);
-        self->step = 0;
-        func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x41);
-        func_ov017_02191234((unsigned char*)resources);
-        if (special != 0) {
+        func_0206e424(func_0205ec34(), arg0->unknown_4a2_);
+        var2->GetPartyMemberByIndex(arg0->unknown_4a2_);
+        Struct_ov003_02166a90_4* var19 = (Struct_ov003_02166a90_4*)func_0205ec34();
+        func_0206df6c(var19, var19->unknown_8c_, 0x784, 1);
+        arg0->unknown_4bc_ = 0;
+        func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x41);
+        func_ov017_02191234((unsigned char*)var3);
+        if (var1 != 0) {
             func_020dc2d0(0);
         }
-        func_ov017_02191108(resources, 1, 1, 1, 1);
+        func_ov017_02191108(var3, 1, 1, 1, 1);
         func_020dc7e8(6, -1);
         func_020dc7e8(7, -1);
-        int* eventStatus = (int*)func_0202ae18();
-        if (eventStatus != 0 && func_0202b7d8(eventStatus) != 0) {
+        int* var20 = (int*)func_0202ae18();
+        if (var20 != 0 && func_0202b7d8(var20) != 0) {
             func_ov017_021d0dbc();
         }
         if (func_0202b7d8((int*)func_0202ae18()) != 0) {
-            func_ov017_021cee78(self->slot, 1);
+            func_ov017_021cee78(arg0->unknown_4a2_, 1);
         }
         return 1;
     }

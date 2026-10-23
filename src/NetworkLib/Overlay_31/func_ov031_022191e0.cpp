@@ -5,16 +5,16 @@ extern void* data_ov031_0224e60c;
 struct Mutex;
 void* LockMutex(Mutex*);
 
-struct RefNode020c80f8;
+struct Struct_ov031_02290f8c;
 void UnlockMutex(Mutex*);
 
 // USA: func_ov031_022191e0
 extern "C" ARM int func_ov031_022191e0(void) {
-    void *base = data_ov031_0224e60c;
-    LockMutex((Mutex*)((char*)base + 0x1000 + 0x1dc));
-    base = data_ov031_0224e60c;
-    void *node = (char*)base + 0x1000 + 0x1dc;
-    int r4 = *(int*)((char*)base + 0x1000);
-    UnlockMutex((Mutex*)node);
-    return r4;
+    void *var0 = data_ov031_0224e60c;
+    LockMutex((Mutex*)((char*)var0 + 0x1000 + 0x1dc));
+    var0 = data_ov031_0224e60c;
+    void *var1 = (char*)var0 + 0x1000 + 0x1dc;
+    int var2 = *(int*)((char*)var0 + 0x1000);
+    UnlockMutex((Mutex*)var1);
+    return var2;
 }

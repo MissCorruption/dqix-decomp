@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct FourWords;
+struct Struct_01ffd34c;
 struct Mutex;
 void ZeroInitializeMutex(Mutex*);
 extern "C" void func_020d2930();
@@ -8,7 +8,7 @@ extern "C" void func_020d2930();
 extern "C" void func_020d2220(void);
 
 extern int data_02112750;
-extern FourWords data_02112754;
+extern Struct_01ffd34c data_02112754;
 
 // USA: func_020d21c0
 extern "C" ARM void func_020d21c0(void) {

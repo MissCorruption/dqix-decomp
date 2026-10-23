@@ -6,26 +6,26 @@
 
 class AllocatorUnion;
 extern "C" int func_02012da4(AllocatorUnion*, void*);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 
 extern AllocatorUnion data_02114e20;
 extern int data_ov017_021d669c[];
 
 // USA: func_ov017_021a050c
-extern "C" ARM void func_ov017_021a050c(GameResources* self) {
-    MapDisplay* display = self->unknown_ptr_36d0;
-    func_02020720(display);
+extern "C" ARM void func_ov017_021a050c(GameResources* arg0) {
+    Struct_02020554* var0 = arg0->unknown_ptr_36d0;
+    func_02020720(var0);
 
-    for (int i = 0; data_ov017_021d669c[i] >= 0; i++) {
-        int index = data_ov017_021d669c[i];
-        void* p = self->allocator_array_38[index].GetSignedAllocator();
-        self->allocator_array_38[index].Destroy();
-        self->allocator_array_38[index].ResetAllocatorPointer();
-        if (p != NULL) {
-            func_02012da4(&data_02114e20, p);
+    for (int var1 = 0; data_ov017_021d669c[var1] >= 0; var1++) {
+        int var2 = data_ov017_021d669c[var1];
+        void* var3 = arg0->allocator_array_38[var2].GetSignedAllocator();
+        arg0->allocator_array_38[var2].Destroy();
+        arg0->allocator_array_38[var2].ResetAllocatorPointer();
+        if (var3 != NULL) {
+            func_02012da4(&data_02114e20, var3);
         }
     }
 
-    void* buf = func_02012d88(&data_02114e20, 0x6f78);
-    self->allocator_array_38[5].CreateTypeA(buf, 0x6f78);
+    void* var4 = func_02012d88(&data_02114e20, 0x6f78);
+    arg0->allocator_array_38[5].CreateTypeA(var4, 0x6f78);
 }

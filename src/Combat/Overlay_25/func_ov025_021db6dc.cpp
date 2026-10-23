@@ -2,59 +2,59 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Foo02033b58;
-extern "C" void func_02033b58(struct Foo02033b58* p, unsigned char v);
-extern "C" void func_ov017_02195540(unsigned char* obj);
+struct Struct_02033b58;
+extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void func_ov017_02195540(unsigned char* arg0);
 extern "C" int func_020421a0(void);
-extern "C" void func_ov025_021ed124(unsigned char* obj);
-extern "C" void func_ov025_021e8a4c(char* obj, int v);
-extern "C" void func_ov025_021e8d14(void* obj);
-extern "C" void func_ov025_021df9b0(void* obj);
-extern "C" void func_ov025_021eed58(char* obj);
+extern "C" void func_ov025_021ed124(unsigned char* arg0);
+extern "C" void func_ov025_021e8a4c(char* arg0, int arg1);
+extern "C" void func_ov025_021e8d14(void* arg0);
+extern "C" void func_ov025_021df9b0(void* arg0);
+extern "C" void func_ov025_021eed58(char* arg0);
 
-extern "C" ARM void func_ov025_021e88d8(void* obj);
-extern "C" ARM void func_ov025_021dfbfc(void* obj);
-extern "C" int func_ov000_0215ec1c(void* obj, short* buf, int max, int start);
+extern "C" ARM void func_ov025_021e88d8(void* arg0);
+extern "C" ARM void func_ov025_021dfbfc(void* arg0);
+extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 
 #if defined(jpn)
-enum { RegionOffset2a8 = 0x224, RegionOffset29c = 0x218, RegionOffset5ab0 = 0x5ca0, RegionOffsetb30 = 0xaac, RegionOffseteb0 = 0xe2c, RegionOffset19be = 0x17ee, RegionOffset2a0 = 0x21c, RegionOffset890 = 0x80c, RegionOffseteac = 0xe28, RegionOffset6fd5 = 0x71c5 };
+enum { Enum_ov025_021db6dc_680 = 0x224, Enum_ov025_021db6dc_668 = 0x218, Enum_ov025_021db6dc_23216 = 0x5ca0, Enum_ov025_021db6dc_2864 = 0xaac, Enum_ov025_021db6dc_3760 = 0xe2c, Enum_ov025_021db6dc_6590 = 0x17ee, Enum_ov025_021db6dc_672 = 0x21c, Enum_ov025_021db6dc_2192 = 0x80c, Enum_ov025_021db6dc_3756 = 0xe28, Enum_ov025_021db6dc_28629 = 0x71c5 };
 #else
-enum { RegionOffset2a8 = 0x2a8, RegionOffset29c = 0x29c, RegionOffset5ab0 = 0x5ab0, RegionOffsetb30 = 0xb30, RegionOffseteb0 = 0xeb0, RegionOffset19be = 0x19be, RegionOffset2a0 = 0x2a0, RegionOffset890 = 0x890, RegionOffseteac = 0xeac, RegionOffset6fd5 = 0x6fd5 };
+enum { Enum_ov025_021db6dc_680 = 0x2a8, Enum_ov025_021db6dc_668 = 0x29c, Enum_ov025_021db6dc_23216 = 0x5ab0, Enum_ov025_021db6dc_2864 = 0xb30, Enum_ov025_021db6dc_3760 = 0xeb0, Enum_ov025_021db6dc_6590 = 0x19be, Enum_ov025_021db6dc_672 = 0x2a0, Enum_ov025_021db6dc_2192 = 0x890, Enum_ov025_021db6dc_3756 = 0xeac, Enum_ov025_021db6dc_28629 = 0x6fd5 };
 #endif
 
 // USA: func_ov025_021db6dc
-extern "C" ARM void func_ov025_021db6dc(void* arg) {
-    char* obj = (char*)arg;
-    GameState* bs = GameState::GetInstance();
-    int g = func_020421a0();
-    int handle = ((int)GetGameResources());
+extern "C" ARM void func_ov025_021db6dc(void* arg0) {
+    char* var0 = (char*)arg0;
+    GameState* var1 = GameState::GetInstance();
+    int var2 = func_020421a0();
+    int var3 = ((int)GetGameResources());
 
-    func_ov025_021e88d8(obj + RegionOffset2a8);
-    func_ov025_021e8a4c(obj + RegionOffset2a8, *(int*)(obj + RegionOffset29c));
-    func_ov025_021e8d14(obj + RegionOffset2a8);
-    func_ov025_021df9b0(obj + RegionOffset5ab0);
-    func_ov025_021eed58(obj + RegionOffsetb30);
-    *(int*)(obj + RegionOffseteb0) = 0;
-    func_ov017_02195540((unsigned char*)handle);
-    *(unsigned char*)((char*)g + RegionOffset19be) = 1;
-    *(unsigned char*)(*(char**)(obj + RegionOffset29c) + 0x8e49) = 0;
-    *(unsigned char*)(*(char**)(obj + RegionOffset2a0) + 0x35) = 0;
-    func_ov025_021dfbfc(obj);
+    func_ov025_021e88d8(var0 + Enum_ov025_021db6dc_680);
+    func_ov025_021e8a4c(var0 + Enum_ov025_021db6dc_680, *(int*)(var0 + Enum_ov025_021db6dc_668));
+    func_ov025_021e8d14(var0 + Enum_ov025_021db6dc_680);
+    func_ov025_021df9b0(var0 + Enum_ov025_021db6dc_23216);
+    func_ov025_021eed58(var0 + Enum_ov025_021db6dc_2864);
+    *(int*)(var0 + Enum_ov025_021db6dc_3760) = 0;
+    func_ov017_02195540((unsigned char*)var3);
+    *(unsigned char*)((char*)var2 + Enum_ov025_021db6dc_6590) = 1;
+    *(unsigned char*)(*(char**)(var0 + Enum_ov025_021db6dc_668) + 0x8e49) = 0;
+    *(unsigned char*)(*(char**)(var0 + Enum_ov025_021db6dc_672) + 0x35) = 0;
+    func_ov025_021dfbfc(var0);
 
-    short buf[16];
-    int n = 0;
-    n = n + func_ov000_0215ec1c(*(void**)(obj + RegionOffset29c), buf, 0x10, n);
-    for (int i = 0; i < n; i++) {
-        GameObject* c = bs->GetCombatantByIndex(buf[i]);
-        if (c != 0) {
-            int f = *(int*)((char*)c->currentStats_ + 0x14);
-            if (!(f & 1)) {
-                func_02033b58((struct Foo02033b58*)c, 0);
+    short var4[16];
+    int var5 = 0;
+    var5 = var5 + func_ov000_0215ec1c(*(void**)(var0 + Enum_ov025_021db6dc_668), var4, 0x10, var5);
+    for (int var6 = 0; var6 < var5; var6++) {
+        GameObject* var7 = var1->GetCombatantByIndex(var4[var6]);
+        if (var7 != 0) {
+            int var8 = *(int*)((char*)var7->currentStats_ + 0x14);
+            if (!(var8 & 1)) {
+                func_02033b58((struct Struct_02033b58*)var7, 0);
             }
         }
     }
 
-    func_ov025_021ed124((unsigned char*)(obj + RegionOffset890));
-    *(int*)(obj + RegionOffseteac) = 1;
-    *(unsigned char*)(obj + RegionOffset6fd5) = 0;
+    func_ov025_021ed124((unsigned char*)(var0 + Enum_ov025_021db6dc_2192));
+    *(int*)(var0 + Enum_ov025_021db6dc_3756) = 1;
+    *(unsigned char*)(var0 + Enum_ov025_021db6dc_28629) = 0;
 }

@@ -5,206 +5,206 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" void* func_0202ae24();
-extern "C" void func_0205e330(void* dispatcher, void* packet, int flag);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202ba00(int* obj);
-extern "C" int func_020ac4f8(int commit);
-extern "C" int func_020ac4c0(void* dst);
-extern "C" int func_020ac0b4(void* dst);
-extern "C" int func_020a0870(BattleRecordSnapshot* record);
-extern "C" int func_020a08a4(BattleRecordSnapshot* record);
-extern "C" int func_020a08d8(BattleRecordSnapshot* record);
-extern "C" int func_020a090c(BattleRecordSnapshot* record);
+extern "C" int func_0202ba00(int* arg0);
+extern "C" int func_020ac4f8(int arg0);
+extern "C" int func_020ac4c0(void* arg0);
+extern "C" int func_020ac0b4(void* arg0);
+extern "C" int func_020a0870(Struct_02061c04* arg0);
+extern "C" int func_020a08a4(Struct_02061c04* arg0);
+extern "C" int func_020a08d8(Struct_02061c04* arg0);
+extern "C" int func_020a090c(Struct_02061c04* arg0);
 
-struct PacketIdentifier { unsigned char bytes[6]; };
+struct Struct_ov017_021d1118_8 { unsigned char unknown_0_[6]; };
 
-struct PacketBody {
-    unsigned char payload[14];
-    unsigned char recipient : 2;
-    unsigned char mode : 2;
-    unsigned char field_12 : 4;
-    unsigned char type : 2;
-    unsigned char length : 4;
-    unsigned char final : 1;
-    unsigned char segmented : 1;
+struct Struct_ov017_021d1118_9 {
+    unsigned char unknown_0_[14];
+    unsigned char unknown_e_0_ : 2;
+    unsigned char unknown_e_2_ : 2;
+    unsigned char unknown_e_4_ : 4;
+    unsigned char unknown_f_0_ : 2;
+    unsigned char unknown_f_2_ : 4;
+    unsigned char unknown_f_6_ : 1;
+    unsigned char unknown_f_7_ : 1;
 };
 
-struct Packet {
-    unsigned char tag;
-    char pad_1[3];
-    PacketBody body;
+struct Struct_ov017_021d1118 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    Struct_ov017_021d1118_9 unknown_4_;
 };
 
-struct BattleRecord {
-    unsigned int w0A : 14;
-    unsigned int w0B : 17;
-    unsigned int w0C : 1;
-    unsigned int w4A : 14;
-    unsigned int w4B : 17;
-    unsigned int w4C : 1;
-    unsigned int w8A : 7;
-    unsigned int w8B : 7;
-    unsigned int w8C : 7;
-    unsigned int w8D : 7;
-    unsigned int w8E : 4;
-    unsigned int wcA : 10;
-    unsigned int wcB : 14;
-    unsigned int wcC : 7;
-    unsigned int wcD : 1;
-    unsigned int w10A : 9;
-    unsigned int w10B : 14;
-    unsigned int w10C : 7;
-    unsigned int w10D : 2;
-    short f14;
-    unsigned char protagonistFlag : 1;
-    unsigned char protagonistValue : 4;
+struct Struct_ov017_021d1118_2 {
+    unsigned int unknown_0_0_ : 14;
+    unsigned int unknown_1_6_ : 17;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 14;
+    unsigned int unknown_5_6_ : 17;
+    unsigned int unknown_7_7_ : 1;
+    unsigned int unknown_8_0_ : 7;
+    unsigned int unknown_8_7_ : 7;
+    unsigned int unknown_9_6_ : 7;
+    unsigned int unknown_a_5_ : 7;
+    unsigned int unknown_b_4_ : 4;
+    unsigned int unknown_c_0_ : 10;
+    unsigned int unknown_d_2_ : 14;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 7;
+    unsigned int unknown_13_6_ : 2;
+    short unknown_14_;
+    unsigned char unknown_16_0_ : 1;
+    unsigned char unknown_16_1_ : 4;
 };
 
-struct LinkBlock {
-    unsigned int w0;
-    unsigned int lo : 19;
-    signed int val : 11;
-    unsigned int hi : 2;
-    char rest[0x7c - 8];
+struct Struct_ov017_021d1118_3 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_0_ : 19;
+    signed int unknown_6_3_ : 11;
+    unsigned int unknown_7_6_ : 2;
+    char unknown_8_[0x7c - 8];
 };
 
-struct LinkState {
+struct Struct_ov017_021d1118_4 {
 #if defined(jpn)
-    char pad_0[0x543c];
-    LinkBlock block;
-    char pad_54b8[0x72be - 0x54b8];
+    char unknown_0_[0x543c];
+    Struct_ov017_021d1118_3 unknown_569c_;
+    char unknown_54b8_[0x72be - 0x54b8];
 #else
-    char pad_0[0x569c];
-    LinkBlock block;
-    char pad_5718[0x74fe - 0x5718];
+    char unknown1_0_[0x569c];
+    Struct_ov017_021d1118_3 unknown_569c_;
+    char unknown_5718_[0x74fe - 0x5718];
 #endif
-    PacketIdentifier identifier;
-    PacketIdentifier GetIdentifier() { return identifier; }
+    Struct_ov017_021d1118_8 unknown_74fe_;
+    Struct_ov017_021d1118_8 inline_ov017_021d1118() { return unknown_74fe_; }
 };
 
-struct ProtagonistData {
-    char pad_0[0x186];
-    unsigned char values[0x49c - 0x186];
-    unsigned char flag : 1;
+struct Struct_ov017_021d1118_5 {
+    char unknown_0_[0x186];
+    unsigned char unknown_186_[0x49c - 0x186];
+    unsigned char unknown_49c_0_ : 1;
 #if defined(jpn)
-    char pad_49d[0x8b8 - 0x49d];
+    char unknown_49d_[0x8b8 - 0x49d];
 #else
-    char pad_49d[0x950 - 0x49d];
+    char unknown1_49d_[0x950 - 0x49d];
 #endif
-    int index;
+    int unknown_950_;
 };
 
-struct ProtagonistObject {
+struct Struct_ov017_021d1118_6 {
 #if defined(jpn)
-    char pad_0[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad_0[0x150];
+    char unknown1_0_[0x150];
 #endif
-    ProtagonistData* data;
+    Struct_ov017_021d1118_5* unknown_150_;
 };
 
-struct Session {
-    char pad_0[0x100d];
-    unsigned char depth;
+struct Struct_ov017_021d1118_7 {
+    char unknown_0_[0x100d];
+    unsigned char unknown_100d_;
 };
 
 // USA: func_ov017_021d1118
-extern "C" ARM void func_ov017_021d1118(int recipient, int flags, bool segmented, unsigned char mode) {
-    GameState* gs;
-    void* dispatcher;
-    PacketBody* body;
-    unsigned char* src;
-    Session* session;
-    int kind;
-    int depth;
-    int commit;
-    int flag;
-    int value;
-    ProtagonistObject* protagonist;
-    ProtagonistData* data;
-    int recordLeft;
-    int blockLeft;
-    LinkBlock* block;
-    gs = GameState::GetInstance();
-    dispatcher = func_0202ae24();
-    Packet packet;
-    body = &packet.body;
-    packet.tag = 0x1a;
-    body->mode = mode;
-    body->segmented = segmented;
-    body->recipient = recipient;
-    block = &((LinkState*)gs)->block;
-    if (flags & 4) {
-        body->type = 2;
-        body->length = 6;
-        PacketIdentifier identifier = ((LinkState*)gs)->GetIdentifier();
-        memcpy(body->payload, &identifier, body->length);
-        func_0205e330(dispatcher, &packet, 0);
+extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned char arg3) {
+    GameState* var0;
+    void* var1;
+    Struct_ov017_021d1118_9* var2;
+    unsigned char* var3;
+    Struct_ov017_021d1118_7* var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    Struct_ov017_021d1118_6* var10;
+    Struct_ov017_021d1118_5* var11;
+    int var12;
+    int var13;
+    Struct_ov017_021d1118_3* var14;
+    var0 = GameState::GetInstance();
+    var1 = func_0202ae24();
+    Struct_ov017_021d1118 var15;
+    var2 = &var15.unknown_4_;
+    var15.unknown_0_ = 0x1a;
+    var2->unknown_e_2_ = arg3;
+    var2->unknown_f_7_ = arg2;
+    var2->unknown_e_0_ = arg0;
+    var14 = &((Struct_ov017_021d1118_4*)var0)->unknown_569c_;
+    if (arg1 & 4) {
+        var2->unknown_f_0_ = 2;
+        var2->unknown_f_2_ = 6;
+        Struct_ov017_021d1118_8 var16 = ((Struct_ov017_021d1118_4*)var0)->inline_ov017_021d1118();
+        memcpy(var2->unknown_0_, &var16, var2->unknown_f_2_);
+        func_0205e330(var1, &var15, 0);
     }
-    if (flags & 1) {
-        session = (Session*)func_0202ae18();
-        kind = func_0202ba00((int*)session);
-        depth = session->depth;
-        commit = 0;
-        if ((kind == 5 && depth > 1) || kind == 6) commit = 1;
-        func_020ac4f8(commit);
-        BattleRecordSnapshot blk;
-        func_020ac4c0(&blk);
-        unsigned int score = 0;
-        func_020ac0b4(&score);
-        flag = 0;
-        value = 0;
-        protagonist = (ProtagonistObject*)gs->GetProtagonist();
-        if (protagonist) {
-            data = protagonist->data;
-            flag = data->flag;
-            value = data->values[data->index];
+    if (arg1 & 1) {
+        var4 = (Struct_ov017_021d1118_7*)func_0202ae18();
+        var5 = func_0202ba00((int*)var4);
+        var6 = var4->unknown_100d_;
+        var7 = 0;
+        if ((var5 == 5 && var6 > 1) || var5 == 6) var7 = 1;
+        func_020ac4f8(var7);
+        Struct_02061c04 var17;
+        func_020ac4c0(&var17);
+        unsigned int var18 = 0;
+        func_020ac0b4(&var18);
+        var8 = 0;
+        var9 = 0;
+        var10 = (Struct_ov017_021d1118_6*)var0->GetProtagonist();
+        if (var10) {
+            var11 = var10->unknown_150_;
+            var8 = var11->unknown_49c_0_;
+            var9 = var11->unknown_186_[var11->unknown_950_];
         }
-        BattleRecord rec;
-        VectorizedMemset(&rec, 0, sizeof(rec));
-        rec.w0A = blk.clocks.elapsed.hours;
-        rec.w8A = blk.clocks.elapsed.minutes;
-        rec.w4A = blk.clocks.committed.hours;
-        rec.w8B = blk.clocks.committed.minutes;
-        rec.w4B = blk.unknown08_0;
-        rec.w0B = score;
-        rec.wcA = blk.unknown10_0;
-        rec.w10A = blk.unknown08_24;
-        rec.wcB = blk.unknown0c_14;
-        rec.w10B = blk.unknown10_9;
-        rec.w8C = (unsigned char)func_020a0870(&blk);
-        rec.w8D = (unsigned char)func_020a08a4(&blk);
-        rec.wcC = (unsigned char)func_020a08d8(&blk);
-        rec.w10C = (unsigned char)func_020a090c(&blk);
-        rec.f14 = block->val;
-        rec.protagonistFlag = flag;
-        rec.protagonistValue = value;
-        body->type = 0;
-        body->final = 0;
-        src = (unsigned char*)&rec;
-        for (recordLeft = sizeof(rec); recordLeft > 0; src += 14, recordLeft -= 14) {
-            if (recordLeft > 14) {
-                body->length = 14;
+        Struct_ov017_021d1118_2 var19;
+        VectorizedMemset(&var19, 0, sizeof(var19));
+        var19.unknown_0_0_ = var17.unknown_0_.unknown_0_.unknown_0_;
+        var19.unknown_8_0_ = var17.unknown_0_.unknown_0_.unknown_2_;
+        var19.unknown_4_0_ = var17.unknown_0_.unknown_4_.unknown_0_;
+        var19.unknown_8_7_ = var17.unknown_0_.unknown_4_.unknown_2_;
+        var19.unknown_5_6_ = var17.unknown_8_0_;
+        var19.unknown_1_6_ = var18;
+        var19.unknown_c_0_ = var17.unknown_10_0_;
+        var19.unknown_10_0_ = var17.unknown_b_0_;
+        var19.unknown_d_2_ = var17.unknown_d_6_;
+        var19.unknown_11_1_ = var17.unknown_11_1_;
+        var19.unknown_9_6_ = (unsigned char)func_020a0870(&var17);
+        var19.unknown_a_5_ = (unsigned char)func_020a08a4(&var17);
+        var19.unknown_f_0_ = (unsigned char)func_020a08d8(&var17);
+        var19.unknown_12_7_ = (unsigned char)func_020a090c(&var17);
+        var19.unknown_14_ = var14->unknown_6_3_;
+        var19.unknown_16_0_ = var8;
+        var19.unknown_16_1_ = var9;
+        var2->unknown_f_0_ = 0;
+        var2->unknown_f_6_ = 0;
+        var3 = (unsigned char*)&var19;
+        for (var12 = sizeof(var19); var12 > 0; var3 += 14, var12 -= 14) {
+            if (var12 > 14) {
+                var2->unknown_f_2_ = 14;
             } else {
-                body->length = recordLeft;
-                if (!(flags & 2)) body->final = 1;
+                var2->unknown_f_2_ = var12;
+                if (!(arg1 & 2)) var2->unknown_f_6_ = 1;
             }
-            memcpy(body->payload, src, body->length);
-            func_0205e330(dispatcher, &packet, 0);
+            memcpy(var2->unknown_0_, var3, var2->unknown_f_2_);
+            func_0205e330(var1, &var15, 0);
         }
     }
-    if (flags & 2) {
-        body->type = 1;
-        src = (unsigned char*)block;
-        for (blockLeft = sizeof(*block); blockLeft > 0; src += 14, blockLeft -= 14) {
-            if (blockLeft > 14) {
-                body->length = 14;
+    if (arg1 & 2) {
+        var2->unknown_f_0_ = 1;
+        var3 = (unsigned char*)var14;
+        for (var13 = sizeof(*var14); var13 > 0; var3 += 14, var13 -= 14) {
+            if (var13 > 14) {
+                var2->unknown_f_2_ = 14;
             } else {
-                body->length = blockLeft;
-                body->final = 1;
+                var2->unknown_f_2_ = var13;
+                var2->unknown_f_6_ = 1;
             }
-            memcpy(body->payload, src, body->length);
-            func_0205e330(dispatcher, &packet, 0);
+            memcpy(var2->unknown_0_, var3, var2->unknown_f_2_);
+            func_0205e330(var1, &var15, 0);
         }
     }
 }

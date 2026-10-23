@@ -2,71 +2,71 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { CommandStackOffset0217dcf0 = 0x1f98, CommandDepthOffset0217dcf0 = 0x1fa0,
-       ActiveSelectionOffset0217dcf0 = 0x1fa3, MenuFlagsOffset0217dcf0 = 0x1faa };
+enum { Enum_ov000_0217dcf0_7520 = 0x1f98, Enum_ov000_0217dcf0_7528 = 0x1fa0,
+       Enum_ov000_0217dcf0_7531 = 0x1fa3, Enum_ov000_0217dcf0_7538 = 0x1faa };
 #else
-enum { CommandStackOffset0217dcf0 = 0x1d60, CommandDepthOffset0217dcf0 = 0x1d68,
-       ActiveSelectionOffset0217dcf0 = 0x1d6b, MenuFlagsOffset0217dcf0 = 0x1d72 };
+enum { Enum_ov000_0217dcf0_7520 = 0x1d60, Enum_ov000_0217dcf0_7528 = 0x1d68,
+       Enum_ov000_0217dcf0_7531 = 0x1d6b, Enum_ov000_0217dcf0_7538 = 0x1d72 };
 #endif
 
 struct Struct_0205c570;
-struct Entry_0205d6a0;
-struct Obj0205eaa0;
+struct Struct_0205d6a0;
+struct Struct_02108760;
 
-extern "C" int func_0205d794(struct Struct_0205c570* s);
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
-extern "C" int func_ov000_0217c5f4(void* obj);
-extern "C" int func_ov000_0217c594(void* obj, int limit);
-extern "C" void func_ov000_02176e3c(void* obj, int zero, int val, int arg1, int arg2, int one);
-extern "C" void func_ov000_0217c638(void* obj, int arg1, int arg2);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+extern "C" int func_ov000_0217c5f4(void* arg0);
+extern "C" int func_ov000_0217c594(void* arg0, int arg1);
+extern "C" void func_ov000_02176e3c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c847c(void);
 
 extern char data_02108760[];
 
-struct MemberInfo0217dcf0 {
-    char pad0[0x3c];
-    unsigned int pad3c_0 : 30;
-    unsigned int flag30 : 1;
-    unsigned int pad3c_31 : 1;
+struct Struct_ov000_0217dcf0 {
+    char unknown_0_[0x3c];
+    unsigned int unknown_3c_0_ : 30;
+    unsigned int unknown_3f_6_ : 1;
+    unsigned int unknown_3f_7_ : 1;
 };
 
-struct Entry0217dcf0 {
-    char pad0[0x4c];
-    int field4c;
+struct Struct_ov000_0217dcf0_2 {
+    char unknown_0_[0x4c];
+    int unknown_4c_;
 #if defined(jpn)
-    char pad1[0x488 - 0x50];
+    char unknown_50_[0x488 - 0x50];
 #else
-    char pad1[0x448 - 0x50];
+    char unknown1_50_[0x448 - 0x50];
 #endif
 };
 
 // USA: func_ov000_0217dcf0
-extern "C" ARM void func_ov000_0217dcf0(char* obj, int arg1, int arg2) {
-    *(unsigned short*)(obj + MenuFlagsOffset0217dcf0) |= 0x100;
-    *(unsigned char*)(obj + ActiveSelectionOffset0217dcf0) = func_0205d794((struct Struct_0205c570*)(obj + 0x188));
-    if (func_ov000_0217c594(obj, 0)) {
-        func_0205eaa0((struct Obj0205eaa0*)data_02108760, 1, 0);
-        GameState* gs = GameState::GetInstance();
-        unsigned char* field2a04 = (unsigned char*)func_02010828(gs);
-        signed char cursor = *(signed char*)(obj + ActiveSelectionOffset0217dcf0);
-        if (cursor < field2a04[0xf7c]) {
-            struct Entry0217dcf0* entry = &((struct Entry0217dcf0*)(obj + 0x958))[*(signed char*)(obj + cursor + 0x70)];
-            GameObject* member = gs->GetPartyMemberByIndex((signed char)entry->field4c);
-            if (member != NULL) {
-                struct MemberInfo0217dcf0* info = (struct MemberInfo0217dcf0*)member->baseStats_;
-                unsigned short v = info->flag30;
-                v++;
-                v %= 2;
-                info->flag30 = v;
-                func_ov000_02176e3c(obj, 0, *(signed char*)(obj + *(signed char*)(obj + CommandDepthOffset0217dcf0) + CommandStackOffset0217dcf0), arg1, arg2, 0);
+extern "C" ARM void func_ov000_0217dcf0(char* arg0, int arg1, int arg2) {
+    *(unsigned short*)(arg0 + Enum_ov000_0217dcf0_7538) |= 0x100;
+    *(unsigned char*)(arg0 + Enum_ov000_0217dcf0_7531) = func_0205d794((struct Struct_0205c570*)(arg0 + 0x188));
+    if (func_ov000_0217c594(arg0, 0)) {
+        func_0205eaa0((struct Struct_02108760*)data_02108760, 1, 0);
+        GameState* var0 = GameState::GetInstance();
+        unsigned char* var1 = (unsigned char*)func_02010828(var0);
+        signed char var2 = *(signed char*)(arg0 + Enum_ov000_0217dcf0_7531);
+        if (var2 < var1[0xf7c]) {
+            struct Struct_ov000_0217dcf0_2* var3 = &((struct Struct_ov000_0217dcf0_2*)(arg0 + 0x958))[*(signed char*)(arg0 + var2 + 0x70)];
+            GameObject* var4 = var0->GetPartyMemberByIndex((signed char)var3->unknown_4c_);
+            if (var4 != NULL) {
+                struct Struct_ov000_0217dcf0* var5 = (struct Struct_ov000_0217dcf0*)var4->baseStats_;
+                unsigned short var6 = var5->unknown_3f_6_;
+                var6++;
+                var6 %= 2;
+                var5->unknown_3f_6_ = var6;
+                func_ov000_02176e3c(arg0, 0, *(signed char*)(arg0 + *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) + Enum_ov000_0217dcf0_7520), arg1, arg2, 0);
                 func_ov017_021c847c();
             }
         }
-    } else if (func_ov000_0217c5f4(obj)) {
-        func_0205d6a0((struct Entry_0205d6a0*)(obj + 0x188), 0);
-        *(unsigned char*)(obj + *(signed char*)(obj + CommandDepthOffset0217dcf0) + CommandStackOffset0217dcf0) = 0;
-        *(signed char*)(obj + CommandDepthOffset0217dcf0) = *(signed char*)(obj + CommandDepthOffset0217dcf0) - 1;
-        func_ov000_0217c638(obj, arg1, arg2);
+    } else if (func_ov000_0217c5f4(arg0)) {
+        func_0205d6a0((struct Struct_0205d6a0*)(arg0 + 0x188), 0);
+        *(unsigned char*)(arg0 + *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) + Enum_ov000_0217dcf0_7520) = 0;
+        *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) = *(signed char*)(arg0 + Enum_ov000_0217dcf0_7528) - 1;
+        func_ov000_0217c638(arg0, arg1, arg2);
     }
 }

@@ -3,17 +3,17 @@ extern "C" void* memset(void*, int, unsigned int);
 #include "GameState/GameState.h"
 
 struct Struct_0205d81c;
-struct Container020e0310;
-struct StoreStruct;
+struct Struct_0201099c_3;
+struct Struct_020465c0;
 extern "C" void* func_020421a0();
 extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02042058(char*, const char*);
 extern "C" void func_ov003_0216abd8(void*, char*);
 extern "C" void func_ov003_02169c3c(void*);
 extern "C" int func_ov003_02169eec(void*, void*);
 extern "C" void func_02046380(void*);
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_0205d6e4(Struct_0205d81c*, int);
 extern "C" void* func_0205d81c(Struct_0205d81c*, int);
@@ -21,194 +21,194 @@ extern "C" int func_ov003_02169938(int, int);
 #if defined(jpn)
 extern "C" void func_0204500c(void*, int, int);
 extern "C" void func_020474a8(void*, int, int, char*);
-enum { kMenu68d3c=0xe0, kStage68d3c=0x870, kFlag68d3c=0x17de, kTextSize68d3c=0x800 };
+enum { Enum_ov003_02168d3c_228=0xe0, Enum_ov003_02168d3c_2464=0x870, Enum_ov003_02168d3c_6574=0x17de, Enum_ov003_02168d3c_2400=0x800 };
 #else
 extern "C" void func_0204500c(void*, int, int, int);
 extern "C" void func_02046608(void*, int, int, char*, int, int, int);
-enum { kMenu68d3c=0xe4, kStage68d3c=0x9a0, kFlag68d3c=0x19ae, kTextSize68d3c=0x960 };
+enum { Enum_ov003_02168d3c_228=0xe4, Enum_ov003_02168d3c_2464=0x9a0, Enum_ov003_02168d3c_6574=0x19ae, Enum_ov003_02168d3c_2400=0x960 };
 #endif
-struct Obj68d3c {
-    char pad0[0x64];
-    char messages[0x18];
-    char* text;
-    char pad80[kMenu68d3c-0x80];
-    char menu[0x404];
-    unsigned char state;
-    char pad1[2];
-    unsigned char changed;
-    unsigned char next;
-    char pad2[2];
-    unsigned char digits[4];
-    unsigned char limits[4];
-    char pad3;
-    unsigned int maximum;
-    char pad4[0xa4];
-    unsigned int selected;
+struct Struct_ov003_02168d3c {
+    char unknown_0_[0x64];
+    char unknown_64_[0x18];
+    char* unknown_7c_;
+    char unknown_80_[Enum_ov003_02168d3c_228-0x80];
+    char unknown_e4_[0x404];
+    unsigned char unknown_4e8_;
+    char unknown_4e9_[2];
+    unsigned char unknown_4eb_;
+    unsigned char unknown_4ec_;
+    char unknown_4ed_[2];
+    unsigned char unknown_4ef_[4];
+    unsigned char unknown_4f3_[4];
+    char unknown_4f7_;
+    unsigned int unknown_4f8_;
+    char unknown_4fc_[0xa4];
+    unsigned int unknown_5a0_;
 };
-struct Global68d3c {
-    char pad0[kStage68d3c-8];
-    int busy;
-    int pad1;
-    int stage;
-    char pad2[kFlag68d3c-kStage68d3c-4];
-    unsigned char flag;
+struct Struct_ov003_02168d3c_2 {
+    char unknown_0_[Enum_ov003_02168d3c_2464-8];
+    int unknown_998_;
+    int unknown_99c_;
+    int unknown_9a0_;
+    char unknown_9a4_[Enum_ov003_02168d3c_6574-Enum_ov003_02168d3c_2464-4];
+    unsigned char unknown_19ae_;
 };
-struct Party68d3c { char pad0[0xf68]; unsigned int bank; unsigned int money; };
-static inline void Show68d3c(Global68d3c* g, int text) {
+struct Struct_ov003_02168d3c_3 { char unknown_0_[0xf68]; unsigned int unknown_f68_; unsigned int unknown_f6c_; };
+static inline void inline_ov003_02168d3c(Struct_ov003_02168d3c_2* arg0, int arg1) {
 #if defined(jpn)
-    func_0204500c(g,text,0);
+    func_0204500c(arg0,arg1,0);
 #else
-    func_0204500c(g,text,0,0xe3);
+    func_0204500c(arg0,arg1,0,0xe3);
 #endif
 }
-static inline void Format68d3c(Global68d3c* g,int fmt,char* out) {
+static inline void inline_ov003_02168d3c_2(Struct_ov003_02168d3c_2* arg0,int arg1,char* arg2) {
 #if defined(jpn)
-    func_020474a8(g,0xc,fmt,out);
+    func_020474a8(arg0,0xc,arg1,arg2);
 #else
-    func_02046608(g,0xc,fmt,out,0xe3,0,1);
+    func_02046608(arg0,0xc,arg1,arg2,0xe3,0,1);
 #endif
 }
 // USA: func_ov003_02168d3c
-extern "C" ARM void func_ov003_02168d3c(Obj68d3c* self, void* arg, int key) {
-    GameState* gs=GameState::GetInstance();
-    Global68d3c* global=(Global68d3c*)func_020421a0();
-    Party68d3c* party=(Party68d3c*)func_02010828(gs);
-    if(global->stage==3) global->flag=0;
-    if(self->state==0) {
-        func_0205deb4((Struct_0205d81c*)self->menu,1,1);
-        if(key==0x3f2) {
-            int error=-1;
-            if(party->bank>=0x3b9ac618) error=(short)(key+5);
-            else if(party->money<1000) error=(short)(key+3);
-            if(error>=0) {
-                memset(self->text,0,kTextSize68d3c);
-                int text=func_020e0434((Container020e0310*)self->messages,error);
-                func_02042058(self->text,(const char*)text);
-                func_ov003_0216abd8(self,self->text);
-                Show68d3c(global,(int)self->text);
-                self->state=3;
+extern "C" ARM void func_ov003_02168d3c(Struct_ov003_02168d3c* arg0, void* arg1, int arg2) {
+    GameState* var0=GameState::GetInstance();
+    Struct_ov003_02168d3c_2* var1=(Struct_ov003_02168d3c_2*)func_020421a0();
+    Struct_ov003_02168d3c_3* var2=(Struct_ov003_02168d3c_3*)func_02010828(var0);
+    if(var1->unknown_9a0_==3) var1->unknown_19ae_=0;
+    if(arg0->unknown_4e8_==0) {
+        func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,1,1);
+        if(arg2==0x3f2) {
+            int var3=-1;
+            if(var2->unknown_f68_>=0x3b9ac618) var3=(short)(arg2+5);
+            else if(var2->unknown_f6c_<1000) var3=(short)(arg2+3);
+            if(var3>=0) {
+                memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
+                int var4=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var3);
+                func_02042058(arg0->unknown_7c_,(const char*)var4);
+                func_ov003_0216abd8(arg0,arg0->unknown_7c_);
+                inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
+                arg0->unknown_4e8_=3;
                 return;
             }
-            unsigned int value=party->money/1000;
-            int multiplier=1;
-            for(int i=3;i>=0;--i) {
-                unsigned int a=value/multiplier;
-                unsigned int b=value/(multiplier*10);
-                self->limits[i]=a-b*10;
-                multiplier*=10;
+            unsigned int var5=var2->unknown_f6c_/1000;
+            int var6=1;
+            for(int var7=3;var7>=0;--var7) {
+                unsigned int var8=var5/var6;
+                unsigned int var9=var5/(var6*10);
+                arg0->unknown_4f3_[var7]=var8-var9*10;
+                var6*=10;
             }
-            self->maximum=value*1000;
-        } else if(key==0x3fc) {
-            int error=-1;
-            if(party->bank==0) error=(short)(key+3);
-            else if(party->money>=0x989298) error=(short)(key+4);
-            if(error>=0) {
-                memset(self->text,0,kTextSize68d3c);
-                int text=func_020e0434((Container020e0310*)self->messages,error);
-                func_02042058(self->text,(const char*)text);
-                func_ov003_0216abd8(self,self->text);
-                Show68d3c(global,(int)self->text);
-                self->state=3;
+            arg0->unknown_4f8_=var5*1000;
+        } else if(arg2==0x3fc) {
+            int var10=-1;
+            if(var2->unknown_f68_==0) var10=(short)(arg2+3);
+            else if(var2->unknown_f6c_>=0x989298) var10=(short)(arg2+4);
+            if(var10>=0) {
+                memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
+                int var11=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var10);
+                func_02042058(arg0->unknown_7c_,(const char*)var11);
+                func_ov003_0216abd8(arg0,arg0->unknown_7c_);
+                inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
+                arg0->unknown_4e8_=3;
                 return;
             }
-            func_02046380(global);
-            func_020465c0((StoreStruct*)global,0,party->bank);
-            func_020465f0((unsigned char*)global,0,0);
-            unsigned int value=party->bank/1000;
-            unsigned int money=party->money/1000;
-            int multiplier=1;
-            if(0x270f-money<value) value=0x270f-money;
-            for(int i=3;i>=0;--i) {
-                unsigned int a=value/multiplier;
-                unsigned int b=value/(multiplier*10);
-                self->limits[i]=a-b*10;
-                multiplier*=10;
+            func_02046380(var1);
+            func_020465c0((Struct_020465c0*)var1,0,var2->unknown_f68_);
+            func_020465f0((unsigned char*)var1,0,0);
+            unsigned int var12=var2->unknown_f68_/1000;
+            unsigned int var13=var2->unknown_f6c_/1000;
+            int var14=1;
+            if(0x270f-var13<var12) var12=0x270f-var13;
+            for(int var15=3;var15>=0;--var15) {
+                unsigned int var16=var12/var14;
+                unsigned int var17=var12/(var14*10);
+                arg0->unknown_4f3_[var15]=var16-var17*10;
+                var14*=10;
             }
-            self->maximum=value*1000;
+            arg0->unknown_4f8_=var12*1000;
         }
-        int text=func_020e0434((Container020e0310*)self->messages,(short)key);
-        Show68d3c(global,text);
-        self->state++;
-    } else if(self->state==1) {
-        if(global->stage==3) {
-            func_ov003_02169c3c(self);
-            func_0205deb4((Struct_0205d81c*)self->menu,0,0);
-            func_0205deb4((Struct_0205d81c*)self->menu,2,0);
-            self->state++;
+        int var18=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)arg2);
+        inline_ov003_02168d3c(var1,var18);
+        arg0->unknown_4e8_++;
+    } else if(arg0->unknown_4e8_==1) {
+        if(var1->unknown_9a0_==3) {
+            func_ov003_02169c3c(arg0);
+            func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,0,0);
+            func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,2,0);
+            arg0->unknown_4e8_++;
         }
-    } else if(self->state==2) {
-        int result=func_ov003_02169eec(self,arg);
-        if(result==-1) return;
-        if(result==-2) {
-            func_0205d6e4((Struct_0205d81c*)self->menu,1);
-            func_0205deb4((Struct_0205d81c*)self->menu,1,1);
-            memset(self->text,0,kTextSize68d3c);
-            int text=func_020e0434((Container020e0310*)self->messages,0x406);
-            func_02042058(self->text,(const char*)text);
-            func_ov003_0216abd8(self,self->text);
-            Show68d3c(global,(int)self->text);
-            self->state++;
+    } else if(arg0->unknown_4e8_==2) {
+        int var19=func_ov003_02169eec(arg0,arg1);
+        if(var19==-1) return;
+        if(var19==-2) {
+            func_0205d6e4((Struct_0205d81c*)arg0->unknown_e4_,1);
+            func_0205deb4((Struct_0205d81c*)arg0->unknown_e4_,1,1);
+            memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
+            int var20=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,0x406);
+            func_02042058(arg0->unknown_7c_,(const char*)var20);
+            func_ov003_0216abd8(arg0,arg0->unknown_7c_);
+            inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
+            arg0->unknown_4e8_++;
             return;
         }
-        if(result!=0) return;
-        func_0205d6e4((Struct_0205d81c*)self->menu,1);
-        void* element=func_0205d81c((Struct_0205d81c*)self->menu,1);
-        *(unsigned short*)((char*)element+0xc2)=1;
-        bool success=false;
-        bool error=false;
-        int message=(short)key;
-        if(message==0x3f2) {
-            if(party->bank+self->selected>0x3b9ac618) {
-                error=true;
-                message=(short)(message+4);
-            } else if(func_ov003_02169938((int)self,-self->selected)) {
-                success=true;
-                party->bank+=self->selected;
+        if(var19!=0) return;
+        func_0205d6e4((Struct_0205d81c*)arg0->unknown_e4_,1);
+        void* var21=func_0205d81c((Struct_0205d81c*)arg0->unknown_e4_,1);
+        *(unsigned short*)((char*)var21+0xc2)=1;
+        bool var22=false;
+        bool var23=false;
+        int var24=(short)arg2;
+        if(var24==0x3f2) {
+            if(var2->unknown_f68_+arg0->unknown_5a0_>0x3b9ac618) {
+                var23=true;
+                var24=(short)(var24+4);
+            } else if(func_ov003_02169938((int)arg0,-arg0->unknown_5a0_)) {
+                var22=true;
+                var2->unknown_f68_+=arg0->unknown_5a0_;
             }
-        } else if(message==0x3fc) {
-            if(self->selected<=party->bank) {
-                if(party->money+self->selected>0x98967f) {
-                    error=true;
-                    message=(short)(message+4);
+        } else if(var24==0x3fc) {
+            if(arg0->unknown_5a0_<=var2->unknown_f68_) {
+                if(var2->unknown_f6c_+arg0->unknown_5a0_>0x98967f) {
+                    var23=true;
+                    var24=(short)(var24+4);
                 } else {
-                    party->bank-=self->selected;
-                    func_ov003_02169938((int)self,self->selected);
-                    success=true;
+                    var2->unknown_f68_-=arg0->unknown_5a0_;
+                    func_ov003_02169938((int)arg0,arg0->unknown_5a0_);
+                    var22=true;
                 }
             }
         }
-        if(success) {
-            self->changed=1;
-            memset(self->text,0,kTextSize68d3c);
-            func_02046380(global);
-            func_020465c0((StoreStruct*)global,0,self->selected);
-            func_020465f0((unsigned char*)global,0,0);
-            int text=func_020e0434((Container020e0310*)self->messages,(short)(message+1));
-            Format68d3c(global,text,self->text);
-            func_ov003_0216abd8(self,self->text);
-            Show68d3c(global,(int)self->text);
-            self->state++;
-        } else if(error) {
-            func_02046380(global);
-            func_020465c0((StoreStruct*)global,0,0x3b9ac618-party->bank);
-            func_020465f0((unsigned char*)global,0,0);
-            int text=func_020e0434((Container020e0310*)self->messages,message);
-            Format68d3c(global,text,self->text);
-            func_ov003_0216abd8(self,self->text);
-            Show68d3c(global,(int)self->text);
-            self->state++;
+        if(var22) {
+            arg0->unknown_4eb_=1;
+            memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
+            func_02046380(var1);
+            func_020465c0((Struct_020465c0*)var1,0,arg0->unknown_5a0_);
+            func_020465f0((unsigned char*)var1,0,0);
+            int var25=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)(var24+1));
+            inline_ov003_02168d3c_2(var1,var25,arg0->unknown_7c_);
+            func_ov003_0216abd8(arg0,arg0->unknown_7c_);
+            inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
+            arg0->unknown_4e8_++;
+        } else if(var23) {
+            func_02046380(var1);
+            func_020465c0((Struct_020465c0*)var1,0,0x3b9ac618-var2->unknown_f68_);
+            func_020465f0((unsigned char*)var1,0,0);
+            int var26=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var24);
+            inline_ov003_02168d3c_2(var1,var26,arg0->unknown_7c_);
+            func_ov003_0216abd8(arg0,arg0->unknown_7c_);
+            inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
+            arg0->unknown_4e8_++;
         } else {
-            memset(self->text,0,kTextSize68d3c);
-            int text=func_020e0434((Container020e0310*)self->messages,(short)(message+2));
-            func_02042058(self->text,(const char*)text);
-            text=func_020e0434((Container020e0310*)self->messages,message);
-            func_02042058(self->text,(const char*)text);
-            Show68d3c(global,(int)self->text);
-            for(int i=0;i<4;++i) self->digits[i]=0;
-            self->selected=0;
-            self->state=1;
+            memset(arg0->unknown_7c_,0,Enum_ov003_02168d3c_2400);
+            int var27=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,(short)(var24+2));
+            func_02042058(arg0->unknown_7c_,(const char*)var27);
+            var27=func_020e0434((Struct_0201099c_3*)arg0->unknown_64_,var24);
+            func_02042058(arg0->unknown_7c_,(const char*)var27);
+            inline_ov003_02168d3c(var1,(int)arg0->unknown_7c_);
+            for(int var28=0;var28<4;++var28) arg0->unknown_4ef_[var28]=0;
+            arg0->unknown_5a0_=0;
+            arg0->unknown_4e8_=1;
         }
-    } else if(self->state==3) {
-        if(global->busy==0) { self->next=6; self->state=0; }
+    } else if(arg0->unknown_4e8_==3) {
+        if(var1->unknown_998_==0) { arg0->unknown_4ec_=6; arg0->unknown_4e8_=0; }
     }
 }

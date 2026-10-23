@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0205eb80(void* obj);
+extern "C" void func_0205eb80(void* arg0);
 
 extern int data_02108760;
 

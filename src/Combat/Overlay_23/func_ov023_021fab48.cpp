@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_ov011_021845f8(void* a, int b);
+extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* func_ov011_021849c8(void*);
 
-struct B190Outer;
-extern "C" int func_0205af18(int unused, struct B190Outer* obj);
-extern "C" void* func_ov023_021fa854(char* obj, unsigned int idx);
-extern "C" void func_ov023_021f6e10(void* obj, int idx, unsigned int bit);
+struct Struct_0205af18;
+extern "C" int func_0205af18(int arg0, struct Struct_0205af18* arg1);
+extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
+extern "C" void func_ov023_021f6e10(void* arg0, int arg1, unsigned int arg2);
 extern "C" int func_020421a0();
 
-extern "C" int func_ov023_021fad20(const void* narcBuffer, const char* name, const void** outData, unsigned int* outSize);
-extern "C" void func_0205a528(void* a, void* ptr, int val, void* d);
+extern "C" int func_ov023_021fad20(const void* arg0, const char* arg1, const void** arg2, unsigned int* arg3);
+extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 
-struct ClearTarget0205a234;
-extern "C" void func_0205a234(struct ClearTarget0205a234* p);
+struct Struct_02043368;
+extern "C" void func_0205a234(struct Struct_02043368* arg0);
 
-struct ListNode021f6d14 { unsigned int key; int pad4; void* prev; void* next; };
-struct List021f6d14;
-extern "C" void func_ov023_021f6d14(struct List021f6d14* list, struct ListNode021f6d14* node);
+struct Struct_ov023_021f6d14_2 { unsigned int unknown_0_; int unknown_4_; void* unknown_8_; void* unknown_c_; };
+struct Struct_ov023_021f6d14;
+extern "C" void func_ov023_021f6d14(struct Struct_ov023_021f6d14* arg0, struct Struct_ov023_021f6d14_2* arg1);
 
 extern const char data_ov023_021fec44[];
 extern const char data_ov023_021fec49[];
@@ -26,58 +26,58 @@ extern const char data_ov023_021fec4e[];
 extern const char data_ov023_021fec53[];
 
 // USA: func_ov023_021fab48
-extern "C" ARM void func_ov023_021fab48(void* obj, void* ctx, const void* narcBuffer, int flag4) {
+extern "C" ARM void func_ov023_021fab48(void* arg0, void* arg1, const void* arg2, int arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0x20, regionalOffset1=0x5c, regionalOffset2=0x68, regionalOffset3=0x74, regionalOffset4=0x78, regionalOffset5=0x70, regionalOffset6=0x6e, regionalOffset7=0x228, regionalOffset8=0x60, regionalOffset9=0x22c, regionalOffset10=0x234, regionalOffset11=0x230, regionalOffset12=0x236};
+ enum {Enum_ov023_021fab48_36=0x20, Enum_ov023_021fab48_96=0x5c, Enum_ov023_021fab48_108=0x68, Enum_ov023_021fab48_120=0x74, Enum_ov023_021fab48_124=0x78, Enum_ov023_021fab48_116=0x70, Enum_ov023_021fab48_114=0x6e, Enum_ov023_021fab48_728=0x228, Enum_ov023_021fab48_100=0x60, Enum_ov023_021fab48_732=0x22c, Enum_ov023_021fab48_740=0x234, Enum_ov023_021fab48_736=0x230, Enum_ov023_021fab48_742=0x236};
 #else
- enum {regionalOffset0=0x24, regionalOffset1=0x60, regionalOffset2=0x6c, regionalOffset3=0x78, regionalOffset4=0x7c, regionalOffset5=0x74, regionalOffset6=0x72, regionalOffset7=0x2d8, regionalOffset8=0x64, regionalOffset9=0x2dc, regionalOffset10=0x2e4, regionalOffset11=0x2e0, regionalOffset12=0x2e6};
+ enum {Enum_ov023_021fab48_36=0x24, Enum_ov023_021fab48_96=0x60, Enum_ov023_021fab48_108=0x6c, Enum_ov023_021fab48_120=0x78, Enum_ov023_021fab48_124=0x7c, Enum_ov023_021fab48_116=0x74, Enum_ov023_021fab48_114=0x72, Enum_ov023_021fab48_728=0x2d8, Enum_ov023_021fab48_100=0x64, Enum_ov023_021fab48_732=0x2dc, Enum_ov023_021fab48_740=0x2e4, Enum_ov023_021fab48_736=0x2e0, Enum_ov023_021fab48_742=0x2e6};
 #endif
-    if (narcBuffer == 0 || flag4 == 0) return;
-    void* base = func_ov011_021845f8(ctx, *(unsigned short*)((char*)obj + 8));
-    if (base == 0) return;
-    ((SafeAllocator*)((char*)base + 4))->GetSizeWithLargestBlockRemoved();
+    if (arg2 == 0 || arg3 == 0) return;
+    void* var0 = func_ov011_021845f8(arg1, *(unsigned short*)((char*)arg0 + 8));
+    if (var0 == 0) return;
+    ((SafeAllocator*)((char*)var0 + 4))->GetSizeWithLargestBlockRemoved();
 
-    const void* outData;
-    unsigned int outSize;
-    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec44, &outData, &outSize) != 0) {
-        func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
+    const void* var1;
+    unsigned int var2;
+    if (func_ov023_021fad20(arg2, data_ov023_021fec44, &var1, &var2) != 0) {
+        func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
     }
-    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec49, &outData, &outSize) != 0) {
-        func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
+    if (func_ov023_021fad20(arg2, data_ov023_021fec49, &var1, &var2) != 0) {
+        func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
     }
-    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec4e, &outData, &outSize) != 0) {
-        func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
+    if (func_ov023_021fad20(arg2, data_ov023_021fec4e, &var1, &var2) != 0) {
+        func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
     }
-    if (func_ov023_021fad20(narcBuffer, data_ov023_021fec53, &outData, &outSize) != 0) {
-        void* alloc = ((SafeAllocator*)((char*)base + 4))->Allocate(8);
-        if (alloc != 0) {
-            func_0205a234((struct ClearTarget0205a234*)alloc);
-            *(void**)((char*)obj + regionalOffset1) = alloc;
-            func_0205a528((char*)obj + regionalOffset0, (void*)outData, (int)outSize, (char*)base + 4);
+    if (func_ov023_021fad20(arg2, data_ov023_021fec53, &var1, &var2) != 0) {
+        void* var3 = ((SafeAllocator*)((char*)var0 + 4))->Allocate(8);
+        if (var3 != 0) {
+            func_0205a234((struct Struct_02043368*)var3);
+            *(void**)((char*)arg0 + Enum_ov023_021fab48_96) = var3;
+            func_0205a528((char*)arg0 + Enum_ov023_021fab48_36, (void*)var1, (int)var2, (char*)var0 + 4);
         }
     }
 
-    ((SafeAllocator*)((char*)base + 4))->GetSizeWithLargestBlockRemoved();
-    void* list;
-    int field6c = *(int*)((char*)obj + regionalOffset2);
-    list = func_ov011_021849c8(ctx);
-    *(int*)((char*)obj + regionalOffset3) = 0;
-    *(int*)((char*)obj + regionalOffset4) = field6c;
-    func_ov023_021f6d14((struct List021f6d14*)list, (struct ListNode021f6d14*)((char*)obj + regionalOffset3));
+    ((SafeAllocator*)((char*)var0 + 4))->GetSizeWithLargestBlockRemoved();
+    void* var4;
+    int var5 = *(int*)((char*)arg0 + Enum_ov023_021fab48_108);
+    var4 = func_ov011_021849c8(arg1);
+    *(int*)((char*)arg0 + Enum_ov023_021fab48_120) = 0;
+    *(int*)((char*)arg0 + Enum_ov023_021fab48_124) = var5;
+    func_ov023_021f6d14((struct Struct_ov023_021f6d14*)var4, (struct Struct_ov023_021f6d14_2*)((char*)arg0 + Enum_ov023_021fab48_120));
 
-    for (unsigned int i = 0; i < *(unsigned short*)((char*)obj + regionalOffset6); i++) {
-        void* entry = func_ov023_021fa854((char*)obj + regionalOffset0, (unsigned short)i);
-        if (entry != 0) {
-            int bits = func_0205af18((int)((char*)obj + regionalOffset0), (struct B190Outer*)entry);
-            unsigned char byteVal = *(unsigned char*)((char*)obj + regionalOffset5);
-            func_ov023_021f6e10(list, byteVal, (unsigned int)bits);
+    for (unsigned int var6 = 0; var6 < *(unsigned short*)((char*)arg0 + Enum_ov023_021fab48_114); var6++) {
+        void* var7 = func_ov023_021fa854((char*)arg0 + Enum_ov023_021fab48_36, (unsigned short)var6);
+        if (var7 != 0) {
+            int var8 = func_0205af18((int)((char*)arg0 + Enum_ov023_021fab48_36), (struct Struct_0205af18*)var7);
+            unsigned char var9 = *(unsigned char*)((char*)arg0 + Enum_ov023_021fab48_116);
+            func_ov023_021f6e10(var4, var9, (unsigned int)var8);
         }
     }
 
-    char* global = (char*)func_020421a0();
-    *(void**)(global + regionalOffset7) = (char*)obj + regionalOffset0;
-    *(int*)(global + regionalOffset9) = *(int*)((char*)obj + regionalOffset8);
-    *(short*)(global + regionalOffset10) = 0;
-    *(int*)(global + regionalOffset11) = *(int*)((char*)obj + regionalOffset1);
-    *(unsigned char*)(global + regionalOffset12) = 1;
+    char* var10 = (char*)func_020421a0();
+    *(void**)(var10 + Enum_ov023_021fab48_728) = (char*)arg0 + Enum_ov023_021fab48_36;
+    *(int*)(var10 + Enum_ov023_021fab48_732) = *(int*)((char*)arg0 + Enum_ov023_021fab48_100);
+    *(short*)(var10 + Enum_ov023_021fab48_740) = 0;
+    *(int*)(var10 + Enum_ov023_021fab48_736) = *(int*)((char*)arg0 + Enum_ov023_021fab48_96);
+    *(unsigned char*)(var10 + Enum_ov023_021fab48_742) = 1;
 }

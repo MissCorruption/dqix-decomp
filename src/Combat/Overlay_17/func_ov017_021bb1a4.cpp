@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffsetff = 0xfb, RegionOffset100 = 0xfc, RegionOffset120 = 0x11c };
+enum { Enum_ov017_021bb1a4_255 = 0xfb, Enum_ov017_021bb1a4_256 = 0xfc, Enum_ov017_021bb1a4_288 = 0x11c };
 #else
-enum { RegionOffsetff = 0xff, RegionOffset100 = 0x100, RegionOffset120 = 0x120 };
+enum { Enum_ov017_021bb1a4_255 = 0xff, Enum_ov017_021bb1a4_256 = 0x100, Enum_ov017_021bb1a4_288 = 0x120 };
 #endif
 
 #include <globaldefs.h>
@@ -9,42 +9,42 @@ enum { RegionOffsetff = 0xff, RegionOffset100 = 0x100, RegionOffset120 = 0x120 }
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-class StateMachine021bb1a4 {
+class Struct_ov017_021bb1a4 {
 public:
-    char unk_0[0xa];
-    unsigned short state_;
-    char unk_c[RegionOffsetff - 0xc];
-    unsigned char checkExit_;
-    char unk_100[RegionOffset120 - RegionOffset100];
-    void* timer_;
+    char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    char unknown_c_[Enum_ov017_021bb1a4_255 - 0xc];
+    unsigned char unknown_ff_;
+    char unknown_100_[Enum_ov017_021bb1a4_288 - Enum_ov017_021bb1a4_256];
+    void* unknown_120_;
 };
 
-typedef unsigned short (StateMachine021bb1a4::*StateFn021bb1a4)(int);
+typedef unsigned short (Struct_ov017_021bb1a4::*Type_02000c9c_19)(int);
 
-extern StateFn021bb1a4 data_ov017_021d7ccc[20];
+extern Type_02000c9c_19 data_ov017_021d7ccc[20];
 extern unsigned int data_ov017_021d845c;
-extern StateFn021bb1a4 data_020e6d5c;
+extern Type_02000c9c_19 data_020e6d5c;
 
-extern "C" void func_0208bb78(void* timer, unsigned int ticks);
-extern "C" int func_020a1e54(int flag);
+extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
+extern "C" int func_020a1e54(int arg0);
 extern "C" void func_020a0c0c(void);
 
 // USA: func_ov017_021bb1a4
-extern "C" ARM void func_ov017_021bb1a4(StateMachine021bb1a4* self, int arg) {
+extern "C" ARM void func_ov017_021bb1a4(Struct_ov017_021bb1a4* arg0, int arg1) {
     if (!(data_ov017_021d845c & 1)) {
         data_ov017_021d7ccc[19] = data_020e6d5c;
         data_ov017_021d845c |= 1;
     }
 
-    if (self->timer_ != 0) {
-        func_0208bb78(self->timer_, GameState::GetInstance()->GetTickCount());
+    if (arg0->unknown_120_ != 0) {
+        func_0208bb78(arg0->unknown_120_, GameState::GetInstance()->GetTickCount());
     }
 
-    if (data_ov017_021d7ccc[self->state_] != 0) {
-        self->state_ = (self->*data_ov017_021d7ccc[self->state_])(arg);
+    if (data_ov017_021d7ccc[arg0->unknown_a_] != 0) {
+        arg0->unknown_a_ = (arg0->*data_ov017_021d7ccc[arg0->unknown_a_])(arg1);
     }
 
-    if (self->checkExit_ != 0) {
+    if (arg0->unknown_ff_ != 0) {
         if (TestFlags00(GetGameResources(), 0x1000) == 0) {
             func_020a1e54(1);
             func_020a0c0c();

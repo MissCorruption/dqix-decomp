@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kManagerPad = 0x496 };
+enum { Enum_02017208_1142 = 0x496 };
 #else
-enum { kManagerPad = 0x476 };
+enum { Enum_02017208_1142 = 0x476 };
 #endif
 #include "GameState/GameState.h"
 
-struct Vec3 { int x; int y; int z; };
+struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 struct Vector3i;
 
-struct Segment0217208 {
-    char pad[0x1c];
-    struct Vec3 pos;
-    char pad2[0x88 - 0x1c - 0xc];
+struct Struct_02017208 {
+    char unknown_0_[0x1c];
+    struct Struct_ov009_0218aa28 unknown_1c_;
+    char unknown_28_[0x88 - 0x1c - 0xc];
 };
 
-struct Entry0217208 {
-    short unk0;
-    short state;
-    short timer;
-    char pad1[0x118 - 6];
-    struct Segment0217208 segments[4];
-    struct Vec3 vel[4];
+struct Struct_02017208_2 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    char unknown_6_[0x118 - 6];
+    struct Struct_02017208 unknown_118_[4];
+    struct Struct_ov009_0218aa28 unknown_338_[4];
 };
 
-struct EntryList0217208 {
-    char pad[kManagerPad];
-    unsigned char count;
-    char pad2[1];
-    struct Entry0217208* entries;
+struct Struct_02015438_2 {
+    char unknown_0_[Enum_02017208_1142];
+    unsigned char unknown_476_;
+    char unknown_477_[1];
+    struct Struct_02017208_2* unknown_478_;
 };
 
 // USA: func_02017208
-extern "C" ARM void func_02017208(struct EntryList0217208* manager) {
-    unsigned int scaleCount;
-    int i;
-    struct Entry0217208* e;
-    int j;
-    int k;
+extern "C" ARM void func_02017208(struct Struct_02015438_2* arg0) {
+    unsigned int var0;
+    int var1;
+    struct Struct_02017208_2* var2;
+    int var3;
+    int var4;
 
-    scaleCount = GameState::GetInstance()->GetTickCount();
+    var0 = GameState::GetInstance()->GetTickCount();
 
-    for (i = 0; i < manager->count; i++) {
-        e = &manager->entries[i];
-        if (e->state == -1) continue;
-        for (j = 0; j < scaleCount; j++) {
-            if (e->state == 3) {
-                e->timer++;
-                if (e->timer > 20) {
-                    e->state = -1;
+    for (var1 = 0; var1 < arg0->unknown_476_; var1++) {
+        var2 = &arg0->unknown_478_[var1];
+        if (var2->unknown_2_ == -1) continue;
+        for (var3 = 0; var3 < var0; var3++) {
+            if (var2->unknown_2_ == 3) {
+                var2->unknown_4_++;
+                if (var2->unknown_4_ > 20) {
+                    var2->unknown_2_ = -1;
                 } else {
-                    for (k = 0; k < 4; k++) {
-                        struct Vec3 tmp;
-                        struct Segment0217208* seg = &e->segments[k];
-                        Vector3fix_Add((const Vector3fix*)&seg->pos, (const Vector3fix*)&e->vel[k], (Vector3fix*)&tmp);
-                        *(Vector3i*)((int*)&seg->pos) = *(Vector3i const*)((int*)&tmp);
-                        e->vel[k].y -= 0x40;
+                    for (var4 = 0; var4 < 4; var4++) {
+                        struct Struct_ov009_0218aa28 var5;
+                        struct Struct_02017208* var6 = &var2->unknown_118_[var4];
+                        Vector3fix_Add((const Vector3fix*)&var6->unknown_1c_, (const Vector3fix*)&var2->unknown_338_[var4], (Vector3fix*)&var5);
+                        *(Vector3i*)((int*)&var6->unknown_1c_) = *(Vector3i const*)((int*)&var5);
+                        var2->unknown_338_[var4].unknown_4_ -= 0x40;
                     }
                 }
             }

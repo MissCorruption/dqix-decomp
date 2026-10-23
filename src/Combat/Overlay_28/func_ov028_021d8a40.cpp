@@ -5,27 +5,27 @@
 #endif
 #include <globaldefs.h>
 
-struct Trans_021d8a40 {
-    char pad0[0x8];
-    unsigned int f8;
-    char padc[0xa0 - 0xc];
-    unsigned int fa0;
-    char pada4[0xa8 - 0xa4];
-    unsigned short fa8;
-    unsigned short faa;
-    unsigned short fac;
-    unsigned short fae;
+struct Struct_ov028_021d8a40 {
+    char unknown_0_[0x8];
+    unsigned int unknown_8_;
+    char unknown_c_[0xa0 - 0xc];
+    unsigned int unknown_a0_;
+    char unknown_a4_[0xa8 - 0xa4];
+    unsigned short unknown_a8_;
+    unsigned short unknown_aa_;
+    unsigned short unknown_ac_;
+    unsigned short unknown_ae_;
 };
 
-extern "C" void func_0204c684(void* obj);
+extern "C" void func_0204c684(void* arg0);
 
 // USA: func_ov028_021d8a40
-extern "C" ARM void func_ov028_021d8a40(Trans_021d8a40* self, unsigned int val) {
-    func_0204c684(self);
-    self->f8 = val;
-    self->fac = 0;
-    self->fae = 0;
-    self->fa8 = 0x20;
-    self->faa = 0x20;
-    self->fa0 = 0;
+extern "C" ARM void func_ov028_021d8a40(Struct_ov028_021d8a40* arg0, unsigned int arg1) {
+    func_0204c684(arg0);
+    arg0->unknown_8_ = arg1;
+    arg0->unknown_ac_ = 0;
+    arg0->unknown_ae_ = 0;
+    arg0->unknown_a8_ = 0x20;
+    arg0->unknown_aa_ = 0x20;
+    arg0->unknown_a0_ = 0;
 }

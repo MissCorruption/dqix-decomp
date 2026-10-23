@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 
-struct Origin020e1eb0 {
-    char pad[0x38];
-    unsigned char ox;
-    unsigned char oy;
+struct Struct_020e1eb0_2 {
+    char unknown_0_[0x38];
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
 };
 
-struct Rect020e1eb0 {
-    short xmin;
-    short ymin;
-    short xmax;
-    short ymax;
+struct Struct_020e1eb0 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    short unknown_6_;
 };
 
-struct RectList020e1eb0 {
-    char pad0[4];
-    struct Origin020e1eb0* origin;
-    signed char count;
-    char pad9;
-    struct Rect020e1eb0 rects[1];
+struct Struct_020e1e4c {
+    char unknown_0_[4];
+    struct Struct_020e1eb0_2* unknown_4_;
+    signed char unknown_8_;
+    char unknown_9_;
+    struct Struct_020e1eb0 unknown_a_[1];
 };
 
 // USA: func_020e1eb0
-extern "C" ARM int func_020e1eb0(struct RectList020e1eb0* list, int x, int y) {
-    int i;
-    for (i = 0; i < list->count; i++) {
-        struct Origin020e1eb0* o = list->origin;
-        int x0 = o->ox + list->rects[i].xmin;
-        int y0 = o->oy + list->rects[i].ymin;
-        int x1 = o->ox + list->rects[i].xmax;
-        int y1 = o->oy + list->rects[i].ymax;
-        if (x0 <= x && x <= x1 && y0 <= y && y <= y1) {
-            return i;
+extern "C" ARM int func_020e1eb0(struct Struct_020e1e4c* arg0, int arg1, int arg2) {
+    int var0;
+    for (var0 = 0; var0 < arg0->unknown_8_; var0++) {
+        struct Struct_020e1eb0_2* var1 = arg0->unknown_4_;
+        int var2 = var1->unknown_38_ + arg0->unknown_a_[var0].unknown_0_;
+        int var3 = var1->unknown_39_ + arg0->unknown_a_[var0].unknown_2_;
+        int var4 = var1->unknown_38_ + arg0->unknown_a_[var0].unknown_4_;
+        int var5 = var1->unknown_39_ + arg0->unknown_a_[var0].unknown_6_;
+        if (var2 <= arg1 && arg1 <= var4 && var3 <= arg2 && arg2 <= var5) {
+            return var0;
         }
     }
     return -1;

@@ -5,59 +5,59 @@ struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" int func_0209ca2c(void* obj);
+extern "C" int func_0209ca2c(void* arg0);
 extern "C" void ColorEffect_ConfigureBrightnessAdjust(unsigned short*, int, int);
-struct Entry_0205d6a0;
-extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
-struct FlagWord020466f4;
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_0205d6a0;
+extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void* func_020d6c00(void);
 extern int data_02109bf4;
 
-struct Obj021ecaa4 {
-    char pad0[0x60];
-    unsigned char f60 : 4;
-    unsigned char f60_hi : 4;
-    char pad1[0xc0 - 0x61];
-    unsigned char fc0 : 4;
-    unsigned char fc0_hi : 4;
-    char pad2[0x430 - 0xc1];
-    unsigned char f430;
-    char pad3[0x432 - 0x431];
-    unsigned char f432;
-    char pad4[0x438 - 0x433];
-    unsigned short f438;
-    char pad5[0x44a - 0x43a];
-    unsigned char f44a;
+struct Struct_ov023_021ecaa4 {
+    char unknown_0_[0x60];
+    unsigned char unknown_60_0_ : 4;
+    unsigned char unknown_60_4_ : 4;
+    char unknown_61_[0xc0 - 0x61];
+    unsigned char unknown_c0_0_ : 4;
+    unsigned char unknown_c0_4_ : 4;
+    char unknown_c1_[0x430 - 0xc1];
+    unsigned char unknown_430_;
+    char unknown_431_[0x432 - 0x431];
+    unsigned char unknown_432_;
+    char unknown_433_[0x438 - 0x433];
+    unsigned short unknown_438_;
+    char unknown_43a_[0x44a - 0x43a];
+    unsigned char unknown_44a_;
 };
 
 // USA: func_ov023_021ecaa4
-extern "C" ARM void func_ov023_021ecaa4(Obj021ecaa4* obj) {
-    GameResources* result = GetGameResources();
-    unsigned char state = obj->f432;
-    if (state == 0) {
-        if (obj->f60 == 0)
-            SetMainBrightness(result, -16, 15);
+extern "C" ARM void func_ov023_021ecaa4(Struct_ov023_021ecaa4* arg0) {
+    GameResources* var0 = GetGameResources();
+    unsigned char var1 = arg0->unknown_432_;
+    if (var1 == 0) {
+        if (arg0->unknown_60_0_ == 0)
+            SetMainBrightness(var0, -16, 15);
         else
-            SetSubBrightness(result, -16, 15);
-        obj->f432++;
+            SetSubBrightness(var0, -16, 15);
+        arg0->unknown_432_++;
     }
-    if (state != 1) return;
-    if (IsBrightnessTransitionActive(result)) return;
-    if (obj->f44a != 0) {
-        if (!(obj->f430 == 0 || obj->f430 == 1)) {
+    if (var1 != 1) return;
+    if (IsBrightnessTransitionActive(var0)) return;
+    if (arg0->unknown_44a_ != 0) {
+        if (!(arg0->unknown_430_ == 0 || arg0->unknown_430_ == 1)) {
             if (func_0209ca2c((void*)&data_02109bf4)) return;
         }
-        if (!(obj->f438 & 0x20)) {
-            if (obj->fc0 == 0)
+        if (!(arg0->unknown_438_ & 0x20)) {
+            if (arg0->unknown_c0_0_ == 0)
                 ColorEffect_ConfigureBrightnessAdjust((unsigned short*)0x4000050, 0x17, 0);
             else
                 ColorEffect_ConfigureBrightnessAdjust((unsigned short*)0x4001050, 0x17, 0);
         }
     }
-    func_0205d6a0((struct Entry_0205d6a0*)((char*)obj + 0xc4), 1);
-    obj->f438 |= 4;
-    if (obj->f438 & 0x10)
-        func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 1);
-    obj->f432++;
+    func_0205d6a0((struct Struct_0205d6a0*)((char*)arg0 + 0xc4), 1);
+    arg0->unknown_438_ |= 4;
+    if (arg0->unknown_438_ & 0x10)
+        func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 1);
+    arg0->unknown_432_++;
 }

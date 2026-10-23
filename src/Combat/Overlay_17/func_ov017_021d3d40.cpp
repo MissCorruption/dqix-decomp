@@ -2,20 +2,20 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021d3d40
-extern "C" ARM void func_ov017_021d3d40(const void* a0, int a1, int a2, int a3, int a4) {
-	void* p = func_0202ae24();
-	unsigned char buf[0x14];
-	unsigned char* q = buf + 4;
-	unsigned char packed = *(unsigned char*)(q + 0xd);
-	packed = (packed & ~0x70) | ((a3 & 0x7) << 4);
-	buf[0] = 0xb9;
-	packed = (packed & ~0x80) | ((a2 & 1) << 7);
-	packed = (packed & ~0xf) | (a1 & 0xf);
-	*(unsigned char*)(q + 0xd) = packed;
-	*(short*)(q + 0xe) = (short)a4;
-	VectorizedInvertedMemcpy(a0, q, a1);
-	func_0205e330(p, buf, 0);
+extern "C" ARM void func_ov017_021d3d40(const void* arg0, int arg1, int arg2, int arg3, int arg4) {
+	void* var0 = func_0202ae24();
+	unsigned char var1[0x14];
+	unsigned char* var2 = var1 + 4;
+	unsigned char var3 = *(unsigned char*)(var2 + 0xd);
+	var3 = (var3 & ~0x70) | ((arg3 & 0x7) << 4);
+	var1[0] = 0xb9;
+	var3 = (var3 & ~0x80) | ((arg2 & 1) << 7);
+	var3 = (var3 & ~0xf) | (arg1 & 0xf);
+	*(unsigned char*)(var2 + 0xd) = var3;
+	*(short*)(var2 + 0xe) = (short)arg4;
+	VectorizedInvertedMemcpy(arg0, var2, arg1);
+	func_0205e330(var0, var1, 0);
 }

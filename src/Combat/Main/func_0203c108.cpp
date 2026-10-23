@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void __clear(void* buf, int n);
+extern "C" void __clear(void* arg0, int arg1);
 #if !defined(jpn)
-extern "C" void func_0203c5a8(void* ptr, void* buf, short* fieldAddr);
+extern "C" void func_0203c5a8(void* arg0, void* arg1, short* arg2);
 #endif
 extern void* data_02105244;
 
-extern "C" void func_0203c198(char* obj);
+extern "C" void func_0203c198(char* arg0);
 
-struct RefArray0xc6b8;
-extern "C" void func_0203c6b8(struct RefArray0xc6b8* obj, short index);
+struct Struct_0203c108;
+extern "C" void func_0203c6b8(struct Struct_0203c108* arg0, short arg1);
 
-struct RefArray0xc6fc;
+struct Struct_0203c108_2;
 #if defined(jpn)
-extern "C" void func_0203cbe4(struct RefArray0xc6fc* obj, const short* indices);
+extern "C" void func_0203cbe4(struct Struct_0203c108_2* arg0, const short* arg1);
 #else
-extern "C" void func_0203c6fc(struct RefArray0xc6fc* obj, short index);
+extern "C" void func_0203c6fc(struct Struct_0203c108_2* arg0, short arg1);
 #endif
 
 #if defined(jpn)
@@ -24,35 +24,35 @@ extern "C" void func_0203cb58(void*, void*);
 extern "C" void func_0203bf00(void*, char*, void*, int);
 extern "C" void func_0203c5a8(void*, void*, void*, int);
 #endif
-struct Obj0203c108 {
-    char pad[0x14];
-    short idx;
+struct Struct_0203c108_3 {
+    char unknown_0_[0x14];
+    short unknown_14_;
 };
 
 // USA: func_0203c108
-extern "C" ARM void func_0203c108(struct Obj0203c108* obj, char* fmt) {
-    if (data_02105244 != NULL && fmt != NULL && *fmt != 0) {
+extern "C" ARM void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1) {
+    if (data_02105244 != NULL && arg1 != NULL && *arg1 != 0) {
 #if defined(jpn)
-        char saved[0x14];
-        char buf[0x80];
-        memcpy(saved, obj, 0x14);
-        func_0203cb58(data_02105244, saved);
-        func_0203c198((char*)obj);
-        __clear(buf, 0x80);
-        func_0203bf00(obj, fmt, buf, 10);
-        *(int*)((char*)obj + 0x20) = 10;
-        func_0203c5a8(data_02105244, buf, obj, 10);
-        func_0203cbe4(static_cast<RefArray0xc6fc*>(data_02105244),
-                               reinterpret_cast<const short*>(saved));
+        char var0[0x14];
+        char var1[0x80];
+        memcpy(var0, arg0, 0x14);
+        func_0203cb58(data_02105244, var0);
+        func_0203c198((char*)arg0);
+        __clear(var1, 0x80);
+        func_0203bf00(arg0, arg1, var1, 10);
+        *(int*)((char*)arg0 + 0x20) = 10;
+        func_0203c5a8(data_02105244, var1, arg0, 10);
+        func_0203cbe4(static_cast<Struct_0203c108_2*>(data_02105244),
+                               reinterpret_cast<const short*>(var0));
 #else
-        char buf[0x100];
-        __clear(buf, 0x100);
-        sprintf(buf, fmt);
-        short oldIdx = obj->idx;
-        func_0203c6b8((struct RefArray0xc6b8*)data_02105244, oldIdx);
-        func_0203c198((char*)obj);
-        func_0203c5a8(data_02105244, buf, &obj->idx);
-        func_0203c6fc((struct RefArray0xc6fc*)data_02105244, oldIdx);
+        char var2[0x100];
+        __clear(var2, 0x100);
+        sprintf(var2, arg1);
+        short var3 = arg0->unknown_14_;
+        func_0203c6b8((struct Struct_0203c108*)data_02105244, var3);
+        func_0203c198((char*)arg0);
+        func_0203c5a8(data_02105244, var2, &arg0->unknown_14_);
+        func_0203c6fc((struct Struct_0203c108_2*)data_02105244, var3);
 #endif
     }
 }

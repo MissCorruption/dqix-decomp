@@ -5,50 +5,50 @@ extern "C" const short data_020ed450[128 + 1];
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020c338c
-extern "C" ARM fix32_t fix32_Atan2(fix32_t y, fix32_t x)
+extern "C" ARM fix32_t fix32_Atan2(fix32_t arg0, fix32_t arg1)
 {
-    long a, b, c;
-    int sign;
+    long var0, var1, var2;
+    int var3;
 
-    if (y > 0)
+    if (arg0 > 0)
     {
-        if (x > 0)
+        if (arg1 > 0)
         {
-            if (x > y)
+            if (arg1 > arg0)
             {
-                a = y;
-                b = x;
-                c = 0;
-                sign = 1;
+                var0 = arg0;
+                var1 = arg1;
+                var2 = 0;
+                var3 = 1;
             }
-            else if (x < y)
+            else if (arg1 < arg0)
             {
-                a = x;
-                b = y;
-                c = 6434;
-                sign = 0;
+                var0 = arg1;
+                var1 = arg0;
+                var2 = 6434;
+                var3 = 0;
             }
             else
             {
                 return (short)3217;
             }
         }
-        else if (x < 0)
+        else if (arg1 < 0)
         {
-            x = -x;
-            if (x < y)
+            arg1 = -arg1;
+            if (arg1 < arg0)
             {
-                a = x;
-                b = y;
-                c = 6434;
-                sign = 1;
+                var0 = arg1;
+                var1 = arg0;
+                var2 = 6434;
+                var3 = 1;
             }
-            else if (x > y)
+            else if (arg1 > arg0)
             {
-                a = y;
-                b = x;
-                c = 12868;
-                sign = 0;
+                var0 = arg0;
+                var1 = arg1;
+                var2 = 12868;
+                var3 = 0;
             }
             else
             {
@@ -60,46 +60,46 @@ extern "C" ARM fix32_t fix32_Atan2(fix32_t y, fix32_t x)
             return (short)6434;
         }
     }
-    else if (y < 0)
+    else if (arg0 < 0)
     {
-        y = -y;
-        if (x < 0)
+        arg0 = -arg0;
+        if (arg1 < 0)
         {
-            x = -x;
-            if (x > y)
+            arg1 = -arg1;
+            if (arg1 > arg0)
             {
-                a = y;
-                b = x;
-                c = -12868;
-                sign = 1;
+                var0 = arg0;
+                var1 = arg1;
+                var2 = -12868;
+                var3 = 1;
             }
-            else if (x < y)
+            else if (arg1 < arg0)
             {
-                a = x;
-                b = y;
-                c = -6434;
-                sign = 0;
+                var0 = arg1;
+                var1 = arg0;
+                var2 = -6434;
+                var3 = 0;
             }
             else
             {
                 return (short)-9651;
             }
         }
-        else if (x > 0)
+        else if (arg1 > 0)
         {
-            if (x < y)
+            if (arg1 < arg0)
             {
-                a = x;
-                b = y;
-                c = -6434;
-                sign = 1;
+                var0 = arg1;
+                var1 = arg0;
+                var2 = -6434;
+                var3 = 1;
             }
-            else if (x > y)
+            else if (arg1 > arg0)
             {
-                a = y;
-                b = x;
-                c = 0;
-                sign = 0;
+                var0 = arg0;
+                var1 = arg1;
+                var2 = 0;
+                var3 = 0;
             }
             else
             {
@@ -113,7 +113,7 @@ extern "C" ARM fix32_t fix32_Atan2(fix32_t y, fix32_t x)
     }
     else
     {
-        if (x >= 0)
+        if (arg1 >= 0)
         {
             return 0;
         }
@@ -123,17 +123,17 @@ extern "C" ARM fix32_t fix32_Atan2(fix32_t y, fix32_t x)
         }
     }
 
-    if (b == 0)
+    if (var1 == 0)
     {
         return 0;
     }
 
-    if (sign)
+    if (var3)
     {
-        return (short)(c + data_020ed450[fix32_Divide(a, b) >> 5]);
+        return (short)(var2 + data_020ed450[fix32_Divide(var0, var1) >> 5]);
     }
     else
     {
-        return (short)(c - data_020ed450[fix32_Divide(a, b) >> 5]);
+        return (short)(var2 - data_020ed450[fix32_Divide(var0, var1) >> 5]);
     }
 }

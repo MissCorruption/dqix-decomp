@@ -4,211 +4,211 @@
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct TableA68;
-struct Entry_0205d6a0;
-struct ResetLayout_0215e6d8;
-struct Struct0215efb8;
-struct Struct0205de24;
+struct Struct_02072a68_2;
+struct Struct_0205d6a0;
+struct Struct_ov003_0215e6d8;
+struct Struct_ov003_0215efb8;
+struct Struct_0205de24_2;
 struct Struct_0205def8;
-struct Obj0205eaa0;
+struct Struct_02108760;
 
-struct Keyboard02188cd0
+struct Struct_ov012_02188cd0_2
 {
-    void* key_;
-    void* layout_;
-    char* text_;
-    int unk_c;
-    int size_;
-    int unk_14;
-    int unk_18;
-    short unk_1c;
-    unsigned char unk_1e;
-    unsigned char unk_1f;
-    unsigned char unk_20;
-    unsigned char unk_21;
-    unsigned char unk_22;
-    unsigned char unk_23;
-    unsigned char unk_24;
-    char unk_25[3];
+    void* unknown_0_;
+    void* unknown_4_;
+    char* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    short unknown_1c_;
+    unsigned char unknown_1e_;
+    unsigned char unknown_1f_;
+    unsigned char unknown_20_;
+    unsigned char unknown_21_;
+    unsigned char unknown_22_;
+    unsigned char unknown_23_;
+    unsigned char unknown_24_;
+    char unknown_25_[3];
 };
 
-struct Profile02188cd0
+struct Struct_ov012_02188cd0_3
 {
-    char unk_0[8];
-    char unk_8[0x74];
+    char unknown_0_[8];
+    char unknown_8_[0x74];
 };
 
-struct Save02188cd0
+struct Struct_01ff8b48_10
 {
-    char unk_0[0x5400];
-    Profile02188cd0 profile_;
+    char unknown_0_[0x5400];
+    Struct_ov012_02188cd0_3 unknown_5400_;
 };
 
-struct GameStateSave02188cd0
+struct Struct_01ff8b48_11
 {
-    char unk_0[0x29c];
-    Save02188cd0 save_;
+    char unknown_0_[0x29c];
+    Struct_01ff8b48_10 unknown_29c_;
 };
 
-struct Messages02188cd0
+struct Struct_ov012_02188cd0_4
 {
-    char unk_0[0x998];
-    int busy_;
+    char unknown_0_[0x998];
+    int unknown_998_;
 };
 
-struct ProfileEditor02188cd0
+struct Struct_ov012_02188cd0
 {
-    void* unk_0;
-    void* unk_4;
-    char unk_8[0x20 - 0x8];
-    char allocators_[7][0x14];
-    char window_[0xd28 - 0xac];
-    char card_[0x600];
-    char* cardMessage_;
-    char unk_132c[0x133c - 0x132c];
-    char strings_[0x1370 - 0x133c];
-    unsigned char step_;
-    unsigned char state_;
-    char unk_1372[0x1380 - 0x1372];
-    int tasks_[6];
-    int unk_1398;
-    int result_;
-    unsigned char unk_13a0;
-    char unk_13a1[3];
-    int unk_13a4;
-    char unk_13a8[4];
-    void* unk_13ac;
-    char unk_13b0[0x13d0 - 0x13b0];
-    char* message_;
-    char unk_13d4[0x1480 - 0x13d4];
-    unsigned char checker_[0x14bc - 0x1480];
+    void* unknown_0_;
+    void* unknown_4_;
+    char unknown_8_[0x20 - 0x8];
+    char unknown_20_[7][0x14];
+    char unknown_ac_[0xd28 - 0xac];
+    char unknown_d28_[0x600];
+    char* unknown_1328_;
+    char unknown_132c_[0x133c - 0x132c];
+    char unknown_133c_[0x1370 - 0x133c];
+    unsigned char unknown_1370_;
+    unsigned char unknown_1371_;
+    char unknown_1372_[0x1380 - 0x1372];
+    int unknown_1380_[6];
+    int unknown_1398_;
+    int unknown_139c_;
+    unsigned char unknown_13a0_;
+    char unknown_13a1_[3];
+    int unknown_13a4_;
+    char unknown_13a8_[4];
+    void* unknown_13ac_;
+    char unknown_13b0_[0x13d0 - 0x13b0];
+    char* unknown_13d0_;
+    char unknown_13d4_[0x1480 - 0x13d4];
+    unsigned char unknown_1480_[0x14bc - 0x1480];
 };
 
-extern "C" void func_0205d6a0(Entry_0205d6a0* window, int a);
-extern "C" void func_02042764(const void* codes, char* text, int a);
-extern "C" void func_ov003_0215e6d8(ResetLayout_0215e6d8* layout);
-extern "C" void func_ov003_0215e6f8(void* layout, SafeAllocator* allocator, void* file, unsigned int size);
-extern "C" void func_ov003_0215efb8(Struct0215efb8* keyboard);
-extern "C" int func_ov012_0218ae74(ProfileEditor02188cd0* self, Profile02188cd0* profile);
-extern "C" void func_0205de24(Struct0205de24* window, unsigned char a, unsigned char b);
-extern "C" void func_ov023_021e6e60(ProfileEditor02188cd0* self);
-extern "C" void func_ov012_0218aabc(char* self);
-extern "C" void func_ov003_0215f41c(void* keyboard, const char* text);
-extern "C" void func_ov012_0218ab34(ProfileEditor02188cd0* self, char* text, int hidden);
-extern "C" int func_0205d97c(void* window);
-extern "C" int func_ov003_0215f000(void* keyboard, int input);
-extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int a);
-extern "C" void func_ov023_021e8270(void* card);
-extern "C" void func_ov012_021845f8(void* checker);
-extern "C" int func_ov012_02184d80(void* checker, char* text);
-extern "C" void func_0205def8(Struct_0205def8* window, int a, int b);
-extern "C" void func_020426bc(const char* text, char* codes, int a);
-extern "C" void func_ov012_0218943c(ProfileEditor02188cd0* self);
-extern "C" Messages02188cd0* func_020421a0();
-extern "C" const char* func_02072a68(TableA68* texts, int id);
-extern "C" void func_0204500c(Messages02188cd0* messages, const char* text, int a, int b);
+extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void func_02042764(const void* arg0, char* arg1, int arg2);
+extern "C" void func_ov003_0215e6d8(Struct_ov003_0215e6d8* arg0);
+extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void func_ov003_0215efb8(Struct_ov003_0215efb8* arg0);
+extern "C" int func_ov012_0218ae74(Struct_ov012_02188cd0* arg0, Struct_ov012_02188cd0_3* arg1);
+extern "C" void func_0205de24(Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void func_ov023_021e6e60(Struct_ov012_02188cd0* arg0);
+extern "C" void func_ov012_0218aabc(char* arg0);
+extern "C" void func_ov003_0215f41c(void* arg0, const char* arg1);
+extern "C" void func_ov012_0218ab34(Struct_ov012_02188cd0* arg0, char* arg1, int arg2);
+extern "C" int func_0205d97c(void* arg0);
+extern "C" int func_ov003_0215f000(void* arg0, int arg1);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_ov023_021e8270(void* arg0);
+extern "C" void func_ov012_021845f8(void* arg0);
+extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
+extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
+extern "C" void func_020426bc(const char* arg0, char* arg1, int arg2);
+extern "C" void func_ov012_0218943c(Struct_ov012_02188cd0* arg0);
+extern "C" Struct_ov012_02188cd0_4* func_020421a0();
+extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void func_0204500c(Struct_ov012_02188cd0_4* arg0, const char* arg1, int arg2, int arg3);
 
 extern "C" const char data_ov012_0218b2ea[];
 extern "C" const char data_ov012_0218b303[];
 extern "C" char data_02108760[];
 
-static inline Profile02188cd0* GetProfile02188cd0(GameState* gameState)
+static inline Struct_ov012_02188cd0_3* inline_ov012_02188cd0(GameState* arg0)
 {
-    return &((GameStateSave02188cd0*)gameState)->save_.profile_;
+    return &((Struct_01ff8b48_11*)arg0)->unknown_29c_.unknown_5400_;
 }
 
 // USA: func_ov012_02188cd0
-extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
+extern "C" ARM void func_ov012_02188cd0(Struct_ov012_02188cd0* arg0)
 {
-    if (self->step_ == 0)
+    if (arg0->unknown_1370_ == 0)
     {
-        func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
-        Profile02188cd0* profile = GetProfile02188cd0(GameState::GetInstance());
-        memset(self->message_, 0, 0x400);
-        self->cardMessage_ = self->message_;
-        func_02042764(profile->unk_8, self->message_, 1);
-        self->tasks_[0] = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov012_0218b2ea, 0);
-        self->step_++;
+        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+        Struct_ov012_02188cd0_3* var0 = inline_ov012_02188cd0(GameState::GetInstance());
+        memset(arg0->unknown_13d0_, 0, 0x400);
+        arg0->unknown_1328_ = arg0->unknown_13d0_;
+        func_02042764(var0->unknown_8_, arg0->unknown_13d0_, 1);
+        arg0->unknown_1380_[0] = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov012_0218b2ea, 0);
+        arg0->unknown_1370_++;
         return;
     }
-    else if (self->step_ == 1)
+    else if (arg0->unknown_1370_ == 1)
     {
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        if (loader->GetTaskStatus(self->tasks_[0]))
+        BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+        if (var1->GetTaskStatus(arg0->unknown_1380_[0]))
         {
-            if (loader->GetDetailedTaskStatus(self->tasks_[0]) != 2)
+            if (var1->GetDetailedTaskStatus(arg0->unknown_1380_[0]) != 2)
             {
-                loader->RemoveTask(self->tasks_[0]);
-                self->tasks_[0] = -1;
+                var1->RemoveTask(arg0->unknown_1380_[0]);
+                arg0->unknown_1380_[0] = -1;
             }
-            void* file;
-            unsigned int size;
-            loader->GetLoadedFileByID(self->tasks_[0], &file, &size);
-            if (file != 0 && size != 0)
+            void* var2;
+            unsigned int var3;
+            var1->GetLoadedFileByID(arg0->unknown_1380_[0], &var2, &var3);
+            if (var2 != 0 && var3 != 0)
             {
-                ((SafeAllocator*)self->allocators_[4])->Reset();
-                func_ov003_0215e6d8((ResetLayout_0215e6d8*)self->unk_4);
-                func_ov003_0215e6f8(self->unk_4, (SafeAllocator*)self->allocators_[4], file, size);
-                func_ov003_0215efb8((Struct0215efb8*)self->unk_0);
-                ((Keyboard02188cd0*)self->unk_0)->layout_ = self->unk_4;
-                ((Keyboard02188cd0*)self->unk_0)->key_ = 0;
+                ((SafeAllocator*)arg0->unknown_20_[4])->Reset();
+                func_ov003_0215e6d8((Struct_ov003_0215e6d8*)arg0->unknown_4_);
+                func_ov003_0215e6f8(arg0->unknown_4_, (SafeAllocator*)arg0->unknown_20_[4], var2, var3);
+                func_ov003_0215efb8((Struct_ov003_0215efb8*)arg0->unknown_0_);
+                ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_4_ = arg0->unknown_4_;
+                ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_0_ = 0;
             }
-            loader->RemoveTask(self->tasks_[0]);
-            self->tasks_[0] = -1;
-            self->step_++;
+            var1->RemoveTask(arg0->unknown_1380_[0]);
+            arg0->unknown_1380_[0] = -1;
+            arg0->unknown_1370_++;
             return;
         }
         return;
     }
-    else if (self->step_ == 2)
+    else if (arg0->unknown_1370_ == 2)
     {
-        func_ov012_0218ae74(self, GetProfile02188cd0(GameState::GetInstance()));
-        self->step_++;
+        func_ov012_0218ae74(arg0, inline_ov012_02188cd0(GameState::GetInstance()));
+        arg0->unknown_1370_++;
         return;
     }
-    else if (self->step_ == 3)
+    else if (arg0->unknown_1370_ == 3)
     {
-        self->unk_13a0 = 0;
-        func_0205de24((Struct0205de24*)self->window_, 0, 2);
-        func_ov023_021e6e60(self);
-        func_ov012_0218aabc((char*)self);
-        memcpy(self->unk_13ac, GetProfile02188cd0(GameState::GetInstance())->unk_8, 0x72);
-        Keyboard02188cd0* keyboard = (Keyboard02188cd0*)self->unk_0;
-        keyboard->text_ = self->message_;
-        keyboard->size_ = 0x400;
-        ((Keyboard02188cd0*)self->unk_0)->unk_14 = 0x39;
-        ((Keyboard02188cd0*)self->unk_0)->unk_1f = 1;
-        ((Keyboard02188cd0*)self->unk_0)->unk_21 = 1;
-        ((Keyboard02188cd0*)self->unk_0)->unk_24 = 1;
-        func_ov003_0215f41c(self->unk_0, data_ov012_0218b303);
-        ((Keyboard02188cd0*)self->unk_0)->unk_22 = 1;
-        ((Keyboard02188cd0*)self->unk_0)->unk_23 = 0;
-        func_ov012_0218ab34(self, 0, 0);
-        self->step_++;
+        arg0->unknown_13a0_ = 0;
+        func_0205de24((Struct_0205de24_2*)arg0->unknown_ac_, 0, 2);
+        func_ov023_021e6e60(arg0);
+        func_ov012_0218aabc((char*)arg0);
+        memcpy(arg0->unknown_13ac_, inline_ov012_02188cd0(GameState::GetInstance())->unknown_8_, 0x72);
+        Struct_ov012_02188cd0_2* var4 = (Struct_ov012_02188cd0_2*)arg0->unknown_0_;
+        var4->unknown_8_ = arg0->unknown_13d0_;
+        var4->unknown_10_ = 0x400;
+        ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_14_ = 0x39;
+        ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_1f_ = 1;
+        ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_21_ = 1;
+        ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_24_ = 1;
+        func_ov003_0215f41c(arg0->unknown_0_, data_ov012_0218b303);
+        ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_22_ = 1;
+        ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_23_ = 0;
+        func_ov012_0218ab34(arg0, 0, 0);
+        arg0->unknown_1370_++;
         return;
     }
-    else if (self->step_ == 4)
+    else if (arg0->unknown_1370_ == 4)
     {
-        if ((g_keyManager.TestKeysPressed(2) || func_0205d97c(self->window_) == 2) && *self->message_ == 0)
+        if ((g_keyManager.TestKeysPressed(2) || func_0205d97c(arg0->unknown_ac_) == 2) && *arg0->unknown_13d0_ == 0)
         {
-            func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
-            self->step_++;
+            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+            arg0->unknown_1370_++;
         }
-        Keyboard02188cd0* keyboard = (Keyboard02188cd0*)self->unk_0;
-        unsigned char page = keyboard->unk_20;
-        switch (func_ov003_0215f000(keyboard, self->unk_13a4))
+        Struct_ov012_02188cd0_2* var5 = (Struct_ov012_02188cd0_2*)arg0->unknown_0_;
+        unsigned char var6 = var5->unknown_20_;
+        switch (func_ov003_0215f000(var5, arg0->unknown_13a4_))
         {
             case 1:
-                func_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
+                func_0205eaa0((Struct_02108760*)data_02108760, 2, 0);
                 return;
 
             case 2:
             case 3:
             case 8:
-                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-                if (page != ((Keyboard02188cd0*)self->unk_0)->unk_20)
-                    func_ov012_0218ab34(self, 0, 0);
-                func_ov023_021e8270(self->card_);
+                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                if (var6 != ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_20_)
+                    func_ov012_0218ab34(arg0, 0, 0);
+                func_ov023_021e8270(arg0->unknown_d28_);
                 return;
 
             case 4:
@@ -216,74 +216,74 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
             case 6:
             case 7:
             case 11:
-                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-                func_ov012_0218ab34(self, 0, 0);
+                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                func_ov012_0218ab34(arg0, 0, 0);
                 return;
 
             case 9:
-                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
                 return;
 
             case 10:
-                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-                if (*self->message_ != 0)
+                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+                if (*arg0->unknown_13d0_ != 0)
                 {
                     GameState::GetInstance();
                     BackgroundLoader::AddLockGlobal();
                     BackgroundLoader::FreeAllocationsGlobal();
-                    func_ov012_021845f8(self->checker_);
-                    int forbidden = func_ov012_02184d80(self->checker_, self->message_);
+                    func_ov012_021845f8(arg0->unknown_1480_);
+                    int var7 = func_ov012_02184d80(arg0->unknown_1480_, arg0->unknown_13d0_);
                     BackgroundLoader::RemoveLockGlobal();
-                    if (forbidden)
+                    if (var7)
                     {
-                        func_0205def8((Struct_0205def8*)self->window_, 0, 14);
-                        self->step_ = 10;
+                        func_0205def8((Struct_0205def8*)arg0->unknown_ac_, 0, 14);
+                        arg0->unknown_1370_ = 10;
                         return;
                     }
                 }
-                func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
-                self->step_++;
+                func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+                arg0->unknown_1370_++;
                 return;
         }
     }
-    else if (self->step_ == 5)
+    else if (arg0->unknown_1370_ == 5)
     {
-        func_020426bc(self->message_, GetProfile02188cd0(GameState::GetInstance())->unk_8, 1);
-        self->cardMessage_ = 0;
-        memset(self->message_, 0, 0x400);
-        self->step_++;
+        func_020426bc(arg0->unknown_13d0_, inline_ov012_02188cd0(GameState::GetInstance())->unknown_8_, 1);
+        arg0->unknown_1328_ = 0;
+        memset(arg0->unknown_13d0_, 0, 0x400);
+        arg0->unknown_1370_++;
         return;
     }
-    else if (self->step_ == 6)
+    else if (arg0->unknown_1370_ == 6)
     {
-        self->step_++;
+        arg0->unknown_1370_++;
         return;
     }
-    else if (self->step_ == 7)
+    else if (arg0->unknown_1370_ == 7)
     {
-        self->state_ = 1;
-        func_ov023_021e6e60(self);
-        func_ov012_0218943c(self);
-        self->unk_13a0 = 1;
-        self->step_ = 1;
+        arg0->unknown_1371_ = 1;
+        func_ov023_021e6e60(arg0);
+        func_ov012_0218943c(arg0);
+        arg0->unknown_13a0_ = 1;
+        arg0->unknown_1370_ = 1;
         return;
     }
-    else if (self->step_ == 10)
+    else if (arg0->unknown_1370_ == 10)
     {
-        Messages02188cd0* messages = func_020421a0();
-        func_0204500c(messages, func_02072a68((TableA68*)self->strings_, 501), 0, 0xe3);
-        messages->busy_ = 1;
-        self->step_++;
+        Struct_ov012_02188cd0_4* var8 = func_020421a0();
+        func_0204500c(var8, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, 501), 0, 0xe3);
+        var8->unknown_998_ = 1;
+        arg0->unknown_1370_++;
         return;
     }
-    else if (self->step_ == 11)
+    else if (arg0->unknown_1370_ == 11)
     {
-        if (func_020421a0()->busy_ == 0)
+        if (func_020421a0()->unknown_998_ == 0)
         {
-            func_0205def8((Struct_0205def8*)self->window_, 1, 14);
-            self->step_ = 4;
-            ((Keyboard02188cd0*)self->unk_0)->unk_18 = 0;
-            ((Keyboard02188cd0*)self->unk_0)->unk_1c = 0;
+            func_0205def8((Struct_0205def8*)arg0->unknown_ac_, 1, 14);
+            arg0->unknown_1370_ = 4;
+            ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_18_ = 0;
+            ((Struct_ov012_02188cd0_2*)arg0->unknown_0_)->unknown_1c_ = 0;
         }
     }
 }

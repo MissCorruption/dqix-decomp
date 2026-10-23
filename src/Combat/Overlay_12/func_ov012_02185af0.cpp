@@ -15,56 +15,56 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" int func_02094a00(void);
-struct Obj02094ab0;
-extern "C" void func_02094ab0(struct Obj02094ab0* obj);
+struct Struct_02094ab0;
+extern "C" void func_02094ab0(struct Struct_02094ab0* arg0);
 
-struct Struct02074bd0;
-extern "C" void func_02074bd0(struct Struct02074bd0* obj);
+struct Struct_02074bd0;
+extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
 
-struct Cont0205d1e0;
-extern "C" void func_0205d1e0(struct Cont0205d1e0*);
-struct Cont0205d274;
-extern "C" void func_0205d274(struct Cont0205d274*);
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(struct Obj0205d2bc*);
+struct Struct_0205d1e0;
+extern "C" void func_0205d1e0(struct Struct_0205d1e0*);
+struct Struct_0205d274;
+extern "C" void func_0205d274(struct Struct_0205d274*);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
 extern "C" void func_0205d048(void*);
 
 void CleanInvalidateCacheRange(const void*, unsigned int);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
 // USA: func_ov012_02185af0
-extern "C" ARM void func_ov012_02185af0(unsigned char* self) {
-    func_02094ab0((struct Obj02094ab0*)func_02094a00());
+extern "C" ARM void func_ov012_02185af0(unsigned char* arg0) {
+    func_02094ab0((struct Struct_02094ab0*)func_02094a00());
 
-    volatile unsigned int* reg = (volatile unsigned int*)0x4000000;
-    *reg = (*reg & ~0x1f00) | 0x100;
-    *(volatile unsigned short*)((char*)reg + 0x50) = 0;
+    volatile unsigned int* var0 = (volatile unsigned int*)0x4000000;
+    *var0 = (*var0 & ~0x1f00) | 0x100;
+    *(volatile unsigned short*)((char*)var0 + 0x50) = 0;
 
-    func_02074bd0((struct Struct02074bd0*)(self + R(0,8)));
+    func_02074bd0((struct Struct_02074bd0*)(arg0 + R(0,8)));
 
-    func_0205d1e0((struct Cont0205d1e0*)(self + R(0x90,0xac)));
-    func_0205d274((struct Cont0205d274*)(self + R(0x90,0xac)));
-    func_0205d2bc((struct Obj0205d2bc*)(self + R(0x90,0xac)));
-    func_0205d048((void*)(self + R(0x90,0xac)));
+    func_0205d1e0((struct Struct_0205d1e0*)(arg0 + R(0x90,0xac)));
+    func_0205d274((struct Struct_0205d274*)(arg0 + R(0x90,0xac)));
+    func_0205d2bc((struct Struct_0205d2bc*)(arg0 + R(0x90,0xac)));
+    func_0205d048((void*)(arg0 + R(0x90,0xac)));
 
-    memset(*(void**)(self + R(0x134c,0x137c)), 0, 0x20);
-    CleanInvalidateCacheRange(*(void**)(self + R(0x134c,0x137c)), 0x20);
-    LoadToMainBG1CharacterData((int)*(void**)(self + R(0x134c,0x137c)), 0, 0x20);
+    memset(*(void**)(arg0 + R(0x134c,0x137c)), 0, 0x20);
+    CleanInvalidateCacheRange(*(void**)(arg0 + R(0x134c,0x137c)), 0x20);
+    LoadToMainBG1CharacterData((int)*(void**)(arg0 + R(0x134c,0x137c)), 0, 0x20);
 
-    *(int*)(self + R(0x1344,0x1374)) = 0;
-    *(int*)(self + R(0x134c,0x137c)) = 0;
+    *(int*)(arg0 + R(0x1344,0x1374)) = 0;
+    *(int*)(arg0 + R(0x134c,0x137c)) = 0;
 
-    void* ptrs[5];
-    ptrs[0] = self + R(0x18,0x20);
-    ptrs[1] = self + R(0x2c,0x34);
-    ptrs[2] = self + R(0x40,0x48);
-    ptrs[3] = self + R(0x54,0x5c);
-    ptrs[4] = self + R(0x68,0x70);
+    void* var1[5];
+    var1[0] = arg0 + R(0x18,0x20);
+    var1[1] = arg0 + R(0x2c,0x34);
+    var1[2] = arg0 + R(0x40,0x48);
+    var1[3] = arg0 + R(0x54,0x5c);
+    var1[4] = arg0 + R(0x68,0x70);
 
-    for (int i = 0; i < 5; i++) {
-        SafeAllocator* p = (SafeAllocator*)ptrs[i];
-        if (p->GetSignedAllocator()) {
-            p->Destroy();
+    for (int var2 = 0; var2 < 5; var2++) {
+        SafeAllocator* var3 = (SafeAllocator*)var1[var2];
+        if (var3->GetSignedAllocator()) {
+            var3->Destroy();
         }
     }
 }

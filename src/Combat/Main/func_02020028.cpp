@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 // USA: func_02020028
-extern "C" ARM void func_02020028(unsigned char* base, int set, int bit) {
-    if (bit < 0) {
-        if (set) base[0x55d] = 0xf;
-        else base[0x55d] = 0;
+extern "C" ARM void func_02020028(unsigned char* arg0, int arg1, int arg2) {
+    if (arg2 < 0) {
+        if (arg1) arg0[0x55d] = 0xf;
+        else arg0[0x55d] = 0;
     } else {
-        if (set) base[0x55d] |= (1 << bit);
-        else base[0x55d] &= ~(1 << bit);
+        if (arg1) arg0[0x55d] |= (1 << arg2);
+        else arg0[0x55d] &= ~(1 << arg2);
     }
 }

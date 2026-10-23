@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { LevelOffset = 0x8b8 };
+enum { Enum_02082fc4_2384 = 0x8b8 };
 #else
-enum { LevelOffset = 0x950 };
+enum { Enum_02082fc4_2384 = 0x950 };
 #endif
 
 #include "Combat/ResourceScriptEntry.h"
@@ -11,42 +11,42 @@ enum { LevelOffset = 0x950 };
 #include "std_library_functions.h"
 #include "Filesystem/FileIO.h"
 
-extern "C" void* func_0208247c(void* obj);
+extern "C" void* func_0208247c(void* arg0);
 
-extern "C" void func_02083cbc(void* a, void* obj, void* tail);
-extern "C" void func_02083e28(void* a, int arg2);
+extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
+extern "C" void func_02083e28(void* arg0, int arg1);
 
 extern char data_020f1019[];
 extern unsigned char data_0211e33c[0x30000];
-struct Block5Words0208 { unsigned int w[5]; };
-struct TailBytes0208 { unsigned char b[0x18]; };
-struct Combined0208 {
-    Block5Words0208 block0;
-    Block5Words0208 block1;
-    Block5Words0208 block2;
-    TailBytes0208 tail;
+struct Struct_02082fc4 { unsigned int unknown_0_[5]; };
+struct Struct_02082fc4_2 { unsigned char unknown_0_[0x18]; };
+struct Struct_02082fc4_3 {
+    Struct_02082fc4 unknown_0_;
+    Struct_02082fc4 unknown_14_;
+    Struct_02082fc4 unknown_28_;
+    Struct_02082fc4_2 unknown_3c_;
 };
 
 // USA: func_02082fc4
-extern "C" ARM void func_02082fc4(void* a, void* b) {
-    char path[0x18];
-    sprintf(path, data_020f1019, *(int*)((char*)a + LevelOffset));
+extern "C" ARM void func_02082fc4(void* arg0, void* arg1) {
+    char var0[0x18];
+    sprintf(var0, data_020f1019, *(int*)((char*)arg0 + Enum_02082fc4_2384));
     BackgroundLoader::AddLockGlobal();
-    unsigned int size;
-    void* addr = LoadFileIntoMemory(path, &data_0211e33c, &size);
-    if (addr != NULL) {
-        Combined0208 local;
-        func_0208247c(&local);
-        unsigned short val = *(unsigned short*)((char*)a + *(int*)((char*)a + LevelOffset) * 2 + 0x16c);
-        func_02082490(&local, addr, size, val, 0);
-        func_02083cbc(a, &local, &local.tail);
-        func_02083e28(a, 0);
-        if (b != NULL) {
-            Combined0208* dst = (Combined0208*)b;
-            dst->block0 = local.block0;
-            dst->block1 = local.block1;
-            dst->block2 = local.block2;
-            dst->tail = local.tail;
+    unsigned int var1;
+    void* var2 = LoadFileIntoMemory(var0, &data_0211e33c, &var1);
+    if (var2 != NULL) {
+        Struct_02082fc4_3 var3;
+        func_0208247c(&var3);
+        unsigned short var4 = *(unsigned short*)((char*)arg0 + *(int*)((char*)arg0 + Enum_02082fc4_2384) * 2 + 0x16c);
+        func_02082490(&var3, var2, var1, var4, 0);
+        func_02083cbc(arg0, &var3, &var3.unknown_3c_);
+        func_02083e28(arg0, 0);
+        if (arg1 != NULL) {
+            Struct_02082fc4_3* var5 = (Struct_02082fc4_3*)arg1;
+            var5->unknown_0_ = var3.unknown_0_;
+            var5->unknown_14_ = var3.unknown_14_;
+            var5->unknown_28_ = var3.unknown_28_;
+            var5->unknown_3c_ = var3.unknown_3c_;
         }
     }
     BackgroundLoader::RemoveLockGlobal();

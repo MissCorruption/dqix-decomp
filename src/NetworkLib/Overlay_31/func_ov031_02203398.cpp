@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct0_02203398 {
-	char pad[0x8];
-	unsigned char field0x8;
+struct Struct_ov031_02203398 {
+	char unknown_0_[0x8];
+	unsigned char unknown_8_;
 };
 
 extern "C" int func_ov031_02201f10(int, int, int);
@@ -12,13 +12,13 @@ extern "C" int func_ov031_02201f98(int, int);
 extern "C" int func_ov031_02201f84(int, int);
 
 // USA: func_ov031_02203398
-extern "C" ARM void func_ov031_02203398(Struct0_02203398* obj) {
+extern "C" ARM void func_ov031_02203398(Struct_ov031_02203398* arg0) {
 	CycleCurrentPriorityContexts();
-	unsigned char field8 = obj->field0x8;
-	if (field8 == 3 || field8 == 4) {
-		func_ov031_02201f98((int)obj, 0x19);
-		obj->field0x8 = 7;
-	} else if (field8 != 0) {
-		func_ov031_02201f84((int)obj, 0x1a);
+	unsigned char var0 = arg0->unknown_8_;
+	if (var0 == 3 || var0 == 4) {
+		func_ov031_02201f98((int)arg0, 0x19);
+		arg0->unknown_8_ = 7;
+	} else if (var0 != 0) {
+		func_ov031_02201f84((int)arg0, 0x1a);
 	}
 }

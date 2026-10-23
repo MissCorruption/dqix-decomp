@@ -2,22 +2,22 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct LocalEvt021c8b78 {
-    unsigned char tag;
-    unsigned char pad0[3];
-    unsigned short field4;
-    unsigned char pad1[14];
+struct Struct_ov017_021c8b78 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[14];
 };
 
 // USA: func_ov017_021c8b78
-extern "C" ARM void func_ov017_021c8b78(unsigned short param) {
+extern "C" ARM void func_ov017_021c8b78(unsigned short arg0) {
     GameState::GetInstance();
-    void* p = func_0202ae24();
+    void* var0 = func_0202ae24();
 
-    LocalEvt021c8b78 buf;
-    buf.tag = 0x7a;
-    buf.field4 = param;
-    func_0205e330(p, &buf, 0);
+    Struct_ov017_021c8b78 var1;
+    var1.unknown_0_ = 0x7a;
+    var1.unknown_4_ = arg0;
+    func_0205e330(var0, &var1, 0);
 }

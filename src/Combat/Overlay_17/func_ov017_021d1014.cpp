@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24();
-extern "C" void func_0205e330(void* p, void* buf, int flag);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct SubField4_021d1014 {
-    unsigned char low7 : 7;
-    unsigned char bit7 : 1;
-    unsigned char b5;
+struct Struct_ov017_021d1014 {
+    unsigned char unknown_0_0_ : 7;
+    unsigned char unknown_0_7_ : 1;
+    unsigned char unknown_1_;
 };
 
-struct LocalBuf021d1014 {
-    unsigned char b0;
-    unsigned char pad1[3];
-    struct SubField4_021d1014 sub;
-    unsigned char pad2[0x14 - 6];
+struct Struct_ov017_021d1014_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    struct Struct_ov017_021d1014 unknown_4_;
+    unsigned char unknown_6_[0x14 - 6];
 };
 
 // USA: func_ov017_021d1014
 extern "C" ARM void func_ov017_021d1014(int arg0, unsigned char arg1, int arg2) {
-    void* g = func_0202ae24();
-    struct LocalBuf021d1014 buf;
-    struct SubField4_021d1014* sub = &buf.sub;
-    sub->low7 = arg0;
-    buf.b0 = 0x19;
-    sub->bit7 = arg1;
-    sub->b5 = arg2;
-    func_0205e330(g, &buf, 0);
+    void* var0 = func_0202ae24();
+    struct Struct_ov017_021d1014_2 var1;
+    struct Struct_ov017_021d1014* var2 = &var1.unknown_4_;
+    var2->unknown_0_0_ = arg0;
+    var1.unknown_0_ = 0x19;
+    var2->unknown_0_7_ = arg1;
+    var2->unknown_1_ = arg2;
+    func_0205e330(var0, &var1, 0);
 }

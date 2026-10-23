@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
-struct Obj020dfe88;
-struct Struct020dfc40 {
-    unsigned char pad[0xc];
-    short field_c;
-    short field_e;
-    int field_10;
-    void* field_14;
+struct Struct_020dfc40;
+struct Struct_0201099c_14 {
+    unsigned char unknown_0_[0xc];
+    short unknown_c_;
+    short unknown_e_;
+    int unknown_10_;
+    void* unknown_14_;
 };
 
-extern "C" int func_020dfe88(struct Obj020dfe88* obj);
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" int func_020dfe88(struct Struct_020dfc40* arg0);
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 extern "C" int func_020e05f8(char*, char const*, short);
-extern "C" int func_020dfd40(void* self, char* a, char* b);
+extern "C" int func_020dfd40(void* arg0, char* arg1, char* arg2);
 
 // USA: func_020dfc84
-extern "C" ARM int func_020dfc84(void* self, void* field_14, char* fmt, char* ext, short n, short field_c) {
-    char buf[0x60];
-    struct Struct020dfc40* p;
+extern "C" ARM int func_020dfc84(void* arg0, void* arg1, char* arg2, char* arg3, short arg4, short arg5) {
+    char var0[0x60];
+    struct Struct_0201099c_14* var1;
 
-    p = (struct Struct020dfc40*)self;
-    func_020dfe88((struct Obj020dfe88*)self);
-    func_020dfc40(p);
-    p->field_14 = field_14;
-    p->field_c = field_c;
-    p->field_e = 1;
+    var1 = (struct Struct_0201099c_14*)arg0;
+    func_020dfe88((struct Struct_020dfc40*)arg0);
+    func_020dfc40(var1);
+    var1->unknown_14_ = arg1;
+    var1->unknown_c_ = arg5;
+    var1->unknown_e_ = 1;
 
-    if (n >= 0) {
-        func_020e05f8(buf + 0x20, fmt, n);
-        if (ext != 0) {
-            func_020e05f8(buf, ext, n);
-            func_020dfd40(self, buf + 0x20, buf);
+    if (arg4 >= 0) {
+        func_020e05f8(var0 + 0x20, arg2, arg4);
+        if (arg3 != 0) {
+            func_020e05f8(var0, arg3, arg4);
+            func_020dfd40(arg0, var0 + 0x20, var0);
         } else {
-            func_020dfd40(self, buf + 0x20, 0);
+            func_020dfd40(arg0, var0 + 0x20, 0);
         }
         return;
     }
 
-    if (ext != 0) {
-        func_020dfd40(self, fmt, ext);
+    if (arg3 != 0) {
+        func_020dfd40(arg0, arg2, arg3);
     } else {
-        func_020dfd40(self, fmt, 0);
+        func_020dfd40(arg0, arg2, 0);
     }
 }

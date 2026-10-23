@@ -16,20 +16,20 @@
 
 #include "Util/Random.h"
 
-struct Params021605d0 {
-	struct Random* random;
-	int fieldB;
-	int fieldC;
+struct Struct_ov000_021605d0 {
+	struct Random* unknown_0_;
+	int unknown_4_;
+	int unknown_8_;
 };
 
 // USA: func_ov000_021605d0
-extern "C" ARM void func_ov000_021605d0(unsigned char* obj, struct Params021605d0* params) {
-	*(struct Random**)(obj + REGION_OFFSET_0) = params->random;
-	*(int*)(obj + REGION_OFFSET_1) = params->fieldB;
-	*(int*)(obj + 0x4) = params->fieldC;
+extern "C" ARM void func_ov000_021605d0(unsigned char* arg0, struct Struct_ov000_021605d0* arg1) {
+	*(struct Random**)(arg0 + REGION_OFFSET_0) = arg1->unknown_0_;
+	*(int*)(arg0 + REGION_OFFSET_1) = arg1->unknown_4_;
+	*(int*)(arg0 + 0x4) = arg1->unknown_8_;
 
-	struct Random* random = *(struct Random**)(obj + REGION_OFFSET_0);
-	if (random == NULL) return;
-	*(unsigned int*)(obj + REGION_OFFSET_2 + REGION_OFFSET_3) = GetRandomStateHi(random);
-	*(unsigned int*)(obj + REGION_OFFSET_2 + REGION_OFFSET_4) = GetRandomStateLo(random);
+	struct Random* var0 = *(struct Random**)(arg0 + REGION_OFFSET_0);
+	if (var0 == NULL) return;
+	*(unsigned int*)(arg0 + REGION_OFFSET_2 + REGION_OFFSET_3) = GetRandomStateHi(var0);
+	*(unsigned int*)(arg0 + REGION_OFFSET_2 + REGION_OFFSET_4) = GetRandomStateLo(var0);
 }

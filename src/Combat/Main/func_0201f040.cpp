@@ -2,50 +2,50 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Script.h"
 
-struct ResetStruct;
+struct Struct_0201f040;
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
 int LoadFileIntoMemory(const char*, void*, unsigned int*);
 
 extern char data_0211e33c;
 extern char data_020ef418;
 
-struct Container0201f040 {
-    int f0;
-    void* field4;
-    void* field8;
+struct Struct_020fdc40_7 {
+    int unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
 };
-extern struct Container0201f040 data_020fdc40;
+extern struct Struct_020fdc40_7 data_020fdc40;
 
 // USA: func_0201f040
-extern "C" ARM void func_0201f040(void* p0, void* p1, struct StreamHeader* headerIn, unsigned int countIn) {
-    unsigned int count = countIn;
-    int flag = 0;
-    struct StreamHeader* header = headerIn;
-    char buf[0x430];
+extern "C" ARM void func_0201f040(void* arg0, void* arg1, struct Struct_02013fb4* arg2, unsigned int arg3) {
+    unsigned int var0 = arg3;
+    int var1 = 0;
+    struct Struct_02013fb4* var2 = arg2;
+    char var3[0x430];
 
-    if (header == NULL) {
-        int usedFlag;
+    if (var2 == NULL) {
+        int var4;
         BackgroundLoader::AddLockGlobal();
-        usedFlag = flag;
-        flag = 1;
-        header = (struct StreamHeader*)LoadFileIntoMemory((const char*)usedFlag, &data_0211e33c, &count);
+        var4 = var1;
+        var1 = 1;
+        var2 = (struct Struct_02013fb4*)LoadFileIntoMemory((const char*)var4, &data_0211e33c, &var0);
     }
-    if (header != NULL) {
-        data_020fdc40.field4 = p1;
-        data_020fdc40.field8 = p0;
-        ((Script*)((struct ResetStruct*)buf))->Initialize();
-        ((Script*)buf)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020ef418);
-        ((Script*)((struct StreamState*)buf))->Load(header, count);
-        ((Script*)((struct Struct02030774*)buf))->Execute();
-        data_020fdc40.field8 = 0;
-        data_020fdc40.field4 = 0;
+    if (var2 != NULL) {
+        data_020fdc40.unknown_4_ = arg1;
+        data_020fdc40.unknown_8_ = arg0;
+        ((Script*)((struct Struct_0201f040*)var3))->Initialize();
+        ((Script*)var3)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020ef418);
+        ((Script*)((struct Struct_0201f040_2*)var3))->Load(var2, var0);
+        ((Script*)((struct Struct_0201f040_3*)var3))->Execute();
+        data_020fdc40.unknown_8_ = 0;
+        data_020fdc40.unknown_4_ = 0;
     }
-    if (flag) {
+    if (var1) {
         BackgroundLoader::RemoveLockGlobal();
     }
 }

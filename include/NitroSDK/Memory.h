@@ -37,5 +37,5 @@ void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
 
 }
 
-extern "C" unsigned int func_020d8524(void* dst, const void* src, unsigned int length);
-extern "C" unsigned int func_020d84f8(void* dst, unsigned int length);
+extern "C" unsigned int func_020d8524(void* arg0, const void* arg1, unsigned int arg2);
+extern "C" unsigned int func_020d84f8(void* arg0, unsigned int arg1);

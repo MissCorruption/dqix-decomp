@@ -1,58 +1,58 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_02083e28(void* a, int arg2);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_02083e28(void* arg0, int arg1);
 
-struct Idx8_cf234 {
-    unsigned int idx : 8;
-    unsigned int rest : 24;
+struct Struct_ov017_021cf234 {
+    unsigned int unknown_0_0_ : 8;
+    unsigned int unknown_1_0_ : 24;
 };
 
-struct Packed3c_cf234 {
-    unsigned int fieldA : 10;
-    unsigned int fieldB : 10;
-    unsigned int fieldC : 10;
-    unsigned int fieldD : 2;
+struct Struct_ov017_021cf234_2 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct Src021cf234 {
-    char pad[4];
-    struct Packed3c_cf234 field4;
-    struct Packed3c_cf234 field8;
-    struct Packed3c_cf234 fieldc;
-    unsigned int field10;
+struct Struct_ov017_021cf234_3 {
+    char unknown_0_[4];
+    struct Struct_ov017_021cf234_2 unknown_4_;
+    struct Struct_ov017_021cf234_2 unknown_8_;
+    struct Struct_ov017_021cf234_2 unknown_c_;
+    unsigned int unknown_10_;
 };
 
 #if defined(jpn)
-enum { PackedSlotOffset = 0x7b8 };
+enum { Enum_ov017_021cf234_2128 = 0x7b8 };
 #else
-enum { PackedSlotOffset = 0x850 };
+enum { Enum_ov017_021cf234_2128 = 0x850 };
 #endif
 
 // USA: func_ov017_021cf234
-extern "C" ARM void func_ov017_021cf234(int unused0, struct Src021cf234* src, GameState* battleStruct) {
-    unsigned int id = (src->field10 << 21) >> 29;
-    GameObject* c = func_0200ff1c(battleStruct, id);
-    if (!c) return;
-    unsigned char* p = (unsigned char*)func_02053c6c((unsigned char*)c);
-    if (!p) return;
+extern "C" ARM void func_ov017_021cf234(int arg0, struct Struct_ov017_021cf234_3* arg1, GameState* arg2) {
+    unsigned int var0 = (arg1->unknown_10_ << 21) >> 29;
+    GameObject* var1 = func_0200ff1c(arg2, var0);
+    if (!var1) return;
+    unsigned char* var2 = (unsigned char*)func_02053c6c((unsigned char*)var1);
+    if (!var2) return;
 
-    unsigned int idxWide = ((struct Idx8_cf234*)&src->field10)->idx;
-    unsigned char idx = (unsigned char)idxWide;
-    unsigned char* base = p + PackedSlotOffset + idx * 0xc;
-    ((struct Packed3c_cf234*)(base + 0))->fieldA = src->field4.fieldA;
-    ((struct Packed3c_cf234*)(base + 0))->fieldB = src->field4.fieldB;
-    ((struct Packed3c_cf234*)(base + 0))->fieldC = src->field4.fieldC;
-    ((struct Packed3c_cf234*)(base + 4))->fieldA = src->field8.fieldA;
-    ((struct Packed3c_cf234*)(base + 4))->fieldB = src->field8.fieldB;
-    ((struct Packed3c_cf234*)(base + 4))->fieldC = src->field8.fieldC;
-    ((struct Packed3c_cf234*)(base + 8))->fieldA = src->fieldc.fieldA;
-    ((struct Packed3c_cf234*)(base + 8))->fieldB = src->fieldc.fieldB;
-    ((struct Packed3c_cf234*)(base + 8))->fieldC = src->fieldc.fieldC;
+    unsigned int var3 = ((struct Struct_ov017_021cf234*)&arg1->unknown_10_)->unknown_0_0_;
+    unsigned char var4 = (unsigned char)var3;
+    unsigned char* var5 = var2 + Enum_ov017_021cf234_2128 + var4 * 0xc;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 0))->unknown_0_0_ = arg1->unknown_4_.unknown_0_0_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 0))->unknown_1_2_ = arg1->unknown_4_.unknown_1_2_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 0))->unknown_2_4_ = arg1->unknown_4_.unknown_2_4_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 4))->unknown_0_0_ = arg1->unknown_8_.unknown_0_0_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 4))->unknown_1_2_ = arg1->unknown_8_.unknown_1_2_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 4))->unknown_2_4_ = arg1->unknown_8_.unknown_2_4_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 8))->unknown_0_0_ = arg1->unknown_c_.unknown_0_0_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 8))->unknown_1_2_ = arg1->unknown_c_.unknown_1_2_;
+    ((struct Struct_ov017_021cf234_2*)(var5 + 8))->unknown_2_4_ = arg1->unknown_c_.unknown_2_4_;
 
-    unsigned int flag = (src->field10 << 20) >> 31;
-    if (flag) {
-        func_02083e28(p, 0);
+    unsigned int var6 = (arg1->unknown_10_ << 20) >> 31;
+    if (var6) {
+        func_02083e28(var2, 0);
     }
 }

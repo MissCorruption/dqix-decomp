@@ -2,34 +2,34 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_02155f9c(struct Random* rand, int combatantId, int zero);
-extern "C" float func_ov000_02156270(struct Random* rand, int combatantId);
-extern "C" int func_ov000_02156404(GameObject* combatant);
+extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" float func_ov000_02156270(struct Random* arg0, int arg1);
+extern "C" int func_ov000_02156404(GameObject* arg0);
 
-struct FlagsObj02156f98 {
-    char pad[0x10];
-    unsigned int field10;
+struct Struct_ov000_02156f98 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_;
 };
 
 // USA: func_ov000_02156f98
-extern "C" ARM int func_ov000_02156f98(struct Random* rand, int combatantId, struct FlagsObj02156f98* flagsObj) {
+extern "C" ARM int func_ov000_02156f98(struct Random* arg0, int arg1, struct Struct_ov000_02156f98* arg2) {
     GameState::GetInstance();
-    if (!(flagsObj->field10 & 0x20)) {
+    if (!(arg2->unknown_10_ & 0x20)) {
         return 0;
     }
-    if (func_ov000_02155f9c(rand, combatantId, 0) != 0) {
+    if (func_ov000_02155f9c(arg0, arg1, 0) != 0) {
         return 0;
     }
-    GameState* bs = GameState::GetInstance();
-    GameObject* combatant = bs->GetCombatantByIndex(combatantId);
-    if (combatant == 0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetCombatantByIndex(arg1);
+    if (var1 == 0) {
         return 0;
     }
-    if (func_ov000_02156404(combatant)) {
-        short val = *(short*)((char*)rand + 0x8e00 + 0x6e);
-        return val < 0x32;
+    if (func_ov000_02156404(var1)) {
+        short var2 = *(short*)((char*)arg0 + 0x8e00 + 0x6e);
+        return var2 < 0x32;
     }
-    float chance = func_ov000_02156270(rand, combatantId);
-    int roll = NextRandomMax(rand, 100);
-    return roll < (int)chance;
+    float var3 = func_ov000_02156270(arg0, arg1);
+    int var4 = NextRandomMax(arg0, 100);
+    return var4 < (int)var3;
 }

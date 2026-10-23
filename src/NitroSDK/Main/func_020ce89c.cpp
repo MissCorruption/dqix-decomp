@@ -32,43 +32,43 @@
 #define RETRY_WAIT_CYCLES 0xa3a47
 #define LCD_POWER_WAIT_CYCLES 0x360000
 
-struct CallbackNodeCEF0C;
+struct Struct_020cef0c;
 
-struct PMStatics
+struct Struct_021117ec_5
 {
-    unsigned short isInit;
-    unsigned long lcdCount;
-    unsigned long initCount;
-    volatile int sleepEndFlag;
-    unsigned long command16Value;
-    CallbackNodeCEF0C* postSleepCallbackList;
-    CallbackNodeCEF0C* preSleepCallbackList;
+    unsigned short unknown_0_;
+    unsigned long unknown_4_;
+    unsigned long unknown_8_;
+    volatile int unknown_c_;
+    unsigned long unknown_10_;
+    Struct_020cef0c* unknown_14_;
+    Struct_020cef0c* unknown_18_;
 };
 
-extern PMStatics data_021117ec;
+extern Struct_021117ec_5 data_021117ec;
 
-static inline int DisableIrq()
+static inline int inline_020ce89c()
 {
-    const unsigned short prep = IME;
+    const unsigned short var0 = IME;
     IME = 0;
-    return prep;
+    return var0;
 }
 
-static inline int EnableIrq()
+static inline int inline_020ce89c_2()
 {
-    const unsigned short prep = IME;
+    const unsigned short var0 = IME;
     IME = 1;
-    return prep;
+    return var0;
 }
 
-static inline int RestoreIrq(int enable)
+static inline int inline_020ce89c_3(int arg0)
 {
-    const unsigned short prep = IME;
-    IME = enable;
-    return prep;
+    const unsigned short var0 = IME;
+    IME = arg0;
+    return var0;
 }
 
-static inline unsigned long GetVBlankCount()
+static inline unsigned long inline_020ce89c_4()
 {
     return VBLANK_COUNT;
 }
@@ -76,97 +76,97 @@ static inline unsigned long GetVBlankCount()
 extern "C" void func_020c976c(unsigned long cycles);
 extern "C" void func_020c9bf0();
 extern "C" int func_020d135c();
-extern "C" int func_020ceba8(int sw, int led, int skip, int isSync);
-extern "C" void func_020cef0c(CallbackNodeCEF0C* list);
+extern "C" int func_020ceba8(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_020cef0c(Struct_020cef0c* arg0);
 int DisableIRQInterrupts();
 int SetIRQInterruptState(int);
 unsigned int DisableSpecificInterrupts(unsigned int mask);
 unsigned int SetSpecificInterruptsEnabled(unsigned int mask);
 int Is64BitTimerInitialized();
 extern "C" int func_020cede0();
-extern "C" unsigned long func_020ce810(int* top, int* bottom);
-extern "C" unsigned long func_020ce6d0(int target, int sw);
-extern "C" unsigned long func_020ce614(int status);
-extern "C" unsigned long func_020ce45c(int trigger, int keyIntrData);
+extern "C" unsigned long func_020ce810(int* arg0, int* arg1);
+extern "C" unsigned long func_020ce6d0(int arg0, int arg1);
+extern "C" unsigned long func_020ce614(int arg0);
+extern "C" unsigned long func_020ce45c(int arg0, int arg1);
 extern "C" unsigned long func_020ce7a4();
 
 // USA: func_020ce89c
-extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPattern)
+extern "C" ARM void func_020ce89c(int arg0, int arg1, unsigned short arg2)
 {
-    int prepIrq;
-    int prepIntrMode;
-    unsigned int prepIntrMask;
-    int powerOffFlag = false;
-    int preTop;
-    int preBottom;
-    unsigned long preGX;
-    unsigned long preGXS;
-    int preLCDPower;
+    int var0;
+    int var1;
+    unsigned int var2;
+    int var3 = false;
+    int var4;
+    int var5;
+    unsigned long var6;
+    unsigned long var7;
+    int var8;
 
-    func_020cef0c(data_021117ec.preSleepCallbackList);
+    func_020cef0c(data_021117ec.unknown_18_);
 
-    prepIrq = DisableIrq();
-    prepIntrMode = DisableIRQInterrupts();
-    prepIntrMask = DisableSpecificInterrupts(IE_ALL);
+    var0 = inline_020ce89c();
+    var1 = DisableIRQInterrupts();
+    var2 = DisableSpecificInterrupts(IE_ALL);
     SetSpecificInterruptsEnabled(IE_FIFO_RECV | (Is64BitTimerInitialized() ? IE_TIMER0 : 0));
-    SetIRQInterruptState(prepIntrMode);
-    EnableIrq();
+    SetIRQInterruptState(var1);
+    inline_020ce89c_2();
 
-    if (trigger & PM_TRIGGER_CARD)
+    if (arg0 & PM_TRIGGER_CARD)
     {
         if (BOOT_TYPE == BOOT_TYPE_MULTIBOOT)
-            trigger &= ~PM_TRIGGER_CARD;
+            arg0 &= ~PM_TRIGGER_CARD;
     }
-    if (trigger & PM_TRIGGER_CARTRIDGE)
+    if (arg0 & PM_TRIGGER_CARTRIDGE)
     {
         if (!func_020d135c())
-            trigger &= ~PM_TRIGGER_CARTRIDGE;
+            arg0 &= ~PM_TRIGGER_CARTRIDGE;
     }
 
-    preGX = DISPCNT;
-    preGXS = DISPCNTSUB;
-    preLCDPower = func_020cede0();
-    if (func_020ce810(&preTop, &preBottom) != PM_SUCCESS)
+    var6 = DISPCNT;
+    var7 = DISPCNTSUB;
+    var8 = func_020cede0();
+    if (func_020ce810(&var4, &var5) != PM_SUCCESS)
         do
             func_020c976c(RETRY_WAIT_CYCLES);
-        while (func_020ce810(&preTop, &preBottom) != PM_SUCCESS);
+        while (func_020ce810(&var4, &var5) != PM_SUCCESS);
     if (func_020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS)
         do
             func_020c976c(RETRY_WAIT_CYCLES);
         while (func_020ce6d0(PM_LCD_ALL, PM_BACKLIGHT_OFF) != PM_SUCCESS);
 
     {
-        volatile unsigned long vcount = GetVBlankCount();
-        while (vcount == GetVBlankCount())
+        volatile unsigned long var9 = inline_020ce89c_4();
+        while (var9 == inline_020ce89c_4())
         {
         }
-        vcount = GetVBlankCount();
+        var9 = inline_020ce89c_4();
         DISPCNT = DISPCNT & ~0x30000;
         DISPCNTSUB = DISPCNTSUB & ~0x10000;
-        while (vcount == GetVBlankCount())
+        while (var9 == inline_020ce89c_4())
         {
         }
-        vcount = GetVBlankCount();
-        while (vcount == GetVBlankCount())
+        var9 = inline_020ce89c_4();
+        while (var9 == inline_020ce89c_4())
         {
         }
     }
 
-    data_021117ec.sleepEndFlag = false;
+    data_021117ec.unknown_c_ = false;
     func_020ce45c(
-        (unsigned short)(trigger | (preTop ? BACKLIGHT_RECOVER_TOP_ON : 0) | (preBottom ? BACKLIGHT_RECOVER_BOTTOM_ON : 0)),
-        (unsigned short)(logic | keyPattern));
-    if (!data_021117ec.sleepEndFlag)
+        (unsigned short)(arg0 | (var4 ? BACKLIGHT_RECOVER_TOP_ON : 0) | (var5 ? BACKLIGHT_RECOVER_BOTTOM_ON : 0)),
+        (unsigned short)(arg1 | arg2));
+    if (!data_021117ec.unknown_c_)
         do
             func_020c9bf0();
-        while (!data_021117ec.sleepEndFlag);
+        while (!data_021117ec.unknown_c_);
 
-    if ((trigger & PM_TRIGGER_CARD) && (IF & IE_CARD_IREQ))
-        powerOffFlag = true;
+    if ((arg0 & PM_TRIGGER_CARD) && (IF & IE_CARD_IREQ))
+        var3 = true;
 
-    if (!powerOffFlag)
+    if (!var3)
     {
-        if (preLCDPower == PM_LCD_POWER_ON)
+        if (var8 == PM_LCD_POWER_ON)
         {
             while (func_020ceba8(PM_LCD_POWER_ON, PM_LED_ON, true, true) != true)
             {
@@ -179,19 +179,19 @@ extern "C" ARM void func_020ce89c(int trigger, int logic, unsigned short keyPatt
                     func_020c976c(RETRY_WAIT_CYCLES);
                 while (func_020ce614(PM_LED_ON) != PM_SUCCESS);
         }
-        DISPCNT = preGX;
-        DISPCNTSUB = preGXS;
+        DISPCNT = var6;
+        DISPCNTSUB = var7;
     }
 
     func_020c976c(LCD_POWER_WAIT_CYCLES);
 
     DisableIRQInterrupts();
-    SetSpecificInterruptsEnabled(prepIntrMask);
-    SetIRQInterruptState(prepIntrMode);
-    RestoreIrq(prepIrq);
+    SetSpecificInterruptsEnabled(var2);
+    SetIRQInterruptState(var1);
+    inline_020ce89c_3(var0);
 
-    if (powerOffFlag)
+    if (var3)
         func_020ce7a4();
 
-    func_020cef0c(data_021117ec.postSleepCallbackList);
+    func_020cef0c(data_021117ec.unknown_14_);
 }

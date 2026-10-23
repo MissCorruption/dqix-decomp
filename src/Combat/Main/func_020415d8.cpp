@@ -2,36 +2,36 @@
 
 extern "C" void func_02037d10(void*);
 
-struct State020415d8 {
-    unsigned short flags_00;
+struct Struct_020415d8 {
+    unsigned short unknown_0_;
 #if defined(jpn)
-    char pad_02[0x2c2];
+    char unknown_2_[0x2c2];
 #else
-    char pad_02[0x2ce];
+    char unknown1_2_[0x2ce];
 #endif
-    unsigned short field_2d0;
-    char pad_2d2[2];
-    int field_2d4;
-    char pad_2d8[0xc];
-    int field_2e4;
-    unsigned char field_2e8;
-    char pad_2e9[3];
-    int field_2ec;
-    unsigned char field_2f0;
-    char pad_2f1[3];
-    int field_2f4;
+    unsigned short unknown_2d0_;
+    char unknown_2d2_[2];
+    int unknown_2d4_;
+    char unknown_2d8_[0xc];
+    int unknown_2e4_;
+    unsigned char unknown_2e8_;
+    char unknown_2e9_[3];
+    int unknown_2ec_;
+    unsigned char unknown_2f0_;
+    char unknown_2f1_[3];
+    int unknown_2f4_;
 };
 
 // USA: func_020415d8
-extern "C" ARM void func_020415d8(struct State020415d8* obj) {
-    func_02037d10(obj);
-    obj->field_2d0 = 0;
-    obj->field_2d4 = 0;
-    obj->field_2e4 = 0;
-    obj->field_2e8 = 0;
-    obj->field_2f4 = 0;
-    obj->field_2ec = 0x7a;
-    obj->field_2f0 = 0;
-    obj->flags_00 |= 0x4000;
-    obj->flags_00 &= ~0x80;
+extern "C" ARM void func_020415d8(struct Struct_020415d8* arg0) {
+    func_02037d10(arg0);
+    arg0->unknown_2d0_ = 0;
+    arg0->unknown_2d4_ = 0;
+    arg0->unknown_2e4_ = 0;
+    arg0->unknown_2e8_ = 0;
+    arg0->unknown_2f4_ = 0;
+    arg0->unknown_2ec_ = 0x7a;
+    arg0->unknown_2f0_ = 0;
+    arg0->unknown_0_ |= 0x4000;
+    arg0->unknown_0_ &= ~0x80;
 }

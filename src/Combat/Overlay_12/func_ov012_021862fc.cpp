@@ -3,51 +3,51 @@
 #include "Memory/SafeAllocator.h"
 
 
-struct Struct0205a198;
-extern "C" void func_0205a198(struct Struct0205a198* p);
+struct Struct_02043368_2;
+extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
 
-extern "C" void func_0205a444(char* obj);
+extern "C" void func_0205a444(char* arg0);
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-extern "C" void func_0205a528(void* a, void* ptr, int val, void* d);
+extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 
 // USA: func_ov012_021862fc
-extern "C" ARM void func_ov012_021862fc(char* self) {
-    int listPtr = (int)BackgroundLoader::GetInstance();
+extern "C" ARM void func_ov012_021862fc(char* arg0) {
+    int var0 = (int)BackgroundLoader::GetInstance();
 
-    for (int i = 0; i < 3; i++) {
-        func_0205a198((struct Struct0205a198*)(*(char**)(self + 0x1000 + 0x36c) + i * 0x28));
+    for (int var1 = 0; var1 < 3; var1++) {
+        func_0205a198((struct Struct_02043368_2*)(*(char**)(arg0 + 0x1000 + 0x36c) + var1 * 0x28));
     }
 
-    func_0205a444(*(char**)(self + 0x1000 + 0x368));
+    func_0205a444(*(char**)(arg0 + 0x1000 + 0x368));
 
-    *(unsigned char*)(*(char**)(self + 0x1000 + 0x368) + 0x50) = 1;
+    *(unsigned char*)(*(char**)(arg0 + 0x1000 + 0x368) + 0x50) = 1;
 
-    char* p1 = *(char**)(self + 0x1000 + 0x368);
-    *(int*)(p1 + 0x40) = *(int*)(self + 0x1000 + 0x36c);
-    *(short*)(p1 + 0x4c) = 3;
+    char* var2 = *(char**)(arg0 + 0x1000 + 0x368);
+    *(int*)(var2 + 0x40) = *(int*)(arg0 + 0x1000 + 0x36c);
+    *(short*)(var2 + 0x4c) = 3;
 
-    void* recOut;
-    int out1;
-    int out2;
-    int fieldOut;
-    ((BackgroundLoader*)((struct List0202fec8*)listPtr))->GetLoadedFileByID((int)(*(int*)(self + 0x1000 + 0x394)), (void**)(&out1), (unsigned int*)(&out2));
+    void* var3;
+    int var4;
+    int var5;
+    int var6;
+    ((BackgroundLoader*)((struct Struct_020534ac*)var0))->GetLoadedFileByID((int)(*(int*)(arg0 + 0x1000 + 0x394)), (void**)(&var4), (unsigned int*)(&var5));
 
-    int count = func_02046900((struct ActiveEntry02046900*)out1);
-    ((SafeAllocator*)(self + 0x98))->Reset();
+    int var7 = func_02046900((struct Struct_02020cb8_4*)var4);
+    ((SafeAllocator*)(arg0 + 0x98))->Reset();
 
-    for (int i = 0; i < count; i++) {
-        void* result = func_020467f0((struct Rec020467f0*)out1, i, &recOut, &fieldOut);
-        func_0205a528(*(char**)(self + 0x1000 + 0x368), result, fieldOut, self + 0x98);
+    for (int var8 = 0; var8 < var7; var8++) {
+        void* var9 = func_020467f0((struct Struct_02020aec*)var4, var8, &var3, &var6);
+        func_0205a528(*(char**)(arg0 + 0x1000 + 0x368), var9, var6, arg0 + 0x98);
     }
 
-    ((BackgroundLoader*)(listPtr))->RemoveTask((int)(*(int*)(self + 0x1000 + 0x394)));
-    *(int*)(self + 0x1000 + 0x394) = -1;
+    ((BackgroundLoader*)(var0))->RemoveTask((int)(*(int*)(arg0 + 0x1000 + 0x394)));
+    *(int*)(arg0 + 0x1000 + 0x394) = -1;
 }

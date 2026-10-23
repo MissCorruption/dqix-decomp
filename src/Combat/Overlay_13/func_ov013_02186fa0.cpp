@@ -13,60 +13,60 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct EntryList0204af14;
-extern "C" void* func_0204af14(struct EntryList0204af14* list, unsigned int index);
+struct Struct_0204af14;
+extern "C" void* func_0204af14(struct Struct_0204af14* arg0, unsigned int arg1);
 
 void CleanInvalidateCacheRange(const void* where, unsigned int len);
 extern "C" void LoadToMainBG1CharacterData(int, int, unsigned int);
 
-struct List0204b0e8;
-extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
 
-struct Struct02074bd0;
-extern "C" void func_02074bd0(struct Struct02074bd0* obj);
+struct Struct_02074bd0;
+extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
 
-struct Struct02074bf4;
-extern "C" void func_02074bf4(struct Struct02074bf4* obj);
+struct Struct_02074bf4;
+extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 
 // USA: func_ov013_02186fa0
-extern "C" ARM void func_ov013_02186fa0(unsigned char* obj) {
-    FontBankLoader* g = func_02094a00();
-    func_02094b38(g, 0x68);
-    func_02094ab0(g);
+extern "C" ARM void func_ov013_02186fa0(unsigned char* arg0) {
+    Struct_0208cb08* var0 = func_02094a00();
+    func_02094b38(var0, 0x68);
+    func_02094ab0(var0);
 
-    if (obj[R(0x50,0x64)] == 0) {
-        void* entry = func_0204af14((struct EntryList0204af14*)(obj + 0x28), 0);
-        void* buf;
-        if (entry != 0 && (buf = *(void**)((char*)entry + 0xc)) != 0) {
-            memset(buf, 0, 0x600);
-            CleanInvalidateCacheRange(buf, 0x20);
-            LoadToMainBG1CharacterData((int)buf, 0, 0x20);
-            func_0204b0e8((struct List0204b0e8*)(obj + 0x28), buf);
+    if (arg0[R(0x50,0x64)] == 0) {
+        void* var1 = func_0204af14((struct Struct_0204af14*)(arg0 + 0x28), 0);
+        void* var2;
+        if (var1 != 0 && (var2 = *(void**)((char*)var1 + 0xc)) != 0) {
+            memset(var2, 0, 0x600);
+            CleanInvalidateCacheRange(var2, 0x20);
+            LoadToMainBG1CharacterData((int)var2, 0, 0x20);
+            func_0204b0e8((struct Struct_02020cb8_2*)(arg0 + 0x28), var2);
         }
 
-        func_02074bd0((struct Struct02074bd0*)(obj + 0x14));
+        func_02074bd0((struct Struct_02074bd0*)(arg0 + 0x14));
         {
-            volatile unsigned int* reg = (unsigned int*)0x4000000;
-            *reg = (*reg & ~0x1f00) | (*(unsigned int*)(obj + R(0x4c,0x60)) << 8);
+            volatile unsigned int* var3 = (unsigned int*)0x4000000;
+            *var3 = (*var3 & ~0x1f00) | (*(unsigned int*)(arg0 + R(0x4c,0x60)) << 8);
         }
     } else {
-        func_02074bf4((struct Struct02074bf4*)(obj + 0x14));
+        func_02074bf4((struct Struct_02074bf4*)(arg0 + 0x14));
         {
-            volatile unsigned int* reg = (unsigned int*)0x4001000;
-            *reg = (*reg & ~0x1f00) | (*(unsigned int*)(obj + R(0x4c,0x60)) << 8);
+            volatile unsigned int* var4 = (unsigned int*)0x4001000;
+            *var4 = (*var4 & ~0x1f00) | (*(unsigned int*)(arg0 + R(0x4c,0x60)) << 8);
         }
     }
 
-    if (*(int*)(obj + R(0x48,0x5c)) >= 0) {
-        int a = (int)BackgroundLoader::GetInstance();
-        ((BackgroundLoader*)(a))->RemoveTask((int)(*(int*)(obj + R(0x48,0x5c))));
-        *(int*)(obj + R(0x48,0x5c)) = -1;
+    if (*(int*)(arg0 + R(0x48,0x5c)) >= 0) {
+        int var5 = (int)BackgroundLoader::GetInstance();
+        ((BackgroundLoader*)(var5))->RemoveTask((int)(*(int*)(arg0 + R(0x48,0x5c))));
+        *(int*)(arg0 + R(0x48,0x5c)) = -1;
     }
 
-    if (*(void**)(obj + 0x0) == 0) return;
+    if (*(void**)(arg0 + 0x0) == 0) return;
 
-    unsigned char i;
-    for (i = 0; i < R(4,5); i++) {
-        ((SafeAllocator*)(*(void**)(obj + 0x0)))[i].Destroy();
+    unsigned char var6;
+    for (var6 = 0; var6 < R(4,5); var6++) {
+        ((SafeAllocator*)(*(void**)(arg0 + 0x0)))[var6].Destroy();
     }
 }

@@ -2,52 +2,52 @@
 #include "NitroSDK/Matrix.h"
 #include "Graphics/Vector.h"
 
-struct Camera0216f2b8 {
-    unsigned char pad0[4];
-    Vector3fix pos;
-    unsigned char pad10[0x220 - 0x10];
-    unsigned char mode;
-    unsigned char pad221[0x258 - 0x221];
-    fix32_t height;
-    unsigned char pad25c[4];
-    unsigned char clampHeight;
+struct Struct_ov000_0216f2b8 {
+    unsigned char unknown_0_[4];
+    Vector3fix unknown_4_;
+    unsigned char unknown_10_[0x220 - 0x10];
+    unsigned char unknown_220_;
+    unsigned char unknown_221_[0x258 - 0x221];
+    fix32_t unknown_258_;
+    unsigned char unknown_25c_[4];
+    unsigned char unknown_260_;
 };
 
-extern "C" fix32_t func_ov000_0216f210(struct Camera0216f2b8* self, fix32_t* outLength);
-extern "C" void func_0202eab8(struct Camera0216f2b8* self);
+extern "C" fix32_t func_ov000_0216f210(struct Struct_ov000_0216f2b8* arg0, fix32_t* arg1);
+extern "C" void func_0202eab8(struct Struct_ov000_0216f2b8* arg0);
 
 // USA: func_ov000_0216f2b8
-extern "C" ARM void func_ov000_0216f2b8(struct Camera0216f2b8* self) {
-    if (self->mode == 3) {
+extern "C" ARM void func_ov000_0216f2b8(struct Struct_ov000_0216f2b8* arg0) {
+    if (arg0->unknown_220_ == 3) {
         return;
     }
-    Vector3fix pos = self->pos;
-    fix32_t length;
-    bool changed = false;
-    fix32_t target = func_ov000_0216f210(self, &length);
-    if (length > 0x11000) {
-        Vector3fix dir = pos;
-        dir.y = 0;
-        Vector3fix_Normalize(&dir, &dir);
-        Vector3fixMultiplyScalar(&dir, 0x11000, &dir);
-        pos.x = dir.x;
-        pos.z = dir.z;
-        changed = true;
+    Vector3fix var0 = arg0->unknown_4_;
+    fix32_t var1;
+    bool var2 = false;
+    fix32_t var3 = func_ov000_0216f210(arg0, &var1);
+    if (var1 > 0x11000) {
+        Vector3fix var4 = var0;
+        var4.y = 0;
+        Vector3fix_Normalize(&var4, &var4);
+        Vector3fixMultiplyScalar(&var4, 0x11000, &var4);
+        var0.x = var4.x;
+        var0.z = var4.z;
+        var2 = true;
     }
-    target = FIX32_MULTIPLY(target - self->height, 0x333);
-    self->height += target;
-    if (self->clampHeight) {
-        if (pos.y < self->height) {
-            pos.y = self->height;
-            changed = true;
+    var3 = FIX32_MULTIPLY(var3 - arg0->unknown_258_, 0x333);
+    arg0->unknown_258_ += var3;
+    if (arg0->unknown_260_) {
+        if (var0.y < arg0->unknown_258_) {
+            var0.y = arg0->unknown_258_;
+            var2 = true;
         }
     }
-    if (pos.y > 0x5000) {
-        pos.y = 0x5000;
-        changed = true;
+    if (var0.y > 0x5000) {
+        var0.y = 0x5000;
+        var2 = true;
     }
-    if (changed) {
-        self->pos = pos;
-        func_0202eab8(self);
+    if (var2) {
+        arg0->unknown_4_ = var0;
+        func_0202eab8(arg0);
     }
 }

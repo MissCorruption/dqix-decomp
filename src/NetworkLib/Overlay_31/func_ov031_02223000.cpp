@@ -1,57 +1,57 @@
 #include <globaldefs.h>
 
-struct Obj0223bcc8;
-struct Selection02223000 {
-    Obj0223bcc8* entries[4];
-    void* task;
-    unsigned short timer;
-    signed char selected;
-    unsigned char type;
-    unsigned char busy;
+struct Struct_ov031_02222ce4;
+struct Struct_ov031_02223000_2 {
+    Struct_ov031_02222ce4* unknown_0_[4];
+    void* unknown_10_;
+    unsigned short unknown_14_;
+    signed char unknown_16_;
+    unsigned char unknown_17_;
+    unsigned char unknown_18_;
 };
-struct Point02223000 { unsigned short x, y; };
-struct Bounds02223000 { unsigned short x, y, x2, y2; };
-struct Style02223000 { unsigned short first, second; };
-extern Selection02223000* data_ov031_02250ba8;
+struct Struct_ov031_02248918 { unsigned short unknown_0_, unknown_2_; };
+struct Struct_ov031_02223000 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
+struct Struct_ov031_0224891e { unsigned short unknown_0_, unknown_2_; };
+extern Struct_ov031_02223000_2* data_ov031_02250ba8;
 extern unsigned char data_ov031_02248940[];
-extern Point02223000 data_ov031_0224891c[];
+extern Struct_ov031_02248918 data_ov031_0224891c[];
 extern unsigned char data_ov031_02248932[][2];
-extern Point02223000 data_ov031_02248918;
+extern Struct_ov031_02248918 data_ov031_02248918;
 extern unsigned char data_ov031_02248924[][2];
-extern Style02223000 data_ov031_0224891e[];
-extern "C" void func_ov031_0223cb34(Point02223000*, Point02223000*, Bounds02223000*);
-extern "C" int func_ov031_0223d49c(Bounds02223000*);
-extern "C" void* func_ov031_0223baa0(Obj0223bcc8*, int);
+extern Struct_ov031_0224891e data_ov031_0224891e[];
+extern "C" void func_ov031_0223cb34(Struct_ov031_02248918*, Struct_ov031_02248918*, Struct_ov031_02223000*);
+extern "C" int func_ov031_0223d49c(Struct_ov031_02223000*);
+extern "C" void* func_ov031_0223baa0(Struct_ov031_02222ce4*, int);
 extern "C" void func_ov031_0223bdb0(int, int, void*);
-extern "C" void func_ov031_0223bbd8(Obj0223bcc8*, int, int, int);
-extern "C" void func_ov031_0223bcc8(Obj0223bcc8*, int, int);
+extern "C" void func_ov031_0223bbd8(Struct_ov031_02222ce4*, int, int, int);
+extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
 extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02223268();
 
 // USA: func_ov031_02223000
 extern "C" ARM void func_ov031_02223000() {
-    int count = data_ov031_02248940[data_ov031_02250ba8->type];
-    if (data_ov031_02250ba8->busy) goto reset;
+    int var0 = data_ov031_02248940[data_ov031_02250ba8->unknown_17_];
+    if (data_ov031_02250ba8->unknown_18_) goto reset;
     {
-        if (data_ov031_02250ba8->selected != -1) return;
-        int i = 0;
-        if (count > 0) do {
-            Bounds02223000 bounds;
-            func_ov031_0223cb34(&data_ov031_0224891c[data_ov031_02248932[data_ov031_02250ba8->type][i]], &data_ov031_02248918, &bounds);
-            if (func_ov031_0223d49c(&bounds)) {
-                if (data_ov031_02250ba8->task) break;
-                int id = data_ov031_02248924[data_ov031_02250ba8->type][i];
-                func_ov031_0223bdb0(0, id + 1, func_ov031_0223baa0(data_ov031_02250ba8->entries[i], 0));
-                int style = data_ov031_02248932[data_ov031_02250ba8->type][i];
-                func_ov031_0223bbd8(data_ov031_02250ba8->entries[i], -1, data_ov031_0224891c[style].x, data_ov031_0224891e[style].first);
-                func_ov031_0223bcc8(data_ov031_02250ba8->entries[i], -1, 1);
-                data_ov031_02250ba8->task = func_ov031_0223e218(0, (void*)func_ov031_02223268, 0, 0x6e);
-                data_ov031_02250ba8->selected = i;
+        if (data_ov031_02250ba8->unknown_16_ != -1) return;
+        int var1 = 0;
+        if (var0 > 0) do {
+            Struct_ov031_02223000 var2;
+            func_ov031_0223cb34(&data_ov031_0224891c[data_ov031_02248932[data_ov031_02250ba8->unknown_17_][var1]], &data_ov031_02248918, &var2);
+            if (func_ov031_0223d49c(&var2)) {
+                if (data_ov031_02250ba8->unknown_10_) break;
+                int var3 = data_ov031_02248924[data_ov031_02250ba8->unknown_17_][var1];
+                func_ov031_0223bdb0(0, var3 + 1, func_ov031_0223baa0(data_ov031_02250ba8->unknown_0_[var1], 0));
+                int var4 = data_ov031_02248932[data_ov031_02250ba8->unknown_17_][var1];
+                func_ov031_0223bbd8(data_ov031_02250ba8->unknown_0_[var1], -1, data_ov031_0224891c[var4].unknown_0_, data_ov031_0224891e[var4].unknown_0_);
+                func_ov031_0223bcc8(data_ov031_02250ba8->unknown_0_[var1], -1, 1);
+                data_ov031_02250ba8->unknown_10_ = func_ov031_0223e218(0, (void*)func_ov031_02223268, 0, 0x6e);
+                data_ov031_02250ba8->unknown_16_ = var1;
                 return;
             }
-            i++;
-        } while (i < count);
+            var1++;
+        } while (var1 < var0);
     }
 reset:
-    data_ov031_02250ba8->selected = -1;
+    data_ov031_02250ba8->unknown_16_ = -1;
 }

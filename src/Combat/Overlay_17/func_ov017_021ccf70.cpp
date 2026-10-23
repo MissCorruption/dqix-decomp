@@ -2,37 +2,37 @@
 
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_02083b60(unsigned char* obj, int index);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_02083b60(unsigned char* arg0, int arg1);
 
-struct Hdr021ccf70 {
-	unsigned char id : 3;
-	unsigned char count : 4;
-	unsigned char pad : 1;
+struct Struct_ov017_021ccf70 {
+	unsigned char unknown_0_0_ : 3;
+	unsigned char unknown_0_3_ : 4;
+	unsigned char unknown_0_7_ : 1;
 };
 
-struct ByteBitList {
-    Hdr021ccf70 header;
-    unsigned char bitIndices[15];
+struct Struct_ov017_021ccf70_2 {
+    Struct_ov017_021ccf70 unknown_0_;
+    unsigned char unknown_1_[15];
 };
 
-struct ByteBitListEvent {
-    unsigned char unknown0[4];
-    ByteBitList payload;
+struct Struct_ov017_021ccf70_3 {
+    unsigned char unknown_0_[4];
+    Struct_ov017_021ccf70_2 unknown_4_;
 };
 
 // USA: func_ov017_021ccf70
-extern "C" ARM void func_ov017_021ccf70(int unused0, unsigned char* obj, GameState* battleStruct) {
-    ByteBitList* list = &((ByteBitListEvent*)obj)->payload;
-    Hdr021ccf70* hdr = &list->header;
-	GameObject* c = func_0200ff1c(battleStruct, hdr->id);
-	if (!c) return;
+extern "C" ARM void func_ov017_021ccf70(int arg0, unsigned char* arg1, GameState* arg2) {
+    Struct_ov017_021ccf70_2* var0 = &((Struct_ov017_021ccf70_3*)arg1)->unknown_4_;
+    Struct_ov017_021ccf70* var1 = &var0->unknown_0_;
+	GameObject* var2 = func_0200ff1c(arg2, var1->unknown_0_0_);
+	if (!var2) return;
 
-	unsigned char* base = (unsigned char*)func_02053c6c((unsigned char*)c);
-	if (!base) return;
+	unsigned char* var3 = (unsigned char*)func_02053c6c((unsigned char*)var2);
+	if (!var3) return;
 
-	for (int i = 0; i < hdr->count; i++) {
-        func_02083b60(base, list->bitIndices[i]);
+	for (int var4 = 0; var4 < var1->unknown_0_3_; var4++) {
+        func_02083b60(var3, var0->unknown_1_[var4]);
 	}
 }

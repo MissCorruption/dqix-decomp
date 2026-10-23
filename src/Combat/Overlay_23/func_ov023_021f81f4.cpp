@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-extern "C" void __clear(void* buf, int n);
+extern "C" void __clear(void* arg0, int arg1);
 
-struct Vec3_021f81f4 { int x; int y; int z; };
+struct Struct_ov023_021f81f4_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
-struct Obj021f81f4 {
-    char pad[0x100];
-    unsigned short field100;
-    unsigned short field102;
+struct Struct_ov023_021f81f4 {
+    char unknown_0_[0x100];
+    unsigned short unknown_100_;
+    unsigned short unknown_102_;
 };
 
 // USA: func_ov023_021f81f4
-extern "C" ARM void func_ov023_021f81f4(struct Vec3_021f81f4* out, struct Obj021f81f4* src) {
-    int tmp[3];
-    __clear(tmp, 0xc);
-    tmp[0] = src->field100 << 0xc;
-    tmp[1] = src->field102 << 0xc;
-    *(int(*)[3])out = *(int(*)[3])tmp;
+extern "C" ARM void func_ov023_021f81f4(struct Struct_ov023_021f81f4_2* arg0, struct Struct_ov023_021f81f4* arg1) {
+    int var0[3];
+    __clear(var0, 0xc);
+    var0[0] = arg1->unknown_100_ << 0xc;
+    var0[1] = arg1->unknown_102_ << 0xc;
+    *(int(*)[3])arg0 = *(int(*)[3])var0;
 }

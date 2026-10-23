@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct FontIndexFile
+struct Struct_0206b974_2
 {
-    struct Glyph
+    struct Struct_0206b974_3
     {
-        const char* tag;
-        int8_t width;
-        int8_t tagLength : 6;
-        int8_t isVowel : 1;
-        int8_t unk_5_bit_7 : 1;
-        char unk_6[2];
+        const char* unknown_0_;
+        int8_t unknown_4_;
+        int8_t unknown_5_0_ : 6;
+        int8_t unknown_5_6_ : 1;
+        int8_t unknown_5_7_ : 1;
+        char unknown_6_[2];
     };
 };
 
-enum ControlWord
+enum Enum_0206b974
 {
-    ControlWord_LineBreak = 0xff18,
-    ControlWord_Unknown_ff19 = 0xff19,
+    Enum_0206b974_65304 = 0xff18,
+    Enum_0206b974_65305 = 0xff19,
 };
 
-class TextManager
+class Struct_0206b974
 {
 public:
-    char unk_0[0x70];
+    char unknown_0_[0x70];
     unsigned int unknown_70_;
 };
 
-extern "C" int func_02001aec(const void* lhs, const void* rhs, unsigned int length);
+extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
 extern "C" int func_020424e4(int, int);
 
 extern "C" char* func_020424ac(char*);
-extern "C" FontIndexFile::Glyph* func_020425b4(int glyph, int fontType);
-extern "C" int func_020425e4(int leftGlyph, int rightGlyph, int fontType);
-extern "C" int func_02042648(int fontType);
+extern "C" Struct_0206b974_2::Struct_0206b974_3* func_020425b4(int arg0, int arg1);
+extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int func_02042648(int arg0);
 extern "C" int func_02044420(void*, void*);
 extern "C" bool func_02044494(void*, void*);
 extern "C" int func_020d2ff0(const char*);
-extern "C" bool func_020d85dc(const char* str, const char* initial);
+extern "C" bool func_020d85dc(const char* arg0, const char* arg1);
 
 struct Struct_020e7e04
 {
-    char unk_0[2];
-    unsigned short newlineWord;
-    char unk_4[0x20];
-    short array_24[2];
+    char unknown_0_[2];
+    unsigned short unknown_2_;
+    char unknown_4_[0x20];
+    short unknown_24_[2];
 } extern const data_020e7e04;
 
 extern char data_020f08dc[];
@@ -56,243 +56,243 @@ extern char data_020f098c[];
 extern char data_020f0990[];
 extern char data_020f0992[];
 
-struct NewlineCalculationTagProcessor
+struct Struct_020e7ec4
 {
-    char* tag;
-    int (*proc)(char* input, int* pX, int fontIndex, int margin);
+    char* unknown_0_;
+    int (*unknown_4_)(char* input, int* pX, int fontIndex, int margin);
 };
 
-extern const NewlineCalculationTagProcessor data_020e7ec4[];
+extern const Struct_020e7ec4 data_020e7ec4[];
 
 // USA: func_0206b974
-extern "C" ARM void func_0206b974(TextManager* self, bool arg2, char *input, char *output,
-    int boxWidth, int margin, bool arg7, unsigned char fontType)
+extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, char *arg3,
+    int arg4, int arg5, bool arg6, unsigned char arg7)
 {
-    int local_2c;
-    char* local_34 = NULL;
-    char* local_38 = NULL;
-    int local_3c = 0;
-    int extraWidthFromSpeaker = 0;
+    int var0;
+    char* var1 = NULL;
+    char* var2 = NULL;
+    int var3 = 0;
+    int var4 = 0;
 
-    char* noSpeakerStart = strstr(input, data_020f0979);
-    char* altNoSpeakerStart = strstr(input, data_020f097c);
+    char* var5 = strstr(arg2, data_020f0979);
+    char* var6 = strstr(arg2, data_020f097c);
 
-    if (noSpeakerStart != NULL || altNoSpeakerStart != NULL)
-        extraWidthFromSpeaker = 2;
+    if (var5 != NULL || var6 != NULL)
+        var4 = 2;
 
-    local_2c = margin;
-    unsigned char lastGlyphIndex = 0xff;
-    bool leftAligned = true;
-    bool iVar11 = 0;
+    var0 = arg5;
+    unsigned char var7 = 0xff;
+    bool var8 = true;
+    bool var9 = 0;
 
-    unsigned char defaultSpacing = func_02042648(fontType);
+    unsigned char var10 = func_02042648(arg7);
 
     while (true)
     {
-        char nextChar = *input;
-        if (nextChar == 0)
+        char var11 = *arg2;
+        if (var11 == 0)
             break;
-        unsigned short control;
-        memcpy(&control, input, 2);
-        if (func_02044494(self, &control) && control != ControlWord_Unknown_ff19)
+        unsigned short var12;
+        memcpy(&var12, arg2, 2);
+        if (func_02044494(arg0, &var12) && var12 != Enum_0206b974_65305)
         {
-            int numControlWordBytes = (func_02044420(self, &control) + 1) * 2;
-            memcpy(output, input, numControlWordBytes);
-            input += numControlWordBytes;
-            output += numControlWordBytes;
-            if (control == ControlWord_LineBreak)
+            int var13 = (func_02044420(arg0, &var12) + 1) * 2;
+            memcpy(arg3, arg2, var13);
+            arg2 += var13;
+            arg3 += var13;
+            if (var12 == Enum_0206b974_65304)
             {
-                extraWidthFromSpeaker = 0;
-                local_2c = margin;
-                local_34 = input;
-                local_38 = output;
-                local_3c = margin;
-                lastGlyphIndex = 0xff;
-                iVar11 = 0;
+                var4 = 0;
+                var0 = arg5;
+                var1 = arg2;
+                var2 = arg3;
+                var3 = arg5;
+                var7 = 0xff;
+                var9 = 0;
             }
             continue;
         }
 
-        if (nextChar == '\\' && input[1] == 'n')
+        if (var11 == '\\' && arg2[1] == 'n')
         {
 
-            extraWidthFromSpeaker = 0;
-            local_2c = margin;
-            lastGlyphIndex = 0xff;
+            var4 = 0;
+            var0 = arg5;
+            var7 = 0xff;
 
-            memcpy(output, input, 2);
-            input += 2;
-            output += 2;
-            local_34 = input;
-            local_38 = output;
-            local_3c = local_2c;
-            iVar11 = 0;
+            memcpy(arg3, arg2, 2);
+            arg2 += 2;
+            arg3 += 2;
+            var1 = arg2;
+            var2 = arg3;
+            var3 = var0;
+            var9 = 0;
             continue;
         }
 
-        if (nextChar == '\n')
+        if (var11 == '\n')
         {
-            extraWidthFromSpeaker = 0;
-            local_2c = margin;
-            lastGlyphIndex = 0xff;
-            memcpy(output, input, 1);
-            input += 1;
-            output += 1;
-            local_34 = input;
-            local_38 = output;
-            local_3c = local_2c;
-            iVar11 = 0;
+            var4 = 0;
+            var0 = arg5;
+            var7 = 0xff;
+            memcpy(arg3, arg2, 1);
+            arg2 += 1;
+            arg3 += 1;
+            var1 = arg2;
+            var2 = arg3;
+            var3 = var0;
+            var9 = 0;
             continue;
         }
 
-        if (func_02001aec(input, data_020f0981, 6) == 0)
+        if (func_02001aec(arg2, data_020f0981, 6) == 0)
         {
-            extraWidthFromSpeaker = 0;
-            local_2c = margin;
-            lastGlyphIndex = 0xff;
-            memcpy(output, input, 6);
-            input += 6;
-            output += 6;
-            local_34 = input;
-            local_38 = output;
-            local_3c = local_2c;
-            iVar11 = 0;
+            var4 = 0;
+            var0 = arg5;
+            var7 = 0xff;
+            memcpy(arg3, arg2, 6);
+            arg2 += 6;
+            arg3 += 6;
+            var1 = arg2;
+            var2 = arg3;
+            var3 = var0;
+            var9 = 0;
             continue;
         }
 
-        if (func_02001aec(input, data_020f08dc, 2) == 0)
+        if (func_02001aec(arg2, data_020f08dc, 2) == 0)
         {
-            char* speakerEnd = strstr(input, data_020f0988);
-            if (speakerEnd != NULL)
+            char* var14 = strstr(arg2, data_020f0988);
+            if (var14 != NULL)
             {
-                local_2c = NULL;
-                int speakerLength = speakerEnd - input;
-                memcpy(output, input, speakerLength + 3);
-                input += speakerLength + 3;
-                output += speakerLength + 3;
+                var0 = NULL;
+                int var15 = var14 - arg2;
+                memcpy(arg3, arg2, var15 + 3);
+                arg2 += var15 + 3;
+                arg3 += var15 + 3;
                 continue;
             }
         }
 
-        int nextGlyphIndex = func_020424e4((int)input, fontType);
-        if (control == ControlWord_Unknown_ff19)
-            nextGlyphIndex = -1;
-        if (nextChar == '<' && nextGlyphIndex < 0)
+        int var16 = func_020424e4((int)arg2, arg7);
+        if (var12 == Enum_0206b974_65305)
+            var16 = -1;
+        if (var11 == '<' && var16 < 0)
         {
-            char* tagEnd = func_020424ac(input);
-            if (tagEnd != NULL)
+            char* var17 = func_020424ac(arg2);
+            if (var17 != NULL)
             {
-                char* tagInner = input + 1;
-                for (const NewlineCalculationTagProcessor* candidate = data_020e7ec4;
-                    candidate->tag != NULL && candidate->proc != NULL; candidate++)
+                char* var18 = arg2 + 1;
+                for (const Struct_020e7ec4* var19 = data_020e7ec4;
+                    var19->unknown_0_ != NULL && var19->unknown_4_ != NULL; var19++)
                 {
-                    if (!func_020d85dc(tagInner, candidate->tag))
+                    if (!func_020d85dc(var18, var19->unknown_0_))
                         continue;
 
-                    int procRet = candidate->proc(tagInner + func_020d2ff0(candidate->tag), &local_2c, fontType, margin);
-                    if (procRet != 1)
+                    int var20 = var19->unknown_4_(var18 + func_020d2ff0(var19->unknown_0_), &var0, arg7, arg5);
+                    if (var20 != 1)
                     {
-                        if (procRet == 2)
+                        if (var20 == 2)
                         {
-                            leftAligned = true;
+                            var8 = true;
                         }
                         break;
                     }
                     else
                     {
-                        leftAligned = false;
+                        var8 = false;
                         break;
                     }
                 }
-                int tagInnerLength = (tagEnd - input);
-                memcpy(output, input, tagInnerLength + 1);
-                input += tagInnerLength + 1;
-                output += tagInnerLength + 1;
+                int var21 = (var17 - arg2);
+                memcpy(arg3, arg2, var21 + 1);
+                arg2 += var21 + 1;
+                arg3 += var21 + 1;
                 continue;
             }
         }
 
-        bool foundDash = false;
-        int glyphSpacing = defaultSpacing + 1;
-        int ioCopyLength = 1;
-        if (control == ControlWord_Unknown_ff19)
+        bool var22 = false;
+        int var23 = var10 + 1;
+        int var24 = 1;
+        if (var12 == Enum_0206b974_65305)
         {
-            iVar11 = 1;
-            ioCopyLength = 2;
+            var9 = 1;
+            var24 = 2;
         }
-        if (nextChar == ' ')
+        if (var11 == ' ')
         {
-            iVar11 = 0;
+            var9 = 0;
         }
-        if (func_02001aec(input, data_020f098c, 3) == 0)
+        if (func_02001aec(arg2, data_020f098c, 3) == 0)
         {
-            nextGlyphIndex = -1;
-            input += 3;
-            glyphSpacing = 0;
-            ioCopyLength = 0;
-            iVar11 = 1;
+            var16 = -1;
+            arg2 += 3;
+            var23 = 0;
+            var24 = 0;
+            var9 = 1;
         }
-        if (nextGlyphIndex >= 0)
+        if (var16 >= 0)
         {
-            FontIndexFile::Glyph* glyph = func_020425b4(nextGlyphIndex, fontType);
-            ioCopyLength = glyph->tagLength;
-            unsigned char nextGlyphUC = nextGlyphIndex;
-            int kerning = func_020425e4(lastGlyphIndex, nextGlyphUC, fontType);
-            lastGlyphIndex = nextGlyphUC;
-            glyphSpacing = kerning + glyph->width;
+            Struct_0206b974_2::Struct_0206b974_3* var25 = func_020425b4(var16, arg7);
+            var24 = var25->unknown_5_0_;
+            unsigned char var26 = var16;
+            int var27 = func_020425e4(var7, var26, arg7);
+            var7 = var26;
+            var23 = var27 + var25->unknown_4_;
 
-            foundDash = (glyph->tag[0] == '-');
-            if (foundDash)
-                iVar11 = 0;
+            var22 = (var25->unknown_0_[0] == '-');
+            if (var22)
+                var9 = 0;
 
-            if (local_34 != NULL && local_38 != NULL && leftAligned &&
-                (boxWidth + extraWidthFromSpeaker < local_2c + glyphSpacing))
+            if (var1 != NULL && var2 != NULL && var8 &&
+                (arg4 + var4 < var0 + var23))
             {
-                local_2c -= local_3c;
-                local_2c += margin;
-                extraWidthFromSpeaker = 0;
-                int copyLength = input - local_34;
-                int zeroLength = output - local_38;
-                output = local_38;
-                memset(local_38, 0, zeroLength);
-                if (iVar11 != 0)
+                var0 -= var3;
+                var0 += arg5;
+                var4 = 0;
+                int var28 = arg2 - var1;
+                int var29 = arg3 - var2;
+                arg3 = var2;
+                memset(var2, 0, var29);
+                if (var9 != 0)
                 {
-                    memcpy(output, data_020f0990, 1);
-                    output += 1;
+                    memcpy(arg3, data_020f0990, 1);
+                    arg3 += 1;
                 }
-                if (arg7)
+                if (arg6)
                 {
-                    memcpy(output, &data_020e7e04.newlineWord, 2);
-                    output += 2;
+                    memcpy(arg3, &data_020e7e04.unknown_2_, 2);
+                    arg3 += 2;
                 }
                 else
                 {
-                    memcpy(output, data_020f0992, 1);
-                    output += 1;
+                    memcpy(arg3, data_020f0992, 1);
+                    arg3 += 1;
                 }
-                memcpy(output, local_34, copyLength);
-                output += copyLength;
-                iVar11 = 0;
-                if (arg2)
+                memcpy(arg3, var1, var28);
+                arg3 += var28;
+                var9 = 0;
+                if (arg1)
                 {
-                    self->unknown_70_++;
+                    arg0->unknown_70_++;
                 }
             }
-            glyphSpacing++;
+            var23++;
         }
-        if (leftAligned)
-            local_2c += glyphSpacing;
+        if (var8)
+            var0 += var23;
 
-        memcpy(output, input, ioCopyLength);
-        input += ioCopyLength;
-        output += ioCopyLength;
-        if (nextGlyphIndex < 0 || foundDash)
+        memcpy(arg3, arg2, var24);
+        arg2 += var24;
+        arg3 += var24;
+        if (var16 < 0 || var22)
         {
-            local_34 = input;
-            local_38 = output;
-            local_3c = local_2c;
+            var1 = arg2;
+            var2 = arg3;
+            var3 = var0;
         }
     }
 
-    *output = *input;
+    *arg3 = *arg2;
 }

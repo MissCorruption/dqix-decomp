@@ -3,49 +3,49 @@
 
 #if defined(jpn)
 #define func_ov012_02185bf0 func_ov012_02186248
-enum { kElemOffset = 0x90, kDestOffset = 0x344, kDestSize = 0x800 };
+enum { Enum_ov012_02185bf0_172 = 0x90, Enum_ov012_02185bf0_884 = 0x344, Enum_ov012_02185bf0_2400 = 0x800 };
 #else
-enum { kElemOffset = 0xac, kDestOffset = 0x374, kDestSize = 0x960 };
+enum { Enum_ov012_02185bf0_172 = 0xac, Enum_ov012_02185bf0_884 = 0x374, Enum_ov012_02185bf0_2400 = 0x960 };
 #endif
 #include "std_library_functions.h"
 
 struct Struct_0205d81c;
-struct Elem_0205d81c;
-extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
+struct Struct_0205d0e0;
+extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
 
-struct StructA0205d5d0;
-struct Obj02185bf0;
-typedef void (Obj02185bf0::*Handler02185bf0)(void* dest, int alt);
-extern Handler02185bf0 data_020e6d5c;
+struct Struct_0205d5d0;
+struct Struct_ov012_02185bf0;
+typedef void (Struct_ov012_02185bf0::*Type_ov012_02185bf0)(void* dest, int alt);
+extern Type_ov012_02185bf0 data_020e6d5c;
 
-struct Table02185bf0 { Handler02185bf0 e[16]; };
-extern struct Table02185bf0 data_ov012_0218b088;
+struct Struct_ov012_0218b088 { Type_ov012_02185bf0 unknown_0_[16]; };
+extern struct Struct_ov012_0218b088 data_ov012_0218b088;
 
 // USA: func_ov012_02185bf0
-extern "C" ARM void func_ov012_02185bf0(char* obj, int id, int flag) {
-    struct Elem_0205d81c* e = func_0205d81c((struct Struct_0205d81c*)(obj + kElemOffset), id);
-    if (e == 0) return;
+extern "C" ARM void func_ov012_02185bf0(char* arg0, int arg1, int arg2) {
+    struct Struct_0205d0e0* var0 = func_0205d81c((struct Struct_0205d81c*)(arg0 + Enum_ov012_02185bf0_172), arg1);
+    if (var0 == 0) return;
 
-    unsigned char* c5p = (unsigned char*)e + 0xc5;
-    if (flag) *c5p |= 0x40;
-    else *c5p &= ~0x40;
-    flag = 0;
+    unsigned char* var1 = (unsigned char*)var0 + 0xc5;
+    if (arg2) *var1 |= 0x40;
+    else *var1 &= ~0x40;
+    arg2 = 0;
 
-    if (*c5p & 2) flag = 1;
-    void* dest = *(void**)(obj + 0x1000 + kDestOffset);
-    memset(dest, 0, kDestSize);
+    if (*var1 & 2) arg2 = 1;
+    void* var2 = *(void**)(arg0 + 0x1000 + Enum_ov012_02185bf0_884);
+    memset(var2, 0, Enum_ov012_02185bf0_2400);
 
-    struct Table02185bf0 table = data_ov012_0218b088;
-    Handler02185bf0 none = data_020e6d5c;
-    table.e[0] = none;
-    table.e[15] = none;
+    struct Struct_ov012_0218b088 var3 = data_ov012_0218b088;
+    Type_ov012_02185bf0 var4 = data_020e6d5c;
+    var3.unknown_0_[0] = var4;
+    var3.unknown_0_[15] = var4;
 
-    if (table.e[id] != 0)
-        (((Obj02185bf0*)obj)->*table.e[id])(*(void**)(obj + 0x1000 + kDestOffset), flag);
+    if (var3.unknown_0_[arg1] != 0)
+        (((Struct_ov012_02185bf0*)arg0)->*var3.unknown_0_[arg1])(*(void**)(arg0 + 0x1000 + Enum_ov012_02185bf0_884), arg2);
 
 #if defined(jpn)
-    func_0205d5d0((struct StructA0205d5d0*)(obj + kElemOffset), id, *(int*)(obj + 0x1000 + kDestOffset), 0);
+    func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov012_02185bf0_172), arg1, *(int*)(arg0 + 0x1000 + Enum_ov012_02185bf0_884), 0);
 #else
-    func_0205d5d0((struct StructA0205d5d0*)(obj + kElemOffset), id, *(int*)(obj + 0x1000 + kDestOffset), 0, 0);
+    func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov012_02185bf0_172), arg1, *(int*)(arg0 + 0x1000 + Enum_ov012_02185bf0_884), 0, 0);
 #endif
 }

@@ -2,18 +2,18 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
-struct Array0215e85c;
-extern "C" void func_ov003_0215e85c(struct Array0215e85c* self, class SafeAllocator* allocator, int count);
+struct Struct_ov003_0215e5fc;
+extern "C" void func_ov003_0215e85c(struct Struct_ov003_0215e5fc* arg0, class SafeAllocator* arg1, int arg2);
 
 extern int data_ov003_02180cb8;
 
 // USA: func_ov003_0215e5fc
-extern "C" ARM int func_ov003_0215e5fc(struct Variant02030b0c* v) {
-	int count = ((Script::Parameter*)v)->ToInt();
-	SafeAllocator* alloc = (SafeAllocator*)*(int*)&data_ov003_02180cb8;
-	struct Array0215e85c* obj = (struct Array0215e85c*)*(int*)((char*)&data_ov003_02180cb8 + 4);
-	func_ov003_0215e85c(obj, alloc, (short)count);
+extern "C" ARM int func_ov003_0215e5fc(struct Struct_0201c1c8* arg0) {
+	int var0 = ((Script::Parameter*)arg0)->ToInt();
+	SafeAllocator* var1 = (SafeAllocator*)*(int*)&data_ov003_02180cb8;
+	struct Struct_ov003_0215e5fc* var2 = (struct Struct_ov003_0215e5fc*)*(int*)((char*)&data_ov003_02180cb8 + 4);
+	func_ov003_0215e85c(var2, var1, (short)var0);
 	return 1;
 }

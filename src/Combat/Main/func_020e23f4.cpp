@@ -4,39 +4,39 @@
 #define data_020ee950 data_020eea14
 #endif
 
-struct HasDims020e1288;
-extern "C" int func_020e1288(struct HasDims020e1288* obj);
+struct Struct_020e1288;
+extern "C" int func_020e1288(struct Struct_020e1288* arg0);
 
 extern VRAMSubregion data_020ee950[];
 
-struct F3fFlags020e23f4 { unsigned char bit0 : 1; };
+struct Struct_020e23f4 { unsigned char unknown_0_0_ : 1; };
 
-struct StreamDims020e23f4 {
-    char pad0[0x30];
-    int f30;
-    int f34;
-    char pad1[0x6];
-    unsigned char f3e;
-    unsigned char f3f;
+struct Struct_020e23f4_2 {
+    char unknown_0_[0x30];
+    int unknown_30_;
+    int unknown_34_;
+    char unknown_38_[0x6];
+    unsigned char unknown_3e_;
+    unsigned char unknown_3f_;
 };
 
-struct Obj020e23f4 {
-    unsigned char* field0;
-    struct StreamDims020e23f4* field4;
+struct Struct_020e23f4_3 {
+    unsigned char* unknown_0_;
+    struct Struct_020e23f4_2* unknown_4_;
 };
 
 // USA: func_020e23f4
-extern "C" ARM void func_020e23f4(struct Obj020e23f4* obj) {
-    struct StreamDims020e23f4* dims = obj->field4;
-    if (dims == 0 || obj->field0 == 0) return;
-    ((struct F3fFlags020e23f4*)&dims->f3f)->bit0 = 1;
-    dims = obj->field4;
-    int f30 = dims->f30;
-    int half = func_020e1288((struct HasDims020e1288*)dims);
+extern "C" ARM void func_020e23f4(struct Struct_020e23f4_3* arg0) {
+    struct Struct_020e23f4_2* var0 = arg0->unknown_4_;
+    if (var0 == 0 || arg0->unknown_0_ == 0) return;
+    ((struct Struct_020e23f4*)&var0->unknown_3f_)->unknown_0_0_ = 1;
+    var0 = arg0->unknown_4_;
+    int var1 = var0->unknown_30_;
+    int var2 = func_020e1288((struct Struct_020e1288*)var0);
     StageMemoryToVRAM(
-        data_020ee950[dims->f3e],
-        obj->field0 + f30,
-        f30,
-        dims->f34 + half,
+        data_020ee950[var0->unknown_3e_],
+        arg0->unknown_0_ + var1,
+        var1,
+        var0->unknown_34_ + var2,
         true, false);
 }

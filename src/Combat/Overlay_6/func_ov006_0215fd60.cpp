@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kMergeBuffer = 0x140 };
+enum { Enum_ov006_0215fd60_332 = 0x140 };
 #else
-enum { kMergeBuffer = 0x14c };
+enum { Enum_ov006_0215fd60_332 = 0x14c };
 #endif
 
-extern "C" void __clear(void* buf, int len);
-extern "C" void func_02071da4(void* obj, short* bufB, unsigned char* bufA, int val);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" void func_02071da4(void* arg0, short* arg1, unsigned char* arg2, int arg3);
 
 // USA: func_ov006_0215fd60
-extern "C" ARM void func_ov006_0215fd60(void* obj, short* arr1, unsigned char* arr2, int val) {
-	short bufB[3];
-	unsigned char bufA[3];
-	__clear(bufB, 6);
-	__clear(bufA, 3);
-	for (unsigned char i = 0; i < 3; i++) {
-		short id = arr1[i];
-		if (id > 0) {
-			for (unsigned char j = 0; j < 3; j++) {
-				short w = bufB[j];
-				if (id == w) {
-					bufB[j] = id;
-					bufA[j] = (unsigned char)(bufA[j] + arr2[i]);
+extern "C" ARM void func_ov006_0215fd60(void* arg0, short* arg1, unsigned char* arg2, int arg3) {
+	short var0[3];
+	unsigned char var1[3];
+	__clear(var0, 6);
+	__clear(var1, 3);
+	for (unsigned char var2 = 0; var2 < 3; var2++) {
+		short var3 = arg1[var2];
+		if (var3 > 0) {
+			for (unsigned char var4 = 0; var4 < 3; var4++) {
+				short var5 = var0[var4];
+				if (var3 == var5) {
+					var0[var4] = var3;
+					var1[var4] = (unsigned char)(var1[var4] + arg2[var2]);
 					break;
 				}
-				if (w <= 0) {
-					bufB[j] = id;
-					bufA[j] = arr2[i];
+				if (var5 <= 0) {
+					var0[var4] = var3;
+					var1[var4] = arg2[var2];
 					break;
 				}
 			}
 		}
 	}
-	func_02071da4((char*)obj + kMergeBuffer, bufB, bufA, val);
+	func_02071da4((char*)arg0 + Enum_ov006_0215fd60_332, var0, var1, arg3);
 }

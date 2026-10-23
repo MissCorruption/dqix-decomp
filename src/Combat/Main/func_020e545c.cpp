@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct Element020e545c {
-    unsigned int w[4];
+struct Struct_020e545c {
+    unsigned int unknown_0_[4];
 };
 
-struct ElementList020e545c {
-    unsigned int count : 12;
-    unsigned int pad : 20;
-    struct Element020e545c* elements;
+struct Struct_020e53bc {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 20;
+    struct Struct_020e545c* unknown_4_;
 };
 
-typedef void (*ElementCallback020e545c)(struct ElementList020e545c*, struct Element020e545c*);
+typedef void (*Type_020e53bc)(struct Struct_020e53bc*, struct Struct_020e545c*);
 
 // USA: func_020e545c
-extern "C" ARM int func_020e545c(struct ElementList020e545c* list, ElementCallback020e545c callback) {
-    int count;
-    struct Element020e545c* element = list->elements;
-    int i;
-    if (!(element != NULL && (count = list->count) != 0 && callback != NULL)) {
+extern "C" ARM int func_020e545c(struct Struct_020e53bc* arg0, Type_020e53bc arg1) {
+    int var0;
+    struct Struct_020e545c* var1 = arg0->unknown_4_;
+    int var2;
+    if (!(var1 != NULL && (var0 = arg0->unknown_0_0_) != 0 && arg1 != NULL)) {
         return 0;
     }
-    i = 0;
-    while (i < count) {
-        callback(list, element);
-        i++;
-        element++;
+    var2 = 0;
+    while (var2 < var0) {
+        arg1(arg0, var1);
+        var2++;
+        var1++;
     }
     return 1;
 }

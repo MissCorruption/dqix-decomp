@@ -2,109 +2,109 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct PackedTriple02191508 {
-    unsigned int fieldA : 10;
-    unsigned int fieldB : 10;
-    unsigned int fieldC : 10;
-    unsigned int reserved : 2;
+struct Struct_ov017_02191508 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct Template02191508 {
+struct Struct_ov017_02191508_2 {
 #if defined(jpn)
-    char name[0xd];
+    char unknown_0_[0xd];
 #else
-    char name[0x12];
+    char unknown_0_[0x12];
 #endif
 
-    unsigned char kind;
-    unsigned char slot;
-    PackedTriple02191508 triples[3];
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    Struct_ov017_02191508 unknown_14_[3];
 };
 
-struct Packed02191508 {
-    unsigned int header : 32;
-    unsigned short kind : 7;
-    unsigned short extra : 9;
-    PackedTriple02191508 triples[3];
+struct Struct_ov017_02191508_3 {
+    unsigned int unknown_0_0_ : 32;
+    unsigned short unknown_4_0_ : 7;
+    unsigned short unknown_4_7_ : 9;
+    Struct_ov017_02191508 unknown_8_[3];
 };
 
-struct Status02191508 {
-    unsigned int flags;
-    unsigned short hp;
-    unsigned short mp;
+struct Struct_ov017_02191508_4 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
-struct Combatant02191508 {
-    unsigned char pad0[0x130];
-    Status02191508* status;
-    BaseCombatStats* baseStats;
+struct Struct_ov017_02191508_5 {
+    unsigned char unknown_0_[0x130];
+    Struct_ov017_02191508_4* unknown_130_;
+    BaseCombatStats* unknown_134_;
 };
 
-struct Member02191508 {
-    unsigned char pad0[0x3c];
-    char name[0x16c - 0x3c];
-    unsigned short kind;
-    unsigned char pad16e[0x56a - 0x16e];
-    unsigned char state;
+struct Struct_ov017_02191508_6 {
+    unsigned char unknown_0_[0x3c];
+    char unknown_3c_[0x16c - 0x3c];
+    unsigned short unknown_16c_;
+    unsigned char unknown_16e_[0x56a - 0x16e];
+    unsigned char unknown_56a_;
 };
 
-extern "C" Member02191508* func_02053c6c(unsigned char* obj);
-extern "C" void func_02083cbc(void* dst, void* src, void* tail);
-extern "C" void func_02083e28(void* a, int arg2);
-extern "C" void func_02083ca0(unsigned char* obj, int bit);
-extern "C" void func_02083c18(char* obj);
-extern "C" void func_02083b60(unsigned char* obj, int index);
+extern "C" Struct_ov017_02191508_6* func_02053c6c(unsigned char* arg0);
+extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
+extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
+extern "C" void func_02083c18(char* arg0);
+extern "C" void func_02083b60(unsigned char* arg0, int arg1);
 
 extern char data_020ef078[];
 
 // USA: func_ov017_02191508
-extern "C" ARM void func_ov017_02191508(int id, Template02191508* tmpl) {
-    Combatant02191508* combatant =
-        (Combatant02191508*)func_0200ff1c(GameState::GetInstance(), id);
-    if (combatant == NULL) return;
-    Member02191508* member = func_02053c6c((unsigned char*)combatant);
-    if (member == NULL) return;
+extern "C" ARM void func_ov017_02191508(int arg0, Struct_ov017_02191508_2* arg1) {
+    Struct_ov017_02191508_5* var0 =
+        (Struct_ov017_02191508_5*)func_0200ff1c(GameState::GetInstance(), arg0);
+    if (var0 == NULL) return;
+    Struct_ov017_02191508_6* var1 = func_02053c6c((unsigned char*)var0);
+    if (var1 == NULL) return;
 
-    int hp = -1;
-    if (strcmp(member->name, tmpl->name) == 0) {
-        hp = combatant->status->hp;
+    int var2 = -1;
+    if (strcmp(var1->unknown_3c_, arg1->unknown_0_) == 0) {
+        var2 = var0->unknown_130_->unknown_4_;
     }
 #if defined(jpn)
-    sprintf(member->name, data_020ef078, tmpl->name);
+    sprintf(var1->unknown_3c_, data_020ef078, arg1->unknown_0_);
 
 #else
-    if (tmpl != NULL) {
-        sprintf(member->name, data_020ef078, tmpl->name);
+    if (arg1 != NULL) {
+        sprintf(var1->unknown_3c_, data_020ef078, arg1->unknown_0_);
     } else {
-        sprintf(member->name, data_020ef078, member->name);
+        sprintf(var1->unknown_3c_, data_020ef078, var1->unknown_3c_);
     }
 
 #endif
-    Packed02191508 packed;
-    packed.header = 0;
-    packed.extra = 0;
-    packed.kind = tmpl->kind;
-    packed.triples[0].fieldA = tmpl->triples[0].fieldA;
-    packed.triples[0].fieldB = tmpl->triples[0].fieldB;
-    packed.triples[0].fieldC = tmpl->triples[0].fieldC;
-    packed.triples[1].fieldA = tmpl->triples[1].fieldA;
-    packed.triples[1].fieldB = tmpl->triples[1].fieldB;
-    packed.triples[1].fieldC = tmpl->triples[1].fieldC;
-    packed.triples[2].fieldA = tmpl->triples[2].fieldA;
-    packed.triples[2].fieldB = tmpl->triples[2].fieldB;
-    packed.triples[2].fieldC = tmpl->triples[2].fieldC;
-    member->state = 0xb;
-    func_02083cbc(member, &packed, NULL);
-    func_02083e28(member, 0);
+    Struct_ov017_02191508_3 var3;
+    var3.unknown_0_0_ = 0;
+    var3.unknown_4_7_ = 0;
+    var3.unknown_4_0_ = arg1->unknown_12_;
+    var3.unknown_8_[0].unknown_0_0_ = arg1->unknown_14_[0].unknown_0_0_;
+    var3.unknown_8_[0].unknown_1_2_ = arg1->unknown_14_[0].unknown_1_2_;
+    var3.unknown_8_[0].unknown_2_4_ = arg1->unknown_14_[0].unknown_2_4_;
+    var3.unknown_8_[1].unknown_0_0_ = arg1->unknown_14_[1].unknown_0_0_;
+    var3.unknown_8_[1].unknown_1_2_ = arg1->unknown_14_[1].unknown_1_2_;
+    var3.unknown_8_[1].unknown_2_4_ = arg1->unknown_14_[1].unknown_2_4_;
+    var3.unknown_8_[2].unknown_0_0_ = arg1->unknown_14_[2].unknown_0_0_;
+    var3.unknown_8_[2].unknown_1_2_ = arg1->unknown_14_[2].unknown_1_2_;
+    var3.unknown_8_[2].unknown_2_4_ = arg1->unknown_14_[2].unknown_2_4_;
+    var1->unknown_56a_ = 0xb;
+    func_02083cbc(var1, &var3, NULL);
+    func_02083e28(var1, 0);
 
-    if (hp > -1) {
-        combatant->status->hp = hp;
+    if (var2 > -1) {
+        var0->unknown_130_->unknown_4_ = var2;
     } else {
-        combatant->status->hp = combatant->baseStats->primaryStats.maxHP;
+        var0->unknown_130_->unknown_4_ = var0->unknown_134_->primaryStats.maxHP;
     }
-    combatant->status->mp = combatant->baseStats->primaryStats.maxMP;
-    func_02083ca0((unsigned char*)member, 0);
-    func_02083c18((char*)member);
-    member->kind = tmpl->kind;
-    func_02083b60((unsigned char*)member, tmpl->slot);
+    var0->unknown_130_->unknown_6_ = var0->unknown_134_->primaryStats.maxMP;
+    func_02083ca0((unsigned char*)var1, 0);
+    func_02083c18((char*)var1);
+    var1->unknown_16c_ = arg1->unknown_12_;
+    func_02083b60((unsigned char*)var1, arg1->unknown_13_);
 }

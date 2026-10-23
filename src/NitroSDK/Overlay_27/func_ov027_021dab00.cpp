@@ -6,12 +6,12 @@
 #include <globaldefs.h>
 
 void DrainWriteBuffer();
-extern "C" int func_ov027_021dcf44(int p0, int p1, int p2);
+extern "C" int func_ov027_021dcf44(int arg0, int arg1, int arg2);
 void CleanInvalidateCacheRange(const void* where, unsigned int len);
 
 // USA: func_ov027_021dab00
-extern "C" ARM int func_ov027_021dab00(int a, int b, void* c) {
-    CleanInvalidateCacheRange(c, (a + 0x1f) & ~0x1f);
+extern "C" ARM int func_ov027_021dab00(int arg0, int arg1, void* arg2) {
+    CleanInvalidateCacheRange(arg2, (arg0 + 0x1f) & ~0x1f);
     DrainWriteBuffer();
-    return func_ov027_021dcf44((int)c, a, b);
+    return func_ov027_021dcf44((int)arg2, arg0, arg1);
 }

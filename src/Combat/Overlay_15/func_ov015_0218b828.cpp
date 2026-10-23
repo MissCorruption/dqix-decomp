@@ -1,87 +1,87 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-struct ViewerEntry
+struct Struct_ov015_0218b828_3
 {
-    char* name_;
-    char* file_;
-    unsigned short id_;
-    unsigned char page_;
-    unsigned char link_;
+    char* unknown_0_;
+    char* unknown_4_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
 };
 
-struct ViewerPresetItem
+struct Struct_ov015_0218b828
 {
-    char* file_;
-    unsigned short id_;
-    unsigned char kind_;
-    ViewerPresetItem* next_;
+    char* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_;
+    Struct_ov015_0218b828* unknown_8_;
 };
 
-struct ViewerPreset
+struct Struct_ov015_0218b828_2
 {
-    char* name_;
-    ViewerPresetItem* items_;
+    char* unknown_0_;
+    Struct_ov015_0218b828* unknown_4_;
 };
 
-struct Struct0218b810
+struct Struct_ov015_0218b810
 {
-    ViewerEntry* entries_;
-    ViewerPreset* presets_;
-    int entryCount_;
-    int presetCount_;
+    Struct_ov015_0218b828_3* unknown_0_;
+    Struct_ov015_0218b828_2* unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" void func_ov015_0218b810(Struct0218b810* s);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void func_ov015_0218b810(Struct_ov015_0218b810* arg0);
 
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov015_0218b828
-extern "C" ARM void func_ov015_0218b828(Struct0218b810* self)
+extern "C" ARM void func_ov015_0218b828(Struct_ov015_0218b810* arg0)
 {
-    for (int i = 0; i < self->entryCount_; i++)
+    for (int var0 = 0; var0 < arg0->unknown_8_; var0++)
     {
-        if (self->entries_[i].name_ != NULL)
+        if (arg0->unknown_0_[var0].unknown_0_ != NULL)
         {
-            func_02012da4(&data_02114e20, self->entries_[i].name_);
-            self->entries_[i].name_ = NULL;
+            func_02012da4(&data_02114e20, arg0->unknown_0_[var0].unknown_0_);
+            arg0->unknown_0_[var0].unknown_0_ = NULL;
         }
-        if (self->entries_[i].file_ != NULL)
+        if (arg0->unknown_0_[var0].unknown_4_ != NULL)
         {
-            func_02012da4(&data_02114e20, self->entries_[i].file_);
-            self->entries_[i].file_ = NULL;
+            func_02012da4(&data_02114e20, arg0->unknown_0_[var0].unknown_4_);
+            arg0->unknown_0_[var0].unknown_4_ = NULL;
         }
     }
-    for (int i = 0; i < self->presetCount_; i++)
+    for (int var1 = 0; var1 < arg0->unknown_c_; var1++)
     {
-        if (self->presets_[i].name_ != NULL)
+        if (arg0->unknown_4_[var1].unknown_0_ != NULL)
         {
-            func_02012da4(&data_02114e20, self->presets_[i].name_);
-            self->presets_[i].name_ = NULL;
+            func_02012da4(&data_02114e20, arg0->unknown_4_[var1].unknown_0_);
+            arg0->unknown_4_[var1].unknown_0_ = NULL;
         }
-        ViewerPresetItem* item = self->presets_[i].items_;
-        while (item != NULL)
+        Struct_ov015_0218b828* var2 = arg0->unknown_4_[var1].unknown_4_;
+        while (var2 != NULL)
         {
-            ViewerPresetItem* next = item->next_;
-            if (item->file_ != NULL)
+            Struct_ov015_0218b828* var3 = var2->unknown_8_;
+            if (var2->unknown_0_ != NULL)
             {
-                func_02012da4(&data_02114e20, item->file_);
-                item->file_ = NULL;
+                func_02012da4(&data_02114e20, var2->unknown_0_);
+                var2->unknown_0_ = NULL;
             }
-            func_02012da4(&data_02114e20, item);
-            item = next;
+            func_02012da4(&data_02114e20, var2);
+            var2 = var3;
         }
     }
-    if (self->entries_ != NULL)
+    if (arg0->unknown_0_ != NULL)
     {
-        func_02012da4(&data_02114e20, self->entries_);
-        self->entries_ = NULL;
+        func_02012da4(&data_02114e20, arg0->unknown_0_);
+        arg0->unknown_0_ = NULL;
     }
-    if (self->presets_ != NULL)
+    if (arg0->unknown_4_ != NULL)
     {
-        func_02012da4(&data_02114e20, self->presets_);
-        self->presets_ = NULL;
+        func_02012da4(&data_02114e20, arg0->unknown_4_);
+        arg0->unknown_4_ = NULL;
     }
-    func_ov015_0218b810(self);
+    func_ov015_0218b810(arg0);
 }

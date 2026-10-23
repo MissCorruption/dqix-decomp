@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { FLAG_BYTE_OFFSET = 0x2784 };
+enum { Enum_0201bfc0_10052 = 0x2784 };
 #else
-enum { FLAG_BYTE_OFFSET = 0x2744 };
+enum { Enum_0201bfc0_10052 = 0x2744 };
 #endif
 
 // USA: func_0201bfc0
-extern "C" ARM int func_0201bfc0(unsigned char* obj, int bit) {
-    return obj[FLAG_BYTE_OFFSET] & (1 << bit);
+extern "C" ARM int func_0201bfc0(unsigned char* arg0, int arg1) {
+    return arg0[Enum_0201bfc0_10052] & (1 << arg1);
 }

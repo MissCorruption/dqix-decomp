@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Obj0220520c;
-extern "C" int func_ov031_0220520c(void*, Obj0220520c*);
+struct Struct_ov031_0220520c;
+extern "C" int func_ov031_0220520c(void*, Struct_ov031_0220520c*);
 
-struct Obj0220528c {
-	char pad[0x68];
-	int field68;
+struct Struct_ov031_0220528c {
+	char unknown_0_[0x68];
+	int unknown_68_;
 };
 
 // USA: func_ov031_0220528c
-extern "C" ARM int func_ov031_0220528c(Obj0220528c* obj, void* extra) {
-	return func_ov031_0220520c((void*)obj->field68, (Obj0220520c*)extra);
+extern "C" ARM int func_ov031_0220528c(Struct_ov031_0220528c* arg0, void* arg1) {
+	return func_ov031_0220520c((void*)arg0->unknown_68_, (Struct_ov031_0220520c*)arg1);
 }

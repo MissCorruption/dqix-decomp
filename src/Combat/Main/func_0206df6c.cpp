@@ -5,14 +5,14 @@
 #endif
 
 // USA: func_0206df6c
-extern "C" ARM void func_0206df6c(void* unused, unsigned char* array, int bit, int value) {
-    int i = bit / 8;
-    unsigned char mask = 1 << (bit % 8);
-    unsigned int v = array[i];
-    if (value != 0) {
-        v |= mask;
+extern "C" ARM void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3) {
+    int var0 = arg2 / 8;
+    unsigned char var1 = 1 << (arg2 % 8);
+    unsigned int var2 = arg1[var0];
+    if (arg3 != 0) {
+        var2 |= var1;
     } else {
-        v &= ~mask;
+        var2 &= ~var1;
     }
-    array[i] = v;
+    arg1[var0] = var2;
 }

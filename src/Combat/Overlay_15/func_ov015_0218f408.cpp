@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Sub0218f408 {
-	char pad24[0x24];
-	int val;
+struct Struct_ov015_0218f408 {
+	char unknown_0_[0x24];
+	int unknown_24_;
 };
 
-struct Obj0218f408 {
-	char pad1c[0x1c];
-	unsigned char state;
-	char pad24[0x24 - 0x1d];
-	struct Sub0218f408* sub;
+struct Struct_ov015_0218f408_2 {
+	char unknown_0_[0x1c];
+	unsigned char unknown_1c_;
+	char unknown_1d_[0x24 - 0x1d];
+	struct Struct_ov015_0218f408* unknown_24_;
 };
 
 // USA: func_ov015_0218f408
-extern "C" ARM float func_ov015_0218f408(struct Obj0218f408* obj) {
-	switch (obj->state) {
+extern "C" ARM float func_ov015_0218f408(struct Struct_ov015_0218f408_2* arg0) {
+	switch (arg0->unknown_1c_) {
 	case 0:
 	case 1:
-		return (float)obj->sub->val / 4096.0f;
+		return (float)arg0->unknown_24_->unknown_24_ / 4096.0f;
 	default:
-		return (float)obj->sub->val / 4096.0f;
+		return (float)arg0->unknown_24_->unknown_24_ / 4096.0f;
 	}
 }

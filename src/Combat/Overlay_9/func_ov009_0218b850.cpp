@@ -3,19 +3,19 @@
 #include <std_library_functions.h>
 #include "Resource/CharacterCreationUI.h"
 
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_020d2ff0(const char*);
 
 // JPN: func_ov009_0218b850
-extern "C" ARM void func_ov009_0218b850(CharacterCreationUI* self)
+extern "C" ARM void func_ov009_0218b850(Struct_ov009_021842a0* arg0)
 {
-    const char* placeholder = (const char*)func_020e0434(&self->texts, 0x4272);
-    memcpy(self->names[self->sex], placeholder, 11);
-    int choice = rand() % 101;
-    short key = (self->sex * 1000 + 0x4e20) + choice;
-    int length = func_020d2ff0((const char*)func_020e0434(&self->texts, key));
-    const char* name = (const char*)func_020e0434(&self->texts, key);
-    memcpy(self->names[self->sex], name, length);
-    self->nameFlags[self->sex] = length / 2;
+    const char* var0 = (const char*)func_020e0434(&arg0->unknown_e0_, 0x4272);
+    memcpy(arg0->unknown_d74_[arg0->unknown_da3_], var0, 11);
+    int var1 = rand() % 101;
+    short var2 = (arg0->unknown_da3_ * 1000 + 0x4e20) + var1;
+    int var3 = func_020d2ff0((const char*)func_020e0434(&arg0->unknown_e0_, var2));
+    const char* var4 = (const char*)func_020e0434(&arg0->unknown_e0_, var2);
+    memcpy(arg0->unknown_d74_[arg0->unknown_da3_], var4, var3);
+    arg0->unknown_d8a_[arg0->unknown_da3_] = var3 / 2;
 }
 #endif

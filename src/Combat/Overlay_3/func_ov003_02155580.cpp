@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue30_24 = 0x24 };
-enum { kRegionValue1E6_1E2 = 0x1e2 };
+enum { Enum_ov003_02155580_48 = 0x24 };
+enum { Enum_ov003_02155580_486 = 0x1e2 };
 #else
-enum { kRegionValue30_24 = 0x30 };
-enum { kRegionValue1E6_1E2 = 0x1e6 };
+enum { Enum_ov003_02155580_48 = 0x30 };
+enum { Enum_ov003_02155580_486 = 0x1e6 };
 #endif
 
-struct Elem2081;
+struct Struct_0207fdcc;
 
-struct Obj2081 {
-    char pad0[kRegionValue30_24];
-    struct Elem2081* elems;
-    short field34;
-    short selected;
+struct Struct_0207fdcc_2 {
+    char unknown_0_[Enum_ov003_02155580_48];
+    struct Struct_0207fdcc* unknown_30_;
+    short unknown_34_;
+    short unknown_36_;
 };
 
-struct Obj0208203c;
-struct Obj0205eaa0;
-struct Clamp020e29a8;
-struct Obj020e280c;
+struct Struct_02081f20_2;
+struct Struct_02108760;
+struct Struct_020e29a8;
+struct Struct_020e280c;
 
-extern "C" void func_020813ec(struct Obj2081* obj, int key);
-extern "C" void func_0208203c(struct Obj0208203c* obj);
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void func_02080c04(struct Obj2081* obj, int key);
-extern "C" void func_020e29a8(struct Clamp020e29a8* p, int v);
-extern "C" void func_020e280c(struct Obj020e280c* self, void* b);
+extern "C" void func_020813ec(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_020e29a8(struct Struct_020e29a8* arg0, int arg1);
+extern "C" void func_020e280c(struct Struct_020e280c* arg0, void* arg1);
 
-extern struct Obj0205eaa0 data_02108760;
+extern struct Struct_02108760 data_02108760;
 
-struct Ctx02155580 {
-    char pad0[0x8];
-    void* field8;
-    char pad1[0x18 - 0xc];
-    struct Obj2081* menu;
-    void* cursor;
-    char pad2[0x80 - 0x20];
-    char field80[kRegionValue1E6_1E2 - 0x80];
-    short key1e6;
-    short field1e8;
-    short field1ea;
+struct Struct_ov003_02155580 {
+    char unknown_0_[0x8];
+    void* unknown_8_;
+    char unknown_c_[0x18 - 0xc];
+    struct Struct_0207fdcc_2* unknown_18_;
+    void* unknown_1c_;
+    char unknown_20_[0x80 - 0x20];
+    char unknown_80_[Enum_ov003_02155580_486 - 0x80];
+    short unknown_1e6_;
+    short unknown_1e8_;
+    short unknown_1ea_;
 };
 
 // USA: func_ov003_02155580
-extern "C" ARM void func_ov003_02155580(struct Ctx02155580* self, int arg) {
-    self->key1e6 = 1;
-    self->field1e8 = self->field1ea = 6;
-    self->menu->selected = self->field1ea;
-    func_020813ec(self->menu, self->key1e6);
-    func_0208203c((struct Obj0208203c*)self->field80);
-    self->field8 = 0;
+extern "C" ARM void func_ov003_02155580(struct Struct_ov003_02155580* arg0, int arg1) {
+    arg0->unknown_1e6_ = 1;
+    arg0->unknown_1e8_ = arg0->unknown_1ea_ = 6;
+    arg0->unknown_18_->unknown_36_ = arg0->unknown_1ea_;
+    func_020813ec(arg0->unknown_18_, arg0->unknown_1e6_);
+    func_0208203c((struct Struct_02081f20_2*)arg0->unknown_80_);
+    arg0->unknown_8_ = 0;
     func_0205eaa0(&data_02108760, 5, 0);
-    if (self->cursor != 0) {
-        func_02080c04(self->menu, self->key1e6);
-        func_020e29a8((struct Clamp020e29a8*)self->cursor, (signed char)arg);
-        func_020e280c((struct Obj020e280c*)self->cursor, (void*)-1);
+    if (arg0->unknown_1c_ != 0) {
+        func_02080c04(arg0->unknown_18_, arg0->unknown_1e6_);
+        func_020e29a8((struct Struct_020e29a8*)arg0->unknown_1c_, (signed char)arg1);
+        func_020e280c((struct Struct_020e280c*)arg0->unknown_1c_, (void*)-1);
     }
 }

@@ -10,185 +10,185 @@
 #endif
 
 #if defined(jpn)
-enum { kResourceHeaderOffset = 0x4fc, kResourceTailOffset = 0x4ec,
-       kTargetIdOffset = 0x41fe, kTargetArgOffset = 0x4200 };
+enum { Enum_ov017_021ab860_1276 = 0x4fc, Enum_ov017_021ab860_1260 = 0x4ec,
+       Enum_ov017_021ab860_17582 = 0x41fe, Enum_ov017_021ab860_17584 = 0x4200 };
 #define data_ov017_021d83bc data_ov017_021d8c7c
 #define data_ov017_021d78c4 data_ov017_021d7e2c
 #define data_ov017_021d78a4 data_ov017_021d7e0c
 #else
-enum { kResourceHeaderOffset = 0x70c, kResourceTailOffset = 0x6fc,
-       kTargetIdOffset = 0x44ae, kTargetArgOffset = 0x44b0 };
+enum { Enum_ov017_021ab860_1804 = 0x70c, Enum_ov017_021ab860_1788 = 0x6fc,
+       Enum_ov017_021ab860_17582 = 0x44ae, Enum_ov017_021ab860_17584 = 0x44b0 };
 #endif
 
-extern "C" int func_0200fb8c(int* p);
+extern "C" int func_0200fb8c(int* arg0);
 extern "C" void* func_02012fe4(void);
-extern "C" void* memset(void* dst, int val, unsigned int size);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" unsigned char* func_0205ec34(void);
-extern "C" int func_0206dfb0(int obj, unsigned char* bits, int index);
-extern "C" int func_020117f0(GameState* gameState);
-struct Obj021abb68;
-extern "C" void func_ov017_021abb68(struct Obj021abb68* obj, unsigned char arg);
-struct List02046a3c;
-struct Node02046a3c;
-extern "C" void func_02046a3c(struct List02046a3c* list, struct Node02046a3c* node);
-extern "C" int func_ov017_0219ff58(GameResources* res, int a, int b, int c);
-extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int func_020117f0(GameState* arg0);
+struct Struct_ov017_021ab860;
+extern "C" void func_ov017_021abb68(struct Struct_ov017_021ab860* arg0, unsigned char arg1);
+struct Struct_02046a3c_2;
+struct Struct_02046a3c;
+extern "C" void func_02046a3c(struct Struct_02046a3c_2* arg0, struct Struct_02046a3c* arg1);
+extern "C" int func_ov017_0219ff58(GameResources* arg0, int arg1, int arg2, int arg3);
+extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" void VectorizedMemset(void* dst, int val, int size);
-extern "C" void func_ov017_0219e310(unsigned char* obj, int flag);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
 
-struct Active021ab860 {
-    unsigned short zoneId;
-    unsigned short pad2;
-    unsigned short group;
-    char pad6[2];
-    int header;
+struct Struct_ov017_021ab860_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    char unknown_6_[2];
+    int unknown_8_;
 };
 
-struct State021ab860 {
-    int header;
-    unsigned short key;
-    unsigned short group;
-    unsigned short entryId;
-    char pada[2];
-    Vector3i vec;
-    short field_0x18;
+struct Struct_ov017_021d83b0_2 {
+    int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    char unknown_a_[2];
+    Vector3i unknown_c_;
+    short unknown_18_;
 };
-extern State021ab860 data_ov017_021d83b0;
+extern Struct_ov017_021d83b0_2 data_ov017_021d83b0;
 extern Vector3i data_ov017_021d83bc;
 extern char data_ov017_021d78c4[];
 extern Script::OpcodeLookupEntry data_ov017_021d78a4[];
 
-struct Grotto021ab860 {
-    char pad0[0xc];
-    int zoneId;
-    Vector3i entrance;
+struct Struct_ov017_021ab860_3 {
+    char unknown_0_[0xc];
+    int unknown_c_;
+    Vector3i unknown_10_;
 };
 
-struct Entry3f8_021ab860 {
-    unsigned short entryId;
-    char pad2[2];
-    unsigned char b4;
-    char pad5[2];
-    unsigned char b7;
-    unsigned char b8;
-    unsigned char b9;
-    char pada;
-    signed char bb;
-    unsigned char bc;
-    char padd[3];
-    Vector3i vec;
-    short h1c;
-    short h1e;
-    int w20, w24, w28, w2c;
-    char pad30[0x6c - 0x30];
-    short h6c;
-    char pad6e[2];
+struct Struct_ov017_021ab860_4 {
+    unsigned short unknown_0_;
+    char unknown_2_[2];
+    unsigned char unknown_4_;
+    char unknown_5_[2];
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    char unknown_a_;
+    signed char unknown_b_;
+    unsigned char unknown_c_;
+    char unknown_d_[3];
+    Vector3i unknown_10_;
+    short unknown_1c_;
+    short unknown_1e_;
+    int unknown_20_, unknown_24_, unknown_28_, unknown_2c_;
+    char unknown_30_[0x6c - 0x30];
+    short unknown_6c_;
+    char unknown_6e_[2];
 };
 
 // USA: func_ov017_021ab860
 extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
-    GameState* gs = GameState::GetInstance();
-    func_0200fb8c((int*)gs);
-    data_ov017_021d83b0.header = ((Active021ab860*)func_02012fe4())->header;
-    data_ov017_021d83b0.key = 0;
-    data_ov017_021d83b0.group = 0;
-    data_ov017_021d83b0.entryId = 0;
+    GameState* var0 = GameState::GetInstance();
+    func_0200fb8c((int*)var0);
+    data_ov017_021d83b0.unknown_0_ = ((Struct_ov017_021ab860_2*)func_02012fe4())->unknown_8_;
+    data_ov017_021d83b0.unknown_4_ = 0;
+    data_ov017_021d83b0.unknown_6_ = 0;
+    data_ov017_021d83b0.unknown_8_ = 0;
     memset(&data_ov017_021d83bc, 0, sizeof(Vector3i));
-    data_ov017_021d83b0.field_0x18 = 0;
-    unsigned char* save = func_0205ec34();
-    if (func_0206dfb0((int)save, save + 0x8c, 0x113a) != 0) {
+    data_ov017_021d83b0.unknown_18_ = 0;
+    unsigned char* var1 = func_0205ec34();
+    if (func_0206dfb0((int)var1, var1 + 0x8c, 0x113a) != 0) {
         return 1;
     }
-    if (func_020117f0(gs) != 0) {
-        int status;
-        GameState* state = GameState::GetInstance();
-        Active021ab860* active = (Active021ab860*)func_02012fe4();
-        Grotto021ab860* grotto = (Grotto021ab860*)state->GetGrottoStruct();
-        if (grotto == NULL) {
-            status = 0;
+    if (func_020117f0(var0) != 0) {
+        int var2;
+        GameState* var3 = GameState::GetInstance();
+        Struct_ov017_021ab860_2* var4 = (Struct_ov017_021ab860_2*)func_02012fe4();
+        Struct_ov017_021ab860_3* var5 = (Struct_ov017_021ab860_3*)var3->GetGrottoStruct();
+        if (var5 == NULL) {
+            var2 = 0;
         } else {
-            data_ov017_021d83b0.key = active->group;
-            data_ov017_021d83b0.group = active->zoneId;
-            data_ov017_021d83b0.entryId = grotto->zoneId;
-            data_ov017_021d83b0.field_0x18 = 0;
-            data_ov017_021d83bc = grotto->entrance;
-            data_ov017_021d83b0.vec.z += 0x2000;
-            status = 4;
+            data_ov017_021d83b0.unknown_4_ = var4->unknown_4_;
+            data_ov017_021d83b0.unknown_6_ = var4->unknown_0_;
+            data_ov017_021d83b0.unknown_8_ = var5->unknown_c_;
+            data_ov017_021d83b0.unknown_18_ = 0;
+            data_ov017_021d83bc = var5->unknown_10_;
+            data_ov017_021d83b0.unknown_c_.z += 0x2000;
+            var2 = 4;
         }
-        if (status == 0) {
+        if (var2 == 0) {
             return 0;
         }
     } else {
-        int status;
-        int task;
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        loader->MaybeFreeAllocations();
-        task = loader->QueueLoadFile(data_ov017_021d78c4, NULL);
-        if (task < 0) {
-            status = 0;
+        int var6;
+        int var7;
+        BackgroundLoader* var8 = BackgroundLoader::GetInstance();
+        var8->MaybeFreeAllocations();
+        var7 = var8->QueueLoadFile(data_ov017_021d78c4, NULL);
+        if (var7 < 0) {
+            var6 = 0;
         } else {
-            while (loader->GetTaskStatus(task) == 0) {
-                loader->RemoveAllLocks();
+            while (var8->GetTaskStatus(var7) == 0) {
+                var8->RemoveAllLocks();
             }
-            if (loader->GetDetailedTaskStatus(task) != 2) {
-                loader->RemoveTask(task);
-                status = 0;
+            if (var8->GetDetailedTaskStatus(var7) != 2) {
+                var8->RemoveTask(var7);
+                var6 = 0;
             } else {
-                unsigned int length;
-                void* data;
-                loader->GetLoadedFileByID(task, &data, &length);
-                Script script;
-                script.Initialize();
-                script.SetOpcodeLookup(data_ov017_021d78a4);
-                script.Load(data, length);
-                script.Execute();
-                loader->RemoveTask(task);
-                status = 4;
+                unsigned int var9;
+                void* var10;
+                var8->GetLoadedFileByID(var7, &var10, &var9);
+                Script var11;
+                var11.Initialize();
+                var11.SetOpcodeLookup(data_ov017_021d78a4);
+                var11.Load(var10, var9);
+                var11.Execute();
+                var8->RemoveTask(var7);
+                var6 = 4;
             }
         }
-        if (status == 0) {
+        if (var6 == 0) {
             return 0;
         }
     }
-    if (data_ov017_021d83b0.entryId != 0) {
-        GameResources* res = GetGameResources();
-        func_ov017_021abb68((struct Obj021abb68*)res->unknown_ptr_array_3afc[6], arg1);
-        func_02046a3c((struct List02046a3c*)res->unknown_ptr_array_36fc[0],
-                            (struct Node02046a3c*)res->unknown_ptr_array_3afc[6]);
-        int busy = func_ov017_0219ff58(res, 1, 0, 0);
-        if (busy != 0) {
+    if (data_ov017_021d83b0.unknown_8_ != 0) {
+        GameResources* var12 = GetGameResources();
+        func_ov017_021abb68((struct Struct_ov017_021ab860*)var12->unknown_ptr_array_3afc[6], arg1);
+        func_02046a3c((struct Struct_02046a3c_2*)var12->unknown_ptr_array_36fc[0],
+                            (struct Struct_02046a3c*)var12->unknown_ptr_array_3afc[6]);
+        int var13 = func_ov017_0219ff58(var12, 1, 0, 0);
+        if (var13 != 0) {
             return 3;
         }
-        if (busy == 0) {
-            Entry3f8_021ab860* e = (Entry3f8_021ab860*)func_0200fd0c(gs);
-            VectorizedMemset(e, 0, sizeof(Entry3f8_021ab860));
-            e->b4 = 1;
-            e->b8 = 1;
-            e->b9 = 1;
-            e->bb = -1;
-            e->w20 = -1;
-            e->w24 = -1;
-            e->w28 = -1;
-            e->w2c = -1;
-            e->h1e = -1;
-            e->bc = 0;
-            e->h6c = -1;
-            e->entryId = data_ov017_021d83b0.entryId;
-            e->vec = data_ov017_021d83bc;
-            e->h1c = data_ov017_021d83b0.field_0x18;
-            e->b7 = 1;
-            func_0200fcfc(gs, e);
+        if (var13 == 0) {
+            Struct_ov017_021ab860_4* var14 = (Struct_ov017_021ab860_4*)func_0200fd0c(var0);
+            VectorizedMemset(var14, 0, sizeof(Struct_ov017_021ab860_4));
+            var14->unknown_4_ = 1;
+            var14->unknown_8_ = 1;
+            var14->unknown_9_ = 1;
+            var14->unknown_b_ = -1;
+            var14->unknown_20_ = -1;
+            var14->unknown_24_ = -1;
+            var14->unknown_28_ = -1;
+            var14->unknown_2c_ = -1;
+            var14->unknown_1e_ = -1;
+            var14->unknown_c_ = 0;
+            var14->unknown_6c_ = -1;
+            var14->unknown_0_ = data_ov017_021d83b0.unknown_8_;
+            var14->unknown_10_ = data_ov017_021d83bc;
+            var14->unknown_1c_ = data_ov017_021d83b0.unknown_18_;
+            var14->unknown_7_ = 1;
+            func_0200fcfc(var0, var14);
         }
-        struct TailList020469b4* tail;
-        unsigned char* header = (unsigned char*)res->unknown_ptr_array_36fc[4];
-        tail = (struct TailList020469b4*)res->unknown_ptr_array_36fc[0];
-        func_ov017_0219e310(header, 0);
-        func_020469b4(tail, (struct TailNode020469b4*)header);
-        *(short*)((unsigned char*)res + kTargetIdOffset) = 0;
-        *(short*)((unsigned char*)res + kTargetArgOffset) = 0;
+        struct Struct_0201bdac_2* var15;
+        unsigned char* var16 = (unsigned char*)var12->unknown_ptr_array_36fc[4];
+        var15 = (struct Struct_0201bdac_2*)var12->unknown_ptr_array_36fc[0];
+        func_ov017_0219e310(var16, 0);
+        func_020469b4(var15, (struct Struct_0201bdac*)var16);
+        *(short*)((unsigned char*)var12 + Enum_ov017_021ab860_17582) = 0;
+        *(short*)((unsigned char*)var12 + Enum_ov017_021ab860_17584) = 0;
         return 3;
     }
     return 0;

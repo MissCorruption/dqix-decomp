@@ -2,59 +2,59 @@
 
 #include "Memory/SafeAllocator.h"
 
-struct FlagWord02046708;
+struct Struct_02012de8;
 
-struct CombatResBuildView {
+struct Struct_020e0a78 {
 #if defined(jpn)
-    unsigned char unknown0[0x6c0];
+    unsigned char unknown_0_[0x6c0];
 #else
-    unsigned char unknown0[0x76c];
+    unsigned char unknown1_0_[0x76c];
 #endif
-    SafeAllocator *allocator;
-    void *sourceData;
-    unsigned int size;
+    SafeAllocator *unknown_76c_;
+    void *unknown_770_;
+    unsigned int unknown_774_;
 };
 
 extern "C" void *func_020d6c00();
-extern "C" int func_02046708(FlagWord02046708 *flags, unsigned int mask);
+extern "C" int func_02046708(Struct_02012de8 *arg0, unsigned int arg1);
 extern "C" void VectorizedInvertedMemcpy(void *dst, void *src, unsigned int size);
 extern "C" void func_020e0df8(void*, int, int, int);
 extern "C" void func_020e0cfc(void*, int, int, int);
-extern "C" void func_020e0b4c(void *obj, void *buf, int offset, int dead_r3);
-extern "C" void func_020e0ec4(void *obj, void *buf, int offset, int dead_r3);
+extern "C" void func_020e0b4c(void *arg0, void *arg1, int arg2, int arg3);
+extern "C" void func_020e0ec4(void *arg0, void *arg1, int arg2, int arg3);
 extern "C" void func_020c9820();
 void CleanInvalidateCacheRange(const void *addr, unsigned int size);
 extern "C" int LoadToSubObjVRAM(void *dst, int mode, unsigned int size);
 
 // JPN: func_020e26ac
 // USA: func_020e0a78
-extern "C" ARM int func_020e0a78(void *receiver) {
-    CombatResBuildView *state = static_cast<CombatResBuildView *>(receiver);
+extern "C" ARM int func_020e0a78(void *arg0) {
+    Struct_020e0a78 *var0 = static_cast<Struct_020e0a78 *>(arg0);
 
-    if (state->allocator == 0) {
+    if (var0->unknown_76c_ == 0) {
         return 0;
     }
-    if (func_02046708(static_cast<FlagWord02046708 *>(func_020d6c00()), 0x41)) {
+    if (func_02046708(static_cast<Struct_02012de8 *>(func_020d6c00()), 0x41)) {
         return 0;
     }
 
-    void *buf = state->allocator->Allocate(state->size);
-    VectorizedInvertedMemcpy(state->sourceData, buf, state->size);
+    void *var1 = var0->unknown_76c_->Allocate(var0->unknown_774_);
+    VectorizedInvertedMemcpy(var0->unknown_770_, var1, var0->unknown_774_);
 #if defined(jpn)
-    func_020e0df8(receiver, (int)buf, 0, 0x720);
-    func_020e0b4c(receiver, buf, 0x720, 0xfc0);
-    func_020e0cfc(receiver, (int)buf, 0x1c60, 0x680);
-    func_020e0ec4(receiver, buf, 0x16e0, 0x580);
+    func_020e0df8(arg0, (int)var1, 0, 0x720);
+    func_020e0b4c(arg0, var1, 0x720, 0xfc0);
+    func_020e0cfc(arg0, (int)var1, 0x1c60, 0x680);
+    func_020e0ec4(arg0, var1, 0x16e0, 0x580);
 #else
-    func_020e0df8(receiver, (int)buf, 0, 0x700);
-    func_020e0b4c(receiver, buf, 0x700, 0xfc0);
-    func_020e0ec4(receiver, buf, 0x16c0, 0x9c0);
-    func_020e0cfc(receiver, (int)buf, 0x2080, 0xd00);
+    func_020e0df8(arg0, (int)var1, 0, 0x700);
+    func_020e0b4c(arg0, var1, 0x700, 0xfc0);
+    func_020e0ec4(arg0, var1, 0x16c0, 0x9c0);
+    func_020e0cfc(arg0, (int)var1, 0x2080, 0xd00);
 #endif
     func_020c9820();
-    CleanInvalidateCacheRange(buf, state->size);
-    LoadToSubObjVRAM(buf, 0, state->size);
-    state->allocator->Free(buf);
+    CleanInvalidateCacheRange(var1, var0->unknown_774_);
+    LoadToSubObjVRAM(var1, 0, var0->unknown_774_);
+    var0->unknown_76c_->Free(var1);
 
     return 1;
 }

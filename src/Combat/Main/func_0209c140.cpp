@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Obj02086b98;
-extern "C" int func_02086b98(struct Obj02086b98*);
+struct Struct_0201bdac_4;
+extern "C" int func_02086b98(struct Struct_0201bdac_4*);
 
 // USA: func_0209c140
 extern "C" ARM int func_0209c140() {
-    GameState* bs = GameState::GetInstance();
-    if (bs != NULL) {
-        struct Obj02086b98* o = (struct Obj02086b98*)func_02010828((GameState*)(bs));
-        if (o != NULL) {
-            if (func_02086b98(o) != 0) {
+    GameState* var0 = GameState::GetInstance();
+    if (var0 != NULL) {
+        struct Struct_0201bdac_4* var1 = (struct Struct_0201bdac_4*)func_02010828((GameState*)(var0));
+        if (var1 != NULL) {
+            if (func_02086b98(var1) != 0) {
                 return 1;
             }
         }

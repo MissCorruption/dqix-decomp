@@ -2,63 +2,63 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_020bb740(int* out);
-extern "C" void func_020bb92c(int* src);
-extern "C" int func_020bb588(unsigned int size, int a, int b);
-extern "C" void func_0207de48(void* p, int a, int b);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_020bb740(int* arg0);
+extern "C" void func_020bb92c(int* arg0);
+extern "C" int func_020bb588(unsigned int arg0, int arg1, int arg2);
+extern "C" void func_0207de48(void* arg0, int arg1, int arg2);
 
 extern AllocatorUnion data_02114e20;
 
-struct IndexEntry021d67a0 { int index; int pad4; };
-struct SizeEntry021d67a4 { int size; int pad4; };
-extern IndexEntry021d67a0 data_ov017_021d67a0[];
-extern SizeEntry021d67a4 data_ov017_021d67a4[];
+struct Struct_ov017_021d67a0 { int unknown_0_; int unknown_4_; };
+struct Struct_ov017_021d67a4 { int unknown_0_; int unknown_4_; };
+extern Struct_ov017_021d67a0 data_ov017_021d67a0[];
+extern Struct_ov017_021d67a4 data_ov017_021d67a4[];
 
-struct Triple0xc021a0fa4 { int v; int pad4; int pad8; };
-extern Triple0xc021a0fa4 data_ov017_021d66e0[];
-extern Triple0xc021a0fa4 data_ov017_021d66e8[];
-extern Triple0xc021a0fa4 data_ov017_021d66e4[];
-extern Triple0xc021a0fa4 data_ov017_021d67d0[];
-extern Triple0xc021a0fa4 data_ov017_021d67d8[];
-extern Triple0xc021a0fa4 data_ov017_021d67d4[];
+struct Struct_ov017_021d66e0 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern Struct_ov017_021d66e0 data_ov017_021d66e0[];
+extern Struct_ov017_021d66e0 data_ov017_021d66e8[];
+extern Struct_ov017_021d66e0 data_ov017_021d66e4[];
+extern Struct_ov017_021d66e0 data_ov017_021d67d0[];
+extern Struct_ov017_021d66e0 data_ov017_021d67d8[];
+extern Struct_ov017_021d66e0 data_ov017_021d67d4[];
 
 #if defined(jpn)
-enum { PairBufferOffset = 0x2868, GlobalPairOffset = 0x28c0, SecondPairBufferOffset = 0x2898, FirstArenaOffset = 0xe4c, SecondArenaOffset = 0xebc, EntryBaseOffset = 0x27c };
+enum { Enum_ov017_021a0fa4_10872 = 0x2868, Enum_ov017_021a0fa4_10960 = 0x28c0, Enum_ov017_021a0fa4_10920 = 0x2898, Enum_ov017_021a0fa4_3740 = 0xe4c, Enum_ov017_021a0fa4_3852 = 0xebc, Enum_ov017_021a0fa4_716 = 0x27c };
 #else
-enum { PairBufferOffset = 0x2a78, GlobalPairOffset = 0x2ad0, SecondPairBufferOffset = 0x2aa8, FirstArenaOffset = 0xe9c, SecondArenaOffset = 0xf0c, EntryBaseOffset = 0x2cc };
+enum { Enum_ov017_021a0fa4_10872 = 0x2a78, Enum_ov017_021a0fa4_10960 = 0x2ad0, Enum_ov017_021a0fa4_10920 = 0x2aa8, Enum_ov017_021a0fa4_3740 = 0xe9c, Enum_ov017_021a0fa4_3852 = 0xf0c, Enum_ov017_021a0fa4_716 = 0x2cc };
 #endif
 
 // USA: func_ov017_021a0fa4
-extern "C" ARM void func_ov017_021a0fa4(char* self) {
-    int i;
-    int size;
-    for (i = 0; (size = data_ov017_021d67a4[i].size) != 0; i++) {
-        void* p = func_02012d88(&data_02114e20, size);
-        int idx = data_ov017_021d67a0[i].index;
-        SafeAllocator* alloc = (SafeAllocator*)(self + 0x38 + idx * 0x14);
-        alloc->CreateTypeA(p, size);
+extern "C" ARM void func_ov017_021a0fa4(char* arg0) {
+    int var0;
+    int var1;
+    for (var0 = 0; (var1 = data_ov017_021d67a4[var0].unknown_0_) != 0; var0++) {
+        void* var2 = func_02012d88(&data_02114e20, var1);
+        int var3 = data_ov017_021d67a0[var0].unknown_0_;
+        SafeAllocator* var4 = (SafeAllocator*)(arg0 + 0x38 + var3 * 0x14);
+        var4->CreateTypeA(var2, var1);
     }
 
-    func_020bb740((int*)(self + PairBufferOffset));
-    func_020bb92c((int*)(self + GlobalPairOffset));
+    func_020bb740((int*)(arg0 + Enum_ov017_021a0fa4_10872));
+    func_020bb92c((int*)(arg0 + Enum_ov017_021a0fa4_10960));
     func_020bb588(0x20000, 0, 0);
 
-    int cond;
-    for (i = 0; (cond = data_ov017_021d66e4[i].v) != 0; i++) {
-        int a = data_ov017_021d66e0[i].v;
-        int b = data_ov017_021d66e8[i].v;
-        func_0207de48((self + EntryBaseOffset) + a * 0x70, cond, b);
+    int var5;
+    for (var0 = 0; (var5 = data_ov017_021d66e4[var0].unknown_0_) != 0; var0++) {
+        int var6 = data_ov017_021d66e0[var0].unknown_0_;
+        int var7 = data_ov017_021d66e8[var0].unknown_0_;
+        func_0207de48((arg0 + Enum_ov017_021a0fa4_716) + var6 * 0x70, var5, var7);
     }
 
-    func_020bb740((int*)(self + SecondPairBufferOffset));
+    func_020bb740((int*)(arg0 + Enum_ov017_021a0fa4_10920));
 
-    for (i = 0; (cond = data_ov017_021d67d4[i].v) != 0; i++) {
-        int a = data_ov017_021d67d0[i].v;
-        int b = data_ov017_021d67d8[i].v;
-        func_0207de48((self + EntryBaseOffset) + a * 0x70, cond, b);
+    for (var0 = 0; (var5 = data_ov017_021d67d4[var0].unknown_0_) != 0; var0++) {
+        int var8 = data_ov017_021d67d0[var0].unknown_0_;
+        int var9 = data_ov017_021d67d8[var0].unknown_0_;
+        func_0207de48((arg0 + Enum_ov017_021a0fa4_716) + var8 * 0x70, var5, var9);
     }
 
-    func_0207de48(self + FirstArenaOffset, 0x8000, 0x400);
-    func_0207de48(self + SecondArenaOffset, 0x4000, 0x400);
+    func_0207de48(arg0 + Enum_ov017_021a0fa4_3740, 0x8000, 0x400);
+    func_0207de48(arg0 + Enum_ov017_021a0fa4_3852, 0x4000, 0x400);
 }

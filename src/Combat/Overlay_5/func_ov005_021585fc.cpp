@@ -6,49 +6,49 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-struct EquipmentMenu {
-    char unk_0[LOW_REGION(0x3d22, 0x3daa)];
-    unsigned char pageStep_;
-    char unk_3dab[0x3dbc - 0x3dab];
-    unsigned char kind_;
-    signed char page_;
-    unsigned char unk_3dbe;
-    signed char lastPage_;
-    char unk_3dc0[0x3dcc - 0x3dc0];
-    unsigned int flags_;
-    char unk_3dd0[0x3df4 - 0x3dd0];
-    unsigned char pageCounts_[8];
+struct Struct_ov005_02153954 {
+    char unknown_0_[LOW_REGION(0x3d22, 0x3daa)];
+    unsigned char unknown_3daa_;
+    char unknown_3dab_[0x3dbc - 0x3dab];
+    unsigned char unknown_3dbc_;
+    signed char unknown_3dbd_;
+    unsigned char unknown_3dbe_;
+    signed char unknown_3dbf_;
+    char unknown_3dc0_[0x3dcc - 0x3dc0];
+    unsigned int unknown_3dcc_;
+    char unknown_3dd0_[0x3df4 - 0x3dd0];
+    unsigned char unknown_3df4_[8];
 };
 
-struct Obj0205eaa0;
+struct Struct_02108760;
 
 extern "C" char data_02108760[];
 
-extern "C" void func_0205eaa0(Obj0205eaa0* sound, int effect, int unk);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
 
 // USA: func_ov005_021585fc
-extern "C" ARM int func_ov005_021585fc(EquipmentMenu* self, int direction) {
-    unsigned char last = self->pageCounts_[self->kind_] - 1;
-    signed char page = self->page_;
-    signed char next = page + direction;
-    if (next < 0)
-        next = last;
-    if (next > last)
-        next = 0;
-    int changed = 1;
-    if (next == page)
-        changed = 0;
-    if (changed) {
-        func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-        if (direction < 0)
-            self->flags_ |= 0x20000;
+extern "C" ARM int func_ov005_021585fc(Struct_ov005_02153954* arg0, int arg1) {
+    unsigned char var0 = arg0->unknown_3df4_[arg0->unknown_3dbc_] - 1;
+    signed char var1 = arg0->unknown_3dbd_;
+    signed char var2 = var1 + arg1;
+    if (var2 < 0)
+        var2 = var0;
+    if (var2 > var0)
+        var2 = 0;
+    int var3 = 1;
+    if (var2 == var1)
+        var3 = 0;
+    if (var3) {
+        func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+        if (arg1 < 0)
+            arg0->unknown_3dcc_ |= 0x20000;
         else
-            self->flags_ |= 0x40000;
-        self->unk_3dbe = self->kind_;
-        self->lastPage_ = self->page_;
-        self->page_ = next;
-        self->flags_ |= 0x40;
-        self->pageStep_ = 0;
+            arg0->unknown_3dcc_ |= 0x40000;
+        arg0->unknown_3dbe_ = arg0->unknown_3dbc_;
+        arg0->unknown_3dbf_ = arg0->unknown_3dbd_;
+        arg0->unknown_3dbd_ = var2;
+        arg0->unknown_3dcc_ |= 0x40;
+        arg0->unknown_3daa_ = 0;
     }
-    return changed;
+    return var3;
 }

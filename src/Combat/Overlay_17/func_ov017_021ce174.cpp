@@ -8,57 +8,57 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-struct SearchStruct0202c1a4;
-extern "C" int func_0202c1a4(struct SearchStruct0202c1a4*);
+struct Struct_0202c1a4;
+extern "C" int func_0202c1a4(struct Struct_0202c1a4*);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_02010774(char* obj, int v);
-extern "C" void func_020107a8(char* obj, int v);
-extern "C" void func_020107dc(char* base, int val);
-extern "C" void func_0206e080(char* base, int index);
-extern "C" void func_0206e0d0(char* base, int index);
-extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_02010774(char* arg0, int arg1);
+extern "C" void func_020107a8(char* arg0, int arg1);
+extern "C" void func_020107dc(char* arg0, int arg1);
+extern "C" void func_0206e080(char* arg0, int arg1);
+extern "C" void func_0206e0d0(char* arg0, int arg1);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 
-struct Obj021ce174 {
-    char pad0[4];
-    unsigned char caseSel : 7;
-    unsigned char flag7 : 1;
-    short val6;
-    unsigned short bit8;
+struct Struct_ov017_021ce174 {
+    char unknown_0_[4];
+    unsigned char unknown_4_0_ : 7;
+    unsigned char unknown_4_7_ : 1;
+    short unknown_6_;
+    unsigned short unknown_8_;
 };
 
 // USA: func_ov017_021ce174
-extern "C" ARM void func_ov017_021ce174(void* unused, struct Obj021ce174* obj, char* target, int unused2, struct SearchStruct0202c1a4* search) {
-    if (!obj->flag7) {
-        if (func_0202c1a4(search) == 0) {
+extern "C" ARM void func_ov017_021ce174(void* arg0, struct Struct_ov017_021ce174* arg1, char* arg2, int arg3, struct Struct_0202c1a4* arg4) {
+    if (!arg1->unknown_4_7_) {
+        if (func_0202c1a4(arg4) == 0) {
             return;
         }
     }
 
-    unsigned char* base = (unsigned char*)func_0205ec34();
+    unsigned char* var0 = (unsigned char*)func_0205ec34();
 
-    switch (obj->caseSel) {
+    switch (arg1->unknown_4_0_) {
     case 0:
-        func_02010774(target, obj->val6);
-        func_020107a8(target, 1);
-        func_020107dc(target, 1);
-        func_0206e080((char*)base, base[0x332]);
+        func_02010774(arg2, arg1->unknown_6_);
+        func_020107a8(arg2, 1);
+        func_020107dc(arg2, 1);
+        func_0206e080((char*)var0, var0[0x332]);
         break;
     case 1:
-        func_020107a8(target, obj->val6);
-        func_020107dc(target, 1);
-        func_0206e0d0((char*)base, base[0x332]);
+        func_020107a8(arg2, arg1->unknown_6_);
+        func_020107dc(arg2, 1);
+        func_0206e0d0((char*)var0, var0[0x332]);
         break;
     case 2:
-        func_020107dc(target, obj->val6);
+        func_020107dc(arg2, arg1->unknown_6_);
         break;
     case 3:
-        func_0206df6c(base, base + 0x8c, obj->bit8, obj->val6);
+        func_0206df6c(var0, var0 + 0x8c, arg1->unknown_8_, arg1->unknown_6_);
         break;
     case 4:
-        func_0206df6c(base, base + base[0x332] * 0x1c + 0x3, obj->bit8, obj->val6);
+        func_0206df6c(var0, var0 + var0[0x332] * 0x1c + 0x3, arg1->unknown_8_, arg1->unknown_6_);
         break;
     case 5:
-        func_0206df6c(base, base + base[0x332] * 0x1c + 0x10, obj->bit8, obj->val6);
+        func_0206df6c(var0, var0 + var0[0x332] * 0x1c + 0x10, arg1->unknown_8_, arg1->unknown_6_);
         break;
     default:
         break;

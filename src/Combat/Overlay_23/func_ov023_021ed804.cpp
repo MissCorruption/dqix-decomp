@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 
-struct SrcPacked_021ed804 {
-    unsigned int f0:6, f1:6, f2:6, f3:6, f4:2, f5:1, f6:1, f7:1;
+struct Struct_ov023_021ed804_3 {
+    unsigned int unknown_0_0_:6, unknown_0_6_:6, unknown_1_4_:6, unknown_2_2_:6, unknown_3_0_:2, unknown_3_2_:1, unknown_3_3_:1, unknown_3_4_:1;
 };
-struct Src_021ed804 {
-    unsigned int w0;
-    unsigned char pad1[0x10];
-    unsigned int w14;
-    SrcPacked_021ed804 packed;
+struct Struct_ov023_021ed804 {
+    unsigned int unknown_0_;
+    unsigned char unknown_4_[0x10];
+    unsigned int unknown_14_;
+    Struct_ov023_021ed804_3 unknown_18_;
 };
-struct DstPacked_021ed804 {
-    unsigned int f0:6, f1:6, f2:6, f3:6, f4:2, f5:1, f6:1, f7:1, :2, f8:1;
+struct Struct_ov023_021ed804_2 {
+    unsigned int unknown_0_0_:6, unknown_0_6_:6, unknown_1_4_:6, unknown_2_2_:6, unknown_3_0_:2, unknown_3_2_:1, unknown_3_3_:1, unknown_3_4_:1, :2, unknown_3_7_:1;
 };
-union Dst3_021ed804 {
-    unsigned int v[3];
-    struct { unsigned int w0, w1; DstPacked_021ed804 packed; } f;
+union Struct_ov023_021ed804_4 {
+    unsigned int unknown_0_[3];
+    struct { unsigned int unknown_0_, unknown_4_; Struct_ov023_021ed804_2 unknown_8_; } unknown1_0_;
 };
 
-extern "C" void* func_020e46c4(void* p);
+extern "C" void* func_020e46c4(void* arg0);
 
 // USA: func_ov023_021ed804
-extern "C" ARM void func_ov023_021ed804(Dst3_021ed804* dst, Dst3_021ed804 in, Src_021ed804* src) {
-    func_020e46c4(&in);
-    in.f.w0 = src->w0;
-    in.f.w1 = src->w14;
-    in.f.packed.f0 = src->packed.f0;
-    in.f.packed.f1 = src->packed.f1;
-    in.f.packed.f2 = src->packed.f2;
-    in.f.packed.f3 = src->packed.f3;
-    in.f.packed.f4 = src->packed.f4;
-    in.f.packed.f5 = src->packed.f5;
-    in.f.packed.f6 = src->packed.f6;
-    in.f.packed.f7 = src->packed.f7;
-    in.f.packed.f8 = 0;
-    *dst = in;
+extern "C" ARM void func_ov023_021ed804(Struct_ov023_021ed804_4* arg0, Struct_ov023_021ed804_4 arg1, Struct_ov023_021ed804* arg2) {
+    func_020e46c4(&arg1);
+    arg1.unknown1_0_.unknown_0_ = arg2->unknown_0_;
+    arg1.unknown1_0_.unknown_4_ = arg2->unknown_14_;
+    arg1.unknown1_0_.unknown_8_.unknown_0_0_ = arg2->unknown_18_.unknown_0_0_;
+    arg1.unknown1_0_.unknown_8_.unknown_0_6_ = arg2->unknown_18_.unknown_0_6_;
+    arg1.unknown1_0_.unknown_8_.unknown_1_4_ = arg2->unknown_18_.unknown_1_4_;
+    arg1.unknown1_0_.unknown_8_.unknown_2_2_ = arg2->unknown_18_.unknown_2_2_;
+    arg1.unknown1_0_.unknown_8_.unknown_3_0_ = arg2->unknown_18_.unknown_3_0_;
+    arg1.unknown1_0_.unknown_8_.unknown_3_2_ = arg2->unknown_18_.unknown_3_2_;
+    arg1.unknown1_0_.unknown_8_.unknown_3_3_ = arg2->unknown_18_.unknown_3_3_;
+    arg1.unknown1_0_.unknown_8_.unknown_3_4_ = arg2->unknown_18_.unknown_3_4_;
+    arg1.unknown1_0_.unknown_8_.unknown_3_7_ = 0;
+    *arg0 = arg1;
 }

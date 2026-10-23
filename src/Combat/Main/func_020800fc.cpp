@@ -1,145 +1,145 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Node0208036c;
-struct Slot0208010c {
-    short* itemIds;
-    unsigned int unknown4;
-    short id;
-    short tileX;
-    short tileY;
-    short tileWidth;
-    short tileHeight;
-    unsigned char unknown12;
-    unsigned char itemCount;
-    char unknown14[4];
+struct Struct_020800fc_3;
+struct Struct_020800fc_4 {
+    short* unknown_0_;
+    unsigned int unknown_4_;
+    short unknown_8_;
+    short unknown_a_;
+    short unknown_c_;
+    short unknown_e_;
+    short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    char unknown_14_[4];
 };
-struct List0207f6ac {
-    Node0208036c* entries;
-    short count;
+struct Struct_0207f524 {
+    Struct_020800fc_3* unknown_0_;
+    short unknown_4_;
 };
-struct GroupList0208010c {
-    Slot0208010c* entries;
-    short count;
+struct Struct_02012538 {
+    Struct_020800fc_4* unknown_0_;
+    short unknown_4_;
 };
-struct Ctx0208010c {
-    void* table;
-    List0207f6ac items;
-    GroupList0208010c groups;
+struct Struct_020800fc_2 {
+    void* unknown_0_;
+    Struct_0207f524 unknown_4_;
+    Struct_02012538 unknown_c_;
 #if defined(jpn)
-    char unknown14[0x2f - 0x14];
+    char unknown_14_[0x2f - 0x14];
 #else
-    char unknown14[0x3b - 0x14];
+    char unknown1_14_[0x3b - 0x14];
 #endif
-    signed char horizontalEdgePixels;
-    signed char verticalEdgePixels;
+    signed char unknown_3b_;
+    signed char unknown_3c_;
 };
 
-struct Node0208036c {
-    char pad0[4];
-    short f4;
-    char pad1[0x18 - 6];
-    struct Node0208036c* f18;
-    struct Node0208036c* f1c;
-    struct Node0208036c* f20;
-    struct Node0208036c* f24;
-    char pad2[0x2a - 0x28];
-    unsigned char f2a;
+struct Struct_020800fc_3 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0x18 - 6];
+    struct Struct_020800fc_3* unknown_18_;
+    struct Struct_020800fc_3* unknown_1c_;
+    struct Struct_020800fc_3* unknown_20_;
+    struct Struct_020800fc_3* unknown_24_;
+    char unknown_28_[0x2a - 0x28];
+    unsigned char unknown_2a_;
 };
 
-struct Flags0208036c {
-    unsigned int f0;
+struct Struct_020800fc {
+    unsigned int unknown_0_;
 };
 
-extern "C" void* func_020810b4(unsigned char* self, short val);
-extern "C" int func_02080e40(void* obj, int p1, int p2, int p3);
-extern "C" struct Node0208036c* func_0207f6ac(struct List0207f6ac* list, int id);
-extern "C" struct Node0208036c* func_0208036c(void* unused, struct Node0208036c* start, int mode, struct Flags0208036c* flags, unsigned char setFlag);
+extern "C" void* func_020810b4(unsigned char* arg0, short arg1);
+extern "C" int func_02080e40(void* arg0, int arg1, int arg2, int arg3);
+extern "C" struct Struct_020800fc_3* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" struct Struct_020800fc_3* func_0208036c(void* arg0, struct Struct_020800fc_3* arg1, int arg2, struct Struct_020800fc* arg3, unsigned char arg4);
 
 // USA: func_020800fc
-extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short id, int mode, unsigned char sel, unsigned char setFlag) {
-    struct Flags0208036c flags;
-    struct Node0208036c* node;
-    struct Node0208036c* e;
-    struct Slot0208010c* slot;
-    int x;
-    int y;
-    int ret;
+extern "C" ARM int func_020800fc(struct Struct_020800fc_2* arg0, short* arg1, short arg2, int arg3, unsigned char arg4, unsigned char arg5) {
+    struct Struct_020800fc var0;
+    struct Struct_020800fc_3* var1;
+    struct Struct_020800fc_3* var2;
+    struct Struct_020800fc_4* var3;
+    int var4;
+    int var5;
+    int var6;
 
-    flags.f0 = 0;
-    *outId = id;
+    var0.unknown_0_ = 0;
+    *arg1 = arg2;
     if (g_touchInput.pressed_ != 0) {
-        slot = (struct Slot0208010c*)func_020810b4((unsigned char*)self, id);
-        if (slot != NULL) {
-            g_touchInput.GetTouchPoint(&x, &y);
-            ret = func_02080e40(self, slot->id, (short)x, (short)y);
-            if (ret >= 0) {
-                *outId = (short)ret;
+        var3 = (struct Struct_020800fc_4*)func_020810b4((unsigned char*)arg0, arg2);
+        if (var3 != NULL) {
+            g_touchInput.GetTouchPoint(&var4, &var5);
+            var6 = func_02080e40(arg0, var3->unknown_8_, (short)var4, (short)var5);
+            if (var6 >= 0) {
+                *arg1 = (short)var6;
             }
-            if (setFlag != 0) {
-                short rightTile = (short)(slot->tileX + slot->tileWidth);
-                short bottomTile = (short)(slot->tileY + slot->tileHeight);
-                if ((short)(bottomTile << 3) - self->verticalEdgePixels <= y && y < (short)(bottomTile << 3)) {
-                    short leftPixel = (short)(slot->tileX << 3);
-                    if (leftPixel <= x && x < leftPixel + self->horizontalEdgePixels) {
-                        flags.f0 |= 0x20;
+            if (arg5 != 0) {
+                short var7 = (short)(var3->unknown_a_ + var3->unknown_e_);
+                short var8 = (short)(var3->unknown_c_ + var3->unknown_10_);
+                if ((short)(var8 << 3) - arg0->unknown_3c_ <= var5 && var5 < (short)(var8 << 3)) {
+                    short var9 = (short)(var3->unknown_a_ << 3);
+                    if (var9 <= var4 && var4 < var9 + arg0->unknown_3b_) {
+                        var0.unknown_0_ |= 0x20;
                     }
-                    if ((short)(rightTile << 3) - self->horizontalEdgePixels <= x && x < (short)(rightTile << 3)) {
-                        flags.f0 |= 0x10;
+                    if ((short)(var7 << 3) - arg0->unknown_3b_ <= var4 && var4 < (short)(var7 << 3)) {
+                        var0.unknown_0_ |= 0x10;
                     }
                 }
             }
         }
-        return flags.f0;
+        return var0.unknown_0_;
     }
 
-    if (sel == 0) {
-        return flags.f0;
+    if (arg4 == 0) {
+        return var0.unknown_0_;
     }
-    e = func_0207f6ac(&self->items, *outId);
-    if (e == NULL) {
-        return flags.f0;
+    var2 = func_0207f6ac(&arg0->unknown_4_, *arg1);
+    if (var2 == NULL) {
+        return var0.unknown_0_;
     }
-    node = NULL;
-    switch (mode) {
+    var1 = NULL;
+    switch (arg3) {
     case 0x10:
-        node = e->f24;
-        flags.f0 |= 8;
+        var1 = var2->unknown_24_;
+        var0.unknown_0_ |= 8;
         break;
     case 0x20:
-        node = e->f20;
-        flags.f0 |= 4;
+        var1 = var2->unknown_20_;
+        var0.unknown_0_ |= 4;
         break;
     case 0x40:
-        node = e->f18;
-        flags.f0 |= 1;
+        var1 = var2->unknown_18_;
+        var0.unknown_0_ |= 1;
         break;
     case 0x80:
-        node = e->f1c;
-        flags.f0 |= 2;
+        var1 = var2->unknown_1c_;
+        var0.unknown_0_ |= 2;
         break;
     }
-    if (node != NULL) {
-        if (node->f2a & 2) {
-            node = func_0208036c(self, e, mode, &flags, setFlag);
+    if (var1 != NULL) {
+        if (var1->unknown_2a_ & 2) {
+            var1 = func_0208036c(arg0, var2, arg3, &var0, arg5);
         }
-        if (node != NULL) {
-            *outId = node->f4;
+        if (var1 != NULL) {
+            *arg1 = var1->unknown_4_;
         }
     } else {
-        if (sel == 1) {
-            e = func_0208036c(self, e, mode, &flags, setFlag);
-        } else if (sel == 2 && setFlag != 0) {
-            switch (mode) {
+        if (arg4 == 1) {
+            var2 = func_0208036c(arg0, var2, arg3, &var0, arg5);
+        } else if (arg4 == 2 && arg5 != 0) {
+            switch (arg3) {
             case 0x10:
-                flags.f0 |= 0x10;
+                var0.unknown_0_ |= 0x10;
                 break;
             case 0x20:
-                flags.f0 |= 0x20;
+                var0.unknown_0_ |= 0x20;
                 break;
             }
         }
-        *outId = e->f4;
+        *arg1 = var2->unknown_4_;
     }
-    return flags.f0;
+    return var0.unknown_0_;
 }

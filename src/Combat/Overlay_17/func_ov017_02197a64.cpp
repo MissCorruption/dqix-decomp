@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset6c = 0x8c };
+enum { Enum_ov017_02197a64_108 = 0x8c };
 #else
-enum { RegionOffset6c = 0x6c };
+enum { Enum_ov017_02197a64_108 = 0x6c };
 #endif
 
 #include <globaldefs.h>
@@ -10,164 +10,164 @@ enum { RegionOffset6c = 0x6c };
 #include "Graphics/Vector.h"
 #include "Input/Input.h"
 
-struct Obj020968d0;
+struct Struct_020968d0;
 
-struct GroupNode02197a64 {
-    unsigned char pad0[0x8];
-    Vector3fix position;
-    unsigned char pad14[0x20 - 0x14];
-    short angle;
-    unsigned char pad22[0x2e - 0x22];
-    unsigned short low : 4;
-    unsigned short flags : 12;
-    unsigned char pad30[0x70 - 0x30];
-    struct GroupNode02197a64* next;
+struct Struct_ov017_02197a64_2 {
+    unsigned char unknown_0_[0x8];
+    Vector3fix unknown_8_;
+    unsigned char unknown_14_[0x20 - 0x14];
+    short unknown_20_;
+    unsigned char unknown_22_[0x2e - 0x22];
+    unsigned short unknown_2e_0_ : 4;
+    unsigned short unknown_2e_4_ : 12;
+    unsigned char unknown_30_[0x70 - 0x30];
+    struct Struct_ov017_02197a64_2* unknown_70_;
 };
 
-struct Leader02197a64 {
-    unsigned char pad0[0x44];
-    Vector3fix position;
-    unsigned char pad50[0x54 - 0x50];
-    int rotationY;
-    unsigned char pad58[0xbe - 0x58];
-    unsigned char mode;
+struct Struct_ov017_02197a64_3 {
+    unsigned char unknown_0_[0x44];
+    Vector3fix unknown_44_;
+    unsigned char unknown_50_[0x54 - 0x50];
+    int unknown_54_;
+    unsigned char unknown_58_[0xbe - 0x58];
+    unsigned char unknown_be_;
 };
 
-struct Resources02197a64 {
+struct Struct_ov017_02197a64_4 {
 #if defined(jpn)
-    unsigned char pad0[0x4188];
+    unsigned char unknown_0_[0x4188];
 #else
-    unsigned char pad0[0x4438];
+    unsigned char unknown1_0_[0x4438];
 #endif
-    Vector3fix heading;
+    Vector3fix unknown_4438_;
 };
 
-struct Self02197a64 {
+struct Struct_ov017_02197a64_5 {
 #if defined(jpn)
-    unsigned char pad0[0x40cc];
+    unsigned char unknown_0_[0x40cc];
 #else
-    unsigned char pad0[0x42ec];
+    unsigned char unknown1_0_[0x42ec];
 #endif
-    short strayCount;
+    short unknown_42ec_;
 };
 
-struct GroupEvent02197a64 {
-    unsigned char tag;
-    unsigned char pad1[3];
-    unsigned char count;
-    unsigned char pad5[3];
-    struct GroupNode02197a64* nodes[2];
-    short angle;
-    short pad12;
+struct Struct_ov017_02197a64 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned char unknown_4_;
+    unsigned char unknown_5_[3];
+    struct Struct_ov017_02197a64_2* unknown_8_[2];
+    short unknown_10_;
+    short unknown_12_;
 };
 
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_0201e838(unsigned char* obj, unsigned int index);
-extern "C" Obj020968d0* func_ov017_0218d268(void* res);
-extern "C" void func_ov017_0219a674(unsigned char* self);
-extern "C" int func_02094b9c(void* a, void* b);
-extern "C" int func_ov017_0218da48(void* obj, int angle, int c, int d, unsigned char e);
-extern "C" int func_020968d0(Obj020968d0* obj, int* outDist);
-extern "C" void __clear(void* buf, int count);
-struct Vec3;
+extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" Struct_020968d0* func_ov017_0218d268(void* arg0);
+extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" int func_02094b9c(void* arg0, void* arg1);
+extern "C" int func_ov017_0218da48(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
+extern "C" int func_020968d0(Struct_020968d0* arg0, int* arg1);
+extern "C" void __clear(void* arg0, int arg1);
+struct Struct_ov009_0218aa28;
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
-extern "C" void func_ov017_0219b33c(Self02197a64* self, GroupEvent02197a64* event);
-extern "C" void func_ov017_02198f84(Self02197a64* self);
+extern "C" void func_ov017_0219b33c(Struct_ov017_02197a64_5* arg0, Struct_ov017_02197a64* arg1);
+extern "C" void func_ov017_02198f84(Struct_ov017_02197a64_5* arg0);
 
 #define FACING_LIMIT ((int)(0.8f * 4096.0f))
 
 // USA: func_ov017_02197a64
-extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
-    GameState* gs = GameState::GetInstance();
-    Resources02197a64* res = (Resources02197a64*)GetGameResources();
-    void* cache = func_02012fe4();
-    Leader02197a64* leader = (Leader02197a64*)gs->GetUnknownGameObject();
-    Vector3fix filter = leader->position;
-    GroupNode02197a64* node = (GroupNode02197a64*)func_0201e838((unsigned char*)cache + RegionOffset6c, 2);
-    Obj020968d0* field = func_ov017_0218d268(res);
-    int notify = 0;
-    GroupEvent02197a64 event;
-    func_ov017_0219a674((unsigned char*)&event);
-    int counted = 0;
-    int built = 0;
+extern "C" ARM void func_ov017_02197a64(Struct_ov017_02197a64_5* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov017_02197a64_4* var1 = (Struct_ov017_02197a64_4*)GetGameResources();
+    void* var2 = func_02012fe4();
+    Struct_ov017_02197a64_3* var3 = (Struct_ov017_02197a64_3*)var0->GetUnknownGameObject();
+    Vector3fix var4 = var3->unknown_44_;
+    Struct_ov017_02197a64_2* var5 = (Struct_ov017_02197a64_2*)func_0201e838((unsigned char*)var2 + Enum_ov017_02197a64_108, 2);
+    Struct_020968d0* var6 = func_ov017_0218d268(var1);
+    int var7 = 0;
+    Struct_ov017_02197a64 var8;
+    func_ov017_0219a674((unsigned char*)&var8);
+    int var9 = 0;
+    int var10 = 0;
 
-    while (node != NULL && event.count < 2) {
-        if (!(node->flags & 1) && !(node->flags & 4) && func_02094b9c(node, &filter)) {
-            if (!built) {
-                built = func_ov017_0218da48(self, node->angle, FACING_LIMIT, FACING_LIMIT >> 3, 0);
+    while (var5 != NULL && var8.unknown_4_ < 2) {
+        if (!(var5->unknown_2e_4_ & 1) && !(var5->unknown_2e_4_ & 4) && func_02094b9c(var5, &var4)) {
+            if (!var10) {
+                var10 = func_ov017_0218da48(arg0, var5->unknown_20_, FACING_LIMIT, FACING_LIMIT >> 3, 0);
             }
-            Vector3fix dir;
-            int c = fix32cos(node->angle);
-            dir.x = fix32sin(node->angle);
-            dir.y = 0;
-            dir.z = c;
-            Vector3fix_Normalize(&dir, &dir);
-            Vector3fix fwd;
-            c = fix32cos(leader->rotationY);
-            fwd.x = fix32sin(leader->rotationY);
-            fwd.y = 0;
-            fwd.z = c;
-            Vector3fix_Normalize(&fwd, &fwd);
-            Vector3fix heading = res->heading;
-            int facing = Vector3fix_InnerProduct(&dir, &fwd);
-            int along = Vector3fix_InnerProduct(&dir, &heading);
-            if ((heading.x != 0 || heading.z != 0) &&
-                (func_020968d0(field, NULL) != 0 || g_keyManager.TestKeysHeld(0xf0) != 0)) {
-                facing = along;
+            Vector3fix var11;
+            int var12 = fix32cos(var5->unknown_20_);
+            var11.x = fix32sin(var5->unknown_20_);
+            var11.y = 0;
+            var11.z = var12;
+            Vector3fix_Normalize(&var11, &var11);
+            Vector3fix var13;
+            var12 = fix32cos(var3->unknown_54_);
+            var13.x = fix32sin(var3->unknown_54_);
+            var13.y = 0;
+            var13.z = var12;
+            Vector3fix_Normalize(&var13, &var13);
+            Vector3fix var14 = var1->unknown_4438_;
+            int var15 = Vector3fix_InnerProduct(&var11, &var13);
+            int var16 = Vector3fix_InnerProduct(&var11, &var14);
+            if ((var14.x != 0 || var14.z != 0) &&
+                (func_020968d0(var6, NULL) != 0 || g_keyManager.TestKeysHeld(0xf0) != 0)) {
+                var15 = var16;
             }
-            if (node->flags & 0x10) {
-                Vector3fix toNode;
-                Vector3fix_Subtract(&filter, &node->position, &toNode);
-                toNode.y = 0;
-                Vector3fix_Normalize(&toNode, &toNode);
-                if (Vector3fix_InnerProduct(&dir, &toNode) > 0) {
-                    if (facing >= 0) {
-                        node = node->next;
+            if (var5->unknown_2e_4_ & 0x10) {
+                Vector3fix var17;
+                Vector3fix_Subtract(&var4, &var5->unknown_8_, &var17);
+                var17.y = 0;
+                Vector3fix_Normalize(&var17, &var17);
+                if (Vector3fix_InnerProduct(&var11, &var17) > 0) {
+                    if (var15 >= 0) {
+                        var5 = var5->unknown_70_;
                         continue;
                     }
                 } else {
-                    if (facing <= 0) {
-                        node = node->next;
+                    if (var15 <= 0) {
+                        var5 = var5->unknown_70_;
                         continue;
                     }
                 }
             } else {
-                if (facing > 0) {
-                    node = node->next;
+                if (var15 > 0) {
+                    var5 = var5->unknown_70_;
                     continue;
                 }
             }
-            event.nodes[event.count++] = node;
-            if (self->strayCount <= 2) {
-                if (leader->mode == 1 &&
-                    (along < 0x170 - FACING_LIMIT || along > FACING_LIMIT - 0x170 ||
-                     facing < 0x170 - FACING_LIMIT || facing > FACING_LIMIT - 0x170)) {
-                    if (!counted) {
-                        counted = 1;
-                        self->strayCount++;
+            var8.unknown_8_[var8.unknown_4_++] = var5;
+            if (arg0->unknown_42ec_ <= 2) {
+                if (var3->unknown_be_ == 1 &&
+                    (var16 < 0x170 - FACING_LIMIT || var16 > FACING_LIMIT - 0x170 ||
+                     var15 < 0x170 - FACING_LIMIT || var15 > FACING_LIMIT - 0x170)) {
+                    if (!var9) {
+                        var9 = 1;
+                        arg0->unknown_42ec_++;
                     }
                 } else {
-                    self->strayCount = 0;
+                    arg0->unknown_42ec_ = 0;
                 }
-            } else if (self->strayCount > 2) {
-                if (!counted) notify = 1;
+            } else if (arg0->unknown_42ec_ > 2) {
+                if (!var9) var7 = 1;
             }
         }
-        node = node->next;
+        var5 = var5->unknown_70_;
     }
 
-    if (event.count != 0) {
-        Vector3fix center;
-        __clear(&center, sizeof(center));
-        for (int i = 0; i < event.count; i++) {
-            Vector3fix_Add(&center, &event.nodes[i]->position, &center);
+    if (var8.unknown_4_ != 0) {
+        Vector3fix var18;
+        __clear(&var18, sizeof(var18));
+        for (int var19 = 0; var19 < var8.unknown_4_; var19++) {
+            Vector3fix_Add(&var18, &var8.unknown_8_[var19]->unknown_8_, &var18);
         }
-        Vector3fixDivideScalar(&center, event.count << 12, &center);
-        event.angle = func_ov017_021a4754(&leader->position, (short)leader->rotationY, &center);
-        event.tag = 4;
-        func_ov017_0219b33c(self, &event);
+        Vector3fixDivideScalar(&var18, var8.unknown_4_ << 12, &var18);
+        var8.unknown_10_ = func_ov017_021a4754(&var3->unknown_44_, (short)var3->unknown_54_, &var18);
+        var8.unknown_0_ = 4;
+        func_ov017_0219b33c(arg0, &var8);
     }
-    if (notify) {
-        func_ov017_02198f84(self);
+    if (var7) {
+        func_ov017_02198f84(arg0);
     }
 }

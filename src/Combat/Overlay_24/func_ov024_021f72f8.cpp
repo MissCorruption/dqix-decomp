@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-struct FieldWord0x150_021f72f8 { unsigned int w0; unsigned int val : 10; };
-struct TableStruct_021f72f8 { void* obj; char pad[0x10]; float in14; float in18; float f1c; float f20; };
+struct Struct_ov024_021f72f8_2 { unsigned int unknown_0_; unsigned int unknown_4_0_ : 10; };
+struct Struct_ov024_021f72f8 { void* unknown_0_; char unknown_4_[0x10]; float unknown_14_; float unknown_18_; float unknown_1c_; float unknown_20_; };
 
 // USA: func_ov024_021f72f8
-extern "C" ARM int func_ov024_021f72f8(struct TableStruct_021f72f8* s) {
-	int base = func_02053c6c((unsigned char*)s->obj);
-	int v = ((struct FieldWord0x150_021f72f8*)base)->val;
-	s->f1c = s->in14 / 2.0f + (float)v;
-	s->f20 = s->in18 / 2.0f + (float)v;
+extern "C" ARM int func_ov024_021f72f8(struct Struct_ov024_021f72f8* arg0) {
+	int var0 = func_02053c6c((unsigned char*)arg0->unknown_0_);
+	int var1 = ((struct Struct_ov024_021f72f8_2*)var0)->unknown_4_0_;
+	arg0->unknown_1c_ = arg0->unknown_14_ / 2.0f + (float)var1;
+	arg0->unknown_20_ = arg0->unknown_18_ / 2.0f + (float)var1;
 	return 1;
 }

@@ -3,36 +3,36 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_ov011_021845f8(void* a, int b);
+extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* func_ov011_021849c8(void*);
-extern "C" void func_ov023_021fbb64(void* block, void* obj, int p1, int p2, int p3, int p4, int p5, int p6, int one, int p7, int fifteen);
+extern "C" void func_ov023_021fbb64(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10);
 
-struct ListHead_021f67ac;
-struct ListNode_021f67ac;
-extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+struct Struct_ov004_0215c30c;
+struct Struct_ov004_0215c30c_2;
+extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
 
 extern char data_ov023_021ff078;
 
-struct Buf0216b06c { void* magic; char pad[0x40 - 4]; };
+struct Struct_ov004_0216b06c { void* unknown_0_; char unknown_4_[0x40 - 4]; };
 
 // USA: func_ov004_0216b06c
-extern "C" ARM void func_ov004_0216b06c(void* obj, int p1, int p2, int p3, int p4, int p5, int p6, int p7
+extern "C" ARM void func_ov004_0216b06c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7
 #if !defined(jpn)
-, unsigned char p8
+, unsigned char arg8
 #endif
 ) {
-    void* buf = func_ov011_021845f8(obj, p2);
-    void* block = ((SafeAllocator*)((char*)buf + 4))->Allocate(0x40);
-    if (!block) return;
+    void* var0 = func_ov011_021845f8(arg0, arg2);
+    void* var1 = ((SafeAllocator*)((char*)var0 + 4))->Allocate(0x40);
+    if (!var1) return;
 
-    struct Buf0216b06c local;
-    local.magic = &data_ov023_021ff078;
-    memcpy(block, &local, sizeof(Buf0216b06c));
+    struct Struct_ov004_0216b06c var2;
+    var2.unknown_0_ = &data_ov023_021ff078;
+    memcpy(var1, &var2, sizeof(Struct_ov004_0216b06c));
 
-    func_ov023_021fbb64(block, obj, p1, p2, p3, p4, p5, p6, 1, p7, 0xf);
+    func_ov023_021fbb64(var1, arg0, arg1, arg2, arg3, arg4, arg5, arg6, 1, arg7, 0xf);
 
-    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(obj), (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var1);
 #if !defined(jpn)
-    *((unsigned char*)block + 0x3d) = p8;
+    *((unsigned char*)var1 + 0x3d) = arg8;
 #endif
 }

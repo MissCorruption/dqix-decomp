@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct02235c84 { unsigned char pad[0x4f5]; unsigned char field4f5; };
-extern Struct02235c84* data_ov031_02290cfc;
+struct Struct_ov031_02235c84 { unsigned char unknown_0_[0x4f5]; unsigned char unknown_4f5_; };
+extern Struct_ov031_02235c84* data_ov031_02290cfc;
 
 // USA: func_ov031_02235c84
-extern "C" ARM void func_ov031_02235c84(unsigned char val) {
-    data_ov031_02290cfc->field4f5 = val;
+extern "C" ARM void func_ov031_02235c84(unsigned char arg0) {
+    data_ov031_02290cfc->unknown_4f5_ = arg0;
 }

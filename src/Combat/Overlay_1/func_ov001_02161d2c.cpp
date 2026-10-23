@@ -4,14 +4,14 @@ extern "C" void* func_02012fe4(void);
 extern "C" int func_ov017_021d60f4(void*);
 
 // USA: func_ov001_02161d2c
-extern "C" ARM int func_ov001_02161d2c(void* obj) {
+extern "C" ARM int func_ov001_02161d2c(void* arg0) {
 #if defined(jpn)
-    enum { regionalFieldOffset = 0x78c };
+    enum { Enum_ov001_02161d2c_1868 = 0x78c };
 #else
-    enum { regionalFieldOffset = 0x74c };
+    enum { Enum_ov001_02161d2c_1868 = 0x74c };
 #endif
-    char* base = (char*)func_02012fe4();
-    int v = func_ov017_021d60f4(obj);
-    *(int*)(base + 0x2000 + regionalFieldOffset) = v;
+    char* var0 = (char*)func_02012fe4();
+    int var1 = func_ov017_021d60f4(arg0);
+    *(int*)(var0 + 0x2000 + Enum_ov001_02161d2c_1868) = var1;
     return 1;
 }

@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct Inner_02054000 {
-    char pad0[0x294];
-    char field294;
-    char pad1[0x496 - 0x295];
-    short field496;
+struct Struct_02054000_2 {
+    char unknown_0_[0x294];
+    char unknown_294_;
+    char unknown_295_[0x496 - 0x295];
+    short unknown_496_;
 };
 
-struct Outer_02054000 {
+struct Struct_02054000 {
 #if defined(jpn)
-    char pad0[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad0[0x150];
+    char unknown1_0_[0x150];
 #endif
-    struct Inner_02054000* inner;
+    struct Struct_02054000_2* unknown_150_;
 };
 
 // USA: func_02054000
-extern "C" ARM void* func_02054000(struct Outer_02054000* p) {
-    struct Inner_02054000* inner = p->inner;
-    if (inner != 0) {
-        if (inner->field496 > 0) {
-            return &inner->field294;
+extern "C" ARM void* func_02054000(struct Struct_02054000* arg0) {
+    struct Struct_02054000_2* var0 = arg0->unknown_150_;
+    if (var0 != 0) {
+        if (var0->unknown_496_ > 0) {
+            return &var0->unknown_294_;
         }
     }
     return 0;

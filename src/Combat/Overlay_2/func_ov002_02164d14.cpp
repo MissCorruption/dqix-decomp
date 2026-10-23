@@ -7,29 +7,29 @@
 #if defined(jpn)
 #endif
 
-struct Struct0205de24;
+struct Struct_0205de24_2;
 struct Struct_0205c570;
 struct Struct_0205def8;
-struct Obj_0205da38;
-struct Obj0205eaa0;
-struct Obj02061bd8;
-extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
-                                                                        unsigned char keyHigh);
-extern "C" int func_0205d794(struct Struct_0205c570 *s);
-extern "C" void func_0205def8(struct Struct_0205def8 *s, int a, int b);
-extern "C" void func_020dc4d0(signed char *out, signed char *outCount);
-extern "C" GameObject *func_0200ff1c(GameState *gameState, int combatantId);
-extern "C" int func_02061bd8(struct Obj02061bd8 *obj);
-extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
-extern "C" void func_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
+struct Struct_0205da38;
+struct Struct_02108760;
+struct Struct_0205faf4_11;
+extern "C" void func_0205de24(struct Struct_0205de24_2 *arg0, unsigned char arg1,
+                                                                        unsigned char arg2);
+extern "C" int func_0205d794(struct Struct_0205c570 *arg0);
+extern "C" void func_0205def8(struct Struct_0205def8 *arg0, int arg1, int arg2);
+extern "C" void func_020dc4d0(signed char *arg0, signed char *arg1);
+extern "C" GameObject *func_0200ff1c(GameState *arg0, int arg1);
+extern "C" int func_02061bd8(struct Struct_0205faf4_11 *arg0);
+extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" void func_0205eaa0(struct Struct_02108760 *arg0, int arg1, int arg2);
 extern "C" int func_020d6c00(void);
-extern "C" void func_020466e4(unsigned int *p, unsigned int bits);
-extern "C" int func_ov002_02161b48(char *base, int a);
-extern "C" void func_ov002_0215b814(char *base);
-extern "C" void func_ov002_02161cf0(char *base);
-extern "C" void func_ov002_0215e1d0(char *base);
-extern "C" void func_ov002_02156e90(char *base);
-extern "C" void func_020d79e0(char *base, int id);
+extern "C" void func_020466e4(unsigned int *arg0, unsigned int arg1);
+extern "C" int func_ov002_02161b48(char *arg0, int arg1);
+extern "C" void func_ov002_0215b814(char *arg0);
+extern "C" void func_ov002_02161cf0(char *arg0);
+extern "C" void func_ov002_0215e1d0(char *arg0);
+extern "C" void func_ov002_02156e90(char *arg0);
+extern "C" void func_020d79e0(char *arg0, int arg1);
 extern "C" void func_02012fe4(void);
 extern "C" void func_02017c58(void);
 extern "C" char data_02108760[];
@@ -58,91 +58,91 @@ extern "C" unsigned short data_ov002_0216cc86[];
 #define K_2B_02164d14 0x2b
 #endif
 
-struct L02164d14 {
-    char pad[0x60];
-    int f60;
+struct Struct_ov002_02164d14 {
+    char unknown_0_[0x60];
+    int unknown_60_;
 };
 // USA: func_ov002_02164d14
-extern "C" ARM void func_ov002_02164d14(char *base) {
-    int state = *(int *) (base + OFF_STATE_02164d14);
-    if (state == 0) {
-        func_ov002_0215b814(base);
-        func_0205de24((struct Struct0205de24 *) (base + OFF_LIST_02164d14), 0, 2);
-        func_ov002_02161cf0(base);
-        func_ov002_0215e1d0(base);
-        *(int *) (base + OFF_STATE_02164d14) += 1;
-    } else if (state == 1) {
-        GameState *gs = GameState::GetInstance();
-        if (*(short *) (base + OFF_SEL_02164d14) != 0) {
-            func_0205def8((struct Struct_0205def8 *) (base + OFF_LIST_02164d14), 1, 1);
-            func_0205def8((struct Struct_0205def8 *) (base + OFF_LIST_02164d14), 1, K_0E_02164d14);
-            func_0205def8((struct Struct_0205def8 *) (base + OFF_LIST_02164d14), 1,
+extern "C" ARM void func_ov002_02164d14(char *arg0) {
+    int var0 = *(int *) (arg0 + OFF_STATE_02164d14);
+    if (var0 == 0) {
+        func_ov002_0215b814(arg0);
+        func_0205de24((struct Struct_0205de24_2 *) (arg0 + OFF_LIST_02164d14), 0, 2);
+        func_ov002_02161cf0(arg0);
+        func_ov002_0215e1d0(arg0);
+        *(int *) (arg0 + OFF_STATE_02164d14) += 1;
+    } else if (var0 == 1) {
+        GameState *var1 = GameState::GetInstance();
+        if (*(short *) (arg0 + OFF_SEL_02164d14) != 0) {
+            func_0205def8((struct Struct_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, 1);
+            func_0205def8((struct Struct_0205def8 *) (arg0 + OFF_LIST_02164d14), 1, K_0E_02164d14);
+            func_0205def8((struct Struct_0205def8 *) (arg0 + OFF_LIST_02164d14), 1,
                                                                     K_29_02164d14);
         }
-        *(unsigned int *) (base + OFF_FLAGS_02164d14) |= 4;
-        short old = *(short *) (base + OFF_SEL_02164d14);
-        *(short *) (base + OFF_SEL_02164d14) =
-            func_0205d794((struct Struct_0205c570 *) (base + OFF_LIST_02164d14));
-        signed char ids[7];
-        signed char count;
-        L02164d14 *list = (L02164d14 *) (base + OFF_LIST_02164d14) + 1;
-        int bad         = 0;
-        func_020dc4d0(ids, &count);
-        int dead = bad;
-        for (int i = 0; i < count; i++) {
-            GameObject *c = func_0200ff1c(gs, ids[i]);
-            if (c != NULL && func_02061bd8((struct Obj02061bd8 *) c)) dead++;
+        *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) |= 4;
+        short var2 = *(short *) (arg0 + OFF_SEL_02164d14);
+        *(short *) (arg0 + OFF_SEL_02164d14) =
+            func_0205d794((struct Struct_0205c570 *) (arg0 + OFF_LIST_02164d14));
+        signed char var3[7];
+        signed char var4;
+        Struct_ov002_02164d14 *var5 = (Struct_ov002_02164d14 *) (arg0 + OFF_LIST_02164d14) + 1;
+        int var6         = 0;
+        func_020dc4d0(var3, &var4);
+        int var7 = var6;
+        for (int var8 = 0; var8 < var4; var8++) {
+            GameObject *var9 = func_0200ff1c(var1, var3[var8]);
+            if (var9 != NULL && func_02061bd8((struct Struct_0205faf4_11 *) var9)) var7++;
         }
-        count -= dead;
-        if (count + 1 != (list - 1)->f60) bad = 1;
-        if ((list - 1)->f60 <= *(short *) (base + OFF_SEL_02164d14)) bad = 1;
-        if (bad) {
-            *(unsigned int *) (base + OFF_FLAGS_02164d14) &= ~4;
-            *(short *) (base + OFF_SEL_02164d14) = -1;
-            func_ov002_02156e90(base);
-            *(int *) (base + OFF_NEXT_02164d14) = K_0E_02164d14;
-            *(int *) (base + OFF_STATE_02164d14) = 0;
+        var4 -= var7;
+        if (var4 + 1 != (var5 - 1)->unknown_60_) var6 = 1;
+        if ((var5 - 1)->unknown_60_ <= *(short *) (arg0 + OFF_SEL_02164d14)) var6 = 1;
+        if (var6) {
+            *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) &= ~4;
+            *(short *) (arg0 + OFF_SEL_02164d14) = -1;
+            func_ov002_02156e90(arg0);
+            *(int *) (arg0 + OFF_NEXT_02164d14) = K_0E_02164d14;
+            *(int *) (arg0 + OFF_STATE_02164d14) = 0;
             return;
         }
-        if (old != *(short *) (base + OFF_SEL_02164d14)) return;
-        int a = g_keyManager.TestKeysPressed(0x601);
-        int b = func_0205da38((struct Obj_0205da38*)(base + OFF_LIST_02164d14), 0x14);
-        if ((a | b) ? 1 : 0) {
-            if (*(unsigned int *) (base + OFF_FLAGS_02164d14) & 2) return;
-            if (*(short *) (base + OFF_SEL_02164d14) == count) {
-                *(unsigned int *) (base + OFF_FLAGS_02164d14) &= ~4;
-                func_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
-                *(int *) (base + OFF_NEXT_02164d14) = K_0F_02164d14;
-                *(int *) (base + OFF_STATE_02164d14) = 0;
-                for (int i = 0; i < 4; i++) {
-                    unsigned short off = data_ov002_0216cca4[i] * 0x20;
+        if (var2 != *(short *) (arg0 + OFF_SEL_02164d14)) return;
+        int var10 = g_keyManager.TestKeysPressed(0x601);
+        int var11 = func_0205da38((struct Struct_0205da38*)(arg0 + OFF_LIST_02164d14), 0x14);
+        if ((var10 | var11) ? 1 : 0) {
+            if (*(unsigned int *) (arg0 + OFF_FLAGS_02164d14) & 2) return;
+            if (*(short *) (arg0 + OFF_SEL_02164d14) == var4) {
+                *(unsigned int *) (arg0 + OFF_FLAGS_02164d14) &= ~4;
+                func_0205eaa0((struct Struct_02108760 *) data_02108760, 1, 0);
+                *(int *) (arg0 + OFF_NEXT_02164d14) = K_0F_02164d14;
+                *(int *) (arg0 + OFF_STATE_02164d14) = 0;
+                for (int var12 = 0; var12 < 4; var12++) {
+                    unsigned short var13 = data_ov002_0216cca4[var12] * 0x20;
                     CleanInvalidateCacheRange(data_ov002_0216cc86, 2);
-                    LoadToMainBGStandardPalette(data_ov002_0216cc86, (unsigned short) (off + 2), 2);
+                    LoadToMainBGStandardPalette(data_ov002_0216cc86, (unsigned short) (var13 + 2), 2);
                     CleanCacheRange(data_ov002_0216cc86, 2);
                 }
                 return;
             }
-            if (ids[*(short *) (base + OFF_SEL_02164d14)] < 0) return;
+            if (var3[*(short *) (arg0 + OFF_SEL_02164d14)] < 0) return;
             func_020466e4((unsigned int *) func_020d6c00(), 1);
             if (func_02061bd8(
-                    (struct Obj02061bd8 *) func_0200ff1c(gs, ids[*(short *) (base + OFF_SEL_02164d14)])))
+                    (struct Struct_0205faf4_11 *) func_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)])))
             {
-                for (int j = 0; j < 4; j++) {
-                    short *cur = (short *) (base + OFF_SEL_02164d14);
-                    (*cur)++;
-                    *cur          = *cur % 4;
-                    GameObject *c = func_0200ff1c(gs, ids[*(short *) (base + OFF_SEL_02164d14)]);
-                    if (c != NULL && !func_02061bd8((struct Obj02061bd8 *) c)) break;
+                for (int var14 = 0; var14 < 4; var14++) {
+                    short *var15 = (short *) (arg0 + OFF_SEL_02164d14);
+                    (*var15)++;
+                    *var15          = *var15 % 4;
+                    GameObject *var16 = func_0200ff1c(var1, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
+                    if (var16 != NULL && !func_02061bd8((struct Struct_0205faf4_11 *) var16)) break;
                 }
             }
-            func_020d79e0(base, ids[*(short *) (base + OFF_SEL_02164d14)]);
-            *(int *) (base + OFF_NEXT_02164d14) = K_2B_02164d14;
-            *(int *) (base + OFF_STATE_02164d14) = 0;
+            func_020d79e0(arg0, var3[*(short *) (arg0 + OFF_SEL_02164d14)]);
+            *(int *) (arg0 + OFF_NEXT_02164d14) = K_2B_02164d14;
+            *(int *) (arg0 + OFF_STATE_02164d14) = 0;
             func_02012fe4();
             func_02017c58();
-        } else if (func_ov002_02161b48(base, 1)) {
-            *(short *) (base + OFF_SEL_02164d14) = -1;
-            func_ov002_02156e90(base);
+        } else if (func_ov002_02161b48(arg0, 1)) {
+            *(short *) (arg0 + OFF_SEL_02164d14) = -1;
+            func_ov002_02156e90(arg0);
         }
     }
 }

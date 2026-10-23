@@ -7,124 +7,124 @@
 #include "Resource/GameResources.h"
 
 extern "C" void *func_02012fe4(void);
-struct S02053f4c;
-extern "C" void func_02053f4c(CombatantRecovery*, int, int);
+struct Struct_02053f4c;
+extern "C" void func_02053f4c(Struct_020236dc_2*, int, int);
 extern "C" void func_02053f6c(void *, unsigned char);
 extern "C" int func_0201b5d8(int);
 
-struct Node02021f88 {
-    unsigned char type;
-    unsigned char id;
-    unsigned char count;
-    unsigned char pad3;
-    short *data;
-    int x;
-    int y;
-    struct Node02021f88 *next;
+struct Struct_02021f88 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    short *unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    struct Struct_02021f88 *unknown_10_;
 };
 
-struct CombatResourceStatePrefix {
+struct Struct_02026bdc {
 #if defined(jpn)
-    char pad0[0x6a8];
+    char unknown_0_[0x6a8];
 #else
-    char pad0[0x754];
+    char unknown1_0_[0x754];
 #endif
-    Node02021f88 *first;
+    Struct_02021f88 *unknown_754_;
 #if defined(jpn)
-    char pad758[0x9ca - 0x6ac];
+    char unknown_6ac_[0x9ca - 0x6ac];
 #else
-    char pad758[0xa96 - 0x758];
+    char unknown_758_[0xa96 - 0x758];
 #endif
-    unsigned char activeCombatants;
+    unsigned char unknown_a96_;
 };
 
 // USA: func_02026bdc
-extern "C" ARM void func_02026bdc(void *object, int flag) {
-    CombatResourceStatePrefix *state = static_cast<CombatResourceStatePrefix *>(object);
-    GameState *gameState             = GameState::GetInstance();
-    for (int i = 0; i < 4; i++) {
-        if (gameState->GetGameObjectByIndex(i) == 0) {
+extern "C" ARM void func_02026bdc(void *arg0, int arg1) {
+    Struct_02026bdc *var0 = static_cast<Struct_02026bdc *>(arg0);
+    GameState *var1             = GameState::GetInstance();
+    for (int var2 = 0; var2 < 4; var2++) {
+        if (var1->GetGameObjectByIndex(var2) == 0) {
             continue;
         }
-        if ((state->activeCombatants & (1 << i)) == 0) {
+        if ((var0->unknown_a96_ & (1 << var2)) == 0) {
             continue;
         }
         GetGameResources();
-        CombatantRecovery *combatant = static_cast<CombatantRecovery *>(func_0200ff1c(gameState, i));
-        if (combatant == 0) {
+        Struct_020236dc_2 *var3 = static_cast<Struct_020236dc_2 *>(func_0200ff1c(var1, var2));
+        if (var3 == 0) {
             continue;
         }
-        Zone3D *zone = static_cast<Zone3D *>(func_02012fe4());
-        if (&zone->substruct_c_ == 0 || zone->pUnknownStruct_8_ == 0) {
+        Zone3D *var4 = static_cast<Zone3D *>(func_02012fe4());
+        if (&var4->substruct_c_ == 0 || var4->pUnknownStruct_8_ == 0) {
             return;
         }
-        if ((combatant->obj3D_.unknown_0_ & 0x1000) != 0) {
-            if (zone->currentZoneID_ == 10000 || zone->currentZoneID_ == 10100) {
-                combatant->recoveryFlags &= ~8;
+        if ((var3->obj3D_.unknown_0_ & 0x1000) != 0) {
+            if (var4->currentZoneID_ == 10000 || var4->currentZoneID_ == 10100) {
+                var3->unknown_18c_ &= ~8;
                 continue;
             }
         }
-        Node02021f88 *node;
-        int found = 0;
-        if (flag != 0) {
-            state->activeCombatants &= ~(1 << i);
+        Struct_02021f88 *var5;
+        int var6 = 0;
+        if (arg1 != 0) {
+            var0->unknown_a96_ &= ~(1 << var2);
         }
-        node      = state->first;
-        int value = combatant->obj3D_.GetField06();
-        if (zone->currentZoneID_ == 10000 || zone->currentZoneID_ == 10100) {
-            if (value < 20000 || value > 29999) {
-                value = value / 100 * 100;
+        var5      = var0->unknown_754_;
+        int var7 = var3->obj3D_.GetField06();
+        if (var4->currentZoneID_ == 10000 || var4->currentZoneID_ == 10100) {
+            if (var7 < 20000 || var7 > 29999) {
+                var7 = var7 / 100 * 100;
             }
-            while (node != 0 && found == 0) {
-                for (int j = 0; j < node->count && found == 0; j++) {
-                    int entryValue = static_cast<unsigned short>(node->data[j]);
-                    if (entryValue < 20000 || entryValue > 29999) {
-                        entryValue = entryValue / 100 * 100;
+            while (var5 != 0 && var6 == 0) {
+                for (int var8 = 0; var8 < var5->unknown_2_ && var6 == 0; var8++) {
+                    int var9 = static_cast<unsigned short>(var5->unknown_4_[var8]);
+                    if (var9 < 20000 || var9 > 29999) {
+                        var9 = var9 / 100 * 100;
                     }
-                    if (entryValue == value) {
-                        combatant->recoveryFlags |= 8;
-                        if (node->type == 0) {
-                            combatant->recoveryFlags &= ~0x10;
+                    if (var9 == var7) {
+                        var3->unknown_18c_ |= 8;
+                        if (var5->unknown_0_ == 0) {
+                            var3->unknown_18c_ &= ~0x10;
                         } else {
-                            combatant->recoveryFlags |= 0x10;
-                            func_02053f4c(combatant, node->x, node->y);
-                            func_02053f6c(combatant, node->id);
+                            var3->unknown_18c_ |= 0x10;
+                            func_02053f4c(var3, var5->unknown_8_, var5->unknown_c_);
+                            func_02053f6c(var3, var5->unknown_1_);
                         }
-                        found = 1;
+                        var6 = 1;
                     }
                 }
-                node = node->next;
+                var5 = var5->unknown_10_;
             }
-        } else if (func_0201b5d8(value) != 0) {
-            GameObject *unknownObject = gameState->GetUnknownGameObject();
-            if (unknownObject != 0) {
-                int unknownValue = unknownObject->obj3D_.GetField06();
-                if (unknownValue == value) {
-                    combatant->recoveryFlags |= 8;
-                    combatant->recoveryFlags &= ~0x10;
-                    found = 1;
+        } else if (func_0201b5d8(var7) != 0) {
+            GameObject *var10 = var1->GetUnknownGameObject();
+            if (var10 != 0) {
+                int var11 = var10->obj3D_.GetField06();
+                if (var11 == var7) {
+                    var3->unknown_18c_ |= 8;
+                    var3->unknown_18c_ &= ~0x10;
+                    var6 = 1;
                 }
             }
         } else {
-            while (node != 0 && found == 0) {
-                for (int j = 0; j < node->count && found == 0; j++) {
-                    if (value == static_cast<unsigned short>(node->data[j])) {
-                        combatant->recoveryFlags |= 8;
-                        if (node->type == 0) {
-                            combatant->recoveryFlags &= ~0x10;
+            while (var5 != 0 && var6 == 0) {
+                for (int var12 = 0; var12 < var5->unknown_2_ && var6 == 0; var12++) {
+                    if (var7 == static_cast<unsigned short>(var5->unknown_4_[var12])) {
+                        var3->unknown_18c_ |= 8;
+                        if (var5->unknown_0_ == 0) {
+                            var3->unknown_18c_ &= ~0x10;
                         } else {
-                            combatant->recoveryFlags |= 0x10;
-                            func_02053f4c(combatant, node->x, node->y);
-                            func_02053f6c(combatant, node->id);
+                            var3->unknown_18c_ |= 0x10;
+                            func_02053f4c(var3, var5->unknown_8_, var5->unknown_c_);
+                            func_02053f6c(var3, var5->unknown_1_);
                         }
-                        found = 1;
+                        var6 = 1;
                     }
                 }
-                node = node->next;
+                var5 = var5->unknown_10_;
             }
         }
-        if (found == 0) {
-            combatant->recoveryFlags &= ~8;
+        if (var6 == 0) {
+            var3->unknown_18c_ &= ~8;
         }
     }
 }

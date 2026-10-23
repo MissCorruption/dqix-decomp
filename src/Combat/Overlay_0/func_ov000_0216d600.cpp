@@ -1,92 +1,92 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 
-struct Vec3Ints0216d368 : Vector3i {};
-struct AngleTrig0202e9a4 {
-    unsigned int angle;
-    Vector3i eye;
-    Vector3i target;
-    unsigned char padding[0x220 - 0x1c];
-    unsigned char mode;
-    unsigned char padding221[7];
-    int frontWidth, frontHeight, backWidth, backHeight;
-    int duration, targetDuration;
-    Vector3i savedEye, savedTarget;
-    int field258;
+struct Struct_ov000_0216d368 : Vector3i {};
+struct Struct_0202df68 {
+    unsigned int unknown_0_;
+    Vector3i unknown_4_;
+    Vector3i unknown_10_;
+    unsigned char unknown_1c_[0x220 - 0x1c];
+    unsigned char unknown_220_;
+    unsigned char unknown_221_[7];
+    int unknown_228_, unknown_22c_, unknown_230_, unknown_234_;
+    int unknown_238_, unknown_23c_;
+    Vector3i unknown_240_, unknown_24c_;
+    int unknown_258_;
 };
-struct CombatWorkD600 {
+struct Struct_ov000_0216d600 {
 #if defined(jpn)
-    unsigned char padding[0x79e0];
+    unsigned char unknown_0_[0x79e0];
 #else
-    unsigned char padding[0x77f0];
+    unsigned char unknown1_0_[0x77f0];
 #endif
-    int overrideIndex;
-    Vector3i eye, target;
+    int unknown_77f0_;
+    Vector3i unknown_77f4_, unknown_7800_;
 };
-extern "C" void func_ov000_0216d370(AngleTrig0202e9a4*, int, int, int);
-extern "C" void func_0202e9a4(AngleTrig0202e9a4*, int);
-extern "C" void func_ov000_0216d368(Vec3Ints0216d368*, int, int, int);
-extern "C" CombatWorkD600* func_ov000_02160130();
-extern "C" void func_0202eab8(AngleTrig0202e9a4*);
-extern "C" int func_ov000_0216f210(AngleTrig0202e9a4*, int*);
+extern "C" void func_ov000_0216d370(Struct_0202df68*, int, int, int);
+extern "C" void func_0202e9a4(Struct_0202df68*, int);
+extern "C" void func_ov000_0216d368(Struct_ov000_0216d368*, int, int, int);
+extern "C" Struct_ov000_0216d600* func_ov000_02160130();
+extern "C" void func_0202eab8(Struct_0202df68*);
+extern "C" int func_ov000_0216f210(Struct_0202df68*, int*);
 
-static inline int MultiplyFixedD600(int a, int b) { return (int)(((long long)a * b + 0x800) >> 12); }
+static inline int inline_ov000_0216d600(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
 
 // USA: func_ov000_0216d600
-extern "C" ARM void func_ov000_0216d600(AngleTrig0202e9a4* camera, int side, int close, int mode, float x, float y, float z, unsigned char overridePosition) {
-    func_ov000_0216d370(camera, 1, 1, 1);
-    camera->mode = 2;
-    int width, height;
-    if (side == 0) { width = camera->frontWidth; height = camera->frontHeight; }
-    else { width = camera->backWidth; height = camera->backHeight; }
-    int scale, factor;
-    if (close == 0) { scale = 0x424; factor = scale + 0xb50; }
+extern "C" ARM void func_ov000_0216d600(Struct_0202df68* arg0, int arg1, int arg2, int arg3, float arg4, float arg5, float arg6, unsigned char arg7) {
+    func_ov000_0216d370(arg0, 1, 1, 1);
+    arg0->unknown_220_ = 2;
+    int var0, var1;
+    if (arg1 == 0) { var0 = arg0->unknown_228_; var1 = arg0->unknown_22c_; }
+    else { var0 = arg0->unknown_230_; var1 = arg0->unknown_234_; }
+    int var2, var3;
+    if (arg2 == 0) { var2 = 0x424; var3 = var2 + 0xb50; }
     else {
-        func_0202e9a4(camera, 0x16000);
-        scale = 0x5fe;
-        factor = 0xed6;
+        func_0202e9a4(arg0, 0x16000);
+        var2 = 0x5fe;
+        var3 = 0xed6;
     }
-    width = MultiplyFixedD600(width, factor);
-    int distance = fix32_Divide(width, (int)(2.2f * (float)scale)) - 0x2800;
-    int scaledHeight = MultiplyFixedD600(height, factor);
-    int heightDistance = fix32_Divide(scaledHeight, (int)(1.5f * (float)scale)) - 0x2800;
-    if (heightDistance >= distance) distance = heightDistance;
-    int minimum = 0x6800;
-    if (close != 0) minimum = 0x3000;
-    if (distance < minimum) distance = minimum;
-    height /= 2;
-    if (height < 0x1333) height = 0x1333;
-    Vec3Ints0216d368 eye, target;
-    int result;
-    func_ov000_0216d368(&eye, 0, height, distance);
-    func_ov000_0216d368(&target, 0, height, 0);
-    if (eye.y > 0x2000) eye.y = 0x2000;
-    if (close == 0) {
-        if (mode == 1) eye.y += 0x1000;
-        else if (mode == 2) {
-            eye.x += (int)(4096.0f * x);
-            eye.y += (int)(4096.0f * y);
-            eye.z += (int)(4096.0f * z);
-        } else if (mode == 3) {
-            camera->duration = 28;
-            camera->targetDuration = 20;
-            eye.x += (int)(4096.0f * x);
-            eye.y += (int)(4096.0f * y);
-            eye.z += (int)(4096.0f * z);
+    var0 = inline_ov000_0216d600(var0, var3);
+    int var4 = fix32_Divide(var0, (int)(2.2f * (float)var2)) - 0x2800;
+    int var5 = inline_ov000_0216d600(var1, var3);
+    int var6 = fix32_Divide(var5, (int)(1.5f * (float)var2)) - 0x2800;
+    if (var6 >= var4) var4 = var6;
+    int var7 = 0x6800;
+    if (arg2 != 0) var7 = 0x3000;
+    if (var4 < var7) var4 = var7;
+    var1 /= 2;
+    if (var1 < 0x1333) var1 = 0x1333;
+    Struct_ov000_0216d368 var8, var9;
+    int var10;
+    func_ov000_0216d368(&var8, 0, var1, var4);
+    func_ov000_0216d368(&var9, 0, var1, 0);
+    if (var8.y > 0x2000) var8.y = 0x2000;
+    if (arg2 == 0) {
+        if (arg3 == 1) var8.y += 0x1000;
+        else if (arg3 == 2) {
+            var8.x += (int)(4096.0f * arg4);
+            var8.y += (int)(4096.0f * arg5);
+            var8.z += (int)(4096.0f * arg6);
+        } else if (arg3 == 3) {
+            arg0->unknown_238_ = 28;
+            arg0->unknown_23c_ = 20;
+            var8.x += (int)(4096.0f * arg4);
+            var8.y += (int)(4096.0f * arg5);
+            var8.z += (int)(4096.0f * arg6);
         }
     }
-    if (overridePosition) {
-        CombatWorkD600* work = func_ov000_02160130();
-        if (work && work->overrideIndex != -1) {
-            func_ov000_0216d368(&eye, work->eye.x, work->eye.y, work->eye.z);
-            func_ov000_0216d368(&target, work->target.x, work->target.y, work->target.z);
+    if (arg7) {
+        Struct_ov000_0216d600* var11 = func_ov000_02160130();
+        if (var11 && var11->unknown_77f0_ != -1) {
+            func_ov000_0216d368(&var8, var11->unknown_77f4_.x, var11->unknown_77f4_.y, var11->unknown_77f4_.z);
+            func_ov000_0216d368(&var9, var11->unknown_7800_.x, var11->unknown_7800_.y, var11->unknown_7800_.z);
         }
     }
-    if (side == 0) { eye.z = -eye.z; target.z = -target.z; }
-    camera->eye = eye;
-    camera->target = target;
-    func_0202eab8(camera);
-    camera->savedEye = eye;
-    camera->savedTarget = target;
-    camera->field258 = func_ov000_0216f210(camera, &result);
+    if (arg1 == 0) { var8.z = -var8.z; var9.z = -var9.z; }
+    arg0->unknown_4_ = var8;
+    arg0->unknown_10_ = var9;
+    func_0202eab8(arg0);
+    arg0->unknown_240_ = var8;
+    arg0->unknown_24c_ = var9;
+    arg0->unknown_258_ = func_ov000_0216f210(arg0, &var10);
 }

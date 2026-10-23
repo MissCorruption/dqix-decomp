@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
 // USA: func_020d3d78
-extern "C" ARM void* func_020d3d78(unsigned char* obj, int index) {
+extern "C" ARM void* func_020d3d78(unsigned char* arg0, int arg1) {
 #if defined(jpn)
-    if (index < *(int*)(obj + 0xa0)) {
+    if (arg1 < *(int*)(arg0 + 0xa0)) {
 #else
-    if (index < *(int*)(obj + 0xb4)) {
+    if (arg1 < *(int*)(arg0 + 0xb4)) {
 #endif
         #if defined(jpn)
-        return obj + index * 0x20;
+        return arg0 + arg1 * 0x20;
 #else
-        return obj + index * 0x24;
+        return arg0 + arg1 * 0x24;
 #endif
     }
     return NULL;

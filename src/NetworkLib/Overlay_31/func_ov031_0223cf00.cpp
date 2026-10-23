@@ -10,14 +10,14 @@ extern "C" void func_020c9be0(void);
 extern HPXEAllocator* data_ov031_02290d3c;
 
 // USA: func_ov031_0223cf00
-extern "C" ARM void* func_ov031_0223cf00(unsigned int len, int align) {
-	void* p;
-	unsigned int irq;
-	irq = DisableSpecificInterrupts(1);
-	p = data_ov031_02290d3c->Allocate(len, align);
-	if (p == NULL) {
+extern "C" ARM void* func_ov031_0223cf00(unsigned int arg0, int arg1) {
+	void* var0;
+	unsigned int var1;
+	var1 = DisableSpecificInterrupts(1);
+	var0 = data_ov031_02290d3c->Allocate(arg0, arg1);
+	if (var0 == NULL) {
 		func_020c9be0();
 	}
-	EnableSpecificInterrupts(irq);
-	return p;
+	EnableSpecificInterrupts(var1);
+	return var0;
 }

@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Obj0217c74c {
-    char pad0[0x140];
-    unsigned char f140;
-    unsigned char f141;
+struct Struct_ov003_0217c74c {
+    char unknown_0_[0x140];
+    unsigned char unknown_140_;
+    unsigned char unknown_141_;
 };
 
 // USA: func_ov003_0217c74c
-extern "C" ARM void func_ov003_0217c74c(struct Obj0217c74c* obj) {
+extern "C" ARM void func_ov003_0217c74c(struct Struct_ov003_0217c74c* arg0) {
     if (!g_keyManager.TestKeysPressed(0xc0f)) {
         if (g_touchInput.isRepeatValid_ == 0) return;
         if (g_touchInput.currentReading_.isHeld == 0) return;
     }
-    obj->f140 = 4;
-    obj->f141 = 0;
+    arg0->unknown_140_ = 4;
+    arg0->unknown_141_ = 0;
 }

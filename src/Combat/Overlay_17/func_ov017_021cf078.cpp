@@ -2,72 +2,72 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { Field850 = 0x7b8 };
+enum { Enum_ov017_021cf078_2128 = 0x7b8 };
 #else
-enum { Field850 = 0x850 };
+enum { Enum_ov017_021cf078_2128 = 0x850 };
 #endif
 
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Triple10_021cf078 {
-    unsigned int a : 10;
-    unsigned int b : 10;
-    unsigned int c : 10;
-    unsigned int pad : 2;
+struct Struct_ov017_021cf078 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct SrcSlot021cf078 {
-    Triple10_021cf078 items[3];
+struct Struct_ov017_021cf078_2 {
+    Struct_ov017_021cf078 unknown_0_[3];
 };
 
-struct EvtWord3_021cf078 {
-    unsigned int lo : 8;
-    unsigned int mid : 3;
-    unsigned int hi : 1;
-    unsigned int rest : 20;
+struct Struct_ov017_021cf078_3 {
+    unsigned int unknown_0_0_ : 8;
+    unsigned int unknown_1_0_ : 3;
+    unsigned int unknown_1_3_ : 1;
+    unsigned int unknown_1_4_ : 20;
 };
 
-struct EventBuf021cf078 {
-    unsigned char tag;
-    unsigned char pad0[3];
+struct Struct_ov017_021cf078_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
     struct {
-        Triple10_021cf078 items[3];
-        EvtWord3_021cf078 w3;
-    } data;
+        Struct_ov017_021cf078 unknown_0_[3];
+        Struct_ov017_021cf078_3 unknown_c_;
+    } unknown_4_;
 };
 
 // USA: func_ov017_021cf078
-extern "C" ARM void func_ov017_021cf078(int combatantId, unsigned short slot, unsigned char flag) {
-    void* p = func_0202ae24();
-    GameState* bs = GameState::GetInstance();
-    GameObject* combatant = func_0200ff1c(bs, combatantId);
-    if (!combatant) return;
+extern "C" ARM void func_ov017_021cf078(int arg0, unsigned short arg1, unsigned char arg2) {
+    void* var0 = func_0202ae24();
+    GameState* var1 = GameState::GetInstance();
+    GameObject* var2 = func_0200ff1c(var1, arg0);
+    if (!var2) return;
 
-    int val150 = func_02053c6c((unsigned char*)combatant);
-    if (!val150) return;
+    int var3 = func_02053c6c((unsigned char*)var2);
+    if (!var3) return;
 
-    SrcSlot021cf078* arr = (SrcSlot021cf078*)((char*)val150 + Field850);
-    SrcSlot021cf078* src = &arr[slot];
+    Struct_ov017_021cf078_2* var4 = (Struct_ov017_021cf078_2*)((char*)var3 + Enum_ov017_021cf078_2128);
+    Struct_ov017_021cf078_2* var5 = &var4[arg1];
 
-    EventBuf021cf078 buf;
-    buf.tag = 0x15;
-    Triple10_021cf078* dst = buf.data.items;
-    dst[0].a = src->items[0].a;
-    dst[0].b = src->items[0].b;
-    dst[0].c = src->items[0].c;
-    dst[1].a = src->items[1].a;
-    dst[1].b = src->items[1].b;
-    dst[1].c = src->items[1].c;
-    dst[2].a = src->items[2].a;
-    dst[2].b = src->items[2].b;
-    dst[2].c = src->items[2].c;
-    EvtWord3_021cf078* w3 = (EvtWord3_021cf078*)(dst + 3);
-    w3->lo = slot;
-    w3->mid = combatantId;
-    w3->hi = flag;
+    Struct_ov017_021cf078_4 var6;
+    var6.unknown_0_ = 0x15;
+    Struct_ov017_021cf078* var7 = var6.unknown_4_.unknown_0_;
+    var7[0].unknown_0_0_ = var5->unknown_0_[0].unknown_0_0_;
+    var7[0].unknown_1_2_ = var5->unknown_0_[0].unknown_1_2_;
+    var7[0].unknown_2_4_ = var5->unknown_0_[0].unknown_2_4_;
+    var7[1].unknown_0_0_ = var5->unknown_0_[1].unknown_0_0_;
+    var7[1].unknown_1_2_ = var5->unknown_0_[1].unknown_1_2_;
+    var7[1].unknown_2_4_ = var5->unknown_0_[1].unknown_2_4_;
+    var7[2].unknown_0_0_ = var5->unknown_0_[2].unknown_0_0_;
+    var7[2].unknown_1_2_ = var5->unknown_0_[2].unknown_1_2_;
+    var7[2].unknown_2_4_ = var5->unknown_0_[2].unknown_2_4_;
+    Struct_ov017_021cf078_3* var8 = (Struct_ov017_021cf078_3*)(var7 + 3);
+    var8->unknown_0_0_ = arg1;
+    var8->unknown_1_0_ = arg0;
+    var8->unknown_1_3_ = arg2;
 
-    func_0205e330(p, &buf, 0);
+    func_0205e330(var0, &var6, 0);
 }

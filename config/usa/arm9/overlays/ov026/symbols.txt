@@ -38,7 +38,7 @@ data_ov026_021de7fa kind:data(any) addr:0x021de7fa
 data_ov026_021de802 kind:data(any) addr:0x021de802
 data_ov026_021de812 kind:data(any) addr:0x021de812
 data_ov026_021de822 kind:data(any) addr:0x021de822
-_ZZ12GetRowLabelsvE1s kind:data(any) addr:0x021de840
+_ZZ23inline_ov026_021d8ba0_2vE1s kind:data(any) addr:0x021de840
 data_ov026_021de87c kind:data(any) addr:0x021de87c
 data_ov026_021dedbc kind:data(any) addr:0x021dedbc
 data_ov026_021dedd4 kind:data(any) addr:0x021dedd4

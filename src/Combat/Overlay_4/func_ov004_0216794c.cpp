@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Obj02086aec;
-extern "C" short func_02086aec(struct Obj02086aec* obj, int key);
+struct Struct_02053f7c;
+extern "C" short func_02086aec(struct Struct_02053f7c* arg0, int arg1);
 
-struct TauntThreshold {
-    short threshold;
-    short value;
+struct Struct_ov004_02170010 {
+    short unknown_0_;
+    short unknown_2_;
 };
-extern struct TauntThreshold data_ov004_02170010[];
+extern struct Struct_ov004_02170010 data_ov004_02170010[];
 
 // USA: func_ov004_0216794c
-extern "C" ARM void func_ov004_0216794c(short* current, short* matches, short* threshold, char* reached, int* index) {
-    *current = *(int*)((char*)func_02010828(GameState::GetInstance()) + 0xf74);
-    *matches = func_02086aec((struct Obj02086aec*)func_02010828(GameState::GetInstance()), 0x5617);
-    *reached = 0;
-    short cur = *current;
-    int i;
-    for (i = 0; i < 10; i++) {
-        if (data_ov004_02170010[i].threshold > cur) {
+extern "C" ARM void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, char* arg3, int* arg4) {
+    *arg0 = *(int*)((char*)func_02010828(GameState::GetInstance()) + 0xf74);
+    *arg1 = func_02086aec((struct Struct_02053f7c*)func_02010828(GameState::GetInstance()), 0x5617);
+    *arg3 = 0;
+    short var0 = *arg0;
+    int var1;
+    for (var1 = 0; var1 < 10; var1++) {
+        if (data_ov004_02170010[var1].unknown_0_ > var0) {
             goto found;
         }
     }
-    i = -1;
+    var1 = -1;
 found:
-    *index = i;
-    if (*index >= 0) {
-        *threshold = data_ov004_02170010[*index].threshold;
-        if (*current + *matches >= *threshold) {
-            *reached = 1;
+    *arg4 = var1;
+    if (*arg4 >= 0) {
+        *arg2 = data_ov004_02170010[*arg4].unknown_0_;
+        if (*arg0 + *arg1 >= *arg2) {
+            *arg3 = 1;
         }
     } else {
-        *threshold = 0;
-        *reached = 0;
+        *arg2 = 0;
+        *arg3 = 0;
     }
 }

@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #include <NitroSDK/Mutex.h>
 
-struct SendBuffer02206150 {
-    unsigned char padding_0[0xe0];
-    Mutex mutex;
+struct Struct_ov031_02206150_2 {
+    unsigned char unknown_0_[0xe0];
+    Mutex unknown_e0_;
 };
-struct Socket02206150 {
-    unsigned char padding_0[0x68];
-    SendBuffer02206150* buffer;
-    unsigned char padding_6c[4];
-    volatile short state;
-    signed char block;
-    signed char kind;
+struct Struct_ov031_02206150 {
+    unsigned char unknown_0_[0x68];
+    Struct_ov031_02206150_2* unknown_68_;
+    unsigned char unknown_6c_[4];
+    volatile short unknown_70_;
+    signed char unknown_72_;
+    signed char unknown_73_;
 };
-extern "C" int func_ov031_02207180(void* v);
-extern "C" int func_ov031_02206264(Socket02206150* self, const unsigned char* source, int length, unsigned short tag, unsigned long user_data, long flags);
+extern "C" int func_ov031_02207180(void* arg0);
+extern "C" int func_ov031_02206264(Struct_ov031_02206150* arg0, const unsigned char* arg1, int arg2, unsigned short arg3, unsigned long arg4, long arg5);
 
 // USA: func_ov031_02206150
-extern "C" ARM int func_ov031_02206150(Socket02206150* self, const unsigned char* source, int length, unsigned short tag, unsigned long user_data, long flags) {
-    SendBuffer02206150* buffer;
-    int result;
-    int sendFlags;
+extern "C" ARM int func_ov031_02206150(Struct_ov031_02206150* arg0, const unsigned char* arg1, int arg2, unsigned short arg3, unsigned long arg4, long arg5) {
+    Struct_ov031_02206150_2* var0;
+    int var1;
+    int var2;
 
-    if (func_ov031_02207180(self)) return -28;
+    if (func_ov031_02207180(arg0)) return -28;
     {
-        int created = 0;
-        if (self != NULL) created = (self->state & 1) != 0;
-        if (!created) return -39;
+        int var3 = 0;
+        if (arg0 != NULL) var3 = (arg0->unknown_70_ & 1) != 0;
+        if (!var3) return -39;
     }
     {
-        int stream = 1;
-        signed char kind = self->kind;
-        if (kind != 0 && kind != 4) stream = 0;
-        if (stream) {
-            if (!(self->state & 4) || (self->state & 8)) return -56;
+        int var4 = 1;
+        signed char var5 = arg0->unknown_73_;
+        if (var5 != 0 && var5 != 4) var4 = 0;
+        if (var4) {
+            if (!(arg0->unknown_70_ & 4) || (arg0->unknown_70_ & 8)) return -56;
         }
     }
-    buffer = self->buffer;
-    if ((flags & 4) || self->block == 0) {
-        if (!TryLockMutex(&buffer->mutex)) return -6;
-        sendFlags = 0;
+    var0 = arg0->unknown_68_;
+    if ((arg5 & 4) || arg0->unknown_72_ == 0) {
+        if (!TryLockMutex(&var0->unknown_e0_)) return -6;
+        var2 = 0;
     } else {
-        LockMutex(&buffer->mutex);
-        sendFlags = 1;
+        LockMutex(&var0->unknown_e0_);
+        var2 = 1;
     }
-    result = func_ov031_02206264(self, source, length, tag, user_data, sendFlags);
-    UnlockMutex(&buffer->mutex);
-    return result;
+    var1 = func_ov031_02206264(arg0, arg1, arg2, arg3, arg4, var2);
+    UnlockMutex(&var0->unknown_e0_);
+    return var1;
 }

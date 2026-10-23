@@ -3,35 +3,35 @@
 
 extern "C" void func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-struct Entry_02028bd0;
-extern "C" struct Entry_02028bd0* func_02027ccc(int key);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_0202c508(void* obj);
-extern "C" void func_02076a8c(void* obj);
-extern "C" void func_ov017_021c9544(int a0, int a1, int a2, int a3);
+struct Struct_020fdd44;
+extern "C" struct Struct_020fdd44* func_02027ccc(int arg0);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202c508(void* arg0);
+extern "C" void func_02076a8c(void* arg0);
+extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 
-struct EntryField8_021a33e0 { unsigned char pad0[2]; unsigned short field2 : 2; unsigned short pad3 : 14; };
+struct Struct_ov017_021a33e0 { unsigned char unknown_0_[2]; unsigned short unknown_2_0_ : 2; unsigned short unknown_2_2_ : 14; };
 
 // USA: func_ov017_021a33e0
-extern "C" ARM void func_ov017_021a33e0(void* unused, int key) {
-    GameState* battleStruct = GameState::GetInstance();
+extern "C" ARM void func_ov017_021a33e0(void* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
     func_02012fe4();
-    void* search = func_0202ae18();
-    struct Entry_02028bd0* entry = func_02027ccc(key);
-    if (entry == NULL) return;
+    void* var1 = func_0202ae18();
+    struct Struct_020fdd44* var2 = func_02027ccc(arg1);
+    if (var2 == NULL) return;
 
-    *(int*)((char*)entry + 8) = 0;
+    *(int*)((char*)var2 + 8) = 0;
 
-    int i;
-    for (i = 0; i < 0xc; i++) {
-        int idx = ((struct EntryField8_021a33e0*)entry)->field2;
-        int base = idx * 0xc + 0x70;
-        GameObject* combatant = battleStruct->GetMaybeFieldMonsterByIndex(i + base);
-        if (combatant) {
-            func_02076a8c(combatant);
-            ((Object3D*)((unsigned char*)combatant))->MakeHidden();
-            if (func_0202b7d8((int*)search) && func_0202c508(search)) {
-                func_ov017_021c9544(key, i, combatant->obj3D_.unknown_2_, -1);
+    int var3;
+    for (var3 = 0; var3 < 0xc; var3++) {
+        int var4 = ((struct Struct_ov017_021a33e0*)var2)->unknown_2_0_;
+        int var5 = var4 * 0xc + 0x70;
+        GameObject* var6 = var0->GetMaybeFieldMonsterByIndex(var3 + var5);
+        if (var6) {
+            func_02076a8c(var6);
+            ((Object3D*)((unsigned char*)var6))->MakeHidden();
+            if (func_0202b7d8((int*)var1) && func_0202c508(var1)) {
+                func_ov017_021c9544(arg1, var3, var6->obj3D_.unknown_2_, -1);
             }
         }
     }

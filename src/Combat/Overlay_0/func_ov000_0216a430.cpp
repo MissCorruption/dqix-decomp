@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Variant02030b0c { int tag; int u; };
+struct Struct_0201c1c8 { int unknown_0_; int unknown_4_; };
 
 // USA: func_ov000_0216a430
-extern "C" ARM int func_ov000_0216a430(struct Variant02030b0c* v) {
+extern "C" ARM int func_ov000_0216a430(struct Struct_0201c1c8* arg0) {
     return 1;
 }

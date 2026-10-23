@@ -7,170 +7,170 @@
 #if defined(jpn)
 #define data_ov012_0218af75 data_ov012_0218bcec
 #define data_ov012_0218af78 data_ov012_0218bcef
-enum { kPixels = 0x134c, kTask = 0x1358 };
+enum { Enum_ov012_02185f74_4988 = 0x134c, Enum_ov012_02185f74_5004 = 0x1358 };
 #else
-enum { kPixels = 0x137c, kTask = 0x138c };
+enum { Enum_ov012_02185f74_4988 = 0x137c, Enum_ov012_02185f74_5004 = 0x138c };
 #endif
 
-struct Background02185f74
+struct Struct_ov012_02185f74_3
 {
-    char unk_0[0x1c];
-    unsigned char unk_1c_0_ : 4;
-    unsigned char unk_1c_4_ : 4;
-    unsigned char unk_1d;
-    char unk_1e[2];
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_;
+    char unknown_1e_[2];
 };
 
-struct Canvas02185f74
+struct Struct_ov012_02185f74_4
 {
-    void* unk_0;
-    Background02185f74* background_;
-    char unk_8[0xe0 - 8];
+    void* unknown_0_;
+    Struct_ov012_02185f74_3* unknown_4_;
+    char unknown_8_[0xe0 - 8];
 };
 
-struct WindowTransform02185f74
+struct Struct_02000c9c_44
 {
-    int field0, field4, field8, fieldC;
-    unsigned char field10;
-    int field14, field18, field1C, field20, field24, field28, field2C;
+    int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
+    unsigned char unknown_10_;
+    int unknown_14_, unknown_18_, unknown_1c_, unknown_20_, unknown_24_, unknown_28_, unknown_2c_;
 };
 
-struct WindowFrame02185f74
+struct Struct_02000c9c_45
 {
-    WindowTransform02185f74 transform;
-    int field30, field34;
-    short field38, field3A;
-    int field3C, field40, field44, field48;
-    unsigned char field4C, field4D, field4E;
+    Struct_02000c9c_44 unknown_0_;
+    int unknown_30_, unknown_34_;
+    short unknown_38_, unknown_3a_;
+    int unknown_3c_, unknown_40_, unknown_44_, unknown_48_;
+    unsigned char unknown_4c_, unknown_4d_, unknown_4e_;
 };
 
-struct WindowCursor02185f74
+struct Struct_02000c9c_42
 {
-    WindowTransform02185f74 transform;
-    int field30;
-    short field34;
-    unsigned char field36, field37, field38, field39, field3A;
-    unsigned char unknown3B, field3C, field3D;
+    Struct_02000c9c_44 unknown_0_;
+    int unknown_30_;
+    short unknown_34_;
+    unsigned char unknown_36_, unknown_37_, unknown_38_, unknown_39_, unknown_3a_;
+    unsigned char unknown_3b_, unknown_3c_, unknown_3d_;
 };
 
-struct ProfileWindow02185f74
+struct Struct_ov012_02185f74
 {
-    unsigned int unknown0;
-    WindowFrame02185f74 frame;
-    WindowCursor02185f74 cursor;
-    unsigned char field94, field95;
-    Background02185f74* backgrounds;
-    Canvas02185f74* canvases;
-    unsigned short fieldA0, fieldA2, fieldA4, fieldA6;
-    unsigned short fieldA8, fieldAA, fieldAC, fieldAE;
-    unsigned char fieldB0, fieldB1, backgroundCount, canvasCount;
-    unsigned char fieldB4, fieldB5, fieldB6, fieldB7, fieldB8;
+    unsigned int unknown_0_;
+    Struct_02000c9c_45 unknown_4_;
+    Struct_02000c9c_42 unknown_54_;
+    unsigned char unknown_94_, unknown_95_;
+    Struct_ov012_02185f74_3* unknown_98_;
+    Struct_ov012_02185f74_4* unknown_9c_;
+    unsigned short unknown_a0_, unknown_a2_, unknown_a4_, unknown_a6_;
+    unsigned short unknown_a8_, unknown_aa_, unknown_ac_, unknown_ae_;
+    unsigned char unknown_b0_, unknown_b1_, unknown_b2_, unknown_b3_;
+    unsigned char unknown_b4_, unknown_b5_, unknown_b6_, unknown_b7_, unknown_b8_;
 };
 
-struct ProfileEditor02185f74
+struct Struct_ov012_02185f74_2
 {
 #if !defined(jpn)
-    void* unknown0;
-    void* unknown4;
+    void* unknown_0_;
+    void* unknown_4_;
 #endif
-    struct BgControl {
-        unsigned short value;
-        unsigned short unknown;
-    } savedBgControls[4];
-    unsigned char bgControlsSaved;
-    unsigned char unknownFlag;
-    unsigned short unknownAlignment;
-    unsigned int savedPlanes;
+    struct Struct_02000c9c_43 {
+        unsigned short unknown_0_;
+        unsigned short unknown_2_;
+    } unknown_8_[4];
+    unsigned char unknown_18_;
+    unsigned char unknown_19_;
+    unsigned short unknown_1a_;
+    unsigned int unknown_1c_;
 #if defined(jpn)
-    SafeAllocator allocators[6];
+    SafeAllocator unknown_20_[6];
 #else
-    SafeAllocator allocators[7];
+    SafeAllocator unknown_20_[7];
 #endif
-    ProfileWindow02185f74 window;
-    Background02185f74 backgrounds[3];
-    Canvas02185f74 canvases[13];
+    Struct_ov012_02185f74 unknown_ac_;
+    Struct_ov012_02185f74_3 unknown_168_[3];
+    Struct_ov012_02185f74_4 unknown_1c8_[13];
 };
 
-struct AllocTarget0204b12c;
-struct Obj0204b5e8;
-struct ActiveEntry02046900;
-struct Rec020467f0;
-struct List0204b0e8;
-struct Obj0204c7a8;
+struct Struct_0204b12c;
+struct Struct_02020cb8_5;
+struct Struct_02020cb8_4;
+struct Struct_02020aec;
+struct Struct_02020cb8_2;
+struct Struct_0204c7a8;
 struct Struct_0205cf78;
-struct Elem_0205cf78;
+struct Struct_0205cf78_2;
 
-extern "C" void func_0204b11c(unsigned char* background, int a);
-extern "C" void func_0204b5b4(Background02185f74* background, int a);
-extern "C" void func_0204b12c(AllocTarget0204b12c* background, SafeAllocator* allocator);
-extern "C" void func_0204b5e8(Obj0204b5e8* background, int a, int b);
-extern "C" int func_02046900(ActiveEntry02046900* archive);
-extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
-extern "C" void func_0204b174(Background02185f74* background, void* file, SafeAllocator* allocator, unsigned int size);
-extern "C" void func_0204bc74(Background02185f74* background, int a, int b, int c, int d, int e, int f);
-extern "C" void func_0204b0e8(List0204b0e8* background, void* a);
-extern "C" void func_0204c7a8(Obj0204c7a8* canvas, SafeAllocator* allocator, int pixels, unsigned int size);
-extern "C" void func_0205cf78(Struct_0205cf78* window, Elem_0205cf78* canvases, unsigned char count);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
+extern "C" void func_0204b5b4(Struct_ov012_02185f74_3* arg0, int arg1);
+extern "C" void func_0204b12c(Struct_0204b12c* arg0, SafeAllocator* arg1);
+extern "C" void func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
+extern "C" int func_02046900(Struct_02020cb8_4* arg0);
+extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" void func_0204b174(Struct_ov012_02185f74_3* arg0, void* arg1, SafeAllocator* arg2, unsigned int arg3);
+extern "C" void func_0204bc74(Struct_ov012_02185f74_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
+extern "C" void func_0204c7a8(Struct_0204c7a8* arg0, SafeAllocator* arg1, int arg2, unsigned int arg3);
+extern "C" void func_0205cf78(Struct_0205cf78* arg0, Struct_0205cf78_2* arg1, unsigned char arg2);
 
 extern "C" const unsigned char data_ov012_0218af75[3];
 extern "C" const unsigned char data_ov012_0218af78[3];
 
 // USA: func_ov012_02185f74
-extern "C" ARM void func_ov012_02185f74(ProfileEditor02185f74* self)
+extern "C" ARM void func_ov012_02185f74(Struct_ov012_02185f74_2* arg0)
 {
-    Background02185f74* background;
-    int count;
-    BackgroundLoader* loader;
-    Canvas02185f74* canvas;
-    void* name;
-    void* file;
-    unsigned int size;
-    int fileSize;
-    loader = BackgroundLoader::GetInstance();
-    self->allocators[0].Reset();
-    for (int i = 0; i < 3; i++)
+    Struct_ov012_02185f74_3* var0;
+    int var1;
+    BackgroundLoader* var2;
+    Struct_ov012_02185f74_4* var3;
+    void* var4;
+    void* var5;
+    unsigned int var6;
+    int var7;
+    var2 = BackgroundLoader::GetInstance();
+    arg0->unknown_20_[0].Reset();
+    for (int var8 = 0; var8 < 3; var8++)
     {
-        background = &self->backgrounds[i];
-        func_0204b11c((unsigned char*)background, 0);
-        background->unk_1c_0_ = 0;
-        background->unk_1c_4_ = data_ov012_0218af75[i];
-        func_0204b5b4(background, data_ov012_0218af78[i]);
-        func_0204b12c((AllocTarget0204b12c*)background, &self->allocators[0]);
-        func_0204b5e8((Obj0204b5e8*)background, 0, 0);
+        var0 = &arg0->unknown_168_[var8];
+        func_0204b11c((unsigned char*)var0, 0);
+        var0->unknown_1c_0_ = 0;
+        var0->unknown_1c_4_ = data_ov012_0218af75[var8];
+        func_0204b5b4(var0, data_ov012_0218af78[var8]);
+        func_0204b12c((Struct_0204b12c*)var0, &arg0->unknown_20_[0]);
+        func_0204b5e8((Struct_02020cb8_5*)var0, 0, 0);
     }
     BG1CNT = (BG1CNT & 0x43) | 0x1d00;
     BG2CNT = (BG2CNT & 0x43) | 0x1e00;
     BG3CNT = (BG3CNT & 0x43) | 0x1f08;
     ColorEffect_ConfigureAlphaBlend(0x4000050, 2, 1, 10, 6);
 
-    loader->GetLoadedFileByID(*(int*)((char*)self + kTask), &file, &size);
-    count = func_02046900((ActiveEntry02046900*)file);
-    for (int i = 0; i < count; i++)
+    var2->GetLoadedFileByID(*(int*)((char*)arg0 + Enum_ov012_02185f74_5004), &var5, &var6);
+    var1 = func_02046900((Struct_02020cb8_4*)var5);
+    for (int var9 = 0; var9 < var1; var9++)
     {
-        void* data = func_020467f0((Rec020467f0*)file, i, &name, &fileSize);
-        if (data != 0)
+        void* var10 = func_020467f0((Struct_02020aec*)var5, var9, &var4, &var7);
+        if (var10 != 0)
         {
-            func_0204b174(&self->backgrounds[1], data, &self->allocators[0], fileSize);
-            func_0204b174(&self->backgrounds[2], data, &self->allocators[0], fileSize);
+            func_0204b174(&arg0->unknown_168_[1], var10, &arg0->unknown_20_[0], var7);
+            func_0204b174(&arg0->unknown_168_[2], var10, &arg0->unknown_20_[0], var7);
         }
     }
-    for (int i = 0; i < 3; i++)
+    for (int var11 = 0; var11 < 3; var11++)
     {
-        background = &self->backgrounds[i];
-        func_0204bc74(background, 0, 0, 0, 0x20, 0x19, 0);
-        func_0204b0e8((List0204b0e8*)background, 0);
+        var0 = &arg0->unknown_168_[var11];
+        func_0204bc74(var0, 0, 0, 0, 0x20, 0x19, 0);
+        func_0204b0e8((Struct_02020cb8_2*)var0, 0);
     }
-    char* storage = (char*)self;
-    *(void**)(storage + kPixels) = self->allocators[0].Allocate(0x7800);
-    for (int i = 0; i < 13; i++)
+    char* var12 = (char*)arg0;
+    *(void**)(var12 + Enum_ov012_02185f74_4988) = arg0->unknown_20_[0].Allocate(0x7800);
+    for (int var13 = 0; var13 < 13; var13++)
     {
-        canvas = &self->canvases[i];
-        func_0204c7a8((Obj0204c7a8*)canvas, &self->allocators[0], (int)*(void**)(storage + kPixels), 0x800);
-        canvas->background_ = &self->backgrounds[1];
+        var3 = &arg0->unknown_1c8_[var13];
+        func_0204c7a8((Struct_0204c7a8*)var3, &arg0->unknown_20_[0], (int)*(void**)(var12 + Enum_ov012_02185f74_4988), 0x800);
+        var3->unknown_4_ = &arg0->unknown_168_[1];
     }
-    self->window.backgrounds = self->backgrounds;
-    self->window.backgroundCount = 3;
-    func_0205cf78((Struct_0205cf78*)&self->window, (Elem_0205cf78*)self->canvases, 13);
-    loader->RemoveTask(*(int*)((char*)self + kTask));
-    *(int*)((char*)self + kTask) = -1;
+    arg0->unknown_ac_.unknown_98_ = arg0->unknown_168_;
+    arg0->unknown_ac_.unknown_b2_ = 3;
+    func_0205cf78((Struct_0205cf78*)&arg0->unknown_ac_, (Struct_0205cf78_2*)arg0->unknown_1c8_, 13);
+    var2->RemoveTask(*(int*)((char*)arg0 + Enum_ov012_02185f74_5004));
+    *(int*)((char*)arg0 + Enum_ov012_02185f74_5004) = -1;
 }

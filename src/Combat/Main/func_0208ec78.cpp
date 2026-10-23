@@ -6,139 +6,139 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Obj374b0;
+struct Struct_01ff91ac_7;
 
-struct List_020347b4;
-struct Entry_020347b4;
+struct Struct_0204a054;
+struct Struct_0204a054_2;
 
 extern "C" void func_0208e0a8(void);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* obj);
+extern "C" int func_0202c540(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0208f048(unsigned char* p0);
+extern "C" void func_0208f048(unsigned char* arg0);
 extern "C" int rand(void);
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 
-struct Node0208ec78 {
-    char pad[0x10];
-    int val;
-    struct Node0208ec78* next;
+struct Struct_0208ec78_2 {
+    char unknown_0_[0x10];
+    int unknown_10_;
+    struct Struct_0208ec78_2* unknown_14_;
 };
 
-struct Param0208ec78 {
-    unsigned char id;
-    float accum;
-    struct Obj374b0* field8;
-    struct Node0208ec78* fieldC;
+struct Struct_0208ec78_3 {
+    unsigned char unknown_0_;
+    float unknown_4_;
+    struct Struct_01ff91ac_7* unknown_8_;
+    struct Struct_0208ec78_2* unknown_c_;
 };
 
 // USA: func_0208ec78
-extern "C" ARM void func_0208ec78(struct Param0208ec78* p0) {
-    GameState* bs = GameState::GetInstance();
+extern "C" ARM void func_0208ec78(struct Struct_0208ec78_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
     func_0208e0a8();
-    void* g;
-    char* r;
+    void* var1;
+    char* var2;
 #if defined(jpn)
-    LootPointState* arr = (LootPointState*)((char*)bs + 0x5a7c);
+    Struct_0208ec78* var3 = (Struct_0208ec78*)((char*)var0 + 0x5a7c);
 #else
-    LootPointState* arr = (LootPointState*)((char*)bs + 0x5cdc);
+    Struct_0208ec78* var3 = (Struct_0208ec78*)((char*)var0 + 0x5cdc);
 #endif
-    g = func_0202ae18();
+    var1 = func_0202ae18();
 
-    if (p0->field8 != 0) {
-        void* field4 = ((Object3D*)p0->field8)->GetCurrentAnimationConfig();
-        if (field4 != 0) {
-            Entry_020347b4* rate = (Entry_020347b4*)((BCFG*)((List_020347b4*)field4))->GetAnimationRecord(0);
-            if (rate != 0) {
-                r = (char*)rate;
-                int ifixed = (int)(4096.0f * ((float)(unsigned int)bs->GetEffectiveDeltaTime() / 16.666666f));
-                int rateVal = *(int*)(r + 0x18);
-                int delta = (int)(((long long)rateVal * ifixed + 0x800) >> 12);
-                struct Node0208ec78* node = p0->fieldC;
-                while (node != 0) {
-                    node->val += delta;
-                    if (*(int*)(r + 0x14) < node->val) {
-                        node->val = *(int*)(r + 0x10);
+    if (arg0->unknown_8_ != 0) {
+        void* var4 = ((Object3D*)arg0->unknown_8_)->GetCurrentAnimationConfig();
+        if (var4 != 0) {
+            Struct_0204a054_2* var5 = (Struct_0204a054_2*)((BCFG*)((Struct_0204a054*)var4))->GetAnimationRecord(0);
+            if (var5 != 0) {
+                var2 = (char*)var5;
+                int var6 = (int)(4096.0f * ((float)(unsigned int)var0->GetEffectiveDeltaTime() / 16.666666f));
+                int var7 = *(int*)(var2 + 0x18);
+                int var8 = (int)(((long long)var7 * var6 + 0x800) >> 12);
+                struct Struct_0208ec78_2* var9 = arg0->unknown_c_;
+                while (var9 != 0) {
+                    var9->unknown_10_ += var8;
+                    if (*(int*)(var2 + 0x14) < var9->unknown_10_) {
+                        var9->unknown_10_ = *(int*)(var2 + 0x10);
                     }
-                    node = node->next;
+                    var9 = var9->unknown_14_;
                 }
             }
         }
     }
 
-    if (func_0202c540(g) != 0) {
+    if (func_0202c540(var1) != 0) {
         return;
     }
 
-    p0->accum = p0->accum + (float)(unsigned int)bs->GetEffectiveDeltaTime() / 1000.0f;
-    if (p0->accum < 60.0f) {
-        if (p0->id == 0) return;
+    arg0->unknown_4_ = arg0->unknown_4_ + (float)(unsigned int)var0->GetEffectiveDeltaTime() / 1000.0f;
+    if (arg0->unknown_4_ < 60.0f) {
+        if (arg0->unknown_0_ == 0) return;
     }
-    if (p0->accum >= 60.0f) {
-        p0->accum = 0.0f;
+    if (arg0->unknown_4_ >= 60.0f) {
+        arg0->unknown_4_ = 0.0f;
     }
 
-    unsigned char id0 = p0->id;
-    LootPointState* e;
-    int avail = 0;
-    e = &arr[id0];
-    if (e->fields.active == 0) avail = 1;
-    unsigned int kind = e->fields.kind;
-    if (kind != 1) {
-        void* ctx = func_0205ec34();
-        if (e->fields.kind == 2 && func_0206dfb0((int)ctx, (unsigned char*)ctx + 0x8c, 1944) == 0) {
-            avail = 1;
-        } else if (e->fields.kind == 3 && func_0206dfb0((int)ctx, (unsigned char*)ctx + 0x8c, 1942) == 0) {
-            avail = 1;
+    unsigned char var10 = arg0->unknown_0_;
+    Struct_0208ec78* var11;
+    int var12 = 0;
+    var11 = &var3[var10];
+    if (var11->unknown_0_.unknown_3_7_ == 0) var12 = 1;
+    unsigned int var13 = var11->unknown_0_.unknown_3_5_;
+    if (var13 != 1) {
+        void* var14 = func_0205ec34();
+        if (var11->unknown_0_.unknown_3_5_ == 2 && func_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 1944) == 0) {
+            var12 = 1;
+        } else if (var11->unknown_0_.unknown_3_5_ == 3 && func_0206dfb0((int)var14, (unsigned char*)var14 + 0x8c, 1942) == 0) {
+            var12 = 1;
         }
     }
 
-    if (avail != 0) {
-        p0->id = (unsigned char)((p0->id + 1) % 100);
+    if (var12 != 0) {
+        arg0->unknown_0_ = (unsigned char)((arg0->unknown_0_ + 1) % 100);
         return;
     }
 
-    unsigned char pop = 0;
+    unsigned char var15 = 0;
     {
-        int i;
-        for (i = 0; i < 8; i++) {
-            if (((e->word << 7) >> 24) & (1u << i)) pop++;
+        int var16;
+        for (var16 = 0; var16 < 8; var16++) {
+            if (((var11->unknown1_0_ << 7) >> 24) & (1u << var16)) var15++;
         }
     }
 
-    unsigned int sel = pop;
-    if (e->fields.timer == 0) {
-        unsigned char rej = 0;
-        if (pop == 0) {
-            rej = rand() % (e->fields.unknown9Low + 1);
-            if (rej < e->fields.unknown9High) rej = e->fields.unknown9High;
-        } else if (pop < e->fields.unknown9Low) {
-            rej = rand() % (e->fields.unknown9Low - pop + 1);
+    unsigned int var17 = var15;
+    if (var11->unknown_0_.unknown_0_0_ == 0) {
+        unsigned char var18 = 0;
+        if (var15 == 0) {
+            var18 = rand() % (var11->unknown_0_.unknown_1_1_ + 1);
+            if (var18 < var11->unknown_0_.unknown_1_5_) var18 = var11->unknown_0_.unknown_1_5_;
+        } else if (var15 < var11->unknown_0_.unknown_1_1_) {
+            var18 = rand() % (var11->unknown_0_.unknown_1_1_ - var15 + 1);
         }
 
-        if (p0->id < 0x62) {
-            sel = (pop + rej) & 0xff;
-            unsigned int j = rand() % e->fields.unknown9Low;
-            while (rej != 0) {
-                unsigned int mask = 1u << j;
-                unsigned int idbits = (e->word << 7) >> 24;
-                if ((idbits & mask) == 0) {
-                    e->fields.flags = idbits | mask;
-                    rej--;
+        if (arg0->unknown_0_ < 0x62) {
+            var17 = (var15 + var18) & 0xff;
+            unsigned int var19 = rand() % var11->unknown_0_.unknown_1_1_;
+            while (var18 != 0) {
+                unsigned int var20 = 1u << var19;
+                unsigned int var21 = (var11->unknown1_0_ << 7) >> 24;
+                if ((var21 & var20) == 0) {
+                    var11->unknown_0_.unknown_2_1_ = var21 | var20;
+                    var18--;
                 }
-                j++;
-                if (j >= e->fields.unknown9Low) j = 0;
+                var19++;
+                if (var19 >= var11->unknown_0_.unknown_1_1_) var19 = 0;
             }
-            func_ov017_021d38f8(0, 0, (unsigned char)((e->word << 7) >> 24), p0->id, e);
+            func_ov017_021d38f8(0, 0, (unsigned char)((var11->unknown1_0_ << 7) >> 24), arg0->unknown_0_, var11);
         } else {
-            func_0208f048((unsigned char*)p0);
+            func_0208f048((unsigned char*)arg0);
         }
 
-        e->fields.timer = e->fields.count * 30;
+        var11->unknown_0_.unknown_0_0_ = var11->unknown_0_.unknown_3_1_ * 30;
     }
 
-    if (sel != e->fields.unknown9Low || p0->id >= 0x62) {
-        e->fields.timer = e->fields.timer - 1;
+    if (var17 != var11->unknown_0_.unknown_1_1_ || arg0->unknown_0_ >= 0x62) {
+        var11->unknown_0_.unknown_0_0_ = var11->unknown_0_.unknown_0_0_ - 1;
     }
-    p0->id = (unsigned char)((p0->id + 1) % 100);
+    arg0->unknown_0_ = (unsigned char)((arg0->unknown_0_ + 1) % 100);
 }

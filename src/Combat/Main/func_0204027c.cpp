@@ -1,58 +1,58 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Entry0204027c {
-    char name[0x38];
-    int flag;
+struct Struct_0204027c_3 {
+    char unknown_0_[0x38];
+    int unknown_38_;
 };
 
-struct Container0204027c {
-    unsigned int count;
-    unsigned char counter;
-    unsigned char skipFind;
-    unsigned char pad6;
-    unsigned char pad7;
-    struct Entry0204027c* entries;
+struct Struct_0204027c {
+    unsigned int unknown_0_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    struct Struct_0204027c_3* unknown_8_;
 };
 
-struct Container02040404;
-extern "C" int func_02040404(struct Container02040404* container, const char* name);
-extern "C" void func_0203fce0(void* p0, char* p1, int p2);
-extern "C" void func_0203fd5c(void* p0, void* buf, int p2, void* p3);
+struct Struct_0204027c_2;
+extern "C" int func_02040404(struct Struct_0204027c_2* arg0, const char* arg1);
+extern "C" void func_0203fce0(void* arg0, char* arg1, int arg2);
+extern "C" void func_0203fd5c(void* arg0, void* arg1, int arg2, void* arg3);
 
 // USA: func_0204027c
-extern "C" ARM int func_0204027c(struct Container0204027c* container, const char* name, int p2, void* p3) {
-    int index;
-    unsigned int i;
-    unsigned char skipFind;
-    if (container->entries == NULL) {
+extern "C" ARM int func_0204027c(struct Struct_0204027c* arg0, const char* arg1, int arg2, void* arg3) {
+    int var0;
+    unsigned int var1;
+    unsigned char var2;
+    if (arg0->unknown_8_ == NULL) {
         return -1;
     }
-    skipFind = container->skipFind;
-    index = -1;
-    if (skipFind == 0) {
-        index = func_02040404((struct Container02040404*)container, name);
+    var2 = arg0->unknown_5_;
+    var0 = -1;
+    if (var2 == 0) {
+        var0 = func_02040404((struct Struct_0204027c_2*)arg0, arg1);
     }
-    if (index > -1) {
-        container->entries[index].flag++;
-        return index;
+    if (var0 > -1) {
+        arg0->unknown_8_[var0].unknown_38_++;
+        return var0;
     }
-    for (i = 0; i < container->count; i++) {
-        if (container->entries[i].flag < 0) {
-            index = i;
+    for (var1 = 0; var1 < arg0->unknown_0_; var1++) {
+        if (arg0->unknown_8_[var1].unknown_38_ < 0) {
+            var0 = var1;
             break;
         }
     }
-    if (index < 0) {
+    if (var0 < 0) {
         return -1;
     }
-    if (p3 != NULL) {
-        func_0203fd5c((char*)&container->entries[index] + 0x10, (void*)name, p2, p3);
+    if (arg3 != NULL) {
+        func_0203fd5c((char*)&arg0->unknown_8_[var0] + 0x10, (void*)arg1, arg2, arg3);
     } else {
-        func_0203fce0((char*)&container->entries[index] + 0x10, (char*)name, p2);
+        func_0203fce0((char*)&arg0->unknown_8_[var0] + 0x10, (char*)arg1, arg2);
     }
-    container->entries[index].flag = 0;
-    strcpy((char*)&container->entries[index], name);
-    container->counter++;
-    return index;
+    arg0->unknown_8_[var0].unknown_38_ = 0;
+    strcpy((char*)&arg0->unknown_8_[var0], arg1);
+    arg0->unknown_4_++;
+    return var0;
 }

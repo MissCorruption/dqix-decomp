@@ -3,19 +3,19 @@
 
 extern "C" void* func_ov001_02159f54(void*);
 
-struct Payload12_0215a480 {
-    unsigned int w0;
-    unsigned int w1;
-    unsigned int w2;
+struct Struct_ov001_0215a480 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
 };
 
 // USA: func_ov001_0215a480
-extern "C" ARM void func_ov001_0215a480(void* ctx, struct Payload12_0215a480 payload, unsigned int a, unsigned int b) {
-    void* node = func_ov001_02159f54(ctx);
-    if (node != NULL) {
-        *(int*)node = 8;
-        memcpy((char*)node + 0x4, &payload, sizeof(payload));
-        *(unsigned int*)((char*)node + 0x10) = a;
-        *(unsigned int*)((char*)node + 0x14) = b;
+extern "C" ARM void func_ov001_0215a480(void* arg0, struct Struct_ov001_0215a480 arg1, unsigned int arg2, unsigned int arg3) {
+    void* var0 = func_ov001_02159f54(arg0);
+    if (var0 != NULL) {
+        *(int*)var0 = 8;
+        memcpy((char*)var0 + 0x4, &arg1, sizeof(arg1));
+        *(unsigned int*)((char*)var0 + 0x10) = arg2;
+        *(unsigned int*)((char*)var0 + 0x14) = arg3;
     }
 }

@@ -6,46 +6,46 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Struct020dfc40;
-struct InitTarget0205cfd4;
-struct List0204af64;
-struct Struct020a9ea4;
+struct Struct_0201099c_14;
+struct Struct_0205cfd4;
+struct Struct_02020cb8;
+struct Struct_020a9ea4;
 
-struct Flags0215505c {
-    unsigned char b0 : 1;
-    unsigned char rest : 7;
+struct Struct_ov002_0215505c {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 7;
 };
 
-extern "C" void *func_020e46c4(void *p);
-struct Obj021e1318;
-extern "C" void func_ov023_021e1318(Obj021e1318*);
-extern "C" void func_020dfc40(struct Struct020dfc40 *s);
-extern "C" void func_02074af4(void *state);
-extern "C" void func_0205cfd4(struct InitTarget0205cfd4 *t);
-extern "C" void func_0204af64(struct List0204af64 *l);
-extern "C" void func_0204c684(void *p);
-extern "C" void *memset(void *dst, int value, unsigned int length);
-extern "C" int func_02011494(char *obj, void *dst);
+extern "C" void *func_020e46c4(void *arg0);
+struct Struct_ov002_0215505c_2;
+extern "C" void func_ov023_021e1318(Struct_ov002_0215505c_2*);
+extern "C" void func_020dfc40(struct Struct_0201099c_14 *arg0);
+extern "C" void func_02074af4(void *arg0);
+extern "C" void func_0205cfd4(struct Struct_0205cfd4 *arg0);
+extern "C" void func_0204af64(struct Struct_02020cb8 *arg0);
+extern "C" void func_0204c684(void *arg0);
+extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
+extern "C" int func_02011494(char *arg0, void *arg1);
 extern "C" char *func_0205ec34(void);
-extern "C" unsigned short func_0206e384(unsigned char *obj);
-extern "C" short func_0206e3d4(int unused, int index);
-extern "C" void func_ov002_0215b234(char *self);
-extern "C" void func_020a9ea4(struct Struct020a9ea4 *s);
-extern "C" void func_ov016_0218b5c0(int a, int b);
-extern "C" void func_ov002_0215b814(char *base);
+extern "C" unsigned short func_0206e384(unsigned char *arg0);
+extern "C" short func_0206e3d4(int arg0, int arg1);
+extern "C" void func_ov002_0215b234(char *arg0);
+extern "C" void func_020a9ea4(struct Struct_020a9ea4 *arg0);
+extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
+extern "C" void func_ov002_0215b814(char *arg0);
 
 extern "C" unsigned char data_ov002_0216d3ac;
 
-#define RESET(off) ((SafeAllocator *) (self + (off)))->ResetAllocatorPointer()
-#define S16(off) (*(short *) (self + (off)))
-#define S32(off) (*(int *) (self + (off)))
-#define U8(off) (*(unsigned char *) (self + (off)))
-#define S8(off) (*(signed char *) (self + (off)))
+#define RESET(off) ((SafeAllocator *) (arg0 + (off)))->ResetAllocatorPointer()
+#define S16(off) (*(short *) (arg0 + (off)))
+#define S32(off) (*(int *) (arg0 + (off)))
+#define U8(off) (*(unsigned char *) (arg0 + (off)))
+#define S8(off) (*(signed char *) (arg0 + (off)))
 
 // USA: func_ov002_0215505c
-extern "C" ARM void func_ov002_0215505c(char *self) {
+extern "C" ARM void func_ov002_0215505c(char *arg0) {
 #if defined(jpn)
-    unsigned char buf[4];
+    unsigned char var0[4];
     RESET(0x7f0);
     RESET(0x7dc);
     RESET(0x7b4);
@@ -53,29 +53,29 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x7a0);
     RESET(0x78c);
     RESET(0x774);
-    func_ov023_021e1318((Obj021e1318*)(self + 0x768));
+    func_ov023_021e1318((Struct_ov002_0215505c_2*)(arg0 + 0x768));
     RESET(0x804);
-    func_020dfc40((struct Struct020dfc40 *) (self + 0x8));
+    func_020dfc40((struct Struct_0201099c_14 *) (arg0 + 0x8));
     U8(0x30) = 0;
     U8(0x31) = 0;
-    func_02074af4(self + 0x20);
+    func_02074af4(arg0 + 0x20);
     S32(0x34)                            = (*(volatile unsigned int *) 0x4000000 & 0x1f00) >> 8;
     *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
-    for (int i = 0; i < 5; i++) {
-        *(int *) (self + i * 4 + 0x1a6c) = -1;
+    for (int var1 = 0; var1 < 5; var1++) {
+        *(int *) (arg0 + var1 * 4 + 0x1a6c) = -1;
     }
-    func_0205cfd4((struct InitTarget0205cfd4 *) (self + 0xe20));
-    for (int i = 0; i < 3; i++) {
-        func_0204af64((struct List0204af64 *) (self + 0xedc + i * 0x20));
+    func_0205cfd4((struct Struct_0205cfd4 *) (arg0 + 0xe20));
+    for (int var2 = 0; var2 < 3; var2++) {
+        func_0204af64((struct Struct_02020cb8 *) (arg0 + 0xedc + var2 * 0x20));
     }
-    for (int i = 0; i < 12; i++) {
-        func_0204c684(self + 0xf3c + i * 0xe0);
+    for (int var3 = 0; var3 < 12; var3++) {
+        func_0204c684(arg0 + 0xf3c + var3 * 0xe0);
     }
     S32(0x19bc) = 0;
     S32(0x19c0) = 0;
-    for (int i = 0; i < 4; i++) {
-        memset(self + 0x19c8 + i * 0x10, 0, 4);
-        memset(self + 0x1a08 + i * 0x18, 0, 4);
+    for (int var4 = 0; var4 < 4; var4++) {
+        memset(arg0 + 0x19c8 + var4 * 0x10, 0, 4);
+        memset(arg0 + 0x1a08 + var4 * 0x18, 0, 4);
     }
     S32(0x1a68) = 0;
     S32(0x1a80) = 0;
@@ -89,8 +89,8 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     S32(0x1a9c) = 0;
     S32(0x1aa0) = 0;
     S32(0x1aa4) = 0;
-    for (int i = 0; i < 2; i++) {
-        *(int *) (self + i * 4 + 0x22c0) = 0;
+    for (int var5 = 0; var5 < 2; var5++) {
+        *(int *) (arg0 + var5 * 4 + 0x22c0) = 0;
     }
     S16(0x1aa8)         = 0;
     S16(0x1aaa)         = -1;
@@ -156,56 +156,56 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x1afa)          = 0;
     data_ov002_0216d3ac = 0;
     U8(0x1afb)          = 0;
-    for (int i = 0; i < 5; i++) {
-        *(int *) (self + i * 4 + 0x1b00) = -1;
+    for (int var6 = 0; var6 < 5; var6++) {
+        *(int *) (arg0 + var6 * 4 + 0x1b00) = -1;
     }
-    for (int i = 0; i < 5; i++) {
-        *(int *) (self + i * 4 + 0x1b18) = -1;
+    for (int var7 = 0; var7 < 5; var7++) {
+        *(int *) (arg0 + var7 * 4 + 0x1b18) = -1;
     }
-    for (int i = 0; i < 5; i++) {
-        *(unsigned char *) (self + i + 0x1b2c) = 0;
+    for (int var8 = 0; var8 < 5; var8++) {
+        *(unsigned char *) (arg0 + var8 + 0x1b2c) = 0;
     }
     U8(0x1b31)                              = 0;
     U8(0x1b47)                              = 0;
     U8(0x1b48)                              = 0;
-    ((Flags0215505c *) (self + 0x1b49))->b0 = 0;
+    ((Struct_ov002_0215505c *) (arg0 + 0x1b49))->unknown_0_0_ = 0;
     U8(0x1b3c)                              = 0;
     S32(0x1b38)                             = 0;
     U8(0x1b3d)                              = 2;
     U8(0x1b3e)                              = 0;
     U8(0x1b3f)                              = 0;
     S8(0x1b37)                              = 0;
-    GameState *gs                           = GameState::GetInstance();
-    S32(0x1afc)                             = func_02011494((char *) gs, buf);
-    for (int i = 0; i < S32(0x1afc); i++) {
-        *(int *) (self + i * 4 + 0x1b00) = buf[i];
-        GameObject *m                    = gs->GetPartyMemberByIndex(buf[i]);
-        if (m != 0 && *(int *) ((char *) m + 0x1b8) == 0) {
-            *(unsigned char *) (self + S8(0x1b37) + 0x1b32) = buf[i];
+    GameState *var9                           = GameState::GetInstance();
+    S32(0x1afc)                             = func_02011494((char *) var9, var0);
+    for (int var10 = 0; var10 < S32(0x1afc); var10++) {
+        *(int *) (arg0 + var10 * 4 + 0x1b00) = var0[var10];
+        GameObject *var11                    = var9->GetPartyMemberByIndex(var0[var10]);
+        if (var11 != 0 && *(int *) ((char *) var11 + 0x1b8) == 0) {
+            *(unsigned char *) (arg0 + S8(0x1b37) + 0x1b32) = var0[var10];
             S8(0x1b37)++;
         }
     }
-    S32(0x1b14) = func_02011494((char *) gs, buf);
-    for (int i = 0; i < S32(0x1b14); i++) {
-        *(int *) (self + i * 4 + 0x1b18) = buf[i];
+    S32(0x1b14) = func_02011494((char *) var9, var0);
+    for (int var12 = 0; var12 < S32(0x1b14); var12++) {
+        *(int *) (arg0 + var12 * 4 + 0x1b18) = var0[var12];
     }
-    *(int *) (self + S32(0x1b14) * 4 + 0x1b18) = 4;
+    *(int *) (arg0 + S32(0x1b14) * 4 + 0x1b18) = 4;
     S32(0x1b14) += 1;
     U8(0x1b87)        = 0;
     U8(0x22a8)        = 0;
     U8(0x22aa)        = 0;
-    char *x           = func_0205ec34();
-    unsigned int bits = (func_0206e384((unsigned char *) x) << 16) | 0xffff;
+    char *var13           = func_0205ec34();
+    unsigned int var14 = (func_0206e384((unsigned char *) var13) << 16) | 0xffff;
     S32(0x22b0)       = 0;
-    for (int i = 0; i < 0x20; i++) {
-        if (bits & 1) {
-            short n = func_0206e3d4((int) x, (short) (i + 1));
-            *(unsigned int *) (self + 0x22b0) |= 1 << (n - 1);
+    for (int var15 = 0; var15 < 0x20; var15++) {
+        if (var14 & 1) {
+            short var16 = func_0206e3d4((int) var13, (short) (var15 + 1));
+            *(unsigned int *) (arg0 + 0x22b0) |= 1 << (var16 - 1);
         }
-        bits >>= 1;
+        var14 >>= 1;
     }
     U8(0x22b4) = 0;
-    memset(self + 0x1b40, -1, 7);
+    memset(arg0 + 0x1b40, -1, 7);
     U8(0x22ab)  = 0;
     S32(0x22ac) = 0;
     U8(0x22b5)  = 0;
@@ -218,9 +218,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x2351)  = 0;
     U8(0x2352)  = 0;
     U8(0x2353)  = 0;
-    memset(self + 0x2354, 0, 0xc);
+    memset(arg0 + 0x2354, 0, 0xc);
     S32(0x2360) = 0;
-    func_ov002_0215b234(self);
+    func_ov002_0215b234(arg0);
     RESET(0x774);
     RESET(0x78c);
     RESET(0x7a0);
@@ -228,9 +228,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x7c8);
     RESET(0x7dc);
     RESET(0x7f0);
-    func_020a9ea4((struct Struct020a9ea4 *) (self + 0x22c8));
-    for (unsigned char j = 0; j < 0x20; j++) {
-        *(int *) (self + j * 4 + 0x22d0) = 0;
+    func_020a9ea4((struct Struct_020a9ea4 *) (arg0 + 0x22c8));
+    for (unsigned char var17 = 0; var17 < 0x20; var17++) {
+        *(int *) (arg0 + var17 * 4 + 0x22d0) = 0;
     }
     U8(0x2350)  = 0;
     S16(0x2370) = 0;
@@ -239,11 +239,11 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     func_ov016_0218b5c0(1, -1);
     U8(0x22be) = 0;
     U8(0x22bf) = 0;
-    func_ov002_0215b814(self);
+    func_ov002_0215b814(arg0);
 #else
-    unsigned char buf[4];
-    func_020e46c4(self + 8);
-    func_020e46c4(self + 0x14);
+    unsigned char var18[4];
+    func_020e46c4(arg0 + 8);
+    func_020e46c4(arg0 + 0x14);
     RESET(0x88c);
     RESET(0x878);
     RESET(0x850);
@@ -251,29 +251,29 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x83c);
     RESET(0x828);
     RESET(0x810);
-    func_ov023_021e1318((Obj021e1318*)(self + 0x804));
+    func_ov023_021e1318((Struct_ov002_0215505c_2*)(arg0 + 0x804));
     RESET(0x8a0);
-    func_020dfc40((struct Struct020dfc40 *) (self + 0x20));
+    func_020dfc40((struct Struct_0201099c_14 *) (arg0 + 0x20));
     U8(0x48) = 0;
     U8(0x49) = 0;
-    func_02074af4(self + 0x38);
+    func_02074af4(arg0 + 0x38);
     S32(0x4c)                            = (*(volatile unsigned int *) 0x4000000 & 0x1f00) >> 8;
     *(volatile unsigned int *) 0x4000000 = (*(volatile unsigned int *) 0x4000000 & ~0x1f00) | 0x100;
-    for (int i = 0; i < 5; i++) {
-        *(int *) (self + i * 4 + 0x1ba4) = -1;
+    for (int var19 = 0; var19 < 5; var19++) {
+        *(int *) (arg0 + var19 * 4 + 0x1ba4) = -1;
     }
-    func_0205cfd4((struct InitTarget0205cfd4 *) (self + 0x2c8 + 0xc00));
-    for (int i = 0; i < 3; i++) {
-        func_0204af64((struct List0204af64 *) (self + 0x384 + 0xc00 + i * 0x20));
+    func_0205cfd4((struct Struct_0205cfd4 *) (arg0 + 0x2c8 + 0xc00));
+    for (int var20 = 0; var20 < 3; var20++) {
+        func_0204af64((struct Struct_02020cb8 *) (arg0 + 0x384 + 0xc00 + var20 * 0x20));
     }
-    for (int i = 0; i < 12; i++) {
-        func_0204c684(self + 0x3e4 + 0xc00 + i * 0xe0);
+    for (int var21 = 0; var21 < 12; var21++) {
+        func_0204c684(arg0 + 0x3e4 + 0xc00 + var21 * 0xe0);
     }
     S32(0x1a64) = 0;
     S32(0x1a68) = 0;
-    for (int i = 0; i < 4; i++) {
-        memset(self + 0xa70 + 0x1000 + i * 0x10, 0, 4);
-        memset(self + 0xab0 + 0x1000 + i * 0x3c, 0, 4);
+    for (int var22 = 0; var22 < 4; var22++) {
+        memset(arg0 + 0xa70 + 0x1000 + var22 * 0x10, 0, 4);
+        memset(arg0 + 0xab0 + 0x1000 + var22 * 0x3c, 0, 4);
     }
     S32(0x1ba0) = 0;
     S32(0x1bb8) = 0;
@@ -287,8 +287,8 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     S32(0x1bd4) = 0;
     S32(0x1bd8) = 0;
     S32(0x1bdc) = 0;
-    for (int i = 0; i < 2; i++) {
-        *(int *) (self + i * 4 + 0x2490) = 0;
+    for (int var23 = 0; var23 < 2; var23++) {
+        *(int *) (arg0 + var23 * 4 + 0x2490) = 0;
     }
     S16(0x1be0)         = 0;
     S16(0x1be2)         = -1;
@@ -357,56 +357,56 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     data_ov002_0216d3ac = 0;
     U8(0x1c33)          = 0;
     U8(0x1c34)          = 0;
-    for (int i = 0; i < 5; i++) {
-        *(int *) (self + i * 4 + 0x1c3c) = -1;
+    for (int var24 = 0; var24 < 5; var24++) {
+        *(int *) (arg0 + var24 * 4 + 0x1c3c) = -1;
     }
-    for (int i = 0; i < 5; i++) {
-        *(int *) (self + i * 4 + 0x1c54) = -1;
+    for (int var25 = 0; var25 < 5; var25++) {
+        *(int *) (arg0 + var25 * 4 + 0x1c54) = -1;
     }
-    for (int i = 0; i < 5; i++) {
-        *(unsigned char *) (self + i + 0x1c68) = 0;
+    for (int var26 = 0; var26 < 5; var26++) {
+        *(unsigned char *) (arg0 + var26 + 0x1c68) = 0;
     }
     U8(0x1c6d)                              = 0;
     U8(0x1c83)                              = 0;
     U8(0x1c84)                              = 0;
-    ((Flags0215505c *) (self + 0x1c85))->b0 = 0;
+    ((Struct_ov002_0215505c *) (arg0 + 0x1c85))->unknown_0_0_ = 0;
     U8(0x1c78)                              = 0;
     S32(0x1c74)                             = 0;
     U8(0x1c79)                              = 2;
     U8(0x1c7a)                              = 0;
     U8(0x1c7b)                              = 0;
     S8(0x1c73)                              = 0;
-    GameState *gs                           = GameState::GetInstance();
-    S32(0x1c38)                             = func_02011494((char *) gs, buf);
-    for (int i = 0; i < S32(0x1c38); i++) {
-        *(int *) (self + i * 4 + 0x1c3c) = buf[i];
-        GameObject *m                    = gs->GetPartyMemberByIndex(buf[i]);
-        if (m != 0 && *(int *) ((char *) m + 0x1c4) == 0) {
-            *(unsigned char *) (self + S8(0x1c73) + 0x1c6e) = buf[i];
+    GameState *var27                           = GameState::GetInstance();
+    S32(0x1c38)                             = func_02011494((char *) var27, var18);
+    for (int var28 = 0; var28 < S32(0x1c38); var28++) {
+        *(int *) (arg0 + var28 * 4 + 0x1c3c) = var18[var28];
+        GameObject *var29                    = var27->GetPartyMemberByIndex(var18[var28]);
+        if (var29 != 0 && *(int *) ((char *) var29 + 0x1c4) == 0) {
+            *(unsigned char *) (arg0 + S8(0x1c73) + 0x1c6e) = var18[var28];
             S8(0x1c73)++;
         }
     }
-    S32(0x1c50) = func_02011494((char *) gs, buf);
-    for (int i = 0; i < S32(0x1c50); i++) {
-        *(int *) (self + i * 4 + 0x1c54) = buf[i];
+    S32(0x1c50) = func_02011494((char *) var27, var18);
+    for (int var30 = 0; var30 < S32(0x1c50); var30++) {
+        *(int *) (arg0 + var30 * 4 + 0x1c54) = var18[var30];
     }
-    *(int *) (self + S32(0x1c50) * 4 + 0x1c54) = 4;
+    *(int *) (arg0 + S32(0x1c50) * 4 + 0x1c54) = 4;
     S32(0x1c50) += 1;
     U8(0x1cc3)        = 0;
     U8(0x2478)        = 0;
     U8(0x247a)        = 0;
-    char *x           = func_0205ec34();
-    unsigned int bits = (func_0206e384((unsigned char *) x) << 16) | 0xffff;
+    char *var31           = func_0205ec34();
+    unsigned int var32 = (func_0206e384((unsigned char *) var31) << 16) | 0xffff;
     S32(0x2480)       = 0;
-    for (int i = 0; i < 0x20; i++) {
-        if (bits & 1) {
-            short n = func_0206e3d4((int) x, (short) (i + 1));
-            *(unsigned int *) (self + 0x2480) |= 1 << (n - 1);
+    for (int var33 = 0; var33 < 0x20; var33++) {
+        if (var32 & 1) {
+            short var34 = func_0206e3d4((int) var31, (short) (var33 + 1));
+            *(unsigned int *) (arg0 + 0x2480) |= 1 << (var34 - 1);
         }
-        bits >>= 1;
+        var32 >>= 1;
     }
     U8(0x2484) = 0;
-    memset(self + 0x7c + 0x1c00, -1, 7);
+    memset(arg0 + 0x7c + 0x1c00, -1, 7);
     U8(0x247b)  = 0;
     S32(0x247c) = 0;
     U8(0x2485)  = 0;
@@ -419,11 +419,11 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     U8(0x2521)  = 0;
     U8(0x2522)  = 0;
     U8(0x2523)  = 0;
-    memset(self + 0x124 + 0x2400, 0, 0xc);
+    memset(arg0 + 0x124 + 0x2400, 0, 0xc);
     S32(0x2530) = 0;
     S32(0x2534) = 0;
     S32(0x2538) = 0;
-    func_ov002_0215b234(self);
+    func_ov002_0215b234(arg0);
     RESET(0x810);
     RESET(0x828);
     RESET(0x83c);
@@ -431,9 +431,9 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     RESET(0x864);
     RESET(0x878);
     RESET(0x88c);
-    func_020a9ea4((struct Struct020a9ea4 *) (self + 0x98 + 0x2400));
-    for (unsigned char j = 0; j < 0x20; j++) {
-        *(int *) (self + j * 4 + 0x24a0) = 0;
+    func_020a9ea4((struct Struct_020a9ea4 *) (arg0 + 0x98 + 0x2400));
+    for (unsigned char var35 = 0; var35 < 0x20; var35++) {
+        *(int *) (arg0 + var35 * 4 + 0x24a0) = 0;
     }
     U8(0x2520)  = 0;
     S16(0x2548) = 0;
@@ -442,6 +442,6 @@ extern "C" ARM void func_ov002_0215505c(char *self) {
     func_ov016_0218b5c0(1, -1);
     U8(0x248e) = 0;
     U8(0x248f) = 0;
-    func_ov002_0215b814(self);
+    func_ov002_0215b814(arg0);
 #endif
 }

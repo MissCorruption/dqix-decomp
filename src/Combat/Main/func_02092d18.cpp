@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { TableOffset = 0x7ca2 };
+enum { Enum_02092d18_32630 = 0x7ca2 };
 #else
-enum { TableOffset = 0x7f76 };
+enum { Enum_02092d18_32630 = 0x7f76 };
 #endif
 
 #include "GameState/GameState.h"
 
-struct BattlePhaseState020930d0;
+struct Struct_02092cd0;
 
 // USA: func_02092d18
-extern "C" ARM int func_02092d18(BattlePhaseState020930d0*, int value) {
-    unsigned char* bs = (unsigned char*)GameState::GetInstance();
-    unsigned char i;
-    for (i = 0; i < 4; i++) {
-        if (value == (bs + i)[TableOffset]) {
-            return (signed char)i;
+extern "C" ARM int func_02092d18(Struct_02092cd0*, int arg1) {
+    unsigned char* var0 = (unsigned char*)GameState::GetInstance();
+    unsigned char var1;
+    for (var1 = 0; var1 < 4; var1++) {
+        if (arg1 == (var0 + var1)[Enum_02092d18_32630]) {
+            return (signed char)var1;
         }
     }
     return -1;

@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Block02082d38 {
-    unsigned char bytes[0x16];
+struct Struct_02082d38 {
+    unsigned char unknown_0_[0x16];
 };
 
-struct Struct02082d38 {
-    unsigned char arr[0x16];
-    unsigned char field_16;
-    unsigned char field_17;
+struct Struct_02082828 {
+    unsigned char unknown_0_[0x16];
+    unsigned char unknown_16_;
+    unsigned char unknown_17_;
 };
 
 // USA: func_02082d38
-extern "C" ARM void func_02082d38(struct Struct02082d38 *dst, struct Struct02082d38 *src) {
-    *(struct Block02082d38*)dst->arr = *(struct Block02082d38*)src->arr;
-    dst->field_16 = src->field_16;
-    dst->field_17 = src->field_17;
+extern "C" ARM void func_02082d38(struct Struct_02082828 *arg0, struct Struct_02082828 *arg1) {
+    *(struct Struct_02082d38*)arg0->unknown_0_ = *(struct Struct_02082d38*)arg1->unknown_0_;
+    arg0->unknown_16_ = arg1->unknown_16_;
+    arg0->unknown_17_ = arg1->unknown_17_;
 }

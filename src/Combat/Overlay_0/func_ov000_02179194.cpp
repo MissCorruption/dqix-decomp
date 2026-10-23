@@ -3,159 +3,159 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct MenuSkill {
-    unsigned int field_00;
-    unsigned int skill : 12;
-    unsigned int field_04 : 20;
-    unsigned int cost : 8;
-    unsigned int field_08 : 24;
+struct Struct_ov000_02179194 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 20;
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 24;
 };
-struct SkillMenu {
-    unsigned char pad_00[0xe];
-    short maximumCost;
-    unsigned char pad_10[0xe];
-    short cursor;
-    unsigned char pad_20[0x24];
-    int width;
-    int height;
-    int combatant;
+struct Struct_ov000_02179194_2 {
+    unsigned char unknown_0_[0xe];
+    short unknown_e_;
+    unsigned char unknown_10_[0xe];
+    short unknown_1e_;
+    unsigned char unknown_20_[0x24];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 };
-struct SkillTextWindow {
-    unsigned char pad_00[0xa0];
-    short x;
-    short y;
-    short width;
-    short height;
-    short left;
-    short top;
-    short right;
-    short bottom;
-    unsigned char field_b0;
-    unsigned char id;
+struct Struct_ov000_02179194_3 {
+    unsigned char unknown_0_[0xa0];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    unsigned char unknown_b0_;
+    unsigned char unknown_b1_;
 };
-struct SkillDisplay {
-    unsigned char pad_00[0x188];
-    SkillTextWindow window;
+struct Struct_ov000_02179194_4 {
+    unsigned char unknown_0_[0x188];
+    Struct_ov000_02179194_3 unknown_188_;
 };
-struct TextResources {
+struct Struct_ov000_02179194_5 {
 #if defined(jpn)
-    unsigned char pad_00[0x28];
+    unsigned char unknown_0_[0x28];
 #else
-    unsigned char pad_00[0x5c];
+    unsigned char unknown1_0_[0x5c];
 #endif
-    char* scratch;
+    char* unknown_5c_;
 };
-struct StoreStruct;
+struct Struct_020465c0;
 struct Struct_0205d81c;
-struct StructA0205d5d0;
-extern "C" TextResources* func_020421a0();
-extern "C" MenuSkill* func_ov000_0217199c(void*, int);
+struct Struct_0205d5d0;
+extern "C" Struct_ov000_02179194_5* func_020421a0();
+extern "C" Struct_ov000_02179194* func_ov000_0217199c(void*, int);
 extern "C" void func_020dd040(int, char*);
-extern "C" void func_02046608(TextResources*, int, char*, char*, int, int, int);
-extern "C" void func_02046380(TextResources*);
+extern "C" void func_02046608(Struct_ov000_02179194_5*, int, char*, char*, int, int, int);
+extern "C" void func_02046380(Struct_ov000_02179194_5*);
 extern "C" int func_ov000_02153a8c(GameObject*);
 extern "C" unsigned int func_020dd290(void*, unsigned int);
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" const char* func_020e51cc(int);
 extern "C" int func_02042058(char*, const char*);
 extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 #if defined(jpn)
-extern "C" void func_0205d304(SkillTextWindow*, char*, int, int, int, int, int);
+extern "C" void func_0205d304(Struct_ov000_02179194_3*, char*, int, int, int, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
-extern "C" void func_0205d304(SkillTextWindow*, char*, int, int, int, int, int, int);
+extern "C" void func_0205d304(Struct_ov000_02179194_3*, char*, int, int, int, int, int, int);
 #endif
 
 // USA: func_ov000_02179194
-extern "C" ARM void func_ov000_02179194(SkillDisplay* display, SkillMenu* menu) {
-    char* destination;
-    TextResources* resources;
+extern "C" ARM void func_ov000_02179194(Struct_ov000_02179194_4* arg0, Struct_ov000_02179194_2* arg1) {
+    char* var0;
+    Struct_ov000_02179194_5* var1;
 #if !defined(jpn)
-    char text[0x800];
+    char var2[0x800];
 #endif
-    if (!menu) return;
-    int cursor = menu->cursor;
-    char* scratch = func_020421a0()->scratch;
+    if (!arg1) return;
+    int var3 = arg1->unknown_1e_;
+    char* var4 = func_020421a0()->unknown_5c_;
 #if defined(jpn)
-    memset(scratch, 0, 0x800);
+    memset(var4, 0, 0x800);
 #else
-    memset(scratch, 0, 0x960);
+    memset(var4, 0, 0x960);
 #endif
-    GameState* game = GameState::GetInstance();
-    MenuSkill* skill = func_ov000_0217199c(menu, cursor);
-    if (!skill) return;
-    GameObject* combatant = game->GetCombatantByIndex(menu->combatant);
-    if (!combatant) return;
-    GameObject* partyMember = func_0200ff1c(game, menu->combatant);
-    if (!partyMember) return;
-    func_020dd040(skill->skill, scratch);
+    GameState* var5 = GameState::GetInstance();
+    Struct_ov000_02179194* var6 = func_ov000_0217199c(arg1, var3);
+    if (!var6) return;
+    GameObject* var7 = var5->GetCombatantByIndex(arg1->unknown_4c_);
+    if (!var7) return;
+    GameObject* var8 = func_0200ff1c(var5, arg1->unknown_4c_);
+    if (!var8) return;
+    func_020dd040(var6->unknown_4_0_, var4);
 #if defined(jpn)
-    destination = scratch;
+    var0 = var4;
 #else
-    func_02046608(func_020421a0(), 10, scratch, text, 0x72, 0, 0);
-    destination = text;
+    func_02046608(func_020421a0(), 10, var4, var2, 0x72, 0, 0);
+    var0 = var2;
 #endif
-    resources = func_020421a0();
-    func_02046380(resources);
-    int cost;
-    if (func_ov000_02153a8c(combatant)) cost = 0;
+    var1 = func_020421a0();
+    func_02046380(var1);
+    int var9;
+    if (func_ov000_02153a8c(var7)) var9 = 0;
     else {
-        unsigned int value = skill->cost;
-        if (value >= 0xff) cost = menu->maximumCost;
-        else cost = func_020dd290(partyMember, value);
+        unsigned int var10 = var6->unknown_8_0_;
+        if (var10 >= 0xff) var9 = arg1->unknown_e_;
+        else var9 = func_020dd290(var8, var10);
     }
-    func_020465c0((StoreStruct*)resources, 0, cost);
-    func_020465c0((StoreStruct*)resources, 1, menu->maximumCost);
+    func_020465c0((Struct_020465c0*)var1, 0, var9);
+    func_020465c0((Struct_020465c0*)var1, 1, arg1->unknown_e_);
 #if defined(jpn)
-    func_020465f0((unsigned char*)resources, 0, 3);
-    func_020465f0((unsigned char*)resources, 1, 3);
-    func_020465d8((unsigned char*)resources, 0, 1);
-    func_020465d8((unsigned char*)resources, 1, 1);
-    func_02042058(destination, data_ov000_02185169);
+    func_020465f0((unsigned char*)var1, 0, 3);
+    func_020465f0((unsigned char*)var1, 1, 3);
+    func_020465d8((unsigned char*)var1, 0, 1);
+    func_020465d8((unsigned char*)var1, 1, 1);
+    func_02042058(var0, data_ov000_02185169);
 #else
-    func_02042058(destination, func_020e51cc(0x3ec));
+    func_02042058(var0, func_020e51cc(0x3ec));
 #endif
-    SkillTextWindow* window = &display->window;
-    if (func_0205d81c((Struct_0205d81c*)window, 0x23)) {
+    Struct_ov000_02179194_3* var11 = &arg0->unknown_188_;
+    if (func_0205d81c((Struct_0205d81c*)var11, 0x23)) {
 #if defined(jpn)
-        func_0205d5d0((StructA0205d5d0*)window, 0x23, (int)destination, 1);
+        func_0205d5d0((Struct_0205d5d0*)var11, 0x23, (int)var0, 1);
 #else
-        func_0205d5d0((StructA0205d5d0*)window, 0x23, (int)destination, 1, 0);
+        func_0205d5d0((Struct_0205d5d0*)var11, 0x23, (int)var0, 1, 0);
 #endif
     } else {
-        int width = menu->width;
-        int height = menu->height;
+        int var12 = arg1->unknown_44_;
+        int var13 = arg1->unknown_48_;
 #if defined(jpn)
-        window->x = 12;
+        var11->unknown_a0_ = 12;
 #else
-        window->x = 16;
+        var11->unknown_a0_ = 16;
 #endif
 #if defined(jpn)
-        window->y = 6;
+        var11->unknown_a2_ = 6;
 #else
-        window->y = 10;
+        var11->unknown_a2_ = 10;
 #endif
 #if defined(jpn)
-        window->width = (width >> 3) + 22;
+        var11->unknown_a4_ = (var12 >> 3) + 22;
 #else
-        window->width = (width >> 3) + 16;
+        var11->unknown_a4_ = (var12 >> 3) + 16;
 #endif
-        window->height = height >> 3;
-        window->left = 7;
+        var11->unknown_a6_ = var13 >> 3;
+        var11->unknown_a8_ = 7;
 #if defined(jpn)
-        window->top = 8;
+        var11->unknown_aa_ = 8;
 #else
-        window->top = 6;
+        var11->unknown_aa_ = 6;
 #endif
-        window->right = 10;
-        window->bottom = 14;
-        window->id = 0x23;
+        var11->unknown_ac_ = 10;
+        var11->unknown_ae_ = 14;
+        var11->unknown_b1_ = 0x23;
 #if defined(jpn)
-        func_0205d304(window, destination, 1, 0, 0, 1, 0);
+        func_0205d304(var11, var0, 1, 0, 0, 1, 0);
 #else
-        func_0205d304(window, destination, 1, 0, 0, 1, 0, 0);
+        func_0205d304(var11, var0, 1, 0, 0, 1, 0, 0);
 #endif
     }
 }

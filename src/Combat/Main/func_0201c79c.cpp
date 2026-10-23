@@ -3,20 +3,20 @@
 #include "Resource/Script.h"
 
 class SafeAllocator;
-struct Variant02030b0c;
-struct Foo0201e25c;
+struct Struct_0201c1c8;
+struct Struct_0201e25c;
 
-struct GlobalList020fdc20_c79c {
-    int pad0;
-    SafeAllocator* alloc;
-    struct Foo0201e25c* array;
+struct Struct_020fdc20_2 {
+    int unknown_0_;
+    SafeAllocator* unknown_4_;
+    struct Struct_0201e25c* unknown_8_;
 };
-extern struct GlobalList020fdc20_c79c data_020fdc20;
+extern struct Struct_020fdc20_2 data_020fdc20;
 
 // USA: func_0201c79c
 extern "C" ARM int func_0201c79c(Script::Parameter* arg0, int) {
-    struct Variant02030b0c* v = (struct Variant02030b0c*)arg0;
-    int n = ((Script::Parameter*)v)->ToInt();
-    ((ZoneFeatures*)data_020fdc20.array)->func_0201e25c(n, data_020fdc20.alloc);
+    struct Struct_0201c1c8* var0 = (struct Struct_0201c1c8*)arg0;
+    int var1 = ((Script::Parameter*)var0)->ToInt();
+    ((Struct_020134e0*)data_020fdc20.unknown_8_)->func_0201e25c(var1, data_020fdc20.unknown_4_);
     return 1;
 }

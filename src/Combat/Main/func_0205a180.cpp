@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Out0205a180 {
-    int field0;
-    int field4;
-    int field8;
+struct Struct_0205a180_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct State0205a180 {
-    char unk0[4];
-    struct Out0205a180* out;
-    char unk8[0xb6 - 8];
-    short field_b6;
+struct Struct_0205a180 {
+    char unknown_0_[4];
+    struct Struct_0205a180_2* unknown_4_;
+    char unknown_8_[0xb6 - 8];
+    short unknown_b6_;
 };
 
 // USA: func_0205a180
-extern "C" ARM void func_0205a180(struct State0205a180* state) {
-    struct Out0205a180* out = state->out;
-    if (out != NULL) {
-        int value = state->field_b6;
-        out->field4 = 0;
-        out->field8 = value;
+extern "C" ARM void func_0205a180(struct Struct_0205a180* arg0) {
+    struct Struct_0205a180_2* var0 = arg0->unknown_4_;
+    if (var0 != NULL) {
+        int var1 = arg0->unknown_b6_;
+        var0->unknown_4_ = 0;
+        var0->unknown_8_ = var1;
     }
 }

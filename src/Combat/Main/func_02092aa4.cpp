@@ -2,48 +2,48 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-struct Struct020dfc40;
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 
-struct Obj02092aa4 {
-    SafeAllocator allocator;
-    char pad14[0x2c - 0x14];
-    int field2c;
-    short field30;
-    short field32;
-    unsigned char field34;
-    unsigned char field35;
-    unsigned char field36;
-    unsigned char field37;
-    unsigned char field38;
-    unsigned char field39;
-    unsigned char field3a;
-    unsigned char field3b;
+struct Struct_02092aa4 {
+    SafeAllocator unknown_0_;
+    char unknown_14_[0x2c - 0x14];
+    int unknown_2c_;
+    short unknown_30_;
+    short unknown_32_;
+    unsigned char unknown_34_;
+    unsigned char unknown_35_;
+    unsigned char unknown_36_;
+    unsigned char unknown_37_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
+    unsigned char unknown_3a_;
+    unsigned char unknown_3b_;
 };
 
 // USA: func_02092aa4
-extern "C" ARM void func_02092aa4(Obj02092aa4* obj, int param) {
-    obj->allocator.ResetAllocatorPointer();
-    func_020dfc40((struct Struct020dfc40*)((char*)obj + 0x14));
+extern "C" ARM void func_02092aa4(Struct_02092aa4* arg0, int arg1) {
+    arg0->unknown_0_.ResetAllocatorPointer();
+    func_020dfc40((struct Struct_0201099c_14*)((char*)arg0 + 0x14));
 
-    obj->field2c = -1;
-    obj->field30 = -1;
-    obj->field32 = 0;
-    obj->field34 = 0;
-    obj->field35 = 0;
-    obj->field36 = 0;
-    obj->field37 = 0;
-    obj->field38 = param;
-    obj->field39 = 0;
-    obj->field3a = 0;
-    obj->field3b = 0;
+    arg0->unknown_2c_ = -1;
+    arg0->unknown_30_ = -1;
+    arg0->unknown_32_ = 0;
+    arg0->unknown_34_ = 0;
+    arg0->unknown_35_ = 0;
+    arg0->unknown_36_ = 0;
+    arg0->unknown_37_ = 0;
+    arg0->unknown_38_ = arg1;
+    arg0->unknown_39_ = 0;
+    arg0->unknown_3a_ = 0;
+    arg0->unknown_3b_ = 0;
 
-    unsigned char* base = (unsigned char*)func_02010828(GameState::GetInstance());
-    unsigned char i;
-    for (i = 0; i < base[0xf7c]; i++) {
-        unsigned char* entry = base + i;
-        if (entry[0xf78] == 0) {
-            obj->field37 |= 1;
+    unsigned char* var0 = (unsigned char*)func_02010828(GameState::GetInstance());
+    unsigned char var1;
+    for (var1 = 0; var1 < var0[0xf7c]; var1++) {
+        unsigned char* var2 = var0 + var1;
+        if (var2[0xf78] == 0) {
+            arg0->unknown_37_ |= 1;
             return;
         }
     }

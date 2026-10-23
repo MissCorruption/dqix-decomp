@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204b04c(void* p, int flag);
+extern "C" void func_0204b04c(void* arg0, int arg1);
 
-struct Elem0205d274 { char b[0x20]; };
+struct Struct_0204b04c_2 { char unknown_0_[0x20]; };
 
-struct Cont0205d274 {
-    char pad0[0x98];
-    Elem0205d274* list98;
-    char pad9c[0x16];
-    unsigned char countB2;
+struct Struct_0205d274 {
+    char unknown_0_[0x98];
+    Struct_0204b04c_2* unknown_98_;
+    char unknown_9c_[0x16];
+    unsigned char unknown_b2_;
 };
 
 // USA: func_0205d274
-extern "C" ARM void func_0205d274(Cont0205d274* obj) {
-    unsigned char i;
-    if (obj->list98 == NULL) return;
-    for (i = 0; i < obj->countB2; i++) {
-        func_0204b04c(&obj->list98[i], 0);
+extern "C" ARM void func_0205d274(Struct_0205d274* arg0) {
+    unsigned char var0;
+    if (arg0->unknown_98_ == NULL) return;
+    for (var0 = 0; var0 < arg0->unknown_b2_; var0++) {
+        func_0204b04c(&arg0->unknown_98_[var0], 0);
     }
 }

@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_ov000_02169b78(void* node);
+extern "C" void func_ov000_02169b78(void* arg0);
 
-struct EventQueueGlobals0216c28c {
-    char pad[8];
-    SafeAllocator* allocator;
+struct Struct_ov000_02184264_20 {
+    char unknown_0_[8];
+    SafeAllocator* unknown_8_;
 };
-extern EventQueueGlobals0216c28c data_ov000_02184264;
+extern Struct_ov000_02184264_20 data_ov000_02184264;
 
-struct EventNode0216c28c {
-    int type;
-    int next;
-    int unused;
+struct Struct_ov000_0216c28c {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
 // USA: func_ov000_0216c28c
 extern "C" ARM int func_ov000_0216c28c(void) {
-    struct EventNode0216c28c* node = (struct EventNode0216c28c*)data_ov000_02184264.allocator->Allocate(0xc);
-    node->type = 0;
-    node->next = 0;
-    node->type = 0x5e;
-    func_ov000_02169b78(node);
+    struct Struct_ov000_0216c28c* var0 = (struct Struct_ov000_0216c28c*)data_ov000_02184264.unknown_8_->Allocate(0xc);
+    var0->unknown_0_ = 0;
+    var0->unknown_4_ = 0;
+    var0->unknown_0_ = 0x5e;
+    func_ov000_02169b78(var0);
     return 1;
 }

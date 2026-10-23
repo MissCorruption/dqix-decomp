@@ -2,7 +2,7 @@
 
 #include "../BackgroundLoader.h"
 
-struct Ov34BackgroundLoader : public BackgroundLoader
+struct Struct_ov034_022a2a6c : public BackgroundLoader
 {
     virtual int Process();
 };

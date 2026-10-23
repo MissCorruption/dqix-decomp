@@ -10,95 +10,95 @@
 
 #include "std_library_functions.h"
 
-struct Elem_0205d81c {
-    char pad0[0xc2];
-    short fieldC2;
+struct Struct_0205d0e0 {
+    char unknown_0_[0xc2];
+    short unknown_c2_;
 };
 
 struct Struct_0205d81c {
-    char pad0[0x54];
-    int field54;
-    char pad1[0xa0 - 0x58];
-    short fieldA0;
-    short fieldA2;
-    short x;
-    short y;
-    short fieldA8;
-    short fieldAA;
-    short fieldAC;
-    short fieldAE;
-    char pad2;
-    unsigned char fieldB1;
+    char unknown_0_[0x54];
+    int unknown_54_;
+    char unknown_58_[0xa0 - 0x58];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
 };
 
-struct GlobalField1c {
-    char pad0[REGION_OFFSET_0];
-    void* buffer;
+struct Struct_ov000_02178ba8 {
+    char unknown_0_[REGION_OFFSET_0];
+    void* unknown_5c_;
 };
 
-struct Entry02178ba8 {
-    char pad0[0x44];
-    int x;
-    int y;
+struct Struct_ov000_02178ba8_2 {
+    char unknown_0_[0x44];
+    int unknown_44_;
+    int unknown_48_;
 };
 
-struct Obj02178ba8 {
-    char pad0[0x188];
-    Struct_0205d81c panel;
+struct Struct_ov000_02178ba8_3 {
+    char unknown_0_[0x188];
+    Struct_0205d81c unknown_188_;
 };
 
-extern "C" GlobalField1c* func_020421a0();
-extern "C" int func_0205bafc(void* obj);
-extern "C" Elem_0205d81c* func_0205d81c(Struct_0205d81c* s, int key);
-extern "C" void func_ov000_02178d28(Obj02178ba8* obj, Entry02178ba8* entry);
-extern "C" void func_ov000_0217ab8c(Entry02178ba8* entry, int a, int b);
-extern "C" void func_ov000_02178f28(Obj02178ba8* obj, Entry02178ba8* entry, void* buf);
+extern "C" Struct_ov000_02178ba8* func_020421a0();
+extern "C" int func_0205bafc(void* arg0);
+extern "C" Struct_0205d0e0* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" void func_ov000_02178d28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1);
+extern "C" void func_ov000_0217ab8c(Struct_ov000_02178ba8_2* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02178f28(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1, void* arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(Struct_0205d81c* s, void* buf, int a, int b, int c, int d, int e);
+extern "C" void func_0205d304(Struct_0205d81c* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(Struct_0205d81c* s, void* buf, int a, int b, int c, int d, int e, int f);
+extern "C" void func_0205d304(Struct_0205d81c* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
-extern "C" void func_ov000_02176210(Struct_0205d81c* s, int a, int b);
+extern "C" void func_ov000_02176210(Struct_0205d81c* arg0, int arg1, int arg2);
 
 // USA: func_ov000_02178ba8
-extern "C" ARM void func_ov000_02178ba8(Obj02178ba8* obj, Entry02178ba8* entry, int arg2, int arg3) {
-    func_ov000_02178d28(obj, entry);
-    int x = entry->x;
-    int y = entry->y;
-    func_ov000_0217ab8c(entry, arg2, arg3);
-    Struct_0205d81c* panel = &obj->panel;
+extern "C" ARM void func_ov000_02178ba8(Struct_ov000_02178ba8_3* arg0, Struct_ov000_02178ba8_2* arg1, int arg2, int arg3) {
+    func_ov000_02178d28(arg0, arg1);
+    int var0 = arg1->unknown_44_;
+    int var1 = arg1->unknown_48_;
+    func_ov000_0217ab8c(arg1, arg2, arg3);
+    Struct_0205d81c* var2 = &arg0->unknown_188_;
 #if defined(jpn)
-    panel->fieldA0 = 0xd;
+    var2->unknown_a0_ = 0xd;
 #else
-    panel->fieldA0 = 0x10;
+    var2->unknown_a0_ = 0x10;
 #endif
-    panel->fieldA2 = 9;
+    var2->unknown_a2_ = 9;
 #if defined(jpn)
-    panel->x = (x >> 3) + 9;
+    var2->unknown_a4_ = (var0 >> 3) + 9;
 #else
-    panel->x = (x >> 3) + 0x10;
+    var2->unknown_a4_ = (var0 >> 3) + 0x10;
 #endif
-    panel->y = y >> 3;
-    panel->fieldA8 = 0xc;
-    panel->fieldAA = 8;
-    panel->fieldAC = 0xa;
-    panel->fieldAE = 0xc;
-    panel->fieldB1 = 0xf;
-    int flag = 0;
-    if (func_0205bafc(&panel->field54) > 4) {
-        flag = 1;
+    var2->unknown_a6_ = var1 >> 3;
+    var2->unknown_a8_ = 0xc;
+    var2->unknown_aa_ = 8;
+    var2->unknown_ac_ = 0xa;
+    var2->unknown_ae_ = 0xc;
+    var2->unknown_b1_ = 0xf;
+    int var3 = 0;
+    if (func_0205bafc(&var2->unknown_54_) > 4) {
+        var3 = 1;
     }
-    void* buf = func_020421a0()->buffer;
-    memset(buf, 0, REGION_OFFSET_1);
-    func_ov000_02178f28(obj, entry, buf);
+    void* var4 = func_020421a0()->unknown_5c_;
+    memset(var4, 0, REGION_OFFSET_1);
+    func_ov000_02178f28(arg0, arg1, var4);
 #if defined(jpn)
-    func_0205d304(panel, buf, 0, 0, flag, 1, 0);
+    func_0205d304(var2, var4, 0, 0, var3, 1, 0);
 #else
-    func_0205d304(panel, buf, 0, 0, flag, 1, 0, 0);
+    func_0205d304(var2, var4, 0, 0, var3, 1, 0, 0);
 #endif
-    Elem_0205d81c* elem = func_0205d81c(panel, 0x22);
-    if (elem != NULL) {
-        elem->fieldC2 = 0;
+    Struct_0205d0e0* var5 = func_0205d81c(var2, 0x22);
+    if (var5 != NULL) {
+        var5->unknown_c2_ = 0;
     }
-    func_ov000_02176210(&obj->panel, 0xf, 0x22);
+    func_ov000_02176210(&arg0->unknown_188_, 0xf, 0x22);
 }

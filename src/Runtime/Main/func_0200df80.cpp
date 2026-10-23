@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-typedef unsigned char exaction_type;
+typedef unsigned char Type_0200df80_2;
 #define EXACTION_ENDBIT  0x80
 #define EXACTION_OPT1BIT 0x40
 #define EXACTION_OPT2BIT 0x20
@@ -30,23 +30,23 @@ typedef unsigned char exaction_type;
 #define EXACTION_DESTROYVLA            18
 #define EXACTION_FREEVLA               19
 
-typedef struct ExceptionTableIndex {
-    char*         function_address;
-    unsigned long function_size;
-    char*         exception_table;
-} ExceptionTableIndex;
+typedef struct Struct_0200d958_5 {
+    char*         unknown_0_;
+    unsigned long unknown_4_;
+    char*         unknown_8_;
+} Struct_0200d958_5;
 
-typedef short         vbase_ctor_arg_type;
-typedef unsigned char local_cond_type;
+typedef short         Type_0200d958;
+typedef unsigned char Type_0200d958_2;
 
-typedef struct CatchInfo {
-    void* location;
-    void* typeinfo;
-    void* dtor;
-    void* sublocation;
-    long  pointercopy;
-    void* stacktop;
-} CatchInfo;
+typedef struct Struct_0200d958_6 {
+    void* unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    long  unknown_10_;
+    void* unknown_14_;
+} Struct_0200d958_6;
 
 #define DTORARG_TYPE     short
 #define DTORARG_PARTIAL  (0)
@@ -56,643 +56,643 @@ typedef struct CatchInfo {
 #define DTORCALL_PARTIAL(dtor, objptr)           (((void (*)(void*, DTORARG_TYPE))dtor)(objptr, DTORARG_PARTIAL))
 #define DTORCALL_VTTOBJECT(dtor, objptr, vttptr) (((void (*)(void*, void*))dtor)(objptr, vttptr))
 
-typedef struct TargetContext {
-    unsigned long  GPR[16];
-    char*          throwSP;
-    unsigned long  frame_size;
-    unsigned long  argument_size;
-    unsigned short saved_GPRs;
-    bool           has_flushback;
-    bool           has_frame_ptr;
-    bool           is_Thumb;
-} TargetContext;
+typedef struct Struct_0200d958_7 {
+    unsigned long  unknown_0_[16];
+    char*          unknown_40_;
+    unsigned long  unknown_44_;
+    unsigned long  unknown_48_;
+    unsigned short unknown_4c_;
+    bool           unknown_4e_;
+    bool           unknown_4f_;
+    bool           unknown_50_;
+} Struct_0200d958_7;
 
-typedef struct ThrowContext {
-    unsigned char* throwtype;
-    void*          location;
-    void*          dtor;
-    CatchInfo*     catchinfo;
-    char*          returnaddr;
-    char*          SP;
-    char*          FP;
-    TargetContext  target;
-} ThrowContext;
+typedef struct Struct_0200df80 {
+    unsigned char* unknown_0_;
+    void*          unknown_4_;
+    void*          unknown_8_;
+    Struct_0200d958_6*     unknown_c_;
+    char*          unknown_10_;
+    char*          unknown_14_;
+    char*          unknown_18_;
+    Struct_0200d958_7  unknown_1c_;
+} Struct_0200df80;
 
-typedef struct TargetExceptionInfo {
-    int dummy;
-} TargetExceptionInfo;
+typedef struct Struct_0200d958_8 {
+    int unknown_0_;
+} Struct_0200d958_8;
 
-typedef struct ExceptionInfo {
-    char*                current_function;
-    char*                exception_record;
-    char*                action_pointer;
-    ExceptionTableIndex* exception_table_start;
-    ExceptionTableIndex* exception_table_end;
-    TargetExceptionInfo  target;
-} ExceptionInfo;
+typedef struct Struct_0200df80_2 {
+    char*                unknown_0_;
+    char*                unknown_4_;
+    char*                unknown_8_;
+    Struct_0200d958_5* unknown_c_;
+    Struct_0200d958_5* unknown_10_;
+    Struct_0200d958_8  unknown_14_;
+} Struct_0200df80_2;
 
 #define __FunctionPointer(info, context, fp)          (fp)
-#define __LocalVariable(context, offset)              ((context)->FP + (offset))
-#define __Register(context, regno)                    ((context)->target.GPR[regno])
+#define __LocalVariable(context, offset)              ((context)->unknown_18_ + (offset))
+#define __Register(context, regno)                    ((context)->unknown_1c_.unknown_0_[regno])
 
-inline char* __DecodeAddress(char* p, void** paddr) {
-    unsigned long addr;
+inline char* __DecodeAddress(char* arg0, void** arg1) {
+    unsigned long var0;
 
-    addr = ((unsigned char*)p)[0] | (((unsigned char*)p)[1] << 8) | (((unsigned char*)p)[2] << 16) |
-           (((unsigned char*)p)[3] << 24);
+    var0 = ((unsigned char*)arg0)[0] | (((unsigned char*)arg0)[1] << 8) | (((unsigned char*)arg0)[2] << 16) |
+           (((unsigned char*)arg0)[3] << 24);
 
-    *paddr = (void*)addr;
-    return (p + 4);
+    *arg1 = (void*)var0;
+    return (arg0 + 4);
 }
 
-extern "C" char* func_0200d958(char* p, long* pnum);
-extern "C" char* func_0200d9e4(char* p, unsigned long* pnum);
-extern "C" char* func_0200f1a0(ThrowContext* context, ExceptionInfo* info);
-extern "C" void func_0200f1fc(ThrowContext* context, ExceptionInfo* info);
-extern "C" void func_0200dad4(char* return_address, ExceptionInfo* info);
+extern "C" char* func_0200d958(char* arg0, long* arg1);
+extern "C" char* func_0200d9e4(char* arg0, unsigned long* arg1);
+extern "C" char* func_0200f1a0(Struct_0200df80* arg0, Struct_0200df80_2* arg1);
+extern "C" void func_0200f1fc(Struct_0200df80* arg0, Struct_0200df80_2* arg1);
+extern "C" void func_0200dad4(char* arg0, Struct_0200df80_2* arg1);
 extern "C" void func_0200efb8(void);
 
 enum {
-    SKIP  = 0,
-    APPLY = 1
+    Enum_0200df80_0  = 0,
+    Enum_0200df80_1 = 1
 };
 
-typedef void (*DeleteFunc)(void*);
+typedef void (*Type_0200d958_3)(void*);
 
-typedef struct ActionIterator {
-    ExceptionInfo info;
-    ThrowContext  context;
-} ActionIterator;
+typedef struct Struct_0200d958_9 {
+    Struct_0200df80_2 unknown_0_;
+    Struct_0200df80  unknown_18_;
+} Struct_0200d958_9;
 
-typedef struct ex_catchblock {
-    char*         catch_type;
-    unsigned long pcoffset;
-    long          cinfo_ref;
-} ex_catchblock;
+typedef struct Struct_0200d958_10 {
+    char*         unknown_0_;
+    unsigned long unknown_4_;
+    long          unknown_8_;
+} Struct_0200d958_10;
 
-typedef struct ex_activecatchblock {
-    long cinfo_ref;
-} ex_activecatchblock;
+typedef struct Struct_0200d958_11 {
+    long unknown_0_;
+} Struct_0200d958_11;
 
-typedef struct ex_specification {
-    unsigned long nspecs;
-    unsigned long pcoffset;
-    long          cinfo_ref;
-    char*         specs;
-} ex_specification;
+typedef struct Struct_0200d958_12 {
+    unsigned long unknown_0_;
+    unsigned long unknown_4_;
+    long          unknown_8_;
+    char*         unknown_c_;
+} Struct_0200d958_12;
 
-inline void DecodeCatchBlock(char* ap, ex_catchblock* cb) {
-    ap += sizeof(exaction_type);
-    ap = __DecodeAddress(ap, (void**)&cb->catch_type);
-    ap = func_0200d9e4(ap, &cb->pcoffset);
-    ap = func_0200d958(ap, &cb->cinfo_ref);
+inline void inline_0200d958(char* arg0, Struct_0200d958_10* arg1) {
+    arg0 += sizeof(Type_0200df80_2);
+    arg0 = __DecodeAddress(arg0, (void**)&arg1->unknown_0_);
+    arg0 = func_0200d9e4(arg0, &arg1->unknown_4_);
+    arg0 = func_0200d958(arg0, &arg1->unknown_8_);
 }
 
-inline void DecodeActiveCatchBlock(char* ap, ex_activecatchblock* acb) {
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &acb->cinfo_ref);
+inline void inline_0200d958_2(char* arg0, Struct_0200d958_11* arg1) {
+    arg0 += sizeof(Type_0200df80_2);
+    arg0 = func_0200d958(arg0, &arg1->unknown_0_);
 }
 
-inline void DecodeSpecification(char* ap, ex_specification* sp) {
-    ap += sizeof(exaction_type);
-    ap        = func_0200d9e4(ap, &sp->nspecs);
-    ap        = func_0200d9e4(ap, &sp->pcoffset);
-    ap        = func_0200d958(ap, &sp->cinfo_ref);
-    sp->specs = ap;
+inline void inline_0200d958_3(char* arg0, Struct_0200d958_12* arg1) {
+    arg0 += sizeof(Type_0200df80_2);
+    arg0        = func_0200d9e4(arg0, &arg1->unknown_0_);
+    arg0        = func_0200d9e4(arg0, &arg1->unknown_4_);
+    arg0        = func_0200d958(arg0, &arg1->unknown_8_);
+    arg1->unknown_c_ = arg0;
 }
 
-inline void Branch(ExceptionInfo* info, ThrowContext* context) {
-    long target;
-    func_0200d958(info->action_pointer + sizeof(exaction_type), &target);
-    info->action_pointer += target;
+inline void inline_0200df80_11(Struct_0200df80_2* arg0, Struct_0200df80* arg1) {
+    long var0;
+    func_0200d958(arg0->unknown_8_ + sizeof(Type_0200df80_2), &var0);
+    arg0->unknown_8_ += var0;
 }
 
-inline void DestroyLocal(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    long  local;
-    void* dtor;
+inline void inline_0200df80_12(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    long  var1;
+    void* var2;
 
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &local);
-    ap = __DecodeAddress(ap, &dtor);
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var1);
+    var0 = __DecodeAddress(var0, &var2);
 
-    if (apply) {
-        DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), __LocalVariable(context, local));
+    if (arg0) {
+        DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var2), __LocalVariable(arg2, var1));
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyLocalCond(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*           ap = info->action_pointer;
-    int             regcond;
-    long            cond, local;
-    void*           dtor;
-    local_cond_type destroyIt;
+inline void inline_0200df80_13(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*           var0 = arg1->unknown_8_;
+    int             var1;
+    long            var2, var3;
+    void*           var4;
+    Type_0200d958_2 var5;
 
-    regcond = *(exaction_type*)ap & REGCOND;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &cond);
-    ap = func_0200d958(ap, &local);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGCOND;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
+    var0 = __DecodeAddress(var0, &var4);
 
-    if (apply) {
-        if (regcond)
-            destroyIt = (local_cond_type)__Register(context, cond);
+    if (arg0) {
+        if (var1)
+            var5 = (Type_0200d958_2)__Register(arg2, var2);
         else
-            destroyIt = *(local_cond_type*)__LocalVariable(context, cond);
+            var5 = *(Type_0200d958_2*)__LocalVariable(arg2, var2);
 
-        if (destroyIt) {
-            DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), __LocalVariable(context, local));
+        if (var5) {
+            DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var4), __LocalVariable(arg2, var3));
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyLocalPointer(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    int   regptr;
-    long  ptr;
-    void *dtor, *objectptr;
+inline void inline_0200df80_14(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    int   var1;
+    long  var2;
+    void *var3, *var4;
 
-    regptr = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
+    var0 = __DecodeAddress(var0, &var3);
 
-    if (apply) {
-        if (regptr)
-            objectptr = (void*)__Register(context, ptr);
+    if (arg0) {
+        if (var1)
+            var4 = (void*)__Register(arg2, var2);
         else
-            objectptr = *(void**)__LocalVariable(context, ptr);
+            var4 = *(void**)__LocalVariable(arg2, var2);
 
-        DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), objectptr);
+        DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var3), var4);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyLocalArray(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*         ap = info->action_pointer;
-    long          array;
-    unsigned long nelements, elemsize, i;
-    void*         dtor;
-    char*         arrayptr;
+inline void inline_0200df80_15(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*         var0 = arg1->unknown_8_;
+    long          var1;
+    unsigned long var2, var3, var4;
+    void*         var5;
+    char*         var6;
 
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &array);
-    ap = func_0200d9e4(ap, &nelements);
-    ap = func_0200d9e4(ap, &elemsize);
-    ap = __DecodeAddress(ap, &dtor);
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var1);
+    var0 = func_0200d9e4(var0, &var2);
+    var0 = func_0200d9e4(var0, &var3);
+    var0 = __DecodeAddress(var0, &var5);
 
-    if (apply) {
-        arrayptr = (char*)__LocalVariable(context, array);
-        for (arrayptr += nelements * elemsize, i = nelements; i > 0; i--) {
-            arrayptr -= elemsize;
-            DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), arrayptr);
+    if (arg0) {
+        var6 = (char*)__LocalVariable(arg2, var1);
+        for (var6 += var2 * var3, var4 = var2; var4 > 0; var4--) {
+            var6 -= var3;
+            DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var5), var6);
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyVarLenArray(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*         ap = info->action_pointer;
-    int           regptr1, regptr2;
-    long          ptr1, ptr2;
-    unsigned long nelements, elemsize, i;
-    void*         dtor;
-    char *        arrayptr, *arraysize;
+inline void inline_0200df80_16(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*         var0 = arg1->unknown_8_;
+    int           var1, var2;
+    long          var3, var4;
+    unsigned long var5, var6, var7;
+    void*         var8;
+    char *        var9, *var10;
 
-    regptr1 = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap      = func_0200d958(ap, &ptr1);
-    regptr2 = *(unsigned char*)ap & REGPTR;
-    ap += sizeof(char);
-    ap = func_0200d958(ap, &ptr2);
-    ap = func_0200d9e4(ap, &elemsize);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0      = func_0200d958(var0, &var3);
+    var2 = *(unsigned char*)var0 & REGPTR;
+    var0 += sizeof(char);
+    var0 = func_0200d958(var0, &var4);
+    var0 = func_0200d9e4(var0, &var6);
+    var0 = __DecodeAddress(var0, &var8);
 
-    if (apply) {
-        if (regptr1)
-            arrayptr = (char*)__Register(context, ptr1);
+    if (arg0) {
+        if (var1)
+            var9 = (char*)__Register(arg2, var3);
         else
-            arrayptr = *(char**)__LocalVariable(context, ptr1);
+            var9 = *(char**)__LocalVariable(arg2, var3);
 
-        if (regptr2)
-            arraysize = (char*)__Register(context, ptr2);
+        if (var2)
+            var10 = (char*)__Register(arg2, var4);
         else
-            arraysize = *(char**)__LocalVariable(context, ptr2);
+            var10 = *(char**)__LocalVariable(arg2, var4);
 
-        nelements = (unsigned long)arraysize / elemsize;
-        for (arrayptr += (unsigned long)arraysize, i = nelements; i > 0; i--) {
-            arrayptr -= elemsize;
-            DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), arrayptr);
+        var5 = (unsigned long)var10 / var6;
+        for (var9 += (unsigned long)var10, var7 = var5; var7 > 0; var7--) {
+            var9 -= var6;
+            DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var8), var9);
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void FreeVarLenArray(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    int   regptr1;
-    long  ptr1, spaddend;
-    long* arrayptr;
+inline void inline_0200df80_17(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    int   var1;
+    long  var2, var3;
+    long* var4;
 
-    regptr1 = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr1);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
 
-    if (apply) {
-        if (regptr1)
-            arrayptr = (long*)__Register(context, ptr1);
+    if (arg0) {
+        if (var1)
+            var4 = (long*)__Register(arg2, var2);
         else
-            arrayptr = *(long**)__LocalVariable(context, ptr1);
+            var4 = *(long**)__LocalVariable(arg2, var2);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyBaseVTTObject(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    int   regptr;
-    long  ptr, offset, vtt_offset;
-    void* dtor;
-    char *objectptr, *vtt;
+inline void inline_0200df80_18(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    int   var1;
+    long  var2, var3, var4;
+    void* var5;
+    char *var6, *var7;
 
-    regptr = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr);
-    ap = func_0200d958(ap, &offset);
-    ap = __DecodeAddress(ap, (void**)&vtt);
-    ap = func_0200d958(ap, &vtt_offset);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
+    var0 = __DecodeAddress(var0, (void**)&var7);
+    var0 = func_0200d958(var0, &var4);
+    var0 = __DecodeAddress(var0, &var5);
 
-    if (apply) {
-        if (regptr)
-            objectptr = (char*)__Register(context, ptr);
+    if (arg0) {
+        if (var1)
+            var6 = (char*)__Register(arg2, var2);
         else
-            objectptr = *(char**)__LocalVariable(context, ptr);
+            var6 = *(char**)__LocalVariable(arg2, var2);
 
-        DTORCALL_VTTOBJECT(__FunctionPointer(info, context, dtor), objectptr + offset, vtt + vtt_offset);
+        DTORCALL_VTTOBJECT(__FunctionPointer(arg1, arg2, var5), var6 + var3, var7 + var4);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyBaseVTTPointer(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    int   regptr1, regptr2;
-    long  ptr1, ptr2, offset, vtt_offset;
-    void* dtor;
-    char *objectptr, *vtt;
+inline void inline_0200df80(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    int   var1, var2;
+    long  var3, var4, var5, var6;
+    void* var7;
+    char *var8, *var9;
 
-    regptr1 = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap      = func_0200d958(ap, &ptr1);
-    ap      = func_0200d958(ap, &offset);
-    regptr2 = *(unsigned char*)ap & REGPTR;
-    ap += sizeof(char);
-    ap = func_0200d958(ap, &ptr2);
-    ap = func_0200d958(ap, &vtt_offset);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0      = func_0200d958(var0, &var3);
+    var0      = func_0200d958(var0, &var5);
+    var2 = *(unsigned char*)var0 & REGPTR;
+    var0 += sizeof(char);
+    var0 = func_0200d958(var0, &var4);
+    var0 = func_0200d958(var0, &var6);
+    var0 = __DecodeAddress(var0, &var7);
 
-    if (apply) {
-        if (regptr1)
-            objectptr = (char*)__Register(context, ptr1);
+    if (arg0) {
+        if (var1)
+            var8 = (char*)__Register(arg2, var3);
         else
-            objectptr = *(char**)__LocalVariable(context, ptr1);
+            var8 = *(char**)__LocalVariable(arg2, var3);
 
-        if (regptr2)
-            vtt = (char*)__Register(context, ptr2);
+        if (var2)
+            var9 = (char*)__Register(arg2, var4);
         else
-            vtt = *(char**)__LocalVariable(context, ptr2);
+            var9 = *(char**)__LocalVariable(arg2, var4);
 
-        DTORCALL_VTTOBJECT(__FunctionPointer(info, context, dtor), objectptr + offset, vtt + vtt_offset);
+        DTORCALL_VTTOBJECT(__FunctionPointer(arg1, arg2, var7), var8 + var5, var9 + var6);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyBase(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    int   regptr;
-    long  ptr, offset;
-    void* dtor;
-    char* objectptr;
+inline void inline_0200df80_2(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    int   var1;
+    long  var2, var3;
+    void* var4;
+    char* var5;
 
-    regptr = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr);
-    ap = func_0200d958(ap, &offset);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
+    var0 = __DecodeAddress(var0, &var4);
 
-    if (apply) {
-        if (regptr)
-            objectptr = (char*)__Register(context, ptr);
+    if (arg0) {
+        if (var1)
+            var5 = (char*)__Register(arg2, var2);
         else
-            objectptr = *(char**)__LocalVariable(context, ptr);
+            var5 = *(char**)__LocalVariable(arg2, var2);
 
-        DTORCALL_PARTIAL(__FunctionPointer(info, context, dtor), objectptr + offset);
+        DTORCALL_PARTIAL(__FunctionPointer(arg1, arg2, var4), var5 + var3);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyMember(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    int   regptr;
-    long  ptr, offset;
-    void* dtor;
-    char* objectptr;
+inline void inline_0200df80_3(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    int   var1;
+    long  var2, var3;
+    void* var4;
+    char* var5;
 
-    regptr = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr);
-    ap = func_0200d958(ap, &offset);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
+    var0 = __DecodeAddress(var0, &var4);
 
-    if (apply) {
-        if (regptr)
-            objectptr = (char*)__Register(context, ptr);
+    if (arg0) {
+        if (var1)
+            var5 = (char*)__Register(arg2, var2);
         else
-            objectptr = *(char**)__LocalVariable(context, ptr);
+            var5 = *(char**)__LocalVariable(arg2, var2);
 
-        DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), objectptr + offset);
+        DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var4), var5 + var3);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyMemberCond(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*               ap = info->action_pointer;
-    int                 regptr, regcond;
-    long                cond, ptr, offset;
-    void*               dtor;
-    char*               objectptr;
-    vbase_ctor_arg_type destroyIt;
+inline void inline_0200df80_4(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*               var0 = arg1->unknown_8_;
+    int                 var1, var2;
+    long                var3, var4, var5;
+    void*               var6;
+    char*               var7;
+    Type_0200d958 var8;
 
-    regcond = *(exaction_type*)ap & REGCOND;
-    regptr  = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &cond);
-    ap = func_0200d958(ap, &ptr);
-    ap = func_0200d958(ap, &offset);
-    ap = __DecodeAddress(ap, &dtor);
+    var2 = *(Type_0200df80_2*)var0 & REGCOND;
+    var1  = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var3);
+    var0 = func_0200d958(var0, &var4);
+    var0 = func_0200d958(var0, &var5);
+    var0 = __DecodeAddress(var0, &var6);
 
-    if (apply) {
-        if (regcond)
-            destroyIt = (vbase_ctor_arg_type)__Register(context, cond);
+    if (arg0) {
+        if (var2)
+            var8 = (Type_0200d958)__Register(arg2, var3);
         else
-            destroyIt = *(vbase_ctor_arg_type*)__LocalVariable(context, cond);
+            var8 = *(Type_0200d958*)__LocalVariable(arg2, var3);
 
-        if (destroyIt) {
-            if (regptr)
-                objectptr = (char*)__Register(context, ptr);
+        if (var8) {
+            if (var1)
+                var7 = (char*)__Register(arg2, var4);
             else
-                objectptr = *(char**)__LocalVariable(context, ptr);
+                var7 = *(char**)__LocalVariable(arg2, var4);
 
-            DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), objectptr + offset);
+            DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var6), var7 + var5);
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DestroyMemberArray(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*         ap = info->action_pointer;
-    int           regptr;
-    long          ptr, offset;
-    unsigned long nelements, elemsize, i;
-    void*         dtor;
-    char*         arrayptr;
+inline void inline_0200df80_5(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*         var0 = arg1->unknown_8_;
+    int           var1;
+    long          var2, var3;
+    unsigned long var4, var5, var6;
+    void*         var7;
+    char*         var8;
 
-    regptr = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr);
-    ap = func_0200d958(ap, &offset);
-    ap = func_0200d9e4(ap, &nelements);
-    ap = func_0200d9e4(ap, &elemsize);
-    ap = __DecodeAddress(ap, &dtor);
+    var1 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
+    var0 = func_0200d9e4(var0, &var4);
+    var0 = func_0200d9e4(var0, &var5);
+    var0 = __DecodeAddress(var0, &var7);
 
-    if (apply) {
-        if (regptr)
-            arrayptr = (char*)__Register(context, ptr) + offset;
+    if (arg0) {
+        if (var1)
+            var8 = (char*)__Register(arg2, var2) + var3;
         else
-            arrayptr = *(char**)__LocalVariable(context, ptr) + offset;
+            var8 = *(char**)__LocalVariable(arg2, var2) + var3;
 
-        for (arrayptr += nelements * elemsize, i = nelements; i > 0; i--) {
-            arrayptr -= elemsize;
-            DTORCALL_COMPLETE(__FunctionPointer(info, context, dtor), arrayptr);
+        for (var8 += var4 * var5, var6 = var4; var6 > 0; var6--) {
+            var8 -= var5;
+            DTORCALL_COMPLETE(__FunctionPointer(arg1, arg2, var7), var8);
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DeletePointer(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char* ap = info->action_pointer;
-    long  ptr;
-    void* deletefunc;
-    char* objectptr;
-    int   regptr;
+inline void inline_0200df80_6(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char* var0 = arg1->unknown_8_;
+    long  var1;
+    void* var2;
+    char* var3;
+    int   var4;
 
-    regptr = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &ptr);
-    ap = __DecodeAddress(ap, &deletefunc);
+    var4 = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var1);
+    var0 = __DecodeAddress(var0, &var2);
 
-    if (apply) {
-        if (regptr)
-            objectptr = (char*)__Register(context, ptr);
+    if (arg0) {
+        if (var4)
+            var3 = (char*)__Register(arg2, var1);
         else
-            objectptr = *(char**)__LocalVariable(context, ptr);
+            var3 = *(char**)__LocalVariable(arg2, var1);
 
-        ((DeleteFunc)__FunctionPointer(info, context, deletefunc))(objectptr);
+        ((Type_0200d958_3)__FunctionPointer(arg1, arg2, var2))(var3);
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void DeletePointerCond(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*           ap = info->action_pointer;
-    long            cond, ptr;
-    void*           deletefunc;
-    char*           objectptr;
-    int             regptr, regcond;
-    local_cond_type deleteIt;
+inline void inline_0200df80_7(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*           var0 = arg1->unknown_8_;
+    long            var1, var2;
+    void*           var3;
+    char*           var4;
+    int             var5, var6;
+    Type_0200d958_2 var7;
 
-    regcond = *(exaction_type*)ap & REGCOND;
-    regptr  = *(exaction_type*)ap & REGPTR;
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &cond);
-    ap = func_0200d958(ap, &ptr);
-    ap = __DecodeAddress(ap, &deletefunc);
+    var6 = *(Type_0200df80_2*)var0 & REGCOND;
+    var5  = *(Type_0200df80_2*)var0 & REGPTR;
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var1);
+    var0 = func_0200d958(var0, &var2);
+    var0 = __DecodeAddress(var0, &var3);
 
-    if (apply) {
-        if (regcond)
-            deleteIt = (local_cond_type)__Register(context, cond);
+    if (arg0) {
+        if (var6)
+            var7 = (Type_0200d958_2)__Register(arg2, var1);
         else
-            deleteIt = *(local_cond_type*)__LocalVariable(context, cond);
+            var7 = *(Type_0200d958_2*)__LocalVariable(arg2, var1);
 
-        if (deleteIt) {
-            if (regptr)
-                objectptr = (char*)__Register(context, ptr);
+        if (var7) {
+            if (var5)
+                var4 = (char*)__Register(arg2, var2);
             else
-                objectptr = *(char**)__LocalVariable(context, ptr);
+                var4 = *(char**)__LocalVariable(arg2, var2);
 
-            ((DeleteFunc)__FunctionPointer(info, context, deletefunc))(objectptr);
+            ((Type_0200d958_3)__FunctionPointer(arg1, arg2, var3))(var4);
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void CatchBlock(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*         ap = info->action_pointer;
-    void*         catch_type;
-    unsigned long pcoffset;
-    long          cinfo_ref;
+inline void inline_0200df80_8(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*         var0 = arg1->unknown_8_;
+    void*         var1;
+    unsigned long var2;
+    long          var3;
 
-    ap += sizeof(exaction_type);
-    ap = __DecodeAddress(ap, &catch_type);
-    ap = func_0200d9e4(ap, &pcoffset);
-    ap = func_0200d958(ap, &cinfo_ref);
+    var0 += sizeof(Type_0200df80_2);
+    var0 = __DecodeAddress(var0, &var1);
+    var0 = func_0200d9e4(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
 
-    if (apply) {
+    if (arg0) {
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void ActiveCatchBlock(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*      ap = info->action_pointer;
-    long       cinfo_ref;
-    CatchInfo* catchinfo;
+inline void inline_0200df80_9(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*      var0 = arg1->unknown_8_;
+    long       var1;
+    Struct_0200d958_6* var2;
 
-    ap += sizeof(exaction_type);
-    ap = func_0200d958(ap, &cinfo_ref);
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d958(var0, &var1);
 
-    if (apply) {
-        catchinfo = (CatchInfo*)__LocalVariable(context, cinfo_ref);
-        if (catchinfo->dtor) {
-            if (context->location == catchinfo->location) {
-                context->dtor = catchinfo->dtor;
+    if (arg0) {
+        var2 = (Struct_0200d958_6*)__LocalVariable(arg2, var1);
+        if (var2->unknown_8_) {
+            if (arg2->unknown_4_ == var2->unknown_0_) {
+                arg2->unknown_8_ = var2->unknown_8_;
             } else
-                DTORCALL_COMPLETE(catchinfo->dtor, catchinfo->location);
+                DTORCALL_COMPLETE(var2->unknown_8_, var2->unknown_0_);
         }
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
-inline void Specification(int apply, ExceptionInfo* info, ThrowContext* context) {
-    char*         ap = info->action_pointer;
-    unsigned long nspecs, pcoffset;
-    long          cinfo_ref;
+inline void inline_0200df80_10(int arg0, Struct_0200df80_2* arg1, Struct_0200df80* arg2) {
+    char*         var0 = arg1->unknown_8_;
+    unsigned long var1, var2;
+    long          var3;
 
-    ap += sizeof(exaction_type);
-    ap = func_0200d9e4(ap, &nspecs);
-    ap = func_0200d9e4(ap, &pcoffset);
-    ap = func_0200d958(ap, &cinfo_ref);
-    ap += nspecs * sizeof(char*);
+    var0 += sizeof(Type_0200df80_2);
+    var0 = func_0200d9e4(var0, &var1);
+    var0 = func_0200d9e4(var0, &var2);
+    var0 = func_0200d958(var0, &var3);
+    var0 += var1 * sizeof(char*);
 
-    if (apply) {
+    if (arg0) {
     }
 
-    info->action_pointer = ap;
+    arg1->unknown_8_ = var0;
 }
 
 
 // USA: func_0200df80
-extern "C" ARM void func_0200df80(ThrowContext* context, ExceptionInfo* info, char* catcher) {
-    exaction_type action;
+extern "C" ARM void func_0200df80(Struct_0200df80* arg0, Struct_0200df80_2* arg1, char* arg2) {
+    Type_0200df80_2 var0;
 
 #pragma exception_terminate
 
     while (true) {
-        if (info->action_pointer == 0) {
-            func_0200dad4(func_0200f1a0(context, info), info);
+        if (arg1->unknown_8_ == 0) {
+            func_0200dad4(func_0200f1a0(arg0, arg1), arg1);
 
-            if (!info->exception_record) {
+            if (!arg1->unknown_4_) {
                 func_0200efb8();
             }
-            func_0200f1fc(context, info);
+            func_0200f1fc(arg0, arg1);
 
-            if (info->action_pointer == 0) {
+            if (arg1->unknown_8_ == 0) {
                 continue;
             }
         }
 
-        action = *(exaction_type*)info->action_pointer;
+        var0 = *(Type_0200df80_2*)arg1->unknown_8_;
 
-        switch (action & EXACTION_MASK) {
+        switch (var0 & EXACTION_MASK) {
             case EXACTION_BRANCH:
-                Branch(info, context);
+                inline_0200df80_11(arg1, arg0);
                 break;
             case EXACTION_DESTROYLOCAL:
-                DestroyLocal(APPLY, info, context);
+                inline_0200df80_12(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYLOCALCOND:
-                DestroyLocalCond(APPLY, info, context);
+                inline_0200df80_13(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYLOCALPOINTER:
-                DestroyLocalPointer(APPLY, info, context);
+                inline_0200df80_14(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYLOCALARRAY:
-                DestroyLocalArray(APPLY, info, context);
+                inline_0200df80_15(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYBASE:
-                DestroyBase(APPLY, info, context);
+                inline_0200df80_2(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYMEMBER:
-                DestroyMember(APPLY, info, context);
+                inline_0200df80_3(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYMEMBERCOND:
-                DestroyMemberCond(APPLY, info, context);
+                inline_0200df80_4(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYMEMBERARRAY:
-                DestroyMemberArray(APPLY, info, context);
+                inline_0200df80_5(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DELETEPOINTER:
-                DeletePointer(APPLY, info, context);
+                inline_0200df80_6(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DELETEPOINTERCOND:
-                DeletePointerCond(APPLY, info, context);
+                inline_0200df80_7(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_CATCHBLOCK:
-                if (catcher == info->action_pointer)
+                if (arg2 == arg1->unknown_8_)
                     return;
-                CatchBlock(SKIP, info, context);
+                inline_0200df80_8(Enum_0200df80_0, arg1, arg0);
                 break;
             case EXACTION_ACTIVECATCHBLOCK:
-                ActiveCatchBlock(APPLY, info, context);
+                inline_0200df80_9(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_SPECIFICATION:
-                if (catcher == info->action_pointer)
+                if (arg2 == arg1->unknown_8_)
                     return;
-                Specification(SKIP, info, context);
+                inline_0200df80_10(Enum_0200df80_0, arg1, arg0);
                 break;
             case EXACTION_DESTROYBASEVTTOBJECT:
-                DestroyBaseVTTObject(APPLY, info, context);
+                inline_0200df80_18(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYBASEVTTPOINTER:
-                DestroyBaseVTTPointer(APPLY, info, context);
+                inline_0200df80(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_DESTROYVLA:
-                DestroyVarLenArray(APPLY, info, context);
+                inline_0200df80_16(Enum_0200df80_1, arg1, arg0);
                 break;
             case EXACTION_FREEVLA:
-                FreeVarLenArray(APPLY, info, context);
+                inline_0200df80_17(Enum_0200df80_1, arg1, arg0);
                 break;
             default:
                 func_0200efb8();
         }
 
-        if (action & EXACTION_ENDBIT) {
-            info->action_pointer = 0;
+        if (var0 & EXACTION_ENDBIT) {
+            arg1->unknown_8_ = 0;
         }
     }
 }

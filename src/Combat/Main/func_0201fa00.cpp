@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Stopwatch0201fa00 {
-    unsigned char state;    // +0
-    unsigned char b1;       // +1
-    unsigned char b2;       // +2
-    unsigned char b3;       // +3
-    unsigned short s4;      // +4
-    unsigned short s6;      // +6
-    int w8;                 // +8
-    int wc;                 // +0xc
-    int w10;                // +0x10
+struct Struct_0201fa00 {
+    unsigned char unknown_0_;    // +0
+    unsigned char unknown_1_;       // +1
+    unsigned char unknown_2_;       // +2
+    unsigned char unknown_3_;       // +3
+    unsigned short unknown_4_;      // +4
+    unsigned short unknown_6_;      // +6
+    int unknown_8_;                 // +8
+    int unknown_c_;                 // +0xc
+    int unknown_10_;                // +0x10
 };
 
 extern "C" {
 // USA: func_0201fa00
-ARM void func_0201fa00(struct Stopwatch0201fa00* t) {
-    t->state = 1;
-    t->b1 = 0;
-    t->s4 = 0;
-    t->w10 = 0x43300000;
-    t->w8 = 0;
-    t->wc = 0;
+ARM void func_0201fa00(struct Struct_0201fa00* arg0) {
+    arg0->unknown_0_ = 1;
+    arg0->unknown_1_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_10_ = 0x43300000;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
 }
 }

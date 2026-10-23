@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-extern "C" void func_020134e0(void* obj);
+extern "C" void func_020134e0(void* arg0);
 
 // USA: func_02013718
-extern "C" ARM void func_02013718(char* obj, int a, int b) {
-    func_020134e0(obj);
+extern "C" ARM void func_02013718(char* arg0, int arg1, int arg2) {
+    func_020134e0(arg0);
 #if defined(jpn)
-    *(int*)(obj + 0x6c) = a;
+    *(int*)(arg0 + 0x6c) = arg1;
 #else
-    *(int*)(obj + 0x4c) = a;
+    *(int*)(arg0 + 0x4c) = arg1;
 #endif
 #if defined(jpn)
-    *(int*)(obj + 0x70) = b;
+    *(int*)(arg0 + 0x70) = arg2;
 #else
-    *(int*)(obj + 0x50) = b;
+    *(int*)(arg0 + 0x50) = arg2;
 #endif
 #if defined(jpn)
-    *(int*)(obj + 0x858) = 0;
+    *(int*)(arg0 + 0x858) = 0;
 #else
-    *(int*)(obj + 0x838) = 0;
+    *(int*)(arg0 + 0x838) = 0;
 #endif
 #if defined(jpn)
-    *(int*)(obj + 0x85c) = 0;
+    *(int*)(arg0 + 0x85c) = 0;
 #else
-    *(int*)(obj + 0x83c) = 0;
+    *(int*)(arg0 + 0x83c) = 0;
 #endif
 #if defined(jpn)
-    *(short*)(obj + 0x494) = 0;
+    *(short*)(arg0 + 0x494) = 0;
 #else
-    *(short*)(obj + 0x474) = 0;
+    *(short*)(arg0 + 0x474) = 0;
 #endif
 #if defined(jpn)
-    *(int*)(obj + 0x84c) = 0;
+    *(int*)(arg0 + 0x84c) = 0;
 #else
-    *(int*)(obj + 0x82c) = 0;
+    *(int*)(arg0 + 0x82c) = 0;
 #endif
 }

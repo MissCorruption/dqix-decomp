@@ -2,43 +2,43 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { kWorkByteOffset = 0x7938 };
+enum { Enum_ov017_021cf024_30536 = 0x7938 };
 #else
-enum { kWorkByteOffset = 0x7748 };
+enum { Enum_ov017_021cf024_30536 = 0x7748 };
 #endif
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8468(void* obj);
-extern "C" void func_ov000_02163338(unsigned char* obj, unsigned char val);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void func_ov000_02163338(unsigned char* arg0, unsigned char arg1);
 
-struct LocalEvt021cf024 {
-    unsigned char pad0[4];
-    unsigned short field4;
-    unsigned char field6;
-    unsigned char field7;
+struct Struct_ov017_021cf024 {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
 };
 
-struct WorkRecord {
-    unsigned char unknown0[8];
-    unsigned short key;
+struct Struct_ov017_021cf024_2 {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct EventPairWork {
-    unsigned char unknown0[kWorkByteOffset];
-    unsigned char unknownEventByte;
+struct Struct_ov017_021cf024_3 {
+    unsigned char unknown_0_[Enum_ov017_021cf024_30536];
+    unsigned char unknown_7748_;
 };
 
 // USA: func_ov017_021cf024
-extern "C" ARM void func_ov017_021cf024(int unused0, LocalEvt021cf024* evt, int unused2, GameResources* base) {
-    void* table = base->unknown_ptr_3718;
-    WorkRecord* record = (WorkRecord*)func_ov017_021b8478(table);
-    EventPairWork* work = (EventPairWork*)func_ov017_021b8468(table);
-    if (work == NULL) {
+extern "C" ARM void func_ov017_021cf024(int arg0, Struct_ov017_021cf024* arg1, int arg2, GameResources* arg3) {
+    void* var0 = arg3->unknown_ptr_3718;
+    Struct_ov017_021cf024_2* var1 = (Struct_ov017_021cf024_2*)func_ov017_021b8478(var0);
+    Struct_ov017_021cf024_3* var2 = (Struct_ov017_021cf024_3*)func_ov017_021b8468(var0);
+    if (var2 == NULL) {
         return;
     }
-    if (record->key != evt->field4) {
+    if (var1->unknown_8_ != arg1->unknown_4_) {
         return;
     }
-    func_ov000_02163338((unsigned char*)work, evt->field6);
-    work->unknownEventByte = evt->field7;
+    func_ov000_02163338((unsigned char*)var2, arg1->unknown_6_);
+    var2->unknown_7748_ = arg1->unknown_7_;
 }

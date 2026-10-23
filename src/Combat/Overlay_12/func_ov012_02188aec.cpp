@@ -3,45 +3,45 @@
 #define func_ov012_0218adac func_ov012_0218bba0
 #define func_ov012_0218930c func_ov012_02189be8
 enum {
-    kProfileOffset = 0x543c,
-    kStepOffset = 0x1340,
-    kStateOffset = 0x1341,
-    kActiveOffset = 0x1368,
-    kDesignOffset = 0x144c,
-    kWindowOffset = 0x90
+    Enum_ov012_02188aec_22172 = 0x543c,
+    Enum_ov012_02188aec_4976 = 0x1340,
+    Enum_ov012_02188aec_4977 = 0x1341,
+    Enum_ov012_02188aec_5024 = 0x1368,
+    Enum_ov012_02188aec_5108 = 0x144c,
+    Enum_ov012_02188aec_172 = 0x90
 };
 #else
 enum {
-    kProfileOffset = 0x569c,
-    kStepOffset = 0x1370,
-    kStateOffset = 0x1371,
-    kActiveOffset = 0x13a0,
-    kDesignOffset = 0x13f4,
-    kWindowOffset = 0xac
+    Enum_ov012_02188aec_22172 = 0x569c,
+    Enum_ov012_02188aec_4976 = 0x1370,
+    Enum_ov012_02188aec_4977 = 0x1371,
+    Enum_ov012_02188aec_5024 = 0x13a0,
+    Enum_ov012_02188aec_5108 = 0x13f4,
+    Enum_ov012_02188aec_172 = 0xac
 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Profile02188aec {
-    unsigned int year : 12;
-    unsigned int month : 4;
-    unsigned int day : 5;
-    unsigned int design : 4;
-    unsigned int female : 1;
-    unsigned int initialized : 1;
-    unsigned int designChosen : 1;
-    unsigned int remaining : 4;
+struct Struct_ov012_02188aec {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 4;
+    unsigned int unknown_3_1_ : 1;
+    unsigned int unknown_3_2_ : 1;
+    unsigned int unknown_3_3_ : 1;
+    unsigned int unknown_3_4_ : 4;
 };
-struct Struct0205de24;
+struct Struct_0205de24_2;
 struct Struct_0205c570;
-struct Obj021e6e20;
-struct Obj0205eaa0;
-extern "C" void func_0205de24(Struct0205de24*, unsigned char, unsigned char);
+struct Struct_ov012_02186a7c;
+struct Struct_02108760;
+extern "C" void func_0205de24(Struct_0205de24_2*, unsigned char, unsigned char);
 extern "C" int func_0205d794(Struct_0205c570*);
-extern "C" int func_ov023_021e6e20(Obj021e6e20*);
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
 extern "C" void func_ov012_0218a974(char*);
 extern "C" void func_ov023_021e6e60(char*);
 extern "C" int func_ov023_021e6de4(char*);
@@ -51,65 +51,65 @@ extern "C" void func_ov012_0218adac(char*, int, int);
 extern "C" void func_ov012_0218adac(char*, int, int, int);
 #endif
 extern "C" void func_ov012_0218930c(char*, int);
-extern Obj0205eaa0 data_02108760;
+extern Struct_02108760 data_02108760;
 
-static inline Profile02188aec* GetProfileDesign(GameState* state) {
-    return (Profile02188aec*)((char*)state + kProfileOffset);
+static inline Struct_ov012_02188aec* inline_ov012_02188aec(GameState* arg0) {
+    return (Struct_ov012_02188aec*)((char*)arg0 + Enum_ov012_02188aec_22172);
 }
 
 // USA: func_ov012_02188aec
-extern "C" ARM void func_ov012_02188aec(char* self) {
-    Profile02188aec* profile = GetProfileDesign(GameState::GetInstance());
-    if ((*(unsigned char*)(self + kStepOffset)) == 0) {
-        (*(unsigned char*)(self + kStepOffset))++;
-        (*(unsigned char*)(self + kStepOffset))++;
+extern "C" ARM void func_ov012_02188aec(char* arg0) {
+    Struct_ov012_02188aec* var0 = inline_ov012_02188aec(GameState::GetInstance());
+    if ((*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) == 0) {
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
         return;
-    } else if ((*(unsigned char*)(self + kStepOffset)) == 1) {
-        (*(unsigned char*)(self + kStepOffset))++;
+    } else if ((*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) == 1) {
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
         return;
-    } else if ((*(unsigned char*)(self + kStepOffset)) == 2) {
-        (*(unsigned char*)(self + kActiveOffset)) = 0;
-        (*(unsigned int*)(self + kDesignOffset)) = (profile->design - profile->female) / 2;
-        func_0205de24((Struct0205de24*)(self + kWindowOffset), 0, 3);
-        func_ov023_021e6e60(self);
-        func_ov012_0218a974((char*)self);
-        (*(unsigned char*)(self + kStepOffset))++;
+    } else if ((*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) == 2) {
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_5024)) = 0;
+        (*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) = (var0->unknown_2_5_ - var0->unknown_3_1_) / 2;
+        func_0205de24((Struct_0205de24_2*)(arg0 + Enum_ov012_02188aec_172), 0, 3);
+        func_ov023_021e6e60(arg0);
+        func_ov012_0218a974((char*)arg0);
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
         return;
-    } else if ((*(unsigned char*)(self + kStepOffset)) == 3) {
-        (*(unsigned char*)(self + kActiveOffset)) = 1;
-        int selection = func_0205d794((Struct_0205c570*)(Struct0205de24*)(self + kWindowOffset));
-        if ((*(unsigned int*)(self + kDesignOffset)) != selection) {
-            (*(unsigned int*)(self + kDesignOffset)) = selection;
+    } else if ((*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) == 3) {
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_5024)) = 1;
+        int var1 = func_0205d794((Struct_0205c570*)(Struct_0205de24_2*)(arg0 + Enum_ov012_02188aec_172));
+        if ((*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) != var1) {
+            (*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) = var1;
 #if defined(jpn)
-            func_ov012_0218adac(self, 0, ((*(unsigned int*)(self + kDesignOffset)) << 1) + profile->female);
+            func_ov012_0218adac(arg0, 0, ((*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) << 1) + var0->unknown_3_1_);
 #else
-            func_ov012_0218adac(self, 0, ((*(unsigned int*)(self + kDesignOffset)) << 1) + profile->female, 0);
+            func_ov012_0218adac(arg0, 0, ((*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) << 1) + var0->unknown_3_1_, 0);
 #endif
         }
-        int finished = 0;
-        if (func_ov023_021e6de4(self)) {
+        int var2 = 0;
+        if (func_ov023_021e6de4(arg0)) {
             func_0205eaa0(&data_02108760, 1, 0);
-            Profile02188aec* current = GetProfileDesign(GameState::GetInstance());
-            current->design = ((*(unsigned int*)(self + kDesignOffset)) << 1) + current->female;
-            current->designChosen = 1;
-            finished = 1;
-        } else if (func_ov023_021e6e20((Obj021e6e20*)self)) {
-            (*(unsigned int*)(self + kDesignOffset)) = (profile->design - profile->female) / 2;
-            finished = 1;
+            Struct_ov012_02188aec* var3 = inline_ov012_02188aec(GameState::GetInstance());
+            var3->unknown_2_5_ = ((*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) << 1) + var3->unknown_3_1_;
+            var3->unknown_3_3_ = 1;
+            var2 = 1;
+        } else if (func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0)) {
+            (*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) = (var0->unknown_2_5_ - var0->unknown_3_1_) / 2;
+            var2 = 1;
 #if defined(jpn)
-            func_ov012_0218adac(self, 0, -1);
+            func_ov012_0218adac(arg0, 0, -1);
 #else
-            func_ov012_0218adac(self, 0, -1, 0);
+            func_ov012_0218adac(arg0, 0, -1, 0);
 #endif
         }
-        if (finished) (*(unsigned char*)(self + kStepOffset))++;
+        if (var2) (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
         return;
-    } else if ((*(unsigned char*)(self + kStepOffset)) == 4) {
-        (*(unsigned char*)(self + kStepOffset))++;
+    } else if ((*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) == 4) {
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976))++;
         return;
-    } else if ((*(unsigned char*)(self + kStepOffset)) == 5) {
-        (*(unsigned char*)(self + kStateOffset)) = 1;
-        (*(unsigned char*)(self + kStepOffset)) = 1;
-        func_ov012_0218930c(self, 1);
+    } else if ((*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) == 5) {
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4977)) = 1;
+        (*(unsigned char*)(arg0 + Enum_ov012_02188aec_4976)) = 1;
+        func_ov012_0218930c(arg0, 1);
     }
 }

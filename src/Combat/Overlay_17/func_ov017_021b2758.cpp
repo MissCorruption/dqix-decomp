@@ -5,116 +5,116 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-enum { Field105 = 0x125, Field10c = 0x12c };
+enum { Enum_ov017_021b2758_261 = 0x125, Enum_ov017_021b2758_268 = 0x12c };
 #else
-enum { Field105 = 0x105, Field10c = 0x10c };
+enum { Enum_ov017_021b2758_261 = 0x105, Enum_ov017_021b2758_268 = 0x10c };
 #endif
 
-extern "C" void func_020100c4(GameState* battleStruct, int value);
-extern "C" void* func_0200fd0c(GameState* battleStruct);
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a28b0(unsigned char* obj, int mask);
-extern "C" void func_020a28a0(unsigned char* obj, unsigned char mask);
-extern "C" void func_020a27ac(void* obj);
-extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
-extern "C" void func_ov017_0218f758(void* self);
+extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void func_020a27ac(void* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_ov017_0218f758(void* arg0);
 
-struct Obj_021849bc;
-extern "C" int func_ov011_021849bc(struct Obj_021849bc* obj, int mask);
+struct Struct_ov011_021849bc;
+extern "C" int func_ov011_021849bc(struct Struct_ov011_021849bc* arg0, int arg1);
 
-struct Obj021b2200;
-extern "C" void func_ov017_021b2200(struct Obj021b2200* self);
+struct Struct_ov017_021a3ef0_12;
+extern "C" void func_ov017_021b2200(struct Struct_ov017_021a3ef0_12* arg0);
 
 extern "C" void* func_02012fe4(void);
 extern "C" void func_020a0c0c(void);
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 
-struct GlobalSlot_021b2758 { unsigned int field0; int slot; };
-extern GlobalSlot_021b2758 data_ov017_021d83f0;
+struct Struct_ov017_021d83f0_8 { unsigned int unknown_0_; int unknown_4_; };
+extern Struct_ov017_021d83f0_8 data_ov017_021d83f0;
 
-struct Data02107930_021b2758 { unsigned char pad[0x90]; int f90; unsigned char pad2[4]; int f98; };
+struct Struct_ov017_021b2758 { unsigned char unknown_0_[0x90]; int unknown_90_; unsigned char unknown_94_[4]; int unknown_98_; };
 
-union Flags38_021b2758 {
-    unsigned int raw;
+union Struct_ov017_021b2758_2 {
+    unsigned int unknown_0_;
     struct {
-        unsigned int bit0 : 1;
-        unsigned int bit1 : 1;
-        unsigned int bit2 : 1;
+        unsigned int unknown_0_0_ : 1;
+        unsigned int unknown_0_1_ : 1;
+        unsigned int unknown_0_2_ : 1;
         unsigned int : 2;
-        unsigned int bit5 : 1;
+        unsigned int unknown_0_5_ : 1;
         unsigned int : 26;
-    } b;
+    } unknown1_0_;
 };
 
-struct SelfState_021b2758 {
-    unsigned char pad0[0x38];
-    Flags38_021b2758 field0x38;
-    unsigned char pad1[2];
-    unsigned char field0x3e;
-    unsigned char pad2[1];
-    int field0x40;
-    int field0x44;
-    unsigned char field0x48;
+struct Struct_ov017_021b2758_3 {
+    unsigned char unknown_0_[0x38];
+    Struct_ov017_021b2758_2 unknown_38_;
+    unsigned char unknown_3c_[2];
+    unsigned char unknown_3e_;
+    unsigned char unknown_3f_[1];
+    int unknown_40_;
+    int unknown_44_;
+    unsigned char unknown_48_;
 };
 
 // USA: func_ov017_021b2758
-extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
-    GameState* battleStruct = GameState::GetInstance();
-    GameResources* ov = GetGameResources();
-    func_020100c4(battleStruct, self->field0x44);
+extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    func_020100c4(var0, arg0->unknown_44_);
 
-    if (data_ov017_021d83f0.slot != 0) {
-        if (func_ov011_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 1)) self->field0x38.b.bit0 = 1;
-        if (func_ov011_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 2)) self->field0x38.raw |= 2;
-        if (func_ov011_021849bc((struct Obj_021849bc*)data_ov017_021d83f0.slot, 4)) self->field0x38.raw |= 4;
-        func_ov017_021b2200((struct Obj021b2200*)self);
+    if (data_ov017_021d83f0.unknown_4_ != 0) {
+        if (func_ov011_021849bc((struct Struct_ov011_021849bc*)data_ov017_021d83f0.unknown_4_, 1)) arg0->unknown_38_.unknown1_0_.unknown_0_0_ = 1;
+        if (func_ov011_021849bc((struct Struct_ov011_021849bc*)data_ov017_021d83f0.unknown_4_, 2)) arg0->unknown_38_.unknown_0_ |= 2;
+        if (func_ov011_021849bc((struct Struct_ov011_021849bc*)data_ov017_021d83f0.unknown_4_, 4)) arg0->unknown_38_.unknown_0_ |= 4;
+        func_ov017_021b2200((struct Struct_ov017_021a3ef0_12*)arg0);
         func_020a0c0c();
     }
 
-    ClearFlags00(ov, 0x10);
-    if (self->field0x38.b.bit0) {
+    ClearFlags00(var1, 0x10);
+    if (arg0->unknown_38_.unknown1_0_.unknown_0_0_) {
         func_02012fe4();
-        ClearFlags00(ov, 4);
+        ClearFlags00(var1, 4);
         func_ov017_0219bd1c(1, 0, 0, 0);
-        self->field0x38.raw &= ~2;
-        void* p = func_0200fd0c(battleStruct);
-        if (self->field0x48 != 0) ((char*)p)[0x67] = 1;
+        arg0->unknown_38_.unknown_0_ &= ~2;
+        void* var2 = func_0200fd0c(var0);
+        if (arg0->unknown_48_ != 0) ((char*)var2)[0x67] = 1;
         return 5;
     }
-    if (self->field0x38.b.bit1) return 6;
-    if (self->field0x38.b.bit2) return 7;
+    if (arg0->unknown_38_.unknown1_0_.unknown_0_1_) return 6;
+    if (arg0->unknown_38_.unknown1_0_.unknown_0_2_) return 7;
 
-    battleStruct->GetUnknownGameObject();
-    int flagVal = func_020100f8((char*)battleStruct);
-    unsigned char* ctx = (unsigned char*)func_02012fe4();
-    if (flagVal != 0) {
-        func_020a28b0((unsigned char*)flagVal, 2);
-        if (self->field0x3e != 0) {
-            func_020a28a0((unsigned char*)flagVal, 2);
+    var0->GetUnknownGameObject();
+    int var3 = func_020100f8((char*)var0);
+    unsigned char* var4 = (unsigned char*)func_02012fe4();
+    if (var3 != 0) {
+        func_020a28b0((unsigned char*)var3, 2);
+        if (arg0->unknown_3e_ != 0) {
+            func_020a28a0((unsigned char*)var3, 2);
         }
-        func_020a27ac((void*)flagVal);
+        func_020a27ac((void*)var3);
     }
-    if (ctx != 0) {
-        ctx[Field105] &= ~1;
-    }
-
-    if (!self->field0x38.b.bit5) {
-        ClearFlags04(ov, 0x609fe);
-        SetFlags04(ov, self->field0x40);
+    if (var4 != 0) {
+        var4[Enum_ov017_021b2758_261] &= ~1;
     }
 
-    Data02107930_021b2758* d = (Data02107930_021b2758*)LightingManager::GetInstance();
-    int f90 = d->f90;
-    int idx = d->f98;
-    unsigned char* base = ctx + Field10c;
-    if (f90 != 0) idx = f90;
-    unsigned short color;
-    if (*(int*)(base + 0x304) == 1) {
-        color = *(unsigned short*)(base + idx * 2 + 0x8c);
+    if (!arg0->unknown_38_.unknown1_0_.unknown_0_5_) {
+        ClearFlags04(var1, 0x609fe);
+        SetFlags04(var1, arg0->unknown_40_);
+    }
+
+    Struct_ov017_021b2758* var5 = (Struct_ov017_021b2758*)LightingManager::GetInstance();
+    int var6 = var5->unknown_90_;
+    int var7 = var5->unknown_98_;
+    unsigned char* var8 = var4 + Enum_ov017_021b2758_268;
+    if (var6 != 0) var7 = var6;
+    unsigned short var9;
+    if (*(int*)(var8 + 0x304) == 1) {
+        var9 = *(unsigned short*)(var8 + var7 * 2 + 0x8c);
     } else {
-        color = *(unsigned short*)(base + idx * 2 + 0x126);
+        var9 = *(unsigned short*)(var8 + var7 * 2 + 0x126);
     }
-    func_020c5588(color, 0x10, 0x7fff, 0, 0);
-    func_ov017_0218f758(ov);
+    func_020c5588(var9, 0x10, 0x7fff, 0, 0);
+    func_ov017_0218f758(var1);
     return 4;
 }

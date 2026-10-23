@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 
-struct WhState02239bfc {
-    unsigned char field_0x0[0x58];
-    unsigned long rand;
-    unsigned short channel;
-    unsigned short channelBusyRatio;
+struct Struct_ov031_02239bfc {
+    unsigned char unknown_0_[0x58];
+    unsigned long unknown_58_;
+    unsigned short unknown_5c_;
+    unsigned short unknown_5e_;
 };
 
-struct WhHolder02239bfc {
-    void (*report)(int, const char*, ...);
-    WhState02239bfc* state;
+struct Struct_ov031_02290d18_19 {
+    void (*unknown_0_)(int, const char*, ...);
+    Struct_ov031_02239bfc* unknown_4_;
 };
 
-extern WhHolder02239bfc data_ov031_02290d18 __attribute__((aligned(4)));
+extern Struct_ov031_02290d18_19 data_ov031_02290d18 __attribute__((aligned(4)));
 
-extern "C" void func_020c99ac(void* mac);
-extern "C" void func_ov031_022393e4(int v);
+extern "C" void func_020c99ac(void* arg0);
+extern "C" void func_ov031_022393e4(int arg0);
 extern "C" void func_ov031_02239368(int);
 extern "C" unsigned short func_ov031_02239cd4(unsigned short);
 
-static inline unsigned long OS_GetVBlankCount() { return *(volatile unsigned long*)0x027ffc3c; }
+static inline unsigned long inline_0202d6c8() { return *(volatile unsigned long*)0x027ffc3c; }
 
 // USA: func_ov031_02239bfc
 extern "C" ARM int func_ov031_02239bfc(void) {
-    unsigned short mac[3];
-    func_020c99ac(mac);
-    data_ov031_02290d18.state->rand = mac[0] + OS_GetVBlankCount() + mac[1] + mac[2];
-    data_ov031_02290d18.state->rand = data_ov031_02290d18.state->rand * 69069 + 12345;
-    data_ov031_02290d18.state->channel = 0;
-    data_ov031_02290d18.state->channelBusyRatio = 101;
+    unsigned short var0[3];
+    func_020c99ac(var0);
+    data_ov031_02290d18.unknown_4_->unknown_58_ = var0[0] + inline_0202d6c8() + var0[1] + var0[2];
+    data_ov031_02290d18.unknown_4_->unknown_58_ = data_ov031_02290d18.unknown_4_->unknown_58_ * 69069 + 12345;
+    data_ov031_02290d18.unknown_4_->unknown_5c_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_5e_ = 101;
     func_ov031_02239368(3);
-    unsigned short result = func_ov031_02239cd4(1);
-    if (result == 0x18) {
+    unsigned short var1 = func_ov031_02239cd4(1);
+    if (var1 == 0x18) {
         func_ov031_022393e4(0x18);
         func_ov031_02239368(9);
         return 0;
     }
-    if (result == 2) return 1;
-    func_ov031_022393e4(result);
+    if (var1 == 2) return 1;
+    func_ov031_022393e4(var1);
     func_ov031_02239368(9);
     return 0;
 }

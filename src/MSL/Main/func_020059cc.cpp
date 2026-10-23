@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-struct StreamCursor02003d58 {
-    char* cursor;
-    int field4;
+struct Struct_02003d58 {
+    char* unknown_0_;
+    int unknown_4_;
 };
 
-extern "C" int func_02003d58(StreamCursor02003d58* obj, int val, int cmd);
-extern "C" unsigned long func_020055e4(int base, int max_width,
-                                       int (*read)(StreamCursor02003d58*, int, int),
-                                       StreamCursor02003d58* arg, int* count,
-                                       int* negative, int* overflow);
+extern "C" int func_02003d58(Struct_02003d58* arg0, int arg1, int arg2);
+extern "C" unsigned long func_020055e4(int arg0, int arg1,
+                                       int (*arg2)(Struct_02003d58*, int, int),
+                                       Struct_02003d58* arg3, int* arg4,
+                                       int* arg5, int* arg6);
 
 extern int data_020f3390;
 
 // USA: func_020059cc
-extern "C" ARM long func_020059cc(const char* str, char** end, int base) {
-    unsigned long value;
-    int count, negative, overflow;
-    StreamCursor02003d58 isc;
+extern "C" ARM long func_020059cc(const char* arg0, char** arg1, int arg2) {
+    unsigned long var0;
+    int var1, var2, var3;
+    Struct_02003d58 var4;
 
-    isc.cursor = (char*)str;
-    isc.field4 = 0;
+    var4.unknown_0_ = (char*)arg0;
+    var4.unknown_4_ = 0;
 
-    value = func_020055e4(base, 0x7fffffff, func_02003d58, &isc, &count, &negative, &overflow);
+    var0 = func_020055e4(arg2, 0x7fffffff, func_02003d58, &var4, &var1, &var2, &var3);
 
-    if (end)
-        *end = (char*)str + count;
+    if (arg1)
+        *arg1 = (char*)arg0 + var1;
 
-    if (overflow || (!negative && value > 0x7fffffff) || (negative && value > 0x80000000)) {
-        value = negative ? 0x80000000 : 0x7fffffff;
+    if (var3 || (!var2 && var0 > 0x7fffffff) || (var2 && var0 > 0x80000000)) {
+        var0 = var2 ? 0x80000000 : 0x7fffffff;
         data_020f3390 = 0x22;
-    } else if (negative) {
-        value = -value;
+    } else if (var2) {
+        var0 = -var0;
     }
 
-    return value;
+    return var0;
 }

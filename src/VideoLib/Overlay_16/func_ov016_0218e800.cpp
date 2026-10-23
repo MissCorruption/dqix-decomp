@@ -1,98 +1,98 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct VideoFile {
-    virtual void v0();
-    virtual void v1();
-    virtual int Seek(int offset);
-    virtual int Read(void* buffer, int size);
-    virtual int ReadAsync(void* buffer, int size);
-    virtual int Await();
+struct Struct_ov016_0218e800_5 {
+    virtual void inline_ov016_0218e800_7();
+    virtual void inline_ov016_0218e800();
+    virtual int inline_ov016_0218e800_2(int arg0);
+    virtual int inline_ov016_0218e800_3(void* arg0, int arg1);
+    virtual int inline_ov016_0218e800_4(void* arg0, int arg1);
+    virtual int inline_ov016_0218e800_5();
 
-    int Tell() { return position; }
+    int inline_ov016_0218e800_6() { return unknown_8_; }
 
-    int field_04;
-    int position;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Stream_0218e800 {
-    unsigned char pad_00[4];
-    unsigned int width;
-    unsigned int height;
-    unsigned char pad_0c[0x30];
-    void* lumaTable;
-    void* chromaTable;
-    void* rangeTable;
-    unsigned char pad_48[0x454 - 0x48];
+struct Struct_ov016_0218e800_3 {
+    unsigned char unknown_0_[4];
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned char unknown_c_[0x30];
+    void* unknown_3c_;
+    void* unknown_40_;
+    void* unknown_44_;
+    unsigned char unknown_48_[0x454 - 0x48];
 };
 
-struct AudioDecoder {
-    unsigned char pad_000[0x1cc];
-    int mode;
-    unsigned char pad_1d0[0x8c0 - 0x1d0];
-    unsigned char codebook[0xc34];
-    int state;
+struct Struct_ov016_0218e800_4 {
+    unsigned char unknown_0_[0x1cc];
+    int unknown_1cc_;
+    unsigned char unknown_1d0_[0x8c0 - 0x1d0];
+    unsigned char unknown_8c0_[0xc34];
+    int unknown_14f4_;
 };
 
-struct VideoHeader {
-    char magic[4];
-    signed char tag0;
-    signed char tag1;
-    unsigned short tagIdSizeDword;
-    unsigned int frameCount;
-    unsigned int width;
-    unsigned int height;
-    unsigned int fps;
-    unsigned short audioCodec;
-    unsigned short channelCount;
-    unsigned int frequency;
-    unsigned int biggestFrame;
-    unsigned int audioOffset;
-    unsigned int keyframeIndexOffset;
-    unsigned int keyframeCount;
+struct Struct_ov016_0218e800_6 {
+    char unknown_0_[4];
+    signed char unknown_4_;
+    signed char unknown_5_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned short unknown_18_;
+    unsigned short unknown_1a_;
+    unsigned int unknown_1c_;
+    unsigned int unknown_20_;
+    unsigned int unknown_24_;
+    unsigned int unknown_28_;
+    unsigned int unknown_2c_;
 };
 
-struct BlitTarget_0218e800 {
-    const unsigned char* srcY;
-    const unsigned char* srcC;
-    unsigned short* dst;
-    unsigned int pitch;
-    int width;
-    int height;
-    const unsigned char* field_18;
+struct Struct_ov016_0218e800 {
+    const unsigned char* unknown_0_;
+    const unsigned char* unknown_4_;
+    unsigned short* unknown_8_;
+    unsigned int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    const unsigned char* unknown_18_;
 };
 
-struct VideoDecoder {
-    VideoFile* file;
-    VideoHeader header;
-    Stream_0218e800* stream;
-    int (*advance)(Stream_0218e800*);
-    BlitTarget_0218e800 target;
-    AudioDecoder* audio;
-    unsigned char** framesY;
-    unsigned char** framesC;
-    unsigned int* qpTable;
-    unsigned char* scratchY;
-    unsigned char* scratchC;
-    unsigned char* buffers[2];
-    unsigned int frameSize[2];
-    int bufferOffset[2];
-    unsigned int frameExtra[2];
-    int bufferIndex;
-    void* keyframes;
-    unsigned int writeIdx;
-    unsigned int consumed;
-    unsigned int available;
+struct Struct_ov016_0218e800_2 {
+    Struct_ov016_0218e800_5* unknown_0_;
+    Struct_ov016_0218e800_6 unknown_4_;
+    Struct_ov016_0218e800_3* unknown_34_;
+    int (*unknown_38_)(Struct_ov016_0218e800_3*);
+    Struct_ov016_0218e800 unknown_3c_;
+    Struct_ov016_0218e800_4* unknown_58_;
+    unsigned char** unknown_5c_;
+    unsigned char** unknown_60_;
+    unsigned int* unknown_64_;
+    unsigned char* unknown_68_;
+    unsigned char* unknown_6c_;
+    unsigned char* unknown_70_[2];
+    unsigned int unknown_78_[2];
+    int unknown_80_[2];
+    unsigned int unknown_88_[2];
+    int unknown_90_;
+    void* unknown_94_;
+    unsigned int unknown_98_;
+    unsigned int unknown_9c_;
+    unsigned int unknown_a0_;
 #if !defined(jpn)
-    int wideFlag;
+    int unknown_a4_;
 #endif
-    unsigned int frameCount;
-    unsigned int idx[6];
-    unsigned int frame;
-    unsigned char pad_c8[4];
-    int fieldcc;
-    int fieldd0;
-    int base;
+    unsigned int unknown_a8_;
+    unsigned int unknown_ac_[6];
+    unsigned int unknown_c4_;
+    unsigned char unknown_c8_[4];
+    int unknown_cc_;
+    int unknown_d0_;
+    int unknown_d4_;
 };
 
 extern "C" void* func_ov016_0218bc8c(unsigned int);
@@ -104,115 +104,115 @@ extern "C" void func_020ca458(unsigned int value, void* dest, unsigned int size)
 extern unsigned char data_ov016_02191d78[];
 
 // USA: func_ov016_0218e800
-extern "C" ARM int func_ov016_0218e800(VideoDecoder* self, VideoFile* file, unsigned int frameCount) {
-    char chunkId[2];
-    unsigned short chunkSize;
-    unsigned int frameHeader;
+extern "C" ARM int func_ov016_0218e800(Struct_ov016_0218e800_2* arg0, Struct_ov016_0218e800_5* arg1, unsigned int arg2) {
+    char var0[2];
+    unsigned short var1;
+    unsigned int var2;
 
-    self->file = file;
-    self->base = file->Tell();
-    if (!self->file->Read(&self->header, 0x30)) return 0;
+    arg0->unknown_0_ = arg1;
+    arg0->unknown_d4_ = arg1->inline_ov016_0218e800_6();
+    if (!arg0->unknown_0_->inline_ov016_0218e800_3(&arg0->unknown_4_, 0x30)) return 0;
 
-    if (self->header.magic[0] != 'M' || self->header.magic[1] != 'O' || self->header.magic[2] != 'D' ||
-        self->header.magic[3] != 'S' || self->header.tag0 != 'N' ||
-        (self->header.tag1 != '2' && self->header.tag1 != '3') || self->header.tagIdSizeDword != 10)
+    if (arg0->unknown_4_.unknown_0_[0] != 'M' || arg0->unknown_4_.unknown_0_[1] != 'O' || arg0->unknown_4_.unknown_0_[2] != 'D' ||
+        arg0->unknown_4_.unknown_0_[3] != 'S' || arg0->unknown_4_.unknown_4_ != 'N' ||
+        (arg0->unknown_4_.unknown_5_ != '2' && arg0->unknown_4_.unknown_5_ != '3') || arg0->unknown_4_.unknown_6_ != 10)
         return 0;
 
-    if (self->header.tag0 == 'N' && self->header.tag1 == '3') {
+    if (arg0->unknown_4_.unknown_4_ == 'N' && arg0->unknown_4_.unknown_5_ == '3') {
         do {
-            if (!self->file->Read(chunkId, 2)) return 0;
-            if (!self->file->Read(&chunkSize, 2)) return 0;
-            if (!self->file->Seek(self->file->Tell() + chunkSize * 4)) return 0;
-        } while (chunkId[0] != 'H' || chunkId[1] != 'E');
+            if (!arg0->unknown_0_->inline_ov016_0218e800_3(var0, 2)) return 0;
+            if (!arg0->unknown_0_->inline_ov016_0218e800_3(&var1, 2)) return 0;
+            if (!arg0->unknown_0_->inline_ov016_0218e800_2(arg0->unknown_0_->inline_ov016_0218e800_6() + var1 * 4)) return 0;
+        } while (var0[0] != 'H' || var0[1] != 'E');
     }
 
-    if (self->header.audioCodec != 0 && self->header.audioCodec != 1 && self->header.audioCodec != 2
+    if (arg0->unknown_4_.unknown_18_ != 0 && arg0->unknown_4_.unknown_18_ != 1 && arg0->unknown_4_.unknown_18_ != 2
 #if !defined(jpn)
-        && self->header.audioCodec != 3 && self->header.audioCodec != 4
+        && arg0->unknown_4_.unknown_18_ != 3 && arg0->unknown_4_.unknown_18_ != 4
 #endif
         )
         return 0;
 
-    self->stream = (Stream_0218e800*)func_ov016_0218bc8c(sizeof(Stream_0218e800));
-    func_020ca458(0, self->stream, sizeof(Stream_0218e800));
-    self->advance = (int (*)(Stream_0218e800*))func_ov016_0218fcd4();
-    self->stream->lumaTable = func_ov016_0218fd50();
-    self->stream->chromaTable = data_ov016_02191d78;
-    self->stream->rangeTable = (unsigned char*)func_ov016_0218fe30() + 0x40;
-    self->target.width = self->header.width;
-    self->target.height = self->header.height;
-    self->target.field_18 = (const unsigned char*)func_ov016_0218fdc0();
-    self->stream->width = self->header.width;
-    self->stream->height = self->header.height;
+    arg0->unknown_34_ = (Struct_ov016_0218e800_3*)func_ov016_0218bc8c(sizeof(Struct_ov016_0218e800_3));
+    func_020ca458(0, arg0->unknown_34_, sizeof(Struct_ov016_0218e800_3));
+    arg0->unknown_38_ = (int (*)(Struct_ov016_0218e800_3*))func_ov016_0218fcd4();
+    arg0->unknown_34_->unknown_3c_ = func_ov016_0218fd50();
+    arg0->unknown_34_->unknown_40_ = data_ov016_02191d78;
+    arg0->unknown_34_->unknown_44_ = (unsigned char*)func_ov016_0218fe30() + 0x40;
+    arg0->unknown_3c_.unknown_10_ = arg0->unknown_4_.unknown_c_;
+    arg0->unknown_3c_.unknown_14_ = arg0->unknown_4_.unknown_10_;
+    arg0->unknown_3c_.unknown_18_ = (const unsigned char*)func_ov016_0218fdc0();
+    arg0->unknown_34_->unknown_4_ = arg0->unknown_4_.unknown_c_;
+    arg0->unknown_34_->unknown_8_ = arg0->unknown_4_.unknown_10_;
 
-    if (self->header.width > 0x100) return 0;
-    if (frameCount < 6) return 0;
+    if (arg0->unknown_4_.unknown_c_ > 0x100) return 0;
+    if (arg2 < 6) return 0;
 
-    self->frameCount = frameCount;
-    self->framesY = (unsigned char**)func_ov016_0218bc8c(frameCount * 4);
-    if (!self->framesY) return 0;
-    self->framesC = (unsigned char**)func_ov016_0218bc8c(self->frameCount * 4);
-    if (!self->framesC) return 0;
+    arg0->unknown_a8_ = arg2;
+    arg0->unknown_5c_ = (unsigned char**)func_ov016_0218bc8c(arg2 * 4);
+    if (!arg0->unknown_5c_) return 0;
+    arg0->unknown_60_ = (unsigned char**)func_ov016_0218bc8c(arg0->unknown_a8_ * 4);
+    if (!arg0->unknown_60_) return 0;
 
-    unsigned int i;
-    for (i = 0; i < self->frameCount; i++) {
-        self->framesY[i] = (unsigned char*)func_ov016_0218bc8c(self->header.height << 8);
-        if (!self->framesY[i]) return 0;
-        self->framesC[i] = (unsigned char*)func_ov016_0218bc8c((self->header.height >> 1) << 8);
-        if (!self->framesC[i]) return 0;
-        func_020ca458(0, self->framesY[i], self->header.height << 8);
-        VectorizedMemset(self->framesC[i], 0x80, (self->header.height >> 1) << 8);
+    unsigned int var3;
+    for (var3 = 0; var3 < arg0->unknown_a8_; var3++) {
+        arg0->unknown_5c_[var3] = (unsigned char*)func_ov016_0218bc8c(arg0->unknown_4_.unknown_10_ << 8);
+        if (!arg0->unknown_5c_[var3]) return 0;
+        arg0->unknown_60_[var3] = (unsigned char*)func_ov016_0218bc8c((arg0->unknown_4_.unknown_10_ >> 1) << 8);
+        if (!arg0->unknown_60_[var3]) return 0;
+        func_020ca458(0, arg0->unknown_5c_[var3], arg0->unknown_4_.unknown_10_ << 8);
+        VectorizedMemset(arg0->unknown_60_[var3], 0x80, (arg0->unknown_4_.unknown_10_ >> 1) << 8);
     }
 
-    self->qpTable = (unsigned int*)func_ov016_0218bc8c(self->frameCount * 4);
-    if (!self->qpTable) return 0;
+    arg0->unknown_64_ = (unsigned int*)func_ov016_0218bc8c(arg0->unknown_a8_ * 4);
+    if (!arg0->unknown_64_) return 0;
 
-    self->writeIdx = 0;
-    self->idx[0] = 0;
-    for (int k = 1; k < 6; k++) {
-        self->idx[k] = self->frameCount - k;
+    arg0->unknown_98_ = 0;
+    arg0->unknown_ac_[0] = 0;
+    for (int var4 = 1; var4 < 6; var4++) {
+        arg0->unknown_ac_[var4] = arg0->unknown_a8_ - var4;
     }
-    self->frame = 0;
-    self->available = 0;
-    self->consumed = 0;
+    arg0->unknown_c4_ = 0;
+    arg0->unknown_a0_ = 0;
+    arg0->unknown_9c_ = 0;
 
-    for (int b = 0; b < 2; b++) {
-        self->buffers[b] = (unsigned char*)func_ov016_0218bc8c(self->header.biggestFrame + 0x400);
-        if (!self->buffers[b]) return 0;
-    }
-
-    if (self->header.audioCodec != 0) {
-        self->audio = (AudioDecoder*)func_ov016_0218bc8c(self->header.channelCount * sizeof(AudioDecoder));
-        if (!self->audio) return 0;
-        func_020ca458(0, self->audio, self->header.channelCount * sizeof(AudioDecoder));
+    for (int var5 = 0; var5 < 2; var5++) {
+        arg0->unknown_70_[var5] = (unsigned char*)func_ov016_0218bc8c(arg0->unknown_4_.unknown_20_ + 0x400);
+        if (!arg0->unknown_70_[var5]) return 0;
     }
 
-    int saved = self->file->Tell();
-    self->file->Seek(self->header.keyframeIndexOffset + self->base);
-    self->keyframes = func_ov016_0218bc8c(self->header.keyframeCount << 3);
-    if (!self->file->Read(self->keyframes, self->header.keyframeCount << 3)) return 0;
-    self->file->Seek(saved);
+    if (arg0->unknown_4_.unknown_18_ != 0) {
+        arg0->unknown_58_ = (Struct_ov016_0218e800_4*)func_ov016_0218bc8c(arg0->unknown_4_.unknown_1a_ * sizeof(Struct_ov016_0218e800_4));
+        if (!arg0->unknown_58_) return 0;
+        func_020ca458(0, arg0->unknown_58_, arg0->unknown_4_.unknown_1a_ * sizeof(Struct_ov016_0218e800_4));
+    }
 
-    if (self->header.audioCodec == 1) {
-        int j;
-        int resume = self->file->Tell();
-        self->file->Seek(self->header.audioOffset + self->base);
-        for (j = 0; j < self->header.channelCount; j++) {
-            if (!self->file->Read(self->audio[j].codebook, sizeof(self->audio[j].codebook))) return 0;
-            self->audio[j].state = 2;
+    int var6 = arg0->unknown_0_->inline_ov016_0218e800_6();
+    arg0->unknown_0_->inline_ov016_0218e800_2(arg0->unknown_4_.unknown_28_ + arg0->unknown_d4_);
+    arg0->unknown_94_ = func_ov016_0218bc8c(arg0->unknown_4_.unknown_2c_ << 3);
+    if (!arg0->unknown_0_->inline_ov016_0218e800_3(arg0->unknown_94_, arg0->unknown_4_.unknown_2c_ << 3)) return 0;
+    arg0->unknown_0_->inline_ov016_0218e800_2(var6);
+
+    if (arg0->unknown_4_.unknown_18_ == 1) {
+        int var7;
+        int var8 = arg0->unknown_0_->inline_ov016_0218e800_6();
+        arg0->unknown_0_->inline_ov016_0218e800_2(arg0->unknown_4_.unknown_24_ + arg0->unknown_d4_);
+        for (var7 = 0; var7 < arg0->unknown_4_.unknown_1a_; var7++) {
+            if (!arg0->unknown_0_->inline_ov016_0218e800_3(arg0->unknown_58_[var7].unknown_8c0_, sizeof(arg0->unknown_58_[var7].unknown_8c0_))) return 0;
+            arg0->unknown_58_[var7].unknown_14f4_ = 2;
         }
-        self->file->Seek(resume);
-    } else if (self->header.audioCodec == 2) {
-        for (int j = 0; j < self->header.channelCount; j++) {
-            self->audio[j].mode = 2;
+        arg0->unknown_0_->inline_ov016_0218e800_2(var8);
+    } else if (arg0->unknown_4_.unknown_18_ == 2) {
+        for (int var9 = 0; var9 < arg0->unknown_4_.unknown_1a_; var9++) {
+            arg0->unknown_58_[var9].unknown_1cc_ = 2;
         }
     }
 
-    self->file->Read(&frameHeader, 4);
-    self->frameSize[0] = frameHeader >> 14;
-    self->frameExtra[0] = frameHeader & 0x3fff;
-    self->bufferOffset[0] = 0;
-    self->file->Read(self->buffers[0], self->frameSize[0] + 4);
-    self->bufferIndex = 1;
+    arg0->unknown_0_->inline_ov016_0218e800_3(&var2, 4);
+    arg0->unknown_78_[0] = var2 >> 14;
+    arg0->unknown_88_[0] = var2 & 0x3fff;
+    arg0->unknown_80_[0] = 0;
+    arg0->unknown_0_->inline_ov016_0218e800_3(arg0->unknown_70_[0], arg0->unknown_78_[0] + 4);
+    arg0->unknown_90_ = 1;
     return 1;
 }

@@ -1,48 +1,48 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion1000 = 0xf7c };
-enum { kRegionffe = 0xf7a };
-enum { kRegionff8 = 0xf74 };
-enum { kRegion88c = 0x808 };
-enum { kRegion1002 = 0xf7e };
-enum { kRegion89c = 0x818 };
-enum { kRegion36 = 0x2a };
+enum { Enum_ov003_02176468_4096 = 0xf7c };
+enum { Enum_ov003_02176468_4094 = 0xf7a };
+enum { Enum_ov003_02176468_4088 = 0xf74 };
+enum { Enum_ov003_02176468_2188 = 0x808 };
+enum { Enum_ov003_02176468_4098 = 0xf7e };
+enum { Enum_ov003_02176468_2204 = 0x818 };
+enum { Enum_ov003_02176468_54 = 0x2a };
 #else
-enum { kRegion1000 = 0x1000 };
-enum { kRegionffe = 0xffe };
-enum { kRegionff8 = 0xff8 };
-enum { kRegion88c = 0x88c };
-enum { kRegion1002 = 0x1002 };
-enum { kRegion89c = 0x89c };
-enum { kRegion36 = 0x36 };
+enum { Enum_ov003_02176468_4096 = 0x1000 };
+enum { Enum_ov003_02176468_4094 = 0xffe };
+enum { Enum_ov003_02176468_4088 = 0xff8 };
+enum { Enum_ov003_02176468_2188 = 0x88c };
+enum { Enum_ov003_02176468_4098 = 0x1002 };
+enum { Enum_ov003_02176468_2204 = 0x89c };
+enum { Enum_ov003_02176468_54 = 0x36 };
 #endif
 
-struct Obj2081;
-extern "C" void func_02080c04(struct Obj2081* obj, int key);
-extern "C" void func_020813ec(void* obj, int key);
+struct Struct_0207fdcc_2;
+extern "C" void func_02080c04(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_020813ec(void* arg0, int arg1);
 
-struct Obj0208203c;
-extern "C" void func_0208203c(struct Obj0208203c* obj);
+struct Struct_02081f20_2;
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
 
-struct Obj020e280c;
-extern "C" void func_020e280c(struct Obj020e280c* self, void* b);
+struct Struct_020e280c;
+extern "C" void func_020e280c(struct Struct_020e280c* arg0, void* arg1);
 
 // USA: func_ov003_02176468
-extern "C" ARM void func_ov003_02176468(unsigned char* self) {
-    *(short*)(self + kRegionffe) = 1;
-    *(short*)(self + kRegion1000) = *(short*)(self + kRegion1002) = 2;
-    *(short*)((char*)(*(struct Obj2081**)(self + kRegion89c)) + kRegion36) = *(short*)(self + kRegion1002);
-    func_020813ec(*(struct Obj2081**)(self + kRegion89c), *(short*)(self + kRegionffe));
-    func_0208203c((struct Obj0208203c*)(self + kRegion88c));
-    *(void**)(self + kRegionff8) = 0;
+extern "C" ARM void func_ov003_02176468(unsigned char* arg0) {
+    *(short*)(arg0 + Enum_ov003_02176468_4094) = 1;
+    *(short*)(arg0 + Enum_ov003_02176468_4096) = *(short*)(arg0 + Enum_ov003_02176468_4098) = 2;
+    *(short*)((char*)(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204)) + Enum_ov003_02176468_54) = *(short*)(arg0 + Enum_ov003_02176468_4098);
+    func_020813ec(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
+    func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_02176468_2188));
+    *(void**)(arg0 + Enum_ov003_02176468_4088) = 0;
     func_0205eaa0(&data_02108760, 5, 0);
-    if (*(void**)self == 0) {
+    if (*(void**)arg0 == 0) {
         return;
     }
-    func_02080c04(*(struct Obj2081**)(self + kRegion89c), *(short*)(self + kRegionffe));
-    func_020e280c((struct Obj020e280c*)(*(void**)self), (void*)-1);
+    func_02080c04(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02176468_2204), *(short*)(arg0 + Enum_ov003_02176468_4094));
+    func_020e280c((struct Struct_020e280c*)(*(void**)arg0), (void*)-1);
 }

@@ -6,69 +6,69 @@
 #define data_021142c4 data_02113f64
 #endif
 
-struct Entry020d3cf0Flags {
-    unsigned char f0 : 3;
-    unsigned char f1 : 1;
-    unsigned char f2 : 3;
-    unsigned char f3 : 1;
+struct Struct_020d39dc {
+    unsigned char unknown_0_0_ : 3;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 3;
+    unsigned char unknown_0_7_ : 1;
 };
 
-struct Entry020d3cf0Triple {
-    unsigned int f0 : 10;
-    unsigned int f1 : 10;
-    unsigned int f2 : 10;
-    unsigned int reserved : 2;
+struct Struct_020d39dc_2 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct Entry020d3cf0 {
+struct Struct_020d39dc_3 {
 #if defined(jpn)
-    char name[11];
+    char unknown_0_[11];
 #else
-    char name[16];
+    char unknown_0_[16];
 #endif
-    struct Entry020d3cf0Flags flags;
-    unsigned char b11;
-    unsigned char b12;
-    unsigned char b13;
-    struct Entry020d3cf0Triple w14;
-    struct Entry020d3cf0Triple w18;
-    struct Entry020d3cf0Triple w1c;
-    unsigned short h20;
-    unsigned short h22;
+    struct Struct_020d39dc unknown_10_;
+    unsigned char unknown_11_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    struct Struct_020d39dc_2 unknown_14_;
+    struct Struct_020d39dc_2 unknown_18_;
+    struct Struct_020d39dc_2 unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
 };
 
-struct Container020d3cf0;
-extern "C" void func_020d3cf0(struct Container020d3cf0* container, struct Entry020d3cf0* src);
-extern struct Container020d3cf0* data_021142c4;
+struct Struct_020d3cf0;
+extern "C" void func_020d3cf0(struct Struct_020d3cf0* arg0, struct Struct_020d39dc_3* arg1);
+extern struct Struct_020d3cf0* data_021142c4;
 
 // USA: func_020d39dc
-extern "C" ARM int func_020d39dc(Script::Parameter* params, int count) {
-    struct Entry020d3cf0 entry;
+extern "C" ARM int func_020d39dc(Script::Parameter* arg0, int arg1) {
+    struct Struct_020d39dc_3 var0;
 
-    entry.flags.f0 = (params++)->ToInt();
-    entry.b11 = (params++)->ToInt();
-    strcpy(entry.name, (params++)->ToString());
-    entry.flags.f1 = (params++)->ToInt();
-    entry.flags.f2 = (params++)->ToInt();
-    entry.b12 = (params++)->ToInt();
-    entry.flags.f3 = (params++)->ToInt();
+    var0.unknown_10_.unknown_0_0_ = (arg0++)->ToInt();
+    var0.unknown_11_ = (arg0++)->ToInt();
+    strcpy(var0.unknown_0_, (arg0++)->ToString());
+    var0.unknown_10_.unknown_0_3_ = (arg0++)->ToInt();
+    var0.unknown_10_.unknown_0_4_ = (arg0++)->ToInt();
+    var0.unknown_12_ = (arg0++)->ToInt();
+    var0.unknown_10_.unknown_0_7_ = (arg0++)->ToInt();
 
-    entry.w14.f0 = (params++)->ToInt();
-    entry.w14.f2 = (params++)->ToInt();
-    entry.w14.f1 = (params++)->ToInt();
+    var0.unknown_14_.unknown_0_0_ = (arg0++)->ToInt();
+    var0.unknown_14_.unknown_2_4_ = (arg0++)->ToInt();
+    var0.unknown_14_.unknown_1_2_ = (arg0++)->ToInt();
 
-    entry.w18.f0 = (params++)->ToInt();
-    entry.w18.f1 = (params++)->ToInt();
-    entry.w18.f2 = (params++)->ToInt();
+    var0.unknown_18_.unknown_0_0_ = (arg0++)->ToInt();
+    var0.unknown_18_.unknown_1_2_ = (arg0++)->ToInt();
+    var0.unknown_18_.unknown_2_4_ = (arg0++)->ToInt();
 
-    entry.w1c.f0 = (params++)->ToInt();
-    entry.w1c.f1 = (params++)->ToInt();
-    entry.w1c.f2 = (params++)->ToInt();
+    var0.unknown_1c_.unknown_0_0_ = (arg0++)->ToInt();
+    var0.unknown_1c_.unknown_1_2_ = (arg0++)->ToInt();
+    var0.unknown_1c_.unknown_2_4_ = (arg0++)->ToInt();
 
-    entry.b13 = (params++)->ToInt();
-    entry.h20 = (params++)->ToInt();
-    entry.h22 = (params++)->ToInt();
+    var0.unknown_13_ = (arg0++)->ToInt();
+    var0.unknown_20_ = (arg0++)->ToInt();
+    var0.unknown_22_ = (arg0++)->ToInt();
 
-    func_020d3cf0(data_021142c4, &entry);
+    func_020d3cf0(data_021142c4, &var0);
     return 1;
 }

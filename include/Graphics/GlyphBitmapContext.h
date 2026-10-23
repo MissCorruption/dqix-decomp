@@ -2,20 +2,20 @@
 
 
 
-struct GlyphBitmapContext {
+struct Struct_020fe6fc {
 #if defined(jpn)
-    int colorSchemeIndex;
-    void* buffer;
+    int unknown_4_;
+    void* unknown_0_;
 #else
-    void* buffer;
-    int colorSchemeIndex;
+    void* unknown_0_;
+    int unknown_4_;
 #endif
 };
 
 #if defined(jpn)
-extern GlyphBitmapContext data_020fe6fc;
+extern Struct_020fe6fc data_020fe6fc;
 #define glyphBitmapContext data_020fe6fc
 #else
-extern GlyphBitmapContext data_020fe9a4;
+extern Struct_020fe6fc data_020fe9a4;
 #define glyphBitmapContext data_020fe9a4
 #endif

@@ -2,36 +2,36 @@
 
 #include <globaldefs.h>
 
-struct MessageSlotTable_020dd7ac {
-    int flag;
-    int unused04;
-    void *ptrs[12];
-    unsigned char pad38;
-    unsigned char pad39[3];
-    unsigned short f3c;
-    unsigned short f3e;
-    unsigned short f40;
-    unsigned short f42;
-    int f44;
-    int f48;
-    int f4c;
-    int f50;
-    int f54;
-    int f58;
-    int f5c;
-    int f60;
-    unsigned short f64;
-    unsigned short f66;
-    unsigned short f68;
-    unsigned short f6a;
-    unsigned short f6c;
-    unsigned short f6e;
-    unsigned short f70;
-    unsigned short f72;
-    unsigned short f74;
-    unsigned short f76;
-    unsigned short f78;
-    unsigned short f7a;
+struct Struct_020dd7ac {
+    int unknown_0_;
+    int unknown_4_;
+    void *unknown_8_[12];
+    unsigned char unknown_38_;
+    unsigned char unknown_39_[3];
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    unsigned short unknown_40_;
+    unsigned short unknown_42_;
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
+    int unknown_50_;
+    int unknown_54_;
+    int unknown_58_;
+    int unknown_5c_;
+    int unknown_60_;
+    unsigned short unknown_64_;
+    unsigned short unknown_66_;
+    unsigned short unknown_68_;
+    unsigned short unknown_6a_;
+    unsigned short unknown_6c_;
+    unsigned short unknown_6e_;
+    unsigned short unknown_70_;
+    unsigned short unknown_72_;
+    unsigned short unknown_74_;
+    unsigned short unknown_76_;
+    unsigned short unknown_78_;
+    unsigned short unknown_7a_;
 };
 
-extern "C" void func_020dd9b4(MessageSlotTable_020dd7ac *table, unsigned int kind, void *firstValue, void *secondValue);
+extern "C" void func_020dd9b4(Struct_020dd7ac *arg0, unsigned int arg1, void *arg2, void *arg3);

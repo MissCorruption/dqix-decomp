@@ -10,57 +10,57 @@
 #endif
 
 #define REG_IME (*(volatile unsigned short*)0x04000208)
-struct Obj020397cc;
+struct Struct_02018300_3;
 extern SafeAllocator data_ov031_02291e3c;
 extern char data_0211e33c;
 extern char data_ov031_0224c90c[];
 extern char data_ov031_0224c920[];
 extern "C" void* func_0202ae18();
 extern "C" int func_0202b7d8(int*);
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned int* func_020d6c00();
 extern "C" void func_020466e4(unsigned int*, unsigned int);
 void MarkContextStackTopUnknownSubspace(ProcessorContext*, unsigned int);
 
-enum AllocationLength02243850 {
+enum Enum_ov031_02243850 {
 #if defined(jpn)
-    ArenaLength02243850 = 0x2d740,
+    Enum_ov031_02243850_183616 = 0x2d740,
 #else
-    ArenaLength02243850 = 0x2cd40,
+    Enum_ov031_02243850_183616 = 0x2cd40,
 #endif
-    WorkLength02243850 = 0x2bc00
+    Enum_ov031_02243850_179200 = 0x2bc00
 };
 
 // USA: func_ov031_02243850
-extern "C" ARM int func_ov031_02243850(void* state) {
-    GameState* game = GameState::GetInstance();
-    int* field = (int*)func_0202ae18();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int result = 1;
-    if (func_0202b7d8(field)) return -1;
-    GameObject* object = game->GetUnknownGameObject();
-    if (object) func_020397cc((Obj020397cc*)object, 1);
-    AllocationLength02243850 length = ArenaLength02243850;
-    SafeAllocator* external = *(SafeAllocator**)((char*)state + 0x28);
-    if (!external) return -1;
-    void* arena = external->Allocate(length);
-    if (!arena) return -1;
-    SafeAllocator* allocator = (SafeAllocator*)state;
-    allocator->CreateTypeB(arena, length, 4);
-    allocator->Reset();
-    length = WorkLength02243850;
-    void* buffer = allocator->Allocate(length);
-    if (!buffer) return -1;
-    data_ov031_02291e3c.CreateTypeB(buffer, length, 0x20);
-    if (*(unsigned char*)((char*)state + 0x374) & 0x20) {
+extern "C" ARM int func_ov031_02243850(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int* var1 = (int*)func_0202ae18();
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+    int var3 = 1;
+    if (func_0202b7d8(var1)) return -1;
+    GameObject* var4 = var0->GetUnknownGameObject();
+    if (var4) func_020397cc((Struct_02018300_3*)var4, 1);
+    Enum_ov031_02243850 var5 = Enum_ov031_02243850_183616;
+    SafeAllocator* var6 = *(SafeAllocator**)((char*)arg0 + 0x28);
+    if (!var6) return -1;
+    void* var7 = var6->Allocate(var5);
+    if (!var7) return -1;
+    SafeAllocator* var8 = (SafeAllocator*)arg0;
+    var8->CreateTypeB(var7, var5, 4);
+    var8->Reset();
+    var5 = Enum_ov031_02243850_179200;
+    void* var9 = var8->Allocate(var5);
+    if (!var9) return -1;
+    data_ov031_02291e3c.CreateTypeB(var9, var5, 0x20);
+    if (*(unsigned char*)((char*)arg0 + 0x374) & 0x20) {
         BackgroundLoader::AddLockGlobal();
-        *(void**)((char*)state + 0x388) = &data_0211e33c;
-        *(int*)((char*)state + 0x39c) = loader->QueueLoadFile(data_ov031_0224c90c, 0);
-        *(int*)((char*)state + 0x3a0) = loader->QueueLoadFile(data_ov031_0224c920, 0);
-        result = 3;
+        *(void**)((char*)arg0 + 0x388) = &data_0211e33c;
+        *(int*)((char*)arg0 + 0x39c) = var2->QueueLoadFile(data_ov031_0224c90c, 0);
+        *(int*)((char*)arg0 + 0x3a0) = var2->QueueLoadFile(data_ov031_0224c920, 0);
+        var3 = 3;
         BackgroundLoader::RemoveLockGlobal();
     } else {
-        *(void**)((char*)state + 0x4c) = allocator->Allocate(0x700);
+        *(void**)((char*)arg0 + 0x4c) = var8->Allocate(0x700);
         func_020466e4(func_020d6c00(), 0x80);
     }
 #if defined(jpn)
@@ -73,5 +73,5 @@ extern "C" ARM int func_ov031_02243850(void* state) {
     (void)REG_IME;
     REG_IME = 1;
     EnableIRQInterrupts();
-    return result;
+    return var3;
 }

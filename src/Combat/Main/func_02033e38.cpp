@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 
-struct Vec3Fixed02030e2c { int x; int y; int z; };
+struct Struct_ov001_021592bc { int unknown_0_; int unknown_4_; int unknown_8_; };
 ARM void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
 // USA: func_02033e38
-extern "C" ARM void func_02033e38(void* obj) {
-    char* base = (char*)obj;
-    short* speedPtr = (short*)(base + 0xc6);
-    short speed = *speedPtr;
-    if (speed != 0) {
-        Vector3i diff;
-        Vector3fix_Subtract((Vector3i*)(base + 0xc8), (Vector3i*)(base + 0x44), &diff);
-        int dist = Vector3fix_Length(&diff);
-        if (dist < speed) {
-            *(Vector3i*)(base + 0x44) = *(Vector3i*)(base + 0xc8);
-            *speedPtr = 0;
+extern "C" ARM void func_02033e38(void* arg0) {
+    char* var0 = (char*)arg0;
+    short* var1 = (short*)(var0 + 0xc6);
+    short var2 = *var1;
+    if (var2 != 0) {
+        Vector3i var3;
+        Vector3fix_Subtract((Vector3i*)(var0 + 0xc8), (Vector3i*)(var0 + 0x44), &var3);
+        int var4 = Vector3fix_Length(&var3);
+        if (var4 < var2) {
+            *(Vector3i*)(var0 + 0x44) = *(Vector3i*)(var0 + 0xc8);
+            *var1 = 0;
         } else {
-            int scale = fix32_Divide(speed, dist);
-            Vector3fixMultiplyScalar(&diff, scale, &diff);
-            Vector3i sum;
-            Vector3fix_Add((Vector3i*)(base + 0x44), &diff, &sum);
-            *(Vector3i*)(base + 0x44) = sum;
+            int var5 = fix32_Divide(var2, var4);
+            Vector3fixMultiplyScalar(&var3, var5, &var3);
+            Vector3i var6;
+            Vector3fix_Add((Vector3i*)(var0 + 0x44), &var3, &var6);
+            *(Vector3i*)(var0 + 0x44) = var6;
         }
     }
 }

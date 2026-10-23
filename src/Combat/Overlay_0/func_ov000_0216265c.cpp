@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { stateOffset = 0xe24 };
+enum { Enum_ov000_0216265c_3752 = 0xe24 };
 #else
-enum { stateOffset = 0xea8 };
+enum { Enum_ov000_0216265c_3752 = 0xea8 };
 #endif
 
 // USA: func_ov000_0216265c
-extern "C" ARM int func_ov000_0216265c(void* objRaw) {
-    int v = *(int*)((char*)objRaw + stateOffset);
-    switch (v) {
+extern "C" ARM int func_ov000_0216265c(void* arg0) {
+    int var0 = *(int*)((char*)arg0 + Enum_ov000_0216265c_3752);
+    switch (var0) {
         case 4:
         case 6:
         case 9:

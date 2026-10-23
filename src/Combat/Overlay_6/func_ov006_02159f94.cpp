@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Obj3a8Timer_02159f94 {
-    unsigned char pad0[0x3a4];
-    int field3a4;
-    int pad3a8;
-    int unk3ac;
+struct Struct_ov006_02159f94 {
+    unsigned char unknown_0_[0x3a4];
+    int unknown_3a4_;
+    int unknown_3a8_;
+    int unknown_3ac_;
 };
 
 // USA: func_ov006_02159f94
-extern "C" ARM void func_ov006_02159f94(struct Obj3a8Timer_02159f94* obj) {
-    if (obj->unk3ac != 0 && obj->field3a4 != 0) {
-        obj->unk3ac = 0;
+extern "C" ARM void func_ov006_02159f94(struct Struct_ov006_02159f94* arg0) {
+    if (arg0->unknown_3ac_ != 0 && arg0->unknown_3a4_ != 0) {
+        arg0->unknown_3ac_ = 0;
     }
 }

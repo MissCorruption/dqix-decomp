@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-typedef int (*FnPtr020db964)(void);
-extern FnPtr020db964 data_020f28fc[];
+typedef int (*Type_020db894)(void);
+extern Type_020db894 data_020f28fc[];
 
-struct Obj020db964 { char pad[0x5c]; int slots[2]; };
+struct Struct_020db894 { char unknown_0_[0x5c]; int unknown_5c_[2]; };
 
 // USA: func_020db964
-extern "C" ARM void func_020db964(struct Obj020db964* obj) {
-    int i;
-    for (i = 0; i < 2; i++) {
-        int result = data_020f28fc[i]();
-        if (result != 0x10) {
-            if (result != obj->slots[i]) {
-                obj->slots[i] = result;
+extern "C" ARM void func_020db964(struct Struct_020db894* arg0) {
+    int var0;
+    for (var0 = 0; var0 < 2; var0++) {
+        int var1 = data_020f28fc[var0]();
+        if (var1 != 0x10) {
+            if (var1 != arg0->unknown_5c_[var0]) {
+                arg0->unknown_5c_[var0] = var1;
             }
         }
     }

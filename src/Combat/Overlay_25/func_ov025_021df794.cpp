@@ -1,48 +1,48 @@
 #include <globaldefs.h>
 
-struct TrailEntry {
-    unsigned char id;
-    unsigned char timer;
+struct Struct_ov025_021df794_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
 };
 
-struct Trail021df794 {
-    char pad0[0x170];
-    int done;
-    char pad174[2];
-    TrailEntry entries[10];
-    unsigned char pending;
-    unsigned char head;
+struct Struct_ov025_021df794 {
+    char unknown_0_[0x170];
+    int unknown_170_;
+    char unknown_174_[2];
+    Struct_ov025_021df794_2 unknown_176_[10];
+    unsigned char unknown_18a_;
+    unsigned char unknown_18b_;
 };
 
 // USA: func_ov025_021df794
-extern "C" ARM void func_ov025_021df794(Trail021df794* obj) {
-    if (obj->pending != 0) {
-        int prev = obj->head - 1;
-        if (prev < 0) {
-            prev = 9;
+extern "C" ARM void func_ov025_021df794(Struct_ov025_021df794* arg0) {
+    if (arg0->unknown_18a_ != 0) {
+        int var0 = arg0->unknown_18b_ - 1;
+        if (var0 < 0) {
+            var0 = 9;
         }
-        if (obj->entries[prev].timer < 0x1c) {
-            int slot = obj->head % 10;
-            TrailEntry* e = &obj->entries[slot];
-            e->timer = 0x1f;
-            e->id = obj->head;
-            obj->head++;
-            obj->pending--;
-            if (obj->head >= 10) {
-                obj->head = 0;
+        if (arg0->unknown_176_[var0].unknown_1_ < 0x1c) {
+            int var1 = arg0->unknown_18b_ % 10;
+            Struct_ov025_021df794_2* var2 = &arg0->unknown_176_[var1];
+            var2->unknown_1_ = 0x1f;
+            var2->unknown_0_ = arg0->unknown_18b_;
+            arg0->unknown_18b_++;
+            arg0->unknown_18a_--;
+            if (arg0->unknown_18b_ >= 10) {
+                arg0->unknown_18b_ = 0;
             }
         }
     }
-    if (obj->pending == 0) {
-        obj->done = 1;
+    if (arg0->unknown_18a_ == 0) {
+        arg0->unknown_170_ = 1;
     }
-    for (int i = 0; i < 10; i++) {
-        TrailEntry* e = &obj->entries[i];
-        if (e->timer != 0) {
-            if (e->timer > 2) {
-                e->timer -= 2;
+    for (int var3 = 0; var3 < 10; var3++) {
+        Struct_ov025_021df794_2* var4 = &arg0->unknown_176_[var3];
+        if (var4->unknown_1_ != 0) {
+            if (var4->unknown_1_ > 2) {
+                var4->unknown_1_ -= 2;
             } else {
-                e->timer = 0;
+                var4->unknown_1_ = 0;
             }
         }
     }

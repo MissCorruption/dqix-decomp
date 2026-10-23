@@ -6,33 +6,33 @@ extern char data_020f2d2c[][11];
 extern signed char data_020eeab0[][8];
 extern char data_020ee9d8[][3];
 // USA: func_020e4864
-extern "C" ARM void func_020e4864(const char* source, char* destination, int column, int, int, int row) {
-    int replacementLength;
+extern "C" ARM void func_020e4864(const char* arg0, char* arg1, int arg2, int, int, int arg5) {
+    int var0;
     for (;;) {
-        if (!*source) break;
-        if (*source == '[') {
-            int replaced = 0;
-            int index = 0;
+        if (!*arg0) break;
+        if (*arg0 == '[') {
+            int var1 = 0;
+            int var2 = 0;
             for (;;) {
-                if (!data_020f2d2c[index][0]) break;
-                int length = func_020d2ff0(data_020f2d2c[index]);
-                if (func_02001aec(source + 1, data_020f2d2c[index], length) == 0) {
-                    if (column >= 0 && row >= 0) {
-                        int replacementIndex = data_020eeab0[index][column + row * 2] * 3;
-                        const char* replacementBase = (const char*)data_020ee9d8;
-                        replacementLength = func_020d2ff0(replacementBase + replacementIndex);
-                        memcpy(destination, replacementBase + replacementIndex, replacementLength);
-                        destination += replacementLength;
+                if (!data_020f2d2c[var2][0]) break;
+                int var3 = func_020d2ff0(data_020f2d2c[var2]);
+                if (func_02001aec(arg0 + 1, data_020f2d2c[var2], var3) == 0) {
+                    if (arg2 >= 0 && arg5 >= 0) {
+                        int var4 = data_020eeab0[var2][arg2 + arg5 * 2] * 3;
+                        const char* var5 = (const char*)data_020ee9d8;
+                        var0 = func_020d2ff0(var5 + var4);
+                        memcpy(arg1, var5 + var4, var0);
+                        arg1 += var0;
                     }
-                    source += length + 1;
-                    replaced = true;
+                    arg0 += var3 + 1;
+                    var1 = true;
                     break;
                 }
-                index++;
+                var2++;
             }
-            if (replaced) continue;
+            if (var1) continue;
         }
-        *destination++ = *source++;
+        *arg1++ = *arg0++;
     }
-    *destination = *source;
+    *arg1 = *arg0;
 }

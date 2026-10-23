@@ -3,185 +3,185 @@
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
 
-struct Obj2081;
-struct Container02080f8c;
-struct Obj3a8Timer_02159fb0;
-struct GameStateStub;
-struct CombatantObj { char pad0[4]; short id; };
-struct CombatantText { int data[3]; };
+struct Struct_0207fdcc_2;
+struct Struct_02080f8c;
+struct Struct_ov006_02159fb0;
+struct Struct_ov006_0215a00c;
+struct Struct_ov006_0215a00c_2 { char unknown_0_[4]; short unknown_4_; };
+struct Struct_0207d538 { int unknown_0_[3]; };
 
-struct StoreStruct {
-    void* field0;
-    char pad4[0x14];
-    void* field18;
-    char pad1c[0x40];
-    char* field5c;
+struct Struct_020465c0 {
+    void* unknown_0_;
+    char unknown_4_[0x14];
+    void* unknown_18_;
+    char unknown_1c_[0x40];
+    char* unknown_5c_;
 };
 
-struct Sub170 { char data[0x7c]; };
-struct ParseEntry { char pad0[5]; signed char adv:6; };
+struct Struct_01ff8b48_23 { char unknown_0_[0x7c]; };
+struct Struct_ov006_0215a00c_3 { char unknown_0_[5]; signed char unknown_5_0_:6; };
 
-struct Sub300 {
-    char pad0[0x4c];
-    int field34c;
-    char pad50[0x78 - 0x50];
-    short arr78[3];
-    short field7e;
-    unsigned short field80;
-    short field82;
-    char pad84[3];
-    unsigned char field387;
-    char pad388[0x92 - 0x88];
-    unsigned char field392;
-    char pad393[1];
-    unsigned short field94;
-    char pad96[2];
+struct Struct_ov006_0215a00c_4 {
+    char unknown_0_[0x4c];
+    int unknown_4c_;
+    char unknown_50_[0x78 - 0x50];
+    short unknown_78_[3];
+    short unknown_7e_;
+    unsigned short unknown_80_;
+    short unknown_82_;
+    char unknown_84_[3];
+    unsigned char unknown_87_;
+    char unknown_88_[0x92 - 0x88];
+    unsigned char unknown_92_;
+    char unknown_93_[1];
+    unsigned short unknown_94_;
+    char unknown_96_[2];
 };
 
-struct Obj0215a00c {
-    int field0;
-    char pad4[0x10];
-    void* field14;
-    char pad18[0x1c];
-    int field34;
-    char pad38[0x158 - 0x38];
-    struct Container020e0310 field158;
-    char pad160[0x170 - 0x160];
-    struct Sub170 field170;
-    short field1ec;
-    char pad1ee[0x300 - 0x1ee];
-    struct Sub300 sub;
-    char pad398[0x3b0 - 0x398];
-    int field3b0;
+struct Struct_ov006_0215a00c_5 {
+    int unknown_0_;
+    char unknown_4_[0x10];
+    void* unknown_14_;
+    char unknown_18_[0x1c];
+    int unknown_34_;
+    char unknown_38_[0x158 - 0x38];
+    struct Struct_0201099c_3 unknown_158_;
+    char unknown_160_[0x170 - 0x160];
+    struct Struct_01ff8b48_23 unknown_170_;
+    short unknown_1ec_;
+    char unknown_1ee_[0x300 - 0x1ee];
+    struct Struct_ov006_0215a00c_4 unknown_300_;
+    char unknown_398_[0x3b0 - 0x398];
+    int unknown_3b0_;
 };
 
-extern "C" void func_02080c20(struct Obj2081*, int);
+extern "C" void func_02080c20(struct Struct_0207fdcc_2*, int);
 extern "C" void func_020813ec(void*, int);
-extern "C" int func_020e0434(struct Container020e0310*, int);
-extern "C" struct StoreStruct* func_020421a0();
-extern "C" void func_02046380(struct StoreStruct*);
+extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" struct Struct_020465c0* func_020421a0();
+extern "C" void func_02046380(struct Struct_020465c0*);
 extern "C" void* func_020e5294(void*, int);
-extern "C" void func_020465c0(struct StoreStruct*, int, int);
+extern "C" void func_020465c0(struct Struct_020465c0*, int, int);
 extern "C" void func_020e4bf4(void*, int);
-extern "C" void func_02046608(struct StoreStruct*, int, const char*, char*, int, int, int);
+extern "C" void func_02046608(struct Struct_020465c0*, int, const char*, char*, int, int, int);
 extern "C" char* func_0204254c(int, int);
 extern "C" void __clear(void*, int);
-extern "C" void func_02080f8c(Container02080f8c*, int, int);
-extern "C" void func_ov006_02159fb0(struct Obj3a8Timer_02159fb0*);
+extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
+extern "C" void func_ov006_02159fb0(struct Struct_ov006_02159fb0*);
 extern char data_ov006_0215ffd2[];
 extern char data_ov006_0215ffea[];
 
 // USA: func_ov006_0215a00c
-extern "C" ARM void func_ov006_0215a00c(struct Obj0215a00c* self) {
-    char buf[0x400];
-    struct CombatantText combatant;
-    int i;
+extern "C" ARM void func_ov006_0215a00c(struct Struct_ov006_0215a00c_5* arg0) {
+    char var0[0x400];
+    struct Struct_0207d538 var1;
+    int var2;
 
-    unsigned char state = self->sub.field392;
-    if (state == 0) {
-        if (self->sub.field94 & 0x20) {
-            func_02080c20((struct Obj2081*)self->field14, 0);
-            func_020813ec(self->field14, 0);
+    unsigned char var3 = arg0->unknown_300_.unknown_92_;
+    if (var3 == 0) {
+        if (arg0->unknown_300_.unknown_94_ & 0x20) {
+            func_02080c20((struct Struct_0207fdcc_2*)arg0->unknown_14_, 0);
+            func_020813ec(arg0->unknown_14_, 0);
         }
-        self->sub.field94 &= ~0x20;
-        self->sub.field80 = 0;
-        if (func_020e0434(&self->field158, self->sub.field7e) == 0) {
-            self->sub.field7e = -1;
+        arg0->unknown_300_.unknown_94_ &= ~0x20;
+        arg0->unknown_300_.unknown_80_ = 0;
+        if (func_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_) == 0) {
+            arg0->unknown_300_.unknown_7e_ = -1;
         }
-        self->field3b0 = -1;
-        self->sub.field392 = self->sub.field392 + 1;
+        arg0->unknown_3b0_ = -1;
+        arg0->unknown_300_.unknown_92_ = arg0->unknown_300_.unknown_92_ + 1;
         return;
     }
-    if (state == 1) {
-        struct StoreStruct* fmt = func_020421a0();
-        char* base = fmt->field5c;
-        memset(base, 0, 0x960);
-        func_02046380(fmt);
+    if (var3 == 1) {
+        struct Struct_020465c0* var4 = func_020421a0();
+        char* var5 = var4->unknown_5c_;
+        memset(var5, 0, 0x960);
+        func_02046380(var4);
 
-        unsigned short rem = 0;
-        if (self->field34 != 0) {
-            void* res = func_020e5294(&self->field170, self->field1ec);
-            if (res != 0) {
-                fmt->field18 = res;
+        unsigned short var6 = 0;
+        if (arg0->unknown_34_ != 0) {
+            void* var7 = func_020e5294(&arg0->unknown_170_, arg0->unknown_1ec_);
+            if (var7 != 0) {
+                var4->unknown_18_ = var7;
             }
-            rem = (unsigned short)((self->sub.field82 / 10) * 10);
+            var6 = (unsigned short)((arg0->unknown_300_.unknown_82_ / 10) * 10);
         }
-        func_020465c0(fmt, 0, self->sub.field387);
-        func_020465c0(fmt, 1, rem);
+        func_020465c0(var4, 0, arg0->unknown_300_.unknown_87_);
+        func_020465c0(var4, 1, var6);
 
-        struct CombatantObj* gobj = (struct CombatantObj*)((GameState*)((struct GameStateStub*)GameState::GetInstance()))->GetUnknownGameObject();
-        if (gobj != 0) {
-            func_020e4bf4(&combatant, gobj->id);
-            fmt->field0 = &combatant;
+        struct Struct_ov006_0215a00c_2* var8 = (struct Struct_ov006_0215a00c_2*)((GameState*)((struct Struct_ov006_0215a00c*)GameState::GetInstance()))->GetUnknownGameObject();
+        if (var8 != 0) {
+            func_020e4bf4(&var1, var8->unknown_4_);
+            var4->unknown_0_ = &var1;
         }
 
-        short* tp = (short*)data_ov006_0215ffd2;
-        for (i = 0; ; i++) {
-            short cur = *tp;
-            if (cur < 0) break;
-            if (cur == self->sub.field7e) {
-                void* res = func_020e5294(&self->field170, self->sub.arr78[i]);
-                if (res != 0) {
-                    fmt->field18 = res;
+        short* var9 = (short*)data_ov006_0215ffd2;
+        for (var2 = 0; ; var2++) {
+            short var10 = *var9;
+            if (var10 < 0) break;
+            if (var10 == arg0->unknown_300_.unknown_7e_) {
+                void* var11 = func_020e5294(&arg0->unknown_170_, arg0->unknown_300_.unknown_78_[var2]);
+                if (var11 != 0) {
+                    var4->unknown_18_ = var11;
                 }
                 break;
             }
-            tp++;
+            var9++;
         }
 
-        const char* msg = (const char*)func_020e0434(&self->field158, self->sub.field7e);
-        func_02046608(fmt, 0xc, msg, base, 0xe3, 0, 1);
+        const char* var12 = (const char*)func_020e0434(&arg0->unknown_158_, arg0->unknown_300_.unknown_7e_);
+        func_02046608(var4, 0xc, var12, var5, 0xe3, 0, 1);
 
-        char* p = base + self->sub.field80;
-        unsigned short pos = self->sub.field80;
-        int old = self->field0 >> 4;
-        self->field0 += (self->sub.field34c << 4);
-        i = self->field0 >> 4;
-        int limit = i - old;
-        if (self->field0 >= 0xffffff) {
-            self->field0 = 0;
+        char* var13 = var5 + arg0->unknown_300_.unknown_80_;
+        unsigned short var14 = arg0->unknown_300_.unknown_80_;
+        int var15 = arg0->unknown_0_ >> 4;
+        arg0->unknown_0_ += (arg0->unknown_300_.unknown_4c_ << 4);
+        var2 = arg0->unknown_0_ >> 4;
+        int var16 = var2 - var15;
+        if (arg0->unknown_0_ >= 0xffffff) {
+            arg0->unknown_0_ = 0;
         }
 
-        int count = 0;
-        int one = 1;
-        while (count < limit) {
-            signed char ch = ((signed char*)p)[0];
-            if (ch == 0) break;
-            signed char step = 1;
-            if (ch == 0x5c && ((signed char*)p)[1] == 0x6e) {
-                p += 2;
-                pos += 2;
+        int var17 = 0;
+        int var18 = 1;
+        while (var17 < var16) {
+            signed char var19 = ((signed char*)var13)[0];
+            if (var19 == 0) break;
+            signed char var20 = 1;
+            if (var19 == 0x5c && ((signed char*)var13)[1] == 0x6e) {
+                var13 += 2;
+                var14 += 2;
             } else {
-                ParseEntry* e = (ParseEntry*)func_0204254c((int)p, 1);
-                if (e != 0) {
-                    step = e->adv;
+                Struct_ov006_0215a00c_3* var21 = (Struct_ov006_0215a00c_3*)func_0204254c((int)var13, 1);
+                if (var21 != 0) {
+                    var20 = var21->unknown_5_0_;
                 }
-                p += step;
-                pos = (unsigned short)(pos + step);
+                var13 += var20;
+                var14 = (unsigned short)(var14 + var20);
             }
-            count++;
+            var17++;
         }
-        if (self->sub.field80 >= pos) {
-            self->sub.field7e = -1;
+        if (arg0->unknown_300_.unknown_80_ >= var14) {
+            arg0->unknown_300_.unknown_7e_ = -1;
         }
-        self->sub.field80 = pos;
-        __clear(buf, 0x400);
-        memcpy(buf, base, pos);
-        func_02080f8c((struct Container02080f8c*)self->field14, 1, (int)buf);
-        func_020813ec(self->field14, 1);
-        func_02080c20((struct Obj2081*)self->field14, 1);
-        self->field3b0 = 1;
+        arg0->unknown_300_.unknown_80_ = var14;
+        __clear(var0, 0x400);
+        memcpy(var0, var5, var14);
+        func_02080f8c((struct Struct_02080f8c*)arg0->unknown_14_, 1, (int)var0);
+        func_020813ec(arg0->unknown_14_, 1);
+        func_02080c20((struct Struct_0207fdcc_2*)arg0->unknown_14_, 1);
+        arg0->unknown_3b0_ = 1;
 
-        short* tp2 = (short*)data_ov006_0215ffea;
+        short* var22 = (short*)data_ov006_0215ffea;
         for (;;) {
-            short cur2 = *tp2;
-            if (cur2 < 0) break;
-            if (cur2 == self->sub.field7e) {
-                self->field3b0 = -1;
+            short var23 = *var22;
+            if (var23 < 0) break;
+            if (var23 == arg0->unknown_300_.unknown_7e_) {
+                arg0->unknown_3b0_ = -1;
                 break;
             }
-            tp2++;
+            var22++;
         }
-        func_ov006_02159fb0((struct Obj3a8Timer_02159fb0*)self);
+        func_ov006_02159fb0((struct Struct_ov006_02159fb0*)arg0);
     }
 }

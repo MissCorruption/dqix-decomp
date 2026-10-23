@@ -3,81 +3,81 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-struct CopyPayload {
+struct Struct_02093b54 {
 #if defined(jpn)
-    char data[0xb];
+    char unknown_0_[0xb];
 #else
-    char data[0x30];
+    char unknown_0_[0x30];
 #endif
 };
 
-struct CopyableRecord {
-    struct CopyPayload payload;
+struct Struct_02093ad8 {
+    struct Struct_02093b54 unknown_0_;
 #if defined(jpn)
-    unsigned char byte11;
+    unsigned char unknown_b_;
 #endif
-    short requestId;
-    signed char partySlot;
-    unsigned char flags;
+    short unknown_30_;
+    signed char unknown_32_;
+    unsigned char unknown_33_;
 };
 
-struct Ctx02094030 {
-    struct CopyableRecord records[8];
+struct Struct_02094030 {
+    struct Struct_02093ad8 unknown_0_[8];
 #if defined(jpn)
-    char pad0[0x13b - 0x80];
+    char unknown_80_[0x13b - 0x80];
 #else
-    char pad0[0x3cb - 0x1a0];
+    char unknown_1a0_[0x3cb - 0x1a0];
 #endif
-    signed char count;
-    char pad1[0x3cd - 0x3cc];
-    unsigned char flags;
+    signed char unknown_3cb_;
+    char unknown_3cc_[0x3cd - 0x3cc];
+    unsigned char unknown_3cd_;
 };
 
-extern "C" void func_02093980(char* obj);
-extern "C" void func_02093b54(struct CopyableRecord* dst, struct CopyableRecord* src);
-extern "C" int func_0209372c(int x);
+extern "C" void func_02093980(char* arg0);
+extern "C" void func_02093b54(struct Struct_02093ad8* arg0, struct Struct_02093ad8* arg1);
+extern "C" int func_0209372c(int arg0);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* obj);
+extern "C" int func_0202c540(void* arg0);
 
 // USA: func_02094030
 
-extern "C" ARM int func_02094030(struct Ctx02094030* queue, int requestId, int unused2, int slot) {
-    GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(slot);
-    void* ctx = func_0202ae18();
-    GameResources* cachedNames = GetGameResources();
+extern "C" ARM int func_02094030(struct Struct_02094030* arg0, int arg1, int arg2, int arg3) {
+    GameObject* var0 = GameState::GetInstance()->GetPartyMemberByIndex(arg3);
+    void* var1 = func_0202ae18();
+    GameResources* var2 = GetGameResources();
 
-    if (func_0202c540(ctx) != 0) {
-        if (requestId == 10000) return 1;
+    if (func_0202c540(var1) != 0) {
+        if (arg1 == 10000) return 1;
     }
-    if (queue->count >= 8) return 1;
+    if (arg0->unknown_3cb_ >= 8) return 1;
 
-    struct CopyableRecord* request = &queue->records[queue->count];
-    func_02093980((char*)request);
+    struct Struct_02093ad8* var3 = &arg0->unknown_0_[arg0->unknown_3cb_];
+    func_02093980((char*)var3);
 
-    if (combatant == 0 || requestId == 3) {
-        char* name = cachedNames->partyNames[slot];
-        if (name[0] == 0) return 1;
-        sprintf(request->payload.data, name);
-    } else if (combatant != 0) {
-        sprintf(request->payload.data, combatant->baseStats_->unk);
-    }
-
-    request->requestId = (short)requestId;
-    request->partySlot = (signed char)slot;
-    if (queue->count <= 0) {
-        queue->flags |= 1;
+    if (var0 == 0 || arg1 == 3) {
+        char* var4 = var2->unknown_435c_[arg3];
+        if (var4[0] == 0) return 1;
+        sprintf(var3->unknown_0_.unknown_0_, var4);
+    } else if (var0 != 0) {
+        sprintf(var3->unknown_0_.unknown_0_, var0->baseStats_->unk);
     }
 
-    unsigned int category = (unsigned int)func_0209372c(request->requestId);
-    queue->count++;
+    var3->unknown_30_ = (short)arg1;
+    var3->unknown_32_ = (signed char)arg3;
+    if (arg0->unknown_3cb_ <= 0) {
+        arg0->unknown_3cd_ |= 1;
+    }
 
-    int i;
-    for (i = queue->count - 1; i >= 2; i--) {
-        if (func_0209372c(queue->records[i - 1].requestId) <= category) break;
-        struct CopyableRecord tmp;
-        func_02093b54(&tmp, &queue->records[i]);
-        func_02093b54(&queue->records[i], &queue->records[i - 1]);
-        func_02093b54(&queue->records[i - 1], &tmp);
+    unsigned int var5 = (unsigned int)func_0209372c(var3->unknown_30_);
+    arg0->unknown_3cb_++;
+
+    int var6;
+    for (var6 = arg0->unknown_3cb_ - 1; var6 >= 2; var6--) {
+        if (func_0209372c(arg0->unknown_0_[var6 - 1].unknown_30_) <= var5) break;
+        struct Struct_02093ad8 var7;
+        func_02093b54(&var7, &arg0->unknown_0_[var6]);
+        func_02093b54(&arg0->unknown_0_[var6], &arg0->unknown_0_[var6 - 1]);
+        func_02093b54(&arg0->unknown_0_[var6 - 1], &var7);
     }
     return 0;
 }

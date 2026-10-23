@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct State02070508;
-extern "C" void func_02070508(struct State02070508 *obj);
+struct Struct_02108d5c;
+extern "C" void func_02070508(struct Struct_02108d5c *arg0);
 
 // USA: func_020709b4
-extern "C" ARM struct State02070508 *func_020709b4(struct State02070508 *obj) {
-    func_02070508(obj);
-    return obj;
+extern "C" ARM struct Struct_02108d5c *func_020709b4(struct Struct_02108d5c *arg0) {
+    func_02070508(arg0);
+    return arg0;
 }

@@ -1,77 +1,77 @@
 #include <globaldefs.h>
 
-struct GBACartridgeHeader020d135c {
-    unsigned long startAddress;
-    unsigned char nintendoLogo[0x9c];
-    char title[12];
-    unsigned long gameCode;
-    unsigned short makerCode;
-    unsigned char isRomCode;
-    unsigned char machineCode;
-    unsigned char deviceType;
-    unsigned char exLsiID[3];
-    unsigned char reserved[4];
-    unsigned char softVersion;
-    unsigned char complement;
-    unsigned short moduleID;
+struct Struct_020d135c {
+    unsigned long unknown_0_;
+    unsigned char unknown_4_[0x9c];
+    char unknown_a0_[12];
+    unsigned long unknown_ac_;
+    unsigned short unknown_b0_;
+    unsigned char unknown_b2_;
+    unsigned char unknown_b3_;
+    unsigned char unknown_b4_;
+    unsigned char unknown_b5_[3];
+    unsigned char unknown_b8_[4];
+    unsigned char unknown_bc_;
+    unsigned char unknown_bd_;
+    unsigned short unknown_be_;
 };
 
-struct CartridgeModuleInfo020d135c {
-    unsigned short moduleID;
-    unsigned char exLsiID[3];
-    unsigned char isAgbCartridge : 1;
-    unsigned char detectPullOut : 1;
-    unsigned short makerCode;
-    unsigned long gameCode;
+struct Struct_020d135c_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[3];
+    unsigned char unknown_5_0_ : 1;
+    unsigned char unknown_5_1_ : 1;
+    unsigned short unknown_6_;
+    unsigned long unknown_8_;
 };
 
-struct CartridgeWork020d135c {
-    int isEnabled;
-    volatile unsigned short subProcessorInitialized;
-    unsigned short lockID;
+struct Struct_02112148 {
+    int unknown_0_;
+    volatile unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
-struct Lock020d1540 {
-    int locked;
-    int priorState;
+struct Struct_020d135c_3 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-extern CartridgeWork020d135c data_02112148;
+extern Struct_02112148 data_02112148;
 
-extern "C" void func_020d14e4(unsigned short lockID, Lock020d1540* lock);
-extern "C" void func_020d1468(int* cycle);
-extern "C" void func_020d14b0(int* cycle);
-extern "C" unsigned int func_020d1540(int lockID, Lock020d1540* lock);
+extern "C" void func_020d14e4(unsigned short arg0, Struct_020d135c_3* arg1);
+extern "C" void func_020d1468(int* arg0);
+extern "C" void func_020d14b0(int* arg0);
+extern "C" unsigned int func_020d1540(int arg0, Struct_020d135c_3* arg1);
 
 // USA: func_020d135c
 extern "C" ARM int func_020d135c() {
-    int result = true;
-    Lock020d1540 lock;
-    GBACartridgeHeader020d135c* header = (GBACartridgeHeader020d135c*)0x08000000;
-    CartridgeModuleInfo020d135c* info = (CartridgeModuleInfo020d135c*)0x027ffc30;
+    int var0 = true;
+    Struct_020d135c_3 var1;
+    Struct_020d135c* var2 = (Struct_020d135c*)0x08000000;
+    Struct_020d135c_2* var3 = (Struct_020d135c_2*)0x027ffc30;
 
-    if (info->moduleID == 0xffff) {
+    if (var3->unknown_0_ == 0xffff) {
         return false;
     }
-    if (info->detectPullOut == true) {
+    if (var3->unknown_5_1_ == true) {
         return false;
     }
 
-    func_020d14e4(data_02112148.lockID, &lock);
+    func_020d14e4(data_02112148.unknown_6_, &var1);
     {
-        int cycle[2];
-        unsigned char isRomCode;
+        int var4[2];
+        unsigned char var5;
 
-        func_020d1468(cycle);
-        isRomCode = header->isRomCode;
-        if (isRomCode == 0x96 && info->moduleID != header->moduleID ||
-            isRomCode != 0x96 && info->moduleID != *(unsigned short*)0x0801fffe ||
-            info->gameCode != header->gameCode && info->isAgbCartridge) {
-            info->detectPullOut = true;
-            result = false;
+        func_020d1468(var4);
+        var5 = var2->unknown_b2_;
+        if (var5 == 0x96 && var3->unknown_0_ != var2->unknown_be_ ||
+            var5 != 0x96 && var3->unknown_0_ != *(unsigned short*)0x0801fffe ||
+            var3->unknown_8_ != var2->unknown_ac_ && var3->unknown_5_0_) {
+            var3->unknown_5_1_ = true;
+            var0 = false;
         }
-        func_020d14b0(cycle);
+        func_020d14b0(var4);
     }
-    func_020d1540(data_02112148.lockID, &lock);
-    return result;
+    func_020d1540(data_02112148.unknown_6_, &var1);
+    return var0;
 }

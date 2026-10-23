@@ -1,56 +1,56 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kHeadTableOffset = 0x34ec, kIntrinsicOffset = 0x144 };
+enum { Enum_02072d58_14076 = 0x34ec, Enum_02072d58_336 = 0x144 };
 #else
-enum { kHeadTableOffset = 0x36fc, kIntrinsicOffset = 0x150 };
+enum { Enum_02072d58_14076 = 0x36fc, Enum_02072d58_336 = 0x150 };
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_02072c9c(int combatantId, char* buf);
+extern "C" void func_02072c9c(int arg0, char* arg1);
 
-struct HeadNode02046b24;
-extern "C" int func_02046b24(struct HeadNode02046b24** obj);
+struct Struct_02015438;
+extern "C" int func_02046b24(struct Struct_02015438** arg0);
 
 extern char data_020f0cff[];
 
 // USA: func_02072d58
-extern "C" ARM void func_02072d58(int combatantId, char* statsBuf, char* outBuf) {
-    func_02072c9c(combatantId, statsBuf);
+extern "C" ARM void func_02072d58(int arg0, char* arg1, char* arg2) {
+    func_02072c9c(arg0, arg1);
 
-    int base = ((int)GetGameResources());
-    struct HeadNode02046b24** headTable = *(struct HeadNode02046b24***)((char*)base + kHeadTableOffset);
-    int flag = 0;
+    int var0 = ((int)GetGameResources());
+    struct Struct_02015438** var1 = *(struct Struct_02015438***)((char*)var0 + Enum_02072d58_14076);
+    int var2 = 0;
 
-    if (func_02046b24(headTable) == 0xa) {
-        GameObject* c = GameState::GetInstance()->GetCombatantByIndex(combatantId);
-        if (c != NULL) {
-            flag = *(unsigned char*)(*(int*)((char*)c + 0x138) + 0x26);
+    if (func_02046b24(var1) == 0xa) {
+        GameObject* var3 = GameState::GetInstance()->GetCombatantByIndex(arg0);
+        if (var3 != NULL) {
+            var2 = *(unsigned char*)(*(int*)((char*)var3 + 0x138) + 0x26);
         }
     }
 
-    if (flag != 0) {
-        sprintf(outBuf, data_020f0cff, statsBuf, 0x62);
-        sprintf(statsBuf, data_020f0cff, statsBuf, 0x66);
+    if (var2 != 0) {
+        sprintf(arg2, data_020f0cff, arg1, 0x62);
+        sprintf(arg1, data_020f0cff, arg1, 0x66);
     } else {
-        sprintf(statsBuf, data_020f0cff, statsBuf, 0x6e);
-        sprintf(outBuf, data_020f0cff, statsBuf, 0x65);
+        sprintf(arg1, data_020f0cff, arg1, 0x6e);
+        sprintf(arg2, data_020f0cff, arg1, 0x65);
     }
 
-    GameObject* c2 = func_0200ff1c(GameState::GetInstance(), combatantId);
-    if (c2 == NULL) {
+    GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg0);
+    if (var4 == NULL) {
         return;
     }
 
-    int val = *(int*)((char*)c2 + kIntrinsicOffset);
-    struct Flags02072d58 {
-        unsigned char bit0 : 1;
-        unsigned char rest : 7;
+    int var5 = *(int*)((char*)var4 + Enum_02072d58_336);
+    struct Struct_02072d58 {
+        unsigned char unknown_0_0_ : 1;
+        unsigned char unknown_0_1_ : 7;
     };
-    struct Flags02072d58* flagsField = (struct Flags02072d58*)(val + 0x49c);
+    struct Struct_02072d58* var6 = (struct Struct_02072d58*)(var5 + 0x49c);
 
-    if (flagsField->bit0 == 1) {
-        statsBuf[0] = 0x77;
+    if (var6->unknown_0_0_ == 1) {
+        arg1[0] = 0x77;
     }
 }

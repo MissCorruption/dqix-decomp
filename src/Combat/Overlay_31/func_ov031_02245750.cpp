@@ -5,42 +5,42 @@
 
 extern const char data_ov031_0224c94e[];
 
-struct DataBlock02245750 {
+struct Struct_ov031_02291e04_5 {
 #if defined(jpn)
-	unsigned char pad[0x2c];
+	unsigned char unknown_0_[0x2c];
 #else
-	unsigned char pad[0x28];
+	unsigned char unknown1_0_[0x28];
 #endif
-	int* field28;
+	int* unknown_28_;
 };
-extern DataBlock02245750 data_ov031_02291e04;
+extern Struct_ov031_02291e04_5 data_ov031_02291e04;
 
-struct Obj02245750 {
-	char tag[4];
-	int field4;
-	int field8;
-	unsigned char field0xc[8];
+struct Struct_ov031_02245750 {
+	char unknown_0_[4];
+	int unknown_4_;
+	int unknown_8_;
+	unsigned char unknown_c_[8];
 };
 
 // USA: func_ov031_02245750
-extern "C" ARM int func_ov031_02245750(void* unused, Obj02245750* obj) {
+extern "C" ARM int func_ov031_02245750(void* arg0, Struct_ov031_02245750* arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x928};
+ enum {Enum_ov031_02245750_2888=0x928};
 #else
- enum {regionalOffset0=0xb48};
+ enum {Enum_ov031_02245750_2888=0xb48};
 #endif
-	if (strstr((char*)obj, data_ov031_0224c94e) == NULL) return 0;
-	int idx = 0;
-	while (idx < 0xe) {
-		if (data_ov031_02291e04.field28[idx] == obj->field4) break;
-		idx++;
+	if (strstr((char*)arg1, data_ov031_0224c94e) == NULL) return 0;
+	int var0 = 0;
+	while (var0 < 0xe) {
+		if (data_ov031_02291e04.unknown_28_[var0] == arg1->unknown_4_) break;
+		var0++;
 	}
-	if (idx == 0xe) return 0;
-	char* base = (char*)GetGameResources();
-	char* p = base + 0x3000;
-	unsigned char* q = *(unsigned char**)(p + regionalOffset0);
-	q[0x28] = (unsigned char)idx;
-	q[0x29] = (unsigned char)obj->field8;
-	VectorizedInvertedMemcpy(obj->field0xc, q + 0x2a, 8);
+	if (var0 == 0xe) return 0;
+	char* var1 = (char*)GetGameResources();
+	char* var2 = var1 + 0x3000;
+	unsigned char* var3 = *(unsigned char**)(var2 + Enum_ov031_02245750_2888);
+	var3[0x28] = (unsigned char)var0;
+	var3[0x29] = (unsigned char)arg1->unknown_8_;
+	VectorizedInvertedMemcpy(arg1->unknown_c_, var3 + 0x2a, 8);
 	return 1;
 }

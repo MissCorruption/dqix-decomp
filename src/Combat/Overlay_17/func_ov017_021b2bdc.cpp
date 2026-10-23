@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct S021b2bdc {
-	unsigned char pad[0x38];
+struct Struct_0206f81c_5 {
+	unsigned char unknown_0_[0x38];
 	union {
-		unsigned int word038;
+		unsigned int unknown1_38_;
 		struct {
-			unsigned int b0_2 : 3;
-			unsigned int bit3 : 1;
-			unsigned int bit4 : 1;
-			unsigned int bit5 : 1;
-			unsigned int rest : 26;
-		} bits;
+			unsigned int unknown_0_0_ : 3;
+			unsigned int unknown_0_3_ : 1;
+			unsigned int unknown_0_4_ : 1;
+			unsigned int unknown_0_5_ : 1;
+			unsigned int unknown_0_6_ : 26;
+		} unknown_38_;
 	};
 };
 
 // USA: func_ov017_021b2bdc
-extern "C" ARM void func_ov017_021b2bdc(S021b2bdc* obj, unsigned int v) {
-	obj->bits.bit3 = v;
+extern "C" ARM void func_ov017_021b2bdc(Struct_0206f81c_5* arg0, unsigned int arg1) {
+	arg0->unknown_38_.unknown_0_3_ = arg1;
 }

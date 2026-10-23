@@ -3,14 +3,14 @@
 extern "C" int func_02001aec(void*, int, int);
 
 // USA: func_ov012_02185634
-extern "C" ARM int func_ov012_02185634(void *unused, void *p1, int p2, int p3, int count) {
-	int i = 0;
-	while (i < count) {
-		if (func_02001aec(p1, p2, p3) == 0) {
+extern "C" ARM int func_ov012_02185634(void *arg0, void *arg1, int arg2, int arg3, int arg4) {
+	int var0 = 0;
+	while (var0 < arg4) {
+		if (func_02001aec(arg1, arg2, arg3) == 0) {
 			return 1;
 		}
-		i++;
-		p2++;
+		var0++;
+		arg2++;
 	}
 	return 0;
 }

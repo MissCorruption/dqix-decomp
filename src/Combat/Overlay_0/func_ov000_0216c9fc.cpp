@@ -5,44 +5,44 @@
 
 extern "C" void func_ov000_02169b78(void*);
 
-struct Struct02184264 {
-    unsigned char pad[8];
-    SafeAllocator* alloc;
+struct Struct_ov000_02184264_2 {
+    unsigned char unknown_0_[8];
+    SafeAllocator* unknown_8_;
 };
-extern struct Struct02184264 data_ov000_02184264;
+extern struct Struct_ov000_02184264_2 data_ov000_02184264;
 
-struct Variant02030b0c { int tag; int u; };
+struct Struct_0201c1c8 { int unknown_0_; int unknown_4_; };
 
-struct TaggedValue02030b44 { int type; union { int i; float f; } value; };
+struct Struct_0201d530 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
 
-struct VariantNodeTag0x75 {
-    int tag;
-    int unused;
-    short x;
-    short y;
-    unsigned char type;
+struct Struct_ov000_0216c9fc {
+    int unknown_0_;
+    int unknown_4_;
+    short unknown_8_;
+    short unknown_a_;
+    unsigned char unknown_c_;
 };
 
 // USA: func_ov000_0216c9fc
-extern "C" ARM int func_ov000_0216c9fc(struct Variant02030b0c* v) {
-    struct VariantNodeTag0x75* node = (struct VariantNodeTag0x75*)data_ov000_02184264.alloc->Allocate(sizeof(struct VariantNodeTag0x75));
-    if (node == 0) {
+extern "C" ARM int func_ov000_0216c9fc(struct Struct_0201c1c8* arg0) {
+    struct Struct_ov000_0216c9fc* var0 = (struct Struct_ov000_0216c9fc*)data_ov000_02184264.unknown_8_->Allocate(sizeof(struct Struct_ov000_0216c9fc));
+    if (var0 == 0) {
         return 0;
     }
-    memset(node, 0, sizeof(struct VariantNodeTag0x75));
-    int type = ((Script::Parameter*)v)->ToInt();
-    node->type = (unsigned char)type;
-    switch (type & 0xff) {
+    memset(var0, 0, sizeof(struct Struct_ov000_0216c9fc));
+    int var1 = ((Script::Parameter*)arg0)->ToInt();
+    var0->unknown_c_ = (unsigned char)var1;
+    switch (var1 & 0xff) {
     case 0:
-        node->x = (short)(int)(4096.0f * ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)v + 8)))->ToFloat());
-        node->y = (short)(int)(4096.0f * ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)v + 0x10)))->ToFloat());
+        var0->unknown_8_ = (short)(int)(4096.0f * ((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 8)))->ToFloat());
+        var0->unknown_a_ = (short)(int)(4096.0f * ((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 0x10)))->ToFloat());
         break;
     case 1:
-        node->x = (short)((Script::Parameter*)((struct Variant02030b0c*)((char*)v + 8)))->ToInt();
-        node->y = (short)(int)(4096.0f * ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)v + 0x10)))->ToFloat());
+        var0->unknown_8_ = (short)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 8)))->ToInt();
+        var0->unknown_a_ = (short)(int)(4096.0f * ((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 0x10)))->ToFloat());
         break;
     }
-    node->tag = 0x75;
-    func_ov000_02169b78(node);
+    var0->unknown_0_ = 0x75;
+    func_ov000_02169b78(var0);
     return 1;
 }

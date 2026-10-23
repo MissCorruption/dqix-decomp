@@ -1,85 +1,85 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-struct Bits021f6158 {
-    unsigned int counter : 12;
-    unsigned int index : 4;
-    unsigned int field2 : 5;
-    unsigned int cur : 5;
-    unsigned int reserved : 6;
+struct Struct_ov023_021f6158_3 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 5;
+    unsigned int unknown_3_2_ : 6;
 };
-struct Obj021f6158 { struct Bits021f6158 bits; };
+struct Struct_ov023_021f6158 { struct Struct_ov023_021f6158_3 unknown_0_; };
 
-struct Ptr33_021f6158 { char pad[0x33]; unsigned char byte33; };
+struct Struct_ov023_021f6158_2 { char unknown_0_[0x33]; unsigned char unknown_33_; };
 
 #if defined(jpn)
-struct Block48_021f6158 { unsigned int w[0xd]; };
+struct Struct_ov023_021fd8a8 { unsigned int unknown_0_[0xd]; };
 #else
-struct Block48_021f6158 { unsigned int w[0xc]; };
+struct Struct_ov023_021fd8a8 { unsigned int unknown_0_[0xc]; };
 #endif
 
 #if defined(jpn)
-extern const struct Block48_021f6158 data_ov023_021fd8a8;
+extern const struct Struct_ov023_021fd8a8 data_ov023_021fd8a8;
 #else
-extern struct Block48_021f6158 data_ov023_021fd8a8;
+extern struct Struct_ov023_021fd8a8 data_ov023_021fd8a8;
 #endif
 
 // USA: func_ov023_021f6158
-extern "C" ARM void func_ov023_021f6158(struct Obj021f6158* obj) {
+extern "C" ARM void func_ov023_021f6158(struct Struct_ov023_021f6158* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x928};
+ enum {Enum_ov023_021f6158_2888=0x928};
 #else
- enum {regionalOffset0=0xb48};
+ enum {Enum_ov023_021f6158_2888=0xb48};
 #endif
-    struct Ptr33_021f6158* ptr2 = (struct Ptr33_021f6158*)*(void**)((unsigned char*)GetGameResources() + 0x3000 + regionalOffset0);
-    unsigned char maxCur = ptr2->byte33;
-    unsigned int cur = obj->bits.cur;
-    int flag = 0;
-    if (maxCur <= cur) {
-        obj->bits.cur = maxCur;
-        obj->bits.reserved = 0;
-        flag = 1;
+    struct Struct_ov023_021f6158_2* var0 = (struct Struct_ov023_021f6158_2*)*(void**)((unsigned char*)GetGameResources() + 0x3000 + Enum_ov023_021f6158_2888);
+    unsigned char var1 = var0->unknown_33_;
+    unsigned int var2 = arg0->unknown_0_.unknown_2_5_;
+    int var3 = 0;
+    if (var1 <= var2) {
+        arg0->unknown_0_.unknown_2_5_ = var1;
+        arg0->unknown_0_.unknown_3_2_ = 0;
+        var3 = 1;
     } else {
-        unsigned int threshold = maxCur - 2;
-        if ((int)threshold < 0) threshold += 0x18;
-        if (cur < threshold) {
-            obj->bits.reserved = 0;
-            obj->bits.cur = ptr2->byte33;
+        unsigned int var4 = var1 - 2;
+        if ((int)var4 < 0) var4 += 0x18;
+        if (var2 < var4) {
+            arg0->unknown_0_.unknown_3_2_ = 0;
+            arg0->unknown_0_.unknown_2_5_ = var0->unknown_33_;
         } else {
-            obj->bits.cur = obj->bits.cur + 2;
-            if (obj->bits.cur >= 0x18) {
-                obj->bits.cur = obj->bits.cur - 0x18;
-                flag = 1;
+            arg0->unknown_0_.unknown_2_5_ = arg0->unknown_0_.unknown_2_5_ + 2;
+            if (arg0->unknown_0_.unknown_2_5_ >= 0x18) {
+                arg0->unknown_0_.unknown_2_5_ = arg0->unknown_0_.unknown_2_5_ - 0x18;
+                var3 = 1;
             }
         }
     }
-    if (flag == 0) return;
+    if (var3 == 0) return;
 
-    obj->bits.field2 = obj->bits.field2 + 1;
+    arg0->unknown_0_.unknown_2_0_ = arg0->unknown_0_.unknown_2_0_ + 1;
 #if defined(jpn)
 
 #else
-    struct Block48_021f6158 localBuf = data_ov023_021fd8a8;
-    if ((obj->bits.counter & 3) == 0) {
-        localBuf.w[1] = 0x1d;
+    struct Struct_ov023_021fd8a8 var5 = data_ov023_021fd8a8;
+    if ((arg0->unknown_0_.unknown_0_0_ & 3) == 0) {
+        var5.unknown_0_[1] = 0x1d;
     }
 #endif
 
-    unsigned int index = obj->bits.index;
-    unsigned int field2 = obj->bits.field2;
+    unsigned int var6 = arg0->unknown_0_.unknown_1_4_;
+    unsigned int var7 = arg0->unknown_0_.unknown_2_0_;
 #if defined(jpn)
-    unsigned int elem = data_ov023_021fd8a8.w[index];
+    unsigned int var8 = data_ov023_021fd8a8.unknown_0_[var6];
 #else
-    unsigned int elem = *(unsigned int*)((char*)&localBuf - 4 + index * 4);
+    unsigned int var8 = *(unsigned int*)((char*)&var5 - 4 + var6 * 4);
 #endif
 
-    if (elem >= field2) {
-        if (field2 != 0) return;
+    if (var8 >= var7) {
+        if (var7 != 0) return;
     }
 
-    obj->bits.field2 = 1;
-    obj->bits.index = obj->bits.index + 1;
-    if (obj->bits.index <= 0xc) return;
-    obj->bits.index = 1;
-    obj->bits.counter = obj->bits.counter + 1;
+    arg0->unknown_0_.unknown_2_0_ = 1;
+    arg0->unknown_0_.unknown_1_4_ = arg0->unknown_0_.unknown_1_4_ + 1;
+    if (arg0->unknown_0_.unknown_1_4_ <= 0xc) return;
+    arg0->unknown_0_.unknown_1_4_ = 1;
+    arg0->unknown_0_.unknown_0_0_ = arg0->unknown_0_.unknown_0_0_ + 1;
 }

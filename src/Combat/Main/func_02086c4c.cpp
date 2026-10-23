@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* obj);
-struct Slots02083994;
-extern "C" int func_02083994(struct Slots02083994* s, int value);
-struct KeyMap020a0b3c;
-extern "C" signed char func_020a0b3c(struct KeyMap020a0b3c* map, int key);
-extern "C" short func_0207c7a0(void* map, int key, int amount);
+extern "C" int func_02053c6c(unsigned char* arg0);
+struct Struct_02083994;
+extern "C" int func_02083994(struct Struct_02083994* arg0, int arg1);
+struct Struct_0207cf30_3;
+extern "C" signed char func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
+extern "C" short func_0207c7a0(void* arg0, int arg1, int arg2);
 
 // USA: func_02086c4c
-extern "C" ARM short func_02086c4c(unsigned char* self, int selector, int key) {
-    GameState* bs = GameState::GetInstance();
-    short result = 0;
-    int take;
-    if (selector < 0) {
+extern "C" ARM short func_02086c4c(unsigned char* arg0, int arg1, int arg2) {
+    GameState* var0 = GameState::GetInstance();
+    short var1 = 0;
+    int var2;
+    if (arg1 < 0) {
         goto zero;
     }
-    if (selector <= 3) {
-        take = 1;
+    if (arg1 <= 3) {
+        var2 = 1;
         goto after;
     }
 zero:
-    take = 0;
+    var2 = 0;
 after:
-    if (take) {
-        GameObject* c = func_0200ff1c(bs, selector);
-        if (c == NULL) {
+    if (var2) {
+        GameObject* var3 = func_0200ff1c(var0, arg1);
+        if (var3 == NULL) {
             return 0;
         }
-        void* x = (void*)func_02053c6c((unsigned char*)c);
-        if (x == NULL) {
+        void* var4 = (void*)func_02053c6c((unsigned char*)var3);
+        if (var4 == NULL) {
             return 0;
         }
-        result += func_02083994((struct Slots02083994*)x, key);
-    } else if (selector == 4) {
-        result = func_020a0b3c((struct KeyMap020a0b3c*)self, key);
-    } else if (selector == 5) {
-        result = func_0207c7a0(self + 0x1d4, key, 9);
-    } else if (selector == 6) {
-        result = func_020a0b3c((struct KeyMap020a0b3c*)(self + 0xe04), key);
+        var1 += func_02083994((struct Struct_02083994*)var4, arg2);
+    } else if (arg1 == 4) {
+        var1 = func_020a0b3c((struct Struct_0207cf30_3*)arg0, arg2);
+    } else if (arg1 == 5) {
+        var1 = func_0207c7a0(arg0 + 0x1d4, arg2, 9);
+    } else if (arg1 == 6) {
+        var1 = func_020a0b3c((struct Struct_0207cf30_3*)(arg0 + 0xe04), arg2);
     }
-    return result;
+    return var1;
 }

@@ -3,75 +3,75 @@
 #include "Graphics/Vector.h"
 #include "std_library_functions.h"
 
-extern "C" void* func_02012fe4(void* self);
-extern "C" unsigned char* func_020177a8(unsigned char* p, int i);
+extern "C" void* func_02012fe4(void* arg0);
+extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
 
-struct Header02193290 {
-    unsigned char data[0xc0];
+struct Struct_ov017_021d6318 {
+    unsigned char unknown_0_[0xc0];
 };
 
-extern Header02193290 data_ov017_021d6318;
+extern Struct_ov017_021d6318 data_ov017_021d6318;
 
-struct Params02193290 {
-    Header02193290 header;
-    unsigned char pad_c0[0x900 - 0xc0];
-    int field900;
-    int field904;
-    Vector3i position;
-    int field914;
-    int field918;
-    unsigned char pad_91c[0x980 - 0x91c];
+struct Struct_ov017_02193290 {
+    Struct_ov017_021d6318 unknown_0_;
+    unsigned char unknown_c0_[0x900 - 0xc0];
+    int unknown_900_;
+    int unknown_904_;
+    Vector3i unknown_908_;
+    int unknown_914_;
+    int unknown_918_;
+    unsigned char unknown_91c_[0x980 - 0x91c];
 };
 
-struct Element02193290 {
-    Vector3i position;
-    short fieldC;
+struct Struct_ov017_02193290_2 {
+    Vector3i unknown_0_;
+    short unknown_c_;
 };
 
-struct Owner02193290 {
+struct Struct_ov017_02193290_3 {
 #if defined(jpn)
-    unsigned char pad[0x497];
+    unsigned char unknown_0_[0x497];
 #else
-    unsigned char pad[0x477];
+    unsigned char unknown1_0_[0x477];
 #endif
-    unsigned char count;
+    unsigned char unknown_477_;
 };
 
-extern "C" int func_ov017_02192b48(Params02193290* params, int a, int b, int c, int d, int e, Vector3i* pos, int f, int g, int h, int* out, int i, int index, int j);
+extern "C" int func_ov017_02192b48(Struct_ov017_02193290* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, Vector3i* arg6, int arg7, int arg8, int arg9, int* arg10, int arg11, int arg12, int arg13);
 
-static inline fix32_t Square(fix32_t x) {
-    return FIX32_MULTIPLY(x, x);
+static inline fix32_t inline_ov000_0216f3d4(fix32_t arg0) {
+    return FIX32_MULTIPLY(arg0, arg0);
 }
 
 // USA: func_ov017_02193290
-extern "C" ARM int func_ov017_02193290(int a, int b, int c, Vector3i* pos, int d, int e, int f) {
-    Owner02193290* owner = (Owner02193290*)func_02012fe4(GameState::GetInstance());
-    int total = 0;
-    for (int i = 0; i < owner->count; i++) {
-        Element02193290* elem = (Element02193290*)func_020177a8((unsigned char*)owner, i);
-        if (elem == NULL) {
+extern "C" ARM int func_ov017_02193290(int arg0, int arg1, int arg2, Vector3i* arg3, int arg4, int arg5, int arg6) {
+    Struct_ov017_02193290_3* var0 = (Struct_ov017_02193290_3*)func_02012fe4(GameState::GetInstance());
+    int var1 = 0;
+    for (int var2 = 0; var2 < var0->unknown_477_; var2++) {
+        Struct_ov017_02193290_2* var3 = (Struct_ov017_02193290_2*)func_020177a8((unsigned char*)var0, var2);
+        if (var3 == NULL) {
             continue;
         }
-        Vector3i delta = *pos;
-        Vector3i elemPos = elem->position;
-        if (fix32abs(delta.y - elemPos.y) > 0x1000) {
+        Vector3i var4 = *arg3;
+        Vector3i var5 = var3->unknown_0_;
+        if (fix32abs(var4.y - var5.y) > 0x1000) {
             continue;
         }
-        delta.y = 0;
-        elemPos.y = 0;
-        Vector3fix_Subtract(&delta, &elemPos, &delta);
-        if (Square(delta.x) + Square(delta.z) > 0x1000) {
+        var4.y = 0;
+        var5.y = 0;
+        Vector3fix_Subtract(&var4, &var5, &var4);
+        if (inline_ov000_0216f3d4(var4.x) + inline_ov000_0216f3d4(var4.z) > 0x1000) {
             continue;
         }
-        Params02193290 params;
-        memset(&params, 0, sizeof(params));
-        memcpy(&params.header, &data_ov017_021d6318, sizeof(Header02193290));
-        params.field900 = 8;
-        params.field904 = 1;
-        params.position = elem->position;
-        params.field918 = elem->fieldC;
-        int result = 0;
-        total += func_ov017_02192b48(&params, a, 8, b, 1, c, pos, d, e, 1, &result, 0, i, f);
+        Struct_ov017_02193290 var6;
+        memset(&var6, 0, sizeof(var6));
+        memcpy(&var6.unknown_0_, &data_ov017_021d6318, sizeof(Struct_ov017_021d6318));
+        var6.unknown_900_ = 8;
+        var6.unknown_904_ = 1;
+        var6.unknown_908_ = var3->unknown_0_;
+        var6.unknown_918_ = var3->unknown_c_;
+        int var7 = 0;
+        var1 += func_ov017_02192b48(&var6, arg0, 8, arg1, 1, arg2, arg3, arg4, arg5, 1, &var7, 0, var2, arg6);
     }
-    return total;
+    return var1;
 }

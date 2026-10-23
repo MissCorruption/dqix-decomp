@@ -2,47 +2,47 @@
 #include "NitroSDK/Filesystem/FileAccessor.h"
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 
-struct Holder020bd110
+struct Struct_0203a974
 {
-    char _pad0[0x30];
-    int flag30;
-    NitroVM vm34;
-    NitroFileAccessor accessor7c;
-    void* list84;
-    unsigned int f88;
-    void* f8c;
-    unsigned int f90;
+    char unknown_0_[0x30];
+    int unknown_30_;
+    NitroVM unknown_34_;
+    NitroFileAccessor unknown_7c_;
+    void* unknown_84_;
+    unsigned int unknown_88_;
+    void* unknown_8c_;
+    unsigned int unknown_90_;
 };
 
-extern struct Holder020bd110* data_02110370;
-extern "C" int func_020bd190(struct Holder020bd110* obj, int arg2, int arg3);
+extern struct Struct_0203a974* data_02110370;
+extern "C" int func_020bd190(struct Struct_0203a974* arg0, int arg1, int arg2);
 
 // USA: func_020bd110
-extern "C" ARM int func_020bd110(struct Holder020bd110* obj, const char* path, int arg2, int arg3)
+extern "C" ARM int func_020bd110(struct Struct_0203a974* arg0, const char* arg1, int arg2, int arg3)
 {
-    obj->f8c = 0;
-    obj->list84 = 0;
-    obj->f88 = 0;
-    obj->f90 = 0;
+    arg0->unknown_8c_ = 0;
+    arg0->unknown_84_ = 0;
+    arg0->unknown_88_ = 0;
+    arg0->unknown_90_ = 0;
 
-    int ok = CreateFileAccessor(&obj->accessor7c, path);
-    if (ok == 0)
-        return ok;
+    int var0 = CreateFileAccessor(&arg0->unknown_7c_, arg1);
+    if (var0 == 0)
+        return var0;
 
-    NitroVM_Initialize(&obj->vm34);
+    NitroVM_Initialize(&arg0->unknown_34_);
 
-    ok = NitroVM_PrepareReadFileByID(&obj->vm34, obj->accessor7c);
-    if (ok == 0)
-        return ok;
+    var0 = NitroVM_PrepareReadFileByID(&arg0->unknown_34_, arg0->unknown_7c_);
+    if (var0 == 0)
+        return var0;
 
-    obj->flag30 = 1;
+    arg0->unknown_30_ = 1;
 
-    int result = func_020bd190(obj, arg2, arg3);
-    if (result != 0)
+    int var1 = func_020bd190(arg0, arg2, arg3);
+    if (var1 != 0)
     {
-        data_02110370 = obj;
+        data_02110370 = arg0;
         return (int)&data_02110370;
     }
 
-    return result;
+    return var1;
 }

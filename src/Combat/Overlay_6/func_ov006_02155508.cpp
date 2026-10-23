@@ -7,48 +7,48 @@
 #endif
 #include "Filesystem/BackgroundLoader.h"
 
-struct ClearTasksAndResetFlags02155508Struct {
-    unsigned char pad0[LOW_REGION(0x34, 0x1b4)];
-    unsigned int field1b4;
-    unsigned int field1b8;
-    unsigned char pad1[0x1c0 - 0x1bc];
-    unsigned int field1c0;
-    unsigned char pad2[0xad4 - 0x1c4];
-    int taskA;
-    int taskB;
-    unsigned char pad3[0xade - 0xadc];
-    unsigned char byteAde;
-    unsigned char byteAdf;
-    unsigned char pad4[0xae2 - 0xae0];
-    unsigned short flags;
+struct Struct_ov006_02155508 {
+    unsigned char unknown_0_[LOW_REGION(0x34, 0x1b4)];
+    unsigned int unknown_1b4_;
+    unsigned int unknown_1b8_;
+    unsigned char unknown_1bc_[0x1c0 - 0x1bc];
+    unsigned int unknown_1c0_;
+    unsigned char unknown_1c4_[0xad4 - 0x1c4];
+    int unknown_ad4_;
+    int unknown_ad8_;
+    unsigned char unknown_adc_[0xade - 0xadc];
+    unsigned char unknown_ade_;
+    unsigned char unknown_adf_;
+    unsigned char unknown_ae0_[0xae2 - 0xae0];
+    unsigned short unknown_ae2_;
 };
 
 // USA: func_ov006_02155508
-extern "C" ARM void func_ov006_02155508(ClearTasksAndResetFlags02155508Struct* s) {
-    if (s->flags & 1)
+extern "C" ARM void func_ov006_02155508(Struct_ov006_02155508* arg0) {
+    if (arg0->unknown_ae2_ & 1)
         return;
 
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
 
-    if (s->taskA >= 0) {
-        loader->RemoveTask(s->taskA);
-        s->taskA = -1;
+    if (arg0->unknown_ad4_ >= 0) {
+        var0->RemoveTask(arg0->unknown_ad4_);
+        arg0->unknown_ad4_ = -1;
     }
-    s->taskA = -1;
+    arg0->unknown_ad4_ = -1;
 
-    s->byteAde = 0;
-    s->flags &= ~2;
+    arg0->unknown_ade_ = 0;
+    arg0->unknown_ae2_ &= ~2;
 
-    if (s->taskB >= 0) {
-        loader->RemoveTask(s->taskB);
-        s->taskB = -1;
+    if (arg0->unknown_ad8_ >= 0) {
+        var0->RemoveTask(arg0->unknown_ad8_);
+        arg0->unknown_ad8_ = -1;
     }
-    s->taskB = -1;
+    arg0->unknown_ad8_ = -1;
 
-    s->byteAdf = 0;
-    s->field1b4 = 0;
-    s->field1b8 = 0;
-    s->field1c0 = 0;
+    arg0->unknown_adf_ = 0;
+    arg0->unknown_1b4_ = 0;
+    arg0->unknown_1b8_ = 0;
+    arg0->unknown_1c0_ = 0;
 
-    s->flags = (s->flags | 1) & ~4;
+    arg0->unknown_ae2_ = (arg0->unknown_ae2_ | 1) & ~4;
 }

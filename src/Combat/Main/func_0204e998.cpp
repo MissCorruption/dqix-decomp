@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct Canvas0204e998 {
-    char pad0[0x9c];        // 0x00
-    int _9c;                // 0x9c
-    unsigned int a0;        // 0xa0
-    char pad_a4[4];         // 0xa4
-    short a8;               // 0xa8 (width)
-    short aa;               // 0xaa (height)
-    char pad_ac[0x19];      // 0xac..0xc4
-    unsigned char c5;       // 0xc5 (flags)
-    char pad_c6[0xe];       // 0xc6..0xd3
-    unsigned short *d4;     // 0xd4 (buffer)
+struct Struct_0204c87c {
+    char unknown_0_[0x9c];        // 0x00
+    int unknown_9c_;                // 0x9c
+    unsigned int unknown_a0_;        // 0xa0
+    char unknown_a4_[4];         // 0xa4
+    short unknown_a8_;               // 0xa8 (width)
+    short unknown_aa_;               // 0xaa (height)
+    char unknown_ac_[0x19];      // 0xac..0xc4
+    unsigned char unknown_c5_;       // 0xc5 (flags)
+    char unknown_c6_[0xe];       // 0xc6..0xd3
+    unsigned short *unknown_d4_;     // 0xd4 (buffer)
 };
 
 // USA: func_0204e998
-extern "C" ARM void func_0204e998(struct Canvas0204e998 *s) {
-    unsigned short v;
-    unsigned short *p;
-    short j, i;
-    if ((s->c5 & 1) && s->d4 != NULL) {
-        p = s->d4;
-        v = s->a0 >> 5;
-        for (j = 0; j < s->aa; j++) {
-            for (i = 0; i < s->a8; i++) {
-                p[i] = v;
-                v++;
+extern "C" ARM void func_0204e998(struct Struct_0204c87c *arg0) {
+    unsigned short var0;
+    unsigned short *var1;
+    short var2, var3;
+    if ((arg0->unknown_c5_ & 1) && arg0->unknown_d4_ != NULL) {
+        var1 = arg0->unknown_d4_;
+        var0 = arg0->unknown_a0_ >> 5;
+        for (var2 = 0; var2 < arg0->unknown_aa_; var2++) {
+            for (var3 = 0; var3 < arg0->unknown_a8_; var3++) {
+                var1[var3] = var0;
+                var0++;
             }
-            p += s->a8;
+            var1 += arg0->unknown_a8_;
         }
-        s->_9c++;
+        arg0->unknown_9c_++;
     }
 }

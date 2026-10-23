@@ -2,49 +2,49 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Script.h"
 
-struct ResetStruct;
+struct Struct_0201f040;
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 
 extern char data_0211e33c[];
 extern int data_020f0cc8;
 
-struct Global02108db0_020727f8 {
-    unsigned char field0;
-    char pad1;
-    unsigned short field2;
-    void* field4;
-    void* field8;
-    int fieldc;
-    void* field10;
+struct Struct_02108db0_3 {
+    unsigned char unknown_0_;
+    char unknown_1_;
+    unsigned short unknown_2_;
+    void* unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
+    void* unknown_10_;
 };
-extern struct Global02108db0_020727f8 data_02108db0;
+extern struct Struct_02108db0_3 data_02108db0;
 
 // USA: func_020727f8
-extern "C" ARM void func_020727f8(void* param0, const char* path, int param2, void* param3, unsigned char stackArg) {
-    unsigned int count;
-    char buf[0x430];
+extern "C" ARM void func_020727f8(void* arg0, const char* arg1, int arg2, void* arg3, unsigned char arg4) {
+    unsigned int var0;
+    char var1[0x430];
 
     BackgroundLoader::AddLockGlobal();
 
-    struct StreamHeader* header = (struct StreamHeader*)LoadFileIntoMemory(path, data_0211e33c, &count);
-    if (header != 0) {
-        data_02108db0.field10 = param0;
-        data_02108db0.fieldc = 0;
-        data_02108db0.field8 = &param2;
-        data_02108db0.field2 = 1;
-        data_02108db0.field4 = param3;
-        data_02108db0.field0 = stackArg;
+    struct Struct_02013fb4* var2 = (struct Struct_02013fb4*)LoadFileIntoMemory(arg1, data_0211e33c, &var0);
+    if (var2 != 0) {
+        data_02108db0.unknown_10_ = arg0;
+        data_02108db0.unknown_c_ = 0;
+        data_02108db0.unknown_8_ = &arg2;
+        data_02108db0.unknown_2_ = 1;
+        data_02108db0.unknown_4_ = arg3;
+        data_02108db0.unknown_0_ = arg4;
 
-        ((Script*)((struct ResetStruct*)buf))->Initialize();
-        ((Script*)buf)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0cc8);
-        ((Script*)((struct StreamState*)buf))->Load(header, count);
-        ((Script*)((struct Struct02030774*)buf))->Execute();
+        ((Script*)((struct Struct_0201f040*)var1))->Initialize();
+        ((Script*)var1)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0cc8);
+        ((Script*)((struct Struct_0201f040_2*)var1))->Load(var2, var0);
+        ((Script*)((struct Struct_0201f040_3*)var1))->Execute();
     }
     BackgroundLoader::RemoveLockGlobal();
 }

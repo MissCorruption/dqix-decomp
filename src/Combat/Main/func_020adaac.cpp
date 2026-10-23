@@ -4,115 +4,115 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
-struct Fields020407b4;
-struct Obj02033874;
-struct ShortField0x22e_020968c4;
-struct Obj020968d0 {
-    char pad_00[0x224];
-    unsigned char active;
+struct Struct_02040774_2;
+struct Struct_02033834;
+struct Struct_02038138;
+struct Struct_020968d0 {
+    char unknown_0_[0x224];
+    unsigned char unknown_224_;
 };
-struct SteeringObject {
-    char pad_00[0x44];
-    Vector3i position;
-    char pad_50[4];
-    int heading;
-    char pad_58[0x5a];
-    short speed1;
-    short speed2;
-    char pad_b6[0x7e];
-    int mode;
-    char pad_138[0xc];
-    int speed;
-    int turnSpeed;
-    char pad_14c[0x18];
-    Vector3i vector164;
-    char pad_170[4];
-    Vector3i vector174;
-    char pad_180[0x1c];
-    unsigned char enabled;
-    char pad_19d[3];
-    unsigned char direction;
+struct Struct_020adaac {
+    char unknown_0_[0x44];
+    Vector3i unknown_44_;
+    char unknown_50_[4];
+    int unknown_54_;
+    char unknown_58_[0x5a];
+    short unknown_b2_;
+    short unknown_b4_;
+    char unknown_b6_[0x7e];
+    int unknown_134_;
+    char unknown_138_[0xc];
+    int unknown_144_;
+    int unknown_148_;
+    char unknown_14c_[0x18];
+    Vector3i unknown_164_;
+    char unknown_170_[4];
+    Vector3i unknown_174_;
+    char unknown_180_[0x1c];
+    unsigned char unknown_19c_;
+    char unknown_19d_[3];
+    unsigned char unknown_1a0_;
 };
 extern "C" void* func_020100bc(GameState*);
 extern "C" void func_02012fe4();
-extern "C" void func_020407b4(Fields020407b4*, int, int, int);
+extern "C" void func_020407b4(Struct_02040774_2*, int, int, int);
 extern "C" void* func_ov017_0218d268(void*);
 extern "C" int func_0202e7f0(void*);
-extern "C" int func_020968c4(ShortField0x22e_020968c4*);
+extern "C" int func_020968c4(Struct_02038138*);
 int fix32ReduceAngle0To2Pi(int);
 int fix32SignedAngleDistance(int, int);
-extern "C" int func_020968d0(Obj020968d0*, int*);
-extern "C" void func_02033874(Obj02033874*, int);
+extern "C" int func_020968d0(Struct_020968d0*, int*);
+extern "C" void func_02033874(Struct_02033834*, int);
 extern const int data_020e9118[8];
 
 // USA: func_020adaac
-extern "C" ARM void func_020adaac(SteeringObject* self) {
-    void* camera = func_020100bc(GameState::GetInstance());
-    void* manager = GetGameResources();
-    int targetHeading;
+extern "C" ARM void func_020adaac(Struct_020adaac* arg0) {
+    void* var0 = func_020100bc(GameState::GetInstance());
+    void* var1 = GetGameResources();
+    int var2;
     func_02012fe4();
-    func_020407b4((Fields020407b4*)self, self->position.x, 0xa000, self->position.z);
-    Vector3i first = self->vector164;
-    first.y = 0xa000;
-    self->vector164 = first;
-    Vector3i second = self->vector174;
-    second.y = 0xa000;
-    self->vector174 = second;
-    self->mode = 0;
+    func_020407b4((Struct_02040774_2*)arg0, arg0->unknown_44_.x, 0xa000, arg0->unknown_44_.z);
+    Vector3i var3 = arg0->unknown_164_;
+    var3.y = 0xa000;
+    arg0->unknown_164_ = var3;
+    Vector3i var4 = arg0->unknown_174_;
+    var4.y = 0xa000;
+    arg0->unknown_174_ = var4;
+    arg0->unknown_134_ = 0;
     if (g_keyManager.IsUpHeld() && g_keyManager.IsLeftHeld()) {
-        self->mode = 1;
-        self->direction = 12;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 12;
     } else if (g_keyManager.IsUpHeld() && g_keyManager.IsRightHeld()) {
-        self->mode = 1;
-        self->direction = 13;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 13;
     } else if (g_keyManager.IsDownHeld() && g_keyManager.IsLeftHeld()) {
-        self->mode = 1;
-        self->direction = 14;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 14;
     } else if (g_keyManager.IsDownHeld() && g_keyManager.IsRightHeld()) {
-        self->mode = 1;
-        self->direction = 15;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 15;
     } else if (g_keyManager.IsUpHeld()) {
-        self->mode = 1;
-        self->direction = 8;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 8;
     } else if (g_keyManager.IsDownHeld()) {
-        self->mode = 1;
-        self->direction = 9;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 9;
     } else if (g_keyManager.IsLeftHeld()) {
-        self->mode = 1;
-        self->direction = 10;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 10;
     } else if (g_keyManager.IsRightHeld()) {
-        self->mode = 1;
-        self->direction = 11;
+        arg0->unknown_134_ = 1;
+        arg0->unknown_1a0_ = 11;
     }
-    if (g_touchInput.timeHeld_ > 5) self->mode = 2;
-    if (!self->enabled) {
-        self->mode = 0;
+    if (g_touchInput.timeHeld_ > 5) arg0->unknown_134_ = 2;
+    if (!arg0->unknown_19c_) {
+        arg0->unknown_134_ = 0;
         return;
     }
-    if (self->mode == 1 || self->mode == 2) {
-        Obj020968d0* target = (Obj020968d0*)func_ov017_0218d268(manager);
-        if (self->mode == 1) {
-            int offset = data_020e9118[self->direction - 8];
-            targetHeading = offset + func_0202e7f0(camera);
-        } else if (target->active) {
-            targetHeading = func_020968c4((ShortField0x22e_020968c4*)target);
+    if (arg0->unknown_134_ == 1 || arg0->unknown_134_ == 2) {
+        Struct_020968d0* var5 = (Struct_020968d0*)func_ov017_0218d268(var1);
+        if (arg0->unknown_134_ == 1) {
+            int var6 = data_020e9118[arg0->unknown_1a0_ - 8];
+            var2 = var6 + func_0202e7f0(var0);
+        } else if (var5->unknown_224_) {
+            var2 = func_020968c4((Struct_02038138*)var5);
         }
-        int heading = self->heading;
-        targetHeading = fix32ReduceAngle0To2Pi(targetHeading);
-        heading = fix32ReduceAngle0To2Pi(heading);
-        int turnSpeed = self->turnSpeed;
-        int distance = fix32SignedAngleDistance(heading, targetHeading);
-        if (distance > 0) {
-            if (distance < turnSpeed) heading = targetHeading;
-            else heading += turnSpeed;
-        } else if (distance < 0) {
-            if (-distance < turnSpeed) heading = targetHeading;
-            else heading -= turnSpeed;
+        int var7 = arg0->unknown_54_;
+        var2 = fix32ReduceAngle0To2Pi(var2);
+        var7 = fix32ReduceAngle0To2Pi(var7);
+        int var8 = arg0->unknown_148_;
+        int var9 = fix32SignedAngleDistance(var7, var2);
+        if (var9 > 0) {
+            if (var9 < var8) var7 = var2;
+            else var7 += var8;
+        } else if (var9 < 0) {
+            if (-var9 < var8) var7 = var2;
+            else var7 -= var8;
         }
-        heading = fix32ReduceAngle0To2Pi(heading);
-        if (func_020968d0(target, 0) || !target->active)
-            func_02033874((Obj02033874*)self, heading);
+        var7 = fix32ReduceAngle0To2Pi(var7);
+        if (func_020968d0(var5, 0) || !var5->unknown_224_)
+            func_02033874((Struct_02033834*)arg0, var7);
     }
-    self->speed1 = self->speed;
-    self->speed2 = self->speed;
+    arg0->unknown_b2_ = arg0->unknown_144_;
+    arg0->unknown_b4_ = arg0->unknown_144_;
 }

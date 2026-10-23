@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
-struct StatusTextRows021dceac {
+struct Struct_ov023_021dceac {
 #if defined(jpn)
-    char padding[0x700];
+    char unknown1_0_[0x700];
 #else
-    char padding[0x784];
+    char unknown_0_[0x784];
 #endif
-    const char* names[3];
-    unsigned char quantities[3];
-    unsigned char limits[3];
-    unsigned char costs[3];
+    const char* unknown_784_[3];
+    unsigned char unknown_790_[3];
+    unsigned char unknown_793_[3];
+    unsigned char unknown_796_[3];
 };
 
 // USA: func_ov023_021dceac
-extern "C" ARM void func_ov023_021dceac(char* obj, int idx, int val, unsigned char b1, unsigned char b2, unsigned char b3) {
-    StatusTextRows021dceac* rows = (StatusTextRows021dceac*)obj;
-    rows->names[idx] = (const char*)val;
-    rows->quantities[idx] = b1;
-    rows->limits[idx] = b2;
-    rows->costs[idx] = b3;
+extern "C" ARM void func_ov023_021dceac(char* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5) {
+    Struct_ov023_021dceac* var0 = (Struct_ov023_021dceac*)arg0;
+    var0->unknown_784_[arg1] = (const char*)arg2;
+    var0->unknown_790_[arg1] = arg3;
+    var0->unknown_793_[arg1] = arg4;
+    var0->unknown_796_[arg1] = arg5;
 }

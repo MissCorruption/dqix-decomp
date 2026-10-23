@@ -2,93 +2,93 @@
 #include <NitroSDK/Memory/SignedAllocator.h>
 #include <NitroSDK/Interrupts.h>
 
-struct Foo020bcbc4;
+struct Struct_020bc9d0;
 
-extern "C" void func_020bcbc4(Foo020bcbc4* stream);
+extern "C" void func_020bcbc4(Struct_020bc9d0* arg0);
 extern "C" int func_020bbeb0();
-extern "C" void func_020d2038(int channelNo, int format, int buffer, int loop, int loopStart, int length, int volume,
-                   int shift, int timer, int pan);
-extern "C" void func_020d1f70(int alarmNo, int tick, int period, int callback, int arg);
-extern "C" void func_020bcd20(void* arg);
-extern "C" void func_020bcd30(void* stream, int status);
+extern "C" void func_020d2038(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6,
+                   int arg7, int arg8, int arg9);
+extern "C" void func_020d1f70(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_020bcd20(void* arg0);
+extern "C" void func_020bcd30(void* arg0, int arg1);
 
-struct StreamChannel020bc9d0 {
-    void* buffer;
-    int volume;
+struct Struct_0210fcf4 {
+    void* unknown_0_;
+    int unknown_4_;
 };
 
-struct SoundStream020bc9d0 {
-    char link[8];
-    char preSleepInfo[0xc];
-    char postSleepInfo[0xc];
-    int format;
-    int activeFlag : 1;
-    int startFlag : 1;
-    unsigned long chBufLen;
-    int interval;
-    void* callback;
-    void* callbackArg;
-    int curBuffer;
-    int volume;
-    int alarmNo;
-    unsigned long chBitMask;
-    int numChannels;
-    unsigned char channelNo[16];
+struct Struct_020bc9d0_2 {
+    char unknown_0_[8];
+    char unknown_8_[0xc];
+    char unknown_14_[0xc];
+    int unknown_20_;
+    int unknown_24_0_ : 1;
+    int unknown_24_1_ : 1;
+    unsigned long unknown_28_;
+    int unknown_2c_;
+    void* unknown_30_;
+    void* unknown_34_;
+    int unknown_38_;
+    int unknown_3c_;
+    int unknown_40_;
+    unsigned long unknown_44_;
+    int unknown_48_;
+    unsigned char unknown_4c_[16];
 };
 
-extern StreamChannel020bc9d0 data_0210fcf4[16];
+extern Struct_0210fcf4 data_0210fcf4[16];
 extern SignedAllocatorList data_0210fca8;
 
 // USA: func_020bc9d0
-extern "C" ARM int func_020bc9d0(SoundStream020bc9d0* stream, int format, void* buffer, unsigned long bufferSize,
-                                 int timer, int interval, void* callback, void* arg) {
-    StreamChannel020bc9d0* channel;
-    unsigned int samples;
-    unsigned int alarmTimer;
-    int channelNo;
-    int index;
+extern "C" ARM int func_020bc9d0(Struct_020bc9d0_2* arg0, int arg1, void* arg2, unsigned long arg3,
+                                 int arg4, int arg5, void* arg6, void* arg7) {
+    Struct_0210fcf4* var0;
+    unsigned int var1;
+    unsigned int var2;
+    int var3;
+    int var4;
 
-    if (stream->activeFlag)
-        func_020bcbc4((Foo020bcbc4*)stream);
+    if (arg0->unknown_24_0_)
+        func_020bcbc4((Struct_020bc9d0*)arg0);
 
-    bufferSize /= 32 * interval * stream->numChannels;
-    stream->chBufLen = bufferSize * interval * 32;
+    arg3 /= 32 * arg5 * arg0->unknown_48_;
+    arg0->unknown_28_ = arg3 * arg5 * 32;
 
-    samples = stream->chBufLen;
-    if (format == 1)
-        samples >>= 1;
-    alarmTimer = timer * samples / interval;
+    var1 = arg0->unknown_28_;
+    if (arg1 == 1)
+        var1 >>= 1;
+    var2 = arg4 * var1 / arg5;
 
-    stream->alarmNo = func_020bbeb0();
-    if (stream->alarmNo < 0)
+    arg0->unknown_40_ = func_020bbeb0();
+    if (arg0->unknown_40_ < 0)
         return 0;
 
-    for (index = 0; index < stream->numChannels; index++) {
-        channelNo = stream->channelNo[index];
-        channel = &data_0210fcf4[channelNo];
-        channel->buffer = (unsigned char*)buffer + stream->chBufLen * index;
-        channel->volume = 0;
-        func_020d2038(channelNo, format, (int)channel->buffer, 1, 0, (int)(stream->chBufLen >> 2), 127, 0,
-                      timer << 5, 64);
+    for (var4 = 0; var4 < arg0->unknown_48_; var4++) {
+        var3 = arg0->unknown_4c_[var4];
+        var0 = &data_0210fcf4[var3];
+        var0->unknown_0_ = (unsigned char*)arg2 + arg0->unknown_28_ * var4;
+        var0->unknown_4_ = 0;
+        func_020d2038(var3, arg1, (int)var0->unknown_0_, 1, 0, (int)(arg0->unknown_28_ >> 2), 127, 0,
+                      arg4 << 5, 64);
     }
 
-    func_020d1f70(stream->alarmNo, alarmTimer, alarmTimer, (int)func_020bcd20, (int)stream);
-    data_0210fca8.InsertAtEnd((SignedAllocatorHeader*)stream);
+    func_020d1f70(arg0->unknown_40_, var2, var2, (int)func_020bcd20, (int)arg0);
+    data_0210fca8.InsertAtEnd((SignedAllocatorHeader*)arg0);
 
-    stream->format = format;
-    stream->interval = interval;
-    stream->callback = callback;
-    stream->callbackArg = arg;
-    stream->curBuffer = 0;
-    stream->volume = 0;
-    stream->activeFlag = 1;
+    arg0->unknown_20_ = arg1;
+    arg0->unknown_2c_ = arg5;
+    arg0->unknown_30_ = arg6;
+    arg0->unknown_34_ = arg7;
+    arg0->unknown_38_ = 0;
+    arg0->unknown_3c_ = 0;
+    arg0->unknown_24_0_ = 1;
 
     {
-        int oldState = DisableIRQInterrupts();
-        stream->interval = 1;
-        func_020bcd30(stream, 0);
-        stream->interval = interval;
-        SetIRQInterruptState(oldState);
+        int var5 = DisableIRQInterrupts();
+        arg0->unknown_2c_ = 1;
+        func_020bcd30(arg0, 0);
+        arg0->unknown_2c_ = arg5;
+        SetIRQInterruptState(var5);
     }
     return 1;
 }

@@ -10,28 +10,28 @@
 #define RG(u, j) (u)
 #endif
 
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
 
-struct UnkStruct0205c508;
-extern "C" void func_0205c508(struct UnkStruct0205c508* s, int* out1, int* out2);
+struct Struct_0205c508;
+extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
 
-extern "C" void func_ov002_0215ece4(void* base, char* dst, int c, int productB, int clampedSum);
+extern "C" void func_ov002_0215ece4(void* arg0, char* arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov002_0215ec4c
-extern "C" ARM void func_ov002_0215ec4c(void* base, char* dst, int flag) {
-    int productB;
-    int clampedSum;
-    if (dst == 0) {
+extern "C" ARM void func_ov002_0215ec4c(void* arg0, char* arg1, int arg2) {
+    int var0;
+    int var1;
+    if (arg1 == 0) {
         return;
     }
-    int cursor = *(short*)((char*)base + RG(0x1bfa, 0x1ac2)) % 8;
-    if (flag) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    int var2 = *(short*)((char*)arg0 + RG(0x1bfa, 0x1ac2)) % 8;
+    if (arg2) {
+        func_02041c08(arg1, var2, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
-    void* mid = (void*)((char*)base + RG(0x2c8 + 0xc00, 0xe20));
-    func_0205c508((struct UnkStruct0205c508*)((unsigned char*)mid + 0x54), &productB, &clampedSum);
-    int c = *(signed char*)((char*)base + RG(0x1c20, 0x1ae8));
-    func_ov002_0215ece4(base, dst, c, productB, clampedSum);
+    func_02041ea4(arg1, var2);
+    void* var3 = (void*)((char*)arg0 + RG(0x2c8 + 0xc00, 0xe20));
+    func_0205c508((struct Struct_0205c508*)((unsigned char*)var3 + 0x54), &var0, &var1);
+    int var4 = *(signed char*)((char*)arg0 + RG(0x1c20, 0x1ae8));
+    func_ov002_0215ece4(arg0, arg1, var4, var0, var1);
 }

@@ -8,61 +8,61 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct TaggedNumber02184c30 {
-    int type;
-    union { int i; float f; } value;
+struct Struct_ov011_02184c30 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct TaggedInput02188184 {
-    TaggedNumber02184c30 a;
-    TaggedNumber02184c30 b;
-    TaggedNumber02184c30 c;
-    TaggedNumber02184c30 d;
-    TaggedNumber02184c30 e;
-    TaggedNumber02184c30 f;
-    TaggedNumber02184c30 g;
+struct Struct_ov011_02188184_2 {
+    Struct_ov011_02184c30 unknown_0_;
+    Struct_ov011_02184c30 unknown_8_;
+    Struct_ov011_02184c30 unknown_10_;
+    Struct_ov011_02184c30 unknown_18_;
+    Struct_ov011_02184c30 unknown_20_;
+    Struct_ov011_02184c30 unknown_28_;
+    Struct_ov011_02184c30 unknown_30_;
 };
 
-extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 extern "C" ARM void* func_ov017_021b2164(void);
-extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
-extern "C" ARM void* func_ov011_021849c8(void* ctx);
+extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
+extern "C" ARM void* func_ov011_021849c8(void* arg0);
 
-struct Obj_021fd320;
-extern "C" ARM int func_ov023_021fd320(struct Obj_021fd320* obj, int unused, int val, int byteVal, int p5, int p6, int p7, int p8, int p9);
+struct Struct_ov011_02188184_3;
+extern "C" ARM int func_ov023_021fd320(struct Struct_ov011_02188184_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
 
-struct ListHead_021f67ac;
-struct ListNode_021f67ac;
-extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+struct Struct_ov004_0215c30c;
+struct Struct_ov004_0215c30c_2;
+extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
 
 extern int data_ov024_021ff8c8;
 
-struct Buf02188184 { void* vtable; char pad[0x30 - 4]; };
+struct Struct_ov011_02188184 { void* unknown_0_; char unknown_4_[0x30 - 4]; };
 
 // USA: func_ov011_02188184
-extern "C" ARM int func_ov011_02188184(struct TaggedInput02188184* obj) {
-    int tag0 = func_ov011_02184c30(&obj->a);
-    int tag8 = func_ov011_02184c30(&obj->b);
-    int tag10 = func_ov011_02184c30(&obj->c);
-    int tag18 = func_ov011_02184c30(&obj->d);
-    int tag20 = func_ov011_02184c30(&obj->e);
-    int tag28 = func_ov011_02184c30(&obj->f);
-    int tag30 = func_ov011_02184c30(&obj->g);
+extern "C" ARM int func_ov011_02188184(struct Struct_ov011_02188184_2* arg0) {
+    int var0 = func_ov011_02184c30(&arg0->unknown_0_);
+    int var1 = func_ov011_02184c30(&arg0->unknown_8_);
+    int var2 = func_ov011_02184c30(&arg0->unknown_10_);
+    int var3 = func_ov011_02184c30(&arg0->unknown_18_);
+    int var4 = func_ov011_02184c30(&arg0->unknown_20_);
+    int var5 = func_ov011_02184c30(&arg0->unknown_28_);
+    int var6 = func_ov011_02184c30(&arg0->unknown_30_);
 
-    void* ctx = func_ov017_021b2164();
-    void* node = func_ov011_021845f8(ctx, tag8);
-    if (node == 0) return 0;
+    void* var7 = func_ov017_021b2164();
+    void* var8 = func_ov011_021845f8(var7, var1);
+    if (var8 == 0) return 0;
 
-    ((SafeAllocator*)((char*)node + 4))->GetSizeWithLargestBlockRemoved();
-    void* block = ((SafeAllocator*)((char*)node + 4))->Allocate(0x30);
-    if (block == 0) return 0;
+    ((SafeAllocator*)((char*)var8 + 4))->GetSizeWithLargestBlockRemoved();
+    void* var9 = ((SafeAllocator*)((char*)var8 + 4))->Allocate(0x30);
+    if (var9 == 0) return 0;
 
-    struct Buf02188184 local;
-    local.vtable = &data_ov024_021ff8c8;
-    memcpy(block, &local, sizeof(Buf02188184));
+    struct Struct_ov011_02188184 var10;
+    var10.unknown_0_ = &data_ov024_021ff8c8;
+    memcpy(var9, &var10, sizeof(Struct_ov011_02188184));
 
-    if (func_ov023_021fd320((struct Obj_021fd320*)block, (int)ctx, tag0, tag8, tag10, tag18, tag20, tag28, tag30) == 0) return 0;
+    if (func_ov023_021fd320((struct Struct_ov011_02188184_3*)var9, (int)var7, var0, var1, var2, var3, var4, var5, var6) == 0) return 0;
 
-    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(ctx), (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(var7), (struct Struct_ov004_0215c30c_2*)var9);
     return 1;
 }

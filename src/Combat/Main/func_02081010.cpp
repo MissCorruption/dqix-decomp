@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct List0207f6ac;
-struct TableA68;
+struct Struct_0207f524;
+struct Struct_02072a68_2;
 
-struct Entry02081010 {
-    char pad[0xe];
-    short key;
+struct Struct_02081010 {
+    char unknown_0_[0xe];
+    short unknown_e_;
 };
 
-extern "C" struct Entry02081010* func_0207f6ac(struct List0207f6ac* list, int id);
-extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" struct Struct_02081010* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 
 // USA: func_02081010
-extern "C" ARM void* func_02081010(void* obj, int id) {
-    struct Entry02081010* e = func_0207f6ac((struct List0207f6ac*)((char*)obj + 0x4), id);
-    if (e == NULL) {
+extern "C" ARM void* func_02081010(void* arg0, int arg1) {
+    struct Struct_02081010* var0 = func_0207f6ac((struct Struct_0207f524*)((char*)arg0 + 0x4), arg1);
+    if (var0 == NULL) {
         return NULL;
     }
-    return func_02072a68(*(struct TableA68**)obj, e->key);
+    return func_02072a68(*(struct Struct_02072a68_2**)arg0, var0->unknown_e_);
 }

@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-struct Entry02207c30 {
-	char pad[0x5a];
-	unsigned char field5a;
-	char pad2[0x5c - 0x5b];
+struct Struct_ov031_0224e3b8_4 {
+	char unknown_0_[0x5a];
+	unsigned char unknown_5a_;
+	char unknown_5b_[0x5c - 0x5b];
 };
 
-extern Entry02207c30 data_ov031_0224e3b8[4];
+extern Struct_ov031_0224e3b8_4 data_ov031_0224e3b8[4];
 
-extern "C" int func_02001aec(void* entry, void* arg1, int arg2);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov031_02207c30
-extern "C" ARM void func_ov031_02207c30(void* obj) {
-	int i;
-	int oldIRQ;
-	Entry02207c30* entry;
-	oldIRQ = DisableIRQInterrupts();
-	entry = data_ov031_0224e3b8;
-	i = 0;
+extern "C" ARM void func_ov031_02207c30(void* arg0) {
+	int var0;
+	int var1;
+	Struct_ov031_0224e3b8_4* var2;
+	var1 = DisableIRQInterrupts();
+	var2 = data_ov031_0224e3b8;
+	var0 = 0;
 	do {
-		if (entry->field5a != 0) {
-			if (func_02001aec(entry, (char*)obj + 0x74, 0x20) == 0) {
-				entry->field5a = 0;
+		if (var2->unknown_5a_ != 0) {
+			if (func_02001aec(var2, (char*)arg0 + 0x74, 0x20) == 0) {
+				var2->unknown_5a_ = 0;
 				break;
 			}
 		}
-		i++;
-		entry++;
-	} while (i < 4);
-	SetIRQInterruptState(oldIRQ);
+		var0++;
+		var2++;
+	} while (var0 < 4);
+	SetIRQInterruptState(var1);
 }

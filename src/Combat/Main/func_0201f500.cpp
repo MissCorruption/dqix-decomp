@@ -2,22 +2,22 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
-struct Struct020277c4;
-extern "C" void func_020277c4(Struct020277c4* obj, int count, SafeAllocator* alloc);
+struct Struct_0201c1c8;
+struct Struct_0201f500;
+extern "C" void func_020277c4(Struct_0201f500* arg0, int arg1, SafeAllocator* arg2);
 extern int data_020fdc4c;
 
 // USA: func_0201f500
-extern "C" ARM int func_0201f500(Variant02030b0c* arg) {
+extern "C" ARM int func_0201f500(Struct_0201c1c8* arg0) {
 #if defined(jpn)
-    enum { regionalOffset0 = 0xc, regionalOffset1 = 0x4 };
+    enum { Enum_0201f500_16 = 0xc, Enum_0201f500_8 = 0x4 };
 #else
-    enum { regionalOffset0 = 0x10, regionalOffset1 = 0x8 };
+    enum { Enum_0201f500_16 = 0x10, Enum_0201f500_8 = 0x8 };
 #endif
-    int count = ((Script::Parameter*)arg)->ToInt();
+    int var0 = ((Script::Parameter*)arg0)->ToInt();
     func_020277c4(
-        (Struct020277c4*)*(char**)((char*)&data_020fdc4c + regionalOffset0),
-        count,
-        (SafeAllocator*)*(char**)((char*)&data_020fdc4c + regionalOffset1));
+        (Struct_0201f500*)*(char**)((char*)&data_020fdc4c + Enum_0201f500_16),
+        var0,
+        (SafeAllocator*)*(char**)((char*)&data_020fdc4c + Enum_0201f500_8));
     return 1;
 }

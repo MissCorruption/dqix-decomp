@@ -2,62 +2,62 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-struct Move_021e07b0 {
-    int w0;
-    unsigned int id : 12;
-    unsigned int pad4 : 20;
-    char pad8[0x1c];
-    unsigned int f24a : 10;
-    unsigned int f24b : 10;
-    unsigned int messageId : 10;
-    unsigned int f24hi : 2;
+struct Struct_ov024_021e07b0 {
+    int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 20;
+    char unknown_8_[0x1c];
+    unsigned int unknown_24_0_ : 10;
+    unsigned int unknown_25_2_ : 10;
+    unsigned int unknown_26_4_ : 10;
+    unsigned int unknown_27_6_ : 2;
 };
 
-struct Flag_021e07b0 { unsigned char pad : 7; unsigned char flag : 1; };
-struct Obj_021e07b0 { char pad0[0xc]; void* field0xc; void* field0x10; };
+struct Struct_ov024_021e07b0_2 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
+struct Struct_ov024_021e07b0_3 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; };
 
-extern "C" unsigned long long func_ov024_021e4b14(struct Obj_021e07b0* obj, int slot, int id, struct Move_021e07b0* move, int flag);
-extern "C" void* func_ov000_0215e958(void* a0);
-struct FlagObj_021e05e4;
-extern "C" int func_ov024_021e05e4(struct FlagObj_021e05e4* obj);
-extern "C" void func_020488cc(unsigned char* obj, int value);
-extern "C" void func_02088e64(unsigned char* obj);
-extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
-struct ArrayContainsByteStruct;
-extern "C" int func_02086ef0(struct ArrayContainsByteStruct* s, int val);
-extern "C" void func_ov000_0215a8d4(unsigned char* obj, int amount);
-extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, unsigned long long ef, int g);
+extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021e07b0_3* arg0, int arg1, int arg2, struct Struct_ov024_021e07b0* arg3, int arg4);
+extern "C" void* func_ov000_0215e958(void* arg0);
+struct Struct_ov024_021e04e0;
+extern "C" int func_ov024_021e05e4(struct Struct_ov024_021e04e0* arg0);
+extern "C" void func_020488cc(unsigned char* arg0, int arg1);
+extern "C" void func_02088e64(unsigned char* arg0);
+extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+struct Struct_02048150;
+extern "C" int func_02086ef0(struct Struct_02048150* arg0, int arg1);
+extern "C" void func_ov000_0215a8d4(unsigned char* arg0, int arg1);
+extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
 // USA: func_ov024_021e07b0
-extern "C" ARM void* func_ov024_021e07b0(struct Obj_021e07b0* obj, unsigned char slot, int id, struct Move_021e07b0* move) {
-    GameObject* c = GetCombatantByID((int)obj->field0x10, id);
-    if (!c) return 0;
-    unsigned long long result = func_ov024_021e4b14(obj, slot, id, move, 1);
-    void* entry = func_ov000_0215e958(obj->field0x10);
-    if (!entry) return 0;
-    int added = 0;
-    if (func_ov024_021e05e4((struct FlagObj_021e05e4*)c)) {
-        int isParty = (id >= 0 && id <= 3);
-        if (!isParty) {
-            func_020488cc((unsigned char*)c, 1);
+extern "C" ARM void* func_ov024_021e07b0(struct Struct_ov024_021e07b0_3* arg0, unsigned char arg1, int arg2, struct Struct_ov024_021e07b0* arg3) {
+    GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
+    if (!var0) return 0;
+    unsigned long long var1 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
+    void* var2 = func_ov000_0215e958(arg0->unknown_10_);
+    if (!var2) return 0;
+    int var3 = 0;
+    if (func_ov024_021e05e4((struct Struct_ov024_021e04e0*)var0)) {
+        int var4 = (arg2 >= 0 && arg2 <= 3);
+        if (!var4) {
+            func_020488cc((unsigned char*)var0, 1);
         }
-        func_02088e64((unsigned char*)c->currentStats_);
-        func_ov000_0215a88c(obj->field0x10, entry, 0x164);
-        added = 1;
-        if (func_02086ef0((struct ArrayContainsByteStruct*)func_02010828(GameState::GetInstance()), slot) && move->id == 0xc6) {
-            func_ov000_0215a8d4((unsigned char*)obj->field0x10, added);
+        func_02088e64((unsigned char*)var0->currentStats_);
+        func_ov000_0215a88c(arg0->unknown_10_, var2, 0x164);
+        var3 = 1;
+        if (func_02086ef0((struct Struct_02048150*)func_02010828(GameState::GetInstance()), arg1) && arg3->unknown_4_0_ == 0xc6) {
+            func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, var3);
         }
     }
-    if (result != 0) {
-        if (!added) {
-            func_ov000_0215a88c(obj->field0x10, entry, 0);
+    if (var1 != 0) {
+        if (!var3) {
+            func_ov000_0215a88c(arg0->unknown_10_, var2, 0);
         }
-        added = 1;
+        var3 = 1;
     }
-    if (!added) {
-        func_ov000_0215a88c(obj->field0x10, entry, (unsigned short)move->messageId);
+    if (!var3) {
+        func_ov000_0215a88c(arg0->unknown_10_, var2, (unsigned short)arg3->unknown_26_4_);
     }
-    struct Flag_021e07b0* fl = (struct Flag_021e07b0*)((char*)obj->field0xc + 0x1c);
-    func_ov000_0215cd44(obj->field0x10, entry, c, 0, result, fl->flag != 0);
-    return entry;
+    struct Struct_ov024_021e07b0_2* var5 = (struct Struct_ov024_021e07b0_2*)((char*)arg0->unknown_c_ + 0x1c);
+    func_ov000_0215cd44(arg0->unknown_10_, var2, var0, 0, var1, var5->unknown_0_7_ != 0);
+    return var2;
 }

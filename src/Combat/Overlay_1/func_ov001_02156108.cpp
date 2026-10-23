@@ -4,62 +4,62 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-enum { globalOffset = 0x4c };
+enum { Enum_ov001_02156108_140 = 0x4c };
 #else
-enum { globalOffset = 0x8c };
+enum { Enum_ov001_02156108_140 = 0x8c };
 #endif
 
 extern "C" char* func_020421a0(void);
-extern "C" void func_0208beb4(unsigned char* obj);
-extern "C" void func_0208bb78(void* obj, int count);
-struct StructAllocGroup0208ba54;
-extern "C" void func_0208ba54(struct StructAllocGroup0208ba54*);
-extern "C" int func_ov001_02153948(unsigned short arg);
+extern "C" void func_0208beb4(unsigned char* arg0);
+extern "C" void func_0208bb78(void* arg0, int arg1);
+struct Struct_0208ba54;
+extern "C" void func_0208ba54(struct Struct_0208ba54*);
+extern "C" int func_ov001_02153948(unsigned short arg0);
 
-struct Obj02156108 {
-    char pad0[0xa];
-    unsigned short field0xa;
-    char pad1[0x42];
-    unsigned short field0x4e;
-    unsigned short flags0x50;
+struct Struct_ov001_02156108 {
+    char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    char unknown_c_[0x42];
+    unsigned short unknown_4e_;
+    unsigned short unknown_50_;
 #if defined(jpn)
-    char pad2[0xa8];
+    char unknown_52_[0xa8];
 #else
-    char pad2[0xac];
+    char unknown1_52_[0xac];
 #endif
-    unsigned char field0xfe;
-    char pad3[0x21];
-    void* field0x120;
+    unsigned char unknown_fe_;
+    char unknown_ff_[0x21];
+    void* unknown_120_;
 };
 
 // USA: func_ov001_02156108
-extern "C" ARM int func_ov001_02156108(struct Obj02156108* self) {
-    GameState* battle = GameState::GetInstance();
-    char* g6 = func_020421a0();
-    unsigned int* obj17 = (unsigned int*)((int)GetGameResources());
+extern "C" ARM int func_ov001_02156108(struct Struct_ov001_02156108* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = func_020421a0();
+    unsigned int* var2 = (unsigned int*)((int)GetGameResources());
 
-    if ((self->flags0x50 & 0x2) || (self->flags0x50 & 0x8)) {
-        void* ptr = self->field0x120;
-        if (ptr) {
-            if (*(short*)((char*)ptr + 0xd2) >= 0) {
-                func_0208beb4((unsigned char*)ptr);
-                unsigned int scaleCount = battle->GetTickCount();
-                func_0208bb78(self->field0x120, scaleCount);
-                return self->field0xa;
+    if ((arg0->unknown_50_ & 0x2) || (arg0->unknown_50_ & 0x8)) {
+        void* var3 = arg0->unknown_120_;
+        if (var3) {
+            if (*(short*)((char*)var3 + 0xd2) >= 0) {
+                func_0208beb4((unsigned char*)var3);
+                unsigned int var4 = var0->GetTickCount();
+                func_0208bb78(arg0->unknown_120_, var4);
+                return arg0->unknown_a_;
             }
-            func_0208ba54((struct StructAllocGroup0208ba54*)ptr);
+            func_0208ba54((struct Struct_0208ba54*)var3);
         }
-        *(int*)(g6 + globalOffset) = 0;
-        self->field0x120 = 0;
+        *(int*)(var1 + Enum_ov001_02156108_140) = 0;
+        arg0->unknown_120_ = 0;
     }
 
-    if (TestFlags00((GameResources*)obj17, 0x1000) == 0) {
-        FontBankLoader* val = func_02094a00();
-        func_02094b40(val);
-        func_02094ab0(val);
-        func_02094b34(val, 0x6f, 0x1388, 1, 1);
+    if (TestFlags00((GameResources*)var2, 0x1000) == 0) {
+        Struct_0208cb08* var5 = func_02094a00();
+        func_02094b40(var5);
+        func_02094ab0(var5);
+        func_02094b34(var5, 0x6f, 0x1388, 1, 1);
     }
-    self->field0xfe = 0;
-    func_ov001_02153948(self->field0x4e);
+    arg0->unknown_fe_ = 0;
+    func_ov001_02153948(arg0->unknown_4e_);
     return 0xb;
 }

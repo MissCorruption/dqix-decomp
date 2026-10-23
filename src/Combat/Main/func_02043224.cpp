@@ -5,43 +5,43 @@
 #endif
 
 #if defined(jpn)
-enum { kSubobject = 0x1804, kPointer = 0x1c44, kFirst = 0x800, kSecond = 0x7e4, kFlag = 0x17e1, kIndex = 0x1708, kValue = 0x170c, kResetFlag = 0x17fd, kCount = 0x884, kEntries = 0x888, kFlags = 0x1688, kFirstEntry = 14 };
+enum { Enum_02043224_6624 = 0x1804, Enum_02043224_7712 = 0x1c44, Enum_02043224_2352 = 0x800, Enum_02043224_2324 = 0x7e4, Enum_02043224_6577 = 0x17e1, Enum_02043224_6200 = 0x1708, Enum_02043224_6204 = 0x170c, Enum_02043224_6604 = 0x17fd, Enum_02043224_2484 = 0x884, Enum_02043224_2488 = 0x888, Enum_02043224_6072 = 0x1688, Enum_02043224_0 = 14 };
 #else
-enum { kSubobject = 0x19e0, kPointer = 0x1e20, kFirst = 0x930, kSecond = 0x914, kFlag = 0x19b1, kIndex = 0x1838, kValue = 0x183c, kResetFlag = 0x19cc, kCount = 0x9b4, kEntries = 0x9b8, kFlags = 0x17b8, kFirstEntry = 0 };
+enum { Enum_02043224_6624 = 0x19e0, Enum_02043224_7712 = 0x1e20, Enum_02043224_2352 = 0x930, Enum_02043224_2324 = 0x914, Enum_02043224_6577 = 0x19b1, Enum_02043224_6200 = 0x1838, Enum_02043224_6204 = 0x183c, Enum_02043224_6604 = 0x19cc, Enum_02043224_2484 = 0x9b4, Enum_02043224_2488 = 0x9b8, Enum_02043224_6072 = 0x17b8, Enum_02043224_0 = 0 };
 #endif
 #if defined(jpn)
 #define func_020416c0 func_02041bbc
-extern "C" void func_02041bbc(struct State0204166c* s);
+extern "C" void func_02041bbc(struct Struct_0204166c* arg0);
 #endif
 
 #if defined(jpn)
 #define func_02043224 func_02043998
 #endif
 
-struct State0204166c;
-extern "C" void func_020416c0(struct State0204166c* s);
+struct Struct_0204166c;
+extern "C" void func_020416c0(struct Struct_0204166c* arg0);
 
-extern "C" void func_02043124(void* obj);
+extern "C" void func_02043124(void* arg0);
 
-struct Struct02043110;
-extern "C" void func_02043110(struct Struct02043110* s);
+struct Struct_020430b0;
+extern "C" void func_02043110(struct Struct_020430b0* arg0);
 
 // USA: func_02043224
-extern "C" ARM void func_02043224(char* obj) {
-    *(unsigned char*)(obj + kResetFlag) = 0;
-    *(int*)(obj + kCount) = kFirstEntry;
+extern "C" ARM void func_02043224(char* arg0) {
+    *(unsigned char*)(arg0 + Enum_02043224_6604) = 0;
+    *(int*)(arg0 + Enum_02043224_2484) = Enum_02043224_0;
 
-    for (int i = kFirstEntry; i < 0x80; i++) {
-        func_020416c0((struct State0204166c*)(obj + kEntries + i * 0x1c));
-        *(unsigned char*)(obj + i + kFlags) = 0;
+    for (int var0 = Enum_02043224_0; var0 < 0x80; var0++) {
+        func_020416c0((struct Struct_0204166c*)(arg0 + Enum_02043224_2488 + var0 * 0x1c));
+        *(unsigned char*)(arg0 + var0 + Enum_02043224_6072) = 0;
     }
 
-    func_02043124(obj);
-    func_02043110((struct Struct02043110*)(obj + kSubobject));
-    *(int*)(obj + kPointer) = (int)(obj + kFirst);
-    func_02043110((struct Struct02043110*)(obj + kSubobject));
-    *(int*)(obj + kPointer) = (int)(obj + kSecond);
-    *(unsigned char*)(obj + kFlag) = 0;
-    *(int*)(obj + kIndex) = -1;
-    *(int*)(obj + kValue) = 0;
+    func_02043124(arg0);
+    func_02043110((struct Struct_020430b0*)(arg0 + Enum_02043224_6624));
+    *(int*)(arg0 + Enum_02043224_7712) = (int)(arg0 + Enum_02043224_2352);
+    func_02043110((struct Struct_020430b0*)(arg0 + Enum_02043224_6624));
+    *(int*)(arg0 + Enum_02043224_7712) = (int)(arg0 + Enum_02043224_2324);
+    *(unsigned char*)(arg0 + Enum_02043224_6577) = 0;
+    *(int*)(arg0 + Enum_02043224_6200) = -1;
+    *(int*)(arg0 + Enum_02043224_6204) = 0;
 }

@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct DListNode {
-    struct DListNode* field0;
-    struct DListNode* field4;
+struct Struct_020c8768 {
+    struct Struct_020c8768* unknown_0_;
+    struct Struct_020c8768* unknown_4_;
 };
 
 // USA: func_020c8768
-extern "C" ARM struct DListNode* func_020c8768(struct DListNode* oldHead, struct DListNode* newNode) {
-    newNode->field4 = oldHead;
-    newNode->field0 = 0;
-    if (oldHead != 0) {
-        oldHead->field0 = newNode;
+extern "C" ARM struct Struct_020c8768* func_020c8768(struct Struct_020c8768* arg0, struct Struct_020c8768* arg1) {
+    arg1->unknown_4_ = arg0;
+    arg1->unknown_0_ = 0;
+    if (arg0 != 0) {
+        arg0->unknown_0_ = arg1;
     }
-    return newNode;
+    return arg1;
 }

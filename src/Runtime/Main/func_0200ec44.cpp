@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct CatchInfo0200ec44 {
-    void* location;
-    void* typeInfo;
-    void* dtor;
-    void* subLocation;
-    long pointerCopy;
-    void* stackTop;
+struct Struct_0200ec44_2 {
+    void* unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    long unknown_10_;
+    void* unknown_14_;
 };
 
-struct ThrowContext0200ec44 {
-    unsigned char* throwType;
-    void* location;
-    void* dtor;
-    CatchInfo0200ec44* catchInfo;
-    char* returnAddr;
-    char* sp;
-    char* fp;
+struct Struct_0200ec44 {
+    unsigned char* unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    Struct_0200ec44_2* unknown_c_;
+    char* unknown_10_;
+    char* unknown_14_;
+    char* unknown_18_;
 };
 
 // USA: func_0200ec44
-extern "C" ARM void func_0200ec44(ThrowContext0200ec44* context, long catchInfoRef, long resultOffset) {
-    CatchInfo0200ec44* catchInfo = (CatchInfo0200ec44*)(context->fp + catchInfoRef);
+extern "C" ARM void func_0200ec44(Struct_0200ec44* arg0, long arg1, long arg2) {
+    Struct_0200ec44_2* var0 = (Struct_0200ec44_2*)(arg0->unknown_18_ + arg1);
 
-    catchInfo->location = context->location;
-    catchInfo->typeInfo = context->throwType;
-    catchInfo->dtor = context->dtor;
+    var0->unknown_0_ = arg0->unknown_4_;
+    var0->unknown_4_ = arg0->unknown_0_;
+    var0->unknown_8_ = arg0->unknown_8_;
 
-    if (*context->throwType == '*') {
-        catchInfo->subLocation = &catchInfo->pointerCopy;
-        catchInfo->pointerCopy = *(long*)context->location + resultOffset;
+    if (*arg0->unknown_0_ == '*') {
+        var0->unknown_c_ = &var0->unknown_10_;
+        var0->unknown_10_ = *(long*)arg0->unknown_4_ + arg2;
     } else {
-        catchInfo->subLocation = (char*)context->location + resultOffset;
+        var0->unknown_c_ = (char*)arg0->unknown_4_ + arg2;
     }
 }

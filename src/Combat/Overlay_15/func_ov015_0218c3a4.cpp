@@ -4,118 +4,118 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
 
-struct Container020dedd0;
-struct Obj020de2a4;
+struct Struct_0201099c_10;
+struct Struct_020730e0_2;
 
-struct PartEntry
+struct Struct_ov005_021556e4
 {
-    void* model_;
+    void* unknown_0_;
 };
 
-struct VRAMManagerState
+struct Struct_ov005_02155d6c
 {
-    char unk_0[0x68];
-    unsigned int unk_68;
-    char unk_6c[4];
+    char unknown_0_[0x68];
+    unsigned int unknown_68_;
+    char unknown_6c_[4];
 };
 
-struct ViewerSlot
+struct Struct_ov015_0218bcb0_2
 {
-    VRAMManagerState* states_;
+    Struct_ov005_02155d6c* unknown_0_;
 };
 
-struct Viewer0218c3a4
+struct Struct_ov015_0218c3a4
 {
-    char unk_0[0x4c];
-    char parts_[0x18];
+    char unknown_0_[0x4c];
+    char unknown_4c_[0x18];
 };
 
-struct CharacterColors
+struct Struct_02099d34
 {
-    unsigned short hair_[10][2];
-    unsigned short colors2_[8][2];
-    unsigned short colors4_[8][4];
-    unsigned short colors8_[8][8];
-    unsigned short skin_[8][2];
-    unsigned short edge_;
+    unsigned short unknown_0_[10][2];
+    unsigned short unknown_28_[8][2];
+    unsigned short unknown_48_[8][4];
+    unsigned short unknown_88_[8][8];
+    unsigned short unknown_108_[8][2];
+    unsigned short unknown_128_;
 };
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    Viewer0218c3a4* viewer_;
-    ViewerSlot* slot_;
-    char unk_8[0x1c - 0x8];
-    unsigned char kind_;
-    char unk_1d[3];
-    int* parts_;
-    Object3D* objects_;
-    char unk_28[0x3b - 0x28];
-    unsigned char female_;
-    unsigned char hairColor_;
-    unsigned char skinColor_;
-    unsigned char eyeColor_;
+    Struct_ov015_0218c3a4* unknown_0_;
+    Struct_ov015_0218bcb0_2* unknown_4_;
+    char unknown_8_[0x1c - 0x8];
+    unsigned char unknown_1c_;
+    char unknown_1d_[3];
+    int* unknown_20_;
+    Object3D* unknown_24_;
+    char unknown_28_[0x3b - 0x28];
+    unsigned char unknown_3b_;
+    unsigned char unknown_3c_;
+    unsigned char unknown_3d_;
+    unsigned char unknown_3e_;
 };
 
-extern "C" PartEntry* func_020dedd0(Container020dedd0* c, int key);
-extern "C" int func_020de2a4(Obj020de2a4* obj, int a, int b);
-extern "C" CharacterColors* func_02099cac();
-extern "C" void func_02099d34(void* obj, int a, int b, int c);
+extern "C" Struct_ov005_021556e4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" int func_020de2a4(Struct_020730e0_2* arg0, int arg1, int arg2);
+extern "C" Struct_02099d34* func_02099cac();
+extern "C" void func_02099d34(void* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov015_0218c3a4
-extern "C" ARM void func_ov015_0218c3a4(ViewObject* self, int part)
+extern "C" ARM void func_ov015_0218c3a4(Struct_ov015_0218c03c_2* arg0, int arg1)
 {
-    PartEntry* entry = func_020dedd0((Container020dedd0*)&self->viewer_->parts_, (short)self->parts_[part]);
-    if (entry == NULL || entry->model_ == NULL)
+    Struct_ov005_021556e4* var0 = func_020dedd0((Struct_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[arg1]);
+    if (var0 == NULL || var0->unknown_0_ == NULL)
         return;
-    VRAMManagerState* state = &self->slot_->states_[part];
-    if (self->kind_ == 1)
+    Struct_ov005_02155d6c* var1 = &arg0->unknown_4_->unknown_0_[arg1];
+    if (arg0->unknown_1c_ == 1)
     {
-        int count = func_020de2a4((Obj020de2a4*)entry, 0, self->female_);
-        if (count == 0)
+        int var2 = func_020de2a4((Struct_020730e0_2*)var0, 0, arg0->unknown_3b_);
+        if (var2 == 0)
             return;
-        count *= 2;
-        NSBXXTex* texture = self->objects_[part].pModel_->GetTEX0();
-        if (texture == NULL)
+        var2 *= 2;
+        NSBXXTex* var3 = arg0->unknown_24_[arg1].pModel_->GetTEX0();
+        if (var3 == NULL)
             return;
-        int position = 0x30;
-        unsigned short size = ((unsigned short)(texture->block4NumEightBytes_ << 3) + 0x1f) & ~0x1f;
-        int start = 0x20;
-        if (part == 0)
-            start = 0x200;
-        position -= size - start;
-        CharacterColors* colors = func_02099cac();
-        const void* source = NULL;
-        int length = count * 2;
-        switch (count)
+        int var4 = 0x30;
+        unsigned short var5 = ((unsigned short)(var3->block4NumEightBytes_ << 3) + 0x1f) & ~0x1f;
+        int var6 = 0x20;
+        if (arg1 == 0)
+            var6 = 0x200;
+        var4 -= var5 - var6;
+        Struct_02099d34* var7 = func_02099cac();
+        const void* var8 = NULL;
+        int var9 = var2 * 2;
+        switch (var2)
         {
         case 2:
-            source = colors->colors2_[self->eyeColor_];
+            var8 = var7->unknown_28_[arg0->unknown_3e_];
             break;
         case 4:
-            source = colors->colors4_[self->eyeColor_];
+            var8 = var7->unknown_48_[arg0->unknown_3e_];
             break;
         case 8:
-            source = colors->colors8_[self->eyeColor_];
+            var8 = var7->unknown_88_[arg0->unknown_3e_];
             break;
         }
-        unsigned int offset = (state->unk_68 & 0xffff) << 3;
-        if (offset != 0 && length != 0)
+        unsigned int var10 = (var1->unknown_68_ & 0xffff) << 3;
+        if (var10 != 0 && var9 != 0)
         {
             LockStagedTextureVRAMCopying();
-            CleanInvalidateCacheRange(source, length);
+            CleanInvalidateCacheRange(var8, var9);
             MemoryMapTexturePalette();
-            LoadToTexturePalette(source, offset + position, length);
+            LoadToTexturePalette(var8, var10 + var4, var9);
             MemoryUnmapTexturePalette();
-            CleanCacheRange(source, length);
+            CleanCacheRange(var8, var9);
             UnlockStagedTextureVRAMCopying();
         }
         return;
     }
-    int colors = func_020de2a4((Obj020de2a4*)entry, 1, self->female_);
-    Model3D* model = self->objects_[part].pModel_;
-    unsigned char color = self->eyeColor_;
-    if (part == 4)
-        func_02099d34(model, colors, color, 0x10);
+    int var11 = func_020de2a4((Struct_020730e0_2*)var0, 1, arg0->unknown_3b_);
+    Model3D* var12 = arg0->unknown_24_[arg1].pModel_;
+    unsigned char var13 = arg0->unknown_3e_;
+    if (arg1 == 4)
+        func_02099d34(var12, var11, var13, 0x10);
     else
-        func_02099d34(model, colors, color, 4);
+        func_02099d34(var12, var11, var13, 4);
 }

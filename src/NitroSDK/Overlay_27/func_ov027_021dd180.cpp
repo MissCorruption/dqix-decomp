@@ -2,43 +2,43 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Memory.h"
 
-struct MemRegionEntry_021dd180 {
-    unsigned int base;
-    unsigned int size;
-    void* mapped;
-    unsigned int type;
+struct Struct_ov027_021dd180_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    void* unknown_8_;
+    unsigned int unknown_c_;
 };
 
-struct MemRegionTable_021dd180 {
-    int status;
-    unsigned char unk4[0x2c];
-    MemRegionEntry_021dd180 regions[4];
+struct Struct_ov027_021dd180 {
+    int unknown_0_;
+    unsigned char unknown_4_[0x2c];
+    Struct_ov027_021dd180_2 unknown_30_[4];
 };
 
 // USA: func_ov027_021dd180
-extern "C" ARM int func_ov027_021dd180(MemRegionTable_021dd180* table, unsigned int addr, void* dst, unsigned int len) {
-    MemRegionEntry_021dd180* end;
-    MemRegionEntry_021dd180* region;
-    int result = 0;
-    int irqState = DisableIRQInterrupts();
+extern "C" ARM int func_ov027_021dd180(Struct_ov027_021dd180* arg0, unsigned int arg1, void* arg2, unsigned int arg3) {
+    Struct_ov027_021dd180_2* var0;
+    Struct_ov027_021dd180_2* var1;
+    int var2 = 0;
+    int var3 = DisableIRQInterrupts();
 
-    region = table->regions;
-    end = table->regions + 4;
-    if (region < end) {
+    var1 = arg0->unknown_30_;
+    var0 = arg0->unknown_30_ + 4;
+    if (var1 < var0) {
         do {
-            if (region->type >= 2) {
-                int offset = addr - region->base;
-                if (offset >= 0 && offset + len <= region->size) {
-                    VectorizedInvertedMemcpy((char*)region->mapped + offset, dst, len);
-                    table->status = 0;
-                    result = 1;
+            if (var1->unknown_c_ >= 2) {
+                int var4 = arg1 - var1->unknown_0_;
+                if (var4 >= 0 && var4 + arg3 <= var1->unknown_4_) {
+                    VectorizedInvertedMemcpy((char*)var1->unknown_8_ + var4, arg2, arg3);
+                    arg0->unknown_0_ = 0;
+                    var2 = 1;
                     break;
                 }
             }
-            region++;
-        } while (region < end);
+            var1++;
+        } while (var1 < var0);
     }
 
-    SetIRQInterruptState(irqState);
-    return result;
+    SetIRQInterruptState(var3);
+    return var2;
 }

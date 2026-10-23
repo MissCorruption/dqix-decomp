@@ -2,23 +2,23 @@
 
 class SafeAllocator;
 
-struct StreamHeader0208d860 {
-    void* entries;
-    short count;
-    short capacity;
-    const short* selectedIds;
-    short selectedCount;
-    unsigned short flags;
+struct Struct_0208d550 {
+    void* unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    const short* unknown_8_;
+    short unknown_c_;
+    unsigned short unknown_e_;
 };
 
-struct Data02108fc0Type {
-    SafeAllocator* allocator;
-    StreamHeader0208d860* header;
+struct Struct_02108fc0 {
+    SafeAllocator* unknown_0_;
+    Struct_0208d550* unknown_4_;
 };
 
-extern Data02108fc0Type data_02108fc0;
+extern Struct_02108fc0 data_02108fc0;
 
-extern "C" void func_0208d860(StreamHeader0208d860* header, SafeAllocator* allocator,
-                                           const void* bytecode, unsigned int length,
-                                           const short* selectedIds, short selectedCount,
-                                           unsigned short flags);
+extern "C" void func_0208d860(Struct_0208d550* arg0, SafeAllocator* arg1,
+                                           const void* arg2, unsigned int arg3,
+                                           const short* arg4, short arg5,
+                                           unsigned short arg6);

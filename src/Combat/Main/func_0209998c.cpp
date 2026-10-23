@@ -3,11 +3,11 @@
 #include <globaldefs.h>
 
 // USA: func_0209998c
-extern "C" ARM struct Elem0209998c *func_0209998c(struct List0209998c *list, const char *name) {
-    int i;
-    for (i = 0; i < list->count; i++) {
-        struct Elem0209998c *elem = &list->data[i];
-        if (strcmp(elem->f5, name) == 0) return elem;
+extern "C" ARM struct Struct_0201cb60 *func_0209998c(struct Struct_0201cb60_2 *arg0, const char *arg1) {
+    int var0;
+    for (var0 = 0; var0 < arg0->unknown_4_; var0++) {
+        struct Struct_0201cb60 *var1 = &arg0->unknown_0_[var0];
+        if (strcmp(var1->unknown_5_, arg1) == 0) return var1;
     }
     return NULL;
 }

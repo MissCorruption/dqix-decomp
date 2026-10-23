@@ -1,79 +1,79 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct HitEntry_021eb8e8 {
-    unsigned long long mask;
-    char pad8[0x10];
-    unsigned int flags18;
-    unsigned char show;
-    unsigned char b1d;
-    unsigned char b1e;
+struct Struct_ov025_021eb8e8_3 {
+    unsigned long long unknown_0_;
+    char unknown_8_[0x10];
+    unsigned int unknown_18_;
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
+    unsigned char unknown_1e_;
 };
 
-struct HudEntry_021eb8e8 {
-    char pad0[0x28];
-    unsigned int flags28;
-    char pad2c[3];
-    unsigned char b2f;
+struct Struct_ov025_021eb8e8 {
+    char unknown_0_[0x28];
+    unsigned int unknown_28_;
+    char unknown_2c_[3];
+    unsigned char unknown_2f_;
 };
 
-struct Owner_021eb8e8 {
-    char pad0[0xc];
-    int field_c;
+struct Struct_ov025_021eb8e8_2 {
+    char unknown_0_[0xc];
+    int unknown_c_;
 };
 
 extern "C" void* func_ov000_02160130(void);
-extern "C" char* func_ov000_02160f08(void* obj);
-extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
-extern "C" int func_ov000_0215ec1c(int a, short* buf, int max, int start);
-extern "C" HitEntry_021eb8e8* func_0204a01c(unsigned char* obj);
-extern "C" void func_ov000_02162dc4(void* work, GameObject* lead, GameObject* actor, unsigned int flags,
-                                    int b1d, int b1e, unsigned long long mask, int flag);
-extern "C" HudEntry_021eb8e8* func_ov025_021dafd0(char* obj, int id);
-extern "C" void func_ov000_0217616c(HudEntry_021eb8e8* p);
+extern "C" char* func_ov000_02160f08(void* arg0);
+extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_ov000_0215ec1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" Struct_ov025_021eb8e8_3* func_0204a01c(unsigned char* arg0);
+extern "C" void func_ov000_02162dc4(void* arg0, GameObject* arg1, GameObject* arg2, unsigned int arg3,
+                                    int arg4, int arg5, unsigned long long arg6, int arg7);
+extern "C" Struct_ov025_021eb8e8* func_ov025_021dafd0(char* arg0, int arg1);
+extern "C" void func_ov000_0217616c(Struct_ov025_021eb8e8* arg0);
 extern "C" void func_ov000_0216ff20(char*, unsigned char);
-extern "C" void func_0204a00c(unsigned char* obj, int value);
-extern "C" int func_0204a0f8(unsigned char* obj);
-extern "C" void func_0204a0e0(unsigned char* obj);
-extern "C" int func_0204a040(unsigned char* obj);
-extern "C" void func_0204a030(unsigned char* obj, int value);
-extern "C" void func_02033920(GameObject* obj, int id, int flag);
+extern "C" void func_0204a00c(unsigned char* arg0, int arg1);
+extern "C" int func_0204a0f8(unsigned char* arg0);
+extern "C" void func_0204a0e0(unsigned char* arg0);
+extern "C" int func_0204a040(unsigned char* arg0);
+extern "C" void func_0204a030(unsigned char* arg0, int arg1);
+extern "C" void func_02033920(GameObject* arg0, int arg1, int arg2);
 
 // USA: func_ov025_021eb8e8
-extern "C" ARM void func_ov025_021eb8e8(Owner_021eb8e8* obj) {
-    GameState* gs = GameState::GetInstance();
-    void* work = func_ov000_02160130();
-    char* hudList = func_ov000_02160f08(work);
-    short buf[16];
-    int n = 0;
-    n = n + func_ov000_0215e9fc(obj->field_c, buf, 0x10, n);
-    n = n + func_ov000_0215ec1c(obj->field_c, buf + n, 0x10 - n, 0);
-    short* p = buf;
-    for (int i = 0; i < n; p++, i++) {
-        GameObject* c = gs->GetCombatantByIndex(*p);
-        if (c == 0) {
+extern "C" ARM void func_ov025_021eb8e8(Struct_ov025_021eb8e8_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_ov000_02160130();
+    char* var2 = func_ov000_02160f08(var1);
+    short var3[16];
+    int var4 = 0;
+    var4 = var4 + func_ov000_0215e9fc(arg0->unknown_c_, var3, 0x10, var4);
+    var4 = var4 + func_ov000_0215ec1c(arg0->unknown_c_, var3 + var4, 0x10 - var4, 0);
+    short* var5 = var3;
+    for (int var6 = 0; var6 < var4; var5++, var6++) {
+        GameObject* var7 = var0->GetCombatantByIndex(*var5);
+        if (var7 == 0) {
             continue;
         }
-        HitEntry_021eb8e8* hit = func_0204a01c((unsigned char*)c);
-        if (hit != 0) {
-            unsigned int flags = hit->flags18 & ~0x80000;
-            func_ov000_02162dc4(work, 0, c, flags, hit->b1d, hit->b1e, hit->mask, 1);
-            HudEntry_021eb8e8* hud = func_ov025_021dafd0(hudList, *p);
-            if (hud != 0) {
-                hud->flags28 = flags;
-                func_ov000_0217616c(hud);
-                func_ov000_0216ff20((char*)hud, hit->b1d);
-                hud->b2f = hit->b1e;
+        Struct_ov025_021eb8e8_3* var8 = func_0204a01c((unsigned char*)var7);
+        if (var8 != 0) {
+            unsigned int var9 = var8->unknown_18_ & ~0x80000;
+            func_ov000_02162dc4(var1, 0, var7, var9, var8->unknown_1d_, var8->unknown_1e_, var8->unknown_0_, 1);
+            Struct_ov025_021eb8e8* var10 = func_ov025_021dafd0(var2, *var5);
+            if (var10 != 0) {
+                var10->unknown_28_ = var9;
+                func_ov000_0217616c(var10);
+                func_ov000_0216ff20((char*)var10, var8->unknown_1d_);
+                var10->unknown_2f_ = var8->unknown_1e_;
             }
-            func_0204a00c((unsigned char*)c, 0);
+            func_0204a00c((unsigned char*)var7, 0);
         }
-        if (func_0204a0f8((unsigned char*)c)) {
-            c->obj3D_.SetInheritedAlpha(0x1f);
-            func_0204a0e0((unsigned char*)c);
+        if (func_0204a0f8((unsigned char*)var7)) {
+            var7->obj3D_.SetInheritedAlpha(0x1f);
+            func_0204a0e0((unsigned char*)var7);
         }
-        if (func_0204a040((unsigned char*)c) != 0xff) {
-            func_02033920(c, func_0204a040((unsigned char*)c), 1);
-            func_0204a030((unsigned char*)c, 0xff);
+        if (func_0204a040((unsigned char*)var7) != 0xff) {
+            func_02033920(var7, func_0204a040((unsigned char*)var7), 1);
+            func_0204a030((unsigned char*)var7, 0xff);
         }
     }
 }

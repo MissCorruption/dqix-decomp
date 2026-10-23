@@ -6,23 +6,23 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" int func_ov017_021917f0(int a, int b);
+extern "C" int func_ov017_021917f0(int arg0, int arg1);
 
-struct Entry_02160938 { int type; int val; int pad2; int pad3; };
-struct DataTable_02160938 { char pad[4]; Entry_02160938* table; };
-extern struct DataTable_02160938 data_ov001_02165880;
+struct Struct_ov001_02160938 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; };
+struct Struct_ov001_02165880_43 { char unknown_0_[4]; Struct_ov001_02160938* unknown_4_; };
+extern struct Struct_ov001_02165880_43 data_ov001_02165880;
 
 // USA: func_ov001_02160938
-extern "C" ARM int func_ov001_02160938(void* self) {
-	int a = func_ov017_021d60f4(self);
-	int flag = func_ov017_021d60f4((char*)self + 0x8);
-	if (data_ov001_02165880.table[a].type != 4 && data_ov001_02165880.table[a].type != 0 && data_ov001_02165880.table[a].type != 5) {
+extern "C" ARM int func_ov001_02160938(void* arg0) {
+	int var0 = func_ov017_021d60f4(arg0);
+	int var1 = func_ov017_021d60f4((char*)arg0 + 0x8);
+	if (data_ov001_02165880.unknown_4_[var0].unknown_0_ != 4 && data_ov001_02165880.unknown_4_[var0].unknown_0_ != 0 && data_ov001_02165880.unknown_4_[var0].unknown_0_ != 5) {
 		return 0;
 	}
-	if (flag != 0) {
-		func_ov017_021917f0(data_ov001_02165880.table[a].val, 1);
+	if (var1 != 0) {
+		func_ov017_021917f0(data_ov001_02165880.unknown_4_[var0].unknown_4_, 1);
 	} else {
-		func_ov017_021917f0(data_ov001_02165880.table[a].val, 0);
+		func_ov017_021917f0(data_ov001_02165880.unknown_4_[var0].unknown_4_, 0);
 	}
 	return 1;
 }

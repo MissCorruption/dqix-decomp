@@ -6,58 +6,58 @@
 #endif
 
 
-struct Sub020657c8 {
-    unsigned char pad0[IS_JPN ? 0x789 : 0x95b];
-    unsigned char flagByte;
+struct Struct_020657c8 {
+    unsigned char unknown_0_[IS_JPN ? 0x789 : 0x95b];
+    unsigned char unknown_95b_;
 };
 
-struct Obj020657c8 {
-    unsigned char pad0[IS_JPN ? 0x870 : 0x9a0];
-    int f9a0;
-    int f9a4;
-    int f9a8;
-    int f9ac;
-    int f9b0;
-    unsigned char pad1[0x1000 - (IS_JPN ? 0x884 : 0x9b4)];
-    struct Sub020657c8 sub;
+struct Struct_020657c8_2 {
+    unsigned char unknown_0_[IS_JPN ? 0x870 : 0x9a0];
+    int unknown_9a0_;
+    int unknown_9a4_;
+    int unknown_9a8_;
+    int unknown_9ac_;
+    int unknown_9b0_;
+    unsigned char unknown_9b4_[0x1000 - (IS_JPN ? 0x884 : 0x9b4)];
+    struct Struct_020657c8 unknown_1000_;
 };
 
 // USA: func_020657c8
-extern "C" ARM int func_020657c8(struct Obj020657c8* obj, int step) {
-    unsigned char flags = obj->sub.flagByte;
-    int ret = 0;
-    if (flags & 4) {
-        if (obj->f9a0 == 0) {
-            if (flags & 8) {
-                obj->f9b0 = obj->f9b0 + (IS_JPN ? 1 : step) * 0x8444;
-                if (obj->f9b0 >= 0x1f0000) {
-                    obj->f9b0 = 0x1f0000;
-                    obj->f9ac = 0;
-                    obj->sub.flagByte &= ~8;
-                    obj->sub.flagByte |= 0x10;
+extern "C" ARM int func_020657c8(struct Struct_020657c8_2* arg0, int arg1) {
+    unsigned char var0 = arg0->unknown_1000_.unknown_95b_;
+    int var1 = 0;
+    if (var0 & 4) {
+        if (arg0->unknown_9a0_ == 0) {
+            if (var0 & 8) {
+                arg0->unknown_9b0_ = arg0->unknown_9b0_ + (IS_JPN ? 1 : arg1) * 0x8444;
+                if (arg0->unknown_9b0_ >= 0x1f0000) {
+                    arg0->unknown_9b0_ = 0x1f0000;
+                    arg0->unknown_9ac_ = 0;
+                    arg0->unknown_1000_.unknown_95b_ &= ~8;
+                    arg0->unknown_1000_.unknown_95b_ |= 0x10;
                 }
-            } else if (flags & 0x10) {
-                obj->f9ac = obj->f9ac + step;
-                if (obj->f9a8 <= obj->f9ac) {
-                    obj->f9ac = obj->f9a8;
-                    obj->sub.flagByte &= ~0x10;
-                    obj->sub.flagByte |= 0x20;
+            } else if (var0 & 0x10) {
+                arg0->unknown_9ac_ = arg0->unknown_9ac_ + arg1;
+                if (arg0->unknown_9a8_ <= arg0->unknown_9ac_) {
+                    arg0->unknown_9ac_ = arg0->unknown_9a8_;
+                    arg0->unknown_1000_.unknown_95b_ &= ~0x10;
+                    arg0->unknown_1000_.unknown_95b_ |= 0x20;
                 }
-            } else if (flags & 0x20) {
+            } else if (var0 & 0x20) {
                 #if defined(jpn)
-                step = obj->f9b0 - 0x44;
-                step -= 0x8400;
-                obj->f9b0 = step;
+                arg1 = arg0->unknown_9b0_ - 0x44;
+                arg1 -= 0x8400;
+                arg0->unknown_9b0_ = arg1;
 #else
-                obj->f9b0 = obj->f9b0 - step * 0x8444;
+                arg0->unknown_9b0_ = arg0->unknown_9b0_ - arg1 * 0x8444;
 #endif
-                if (obj->f9b0 <= 0) {
-                    obj->f9b0 = 0;
-                    obj->sub.flagByte = obj->sub.flagByte & ~0x20;
+                if (arg0->unknown_9b0_ <= 0) {
+                    arg0->unknown_9b0_ = 0;
+                    arg0->unknown_1000_.unknown_95b_ = arg0->unknown_1000_.unknown_95b_ & ~0x20;
                 }
             }
-            ret = 1;
+            var1 = 1;
         }
     }
-    return ret;
+    return var1;
 }

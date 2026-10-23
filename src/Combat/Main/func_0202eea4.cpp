@@ -3,6 +3,6 @@
 extern "C" void* func_020a0d58(void*);
 
 // USA: func_0202eea4
-extern "C" ARM void* func_0202eea4(void* obj) {
-    return func_020a0d58((char*)obj + 0x1bc);
+extern "C" ARM void* func_0202eea4(void* arg0) {
+    return func_020a0d58((char*)arg0 + 0x1bc);
 }

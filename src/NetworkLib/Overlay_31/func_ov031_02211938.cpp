@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct RC4Context_02211938 {
-	unsigned char i;
-	unsigned char j;
-	unsigned char unk_2[2];
-	unsigned char s[0x100];
+struct Struct_ov031_02211938 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_;
+	unsigned char unknown_2_[2];
+	unsigned char unknown_4_[0x100];
 };
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_ov031_02211938
 extern "C" ARM
-asm void func_ov031_02211938(RC4Context_02211938* ctx, const void* in, unsigned int length, void* out)
+asm void func_ov031_02211938(Struct_ov031_02211938* ctx, const void* in, unsigned int length, void* out)
 {
     stmdb sp!, {r4, r5, r6, r7, r8, r9, lr}
     ldrb r7, [r0, #0]

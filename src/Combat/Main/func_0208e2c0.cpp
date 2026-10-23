@@ -1,41 +1,41 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kOffsetcda = 0xa7a };
+enum { Enum_0208e2c0_3290 = 0xa7a };
 #else
-enum { kOffsetcda = 0xcda };
+enum { Enum_0208e2c0_3290 = 0xcda };
 #endif
 
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
-struct Entry02108ff4 {
-    unsigned short a;
-    unsigned char b;
-    unsigned char c;
+struct Struct_02108ff4 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
-extern Entry02108ff4 data_02108ff4[];
+extern Struct_02108ff4 data_02108ff4[];
 
 // USA: func_0208e2c0
-extern "C" ARM int func_0208e2c0(char* v) {
-    unsigned char* battleField = (unsigned char*)GameState::GetInstance();
-    Entry02108ff4* table = data_02108ff4;
-    int idRaw = ((Script::Parameter*)((Variant02030b0c*)v))->ToInt();
-    v += 8;
-    unsigned char id = (unsigned char)idRaw;
-    battleField = battleField + 0x5000;
-    for (int i = 0; i < 8; i++) {
-        unsigned short aVal = (unsigned short)((Script::Parameter*)((Variant02030b0c*)v))->ToInt();
-        unsigned char bVal = (unsigned char)((Script::Parameter*)((Variant02030b0c*)(v + 8)))->ToInt();
-        char* arg3 = v + 0x10;
-        v += 0x18;
-        unsigned char cVal = (unsigned char)((Script::Parameter*)((Variant02030b0c*)arg3))->ToInt();
-        if (i == battleField[kOffsetcda]) {
-            table[id].a = aVal;
-            table[id].b = bVal;
-            table[id].c = cVal;
+extern "C" ARM int func_0208e2c0(char* arg0) {
+    unsigned char* var0 = (unsigned char*)GameState::GetInstance();
+    Struct_02108ff4* var1 = data_02108ff4;
+    int var2 = ((Script::Parameter*)((Struct_0201c1c8*)arg0))->ToInt();
+    arg0 += 8;
+    unsigned char var3 = (unsigned char)var2;
+    var0 = var0 + 0x5000;
+    for (int var4 = 0; var4 < 8; var4++) {
+        unsigned short var5 = (unsigned short)((Script::Parameter*)((Struct_0201c1c8*)arg0))->ToInt();
+        unsigned char var6 = (unsigned char)((Script::Parameter*)((Struct_0201c1c8*)(arg0 + 8)))->ToInt();
+        char* var7 = arg0 + 0x10;
+        arg0 += 0x18;
+        unsigned char var8 = (unsigned char)((Script::Parameter*)((Struct_0201c1c8*)var7))->ToInt();
+        if (var4 == var0[Enum_0208e2c0_3290]) {
+            var1[var3].unknown_0_ = var5;
+            var1[var3].unknown_2_ = var6;
+            var1[var3].unknown_3_ = var8;
             return 1;
         }
     }

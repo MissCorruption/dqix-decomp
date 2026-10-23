@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 int IsSubBrightnessTransitionActive(GameResources*);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
-struct Struct02074bf4;
-extern "C" void func_02074e54(struct Struct02074bf4*);
+struct Struct_02074bf4;
+extern "C" void func_02074e54(struct Struct_02074bf4*);
 extern "C" void* func_020d6c00(void);
-struct FlagWord020466f4;
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_020dc2d0(int);
 
-struct SelfState0215445c {
-    char pad0[0x38];
-    char pad1[0x58 - 0x38];
-    unsigned char f58;
-    char pad2[0x5a - 0x59];
-    unsigned char f5a;
-    unsigned char f5b;
+struct Struct_ov003_0215445c {
+    char unknown_0_[0x38];
+    char unknown_38_[0x58 - 0x38];
+    unsigned char unknown_58_;
+    char unknown_59_[0x5a - 0x59];
+    unsigned char unknown_5a_;
+    unsigned char unknown_5b_;
 };
 
 // USA: func_ov003_0215445c
-extern "C" ARM void func_ov003_0215445c(struct SelfState0215445c* self) {
-    int w = func_0200fb8c((int*)GameState::GetInstance());
+extern "C" ARM void func_ov003_0215445c(struct Struct_ov003_0215445c* arg0) {
+    int var0 = func_0200fb8c((int*)GameState::GetInstance());
 
-    if (self->f58 == 0) {
-        self->f5a = 3;
+    if (arg0->unknown_58_ == 0) {
+        arg0->unknown_5a_ = 3;
         return;
     }
-    if (self->f5b == 0) {
-        SetSubBrightness((GameResources*)w, -16, 1);
-        self->f5b = self->f5b + 1;
+    if (arg0->unknown_5b_ == 0) {
+        SetSubBrightness((GameResources*)var0, -16, 1);
+        arg0->unknown_5b_ = arg0->unknown_5b_ + 1;
         return;
     }
-    if (self->f5b != 1) return;
-    if (IsSubBrightnessTransitionActive((GameResources*)w) != 0) return;
+    if (arg0->unknown_5b_ != 1) return;
+    if (IsSubBrightnessTransitionActive((GameResources*)var0) != 0) return;
 
-    func_02074e54((struct Struct02074bf4*)((char*)self + 0x38));
-    func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 1);
+    func_02074e54((struct Struct_02074bf4*)((char*)arg0 + 0x38));
+    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 1);
     func_020dc2d0(0);
-    self->f5a = 3;
-    self->f5b = 0;
+    arg0->unknown_5a_ = 3;
+    arg0->unknown_5b_ = 0;
 }

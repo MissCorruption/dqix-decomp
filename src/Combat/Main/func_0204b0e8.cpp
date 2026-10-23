@@ -3,15 +3,15 @@
 extern "C" void func_0204b04c(void*, int);
 extern "C" void func_0204b088(void*, int);
 
-struct List0204b0e8 {
-    char pad0[0x14];
-    void* field14;
+struct Struct_02020cb8_2 {
+    char unknown_0_[0x14];
+    void* unknown_14_;
 };
 
 // USA: func_0204b0e8
-extern "C" ARM void func_0204b0e8(struct List0204b0e8* obj, void* buf) {
-    if (buf == NULL) buf = obj->field14;
-    if (buf == NULL) return;
-    func_0204b04c(obj, (int)buf);
-    func_0204b088(obj, (int)buf);
+extern "C" ARM void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1) {
+    if (arg1 == NULL) arg1 = arg0->unknown_14_;
+    if (arg1 == NULL) return;
+    func_0204b04c(arg0, (int)arg1);
+    func_0204b088(arg0, (int)arg1);
 }

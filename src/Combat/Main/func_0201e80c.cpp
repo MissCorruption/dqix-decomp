@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct ThreeWords_1e80c {
-    int field0;
-    int field4;
-    int field8;
+struct Struct_0201e80c_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Owner_1e80c {
-    char unk[0x70];
-    struct ThreeWords_1e80c field70;
+struct Struct_0201e80c {
+    char unknown_0_[0x70];
+    struct Struct_0201e80c_2 unknown_70_;
 };
 
 // USA: func_0201e80c
-extern "C" ARM struct ThreeWords_1e80c func_0201e80c(struct Owner_1e80c* src) {
-    return src->field70;
+extern "C" ARM struct Struct_0201e80c_2 func_0201e80c(struct Struct_0201e80c* arg0) {
+    return arg0->unknown_70_;
 }

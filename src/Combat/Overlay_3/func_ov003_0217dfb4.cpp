@@ -1,104 +1,104 @@
 #include "Combat/TryApplyElemFields.h"
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kMenuPrefix=0x10 };
+enum { Enum_ov003_0217dfb4_20=0x10 };
 extern "C" void func_02046380(void*);
-struct StoreStruct;
-extern "C" void func_020465c0(StoreStruct*,int,int);
+struct Struct_020465c0;
+extern "C" void func_020465c0(Struct_020465c0*,int,int);
 extern "C" void func_020465f0(unsigned char*,int,unsigned char);
 extern "C" void func_020465d8(unsigned char*,int,unsigned char);
 extern "C" void func_02042428(char*, int);
 #else
-enum { kMenuPrefix=0x14 };
+enum { Enum_ov003_0217dfb4_20=0x14 };
 #endif
 
 struct Struct_0205c570;
 struct Struct_0205d81c;
-struct StructA0205d5d0;
-struct Container020e0310;
+struct Struct_0205d5d0;
+struct Struct_0201099c_3;
 
-struct ListWindow0217dfb4 {
-    char pad0[0x68];
-    int page;
+struct Struct_ov003_0217dfb4 {
+    char unknown_0_[0x68];
+    int unknown_68_;
 };
 
-struct ListMenu0217dfb4 {
-    char pad0[kMenuPrefix];
-    int mode;
-    unsigned char items[0x30 - 0x18];
-    unsigned char itemCount;
-    char pad31;
-    unsigned char field32;
-    char pad33[0x90 - 0x33];
-    struct ListWindow0217dfb4* window;
-    char pad94[0xcc - 0x94];
-    char names[4];
+struct Struct_ov003_0217dfb4_2 {
+    char unknown_0_[Enum_ov003_0217dfb4_20];
+    int unknown_14_;
+    unsigned char unknown_18_[0x30 - 0x18];
+    unsigned char unknown_30_;
+    char unknown_31_;
+    unsigned char unknown_32_;
+    char unknown_33_[0x90 - 0x33];
+    struct Struct_ov003_0217dfb4* unknown_90_;
+    char unknown_94_[0xcc - 0x94];
+    char unknown_cc_[4];
 };
 
 extern "C" void* func_02012fe4(void);
 extern "C" int func_020421a0();
-extern "C" void __clear(void* buf, int n);
-extern "C" int func_0205d794(struct Struct_0205c570* s);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" unsigned char* func_0205d81c(struct Struct_0205d81c* s, int key);
-extern "C" void func_02050400(unsigned char* elem, int state);
-extern "C" void func_0205042c(unsigned char* elem, unsigned char value);
-extern "C" void func_02050440(unsigned char* elem, int value);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" unsigned char* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void func_02050400(unsigned char* arg0, int arg1);
+extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
+extern "C" void func_02050440(unsigned char* arg0, int arg1);
 extern const char data_ov003_02180c7f[];
 
 // USA: func_ov003_0217dfb4
-extern "C" ARM void func_ov003_0217dfb4(struct ListMenu0217dfb4* menu) {
-    char buf[0x400];
+extern "C" ARM void func_ov003_0217dfb4(struct Struct_ov003_0217dfb4_2* arg0) {
+    char var0[0x400];
     func_02012fe4();
 #if defined(jpn)
-    int global = func_020421a0();
+    int var1 = func_020421a0();
 #else
     func_020421a0();
 #endif
-    __clear(buf, 0x400);
-    int end;
-    int i;
-    int page = menu->window->page;
-    end = (page + 1) * 6;
-    if (end > menu->itemCount) {
-        end = menu->itemCount;
+    __clear(var0, 0x400);
+    int var2;
+    int var3;
+    int var4 = arg0->unknown_90_->unknown_68_;
+    var2 = (var4 + 1) * 6;
+    if (var2 > arg0->unknown_30_) {
+        var2 = arg0->unknown_30_;
     }
-    if (menu->mode == 2) {
-        func_02041c08(buf, func_0205d794((struct Struct_0205c570*)menu->window) % 6, 8, 5, 5, 5);
+    if (arg0->unknown_14_ == 2) {
+        func_02041c08(var0, func_0205d794((struct Struct_0205c570*)arg0->unknown_90_) % 6, 8, 5, 5, 5);
     }
-    for (i = page * 6; i < end; i++) {
-        const char* name = (const char*)func_020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
-        func_02041b70(buf, i % 6, name);
-        if (i != end - 1) {
-            func_02042058(buf, data_ov003_02180c7f);
+    for (var3 = var4 * 6; var3 < var2; var3++) {
+        const char* var5 = (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var3] + 100));
+        func_02041b70(var0, var3 % 6, var5);
+        if (var3 != var2 - 1) {
+            func_02042058(var0, data_ov003_02180c7f);
         }
     }
-    if (menu->field32 > 1) {
+    if (arg0->unknown_32_ > 1) {
 #if defined(jpn)
-        func_02046380((void*)global);
-        func_020465c0((StoreStruct*)global, 0, page + 1);
-        func_020465c0((StoreStruct*)global, 1, menu->field32);
-        func_020465f0((unsigned char*)global, 0, 2);
-        func_020465f0((unsigned char*)global, 1, 2);
-        func_020465d8((unsigned char*)global, 0, 1);
-        func_020465d8((unsigned char*)global, 1, 0);
-        func_02042428(buf, 8);
-        func_02042058(buf, (const char*)func_020e0434((Container020e0310*)menu->names, 0xc8));
+        func_02046380((void*)var1);
+        func_020465c0((Struct_020465c0*)var1, 0, var4 + 1);
+        func_020465c0((Struct_020465c0*)var1, 1, arg0->unknown_32_);
+        func_020465f0((unsigned char*)var1, 0, 2);
+        func_020465f0((unsigned char*)var1, 1, 2);
+        func_020465d8((unsigned char*)var1, 0, 1);
+        func_020465d8((unsigned char*)var1, 1, 0);
+        func_02042428(var0, 8);
+        func_02042058(var0, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_cc_, 0xc8));
 #else
-        unsigned char* elem = func_0205d81c((struct Struct_0205d81c*)menu->window, 0);
-        if (elem != NULL) {
-            func_02050400(elem, 1);
-            func_0205042c(elem, page);
-            func_02050440(elem, menu->field32);
+        unsigned char* var6 = func_0205d81c((struct Struct_0205d81c*)arg0->unknown_90_, 0);
+        if (var6 != NULL) {
+            func_02050400(var6, 1);
+            func_0205042c(var6, var4);
+            func_02050440(var6, arg0->unknown_32_);
         }
 #endif
     }
 #if defined(jpn)
-    func_0205d5d0((struct StructA0205d5d0*)menu->window, 0, (int)buf, 1);
+    func_0205d5d0((struct Struct_0205d5d0*)arg0->unknown_90_, 0, (int)var0, 1);
 #else
-    func_0205d5d0((struct StructA0205d5d0*)menu->window, 0, (int)buf, 1, 0);
+    func_0205d5d0((struct Struct_0205d5d0*)arg0->unknown_90_, 0, (int)var0, 1, 0);
 #endif
 }

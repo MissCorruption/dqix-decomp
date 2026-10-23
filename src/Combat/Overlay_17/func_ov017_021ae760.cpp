@@ -4,48 +4,48 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_ov017_0218d5c8(unsigned char* obj);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" void func_020397c0(void* obj);
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a2794(void* obj);
+extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void func_020397c0(void* arg0);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a2794(void* arg0);
 
 extern int data_02114e20;
 
-struct Obj_021ae760 {
-    unsigned char pad0;
-    unsigned char field1;
-    unsigned char pad1[9];
-    unsigned char fieldB;
-    unsigned char pad2[0x20];
-    SafeAllocator allocator;
+struct Struct_ov017_021ae760 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[9];
+    unsigned char unknown_b_;
+    unsigned char unknown_c_[0x20];
+    SafeAllocator unknown_2c_;
 };
 
 // USA: func_ov017_021ae760
-extern "C" ARM void func_ov017_021ae760(struct Obj_021ae760* self) {
-    void* h = GetGameResources();
-    self->field1 = 1;
-    unsigned char flag = self->fieldB;
-    if (flag != 0 && h != NULL) {
-        func_ov017_0218d5c8((unsigned char*)h);
-        void* p = self->allocator.GetSignedAllocator();
-        if (p != NULL) {
-            self->allocator.Destroy();
-            func_02012da4((AllocatorUnion*)&data_02114e20, p);
+extern "C" ARM void func_ov017_021ae760(struct Struct_ov017_021ae760* arg0) {
+    void* var0 = GetGameResources();
+    arg0->unknown_1_ = 1;
+    unsigned char var1 = arg0->unknown_b_;
+    if (var1 != 0 && var0 != NULL) {
+        func_ov017_0218d5c8((unsigned char*)var0);
+        void* var2 = arg0->unknown_2c_.GetSignedAllocator();
+        if (var2 != NULL) {
+            arg0->unknown_2c_.Destroy();
+            func_02012da4((AllocatorUnion*)&data_02114e20, var2);
         }
-        self->fieldB = 0;
+        arg0->unknown_b_ = 0;
     }
 
-    GameState* bs = GameState::GetInstance();
-    GameObject* c = bs->GetUnknownGameObject();
-    if (c != NULL) {
-        func_020397c0(c);
+    GameState* var3 = GameState::GetInstance();
+    GameObject* var4 = var3->GetUnknownGameObject();
+    if (var4 != NULL) {
+        func_020397c0(var4);
     }
-    int flagResult = func_020100f8((char*)bs);
-    if (flagResult != 0) {
-        func_020a2794((void*)flagResult);
+    int var5 = func_020100f8((char*)var3);
+    if (var5 != 0) {
+        func_020a2794((void*)var5);
     }
 
-    if (h == NULL) return;
-    ClearFlags04((GameResources*)h, 0x80);
+    if (var0 == NULL) return;
+    ClearFlags04((GameResources*)var0, 0x80);
 }

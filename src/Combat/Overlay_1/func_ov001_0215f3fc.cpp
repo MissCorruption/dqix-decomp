@@ -12,68 +12,68 @@
 #define data_ov001_021657d1 data_ov001_02166d95
 #endif
 
-struct SlotArray_0203e03c;
-struct SlotArray0203dd10;
-struct Node020408c8;
-struct TaggedValue0215f3fc
+struct Struct_0203e03c;
+struct Struct_0203dd10;
+struct Struct_0203d028_19;
+struct Struct_ov001_0215f3fc_3
 {
-    int type;
-    int value;
+    int unknown_0_;
+    int unknown_4_;
 };
-struct Obj0203f02c
+struct Struct_0203d028_14
 {
-    void* context;
-    char pad_0x4[0x4c];
-    unsigned int flags;
+    void* unknown_0_;
+    char unknown_4_[0x4c];
+    unsigned int unknown_50_;
 };
-struct StreamEntry0215f3fc
+struct Struct_ov001_0215f3fc_4
 {
-    char pad_0x0[8];
-    void* descriptor;
-    Rec0206bf2c* record;
-    char pad_0x10[4];
-    Obj0203f02c* motion;
-    char pad_0x18[8];
+    char unknown_0_[8];
+    void* unknown_8_;
+    Struct_0206bf2c* unknown_c_;
+    char unknown_10_[4];
+    Struct_0203d028_14* unknown_14_;
+    char unknown_18_[8];
 };
-struct StreamDescriptor0215f3fc
+struct Struct_ov001_0215f3fc_5
 {
-    unsigned short field_0x0;
-    unsigned char type;
-    unsigned char pad_0x3;
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 #if defined(jpn)
-    char pad_0x4[0xc];
+    char unknown1_4_[0xc];
 #endif
-    char name[16];
+    char unknown_4_[16];
 };
-struct StreamRecord0215f3fc
+struct Struct_ov001_0215f3fc
 {
-    char data[0x70];
+    char unknown_0_[0x70];
 };
-struct StreamResources0215f3fc
+struct Struct_ov001_0215f3fc_2
 {
 #if defined(jpn)
-    char pad_0x0[0x27c];
+    char unknown_0_[0x27c];
 #else
-    char pad_0x0[0x2cc];
+    char unknown1_0_[0x2cc];
 #endif
-    StreamRecord0215f3fc records[33];
+    Struct_ov001_0215f3fc unknown_2cc_[33];
 };
 extern "C" void* func_0203cf4c();
 extern "C" int func_0200fb8c(int*);
 extern "C" const char* func_ov017_021d612c(void*);
-extern "C" int func_0203e03c(SlotArray_0203e03c*);
+extern "C" int func_0203e03c(Struct_0203e03c*);
 extern "C" void func_ov017_021d6134(void*, int);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
-extern "C" int func_ov017_021d60f4(TaggedValue0215f3fc*);
+extern "C" int func_ov017_021d60f4(Struct_ov001_0215f3fc_3*);
 extern "C" void func_020404c0(int*);
 extern "C" void func_0203c794(void*);
 extern "C" void* func_0203d004(void*);
 extern "C" void func_02040530(int*, int);
 extern "C" void func_02040520(int*, int);
-extern "C" void func_0203f02c(Obj0203f02c*, int, int, char*, int, int);
-extern "C" void func_0203f138(Obj0203f02c*, int);
-extern "C" void func_020408c8(Node020408c8*, short, short, short);
-extern "C" void func_0203dd10(SlotArray0203dd10*, unsigned int, int);
+extern "C" void func_0203f02c(Struct_0203d028_14*, int, int, char*, int, int);
+extern "C" void func_0203f138(Struct_0203d028_14*, int);
+extern "C" void func_020408c8(Struct_0203d028_19*, short, short, short);
+extern "C" void func_0203dd10(Struct_0203dd10*, unsigned int, int);
 extern const char data_ov001_021657ad[];
 extern const char data_ov001_021657b2[];
 extern const char data_ov001_021657be[];
@@ -82,147 +82,147 @@ extern const char data_ov001_021657ce[];
 extern const char data_ov001_021657d1[];
 
 // USA: func_ov001_0215f3fc
-extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count)
+extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
 {
-    GameState* game = GameState::GetInstance();
-    void* list = func_0203cf4c();
-    StreamResources0215f3fc* resources = (StreamResources0215f3fc*)func_0200fb8c((int*)game);
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (!resources)
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0203cf4c();
+    Struct_ov001_0215f3fc_2* var2 = (Struct_ov001_0215f3fc_2*)func_0200fb8c((int*)var0);
+    BackgroundLoader* var3 = BackgroundLoader::GetInstance();
+    if (!var2)
     {
         return 0;
     }
-    const char* name = func_ov017_021d612c(arguments++);
-    int slot = func_0203e03c((SlotArray_0203e03c*)list);
-    if (slot == -1)
+    const char* var4 = func_ov017_021d612c(arg0++);
+    int var5 = func_0203e03c((Struct_0203e03c*)var1);
+    if (var5 == -1)
     {
         return 0;
     }
-    func_ov017_021d6134(arguments++, slot);
-    if (slot >= 32)
+    func_ov017_021d6134(arg0++, var5);
+    if (var5 >= 32)
     {
         return 0;
     }
-    char filename[80];
-    if (strstr(name, data_ov001_021657ad))
+    char var6[80];
+    if (strstr(var4, data_ov001_021657ad))
     {
-        sprintf(filename, data_ov001_021657b2, name);
+        sprintf(var6, data_ov001_021657b2, var4);
     }
     else
     {
-        sprintf(filename, data_ov001_021657be, name);
+        sprintf(var6, data_ov001_021657be, var4);
     }
-    void* file;
-    unsigned int length;
-    int locked = 0;
-    loader->GetLoadedFileByName(filename, &file, &length);
-    if (!file)
+    void* var7;
+    unsigned int var8;
+    int var9 = 0;
+    var3->GetLoadedFileByName(var6, &var7, &var8);
+    if (!var7)
     {
         BackgroundLoader::AddLockGlobal();
-        locked = 1;
-        if (!func_ov001_0215a750(filename, &file))
+        var9 = 1;
+        if (!func_ov001_0215a750(var6, &var7))
         {
             BackgroundLoader::RemoveLockGlobal();
             return 0;
         }
     }
-    int allocatorIndex = 0;
-    if (count >= 3)
+    int var10 = 0;
+    if (arg1 >= 3)
     {
-        allocatorIndex = func_ov017_021d60f4(arguments++);
+        var10 = func_ov017_021d60f4(arg0++);
     }
-    SafeAllocator* allocator = data_ov001_021658b8[allocatorIndex];
-    int recordIndex = 27;
-    if (count >= 4)
+    SafeAllocator* var11 = data_ov001_021658b8[var10];
+    int var12 = 27;
+    if (arg1 >= 4)
     {
-        recordIndex = func_ov017_021d60f4(arguments);
+        var12 = func_ov017_021d60f4(arg0);
     }
-    StreamEntry0215f3fc* entry = (StreamEntry0215f3fc*)allocator->Allocate(0x20);
-    if (!entry)
+    Struct_ov001_0215f3fc_4* var13 = (Struct_ov001_0215f3fc_4*)var11->Allocate(0x20);
+    if (!var13)
     {
-        if (locked)
+        if (var9)
         {
             BackgroundLoader::RemoveLockGlobal();
         }
         return 0;
     }
-    func_020404c0((int*)entry);
-    Rec0206bf2c* record = (Rec0206bf2c*)allocator->Allocate(0x78);
-    if (!record)
+    func_020404c0((int*)var13);
+    Struct_0206bf2c* var14 = (Struct_0206bf2c*)var11->Allocate(0x78);
+    if (!var14)
     {
-        if (locked)
+        if (var9)
         {
             BackgroundLoader::RemoveLockGlobal();
         }
         return 0;
     }
-    func_0206bf2c(record);
+    func_0206bf2c(var14);
 #if defined(jpn)
-    enum { regionalOffset0 = 0x20 };
+    enum { Enum_ov001_0215f3fc_20 = 0x20 };
 #else
-    enum { regionalOffset0 = 0x14 };
+    enum { Enum_ov001_0215f3fc_20 = 0x14 };
 #endif
-    StreamDescriptor0215f3fc* descriptor = (StreamDescriptor0215f3fc*)allocator->Allocate(regionalOffset0);
-    if (!descriptor)
+    Struct_ov001_0215f3fc_5* var15 = (Struct_ov001_0215f3fc_5*)var11->Allocate(Enum_ov001_0215f3fc_20);
+    if (!var15)
     {
-        if (locked)
+        if (var9)
         {
             BackgroundLoader::RemoveLockGlobal();
         }
         return 0;
     }
-    memset(descriptor, 0, regionalOffset0);
-    entry->motion = (Obj0203f02c*)allocator->Allocate(0x9c);
-    if (!entry->motion)
+    memset(var15, 0, Enum_ov001_0215f3fc_20);
+    var13->unknown_14_ = (Struct_0203d028_14*)var11->Allocate(0x9c);
+    if (!var13->unknown_14_)
     {
-        if (locked)
+        if (var9)
         {
             BackgroundLoader::RemoveLockGlobal();
         }
         return 0;
     }
-    func_0203c794(entry->motion);
-    void* context = func_0203d004(list);
-    if (entry->motion)
+    func_0203c794(var13->unknown_14_);
+    void* var16 = func_0203d004(var1);
+    if (var13->unknown_14_)
     {
-        entry->motion->context = context;
+        var13->unknown_14_->unknown_0_ = var16;
     }
-    descriptor->type = 3;
-    if (strstr(name, data_ov001_021657ad))
+    var15->unknown_2_ = 3;
+    if (strstr(var4, data_ov001_021657ad))
     {
-        int nameLength = 5;
-        if (strstr(name, data_ov001_021657ce))
+        int var17 = 5;
+        if (strstr(var4, data_ov001_021657ce))
         {
-            nameLength = 7;
-            entry->motion->flags |= 8;
+            var17 = 7;
+            var13->unknown_14_->unknown_50_ |= 8;
         }
-        memcpy(descriptor->name, name, nameLength);
-        descriptor->name[nameLength] = 0;
+        memcpy(var15->unknown_4_, var4, var17);
+        var15->unknown_4_[var17] = 0;
     }
     else
     {
-        sprintf(descriptor->name, data_ov001_021657d1, name);
+        sprintf(var15->unknown_4_, data_ov001_021657d1, var4);
     }
-    func_02040530((int*)entry, (int)record);
-    func_02040520((int*)entry, (int)descriptor);
-    StreamRecord0215f3fc* recordBase = resources->records;
-    char* recordData = recordBase[recordIndex].data;
-    unsigned int loadedLength = length;
-    void* loadedFile = file;
-    if (entry->motion)
+    func_02040530((int*)var13, (int)var14);
+    func_02040520((int*)var13, (int)var15);
+    Struct_ov001_0215f3fc* var18 = var2->unknown_2cc_;
+    char* var19 = var18[var12].unknown_0_;
+    unsigned int var20 = var8;
+    void* var21 = var7;
+    if (var13->unknown_14_)
     {
-        func_0203f02c(entry->motion, (int)(filename + 9), (int)allocator,
-            recordData, (int)loadedFile, loadedLength);
+        func_0203f02c(var13->unknown_14_, (int)(var6 + 9), (int)var11,
+            var19, (int)var21, var20);
     }
-    if (entry->motion)
+    if (var13->unknown_14_)
     {
-        func_0203f138(entry->motion, 1);
+        func_0203f138(var13->unknown_14_, 1);
     }
-    if (locked)
+    if (var9)
     {
         BackgroundLoader::RemoveLockGlobal();
     }
-    func_020408c8((Node020408c8*)entry, 0x8f, 0x8f, 0x8f);
-    func_0203dd10((SlotArray0203dd10*)list, slot, (int)entry);
+    func_020408c8((Struct_0203d028_19*)var13, 0x8f, 0x8f, 0x8f);
+    func_0203dd10((Struct_0203dd10*)var1, var5, (int)var13);
     return 1;
 }

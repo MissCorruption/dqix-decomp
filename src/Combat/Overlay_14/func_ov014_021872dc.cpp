@@ -5,31 +5,31 @@
 #endif
 #include <globaldefs.h>
 
-struct ListHeadStruct021874f8;
-extern "C" short func_ov014_021874f8(struct ListHeadStruct021874f8* obj);
-struct S02187520;
-extern "C" short func_ov014_02187520(struct S02187520* obj);
-struct Node02187340;
-extern "C" struct Node02187340* func_ov014_02187340(void* obj, int target);
+struct Struct_ov014_02186bc8_3;
+extern "C" short func_ov014_021874f8(struct Struct_ov014_02186bc8_3* arg0);
+struct Struct_ov014_021872dc;
+extern "C" short func_ov014_02187520(struct Struct_ov014_021872dc* arg0);
+struct Struct_ov014_021872dc_2;
+extern "C" struct Struct_ov014_021872dc_2* func_ov014_02187340(void* arg0, int arg1);
 
 // USA: func_ov014_021872dc
-extern "C" ARM struct Node02187340* func_ov014_021872dc(unsigned char* obj, int param1) {
-    short count = func_ov014_021874f8((struct ListHeadStruct021874f8*)obj);
-    int t1 = count + 15;
-    int t0 = t1 >> 3;
-    int rounded = t1 + ((unsigned int)t0 >> 28);
-    int r5 = (rounded << 12) >> 16;
+extern "C" ARM struct Struct_ov014_021872dc_2* func_ov014_021872dc(unsigned char* arg0, int arg1) {
+    short var0 = func_ov014_021874f8((struct Struct_ov014_02186bc8_3*)arg0);
+    int var1 = var0 + 15;
+    int var2 = var1 >> 3;
+    int var3 = var1 + ((unsigned int)var2 >> 28);
+    int var4 = (var3 << 12) >> 16;
 
-    short idx = func_ov014_02187520((struct S02187520*)obj);
-    short s = (short)(idx + param1);
-    if (s < 0) {
-        s = (short)(r5 + s);
+    short var5 = func_ov014_02187520((struct Struct_ov014_021872dc*)arg0);
+    short var6 = (short)(var5 + arg1);
+    if (var6 < 0) {
+        var6 = (short)(var4 + var6);
     }
-    if (r5 <= s) {
-        s = (short)(s - r5);
+    if (var4 <= var6) {
+        var6 = (short)(var6 - var4);
     }
 
-    struct Node02187340* ret = func_ov014_02187340(obj, s);
-    *(struct Node02187340**)(obj + 0xbc) = ret;
-    return ret;
+    struct Struct_ov014_021872dc_2* var7 = func_ov014_02187340(arg0, var6);
+    *(struct Struct_ov014_021872dc_2**)(arg0 + 0xbc) = var7;
+    return var7;
 }

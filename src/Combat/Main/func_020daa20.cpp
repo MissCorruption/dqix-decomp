@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct Neg1SearchEntry {
-    char unk[8];
-    int field8;
+struct Struct_020daa20 {
+    char unknown_0_[8];
+    int unknown_8_;
 };
 
 // USA: func_020daa20
-extern "C" ARM struct Neg1SearchEntry* func_020daa20(unsigned char* obj) {
-    struct Neg1SearchEntry* e = (struct Neg1SearchEntry*)(obj + 0x14);
-    unsigned char i = 0;
-    while (i < 4) {
-        if (e->field8 == -1) {
-            return e;
+extern "C" ARM struct Struct_020daa20* func_020daa20(unsigned char* arg0) {
+    struct Struct_020daa20* var0 = (struct Struct_020daa20*)(arg0 + 0x14);
+    unsigned char var1 = 0;
+    while (var1 < 4) {
+        if (var0->unknown_8_ == -1) {
+            return var0;
         }
-        i++;
-        e++;
+        var1++;
+        var0++;
     }
     return NULL;
 }

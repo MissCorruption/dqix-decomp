@@ -19,140 +19,140 @@ extern char data_ov000_02183a54[];
 extern char data_ov000_021839e2[];
 extern char data_020ef078[];
 
-struct StreamHeader;
-struct Container02070e60 { unsigned char data[0xc]; };
-struct Struct_203dafc {
-    int field0;
-    int fieldTable;
-    int fieldLength;
-    SafeAllocator* allocator;
-    int field10;
-    int field14;
-    int field18;
-    int field1c;
+struct Struct_02013fb4;
+struct Struct_02070b6c_3 { unsigned char unknown_0_[0xc]; };
+struct Struct_0203d028_11 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    SafeAllocator* unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
-struct Foo0207df50;
+struct Struct_0203d028;
 
-struct ModelEntry { int id; const char* name; };
-struct ModelNames {
-    unsigned char pad_00[0x14]; unsigned int words; unsigned char pad_18[0x14]; char name[1]; };
-struct Input020484f8 { ModelEntry* entry; ModelNames* names; int script; };
+struct Struct_ov000_02166070_3 { int unknown_0_; const char* unknown_4_; };
+struct Struct_ov000_02166070_4 {
+    unsigned char unknown_0_[0x14]; unsigned int unknown_14_; unsigned char unknown_18_[0x14]; char unknown_2c_[1]; };
+struct Struct_020484f8_2 { Struct_ov000_02166070_3* unknown_0_; Struct_ov000_02166070_4* unknown_4_; int unknown_8_; };
 
-struct CombatantRoster02166070 {
-    unsigned char pad_00[0x678];
-    List0206f170 search;
-    Container02070e60 names;
+struct Struct_ov000_02166070 {
+    unsigned char unknown_0_[0x678];
+    Struct_0206ef48 unknown_678_;
+    Struct_02070b6c_3 unknown_684_;
 };
-struct Scene02166070 {
-    unsigned char pad_00[0x44];
-    SafeAllocator allocator;
+struct Struct_ov000_02166070_2 {
+    unsigned char unknown_0_[0x44];
+    SafeAllocator unknown_44_;
 #if defined(jpn)
-    unsigned char pad_pre[0x138 - 0x44 - sizeof(SafeAllocator)];
-    char tables14c[0x70];
-    char tables1bc[0x21c - 0x1a8];
-    CombatantRoster02166070* roster;
-    unsigned char pad_2a4[0xe34 - 0x220];
+    unsigned char unknown_58_[0x138 - 0x44 - sizeof(SafeAllocator)];
+    char unknown_14c_[0x70];
+    char unknown_1bc_[0x21c - 0x1a8];
+    Struct_ov000_02166070* unknown_2a0_;
+    unsigned char unknown_220_[0xe34 - 0x220];
 #else
-    unsigned char pad_pre[0x14c - 0x44 - sizeof(SafeAllocator)];
-    char tables14c[0x70];
-    char tables1bc[0x2a0 - 0x1bc];
-    CombatantRoster02166070* roster;
-    unsigned char pad_2a4[0xeb8 - 0x2a4];
+    unsigned char unknown1_58_[0x14c - 0x44 - sizeof(SafeAllocator)];
+    char unknown_14c_[0x70];
+    char unknown_1bc_[0x2a0 - 0x1bc];
+    Struct_ov000_02166070* unknown_2a0_;
+    unsigned char unknown_2a4_[0xeb8 - 0x2a4];
 #endif
-    Object3D* models[4];
+    Object3D* unknown_eb8_[4];
 };
 
-extern "C" ModelEntry* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" Struct_ov000_02166070_3* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void func_020484d0(void*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_0207dfac(char*);
-extern "C" void func_0203dafc(struct Struct_203dafc*);
-extern "C" ModelNames* func_02070fd0(struct Container02070e60*, int);
-extern "C" void func_ov000_0216d1c4(int, struct StreamHeader*, int, int*);
-extern "C" void func_020484f8(Object3D*, Input020484f8*);
-extern "C" void func_0207df50(struct Foo0207df50*);
+extern "C" void func_0203dafc(struct Struct_0203d028_11*);
+extern "C" Struct_ov000_02166070_4* func_02070fd0(struct Struct_02070b6c_3*, int);
+extern "C" void func_ov000_0216d1c4(int, struct Struct_02013fb4*, int, int*);
+extern "C" void func_020484f8(Object3D*, Struct_020484f8_2*);
+extern "C" void func_0207df50(struct Struct_0203d028*);
 extern "C" void _ZN8Object3D10SetField78Et(Object3D*, unsigned int);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
 extern "C" void func_0207de48(char*, int, int);
 
 // USA: func_ov000_02166070
-extern "C" ARM void func_ov000_02166070(Scene02166070* self, GPCReadPair* pair, int slot, int id, int flag, unsigned int offset) {
-    CombatantRoster02166070* roster = self->roster;
-    BinarySearchByComparatorStruct* search = &roster->search.table;
-    SafeAllocator* alloc = &self->allocator;
-    Container02070e60* names = &roster->names;
-    char path[0x10];
-    struct Struct_203dafc params;
-    Input020484f8 input;
-    unsigned int length;
-    const void* filePtr;
-    unsigned int fileSize;
-    unsigned int modelLength;
-    unsigned int animLength;
-    const void* scriptPtr;
-    unsigned int scriptSize;
-    ModelEntry* entry = func_0206f4f0(search, (short)id);
-    if (entry == 0) return;
-    sprintf(path, data_ov000_02183a47, entry->name);
-    if (!DecompressFileFromGPCByName(pair->pGPCFile, pair->machine, data_0211e33c + offset, length, 0x30000 - offset, path)) {
-        pair->Reset();
-        if (flag) BackgroundLoader::RemoveLockGlobal();
+extern "C" ARM void func_ov000_02166070(Struct_ov000_02166070_2* arg0, GPCReadPair* arg1, int arg2, int arg3, int arg4, unsigned int arg5) {
+    Struct_ov000_02166070* var0 = arg0->unknown_2a0_;
+    Struct_0206f01c_2* var1 = &var0->unknown_678_.unknown_0_;
+    SafeAllocator* var2 = &arg0->unknown_44_;
+    Struct_02070b6c_3* var3 = &var0->unknown_684_;
+    char var4[0x10];
+    struct Struct_0203d028_11 var5;
+    Struct_020484f8_2 var6;
+    unsigned int var7;
+    const void* var8;
+    unsigned int var9;
+    unsigned int var10;
+    unsigned int var11;
+    const void* var12;
+    unsigned int var13;
+    Struct_ov000_02166070_3* var14 = func_0206f4f0(var1, (short)arg3);
+    if (var14 == 0) return;
+    sprintf(var4, data_ov000_02183a47, var14->unknown_4_);
+    if (!DecompressFileFromGPCByName(arg1->pGPCFile, arg1->machine, data_0211e33c + arg5, var7, 0x30000 - arg5, var4)) {
+        arg1->Reset();
+        if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    if (!FindFilesInNarcBySubstring(data_0211e33c + offset, data_ov000_02183a4e, &filePtr, &fileSize, 1)) {
-        pair->Reset();
-        if (flag) BackgroundLoader::RemoveLockGlobal();
+    if (!FindFilesInNarcBySubstring(data_0211e33c + arg5, data_ov000_02183a4e, &var8, &var9, 1)) {
+        arg1->Reset();
+        if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    void* model = DecompressLZ77FileIntoAllocatedSpace(*alloc, filePtr, modelLength);
-    if (!FindFilesInNarcBySubstring(data_0211e33c + offset, data_ov000_02183a54, &filePtr, &fileSize, 1)) {
-        pair->Reset();
-        if (flag) BackgroundLoader::RemoveLockGlobal();
+    void* var15 = DecompressLZ77FileIntoAllocatedSpace(*var2, var8, var10);
+    if (!FindFilesInNarcBySubstring(data_0211e33c + arg5, data_ov000_02183a54, &var8, &var9, 1)) {
+        arg1->Reset();
+        if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    void* anim = DecompressLZ77FileIntoAllocatedSpace(*alloc, filePtr, animLength);
-    if (!FindFilesInNarcBySubstring(data_0211e33c + offset, data_ov000_021839e2, &scriptPtr, &scriptSize, 1)) {
-        scriptPtr = 0;
-        scriptSize = 0;
+    void* var16 = DecompressLZ77FileIntoAllocatedSpace(*var2, var8, var11);
+    if (!FindFilesInNarcBySubstring(data_0211e33c + arg5, data_ov000_021839e2, &var12, &var13, 1)) {
+        var12 = 0;
+        var13 = 0;
     }
-    Object3D* obj = (Object3D*)alloc->Allocate(0xb8);
-    if (obj == 0) {
-        pair->Reset();
-        if (flag) BackgroundLoader::RemoveLockGlobal();
+    Object3D* var17 = (Object3D*)var2->Allocate(0xb8);
+    if (var17 == 0) {
+        arg1->Reset();
+        if (arg4) BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    func_020484d0(obj);
-    obj->unknown_2_ = id;
-    func_0207df90(self->tables1bc);
-    func_0203dafc(&params);
-    params.fieldTable = (int)model;
-    params.fieldLength = modelLength;
-    params.allocator = alloc;
-    obj->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-    func_0207dfac(self->tables1bc);
-    func_0203dafc(&params);
-    params.fieldTable = (int)anim;
-    params.fieldLength = animLength;
-    params.allocator = alloc;
-    obj->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-    input.names = func_02070fd0(names, id);
-    input.entry = func_0206f4f0(search, id << 16 >> 16);
-    sprintf(input.names->name, data_020ef078, input.entry->id);
-    if (scriptPtr == 0) {
-        input.script = 0;
+    func_020484d0(var17);
+    var17->unknown_2_ = arg3;
+    func_0207df90(arg0->unknown_1bc_);
+    func_0203dafc(&var5);
+    var5.unknown_4_ = (int)var15;
+    var5.unknown_8_ = var10;
+    var5.unknown_c_ = var2;
+    var17->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var5, 0);
+    func_0207dfac(arg0->unknown_1bc_);
+    func_0203dafc(&var5);
+    var5.unknown_4_ = (int)var16;
+    var5.unknown_8_ = var11;
+    var5.unknown_c_ = var2;
+    var17->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var5, 0);
+    var6.unknown_4_ = func_02070fd0(var3, arg3);
+    var6.unknown_0_ = func_0206f4f0(var1, arg3 << 16 >> 16);
+    sprintf(var6.unknown_4_->unknown_2c_, data_020ef078, var6.unknown_0_->unknown_0_);
+    if (var12 == 0) {
+        var6.unknown_8_ = 0;
     } else {
-        func_ov000_0216d1c4((int)alloc, (StreamHeader*)scriptPtr, scriptSize, &input.script);
+        func_ov000_0216d1c4((int)var2, (Struct_02013fb4*)var12, var13, &var6.unknown_8_);
     }
-    func_020484f8(obj, &input);
-    unsigned int low = (unsigned short)input.names->words;
-    unsigned int high;
-    _ZN8Object3D10SetField78Et(obj, (high = input.names->words >> 16, low));
-    _ZN8Object3D10SetField7aEt(obj, high);
-    self->models[slot] = obj;
-    if (id == 0x13f || id == 0x13d || id == 0x321) {
-        func_0207df50((struct Foo0207df50*)self->tables14c);
-        func_0207df90(self->tables14c);
-        func_0207de48(self->tables14c, 0x800, 0);
-        func_0207de48(self->tables14c, 0xb800, 0x400);
+    func_020484f8(var17, &var6);
+    unsigned int var18 = (unsigned short)var6.unknown_4_->unknown_14_;
+    unsigned int var19;
+    _ZN8Object3D10SetField78Et(var17, (var19 = var6.unknown_4_->unknown_14_ >> 16, var18));
+    _ZN8Object3D10SetField7aEt(var17, var19);
+    arg0->unknown_eb8_[arg2] = var17;
+    if (arg3 == 0x13f || arg3 == 0x13d || arg3 == 0x321) {
+        func_0207df50((struct Struct_0203d028*)arg0->unknown_14c_);
+        func_0207df90(arg0->unknown_14c_);
+        func_0207de48(arg0->unknown_14c_, 0x800, 0);
+        func_0207de48(arg0->unknown_14c_, 0xb800, 0x400);
     }
 }

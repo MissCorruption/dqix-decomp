@@ -2,32 +2,32 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Obj02061bd8;
-extern "C" int func_02061bd8(struct Obj02061bd8* obj);
-extern "C" void func_ov017_02190264(void* h, int i);
-extern "C" void func_0200fd48(GameState* battleStruct, int id);
-extern "C" void* func_02010828(GameState* battleStruct);
+struct Struct_0205faf4_11;
+extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+extern "C" void func_ov017_02190264(void* arg0, int arg1);
+extern "C" void func_0200fd48(GameState* arg0, int arg1);
+extern "C" void* func_02010828(GameState* arg0);
 
 // USA: func_ov017_02191484
-extern "C" ARM void func_ov017_02191484(unsigned char* obj) {
+extern "C" ARM void func_ov017_02191484(unsigned char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x980};
+ enum {Enum_ov017_02191484_2976=0x980};
 #else
- enum {regionalOffset0=0xba0};
+ enum {Enum_ov017_02191484_2976=0xba0};
 #endif
-    GameState* bs = GameState::GetInstance();
-    int h = ((int)GetGameResources());
-    for (int i = 0; i < 4; i++) {
-        GameObject* c = func_0200ff1c(bs, i);
-        if (c) {
-            if (func_02061bd8((struct Obj02061bd8*)c)) {
-                func_ov017_02190264((void*)h, i);
+    GameState* var0 = GameState::GetInstance();
+    int var1 = ((int)GetGameResources());
+    for (int var2 = 0; var2 < 4; var2++) {
+        GameObject* var3 = func_0200ff1c(var0, var2);
+        if (var3) {
+            if (func_02061bd8((struct Struct_0205faf4_11*)var3)) {
+                func_ov017_02190264((void*)var1, var2);
             }
         }
     }
-    func_0200fd48(bs, 0xce);
-    unsigned char* p = (unsigned char*)func_02010828(bs);
-    p[0xf7d] = 0;
-    unsigned char* p2 = *(unsigned char**)(obj + 0x3000 + regionalOffset0);
-    p2[0xb] = 0;
+    func_0200fd48(var0, 0xce);
+    unsigned char* var4 = (unsigned char*)func_02010828(var0);
+    var4[0xf7d] = 0;
+    unsigned char* var5 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_02191484_2976);
+    var5[0xb] = 0;
 }

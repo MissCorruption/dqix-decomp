@@ -1,55 +1,55 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8468(void* obj);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8468(void* arg0);
 
-struct Entry021633b8 {
-    unsigned short f0;
-    unsigned short f2 : 15;
-    unsigned short flag : 1;
-    unsigned char f4;
-    signed char f5;
+struct Struct_ov000_021633b8 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 15;
+    unsigned short unknown_3_7_ : 1;
+    unsigned char unknown_4_;
+    signed char unknown_5_;
 };
-extern "C" void func_ov000_021633b8(char* obj, Entry021633b8* src);
-extern "C" void func_ov000_02163404(void* work, unsigned char val);
-extern "C" void func_ov000_02160fa8(void* work, int mask);
-typedef void (*SetByteField0x5901Fn)(void*, int);
+extern "C" void func_ov000_021633b8(char* arg0, Struct_ov000_021633b8* arg1);
+extern "C" void func_ov000_02163404(void* arg0, unsigned char arg1);
+extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
+typedef void (*Type_ov017_021cd424)(void*, int);
 
-struct Ret021cd424 {
-    unsigned char pad0[8];
-    unsigned short field8;
+struct Struct_ov017_021cd424 {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct Src021cd424 {
-    unsigned char pad0[4];
-    unsigned short field4;
-    unsigned short field6;
-    unsigned short field8;
-    signed char fielda;
-    unsigned char fieldb;
-    signed char fieldc;
+struct Struct_ov017_021cd424_2 {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    signed char unknown_a_;
+    unsigned char unknown_b_;
+    signed char unknown_c_;
 };
 
 // USA: func_ov017_021cd424
-extern "C" ARM void func_ov017_021cd424(int unused0, Src021cd424* src, int unused2, unsigned char* obj) {
+extern "C" ARM void func_ov017_021cd424(int arg0, Struct_ov017_021cd424_2* arg1, int arg2, unsigned char* arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021cd424_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021cd424_1816=0x718};
 #endif
-    unsigned char* h = *(unsigned char**)(obj + 0x3000 + regionalOffset0);
-    Ret021cd424* r = (Ret021cd424*)func_ov017_021b8478(h);
-    if (r->field8 != src->field4) return;
-    unsigned char* work = (unsigned char*)func_ov017_021b8468(h);
-    if (!work) return;
-    Entry021633b8 e;
-    e.f0 = src->field6;
-    e.f2 = src->field8;
-    e.f4 = src->fieldb;
-    e.f5 = src->fieldc;
-    func_ov000_021633b8((char*)work, &e);
-    if (src->fielda >= 0) {
-        ((SetByteField0x5901Fn)func_ov000_02163404)(work, src->fielda);
+    unsigned char* var0 = *(unsigned char**)(arg3 + 0x3000 + Enum_ov017_021cd424_1816);
+    Struct_ov017_021cd424* var1 = (Struct_ov017_021cd424*)func_ov017_021b8478(var0);
+    if (var1->unknown_8_ != arg1->unknown_4_) return;
+    unsigned char* var2 = (unsigned char*)func_ov017_021b8468(var0);
+    if (!var2) return;
+    Struct_ov000_021633b8 var3;
+    var3.unknown_0_ = arg1->unknown_6_;
+    var3.unknown_2_0_ = arg1->unknown_8_;
+    var3.unknown_4_ = arg1->unknown_b_;
+    var3.unknown_5_ = arg1->unknown_c_;
+    func_ov000_021633b8((char*)var2, &var3);
+    if (arg1->unknown_a_ >= 0) {
+        ((Type_ov017_021cd424)func_ov000_02163404)(var2, arg1->unknown_a_);
     }
-    func_ov000_02160fa8(work, 0x8000);
+    func_ov000_02160fa8(var2, 0x8000);
 }

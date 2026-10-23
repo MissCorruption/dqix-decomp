@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-struct Entry0207f0ac {
-    char pad[8];
-    short id;
-    char pad2[0x18 - 0xa];
+struct Struct_0207f0ac_2 {
+    char unknown_0_[8];
+    short unknown_8_;
+    char unknown_a_[0x18 - 0xa];
 };
 
-struct List0207f0ac {
-    struct Entry0207f0ac* entries;
-    short count;
+struct Struct_0207f0ac {
+    struct Struct_0207f0ac_2* unknown_0_;
+    short unknown_4_;
 };
 
-static inline struct Entry0207f0ac* GetEntry0207f0ac(struct List0207f0ac* list, unsigned int index) {
-    return &list->entries[index];
+static inline struct Struct_0207f0ac_2* inline_0207f0ac(struct Struct_0207f0ac* arg0, unsigned int arg1) {
+    return &arg0->unknown_0_[arg1];
 }
 
 // USA: func_0207f0ac
-extern "C" ARM struct Entry0207f0ac* func_0207f0ac(struct List0207f0ac* list, int id) {
-    short i;
-    struct Entry0207f0ac* e;
-    if (id < 0) {
+extern "C" ARM struct Struct_0207f0ac_2* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1) {
+    short var0;
+    struct Struct_0207f0ac_2* var1;
+    if (arg1 < 0) {
         return NULL;
     }
-    for (i = 0; i < list->count; i++) {
-        e = GetEntry0207f0ac(list, i);
-        if (id == e->id) {
-            return e;
+    for (var0 = 0; var0 < arg0->unknown_4_; var0++) {
+        var1 = inline_0207f0ac(arg0, var0);
+        if (arg1 == var1->unknown_8_) {
+            return var1;
         }
     }
     return NULL;

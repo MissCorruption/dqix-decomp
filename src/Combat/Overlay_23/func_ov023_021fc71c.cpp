@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_ov023_021e60e0(void* obj, unsigned int val);
-extern "C" void func_ov023_021e616c(char* obj);
-extern "C" int func_ov023_021e5974(int a, int b, int c, int d, int e);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void func_ov023_021e616c(char* arg0);
+extern "C" int func_ov023_021e5974(int arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct FlagByte021fc71c {
-    unsigned char bit0 : 1;
-    unsigned char restBits : 7;
+struct Struct_ov023_021fc71c {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 7;
 };
 
 // USA: func_ov023_021fc71c
-extern "C" ARM void func_ov023_021fc71c(void* obj, int id, int flagArg) {
-    GameState* battle = GameState::GetInstance();
-    GameObject* combatant = func_0200ff1c(battle, id);
-    unsigned char bit0 = ((struct FlagByte021fc71c*)((char*)obj + 0x1864))->bit0;
-    int idx = (bit0 + 1) % 2;
-    int mul = idx * 0xc20;
-    char* base = (char*)obj + 0x20;
-    if (flagArg != 0) {
-        func_ov023_021e60e0(base + mul, 0x1eb);
+extern "C" ARM void func_ov023_021fc71c(void* arg0, int arg1, int arg2) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = func_0200ff1c(var0, arg1);
+    unsigned char var2 = ((struct Struct_ov023_021fc71c*)((char*)arg0 + 0x1864))->unknown_0_0_;
+    int var3 = (var2 + 1) % 2;
+    int var4 = var3 * 0xc20;
+    char* var5 = (char*)arg0 + 0x20;
+    if (arg2 != 0) {
+        func_ov023_021e60e0(var5 + var4, 0x1eb);
     }
-    func_ov023_021e616c(base + mul);
-    int fieldVal = func_02053c6c((unsigned char*)combatant);
-    func_ov023_021e5974((int)(base + mul), fieldVal, id, 1, 0);
-    *(unsigned char*)((int)obj + 0x1864) |= 8;
+    func_ov023_021e616c(var5 + var4);
+    int var6 = func_02053c6c((unsigned char*)var1);
+    func_ov023_021e5974((int)(var5 + var4), var6, arg1, 1, 0);
+    *(unsigned char*)((int)arg0 + 0x1864) |= 8;
 }

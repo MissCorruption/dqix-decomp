@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct DigitBuf020096ac {
-    unsigned char flag0;
-    char pad1;
-    unsigned short param2;
-    unsigned char count;
-    unsigned char digits[0x20];
+struct Struct_020096ac {
+    unsigned char unknown_0_;
+    char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_[0x20];
 };
 
 // USA: func_020096ac
-extern "C" ARM void func_020096ac(DigitBuf020096ac* obj, unsigned long long value) {
-    obj->flag0 = 0;
-    obj->count = 0;
-    if (value != 0) {
+extern "C" ARM void func_020096ac(Struct_020096ac* arg0, unsigned long long arg1) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    if (arg1 != 0) {
         do {
-            obj->digits[obj->count++] = value % 10;
-            value /= 10;
-        } while (value != 0);
+            arg0->unknown_5_[arg0->unknown_4_++] = arg1 % 10;
+            arg1 /= 10;
+        } while (arg1 != 0);
     }
-    unsigned char* p = obj->digits;
-    unsigned char* end = p + obj->count;
-    unsigned char* q = end - 1;
-    if (p < q) {
+    unsigned char* var0 = arg0->unknown_5_;
+    unsigned char* var1 = var0 + arg0->unknown_4_;
+    unsigned char* var2 = var1 - 1;
+    if (var0 < var2) {
         do {
-            unsigned char t = *q;
-            unsigned char u = *p;
-            *p++ = t;
-            *q-- = u;
-        } while (p < q);
+            unsigned char var3 = *var2;
+            unsigned char var4 = *var0;
+            *var0++ = var3;
+            *var2-- = var4;
+        } while (var0 < var2);
     }
-    obj->param2 = obj->count - 1;
+    arg0->unknown_2_ = arg0->unknown_4_ - 1;
 }

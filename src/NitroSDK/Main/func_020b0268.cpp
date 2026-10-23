@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Reloc020b0268 { char pad[0x4]; unsigned int offset; };
+struct Struct_020b022c { char unknown_0_[0x4]; unsigned int unknown_4_; };
 
 // USA: func_020b0268
-extern "C" ARM void func_020b0268(struct Reloc020b0268* p) {
-    p->offset = p->offset + (unsigned int)p;
+extern "C" ARM void func_020b0268(struct Struct_020b022c* arg0) {
+    arg0->unknown_4_ = arg0->unknown_4_ + (unsigned int)arg0;
 }

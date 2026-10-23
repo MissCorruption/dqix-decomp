@@ -9,216 +9,216 @@
 #endif
 
 #if defined(jpn)
-enum { Field36d0 = 0x34c0, Field36d4 = 0x34c4, Field36fc = 0x34ec, Field3700 = 0x34f0, Field371c = 0x350c, Field3720 = 0x3510, Field3b4c = 0x392c, Field3b50 = 0x3930, Field3b70 = 0x3950, Field3b74 = 0x3954, Field41c0 = 0x3fa0, Field41c4 = 0x3fa4, Field42e4 = 0x40c4, CombatantFlagOffset = 0x180 };
+enum { Enum_ov017_021a51a4_14032 = 0x34c0, Enum_ov017_021a51a4_14036 = 0x34c4, Enum_ov017_021a51a4_14076 = 0x34ec, Enum_ov017_021a51a4_14080 = 0x34f0, Enum_ov017_021a51a4_14108 = 0x350c, Enum_ov017_021a51a4_14112 = 0x3510, Enum_ov017_021a51a4_15180 = 0x392c, Enum_ov017_021a51a4_15184 = 0x3930, Enum_ov017_021a51a4_15216 = 0x3950, Enum_ov017_021a51a4_15220 = 0x3954, Enum_ov017_021a51a4_16832 = 0x3fa0, Enum_ov017_021a51a4_16836 = 0x3fa4, Enum_ov017_021a51a4_17124 = 0x40c4, Enum_ov017_021a51a4_396 = 0x180 };
 #else
-enum { Field36d0 = 0x36d0, Field36d4 = 0x36d4, Field36fc = 0x36fc, Field3700 = 0x3700, Field371c = 0x371c, Field3720 = 0x3720, Field3b4c = 0x3b4c, Field3b50 = 0x3b50, Field3b70 = 0x3b70, Field3b74 = 0x3b74, Field41c0 = 0x41c0, Field41c4 = 0x41c4, Field42e4 = 0x42e4, CombatantFlagOffset = 0x18c };
+enum { Enum_ov017_021a51a4_14032 = 0x36d0, Enum_ov017_021a51a4_14036 = 0x36d4, Enum_ov017_021a51a4_14076 = 0x36fc, Enum_ov017_021a51a4_14080 = 0x3700, Enum_ov017_021a51a4_14108 = 0x371c, Enum_ov017_021a51a4_14112 = 0x3720, Enum_ov017_021a51a4_15180 = 0x3b4c, Enum_ov017_021a51a4_15184 = 0x3b50, Enum_ov017_021a51a4_15216 = 0x3b70, Enum_ov017_021a51a4_15220 = 0x3b74, Enum_ov017_021a51a4_16832 = 0x41c0, Enum_ov017_021a51a4_16836 = 0x41c4, Enum_ov017_021a51a4_17124 = 0x42e4, Enum_ov017_021a51a4_396 = 0x18c };
 #endif
 
-struct SearchStruct;
-struct FlagWord02046708;
-struct BitField0203402c;
-struct Struct0200fb08;
-struct Obj021befe4;
-struct Obj0205eaa0;
-struct Obj020397cc;
-struct S021b2ba0;
-struct TailList020469b4;
-struct TailNode020469b4;
-struct SetFlagStruct;
-struct FlagBlob02027bac;
+struct Struct_0202b2f0;
+struct Struct_02012de8;
+struct Struct_0203402c;
+struct Struct_02000c9c_8;
+struct Struct_ov017_021befe4;
+struct Struct_02108760;
+struct Struct_02018300_3;
+struct Struct_0206f81c_2;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+struct Struct_020213fc;
+struct Struct_02027bac;
 struct SafeAllocator;
 
 extern "C" int func_020421a0();
-extern "C" SearchStruct* func_0202ae18(void);
+extern "C" Struct_0202b2f0* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
-extern "C" FlagWord02046708* func_020d6c00();
-extern "C" unsigned char* func_0200fd0c(GameState* gs);
-extern "C" int func_02046b08(void** list);
-extern "C" int func_02039820(void* obj);
-extern "C" int func_020535c8(signed char* obj);
-extern "C" int func_02046708(FlagWord02046708* flags, unsigned int mask);
-extern "C" int func_0203402c(BitField0203402c* obj);
-extern "C" int func_020c39c8(volatile unsigned short* reg);
-extern "C" int func_0200fb08(Struct0200fb08* obj);
-extern "C" int func_0202c508(SearchStruct* search);
-extern "C" int func_0202c540(SearchStruct* search);
-extern "C" void func_ov017_021befe4(Obj021befe4* obj);
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
-extern "C" void func_020397cc(Obj020397cc* obj, int flag);
-extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
-extern "C" void func_ov017_021a5568(void* node);
-extern "C" int func_02039d7c(char* obj);
-extern "C" void func_ov017_021b2174(unsigned char* obj);
-extern "C" void func_ov017_021b2ba0(S021b2ba0* obj, char* name);
-extern "C" void func_ov017_021b2bd0(void* obj, int handler, int overlayId);
-extern "C" void func_020dc2d0(int mode);
-extern "C" void func_020213fc(SetFlagStruct* obj, int value);
-extern "C" void func_02027bac(FlagBlob02027bac* obj, unsigned char value);
-extern "C" void func_ov004_0216ae2c(SafeAllocator* allocator, void* arg);
+extern "C" Struct_02012de8* func_020d6c00();
+extern "C" unsigned char* func_0200fd0c(GameState* arg0);
+extern "C" int func_02046b08(void** arg0);
+extern "C" int func_02039820(void* arg0);
+extern "C" int func_020535c8(signed char* arg0);
+extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int func_0203402c(Struct_0203402c* arg0);
+extern "C" int func_020c39c8(volatile unsigned short* arg0);
+extern "C" int func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" int func_0202c508(Struct_0202b2f0* arg0);
+extern "C" int func_0202c540(Struct_0202b2f0* arg0);
+extern "C" void func_ov017_021befe4(Struct_ov017_021befe4* arg0);
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_ov017_021a5568(void* arg0);
+extern "C" int func_02039d7c(char* arg0);
+extern "C" void func_ov017_021b2174(unsigned char* arg0);
+extern "C" void func_ov017_021b2ba0(Struct_0206f81c_2* arg0, char* arg1);
+extern "C" void func_ov017_021b2bd0(void* arg0, int arg1, int arg2);
+extern "C" void func_020dc2d0(int arg0);
+extern "C" void func_020213fc(Struct_020213fc* arg0, int arg1);
+extern "C" void func_02027bac(Struct_02027bac* arg0, unsigned char arg1);
+extern "C" void func_ov004_0216ae2c(SafeAllocator* arg0, void* arg1);
 extern char data_02108760;
 extern char data_ov017_021d76dc;
 
-struct Thresholds021d6a80 {
-    short values[5];
+struct Struct_ov017_021d6a80 {
+    short unknown_0_[5];
 };
 
-extern Thresholds021d6a80 data_ov017_021d6a80;
+extern Struct_ov017_021d6a80 data_ov017_021d6a80;
 
-struct Unknown021a51a4 {
-    char pad0[0xac];
-    short fac;
-    char pad1[0xb2 - 0xae];
-    short fb2;
-    char pad2[CombatantFlagOffset - 0xb4];
-    int f18c;
+struct Struct_ov017_021a51a4 {
+    char unknown_0_[0xac];
+    short unknown_ac_;
+    char unknown_ae_[0xb2 - 0xae];
+    short unknown_b2_;
+    char unknown_b4_[Enum_ov017_021a51a4_396 - 0xb4];
+    int unknown_18c_;
 };
 
-struct Node021a51a4 {
-    char pad0[0x24];
-    unsigned char f24;
-    char pad1[0x28 - 0x25];
-    int f28;
-    int f2c;
+struct Struct_ov017_021a51a4_2 {
+    char unknown_0_[0x24];
+    unsigned char unknown_24_;
+    char unknown_25_[0x28 - 0x25];
+    int unknown_28_;
+    int unknown_2c_;
 };
 
-struct Grotto021a51a4 {
-    char pad0[0xc];
-    unsigned char kind : 4;
+struct Struct_ov017_021a51a4_3 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_0_ : 4;
 };
 
-struct Res021a51a4 {
-    char pad0[Field36d0];
-    SetFlagStruct* flags;
-    char pad1[Field36fc - Field36d4];
-    TailList020469b4* list;
-    char pad2[Field371c - Field3700];
-    Node021a51a4* node;
-    char pad3[Field3b4c - Field3720];
-    unsigned char* dialog;
-    char pad4[Field3b70 - Field3b50];
-    Obj021befe4* state53;
-    char pad5[Field41c0 - Field3b74];
-    int f41c0;
-    char pad6[Field42e4 - Field41c4];
-    unsigned char pending;
+struct Struct_ov017_021a51a4_4 {
+    char unknown_0_[Enum_ov017_021a51a4_14032];
+    Struct_020213fc* unknown_36d0_;
+    char unknown_36d4_[Enum_ov017_021a51a4_14076 - Enum_ov017_021a51a4_14036];
+    Struct_0201bdac_2* unknown_36fc_;
+    char unknown_3700_[Enum_ov017_021a51a4_14108 - Enum_ov017_021a51a4_14080];
+    Struct_ov017_021a51a4_2* unknown_371c_;
+    char unknown_3720_[Enum_ov017_021a51a4_15180 - Enum_ov017_021a51a4_14112];
+    unsigned char* unknown_3b4c_;
+    char unknown_3b50_[Enum_ov017_021a51a4_15216 - Enum_ov017_021a51a4_15184];
+    Struct_ov017_021befe4* unknown_3b70_;
+    char unknown_3b74_[Enum_ov017_021a51a4_16832 - Enum_ov017_021a51a4_15220];
+    int unknown_41c0_;
+    char unknown_41c4_[Enum_ov017_021a51a4_17124 - Enum_ov017_021a51a4_16836];
+    unsigned char unknown_42e4_;
 };
 
 // USA: func_ov017_021a51a4
-extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
-    GameState* gs;
-    Unknown021a51a4* unknown;
-    unsigned char* dialog;
-    SearchStruct* search;
-    FlagWord02046708* flagWord;
-    unsigned char* field3f8;
-    int start;
-    int x;
-    int y;
-    unsigned char* grotto;
-    int level;
-    Grotto021a51a4* grottoInfo;
-    gs = GameState::GetInstance();
-    unknown = (Unknown021a51a4*)gs->GetUnknownGameObject();
+extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
+    GameState* var0;
+    Struct_ov017_021a51a4* var1;
+    unsigned char* var2;
+    Struct_0202b2f0* var3;
+    Struct_02012de8* var4;
+    unsigned char* var5;
+    int var6;
+    int var7;
+    int var8;
+    unsigned char* var9;
+    int var10;
+    Struct_ov017_021a51a4_3* var11;
+    var0 = GameState::GetInstance();
+    var1 = (Struct_ov017_021a51a4*)var0->GetUnknownGameObject();
     func_020421a0();
-    search = func_0202ae18();
-    grottoInfo = *(Grotto021a51a4**)((char*)func_02012fe4() + 8);
-    flagWord = func_020d6c00();
-    field3f8 = func_0200fd0c(gs);
-    if (!func_02046b08((void**)res->list)) {
+    var3 = func_0202ae18();
+    var11 = *(Struct_ov017_021a51a4_3**)((char*)func_02012fe4() + 8);
+    var4 = func_020d6c00();
+    var5 = func_0200fd0c(var0);
+    if (!func_02046b08((void**)arg0->unknown_36fc_)) {
         return;
     }
-    if (!func_02039820(unknown)) {
+    if (!func_02039820(var1)) {
         return;
     }
-    if (func_020535c8((signed char*)unknown)) {
+    if (func_020535c8((signed char*)var1)) {
         return;
     }
-    if (unknown->f18c & 1) {
+    if (var1->unknown_18c_ & 1) {
         return;
     }
-    if (unknown->fac > 0) {
+    if (var1->unknown_ac_ > 0) {
         return;
     }
-    if (field3f8[2] != 0) {
+    if (var5[2] != 0) {
         return;
     }
-    start = 0;
-    if (!func_02046708(flagWord, 0x800)) {
-        if ((g_keyManager.TestKeysPressed(0x400) || res->pending == 1) && unknown->fac == 0) {
-            if (!func_0203402c((BitField0203402c*)unknown)) {
-                start = 1;
+    var6 = 0;
+    if (!func_02046708(var4, 0x800)) {
+        if ((g_keyManager.TestKeysPressed(0x400) || arg0->unknown_42e4_ == 1) && var1->unknown_ac_ == 0) {
+            if (!func_0203402c((Struct_0203402c*)var1)) {
+                var6 = 1;
             }
         }
     } else {
-        res->pending = start;
+        arg0->unknown_42e4_ = var6;
     }
-    x = g_touchInput.pressX_;
-    y = g_touchInput.pressY_;
+    var7 = g_touchInput.pressX_;
+    var8 = g_touchInput.pressY_;
     if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) {
         return;
     }
-    grotto = (unsigned char*)gs->GetGrottoStruct();
+    var9 = (unsigned char*)var0->GetGrottoStruct();
 #if !defined(jpn)
-    Thresholds021d6a80 thresholds = data_ov017_021d6a80;
-    level = func_0200fb08((Struct0200fb08*)GameState::GetInstance());
+    Struct_ov017_021d6a80 var12 = data_ov017_021d6a80;
+    var10 = func_0200fb08((Struct_02000c9c_8*)GameState::GetInstance());
 #endif
-    int touched;
+    int var13;
     if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld &&
 #if defined(jpn)
-        0xb0 <= x
+        0xb0 <= var7
 #else
-        thresholds.values[level - 1] <= x
+        var12.unknown_0_[var10 - 1] <= var7
 #endif
-         && x <= 0xf8 && y >= 0xa2 && y <= 0xb2) {
-        touched = 1;
+         && var7 <= 0xf8 && var8 >= 0xa2 && var8 <= 0xb2) {
+        var13 = 1;
     } else {
-        touched = 0;
+        var13 = 0;
     }
-    if (func_0202c508(search) && grotto[0] != 0 && grottoInfo->kind == 0
-        && (g_keyManager.TestKeysPressed(0x800) || touched)) {
-        func_ov017_021befe4(res->state53);
-        func_020469b4(res->list, (TailNode020469b4*)res->state53);
+    if (func_0202c508(var3) && var9[0] != 0 && var11->unknown_c_0_ == 0
+        && (g_keyManager.TestKeysPressed(0x800) || var13)) {
+        func_ov017_021befe4(arg0->unknown_3b70_);
+        func_020469b4(arg0->unknown_36fc_, (Struct_0201bdac*)arg0->unknown_3b70_);
         return;
     }
-    if (start) {
-        func_020397cc((Obj020397cc*)unknown, 1);
-        unknown->fb2 = 0;
-        res->pending = 0;
-        func_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
-        func_ov017_021a5568(res->node);
-        Node021a51a4* node = res->node;
-        node->f24 = 0;
-        node->f28 = 0;
-        node->f2c = -1;
-        func_020469b4(res->list, (TailNode020469b4*)res->node);
+    if (var6) {
+        func_020397cc((Struct_02018300_3*)var1, 1);
+        var1->unknown_b2_ = 0;
+        arg0->unknown_42e4_ = 0;
+        func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
+        func_ov017_021a5568(arg0->unknown_371c_);
+        Struct_ov017_021a51a4_2* var14 = arg0->unknown_371c_;
+        var14->unknown_24_ = 0;
+        var14->unknown_28_ = 0;
+        var14->unknown_2c_ = -1;
+        func_020469b4(arg0->unknown_36fc_, (Struct_0201bdac*)arg0->unknown_371c_);
         return;
     }
-    if (grotto[0] != 0 && func_0202c540(search) == 0 && grottoInfo->kind == 0) {
+    if (var9[0] != 0 && func_0202c540(var3) == 0 && var11->unknown_c_0_ == 0) {
         return;
     }
-    if (res->f41c0 != 0) {
+    if (arg0->unknown_41c0_ != 0) {
         return;
     }
     if (!g_keyManager.TestKeysPressed(0x800)) {
         return;
     }
-    if (res->pending != 0 || unknown->fac != 0) {
+    if (arg0->unknown_42e4_ != 0 || var1->unknown_ac_ != 0) {
         return;
     }
-    if (func_0203402c((BitField0203402c*)unknown)) {
+    if (func_0203402c((Struct_0203402c*)var1)) {
         return;
     }
-    if (func_02039d7c((char*)unknown)) {
+    if (func_02039d7c((char*)var1)) {
         return;
     }
-    func_020397cc((Obj020397cc*)unknown, 1);
-    unknown->fb2 = 0;
-    dialog = res->dialog;
-    func_ov017_021b2174(dialog);
-    func_ov017_021b2ba0((S021b2ba0*)dialog, &data_ov017_021d76dc);
-    func_ov017_021b2bd0(dialog, (int)func_ov004_0216ae2c, OVERLAY_ID(4));
-    func_020469b4(res->list, (TailNode020469b4*)dialog);
+    func_020397cc((Struct_02018300_3*)var1, 1);
+    var1->unknown_b2_ = 0;
+    var2 = arg0->unknown_3b4c_;
+    func_ov017_021b2174(var2);
+    func_ov017_021b2ba0((Struct_0206f81c_2*)var2, &data_ov017_021d76dc);
+    func_ov017_021b2bd0(var2, (int)func_ov004_0216ae2c, OVERLAY_ID(4));
+    func_020469b4(arg0->unknown_36fc_, (Struct_0201bdac*)var2);
     func_020dc2d0(3);
-    func_020213fc(res->flags, 1);
-    func_02027bac((FlagBlob02027bac*)res->flags, 1);
+    func_020213fc(arg0->unknown_36d0_, 1);
+    func_02027bac((Struct_02027bac*)arg0->unknown_36d0_, 1);
 }

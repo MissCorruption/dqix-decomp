@@ -2,30 +2,30 @@
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-struct HeadNode02046b24;
-extern "C" int func_02046b24(struct HeadNode02046b24** obj);
-extern "C" void func_ov017_0218e674(GameResources* ov);
-extern "C" void func_ov017_021a1ad0(GameResources* ov);
+struct Struct_02015438;
+extern "C" int func_02046b24(struct Struct_02015438** arg0);
+extern "C" void func_ov017_0218e674(GameResources* arg0);
+extern "C" void func_ov017_021a1ad0(GameResources* arg0);
 extern "C" void func_ov017_02197394(GameResources*);
 
-struct EventAdvanceGate {
-    unsigned char unknown0[0xb];
-    unsigned char flag;
+struct Struct_ov017_0218d06c {
+    unsigned char unknown_0_[0xb];
+    unsigned char unknown_b_;
 };
 
 // USA: func_ov017_0218d06c
-extern "C" ARM void func_ov017_0218d06c(GameResources* resources) {
-    if (TestFlags00(resources, 0x800) != 0) return;
-    int shouldAdvance = 0;
-    if (func_02046b24((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) != 0x26) {
-        func_ov017_0218e674(resources);
-        shouldAdvance = 1;
+extern "C" ARM void func_ov017_0218d06c(GameResources* arg0) {
+    if (TestFlags00(arg0, 0x800) != 0) return;
+    int var0 = 0;
+    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 0x26) {
+        func_ov017_0218e674(arg0);
+        var0 = 1;
     }
-    if (func_02046b24((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) != 0x26 ||
-        ((EventAdvanceGate*)resources->unknown_ptr_array_3afc[13])->flag == 0) {
-        func_ov017_021a1ad0(resources);
+    if (func_02046b24((Struct_02015438**)arg0->unknown_ptr_array_36fc[0]) != 0x26 ||
+        ((Struct_ov017_0218d06c*)arg0->unknown_ptr_array_3afc[13])->unknown_b_ == 0) {
+        func_ov017_021a1ad0(arg0);
     }
-    if (shouldAdvance != 0) {
-        func_ov017_02197394(resources);
+    if (var0 != 0) {
+        func_ov017_02197394(arg0);
     }
 }

@@ -2,43 +2,43 @@
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void* obj);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_0202c508(void* obj);
-struct SearchStruct;
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+extern "C" void* func_0202ae18(void* arg0);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202c508(void* arg0);
+struct Struct_0202b2f0;
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 
-struct FlagsByte0xc1_020342ac {
-    unsigned char lowBits2 : 2;
+struct Struct_020342ac {
+    unsigned char unknown_0_0_ : 2;
 };
 
 // USA: func_020342ac
-extern "C" ARM int func_020342ac(void* obj) {
-    void* thing = func_0202ae18(obj);
+extern "C" ARM int func_020342ac(void* arg0) {
+    void* var0 = func_0202ae18(arg0);
     GetGameResources();
-    if (!func_0202b7d8((int*)thing)) {
+    if (!func_0202b7d8((int*)var0)) {
         goto fallback;
     }
-    if (!func_0202c508(thing)) {
+    if (!func_0202c508(var0)) {
         goto fallback;
     }
-    short field4 = *(short*)((char*)obj + 4);
-    if (!func_0202c178((struct SearchStruct*)thing, field4)) {
+    short var1 = *(short*)((char*)arg0 + 4);
+    if (!func_0202c178((struct Struct_0202b2f0*)var0, var1)) {
         goto fallback;
     }
-    field4 = *(short*)((char*)obj + 4);
-    signed char cur = func_0202c1a4((struct SearchStruct0202c1a4*)thing);
-    if (cur == field4) {
+    var1 = *(short*)((char*)arg0 + 4);
+    signed char var2 = func_0202c1a4((struct Struct_0202c1a4*)var0);
+    if (var2 == var1) {
         goto fallback;
     }
-    FlagsByte0xc1_020342ac* flags = (FlagsByte0xc1_020342ac*)((char*)obj + 0xc1);
-    if (!(flags->lowBits2 & 2)) {
+    Struct_020342ac* var3 = (Struct_020342ac*)((char*)arg0 + 0xc1);
+    if (!(var3->unknown_0_0_ & 2)) {
         goto fallback;
     }
-    field4 = *(short*)((char*)obj + 4);
-    SearchEntry0202c178* entry = func_0202c178((struct SearchStruct*)thing, field4);
-    return entry->flags.kind;
+    var1 = *(short*)((char*)arg0 + 4);
+    Struct_0202b2f0_2* var4 = func_0202c178((struct Struct_0202b2f0*)var0, var1);
+    return var4->unknown_0_.unknown_1_0_;
 fallback:
-    return *(unsigned char*)((char*)obj + 0xbe);
+    return *(unsigned char*)((char*)arg0 + 0xbe);
 }

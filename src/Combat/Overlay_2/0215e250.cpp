@@ -3,87 +3,87 @@
 
 #if defined(jpn)
 #define RG(u, j) (j)
-extern "C" int func_02042638(char* buf, int a, int b);
+extern "C" int func_02042638(char* arg0, int arg1, int arg2);
 #define func_02041fac func_02042638
 #else
 #define RG(u, j) (u)
 #endif
 
-extern "C" void func_020dc4d0(signed char* out, signed char* outCount);
-struct Obj02061bd8;
-extern "C" int func_02061bd8(struct Obj02061bd8* obj);
+extern "C" void func_020dc4d0(signed char* arg0, signed char* arg1);
+struct Struct_0205faf4_11;
+extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02041fac(char* buf, int a, int b);
-extern "C" int func_02041e70(char* dst, int palette);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" int func_020e51cc(int value);
-extern "C" int func_ov002_02159774(void* base, int id, int a2, int a3, int a4);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
+extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int func_020e51cc(int arg0);
+extern "C" int func_ov002_02159774(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov002_0215e250
-extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag) {
-    if (dst == NULL) return;
+extern "C" ARM void func_ov002_0215e250(unsigned char* arg0, char* arg1, int arg2) {
+    if (arg1 == NULL) return;
 
-    GameState* bs = GameState::GetInstance();
-    int cursor = *(short*)(base + RG(0x1bf6, 0x1abe));
+    GameState* var0 = GameState::GetInstance();
+    int var1 = *(short*)(arg0 + RG(0x1bf6, 0x1abe));
 
-    signed char idArr[7];
-    signed char count;
-    func_020dc4d0(idArr, &count);
+    signed char var2[7];
+    signed char var3;
+    func_020dc4d0(var2, &var3);
 
-    signed char matched = 0;
-    for (int i = 0; i < count; i++) {
-        GameObject* c = func_0200ff1c(bs, idArr[i]);
-        if (c != NULL) {
-            if (func_02061bd8((struct Obj02061bd8*)c) != 0) {
-                matched++;
+    signed char var4 = 0;
+    for (int var5 = 0; var5 < var3; var5++) {
+        GameObject* var6 = func_0200ff1c(var0, var2[var5]);
+        if (var6 != NULL) {
+            if (func_02061bd8((struct Struct_0205faf4_11*)var6) != 0) {
+                var4++;
             }
         }
     }
-    count = count - matched;
+    var3 = var3 - var4;
 
-    int idx = 0;
-    if (flag) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    int var7 = 0;
+    if (arg2) {
+        func_02041c08(arg1, var1, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var1);
 
-    int field = func_020e0434((struct Container020e0310*)(base + RG(0x20, 0x8)), 2);
-    func_02041fac(dst, field, 0x16);
+    int var8 = func_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 0x8)), 2);
+    func_02041fac(arg1, var8, 0x16);
 
-    for (int i2 = 0; i2 < count; i2++) {
-        GameObject* c800 = bs->GetPartyMemberByIndex(idArr[idx]);
-        if (c800 != NULL) {
-            GameObject* c100 = func_0200ff1c(bs, idArr[idx]);
-            if (func_02061bd8((struct Obj02061bd8*)c100) != 0) {
-                for (int attempt = 0; attempt < 4; attempt++) {
-                    idx = (idx + 1) % 4;
-                    if (idx == 0) break;
-                    GameObject* c3 = func_0200ff1c(bs, idArr[idx]);
-                    if (c3 == NULL) continue;
-                    if (func_02061bd8((struct Obj02061bd8*)c3) != 0) continue;
-                    bs->GetPartyMemberByIndex(idArr[idx]);
+    for (int var9 = 0; var9 < var3; var9++) {
+        GameObject* var10 = var0->GetPartyMemberByIndex(var2[var7]);
+        if (var10 != NULL) {
+            GameObject* var11 = func_0200ff1c(var0, var2[var7]);
+            if (func_02061bd8((struct Struct_0205faf4_11*)var11) != 0) {
+                for (int var12 = 0; var12 < 4; var12++) {
+                    var7 = (var7 + 1) % 4;
+                    if (var7 == 0) break;
+                    GameObject* var13 = func_0200ff1c(var0, var2[var7]);
+                    if (var13 == NULL) continue;
+                    if (func_02061bd8((struct Struct_0205faf4_11*)var13) != 0) continue;
+                    var0->GetPartyMemberByIndex(var2[var7]);
                     break;
                 }
             }
 
-            int pal = func_ov002_02159774(base, idArr[idx], 0, 1, 1);
-            func_02041e70(dst, pal);
-            func_02041b70(dst, i2, (const char*)(base + RG(0x1ab0, 0x1a08) + idArr[idx] * RG(0x3c, 0x18)));
-            func_02041e70(dst, 0xf);
-            func_02042058(dst, *(const char**)(base + 0x1000 + RG(0xbdc, 0xaa4)));
+            int var14 = func_ov002_02159774(arg0, var2[var7], 0, 1, 1);
+            func_02041e70(arg1, var14);
+            func_02041b70(arg1, var9, (const char*)(arg0 + RG(0x1ab0, 0x1a08) + var2[var7] * RG(0x3c, 0x18)));
+            func_02041e70(arg1, 0xf);
+            func_02042058(arg1, *(const char**)(arg0 + 0x1000 + RG(0xbdc, 0xaa4)));
 
-            idx++;
+            var7++;
         }
     }
 
 #if defined(jpn)
-    func_02041b70(dst, count, (const char*)func_020e0434((struct Container020e0310*)(base + 0x8), 0x76d));
+    func_02041b70(arg1, var3, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0x8), 0x76d));
 #else
-    func_02041b70(dst, count, (const char*)func_020e51cc(0x1a));
+    func_02041b70(arg1, var3, (const char*)func_020e51cc(0x1a));
 #endif
 }

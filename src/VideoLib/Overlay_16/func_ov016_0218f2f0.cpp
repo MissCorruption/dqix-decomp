@@ -9,16 +9,16 @@ static const int frameBufferCountOffset = 0xa8;
 #endif
 
 // USA: func_ov016_0218f2f0
-extern "C" ARM int func_ov016_0218f2f0(void* streamState) {
-	char* stateBytes = (char*)streamState;
-	unsigned int consumedEntryCount = *(unsigned int*)(stateBytes + 0x9c);
-	unsigned int producedEntryCount = *(unsigned int*)(stateBytes + 0xa0);
-	if (consumedEntryCount >= producedEntryCount) return 0;
-	*(unsigned int*)(stateBytes + 0x9c) = consumedEntryCount + 1;
-	unsigned int nextReadIndex = *(unsigned int*)(stateBytes + frameReadIndexOffset) + 1;
-	*(unsigned int*)(stateBytes + frameReadIndexOffset) = nextReadIndex;
-	if (nextReadIndex == *(unsigned int*)(stateBytes + frameBufferCountOffset)) {
-		*(unsigned int*)(stateBytes + frameReadIndexOffset) = 0;
+extern "C" ARM int func_ov016_0218f2f0(void* arg0) {
+	char* var0 = (char*)arg0;
+	unsigned int var1 = *(unsigned int*)(var0 + 0x9c);
+	unsigned int var2 = *(unsigned int*)(var0 + 0xa0);
+	if (var1 >= var2) return 0;
+	*(unsigned int*)(var0 + 0x9c) = var1 + 1;
+	unsigned int var3 = *(unsigned int*)(var0 + frameReadIndexOffset) + 1;
+	*(unsigned int*)(var0 + frameReadIndexOffset) = var3;
+	if (var3 == *(unsigned int*)(var0 + frameBufferCountOffset)) {
+		*(unsigned int*)(var0 + frameReadIndexOffset) = 0;
 	}
 	return 1;
 }

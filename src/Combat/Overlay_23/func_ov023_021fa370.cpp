@@ -3,115 +3,115 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov011_021849c8(void* obj);
+extern "C" void* func_ov011_021849c8(void* arg0);
 
-struct Struct_021f6bb8 { int unk0; int field4; };
-extern "C" int func_ov023_021f6bb8(struct Struct_021f6bb8* obj);
-extern "C" void func_ov023_021f6bb0(void* obj, int v);
+struct Struct_021f6bb8 { int unknown_0_; int unknown_4_; };
+extern "C" int func_ov023_021f6bb8(struct Struct_021f6bb8* arg0);
+extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* arg0);
 
-extern "C" void* __clear(void* dst, int count);
+extern "C" void* __clear(void* arg0, int arg1);
 
 extern char data_ov023_021feb30[];
 
-struct Inner021fa370 {
-    char pad[0x49c];
-    unsigned char flagBit : 1;
+struct Struct_ov023_021fa370 {
+    char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
 };
 
-struct Obj021fa370 {
-    char pad0[0x10];
-    char* fmt10;
-    char pad1[0x28 - 0x14];
+struct Struct_ov023_021fa370_2 {
+    char unknown_0_[0x10];
+    char* unknown_10_;
+    char unknown_14_[0x28 - 0x14];
 #if defined(jpn)
 
 #else
-    char* fmt28;
+    char* unknown_28_;
 #endif
 
-    char pad2[0x2c - 0x2c];
-    unsigned char kind;
+    char unknown_2c_[0x2c - 0x2c];
+    unsigned char unknown1_2c_;
 };
 
-struct ObjTail021fa370 {
-    char pad[0x1c];
-    int field1c;
+struct Struct_ov023_021fa370_3 {
+    char unknown_0_[0x1c];
+    int unknown_1c_;
 };
 
-struct Combatant021fa370 {
+struct Struct_ov023_021fa370_4 {
 #if defined(jpn)
-    char pad[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad[0x150];
+    char unknown1_0_[0x150];
 #endif
 
-    struct Inner021fa370* inner;
+    struct Struct_ov023_021fa370* unknown_150_;
 };
 
 // USA: func_ov023_021fa370
-extern "C" ARM int func_ov023_021fa370(struct Obj021fa370* obj, void* param1) {
-    void* handleObj;
-    int query;
-    int handle;
-    int zeroPad;
-    char buf40[0x20];
-    char buf0[0x40];
+extern "C" ARM int func_ov023_021fa370(struct Struct_ov023_021fa370_2* arg0, void* arg1) {
+    void* var0;
+    int var1;
+    int var2;
+    int var3;
+    char var4[0x20];
+    char var5[0x40];
 
-    handleObj = func_ov011_021849c8(param1);
-    query = func_ov023_021f6bb8((struct Struct_021f6bb8*)handleObj);
-    if (query >= 0) goto earlyOut;
+    var0 = func_ov011_021849c8(arg1);
+    var1 = func_ov023_021f6bb8((struct Struct_021f6bb8*)var0);
+    if (var1 >= 0) goto earlyOut;
 
-    handle = (int)BackgroundLoader::GetInstance();
-    zeroPad = 0;
-    if (obj->kind == 1) {
-        GameState* bs = GameState::GetInstance();
-        int id = func_020100a8(bs);
-        struct Combatant021fa370* combatant = (struct Combatant021fa370*)bs->GetPartyMemberByIndex(id);
-        if (combatant != 0) {
-            zeroPad = combatant->inner->flagBit;
+    var2 = (int)BackgroundLoader::GetInstance();
+    var3 = 0;
+    if (arg0->unknown1_2c_ == 1) {
+        GameState* var6 = GameState::GetInstance();
+        int var7 = func_020100a8(var6);
+        struct Struct_ov023_021fa370_4* var8 = (struct Struct_ov023_021fa370_4*)var6->GetPartyMemberByIndex(var7);
+        if (var8 != 0) {
+            var3 = var8->unknown_150_->unknown_49c_0_;
         }
-    } else if (obj->kind == 2) {
-    } else if (obj->kind == 3) {
-        zeroPad = 1;
+    } else if (arg0->unknown1_2c_ == 2) {
+    } else if (arg0->unknown1_2c_ == 3) {
+        var3 = 1;
     }
 
 #if defined(jpn)
-    sprintf(buf40, obj->fmt10, zeroPad);
+    sprintf(var4, arg0->unknown_10_, var3);
 
 #else
-    if (obj->fmt28 != 0) {
-        sprintf(buf40, obj->fmt28, zeroPad);
+    if (arg0->unknown_28_ != 0) {
+        sprintf(var4, arg0->unknown_28_, var3);
     } else {
-        sprintf(buf40, obj->fmt10, zeroPad);
+        sprintf(var4, arg0->unknown_10_, var3);
     }
 
 #endif
-    __clear(buf0, 0x40);
-    if (strncmp(buf0, data_ov023_021feb30, 5) != 0) {
-        strcpy(buf0, data_ov023_021feb30);
+    __clear(var5, 0x40);
+    if (strncmp(var5, data_ov023_021feb30, 5) != 0) {
+        strcpy(var5, data_ov023_021feb30);
     }
-    strcat(buf0, buf40);
+    strcat(var5, var4);
 
     {
-        int result;
+        int var9;
 #if defined(jpn)
-        result = ((BackgroundLoader*)(handle))->QueueLoadFile(buf0, (SafeAllocator*)0);
+        var9 = ((BackgroundLoader*)(var2))->QueueLoadFile(var5, (SafeAllocator*)0);
 
 #else
-        if (obj->fmt28 != 0) {
-            memset(buf40, 0, 0x20);
-            sprintf(buf40, obj->fmt10, zeroPad);
-            result = ((BackgroundLoader*)(handle))->QueueLoadFileInGP2((const char*)((int)buf0), (const char*)((int)buf40), (SafeAllocator*)(0));
+        if (arg0->unknown_28_ != 0) {
+            memset(var4, 0, 0x20);
+            sprintf(var4, arg0->unknown_10_, var3);
+            var9 = ((BackgroundLoader*)(var2))->QueueLoadFileInGP2((const char*)((int)var5), (const char*)((int)var4), (SafeAllocator*)(0));
         } else {
-            result = ((BackgroundLoader*)(handle))->QueueLoadFile((const char*)((int)buf0), (SafeAllocator*)(0));
+            var9 = ((BackgroundLoader*)(var2))->QueueLoadFile((const char*)((int)var5), (SafeAllocator*)(0));
         }
 
 #endif
-        func_ov023_021f6bb0(handleObj, result);
+        func_ov023_021f6bb0(var0, var9);
     }
     return 1;
 
 earlyOut:
-    return ((struct ObjTail021fa370*)obj)->field1c;
+    return ((struct Struct_ov023_021fa370_3*)arg0)->unknown_1c_;
 }

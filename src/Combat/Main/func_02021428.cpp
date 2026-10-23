@@ -3,32 +3,32 @@
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
-extern "C" int abs(int x);
+extern "C" int abs(int arg0);
 extern "C" int _s32_div_f(int a, int b);
 
 // USA: func_02021428
-extern "C" ARM void func_02021428(void* unused0, int amount) {
-    GameResources* t = GetGameResources();
-    int v = GetBrightness(t, true);
-    if (v - 1 <= -16) {
-        SetSubBrightness(t, -16, 0);
+extern "C" ARM void func_02021428(void* arg0, int arg1) {
+    GameResources* var0 = GetGameResources();
+    int var1 = GetBrightness(var0, true);
+    if (var1 - 1 <= -16) {
+        SetSubBrightness(var0, -16, 0);
         return;
     }
-    if (v + 1 >= 0x10) {
-        SetSubBrightness(t, 0x10, 0);
+    if (var1 + 1 >= 0x10) {
+        SetSubBrightness(var0, 0x10, 0);
         return;
     }
-    if (v > 0) {
-        if (v < 0) v = 0;
-        if (v != 0) {
-            amount = _s32_div_f(amount, abs(v));
+    if (var1 > 0) {
+        if (var1 < 0) var1 = 0;
+        if (var1 != 0) {
+            arg1 = _s32_div_f(arg1, abs(var1));
         }
-        SetSubBrightness(t, 0x10, amount);
+        SetSubBrightness(var0, 0x10, arg1);
     } else {
-        if (v > 0) v = 0;
-        if (v != 0) {
-            amount = _s32_div_f(amount, abs(v));
+        if (var1 > 0) var1 = 0;
+        if (var1 != 0) {
+            arg1 = _s32_div_f(arg1, abs(var1));
         }
-        SetSubBrightness(t, -16, amount);
+        SetSubBrightness(var0, -16, arg1);
     }
 }

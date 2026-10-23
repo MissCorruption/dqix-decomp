@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-struct Entry0209e7a4 { char data[0x40]; };
-struct Source0209e7a4 { char pad0[0x5c60]; Entry0209e7a4 entries[16]; char pad6060[0x8e07-0x6060]; unsigned char count; };
-struct Manager0209e7a4 { int field_0x0; Source0209e7a4* source; char pad8[0x90]; int count; Entry0209e7a4 entries[16]; int temporaryCount; Entry0209e7a4 temporary[16]; };
-extern "C" int func_0209dcdc(Manager0209e7a4*, Entry0209e7a4*, int, int);
+struct Struct_0209e7a4_3 { char unknown_0_[0x40]; };
+struct Struct_0209e7a4 { char unknown_0_[0x5c60]; Struct_0209e7a4_3 unknown_5c60_[16]; char unknown_6060_[0x8e07-0x6060]; unsigned char unknown_8e07_; };
+struct Struct_0209e7a4_2 { int unknown_0_; Struct_0209e7a4* unknown_4_; char unknown_8_[0x90]; int unknown_98_; Struct_0209e7a4_3 unknown_9c_[16]; int unknown_49c_; Struct_0209e7a4_3 unknown_4a0_[16]; };
+extern "C" int func_0209dcdc(Struct_0209e7a4_2*, Struct_0209e7a4_3*, int, int);
 // USA: func_0209e7a4
-extern "C" ARM void func_0209e7a4(Manager0209e7a4* mgr, int filterExisting, int arg) {
-    int limit;
-    int i;
-    Entry0209e7a4* source;
-    Entry0209e7a4* entry;
-    i = 0;
-    if (!filterExisting) {
-        mgr->count = 0;
-        limit = mgr->source->count;
-        for (i = 0; i < limit; i++) {
-            entry = &mgr->source->entries[i];
-            if (entry && func_0209dcdc(mgr, entry, 0, arg)) {
-                memcpy(&mgr->entries[mgr->count++], entry, 0x40);
+extern "C" ARM void func_0209e7a4(Struct_0209e7a4_2* arg0, int arg1, int arg2) {
+    int var0;
+    int var1;
+    Struct_0209e7a4_3* var2;
+    Struct_0209e7a4_3* var3;
+    var1 = 0;
+    if (!arg1) {
+        arg0->unknown_98_ = 0;
+        var0 = arg0->unknown_4_->unknown_8e07_;
+        for (var1 = 0; var1 < var0; var1++) {
+            var3 = &arg0->unknown_4_->unknown_5c60_[var1];
+            if (var3 && func_0209dcdc(arg0, var3, 0, arg2)) {
+                memcpy(&arg0->unknown_9c_[arg0->unknown_98_++], var3, 0x40);
             }
         }
     } else {
-        mgr->temporaryCount = 0;
-        memset(mgr->temporary, 0, 0x400);
-        source = mgr->entries;
-        for (i = 0; i < mgr->count; i++) {
-            entry = &source[i];
-            if (func_0209dcdc(mgr, entry, 0, arg)) {
-                int count = mgr->temporaryCount;
-                mgr->temporaryCount = mgr->temporaryCount + 1;
-                memcpy(&mgr->temporary[count], entry, 0x40);
+        arg0->unknown_49c_ = 0;
+        memset(arg0->unknown_4a0_, 0, 0x400);
+        var2 = arg0->unknown_9c_;
+        for (var1 = 0; var1 < arg0->unknown_98_; var1++) {
+            var3 = &var2[var1];
+            if (func_0209dcdc(arg0, var3, 0, arg2)) {
+                int var4 = arg0->unknown_49c_;
+                arg0->unknown_49c_ = arg0->unknown_49c_ + 1;
+                memcpy(&arg0->unknown_4a0_[var4], var3, 0x40);
             }
         }
-        mgr->count = mgr->temporaryCount;
-        memcpy(mgr->entries, mgr->temporary, 0x400);
+        arg0->unknown_98_ = arg0->unknown_49c_;
+        memcpy(arg0->unknown_9c_, arg0->unknown_4a0_, 0x400);
     }
 }

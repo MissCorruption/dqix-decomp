@@ -2,48 +2,48 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_0/GetCombatantByID.h"
 
-extern "C" int func_020885b4(struct Combatant_20885b4* obj);
-extern "C" int func_02088514(struct S88514* obj);
-extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
+extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+extern "C" int func_02088514(struct Struct_02088514* arg0);
+extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
 
-struct Ctx_021e939c {
-    char pad[0x10];
-    int field10;
+struct Struct_ov024_021dbaf4_4 {
+    char unknown_0_[0x10];
+    int unknown_10_;
 };
 
 // USA: func_ov024_021e939c
-extern "C" ARM int func_ov024_021e939c(struct Ctx_021e939c* ctx, int id, int flag1, int flag2) {
-    GameObject* combatant = GetCombatantByID(ctx->field10, id);
-    if (combatant == NULL) {
+extern "C" ARM int func_ov024_021e939c(struct Struct_ov024_021dbaf4_4* arg0, int arg1, int arg2, int arg3) {
+    GameObject* var0 = GetCombatantByID(arg0->unknown_10_, arg1);
+    if (var0 == NULL) {
         return 0;
     }
-    int state2 = func_02088514((struct S88514*)combatant->currentStats_);
-    int kind1 = func_020885b4((struct Combatant_20885b4*)combatant->currentStats_);
-    if (flag1 != 0) {
-        if (flag2 != 0) {
-            return state2 != 0 ? 0x10c : 0x10a;
+    int var1 = func_02088514((struct Struct_02088514*)var0->currentStats_);
+    int var2 = func_020885b4((struct Struct_020885b4*)var0->currentStats_);
+    if (arg2 != 0) {
+        if (arg3 != 0) {
+            return var1 != 0 ? 0x10c : 0x10a;
         }
-        if (state2 != 0) {
+        if (var1 != 0) {
             return 0x10b;
         }
         #if defined(jpn)
         return 0x1b;
 #else
-        return func_ov024_021da644(id, 0x26d, 0x1b);
+        return func_ov024_021da644(arg1, 0x26d, 0x1b);
 #endif
     }
-    if (flag2 != 0) {
-        return kind1 != 0 ? 0x53 : 0x3f;
+    if (arg3 != 0) {
+        return var2 != 0 ? 0x53 : 0x3f;
     }
-    if (state2 != 0) {
+    if (var1 != 0) {
         return 0x10b;
     }
-    if (kind1 != 0) {
+    if (var2 != 0) {
         return 0x52;
     }
     #if defined(jpn)
         return 0x1b;
 #else
-        return func_ov024_021da644(id, 0x26d, 0x1b);
+        return func_ov024_021da644(arg1, 0x26d, 0x1b);
 #endif
 }

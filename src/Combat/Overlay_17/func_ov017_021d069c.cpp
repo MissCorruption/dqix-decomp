@@ -1,87 +1,87 @@
 #include <globaldefs.h>
 
 extern "C" int func_02012fe4(void);
-extern "C" int func_0202c508(void* state);
-extern "C" void func_ov017_021d0490(int a);
-extern "C" void func_ov017_021c3e18(int a);
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" void func_ov017_021bd2f0(void* table, void* localBuf);
+extern "C" int func_0202c508(void* arg0);
+extern "C" void func_ov017_021d0490(int arg0);
+extern "C" void func_ov017_021c3e18(int arg0);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void func_ov017_021bd2f0(void* arg0, void* arg1);
 
-struct ArgB021d069c {
-    unsigned char pad0[4];
-    unsigned char byte4;
-    unsigned char byte5;
-    unsigned char byte6;
-    unsigned char fieldA : 2;
-    unsigned char gap1 : 1;
-    unsigned char fieldB : 2;
-    unsigned char fieldC : 1;
-    unsigned char gap2 : 2;
-    unsigned short half8;
-    unsigned short half0xa;
-    unsigned short half0xc;
-    unsigned short half0xe;
-    unsigned short half0x10;
-    unsigned short half0x12;
+struct Struct_ov017_021d069c {
+    unsigned char unknown_0_[4];
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_0_ : 2;
+    unsigned char unknown_7_2_ : 1;
+    unsigned char unknown_7_3_ : 2;
+    unsigned char unknown_7_5_ : 1;
+    unsigned char unknown_7_6_ : 2;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
 };
 
-struct LocalBuf021d069c {
-    unsigned char f0;
-    unsigned char f1;
-    unsigned char f2;
-    unsigned char f3;
-    unsigned short f4;
-    unsigned short f6;
-    unsigned char f8;
-    unsigned char pad9;
-    unsigned short fa;
-    unsigned short fc;
-    unsigned short fe;
-    unsigned short f10;
+struct Struct_ov017_021d069c_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
 };
 
 // USA: func_ov017_021d069c
-extern "C" ARM void func_ov017_021d069c(int a0, struct ArgB021d069c* a1, int unused2, unsigned char* a3, struct SearchStruct0202c1a4* a4) {
+extern "C" ARM void func_ov017_021d069c(int arg0, struct Struct_ov017_021d069c* arg1, int arg2, unsigned char* arg3, struct Struct_0202c1a4* arg4) {
 #if defined(jpn)
- enum {regionalOffset=0x524};
+ enum {Enum_ov017_021d069c_1844=0x524};
 #else
- enum {regionalOffset=0x734};
+ enum {Enum_ov017_021d069c_1844=0x734};
 #endif
     func_02012fe4();
-    unsigned char* table = *(unsigned char**)((char*)a3 + 0x3000 + regionalOffset);
-    if (func_0202c508(a4)) {
-        func_ov017_021d0490(a0);
+    unsigned char* var0 = *(unsigned char**)((char*)arg3 + 0x3000 + Enum_ov017_021d069c_1844);
+    if (func_0202c508(arg4)) {
+        func_ov017_021d0490(arg0);
         func_ov017_021c3e18(1);
         return;
     }
-    if (a0 != 0) {
+    if (arg0 != 0) {
         return;
     }
-    if (func_0202c1a4(a4) != a1->fieldA) {
+    if (func_0202c1a4(arg4) != arg1->unknown_7_0_) {
         return;
     }
 
-    struct LocalBuf021d069c buf;
-    unsigned char fieldBVal = a1->fieldB;
-    buf.f0 = fieldBVal;
-    buf.f1 = a1->byte4;
-    buf.f2 = a1->byte5;
-    buf.f3 = a1->byte6;
-    buf.f4 = a1->half8;
-    buf.f6 = a1->half0xa;
-    buf.f8 = a1->fieldC;
+    struct Struct_ov017_021d069c_2 var1;
+    unsigned char var2 = arg1->unknown_7_3_;
+    var1.unknown_0_ = var2;
+    var1.unknown_1_ = arg1->unknown_4_;
+    var1.unknown_2_ = arg1->unknown_5_;
+    var1.unknown_3_ = arg1->unknown_6_;
+    var1.unknown_4_ = arg1->unknown_8_;
+    var1.unknown_6_ = arg1->unknown_a_;
+    var1.unknown_8_ = arg1->unknown_7_5_;
 
-    fieldBVal = fieldBVal & 0xff;
-    if (fieldBVal == 0) {
-        buf.fa = (unsigned short)*(short*)((char*)a1 + 0xc);
-        buf.fc = a1->half0xe;
-    } else if (fieldBVal == 1) {
-        buf.fa = a1->half0xc;
-        buf.fc = a1->half0xe;
-        buf.fe = a1->half0x10;
-        buf.f10 = a1->half0x12;
+    var2 = var2 & 0xff;
+    if (var2 == 0) {
+        var1.unknown_a_ = (unsigned short)*(short*)((char*)arg1 + 0xc);
+        var1.unknown_c_ = arg1->unknown_e_;
+    } else if (var2 == 1) {
+        var1.unknown_a_ = arg1->unknown_c_;
+        var1.unknown_c_ = arg1->unknown_e_;
+        var1.unknown_e_ = arg1->unknown_10_;
+        var1.unknown_10_ = arg1->unknown_12_;
     }
 
-    func_ov017_021bd2f0(table, &buf);
+    func_ov017_021bd2f0(var0, &var1);
 }

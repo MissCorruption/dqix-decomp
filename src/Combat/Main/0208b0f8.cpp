@@ -6,150 +6,150 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Base02010834;
-struct Container020e34bc;
-struct Entry020e3054;
-struct Combatant02048228;
-struct Combatant02048284;
+struct Struct_02010834;
+struct Struct_0208ab34;
+struct Struct_0208ab34_2;
+struct Struct_02048228;
+struct Struct_02048284;
 extern "C" void* func_0205ec34();
 extern "C" void* func_0202ae18();
 extern "C" void* func_02012fe4();
 extern "C" void* __clear(void*, int);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" void func_02010834(Base02010834*, int, int*, int*);
+extern "C" void func_02010834(Struct_02010834*, int, int*, int*);
 extern "C" int func_02046b08(void**);
 extern "C" int func_020649b0(void*, int, void*);
 extern "C" void* func_020e2ff8();
-extern "C" int func_020e34bc(Container020e34bc*, int);
+extern "C" int func_020e34bc(Struct_0208ab34*, int);
 extern "C" int func_0202b7d8(int*);
 extern "C" unsigned char func_02039d7c(char*);
 extern "C" int func_020852a4(unsigned char*);
 extern "C" int func_02085318(unsigned char*);
 extern "C" void func_020e3368(unsigned char*, unsigned char);
 extern "C" void func_02026f08(unsigned char*, int, int);
-extern "C" int func_02048228(Combatant02048228*, int);
-extern "C" int func_02048284(Combatant02048284*, int);
+extern "C" int func_02048228(Struct_02048228*, int);
+extern "C" int func_02048284(Struct_02048284*, int);
 extern "C" void func_020e3428(void*, int);
-extern "C" void func_020e3468(Entry020e3054*, int);
+extern "C" void func_020e3468(Struct_0208ab34_2*, int);
 
-struct Actor0208b0f8 {
-    char pad0[4];
-    short slot;
-    char pad6[0xb2 - 6];
-    short active;
-    char padb4[0x130 - 0xb4];
-    unsigned int* restorationState;
+struct Struct_0208b0f8 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0xb2 - 6];
+    short unknown_b2_;
+    char unknown_b4_[0x130 - 0xb4];
+    unsigned int* unknown_130_;
 #if defined(jpn)
-    char pad134[0x144 - 0x134];
+    char unknown_134_[0x144 - 0x134];
 #else
-    char pad134[0x150 - 0x134];
+    char unknown1_134_[0x150 - 0x134];
 #endif
-    unsigned char* skills;
+    unsigned char* unknown_150_;
 };
-struct State0208b0f8 {
-    char pad0[0x94];
-    unsigned char hpTimers[4];
-    unsigned char mpTimers[4];
-    unsigned char enabled;
-    char pad9d[0xa8 - 0x9d];
-    unsigned char countdown;
+struct Struct_0208b0f8_2 {
+    char unknown_0_[0x94];
+    unsigned char unknown_94_[4];
+    unsigned char unknown_98_[4];
+    unsigned char unknown_9c_;
+    char unknown_9d_[0xa8 - 0x9d];
+    unsigned char unknown_a8_;
 };
-struct Record0208b0f8 {
-    char pad0[0xc];
-    unsigned int zone;
-    char pad10[0x30 - 0x10];
-    void* nodes;
+struct Struct_0208b0f8_3 {
+    char unknown_0_[0xc];
+    unsigned int unknown_c_;
+    char unknown_10_[0x30 - 0x10];
+    void* unknown_30_;
 };
 
 // USA: func_0208b0f8
-extern "C" ARM void func_0208b0f8(void* receiver) {
-    State0208b0f8* self = (State0208b0f8*)receiver;
-    GameState* game;
-    void* data;
-    GameResources* resources;
-    int* search;
-    unsigned char* flags;
-    unsigned int blocked;
-    int changed;
-    void** list;
-    void* entries;
-    unsigned char* mpTimer;
-    unsigned char* hpTimer;
-    Actor0208b0f8* leader;
-    int i;
-    int status;
-    Actor0208b0f8* party;
-    int hp;
-    int mp;
-    game = GameState::GetInstance();
-    resources = GetGameResources();
-    leader = (Actor0208b0f8*)game->GetUnknownGameObject();
-    data = func_0205ec34();
-    func_02010828(game);
-    search = (int*)func_0202ae18();
-    flags = (unsigned char*)resources->unknown_ptr_36d0;
-    list = (void**)resources->unknown_ptr_array_36fc[0];
-    if (leader == NULL) return;
-    blocked = TestFlags04(resources, 0x10);
-    int ids[4];
-    int count;
-    __clear(ids, sizeof(ids));
-    func_02010834((Base02010834*)game, leader->slot, ids, &count);
-    if (func_02046b08(list) && leader->active != 0 && self->countdown != 0) {
-        self->countdown--;
-        if (self->countdown == 0) {
-            Record0208b0f8 record;
-            record.zone = *(unsigned short*)func_02012fe4();
-            if (func_020649b0(data, 0x19, &record)) {
-                func_0206f81c(&record);
+extern "C" ARM void func_0208b0f8(void* arg0) {
+    Struct_0208b0f8_2* var0 = (Struct_0208b0f8_2*)arg0;
+    GameState* var1;
+    void* var2;
+    GameResources* var3;
+    int* var4;
+    unsigned char* var5;
+    unsigned int var6;
+    int var7;
+    void** var8;
+    void* var9;
+    unsigned char* var10;
+    unsigned char* var11;
+    Struct_0208b0f8* var12;
+    int var13;
+    int var14;
+    Struct_0208b0f8* var15;
+    int var16;
+    int var17;
+    var1 = GameState::GetInstance();
+    var3 = GetGameResources();
+    var12 = (Struct_0208b0f8*)var1->GetUnknownGameObject();
+    var2 = func_0205ec34();
+    func_02010828(var1);
+    var4 = (int*)func_0202ae18();
+    var5 = (unsigned char*)var3->unknown_ptr_36d0;
+    var8 = (void**)var3->unknown_ptr_array_36fc[0];
+    if (var12 == NULL) return;
+    var6 = TestFlags04(var3, 0x10);
+    int var18[4];
+    int var19;
+    __clear(var18, sizeof(var18));
+    func_02010834((Struct_02010834*)var1, var12->unknown_4_, var18, &var19);
+    if (func_02046b08(var8) && var12->unknown_b2_ != 0 && var0->unknown_a8_ != 0) {
+        var0->unknown_a8_--;
+        if (var0->unknown_a8_ == 0) {
+            Struct_0208b0f8_3 var20;
+            var20.unknown_c_ = *(unsigned short*)func_02012fe4();
+            if (func_020649b0(var2, 0x19, &var20)) {
+                func_0206f81c(&var20);
             }
         }
     }
-    entries = func_020e2ff8();
-    changed = 0;
-    hpTimer = self->hpTimers;
-    mpTimer = self->mpTimers;
-    for (i = 0; i < count; i++) {
-        status = func_020e34bc((Container020e34bc*)entries, 1);
-        party = (Actor0208b0f8*)game->GetPartyMemberByIndex(ids[i]);
-        if (!func_0202b7d8(search) || (func_0202b7d8(search) && status != 1)) {
-            if (party == NULL || leader->active == 0 || func_02039d7c((char*)leader) != 0 ||
-                (party->restorationState[0] & 1) || !func_02046b08(list)) {
-                changed = 1;
+    var9 = func_020e2ff8();
+    var7 = 0;
+    var11 = var0->unknown_94_;
+    var10 = var0->unknown_98_;
+    for (var13 = 0; var13 < var19; var13++) {
+        var14 = func_020e34bc((Struct_0208ab34*)var9, 1);
+        var15 = (Struct_0208b0f8*)var1->GetPartyMemberByIndex(var18[var13]);
+        if (!func_0202b7d8(var4) || (func_0202b7d8(var4) && var14 != 1)) {
+            if (var15 == NULL || var12->unknown_b2_ == 0 || func_02039d7c((char*)var12) != 0 ||
+                (var15->unknown_130_[0] & 1) || !func_02046b08(var8)) {
+                var7 = 1;
                 continue;
             }
         }
-        hp = func_020852a4(party->skills);
-        if (hp > 0 && self->enabled && !blocked) {
-            if (hpTimer[i] == 0) {
-                if (status != 2 && status != 1) func_020e3368((unsigned char*)entries, 1);
-                if (status == 1) {
-                    func_02026f08(flags, (unsigned char)ids[i], 0);
-                    if (!(party->restorationState[0] & 1)) func_02048228((Combatant02048228*)party, hp);
-                    hpTimer[i] = 0x28;
-                    if (func_0202b7d8(search)) func_ov017_021c9e00(ids[i], 1, 0, 0);
-                    changed = 1;
+        var16 = func_020852a4(var15->unknown_150_);
+        if (var16 > 0 && var0->unknown_9c_ && !var6) {
+            if (var11[var13] == 0) {
+                if (var14 != 2 && var14 != 1) func_020e3368((unsigned char*)var9, 1);
+                if (var14 == 1) {
+                    func_02026f08(var5, (unsigned char)var18[var13], 0);
+                    if (!(var15->unknown_130_[0] & 1)) func_02048228((Struct_02048228*)var15, var16);
+                    var11[var13] = 0x28;
+                    if (func_0202b7d8(var4)) func_ov017_021c9e00(var18[var13], 1, 0, 0);
+                    var7 = 1;
                 }
-            } else hpTimer[i]--;
+            } else var11[var13]--;
         }
-        mp = func_02085318(party->skills);
-        if (mp > 0 && self->enabled && !blocked) {
-            if (mpTimer[i] == 0) {
-                if (status != 2 && status != 1) func_020e3368((unsigned char*)entries, 1);
-                if (status == 1) {
-                    func_02026f08(flags, (unsigned char)ids[i], 0);
-                    if (!(party->restorationState[0] & 1)) func_02048284((Combatant02048284*)party, mp);
-                    mpTimer[i] = 0x28;
-                    if (func_0202b7d8(search)) func_ov017_021c9e00(ids[i], 1, 1, 0);
-                    changed = 1;
+        var17 = func_02085318(var15->unknown_150_);
+        if (var17 > 0 && var0->unknown_9c_ && !var6) {
+            if (var10[var13] == 0) {
+                if (var14 != 2 && var14 != 1) func_020e3368((unsigned char*)var9, 1);
+                if (var14 == 1) {
+                    func_02026f08(var5, (unsigned char)var18[var13], 0);
+                    if (!(var15->unknown_130_[0] & 1)) func_02048284((Struct_02048284*)var15, var17);
+                    var10[var13] = 0x28;
+                    if (func_0202b7d8(var4)) func_ov017_021c9e00(var18[var13], 1, 1, 0);
+                    var7 = 1;
                 }
-            } else mpTimer[i]--;
+            } else var10[var13]--;
         }
     }
-    if (changed) {
-        int status = func_020e34bc((Container020e34bc*)entries, 1);
-        if (status == 1) func_020e3428(entries, 1);
-        else if ((unsigned int)(status - 3) <= 2) func_020e3468((Entry020e3054*)entries, 1);
+    if (var7) {
+        int var21 = func_020e34bc((Struct_0208ab34*)var9, 1);
+        if (var21 == 1) func_020e3428(var9, 1);
+        else if ((unsigned int)(var21 - 3) <= 2) func_020e3468((Struct_0208ab34_2*)var9, 1);
     }
 }

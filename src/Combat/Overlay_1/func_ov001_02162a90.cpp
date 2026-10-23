@@ -4,189 +4,189 @@
 
 typedef enum
 {
-    GX_BG_SCRSIZE_TEXT_256x256 = 0,
-    GX_BG_SCRSIZE_TEXT_512x256 = 1,
-    GX_BG_SCRSIZE_TEXT_256x512 = 2,
-    GX_BG_SCRSIZE_TEXT_512x512 = 3
-} GXBGScrSizeText;
+    Enum_02000c9c_E_0 = 0,
+    Enum_02000c9c_E_1 = 1,
+    Enum_02000c9c_E_2 = 2,
+    Enum_02000c9c_E_3 = 3
+} Enum_02000c9c_E;
 
 typedef enum
 {
-    GX_BG_COLORMODE_16  = 0,
-    GX_BG_COLORMODE_256 = 1
-} GXBGColorMode;
+    Enum_02000c9c_B_0  = 0,
+    Enum_02000c9c_B_1 = 1
+} Enum_02000c9c_B;
 
 typedef enum
 {
-    GX_BG_CHARBASE_0x00000 = 0,
-    GX_BG_CHARBASE_0x04000 = 1,
-    GX_BG_CHARBASE_0x08000 = 2,
-    GX_BG_CHARBASE_0x0c000 = 3,
-    GX_BG_CHARBASE_0x10000 = 4,
-    GX_BG_CHARBASE_0x14000 = 5,
-    GX_BG_CHARBASE_0x18000 = 6,
-    GX_BG_CHARBASE_0x1c000 = 7,
-    GX_BG_CHARBASE_0x20000 = 8,
-    GX_BG_CHARBASE_0x24000 = 9,
-    GX_BG_CHARBASE_0x28000 = 10,
-    GX_BG_CHARBASE_0x2c000 = 11,
-    GX_BG_CHARBASE_0x30000 = 12,
-    GX_BG_CHARBASE_0x34000 = 13,
-    GX_BG_CHARBASE_0x38000 = 14,
-    GX_BG_CHARBASE_0x3c000 = 15
-} GXBGCharBase;
+    Enum_02000c9c_C_0 = 0,
+    Enum_02000c9c_C_1 = 1,
+    Enum_02000c9c_C_2 = 2,
+    Enum_02000c9c_C_3 = 3,
+    Enum_02000c9c_C_4 = 4,
+    Enum_02000c9c_C_5 = 5,
+    Enum_02000c9c_C_6 = 6,
+    Enum_02000c9c_C_7 = 7,
+    Enum_02000c9c_C_8 = 8,
+    Enum_02000c9c_C_9 = 9,
+    Enum_02000c9c_C_10 = 10,
+    Enum_02000c9c_C_11 = 11,
+    Enum_02000c9c_C_12 = 12,
+    Enum_02000c9c_C_13 = 13,
+    Enum_02000c9c_C_14 = 14,
+    Enum_02000c9c_C_15 = 15
+} Enum_02000c9c_C;
 
 typedef enum
 {
-    GX_BG_SCRBASE_0x0000 = 0,
-    GX_BG_SCRBASE_0x0800 = 1,
-    GX_BG_SCRBASE_0x1000 = 2,
-    GX_BG_SCRBASE_0x1800 = 3,
-    GX_BG_SCRBASE_0x2000 = 4,
-    GX_BG_SCRBASE_0x2800 = 5,
-    GX_BG_SCRBASE_0x3000 = 6,
-    GX_BG_SCRBASE_0x3800 = 7,
-    GX_BG_SCRBASE_0x4000 = 8,
-    GX_BG_SCRBASE_0x4800 = 9,
-    GX_BG_SCRBASE_0x5000 = 10,
-    GX_BG_SCRBASE_0x5800 = 11,
-    GX_BG_SCRBASE_0x6000 = 12,
-    GX_BG_SCRBASE_0x6800 = 13,
-    GX_BG_SCRBASE_0x7000 = 14,
-    GX_BG_SCRBASE_0x7800 = 15,
-    GX_BG_SCRBASE_0x8000 = 16,
-    GX_BG_SCRBASE_0x8800 = 17,
-    GX_BG_SCRBASE_0x9000 = 18,
-    GX_BG_SCRBASE_0x9800 = 19,
-    GX_BG_SCRBASE_0xa000 = 20,
-    GX_BG_SCRBASE_0xa800 = 21,
-    GX_BG_SCRBASE_0xb000 = 22,
-    GX_BG_SCRBASE_0xb800 = 23,
-    GX_BG_SCRBASE_0xc000 = 24,
-    GX_BG_SCRBASE_0xc800 = 25,
-    GX_BG_SCRBASE_0xd000 = 26,
-    GX_BG_SCRBASE_0xd800 = 27,
-    GX_BG_SCRBASE_0xe000 = 28,
-    GX_BG_SCRBASE_0xe800 = 29,
-    GX_BG_SCRBASE_0xf000 = 30,
-    GX_BG_SCRBASE_0xf800 = 31
-} GXBGScrBase;
+    Enum_02000c9c_D_0 = 0,
+    Enum_02000c9c_D_1 = 1,
+    Enum_02000c9c_D_2 = 2,
+    Enum_02000c9c_D_3 = 3,
+    Enum_02000c9c_D_4 = 4,
+    Enum_02000c9c_D_5 = 5,
+    Enum_02000c9c_D_6 = 6,
+    Enum_02000c9c_D_7 = 7,
+    Enum_02000c9c_D_8 = 8,
+    Enum_02000c9c_D_9 = 9,
+    Enum_02000c9c_D_10 = 10,
+    Enum_02000c9c_D_11 = 11,
+    Enum_02000c9c_D_12 = 12,
+    Enum_02000c9c_D_13 = 13,
+    Enum_02000c9c_D_14 = 14,
+    Enum_02000c9c_D_15 = 15,
+    Enum_02000c9c_D_16 = 16,
+    Enum_02000c9c_D_17 = 17,
+    Enum_02000c9c_D_18 = 18,
+    Enum_02000c9c_D_19 = 19,
+    Enum_02000c9c_D_20 = 20,
+    Enum_02000c9c_D_21 = 21,
+    Enum_02000c9c_D_22 = 22,
+    Enum_02000c9c_D_23 = 23,
+    Enum_02000c9c_D_24 = 24,
+    Enum_02000c9c_D_25 = 25,
+    Enum_02000c9c_D_26 = 26,
+    Enum_02000c9c_D_27 = 27,
+    Enum_02000c9c_D_28 = 28,
+    Enum_02000c9c_D_29 = 29,
+    Enum_02000c9c_D_30 = 30,
+    Enum_02000c9c_D_31 = 31
+} Enum_02000c9c_D;
 
 typedef enum
 {
-    GX_BG_EXTPLTT_01 = 0,
-    GX_BG_EXTPLTT_23 = 1
-} GXBGExtPltt;
+    Enum_02000c9c_0 = 0,
+    Enum_02000c9c_1 = 1
+} Enum_02000c9c;
 
-union BackgroundControl02162a90 {
-    unsigned short raw;
+union Struct_ov001_02162a90 {
+    unsigned short unknown_0_;
     struct {
-        unsigned short priority : 2;
-        unsigned short characterBase : 4;
-        unsigned short mosaic : 1;
-        unsigned short colorMode : 1;
-        unsigned short screenBase : 5;
-        unsigned short extendedPalette : 1;
-        unsigned short screenSize : 2;
-    } fields;
+        unsigned short unknown_0_0_ : 2;
+        unsigned short unknown_0_2_ : 4;
+        unsigned short unknown_0_6_ : 1;
+        unsigned short unknown_0_7_ : 1;
+        unsigned short unknown_1_0_ : 5;
+        unsigned short unknown_1_5_ : 1;
+        unsigned short unknown_1_6_ : 2;
+    } unknown1_0_;
 };
-struct SavedDisplayState02162a90 {
-    char pad0[0x494];
-    int mainBanks;
-    BackgroundControl02162a90 main[4];
-    unsigned int mainDisplay;
-    int subBanks;
-    BackgroundControl02162a90 sub[4];
-    unsigned int subDisplay;
+struct Struct_ov001_021658b8_13 {
+    char unknown_0_[0x494];
+    int unknown_494_;
+    Struct_ov001_02162a90 unknown_498_[4];
+    unsigned int unknown_4a0_;
+    int unknown_4a4_;
+    Struct_ov001_02162a90 unknown_4a8_[4];
+    unsigned int unknown_4b0_;
 };
-extern SavedDisplayState02162a90 data_ov001_021658b8;
-union Value_021d60f4 {
-    int i;
-    float f;
+extern Struct_ov001_021658b8_13 data_ov001_021658b8;
+union Struct_ov017_021d60f4 {
+    int unknown_0_;
+    float unknown1_0_;
 };
-struct TaggedValue_021d60f4 {
-    int type;
-    Value_021d60f4 value;
+struct Struct_ov001_0215f344 {
+    int unknown_0_;
+    Struct_ov017_021d60f4 unknown_4_;
 };
-extern "C" int func_ov017_021d60f4(TaggedValue_021d60f4*);
+extern "C" int func_ov017_021d60f4(Struct_ov001_0215f344*);
 extern "C" void func_ov001_02162678(int, int, int, int);
 extern "C" void func_ov001_0215e758(int, int, int, int, int);
 extern "C" void func_ov001_0215e78c(int, int, int, int, int);
 extern "C" void func_ov001_021628d4(int, int, int, int);
 
 // USA: func_ov001_02162a90
-extern "C" ARM int func_ov001_02162a90(TaggedValue_021d60f4* arguments) {
-    BackgroundControl02162a90 main0, main1, main2, main3;
-    BackgroundControl02162a90 sub0, sub1, sub2, sub3;
-    int screen = func_ov017_021d60f4(arguments);
-    if (screen == 0) {
+extern "C" ARM int func_ov001_02162a90(Struct_ov001_0215f344* arg0) {
+    Struct_ov001_02162a90 var0, var1, var2, var3;
+    Struct_ov001_02162a90 var4, var5, var6, var7;
+    int var8 = func_ov017_021d60f4(arg0);
+    if (var8 == 0) {
         ReleaseMainBGVRAMBanks();
-        MapVRAMBanksToMainBG(data_ov001_021658b8.mainBanks);
-        main0 = data_ov001_021658b8.main[0];
-        main1 = data_ov001_021658b8.main[1];
-        main2 = data_ov001_021658b8.main[2];
-        main3 = data_ov001_021658b8.main[3];
+        MapVRAMBanksToMainBG(data_ov001_021658b8.unknown_494_);
+        var0 = data_ov001_021658b8.unknown_498_[0];
+        var1 = data_ov001_021658b8.unknown_498_[1];
+        var2 = data_ov001_021658b8.unknown_498_[2];
+        var3 = data_ov001_021658b8.unknown_498_[3];
         {
-            GXBGExtPltt extendedPalette = (GXBGExtPltt)main0.fields.extendedPalette;
-            GXBGCharBase characterBase = (GXBGCharBase)main0.fields.characterBase;
-            GXBGScrBase screenBase = (GXBGScrBase)main0.fields.screenBase;
-            GXBGColorMode colorMode = (GXBGColorMode)main0.fields.colorMode;
-            GXBGScrSizeText screenSize = (GXBGScrSizeText)main0.fields.screenSize;
+            Enum_02000c9c var9 = (Enum_02000c9c)var0.unknown1_0_.unknown_1_5_;
+            Enum_02000c9c_C var10 = (Enum_02000c9c_C)var0.unknown1_0_.unknown_0_2_;
+            Enum_02000c9c_D var11 = (Enum_02000c9c_D)var0.unknown1_0_.unknown_1_0_;
+            Enum_02000c9c_B var12 = (Enum_02000c9c_B)var0.unknown1_0_.unknown_0_7_;
+            Enum_02000c9c_E var13 = (Enum_02000c9c_E)var0.unknown1_0_.unknown_1_6_;
             BG0CNT = (unsigned short)((BG0CNT & 0x43)
-                | (screenSize << 14)
-                | (colorMode << 7)
-                | (screenBase << 8)
-                | (characterBase << 2)
-                | (extendedPalette << 13));
+                | (var13 << 14)
+                | (var12 << 7)
+                | (var11 << 8)
+                | (var10 << 2)
+                | (var9 << 13));
         }
         {
-            GXBGExtPltt extendedPalette = (GXBGExtPltt)main1.fields.extendedPalette;
-            GXBGCharBase characterBase = (GXBGCharBase)main1.fields.characterBase;
-            GXBGScrBase screenBase = (GXBGScrBase)main1.fields.screenBase;
-            GXBGColorMode colorMode = (GXBGColorMode)main1.fields.colorMode;
-            GXBGScrSizeText screenSize = (GXBGScrSizeText)main1.fields.screenSize;
+            Enum_02000c9c var14 = (Enum_02000c9c)var1.unknown1_0_.unknown_1_5_;
+            Enum_02000c9c_C var15 = (Enum_02000c9c_C)var1.unknown1_0_.unknown_0_2_;
+            Enum_02000c9c_D var16 = (Enum_02000c9c_D)var1.unknown1_0_.unknown_1_0_;
+            Enum_02000c9c_B var17 = (Enum_02000c9c_B)var1.unknown1_0_.unknown_0_7_;
+            Enum_02000c9c_E var18 = (Enum_02000c9c_E)var1.unknown1_0_.unknown_1_6_;
             BG1CNT = (unsigned short)((BG1CNT & 0x43)
-                | (screenSize << 14)
-                | (colorMode << 7)
-                | (screenBase << 8)
-                | (characterBase << 2)
-                | (extendedPalette << 13));
+                | (var18 << 14)
+                | (var17 << 7)
+                | (var16 << 8)
+                | (var15 << 2)
+                | (var14 << 13));
         }
         {
-            GXBGCharBase characterBase = (GXBGCharBase)main2.fields.characterBase;
-            GXBGScrBase screenBase = (GXBGScrBase)main2.fields.screenBase;
-            GXBGColorMode colorMode = (GXBGColorMode)main2.fields.colorMode;
-            GXBGScrSizeText screenSize = (GXBGScrSizeText)main2.fields.screenSize;
+            Enum_02000c9c_C var19 = (Enum_02000c9c_C)var2.unknown1_0_.unknown_0_2_;
+            Enum_02000c9c_D var20 = (Enum_02000c9c_D)var2.unknown1_0_.unknown_1_0_;
+            Enum_02000c9c_B var21 = (Enum_02000c9c_B)var2.unknown1_0_.unknown_0_7_;
+            Enum_02000c9c_E var22 = (Enum_02000c9c_E)var2.unknown1_0_.unknown_1_6_;
             BG2CNT = (unsigned short)((BG2CNT & 0x43)
-                | (screenSize << 14)
-                | (colorMode << 7)
-                | (screenBase << 8)
-                | (characterBase << 2));
+                | (var22 << 14)
+                | (var21 << 7)
+                | (var20 << 8)
+                | (var19 << 2));
         }
-        func_ov001_02162678(main3.fields.screenSize, main3.fields.colorMode, main3.fields.screenBase, main3.fields.characterBase);
-        DISPCNT = (DISPCNT & ~0x1f00) | (data_ov001_021658b8.mainDisplay << 8);
-    } else if (screen == 1) {
+        func_ov001_02162678(var3.unknown1_0_.unknown_1_6_, var3.unknown1_0_.unknown_0_7_, var3.unknown1_0_.unknown_1_0_, var3.unknown1_0_.unknown_0_2_);
+        DISPCNT = (DISPCNT & ~0x1f00) | (data_ov001_021658b8.unknown_4a0_ << 8);
+    } else if (var8 == 1) {
         ReleaseSubBGVRAMBanks();
-        MapVRAMBanksToSubBG(data_ov001_021658b8.subBanks);
-        sub0 = data_ov001_021658b8.sub[0];
-        sub1 = data_ov001_021658b8.sub[1];
-        sub2 = data_ov001_021658b8.sub[2];
-        sub3 = data_ov001_021658b8.sub[3];
-        func_ov001_0215e758(sub0.fields.screenSize, sub0.fields.colorMode, sub0.fields.screenBase, sub0.fields.characterBase, sub0.fields.extendedPalette);
-        func_ov001_0215e78c(sub1.fields.screenSize, sub1.fields.colorMode, sub1.fields.screenBase, sub1.fields.characterBase, sub1.fields.extendedPalette);
+        MapVRAMBanksToSubBG(data_ov001_021658b8.unknown_4a4_);
+        var4 = data_ov001_021658b8.unknown_4a8_[0];
+        var5 = data_ov001_021658b8.unknown_4a8_[1];
+        var6 = data_ov001_021658b8.unknown_4a8_[2];
+        var7 = data_ov001_021658b8.unknown_4a8_[3];
+        func_ov001_0215e758(var4.unknown1_0_.unknown_1_6_, var4.unknown1_0_.unknown_0_7_, var4.unknown1_0_.unknown_1_0_, var4.unknown1_0_.unknown_0_2_, var4.unknown1_0_.unknown_1_5_);
+        func_ov001_0215e78c(var5.unknown1_0_.unknown_1_6_, var5.unknown1_0_.unknown_0_7_, var5.unknown1_0_.unknown_1_0_, var5.unknown1_0_.unknown_0_2_, var5.unknown1_0_.unknown_1_5_);
         {
-            GXBGCharBase characterBase = (GXBGCharBase)sub2.fields.characterBase;
-            GXBGScrBase screenBase = (GXBGScrBase)sub2.fields.screenBase;
-            GXBGColorMode colorMode = (GXBGColorMode)sub2.fields.colorMode;
-            GXBGScrSizeText screenSize = (GXBGScrSizeText)sub2.fields.screenSize;
+            Enum_02000c9c_C var23 = (Enum_02000c9c_C)var6.unknown1_0_.unknown_0_2_;
+            Enum_02000c9c_D var24 = (Enum_02000c9c_D)var6.unknown1_0_.unknown_1_0_;
+            Enum_02000c9c_B var25 = (Enum_02000c9c_B)var6.unknown1_0_.unknown_0_7_;
+            Enum_02000c9c_E var26 = (Enum_02000c9c_E)var6.unknown1_0_.unknown_1_6_;
             BG2CNTSUB = (unsigned short)((BG2CNTSUB & 0x43)
-                | (screenSize << 14)
-                | (colorMode << 7)
-                | (screenBase << 8)
-                | (characterBase << 2));
+                | (var26 << 14)
+                | (var25 << 7)
+                | (var24 << 8)
+                | (var23 << 2));
         }
-        func_ov001_021628d4(sub3.fields.screenSize, sub3.fields.colorMode, sub3.fields.screenBase, sub3.fields.characterBase);
-        DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (data_ov001_021658b8.subDisplay << 8);
+        func_ov001_021628d4(var7.unknown1_0_.unknown_1_6_, var7.unknown1_0_.unknown_0_7_, var7.unknown1_0_.unknown_1_0_, var7.unknown1_0_.unknown_0_2_);
+        DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (data_ov001_021658b8.unknown_4b0_ << 8);
     }
     return 1;
 }

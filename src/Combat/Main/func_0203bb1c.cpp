@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct State0xbb1c {
-    char unk0[8];
-    int unk8;
-    int unkC;
-    int unk10;
-    short unk14;
-    short unk16;
-    short unk18;
+struct Struct_02020fc4 {
+    char unknown_0_[8];
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
 };
 
 // USA: func_0203bb1c
-extern "C" ARM void func_0203bb1c(struct State0xbb1c* obj) {
-    obj->unk8 = 0;
-    obj->unkC = 0;
-    obj->unk10 = 0;
-    obj->unk14 = 0;
-    obj->unk16 = 0;
-    obj->unk18 = 0;
+extern "C" ARM void func_0203bb1c(struct Struct_02020fc4* arg0) {
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = 0;
+    arg0->unknown_16_ = 0;
+    arg0->unknown_18_ = 0;
 }

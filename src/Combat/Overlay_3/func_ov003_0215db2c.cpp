@@ -1,76 +1,76 @@
 #include "Combat/TryApplyElemFields.h"
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion960 = 0x800 };
-enum { kRegion3ba = 0x3d2 };
-enum { kRegion3bb = 0x3d3 };
-enum { kRegion7c = 0x94 };
-enum { kRegion148 = 0x160 };
-enum { kRegion98 = 0xb0 };
+enum { Enum_ov003_0215db2c_2400 = 0x800 };
+enum { Enum_ov003_0215db2c_954 = 0x3d2 };
+enum { Enum_ov003_0215db2c_955 = 0x3d3 };
+enum { Enum_ov003_0215db2c_124 = 0x94 };
+enum { Enum_ov003_0215db2c_328 = 0x160 };
+enum { Enum_ov003_0215db2c_152 = 0xb0 };
 #else
-enum { kRegion960 = 0x960 };
-enum { kRegion3ba = 0x3ba };
-enum { kRegion3bb = 0x3bb };
-enum { kRegion7c = 0x7c };
-enum { kRegion148 = 0x148 };
-enum { kRegion98 = 0x98 };
+enum { Enum_ov003_0215db2c_2400 = 0x960 };
+enum { Enum_ov003_0215db2c_954 = 0x3ba };
+enum { Enum_ov003_0215db2c_955 = 0x3bb };
+enum { Enum_ov003_0215db2c_124 = 0x7c };
+enum { Enum_ov003_0215db2c_328 = 0x148 };
+enum { Enum_ov003_0215db2c_152 = 0x98 };
 #endif
 
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 #if defined(jpn)
 #endif
 #if !defined(jpn)
 #endif
-extern "C" void func_ov003_0215e13c(char* base, char* dst, int flag);
-extern "C" void func_ov003_0215de6c(char* base, void* buf);
+extern "C" void func_ov003_0215e13c(char* arg0, char* arg1, int arg2);
+extern "C" void func_ov003_0215de6c(char* arg0, void* arg1);
 
-struct MenuCursor_0215db2c {
-    char unk_0[0x30];
-    int index;
+struct Struct_ov003_0215db2c {
+    char unknown_0_[0x30];
+    int unknown_30_;
 };
 
-struct MenuList_0215db2c {
-    int unk_0;
-    struct MenuCursor_0215db2c cursors[1];
+struct Struct_ov003_0215db2c_2 {
+    int unknown_0_;
+    struct Struct_ov003_0215db2c unknown_4_[1];
 };
 
-static inline struct MenuCursor_0215db2c* GetCursor(struct MenuList_0215db2c* list) { SDK_NULL_ASSERT(list); return list->cursors; }
+static inline struct Struct_ov003_0215db2c* inline_ov003_0215db2c(struct Struct_ov003_0215db2c_2* arg0) { SDK_NULL_ASSERT(arg0); return arg0->unknown_4_; }
 
 // USA: func_ov003_0215db2c
-extern "C" ARM void func_ov003_0215db2c(char* self) {
-    unsigned char mode = *(unsigned char*)(self + kRegion3ba);
-    if (mode != 0) {
-        int flag = 0;
-        if (mode == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
-            if (GetCursor((struct MenuList_0215db2c*)(self + kRegion98))->index < 0) {
+extern "C" ARM void func_ov003_0215db2c(char* arg0) {
+    unsigned char var0 = *(unsigned char*)(arg0 + Enum_ov003_0215db2c_954);
+    if (var0 != 0) {
+        int var1 = 0;
+        if (var0 == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
+            if (inline_ov003_0215db2c((struct Struct_ov003_0215db2c_2*)(arg0 + Enum_ov003_0215db2c_152))->unknown_30_ < 0) {
                 return;
             }
-            flag = 1;
+            var1 = 1;
         }
-        memset(*(void**)(self + kRegion7c), 0, kRegion960);
-        unsigned char page = *(unsigned char*)(self + kRegion148);
-        if (page == 1) {
-            func_ov003_0215e13c(self, *(char**)(self + kRegion7c), flag);
+        memset(*(void**)(arg0 + Enum_ov003_0215db2c_124), 0, Enum_ov003_0215db2c_2400);
+        unsigned char var2 = *(unsigned char*)(arg0 + Enum_ov003_0215db2c_328);
+        if (var2 == 1) {
+            func_ov003_0215e13c(arg0, *(char**)(arg0 + Enum_ov003_0215db2c_124), var1);
         }
-        if (page != 0) {
+        if (var2 != 0) {
 #if defined(jpn)
-            func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), page, *(int*)(self + kRegion7c), 1);
+            func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), var2, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1);
 #else
-            func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), page, *(int*)(self + kRegion7c), 1, 0);
+            func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), var2, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1, 0);
 #endif
         }
     }
-    if (*(unsigned char*)(self + kRegion3bb) != 0) {
-        memset(*(void**)(self + kRegion7c), 0, kRegion960);
-        func_ov003_0215de6c(self, *(void**)(self + kRegion7c));
+    if (*(unsigned char*)(arg0 + Enum_ov003_0215db2c_955) != 0) {
+        memset(*(void**)(arg0 + Enum_ov003_0215db2c_124), 0, Enum_ov003_0215db2c_2400);
+        func_ov003_0215de6c(arg0, *(void**)(arg0 + Enum_ov003_0215db2c_124));
 #if defined(jpn)
-        func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), 0, *(int*)(self + kRegion7c), 1);
+        func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), 0, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1);
 #else
-        func_0205d5d0((struct StructA0205d5d0*)(self + kRegion98), 0, *(int*)(self + kRegion7c), 1, 0);
+        func_0205d5d0((struct Struct_0205d5d0*)(arg0 + Enum_ov003_0215db2c_152), 0, *(int*)(arg0 + Enum_ov003_0215db2c_124), 1, 0);
 #endif
-        *(unsigned char*)(self + kRegion3bb) = 0;
+        *(unsigned char*)(arg0 + Enum_ov003_0215db2c_955) = 0;
     }
 }

@@ -1,81 +1,81 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct S886b0;
-struct S886f8;
-struct Obj02088740;
-struct Obj02088788;
-struct Obj020887d0;
+struct Struct_020886b0;
+struct Struct_020886f8;
+struct Struct_02088740;
+struct Struct_02088788;
+struct Struct_020887d0;
 
-struct CombatantResistances {
-    char pad0[0x3e];
-    unsigned char resist[21];
+struct Struct_02000c9c_28 {
+    char unknown_0_[0x3e];
+    unsigned char unknown_3e_[21];
 };
 
-extern "C" int func_ov000_02156c94(GameObject* combatant);
-extern "C" int func_ov000_02156cac(GameObject* combatant);
-extern "C" int func_020886b0(struct S886b0* obj);
-extern "C" int func_020886f8(struct S886f8* obj);
-extern "C" int func_02088740(struct Obj02088740* obj);
-extern "C" int func_02088788(struct Obj02088788* obj);
-extern "C" int func_020887d0(struct Obj020887d0* obj);
+extern "C" int func_ov000_02156c94(GameObject* arg0);
+extern "C" int func_ov000_02156cac(GameObject* arg0);
+extern "C" int func_020886b0(struct Struct_020886b0* arg0);
+extern "C" int func_020886f8(struct Struct_020886f8* arg0);
+extern "C" int func_02088740(struct Struct_02088740* arg0);
+extern "C" int func_02088788(struct Struct_02088788* arg0);
+extern "C" int func_020887d0(struct Struct_020887d0* arg0);
 
-static inline unsigned char* GetResists(ModifiableCombatStats* stats) {
-    return ((struct CombatantResistances*)stats)->resist;
+static inline unsigned char* inline_ov000_02156b38(ModifiableCombatStats* arg0) {
+    return ((struct Struct_02000c9c_28*)arg0)->unknown_3e_;
 }
 
 // USA: func_ov000_02156b38
-extern "C" ARM float func_ov000_02156b38(void* self, int combatantIndex, int element) {
-    float ward1, ward2, ward3, ward4, ward5;
-    float bonus;
-    GameObject* combatant = GameState::GetInstance()->GetCombatantByIndex(combatantIndex);
-    if (combatant == NULL) {
+extern "C" ARM float func_ov000_02156b38(void* arg0, int arg1, int arg2) {
+    float var0, var1, var2, var3, var4;
+    float var5;
+    GameObject* var6 = GameState::GetInstance()->GetCombatantByIndex(arg1);
+    if (var6 == NULL) {
         return 1.0f;
     }
 
-    bonus = 0.0f;
-    if (func_ov000_02156c94(combatant)) {
-        bonus = -25.0f;
-    } else if (func_ov000_02156cac(combatant)) {
-        bonus = 25.0f;
+    var5 = 0.0f;
+    if (func_ov000_02156c94(var6)) {
+        var5 = -25.0f;
+    } else if (func_ov000_02156cac(var6)) {
+        var5 = 25.0f;
     }
 
-    ward1 = 0.0f;
-    if (func_020886b0((struct S886b0*)combatant->currentStats_)) {
-        ward1 = -50.0f;
+    var0 = 0.0f;
+    if (func_020886b0((struct Struct_020886b0*)var6->currentStats_)) {
+        var0 = -50.0f;
     }
-    ward2 = 0.0f;
-    if (func_020886f8((struct S886f8*)combatant->currentStats_)) {
-        ward2 = -50.0f;
+    var1 = 0.0f;
+    if (func_020886f8((struct Struct_020886f8*)var6->currentStats_)) {
+        var1 = -50.0f;
     }
-    ward3 = 0.0f;
-    if (func_02088740((struct Obj02088740*)combatant->currentStats_)) {
-        ward3 = -50.0f;
+    var2 = 0.0f;
+    if (func_02088740((struct Struct_02088740*)var6->currentStats_)) {
+        var2 = -50.0f;
     }
-    ward4 = 0.0f;
-    if (func_02088788((struct Obj02088788*)combatant->currentStats_)) {
-        ward4 = -50.0f;
+    var3 = 0.0f;
+    if (func_02088788((struct Struct_02088788*)var6->currentStats_)) {
+        var3 = -50.0f;
     }
-    ward5 = 0.0f;
-    if (func_020887d0((struct Obj020887d0*)combatant->currentStats_)) {
-        ward5 = -50.0f;
+    var4 = 0.0f;
+    if (func_020887d0((struct Struct_020887d0*)var6->currentStats_)) {
+        var4 = -50.0f;
     }
 
-    unsigned char idx = element - 1;
-    if (element < 1 || element > 21) {
+    unsigned char var7 = arg2 - 1;
+    if (arg2 < 1 || arg2 > 21) {
         return 1.0f;
     }
-    if (element == 8) {
-        bonus = 0.0f;
-    } else if (element >= 1 && element <= 7) {
-        float wards[7] = {ward1, ward2, ward3, ward3, ward4, ward4, ward5};
-        bonus = wards[idx];
+    if (arg2 == 8) {
+        var5 = 0.0f;
+    } else if (arg2 >= 1 && arg2 <= 7) {
+        float var8[7] = {var0, var1, var2, var2, var3, var3, var4};
+        var5 = var8[var7];
     }
 
-    float value = GetResists(combatant->currentStats_)[idx];
-    value += bonus;
-    if (value < 0.0f) {
-        value = 0.0f;
+    float var9 = inline_ov000_02156b38(var6->currentStats_)[var7];
+    var9 += var5;
+    if (var9 < 0.0f) {
+        var9 = 0.0f;
     }
-    return value / 100.0f;
+    return var9 / 100.0f;
 }

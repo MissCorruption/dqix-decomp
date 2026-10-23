@@ -6,45 +6,45 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
-struct State021c1af0 { unsigned char pad0, done; char pad2[6]; int step, alternate; };
-struct Action021c1af0 {
-    unsigned short kind;
-    unsigned char field_2;
-    char pad3[4];
-    unsigned char field_7;
-    char pad8[8];
-    Vector3i position;
-    unsigned short field_1c;
+struct Struct_ov017_021c1af0 { unsigned char unknown_0_, unknown_1_; char unknown_2_[6]; int unknown_8_, unknown_c_; };
+struct Struct_ov017_021c1af0_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    char unknown_3_[4];
+    unsigned char unknown_7_;
+    char unknown_8_[8];
+    Vector3i unknown_10_;
+    unsigned short unknown_1c_;
 };
-struct TailNode020469b4 { char pad[8]; unsigned short kind; };
-struct TailList020469b4;
-struct Obj02046574;
+struct Struct_0201bdac { char unknown_0_[8]; unsigned short unknown_8_; };
+struct Struct_0201bdac_2;
+struct Struct_02046574_2;
 #if defined(jpn)
-enum { TextBufferOffset = 0x28, ActiveOffset = 0x868, BusyOffset = 0x870,
-       MessageFlagOffset = 0x17de, ChoiceFlagOffset = 0x17e2 };
+enum { Enum_ov017_021c1af0_92 = 0x28, Enum_ov017_021c1af0_2456 = 0x868, Enum_ov017_021c1af0_2464 = 0x870,
+       Enum_ov017_021c1af0_6574 = 0x17de, Enum_ov017_021c1af0_6578 = 0x17e2 };
 extern const char data_ov017_021d8730[];
 extern const char data_ov017_021d876c[];
 #else
-enum { TextBufferOffset = 0x5c, ActiveOffset = 0x998, BusyOffset = 0x9a0,
-       MessageFlagOffset = 0x19ae, ChoiceFlagOffset = 0x19b2 };
+enum { Enum_ov017_021c1af0_92 = 0x5c, Enum_ov017_021c1af0_2456 = 0x998, Enum_ov017_021c1af0_2464 = 0x9a0,
+       Enum_ov017_021c1af0_6574 = 0x19ae, Enum_ov017_021c1af0_6578 = 0x19b2 };
 #endif
-struct Obj020397cc;
-struct SearchStruct0202c1a4;
+struct Struct_02018300_3;
+struct Struct_0202c1a4;
 extern "C" Zone3D* func_02012fe4();
 extern "C" int* func_0202ae18();
-extern "C" Obj02046574* func_020421a0();
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" Struct_02046574_2* func_020421a0();
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" int func_0202b7d8(int*);
-extern "C" signed char func_0202c1a4(SearchStruct0202c1a4*);
+extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
 extern "C" int func_ov017_0219ff58(GameResources*, int, int, int);
-extern "C" Action021c1af0* func_0200fd0c(GameState*);
+extern "C" Struct_ov017_021c1af0_2* func_0200fd0c(GameState*);
 extern "C" void func_02070378(char*);
-extern "C" void func_ov017_021baedc(TailNode020469b4*, int);
-extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_ov017_021baedc(Struct_0201bdac*, int);
+extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
 extern "C" void func_ov017_021d1c2c(unsigned char, unsigned short);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" const char* func_020e51cc(int);
-extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_0204500c(void*, const char*, int
 #if !defined(jpn)
     , int
@@ -56,85 +56,85 @@ extern "C" void func_02043204(char*);
 extern "C" void func_020397c0(void*);
 
 // USA: func_ov017_021c1af0
-extern "C" ARM void func_ov017_021c1af0(State021c1af0* state) {
-    GameState* game = GameState::GetInstance();
-    Zone3D* context = func_02012fe4();
-    if (state->step == 0) {
-        func_020397cc((Obj020397cc*)game->GetProtagonist(), 1);
-        FontBankLoader* global = func_02094a00();
-        func_02094b30(global, 0x204, 0);
-        if (func_02094b4c(global)) state->step = 1;
-    } else if (state->step == 1) {
-        Obj02046574* controller = func_020421a0();
-        int* search = func_0202ae18();
-        if (!func_0202b7d8(search) || (func_0202b7d8(search) && func_0202c1a4((SearchStruct0202c1a4*)search) == 0)) {
-            GameResources* resources = GetGameResources();
-            TailList020469b4* list = static_cast<TailList020469b4*>(resources->unknown_ptr_array_36fc[0]);
-            TailNode020469b4* node = static_cast<TailNode020469b4*>(resources->unknown_ptr_array_371c[6]);
-            if (func_ov017_0219ff58(resources, 1, 0, 0)) {
-                state->step = 2;
+extern "C" ARM void func_ov017_021c1af0(Struct_ov017_021c1af0* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Zone3D* var1 = func_02012fe4();
+    if (arg0->unknown_8_ == 0) {
+        func_020397cc((Struct_02018300_3*)var0->GetProtagonist(), 1);
+        Struct_0208cb08* var2 = func_02094a00();
+        func_02094b30(var2, 0x204, 0);
+        if (func_02094b4c(var2)) arg0->unknown_8_ = 1;
+    } else if (arg0->unknown_8_ == 1) {
+        Struct_02046574_2* var3 = func_020421a0();
+        int* var4 = func_0202ae18();
+        if (!func_0202b7d8(var4) || (func_0202b7d8(var4) && func_0202c1a4((Struct_0202c1a4*)var4) == 0)) {
+            GameResources* var5 = GetGameResources();
+            Struct_0201bdac_2* var6 = static_cast<Struct_0201bdac_2*>(var5->unknown_ptr_array_36fc[0]);
+            Struct_0201bdac* var7 = static_cast<Struct_0201bdac*>(var5->unknown_ptr_array_371c[6]);
+            if (func_ov017_0219ff58(var5, 1, 0, 0)) {
+                arg0->unknown_8_ = 2;
                 return;
             }
-            game->GetProtagonist();
-            Action021c1af0* action = func_0200fd0c(game);
-            if (state->alternate == 0) {
-                func_02070378((char*)action);
-                action->field_2 = 1;
-                action->field_7 = 1;
-                action->kind = 0x2710;
-                action->position = (*reinterpret_cast<Vector3i*>(context->unk_276c + 0x8));
-                action->field_1c = (*reinterpret_cast<int*>(context->unk_276c + 0x14));
-            } else if ((*reinterpret_cast<unsigned short*>(context->unk_276c + 0x48)) == 3) {
-                func_ov017_021baedc(node, 1);
-                node->kind = 0x7345;
-                (*reinterpret_cast<unsigned char*>(context->unk_276c + 0xb3)) = 1;
-                func_020469b4(list, node);
+            var0->GetProtagonist();
+            Struct_ov017_021c1af0_2* var8 = func_0200fd0c(var0);
+            if (arg0->unknown_c_ == 0) {
+                func_02070378((char*)var8);
+                var8->unknown_2_ = 1;
+                var8->unknown_7_ = 1;
+                var8->unknown_0_ = 0x2710;
+                var8->unknown_10_ = (*reinterpret_cast<Vector3i*>(var1->unk_276c + 0x8));
+                var8->unknown_1c_ = (*reinterpret_cast<int*>(var1->unk_276c + 0x14));
+            } else if ((*reinterpret_cast<unsigned short*>(var1->unk_276c + 0x48)) == 3) {
+                func_ov017_021baedc(var7, 1);
+                var7->unknown_8_ = 0x7345;
+                (*reinterpret_cast<unsigned char*>(var1->unk_276c + 0xb3)) = 1;
+                func_020469b4(var6, var7);
                 func_ov017_021d1c2c(0, 1);
-                int position[3];
-                func_ov017_021d1dc0(0, 0, position, 0x7345, 0);
+                int var9[3];
+                func_ov017_021d1dc0(0, 0, var9, 0x7345, 0);
             } else {
-                func_02070378((char*)action);
-                action->field_2 = 1;
-                action->field_7 = 1;
-                action->kind = 0x2774;
-                action->position = (*reinterpret_cast<Vector3i*>(context->unk_276c + 0x4c));
-                action->field_1c = (*reinterpret_cast<int*>(context->unk_276c + 0x58));
+                func_02070378((char*)var8);
+                var8->unknown_2_ = 1;
+                var8->unknown_7_ = 1;
+                var8->unknown_0_ = 0x2774;
+                var8->unknown_10_ = (*reinterpret_cast<Vector3i*>(var1->unk_276c + 0x4c));
+                var8->unknown_1c_ = (*reinterpret_cast<int*>(var1->unk_276c + 0x58));
             }
-            state->step = 2;
+            arg0->unknown_8_ = 2;
         } else {
-            char* buffer = (*reinterpret_cast<char**>(reinterpret_cast<char*>(controller) + TextBufferOffset));
+            char* var10 = (*reinterpret_cast<char**>(reinterpret_cast<char*>(var3) + Enum_ov017_021c1af0_92));
 #if defined(jpn)
-            if (state->alternate == 0) sprintf(buffer, data_ov017_021d8730, game->GetUnknownGameObject()->baseStats_->unk);
-            else sprintf(buffer, data_ov017_021d876c, game->GetUnknownGameObject()->baseStats_->unk);
-            func_0204500c(controller, buffer, 0);
+            if (arg0->unknown_c_ == 0) sprintf(var10, data_ov017_021d8730, var0->GetUnknownGameObject()->baseStats_->unk);
+            else sprintf(var10, data_ov017_021d876c, var0->GetUnknownGameObject()->baseStats_->unk);
+            func_0204500c(var3, var10, 0);
 #else
-            if (state->alternate == 0) sprintf(buffer, func_020e51cc(0x3c));
-            else sprintf(buffer, func_020e51cc(0x3d));
-            func_02046574(controller, 0, (char*)game->GetUnknownGameObject()->baseStats_);
-            func_0204500c(controller, buffer, 0, 0xe3);
+            if (arg0->unknown_c_ == 0) sprintf(var10, func_020e51cc(0x3c));
+            else sprintf(var10, func_020e51cc(0x3d));
+            func_02046574(var3, 0, (char*)var0->GetUnknownGameObject()->baseStats_);
+            func_0204500c(var3, var10, 0, 0xe3);
 #endif
-            (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(controller) + ChoiceFlagOffset)) = 0;
-            (*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + ActiveOffset)) = 1;
-            state->step = 3;
+            (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(var3) + Enum_ov017_021c1af0_6578)) = 0;
+            (*reinterpret_cast<int*>(reinterpret_cast<char*>(var3) + Enum_ov017_021c1af0_2456)) = 1;
+            arg0->unknown_8_ = 3;
         }
-    } else if (state->step == 2) {
-        if (func_02011b50(game, 1)) {
+    } else if (arg0->unknown_8_ == 2) {
+        if (func_02011b50(var0, 1)) {
             func_ov017_0219c520();
         }
-        FontBankLoader* global = func_02094a00();
-        func_02094b38(global, 0x1f9);
-        func_02094ab0(global);
-        state->done = 1;
-    } else if (state->step == 3) {
-        Obj02046574* controller = func_020421a0();
-        (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(controller) + MessageFlagOffset)) = 0;
-        if (!(*reinterpret_cast<int*>(reinterpret_cast<char*>(controller) + BusyOffset))) {
-            func_02043204((char*)controller);
-            func_020397c0(game->GetProtagonist());
-            FontBankLoader* global = func_02094a00();
-            func_02094b38(global, 0x204);
-            func_02094ab0(global);
-            state->done = 1;
+        Struct_0208cb08* var11 = func_02094a00();
+        func_02094b38(var11, 0x1f9);
+        func_02094ab0(var11);
+        arg0->unknown_1_ = 1;
+    } else if (arg0->unknown_8_ == 3) {
+        Struct_02046574_2* var12 = func_020421a0();
+        (*reinterpret_cast<unsigned char*>(reinterpret_cast<char*>(var12) + Enum_ov017_021c1af0_6574)) = 0;
+        if (!(*reinterpret_cast<int*>(reinterpret_cast<char*>(var12) + Enum_ov017_021c1af0_2464))) {
+            func_02043204((char*)var12);
+            func_020397c0(var0->GetProtagonist());
+            Struct_0208cb08* var13 = func_02094a00();
+            func_02094b38(var13, 0x204);
+            func_02094ab0(var13);
+            arg0->unknown_1_ = 1;
         }
     }
 }

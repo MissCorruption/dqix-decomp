@@ -3,89 +3,89 @@
 
 #if !defined(jpn)
 
-extern "C" int func_020425e4(int a, int b, int fontIndex);
-extern "C" void func_020654b8(void* obj, void* context, MessageGlyphSlot* glyph, short x, short y, int mode);
-extern "C" void func_020417b0(MessageGlyphSlot* glyph, int color, void* palette, int alpha);
+extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" void func_020654b8(void* arg0, void* arg1, Struct_0204166c* arg2, short arg3, short arg4, int arg5);
+extern "C" void func_020417b0(Struct_0204166c* arg0, int arg1, void* arg2, int arg3);
 
 extern const int data_020e7a94[];
 
-struct Renderer02045f3c {
-    char pad0[0x34];
-    void* context;
-    char pad38[0x980];
-    MessageGlyphSlot glyphs[0x80];
-    char pad17b8[0x1f8];
-    unsigned char enabled;
+struct Struct_02045f3c {
+    char unknown_0_[0x34];
+    void* unknown_34_;
+    char unknown_38_[0x980];
+    Struct_0204166c unknown_9b8_[0x80];
+    char unknown_17b8_[0x1f8];
+    unsigned char unknown_19b0_;
 };
 
 // USA: func_02045f3c
-extern "C" ARM void func_02045f3c(Renderer02045f3c* renderer, unsigned short* text, int x, int y, unsigned short color,
-                                  int unused5, int unused6, unsigned char absolute, unsigned char fontIndex, int lineHeight) {
-    if (text == NULL || renderer->enabled == 0 || text[0] == 0xffff) {
+extern "C" ARM void func_02045f3c(Struct_02045f3c* arg0, unsigned short* arg1, int arg2, int arg3, unsigned short arg4,
+                                  int arg5, int arg6, unsigned char arg7, unsigned char arg8, int arg9) {
+    if (arg1 == NULL || arg0->unknown_19b0_ == 0 || arg1[0] == 0xffff) {
         return;
     }
-    int same = 1;
-    unsigned short first = text[0];
-    for (int j = 1; j < 10; j++) {
-        if (first != text[j]) {
-            same = 0;
+    int var0 = 1;
+    unsigned short var1 = arg1[0];
+    for (int var2 = 1; var2 < 10; var2++) {
+        if (var1 != arg1[var2]) {
+            var0 = 0;
             break;
         }
     }
-    if (same) {
+    if (var0) {
         return;
     }
-    MessageGlyphSlot* glyph;
-    int i;
-    int cx;
-    unsigned short ch;
+    Struct_0204166c* var3;
+    int var4;
+    int var5;
+    unsigned short var6;
     *(volatile int*)0x04000444 = 0;
-    int fallbackGlyphWidth = data_020e7a94[fontIndex] & 0xff;
-    i = 0;
-    unsigned char previousCharacter = 0xff;
-    ch = text[0];
-    cx = x;
-    while (ch != 0xff01) {
-        ch = text[i];
-        i++;
-        if ((ch & 0xff00) == 0xff00) {
-            if (ch == 0xff18) {
-                cx = x;
-                y += lineHeight;
-                previousCharacter = 0xff;
+    int var7 = data_020e7a94[arg8] & 0xff;
+    var4 = 0;
+    unsigned char var8 = 0xff;
+    var6 = arg1[0];
+    var5 = arg2;
+    while (var6 != 0xff01) {
+        var6 = arg1[var4];
+        var4++;
+        if ((var6 & 0xff00) == 0xff00) {
+            if (var6 == 0xff18) {
+                var5 = arg2;
+                arg3 += arg9;
+                var8 = 0xff;
                 continue;
             }
-            if (ch == 0xff19) {
-                cx += fallbackGlyphWidth + 1;
-                previousCharacter = 0xff;
+            if (var6 == 0xff19) {
+                var5 += var7 + 1;
+                var8 = 0xff;
                 continue;
             }
             break;
         }
-        if (ch >= 0x80) {
+        if (var6 >= 0x80) {
             break;
         }
-        glyph = &renderer->glyphs[ch];
-        if (glyph->bitmapIndex < 0) {
+        var3 = &arg0->unknown_9b8_[var6];
+        if (var3->unknown_8_ < 0) {
             break;
         }
-        unsigned char characterIndex = glyph->characterIndex;
-        cx += func_020425e4(previousCharacter, characterIndex, fontIndex);
-        previousCharacter = characterIndex;
-        glyph->x = cx;
-        glyph->y = y;
-        glyph->depth = 0;
-        if (absolute) {
-            int mode = 15;
-            if (color != 0x7fff) {
-                mode = 5;
+        unsigned char var9 = var3->unknown_17_;
+        var5 += func_020425e4(var8, var9, arg8);
+        var8 = var9;
+        var3->unknown_c_ = var5;
+        var3->unknown_10_ = arg3;
+        var3->unknown_14_ = 0;
+        if (arg7) {
+            int var10 = 15;
+            if (arg4 != 0x7fff) {
+                var10 = 5;
             }
-            func_020654b8(renderer, renderer->context, glyph, cx, y, mode);
+            func_020654b8(arg0, arg0->unknown_34_, var3, var5, arg3, var10);
         } else {
-            func_020417b0(glyph, color, 0, 31);
+            func_020417b0(var3, arg4, 0, 31);
         }
-        if (glyph->character) {
-            cx += glyph->character->width + 1;
+        if (var3->unknown2_18_) {
+            var5 += var3->unknown2_18_->unknown_4_ + 1;
         }
     }
     *(volatile int*)0x04000448 = 1;

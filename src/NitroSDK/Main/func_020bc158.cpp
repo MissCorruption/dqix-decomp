@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Inner020bc158 { char pad[0x41]; unsigned char f41; };
-struct Outer020bc158 { struct Inner020bc158 *f0; };
+struct Struct_020bc158_2 { char unknown_0_[0x41]; unsigned char unknown_41_; };
+struct Struct_020bc158 { struct Struct_020bc158_2 *unknown_0_; };
 
-static inline bool HasInner(const struct Outer020bc158 *o) { return o->f0 != NULL; }
+static inline bool inline_020bc158(const struct Struct_020bc158 *arg0) { return arg0->unknown_0_ != NULL; }
 
 // USA: func_020bc158
-extern "C" ARM void func_020bc158(struct Outer020bc158 *p, unsigned char val) {
-    if (HasInner(p)) {
-        p->f0->f41 = val;
+extern "C" ARM void func_020bc158(struct Struct_020bc158 *arg0, unsigned char arg1) {
+    if (inline_020bc158(arg0)) {
+        arg0->unknown_0_->unknown_41_ = arg1;
     }
 }

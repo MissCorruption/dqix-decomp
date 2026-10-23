@@ -1,26 +1,26 @@
 #include <globaldefs.h>
-struct Record020836e4 {
-    int field_0;
-    int field_4;
-    int field_8;
-    int field_c;
-    int field_10;
-    unsigned short field_14;
-    unsigned short field_16;
-    short field_18;
-    unsigned short field_1a;
-    unsigned short field_1c;
+struct Struct_0208358c_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    unsigned short unknown_14_;
+    unsigned short unknown_16_;
+    short unknown_18_;
+    unsigned short unknown_1a_;
+    unsigned short unknown_1c_;
 };
 // USA: func_020836e4
-extern "C" ARM void func_020836e4(struct Record020836e4* dst, struct Record020836e4* src) {
-    dst->field_0 = src->field_0;
-    dst->field_4 = src->field_4;
-    dst->field_8 = src->field_8;
-    dst->field_c = src->field_c;
-    dst->field_10 = src->field_10;
-    dst->field_14 = src->field_14;
-    dst->field_16 = src->field_16;
-    dst->field_18 = src->field_18;
-    dst->field_1a = src->field_1a;
-    dst->field_1c = src->field_1c;
+extern "C" ARM void func_020836e4(struct Struct_0208358c_2* arg0, struct Struct_0208358c_2* arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
+    arg0->unknown_4_ = arg1->unknown_4_;
+    arg0->unknown_8_ = arg1->unknown_8_;
+    arg0->unknown_c_ = arg1->unknown_c_;
+    arg0->unknown_10_ = arg1->unknown_10_;
+    arg0->unknown_14_ = arg1->unknown_14_;
+    arg0->unknown_16_ = arg1->unknown_16_;
+    arg0->unknown_18_ = arg1->unknown_18_;
+    arg0->unknown_1a_ = arg1->unknown_1a_;
+    arg0->unknown_1c_ = arg1->unknown_1c_;
 }

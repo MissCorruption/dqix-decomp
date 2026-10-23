@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct Vec3_0215758c {
-	int x, y, z;
+struct Struct_ov001_0215758c_2 {
+	int unknown_0_, unknown_4_, unknown_8_;
 };
 
-struct Self02158348 {
-	int f0;
-	struct Vec3_0215758c v1;
-	struct Vec3_0215758c v2;
+struct Struct_ov001_02158348 {
+	int unknown_0_;
+	struct Struct_ov001_0215758c_2 unknown_4_;
+	struct Struct_ov001_0215758c_2 unknown_10_;
 };
 
-struct RingBuf0215758c;
-extern "C" int func_ov001_0215758c(struct RingBuf0215758c* buf, struct Vec3_0215758c v1, struct Vec3_0215758c v2);
+struct Struct_ov001_0215758c;
+extern "C" int func_ov001_0215758c(struct Struct_ov001_0215758c* arg0, struct Struct_ov001_0215758c_2 arg1, struct Struct_ov001_0215758c_2 arg2);
 
 // USA: func_ov001_02158348
-extern "C" ARM int func_ov001_02158348(struct Self02158348* self, char* dest) {
-	func_ov001_0215758c((struct RingBuf0215758c*)(dest + 0x15c), self->v1, self->v2);
+extern "C" ARM int func_ov001_02158348(struct Struct_ov001_02158348* arg0, char* arg1) {
+	func_ov001_0215758c((struct Struct_ov001_0215758c*)(arg1 + 0x15c), arg0->unknown_4_, arg0->unknown_10_);
 	return 0;
 }

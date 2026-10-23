@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct Mid02072560 {
-    unsigned short v[18];
+struct Struct_02072560_2 {
+    unsigned short unknown_0_[18];
 };
 
-struct Elem02072560 {
-    short f0;
-    short f2;
-    struct Mid02072560 mid;
-    unsigned short f28;
-    unsigned char f2a;
-    unsigned char f2b;
+struct Struct_02072398 {
+    short unknown_0_;
+    short unknown_2_;
+    struct Struct_02072560_2 unknown_4_;
+    unsigned short unknown_28_;
+    unsigned char unknown_2a_;
+    unsigned char unknown_2b_;
 };
 
-struct List02072560 {
-    struct Elem02072560* entries;
-    short capacity;
-    short count;
+struct Struct_02072560 {
+    struct Struct_02072398* unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
 };
 
 // USA: func_02072560
-extern "C" ARM void func_02072560(struct List02072560* list, struct Elem02072560* src) {
-    struct Elem02072560* dst;
-    if (list->capacity <= list->count) {
+extern "C" ARM void func_02072560(struct Struct_02072560* arg0, struct Struct_02072398* arg1) {
+    struct Struct_02072398* var0;
+    if (arg0->unknown_4_ <= arg0->unknown_6_) {
         return;
     }
-    dst = &list->entries[list->count];
-    dst->f0 = src->f0;
-    dst->f2 = src->f2;
-    dst->mid = src->mid;
-    dst->f28 = src->f28;
-    dst->f2a = src->f2a;
-    dst->f2b = src->f2b;
-    list->count++;
+    var0 = &arg0->unknown_0_[arg0->unknown_6_];
+    var0->unknown_0_ = arg1->unknown_0_;
+    var0->unknown_2_ = arg1->unknown_2_;
+    var0->unknown_4_ = arg1->unknown_4_;
+    var0->unknown_28_ = arg1->unknown_28_;
+    var0->unknown_2a_ = arg1->unknown_2a_;
+    var0->unknown_2b_ = arg1->unknown_2b_;
+    arg0->unknown_6_++;
 }

@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_02059cc8(unsigned char* obj);
+extern "C" void func_02059cc8(unsigned char* arg0);
 
-struct Entry020d6d18 {
-    unsigned char body[0xd4];
-    int field_d4;
+struct Struct_020d6d18 {
+    unsigned char unknown_0_[0xd4];
+    int unknown_d4_;
 };
 
-struct Container020d6d18 {
-    Entry020d6d18 entries[12];
-    int field_a20;
-    short field_a24;
-    short field_a26;
-    SafeAllocator allocator;
-    unsigned char field_a3c;
-    unsigned char field_a3d;
-    float field_a40;
-    float field_a44;
+struct Struct_020d6d18_2 {
+    Struct_020d6d18 unknown_0_[12];
+    int unknown_a20_;
+    short unknown_a24_;
+    short unknown_a26_;
+    SafeAllocator unknown_a28_;
+    unsigned char unknown_a3c_;
+    unsigned char unknown_a3d_;
+    float unknown_a40_;
+    float unknown_a44_;
 };
 
 // USA: func_020d6d18
-extern "C" ARM void func_020d6d18(Container020d6d18* c) {
-    for (int i = 0; i < 12; i++) {
-        func_02059cc8((unsigned char*)&c->entries[i]);
-        c->entries[i].field_d4 = 0;
+extern "C" ARM void func_020d6d18(Struct_020d6d18_2* arg0) {
+    for (int var0 = 0; var0 < 12; var0++) {
+        func_02059cc8((unsigned char*)&arg0->unknown_0_[var0]);
+        arg0->unknown_0_[var0].unknown_d4_ = 0;
     }
-    c->allocator.ResetAllocatorPointer();
-    c->field_a20 = 0;
-    c->field_a24 = 0;
-    c->field_a26 = 0;
-    c->field_a3c = 0;
-    c->field_a3d = 0;
-    c->field_a40 = 1.0f;
-    c->field_a44 = -0.2f;
+    arg0->unknown_a28_.ResetAllocatorPointer();
+    arg0->unknown_a20_ = 0;
+    arg0->unknown_a24_ = 0;
+    arg0->unknown_a26_ = 0;
+    arg0->unknown_a3c_ = 0;
+    arg0->unknown_a3d_ = 0;
+    arg0->unknown_a40_ = 1.0f;
+    arg0->unknown_a44_ = -0.2f;
 }

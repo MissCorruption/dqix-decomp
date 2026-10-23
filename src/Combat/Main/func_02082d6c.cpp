@@ -3,136 +3,136 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-enum { kTripleOffset = 0x7b8 };
+enum { Enum_02082d6c_2128 = 0x7b8 };
 #else
-enum { kTripleOffset = 0x850 };
+enum { Enum_02082d6c_2128 = 0x850 };
 #endif
 
-struct Words02082fa8 { unsigned int a, b, c; };
+struct Struct_02082fa8 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
 
-struct PackedTriple02082cdc {
-    unsigned int a : 10;
-    unsigned int b : 10;
-    unsigned int c : 10;
-    unsigned int hi : 2;
+struct Struct_02082cdc_2 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct SlotRecord02082d6c {
-    unsigned char hdr00;
-    unsigned char lo01 : 4;
-    unsigned char bit01_4 : 1;
-    unsigned char hi01 : 3;
-    unsigned char name02[13];
-    unsigned char val0f[13];
-    unsigned int w1c[13];
-    unsigned int w50;
-    unsigned short h54;
-    unsigned char pad56[2];
-    struct Words02082fa8 tr58[13];
-    unsigned short h_f4;
-    unsigned char b_f6[27];
-    unsigned char b_111[9];
-    unsigned char b_11a[0x24];
-    unsigned char flags13e;
-    unsigned char lo13f : 3;
-    unsigned char hi13f : 5;
-    unsigned char b140[0x14];
-    struct PackedTriple02082cdc w154;
-    unsigned char pad158[8];
-    unsigned char b160[0x1c];
-    unsigned char b17c[0xc0];
+struct Struct_02082d6c_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_0_ : 4;
+    unsigned char unknown_1_4_ : 1;
+    unsigned char unknown_1_5_ : 3;
+    unsigned char unknown_2_[13];
+    unsigned char unknown_f_[13];
+    unsigned int unknown_1c_[13];
+    unsigned int unknown_50_;
+    unsigned short unknown_54_;
+    unsigned char unknown_56_[2];
+    struct Struct_02082fa8 unknown_58_[13];
+    unsigned short unknown_f4_;
+    unsigned char unknown_f6_[27];
+    unsigned char unknown_111_[9];
+    unsigned char unknown_11a_[0x24];
+    unsigned char unknown_13e_;
+    unsigned char unknown_13f_0_ : 3;
+    unsigned char unknown_13f_3_ : 5;
+    unsigned char unknown_140_[0x14];
+    struct Struct_02082cdc_2 unknown_154_;
+    unsigned char unknown_158_[8];
+    unsigned char unknown_160_[0x1c];
+    unsigned char unknown_17c_[0xc0];
 };
 
-struct SlotState02082d6c {
-    unsigned char pad000[0x18];
-    unsigned int w18;
-    unsigned short h1c;
-    unsigned short h1e;
-    unsigned char pad020[0x1c];
-    char name3c[0x3c];
-    unsigned int w78_lo : 30;
-    unsigned int bit30 : 1;
-    unsigned int w78_top : 1;
-    unsigned char pad07c[0x0c];
-    unsigned char pad088[0xb0];
-    unsigned int w138[13];
-    unsigned short h16c[13];
-    unsigned char b186[13];
-    unsigned char pad193[0x2d1];
-    unsigned char b464[27];
-    unsigned char pad47f[9];
-    unsigned char b488[0x1c];
-    unsigned char b4a4[0xc0];
-    unsigned short h564;
-    unsigned char pad566[4];
-    unsigned char b56a;
-    unsigned char b56b_lo : 4;
-    unsigned char b56b_hi : 4;
-    unsigned char pad56c[kTripleOffset - 0x56c];
-    struct Words02082fa8 tr850[13];
-    unsigned char b8ec[0x24];
-    unsigned char b910[9];
-    unsigned char pad919[0x94c - 0x919];
-    unsigned int w94c;
-    unsigned int w950;
-    unsigned short h954;
+struct Struct_02082d6c {
+    unsigned char unknown_0_[0x18];
+    unsigned int unknown_18_;
+    unsigned short unknown_1c_;
+    unsigned short unknown_1e_;
+    unsigned char unknown_20_[0x1c];
+    char unknown_3c_[0x3c];
+    unsigned int unknown_78_0_ : 30;
+    unsigned int unknown_7b_6_ : 1;
+    unsigned int unknown_7b_7_ : 1;
+    unsigned char unknown_7c_[0x0c];
+    unsigned char unknown_88_[0xb0];
+    unsigned int unknown_138_[13];
+    unsigned short unknown_16c_[13];
+    unsigned char unknown_186_[13];
+    unsigned char unknown_193_[0x2d1];
+    unsigned char unknown_464_[27];
+    unsigned char unknown_47f_[9];
+    unsigned char unknown_488_[0x1c];
+    unsigned char unknown_4a4_[0xc0];
+    unsigned short unknown_564_;
+    unsigned char unknown_566_[4];
+    unsigned char unknown_56a_;
+    unsigned char unknown_56b_0_ : 4;
+    unsigned char unknown_56b_4_ : 4;
+    unsigned char unknown_56c_[Enum_02082d6c_2128 - 0x56c];
+    struct Struct_02082fa8 unknown_850_[13];
+    unsigned char unknown_8ec_[0x24];
+    unsigned char unknown_910_[9];
+    unsigned char unknown_919_[0x94c - 0x919];
+    unsigned int unknown_94c_;
+    unsigned int unknown_950_;
+    unsigned short unknown_954_;
 };
 
-extern "C" void func_02082828(struct SlotState02082d6c*);
+extern "C" void func_02082828(struct Struct_02082d6c*);
 extern "C" void func_02082fc4(void*, void*);
-extern "C" void func_02082fa8(struct Words02082fa8*, struct Words02082fa8*);
+extern "C" void func_02082fa8(struct Struct_02082fa8*, struct Struct_02082fa8*);
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_02042764(void*, void*, int);
 extern char data_020ef078[];
 
 // USA: func_02082d6c
-extern "C" ARM void func_02082d6c(struct SlotState02082d6c* dst, struct SlotRecord02082d6c* src) {
-    if (src == NULL) {
+extern "C" ARM void func_02082d6c(struct Struct_02082d6c* arg0, struct Struct_02082d6c_2* arg1) {
+    if (arg1 == NULL) {
         return;
     }
-    func_02082828(dst);
-    dst->b56a = src->lo01;
-    dst->w950 = src->w50;
-    dst->h954 = src->h54;
-    for (int i = 0; i < 13; i++) {
-        dst->h16c[i] = src->name02[i];
-        dst->b186[i] = src->val0f[i];
-        dst->w138[i] = src->w1c[i];
+    func_02082828(arg0);
+    arg0->unknown_56a_ = arg1->unknown_1_0_;
+    arg0->unknown_950_ = arg1->unknown_50_;
+    arg0->unknown_954_ = arg1->unknown_54_;
+    for (int var0 = 0; var0 < 13; var0++) {
+        arg0->unknown_16c_[var0] = arg1->unknown_2_[var0];
+        arg0->unknown_186_[var0] = arg1->unknown_f_[var0];
+        arg0->unknown_138_[var0] = arg1->unknown_1c_[var0];
     }
-    func_02082fc4(dst, NULL);
-    for (int i = 0; i < 13; i++) {
-        func_02082fa8(&dst->tr850[i], &src->tr58[i]);
+    func_02082fc4(arg0, NULL);
+    for (int var1 = 0; var1 < 13; var1++) {
+        func_02082fa8(&arg0->unknown_850_[var1], &arg1->unknown_58_[var1]);
     }
-    dst->h564 = src->h_f4;
-    for (int j = 0; j < 27; j++) {
-        dst->b464[j] = src->b_f6[j];
+    arg0->unknown_564_ = arg1->unknown_f4_;
+    for (int var2 = 0; var2 < 27; var2++) {
+        arg0->unknown_464_[var2] = arg1->unknown_f6_[var2];
     }
-    memcpy(dst->b910, src->b_111, 9);
-    memcpy(dst->b8ec, src->b_11a, 0x24);
-    unsigned char flags = src->flags13e;
-    if (flags & 1) {
-        dst->w18 |= 1;
+    memcpy(arg0->unknown_910_, arg1->unknown_111_, 9);
+    memcpy(arg0->unknown_8ec_, arg1->unknown_11a_, 0x24);
+    unsigned char var3 = arg1->unknown_13e_;
+    if (var3 & 1) {
+        arg0->unknown_18_ |= 1;
     }
-    if (flags & 2) {
-        dst->w18 |= 2;
+    if (var3 & 2) {
+        arg0->unknown_18_ |= 2;
     }
-    if (flags & 4) {
-        dst->w18 |= 4;
+    if (var3 & 4) {
+        arg0->unknown_18_ |= 4;
     }
 #if defined(jpn)
-    sprintf(dst->name3c, data_020ef078, src->b140);
+    sprintf(arg0->unknown_3c_, data_020ef078, arg1->unknown_140_);
 #else
-    char local[0x30];
-    __clear(local, 0x30);
-    func_02042764(src->b140, local, 1);
-    sprintf(dst->name3c, data_020ef078, local);
+    char var4[0x30];
+    __clear(var4, 0x30);
+    func_02042764(arg1->unknown_140_, var4, 1);
+    sprintf(arg0->unknown_3c_, data_020ef078, var4);
 #endif
-    dst->bit30 = src->bit01_4;
-    dst->h1c = src->w154.b;
-    dst->h1e = src->w154.c;
-    memcpy(dst->b488, src->b160, 0x1c);
-    dst->b56b_lo = src->hi01;
-    dst->b56b_hi = src->lo13f;
-    memcpy(dst->b4a4, src->b17c, 0xc0);
-    dst->w94c = src->hi13f;
+    arg0->unknown_7b_6_ = arg1->unknown_1_4_;
+    arg0->unknown_1c_ = arg1->unknown_154_.unknown_1_2_;
+    arg0->unknown_1e_ = arg1->unknown_154_.unknown_2_4_;
+    memcpy(arg0->unknown_488_, arg1->unknown_160_, 0x1c);
+    arg0->unknown_56b_0_ = arg1->unknown_1_5_;
+    arg0->unknown_56b_4_ = arg1->unknown_13f_0_;
+    memcpy(arg0->unknown_4a4_, arg1->unknown_17c_, 0xc0);
+    arg0->unknown_94c_ = arg1->unknown_13f_3_;
 }

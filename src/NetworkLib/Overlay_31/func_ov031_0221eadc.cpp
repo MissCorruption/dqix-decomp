@@ -2,118 +2,118 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/Timing.h"
 
-struct ConnectParams0221eadc {
-    int channel;
-    unsigned char bssid[0x20];
-    int security;
-    int keyLength;
-    unsigned char key[0x14];
+struct Struct_ov031_0221eadc {
+    int unknown_0_;
+    unsigned char unknown_4_[0x20];
+    int unknown_24_;
+    int unknown_28_;
+    unsigned char unknown_2c_[0x14];
 };
-struct WepDesc0221eadc {
-    unsigned char mode;
-    unsigned char keyId;
-    unsigned char key[4][0x14];
-    unsigned char pad52[0xe];
+struct Struct_ov031_0224f5c0 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[4][0x14];
+    unsigned char unknown_52_[0xe];
 };
-struct BssDesc0221eadc {
-    unsigned char pad0[0xa];
-    unsigned short ssidLength;
-    unsigned char ssid[0x20];
-    unsigned char pad2c[0x94];
+struct Struct_ov031_0224f500 {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[0x20];
+    unsigned char unknown_2c_[0x94];
 };
-struct EventQueue0221eadc;
+struct Struct_ov031_0224f4e0_2;
 
 #define DEBUG_PRINTF(...) ((void)0)
 
-extern WepDesc0221eadc data_ov031_0224f5c0;
-extern EventQueue0221eadc data_ov031_0224f4e0;
-extern BssDesc0221eadc data_ov031_0224f500 __attribute__((aligned(32)));
+extern Struct_ov031_0224f5c0 data_ov031_0224f5c0;
+extern Struct_ov031_0224f4e0_2 data_ov031_0224f4e0;
+extern Struct_ov031_0224f500 data_ov031_0224f500 __attribute__((aligned(32)));
 namespace DuplicatePool {
-    extern "C" BssDesc0221eadc data_ov031_0224f500;
+    extern "C" Struct_ov031_0224f500 data_ov031_0224f500;
 }
 extern "C" ARM void func_ov031_0220eadc(void);
 extern "C" int func_ov031_0221f02c(int, unsigned char*, int, unsigned int);
-extern "C" ARM int func_020c7ea0(EventQueue0221eadc*, int*, int);
-extern "C" int func_ov031_0221efe8(BssDesc0221eadc*, int);
-extern "C" void func_ov031_0221e774(ConnectParams0221eadc*, BssDesc0221eadc*);
-extern "C" int func_ov031_0221f1e8(BssDesc0221eadc*, WepDesc0221eadc*, int);
-extern "C" void func_ov031_0221e798(void*, BssDesc0221eadc*, int);
+extern "C" ARM int func_020c7ea0(Struct_ov031_0224f4e0_2*, int*, int);
+extern "C" int func_ov031_0221efe8(Struct_ov031_0224f500*, int);
+extern "C" void func_ov031_0221e774(Struct_ov031_0221eadc*, Struct_ov031_0224f500*);
+extern "C" int func_ov031_0221f1e8(Struct_ov031_0224f500*, Struct_ov031_0224f5c0*, int);
+extern "C" void func_ov031_0221e798(void*, Struct_ov031_0224f500*, int);
 extern "C" void func_ov031_0221e7bc(ProcessorContext**);
 
 // USA: func_ov031_0221eadc
-extern "C" THUMB int func_ov031_0221eadc(ConnectParams0221eadc* params, void* output) {
-    int running = 1;
-    int result = -1;
-    int connected = 0;
-    int keyId = 0;
-    int mode;
-    int retries;
-    int i;
-    int event;
-    Alarm alarm;
+extern "C" THUMB int func_ov031_0221eadc(Struct_ov031_0221eadc* arg0, void* arg1) {
+    int var0 = 1;
+    int var1 = -1;
+    int var2 = 0;
+    int var3 = 0;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    Alarm var8;
 
-    if (params->security == 0) {
-        mode = 0x80000;
-    } else if (params->security == 1) {
-        mode = 0xc0000;
+    if (arg0->unknown_24_ == 0) {
+        var4 = 0x80000;
+    } else if (arg0->unknown_24_ == 1) {
+        var4 = 0xc0000;
     }
-    mode |= 0x30000;
-    VectorizedMemset(&data_ov031_0224f5c0, 0, sizeof(WepDesc0221eadc));
-    if (params->keyLength == 5) {
-        data_ov031_0224f5c0.mode = 1;
-    } else if (params->keyLength == 13) {
-        data_ov031_0224f5c0.mode = 2;
-    } else if (params->keyLength == 16) {
-        data_ov031_0224f5c0.mode = 3;
+    var4 |= 0x30000;
+    VectorizedMemset(&data_ov031_0224f5c0, 0, sizeof(Struct_ov031_0224f5c0));
+    if (arg0->unknown_28_ == 5) {
+        data_ov031_0224f5c0.unknown_0_ = 1;
+    } else if (arg0->unknown_28_ == 13) {
+        data_ov031_0224f5c0.unknown_0_ = 2;
+    } else if (arg0->unknown_28_ == 16) {
+        data_ov031_0224f5c0.unknown_0_ = 3;
     } else {
         return -1;
     }
-    data_ov031_0224f5c0.keyId = keyId;
-    VectorizedInvertedMemcpy(params->key, (unsigned char*)&data_ov031_0224f5c0 + (keyId * 0x14 + 2), params->keyLength);
+    data_ov031_0224f5c0.unknown_1_ = var3;
+    VectorizedInvertedMemcpy(arg0->unknown_2c_, (unsigned char*)&data_ov031_0224f5c0 + (var3 * 0x14 + 2), arg0->unknown_28_);
     func_ov031_0220eadc();
-    if (!func_ov031_0221f02c(0, params->bssid, params->channel, 0x30bffe)) goto done;
-    retries = 0;
-    ZeroInitializeAlarm(&alarm);
-    SetTimeout(&alarm, 0x003fec42ULL, func_ov031_0221e7bc, (ProcessorContext**)18);
-    while (running) {
-        func_020c7ea0(&data_ov031_0224f4e0, &event, 1);
-        switch (event) {
+    if (!func_ov031_0221f02c(0, arg0->unknown_4_, arg0->unknown_0_, 0x30bffe)) goto done;
+    var5 = 0;
+    ZeroInitializeAlarm(&var8);
+    SetTimeout(&var8, 0x003fec42ULL, func_ov031_0221e7bc, (ProcessorContext**)18);
+    while (var0) {
+        func_020c7ea0(&data_ov031_0224f4e0, &var7, 1);
+        switch (var7) {
         case 18:
-            if (!connected) running = 0;
+            if (!var2) var0 = 0;
             break;
         case 19:
             DEBUG_PRINTF("connect: event 19");
             break;
         case 5:
-            if (!connected) {
-                CancelAlarm(&alarm);
+            if (!var2) {
+                CancelAlarm(&var8);
                 if (func_ov031_0221efe8(&data_ov031_0224f500, 1) != 1) {
-                    running = 0;
+                    var0 = 0;
                     break;
                 }
-                func_ov031_0221e774(params, &data_ov031_0224f500);
-                for (i = 0; i < DuplicatePool::data_ov031_0224f500.ssidLength; i++) {
+                func_ov031_0221e774(arg0, &data_ov031_0224f500);
+                for (var6 = 0; var6 < DuplicatePool::data_ov031_0224f500.unknown_a_; var6++) {
                 }
-                if (!func_ov031_0221f1e8(&data_ov031_0224f500, &data_ov031_0224f5c0, mode)) {
-                    running = 0;
+                if (!func_ov031_0221f1e8(&data_ov031_0224f500, &data_ov031_0224f5c0, var4)) {
+                    var0 = 0;
                     break;
                 }
-                connected = 1;
+                var2 = 1;
             }
             break;
         case 10:
-            func_ov031_0221e774(params, &data_ov031_0224f500);
-            if (!func_ov031_0221f1e8(&data_ov031_0224f500, &data_ov031_0224f5c0, mode)) running = 0;
+            func_ov031_0221e774(arg0, &data_ov031_0224f500);
+            if (!func_ov031_0221f1e8(&data_ov031_0224f500, &data_ov031_0224f5c0, var4)) var0 = 0;
             break;
         case 12:
-            running = 0;
-            result = 0;
+            var0 = 0;
+            var1 = 0;
             break;
         case 13:
-            if (++retries < 3) {
-                if (!func_ov031_0221f1e8(&data_ov031_0224f500, &data_ov031_0224f5c0, mode)) running = 0;
+            if (++var5 < 3) {
+                if (!func_ov031_0221f1e8(&data_ov031_0224f500, &data_ov031_0224f5c0, var4)) var0 = 0;
             } else {
-                running = 0;
+                var0 = 0;
             }
             break;
         case 4:
@@ -123,13 +123,13 @@ extern "C" THUMB int func_ov031_0221eadc(ConnectParams0221eadc* params, void* ou
         case 6: case 7: case 9: case 11:
         case 14: case 15: case 16: case 17:
         default:
-            running = 0;
+            var0 = 0;
             break;
         }
     }
-    CancelAlarm(&alarm);
-    while (func_020c7ea0(&data_ov031_0224f4e0, &event, 0) == 1) {}
+    CancelAlarm(&var8);
+    while (func_020c7ea0(&data_ov031_0224f4e0, &var7, 0) == 1) {}
 done:
-    func_ov031_0221e798(output, &data_ov031_0224f500, result == 0);
-    return result;
+    func_ov031_0221e798(arg1, &data_ov031_0224f500, var1 == 0);
+    return var1;
 }

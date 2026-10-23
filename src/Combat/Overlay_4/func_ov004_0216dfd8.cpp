@@ -1,65 +1,65 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kDescriptorSize = 0x50, kTitleState = 0x7c9d };
+enum { Enum_ov004_0216dfd8_84 = 0x50, Enum_ov004_0216dfd8_32625 = 0x7c9d };
 #define data_ov004_02170708 data_ov004_02170fb4
 #else
-enum { kDescriptorSize = 0x54, kTitleState = 0x7f71 };
+enum { Enum_ov004_0216dfd8_84 = 0x54, Enum_ov004_0216dfd8_32625 = 0x7f71 };
 #endif
 
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov011_021845f8(void* a, int b);
+extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* func_ov011_021849c8(void*);
 #if defined(jpn)
-extern "C" void func_ov023_021f745c(void* buf, void* obj, int msgId, int layer, void* file, int palette, int format, int mode);
+extern "C" void func_ov023_021f745c(void* arg0, void* arg1, int arg2, int arg3, void* arg4, int arg5, int arg6, int arg7);
 #else
-extern "C" void func_ov023_021f745c(void* buf, void* obj, int msgId, int p3, int p4, void* fmt, int p6, int p7, int p8);
+extern "C" void func_ov023_021f745c(void* arg0, void* arg1, int arg2, int arg3, int arg4, void* arg5, int arg6, int arg7, int arg8);
 #endif
 
-struct ListHead_021f67ac;
-struct ListNode_021f67ac;
-extern "C" void func_ov023_021f67ac(struct ListHead_021f67ac* head, struct ListNode_021f67ac* node);
+struct Struct_ov004_0215c30c;
+struct Struct_ov004_0215c30c_2;
+extern "C" void func_ov023_021f67ac(struct Struct_ov004_0215c30c* arg0, struct Struct_ov004_0215c30c_2* arg1);
 
 extern char data_ov004_02170708;
 extern char data_ov004_02170720;
 extern char data_ov004_02170739;
 extern char data_ov023_021fe4f0;
 
-struct Buf0216dfd8 { void* magic; char pad[kDescriptorSize - 4]; };
+struct Struct_ov004_0216dfd8 { void* unknown_0_; char unknown_4_[Enum_ov004_0216dfd8_84 - 4]; };
 
 // USA: func_ov004_0216dfd8
-extern "C" ARM int func_ov004_0216dfd8(void* obj) {
-    void* fmt = 0;
-    unsigned char state = *((unsigned char*)GameState::GetInstance() + kTitleState);
-    switch (state) {
-        case 0: fmt = &data_ov004_02170708; break;
-        case 1: fmt = &data_ov004_02170720; break;
-        case 2: fmt = &data_ov004_02170739; break;
+extern "C" ARM int func_ov004_0216dfd8(void* arg0) {
+    void* var0 = 0;
+    unsigned char var1 = *((unsigned char*)GameState::GetInstance() + Enum_ov004_0216dfd8_32625);
+    switch (var1) {
+        case 0: var0 = &data_ov004_02170708; break;
+        case 1: var0 = &data_ov004_02170720; break;
+        case 2: var0 = &data_ov004_02170739; break;
     }
 
-    void* buf = func_ov011_021845f8(obj, 3);
-    if (!buf) {
+    void* var2 = func_ov011_021845f8(arg0, 3);
+    if (!var2) {
         return 0;
     }
-    ((SafeAllocator*)((char*)buf + 4))->GetSizeWithLargestBlockRemoved();
-    void* block = ((SafeAllocator*)((char*)buf + 4))->Allocate(kDescriptorSize);
-    if (!block) {
+    ((SafeAllocator*)((char*)var2 + 4))->GetSizeWithLargestBlockRemoved();
+    void* var3 = ((SafeAllocator*)((char*)var2 + 4))->Allocate(Enum_ov004_0216dfd8_84);
+    if (!var3) {
         return 0;
     }
 
-    struct Buf0216dfd8 local;
-    local.magic = &data_ov023_021fe4f0;
-    memcpy(block, &local, sizeof(Buf0216dfd8));
+    struct Struct_ov004_0216dfd8 var4;
+    var4.unknown_0_ = &data_ov023_021fe4f0;
+    memcpy(var3, &var4, sizeof(Struct_ov004_0216dfd8));
 
 #if defined(jpn)
-    func_ov023_021f745c(block, obj, 0x67, 3, fmt, 0, 3, 2);
+    func_ov023_021f745c(var3, arg0, 0x67, 3, var0, 0, 3, 2);
 #else
-    func_ov023_021f745c(block, obj, 0x67, 3, 0, fmt, 0, 3, 2);
+    func_ov023_021f745c(var3, arg0, 0x67, 3, 0, var0, 0, 3, 2);
 #endif
 
-    func_ov023_021f67ac((struct ListHead_021f67ac*)func_ov011_021849c8(obj), (struct ListNode_021f67ac*)block);
+    func_ov023_021f67ac((struct Struct_ov004_0215c30c*)func_ov011_021849c8(arg0), (struct Struct_ov004_0215c30c_2*)var3);
     return 0;
 }

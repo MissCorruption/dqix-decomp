@@ -5,32 +5,32 @@
 #endif
 #include <globaldefs.h>
 
-struct Obj021f6f08;
+struct Struct_ov004_02153978;
 extern "C" void* func_ov023_021f6590(void*);
-extern "C" unsigned int func_ov023_021f6f08(Obj021f6f08*);
-typedef void* (*DoThingFn_0215513c)(void*, int);
+extern "C" unsigned int func_ov023_021f6f08(Struct_ov004_02153978*);
+typedef void* (*Type_ov004_0215513c)(void*, int);
 
 // USA: func_ov004_0215513c
 #pragma optimize_for_size off
-extern "C" ARM int func_ov004_0215513c(void* obj, short* pB, short* pC, short* pD) {
-    *pD = -1;
-    short v = *pD;
-    *pC = v;
-    *pB = v;
-    void* result = ((DoThingFn_0215513c)func_ov023_021f6590)(obj, 5);
-    if (!result) return (int)result;
-    unsigned int kind = func_ov023_021f6f08((Obj021f6f08*)result);
-    switch (kind) {
+extern "C" ARM int func_ov004_0215513c(void* arg0, short* arg1, short* arg2, short* arg3) {
+    *arg3 = -1;
+    short var0 = *arg3;
+    *arg2 = var0;
+    *arg1 = var0;
+    void* var1 = ((Type_ov004_0215513c)func_ov023_021f6590)(arg0, 5);
+    if (!var1) return (int)var1;
+    unsigned int var2 = func_ov023_021f6f08((Struct_ov004_02153978*)var1);
+    switch (var2) {
         case 0x1a:
-            *pB = 0;
+            *arg1 = 0;
             return 0;
         case 0x1b:
-            *pC = 8;
+            *arg2 = 8;
             return 8;
         case 0x1c:
-            kind = 9;
-            *pC = 9;
+            var2 = 9;
+            *arg2 = 9;
             break;
     }
-    return kind;
+    return var2;
 }

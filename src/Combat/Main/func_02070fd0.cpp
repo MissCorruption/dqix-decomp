@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Struct020709c8;
-extern "C" int func_020709c8(struct Struct020709c8* p);
+struct Struct_020709c8;
+extern "C" int func_020709c8(struct Struct_020709c8* arg0);
 
-struct Element02070e60;
-struct Container02070e60;
-typedef int (*CompareCallback02070e60)(struct Element02070e60*);
-extern "C" struct Element02070e60* func_02070e60(struct Container02070e60* container, int key, CompareCallback02070e60 compare);
+struct Struct_02070b6c_4;
+struct Struct_02070b6c_3;
+typedef int (*Type_02070e60)(struct Struct_02070b6c_4*);
+extern "C" struct Struct_02070b6c_4* func_02070e60(struct Struct_02070b6c_3* arg0, int arg1, Type_02070e60 arg2);
 
 // USA: func_02070fd0
-extern "C" ARM struct Element02070e60* func_02070fd0(struct Container02070e60* container, int key) {
-    return func_02070e60(container, key, (CompareCallback02070e60)func_020709c8);
+extern "C" ARM struct Struct_02070b6c_4* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1) {
+    return func_02070e60(arg0, arg1, (Type_02070e60)func_020709c8);
 }

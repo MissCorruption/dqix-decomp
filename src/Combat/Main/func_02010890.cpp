@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff94(GameState* battleStruct, int combatantId);
+extern "C" GameObject* func_0200ff94(GameState* arg0, int arg1);
 
 // USA: func_02010890
-extern "C" ARM void func_02010890(GameState* bs, int* outList, int* outCount) {
-    int count = 0;
-    int i;
-    for (i = 0; i < 4; i++) {
-        if (func_0200ff94(bs, i)) {
-            outList[count] = i;
-            count++;
+extern "C" ARM void func_02010890(GameState* arg0, int* arg1, int* arg2) {
+    int var0 = 0;
+    int var1;
+    for (var1 = 0; var1 < 4; var1++) {
+        if (func_0200ff94(arg0, var1)) {
+            arg1[var0] = var1;
+            var0++;
         }
     }
-    *outCount = count;
+    *arg2 = var0;
 }

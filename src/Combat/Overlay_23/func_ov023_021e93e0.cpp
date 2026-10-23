@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct BattleCommandArgument {
-    int type;
+struct Struct_0209cf44 {
+    int unknown_0_;
     union {
-        int integer;
-        float real;
-        BattleCommandArgument* reference;
-    } value;
+        int unknown_0_;
+        float unknown1_0_;
+        Struct_0209cf44* unknown2_0_;
+    } unknown_4_;
 };
 
-struct PartyMemberRecordView {
-    char unknown000[0x464];
-    unsigned char skillProgress[32];
-    char unknown484[4];
-    short models[10];
-    unsigned char female : 1;
+struct Struct_ov023_021e93e0 {
+    char unknown_0_[0x464];
+    unsigned char unknown_464_[32];
+    char unknown_484_[4];
+    short unknown_488_[10];
+    unsigned char unknown_49c_0_ : 1;
 };
 
-struct PartyRecordOwnerView {
+struct Struct_ov023_021e93e0_2 {
 #if defined(jpn)
-    char unknown000[0x144];
+    char unknown_0_[0x144];
 #else
-    char unknown000[0x150];
+    char unknown1_0_[0x150];
 #endif
-    PartyMemberRecordView* record;
+    Struct_ov023_021e93e0* unknown_150_;
 };
 
-extern "C" int func_ov017_021d60f4(BattleCommandArgument* argument);
-extern "C" GameObject* func_ov023_021e8f28(int partyIndex);
-extern "C" void func_ov017_021d6134(BattleCommandArgument* output, int value);
+extern "C" int func_ov017_021d60f4(Struct_0209cf44* arg0);
+extern "C" GameObject* func_ov023_021e8f28(int arg0);
+extern "C" void func_ov017_021d6134(Struct_0209cf44* arg0, int arg1);
 
-extern "C" ARM int func_ov023_021e93e0(void* command) {
-    BattleCommandArgument* arguments = (BattleCommandArgument*)command;
+extern "C" ARM int func_ov023_021e93e0(void* arg0) {
+    Struct_0209cf44* var0 = (Struct_0209cf44*)arg0;
     GameState::GetInstance();
-    GameObject* member = func_ov023_021e8f28(func_ov017_021d60f4(&arguments[0]));
-    if (member == NULL) return 0;
-    PartyMemberRecordView* record = ((PartyRecordOwnerView*)member)->record;
-    func_ov017_021d6134(&arguments[1], record->female);
+    GameObject* var1 = func_ov023_021e8f28(func_ov017_021d60f4(&var0[0]));
+    if (var1 == NULL) return 0;
+    Struct_ov023_021e93e0* var2 = ((Struct_ov023_021e93e0_2*)var1)->unknown_150_;
+    func_ov017_021d6134(&var0[1], var2->unknown_49c_0_);
     return 1;
 }

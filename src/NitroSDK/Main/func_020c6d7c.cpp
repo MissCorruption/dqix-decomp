@@ -29,18 +29,18 @@ ARM void InitializeGamecardBusOwnership()
         return;
     }
 
-    GamecardBusLock* ndsLock = (GamecardBusLock*)0x027ffff0;
+    GamecardBusLock* var0 = (GamecardBusLock*)0x027ffff0;
     isInitialized = true;
-    ndsLock->atomic = 0;
+    var0->atomic = 0;
 
-    WeakLockGamecardBusLock(126, ndsLock, NULL);
+    WeakLockGamecardBusLock(126, var0, NULL);
 
-    if (ndsLock->unknown_6)
+    if (var0->unknown_6)
     {
         do
         {
             WaitByLoop(0x400);
-        } while (ndsLock->unknown_6);
+        } while (var0->unknown_6);
     }
 
     ((unsigned int*)0x027fffb0)[0] = 0xffffffff;
@@ -50,6 +50,6 @@ ARM void InitializeGamecardBusOwnership()
     *(volatile unsigned short*)0x04000204 |= (1 << 11);
     *(volatile unsigned short*)0x04000204 |= (1 << 7);
 
-    WeakUnlockGamecardBusLock(126, ndsLock, NULL);
-    WeakLockGamecardBusLock(127, ndsLock, NULL);
+    WeakUnlockGamecardBusLock(126, var0, NULL);
+    WeakLockGamecardBusLock(127, var0, NULL);
 }

@@ -8,72 +8,72 @@
 #include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
 
-struct Pair02016e14 { unsigned char a; unsigned char b; };
+struct Struct_02016e14_2 { unsigned char unknown_0_; unsigned char unknown_1_; };
 
-struct Bits02016e14 { char pad[0xc]; unsigned char nibble : 4; unsigned char hi : 4; };
+struct Struct_02016e14_3 { char unknown_0_[0xc]; unsigned char unknown_c_0_ : 4; unsigned char unknown_c_4_ : 4; };
 
-struct Entry02016e14 { short type; short pad; Model3D* model; };
+struct Struct_02016e14_4 { short unknown_0_; short unknown_2_; Model3D* unknown_4_; };
 
-struct State02016e14 { short unk0; short val2; short unk4; unsigned short flags6; };
+struct Struct_02016e14_5 { short unknown_0_; short unknown_2_; short unknown_4_; unsigned short unknown_6_; };
 
-struct Context02016e14 {
-    char pad0[0x8];
-    struct Bits02016e14* info8;
+struct Struct_02016e14_6 {
+    char unknown_0_[0x8];
+    struct Struct_02016e14_3* unknown_8_;
 #if defined(jpn)
-    char pad1[0x852 - 0xc];
+    char unknown_c_[0x852 - 0xc];
 #else
-    char pad1[0x832 - 0xc];
+    char unknown1_c_[0x832 - 0xc];
 #endif
-    unsigned char visible832;
-    unsigned char visible833;
+    unsigned char unknown_832_;
+    unsigned char unknown_833_;
 #if defined(jpn)
-    char pad2[0x281c - 0x854];
+    char unknown_854_[0x281c - 0x854];
 #else
-    char pad2[0x27dc - 0x834];
+    char unknown_834_[0x27dc - 0x834];
 #endif
-    struct Pair02016e14 pairs[0x20];
-    unsigned char count;
+    struct Struct_02016e14_2 unknown_27dc_[0x20];
+    unsigned char unknown_281c_;
 };
 
-struct Node02016e14 {
-    unsigned short unk0;
-    unsigned short flags2;
-    signed char alphaBits : 7;
-    signed char alphaFlag : 1;
-    char pad5;
-    short angleY;
-    Vector3i pos;
-    Vector3i scale;
-    struct State02016e14* state;
-    struct Entry02016e14* entry;
-    char pad28[0x4];
-    struct Node02016e14* child;
-    struct Node02016e14* sibling;
-    char pad34[0x4];
-    short offset38;
-    char pad3a[0x54 - 0x3a];
-    Object3D* object;
+struct Struct_02016e14 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    signed char unknown_4_0_ : 7;
+    signed char unknown_4_7_ : 1;
+    char unknown_5_;
+    short unknown_6_;
+    Vector3i unknown_8_;
+    Vector3i unknown_14_;
+    struct Struct_02016e14_5* unknown_20_;
+    struct Struct_02016e14_4* unknown_24_;
+    char unknown_28_[0x4];
+    struct Struct_02016e14* unknown_2c_;
+    struct Struct_02016e14* unknown_30_;
+    char unknown_34_[0x4];
+    short unknown_38_;
+    char unknown_3a_[0x54 - 0x3a];
+    Object3D* unknown_54_;
 };
 
 extern "C" void func_02016d8c(void* arg0);
-extern "C" void Mat3x3_WriteRotationY(Matrix3x3* out, int sine, int cosine);
+extern "C" void Mat3x3_WriteRotationY(Matrix3x3* arg0, int arg1, int arg2);
 
 // USA: func_02016e14
-extern "C" ARM void func_02016e14(struct Context02016e14* ctx, void* parent, struct Node02016e14* node, int visit) {
+extern "C" ARM void func_02016e14(struct Struct_02016e14_6* arg0, void* arg1, struct Struct_02016e14* arg2, int arg3) {
     GameState::GetInstance();
-    LightingManager* lighting = LightingManager::GetInstance();
-    struct Entry02016e14* entry = node->entry;
-    struct State02016e14* state = node->state;
-    int timeOfDay = lighting->timeOfDayIndex_;
+    LightingManager* var0 = LightingManager::GetInstance();
+    struct Struct_02016e14_4* var1 = arg2->unknown_24_;
+    struct Struct_02016e14_5* var2 = arg2->unknown_20_;
+    int var3 = var0->timeOfDayIndex_;
 
-    if ((ctx->visible832 != 0 || ctx->visible833 != 0) && ctx->info8 != NULL) {
-        unsigned int nibble = ctx->info8->nibble;
-        if (nibble == 0 || nibble == 7 || ctx->visible833 != 0) {
-            if (!(state->flags6 & 0x10)) {
-                if (state->flags6 & (1 << timeOfDay)) {
-                    node->flags2 &= ~4;
+    if ((arg0->unknown_832_ != 0 || arg0->unknown_833_ != 0) && arg0->unknown_8_ != NULL) {
+        unsigned int var4 = arg0->unknown_8_->unknown_c_0_;
+        if (var4 == 0 || var4 == 7 || arg0->unknown_833_ != 0) {
+            if (!(var2->unknown_6_ & 0x10)) {
+                if (var2->unknown_6_ & (1 << var3)) {
+                    arg2->unknown_2_ &= ~4;
                 } else {
-                    node->flags2 |= 4;
+                    arg2->unknown_2_ |= 4;
                 }
             }
         }
@@ -81,69 +81,69 @@ extern "C" ARM void func_02016e14(struct Context02016e14* ctx, void* parent, str
 
     GXFIFO_DIFFUSE_AMBIENT = 0x7fff7fff;
 
-    Model3D* model = NULL;
-    Object3D* object = NULL;
-    int childVisit = 0;
-    if (visit == 0 && !(node->flags2 & 4) && entry != NULL) {
-        if (entry->type == 0) {
-            model = entry->model;
-        } else if (entry->type == 2) {
-            object = node->object;
-            if (object != NULL) {
-                model = object->pModel_;
+    Model3D* var5 = NULL;
+    Object3D* var6 = NULL;
+    int var7 = 0;
+    if (arg3 == 0 && !(arg2->unknown_2_ & 4) && var1 != NULL) {
+        if (var1->unknown_0_ == 0) {
+            var5 = var1->unknown_4_;
+        } else if (var1->unknown_0_ == 2) {
+            var6 = arg2->unknown_54_;
+            if (var6 != NULL) {
+                var5 = var6->pModel_;
             }
         }
     }
 
-    if (model != NULL) {
-        RenderConfig::SetObjectPosition(&node->pos);
+    if (var5 != NULL) {
+        RenderConfig::SetObjectPosition(&arg2->unknown_8_);
 
-        int angle = node->angleY;
-        if (node->offset38 != 0) {
-            angle = fix32ReduceAngle0To2Pi(angle + node->offset38);
+        int var8 = arg2->unknown_6_;
+        if (arg2->unknown_38_ != 0) {
+            var8 = fix32ReduceAngle0To2Pi(var8 + arg2->unknown_38_);
         }
-        fix32_t cosine = fix32cos(angle);
-        fix32_t sine = fix32sin(angle);
-        Matrix3x3 rotation;
-        Mat3x3_WriteRotationY(&rotation, sine, cosine);
-        func_02016d8c(&rotation);
+        fix32_t var9 = fix32cos(var8);
+        fix32_t var10 = fix32sin(var8);
+        Matrix3x3 var11;
+        Mat3x3_WriteRotationY(&var11, var10, var9);
+        func_02016d8c(&var11);
 
-        Vector3i scale;
-        scale.x = node->scale.x;
-        scale.y = node->scale.y;
-        scale.z = node->scale.z;
-        RenderConfig::SetObjectScale(&scale);
+        Vector3i var12;
+        var12.x = arg2->unknown_14_.x;
+        var12.y = arg2->unknown_14_.y;
+        var12.z = arg2->unknown_14_.z;
+        RenderConfig::SetObjectScale(&var12);
 
-        if ((node->flags2 & 8) || node->alphaFlag != 0) {
-            model->SetAlpha(node->alphaBits);
+        if ((arg2->unknown_2_ & 8) || arg2->unknown_4_7_ != 0) {
+            var5->SetAlpha(arg2->unknown_4_0_);
         }
 
-        if (model->rawInternalModel_ != NULL) {
-            LightingManager* manager = LightingManager::GetInstance();
-            manager->ApplyAmbientColorToModel(model->rawInternalModel_);
+        if (var5->rawInternalModel_ != NULL) {
+            LightingManager* var13 = LightingManager::GetInstance();
+            var13->ApplyAmbientColorToModel(var5->rawInternalModel_);
 
-            int ok = 0;
-            if (entry->type == 0) {
+            int var14 = 0;
+            if (var1->unknown_0_ == 0) {
                 RenderConfig::SubmitToFifo();
-                ok = model->Draw(true);
-            } else if (entry->type == 2) {
-                object->AdvanceEffects();
-                ok = object->DrawSimple(true);
+                var14 = var5->Draw(true);
+            } else if (var1->unknown_0_ == 2) {
+                var6->AdvanceEffects();
+                var14 = var6->DrawSimple(true);
             }
 
-            if (ok) {
-                ctx->pairs[ctx->count].a = (unsigned char)state->val2;
-                ctx->pairs[ctx->count].b = (unsigned char)*(int*)parent;
-                ctx->count++;
+            if (var14) {
+                arg0->unknown_27dc_[arg0->unknown_281c_].unknown_0_ = (unsigned char)var2->unknown_2_;
+                arg0->unknown_27dc_[arg0->unknown_281c_].unknown_1_ = (unsigned char)*(int*)arg1;
+                arg0->unknown_281c_++;
             }
         }
     } else {
-        childVisit = 1;
+        var7 = 1;
     }
-    if (node->child != NULL) {
-        func_02016e14(ctx, parent, node->child, childVisit);
+    if (arg2->unknown_2c_ != NULL) {
+        func_02016e14(arg0, arg1, arg2->unknown_2c_, var7);
     }
-    if (node->sibling != NULL) {
-        func_02016e14(ctx, parent, node->sibling, visit);
+    if (arg2->unknown_30_ != NULL) {
+        func_02016e14(arg0, arg1, arg2->unknown_30_, arg3);
     }
 }

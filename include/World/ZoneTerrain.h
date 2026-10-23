@@ -6,35 +6,31 @@
 class Zone3D;
 class Object3D;
 
-struct ZoneTerrainSample {
-    Vector3fix a;
-    Vector3fix b;
-    Vector3fix c;
-    Vector3fix normal;
+struct Struct_02018fbc_2 {
+    Vector3fix unknown_0_;
+    Vector3fix unknown_c_;
+    Vector3fix unknown_18_;
+    Vector3fix unknown_24_;
 };
 
-struct ZoneTerrainGrid {
-    short cells[96][12];
-    int unknown900;
-    int scale;
-    Vector3fix position;
-    int unknown914;
-    int angle;
-    unsigned char remaining[0x980 - 0x91c];
+struct Struct_02018fbc_3 {
+    short unknown_0_[96][12];
+    int unknown_900_;
+    int unknown_904_;
+    Vector3fix unknown_908_;
+    int unknown_914_;
+    int unknown_918_;
+    unsigned char unknown_91c_[0x980 - 0x91c];
 };
 
-typedef char ZoneTerrainSampleSizeCheck[sizeof(ZoneTerrainSample) == 0x30 ? 1 : -1];
-typedef char ZoneTerrainGridSizeCheck[sizeof(ZoneTerrainGrid) == 0x980 ? 1 : -1];
-typedef char ZoneTerrainGridScaleOffsetCheck[offsetof(ZoneTerrainGrid, scale) == 0x904 ? 1 : -1];
-typedef char ZoneTerrainGridPositionOffsetCheck[offsetof(ZoneTerrainGrid, position) == 0x908 ? 1 : -1];
 
-extern "C" int func_02017d90(Zone3D*, int, ZoneTerrainGrid*, Bounds3D, Object3D*);
-extern "C" void func_02031188(ZoneTerrainSample*, short*);
-extern "C" int func_020312bc(ZoneTerrainSample*, int, Vector3fix*, Vector3fix*, Vector3fix*);
-extern "C" int func_020319d8(ZoneTerrainSample*, int, Vector3fix*, Vector3fix*, Vector3fix*);
-extern "C" int func_020315b8(ZoneTerrainSample*, int, Vector3fix*, int, Vector3fix*, int);
+extern "C" int func_02017d90(Zone3D*, int, Struct_02018fbc_3*, Struct_02018fbc, Object3D*);
+extern "C" void func_02031188(Struct_02018fbc_2*, short*);
+extern "C" int func_020312bc(Struct_02018fbc_2*, int, Vector3fix*, Vector3fix*, Vector3fix*);
+extern "C" int func_020319d8(Struct_02018fbc_2*, int, Vector3fix*, Vector3fix*, Vector3fix*);
+extern "C" int func_020315b8(Struct_02018fbc_2*, int, Vector3fix*, int, Vector3fix*, int);
 
 extern "C" Zone3D* func_02012fe4();
-extern "C" int func_02018fbc(Zone3D* zone, Vector3fix* position);
-extern "C" Vector3fix func_02019210(Zone3D* zone, const Vector3fix* position,
-                                   const Vector3fix* offset, int radius);
+extern "C" int func_02018fbc(Zone3D* arg0, Vector3fix* arg1);
+extern "C" Vector3fix func_02019210(Zone3D* arg0, const Vector3fix* arg1,
+                                   const Vector3fix* arg2, int arg3);

@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-typedef void (*ArrayObjectCallback0200ee94)(void*);
-extern "C" void func_0200ee38(void*, void*, unsigned int, ArrayObjectCallback0200ee94);
+typedef void (*Type_0200ee94)(void*);
+extern "C" void func_0200ee38(void*, void*, unsigned int, Type_0200ee94);
 
 // USA: func_0200ee94
-extern "C" ARM void func_0200ee94(void* array, unsigned int count, unsigned int stride, ArrayObjectCallback0200ee94 constructor, ArrayObjectCallback0200ee94 destructor) {
-    if (constructor) {
-        if (destructor) {
-            unsigned char* current = static_cast<unsigned char*>(array);
+extern "C" ARM void func_0200ee94(void* arg0, unsigned int arg1, unsigned int arg2, Type_0200ee94 arg3, Type_0200ee94 arg4) {
+    if (arg3) {
+        if (arg4) {
+            unsigned char* var0 = static_cast<unsigned char*>(arg0);
             try {
-                if (count) {
+                if (arg1) {
                     do {
-                        constructor(current);
-                        current += stride;
-                    } while (--count);
+                        arg3(var0);
+                        var0 += arg2;
+                    } while (--arg1);
                 }
             } catch (...) {
-                func_0200ee38(array, current, stride, destructor);
+                func_0200ee38(arg0, var0, arg2, arg4);
                 throw;
             }
         } else {
-            unsigned char* current = static_cast<unsigned char*>(array);
-            if (count) {
+            unsigned char* var1 = static_cast<unsigned char*>(arg0);
+            if (arg1) {
                 do {
-                    constructor(current);
-                    current += stride;
-                } while (--count);
+                    arg3(var1);
+                    var1 += arg2;
+                } while (--arg1);
             }
         }
     }

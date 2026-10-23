@@ -2,15 +2,15 @@
 #include "std_library_functions.h"
 
 // USA: func_020114c0
-extern "C" ARM void func_020114c0(char* obj, int len, void* src) {
+extern "C" ARM void func_020114c0(char* arg0, int arg1, void* arg2) {
 #if defined(jpn)
-    memcpy(obj + 0x54bd, src, len);
+    memcpy(arg0 + 0x54bd, arg2, arg1);
 #else
-    memcpy(obj + 0x571d, src, len);
+    memcpy(arg0 + 0x571d, arg2, arg1);
 #endif
 #if defined(jpn)
-    *(unsigned char*)(obj + 0x54c1) = (unsigned char)len;
+    *(unsigned char*)(arg0 + 0x54c1) = (unsigned char)arg1;
 #else
-    *(unsigned char*)(obj + 0x5721) = (unsigned char)len;
+    *(unsigned char*)(arg0 + 0x5721) = (unsigned char)arg1;
 #endif
 }

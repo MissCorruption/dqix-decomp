@@ -2,39 +2,39 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 
-struct Obj02046e08 {
-    int field0_;
-    int field4_;
-    int field8_;
-    float fieldC_;
-    int field10_;
-    int field14_;
-    int field18_;
-    unsigned char field1c_;
-    unsigned char field1d_;
-    int field20_;
-    SafeAllocator allocator_;
-    int field38_;
-    Object3D object_;
-    int fieldE8_;
-    int fieldEC_;
+struct Struct_02046e08 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    float unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
+    int unknown_20_;
+    SafeAllocator unknown_24_;
+    int unknown_38_;
+    Object3D unknown_3c_;
+    int unknown_e8_;
+    int unknown_ec_;
 };
 
 // USA: func_02046e08
-extern "C" ARM void func_02046e08(Obj02046e08* obj) {
-    obj->field0_ = 0;
-    obj->field4_ = 0;
-    obj->field20_ = 0;
-    obj->field8_ = 0;
-    obj->fieldC_ = 15.0f;
-    obj->fieldEC_ = -1;
-    obj->field1c_ = 1;
-    obj->field1d_ = 1;
-    obj->object_.Initialize();
-    obj->allocator_.ResetAllocatorPointer();
-    obj->field38_ = 0;
-    obj->fieldE8_ = 0;
-    obj->field10_ = 0;
-    obj->field14_ = 0;
-    obj->field18_ = 0;
+extern "C" ARM void func_02046e08(Struct_02046e08* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_20_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 15.0f;
+    arg0->unknown_ec_ = -1;
+    arg0->unknown_1c_ = 1;
+    arg0->unknown_1d_ = 1;
+    arg0->unknown_3c_.Initialize();
+    arg0->unknown_24_.ResetAllocatorPointer();
+    arg0->unknown_38_ = 0;
+    arg0->unknown_e8_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = 0;
+    arg0->unknown_18_ = 0;
 }

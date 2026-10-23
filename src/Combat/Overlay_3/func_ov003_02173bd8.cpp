@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
-struct Obj02173bb0;
-extern "C" void* func_ov003_02173bb0(Obj02173bb0*, unsigned int);
+struct Struct_ov003_02173b4c;
+extern "C" void* func_ov003_02173bb0(Struct_ov003_02173b4c*, unsigned int);
 extern "C" void func_0205ac40(void*, void*);
 extern signed char data_ov003_0217fa14[];
 
 // USA: func_ov003_02173bd8
-extern "C" ARM void func_ov003_02173bd8(void* obj) {
-    unsigned char* o = (unsigned char*)obj;
-    unsigned int index;
-    void* elem;
+extern "C" ARM void func_ov003_02173bd8(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned int var1;
+    void* var2;
 #if defined(jpn)
-    enum { stateOffset = 0xe8, countOffset = 0xea, choiceOffset = 0xd0, entriesOffset = 0x13c, x = 0xa2000 };
+    enum { Enum_ov003_02173bd8_236 = 0xe8, Enum_ov003_02173bd8_238 = 0xea, Enum_ov003_02173bd8_208 = 0xd0, Enum_ov003_02173bd8_304 = 0x13c, Enum_ov003_02173bd8_753664 = 0xa2000 };
 #else
-    enum { stateOffset = 0xec, countOffset = 0xee, choiceOffset = 0xd4, entriesOffset = 0x130, x = 0xb8000 };
+    enum { Enum_ov003_02173bd8_236 = 0xec, Enum_ov003_02173bd8_238 = 0xee, Enum_ov003_02173bd8_212 = 0xd4, Enum_ov003_02173bd8_304 = 0x130, Enum_ov003_02173bd8_753664 = 0xb8000 };
 #endif
-    if (o[stateOffset] == 0) {
+    if (var0[Enum_ov003_02173bd8_236] == 0) {
         return;
     }
-    if (o[stateOffset] == 1) {
-        if (o[countOffset] < 2) {
+    if (var0[Enum_ov003_02173bd8_236] == 1) {
+        if (var0[Enum_ov003_02173bd8_238] < 2) {
             return;
         }
     }
 #if defined(jpn)
-    switch (o[choiceOffset]) {
-        case 0: elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + entriesOffset), 5); break;
-        case 1: elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + entriesOffset), 4); break;
-        case 2: elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + entriesOffset), 3); break;
-        case 3: elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + entriesOffset), 2); break;
-        default: elem = NULL;
+    switch (var0[Enum_ov003_02173bd8_208]) {
+        case 0: var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173bd8_304), 5); break;
+        case 1: var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173bd8_304), 4); break;
+        case 2: var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173bd8_304), 3); break;
+        case 3: var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173bd8_304), 2); break;
+        default: var2 = NULL;
     }
-    if (elem == NULL) return;
+    if (var2 == NULL) return;
 #else
-    if (o[choiceOffset] > 3) {
+    if (var0[Enum_ov003_02173bd8_212] > 3) {
         return;
     }
-    index = data_ov003_0217fa14[o[choiceOffset]];
-    elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + entriesOffset), index);
+    var1 = data_ov003_0217fa14[var0[Enum_ov003_02173bd8_212]];
+    var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173bd8_304), var1);
 #endif
-    *(int*)((char*)elem + 0x14) = x;
-    *(int*)((char*)elem + 0x18) = 0x2f000;
-    func_0205ac40((char*)obj + entriesOffset, elem);
+    *(int*)((char*)var2 + 0x14) = Enum_ov003_02173bd8_753664;
+    *(int*)((char*)var2 + 0x18) = 0x2f000;
+    func_0205ac40((char*)arg0 + Enum_ov003_02173bd8_304, var2);
 }

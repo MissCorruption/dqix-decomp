@@ -2,166 +2,166 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Struct020dfc40;
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
-extern "C" void* func_020df828(void* dst);
-extern "C" void func_ov023_021e20c0(void* p);
-extern "C" void func_0205a444(char* obj);
-struct Struct0205a198;
-extern "C" void func_0205a198(struct Struct0205a198* p);
-extern "C" void func_ov023_021db0d4(void* obj, int flag);
-extern "C" void func_ov023_021dce88(void* obj);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void* func_020df828(void* arg0);
+extern "C" void func_ov023_021e20c0(void* arg0);
+extern "C" void func_0205a444(char* arg0);
+struct Struct_02043368_2;
+extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+extern "C" void func_ov023_021db0d4(void* arg0, int arg1);
+extern "C" void func_ov023_021dce88(void* arg0);
 
-struct DataBlob_021dc134 {
+struct Struct_ov023_021ff9e0_3 {
 #if defined(jpn)
-    void* field14;
-    void* field0;
-    int field18;
-    int regional7;
-    int fieldc;
-    int field4;
-    char pad18[4];
-    void* field20;
-    void* field24;
-    void* field8;
-    void* field28;
+    void* unknown_14_;
+    void* unknown_0_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown1_c_;
+    int unknown_4_;
+    char unknown_18_[4];
+    void* unknown_20_;
+    void* unknown_24_;
+    void* unknown1_8_;
+    void* unknown_28_;
 
 #else
-    void* field0;   // 0x0
-    int field4;     // 0x4
-    void* field8;   // 0x8
-    int fieldc;     // 0xc
-    int field10;    // 0x10
-    void* field14;  // 0x14
-    int field18;    // 0x18
-    unsigned char pad1c[0x20 - 0x1c];
-    void* field20;  // 0x20
-    void* field24;  // 0x24
-    void* field28;  // 0x28
+    void* unknown_0_;   // 0x0
+    int unknown_4_;     // 0x4
+    void* unknown1_8_;   // 0x8
+    int unknown1_c_;     // 0xc
+    int unknown_10_;    // 0x10
+    void* unknown_14_;  // 0x14
+    int unknown1_18_;    // 0x18
+    unsigned char unknown_1c_[0x20 - 0x1c];
+    void* unknown_20_;  // 0x20
+    void* unknown_24_;  // 0x24
+    void* unknown_28_;  // 0x28
 
 #endif
 };
-extern struct DataBlob_021dc134 data_ov023_021ff9e0;
+extern struct Struct_ov023_021ff9e0_3 data_ov023_021ff9e0;
 extern char data_ov023_021ffa0c;
 
-struct Flags79bByte_021dc134 {
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char rest : 6;
+struct Struct_ov023_021dc134 {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 1;
+    unsigned char unknown_0_2_ : 6;
 };
 
 // USA: func_ov023_021dc134
-extern "C" ARM void func_ov023_021dc134(void* objRaw, short key, int flag) {
+extern "C" ARM void func_ov023_021dc134(void* arg0, short arg1, int arg2) {
 #if defined(jpn)
- enum {regionalOffset0=0x124, regionalOffset1=0x125, regionalOffset2=0x128, regionalOffset3=0x17c, regionalOffset4=0x62c, regionalOffset5=0x80, regionalOffset6=0x6ac, regionalOffset7=0x6b0, regionalOffset8=0x6b4, regionalOffset9=0x6d4, regionalOffset10=0x6d8, regionalOffset11=0x6dc, regionalOffset12=0x6e0, regionalOffset13=0x6e4, regionalOffset14=0x6e8, regionalOffset15=0x6ec, regionalOffset16=0x6ee, regionalOffset17=0x6f0, regionalOffset18=0x6f2, regionalOffset19=0x6f3, regionalOffset20=0x6f4, regionalOffset21=0x6f5, regionalOffset22=0x6f6, regionalOffset23=0x6f7, regionalOffset24=0x6f8, regionalOffset25=0x6f9, regionalOffset26=0x6fa, regionalOffset27=0x6fc, regionalOffset28=0x715, regionalOffset29=0x716, regionalOffset30=0x717};
+ enum {Enum_ov023_021dc134_296=0x124, Enum_ov023_021dc134_297=0x125, Enum_ov023_021dc134_300=0x128, Enum_ov023_021dc134_384=0x17c, Enum_ov023_021dc134_1584=0x62c, Enum_ov023_021dc134_256=0x80, Enum_ov023_021dc134_1840=0x6ac, Enum_ov023_021dc134_1844=0x6b0, Enum_ov023_021dc134_1848=0x6b4, Enum_ov023_021dc134_1880=0x6d4, Enum_ov023_021dc134_1884=0x6d8, Enum_ov023_021dc134_1888=0x6dc, Enum_ov023_021dc134_1892=0x6e0, Enum_ov023_021dc134_1896=0x6e4, Enum_ov023_021dc134_1900=0x6e8, Enum_ov023_021dc134_1904=0x6ec, Enum_ov023_021dc134_1906=0x6ee, Enum_ov023_021dc134_1908=0x6f0, Enum_ov023_021dc134_1910=0x6f2, Enum_ov023_021dc134_1911=0x6f3, Enum_ov023_021dc134_1912=0x6f4, Enum_ov023_021dc134_1913=0x6f5, Enum_ov023_021dc134_1914=0x6f6, Enum_ov023_021dc134_1915=0x6f7, Enum_ov023_021dc134_1916=0x6f8, Enum_ov023_021dc134_1917=0x6f9, Enum_ov023_021dc134_1918=0x6fa, Enum_ov023_021dc134_1920=0x6fc, Enum_ov023_021dc134_1945=0x715, Enum_ov023_021dc134_1946=0x716, Enum_ov023_021dc134_1947=0x717};
 #else
- enum {regionalOffset0=0x128, regionalOffset1=0x129, regionalOffset2=0x12c, regionalOffset3=0x180, regionalOffset4=0x630, regionalOffset5=0x100, regionalOffset6=0x730, regionalOffset7=0x734, regionalOffset8=0x738, regionalOffset9=0x758, regionalOffset10=0x75c, regionalOffset11=0x760, regionalOffset12=0x764, regionalOffset13=0x768, regionalOffset14=0x76c, regionalOffset15=0x770, regionalOffset16=0x772, regionalOffset17=0x774, regionalOffset18=0x776, regionalOffset19=0x777, regionalOffset20=0x778, regionalOffset21=0x779, regionalOffset22=0x77a, regionalOffset23=0x77b, regionalOffset24=0x77c, regionalOffset25=0x77d, regionalOffset26=0x77e, regionalOffset27=0x780, regionalOffset28=0x799, regionalOffset29=0x79a, regionalOffset30=0x79b};
+ enum {Enum_ov023_021dc134_296=0x128, Enum_ov023_021dc134_297=0x129, Enum_ov023_021dc134_300=0x12c, Enum_ov023_021dc134_384=0x180, Enum_ov023_021dc134_1584=0x630, Enum_ov023_021dc134_256=0x100, Enum_ov023_021dc134_1840=0x730, Enum_ov023_021dc134_1844=0x734, Enum_ov023_021dc134_1848=0x738, Enum_ov023_021dc134_1880=0x758, Enum_ov023_021dc134_1884=0x75c, Enum_ov023_021dc134_1888=0x760, Enum_ov023_021dc134_1892=0x764, Enum_ov023_021dc134_1896=0x768, Enum_ov023_021dc134_1900=0x76c, Enum_ov023_021dc134_1904=0x770, Enum_ov023_021dc134_1906=0x772, Enum_ov023_021dc134_1908=0x774, Enum_ov023_021dc134_1910=0x776, Enum_ov023_021dc134_1911=0x777, Enum_ov023_021dc134_1912=0x778, Enum_ov023_021dc134_1913=0x779, Enum_ov023_021dc134_1914=0x77a, Enum_ov023_021dc134_1915=0x77b, Enum_ov023_021dc134_1916=0x77c, Enum_ov023_021dc134_1917=0x77d, Enum_ov023_021dc134_1918=0x77e, Enum_ov023_021dc134_1920=0x780, Enum_ov023_021dc134_1945=0x799, Enum_ov023_021dc134_1946=0x79a, Enum_ov023_021dc134_1947=0x79b};
 #endif
-    char* obj = (char*)objRaw;
+    char* var0 = (char*)arg0;
 
-    data_ov023_021ff9e0.field4 = 0;
+    data_ov023_021ff9e0.unknown_4_ = 0;
 
-    ((SafeAllocator*)(obj + 0x0))->ResetAllocatorPointer();
-    ((SafeAllocator*)(obj + 0x14))->ResetAllocatorPointer();
-    ((SafeAllocator*)(obj + 0x28))->ResetAllocatorPointer();
+    ((SafeAllocator*)(var0 + 0x0))->ResetAllocatorPointer();
+    ((SafeAllocator*)(var0 + 0x14))->ResetAllocatorPointer();
+    ((SafeAllocator*)(var0 + 0x28))->ResetAllocatorPointer();
 
-    *(int*)(obj + 0x3c) = 0;
-    *(int*)(obj + 0x40) = 0;
-    *(int*)(obj + 0x44) = 0;
-    *(int*)(obj + 0x48) = 0;
-    *(int*)(obj + 0x4c) = 0;
-    *(int*)(obj + 0x50) = 0;
-    func_020dfc40((struct Struct020dfc40*)(obj + 0x54));
+    *(int*)(var0 + 0x3c) = 0;
+    *(int*)(var0 + 0x40) = 0;
+    *(int*)(var0 + 0x44) = 0;
+    *(int*)(var0 + 0x48) = 0;
+    *(int*)(var0 + 0x4c) = 0;
+    *(int*)(var0 + 0x50) = 0;
+    func_020dfc40((struct Struct_0201099c_14*)(var0 + 0x54));
 
-    func_020df828(obj + 0x6c);
-    func_020df828(obj + 0x7c);
+    func_020df828(var0 + 0x6c);
+    func_020df828(var0 + 0x7c);
 
-    func_020dfc40((struct Struct020dfc40*)(obj + 0x8c));
-    func_020dfc40((struct Struct020dfc40*)(obj + 0xa4));
+    func_020dfc40((struct Struct_0201099c_14*)(var0 + 0x8c));
+    func_020dfc40((struct Struct_0201099c_14*)(var0 + 0xa4));
 
-    *(int*)(obj + 0xc4) = 0;
-    *(int*)(obj + 0xc8) = 0;
-    func_ov023_021e20c0(obj + 0xcc);
+    *(int*)(var0 + 0xc4) = 0;
+    *(int*)(var0 + 0xc8) = 0;
+    func_ov023_021e20c0(var0 + 0xcc);
 
-    *(unsigned char*)(obj + regionalOffset0) = 0;
-    *(unsigned char*)(obj + regionalOffset1) = 0;
-    func_0205a444(obj + regionalOffset2);
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_296) = 0;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_297) = 0;
+    func_0205a444(var0 + Enum_ov023_021dc134_300);
 
-    for (unsigned char i = 0; i < 30; i++) {
-        func_0205a198((struct Struct0205a198*)(obj + regionalOffset3 + i * 0x28));
+    for (unsigned char var1 = 0; var1 < 30; var1++) {
+        func_0205a198((struct Struct_02043368_2*)(var0 + Enum_ov023_021dc134_384 + var1 * 0x28));
     }
 
-    memset(obj + regionalOffset4, 0, regionalOffset5);
+    memset(var0 + Enum_ov023_021dc134_1584, 0, Enum_ov023_021dc134_256);
 
-    *(int*)(obj + regionalOffset6) = 0;
-    *(int*)(obj + regionalOffset7) = -1;
-    for (int i = 0; i < 7; i++) {
-        *(int*)(obj + regionalOffset8 + i * 4) = -1;
+    *(int*)(var0 + Enum_ov023_021dc134_1840) = 0;
+    *(int*)(var0 + Enum_ov023_021dc134_1844) = -1;
+    for (int var2 = 0; var2 < 7; var2++) {
+        *(int*)(var0 + Enum_ov023_021dc134_1848 + var2 * 4) = -1;
     }
 
-    *(int*)(obj + regionalOffset9) = 0;
-    *(int*)(obj + regionalOffset10) = 0;
+    *(int*)(var0 + Enum_ov023_021dc134_1880) = 0;
+    *(int*)(var0 + Enum_ov023_021dc134_1884) = 0;
 
-    *(short*)(obj + regionalOffset15) = key;
-    *(short*)(obj + regionalOffset16) = key;
-    *(short*)(obj + regionalOffset17) = 0;
+    *(short*)(var0 + Enum_ov023_021dc134_1904) = arg1;
+    *(short*)(var0 + Enum_ov023_021dc134_1906) = arg1;
+    *(short*)(var0 + Enum_ov023_021dc134_1908) = 0;
 
-    *(unsigned char*)(obj + regionalOffset18) = 0;
-    *(unsigned char*)(obj + regionalOffset19) = 0;
-    *(unsigned char*)(obj + regionalOffset20) = 0;
-    *(signed char*)(obj + regionalOffset21) = -1;
-    *(signed char*)(obj + regionalOffset22) = -1;
-    *(signed char*)(obj + regionalOffset29) = -1;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_1910) = 0;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_1911) = 0;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_1912) = 0;
+    *(signed char*)(var0 + Enum_ov023_021dc134_1913) = -1;
+    *(signed char*)(var0 + Enum_ov023_021dc134_1914) = -1;
+    *(signed char*)(var0 + Enum_ov023_021dc134_1946) = -1;
 
-    ((Flags79bByte_021dc134*)(obj + regionalOffset30))->bit0 = 0;
-    ((Flags79bByte_021dc134*)(obj + regionalOffset30))->bit1 = 0;
+    ((Struct_ov023_021dc134*)(var0 + Enum_ov023_021dc134_1947))->unknown_0_0_ = 0;
+    ((Struct_ov023_021dc134*)(var0 + Enum_ov023_021dc134_1947))->unknown_0_1_ = 0;
 
-    *(signed char*)(obj + regionalOffset25) = -1;
-    *(unsigned char*)(obj + regionalOffset26) = 1;
-    *(int*)(obj + regionalOffset27) = -1;
+    *(signed char*)(var0 + Enum_ov023_021dc134_1917) = -1;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_1918) = 1;
+    *(int*)(var0 + Enum_ov023_021dc134_1920) = -1;
 
-    func_ov023_021dce88(obj);
+    func_ov023_021dce88(var0);
 
-    *(int*)(obj + regionalOffset11) = 0;
-    *(int*)(obj + regionalOffset12) = 0;
-    *(unsigned char*)(obj + regionalOffset28) = 1;
-    *(int*)(obj + regionalOffset13) = 0;
-    *(int*)(obj + regionalOffset14) = 0;
+    *(int*)(var0 + Enum_ov023_021dc134_1888) = 0;
+    *(int*)(var0 + Enum_ov023_021dc134_1892) = 0;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_1945) = 1;
+    *(int*)(var0 + Enum_ov023_021dc134_1896) = 0;
+    *(int*)(var0 + Enum_ov023_021dc134_1900) = 0;
 
 #if defined(jpn)
-    data_ov023_021ff9e0.field18 = 5;
-    data_ov023_021ff9e0.regional7 = 7;
+    data_ov023_021ff9e0.unknown_8_ = 5;
+    data_ov023_021ff9e0.unknown_c_ = 7;
 #else
-    data_ov023_021ff9e0.field18 = 5;
+    data_ov023_021ff9e0.unknown1_18_ = 5;
 #endif
 
-    data_ov023_021ff9e0.fieldc = 9;
+    data_ov023_021ff9e0.unknown1_c_ = 9;
 #if defined(jpn)
 
 #else
-    data_ov023_021ff9e0.field10 = 0;
+    data_ov023_021ff9e0.unknown_10_ = 0;
 #endif
 
 
-    *(signed char*)(obj + regionalOffset23) = (signed char)flag;
-    *(unsigned char*)(obj + regionalOffset24) = 1;
+    *(signed char*)(var0 + Enum_ov023_021dc134_1915) = (signed char)arg2;
+    *(unsigned char*)(var0 + Enum_ov023_021dc134_1916) = 1;
 
-    if (flag == 1) {
-        *(unsigned char*)(obj + regionalOffset24) = 0;
-        *(unsigned short*)(obj + regionalOffset17) |= 0x800;
+    if (arg2 == 1) {
+        *(unsigned char*)(var0 + Enum_ov023_021dc134_1916) = 0;
+        *(unsigned short*)(var0 + Enum_ov023_021dc134_1908) |= 0x800;
     }
 
-    *(short*)(obj + 0xc2) = 0;
-    memset(obj + 0xbc, 0, 6);
+    *(short*)(var0 + 0xc2) = 0;
+    memset(var0 + 0xbc, 0, 6);
 
-    data_ov023_021ff9e0.field14 = obj + 0x54;
-    data_ov023_021ff9e0.field24 = obj + 0x6c;
-    data_ov023_021ff9e0.field0 = obj + 0x7c;
-    data_ov023_021ff9e0.field8 = obj + 0x8c;
-    data_ov023_021ff9e0.field28 = obj + 0xa4;
-    data_ov023_021ff9e0.field20 = obj;
+    data_ov023_021ff9e0.unknown_14_ = var0 + 0x54;
+    data_ov023_021ff9e0.unknown_24_ = var0 + 0x6c;
+    data_ov023_021ff9e0.unknown_0_ = var0 + 0x7c;
+    data_ov023_021ff9e0.unknown1_8_ = var0 + 0x8c;
+    data_ov023_021ff9e0.unknown_28_ = var0 + 0xa4;
+    data_ov023_021ff9e0.unknown_20_ = var0;
 
-    *(unsigned short*)(obj + regionalOffset17) |= 8;
+    *(unsigned short*)(var0 + Enum_ov023_021dc134_1908) |= 8;
 
     func_ov023_021db0d4(&data_ov023_021ffa0c, 0);
 }

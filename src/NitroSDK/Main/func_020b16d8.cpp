@@ -1,189 +1,189 @@
 #include <globaldefs.h>
 
-struct CharCanvas020b16d8 {
-    unsigned char* charBase;
-    int areaWidth;
-    int areaHeight;
-    unsigned char dstBpp;
-    unsigned char padD[3];
-    unsigned int param;
+struct Struct_020b16d8_2 {
+    unsigned char* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_[3];
+    unsigned int unknown_10_;
 };
 
-struct FontGlyph020b16d8 {
-    unsigned char cellWidth;
-    unsigned char cellHeight;
-    unsigned short cellSize;
-    signed char baselinePos;
-    unsigned char maxCharWidth;
-    unsigned char bpp;
-    unsigned char flags;
+struct Struct_020b10b4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    signed char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
 };
 
-struct FontInformation020b16d8 {
-    unsigned char fontType;
-    signed char linefeed;
-    unsigned short alterCharIndex;
-    unsigned char defaultWidth[3];
-    unsigned char encoding;
-    struct FontGlyph020b16d8* pGlyph;
+struct Struct_020b10b4_2 {
+    unsigned char unknown_0_;
+    signed char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_[3];
+    unsigned char unknown_7_;
+    struct Struct_020b10b4* unknown_8_;
 };
 
-struct Font020b16d8 {
-    struct FontInformation020b16d8* pRes;
+struct Struct_020b16d8_3 {
+    struct Struct_020b10b4_2* unknown_0_;
 };
 
-struct CharWidths020b16d8 {
-    signed char left;
-    unsigned char glyphWidth;
-    signed char charWidth;
+struct Struct_020b16d8_4 {
+    signed char unknown_0_;
+    unsigned char unknown_1_;
+    signed char unknown_2_;
 };
 
-struct Glyph020b16d8 {
-    const struct CharWidths020b16d8* pWidths;
-    const unsigned char* image;
+struct Struct_020b16d8_5 {
+    const struct Struct_020b16d8_4* unknown_0_;
+    const unsigned char* unknown_4_;
 };
 
-struct LCInfo020b16d8 {
-    const unsigned char* dst;
-    const unsigned char* src;
-    int ofs_x;
-    int ofs_y;
-    int width;
-    int height;
-    int dsrc;
-    int srcBpp;
-    int dstBpp;
-    unsigned int cl;
+struct Struct_020b16d8_6 {
+    const unsigned char* unknown_0_;
+    const unsigned char* unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    unsigned int unknown_24_;
 };
 
-union OBJ1DParam020b16d8 {
-    unsigned int packed;
+union Struct_020b16d8 {
+    unsigned int unknown_0_;
     struct {
-        unsigned baseWidthShift : 8;
-        unsigned baseHeightShift : 8;
-    } s;
+        unsigned unknown_0_0_ : 8;
+        unsigned unknown_1_0_ : 8;
+    } unknown1_0_;
 };
 
-extern "C" unsigned int func_020b10b4(unsigned int cx, unsigned int cy, unsigned int areaWidth, unsigned int areaHeight, unsigned int objWidth, unsigned int objHeight);
-extern "C" void func_020b1300(struct LCInfo020b16d8* i);
+extern "C" unsigned int func_020b10b4(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4, unsigned int arg5);
+extern "C" void func_020b1300(struct Struct_020b16d8_6* arg0);
 
-static inline int GetCharacterSize(const struct CharCanvas020b16d8* pCC) {
-    return 8 * 8 * pCC->dstBpp / 8;
+static inline int inline_020b1540(const struct Struct_020b16d8_2* arg0) {
+    return 8 * 8 * arg0->unknown_c_ / 8;
 }
 
-static inline unsigned char FontGetCellHeight(const struct Font020b16d8* pFont) {
-    return pFont->pRes->pGlyph->cellHeight;
+static inline unsigned char inline_020b16d8(const struct Struct_020b16d8_3* arg0) {
+    return arg0->unknown_0_->unknown_8_->unknown_1_;
 }
 
-static inline unsigned char FontGetCellWidth(const struct Font020b16d8* pFont) {
-    return pFont->pRes->pGlyph->cellWidth;
+static inline unsigned char inline_020b16d8_2(const struct Struct_020b16d8_3* arg0) {
+    return arg0->unknown_0_->unknown_8_->unknown_0_;
 }
 
-static inline unsigned char FontGetBpp(const struct Font020b16d8* pFont) {
-    return pFont->pRes->pGlyph->bpp;
+static inline unsigned char inline_020b16d8_3(const struct Struct_020b16d8_3* arg0) {
+    return arg0->unknown_0_->unknown_8_->unknown_6_;
 }
 
 // USA: func_020b16d8
-extern "C" ARM void func_020b16d8(const struct CharCanvas020b16d8* pCC, const struct Font020b16d8* pFont, int x, int y, int cl, const struct Glyph020b16d8* pGlyph) {
-    int ofs_x_base;
-    int ofs_x;
-    int ofs_y;
-    int ofs_x_end;
-    int ofs_y_end;
-    int cx, cx_base;
-    int cy;
-    unsigned char glyphWidth;
-    unsigned char charHeight;
-    int charSize;
+extern "C" ARM void func_020b16d8(const struct Struct_020b16d8_2* arg0, const struct Struct_020b16d8_3* arg1, int arg2, int arg3, int arg4, const struct Struct_020b16d8_5* arg5) {
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5, var6;
+    int var7;
+    unsigned char var8;
+    unsigned char var9;
+    int var10;
 
-    charSize = GetCharacterSize(pCC);
+    var10 = inline_020b1540(arg0);
 
     {
-        int chara_x_num;
-        int chara_y_num;
+        int var11;
+        int var12;
 
-        unsigned int areaWidth = (unsigned int)pCC->areaWidth;
-        unsigned int areaHeight = (unsigned int)pCC->areaHeight;
+        unsigned int var13 = (unsigned int)arg0->unknown_4_;
+        unsigned int var14 = (unsigned int)arg0->unknown_8_;
 
-        unsigned int chara_x_begin;
-        unsigned int chara_x_last;
-        unsigned int chara_y_begin;
-        unsigned int chara_y_last;
+        unsigned int var15;
+        unsigned int var16;
+        unsigned int var17;
+        unsigned int var18;
 
-        glyphWidth = pGlyph->pWidths->glyphWidth;
-        charHeight = FontGetCellHeight(pFont);
+        var8 = arg5->unknown_0_->unknown_1_;
+        var9 = inline_020b16d8(arg1);
 
-        if (glyphWidth <= 0) {
+        if (var8 <= 0) {
             return;
         }
 
-        if ((x + glyphWidth < 0) || (y + charHeight) < 0) {
+        if ((arg2 + var8 < 0) || (arg3 + var9) < 0) {
             return;
         }
 
-        chara_x_begin = (x <= 0) ? 0 : ((unsigned int)x / 8);
-        chara_y_begin = (y <= 0) ? 0 : ((unsigned int)y / 8);
+        var15 = (arg2 <= 0) ? 0 : ((unsigned int)arg2 / 8);
+        var17 = (arg3 <= 0) ? 0 : ((unsigned int)arg3 / 8);
 
-        chara_x_last = (unsigned int)(x + glyphWidth + 7) / 8;
-        if (chara_x_last >= areaWidth) {
-            chara_x_last = areaWidth;
+        var16 = (unsigned int)(arg2 + var8 + 7) / 8;
+        if (var16 >= var13) {
+            var16 = var13;
         }
 
-        chara_y_last = (unsigned int)(y + charHeight + 7) / 8;
-        if (chara_y_last >= areaHeight) {
-            chara_y_last = areaHeight;
+        var18 = (unsigned int)(arg3 + var9 + 7) / 8;
+        if (var18 >= var14) {
+            var18 = var14;
         }
 
-        chara_x_num = (int)(chara_x_last - chara_x_begin);
-        chara_y_num = (int)(chara_y_last - chara_y_begin);
+        var11 = (int)(var16 - var15);
+        var12 = (int)(var18 - var17);
 
-        if ((chara_x_num < 0) || (chara_y_num < 0)) {
+        if ((var11 < 0) || (var12 < 0)) {
             return;
         }
 
-        cx_base = (int)chara_x_begin;
-        cy = (int)chara_y_begin;
+        var6 = (int)var15;
+        var7 = (int)var17;
 
-        ofs_x_base = (x < 0) ? x : x & 0x7;
-        ofs_y = (y < 0) ? y : y & 0x7;
-        ofs_x_end = ofs_x_base - 8 * chara_x_num;
-        ofs_y_end = ofs_y - 8 * chara_y_num;
+        var0 = (arg2 < 0) ? arg2 : arg2 & 0x7;
+        var2 = (arg3 < 0) ? arg3 : arg3 & 0x7;
+        var3 = var0 - 8 * var11;
+        var4 = var2 - 8 * var12;
     }
 
     {
-        struct LCInfo020b16d8 i;
-        unsigned char* const pCharBase = pCC->charBase;
-        union OBJ1DParam020b16d8 p;
+        struct Struct_020b16d8_6 var19;
+        unsigned char* const var20 = arg0->unknown_0_;
+        union Struct_020b16d8 var21;
 
-        i.src = pGlyph->image;
-        i.width = glyphWidth;
-        i.height = charHeight;
-        i.cl = (unsigned int)(cl - 1);
-        i.srcBpp = FontGetBpp(pFont);
-        i.dstBpp = pCC->dstBpp;
-        i.dsrc = FontGetCellWidth(pFont) * i.srcBpp;
+        var19.unknown_4_ = arg5->unknown_4_;
+        var19.unknown_10_ = var8;
+        var19.unknown_14_ = var9;
+        var19.unknown_24_ = (unsigned int)(arg4 - 1);
+        var19.unknown_1c_ = inline_020b16d8_3(arg1);
+        var19.unknown_20_ = arg0->unknown_c_;
+        var19.unknown_18_ = inline_020b16d8_2(arg1) * var19.unknown_1c_;
 
-        p.packed = pCC->param;
+        var21.unknown_0_ = arg0->unknown_10_;
 
         {
-            const unsigned int areaWidth = (unsigned int)pCC->areaWidth;
-            const unsigned int areaHeight = (unsigned int)pCC->areaHeight;
-            const unsigned int baseWidthShift = p.s.baseWidthShift;
-            const unsigned int baseHeightShift = p.s.baseHeightShift;
+            const unsigned int var22 = (unsigned int)arg0->unknown_4_;
+            const unsigned int var23 = (unsigned int)arg0->unknown_8_;
+            const unsigned int var24 = var21.unknown1_0_.unknown_0_0_;
+            const unsigned int var25 = var21.unknown1_0_.unknown_1_0_;
 
-            for (; ofs_y > ofs_y_end; ofs_y -= 8) {
-                i.ofs_y = ofs_y;
-                cx = cx_base;
-                for (ofs_x = ofs_x_base; ofs_x > ofs_x_end; ofs_x -= 8) {
-                    const unsigned int iChar = func_020b10b4((unsigned int)cx, (unsigned int)cy, areaWidth, areaHeight, baseWidthShift, baseHeightShift);
+            for (; var2 > var4; var2 -= 8) {
+                var19.unknown_c_ = var2;
+                var5 = var6;
+                for (var1 = var0; var1 > var3; var1 -= 8) {
+                    const unsigned int var26 = func_020b10b4((unsigned int)var5, (unsigned int)var7, var22, var23, var24, var25);
 
-                    i.ofs_x = ofs_x;
-                    i.dst = pCharBase + iChar * charSize;
+                    var19.unknown_8_ = var1;
+                    var19.unknown_0_ = var20 + var26 * var10;
 
-                    func_020b1300(&i);
-                    cx++;
+                    func_020b1300(&var19);
+                    var5++;
                 }
-                cy++;
+                var7++;
             }
         }
     }

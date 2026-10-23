@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct IntField0x68_020377bc;
+struct Struct_020a2be8;
 
 struct Vector3i;
 
-struct Vec3_020d7534 { int x; int y; int z; };
-extern "C" void func_020d74a4(void* base, int index, struct Vec3_020d7534 v);
+struct Struct_020d7534 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" void func_020d74a4(void* arg0, int arg1, struct Struct_020d7534 arg2);
 
-extern "C" void func_0205a020(unsigned char* p, int dt);
+extern "C" void func_0205a020(unsigned char* arg0, int arg1);
 
-struct Actor020d7534 {
-    char pad0[0x50];
-    struct Vec3_020d7534 pos;
-    char pad1[0x74];
-    int fieldD0;
-    char pad2[4];
+struct Struct_020d7534_2 {
+    char unknown_0_[0x50];
+    struct Struct_020d7534 unknown_50_;
+    char unknown_5c_[0x74];
+    int unknown_d0_;
+    char unknown_d4_[4];
 };
 
 // USA: func_020d7534
-extern "C" ARM void func_020d7534(struct Actor020d7534* obj) {
-    GameState* battle = GameState::GetInstance();
-    unsigned int scaleCount = battle->GetTickCount();
-    int i;
-    for (i = 0; i < 0xc; i++) {
-        unsigned short flags = *(unsigned short*)((char*)obj + 0xa24);
-        if (flags & (1 << i)) {
-            int id = i;
-            if (i > 3) {
-                id = i + 0xbc;
+extern "C" ARM void func_020d7534(struct Struct_020d7534_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned int var1 = var0->GetTickCount();
+    int var2;
+    for (var2 = 0; var2 < 0xc; var2++) {
+        unsigned short var3 = *(unsigned short*)((char*)arg0 + 0xa24);
+        if (var3 & (1 << var2)) {
+            int var4 = var2;
+            if (var2 > 3) {
+                var4 = var2 + 0xbc;
             }
-            GameObject* combatant = battle->GetGameObjectByIndex(id);
-            if (combatant != 0) {
-                struct Vec3_020d7534 v = *(struct Vec3_020d7534*)((char*)combatant + 0x84);
-                v.y = ((Object3D*)((struct IntField0x68_020377bc*)combatant))->GetHeight();
-                func_020d74a4(obj, i, v);
+            GameObject* var5 = var0->GetGameObjectByIndex(var4);
+            if (var5 != 0) {
+                struct Struct_020d7534 var6 = *(struct Struct_020d7534*)((char*)var5 + 0x84);
+                var6.unknown_4_ = ((Object3D*)((struct Struct_020a2be8*)var5))->GetHeight();
+                func_020d74a4(arg0, var2, var6);
 
-                if (obj[i].fieldD0 == 4) {
-                    struct Actor020d7534* actor = &obj[i];
-                    int limit = 0x6488;
-                    struct Vec3_020d7534 tmp = actor->pos;
-                    tmp.y = tmp.y + 0x66 + 0x200;
-                    if (tmp.y > limit) {
-                        tmp.y = tmp.y - limit;
+                if (arg0[var2].unknown_d0_ == 4) {
+                    struct Struct_020d7534_2* var7 = &arg0[var2];
+                    int var8 = 0x6488;
+                    struct Struct_020d7534 var9 = var7->unknown_50_;
+                    var9.unknown_4_ = var9.unknown_4_ + 0x66 + 0x200;
+                    if (var9.unknown_4_ > var8) {
+                        var9.unknown_4_ = var9.unknown_4_ - var8;
                     }
-                    *(Vector3i*)((int*)&actor->pos) = *(Vector3i const*)((int*)&tmp);
+                    *(Vector3i*)((int*)&var7->unknown_50_) = *(Vector3i const*)((int*)&var9);
                 }
-                func_0205a020((unsigned char*)&obj[i], scaleCount);
+                func_0205a020((unsigned char*)&arg0[var2], var1);
             }
         }
     }

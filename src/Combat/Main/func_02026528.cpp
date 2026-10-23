@@ -5,18 +5,18 @@ extern "C" void func_02042764(const char*, char*, int);
 extern char data_020ef6ca;
 
 // USA: func_02026528
-extern "C" ARM void func_02026528(char* obj, char* name) {
+extern "C" ARM void func_02026528(char* arg0, char* arg1) {
 #if defined(jpn)
-    if (name != NULL && *name != 0) {
-        strcpy(obj + 0x698, name);
+    if (arg1 != NULL && *arg1 != 0) {
+        strcpy(arg0 + 0x698, arg1);
     } else {
-        strcpy(obj + 0x698, &data_020ef6ca);
+        strcpy(arg0 + 0x698, &data_020ef6ca);
     }
 #else
-    if (name != NULL && *name != 0) {
-        func_02042764(name, obj + 0x724, 1);
+    if (arg1 != NULL && *arg1 != 0) {
+        func_02042764(arg1, arg0 + 0x724, 1);
     } else {
-        strcpy(obj + 0x724, &data_020ef6ca);
+        strcpy(arg0 + 0x724, &data_020ef6ca);
     }
 #endif
 }

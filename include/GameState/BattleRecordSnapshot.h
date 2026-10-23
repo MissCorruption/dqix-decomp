@@ -3,97 +3,96 @@
 
 
 
-struct BattleRecordPlayClock {
-    unsigned short hours;
-    unsigned char minutes;
-    unsigned char seconds;
+struct Struct_020ac4f8 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
 
-extern "C" void func_ov008_02184598(BattleRecordPlayClock*);
+extern "C" void func_ov008_02184598(Struct_020ac4f8*);
 
-struct BattleRecordClockPair {
-    BattleRecordPlayClock elapsed;
-    BattleRecordPlayClock committed;
+struct Struct_02061c04_2 {
+    Struct_020ac4f8 unknown_0_;
+    Struct_020ac4f8 unknown_4_;
 };
 
-struct BattleRecordCapture {
-    BattleRecordPlayClock playClock;
-    BattleRecordPlayClock committedPlayClock;
-    unsigned int unknown08_0 : 17;
-    unsigned int unknown08_17 : 7;
-    unsigned int unknown08_24 : 7;
-    unsigned int unknown08_31 : 1;
-    unsigned int unknown0c_0 : 17;
-    unsigned int unknown0c_17 : 7;
-    unsigned int unknown0c_24 : 7;
-    unsigned int unknown0c_31 : 1;
-    unsigned int unknown10_0 : 9;
-    unsigned int unknown10_9 : 14;
-    unsigned int unknown10_23 : 9;
-    unsigned int unknown14_0 : 8;
-    unsigned int unknown14_8 : 14;
-    unsigned int unknown14_22 : 10;
-    unsigned int unknown18_0 : 24;
-    unsigned int captured : 1;
-    unsigned int unknown18_25 : 7;
-    unsigned int unknown1c;
+struct Struct_02061c04_3 {
+    Struct_020ac4f8 unknown_0_;
+    Struct_020ac4f8 unknown_4_;
+    unsigned int unknown_8_0_ : 17;
+    unsigned int unknown_a_1_ : 7;
+    unsigned int unknown_b_0_ : 7;
+    unsigned int unknown_b_7_ : 1;
+    unsigned int unknown_c_0_ : 17;
+    unsigned int unknown_e_1_ : 7;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 9;
+    unsigned int unknown_14_0_ : 8;
+    unsigned int unknown_15_0_ : 14;
+    unsigned int unknown_16_6_ : 10;
+    unsigned int unknown_18_0_ : 24;
+    unsigned int unknown_1b_0_ : 1;
+    unsigned int unknown_1b_1_ : 7;
+    unsigned int unknown_1c_;
 };
 
-struct BattleRecordSnapshot {
-    BattleRecordClockPair clocks;
-    unsigned int unknown08_0 : 24;
-    unsigned int unknown08_24 : 8;
-    unsigned int unknown0c_0 : 14;
-    unsigned int unknown0c_14 : 14;
-    unsigned int unknown0c_28 : 4;
-    unsigned int unknown10_0 : 9;
-    unsigned int unknown10_9 : 14;
-    unsigned int unknown10_23 : 9;
-    unsigned int unknown14_0 : 9;
-    unsigned int unknown14_9 : 9;
-    unsigned int unknown14_18 : 11;
-    unsigned int unknown14_29 : 3;
-    unsigned int unknown18_0 : 9;
-    unsigned int unknown18_9 : 7;
-    unsigned int unknown18_16 : 4;
-    unsigned int unknown18_20 : 12;
-    unsigned int unknown1c_0 : 16;
-    unsigned int unknown1c_16 : 16;
-    unsigned int unknown20_0 : 16;
-    unsigned int unknown20_16 : 16;
-    unsigned int unknown24;
-    unsigned int unknown28_0 : 12;
-    unsigned int unknown28_12 : 10;
-    unsigned int unknown28_22 : 10;
-    unsigned int unknown2c_0 : 24;
-    unsigned int unknown2c_24 : 8;
-    unsigned int unknown30_0 : 24;
-    unsigned int unknown30_24 : 8;
-    unsigned int unknown34_0 : 24;
-    unsigned int unknown34_24 : 8;
-    unsigned int unknown38_0 : 24;
-    unsigned int unknown38_24 : 8;
-    unsigned int unknown3c_0 : 24;
-    unsigned int unknown3c_24 : 8;
-    unsigned int unknown40_0 : 24;
-    unsigned int unknown40_24 : 8;
-    unsigned int unknown44;
-    unsigned int unknown48;
-    unsigned char unknown4c[0x1c];
-    BattleRecordClockPair secondaryClocks;
-    unsigned int unknown70[5];
-    unsigned int unknown84_0 : 10;
-    unsigned int unknown84_10 : 16;
-    unsigned int unknown84_26 : 6;
-    unsigned int unknown88_0 : 24;
-    unsigned int unknown88_24 : 8;
-    unsigned int unknown8c_0 : 24;
-    unsigned int unknown8c_24 : 8;
-    BattleRecordCapture capture;
+struct Struct_02061c04 {
+    Struct_02061c04_2 unknown_0_;
+    unsigned int unknown_8_0_ : 24;
+    unsigned int unknown_b_0_ : 8;
+    unsigned int unknown_c_0_ : 14;
+    unsigned int unknown_d_6_ : 14;
+    unsigned int unknown_f_4_ : 4;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 9;
+    unsigned int unknown_14_0_ : 9;
+    unsigned int unknown_15_1_ : 9;
+    unsigned int unknown_16_2_ : 11;
+    unsigned int unknown_17_5_ : 3;
+    unsigned int unknown_18_0_ : 9;
+    unsigned int unknown_19_1_ : 7;
+    unsigned int unknown_1a_0_ : 4;
+    unsigned int unknown_1a_4_ : 12;
+    unsigned int unknown_1c_0_ : 16;
+    unsigned int unknown_1e_0_ : 16;
+    unsigned int unknown_20_0_ : 16;
+    unsigned int unknown_22_0_ : 16;
+    unsigned int unknown_24_;
+    unsigned int unknown_28_0_ : 12;
+    unsigned int unknown_29_4_ : 10;
+    unsigned int unknown_2a_6_ : 10;
+    unsigned int unknown_2c_0_ : 24;
+    unsigned int unknown_2f_0_ : 8;
+    unsigned int unknown_30_0_ : 24;
+    unsigned int unknown_33_0_ : 8;
+    unsigned int unknown_34_0_ : 24;
+    unsigned int unknown_37_0_ : 8;
+    unsigned int unknown_38_0_ : 24;
+    unsigned int unknown_3b_0_ : 8;
+    unsigned int unknown_3c_0_ : 24;
+    unsigned int unknown_3f_0_ : 8;
+    unsigned int unknown_40_0_ : 24;
+    unsigned int unknown_43_0_ : 8;
+    unsigned int unknown_44_;
+    unsigned int unknown_48_;
+    unsigned char unknown_4c_[0x1c];
+    Struct_02061c04_2 unknown_68_;
+    unsigned int unknown_70_[5];
+    unsigned int unknown_84_0_ : 10;
+    unsigned int unknown_85_2_ : 16;
+    unsigned int unknown_87_2_ : 6;
+    unsigned int unknown_88_0_ : 24;
+    unsigned int unknown_8b_0_ : 8;
+    unsigned int unknown_8c_0_ : 24;
+    unsigned int unknown_8f_0_ : 8;
+    Struct_02061c04_3 unknown_90_;
 };
 
-typedef char BattleRecordSnapshotSizeCheck[sizeof(BattleRecordSnapshot) == 0xb0 ? 1 : -1];
 
-extern "C" int func_020ac4c0(void* destination);
+extern "C" int func_020ac4c0(void* arg0);
 
 #endif

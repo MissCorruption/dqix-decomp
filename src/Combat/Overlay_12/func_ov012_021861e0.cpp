@@ -3,48 +3,48 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kWidgetCount = 17, kWidgetArrayOffset = 0x133c, kTargetOffset = 0x1338, kContainerOffset = 0x1334, kTaskOffset = 0x135c, kAllocatorOffset = 0x54 };
+enum { Enum_ov012_021861e0_19 = 17, Enum_ov012_021861e0_4964 = 0x133c, Enum_ov012_021861e0_4960 = 0x1338, Enum_ov012_021861e0_4956 = 0x1334, Enum_ov012_021861e0_5008 = 0x135c, Enum_ov012_021861e0_92 = 0x54 };
 #else
-enum { kWidgetCount = 19, kWidgetArrayOffset = 0x1364, kTargetOffset = 0x1360, kContainerOffset = 0x135c, kTaskOffset = 0x1390, kAllocatorOffset = 0x5c };
+enum { Enum_ov012_021861e0_19 = 19, Enum_ov012_021861e0_4964 = 0x1364, Enum_ov012_021861e0_4960 = 0x1360, Enum_ov012_021861e0_4956 = 0x135c, Enum_ov012_021861e0_5008 = 0x1390, Enum_ov012_021861e0_92 = 0x5c };
 #endif
 
-struct Struct0205a198;
-extern "C" void func_0205a198(Struct0205a198*);
-struct ClearTarget0205a234;
-extern "C" void func_0205a234(ClearTarget0205a234*);
+struct Struct_02043368_2;
+extern "C" void func_0205a198(Struct_02043368_2*);
+struct Struct_02043368;
+extern "C" void func_0205a234(Struct_02043368*);
 extern "C" void func_0205a444(char*);
-struct ActiveEntry02046900;
-extern "C" int func_02046900(ActiveEntry02046900*);
-struct Rec020467f0;
-extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(Struct_02020cb8_4*);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
 extern "C" void func_0205a528(void*, void*, int, void*);
 
 // USA: func_ov012_021861e0
-extern "C" ARM void func_ov012_021861e0(char* editor) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    for (unsigned char i = 0; i < kWidgetCount; ++i)
-        func_0205a198((Struct0205a198*)(*(char**)(editor + kWidgetArrayOffset) + i * 0x28));
-    func_0205a234(*(ClearTarget0205a234**)(editor + kTargetOffset));
-    func_0205a444(*(char**)(editor + kContainerOffset));
-    *(unsigned char*)(*(char**)(editor + kContainerOffset) + 0x50) = 0;
-    char* container = *(char**)(editor + kContainerOffset);
-    *(void**)(container + 0x40) = *(void**)(editor + kWidgetArrayOffset);
-    *(short*)(container + 0x4c) = kWidgetCount;
-    void* target = *(void**)(editor + kTargetOffset);
-    char* refreshedContainer = *(char**)(editor + kContainerOffset);
-    *(void**)(refreshedContainer + 0x3c) = target;
+extern "C" ARM void func_ov012_021861e0(char* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    for (unsigned char var1 = 0; var1 < Enum_ov012_021861e0_19; ++var1)
+        func_0205a198((Struct_02043368_2*)(*(char**)(arg0 + Enum_ov012_021861e0_4964) + var1 * 0x28));
+    func_0205a234(*(Struct_02043368**)(arg0 + Enum_ov012_021861e0_4960));
+    func_0205a444(*(char**)(arg0 + Enum_ov012_021861e0_4956));
+    *(unsigned char*)(*(char**)(arg0 + Enum_ov012_021861e0_4956) + 0x50) = 0;
+    char* var2 = *(char**)(arg0 + Enum_ov012_021861e0_4956);
+    *(void**)(var2 + 0x40) = *(void**)(arg0 + Enum_ov012_021861e0_4964);
+    *(short*)(var2 + 0x4c) = Enum_ov012_021861e0_19;
+    void* var3 = *(void**)(arg0 + Enum_ov012_021861e0_4960);
+    char* var4 = *(char**)(arg0 + Enum_ov012_021861e0_4956);
+    *(void**)(var4 + 0x3c) = var3;
 
-    void* recordOut;
-    void* fileData;
-    unsigned int fileSize;
-    int fieldOut;
-    loader->GetLoadedFileByID(*(int*)(editor + kTaskOffset), &fileData, &fileSize);
-    int count = func_02046900((ActiveEntry02046900*)fileData);
-    ((SafeAllocator*)(editor + kAllocatorOffset))->Reset();
-    for (int i = 0; i < count; ++i) {
-        void* record = func_020467f0((Rec020467f0*)fileData, i, &recordOut, &fieldOut);
-        func_0205a528(*(char**)(editor + kContainerOffset), record, fieldOut, editor + kAllocatorOffset);
+    void* var5;
+    void* var6;
+    unsigned int var7;
+    int var8;
+    var0->GetLoadedFileByID(*(int*)(arg0 + Enum_ov012_021861e0_5008), &var6, &var7);
+    int var9 = func_02046900((Struct_02020cb8_4*)var6);
+    ((SafeAllocator*)(arg0 + Enum_ov012_021861e0_92))->Reset();
+    for (int var10 = 0; var10 < var9; ++var10) {
+        void* var11 = func_020467f0((Struct_02020aec*)var6, var10, &var5, &var8);
+        func_0205a528(*(char**)(arg0 + Enum_ov012_021861e0_4956), var11, var8, arg0 + Enum_ov012_021861e0_92);
     }
-    loader->RemoveTask(*(int*)(editor + kTaskOffset));
-    *(int*)(editor + kTaskOffset) = -1;
+    var0->RemoveTask(*(int*)(arg0 + Enum_ov012_021861e0_5008));
+    *(int*)(arg0 + Enum_ov012_021861e0_5008) = -1;
 }

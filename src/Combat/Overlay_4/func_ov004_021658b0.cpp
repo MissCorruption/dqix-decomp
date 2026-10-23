@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Info02011930;
-extern "C" unsigned char func_02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
-extern "C" void func_ov011_021848a0(void* obj, int val);
-extern "C" unsigned char func_020119cc(void* obj);
+struct Struct_02011930;
+extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
+extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" unsigned char func_020119cc(void* arg0);
 
 // USA: func_ov004_021658b0
-extern "C" ARM int func_ov004_021658b0(void* a) {
+extern "C" ARM int func_ov004_021658b0(void* arg0) {
 #if defined(jpn)
-    enum { fieldOffset = 0x1ee };
+    enum { Enum_ov004_021658b0_1134 = 0x1ee };
 #else
-    enum { fieldOffset = 0x46e };
+    enum { Enum_ov004_021658b0_1134 = 0x46e };
 #endif
-    void* bs = GameState::GetInstance();
-    unsigned char r = func_02011930(bs, NULL, NULL, NULL);
-    if (r != 0) {
-        func_ov011_021848a0(a, 0x64);
-        char* bs2 = (char*)GameState::GetInstance();
-        bs2[0x6000 + fieldOffset] = 1;
-        func_020119cc(bs);
+    void* var0 = GameState::GetInstance();
+    unsigned char var1 = func_02011930(var0, NULL, NULL, NULL);
+    if (var1 != 0) {
+        func_ov011_021848a0(arg0, 0x64);
+        char* var2 = (char*)GameState::GetInstance();
+        var2[0x6000 + Enum_ov004_021658b0_1134] = 1;
+        func_020119cc(var0);
     } else {
-        func_ov011_021848a0(a, 0x65);
+        func_ov011_021848a0(arg0, 0x65);
     }
     return 0;
 }

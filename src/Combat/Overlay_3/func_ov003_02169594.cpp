@@ -1,81 +1,81 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValueE8_E4 = 0xe4 };
-enum { kRegionValue194_190 = 0x190 };
-enum { kRegionValue188_184 = 0x184 };
-enum { kRegionValue4ED_4E9 = 0x4e9 };
-enum { kRegionValue195_191 = 0x191 };
+enum { Enum_ov003_02169594_232 = 0xe4 };
+enum { Enum_ov003_02169594_404 = 0x190 };
+enum { Enum_ov003_02169594_392 = 0x184 };
+enum { Enum_ov003_02169594_1261 = 0x4e9 };
+enum { Enum_ov003_02169594_405 = 0x191 };
 #else
-enum { kRegionValueE8_E4 = 0xe8 };
-enum { kRegionValue194_190 = 0x194 };
-enum { kRegionValue188_184 = 0x188 };
-enum { kRegionValue4ED_4E9 = 0x4ed };
-enum { kRegionValue195_191 = 0x195 };
+enum { Enum_ov003_02169594_232 = 0xe8 };
+enum { Enum_ov003_02169594_404 = 0x194 };
+enum { Enum_ov003_02169594_392 = 0x188 };
+enum { Enum_ov003_02169594_1261 = 0x4ed };
+enum { Enum_ov003_02169594_405 = 0x195 };
 #endif
 
 struct Struct_0205ba68;
-struct Node0205bacc;
+struct Struct_0205bacc;
 struct Struct_0205bcdc;
 
-extern "C" void func_0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
-extern "C" void func_0205bacc(struct Node0205bacc* s, int val);
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* s, int index);
-extern "C" void func_0205bb04(void* s, int n);
+extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+extern "C" void func_0205bb04(void* arg0, int arg1);
 
-struct Grid02169594 {
-    int field0;
-    int field4;
-    char pad8[0x3c - 0x8];
-    unsigned char field3c;
-    char pad3d[0x50 - 0x3d];
+struct Struct_ov003_02169594 {
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[0x3c - 0x8];
+    unsigned char unknown_3c_;
+    char unknown_3d_[0x50 - 0x3d];
 };
 
-struct Ctx02169594 {
-    char pad0[kRegionValueE8_E4];
-    struct Grid02169594 grids[2];
-    char pad188[kRegionValue194_190 - kRegionValue188_184];
-    unsigned char layout;
-    char pad195[kRegionValue4ED_4E9 - kRegionValue195_191];
-    signed char indexA;
-    signed char indexB;
+struct Struct_ov003_02169594_2 {
+    char unknown_0_[Enum_ov003_02169594_232];
+    struct Struct_ov003_02169594 unknown_e8_[2];
+    char unknown_188_[Enum_ov003_02169594_404 - Enum_ov003_02169594_392];
+    unsigned char unknown_194_;
+    char unknown_195_[Enum_ov003_02169594_1261 - Enum_ov003_02169594_405];
+    signed char unknown_4ed_;
+    signed char unknown_4ee_;
 };
 
-static inline struct Grid02169594* GetGrid(struct Ctx02169594* ctx, int i) { return &ctx->grids[i]; }
+static inline struct Struct_ov003_02169594* inline_ov003_02169594(struct Struct_ov003_02169594_2* arg0, int arg1) { return &arg0->unknown_e8_[arg1]; }
 
 // USA: func_ov003_02169594
-extern "C" ARM void func_ov003_02169594(struct Ctx02169594* self) {
-    int cols;
-    int rows;
-    int count;
-    int field4;
-    int index;
+extern "C" ARM void func_ov003_02169594(struct Struct_ov003_02169594_2* arg0) {
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
 
-    switch (self->layout) {
+    switch (arg0->unknown_194_) {
     case 1:
-        cols = 1;
-        rows = 3;
-        count = 3;
-        field4 = 1;
-        index = self->indexA;
+        var0 = 1;
+        var1 = 3;
+        var2 = 3;
+        var3 = 1;
+        var4 = arg0->unknown_4ed_;
         break;
     case 2:
-        index = self->indexB;
-        cols = 4;
-        rows = 1;
-        count = 4;
-        field4 = 1;
+        var4 = arg0->unknown_4ee_;
+        var0 = 4;
+        var1 = 1;
+        var2 = 4;
+        var3 = 1;
         break;
     }
 
-    func_0205ba68((struct Struct_0205ba68*)GetGrid(self, 0), cols, rows, 0);
-    func_0205ba68((struct Struct_0205ba68*)GetGrid(self, 1), cols, rows, 0);
-    func_0205bacc((struct Node0205bacc*)GetGrid(self, 0), count);
-    func_0205bacc((struct Node0205bacc*)GetGrid(self, 1), count);
-    GetGrid(self, 0)->field4 = field4;
-    GetGrid(self, 1)->field4 = field4;
-    func_0205bcdc((struct Struct_0205bcdc*)GetGrid(self, 0), index);
-    func_0205bb04(GetGrid(self, 1), index);
-    struct Grid02169594* grid = GetGrid(self, 1);
-    grid->field3c = 0;
+    func_0205ba68((struct Struct_0205ba68*)inline_ov003_02169594(arg0, 0), var0, var1, 0);
+    func_0205ba68((struct Struct_0205ba68*)inline_ov003_02169594(arg0, 1), var0, var1, 0);
+    func_0205bacc((struct Struct_0205bacc*)inline_ov003_02169594(arg0, 0), var2);
+    func_0205bacc((struct Struct_0205bacc*)inline_ov003_02169594(arg0, 1), var2);
+    inline_ov003_02169594(arg0, 0)->unknown_4_ = var3;
+    inline_ov003_02169594(arg0, 1)->unknown_4_ = var3;
+    func_0205bcdc((struct Struct_0205bcdc*)inline_ov003_02169594(arg0, 0), var4);
+    func_0205bb04(inline_ov003_02169594(arg0, 1), var4);
+    struct Struct_ov003_02169594* var5 = inline_ov003_02169594(arg0, 1);
+    var5->unknown_3c_ = 0;
 }

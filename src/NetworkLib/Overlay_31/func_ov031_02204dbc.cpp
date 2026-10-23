@@ -6,12 +6,12 @@ extern "C" int func_ov031_02204df8(void);
 extern void* data_ov031_022496a4;
 
 // USA: func_ov031_02204dbc
-extern "C" ARM int func_ov031_02204dbc(void* a) {
+extern "C" ARM int func_ov031_02204dbc(void* arg0) {
 	func_02000b9c(0x2000c1c);
 	if (data_ov031_022496a4 != NULL) {
 		return 0;
 	}
-	data_ov031_022496a4 = a;
+	data_ov031_022496a4 = arg0;
 	func_ov031_02204e38();
 	return func_ov031_02204df8();
 }

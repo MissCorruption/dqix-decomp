@@ -1,112 +1,112 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-struct Obj020e0688 {
-    unsigned char pad0[0x55c];
-    unsigned char flag_55c;
+struct Struct_020e0688_2 {
+    unsigned char unknown_0_[0x55c];
+    unsigned char unknown_55c_;
 #if defined(jpn)
-    unsigned char pad1[0x6bc - 0x55d];
+    unsigned char unknown_55d_[0x6bc - 0x55d];
 #else
-    unsigned char pad1[0x768 - 0x55d];
+    unsigned char unknown1_55d_[0x768 - 0x55d];
 #endif
-    unsigned char flag_768;
-    unsigned char pad2[0x9c5 - 0x769];
-    unsigned char flag_9c5;
-    unsigned char pad3[0xa0c - 0x9c6];
-    int handle_a0c;
+    unsigned char unknown_768_;
+    unsigned char unknown_769_[0x9c5 - 0x769];
+    unsigned char unknown_9c5_;
+    unsigned char unknown_9c6_[0xa0c - 0x9c6];
+    int unknown_a0c_;
 };
 
-struct FlagWord02046708;
-extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+struct Struct_02012de8;
+extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 extern "C" void* func_020d6c00(void);
-extern "C" void func_02022b90(void* owner, int* handle);
+extern "C" void func_02022b90(void* arg0, int* arg1);
 extern "C" void func_020c9820(void);
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-struct List0204af64;
-extern "C" void func_0204af64(struct List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 
 extern "C" void func_0204b5b4(void*, int);
 
-struct Obj0204b5e8;
-extern "C" int func_0204b5e8(struct Obj0204b5e8* obj, int a, int b);
+struct Struct_02020cb8_5;
+extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 
-extern "C" void func_0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
-struct SelfTag0204b3a0;
-extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
+struct Struct_02020cb8_6;
+extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
 
-struct List0204b0e8;
-extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
 
-struct List0204afb4;
-extern "C" void func_0204afb4(struct List0204afb4* obj);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
 
-struct LocalList020e0688 {
-    unsigned char pad0[0x1c];
-    unsigned char lo : 4;
-    unsigned char hi : 4;
-    unsigned char pad1d[3];
+struct Struct_020e0688 {
+    unsigned char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_[3];
 };
 
 // USA: func_020e0688
-extern "C" ARM void func_020e0688(struct Obj020e0688* self) {
-    if (self->flag_9c5 == 0) {
+extern "C" ARM void func_020e0688(struct Struct_020e0688_2* arg0) {
+    if (arg0->unknown_9c5_ == 0) {
         return;
     }
 
-    if (func_02046708((struct FlagWord02046708*)func_020d6c00(), 0x41)) {
+    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 0x41)) {
         return;
     }
 
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int status = loader->GetTaskStatus(self->handle_a0c);
-    if (status == 0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    int var1 = var0->GetTaskStatus(arg0->unknown_a0c_);
+    if (var1 == 0) {
         return;
     }
 
-    if (status == -1) {
+    if (var1 == -1) {
         *(volatile unsigned int*)0x04001000 = (*(volatile unsigned int*)0x04001000 & ~0x1f00) | 0x200;
-        self->flag_768 = 0;
+        arg0->unknown_768_ = 0;
     } else {
-        int recListHead = 0;
-        int val2Ignored = 0;
-        void* dummyPtr;
-        void* arrayC[3];
-        int arrayB[3];
-        LocalList020e0688 s;
+        int var2 = 0;
+        int var3 = 0;
+        void* var4;
+        void* var5[3];
+        int var6[3];
+        Struct_020e0688 var7;
 
-        loader->GetLoadedFileByID(self->handle_a0c, (void**)(&recListHead), (unsigned int*)(&val2Ignored));
-        int count = func_02046900((struct ActiveEntry02046900*)recListHead);
-        for (int i = 0; i < count; i++) {
-            arrayC[i] = func_020467f0((struct Rec020467f0*)recListHead, i, &dummyPtr, &arrayB[i]);
+        var0->GetLoadedFileByID(arg0->unknown_a0c_, (void**)(&var2), (unsigned int*)(&var3));
+        int var8 = func_02046900((struct Struct_02020cb8_4*)var2);
+        for (int var9 = 0; var9 < var8; var9++) {
+            var5[var9] = func_020467f0((struct Struct_02020aec*)var2, var9, &var4, &var6[var9]);
         }
 
         func_020c9820();
-        func_0204af64((struct List0204af64*)&s);
-        s.lo = 1;
-        s.hi = 0;
-        func_0204b5b4(&s, 2);
-        func_0204b11c((unsigned char*)&s, 0);
-        func_0204b5e8((struct Obj0204b5e8*)&s, 0, 0);
+        func_0204af64((struct Struct_02020cb8*)&var7);
+        var7.unknown_1c_0_ = 1;
+        var7.unknown_1c_4_ = 0;
+        func_0204b5b4(&var7, 2);
+        func_0204b11c((unsigned char*)&var7, 0);
+        func_0204b5e8((struct Struct_02020cb8_5*)&var7, 0, 0);
 
-        for (int i = 0; i < count; i++) {
-            func_0204b2e0(&s, (char*)arrayC[i]);
-            func_0204b3a0((struct SelfTag0204b3a0*)&s, (char*)arrayC[i]);
+        for (int var10 = 0; var10 < var8; var10++) {
+            func_0204b2e0(&var7, (char*)var5[var10]);
+            func_0204b3a0((struct Struct_02020cb8_6*)&var7, (char*)var5[var10]);
         }
 
-        func_0204b0e8((struct List0204b0e8*)&s, 0);
-        func_0204afb4((struct List0204afb4*)&s);
+        func_0204b0e8((struct Struct_02020cb8_2*)&var7, 0);
+        func_0204afb4((struct Struct_02020cb8_3*)&var7);
     }
 
-    func_02022b90(self, &self->handle_a0c);
-    self->flag_55c = 1;
-    self->flag_9c5 = 0;
+    func_02022b90(arg0, &arg0->unknown_a0c_);
+    arg0->unknown_55c_ = 1;
+    arg0->unknown_9c5_ = 0;
 }

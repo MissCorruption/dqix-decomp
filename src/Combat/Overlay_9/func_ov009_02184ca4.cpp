@@ -2,9 +2,9 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
 
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(Obj0205d2bc*);
-extern "C" void func_0204b088(CreationTileMap*, void*);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(Struct_0205d2bc*);
+extern "C" void func_0204b088(Struct_02000c9c_7*, void*);
 #if defined(jpn)
 extern "C" void func_ov009_02184e58(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
@@ -19,44 +19,44 @@ extern "C" void func_ov023_021d9e60(char*);
 extern "C" void func_ov023_021da1dc(unsigned char*);
 #endif
 
-extern "C" ARM void func_ov009_02184ca4(unsigned char* storage) {
-    CharacterCreationUI* editor = (CharacterCreationUI*)storage;
+extern "C" ARM void func_ov009_02184ca4(unsigned char* arg0) {
+    Struct_ov009_021842a0* var0 = (Struct_ov009_021842a0*)arg0;
 #if defined(jpn)
-    func_ov009_02184e58(storage);
+    func_ov009_02184e58(arg0);
 #else
-    func_ov009_02184e58(storage);
+    func_ov009_02184e58(arg0);
 #endif
-    signed char state = editor->state;
-    if (state == 0 || state == 12)
+    signed char var1 = var0->unknown_c58_;
+    if (var1 == 0 || var1 == 12)
         return;
-    if (editor->flags & 0x80)
+    if (var0->unknown_d9c_ & 0x80)
         return;
-    func_0205d2bc((Obj0205d2bc*)&editor->windows[0]);
-    func_0205d2bc((Obj0205d2bc*)&editor->windows[1]);
-    if (editor->flags & 0x1000) {
-        func_0204b088(&editor->tileMaps[0], 0);
-        editor->flags &= ~0x1000;
+    func_0205d2bc((Struct_0205d2bc*)&var0->unknown_1f8_[0]);
+    func_0205d2bc((Struct_0205d2bc*)&var0->unknown_1f8_[1]);
+    if (var0->unknown_d9c_ & 0x1000) {
+        func_0204b088(&var0->unknown_158_[0], 0);
+        var0->unknown_d9c_ &= ~0x1000;
     }
-    if (editor->flags & 0x2000) {
-        func_0204b088(&editor->tileMaps[3], 0);
+    if (var0->unknown_d9c_ & 0x2000) {
+        func_0204b088(&var0->unknown_158_[3], 0);
 #if defined(jpn)
-        if (editor->state == 8 || editor->state == 9)
+        if (var0->unknown_c58_ == 8 || var0->unknown_c58_ == 9)
 #else
-        signed char range = state - 8;
-        if ((unsigned char)range <= 1)
+        signed char var2 = var1 - 8;
+        if ((unsigned char)var2 <= 1)
 #endif
-            func_0204b088(&editor->tileMaps[2], 0);
-        editor->flags &= ~0x2000;
+            func_0204b088(&var0->unknown_158_[2], 0);
+        var0->unknown_d9c_ &= ~0x2000;
     }
 #if defined(jpn)
-    func_ov023_021d9a6c((char*)storage);
-    func_ov023_021d9d34((char*)storage);
-    func_ov023_021d9e60((char*)storage);
-    func_ov023_021da1dc(storage);
+    func_ov023_021d9a6c((char*)arg0);
+    func_ov023_021d9d34((char*)arg0);
+    func_ov023_021d9e60((char*)arg0);
+    func_ov023_021da1dc(arg0);
 #else
-    func_ov023_021d9a6c((char*)storage);
-    func_ov023_021d9d34((char*)storage);
-    func_ov023_021d9e60((char*)storage);
-    func_ov023_021da1dc(storage);
+    func_ov023_021d9a6c((char*)arg0);
+    func_ov023_021d9d34((char*)arg0);
+    func_ov023_021d9e60((char*)arg0);
+    func_ov023_021da1dc(arg0);
 #endif
 }

@@ -9,116 +9,116 @@
 #define REGION_VALUE(j, u) (u)
 #endif
 
-struct S020a13c4;
-struct Array020a15bc;
-struct Struct020dfc40;
-struct Foo02168c38 {
-    unsigned int a;
-    void* ptr;
-    unsigned int c;
-    char pad[0x38];
-    char buf[REGION_VALUE(0x118, 0x200)];
+struct Struct_020a13c4;
+struct Struct_020a15bc;
+struct Struct_0201099c_14;
+struct Struct_ov002_021688f8 {
+    unsigned int unknown_0_;
+    void* unknown_4_;
+    unsigned int unknown_8_;
+    char unknown_c_[0x38];
+    char unknown_44_[REGION_VALUE(0x118, 0x200)];
 };
-struct Flags02168 {
-    unsigned char pad[0x49c];
-    unsigned char bit0 : 1;
+struct Struct_ov002_021688f8_2 {
+    unsigned char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
 };
-struct Container020e0310;
-extern "C" int func_ov002_02168c00(unsigned char *p);
-extern "C" void func_020a13c4(struct S020a13c4 *s);
-extern "C" void func_020a13e4(void *p, void *alloc, int a, unsigned short b, unsigned char c);
-extern "C" void *func_020a15bc(struct Array020a15bc *arr, int key);
-extern "C" void *func_020dfc2c(void *p);
-extern "C" void func_020dfc40(struct Struct020dfc40 *s);
-extern "C" void func_ov002_02168c38(struct Foo02168c38 *f);
-extern "C" void func_ov002_02168d10(unsigned char *rec, int v);
-extern "C" int func_020e0434(struct Container020e0310 *c, int key);
-extern "C" void *ExtractFileFromGP2(const char *gp2Path, const char *innerFilePath, unsigned int *outSize);
-extern "C" int func_ov023_021ed724(void *p, short *keys, int n);
-extern "C" void func_020e0028(void *c, void *alloc, void *data, unsigned int size, short *keys, unsigned short n);
-extern "C" void func_ov002_02168ca8(unsigned char *rec, void *elem);
-extern "C" int sprintf(char *dst, const char *fmt, ...);
-extern "C" void *__clear(void *dst, int count);
+struct Struct_0201099c_3;
+extern "C" int func_ov002_02168c00(unsigned char *arg0);
+extern "C" void func_020a13c4(struct Struct_020a13c4 *arg0);
+extern "C" void func_020a13e4(void *arg0, void *arg1, int arg2, unsigned short arg3, unsigned char arg4);
+extern "C" void *func_020a15bc(struct Struct_020a15bc *arg0, int arg1);
+extern "C" void *func_020dfc2c(void *arg0);
+extern "C" void func_020dfc40(struct Struct_0201099c_14 *arg0);
+extern "C" void func_ov002_02168c38(struct Struct_ov002_021688f8 *arg0);
+extern "C" void func_ov002_02168d10(unsigned char *arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
+extern "C" int func_ov023_021ed724(void *arg0, short *arg1, int arg2);
+extern "C" void func_020e0028(void *arg0, void *arg1, void *arg2, unsigned int arg3, short *arg4, unsigned short arg5);
+extern "C" void func_ov002_02168ca8(unsigned char *arg0, void *arg1);
+extern "C" int sprintf(char *arg0, const char *arg1, ...);
+extern "C" void *__clear(void *arg0, int arg1);
 extern "C" char data_ov002_0216d326[];
 extern "C" char data_ov002_0216d33d[];
 
 #if defined(jpn)
 extern "C" const char data_ov002_0216dab4[];
-extern "C" int func_020e1fc4(void* texts, SafeAllocator* allocator, const char* tablePath,
-    short* ids, unsigned short count, short variant, bool lock);
+extern "C" int func_020e1fc4(void* arg0, SafeAllocator* arg1, const char* arg2,
+    short* arg3, unsigned short arg4, short arg5, bool arg6);
 #endif
 
 // USA: func_ov002_021688f8; JPN: func_ov002_021691dc
-extern "C" ARM void func_ov002_021688f8(char *base) {
-    char ctr[0x18];
+extern "C" ARM void func_ov002_021688f8(char *arg0) {
+    char var0[0x18];
 #if !defined(jpn)
-    char path[0x40];
-    char name[0x20];
-    unsigned int size;
+    char var1[0x40];
+    char var2[0x20];
+    unsigned int var3;
 #endif
-    short *keys;
-    unsigned char *tmp;
-    int j;
-    int n;
-    GameState *gs = GameState::GetInstance();
+    short *var4;
+    unsigned char *var5;
+    int var6;
+    int var7;
+    GameState *var8 = GameState::GetInstance();
     BackgroundLoader::GetInstance();
-    if (!func_ov002_02168c00(*(unsigned char **) (base + 0x2000 + REGION_VALUE(0x290, 0x460)))) return;
-    n = *(short *) (*(char **) (base + 0x2000 + REGION_VALUE(0x290, 0x460)) + 0x68);
-    if (n > 0) {
-        keys = (short *) ((SafeAllocator *) (base + REGION_VALUE(0x3c8, 0x64) + REGION_VALUE(0x400, 0x800)))->Allocate(n * 2);
-        for (int i = 0; i < n; i++) {
-            keys[i] = *(short *) (*(char **) (base + 0x2000 + REGION_VALUE(0x290, 0x460)) + i * 2 + 0x6a);
+    if (!func_ov002_02168c00(*(unsigned char **) (arg0 + 0x2000 + REGION_VALUE(0x290, 0x460)))) return;
+    var7 = *(short *) (*(char **) (arg0 + 0x2000 + REGION_VALUE(0x290, 0x460)) + 0x68);
+    if (var7 > 0) {
+        var4 = (short *) ((SafeAllocator *) (arg0 + REGION_VALUE(0x3c8, 0x64) + REGION_VALUE(0x400, 0x800)))->Allocate(var7 * 2);
+        for (int var9 = 0; var9 < var7; var9++) {
+            var4[var9] = *(short *) (*(char **) (arg0 + 0x2000 + REGION_VALUE(0x290, 0x460)) + var9 * 2 + 0x6a);
         }
-        *(void **) (base + 0x2000 + REGION_VALUE(0x290, 0x460)) = NULL;
-        ((SafeAllocator *) (base + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Reset();
-        *(void **) (base + 0x2000 + REGION_VALUE(0x294, 0x464)) = ((SafeAllocator *) (base + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Allocate(0x14);
-        func_020a13c4((struct S020a13c4 *) *(void **) (base + 0x2000 + REGION_VALUE(0x294, 0x464)));
-        func_020a13e4(*(void **) (base + 0x2000 + REGION_VALUE(0x294, 0x464)), base + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800), 0, 0, 4);
-        *(unsigned char *) (base + 0x2000 + REGION_VALUE(0x2a1, 0x471)) =
-            (func_ov023_021ed724(*(void **) (base + 0x2000 + REGION_VALUE(0x294, 0x464)), keys, n) & 1) ? 1 : 0;
-        char *hero = (char *) gs->GetProtagonist();
-        func_020dfc2c(ctr);
-        func_020dfc40((struct Struct020dfc40 *) ctr);
+        *(void **) (arg0 + 0x2000 + REGION_VALUE(0x290, 0x460)) = NULL;
+        ((SafeAllocator *) (arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Reset();
+        *(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)) = ((SafeAllocator *) (arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Allocate(0x14);
+        func_020a13c4((struct Struct_020a13c4 *) *(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)));
+        func_020a13e4(*(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800), 0, 0, 4);
+        *(unsigned char *) (arg0 + 0x2000 + REGION_VALUE(0x2a1, 0x471)) =
+            (func_ov023_021ed724(*(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4, var7) & 1) ? 1 : 0;
+        char *var10 = (char *) var8->GetProtagonist();
+        func_020dfc2c(var0);
+        func_020dfc40((struct Struct_0201099c_14 *) var0);
 #if defined(jpn)
-        func_020e1fc4(ctr, (SafeAllocator*)(base + 0x78c), data_ov002_0216dab4, keys,
-            (unsigned short)n, (*(struct Flags02168**)(hero + 0x144))->bit0, true);
+        func_020e1fc4(var0, (SafeAllocator*)(arg0 + 0x78c), data_ov002_0216dab4, var4,
+            (unsigned short)var7, (*(struct Struct_ov002_021688f8_2**)(var10 + 0x144))->unknown_49c_0_, true);
 #else
         BackgroundLoader::AddLockGlobal();
-        size = 0;
-        __clear(path, 0x40);
-        __clear(name, 0x20);
-        sprintf(path, data_ov002_0216d326, (*(struct Flags02168 **) (hero + 0x150))->bit0);
-        sprintf(name, data_ov002_0216d33d, (*(struct Flags02168 **) (hero + 0x150))->bit0);
-        void *data = ExtractFileFromGP2(path, name, &size);
-        if (data != NULL) {
-            func_020e0028(ctr, base + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800), data, size, keys, n);
+        var3 = 0;
+        __clear(var1, 0x40);
+        __clear(var2, 0x20);
+        sprintf(var1, data_ov002_0216d326, (*(struct Struct_ov002_021688f8_2 **) (var10 + 0x150))->unknown_49c_0_);
+        sprintf(var2, data_ov002_0216d33d, (*(struct Struct_ov002_021688f8_2 **) (var10 + 0x150))->unknown_49c_0_);
+        void *var11 = ExtractFileFromGP2(var1, var2, &var3);
+        if (var11 != NULL) {
+            func_020e0028(var0, arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800), var11, var3, var4, var7);
         }
         BackgroundLoader::RemoveLockGlobal();
 #endif
-        tmp = (unsigned char *) ((SafeAllocator *) (base + REGION_VALUE(0x3c8, 0x64) + REGION_VALUE(0x400, 0x800)))->Allocate(50 * sizeof(Foo02168c38));
-        for (j = 0; j < n; j++) {
-            func_ov002_02168c38((struct Foo02168c38 *) (tmp + j * sizeof(Foo02168c38)));
-            void *elem =
-                func_020a15bc(*(struct Array020a15bc **) (base + 0x2000 + REGION_VALUE(0x294, 0x464)), keys[j]);
-            if (elem == NULL) continue;
-            int text = func_020e0434((struct Container020e0310 *) ctr, keys[j]);
-            if (text == 0) continue;
-            func_ov002_02168ca8(tmp + j * sizeof(Foo02168c38), elem);
-            func_ov002_02168d10(tmp + j * sizeof(Foo02168c38), text);
+        var5 = (unsigned char *) ((SafeAllocator *) (arg0 + REGION_VALUE(0x3c8, 0x64) + REGION_VALUE(0x400, 0x800)))->Allocate(50 * sizeof(Struct_ov002_021688f8));
+        for (var6 = 0; var6 < var7; var6++) {
+            func_ov002_02168c38((struct Struct_ov002_021688f8 *) (var5 + var6 * sizeof(Struct_ov002_021688f8)));
+            void *var12 =
+                func_020a15bc(*(struct Struct_020a15bc **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)), var4[var6]);
+            if (var12 == NULL) continue;
+            int var13 = func_020e0434((struct Struct_0201099c_3 *) var0, var4[var6]);
+            if (var13 == 0) continue;
+            func_ov002_02168ca8(var5 + var6 * sizeof(Struct_ov002_021688f8), var12);
+            func_ov002_02168d10(var5 + var6 * sizeof(Struct_ov002_021688f8), var13);
         }
-        *(void **) (base + 0x2000 + REGION_VALUE(0x294, 0x464)) = NULL;
-        ((SafeAllocator *) (base + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Reset();
-        *(void **) (base + 0x2000 + REGION_VALUE(0x29c, 0x46c)) = ((SafeAllocator *) (base + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Allocate(n * sizeof(Foo02168c38));
-        for (int i = 0; i < n; i++) {
-            func_ov002_02168c38((struct Foo02168c38 *) (*(unsigned char **) (base + 0x2000 + REGION_VALUE(0x29c, 0x46c)) + i * sizeof(Foo02168c38)));
-            func_ov002_02168ca8(*(unsigned char **) (base + 0x2000 + REGION_VALUE(0x29c, 0x46c)) + i * sizeof(Foo02168c38), tmp + i * sizeof(Foo02168c38));
-            func_ov002_02168d10(*(unsigned char **) (base + 0x2000 + REGION_VALUE(0x29c, 0x46c)) + i * sizeof(Foo02168c38),
-                                                 (int) (tmp + i * sizeof(Foo02168c38) + 0xc));
+        *(void **) (arg0 + 0x2000 + REGION_VALUE(0x294, 0x464)) = NULL;
+        ((SafeAllocator *) (arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Reset();
+        *(void **) (arg0 + 0x2000 + REGION_VALUE(0x29c, 0x46c)) = ((SafeAllocator *) (arg0 + REGION_VALUE(0x38c, 0x28) + REGION_VALUE(0x400, 0x800)))->Allocate(var7 * sizeof(Struct_ov002_021688f8));
+        for (int var14 = 0; var14 < var7; var14++) {
+            func_ov002_02168c38((struct Struct_ov002_021688f8 *) (*(unsigned char **) (arg0 + 0x2000 + REGION_VALUE(0x29c, 0x46c)) + var14 * sizeof(Struct_ov002_021688f8)));
+            func_ov002_02168ca8(*(unsigned char **) (arg0 + 0x2000 + REGION_VALUE(0x29c, 0x46c)) + var14 * sizeof(Struct_ov002_021688f8), var5 + var14 * sizeof(Struct_ov002_021688f8));
+            func_ov002_02168d10(*(unsigned char **) (arg0 + 0x2000 + REGION_VALUE(0x29c, 0x46c)) + var14 * sizeof(Struct_ov002_021688f8),
+                                                 (int) (var5 + var14 * sizeof(Struct_ov002_021688f8) + 0xc));
         }
-        *(unsigned char *) (base + 0x2000 + REGION_VALUE(0x2a0, 0x470)) = n;
-        *(int *) (base + 0x1000 + REGION_VALUE(0xa88, 0xbc0)) += 1;
+        *(unsigned char *) (arg0 + 0x2000 + REGION_VALUE(0x2a0, 0x470)) = var7;
+        *(int *) (arg0 + 0x1000 + REGION_VALUE(0xa88, 0xbc0)) += 1;
     } else {
-        *(void **) (base + 0x2000 + REGION_VALUE(0x290, 0x460)) = NULL;
-        *(int *) (base + 0x1000 + REGION_VALUE(0xa88, 0xbc0))   = 100;
+        *(void **) (arg0 + 0x2000 + REGION_VALUE(0x290, 0x460)) = NULL;
+        *(int *) (arg0 + 0x1000 + REGION_VALUE(0xa88, 0xbc0))   = 100;
     }
 }

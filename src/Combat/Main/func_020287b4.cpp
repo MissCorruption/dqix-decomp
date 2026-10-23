@@ -1,77 +1,77 @@
 #include <globaldefs.h>
 
-struct InitStruct;
-struct ResetObject0209af34Struct;
-struct ZeroWordAndByte0206ee60Struct;
+struct Struct_0201a300_5;
+struct Struct_020287b4_2;
+struct Struct_020287b4_4;
 
-extern "C" ARM void func_020280b0(struct InitStruct* s);
-extern "C" ARM void func_0209bffc(void* obj);
-extern "C" ARM void func_0209bc84(void* obj);
-extern "C" ARM void func_0209af34(struct ResetObject0209af34Struct* obj);
-extern "C" void* func_0206efc4(void* obj);
-extern "C" ARM void func_0206ee60(struct ZeroWordAndByte0206ee60Struct* s);
-extern "C" ARM void func_020a8e88(void* p);
+extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
+extern "C" ARM void func_0209bffc(void* arg0);
+extern "C" ARM void func_0209bc84(void* arg0);
+extern "C" ARM void func_0209af34(struct Struct_020287b4_2* arg0);
+extern "C" void* func_0206efc4(void* arg0);
+extern "C" ARM void func_0206ee60(struct Struct_020287b4_4* arg0);
+extern "C" ARM void func_020a8e88(void* arg0);
 
-struct Flags020287b4 {
-    unsigned short f00 : 2;
-    unsigned short f02 : 1;
-    unsigned short f03 : 1;
-    unsigned short f04 : 12;
+struct Struct_020287b4 {
+    unsigned short unknown_0_0_ : 2;
+    unsigned short unknown_0_2_ : 1;
+    unsigned short unknown_0_3_ : 1;
+    unsigned short unknown_0_4_ : 12;
 };
 
-struct Elem020287b4 {
-    unsigned short w00;
-    struct Flags020287b4 flags;
-    unsigned short w04;
-    unsigned short w06;
-    int w08;
-    unsigned char b0c;
-    signed char b0d;
-    unsigned short pad0e;
-    int w10;
+struct Struct_020287b4_3 {
+    unsigned short unknown_0_;
+    struct Struct_020287b4 unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    int unknown_8_;
+    unsigned char unknown_c_;
+    signed char unknown_d_;
+    unsigned short unknown_e_;
+    int unknown_10_;
 #if !defined(jpn)
-    int w14;
+    int unknown_14_;
 #endif
-    unsigned char sub18[0x2c];
-    unsigned short w44;
-    unsigned char pad46[0x1a];
-    unsigned char sub60[0xc0];
-    unsigned char pad120[4];
-    unsigned char sub124[0x1d4];
-    unsigned char sub2f8[0xc];
-    unsigned char sub304[5];
-    unsigned char pad309[3];
-    unsigned char sub30c[0xc];
+    unsigned char unknown_18_[0x2c];
+    unsigned short unknown_44_;
+    unsigned char unknown_46_[0x1a];
+    unsigned char unknown_60_[0xc0];
+    unsigned char unknown_120_[4];
+    unsigned char unknown_124_[0x1d4];
+    unsigned char unknown_2f8_[0xc];
+    unsigned char unknown_304_[5];
+    unsigned char unknown_309_[3];
+    unsigned char unknown_30c_[0xc];
 };
 
 // USA: func_020287b4
-extern "C" ARM void func_020287b4(struct Elem020287b4* obj) {
-    int i;
-    struct Elem020287b4* e;
+extern "C" ARM void func_020287b4(struct Struct_020287b4_3* arg0) {
+    int var0;
+    struct Struct_020287b4_3* var1;
 
-    for (i = 0; i < 4; i++) {
-        e = &obj[i];
-        e->flags.f02 = 0;
-        e->flags.f03 = 0;
-        e->flags.f00 = 0;
-        obj[i].w00 = 0;
-        e->w10 = 0;
+    for (var0 = 0; var0 < 4; var0++) {
+        var1 = &arg0[var0];
+        var1->unknown_2_.unknown_0_2_ = 0;
+        var1->unknown_2_.unknown_0_3_ = 0;
+        var1->unknown_2_.unknown_0_0_ = 0;
+        arg0[var0].unknown_0_ = 0;
+        var1->unknown_10_ = 0;
 #if !defined(jpn)
-        e->w14 = 0;
+        var1->unknown_14_ = 0;
 #endif
-        e->w08 = 0;
-        e->w06 = 0;
-        e->b0c = 0;
-        e->flags.f04 = 0;
-        e->w04 = 0;
-        e->b0d = -1;
-        func_020280b0((struct InitStruct*)e->sub18);
-        func_0209bffc((void*)&e->w44);
-        func_0209bc84(e->sub60);
-        func_0209af34((struct ResetObject0209af34Struct*)e->sub124);
-        func_0206efc4(e->sub2f8);
-        func_0206ee60((struct ZeroWordAndByte0206ee60Struct*)e->sub304);
-        func_020a8e88(e->sub30c);
-        e->flags.f00 = i;
+        var1->unknown_8_ = 0;
+        var1->unknown_6_ = 0;
+        var1->unknown_c_ = 0;
+        var1->unknown_2_.unknown_0_4_ = 0;
+        var1->unknown_4_ = 0;
+        var1->unknown_d_ = -1;
+        func_020280b0((struct Struct_0201a300_5*)var1->unknown_18_);
+        func_0209bffc((void*)&var1->unknown_44_);
+        func_0209bc84(var1->unknown_60_);
+        func_0209af34((struct Struct_020287b4_2*)var1->unknown_124_);
+        func_0206efc4(var1->unknown_2f8_);
+        func_0206ee60((struct Struct_020287b4_4*)var1->unknown_304_);
+        func_020a8e88(var1->unknown_30c_);
+        var1->unknown_2_.unknown_0_0_ = var0;
     }
 }

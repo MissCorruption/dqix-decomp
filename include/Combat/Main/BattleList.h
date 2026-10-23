@@ -28,12 +28,12 @@ struct ModifiableCombatStats {
     signed int charmBuff : 3;
     signed int magicalMightBuff : 3;
     signed int magicalMendingBuff : 3;
-    signed int unkBuff18 : 3;
+    signed int unknown_5a_2_ : 3;
 };
 
 class GameState;
 class GameObject;
 
-extern "C" GameObject* func_0200ff1c(GameState* gameState, int combatantId);
-extern "C" void* func_02010828(GameState* gameState);
-extern "C" int func_02011538(GameState* gameState);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" int func_02011538(GameState* arg0);

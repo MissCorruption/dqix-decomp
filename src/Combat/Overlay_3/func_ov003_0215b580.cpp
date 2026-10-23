@@ -2,17 +2,17 @@
 #include "GameState/GameState.h"
 
 // USA: func_ov003_0215b580
-extern "C" ARM int func_ov003_0215b580(void* unused, int amount) {
-    GameState* bs = GameState::GetInstance();
-    void* p = func_02010828(bs);
-    int val = *(int*)((char*)p + 0xf6c);
-    if (val < -amount) {
+extern "C" ARM int func_ov003_0215b580(void* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02010828(var0);
+    int var2 = *(int*)((char*)var1 + 0xf6c);
+    if (var2 < -arg1) {
         return 0;
     }
-    val += amount;
-    *(int*)((char*)p + 0xf6c) = val;
-    if ((unsigned int)val > 0x98967f) {
-        *(int*)((char*)p + 0xf6c) = 0x98967f;
+    var2 += arg1;
+    *(int*)((char*)var1 + 0xf6c) = var2;
+    if ((unsigned int)var2 > 0x98967f) {
+        *(int*)((char*)var1 + 0xf6c) = 0x98967f;
     }
     return 1;
 }

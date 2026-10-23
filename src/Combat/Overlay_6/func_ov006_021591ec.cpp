@@ -6,19 +6,19 @@
 #endif
 #include <globaldefs.h>
 
-struct LookupByOffset0x362_021591ecStruct {
-    unsigned char pad0[R(0x48, 0x50)];
-    unsigned short* arr;
-    unsigned char pad1[0x362 - R(0x4c, 0x54)];
-    short f362;
+struct Struct_ov006_021591ec {
+    unsigned char unknown_0_[R(0x48, 0x50)];
+    unsigned short* unknown_50_;
+    unsigned char unknown_54_[0x362 - R(0x4c, 0x54)];
+    short unknown_362_;
 };
 
 // USA: func_ov006_021591ec
-extern "C" ARM unsigned short func_ov006_021591ec(struct LookupByOffset0x362_021591ecStruct* s) {
-    unsigned short result = 0;
-    short idx = s->f362 - 0x5b;
-    if (idx >= 0) {
-        result = s->arr[idx];
+extern "C" ARM unsigned short func_ov006_021591ec(struct Struct_ov006_021591ec* arg0) {
+    unsigned short var0 = 0;
+    short var1 = arg0->unknown_362_ - 0x5b;
+    if (var1 >= 0) {
+        var0 = arg0->unknown_50_[var1];
     }
-    return result;
+    return var0;
 }

@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct ListNode02160094 {
-    char pad[0x30];
-    struct ListNode02160094* next;
+struct Struct_ov000_02160094 {
+    char unknown_0_[0x30];
+    struct Struct_ov000_02160094* unknown_30_;
 };
 
-struct List02160094 {
-    char pad0[8];
-    unsigned char count;
-    char pad1[7];
-    struct ListNode02160094* head;
+struct Struct_ov000_0215440c_2 {
+    char unknown_0_[8];
+    unsigned char unknown_8_;
+    char unknown_9_[7];
+    struct Struct_ov000_02160094* unknown_10_;
 };
-extern "C" struct ListNode02160094* func_ov000_02160094(struct List02160094* list, int index);
-extern "C" int func_ov000_0215e9fc(void* obj, short* buf, int max, int start);
-extern "C" int func_ov000_0215ec1c(void* obj, short* buf, int max, int start);
+extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" int func_ov000_0215e9fc(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_ov000_0215ec1c(void* arg0, short* arg1, int arg2, int arg3);
 
 // USA: func_ov000_02181abc
-extern "C" ARM int func_ov000_02181abc(void* obj, struct List02160094* list, int* outArray) {
-    struct ListNode02160094* node = func_ov000_02160094(list, 0);
-    short buf[16];
-    int n1;
-    int i;
-    if (node == 0) {
+extern "C" ARM int func_ov000_02181abc(void* arg0, struct Struct_ov000_0215440c_2* arg1, int* arg2) {
+    struct Struct_ov000_02160094* var0 = func_ov000_02160094(arg1, 0);
+    short var1[16];
+    int var2;
+    int var3;
+    if (var0 == 0) {
         return 0;
     }
-    n1 = 0;
-    n1 = n1 + func_ov000_0215e9fc(obj, buf, 0x10, n1);
-    n1 = n1 + func_ov000_0215ec1c(obj, buf + n1, 0x10 - n1, 0);
-    for (i = 0; i < n1; i++) {
-        outArray[i] = buf[i];
+    var2 = 0;
+    var2 = var2 + func_ov000_0215e9fc(arg0, var1, 0x10, var2);
+    var2 = var2 + func_ov000_0215ec1c(arg0, var1 + var2, 0x10 - var2, 0);
+    for (var3 = 0; var3 < var2; var3++) {
+        arg2[var3] = var1[var3];
     }
-    return n1;
+    return var2;
 }

@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Struct02020520 {
-    int a;
-    short b;
-    short c;
-    short d;
-    short e;
+struct Struct_020200c0_3 {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    short unknown_a_;
 };
 
-struct S_b20c {
-    int field0;
-    int field4;
-    unsigned char field8;
+struct Struct_020200c0_4 {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_;
 };
 
-extern "C" void func_02023064(struct Struct02020520* arr, unsigned int count, short* a, short* b, short* c, short* d);
-extern "C" void func_0205b20c(struct S_b20c* obj);
-extern "C" void func_0205b220(void* obj, int value);
-extern "C" void func_0205b228(void* obj, int value, unsigned char flag);
-extern "C" int func_020d2ff0(const char* s);
+extern "C" void func_02023064(struct Struct_020200c0_3* arg0, unsigned int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
+extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
+extern "C" void func_0205b220(void* arg0, int arg1);
+extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
+extern "C" int func_020d2ff0(const char* arg0);
 extern "C" int func_0205b234(void*, short, short, int, unsigned char, unsigned char);
 
 #if defined(jpn)
@@ -34,42 +34,42 @@ extern short data_020ee8b2[];
 
 #if defined(jpn)
 enum {
-    kLabelStride = 0x24, kValuesOffset = 0x668,
-    kThreeX = 100, kTwoX = 110, kOneX = 120, kOneY = 16,
-    kDrawFirst = 10, kDrawSecond = 15
+    Enum_020e0b4c_72 = 0x24, Enum_020e0b4c_1748 = 0x668,
+    Enum_020e0b4c_116 = 100, Enum_020e0b4c_120 = 110, Enum_020e0b4c_125 = 120, Enum_020e0b4c_15 = 16,
+    Enum_020e0b4c_15_2 = 10, Enum_020e0b4c_0 = 15
 };
 #else
 enum {
-    kLabelStride = 0x48, kValuesOffset = 0x6d4,
-    kThreeX = 116, kTwoX = 120, kOneX = 125, kOneY = 15,
-    kDrawFirst = 15, kDrawSecond = 0
+    Enum_020e0b4c_72 = 0x48, Enum_020e0b4c_1748 = 0x6d4,
+    Enum_020e0b4c_116 = 116, Enum_020e0b4c_120 = 120, Enum_020e0b4c_125 = 125, Enum_020e0b4c_15 = 15,
+    Enum_020e0b4c_15_2 = 15, Enum_020e0b4c_0 = 0
 };
 #endif
 
 // JPN: func_020e2788
 // USA: func_020e0b4c
-extern "C" ARM void func_020e0b4c(void* obj, void* buffer, int offset, int) {
-    struct Struct02020520 arr[13];
+extern "C" ARM void func_020e0b4c(void* arg0, void* arg1, int arg2, int) {
+    struct Struct_020200c0_3 var0[13];
 #if defined(jpn)
-    func_02023064(arr, 13, data_020ee9e6, data_020ee998, data_020ee9b2, data_020ee8b2);
+    func_02023064(var0, 13, data_020ee9e6, data_020ee998, data_020ee9b2, data_020ee8b2);
 #else
-    func_02023064(arr, 13, data_020ee864, data_020ee87e, data_020ee898, data_020ee8b2);
+    func_02023064(var0, 13, data_020ee864, data_020ee87e, data_020ee898, data_020ee8b2);
 #endif
-    struct S_b20c localObj;
-    func_0205b20c(&localObj);
-    func_0205b220(&localObj, (int)buffer + offset);
-    func_0205b228(&localObj, (int)arr, 13);
-    for (int i = 0; i < 3; i++) {
-        func_0205b234(&localObj, (short)0xa, (short)(i * 13 + 0x10), (int)((char*)obj + 0x1fc + 0x400 + i * kLabelStride), (unsigned char)kDrawFirst, (unsigned char)kDrawSecond);
-        char* s = (char*)obj + kValuesOffset + i * 8;
-        if (func_020d2ff0(s) == 3) {
-            func_0205b234(&localObj, (short)kThreeX, (short)(i * 13 + 0x10), (int)s, (unsigned char)kDrawFirst, (unsigned char)kDrawSecond);
-        } else if (func_020d2ff0(s) == 2) {
-            func_0205b234(&localObj, (short)kTwoX, (short)(i * 13 + 0x10), (int)s, (unsigned char)kDrawFirst, (unsigned char)kDrawSecond);
-        } else if (func_020d2ff0(s) == 1) {
-            func_0205b234(&localObj, (short)kOneX, (short)(i * 13 + kOneY), (int)s, (unsigned char)kDrawFirst, (unsigned char)kDrawSecond);
+    struct Struct_020200c0_4 var1;
+    func_0205b20c(&var1);
+    func_0205b220(&var1, (int)arg1 + arg2);
+    func_0205b228(&var1, (int)var0, 13);
+    for (int var2 = 0; var2 < 3; var2++) {
+        func_0205b234(&var1, (short)0xa, (short)(var2 * 13 + 0x10), (int)((char*)arg0 + 0x1fc + 0x400 + var2 * Enum_020e0b4c_72), (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
+        char* var3 = (char*)arg0 + Enum_020e0b4c_1748 + var2 * 8;
+        if (func_020d2ff0(var3) == 3) {
+            func_0205b234(&var1, (short)Enum_020e0b4c_116, (short)(var2 * 13 + 0x10), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
+        } else if (func_020d2ff0(var3) == 2) {
+            func_0205b234(&var1, (short)Enum_020e0b4c_120, (short)(var2 * 13 + 0x10), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
+        } else if (func_020d2ff0(var3) == 1) {
+            func_0205b234(&var1, (short)Enum_020e0b4c_125, (short)(var2 * 13 + Enum_020e0b4c_15), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
         } else {
-            func_0205b234(&localObj, (short)kThreeX, (short)(i * 13 + 0x10), (int)s, (unsigned char)kDrawFirst, (unsigned char)kDrawSecond);
+            func_0205b234(&var1, (short)Enum_020e0b4c_116, (short)(var2 * 13 + 0x10), (int)var3, (unsigned char)Enum_020e0b4c_15_2, (unsigned char)Enum_020e0b4c_0);
         }
     }
 }

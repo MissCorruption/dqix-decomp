@@ -3,14 +3,14 @@
 #include "World/Zone3D.h"
 
 // USA: func_020196fc
-extern "C" ARM BmdjScriptNode* func_020196fc(Zone3D* obj, int count) {
-    BmdjScriptNode* cur = obj->firstBMDJStruct_41c_;
-    int i;
-    for (i = 0; i < count; i++) {
-        if (cur == 0) {
+extern "C" ARM Struct_02013454* func_020196fc(Zone3D* arg0, int arg1) {
+    Struct_02013454* var0 = arg0->firstBMDJStruct_41c_;
+    int var1;
+    for (var1 = 0; var1 < arg1; var1++) {
+        if (var0 == 0) {
             return 0;
         }
-        cur = cur->next;
+        var0 = var0->unknown_54_;
     }
-    return cur;
+    return var0;
 }

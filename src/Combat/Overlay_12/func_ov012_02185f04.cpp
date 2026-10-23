@@ -4,24 +4,24 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kTaskOffset = 0x1354, kAllocatorOffset = 0x7c, kTableOffset = 0x131c };
+enum { Enum_ov012_02185f04_5000 = 0x1354, Enum_ov012_02185f04_132 = 0x7c, Enum_ov012_02185f04_4932 = 0x131c };
 #else
-enum { kTaskOffset = 0x1388, kAllocatorOffset = 0x84, kTableOffset = 0x1344 };
+enum { Enum_ov012_02185f04_5000 = 0x1388, Enum_ov012_02185f04_132 = 0x84, Enum_ov012_02185f04_4932 = 0x1344 };
 #endif
 
-struct Container020dffc8;
-extern "C" int func_020dfec0(Container020dffc8*, SafeAllocator*, void*, unsigned int);
+struct Struct_020dfec0;
+extern "C" int func_020dfec0(Struct_020dfec0*, SafeAllocator*, void*, unsigned int);
 
 // USA: func_ov012_02185f04
-extern "C" ARM void func_ov012_02185f04(char* editor) {
+extern "C" ARM void func_ov012_02185f04(char* arg0) {
     GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int task = *(int*)(editor + kTaskOffset);
-    void* fileData;
-    unsigned int fileSize;
-    loader->GetLoadedFileByID(task, &fileData, &fileSize);
-    ((SafeAllocator*)(editor + kAllocatorOffset))->Reset();
-    func_020dfec0((Container020dffc8*)(editor + kTableOffset), (SafeAllocator*)(editor + kAllocatorOffset), fileData, fileSize);
-    loader->RemoveTask(*(int*)(editor + kTaskOffset));
-    *(int*)(editor + kTaskOffset) = -1;
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    int var1 = *(int*)(arg0 + Enum_ov012_02185f04_5000);
+    void* var2;
+    unsigned int var3;
+    var0->GetLoadedFileByID(var1, &var2, &var3);
+    ((SafeAllocator*)(arg0 + Enum_ov012_02185f04_132))->Reset();
+    func_020dfec0((Struct_020dfec0*)(arg0 + Enum_ov012_02185f04_4932), (SafeAllocator*)(arg0 + Enum_ov012_02185f04_132), var2, var3);
+    var0->RemoveTask(*(int*)(arg0 + Enum_ov012_02185f04_5000));
+    *(int*)(arg0 + Enum_ov012_02185f04_5000) = -1;
 }

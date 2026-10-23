@@ -2,65 +2,65 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue1264_10F4 = 0x10f4 };
-enum { kRegionValue12C0_1150 = 0x1150 };
-enum { kRegionValue126C_10FC = 0x10fc };
-enum { kRegionValue12D0_1160 = 0x1160 };
-enum { kRegionValue12CC_115C = 0x115c };
+enum { Enum_ov003_0216ae0c_4708 = 0x10f4 };
+enum { Enum_ov003_0216ae0c_4800 = 0x1150 };
+enum { Enum_ov003_0216ae0c_4716 = 0x10fc };
+enum { Enum_ov003_0216ae0c_4816 = 0x1160 };
+enum { Enum_ov003_0216ae0c_4812 = 0x115c };
 #else
-enum { kRegionValue1264_10F4 = 0x1264 };
-enum { kRegionValue12C0_1150 = 0x12c0 };
-enum { kRegionValue126C_10FC = 0x126c };
-enum { kRegionValue12D0_1160 = 0x12d0 };
-enum { kRegionValue12CC_115C = 0x12cc };
+enum { Enum_ov003_0216ae0c_4708 = 0x1264 };
+enum { Enum_ov003_0216ae0c_4800 = 0x12c0 };
+enum { Enum_ov003_0216ae0c_4716 = 0x126c };
+enum { Enum_ov003_0216ae0c_4816 = 0x12d0 };
+enum { Enum_ov003_0216ae0c_4812 = 0x12cc };
 #endif
 
 
-struct InitTarget0205cfd4;
-extern "C" ARM void func_0205cfd4(struct InitTarget0205cfd4* s);
-struct List0204af64;
-extern "C" ARM void func_0204af64(struct List0204af64* obj);
-extern "C" void func_0204c684(void* obj);
-struct Struct0205a198;
-extern "C" void func_0205a198(struct Struct0205a198*);
-struct ClearTarget0205a234;
-extern "C" void func_0205a234(struct ClearTarget0205a234* target);
+struct Struct_0205cfd4;
+extern "C" ARM void func_0205cfd4(struct Struct_0205cfd4* arg0);
+struct Struct_02020cb8;
+extern "C" ARM void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void func_0204c684(void* arg0);
+struct Struct_02043368_2;
+extern "C" void func_0205a198(struct Struct_02043368_2*);
+struct Struct_02043368;
+extern "C" void func_0205a234(struct Struct_02043368* arg0);
 
-struct Struct0216ae0c {
-    char pad0[kRegionValue1264_10F4];
-    void* p264;
-    void* p268;
-    char pad1[kRegionValue12C0_1150 - kRegionValue126C_10FC];
-    void* p2c0;
-    void* p2c4;
-    void* p2c8;
-    char pad2[kRegionValue12D0_1160 - kRegionValue12CC_115C];
-    SafeAllocator* alloc;
+struct Struct_ov003_0216ae0c {
+    char unknown_0_[Enum_ov003_0216ae0c_4708];
+    void* unknown_1264_;
+    void* unknown_1268_;
+    char unknown_126c_[Enum_ov003_0216ae0c_4800 - Enum_ov003_0216ae0c_4716];
+    void* unknown_12c0_;
+    void* unknown_12c4_;
+    void* unknown_12c8_;
+    char unknown_12cc_[Enum_ov003_0216ae0c_4816 - Enum_ov003_0216ae0c_4812];
+    SafeAllocator* unknown_12d0_;
 };
 
 // USA: func_ov003_0216ae0c
-extern "C" ARM void func_ov003_0216ae0c(void* objRaw, SafeAllocator* allocator) {
-    if (allocator == 0) return;
-    struct Struct0216ae0c* obj = (struct Struct0216ae0c*)objRaw;
+extern "C" ARM void func_ov003_0216ae0c(void* arg0, SafeAllocator* arg1) {
+    if (arg1 == 0) return;
+    struct Struct_ov003_0216ae0c* var0 = (struct Struct_ov003_0216ae0c*)arg0;
 
-    obj->alloc = allocator;
-    obj->p2c0 = obj->alloc->Allocate(0xbc);
-    obj->p2c4 = obj->alloc->Allocate(0x40);
-    obj->p2c8 = obj->alloc->Allocate(0xe0);
-    func_0205cfd4((struct InitTarget0205cfd4*)obj->p2c0);
+    var0->unknown_12d0_ = arg1;
+    var0->unknown_12c0_ = var0->unknown_12d0_->Allocate(0xbc);
+    var0->unknown_12c4_ = var0->unknown_12d0_->Allocate(0x40);
+    var0->unknown_12c8_ = var0->unknown_12d0_->Allocate(0xe0);
+    func_0205cfd4((struct Struct_0205cfd4*)var0->unknown_12c0_);
 
-    for (int i = 0; i < 2; i++) {
-        func_0204af64((struct List0204af64*)((char*)obj->p2c4 + i * 0x20));
+    for (int var1 = 0; var1 < 2; var1++) {
+        func_0204af64((struct Struct_02020cb8*)((char*)var0->unknown_12c4_ + var1 * 0x20));
     }
-    for (int i = 0; i < 1; i++) {
-        func_0204c684((char*)obj->p2c8 + i * 0xe0);
+    for (int var2 = 0; var2 < 1; var2++) {
+        func_0204c684((char*)var0->unknown_12c8_ + var2 * 0xe0);
     }
 
-    obj->p264 = obj->alloc->Allocate(0x258);
-    obj->p268 = obj->alloc->Allocate(8);
+    var0->unknown_1264_ = var0->unknown_12d0_->Allocate(0x258);
+    var0->unknown_1268_ = var0->unknown_12d0_->Allocate(8);
 
-    for (int i = 0; i < 0xf; i++) {
-        func_0205a198((struct Struct0205a198*)((char*)obj->p264 + i * 0x28));
+    for (int var3 = 0; var3 < 0xf; var3++) {
+        func_0205a198((struct Struct_02043368_2*)((char*)var0->unknown_1264_ + var3 * 0x28));
     }
-    func_0205a234((struct ClearTarget0205a234*)obj->p268);
+    func_0205a234((struct Struct_02043368*)var0->unknown_1268_);
 }

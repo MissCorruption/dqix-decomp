@@ -1,55 +1,55 @@
 #include <globaldefs.h>
 
-struct Entry021e7cec { unsigned char id; unsigned char f1; unsigned char f2; signed char f3; signed char f4; unsigned char f5; unsigned char f6; };
-extern Entry021e7cec data_ov023_021fd7fc[];
+struct Struct_ov023_021fd7fc { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_; signed char unknown_3_; signed char unknown_4_; unsigned char unknown_5_; unsigned char unknown_6_; };
+extern Struct_ov023_021fd7fc data_ov023_021fd7fc[];
 
-struct Obj021e7cec {
-    char pad[0x118];
-    unsigned short field118;
-    unsigned short field11a;
-    unsigned short field11c;
-    unsigned short field11e;
-    unsigned short field120;
-    unsigned short field122;
-    unsigned short field124;
-    unsigned short field126;
-    char pad2[0x129 - 0x128];
-    unsigned char field129;
-    char pad3[0x12d - 0x12a];
-    unsigned char field12d;
-    unsigned char field12e;
+struct Struct_ov023_021e7cec {
+    char unknown_0_[0x118];
+    unsigned short unknown_118_;
+    unsigned short unknown_11a_;
+    unsigned short unknown_11c_;
+    unsigned short unknown_11e_;
+    unsigned short unknown_120_;
+    unsigned short unknown_122_;
+    unsigned short unknown_124_;
+    unsigned short unknown_126_;
+    char unknown_128_[0x129 - 0x128];
+    unsigned char unknown_129_;
+    char unknown_12a_[0x12d - 0x12a];
+    unsigned char unknown_12d_;
+    unsigned char unknown_12e_;
 };
 
 // USA: func_ov023_021e7cec
-extern "C" ARM void func_ov023_021e7cec(struct Obj021e7cec* obj, unsigned char key, unsigned short p2, unsigned short p3) {
-    int i = 0;
-    struct Entry021e7cec* entry;
-    while (data_ov023_021fd7fc[i].id != 0xff) {
-        entry = &data_ov023_021fd7fc[i];
-        if (entry->id == key) {
-            obj->field129 = entry->id;
-            obj->field11c = p2;
-            obj->field11e = p3;
-            unsigned char t2 = entry->f2;
-            unsigned char t1 = entry->f1;
-            obj->field120 = t1;
-            obj->field122 = t2;
-            signed char t4 = entry->f4;
-            signed char t3 = entry->f3;
-            obj->field118 = t3;
-            obj->field11a = t4;
-            unsigned char t6 = entry->f6;
-            unsigned char t5 = entry->f5;
-            obj->field124 = t5;
-            obj->field126 = t6;
-            obj->field12d = 0;
-            obj->field12e = 0;
-            if (entry->id == 0x10) {
-                obj->field12d = 1;
-                obj->field12e = 1;
+extern "C" ARM void func_ov023_021e7cec(struct Struct_ov023_021e7cec* arg0, unsigned char arg1, unsigned short arg2, unsigned short arg3) {
+    int var0 = 0;
+    struct Struct_ov023_021fd7fc* var1;
+    while (data_ov023_021fd7fc[var0].unknown_0_ != 0xff) {
+        var1 = &data_ov023_021fd7fc[var0];
+        if (var1->unknown_0_ == arg1) {
+            arg0->unknown_129_ = var1->unknown_0_;
+            arg0->unknown_11c_ = arg2;
+            arg0->unknown_11e_ = arg3;
+            unsigned char var2 = var1->unknown_2_;
+            unsigned char var3 = var1->unknown_1_;
+            arg0->unknown_120_ = var3;
+            arg0->unknown_122_ = var2;
+            signed char var4 = var1->unknown_4_;
+            signed char var5 = var1->unknown_3_;
+            arg0->unknown_118_ = var5;
+            arg0->unknown_11a_ = var4;
+            unsigned char var6 = var1->unknown_6_;
+            unsigned char var7 = var1->unknown_5_;
+            arg0->unknown_124_ = var7;
+            arg0->unknown_126_ = var6;
+            arg0->unknown_12d_ = 0;
+            arg0->unknown_12e_ = 0;
+            if (var1->unknown_0_ == 0x10) {
+                arg0->unknown_12d_ = 1;
+                arg0->unknown_12e_ = 1;
             }
             return;
         }
-        i++;
+        var0++;
     }
 }

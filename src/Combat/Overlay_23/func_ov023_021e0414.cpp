@@ -2,13 +2,13 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct Container020dedd0;
-struct Element020de650_021e0414 {
-    char pad0[8];
-    unsigned int nibble : 4;
-    unsigned int restBits : 28;
+struct Struct_0201099c_10;
+struct Struct_ov023_021e0414 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 28;
 };
-extern "C" Element020de650_021e0414* func_020dedd0(struct Container020dedd0*, int);
+extern "C" Struct_ov023_021e0414* func_020dedd0(struct Struct_0201099c_10*, int);
 
 extern "C" void func_ov023_021e20c0(void*);
 
@@ -16,44 +16,44 @@ extern "C" void func_ov023_021e20c0(void*);
 extern int data_ov023_021fdc4c;
 extern int data_ov023_021fdc61;
 
-struct Obj021e0414 {
-    char pad0[0x48];
-    Container020dedd0* field48;
-    Element020de650_021e0414* field4c;
+struct Struct_ov023_021e0414_2 {
+    char unknown_0_[0x48];
+    Struct_0201099c_10* unknown_48_;
+    Struct_ov023_021e0414* unknown_4c_;
 #if defined(jpn)
-    char pad50[0x6b8 - 0x50];
+    char unknown_50_[0x6b8 - 0x50];
 #else
-    char pad50[0x73c - 0x50];
+    char unknown1_50_[0x73c - 0x50];
 #endif
 
-    int field73c;
-    char pad740[0x770 - 0x740];
-    short field770;
-    char pad772[0x79a - 0x772];
-    signed char field79a;
+    int unknown_73c_;
+    char unknown_740_[0x770 - 0x740];
+    short unknown_770_;
+    char unknown_772_[0x79a - 0x772];
+    signed char unknown_79a_;
 };
 
 // USA: func_ov023_021e0414
-extern "C" ARM int func_ov023_021e0414(struct Obj021e0414* obj) {
-    int a = (int)BackgroundLoader::GetInstance();
-    if (obj->field48 != NULL) {
-        obj->field4c = func_020dedd0(obj->field48, obj->field770);
+extern "C" ARM int func_ov023_021e0414(struct Struct_ov023_021e0414_2* arg0) {
+    int var0 = (int)BackgroundLoader::GetInstance();
+    if (arg0->unknown_48_ != NULL) {
+        arg0->unknown_4c_ = func_020dedd0(arg0->unknown_48_, arg0->unknown_770_);
     }
-    Element020de650_021e0414* elem = obj->field4c;
-    if (elem != NULL) {
-        unsigned int nibble = elem->nibble;
-        int cond1 = (nibble <= 7);
-        signed char flag = (cond1 != 0);
-        signed char b = obj->field79a;
-        if (b != flag) {
-            func_ov023_021e20c0((char*)obj + 0xcc);
-            elem = obj->field4c;
-            unsigned int nibble2 = elem->nibble;
-            int cond2 = (nibble2 <= 7);
-            if (cond2) {
-                obj->field73c = ((BackgroundLoader*)(a))->QueueLoadFile((const char*)((int)&data_ov023_021fdc4c), (SafeAllocator*)(0));
+    Struct_ov023_021e0414* var1 = arg0->unknown_4c_;
+    if (var1 != NULL) {
+        unsigned int var2 = var1->unknown_8_0_;
+        int var3 = (var2 <= 7);
+        signed char var4 = (var3 != 0);
+        signed char var5 = arg0->unknown_79a_;
+        if (var5 != var4) {
+            func_ov023_021e20c0((char*)arg0 + 0xcc);
+            var1 = arg0->unknown_4c_;
+            unsigned int var6 = var1->unknown_8_0_;
+            int var7 = (var6 <= 7);
+            if (var7) {
+                arg0->unknown_73c_ = ((BackgroundLoader*)(var0))->QueueLoadFile((const char*)((int)&data_ov023_021fdc4c), (SafeAllocator*)(0));
             } else {
-                obj->field73c = ((BackgroundLoader*)(a))->QueueLoadFile((const char*)((int)&data_ov023_021fdc61), (SafeAllocator*)(0));
+                arg0->unknown_73c_ = ((BackgroundLoader*)(var0))->QueueLoadFile((const char*)((int)&data_ov023_021fdc61), (SafeAllocator*)(0));
             }
         }
     }

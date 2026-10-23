@@ -6,27 +6,27 @@
 
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
-extern "C" int func_020c96a8(int value);
+extern "C" int func_020c96a8(int arg0);
 extern "C" void func_020c9be0(void);
-struct VCountAlarmNode020c92d0;
-extern "C" void func_020c92d0(struct VCountAlarmNode020c92d0* node);
+struct Struct_020c92d0;
+extern "C" void func_020c92d0(struct Struct_020c92d0* arg0);
 
 // USA: func_020c93d0
-extern "C" ARM void func_020c93d0(void* node, int a1, int a2, int a3, int a4) {
-    unsigned int mask = DisableIRQInterrupts();
-    if (node == 0 || *(int*)node != 0) {
+extern "C" ARM void func_020c93d0(void* arg0, int arg1, int arg2, int arg3, int arg4) {
+    unsigned int var0 = DisableIRQInterrupts();
+    if (arg0 == 0 || *(int*)arg0 != 0) {
         func_020c9be0();
     }
-    int vcount = *(volatile unsigned short*)0x4000006;
-    int decreases = func_020c96a8(vcount);
-    *(int*)((char*)node + 0x1c) = 1;
-    *(short*)((char*)node + 0x10) = (short)a1;
-    if (a1 <= vcount) decreases = decreases + 1;
-    *(int*)((char*)node + 0xc) = decreases;
-    *(short*)((char*)node + 0x12) = (short)a2;
-    *(int*)((char*)node + 0x0) = a3;
-    *(int*)((char*)node + 0x4) = a4;
-    *(int*)((char*)node + 0x24) = 0;
-    func_020c92d0((struct VCountAlarmNode020c92d0*)node);
-    SetIRQInterruptState(mask);
+    int var1 = *(volatile unsigned short*)0x4000006;
+    int var2 = func_020c96a8(var1);
+    *(int*)((char*)arg0 + 0x1c) = 1;
+    *(short*)((char*)arg0 + 0x10) = (short)arg1;
+    if (arg1 <= var1) var2 = var2 + 1;
+    *(int*)((char*)arg0 + 0xc) = var2;
+    *(short*)((char*)arg0 + 0x12) = (short)arg2;
+    *(int*)((char*)arg0 + 0x0) = arg3;
+    *(int*)((char*)arg0 + 0x4) = arg4;
+    *(int*)((char*)arg0 + 0x24) = 0;
+    func_020c92d0((struct Struct_020c92d0*)arg0);
+    SetIRQInterruptState(var0);
 }

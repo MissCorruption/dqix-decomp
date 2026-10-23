@@ -2,353 +2,353 @@
 #include "NitroSDK/Matrix.h"
 #include "GameState/GameState.h"
 
-typedef Vector3i Vec3;
+typedef Vector3i Type_ov004_0216ba70;
 
-class VObjNode {
+class Struct_ov004_0216ba70 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06();
-    virtual void Method1c(Vec3* arg);
-    virtual Vec3 Method20();
-    virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-    virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-    virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-    virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
-    virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
-    virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
-    virtual void v52(); virtual void v53();
-    virtual void MethodD8(int arg);
-    virtual void v55();
-    virtual void MethodE0(int arg);
-    char pad[0x1c];
-    void* field20;
+    virtual void inline_ov004_0216ba70_19(); virtual void inline_ov004_0216ba70_20(); virtual void inline_ov004_0216ba70_21(); virtual void inline_ov004_0216ba70_22();
+    virtual void inline_ov004_0216ba70_23(); virtual void inline_ov004_0216ba70_24(); virtual void inline_ov004_0216ba70_25();
+    virtual void inline_ov004_0216ba70_26(Type_ov004_0216ba70* arg0);
+    virtual Type_ov004_0216ba70 inline_ov004_0216ba70_29();
+    virtual void inline_ov004_0216ba70_31(); virtual void inline_ov004_0216ba70_33(); virtual void inline_ov004_0216ba70_37();
+    virtual void inline_ov004_0216ba70_39(); virtual void inline_ov004_0216ba70_40(); virtual void inline_ov004_0216ba70_41(); virtual void inline_ov004_0216ba70_42();
+    virtual void inline_ov004_0216ba70_43(); virtual void inline_ov004_0216ba70_44(); virtual void inline_ov004_0216ba70_45(); virtual void inline_ov004_0216ba70_46();
+    virtual void inline_ov004_0216ba70_47(); virtual void inline_ov004_0216ba70_48(); virtual void inline_ov004_0216ba70_49(); virtual void inline_ov004_0216ba70_50();
+    virtual void inline_ov004_0216ba70_51(); virtual void inline_ov004_0216ba70_52(); virtual void inline_ov004_0216ba70_53(); virtual void inline_ov004_0216ba70_54();
+    virtual void inline_ov004_0216ba70_55(); virtual void inline_ov004_0216ba70_56(); virtual void inline_ov004_0216ba70_57(); virtual void inline_ov004_0216ba70_58();
+    virtual void inline_ov004_0216ba70_59(); virtual void inline_ov004_0216ba70_60(); virtual void inline_ov004_0216ba70_61(); virtual void inline_ov004_0216ba70_62();
+    virtual void inline_ov004_0216ba70_63(); virtual void inline_ov004_0216ba70_64(); virtual void inline_ov004_0216ba70_65(); virtual void inline_ov004_0216ba70();
+    virtual void inline_ov004_0216ba70_2(); virtual void inline_ov004_0216ba70_3(); virtual void inline_ov004_0216ba70_4(); virtual void inline_ov004_0216ba70_5();
+    virtual void inline_ov004_0216ba70_6(); virtual void inline_ov004_0216ba70_7(); virtual void inline_ov004_0216ba70_8(); virtual void inline_ov004_0216ba70_9();
+    virtual void inline_ov004_0216ba70_10(); virtual void inline_ov004_0216ba70_11(); virtual void inline_ov004_0216ba70_12(); virtual void inline_ov004_0216ba70_13();
+    virtual void inline_ov004_0216ba70_14(); virtual void inline_ov004_0216ba70_15();
+    virtual void inline_ov004_0216ba70_16(int arg0);
+    virtual void inline_ov004_0216ba70_17();
+    virtual void inline_ov004_0216ba70_18(int arg0);
+    char unknown_4_[0x1c];
+    void* unknown_20_;
 };
 
-struct CombatantRecord {
-    char pad0[0x30];
-    unsigned char type30;
-    unsigned char level31;
-    unsigned short field32;
+struct Struct_ov004_0216ba70_2 {
+    char unknown_0_[0x30];
+    unsigned char unknown_30_;
+    unsigned char unknown_31_;
+    unsigned short unknown_32_;
 };
 
-struct BattleRegion4000 {
-    CombatantRecord records[4];
-    int totalValue;
-    unsigned char flagD4;
-    unsigned char flagD5;
-    unsigned char flagD6;
-    unsigned char flagD7;
+struct Struct_ov004_0216ba70_3 {
+    Struct_ov004_0216ba70_2 unknown_0_[4];
+    int unknown_d0_;
+    unsigned char unknown_d4_;
+    unsigned char unknown_d5_;
+    unsigned char unknown_d6_;
+    unsigned char unknown_d7_;
 };
 
-struct BattleRegion3e80 {
-    char pad4000[0x4000];
-    BattleRegion4000 region4000;
+struct Struct_ov004_0216ba70_4 {
+    char unknown_0_[0x4000];
+    Struct_ov004_0216ba70_3 unknown_4000_;
 };
 
-struct BattleStructExt {
-    char pad3e80[0x3e80];
-    BattleRegion3e80 region3e80;
+struct Struct_ov004_0216ba70_5 {
+    char unknown_0_[0x3e80];
+    Struct_ov004_0216ba70_4 unknown_3e80_;
 };
 
-struct DataTable02171034 {
-    char pad0[6];
-    unsigned char byte6;
-    unsigned char byte7;
-    unsigned short short8;
-    char pad1[2];
-    int fieldC;
+struct Struct_ov004_02171034 {
+    char unknown_0_[6];
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned short unknown_8_;
+    char unknown_a_[2];
+    int unknown_c_;
 };
 
-struct Struct0200fb08;
-extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
-extern "C" int func_020e51cc(int value);
-struct Obj_02184ad8;
-extern "C" void func_ov011_02184ad8(struct Obj_02184ad8* obj);
-extern "C" void* func_ov004_0216ae9c(void* a, int id);
+struct Struct_02000c9c_8;
+extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
+extern "C" int func_020e51cc(int arg0);
+struct Struct_ov004_0216b7bc;
+extern "C" void func_ov011_02184ad8(struct Struct_ov004_0216b7bc* arg0);
+extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 
 extern "C" void* func_ov011_021849c8(void*);
-extern "C" VObjNode* func_ov023_021f6880(void* obj, int key);
-extern "C" void func_ov023_021f8120(void* obj);
-extern "C" void func_ov023_021f7eb8(void* node, void* a, int buf, int mode, int a5, int a6, int a7, int a8, int a9, int a10);
+extern "C" Struct_ov004_0216ba70* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void func_ov023_021f8120(void* arg0);
+extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 
-extern "C" void func_ov004_0216afb0(void* a1, int p2, int p3, int p4,
-    int p5, int p6, int p7, int p8, unsigned char p9);
-extern "C" void func_ov004_0216b06c(void* obj, int p1, int p2, int p3, int p4, int p5, int p6, int p7, unsigned char p8);
-extern "C" void func_ov004_0216b120(void* p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7);
-extern "C" int func_ov004_0216aed0(void* a, int b, int c, int d);
-extern "C" int func_ov004_0216af24(void* a, short key);
+extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3,
+    int arg4, int arg5, int arg6, int arg7, unsigned char arg8);
+extern "C" void func_ov004_0216b06c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, unsigned char arg8);
+extern "C" void func_ov004_0216b120(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" int func_ov004_0216aed0(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov004_0216af24(void* arg0, short arg1);
 
-extern DataTable02171034 data_ov004_02171034;
+extern Struct_ov004_02171034 data_ov004_02171034;
 
-static inline BattleRegion4000* GetRegion(GameState* bs) {
-    return &((BattleStructExt*)bs)->region3e80.region4000;
+static inline Struct_ov004_0216ba70_3* inline_ov004_0216ba70_27(GameState* arg0) {
+    return &((Struct_ov004_0216ba70_5*)arg0)->unknown_3e80_.unknown_4000_;
 }
-struct ShortPair0217017a { short a; short b; };
-extern ShortPair0217017a data_ov004_0217017a[];
+struct Struct_ov004_0217017a { short unknown_0_; short unknown_2_; };
+extern Struct_ov004_0217017a data_ov004_0217017a[];
 
-static inline void SetNodePosXe(VObjNode* node, int x) {
-    const Vec3& t = node->Method20();
-    Vec3 pos;
-    *(Vector3i*)((int*)&pos) = *(Vector3i const*)((int*)&t);
-    pos.x = x;
-    node->Method1c(&pos);
-}
-
-static inline void MoveNodeXv(VObjNode* node, Vec3 p, int dx) {
-    p.x = p.x + dx;
-    node->Method1c(&p);
+static inline void inline_ov004_0216ba70_28(Struct_ov004_0216ba70* arg0, int arg1) {
+    const Type_ov004_0216ba70& var0 = arg0->inline_ov004_0216ba70_29();
+    Type_ov004_0216ba70 var1;
+    *(Vector3i*)((int*)&var1) = *(Vector3i const*)((int*)&var0);
+    var1.x = arg1;
+    arg0->inline_ov004_0216ba70_26(&var1);
 }
 
-static inline void ShowHeadBV(void* a, VObjNode* node2, Vec3 savedPos) {
-    MoveNodeXv(node2, savedPos, 0x4000);
-    func_ov004_0216afb0(a, 0x5a, 2, 0xd3, 31, 60, 5, 8, 1);
+static inline void inline_ov004_0216ba70_30(Struct_ov004_0216ba70* arg0, Type_ov004_0216ba70 arg1, int arg2) {
+    arg1.x = arg1.x + arg2;
+    arg0->inline_ov004_0216ba70_26(&arg1);
 }
 
-static inline Vec3 CopyV1(const Vec3& v) {
-    Vec3 r = v;
-    return r;
+static inline void inline_ov004_0216ba70_32(void* arg0, Struct_ov004_0216ba70* arg1, Type_ov004_0216ba70 arg2) {
+    inline_ov004_0216ba70_30(arg1, arg2, 0x4000);
+    func_ov004_0216afb0(arg0, 0x5a, 2, 0xd3, 31, 60, 5, 8, 1);
 }
 
-static inline Vec3 CopyR2(const Vec3& v) {
-    Vec3 r = CopyV1(v);
-    return r;
+static inline Type_ov004_0216ba70 inline_ov004_0216ba70_34(const Type_ov004_0216ba70& arg0) {
+    Type_ov004_0216ba70 var0 = arg0;
+    return var0;
 }
 
-static inline Vec3 CopyR2b(const Vec3& v) {
-    return CopyR2(v);
+static inline Type_ov004_0216ba70 inline_ov004_0216ba70_35(const Type_ov004_0216ba70& arg0) {
+    Type_ov004_0216ba70 var0 = inline_ov004_0216ba70_34(arg0);
+    return var0;
 }
 
-static inline Vec3 GetPosZ1(VObjNode* n) {
-    const Vec3& t = n->Method20();
-    return CopyR2b(t);
+static inline Type_ov004_0216ba70 inline_ov004_0216ba70_36(const Type_ov004_0216ba70& arg0) {
+    return inline_ov004_0216ba70_35(arg0);
+}
+
+static inline Type_ov004_0216ba70 inline_ov004_0216ba70_38(Struct_ov004_0216ba70* arg0) {
+    const Type_ov004_0216ba70& var0 = arg0->inline_ov004_0216ba70_29();
+    return inline_ov004_0216ba70_36(var0);
 }
 
 // USA: func_ov004_0216ba70
-extern "C" ARM int func_ov004_0216ba70(void* a) {
-    int count;
-    int i;
-    int delta;
-    int base;
-    BattleRegion4000* ext;
-    GameState* bs2;
-    BattleRegion4000* reg2;
-    Vec3 v6c;
+extern "C" ARM int func_ov004_0216ba70(void* arg0) {
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    Struct_ov004_0216ba70_3* var4;
+    GameState* var5;
+    Struct_ov004_0216ba70_3* var6;
+    Type_ov004_0216ba70 var7;
 
-    ext = &((BattleStructExt*)GameState::GetInstance())->region3e80.region4000;
-    count = ext->flagD4;
+    var4 = &((Struct_ov004_0216ba70_5*)GameState::GetInstance())->unknown_3e80_.unknown_4000_;
+    var0 = var4->unknown_d4_;
 
-    bs2 = GameState::GetInstance();
-    reg2 = GetRegion(bs2);
+    var5 = GameState::GetInstance();
+    var6 = inline_ov004_0216ba70_27(var5);
 
-    func_ov004_0216afb0(a, 0x37, 2, 0xd3, 6, 0x46, 4, 0xa, 1);
+    func_ov004_0216afb0(arg0, 0x37, 2, 0xd3, 6, 0x46, 4, 0xa, 1);
 
-    delta = func_ov004_0216af24(a, 0x37);
+    var2 = func_ov004_0216af24(arg0, 0x37);
 
-    VObjNode* node = func_ov023_021f6880(func_ov011_021849c8(a), 0x37);
-    if (node) {
-        SetNodePosXe(node, ((0xd0 - delta) >> 1) << 12);
+    Struct_ov004_0216ba70* var8 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x37);
+    if (var8) {
+        inline_ov004_0216ba70_28(var8, ((0xd0 - var2) >> 1) << 12);
     }
 
-    if (reg2->flagD5 != 0) {
-        VObjNode* node2 = func_ov023_021f6880(func_ov011_021849c8(a), 0x37);
-        Vec3 savedPos = GetPosZ1(node2);
-        ShowHeadBV(a, node2, savedPos);
-        VObjNode* node3 = func_ov023_021f6880(func_ov011_021849c8(a), 0x5a);
-        if (node3) {
-            node3->MethodD8(0xd);
-            MoveNodeXv(node3, savedPos, -0x5000);
+    if (var6->unknown_d5_ != 0) {
+        Struct_ov004_0216ba70* var9 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x37);
+        Type_ov004_0216ba70 var10 = inline_ov004_0216ba70_38(var9);
+        inline_ov004_0216ba70_32(arg0, var9, var10);
+        Struct_ov004_0216ba70* var11 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x5a);
+        if (var11) {
+            var11->inline_ov004_0216ba70_16(0xd);
+            inline_ov004_0216ba70_30(var11, var10, -0x5000);
         }
     }
 
-    func_ov004_0216b120(a, 0x28, 2, 0xd3, 2, 0x10, 0xcb, 1);
+    func_ov004_0216b120(arg0, 0x28, 2, 0xd3, 2, 0x10, 0xcb, 1);
 
     {
-    int flag = 0;
-    if (func_0200fb08((struct Struct0200fb08*)bs2) == 4 ||
-        func_0200fb08((struct Struct0200fb08*)bs2) == 2) {
-        flag = 2;
+    int var12 = 0;
+    if (func_0200fb08((struct Struct_02000c9c_8*)var5) == 4 ||
+        func_0200fb08((struct Struct_02000c9c_8*)var5) == 2) {
+        var12 = 2;
     }
-    base = 0;
+    var3 = 0;
 
-    func_ov004_0216afb0(a, 0x38, 2, 0xd3, 0x3e7, 7, base + 0x13, 0xa, 1);
-    func_ov004_0216afb0(a, 0x39, 2, 0xd3, 0x3e7, 0x57, base + 0x13, 0xa, 1);
-    func_ov004_0216afb0(a, 0x3a, 2, 0xd3, 0x15, 0xa8 - flag, base + 0x13, 0xa, 1);
+    func_ov004_0216afb0(arg0, 0x38, 2, 0xd3, 0x3e7, 7, var3 + 0x13, 0xa, 1);
+    func_ov004_0216afb0(arg0, 0x39, 2, 0xd3, 0x3e7, 0x57, var3 + 0x13, 0xa, 1);
+    func_ov004_0216afb0(arg0, 0x3a, 2, 0xd3, 0x15, 0xa8 - var12, var3 + 0x13, 0xa, 1);
 
-    VObjNode* node4 = func_ov023_021f6880(func_ov011_021849c8(a), 0x3a);
-    if (node4) {
-        node4->field20 = (void*)func_020e51cc(0x3f3);
+    Struct_ov004_0216ba70* var13 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x3a);
+    if (var13) {
+        var13->unknown_20_ = (void*)func_020e51cc(0x3f3);
     }
 
-    func_ov004_0216afb0(a, 0x47, 2, 0xd3, 0x3e7, 0xa1, base + 0x13, 8, 1);
-    func_ov004_0216b06c(a, 0x96, 2, 0xd3, 0xbe, base + 0x13, 8, 2, 0);
+    func_ov004_0216afb0(arg0, 0x47, 2, 0xd3, 0x3e7, 0xa1, var3 + 0x13, 8, 1);
+    func_ov004_0216b06c(arg0, 0x96, 2, 0xd3, 0xbe, var3 + 0x13, 8, 2, 0);
 
-    base += 0xc;
-    if (count > 1) {
-        switch (count) {
-        case 2: base += 2; break;
-        case 3: base += 1; break;
+    var3 += 0xc;
+    if (var0 > 1) {
+        switch (var0) {
+        case 2: var3 += 2; break;
+        case 3: var3 += 1; break;
         }
 
-        int msgBase = 0x3f3 - 0xc;
-        for (i = 1; i < count; i++) {
-            int idx3 = i + i * 2;
-            func_ov004_0216afb0(a, idx3 + 0x38, 2, 0xd3, msgBase, 7, base + 0x13, 0xa, 1);
-            func_ov004_0216afb0(a, idx3 + 0x39, 2, 0xd3, msgBase, 0x57, base + 0x13, 0xa, 1);
-            func_ov004_0216afb0(a, idx3 + 0x3a, 2, 0xd3, 0x15, 0xa8 - flag, base + 0x13, 0xa, 1);
+        int var14 = 0x3f3 - 0xc;
+        for (var1 = 1; var1 < var0; var1++) {
+            int var15 = var1 + var1 * 2;
+            func_ov004_0216afb0(arg0, var15 + 0x38, 2, 0xd3, var14, 7, var3 + 0x13, 0xa, 1);
+            func_ov004_0216afb0(arg0, var15 + 0x39, 2, 0xd3, var14, 0x57, var3 + 0x13, 0xa, 1);
+            func_ov004_0216afb0(arg0, var15 + 0x3a, 2, 0xd3, 0x15, 0xa8 - var12, var3 + 0x13, 0xa, 1);
 
-            VObjNode* node5 = func_ov023_021f6880(func_ov011_021849c8(a), idx3 + 0x3a);
-            if (node5) {
-                node5->field20 = (void*)func_020e51cc(0x3f3);
+            Struct_ov004_0216ba70* var16 = func_ov023_021f6880(func_ov011_021849c8(arg0), var15 + 0x3a);
+            if (var16) {
+                var16->unknown_20_ = (void*)func_020e51cc(0x3f3);
             }
 
-            func_ov004_0216afb0(a, i + 0x47, 2, 0xd3, msgBase, 0xa1, base + 0x13, 8, 1);
-            func_ov004_0216b06c(a, i + 0x96, 2, 0xd3, 0xbe, base + 0x13, 8, 2, 0);
+            func_ov004_0216afb0(arg0, var1 + 0x47, 2, 0xd3, var14, 0xa1, var3 + 0x13, 8, 1);
+            func_ov004_0216b06c(arg0, var1 + 0x96, 2, 0xd3, 0xbe, var3 + 0x13, 8, 2, 0);
 
-            base += 0xc;
+            var3 += 0xc;
         }
-        if (count == 4) base -= 1;
+        if (var0 == 4) var3 -= 1;
     }
 
-    func_ov004_0216b120(a, 0x29, 2, 0xd3, 2, base + 0x14, 0xcb, 1);
-    func_ov004_0216afb0(a, 0x44, 2, 0xd3, 0x13, 7, base + 0x17, 0xa, 1);
+    func_ov004_0216b120(arg0, 0x29, 2, 0xd3, 2, var3 + 0x14, 0xcb, 1);
+    func_ov004_0216afb0(arg0, 0x44, 2, 0xd3, 0x13, 7, var3 + 0x17, 0xa, 1);
 
-    if (data_ov004_02171034.short8 != 0) {
-        func_ov004_0216b06c(a, 0x9a, 2, 0xd3, 0x92, base + 0x18, 8, 4, 0);
-        func_ov004_0216afb0(a, 0x4f, 2, 0xd3, 0x34, 0x98, base + 0x18, 0xa, 1);
+    if (data_ov004_02171034.unknown_8_ != 0) {
+        func_ov004_0216b06c(arg0, 0x9a, 2, 0xd3, 0x92, var3 + 0x18, 8, 4, 0);
+        func_ov004_0216afb0(arg0, 0x4f, 2, 0xd3, 0x34, 0x98, var3 + 0x18, 0xa, 1);
     }
-    func_ov004_0216b06c(a, 0x9b, 2, 0xd3, 0xa8, base + 0x18, 8, 2, 1);
-    func_ov004_0216afb0(a, 0x50, 2, 0xd3, 0x34, 0xad, base + 0x18, 0xa, 1);
-    func_ov004_0216b06c(a, 0x9c, 2, 0xd3, 0xbd, base + 0x18, 8, 2, 1);
-    func_ov004_0216afb0(a, 0x45, 2, 0xd3, 0x14, 7, base + 0x22, 0xa, 1);
-    func_ov004_0216afb0(a, 0x46, 2, 0xd3, 0x3e7, 0xbd, base + 0x22, 0xa, 1);
+    func_ov004_0216b06c(arg0, 0x9b, 2, 0xd3, 0xa8, var3 + 0x18, 8, 2, 1);
+    func_ov004_0216afb0(arg0, 0x50, 2, 0xd3, 0x34, 0xad, var3 + 0x18, 0xa, 1);
+    func_ov004_0216b06c(arg0, 0x9c, 2, 0xd3, 0xbd, var3 + 0x18, 8, 2, 1);
+    func_ov004_0216afb0(arg0, 0x45, 2, 0xd3, 0x14, 7, var3 + 0x22, 0xa, 1);
+    func_ov004_0216afb0(arg0, 0x46, 2, 0xd3, 0x3e7, 0xbd, var3 + 0x22, 0xa, 1);
     }
 
-    for (int j = 0; j < count; j++) {
-        void* list = func_ov011_021849c8(a);
-        VObjNode* jnode = func_ov023_021f6880(list, j * 3 + 0x38);
-        if (jnode) {
-            jnode->field20 = &ext->records[j];
+    for (int var17 = 0; var17 < var0; var17++) {
+        void* var18 = func_ov011_021849c8(arg0);
+        Struct_ov004_0216ba70* var19 = func_ov023_021f6880(var18, var17 * 3 + 0x38);
+        if (var19) {
+            var19->unknown_20_ = &var4->unknown_0_[var17];
         }
 
-        int typeVal = ext->records[j].type30;
-        if (typeVal >= 0 && typeVal < 0xd) {
-            int sl = 0x3e7;
-            if (typeVal != 0) sl = (short)(typeVal + 6);
-            unsigned char flagD6 = GetRegion(GameState::GetInstance())->flagD6;
-            if (flagD6 == 1) sl = 0x46;
-            func_ov004_0216aed0(a, j * 3 + 0x39, sl, 0);
+        int var20 = var4->unknown_0_[var17].unknown_30_;
+        if (var20 >= 0 && var20 < 0xd) {
+            int var21 = 0x3e7;
+            if (var20 != 0) var21 = (short)(var20 + 6);
+            unsigned char var22 = inline_ov004_0216ba70_27(GameState::GetInstance())->unknown_d6_;
+            if (var22 == 1) var21 = 0x46;
+            func_ov004_0216aed0(arg0, var17 * 3 + 0x39, var21, 0);
         }
 
-        int levelVal = ext->records[j].level31;
-        if (levelVal >= 0 && levelVal <= 0xa) {
-            int lv = 0x3e7;
-            if (levelVal != 0) lv = (short)(levelVal + 0x15);
-            func_ov004_0216aed0(a, j + 0x47, lv, 0);
+        int var23 = var4->unknown_0_[var17].unknown_31_;
+        if (var23 >= 0 && var23 <= 0xa) {
+            int var24 = 0x3e7;
+            if (var23 != 0) var24 = (short)(var23 + 0x15);
+            func_ov004_0216aed0(arg0, var17 + 0x47, var24, 0);
         }
 
-        int key39 = (unsigned int)j * 3 + 0x39;
-        int delta2 = func_ov004_0216af24(a, key39);
-        VObjNode* node2 = func_ov023_021f6880(func_ov011_021849c8(a), key39);
-        if (node2) {
-            const Vec3& lt = node2->Method20();
-            *(Vector3i*)((int*)&v6c) = *(Vector3i const*)((int*)&lt);
-            v6c.x = v6c.x + ((delta2 + 2) << 12);
+        int var25 = (unsigned int)var17 * 3 + 0x39;
+        int var26 = func_ov004_0216af24(arg0, var25);
+        Struct_ov004_0216ba70* var27 = func_ov023_021f6880(func_ov011_021849c8(arg0), var25);
+        if (var27) {
+            const Type_ov004_0216ba70& var28 = var27->inline_ov004_0216ba70_29();
+            *(Vector3i*)((int*)&var7) = *(Vector3i const*)((int*)&var28);
+            var7.x = var7.x + ((var26 + 2) << 12);
 
-            VObjNode* node3 = func_ov023_021f6880(func_ov011_021849c8(a), j + 0x47);
-            if (node3) {
-                node3->Method1c(&v6c);
-                unsigned char lv2 = ext->records[j].level31;
-                if (lv2 == 0xa) {
-                    node3->MethodD8(0xd);
-                } else if (lv2 != 0) {
-                    node3->MethodD8(5);
+            Struct_ov004_0216ba70* var29 = func_ov023_021f6880(func_ov011_021849c8(arg0), var17 + 0x47);
+            if (var29) {
+                var29->inline_ov004_0216ba70_26(&var7);
+                unsigned char var30 = var4->unknown_0_[var17].unknown_31_;
+                if (var30 == 0xa) {
+                    var29->inline_ov004_0216ba70_16(0xd);
+                } else if (var30 != 0) {
+                    var29->inline_ov004_0216ba70_16(5);
                 }
             }
         }
 
-        unsigned short fieldVal = ext->records[j].field32;
-        VObjNode* node4b = func_ov023_021f6880(func_ov011_021849c8(a), j + 0x96);
-        if (node4b) {
-            node4b->MethodE0(fieldVal);
+        unsigned short var31 = var4->unknown_0_[var17].unknown_32_;
+        Struct_ov004_0216ba70* var32 = func_ov023_021f6880(func_ov011_021849c8(arg0), var17 + 0x96);
+        if (var32) {
+            var32->inline_ov004_0216ba70_18(var31);
         }
     }
 
-    int val = ext->totalValue;
-    int tier = 0;
-    if (val >= 1100 && val < 1200) tier = 1;
-    else if (val >= 100 && val < 200) tier = 2;
-    else if (val >= 1200 && val < 1300) tier = 3;
-    else if (val >= 1300 && val < 1400) tier = 4;
-    else if (val >= 4200 && val < 4300) tier = 5;
-    else if (val >= 1500 && val < 1600) tier = 6;
-    else if (val >= 5800 && val < 5900) tier = 7;
-    else if (val >= 1800 && val < 1900) tier = 8;
-    else if (val >= 1900 && val < 2000) tier = 9;
-    else if (val >= 200 && val < 300) tier = 0xa;
-    else if (val >= 2100 && val < 2200) tier = 0xb;
-    else if (val >= 2000 && val < 2100) tier = 0xc;
-    else if (val >= 2200 && val < 2300) tier = 0xd;
-    else if (val >= 2300 && val < 2400) tier = 0xe;
-    else if (val >= 5700 && val < 5800) tier = 0xf;
-    else if (val >= 400 && val < 500) tier = 0x10;
+    int var33 = var4->unknown_d0_;
+    int var34 = 0;
+    if (var33 >= 1100 && var33 < 1200) var34 = 1;
+    else if (var33 >= 100 && var33 < 200) var34 = 2;
+    else if (var33 >= 1200 && var33 < 1300) var34 = 3;
+    else if (var33 >= 1300 && var33 < 1400) var34 = 4;
+    else if (var33 >= 4200 && var33 < 4300) var34 = 5;
+    else if (var33 >= 1500 && var33 < 1600) var34 = 6;
+    else if (var33 >= 5800 && var33 < 5900) var34 = 7;
+    else if (var33 >= 1800 && var33 < 1900) var34 = 8;
+    else if (var33 >= 1900 && var33 < 2000) var34 = 9;
+    else if (var33 >= 200 && var33 < 300) var34 = 0xa;
+    else if (var33 >= 2100 && var33 < 2200) var34 = 0xb;
+    else if (var33 >= 2000 && var33 < 2100) var34 = 0xc;
+    else if (var33 >= 2200 && var33 < 2300) var34 = 0xd;
+    else if (var33 >= 2300 && var33 < 2400) var34 = 0xe;
+    else if (var33 >= 5700 && var33 < 5800) var34 = 0xf;
+    else if (var33 >= 400 && var33 < 500) var34 = 0x10;
 
-    int msgId = -1;
-    switch (tier) {
-    case 0: msgId = 0x24; break;
-    case 1: msgId = 0x25; break;
-    case 2: msgId = 0x26; break;
-    case 3: msgId = 0x27; break;
-    case 4: msgId = 0x28; break;
-    case 5: msgId = 0x29; break;
-    case 6: msgId = 0x2a; break;
-    case 7: msgId = 0x2b; break;
-    case 8: msgId = 0x2c; break;
-    case 9: msgId = 0x2d; break;
-    case 0xa: msgId = 0x2e; break;
-    case 0xb: msgId = 0x2f; break;
-    case 0xc: msgId = 0x30; break;
-    case 0xd: msgId = 0x31; break;
-    case 0xe: msgId = 0x32; break;
-    case 0xf: msgId = 0x33; break;
-    case 0x10: msgId = 0x47; break;
+    int var35 = -1;
+    switch (var34) {
+    case 0: var35 = 0x24; break;
+    case 1: var35 = 0x25; break;
+    case 2: var35 = 0x26; break;
+    case 3: var35 = 0x27; break;
+    case 4: var35 = 0x28; break;
+    case 5: var35 = 0x29; break;
+    case 6: var35 = 0x2a; break;
+    case 7: var35 = 0x2b; break;
+    case 8: var35 = 0x2c; break;
+    case 9: var35 = 0x2d; break;
+    case 0xa: var35 = 0x2e; break;
+    case 0xb: var35 = 0x2f; break;
+    case 0xc: var35 = 0x30; break;
+    case 0xd: var35 = 0x31; break;
+    case 0xe: var35 = 0x32; break;
+    case 0xf: var35 = 0x33; break;
+    case 0x10: var35 = 0x47; break;
     }
 
-    if (GetRegion(GameState::GetInstance())->flagD7 != 0) {
-        msgId = 0x2bc;
+    if (inline_ov004_0216ba70_27(GameState::GetInstance())->unknown_d7_ != 0) {
+        var35 = 0x2bc;
     }
-    if (msgId >= 0) {
-        func_ov004_0216aed0(a, 0x46, msgId, 1);
-    }
-
-    unsigned char w6;
-    unsigned char w7;
-    unsigned short w8;
-    w8 = data_ov004_02171034.short8;
-    w6 = data_ov004_02171034.byte6;
-    w7 = data_ov004_02171034.byte7;
-    if (w8 != 0) {
-        VObjNode* na = func_ov023_021f6880(func_ov011_021849c8(a), 0x9a);
-        if (na) na->MethodE0(w8);
-    }
-    VObjNode* nb = func_ov023_021f6880(func_ov011_021849c8(a), 0x9b);
-    if (nb) nb->MethodE0(w7);
-    VObjNode* nc = func_ov023_021f6880(func_ov011_021849c8(a), 0x9c);
-    if (nc) nc->MethodE0(w6);
-
-    void* node5 = func_ov004_0216ae9c(a, 0xd3);
-    func_ov023_021f8120(node5);
-
-    int fieldC = data_ov004_02171034.fieldC;
-    if (count >= 1 && count <= 4) {
-        ShortPair0217017a* e = &data_ov004_0217017a[count - 1];
-        func_ov023_021f7eb8(node5, a, fieldC, 6, e->a, 0x1a, e->b, 0, 1, 0);
+    if (var35 >= 0) {
+        func_ov004_0216aed0(arg0, 0x46, var35, 1);
     }
 
-    func_ov011_02184ad8((struct Obj_02184ad8*)a);
+    unsigned char var36;
+    unsigned char var37;
+    unsigned short var38;
+    var38 = data_ov004_02171034.unknown_8_;
+    var36 = data_ov004_02171034.unknown_6_;
+    var37 = data_ov004_02171034.unknown_7_;
+    if (var38 != 0) {
+        Struct_ov004_0216ba70* var39 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x9a);
+        if (var39) var39->inline_ov004_0216ba70_18(var38);
+    }
+    Struct_ov004_0216ba70* var40 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x9b);
+    if (var40) var40->inline_ov004_0216ba70_18(var37);
+    Struct_ov004_0216ba70* var41 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x9c);
+    if (var41) var41->inline_ov004_0216ba70_18(var36);
+
+    void* var42 = func_ov004_0216ae9c(arg0, 0xd3);
+    func_ov023_021f8120(var42);
+
+    int var43 = data_ov004_02171034.unknown_c_;
+    if (var0 >= 1 && var0 <= 4) {
+        Struct_ov004_0217017a* var44 = &data_ov004_0217017a[var0 - 1];
+        func_ov023_021f7eb8(var42, arg0, var43, 6, var44->unknown_0_, 0x1a, var44->unknown_2_, 0, 1, 0);
+    }
+
+    func_ov011_02184ad8((struct Struct_ov004_0216b7bc*)arg0);
     return 0;
 }

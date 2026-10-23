@@ -1,176 +1,176 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct MenuCell0215f000 {
-    short x;
-    short y;
-    char pad4[0xc - 4];
-    unsigned char mask;
-    unsigned char key;
-    unsigned char shape;
-    char padf;
-    short id;
-    char pad12[0x14 - 0x12];
+struct Struct_ov003_0215f000_2 {
+    short unknown_0_;
+    short unknown_2_;
+    char unknown_4_[0xc - 4];
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    char unknown_f_;
+    short unknown_10_;
+    char unknown_12_[0x14 - 0x12];
 };
 
-struct CellList0215f000 {
-    struct MenuCell0215f000* cells;
-    char pad4[2];
-    short count;
+struct Struct_ov003_0215f000 {
+    struct Struct_ov003_0215f000_2* unknown_0_;
+    char unknown_4_[2];
+    short unknown_6_;
 };
 
-struct Self0215e8f4 {
-    struct MenuCell0215f000* cell;
-    struct CellList0215f000* list;
-    char pad8[0x18 - 8];
-    int repeatTimer;
-    unsigned short repeatDir;
-    unsigned char mask;
-    char pad1f[0x22 - 0x1f];
-    unsigned char allowAlt;
-    unsigned char allowCancel;
-    unsigned char wrap;
+struct Struct_ov003_0215e8f4 {
+    struct Struct_ov003_0215f000_2* unknown_0_;
+    struct Struct_ov003_0215f000* unknown_4_;
+    char unknown_8_[0x18 - 8];
+    int unknown_18_;
+    unsigned short unknown_1c_;
+    unsigned char unknown_1e_;
+    char unknown_1f_[0x22 - 0x1f];
+    unsigned char unknown_22_;
+    unsigned char unknown_23_;
+    unsigned char unknown_24_;
 };
 
-struct LookupTable0215e930;
+struct Struct_ov003_0215e930;
 
-extern "C" struct LookupTable0215e930* func_ov003_0215e8f4(struct Self0215e8f4* self);
-extern "C" int func_ov003_0215e930(struct LookupTable0215e930* table, short id, signed char* col, signed char* row);
-extern "C" void func_ov003_0215e9ec(struct Self0215e8f4* self, int dx, int dy);
-extern "C" int func_ov003_0215ef54(struct Self0215e8f4* self);
-extern "C" int func_ov003_0215eeb8(struct Self0215e8f4* self);
-extern "C" void func_ov003_0215ec68(int shape, short* w, short* h);
+extern "C" struct Struct_ov003_0215e930* func_ov003_0215e8f4(struct Struct_ov003_0215e8f4* arg0);
+extern "C" int func_ov003_0215e930(struct Struct_ov003_0215e930* arg0, short arg1, signed char* arg2, signed char* arg3);
+extern "C" void func_ov003_0215e9ec(struct Struct_ov003_0215e8f4* arg0, int arg1, int arg2);
+extern "C" int func_ov003_0215ef54(struct Struct_ov003_0215e8f4* arg0);
+extern "C" int func_ov003_0215eeb8(struct Struct_ov003_0215e8f4* arg0);
+extern "C" void func_ov003_0215ec68(int arg0, short* arg1, short* arg2);
 
 // USA: func_ov003_0215f000
-extern "C" ARM int func_ov003_0215f000(struct Self0215e8f4* self, int elapsed) {
-    struct MenuCell0215f000* prev = self->cell;
-    int i;
-    short count;
-    struct MenuCell0215f000* hit;
-    unsigned char mask;
-    int result;
+extern "C" ARM int func_ov003_0215f000(struct Struct_ov003_0215e8f4* arg0, int arg1) {
+    struct Struct_ov003_0215f000_2* var0 = arg0->unknown_0_;
+    int var1;
+    short var2;
+    struct Struct_ov003_0215f000_2* var3;
+    unsigned char var4;
+    int var5;
 
-    if (self->cell == 0) {
-        result = 0;
-        self->repeatTimer = 0;
-        self->repeatDir = 0;
+    if (arg0->unknown_0_ == 0) {
+        var5 = 0;
+        arg0->unknown_18_ = 0;
+        arg0->unknown_1c_ = 0;
     } else {
         if (g_keyManager.TestKeysPressed(0x40)) {
-            func_ov003_0215e9ec(self, 0, -1);
-            self->repeatTimer = 0x14;
-            self->repeatDir = 0x40;
+            func_ov003_0215e9ec(arg0, 0, -1);
+            arg0->unknown_18_ = 0x14;
+            arg0->unknown_1c_ = 0x40;
         } else if (g_keyManager.TestKeysPressed(0x80)) {
-            func_ov003_0215e9ec(self, 0, 1);
-            self->repeatTimer = 0x14;
-            self->repeatDir = 0x80;
+            func_ov003_0215e9ec(arg0, 0, 1);
+            arg0->unknown_18_ = 0x14;
+            arg0->unknown_1c_ = 0x80;
         } else if (g_keyManager.TestKeysPressed(0x20)) {
-            func_ov003_0215e9ec(self, -1, 0);
-            self->repeatTimer = 0x14;
-            self->repeatDir = 0x20;
+            func_ov003_0215e9ec(arg0, -1, 0);
+            arg0->unknown_18_ = 0x14;
+            arg0->unknown_1c_ = 0x20;
         } else if (g_keyManager.TestKeysPressed(0x10)) {
-            func_ov003_0215e9ec(self, 1, 0);
-            self->repeatTimer = 0x14;
-            self->repeatDir = 0x10;
+            func_ov003_0215e9ec(arg0, 1, 0);
+            arg0->unknown_18_ = 0x14;
+            arg0->unknown_1c_ = 0x10;
         }
 
-        if (self->wrap) {
-            unsigned short dir = self->repeatDir;
-            if (dir != 0 && g_keyManager.TestKeysHeld(0xf0)) {
-                int timer = self->repeatTimer - elapsed;
-                if (timer <= 0) {
-                    timer = 10;
-                    switch (dir) {
+        if (arg0->unknown_24_) {
+            unsigned short var6 = arg0->unknown_1c_;
+            if (var6 != 0 && g_keyManager.TestKeysHeld(0xf0)) {
+                int var7 = arg0->unknown_18_ - arg1;
+                if (var7 <= 0) {
+                    var7 = 10;
+                    switch (var6) {
                     case 0x40:
-                        func_ov003_0215e9ec(self, 0, -1);
+                        func_ov003_0215e9ec(arg0, 0, -1);
                         break;
                     case 0x80:
-                        func_ov003_0215e9ec(self, 0, 1);
+                        func_ov003_0215e9ec(arg0, 0, 1);
                         break;
                     case 0x20:
-                        func_ov003_0215e9ec(self, -1, 0);
+                        func_ov003_0215e9ec(arg0, -1, 0);
                         break;
                     case 0x10:
-                        func_ov003_0215e9ec(self, 1, 0);
+                        func_ov003_0215e9ec(arg0, 1, 0);
                         break;
                     }
-                    if (self->wrap) {
-                        signed char curRow;
-                        signed char curCol;
-                        signed char prevRow;
-                        signed char prevCol;
-                        struct LookupTable0215e930* table = func_ov003_0215e8f4(self);
-                        struct MenuCell0215f000* cur = self->cell;
-                        if (func_ov003_0215e930(table, prev->id, &prevCol, &prevRow) == 0
-                            && func_ov003_0215e930(table, cur->id, &curCol, &curRow) == 0) {
-                            switch (dir) {
+                    if (arg0->unknown_24_) {
+                        signed char var8;
+                        signed char var9;
+                        signed char var10;
+                        signed char var11;
+                        struct Struct_ov003_0215e930* var12 = func_ov003_0215e8f4(arg0);
+                        struct Struct_ov003_0215f000_2* var13 = arg0->unknown_0_;
+                        if (func_ov003_0215e930(var12, var0->unknown_10_, &var11, &var10) == 0
+                            && func_ov003_0215e930(var12, var13->unknown_10_, &var9, &var8) == 0) {
+                            switch (var6) {
                             case 0x40:
-                                if (prevRow < curRow) self->cell = prev;
+                                if (var10 < var8) arg0->unknown_0_ = var0;
                                 break;
                             case 0x80:
-                                if (prevRow > curRow) self->cell = prev;
+                                if (var10 > var8) arg0->unknown_0_ = var0;
                                 break;
                             case 0x20:
-                                if (prevCol < curCol) self->cell = prev;
+                                if (var11 < var9) arg0->unknown_0_ = var0;
                                 break;
                             case 0x10:
-                                if (prevCol > curCol) self->cell = prev;
+                                if (var11 > var9) arg0->unknown_0_ = var0;
                                 break;
                             }
                         }
                     }
                 }
-                self->repeatTimer = timer;
+                arg0->unknown_18_ = var7;
             } else {
-                self->repeatTimer = 0;
-                self->repeatDir = 0;
+                arg0->unknown_18_ = 0;
+                arg0->unknown_1c_ = 0;
             }
         }
-        if (prev == self->cell) {
-            result = 0;
+        if (var0 == arg0->unknown_0_) {
+            var5 = 0;
         } else {
-            result = 1;
+            var5 = 1;
         }
     }
 
-    if (result == 0) {
-        unsigned char allowAlt = self->allowAlt;
-        unsigned char allowCancel = self->allowCancel;
+    if (var5 == 0) {
+        unsigned char var14 = arg0->unknown_22_;
+        unsigned char var15 = arg0->unknown_23_;
         if (g_keyManager.TestKeysPressed(1)
-            || (allowAlt && g_keyManager.TestKeysPressed(0x200))) {
-            result = func_ov003_0215ef54(self);
-        } else if (allowCancel && g_keyManager.TestKeysPressed(2)) {
-            result = func_ov003_0215eeb8(self);
+            || (var14 && g_keyManager.TestKeysPressed(0x200))) {
+            var5 = func_ov003_0215ef54(arg0);
+        } else if (var15 && g_keyManager.TestKeysPressed(2)) {
+            var5 = func_ov003_0215eeb8(arg0);
         } else {
-            result = 0;
+            var5 = 0;
         }
 
-        if (result == 0) {
-            mask = self->mask;
+        if (var5 == 0) {
+            var4 = arg0->unknown_1e_;
             if (g_touchInput.pressed_) {
-                int ty;
-                int tx;
-                g_touchInput.GetTouchPoint(&tx, &ty);
-                struct CellList0215f000* list = self->list;
-                hit = list->cells;
-                count = list->count;
-                for (i = 0; i < count; i++, hit++) {
-                    if (hit->mask & mask) {
-                        short h;
-                        short w;
-                        func_ov003_0215ec68(hit->shape, &w, &h);
-                        if (hit->y <= ty && ty < hit->y + h && hit->x <= tx && tx < hit->x + w) {
+                int var16;
+                int var17;
+                g_touchInput.GetTouchPoint(&var17, &var16);
+                struct Struct_ov003_0215f000* var18 = arg0->unknown_4_;
+                var3 = var18->unknown_0_;
+                var2 = var18->unknown_6_;
+                for (var1 = 0; var1 < var2; var1++, var3++) {
+                    if (var3->unknown_c_ & var4) {
+                        short var19;
+                        short var20;
+                        func_ov003_0215ec68(var3->unknown_e_, &var20, &var19);
+                        if (var3->unknown_2_ <= var16 && var16 < var3->unknown_2_ + var19 && var3->unknown_0_ <= var17 && var17 < var3->unknown_0_ + var20) {
                             goto found;
                         }
                     }
                 }
             }
-            hit = 0;
+            var3 = 0;
         found:
-            if (hit != 0) {
-                self->cell = hit;
-                result = func_ov003_0215ef54(self);
+            if (var3 != 0) {
+                arg0->unknown_0_ = var3;
+                var5 = func_ov003_0215ef54(arg0);
             }
         }
     }
-    return result;
+    return var5;
 }

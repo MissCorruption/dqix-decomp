@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 
-struct Obj0204bbb4;
-extern "C" void func_0204bbb4(struct Obj0204bbb4* obj, unsigned int idx, int a2, int a3,
-                           short a4, short a5, short a6, short a7, unsigned short a8);
-extern "C" void func_0205ac40(void* dst, void* src);
+struct Struct_0204bbb4;
+extern "C" void func_0204bbb4(struct Struct_0204bbb4* arg0, unsigned int arg1, int arg2, int arg3,
+                           short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
+extern "C" void func_0205ac40(void* arg0, void* arg1);
 extern "C" int* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* arg0);
 
 extern const int data_ov000_021836a0[];
 
-struct Entry02180bac {
-    char pad0[0x14];
-    int field14;
-    int field18;
-    char pad1[0x22 - 0x1c];
-    unsigned char field22;
-    char pad2[0x26 - 0x23];
-    unsigned char field26;
-    char pad3[0x28 - 0x27];
+struct Struct_ov000_02180bac {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[0x22 - 0x1c];
+    unsigned char unknown_22_;
+    char unknown_23_[0x26 - 0x23];
+    unsigned char unknown_26_;
+    char unknown_27_[0x28 - 0x27];
 };
 
-struct Obj02180bac {
-    char pad0[0x1a];
-    signed char field1a;
-    char pad1[0x11c - 0x1b];
-    char field11c[0x170 - 0x11c];
-    struct Entry02180bac* entries;
-    char pad2[0x8c4 - 0x174];
-    char list8c4[0x930 - 0x8c4];
-    int field930;
-    int field934;
+struct Struct_ov000_02180bac_2 {
+    char unknown_0_[0x1a];
+    signed char unknown_1a_;
+    char unknown_1b_[0x11c - 0x1b];
+    char unknown_11c_[0x170 - 0x11c];
+    struct Struct_ov000_02180bac* unknown_170_;
+    char unknown_174_[0x8c4 - 0x174];
+    char unknown_8c4_[0x930 - 0x8c4];
+    int unknown_930_;
+    int unknown_934_;
 #if defined(jpn)
-    char pad3[0x1faa - 0x938];
+    char unknown_938_[0x1faa - 0x938];
 #else
-    char pad3[0x1d72 - 0x938];
+    char unknown1_938_[0x1d72 - 0x938];
 #endif
-    unsigned short flags1d72;
+    unsigned short unknown_1d72_;
 };
 
 // USA: func_ov000_02180bac
-extern "C" ARM void func_ov000_02180bac(struct Obj02180bac* obj) {
-    func_0204bbb4((struct Obj0204bbb4*)obj->list8c4, 4, 1, 4, 0, 0, 0x20, 1, 0xffff);
-    if (obj->field934 != 3) {
-        struct Entry02180bac* e = &obj->entries[19];
-        e->field14 = obj->field930 << 12;
-        e->field18 = 0x2000;
+extern "C" ARM void func_ov000_02180bac(struct Struct_ov000_02180bac_2* arg0) {
+    func_0204bbb4((struct Struct_0204bbb4*)arg0->unknown_8c4_, 4, 1, 4, 0, 0, 0x20, 1, 0xffff);
+    if (arg0->unknown_934_ != 3) {
+        struct Struct_ov000_02180bac* var0 = &arg0->unknown_170_[19];
+        var0->unknown_14_ = arg0->unknown_930_ << 12;
+        var0->unknown_18_ = 0x2000;
 #if defined(jpn)
-        e->field22 = 0x44;
+        var0->unknown_22_ = 0x44;
 #else
-        e->field22 = 0x48;
+        var0->unknown_22_ = 0x48;
 #endif
-        e->field26 = 1;
-        func_0205ac40(obj->field11c, e);
+        var0->unknown_26_ = 1;
+        func_0205ac40(arg0->unknown_11c_, var0);
     }
-    int flag = (obj->flags1d72 & 0x400) ? 1 : 0;
-    if (flag & func_0202b7d8(func_0202ae18())) {
-        struct Entry02180bac* e = &obj->entries[6];
-        int idx = obj->field1a - 2;
-        if (obj->field1a < 0) {
-            obj->field1a = 0;
+    int var1 = (arg0->unknown_1d72_ & 0x400) ? 1 : 0;
+    if (var1 & func_0202b7d8(func_0202ae18())) {
+        struct Struct_ov000_02180bac* var2 = &arg0->unknown_170_[6];
+        int var3 = arg0->unknown_1a_ - 2;
+        if (arg0->unknown_1a_ < 0) {
+            arg0->unknown_1a_ = 0;
         }
-        e->field14 = 0xc8000;
-        e->field18 = data_ov000_021836a0[idx] << 12;
+        var2->unknown_14_ = 0xc8000;
+        var2->unknown_18_ = data_ov000_021836a0[var3] << 12;
 #if defined(jpn)
-        e->field22 = 0x78;
+        var2->unknown_22_ = 0x78;
 #else
-        e->field22 = 0;
+        var2->unknown_22_ = 0;
 #endif
-        e->field26 = 0;
-        func_0205ac40(obj->field11c, e);
+        var2->unknown_26_ = 0;
+        func_0205ac40(arg0->unknown_11c_, var2);
     }
 }

@@ -2,45 +2,45 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-enum { kRegionValue1002_F7E = 0xf7e };
-enum { kRegionValueFFE_F7A = 0xf7a };
-enum { kRegionValue89C_818 = 0x818 };
-enum { kRegionValue88C_808 = 0x808 };
-enum { kRegionValueFF8_F74 = 0xf74 };
+enum { Enum_ov003_021764f4_4098 = 0xf7e };
+enum { Enum_ov003_021764f4_4094 = 0xf7a };
+enum { Enum_ov003_021764f4_2204 = 0x818 };
+enum { Enum_ov003_021764f4_2188 = 0x808 };
+enum { Enum_ov003_021764f4_4088 = 0xf74 };
 #else
-enum { kRegionValue1002_F7E = 0x1002 };
-enum { kRegionValueFFE_F7A = 0xffe };
-enum { kRegionValue89C_818 = 0x89c };
-enum { kRegionValue88C_808 = 0x88c };
-enum { kRegionValueFF8_F74 = 0xff8 };
+enum { Enum_ov003_021764f4_4098 = 0x1002 };
+enum { Enum_ov003_021764f4_4094 = 0xffe };
+enum { Enum_ov003_021764f4_2204 = 0x89c };
+enum { Enum_ov003_021764f4_2188 = 0x88c };
+enum { Enum_ov003_021764f4_4088 = 0xff8 };
 #endif
 
-extern "C" int func_ov003_021765b4(void* self);
-extern "C" int func_ov003_021766e8(void* self);
+extern "C" int func_ov003_021765b4(void* arg0);
+extern "C" int func_ov003_021766e8(void* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-struct Obj2081;
-extern "C" void func_0207fdcc(struct Obj2081* obj, int key);
+struct Struct_0207fdcc_2;
+extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 
-struct Obj0208203c;
-extern "C" void func_0208203c(struct Obj0208203c* obj);
+struct Struct_02081f20_2;
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
-struct Obj020e25e8;
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
-extern struct Obj0205eaa0 data_02108760;
+extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov003_021764f4
-extern "C" ARM int func_ov003_021764f4(unsigned char* self) {
+extern "C" ARM int func_ov003_021764f4(unsigned char* arg0) {
 #if defined(jpn)
-    *(void**)(self + 0xf74) = self + 0xf7e;
+    *(void**)(arg0 + 0xf74) = arg0 + 0xf7e;
 #else
-    *(void**)(self + 0xff8) = self + 0x2 + 0x1000;
+    *(void**)(arg0 + 0xff8) = arg0 + 0x2 + 0x1000;
 #endif
-    int result = 0;
-    if (func_ov003_021765b4(self) != 0) {
+    int var0 = 0;
+    if (func_ov003_021765b4(arg0) != 0) {
         goto dispatch;
     }
     if (g_keyManager.TestKeysPressed(0x200) == 0) {
@@ -48,24 +48,24 @@ extern "C" ARM int func_ov003_021764f4(unsigned char* self) {
     }
 dispatch:
     func_0205eaa0(&data_02108760, 1, 0);
-    result = -1;
-    if (*(short*)(self + kRegionValue1002_F7E) == 2) {
-        result = 1;
+    var0 = -1;
+    if (*(short*)(arg0 + Enum_ov003_021764f4_4098) == 2) {
+        var0 = 1;
     }
     goto merge;
 alt:
-    if (func_ov003_021766e8(self) != 0) {
-        result = -1;
+    if (func_ov003_021766e8(arg0) != 0) {
+        var0 = -1;
     }
 merge:
-    if (result != 0) {
-        short key = *(short*)(self + kRegionValueFFE_F7A);
-        func_0207fdcc(*(struct Obj2081**)(self + kRegionValue89C_818), key);
-        func_0208203c((struct Obj0208203c*)(self + kRegionValue88C_808));
-        *(void**)(self + kRegionValueFF8_F74) = 0;
+    if (var0 != 0) {
+        short var1 = *(short*)(arg0 + Enum_ov003_021764f4_4094);
+        func_0207fdcc(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_021764f4_2204), var1);
+        func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_021764f4_2188));
+        *(void**)(arg0 + Enum_ov003_021764f4_4088) = 0;
     }
-    if (*(void**)self != 0 && result != 0) {
-        func_020e25e8(*(struct Obj020e25e8**)self);
+    if (*(void**)arg0 != 0 && var0 != 0) {
+        func_020e25e8(*(struct Struct_020e25e8**)arg0);
     }
-    return result;
+    return var0;
 }

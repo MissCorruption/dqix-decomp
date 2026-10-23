@@ -11,94 +11,94 @@
 #define func_020daf90 func_020dc998
 #endif
 
-struct Struct0200fb08;
-struct StateBits5ccc_11570;
-struct StateBits5ccc_1155c;
-struct FieldBlock63d6_115a8;
-struct FieldBlock63d6_115b4;
-struct FieldBlock63d6_115c0;
-struct Obj020128d8;
-struct Actor0209c174;
-struct Obj_0205e88c;
-struct Manager020db0f0;
+struct Struct_02000c9c_8;
+struct Struct_02000c9c_9;
+struct Struct_02000c9c_11;
+struct Struct_02000c9c_12;
+struct Struct_02000c9c_13;
+struct Struct_02000c9c_14;
+struct Struct_02000c9c_15;
+struct Struct_02000c9c_16;
+struct Struct_02000c9c_17;
+struct Struct_02000c9c_18;
 
-extern "C" void* func_02010828(GameState* gs);
+extern "C" void* func_02010828(GameState* arg0);
 extern "C" void func_020c3898();
 extern "C" void func_02012c34();
 extern "C" void func_020a0c0c();
 extern "C" void func_020a1838();
-extern "C" void func_020a1940(unsigned int* id);
-extern "C" int func_020a1bb4(unsigned int* id);
-extern "C" unsigned int func_ov029_021d8e1c(void* start, void* end, int seed);
-extern "C" unsigned int func_ov029_021d8f0c(void* start, void* end, int seed);
-extern "C" unsigned int func_ov029_021d8ffc(void* start, void* end, int seed);
+extern "C" void func_020a1940(unsigned int* arg0);
+extern "C" int func_020a1bb4(unsigned int* arg0);
+extern "C" unsigned int func_ov029_021d8e1c(void* arg0, void* arg1, int arg2);
+extern "C" unsigned int func_ov029_021d8f0c(void* arg0, void* arg1, int arg2);
+extern "C" unsigned int func_ov029_021d8ffc(void* arg0, void* arg1, int arg2);
 void PopulateOv33BackgroundLoader(void* buffer, unsigned int size, int count);
 extern "C" void func_020dc034();
-extern "C" Manager020db0f0* func_020daf90();
+extern "C" Struct_02000c9c_18* func_020daf90();
 extern "C" void func_020dafd4();
-extern "C" void func_020db0f0(Manager020db0f0* mgr);
-extern "C" void func_020db228(void* mgr);
-extern "C" void func_0209c174(Actor0209c174* actor);
-extern "C" void func_0209c290(void* actor);
-extern "C" void func_0205e88c(Obj_0205e88c* obj);
-extern "C" void func_0205ea20(void* obj, int mode);
-extern "C" void func_020421c4(SafeAllocator* alloc);
+extern "C" void func_020db0f0(Struct_02000c9c_18* arg0);
+extern "C" void func_020db228(void* arg0);
+extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
+extern "C" void func_0209c290(void* arg0);
+extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
+extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" void func_020421c4(SafeAllocator* arg0);
 extern "C" void func_02071688();
 extern "C" char* func_02099cac();
-extern "C" void func_0200fb94(char* gs, unsigned char value);
-extern "C" char func_0200fb9c(char* gs);
-extern "C" void func_02012010(void* gs, int value);
-extern "C" int func_0201201c(void* gs);
+extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" char func_0200fb9c(char* arg0);
+extern "C" void func_02012010(void* arg0, int arg1);
+extern "C" int func_0201201c(void* arg0);
 extern "C" void func_020ac910();
-extern "C" int func_02011570(StateBits5ccc_11570* gs);
-extern "C" void func_0201155c(StateBits5ccc_1155c* gs);
-extern "C" void* func_02012db0(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_02012dbc(AllocatorUnion* alloc, void* data, int size);
-extern "C" void func_0208660c(char* p);
-extern "C" void func_02099cb8(char* table);
-extern "C" int func_020115a8(FieldBlock63d6_115a8* gs);
-extern "C" void func_020115b4(FieldBlock63d6_115b4* gs, unsigned char value);
-extern "C" void func_020115c0(FieldBlock63d6_115c0* gs);
+extern "C" int func_02011570(Struct_02000c9c_9* arg0);
+extern "C" void func_0201155c(Struct_02000c9c_11* arg0);
+extern "C" void* func_02012db0(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_02012dbc(AllocatorUnion* arg0, void* arg1, int arg2);
+extern "C" void func_0208660c(char* arg0);
+extern "C" void func_02099cb8(char* arg0);
+extern "C" int func_020115a8(Struct_02000c9c_12* arg0);
+extern "C" void func_020115b4(Struct_02000c9c_13* arg0, unsigned char arg1);
+extern "C" void func_020115c0(Struct_02000c9c_14* arg0);
 extern "C" void func_020d6cb4();
-extern "C" void func_0205e8d4(void* obj);
-extern "C" void func_0203a950(void* obj);
+extern "C" void func_0205e8d4(void* arg0);
+extern "C" void func_0203a950(void* arg0);
 void InitializeActiveAlarmList();
-extern "C" void func_ov031_02211c50(int index);
-extern "C" int func_0200fb08(Struct0200fb08* gs);
-extern "C" void func_ov031_0222708c(int kind, int value);
+extern "C" void func_ov031_02211c50(int arg0);
+extern "C" int func_0200fb08(Struct_02000c9c_8* arg0);
+extern "C" void func_ov031_0222708c(int arg0, int arg1);
 extern "C" int func_020d6c9c();
 extern "C" void func_020c983c();
-extern "C" void func_020c98f0(int mode);
+extern "C" void func_020c98f0(int arg0);
 void SetInterruptHandler(unsigned int mask, const void* handler);
 void EnableSpecificInterrupts(unsigned int mask);
 void EnableIRQInterrupts();
-extern "C" void func_020c3864(int enable);
+extern "C" void func_020c3864(int arg0);
 extern "C" void MapVRAMBanksToMainBG(int banks);
-extern "C" void func_020c391c(int mode, int a, int b);
+extern "C" void func_020c391c(int arg0, int arg1, int arg2);
 extern "C" void func_020c9820();
 
-extern "C" void func_ov019_0218b5a0(void* scene);
-extern "C" void func_ov019_0218b5a8(void* scene);
-extern "C" void func_ov019_0218b5a4(void* scene);
-extern "C" void func_ov020_0218b5a0(void* scene);
-extern "C" void func_ov020_0218b710(void* scene);
-extern "C" void func_ov020_0218b700(void* scene);
-extern "C" void func_ov016_0218b5a0(void* scene);
-extern "C" void func_ov016_0218b5c4(void* scene);
-extern "C" void func_ov016_0218b5c0(void* scene);
-extern "C" void func_ov021_0218b5a0(void* scene);
-extern "C" void func_ov021_0218b5fc(void* scene);
-struct Obj0218b5c4;
-extern "C" void func_ov021_0218b5c4(Obj0218b5c4*);
-extern "C" void func_ov015_02193294(void* scene);
-extern "C" void func_ov015_021934f8(void* scene);
-extern "C" void func_ov015_021933bc(void* scene);
+extern "C" void func_ov019_0218b5a0(void* arg0);
+extern "C" void func_ov019_0218b5a8(void* arg0);
+extern "C" void func_ov019_0218b5a4(void* arg0);
+extern "C" void func_ov020_0218b5a0(void* arg0);
+extern "C" void func_ov020_0218b710(void* arg0);
+extern "C" void func_ov020_0218b700(void* arg0);
+extern "C" void func_ov016_0218b5a0(void* arg0);
+extern "C" void func_ov016_0218b5c4(void* arg0);
+extern "C" void func_ov016_0218b5c0(void* arg0);
+extern "C" void func_ov021_0218b5a0(void* arg0);
+extern "C" void func_ov021_0218b5fc(void* arg0);
+struct Struct_02000c9c_10;
+extern "C" void func_ov021_0218b5c4(Struct_02000c9c_10*);
+extern "C" void func_ov015_02193294(void* arg0);
+extern "C" void func_ov015_021934f8(void* arg0);
+extern "C" void func_ov015_021933bc(void* arg0);
 
-extern "C" int func_020d6bac(void (*callback)());
+extern "C" int func_020d6bac(void (*arg0)());
 extern "C" void func_020d6c0c();
-extern "C" int func_020d6bc8(void (*callback)());
+extern "C" int func_020d6bc8(void (*arg0)());
 extern "C" void func_020d6c34();
-extern "C" int func_020d6be4(void (*callback)());
+extern "C" int func_020d6be4(void (*arg0)());
 extern "C" void func_020d6c68();
 extern "C" void func_02012bd8();
 
@@ -114,9 +114,9 @@ extern char data_02114ec4[];
 #define STARTUP_ALLOCATOR_SIZE 0xb000
 #define SCENE_SKIP_MEMBER_INDEX (0x7c9e - 0x6d40)
 #define MOVIE_RETURN_FLAG_OFFSET 0x6174
-extern "C" int data_ov029_021d9b60_fake(void* callback);
-extern "C" int data_ov029_021d9d20_fake(void* callback);
-extern "C" int data_ov029_021d9ee0_fake(void* callback);
+extern "C" int data_ov029_021d9b60_fake(void* arg0);
+extern "C" int data_ov029_021d9d20_fake(void* arg0);
+extern "C" int data_ov029_021d9ee0_fake(void* arg0);
 extern "C" void func_020d8614();
 #define func_020d863c func_020d6c34
 #define func_020d8670 func_020d6c68
@@ -173,7 +173,7 @@ extern "C" void func_020d8614();
         func_ov021_0218b5a0(scene); \
         func_02012de4(&data_02114e20); \
         func_ov021_0218b5fc(scene); \
-        func_ov021_0218b5c4((Obj0218b5c4*)scene); \
+        func_ov021_0218b5c4((Struct_02000c9c_10*)scene); \
         func_02012dbc(&data_02114e20, scene, 0xbc); \
         func_020a1bb4(&OVERLAY_21_ID); \
     } while (0)
@@ -191,23 +191,23 @@ extern "C" void func_020d8614();
     } while (0)
 
 #if !defined(jpn)
-inline bool IsIntact1() {
+inline bool inline_02000c9c() {
     return func_ov029_021d8e1c((void*)func_020d6bac, (void*)func_020d6c0c, 0) == 0xffe41136;
 }
 
-inline bool IsIntact2() {
+inline bool inline_02000c9c_2() {
     return func_ov029_021d8f0c((void*)func_020d6bc8, (void*)func_020d6c34, 0) == 0xffe412c4;
 }
 
-inline bool IsIntact3() {
+inline bool inline_02000c9c_3() {
     return func_ov029_021d8ffc((void*)func_020d6be4, (void*)func_020d6c68, 0) == 0xffe41b51;
 }
 #endif
 
-inline void ResetWordUnlessTwo(GameState* gs) {
-    func_0200fb94((char*)gs, 6);
-    if (func_0201201c(gs) != 2) {
-        func_02012010(gs, 0);
+inline void inline_02000c9c_4(GameState* arg0) {
+    func_0200fb94((char*)arg0, 6);
+    if (func_0201201c(arg0) != 2) {
+        func_02012010(arg0, 0);
     }
 }
 
@@ -220,8 +220,8 @@ inline void ResetWordUnlessTwo(GameState* gs) {
 
 // USA: func_02000c9c
 extern "C" ARM void main() {
-    GameState* gs = GameState::GetInstance();
-    char* bigManager = (char*)func_02010828(gs);
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = (char*)func_02010828(var0);
     func_020c3898();
     DISPCNTSUB &= ~0x10000;
     func_02012c34();
@@ -234,7 +234,7 @@ extern "C" ARM void main() {
         !data_ov029_021d9ee0_fake((void*)func_020d8670) &&
         BackgroundLoader::GetInstance() == 0) {
 #else
-    if (!IsIntact1() && !IsIntact2() && !IsIntact3() && BackgroundLoader::GetInstance() == 0) {
+    if (!inline_02000c9c() && !inline_02000c9c_2() && !inline_02000c9c_3() && BackgroundLoader::GetInstance() == 0) {
 #endif
         func_020a1940(&OVERLAY_33_ID);
         PopulateOv33BackgroundLoader(data_0211e33c, 0x30000, 0x14);
@@ -242,101 +242,101 @@ extern "C" ARM void main() {
     func_020a1bb4(&OVERLAY_29_ID);
     func_020a1940(&OVERLAY_32_ID);
     func_020dc034();
-    Manager020db0f0* ctx = func_020daf90();
+    Struct_02000c9c_18* var2 = func_020daf90();
     func_020dafd4();
-    func_020db0f0(ctx);
-    func_020db228(ctx);
-    func_0209c174((Actor0209c174*)data_02109bf4);
+    func_020db0f0(var2);
+    func_020db228(var2);
+    func_0209c174((Struct_02000c9c_16*)data_02109bf4);
     func_0209c290(data_02109bf4);
-    func_0205e88c((Obj_0205e88c*)data_02108760);
+    func_0205e88c((Struct_02000c9c_17*)data_02108760);
     func_0205ea20(data_02108760, 100);
-    SafeAllocator allocator;
-    allocator.ResetAllocatorPointer();
-    allocator.CreateTypeA(data_02114ec4, STARTUP_ALLOCATOR_SIZE);
-    allocator.Reset();
-    func_020421c4(&allocator);
+    SafeAllocator var3;
+    var3.ResetAllocatorPointer();
+    var3.CreateTypeA(data_02114ec4, STARTUP_ALLOCATOR_SIZE);
+    var3.Reset();
+    func_020421c4(&var3);
     func_02071688();
-    char* table = func_02099cac();
+    char* var4 = func_02099cac();
     if (*(int*)0x027ffc20 != 0) {
-        func_0200fb94((char*)gs, 6);
-        func_02012010(gs, 0);
+        func_0200fb94((char*)var0, 6);
+        func_02012010(var0, 0);
     }
     func_020ac910();
 
     for (;;) {
-        if (func_02011570((StateBits5ccc_11570*)gs)) {
-            func_0201155c((StateBits5ccc_1155c*)gs);
+        if (func_02011570((Struct_02000c9c_9*)var0)) {
+            func_0201155c((Struct_02000c9c_11*)var0);
             RUNTITLE();
         }
-        if (func_0201201c(gs) != 5) {
-            func_0208660c(bigManager);
+        if (func_0201201c(var0) != 5) {
+            func_0208660c(var1);
         }
-        func_02099cb8(table);
+        func_02099cb8(var4);
 
-        bool resumed = false;
-        if (func_0201201c(gs) != 5) {
-            ResetWordUnlessTwo(gs);
-            ResetWordUnlessTwo(gs);
-            if (func_0200fb9c((char*)gs) != 6) {
+        bool var5 = false;
+        if (func_0201201c(var0) != 5) {
+            inline_02000c9c_4(var0);
+            inline_02000c9c_4(var0);
+            if (func_0200fb9c((char*)var0) != 6) {
                 RUNOV20();
-            } else if (func_0200fb9c((char*)gs) == 6) {
+            } else if (func_0200fb9c((char*)var0) == 6) {
                 RUNOV20();
-                if (*(unsigned char*)&gs->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] == 0) {
-                    func_020115b4((FieldBlock63d6_115b4*)gs, 1);
+                if (*(unsigned char*)&var0->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] == 0) {
+                    func_020115b4((Struct_02000c9c_13*)var0, 1);
                     func_020a1940(&OVERLAY_16_ID);
-                    int again16 = 1;
-                    while (again16) {
-                        RUNOV16(again16);
+                    int var6 = 1;
+                    while (var6) {
+                        RUNOV16(var6);
                     }
                     func_020a1bb4(&OVERLAY_16_ID);
-                    func_020115c0((FieldBlock63d6_115c0*)gs);
+                    func_020115c0((Struct_02000c9c_14*)var0);
                 } else {
-                    *(unsigned char*)&gs->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] = 0;
+                    *(unsigned char*)&var0->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] = 0;
                 }
             }
-            resumed = true;
+            var5 = true;
         }
 
-        switch (func_0200fb9c((char*)gs)) {
+        switch (func_0200fb9c((char*)var0)) {
         case 2:
-            func_02012010(gs, 0);
+            func_02012010(var0, 0);
             break;
         case 0:
-            if (resumed != true) {
-                func_02012010(gs, 0);
+            if (var5 != true) {
+                func_02012010(var0, 0);
             }
             break;
         case 7:
-            func_0200fb94((char*)gs, 0);
+            func_0200fb94((char*)var0, 0);
             break;
         case 5:
-            if (func_0201201c(gs) != 6) {
-                func_02012010(gs, 0);
+            if (func_0201201c(var0) != 6) {
+                func_02012010(var0, 0);
             }
             break;
         }
 
-        bool again = true;
-        while (again) {
-            again = false;
-            switch (func_0200fb9c((char*)gs)) {
+        bool var7 = true;
+        while (var7) {
+            var7 = false;
+            switch (func_0200fb9c((char*)var0)) {
             case 0:
             case 4:
             case 5:
             case 9:
                 RUNOV17();
-                if (func_020115a8((FieldBlock63d6_115a8*)gs)) {
-                    func_0200fb94((char*)gs, 3);
-                    again = true;
+                if (func_020115a8((Struct_02000c9c_12*)var0)) {
+                    func_0200fb94((char*)var0, 3);
+                    var7 = true;
                 }
                 break;
             case 2:
                 RUNOV21();
-                if (((unsigned char*)gs)[MOVIE_RETURN_FLAG_OFFSET] != 0) {
+                if (((unsigned char*)var0)[MOVIE_RETURN_FLAG_OFFSET] != 0) {
                     RUNOV17();
-                    if (func_020115a8((FieldBlock63d6_115a8*)gs)) {
-                        func_0200fb94((char*)gs, 3);
-                        again = true;
+                    if (func_020115a8((Struct_02000c9c_12*)var0)) {
+                        func_0200fb94((char*)var0, 3);
+                        var7 = true;
                     }
                 }
                 break;
@@ -345,14 +345,14 @@ extern "C" ARM void main() {
                 break;
             case 3:
                 func_020a1940(&OVERLAY_16_ID);
-                int more = 1;
-                while (more) {
-                    RUNOV16(more);
+                int var8 = 1;
+                while (var8) {
+                    RUNOV16(var8);
                 }
                 func_020a1bb4(&OVERLAY_16_ID);
-                if (func_020115a8((FieldBlock63d6_115a8*)gs)) {
-                    func_0200fb94((char*)gs, 0);
-                    again = true;
+                if (func_020115a8((Struct_02000c9c_12*)var0)) {
+                    func_0200fb94((char*)var0, 0);
+                    var7 = true;
                 }
                 break;
             case 8:
@@ -368,7 +368,7 @@ extern "C" ARM void main() {
 #if defined(jpn)
                 func_ov031_0222708c(0, 0x10);
 #else
-                switch (func_0200fb08((Struct0200fb08*)gs)) {
+                switch (func_0200fb08((Struct_02000c9c_8*)var0)) {
                 case 1:
                     func_ov031_0222708c(1, 0);
                     break;
@@ -394,7 +394,7 @@ extern "C" ARM void main() {
                 func_020c98f0(1);
                 func_020a1940(&OVERLAY_32_ID);
                 g_touchInput.Unpause();
-                func_0209c174((Actor0209c174*)data_02109bf4);
+                func_0209c174((Struct_02000c9c_16*)data_02109bf4);
                 func_0209c290(data_02109bf4);
                 SetInterruptHandler(1, (const void*)func_02012bd8);
                 EnableSpecificInterrupts(1);
@@ -409,14 +409,14 @@ extern "C" ARM void main() {
                 BG0CNT &= ~0x40;
                 REG_POWCNT1 &= ~0x8000;
                 func_020c9820();
-                func_0200fb94((char*)gs, 6);
-                func_02012010(gs, 1);
-                again = false;
+                func_0200fb94((char*)var0, 6);
+                func_02012010(var0, 1);
+                var7 = false;
                 break;
             }
         }
-        if (func_02011570((StateBits5ccc_11570*)gs)) {
-            func_0201155c((StateBits5ccc_1155c*)gs);
+        if (func_02011570((Struct_02000c9c_9*)var0)) {
+            func_0201155c((Struct_02000c9c_11*)var0);
             RUNTITLE();
         }
     }

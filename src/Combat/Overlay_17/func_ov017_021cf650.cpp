@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Sub021cf650 {
-    int valB;
-    int valC;
-    unsigned short valA;
+struct Struct_ov017_021cf650 {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned short unknown_8_;
 };
 
-struct LocalEvt021cf650 {
-    unsigned char tag;
-    unsigned char pad0[3];
-    Sub021cf650 sub;
-    unsigned char pad2[2];
+struct Struct_ov017_021cf650_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov017_021cf650 unknown_4_;
+    unsigned char unknown_10_[2];
 };
 
 // USA: func_ov017_021cf650
-extern "C" ARM void func_ov017_021cf650(unsigned short a, int b, int c) {
-    LocalEvt021cf650 buf;
-    void* p = func_0202ae24();
-    buf.tag = 0x6d;
-    Sub021cf650* s = &buf.sub;
-    s->valB = b;
-    s->valC = c;
-    s->valA = a;
-    func_0205e330(p, &buf, 0);
+extern "C" ARM void func_ov017_021cf650(unsigned short arg0, int arg1, int arg2) {
+    Struct_ov017_021cf650_2 var0;
+    void* var1 = func_0202ae24();
+    var0.unknown_0_ = 0x6d;
+    Struct_ov017_021cf650* var2 = &var0.unknown_4_;
+    var2->unknown_0_ = arg1;
+    var2->unknown_4_ = arg2;
+    var2->unknown_8_ = arg0;
+    func_0205e330(var1, &var0, 0);
 }

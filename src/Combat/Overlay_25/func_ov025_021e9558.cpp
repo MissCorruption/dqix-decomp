@@ -4,118 +4,118 @@
 #include "Graphics/LightingManager.h"
 #include "World/Object3D.h"
 
-struct Flags02033fdc;
-extern "C" void func_02033fdc(struct Flags02033fdc* p);
-extern "C" void func_0200fd48(GameState* battleStruct, int id);
+struct Struct_02033fdc;
+extern "C" void func_02033fdc(struct Struct_02033fdc* arg0);
+extern "C" void func_0200fd48(GameState* arg0, int arg1);
 extern "C" void* func_ov000_02160130(void);
-extern "C" void func_0205ebec(void* obj);
+extern "C" void func_0205ebec(void* arg0);
 extern "C" void* func_02057924(void);
-extern "C" void func_02057f00(void* obj, int index);
+extern "C" void func_02057f00(void* arg0, int arg1);
 
-struct CombatNode021e9558 {
-    char pad0[0x20];
-    unsigned short id;
-    char pad22[0xe];
-    struct CombatNode021e9558* next;
+struct Struct_ov025_021e9558 {
+    char unknown_0_[0x20];
+    unsigned short unknown_20_;
+    char unknown_22_[0xe];
+    struct Struct_ov025_021e9558* unknown_30_;
 };
 
-struct CombatSlot021e9558 {
-    char pad0[0x10];
-    struct CombatNode021e9558* head;
+struct Struct_ov025_021e9558_2 {
+    char unknown_0_[0x10];
+    struct Struct_ov025_021e9558* unknown_10_;
 };
 
-struct CombatWork021e9558 {
+struct Struct_ov025_021e9558_3 {
 #if defined(jpn)
-    char pad0[0x5b44];
+    char unknown_0_[0x5b44];
 #else
-    char pad0[0x5954];
+    char unknown1_0_[0x5954];
 #endif
-    Object3D actors[2];
+    Object3D unknown_5954_[2];
 };
 
-struct Obj021e9558 {
-    char pad0[0x1c4];
-    int field_0x1c4;
-    char pad1c8[0x582 - 0x1c8];
-    unsigned char taskCount;
-    char pad583;
-    unsigned short taskIds[8];
-    char pad594[0x880 - 0x594];
-    int loadTaskId;
+struct Struct_ov025_021e9558_4 {
+    char unknown_0_[0x1c4];
+    int unknown_1c4_;
+    char unknown_1c8_[0x582 - 0x1c8];
+    unsigned char unknown_582_;
+    char unknown_583_;
+    unsigned short unknown_584_[8];
+    char unknown_594_[0x880 - 0x594];
+    int unknown_880_;
 };
 
-extern "C" CombatSlot021e9558* func_ov000_02160f20(void* work);
-extern "C" void func_ov025_021e8bc4(struct Obj021e9558* obj, int priority);
+extern "C" Struct_ov025_021e9558_2* func_ov000_02160f20(void* arg0);
+extern "C" void func_ov025_021e8bc4(struct Struct_ov025_021e9558_4* arg0, int arg1);
 
 extern unsigned int data_ov025_021ef990;
 extern const char data_ov025_021ef8dc[];
 extern char data_02108760[];
 
 // USA: func_ov025_021e9558
-extern "C" ARM void func_ov025_021e9558(struct Obj021e9558* obj) {
-    GameState* gs = GameState::GetInstance();
-    CombatWork021e9558* work = (CombatWork021e9558*)func_ov000_02160130();
-    CombatSlot021e9558* slot = func_ov000_02160f20(work);
-    void* list = func_02057924();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+extern "C" ARM void func_ov025_021e9558(struct Struct_ov025_021e9558_4* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov025_021e9558_3* var1 = (Struct_ov025_021e9558_3*)func_ov000_02160130();
+    Struct_ov025_021e9558_2* var2 = func_ov000_02160f20(var1);
+    void* var3 = func_02057924();
+    BackgroundLoader* var4 = BackgroundLoader::GetInstance();
 
-    for (int i = 0; i < obj->taskCount; i++) {
-        loader->RemoveTask(obj->taskIds[i]);
+    for (int var5 = 0; var5 < arg0->unknown_582_; var5++) {
+        var4->RemoveTask(arg0->unknown_584_[var5]);
     }
-    obj->taskCount = 0;
+    arg0->unknown_582_ = 0;
 
-    if (obj->loadTaskId >= 0) {
-        loader->RemoveTask(obj->loadTaskId);
-        obj->loadTaskId = -1;
+    if (arg0->unknown_880_ >= 0) {
+        var4->RemoveTask(arg0->unknown_880_);
+        arg0->unknown_880_ = -1;
     }
 
-    func_ov025_021e8bc4(obj, 0);
+    func_ov025_021e8bc4(arg0, 0);
 
-    for (unsigned int i = 0; i < data_ov025_021ef990; i++) {
-        func_02057f00(list, i + 100);
+    for (unsigned int var6 = 0; var6 < data_ov025_021ef990; var6++) {
+        func_02057f00(var3, var6 + 100);
     }
-    func_02057f00(list, 4);
-    func_02057f00(list, 0x20);
-    func_02057f00(list, 0x21);
-    func_02057f00(list, 0x1b);
-    func_02057f00(list, 0x19);
-    func_02057f00(list, 0x1a);
-    func_02057f00(list, 0x1f);
-    func_02057f00(list, 0x21);
-    func_02057f00(list, 0x22);
-    func_02057f00(list, 0x23);
-    func_02057f00(list, 0x24);
+    func_02057f00(var3, 4);
+    func_02057f00(var3, 0x20);
+    func_02057f00(var3, 0x21);
+    func_02057f00(var3, 0x1b);
+    func_02057f00(var3, 0x19);
+    func_02057f00(var3, 0x1a);
+    func_02057f00(var3, 0x1f);
+    func_02057f00(var3, 0x21);
+    func_02057f00(var3, 0x22);
+    func_02057f00(var3, 0x23);
+    func_02057f00(var3, 0x24);
     data_ov025_021ef990 = 0;
 
-    for (CombatNode021e9558* node = slot->head; node != NULL; node = node->next) {
-        GameObject* c = gs->GetCombatantByIndex(node->id);
-        if (c != NULL) {
-            c->obj3D_.DisableFlag(0x800);
-            func_02033fdc((struct Flags02033fdc*)c);
+    for (Struct_ov025_021e9558* var7 = var2->unknown_10_; var7 != NULL; var7 = var7->unknown_30_) {
+        GameObject* var8 = var0->GetCombatantByIndex(var7->unknown_20_);
+        if (var8 != NULL) {
+            var8->obj3D_.DisableFlag(0x800);
+            func_02033fdc((struct Struct_02033fdc*)var8);
         }
     }
 
-    GameObject* holder = gs->GetGameObjectByIndex(200);
-    if (holder != NULL) {
-        GameObject* target = gs->GetGameObjectByIndex(holder->obj3D_.unknown_2_ * 12 + 0x1c);
-        if (target != NULL) {
-            target->obj3D_.MakeVisible();
+    GameObject* var9 = var0->GetGameObjectByIndex(200);
+    if (var9 != NULL) {
+        GameObject* var10 = var0->GetGameObjectByIndex(var9->obj3D_.unknown_2_ * 12 + 0x1c);
+        if (var10 != NULL) {
+            var10->obj3D_.MakeVisible();
         }
-        holder->obj3D_.Detach();
-        func_0200fd48(gs, 200);
+        var9->obj3D_.Detach();
+        func_0200fd48(var0, 200);
     }
 
 #if defined(jpn)
-    char* secondActorBase = (char*)work + 0xbf0;
-    secondActorBase++;
+    char* var11 = (char*)var1 + 0xbf0;
+    var11++;
 #endif
-    work->actors[0].MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
+    var1->unknown_5954_[0].MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
 #if defined(jpn)
-    ((Object3D*)(secondActorBase - 1 + 0x5000))->MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
+    ((Object3D*)(var11 - 1 + 0x5000))->MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
 #else
-    work->actors[1].MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
+    var1->unknown_5954_[1].MaybeSetRegularAnimation(data_ov025_021ef8dc, 1);
 #endif
     func_0205ebec(data_02108760);
     LightingManager::GetInstance()->BeginFade(0x1000, 1000);
-    obj->field_0x1c4 = 0;
+    arg0->unknown_1c4_ = 0;
 }

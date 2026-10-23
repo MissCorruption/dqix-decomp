@@ -20,276 +20,276 @@ extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d3fdc();
 extern "C" void func_020d468c();
 
-typedef void (*WMCallbackFunc)(void* arg);
+typedef void (*Type_020d42e0)(void* arg);
 
-struct WMStatus
+struct Struct_020d424c
 {
-    unsigned short state;
-    char unk_2[0x72 - 0x2];
-    unsigned short mp_recvBufSize;
-    char unk_74[0x800 - 0x74];
+    unsigned short unknown_0_;
+    char unknown_2_[0x72 - 0x2];
+    unsigned short unknown_72_;
+    char unknown_74_[0x800 - 0x74];
 };
 
-struct WMArm9Buf
+struct Struct_020d424c_2
 {
-    void* WM7;
-    WMStatus* status;
-    unsigned long* indbuf;
-    unsigned long* fifo9to7;
-    unsigned long* fifo7to9;
-    unsigned short dmaNo;
-    unsigned short scanOnlyFlag;
-    WMCallbackFunc CallbackTable[0x2c];
-    WMCallbackFunc indCallback;
-    WMCallbackFunc portCallbackTable[16];
-    void* portCallbackArgument[16];
-    unsigned long connectedAidBitmap;
-    unsigned short myAid;
+    void* unknown_0_;
+    Struct_020d424c* unknown_4_;
+    unsigned long* unknown_8_;
+    unsigned long* unknown_c_;
+    unsigned long* unknown_10_;
+    unsigned short unknown_14_;
+    unsigned short unknown_16_;
+    Type_020d42e0 unknown_18_[0x2c];
+    Type_020d42e0 unknown_c8_;
+    Type_020d42e0 unknown_cc_[16];
+    void* unknown_10c_[16];
+    unsigned long unknown_14c_;
+    unsigned short unknown_150_;
 };
 
-struct WMCallback
+struct Struct_020d42e0
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
-struct WMPortSendCallback
+struct Struct_020d42e0_2
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
-    unsigned short state;
-    unsigned short port;
-    unsigned short destBitmap;
-    unsigned short restBitmap;
-    unsigned short sentBitmap;
-    unsigned short rsv;
-    const unsigned short* data;
-    unsigned short length;
-    unsigned short seqNo;
-    WMCallbackFunc callback;
-    void* arg;
-    unsigned short maxSendDataSize;
-    unsigned short maxRecvDataSize;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    const unsigned short* unknown_14_;
+    unsigned short unknown_18_;
+    unsigned short unknown_1a_;
+    Type_020d42e0 unknown_1c_;
+    void* unknown_20_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
 };
 
-struct WMPortRecvCallback
+struct Struct_02114330
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short state;
-    unsigned short port;
-    void* recvBuf;
-    void* data;
-    unsigned short length;
-    unsigned short aid;
-    unsigned char macAddress[6];
-    unsigned short seqNo;
-    void* arg;
-    unsigned short myAid;
-    unsigned short connectedAidBitmap;
-    unsigned char ssid[24];
-    unsigned short reason;
-    unsigned short rssi;
-    unsigned short maxSendDataSize;
-    unsigned short maxRecvDataSize;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    void* unknown_8_;
+    void* unknown_c_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_[6];
+    unsigned short unknown_1a_;
+    void* unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned char unknown_24_[24];
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    unsigned short unknown_40_;
+    unsigned short unknown_42_;
 };
 
-struct WMStartParentCallback
+struct Struct_020d42e0_3
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
-    unsigned short state;
-    unsigned char macAddress[6];
-    unsigned short aid;
-    unsigned short reason;
-    unsigned char ssid[24];
-    unsigned short parentSize;
-    unsigned short childSize;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[6];
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_[24];
+    unsigned short unknown_2c_;
+    unsigned short unknown_2e_;
 };
 
-struct WMStartConnectCallback
+struct Struct_020d42e0_4
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
-    unsigned short state;
-    unsigned short aid;
-    unsigned short reason;
-    unsigned short wlStatus;
-    unsigned char macAddress[6];
-    unsigned short parentSize;
-    unsigned short childSize;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned char unknown_10_[6];
+    unsigned short unknown_16_;
+    unsigned short unknown_18_;
 };
 
-struct WMStartMPCallback
+struct Struct_020d42e0_5
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short state;
-    unsigned char reserved[2];
-    void* recvBuf;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[2];
+    void* unknown_8_;
 };
 
-struct WMSystemState
+struct Struct_021142e0_3
 {
-    unsigned short wmInitialized;
-    WMArm9Buf* wm9buf;
-    char bufMsgQ[0x20];
-    void* bufMsg[10];
-    WMPortRecvCallback portRecvCallback;
+    unsigned short unknown_0_;
+    Struct_020d424c_2* unknown_4_;
+    char unknown_8_[0x20];
+    void* unknown_28_[10];
+    Struct_02114330 unknown_50_;
 };
 
-extern WMSystemState data_021142e0;
-extern WMPortRecvCallback data_02114330;
+extern Struct_021142e0_3 data_021142e0;
+extern Struct_02114330 data_02114330;
 extern unsigned char data_02114344[6];
 extern unsigned char data_02114354[24];
 
 // USA: func_020d42e0
-extern "C" ARM void func_020d42e0(unsigned int command, unsigned int data, unsigned int error)
+extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned int arg2)
 {
-    WMCallback* const callback = (WMCallback*)data;
-    WMArm9Buf* const w9b = data_021142e0.wm9buf;
-    if (error)
+    Struct_020d42e0* const var0 = (Struct_020d42e0*)arg1;
+    Struct_020d424c_2* const var1 = data_021142e0.unknown_4_;
+    if (arg2)
         return;
-    InvalidateDataCacheRange(w9b->fifo7to9, 0x100);
-    if (!w9b->scanOnlyFlag)
-        InvalidateDataCacheRange(w9b->status, sizeof(WMStatus));
-    if ((unsigned long)callback != (unsigned long)w9b->fifo7to9)
-        InvalidateDataCacheRange(callback, 0x100);
-    if (callback->apiid >= 0x2c)
+    InvalidateDataCacheRange(var1->unknown_10_, 0x100);
+    if (!var1->unknown_16_)
+        InvalidateDataCacheRange(var1->unknown_4_, sizeof(Struct_020d424c));
+    if ((unsigned long)var0 != (unsigned long)var1->unknown_10_)
+        InvalidateDataCacheRange(var0, 0x100);
+    if (var0->unknown_0_ >= 0x2c)
     {
-        if (callback->apiid == 0x80)
+        if (var0->unknown_0_ == 0x80)
         {
-            if (callback->errcode == 19)
+            if (var0->unknown_2_ == 19)
                 func_020c9be0();
-            if (w9b->indCallback != NULL)
-                w9b->indCallback(callback);
+            if (var1->unknown_c8_ != NULL)
+                var1->unknown_c8_(var0);
         }
-        else if (callback->apiid == 0x82)
+        else if (var0->unknown_0_ == 0x82)
         {
-            WMPortRecvCallback* const port = (WMPortRecvCallback*)callback;
-            if (w9b->portCallbackTable[port->port] != NULL)
+            Struct_02114330* const var2 = (Struct_02114330*)var0;
+            if (var1->unknown_cc_[var2->unknown_6_] != NULL)
             {
-                port->arg = w9b->portCallbackArgument[port->port];
-                port->connectedAidBitmap = w9b->connectedAidBitmap;
-                InvalidateDataCacheRange(port->recvBuf, w9b->status->mp_recvBufSize);
-                w9b->portCallbackTable[port->port](port);
+                var2->unknown_1c_ = var1->unknown_10c_[var2->unknown_6_];
+                var2->unknown_22_ = var1->unknown_14c_;
+                InvalidateDataCacheRange(var2->unknown_8_, var1->unknown_4_->unknown_72_);
+                var1->unknown_cc_[var2->unknown_6_](var2);
             }
         }
-        else if (callback->apiid == 0x81)
+        else if (var0->unknown_0_ == 0x81)
         {
-            WMPortSendCallback* const port = (WMPortSendCallback*)callback;
-            callback->apiid = 0xf;
-            if (port->callback != NULL)
-                port->callback(port);
+            Struct_020d42e0_2* const var3 = (Struct_020d42e0_2*)var0;
+            var0->unknown_0_ = 0xf;
+            if (var3->unknown_1c_ != NULL)
+                var3->unknown_1c_(var3);
         }
     }
     else
     {
-        if (callback->apiid == 0xe)
+        if (var0->unknown_0_ == 0xe)
         {
-            WMStartMPCallback* const mp = (WMStartMPCallback*)callback;
-            if ((mp->state == 11 || mp->state == 12) && mp->errcode == 0)
-                InvalidateDataCacheRange(mp->recvBuf, w9b->status->mp_recvBufSize);
+            Struct_020d42e0_5* const var4 = (Struct_020d42e0_5*)var0;
+            if ((var4->unknown_4_ == 11 || var4->unknown_4_ == 12) && var4->unknown_2_ == 0)
+                InvalidateDataCacheRange(var4->unknown_8_, var1->unknown_4_->unknown_72_);
         }
-        if (callback->apiid == 2 && callback->errcode == 0)
+        if (var0->unknown_0_ == 2 && var0->unknown_2_ == 0)
         {
-            const WMCallbackFunc func = w9b->CallbackTable[callback->apiid];
+            const Type_020d42e0 var5 = var1->unknown_18_[var0->unknown_0_];
             func_020d3fdc();
-            if (func != NULL)
-                func(callback);
+            if (var5 != NULL)
+                var5(var0);
             return;
         }
-        if (w9b->CallbackTable[callback->apiid] != NULL)
+        if (var1->unknown_18_[var0->unknown_0_] != NULL)
         {
-            w9b->CallbackTable[callback->apiid](callback);
-            if (!data_021142e0.wmInitialized)
+            var1->unknown_18_[var0->unknown_0_](var0);
+            if (!data_021142e0.unknown_0_)
                 return;
         }
-        if (callback->apiid == 8 || callback->apiid == 0xc)
+        if (var0->unknown_0_ == 8 || var0->unknown_0_ == 0xc)
         {
-            unsigned short state;
-            unsigned short aid;
-            unsigned short myAid;
-            unsigned short reason;
-            const unsigned char* macAddress;
-            const unsigned char* ssid;
-            unsigned short parentSize;
-            unsigned short childSize;
-            if (callback->apiid == 8)
+            unsigned short var6;
+            unsigned short var7;
+            unsigned short var8;
+            unsigned short var9;
+            const unsigned char* var10;
+            const unsigned char* var11;
+            unsigned short var12;
+            unsigned short var13;
+            if (var0->unknown_0_ == 8)
             {
-                WMStartParentCallback* const parent = (WMStartParentCallback*)callback;
-                state = parent->state;
-                aid = parent->aid;
-                myAid = 0;
-                macAddress = parent->macAddress;
-                ssid = parent->ssid;
-                reason = parent->reason;
-                parentSize = parent->parentSize;
-                childSize = parent->childSize;
+                Struct_020d42e0_3* const var14 = (Struct_020d42e0_3*)var0;
+                var6 = var14->unknown_8_;
+                var7 = var14->unknown_10_;
+                var8 = 0;
+                var10 = var14->unknown_a_;
+                var11 = var14->unknown_14_;
+                var9 = var14->unknown_12_;
+                var12 = var14->unknown_2c_;
+                var13 = var14->unknown_2e_;
             }
-            else if (callback->apiid == 0xc)
+            else if (var0->unknown_0_ == 0xc)
             {
-                WMStartConnectCallback* const connect = (WMStartConnectCallback*)callback;
-                state = connect->state;
-                aid = 0;
-                myAid = connect->aid;
-                macAddress = connect->macAddress;
-                ssid = NULL;
-                reason = connect->reason;
-                parentSize = connect->parentSize;
-                childSize = connect->childSize;
+                Struct_020d42e0_4* const var15 = (Struct_020d42e0_4*)var0;
+                var6 = var15->unknown_8_;
+                var7 = 0;
+                var8 = var15->unknown_a_;
+                var10 = var15->unknown_10_;
+                var11 = NULL;
+                var9 = var15->unknown_c_;
+                var12 = var15->unknown_16_;
+                var13 = var15->unknown_18_;
             }
-            if (state == 7 || state == 9 || state == 26)
+            if (var6 == 7 || var6 == 9 || var6 == 26)
             {
-                if (state == 7)
-                    w9b->connectedAidBitmap |= 1 << aid;
+                if (var6 == 7)
+                    var1->unknown_14c_ |= 1 << var7;
                 else
-                    w9b->connectedAidBitmap &= ~(1 << aid);
-                w9b->myAid = myAid;
-                VectorizedMemset(&data_02114330, 0, sizeof(WMPortRecvCallback));
-                data_021142e0.portRecvCallback.apiid = 0x82;
-                data_021142e0.portRecvCallback.errcode = 0;
-                data_021142e0.portRecvCallback.state = state;
-                data_021142e0.portRecvCallback.recvBuf = NULL;
-                data_021142e0.portRecvCallback.data = NULL;
-                data_021142e0.portRecvCallback.length = 0;
-                data_021142e0.portRecvCallback.aid = aid;
-                data_021142e0.portRecvCallback.myAid = myAid;
-                data_021142e0.portRecvCallback.connectedAidBitmap = w9b->connectedAidBitmap;
-                data_021142e0.portRecvCallback.seqNo = 0xffff;
-                data_021142e0.portRecvCallback.reason = reason;
-                VectorizedInvertedMemcpy(macAddress, data_02114344, sizeof(data_02114344));
-                if (ssid != NULL)
-                    func_020ca3b8(ssid, data_02114354, sizeof(data_02114354));
+                    var1->unknown_14c_ &= ~(1 << var7);
+                var1->unknown_150_ = var8;
+                VectorizedMemset(&data_02114330, 0, sizeof(Struct_02114330));
+                data_021142e0.unknown_50_.unknown_0_ = 0x82;
+                data_021142e0.unknown_50_.unknown_2_ = 0;
+                data_021142e0.unknown_50_.unknown_4_ = var6;
+                data_021142e0.unknown_50_.unknown_8_ = NULL;
+                data_021142e0.unknown_50_.unknown_c_ = NULL;
+                data_021142e0.unknown_50_.unknown_10_ = 0;
+                data_021142e0.unknown_50_.unknown_12_ = var7;
+                data_021142e0.unknown_50_.unknown_20_ = var8;
+                data_021142e0.unknown_50_.unknown_22_ = var1->unknown_14c_;
+                data_021142e0.unknown_50_.unknown_1a_ = 0xffff;
+                data_021142e0.unknown_50_.unknown_3c_ = var9;
+                VectorizedInvertedMemcpy(var10, data_02114344, sizeof(data_02114344));
+                if (var11 != NULL)
+                    func_020ca3b8(var11, data_02114354, sizeof(data_02114354));
                 else
                     func_020ca390(0, data_02114354, sizeof(data_02114354));
-                data_021142e0.portRecvCallback.maxSendDataSize = myAid == 0 ? parentSize : childSize;
-                data_021142e0.portRecvCallback.maxRecvDataSize = myAid == 0 ? childSize : parentSize;
-                for (unsigned short i = 0; i < 16; i++)
+                data_021142e0.unknown_50_.unknown_40_ = var8 == 0 ? var12 : var13;
+                data_021142e0.unknown_50_.unknown_42_ = var8 == 0 ? var13 : var12;
+                for (unsigned short var16 = 0; var16 < 16; var16++)
                 {
-                    data_021142e0.portRecvCallback.port = i;
-                    if (w9b->portCallbackTable[i] != NULL)
+                    data_021142e0.unknown_50_.unknown_6_ = var16;
+                    if (var1->unknown_cc_[var16] != NULL)
                     {
-                        data_021142e0.portRecvCallback.arg = w9b->portCallbackArgument[i];
-                        w9b->portCallbackTable[i](&data_02114330);
+                        data_021142e0.unknown_50_.unknown_1c_ = var1->unknown_10c_[var16];
+                        var1->unknown_cc_[var16](&data_02114330);
                     }
                 }
             }
         }
     }
-    InvalidateDataCacheRange(w9b->fifo7to9, 0x100);
+    InvalidateDataCacheRange(var1->unknown_10_, 0x100);
     func_020d468c();
-    if ((unsigned long)callback != (unsigned long)w9b->fifo7to9)
+    if ((unsigned long)var0 != (unsigned long)var1->unknown_10_)
     {
-        callback->apiid |= 0x8000;
-        CleanCacheRange(callback, 0x100);
+        var0->unknown_0_ |= 0x8000;
+        CleanCacheRange(var0, 0x100);
     }
 }

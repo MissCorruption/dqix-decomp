@@ -11,107 +11,107 @@
 #define func_020c39c8 func_020c5494
 #endif
 
-struct Q0215686c {
-    char pad[0xd2];
-    short v;
+struct Struct_ov001_0215686c {
+    char unknown_0_[0xd2];
+    short unknown_d2_;
 };
 
-struct Obj0215686c {
-    char pad0[0xa];
-    unsigned short fa;
-    char padc[0x16 - 0xc];
-    unsigned short f16;
-    char pad18[0x50 - 0x18];
-    unsigned short f50;
+struct Struct_ov001_0215686c_2 {
+    char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    char unknown_c_[0x16 - 0xc];
+    unsigned short unknown_16_;
+    char unknown_18_[0x50 - 0x18];
+    unsigned short unknown_50_;
 #if defined(jpn)
-    char pad52[0xcb - 0x52];
+    char unknown_52_[0xcb - 0x52];
 #else
-    char pad52[0xcf - 0x52];
+    char unknown1_52_[0xcf - 0x52];
 #endif
-    unsigned char fcf;
-    char padd0[0x104 - 0xd0];
-    unsigned char f104;
-    char pad105[4];
-    unsigned char f109;
-    char pad10a[0x120 - 0x10a];
-    Q0215686c* q;
+    unsigned char unknown_cf_;
+    char unknown_d0_[0x104 - 0xd0];
+    unsigned char unknown_104_;
+    char unknown_105_[4];
+    unsigned char unknown_109_;
+    char unknown_10a_[0x120 - 0x10a];
+    Struct_ov001_0215686c* unknown_120_;
 };
 
-struct Holder0215686c {
+struct Struct_ov001_0215686c_3 {
 #if defined(jpn)
-    char pad[0x524];
+    char unknown_0_[0x524];
 #else
-    char pad[0x734];
+    char unknown1_0_[0x734];
 #endif
-    Obj0215686c* o;
+    Struct_ov001_0215686c_2* unknown_734_;
 };
 
-struct ResPtr0215686c {
-    char pad[0x2c];
-    unsigned char* p2c;
+struct Struct_ov001_0215686c_4 {
+    char unknown_0_[0x2c];
+    unsigned char* unknown_2c_;
 };
 
-extern "C" int func_020c39c8(volatile unsigned short* p);
+extern "C" int func_020c39c8(volatile unsigned short* arg0);
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" void func_020dc2bc();
-extern "C" void func_0204af64(struct List0204af64* obj);
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-static inline unsigned int GetEntryMode(Obj0215686c* o) {
-    return o->fa;
+static inline unsigned int inline_ov001_0215686c(Struct_ov001_0215686c_2* arg0) {
+    return arg0->unknown_a_;
 }
 
 // USA: func_ov001_0215686c
 extern "C" ARM void func_ov001_0215686c(void) {
-    struct List0204af64 list;
-    char buf[0x20];
+    struct Struct_02020cb8 var0;
+    char var1[0x20];
 
-    int vbl = (*(unsigned short*)0x4000304 & 0x8000) >> 15;
-    int flag = 1;
-    if (vbl == 1) {
-        flag = 0;
+    int var2 = (*(unsigned short*)0x4000304 & 0x8000) >> 15;
+    int var3 = 1;
+    if (var2 == 1) {
+        var3 = 0;
     }
 
-    GameResources* res = GetGameResources();
-    int axis = GetBrightness((GameResources*)res, true);
-    if (flag == 0) {
-        axis = func_020c39c8((volatile unsigned short*)0x0400006c);
+    GameResources* var4 = GetGameResources();
+    int var5 = GetBrightness((GameResources*)var4, true);
+    if (var3 == 0) {
+        var5 = func_020c39c8((volatile unsigned short*)0x0400006c);
     }
 
-    if (axis != -0x10 && axis != 0x10) {
+    if (var5 != -0x10 && var5 != 0x10) {
         return;
     }
-    if (flag == 0) {
+    if (var3 == 0) {
         return;
     }
 
-    Obj0215686c* o = ((struct Holder0215686c*)((char*)res + 0x3000))->o;
-    Q0215686c* q = o->q;
+    Struct_ov001_0215686c_2* var6 = ((struct Struct_ov001_0215686c_3*)((char*)var4 + 0x3000))->unknown_734_;
+    Struct_ov001_0215686c* var7 = var6->unknown_120_;
     func_0202ae18();
 
-    if (!(o->f50 & 0x20)) {
-        if (TestFlags00(res, 0x1000) == 0) {
+    if (!(var6->unknown_50_ & 0x20)) {
+        if (TestFlags00(var4, 0x1000) == 0) {
             goto cont;
         }
     }
-    if (o->f50 & 0x100) {
+    if (var6->unknown_50_ & 0x100) {
         goto cont;
     }
-    if ((o->f50 & 2) && q != 0) {
-        if (q->v < 0) {
+    if ((var6->unknown_50_ & 2) && var7 != 0) {
+        if (var7->unknown_d2_ < 0) {
             goto cont;
         }
     }
-    if (o->fa != 5) {
+    if (var6->unknown_a_ != 5) {
         return;
     }
 cont:
-    if (o->f16 == 0xc69a || o->f16 == 0xc9e1) {
+    if (var6->unknown_16_ == 0xc69a || var6->unknown_16_ == 0xc9e1) {
         return;
     }
-    if (o->f16 == 1 && o->fcf == 2) {
-        if (o->f109 != 0) {
+    if (var6->unknown_16_ == 1 && var6->unknown_cf_ == 2) {
+        if (var6->unknown_109_ != 0) {
             return;
         }
     }
@@ -119,48 +119,48 @@ cont:
     func_020466e4((unsigned int*)func_020d6c00(), 1);
     func_020dc2bc();
 
-    volatile unsigned int* r32 = (volatile unsigned int*)0x4001000;
-    volatile unsigned short* r16 = (volatile unsigned short*)0x4001000;
-    *r32 = (*r32 & ~0x1f00) | 0x1800;
-    r16[7] = (r16[7] & 0x43) | 0xd00;
-    r16[4] = r16[4] & ~3;
-    r16[5] = (r16[5] & ~3) | 2;
-    r16[6] = (r16[6] & ~3) | 3;
-    r16[7] = (r16[7] & ~3) | 1;
-    r32[4] = 0;
-    r32[5] = 0;
-    r32[6] = 0;
-    r32[7] = 0;
-    r16[0x28] = 0;
+    volatile unsigned int* var8 = (volatile unsigned int*)0x4001000;
+    volatile unsigned short* var9 = (volatile unsigned short*)0x4001000;
+    *var8 = (*var8 & ~0x1f00) | 0x1800;
+    var9[7] = (var9[7] & 0x43) | 0xd00;
+    var9[4] = var9[4] & ~3;
+    var9[5] = (var9[5] & ~3) | 2;
+    var9[6] = (var9[6] & ~3) | 3;
+    var9[7] = (var9[7] & ~3) | 1;
+    var8[4] = 0;
+    var8[5] = 0;
+    var8[6] = 0;
+    var8[7] = 0;
+    var9[0x28] = 0;
 
-    func_0204af64(&list);
-    list.b1c_lo = 3;
+    func_0204af64(&var0);
+    var0.unknown_1c_0_ = 3;
 
-    unsigned char* p = ((struct ResPtr0215686c*)res)->p2c;
-    CleanInvalidateCacheRange(p + 0xc, 0x20);
-    LoadToSubBGStandardPalette(p + 0xc, 0, 0x20);
-    CleanCacheRange(p + 0xc, 0x20);
+    unsigned char* var10 = ((struct Struct_ov001_0215686c_4*)var4)->unknown_2c_;
+    CleanInvalidateCacheRange(var10 + 0xc, 0x20);
+    LoadToSubBGStandardPalette(var10 + 0xc, 0, 0x20);
+    CleanCacheRange(var10 + 0xc, 0x20);
 
-    memset(buf, 0xff, 0x20);
-    if (axis == -0x10) {
-        memset(buf, 0x11, 0x20);
+    memset(var1, 0xff, 0x20);
+    if (var5 == -0x10) {
+        memset(var1, 0x11, 0x20);
     }
-    CleanInvalidateCacheRange(buf, 0x20);
-    LoadToSubBG3CharacterData(buf, 0x6000, 0x20);
-    CleanCacheRange(buf, 0x20);
+    CleanInvalidateCacheRange(var1, 0x20);
+    LoadToSubBG3CharacterData(var1, 0x6000, 0x20);
+    CleanCacheRange(var1, 0x20);
 
-    unsigned short* scr = (unsigned short*)GetSubBG3ScreenBase();
-    for (unsigned short i = 0; i < 0x300; i++) {
-        *scr++ = 0x300;
+    unsigned short* var11 = (unsigned short*)GetSubBG3ScreenBase();
+    for (unsigned short var12 = 0; var12 < 0x300; var12++) {
+        *var11++ = 0x300;
     }
 
-    o->f104 = 1;
+    var6->unknown_104_ = 1;
 
-    unsigned int fa;
-    int t = (q == 0 || (q != 0 && q->v < 0)) ? 1 : 0;
-    fa = GetEntryMode(o);
-    if (fa >= 3 && t != 0) {
-        SetSubBrightness(res, 0, 0);
-        o->f109 = 1;
+    unsigned int var13;
+    int var14 = (var7 == 0 || (var7 != 0 && var7->unknown_d2_ < 0)) ? 1 : 0;
+    var13 = inline_ov001_0215686c(var6);
+    if (var13 >= 3 && var14 != 0) {
+        SetSubBrightness(var4, 0, 0);
+        var6->unknown_109_ = 1;
     }
 }

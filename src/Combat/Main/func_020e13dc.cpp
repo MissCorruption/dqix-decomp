@@ -2,30 +2,30 @@
 
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
-extern "C" int func_020e12c0(void* p);
+extern "C" int func_020e12c0(void* arg0);
 
-typedef void (*Callback020e13dc)(int, int, int);
-extern Callback020e13dc data_020f2bb0[];
+typedef void (*Type_020e13dc)(int, int, int);
+extern Type_020e13dc data_020f2bb0[];
 
-struct Desc020e13dc {
-    int field_0;
-    int field_4;
-    unsigned char field_8;
-    int field_c;
-    int field_10;
-    unsigned char field_14;
+struct Struct_020e13dc {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    unsigned char unknown_14_;
 };
 
 // USA: func_020e13dc
-extern "C" ARM void func_020e13dc(Desc020e13dc* obj) {
-    int base = func_020e12c0(&obj->field_c);
-    if (base) {
-        Callback020e13dc cb = data_020f2bb0[obj->field_8];
-        int addend = obj->field_c;
-        if (cb) {
-            CleanInvalidateCacheRange((const void*)(base + addend), obj->field_4);
-            cb(base + addend, obj->field_0, obj->field_10);
-            CleanCacheRange((const void*)(base + addend), obj->field_4);
+extern "C" ARM void func_020e13dc(Struct_020e13dc* arg0) {
+    int var0 = func_020e12c0(&arg0->unknown_c_);
+    if (var0) {
+        Type_020e13dc var1 = data_020f2bb0[arg0->unknown_8_];
+        int var2 = arg0->unknown_c_;
+        if (var1) {
+            CleanInvalidateCacheRange((const void*)(var0 + var2), arg0->unknown_4_);
+            var1(var0 + var2, arg0->unknown_0_, arg0->unknown_10_);
+            CleanCacheRange((const void*)(var0 + var2), arg0->unknown_4_);
         }
     }
 }

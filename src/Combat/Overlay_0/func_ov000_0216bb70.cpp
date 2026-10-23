@@ -4,28 +4,28 @@
 
 extern "C" void func_ov000_02169b78(void*);
 
-struct Struct02184264 {
-    unsigned char pad[8];
-    SafeAllocator* alloc;
+struct Struct_ov000_02184264_2 {
+    unsigned char unknown_0_[8];
+    SafeAllocator* unknown_8_;
 };
-extern struct Struct02184264 data_ov000_02184264;
+extern struct Struct_ov000_02184264_2 data_ov000_02184264;
 
-struct Variant02030b0c { int tag; int u; };
+struct Struct_0201c1c8 { int unknown_0_; int unknown_4_; };
 
-struct VariantNodeTag0x48 {
-    int tag;
-    int unused;
-    int value;
+struct Struct_ov000_0216bb70 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
 // USA: func_ov000_0216bb70
-extern "C" ARM int func_ov000_0216bb70(struct Variant02030b0c* v) {
-    struct VariantNodeTag0x48* node = (struct VariantNodeTag0x48*)data_ov000_02184264.alloc->Allocate(sizeof(struct VariantNodeTag0x48));
-    if (node == NULL) return 0;
-    node->tag = 0;
-    node->unused = 0;
-    node->tag = 0x48;
-    node->value = ((Script::Parameter*)v)->ToInt();
-    func_ov000_02169b78(node);
+extern "C" ARM int func_ov000_0216bb70(struct Struct_0201c1c8* arg0) {
+    struct Struct_ov000_0216bb70* var0 = (struct Struct_ov000_0216bb70*)data_ov000_02184264.unknown_8_->Allocate(sizeof(struct Struct_ov000_0216bb70));
+    if (var0 == NULL) return 0;
+    var0->unknown_0_ = 0;
+    var0->unknown_4_ = 0;
+    var0->unknown_0_ = 0x48;
+    var0->unknown_8_ = ((Script::Parameter*)arg0)->ToInt();
+    func_ov000_02169b78(var0);
     return 1;
 }

@@ -1,145 +1,145 @@
 #include <globaldefs.h>
 
-struct GXOamAttr02223c08 {
+struct Struct_ov031_02222b0c_4 {
     union {
-        unsigned long attr01;
-        struct { unsigned short attr0; unsigned short attr1; };
+        unsigned long unknown1_0_;
+        struct { unsigned short unknown_0_; unsigned short unknown_2_; };
         struct {
-            unsigned long y : 8;
-            unsigned long rsMode : 2;
-            unsigned long objMode : 2;
-            unsigned long mosaic : 1;
-            unsigned long colorMode : 1;
-            unsigned long shape : 2;
-            unsigned long x : 9;
-            unsigned long rsParam : 5;
-            unsigned long size : 2;
+            unsigned long unknown_0_0_ : 8;
+            unsigned long unknown_1_0_ : 2;
+            unsigned long unknown_1_2_ : 2;
+            unsigned long unknown_1_4_ : 1;
+            unsigned long unknown_1_5_ : 1;
+            unsigned long unknown_1_6_ : 2;
+            unsigned long unknown_2_0_ : 9;
+            unsigned long unknown_3_1_ : 5;
+            unsigned long unknown_3_6_ : 2;
         };
         struct {
-            unsigned long unused0 : 28;
-            unsigned long flipH : 1;
-            unsigned long flipV : 1;
-            unsigned long unused1 : 2;
+            unsigned long unknown1_0_0_ : 28;
+            unsigned long unknown_3_4_ : 1;
+            unsigned long unknown_3_5_ : 1;
+            unsigned long unknown1_3_6_ : 2;
         };
     };
     union {
-        struct { unsigned short attr2; unsigned short unused3; };
-        unsigned long attr23;
+        struct { unsigned short unknown_4_; unsigned short unknown_6_; };
+        unsigned long unknown1_4_;
         struct {
-            unsigned long charNo : 10;
-            unsigned long priority : 2;
-            unsigned long cParam : 4;
-            unsigned long unused2 : 16;
+            unsigned long unknown_4_0_ : 10;
+            unsigned long unknown_5_2_ : 2;
+            unsigned long unknown_5_4_ : 4;
+            unsigned long unknown_6_0_ : 16;
         };
     };
 };
-enum Effect02223c08 {
-    EffectNone02223c08 = 0,
-    EffectFlipH02223c08 = 0x10000000,
-    EffectFlipV02223c08 = 0x20000000,
-    EffectFlipHV02223c08 = 0x30000000,
-    EffectAffine02223c08 = 0x100,
-    EffectNoDisplay02223c08 = 0x200,
-    EffectAffineDouble02223c08 = 0x300
+enum Enum_ov031_02223c08 {
+    Enum_ov031_02223c08_0 = 0,
+    Enum_ov031_02223c08_268435456 = 0x10000000,
+    Enum_ov031_02223c08_536870912 = 0x20000000,
+    Enum_ov031_02223c08_805306368 = 0x30000000,
+    Enum_ov031_02223c08_256 = 0x100,
+    Enum_ov031_02223c08_512 = 0x200,
+    Enum_ov031_02223c08_768 = 0x300
 };
-static inline void SetEffect02223c08(GXOamAttr02223c08* entry, Effect02223c08 effect, int rsParam) {
-    if (effect != EffectAffine02223c08 && effect != EffectAffineDouble02223c08) {
-        entry->attr01 = (entry->attr01 & 0xc1fffcff) | effect;
+static inline void inline_ov031_02223c08(Struct_ov031_02222b0c_4* arg0, Enum_ov031_02223c08 arg1, int arg2) {
+    if (arg1 != Enum_ov031_02223c08_256 && arg1 != Enum_ov031_02223c08_768) {
+        arg0->unknown1_0_ = (arg0->unknown1_0_ & 0xc1fffcff) | arg1;
     } else {
-        entry->attr01 = (entry->attr01 & 0xc1fffcff) | effect | (rsParam << 25);
+        arg0->unknown1_0_ = (arg0->unknown1_0_ & 0xc1fffcff) | arg1 | (arg2 << 25);
     }
 }
-static inline void SetPriority02223c08(GXOamAttr02223c08* entry, int priority) {
-    entry->attr2 = (unsigned short)((entry->attr2 & ~0xc00) | (priority << 10));
+static inline void inline_ov031_02223c08_2(Struct_ov031_02222b0c_4* arg0, int arg1) {
+    arg0->unknown_4_ = (unsigned short)((arg0->unknown_4_ & ~0xc00) | (arg1 << 10));
 }
-struct Obj0223bcc8;
-struct Window02223c08;
-struct WifiSetupTextBox02223c08 { unsigned short x, y, width, height; };
-struct WifiSetupKeyboard02223c08 {
-    Window02223c08* rows[3][4];
-    GXOamAttr02223c08* keys[47];
-    GXOamAttr02223c08* extraKeys[4];
-    Obj0223bcc8* buttons[2];
-    Obj0223bcc8* rowBlocks[4];
-    Obj0223bcc8* cursor;
-    void* task;
-    unsigned char input;
-    unsigned char page;
-    signed char pressedKey;
-    signed char hoveredKey;
-    signed char returnKey;
-    signed char cursorKey;
-    unsigned char repeatTimer;
-    bool canDelete;
-    bool canType;
-    bool deleteErrorPlayed;
+struct Struct_ov031_02222ce4;
+struct Struct_ov031_02222b0c_3;
+struct Struct_ov031_02223c08 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
+struct Struct_ov031_02223c08_2 {
+    Struct_ov031_02222b0c_3* unknown_0_[3][4];
+    Struct_ov031_02222b0c_4* unknown_30_[47];
+    Struct_ov031_02222b0c_4* unknown_ec_[4];
+    Struct_ov031_02222ce4* unknown_fc_[2];
+    Struct_ov031_02222ce4* unknown_104_[4];
+    Struct_ov031_02222ce4* unknown_114_;
+    void* unknown_118_;
+    unsigned char unknown_11c_;
+    unsigned char unknown_11d_;
+    signed char unknown_11e_;
+    signed char unknown_11f_;
+    signed char unknown_120_;
+    signed char unknown_121_;
+    unsigned char unknown_122_;
+    bool unknown_123_;
+    bool unknown_124_;
+    bool unknown_125_;
 };
-extern WifiSetupKeyboard02223c08* data_ov031_02250bfc;
+extern Struct_ov031_02223c08_2* data_ov031_02250bfc;
 extern const unsigned char data_ov031_022489bc[4];
 extern const unsigned char data_ov031_022489b4[2];
 extern unsigned short* data_ov031_0224b430[3];
 extern "C" void* func_ov031_0223cf4c(unsigned int, int);
-extern "C" GXOamAttr02223c08* func_ov031_0223be44(int, int);
-extern "C" Obj0223bcc8* func_ov031_0223be70(int, int, int);
-extern "C" void func_ov031_0223bab4(Obj0223bcc8*, int, int, int);
-extern "C" void func_ov031_0223bcc8(Obj0223bcc8*, int, int);
-extern "C" Window02223c08* func_ov031_0223c458(int, int, int, int, int*, int);
-extern "C" void func_ov031_0223c980(Window02223c08*, int, int, int, int, int, unsigned long, const unsigned short*);
-extern "C" Obj0223bcc8* func_ov031_0223b8c4(int, int, int);
+extern "C" Struct_ov031_02222b0c_4* func_ov031_0223be44(int, int);
+extern "C" Struct_ov031_02222ce4* func_ov031_0223be70(int, int, int);
+extern "C" void func_ov031_0223bab4(Struct_ov031_02222ce4*, int, int, int);
+extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4*, int, int);
+extern "C" Struct_ov031_02222b0c_3* func_ov031_0223c458(int, int, int, int, int*, int);
+extern "C" void func_ov031_0223c980(Struct_ov031_02222b0c_3*, int, int, int, int, int, unsigned long, const unsigned short*);
+extern "C" Struct_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
 extern "C" void* func_ov031_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02224ca4(int, int, int);
 extern "C" void func_ov031_02223ff8(void*);
 
 // USA: func_ov031_02223c08
 extern "C" ARM void func_ov031_02223c08() {
-    WifiSetupTextBox02223c08 rectangle = {};
-    int num;
-    int ix;
-    int i, j, k;
-    unsigned short buf[2];
-    rectangle.width = 17;
-    rectangle.height = 18;
-    data_ov031_02250bfc = (WifiSetupKeyboard02223c08*)func_ov031_0223cf4c(sizeof(WifiSetupKeyboard02223c08), 4);
-    data_ov031_02250bfc->input = 0xff;
-    data_ov031_02250bfc->cursorKey = 0;
-    data_ov031_02250bfc->canDelete = 1;
-    data_ov031_02250bfc->canType = 1;
-    for (i = 0; i < 47; ++i) {
-        data_ov031_02250bfc->keys[i] = func_ov031_0223be44(0, 0x34);
-        SetEffect02223c08(data_ov031_02250bfc->keys[i], EffectNoDisplay02223c08, 0);
-        SetPriority02223c08(data_ov031_02250bfc->keys[i], 3);
+    Struct_ov031_02223c08 var0 = {};
+    int var1;
+    int var2;
+    int var3, var4, var5;
+    unsigned short var6[2];
+    var0.unknown_4_ = 17;
+    var0.unknown_6_ = 18;
+    data_ov031_02250bfc = (Struct_ov031_02223c08_2*)func_ov031_0223cf4c(sizeof(Struct_ov031_02223c08_2), 4);
+    data_ov031_02250bfc->unknown_11c_ = 0xff;
+    data_ov031_02250bfc->unknown_121_ = 0;
+    data_ov031_02250bfc->unknown_123_ = 1;
+    data_ov031_02250bfc->unknown_124_ = 1;
+    for (var3 = 0; var3 < 47; ++var3) {
+        data_ov031_02250bfc->unknown_30_[var3] = func_ov031_0223be44(0, 0x34);
+        inline_ov031_02223c08(data_ov031_02250bfc->unknown_30_[var3], Enum_ov031_02223c08_512, 0);
+        inline_ov031_02223c08_2(data_ov031_02250bfc->unknown_30_[var3], 3);
     }
-    for (i = 0; i < 4; ++i) {
-        data_ov031_02250bfc->extraKeys[i] = func_ov031_0223be44(0, data_ov031_022489bc[i]);
-        SetEffect02223c08(data_ov031_02250bfc->extraKeys[i], EffectNoDisplay02223c08, 0);
-        SetPriority02223c08(data_ov031_02250bfc->extraKeys[i], 3);
+    for (var3 = 0; var3 < 4; ++var3) {
+        data_ov031_02250bfc->unknown_ec_[var3] = func_ov031_0223be44(0, data_ov031_022489bc[var3]);
+        inline_ov031_02223c08(data_ov031_02250bfc->unknown_ec_[var3], Enum_ov031_02223c08_512, 0);
+        inline_ov031_02223c08_2(data_ov031_02250bfc->unknown_ec_[var3], 3);
     }
-    for (i = 0; i < 2; ++i) {
-        data_ov031_02250bfc->buttons[i] = func_ov031_0223be70(0, data_ov031_022489b4[i], 1);
-        func_ov031_0223bab4(data_ov031_02250bfc->buttons[i], -1, 0x200, 0);
-        func_ov031_0223bcc8(data_ov031_02250bfc->buttons[i], -1, 3);
+    for (var3 = 0; var3 < 2; ++var3) {
+        data_ov031_02250bfc->unknown_fc_[var3] = func_ov031_0223be70(0, data_ov031_022489b4[var3], 1);
+        func_ov031_0223bab4(data_ov031_02250bfc->unknown_fc_[var3], -1, 0x200, 0);
+        func_ov031_0223bcc8(data_ov031_02250bfc->unknown_fc_[var3], -1, 3);
     }
-    buf[1] = 0;
-    for (i = 0; i < 3; ++i) {
-        for (j = 0; j < 4; ++j) {
-            data_ov031_02250bfc->rows[i][j] = func_ov031_0223c458(0, 28, 2, 0, &num, 0);
-            ix = j * 12;
-            rectangle.x = 0;
-            for (k = 0; k < 12;) {
-                buf[0] = data_ov031_0224b430[i][ix];
-                func_ov031_0223c980(data_ov031_02250bfc->rows[i][j], rectangle.x,
-                    rectangle.y, rectangle.width, rectangle.height, 2, 0x480, buf);
-                ++k;
-                rectangle.x += 18;
-                ++ix;
+    var6[1] = 0;
+    for (var3 = 0; var3 < 3; ++var3) {
+        for (var4 = 0; var4 < 4; ++var4) {
+            data_ov031_02250bfc->unknown_0_[var3][var4] = func_ov031_0223c458(0, 28, 2, 0, &var1, 0);
+            var2 = var4 * 12;
+            var0.unknown_0_ = 0;
+            for (var5 = 0; var5 < 12;) {
+                var6[0] = data_ov031_0224b430[var3][var2];
+                func_ov031_0223c980(data_ov031_02250bfc->unknown_0_[var3][var4], var0.unknown_0_,
+                    var0.unknown_2_, var0.unknown_4_, var0.unknown_6_, 2, 0x480, var6);
+                ++var5;
+                var0.unknown_0_ += 18;
+                ++var2;
             }
-            if (i == 0)
-                data_ov031_02250bfc->rowBlocks[j] = func_ov031_0223b8c4(0, num, 1);
+            if (var3 == 0)
+                data_ov031_02250bfc->unknown_104_[var4] = func_ov031_0223b8c4(0, var1, 1);
         }
     }
-    data_ov031_02250bfc->cursor = func_ov031_0223be70(0, 0x40, 1);
-    func_ov031_0223bab4(data_ov031_02250bfc->cursor, -1, 0x200, 0);
-    func_ov031_0223bcc8(data_ov031_02250bfc->cursor, -1, 2);
-    data_ov031_02250bfc->task = func_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
-    func_ov031_02224ca4(data_ov031_02250bfc->page, 0, 0xc0);
+    data_ov031_02250bfc->unknown_114_ = func_ov031_0223be70(0, 0x40, 1);
+    func_ov031_0223bab4(data_ov031_02250bfc->unknown_114_, -1, 0x200, 0);
+    func_ov031_0223bcc8(data_ov031_02250bfc->unknown_114_, -1, 2);
+    data_ov031_02250bfc->unknown_118_ = func_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
+    func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 0, 0xc0);
 }

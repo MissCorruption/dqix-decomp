@@ -3,51 +3,51 @@
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 #if defined(jpn)
-extern "C" unsigned int func_ov023_021f6f10(void* self);
+extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov023_021f6f10
 #else
-extern "C" int func_ov024_021f6f10(void* self);
+extern "C" int func_ov024_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov024_021f6f10
 #endif
 extern "C" int func_ov023_021f9bc8(void*);
 extern "C" void func_ov011_021848a0(void*, int);
 
-struct Elem020a15bc { unsigned int field : 9; unsigned int pad : 23; unsigned int w1; unsigned int w2; };
-struct Array020a15bc { struct Elem020a15bc* base; unsigned short pad4; unsigned short count; };
-extern "C" struct Elem020a15bc* func_020a15bc(struct Array020a15bc* arr, int id);
+struct Struct_020a15bc_2 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 23; unsigned int unknown_4_; unsigned int unknown_8_; };
+struct Struct_020a15bc { struct Struct_020a15bc_2* unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
+extern "C" struct Struct_020a15bc_2* func_020a15bc(struct Struct_020a15bc* arg0, int arg1);
 
-struct Data021707c8 {
+struct Struct_ov004_021707c8 {
 #if defined(jpn)
- char pad[4];
+ char unknown_0_[4];
 #else
- char pad[8];
+ char unknown1_0_[8];
 #endif
- short* keys; struct Array020a15bc* arr; };
-extern struct Data021707c8 data_ov004_021707c8;
+ short* unknown_8_; struct Struct_020a15bc* unknown_c_; };
+extern struct Struct_ov004_021707c8 data_ov004_021707c8;
 
 // USA: func_ov004_021560e8
-extern "C" ARM int func_ov004_021560e8(void* a) {
-    void* node = func_ov023_021f6880(func_ov011_021849c8(a), 3);
-    if (!node) return 0;
-    if (NODE_KIND_CALL(node) != 7) return 0;
+extern "C" ARM int func_ov004_021560e8(void* arg0) {
+    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 3);
+    if (!var0) return 0;
+    if (NODE_KIND_CALL(var0) != 7) return 0;
 
-    short field5c = *(short*)((char*)node + 0x5c);
+    short var1 = *(short*)((char*)var0 + 0x5c);
     #if defined(jpn)
-    short offset = (short)(field5c * 16);
+    short var2 = (short)(var1 * 16);
 #else
-    short offset = (short)(field5c * 12);
+    short var2 = (short)(var1 * 12);
 #endif
-    int addr = func_ov023_021f9bc8(node) + offset;
+    int var3 = func_ov023_021f9bc8(var0) + var2;
 
-    short key = data_ov004_021707c8.keys[addr];
-    struct Elem020a15bc* elem = func_020a15bc(data_ov004_021707c8.arr, key);
-    if (!elem) return 0;
+    short var4 = data_ov004_021707c8.unknown_8_[var3];
+    struct Struct_020a15bc_2* var5 = func_020a15bc(data_ov004_021707c8.unknown_c_, var4);
+    if (!var5) return 0;
 
-    unsigned int top2 = *(unsigned int*)elem >> 30;
-    switch (top2) {
-        case 0: func_ov011_021848a0(a, 0x6e); break;
-        case 1: func_ov011_021848a0(a, 0x6f); break;
-        case 2: func_ov011_021848a0(a, 0x70); break;
+    unsigned int var6 = *(unsigned int*)var5 >> 30;
+    switch (var6) {
+        case 0: func_ov011_021848a0(arg0, 0x6e); break;
+        case 1: func_ov011_021848a0(arg0, 0x6f); break;
+        case 2: func_ov011_021848a0(arg0, 0x70); break;
     }
     return 0;
 }

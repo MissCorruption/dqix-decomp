@@ -5,108 +5,108 @@
 #define func_020341e0 func_02034104
 #endif
 
-struct Entity02077788 {
-    Object3D object;
-    char unknown_ac[2];
-    short fae;
-    char padb0[0xb2 - 0xb0];
-    unsigned short fb2;
-    unsigned short fb4;
-    char padb6[0x154 - 0xb6];
-    int f154;
-    char pad158[0x166 - 0x158];
-    unsigned short partyMemberIndex;
-    char pad168[0x17b - 0x168];
-    unsigned char f17b;
+struct Struct_02077788 {
+    Object3D unknown_0_;
+    char unknown_ac_[2];
+    short unknown_ae_;
+    char unknown_b0_[0xb2 - 0xb0];
+    unsigned short unknown_b2_;
+    unsigned short unknown_b4_;
+    char unknown_b6_[0x154 - 0xb6];
+    int unknown_154_;
+    char unknown_158_[0x166 - 0x158];
+    unsigned short unknown_166_;
+    char unknown_168_[0x17b - 0x168];
+    unsigned char unknown_17b_;
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" Vector3fix func_020341e0(void* obj);
-extern "C" int func_020322c0(int a, int* b, int c);
-extern "C" void func_020794f8(void* obj, int a, int b);
-extern "C" int func_0202b7d8(int* obj);
-struct SearchStruct0202c1a4;
-struct BitFlag02033f44;
-struct Obj02033834;
-struct Obj02033b68;
-struct Outer02077a20;
-extern "C" int func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" int func_02033f44(struct BitFlag02033f44* obj);
-extern "C" void func_02033834(struct Obj02033834* obj, int angle);
-extern "C" void func_02033b68(struct Obj02033b68* obj, int value);
-extern "C" void func_02076ccc(void* obj, int mode);
-extern "C" int func_02077a20(struct Outer02077a20* obj);
-extern "C" int func_02039760(void* obj);
+extern "C" Vector3fix func_020341e0(void* arg0);
+extern "C" int func_020322c0(int arg0, int* arg1, int arg2);
+extern "C" void func_020794f8(void* arg0, int arg1, int arg2);
+extern "C" int func_0202b7d8(int* arg0);
+struct Struct_0202c1a4;
+struct Struct_02033f44;
+struct Struct_02033834_2;
+struct Struct_02033b68;
+struct Struct_02077788_2;
+extern "C" int func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" int func_02033f44(struct Struct_02033f44* arg0);
+extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
+extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" int func_02077a20(struct Struct_02077788_2* arg0);
+extern "C" int func_02039760(void* arg0);
 
 // USA: func_02077788
-extern "C" ARM void func_02077788(struct Entity02077788* self) {
-    GameState* battleStruct = GameState::GetInstance();
-    void* g = func_0202ae18();
-    GameObject* combatant = battleStruct->GetPartyMemberByIndex(self->partyMemberIndex);
-    if (combatant == 0) {
+extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0202ae18();
+    GameObject* var2 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
+    if (var2 == 0) {
         return;
     }
 
-    Vector3fix pos = func_020341e0(combatant);
-    Vector3fix delta;
-    Vector3fix_Subtract(&pos, &self->object.position_, &delta);
-    Vector3fix_Normalize(&delta, &delta);
-    int angle = fix32_Atan2(delta.x, delta.z);
-    func_02033834((struct Obj02033834*)self, angle);
+    Vector3fix var3 = func_020341e0(var2);
+    Vector3fix var4;
+    Vector3fix_Subtract(&var3, &arg0->unknown_0_.position_, &var4);
+    Vector3fix_Normalize(&var4, &var4);
+    int var5 = fix32_Atan2(var4.x, var4.z);
+    func_02033834((struct Struct_02033834_2*)arg0, var5);
 
-    self->fb4 = 0x1c2;
-    self->fb2 = 0x1c2;
-    func_02033b68((struct Obj02033b68*)self, 1);
+    arg0->unknown_b4_ = 0x1c2;
+    arg0->unknown_b2_ = 0x1c2;
+    func_02033b68((struct Struct_02033b68*)arg0, 1);
 
-    int flag = func_02033f44((struct BitFlag02033f44*)self);
-    int inRange = 0;
-    if (flag != 0) {
-        int v = self->fae;
-        if (func_020322c0(flag, &v, v) < 0x199) {
-            inRange = 1;
+    int var6 = func_02033f44((struct Struct_02033f44*)arg0);
+    int var7 = 0;
+    if (var6 != 0) {
+        int var8 = arg0->unknown_ae_;
+        if (func_020322c0(var6, &var8, var8) < 0x199) {
+            var7 = 1;
         }
     }
-    if (inRange) {
-        func_02076ccc(self, 1);
-        self->f154 = 0;
-        if (func_0202b7d8((int*)g)) {
-            func_020794f8(self, 0, 0);
+    if (var7) {
+        func_02076ccc(arg0, 1);
+        arg0->unknown_154_ = 0;
+        if (func_0202b7d8((int*)var1)) {
+            func_020794f8(arg0, 0, 0);
         }
         return;
     }
 
-    unsigned short index = self->partyMemberIndex;
-    if (combatant->obj3D_.unknown_0_ & 0x1000) {
-        index = 0;
+    unsigned short var9 = arg0->unknown_166_;
+    if (var2->obj3D_.unknown_0_ & 0x1000) {
+        var9 = 0;
     }
-    if (!func_0202b7d8((int*)g) || index == func_0202c1a4((struct SearchStruct0202c1a4*)g)) {
-        Vector3fix pos2 = func_020341e0(combatant);
-        int radius = combatant->obj3D_.GetRadius();
-        int scaledSpacing = self->object.GetScale().x * 15;
-        int halfSpacingFactor = func_02077a20((struct Outer02077a20*)self) >> 1;
-        long long spacingProduct = (long long)halfSpacingFactor * scaledSpacing;
-        int distanceThreshold = (radius >> 1) + (int)((spacingProduct + 0x800) >> 12);
-        int dist = Vector3fix_Distance(&pos2, &self->object.position_);
-        if ((dist != 0 && distanceThreshold > dist) || dist > 0x7800) {
-            func_02076ccc(self, 1);
-            self->f154 = 0;
-            self->f17b = 1;
-            if (func_0202b7d8((int*)g)) {
-                func_020794f8(self, 1, 0);
+    if (!func_0202b7d8((int*)var1) || var9 == func_0202c1a4((struct Struct_0202c1a4*)var1)) {
+        Vector3fix var10 = func_020341e0(var2);
+        int var11 = var2->obj3D_.GetRadius();
+        int var12 = arg0->unknown_0_.GetScale().x * 15;
+        int var13 = func_02077a20((struct Struct_02077788_2*)arg0) >> 1;
+        long long var14 = (long long)var13 * var12;
+        int var15 = (var11 >> 1) + (int)((var14 + 0x800) >> 12);
+        int var16 = Vector3fix_Distance(&var10, &arg0->unknown_0_.position_);
+        if ((var16 != 0 && var15 > var16) || var16 > 0x7800) {
+            func_02076ccc(arg0, 1);
+            arg0->unknown_154_ = 0;
+            arg0->unknown_17b_ = 1;
+            if (func_0202b7d8((int*)var1)) {
+                func_020794f8(arg0, 1, 0);
             }
             return;
         }
     }
 
-    if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) != 0) {
+    if (func_0202b7d8((int*)var1) && func_0202c1a4((struct Struct_0202c1a4*)var1) != 0) {
         return;
     }
-    if (static_cast<unsigned char>(combatant->unk_ac[0xc0 - 0xac]) == 6 ||
-        func_02039760(battleStruct->GetProtagonist()) == 2) {
-        func_02076ccc(self, 1);
-        self->f154 = 0;
-        if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
-            func_020794f8(self, 0, 0);
+    if (static_cast<unsigned char>(var2->unk_ac[0xc0 - 0xac]) == 6 ||
+        func_02039760(var0->GetProtagonist()) == 2) {
+        func_02076ccc(arg0, 1);
+        arg0->unknown_154_ = 0;
+        if (func_0202b7d8((int*)var1) && func_0202c1a4((struct Struct_0202c1a4*)var1) == 0) {
+            func_020794f8(arg0, 0, 0);
         }
     }
 }

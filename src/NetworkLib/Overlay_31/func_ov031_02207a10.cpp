@@ -2,39 +2,39 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/Memory.h"
 
-struct Entry02207a10 {
-	char pad[0x20];
-	char copyData[0x30];
-	char pad2[0x54 - 0x50];
-	int field54;
-	unsigned short field58;
-	unsigned char field5a;
-	char pad3[0x5c - 0x5b];
+struct Struct_ov031_0224e3b8 {
+	char unknown_0_[0x20];
+	char unknown_20_[0x30];
+	char unknown_50_[0x54 - 0x50];
+	int unknown_54_;
+	unsigned short unknown_58_;
+	unsigned char unknown_5a_;
+	char unknown_5b_[0x5c - 0x5b];
 };
 
-extern Entry02207a10 data_ov031_0224e3b8[4];
+extern Struct_ov031_0224e3b8 data_ov031_0224e3b8[4];
 
-extern "C" int func_02001aec(void* entry, void* arg1, int arg2);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov031_02207a10
-extern "C" ARM void func_ov031_02207a10(void* obj) {
-	int i;
-	int oldIRQ;
-	Entry02207a10* entry;
-	oldIRQ = DisableIRQInterrupts();
-	*(unsigned char*)((char*)obj + 0x30) = 0;
-	entry = data_ov031_0224e3b8;
-	i = 0;
+extern "C" ARM void func_ov031_02207a10(void* arg0) {
+	int var0;
+	int var1;
+	Struct_ov031_0224e3b8* var2;
+	var1 = DisableIRQInterrupts();
+	*(unsigned char*)((char*)arg0 + 0x30) = 0;
+	var2 = data_ov031_0224e3b8;
+	var0 = 0;
 	do {
-		if (entry->field5a != 0 && entry->field54 == 0 && entry->field58 == 0) {
-			if (func_02001aec(entry, (char*)obj + 0x74, 0x20) == 0) {
-				VectorizedInvertedMemcpy(entry->copyData, obj, 0x30);
-				*(unsigned char*)((char*)obj + 0x30) = 1;
+		if (var2->unknown_5a_ != 0 && var2->unknown_54_ == 0 && var2->unknown_58_ == 0) {
+			if (func_02001aec(var2, (char*)arg0 + 0x74, 0x20) == 0) {
+				VectorizedInvertedMemcpy(var2->unknown_20_, arg0, 0x30);
+				*(unsigned char*)((char*)arg0 + 0x30) = 1;
 				break;
 			}
 		}
-		i++;
-		entry++;
-	} while (i < 4);
-	SetIRQInterruptState(oldIRQ);
+		var0++;
+		var2++;
+	} while (var0 < 4);
+	SetIRQInterruptState(var1);
 }

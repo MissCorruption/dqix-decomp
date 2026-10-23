@@ -1,68 +1,68 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue9A0_870 = 0x870 };
-enum { kRegionValue9AE_7DE = 0x7de };
+enum { Enum_ov003_02159c04_2464 = 0x870 };
+enum { Enum_ov003_02159c04_2478 = 0x7de };
 #else
-enum { kRegionValue9A0_870 = 0x9a0 };
-enum { kRegionValue9AE_7DE = 0x9ae };
+enum { Enum_ov003_02159c04_2464 = 0x9a0 };
+enum { Enum_ov003_02159c04_2478 = 0x9ae };
 #endif
 
 extern "C" void* func_020421a0(void);
 struct Struct_0205d81c;
 extern "C" void func_0205deb4(Struct_0205d81c*, int, int);
 
-struct Obj0205dee8;
-extern "C" void func_0205dee8(struct Obj0205dee8* obj, int val);
+struct Struct_0205dee8;
+extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
 
-extern "C" int func_ov003_0215b7a4(void* p);
+extern "C" int func_ov003_0215b7a4(void* arg0);
 
 // USA: func_ov003_02159c04
-extern "C" ARM void func_ov003_02159c04(void* self) {
-    unsigned char* s = (unsigned char*)self;
-    unsigned char* g = (unsigned char*)func_020421a0();
+extern "C" ARM void func_ov003_02159c04(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned char* var1 = (unsigned char*)func_020421a0();
 
-    if (*(int*)(g + kRegionValue9A0_870) == 3) {
-        *(unsigned char*)(g + 0x1000 + kRegionValue9AE_7DE) = 0;
+    if (*(int*)(var1 + Enum_ov003_02159c04_2464) == 3) {
+        *(unsigned char*)(var1 + 0x1000 + Enum_ov003_02159c04_2478) = 0;
     }
 
-    unsigned char state = *(unsigned char*)(s + 0x580);
+    unsigned char var2 = *(unsigned char*)(var0 + 0x580);
 
-    if (state == 0) {
-        func_0205deb4((Struct_0205d81c*)(s + 0xf4), 0, 0);
-        func_0205deb4((Struct_0205d81c*)(s + 0xf4), 1, 0);
-        func_0205deb4((Struct_0205d81c*)(s + 0xf4), 2, 0);
-        func_0205dee8((struct Obj0205dee8*)(s + 0xf4), 1);
-        *(unsigned char*)(s + 0x580) = *(unsigned char*)(s + 0x580) + 1;
+    if (var2 == 0) {
+        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 0, 0);
+        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 1, 0);
+        func_0205deb4((Struct_0205d81c*)(var0 + 0xf4), 2, 0);
+        func_0205dee8((struct Struct_0205dee8*)(var0 + 0xf4), 1);
+        *(unsigned char*)(var0 + 0x580) = *(unsigned char*)(var0 + 0x580) + 1;
     }
 
-    if (state != 1) return;
+    if (var2 != 1) return;
 
-    int r = func_ov003_0215b7a4(self);
-    switch (r) {
+    int var3 = func_ov003_0215b7a4(arg0);
+    switch (var3) {
     case -1:
         return;
     case 0:
-        *(unsigned char*)(s + 0x588) = 3;
+        *(unsigned char*)(var0 + 0x588) = 3;
         break;
     case 1:
-        *(unsigned char*)(s + 0x588) = 4;
+        *(unsigned char*)(var0 + 0x588) = 4;
         break;
     case 2:
-        *(unsigned char*)(s + 0x588) = 5;
+        *(unsigned char*)(var0 + 0x588) = 5;
         break;
     case 3:
-        *(unsigned char*)(s + 0x588) = 6;
+        *(unsigned char*)(var0 + 0x588) = 6;
         break;
     case 4:
-        *(unsigned char*)(s + 0x588) = 7;
+        *(unsigned char*)(var0 + 0x588) = 7;
         break;
     case -2:
     case 5:
-        *(unsigned char*)(s + 0x588) = 8;
+        *(unsigned char*)(var0 + 0x588) = 8;
         break;
     default:
         break;
     }
-    *(unsigned char*)(s + 0x580) = 0;
+    *(unsigned char*)(var0 + 0x580) = 0;
 }

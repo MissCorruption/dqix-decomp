@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 
-struct SlotState02239fc8 {
-    int state;
-    short unknown_04;
-    char padding6[0x48 - 6];
-    int unknown_48;
-    int (*eventCallback)(void* event);
-    short unknown_50;
-    short participantMask;
-    int commandResult;
-    char padding58[0x12a0 - 0x58];
-    int dispatchOption;
-    int dispatchArgument;
+struct Struct_ov031_02239fc8 {
+    int unknown_0_;
+    short unknown_4_;
+    char unknown_6_[0x48 - 6];
+    int unknown_48_;
+    int (*unknown_4c_)(void* event);
+    short unknown_50_;
+    short unknown_52_;
+    int unknown_54_;
+    char unknown_58_[0x12a0 - 0x58];
+    int unknown_12a0_;
+    int unknown_12a4_;
 };
 
-struct SlotHolder02239fc8 {
-    char padding0[4];
-    SlotState02239fc8* slot;
+struct Struct_ov031_02290d18_21 {
+    char unknown_0_[4];
+    Struct_ov031_02239fc8* unknown_4_;
 };
 
-extern SlotHolder02239fc8 data_ov031_02290d18 __attribute__((aligned(4)));
+extern Struct_ov031_02290d18_21 data_ov031_02290d18 __attribute__((aligned(4)));
 extern "C" int func_ov031_0223a060();
 
 // USA: func_ov031_02239fc8
 extern "C" ARM int func_ov031_02239fc8() {
-    data_ov031_02290d18.slot->dispatchArgument = 0;
-    data_ov031_02290d18.slot->dispatchOption = 0;
-    data_ov031_02290d18.slot->unknown_48 = 0;
-    data_ov031_02290d18.slot->unknown_50 = 0;
-    data_ov031_02290d18.slot->participantMask = 1;
-    data_ov031_02290d18.slot->commandResult = 0;
-    data_ov031_02290d18.slot->state = 0;
-    data_ov031_02290d18.slot->unknown_04 = 0;
-    data_ov031_02290d18.slot->eventCallback = NULL;
-    int result;
+    data_ov031_02290d18.unknown_4_->unknown_12a4_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_12a0_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_48_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_50_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_52_ = 1;
+    data_ov031_02290d18.unknown_4_->unknown_54_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_0_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_4_ = 0;
+    data_ov031_02290d18.unknown_4_->unknown_4c_ = NULL;
+    int var0;
     if (func_ov031_0223a060() == 0) {
-        result = 0;
+        var0 = 0;
     } else {
-        result = 1;
+        var0 = 1;
     }
-    return result;
+    return var0;
 }

@@ -4,399 +4,399 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 
-struct ForbiddenWordFile;
-struct ForbiddenWordPattern;
-extern "C" int func_ov009_0218a420(ForbiddenWordFile*, ForbiddenWordPattern*);
+struct Struct_ov009_02189a4c_2;
+struct Struct_ov009_02189a4c_3;
+extern "C" int func_ov009_0218a420(Struct_ov009_02189a4c_2*, Struct_ov009_02189a4c_3*);
 
-struct ForbiddenWordPattern {
-    char* words_[5];
-    signed char lengths_[5];
-    unsigned char types_[5];
-    unsigned char count_;
-    char unk_1f;
+struct Struct_ov009_02189a4c_3 {
+    char* unknown_0_[5];
+    signed char unknown_14_[5];
+    unsigned char unknown_19_[5];
+    unsigned char unknown_1e_;
+    char unknown_1f_;
 };
-struct ForbiddenWordHeader {
-    unsigned int count_ : 12;
-    unsigned int unused_ : 19;
-    unsigned int relocated_ : 1;
+struct Struct_ov009_02189a4c_4 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 19;
+    unsigned int unknown_3_7_ : 1;
 };
-static inline unsigned int AlignUp(unsigned int value, unsigned int alignment) {
-    unsigned int mask = alignment - 1;
-    return (value + mask) & ~mask;
+static inline unsigned int inline_ov009_02189a4c_4(unsigned int arg0, unsigned int arg1) {
+    unsigned int var0 = arg1 - 1;
+    return (arg0 + var0) & ~var0;
 }
-struct ForbiddenWordFile {
-    ForbiddenWordHeader header_;
-    ForbiddenWordPattern* patterns_;
-    char* texts_;
+struct Struct_ov009_02189a4c_2 {
+    Struct_ov009_02189a4c_4 unknown_0_;
+    Struct_ov009_02189a4c_3* unknown_4_;
+    char* unknown_8_;
 };
-struct CharacterInfo {
-    char* text_;
-    signed char unk_4;
-    signed char length_ : 6;
-    signed char unused_ : 1;
-    signed char uppercase_ : 1;
-    char pad6[2];
+struct Struct_ov009_02186e00 {
+    char* unknown_0_;
+    signed char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 1;
+    signed char unknown_5_7_ : 1;
+    char unknown_6_[2];
 };
-struct Header020e0424 { unsigned int count_ : 12; unsigned int rest_ : 20; };
-struct DictionaryPair { int key_; char* text_; };
-struct Container020e0310 : Header020e0424 { DictionaryPair* entries_; char* texts_; };
-struct Struct020dfc40 : Container020e0310 { short currentIndex_; short mode_; int currentText_; void* allocator_; };
-struct NameSyntax {
-    Struct020dfc40 container_;
-    ForbiddenWordFile file_;
-    void* secondFile_;
-    unsigned short secondFileSize_;
-    char pad2a[4];
-    unsigned char closeBraceId_, caretId_, hyphenId_, dotId_, dollarId_;
-    unsigned char slashId_, atId_, ampersandId_, commaId_, controlCId_, apostropheId_;
-    unsigned char pad35[3];
-    inline ForbiddenWordFile* GetFile() { return &file_; }
+struct Struct_020e0424 { unsigned int unknown_0_0_ : 12; unsigned int unknown_1_4_ : 20; };
+struct Struct_01ff8b48_27 { int unknown_0_; char* unknown_4_; };
+struct Struct_0201099c_3 : Struct_020e0424 { Struct_01ff8b48_27* unknown_4_; char* unknown_8_; };
+struct Struct_0201099c_14 : Struct_0201099c_3 { short unknown_c_; short unknown_e_; int unknown_10_; void* unknown_14_; };
+struct Struct_ov009_02189a4c_5 {
+    Struct_0201099c_14 unknown_0_;
+    Struct_ov009_02189a4c_2 unknown_18_;
+    void* unknown_24_;
+    unsigned short unknown_28_;
+    char unknown_2a_[4];
+    unsigned char unknown_2e_, unknown_2f_, unknown_30_, unknown_31_, unknown_32_;
+    unsigned char unknown_33_, unknown_34_, unknown_35_, unknown_36_, unknown_37_, unknown_38_;
+    unsigned char unknown_39_[3];
+    inline Struct_ov009_02189a4c_2* inline_ov009_02189a4c_5() { return &unknown_18_; }
 };
-struct CharacterCreation {
-    char pad0[0xfc];
-    NameSyntax syntax_;
-    char pad138[0xd9c - 0x138];
-    unsigned int flags_;
-    char pada0[3];
-    unsigned char sex_;
-    char pada4[0xc];
-    char** names_;
-    char padb4[4];
+struct Struct_ov009_021842a0_2 {
+    char unknown_0_[0xfc];
+    Struct_ov009_02189a4c_5 unknown_fc_;
+    char unknown_138_[0xd9c - 0x138];
+    unsigned int unknown_d9c_;
+    char unknown_da0_[3];
+    unsigned char unknown_da3_;
+    char unknown_da4_[0xc];
+    char** unknown_db0_;
+    char unknown_db4_[4];
 };
-struct NameSpan {
-    short begin_;
-    short length_;
-    unsigned char adjacent_;
-    unsigned char active_;
+struct Struct_ov009_02189a4c {
+    short unknown_0_;
+    short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
 };
 extern const char* data_020f285c;
 extern const char* data_020f2858;
 extern char data_ov009_0218aca0[];
-extern "C" void func_ov009_021847ec(NameSyntax*);
-extern "C" void func_020dfc40(Struct020dfc40*);
+extern "C" void func_ov009_021847ec(Struct_ov009_02189a4c_5*);
+extern "C" void func_020dfc40(Struct_0201099c_14*);
 extern "C" int func_020e038c(void*, void*, int);
-extern "C" int func_ov009_0218a420(ForbiddenWordFile*, ForbiddenWordPattern*);
+extern "C" int func_ov009_0218a420(Struct_ov009_02189a4c_2*, Struct_ov009_02189a4c_3*);
 extern "C" void __clear(void*, unsigned int);
-extern "C" CharacterInfo* func_0204254c(int, int);
+extern "C" Struct_ov009_02186e00* func_0204254c(int, int);
 extern "C" void func_ov009_0218a484(int, char*, char*);
-extern "C" unsigned int func_020e0424(Header020e0424*);
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" unsigned int func_020e0424(Struct_020e0424*);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_020424e4(int, int);
-extern "C" CharacterInfo* func_020425b4(int, int);
+extern "C" Struct_ov009_02186e00* func_020425b4(int, int);
 extern "C" int func_020426bc(const char*, unsigned char*, int);
 extern "C" int func_ov009_0218a4c8(int, int, int, int, int);
-extern "C" int func_ov009_0218a518(NameSyntax*, const unsigned char*, const unsigned char*, int, int);
+extern "C" int func_ov009_0218a518(Struct_ov009_02189a4c_5*, const unsigned char*, const unsigned char*, int, int);
 
-static inline ForbiddenWordPattern* GetFilePatterns(const ForbiddenWordFile* file) { return file->patterns_; }
-static inline int GetFileCount(const ForbiddenWordFile* file) { return file->header_.count_; }
+static inline Struct_ov009_02189a4c_3* inline_ov009_02189a4c(const Struct_ov009_02189a4c_2* arg0) { return arg0->unknown_4_; }
+static inline int inline_ov009_02189a4c_2(const Struct_ov009_02189a4c_2* arg0) { return arg0->unknown_0_.unknown_0_0_; }
 
-static inline unsigned int PatternOffset(unsigned int base, unsigned int count, unsigned int size, unsigned int alignment) {
-    unsigned int stride = AlignUp(size, alignment);
-    unsigned int amount = count * stride;
-    return base + amount;
+static inline unsigned int inline_ov009_02189a4c_3(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3) {
+    unsigned int var0 = inline_ov009_02189a4c_4(arg2, arg3);
+    unsigned int var1 = arg1 * var0;
+    return arg0 + var1;
 }
 
 // USA: func_ov009_02189a4c
-extern "C" ARM void func_ov009_02189a4c(CharacterCreation* self) {
-    int i;
-    ForbiddenWordPattern* headerPattern;
-    int headerCount;
-    NameSpan work_spans_[30];
-    char work_normalized_[512];
-    unsigned char work_tokens_[128];
-    unsigned char work_patterns_[5][64];
-    char work_exactName_[64];
-    char work_exactCharacter_[12];
-    char work_character_[12];
-    unsigned int work_fileSize_[2];
-    char* name = self->names_[self->sex_];
-    if (!*name) return;
+extern "C" ARM void func_ov009_02189a4c(Struct_ov009_021842a0_2* arg0) {
+    int var0;
+    Struct_ov009_02189a4c_3* var1;
+    int var2;
+    Struct_ov009_02189a4c var3[30];
+    char var4[512];
+    unsigned char var5[128];
+    unsigned char var6[5][64];
+    char var7[64];
+    char var8[12];
+    char var9[12];
+    unsigned int var10[2];
+    char* var11 = arg0->unknown_db0_[arg0->unknown_da3_];
+    if (!*var11) return;
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-        func_ov009_021847ec((&self->syntax_));
-    work_fileSize_[0] = 0;
-    work_fileSize_[1] = 0;
-    LoadFileIntoMemory(data_020f285c, data_0211e33c, &work_fileSize_[0]);
-    unsigned int aligned = (work_fileSize_[0] + 511) & ~511;
-    LoadFileIntoMemory(data_020f2858, data_0211e33c + aligned, &work_fileSize_[1]);
-    func_020dfc40(&self->syntax_.container_);
-    func_020e038c((&self->syntax_), data_0211e33c + aligned, work_fileSize_[1]);
-    memset((&self->syntax_.file_), 0, 12);
-    unsigned char* buffer = data_0211e33c;
-    if (buffer) {
-        memcpy((&self->syntax_.file_), data_0211e33c, 4);
-        unsigned int firstOffset = AlignUp(sizeof(ForbiddenWordHeader), 4);
-        unsigned char* base = data_0211e33c;
-        self->syntax_.file_.patterns_ = (ForbiddenWordPattern*)(base + firstOffset);
-        unsigned int bytes = PatternOffset(0, self->syntax_.file_.header_.count_, sizeof(ForbiddenWordPattern), 4);
-        self->syntax_.file_.texts_ = (char*)(base + (firstOffset + bytes));
-        unsigned int relocated = (&self->syntax_.file_)->header_.relocated_;
-        if (!relocated) {
-            const ForbiddenWordFile* file_v = &self->syntax_.file_;
-            headerPattern = GetFilePatterns(file_v);
-            if (headerPattern) {
-                headerCount = GetFileCount(file_v);
-                int (*callback)(ForbiddenWordFile*, ForbiddenWordPattern*);
-                if (headerCount && (callback = func_ov009_0218a420) != 0) {
-                    for (i = 0; i < headerCount; ++i, ++headerPattern) func_ov009_0218a420(self->syntax_.GetFile(), headerPattern);
+        func_ov009_021847ec((&arg0->unknown_fc_));
+    var10[0] = 0;
+    var10[1] = 0;
+    LoadFileIntoMemory(data_020f285c, data_0211e33c, &var10[0]);
+    unsigned int var12 = (var10[0] + 511) & ~511;
+    LoadFileIntoMemory(data_020f2858, data_0211e33c + var12, &var10[1]);
+    func_020dfc40(&arg0->unknown_fc_.unknown_0_);
+    func_020e038c((&arg0->unknown_fc_), data_0211e33c + var12, var10[1]);
+    memset((&arg0->unknown_fc_.unknown_18_), 0, 12);
+    unsigned char* var13 = data_0211e33c;
+    if (var13) {
+        memcpy((&arg0->unknown_fc_.unknown_18_), data_0211e33c, 4);
+        unsigned int var14 = inline_ov009_02189a4c_4(sizeof(Struct_ov009_02189a4c_4), 4);
+        unsigned char* var15 = data_0211e33c;
+        arg0->unknown_fc_.unknown_18_.unknown_4_ = (Struct_ov009_02189a4c_3*)(var15 + var14);
+        unsigned int var16 = inline_ov009_02189a4c_3(0, arg0->unknown_fc_.unknown_18_.unknown_0_.unknown_0_0_, sizeof(Struct_ov009_02189a4c_3), 4);
+        arg0->unknown_fc_.unknown_18_.unknown_8_ = (char*)(var15 + (var14 + var16));
+        unsigned int var17 = (&arg0->unknown_fc_.unknown_18_)->unknown_0_.unknown_3_7_;
+        if (!var17) {
+            const Struct_ov009_02189a4c_2* var18 = &arg0->unknown_fc_.unknown_18_;
+            var1 = inline_ov009_02189a4c(var18);
+            if (var1) {
+                var2 = inline_ov009_02189a4c_2(var18);
+                int (*var19)(Struct_ov009_02189a4c_2*, Struct_ov009_02189a4c_3*);
+                if (var2 && (var19 = func_ov009_0218a420) != 0) {
+                    for (var0 = 0; var0 < var2; ++var0, ++var1) func_ov009_0218a420(arg0->unknown_fc_.inline_ov009_02189a4c_5(), var1);
                 }
             }
-            (&self->syntax_.file_)->header_.relocated_ = 1;
-            ((ForbiddenWordHeader*)data_0211e33c)->relocated_ = 1;
+            (&arg0->unknown_fc_.unknown_18_)->unknown_0_.unknown_3_7_ = 1;
+            ((Struct_ov009_02189a4c_4*)data_0211e33c)->unknown_3_7_ = 1;
         }
     }
-    (&self->syntax_)->secondFile_ = 0;
-    (&self->syntax_)->secondFileSize_ = 0;
-    if (work_fileSize_[1]) {
-        (&self->syntax_)->secondFile_ = data_0211e33c + aligned;
-        (&self->syntax_)->secondFileSize_ = work_fileSize_[1];
+    (&arg0->unknown_fc_)->unknown_24_ = 0;
+    (&arg0->unknown_fc_)->unknown_28_ = 0;
+    if (var10[1]) {
+        (&arg0->unknown_fc_)->unknown_24_ = data_0211e33c + var12;
+        (&arg0->unknown_fc_)->unknown_28_ = var10[1];
     }
-    int forbidden;
-    int exact;
+    int var20;
+    int var21;
     {
-__clear(work_exactName_, 64);
-    char* out = work_exactName_;
-    char* in = name;
+__clear(var7, 64);
+    char* var22 = var7;
+    char* var23 = var11;
     for (;;) {
-        if (!*in) break;
-        CharacterInfo* entry = func_0204254c((int)in, 1);
-        __clear(work_exactCharacter_, 12);
-        int length = entry->length_;
-        char* text = entry->text_;
-        if (entry->uppercase_) {
-            func_ov009_0218a484((int)(&self->syntax_), text, work_exactCharacter_);
-            text = work_exactCharacter_;
+        if (!*var23) break;
+        Struct_ov009_02186e00* var24 = func_0204254c((int)var23, 1);
+        __clear(var8, 12);
+        int var25 = var24->unknown_5_0_;
+        char* var26 = var24->unknown_0_;
+        if (var24->unknown_5_7_) {
+            func_ov009_0218a484((int)(&arg0->unknown_fc_), var26, var8);
+            var26 = var8;
         }
-        memcpy(out, text, length);
-        in += length;
-        out += length;
+        memcpy(var22, var26, var25);
+        var23 += var25;
+        var22 += var25;
     }
-    int length = strlen(work_exactName_);
-    int exactIndex;
-    int count = func_020e0424(&self->syntax_.container_);
-    for (exactIndex = 0; exactIndex < count; ++exactIndex) {
-        char* forbidden = (char*)func_020e0434(&self->syntax_.container_, (short)exactIndex);
-        if (forbidden && *forbidden) {
-            int forbiddenLength = strlen(forbidden);
-            if (forbiddenLength == length && strcmp(forbidden, work_exactName_) == 0) { exact = 1; goto exact_done; }
+    int var27 = strlen(var7);
+    int var28;
+    int var29 = func_020e0424(&arg0->unknown_fc_.unknown_0_);
+    for (var28 = 0; var28 < var29; ++var28) {
+        char* var30 = (char*)func_020e0434(&arg0->unknown_fc_.unknown_0_, (short)var28);
+        if (var30 && *var30) {
+            int var31 = strlen(var30);
+            if (var31 == var27 && strcmp(var30, var7) == 0) { var21 = 1; goto exact_done; }
         }
     }
-    exact = 0;
+    var21 = 0;
 
     }
 exact_done:
-    if (exact) {
-        forbidden = 1;
+    if (var21) {
+        var20 = 1;
         goto finished;
     }
-    int patternCount;
-    NameSpan* first;
-    int positions;
-    __clear(work_spans_, 180);
-    __clear(work_normalized_, 512);
-    __clear(work_tokens_, 128);
+    int var32;
+    Struct_ov009_02189a4c* var33;
+    int var34;
+    __clear(var3, 180);
+    __clear(var4, 512);
+    __clear(var5, 128);
     {
-    int controlCId;
-    int apostropheId;
-    unsigned char ampersandId;
-    unsigned char atId;
-    unsigned char slashId;
-    unsigned char dollarId;
-    dollarId = self->syntax_.dollarId_;
-    slashId = self->syntax_.slashId_;
-    atId = self->syntax_.atId_;
-    ampersandId = self->syntax_.ampersandId_;
-    apostropheId = self->syntax_.apostropheId_;
-    controlCId = self->syntax_.controlCId_;
-    char* out = work_normalized_;
+    int var35;
+    int var36;
+    unsigned char var37;
+    unsigned char var38;
+    unsigned char var39;
+    unsigned char var40;
+    var40 = arg0->unknown_fc_.unknown_32_;
+    var39 = arg0->unknown_fc_.unknown_33_;
+    var38 = arg0->unknown_fc_.unknown_34_;
+    var37 = arg0->unknown_fc_.unknown_35_;
+    var36 = arg0->unknown_fc_.unknown_38_;
+    var35 = arg0->unknown_fc_.unknown_37_;
+    char* var41 = var4;
     for (;;) {
-        if (!*name) break;
-        int index = func_020424e4((int)name, 1);
-        CharacterInfo* entry = func_020425b4(index, 1);
-        if (!entry) goto fallback_character;
-        if (((index >= 8 && index <= 69) || index == 77 || index == 83 ||
-                      (index >= 120 && index <= 169) || index == dollarId || index == atId ||
-                      index == ampersandId || index == 107 || index == apostropheId)) {
-            int advance = entry->length_;
-            if (index == 107) entry = func_020425b4(slashId, 1);
-            __clear(work_character_, 12);
-            int length = entry->length_;
-            char* text = entry->text_;
-            if (entry->uppercase_) {
-                func_ov009_0218a484((int)(&self->syntax_), text, work_character_);
-                text = work_character_;
+        if (!*var11) break;
+        int var42 = func_020424e4((int)var11, 1);
+        Struct_ov009_02186e00* var43 = func_020425b4(var42, 1);
+        if (!var43) goto fallback_character;
+        if (((var42 >= 8 && var42 <= 69) || var42 == 77 || var42 == 83 ||
+                      (var42 >= 120 && var42 <= 169) || var42 == var40 || var42 == var38 ||
+                      var42 == var37 || var42 == 107 || var42 == var36)) {
+            int var44 = var43->unknown_5_0_;
+            if (var42 == 107) var43 = func_020425b4(var39, 1);
+            __clear(var9, 12);
+            int var45 = var43->unknown_5_0_;
+            char* var46 = var43->unknown_0_;
+            if (var43->unknown_5_7_) {
+                func_ov009_0218a484((int)(&arg0->unknown_fc_), var46, var9);
+                var46 = var9;
             }
-            if (index >= 120 && index <= 169) {
-                int c = text[1];
-                if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
-                    if (c != 's') goto copy_character;
+            if (var42 >= 120 && var42 <= 169) {
+                int var47 = var46[1];
+                if ((var47 >= 'A' && var47 <= 'Z') || (var47 >= 'a' && var47 <= 'z')) {
+                    if (var47 != 's') goto copy_character;
                 }
-                c = text[2];
-                if (c >= 'a' && c <= 'z') c = (char)(c - 32);
-                memset(work_character_, 0, 12);
-                work_character_[0] = c;
-                text = work_character_;
-                length = 1;
+                var47 = var46[2];
+                if (var47 >= 'a' && var47 <= 'z') var47 = (char)(var47 - 32);
+                memset(var9, 0, 12);
+                var9[0] = var47;
+                var46 = var9;
+                var45 = 1;
             }
         copy_character:
-            memcpy(out, text, length);
-            name += advance;
-            out += length;
-        } else if (index == controlCId) {
-            int length = entry->length_;
-            memcpy(out, data_ov009_0218aca0, 1);
-            name += length;
-            out++;
+            memcpy(var41, var46, var45);
+            var11 += var44;
+            var41 += var45;
+        } else if (var42 == var35) {
+            int var48 = var43->unknown_5_0_;
+            memcpy(var41, data_ov009_0218aca0, 1);
+            var11 += var48;
+            var41++;
         } else {
         fallback_character:
-            int length = 1;
-            if (entry) {
-                length = entry->length_;
-                *out = ',';
-            } else *out = ' ';
-            name += length;
-            ++out;
+            int var49 = 1;
+            if (var43) {
+                var49 = var43->unknown_5_0_;
+                *var41 = ',';
+            } else *var41 = ' ';
+            var11 += var49;
+            ++var41;
         }
     }
     }
-    short patternIndex;
-    ForbiddenWordPattern* pattern;
-    int spanCount;
-    NameSpan* matchSpan;
-    int matchIndex;
-    func_020426bc(work_normalized_, work_tokens_, 1);
-    matchIndex = 0;
-    unsigned int c;
-    NameSpan* span;
-    unsigned char* token;
-    int position;
-    int commaId;
-    span = work_spans_;
-    commaId = (&self->syntax_)->commaId_;
-    token = work_tokens_;
-    position = matchIndex;
-    spanCount = matchIndex;
+    short var50;
+    Struct_ov009_02189a4c_3* var51;
+    int var52;
+    Struct_ov009_02189a4c* var53;
+    int var54;
+    func_020426bc(var4, var5, 1);
+    var54 = 0;
+    unsigned int var55;
+    Struct_ov009_02189a4c* var56;
+    unsigned char* var57;
+    int var58;
+    int var59;
+    var56 = var3;
+    var59 = (&arg0->unknown_fc_)->unknown_36_;
+    var57 = var5;
+    var58 = var54;
+    var52 = var54;
     for (;;) {
-        c = *token;
-        if (span->active_) {
-            if (c == 0 || c == 255 || c == commaId) {
-                spanCount++;
-                span->length_ = position - span->begin_;
-                span->adjacent_ = c == 255 ? 1 : 0;
-                span->active_ = 0;
-                span++;
+        var55 = *var57;
+        if (var56->unknown_5_) {
+            if (var55 == 0 || var55 == 255 || var55 == var59) {
+                var52++;
+                var56->unknown_2_ = var58 - var56->unknown_0_;
+                var56->unknown_4_ = var55 == 255 ? 1 : 0;
+                var56->unknown_5_ = 0;
+                var56++;
             }
         } else {
-            if (c != 0 && c < 255 && c != commaId) {
-                span->begin_ = position;
-                span->active_ = 1;
+            if (var55 != 0 && var55 < 255 && var55 != var59) {
+                var56->unknown_0_ = var58;
+                var56->unknown_5_ = 1;
             }
-            if (c == commaId && spanCount != 0) (work_spans_ + (spanCount - 1))->adjacent_ = 0;
+            if (var55 == var59 && var52 != 0) (var3 + (var52 - 1))->unknown_4_ = 0;
         }
-        if (span->active_ && matchIndex == 18) {
-            spanCount++;
-            span->length_ = position - span->begin_ + 1;
-            span->adjacent_ = 1;
-            span++;
+        if (var56->unknown_5_ && var54 == 18) {
+            var52++;
+            var56->unknown_2_ = var58 - var56->unknown_0_ + 1;
+            var56->unknown_4_ = 1;
+            var56++;
         }
-        if (!c) break;
-        matchIndex++;
-        token++;
-        position++;
-        if (matchIndex == 19) matchIndex = 0;
+        if (!var55) break;
+        var54++;
+        var57++;
+        var58++;
+        if (var54 == 19) var54 = 0;
     }
-    int gapCommaId;
-    NameSpan* gapSpan = work_spans_;
-    gapCommaId = (&self->syntax_)->commaId_;
-    for (int i = 0; i < spanCount - 1; ++i, ++gapSpan) {
-        unsigned char* p;
-        int position = gapSpan->begin_ + gapSpan->length_;
-        matchIndex = gapSpan[1].begin_;
-        gapSpan->adjacent_ = 1;
-        p = work_tokens_ + position;
-        while (position < matchIndex) {
-            if (gapCommaId == *p) { gapSpan->adjacent_ = 0; break; }
-            ++position;
-            ++p;
+    int var60;
+    Struct_ov009_02189a4c* var61 = var3;
+    var60 = (&arg0->unknown_fc_)->unknown_36_;
+    for (int var62 = 0; var62 < var52 - 1; ++var62, ++var61) {
+        unsigned char* var63;
+        int var64 = var61->unknown_0_ + var61->unknown_2_;
+        var54 = var61[1].unknown_0_;
+        var61->unknown_4_ = 1;
+        var63 = var5 + var64;
+        while (var64 < var54) {
+            if (var60 == *var63) { var61->unknown_4_ = 0; break; }
+            ++var64;
+            ++var63;
         }
     }
-    int signedCommaId = (signed char)(&self->syntax_)->commaId_;
-    for (int i = 0; i < 128; ++i) {
-        if (signedCommaId == (signed char)work_tokens_[i]) ((char*)work_tokens_)[i] = -1;
+    int var65 = (signed char)(&arg0->unknown_fc_)->unknown_36_;
+    for (int var66 = 0; var66 < 128; ++var66) {
+        if (var65 == (signed char)var5[var66]) ((char*)var5)[var66] = -1;
     }
-    patternCount = (short)self->syntax_.file_.header_.count_;
-    for (patternIndex = 0; patternIndex < patternCount; ++patternIndex) {
-        pattern = (&self->syntax_.file_)->patterns_ + patternIndex;
-        first = work_spans_;
-        __clear(work_patterns_, 320);
-        for (int j = 0; j < pattern->count_; ++j) {
-            func_020426bc(pattern->words_[j], work_patterns_[j], 1);
-            pattern->words_[j] = (char*)work_patterns_[j];
+    var32 = (short)arg0->unknown_fc_.unknown_18_.unknown_0_.unknown_0_0_;
+    for (var50 = 0; var50 < var32; ++var50) {
+        var51 = (&arg0->unknown_fc_.unknown_18_)->unknown_4_ + var50;
+        var33 = var3;
+        __clear(var6, 320);
+        for (int var67 = 0; var67 < var51->unknown_1e_; ++var67) {
+            func_020426bc(var51->unknown_0_[var67], var6[var67], 1);
+            var51->unknown_0_[var67] = (char*)var6[var67];
         }
-        positions = spanCount - pattern->count_ + 1;
-        for (int j = 0; j < positions; ++j, ++first) {
-            int matched;
+        var34 = var52 - var51->unknown_1e_ + 1;
+        for (int var68 = 0; var68 < var34; ++var68, ++var33) {
+            int var69;
             {
-                matchSpan = first;
-                unsigned char* input = work_tokens_;
-int count = pattern->count_;
-    int last = count - 1;
-    for (matchIndex = 0; matchIndex < count; ++matchIndex, ++matchSpan) {
-        if (matchIndex < last && !matchSpan->adjacent_) { matched = 0; goto match_done; }
-        int type;
-        int length = pattern->lengths_[matchIndex];
-        int spanLength = matchSpan->length_;
-        int positions = spanLength - length + 1;
-        type = pattern->types_[matchIndex];
-        int text = (int)pattern->words_[matchIndex];
-        switch (type) {
+                var53 = var33;
+                unsigned char* var70 = var5;
+int var71 = var51->unknown_1e_;
+    int var72 = var71 - 1;
+    for (var54 = 0; var54 < var71; ++var54, ++var53) {
+        if (var54 < var72 && !var53->unknown_4_) { var69 = 0; goto match_done; }
+        int var73;
+        int var74 = var51->unknown_14_[var54];
+        int var75 = var53->unknown_2_;
+        int var76 = var75 - var74 + 1;
+        var73 = var51->unknown_19_[var54];
+        int var77 = (int)var51->unknown_0_[var54];
+        switch (var73) {
         case 0:
-            if (length != spanLength) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, 1)) { matched = 0; goto match_done; }
+            if (var74 != var75) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&arg0->unknown_fc_), var77, (int)(var70 + var53->unknown_0_), var74, 1)) { var69 = 0; goto match_done; }
             break;
         case 3:
-            if (spanLength < length) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, 1)) { matched = 0; goto match_done; }
+            if (var75 < var74) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&arg0->unknown_fc_), var77, (int)(var70 + var53->unknown_0_), var74, 1)) { var69 = 0; goto match_done; }
             break;
         case 2:
-            if (spanLength < length) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + (matchSpan->begin_ + matchSpan->length_ - length)), length, 1)) { matched = 0; goto match_done; }
+            if (var75 < var74) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&arg0->unknown_fc_), var77, (int)(var70 + (var53->unknown_0_ + var53->unknown_2_ - var74)), var74, 1)) { var69 = 0; goto match_done; }
             break;
         case 1:
-            if (spanLength < length) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a4c8((int)(&self->syntax_), text, (int)(input + matchSpan->begin_), length, positions)) { matched = 0; goto match_done; }
+            if (var75 < var74) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a4c8((int)(&arg0->unknown_fc_), var77, (int)(var70 + var53->unknown_0_), var74, var76)) { var69 = 0; goto match_done; }
             break;
         case 4:
-            if (length != spanLength) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a518((&self->syntax_), (unsigned char*)text, input + matchSpan->begin_, length, 1)) { matched = 0; goto match_done; }
+            if (var74 != var75) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a518((&arg0->unknown_fc_), (unsigned char*)var77, var70 + var53->unknown_0_, var74, 1)) { var69 = 0; goto match_done; }
             break;
         case 7:
-            if (spanLength < length) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a518((&self->syntax_), (unsigned char*)text, input + matchSpan->begin_, length, 1)) { matched = 0; goto match_done; }
+            if (var75 < var74) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a518((&arg0->unknown_fc_), (unsigned char*)var77, var70 + var53->unknown_0_, var74, 1)) { var69 = 0; goto match_done; }
             break;
         case 6:
-            if (spanLength < length) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a518((&self->syntax_), (unsigned char*)text, input + (matchSpan->begin_ + matchSpan->length_ - length), length, 1)) { matched = 0; goto match_done; }
+            if (var75 < var74) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a518((&arg0->unknown_fc_), (unsigned char*)var77, var70 + (var53->unknown_0_ + var53->unknown_2_ - var74), var74, 1)) { var69 = 0; goto match_done; }
             break;
         case 5:
-            if (spanLength < length) { matched = 0; goto match_done; }
-            if (!func_ov009_0218a518((&self->syntax_), (unsigned char*)text, input + matchSpan->begin_, length, positions)) { matched = 0; goto match_done; }
+            if (var75 < var74) { var69 = 0; goto match_done; }
+            if (!func_ov009_0218a518((&arg0->unknown_fc_), (unsigned char*)var77, var70 + var53->unknown_0_, var74, var76)) { var69 = 0; goto match_done; }
             break;
         }
     }
-    matched = 1;
+    var69 = 1;
 
             }
 match_done:
-            if (matched) {
-                forbidden = 1;
+            if (var69) {
+                var20 = 1;
                 goto finished;
             }
         }
     }
-    forbidden = 0;
+    var20 = 0;
 finished:
     BackgroundLoader::RemoveLockGlobal();
-    if (forbidden) self->flags_ |= 0x400000;
-    else self->flags_ |= 0x800;
+    if (var20) arg0->unknown_d9c_ |= 0x400000;
+    else arg0->unknown_d9c_ |= 0x800;
 }

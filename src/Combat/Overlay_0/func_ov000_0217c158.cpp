@@ -4,97 +4,97 @@ struct Struct_0205bcdc;
 struct Struct_0205c4a8;
 struct Struct_0205bb84;
 
-struct Cursor0217c158 {
-    char unk_0[4];
-    char selection[0x50];
-    int unk_54;
-    char unk_58[0x68 - 0x58];
-    int rows;
+struct Struct_ov000_0217c158 {
+    char unknown_0_[4];
+    char unknown_4_[0x50];
+    int unknown_54_;
+    char unknown_58_[0x68 - 0x58];
+    int unknown_68_;
 };
 
-struct Combatant0217c158 {
-    char unk_0[0x18];
-    short hp;
+struct Struct_ov000_0217c158_2 {
+    char unknown_0_[0x18];
+    short unknown_18_;
 };
 
-struct Menu0217c158 {
-    char unk_0[0x10];
-    signed char modes[8];
-    signed char depth;
-    char unk_19[0x1e - 0x19];
-    short field_1e;
-    unsigned char field_20;
-    char unk_21;
-    signed char field_22;
-    char unk_23[0x2c - 0x23];
-    short field_2c;
-    char unk_2e[0x38 - 0x2e];
-    Cursor0217c158* cursor;
+struct Struct_ov000_0217c158_3 {
+    char unknown_0_[0x10];
+    signed char unknown_10_[8];
+    signed char unknown_18_;
+    char unknown_19_[0x1e - 0x19];
+    short unknown_1e_;
+    unsigned char unknown_20_;
+    char unknown_21_;
+    signed char unknown_22_;
+    char unknown_23_[0x2c - 0x23];
+    short unknown_2c_;
+    char unknown_2e_[0x38 - 0x2e];
+    Struct_ov000_0217c158* unknown_38_;
 #if defined(jpn)
-    char unk_3c[0x430 - 0x3c];
+    char unknown_3c_[0x430 - 0x3c];
 #else
-    char unk_3c[0x3f0 - 0x3c];
+    char unknown1_3c_[0x3f0 - 0x3c];
 #endif
-    Combatant0217c158* slots[0x10];
+    Struct_ov000_0217c158_2* unknown_3f0_[0x10];
 };
 
-extern "C" int func_0205dd08(Cursor0217c158* cursor);
-extern "C" void func_0205c4a8(struct Struct_0205c4a8* s, int delta);
-extern "C" int func_0205bb84(struct Struct_0205bb84* s);
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* s, int index);
-extern "C" void func_0205bb04(void* s, int index);
+extern "C" int func_0205dd08(Struct_ov000_0217c158* arg0);
+extern "C" void func_0205c4a8(struct Struct_0205c4a8* arg0, int arg1);
+extern "C" int func_0205bb84(struct Struct_0205bb84* arg0);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
+extern "C" void func_0205bb04(void* arg0, int arg1);
 extern "C" int abs(int);
 
 // USA: func_ov000_0217c158
-extern "C" ARM int func_ov000_0217c158(Menu0217c158* menu) {
-    int delta;
-    int index;
-    signed char rows;
-    short prev;
-    int prevColumn;
-    Cursor0217c158* cursor;
+extern "C" ARM int func_ov000_0217c158(Struct_ov000_0217c158_3* arg0) {
+    int var0;
+    int var1;
+    signed char var2;
+    short var3;
+    int var4;
+    Struct_ov000_0217c158* var5;
 
-    delta = func_0205dd08(menu->cursor);
-    if (delta == 0) {
+    var0 = func_0205dd08(arg0->unknown_38_);
+    if (var0 == 0) {
         return 0;
     }
-    cursor = menu->cursor;
-    func_0205c4a8((struct Struct_0205c4a8*)&cursor->unk_54, delta);
-    index = func_0205bb84((struct Struct_0205bb84*)&cursor->unk_54);
-    func_0205bcdc((struct Struct_0205bcdc*)cursor->selection, index);
-    switch (menu->modes[menu->depth]) {
+    var5 = arg0->unknown_38_;
+    func_0205c4a8((struct Struct_0205c4a8*)&var5->unknown_54_, var0);
+    var1 = func_0205bb84((struct Struct_0205bb84*)&var5->unknown_54_);
+    func_0205bcdc((struct Struct_0205bcdc*)var5->unknown_4_, var1);
+    switch (arg0->unknown_10_[arg0->unknown_18_]) {
     case 0xf:
-        menu->field_20 = index;
+        arg0->unknown_20_ = var1;
         break;
     case 0x10:
-        menu->field_1e = index;
+        arg0->unknown_1e_ = var1;
         break;
     case 0x11: {
-        prevColumn = menu->field_22 & 3;
-        prev = index;
-        rows = cursor->rows;
-        short column = index & 3;
-        if ((short)abs(column - prevColumn) == 1 && prevColumn < column) {
-            if (menu->slots[index] == 0) {
-                index = rows * 4;
+        var4 = arg0->unknown_22_ & 3;
+        var3 = var1;
+        var2 = var5->unknown_68_;
+        short var6 = var1 & 3;
+        if ((short)abs(var6 - var4) == 1 && var4 < var6) {
+            if (arg0->unknown_3f0_[var1] == 0) {
+                var1 = var2 * 4;
             }
         }
-        while (menu->slots[index] == 0) {
-            index--;
+        while (arg0->unknown_3f0_[var1] == 0) {
+            var1--;
         }
-        while (menu->slots[index] != 0) {
-            if (menu->slots[index]->hp > 0) {
+        while (arg0->unknown_3f0_[var1] != 0) {
+            if (arg0->unknown_3f0_[var1]->unknown_18_ > 0) {
                 break;
             }
-            index--;
+            var1--;
         }
-        if (prev != index) {
-            func_0205bcdc((struct Struct_0205bcdc*)cursor->selection, index);
-            func_0205bb04(&cursor->unk_54, index);
+        if (var3 != var1) {
+            func_0205bcdc((struct Struct_0205bcdc*)var5->unknown_4_, var1);
+            func_0205bb04(&var5->unknown_54_, var1);
         }
-        menu->field_22 = index;
-        menu->field_2c = -1;
-        menu->field_22 = index;
+        arg0->unknown_22_ = var1;
+        arg0->unknown_2c_ = -1;
+        arg0->unknown_22_ = var1;
         break;
     }
     }

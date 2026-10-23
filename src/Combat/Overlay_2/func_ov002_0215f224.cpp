@@ -5,8 +5,8 @@
 #define func_02041fac func_02042638
 #endif
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* arg0, int arg1);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 extern "C" int func_02041ea4(char* arg0, int arg1);
 extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
     int var2, var3;
     func_0205c508((struct Struct_ov002_0215f224*)(var1 + 0x54), &var2, &var3);
 
-    int var4 = func_020e0434((struct Container020e0310*)(arg0 + RG(0x20, 8)), 0x578);
+    int var4 = func_020e0434((struct Struct_0201099c_3*)(arg0 + RG(0x20, 8)), 0x578);
     func_02041fac(arg1, var4, 0x10);
 
     int var5;
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
         func_020465f0((unsigned char*)var9, 1, 1);
         func_020465d8((unsigned char*)var9, 0, 1);
         func_020465d8((unsigned char*)var9, 1, 0);
-        func_02042058(arg1, (const char*)func_020e0434((struct Container020e0310*)(arg0 + 8), 0x579));
+        func_02042058(arg1, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 8), 0x579));
     }
 #else
     int var10 = *(int*)(var1 + 0x58);

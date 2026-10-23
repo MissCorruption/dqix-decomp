@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "NitroSDK/ProcessorContext.h"
 
-struct SizeInputStruct022054fc {
-	unsigned short field0;
-	unsigned char field2;
-	unsigned char field3;
+struct Struct_ov031_022054fc {
+	unsigned short unknown_0_;
+	unsigned char unknown_2_;
+	unsigned char unknown_3_;
 };
 
-struct InitData020c7de4 {
-	int a; int b; int c; int d;
-	int e; int f; int g; int h;
+struct Struct_ov031_0224e204 {
+	int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_;
+	int unknown_10_; int unknown_14_; int unknown_18_; int unknown_1c_;
 };
 
-struct FourWords;
+struct Struct_01ffd34c;
 
-extern "C" int func_ov031_022054fc(SizeInputStruct022054fc* p);
-extern "C" void func_020c7de4(InitData020c7de4* s, int e, int f);
+extern "C" int func_ov031_022054fc(Struct_ov031_022054fc* arg0);
+extern "C" void func_020c7de4(Struct_ov031_0224e204* arg0, int arg1, int arg2);
 struct Mutex;
 void ZeroInitializeMutex(Mutex*);
 void PopulateContext(ProcessorContext*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int);
@@ -23,11 +23,11 @@ void MarkContextReadyAndSwitch(ProcessorContext* context);
 extern "C" void func_ov031_022052b4(void);
 
 // USA: func_ov031_02205648
-extern "C" ARM int func_ov031_02205648(int a, void* ctx, SizeInputStruct022054fc* p) {
-	int totalSize = func_ov031_022054fc(p);
-	func_020c7de4((InitData020c7de4*)ctx, a, p->field3);
-	ZeroInitializeMutex((Mutex*)((char*)ctx + 0xe0));
-	PopulateContext((ProcessorContext*)((char*)ctx + 0x20), (unsigned int)func_ov031_022052b4, (unsigned int)ctx, a + totalSize, p->field0, p->field2);
-	MarkContextReadyAndSwitch((ProcessorContext*)((char*)ctx + 0x20));
-	return a + totalSize;
+extern "C" ARM int func_ov031_02205648(int arg0, void* arg1, Struct_ov031_022054fc* arg2) {
+	int var0 = func_ov031_022054fc(arg2);
+	func_020c7de4((Struct_ov031_0224e204*)arg1, arg0, arg2->unknown_3_);
+	ZeroInitializeMutex((Mutex*)((char*)arg1 + 0xe0));
+	PopulateContext((ProcessorContext*)((char*)arg1 + 0x20), (unsigned int)func_ov031_022052b4, (unsigned int)arg1, arg0 + var0, arg2->unknown_0_, arg2->unknown_2_);
+	MarkContextReadyAndSwitch((ProcessorContext*)((char*)arg1 + 0x20));
+	return arg0 + var0;
 }

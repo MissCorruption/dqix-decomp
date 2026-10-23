@@ -3,61 +3,61 @@
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
 
-struct NetworkOptions02244ad0 {
-    unsigned char reserved : 3;
-    unsigned char customCapacity : 1;
-    unsigned char customTimeout : 1;
-    unsigned char reservedHigh : 3;
-    unsigned char capacity;
-    unsigned char timeout;
+struct Struct_ov031_02244ad0 {
+    unsigned char unknown_0_0_ : 3;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 1;
+    unsigned char unknown_0_5_ : 3;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
 };
-struct SettingsView02244ad0 {
-    unsigned char unknown_0[0x7ff0];
-    NetworkOptions02244ad0 network;
+struct Struct_ov031_02244ad0_2 {
+    unsigned char unknown_0_[0x7ff0];
+    Struct_ov031_02244ad0 unknown_7ff0_;
 };
-struct InitConfig02244ad0 {
-    int reserved;
-    void* (*allocate)(int, unsigned int);
-    void (*release)(int, void*);
-    int enabled;
-    unsigned int address[5];
-    unsigned char unknown_24[8];
-    int field_2c;
-    int field_30;
-    unsigned char unknown_34[0x58 - 0x34];
+struct Struct_ov031_02244ad0_3 {
+    int unknown_0_;
+    void* (*unknown_4_)(int, unsigned int);
+    void (*unknown_8_)(int, void*);
+    int unknown_c_;
+    unsigned int unknown_10_[5];
+    unsigned char unknown_24_[8];
+    int unknown_2c_;
+    int unknown_30_;
+    unsigned char unknown_34_[0x58 - 0x34];
 };
 struct Struct_02245528 {
-    unsigned char unknown_0[0x34];
-    unsigned char mode;
-    unsigned char state;
-    unsigned char unknown_36[0x391 - 0x36];
-    unsigned char complete;
-    unsigned char unknown_392[0x3a8 - 0x392];
-    unsigned long long deadline;
-    unsigned long long startTime;
-    unsigned char unknown_3b8[0x3d4 - 0x3b8];
-    InitConfig02244ad0 config;
+    unsigned char unknown_0_[0x34];
+    unsigned char unknown_34_;
+    unsigned char unknown_35_;
+    unsigned char unknown_36_[0x391 - 0x36];
+    unsigned char unknown_391_;
+    unsigned char unknown_392_[0x3a8 - 0x392];
+    unsigned long long unknown_3a8_;
+    unsigned long long unknown_3b0_;
+    unsigned char unknown_3b8_[0x3d4 - 0x3b8];
+    Struct_ov031_02244ad0_3 unknown_3d4_;
 };
-struct SettingsBlock02244ad0 { unsigned int words[31]; };
-struct Bytes6_02244ad0 { unsigned char value[6]; };
+struct Struct_ov031_022495d4 { unsigned int unknown_0_[31]; };
+struct Struct_ov031_02245fb0 { unsigned char unknown_0_[6]; };
 unsigned char data_ov031_02291e04;
 extern SafeAllocator data_ov031_02291e3c;
-extern const SettingsBlock02244ad0 data_ov031_022495d4;
-extern Bytes6_02244ad0 data_ov031_02245fb0;
-extern SettingsBlock02244ad0 data_ov031_02291ea8;
-extern const Bytes6_02244ad0 data_ov031_0224957c;
+extern const Struct_ov031_022495d4 data_ov031_022495d4;
+extern Struct_ov031_02245fb0 data_ov031_02245fb0;
+extern Struct_ov031_022495d4 data_ov031_02291ea8;
+extern const Struct_ov031_02245fb0 data_ov031_0224957c;
 extern int data_ov031_0224e1c8;
 extern "C" int func_ov031_0220d540();
 extern "C" void func_ov031_02245858(int, unsigned char);
 extern "C" void func_ov031_0224586c(int);
-extern "C" void func_ov031_0224587c(SettingsBlock02244ad0*);
+extern "C" void func_ov031_0224587c(Struct_ov031_022495d4*);
 unsigned long long GetCurrentTimestamp();
 extern "C" int func_ov031_0220f368(unsigned char*, unsigned char*);
 extern "C" void func_ov031_0220eb88(int);
 extern "C" unsigned int func_ov031_0224598c();
 extern "C" void func_ov031_02245938();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
-extern "C" void func_ov031_0220764c(InitConfig02244ad0*);
+extern "C" void func_ov031_0220764c(Struct_ov031_02244ad0_3*);
 extern "C" void func_ov031_022077c0();
 extern "C" int func_ov031_02207500();
 extern "C" void func_ov031_02245528(Struct_02245528*, int);
@@ -65,28 +65,28 @@ extern "C" void* func_ov031_02243450(int, unsigned int);
 extern "C" void func_ov031_02243484(int, void*);
 
 // USA: func_ov031_02244ad0
-extern "C" ARM void func_ov031_02244ad0(Struct_02245528* self) {
+extern "C" ARM void func_ov031_02244ad0(Struct_02245528* arg0) {
     static unsigned char initialized = 0;
-    GameState* game = GameState::GetInstance();
-    SettingsView02244ad0* settings = (SettingsView02244ad0*)game;
-    switch (self->state) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov031_02244ad0_2* var1 = (Struct_ov031_02244ad0_2*)var0;
+    switch (arg0->unknown_35_) {
     case 0:
         switch (func_ov031_0220d540()) {
         case 0:
             if (!initialized) {
-                int capacity = 22;
-                if (settings->network.customCapacity) capacity = settings->network.capacity;
-                func_ov031_02245858((int)data_ov031_02291e3c.Allocate(capacity * 208 + 0x230c), capacity);
-                SettingsBlock02244ad0 initial = data_ov031_022495d4;
-                memcpy(&data_ov031_02291ea8, &initial, sizeof(initial));
+                int var2 = 22;
+                if (var1->unknown_7ff0_.unknown_0_3_) var2 = var1->unknown_7ff0_.unknown_1_;
+                func_ov031_02245858((int)data_ov031_02291e3c.Allocate(var2 * 208 + 0x230c), var2);
+                Struct_ov031_022495d4 var3 = data_ov031_022495d4;
+                memcpy(&data_ov031_02291ea8, &var3, sizeof(var3));
                 func_ov031_0224586c(1);
                 func_ov031_0224587c(&data_ov031_02291ea8);
-                if (settings->network.customTimeout)
-                    self->deadline = GetCurrentTimestamp() + ((33514000ULL * (unsigned int)settings->network.timeout) >> 6);
-                else self->deadline = GetCurrentTimestamp() + 2618281ULL;
-                Bytes6_02244ad0 broadcast = data_ov031_0224957c;
-                func_ov031_0220f368(data_ov031_02245fb0.value, broadcast.value);
-                self->startTime = GetCurrentTimestamp();
+                if (var1->unknown_7ff0_.unknown_0_4_)
+                    arg0->unknown_3a8_ = GetCurrentTimestamp() + ((33514000ULL * (unsigned int)var1->unknown_7ff0_.unknown_2_) >> 6);
+                else arg0->unknown_3a8_ = GetCurrentTimestamp() + 2618281ULL;
+                Struct_ov031_02245fb0 var4 = data_ov031_0224957c;
+                func_ov031_0220f368(data_ov031_02245fb0.unknown_0_, var4.unknown_0_);
+                arg0->unknown_3b0_ = GetCurrentTimestamp();
                 initialized = 1;
             }
             break;
@@ -100,48 +100,48 @@ extern "C" ARM void func_ov031_02244ad0(Struct_02245528* self) {
             break;
         case 9:
             GetCurrentTimestamp();
-            self->state = 3;
+            arg0->unknown_35_ = 3;
             break;
         }
-        if (GetCurrentTimestamp() <= self->deadline) return;
-        if (settings->network.customTimeout && !settings->network.timeout) return;
+        if (GetCurrentTimestamp() <= arg0->unknown_3a8_) return;
+        if (var1->unknown_7ff0_.unknown_0_4_ && !var1->unknown_7ff0_.unknown_2_) return;
         func_ov031_02245938();
-        self->state = 5;
+        arg0->unknown_35_ = 5;
         return;
     case 3:
-        VectorizedMemset(&self->config, 0, sizeof(self->config));
-        self->config.enabled = 1;
-        self->config.allocate = func_ov031_02243450;
-        self->config.release = func_ov031_02243484;
+        VectorizedMemset(&arg0->unknown_3d4_, 0, sizeof(arg0->unknown_3d4_));
+        arg0->unknown_3d4_.unknown_c_ = 1;
+        arg0->unknown_3d4_.unknown_4_ = func_ov031_02243450;
+        arg0->unknown_3d4_.unknown_8_ = func_ov031_02243484;
         data_ov031_0224e1c8 = 0;
-        func_ov031_0220764c(&self->config);
-        if (settings->network.customTimeout)
-            self->deadline = GetCurrentTimestamp() + ((33514000ULL * (unsigned int)settings->network.timeout) >> 6);
-        else self->deadline = GetCurrentTimestamp() + 2618281ULL;
-        self->state = 4;
+        func_ov031_0220764c(&arg0->unknown_3d4_);
+        if (var1->unknown_7ff0_.unknown_0_4_)
+            arg0->unknown_3a8_ = GetCurrentTimestamp() + ((33514000ULL * (unsigned int)var1->unknown_7ff0_.unknown_2_) >> 6);
+        else arg0->unknown_3a8_ = GetCurrentTimestamp() + 2618281ULL;
+        arg0->unknown_35_ = 4;
         GetCurrentTimestamp();
         return;
     case 4:
-        if (GetCurrentTimestamp() > self->deadline) {
-            if (settings->network.customTimeout && !settings->network.timeout) goto checkProgress;
+        if (GetCurrentTimestamp() > arg0->unknown_3a8_) {
+            if (var1->unknown_7ff0_.unknown_0_4_ && !var1->unknown_7ff0_.unknown_2_) goto checkProgress;
             func_ov031_022077c0();
-            self->state = 5;
+            arg0->unknown_35_ = 5;
             return;
         }
 checkProgress:
         if (func_ov031_02207500()) {
             GetCurrentTimestamp();
-            func_ov031_02245528(self, 6);
+            func_ov031_02245528(arg0, 6);
         }
         return;
     case 5:
         func_ov031_02245938();
-        self->state = 6;
+        arg0->unknown_35_ = 6;
         return;
     case 6:
         if (!func_ov031_0220d540()) {
-            func_ov031_02245528(self, 0);
-            self->complete = 1;
+            func_ov031_02245528(arg0, 0);
+            arg0->unknown_391_ = 1;
         }
         return;
     default:

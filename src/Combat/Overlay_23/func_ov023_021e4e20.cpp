@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct Obj021e4e20 {
+struct Struct_ov005_0215690c {
 #if defined(jpn)
-	char pad[0x124];
+	char unknown_0_[0x124];
 #else
-	char pad[0x128];
+	char unknown1_0_[0x128];
 #endif
-	void *ptr;
+	void *unknown_128_;
 };
 
-extern "C" int func_ov023_021e6194(void *p);
+extern "C" int func_ov023_021e6194(void *arg0);
 
 // USA: func_ov023_021e4e20
-extern "C" ARM int func_ov023_021e4e20(struct Obj021e4e20 *obj) {
-	void *p = obj->ptr;
-	if (p == NULL) {
+extern "C" ARM int func_ov023_021e4e20(struct Struct_ov005_0215690c *arg0) {
+	void *var0 = arg0->unknown_128_;
+	if (var0 == NULL) {
 		return 0;
 	}
-	return func_ov023_021e6194(p);
+	return func_ov023_021e6194(var0);
 }

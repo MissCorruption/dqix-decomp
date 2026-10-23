@@ -2,60 +2,60 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Header020dffb8 {
-    unsigned int count : 12;
-    unsigned int size : 19;
-    unsigned int flag : 1;
+struct Struct_020dfec0_2 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 19;
+    unsigned int unknown_3_7_ : 1;
 };
 
-extern "C" int func_020dffb8(struct Header020dffb8* obj);
+extern "C" int func_020dffb8(struct Struct_020dfec0_2* arg0);
 
-struct Container020dffc8 {
-    unsigned int count : 12;
-    unsigned int size : 19;
-    unsigned int flag : 1;
-    void* elements;
-    void* strings;
+struct Struct_020dfec0 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 19;
+    unsigned int unknown_3_7_ : 1;
+    void* unknown_4_;
+    void* unknown_8_;
 };
 
-struct Element020dffc8;
-typedef int (*ElementCallback020dffc8)(struct Container020dffc8*, struct Element020dffc8*);
-extern "C" int func_020dffc8(struct Container020dffc8* self, ElementCallback020dffc8 cb);
+struct Struct_020dffc8;
+typedef int (*Type_020dfec0)(struct Struct_020dfec0*, struct Struct_020dffc8*);
+extern "C" int func_020dffc8(struct Struct_020dfec0* arg0, Type_020dfec0 arg1);
 
-struct Node020dfbdc;
-extern "C" int func_020dfbdc(void* a, struct Node020dfbdc* node);
+struct Struct_020dfbdc;
+extern "C" int func_020dfbdc(void* arg0, struct Struct_020dfbdc* arg1);
 
 // USA: func_020dfec0
-extern "C" ARM int func_020dfec0(struct Container020dffc8* self, SafeAllocator* alloc, void* fileData, unsigned int size) {
-    ElementCallback020dffc8 cb;
-    unsigned int bytes;
-    unsigned int arrSize;
+extern "C" ARM int func_020dfec0(struct Struct_020dfec0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3) {
+    Type_020dfec0 var0;
+    unsigned int var1;
+    unsigned int var2;
 
-    if (alloc == 0 || fileData == 0 || size == 0) {
+    if (arg1 == 0 || arg2 == 0 || arg3 == 0) {
         return 0;
     }
-    if (alloc == 0 || fileData == 0) {
+    if (arg1 == 0 || arg2 == 0) {
         return 0;
     }
-    memcpy(self, fileData, 4);
-    bytes = func_020dffb8((struct Header020dffb8*)self);
-    arrSize = self->size;
-    if (bytes) {
-        self->elements = alloc->Allocate(bytes);
+    memcpy(arg0, arg2, 4);
+    var1 = func_020dffb8((struct Struct_020dfec0_2*)arg0);
+    var2 = arg0->unknown_1_4_;
+    if (var1) {
+        arg0->unknown_4_ = arg1->Allocate(var1);
     } else {
-        self->elements = 0;
+        arg0->unknown_4_ = 0;
     }
-    self->strings = arrSize ? alloc->Allocate(arrSize) : 0;
-    if (self->elements) {
-        memcpy(self->elements, (char*)fileData + 4, bytes);
+    arg0->unknown_8_ = var2 ? arg1->Allocate(var2) : 0;
+    if (arg0->unknown_4_) {
+        memcpy(arg0->unknown_4_, (char*)arg2 + 4, var1);
     }
-    if (self->strings) {
-        memcpy(self->strings, (char*)fileData + (func_020dffb8((struct Header020dffb8*)self) + 4), arrSize);
+    if (arg0->unknown_8_) {
+        memcpy(arg0->unknown_8_, (char*)arg2 + (func_020dffb8((struct Struct_020dfec0_2*)arg0) + 4), var2);
     }
-    cb = (ElementCallback020dffc8)func_020dfbdc;
-    if (cb) {
-        func_020dffc8(self, cb);
+    var0 = (Type_020dfec0)func_020dfbdc;
+    if (var0) {
+        func_020dffc8(arg0, var0);
     }
-    self->flag = 1;
+    arg0->unknown_3_7_ = 1;
     return 1;
 }

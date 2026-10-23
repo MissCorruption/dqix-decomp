@@ -2,37 +2,37 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/MapDisplay.h"
 
-struct Obj02026780;
-extern "C" int func_02026780(MapDisplay* context, void* archive, unsigned int archiveSize);
+struct Struct_02026780;
+extern "C" int func_02026780(Struct_02020554* arg0, void* arg1, unsigned int arg2);
 
 extern const char data_020ef6d7[];
 
 // USA: func_02026694
-extern "C" ARM void func_02026694(MapDisplay* context) {
-    if (context->field9b8 == 0) return;
+extern "C" ARM void func_02026694(Struct_02020554* arg0) {
+    if (arg0->unknown_9b8_ == 0) return;
 
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (context->field9b9 == 0) {
-        loader->RemoveTask(context->taska2c);
-        loader->AddFence();
-        context->taska2c = loader->QueueLoadFile(data_020ef6d7, NULL);
-        context->field9b9++;
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    if (arg0->unknown_9b9_ == 0) {
+        var0->RemoveTask(arg0->unknown_a2c_);
+        var0->AddFence();
+        arg0->unknown_a2c_ = var0->QueueLoadFile(data_020ef6d7, NULL);
+        arg0->unknown_9b9_++;
         return;
     }
-    if (context->field9b9 != 1) return;
-    if (loader->GetTaskStatus(context->taska2c) == 0) return;
+    if (arg0->unknown_9b9_ != 1) return;
+    if (var0->GetTaskStatus(arg0->unknown_a2c_) == 0) return;
 
-    void* archive = NULL;
-    unsigned int archiveSize = 0;
-    loader->GetLoadedFileByID(context->taska2c, &archive, &archiveSize);
-    if (func_02026780(context, archive, archiveSize) == 0) {
-        context->field9ba = 1;
+    void* var1 = NULL;
+    unsigned int var2 = 0;
+    var0->GetLoadedFileByID(arg0->unknown_a2c_, &var1, &var2);
+    if (func_02026780(arg0, var1, var2) == 0) {
+        arg0->unknown_9ba_ = 1;
     } else {
-        context->refreshRecords = 1;
-        context->field9ba = 1;
+        arg0->unknown_779_ = 1;
+        arg0->unknown_9ba_ = 1;
     }
-    loader->RemoveTask(context->taska2c);
-    context->taska2c = -1;
-    context->field9b8 = 0;
-    context->field9b9++;
+    var0->RemoveTask(arg0->unknown_a2c_);
+    arg0->unknown_a2c_ = -1;
+    arg0->unknown_9b8_ = 0;
+    arg0->unknown_9b9_++;
 }

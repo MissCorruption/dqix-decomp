@@ -9,43 +9,43 @@
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* obj);
+extern "C" int func_0202c540(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" int func_02012f68(int x);
-extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
-extern "C" int func_0201b588(int id);
-extern "C" int func_02012f24(int key);
+extern "C" int func_02012f68(int arg0);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" int func_0201b588(int arg0);
+extern "C" int func_02012f24(int arg0);
 extern "C" int _s32_div_f(int a, int b);
 
 #if defined(jpn)
-enum { ValueRangeStateOffset = 0x2860 };
+enum { Enum_0201ba68_10272 = 0x2860 };
 #else
-enum { ValueRangeStateOffset = 0x2820 };
+enum { Enum_0201ba68_10272 = 0x2820 };
 #endif
 
 // USA: func_0201ba68
-extern "C" ARM void func_0201ba68(void* obj) {
-    unsigned char* base = (unsigned char*)obj;
-    if (func_0202c540(func_0202ae18()) != 0 || base[ValueRangeStateOffset] != 0) return;
+extern "C" ARM void func_0201ba68(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    if (func_0202c540(func_0202ae18()) != 0 || var0[Enum_0201ba68_10272] != 0) return;
 
-    void* ctx = func_0205ec34();
-    if (*(unsigned short*)base >= 20000 && *(unsigned short*)base <= 0x752f) {
-        int idx = func_02012f68(*(unsigned short*)base);
-        if (idx < 0) return;
-        func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, idx + 0x5a + 0xa00, 1);
+    void* var1 = func_0205ec34();
+    if (*(unsigned short*)var0 >= 20000 && *(unsigned short*)var0 <= 0x752f) {
+        int var2 = func_02012f68(*(unsigned short*)var0);
+        if (var2 < 0) return;
+        func_0206df6c(var1, (unsigned char*)var1 + 0x8c, var2 + 0x5a + 0xa00, 1);
         return;
     }
-    if (*(unsigned short*)base >= 100 && *(unsigned short*)base <= 0x270f) {
-        int q = _s32_div_f(*(unsigned short*)base, 100);
-        if (q >= 100) return;
-        func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, q + 0x96 + 0xa00, 1);
+    if (*(unsigned short*)var0 >= 100 && *(unsigned short*)var0 <= 0x270f) {
+        int var3 = _s32_div_f(*(unsigned short*)var0, 100);
+        if (var3 >= 100) return;
+        func_0206df6c(var1, (unsigned char*)var1 + 0x8c, var3 + 0x96 + 0xa00, 1);
         return;
     }
-    if (func_0201b588(*(unsigned short*)base)) {
-        func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, 0x79d, 1);
+    if (func_0201b588(*(unsigned short*)var0)) {
+        func_0206df6c(var1, (unsigned char*)var1 + 0x8c, 0x79d, 1);
         return;
     }
-    int t2 = func_02012f24(*(unsigned short*)base);
-    if (t2 < 0) return;
-    func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, t2 + 0x5a + 0xa00, 1);
+    int var4 = func_02012f24(*(unsigned short*)var0);
+    if (var4 < 0) return;
+    func_0206df6c(var1, (unsigned char*)var1 + 0x8c, var4 + 0x5a + 0xa00, 1);
 }

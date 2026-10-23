@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct SearchStruct0202c1a4 {
-    char pad[0x1038];
-    signed char arr[16];
+struct Struct_0202c1a4 {
+    char unknown_0_[0x1038];
+    signed char unknown_1038_[16];
 };
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 extern "C" void* func_0202ae18(void);
-extern "C" void func_ov017_021d1874(unsigned char a, unsigned char b, unsigned char c, int d, int e, int f, int g);
+extern "C" void func_ov017_021d1874(unsigned char arg0, unsigned char arg1, unsigned char arg2, int arg3, int arg4, int arg5, int arg6);
 
-struct Obj020a8a34 {
-    unsigned char byte0;
-    unsigned char byte1;
-    unsigned char byte2;
-    unsigned char byte3_pad;
-    unsigned char byte4;
-    unsigned char mask_0x5;
-    unsigned char pad6;
-    unsigned char val7;
+struct Struct_020a8a34 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
 };
 
 // USA: func_020a8a34
-extern "C" ARM void func_020a8a34(struct Obj020a8a34* obj, int mode, int shift, unsigned char val) {
-    if (mode == 0) {
-        obj->mask_0x5 &= ~(1 << shift);
-        obj->val7 = val;
-    } else if (mode == 1) {
-        obj->mask_0x5 |= (1 << shift);
-        obj->val7 = val;
-    } else if (mode == 2) {
-        signed char cur = func_0202c1a4((struct SearchStruct0202c1a4*)func_0202ae18());
-        func_ov017_021d1874(obj->byte0, obj->byte1, obj->byte2, obj->byte4, (unsigned char)cur, 1, 0);
+extern "C" ARM void func_020a8a34(struct Struct_020a8a34* arg0, int arg1, int arg2, unsigned char arg3) {
+    if (arg1 == 0) {
+        arg0->unknown_5_ &= ~(1 << arg2);
+        arg0->unknown_7_ = arg3;
+    } else if (arg1 == 1) {
+        arg0->unknown_5_ |= (1 << arg2);
+        arg0->unknown_7_ = arg3;
+    } else if (arg1 == 2) {
+        signed char var0 = func_0202c1a4((struct Struct_0202c1a4*)func_0202ae18());
+        func_ov017_021d1874(arg0->unknown_0_, arg0->unknown_1_, arg0->unknown_2_, arg0->unknown_4_, (unsigned char)var0, 1, 0);
     }
 }

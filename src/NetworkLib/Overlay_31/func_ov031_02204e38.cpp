@@ -1,114 +1,114 @@
 #include <globaldefs.h>
 #include <NitroSDK/Memory.h>
 
-extern "C" void func_ov031_0220057c(unsigned int priority);
-extern "C" void func_ov031_0220f0e4(int v);
-extern "C" void func_ov031_02200524(int v);
-extern "C" void func_ov031_02200298(void* settings);
+extern "C" void func_ov031_0220057c(unsigned int arg0);
+extern "C" void func_ov031_0220f0e4(int arg0);
+extern "C" void func_ov031_02200524(int arg0);
+extern "C" void func_ov031_02200298(void* arg0);
 extern "C" void func_ov031_02200aa0(void);
 extern "C" int func_ov031_02205018(void);
 extern "C" void func_ov031_02206c08(void);
 extern "C" void func_ov031_02205000(void);
 extern "C" void func_ov031_02204f94(void);
 
-struct Config022496a4 {
-	int mode;
-	char pad4[0x14];
-	void* (*alloc)(int);
-	void (*free)(void*);
-	char pad20[4];
-	int bufferSize;
-	void* buffer;
-	int priority;
-	int width;
-	int height;
+struct Struct_ov031_02204e38 {
+	int unknown_0_;
+	char unknown_4_[0x14];
+	void* (*unknown_18_)(int);
+	void (*unknown_1c_)(void*);
+	char unknown_20_[4];
+	int unknown_24_;
+	void* unknown_28_;
+	int unknown_2c_;
+	int unknown_30_;
+	int unknown_34_;
 };
-extern Config022496a4* data_ov031_022496a4;
+extern Struct_ov031_02204e38* data_ov031_022496a4;
 
-struct Sizes022496c4 {
-	unsigned short pad0;
-	unsigned short height;
-	unsigned short halfHeight;
-	char pad6[0x12];
+struct Struct_ov031_022496c4 {
+	unsigned short unknown_0_;
+	unsigned short unknown_2_;
+	unsigned short unknown_4_;
+	char unknown_6_[0x12];
 };
-extern Sizes022496c4 data_ov031_022496c4;
+extern Struct_ov031_022496c4 data_ov031_022496c4;
 extern int data_ov031_0224c9d0;
 
-struct Settings0224e1d0 {
-	int field0;
-	void* (*alloc)(int);
-	void (*free)(void*);
-	void (*callback)(void);
-	int (*check)(void);
-	int field14;
-	int field18;
-	void* buffer;
-	int bufferSize;
-	int width;
-	int field28;
-	int field2c;
+struct Struct_ov031_02204e38_2 {
+	int unknown_0_;
+	void* (*unknown_4_)(int);
+	void (*unknown_8_)(void*);
+	void (*unknown_c_)(void);
+	int (*unknown_10_)(void);
+	int unknown_14_;
+	int unknown_18_;
+	void* unknown_1c_;
+	int unknown_20_;
+	int unknown_24_;
+	int unknown_28_;
+	int unknown_2c_;
 };
 
-struct State0224e1c0 {
-	int field0;
-	int field4;
-	int field8;
-	int fieldc;
-	Settings0224e1d0 settings;
+struct Struct_ov031_0224e1c0_2 {
+	int unknown_0_;
+	int unknown_4_;
+	int unknown_8_;
+	int unknown_c_;
+	Struct_ov031_02204e38_2 unknown_10_;
 };
-extern State0224e1c0 data_ov031_0224e1c0;
+extern Struct_ov031_0224e1c0_2 data_ov031_0224e1c0;
 
-enum OnFlag { ON_FLAG = 1 };
+enum Enum_ov031_02204e38 { Enum_ov031_02204e38_1 = 1 };
 
 // USA: func_ov031_02204e38
 extern "C" ARM void func_ov031_02204e38(void) {
-	Settings0224e1d0* settings = &data_ov031_0224e1c0.settings;
-	Config022496a4* cfg = data_ov031_022496a4;
-	void* buffer;
-	int width;
-	int height;
-	OnFlag on;
+	Struct_ov031_02204e38_2* var0 = &data_ov031_0224e1c0.unknown_10_;
+	Struct_ov031_02204e38* var1 = data_ov031_022496a4;
+	void* var2;
+	int var3;
+	int var4;
+	Enum_ov031_02204e38 var5;
 
-	VectorizedMemset(settings, 0, sizeof(Settings0224e1d0));
-	data_ov031_0224e1c0.settings.alloc = cfg->alloc;
-	data_ov031_0224e1c0.settings.free = cfg->free;
-	data_ov031_0224e1c0.settings.check = func_ov031_02205018;
-	data_ov031_0224e1c0.settings.field14 = 0;
-	data_ov031_0224e1c0.settings.field18 = 0;
-	data_ov031_0224e1c0.settings.field2c = data_ov031_0224e1c0.field0;
+	VectorizedMemset(var0, 0, sizeof(Struct_ov031_02204e38_2));
+	data_ov031_0224e1c0.unknown_10_.unknown_4_ = var1->unknown_18_;
+	data_ov031_0224e1c0.unknown_10_.unknown_8_ = var1->unknown_1c_;
+	data_ov031_0224e1c0.unknown_10_.unknown_10_ = func_ov031_02205018;
+	data_ov031_0224e1c0.unknown_10_.unknown_14_ = 0;
+	data_ov031_0224e1c0.unknown_10_.unknown_18_ = 0;
+	data_ov031_0224e1c0.unknown_10_.unknown_2c_ = data_ov031_0224e1c0.unknown_0_;
 
-	if (cfg->bufferSize != 0) {
-		settings->bufferSize = cfg->bufferSize;
+	if (var1->unknown_24_ != 0) {
+		var0->unknown_20_ = var1->unknown_24_;
 	} else {
-		settings->bufferSize = 0x4000;
+		var0->unknown_20_ = 0x4000;
 	}
-	buffer = cfg->buffer;
-	if (buffer == NULL) {
-		buffer = data_ov031_022496a4->alloc(settings->bufferSize);
+	var2 = var1->unknown_28_;
+	if (var2 == NULL) {
+		var2 = data_ov031_022496a4->unknown_18_(var0->unknown_20_);
 	}
-	settings->buffer = buffer;
+	var0->unknown_1c_ = var2;
 
-	width = cfg->width != 0 ? cfg->width : 0x240;
-	height = cfg->height != 0 ? cfg->height : 0x10c0;
-	data_ov031_022496c4.height = height;
-	data_ov031_022496c4.halfHeight = height / 2;
-	settings->width = width - 0x28;
+	var3 = var1->unknown_30_ != 0 ? var1->unknown_30_ : 0x240;
+	var4 = var1->unknown_34_ != 0 ? var1->unknown_34_ : 0x10c0;
+	data_ov031_022496c4.unknown_2_ = var4;
+	data_ov031_022496c4.unknown_4_ = var4 / 2;
+	var0->unknown_24_ = var3 - 0x28;
 	data_ov031_0224c9d0 = 0;
 
-	on = ON_FLAG;
-	if (cfg->mode != 0) {
-		settings->field0 = 0;
-		settings->callback = func_ov031_02205000;
-		data_ov031_0224e1c0.field8 = on;
-		settings->field28 = data_ov031_0224e1c0.field4;
+	var5 = Enum_ov031_02204e38_1;
+	if (var1->unknown_0_ != 0) {
+		var0->unknown_0_ = 0;
+		var0->unknown_c_ = func_ov031_02205000;
+		data_ov031_0224e1c0.unknown_8_ = var5;
+		var0->unknown_28_ = data_ov031_0224e1c0.unknown_4_;
 	} else {
-		data_ov031_0224e1c0.field8 = 0;
-		settings->field0 = on;
-		settings->callback = func_ov031_02204f94;
+		data_ov031_0224e1c0.unknown_8_ = 0;
+		var0->unknown_0_ = var5;
+		var0->unknown_c_ = func_ov031_02204f94;
 	}
 
-	func_ov031_0220057c(cfg->priority != 0 ? cfg->priority : 0xb);
+	func_ov031_0220057c(var1->unknown_2c_ != 0 ? var1->unknown_2c_ : 0xb);
 	func_ov031_0220f0e4((int)func_ov031_02200aa0);
 	func_ov031_02200524((int)func_ov031_02206c08);
-	func_ov031_02200298(settings);
+	func_ov031_02200298(var0);
 }

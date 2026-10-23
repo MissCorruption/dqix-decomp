@@ -2,49 +2,49 @@
 
 struct Mutex;
 int LockMutex(Mutex*);
-extern "C" void func_020bf1a0(void* entry);
+extern "C" void func_020bf1a0(void* arg0);
 
-struct BattleTarget9a8;
-extern "C" void func_020bc9a8(struct BattleTarget9a8* obj);
+struct Struct_020bc9a8;
+extern "C" void func_020bc9a8(struct Struct_020bc9a8* arg0);
 
-struct RefNode020c80f8;
+struct Struct_ov031_02290f8c;
 void UnlockMutex(Mutex*);
 
-struct Ctx0211_020bf484 { int f0; unsigned char* f4; };
-extern struct Ctx0211_020bf484 data_021103b0;
+struct Struct_021103b0_4 { int unknown_0_; unsigned char* unknown_4_; };
+extern struct Struct_021103b0_4 data_021103b0;
 extern int data_02110a28;
 
-struct Ctx020bf484 {
-    char pad0[0x120];
-    int count0x120;
-    unsigned char flag0x124;
-    char pad1[0x12c - 0x125];
-    int field0x12c;
-    int field0x130;
+struct Struct_020bf484 {
+    char unknown_0_[0x120];
+    int unknown_120_;
+    unsigned char unknown_124_;
+    char unknown_125_[0x12c - 0x125];
+    int unknown_12c_;
+    int unknown_130_;
 };
 
 // USA: func_020bf484
-extern "C" ARM void func_020bf484(int expected, void* unused1, struct Ctx020bf484* obj) {
-    if (expected != obj->field0x12c) {
+extern "C" ARM void func_020bf484(int arg0, void* arg1, struct Struct_020bf484* arg2) {
+    if (arg0 != arg2->unknown_12c_) {
         return;
     }
 
     LockMutex((Mutex*)&data_02110a28);
-    if (data_021103b0.f4 != 0) {
-        LockMutex((Mutex*)(data_021103b0.f4 + 0x4c8));
+    if (data_021103b0.unknown_4_ != 0) {
+        LockMutex((Mutex*)(data_021103b0.unknown_4_ + 0x4c8));
     }
 
-    func_020bf1a0(obj);
-    obj->field0x12c = 0;
-    obj->field0x130 = 0;
-    obj->flag0x124 = 0;
-    if (obj->count0x120 > 0) {
-        func_020bc9a8((struct BattleTarget9a8*)obj);
-        obj->count0x120 = 0;
+    func_020bf1a0(arg2);
+    arg2->unknown_12c_ = 0;
+    arg2->unknown_130_ = 0;
+    arg2->unknown_124_ = 0;
+    if (arg2->unknown_120_ > 0) {
+        func_020bc9a8((struct Struct_020bc9a8*)arg2);
+        arg2->unknown_120_ = 0;
     }
 
     UnlockMutex((Mutex*)&data_02110a28);
-    if (data_021103b0.f4 != 0) {
-        UnlockMutex((Mutex*)(data_021103b0.f4 + 0x4c8));
+    if (data_021103b0.unknown_4_ != 0) {
+        UnlockMutex((Mutex*)(data_021103b0.unknown_4_ + 0x4c8));
     }
 }

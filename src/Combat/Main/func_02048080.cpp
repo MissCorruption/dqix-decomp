@@ -2,8 +2,8 @@
 #include "World/ZoneLootableRecord.h"
 
 // USA: func_02048080
-extern "C" ARM void func_02048080(NameTable02048080* table)
+extern "C" ARM void func_02048080(Struct_0204719c* arg0)
 {
-    table->count = 0;
-    table->entries = NULL;
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = NULL;
 }

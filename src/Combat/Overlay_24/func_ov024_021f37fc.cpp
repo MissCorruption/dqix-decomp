@@ -3,34 +3,34 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_0215eb1c(int battle, short* table, int count, int flag);
-extern "C" int func_020882f8(unsigned char* obj);
-struct FlagObj_021de25c;
-extern "C" int func_ov024_021de25c(struct FlagObj_021de25c* obj);
-extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov000_0215eb1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_020882f8(unsigned char* arg0);
+struct Struct_ov024_021de124;
+extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
-struct Buf8_021f37fc { short v[8]; };
-extern struct Buf8_021f37fc data_ov024_021fee0c;
+struct Struct_ov024_021fee0c { short unknown_0_[8]; };
+extern struct Struct_ov024_021fee0c data_ov024_021fee0c;
 
 // USA: func_ov024_021f37fc
-extern "C" ARM int func_ov024_021f37fc(int* a0, int a1, int a2, int* outCount, short* outArray) {
-	struct Buf8_021f37fc buf = data_ov024_021fee0c;
+extern "C" ARM int func_ov024_021f37fc(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
+	struct Struct_ov024_021fee0c var0 = data_ov024_021fee0c;
 
-	int count = func_ov000_0215eb1c(*a0, buf.v, 8, 1);
-	if (count <= 0) return 0;
+	int var1 = func_ov000_0215eb1c(*arg0, var0.unknown_0_, 8, 1);
+	if (var1 <= 0) return 0;
 
-	*outCount = 0;
-	for (int i = 0; i < count; i++) {
-		GameObject* c = GetCombatantByID(*a0, buf.v[i]);
-		if (!c) continue;
-		if (func_020882f8((unsigned char*)c->currentStats_) || func_ov024_021de25c((struct FlagObj_021de25c*)c)) {
-			int idx = *outCount;
-			*outCount = idx + 1;
-			outArray[idx] = buf.v[i];
+	*arg3 = 0;
+	for (int var2 = 0; var2 < var1; var2++) {
+		GameObject* var3 = GetCombatantByID(*arg0, var0.unknown_0_[var2]);
+		if (!var3) continue;
+		if (func_020882f8((unsigned char*)var3->currentStats_) || func_ov024_021de25c((struct Struct_ov024_021de124*)var3)) {
+			int var4 = *arg3;
+			*arg3 = var4 + 1;
+			arg4[var4] = var0.unknown_0_[var2];
 		}
 	}
-	if (*outCount > 0) {
-		func_ov024_021ed890((struct Random**)a0, outCount, outArray);
+	if (*arg3 > 0) {
+		func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 		return 1;
 	}
 	return 0;

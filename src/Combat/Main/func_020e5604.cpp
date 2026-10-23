@@ -2,51 +2,51 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Header020e544c;
-extern "C" unsigned int func_020e544c(Header020e544c* header);
+struct Struct_020e53bc_3;
+extern "C" unsigned int func_020e544c(Struct_020e53bc_3* arg0);
 
-struct ElementList020e545c;
-struct Element020e545c;
-typedef void (*ElementCallback020e545c)(ElementList020e545c*, Element020e545c*);
-extern "C" int func_020e545c(ElementList020e545c* list, ElementCallback020e545c callback);
+struct Struct_020e53bc;
+struct Struct_020e545c;
+typedef void (*Type_020e53bc)(Struct_020e53bc*, Struct_020e545c*);
+extern "C" int func_020e545c(Struct_020e53bc* arg0, Type_020e53bc arg1);
 
-struct Pair020e5204;
-extern "C" void func_020e5204(void* a, Pair020e5204* b);
+struct Struct_020e5204;
+extern "C" void func_020e5204(void* arg0, Struct_020e5204* arg1);
 
-struct List020e5604 {
-    unsigned int field0;
-    void* field4;
-    void* field8;
+struct Struct_020e5604 {
+    unsigned int unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
 };
 
 // USA: func_020e5604
-extern "C" ARM int func_020e5604(struct List020e5604* self, SafeAllocator* alloc, unsigned char* src, int flag) {
-    unsigned int size1;
-    unsigned int size2;
-    if (!(alloc != 0 && src != 0 && flag != 0)) {
+extern "C" ARM int func_020e5604(struct Struct_020e5604* arg0, SafeAllocator* arg1, unsigned char* arg2, int arg3) {
+    unsigned int var0;
+    unsigned int var1;
+    if (!(arg1 != 0 && arg2 != 0 && arg3 != 0)) {
         return 0;
     }
-    if (!(alloc != 0 && src != 0)) {
+    if (!(arg1 != 0 && arg2 != 0)) {
         return 0;
     }
-    memcpy(self, src, 4);
-    size1 = func_020e544c((Header020e544c*)self);
-    size2 = (self->field0 << 1) >> 13;
-    if (size1)
-        self->field4 = alloc->Allocate(size1);
+    memcpy(arg0, arg2, 4);
+    var0 = func_020e544c((Struct_020e53bc_3*)arg0);
+    var1 = (arg0->unknown_0_ << 1) >> 13;
+    if (var0)
+        arg0->unknown_4_ = arg1->Allocate(var0);
     else
-        self->field4 = (void*)0;
-    self->field8 = size2 ? alloc->Allocate(size2) : (void*)0;
-    if (self->field4) {
-        memcpy(self->field4, src + 4, size1);
+        arg0->unknown_4_ = (void*)0;
+    arg0->unknown_8_ = var1 ? arg1->Allocate(var1) : (void*)0;
+    if (arg0->unknown_4_) {
+        memcpy(arg0->unknown_4_, arg2 + 4, var0);
     }
-    if (self->field8) {
-        memcpy(self->field8, src + (func_020e544c((Header020e544c*)self) + 4), size2);
+    if (arg0->unknown_8_) {
+        memcpy(arg0->unknown_8_, arg2 + (func_020e544c((Struct_020e53bc_3*)arg0) + 4), var1);
     }
     if ((void*)func_020e5204 != 0) {
-        func_020e545c((ElementList020e545c*)self,
-            (ElementCallback020e545c)func_020e5204);
+        func_020e545c((Struct_020e53bc*)arg0,
+            (Type_020e53bc)func_020e5204);
     }
-    self->field0 = (self->field0 & ~0x80000000) | 0x80000000;
+    arg0->unknown_0_ = (arg0->unknown_0_ & ~0x80000000) | 0x80000000;
     return 1;
 }

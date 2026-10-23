@@ -21,298 +21,298 @@ extern const unsigned short data_020e884a[];
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 #endif
 
-struct EntryList_203dce4;
-struct Node020406f8;
-struct Obj0205eaa0;
-struct Vec3_020406f8 { int v[3]; };
-extern "C" EntryList_203dce4* func_0203cf4c();
-extern "C" Entry_203dce4* func_0203dce4(EntryList_203dce4*, int);
-extern "C" void func_020406f8(Vec3_020406f8*, Node020406f8*);
+struct Struct_0203dce4_2;
+struct Struct_0203de84_2;
+struct Struct_02108760;
+struct Struct_0203de84 { int unknown_0_[3]; };
+extern "C" Struct_0203dce4_2* func_0203cf4c();
+extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2*, int);
+extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
 extern "C" int func_020d857c(signed char*, signed char*);
 extern "C" int func_020d85dc(const char*, const char*);
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
-extern Obj0205eaa0 data_02108760;
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern Struct_02108760 data_02108760;
 extern "C" int func_02005a94(const char*);
 extern "C" void func_02042b98(void*, int, int, int, int);
 extern const char data_020f0934[], data_020f093d[], data_020f0943[], data_020f0949[];
 extern const char data_020f0950[], data_020f0956[], data_020f095c[], data_020f0963[];
 extern const char data_020f096a[], data_020f0972[];
 
-struct TextState0206a3c0
+struct Struct_0206a3c0
 {
 #if defined(jpn)
-    char pad0[0x708];
+    char unknown_0_[0x708];
 #else
-    char pad0[0x838];
+    char unknown1_0_[0x838];
 #endif
-    int entryId;
-    int defaultAngle;
-    int field840;
-    int angle;
-    char pad848[0x18];
-    int width;
-    int height;
-    char pad868[0x14];
-    unsigned short color;
+    int unknown_838_;
+    int unknown_83c_;
+    int unknown_840_;
+    int unknown_844_;
+    char unknown_848_[0x18];
+    int unknown_860_;
+    int unknown_864_;
+    char unknown_868_[0x14];
+    unsigned short unknown_87c_;
 #if defined(jpn)
-    char pad87e[0x39];
+    char unknown_74e_[0x39];
 #else
-    char pad87e[0xdb];
+    char unknown_87e_[0xdb];
 #endif
-    unsigned char wait;
-    char pad95a[2];
-    unsigned char variant;
+    unsigned char unknown_959_;
+    char unknown_95a_[2];
+    unsigned char unknown_95c_;
 #if defined(jpn)
-    char pad95d[0x56];
+    char unknown_78b_[0x56];
 #else
-    char pad95d[0x54];
+    char unknown_95d_[0x54];
 #endif
-    unsigned char flag9b1;
-    char pad9b2[4];
-    unsigned char active;
-    unsigned char animation;
-    unsigned char flag9b8;
-    char pad9b9[2];
-    unsigned char flag9bb;
+    unsigned char unknown_9b1_;
+    char unknown_9b2_[4];
+    unsigned char unknown_9b6_;
+    unsigned char unknown_9b7_;
+    unsigned char unknown_9b8_;
+    char unknown_9b9_[2];
+    unsigned char unknown_9bb_;
 };
-struct TextOwner0206a3c0
+struct Struct_0206a3c0_2
 {
 #if defined(jpn)
-    char pad0[0x874];
+    char unknown_0_[0x874];
 #else
-    char pad0[0x9a4];
+    char unknown1_0_[0x9a4];
 #endif
-    int repeat;
+    int unknown_9a4_;
 #if defined(jpn)
-    char pad9a8[0x788];
+    char unknown_878_[0x788];
 #else
-    char pad9a8[0x658];
+    char unknown_9a8_[0x658];
 #endif
-    TextState0206a3c0 state;
+    Struct_0206a3c0 unknown_1000_;
 };
 
 // JPN: func_0206bed8
 // USA: func_0206a3c0
-extern "C" ARM const char* func_0206a3c0(TextOwner0206a3c0* self, const char* text)
+extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* arg1)
 {
-    unsigned char scanning = 1;
-    self->state.active = (unsigned char)scanning;
-    GameObject* object = GameState::GetInstance()->GetUnknownGameObject();
-    Entry_203dce4* entry = func_0203dce4(func_0203cf4c(), self->state.entryId);
-    if (object != NULL && entry != NULL)
+    unsigned char var0 = 1;
+    arg0->unknown_1000_.unknown_9b6_ = (unsigned char)var0;
+    GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
+    Struct_0203dce4* var2 = func_0203dce4(func_0203cf4c(), arg0->unknown_1000_.unknown_838_);
+    if (var1 != NULL && var2 != NULL)
     {
-        Vec3_020406f8 original;
-        Vec3_020406f8 target;
-        Vec3_020406f8 selected;
-        original = *(Vec3_020406f8*)&object->obj3D_.position_;
-        func_020406f8(&selected, (Node020406f8*)entry);
-        target = selected;
-        self->state.angle = fix32ReduceAngle0To2Pi(fix32_Atan2(original.v[0] - target.v[0], original.v[2] - target.v[2]));
-        self->state.active = 1;
+        Struct_0203de84 var3;
+        Struct_0203de84 var4;
+        Struct_0203de84 var5;
+        var3 = *(Struct_0203de84*)&var1->obj3D_.position_;
+        func_020406f8(&var5, (Struct_0203de84_2*)var2);
+        var4 = var5;
+        arg0->unknown_1000_.unknown_844_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var3.unknown_0_[0] - var4.unknown_0_[0], var3.unknown_0_[2] - var4.unknown_0_[2]));
+        arg0->unknown_1000_.unknown_9b6_ = 1;
     }
-    self->state.wait = 0;
-    self->state.animation = 0;
-    while (scanning)
+    arg0->unknown_1000_.unknown_959_ = 0;
+    arg0->unknown_1000_.unknown_9b7_ = 0;
+    while (var0)
     {
-        if (func_020d857c((signed char*)text, (signed char*)data_020f0934))
+        if (func_020d857c((signed char*)arg1, (signed char*)data_020f0934))
         {
-            self->state.angle = self->state.defaultAngle;
-            self->state.active = 0;
-            text += 8;
+            arg0->unknown_1000_.unknown_844_ = arg0->unknown_1000_.unknown_83c_;
+            arg0->unknown_1000_.unknown_9b6_ = 0;
+            arg1 += 8;
         }
-        else if (func_020d857c((signed char*)text, (signed char*)data_020f093d))
+        else if (func_020d857c((signed char*)arg1, (signed char*)data_020f093d))
         {
-            self->state.wait = 60;
-            self->state.animation = 1;
-            self->state.variant = 0;
-            text += 5;
+            arg0->unknown_1000_.unknown_959_ = 60;
+            arg0->unknown_1000_.unknown_9b7_ = 1;
+            arg0->unknown_1000_.unknown_95c_ = 0;
+            arg1 += 5;
             func_0205eaa0(&data_02108760, 6, 0);
         }
-        else if (func_020d857c((signed char*)text, (signed char*)data_020f0943))
+        else if (func_020d857c((signed char*)arg1, (signed char*)data_020f0943))
         {
-            self->state.wait = 60;
-            self->state.animation = 1;
-            self->state.variant = 1;
-            text += 5;
+            arg0->unknown_1000_.unknown_959_ = 60;
+            arg0->unknown_1000_.unknown_9b7_ = 1;
+            arg0->unknown_1000_.unknown_95c_ = 1;
+            arg1 += 5;
             func_0205eaa0(&data_02108760, 28, 0);
         }
-        else if (func_020d85dc(text, data_020f0949))
+        else if (func_020d85dc(arg1, data_020f0949))
         {
-            unsigned char done;
-            int index = 6;
-            int close = index;
-            done = 0;
-            while (text[close] != '>')
+            unsigned char var6;
+            int var7 = 6;
+            int var8 = var7;
+            var6 = 0;
+            while (arg1[var8] != '>')
             {
-                if (text[close] == 0) return text + close;
-                close++;
+                if (arg1[var8] == 0) return arg1 + var8;
+                var8++;
             }
-            int x = func_02005a94(text + 6);
-            while (text[index] != ',')
+            int var9 = func_02005a94(arg1 + 6);
+            while (arg1[var7] != ',')
             {
-                if (text[index] == '>')
+                if (arg1[var7] == '>')
                 {
-                    text += index + 1;
-                    done = 1;
+                    arg1 += var7 + 1;
+                    var6 = 1;
                     break;
                 }
-                index++;
+                var7++;
             }
-            if (done) return text;
-            index++;
-            int y = func_02005a94(text + index);
-            while (text[index] != ',')
+            if (var6) return arg1;
+            var7++;
+            int var10 = func_02005a94(arg1 + var7);
+            while (arg1[var7] != ',')
             {
-                if (text[index] == '>')
+                if (arg1[var7] == '>')
                 {
-                    text += index + 1;
-                    done = 1;
+                    arg1 += var7 + 1;
+                    var6 = 1;
                     break;
                 }
-                index++;
+                var7++;
             }
-            if (done) return text;
-            index++;
-            int width = func_02005a94(text + index);
-            while (text[index] != ',')
+            if (var6) return arg1;
+            var7++;
+            int var11 = func_02005a94(arg1 + var7);
+            while (arg1[var7] != ',')
             {
-                if (text[index] == '>')
+                if (arg1[var7] == '>')
                 {
-                    text += index + 1;
-                    done = 1;
+                    arg1 += var7 + 1;
+                    var6 = 1;
                     break;
                 }
-                index++;
+                var7++;
             }
-            if (done) return text;
-            int height = func_02005a94(text + (index + 1));
-            if (x < 0) x = 0;
-            if (x > 256) x = 256;
-            if (y < 0) y = 0;
-            if (y > 192) y = 192;
-            if (width < 0) width = 256 - x;
-            if (width > 256) width = 256 - x;
-            if (height < 0) height = 192 - y;
-            if (height > 192) height = 192 - y;
-            func_02042b98(self, x, y, width, height);
-            text += close + 1;
+            if (var6) return arg1;
+            int var12 = func_02005a94(arg1 + (var7 + 1));
+            if (var9 < 0) var9 = 0;
+            if (var9 > 256) var9 = 256;
+            if (var10 < 0) var10 = 0;
+            if (var10 > 192) var10 = 192;
+            if (var11 < 0) var11 = 256 - var9;
+            if (var11 > 256) var11 = 256 - var9;
+            if (var12 < 0) var12 = 192 - var10;
+            if (var12 > 192) var12 = 192 - var10;
+            func_02042b98(arg0, var9, var10, var11, var12);
+            arg1 += var8 + 1;
         }
-        else if (func_020d85dc(text, data_020f0950))
+        else if (func_020d85dc(arg1, data_020f0950))
         {
-            self->state.flag9b1 = 0;
-            text += 5;
+            arg0->unknown_1000_.unknown_9b1_ = 0;
+            arg1 += 5;
         }
-        else if (func_020d85dc(text, data_020f0956))
+        else if (func_020d85dc(arg1, data_020f0956))
         {
-            self->state.flag9b8 = 1;
-            text += 5;
+            arg0->unknown_1000_.unknown_9b8_ = 1;
+            arg1 += 5;
         }
-        else if (func_020d85dc(text, data_020f095c))
+        else if (func_020d85dc(arg1, data_020f095c))
         {
-            int index = 6;
-            int value = func_02005a94(text + 6);
-            while (text[index] != '>')
+            int var13 = 6;
+            int var14 = func_02005a94(arg1 + 6);
+            while (arg1[var13] != '>')
             {
-                if (text[index] == 0) return text + index;
-                index++;
+                if (arg1[var13] == 0) return arg1 + var13;
+                var13++;
             }
-            if (value < 1) value = 1;
-            self->repeat = value;
-            text += index + 1;
+            if (var14 < 1) var14 = 1;
+            arg0->unknown_9a4_ = var14;
+            arg1 += var13 + 1;
         }
-        else if (func_020d85dc(text, data_020f0963))
+        else if (func_020d85dc(arg1, data_020f0963))
         {
-            int index = 6;
-            int close = index;
-            while (text[close] != '>')
+            int var15 = 6;
+            int var16 = var15;
+            while (arg1[var16] != '>')
             {
-                if (text[close] == 0) return text + close;
-                close++;
+                if (arg1[var16] == 0) return arg1 + var16;
+                var16++;
             }
-            int width = func_02005a94(text + 6);
-            if (width <= 0) width = 12;
-            while (text[index] != ',')
+            int var17 = func_02005a94(arg1 + 6);
+            if (var17 <= 0) var17 = 12;
+            while (arg1[var15] != ',')
             {
-                if (text[index] == '>')
+                if (arg1[var15] == '>')
                 {
-                    text += index + 1;
+                    arg1 += var15 + 1;
                     break;
                 }
-                index++;
+                var15++;
             }
-            int height = func_02005a94(text + (index + 1));
-            if (height <= 0) height = 16;
-            self->state.width = width;
-            self->state.height = height;
-            text += close + 1;
+            int var18 = func_02005a94(arg1 + (var15 + 1));
+            if (var18 <= 0) var18 = 16;
+            arg0->unknown_1000_.unknown_860_ = var17;
+            arg0->unknown_1000_.unknown_864_ = var18;
+            arg1 += var16 + 1;
         }
-        else if (func_020d85dc(text, data_020f096a))
+        else if (func_020d85dc(arg1, data_020f096a))
         {
-            int index = 7;
-            int close = index;
-            while (text[close] != '>')
+            int var19 = 7;
+            int var20 = var19;
+            while (arg1[var20] != '>')
             {
-                if (text[close] == 0) return text + close;
-                close++;
+                if (arg1[var20] == 0) return arg1 + var20;
+                var20++;
             }
-            unsigned char done = 0;
+            unsigned char var21 = 0;
 #if defined(jpn)
-            char name[3] = {};
-            signed char colorIndex = 0;
-            memcpy(name, text + 7, 2);
-            for (; data_020e88a5[colorIndex][0]; colorIndex++) {
-                if (func_02001aec(name, data_020e88a5[colorIndex], 2) == 0) {
-                    self->state.color = data_020e884a[colorIndex];
-                    text += close + 1;
-                    done = 1;
+            char var22[3] = {};
+            signed char var23 = 0;
+            memcpy(var22, arg1 + 7, 2);
+            for (; data_020e88a5[var23][0]; var23++) {
+                if (func_02001aec(var22, data_020e88a5[var23], 2) == 0) {
+                    arg0->unknown_1000_.unknown_87c_ = data_020e884a[var23];
+                    arg1 += var20 + 1;
+                    var21 = 1;
                     break;
                 }
             }
-            if (done) continue;
+            if (var21) continue;
 #endif
-            int red = func_02005a94(text + 7);
-            if (red < 0) red = 255;
-            if (red > 255) red = 255;
-            while (text[index] != ',')
+            int var24 = func_02005a94(arg1 + 7);
+            if (var24 < 0) var24 = 255;
+            if (var24 > 255) var24 = 255;
+            while (arg1[var19] != ',')
             {
-                if (text[index] == '>')
+                if (arg1[var19] == '>')
                 {
-                    text += index + 1;
-                    done = 1;
+                    arg1 += var19 + 1;
+                    var21 = 1;
                     break;
                 }
-                index++;
+                var19++;
             }
-            if (done) continue;
-            index++;
-            int green = func_02005a94(text + index);
-            if (green < 0) green = 255;
-            if (green > 255) green = 255;
-            while (text[index] != ',')
+            if (var21) continue;
+            var19++;
+            int var25 = func_02005a94(arg1 + var19);
+            if (var25 < 0) var25 = 255;
+            if (var25 > 255) var25 = 255;
+            while (arg1[var19] != ',')
             {
-                if (text[index] == '>')
+                if (arg1[var19] == '>')
                 {
-                    text += index + 1;
-                    done = 1;
+                    arg1 += var19 + 1;
+                    var21 = 1;
                     break;
                 }
-                index++;
+                var19++;
             }
-            if (done) continue;
-            int blue = func_02005a94(text + (index + 1));
-            if (blue < 0) blue = 255;
-            if (blue > 255) blue = 255;
-            self->state.color = (red >> 3) | ((green >> 3) << 5) | ((blue >> 3) << 10);
-            text += close + 1;
+            if (var21) continue;
+            int var26 = func_02005a94(arg1 + (var19 + 1));
+            if (var26 < 0) var26 = 255;
+            if (var26 > 255) var26 = 255;
+            arg0->unknown_1000_.unknown_87c_ = (var24 >> 3) | ((var25 >> 3) << 5) | ((var26 >> 3) << 10);
+            arg1 += var20 + 1;
         }
-        else if (func_020d85dc(text, data_020f0972))
+        else if (func_020d85dc(arg1, data_020f0972))
         {
-            self->state.flag9bb = 0;
-            text += 6;
+            arg0->unknown_1000_.unknown_9bb_ = 0;
+            arg1 += 6;
         }
-        else scanning = 0;
+        else var0 = 0;
     }
-    return text;
+    return arg1;
 }
 
 #if defined(jpn)

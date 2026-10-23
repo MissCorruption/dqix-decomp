@@ -1,64 +1,64 @@
 #include <globaldefs.h>
 #include "Resource/CharacterCreationUI.h"
 
-extern "C" void func_ov009_02188c2c(CharacterCreationUI* self);
-extern "C" void func_ov009_02188d9c(CharacterCreationUI* self);
-extern "C" void func_ov009_02188e70(CharacterCreationUI* self, int val);
-extern "C" void func_ov009_02188944(CharacterCreationUI* self, int val);
-extern "C" int func_ov009_02188ee8(CharacterCreationUI* self);
+extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0* arg0);
+extern "C" void func_ov009_02188d9c(Struct_ov009_021842a0* arg0);
+extern "C" void func_ov009_02188e70(Struct_ov009_021842a0* arg0, int arg1);
+extern "C" void func_ov009_02188944(Struct_ov009_021842a0* arg0, int arg1);
+extern "C" int func_ov009_02188ee8(Struct_ov009_021842a0* arg0);
 #if defined(jpn)
-extern "C" ARM void func_ov009_021867bc(unsigned char *self, int val);
+extern "C" ARM void func_ov009_021867bc(unsigned char *arg0, int arg1);
 #define func_ov009_021855dc func_ov009_021867bc
 #else
-extern "C" ARM void func_ov009_021855dc(unsigned char *self, int val);
+extern "C" ARM void func_ov009_021855dc(unsigned char *arg0, int arg1);
 #endif
 
 // USA: func_ov009_021869d8
-extern "C" ARM void func_ov009_021869d8(CharacterCreationUI* self) {
-	unsigned char step = self->step;
-	if (step == 0) {
-		func_ov009_02188c2c(self);
-		func_ov009_02188d9c(self);
-		int idx = self->sex;
-		unsigned char val = self->hairColor[idx];
-		func_ov009_02188e70(self, val);
-		self->flags |= 1;
-		self->step = self->step + 1;
+extern "C" ARM void func_ov009_021869d8(Struct_ov009_021842a0* arg0) {
+	unsigned char var0 = arg0->unknown_c59_;
+	if (var0 == 0) {
+		func_ov009_02188c2c(arg0);
+		func_ov009_02188d9c(arg0);
+		int var1 = arg0->unknown_da3_;
+		unsigned char var2 = arg0->unknown_dae_[var1];
+		func_ov009_02188e70(arg0, var2);
+		arg0->unknown_d9c_ |= 1;
+		arg0->unknown_c59_ = arg0->unknown_c59_ + 1;
 		return;
 	}
-	if (step == 1) {
-		if (self->flags & 0x80) {
+	if (var0 == 1) {
+		if (arg0->unknown_d9c_ & 0x80) {
 			return;
 		}
-		int idx = self->sex;
-		unsigned char val = self->hairColor[idx];
-		func_ov009_02188944(self, val);
-		self->step = self->step + 1;
+		int var3 = arg0->unknown_da3_;
+		unsigned char var4 = arg0->unknown_dae_[var3];
+		func_ov009_02188944(arg0, var4);
+		arg0->unknown_c59_ = arg0->unknown_c59_ + 1;
 		return;
 	}
-	if (step != 2) {
+	if (var0 != 2) {
 		return;
 	}
-	int result = func_ov009_02188ee8(self);
-	if (result == -2) {
-		func_ov009_021855dc((unsigned char*)self, 5);
+	int var5 = func_ov009_02188ee8(arg0);
+	if (var5 == -2) {
+		func_ov009_021855dc((unsigned char*)arg0, 5);
 		return;
 	}
-	if (result == -3) {
-		func_ov009_021855dc((unsigned char*)self, 3);
+	if (var5 == -3) {
+		func_ov009_021855dc((unsigned char*)arg0, 3);
 		return;
 	}
-	if (result < 0x65 || result > 0x6c) {
+	if (var5 < 0x65 || var5 > 0x6c) {
 		return;
 	}
-	int idx2 = self->sex;
-	int v = result - 0x64;
-	signed char *arr = self->furthestState;
-	if (v > arr[idx2]) {
+	int var6 = arg0->unknown_da3_;
+	int var7 = var5 - 0x64;
+	signed char *var8 = arg0->unknown_da0_;
+	if (var7 > var8[var6]) {
 		return;
 	}
-	if (v == self->state) {
+	if (var7 == arg0->unknown_c58_) {
 		return;
 	}
-	func_ov009_021855dc((unsigned char*)self, v & 0xff);
+	func_ov009_021855dc((unsigned char*)arg0, var7 & 0xff);
 }

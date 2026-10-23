@@ -4,61 +4,61 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Pair020deb08;
-extern "C" short func_020deb08(struct Pair020deb08* obj);
+struct Struct_020deb08;
+extern "C" short func_020deb08(struct Struct_020deb08* arg0);
 
-struct Container020dedd0;
-struct Element020de650;
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
 
 extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 
-struct FoundElem_021e1474 {
-    char pad0[0xc];
-    int f0c;
+struct Struct_ov023_021e1474 {
+    char unknown_0_[0xc];
+    int unknown_c_;
 };
 
-struct Entry_021e1474 {
-    char pad0[4];
-    FoundElem_021e1474* found;
-    short key;
-    char pad2[0xe - 0xa];
-    unsigned char flags;
-    char pad3[0x10 - 0xf];
+struct Struct_ov023_021e1474_2 {
+    char unknown_0_[4];
+    Struct_ov023_021e1474* unknown_4_;
+    short unknown_8_;
+    char unknown_a_[0xe - 0xa];
+    unsigned char unknown_e_;
+    char unknown_f_[0x10 - 0xf];
 };
 
-struct ObjStruct_021e1474 {
-    int f0;
-    Entry_021e1474* entries;
-    short count;
+struct Struct_ov002_0215b2c8 {
+    int unknown_0_;
+    Struct_ov023_021e1474_2* unknown_4_;
+    short unknown_8_;
 };
 
 // USA: func_ov023_021e1474
-extern "C" ARM void func_ov023_021e1474(ObjStruct_021e1474* obj, struct Container020dedd0* c) {
-    if (!c) return;
+extern "C" ARM void func_ov023_021e1474(Struct_ov002_0215b2c8* arg0, struct Struct_0201099c_10* arg1) {
+    if (!arg1) return;
 
-    func_020deb08((struct Pair020deb08*)c);
+    func_020deb08((struct Struct_020deb08*)arg1);
 
-    Entry_021e1474* entry;
-    Entry_021e1474* base = obj->entries;
-    short count = obj->count;
-    for (short i = 0; i < count; i++) {
-        entry = &base[i];
-        FoundElem_021e1474* found = (FoundElem_021e1474*)func_020dedd0(c, entry->key);
-        entry->found = found;
-        if (!found) continue;
+    Struct_ov023_021e1474_2* var0;
+    Struct_ov023_021e1474_2* var1 = arg0->unknown_4_;
+    short var2 = arg0->unknown_8_;
+    for (short var3 = 0; var3 < var2; var3++) {
+        var0 = &var1[var3];
+        Struct_ov023_021e1474* var4 = (Struct_ov023_021e1474*)func_020dedd0(arg1, var0->unknown_8_);
+        var0->unknown_4_ = var4;
+        if (!var4) continue;
 
-        int bits = (unsigned short)((unsigned int)(found->f0c << 9) >> 21);
-        if (bits <= 0) continue;
+        int var5 = (unsigned short)((unsigned int)(var4->unknown_c_ << 9) >> 21);
+        if (var5 <= 0) continue;
 
-        void* baseData = func_0205ec34();
-        int index = bits + 0x76;
-        unsigned char* arr = (unsigned char*)baseData + 0x8c;
-        if (func_0206dfb0((int)baseData, arr, index + 0xc00)) {
-            entry->flags |= 0x2;
+        void* var6 = func_0205ec34();
+        int var7 = var5 + 0x76;
+        unsigned char* var8 = (unsigned char*)var6 + 0x8c;
+        if (func_0206dfb0((int)var6, var8, var7 + 0xc00)) {
+            var0->unknown_e_ |= 0x2;
         }
     }
 
-    obj->f0 = 0;
+    arg0->unknown_0_ = 0;
 }

@@ -2,64 +2,64 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue90_8C = 0x8c };
-enum { kRegionValue94_90 = 0x90 };
-enum { kRegionValue98_94 = 0x94 };
-enum { kRegionValue38_34 = 0x34 };
-enum { kRegionValueA4_A0 = 0xa0 };
-enum { kRegionValueB8_B4 = 0xb4 };
-enum { kRegionValue3C_38 = 0x38 };
-enum { kRegionValueCC_C8 = 0xc8 };
+enum { Enum_ov003_0217db88_144 = 0x8c };
+enum { Enum_ov003_0217db88_148 = 0x90 };
+enum { Enum_ov003_0217db88_152 = 0x94 };
+enum { Enum_ov003_0217db88_56 = 0x34 };
+enum { Enum_ov003_0217db88_164 = 0xa0 };
+enum { Enum_ov003_0217db88_184 = 0xb4 };
+enum { Enum_ov003_0217db88_60 = 0x38 };
+enum { Enum_ov003_0217db88_204 = 0xc8 };
 #else
-enum { kRegionValue90_8C = 0x90 };
-enum { kRegionValue94_90 = 0x94 };
-enum { kRegionValue98_94 = 0x98 };
-enum { kRegionValue38_34 = 0x38 };
-enum { kRegionValueA4_A0 = 0xa4 };
-enum { kRegionValueB8_B4 = 0xb8 };
-enum { kRegionValue3C_38 = 0x3c };
-enum { kRegionValueCC_C8 = 0xcc };
+enum { Enum_ov003_0217db88_144 = 0x90 };
+enum { Enum_ov003_0217db88_148 = 0x94 };
+enum { Enum_ov003_0217db88_152 = 0x98 };
+enum { Enum_ov003_0217db88_56 = 0x38 };
+enum { Enum_ov003_0217db88_164 = 0xa4 };
+enum { Enum_ov003_0217db88_184 = 0xb8 };
+enum { Enum_ov003_0217db88_60 = 0x3c };
+enum { Enum_ov003_0217db88_204 = 0xcc };
 #endif
 
 
-extern "C" void func_0205d048(void* obj);
-struct List0204afb4;
-extern "C" void func_0204afb4(struct List0204afb4* obj);
-struct Obj0204c754;
-extern "C" void func_0204c754(struct Obj0204c754* obj);
-struct ClearTarget0205a244;
-extern "C" void func_0205a244(struct ClearTarget0205a244* target);
-extern "C" void func_0205a494(void* obj);
-struct Struct020dfc40;
-extern "C" void func_020dfc6c(struct Struct020dfc40* p);
+extern "C" void func_0205d048(void* arg0);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct Struct_0204c754;
+extern "C" void func_0204c754(struct Struct_0204c754* arg0);
+struct Struct_0205a244;
+extern "C" void func_0205a244(struct Struct_0205a244* arg0);
+extern "C" void func_0205a494(void* arg0);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc6c(struct Struct_0201099c_14* arg0);
 
 // USA: func_ov003_0217db88
-extern "C" ARM void func_ov003_0217db88(void* obj) {
-    unsigned char* o = (unsigned char*)obj;
+extern "C" ARM void func_ov003_0217db88(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 
-    func_0205d048(*(void**)(o + kRegionValue90_8C));
+    func_0205d048(*(void**)(var0 + Enum_ov003_0217db88_144));
 
-    int i;
-    for (i = 0; i < 2; i++) {
-        func_0204afb4((struct List0204afb4*)(*(char**)(o + kRegionValue94_90) + i * 0x20));
+    int var1;
+    for (var1 = 0; var1 < 2; var1++) {
+        func_0204afb4((struct Struct_02020cb8_3*)(*(char**)(var0 + Enum_ov003_0217db88_148) + var1 * 0x20));
     }
 
-    int j;
-    for (j = 0; j < 1; j++) {
-        func_0204c754((struct Obj0204c754*)(*(char**)(o + kRegionValue98_94) + j * 0xe0));
+    int var2;
+    for (var2 = 0; var2 < 1; var2++) {
+        func_0204c754((struct Struct_0204c754*)(*(char**)(var0 + Enum_ov003_0217db88_152) + var2 * 0xe0));
     }
 
-    func_0205a244((struct ClearTarget0205a244*)(*(void**)(o + kRegionValue38_34)));
+    func_0205a244((struct Struct_0205a244*)(*(void**)(var0 + Enum_ov003_0217db88_56)));
 
-    if (((SafeAllocator*)(o + kRegionValueA4_A0))->GetSignedAllocator() != NULL) {
-        ((SafeAllocator*)(o + kRegionValueA4_A0))->Destroy();
+    if (((SafeAllocator*)(var0 + Enum_ov003_0217db88_164))->GetSignedAllocator() != NULL) {
+        ((SafeAllocator*)(var0 + Enum_ov003_0217db88_164))->Destroy();
     }
-    if (((SafeAllocator*)(o + kRegionValueB8_B4))->GetSignedAllocator() != NULL) {
-        ((SafeAllocator*)(o + kRegionValueB8_B4))->Destroy();
+    if (((SafeAllocator*)(var0 + Enum_ov003_0217db88_184))->GetSignedAllocator() != NULL) {
+        ((SafeAllocator*)(var0 + Enum_ov003_0217db88_184))->Destroy();
     }
-    func_0205a494(o + kRegionValue3C_38);
-    func_020dfc6c((struct Struct020dfc40*)(o + kRegionValueCC_C8));
+    func_0205a494(var0 + Enum_ov003_0217db88_60);
+    func_020dfc6c((struct Struct_0201099c_14*)(var0 + Enum_ov003_0217db88_204));
 
-    volatile unsigned int* dispcnt = (volatile unsigned int*)0x4000000;
-    *dispcnt = (*dispcnt & ~0x1f00) | ((unsigned int)*(int*)o << 8);
+    volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;
+    *var3 = (*var3 & ~0x1f00) | ((unsigned int)*(int*)var0 << 8);
 }

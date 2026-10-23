@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_02012028(void* obj, unsigned char value);
-extern "C" void func_ov004_0216afb0(void* obj, int a, int b, int c, int d, int e, int f, int g, int h);
-extern "C" int func_ov004_0216b7bc(void* obj, int a, int b, int c);
-extern "C" void* func_ov004_0216b1c4(void* a, int id);
-extern "C" int func_ov004_0216b2c8(void* obj, int id, int a, int b);
-extern "C" int func_ov004_0216b338(void* a, int id, int val);
-extern "C" void func_ov004_0216b20c(void* a0, int key, int b, int c);
+extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
+extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
+extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov004_0216b338(void* arg0, int arg1, int arg2);
+extern "C" void func_ov004_0216b20c(void* arg0, int arg1, int arg2, int arg3);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
 extern unsigned char data_ov004_02171034[];
 
 // USA: func_ov004_0216d1c4
-extern "C" ARM int func_ov004_0216d1c4(void* a) {
+extern "C" ARM int func_ov004_0216d1c4(void* arg0) {
     func_02012028(GameState::GetInstance(), 0);
 #if defined(jpn)
-    int v0c = *(int*)&data_ov004_02171034[0x10];
+    int var0 = *(int*)&data_ov004_02171034[0x10];
 #else
-    int v0c = *(int*)&data_ov004_02171034[0xc];
+    int var0 = *(int*)&data_ov004_02171034[0xc];
 #endif
 
-    func_ov004_0216afb0(a, 0x37, 2, 0xd4, 0x39, 0xa, 0xa, 0xc, 1);
-    v0c = func_ov004_0216b7bc(a, 0xd4, v0c, 1);
-    func_ov004_0216b1c4(a, 0x12d);
+    func_ov004_0216afb0(arg0, 0x37, 2, 0xd4, 0x39, 0xa, 0xa, 0xc, 1);
+    var0 = func_ov004_0216b7bc(arg0, 0xd4, var0, 1);
+    func_ov004_0216b1c4(arg0, 0x12d);
 
-    func_ov004_0216afb0(a, 0x38, 2, 0xd3, 0x3d, 0xa, 0x6, 0xc, 1);
-    func_ov004_0216afb0(a, 0x39, 2, 0xd3, 0x3e, 0xa, 0x14, 0xc, 1);
+    func_ov004_0216afb0(arg0, 0x38, 2, 0xd3, 0x3d, 0xa, 0x6, 0xc, 1);
+    func_ov004_0216afb0(arg0, 0x39, 2, 0xd3, 0x3e, 0xa, 0x14, 0xc, 1);
 
-    for (int i = 0; i < 2; i++) {
-        func_ov004_0216b2c8(a, 0x12d, i + 0x38, i);
+    for (int var1 = 0; var1 < 2; var1++) {
+        func_ov004_0216b2c8(arg0, 0x12d, var1 + 0x38, var1);
     }
-    func_ov004_0216b338(a, 0x12d, 1);
+    func_ov004_0216b338(arg0, 0x12d, 1);
 
-    func_ov004_0216b20c(a, 0x38, 0x97, 0);
-    func_ov004_0216b20c(a, 0x39, 0x64, 0);
-    func_ov004_0216b7bc(a, 0xd3, v0c, 0);
+    func_ov004_0216b20c(arg0, 0x38, 0x97, 0);
+    func_ov004_0216b20c(arg0, 0x39, 0x64, 0);
+    func_ov004_0216b7bc(arg0, 0xd3, var0, 0);
 
     func_0205eaa0(&data_02108760, 5, 0);
     return 0;

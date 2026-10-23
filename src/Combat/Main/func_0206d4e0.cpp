@@ -9,8 +9,8 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Variant02030b0c;
-struct TaggedValue02030b44;
+struct Struct_0201c1c8;
+struct Struct_0201d530;
 struct Vector3i;
 
 struct GameState;
@@ -20,44 +20,44 @@ extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_0206eb98(unsigned char*, int);
 extern "C" void func_0206dd68(void*, int);
 
-struct Data02108cec {
-    unsigned char pad0[0xa];
-    unsigned short field0xa;
-    unsigned short field0xc;
-    void* field0x10;
-    void* field0x14;
+struct Struct_02108cec {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    void* unknown_10_;
+    void* unknown_14_;
 };
-extern struct Data02108cec data_02108cec;
+extern struct Struct_02108cec data_02108cec;
 
 // USA: func_0206d4e0
-extern "C" ARM int func_0206d4e0(void* param0, int param1) {
-    if (param1 < 9) {
+extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
+    if (arg1 < 9) {
         return 0;
     }
-    data_02108cec.field0xa++;
-    bool even = false;
-    if (param1 % 2 == 0) {
-        even = true;
+    data_02108cec.unknown_a_++;
+    bool var0 = false;
+    if (arg1 % 2 == 0) {
+        var0 = true;
     }
-    int n;
-    int second;
-    int half = (even ? param1 - 8 : param1 - 7) / 2;
-    char* ctx = func_0205ec34();
-    struct Variant02030b0c* arg = (struct Variant02030b0c*)param0;
-    for (n = half; n > 0; n--) {
-        int packed = ((Script::Parameter*)arg)->ToInt();
-        struct Variant02030b0c* next = (struct Variant02030b0c*)((char*)arg + 8);
-        arg = (struct Variant02030b0c*)((char*)arg + 0x10);
-        second = ((Script::Parameter*)next)->ToInt();
-        int mode = packed >> 16;
-        if (mode == 1) {
-            int hit = func_0206dfb0((int)ctx, (unsigned char*)(ctx + 0x8c), (unsigned short)packed);
-            if ((second != 0 && hit == 0) || (second == 0 && hit != 0)) {
+    int var1;
+    int var2;
+    int var3 = (var0 ? arg1 - 8 : arg1 - 7) / 2;
+    char* var4 = func_0205ec34();
+    struct Struct_0201c1c8* var5 = (struct Struct_0201c1c8*)arg0;
+    for (var1 = var3; var1 > 0; var1--) {
+        int var6 = ((Script::Parameter*)var5)->ToInt();
+        struct Struct_0201c1c8* var7 = (struct Struct_0201c1c8*)((char*)var5 + 8);
+        var5 = (struct Struct_0201c1c8*)((char*)var5 + 0x10);
+        var2 = ((Script::Parameter*)var7)->ToInt();
+        int var8 = var6 >> 16;
+        if (var8 == 1) {
+            int var9 = func_0206dfb0((int)var4, (unsigned char*)(var4 + 0x8c), (unsigned short)var6);
+            if ((var2 != 0 && var9 == 0) || (var2 == 0 && var9 != 0)) {
                 return 1;
             }
-        } else if (mode == 2) {
-            int hit = func_0206eb98((unsigned char*)ctx, (unsigned short)packed);
-            if ((second != 0 && hit == 0) || (second == 0 && hit != 0)) {
+        } else if (var8 == 2) {
+            int var10 = func_0206eb98((unsigned char*)var4, (unsigned short)var6);
+            if ((var2 != 0 && var10 == 0) || (var2 == 0 && var10 != 0)) {
                 return 1;
             }
         } else {
@@ -65,45 +65,45 @@ extern "C" ARM int func_0206d4e0(void* param0, int param1) {
         }
     }
 
-    int kind = ((Script::Parameter*)arg)->ToInt();
-    struct GameState* gs = GameState::GetInstance();
-    if (kind == 1) {
-        if (gs->IsMorningDayOrEvening()) {
+    int var11 = ((Script::Parameter*)var5)->ToInt();
+    struct GameState* var12 = GameState::GetInstance();
+    if (var11 == 1) {
+        if (var12->IsMorningDayOrEvening()) {
             return 1;
         }
-    } else if (kind == 0) {
-        if (!gs->IsMorningDayOrEvening()) {
+    } else if (var11 == 0) {
+        if (!var12->IsMorningDayOrEvening()) {
             return 1;
         }
     }
 
-    int a = ((Script::Parameter*)((struct Variant02030b0c*)((char*)arg + 8)))->ToInt();
-    int b = ((Script::Parameter*)((struct Variant02030b0c*)((char*)arg + 0x10)))->ToInt();
-    if (a != data_02108cec.field0xc) {
-        func_0206dd68(data_02108cec.field0x10, b);
+    int var13 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var5 + 8)))->ToInt();
+    int var14 = ((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var5 + 0x10)))->ToInt();
+    if (var13 != data_02108cec.unknown_c_) {
+        func_0206dd68(data_02108cec.unknown_10_, var14);
         return 1;
     }
 
-    struct Rec0206bf2c* rec = (struct Rec0206bf2c*)((SafeAllocator*)data_02108cec.field0x14)->Allocate(0x78);
-    if (rec == 0) {
+    struct Struct_0206bf2c* var15 = (struct Struct_0206bf2c*)((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(0x78);
+    if (var15 == 0) {
         return 0;
     }
-    func_0206bf2c(rec);
-    rec->field2 = (unsigned short)a;
-    int rem = param1 - half * 2 - even;
-    rec->field0 = (unsigned char)b;
-    if (rem < 4) {
-        func_0206dd68(data_02108cec.field0x10, rec->field0);
+    func_0206bf2c(var15);
+    var15->unknown_2_ = (unsigned short)var13;
+    int var16 = arg1 - var3 * 2 - var0;
+    var15->unknown_0_ = (unsigned char)var14;
+    if (var16 < 4) {
+        func_0206dd68(data_02108cec.unknown_10_, var15->unknown_0_);
         return 1;
     }
 
-    struct TaggedValue02030b44* v = (TaggedValue02030b44*)((Script::Parameter*)((struct TaggedValue02030b44*)((char*)arg + 0x18)))->ToVec3fix((Vector3i*)rec->vec);
-    rec->field1c = (short)(4096.0f * ((Script::Parameter*)v)->ToFloat());
-    if (even) {
-        rec->field1e = (unsigned char)((Script::Parameter*)((struct Variant02030b0c*)((char*)v + 8)))->ToInt();
+    struct Struct_0201d530* var17 = (Struct_0201d530*)((Script::Parameter*)((struct Struct_0201d530*)((char*)var5 + 0x18)))->ToVec3fix((Vector3i*)var15->unknown1_10_);
+    var15->unknown_1c_ = (short)(4096.0f * ((Script::Parameter*)var17)->ToFloat());
+    if (var0) {
+        var15->unknown_1e_ = (unsigned char)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)var17 + 8)))->ToInt();
     }
-    rec->field44 = data_02108cec.field0xa;
-    rec->flagsA_b1 = 1;
-    func_0206db48(data_02108cec.field0x10, rec);
+    var15->unknown_44_ = data_02108cec.unknown_a_;
+    var15->unknown_a_2_ = 1;
+    func_0206db48(data_02108cec.unknown_10_, var15);
     return 1;
 }

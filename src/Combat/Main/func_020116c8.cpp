@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { activeFlagOffset = 0x6184, secondFlagOffset = 0x6185 };
+enum { Enum_020116c8_25572 = 0x6184, Enum_020116c8_25573 = 0x6185 };
 #else
-enum { activeFlagOffset = 0x63e4, secondFlagOffset = 0x63e5 };
+enum { Enum_020116c8_25572 = 0x63e4, Enum_020116c8_25573 = 0x63e5 };
 #endif
 #include "Grotto/Main/TreasureMapMetadata.h"
 
-extern "C" int func_020ac760(void* dst);
-extern "C" int func_020ac734(void* arg);
+extern "C" int func_020ac760(void* arg0);
+extern "C" int func_020ac734(void* arg0);
 
 extern "C" {
     void func_ov017_021cfabc(void);
@@ -16,19 +16,19 @@ extern "C" {
 }
 
 // USA: func_020116c8
-extern "C" ARM void func_020116c8(void* obj) {
-    unsigned char* p = (unsigned char*)obj;
-    p[activeFlagOffset] = 0;
-    p[secondFlagOffset] = 0;
+extern "C" ARM void func_020116c8(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    var0[Enum_020116c8_25572] = 0;
+    var0[Enum_020116c8_25573] = 0;
 
-    unsigned char localBuf[0xad8];
-    func_020ac760(localBuf);
+    unsigned char var1[0xad8];
+    func_020ac760(var1);
 
-    for (int i = 0; i < localBuf[0]; i++) {
-        ((TreasureMapMetadata*)(localBuf + 2 + i * 0x1c))->ClearInitialByteUnknownBit();
+    for (int var2 = 0; var2 < var1[0]; var2++) {
+        ((TreasureMapMetadata*)(var1 + 2 + var2 * 0x1c))->ClearInitialByteUnknownBit();
     }
 
-    func_020ac734(localBuf);
+    func_020ac734(var1);
     func_ov017_021cfabc();
     func_ov017_021cf730(-1, 0);
 }

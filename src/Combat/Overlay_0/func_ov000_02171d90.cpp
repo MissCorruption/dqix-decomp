@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct BattleEquipmentEntry {
-    unsigned char unknown00[8];
-    unsigned int category : 4;
-    unsigned int unknownFlags : 28;
-    unsigned char unknown0c[0xc];
-    short itemId;
-    unsigned char unknown1a[6];
+struct Struct_ov000_02171c04 {
+    unsigned char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 28;
+    unsigned char unknown_c_[0xc];
+    short unknown_18_;
+    unsigned char unknown_1a_[6];
 };
-struct BattleEquipmentView {
-    unsigned char unknown00[0x194];
-    BattleEquipmentEntry entries[8];
+struct Struct_ov000_02171c04_2 {
+    unsigned char unknown_0_[0x194];
+    Struct_ov000_02171c04 unknown_194_[8];
 };
-struct Container020dedd0;
-struct BattleEquipmentList {
-    Container020dedd0* inventory;
-    unsigned char unknown04[0x4c - 0x4];
-    int partyIndex;
+struct Struct_0201099c_10;
+struct Struct_ov000_02171c04_3 {
+    Struct_0201099c_10* unknown_0_;
+    unsigned char unknown_4_[0x4c - 0x4];
+    int unknown_4c_;
 };
 
-extern "C" BattleEquipmentEntry* func_020dedd0(Container020dedd0* c, int key);
+extern "C" Struct_ov000_02171c04* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
 extern "C" unsigned char data_ov000_02183388[8];
 
 // USA: func_ov000_02171d90
-extern "C" ARM BattleEquipmentEntry* func_ov000_02171d90(BattleEquipmentList* list, int itemId) {
-    if (itemId < 0) {
+extern "C" ARM Struct_ov000_02171c04* func_ov000_02171d90(Struct_ov000_02171c04_3* arg0, int arg1) {
+    if (arg1 < 0) {
         return NULL;
     }
-    char* actor = (char*)func_0200ff1c(GameState::GetInstance(), list->partyIndex);
-    if (actor) {
-        unsigned char equipmentOrder[8];
-        unsigned int bytes = sizeof(equipmentOrder);
-        unsigned char* output = equipmentOrder;
-        const unsigned char* input = data_ov000_02183388;
+    char* var0 = (char*)func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    if (var0) {
+        unsigned char var1[8];
+        unsigned int var2 = sizeof(var1);
+        unsigned char* var3 = var1;
+        const unsigned char* var4 = data_ov000_02183388;
         do {
-            unsigned char value = *input;
-            *output = value;
-            ++input;
-            ++output;
-        } while (--bytes);
-        for (unsigned char slot = 0; slot < 8; ++slot) {
+            unsigned char var5 = *var4;
+            *var3 = var5;
+            ++var4;
+            ++var3;
+        } while (--var2);
+        for (unsigned char var6 = 0; var6 < 8; ++var6) {
 #if defined(jpn)
-            BattleEquipmentView* equipment = *reinterpret_cast<BattleEquipmentView**>(actor + 0x144);
+            Struct_ov000_02171c04_2* var7 = *reinterpret_cast<Struct_ov000_02171c04_2**>(var0 + 0x144);
 #else
-            BattleEquipmentView* equipment = *reinterpret_cast<BattleEquipmentView**>(actor + 0x150);
+            Struct_ov000_02171c04_2* var7 = *reinterpret_cast<Struct_ov000_02171c04_2**>(var0 + 0x150);
 #endif
-            BattleEquipmentEntry* entry = &equipment->entries[equipmentOrder[slot]];
-            if (entry && entry->itemId > 0) {
-                int equipmentCategory = entry->category <= 7;
-                if (equipmentCategory && entry->itemId == itemId) {
-                    return entry;
+            Struct_ov000_02171c04* var8 = &var7->unknown_194_[var1[var6]];
+            if (var8 && var8->unknown_18_ > 0) {
+                int var9 = var8->unknown_8_0_ <= 7;
+                if (var9 && var8->unknown_18_ == arg1) {
+                    return var8;
                 }
             }
         }
     }
-    return func_020dedd0(list->inventory, itemId);
+    return func_020dedd0(arg0->unknown_0_, arg1);
 }

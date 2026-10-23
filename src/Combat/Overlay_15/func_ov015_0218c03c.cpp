@@ -1,68 +1,68 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct Container020dedd0;
-struct StructDE234_020de234;
+struct Struct_0201099c_10;
+struct Struct_02015ef4_4;
 
-struct PartEntry
+struct Struct_ov005_021556e4
 {
-    void* model_;
-    int unk_4;
-    unsigned int unk_8;
-    unsigned int unk_c;
-    unsigned int unk_10_0 : 20;
-    unsigned int letter_ : 8;
-    unsigned int unk_10_28 : 4;
-    int unk_14;
-    short unk_18;
-    unsigned short price_;
+    void* unknown_0_;
+    int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_0_ : 20;
+    unsigned int unknown_12_4_ : 8;
+    unsigned int unknown_13_4_ : 4;
+    int unknown_14_;
+    short unknown_18_;
+    unsigned short unknown_1a_;
 };
 
-struct Viewer0218c03c
+struct Struct_ov015_0218c03c
 {
-    char unk_0[0x4c];
-    char parts_[0x18];
+    char unknown_0_[0x4c];
+    char unknown_4c_[0x18];
 };
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    Viewer0218c03c* viewer_;
-    char unk_4[0x1c];
-    int* parts_;
-    char unk_24[0x3b - 0x24];
-    unsigned char female_;
-    unsigned char hairColor_;
+    Struct_ov015_0218c03c* unknown_0_;
+    char unknown_4_[0x1c];
+    int* unknown_20_;
+    char unknown_24_[0x3b - 0x24];
+    unsigned char unknown_3b_;
+    unsigned char unknown_3c_;
 };
 
-struct ModelExtension
+struct Struct_ov015_02193cd4
 {
-    char text_[8];
+    char unknown_0_[8];
 };
 
-struct FaceLetters
+struct Struct_ov015_02193ce5
 {
-    char letters_[10];
+    char unknown_0_[10];
 };
 
-extern "C" PartEntry* func_020dedd0(Container020dedd0* c, int key);
-extern "C" unsigned short func_020de234(StructDE234_020de234* p, int preferMid);
+extern "C" Struct_ov005_021556e4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
 
-extern const ModelExtension data_ov015_02193cd4;
-extern const FaceLetters data_ov015_02193ce5;
+extern const Struct_ov015_02193cd4 data_ov015_02193cd4;
+extern const Struct_ov015_02193ce5 data_ov015_02193ce5;
 extern const char data_ov015_02193fe4[];
 extern const char data_ov015_02193fea[];
 extern const char data_ov015_02193ffa[];
 
 // USA: func_ov015_0218c03c
-extern "C" ARM bool func_ov015_0218c03c(ViewObject* self, char* name, unsigned int part, int file)
+extern "C" ARM bool func_ov015_0218c03c(Struct_ov015_0218c03c_2* arg0, char* arg1, unsigned int arg2, int arg3)
 {
-    PartEntry* entry = func_020dedd0((Container020dedd0*)&self->viewer_->parts_, (short)self->parts_[part]);
-    PartEntry* body = func_020dedd0((Container020dedd0*)&self->viewer_->parts_, (short)self->parts_[7]);
-    int number = func_020de234((StructDE234_020de234*)entry, self->female_);
-    ModelExtension extension = data_ov015_02193cd4;
-    char suffix[2] = {0};
-    char suffix2[2] = {0};
-    switch (part)
+    Struct_ov005_021556e4* var0 = func_020dedd0((Struct_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[arg2]);
+    Struct_ov005_021556e4* var1 = func_020dedd0((Struct_0201099c_10*)&arg0->unknown_0_->unknown_4c_, (short)arg0->unknown_20_[7]);
+    int var2 = func_020de234((Struct_02015ef4_4*)var0, arg0->unknown_3b_);
+    Struct_ov015_02193cd4 var3 = data_ov015_02193cd4;
+    char var4[2] = {0};
+    char var5[2] = {0};
+    switch (arg2)
     {
     case 0:
     case 1:
@@ -70,37 +70,37 @@ extern "C" ARM bool func_ov015_0218c03c(ViewObject* self, char* name, unsigned i
     default:
         break;
     case 4:
-        strcpy(extension.text_, data_ov015_02193fe4);
-        suffix[0] = 'a';
-        suffix[1] = 0;
-        number += self->hairColor_;
+        strcpy(var3.unknown_0_, data_ov015_02193fe4);
+        var4[0] = 'a';
+        var4[1] = 0;
+        var2 += arg0->unknown_3c_;
         break;
     case 3:
-        suffix[0] = 'a';
-        suffix[1] = 0;
-        if (body != NULL && body->unk_18 > -1)
+        var4[0] = 'a';
+        var4[1] = 0;
+        if (var1 != NULL && var1->unknown_18_ > -1)
         {
-            int index = (int)func_020de234((StructDE234_020de234*)body, self->female_) / 100;
-            if ((unsigned int)index >= 10)
+            int var6 = (int)func_020de234((Struct_02015ef4_4*)var1, arg0->unknown_3b_) / 100;
+            if ((unsigned int)var6 >= 10)
                 return false;
-            FaceLetters letters = data_ov015_02193ce5;
-            char letter = letters.letters_[index];
-            if (letter == 0)
+            Struct_ov015_02193ce5 var7 = data_ov015_02193ce5;
+            char var8 = var7.unknown_0_[var6];
+            if (var8 == 0)
                 return false;
-            suffix[0] = letter;
-            if (index == 3 && self->female_ == 0 && entry->unk_18 == 0x2329)
-                suffix[0] = 'f';
+            var4[0] = var8;
+            if (var6 == 3 && arg0->unknown_3b_ == 0 && var0->unknown_18_ == 0x2329)
+                var4[0] = 'f';
         }
         break;
     case 5:
     case 6:
-        if (file)
-            strcpy(extension.text_, data_ov015_02193fe4);
+        if (arg3)
+            strcpy(var3.unknown_0_, data_ov015_02193fe4);
         break;
     }
-    if (file == 0)
-        sprintf(name, data_ov015_02193fea, (char)entry->letter_, number, suffix, suffix2, extension.text_);
+    if (arg3 == 0)
+        sprintf(arg1, data_ov015_02193fea, (char)var0->unknown_12_4_, var2, var4, var5, var3.unknown_0_);
     else
-        sprintf(name, data_ov015_02193ffa, (char)entry->letter_, number, suffix, suffix2, extension.text_);
+        sprintf(arg1, data_ov015_02193ffa, (char)var0->unknown_12_4_, var2, var4, var5, var3.unknown_0_);
     return true;
 }

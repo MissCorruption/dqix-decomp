@@ -1,83 +1,83 @@
 #include <globaldefs.h>
 
-struct NNSGfdFrmPlttVramManager {
-    unsigned int loAddr;
-    unsigned int hiAddr;
-    unsigned int szByte;
+struct Struct_0210cf88_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
 };
-extern NNSGfdFrmPlttVramManager data_0210cf88;
+extern Struct_0210cf88_2 data_0210cf88;
 
-static inline unsigned int NNSi_GfdGetPlttKeyRoundupSize(unsigned int size) {
-    if (size == 0) {
+static inline unsigned int inline_020bb7cc_3(unsigned int arg0) {
+    if (arg0 == 0) {
         return 8;
     } else {
-        return (size + 7) & ~7;
+        return (arg0 + 7) & ~7;
     }
 }
 
-static inline unsigned int NNS_GfdMakePlttKey(unsigned int addr, unsigned int size) {
-    return ((size >> 3) << 16) | (0xffff & (addr >> 3));
+static inline unsigned int inline_020bb7cc_4(unsigned int arg0, unsigned int arg1) {
+    return ((arg1 >> 3) << 16) | (0xffff & (arg0 >> 3));
 }
 
-static inline unsigned int GetUpperSideAlignmentSize_(unsigned int addr, int b4Pltt) {
-    if (b4Pltt) {
-        return 7 & (8 - (addr & 7));
+static inline unsigned int inline_020bb7cc_5(unsigned int arg0, int arg1) {
+    if (arg1) {
+        return 7 & (8 - (arg0 & 7));
     } else {
-        return 0xf & (0x10 - (addr & 0xf));
+        return 0xf & (0x10 - (arg0 & 0xf));
     }
 }
 
-static inline unsigned int GetLowerSideAlignmentSize_(unsigned int addr, int b4Pltt) {
-    if (b4Pltt) {
-        return addr & 7;
+static inline unsigned int inline_020bb7cc_6(unsigned int arg0, int arg1) {
+    if (arg1) {
+        return arg0 & 7;
     } else {
-        return addr & 0xf;
+        return arg0 & 0xf;
     }
 }
 
-static inline unsigned int GetCapacity_(void) {
-    return data_0210cf88.hiAddr - data_0210cf88.loAddr;
+static inline unsigned int inline_020bb7cc_7(void) {
+    return data_0210cf88.unknown_4_ - data_0210cf88.unknown_0_;
 }
 
-static inline int AllocFromLo_(unsigned int szByte, int b4Pltt, unsigned int* pResAddr) {
-    const unsigned int addr = data_0210cf88.loAddr;
-    const unsigned int alignment = GetUpperSideAlignmentSize_(addr, b4Pltt);
-    const unsigned int increase = szByte + alignment;
+static inline int inline_020bb7cc(unsigned int arg0, int arg1, unsigned int* arg2) {
+    const unsigned int var0 = data_0210cf88.unknown_0_;
+    const unsigned int var1 = inline_020bb7cc_5(var0, arg1);
+    const unsigned int var2 = arg0 + var1;
 
-    if (GetCapacity_() >= increase) {
-        const unsigned int tail = data_0210cf88.loAddr + increase;
+    if (inline_020bb7cc_7() >= var2) {
+        const unsigned int var3 = data_0210cf88.unknown_0_ + var2;
 
-        if (b4Pltt) {
-            if (tail > 0x10000) {
+        if (arg1) {
+            if (var3 > 0x10000) {
                 return 0;
             }
         }
 
-        *pResAddr = data_0210cf88.loAddr + alignment;
-        data_0210cf88.loAddr += increase;
+        *arg2 = data_0210cf88.unknown_0_ + var1;
+        data_0210cf88.unknown_0_ += var2;
         return 1;
     } else {
         return 0;
     }
 }
 
-static inline int AllocFromHi_(unsigned int szByte, int b4Pltt, unsigned int* pResAddr) {
-    if (data_0210cf88.hiAddr >= szByte) {
-        const unsigned int addr = data_0210cf88.hiAddr - szByte;
-        const unsigned int alignment = GetLowerSideAlignmentSize_(addr, b4Pltt);
-        const unsigned int increase = szByte + alignment;
+static inline int inline_020bb7cc_2(unsigned int arg0, int arg1, unsigned int* arg2) {
+    if (data_0210cf88.unknown_4_ >= arg0) {
+        const unsigned int var0 = data_0210cf88.unknown_4_ - arg0;
+        const unsigned int var1 = inline_020bb7cc_6(var0, arg1);
+        const unsigned int var2 = arg0 + var1;
 
-        if (GetCapacity_() >= increase) {
-            const unsigned int tail = data_0210cf88.hiAddr;
+        if (inline_020bb7cc_7() >= var2) {
+            const unsigned int var3 = data_0210cf88.unknown_4_;
 
-            if (b4Pltt) {
-                if (tail > 0x10000) {
+            if (arg1) {
+                if (var3 > 0x10000) {
                     return 0;
                 }
             }
 
-            data_0210cf88.hiAddr -= increase;
-            *pResAddr = data_0210cf88.hiAddr;
+            data_0210cf88.unknown_4_ -= var2;
+            *arg2 = data_0210cf88.unknown_4_;
             return 1;
         }
     }
@@ -85,23 +85,23 @@ static inline int AllocFromHi_(unsigned int szByte, int b4Pltt, unsigned int* pR
 }
 
 // USA: func_020bb7cc
-extern "C" ARM unsigned int func_020bb7cc(unsigned int szByte, int b4Pltt, unsigned int bAllocFromLo) {
-    unsigned int addr = 0;
-    int result = 0;
+extern "C" ARM unsigned int func_020bb7cc(unsigned int arg0, int arg1, unsigned int arg2) {
+    unsigned int var0 = 0;
+    int var1 = 0;
 
-    szByte = NNSi_GfdGetPlttKeyRoundupSize(szByte);
-    if (szByte >= 0x7fff8) {
+    arg0 = inline_020bb7cc_3(arg0);
+    if (arg0 >= 0x7fff8) {
         return 0;
     }
 
-    if (bAllocFromLo == 1) {
-        result = AllocFromLo_(szByte, b4Pltt, &addr);
+    if (arg2 == 1) {
+        var1 = inline_020bb7cc(arg0, arg1, &var0);
     } else {
-        result = AllocFromHi_(szByte, b4Pltt, &addr);
+        var1 = inline_020bb7cc_2(arg0, arg1, &var0);
     }
 
-    if (result) {
-        return NNS_GfdMakePlttKey(addr, szByte);
+    if (var1) {
+        return inline_020bb7cc_4(var0, arg0);
     }
     return 0;
 }

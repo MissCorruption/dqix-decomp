@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 
-struct Inner02048c90 {
-    char pad00[0x10];
-    Vector3i vec10;
-    char pad1c[0x4];
-    unsigned int flags20;
-    char pad24[0x10];
-    unsigned char b34;
-    char pad35[0x3];
-    int i38;
-    unsigned short h3c;
-    char pad3e[0x2];
-    Vector3i vec40;
+struct Struct_02048c90_2 {
+    char unknown_0_[0x10];
+    Vector3i unknown_10_;
+    char unknown_1c_[0x4];
+    unsigned int unknown_20_;
+    char unknown_24_[0x10];
+    unsigned char unknown_34_;
+    char unknown_35_[0x3];
+    int unknown_38_;
+    unsigned short unknown_3c_;
+    char unknown_3e_[0x2];
+    Vector3i unknown_40_;
 };
 
-struct Obj02048c90 {
-    char pad00[0x13c];
-    struct Inner02048c90* ptr;
+struct Struct_02048c90 {
+    char unknown_0_[0x13c];
+    struct Struct_02048c90_2* unknown_13c_;
 };
 
 // USA: func_02048c90
-extern "C" ARM void func_02048c90(struct Obj02048c90* obj) {
-    if (obj->ptr == NULL) return;
-    obj->ptr->b34 = 0;
-    obj->ptr->i38 = 0;
-    obj->ptr->h3c = 0;
-    obj->ptr->vec40 = obj->ptr->vec10;
-    obj->ptr->flags20 &= ~0x10;
-    obj->ptr->flags20 &= ~0x40;
+extern "C" ARM void func_02048c90(struct Struct_02048c90* arg0) {
+    if (arg0->unknown_13c_ == NULL) return;
+    arg0->unknown_13c_->unknown_34_ = 0;
+    arg0->unknown_13c_->unknown_38_ = 0;
+    arg0->unknown_13c_->unknown_3c_ = 0;
+    arg0->unknown_13c_->unknown_40_ = arg0->unknown_13c_->unknown_10_;
+    arg0->unknown_13c_->unknown_20_ &= ~0x10;
+    arg0->unknown_13c_->unknown_20_ &= ~0x40;
 }

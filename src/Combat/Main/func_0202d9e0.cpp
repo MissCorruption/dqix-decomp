@@ -8,15 +8,15 @@ extern char data_021016e0;
 extern char data_02101614;
 extern char data_02103400;
 
-extern "C" void func_0202dae0(unsigned short* obj);
-extern "C" void func_0202db08(unsigned short* obj);
-extern "C" int func_020d4f7c(int a, int b, int c);
-extern "C" void func_0202c848(int arg);
+extern "C" void func_0202dae0(unsigned short* arg0);
+extern "C" void func_0202db08(unsigned short* arg0);
+extern "C" int func_020d4f7c(int arg0, int arg1, int arg2);
+extern "C" void func_0202c848(int arg0);
 
 // USA: func_0202d9e0
 extern "C" ARM int func_0202d9e0(void) {
-    int result;
-    int ok;
+    int var0;
+    int var1;
 
     if (*(unsigned short*)(&data_021015a0 + 0xe) != 0) {
         return 0;
@@ -42,21 +42,21 @@ extern "C" ARM int func_0202d9e0(void) {
     *(int*)(&data_021015a0 + 0x24) = 0;
     *(int*)(&data_021015a0 + 0x10) = 3;
 
-    result = func_020d4f7c((int)&data_02103400, (int)&func_0202db08, 2);
-    if (result == 2) {
-        ok = 1;
+    var0 = func_020d4f7c((int)&data_02103400, (int)&func_0202db08, 2);
+    if (var0 == 2) {
+        var1 = 1;
     } else {
-        func_0202c848(result);
+        func_0202c848(var0);
         *(int*)(&data_021015a0 + 0x10) = 0xa;
-        ok = 0;
+        var1 = 0;
     }
 
-    if (ok == 0) {
-        ok = 0;
+    if (var1 == 0) {
+        var1 = 0;
     } else {
-        ok = 1;
-        *(unsigned short*)(&data_021015a0 + 0xe) = ok;
+        var1 = 1;
+        *(unsigned short*)(&data_021015a0 + 0xe) = var1;
     }
 
-    return ok;
+    return var1;
 }

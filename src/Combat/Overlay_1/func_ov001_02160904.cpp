@@ -4,22 +4,22 @@
 extern "C" int func_ov017_021d60f4(void*);
 
 #if defined(jpn)
-    enum { baseOffset = 0x4c0 };
+    enum { Enum_ov001_02160904_1744 = 0x4c0 };
 #else
-    enum { baseOffset = 0x6d0 };
+    enum { Enum_ov001_02160904_1744 = 0x6d0 };
 #endif
-struct FieldHolder_02160904 { char pad[0x5a4]; int field5a4; };
-struct Base02160904 { char pad[baseOffset]; FieldHolder_02160904* p; };
+struct Struct_ov001_02160904 { char unknown_0_[0x5a4]; int unknown_5a4_; };
+struct Struct_ov001_02160904_2 { char unknown_0_[Enum_ov001_02160904_1744]; Struct_ov001_02160904* unknown_6d0_; };
 
 // USA: func_ov001_02160904
-extern "C" ARM int func_ov001_02160904(void* obj) {
-    int flag = func_ov017_021d60f4(obj);
-    struct Base02160904* base = (struct Base02160904*)((char*)GetGameResources() + 0x3000);
-    struct FieldHolder_02160904* h = base->p;
-    if (flag != 0) {
-        h->field5a4 &= ~1;
+extern "C" ARM int func_ov001_02160904(void* arg0) {
+    int var0 = func_ov017_021d60f4(arg0);
+    struct Struct_ov001_02160904_2* var1 = (struct Struct_ov001_02160904_2*)((char*)GetGameResources() + 0x3000);
+    struct Struct_ov001_02160904* var2 = var1->unknown_6d0_;
+    if (var0 != 0) {
+        var2->unknown_5a4_ &= ~1;
     } else {
-        h->field5a4 |= 1;
+        var2->unknown_5a4_ |= 1;
     }
     return 1;
 }

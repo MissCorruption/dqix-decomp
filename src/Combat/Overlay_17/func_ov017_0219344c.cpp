@@ -4,283 +4,283 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-struct HeadNode02046b24;
-struct ByteFlags02033f2c;
-struct BitFlag02033f44;
-struct Bytes02033b88;
-struct Obj020397cc;
-struct ActorListManager;
-struct Vec3;
+struct Struct_02015438;
+struct Struct_02033f2c;
+struct Struct_02033f44;
+struct Struct_02010604;
+struct Struct_02018300_3;
+struct Struct_02017098;
+struct Struct_ov009_0218aa28;
 
-class Actor0219344c : public Object3D {
+class Struct_ov017_0219344c_2 : public Object3D {
 public:
-    short fieldAC;
-    unsigned char pad_ae[0xc1 - 0xae];
-    unsigned char lowC1 : 3;
-    unsigned char flagC1 : 1;
-    unsigned char highC1 : 4;
+    short unknown_ac_;
+    unsigned char unknown_ae_[0xc1 - 0xae];
+    unsigned char unknown_c1_0_ : 3;
+    unsigned char unknown_c1_3_ : 1;
+    unsigned char unknown_c1_4_ : 4;
 #if defined(jpn)
-    unsigned char pad_c2[0x180 - 0xc2];
+    unsigned char unknown_c2_[0x180 - 0xc2];
 #else
-    unsigned char pad_c2[0x18c - 0xc2];
+    unsigned char unknown1_c2_[0x18c - 0xc2];
 #endif
-    unsigned int field18c;
+    unsigned int unknown_18c_;
 };
 
-struct Zone0219344c {
-    unsigned short id;
+struct Struct_ov017_0219344c_3 {
+    unsigned short unknown_0_;
 #if defined(jpn)
-    unsigned char pad_2[0x84c - 0x2];
+    unsigned char unknown_2_[0x84c - 0x2];
 #else
-    unsigned char pad_2[0x82c - 0x2];
+    unsigned char unknown1_2_[0x82c - 0x2];
 #endif
-    int count82c;
-    unsigned char pad_830[0x23b8 - 0x830];
-    unsigned char useCell;
+    int unknown_82c_;
+    unsigned char unknown_830_[0x23b8 - 0x830];
+    unsigned char unknown_23b8_;
 };
 
-struct Probe0219344c {
-    Vector3i top;
-    Vector3i bottom;
+struct Struct_ov017_0219344c_4 {
+    Vector3i unknown_0_;
+    Vector3i unknown_c_;
 };
 
-struct Grid0219344c {
-    unsigned char data[0x980];
+struct Struct_ov017_0219344c_5 {
+    unsigned char unknown_0_[0x980];
 };
 
-struct Link0219344c {
-    unsigned char kind;
-    unsigned char pad_1;
-    unsigned short index;
+struct Struct_ov017_0219344c {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
 };
 
 extern "C" void* func_02012fe4(void);
-extern "C" int func_02046b24(HeadNode02046b24** head);
-extern "C" void func_02033f2c(ByteFlags02033f2c* p);
-extern "C" int func_ov017_0218df50(void* a, void* b);
-extern "C" int func_ov017_0218dfd8(Actor0219344c* self);
-extern "C" int func_02033f44(BitFlag02033f44* p);
-extern "C" int func_02039dcc(unsigned char* p);
-extern "C" int func_ov017_02193290(Probe0219344c* probe, Actor0219344c* self, Vector3i* dest, Vector3i* pos, int* y, int* yLow, int hidden);
-extern "C" int func_02017d90(Zone0219344c* zone, int index, Grid0219344c* grid, Probe0219344c probe, Actor0219344c* self);
-extern "C" int func_ov017_02192b48(Grid0219344c* grid, Probe0219344c* probe, int count, Actor0219344c* self, int arg, Vector3i* dest, Vector3i* pos, int* y, int* yLow, int enable, int* reset, int inCell, int index, int hidden);
-extern "C" unsigned char func_020100b0(GameState* gs);
-extern "C" void func_020397c0(void* obj);
-extern "C" int func_02033b88(Bytes02033b88* p, int val);
-extern "C" void func_020397cc(Obj020397cc* obj, int val);
-extern "C" void func_020531f0(GameObject* obj);
-extern "C" unsigned char* func_020177a8(unsigned char* p, int i);
-extern "C" void func_ov017_0218daa8(void* res, Vec3* pos, int speed, int a, unsigned char b);
-extern "C" unsigned char* func_0201777c(ActorListManager* list, int i);
+extern "C" int func_02046b24(Struct_02015438** arg0);
+extern "C" void func_02033f2c(Struct_02033f2c* arg0);
+extern "C" int func_ov017_0218df50(void* arg0, void* arg1);
+extern "C" int func_ov017_0218dfd8(Struct_ov017_0219344c_2* arg0);
+extern "C" int func_02033f44(Struct_02033f44* arg0);
+extern "C" int func_02039dcc(unsigned char* arg0);
+extern "C" int func_ov017_02193290(Struct_ov017_0219344c_4* arg0, Struct_ov017_0219344c_2* arg1, Vector3i* arg2, Vector3i* arg3, int* arg4, int* arg5, int arg6);
+extern "C" int func_02017d90(Struct_ov017_0219344c_3* arg0, int arg1, Struct_ov017_0219344c_5* arg2, Struct_ov017_0219344c_4 arg3, Struct_ov017_0219344c_2* arg4);
+extern "C" int func_ov017_02192b48(Struct_ov017_0219344c_5* arg0, Struct_ov017_0219344c_4* arg1, int arg2, Struct_ov017_0219344c_2* arg3, int arg4, Vector3i* arg5, Vector3i* arg6, int* arg7, int* arg8, int arg9, int* arg10, int arg11, int arg12, int arg13);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" void func_020397c0(void* arg0);
+extern "C" int func_02033b88(Struct_02010604* arg0, int arg1);
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void func_020531f0(GameObject* arg0);
+extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
+extern "C" void func_ov017_0218daa8(void* arg0, Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4);
+extern "C" unsigned char* func_0201777c(Struct_02017098* arg0, int arg1);
 
 #define SETUP_PROBE()                                          \
     do {                                                       \
-        probe.top = pos;                                       \
-        probe.bottom = pos;                                    \
-        probe.top.x += self->GetRadius() / 2;                  \
-        probe.top.y += self->GetHeight();                      \
-        probe.top.z += self->GetRadius() / 2;                  \
-        probe.bottom.x -= self->GetRadius() / 2;               \
-        probe.bottom.y -= 0xa000;                              \
-        probe.bottom.z -= self->GetRadius() / 2;               \
+        var22.unknown_0_ = var23;                                       \
+        var22.unknown_c_ = var23;                                    \
+        var22.unknown_0_.x += arg0->GetRadius() / 2;                  \
+        var22.unknown_0_.y += arg0->GetHeight();                      \
+        var22.unknown_0_.z += arg0->GetRadius() / 2;                  \
+        var22.unknown_c_.x -= arg0->GetRadius() / 2;               \
+        var22.unknown_c_.y -= 0xa000;                              \
+        var22.unknown_c_.z -= arg0->GetRadius() / 2;               \
     } while (0)
 
 // USA: func_ov017_0219344c
-extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* target, int mode, int* outA, int* outB) {
-    Grid0219344c grid;
-    int reset;
-    int yLow;
-    int y;
-    GameState* gs;
-    Zone0219344c* zone;
-    int total;
-    int hidden;
-    int enable;
-    int cell;
-    int inCell;
-    int useCell;
-    int hits;
-    int found;
-    int pathHits;
-    int notifyA;
-    int notifyB;
-    int zoneId;
-    int oldAC;
+extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, Vector3i* arg2, int arg3, int* arg4, int* arg5) {
+    Struct_ov017_0219344c_5 var0;
+    int var1;
+    int var2;
+    int var3;
+    GameState* var4;
+    Struct_ov017_0219344c_3* var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
+    int var12;
+    int var13;
+    int var14;
+    int var15;
+    int var16;
+    int var17;
+    int var18;
 
-    gs = GameState::GetInstance();
-    GameResources* res = GetGameResources();
-    zone = (Zone0219344c*)func_02012fe4();
-    total = 0;
-    HeadNode02046b24** head = (HeadNode02046b24**)res->unknown_ptr_array_36fc[0];
-    zoneId = zone->id;
-    Vector3i startPos = self->position_;
-    oldAC = self->fieldAC;
-    hidden = self->GetFlags() & 0x4000000;
-    self->DisableFlag(0x4000000);
-    enable = 1;
-    if (TestFlags00(res, 0x400) != 0 && g_keyManager.TestKeysHeld(1) != 0) {
-        enable = 0;
+    var4 = GameState::GetInstance();
+    GameResources* var19 = GetGameResources();
+    var5 = (Struct_ov017_0219344c_3*)func_02012fe4();
+    var6 = 0;
+    Struct_02015438** var20 = (Struct_02015438**)var19->unknown_ptr_array_36fc[0];
+    var17 = var5->unknown_0_;
+    Vector3i var21 = arg0->position_;
+    var18 = arg0->unknown_ac_;
+    var7 = arg0->GetFlags() & 0x4000000;
+    arg0->DisableFlag(0x4000000);
+    var8 = 1;
+    if (TestFlags00(var19, 0x400) != 0 && g_keyManager.TestKeysHeld(1) != 0) {
+        var8 = 0;
     }
-    if ((self->unknown_0_ & 0x100) && (self->field18c & 1)) {
-        enable = 0;
+    if ((arg0->unknown_0_ & 0x100) && (arg0->unknown_18c_ & 1)) {
+        var8 = 0;
     }
-    Probe0219344c probe;
-    Vector3i pos = self->position_;
-    Vector3i step;
-    Vector3i saved;
+    Struct_ov017_0219344c_4 var22;
+    Vector3i var23 = arg0->position_;
+    Vector3i var24;
+    Vector3i var25;
     SETUP_PROBE();
-    reset = 1;
-    if (func_02046b24(head) != 3 || self->flagC1) {
-        self->fieldAC += 0x51;
+    var1 = 1;
+    if (func_02046b24(var20) != 3 || arg0->unknown_c1_3_) {
+        arg0->unknown_ac_ += 0x51;
     }
-    if (self->fieldAC > 0x1000) {
-        self->fieldAC = 0x1000;
+    if (arg0->unknown_ac_ > 0x1000) {
+        arg0->unknown_ac_ = 0x1000;
     }
-    func_02033f2c((ByteFlags02033f2c*)self);
-    inCell = 1;
-    useCell = zone->useCell;
-    if (useCell != 0) {
-        cell = (int)(((float)(self->position_.x + 0x4000) / 4096.0f) / 8.0f)
-             + ((int)(((float)(self->position_.z + 0x4000) / 4096.0f) / 8.0f) << 4);
+    func_02033f2c((Struct_02033f2c*)arg0);
+    var10 = 1;
+    var11 = var5->unknown_23b8_;
+    if (var11 != 0) {
+        var9 = (int)(((float)(arg0->position_.x + 0x4000) / 4096.0f) / 8.0f)
+             + ((int)(((float)(arg0->position_.z + 0x4000) / 4096.0f) / 8.0f) << 4);
     }
-    yLow = self->position_.y - 0xa000;
-    y = self->position_.y;
+    var2 = arg0->position_.y - 0xa000;
+    var3 = arg0->position_.y;
 
-    if (mode == 2 && target != NULL) {
-        mode = 2;
-        Vector3fix_Subtract(&pos, target, &step);
-        Vector3fixMultiplyScalar(&step, 0x800, &step);
-        Vector3i next = *target;
-        Vector3fix_Add(&next, &step, &next);
-        self->position_ = next;
-        pos = next;
+    if (arg3 == 2 && arg2 != NULL) {
+        arg3 = 2;
+        Vector3fix_Subtract(&var23, arg2, &var24);
+        Vector3fixMultiplyScalar(&var24, 0x800, &var24);
+        Vector3i var26 = *arg2;
+        Vector3fix_Add(&var26, &var24, &var26);
+        arg0->position_ = var26;
+        var23 = var26;
     } else {
-        mode = 1;
+        arg3 = 1;
     }
 
-    Vector3i* dest = target;
-    hits = 0;
-    found = 0;
-    notifyA = 0;
-    notifyB = 0;
-    for (int i = 0; i < mode; i++) {
-        if (mode == 2 && i == 0 && outA != NULL && outB != NULL) {
-            saved = self->position_;
-            dest = &saved;
-            notifyA |= func_ov017_0218df50(self, 0);
-            notifyB |= notifyA;
-            notifyB |= func_ov017_0218dfd8(self);
-            Vector3i cur = self->position_;
-            pos = cur;
-            *outA = notifyA;
-            *outB = notifyB;
+    Vector3i* var27 = arg2;
+    var12 = 0;
+    var13 = 0;
+    var15 = 0;
+    var16 = 0;
+    for (int var28 = 0; var28 < arg3; var28++) {
+        if (arg3 == 2 && var28 == 0 && arg4 != NULL && arg5 != NULL) {
+            var25 = arg0->position_;
+            var27 = &var25;
+            var15 |= func_ov017_0218df50(arg0, 0);
+            var16 |= var15;
+            var16 |= func_ov017_0218dfd8(arg0);
+            Vector3i var29 = arg0->position_;
+            var23 = var29;
+            *arg4 = var15;
+            *arg5 = var16;
             SETUP_PROBE();
         }
-        if (i == 1) {
-            saved = self->position_;
-            dest = &saved;
-            if (outA != NULL && outB != NULL) {
-                if (func_02033f44((BitFlag02033f44*)self) && !func_02039dcc((unsigned char*)self) && notifyB != 0) {
-                    self->position_ = *target;
+        if (var28 == 1) {
+            var25 = arg0->position_;
+            var27 = &var25;
+            if (arg4 != NULL && arg5 != NULL) {
+                if (func_02033f44((Struct_02033f44*)arg0) && !func_02039dcc((unsigned char*)arg0) && var16 != 0) {
+                    arg0->position_ = *arg2;
                     break;
                 }
-                if (func_02033f44((BitFlag02033f44*)self)) {
-                    *outA |= func_ov017_0218df50(self, 0);
-                    *outB |= *outA;
-                    *outB |= func_ov017_0218dfd8(self);
-                    if (*outB != 0) {
-                        self->position_ = *target;
+                if (func_02033f44((Struct_02033f44*)arg0)) {
+                    *arg4 |= func_ov017_0218df50(arg0, 0);
+                    *arg5 |= *arg4;
+                    *arg5 |= func_ov017_0218dfd8(arg0);
+                    if (*arg5 != 0) {
+                        arg0->position_ = *arg2;
                         break;
                     }
                 }
             }
-            Vector3i next = self->position_;
-            Vector3fix_Add(&next, &step, &next);
-            self->position_ = next;
-            if (outA != NULL && outB != NULL) {
-                *outA |= func_ov017_0218df50(self, 0);
-                *outB |= *outA;
-                *outB |= func_ov017_0218dfd8(self);
-                if (func_02033f44((BitFlag02033f44*)self) && *outB != 0) {
-                    self->position_ = *target;
+            Vector3i var30 = arg0->position_;
+            Vector3fix_Add(&var30, &var24, &var30);
+            arg0->position_ = var30;
+            if (arg4 != NULL && arg5 != NULL) {
+                *arg4 |= func_ov017_0218df50(arg0, 0);
+                *arg5 |= *arg4;
+                *arg5 |= func_ov017_0218dfd8(arg0);
+                if (func_02033f44((Struct_02033f44*)arg0) && *arg5 != 0) {
+                    arg0->position_ = *arg2;
                     break;
                 }
             }
-            pos = self->position_;
+            var23 = arg0->position_;
             SETUP_PROBE();
         }
-        pathHits = 0;
-        hits = 0;
-        if (enable != 0) {
-            hits += func_ov017_02193290(&probe, self, dest, &pos, &y, &yLow, hidden);
+        var14 = 0;
+        var12 = 0;
+        if (var8 != 0) {
+            var12 += func_ov017_02193290(&var22, arg0, var27, &var23, &var3, &var2, var7);
         }
-        for (int j = 0; j < zone->count82c; j++) {
-            if (useCell != 0) {
-                if (j == 0x100) {
-                    inCell = 0;
-                } else if (j != cell) {
+        for (int var31 = 0; var31 < var5->unknown_82c_; var31++) {
+            if (var11 != 0) {
+                if (var31 == 0x100) {
+                    var10 = 0;
+                } else if (var31 != var9) {
                     continue;
                 }
             }
-            int count = func_02017d90(zone, j, &grid, probe, self);
-            if (count > 0) {
-                total += count;
-                pathHits += func_ov017_02192b48(&grid, &probe, count, self, arg, dest, &pos, &y, &yLow, enable, &reset, inCell, j, hidden);
+            int var32 = func_02017d90(var5, var31, &var0, var22, arg0);
+            if (var32 > 0) {
+                var6 += var32;
+                var14 += func_ov017_02192b48(&var0, &var22, var32, arg0, arg1, var27, &var23, &var3, &var2, var8, &var1, var10, var31, var7);
             }
         }
-        if (dest != NULL && pathHits != 0) {
-            short id = self->unknown_4_;
-            if (id != func_020100b0(gs)) {
+        if (var27 != NULL && var14 != 0) {
+            short var33 = arg0->unknown_4_;
+            if (var33 != func_020100b0(var4)) {
                 continue;
             }
-            found = func_ov017_02193290(&probe, self, dest, &pos, &y, &yLow, hidden);
-            if (found != 0) {
-                pos.x = dest->x;
-                pos.z = dest->z;
-                self->position_ = *target;
+            var13 = func_ov017_02193290(&var22, arg0, var27, &var23, &var3, &var2, var7);
+            if (var13 != 0) {
+                var23.x = var27->x;
+                var23.z = var27->z;
+                arg0->position_ = *arg2;
                 break;
             }
         }
     }
 
-    GameObject* player = gs->GetUnknownGameObject();
-    if (player->obj3D_.GetFlag(0x8000000)) {
-        reset = 0;
+    GameObject* var34 = var4->GetUnknownGameObject();
+    if (var34->obj3D_.GetFlag(0x8000000)) {
+        var1 = 0;
     }
-    if (zoneId == 10000) {
-        reset = 1;
+    if (var17 == 10000) {
+        var1 = 1;
     }
-    if (reset != 0) {
-        if (oldAC != 0 && player->obj3D_.unknown_4_ == self->unknown_4_) {
-            func_020397c0(player);
+    if (var1 != 0) {
+        if (var18 != 0 && var34->obj3D_.unknown_4_ == arg0->unknown_4_) {
+            func_020397c0(var34);
         }
-        self->fieldAC = 0;
-    } else if (oldAC == 0) {
-        func_02033b88((Bytes02033b88*)self, 0);
-        if (player->obj3D_.unknown_4_ == self->unknown_4_) {
-            func_020397cc((Obj020397cc*)player, 1);
-            if (!player->obj3D_.GetFlag(0x1000)) {
-                func_020531f0(player);
+        arg0->unknown_ac_ = 0;
+    } else if (var18 == 0) {
+        func_02033b88((Struct_02010604*)arg0, 0);
+        if (var34->obj3D_.unknown_4_ == arg0->unknown_4_) {
+            func_020397cc((Struct_02018300_3*)var34, 1);
+            if (!var34->obj3D_.GetFlag(0x1000)) {
+                func_020531f0(var34);
             }
         }
     }
 
-    GameResources* res2 = GetGameResources();
-    unsigned char* zone2 = (unsigned char*)func_02012fe4();
-    Vector3i endPos = self->position_;
-    Link0219344c* link = (Link0219344c*)res2->interactionSelection;
-    if (link != NULL && !(startPos.x == endPos.x && startPos.y == endPos.y && startPos.z == endPos.z)) {
-        if (link->kind == 2) {
-            unsigned char* elem = func_020177a8(zone2, link->index);
-            if (elem != NULL) {
-                func_ov017_0218daa8(res2, (Vec3*)elem, 0xccc, 0, 0);
+    GameResources* var35 = GetGameResources();
+    unsigned char* var36 = (unsigned char*)func_02012fe4();
+    Vector3i var37 = arg0->position_;
+    Struct_ov017_0219344c* var38 = (Struct_ov017_0219344c*)var35->unknown_36b4_;
+    if (var38 != NULL && !(var21.x == var37.x && var21.y == var37.y && var21.z == var37.z)) {
+        if (var38->unknown_0_ == 2) {
+            unsigned char* var39 = func_020177a8(var36, var38->unknown_2_);
+            if (var39 != NULL) {
+                func_ov017_0218daa8(var35, (Struct_ov009_0218aa28*)var39, 0xccc, 0, 0);
             }
-        } else if (hits == 0 && found == 0 && link->kind == 5) {
-            unsigned char* actor = func_0201777c((ActorListManager*)zone2, link->index);
-            if (actor != NULL) {
-                func_ov017_0218daa8(res2, (Vec3*)(actor + 0x24), 0xc51, 0, 0);
+        } else if (var12 == 0 && var13 == 0 && var38->unknown_0_ == 5) {
+            unsigned char* var40 = func_0201777c((Struct_02017098*)var36, var38->unknown_2_);
+            if (var40 != NULL) {
+                func_ov017_0218daa8(var35, (Struct_ov009_0218aa28*)(var40 + 0x24), 0xc51, 0, 0);
             }
         }
     }
-    return total;
+    return var6;
 }

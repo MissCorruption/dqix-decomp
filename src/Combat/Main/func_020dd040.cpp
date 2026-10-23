@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Struct020dfc40 {
-    unsigned char pad[0x14];
-    int field_14;
+struct Struct_0201099c_14 {
+    unsigned char unknown_0_[0x14];
+    int unknown_14_;
 };
 
-extern "C" void* func_020dfc2c(void* p);
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" void* func_020dfc2c(void* arg0);
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 
 #if defined(jpn)
-extern "C" int func_020e2168(char* destination, const char* tablePath,
-    int index, int variant, bool lock);
+extern "C" int func_020e2168(char* arg0, const char* arg1,
+    int arg2, int arg3, bool arg4);
 extern const char data_020f2b82[];
 #else
-extern "C" int func_020e04f4(int p0, void* p1, int p2, int p3, unsigned char p4, int p5);
+extern "C" int func_020e04f4(int arg0, void* arg1, int arg2, int arg3, unsigned char arg4, int arg5);
 
 extern const char data_020f2994[];
 extern const char data_020f29a8[];
@@ -21,28 +21,28 @@ extern const char data_020f29a8[];
 
 // JPN: func_020dea34
 // USA: func_020dd040
-extern "C" ARM void func_020dd040(int len, char* buf) {
-    const char* innerFile;
+extern "C" ARM void func_020dd040(int arg0, char* arg1) {
+    const char* var0;
 #if !defined(jpn)
-    const char* archive;
+    const char* var1;
 #endif
-    if (len > 0 && buf != NULL) {
-        struct Struct020dfc40 s;
+    if (arg0 > 0 && arg1 != NULL) {
+        struct Struct_0201099c_14 var2;
 #if defined(jpn)
-        innerFile = data_020f2b82;
+        var0 = data_020f2b82;
 #else
-        archive = data_020f2994;
-        innerFile = data_020f29a8;
+        var1 = data_020f2994;
+        var0 = data_020f29a8;
 #endif
-        buf[0] = 0;
-        func_020dfc2c(&s);
-        func_020dfc40(&s);
+        arg1[0] = 0;
+        func_020dfc2c(&var2);
+        func_020dfc40(&var2);
     } else {
         return;
     }
 #if defined(jpn)
-    func_020e2168(buf, innerFile, len, 0, true);
+    func_020e2168(arg1, var0, arg0, 0, true);
 #else
-    func_020e04f4((int)buf, (void*)innerFile, len, 0, 1, (int)archive);
+    func_020e04f4((int)arg1, (void*)var0, arg0, 0, 1, (int)var1);
 #endif
 }

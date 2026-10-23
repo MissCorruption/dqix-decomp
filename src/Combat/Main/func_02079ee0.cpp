@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Element02079f20;
-struct Container02079f20;
-struct S020797f8;
-typedef int (*KeyFunc02079f20)(struct Element02079f20*);
+struct Struct_02079ee0;
+struct Struct_02079ee0_2;
+struct Struct_020797f8;
+typedef int (*Type_02079ee0)(struct Struct_02079ee0*);
 
-extern "C" struct Element02079f20* func_02079f20(struct Container02079f20* c, int key, KeyFunc02079f20 fn);
-extern "C" int func_020797f8(struct S020797f8* p);
+extern "C" struct Struct_02079ee0* func_02079f20(struct Struct_02079ee0_2* arg0, int arg1, Type_02079ee0 arg2);
+extern "C" int func_020797f8(struct Struct_020797f8* arg0);
 
 // USA: func_02079ee0
-extern "C" ARM struct Element02079f20* func_02079ee0(void* obj, int key) {
-    struct Element02079f20* r;
-    if (key == 0) return NULL;
-    r = func_02079f20((struct Container02079f20*)((char*)obj + 0x18), key, (KeyFunc02079f20)func_020797f8);
-    if (r != NULL) return r;
-    return func_02079f20((struct Container02079f20*)((char*)obj + 0x24), key, (KeyFunc02079f20)func_020797f8);
+extern "C" ARM struct Struct_02079ee0* func_02079ee0(void* arg0, int arg1) {
+    struct Struct_02079ee0* var0;
+    if (arg1 == 0) return NULL;
+    var0 = func_02079f20((struct Struct_02079ee0_2*)((char*)arg0 + 0x18), arg1, (Type_02079ee0)func_020797f8);
+    if (var0 != NULL) return var0;
+    return func_02079f20((struct Struct_02079ee0_2*)((char*)arg0 + 0x24), arg1, (Type_02079ee0)func_020797f8);
 }

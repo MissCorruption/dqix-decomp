@@ -2,23 +2,23 @@
 #define func_ov023_021e6de4 func_ov023_021e7148
 #define func_ov012_0218943c func_ov012_02189d18
 enum {
-    kStepOffset = 0x1340,
-    kStateOffset = 0x1341,
-    kActiveOffset = 0x1368,
-    kWindowOffset = 0x90,
-    kPreviousStateOffset = 0x148,
-    kMainChoiceOffset = 0x142c,
-    kSecondaryState = 7
+    Enum_ov012_02186a7c_4976 = 0x1340,
+    Enum_ov012_02186a7c_4977 = 0x1341,
+    Enum_ov012_02186a7c_5024 = 0x1368,
+    Enum_ov012_02186a7c_172 = 0x90,
+    Enum_ov012_02186a7c_356 = 0x148,
+    Enum_ov012_02186a7c_5076 = 0x142c,
+    Enum_ov012_02186a7c_9 = 7
 };
 #else
 enum {
-    kStepOffset = 0x1370,
-    kStateOffset = 0x1371,
-    kActiveOffset = 0x13a0,
-    kWindowOffset = 0xac,
-    kPreviousStateOffset = 0x164,
-    kMainChoiceOffset = 0x13d4,
-    kSecondaryState = 9
+    Enum_ov012_02186a7c_4976 = 0x1370,
+    Enum_ov012_02186a7c_4977 = 0x1371,
+    Enum_ov012_02186a7c_5024 = 0x13a0,
+    Enum_ov012_02186a7c_172 = 0xac,
+    Enum_ov012_02186a7c_356 = 0x164,
+    Enum_ov012_02186a7c_5076 = 0x13d4,
+    Enum_ov012_02186a7c_9 = 9
 };
 #endif
 
@@ -29,70 +29,70 @@ enum {
 extern "C" void* func_0200fb8c(int*);
 extern "C" void* func_02094a00();
 
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* s);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
 
-struct Obj0205eaa0;
-extern struct Obj0205eaa0 data_02108760;
-extern "C" int func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+struct Struct_02108760;
+extern struct Struct_02108760 data_02108760;
+extern "C" int func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-struct Entry_0205d6a0;
-extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
+struct Struct_0205d6a0;
+extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 
-struct Obj021e6e20;
-extern "C" int func_ov023_021e6e20(struct Obj021e6e20* obj);
+struct Struct_ov012_02186a7c;
+extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
 
-extern "C" void func_ov023_021e6e60(void* self);
-extern "C" int func_ov023_021e6de4(char* obj);
-extern "C" void func_ov012_0218943c(void* self);
+extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" int func_ov023_021e6de4(char* arg0);
+extern "C" void func_ov012_0218943c(void* arg0);
 
 // USA: func_ov012_02186a7c
-extern "C" ARM void func_ov012_02186a7c(char* self) {
+extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 	func_0200fb8c((int*)GameState::GetInstance());
 	BackgroundLoader::GetInstance();
 	func_02094a00();
 
-	unsigned char state = *(unsigned char*)(self + kStepOffset);
-	if (state == 0) {
-		*(unsigned char*)(self + kActiveOffset) = 0;
-		*(int*)(self + kMainChoiceOffset) = 0;
-		func_0205de24((struct Struct0205de24*)(self + kWindowOffset), 0, 2);
-		func_ov023_021e6e60(self);
-		func_ov012_0218943c(self);
-		(*(unsigned char*)(self + kStepOffset))++;
+	unsigned char var0 = *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976);
+	if (var0 == 0) {
+		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
+		*(int*)(arg0 + Enum_ov012_02186a7c_5076) = 0;
+		func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov012_02186a7c_172), 0, 2);
+		func_ov023_021e6e60(arg0);
+		func_ov012_0218943c(arg0);
+		(*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976))++;
 		return;
 	}
-	if (state != 1) return;
+	if (var0 != 1) return;
 
-	*(unsigned char*)(self + kActiveOffset) = 1;
-	*(int*)(self + kMainChoiceOffset) = func_0205d794((struct Struct_0205c570*)(self + kWindowOffset));
+	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 1;
+	*(int*)(arg0 + Enum_ov012_02186a7c_5076) = func_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186a7c_172));
 
-	int flag = 0;
-	if (func_ov023_021e6de4(self) != 0) {
-		*(unsigned char*)(self + kPreviousStateOffset) = *(unsigned char*)(self + kStateOffset);
-		*(unsigned char*)(self + kActiveOffset) = 0;
+	int var1 = 0;
+	if (func_ov023_021e6de4(arg0) != 0) {
+		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_356) = *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977);
+		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
 		func_0205eaa0(&data_02108760, 1, 0);
 
-		int v = *(int*)(self + kMainChoiceOffset);
-		switch (v) {
-		case 0: *(unsigned char*)(self + kStateOffset) = 2; *(unsigned char*)(self + kStepOffset) = flag; break;
-		case 1: *(unsigned char*)(self + kStateOffset) = kSecondaryState; *(unsigned char*)(self + kStepOffset) = flag; break;
-		case 2: *(unsigned char*)(self + kStateOffset) = 0xa; *(unsigned char*)(self + kStepOffset) = flag; break;
-		case 3: *(unsigned char*)(self + kStateOffset) = 0xd; *(unsigned char*)(self + kStepOffset) = flag; break;
-		case 4: *(unsigned char*)(self + kStateOffset) = 0xe; *(unsigned char*)(self + kStepOffset) = flag; break;
-		case 5: flag = 1; break;
+		int var2 = *(int*)(arg0 + Enum_ov012_02186a7c_5076);
+		switch (var2) {
+		case 0: *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = 2; *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = var1; break;
+		case 1: *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = Enum_ov012_02186a7c_9; *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = var1; break;
+		case 2: *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = 0xa; *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = var1; break;
+		case 3: *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = 0xd; *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = var1; break;
+		case 4: *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = 0xe; *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = var1; break;
+		case 5: var1 = 1; break;
 		}
 	} else {
-		if (func_ov023_021e6e20((struct Obj021e6e20*)self) != 0) flag = 1;
+		if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) var1 = 1;
 	}
 
-	if (flag == 0) return;
-	*(unsigned char*)(self + kActiveOffset) = 0;
-	*(int*)(self + kMainChoiceOffset) = 0;
-	func_0205d6a0((struct Entry_0205d6a0*)(self + kWindowOffset), 1);
-	*(unsigned char*)(self + kStateOffset) = 0xf;
-	*(unsigned char*)(self + kStepOffset) = 0;
+	if (var1 == 0) return;
+	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
+	*(int*)(arg0 + Enum_ov012_02186a7c_5076) = 0;
+	func_0205d6a0((struct Struct_0205d6a0*)(arg0 + Enum_ov012_02186a7c_172), 1);
+	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977) = 0xf;
+	*(unsigned char*)(arg0 + Enum_ov012_02186a7c_4976) = 0;
 }

@@ -4,84 +4,84 @@
 #define data_ov000_02183460 data_ov000_021844e8
 #define data_ov000_021833b0 data_ov000_0218445a
 #endif
-struct Combatant02174324 {
-    char pad[0x25];
-    unsigned char field_0x25;
-    char pad2[0x28 - 0x26];
-    unsigned int statusFlags;
-    char pad3[0x2f - 0x2c];
-    unsigned char field_0x2f;
+struct Struct_ov000_02174324 {
+    char unknown_0_[0x25];
+    unsigned char unknown_25_;
+    char unknown_26_[0x28 - 0x26];
+    unsigned int unknown_28_;
+    char unknown_2c_[0x2f - 0x2c];
+    unsigned char unknown_2f_;
 };
 
-struct Slot02174324 {
-    char pad[0x14];
-    int x;
-    int y;
-    char pad2[0x22 - 0x1c];
-    unsigned char palette;
-    char pad3[0x26 - 0x23];
-    unsigned char active;
-    char pad4[0x28 - 0x27];
+struct Struct_ov000_02174324_2 {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[0x22 - 0x1c];
+    unsigned char unknown_22_;
+    char unknown_23_[0x26 - 0x23];
+    unsigned char unknown_26_;
+    char unknown_27_[0x28 - 0x27];
 };
 
-struct Battle02174324 {
-    char pad[0x11c];
-    char queue[0x170 - 0x11c];
-    struct Slot02174324* slots;
+struct Struct_ov000_02174324_3 {
+    char unknown_0_[0x11c];
+    char unknown_11c_[0x170 - 0x11c];
+    struct Struct_ov000_02174324_2* unknown_170_;
 };
 
-extern "C" struct Combatant02174324* func_ov000_02161318(struct Battle02174324* obj, int id);
-extern "C" int func_0205ac40(void* queue, struct Slot02174324* slot, int count);
+extern "C" struct Struct_ov000_02174324* func_ov000_02161318(struct Struct_ov000_02174324_3* arg0, int arg1);
+extern "C" int func_0205ac40(void* arg0, struct Struct_ov000_02174324_2* arg1, int arg2);
 
 extern unsigned int data_ov000_02183460[];
 extern unsigned char data_ov000_021833b0[];
 
 // USA: func_ov000_02174324
 #if defined(jpn)
-enum { paletteBase = 0x58 };
+enum { Enum_ov000_02174324_92 = 0x58 };
 #else
-enum { paletteBase = 0x5c };
+enum { Enum_ov000_02174324_92 = 0x5c };
 #endif
-extern "C" ARM int func_ov000_02174324(struct Battle02174324* battle, int id, int x, int y) {
-    struct Combatant02174324* c = func_ov000_02161318(battle, id);
-    if (c == NULL) return 0;
+extern "C" ARM int func_ov000_02174324(struct Struct_ov000_02174324_3* arg0, int arg1, int arg2, int arg3) {
+    struct Struct_ov000_02174324* var0 = func_ov000_02161318(arg0, arg1);
+    if (var0 == NULL) return 0;
 
-    int i = 0;
-    int found = 0;
-    unsigned int flags = c->statusFlags;
-    unsigned char slotIdx;
-    unsigned char palette;
+    int var1 = 0;
+    int var2 = 0;
+    unsigned int var3 = var0->unknown_28_;
+    unsigned char var4;
+    unsigned char var5;
 
-    while (data_ov000_02183460[i] != 0) {
-        unsigned int bit = data_ov000_02183460[i];
-        if (c->statusFlags & bit) {
-            if (bit == 2 && c->field_0x2f != 2 && i == 4) {
-                i++;
+    while (data_ov000_02183460[var1] != 0) {
+        unsigned int var6 = data_ov000_02183460[var1];
+        if (var0->unknown_28_ & var6) {
+            if (var6 == 2 && var0->unknown_2f_ != 2 && var1 == 4) {
+                var1++;
                 continue;
             }
-            slotIdx = data_ov000_021833b0[i] + 0x15;
-            palette = id + paletteBase;
-            found = 1;
+            var4 = data_ov000_021833b0[var1] + 0x15;
+            var5 = arg1 + Enum_ov000_02174324_92;
+            var2 = 1;
             break;
         }
-        i++;
+        var1++;
     }
 
-    if ((flags & 0x80000) && i >= 4) {
-        if (c->field_0x25 != 9) {
-            palette = id + paletteBase;
-            found = 1;
-            slotIdx = 0x1f;
+    if ((var3 & 0x80000) && var1 >= 4) {
+        if (var0->unknown_25_ != 9) {
+            var5 = arg1 + Enum_ov000_02174324_92;
+            var2 = 1;
+            var4 = 0x1f;
         }
     }
 
-    if (!found) return 0;
+    if (!var2) return 0;
 
-    struct Slot02174324* slot = &battle->slots[slotIdx];
-    slot->x = x << 12;
-    slot->y = y << 12;
-    slot->palette = palette;
-    slot->active = 1;
-    func_0205ac40(battle->queue, slot, 1);
+    struct Struct_ov000_02174324_2* var7 = &arg0->unknown_170_[var4];
+    var7->unknown_14_ = arg2 << 12;
+    var7->unknown_18_ = arg3 << 12;
+    var7->unknown_22_ = var5;
+    var7->unknown_26_ = 1;
+    func_0205ac40(arg0->unknown_11c_, var7, 1);
     return 1;
 }

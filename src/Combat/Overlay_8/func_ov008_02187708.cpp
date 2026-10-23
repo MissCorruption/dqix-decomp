@@ -3,125 +3,125 @@
 #include <World/Object3D.h>
 #include <Filesystem/BackgroundLoader.h>
 
-struct PlayTime {
-    unsigned short hours_;
-    unsigned char minutes_;
-    unsigned char seconds_;
+struct Struct_01ff8b48_26 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
 
-struct ClearRecords;
+struct Struct_ov008_021843f8_2;
 
-struct GuestRecords {
-    unsigned int hours1_ : 14;
-    unsigned int unk_0_14 : 17;
-    unsigned int unk_0_31 : 1;
-    unsigned int hours2_ : 14;
-    unsigned int unk_4_14 : 17;
-    unsigned int unk_4_31 : 1;
-    unsigned int minutes1_ : 7;
-    unsigned int minutes2_ : 7;
-    unsigned int unk_8_14 : 7;
-    unsigned int unk_8_21 : 7;
-    unsigned int unk_8_28 : 4;
-    unsigned int unk_c_0 : 10;
-    unsigned int unk_c_10 : 14;
-    unsigned int unk_c_24 : 7;
-    unsigned int unk_c_31 : 1;
-    unsigned int unk_10_0 : 9;
-    unsigned int unk_10_9 : 14;
-    unsigned int unk_10_23 : 7;
-    unsigned int unk_10_30 : 2;
-    short title_;
-    unsigned char female_ : 1;
-    unsigned char unk_16_1 : 4;
-    unsigned char unk_16_5 : 3;
-    unsigned char unk_17;
+struct Struct_ov008_02187278 {
+    unsigned int unknown_0_0_ : 14;
+    unsigned int unknown_1_6_ : 17;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 14;
+    unsigned int unknown_5_6_ : 17;
+    unsigned int unknown_7_7_ : 1;
+    unsigned int unknown_8_0_ : 7;
+    unsigned int unknown_8_7_ : 7;
+    unsigned int unknown_9_6_ : 7;
+    unsigned int unknown_a_5_ : 7;
+    unsigned int unknown_b_4_ : 4;
+    unsigned int unknown_c_0_ : 10;
+    unsigned int unknown_d_2_ : 14;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 7;
+    unsigned int unknown_13_6_ : 2;
+    short unknown_14_;
+    unsigned char unknown_16_0_ : 1;
+    unsigned char unknown_16_1_ : 4;
+    unsigned char unknown_16_5_ : 3;
+    unsigned char unknown_17_;
 };
 
-struct TextTable {
-    int pad_0[0x18 / 4];
+struct Struct_01ff8b48_13 {
+    int unknown_0_[0x18 / 4];
 };
 
-struct TextList {
-    int pad_0[2];
+struct Struct_ov008_02185dc0 {
+    int unknown_0_[2];
 };
 
-struct BackgroundGraphics {
-    int pad_0[0x20 / 4];
+struct Struct_ov003_021594c4 {
+    int unknown_0_[0x20 / 4];
 };
 
-struct TextWindow {
-    int pad_0[0xbc / 4];
+struct Struct_02081870_2 {
+    int unknown_0_[0xbc / 4];
 };
 
-struct Canvas {
-    int pad_0[0xe0 / 4];
+struct Struct_ov006_02158478 {
+    int unknown_0_[0xe0 / 4];
 };
 
-struct WindowCursor {
-    int pad_0[0x40 / 4];
+struct Struct_ov009_02186e00_2 {
+    int unknown_0_[0x40 / 4];
 };
 
-struct BattleRecords {
-    SafeAllocator allocator_;
-    SafeAllocator backgroundAllocator_;
-    SafeAllocator textAllocator_;
-    SafeAllocator spriteAllocator_;
-    SafeAllocator iconAllocator_;
-    SafeAllocator modelAllocator_;
-    SafeAllocator titleAllocator_;
-    SafeAllocator guideAllocator_;
-    TextTable texts_;
-    char* text_;
-    char titleTable_[0x14];
-    BackgroundGraphics backgrounds_[3];
-    TextWindow window_;
-    Canvas canvases_[6];
-    void* pixels_;
-    void* renderer_;
-    void* sprites_;
-    void* animations_;
-    void* iconRenderer_;
-    void* iconSprite_;
-    unsigned char items_[8];
-    unsigned char itemCount_;
-    WindowCursor cursor_;
-    Object3D model_;
-    char camera_[0x2c8];
-    void* titles_;
-    void* guide_;
-    void* page_;
-    signed char state_;
-    unsigned char step_;
-    unsigned char loadStep_;
-    unsigned char exit_;
-    short title_;
-    short comment_;
-    int flags_;
-    int unk_b1c;
-    int task_;
-    int mode_;
-    unsigned char kind_;
-    unsigned char top_;
-    unsigned char closed_;
-    int titleX_;
-    const void* guest_;
-    GuestRecords* guestRecords_;
-    void* guestTexts_;
-    void* guestTitles_;
-    PlayTime times_[2];
+struct Struct_ov008_021842a0_2 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator unknown_3c_;
+    SafeAllocator unknown_50_;
+    SafeAllocator unknown_64_;
+    SafeAllocator unknown_78_;
+    SafeAllocator unknown_8c_;
+    Struct_01ff8b48_13 unknown_a0_;
+    char* unknown_b8_;
+    char unknown_bc_[0x14];
+    Struct_ov003_021594c4 unknown_d0_[3];
+    Struct_02081870_2 unknown_130_;
+    Struct_ov006_02158478 unknown_1ec_[6];
+    void* unknown_72c_;
+    void* unknown_730_;
+    void* unknown_734_;
+    void* unknown_738_;
+    void* unknown_73c_;
+    void* unknown_740_;
+    unsigned char unknown_744_[8];
+    unsigned char unknown_74c_;
+    Struct_ov009_02186e00_2 unknown_750_;
+    Object3D unknown_790_;
+    char unknown_83c_[0x2c8];
+    void* unknown_b04_;
+    void* unknown_b08_;
+    void* unknown_b0c_;
+    signed char unknown_b10_;
+    unsigned char unknown_b11_;
+    unsigned char unknown_b12_;
+    unsigned char unknown_b13_;
+    short unknown_b14_;
+    short unknown_b16_;
+    int unknown_b18_;
+    int unknown_b1c_;
+    int unknown_b20_;
+    int unknown_b24_;
+    unsigned char unknown_b28_;
+    unsigned char unknown_b29_;
+    unsigned char unknown_b2a_;
+    int unknown_b2c_;
+    const void* unknown_b30_;
+    Struct_ov008_02187278* unknown_b34_;
+    void* unknown_b38_;
+    void* unknown_b3c_;
+    Struct_01ff8b48_26 unknown_b40_[2];
 };
 
-struct PartyMemberData {
-    char pad_0[0x49c];
-    unsigned char female_ : 1;
-    char pad_49d[0x950 - 0x49d];
-    int vocation_;
+struct Struct_ov005_0215840c_2 {
+    char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
+    char unknown_49d_[0x950 - 0x49d];
+    int unknown_950_;
 };
 
 struct GameObject {
-    char pad_0[0x150];
-    PartyMemberData* partyData_;
+    char unknown_0_[0x150];
+    Struct_ov005_0215840c_2* unknown_150_;
 };
 
 struct GameState {
@@ -129,31 +129,31 @@ struct GameState {
     GameObject* GetProtagonist();
 };
 
-struct HeroTitleWord {
-    unsigned int unk_0 : 19;
-    int title_ : 11;
-    unsigned int unk_30 : 2;
+struct Struct_ov008_02187708 {
+    unsigned int unknown_0_0_ : 19;
+    int unknown_2_3_ : 11;
+    unsigned int unknown_3_6_ : 2;
 };
 
-static inline char* GetHeroTitle(GameState* gameState)
+static inline char* inline_ov008_02187708(GameState* arg0)
 {
-    return (char*)gameState + 0x569c;
+    return (char*)arg0 + 0x569c;
 }
 
-struct MessageSystem {
-    char pad_0[0x10];
-    void* unk_10;
+struct Struct_02021b84 {
+    char unknown_0_[0x10];
+    void* unknown_10_;
 };
 
-struct MessageName {
-    int pad_0[3];
+struct Struct_ov008_02187708_2 {
+    int unknown_0_[3];
 };
 
-struct List020727d8;
-struct Container020e0310;
-struct TableA68;
-struct StreamHeader;
-struct Obj02046574;
+struct Struct_020727d8;
+struct Struct_0201099c_3;
+struct Struct_02072a68_2;
+struct Struct_02013fb4;
+struct Struct_02046574_2;
 
 extern char data_ov008_0218b465[];
 extern char data_ov008_0218b47c[];
@@ -161,147 +161,147 @@ extern char data_ov008_0218b49b[];
 extern char data_ov008_0218b4b0[];
 extern char data_ov008_0218b4c1[];
 
-extern "C" MessageSystem* func_020421a0();
-extern "C" void func_020e46c4(void* name);
-extern "C" void func_020e4c74(void* name, GameObject* object);
-extern "C" void func_020727d8(List020727d8* list);
-extern "C" const char* func_020e0434(Container020e0310* texts, int id);
-extern "C" const char* func_02072a68(TableA68* texts, int id);
-extern "C" void func_02072928(void* list, StreamHeader* file, int size, int id, void* output, unsigned char female);
-extern "C" void func_02046574(Obj02046574* messages, int index, char* text);
-extern "C" char* func_020d2f88(char* text, char* search);
-extern "C" void func_02041a5c(char* text, int y);
-extern "C" void func_02042058(char* text, const char* append);
+extern "C" Struct_02021b84* func_020421a0();
+extern "C" void func_020e46c4(void* arg0);
+extern "C" void func_020e4c74(void* arg0, GameObject* arg1);
+extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void func_02072928(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3, void* arg4, unsigned char arg5);
+extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" char* func_020d2f88(char* arg0, char* arg1);
+extern "C" void func_02041a5c(char* arg0, int arg1);
+extern "C" void func_02042058(char* arg0, const char* arg1);
 
 extern "C" {
-void __clear(void* buffer, unsigned long size);
-int sprintf(char* buffer, const char* format, ...);
-void* ExtractFileFromGP2(char* path, char* inner, unsigned int* size);
-void func_02046380(MessageSystem* messages);
-void func_02042764(const void* codes, char* text, int value);
-void func_020e4b34(MessageName* name, char* text, char* text2, int a, int b, int c, int d, int female, int e,
-                   int f, int g, int h);
-const char* func_020e046c(char* output, void* file, unsigned int size, short id);
-void func_02046608(MessageSystem* messages, int value, const char* format, char* output, int size, int a, int b);
-int func_020420e8(const char* text, int large);
+void __clear(void* arg0, unsigned long arg1);
+int sprintf(char* arg0, const char* arg1, ...);
+void* ExtractFileFromGP2(char* arg0, char* arg1, unsigned int* arg2);
+void func_02046380(Struct_02021b84* arg0);
+void func_02042764(const void* arg0, char* arg1, int arg2);
+void func_020e4b34(Struct_ov008_02187708_2* arg0, char* arg1, char* arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8,
+                   int arg9, int arg10, int arg11);
+const char* func_020e046c(char* arg0, void* arg1, unsigned int arg2, short arg3);
+void func_02046608(Struct_02021b84* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
+int func_020420e8(const char* arg0, int arg1);
 }
 
 // USA: func_ov008_02187708
-extern "C" ARM void func_ov008_02187708(BattleRecords* self, char* text, ClearRecords* records)
+extern "C" ARM void func_ov008_02187708(Struct_ov008_021842a0_2* arg0, char* arg1, Struct_ov008_021843f8_2* arg2)
 {
-    if (text == NULL)
+    if (arg1 == NULL)
         return;
-    GameState* gameState = GameState::GetInstance();
+    GameState* var0 = GameState::GetInstance();
     BackgroundLoader::GetInstance();
-    MessageSystem* messages = func_020421a0();
-    char name[0x30];
-    __clear(name, sizeof(name));
-    short title = 0;
-    char buffer[0x40];
-    __clear(buffer, sizeof(buffer));
-    unsigned int female = 0;
-    func_02046380(messages);
-    MessageName heroName;
-    MessageName guestName;
-    const void* codes = self->guest_;
-    if (codes == NULL)
+    Struct_02021b84* var1 = func_020421a0();
+    char var2[0x30];
+    __clear(var2, sizeof(var2));
+    short var3 = 0;
+    char var4[0x40];
+    __clear(var4, sizeof(var4));
+    unsigned int var5 = 0;
+    func_02046380(var1);
+    Struct_ov008_02187708_2 var6;
+    Struct_ov008_02187708_2 var7;
+    const void* var8 = arg0->unknown_b30_;
+    if (var8 == NULL)
     {
-        char* heroTitle = GetHeroTitle(gameState);
-        title = ((HeroTitleWord*)(heroTitle + 4))->title_;
-        GameObject* hero = gameState->GetProtagonist();
-        if (hero != NULL)
+        char* var9 = inline_ov008_02187708(var0);
+        var3 = ((Struct_ov008_02187708*)(var9 + 4))->unknown_2_3_;
+        GameObject* var10 = var0->GetProtagonist();
+        if (var10 != NULL)
         {
-            if (title <= 0)
+            if (var3 <= 0)
             {
-                PartyMemberData* data = hero->partyData_;
-                int vocations = 0x50dc;
-                if (data->female_ == 1)
-                    vocations = 0x510e;
-                title = vocations - 20000 + data->vocation_;
+                Struct_ov005_0215840c_2* var11 = var10->unknown_150_;
+                int var12 = 0x50dc;
+                if (var11->unknown_49c_0_ == 1)
+                    var12 = 0x510e;
+                var3 = var12 - 20000 + var11->unknown_950_;
             }
-            female = hero->partyData_->female_;
-            func_020e46c4(&heroName);
-            func_020e4c74(&heroName, hero);
-            messages->unk_10 = &heroName;
+            var5 = var10->unknown_150_->unknown_49c_0_;
+            func_020e46c4(&var6);
+            func_020e4c74(&var6, var10);
+            var1->unknown_10_ = &var6;
         }
     }
     else
     {
-        GuestRecords* guest = self->guestRecords_;
-        if (guest != NULL)
-            title = guest->title_;
-        female = guest->female_;
-        func_02042764(codes, name, 1);
-        func_020e46c4(&guestName);
-        func_020e4b34(&guestName, name, name, 0, 0, 0, 0, female, 0, 1, 0, 1);
-        messages->unk_10 = &guestName;
+        Struct_ov008_02187278* var13 = arg0->unknown_b34_;
+        if (var13 != NULL)
+            var3 = var13->unknown_14_;
+        var5 = var13->unknown_16_0_;
+        func_02042764(var8, var2, 1);
+        func_020e46c4(&var7);
+        func_020e4b34(&var7, var2, var2, 0, 0, 0, 0, var5, 0, 1, 0, 1);
+        var1->unknown_10_ = &var7;
     }
-    if (title > 0)
+    if (var3 > 0)
     {
-        TextList list;
-        func_020727d8((List020727d8*)&list);
-        const char* titleText = NULL;
-        unsigned int size = 0;
-        if (title < 700)
+        Struct_ov008_02185dc0 var14;
+        func_020727d8((Struct_020727d8*)&var14);
+        const char* var15 = NULL;
+        unsigned int var16 = 0;
+        if (var3 < 700)
         {
-            if (self->guestTitles_ != NULL)
+            if (arg0->unknown_b3c_ != NULL)
             {
-                titleText = func_020e0434((Container020e0310*)self->guestTitles_, title);
+                var15 = func_020e0434((Struct_0201099c_3*)arg0->unknown_b3c_, var3);
             }
             else
             {
                 BackgroundLoader::AddLockGlobal();
-                unsigned int namesSize = 0;
-                char gp2[0x40];
-                char inner[0x20];
-                __clear(gp2, sizeof(gp2));
-                __clear(inner, sizeof(inner));
-                sprintf(gp2, data_ov008_0218b465, female);
-                sprintf(inner, data_ov008_0218b47c, female);
-                void* file = ExtractFileFromGP2(gp2, inner, &namesSize);
-                if (file != NULL)
-                    titleText = func_020e046c(buffer, file, namesSize, title);
+                unsigned int var17 = 0;
+                char var18[0x40];
+                char var19[0x20];
+                __clear(var18, sizeof(var18));
+                __clear(var19, sizeof(var19));
+                sprintf(var18, data_ov008_0218b465, var5);
+                sprintf(var19, data_ov008_0218b47c, var5);
+                void* var20 = ExtractFileFromGP2(var18, var19, &var17);
+                if (var20 != NULL)
+                    var15 = func_020e046c(var4, var20, var17, var3);
                 BackgroundLoader::RemoveLockGlobal();
             }
         }
         else
         {
-            if (self->guestTexts_ != NULL)
+            if (arg0->unknown_b38_ != NULL)
             {
-                titleText = func_02072a68((TableA68*)self->guestTexts_, (short)(title + 20000));
+                var15 = func_02072a68((Struct_02072a68_2*)arg0->unknown_b38_, (short)(var3 + 20000));
             }
             else
             {
                 BackgroundLoader::AddLockGlobal();
-                void* file = ExtractFileFromGP2(data_ov008_0218b49b, data_ov008_0218b4b0, &size);
-                if (file != NULL)
+                void* var21 = ExtractFileFromGP2(data_ov008_0218b49b, data_ov008_0218b4b0, &var16);
+                if (var21 != NULL)
                 {
-                    func_02072928(&list, (StreamHeader*)file, size, (short)(title + 20000), buffer, 0);
-                    titleText = buffer;
+                    func_02072928(&var14, (Struct_02013fb4*)var21, var16, (short)(var3 + 20000), var4, 0);
+                    var15 = var4;
                 }
                 BackgroundLoader::RemoveLockGlobal();
             }
         }
-        func_02046574((Obj02046574*)messages, 0, (char*)titleText);
+        func_02046574((Struct_02046574_2*)var1, 0, (char*)var15);
     }
-    char* output = self->text_;
-    int format = 100;
-    int width = 0xee;
-    if (records != NULL)
+    char* var22 = arg0->unknown_b8_;
+    int var23 = 100;
+    int var24 = 0xee;
+    if (arg2 != NULL)
     {
-        format = 101;
-        width = 0xdf;
+        var23 = 101;
+        var24 = 0xdf;
     }
-    func_02046608(messages, 10, func_020e0434((Container020e0310*)&self->texts_, format), output + 0x760, width, 1, 0);
-    int color = 7;
-    if (func_020d2f88(output + 0x760, data_ov008_0218b4c1) != NULL)
-        color = 2;
-    if (records != NULL)
+    func_02046608(var1, 10, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, var23), var22 + 0x760, var24, 1, 0);
+    int var25 = 7;
+    if (func_020d2f88(var22 + 0x760, data_ov008_0218b4c1) != NULL)
+        var25 = 2;
+    if (arg2 != NULL)
     {
-        self->titleX_ = (func_020420e8(output + 0x760, 0) + 0x10) << 12;
-        if (color == 2)
-            self->titleX_ = 0xe0000;
+        arg0->unknown_b2c_ = (func_020420e8(var22 + 0x760, 0) + 0x10) << 12;
+        if (var25 == 2)
+            arg0->unknown_b2c_ = 0xe0000;
     }
-    func_02041a5c(text, color);
-    func_02042058(text, output + 0x760);
+    func_02041a5c(arg1, var25);
+    func_02042058(arg1, var22 + 0x760);
 }

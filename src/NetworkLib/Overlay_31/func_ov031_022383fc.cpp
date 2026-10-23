@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Context022383fc {
-	unsigned char pad0[0x1c];
-	unsigned char ctxByte;
+struct Struct_ov031_022383fc {
+	unsigned char unknown_0_[0x1c];
+	unsigned char unknown_1c_;
 };
-extern Context022383fc* data_ov031_02290d10;
+extern Struct_ov031_022383fc* data_ov031_02290d10;
 
-struct ElemArray_0223baa0;
-struct Elem8_0223baa0;
-extern "C" Elem8_0223baa0* func_ov031_0223baa0(ElemArray_0223baa0* obj, int idx);
-extern "C" void func_ov031_0223bdb0(int a, int b, void* c);
-extern "C" void func_ov031_0223bbd8(void* a, int b, int c, int d);
+struct Struct_ov031_022269d8;
+struct Struct_ov031_02223268_2;
+extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
+extern "C" void func_ov031_0223bdb0(int arg0, int arg1, void* arg2);
+extern "C" void func_ov031_0223bbd8(void* arg0, int arg1, int arg2, int arg3);
 
-struct Obj0223bcc8;
-extern "C" ARM void func_ov031_0223bcc8(Obj0223bcc8* obj, int idx, int val);
+struct Struct_ov031_02222ce4;
+extern "C" ARM void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
 
 extern unsigned char data_ov031_022492fe[];
 extern unsigned char data_ov031_022492ea[];
@@ -21,21 +21,21 @@ extern unsigned short data_ov031_02249364[];
 extern unsigned short data_ov031_02249366[];
 
 // USA: func_ov031_022383fc
-extern "C" ARM void func_ov031_022383fc(int idx) {
-	Elem8_0223baa0* elem = func_ov031_0223baa0(
-		*(ElemArray_0223baa0**)((char*)data_ov031_02290d10 + 8 + idx * 4), 0);
+extern "C" ARM void func_ov031_022383fc(int arg0) {
+	Struct_ov031_02223268_2* var0 = func_ov031_0223baa0(
+		*(Struct_ov031_022269d8**)((char*)data_ov031_02290d10 + 8 + arg0 * 4), 0);
 
-	unsigned char ctxByte1 = data_ov031_02290d10->ctxByte;
-	unsigned char v1 = *((unsigned char*)data_ov031_022492fe + ctxByte1 * 2 + idx);
-	func_ov031_0223bdb0(0, v1 + 1, elem);
+	unsigned char var1 = data_ov031_02290d10->unknown_1c_;
+	unsigned char var2 = *((unsigned char*)data_ov031_022492fe + var1 * 2 + arg0);
+	func_ov031_0223bdb0(0, var2 + 1, var0);
 
-	unsigned char ctxByte2 = data_ov031_02290d10->ctxByte;
-	ElemArray_0223baa0* elem2 = *(ElemArray_0223baa0**)((char*)data_ov031_02290d10 + 8 + idx * 4);
-	unsigned char v2 = *((unsigned char*)data_ov031_022492ea + ctxByte2 * 2 + idx);
-	unsigned short t3 = *(unsigned short*)((char*)data_ov031_02249364 + ctxByte2 * 8 + v2 * 4);
-	unsigned short t4 = *(unsigned short*)((char*)data_ov031_02249366 + ctxByte2 * 8 + v2 * 4);
-	func_ov031_0223bbd8(elem2, -1, t3, t4);
+	unsigned char var3 = data_ov031_02290d10->unknown_1c_;
+	Struct_ov031_022269d8* var4 = *(Struct_ov031_022269d8**)((char*)data_ov031_02290d10 + 8 + arg0 * 4);
+	unsigned char var5 = *((unsigned char*)data_ov031_022492ea + var3 * 2 + arg0);
+	unsigned short var6 = *(unsigned short*)((char*)data_ov031_02249364 + var3 * 8 + var5 * 4);
+	unsigned short var7 = *(unsigned short*)((char*)data_ov031_02249366 + var3 * 8 + var5 * 4);
+	func_ov031_0223bbd8(var4, -1, var6, var7);
 
-	void* elem3 = *(void**)((char*)data_ov031_02290d10 + 8 + idx * 4);
-	func_ov031_0223bcc8((Obj0223bcc8*)elem3, -1, 0);
+	void* var8 = *(void**)((char*)data_ov031_02290d10 + 8 + arg0 * 4);
+	func_ov031_0223bcc8((Struct_ov031_02222ce4*)var8, -1, 0);
 }

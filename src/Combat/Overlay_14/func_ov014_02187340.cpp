@@ -5,32 +5,32 @@
 #endif
 #include <globaldefs.h>
 
-struct MonsterListEntry {
-    MonsterListEntry* next_;
+struct Struct_ov014_02184f78 {
+    Struct_ov014_02184f78* unknown_0_;
 };
 
-struct MonsterListScreen {
-    char unk_0[0xb8];
-    MonsterListEntry* entries_;
+struct Struct_ov014_02186bc8 {
+    char unknown_0_[0xb8];
+    Struct_ov014_02184f78* unknown_b8_;
 };
 
 // USA: func_ov014_02187340
-extern "C" ARM MonsterListEntry* func_ov014_02187340(MonsterListScreen* self, short page)
+extern "C" ARM Struct_ov014_02184f78* func_ov014_02187340(Struct_ov014_02186bc8* arg0, short arg1)
 {
-    MonsterListEntry* entry = self->entries_;
-    int index = 0;
-    MonsterListEntry* pageEntry = entry;
-    short pageIndex = 0;
-    for (; entry != NULL; entry = entry->next_)
+    Struct_ov014_02184f78* var0 = arg0->unknown_b8_;
+    int var1 = 0;
+    Struct_ov014_02184f78* var2 = var0;
+    short var3 = 0;
+    for (; var0 != NULL; var0 = var0->unknown_0_)
     {
-        if (index == 0)
+        if (var1 == 0)
         {
-            pageEntry = entry;
-            if (pageIndex == page)
+            var2 = var0;
+            if (var3 == arg1)
                 break;
-            pageIndex++;
+            var3++;
         }
-        index = (short)(index + 1) % 16;
+        var1 = (short)(var1 + 1) % 16;
     }
-    return pageEntry;
+    return var2;
 }

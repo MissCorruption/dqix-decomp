@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Vec0203109c {
-    int x;
-    int y;
-    int z;
+struct Struct_0203109c {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Box0203109c {
-    Vec0203109c lo;
-    Vec0203109c hi;
+struct Struct_0203109c_2 {
+    Struct_0203109c unknown_0_;
+    Struct_0203109c unknown_c_;
 };
 
 // USA: func_0203109c
-extern "C" ARM bool func_0203109c(Box0203109c* a, Box0203109c* b) {
-    if (a->lo.x < b->hi.x) {
+extern "C" ARM bool func_0203109c(Struct_0203109c_2* arg0, Struct_0203109c_2* arg1) {
+    if (arg0->unknown_0_.unknown_0_ < arg1->unknown_c_.unknown_0_) {
         return false;
     }
-    if (a->lo.y < b->hi.y) {
+    if (arg0->unknown_0_.unknown_4_ < arg1->unknown_c_.unknown_4_) {
         return false;
     }
-    if (a->lo.z < b->hi.z) {
+    if (arg0->unknown_0_.unknown_8_ < arg1->unknown_c_.unknown_8_) {
         return false;
     }
-    if (b->lo.x < a->hi.x) {
+    if (arg1->unknown_0_.unknown_0_ < arg0->unknown_c_.unknown_0_) {
         return false;
     }
-    if (b->lo.y < a->hi.y) {
+    if (arg1->unknown_0_.unknown_4_ < arg0->unknown_c_.unknown_4_) {
         return false;
     }
-    return b->lo.z >= a->hi.z;
+    return arg1->unknown_0_.unknown_8_ >= arg0->unknown_c_.unknown_8_;
 }

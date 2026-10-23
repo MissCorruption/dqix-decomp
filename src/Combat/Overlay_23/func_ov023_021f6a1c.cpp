@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-class VNode021f6a1c {
+class Struct_ov023_021f6a1c_2 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-    virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-    virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-    virtual void v40(); virtual void v41();
-    virtual int MethodA8();
-    virtual void v43(); virtual void v44(); virtual void v45();
-    virtual int MethodB8();
+    virtual void inline_ov023_021f6a1c(); virtual void inline_ov023_021f6a1c_6(); virtual void inline_ov023_021f6a1c_7(); virtual void inline_ov023_021f6a1c_8();
+    virtual void inline_ov023_021f6a1c_9(); virtual void inline_ov023_021f6a1c_10(); virtual void inline_ov023_021f6a1c_11(); virtual void inline_ov023_021f6a1c_12();
+    virtual void inline_ov023_021f6a1c_13(); virtual void inline_ov023_021f6a1c_14(); virtual void inline_ov023_021f6a1c_15(); virtual void inline_ov023_021f6a1c_16();
+    virtual void inline_ov023_021f6a1c_17(); virtual void inline_ov023_021f6a1c_18(); virtual void inline_ov023_021f6a1c_19(); virtual void inline_ov023_021f6a1c_20();
+    virtual void inline_ov023_021f6a1c_21(); virtual void inline_ov023_021f6a1c_22(); virtual void inline_ov023_021f6a1c_23(); virtual void inline_ov023_021f6a1c_24();
+    virtual void inline_ov023_021f6a1c_25(); virtual void inline_ov023_021f6a1c_26(); virtual void inline_ov023_021f6a1c_27(); virtual void inline_ov023_021f6a1c_28();
+    virtual void inline_ov023_021f6a1c_29(); virtual void inline_ov023_021f6a1c_30(); virtual void inline_ov023_021f6a1c_31(); virtual void inline_ov023_021f6a1c_32();
+    virtual void inline_ov023_021f6a1c_33(); virtual void inline_ov023_021f6a1c_34(); virtual void inline_ov023_021f6a1c_35(); virtual void inline_ov023_021f6a1c_36();
+    virtual void inline_ov023_021f6a1c_37(); virtual void inline_ov023_021f6a1c_38(); virtual void inline_ov023_021f6a1c_39(); virtual void inline_ov023_021f6a1c_40();
+    virtual void inline_ov023_021f6a1c_41(); virtual void inline_ov023_021f6a1c_42(); virtual void inline_ov023_021f6a1c_43(); virtual void inline_ov023_021f6a1c_44();
+    virtual void inline_ov023_021f6a1c_45(); virtual void inline_ov023_021f6a1c_46();
+    virtual int inline_ov023_021f6a1c_47();
+    virtual void inline_ov023_021f6a1c_2(); virtual void inline_ov023_021f6a1c_3(); virtual void inline_ov023_021f6a1c_4();
+    virtual int inline_ov023_021f6a1c_5();
 
-    char pad4[0x18 - 4];
-    VNode021f6a1c* next;
+    char unknown_4_[0x18 - 4];
+    Struct_ov023_021f6a1c_2* unknown_18_;
 };
 
-struct ListHead021f6a1c {
-    VNode021f6a1c* head;
+struct Struct_ov023_021f6a1c {
+    Struct_ov023_021f6a1c_2* unknown_0_;
 };
 
-extern "C" void func_ov011_02184a40(void* a, int b);
+extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
 // USA: func_ov023_021f6a1c
-extern "C" ARM void func_ov023_021f6a1c(struct ListHead021f6a1c* obj, void* arg1) {
+extern "C" ARM void func_ov023_021f6a1c(struct Struct_ov023_021f6a1c* arg0, void* arg1) {
     if (g_touchInput.pressed_ == 0) {
         return;
     }
 
-    int a, b;
-    g_touchInput.GetTouchPoint(&a, &b);
+    int var0, var1;
+    g_touchInput.GetTouchPoint(&var0, &var1);
 
-    VNode021f6a1c* node = obj->head;
-    while (node != NULL) {
-        if (node->MethodB8() != 0) {
-            int v = node->MethodA8();
-            if (v > 0) {
-                v = node->MethodA8();
-                func_ov011_02184a40(arg1, v);
+    Struct_ov023_021f6a1c_2* var2 = arg0->unknown_0_;
+    while (var2 != NULL) {
+        if (var2->inline_ov023_021f6a1c_5() != 0) {
+            int var3 = var2->inline_ov023_021f6a1c_47();
+            if (var3 > 0) {
+                var3 = var2->inline_ov023_021f6a1c_47();
+                func_ov011_02184a40(arg1, var3);
                 return;
             }
         }
-        node = node->next;
+        var2 = var2->unknown_18_;
     }
 }

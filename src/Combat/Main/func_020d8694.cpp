@@ -3,19 +3,19 @@
 unsigned int EnableSpecificInterrupts(unsigned int mask);
 unsigned int DisableSpecificInterrupts(unsigned int mask);
 
-struct IntState020d8654 {
-    unsigned char field_0;
-    unsigned char pad1[3];
-    unsigned int field_4;
+struct Struct_0214e4a0 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned int unknown_4_;
 };
-extern IntState020d8654 data_0214e4a0;
+extern Struct_0214e4a0 data_0214e4a0;
 
 // USA: func_020d8694
 extern "C" ARM void func_020d8694(void) {
-    if (data_0214e4a0.field_4 & 1) {
+    if (data_0214e4a0.unknown_4_ & 1) {
         EnableSpecificInterrupts(4);
     } else {
         DisableSpecificInterrupts(4);
     }
-    data_0214e4a0.field_4 >>= 1;
+    data_0214e4a0.unknown_4_ >>= 1;
 }

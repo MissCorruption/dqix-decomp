@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct NodeCEE54 {
-    char _pad[8];
-    struct NodeCEE54* next;
+struct Struct_0210cfd0 {
+    char unknown_0_[8];
+    struct Struct_0210cfd0* unknown_8_;
 };
 
-struct ListHeadCEE54 {
-    struct NodeCEE54* head;
+struct Struct_020cee54 {
+    struct Struct_0210cfd0* unknown_0_;
 };
 
 // USA: func_020cee54
-extern "C" ARM void func_020cee54(struct ListHeadCEE54* list, struct NodeCEE54* node) {
-    if (list != 0) {
-        node->next = list->head;
-        list->head = node;
+extern "C" ARM void func_020cee54(struct Struct_020cee54* arg0, struct Struct_0210cfd0* arg1) {
+    if (arg0 != 0) {
+        arg1->unknown_8_ = arg0->unknown_0_;
+        arg0->unknown_0_ = arg1;
     }
 }

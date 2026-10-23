@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Obj02037bbc;
+struct Struct_0204a3f0_3;
 
-struct SNode0204a3f0 {
-    unsigned int flags0;
-    char pad4[0xa4];
-    signed int bit0 : 1;
+struct Struct_0204a3f0_4 {
+    unsigned int unknown_0_;
+    char unknown_4_[0xa4];
+    signed int unknown_a8_0_ : 1;
 };
 
-struct Holder0204a3f0 {
-    char pad0[0x8];
-    struct SNode0204a3f0* node;
+struct Struct_0204a3f0 {
+    char unknown_0_[0x8];
+    struct Struct_0204a3f0_4* unknown_8_;
 };
 
-struct Owner0204a3f0 {
-    char pad0[0x21c];
-    struct Holder0204a3f0* holder;
+struct Struct_0204a3f0_2 {
+    char unknown_0_[0x21c];
+    struct Struct_0204a3f0* unknown_21c_;
 };
 
 // USA: func_0204a3f0
-extern "C" ARM void func_0204a3f0(struct Owner0204a3f0* owner, struct Holder0204a3f0* h) {
-    struct SNode0204a3f0* s;
-    owner->holder = h;
-    ((Object3D*)((struct Obj02037bbc*)h))->EnableBoneTracking();
-    s = owner->holder->node;
-    if (s == NULL) return;
-    if (!s->bit0) s = NULL;
-    if (s != NULL) {
-        s->flags0 |= 4;
+extern "C" ARM void func_0204a3f0(struct Struct_0204a3f0_2* arg0, struct Struct_0204a3f0* arg1) {
+    struct Struct_0204a3f0_4* var0;
+    arg0->unknown_21c_ = arg1;
+    ((Object3D*)((struct Struct_0204a3f0_3*)arg1))->EnableBoneTracking();
+    var0 = arg0->unknown_21c_->unknown_8_;
+    if (var0 == NULL) return;
+    if (!var0->unknown_a8_0_) var0 = NULL;
+    if (var0 != NULL) {
+        var0->unknown_0_ |= 4;
     }
 }

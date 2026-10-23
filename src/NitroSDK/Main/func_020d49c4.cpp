@@ -1,66 +1,66 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-typedef void (*WMCallbackFunc)(void* arg);
+typedef void (*Type_020d42e0)(void* arg);
 
-struct WMStatus
+struct Struct_020d424c
 {
-    char unk_0[0x182];
-    unsigned short child_bitmap;
+    char unknown_0_[0x182];
+    unsigned short unknown_182_;
 };
 
-struct WMArm9Buf
+struct Struct_020d424c_2
 {
-    void* WM7;
-    WMStatus* status;
+    void* unknown_0_;
+    Struct_020d424c* unknown_4_;
 };
 
-struct WMMpRecvData
+struct Struct_020d49c4
 {
-    unsigned short length;
-    unsigned short rssi;
-    unsigned short aid;
-    unsigned short noResponse;
-    unsigned short timeStamp;
-    unsigned char cdata[2];
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[2];
 };
 
-struct WMMpRecvHeader
+struct Struct_020d49c4_2
 {
-    unsigned short bitmap;
-    unsigned short errBitmap;
-    unsigned short count;
-    unsigned short length;
-    unsigned short txCount;
-    WMMpRecvData data[1];
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    Struct_020d49c4 unknown_a_[1];
 };
 
 extern "C" int func_020d41e8();
-extern "C" WMArm9Buf* func_020d41d8();
+extern "C" Struct_020d424c_2* func_020d41d8();
 
 // USA: func_020d49c4
-extern "C" ARM const WMMpRecvData* func_020d49c4(const void* header, unsigned short aid)
+extern "C" ARM const Struct_020d49c4* func_020d49c4(const void* arg0, unsigned short arg1)
 {
-    const WMMpRecvHeader* const recvHeader = (const WMMpRecvHeader*)header;
-    WMMpRecvData* recvData[15];
-    WMArm9Buf* const w9b = func_020d41d8();
+    const Struct_020d49c4_2* const var0 = (const Struct_020d49c4_2*)arg0;
+    Struct_020d49c4* var1[15];
+    Struct_020d424c_2* const var2 = func_020d41d8();
     if (func_020d41e8() != 0)
         return NULL;
-    if (aid < 1 || aid > 15)
+    if (arg1 < 1 || arg1 > 15)
         return NULL;
-    InvalidateDataCacheRange(&w9b->status->child_bitmap, 2);
-    if (!(w9b->status->child_bitmap & (1 << aid)))
+    InvalidateDataCacheRange(&var2->unknown_4_->unknown_182_, 2);
+    if (!(var2->unknown_4_->unknown_182_ & (1 << arg1)))
         return NULL;
-    if (recvHeader->count == 0)
+    if (var0->unknown_4_ == 0)
         return NULL;
-    recvData[0] = (WMMpRecvData*)recvHeader->data;
-    int i = 0;
+    var1[0] = (Struct_020d49c4*)var0->unknown_a_;
+    int var3 = 0;
     do
     {
-        if (recvData[i]->aid == aid)
-            return recvData[i];
-        i++;
-        recvData[i] = (WMMpRecvData*)((unsigned long)recvData[i - 1] + recvHeader->length);
-    } while (i < recvHeader->count);
+        if (var1[var3]->unknown_4_ == arg1)
+            return var1[var3];
+        var3++;
+        var1[var3] = (Struct_020d49c4*)((unsigned long)var1[var3 - 1] + var0->unknown_6_);
+    } while (var3 < var0->unknown_4_);
     return NULL;
 }

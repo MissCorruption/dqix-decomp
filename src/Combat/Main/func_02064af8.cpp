@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Node64af8 {
-    char unk[0x2c];
-    struct Node64af8* next;
+struct Struct_02061c04_27 {
+    char unknown_0_[0x2c];
+    struct Struct_02061c04_27* unknown_2c_;
 };
 
-struct Obj64af8 {
-    char unk[0x494];
-    struct Node64af8* head;
+struct Struct_02061c04_28 {
+    char unknown_0_[0x494];
+    struct Struct_02061c04_27* unknown_494_;
 };
 
 // USA: func_02064af8
-extern "C" ARM void func_02064af8(struct Obj64af8* obj, struct Node64af8* node) {
-    struct Node64af8* cur = obj->head;
-    if (cur == 0) {
-        obj->head = node;
+extern "C" ARM void func_02064af8(struct Struct_02061c04_28* arg0, struct Struct_02061c04_27* arg1) {
+    struct Struct_02061c04_27* var0 = arg0->unknown_494_;
+    if (var0 == 0) {
+        arg0->unknown_494_ = arg1;
         return;
     }
-    while (cur->next != 0) {
-        cur = cur->next;
+    while (var0->unknown_2c_ != 0) {
+        var0 = var0->unknown_2c_;
     }
-    cur->next = node;
+    var0->unknown_2c_ = arg1;
 }

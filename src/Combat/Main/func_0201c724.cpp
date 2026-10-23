@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct StreamHeader;
+struct Struct_02013fb4;
 
 extern int data_020ef2bc;
 extern Script::OpcodeLookupEntry data_020ef2c0[];
 
-struct Data020fdc14 {
-    int field0;
-    void* field4;
-    int field8;
+struct Struct_020fdc14_5 {
+    int unknown_0_;
+    void* unknown_4_;
+    int unknown_8_;
 };
-extern struct Data020fdc14 data_020fdc14;
+extern struct Struct_020fdc14_5 data_020fdc14;
 
 // USA: func_0201c724
-extern "C" ARM void func_0201c724(int param0, void* param1, struct StreamHeader* param2, int param3) {
-    Script local;
-    data_020fdc14.field4 = param1;
-    data_020ef2bc = param0;
-    local.Initialize();
-    local.SetOpcodeLookup(data_020ef2c0);
-    local.Load(param2, param3);
-    local.Execute();
-    data_020fdc14.field4 = 0;
+extern "C" ARM void func_0201c724(int arg0, void* arg1, struct Struct_02013fb4* arg2, int arg3) {
+    Script var0;
+    data_020fdc14.unknown_4_ = arg1;
+    data_020ef2bc = arg0;
+    var0.Initialize();
+    var0.SetOpcodeLookup(data_020ef2c0);
+    var0.Load(arg2, arg3);
+    var0.Execute();
+    data_020fdc14.unknown_4_ = 0;
     data_020ef2bc = -1;
 }

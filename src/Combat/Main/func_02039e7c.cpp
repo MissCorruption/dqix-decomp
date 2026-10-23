@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct ResetStruct_39ee8;
-extern "C" void func_02039ee8(struct ResetStruct_39ee8* s);
-extern "C" void func_0204719c(void* p);
+struct Struct_02039e7c;
+extern "C" void func_02039ee8(struct Struct_02039e7c* arg0);
+extern "C" void func_0204719c(void* arg0);
 
 // USA: func_02039e7c
-extern "C" ARM void func_02039e7c(void* objPtr) {
-    char* obj = (char*)objPtr;
-    int i;
-    for (i = 0; i < 0x10; i++) {
-        func_02039ee8((struct ResetStruct_39ee8*)(obj + 0x550 + i * 0x18));
+extern "C" ARM void func_02039e7c(void* arg0) {
+    char* var0 = (char*)arg0;
+    int var1;
+    for (var1 = 0; var1 < 0x10; var1++) {
+        func_02039ee8((struct Struct_02039e7c*)(var0 + 0x550 + var1 * 0x18));
     }
-    for (i = 0; i < 5; i++) {
-        func_0204719c(obj + i * 0x88);
-        func_0204719c(obj + 0x2a8 + i * 0x88);
+    for (var1 = 0; var1 < 5; var1++) {
+        func_0204719c(var0 + var1 * 0x88);
+        func_0204719c(var0 + 0x2a8 + var1 * 0x88);
     }
-    *(int*)(obj + 0x6d0) = 0;
-    *(int*)(obj + 0x6d4) = 0;
+    *(int*)(var0 + 0x6d0) = 0;
+    *(int*)(var0 + 0x6d4) = 0;
 }

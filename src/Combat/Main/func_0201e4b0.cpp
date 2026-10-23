@@ -2,15 +2,15 @@
 #include "World/ZoneFeatures.h"
 
 // USA: func_0201e4b0
-ARM void ZoneFeatures::func_0201e4b0(const Opcode66Entry& source) {
-    int count = arraySize66_;
-    Opcode66Entry* dst;
-    if (count >= arrayCapacity66_) {
+ARM void Struct_020134e0::func_0201e4b0(const Struct_0201c96c& arg0) {
+    int var0 = unknown_10_;
+    Struct_0201c96c* var1;
+    if (var0 >= unknown_14_) {
         return;
     }
-    dst = &entries66_[count];
-    COPY_ARRAY(dst->unk_0, source.unk_0);
-    COPY_ARRAY(dst->unk_18, source.unk_18);
-    dst->unk_20 = source.unk_20;
-    arraySize66_++;
+    var1 = &unknown_c_[var0];
+    COPY_ARRAY(var1->unknown_0_, arg0.unknown_0_);
+    COPY_ARRAY(var1->unknown_18_, arg0.unknown_18_);
+    var1->unknown_20_ = arg0.unknown_20_;
+    unknown_10_++;
 }

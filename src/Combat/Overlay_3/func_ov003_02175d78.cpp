@@ -1,41 +1,41 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion103a = 0xfb6 };
-enum { kRegion874 = 0x7f0 };
-enum { kRegion103c = 0xfb8 };
+enum { Enum_ov003_02175d78_4154 = 0xfb6 };
+enum { Enum_ov003_02175d78_2164 = 0x7f0 };
+enum { Enum_ov003_02175d78_4156 = 0xfb8 };
 #else
-enum { kRegion103a = 0x103a };
-enum { kRegion874 = 0x874 };
-enum { kRegion103c = 0x103c };
+enum { Enum_ov003_02175d78_4154 = 0x103a };
+enum { Enum_ov003_02175d78_2164 = 0x874 };
+enum { Enum_ov003_02175d78_4156 = 0x103c };
 #endif
 
 #include "GameState/GameState.h"
 
-struct Container020dedd0;
-struct Element020de650;
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" void func_ov003_02176798(void* obj);
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" void func_ov003_02176798(void* arg0);
 
 // USA: func_ov003_02175d78
-extern "C" ARM int func_ov003_02175d78(char* obj) {
-	GameState* bs = GameState::GetInstance();
-	int key = *(short*)(obj + kRegion103a);
-	struct Element020de650* elem = func_020dedd0((struct Container020dedd0*)(obj + kRegion874), key);
-	void* p;
-	unsigned int a;
-	unsigned int b;
-	unsigned int delta;
-	if (elem == NULL) return 0;
-	p = func_02010828(bs);
-	a = *(unsigned char*)(obj + kRegion103c);
-	b = *(unsigned short*)((char*)elem + 0x1a);
-	delta = a * b;
+extern "C" ARM int func_ov003_02175d78(char* arg0) {
+	GameState* var0 = GameState::GetInstance();
+	int var1 = *(short*)(arg0 + Enum_ov003_02175d78_4154);
+	struct Struct_0201099c_9* var2 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + Enum_ov003_02175d78_2164), var1);
+	void* var3;
+	unsigned int var4;
+	unsigned int var5;
+	unsigned int var6;
+	if (var2 == NULL) return 0;
+	var3 = func_02010828(var0);
+	var4 = *(unsigned char*)(arg0 + Enum_ov003_02175d78_4156);
+	var5 = *(unsigned short*)((char*)var2 + 0x1a);
+	var6 = var4 * var5;
 	{
-		unsigned int cap = 0x98967f - *(unsigned int*)((char*)p + 0xf6c);
-		if (cap < delta) delta = cap;
+		unsigned int var7 = 0x98967f - *(unsigned int*)((char*)var3 + 0xf6c);
+		if (var7 < var6) var6 = var7;
 	}
-	*(int*)((char*)p + 0xf6c) += delta;
-	func_ov003_02176798(obj);
+	*(int*)((char*)var3 + 0xf6c) += var6;
+	func_ov003_02176798(arg0);
 	return 1;
 }

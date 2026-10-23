@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, int b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, int b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 
 // USA: func_ov023_021d921c
-extern "C" ARM void func_ov023_021d921c(void* obj, int unused, int w, int h) {
-	*(short*)((char*)obj + 0xc0) = (short)w;
-	*(short*)((char*)obj + 0xc2) = (short)h;
-	*(short*)((char*)obj + 0xc4) = (short)((0x20 - w) >> 1);
-	*(short*)((char*)obj + 0xc6) = (short)((0x18 - h) >> 1);
-	*(short*)((char*)obj + 0xc8) = 0;
-	*(short*)((char*)obj + 0xca) = 5;
-	*(short*)((char*)obj + 0xcc) = 0xa;
-	*(short*)((char*)obj + 0xce) = 0xa;
-	*(unsigned char*)((char*)obj + 0xd1) = 0;
-	*(unsigned char*)((char*)obj + 0xd5) = 0;
+extern "C" ARM void func_ov023_021d921c(void* arg0, int arg1, int arg2, int arg3) {
+	*(short*)((char*)arg0 + 0xc0) = (short)arg2;
+	*(short*)((char*)arg0 + 0xc2) = (short)arg3;
+	*(short*)((char*)arg0 + 0xc4) = (short)((0x20 - arg2) >> 1);
+	*(short*)((char*)arg0 + 0xc6) = (short)((0x18 - arg3) >> 1);
+	*(short*)((char*)arg0 + 0xc8) = 0;
+	*(short*)((char*)arg0 + 0xca) = 5;
+	*(short*)((char*)arg0 + 0xcc) = 0xa;
+	*(short*)((char*)arg0 + 0xce) = 0xa;
+	*(unsigned char*)((char*)arg0 + 0xd1) = 0;
+	*(unsigned char*)((char*)arg0 + 0xd5) = 0;
 #if defined(jpn)
-	func_0205d304((char*)obj + 0x20, unused, 0, 0, 0, 1, 0);
+	func_0205d304((char*)arg0 + 0x20, arg1, 0, 0, 0, 1, 0);
 #else
-	func_0205d304((char*)obj + 0x20, unused, 0, 0, 0, 1, 0, 0);
+	func_0205d304((char*)arg0 + 0x20, arg1, 0, 0, 0, 1, 0, 0);
 #endif
 
 }

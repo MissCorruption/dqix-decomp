@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Obj2081;
-struct Elem2081;
+struct Struct_0207fdcc_2;
+struct Struct_0207fdcc;
 
-extern "C" struct Elem2081* func_02081da8(struct Obj2081* obj, int key);
+extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
 
 // USA: func_020811d0
-extern "C" ARM int func_020811d0(struct Obj2081* obj, int key) {
-    return func_02081da8(obj, key) != NULL;
+extern "C" ARM int func_020811d0(struct Struct_0207fdcc_2* arg0, int arg1) {
+    return func_02081da8(arg0, arg1) != NULL;
 }

@@ -3,54 +3,54 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct SearchStruct0202c1a4;
-struct Foo02033b58;
+struct Struct_0202c1a4;
+struct Struct_02033b58;
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" int func_02048418(unsigned char* obj, unsigned short flag);
-extern "C" void func_02033b58(struct Foo02033b58* p, unsigned char v);
-extern "C" void func_ov017_021c9d2c(int slot, unsigned short a1, unsigned short a2, unsigned short a3, int a4, unsigned int a5, unsigned char a6, int flagA, int flagB);
-extern "C" void func_ov017_02191108(void* unused, int c, int d, int e, int flag);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" int func_02048418(unsigned char* arg0, unsigned short arg1);
+extern "C" void func_02033b58(struct Struct_02033b58* arg0, unsigned char arg1);
+extern "C" void func_ov017_021c9d2c(int arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3, int arg4, unsigned int arg5, unsigned char arg6, int arg7, int arg8);
+extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
-static inline unsigned short GetMaximumMP(const BaseCombatStats* stats) {
-    return stats->primaryStats.maxMP;
+static inline unsigned short inline_ov017_021bd5d0_4(const BaseCombatStats* arg0) {
+    return arg0->primaryStats.maxMP;
 }
-static inline unsigned short GetMaximumHP(const BaseCombatStats* stats) {
-    return stats->primaryStats.maxHP;
+static inline unsigned short inline_ov017_021bd5d0_5(const BaseCombatStats* arg0) {
+    return arg0->primaryStats.maxHP;
 }
 
 // USA: func_ov017_021bd5d0
 extern "C" ARM void func_ov017_021bd5d0(void) {
-    GameState* battle = GameState::GetInstance();
-    void* g = func_0202ae18();
-    GameObject* combatant = battle->GetGameObjectByIndex(0);
-    void* other = GetGameResources();
-    struct CombatantStatus* p = combatant->combatFields_.savedState_130_;
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0202ae18();
+    GameObject* var2 = var0->GetGameObjectByIndex(0);
+    void* var3 = GetGameResources();
+    struct Struct_020200c0* var4 = var2->unknown_ac_.unknown_84_;
 
-    if (p->GetFlags() & 1) {
-        if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
-            func_02053fe4(combatant, 1, 0);
-            func_02048418((unsigned char*)combatant, 1);
+    if (var4->inline_ov017_021bd5d0() & 1) {
+        if (func_0202b7d8((int*)var1) && func_0202c1a4((struct Struct_0202c1a4*)var1) == 0) {
+            func_02053fe4(var2, 1, 0);
+            func_02048418((unsigned char*)var2, 1);
 
-            p = combatant->combatFields_.savedState_130_;
-            struct BaseCombatStats* q = combatant->baseStats_;
-            unsigned char byte8 = p->GetStatus();
-            unsigned int word0 = p->GetFlags();
-            unsigned short maxMP = GetMaximumMP(q);
-            unsigned short maxHP = GetMaximumHP(q);
-            unsigned short half6 = p->GetMP();
-            func_ov017_021c9d2c(combatant->obj3D_.unknown_4_, 1, maxHP, half6, maxMP, word0, byte8, 1, 0);
+            var4 = var2->unknown_ac_.unknown_84_;
+            struct BaseCombatStats* var5 = var2->baseStats_;
+            unsigned char var6 = var4->inline_ov017_021bd5d0_3();
+            unsigned int var7 = var4->inline_ov017_021bd5d0();
+            unsigned short var8 = inline_ov017_021bd5d0_4(var5);
+            unsigned short var9 = inline_ov017_021bd5d0_5(var5);
+            unsigned short var10 = var4->inline_ov017_021bd5d0_2();
+            func_ov017_021c9d2c(var2->obj3D_.unknown_4_, 1, var9, var10, var8, var7, var6, 1, 0);
 
-            func_02033b58((struct Foo02033b58*)combatant, 0);
-            combatant->combatFields_.unknown_b2_ = 0;
-        } else if (func_0202b7d8((int*)g) == 0) {
-            func_02053fe4(combatant, 1, 0);
-            func_02048418((unsigned char*)combatant, 1);
-            func_02033b58((struct Foo02033b58*)combatant, 0);
-            combatant->combatFields_.unknown_b2_ = 0;
+            func_02033b58((struct Struct_02033b58*)var2, 0);
+            var2->unknown_ac_.unknown_b2_ = 0;
+        } else if (func_0202b7d8((int*)var1) == 0) {
+            func_02053fe4(var2, 1, 0);
+            func_02048418((unsigned char*)var2, 1);
+            func_02033b58((struct Struct_02033b58*)var2, 0);
+            var2->unknown_ac_.unknown_b2_ = 0;
         }
-        func_ov017_02191108(other, 1, 1, 1, 0);
+        func_ov017_02191108(var3, 1, 1, 1, 0);
     }
 }

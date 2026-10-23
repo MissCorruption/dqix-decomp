@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
 // USA: func_ov031_0220bd64
-extern "C" ARM void func_ov031_0220bd64(unsigned short* dst, unsigned short* src, int borrow, int count) {
-	int i = 0;
-	if (count > 0) {
+extern "C" ARM void func_ov031_0220bd64(unsigned short* arg0, unsigned short* arg1, int arg2, int arg3) {
+	int var0 = 0;
+	if (arg3 > 0) {
 		do {
-			int v = src[i] - borrow;
-			dst[i] = (unsigned short)v;
-			borrow = ((unsigned int)v >> 16) & 1;
-			if (borrow == 0) break;
-			i++;
-		} while (i < count);
+			int var1 = arg1[var0] - arg2;
+			arg0[var0] = (unsigned short)var1;
+			arg2 = ((unsigned int)var1 >> 16) & 1;
+			if (arg2 == 0) break;
+			var0++;
+		} while (var0 < arg3);
 	}
-	if (dst == src) return;
-	i++;
-	if (i >= count) return;
+	if (arg0 == arg1) return;
+	var0++;
+	if (var0 >= arg3) return;
 	do {
-		dst[i] = src[i];
-		i++;
-	} while (i < count);
+		arg0[var0] = arg1[var0];
+		var0++;
+	} while (var0 < arg3);
 }

@@ -1,121 +1,121 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion731 = 0x62d };
-enum { kRegion733 = 0x62f };
-enum { kRegion738 = 0x634 };
+enum { Enum_ov003_0217193c_1841 = 0x62d };
+enum { Enum_ov003_0217193c_1843 = 0x62f };
+enum { Enum_ov003_0217193c_1848 = 0x634 };
 #else
-enum { kRegion731 = 0x731 };
-enum { kRegion733 = 0x733 };
-enum { kRegion738 = 0x738 };
+enum { Enum_ov003_0217193c_1841 = 0x731 };
+enum { Enum_ov003_0217193c_1843 = 0x733 };
+enum { Enum_ov003_0217193c_1848 = 0x738 };
 #endif
 #include "GameState/GameState.h"
 
-struct Element0202bad4;
-struct ElementArray0202bad4;
+struct Struct_0202bad4;
+struct Struct_0202bad4_2;
 
 extern "C" void* func_0202ae18(void);
-extern "C" void func_0202b0f4(void* ptr);
-extern "C" int func_ov003_02171d78(void* list, unsigned char* key);
-extern "C" int func_0202bae4(void* obj);
-extern "C" struct Element0202bad4* func_0202bad4(struct ElementArray0202bad4* base, int index);
-extern "C" int func_0202b840(int* state, int id);
+extern "C" void func_0202b0f4(void* arg0);
+extern "C" int func_ov003_02171d78(void* arg0, unsigned char* arg1);
+extern "C" int func_0202bae4(void* arg0);
+extern "C" struct Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2* arg0, int arg1);
+extern "C" int func_0202b840(int* arg0, int arg1);
 
-struct Name0217193c { unsigned char data[0x14]; };
-struct Key0217193c { unsigned char data[6]; };
+struct Struct_ov003_0217193c_2 { unsigned char unknown_0_[0x14]; };
+struct Struct_ov003_0217193c_3 { unsigned char unknown_0_[6]; };
 
-struct Flags0217193c {
-    unsigned char low : 3;
-    unsigned char available : 1;
-    unsigned char remember : 1;
-    unsigned char bit5 : 1;
-    unsigned char team : 1;
-    unsigned char bit7 : 1;
+struct Struct_ov003_0217193c_4 {
+    unsigned char unknown_0_0_ : 3;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 1;
+    unsigned char unknown_0_5_ : 1;
+    unsigned char unknown_0_6_ : 1;
+    unsigned char unknown_0_7_ : 1;
 };
 
-struct Entry0217193c {
-    char pad0[0x50];
-    Name0217193c name;
-    unsigned char field64;
-    Flags0217193c flags;
-    unsigned short field66;
-    Key0217193c key;
-    char pad6e[2];
-    int field70;
+struct Struct_ov003_0217193c_5 {
+    char unknown_0_[0x50];
+    Struct_ov003_0217193c_2 unknown_50_;
+    unsigned char unknown_64_;
+    Struct_ov003_0217193c_4 unknown_65_;
+    unsigned short unknown_66_;
+    Struct_ov003_0217193c_3 unknown_68_;
+    char unknown_6e_[2];
+    int unknown_70_;
 };
 
-struct Obj0217193c {
-    unsigned char state;
-    char pad1[3];
-    unsigned int timer;
-    char pad8[0x199 - 8];
-    signed char selected;
-    char pad19a[2];
-    Name0217193c name;
-    unsigned char field1b0;
-    Flags0217193c flags;
-    unsigned short field1b2;
-    Key0217193c key;
-    char pad1ba[2];
-    int field1bc;
-    char pad1c0[kRegion731 - 0x1c0];
-    signed char retries;
-    signed char attempts;
-    char pad733[kRegion738 - kRegion733];
-    int field738;
+struct Struct_ov003_0217193c {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    unsigned int unknown_4_;
+    char unknown_8_[0x199 - 8];
+    signed char unknown_199_;
+    char unknown_19a_[2];
+    Struct_ov003_0217193c_2 unknown_19c_;
+    unsigned char unknown_1b0_;
+    Struct_ov003_0217193c_4 unknown_1b1_;
+    unsigned short unknown_1b2_;
+    Struct_ov003_0217193c_3 unknown_1b4_;
+    char unknown_1ba_[2];
+    int unknown_1bc_;
+    char unknown_1c0_[Enum_ov003_0217193c_1841 - 0x1c0];
+    signed char unknown_731_;
+    signed char unknown_732_;
+    char unknown_733_[Enum_ov003_0217193c_1848 - Enum_ov003_0217193c_1843];
+    int unknown_738_;
 };
 
 // USA: func_ov003_0217193c
-extern "C" ARM void func_ov003_0217193c(struct Obj0217193c* obj) {
-    Entry0217193c* entry;
-    GameState* battle;
-    void* search;
-    unsigned int dt;
-    unsigned int count;
-    int found;
-    unsigned int i;
+extern "C" ARM void func_ov003_0217193c(struct Struct_ov003_0217193c* arg0) {
+    Struct_ov003_0217193c_5* var0;
+    GameState* var1;
+    void* var2;
+    unsigned int var3;
+    unsigned int var4;
+    int var5;
+    unsigned int var6;
 
-    battle = GameState::GetInstance();
-    search = func_0202ae18();
-    dt = battle->GetEffectiveDeltaTime();
+    var1 = GameState::GetInstance();
+    var2 = func_0202ae18();
+    var3 = var1->GetEffectiveDeltaTime();
 
-    if (dt < obj->timer && obj->attempts > 0) {
-        obj->timer -= dt;
-        count = func_0202bae4(search);
-        if (count == 0) return;
-        found = 0;
-        for (i = 0; i < count; i++) {
-            entry = (Entry0217193c*)func_0202bad4((struct ElementArray0202bad4*)search, i);
-            if (func_ov003_02171d78(obj, entry->key.data) == 0 && entry->flags.available) {
+    if (var3 < arg0->unknown_4_ && arg0->unknown_732_ > 0) {
+        arg0->unknown_4_ -= var3;
+        var4 = func_0202bae4(var2);
+        if (var4 == 0) return;
+        var5 = 0;
+        for (var6 = 0; var6 < var4; var6++) {
+            var0 = (Struct_ov003_0217193c_5*)func_0202bad4((struct Struct_0202bad4_2*)var2, var6);
+            if (func_ov003_02171d78(arg0, var0->unknown_68_.unknown_0_) == 0 && var0->unknown_65_.unknown_0_3_) {
 #if !defined(jpn)
-                if (found > 0 && obj->flags.team != entry->flags.team) break;
+                if (var5 > 0 && arg0->unknown_1b1_.unknown_0_6_ != var0->unknown_65_.unknown_0_6_) break;
 #endif
-                func_0202b840((int*)search, i);
-                obj->selected = 0;
+                func_0202b840((int*)var2, var6);
+                arg0->unknown_199_ = 0;
 #if !defined(jpn)
-                obj->name = entry->name;
-                obj->field1b0 = entry->field64;
-                obj->flags = entry->flags;
-                obj->field1b2 = entry->field66;
-                obj->key = entry->key;
-                obj->field1bc = entry->field70;
+                arg0->unknown_19c_ = var0->unknown_50_;
+                arg0->unknown_1b0_ = var0->unknown_64_;
+                arg0->unknown_1b1_ = var0->unknown_65_;
+                arg0->unknown_1b2_ = var0->unknown_66_;
+                arg0->unknown_1b4_ = var0->unknown_68_;
+                arg0->unknown_1bc_ = var0->unknown_70_;
 #endif
-                obj->state = 6;
-                found++;
-            } else if (entry->flags.remember) {
-                obj->field738 = entry->field70;
+                arg0->unknown_0_ = 6;
+                var5++;
+            } else if (var0->unknown_65_.unknown_0_4_) {
+                arg0->unknown_738_ = var0->unknown_70_;
             }
         }
-        if (found <= 0) return;
-        obj->timer = 0;
-        obj->attempts = obj->attempts - 1;
+        if (var5 <= 0) return;
+        arg0->unknown_4_ = 0;
+        arg0->unknown_732_ = arg0->unknown_732_ - 1;
     } else {
-        obj->timer = 0;
-        func_0202b0f4(search);
-        obj->retries--;
-        if (obj->retries > 0) {
-            obj->state = 0;
+        arg0->unknown_4_ = 0;
+        func_0202b0f4(var2);
+        arg0->unknown_731_--;
+        if (arg0->unknown_731_ > 0) {
+            arg0->unknown_0_ = 0;
         } else {
-            obj->state = 8;
+            arg0->unknown_0_ = 8;
         }
     }
 }

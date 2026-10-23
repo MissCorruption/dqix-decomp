@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 
-struct Obj020bda58;
-struct Ctx020bf484;
-typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
-extern "C" void* func_020bd6ac(int index);
-extern "C" void* func_020bda58(struct Obj020bda58* heap, unsigned int size, NNSSndHeapDisposeCallback callback, int data1, int data2);
-extern "C" void func_020bf484(int expected, void* unused1, struct Ctx020bf484* obj);
-extern "C" void func_020bf1a0(void* player);
+struct Struct_020bbf84_2;
+struct Struct_020bf484;
+typedef void (*Type_020bbf84)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern "C" void* func_020bd6ac(int arg0);
+extern "C" void* func_020bda58(struct Struct_020bbf84_2* arg0, unsigned int arg1, Type_020bbf84 arg2, int arg3, int arg4);
+extern "C" void func_020bf484(int arg0, void* arg1, struct Struct_020bf484* arg2);
+extern "C" void func_020bf1a0(void* arg0);
 
-struct StrmPlayerInfo020beaec {
-    unsigned char numChannels;
-    unsigned char chNoList[16];
-    unsigned char padding[7];
+struct Struct_020beaec {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[16];
+    unsigned char unknown_11_[7];
 };
 
-struct StrmPlayer020beaec {
-    char pad0[0x124];
-    unsigned char numChannels;
-    unsigned char reserved;
-    unsigned char chNoList[6];
-    void* buffer;
-    unsigned int bufSize;
-    char pad1[0x174 - 0x134];
+struct Struct_02110a4c_2 {
+    char unknown_0_[0x124];
+    unsigned char unknown_124_;
+    unsigned char unknown_125_;
+    unsigned char unknown_126_[6];
+    void* unknown_12c_;
+    unsigned int unknown_130_;
+    char unknown_134_[0x174 - 0x134];
 };
 
-extern struct StrmPlayer020beaec data_02110a4c[4];
+extern struct Struct_02110a4c_2 data_02110a4c[4];
 
 // USA: func_020beaec
-extern "C" ARM int func_020beaec(struct Obj020bda58* heap)
+extern "C" ARM int func_020beaec(struct Struct_020bbf84_2* arg0)
 {
-    int playerNo;
-    const struct StrmPlayerInfo020beaec* playerInfo;
-    struct StrmPlayer020beaec* player;
-    void* buffer;
-    unsigned int bufSize;
-    int i;
+    int var0;
+    const struct Struct_020beaec* var1;
+    struct Struct_02110a4c_2* var2;
+    void* var3;
+    unsigned int var4;
+    int var5;
 
-    for (playerNo = 0; playerNo < 4; ++playerNo) {
-        player = &data_02110a4c[playerNo];
+    for (var0 = 0; var0 < 4; ++var0) {
+        var2 = &data_02110a4c[var0];
 
-        playerInfo = (const struct StrmPlayerInfo020beaec*)func_020bd6ac(playerNo);
-        if (playerInfo == NULL)
+        var1 = (const struct Struct_020beaec*)func_020bd6ac(var0);
+        if (var1 == NULL)
             continue;
 
-        player->numChannels = playerInfo->numChannels;
-        for (i = 0; i < playerInfo->numChannels; i++) {
-            player->chNoList[i] = playerInfo->chNoList[i];
+        var2->unknown_124_ = var1->unknown_0_;
+        for (var5 = 0; var5 < var1->unknown_0_; var5++) {
+            var2->unknown_126_[var5] = var1->unknown_1_[var5];
         }
 
-        if (heap != NULL) {
-            bufSize = 512 * 4 * player->numChannels;
-            buffer = func_020bda58(heap, bufSize, (NNSSndHeapDisposeCallback)func_020bf484, (int)player, 0);
-            if (buffer == NULL)
+        if (arg0 != NULL) {
+            var4 = 512 * 4 * var2->unknown_124_;
+            var3 = func_020bda58(arg0, var4, (Type_020bbf84)func_020bf484, (int)var2, 0);
+            if (var3 == NULL)
                 return 0;
 
-            func_020bf1a0(player);
+            func_020bf1a0(var2);
 
-            player->buffer = buffer;
-            player->bufSize = bufSize;
+            var2->unknown_12c_ = var3;
+            var2->unknown_130_ = var4;
         }
     }
 

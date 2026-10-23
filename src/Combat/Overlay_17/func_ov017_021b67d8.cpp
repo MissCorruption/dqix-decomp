@@ -1,68 +1,68 @@
 #if defined(jpn)
-enum {regionalOffset0=0x4ec, regionalOffset1=0x524, regionalOffset2=0xc8};
+enum {Enum_ov017_021b67d8_1788=0x4ec, Enum_ov017_021b67d8_1844=0x524, Enum_ov017_021b67d8_204=0xc8};
 #else
-enum {regionalOffset0=0x6fc, regionalOffset1=0x734, regionalOffset2=0xcc};
+enum {Enum_ov017_021b67d8_1788=0x6fc, Enum_ov017_021b67d8_1844=0x734, Enum_ov017_021b67d8_204=0xcc};
 #endif
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_020a1e54(int flag);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_020a1e54(int arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern "C" void func_020a0c0c(void);
-struct ListHead02046b60;
-extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
 
 extern int data_02114e20;
 
-struct Obj021b67d8 {
-    unsigned char pad0[0x8];
-    SafeAllocator allocator;
-    unsigned char pad24[0x24 - 0x8 - sizeof(SafeAllocator)];
-    void* field24;
+struct Struct_ov017_021b67d8 {
+    unsigned char unknown_0_[0x8];
+    SafeAllocator unknown_8_;
+    unsigned char unknown_1c_[0x24 - 0x8 - sizeof(SafeAllocator)];
+    void* unknown_24_;
 };
 
-struct Ctx021b67d8 {
-    unsigned char pad0[regionalOffset0];
-    struct ListHead02046b60* list6fc;
-    unsigned char pad734[regionalOffset1 - regionalOffset0 - 4];
-    unsigned char* field734;
+struct Struct_ov017_021b67d8_2 {
+    unsigned char unknown_0_[Enum_ov017_021b67d8_1788];
+    struct Struct_02038598_5* unknown_6fc_;
+    unsigned char unknown_700_[Enum_ov017_021b67d8_1844 - Enum_ov017_021b67d8_1788 - 4];
+    unsigned char* unknown_734_;
 };
 
 // USA: func_ov017_021b67d8
-extern "C" ARM void func_ov017_021b67d8(struct Obj021b67d8* self) {
-    if (self->field24 != NULL) {
-        self->field24 = NULL;
+extern "C" ARM void func_ov017_021b67d8(struct Struct_ov017_021b67d8* arg0) {
+    if (arg0->unknown_24_ != NULL) {
+        arg0->unknown_24_ = NULL;
         func_020a1e54(1);
     }
 
-    void* p = self->allocator.GetSignedAllocator();
-    if (p != NULL) {
-        self->allocator.Destroy();
-        func_02012da4((AllocatorUnion*)&data_02114e20, p);
+    void* var0 = arg0->unknown_8_.GetSignedAllocator();
+    if (var0 != NULL) {
+        arg0->unknown_8_.Destroy();
+        func_02012da4((AllocatorUnion*)&data_02114e20, var0);
     }
 
     func_020a0c0c();
 
-    int flag = 1;
-    struct Ctx021b67d8* ctx = (struct Ctx021b67d8*)((char*)GetGameResources() + 0x3000);
-    struct ListHead02046b60* list = ctx->list6fc;
-    unsigned char* field = ctx->field734;
+    int var1 = 1;
+    struct Struct_ov017_021b67d8_2* var2 = (struct Struct_ov017_021b67d8_2*)((char*)GetGameResources() + 0x3000);
+    struct Struct_02038598_5* var3 = var2->unknown_6fc_;
+    unsigned char* var4 = var2->unknown_734_;
 
-    if (func_02046b60(list, 0x18) != 0) {
-        flag = 0;
+    if (func_02046b60(var3, 0x18) != 0) {
+        var1 = 0;
     }
-    if (func_02046b60(list, 4) != 0) {
-        if (field[regionalOffset2] == 1) {
-            flag = 0;
+    if (func_02046b60(var3, 4) != 0) {
+        if (var4[Enum_ov017_021b67d8_204] == 1) {
+            var1 = 0;
         }
     }
-    if (flag == 0) {
+    if (var1 == 0) {
         return;
     }
 
-    char* q = (char*)func_0202ae18();
-    q[0x1000 + 0x11] = 1;
+    char* var5 = (char*)func_0202ae18();
+    var5[0x1000 + 0x11] = 1;
 }

@@ -2,36 +2,36 @@
 #include "Graphics/LightingManager.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" int func_ov017_021d60f4(void* a);
-extern "C" void func_ov001_021601f8(void* a, void* b);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void func_ov001_021601f8(void* arg0, void* arg1);
 
-struct Node_02160338 { char pad0[0x44]; int field44; char pad1[0x54 - 0x48]; struct Node_02160338* next; };
-struct Big_02160338 { 
+struct Struct_ov001_02160338 { char unknown_0_[0x44]; int unknown_44_; char unknown_48_[0x54 - 0x48]; struct Struct_ov001_02160338* unknown_54_; };
+struct Struct_ov001_02160338_2 { 
 #if defined(jpn)
-    char pad0[0x430];
+    char unknown_0_[0x430];
 #else
-    char pad0[0x410];
+    char unknown1_0_[0x410];
 #endif
- int field410; char pad1[0x41c - 0x414]; struct Node_02160338* field41c; char pad2[0x834 - 0x420]; unsigned char field834; };
-struct DataStruct_02160338 { char pad[0x90]; int field90; };
+ int unknown_410_; char unknown_414_[0x41c - 0x414]; struct Struct_ov001_02160338* unknown_41c_; char unknown_420_[0x834 - 0x420]; unsigned char unknown_834_; };
+struct Struct_ov001_02160338_3 { char unknown_0_[0x90]; int unknown_90_; };
 
 // USA: func_ov001_02160338
-extern "C" ARM int func_ov001_02160338(void* obj) {
-    Big_02160338* big = (Big_02160338*)func_02012fe4();
-    DataStruct_02160338* d = (DataStruct_02160338*)LightingManager::GetInstance();
-    if (big->field834 != 0) {
+extern "C" ARM int func_ov001_02160338(void* arg0) {
+    Struct_ov001_02160338_2* var0 = (Struct_ov001_02160338_2*)func_02012fe4();
+    Struct_ov001_02160338_3* var1 = (Struct_ov001_02160338_3*)LightingManager::GetInstance();
+    if (var0->unknown_834_ != 0) {
         return 1;
     }
-    d->field90 = func_ov017_021d60f4(obj);
-    if (big->field410 == 1) {
-        Node_02160338* node = big->field41c;
-        while (node != NULL) {
-            if (node->field44 != 0) {
-                func_ov001_021601f8((void*)node->field44, (char*)node + 4);
+    var1->unknown_90_ = func_ov017_021d60f4(arg0);
+    if (var0->unknown_410_ == 1) {
+        Struct_ov001_02160338* var2 = var0->unknown_41c_;
+        while (var2 != NULL) {
+            if (var2->unknown_44_ != 0) {
+                func_ov001_021601f8((void*)var2->unknown_44_, (char*)var2 + 4);
             }
-            node = node->next;
+            var2 = var2->unknown_54_;
         }
-        big->field834 = 1;
+        var0->unknown_834_ = 1;
     }
     return 1;
 }

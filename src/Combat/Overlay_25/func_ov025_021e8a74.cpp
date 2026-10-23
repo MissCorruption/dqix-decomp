@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct State0207dfc8;
-extern "C" void func_0207dfc8(State0207dfc8* src, State0207dfc8* dst);
+struct Struct_02015ef4_5;
+extern "C" void func_0207dfc8(Struct_02015ef4_5* arg0, Struct_02015ef4_5* arg1);
 
 // USA: func_ov025_021e8a74
-extern "C" ARM void func_ov025_021e8a74(void* arg) {
-    unsigned char* obj = (unsigned char*)arg;
-    if (obj[0x30] == 3) return;
+extern "C" ARM void func_ov025_021e8a74(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    if (var0[0x30] == 3) return;
 
-    unsigned int size = (*(SafeAllocator**)(obj + 0x10 + obj[0x30] * 4))->GetMaxPossibleAllocation();
-    void* buf = (*(SafeAllocator**)(obj + 0x10 + obj[0x30] * 4))->Allocate(size);
-    (*(SafeAllocator**)(obj + 0x10 + (obj[0x30] + 1) * 4))->CreateTypeB(buf, size, 4);
+    unsigned int var1 = (*(SafeAllocator**)(var0 + 0x10 + var0[0x30] * 4))->GetMaxPossibleAllocation();
+    void* var2 = (*(SafeAllocator**)(var0 + 0x10 + var0[0x30] * 4))->Allocate(var1);
+    (*(SafeAllocator**)(var0 + 0x10 + (var0[0x30] + 1) * 4))->CreateTypeB(var2, var1, 4);
 
-    unsigned char idx = obj[0x30];
-    State0207dfc8* cur = *(State0207dfc8**)(obj + 0x20 + idx * 4);
-    State0207dfc8* next = *(State0207dfc8**)(obj + 0x20 + (idx + 1) * 4);
-    func_0207dfc8(cur, next);
+    unsigned char var3 = var0[0x30];
+    Struct_02015ef4_5* var4 = *(Struct_02015ef4_5**)(var0 + 0x20 + var3 * 4);
+    Struct_02015ef4_5* var5 = *(Struct_02015ef4_5**)(var0 + 0x20 + (var3 + 1) * 4);
+    func_0207dfc8(var4, var5);
 
-    obj[0x30] = obj[0x30] + 1;
+    var0[0x30] = var0[0x30] + 1;
 }

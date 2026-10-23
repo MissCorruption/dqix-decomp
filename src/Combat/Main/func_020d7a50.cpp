@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct ResetObj020d7a5c;
-extern struct ResetObj020d7a5c data_0214e34c;
+struct Struct_0214e34c;
+extern struct Struct_0214e34c data_0214e34c;
 
 // USA: func_020d7a50
-extern "C" ARM struct ResetObj020d7a5c* func_020d7a50() {
+extern "C" ARM struct Struct_0214e34c* func_020d7a50() {
     return &data_0214e34c;
 }

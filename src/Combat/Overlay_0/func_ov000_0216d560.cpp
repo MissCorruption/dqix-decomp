@@ -2,39 +2,39 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct Flags0202ecfc;
-extern "C" void func_0202ecfc(struct Flags0202ecfc* p);
+struct Struct_0202ecfc;
+extern "C" void func_0202ecfc(struct Struct_0202ecfc* arg0);
 
-struct Block0202ecc8 { unsigned int v[12]; };
-struct Dst0202ecc8;
-extern "C" void func_0202ecc8(struct Dst0202ecc8* dst, struct Block0202ecc8* src);
+struct Struct_0202ecc8 { unsigned int unknown_0_[12]; };
+struct Struct_0202ecc8_2;
+extern "C" void func_0202ecc8(struct Struct_0202ecc8_2* arg0, struct Struct_0202ecc8* arg1);
 
-extern "C" void func_ov000_0216d234(void* a, void* b, void* c);
+extern "C" void func_ov000_0216d234(void* arg0, void* arg1, void* arg2);
 
-struct Field44_0216d560 { unsigned int v[3]; };
-struct Field50_0216d560 { int x, y, z; };
-struct Table_0216d560 { int x, y, z; };
+struct Struct_ov000_0216d560 { unsigned int unknown_0_[3]; };
+struct Struct_ov000_0216d560_2 { int unknown_0_, unknown_4_, unknown_8_; };
+struct Struct_ov000_0216d560_3 { int unknown_0_, unknown_4_, unknown_8_; };
 
-struct Obj0216d560 {
-    char pad[0x224];
-    int field224;
+struct Struct_ov000_0216d560_4 {
+    char unknown_0_[0x224];
+    int unknown_224_;
 };
 
 // USA: func_ov000_0216d560
-extern "C" ARM void func_ov000_0216d560(struct Obj0216d560* obj, int id) {
-    GameObject* c = GameState::GetInstance()->GetGameObjectByIndex(id);
-    if (!c) {
-        obj->field224 = -1;
-        func_0202ecfc((struct Flags0202ecfc*)obj);
+extern "C" ARM void func_ov000_0216d560(struct Struct_ov000_0216d560_4* arg0, int arg1) {
+    GameObject* var0 = GameState::GetInstance()->GetGameObjectByIndex(arg1);
+    if (!var0) {
+        arg0->unknown_224_ = -1;
+        func_0202ecfc((struct Struct_0202ecfc*)arg0);
     } else {
-        struct Field44_0216d560 fieldA = *(struct Field44_0216d560*)((char*)c + 0x44);
-        struct Field50_0216d560 fieldB = *(struct Field50_0216d560*)((char*)c + 0x50);
-        struct Table_0216d560 tbl;
-        struct Block0202ecc8 block;
-        tbl.x = fix32sin(fieldB.y);
-        tbl.y = 0;
-        tbl.z = fix32cos(fieldB.y);
-        func_ov000_0216d234(&tbl, &fieldA, &block);
-        func_0202ecc8((struct Dst0202ecc8*)obj, &block);
+        struct Struct_ov000_0216d560 var1 = *(struct Struct_ov000_0216d560*)((char*)var0 + 0x44);
+        struct Struct_ov000_0216d560_2 var2 = *(struct Struct_ov000_0216d560_2*)((char*)var0 + 0x50);
+        struct Struct_ov000_0216d560_3 var3;
+        struct Struct_0202ecc8 var4;
+        var3.unknown_0_ = fix32sin(var2.unknown_4_);
+        var3.unknown_4_ = 0;
+        var3.unknown_8_ = fix32cos(var2.unknown_4_);
+        func_ov000_0216d234(&var3, &var1, &var4);
+        func_0202ecc8((struct Struct_0202ecc8_2*)arg0, &var4);
     }
 }

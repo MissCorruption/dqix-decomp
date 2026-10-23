@@ -6,45 +6,45 @@
 #endif
 #include <globaldefs.h>
 
-struct Struct0218e498;
-extern "C" ARM void func_ov015_0218e498(struct Struct0218e498* obj);
-extern "C" ARM void func_ov015_0218e4f8(void* obj);
-struct S0218e574;
-extern "C" ARM void func_ov015_0218e574(struct S0218e574* obj);
-struct S0218e5c0;
-extern "C" ARM void func_ov015_0218e5c0(struct S0218e5c0* obj);
-struct S0218e60c;
-extern "C" void func_ov015_0218e60c(struct S0218e60c* obj);
-extern "C" ARM void func_ov015_0218e670(void* obj);
+struct Struct_ov015_0218e498;
+extern "C" ARM void func_ov015_0218e498(struct Struct_ov015_0218e498* arg0);
+extern "C" ARM void func_ov015_0218e4f8(void* arg0);
+struct Struct_ov015_0218e574;
+extern "C" ARM void func_ov015_0218e574(struct Struct_ov015_0218e574* arg0);
+struct Struct_ov015_0218e5c0;
+extern "C" ARM void func_ov015_0218e5c0(struct Struct_ov015_0218e5c0* arg0);
+struct Struct_ov015_0218e60c_2;
+extern "C" void func_ov015_0218e60c(struct Struct_ov015_0218e60c_2* arg0);
+extern "C" ARM void func_ov015_0218e670(void* arg0);
 
-struct S0218f1c4 {
-    char pad0x1c[0x1c];
-    unsigned char field0x1c;
+struct Struct_ov015_0218f1c4 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_;
 };
 
 // USA: func_ov015_0218f1c4
-extern "C" ARM void func_ov015_0218f1c4(struct S0218f1c4* obj) {
-    switch (obj->field0x1c) {
+extern "C" ARM void func_ov015_0218f1c4(struct Struct_ov015_0218f1c4* arg0) {
+    switch (arg0->unknown_1c_) {
     case 0:
-        func_ov015_0218e498((struct Struct0218e498*)obj);
+        func_ov015_0218e498((struct Struct_ov015_0218e498*)arg0);
         break;
     case 1:
-        func_ov015_0218e4f8(obj);
+        func_ov015_0218e4f8(arg0);
         break;
     case 3:
-        func_ov015_0218e574((struct S0218e574*)obj);
+        func_ov015_0218e574((struct Struct_ov015_0218e574*)arg0);
         break;
     case 2:
-        func_ov015_0218e5c0((struct S0218e5c0*)obj);
+        func_ov015_0218e5c0((struct Struct_ov015_0218e5c0*)arg0);
         break;
     case 4:
-        func_ov015_0218e60c((struct S0218e60c*)obj);
+        func_ov015_0218e60c((struct Struct_ov015_0218e60c_2*)arg0);
         break;
     case 5:
-        func_ov015_0218e670(obj);
+        func_ov015_0218e670(arg0);
         break;
     case 6:
-        func_ov015_0218e670(obj);
+        func_ov015_0218e670(arg0);
         break;
     }
 }

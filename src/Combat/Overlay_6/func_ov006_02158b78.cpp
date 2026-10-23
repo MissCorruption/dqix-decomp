@@ -7,136 +7,136 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Outer020e28dc;
-struct Obj2081;
+struct Struct_020e28dc;
+struct Struct_0207fdcc_2;
 
-struct Sprite {
-    char unk_0[0x28];
+struct Struct_ov006_021580b8 {
+    char unknown_0_[0x28];
 };
 
-struct Unknown_02075cdc {
-    int unk_0[0x70 / 4];
+struct Struct_ov006_02156e54_2 {
+    int unknown_0_[0x70 / 4];
 };
 
-struct AlchemyPot;
+struct Struct_ov006_02154614;
 
-extern "C" int func_020e28dc(Outer020e28dc*);
-extern "C" int func_020e2984(struct Outer020e28dc* window);
-extern "C" int func_02080d54(Obj2081*, int, int, int);
+extern "C" int func_020e28dc(Struct_020e28dc*);
+extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
+extern "C" int func_02080d54(Struct_0207fdcc_2*, int, int, int);
 
-struct AlchemyMenu {
+struct Struct_ov006_02157a60 {
 #if !defined(jpn)
-    int textPosition_;
-    char** texts_;
+    int unknown_0_;
+    char** unknown_4_;
 #endif
-    void* canvasBuffer_;
-    void* allocators_;
-    AlchemyPot* pot_;
-    void* menu_;
-    void* choice_;
-    void* backgrounds_;
-    void* canvases_;
-    Sprite* sprites_;
-    void* animations_;
-    void* recipes_;
-    void* pageStart_;
-    void* recipe_;
-    void* records_;
-    char save_[8];
-    short* cursor_;
-    short** items_;
-    unsigned char** counts_;
-    unsigned short* sizes_;
+    void* unknown_8_;
+    void* unknown_c_;
+    Struct_ov006_02154614* unknown_10_;
+    void* unknown_14_;
+    void* unknown_18_;
+    void* unknown_1c_;
+    void* unknown_20_;
+    Struct_ov006_021580b8* unknown_24_;
+    void* unknown_28_;
+    void* unknown_2c_;
+    void* unknown_30_;
+    void* unknown_34_;
+    void* unknown_38_;
+    char unknown_3c_[8];
+    short* unknown_44_;
+    short** unknown_48_;
+    unsigned char** unknown1_4c_;
+    unsigned short* unknown_50_;
 #if defined(jpn)
-    char regionalPad[8];
+    char unknown_4c_[8];
 #endif
-    int subBackground_[0x20 / 4];
-    int ingredients_[0x28 / 4];
-    int repeat_[0xc / 4];
-    unsigned short buttons_;
-    unsigned char unk_aa;
-    int renderer_[0x54 / 4];
-    int layout_[0x4c / 4];
-    int table_[0xc / 4];
-    int menuTexts_[0x18 / 4];
-    char itemNames_[0xc];
-    int results_[4][0x74 / 4];
-    int ticks_;
-    int menuResult_;
-    int task_;
-    int unk_358;
-    short unk_35c;
-    short previousCursor_;
-    short mainCursor_;
-    short categoryCursor_;
-    short itemCursor_;
-    short bookCursor_;
-    short filterCursor_;
-    short recipeCursor_;
-    short choiceCursor_;
-    short group_;
-    short item_;
-    unsigned short categories_[3];
-    short chosenItems_[3];
-    short message_;
-    unsigned short messageLength_;
-    short successRate_;
-    signed char filterCategory_;
-    signed char filterKind_;
-    unsigned char sort_;
-    unsigned char times_;
-    unsigned char page_;
-    unsigned char pages_;
-    unsigned char category_;
-    unsigned char count_;
-    unsigned char chosenCounts_[3];
-    unsigned char state_;
-    unsigned char step_;
-    unsigned char unk_391;
-    unsigned char messageStep_;
-    unsigned char repeatDelay_;
-    unsigned short flags_;
-    unsigned char female_;
-    unsigned char background_;
-    unsigned char amounts_[3];
-    int textSound_;
-    int unk_3a0;
-    int textSoundOn_;
-    unsigned int textSoundTimer_;
-    int textSoundPlaying_;
-    int textSoundState_;
-    int showResult_;
-    Unknown_02075cdc resultSprite_;
-    int resultTask_;
-    signed char arrowTimer_;
-    unsigned char fadeTimer_;
-    unsigned char nextStep_;
-    unsigned char saved_;
-    unsigned char arrowUp_;
-    unsigned char arrowDown_;
-    unsigned char resetBlend_;
-    unsigned char closing_;
-    unsigned char closeRequested_;
+    int unknown_54_[0x20 / 4];
+    int unknown_74_[0x28 / 4];
+    int unknown_9c_[0xc / 4];
+    unsigned short unknown_a8_;
+    unsigned char unknown_aa_;
+    int unknown_ac_[0x54 / 4];
+    int unknown_100_[0x4c / 4];
+    int unknown_14c_[0xc / 4];
+    int unknown_158_[0x18 / 4];
+    char unknown_170_[0xc];
+    int unknown_17c_[4][0x74 / 4];
+    int unknown_34c_;
+    int unknown_350_;
+    int unknown_354_;
+    int unknown_358_;
+    short unknown_35c_;
+    short unknown_35e_;
+    short unknown_360_;
+    short unknown_362_;
+    short unknown_364_;
+    short unknown_366_;
+    short unknown_368_;
+    short unknown_36a_;
+    short unknown_36c_;
+    short unknown_36e_;
+    short unknown_370_;
+    unsigned short unknown_372_[3];
+    short unknown_378_[3];
+    short unknown_37e_;
+    unsigned short unknown_380_;
+    short unknown_382_;
+    signed char unknown_384_;
+    signed char unknown_385_;
+    unsigned char unknown_386_;
+    unsigned char unknown_387_;
+    unsigned char unknown_388_;
+    unsigned char unknown_389_;
+    unsigned char unknown_38a_;
+    unsigned char unknown_38b_;
+    unsigned char unknown_38c_[3];
+    unsigned char unknown_38f_;
+    unsigned char unknown_390_;
+    unsigned char unknown_391_;
+    unsigned char unknown_392_;
+    unsigned char unknown_393_;
+    unsigned short unknown_394_;
+    unsigned char unknown_396_;
+    unsigned char unknown_397_;
+    unsigned char unknown_398_[3];
+    int unknown_39c_;
+    int unknown_3a0_;
+    int unknown_3a4_;
+    unsigned int unknown_3a8_;
+    int unknown_3ac_;
+    int unknown_3b0_;
+    int unknown_3b4_;
+    Struct_ov006_02156e54_2 unknown_3b8_;
+    int unknown_428_;
+    signed char unknown_42c_;
+    unsigned char unknown_42d_;
+    unsigned char unknown_42e_;
+    unsigned char unknown_42f_;
+    unsigned char unknown_430_;
+    unsigned char unknown_431_;
+    unsigned char unknown_432_;
+    unsigned char unknown_433_;
+    unsigned char unknown_434_;
 };
 
 // USA: func_ov006_02158b78
-extern "C" ARM unsigned char func_ov006_02158b78(AlchemyMenu* self)
+extern "C" ARM unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0)
 {
-    unsigned char cancelled = 0;
+    unsigned char var0 = 0;
     if (g_keyManager.TestKeysPressed(2))
-        cancelled = 1;
-    if (self->choice_ != 0 && func_020e28dc((Outer020e28dc*)self->choice_))
+        var0 = 1;
+    if (arg0->unknown_18_ != 0 && func_020e28dc((Struct_020e28dc*)arg0->unknown_18_))
     {
-        if (func_020e2984((struct Outer020e28dc*)self->choice_))
-            cancelled = 1;
+        if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_18_))
+            var0 = 1;
     }
     else if (g_touchInput.pressed_)
     {
-        int x;
-        int y;
-        g_touchInput.GetTouchPoint(&x, &y);
-        if (!func_02080d54((Obj2081*)self->menu_, self->group_, (short)x, (short)y))
-            cancelled = 1;
+        int var1;
+        int var2;
+        g_touchInput.GetTouchPoint(&var1, &var2);
+        if (!func_02080d54((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_, (short)var1, (short)var2))
+            var0 = 1;
     }
-    return cancelled;
+    return var0;
 }

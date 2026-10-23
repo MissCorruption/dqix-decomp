@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov003_0217bdb4(void* obj);
+extern "C" int func_ov003_0217bdb4(void* arg0);
 
 // USA: func_ov003_02173ef4
-extern "C" ARM int func_ov003_02173ef4(void* obj) {
+extern "C" ARM int func_ov003_02173ef4(void* arg0) {
 #if defined(jpn)
-    enum { fieldOffset = 0x1ec };
+    enum { Enum_ov003_02173ef4_480 = 0x1ec };
 #else
-    enum { fieldOffset = 0x1e0 };
+    enum { Enum_ov003_02173ef4_480 = 0x1e0 };
 #endif
-    return func_ov003_0217bdb4((char*)obj + fieldOffset);
+    return func_ov003_0217bdb4((char*)arg0 + Enum_ov003_02173ef4_480);
 }

@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct SelfBB04 {
-    int f0;
-    char pad4[4];
-    int f8;
-    int fc;
-    char pad10[4];
-    int f14;
-    char pad18[0x24 - 0x18];
-    int* f24;
-    int* f28;
-    int* f2c;
+struct Struct_0205bb04 {
+    int unknown_0_;
+    char unknown_4_[4];
+    int unknown_8_;
+    int unknown_c_;
+    char unknown_10_[4];
+    int unknown_14_;
+    char unknown_18_[0x24 - 0x18];
+    int* unknown_24_;
+    int* unknown_28_;
+    int* unknown_2c_;
 };
 
 // USA: func_0205bb04
-extern "C" ARM void func_0205bb04(struct SelfBB04* self, int value) {
-    if (value < 0) return;
-    if (value >= self->f0) return;
-    int product = self->fc * self->f8;
-    if (product == 0) return;
-    self->f14 = value / product;
-    value = value % product;
-    *self->f2c = value % *self->f24;
-    *self->f28 = value / *self->f24;
+extern "C" ARM void func_0205bb04(struct Struct_0205bb04* arg0, int arg1) {
+    if (arg1 < 0) return;
+    if (arg1 >= arg0->unknown_0_) return;
+    int var0 = arg0->unknown_c_ * arg0->unknown_8_;
+    if (var0 == 0) return;
+    arg0->unknown_14_ = arg1 / var0;
+    arg1 = arg1 % var0;
+    *arg0->unknown_2c_ = arg1 % *arg0->unknown_24_;
+    *arg0->unknown_28_ = arg1 / *arg0->unknown_24_;
 }

@@ -1,89 +1,89 @@
 #include <globaldefs.h>
 #include "NitroSDK/Filesystem/NitroVM.h"
 
-struct Obj020bda58;
+struct Struct_020bbf84_2;
 
 int NitroVM_ReadSync(NitroVM* vm, void* dst, int capacity);
 int NitroVM_Seek(NitroVM* vm, int position, int whence);
-typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
-extern "C" void* func_020bda58(Obj020bda58* heap, unsigned int size, NNSSndHeapDisposeCallback callback, int data1, int data2);
+typedef void (*Type_020bbf84)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern "C" void* func_020bda58(Struct_020bbf84_2* arg0, unsigned int arg1, Type_020bbf84 arg2, int arg3, int arg4);
 extern "C" void func_020bd8f0(void*, void*, void*);
 extern "C" void func_020bd8fc(void*, void*, void*);
 extern "C" void func_020bd908(void*, void*, void*);
 
-struct ArchiveHeader020bd190 {
-    char fileHeader[0x10];
-    unsigned long symbolDataOffset;
-    unsigned long symbolDataSize;
-    unsigned long infoOffset;
-    unsigned long infoSize;
-    unsigned long fatOffset;
-    unsigned long fatSize;
-    unsigned long fileImageOffset;
-    unsigned long fileImageSize;
+struct Struct_020bd190 {
+    char unknown_0_[0x10];
+    unsigned long unknown_10_;
+    unsigned long unknown_14_;
+    unsigned long unknown_18_;
+    unsigned long unknown_1c_;
+    unsigned long unknown_20_;
+    unsigned long unknown_24_;
+    unsigned long unknown_28_;
+    unsigned long unknown_2c_;
 };
 
-struct SoundArchive020bd190 {
-    ArchiveHeader020bd190 header;
-    int fileOpen;
-    NitroVM file;
-    char unknown_7c[8];
-    void* fat;
-    void* symbol;
-    void* info;
-    long loadBlockSize;
+struct Struct_020bd190_2 {
+    Struct_020bd190 unknown_0_;
+    int unknown_30_;
+    NitroVM unknown_34_;
+    char unknown_7c_[8];
+    void* unknown_84_;
+    void* unknown_88_;
+    void* unknown_8c_;
+    long unknown_90_;
 };
 
 // USA: func_020bd190
-extern "C" ARM int func_020bd190(SoundArchive020bd190* arc, Obj020bda58* heap, int symbolLoadFlag) {
-    int result;
-    long readSize;
+extern "C" ARM int func_020bd190(Struct_020bd190_2* arg0, Struct_020bbf84_2* arg1, int arg2) {
+    int var0;
+    long var1;
 
-    result = NitroVM_Seek(&arc->file, 0, 0);
-    if (!result)
+    var0 = NitroVM_Seek(&arg0->unknown_34_, 0, 0);
+    if (!var0)
         return 0;
 
-    readSize = NitroVM_ReadSync(&arc->file, &arc->header, sizeof(arc->header));
-    if (readSize != sizeof(arc->header))
+    var1 = NitroVM_ReadSync(&arg0->unknown_34_, &arg0->unknown_0_, sizeof(arg0->unknown_0_));
+    if (var1 != sizeof(arg0->unknown_0_))
         return 0;
 
-    if (heap != NULL) {
-        arc->info = func_020bda58(heap, arc->header.infoSize, (NNSSndHeapDisposeCallback)func_020bd8f0, (int)arc, 0);
-        if (arc->info == NULL)
+    if (arg1 != NULL) {
+        arg0->unknown_8c_ = func_020bda58(arg1, arg0->unknown_0_.unknown_1c_, (Type_020bbf84)func_020bd8f0, (int)arg0, 0);
+        if (arg0->unknown_8c_ == NULL)
             return 0;
 
-        result = NitroVM_Seek(&arc->file, (long)arc->header.infoOffset, 0);
-        if (!result)
+        var0 = NitroVM_Seek(&arg0->unknown_34_, (long)arg0->unknown_0_.unknown_18_, 0);
+        if (!var0)
             return 0;
 
-        readSize = NitroVM_ReadSync(&arc->file, arc->info, (long)arc->header.infoSize);
-        if (readSize != arc->header.infoSize)
+        var1 = NitroVM_ReadSync(&arg0->unknown_34_, arg0->unknown_8c_, (long)arg0->unknown_0_.unknown_1c_);
+        if (var1 != arg0->unknown_0_.unknown_1c_)
             return 0;
 
-        arc->fat = func_020bda58(heap, arc->header.fatSize, (NNSSndHeapDisposeCallback)func_020bd8fc, (int)arc, 0);
-        if (arc->fat == NULL)
+        arg0->unknown_84_ = func_020bda58(arg1, arg0->unknown_0_.unknown_24_, (Type_020bbf84)func_020bd8fc, (int)arg0, 0);
+        if (arg0->unknown_84_ == NULL)
             return 0;
 
-        result = NitroVM_Seek(&arc->file, (long)arc->header.fatOffset, 0);
-        if (!result)
+        var0 = NitroVM_Seek(&arg0->unknown_34_, (long)arg0->unknown_0_.unknown_20_, 0);
+        if (!var0)
             return 0;
 
-        readSize = NitroVM_ReadSync(&arc->file, arc->fat, (long)arc->header.fatSize);
-        if (readSize != arc->header.fatSize)
+        var1 = NitroVM_ReadSync(&arg0->unknown_34_, arg0->unknown_84_, (long)arg0->unknown_0_.unknown_24_);
+        if (var1 != arg0->unknown_0_.unknown_24_)
             return 0;
 
-        if (symbolLoadFlag && arc->header.symbolDataSize > 0) {
-            arc->symbol = func_020bda58(heap, arc->header.symbolDataSize, (NNSSndHeapDisposeCallback)func_020bd908,
-                                                       (int)arc, 0);
-            if (arc->symbol == NULL)
+        if (arg2 && arg0->unknown_0_.unknown_14_ > 0) {
+            arg0->unknown_88_ = func_020bda58(arg1, arg0->unknown_0_.unknown_14_, (Type_020bbf84)func_020bd908,
+                                                       (int)arg0, 0);
+            if (arg0->unknown_88_ == NULL)
                 return 0;
 
-            result = NitroVM_Seek(&arc->file, (long)arc->header.symbolDataOffset, 0);
-            if (!result)
+            var0 = NitroVM_Seek(&arg0->unknown_34_, (long)arg0->unknown_0_.unknown_10_, 0);
+            if (!var0)
                 return 0;
 
-            readSize = NitroVM_ReadSync(&arc->file, arc->symbol, (long)arc->header.symbolDataSize);
-            if (readSize != arc->header.symbolDataSize)
+            var1 = NitroVM_ReadSync(&arg0->unknown_34_, arg0->unknown_88_, (long)arg0->unknown_0_.unknown_14_);
+            if (var1 != arg0->unknown_0_.unknown_14_)
                 return 0;
         }
     }

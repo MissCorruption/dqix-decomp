@@ -1,228 +1,228 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct S_10088;
+struct Struct_02010088;
 struct Random;
 
-struct Stats_021e9f68 {
-    char pad0[0x14];
-    unsigned int flags14;
-    char pad18[0x21 - 0x18];
-    unsigned char kind21;
+struct Struct_ov024_021e9f68 {
+    char unknown_0_[0x14];
+    unsigned int unknown_14_;
+    char unknown_18_[0x21 - 0x18];
+    unsigned char unknown_21_;
 };
 
-struct Cbt_021e9f68 {
-    char pad0[0x138];
-    struct Stats_021e9f68* stats;
+struct Struct_ov024_021e9f68_2 {
+    char unknown_0_[0x138];
+    struct Struct_ov024_021e9f68* unknown_138_;
 #if defined(jpn)
-    char pad13c[0x144 - 0x13c];
+    char unknown_13c_[0x144 - 0x13c];
 #else
-    char pad13c[0x150 - 0x13c];
+    char unknown1_13c_[0x150 - 0x13c];
 #endif
-    unsigned char* field150;
+    unsigned char* unknown_150_;
 };
 
-struct Ctx_021e9f68 {
-    char pad0[0xc];
-    void* queue;
-    struct Random* battle;
-    char pad14[0x20 - 0x14];
-    short partyTarget[4];
-    short monTarget[8];
-    unsigned char partyState[4];
-    unsigned char monState[8];
-    char pad44[0x76 - 0x44];
-    unsigned char f76;
-    unsigned char f77;
+struct Struct_ov024_021e9f68_3 {
+    char unknown_0_[0xc];
+    void* unknown_c_;
+    struct Random* unknown_10_;
+    char unknown_14_[0x20 - 0x14];
+    short unknown_20_[4];
+    short unknown_28_[8];
+    unsigned char unknown_38_[4];
+    unsigned char unknown_3c_[8];
+    char unknown_44_[0x76 - 0x44];
+    unsigned char unknown_76_;
+    unsigned char unknown_77_;
 };
 
-struct Action_021e9f68 {
-    unsigned int pad0;
-    unsigned int pad4;
-    unsigned int lo8 : 8;
-    unsigned int kind : 2;
-    unsigned int hi8 : 22;
-    unsigned int padc;
-    unsigned int flags10;
+struct Struct_ov024_021e9f68_4 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 2;
+    unsigned int unknown_9_2_ : 22;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
 };
 
-struct IdList_021e9f68 {
-    short v[8];
+struct Struct_ov024_021fe708 {
+    short unknown_0_[8];
 };
 
-extern const struct IdList_021e9f68 data_ov024_021fe768;
-extern const struct IdList_021e9f68 data_ov024_021fe708;
+extern const struct Struct_ov024_021fe708 data_ov024_021fe768;
+extern const struct Struct_ov024_021fe708 data_ov024_021fe708;
 
-struct Cbt_021e9f68* GetCombatantByID(int, int);
-extern "C" int func_02010088(struct S_10088* obj);
+struct Struct_ov024_021e9f68_2* GetCombatantByID(int, int);
+extern "C" int func_02010088(struct Struct_02010088* arg0);
 extern "C" int func_ov024_021e6798(GameObject*);
 struct GameObject;
 extern "C" int func_ov024_021e7ba8(GameObject*);
-extern "C" void func_ov000_0215ff50(void* obj, short val1, unsigned char val2);
-extern "C" int func_02085474(unsigned char* obj);
+extern "C" void func_ov000_0215ff50(void* arg0, short arg1, unsigned char arg2);
+extern "C" int func_02085474(unsigned char* arg0);
 int NextRandomMax(struct Random* random, int maximum);
-extern "C" int func_ov000_02155f9c(struct Random* battle, int id, int checkSubFlag);
-extern "C" int func_ov024_021ea500(struct Ctx_021e9f68* ctx, struct Action_021e9f68* action, int id);
-extern "C" int func_ov000_0215eb1c(struct Random* battle, short* out, int max, int flags);
-extern "C" int func_ov000_0215e9fc(struct Random* battle, short* out, int max, int flags);
-extern "C" int func_ov000_02156558(struct Random* battle, int id);
+extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" int func_ov024_021ea500(struct Struct_ov024_021e9f68_3* arg0, struct Struct_ov024_021e9f68_4* arg1, int arg2);
+extern "C" int func_ov000_0215eb1c(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_ov000_0215e9fc(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_ov000_02156558(struct Random* arg0, int arg1);
 
-static inline int IsKind_021e9f68(struct Cbt_021e9f68* c, int kind) {
-    return c->stats->kind21 == kind;
+static inline int inline_ov024_021e9f68(struct Struct_ov024_021e9f68_2* arg0, int arg1) {
+    return arg0->unknown_138_->unknown_21_ == arg1;
 }
 
 // USA: func_ov024_021e9f68
-extern "C" ARM int func_ov024_021e9f68(struct Ctx_021e9f68* ctx, short* a, short* b, struct Action_021e9f68* action,
-                                       unsigned char* out) {
-    struct Cbt_021e9f68* self;
-    GameState* gs;
-    short saved;
-    void* queue;
-    struct Random* rnd;
-    unsigned char* state;
-    short* target;
-    if (ctx->queue == 0) {
+extern "C" ARM int func_ov024_021e9f68(struct Struct_ov024_021e9f68_3* arg0, short* arg1, short* arg2, struct Struct_ov024_021e9f68_4* arg3,
+                                       unsigned char* arg4) {
+    struct Struct_ov024_021e9f68_2* var0;
+    GameState* var1;
+    short var2;
+    void* var3;
+    struct Random* var4;
+    unsigned char* var5;
+    short* var6;
+    if (arg0->unknown_c_ == 0) {
         return 0;
     }
-    self = GetCombatantByID((int)ctx->battle, *b);
-    if (!self) {
+    var0 = GetCombatantByID((int)arg0->unknown_10_, *arg2);
+    if (!var0) {
         return 0;
     }
-    if (func_02010088((struct S_10088*)self) || func_ov024_021e6798((GameObject*)self)) {
+    if (func_02010088((struct Struct_02010088*)var0) || func_ov024_021e6798((GameObject*)var0)) {
         return 0;
     }
-    gs = GameState::GetInstance();
-    rnd = ctx->battle;
-    saved = *a;
-    queue = ctx->queue;
-    *out = 0;
-    if (func_ov024_021e7ba8((GameObject*)self)) {
+    var1 = GameState::GetInstance();
+    var4 = arg0->unknown_10_;
+    var2 = *arg1;
+    var3 = arg0->unknown_c_;
+    *arg4 = 0;
+    if (func_ov024_021e7ba8((GameObject*)var0)) {
         return 0;
     }
-    if ((action->flags10 & 0x400) && action->kind == 1 && *a != *b) {
-        if (self->stats->flags14 & 0x200) {
-            func_ov000_0215ff50(queue, *a, 1);
-            *a = *b;
-            *b = saved;
-            ctx->f76 = 0;
-            *out = 1;
+    if ((arg3->unknown_10_ & 0x400) && arg3->unknown_9_0_ == 1 && *arg1 != *arg2) {
+        if (var0->unknown_138_->unknown_14_ & 0x200) {
+            func_ov000_0215ff50(var3, *arg1, 1);
+            *arg1 = *arg2;
+            *arg2 = var2;
+            arg0->unknown_76_ = 0;
+            *arg4 = 1;
             return 0;
         }
-        int inRange = *b >= 0 && *b <= 3;
-        if (inRange) {
-            struct Cbt_021e9f68* c = (Cbt_021e9f68*)func_0200ff1c(gs, *b);
-            if (c && func_02085474(c->field150) && NextRandomMax(rnd, 4) == 0) {
-                func_ov000_0215ff50(queue, *a, 1);
-                *a = *b;
-                *b = saved;
-                ctx->f76 = 0;
-                *out = 1;
+        int var7 = *arg2 >= 0 && *arg2 <= 3;
+        if (var7) {
+            struct Struct_ov024_021e9f68_2* var8 = (Struct_ov024_021e9f68_2*)func_0200ff1c(var1, *arg2);
+            if (var8 && func_02085474(var8->unknown_150_) && NextRandomMax(var4, 4) == 0) {
+                func_ov000_0215ff50(var3, *arg1, 1);
+                *arg1 = *arg2;
+                *arg2 = var2;
+                arg0->unknown_76_ = 0;
+                *arg4 = 1;
                 return 0;
             }
         }
     }
-    if ((action->flags10 & 4) && action->kind == 1 && (self->stats->flags14 & 0x4000000)) {
-        func_ov000_0215ff50(queue, *a, 2);
-        *a = *b;
-        *b = saved;
-        ctx->f76 = 0;
+    if ((arg3->unknown_10_ & 4) && arg3->unknown_9_0_ == 1 && (var0->unknown_138_->unknown_14_ & 0x4000000)) {
+        func_ov000_0215ff50(var3, *arg1, 2);
+        *arg1 = *arg2;
+        *arg2 = var2;
+        arg0->unknown_76_ = 0;
         return 0;
     }
-    if (func_ov000_02155f9c(ctx->battle, *b, 0)) {
+    if (func_ov000_02155f9c(arg0->unknown_10_, *arg2, 0)) {
         return 0;
     }
-    int inRange = 0;
-    int id = *b;
-    if (id >= 0 && id <= 3) {
-        inRange = 1;
+    int var9 = 0;
+    int var10 = *arg2;
+    if (var10 >= 0 && var10 <= 3) {
+        var9 = 1;
     }
-    if (inRange) {
-        state = &ctx->partyState[*b];
-        target = &ctx->partyTarget[*b];
+    if (var9) {
+        var5 = &arg0->unknown_38_[*arg2];
+        var6 = &arg0->unknown_20_[*arg2];
     } else {
-        state = &ctx->monState[id - 0xc0];
-        target = &ctx->monTarget[id - 0xc0];
+        var5 = &arg0->unknown_3c_[var10 - 0xc0];
+        var6 = &arg0->unknown_28_[var10 - 0xc0];
     }
-    int busy = func_ov024_021ea500(ctx, action, *a);
-    if ((action->flags10 & 0x80) && busy == 0) {
-        if (IsKind_021e9f68(self, 4)) {
-            func_ov000_0215ff50(queue, *a, 3);
-            *a = *b;
-            *b = saved;
-            ctx->f76 = 0;
-            *state = 1;
+    int var11 = func_ov024_021ea500(arg0, arg3, *arg1);
+    if ((arg3->unknown_10_ & 0x80) && var11 == 0) {
+        if (inline_ov024_021e9f68(var0, 4)) {
+            func_ov000_0215ff50(var3, *arg1, 3);
+            *arg1 = *arg2;
+            *arg2 = var2;
+            arg0->unknown_76_ = 0;
+            *var5 = 1;
             return 1;
         }
-        if (IsKind_021e9f68(self, 5)) {
-            struct IdList_021e9f68 ids = data_ov024_021fe768;
-            int isParty = *b >= 0 && *b <= 3;
-            int count;
-            if (isParty) {
-                count = func_ov000_0215eb1c(ctx->battle, ids.v, 8, 1);
+        if (inline_ov024_021e9f68(var0, 5)) {
+            struct Struct_ov024_021fe708 var12 = data_ov024_021fe768;
+            int var13 = *arg2 >= 0 && *arg2 <= 3;
+            int var14;
+            if (var13) {
+                var14 = func_ov000_0215eb1c(arg0->unknown_10_, var12.unknown_0_, 8, 1);
             } else {
-                count = func_ov000_0215e9fc(ctx->battle, ids.v, 8, 1);
+                var14 = func_ov000_0215e9fc(arg0->unknown_10_, var12.unknown_0_, 8, 1);
             }
-            if (*target < 0) {
-                *target = ids.v[NextRandomMax(rnd, count)];
+            if (*var6 < 0) {
+                *var6 = var12.unknown_0_[NextRandomMax(var4, var14)];
             }
-            func_ov000_0215ff50(queue, *target, 4);
-            *a = *b;
-            *b = *target;
-            ctx->f76 = 0;
-            ctx->f77 = 1;
+            func_ov000_0215ff50(var3, *var6, 4);
+            *arg1 = *arg2;
+            *arg2 = *var6;
+            arg0->unknown_76_ = 0;
+            arg0->unknown_77_ = 1;
             return 0;
         }
-        if (IsKind_021e9f68(self, 9)) {
-            int roll = NextRandomMax(rnd, 5);
-            struct IdList_021e9f68 ids = data_ov024_021fe708;
-            int isParty = *b >= 0 && *b <= 3;
-            int count;
-            if (isParty) {
-                if (roll < 2) {
-                    count = func_ov000_0215e9fc(ctx->battle, ids.v, 8, 1);
+        if (inline_ov024_021e9f68(var0, 9)) {
+            int var15 = NextRandomMax(var4, 5);
+            struct Struct_ov024_021fe708 var16 = data_ov024_021fe708;
+            int var17 = *arg2 >= 0 && *arg2 <= 3;
+            int var18;
+            if (var17) {
+                if (var15 < 2) {
+                    var18 = func_ov000_0215e9fc(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 } else {
-                    count = func_ov000_0215eb1c(ctx->battle, ids.v, 8, 1);
+                    var18 = func_ov000_0215eb1c(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 }
             } else {
-                if (roll < 2) {
-                    count = func_ov000_0215eb1c(ctx->battle, ids.v, 8, 1);
+                if (var15 < 2) {
+                    var18 = func_ov000_0215eb1c(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 } else {
-                    count = func_ov000_0215e9fc(ctx->battle, ids.v, 8, 1);
+                    var18 = func_ov000_0215e9fc(arg0->unknown_10_, var16.unknown_0_, 8, 1);
                 }
             }
-            if (*target < 0) {
-                *target = ids.v[NextRandomMax(rnd, count)];
+            if (*var6 < 0) {
+                *var6 = var16.unknown_0_[NextRandomMax(var4, var18)];
             }
-            if (*b == *target) {
-                func_ov000_0215ff50(queue, *target, 10);
+            if (*arg2 == *var6) {
+                func_ov000_0215ff50(var3, *var6, 10);
             } else {
-                func_ov000_0215ff50(queue, *target, 5);
-                *a = *b;
-                ctx->f76 = 0;
-                ctx->f77 = 1;
+                func_ov000_0215ff50(var3, *var6, 5);
+                *arg1 = *arg2;
+                arg0->unknown_76_ = 0;
+                arg0->unknown_77_ = 1;
             }
-            *b = *target;
+            *arg2 = *var6;
             return 0;
         }
-        int isParty = *b >= 0 && *b <= 3;
-        if (isParty) {
-            struct Random* battle = ctx->battle;
-            if (*state == 0) {
-                if (!func_ov000_02156558(battle, *b)) {
-                    *state = 2;
+        int var19 = *arg2 >= 0 && *arg2 <= 3;
+        if (var19) {
+            struct Random* var20 = arg0->unknown_10_;
+            if (*var5 == 0) {
+                if (!func_ov000_02156558(var20, *arg2)) {
+                    *var5 = 2;
                     return 0;
                 }
-                func_ov000_0215ff50(queue, *a, 3);
-                *a = *b;
-                *b = saved;
-                *state = 1;
-                ctx->f76 = 0;
+                func_ov000_0215ff50(var3, *arg1, 3);
+                *arg1 = *arg2;
+                *arg2 = var2;
+                *var5 = 1;
+                arg0->unknown_76_ = 0;
                 return 1;
-            } else if (*state == 1) {
-                func_ov000_0215ff50(queue, *a, 3);
-                *a = *b;
-                *b = saved;
-                ctx->f76 = 0;
+            } else if (*var5 == 1) {
+                func_ov000_0215ff50(var3, *arg1, 3);
+                *arg1 = *arg2;
+                *arg2 = var2;
+                arg0->unknown_76_ = 0;
                 return 1;
             }
         }

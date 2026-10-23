@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct List02160094;
-struct ListNode02160094;
-struct List021600f8;
-struct ListNode021600f8;
+struct Struct_ov000_0215440c_2;
+struct Struct_ov000_02160094;
+struct Struct_ov000_0215440c;
+struct Struct_ov000_021600f8;
 
-extern "C" struct ListNode02160094* func_ov000_02160094(struct List02160094* list, int index);
-extern "C" struct ListNode021600f8* func_ov000_021600f8(struct List021600f8* list, int index);
-extern "C" void func_02033920(void* combatant, int arg1, int arg2);
+extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
+extern "C" struct Struct_ov000_021600f8* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1);
+extern "C" void func_02033920(void* arg0, int arg1, int arg2);
 
 // USA: func_ov025_021e45c4
-extern "C" ARM int func_ov025_021e45c4(void* unused, void* list) {
-    struct ListNode02160094* a = func_ov000_02160094((struct List02160094*)list, 0);
-    struct ListNode021600f8* b = func_ov000_021600f8((struct List021600f8*)list, 0);
-    if (a == 0 || b == 0) return 1;
-    GameState* bs = GameState::GetInstance();
-    GameObject* c = bs->GetCombatantByIndex(*(unsigned short*)((char*)a + 0x20));
-    if (c != 0) {
-        func_02033920(c, *(short*)((char*)b + 0xe), 0);
+extern "C" ARM int func_ov025_021e45c4(void* arg0, void* arg1) {
+    struct Struct_ov000_02160094* var0 = func_ov000_02160094((struct Struct_ov000_0215440c_2*)arg1, 0);
+    struct Struct_ov000_021600f8* var1 = func_ov000_021600f8((struct Struct_ov000_0215440c*)arg1, 0);
+    if (var0 == 0 || var1 == 0) return 1;
+    GameState* var2 = GameState::GetInstance();
+    GameObject* var3 = var2->GetCombatantByIndex(*(unsigned short*)((char*)var0 + 0x20));
+    if (var3 != 0) {
+        func_02033920(var3, *(short*)((char*)var1 + 0xe), 0);
     }
     return 1;
 }

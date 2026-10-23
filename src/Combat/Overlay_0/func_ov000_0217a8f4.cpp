@@ -1,89 +1,89 @@
 #include <globaldefs.h>
 
-struct ElemSlot {
-    char pad0[0xac];
-    short x;
-    short y;
-    char padb0[0xc4 - 0xb0];
-    unsigned char key;
-    char padc5[0xe0 - 0xc5];
+struct Struct_ov000_0217a8f4_2 {
+    char unknown_0_[0xac];
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_[0xc4 - 0xb0];
+    unsigned char unknown_c4_;
+    char unknown_c5_[0xe0 - 0xc5];
 };
 
 struct Struct_0205d81c {
-    char pad0[0xfc];
-    ElemSlot slots[7];
+    char unknown_0_[0xfc];
+    Struct_ov000_0217a8f4_2 unknown_fc_[7];
 };
 
-struct Element02161318 {
-    char pad0[0x44];
-    int posX;
-    int posY;
+struct Struct_ov000_0217a8f4 {
+    char unknown_0_[0x44];
+    int unknown_44_;
+    int unknown_48_;
 };
 
-struct Obj0217a8f4 {
-    char pad0[0x17c];
-    int elementId;
-    char pad180[0x188 - 0x180];
-    Struct_0205d81c elems;
+struct Struct_ov000_0217a8f4_3 {
+    char unknown_0_[0x17c];
+    int unknown_17c_;
+    char unknown_180_[0x188 - 0x180];
+    Struct_0205d81c unknown_188_;
 };
 
-struct SlotOffset {
-    short key;
-    short x;
-    short y;
+struct Struct_ov000_02183548 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
 };
 
-struct SlotLink {
-    unsigned char a;
-    unsigned char b;
+struct Struct_ov000_021834d4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
 };
 
-extern SlotOffset data_ov000_02183548[];
-extern SlotLink data_ov000_021834d4[];
+extern Struct_ov000_02183548 data_ov000_02183548[];
+extern Struct_ov000_021834d4 data_ov000_021834d4[];
 
-extern "C" Element02161318* func_ov000_02161318(Obj0217a8f4* obj, int id);
-extern "C" void func_ov000_02176210(Struct_0205d81c* elems, int keyA, int keyB);
-extern "C" void func_0205d904(unsigned char* obj);
+extern "C" Struct_ov000_0217a8f4* func_ov000_02161318(Struct_ov000_0217a8f4_3* arg0, int arg1);
+extern "C" void func_ov000_02176210(Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void func_0205d904(unsigned char* arg0);
 
 // USA: func_ov000_0217a8f4
-extern "C" ARM void func_ov000_0217a8f4(Obj0217a8f4* obj) {
-    Element02161318* e = func_ov000_02161318(obj, obj->elementId);
-    if (e == 0) {
+extern "C" ARM void func_ov000_0217a8f4(Struct_ov000_0217a8f4_3* arg0) {
+    Struct_ov000_0217a8f4* var0 = func_ov000_02161318(arg0, arg0->unknown_17c_);
+    if (var0 == 0) {
         return;
     }
-    int posX = e->posX;
-    int posY = e->posY;
-    ElemSlot* slot;
-    int i;
-    for (i = 0; i < 7; i++) {
-        slot = &obj->elems.slots[i];
-        int key = slot->key;
-        int j;
-        for (j = 0; data_ov000_02183548[j].key > 0; j++) {
-            if (key == data_ov000_02183548[j].key) {
-                slot->x = data_ov000_02183548[j].x + (posX >> 3);
-                slot->y = data_ov000_02183548[j].y + (posY >> 3);
+    int var1 = var0->unknown_44_;
+    int var2 = var0->unknown_48_;
+    Struct_ov000_0217a8f4_2* var3;
+    int var4;
+    for (var4 = 0; var4 < 7; var4++) {
+        var3 = &arg0->unknown_188_.unknown_fc_[var4];
+        int var5 = var3->unknown_c4_;
+        int var6;
+        for (var6 = 0; data_ov000_02183548[var6].unknown_0_ > 0; var6++) {
+            if (var5 == data_ov000_02183548[var6].unknown_0_) {
+                var3->unknown_ac_ = data_ov000_02183548[var6].unknown_2_ + (var1 >> 3);
+                var3->unknown_ae_ = data_ov000_02183548[var6].unknown_4_ + (var2 >> 3);
                 break;
             }
         }
     }
 #if defined(jpn)
-    func_ov000_02176210(&obj->elems, 7, 33);
-    func_ov000_02176210(&obj->elems, 15, 34);
-    func_ov000_02176210(&obj->elems, 16, 35);
-    func_ov000_02176210(&obj->elems, 17, 36);
-    func_ov000_02176210(&obj->elems, 21, 22);
+    func_ov000_02176210(&arg0->unknown_188_, 7, 33);
+    func_ov000_02176210(&arg0->unknown_188_, 15, 34);
+    func_ov000_02176210(&arg0->unknown_188_, 16, 35);
+    func_ov000_02176210(&arg0->unknown_188_, 17, 36);
+    func_ov000_02176210(&arg0->unknown_188_, 21, 22);
 
 #else
-    SlotLink* link = data_ov000_021834d4;
+    Struct_ov000_021834d4* var7 = data_ov000_021834d4;
     while (true) {
-        if (link->a == 0xff) {
+        if (var7->unknown_0_ == 0xff) {
             break;
         }
-        func_ov000_02176210(&obj->elems, link->a, link->b);
-        link++;
+        func_ov000_02176210(&arg0->unknown_188_, var7->unknown_0_, var7->unknown_1_);
+        var7++;
     }
 
 #endif
-    func_0205d904((unsigned char*)&obj->elems);
+    func_0205d904((unsigned char*)&arg0->unknown_188_);
 }

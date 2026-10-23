@@ -2,29 +2,29 @@
 
 extern "C" unsigned char* func_ov031_02220390(void*);
 
-struct Obj022203f0 {
-    unsigned char field_00;
-    unsigned char field_01;
-    unsigned char field_02;
-    unsigned char field_03;
-    unsigned char field_04;
-    unsigned char field_05;
-    unsigned char field_06;
-    unsigned char field_07;
+struct Struct_ov031_022203f0 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
 };
 
 // USA: func_ov031_022203f0
-extern "C" THUMB int func_ov031_022203f0(struct Obj022203f0* self) {
-    self->field_00 = 0;
-    self->field_01 = 0;
-    self->field_02 = 0;
-    self->field_03 = 0;
-    self->field_04 = 0;
-    self->field_05 = 0;
-    self->field_06 = 0;
-    self->field_07 = 0;
+extern "C" THUMB int func_ov031_022203f0(struct Struct_ov031_022203f0* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_1_ = 0;
+    arg0->unknown_2_ = 0;
+    arg0->unknown_3_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_5_ = 0;
+    arg0->unknown_6_ = 0;
+    arg0->unknown_7_ = 0;
 
-    int size = (int)func_ov031_02220390((unsigned char*)self + 8) - (int)self;
-    ((unsigned short*)self)[0] = (unsigned short)(size - 8);
-    return size;
+    int var0 = (int)func_ov031_02220390((unsigned char*)arg0 + 8) - (int)arg0;
+    ((unsigned short*)arg0)[0] = (unsigned short)(var0 - 8);
+    return var0;
 }

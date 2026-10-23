@@ -17,9 +17,9 @@ extern "C" ARM void func_020c55b0() {
         func_020ca3ec(0, (void*)0x4000330, 0x10);
         func_020ca3ec(0, (void*)0x4000360, 0x60);
     }
-    int i = 0;
+    int var0 = 0;
     do {
-        i++;
+        var0++;
         *(volatile unsigned int*)0x40004d0 = 0;
-    } while (i < 0x20);
+    } while (var0 < 0x20);
 }

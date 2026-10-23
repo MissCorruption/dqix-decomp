@@ -4,218 +4,218 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-struct Struct0203c1c8  {
+struct Struct_0203c1c8  {
 #if defined(jpn)
-    char paddingJpn0[0x14];
+    char unknown_0_[0x14];
 #endif
-    int x;
-    int y;
+    int unknown1_0_;
+    int unknown_4_;
 #if defined(jpn)
-    char paddingJpn1c[8];
+    char unknown_1c_[8];
 #endif
-    int category;
-    int alignment;
-    int active;
-    short field_0x14;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    short unknown_14_;
 #if defined(jpn)
-    char paddingJpn32[0x38 - 0x32];
+    char unknown_32_[0x38 - 0x32];
 #endif
 };
-struct DisplayEntry02180ca8  {
-    char padding0[0x14];
-    int x;
-    int y;
-    char padding1c[6];
-    unsigned char id;
-    char padding23[3];
-    unsigned char active;
-    char padding27;
+struct Struct_ov000_02180ca8_4  {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[6];
+    unsigned char unknown_22_;
+    char unknown_23_[3];
+    unsigned char unknown_26_;
+    char unknown_27_;
 };
-struct Action02180ca8  {
-    int flags[3];
-    short amount;
-    char paddinge[2];
-    signed char commands[8];
-    signed char commandIndex;
-    char padding19[3];
-    signed char state;
-    signed char displayIndex;
-    char padding1e[6];
-    unsigned char flags24;
-    char padding25[9];
-    signed char slot;
-    char padding2f[0x44 - 0x2f];
-    int x;
-    int y;
-    int actorId;
+struct Struct_ov000_02180ca8_5  {
+    int unknown_0_[3];
+    short unknown_c_;
+    char unknown_e_[2];
+    signed char unknown_10_[8];
+    signed char unknown_18_;
+    char unknown_19_[3];
+    signed char unknown_1c_;
+    signed char unknown_1d_;
+    char unknown_1e_[6];
+    unsigned char unknown_24_;
+    char unknown_25_[9];
+    signed char unknown_2e_;
+    char unknown_2f_[0x44 - 0x2f];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 #if defined(jpn)
-    char padding50[0xc7 - 0x50];
+    char unknown_50_[0xc7 - 0x50];
 #else
-    char padding50[0x87 - 0x50];
+    char unknown1_50_[0x87 - 0x50];
 #endif
-    unsigned char busy;
+    unsigned char unknown_87_;
 #if defined(jpn)
-    char padding88[0x483 - 0xc8];
+    char unknown_c8_[0x483 - 0xc8];
 #else
-    char padding88[0x443 - 0x88];
+    char unknown_88_[0x443 - 0x88];
 #endif
-    signed char animation;
-    char padding444[4];
+    signed char unknown_443_;
+    char unknown_444_[4];
 };
-struct ActionStats02180ca8  {
-    char padding0[0x3b];
+struct Struct_ov000_02180ca8  {
+    char unknown_0_[0x3b];
     unsigned char : 3;
-    unsigned char special : 1;
+    unsigned char unknown_3b_3_ : 1;
     unsigned char : 4;
 };
-struct Actor02180ca8  {
-    char padding0[0x138];
-    ActionStats02180ca8* stats;
+struct Struct_ov000_02180ca8_2  {
+    char unknown_0_[0x138];
+    Struct_ov000_02180ca8* unknown_138_;
 };
-struct EntryList0204af14;
-struct Obj0204b878;
-struct State02180ca8  {
-    char padding0[0x11c];
-    char display[0x54];
-    DisplayEntry02180ca8* displayEntries;
-    char padding174[0x8c4 - 0x174];
-    char entryList[0x930 - 0x8c4];
-    char padding930[0x940 - 0x930];
-    int xOffset;
-    int yOffset;
-    char padding948[8];
-    int selected;
-    unsigned char mode;
+struct Struct_0204af14;
+struct Struct_0204b878;
+struct Struct_ov000_02180ca8_3  {
+    char unknown_0_[0x11c];
+    char unknown_11c_[0x54];
+    Struct_ov000_02180ca8_4* unknown_170_;
+    char unknown_174_[0x8c4 - 0x174];
+    char unknown_8c4_[0x930 - 0x8c4];
+    char unknown_930_[0x940 - 0x930];
+    int unknown_940_;
+    int unknown_944_;
+    char unknown_948_[8];
+    int unknown_950_;
+    unsigned char unknown_954_;
 #if defined(jpn)
-    char padding955[0x1b64 - 0x955];
+    char unknown_955_[0x1b64 - 0x955];
 #else
-    char padding955[0x1b0c - 0x955];
+    char unknown1_955_[0x1b0c - 0x955];
 #endif
-    Struct0203c1c8 groups[3];
-    Struct0203c1c8 actionEntry;
-    Struct0203c1c8 specialEntry;
+    Struct_0203c1c8 unknown_1b0c_[3];
+    Struct_0203c1c8 unknown_1b54_;
+    Struct_0203c1c8 unknown_1b6c_;
 #if defined(jpn)
-    char padding1c7c[0x1d94 - 0x1c7c];
+    char unknown_1c7c_[0x1d94 - 0x1c7c];
 #else
-    char padding1b84[0x1c5c - 0x1b84];
+    char unknown_1b84_[0x1c5c - 0x1b84];
 #endif
-    Struct0203c1c8 entries[8];
-    int groupIds[16];
-    unsigned char entryCount;
+    Struct_0203c1c8 unknown_1c5c_[8];
+    int unknown_1d1c_[16];
+    unsigned char unknown_1d5c_;
 };
-extern "C" int func_ov000_0217fe30(State02180ca8*);
+extern "C" int func_ov000_0217fe30(Struct_ov000_02180ca8_3*);
 extern "C" void func_0205ac40(void*, void*);
 extern "C" int func_ov000_021719f8(int*);
 extern "C" int func_ov000_02174e34(int, int);
-extern "C" Struct0203c1c8* func_ov000_02174e1c(void*, int);
-extern "C" int func_ov000_02171ffc(Action02180ca8*);
+extern "C" Struct_0203c1c8* func_ov000_02174e1c(void*, int);
+extern "C" int func_ov000_02171ffc(Struct_ov000_02180ca8_5*);
 #if defined(jpn)
-extern "C" void func_0203c1c8(Struct0203c1c8*, int);
+extern "C" void func_0203c1c8(Struct_0203c1c8*, int);
 #else
-extern "C" void func_0203c1c8(Struct0203c1c8*);
+extern "C" void func_0203c1c8(Struct_0203c1c8*);
 #endif
-extern "C" void* func_0204af14(EntryList0204af14*, unsigned int);
-extern "C" void func_0204b878(Obj0204b878*, int, int, int, short, short, short, short, unsigned short);
+extern "C" void* func_0204af14(Struct_0204af14*, unsigned int);
+extern "C" void func_0204b878(Struct_0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern const int data_ov000_02183674[11];
-static inline int ValidSlot(int slot)  { return slot >= 0 && slot <= 3; }
+static inline int inline_ov000_02180ca8(int arg0)  { return arg0 >= 0 && arg0 <= 3; }
 // USA: func_ov000_02180ca8
-extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* action, Obj0204b878* list)  {
-    if (!action)  {
+extern "C" ARM void func_ov000_02180ca8(Struct_ov000_02180ca8_3* arg0, Struct_ov000_02180ca8_5* arg1, Struct_0204b878* arg2)  {
+    if (!arg1)  {
         return;
     }
-    int xOffset = 0;
-    int yOffset = 0;
-    if (action->flags24 & 8)  {
-        yOffset = self->yOffset;
-        xOffset = self->xOffset;
+    int var0 = 0;
+    int var1 = 0;
+    if (arg1->unknown_24_ & 8)  {
+        var1 = arg0->unknown_944_;
+        var0 = arg0->unknown_940_;
     }
-    int x = action->x;
-    int y = action->y;
-    int tileX;
-    int tileY;
-    int category;
-    int actorId = action->actorId;
-    tileX = x >> 3;
-    tileY = y >> 3;
-    GameObject* actor = func_0200ff1c(GameState::GetInstance(), actorId);
-    if (func_ov000_0217fe30(self) && actor && action->amount && ((Actor02180ca8*)actor)->stats->special)  {
-        DisplayEntry02180ca8* display = &self->displayEntries[30];
-        display->x = 0;
-        display->y = (y + 7) << 12;
+    int var2 = arg1->unknown_44_;
+    int var3 = arg1->unknown_48_;
+    int var4;
+    int var5;
+    int var6;
+    int var7 = arg1->unknown_4c_;
+    var4 = var2 >> 3;
+    var5 = var3 >> 3;
+    GameObject* var8 = func_0200ff1c(GameState::GetInstance(), var7);
+    if (func_ov000_0217fe30(arg0) && var8 && arg1->unknown_c_ && ((Struct_ov000_02180ca8_2*)var8)->unknown_138_->unknown_3b_3_)  {
+        Struct_ov000_02180ca8_4* var9 = &arg0->unknown_170_[30];
+        var9->unknown_14_ = 0;
+        var9->unknown_18_ = (var3 + 7) << 12;
 #if defined(jpn)
-        display->id = action->actorId + 0x40;
+        var9->unknown_22_ = arg1->unknown_4c_ + 0x40;
 #else
-        display->id = action->actorId + 0x44;
+        var9->unknown_22_ = arg1->unknown_4c_ + 0x44;
 #endif
-        display->active = 0;
-        func_0205ac40(self->display, display);
+        var9->unknown_26_ = 0;
+        func_0205ac40(arg0->unknown_11c_, var9);
     }
-    signed char command = action->commands[action->commandIndex];
-    if (command == 0x67)  {
+    signed char var10 = arg1->unknown_10_[arg1->unknown_18_];
+    if (var10 == 0x67)  {
         return;
     }
-    if (command >= 0x64)  {
-        if (command != 0x66 && func_ov000_0217fe30(self) && action->amount)  {
-            DisplayEntry02180ca8* display = &self->displayEntries[6];
-            display->x = 0xe0000;
-            display->y = (y + 7) << 12;
+    if (var10 >= 0x64)  {
+        if (var10 != 0x66 && func_ov000_0217fe30(arg0) && arg1->unknown_c_)  {
+            Struct_ov000_02180ca8_4* var11 = &arg0->unknown_170_[6];
+            var11->unknown_14_ = 0xe0000;
+            var11->unknown_18_ = (var3 + 7) << 12;
 #if defined(jpn)
-            display->id = action->actorId + 0x78;
+            var11->unknown_22_ = arg1->unknown_4c_ + 0x78;
 #else
-            display->id = action->actorId;
+            var11->unknown_22_ = arg1->unknown_4c_;
 #endif
-            display->active = 1;
-            func_0205ac40(self->display, display);
+            var11->unknown_26_ = 1;
+            func_0205ac40(arg0->unknown_11c_, var11);
         }
-        if (action->state == 6 || action->amount == 0 || func_ov000_021719f8(action->flags) || action->state == 2 || action->animation != 5)  {
+        if (arg1->unknown_1c_ == 6 || arg1->unknown_c_ == 0 || func_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_1c_ == 2 || arg1->unknown_443_ != 5)  {
             return;
         }
-        int slot;
-        Struct0203c1c8* entry;
-        int displayIndex;
-        displayIndex = action->displayIndex;
-        slot = action->slot;
-        category = 3;
-        if (action->commands[action->commandIndex] != 0x66)  {
-            category = 0;
-            int value = func_ov000_02174e34((int)self, slot);
-            if (value != -1)  {
-                category = value;
+        int var12;
+        Struct_0203c1c8* var13;
+        int var14;
+        var14 = arg1->unknown_1d_;
+        var12 = arg1->unknown_2e_;
+        var6 = 3;
+        if (arg1->unknown_10_[arg1->unknown_18_] != 0x66)  {
+            var6 = 0;
+            int var15 = func_ov000_02174e34((int)arg0, var12);
+            if (var15 != -1)  {
+                var6 = var15;
             }
         }
-        entry = 0;
-        if (displayIndex >= 0 && displayIndex < self->entryCount)  {
-            entry = &self->entries[displayIndex];
+        var13 = 0;
+        if (var14 >= 0 && var14 < arg0->unknown_1d5c_)  {
+            var13 = &arg0->unknown_1c5c_[var14];
         }
-        if (ValidSlot(slot))  {
-            entry = func_ov000_02174e1c(self, slot);
+        if (inline_ov000_02180ca8(var12))  {
+            var13 = func_ov000_02174e1c(arg0, var12);
         }
-        switch (func_ov000_02171ffc(action))  {
+        switch (func_ov000_02171ffc(arg1))  {
             case 3:
-            entry = &self->specialEntry;
+            var13 = &arg0->unknown_1b6c_;
             break;
-            case 4:             if (ValidSlot(slot))  {
-                entry = &self->specialEntry;
+            case 4:             if (inline_ov000_02180ca8(var12))  {
+                var13 = &arg0->unknown_1b6c_;
             }
 #if !defined(jpn)
             else  {
-                Struct0203c1c8* group = self->groups;
-                int groupId = self->groupIds[0];
-                for (int i = 1; i < displayIndex + 1; ++i)  {
-                    int id = self->groupIds[i];
-                    if (groupId != id)  {
-                        ++group;
+                Struct_0203c1c8* var16 = arg0->unknown_1b0c_;
+                int var17 = arg0->unknown_1d1c_[0];
+                for (int var18 = 1; var18 < var14 + 1; ++var18)  {
+                    int var19 = arg0->unknown_1d1c_[var18];
+                    if (var17 != var19)  {
+                        ++var16;
                     }
-                    groupId = id;
+                    var17 = var19;
                 }
-                int count = 0;
-                for (int i = 0; i < self->entryCount; ++i)  {
-                    if (groupId == self->groupIds[i])  {
-                        ++count;
+                int var20 = 0;
+                for (int var21 = 0; var21 < arg0->unknown_1d5c_; ++var21)  {
+                    if (var17 == arg0->unknown_1d1c_[var21])  {
+                        ++var20;
                     }
                 }
-                if (count > 1)  {
-                    entry = group;
+                if (var20 > 1)  {
+                    var13 = var16;
                 }
             }
 #endif
@@ -225,89 +225,89 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             default:
             break;
         }
-        if (!entry)  {
+        if (!var13)  {
             return;
         }
-        int xs[2];
-        int ys[2];
-        int categories[2];
-        xs[0] = x + 0xb3 + xOffset;
-        xs[1] = x + 0xb4 + xOffset;
-        ys[0] = y + 0x17 + yOffset;
-        ys[1] = y + 0x17 + yOffset;
-        categories[1] = data_ov000_02183674[8];
-        categories[0] = category;
-        int* categoryPointer = categories;
+        int var22[2];
+        int var23[2];
+        int var24[2];
+        var22[0] = var2 + 0xb3 + var0;
+        var22[1] = var2 + 0xb4 + var0;
+        var23[0] = var3 + 0x17 + var1;
+        var23[1] = var3 + 0x17 + var1;
+        var24[1] = data_ov000_02183674[8];
+        var24[0] = var6;
+        int* var25 = var24;
 #if defined(jpn)
-        for (int i = 0; i < 2; ++i)  {
+        for (int var26 = 0; var26 < 2; ++var26)  {
 #else
-        for (int i = 0; i < 1; ++i)  {
+        for (int var26 = 0; var26 < 1; ++var26)  {
 #endif
-            int value = categoryPointer[i];
-            int positionX = xs[i];
-            entry->category = value;
-            entry->alignment = 2;
-            entry->x = positionX;
-            entry->y = ys[i];
+            int var27 = var25[var26];
+            int var28 = var22[var26];
+            var13->unknown_8_ = var27;
+            var13->unknown_c_ = 2;
+            var13->unknown1_0_ = var28;
+            var13->unknown_4_ = var23[var26];
 #if defined(jpn)
-            func_0203c1c8(entry, 0xa);
+            func_0203c1c8(var13, 0xa);
 #else
-            func_0203c1c8(entry);
+            func_0203c1c8(var13);
 #endif
-            entry->active = 1;
+            var13->unknown_10_ = 1;
         }
-        entry->category = 0;
-        void* selectedEntry = func_0204af14((EntryList0204af14*)self->entryList, 3);
-        func_0204b878(list, (int)selectedEntry, 0, 0,
+        var13->unknown_8_ = 0;
+        void* var29 = func_0204af14((Struct_0204af14*)arg0->unknown_8c4_, 3);
+        func_0204b878(arg2, (int)var29, 0, 0,
 #if defined(jpn)
-            tileX + 16,
+            var4 + 16,
 #else
-            tileX + 15,
+            var4 + 15,
 #endif
-            tileY + 2, 0x20, 0x19, actorId + 2);
+            var5 + 2, 0x20, 0x19, var7 + 2);
     }
     else  {
-        Struct0203c1c8* entry = &self->actionEntry;
-        if (func_ov000_021719f8(action->flags) || action->busy)  {
+        Struct_0203c1c8* var30 = &arg0->unknown_1b54_;
+        if (func_ov000_021719f8(arg1->unknown_0_) || arg1->unknown_87_)  {
             return;
         }
-        if (self->selected == 0 && self->mode == 2)  {
+        if (arg0->unknown_950_ == 0 && arg0->unknown_954_ == 2)  {
             return;
         }
-        int xs[2] =  {
-            x + 0xb3, x + 0xb4
+        int var31[2] =  {
+            var2 + 0xb3, var2 + 0xb4
         };
-        int ys[2] =  {
-            y + 15, y + 15
+        int var32[2] =  {
+            var3 + 15, var3 + 15
         };
-        int categories[2] =  {
+        int var33[2] =  {
             data_ov000_02183674[9], data_ov000_02183674[10]
         };
-        entry->alignment = 2;
-        int* yPointer;
-        int* xPointer;
-        int* categoryPointer;
+        var30->unknown_c_ = 2;
+        int* var34;
+        int* var35;
+        int* var36;
 #if defined(jpn)
-        categoryPointer = categories;
-        int i = 0;
-        xPointer = xs;
-        yPointer = ys;
-        for (; i < 2; ++i)  {
+        var36 = var33;
+        int var37 = 0;
+        var35 = var31;
+        var34 = var32;
+        for (; var37 < 2; ++var37)  {
 #else
-        categoryPointer = categories;
-        xPointer = xs;
-        yPointer = ys;
-        for (int i = 1; i < 2; ++i)  {
+        var36 = var33;
+        var35 = var31;
+        var34 = var32;
+        for (int var37 = 1; var37 < 2; ++var37)  {
 #endif
-            entry->x = xPointer[i];
-            entry->y = yPointer[i];
+            var30->unknown1_0_ = var35[var37];
+            var30->unknown_4_ = var34[var37];
 #if defined(jpn)
-            func_0203c1c8(entry, 0xa);
+            func_0203c1c8(var30, 0xa);
 #else
-            func_0203c1c8(entry);
+            func_0203c1c8(var30);
 #endif
-            entry->category = categoryPointer[i];
-            entry->active = 1;
+            var30->unknown_8_ = var36[var37];
+            var30->unknown_10_ = 1;
         }
     }
 }

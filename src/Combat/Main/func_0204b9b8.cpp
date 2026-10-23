@@ -1,25 +1,25 @@
-struct PaletteWindow { char pad[0x14]; unsigned short (*rows)[32]; };
+struct Struct_0204b9b8 { char unknown_0_[0x14]; unsigned short (*unknown_14_)[32]; };
 // USA: func_0204b9b8
-extern "C" void func_0204b9b8(PaletteWindow* obj,int x,int y,int width,int height,unsigned palette) {
- unsigned short (*rows)[32]=obj->rows;
- if(!rows)return;
- if(x+width<0 || y+height<0)return;
- if(x>=32 || y>=25)return;
- if(palette>15)return;
- if(x<0){width=(short)(x+width);x=0;}else if(x+width>=32)width=(short)(32-x);
- if(y<0){height=height+y;height=(short)height;y=0;}else if(y+height>=25)height=(short)(25-y);
- unsigned short* row=rows[y]+x;
- palette=(unsigned short)(palette<<12);
- int j=0;
- unsigned short i;
- while(j<height) {
-  i=0;
-  while(i<width) {
-   row[i]&=0xfff;
-   row[i]|=palette;
-   i=i+1;
+extern "C" void func_0204b9b8(Struct_0204b9b8* arg0,int arg1,int arg2,int arg3,int arg4,unsigned arg5) {
+ unsigned short (*var0)[32]=arg0->unknown_14_;
+ if(!var0)return;
+ if(arg1+arg3<0 || arg2+arg4<0)return;
+ if(arg1>=32 || arg2>=25)return;
+ if(arg5>15)return;
+ if(arg1<0){arg3=(short)(arg1+arg3);arg1=0;}else if(arg1+arg3>=32)arg3=(short)(32-arg1);
+ if(arg2<0){arg4=arg4+arg2;arg4=(short)arg4;arg2=0;}else if(arg2+arg4>=25)arg4=(short)(25-arg2);
+ unsigned short* var1=var0[arg2]+arg1;
+ arg5=(unsigned short)(arg5<<12);
+ int var2=0;
+ unsigned short var3;
+ while(var2<arg4) {
+  var3=0;
+  while(var3<arg3) {
+   var1[var3]&=0xfff;
+   var1[var3]|=arg5;
+   var3=var3+1;
   }
-  row+=32;
-  j=(unsigned short)(j+1);
+  var1+=32;
+  var2=(unsigned short)(var2+1);
  }
 }

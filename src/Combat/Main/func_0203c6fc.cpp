@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 
-struct Entry0xc6fc {
+struct Struct_0203c6fc {
 #if defined(jpn)
-    short advanceX;
-    short tileIndex;
-    char text[10];
-    unsigned char count;
-    unsigned char unknownf;
+    short unknown1_0_;
+    short unknown_2_;
+    char unknown_4_[10];
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
 #else
-    char unk0[0x24];
-    unsigned char count;
-    char unk25[3];
+    char unknown_0_[0x24];
+    unsigned char unknown_24_;
+    char unknown_25_[3];
 #endif
 };
 
-struct RefArray0xc6fc {
+struct Struct_0203c108_2 {
 #if defined(jpn)
-    void* drawingBuffer;
-    Entry0xc6fc entries[96];
-    int engine;
-    char* bitmapStorage;
-    unsigned int paletteControl;
-    unsigned short nextOamEntry;
-    unsigned short total;
-    unsigned char workBuffer[256];
+    void* unknown_0_;
+    Struct_0203c6fc unknown_4_[96];
+    int unknown_604_;
+    char* unknown_608_;
+    unsigned int unknown_60c_;
+    unsigned short unknown_610_;
+    unsigned short unknown_612_;
+    unsigned char unknown_614_[256];
 #else
-    int unk0;
-    struct Entry0xc6fc entries[32];
-    char pad[0xE];
-    unsigned short total;
+    int unknown1_0_;
+    struct Struct_0203c6fc unknown1_4_[32];
+    char unknown_504_[0xE];
+    unsigned short unknown_512_;
 #endif
 };
 
 // USA: func_0203c6fc
 #if defined(jpn)
-extern "C" ARM void func_0203cbe4(struct RefArray0xc6fc* obj, const short* indices)
+extern "C" ARM void func_0203cbe4(struct Struct_0203c108_2* arg0, const short* arg1)
 #else
-extern "C" ARM void func_0203c6fc(struct RefArray0xc6fc* obj, short index)
+extern "C" ARM void func_0203c6fc(struct Struct_0203c108_2* arg0, short arg1)
 #endif
 {
 #if defined(jpn)
-    if (indices == NULL) return;
-    for (int i = 0; i < 10; ++i) {
-        short index = indices[i];
-        if (index < 0) continue;
-        Entry0xc6fc* entry = &obj->entries[index];
-        Entry0xc6fc* next = &obj->entries[index + 1];
-        if (entry->count != 0 && next->count != 0) {
-            --entry->count;
-            --next->count;
-            if (entry->count == 0 && next->count == 0) {
-                obj->total -= 2;
+    if (arg1 == NULL) return;
+    for (int var0 = 0; var0 < 10; ++var0) {
+        short var1 = arg1[var0];
+        if (var1 < 0) continue;
+        Struct_0203c6fc* var2 = &arg0->unknown_4_[var1];
+        Struct_0203c6fc* var3 = &arg0->unknown_4_[var1 + 1];
+        if (var2->unknown_e_ != 0 && var3->unknown_e_ != 0) {
+            --var2->unknown_e_;
+            --var3->unknown_e_;
+            if (var2->unknown_e_ == 0 && var3->unknown_e_ == 0) {
+                arg0->unknown_612_ -= 2;
             }
         }
     }
 #else
-    struct Entry0xc6fc* entry;
-    int count;
-    if (index < 0) {
+    struct Struct_0203c6fc* var0;
+    int var1;
+    if (arg1 < 0) {
         return;
     }
-    entry = &obj->entries[index];
-    count = entry->count;
-    if (count == 0) {
+    var0 = &arg0->unknown1_4_[arg1];
+    var1 = var0->unknown_24_;
+    if (var1 == 0) {
         return;
     }
-    entry->count = count - 1;
-    if (((count - 1) & 0xff) == 0) {
-        obj->total--;
+    var0->unknown_24_ = var1 - 1;
+    if (((var1 - 1) & 0xff) == 0) {
+        arg0->unknown_512_--;
     }
 #endif
 }

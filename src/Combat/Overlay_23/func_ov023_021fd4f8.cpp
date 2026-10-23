@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct VTable021fd4f8 {
-	char pad[0xb8];
-	void (*fn)(void*);
+struct Struct_ov023_021fd4f8_2 {
+	char unknown_0_[0xb8];
+	void (*unknown_b8_)(void*);
 };
 
-struct Obj021fd4f8 {
-	struct VTable021fd4f8 *vtable;
+struct Struct_ov023_021fd4f8 {
+	struct Struct_ov023_021fd4f8_2 *unknown_0_;
 };
 
 // USA: func_ov023_021fd4f8
-extern "C" ARM void func_ov023_021fd4f8(struct Obj021fd4f8 *obj) {
-	obj->vtable->fn(obj);
+extern "C" ARM void func_ov023_021fd4f8(struct Struct_ov023_021fd4f8 *arg0) {
+	arg0->unknown_0_->unknown_b8_(arg0);
 }

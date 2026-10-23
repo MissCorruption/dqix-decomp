@@ -2,30 +2,30 @@
 
 #include "Resource/Script.h"
 
-struct ResourceScriptPackedTriple {
-    unsigned int low : 10;
-    unsigned int middle : 10;
-    unsigned int high : 10;
-    unsigned int reserved : 2;
+struct Struct_02082064 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct ResourceScriptFields {
-    unsigned int value0 : 32;
-    unsigned short value4Low : 7;
-    unsigned short value4High : 9;
-    unsigned short unknown6;
-    ResourceScriptPackedTriple value8;
-    ResourceScriptPackedTriple valueC;
-    ResourceScriptPackedTriple value10;
+struct Struct_0201099c {
+    unsigned int unknown_0_0_ : 32;
+    unsigned short unknown_4_0_ : 7;
+    unsigned short unknown_4_7_ : 9;
+    unsigned short unknown_6_;
+    Struct_02082064 unknown_8_;
+    Struct_02082064 unknown_c_;
+    Struct_02082064 unknown_10_;
 };
 
-struct ResourceScriptEntry {
-    ResourceScriptFields initial;
-    ResourceScriptFields final;
-    ResourceScriptFields difference;
-    unsigned char variants[0x16];
+struct Struct_0201099c_2 {
+    Struct_0201099c unknown_0_;
+    Struct_0201099c unknown_14_;
+    Struct_0201099c unknown_28_;
+    unsigned char unknown_3c_[0x16];
 };
 
 extern Script::OpcodeLookupEntry data_020f0ff8[];
 
-extern "C" int func_02082490(void *output, void *resource, unsigned int size, int selection, int extra);
+extern "C" int func_02082490(void *arg0, void *arg1, unsigned int arg2, int arg3, int arg4);

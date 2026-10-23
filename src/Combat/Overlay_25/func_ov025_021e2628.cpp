@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-struct Ctx021e2628 {
+struct Struct_ov025_021ef988_2 {
 #if defined(jpn)
-    char pad[0xc];
+    char unknown_0_[0xc];
 #else
-    char pad[0x1c];
+    char unknown1_0_[0x1c];
 #endif
-    unsigned int flags;
+    unsigned int unknown_1c_;
 };
-extern struct Ctx021e2628 data_ov025_021ef988;
+extern struct Struct_ov025_021ef988_2 data_ov025_021ef988;
 
 
 // USA: func_ov025_021e2628
-extern "C" ARM int func_ov025_021e2628(int a, int b) {
-    int r = (int)BackgroundLoader::GetInstance();
-    if (!(data_ov025_021ef988.flags & 0x2000)) {
-        ((BackgroundLoader*)((unsigned char*)r))->AddFence();
-        data_ov025_021ef988.flags |= 0x2000;
+extern "C" ARM int func_ov025_021e2628(int arg0, int arg1) {
+    int var0 = (int)BackgroundLoader::GetInstance();
+    if (!(data_ov025_021ef988.unknown_1c_ & 0x2000)) {
+        ((BackgroundLoader*)((unsigned char*)var0))->AddFence();
+        data_ov025_021ef988.unknown_1c_ |= 0x2000;
     }
-    return ((BackgroundLoader*)(r))->QueueLoadFileInGP2((const char*)(a), (const char*)(b), (SafeAllocator*)(0));
+    return ((BackgroundLoader*)(var0))->QueueLoadFileInGP2((const char*)(arg0), (const char*)(arg1), (SafeAllocator*)(0));
 }

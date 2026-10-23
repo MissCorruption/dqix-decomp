@@ -5,117 +5,117 @@
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_ov017_0218d75c(void* obj);
-extern "C" int func_02039820(void* obj);
-extern "C" void func_020397c0(void* obj);
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a27ac(void* obj);
+extern "C" int func_ov017_0218d75c(void* arg0);
+extern "C" int func_02039820(void* arg0);
+extern "C" void func_020397c0(void* arg0);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a27ac(void* arg0);
 extern "C" int func_020421a0(void);
 
-struct Vec3copy0202ec84 { unsigned int v[3]; };
-extern "C" int func_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
+struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
+extern "C" int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
 
-struct StructAt020473c8;
-extern "C" void func_020473c8(struct StructAt020473c8* obj, int param1);
+struct Struct_02015ef4_2;
+extern "C" void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
 
-struct Obj021bfc40 {
-    char pad0[0x8];
-    unsigned short timer;
-    char pad1[0x10 - 0xa];
-    unsigned char* sprite;
-    char pad2[0x16 - 0x14];
-    short countdown;
-    short angle;
-    char pad3[0x28 - 0x1a];
-    struct Vec3copy0202ec84 pos;
-    char pad4[0x48 - 0x34];
-    unsigned char skip;
+struct Struct_ov017_021bfc40 {
+    char unknown_0_[0x8];
+    unsigned short unknown_8_;
+    char unknown_a_[0x10 - 0xa];
+    unsigned char* unknown_10_;
+    char unknown_14_[0x16 - 0x14];
+    short unknown_16_;
+    short unknown_18_;
+    char unknown_1a_[0x28 - 0x1a];
+    struct Struct_02015ef4 unknown_28_;
+    char unknown_34_[0x48 - 0x34];
+    unsigned char unknown_48_;
 };
 
 // USA: func_ov017_021bfc40
-extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
-    GameState* battle = GameState::GetInstance();
-    int ticks = battle->GetTickCount();
-    GameResources* res = GetGameResources();
+extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int var1 = var0->GetTickCount();
+    GameResources* var2 = GetGameResources();
 
-    if (self->skip != 0) {
-        GameResources* res2 = GetGameResources();
-        if (func_ov017_0218d75c(res2) != 0) {
+    if (arg0->unknown_48_ != 0) {
+        GameResources* var3 = GetGameResources();
+        if (func_ov017_0218d75c(var3) != 0) {
             return 4;
         }
-        GameObject* combatant = battle->GetUnknownGameObject();
-        if (combatant != NULL && func_02039820(combatant) == 0) {
-            func_020397c0(combatant);
+        GameObject* var4 = var0->GetUnknownGameObject();
+        if (var4 != NULL && func_02039820(var4) == 0) {
+            func_020397c0(var4);
         }
-        int flag = func_020100f8((char*)battle);
-        if (flag != 0) {
-            func_020a27ac((void*)flag);
+        int var5 = func_020100f8((char*)var0);
+        if (var5 != 0) {
+            func_020a27ac((void*)var5);
         }
-        if (res2 != NULL) {
-            ClearFlags04(res2, 0x80);
+        if (var3 != NULL) {
+            ClearFlags04(var3, 0x80);
         }
-        self->countdown = 0;
-        self->timer = 0;
+        arg0->unknown_16_ = 0;
+        arg0->unknown_8_ = 0;
         return 6;
     }
 
-    GameState* state = GameState::GetInstance();
-    void* ptr3b0 = func_020100bc(state);
-    struct Vec3copy0202ec84 vecBuf = self->pos;
+    GameState* var6 = GameState::GetInstance();
+    void* var7 = func_020100bc(var6);
+    struct Struct_02015ef4 var8 = arg0->unknown_28_;
 
-    if (self->angle < 0x191e) {
-        self->angle += state->GetTickCount() * 0x199;
+    if (arg0->unknown_18_ < 0x191e) {
+        arg0->unknown_18_ += var6->GetTickCount() * 0x199;
     }
 
-    vecBuf.v[1] += fix32sin(self->angle);
+    var8.unknown_0_[1] += fix32sin(arg0->unknown_18_);
 
-    int screenY;
-    int screenX;
-    if (ptr3b0 != NULL) {
-        func_0202ec84(ptr3b0, &vecBuf, &screenX, &screenY);
+    int var9;
+    int var10;
+    if (var7 != NULL) {
+        func_0202ec84(var7, &var8, &var10, &var9);
     }
 
-    int x = (screenX - 0xc) << 0xc;
-    int y = (screenY - 0x28) << 0xc;
-    unsigned char* sprite = self->sprite;
-    *(int*)(sprite + 0x1c) = x;
-    *(int*)(sprite + 0x20) = y;
-    *(int*)(sprite + 0x24) = 0;
-    func_020473c8((struct StructAt020473c8*)sprite, 1);
+    int var11 = (var10 - 0xc) << 0xc;
+    int var12 = (var9 - 0x28) << 0xc;
+    unsigned char* var13 = arg0->unknown_10_;
+    *(int*)(var13 + 0x1c) = var11;
+    *(int*)(var13 + 0x20) = var12;
+    *(int*)(var13 + 0x24) = 0;
+    func_020473c8((struct Struct_02015ef4_2*)var13, 1);
 
-    short level = self->countdown;
-    if (level > 0x1f) {
-        level = 0x1f;
+    short var14 = arg0->unknown_16_;
+    if (var14 > 0x1f) {
+        var14 = 0x1f;
     }
-    *(short*)(sprite + 0x82) = level;
+    *(short*)(var13 + 0x82) = var14;
 
-    unsigned int dt = battle->GetEffectiveDeltaTime();
-    if (dt < self->timer) {
-        self->timer = self->timer - dt;
+    unsigned int var15 = var0->GetEffectiveDeltaTime();
+    if (var15 < arg0->unknown_8_) {
+        arg0->unknown_8_ = arg0->unknown_8_ - var15;
     } else {
-        self->timer = 0;
+        arg0->unknown_8_ = 0;
     }
 
-    if (self->timer == 0) {
-        GameObject* combatant = battle->GetUnknownGameObject();
-        if (combatant != NULL && func_02039820(combatant) == 0) {
-            func_020397c0(combatant);
+    if (arg0->unknown_8_ == 0) {
+        GameObject* var16 = var0->GetUnknownGameObject();
+        if (var16 != NULL && func_02039820(var16) == 0) {
+            func_020397c0(var16);
         }
-        int flag = func_020100f8((char*)battle);
-        if (flag != 0) {
-            func_020a27ac((void*)flag);
+        int var17 = func_020100f8((char*)var0);
+        if (var17 != 0) {
+            func_020a27ac((void*)var17);
         }
-        if (res != NULL) {
-            ClearFlags04(res, 0x80);
+        if (var2 != NULL) {
+            ClearFlags04(var2, 0x80);
         }
     }
 
     func_020421a0();
-    if (ticks < self->countdown) {
-        self->countdown -= ticks;
+    if (var1 < arg0->unknown_16_) {
+        arg0->unknown_16_ -= var1;
     } else {
-        self->countdown = 0;
-        self->timer = 0x12c;
+        arg0->unknown_16_ = 0;
+        arg0->unknown_8_ = 0x12c;
         return 6;
     }
     return 4;

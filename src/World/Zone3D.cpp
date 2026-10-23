@@ -115,9 +115,9 @@ void Zone3D::SwitchZone(unsigned short newID, int)
 
     substruct_6c_.func_0201e248();
 
-    substruct_c_.buffer1[0] = 0;
-    substruct_c_.buffer2[0] = 0;
-    substruct_c_.buffer3[0] = 0;
+    substruct_c_.unknown_0_[0] = 0;
+    substruct_c_.unknown_a_[0] = 0;
+    substruct_c_.unknown_1a_[0] = 0;
     substruct_c_.unknown_2a_ = 0x7fff;
     substruct_c_.unknown_2c_ = 0;
     substruct_c_.unknown_30_ = 10;
@@ -160,7 +160,7 @@ void Zone3D::SwitchZone(unsigned short newID, int)
         int width = grotto_.CalculateAndStoreFloorWidth(currentGrottoFloor_23ba_);
         int height = grotto_.CalculateAndStoreFloorHeight(currentGrottoFloor_23ba_);
 
-        grottoTileMapData_420_ = (GrottoTileMapRecord*)pAllocator_68_->Allocate(sizeof(GrottoTileMapRecord) * 256);
+        grottoTileMapData_420_ = (Struct_02013490*)pAllocator_68_->Allocate(sizeof(Struct_02013490) * 256);
         for (int i = 0; i < 256; i++)
         {
             func_02013490(&grottoTileMapData_420_[i]);
@@ -185,9 +185,9 @@ void Zone3D::SwitchZone(unsigned short newID, int)
 }
 
 // USA: func_02013b54
-Vector3i &Vector3i::operator=(const Vector3i &other) {
-    x = other.x;
-    y = other.y;
-    z = other.z;
+Vector3i &Vector3i::operator=(const Vector3i &arg0) {
+    x = arg0.x;
+    y = arg0.y;
+    z = arg0.z;
     return *this;
 }

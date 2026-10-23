@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct S0204671c {
-    int field0x0;
+struct Struct_0204671c {
+    int unknown_0_;
 };
 
 // USA: func_0204671c
-extern "C" ARM int func_0204671c(struct S0204671c* p) {
-    return p->field0x0;
+extern "C" ARM int func_0204671c(struct Struct_0204671c* arg0) {
+    return arg0->unknown_0_;
 }

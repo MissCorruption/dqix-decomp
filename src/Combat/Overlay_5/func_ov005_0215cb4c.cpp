@@ -7,38 +7,38 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-struct Struct0209c830;
+struct Struct_02109bf4_2;
 
-struct EquipmentMenu
+struct Struct_ov005_02153954
 {
-    char unk_0[LOW_REGION(0x3d44, 0x3dcc)];
-    unsigned int flags_;
-    char unk_3dd0[0x3df3 - 0x3dd0];
-    unsigned char fadeStep_;
+    char unknown_0_[LOW_REGION(0x3d44, 0x3dcc)];
+    unsigned int unknown_3dcc_;
+    char unknown_3dd0_[0x3df3 - 0x3dd0];
+    unsigned char unknown_3df3_;
 };
 
-extern "C" void func_0209c830(Struct0209c830* p, int value);
-extern "C" int func_0209ca2c(void* obj);
+extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
+extern "C" int func_0209ca2c(void* arg0);
 
-extern "C" Struct0209c830 data_02109bf4;
+extern "C" Struct_02109bf4_2 data_02109bf4;
 
 // USA: func_ov005_0215cb4c
-extern "C" ARM int func_ov005_0215cb4c(EquipmentMenu* self)
+extern "C" ARM int func_ov005_0215cb4c(Struct_ov005_02153954* arg0)
 {
-    if (!(self->flags_ & 0x10000))
+    if (!(arg0->unknown_3dcc_ & 0x10000))
         return 0;
-    unsigned char step = self->fadeStep_;
-    if (step == 0)
+    unsigned char var0 = arg0->unknown_3df3_;
+    if (var0 == 0)
     {
         func_0209c830(&data_02109bf4, 0x3d);
-        self->fadeStep_++;
+        arg0->unknown_3df3_++;
     }
-    if (step == 1)
+    if (var0 == 1)
     {
         if (func_0209ca2c(&data_02109bf4))
             return 1;
-        self->flags_ &= ~0x10000;
-        self->fadeStep_ = 0;
+        arg0->unknown_3dcc_ &= ~0x10000;
+        arg0->unknown_3df3_ = 0;
         return 0;
     }
     return 1;

@@ -2,32 +2,32 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct Obj02094ab0 {
-    unsigned char pad0[0x14];
-    int handles[8];
-    int field34;
-    int field38;
-    unsigned char pad1[0x54 - 0x3c];
-    unsigned char field54;
-    unsigned char field55;
-    unsigned char field56;
-    unsigned char field57;
-    unsigned char pad2[0x61 - 0x58];
-    unsigned char field61;
-    unsigned char field62;
+struct Struct_02094ab0 {
+    unsigned char unknown_0_[0x14];
+    int unknown_14_[8];
+    int unknown_34_;
+    int unknown_38_;
+    unsigned char unknown_3c_[0x54 - 0x3c];
+    unsigned char unknown_54_;
+    unsigned char unknown_55_;
+    unsigned char unknown_56_;
+    unsigned char unknown_57_;
+    unsigned char unknown_58_[0x61 - 0x58];
+    unsigned char unknown_61_;
+    unsigned char unknown_62_;
 };
 
 // USA: func_02094ab0
-extern "C" ARM void func_02094ab0(struct Obj02094ab0* obj) {
-    int a = (int)BackgroundLoader::GetInstance();
-    unsigned char i;
-    for (i = 0; i < 8; i++) {
-        if (obj->handles[i] >= 0) {
-            ((BackgroundLoader*)(a))->RemoveTask((int)(obj->handles[i]));
-            obj->handles[i] = -1;
+extern "C" ARM void func_02094ab0(struct Struct_02094ab0* arg0) {
+    int var0 = (int)BackgroundLoader::GetInstance();
+    unsigned char var1;
+    for (var1 = 0; var1 < 8; var1++) {
+        if (arg0->unknown_14_[var1] >= 0) {
+            ((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_14_[var1]));
+            arg0->unknown_14_[var1] = -1;
         }
     }
-    obj->field34 = obj->field38 = -1;
-    obj->field56 = 1;
-    obj->field54 = obj->field55 = obj->field61 = obj->field62 = obj->field57 = 0;
+    arg0->unknown_34_ = arg0->unknown_38_ = -1;
+    arg0->unknown_56_ = 1;
+    arg0->unknown_54_ = arg0->unknown_55_ = arg0->unknown_61_ = arg0->unknown_62_ = arg0->unknown_57_ = 0;
 }

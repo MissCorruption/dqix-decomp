@@ -6,58 +6,58 @@ extern char data_020feffc[];
 extern "C" int func_0202d6a8(void);
 extern "C" int func_0202d0b4(void);
 void SleepCurrentContext(unsigned int);
-extern "C" int func_0202dc40(int mode, void* src);
+extern "C" int func_0202dc40(int arg0, void* arg1);
 unsigned long long GetCurrentTimestamp(void);
-extern "C" int func_02001aec(void* a, void* b, int n);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
 // USA: func_0202b900
-extern "C" ARM int func_0202b900(int* obj, unsigned char* key) {
-    char* entries;
-    int i;
-    int result;
-    int count;
-    int j;
-    int stride;
-    GameState* battleStruct;
-    unsigned long long ts;
+extern "C" ARM int func_0202b900(int* arg0, unsigned char* arg1) {
+    char* var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
+    GameState* var6;
+    unsigned long long var7;
 
-    i = 0;
+    var1 = 0;
     while (func_0202d6a8() == 2) {
         func_0202d0b4();
-        i++;
-        if (i > 0x1388) {
+        var1++;
+        if (var1 > 0x1388) {
             return -1;
         }
         SleepCurrentContext(1);
     }
 
-    i = 0;
+    var1 = 0;
     while (func_0202d6a8() != 1) {
-        i++;
-        if (i > 0x1388) {
+        var1++;
+        if (var1 > 0x1388) {
             return -1;
         }
         SleepCurrentContext(1);
     }
 
-    count = obj[3];
-    result = -1;
-    j = 0;
-    stride = 0xc0;
-    entries = (char*)obj;
-    entries += 0x10;
+    var3 = arg0[3];
+    var2 = -1;
+    var4 = 0;
+    var5 = 0xc0;
+    var0 = (char*)arg0;
+    var0 += 0x10;
 
-    for (; j < count; j++) {
-        if (func_02001aec(key, entries + j * stride + 4, 6) == 0) {
-            func_0202dc40(5, data_020feffc + j * stride);
-            *obj = 6;
-            battleStruct = GameState::GetInstance();
-            ts = GetCurrentTimestamp();
-            *(unsigned int*)((char*)battleStruct + 0x3f0) = (unsigned int)ts;
-            result = j;
-            *(unsigned int*)((char*)battleStruct + 0x3f4) = (unsigned int)(ts >> 32);
+    for (; var4 < var3; var4++) {
+        if (func_02001aec(arg1, var0 + var4 * var5 + 4, 6) == 0) {
+            func_0202dc40(5, data_020feffc + var4 * var5);
+            *arg0 = 6;
+            var6 = GameState::GetInstance();
+            var7 = GetCurrentTimestamp();
+            *(unsigned int*)((char*)var6 + 0x3f0) = (unsigned int)var7;
+            var2 = var4;
+            *(unsigned int*)((char*)var6 + 0x3f4) = (unsigned int)(var7 >> 32);
             break;
         }
     }
-    return result;
+    return var2;
 }

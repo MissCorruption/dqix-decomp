@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset23ec = 0x240c, RegionOffset60 = 0x5c };
+enum { Enum_ov017_021b4f48_9196 = 0x240c, Enum_ov017_021b4f48_96 = 0x5c };
 #else
-enum { RegionOffset23ec = 0x23ec, RegionOffset60 = 0x60 };
+enum { Enum_ov017_021b4f48_9196 = 0x23ec, Enum_ov017_021b4f48_96 = 0x60 };
 #endif
 
 #include <globaldefs.h>
@@ -9,60 +9,60 @@ enum { RegionOffset23ec = 0x23ec, RegionOffset60 = 0x60 };
 #include "Filesystem/BackgroundLoader.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 
-struct StreamHeader;
+struct Struct_02013fb4;
 
 extern "C" char* func_02012fe4(void);
-extern "C" int func_0201079c(char* battleStruct);
-extern "C" int func_020107d0(char* battleStruct);
-extern "C" int func_0201b5b0(int monsterId);
+extern "C" int func_0201079c(char* arg0);
+extern "C" int func_020107d0(char* arg0);
+extern "C" int func_0201b5b0(int arg0);
 extern "C" void func_0209bc98(
-    void* dest, struct StreamHeader* data, int size, int param,
-    int monsterId, int field5cb0, int field5cb4);
+    void* arg0, struct Struct_02013fb4* arg1, int arg2, int arg3,
+    int arg4, int arg5, int arg6);
 
 extern const char data_ov017_021d7b71;
 
-struct ScriptSource_021b4f48 {
-    unsigned short monsterId;
-    char pad2[0x10 - 0x2];
-    int param;
+struct Struct_ov017_021b4f48 {
+    unsigned short unknown_0_;
+    char unknown_2_[0x10 - 0x2];
+    int unknown_10_;
 };
 
-struct ScriptRequest_021b4f48 {
-    char pad0[8];
-    struct ScriptSource_021b4f48* source;
-    int taskId;
-    unsigned char state;
+struct Struct_ov017_021b4f48_2 {
+    char unknown_0_[8];
+    struct Struct_ov017_021b4f48* unknown_8_;
+    int unknown_c_;
+    unsigned char unknown_10_;
 };
 
 // USA: func_ov017_021b4f48
-extern "C" ARM void func_ov017_021b4f48(struct ScriptRequest_021b4f48* request) {
-    GameState* battle = GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)func_02012fe4() + RegionOffset23ec);
+extern "C" ARM void func_ov017_021b4f48(struct Struct_ov017_021b4f48_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    ActiveGrottoClass* var2 = (ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov017_021b4f48_9196);
 
-    if (loader->GetTaskStatus(request->taskId) == 0) {
+    if (var1->GetTaskStatus(arg0->unknown_c_) == 0) {
         return;
     }
-    if (loader->GetDetailedTaskStatus(request->taskId) == BackgroundLoader::TaskStatus_Complete) {
-        unsigned int size;
-        void* data;
-        loader->GetLoadedFileByID(request->taskId, &data, &size);
-        if (data != 0) {
-            int monsterId = request->source->monsterId;
-            int field5cb0 = func_0201079c((char*)battle);
-            int field5cb4 = func_020107d0((char*)battle);
-            if (func_0201b5b0(monsterId)) {
-                int rank = grotto->GetFloorMonsterRank(monsterId % 20);
-                int environ = grotto->GetActiveGrottoEnviron();
-                monsterId = rank + (environ * 100 + 0x9c40);
+    if (var1->GetDetailedTaskStatus(arg0->unknown_c_) == BackgroundLoader::TaskStatus_Complete) {
+        unsigned int var3;
+        void* var4;
+        var1->GetLoadedFileByID(arg0->unknown_c_, &var4, &var3);
+        if (var4 != 0) {
+            int var5 = arg0->unknown_8_->unknown_0_;
+            int var6 = func_0201079c((char*)var0);
+            int var7 = func_020107d0((char*)var0);
+            if (func_0201b5b0(var5)) {
+                int var8 = var2->GetFloorMonsterRank(var5 % 20);
+                int var9 = var2->GetActiveGrottoEnviron();
+                var5 = var8 + (var9 * 100 + 0x9c40);
             }
             func_0209bc98(
-                (char*)request->source + RegionOffset60, (struct StreamHeader*)data, size,
-                request->source->param, monsterId, field5cb0, field5cb4);
+                (char*)arg0->unknown_8_ + Enum_ov017_021b4f48_96, (struct Struct_02013fb4*)var4, var3,
+                arg0->unknown_8_->unknown_10_, var5, var6, var7);
         }
     }
-    loader->RemoveTask(request->taskId);
-    request->taskId = -1;
-    request->taskId = loader->QueueLoadFile(&data_ov017_021d7b71, 0);
-    request->state = BackgroundLoader::TaskStatus_Fence;
+    var1->RemoveTask(arg0->unknown_c_);
+    arg0->unknown_c_ = -1;
+    arg0->unknown_c_ = var1->QueueLoadFile(&data_ov017_021d7b71, 0);
+    arg0->unknown_10_ = BackgroundLoader::TaskStatus_Fence;
 }

@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #if defined(jpn)
-enum { stateOffset = 0x5901, workOffset = 0x371c, pointerOffset = 0x5310, modeOffset = 0x57e8 };
+enum { Enum_ov000_02166978_22289 = 0x5901, Enum_ov000_02166978_14176 = 0x371c, Enum_ov000_02166978_21076 = 0x5310, Enum_ov000_02166978_22008 = 0x57e8 };
 #else
-enum { stateOffset = 0x5711, workOffset = 0x3760, pointerOffset = 0x5254, modeOffset = 0x55f8 };
+enum { Enum_ov000_02166978_22289 = 0x5711, Enum_ov000_02166978_14176 = 0x3760, Enum_ov000_02166978_21076 = 0x5254, Enum_ov000_02166978_22008 = 0x55f8 };
 #endif
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Graphics.h"
 #include "Resource/GameResources.h"
 
 extern "C" void func_02012de8(void);
-extern "C" void func_ov000_021723a8(void* obj, void* src);
-extern "C" void func_ov000_02172128(void* obj, void* src);
-extern "C" int func_ov000_021729ac(void* obj);
-extern "C" void func_ov000_02160fa8(void* work, int mask);
+extern "C" void func_ov000_021723a8(void* arg0, void* arg1);
+extern "C" void func_ov000_02172128(void* arg0, void* arg1);
+extern "C" int func_ov000_021729ac(void* arg0);
+extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
 
 // USA: func_ov000_02166978
-extern "C" ARM void func_ov000_02166978(unsigned char* obj) {
-    char* res = (char*)GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    *(signed char*)(obj + stateOffset) = 0;
+extern "C" ARM void func_ov000_02166978(unsigned char* arg0) {
+    char* var0 = (char*)GetGameResources();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    *(signed char*)(arg0 + Enum_ov000_02166978_22289) = 0;
     for (;;) {
-        signed char state = *(signed char*)(obj + stateOffset);
-        if (state == 0) {
-            FontBankLoader* g = func_02094a00();
-            func_02094b40(g);
-            func_02094b34(g, 0x65, 500, 0, 0);
-            *(signed char*)(obj + stateOffset) = 1;
-        } else if (state == 1) {
+        signed char var2 = *(signed char*)(arg0 + Enum_ov000_02166978_22289);
+        if (var2 == 0) {
+            Struct_0208cb08* var3 = func_02094a00();
+            func_02094b40(var3);
+            func_02094b34(var3, 0x65, 500, 0, 0);
+            *(signed char*)(arg0 + Enum_ov000_02166978_22289) = 1;
+        } else if (var2 == 1) {
             if (func_02094b4c(func_02094a00()) != 0) {
-                *(signed char*)(obj + stateOffset) = -1;
+                *(signed char*)(arg0 + Enum_ov000_02166978_22289) = -1;
                 break;
             }
         }
-        loader->RemoveAllLocks();
+        var1->RemoveAllLocks();
         func_02012de8();
     }
-    func_ov000_021723a8(obj + workOffset, res + 0x128);
-    func_ov000_02172128(obj + workOffset, obj + 0x1c);
-    *(unsigned char**)(obj + pointerOffset) = obj + 0x30;
-    while (func_ov000_021729ac(obj + workOffset) == 0) {
-        loader->RemoveAllLocks();
+    func_ov000_021723a8(arg0 + Enum_ov000_02166978_14176, var0 + 0x128);
+    func_ov000_02172128(arg0 + Enum_ov000_02166978_14176, arg0 + 0x1c);
+    *(unsigned char**)(arg0 + Enum_ov000_02166978_21076) = arg0 + 0x30;
+    while (func_ov000_021729ac(arg0 + Enum_ov000_02166978_14176) == 0) {
+        var1->RemoveAllLocks();
         func_02012de8();
     }
     DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
-    *(int*)(obj + modeOffset) = 1;
-    func_ov000_02160fa8(obj, 0x20);
+    *(int*)(arg0 + Enum_ov000_02166978_22008) = 1;
+    func_ov000_02160fa8(arg0, 0x20);
 }

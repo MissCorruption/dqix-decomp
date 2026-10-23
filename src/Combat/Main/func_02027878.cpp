@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Entry_02027878 {
-    char unk[0x24];
+struct Struct_02024518_3 {
+    char unknown_0_[0x24];
 };
 
-struct List_02027878 {
-    char unk[0x20];
-    struct Entry_02027878* entries;
-    int count;
+struct Struct_02024518_2 {
+    char unknown_0_[0x20];
+    struct Struct_02024518_3* unknown_20_;
+    int unknown_24_;
 };
 
 // USA: func_02027878
-extern "C" ARM struct Entry_02027878* func_02027878(struct List_02027878* list, int index) {
-    if (index < 0) {
+extern "C" ARM struct Struct_02024518_3* func_02027878(struct Struct_02024518_2* arg0, int arg1) {
+    if (arg1 < 0) {
         goto ret0;
     }
-    if (list->count > index) {
+    if (arg0->unknown_24_ > arg1) {
         goto valid;
     }
 ret0:
     return 0;
 valid:
-    return &list->entries[index];
+    return &arg0->unknown_20_[arg1];
 }

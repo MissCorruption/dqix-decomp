@@ -4,7 +4,7 @@
 #include "TreasureMapMetadata.h"
 
 #ifdef jpn
-void RemoveFurigana(const char* src, char* dst);
+void RemoveFurigana(const char* arg0, char* arg1);
 #endif
 
 bool IsMonsterIDLegacyBoss(unsigned short id);
@@ -72,9 +72,9 @@ public:
         char popupName_[64];
 #elif defined(jpn)
         char nameNoLevel_[32];
-        char prefixString_[32];
-        char suffixString_[32];
-        char localeString_[32];
+        char unknown_3b_[32];
+        char unknown_5b_[32];
+        char unknown_7b_[32];
         char levelString_[8];
         char topScreenName_[64];
         char popupName_[128];
@@ -123,8 +123,8 @@ public:
 #elif defined(jpn)
         // interpretation of this might be dodgy as I don't speak japanese
         char mapNameNoLevel_[32]; // e.g. "Baramos no chizu"
-        char bossNameGenitive_[32]; // e.g. "Baramos no"
-        char fixedStringChizu_[32]; // always holds "chizu" (means map?)
+        char unknown_90_[32]; // e.g. "Baramos no"
+        char unknown_b0_[32]; // always holds "chizu" (means map?)
         char mapLevelString_[8]; // e.g. "Lv 99"
         char topScreenName_[64]; // e.g. "Baramos no chizu Lv 99"
         char popupName_[128]; // e.g. "Baramos Lv 99 no chizu" (pops up on entering the grotto)

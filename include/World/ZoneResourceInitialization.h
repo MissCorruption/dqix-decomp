@@ -2,43 +2,43 @@
 
 #include "World/Zone3D.h"
 
-struct Struct02012ff0 {
-    short field0;
-    short field2;
-    Object3D* field4;
-    Animation3D* field8;
-    Animation3D* fieldc;
-    Animation3D* field10;
-    Animation3D* field14;
+struct Struct_02012ff0 {
+    short unknown_0_;
+    short unknown_2_;
+    Object3D* unknown_4_;
+    Animation3D* unknown_8_;
+    Animation3D* unknown_c_;
+    Animation3D* unknown_10_;
+    Animation3D* unknown_14_;
 };
 
-struct Ctx02015134 {
-    char pad[0x68];
-    void *allocator;
+struct Struct_02015134 {
+    char unknown_0_[0x68];
+    void *unknown_68_;
 };
-struct Out02015134 {
-    unsigned short flag;
-    void *field4;
+struct Struct_02015134_2 {
+    unsigned short unknown_0_;
+    void *unknown_4_;
 };
-struct Src02015134 {
-    char pad[4];
-    int id;
-};
-
-struct ZoneResourceNode {
-    int unknown0;
-    unsigned char *records;
-    int elementCount;
-    int lookupLimit;
-    char unknown10[0x30];
-    Struct02012ff0 *trackers;
+struct Struct_02014a24 {
+    char unknown_0_[4];
+    int unknown_4_;
 };
 
-extern "C" void *func_0201f144(unsigned char *obj, int index);
-extern "C" void func_02012ff0(Struct02012ff0 *s);
-extern "C" int func_02015134(Zone3D* ctx, Struct02012ff0* out, Src02015134* src);
-extern "C" int func_020151cc(Zone3D *zone, Struct02012ff0 *tracker, Src02015134 *source);
-extern "C" int func_02014d80(Zone3D *zone, void *node, Struct02012ff0 *tracker, Src02015134 *source);
-extern "C" void func_020177d4(Zone3D *zone, void *node, SafeAllocator *allocator);
+struct Struct_02014a24_2 {
+    int unknown_0_;
+    unsigned char *unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    char unknown_10_[0x30];
+    Struct_02012ff0 *unknown_40_;
+};
 
-extern "C" int func_02014a24(Zone3D *zone, void *data);
+extern "C" void *func_0201f144(unsigned char *arg0, int arg1);
+extern "C" void func_02012ff0(Struct_02012ff0 *arg0);
+extern "C" int func_02015134(Zone3D* arg0, Struct_02012ff0* arg1, Struct_02014a24* arg2);
+extern "C" int func_020151cc(Zone3D *arg0, Struct_02012ff0 *arg1, Struct_02014a24 *arg2);
+extern "C" int func_02014d80(Zone3D *arg0, void *arg1, Struct_02012ff0 *arg2, Struct_02014a24 *arg3);
+extern "C" void func_020177d4(Zone3D *arg0, void *arg1, SafeAllocator *arg2);
+
+extern "C" int func_02014a24(Zone3D *arg0, void *arg1);

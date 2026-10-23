@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct0209c830;
-extern "C" void func_0209c830(Struct0209c830*, int);
+struct Struct_02109bf4_2;
+extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 
-extern struct Struct0209c830 data_02109bf4;
+extern struct Struct_02109bf4_2 data_02109bf4;
 
 // USA: func_ov004_0216dfbc
 extern "C" ARM int func_ov004_0216dfbc(void) {

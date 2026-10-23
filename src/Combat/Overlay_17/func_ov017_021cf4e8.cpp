@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 
-struct Entry_02028bd0;
+struct Struct_020fdd44;
 extern "C" unsigned short* func_02012fe4(void);
-extern "C" struct Entry_02028bd0* func_02027ca4(void);
-extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
+extern "C" struct Struct_020fdd44* func_02027ca4(void);
+extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
 
-struct Bits021cf4e8 { unsigned short low4:4; unsigned short high12:12; };
+struct Struct_ov017_021cf4e8 { unsigned short unknown_0_0_:4; unsigned short unknown_0_4_:12; };
 
 // USA: func_ov017_021cf4e8
-extern "C" ARM void func_ov017_021cf4e8(void* unusedArg0, unsigned char* entry, unsigned char* table, unsigned char* ctx) {
+extern "C" ARM void func_ov017_021cf4e8(void* arg0, unsigned char* arg1, unsigned char* arg2, unsigned char* arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0xca2, regionalOffset1=0xca6, regionalOffset2=0x204, regionalOffset3=0x4000};
+ enum {Enum_ov017_021cf4e8_3958=0xca2, Enum_ov017_021cf4e8_3962=0xca6, Enum_ov017_021cf4e8_180=0x204, Enum_ov017_021cf4e8_17408=0x4000};
 #else
- enum {regionalOffset0=0xf76, regionalOffset1=0xf7a, regionalOffset2=0xb4, regionalOffset3=0x4400};
+ enum {Enum_ov017_021cf4e8_3958=0xf76, Enum_ov017_021cf4e8_3962=0xf7a, Enum_ov017_021cf4e8_180=0xb4, Enum_ov017_021cf4e8_17408=0x4400};
 #endif
-    int inRange = entry[4] <= 3;
-    if (inRange) {
-        unsigned char* p = table + entry[4] + 0x7000;
-        p[regionalOffset0] = entry[5];
-        if (entry[5] == 2) {
-            unsigned char* dst = ctx + regionalOffset2 + regionalOffset3;
-            unsigned short* zone = func_02012fe4();
-            struct Entry_02028bd0* found = func_02028bd0(func_02027ca4(), *zone);
-            if (found != 0) {
-                *(unsigned short*)dst = *zone;
-                *(unsigned short*)(dst + 2) = ((struct Bits021cf4e8*)((char*)found + 2))->high12;
+    int var0 = arg1[4] <= 3;
+    if (var0) {
+        unsigned char* var1 = arg2 + arg1[4] + 0x7000;
+        var1[Enum_ov017_021cf4e8_3958] = arg1[5];
+        if (arg1[5] == 2) {
+            unsigned char* var2 = arg3 + Enum_ov017_021cf4e8_180 + Enum_ov017_021cf4e8_17408;
+            unsigned short* var3 = func_02012fe4();
+            struct Struct_020fdd44* var4 = func_02028bd0(func_02027ca4(), *var3);
+            if (var4 != 0) {
+                *(unsigned short*)var2 = *var3;
+                *(unsigned short*)(var2 + 2) = ((struct Struct_ov017_021cf4e8*)((char*)var4 + 2))->unknown_0_4_;
             }
         }
     } else {
-        unsigned char* p = table + entry[4] + 0x7000;
-        p[regionalOffset0] = 5;
+        unsigned char* var5 = arg2 + arg1[4] + 0x7000;
+        var5[Enum_ov017_021cf4e8_3958] = 5;
     }
-    table[0x7000 + regionalOffset1] = table[0x7000 + regionalOffset1] | (1 << entry[4]);
+    arg2[0x7000 + Enum_ov017_021cf4e8_3962] = arg2[0x7000 + Enum_ov017_021cf4e8_3962] | (1 << arg1[4]);
 }

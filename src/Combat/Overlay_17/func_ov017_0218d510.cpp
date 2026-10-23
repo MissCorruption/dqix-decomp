@@ -2,54 +2,54 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" unsigned short* func_02012fe4(void);
-extern "C" int func_020981e4(int a, int id);
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_020dbebc(void* a);
-struct Struct020dbd9c;
-extern "C" void func_020dbd9c(struct Struct020dbd9c* p);
-struct BattleTask020dbf18;
-extern "C" int func_020dbf18(struct BattleTask020dbf18* task, int name, int alloc, int tables, int count);
+extern "C" int func_020981e4(int arg0, int arg1);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_020dbebc(void* arg0);
+struct Struct_020dbd9c;
+extern "C" void func_020dbd9c(struct Struct_020dbd9c* arg0);
+struct Struct_020dbf18;
+extern "C" int func_020dbf18(struct Struct_020dbf18* arg0, int arg1, int arg2, int arg3, int arg4);
 
 extern const char data_ov017_021d7383[];
 
-struct BattleResources0218d510 {
+struct Struct_ov017_0218d510 {
 #if defined(jpn)
-    unsigned char pad0[0x27c];
+    unsigned char unknown_0_[0x27c];
 #else
-    unsigned char pad0[0x2cc];
+    unsigned char unknown1_0_[0x2cc];
 #endif
 #if defined(jpn)
-    unsigned char pairTables[0x41e8 - 0x27c];
+    unsigned char unknown_2cc_[0x41e8 - 0x27c];
 #else
-    unsigned char pairTables[0x4498 - 0x2cc];
+    unsigned char unknown_2cc_[0x4498 - 0x2cc];
 #endif
-    struct BattleTask020dbf18* task;
+    struct Struct_020dbf18* unknown_4498_;
 };
 
-static inline struct Foo0207df50* SelectPairTable(unsigned char* pairTables, int inRange) {
-    return (struct Foo0207df50*)(inRange ? pairTables + 0x930 : pairTables + 0xc40);
+static inline struct Struct_0203d028* inline_ov017_0218d510(unsigned char* arg0, int arg1) {
+    return (struct Struct_0203d028*)(arg1 ? arg0 + 0x930 : arg0 + 0xc40);
 }
 
 // USA: func_ov017_0218d510
-extern "C" ARM int func_ov017_0218d510(struct BattleResources0218d510* self, SafeAllocator* alloc) {
+extern "C" ARM int func_ov017_0218d510(struct Struct_ov017_0218d510* arg0, SafeAllocator* arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x430};
+ enum {Enum_ov017_0218d510_1056=0x430};
 #else
- enum {regionalOffset0=0x420};
+ enum {Enum_ov017_0218d510_1056=0x420};
 #endif
-    if (alloc == NULL) {
+    if (arg1 == NULL) {
         return -1;
     }
-    unsigned short* run = func_02012fe4();
-    int inRange = func_020981e4((int)(run + regionalOffset0), *run);
-    struct Foo0207df50* table = SelectPairTable(self->pairTables, inRange);
-    func_0207df50(table);
-    if (self->task != NULL) {
-        func_020dbebc(self->task);
+    unsigned short* var0 = func_02012fe4();
+    int var1 = func_020981e4((int)(var0 + Enum_ov017_0218d510_1056), *var0);
+    struct Struct_0203d028* var2 = inline_ov017_0218d510(arg0->unknown_2cc_, var1);
+    func_0207df50(var2);
+    if (arg0->unknown_4498_ != NULL) {
+        func_020dbebc(arg0->unknown_4498_);
     }
-    struct BattleTask020dbf18* task = self->task = (struct BattleTask020dbf18*)alloc->Allocate(0x18);
-    func_020dbd9c((struct Struct020dbd9c*)task);
-    func_020dbf18(task, (int)data_ov017_021d7383, (int)alloc, (int)table, 0x17);
+    struct Struct_020dbf18* var3 = arg0->unknown_4498_ = (struct Struct_020dbf18*)arg1->Allocate(0x18);
+    func_020dbd9c((struct Struct_020dbd9c*)var3);
+    func_020dbf18(var3, (int)data_ov017_021d7383, (int)arg1, (int)var2, 0x17);
     return 0;
 }

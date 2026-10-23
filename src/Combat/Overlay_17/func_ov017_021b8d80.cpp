@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset8c = 0x4c };
+enum { Enum_ov017_021b8d80_140 = 0x4c };
 #else
-enum { RegionOffset8c = 0x8c };
+enum { Enum_ov017_021b8d80_140 = 0x8c };
 #endif
 
 #include <globaldefs.h>
@@ -11,57 +11,57 @@ enum { RegionOffset8c = 0x8c };
 #include "Resource/GameResources.h"
 
 extern "C" int func_020421a0();
-struct StructAllocGroup0208ba54;
-extern "C" void func_0208ba54(struct StructAllocGroup0208ba54* self);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" void func_ov008_021845ac(void* p);
-extern "C" void func_020dc2d0(int mode);
+struct Struct_0208ba54;
+extern "C" void func_0208ba54(struct Struct_0208ba54* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void func_ov008_021845ac(void* arg0);
+extern "C" void func_020dc2d0(int arg0);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
-struct Obj_021b994c;
-extern "C" void func_ov017_021b994c(struct Obj_021b994c* obj);
+struct Struct_02061c04_11;
+extern "C" void func_ov017_021b994c(struct Struct_02061c04_11* arg0);
 extern "C" void func_020a0c0c(void);
 
 extern int data_02114e20;
 
 // USA: func_ov017_021b8d80
-extern "C" ARM void func_ov017_021b8d80(unsigned char* self) {
-    GameResources* handle = GetGameResources();
-    if (*(int*)(self + 0x120) > -1) {
-        int field4 = (int)BackgroundLoader::GetInstance();
-        ((BackgroundLoader*)(field4))->RemoveTask((int)(*(int*)(self + 0x120)));
+extern "C" ARM void func_ov017_021b8d80(unsigned char* arg0) {
+    GameResources* var0 = GetGameResources();
+    if (*(int*)(arg0 + 0x120) > -1) {
+        int var1 = (int)BackgroundLoader::GetInstance();
+        ((BackgroundLoader*)(var1))->RemoveTask((int)(*(int*)(arg0 + 0x120)));
     }
 
-    if (self[0x137] == 0) {
-        *(int*)((char*)func_020421a0() + RegionOffset8c) = 0;
-        func_0208ba54((struct StructAllocGroup0208ba54*)(self + 0x30));
-        SafeAllocator* allocA = (SafeAllocator*)(self + 0x8);
-        void* pA = allocA->GetSignedAllocator();
-        if (pA) {
-            allocA->Destroy();
-            func_02012da4((AllocatorUnion*)&data_02114e20, pA);
+    if (arg0[0x137] == 0) {
+        *(int*)((char*)func_020421a0() + Enum_ov017_021b8d80_140) = 0;
+        func_0208ba54((struct Struct_0208ba54*)(arg0 + 0x30));
+        SafeAllocator* var2 = (SafeAllocator*)(arg0 + 0x8);
+        void* var3 = var2->GetSignedAllocator();
+        if (var3) {
+            var2->Destroy();
+            func_02012da4((AllocatorUnion*)&data_02114e20, var3);
         }
     }
 
-    if (self[0x128] != 0) {
-        func_ov008_021845ac(*(void**)(self + 0x118));
-        SafeAllocator* allocB = (SafeAllocator*)(self + 0x1c);
-        void* pB = allocB->GetSignedAllocator();
-        if (pB) {
-            allocB->Destroy();
-            func_02012da4((AllocatorUnion*)&data_02114e20, pB);
+    if (arg0[0x128] != 0) {
+        func_ov008_021845ac(*(void**)(arg0 + 0x118));
+        SafeAllocator* var4 = (SafeAllocator*)(arg0 + 0x1c);
+        void* var5 = var4->GetSignedAllocator();
+        if (var5) {
+            var4->Destroy();
+            func_02012da4((AllocatorUnion*)&data_02114e20, var5);
         }
-        *(int*)(self + 0x118) = 0;
+        *(int*)(arg0 + 0x118) = 0;
 
-        volatile unsigned short* reg = (volatile unsigned short*)0x4001008;
-        reg[0] = (reg[0] & ~3) | 1;
-        reg[1] = (reg[1] & ~3) | 2;
-        reg[2] = reg[2] & ~3;
+        volatile unsigned short* var6 = (volatile unsigned short*)0x4001008;
+        var6[0] = (var6[0] & ~3) | 1;
+        var6[1] = (var6[1] & ~3) | 2;
+        var6[2] = var6[2] & ~3;
 
         func_020dc2d0(0);
-        SetSubBrightness(handle, 0, 0xf);
+        SetSubBrightness(var0, 0, 0xf);
     }
 
-    func_ov017_021b994c((struct Obj_021b994c*)self);
+    func_ov017_021b994c((struct Struct_02061c04_11*)arg0);
     func_020a0c0c();
 }

@@ -18,19 +18,19 @@
 #include "Resource/GameResources.h"
 
 extern "C" unsigned char* func_ov017_021a193c(int*);
-struct Entry_0205d6a0;
-extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
+struct Struct_0205d6a0;
+extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 extern "C" void func_ov005_0215792c(unsigned char*, int);
 
 // USA: func_ov005_02159208
-extern "C" ARM void func_ov005_02159208(unsigned char* self) {
-    if (self[R(0x3d54, 0x3ddc)] != 0) {
+extern "C" ARM void func_ov005_02159208(unsigned char* arg0) {
+    if (arg0[R(0x3d54, 0x3ddc)] != 0) {
         return;
     }
-    func_0205d6a0((Entry_0205d6a0*)(self + R(0xee0, 0xee4)), 1);
-    func_ov005_0215792c(self, 6);
-    self[R(0x3d54, 0x3ddc)] = 0;
-    self[R(0x3d56, 0x3dde)] = 0;
-    self[R(0x3d57, 0x3ddf)] = 0;
+    func_0205d6a0((Struct_0205d6a0*)(arg0 + R(0xee0, 0xee4)), 1);
+    func_ov005_0215792c(arg0, 6);
+    arg0[R(0x3d54, 0x3ddc)] = 0;
+    arg0[R(0x3d56, 0x3dde)] = 0;
+    arg0[R(0x3d57, 0x3ddf)] = 0;
     *(unsigned short*)(func_ov017_021a193c((int*)(*(int*)((unsigned char*)GetGameResources() + R(0x34f8, 0x3708)))) + R(0x56c, 0x634)) |= 0x81;
 }

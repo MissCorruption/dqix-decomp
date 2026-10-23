@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Block9_0201ae8c { unsigned int v[9]; };
-struct Block3_0201ae8c { unsigned int v[3]; };
-struct Struct0201ae8c {
-    struct Block9_0201ae8c a;   // 0x00
-    struct Block3_0201ae8c b;   // 0x24
-    unsigned int c;             // 0x30
+struct Struct_0201ae8c { unsigned int unknown_0_[9]; };
+struct Struct_0201ae8c_2 { unsigned int unknown_0_[3]; };
+struct Struct_0201a600_6 {
+    struct Struct_0201ae8c unknown_0_;   // 0x00
+    struct Struct_0201ae8c_2 unknown_24_;   // 0x24
+    unsigned int unknown_30_;             // 0x30
 };
 
 // USA: func_0201ae8c
-extern "C" ARM struct Struct0201ae8c* func_0201ae8c(struct Struct0201ae8c* dst, struct Struct0201ae8c* src) {
-    dst->a = src->a;
-    dst->b = src->b;
-    dst->c = src->c;
-    return dst;
+extern "C" ARM struct Struct_0201a600_6* func_0201ae8c(struct Struct_0201a600_6* arg0, struct Struct_0201a600_6* arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
+    arg0->unknown_24_ = arg1->unknown_24_;
+    arg0->unknown_30_ = arg1->unknown_30_;
+    return arg0;
 }

@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void func_020891cc(void* obj);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void func_020891cc(void* arg0);
 
-struct Ret021ca358 {
-	unsigned char pad0[8];
-	unsigned short field8;
-	unsigned char pad1[0x30 - 0xa];
-	int field30;
+struct Struct_ov017_021ca358 {
+	unsigned char unknown_0_[8];
+	unsigned short unknown_8_;
+	unsigned char unknown_a_[0x30 - 0xa];
+	int unknown_30_;
 };
 
-struct Src021ca358 {
-	unsigned char pad0[4];
-	unsigned short field4;
-	unsigned char field6;
+struct Struct_ov017_021ca358_2 {
+	unsigned char unknown_0_[4];
+	unsigned short unknown_4_;
+	unsigned char unknown_6_;
 };
 
 // USA: func_ov017_021ca358
-extern "C" ARM void func_ov017_021ca358(int unused0, Src021ca358* src, int unused2, unsigned char* obj) {
+extern "C" ARM void func_ov017_021ca358(int arg0, Struct_ov017_021ca358_2* arg1, int arg2, unsigned char* arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021ca358_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021ca358_1816=0x718};
 #endif
-	void* h = *(void**)(obj + 0x3000 + regionalOffset0);
-	Ret021ca358* r = (Ret021ca358*)func_ov017_021b8478(h);
-	if (!r) return;
-	if (r->field8 != src->field4) return;
-	if (src->field6 != 0) {
-		if (r->field30 == 0) return;
+	void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021ca358_1816);
+	Struct_ov017_021ca358* var1 = (Struct_ov017_021ca358*)func_ov017_021b8478(var0);
+	if (!var1) return;
+	if (var1->unknown_8_ != arg1->unknown_4_) return;
+	if (arg1->unknown_6_ != 0) {
+		if (var1->unknown_30_ == 0) return;
 	}
-	for (int i = 0; i < 8; i++) {
-		func_020891cc((unsigned char*)r + 0x158 + i * 0xa4);
+	for (int var2 = 0; var2 < 8; var2++) {
+		func_020891cc((unsigned char*)var1 + 0x158 + var2 * 0xa4);
 	}
 }

@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-extern "C" int func_020e55c0(char* dst, const char* fmt);
-typedef int (*ReplaceBin3)(char*, const char*, int);
+extern "C" int func_020e55c0(char* arg0, const char* arg1);
+typedef int (*Type_020e0574)(char*, const char*, int);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
-extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
+extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 
 extern char data_0211e33c[];
 
 // USA: func_020e553c
-extern "C" ARM int func_020e553c(void* a, int* b, int c, int d) {
-    char buf[0x40];
-    if (a == 0) {
+extern "C" ARM int func_020e553c(void* arg0, int* arg1, int arg2, int arg3) {
+    char var0[0x40];
+    if (arg0 == 0) {
         return 0;
     }
-    *b = 0;
-    ((ReplaceBin3)func_020e55c0)(buf, (char*)a, c);
-    if (d == 0) {
-        LoadFileIntoMemory(buf, data_0211e33c, (unsigned int*)b);
-        if (*b != 0) {
+    *arg1 = 0;
+    ((Type_020e0574)func_020e55c0)(var0, (char*)arg0, arg2);
+    if (arg3 == 0) {
+        LoadFileIntoMemory(var0, data_0211e33c, (unsigned int*)arg1);
+        if (*arg1 != 0) {
             return (int)data_0211e33c;
         }
     } else {
-        void* res = ExtractFileFromGP2((const char*)d, buf, (unsigned int*)b);
-        if (res != 0) {
-            return (int)res;
+        void* var1 = ExtractFileFromGP2((const char*)arg3, var0, (unsigned int*)arg1);
+        if (var1 != 0) {
+            return (int)var1;
         }
     }
     return 0;

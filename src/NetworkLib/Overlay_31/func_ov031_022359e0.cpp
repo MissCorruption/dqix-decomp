@@ -4,30 +4,30 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-struct Struct022359e0 { unsigned short field0; unsigned short field2; unsigned char pad4[4]; unsigned short field8; };
+struct Struct_ov031_022358b4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_[4]; unsigned short unknown_8_; };
 
-extern "C" void func_ov031_02235a44(struct Struct022359e0* a);
+extern "C" void func_ov031_02235a44(struct Struct_ov031_022358b4* arg0);
 extern "C" int func_ov031_022358b4(void);
 extern "C" void func_020c9be0(void);
 
 extern char* data_ov031_02290cf8;
 
 // USA: func_ov031_022359e0
-extern "C" ARM void func_ov031_022359e0(struct Struct022359e0* obj) {
-	if (obj->field2 != 0) {
+extern "C" ARM void func_ov031_022359e0(struct Struct_ov031_022358b4* arg0) {
+	if (arg0->unknown_2_ != 0) {
 		return;
 	}
-	unsigned char b = *(unsigned char*)(data_ov031_02290cf8 + 0x1e5c);
-	if (b != 0 || obj->field0 != 0x26) {
+	unsigned char var0 = *(unsigned char*)(data_ov031_02290cf8 + 0x1e5c);
+	if (var0 != 0 || arg0->unknown_0_ != 0x26) {
 		return;
 	}
-	if (obj->field8 == 4) {
+	if (arg0->unknown_8_ == 4) {
 		goto case4;
 	}
-	if (obj->field8 != 5) {
+	if (arg0->unknown_8_ != 5) {
 		goto def;
 	}
-	func_ov031_02235a44(obj);
+	func_ov031_02235a44(arg0);
 	func_ov031_022358b4();
 	return;
 case4:

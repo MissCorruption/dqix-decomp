@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue4DC_4D8 = 0x4d8 };
+enum { Enum_ov003_02168438_1244 = 0x4d8 };
 #else
-enum { kRegionValue4DC_4D8 = 0x4dc };
+enum { Enum_ov003_02168438_1244 = 0x4dc };
 #endif
 
 
-struct Struct4ec_02168438 { char pad[kRegionValue4DC_4D8]; void* field4dc; char pad2[0xc]; unsigned char field4ec; char pad3[0xb2]; unsigned char field59f; };
+struct Struct_ov003_02168438 { char unknown_0_[Enum_ov003_02168438_1244]; void* unknown_4dc_; char unknown_4e0_[0xc]; unsigned char unknown_4ec_; char unknown_4ed_[0xb2]; unsigned char unknown_59f_; };
 
-extern "C" ARM void func_ov003_021694b8(void* obj, int id);
-extern "C" ARM void func_ov003_021685dc(void* obj);
-extern "C" ARM void func_ov003_0216adbc(void* obj);
-extern "C" void func_ov003_02168654(void* obj);
-extern "C" void func_ov003_02168b50(void* obj);
-extern "C" ARM void func_ov003_02168cc8(void* obj);
-extern "C" void func_ov003_02168d3c(void* obj, void* arg, int val);
-extern "C" ARM void func_ov003_02169430(void* obj);
-extern "C" void func_ov003_0216aa28(void* obj);
+extern "C" ARM void func_ov003_021694b8(void* arg0, int arg1);
+extern "C" ARM void func_ov003_021685dc(void* arg0);
+extern "C" ARM void func_ov003_0216adbc(void* arg0);
+extern "C" void func_ov003_02168654(void* arg0);
+extern "C" void func_ov003_02168b50(void* arg0);
+extern "C" ARM void func_ov003_02168cc8(void* arg0);
+extern "C" void func_ov003_02168d3c(void* arg0, void* arg1, int arg2);
+extern "C" ARM void func_ov003_02169430(void* arg0);
+extern "C" void func_ov003_0216aa28(void* arg0);
 
 // USA: func_ov003_02168438
-extern "C" ARM int func_ov003_02168438(struct Struct4ec_02168438* obj, void* arg) {
-    obj->field4dc = arg;
-    unsigned char state = obj->field4ec;
-    if (state != 0 && state != 3 && state != 4) {
-        unsigned char flags = obj->field59f;
-        if (!(flags & 2) || (flags & 4)) {
-            func_ov003_021694b8(obj, (int)arg);
+extern "C" ARM int func_ov003_02168438(struct Struct_ov003_02168438* arg0, void* arg1) {
+    arg0->unknown_4dc_ = arg1;
+    unsigned char var0 = arg0->unknown_4ec_;
+    if (var0 != 0 && var0 != 3 && var0 != 4) {
+        unsigned char var1 = arg0->unknown_59f_;
+        if (!(var1 & 2) || (var1 & 4)) {
+            func_ov003_021694b8(arg0, (int)arg1);
         }
     }
-    if (obj->field4ec != 0) {
-        func_ov003_021685dc(obj);
+    if (arg0->unknown_4ec_ != 0) {
+        func_ov003_021685dc(arg0);
     }
-    unsigned char flags2 = obj->field59f;
-    if ((flags2 & 2) && !(flags2 & 4)) {
-        func_ov003_0216adbc(obj);
-        return obj->field4ec == 6;
+    unsigned char var2 = arg0->unknown_59f_;
+    if ((var2 & 2) && !(var2 & 4)) {
+        func_ov003_0216adbc(arg0);
+        return arg0->unknown_4ec_ == 6;
     }
-    switch (obj->field4ec) {
-        case 0: func_ov003_02168654(obj); break;
-        case 1: func_ov003_02168b50(obj); break;
-        case 2: func_ov003_02168cc8(obj); break;
-        case 3: func_ov003_02168d3c(obj, arg, 0x3f2); break;
-        case 4: func_ov003_02168d3c(obj, arg, 0x3fc); break;
-        case 5: func_ov003_02169430(obj); break;
+    switch (arg0->unknown_4ec_) {
+        case 0: func_ov003_02168654(arg0); break;
+        case 1: func_ov003_02168b50(arg0); break;
+        case 2: func_ov003_02168cc8(arg0); break;
+        case 3: func_ov003_02168d3c(arg0, arg1, 0x3f2); break;
+        case 4: func_ov003_02168d3c(arg0, arg1, 0x3fc); break;
+        case 5: func_ov003_02169430(arg0); break;
         case 6: return 1;
         default: break;
     }
-    func_ov003_0216aa28(obj);
+    func_ov003_0216aa28(arg0);
     return 0;
 }

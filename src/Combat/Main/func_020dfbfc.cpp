@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct Struct020dfbfc {
-    char pad[8];
-    int value;
+struct Struct_020dfbfc {
+    char unknown_0_[8];
+    int unknown_8_;
 };
 
 // USA: func_020dfbfc
-extern "C" ARM int func_020dfbfc(Struct020dfbfc *obj, char *idx, int dflt) {
-    int flag = 1;
-    int i = (int)(idx - (char *)0);
-    if (i != -1) {
-        if (obj->value != 0) {
-            flag = 0;
+extern "C" ARM int func_020dfbfc(Struct_020dfbfc *arg0, char *arg1, int arg2) {
+    int var0 = 1;
+    int var1 = (int)(arg1 - (char *)0);
+    if (var1 != -1) {
+        if (arg0->unknown_8_ != 0) {
+            var0 = 0;
         }
     }
-    if (flag == 0) {
-        return obj->value + i;
+    if (var0 == 0) {
+        return arg0->unknown_8_ + var1;
     }
-    return dflt;
+    return arg2;
 }

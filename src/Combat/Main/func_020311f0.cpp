@@ -6,13 +6,13 @@
 #endif
 
 Matrix4x3 RotationMatrixX(int angle);
-extern "C" void func_020c51a4(int cmd);
+extern "C" void func_020c51a4(int arg0);
 
 // USA: func_020311f0
-extern "C" ARM void func_020311f0(int angle) {
-    if (angle) {
-        Matrix4x3 rot;
-        rot = RotationMatrixX(angle);
-        func_020c51a4((int)&rot);
+extern "C" ARM void func_020311f0(int arg0) {
+    if (arg0) {
+        Matrix4x3 var0;
+        var0 = RotationMatrixX(arg0);
+        func_020c51a4((int)&var0);
     }
 }

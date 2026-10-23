@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct Obj02190020 {
-	char pad1c[0x1c];
-	unsigned char state;
-	char pad24[0x24 - 0x1d];
-	int* ptr24;
-	char pad2c[0x2c - 0x28];
-	unsigned char flag2c;
-	char pad3c[0x3c - 0x2d];
-	unsigned char field3c;
+struct Struct_ov015_02190020 {
+	char unknown_0_[0x1c];
+	unsigned char unknown_1c_;
+	char unknown_1d_[0x24 - 0x1d];
+	int* unknown_24_;
+	char unknown_28_[0x2c - 0x28];
+	unsigned char unknown_2c_;
+	char unknown_2d_[0x3c - 0x2d];
+	unsigned char unknown_3c_;
 };
 
 // USA: func_ov015_02190020
-extern "C" ARM void func_ov015_02190020(struct Obj02190020* obj, unsigned char val) {
-	char* p;
-	if (obj->state != 0 && obj->state != 1) {
+extern "C" ARM void func_ov015_02190020(struct Struct_ov015_02190020* arg0, unsigned char arg1) {
+	char* var0;
+	if (arg0->unknown_1c_ != 0 && arg0->unknown_1c_ != 1) {
 		return;
 	}
-	if (obj->field3c == val) {
+	if (arg0->unknown_3c_ == arg1) {
 		return;
 	}
-	p = (char*)obj->ptr24 + 0x200;
-	*(short*)(p + 0xb2) = -1;
-	obj->field3c = val;
-	obj->flag2c = 1;
+	var0 = (char*)arg0->unknown_24_ + 0x200;
+	*(short*)(var0 + 0xb2) = -1;
+	arg0->unknown_3c_ = arg1;
+	arg0->unknown_2c_ = 1;
 }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Obj0205c6bc;
-extern "C" int func_0205c6bc(Obj0205c6bc*);
+struct Struct_0205c5b0_2;
+extern "C" int func_0205c6bc(Struct_0205c5b0_2*);
 struct Struct_0205bd04;
 extern "C" int func_0205bd04(struct Struct_0205bd04*);
-struct SelfBB04;
-extern "C" void func_0205bb04(struct SelfBB04*, int);
+struct Struct_0205bb04;
+extern "C" void func_0205bb04(struct Struct_0205bb04*, int);
 struct Struct_0205bf3c;
 extern "C" void func_0205bf3c(struct Struct_0205bf3c*);
 struct Struct_0205bc10;
@@ -19,56 +19,56 @@ struct Struct_0205bcdc;
 extern "C" void func_0205bcdc(struct Struct_0205bcdc*, int);
 
 struct Struct_0205c5b0 {
-    char pad0[0x34];
-    int field34;
-    char pad38[0x94 - 0x38];
-    unsigned char field94;
-    unsigned char field95;
+    char unknown_0_[0x34];
+    int unknown_34_;
+    char unknown_38_[0x94 - 0x38];
+    unsigned char unknown_94_;
+    unsigned char unknown_95_;
 };
 
 // USA: func_0205c5b0
-extern "C" ARM int func_0205c5b0(void* selfPtr, void* p1) {
-    void* param1 = p1;
-    struct Struct_0205c5b0* self = (struct Struct_0205c5b0*)selfPtr;
-    int result = 0;
-    int field34 = self->field34;
+extern "C" ARM int func_0205c5b0(void* arg0, void* arg1) {
+    void* var0 = arg1;
+    struct Struct_0205c5b0* var1 = (struct Struct_0205c5b0*)arg0;
+    int var2 = 0;
+    int var3 = var1->unknown_34_;
 
-    if (self->field94 != 0) {
-        if (func_0205c6bc((Obj0205c6bc*)selfPtr) != 0) {
-            int sum = func_0205bd04((struct Struct_0205bd04*)((char*)self + 0x4));
-            func_0205bb04((struct SelfBB04*)((char*)self + 0x54), sum);
-            func_0205bf3c((struct Struct_0205bf3c*)((char*)self + 0x54));
-            func_0205bc10((struct Struct_0205bc10*)((char*)self + 0x4));
-            result = 1;
+    if (var1->unknown_94_ != 0) {
+        if (func_0205c6bc((Struct_0205c5b0_2*)arg0) != 0) {
+            int var4 = func_0205bd04((struct Struct_0205bd04*)((char*)var1 + 0x4));
+            func_0205bb04((struct Struct_0205bb04*)((char*)var1 + 0x54), var4);
+            func_0205bf3c((struct Struct_0205bf3c*)((char*)var1 + 0x54));
+            func_0205bc10((struct Struct_0205bc10*)((char*)var1 + 0x4));
+            var2 = 1;
             goto done;
         }
     }
 
-    if (self->field94 != 0) {
-        typedef int (*UpdateFn)(struct Struct_0205bc2c*, void*);
-        if (((UpdateFn)func_0205bc2c)((struct Struct_0205bc2c*)((char*)self + 0x4), param1) != 0) {
-            int sum = func_0205bd04((struct Struct_0205bd04*)((char*)self + 0x4));
-            if (field34 != sum) result = 2;
-            func_0205bb04((struct SelfBB04*)((char*)self + 0x54), sum);
-            func_0205bf3c((struct Struct_0205bf3c*)((char*)self + 0x54));
+    if (var1->unknown_94_ != 0) {
+        typedef int (*Type_0205c5b0)(struct Struct_0205bc2c*, void*);
+        if (((Type_0205c5b0)func_0205bc2c)((struct Struct_0205bc2c*)((char*)var1 + 0x4), var0) != 0) {
+            int var5 = func_0205bd04((struct Struct_0205bd04*)((char*)var1 + 0x4));
+            if (var3 != var5) var2 = 2;
+            func_0205bb04((struct Struct_0205bb04*)((char*)var1 + 0x54), var5);
+            func_0205bf3c((struct Struct_0205bf3c*)((char*)var1 + 0x54));
             goto done;
         }
     }
 
-    if (self->field95 != 0) {
-        int before = func_0205bb84((struct Struct_0205bb84*)((char*)self + 0x54));
-        if (func_0205bf58((char*)self + 0x54, param1) != 0) {
-            int after = func_0205bb84((struct Struct_0205bb84*)((char*)self + 0x54));
-            if (before != after) {
-                result = 1;
-                int idx = func_0205bb84((struct Struct_0205bb84*)((char*)self + 0x54));
-                func_0205bcdc((struct Struct_0205bcdc*)((char*)self + 0x4), idx);
-                self->field34 = -1;
-                func_0205bc10((struct Struct_0205bc10*)((char*)self + 0x4));
+    if (var1->unknown_95_ != 0) {
+        int var6 = func_0205bb84((struct Struct_0205bb84*)((char*)var1 + 0x54));
+        if (func_0205bf58((char*)var1 + 0x54, var0) != 0) {
+            int var7 = func_0205bb84((struct Struct_0205bb84*)((char*)var1 + 0x54));
+            if (var6 != var7) {
+                var2 = 1;
+                int var8 = func_0205bb84((struct Struct_0205bb84*)((char*)var1 + 0x54));
+                func_0205bcdc((struct Struct_0205bcdc*)((char*)var1 + 0x4), var8);
+                var1->unknown_34_ = -1;
+                func_0205bc10((struct Struct_0205bc10*)((char*)var1 + 0x4));
             }
         }
     }
 
 done:
-    return result;
+    return var2;
 }

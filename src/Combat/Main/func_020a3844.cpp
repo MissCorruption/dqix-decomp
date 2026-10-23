@@ -11,7 +11,7 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-extern "C" void func_020a39d8(SafeAllocator* alloc);
+extern "C" void func_020a39d8(SafeAllocator* arg0);
 extern "C" void func_020c9be0(void);
 
 #if defined(jpn)
@@ -23,44 +23,44 @@ extern const char data_020f1ab0[];
 
 // JPN: func_020a55a0
 // USA: func_020a3844
-extern "C" ARM int func_020a3844(SafeAllocator* alloc) {
-    GameState* battleStruct = GameState::GetInstance();
-    GameResources* resources = GetGameResources();
-    unsigned char* word = battleStruct->GetTreasureMapLanguageData();
-    if (word != 0 || resources->pTMapLanguageOffsets != 0) {
-        func_020a39d8(alloc);
+extern "C" ARM int func_020a3844(SafeAllocator* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    unsigned char* var2 = var0->GetTreasureMapLanguageData();
+    if (var2 != 0 || var1->pTMapLanguageOffsets != 0) {
+        func_020a39d8(arg0);
     }
 
-    unsigned char* buf = static_cast<unsigned char*>(alloc->Allocate(0x2000));
-    resources->pTMapLanguageOffsets = static_cast<TreasureMapLanguageDataOffsets*>(alloc->Allocate(sizeof(TreasureMapLanguageDataOffsets)));
+    unsigned char* var3 = static_cast<unsigned char*>(arg0->Allocate(0x2000));
+    var1->pTMapLanguageOffsets = static_cast<TreasureMapLanguageDataOffsets*>(arg0->Allocate(sizeof(TreasureMapLanguageDataOffsets)));
 
-    unsigned int fileSize = 0;
+    unsigned int var4 = 0;
 #if defined(jpn)
-    if (!LoadFileIntoMemory(data_020f1bf4, buf, &fileSize))
+    if (!LoadFileIntoMemory(data_020f1bf4, var3, &var4))
         return 0;
 #else
     BackgroundLoader::AddLockGlobal();
-    void* extracted = ExtractFileFromGP2(data_020f1a9c, data_020f1ab0, &fileSize);
-    memcpy(buf, extracted, fileSize);
-    if (fileSize > 0x2000) {
+    void* var5 = ExtractFileFromGP2(data_020f1a9c, data_020f1ab0, &var4);
+    memcpy(var3, var5, var4);
+    if (var4 > 0x2000) {
         func_020c9be0();
     }
 #endif
 
-    unsigned int srcOff = 0;
-    unsigned int count = 0;
-    VectorizedInvertedMemcpy(buf, &count, 4);
-    srcOff += 4;
+    unsigned int var6 = 0;
+    unsigned int var7 = 0;
+    VectorizedInvertedMemcpy(var3, &var7, 4);
+    var6 += 4;
 
-    for (unsigned int i = 0; i < count; i++) {
-        unsigned char* offsets = (unsigned char*)resources->pTMapLanguageOffsets;
-        VectorizedInvertedMemcpy(buf + srcOff, offsets + i * 4, 4);
-        srcOff += 4;
+    for (unsigned int var8 = 0; var8 < var7; var8++) {
+        unsigned char* var9 = (unsigned char*)var1->pTMapLanguageOffsets;
+        VectorizedInvertedMemcpy(var3 + var6, var9 + var8 * 4, 4);
+        var6 += 4;
     }
 
 #if !defined(jpn)
     BackgroundLoader::RemoveLockGlobal();
 #endif
-    battleStruct->SetTreasureMapLanguageDataPtr(buf);
+    var0->SetTreasureMapLanguageDataPtr(var3);
     return 1;
 }

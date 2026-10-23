@@ -1,65 +1,65 @@
 #if defined(jpn)
-enum { RegionOffset150 = 0x144 };
+enum { Enum_ov017_021b3678_336 = 0x144 };
 #else
-enum { RegionOffset150 = 0x150 };
+enum { Enum_ov017_021b3678_336 = 0x150 };
 #endif
 
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-struct Obj150_021b354c;
-extern "C" unsigned char func_ov017_021b354c(Obj150_021b354c* obj);
-extern "C" int func_02053c6c(unsigned char* obj);
+struct Struct_ov017_021b3444;
+extern "C" unsigned char func_ov017_021b354c(Struct_ov017_021b3444* arg0);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
 extern int data_ov017_021d7ab6;
 extern short data_ov017_021d6b56;
 extern short data_ov017_021d6b54;
 
-struct Obj_021b3678 {
-    unsigned char pad0[8];
-    short id;
-    unsigned char pad1[4];
-    int result;
+struct Struct_ov017_021b3678 {
+    unsigned char unknown_0_[8];
+    short unknown_8_;
+    unsigned char unknown_a_[4];
+    int unknown_10_;
 };
 
 // USA: func_ov017_021b3678
-extern "C" ARM int func_ov017_021b3678(struct Obj_021b3678* obj) {
-    GameState* bs = GameState::GetInstance();
-    int field4 = (int)BackgroundLoader::GetInstance();
-    GameObject* combatant = func_0200ff1c(bs, obj->id);
-    if (!combatant) {
+extern "C" ARM int func_ov017_021b3678(struct Struct_ov017_021b3678* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int var1 = (int)BackgroundLoader::GetInstance();
+    GameObject* var2 = func_0200ff1c(var0, arg0->unknown_8_);
+    if (!var2) {
         return 0;
     }
-    if (!func_02053c6c((unsigned char*)combatant)) {
+    if (!func_02053c6c((unsigned char*)var2)) {
         return 0;
     }
 
-    if (func_ov017_021b354c((Obj150_021b354c*)combatant)) {
-        char* sub = *(char**)((char*)combatant + RegionOffset150);
-        if (sub) {
-            *(unsigned char*)(sub + 0x56e) = 0;
+    if (func_ov017_021b354c((Struct_ov017_021b3444*)var2)) {
+        char* var3 = *(char**)((char*)var2 + Enum_ov017_021b3678_336);
+        if (var3) {
+            *(unsigned char*)(var3 + 0x56e) = 0;
         }
-        obj->result = ((BackgroundLoader*)(field4))->QueueLoadFile((const char*)((int)&data_ov017_021d7ab6), (SafeAllocator*)(0));
+        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFile((const char*)((int)&data_ov017_021d7ab6), (SafeAllocator*)(0));
         return 1;
     }
 
-    char* subBase = *(char**)((char*)combatant + RegionOffset150);
-    char* arrA = subBase + 0x194;
-    char* arrB = subBase + 0x2f4;
-    unsigned char i;
-    for (i = 0; i < 8; i = (i + 1) & 0xff) {
-        short t2 = *(short*)((char*)&data_ov017_021d6b54 + i * 4);
-        if (t2 < 0) {
+    char* var4 = *(char**)((char*)var2 + Enum_ov017_021b3678_336);
+    char* var5 = var4 + 0x194;
+    char* var6 = var4 + 0x2f4;
+    unsigned char var7;
+    for (var7 = 0; var7 < 8; var7 = (var7 + 1) & 0xff) {
+        short var8 = *(short*)((char*)&data_ov017_021d6b54 + var7 * 4);
+        if (var8 < 0) {
             continue;
         }
-        short t1 = *(short*)((char*)&data_ov017_021d6b56 + i * 4);
-        short valA = *(short*)(arrA + t2 * 0x20 + 0x18);
-        short valB = *(short*)(arrB + t1 * 0x2c + 0x28);
-        if (valA == valB) {
+        short var9 = *(short*)((char*)&data_ov017_021d6b56 + var7 * 4);
+        short var10 = *(short*)(var5 + var8 * 0x20 + 0x18);
+        short var11 = *(short*)(var6 + var9 * 0x2c + 0x28);
+        if (var10 == var11) {
             continue;
         }
-        obj->result = ((BackgroundLoader*)(field4))->QueueLoadFile((const char*)((int)&data_ov017_021d7ab6), (SafeAllocator*)(0));
+        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFile((const char*)((int)&data_ov017_021d7ab6), (SafeAllocator*)(0));
         return 1;
     }
     return 1;

@@ -2,40 +2,40 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-struct ByteHeader0204693c020d8484 {
-    signed char byte0;
-    signed char byte1;
-    signed char byte2;
-    signed char byte3;
+struct Struct_020d8484 {
+    signed char unknown_0_;
+    signed char unknown_1_;
+    signed char unknown_2_;
+    signed char unknown_3_;
 };
-struct List020727d8 {
-    void* entries;
-    short capacity;
-    short count;
+struct Struct_020727d8 {
+    void* unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
 };
-struct Obj020d8484 {
-    struct ByteHeader0204693c020d8484 header;
-    int field4;
-    int field8;
-    struct List020727d8 list;
-    SafeAllocator allocator;
+struct Struct_020d80b0_3 {
+    struct Struct_020d8484 unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    struct Struct_020727d8 unknown_c_;
+    SafeAllocator unknown_14_;
 };
 
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a27ac(void* obj);
-extern "C" void func_020727ec(struct List020727d8* list);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a27ac(void* arg0);
+extern "C" void func_020727ec(struct Struct_020727d8* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern int data_02114e20;
 
 // USA: func_020d8484
-extern "C" ARM void func_020d8484(struct Obj020d8484* self) {
+extern "C" ARM void func_020d8484(struct Struct_020d80b0_3* arg0) {
     func_020a27ac((void*)func_020100f8((char*)GameState::GetInstance()));
-    void* p = self->allocator.GetSignedAllocator();
-    if (p != NULL) {
-        self->allocator.Reset();
-        self->allocator.Destroy();
-        func_020727ec(&self->list);
-        func_02012da4((AllocatorUnion*)&data_02114e20, p);
+    void* var0 = arg0->unknown_14_.GetSignedAllocator();
+    if (var0 != NULL) {
+        arg0->unknown_14_.Reset();
+        arg0->unknown_14_.Destroy();
+        func_020727ec(&arg0->unknown_c_);
+        func_02012da4((AllocatorUnion*)&data_02114e20, var0);
     }
-    self->header.byte1 = 1;
+    arg0->unknown_0_.unknown_1_ = 1;
 }

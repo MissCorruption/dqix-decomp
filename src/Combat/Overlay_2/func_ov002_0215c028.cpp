@@ -3,17 +3,17 @@
 #include "Resource/CharacterCreationUI.h"
 
 #if defined(jpn)
-enum { WindowOffset = 0xe20, TextOffset = 0x1a98, TextCapacity = 0x800, LayoutPreset = 43 };
+enum { Enum_ov002_0215c028_3784 = 0xe20, Enum_ov002_0215c028_7120 = 0x1a98, Enum_ov002_0215c028_2400 = 0x800, Enum_ov002_0215c028_40 = 43 };
 #else
-enum { WindowOffset = 0xec8, TextOffset = 0x1bd0, TextCapacity = 0x960, LayoutPreset = 40 };
+enum { Enum_ov002_0215c028_3784 = 0xec8, Enum_ov002_0215c028_7120 = 0x1bd0, Enum_ov002_0215c028_2400 = 0x960, Enum_ov002_0215c028_40 = 40 };
 #endif
 
 namespace {
-struct BattleTagLineState {
-    unsigned char unknown0[WindowOffset];
-    CreationWindow window;
-    unsigned char unknownAfterWindow[TextOffset - WindowOffset - sizeof(CreationWindow)];
-    char* text;
+struct Struct_ov002_0215c028 {
+    unsigned char unknown_0_[Enum_ov002_0215c028_3784];
+    Struct_ov023_021d9c7c unknown_ec8_;
+    unsigned char unknown_f84_[Enum_ov002_0215c028_7120 - Enum_ov002_0215c028_3784 - sizeof(Struct_ov023_021d9c7c)];
+    char* unknown_1bd0_;
 };
 }
 
@@ -39,23 +39,23 @@ extern "C" void func_0205d304(void*, const char*, int, unsigned char, unsigned c
 
 // USA: func_ov002_0215c028
 // JPN: func_ov002_0215d12c
-extern "C" ARM void func_ov002_0215c028(char* base) {
-    BattleTagLineState* state = ((BattleTagLineState*)(base));
-    func_ov002_0215be00(state, LayoutPreset, 0x15, 0x13);
-    void* messages = ((void*)(func_020421a0()));
-    memset(state->text, 0, TextCapacity);
+extern "C" ARM void func_ov002_0215c028(char* arg0) {
+    Struct_ov002_0215c028* var0 = ((Struct_ov002_0215c028*)(arg0));
+    func_ov002_0215be00(var0, Enum_ov002_0215c028_40, 0x15, 0x13);
+    void* var1 = ((void*)(func_020421a0()));
+    memset(var0->unknown_1bd0_, 0, Enum_ov002_0215c028_2400);
 #if defined(jpn)
-    func_020474a8(messages, 8, data_ov002_0216d91f, state->text);
-    func_0204234c(state->text, 0x11);
+    func_020474a8(var1, 8, data_ov002_0216d91f, var0->unknown_1bd0_);
+    func_0204234c(var0->unknown_1bd0_, 0x11);
 #else
-    func_02046608(messages, 8, ((int)(data_ov002_0216d26c)), ((int)(state->text)), 0x100, 0, 0);
-    func_02041cc0(state->text, 0x11);
+    func_02046608(var1, 8, ((int)(data_ov002_0216d26c)), ((int)(var0->unknown_1bd0_)), 0x100, 0, 0);
+    func_02041cc0(var0->unknown_1bd0_, 0x11);
 #endif
-    func_0205d304(&state->window, state->text, 0, 0, 0, 1, 0
+    func_0205d304(&var0->unknown_ec8_, var0->unknown_1bd0_, 0, 0, 0, 1, 0
 #if !defined(jpn)
                  , 0
 #endif
     );
-    func_0205d0e0(&state->window, 4);
-    func_0205def8(((Struct_0205def8*)(&state->window)), 0, LayoutPreset);
+    func_0205d0e0(&var0->unknown_ec8_, 4);
+    func_0205def8(((Struct_0205def8*)(&var0->unknown_ec8_)), 0, Enum_ov002_0215c028_40);
 }

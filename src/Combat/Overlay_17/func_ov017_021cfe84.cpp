@@ -2,32 +2,32 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { kResourceEntryOffset = 0x3524 };
+enum { Enum_ov017_021cfe84_14132 = 0x3524 };
 #else
-enum { kResourceEntryOffset = 0x3734 };
+enum { Enum_ov017_021cfe84_14132 = 0x3734 };
 #endif
 
 extern "C" void* func_02012fe4(void);
-struct Base02019508;
-extern "C" void func_0201ba1c(struct Base02019508* base, int key1, int key2);
+struct Struct_02019508_3;
+extern "C" void func_0201ba1c(struct Struct_02019508_3* arg0, int arg1, int arg2);
 
-struct Obj021cfe84 {
-	unsigned char pad0[4];
-	unsigned short f4;
-	unsigned short f6;
-	unsigned short f8;
+struct Struct_ov017_021cfe84 {
+	unsigned char unknown_0_[4];
+	unsigned short unknown_4_;
+	unsigned short unknown_6_;
+	unsigned short unknown_8_;
 };
 
 // USA: func_ov017_021cfe84
-extern "C" ARM void func_ov017_021cfe84(int unused0, Obj021cfe84* obj) {
-	void* basePtr = func_02012fe4();
-	if (obj->f4 != *(unsigned short*)basePtr) {
+extern "C" ARM void func_ov017_021cfe84(int arg0, Struct_ov017_021cfe84* arg1) {
+	void* var0 = func_02012fe4();
+	if (arg1->unknown_4_ != *(unsigned short*)var0) {
 		return;
 	}
-	unsigned char* self = (unsigned char*)GetGameResources();
-	unsigned char* work = *(unsigned char**)(self + kResourceEntryOffset);
-	if (work[3] != 0) {
+	unsigned char* var1 = (unsigned char*)GetGameResources();
+	unsigned char* var2 = *(unsigned char**)(var1 + Enum_ov017_021cfe84_14132);
+	if (var2[3] != 0) {
 		return;
 	}
-	func_0201ba1c((struct Base02019508*)basePtr, obj->f8, obj->f6);
+	func_0201ba1c((struct Struct_02019508_3*)var0, arg1->unknown_8_, arg1->unknown_6_);
 }

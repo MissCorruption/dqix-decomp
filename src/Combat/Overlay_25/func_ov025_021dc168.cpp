@@ -3,61 +3,61 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
-extern "C" int func_ov000_0215ec1c(int a, short* buf, int max, int start);
-extern "C" void* func_ov000_02160f20(void* obj);
-extern "C" int func_0204936c(unsigned char* obj);
-extern "C" void func_ov025_021dc220(void* obj);
+extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_ov000_0215ec1c(int arg0, short* arg1, int arg2, int arg3);
+extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" int func_0204936c(unsigned char* arg0);
+extern "C" void func_ov025_021dc220(void* arg0);
 
-struct ListNode021dc168 {
-    char pad0[0x20];
-    unsigned short id;
-    char pad22[0xe];
-    struct ListNode021dc168* next;
+struct Struct_ov025_021dc168 {
+    char unknown_0_[0x20];
+    unsigned short unknown_20_;
+    char unknown_22_[0xe];
+    struct Struct_ov025_021dc168* unknown_30_;
 };
 
-struct List021dc168 {
-    char pad0[0x10];
-    struct ListNode021dc168* head;
+struct Struct_ov025_021dc168_2 {
+    char unknown_0_[0x10];
+    struct Struct_ov025_021dc168* unknown_10_;
 };
 
-struct Obj021dc168 {
+struct Struct_ov025_021dc168_3 {
 #if defined(jpn)
-    char pad0[0x218];
+    char unknown_0_[0x218];
 #else
-    char pad0[0x29c];
+    char unknown1_0_[0x29c];
 #endif
-    int field29c;
-    char pad2a0[0xeac - 0x2a0];
-    int field_eac;
+    int unknown_29c_;
+    char unknown_2a0_[0xeac - 0x2a0];
+    int unknown_eac_;
 };
 
 // USA: func_ov025_021dc168
-extern "C" ARM void func_ov025_021dc168(struct Obj021dc168* obj) {
-    GameState* bs = GameState::GetInstance();
-    int field29c = obj->field29c;
-    func_020100bc(bs);
+extern "C" ARM void func_ov025_021dc168(struct Struct_ov025_021dc168_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int var1 = arg0->unknown_29c_;
+    func_020100bc(var0);
     GetGameResources();
 
-    short buf[12];
-    int n = 0;
-    n = n + func_ov000_0215e9fc(field29c, buf, 12, n);
-    n = n + func_ov000_0215ec1c(field29c, buf + n, 12 - n, 0);
+    short var2[12];
+    int var3 = 0;
+    var3 = var3 + func_ov000_0215e9fc(var1, var2, 12, var3);
+    var3 = var3 + func_ov000_0215ec1c(var1, var2 + var3, 12 - var3, 0);
 
-    if (obj->field_eac == 2) {
-        struct List021dc168* list = (struct List021dc168*)func_ov000_02160f20(obj);
-        struct ListNode021dc168* node = list->head;
-        int ready = 1;
-        while (node != NULL) {
-            GameObject* combatant = bs->GetCombatantByIndex(node->id);
-            if (combatant != NULL && func_0204936c((unsigned char*)combatant)) {
-                ready = 0;
+    if (arg0->unknown_eac_ == 2) {
+        struct Struct_ov025_021dc168_2* var4 = (struct Struct_ov025_021dc168_2*)func_ov000_02160f20(arg0);
+        struct Struct_ov025_021dc168* var5 = var4->unknown_10_;
+        int var6 = 1;
+        while (var5 != NULL) {
+            GameObject* var7 = var0->GetCombatantByIndex(var5->unknown_20_);
+            if (var7 != NULL && func_0204936c((unsigned char*)var7)) {
+                var6 = 0;
                 break;
             }
-            node = node->next;
+            var5 = var5->unknown_30_;
         }
-        if (ready) {
-            func_ov025_021dc220(obj);
+        if (var6) {
+            func_ov025_021dc220(arg0);
         }
     }
 }

@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kCursorOffset = 0x1450, kStringsOffset = 0x1314, kSeparatorOffset = 0x1348 };
+enum { Enum_ov012_02189fb0_5112 = 0x1450, Enum_ov012_02189fb0_4924 = 0x1314, Enum_ov012_02189fb0_4984 = 0x1348 };
 #else
-enum { kCursorOffset = 0x13f8, kStringsOffset = 0x133c, kSeparatorOffset = 0x1378 };
+enum { Enum_ov012_02189fb0_5112 = 0x13f8, Enum_ov012_02189fb0_4924 = 0x133c, Enum_ov012_02189fb0_4984 = 0x1378 };
 #endif
 
-extern "C" ARM int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" ARM int func_02041ea4(char* dst, int cursor);
-extern "C" ARM int func_02041b70(char* dst, int n, const char* name);
-extern "C" ARM int func_02042058(char* dst, const char* src);
+extern "C" ARM int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" ARM int func_02041ea4(char* arg0, int arg1);
+extern "C" ARM int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" ARM int func_02042058(char* arg0, const char* arg1);
 
-struct TableA68;
-extern "C" void* func_02072a68(struct TableA68* table, int key);
+struct Struct_02072a68_2;
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 
 // USA: func_ov012_02189fb0
-extern "C" ARM void func_ov012_02189fb0(char* self, char* dst, int flag) {
-    if (dst == 0) return;
+extern "C" ARM void func_ov012_02189fb0(char* arg0, char* arg1, int arg2) {
+    if (arg1 == 0) return;
 
-    int val = *(int*)(self + kCursorOffset);
-    if (flag != 0) {
-        func_02041c08(dst, val, 8, 5, 5, 5);
+    int var0 = *(int*)(arg0 + Enum_ov012_02189fb0_5112);
+    if (arg2 != 0) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, val);
+    func_02041ea4(arg1, var0);
 
-    const char* name1 = (const char*)func_02072a68((struct TableA68*)(self + kStringsOffset), 0x10);
-    func_02041b70(dst, 0, name1);
+    const char* var1 = (const char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov012_02189fb0_4924), 0x10);
+    func_02041b70(arg1, 0, var1);
 
-    func_02042058(dst, *(const char**)(self + kSeparatorOffset));
+    func_02042058(arg1, *(const char**)(arg0 + Enum_ov012_02189fb0_4984));
 
-    const char* name2 = (const char*)func_02072a68((struct TableA68*)(self + kStringsOffset), 0x11);
-    func_02041b70(dst, 1, name2);
+    const char* var2 = (const char*)func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov012_02189fb0_4924), 0x11);
+    func_02041b70(arg1, 1, var2);
 }

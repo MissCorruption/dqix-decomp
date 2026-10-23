@@ -3,86 +3,86 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02057924(void);
-extern "C" void __clear(void* buf, int n);
+extern "C" void __clear(void* arg0, int arg1);
 
-struct Struct020372b8;
+struct Struct_02037d88_9;
 
-struct InitStruct02078484Struct {
-    unsigned char f00;
-    unsigned char pad01[0xf];
-    unsigned char f10;
-    unsigned char b0 : 1;
-    unsigned char b1 : 1;
-    unsigned char b2 : 1;
-    unsigned char b3 : 1;
-    unsigned char b4 : 1;
-    unsigned char b5 : 1;
-    unsigned char b6 : 1;
-    unsigned char b7 : 1;
-    short f12;
-    short f14;
-    short f16;
-    short f18;
-    short f1a;
-    short f1c;
-    short pad1e;
-    int f20; int f24; int f28; int f2c; int f30;
-    int f34; int f38; int f3c; int f40;
-    int f44; int f48; int f4c;
+struct Struct_02078398_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[0xf];
+    unsigned char unknown_10_;
+    unsigned char unknown_11_0_ : 1;
+    unsigned char unknown_11_1_ : 1;
+    unsigned char unknown_11_2_ : 1;
+    unsigned char unknown_11_3_ : 1;
+    unsigned char unknown_11_4_ : 1;
+    unsigned char unknown_11_5_ : 1;
+    unsigned char unknown_11_6_ : 1;
+    unsigned char unknown_11_7_ : 1;
+    short unknown_12_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
+    short unknown_1c_;
+    short unknown_1e_;
+    int unknown_20_; int unknown_24_; int unknown_28_; int unknown_2c_; int unknown_30_;
+    int unknown_34_; int unknown_38_; int unknown_3c_; int unknown_40_;
+    int unknown_44_; int unknown_48_; int unknown_4c_;
 };
-extern "C" void func_02078484(struct InitStruct02078484Struct* p);
+extern "C" void func_02078484(struct Struct_02078398_2* arg0);
 
 struct Vector3i;
 
-extern "C" void func_02057fb4(void* list, int id, void* config);
+extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
 
-extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* arg0);
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 
-struct Vec3Zero0207853c { int a; int b; int c; };
-extern "C" void func_ov017_021c95ec(int c1, int rem, int f2val, int tag, int negOne, struct Vec3Zero0207853c v, int a8, int a9, int a10);
+struct Struct_0207853c { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" void func_ov017_021c95ec(int arg0, int arg1, int arg2, int arg3, int arg4, struct Struct_0207853c arg5, int arg6, int arg7, int arg8);
 
-struct Entity0207853c {
-    char pad0[0x2];
-    short f2;
-    short f4;
-    unsigned short f6;
-    char pad1[0x3c];
-    int f44; int f48; int f4c;
-    char pad2[0x62];
-    short fb2;
-    char pad3[0xc4];
-    short f178;
+struct Struct_0207853c_2 {
+    char unknown_0_[0x2];
+    short unknown_2_;
+    short unknown_4_;
+    unsigned short unknown_6_;
+    char unknown_8_[0x3c];
+    int unknown_44_; int unknown_48_; int unknown_4c_;
+    char unknown_50_[0x62];
+    short unknown_b2_;
+    char unknown_b4_[0xc4];
+    short unknown_178_;
 };
 
 // USA: func_0207853c
-extern "C" ARM int func_0207853c(struct Entity0207853c* obj) {
-    void* g = func_0202ae18();
-    obj->fb2 = 0;
-    ((Object3D*)((struct Struct020372b8*)obj))->TransitionInheritedAlpha(0, 0x7d);
+extern "C" ARM int func_0207853c(struct Struct_0207853c_2* arg0) {
+    void* var0 = func_0202ae18();
+    arg0->unknown_b2_ = 0;
+    ((Object3D*)((struct Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0x7d);
 
-    if (obj->f178 > 0) {
-        void* list = func_02057924();
-        struct InitStruct02078484Struct s;
-        func_02078484(&s);
-        *(Vector3i*)&s.f2c = *(Vector3i const*)&obj->f44;
-        const Vector3fix& tmp = ((Object3D*)obj)->GetScale();
-        *(Vector3i*)&s.f44 = *(Vector3i const*)((int*)&tmp);
-        func_02057fb4(list, obj->f178, &s);
+    if (arg0->unknown_178_ > 0) {
+        void* var1 = func_02057924();
+        struct Struct_02078398_2 var2;
+        func_02078484(&var2);
+        *(Vector3i*)&var2.unknown_2c_ = *(Vector3i const*)&arg0->unknown_44_;
+        const Vector3fix& var3 = ((Object3D*)arg0)->GetScale();
+        *(Vector3i*)&var2.unknown_44_ = *(Vector3i const*)((int*)&var3);
+        func_02057fb4(var1, arg0->unknown_178_, &var2);
     }
 
-    if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
-        int c1 = ((Object3D*)((struct U16Field0x6_020375f8*)obj))->GetField06();
-        int f2val = obj->f2;
-        int rem = (obj->f4 - 0x70) % 0xc;
-        if (rem >= 0 && rem < 0xc) {
-            struct Vec3Zero0207853c v;
-            __clear(&v, 0xc);
-            func_ov017_021c95ec(c1, rem, f2val, 0xb, -1, v, 0, 0, 0);
+    if (func_0202b7d8((int*)var0) && func_0202c1a4((struct Struct_0202c1a4*)var0) == 0) {
+        int var4 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
+        int var5 = arg0->unknown_2_;
+        int var6 = (arg0->unknown_4_ - 0x70) % 0xc;
+        if (var6 >= 0 && var6 < 0xc) {
+            struct Struct_0207853c var7;
+            __clear(&var7, 0xc);
+            func_ov017_021c95ec(var4, var6, var5, 0xb, -1, var7, 0, 0, 0);
         }
     }
 

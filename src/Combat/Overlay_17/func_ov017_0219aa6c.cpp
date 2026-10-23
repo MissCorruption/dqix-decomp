@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { FLAG_FIELD_OFFSET = 0xc6 };
+enum { Enum_ov017_0219aa6c_742 = 0xc6 };
 #else
-enum { FLAG_FIELD_OFFSET = 0x2e6 };
+enum { Enum_ov017_0219aa6c_742 = 0x2e6 };
 #endif
 
 // USA: func_ov017_0219aa6c
-extern "C" ARM void func_ov017_0219aa6c(unsigned char* obj) {
-	obj += 0x4000;
-	obj[FLAG_FIELD_OFFSET] = 1;
+extern "C" ARM void func_ov017_0219aa6c(unsigned char* arg0) {
+	arg0 += 0x4000;
+	arg0[Enum_ov017_0219aa6c_742] = 1;
 }

@@ -1,182 +1,182 @@
 #include <globaldefs.h>
 
-typedef void (*RTCCallback)(int result, void* arg);
-typedef void (*RTCInterrupt)(void);
+typedef void (*Type_020cf294)(int result, void* arg);
+typedef void (*Type_020cf020)(void);
 
-struct RTCDate {
-    unsigned int year;
-    unsigned int month;
-    unsigned int day;
-    int week;
+struct Struct_020cf294 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    int unknown_c_;
 };
-struct RTCTime {
-    unsigned int hour;
-    unsigned int minute;
-    unsigned int second;
+struct Struct_020cf294_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
 };
-struct RTCAlarmParam {
-    int week;
-    unsigned int hour;
-    unsigned int minute;
-    unsigned int enable;
+struct Struct_020cf294_8 {
+    int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
 };
 
-struct RTCRawDate {
-    unsigned int year : 8;
-    unsigned int month : 5;
-    unsigned int dummy0 : 3;
-    unsigned int day : 6;
-    unsigned int dummy1 : 2;
-    unsigned int week : 3;
-    unsigned int dummy2 : 5;
+struct Struct_020cf294_9 {
+    unsigned int unknown_0_0_ : 8;
+    unsigned int unknown_1_0_ : 5;
+    unsigned int unknown_1_5_ : 3;
+    unsigned int unknown_2_0_ : 6;
+    unsigned int unknown_2_6_ : 2;
+    unsigned int unknown_3_0_ : 3;
+    unsigned int unknown_3_3_ : 5;
 };
-struct RTCRawTime {
-    unsigned int hour : 6;
-    unsigned int afternoon : 1;
-    unsigned int dummy0 : 1;
-    unsigned int minute : 7;
-    unsigned int dummy1 : 1;
-    unsigned int second : 7;
-    unsigned int dummy2 : 9;
+struct Struct_020cf294_10 {
+    unsigned int unknown_0_0_ : 6;
+    unsigned int unknown_0_6_ : 1;
+    unsigned int unknown_0_7_ : 1;
+    unsigned int unknown_1_0_ : 7;
+    unsigned int unknown_1_7_ : 1;
+    unsigned int unknown_2_0_ : 7;
+    unsigned int unknown_2_7_ : 9;
 };
-struct RTCRawStatus1 {
-    unsigned short reset : 1;
-    unsigned short format : 1;
-    unsigned short dummy0 : 2;
-    unsigned short intr1 : 1;
-    unsigned short intr2 : 1;
-    unsigned short bld : 1;
-    unsigned short poc : 1;
-    unsigned short dummy1 : 8;
+struct Struct_020cf020 {
+    unsigned short unknown_0_0_ : 1;
+    unsigned short unknown_0_1_ : 1;
+    unsigned short unknown_0_2_ : 2;
+    unsigned short unknown_0_4_ : 1;
+    unsigned short unknown_0_5_ : 1;
+    unsigned short unknown_0_6_ : 1;
+    unsigned short unknown_0_7_ : 1;
+    unsigned short unknown_1_0_ : 8;
 };
-struct RTCRawStatus2 {
-    unsigned short intr_mode : 4;
-    unsigned short dummy0 : 2;
-    unsigned short intr2_mode : 1;
-    unsigned short test : 1;
-    unsigned short dummy1 : 8;
+struct Struct_020cf294_3 {
+    unsigned short unknown_0_0_ : 4;
+    unsigned short unknown_0_4_ : 2;
+    unsigned short unknown_0_6_ : 1;
+    unsigned short unknown_0_7_ : 1;
+    unsigned short unknown_1_0_ : 8;
 };
-struct RTCRawAlarm {
-    unsigned int week : 3;
-    unsigned int dummy0 : 4;
-    unsigned int we : 1;
-    unsigned int hour : 6;
-    unsigned int afternoon : 1;
-    unsigned int he : 1;
-    unsigned int minute : 7;
-    unsigned int me : 1;
-    unsigned int dummy2 : 8;
+struct Struct_020cf294_4 {
+    unsigned int unknown_0_0_ : 3;
+    unsigned int unknown_0_3_ : 4;
+    unsigned int unknown_0_7_ : 1;
+    unsigned int unknown_1_0_ : 6;
+    unsigned int unknown_1_6_ : 1;
+    unsigned int unknown_1_7_ : 1;
+    unsigned int unknown_2_0_ : 7;
+    unsigned int unknown_2_7_ : 1;
+    unsigned int unknown_3_0_ : 8;
 };
-union RTCRawData {
+union Struct_020cf294_5 {
     struct {
-        RTCRawDate date;
-        RTCRawTime time;
-    } t;
+        Struct_020cf294_9 unknown_0_;
+        Struct_020cf294_10 unknown_4_;
+    } unknown_0_;
     struct {
-        RTCRawStatus1 status1;
-        RTCRawStatus2 status2;
-        RTCRawAlarm alarm;
-    } a;
+        Struct_020cf020 unknown_0_;
+        Struct_020cf294_3 unknown_2_;
+        Struct_020cf294_4 unknown_4_;
+    } unknown1_0_;
 };
 
-union RTCBuffer {
-    RTCDate* date;
-    RTCTime* time;
-    RTCAlarmParam* alarm;
-    int* status;
+union Struct_020cf294_6 {
+    Struct_020cf294* unknown_0_;
+    Struct_020cf294_2* unknown1_0_;
+    Struct_020cf294_8* unknown2_0_;
+    int* unknown3_0_;
 };
 
-struct RTCWork {
-    unsigned int lock;
-    RTCCallback callback;
-    RTCBuffer buffer[2];
-    void* callbackArg;
-    unsigned int sequence;
-    unsigned int index;
-    RTCInterrupt interrupt;
-    int commonResult;
+struct Struct_020cf294_7 {
+    unsigned int unknown_0_;
+    Type_020cf294 unknown_4_;
+    Struct_020cf294_6 unknown_8_[2];
+    void* unknown_10_;
+    unsigned int unknown_14_;
+    unsigned int unknown_18_;
+    Type_020cf020 unknown_1c_;
+    int unknown_20_;
 };
 
-struct RtcStatics_02111818 {
-    unsigned char pad0[0xc];
-    RTCWork work;
+struct Struct_02111818_4 {
+    unsigned char unknown_0_[0xc];
+    Struct_020cf294_7 unknown_c_;
 };
-extern RtcStatics_02111818 data_02111818;
+extern Struct_02111818_4 data_02111818;
 
-extern "C" int func_020cf7e4(unsigned int bcd);
-extern "C" int func_020cfc00(RTCDate* date);
+extern "C" int func_020cf7e4(unsigned int arg0);
+extern "C" int func_020cfc00(Struct_020cf294* arg0);
 extern "C" int func_020cf8ac(void);
 
-#define RTC_BUF ((RTCRawData*)0x027ffde8)
+#define RTC_BUF ((Struct_020cf294_5*)0x027ffde8)
 
 // USA: func_020cf294
-extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
-    int result;
-    int pxiresult;
-    unsigned char command;
-    RTCCallback cb;
+extern "C" ARM void func_020cf294(int arg0, unsigned int arg1, int arg2) {
+    int var0;
+    int var1;
+    unsigned char var2;
+    Type_020cf294 var3;
 
-    if (err) {
-        if (data_02111818.work.index) {
-            data_02111818.work.index = 0;
+    if (arg2) {
+        if (data_02111818.unknown_c_.unknown_18_) {
+            data_02111818.unknown_c_.unknown_18_ = 0;
         }
-        if (data_02111818.work.lock != 0) {
-            data_02111818.work.lock = 0;
+        if (data_02111818.unknown_c_.unknown_0_ != 0) {
+            data_02111818.unknown_c_.unknown_0_ = 0;
         }
-        if (data_02111818.work.callback) {
-            cb = data_02111818.work.callback;
-            data_02111818.work.callback = 0;
-            cb(6, data_02111818.work.callbackArg);
-        }
-        return;
-    }
-
-    command = (unsigned char)((data & 0x7f00) >> 8);
-    pxiresult = (int)(data & 0xff);
-
-    if (command == 0x30) {
-        if (data_02111818.work.interrupt) {
-            data_02111818.work.interrupt();
+        if (data_02111818.unknown_c_.unknown_4_) {
+            var3 = data_02111818.unknown_c_.unknown_4_;
+            data_02111818.unknown_c_.unknown_4_ = 0;
+            var3(6, data_02111818.unknown_c_.unknown_10_);
         }
         return;
     }
 
-    if (pxiresult == 0) {
-        result = 0;
-        switch (data_02111818.work.sequence) {
+    var2 = (unsigned char)((arg1 & 0x7f00) >> 8);
+    var1 = (int)(arg1 & 0xff);
+
+    if (var2 == 0x30) {
+        if (data_02111818.unknown_c_.unknown_1c_) {
+            data_02111818.unknown_c_.unknown_1c_();
+        }
+        return;
+    }
+
+    if (var1 == 0) {
+        var0 = 0;
+        switch (data_02111818.unknown_c_.unknown_14_) {
         case 0: {
-            RTCDate* pDst = data_02111818.work.buffer[0].date;
-            RTCRawDate* pSrc = &RTC_BUF->t.date;
+            Struct_020cf294* var4 = data_02111818.unknown_c_.unknown_8_[0].unknown_0_;
+            Struct_020cf294_9* var5 = &RTC_BUF->unknown_0_.unknown_0_;
 
-            pDst->year = func_020cf7e4(pSrc->year);
-            pDst->month = func_020cf7e4(pSrc->month);
-            pDst->day = func_020cf7e4(pSrc->day);
-            pDst->week = func_020cfc00(pDst);
+            var4->unknown_0_ = func_020cf7e4(var5->unknown_0_0_);
+            var4->unknown_4_ = func_020cf7e4(var5->unknown_1_0_);
+            var4->unknown_8_ = func_020cf7e4(var5->unknown_2_0_);
+            var4->unknown_c_ = func_020cfc00(var4);
         } break;
         case 1: {
-            RTCTime* pDst = data_02111818.work.buffer[0].time;
-            RTCRawTime* pSrc = &RTC_BUF->t.time;
+            Struct_020cf294_2* var6 = data_02111818.unknown_c_.unknown_8_[0].unknown1_0_;
+            Struct_020cf294_10* var7 = &RTC_BUF->unknown_0_.unknown_4_;
 
-            pDst->hour = func_020cf7e4(pSrc->hour);
-            pDst->minute = func_020cf7e4(pSrc->minute);
-            pDst->second = func_020cf7e4(pSrc->second);
+            var6->unknown_0_ = func_020cf7e4(var7->unknown_0_0_);
+            var6->unknown_4_ = func_020cf7e4(var7->unknown_1_0_);
+            var6->unknown_8_ = func_020cf7e4(var7->unknown_2_0_);
         } break;
         case 2: {
-            RTCDate* pDst = data_02111818.work.buffer[0].date;
-            RTCRawDate* pSrc = &RTC_BUF->t.date;
+            Struct_020cf294* var8 = data_02111818.unknown_c_.unknown_8_[0].unknown_0_;
+            Struct_020cf294_9* var9 = &RTC_BUF->unknown_0_.unknown_0_;
 
-            pDst->year = func_020cf7e4(*(unsigned int*)pSrc & 0xff);
-            pDst->month = func_020cf7e4(pSrc->month);
-            pDst->day = func_020cf7e4(pSrc->day);
-            pDst->week = func_020cfc00(pDst);
+            var8->unknown_0_ = func_020cf7e4(*(unsigned int*)var9 & 0xff);
+            var8->unknown_4_ = func_020cf7e4(var9->unknown_1_0_);
+            var8->unknown_8_ = func_020cf7e4(var9->unknown_2_0_);
+            var8->unknown_c_ = func_020cfc00(var8);
         }
             {
-                RTCTime* pDst = data_02111818.work.buffer[1].time;
-                RTCRawTime* pSrc = &RTC_BUF->t.time;
+                Struct_020cf294_2* var10 = data_02111818.unknown_c_.unknown_8_[1].unknown1_0_;
+                Struct_020cf294_10* var11 = &RTC_BUF->unknown_0_.unknown_4_;
 
-                pDst->hour = func_020cf7e4(pSrc->hour);
-                pDst->minute = func_020cf7e4(pSrc->minute);
-                pDst->second = func_020cf7e4(pSrc->second);
+                var10->unknown_0_ = func_020cf7e4(var11->unknown_0_0_);
+                var10->unknown_4_ = func_020cf7e4(var11->unknown_1_0_);
+                var10->unknown_8_ = func_020cf7e4(var11->unknown_2_0_);
             }
             break;
         case 3:
@@ -184,94 +184,94 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
         case 5:
             break;
         case 6: {
-            int* pDst = data_02111818.work.buffer[0].status;
-            RTCRawStatus2* pSrc = &RTC_BUF->a.status2;
+            int* var12 = data_02111818.unknown_c_.unknown_8_[0].unknown3_0_;
+            Struct_020cf294_3* var13 = &RTC_BUF->unknown1_0_.unknown_2_;
 
-            switch (pSrc->intr_mode) {
+            switch (var13->unknown_0_0_) {
             case 4:
-                *pDst = 1;
+                *var12 = 1;
                 break;
             default:
-                *pDst = 0;
+                *var12 = 0;
             }
         } break;
         case 7: {
-            int* pDst = data_02111818.work.buffer[0].status;
-            RTCRawStatus2* pSrc = &RTC_BUF->a.status2;
+            int* var14 = data_02111818.unknown_c_.unknown_8_[0].unknown3_0_;
+            Struct_020cf294_3* var15 = &RTC_BUF->unknown1_0_.unknown_2_;
 
-            if (pSrc->intr2_mode) {
-                *pDst = 1;
+            if (var15->unknown_0_6_) {
+                *var14 = 1;
             } else {
-                *pDst = 0;
+                *var14 = 0;
             }
         } break;
         case 8: {
-            RTCAlarmParam* pDst = data_02111818.work.buffer[0].alarm;
-            RTCRawAlarm* pSrc = &RTC_BUF->a.alarm;
+            Struct_020cf294_8* var16 = data_02111818.unknown_c_.unknown_8_[0].unknown2_0_;
+            Struct_020cf294_4* var17 = &RTC_BUF->unknown1_0_.unknown_4_;
 
-            pDst->week = (int)pSrc->week;
-            pDst->hour = func_020cf7e4(pSrc->hour);
-            pDst->minute = func_020cf7e4(pSrc->minute);
-            pDst->enable = 0;
-            if (pSrc->we)
-                pDst->enable += 1;
-            if (pSrc->he)
-                pDst->enable += 2;
-            if (pSrc->me)
-                pDst->enable += 4;
+            var16->unknown_0_ = (int)var17->unknown_0_0_;
+            var16->unknown_4_ = func_020cf7e4(var17->unknown_1_0_);
+            var16->unknown_8_ = func_020cf7e4(var17->unknown_2_0_);
+            var16->unknown_c_ = 0;
+            if (var17->unknown_0_7_)
+                var16->unknown_c_ += 1;
+            if (var17->unknown_1_7_)
+                var16->unknown_c_ += 2;
+            if (var17->unknown_2_7_)
+                var16->unknown_c_ += 4;
         } break;
         case 9:
-            if (data_02111818.work.index == 0) {
-                RTCRawStatus2* pSrc = &RTC_BUF->a.status2;
+            if (data_02111818.unknown_c_.unknown_18_ == 0) {
+                Struct_020cf294_3* var18 = &RTC_BUF->unknown1_0_.unknown_2_;
 
-                if (*data_02111818.work.buffer[0].status == 1) {
-                    if (pSrc->intr_mode != 4) {
-                        data_02111818.work.index++;
-                        pSrc->intr_mode = 4;
+                if (*data_02111818.unknown_c_.unknown_8_[0].unknown3_0_ == 1) {
+                    if (var18->unknown_0_0_ != 4) {
+                        data_02111818.unknown_c_.unknown_18_++;
+                        var18->unknown_0_0_ = 4;
                         if (!func_020cf8ac()) {
-                            data_02111818.work.index = 0;
-                            result = 3;
+                            data_02111818.unknown_c_.unknown_18_ = 0;
+                            var0 = 3;
                         }
                     }
                 } else {
-                    if (pSrc->intr_mode != 0) {
-                        data_02111818.work.index++;
-                        pSrc->intr_mode = 0;
+                    if (var18->unknown_0_0_ != 0) {
+                        data_02111818.unknown_c_.unknown_18_++;
+                        var18->unknown_0_0_ = 0;
                         if (!func_020cf8ac()) {
-                            data_02111818.work.index = 0;
-                            result = 3;
+                            data_02111818.unknown_c_.unknown_18_ = 0;
+                            var0 = 3;
                         }
                     }
                 }
             } else {
-                data_02111818.work.index = 0;
+                data_02111818.unknown_c_.unknown_18_ = 0;
             }
             break;
         case 10:
-            if (data_02111818.work.index == 0) {
-                RTCRawStatus2* pSrc = &RTC_BUF->a.status2;
+            if (data_02111818.unknown_c_.unknown_18_ == 0) {
+                Struct_020cf294_3* var19 = &RTC_BUF->unknown1_0_.unknown_2_;
 
-                if (*data_02111818.work.buffer[0].status == 1) {
-                    if (!pSrc->intr2_mode) {
-                        data_02111818.work.index++;
-                        pSrc->intr2_mode = 1;
+                if (*data_02111818.unknown_c_.unknown_8_[0].unknown3_0_ == 1) {
+                    if (!var19->unknown_0_6_) {
+                        data_02111818.unknown_c_.unknown_18_++;
+                        var19->unknown_0_6_ = 1;
                         if (!func_020cf8ac()) {
-                            data_02111818.work.index = 0;
-                            result = 3;
+                            data_02111818.unknown_c_.unknown_18_ = 0;
+                            var0 = 3;
                         }
                     }
                 } else {
-                    if (pSrc->intr2_mode) {
-                        data_02111818.work.index++;
-                        pSrc->intr2_mode = 0;
+                    if (var19->unknown_0_6_) {
+                        data_02111818.unknown_c_.unknown_18_++;
+                        var19->unknown_0_6_ = 0;
                         if (!func_020cf8ac()) {
-                            data_02111818.work.index = 0;
-                            result = 3;
+                            data_02111818.unknown_c_.unknown_18_ = 0;
+                            var0 = 3;
                         }
                     }
                 }
             } else {
-                data_02111818.work.index = 0;
+                data_02111818.unknown_c_.unknown_18_ = 0;
             }
             break;
         case 11:
@@ -281,36 +281,36 @@ extern "C" ARM void func_020cf294(int tag, unsigned int data, int err) {
         case 15:
             break;
         default:
-            result = 4;
-            data_02111818.work.index = 0;
+            var0 = 4;
+            data_02111818.unknown_c_.unknown_18_ = 0;
         }
     } else {
-        data_02111818.work.index = 0;
+        data_02111818.unknown_c_.unknown_18_ = 0;
 
-        switch (pxiresult) {
+        switch (var1) {
         case 1:
-            result = 4;
+            var0 = 4;
             break;
         case 2:
-            result = 5;
+            var0 = 5;
             break;
         case 3:
-            result = 1;
+            var0 = 1;
             break;
         case 4:
         default:
-            result = 6;
+            var0 = 6;
         }
     }
 
-    if (data_02111818.work.index == 0) {
-        if (data_02111818.work.lock != 0) {
-            data_02111818.work.lock = 0;
+    if (data_02111818.unknown_c_.unknown_18_ == 0) {
+        if (data_02111818.unknown_c_.unknown_0_ != 0) {
+            data_02111818.unknown_c_.unknown_0_ = 0;
         }
-        if (data_02111818.work.callback) {
-            cb = data_02111818.work.callback;
-            data_02111818.work.callback = 0;
-            cb(result, data_02111818.work.callbackArg);
+        if (data_02111818.unknown_c_.unknown_4_) {
+            var3 = data_02111818.unknown_c_.unknown_4_;
+            data_02111818.unknown_c_.unknown_4_ = 0;
+            var3(var0, data_02111818.unknown_c_.unknown_10_);
         }
     }
 }

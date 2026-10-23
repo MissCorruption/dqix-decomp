@@ -1,41 +1,41 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8468(void* obj);
-extern "C" void func_ov000_02163344(void* obj, int a1, short a2, unsigned char a3, unsigned short a4, unsigned short a5);
-typedef void (*SetCombatFields02163344Fn)(void*, int, unsigned short, unsigned int, unsigned short, unsigned short);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void func_ov000_02163344(void* arg0, int arg1, short arg2, unsigned char arg3, unsigned short arg4, unsigned short arg5);
+typedef void (*Type_ov017_021cd2dc)(void*, int, unsigned short, unsigned int, unsigned short, unsigned short);
 
-struct Src021cd2dc {
-    unsigned char pad[4];
-    unsigned short field4 : 16;
-    unsigned short field6;
-    unsigned short field8;
-    unsigned short fieldA_lo : 4;
-    unsigned short fieldA_hi : 12;
-    unsigned short fieldC_lo : 4;
-    unsigned short fieldC_hi : 12;
+struct Struct_ov017_021cd2dc {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_0_ : 16;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_0_ : 4;
+    unsigned short unknown_a_4_ : 12;
+    unsigned short unknown_c_0_ : 4;
+    unsigned short unknown_c_4_ : 12;
 };
-struct Ret021cd2dc { unsigned char pad[8]; unsigned short field8; };
+struct Struct_ov017_021cd2dc_2 { unsigned char unknown_0_[8]; unsigned short unknown_8_; };
 
 // USA: func_ov017_021cd2dc
-extern "C" ARM void func_ov017_021cd2dc(int unused0, Src021cd2dc* src, int unused2, unsigned char* obj) {
+extern "C" ARM void func_ov017_021cd2dc(int arg0, Struct_ov017_021cd2dc* arg1, int arg2, unsigned char* arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021cd2dc_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021cd2dc_1816=0x718};
 #endif
-    obj += 0x3000;
-    void* work = *(void**)(obj + regionalOffset0);
-    Ret021cd2dc* r = (Ret021cd2dc*)func_ov017_021b8478(work);
-    if (*(unsigned short*)((char*)r + 8) != src->field4) return;
+    arg3 += 0x3000;
+    void* var0 = *(void**)(arg3 + Enum_ov017_021cd2dc_1816);
+    Struct_ov017_021cd2dc_2* var1 = (Struct_ov017_021cd2dc_2*)func_ov017_021b8478(var0);
+    if (*(unsigned short*)((char*)var1 + 8) != arg1->unknown_4_0_) return;
 
-    void* p = func_ov017_021b8468(work);
-    if (!p) return;
+    void* var2 = func_ov017_021b8468(var0);
+    if (!var2) return;
 
-    unsigned short nibbleC = src->fieldC_lo;
-    unsigned short hiA = src->fieldA_hi;
-    unsigned short field6 = src->field6;
-    unsigned short field8 = src->field8;
+    unsigned short var3 = arg1->unknown_c_0_;
+    unsigned short var4 = arg1->unknown_a_4_;
+    unsigned short var5 = arg1->unknown_6_;
+    unsigned short var6 = arg1->unknown_8_;
 
-    ((SetCombatFields02163344Fn)func_ov000_02163344)(p, field6, field8, src->fieldA_lo, nibbleC, hiA);
+    ((Type_ov017_021cd2dc)func_ov000_02163344)(var2, var5, var6, arg1->unknown_a_0_, var3, var4);
 }

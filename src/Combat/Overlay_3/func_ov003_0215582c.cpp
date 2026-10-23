@@ -2,312 +2,312 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Container020dedd0;
-struct KeyedList0207c484;
-struct Field150Holder02052e14;
-struct Field150Holder02052e2c;
-struct S_a06ec;
-struct S_a0258;
+struct Struct_0201099c_10;
+struct Struct_0207c484;
+struct Struct_02052e14;
+struct Struct_02052e2c;
+struct Struct_020a06ec;
+struct Struct_020a0258;
 
-struct ItemSlot0215582c {
-    char pad0[8];
-    unsigned int kind : 4;
-    unsigned int rest : 28;
-    char padC[0x18 - 0xc];
-    short itemId;
-    char pad1a[0x20 - 0x1a];
+struct Struct_ov003_0215582c_8 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 28;
+    char unknown_c_[0x18 - 0xc];
+    short unknown_18_;
+    char unknown_1a_[0x20 - 0x1a];
 };
 
-struct ItemFlags0215582c {
-    unsigned int f0;
+struct Struct_ov003_0215582c_9 {
+    unsigned int unknown_0_;
     unsigned int : 27;
-    unsigned int allowedMale : 1;
-    unsigned int allowedFemale : 1;
-    unsigned int keep : 1;
+    unsigned int unknown_7_3_ : 1;
+    unsigned int unknown_7_4_ : 1;
+    unsigned int unknown_7_5_ : 1;
     unsigned int : 2;
 };
 
-struct ItemEntry0215582c {
-    struct ItemFlags0215582c* data;
+struct Struct_ov003_0215582c_10 {
+    struct Struct_ov003_0215582c_9* unknown_0_;
 };
 
-struct EquipState0215582c {
-    int f0[10];
-    short id;
-    short pad2a;
+struct Struct_ov003_0215582c_11 {
+    int unknown_0_[10];
+    short unknown_28_;
+    short unknown_2a_;
 };
 
-struct CombatantData0215582c {
-    char pad0[0x194];
-    struct ItemSlot0215582c slots[1];
-    char pad1b4[0x49c - 0x1b4];
-    unsigned char female : 1;
+struct Struct_ov003_0215582c_12 {
+    char unknown_0_[0x194];
+    struct Struct_ov003_0215582c_8 unknown_194_[1];
+    char unknown_1b4_[0x49c - 0x1b4];
+    unsigned char unknown_49c_0_ : 1;
     unsigned char : 7;
 #if defined(jpn)
-    char pad49d[0x8b8 - 0x49d];
+    char unknown_49d_[0x8b8 - 0x49d];
 #else
-    char pad49d[0x950 - 0x49d];
+    char unknown1_49d_[0x950 - 0x49d];
 #endif
-    int equipSet;
+    int unknown_950_;
 };
 
-struct Stats0215582c {
-    char pad0[0x2f4];
-    struct EquipState0215582c equip[8];
-    char pad454[0x4a4 - 0x454];
-    short sets[12][8];
+struct Struct_ov003_0215582c {
+    char unknown_0_[0x2f4];
+    struct Struct_ov003_0215582c_11 unknown_2f4_[8];
+    char unknown_454_[0x4a4 - 0x454];
+    short unknown_4a4_[12][8];
 };
 
-struct CurStats0215582c {
-    char pad0[4];
-    unsigned short hp;
-    unsigned short mp;
+struct Struct_ov003_0215582c_2 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
-struct BaseStats0215582c {
-    char pad0[0x30];
-    unsigned short maxHp;
-    unsigned short maxMp;
+struct Struct_ov003_0215582c_3 {
+    char unknown_0_[0x30];
+    unsigned short unknown_30_;
+    unsigned short unknown_32_;
 };
 
-struct Combatant0215582c {
-    char pad0[4];
-    short id;
-    char pad6[0x130 - 6];
-    struct CurStats0215582c* curStats;
-    struct BaseStats0215582c* baseStats;
+struct Struct_ov003_0215582c_4 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0x130 - 6];
+    struct Struct_ov003_0215582c_2* unknown_130_;
+    struct Struct_ov003_0215582c_3* unknown_134_;
 #if defined(jpn)
-    char pad138[0x144 - 0x138];
+    char unknown_138_[0x144 - 0x138];
 #else
-    char pad138[0x150 - 0x138];
+    char unknown1_138_[0x150 - 0x138];
 #endif
-    struct CombatantData0215582c* data;
+    struct Struct_ov003_0215582c_12* unknown_150_;
 };
 
-struct Self0215582c {
-    char pad0[0x90];
-    char f90[0xcc - 0x90];
+struct Struct_ov003_0215582c_5 {
+    char unknown_0_[0x90];
+    char unknown_90_[0xcc - 0x90];
 #if defined(jpn)
-    char fcc[0x174 - 0xcc];
+    char unknown_cc_[0x174 - 0xcc];
 #else
-    char fcc[0x178 - 0xcc];
+    char unknown_cc_[0x178 - 0xcc];
 #endif
-    char list[0x1f7 - 0x178];
-    signed char combatantId;
-    char pad1f8[0x1fc - 0x1f8];
-    int flags;
-    char pad200[0x330 - 0x200];
-    float hpRatio;
-    float mpRatio;
+    char unknown_178_[0x1f7 - 0x178];
+    signed char unknown_1f7_;
+    char unknown_1f8_[0x1fc - 0x1f8];
+    int unknown_1fc_;
+    char unknown_200_[0x330 - 0x200];
+    float unknown_330_;
+    float unknown_334_;
 };
 
-struct Word569c0215582c {
-    int f0;
+struct Struct_ov003_0215582c_6 {
+    int unknown_0_;
     int : 19;
-    int id : 11;
+    int unknown_6_3_ : 11;
     int : 2;
 };
 
-struct Party0215582c {
-    char pad0[0x1d4];
-    char bag[1];
+struct Struct_ov003_0215582c_7 {
+    char unknown_0_[0x1d4];
+    char unknown_1d4_[1];
 };
 
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" struct Stats0215582c* func_02053c6c(unsigned char* obj);
-extern "C" int func_ov003_02155e14(int base, int idx);
-extern "C" short* func_02052e14(struct Field150Holder02052e14* obj);
-extern "C" int func_0207c378(void* obj, int value, int amount, int key);
-extern "C" int func_ov003_02156034(void* obj);
-extern "C" void func_02083ca0(unsigned char* obj, int index);
-extern "C" int func_020100a8(GameState* battleStruct);
-extern "C" int func_020ac4c0(void* dst);
-extern "C" void func_020a06ec(struct S_a06ec* p, unsigned int amount);
-extern "C" void func_020a0258(struct S_a0258* p, unsigned int amount);
-extern "C" int func_020ac494(void* src);
-extern "C" int func_0207c7a0(void* map, int value, int key);
-extern "C" struct ItemEntry0215582c* func_020dedd0(struct Container020dedd0* c, int key);
-extern "C" void func_02052d7c(void* obj, int index, int value);
-extern "C" int func_0207c484(struct KeyedList0207c484* obj, int value, int amount, int key);
-extern "C" short* func_02052e2c(struct Field150Holder02052e2c* obj);
-extern "C" void func_02083738(void* o, int a1);
-extern "C" void func_02083cbc(void* a, void* obj, void* tail);
-extern "C" void func_02083b60(unsigned char* obj, int index);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" struct Struct_ov003_0215582c* func_02053c6c(unsigned char* arg0);
+extern "C" int func_ov003_02155e14(int arg0, int arg1);
+extern "C" short* func_02052e14(struct Struct_02052e14* arg0);
+extern "C" int func_0207c378(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov003_02156034(void* arg0);
+extern "C" void func_02083ca0(unsigned char* arg0, int arg1);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" int func_020ac4c0(void* arg0);
+extern "C" void func_020a06ec(struct Struct_020a06ec* arg0, unsigned int arg1);
+extern "C" void func_020a0258(struct Struct_020a0258* arg0, unsigned int arg1);
+extern "C" int func_020ac494(void* arg0);
+extern "C" int func_0207c7a0(void* arg0, int arg1, int arg2);
+extern "C" struct Struct_ov003_0215582c_10* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" void func_02052d7c(void* arg0, int arg1, int arg2);
+extern "C" int func_0207c484(struct Struct_0207c484* arg0, int arg1, int arg2, int arg3);
+extern "C" short* func_02052e2c(struct Struct_02052e2c* arg0);
+extern "C" void func_02083738(void* arg0, int arg1);
+extern "C" void func_02083cbc(void* arg0, void* arg1, void* arg2);
+extern "C" void func_02083b60(unsigned char* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
-extern "C" void func_ov017_0218f5a4(void* self, int combatantId, int flag2, int flag3, int flag4);
+extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 extern const unsigned char data_ov003_0217f2c4[];
 extern const unsigned char data_ov003_0217f2b4[];
 extern const unsigned char data_ov003_0217f2bc[];
 
-static inline int IsValidKind(unsigned int kind) {
-    return kind <= 7;
+static inline int inline_ov003_0215582c(unsigned int arg0) {
+    return arg0 <= 7;
 }
 
 // USA: func_ov003_0215582c
-extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
-    GameState* gs = GameState::GetInstance();
-    struct Party0215582c* party = (struct Party0215582c*)func_02010828(gs);
-    struct Combatant0215582c* c = (struct Combatant0215582c*)gs->GetPartyMemberByIndex(self->combatantId);
-    if (c == NULL) {
+extern "C" ARM void func_ov003_0215582c(struct Struct_ov003_0215582c_5* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov003_0215582c_7* var1 = (struct Struct_ov003_0215582c_7*)func_02010828(var0);
+    struct Struct_ov003_0215582c_4* var2 = (struct Struct_ov003_0215582c_4*)var0->GetPartyMemberByIndex(arg0->unknown_1f7_);
+    if (var2 == NULL) {
         return;
     }
-    struct Stats0215582c* stats = func_02053c6c((unsigned char*)c);
-    if (stats == NULL) {
+    struct Struct_ov003_0215582c* var3 = func_02053c6c((unsigned char*)var2);
+    if (var3 == NULL) {
         return;
     }
 
-    short (*sets)[8] = stats->sets;
-    int value;
-    if (self->flags & 1) {
-        value = c->baseStats->maxHp;
-        int hp = c->curStats->hp;
-        self->hpRatio = (float)hp / (float)value;
-        value = c->baseStats->maxMp;
-        int mp = c->curStats->mp;
-        self->mpRatio = (float)mp / (float)value;
+    short (*var4)[8] = var3->unknown_4a4_;
+    int var5;
+    if (arg0->unknown_1fc_ & 1) {
+        var5 = var2->unknown_134_->unknown_30_;
+        int var6 = var2->unknown_130_->unknown_4_;
+        arg0->unknown_330_ = (float)var6 / (float)var5;
+        var5 = var2->unknown_134_->unknown_32_;
+        int var7 = var2->unknown_130_->unknown_6_;
+        arg0->unknown_334_ = (float)var7 / (float)var5;
     }
 
-    short* set = (short*)func_ov003_02155e14((int)sets, c->data->equipSet);
-    short* equipped = func_02052e14((struct Field150Holder02052e14*)c);
-    if (set != NULL && equipped != NULL) {
-        set[0] = equipped[7];
-        set[1] = equipped[0];
-        set[2] = equipped[8];
-        set[3] = equipped[6];
-        set[4] = equipped[4];
-        set[5] = equipped[1];
-        set[6] = equipped[5];
-        set[7] = equipped[9];
+    short* var8 = (short*)func_ov003_02155e14((int)var4, var2->unknown_150_->unknown_950_);
+    short* var9 = func_02052e14((struct Struct_02052e14*)var2);
+    if (var8 != NULL && var9 != NULL) {
+        var8[0] = var9[7];
+        var8[1] = var9[0];
+        var8[2] = var9[8];
+        var8[3] = var9[6];
+        var8[4] = var9[4];
+        var8[5] = var9[1];
+        var8[6] = var9[5];
+        var8[7] = var9[9];
     }
 
-    for (unsigned short i = 0; data_ov003_0217f2c4[i] != 0xff; i++) {
-        struct ItemSlot0215582c* slot = &c->data->slots[data_ov003_0217f2c4[i]];
-        if (slot != NULL && IsValidKind(slot->kind)) {
-            func_0207c378(party->bag, slot->itemId, 1, slot->kind);
+    for (unsigned short var10 = 0; data_ov003_0217f2c4[var10] != 0xff; var10++) {
+        struct Struct_ov003_0215582c_8* var11 = &var2->unknown_150_->unknown_194_[data_ov003_0217f2c4[var10]];
+        if (var11 != NULL && inline_ov003_0215582c(var11->unknown_8_0_)) {
+            func_0207c378(var1->unknown_1d4_, var11->unknown_18_, 1, var11->unknown_8_0_);
         }
     }
 
-    func_02083ca0((unsigned char*)stats, func_ov003_02156034(self));
+    func_02083ca0((unsigned char*)var3, func_ov003_02156034(arg0));
 
-    value = func_020100a8(gs);
-    if (value == c->id) {
-        GameState* g = GameState::GetInstance();
+    var5 = func_020100a8(var0);
+    if (var5 == var2->unknown_4_) {
+        GameState* var12 = GameState::GetInstance();
 #if defined(jpn)
-        struct Word569c0215582c* w = (struct Word569c0215582c*)((char*)g + 0x3c + 0x5400);
+        struct Struct_ov003_0215582c_6* var13 = (struct Struct_ov003_0215582c_6*)((char*)var12 + 0x3c + 0x5400);
 #else
-        struct Word569c0215582c* w = (struct Word569c0215582c*)((char*)g + 0x29c + 0x5400);
+        struct Struct_ov003_0215582c_6* var13 = (struct Struct_ov003_0215582c_6*)((char*)var12 + 0x29c + 0x5400);
 #endif
-        short id = w->id;
-        if (id >= 700 && id < 800) {
-            struct Combatant0215582c* hero = (struct Combatant0215582c*)g->GetProtagonist();
-            int equipSet = hero->data->equipSet;
+        short var14 = var13->unknown_6_3_;
+        if (var14 >= 700 && var14 < 800) {
+            struct Struct_ov003_0215582c_4* var15 = (struct Struct_ov003_0215582c_4*)var12->GetProtagonist();
+            int var16 = var15->unknown_150_->unknown_950_;
 #if defined(jpn)
-            w->id = equipSet + 700;
+            var13->unknown_6_3_ = var16 + 700;
 #else
-            int base = 20700;
-            if (hero->data->female == 1) {
-                base += 50;
+            int var17 = 20700;
+            if (var15->unknown_150_->unknown_49c_0_ == 1) {
+                var17 += 50;
             }
-            w->id = base - 20000 + equipSet;
+            var13->unknown_6_3_ = var17 - 20000 + var16;
 #endif
         }
-        int buf[0x2c];
-        func_020ac4c0(buf);
-        func_020a06ec((struct S_a06ec*)buf, 1);
-        func_020a0258((struct S_a0258*)(buf + 0x1a), 1);
-        func_020ac494(buf);
+        int var18[0x2c];
+        func_020ac4c0(var18);
+        func_020a06ec((struct Struct_020a06ec*)var18, 1);
+        func_020a0258((struct Struct_020a0258*)(var18 + 0x1a), 1);
+        func_020ac494(var18);
     }
 
-    int unchanged = 0;
-    set = (short*)func_ov003_02155e14((int)sets, func_ov003_02156034(self));
-    if (set != NULL) {
-        if (set[0] == equipped[7] && set[1] == equipped[0] && set[2] == equipped[8] && set[3] == equipped[6] &&
-            set[4] == equipped[4] && set[5] == equipped[1] && set[6] == equipped[5] && set[7] == equipped[9]) {
-            unchanged = 1;
+    int var19 = 0;
+    var8 = (short*)func_ov003_02155e14((int)var4, func_ov003_02156034(arg0));
+    if (var8 != NULL) {
+        if (var8[0] == var9[7] && var8[1] == var9[0] && var8[2] == var9[8] && var8[3] == var9[6] &&
+            var8[4] == var9[4] && var8[5] == var9[1] && var8[6] == var9[5] && var8[7] == var9[9]) {
+            var19 = 1;
         }
     }
 
-    if (set[7] == 0x4680 && func_0207c7a0(party->bag, 0x4680, 7) == 0) {
-        bool allowed[2];
-        for (int i = 0; i < 7; i++) {
-            struct ItemEntry0215582c* e = func_020dedd0((struct Container020dedd0*)self->list, set[i]);
-            struct ItemFlags0215582c* d;
-            if (e != NULL && (d = e->data) != NULL) {
-                allowed[0] = d->allowedMale;
-                allowed[1] = d->allowedFemale;
-                if (allowed[c->data->female] == 0) {
-                    if (d->keep == 0) {
-                        set[i] = -1;
+    if (var8[7] == 0x4680 && func_0207c7a0(var1->unknown_1d4_, 0x4680, 7) == 0) {
+        bool var20[2];
+        for (int var21 = 0; var21 < 7; var21++) {
+            struct Struct_ov003_0215582c_10* var22 = func_020dedd0((struct Struct_0201099c_10*)arg0->unknown_178_, var8[var21]);
+            struct Struct_ov003_0215582c_9* var23;
+            if (var22 != NULL && (var23 = var22->unknown_0_) != NULL) {
+                var20[0] = var23->unknown_7_3_;
+                var20[1] = var23->unknown_7_4_;
+                if (var20[var2->unknown_150_->unknown_49c_0_] == 0) {
+                    if (var23->unknown_7_5_ == 0) {
+                        var8[var21] = -1;
                     }
                 }
             }
         }
     }
 
-    for (unsigned char k = 0; k < 8; k++) {
-        int used = 0;
-        int item = set[k];
-        int kind = data_ov003_0217f2b4[k];
-        if (item > 0 && func_0207c7a0(party->bag, item, kind) >= 1) {
-            if (data_ov003_0217f2bc[k] != 0xff) {
-                func_02052d7c(c, data_ov003_0217f2bc[k], item);
+    for (unsigned char var24 = 0; var24 < 8; var24++) {
+        int var25 = 0;
+        int var26 = var8[var24];
+        int var27 = data_ov003_0217f2b4[var24];
+        if (var26 > 0 && func_0207c7a0(var1->unknown_1d4_, var26, var27) >= 1) {
+            if (data_ov003_0217f2bc[var24] != 0xff) {
+                func_02052d7c(var2, data_ov003_0217f2bc[var24], var26);
             }
-            func_0207c484((struct KeyedList0207c484*)party->bag, item, 1, kind);
-            used = 1;
-            if (data_ov003_0217f2bc[k] == 4) {
-                short* p = func_02052e2c((struct Field150Holder02052e2c*)c);
-                p[0xb] = -1;
-                if (equipped[0] > 0) {
-                    p[0xb] = equipped[0] % 1000 + 14000;
+            func_0207c484((struct Struct_0207c484*)var1->unknown_1d4_, var26, 1, var27);
+            var25 = 1;
+            if (data_ov003_0217f2bc[var24] == 4) {
+                short* var28 = func_02052e2c((struct Struct_02052e2c*)var2);
+                var28[0xb] = -1;
+                if (var9[0] > 0) {
+                    var28[0xb] = var9[0] % 1000 + 14000;
                 }
             }
         }
-        if (used == 0) {
-            if (data_ov003_0217f2bc[k] != 0xff) {
-                if (data_ov003_0217f2bc[k] == 0) {
-                    func_02052e2c((struct Field150Holder02052e2c*)c)[0xb] = -1;
+        if (var25 == 0) {
+            if (data_ov003_0217f2bc[var24] != 0xff) {
+                if (data_ov003_0217f2bc[var24] == 0) {
+                    func_02052e2c((struct Struct_02052e2c*)var2)[0xb] = -1;
                 }
-                if (data_ov003_0217f2bc[k] == 4) {
-                    short* p = func_02052e2c((struct Field150Holder02052e2c*)c);
-                    p[0xb] = -1;
-                    if (equipped[0] > 0) {
-                        p[0xb] = equipped[0] % 1000 + 14000;
+                if (data_ov003_0217f2bc[var24] == 4) {
+                    short* var29 = func_02052e2c((struct Struct_02052e2c*)var2);
+                    var29[0xb] = -1;
+                    if (var9[0] > 0) {
+                        var29[0xb] = var9[0] % 1000 + 14000;
                     }
                 }
-                if (equipped[data_ov003_0217f2bc[k]] != -1) {
-                    struct Stats0215582c* s = func_02053c6c((unsigned char*)c);
-                    func_02083738(s, kind);
-                    s->equip[k].f0[0] = 0;
-                    s->equip[k].f0[1] = 0;
-                    s->equip[k].f0[2] = 0;
-                    s->equip[k].f0[3] = 0;
-                    s->equip[k].f0[4] = 0;
-                    s->equip[k].f0[5] = 0;
-                    s->equip[k].f0[6] = 0;
-                    s->equip[k].f0[7] = 0;
-                    s->equip[k].f0[8] = 0;
-                    s->equip[k].f0[9] = 0;
-                    s->equip[k].id = -1;
+                if (var9[data_ov003_0217f2bc[var24]] != -1) {
+                    struct Struct_ov003_0215582c* var30 = func_02053c6c((unsigned char*)var2);
+                    func_02083738(var30, var27);
+                    var30->unknown_2f4_[var24].unknown_0_[0] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[1] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[2] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[3] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[4] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[5] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[6] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[7] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[8] = 0;
+                    var30->unknown_2f4_[var24].unknown_0_[9] = 0;
+                    var30->unknown_2f4_[var24].unknown_28_ = -1;
                 }
-                func_02052d7c(c, data_ov003_0217f2bc[k], -1);
+                func_02052d7c(var2, data_ov003_0217f2bc[var24], -1);
             }
         }
     }
 
-    func_02083cbc(stats, self->f90, self->fcc);
-    switch (func_ov003_02156034(self)) {
+    func_02083cbc(var3, arg0->unknown_90_, arg0->unknown_cc_);
+    switch (func_ov003_02156034(arg0)) {
     case 2:
-        func_02083b60((unsigned char*)stats, 0x1a);
+        func_02083b60((unsigned char*)var3, 0x1a);
         break;
     case 3:
-        func_02083b60((unsigned char*)stats, 0);
+        func_02083b60((unsigned char*)var3, 0);
         break;
     }
 
-    if (unchanged == 0) {
-        GameResources* ui = GetGameResources();
+    if (var19 == 0) {
+        GameResources* var31 = GetGameResources();
         func_0202ae18();
-        func_ov017_0218f5a4(ui, self->combatantId, 1, 0, 0);
+        func_ov017_0218f5a4(var31, arg0->unknown_1f7_, 1, 0, 0);
     }
 }

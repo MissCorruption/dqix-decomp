@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-extern "C" void func_020c99c8(void* out);
+extern "C" void func_020c99c8(void* arg0);
 
-struct Struct0200fb08 { unsigned char pad[5]; unsigned char field5; };
+struct Struct_02000c9c_8 { unsigned char unknown_0_[5]; unsigned char unknown_5_; };
 
 // USA: func_0200fb08
 // EUR: func_0200fb08
-extern "C" ARM unsigned char func_0200fb08(Struct0200fb08* obj) {
-    unsigned char buf[0x54];
-    unsigned char v;
-    func_020c99c8(buf);
-    v = buf[0];
-    obj->field5 = v;
+extern "C" ARM unsigned char func_0200fb08(Struct_02000c9c_8* arg0) {
+    unsigned char var0[0x54];
+    unsigned char var1;
+    func_020c99c8(var0);
+    var1 = var0[0];
+    arg0->unknown_5_ = var1;
 #if defined(eur)
-    if (v != 2 && v != 3 && v != 4 && v != 5) obj->field5 = 1;
+    if (var1 != 2 && var1 != 3 && var1 != 4 && var1 != 5) arg0->unknown_5_ = 1;
 #else
-    if (v != 2 && v != 5) obj->field5 = 1;
+    if (var1 != 2 && var1 != 5) arg0->unknown_5_ = 1;
 #endif
-    return obj->field5;
+    return arg0->unknown_5_;
 }

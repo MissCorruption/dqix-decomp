@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct NodeEF18 {
-    short id;
-    char unk[0xe];
-    struct NodeEF18* next;
+struct Struct_0206ef18 {
+    short unknown_0_;
+    char unknown_2_[0xe];
+    struct Struct_0206ef18* unknown_10_;
 };
 
 // USA: func_0206ef18
-extern "C" ARM struct NodeEF18* func_0206ef18(void* base, int key) {
-    struct NodeEF18* node = *(struct NodeEF18**)base;
-    while (node != 0) {
-        if (node->id == key) {
-            return node;
+extern "C" ARM struct Struct_0206ef18* func_0206ef18(void* arg0, int arg1) {
+    struct Struct_0206ef18* var0 = *(struct Struct_0206ef18**)arg0;
+    while (var0 != 0) {
+        if (var0->unknown_0_ == arg1) {
+            return var0;
         }
-        node = node->next;
+        var0 = var0->unknown_10_;
     }
     return 0;
 }

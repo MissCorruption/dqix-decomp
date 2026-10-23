@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct SearchStruct {
-    char pad[0x1038];
-    signed char arr[16];
+struct Struct_0202b2f0 {
+    char unknown_0_[0x1038];
+    signed char unknown_1038_[16];
 };
 
-extern "C" int func_0202c540(struct SearchStruct* obj, int value);
-extern "C" signed char func_0202bcbc(struct SearchStruct* obj, int value);
+extern "C" int func_0202c540(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" signed char func_0202bcbc(struct Struct_0202b2f0* arg0, int arg1);
 
 // USA: func_0202c69c
-extern "C" ARM void func_0202c69c(struct SearchStruct* obj, int value) {
-    if (func_0202c540(obj, value)) return;
+extern "C" ARM void func_0202c69c(struct Struct_0202b2f0* arg0, int arg1) {
+    if (func_0202c540(arg0, arg1)) return;
     {
-        int idx = func_0202bcbc(obj, value);
-        *((unsigned char*)obj + 0x100f) &= ~(1 << idx);
+        int var0 = func_0202bcbc(arg0, arg1);
+        *((unsigned char*)arg0 + 0x100f) &= ~(1 << var0);
     }
 }

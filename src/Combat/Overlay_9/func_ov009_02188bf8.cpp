@@ -4,35 +4,35 @@
 #include "Resource/CharacterCreationUI.h"
 
 #if !defined(jpn)
-struct BodyDimensions {
-    short width, height;
+struct Struct_ov009_0218aa70 {
+    short unknown_0_, unknown_2_;
 };
-extern BodyDimensions data_ov009_0218aa70[][5];
+extern Struct_ov009_0218aa70 data_ov009_0218aa70[][5];
 #endif
 
-extern "C" ARM void func_ov009_02188bf8(unsigned char* storage, int bodyType, short* width, short* height) {
-    CharacterCreationUI* editor = (CharacterCreationUI*)storage;
+extern "C" ARM void func_ov009_02188bf8(unsigned char* arg0, int arg1, short* arg2, short* arg3) {
+    Struct_ov009_021842a0* var0 = (Struct_ov009_021842a0*)arg0;
 #if defined(jpn)
-    if (editor->sex == 0) {
-        switch (bodyType) {
-        case 0: *width = 0xeb8; *height = 0x109f; break;
-        case 1: *width = 0xe35; *height = 0x1028; break;
-        case 2: *width = 0xf0a; *height = 0xfae; break;
-        case 3: *width = 0x1024; *height = 0xf33; break;
-        case 4: *width = 0xf1e; *height = 0xeb4; break;
+    if (var0->unknown_da3_ == 0) {
+        switch (arg1) {
+        case 0: *arg2 = 0xeb8; *arg3 = 0x109f; break;
+        case 1: *arg2 = 0xe35; *arg3 = 0x1028; break;
+        case 2: *arg2 = 0xf0a; *arg3 = 0xfae; break;
+        case 3: *arg2 = 0x1024; *arg3 = 0xf33; break;
+        case 4: *arg2 = 0xf1e; *arg3 = 0xeb4; break;
         }
     } else {
-        switch (bodyType) {
-        case 0: *width = 0xeb8; *height = 0x1051; break;
-        case 1: *width = 0xe39; *height = 0xffb; break;
-        case 2: *width = 0xee1; *height = 0xf85; break;
-        case 3: *width = 0x1024; *height = 0xf33; break;
-        case 4: *width = 0xeb8; *height = 0xeb4; break;
+        switch (arg1) {
+        case 0: *arg2 = 0xeb8; *arg3 = 0x1051; break;
+        case 1: *arg2 = 0xe39; *arg3 = 0xffb; break;
+        case 2: *arg2 = 0xee1; *arg3 = 0xf85; break;
+        case 3: *arg2 = 0x1024; *arg3 = 0xf33; break;
+        case 4: *arg2 = 0xeb8; *arg3 = 0xeb4; break;
         }
     }
 #else
-    BodyDimensions* dimensions = &data_ov009_0218aa70[editor->sex][bodyType];
-    *width = dimensions->width;
-    *height = dimensions->height;
+    Struct_ov009_0218aa70* var1 = &data_ov009_0218aa70[var0->unknown_da3_][arg1];
+    *arg2 = var1->unknown_0_;
+    *arg3 = var1->unknown_2_;
 #endif
 }

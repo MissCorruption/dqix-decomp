@@ -1,46 +1,46 @@
 #include <globaldefs.h>
-struct Input0220764c {
-    int field_0x0;
-    void* (*allocate)(void*, unsigned int);
-    void (*free)(void*, void*, unsigned int);
-    int enabled;
-    unsigned int field_0x10, field_0x14, field_0x18, field_0x1c, field_0x20;
-    char pad24[8];
-    int field_0x2c, field_0x30;
+struct Struct_ov031_0220764c {
+    int unknown_0_;
+    void* (*unknown_4_)(void*, unsigned int);
+    void (*unknown_8_)(void*, void*, unsigned int);
+    int unknown_c_;
+    unsigned int unknown_10_, unknown_14_, unknown_18_, unknown_1c_, unknown_20_;
+    char unknown_24_[8];
+    int unknown_2c_, unknown_30_;
 };
-struct Config0220764c {
-    int field_0x0;
-    void (*free)(void*, void*, unsigned int);
-    int field_0x8;
-    void* (*allocate)(void*, unsigned int);
-    char pad10[0x30];
-    int enabled;
-    unsigned int field_0x44, field_0x48, field_0x4c, field_0x50, field_0x54;
-    void* (*allocateWithHeader)(unsigned int);
-    void (*freeWithHeader)(void*);
-    int field_0x60;
-    char pad64[0xc];
-    int field_0x70, field_0x74;
+struct Struct_ov031_0224e234_3 {
+    int unknown_0_;
+    void (*unknown_4_)(void*, void*, unsigned int);
+    int unknown_8_;
+    void* (*unknown_c_)(void*, unsigned int);
+    char unknown_10_[0x30];
+    int unknown_40_;
+    unsigned int unknown_44_, unknown_48_, unknown_4c_, unknown_50_, unknown_54_;
+    void* (*unknown_58_)(unsigned int);
+    void (*unknown_5c_)(void*);
+    int unknown_60_;
+    char unknown_64_[0xc];
+    int unknown_70_, unknown_74_;
 };
-extern Config0220764c data_ov031_0224e234;
+extern Struct_ov031_0224e234_3 data_ov031_0224e234;
 extern char data_ov031_0224e274;
 extern "C" void* func_ov031_022075f4(unsigned int);
 extern "C" void func_ov031_02207620(void*);
 extern "C" void func_ov031_02204dbc(void*);
 // USA: func_ov031_0220764c
-extern "C" ARM void func_ov031_0220764c(Input0220764c* input) {
-    data_ov031_0224e234.enabled = input->enabled == 1;
-    data_ov031_0224e234.field_0x44 = (((input->field_0x10 >> 24) & 0xff) | ((input->field_0x10 >> 8) & 0xff00) | ((input->field_0x10 << 8) & 0xff0000) | ((input->field_0x10 << 24) & 0xff000000));
-    data_ov031_0224e234.field_0x48 = (((input->field_0x14 >> 24) & 0xff) | ((input->field_0x14 >> 8) & 0xff00) | ((input->field_0x14 << 8) & 0xff0000) | ((input->field_0x14 << 24) & 0xff000000));
-    data_ov031_0224e234.field_0x4c = (((input->field_0x18 >> 24) & 0xff) | ((input->field_0x18 >> 8) & 0xff00) | ((input->field_0x18 << 8) & 0xff0000) | ((input->field_0x18 << 24) & 0xff000000));
-    data_ov031_0224e234.field_0x50 = (((input->field_0x1c >> 24) & 0xff) | ((input->field_0x1c >> 8) & 0xff00) | ((input->field_0x1c << 8) & 0xff0000) | ((input->field_0x1c << 24) & 0xff000000));
-    data_ov031_0224e234.field_0x54 = (((input->field_0x20 >> 24) & 0xff) | ((input->field_0x20 >> 8) & 0xff00) | ((input->field_0x20 << 8) & 0xff0000) | ((input->field_0x20 << 24) & 0xff000000));
-    data_ov031_0224e234.allocateWithHeader = func_ov031_022075f4;
-    data_ov031_0224e234.freeWithHeader = func_ov031_02207620;
-    data_ov031_0224e234.allocate = input->allocate;
-    data_ov031_0224e234.free = input->free;
-    data_ov031_0224e234.field_0x60 = 0x40;
-    data_ov031_0224e234.field_0x70 = input->field_0x2c;
-    data_ov031_0224e234.field_0x74 = input->field_0x30;
+extern "C" ARM void func_ov031_0220764c(Struct_ov031_0220764c* arg0) {
+    data_ov031_0224e234.unknown_40_ = arg0->unknown_c_ == 1;
+    data_ov031_0224e234.unknown_44_ = (((arg0->unknown_10_ >> 24) & 0xff) | ((arg0->unknown_10_ >> 8) & 0xff00) | ((arg0->unknown_10_ << 8) & 0xff0000) | ((arg0->unknown_10_ << 24) & 0xff000000));
+    data_ov031_0224e234.unknown_48_ = (((arg0->unknown_14_ >> 24) & 0xff) | ((arg0->unknown_14_ >> 8) & 0xff00) | ((arg0->unknown_14_ << 8) & 0xff0000) | ((arg0->unknown_14_ << 24) & 0xff000000));
+    data_ov031_0224e234.unknown_4c_ = (((arg0->unknown_18_ >> 24) & 0xff) | ((arg0->unknown_18_ >> 8) & 0xff00) | ((arg0->unknown_18_ << 8) & 0xff0000) | ((arg0->unknown_18_ << 24) & 0xff000000));
+    data_ov031_0224e234.unknown_50_ = (((arg0->unknown_1c_ >> 24) & 0xff) | ((arg0->unknown_1c_ >> 8) & 0xff00) | ((arg0->unknown_1c_ << 8) & 0xff0000) | ((arg0->unknown_1c_ << 24) & 0xff000000));
+    data_ov031_0224e234.unknown_54_ = (((arg0->unknown_20_ >> 24) & 0xff) | ((arg0->unknown_20_ >> 8) & 0xff00) | ((arg0->unknown_20_ << 8) & 0xff0000) | ((arg0->unknown_20_ << 24) & 0xff000000));
+    data_ov031_0224e234.unknown_58_ = func_ov031_022075f4;
+    data_ov031_0224e234.unknown_5c_ = func_ov031_02207620;
+    data_ov031_0224e234.unknown_c_ = arg0->unknown_4_;
+    data_ov031_0224e234.unknown_4_ = arg0->unknown_8_;
+    data_ov031_0224e234.unknown_60_ = 0x40;
+    data_ov031_0224e234.unknown_70_ = arg0->unknown_2c_;
+    data_ov031_0224e234.unknown_74_ = arg0->unknown_30_;
     func_ov031_02204dbc(&data_ov031_0224e274);
 }

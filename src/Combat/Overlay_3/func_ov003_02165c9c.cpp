@@ -3,254 +3,254 @@
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
 
-struct Container02080cc0;
-struct Container02080f8c;
-struct Container02080fa8;
-struct StatusOwner02081198;
-struct StatusOwner02081164;
-struct Struct020865b0;
-struct S0215f56c;
-struct Outer02166164;
+struct Struct_02080cc0;
+struct Struct_02080f8c;
+struct Struct_02080fa8;
+struct Struct_02081198;
+struct Struct_02081164;
+struct Struct_0201099c_16;
+struct Struct_ov003_0215f56c_3;
+struct Struct_ov003_02165c9c_5;
 
-extern "C" int func_02080b54(void* obj, int id);
+extern "C" int func_02080b54(void* arg0, int arg1);
 extern "C" int func_ov003_021614e8(int);
-extern "C" void func_ov003_02166164(Outer02166164*, int, int);
-extern "C" void func_02042764(void* src, void* dst, int flag);
-extern "C" int func_020865b0(Struct020865b0*);
-extern "C" int func_ov003_0215f56c(S0215f56c*);
-extern "C" int func_02080b40(void* obj, int id);
-extern "C" void func_02080cc0(struct Container02080cc0* obj, int id, int value);
-extern "C" void func_02080f8c(Container02080f8c*, int, int);
+extern "C" void func_ov003_02166164(Struct_ov003_02165c9c_5*, int, int);
+extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
+extern "C" int func_020865b0(Struct_0201099c_16*);
+extern "C" int func_ov003_0215f56c(Struct_ov003_0215f56c_3*);
+extern "C" int func_02080b40(void* arg0, int arg1);
+extern "C" void func_02080cc0(struct Struct_02080cc0* arg0, int arg1, int arg2);
+extern "C" void func_02080f8c(Struct_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
-extern "C" void func_02080fa8(struct Container02080fa8*, int, int);
+extern "C" void func_02080fa8(struct Struct_02080fa8*, int, int);
 extern "C" void func_0208103c(void*, int, int);
 extern "C" void func_02080828(void*, int, short*, short*);
 extern "C" void func_020808c8(void*, int, short*, short*);
 extern "C" void func_02080854(void*, int, int, int);
-extern "C" int func_020e0434(struct Container020e0310*, int);
-extern "C" void func_ov003_0215f5e8(void* menu, int page, int count);
-extern "C" void func_ov003_02160c58(void* self, short* outHigh, short* outLow);
-extern "C" void func_02081198(struct StatusOwner02081198* owner, int id, int enable);
-extern "C" void func_02081164(struct StatusOwner02081164* obj, int id, int value);
-extern "C" int func_020813ec(void* obj, int id);
-extern "C" void func_ov003_02160678(void* self);
-extern "C" void func_ov003_02160794(void* self);
+extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
+extern "C" void func_ov003_0215f5e8(void* arg0, int arg1, int arg2);
+extern "C" void func_ov003_02160c58(void* arg0, short* arg1, short* arg2);
+extern "C" void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2);
+extern "C" void func_02081164(struct Struct_02081164* arg0, int arg1, int arg2);
+extern "C" int func_020813ec(void* arg0, int arg1);
+extern "C" void func_ov003_02160678(void* arg0);
+extern "C" void func_ov003_02160794(void* arg0);
 
-struct MemberEntry02165c9c {
-    signed char id : 6;
-    char pad0[1];
-    unsigned char unk2[0xd];
-    unsigned char unkF[0x140 - 0xf];
-    char name[0x34];
-    unsigned char bit0 : 1;
-    char pad175[0x23c - 0x175];
+struct Struct_ov003_02165c9c {
+    signed char unknown_0_0_ : 6;
+    char unknown_1_[1];
+    unsigned char unknown_2_[0xd];
+    unsigned char unknown_f_[0x140 - 0xf];
+    char unknown_140_[0x34];
+    unsigned char unknown_174_0_ : 1;
+    char unknown_175_[0x23c - 0x175];
 };
 
-struct Party02165c9c {
-    char pad0[0xf7c];
-    unsigned char countF7c;
-    char padF7d[0xf80 - 0xf7d];
-    MemberEntry02165c9c members[(0x2c8c - 0xf80) / 0x23c];
-    char pad[0x2c8c - 0xf80 - ((0x2c8c - 0xf80) / 0x23c) * 0x23c];
-    unsigned char count;
+struct Struct_ov003_02165c9c_2 {
+    char unknown_0_[0xf7c];
+    unsigned char unknown_f7c_;
+    char unknown_f7d_[0xf80 - 0xf7d];
+    Struct_ov003_02165c9c unknown_f80_[(0x2c8c - 0xf80) / 0x23c];
+    char unknown_2c8c_[0x2c8c - 0xf80 - ((0x2c8c - 0xf80) / 0x23c) * 0x23c];
+    unsigned char unknown1_2c8c_;
 };
 
 extern "C" void* func_02010828(GameState*);
 
-static inline Party02165c9c* GetParty() {
-    return (Party02165c9c*)func_02010828(GameState::GetInstance());
+static inline Struct_ov003_02165c9c_2* inline_ov003_02165c9c() {
+    return (Struct_ov003_02165c9c_2*)func_02010828(GameState::GetInstance());
 }
 
-struct ShortPair02165c9c {
-    short v[2];
+struct Struct_ov003_02165c9c_3 {
+    short unknown_0_[2];
 };
 
-struct Table0217f3ec_02165c9c {
+struct Struct_ov003_0217f3ec_2 {
 #if defined(jpn)
-    char pad[0x18];
+    char unknown_0_[0x18];
 #else
-    char pad[0x10];
+    char unknown1_0_[0x10];
 #endif
-    ShortPair02165c9c ids;
+    Struct_ov003_02165c9c_3 unknown_10_;
 };
 
-extern Table0217f3ec_02165c9c data_ov003_0217f3ec;
+extern Struct_ov003_0217f3ec_2 data_ov003_0217f3ec;
 
-struct StatusPanel02165c9c {
+struct Struct_ov003_02165c9c_4 {
 #if defined(jpn)
-    char pad[0x1c4];
-    Container020e0310 cont2dc;
-    char pad2e4[0x20c - 0x1cc];
-    struct Container02080cc0* elementObj;
-    char pad328[0x290 - 0x210];
-    unsigned char counters[4];
-    char pad46c[0x2a8 - 0x294];
-    short selected;
-    char pad482[0x2c7 - 0x2aa];
-    signed char page;
-    char pad4a0[0x2e5 - 0x2c8];
-    unsigned char flag4bd;
+    char unknown_0_[0x1c4];
+    Struct_0201099c_3 unknown_2dc_;
+    char unknown_1cc_[0x20c - 0x1cc];
+    struct Struct_02080cc0* unknown_324_;
+    char unknown_210_[0x290 - 0x210];
+    unsigned char unknown_468_[4];
+    char unknown_294_[0x2a8 - 0x294];
+    short unknown_480_;
+    char unknown_2aa_[0x2c7 - 0x2aa];
+    signed char unknown_49f_;
+    char unknown_2c8_[0x2e5 - 0x2c8];
+    unsigned char unknown_4bd_;
 #else
-    char pad[0x2dc];
-    Container020e0310 cont2dc;
-    char pad2e4[0x324 - 0x2e4];
-    struct Container02080cc0* elementObj;
-    char pad328[0x39c - 0x328];
-    char names[4][0x30];
-    char pad45c[0x468 - 0x45c];
-    unsigned char counters[4];
-    char pad46c[0x480 - 0x46c];
-    short selected;
-    char pad482[0x49f - 0x482];
-    signed char page;
-    char pad4a0[0x4bd - 0x4a0];
-    unsigned char flag4bd;
+    char unknown1_0_[0x2dc];
+    Struct_0201099c_3 unknown_2dc_;
+    char unknown_2e4_[0x324 - 0x2e4];
+    struct Struct_02080cc0* unknown_324_;
+    char unknown_328_[0x39c - 0x328];
+    char unknown_39c_[4][0x30];
+    char unknown_45c_[0x468 - 0x45c];
+    unsigned char unknown_468_[4];
+    char unknown_46c_[0x480 - 0x46c];
+    short unknown_480_;
+    char unknown_482_[0x49f - 0x482];
+    signed char unknown_49f_;
+    char unknown_4a0_[0x4bd - 0x4a0];
+    unsigned char unknown_4bd_;
 #endif
 };
 
-struct EntryList02165c9c {
+struct Struct_ov003_02165c9c_6 {
 #if defined(jpn)
-    char pad[0x2a];
+    char unknown_0_[0x2a];
 #else
-    char pad[0x36];
+    char unknown1_0_[0x36];
 #endif
-    short field36;
+    short unknown_36_;
 };
 
 // USA: func_ov003_02165c9c
-extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
-    struct Container02080cc0* elementObj = self->elementObj;
-    Party02165c9c* party;
-    int count;
-    MemberEntry02165c9c* entry;
-    short idB;
-    short row;
-    int v;
-    int emptyName;
-    int otherName;
-    int total;
-    int k;
-    int empty;
-    int idA;
-    int idC;
-    int color;
-    short i;
-    int off;
-    short j;
-    int key;
-    unsigned char kind;
-    int name;
-    short t32, t30, t2e, t2c;
-    short outHigh, outLow;
-    ShortPair02165c9c ids;
+extern "C" ARM void func_ov003_02165c9c(Struct_ov003_02165c9c_4* arg0) {
+    struct Struct_02080cc0* var0 = arg0->unknown_324_;
+    Struct_ov003_02165c9c_2* var1;
+    int var2;
+    Struct_ov003_02165c9c* var3;
+    short var4;
+    short var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
+    int var12;
+    int var13;
+    int var14;
+    short var15;
+    int var16;
+    short var17;
+    int var18;
+    unsigned char var19;
+    int var20;
+    short var21, var22, var23, var24;
+    short var25, var26;
+    Struct_ov003_02165c9c_3 var27;
 
-    func_02080b54(elementObj, 6);
-    party = GetParty();
-    count = party->count;
-    idA = 0x15;
-    idB = 100;
-    row = self->page * 4;
-    v = -1;
-    idC = 0xcb;
-    emptyName = func_020e0434(&self->cont2dc, 0x7530);
-    otherName = func_020e0434(&self->cont2dc, 0x7531);
-    self->flag4bd = (unsigned char)idA;
-    memset(self->counters, 0, 4);
-    if (func_ov003_021614e8((int)self) == 0) {
-        empty = 1;
+    func_02080b54(var0, 6);
+    var1 = inline_ov003_02165c9c();
+    var2 = var1->unknown1_2c8c_;
+    var12 = 0x15;
+    var4 = 100;
+    var5 = arg0->unknown_49f_ * 4;
+    var6 = -1;
+    var13 = 0xcb;
+    var7 = func_020e0434(&arg0->unknown_2dc_, 0x7530);
+    var8 = func_020e0434(&arg0->unknown_2dc_, 0x7531);
+    arg0->unknown_4bd_ = (unsigned char)var12;
+    memset(arg0->unknown_468_, 0, 4);
+    if (func_ov003_021614e8((int)arg0) == 0) {
+        var11 = 1;
     } else {
-        empty = 0;
+        var11 = 0;
     }
-    total = count + empty;
-    func_ov003_02166164((Outer02166164*)self, total > 4, 1);
+    var9 = var2 + var11;
+    func_ov003_02166164((Struct_ov003_02165c9c_5*)arg0, var9 > 4, 1);
 #if !defined(jpn)
-    memset(self->names, 0, sizeof(self->names));
+    memset(arg0->unknown_39c_, 0, sizeof(arg0->unknown_39c_));
 #endif
 
-    for (i = 0; i < 4; i++) {
-        entry = &party->members[row];
+    for (var15 = 0; var15 < 4; var15++) {
+        var3 = &var1->unknown_f80_[var5];
 #if defined(jpn)
-        func_02080f8c((struct Container02080f8c*)elementObj, idA, (int)entry->name);
+        func_02080f8c((struct Struct_02080f8c*)var0, var12, (int)var3->unknown_140_);
 #else
-        off = i * 0x30;
-        func_02042764(entry->name, (char*)self->names + off, 1);
-        func_02080f8c((struct Container02080f8c*)elementObj, idA, (int)&self->names[0][off]);
+        var16 = var15 * 0x30;
+        func_02042764(var3->unknown_140_, (char*)arg0->unknown_39c_ + var16, 1);
+        func_02080f8c((struct Struct_02080f8c*)var0, var12, (int)&arg0->unknown_39c_[0][var16]);
 #endif
-        if (func_020865b0((Struct020865b0*)entry) != 0) {
-            v = (short)(func_020865b0((Struct020865b0*)entry) + 0x11);
+        if (func_020865b0((Struct_0201099c_16*)var3) != 0) {
+            var6 = (short)(func_020865b0((Struct_0201099c_16*)var3) + 0x11);
         }
-        func_02080fe0(elementObj, (short)(idA + 4), v);
-        func_02080fa8((struct Container02080fa8*)elementObj, (short)(idA + 8),
-                                   entry->unk2[func_020865b0((Struct020865b0*)entry)]);
-        color = func_ov003_0215f56c((S0215f56c*)entry);
-        if (idA == ((struct EntryList02165c9c*)elementObj)->field36 && color == 0xf) {
-            color = 0xa;
+        func_02080fe0(var0, (short)(var12 + 4), var6);
+        func_02080fa8((struct Struct_02080fa8*)var0, (short)(var12 + 8),
+                                   var3->unknown_2_[func_020865b0((Struct_0201099c_16*)var3)]);
+        var14 = func_ov003_0215f56c((Struct_ov003_0215f56c_3*)var3);
+        if (var12 == ((struct Struct_ov003_02165c9c_6*)var0)->unknown_36_ && var14 == 0xf) {
+            var14 = 0xa;
         }
-        if (row < count) {
-            if (entry->id == self->selected) {
-                color = 5;
+        if (var5 < var2) {
+            if (var3->unknown_0_0_ == arg0->unknown_480_) {
+                var14 = 5;
             }
-            for (j = 0; j < 3; j++) {
-                k = idA + j * 4;
-                func_02080cc0(elementObj, (short)k, color);
-                func_02080b40(elementObj, (short)(unsigned int)k);
+            for (var17 = 0; var17 < 3; var17++) {
+                var10 = var12 + var17 * 4;
+                func_02080cc0(var0, (short)var10, var14);
+                func_02080b40(var0, (short)(unsigned int)var10);
             }
 #if !defined(jpn)
-            func_02080cc0(elementObj, idB, color);
-            func_02080b40(elementObj, idB);
+            func_02080cc0(var0, var4, var14);
+            func_02080b40(var0, var4);
 #endif
-            kind = entry->unkF[func_020865b0((Struct020865b0*)entry)];
-            func_0208103c(elementObj, idC, (short)(kind + 100));
-            if (kind != 0) {
-                color = 5;
-                if (kind == 0xa) {
-                    color = 0xd;
+            var19 = var3->unknown_f_[func_020865b0((Struct_0201099c_16*)var3)];
+            func_0208103c(var0, var13, (short)(var19 + 100));
+            if (var19 != 0) {
+                var14 = 5;
+                if (var19 == 0xa) {
+                    var14 = 0xd;
                 }
-                func_02080cc0(elementObj, idC, color);
-                key = i + 0x19;
-                func_02080828(elementObj, (short)key, &t32, &t30);
-                func_020808c8(elementObj, (short)(unsigned int)key, &t2e, &t2c);
+                func_02080cc0(var0, var13, var14);
+                var18 = var15 + 0x19;
+                func_02080828(var0, (short)var18, &var21, &var22);
+                func_020808c8(var0, (short)(unsigned int)var18, &var23, &var24);
 #if defined(jpn)
-                func_02080854(elementObj, idC, (short)(t32 + t2e + 1), (short)(t30 + 2));
+                func_02080854(var0, var13, (short)(var21 + var23 + 1), (short)(var22 + 2));
 #else
-                func_02080854(elementObj, idC, (short)(t32 + t2e + 1), t30);
+                func_02080854(var0, var13, (short)(var21 + var23 + 1), var22);
 #endif
-                func_02080cc0(elementObj, idC, color);
-                func_02080b40(elementObj, idC);
+                func_02080cc0(var0, var13, var14);
+                func_02080b40(var0, var13);
             }
-            self->counters[i] = entry->bit0 + 1;
+            arg0->unknown_468_[var15] = var3->unknown_174_0_ + 1;
         } else {
-            name = emptyName;
-            if (empty != 0 && func_ov003_021614e8((int)self) == 0) {
-                empty = 0;
-                name = otherName;
+            var20 = var7;
+            if (var11 != 0 && func_ov003_021614e8((int)arg0) == 0) {
+                var11 = 0;
+                var20 = var8;
             }
-            func_02080cc0(elementObj, idA, color);
-            func_02080b40(elementObj, idA);
-            func_02080f8c((struct Container02080f8c*)elementObj, idA, name);
+            func_02080cc0(var0, var12, var14);
+            func_02080b40(var0, var12);
+            func_02080f8c((struct Struct_02080f8c*)var0, var12, var20);
         }
-        row++;
-        idA = (short)(idA + 1);
-        idC = (short)(idC + 1);
+        var5++;
+        var12 = (short)(var12 + 1);
+        var13 = (short)(var13 + 1);
 #if !defined(jpn)
-        idB++;
+        var4++;
 #endif
     }
 
-    func_ov003_0215f5e8(elementObj, self->page, total);
-    func_ov003_02160c58(self, &outHigh, &outLow);
-    party = GetParty();
-    outLow = outLow - (party->countF7c - 1);
-    func_02080fa8((struct Container02080fa8*)elementObj, 0x23, outLow);
-    func_02080fa8((struct Container02080fa8*)elementObj, 0x24, outHigh);
+    func_ov003_0215f5e8(var0, arg0->unknown_49f_, var9);
+    func_ov003_02160c58(arg0, &var25, &var26);
+    var1 = inline_ov003_02165c9c();
+    var26 = var26 - (var1->unknown_f7c_ - 1);
+    func_02080fa8((struct Struct_02080fa8*)var0, 0x23, var26);
+    func_02080fa8((struct Struct_02080fa8*)var0, 0x24, var25);
 
-    ids = data_ov003_0217f3ec.ids;
-    for (int n = 0; n < 2; n++) {
-        short id = ids.v[n];
-        func_02081198((struct StatusOwner02081198*)elementObj, id, 1);
-        func_02081164((struct StatusOwner02081164*)elementObj, id, 1);
-        func_020813ec(elementObj, id);
+    var27 = data_ov003_0217f3ec.unknown_10_;
+    for (int var28 = 0; var28 < 2; var28++) {
+        short var29 = var27.unknown_0_[var28];
+        func_02081198((struct Struct_02081198*)var0, var29, 1);
+        func_02081164((struct Struct_02081164*)var0, var29, 1);
+        func_020813ec(var0, var29);
     }
-    func_ov003_02160678(self);
-    func_ov003_02160794(self);
+    func_ov003_02160678(arg0);
+    func_ov003_02160794(arg0);
 }

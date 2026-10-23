@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 // USA: func_020c9a4c
-extern "C" ARM unsigned int func_020c9a4c(unsigned int value) {
+extern "C" ARM unsigned int func_020c9a4c(unsigned int arg0) {
     asm {
-        clz value, value
+        clz arg0, arg0
     }
-    return value;
+    return arg0;
 }

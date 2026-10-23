@@ -3,38 +3,38 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
-struct FlagObj_021df6ec;
-extern "C" int func_ov024_021df6ec(struct FlagObj_021df6ec* obj);
-extern "C" int func_ov024_021ed890(struct Random** rngPtr, int* maxAndFlag, short* table);
+extern "C" int func_ov000_0215e9fc(int arg0, unsigned short* arg1, int arg2, int arg3);
+struct Struct_ov024_021df454_2;
+extern "C" int func_ov024_021df6ec(struct Struct_ov024_021df454_2* arg0);
+extern "C" int func_ov024_021ed890(struct Random** arg0, int* arg1, short* arg2);
 
 extern unsigned short data_ov024_021feb64;
 
 // USA: func_ov024_021f5220
-extern "C" ARM int func_ov024_021f5220(int* a0, int a1, int a2, int* outCount, short* outArray) {
-	unsigned short buf[4];
-	unsigned short* s = &data_ov024_021feb64;
-	unsigned short* d = buf;
-	int n = 4;
+extern "C" ARM int func_ov024_021f5220(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
+	unsigned short var0[4];
+	unsigned short* var1 = &data_ov024_021feb64;
+	unsigned short* var2 = var0;
+	int var3 = 4;
 	do {
-		unsigned short* dd = d++;
-		*dd = *s++;
-	} while (--n);
+		unsigned short* var4 = var2++;
+		*var4 = *var1++;
+	} while (--var3);
 
-	int count = func_ov000_0215e9fc(*a0, buf, 4, 1);
-	if (count <= 0) return 0;
+	int var5 = func_ov000_0215e9fc(*arg0, var0, 4, 1);
+	if (var5 <= 0) return 0;
 
-	*outCount = 0;
-	for (int i = 0; i < count; i++) {
-		GameObject* member = GetCombatantByID(*a0, *(short*)&buf[i]);
-		if (!member) continue;
-		if (func_ov024_021df6ec((struct FlagObj_021df6ec*)member)) continue;
-		int idx = *outCount;
-		*outCount = idx + 1;
-		outArray[idx] = *((short*)buf + i);
+	*arg3 = 0;
+	for (int var6 = 0; var6 < var5; var6++) {
+		GameObject* var7 = GetCombatantByID(*arg0, *(short*)&var0[var6]);
+		if (!var7) continue;
+		if (func_ov024_021df6ec((struct Struct_ov024_021df454_2*)var7)) continue;
+		int var8 = *arg3;
+		*arg3 = var8 + 1;
+		arg4[var8] = *((short*)var0 + var6);
 	}
-	if (*outCount > 0) {
-		func_ov024_021ed890((struct Random**)a0, outCount, outArray);
+	if (*arg3 > 0) {
+		func_ov024_021ed890((struct Random**)arg0, arg3, arg4);
 		return 1;
 	}
 	return 0;

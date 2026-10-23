@@ -11,74 +11,74 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-struct Obj0205dee8;
-extern "C" void func_0205dee8(struct Obj0205dee8* obj, int val);
+struct Struct_0205dee8;
+extern "C" void func_0205dee8(struct Struct_0205dee8* arg0, int arg1);
 
-struct Entry_0205d6a0;
-extern "C" void func_0205d6a0(struct Entry_0205d6a0* a, int flag);
+struct Struct_0205d6a0;
+extern "C" void func_0205d6a0(struct Struct_0205d6a0* arg0, int arg1);
 
-extern "C" void func_ov013_02186c64(void* obj, int a, int b);
-extern "C" void func_ov013_02185cc0(void* obj);
+extern "C" void func_ov013_02186c64(void* arg0, int arg1, int arg2);
+extern "C" void func_ov013_02185cc0(void* arg0);
 
-struct SkillPointMenu {
+struct Struct_ov013_021846a0_2 {
 #if defined(jpn)
-    char unknown0[0x34];
-    unsigned char window[0xbc];
-    char unknownAfterWindow[0x5ac - 0xf0];
+    char unknown_0_[0x34];
+    unsigned char unknown_38_[0xbc];
+    char unknown_f0_[0x5ac - 0xf0];
 #else
-    char unknown0[0x38];
-    unsigned char window[0xbc];
-    char unknownAfterWindow[0x620 - 0xf4];
+    char unknown1_0_[0x38];
+    unsigned char unknown_38_[0xbc];
+    char unknown_f4_[0x620 - 0xf4];
 #endif
-    char texts[0x18];
-    unsigned char unknownStateBytes[4];
-    unsigned char state;
-    unsigned char previousState;
-    unsigned char step;
-    bool stateChanged;
-    bool subScreen;
-    unsigned int ticks;
-    int windowInput;
+    char unknown_620_[0x18];
+    unsigned char unknown_638_[4];
+    unsigned char unknown_63c_;
+    unsigned char unknown_63d_;
+    unsigned char unknown_63e_;
+    bool unknown_63f_;
+    bool unknown_640_;
+    unsigned int unknown_644_;
+    int unknown_648_;
 #if !defined(jpn)
-    int previousWindowInput;
+    int unknown_64c_;
 #endif
-    int task;
-    void* canvasPixels;
-    char* text;
-    int selectedSkill;
-    int confirmationChoice;
-    unsigned char unknownAfterChoice;
-    unsigned char confirmationPressed;
-    char unknownAfterPressed[2];
-    int availablePoints;
-    int remainingPoints;
-    int pointCap;
-    int skillPoints[5];
-    int allocatedPoints[5];
-    unsigned char lockedSkills[5];
-    char unknownAfterLocks[8];
-    unsigned char skillIds[5];
-    char unknownAfterSkillIds[0xe];
-    unsigned char flags;
+    int unknown_650_;
+    void* unknown_654_;
+    char* unknown_658_;
+    int unknown_65c_;
+    int unknown_660_;
+    unsigned char unknown_664_;
+    unsigned char unknown_665_;
+    char unknown_666_[2];
+    int unknown_668_;
+    int unknown_66c_;
+    int unknown_670_;
+    int unknown_674_[5];
+    int unknown_688_[5];
+    unsigned char unknown_69c_[5];
+    char unknown_6a1_[8];
+    unsigned char unknown_6a9_[5];
+    char unknown_6ae_[0xe];
+    unsigned char unknown_6bc_;
 };
 
 // USA: func_ov013_0218678c
-extern "C" ARM void func_ov013_0218678c(SkillPointMenu* menu) {
-    menu->flags &= ~1;
-    menu->unknownStateBytes[2] = 0;
+extern "C" ARM void func_ov013_0218678c(Struct_ov013_021846a0_2* arg0) {
+    arg0->unknown_6bc_ &= ~1;
+    arg0->unknown_638_[2] = 0;
 
-    if (menu->previousState != menu->state) return;
+    if (arg0->unknown_63d_ != arg0->unknown_63c_) return;
 
     if (!g_keyManager.TestKeysPressed(0x613) && !g_touchInput.IsPressed()) {
         return;
     }
 
-    menu->state = 1;
+    arg0->unknown_63c_ = 1;
     g_keyManager.CancelCurrentKeyRepeat();
-    func_0205dee8((struct Obj0205dee8*)menu->window, 2);
-    func_0205d6a0((struct Entry_0205d6a0*)menu->window, 0);
-    menu->unknownStateBytes[1] = 0;
-    menu->flags &= ~1;
-    func_ov013_02186c64(menu, 0, 0);
-    func_ov013_02185cc0(menu);
+    func_0205dee8((struct Struct_0205dee8*)arg0->unknown_38_, 2);
+    func_0205d6a0((struct Struct_0205d6a0*)arg0->unknown_38_, 0);
+    arg0->unknown_638_[1] = 0;
+    arg0->unknown_6bc_ &= ~1;
+    func_ov013_02186c64(arg0, 0, 0);
+    func_ov013_02185cc0(arg0);
 }

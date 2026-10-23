@@ -3,12 +3,12 @@
 extern int data_02107800;
 
 #if defined(jpn)
-enum { GLOBAL_FIELD_OFFSET = 0x38 };
+enum { Enum_020421a0_28 = 0x38 };
 #else
-enum { GLOBAL_FIELD_OFFSET = 0x1c };
+enum { Enum_020421a0_28 = 0x1c };
 #endif
 
 // USA: func_020421a0
 extern "C" ARM int func_020421a0() {
-    return *(int*)((char*)&data_02107800 + GLOBAL_FIELD_OFFSET);
+    return *(int*)((char*)&data_02107800 + Enum_020421a0_28);
 }

@@ -2,119 +2,119 @@
 
 #include <NitroSDK/Matrix.h>
 
-struct CubicPathSegment {
-    int startTime;
-    int duration;
-    fix32_t cubic[3];
-    fix32_t quadratic[3];
-    fix32_t linear[3];
-    fix32_t constant[3];
+struct Struct_ov001_021570b4_2 {
+    int unknown_0_;
+    int unknown_4_;
+    fix32_t unknown_8_[3];
+    fix32_t unknown_14_[3];
+    fix32_t unknown_20_[3];
+    fix32_t unknown_2c_[3];
 };
 
-struct CubicPathState {
-    CubicPathSegment segments[16];
-    int segmentCount;
-    int currentSegment;
-    fix32_t elapsedTime;
-    fix32_t position[3];
-    fix32_t minimumDistance;
+struct Struct_ov001_021570b4 {
+    Struct_ov001_021570b4_2 unknown_0_[16];
+    int unknown_380_;
+    int unknown_384_;
+    fix32_t unknown_388_;
+    fix32_t unknown_38c_[3];
+    fix32_t unknown_398_;
 };
 
-static inline fix32_t MultiplyRounded(fix32_t lhs, fix32_t rhs) {
-    return FIX32_MULTIPLY(lhs, rhs);
+static inline fix32_t inline_ov001_021570b4(fix32_t arg0, fix32_t arg1) {
+    return FIX32_MULTIPLY(arg0, arg1);
 }
 
 // USA: func_ov001_021570b4
-extern "C" ARM int func_ov001_021570b4(void *receiver) {
-    CubicPathState *path = static_cast<CubicPathState *>(receiver);
-    if (path->segmentCount <= 1) {
+extern "C" ARM int func_ov001_021570b4(void *arg0) {
+    Struct_ov001_021570b4 *var0 = static_cast<Struct_ov001_021570b4 *>(arg0);
+    if (var0->unknown_380_ <= 1) {
         return 1;
     }
-    if (path->minimumDistance <= 0) {
+    if (var0->unknown_398_ <= 0) {
         return 1;
     }
 
-    Vector3fix previous;
-    Vector3fix next;
+    Vector3fix var1;
+    Vector3fix var2;
     do {
-        path->elapsedTime += 0x199;
-        if (path->elapsedTime >=
-            (path->segments[path->currentSegment].startTime + path->segments[path->currentSegment].duration) << 12)
+        var0->unknown_388_ += 0x199;
+        if (var0->unknown_388_ >=
+            (var0->unknown_0_[var0->unknown_384_].unknown_0_ + var0->unknown_0_[var0->unknown_384_].unknown_4_) << 12)
         {
-            ++path->currentSegment;
-            if (path->currentSegment >= path->segmentCount) {
-                for (int axis = 0; axis < 3; ++axis) {
-                    path->position[axis] = path->segments[path->segmentCount - 1].constant[axis];
+            ++var0->unknown_384_;
+            if (var0->unknown_384_ >= var0->unknown_380_) {
+                for (int var3 = 0; var3 < 3; ++var3) {
+                    var0->unknown_38c_[var3] = var0->unknown_0_[var0->unknown_380_ - 1].unknown_2c_[var3];
                 }
-                path->currentSegment = path->segmentCount - 1;
-                path->elapsedTime =
-                    (path->segments[path->currentSegment].startTime + path->segments[path->currentSegment].duration + 100)
+                var0->unknown_384_ = var0->unknown_380_ - 1;
+                var0->unknown_388_ =
+                    (var0->unknown_0_[var0->unknown_384_].unknown_0_ + var0->unknown_0_[var0->unknown_384_].unknown_4_ + 100)
                     << 12;
                 return 1;
             }
         }
 
-        fix32_t progress = fix32_Divide(path->elapsedTime - (path->segments[path->currentSegment].startTime << 12),
-                                        path->segments[path->currentSegment].duration << 12);
-        fix32_t squared  = MultiplyRounded(progress, progress);
-        fix32_t cubed    = MultiplyRounded(squared, progress);
-        previous.x       = path->position[0];
-        next.x           = MultiplyRounded(path->segments[path->currentSegment].cubic[0], cubed) +
-                 MultiplyRounded(path->segments[path->currentSegment].quadratic[0], squared) +
-                 MultiplyRounded(path->segments[path->currentSegment].linear[0], progress) +
-                 path->segments[path->currentSegment].constant[0];
-        previous.y = path->position[1];
-        next.y     = MultiplyRounded(path->segments[path->currentSegment].cubic[1], cubed) +
-                 MultiplyRounded(path->segments[path->currentSegment].quadratic[1], squared) +
-                 MultiplyRounded(path->segments[path->currentSegment].linear[1], progress) +
-                 path->segments[path->currentSegment].constant[1];
-        previous.z = path->position[2];
-        next.z     = MultiplyRounded(path->segments[path->currentSegment].cubic[2], cubed) +
-                 MultiplyRounded(path->segments[path->currentSegment].quadratic[2], squared) +
-                 MultiplyRounded(path->segments[path->currentSegment].linear[2], progress) +
-                 path->segments[path->currentSegment].constant[2];
-    } while (Vector3fix_Distance(&previous, &next) < path->minimumDistance);
-    path->position[0] = next.x;
-    path->position[1] = next.y;
-    path->position[2] = next.z;
+        fix32_t var4 = fix32_Divide(var0->unknown_388_ - (var0->unknown_0_[var0->unknown_384_].unknown_0_ << 12),
+                                        var0->unknown_0_[var0->unknown_384_].unknown_4_ << 12);
+        fix32_t var5  = inline_ov001_021570b4(var4, var4);
+        fix32_t var6    = inline_ov001_021570b4(var5, var4);
+        var1.x       = var0->unknown_38c_[0];
+        var2.x           = inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_8_[0], var6) +
+                 inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_14_[0], var5) +
+                 inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_20_[0], var4) +
+                 var0->unknown_0_[var0->unknown_384_].unknown_2c_[0];
+        var1.y = var0->unknown_38c_[1];
+        var2.y     = inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_8_[1], var6) +
+                 inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_14_[1], var5) +
+                 inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_20_[1], var4) +
+                 var0->unknown_0_[var0->unknown_384_].unknown_2c_[1];
+        var1.z = var0->unknown_38c_[2];
+        var2.z     = inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_8_[2], var6) +
+                 inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_14_[2], var5) +
+                 inline_ov001_021570b4(var0->unknown_0_[var0->unknown_384_].unknown_20_[2], var4) +
+                 var0->unknown_0_[var0->unknown_384_].unknown_2c_[2];
+    } while (Vector3fix_Distance(&var1, &var2) < var0->unknown_398_);
+    var0->unknown_38c_[0] = var2.x;
+    var0->unknown_38c_[1] = var2.y;
+    var0->unknown_38c_[2] = var2.z;
     return 0;
 }
 
 // USA: func_ov001_021573c0
-extern "C" ARM int func_ov001_021573c0(void *receiver) {
-    int axis;
-    fix32_t squared;
-    fix32_t cubed;
-    CubicPathState *path = static_cast<CubicPathState *>(receiver);
-    if (path->segmentCount <= 1) {
+extern "C" ARM int func_ov001_021573c0(void *arg0) {
+    int var0;
+    fix32_t var1;
+    fix32_t var2;
+    Struct_ov001_021570b4 *var3 = static_cast<Struct_ov001_021570b4 *>(arg0);
+    if (var3->unknown_380_ <= 1) {
         return 1;
     }
 
-    path->elapsedTime += 0x1000;
-    if (path->elapsedTime >= (path->segments[path->currentSegment].startTime + path->segments[path->currentSegment].duration)
+    var3->unknown_388_ += 0x1000;
+    if (var3->unknown_388_ >= (var3->unknown_0_[var3->unknown_384_].unknown_0_ + var3->unknown_0_[var3->unknown_384_].unknown_4_)
                                  << 12)
     {
-        ++path->currentSegment;
-        if (path->currentSegment >= path->segmentCount) {
-            for (axis = 0; axis < 3; ++axis) {
-                path->position[axis] = path->segments[path->segmentCount - 1].constant[axis];
+        ++var3->unknown_384_;
+        if (var3->unknown_384_ >= var3->unknown_380_) {
+            for (var0 = 0; var0 < 3; ++var0) {
+                var3->unknown_38c_[var0] = var3->unknown_0_[var3->unknown_380_ - 1].unknown_2c_[var0];
             }
-            path->currentSegment = path->segmentCount - 1;
-            path->elapsedTime =
-                (path->segments[path->currentSegment].startTime + path->segments[path->currentSegment].duration + 100) << 12;
+            var3->unknown_384_ = var3->unknown_380_ - 1;
+            var3->unknown_388_ =
+                (var3->unknown_0_[var3->unknown_384_].unknown_0_ + var3->unknown_0_[var3->unknown_384_].unknown_4_ + 100) << 12;
             return 1;
         }
     }
 
-    fix32_t progress = fix32_Divide(path->elapsedTime - (path->segments[path->currentSegment].startTime << 12),
-                                    path->segments[path->currentSegment].duration << 12);
-    squared          = MultiplyRounded(progress, progress);
-    cubed            = MultiplyRounded(squared, progress);
-    for (axis = 0; axis < 3; ++axis) {
-        path->position[axis] = MultiplyRounded(path->segments[path->currentSegment].cubic[axis], cubed) +
-                               MultiplyRounded(path->segments[path->currentSegment].quadratic[axis], squared) +
-                               MultiplyRounded(path->segments[path->currentSegment].linear[axis], progress) +
-                               path->segments[path->currentSegment].constant[axis];
+    fix32_t var4 = fix32_Divide(var3->unknown_388_ - (var3->unknown_0_[var3->unknown_384_].unknown_0_ << 12),
+                                    var3->unknown_0_[var3->unknown_384_].unknown_4_ << 12);
+    var1          = inline_ov001_021570b4(var4, var4);
+    var2            = inline_ov001_021570b4(var1, var4);
+    for (var0 = 0; var0 < 3; ++var0) {
+        var3->unknown_38c_[var0] = inline_ov001_021570b4(var3->unknown_0_[var3->unknown_384_].unknown_8_[var0], var2) +
+                               inline_ov001_021570b4(var3->unknown_0_[var3->unknown_384_].unknown_14_[var0], var1) +
+                               inline_ov001_021570b4(var3->unknown_0_[var3->unknown_384_].unknown_20_[var0], var4) +
+                               var3->unknown_0_[var3->unknown_384_].unknown_2c_[var0];
     }
     return 0;
 }

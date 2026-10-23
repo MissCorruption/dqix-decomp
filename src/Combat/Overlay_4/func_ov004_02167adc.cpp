@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_ov004_0216794c(short* out0, short* out1, short* out2, unsigned char* out3, int* out4);
-extern "C" int func_ov004_02167a0c(void* unused, int count);
-extern "C" int func_ov004_02167a6c(void* a, void* b);
+extern "C" void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, unsigned char* arg3, int* arg4);
+extern "C" int func_ov004_02167a0c(void* arg0, int arg1);
+extern "C" int func_ov004_02167a6c(void* arg0, void* arg1);
 
 extern short data_ov004_02170012;
 
 // USA: func_ov004_02167adc
-extern "C" ARM int func_ov004_02167adc(void* self) {
-    short m1, m2, m3;
-    unsigned char flag;
-    int idx;
+extern "C" ARM int func_ov004_02167adc(void* arg0) {
+    short var0, var1, var2;
+    unsigned char var3;
+    int var4;
     func_02010828(GameState::GetInstance());
-    func_ov004_0216794c(&m1, &m2, &m3, &flag, &idx);
-    if (idx < 0) {
+    func_ov004_0216794c(&var0, &var1, &var2, &var3, &var4);
+    if (var4 < 0) {
         goto end;
     }
-    if (m1 + m2 >= m3) {
-        func_ov004_02167a0c(self, (short)(m3 - m1));
-        short v = *(short*)((char*)&data_ov004_02170012 + idx * 4);
-        func_ov004_02167a6c(self, (void*)(int)v);
+    if (var0 + var1 >= var2) {
+        func_ov004_02167a0c(arg0, (short)(var2 - var0));
+        short var5 = *(short*)((char*)&data_ov004_02170012 + var4 * 4);
+        func_ov004_02167a6c(arg0, (void*)(int)var5);
     } else {
-        func_ov004_02167a0c(self, m2);
+        func_ov004_02167a0c(arg0, var1);
     }
 end:
     return 0;

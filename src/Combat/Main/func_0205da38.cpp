@@ -2,25 +2,25 @@
 
 struct Struct_0205bd20;
 struct Struct_0205d81c;
-struct Elem_0205d81c;
+struct Struct_0205d0e0;
 
-extern "C" int func_0205bd20(struct Struct_0205bd20* s, int key);
-extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
-extern "C" int func_0204c7cc(unsigned char* obj);
+extern "C" int func_0205bd20(struct Struct_0205bd20* arg0, int arg1);
+extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" int func_0204c7cc(unsigned char* arg0);
 
-struct Obj_0205da38 {
-    char pad0[0xb0];
-    unsigned char fb0;
+struct Struct_0205da38 {
+    char unknown_0_[0xb0];
+    unsigned char unknown_b0_;
 };
 
 // USA: func_0205da38
-extern "C" ARM int func_0205da38(struct Obj_0205da38* a, int key) {
-    unsigned char* e;
-    if (func_0205bd20((struct Struct_0205bd20*)((char*)a + 0x4), key) == 0) goto ret0;
-    e = (unsigned char*)func_0205d81c((struct Struct_0205d81c*)a, a->fb0);
-    if (e == NULL) goto ret0;
-    if (func_0204c7cc(e) == 0) goto ret0;
-    if (e[0xc5] & 2) return 1;
+extern "C" ARM int func_0205da38(struct Struct_0205da38* arg0, int arg1) {
+    unsigned char* var0;
+    if (func_0205bd20((struct Struct_0205bd20*)((char*)arg0 + 0x4), arg1) == 0) goto ret0;
+    var0 = (unsigned char*)func_0205d81c((struct Struct_0205d81c*)arg0, arg0->unknown_b0_);
+    if (var0 == NULL) goto ret0;
+    if (func_0204c7cc(var0) == 0) goto ret0;
+    if (var0[0xc5] & 2) return 1;
 ret0:
     return 0;
 }

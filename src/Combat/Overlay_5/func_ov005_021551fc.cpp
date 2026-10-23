@@ -14,19 +14,19 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void func_ov023_021dcba4(void* obj, int val);
-extern "C" void func_ov023_021dcae0(void* obj, int val);
+extern "C" void func_ov023_021dcba4(void* arg0, int arg1);
+extern "C" void func_ov023_021dcae0(void* arg0, int arg1);
 
 // USA: func_ov005_021551fc
-extern "C" ARM void func_ov005_021551fc(char* base, int byteVal, int cond) {
-	signed char idx = *(signed char*)(base + 0x3d00 + R(0x33,0xbb));
-	short val = *(short*)(base + idx * 0x1c + 0x2d00 + R(0x8,0x90));
-	*(unsigned char*)(base + 0x1000 + R(0x936,0x9be)) = byteVal;
-	unsigned short* flagPtr = (unsigned short*)(base + 0x1900 + R(0x30,0xb8));
-	*flagPtr = *flagPtr | 0x80;
-	if (cond != 0) {
-		func_ov023_021dcba4(base + R(0x1240,0x1244), val);
+extern "C" ARM void func_ov005_021551fc(char* arg0, int arg1, int arg2) {
+	signed char var0 = *(signed char*)(arg0 + 0x3d00 + R(0x33,0xbb));
+	short var1 = *(short*)(arg0 + var0 * 0x1c + 0x2d00 + R(0x8,0x90));
+	*(unsigned char*)(arg0 + 0x1000 + R(0x936,0x9be)) = arg1;
+	unsigned short* var2 = (unsigned short*)(arg0 + 0x1900 + R(0x30,0xb8));
+	*var2 = *var2 | 0x80;
+	if (arg2 != 0) {
+		func_ov023_021dcba4(arg0 + R(0x1240,0x1244), var1);
 	} else {
-		func_ov023_021dcae0(base + R(0x1240,0x1244), val);
+		func_ov023_021dcae0(arg0 + R(0x1240,0x1244), var1);
 	}
 }

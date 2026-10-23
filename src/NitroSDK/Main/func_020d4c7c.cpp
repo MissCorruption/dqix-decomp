@@ -1,62 +1,62 @@
 #include <globaldefs.h>
 
-struct WMOtherElements
+struct Struct_020d4c7c
 {
-    unsigned char count;
-    unsigned char padding[3];
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
     struct
     {
-        unsigned char id;
-        unsigned char length;
-        unsigned char rsv[2];
-        unsigned char* body;
-    } element[16];
+        unsigned char unknown_0_;
+        unsigned char unknown_1_;
+        unsigned char unknown_2_[2];
+        unsigned char* unknown_4_;
+    } unknown_4_[16];
 };
 
-struct WMBssDesc
+struct Struct_020d4c7c_2
 {
-    unsigned short length;
-    char unk_2[0x3c - 0x2];
-    unsigned short gameInfoLength;
-    unsigned short otherElementCount;
-    unsigned char elements[1];
+    unsigned short unknown_0_;
+    char unknown_2_[0x3c - 0x2];
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    unsigned char unknown_40_[1];
 };
 
 // USA: func_020d4c7c
-extern "C" ARM WMOtherElements func_020d4c7c(const WMBssDesc* bssDesc)
+extern "C" ARM Struct_020d4c7c func_020d4c7c(const Struct_020d4c7c_2* arg0)
 {
-    WMOtherElements elements;
-    const unsigned char* element;
-    int i;
-    unsigned char length;
-    unsigned char maxLength;
-    if (bssDesc->gameInfoLength != 0)
+    Struct_020d4c7c var0;
+    const unsigned char* var1;
+    int var2;
+    unsigned char var3;
+    unsigned char var4;
+    if (arg0->unknown_3c_ != 0)
     {
-        elements.count = 0;
-        return elements;
+        var0.unknown_0_ = 0;
+        return var0;
     }
-    elements.count = bssDesc->otherElementCount;
-    if (elements.count == 0)
-        return elements;
-    if (elements.count > 16)
-        elements.count = 16;
-    element = bssDesc->elements;
-    maxLength = bssDesc->length * 2 - 64;
-    length = 0;
-    for (i = 0; i < elements.count; i++)
+    var0.unknown_0_ = arg0->unknown_3e_;
+    if (var0.unknown_0_ == 0)
+        return var0;
+    if (var0.unknown_0_ > 16)
+        var0.unknown_0_ = 16;
+    var1 = arg0->unknown_40_;
+    var4 = arg0->unknown_0_ * 2 - 64;
+    var3 = 0;
+    for (var2 = 0; var2 < var0.unknown_0_; var2++)
     {
-        unsigned char elementLength;
-        elements.element[i].id = element[0];
-        elements.element[i].length = element[1];
-        elements.element[i].body = (unsigned char*)&element[2];
-        elementLength = elements.element[i].length + 2;
-        length += elementLength;
-        if (length > maxLength)
+        unsigned char var5;
+        var0.unknown_4_[var2].unknown_0_ = var1[0];
+        var0.unknown_4_[var2].unknown_1_ = var1[1];
+        var0.unknown_4_[var2].unknown_4_ = (unsigned char*)&var1[2];
+        var5 = var0.unknown_4_[var2].unknown_1_ + 2;
+        var3 += var5;
+        if (var3 > var4)
         {
-            elements.count = 0;
-            return elements;
+            var0.unknown_0_ = 0;
+            return var0;
         }
-        element += elementLength;
+        var1 += var5;
     }
-    return elements;
+    return var0;
 }

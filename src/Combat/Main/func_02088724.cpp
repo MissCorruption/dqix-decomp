@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Obj02088818;
-extern "C" void func_02088818(struct Obj02088818* obj, unsigned short mode);
+struct Struct_020886dc_2;
+extern "C" void func_02088818(struct Struct_020886dc_2* arg0, unsigned short arg1);
 
-struct StateWrapObj02088724 {
-    unsigned char pad00[0x18];
-    unsigned int flags18;
+struct Struct_02088724 {
+    unsigned char unknown_0_[0x18];
+    unsigned int unknown_18_;
 };
 
 // USA: func_02088724
-extern "C" ARM void func_02088724(struct StateWrapObj02088724* obj) {
-    obj->flags18 |= 0x80;
-    func_02088818((struct Obj02088818*)obj, 2);
+extern "C" ARM void func_02088724(struct Struct_02088724* arg0) {
+    arg0->unknown_18_ |= 0x80;
+    func_02088818((struct Struct_020886dc_2*)arg0, 2);
 }

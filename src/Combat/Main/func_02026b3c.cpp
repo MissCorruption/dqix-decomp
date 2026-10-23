@@ -5,30 +5,30 @@
 #endif
 #include "std_library_functions.h"
 
-struct Entry02026b3c {
-    short id;
-    char name[0x18];
+struct Struct_02026b3c {
+    short unknown_0_;
+    char unknown_2_[0x18];
 };
 
-struct Obj02026b3c {
+struct Struct_0201f8d0_3 {
     #if defined(jpn)
-    char pad[0x6ce];
+    char unknown_0_[0x6ce];
 #else
-    char pad[0x77a];
+    char unknown1_0_[0x77a];
 #endif
-    unsigned char count;
-    char pad2[1];
-    Entry02026b3c* entries;
+    unsigned char unknown_77a_;
+    char unknown_77b_[1];
+    Struct_02026b3c* unknown_77c_;
 };
 
 #if defined(jpn)
-extern "C" ARM void func_020264a0(Obj02026b3c* obj, unsigned int index, short id, const char* name);
+extern "C" ARM void func_020264a0(Struct_0201f8d0_3* arg0, unsigned int arg1, short arg2, const char* arg3);
 #endif
 
 // USA: func_02026b3c
-extern "C" ARM void func_02026b3c(Obj02026b3c* obj, unsigned int index, short id, const char* name) {
-    if (index >= obj->count) return;
-    if (obj->entries == NULL) return;
-    obj->entries[index].id = id;
-    strcpy(obj->entries[index].name, name);
+extern "C" ARM void func_02026b3c(Struct_0201f8d0_3* arg0, unsigned int arg1, short arg2, const char* arg3) {
+    if (arg1 >= arg0->unknown_77a_) return;
+    if (arg0->unknown_77c_ == NULL) return;
+    arg0->unknown_77c_[arg1].unknown_0_ = arg2;
+    strcpy(arg0->unknown_77c_[arg1].unknown_2_, arg3);
 }

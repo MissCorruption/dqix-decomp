@@ -2,23 +2,23 @@
 
 extern "C" void func_0202e5d8(void*, int, int, int);
 
-struct CamState0202e6c0 {
-    char pad[0x70];
-    int f70;
-    int f74;
-    int f78;
+struct Struct_0202e6c0 {
+    char unknown_0_[0x70];
+    int unknown_70_;
+    int unknown_74_;
+    int unknown_78_;
 };
 
 // USA: func_0202e6c0
-extern "C" ARM void func_0202e6c0(struct CamState0202e6c0* obj, int value) {
-    int limit;
-    obj->f74 = value;
-    if (0.0f < (float)obj->f74) {
-        limit = obj->f78 - 0x1000;
-        if (limit < obj->f74) obj->f74 = limit;
+extern "C" ARM void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1) {
+    int var0;
+    arg0->unknown_74_ = arg1;
+    if (0.0f < (float)arg0->unknown_74_) {
+        var0 = arg0->unknown_78_ - 0x1000;
+        if (var0 < arg0->unknown_74_) arg0->unknown_74_ = var0;
     } else {
-        limit = 0x1000 - obj->f78;
-        if (obj->f74 < limit) obj->f74 = limit;
+        var0 = 0x1000 - arg0->unknown_78_;
+        if (arg0->unknown_74_ < var0) arg0->unknown_74_ = var0;
     }
-    func_0202e5d8(obj, obj->f70, obj->f74, obj->f78);
+    func_0202e5d8(arg0, arg0->unknown_70_, arg0->unknown_74_, arg0->unknown_78_);
 }

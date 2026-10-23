@@ -1,54 +1,54 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Param02030b0c { unsigned char _u[8]; };
+struct Struct_0209a218 { unsigned char unknown_0_[8]; };
 
-struct W12 {
-    unsigned int a : 5;
-    unsigned int b : 7;
-    unsigned int c : 8;
-    unsigned int d : 5;
-    unsigned int e : 7;
+struct Struct_0209a104_3 {
+    unsigned int unknown_0_0_ : 5;
+    unsigned int unknown_0_5_ : 7;
+    unsigned int unknown_1_4_ : 8;
+    unsigned int unknown_2_4_ : 5;
+    unsigned int unknown_3_1_ : 7;
 };
-union U12 { struct W12 b; unsigned int raw; };
-struct Record12 {
-    unsigned short id : 11;
-    unsigned short slot : 5;
-    unsigned short f2;
-    union U12 u;
-    unsigned short f8;
-    unsigned short fa;
+union Struct_0209a104 { struct Struct_0209a104_3 unknown_0_; unsigned int unknown1_0_; };
+struct Struct_0209a104_2 {
+    unsigned short unknown_0_0_ : 11;
+    unsigned short unknown_1_3_ : 5;
+    unsigned short unknown_2_;
+    union Struct_0209a104 unknown_4_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
 };
 
-struct RecordList0209a55c;
-extern "C" void func_0209a55c(struct RecordList0209a55c* list, struct Record12* src);
+struct Struct_0209a55c;
+extern "C" void func_0209a55c(struct Struct_0209a55c* arg0, struct Struct_0209a104_2* arg1);
 
-extern struct RecordList0209a55c* data_02109ba4;
+extern struct Struct_0209a55c* data_02109ba4;
 
-static inline int ParamInt(const struct Param02030b0c* p) { return ((Script::Parameter*)p)->ToInt(); }
+static inline int inline_0209a218(const struct Struct_0209a218* arg0) { return ((Script::Parameter*)arg0)->ToInt(); }
 
 // USA: func_0209a218
-extern "C" ARM int func_0209a218(struct Param02030b0c* args) {
-    struct Record12 rec;
-    unsigned int v;
+extern "C" ARM int func_0209a218(struct Struct_0209a218* arg0) {
+    struct Struct_0209a104_2 var0;
+    unsigned int var1;
 
-    rec.id = ParamInt(&args[0]);
-    rec.u.b.a = ParamInt(&args[1]);
-    rec.u.b.b = ParamInt(&args[2]);
-    rec.f2 = ParamInt(&args[3]);
-    rec.slot = ParamInt(&args[4]);
-    v = ParamInt(&args[5]);
-    rec.u.raw &= ~0xff000u;
-    rec.u.raw |= (v & 0xff) << 12;
-    rec.f8 = ParamInt(&args[6]);
-    rec.fa = ParamInt(&args[7]);
-    v = ParamInt(&args[8]);
-    rec.u.raw &= ~0x1f00000u;
-    rec.u.raw |= (v & 0x1f) << 20;
-    rec.u.b.e = 0;
+    var0.unknown_0_0_ = inline_0209a218(&arg0[0]);
+    var0.unknown_4_.unknown_0_.unknown_0_0_ = inline_0209a218(&arg0[1]);
+    var0.unknown_4_.unknown_0_.unknown_0_5_ = inline_0209a218(&arg0[2]);
+    var0.unknown_2_ = inline_0209a218(&arg0[3]);
+    var0.unknown_1_3_ = inline_0209a218(&arg0[4]);
+    var1 = inline_0209a218(&arg0[5]);
+    var0.unknown_4_.unknown1_0_ &= ~0xff000u;
+    var0.unknown_4_.unknown1_0_ |= (var1 & 0xff) << 12;
+    var0.unknown_8_ = inline_0209a218(&arg0[6]);
+    var0.unknown_a_ = inline_0209a218(&arg0[7]);
+    var1 = inline_0209a218(&arg0[8]);
+    var0.unknown_4_.unknown1_0_ &= ~0x1f00000u;
+    var0.unknown_4_.unknown1_0_ |= (var1 & 0x1f) << 20;
+    var0.unknown_4_.unknown_0_.unknown_3_1_ = 0;
 
-    if (rec.u.b.c != 0) {
-        func_0209a55c(data_02109ba4, &rec);
+    if (var0.unknown_4_.unknown_0_.unknown_1_4_ != 0) {
+        func_0209a55c(data_02109ba4, &var0);
     }
     return 1;
 }

@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct List0207f0ac;
+struct Struct_0207f0ac;
 
-struct StatusEntry02081198 {
-    char pad[0x12];
-    unsigned char flags;
+struct Struct_02081198_2 {
+    char unknown_0_[0x12];
+    unsigned char unknown_12_;
 };
 
-extern "C" struct StatusEntry02081198* func_0207f0ac(struct List0207f0ac* list, int id);
+extern "C" struct Struct_02081198_2* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1);
 
-struct StatusOwner02081198 {
-    char pad[0xc];
+struct Struct_02081198 {
+    char unknown_0_[0xc];
 };
 
 // USA: func_02081198
-extern "C" ARM void func_02081198(struct StatusOwner02081198* owner, int id, int enable) {
-    struct StatusEntry02081198* e = func_0207f0ac((struct List0207f0ac*)((char*)owner + 0xc), id);
-    if (e == NULL) {
+extern "C" ARM void func_02081198(struct Struct_02081198* arg0, int arg1, int arg2) {
+    struct Struct_02081198_2* var0 = func_0207f0ac((struct Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    if (var0 == NULL) {
         return;
     }
-    if (enable) {
-        e->flags = (e->flags & ~0xf0) | 0x10;
+    if (arg2) {
+        var0->unknown_12_ = (var0->unknown_12_ & ~0xf0) | 0x10;
     } else {
-        e->flags = e->flags & ~0xf0;
+        var0->unknown_12_ = var0->unknown_12_ & ~0xf0;
     }
 }

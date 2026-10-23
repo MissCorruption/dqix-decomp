@@ -2,60 +2,60 @@
 
 #include "NitroSDK/Memory.h"
 
-extern "C" int func_020bd8ac(unsigned int index);
-extern "C" void func_020bd8d4(unsigned int index, int value);
-extern "C" int func_020bd7c4(unsigned int index, void* buf, int size, int flag);
+extern "C" int func_020bd8ac(unsigned int arg0);
+extern "C" void func_020bd8d4(unsigned int arg0, int arg1);
+extern "C" int func_020bd7c4(unsigned int arg0, void* arg1, int arg2, int arg3);
 extern "C" void* func_020bd444(void);
 void CleanCacheRange(const void* addr, unsigned int size);
 
-struct Obj020bda58;
-typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
-extern "C" void* func_020bda58(struct Obj020bda58* obj, unsigned int size, NNSSndHeapDisposeCallback callback, int a3, int a4);
-extern "C" void func_020be4d4(int a0, int a1, int a2, int a3);
+struct Struct_020bbf84_2;
+typedef void (*Type_020bbf84)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern "C" void* func_020bda58(struct Struct_020bbf84_2* arg0, unsigned int arg1, Type_020bbf84 arg2, int arg3, int arg4);
+extern "C" void func_020be4d4(int arg0, int arg1, int arg2, int arg3);
 
-struct ListHeader020be2ec {
-    char _00[0x38];
-    unsigned int field38;
+struct Struct_02110374 {
+    char unknown_0_[0x38];
+    unsigned int unknown_38_;
 };
-extern struct ListHeader020be2ec data_02110374;
+extern struct Struct_02110374 data_02110374;
 
 // USA: func_020be2ec
-extern "C" ARM void* func_020be2ec(unsigned int index, struct Obj020bda58* obj, int flag) {
-    unsigned int size2;
-    void* entry = (void*)func_020bd8ac(index);
-    if (entry != NULL) {
+extern "C" ARM void* func_020be2ec(unsigned int arg0, struct Struct_020bbf84_2* arg1, int arg2) {
+    unsigned int var0;
+    void* var1 = (void*)func_020bd8ac(arg0);
+    if (var1 != NULL) {
         goto done;
     }
-    if (func_020bd7c4(index, &data_02110374, 0x3c, 0) != 0x3c) {
+    if (func_020bd7c4(arg0, &data_02110374, 0x3c, 0) != 0x3c) {
         return NULL;
     }
 #if defined(jpn)
-    struct ListHeader020be2ec* hdr = (struct ListHeader020be2ec*)0x02110014;
+    struct Struct_02110374* var2 = (struct Struct_02110374*)0x02110014;
 #else
-    struct ListHeader020be2ec* hdr = (struct ListHeader020be2ec*)0x02110374;
+    struct Struct_02110374* var2 = (struct Struct_02110374*)0x02110374;
 #endif
-    unsigned int sizeField = hdr->field38;
-    unsigned int size1 = sizeField * 4;
-    size2 = size1 * 2;
-    if (obj == NULL) {
+    unsigned int var3 = var2->unknown_38_;
+    unsigned int var4 = var3 * 4;
+    var0 = var4 * 2;
+    if (arg1 == NULL) {
         return NULL;
     }
-    void* ctx = flag ? func_020bd444() : NULL;
-    entry = func_020bda58(obj, size2 + 0x5c, (NNSSndHeapDisposeCallback)&func_020be4d4, (int)ctx, index);
-    if (entry == NULL) {
+    void* var5 = arg2 ? func_020bd444() : NULL;
+    var1 = func_020bda58(arg1, var0 + 0x5c, (Type_020bbf84)&func_020be4d4, (int)var5, arg0);
+    if (var1 == NULL) {
         return NULL;
     }
-    int fillResult = func_020bd7c4(index, entry, size1 + 0x3c, 0);
-    if (fillResult != (int)size1 + 0x3c) {
+    int var6 = func_020bd7c4(arg0, var1, var4 + 0x3c, 0);
+    if (var6 != (int)var4 + 0x3c) {
         return NULL;
     }
-    unsigned int count = *(unsigned int*)((char*)entry + 0x38);
-    VectorizedInvertedMemcpy((char*)entry + 0x3c, (char*)entry + 0x3c + count * 4, size1);
-    VectorizedMemset((char*)entry + 0x3c, 0, size1);
-    CleanCacheRange(entry, size2 + 0x3c);
-    if (flag) {
-        func_020bd8d4(index, (int)entry);
+    unsigned int var7 = *(unsigned int*)((char*)var1 + 0x38);
+    VectorizedInvertedMemcpy((char*)var1 + 0x3c, (char*)var1 + 0x3c + var7 * 4, var4);
+    VectorizedMemset((char*)var1 + 0x3c, 0, var4);
+    CleanCacheRange(var1, var0 + 0x3c);
+    if (arg2) {
+        func_020bd8d4(arg0, (int)var1);
     }
 done:
-    return entry;
+    return var1;
 }

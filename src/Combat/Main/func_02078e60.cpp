@@ -1,152 +1,152 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Entry_02028bd0;
-extern "C" struct Entry_02028bd0* func_02027ca4(void);
-extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
+struct Struct_020fdd44;
+extern "C" struct Struct_020fdd44* func_02027ca4(void);
+extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 
-struct List_020283fc;
-extern "C" int func_020283fc(struct List_020283fc* list, int id);
+struct Struct_020283fc;
+extern "C" int func_020283fc(struct Struct_020283fc* arg0, int arg1);
 
-extern "C" int func_02073d58(int a, void* b, int c);
+extern "C" int func_02073d58(int arg0, void* arg1, int arg2);
 
-struct Entry_0209bd94;
-struct EntryTable0209bd94;
-struct MaskEntry02078e60 {
-    unsigned short key;
-    unsigned short pad2;
-    unsigned int type : 3;
-    unsigned int rsvd1 : 10;
-    unsigned int flags8 : 8;
-    unsigned int rsvd2 : 11;
-    unsigned char pad8[0x20 - 8];
+struct Struct_02003d14;
+struct Struct_02073ec4_2;
+struct Struct_02078e60_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned int unknown_4_0_ : 3;
+    unsigned int unknown_4_3_ : 10;
+    unsigned int unknown_5_5_ : 8;
+    unsigned int unknown_6_5_ : 11;
+    unsigned char unknown_8_[0x20 - 8];
 };
-extern "C" struct MaskEntry02078e60* func_0209bd94(struct EntryTable0209bd94* table, int key);
+extern "C" struct Struct_02078e60_2* func_0209bd94(struct Struct_02073ec4_2* arg0, int arg1);
 
-struct Slot02078e60 {
-    unsigned char id;
-    unsigned char flags;
+struct Struct_02078e60_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
 };
 
-struct ListEntry_02028430 {
-    unsigned char id;
-    unsigned char pad1;
-    unsigned char count;
-    unsigned char pad3[0xc - 3];
-    struct Slot02078e60** items;
+struct Struct_02028430_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_[0xc - 3];
+    struct Struct_02078e60_3** unknown_c_;
 };
-extern "C" struct ListEntry_02028430* func_02028430(struct List_02028430* list, int index);
+extern "C" struct Struct_02028430_2* func_02028430(struct Struct_02028430* arg0, int arg1);
 
-struct Obj02078e60 {
-    char pad0[2];
-    short f2;
-    short f4;
-    char pad6[0xb8 - 6];
-    unsigned short field0xb8;
-    char padba[0x168 - 0xba];
-    unsigned short field168;
-    char pad16a[0x17d - 0x16a];
-    unsigned char field17d;
+struct Struct_02078e60 {
+    char unknown_0_[2];
+    short unknown_2_;
+    short unknown_4_;
+    char unknown_6_[0xb8 - 6];
+    unsigned short unknown_b8_;
+    char unknown_ba_[0x168 - 0xba];
+    unsigned short unknown_168_;
+    char unknown_16a_[0x17d - 0x16a];
+    unsigned char unknown_17d_;
 };
 
 extern "C" int rand(void);
 
 // USA: func_02078e60
-extern "C" ARM unsigned short func_02078e60(void* obj, char* out) {
-    struct Obj02078e60* o = (struct Obj02078e60*)obj;
-    struct Entry_02028bd0* table;
-    struct Entry_02028bd0* entry;
-    struct ListEntry_02028430* le;
-    struct MaskEntry02078e60* found;
-    struct Slot02078e60* item;
-    struct Slot02078e60* picks[16];
-    struct Slot02078e60* pick;
-    int n;
-    int j;
-    int any;
-    int idx;
+extern "C" ARM unsigned short func_02078e60(void* arg0, char* arg1) {
+    struct Struct_02078e60* var0 = (struct Struct_02078e60*)arg0;
+    struct Struct_020fdd44* var1;
+    struct Struct_020fdd44* var2;
+    struct Struct_02028430_2* var3;
+    struct Struct_02078e60_2* var4;
+    struct Struct_02078e60_3* var5;
+    struct Struct_02078e60_3* var6[16];
+    struct Struct_02078e60_3* var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
 
-    *out = 0;
-    table = func_02027ca4();
-    entry = func_02028bd0(table, ((Object3D*)((struct U16Field0x6_020375f8*)o))->GetField06());
-    if (entry == NULL) {
+    *arg1 = 0;
+    var1 = func_02027ca4();
+    var2 = func_02028bd0(var1, ((Object3D*)((struct Struct_02039df4*)var0))->GetField06());
+    if (var2 == NULL) {
         return 0;
     }
 #if defined(jpn)
-    le = func_02028430((struct List_02028430*)((char*)entry + 0x14), o->field0xb8);
+    var3 = func_02028430((struct Struct_02028430*)((char*)var2 + 0x14), var0->unknown_b8_);
 #else
-    le = func_02028430((struct List_02028430*)((char*)entry + 0x18), o->field0xb8);
+    var3 = func_02028430((struct Struct_02028430*)((char*)var2 + 0x18), var0->unknown_b8_);
 #endif
-    if (le == NULL) {
+    if (var3 == NULL) {
         return 0;
     }
-    if (le->count == 0) {
+    if (var3->unknown_2_ == 0) {
         return 0;
     }
-    if ((o->field17d & 0x40) == 0) {
-        if (func_02073d58(le->id, entry, o->f4) != 0) {
-            *out = 1;
-            return le->id;
+    if ((var0->unknown_17d_ & 0x40) == 0) {
+        if (func_02073d58(var3->unknown_0_, var2, var0->unknown_4_) != 0) {
+            *arg1 = 1;
+            return var3->unknown_0_;
         }
-        *out = 0;
-        o->field17d |= 0x40;
-        return le->id;
+        *arg1 = 0;
+        var0->unknown_17d_ |= 0x40;
+        return var3->unknown_0_;
     }
 #if defined(jpn)
-    found = func_0209bd94((struct EntryTable0209bd94*)((char*)entry + 0x5c), o->field168);
+    var4 = func_0209bd94((struct Struct_02073ec4_2*)((char*)var2 + 0x5c), var0->unknown_168_);
 #else
-    found = func_0209bd94((struct EntryTable0209bd94*)((char*)entry + 0x60), o->field168);
+    var4 = func_0209bd94((struct Struct_02073ec4_2*)((char*)var2 + 0x60), var0->unknown_168_);
 #endif
-    n = 0;
-    any = 0;
-    if (found != NULL) {
-        for (j = 0; j < le->count; j++) {
-            item = le->items[j];
-            if ((item->flags & found->flags8) == 0 && item->flags != 0) {
+    var8 = 0;
+    var10 = 0;
+    if (var4 != NULL) {
+        for (var9 = 0; var9 < var3->unknown_2_; var9++) {
+            var5 = var3->unknown_c_[var9];
+            if ((var5->unknown_1_ & var4->unknown_5_5_) == 0 && var5->unknown_1_ != 0) {
                 continue;
             }
-            if (func_02073d58(item->id, entry, -1) != 0) {
-                any = 1;
+            if (func_02073d58(var5->unknown_0_, var2, -1) != 0) {
+                var10 = 1;
             } else {
-                picks[n++] = le->items[j];
+                var6[var8++] = var3->unknown_c_[var9];
             }
         }
     }
-    if (any == 1 && n == 0) {
+    if (var10 == 1 && var8 == 0) {
 #if defined(jpn)
-        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x14), le->id);
+        var11 = func_020283fc((struct Struct_020283fc*)((char*)var2 + 0x14), var3->unknown_0_);
 #else
-        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x18), le->id);
+        var11 = func_020283fc((struct Struct_020283fc*)((char*)var2 + 0x18), var3->unknown_0_);
 #endif
-        if (idx != -1) {
-            o->field0xb8 = idx;
+        if (var11 != -1) {
+            var0->unknown_b8_ = var11;
         }
-        return le->id;
+        return var3->unknown_0_;
     }
-    pick = 0;
-    if (n != 0) {
-        pick = picks[rand() % n];
+    var7 = 0;
+    if (var8 != 0) {
+        var7 = var6[rand() % var8];
     }
-    if (pick == 0) {
+    if (var7 == 0) {
 #if defined(jpn)
-        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x14), le->id);
+        var11 = func_020283fc((struct Struct_020283fc*)((char*)var2 + 0x14), var3->unknown_0_);
 #else
-        idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x18), le->id);
+        var11 = func_020283fc((struct Struct_020283fc*)((char*)var2 + 0x18), var3->unknown_0_);
 #endif
-        if (idx != -1) {
-            o->field0xb8 = idx;
+        if (var11 != -1) {
+            var0->unknown_b8_ = var11;
         }
-        return le->id;
+        return var3->unknown_0_;
     }
 #if defined(jpn)
-    idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x14), pick->id);
+    var11 = func_020283fc((struct Struct_020283fc*)((char*)var2 + 0x14), var7->unknown_0_);
 #else
-    idx = func_020283fc((struct List_020283fc*)((char*)entry + 0x18), pick->id);
+    var11 = func_020283fc((struct Struct_020283fc*)((char*)var2 + 0x18), var7->unknown_0_);
 #endif
-    if (idx != -1) {
-        o->field0xb8 = idx;
+    if (var11 != -1) {
+        var0->unknown_b8_ = var11;
     }
-    return pick->id;
+    return var7->unknown_0_;
 }

@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct S_02010124 {
-    char unk[0x3b4];
-    int field3b4;
-    int field3b8;
-    unsigned short field3bc;
-    char pad[2];
-    int field3c0;
-    int field3c4;
+struct Struct_0200f3a4_9 {
+    char unknown_0_[0x3b4];
+    int unknown_3b4_;
+    int unknown_3b8_;
+    unsigned short unknown_3bc_;
+    char unknown_3be_[2];
+    int unknown_3c0_;
+    int unknown_3c4_;
 };
 
 // USA: func_02010124
-extern "C" ARM void func_02010124(struct S_02010124* obj) {
-    obj->field3b4 = 0x21;
-    obj->field3b8 = 0x21;
-    obj->field3bc = 0x1000;
-    obj->field3c4 = 2;
-    obj->field3c0 = 0x2000;
+extern "C" ARM void func_02010124(struct Struct_0200f3a4_9* arg0) {
+    arg0->unknown_3b4_ = 0x21;
+    arg0->unknown_3b8_ = 0x21;
+    arg0->unknown_3bc_ = 0x1000;
+    arg0->unknown_3c4_ = 2;
+    arg0->unknown_3c0_ = 0x2000;
 }

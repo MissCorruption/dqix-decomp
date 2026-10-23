@@ -3,89 +3,89 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct SearchStruct0202c1a4;
-struct BitArrayObj0205e854;
+struct Struct_0202c1a4;
+struct Struct_0205e854;
 
-struct SlotPair_021b0288 {
-    unsigned char combatant;
-    unsigned char slot;
+struct Struct_ov017_021b0288 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
 };
 
-struct SlotState_021b0288 {
-    char unk0[0x4];
-    signed char* command;
-    char unk8[0x1];
-    unsigned char mode;
-    unsigned char result;
-    char unkB[0x10];
-    unsigned char slots[4];
-    char unk1F[0x24];
-    unsigned char order[4];
-    unsigned char orderCount;
+struct Struct_ov017_021b0288_2 {
+    char unknown_0_[0x4];
+    signed char* unknown_4_;
+    char unknown_8_[0x1];
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    char unknown_b_[0x10];
+    unsigned char unknown_1b_[4];
+    char unknown_1f_[0x24];
+    unsigned char unknown_43_[4];
+    unsigned char unknown_47_;
 };
 
-extern "C" SearchStruct0202c1a4* func_0202ae18(void);
-extern "C" unsigned char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
-extern "C" void func_020546a0(void* obj, int value);
-extern "C" void func_ov017_021c32b0(SlotPair_021b0288* pairs, int count);
-extern "C" void func_020100a0(GameState* gs, int value);
-extern "C" void func_ov017_02191108(void* unused, int c, int d, int e, int flag);
-extern "C" void func_ov017_021b0a7c(SlotState_021b0288* obj);
-extern "C" void func_ov017_021d0b30(int a, int b, int c);
+extern "C" Struct_0202c1a4* func_0202ae18(void);
+extern "C" unsigned char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" void func_020546a0(void* arg0, int arg1);
+extern "C" void func_ov017_021c32b0(Struct_ov017_021b0288* arg0, int arg1);
+extern "C" void func_020100a0(GameState* arg0, int arg1);
+extern "C" void func_ov017_02191108(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_ov017_021b0a7c(Struct_ov017_021b0288_2* arg0);
+extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void* func_0202ae24(void);
-extern "C" void* func_0205e854(struct BitArrayObj0205e854* obj);
+extern "C" void* func_0205e854(struct Struct_0205e854* arg0);
 
 // USA: func_ov017_021b0288
-extern "C" ARM int func_ov017_021b0288(SlotState_021b0288* obj) {
-    if (obj->slots[0] != 0) {
-        if (obj->mode == 2) {
-            GameObject* combatant;
-            int j;
-            int i;
-            int count;
-            GameResources* resources;
-            SearchStruct0202c1a4* search;
-            GameState* battle;
-            unsigned char slots[4];
-            SlotPair_021b0288 pairs[4];
-            battle = GameState::GetInstance();
-            search = func_0202ae18();
-            resources = GetGameResources();
-            count = 0;
-            pairs[count].combatant = 0;
-            pairs[count].slot = func_0202c1a4(search);
-            count++;
-            memcpy(slots, obj->slots, 4);
-            for (i = 3; i >= 1; i--) {
-                combatant = func_0200ff58(battle, i);
-                if (combatant == 0) continue;
-                for (j = 3; j >= 1; j--) {
-                    if (slots[j] == 3) {
-                        pairs[count].combatant = i;
-                        pairs[count].slot = j;
-                        func_020546a0(combatant, func_0202c1a4(search));
-                        slots[j] = 0;
-                        count++;
+extern "C" ARM int func_ov017_021b0288(Struct_ov017_021b0288_2* arg0) {
+    if (arg0->unknown_1b_[0] != 0) {
+        if (arg0->unknown_9_ == 2) {
+            GameObject* var0;
+            int var1;
+            int var2;
+            int var3;
+            GameResources* var4;
+            Struct_0202c1a4* var5;
+            GameState* var6;
+            unsigned char var7[4];
+            Struct_ov017_021b0288 var8[4];
+            var6 = GameState::GetInstance();
+            var5 = func_0202ae18();
+            var4 = GetGameResources();
+            var3 = 0;
+            var8[var3].unknown_0_ = 0;
+            var8[var3].unknown_1_ = func_0202c1a4(var5);
+            var3++;
+            memcpy(var7, arg0->unknown_1b_, 4);
+            for (var2 = 3; var2 >= 1; var2--) {
+                var0 = func_0200ff58(var6, var2);
+                if (var0 == 0) continue;
+                for (var1 = 3; var1 >= 1; var1--) {
+                    if (var7[var1] == 3) {
+                        var8[var3].unknown_0_ = var2;
+                        var8[var3].unknown_1_ = var1;
+                        func_020546a0(var0, func_0202c1a4(var5));
+                        var7[var1] = 0;
+                        var3++;
                         break;
                     }
                 }
             }
-            func_ov017_021c32b0(pairs, count);
-            obj->orderCount = count;
-            for (int k = 0; k < count; k++) {
-                obj->order[k] = pairs[k].slot;
+            func_ov017_021c32b0(var8, var3);
+            arg0->unknown_47_ = var3;
+            for (int var9 = 0; var9 < var3; var9++) {
+                arg0->unknown_43_[var9] = var8[var9].unknown_1_;
             }
-            func_020100a0(battle, func_0202c1a4(search));
-            int flag = 1;
-            if (obj->command != 0 && *obj->command == 10) flag = 0;
-            func_ov017_02191108(resources, 1, flag, 1, 1);
+            func_020100a0(var6, func_0202c1a4(var5));
+            int var10 = 1;
+            if (arg0->unknown_4_ != 0 && *arg0->unknown_4_ == 10) var10 = 0;
+            func_ov017_02191108(var4, 1, var10, 1, 1);
         }
-        func_ov017_021b0a7c(obj);
+        func_ov017_021b0a7c(arg0);
         func_ov017_021d0b30(2, 0, 0);
-        if (obj->mode != 2) return 0xb;
-        func_0205e854((BitArrayObj0205e854*)func_0202ae24());
+        if (arg0->unknown_9_ != 2) return 0xb;
+        func_0205e854((Struct_0205e854*)func_0202ae24());
         return 6;
     }
-    return obj->result;
+    return arg0->unknown_a_;
 }

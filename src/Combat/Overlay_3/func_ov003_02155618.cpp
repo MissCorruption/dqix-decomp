@@ -3,66 +3,66 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-enum { kRegionValue1EA_1E6 = 0x1e6 };
-enum { kRegionValue1E6_1E2 = 0x1e2 };
+enum { Enum_ov003_02155618_490 = 0x1e6 };
+enum { Enum_ov003_02155618_486 = 0x1e2 };
 #else
-enum { kRegionValue1EA_1E6 = 0x1ea };
-enum { kRegionValue1E6_1E2 = 0x1e6 };
+enum { Enum_ov003_02155618_490 = 0x1ea };
+enum { Enum_ov003_02155618_486 = 0x1e6 };
 #endif
 
-struct IntField0x23c_020a27c4;
-extern "C" int func_020100f8(char* obj);
-extern "C" int func_020a27c4(struct IntField0x23c_020a27c4* obj);
-extern "C" int func_ov003_021550dc(void* obj);
-extern "C" int func_ov003_02155208(void* self);
+struct Struct_020676e0;
+extern "C" int func_020100f8(char* arg0);
+extern "C" int func_020a27c4(struct Struct_020676e0* arg0);
+extern "C" int func_ov003_021550dc(void* arg0);
+extern "C" int func_ov003_02155208(void* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-struct Obj2081;
-extern "C" void func_0207fdcc(struct Obj2081* obj, int key);
+struct Struct_0207fdcc_2;
+extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 
-struct Obj0208203c;
-extern "C" void func_0208203c(struct Obj0208203c* obj);
+struct Struct_02081f20_2;
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
-struct Obj020e25e8;
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
-extern struct Obj0205eaa0 data_02108760;
+extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov003_02155618
-extern "C" ARM int func_ov003_02155618(char* obj) {
-    *(void**)(obj + 8) = obj + kRegionValue1EA_1E6;
-    int result = 0;
-    int flagB = result;
+extern "C" ARM int func_ov003_02155618(char* arg0) {
+    *(void**)(arg0 + 8) = arg0 + Enum_ov003_02155618_490;
+    int var0 = 0;
+    int var1 = var0;
 
-    GameState* battle = GameState::GetInstance();
-    struct IntField0x23c_020a27c4* p = (struct IntField0x23c_020a27c4*)func_020100f8((char*)battle);
-    if (p != 0 && ((*((unsigned char*)p + 0x244) & 2) != 0 || func_020a27c4(p) == 0)) {
-        flagB = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
+    GameState* var2 = GameState::GetInstance();
+    struct Struct_020676e0* var3 = (struct Struct_020676e0*)func_020100f8((char*)var2);
+    if (var3 != 0 && ((*((unsigned char*)var3 + 0x244) & 2) != 0 || func_020a27c4(var3) == 0)) {
+        var1 = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
     }
 
-    if (func_ov003_021550dc(obj) != 0 || flagB != 0) {
+    if (func_ov003_021550dc(arg0) != 0 || var1 != 0) {
         func_0205eaa0(&data_02108760, 1, 0);
-        result = -1;
-        if (*(short*)(obj + kRegionValue1EA_1E6) == 6) {
-            result = 1;
+        var0 = -1;
+        if (*(short*)(arg0 + Enum_ov003_02155618_490) == 6) {
+            var0 = 1;
         }
     } else {
-        if (func_ov003_02155208(obj) != 0) {
-            result = -1;
+        if (func_ov003_02155208(arg0) != 0) {
+            var0 = -1;
         }
     }
 
-    if (result != 0) {
-        func_0207fdcc(*(struct Obj2081**)(obj + 0x18), *(short*)(obj + kRegionValue1E6_1E2));
-        func_0208203c((struct Obj0208203c*)(obj + 0x80));
-        *(void**)(obj + 8) = 0;
+    if (var0 != 0) {
+        func_0207fdcc(*(struct Struct_0207fdcc_2**)(arg0 + 0x18), *(short*)(arg0 + Enum_ov003_02155618_486));
+        func_0208203c((struct Struct_02081f20_2*)(arg0 + 0x80));
+        *(void**)(arg0 + 8) = 0;
     }
 
-    if (*(void**)(obj + 0x1c) != 0 && result != 0) {
-        func_020e25e8(*(struct Obj020e25e8**)(obj + 0x1c));
+    if (*(void**)(arg0 + 0x1c) != 0 && var0 != 0) {
+        func_020e25e8(*(struct Struct_020e25e8**)(arg0 + 0x1c));
     }
 
-    return result;
+    return var0;
 }

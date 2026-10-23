@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 
-extern "C" void func_020804fc(void* obj, int p1);
-extern "C" void func_020813ec(void* obj, int p1);
+extern "C" void func_020804fc(void* arg0, int arg1);
+extern "C" void func_020813ec(void* arg0, int arg1);
 
-struct List0207f0ac;
-struct SubEntry0207f0ac {
-    short* shortArray;
-    char pad[0x13 - 4];
-    unsigned char count;
+struct Struct_0207f0ac;
+struct Struct_02080558 {
+    short* unknown_0_;
+    char unknown_4_[0x13 - 4];
+    unsigned char unknown_13_;
 };
-extern "C" SubEntry0207f0ac* func_0207f0ac(List0207f0ac* list, int id);
+extern "C" Struct_02080558* func_0207f0ac(Struct_0207f0ac* arg0, int arg1);
 
-struct List0207f6ac;
-struct SubEntry0207f6ac {
-    char pad[4];
-    short id;
-    char pad2[0x2a - 6];
-    unsigned char flags;
+struct Struct_0207f524;
+struct Struct_02080558_2 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0x2a - 6];
+    unsigned char unknown_2a_;
 };
-extern "C" SubEntry0207f6ac* func_0207f6ac(List0207f6ac* list, int id);
+extern "C" Struct_02080558_2* func_0207f6ac(Struct_0207f524* arg0, int arg1);
 
 // USA: func_02080558
-extern "C" ARM void func_02080558(void* obj, int p1, int result, int flag, unsigned char extra) {
-    if (flag) {
-        func_020804fc(obj, p1);
+extern "C" ARM void func_02080558(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4) {
+    if (arg3) {
+        func_020804fc(arg0, arg1);
     }
-    SubEntry0207f0ac* e = func_0207f0ac((List0207f0ac*)((char*)obj + 0xc), p1);
-    if (e != 0) {
-        for (unsigned char i = 0; i < e->count; i++) {
-            short shortId = e->shortArray[i];
-            SubEntry0207f6ac* e2 = func_0207f6ac((List0207f6ac*)((char*)obj + 4), shortId);
-            if (e2 != 0) {
-                if (e2->id == result) {
-                    e2->flags = e2->flags | 4;
+    Struct_02080558* var0 = func_0207f0ac((Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    if (var0 != 0) {
+        for (unsigned char var1 = 0; var1 < var0->unknown_13_; var1++) {
+            short var2 = var0->unknown_0_[var1];
+            Struct_02080558_2* var3 = func_0207f6ac((Struct_0207f524*)((char*)arg0 + 4), var2);
+            if (var3 != 0) {
+                if (var3->unknown_4_ == arg2) {
+                    var3->unknown_2a_ = var3->unknown_2a_ | 4;
                     goto end;
                 }
             }
         }
     }
 end:
-    if (extra == 0) return;
-    func_020813ec(obj, p1);
+    if (arg4 == 0) return;
+    func_020813ec(arg0, arg1);
 }

@@ -1,68 +1,68 @@
 #if defined(jpn)
-enum { RegionOffset630 = 0x420, SlotBaseOffset = 0x2980 };
+enum { Enum_ov017_0219b43c_1584 = 0x420, Enum_ov017_0219b43c_11152 = 0x2980 };
 #else
-enum { RegionOffset630 = 0x630, SlotBaseOffset = 0x2b90 };
+enum { Enum_ov017_0219b43c_1584 = 0x630, Enum_ov017_0219b43c_11152 = 0x2b90 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-struct Vec3copy0202ec84 { unsigned int v[3]; };
-extern "C" int func_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
+struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
+extern "C" int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
 
-struct Vec3Target0203a46c;
-extern "C" void func_0203a46c(struct Vec3Target0203a46c* obj, int x, int y, int z);
+struct Struct_0203a46c;
+extern "C" void func_0203a46c(struct Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 
-struct Struct020478bc;
-extern "C" void func_020478bc(struct Struct020478bc* o, int newIndex);
+struct Struct_02017098_3;
+extern "C" void func_020478bc(struct Struct_02017098_3* arg0, int arg1);
 
-struct Slot0219b43c { unsigned char pad[0x88]; };
+struct Struct_ov017_0219b43c { unsigned char unknown_0_[0x88]; };
 
 // USA: func_ov017_0219b43c
-extern "C" ARM void func_ov017_0219b43c(char* obj, int mode, struct Vec3copy0202ec84* vec3, int extra, int arg5) {
-    void* fieldVal = func_020100bc(GameState::GetInstance());
-    switch (mode) {
+extern "C" ARM void func_ov017_0219b43c(char* arg0, int arg1, struct Struct_02015ef4* arg2, int arg3, int arg4) {
+    void* var0 = func_020100bc(GameState::GetInstance());
+    switch (arg1) {
     case 2:
-        mode = 2;
+        arg1 = 2;
         break;
     case 5:
-        mode = 3;
+        arg1 = 3;
         break;
     case 6:
-        mode = 4;
+        arg1 = 4;
         break;
     case 14:
-        mode = 12;
+        arg1 = 12;
         break;
     case 15:
-        mode = 13;
+        arg1 = 13;
         break;
     case 16:
-        mode = 14;
+        arg1 = 14;
         break;
     }
 
-    int local1, local0;
-    func_0202ec84(fieldVal, vec3, &local1, &local0);
+    int var1, var2;
+    func_0202ec84(var0, arg2, &var1, &var2);
 
-    struct Slot0219b43c* slot = (struct Slot0219b43c*)(obj + SlotBaseOffset) + mode;
-    *(struct Slot0219b43c**)(obj + 0x3000 + RegionOffset630) = slot;
+    struct Struct_ov017_0219b43c* var3 = (struct Struct_ov017_0219b43c*)(arg0 + Enum_ov017_0219b43c_11152) + arg1;
+    *(struct Struct_ov017_0219b43c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584) = var3;
 
-    switch (mode) {
+    switch (arg1) {
     default: {
-        int x = ((local1 - 0xc) + extra) << 0xc;
-        int y = ((local0 - 0x4c) + arg5) << 0xc;
-        func_0203a46c(*(struct Vec3Target0203a46c**)(obj + 0x3000 + RegionOffset630), x, y, 0);
-        func_020478bc(*(struct Struct020478bc**)(obj + 0x3000 + RegionOffset630), 1);
+        int var4 = ((var1 - 0xc) + arg3) << 0xc;
+        int var5 = ((var2 - 0x4c) + arg4) << 0xc;
+        func_0203a46c(*(struct Struct_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var4, var5, 0);
+        func_020478bc(*(struct Struct_02017098_3**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), 1);
         break;
     }
     case 0xc:
     case 0xd:
     case 0xe: {
-        int x = ((local1 - 6) + extra) << 0xc;
-        int y = ((local0 - 0x4c) + arg5) << 0xc;
-        func_0203a46c(*(struct Vec3Target0203a46c**)(obj + 0x3000 + RegionOffset630), x, y, 0);
+        int var6 = ((var1 - 6) + arg3) << 0xc;
+        int var7 = ((var2 - 0x4c) + arg4) << 0xc;
+        func_0203a46c(*(struct Struct_0203a46c**)(arg0 + 0x3000 + Enum_ov017_0219b43c_1584), var6, var7, 0);
         break;
     }
     }

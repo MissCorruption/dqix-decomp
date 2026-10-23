@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Base02087510 {
-    char pad[0xf2c];
+struct Struct_02087510 {
+    char unknown_0_[0xf2c];
 };
 
 // USA: func_02087510
 // USA: func_02087510
-extern "C" ARM int func_02087510(Base02087510* self, char c, void* out) {
-    int i;
-    for (i = 0; i < 3; i++) {
-        if (*(signed char*)((char*)self + 0xf3c + i * 0x14) < 0) {
-            memcpy((char*)self + 0xf2c + i * 0x14, out, 0x10);
-            *(char*)((char*)self + 0xf3c + i * 0x14) = c;
+extern "C" ARM int func_02087510(Struct_02087510* arg0, char arg1, void* arg2) {
+    int var0;
+    for (var0 = 0; var0 < 3; var0++) {
+        if (*(signed char*)((char*)arg0 + 0xf3c + var0 * 0x14) < 0) {
+            memcpy((char*)arg0 + 0xf2c + var0 * 0x14, arg2, 0x10);
+            *(char*)((char*)arg0 + 0xf3c + var0 * 0x14) = arg1;
             return 1;
         }
     }

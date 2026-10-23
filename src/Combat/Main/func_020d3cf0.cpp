@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct Name020d3cf0 { unsigned char c[11]; };
+struct Struct_020d3cf0_2 { unsigned char unknown_0_[11]; };
 #else
-struct Name020d3cf0 { unsigned char c[16]; };
+struct Struct_020d3cf0_2 { unsigned char unknown_0_[16]; };
 #endif
 
-struct Entry020d3cf0 {
-    struct Name020d3cf0 name;
-    unsigned char b10;
-    unsigned char b11;
-    unsigned char b12;
-    unsigned char b13;
-    unsigned int w14;
-    unsigned int w18;
-    unsigned int w1c;
-    unsigned short h20;
-    unsigned short h22;
+struct Struct_020d39dc_3 {
+    struct Struct_020d3cf0_2 unknown_0_;
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    unsigned int unknown_14_;
+    unsigned int unknown_18_;
+    unsigned int unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
 };
 
-struct Container020d3cf0 {
-    struct Entry020d3cf0 entries[5];
-    int count;
+struct Struct_020d3cf0 {
+    struct Struct_020d39dc_3 unknown_0_[5];
+    int unknown_b4_;
 };
 
 // USA: func_020d3cf0
-extern "C" ARM void func_020d3cf0(struct Container020d3cf0* c, struct Entry020d3cf0* src) {
-    int idx = c->count;
-    struct Entry020d3cf0* dst;
-    if (idx >= 5) return;
+extern "C" ARM void func_020d3cf0(struct Struct_020d3cf0* arg0, struct Struct_020d39dc_3* arg1) {
+    int var0 = arg0->unknown_b4_;
+    struct Struct_020d39dc_3* var1;
+    if (var0 >= 5) return;
 #if defined(jpn)
-    c->count = idx + 1;
-    dst = &c->entries[idx];
+    arg0->unknown_b4_ = var0 + 1;
+    var1 = &arg0->unknown_0_[var0];
 #else
-    dst = &c->entries[idx];
-    c->count = idx + 1;
+    var1 = &arg0->unknown_0_[var0];
+    arg0->unknown_b4_ = var0 + 1;
 #endif
-    dst->name = src->name;
-    dst->b10 = src->b10;
-    dst->b11 = src->b11;
-    dst->b12 = src->b12;
-    dst->b13 = src->b13;
-    dst->w14 = src->w14;
-    dst->w18 = src->w18;
-    dst->w1c = src->w1c;
-    dst->h20 = src->h20;
-    dst->h22 = src->h22;
+    var1->unknown_0_ = arg1->unknown_0_;
+    var1->unknown_10_ = arg1->unknown_10_;
+    var1->unknown_11_ = arg1->unknown_11_;
+    var1->unknown_12_ = arg1->unknown_12_;
+    var1->unknown_13_ = arg1->unknown_13_;
+    var1->unknown_14_ = arg1->unknown_14_;
+    var1->unknown_18_ = arg1->unknown_18_;
+    var1->unknown_1c_ = arg1->unknown_1c_;
+    var1->unknown_20_ = arg1->unknown_20_;
+    var1->unknown_22_ = arg1->unknown_22_;
 }

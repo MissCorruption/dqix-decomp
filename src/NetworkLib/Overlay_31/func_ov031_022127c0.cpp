@@ -4,20 +4,20 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-typedef void (*Handler022127c0)(void*, int, int);
-struct Obj0224e5c0 { Handler022127c0 fn; };
-extern Obj0224e5c0* data_ov031_0224e5c0;
+typedef void (*Type_0201282c_2)(void*, int, int);
+struct Struct_ov031_022127c0 { Type_0201282c_2 unknown_0_; };
+extern Struct_ov031_022127c0* data_ov031_0224e5c0;
 
 extern "C" void func_020c9be0(void);
-extern "C" void func_ov031_02211b08(int a, int b);
+extern "C" void func_ov031_02211b08(int arg0, int arg1);
 
 // USA: func_ov031_022127c0
-extern "C" ARM void func_ov031_022127c0(void* a, int sel, int c) {
-	if (sel == 0) {
-		data_ov031_0224e5c0->fn(a, sel, c);
+extern "C" ARM void func_ov031_022127c0(void* arg0, int arg1, int arg2) {
+	if (arg1 == 0) {
+		data_ov031_0224e5c0->unknown_0_(arg0, arg1, arg2);
 		return;
 	}
-	switch (sel) {
+	switch (arg1) {
 	case 1:
 		func_ov031_02211b08(9, 0xffff86e7);
 		break;
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov031_022127c0(void* a, int sel, int c) {
 		func_ov031_02211b08(0xe, 0xffff86ca);
 		break;
 	case 5:
-		func_ov031_02211b08(0xe, 0xffff86e8 - c);
+		func_ov031_02211b08(0xe, 0xffff86e8 - arg2);
 		break;
 	case 6:
 		break;
@@ -45,5 +45,5 @@ extern "C" ARM void func_ov031_022127c0(void* a, int sel, int c) {
 		func_020c9be0();
 		break;
 	}
-	data_ov031_0224e5c0->fn(a, sel, c);
+	data_ov031_0224e5c0->unknown_0_(arg0, arg1, arg2);
 }

@@ -7,20 +7,20 @@
 #endif
 #include <globaldefs.h>
 
-struct Field440Obj0202f6a4;
+struct Struct_0202f6a4;
 
 extern "C" void func_02042b10(void*, void*);
 extern "C" void func_02042b1c(unsigned char*);
-extern "C" void func_0202f6a4(Field440Obj0202f6a4*);
+extern "C" void func_0202f6a4(Struct_0202f6a4*);
 extern "C" int func_0205cd6c(unsigned char*);
 extern "C" unsigned char* func_020421a0();
 
 // USA: func_0205cd28
-extern "C" ARM void func_0205cd28(unsigned char* self) {
-    unsigned char* global = func_020421a0();
-    func_02042b10(global, self + 0xb4);
-    if (func_0205cd6c(global + CONTROLLER_OFFSET_LO + CONTROLLER_OFFSET_HI) == 0) {
-        func_0202f6a4((Field440Obj0202f6a4*)(global + CONTROLLER_OFFSET_LO + CONTROLLER_OFFSET_HI));
+extern "C" ARM void func_0205cd28(unsigned char* arg0) {
+    unsigned char* var0 = func_020421a0();
+    func_02042b10(var0, arg0 + 0xb4);
+    if (func_0205cd6c(var0 + CONTROLLER_OFFSET_LO + CONTROLLER_OFFSET_HI) == 0) {
+        func_0202f6a4((Struct_0202f6a4*)(var0 + CONTROLLER_OFFSET_LO + CONTROLLER_OFFSET_HI));
     }
-    func_02042b1c(global);
+    func_02042b1c(var0);
 }

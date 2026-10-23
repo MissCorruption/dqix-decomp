@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Holder_375cc;
-struct Node_375cc;
+struct Struct_0204a054_4;
+struct Struct_0204a054_5;
 
-struct List_020347b4;
-struct Entry_020347b4;
+struct Struct_0204a054;
+struct Struct_0204a054_2;
 
-struct Sub0204a054 {
-    char pad[0x58];
-    unsigned char field_58;
-    unsigned char field_59;
-    unsigned char field_5a;
-    unsigned char field_5b;
-    unsigned short field_5c;
+struct Struct_0204a054_3 {
+    char unknown_0_[0x58];
+    unsigned char unknown_58_;
+    unsigned char unknown_59_;
+    unsigned char unknown_5a_;
+    unsigned char unknown_5b_;
+    unsigned short unknown_5c_;
 };
 
-struct Obj0204a054 {
-    char pad[0x13c];
-    struct Sub0204a054* field_13c;
+struct Struct_020489e8_3 {
+    char unknown_0_[0x13c];
+    struct Struct_0204a054_3* unknown_13c_;
 };
 
 // USA: func_0204a054
-extern "C" ARM void func_0204a054(struct Obj0204a054* obj) {
-    GameState* battleStruct;
-    struct Sub0204a054* entry;
-    int threshold;
-    unsigned short v;
-    battleStruct = GameState::GetInstance();
-    entry = obj->field_13c;
-    if (entry->field_5c == 0) return;
-    threshold = battleStruct->GetEffectiveDeltaTime();
-    v = entry->field_5c;
-    if ((unsigned int)threshold < v) {
-        entry->field_5c = v - threshold;
+extern "C" ARM void func_0204a054(struct Struct_020489e8_3* arg0) {
+    GameState* var0;
+    struct Struct_0204a054_3* var1;
+    int var2;
+    unsigned short var3;
+    var0 = GameState::GetInstance();
+    var1 = arg0->unknown_13c_;
+    if (var1->unknown_5c_ == 0) return;
+    var2 = var0->GetEffectiveDeltaTime();
+    var3 = var1->unknown_5c_;
+    if ((unsigned int)var2 < var3) {
+        var1->unknown_5c_ = var3 - var2;
         return;
     }
     {
-        Node_375cc* node = (Node_375cc*)((Object3D*)((Holder_375cc*)obj))->GetAnimationPackageByIndex(entry->field_58);
-        if (node != NULL) {
-            Entry_020347b4* member = (Entry_020347b4*)((BCFG*)((List_020347b4*)((char*)node + 4)))->GetAnimationRecord(entry->field_59);
-            if (member != NULL) {
-                ((Object3D*)obj)->MaybeSetRegularAnimation((char const*)member, entry->field_5a);
+        Struct_0204a054_5* var4 = (Struct_0204a054_5*)((Object3D*)((Struct_0204a054_4*)arg0))->GetAnimationPackageByIndex(var1->unknown_58_);
+        if (var4 != NULL) {
+            Struct_0204a054_2* var5 = (Struct_0204a054_2*)((BCFG*)((Struct_0204a054*)((char*)var4 + 4)))->GetAnimationRecord(var1->unknown_59_);
+            if (var5 != NULL) {
+                ((Object3D*)arg0)->MaybeSetRegularAnimation((char const*)var5, var1->unknown_5a_);
             }
         }
     }
-    entry->field_5c = 0;
+    var1->unknown_5c_ = 0;
 }

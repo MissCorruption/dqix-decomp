@@ -1,51 +1,51 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Ctx0209f24c {
-    char pad0[4];
-    void* tablePtr;      // +4
-    char pad1[0x98 - 8];
-    int count0x98;       // +0x98
-    char arr0x9c[0x400]; // +0x9c
-    int count0x49c;      // +0x49c
-    char arr0x4a0[0x400];// +0x4a0
+struct Struct_0209f24c_2 {
+    char unknown_0_[4];
+    void* unknown_4_;      // +4
+    char unknown_8_[0x98 - 8];
+    int unknown_98_;       // +0x98
+    char unknown_9c_[0x400]; // +0x9c
+    int unknown_49c_;      // +0x49c
+    char unknown_4a0_[0x400];// +0x4a0
 };
 
-struct FieldFlags0x1a {
-    unsigned short low : 9;
-    unsigned short team : 3;
-    unsigned short high : 4;
+struct Struct_0209f24c {
+    unsigned short unknown_0_0_ : 9;
+    unsigned short unknown_1_1_ : 3;
+    unsigned short unknown_1_4_ : 4;
 };
 
 // USA: func_0209f24c
-extern "C" ARM void func_0209f24c(struct Ctx0209f24c* obj, int mode, int team) {
-    int elemSize = 0x40;
-    if (mode == 0) {
-        int count;
-        int i;
-        obj->count0x98 = 0;
-        count = *(unsigned char*)((char*)obj->tablePtr + 0x8e07);
-        for (i = 0; i < count; i++) {
-            char* elem = (char*)obj->tablePtr + 0x5c60 + i * elemSize;
-            if (elem != 0 && (*(unsigned int*)(elem + 0xc) & 0x80) && team == ((struct FieldFlags0x1a*)(elem + 0x1a))->team) {
-                int idx = obj->count0x98++;
-                memcpy(obj->arr0x9c + idx * elemSize, elem, elemSize);
+extern "C" ARM void func_0209f24c(struct Struct_0209f24c_2* arg0, int arg1, int arg2) {
+    int var0 = 0x40;
+    if (arg1 == 0) {
+        int var1;
+        int var2;
+        arg0->unknown_98_ = 0;
+        var1 = *(unsigned char*)((char*)arg0->unknown_4_ + 0x8e07);
+        for (var2 = 0; var2 < var1; var2++) {
+            char* var3 = (char*)arg0->unknown_4_ + 0x5c60 + var2 * var0;
+            if (var3 != 0 && (*(unsigned int*)(var3 + 0xc) & 0x80) && arg2 == ((struct Struct_0209f24c*)(var3 + 0x1a))->unknown_1_1_) {
+                int var4 = arg0->unknown_98_++;
+                memcpy(arg0->unknown_9c_ + var4 * var0, var3, var0);
             }
         }
         return;
     }
-    obj->count0x49c = 0;
-    memset(obj->arr0x4a0, 0, 0x400);
+    arg0->unknown_49c_ = 0;
+    memset(arg0->unknown_4a0_, 0, 0x400);
     {
-    int i;
-    for (i = 0; i < obj->count0x98; i++) {
-        char* elem = obj->arr0x9c + i * elemSize;
-        if ((*(unsigned int*)(elem + 0xc) & 0x80) && team == ((struct FieldFlags0x1a*)(elem + 0x1a))->team) {
-            int idx = obj->count0x49c++;
-            memcpy(obj->arr0x4a0 + idx * elemSize, elem, elemSize);
+    int var5;
+    for (var5 = 0; var5 < arg0->unknown_98_; var5++) {
+        char* var6 = arg0->unknown_9c_ + var5 * var0;
+        if ((*(unsigned int*)(var6 + 0xc) & 0x80) && arg2 == ((struct Struct_0209f24c*)(var6 + 0x1a))->unknown_1_1_) {
+            int var7 = arg0->unknown_49c_++;
+            memcpy(arg0->unknown_4a0_ + var7 * var0, var6, var0);
         }
     }
     }
-    obj->count0x98 = obj->count0x49c;
-    memcpy(obj->arr0x9c, obj->arr0x4a0, 0x400);
+    arg0->unknown_98_ = arg0->unknown_49c_;
+    memcpy(arg0->unknown_9c_, arg0->unknown_4a0_, 0x400);
 }

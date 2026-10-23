@@ -7,133 +7,133 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
-struct Obj020397cc {
-    char pad0[0xb2];
-    short fieldB2;
+struct Struct_02018300_3 {
+    char unknown_0_[0xb2];
+    short unknown_b2_;
 };
 
-struct SearchStruct;
-struct Container020dedd0;
-struct Container020e0310;
-struct Struct020dfc40;
+struct Struct_0202b2f0;
+struct Struct_0201099c_10;
+struct Struct_0201099c_3;
+struct Struct_0201099c_14;
 
-struct StoreStruct {
+struct Struct_020465c0 {
 #if defined(jpn)
-    char pad0[0x28];
-    char* message;
-    char pad2c[0x868 - 0x2c];
+    char unknown_0_[0x28];
+    char* unknown_5c_;
+    char unknown_2c_[0x868 - 0x2c];
 #else
-    void* nameText;
-    char pad4[0x14];
-    void* listText;
-    char pad1c[0xc];
-    void* actorText;
-    char pad2c[0x30];
-    char* message;
-    char pad60[0x998 - 0x60];
+    void* unknown1_0_;
+    char unknown_4_[0x14];
+    void* unknown_18_;
+    char unknown_1c_[0xc];
+    void* unknown_28_;
+    char unknown1_2c_[0x30];
+    char* unknown_5c_;
+    char unknown_60_[0x998 - 0x60];
 #endif
-    int busy;
-    char pad99c[4];
-    int windowState;
+    int unknown_998_;
+    char unknown_99c_[4];
+    int unknown_9a0_;
 #if defined(jpn)
-    char pad874[0x17de - 0x874];
+    char unknown_874_[0x17de - 0x874];
 #else
-    char pad9a4[0x19ae - 0x9a4];
+    char unknown_9a4_[0x19ae - 0x9a4];
 #endif
-    unsigned char pending;
+    unsigned char unknown_19ae_;
 };
 
-struct ParamTable021a7e14 {
-    char pad0[0x950];
-    int nameId;
+struct Struct_ov017_021a7e14_6 {
+    char unknown_0_[0x950];
+    int unknown_950_;
 };
 
-struct Combatant021a7e14 {
-    char pad0[0x150];
-    ParamTable021a7e14* params;
+struct Struct_ov017_021a7e14 {
+    char unknown_0_[0x150];
+    Struct_ov017_021a7e14_6* unknown_150_;
 };
 
-struct MessageBuffers021a7e14 {
-    char* first;
-    char* second;
-    int unk8;
+struct Struct_ov017_021a7e14_2 {
+    char* unknown_0_;
+    char* unknown_4_;
+    int unknown_8_;
 };
 
-struct Element021a7e14 {
-    char pad0[8];
-    unsigned int kind : 4;
+struct Struct_ov017_021a7e14_3 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
 };
 
-struct LootTextContext {
-    SafeAllocator allocator;
-    char list[0x18];
-    Container020dedd0* containerData;
-    int field30;
-    int field34;
+struct Struct_ov017_021a7e14_4 {
+    SafeAllocator unknown_0_;
+    char unknown_14_[0x18];
+    Struct_0201099c_10* unknown_2c_;
+    int unknown_30_;
+    int unknown_34_;
 };
 
-struct Obj021a7e14 {
-    unsigned char byte0;
-    unsigned char finished;
-    unsigned char pad2[6];
-    SafeAllocator alloc;
-    Container020e0310* strings;
-    char* message;
-    int state;
-    int taskId;
-    Container020dedd0* container;
-    short key;
-    short pad32;
-    int combatantId;
-    short timer;
-    unsigned short flags;
+struct Struct_ov017_021a7e14_5 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[6];
+    SafeAllocator unknown_8_;
+    Struct_0201099c_3* unknown_1c_;
+    char* unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    Struct_0201099c_10* unknown_2c_;
+    short unknown_30_;
+    short unknown_32_;
+    int unknown_34_;
+    short unknown_38_;
+    unsigned short unknown_3a_;
 #if !defined(jpn)
-    MessageBuffers021a7e14* buffers;
-    void* actorText;
-    void* listText;
-    char* firstBuffer;
-    char* secondBuffer;
+    Struct_ov017_021a7e14_2* unknown_3c_;
+    void* unknown_40_;
+    void* unknown_44_;
+    char* unknown_48_;
+    char* unknown_4c_;
 #endif
 };
 
-extern "C" StoreStruct* func_020421a0();
-extern "C" SearchStruct* func_0202ae18();
-extern "C" int func_020100a8(GameState* gs);
-extern "C" void func_020397cc(Obj020397cc* obj, int arg);
-extern "C" void func_020a0cc4(unsigned int size);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_0202b2f0* func_0202ae18();
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern "C" void func_020a0c0c();
 #if defined(jpn)
 #define func_ov017_021a7dd8 func_ov017_021a8754
 #endif
-extern "C" void func_ov017_021a7dd8(Obj021a7e14* self);
-extern "C" void func_020dfc40(Struct020dfc40* p);
-extern "C" void func_020dfec0(void* dest, SafeAllocator* alloc, void* data, unsigned int size);
-extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
-extern "C" void func_020de848(void* p);
-extern "C" void func_020de980(void* dest, void* alloc, void* data, int size, int key);
-extern "C" void func_020e46c4(void* p);
-extern "C" void* memset(void* dst, int c, unsigned int n);
-extern "C" void func_020dcf7c(int key, void* p);
-extern "C" Element021a7e14* func_020dedd0(Container020dedd0* c, int key);
-extern "C" void func_ov017_021d0198(int a, int b, int c, int d);
-extern "C" void func_020e4bf4(void* obj, int combatantId);
-extern "C" char* func_020e51cc(int value);
-extern "C" void func_020e4b34(void* obj, char* name, int a, int b, int c, int d, int e, int f, int g, int h, int i, int j);
-extern "C" void func_02046380(StoreStruct* g);
-extern "C" void func_020465c0(StoreStruct* g, int a, int b);
-extern "C" void func_020465f0(unsigned char* p, int a, unsigned char b);
-extern "C" char* func_020e0434(Container020e0310* c, int key);
-extern "C" void func_02042058(char* dst, const char* src);
-extern "C" int func_02086bf4(char* p, int key);
-extern "C" int func_020457e0(StoreStruct* g);
-extern "C" int func_0202c578(SearchStruct* s, int id);
-extern "C" int func_ov017_021a85e8(unsigned char* obj, int amount);
-extern "C" void* func_020de824(void* p);
-extern "C" void func_0207cbe8(char* p);
-extern "C" void func_0207cf30(void* ctx, int key, int amount, int arg);
-extern "C" void func_02043204(char* g);
-extern "C" void func_020397c0(void* obj);
+extern "C" void func_ov017_021a7dd8(Struct_ov017_021a7e14_5* arg0);
+extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
+extern "C" void func_020de848(void* arg0);
+extern "C" void func_020de980(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
+extern "C" void func_020e46c4(void* arg0);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
+extern "C" void func_020dcf7c(int arg0, void* arg1);
+extern "C" Struct_ov017_021a7e14_3* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" void func_ov017_021d0198(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" char* func_020e51cc(int arg0);
+extern "C" void func_020e4b34(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11);
+extern "C" void func_02046380(Struct_020465c0* arg0);
+extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" int func_02086bf4(char* arg0, int arg1);
+extern "C" int func_020457e0(Struct_020465c0* arg0);
+extern "C" int func_0202c578(Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_ov017_021a85e8(unsigned char* arg0, int arg1);
+extern "C" void* func_020de824(void* arg0);
+extern "C" void func_0207cbe8(char* arg0);
+extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_020397c0(void* arg0);
 
 extern AllocatorUnion data_02114e20;
 #if defined(jpn)
@@ -141,8 +141,8 @@ extern const char data_ov017_021d7bf0[];
 extern "C" void func_020de968(int, char*);
 extern "C" void* func_020e08f0(int, unsigned int*);
 extern "C" void __clear(void*, int);
-struct Obj02046574;
-extern "C" void func_02046574(Obj02046574*, int, char*);
+struct Struct_02046574_2;
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #else
 extern const char data_ov017_021d77c4[];
 extern const char data_ov017_021d77de[];
@@ -152,245 +152,245 @@ extern const char* data_020f2a0c;
 
 // USA: func_ov017_021a7e14
 // JPN: func_ov017_021a8790
-extern "C" ARM void func_ov017_021a7e14(Obj021a7e14* self) {
-    GameState* gs = GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    StoreStruct* g = func_020421a0();
-    FontBankLoader* bank = func_02094a00();
+extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    Struct_020465c0* var2 = func_020421a0();
+    Struct_0208cb08* var3 = func_02094a00();
     GetGameResources();
-    SearchStruct* search = func_0202ae18();
-    Obj020397cc* obj = (Obj020397cc*)gs->GetUnknownGameObject();
-    int val = func_020100a8(gs);
-    func_020397cc(obj, 1);
-    int done = 0;
-    obj->fieldB2 = 0;
+    Struct_0202b2f0* var4 = func_0202ae18();
+    Struct_02018300_3* var5 = (Struct_02018300_3*)var0->GetUnknownGameObject();
+    int var6 = func_020100a8(var0);
+    func_020397cc(var5, 1);
+    int var7 = 0;
+    var5->unknown_b2_ = 0;
 
-    if (self->state == 0) {
+    if (arg0->unknown_24_ == 0) {
         func_020a0cc4(0x2000);
-        void* heap = func_02012d88(&data_02114e20, 0x2000);
-        if (heap == NULL) {
+        void* var8 = func_02012d88(&data_02114e20, 0x2000);
+        if (var8 == NULL) {
             func_020a0c0c();
-            self->finished = 1;
+            arg0->unknown_1_ = 1;
             return;
         }
-        self->alloc.CreateTypeA(heap, 0x2000);
-        self->alloc.Reset();
-        self->strings = (Container020e0310*)self->alloc.Allocate(0x18);
-        if (self->strings == NULL) {
-            func_ov017_021a7dd8(self);
+        arg0->unknown_8_.CreateTypeA(var8, 0x2000);
+        arg0->unknown_8_.Reset();
+        arg0->unknown_1c_ = (Struct_0201099c_3*)arg0->unknown_8_.Allocate(0x18);
+        if (arg0->unknown_1c_ == NULL) {
+            func_ov017_021a7dd8(arg0);
             func_020a0c0c();
-            self->finished = 1;
+            arg0->unknown_1_ = 1;
             return;
         }
 #if defined(jpn)
-        self->taskId = loader->QueueLoadFile(data_ov017_021d7bf0, NULL);
+        arg0->unknown_28_ = var1->QueueLoadFile(data_ov017_021d7bf0, NULL);
 #else
-        self->taskId = loader->QueueLoadFileInGP2(data_ov017_021d77c4, data_ov017_021d77de, NULL);
+        arg0->unknown_28_ = var1->QueueLoadFileInGP2(data_ov017_021d77c4, data_ov017_021d77de, NULL);
 #endif
-        self->state = 1;
-    } else if (self->state == 1) {
-        if (loader->GetTaskStatus(self->taskId) != 0) {
-            void* data;
-            unsigned int length;
-            loader->GetLoadedFileByID(self->taskId, &data, &length);
-            self->strings = (Container020e0310*)self->alloc.Allocate(0x18);
-            func_020dfc40((Struct020dfc40*)self->strings);
-            func_020dfec0(self->strings, &self->alloc, data, length);
-            loader->RemoveTask(self->taskId);
-            self->taskId = -1;
-            self->message = g->message;
+        arg0->unknown_24_ = 1;
+    } else if (arg0->unknown_24_ == 1) {
+        if (var1->GetTaskStatus(arg0->unknown_28_) != 0) {
+            void* var9;
+            unsigned int var10;
+            var1->GetLoadedFileByID(arg0->unknown_28_, &var9, &var10);
+            arg0->unknown_1c_ = (Struct_0201099c_3*)arg0->unknown_8_.Allocate(0x18);
+            func_020dfc40((Struct_0201099c_14*)arg0->unknown_1c_);
+            func_020dfec0(arg0->unknown_1c_, &arg0->unknown_8_, var9, var10);
+            var1->RemoveTask(arg0->unknown_28_);
+            arg0->unknown_28_ = -1;
+            arg0->unknown_20_ = var2->unknown_5c_;
 #if defined(jpn)
-            func_02094b40(bank);
-            func_02094b30(bank, 0x208, 0);
+            func_02094b40(var3);
+            func_02094b30(var3, 0x208, 0);
 #endif
-            self->state = 2;
+            arg0->unknown_24_ = 2;
         }
-    } else if (self->state == 2) {
+    } else if (arg0->unknown_24_ == 2) {
 #if defined(jpn)
-        if (!func_02094b4c(bank)) return;
-        char itemName[0x40];
+        if (!func_02094b4c(var3)) return;
+        char var11[0x40];
 #endif
         BackgroundLoader::AddLockGlobal();
-        unsigned int size;
+        unsigned int var12;
 #if defined(jpn)
-        void* file = func_020e08f0(8, &size);
+        void* var13 = func_020e08f0(8, &var12);
 #else
-        void* file = ExtractFileFromGP2(data_020f2a18, data_020f2a0c, &size);
+        void* var13 = ExtractFileFromGP2(data_020f2a18, data_020f2a0c, &var12);
 #endif
-        self->container = (Container020dedd0*)self->alloc.Allocate(0x18);
-        func_020de848(self->container);
-        if (file != NULL) {
-            func_020de980(self->container, &self->alloc, file, size, self->key);
+        arg0->unknown_2c_ = (Struct_0201099c_10*)arg0->unknown_8_.Allocate(0x18);
+        func_020de848(arg0->unknown_2c_);
+        if (var13 != NULL) {
+            func_020de980(arg0->unknown_2c_, &arg0->unknown_8_, var13, var12, arg0->unknown_30_);
         }
 #if defined(jpn)
-        __clear(itemName, sizeof(itemName));
-        func_020de968(self->key, itemName);
+        __clear(var11, sizeof(var11));
+        func_020de968(arg0->unknown_30_, var11);
 #else
-        self->buffers = (MessageBuffers021a7e14*)self->alloc.Allocate(0xc);
-        self->firstBuffer = (char*)self->alloc.Allocate(0x40);
-        self->secondBuffer = (char*)self->alloc.Allocate(0x40);
-        if (self->buffers != NULL && self->firstBuffer != NULL && self->secondBuffer != NULL) {
-            func_020e46c4(self->buffers);
-            memset(self->firstBuffer, 0, 0x40);
-            memset(self->secondBuffer, 0, 0x40);
-            self->buffers->first = self->firstBuffer;
-            self->buffers->second = self->secondBuffer;
-            func_020dcf7c(self->key, self->buffers);
+        arg0->unknown_3c_ = (Struct_ov017_021a7e14_2*)arg0->unknown_8_.Allocate(0xc);
+        arg0->unknown_48_ = (char*)arg0->unknown_8_.Allocate(0x40);
+        arg0->unknown_4c_ = (char*)arg0->unknown_8_.Allocate(0x40);
+        if (arg0->unknown_3c_ != NULL && arg0->unknown_48_ != NULL && arg0->unknown_4c_ != NULL) {
+            func_020e46c4(arg0->unknown_3c_);
+            memset(arg0->unknown_48_, 0, 0x40);
+            memset(arg0->unknown_4c_, 0, 0x40);
+            arg0->unknown_3c_->unknown_0_ = arg0->unknown_48_;
+            arg0->unknown_3c_->unknown_4_ = arg0->unknown_4c_;
+            func_020dcf7c(arg0->unknown_30_, arg0->unknown_3c_);
         }
 #endif
         BackgroundLoader::RemoveLockGlobal();
 #if !defined(jpn)
-        self->actorText = self->alloc.Allocate(0xc);
-        self->listText = self->alloc.Allocate(0xc);
+        arg0->unknown_40_ = arg0->unknown_8_.Allocate(0xc);
+        arg0->unknown_44_ = arg0->unknown_8_.Allocate(0xc);
 #endif
-        Combatant021a7e14* combatant = (Combatant021a7e14*)func_0200ff1c(gs, self->combatantId);
-        if (func_020dedd0(self->container, self->key) == NULL || combatant == NULL
+        Struct_ov017_021a7e14* var14 = (Struct_ov017_021a7e14*)func_0200ff1c(var0, arg0->unknown_34_);
+        if (func_020dedd0(arg0->unknown_2c_, arg0->unknown_30_) == NULL || var14 == NULL
 #if !defined(jpn)
-            || self->buffers == NULL || self->firstBuffer == NULL || self->secondBuffer == NULL ||
-            self->actorText == NULL || self->listText == NULL
+            || arg0->unknown_3c_ == NULL || arg0->unknown_48_ == NULL || arg0->unknown_4c_ == NULL ||
+            arg0->unknown_40_ == NULL || arg0->unknown_44_ == NULL
 #endif
         ) {
-            func_ov017_021d0198(5, self->combatantId, val, self->key);
-            self->state = 7;
+            func_ov017_021d0198(5, arg0->unknown_34_, var6, arg0->unknown_30_);
+            arg0->unknown_24_ = 7;
             return;
         }
 #if defined(jpn)
-        func_02046380(g);
-        func_02046574((Obj02046574*)g, 0, ((GameObject*)combatant)->baseStats_->unk);
-        func_02046574((Obj02046574*)g, 1, itemName);
+        func_02046380(var2);
+        func_02046574((Struct_02046574_2*)var2, 0, ((GameObject*)var14)->baseStats_->unk);
+        func_02046574((Struct_02046574_2*)var2, 1, var11);
 #else
-        func_020e46c4(self->actorText);
-        func_020e4bf4(self->actorText, self->combatantId);
-        func_020e46c4(self->listText);
-        char* name = func_020e51cc((short)combatant->params->nameId);
-        func_020e4b34(self->listText, name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        func_02046380(g);
-        func_020465c0(g, 0, 1);
-        func_020465f0((unsigned char*)g, 0, 1);
-        g->nameText = self->actorText;
-        g->listText = self->buffers;
-        g->actorText = self->listText;
+        func_020e46c4(arg0->unknown_40_);
+        func_020e4bf4(arg0->unknown_40_, arg0->unknown_34_);
+        func_020e46c4(arg0->unknown_44_);
+        char* var15 = func_020e51cc((short)var14->unknown_150_->unknown_950_);
+        func_020e4b34(arg0->unknown_44_, var15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        func_02046380(var2);
+        func_020465c0(var2, 0, 1);
+        func_020465f0((unsigned char*)var2, 0, 1);
+        var2->unknown1_0_ = arg0->unknown_40_;
+        var2->unknown_18_ = arg0->unknown_3c_;
+        var2->unknown_28_ = arg0->unknown_44_;
 #endif
-        char* message = g->message;
+        char* var16 = var2->unknown_5c_;
 #if defined(jpn)
-        memset(message, 0, 0x800);
+        memset(var16, 0, 0x800);
 #else
-        memset(message, 0, 0x960);
+        memset(var16, 0, 0x960);
 #endif
-        func_02042058(message, (char*)func_020e0434(self->strings, 0x64));
-        func_02042058(message, (char*)func_020e0434(self->strings, 0x78));
-        if (func_02086bf4((char*)func_02010828(gs), self->key) == 0x63) {
-            func_02042058(message, (char*)func_020e0434(self->strings, 0x70));
-            self->flags |= 1;
+        func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x64));
+        func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x78));
+        if (func_02086bf4((char*)func_02010828(var0), arg0->unknown_30_) == 0x63) {
+            func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x70));
+            arg0->unknown_3a_ |= 1;
         } else {
-            func_02042058(message, (char*)func_020e0434(self->strings, 0x6e));
+            func_02042058(var16, (char*)func_020e0434(arg0->unknown_1c_, 0x6e));
         }
-        g->busy = 1;
+        var2->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c((MessageSystem*)g, message, 0);
+        func_0204500c((Struct_02021b84*)var2, var16, 0);
 #else
-        func_0204500c((MessageSystem*)g, message, 0, 0xe3);
+        func_0204500c((Struct_02021b84*)var2, var16, 0, 0xe3);
 #endif
-        self->state = 3;
-    } else if (self->state == 3) {
-        if (g->windowState == 3 || g->windowState == 0) {
-            g->pending = 0;
-            int result = func_020457e0(g);
-            if (result == 0) {
-                if (self->flags & 1) {
-                    func_ov017_021d0198(8, self->combatantId, val, self->key);
-                    self->flags &= ~1;
-                    self->state = 7;
+        arg0->unknown_24_ = 3;
+    } else if (arg0->unknown_24_ == 3) {
+        if (var2->unknown_9a0_ == 3 || var2->unknown_9a0_ == 0) {
+            var2->unknown_19ae_ = 0;
+            int var17 = func_020457e0(var2);
+            if (var17 == 0) {
+                if (arg0->unknown_3a_ & 1) {
+                    func_ov017_021d0198(8, arg0->unknown_34_, var6, arg0->unknown_30_);
+                    arg0->unknown_3a_ &= ~1;
+                    arg0->unknown_24_ = 7;
                 } else {
-                    func_ov017_021d0198(6, self->combatantId, val, self->key);
-                    self->state = 4;
-                    self->timer = 0xe10;
+                    func_ov017_021d0198(6, arg0->unknown_34_, var6, arg0->unknown_30_);
+                    arg0->unknown_24_ = 4;
+                    arg0->unknown_38_ = 0xe10;
                 }
-            } else if (result == 1) {
-                func_ov017_021d0198(7, self->combatantId, val, self->key);
-                self->state = 7;
+            } else if (var17 == 1) {
+                func_ov017_021d0198(7, arg0->unknown_34_, var6, arg0->unknown_30_);
+                arg0->unknown_24_ = 7;
             }
         }
-    } else if (self->state == 4) {
-        g->pending = 0;
-        if (func_0202c578(search, 0) || func_0202c578(search, self->combatantId)) {
-            done = 1;
+    } else if (arg0->unknown_24_ == 4) {
+        var2->unknown_19ae_ = 0;
+        if (func_0202c578(var4, 0) || func_0202c578(var4, arg0->unknown_34_)) {
+            var7 = 1;
         }
-        int ticks = gs->GetTickCount();
-        if (ticks == 0) {
-            ticks = 1;
+        int var18 = var0->GetTickCount();
+        if (var18 == 0) {
+            var18 = 1;
         }
-        if (func_ov017_021a85e8((unsigned char*)self, ticks) == 0) {
-            done = 1;
+        if (func_ov017_021a85e8((unsigned char*)arg0, var18) == 0) {
+            var7 = 1;
         }
-        if (done) {
+        if (var7) {
 #if defined(jpn)
-            func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x71), 0);
+            func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else
-            func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x71), 0, 0xe3);
+            func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
 #endif
-            self->state = 7;
+            arg0->unknown_24_ = 7;
         }
-    } else if (self->state == 5) {
-        g->pending = 0;
-        int ticks = gs->GetTickCount();
-        if (ticks == 0) {
-            ticks = 1;
+    } else if (arg0->unknown_24_ == 5) {
+        var2->unknown_19ae_ = 0;
+        int var19 = var0->GetTickCount();
+        if (var19 == 0) {
+            var19 = 1;
         }
-        if (func_ov017_021a85e8((unsigned char*)self, ticks) == 0 && g->windowState == 3) {
-            if (func_0202c578(search, 0) || func_0202c578(search, self->combatantId)) {
+        if (func_ov017_021a85e8((unsigned char*)arg0, var19) == 0 && var2->unknown_9a0_ == 3) {
+            if (func_0202c578(var4, 0) || func_0202c578(var4, arg0->unknown_34_)) {
 #if defined(jpn)
-                func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x71), 0);
+                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0);
 #else
-                func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x71), 0, 0xe3);
+                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x71), 0, 0xe3);
 #endif
-                self->state = 7;
+                arg0->unknown_24_ = 7;
             } else {
-                Element021a7e14* element = func_020dedd0(self->container, self->key);
-                LootTextContext context;
-                context.allocator.ResetAllocatorPointer();
-                func_020de824(context.list);
-                func_0207cbe8((char*)&context);
-                func_0207cbe8((char*)&context);
-                context.containerData = self->container;
-                if ((unsigned char)element->kind == 8) {
-                    func_0207cf30(&context, self->key, 1, 0);
+                Struct_ov017_021a7e14_3* var20 = func_020dedd0(arg0->unknown_2c_, arg0->unknown_30_);
+                Struct_ov017_021a7e14_4 var21;
+                var21.unknown_0_.ResetAllocatorPointer();
+                func_020de824(var21.unknown_14_);
+                func_0207cbe8((char*)&var21);
+                func_0207cbe8((char*)&var21);
+                var21.unknown_2c_ = arg0->unknown_2c_;
+                if ((unsigned char)var20->unknown_8_0_ == 8) {
+                    func_0207cf30(&var21, arg0->unknown_30_, 1, 0);
                 }
 #if !defined(jpn)
-                func_02046380(g);
-                func_020465c0(g, 0, 1);
-                func_020465f0((unsigned char*)g, 0, 1);
-                g->nameText = self->actorText;
-                g->listText = self->buffers;
-                g->actorText = self->listText;
+                func_02046380(var2);
+                func_020465c0(var2, 0, 1);
+                func_020465f0((unsigned char*)var2, 0, 1);
+                var2->unknown1_0_ = arg0->unknown_40_;
+                var2->unknown_18_ = arg0->unknown_3c_;
+                var2->unknown_28_ = arg0->unknown_44_;
 #endif
 #if defined(jpn)
-                func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x6f), 0);
+                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0);
 #else
-                func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x6f), 0, 0xe3);
+                func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x6f), 0, 0xe3);
 #endif
-                self->state = 7;
+                arg0->unknown_24_ = 7;
             }
         }
-    } else if (self->state == 6) {
-        func_02043204((char*)g);
-        g->busy = 1;
+    } else if (arg0->unknown_24_ == 6) {
+        func_02043204((char*)var2);
+        var2->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x65), done);
+        func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7);
 #else
-        func_0204500c((MessageSystem*)g, (char*)func_020e0434(self->strings, 0x65), done, 0xe3);
+        func_0204500c((Struct_02021b84*)var2, (char*)func_020e0434(arg0->unknown_1c_, 0x65), var7, 0xe3);
 #endif
-        self->state = 7;
-    } else if (self->state == 7) {
-        if (g->busy == 0) {
-            done = 1;
+        arg0->unknown_24_ = 7;
+    } else if (arg0->unknown_24_ == 7) {
+        if (var2->unknown_998_ == 0) {
+            var7 = 1;
         }
-        if (done) {
-            func_02043204((char*)g);
-            func_020397c0(obj);
-            func_ov017_021a7dd8(self);
+        if (var7) {
+            func_02043204((char*)var2);
+            func_020397c0(var5);
+            func_ov017_021a7dd8(arg0);
             func_020a0c0c();
-            self->finished = 1;
+            arg0->unknown_1_ = 1;
         }
     }
 }

@@ -11,31 +11,31 @@ extern "C" int LoadToSubBG2CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubBG3CharacterData(int arg0, int arg1, unsigned int arg2);
 
 // USA: func_0203b784
-extern "C" ARM int func_0203b784(int* arr1, int idx, int category, int addr, unsigned int len, unsigned int len2) {
-    int* arr2 = (int*)((char*)arr1 + 0x20);
-    int old1 = arr1[idx];
-    arr1[idx] = old1 + len;
-    int old2 = *(int*)((char*)&arr1[idx] + 0x20);
-    int t2 = arr2[idx];
-    arr2[idx] = t2 + len2;
-    CleanInvalidateCacheRange((void*)addr, len);
-    switch (idx) {
+extern "C" ARM int func_0203b784(int* arg0, int arg1, int arg2, int arg3, unsigned int arg4, unsigned int arg5) {
+    int* var0 = (int*)((char*)arg0 + 0x20);
+    int var1 = arg0[arg1];
+    arg0[arg1] = var1 + arg4;
+    int var2 = *(int*)((char*)&arg0[arg1] + 0x20);
+    int var3 = var0[arg1];
+    var0[arg1] = var3 + arg5;
+    CleanInvalidateCacheRange((void*)arg3, arg4);
+    switch (arg1) {
     case 0:
-        switch (category) {
-        case 0: LoadToMainBG0CharacterData(addr, old1, len); break;
-        case 1: LoadToMainBG1CharacterData(addr, old1, len); break;
-        case 2: LoadToMainBG2CharacterData(addr, old1, len); break;
-        case 3: LoadToMainBG3CharacterData(addr, old1, len); break;
+        switch (arg2) {
+        case 0: LoadToMainBG0CharacterData(arg3, var1, arg4); break;
+        case 1: LoadToMainBG1CharacterData(arg3, var1, arg4); break;
+        case 2: LoadToMainBG2CharacterData(arg3, var1, arg4); break;
+        case 3: LoadToMainBG3CharacterData(arg3, var1, arg4); break;
         }
         break;
     case 1:
-        switch (category) {
-        case 0: LoadToSubBG0CharacterData(addr, old1, len); break;
-        case 1: LoadToSubBG1CharacterData(addr, old1, len); break;
-        case 2: LoadToSubBG2CharacterData(addr, old1, len); break;
-        case 3: LoadToSubBG3CharacterData(addr, old1, len); break;
+        switch (arg2) {
+        case 0: LoadToSubBG0CharacterData(arg3, var1, arg4); break;
+        case 1: LoadToSubBG1CharacterData(arg3, var1, arg4); break;
+        case 2: LoadToSubBG2CharacterData(arg3, var1, arg4); break;
+        case 3: LoadToSubBG3CharacterData(arg3, var1, arg4); break;
         }
         break;
     }
-    return old2;
+    return var2;
 }

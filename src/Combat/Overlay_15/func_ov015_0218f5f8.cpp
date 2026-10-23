@@ -2,57 +2,57 @@
 #include "World/Object3D.h"
 #include "Graphics/Vector.h"
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    char unk_0[0x1c];
-    unsigned char kind_;
-    char unk_1d[3];
-    int* parts_;
-    Object3D* objects_;
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_;
+    char unknown_1d_[3];
+    int* unknown_20_;
+    Object3D* unknown_24_;
 };
 
-static inline const Vector3fix& GetRotation(const Object3D* o)
+static inline const Vector3fix& inline_ov015_0218f5f8(const Object3D* arg0)
 {
-    return o->rotation_;
+    return arg0->rotation_;
 }
 
-static inline void SetRotation(Object3D* o, const Vector3fix& rotation)
+static inline void inline_ov015_0218f5f8_2(Object3D* arg0, const Vector3fix& arg1)
 {
-    o->rotation_ = rotation;
+    arg0->rotation_ = arg1;
 }
 
 // USA: func_ov015_0218f5f8
-extern "C" ARM void func_ov015_0218f5f8(ViewObject* self, int angle)
+extern "C" ARM void func_ov015_0218f5f8(Struct_ov015_0218c03c_2* arg0, int arg1)
 {
-    Vector3fix rotation = {0};
-    switch (self->kind_)
+    Vector3fix var0 = {0};
+    switch (arg0->unknown_1c_)
     {
     case 0:
-        rotation = GetRotation(&self->objects_[1]);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(&self->objects_[1], rotation);
-        rotation = GetRotation(&self->objects_[0]);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(&self->objects_[0], rotation);
+        var0 = inline_ov015_0218f5f8(&arg0->unknown_24_[1]);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(&arg0->unknown_24_[1], var0);
+        var0 = inline_ov015_0218f5f8(&arg0->unknown_24_[0]);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(&arg0->unknown_24_[0], var0);
         break;
     case 1:
-        rotation = GetRotation(&self->objects_[6]);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(&self->objects_[6], rotation);
-        rotation = GetRotation(&self->objects_[1]);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(&self->objects_[1], rotation);
-        rotation = GetRotation(&self->objects_[5]);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(&self->objects_[5], rotation);
-        rotation = GetRotation(&self->objects_[0]);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(&self->objects_[0], rotation);
+        var0 = inline_ov015_0218f5f8(&arg0->unknown_24_[6]);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(&arg0->unknown_24_[6], var0);
+        var0 = inline_ov015_0218f5f8(&arg0->unknown_24_[1]);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(&arg0->unknown_24_[1], var0);
+        var0 = inline_ov015_0218f5f8(&arg0->unknown_24_[5]);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(&arg0->unknown_24_[5], var0);
+        var0 = inline_ov015_0218f5f8(&arg0->unknown_24_[0]);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(&arg0->unknown_24_[0], var0);
         break;
     default:
-        rotation = GetRotation(self->objects_);
-        rotation.y = fix32ReduceAngle0To2Pi(rotation.y + angle);
-        SetRotation(self->objects_, rotation);
+        var0 = inline_ov015_0218f5f8(arg0->unknown_24_);
+        var0.y = fix32ReduceAngle0To2Pi(var0.y + arg1);
+        inline_ov015_0218f5f8_2(arg0->unknown_24_, var0);
         break;
     }
 }

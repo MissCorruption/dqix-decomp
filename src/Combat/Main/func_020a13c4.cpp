@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct S020a13c4 {
-    int a;
-    short b;
-    short c;
-    int d;
-    int e;
-    char f;
+struct Struct_020a13c4 {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    int unknown_8_;
+    int unknown_c_;
+    char unknown_10_;
 };
 
 // USA: func_020a13c4
-extern "C" ARM void func_020a13c4(struct S020a13c4* p) {
-    p->a = 0;
-    p->b = 0;
-    p->c = 0;
-    p->d = 0;
-    p->e = 0;
-    p->f = 0;
+extern "C" ARM void func_020a13c4(struct Struct_020a13c4* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_6_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
 }

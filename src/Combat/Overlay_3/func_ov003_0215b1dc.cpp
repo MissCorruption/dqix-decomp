@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion998 = 0x868 };
-enum { kRegion99c = 0x86c };
-enum { kRegion9a0 = 0x870 };
-enum { kRegion9a4 = 0x874 };
-enum { kRegion19ae = 0x17de };
+enum { Enum_ov003_0215b1dc_2456 = 0x868 };
+enum { Enum_ov003_0215b1dc_2460 = 0x86c };
+enum { Enum_ov003_0215b1dc_2464 = 0x870 };
+enum { Enum_ov003_0215b1dc_2468 = 0x874 };
+enum { Enum_ov003_0215b1dc_6574 = 0x17de };
 #else
-enum { kRegion998 = 0x998 };
-enum { kRegion99c = 0x99c };
-enum { kRegion9a0 = 0x9a0 };
-enum { kRegion9a4 = 0x9a4 };
-enum { kRegion19ae = 0x19ae };
+enum { Enum_ov003_0215b1dc_2456 = 0x998 };
+enum { Enum_ov003_0215b1dc_2460 = 0x99c };
+enum { Enum_ov003_0215b1dc_2464 = 0x9a0 };
+enum { Enum_ov003_0215b1dc_2468 = 0x9a4 };
+enum { Enum_ov003_0215b1dc_6574 = 0x19ae };
 #endif
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct BattleMessageScene {
-    char unk_0[0x64];
-    char messages[0x580 - 0x64];
-    unsigned char step;
+struct Struct_ov003_021594c4_2 {
+    char unknown_0_[0x64];
+    char unknown_64_[0x580 - 0x64];
+    unsigned char unknown_580_;
 };
 
-struct BattleGlobals {
-    char unk_0[kRegion998];
-    int messageActive;
-    char unk_99c[kRegion9a0 - kRegion99c];
-    int linkState;
-    char unk_9a4[kRegion19ae - kRegion9a4];
-    unsigned char linkPending;
+struct Struct_ov003_0215af9c {
+    char unknown_0_[Enum_ov003_0215b1dc_2456];
+    int unknown_998_;
+    char unknown_99c_[Enum_ov003_0215b1dc_2464 - Enum_ov003_0215b1dc_2460];
+    int unknown_9a0_;
+    char unknown_9a4_[Enum_ov003_0215b1dc_6574 - Enum_ov003_0215b1dc_2468];
+    unsigned char unknown_19ae_;
 };
 
-extern "C" BattleGlobals* func_020421a0(void);
+extern "C" Struct_ov003_0215af9c* func_020421a0(void);
 extern "C" GameResources* func_0200fb8c(int*);
-struct Actor0209c678;
-extern "C" void func_0209c678(Actor0209c678*, int);
+struct Struct_02109bf4_4;
+extern "C" void func_0209c678(Struct_02109bf4_4*, int);
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 int IsMainBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
-extern "C" void func_02043124(BattleGlobals*);
+extern "C" void func_02043124(Struct_ov003_0215af9c*);
 extern "C" void func_02043204(char*);
-extern "C" void func_ov003_0215c270(BattleMessageScene*, unsigned int, unsigned int);
-struct Container020e0310;
-extern "C" void* func_020e0434(Container020e0310*, int);
-extern "C" void func_ov003_02159250(BattleMessageScene*, void*);
+extern "C" void func_ov003_0215c270(Struct_ov003_021594c4_2*, unsigned int, unsigned int);
+struct Struct_0201099c_3;
+extern "C" void* func_020e0434(Struct_0201099c_3*, int);
+extern "C" void func_ov003_02159250(Struct_ov003_021594c4_2*, void*);
 extern "C" int* func_0202ae18(void);
 extern "C" int func_0202b7d8(int*);
 extern "C" void func_ov017_021c37a4(void);
@@ -51,44 +51,44 @@ extern "C" void func_ov017_021c37a4(void);
 extern unsigned char data_02109bf4;
 
 // USA: func_ov003_0215b1dc
-extern "C" ARM void func_ov003_0215b1dc(BattleMessageScene* self) {
-    BattleGlobals* g = func_020421a0();
-    GameResources* res = func_0200fb8c((int*)GameState::GetInstance());
+extern "C" ARM void func_ov003_0215b1dc(Struct_ov003_021594c4_2* arg0) {
+    Struct_ov003_0215af9c* var0 = func_020421a0();
+    GameResources* var1 = func_0200fb8c((int*)GameState::GetInstance());
 
-    if (g->linkState == 3) {
-        g->linkPending = 0;
+    if (var0->unknown_9a0_ == 3) {
+        var0->unknown_19ae_ = 0;
     }
 
-    unsigned char step = self->step;
+    unsigned char var2 = arg0->unknown_580_;
 
-    if (step == 0) {
-        if (g->linkState != 3) return;
-        func_0209c678((Actor0209c678*)&data_02109bf4, 0xb4);
-        SetBrightness(res, -16, 0xb4);
-        self->step++;
+    if (var2 == 0) {
+        if (var0->unknown_9a0_ != 3) return;
+        func_0209c678((Struct_02109bf4_4*)&data_02109bf4, 0xb4);
+        SetBrightness(var1, -16, 0xb4);
+        arg0->unknown_580_++;
     }
 
-    if (step == 1) {
-        if (IsBrightnessTransitionActive(res)) return;
-        func_02043124(g);
-        func_02043204((char*)g);
-        SetMainBrightness(res, 0, 0x3c);
-        self->step++;
+    if (var2 == 1) {
+        if (IsBrightnessTransitionActive(var1)) return;
+        func_02043124(var0);
+        func_02043204((char*)var0);
+        SetMainBrightness(var1, 0, 0x3c);
+        arg0->unknown_580_++;
     }
 
-    if (step == 2) {
-        func_ov003_0215c270(self, 0, 0x1f);
-        if (IsMainBrightnessTransitionActive(res)) return;
+    if (var2 == 2) {
+        func_ov003_0215c270(arg0, 0, 0x1f);
+        if (IsMainBrightnessTransitionActive(var1)) return;
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) return;
-        g->messageActive = 1;
-        func_ov003_02159250(self, func_020e0434((Container020e0310*)self->messages, 0x6e));
+        var0->unknown_998_ = 1;
+        func_ov003_02159250(arg0, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, 0x6e));
         if (func_0202b7d8(func_0202ae18())) {
             func_ov017_021c37a4();
         }
-        self->step++;
+        arg0->unknown_580_++;
     }
 
-    if (step == 3) {
-        func_ov003_0215c270(self, 0, 0x1f);
+    if (var2 == 3) {
+        func_ov003_0215c270(arg0, 0, 0x1f);
     }
 }

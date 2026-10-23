@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov023_021f6f18(void* obj);
-extern "C" unsigned int func_ov023_021f6f10(void* obj);
+extern "C" int func_ov023_021f6f18(void* arg0);
+extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 
-struct List0204afb4;
-extern "C" void func_0204afb4(struct List0204afb4* obj);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
 
-struct SubStruct_021f7984 {
-    char pad0[4];
-    void* owner;
+struct Struct_ov023_021f7984 {
+    char unknown_0_[4];
+    void* unknown_4_;
 };
 
 // USA: func_ov023_021f7984
-extern "C" ARM void func_ov023_021f7984(void* obj, void** headHolder) {
+extern "C" ARM void func_ov023_021f7984(void* arg0, void** arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x24};
+ enum {Enum_ov023_021f7984_40=0x24};
 #else
- enum {regionalOffset0=0x28};
+ enum {Enum_ov023_021f7984_40=0x28};
 #endif
-    void* node = *headHolder;
-    while (node != 0) {
-        void* next = (void*)func_ov023_021f6f18(node);
-        unsigned int type = func_ov023_021f6f10(node);
-        if (type == 6) {
-            SubStruct_021f7984* sub = (SubStruct_021f7984*)((char*)node + 0x20);
-            if (sub != 0) {
-                if ((void*)((char*)obj + regionalOffset0) == sub->owner) sub->owner = 0;
+    void* var0 = *arg1;
+    while (var0 != 0) {
+        void* var1 = (void*)func_ov023_021f6f18(var0);
+        unsigned int var2 = func_ov023_021f6f10(var0);
+        if (var2 == 6) {
+            Struct_ov023_021f7984* var3 = (Struct_ov023_021f7984*)((char*)var0 + 0x20);
+            if (var3 != 0) {
+                if ((void*)((char*)arg0 + Enum_ov023_021f7984_40) == var3->unknown_4_) var3->unknown_4_ = 0;
             }
         }
-        node = next;
+        var0 = var1;
     }
-    func_0204afb4((struct List0204afb4*)((char*)obj + regionalOffset0));
+    func_0204afb4((struct Struct_02020cb8_3*)((char*)arg0 + Enum_ov023_021f7984_40));
 }

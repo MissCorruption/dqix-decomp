@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 #include "Filesystem/FileIO.h"
 
-extern "C" void func_02047b40(void* dest, const void* data, int flag);
+extern "C" void func_02047b40(void* arg0, const void* arg1, int arg2);
 
-struct TableEntry02039f04 {
-    const char* name;
-    void* ptr;
+struct Struct_02039f04 {
+    const char* unknown_0_;
+    void* unknown_4_;
 };
 
-union Scratch02039f04 {
-    unsigned int raw[20];
-    struct TableEntry02039f04 entries[10];
+union Struct_020e7844 {
+    unsigned int unknown_0_[20];
+    struct Struct_02039f04 unknown1_0_[10];
 };
 
-extern const union Scratch02039f04 data_020e7844;
+extern const union Struct_020e7844 data_020e7844;
 
 // USA: func_02039f04
-extern "C" ARM void func_02039f04(char* obj, int flag, const void* narc) {
-    union Scratch02039f04 table;
-    int i;
+extern "C" ARM void func_02039f04(char* arg0, int arg1, const void* arg2) {
+    union Struct_020e7844 var0;
+    int var1;
 
-    table = data_020e7844;
+    var0 = data_020e7844;
 
-    table.entries[0].ptr = obj + 0x000;
-    table.entries[1].ptr = obj + 0x088;
-    table.entries[2].ptr = obj + 0x110;
-    table.entries[3].ptr = obj + 0x198;
-    table.entries[4].ptr = obj + 0x220;
-    table.entries[5].ptr = obj + 0x2a8;
-    table.entries[6].ptr = obj + 0x330;
-    table.entries[7].ptr = obj + 0x3b8;
-    table.entries[8].ptr = obj + 0x440;
-    table.entries[9].ptr = obj + 0x4c8;
+    var0.unknown1_0_[0].unknown_4_ = arg0 + 0x000;
+    var0.unknown1_0_[1].unknown_4_ = arg0 + 0x088;
+    var0.unknown1_0_[2].unknown_4_ = arg0 + 0x110;
+    var0.unknown1_0_[3].unknown_4_ = arg0 + 0x198;
+    var0.unknown1_0_[4].unknown_4_ = arg0 + 0x220;
+    var0.unknown1_0_[5].unknown_4_ = arg0 + 0x2a8;
+    var0.unknown1_0_[6].unknown_4_ = arg0 + 0x330;
+    var0.unknown1_0_[7].unknown_4_ = arg0 + 0x3b8;
+    var0.unknown1_0_[8].unknown_4_ = arg0 + 0x440;
+    var0.unknown1_0_[9].unknown_4_ = arg0 + 0x4c8;
 
-    for (i = 0; i < 10; i++) {
-        unsigned int fileSize = 0;
-        const void* fileData = 0;
-        void* ptr;
-        GetFileInNarc(narc, table.entries[i].name, &fileData, &fileSize, 0);
-        ptr = table.entries[i].ptr;
-        func_02047b40(ptr, fileData, flag);
-        *(int*)ptr = 0x3e;
+    for (var1 = 0; var1 < 10; var1++) {
+        unsigned int var2 = 0;
+        const void* var3 = 0;
+        void* var4;
+        GetFileInNarc(arg2, var0.unknown1_0_[var1].unknown_0_, &var3, &var2, 0);
+        var4 = var0.unknown1_0_[var1].unknown_4_;
+        func_02047b40(var4, var3, arg1);
+        *(int*)var4 = 0x3e;
     }
 }

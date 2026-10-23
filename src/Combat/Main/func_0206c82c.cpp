@@ -4,86 +4,86 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
-struct TaggedValue02030b44;
+struct Struct_0201d530;
 struct Vector3i;
 
-struct Node0206c82c;
+struct Struct_0206c82c;
 
-struct Data02108cec {
-    unsigned char pad0[0xa];
-    unsigned short field0xa;
-    unsigned char pad1[0x10 - 0xc];
-    void* field0x10;
-    void* field0x14;
+struct Struct_02108cec {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[0x10 - 0xc];
+    void* unknown_10_;
+    void* unknown_14_;
 };
-extern struct Data02108cec data_02108cec;
+extern struct Struct_02108cec data_02108cec;
 
-struct SubNode0206c82c {
-    int vec[3];
-    int flag0xc;
-    struct SubNode0206c82c* next;
+struct Struct_0206c82c_2 {
+    int unknown_0_[3];
+    int unknown_c_;
+    struct Struct_0206c82c_2* unknown_10_;
 };
 
-struct Node0206c82c {
-    unsigned char pad0[0x1f];
-    unsigned char byte1f;
-    unsigned char pad1[0x22 - 0x20];
-    unsigned char byte22;
-    unsigned char pad2[0x34 - 0x23];
-    struct SubNode0206c82c* head0x34;
-    unsigned char pad3[0x44 - 0x38];
-    unsigned short id0x44;
-    unsigned char pad4[0x70 - 0x46];
-    struct Node0206c82c* next;
+struct Struct_0206c82c {
+    unsigned char unknown_0_[0x1f];
+    unsigned char unknown_1f_;
+    unsigned char unknown_20_[0x22 - 0x20];
+    unsigned char unknown_22_;
+    unsigned char unknown_23_[0x34 - 0x23];
+    struct Struct_0206c82c_2* unknown_34_;
+    unsigned char unknown_38_[0x44 - 0x38];
+    unsigned short unknown_44_;
+    unsigned char unknown_46_[0x70 - 0x46];
+    struct Struct_0206c82c* unknown_70_;
 };
 
 // USA: func_0206c82c
-extern "C" ARM int func_0206c82c(void* param0, int param1) {
-    struct Node0206c82c* node;
-    int count;
-    struct SubNode0206c82c* prev;
-    int i;
-    struct SubNode0206c82c* newNode;
-    void* orig = param0;
-    int key;
+extern "C" ARM int func_0206c82c(void* arg0, int arg1) {
+    struct Struct_0206c82c* var0;
+    int var1;
+    struct Struct_0206c82c_2* var2;
+    int var3;
+    struct Struct_0206c82c_2* var4;
+    void* var5 = arg0;
+    int var6;
 
-    param0 = (char*)param0 + 8;
-    key = ((Script::Parameter*)((struct Variant02030b0c*)orig))->ToInt();
-    node = (Node0206c82c*)func_0206db20(data_02108cec.field0x10, key);
-    if (node == 0) {
+    arg0 = (char*)arg0 + 8;
+    var6 = ((Script::Parameter*)((struct Struct_0201c1c8*)var5))->ToInt();
+    var0 = (Struct_0206c82c*)func_0206db20(data_02108cec.unknown_10_, var6);
+    if (var0 == 0) {
         return 0;
     }
-    if ((param1 - 1) % 3 != 0) {
+    if ((arg1 - 1) % 3 != 0) {
         return 0;
     }
-    while (node != 0) {
-        if (node->id0x44 == data_02108cec.field0xa) break;
-        node = node->next;
+    while (var0 != 0) {
+        if (var0->unknown_44_ == data_02108cec.unknown_a_) break;
+        var0 = var0->unknown_70_;
     }
-    if (node == 0) {
+    if (var0 == 0) {
         return 0;
     }
-    node->byte1f = 9;
-    count = (param1 - 1) / 3;
-    prev = 0;
-    node->byte22 = (unsigned char)(count - 1);
-    for (i = 0; i < count; i++) {
-        newNode = (struct SubNode0206c82c*)((SafeAllocator*)data_02108cec.field0x14)->Allocate(0x14);
-        if (newNode == 0) {
+    var0->unknown_1f_ = 9;
+    var1 = (arg1 - 1) / 3;
+    var2 = 0;
+    var0->unknown_22_ = (unsigned char)(var1 - 1);
+    for (var3 = 0; var3 < var1; var3++) {
+        var4 = (struct Struct_0206c82c_2*)((SafeAllocator*)data_02108cec.unknown_14_)->Allocate(0x14);
+        if (var4 == 0) {
             return 0;
         }
-        param0 = (void*)(TaggedValue02030b44*)((Script::Parameter*)((struct TaggedValue02030b44*)param0))->ToVec3fix((Vector3i*)newNode->vec);
-        newNode->flag0xc = 0;
-        if (prev == 0) {
-            node->head0x34 = newNode;
+        arg0 = (void*)(Struct_0201d530*)((Script::Parameter*)((struct Struct_0201d530*)arg0))->ToVec3fix((Vector3i*)var4->unknown_0_);
+        var4->unknown_c_ = 0;
+        if (var2 == 0) {
+            var0->unknown_34_ = var4;
         } else {
-            prev->next = newNode;
+            var2->unknown_10_ = var4;
         }
-        prev = newNode;
+        var2 = var4;
     }
-    prev->next = node->head0x34;
-    prev->flag0xc = 1;
+    var2->unknown_10_ = var0->unknown_34_;
+    var2->unknown_c_ = 1;
     return 1;
 }

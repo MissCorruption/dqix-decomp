@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct StreamCursor02003d58 {
-    char* cursor;
-    int field4;
+struct Struct_02003d58 {
+    char* unknown_0_;
+    int unknown_4_;
 };
 
 
 // USA: func_02003d58
-extern "C" ARM int func_02003d58(StreamCursor02003d58* obj, int val, int cmd) {
-    switch (cmd) {
+extern "C" ARM int func_02003d58(Struct_02003d58* arg0, int arg1, int arg2) {
+    switch (arg2) {
     case 0: {
-        char c = *obj->cursor;
-        if (c == 0) {
-            obj->field4 = 1;
+        char var0 = *arg0->unknown_0_;
+        if (var0 == 0) {
+            arg0->unknown_4_ = 1;
             return -1;
         }
-        obj->cursor++;
-        return (unsigned char)c;
+        arg0->unknown_0_++;
+        return (unsigned char)var0;
     }
     case 1:
-        if (obj->field4 == 0) {
-            obj->cursor--;
+        if (arg0->unknown_4_ == 0) {
+            arg0->unknown_0_--;
         } else {
-            obj->field4 = 0;
+            arg0->unknown_4_ = 0;
         }
-        return val;
+        return arg1;
     case 2:
-        return obj->field4;
+        return arg0->unknown_4_;
     default:
         return 0;
     }

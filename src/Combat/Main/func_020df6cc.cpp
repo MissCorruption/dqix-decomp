@@ -1,41 +1,41 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct EntryDf6cc {
-    void *name;
-    void *desc;
-    unsigned char data[0x20 - 8];
+struct Struct_020def98_2 {
+    void *unknown_0_;
+    void *unknown_4_;
+    unsigned char unknown_8_[0x20 - 8];
 };
 
-struct BitFieldDf6cc {
-    unsigned short counter : 15;
-    unsigned short flag : 1;
+struct Struct_020df6cc {
+    unsigned short unknown_0_0_ : 15;
+    unsigned short unknown_1_7_ : 1;
 };
 
 // USA: func_020df6cc
-extern "C" ARM int func_020df6cc(void *a, EntryDf6cc *b, int unused, EntryDf6cc *d)
+extern "C" ARM int func_020df6cc(void *arg0, Struct_020def98_2 *arg1, int arg2, Struct_020def98_2 *arg3)
 {
-    void *savedDesc = b->desc;
-    void *savedName = b->name;
-    memcpy(b, d, sizeof(EntryDf6cc));
-    b->desc = savedDesc;
-    b->name = savedName;
+    void *var0 = arg1->unknown_4_;
+    void *var1 = arg1->unknown_0_;
+    memcpy(arg1, arg3, sizeof(Struct_020def98_2));
+    arg1->unknown_4_ = var0;
+    arg1->unknown_0_ = var1;
 
     {
-        void *bDesc = b->desc;
-        void *dDesc = d->desc;
-        if (bDesc != NULL) {
-            if (dDesc == NULL) {
-                *(char*)bDesc = 0;
+        void *var2 = arg1->unknown_4_;
+        void *var3 = arg3->unknown_4_;
+        if (var2 != NULL) {
+            if (var3 == NULL) {
+                *(char*)var2 = 0;
             } else {
-                strcpy((char*)bDesc, (char*)dDesc);
+                strcpy((char*)var2, (char*)var3);
             }
         }
     }
 
-    if (b->name != NULL && d->name != NULL) {
-        memcpy(b->name, d->name, 0x20);
-        ((BitFieldDf6cc*)((char*)a + 2))->counter++;
+    if (arg1->unknown_0_ != NULL && arg3->unknown_0_ != NULL) {
+        memcpy(arg1->unknown_0_, arg3->unknown_0_, 0x20);
+        ((Struct_020df6cc*)((char*)arg0 + 2))->unknown_0_0_++;
     }
 
     return 1;

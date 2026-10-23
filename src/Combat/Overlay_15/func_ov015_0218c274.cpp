@@ -2,16 +2,16 @@
 #include "std_library_functions.h"
 #include "Combat/Overlay15ViewerContext.h"
 
-struct Container020dedd0;
-struct Element020de650;
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
-extern "C" void* __clear(void* dst, int count);
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" void* __clear(void* arg0, int arg1);
 
-struct Sub0218c274 {
-    unsigned int f0;
-    unsigned int pad0 : 12;
-    unsigned int byteVal : 8;
-    unsigned int pad1 : 12;
+struct Struct_ov015_0218c274 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 8;
+    unsigned int unknown_6_4_ : 12;
 };
 
 extern char data_ov015_0219400a[3];
@@ -20,42 +20,42 @@ extern char data_ov015_02194010[3];
 extern char data_ov015_02194013[13];
 
 // USA: func_ov015_0218c274
-extern "C" ARM void func_ov015_0218c274(struct Obj0218c274* obj, char* outBuf, int flag) {
-    short key1 = (short)obj->parts_[8];
-    struct Element020de650* e1 = func_020dedd0((struct Container020dedd0*)((char*)obj->viewer_ + 0x4c), key1);
-    short key2 = (short)obj->parts_[0];
-    struct Element020de650* e2 = func_020dedd0((struct Container020dedd0*)((char*)obj->viewer_ + 0x4c), key2);
+extern "C" ARM void func_ov015_0218c274(struct Struct_ov015_0218bcb0* arg0, char* arg1, int arg2) {
+    short var0 = (short)arg0->unknown_20_[8];
+    struct Struct_0201099c_9* var1 = func_020dedd0((struct Struct_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), var0);
+    short var2 = (short)arg0->unknown_20_[0];
+    struct Struct_0201099c_9* var3 = func_020dedd0((struct Struct_0201099c_10*)((char*)arg0->unknown_0_ + 0x4c), var2);
 
-    int val2 = 0;
-    int val1 = val2;
-    if (e2 != 0) {
-        struct Sub0218c274* s = *(struct Sub0218c274**)e2;
-        val2 = s->byteVal;
+    int var4 = 0;
+    int var5 = var4;
+    if (var3 != 0) {
+        struct Struct_ov015_0218c274* var6 = *(struct Struct_ov015_0218c274**)var3;
+        var4 = var6->unknown_5_4_;
     }
-    if (e1 != 0) {
-        struct Sub0218c274* s = *(struct Sub0218c274**)e1;
-        val1 = s->byteVal;
+    if (var1 != 0) {
+        struct Struct_ov015_0218c274* var7 = *(struct Struct_ov015_0218c274**)var1;
+        var5 = var7->unknown_5_4_;
     }
 
-    char buf[4];
-    __clear(buf, 4);
+    char var8[4];
+    __clear(var8, 4);
 
-    char code;
-    if (obj->kind_ == 1) {
-        strcpy(buf, data_ov015_0219400a);
-        code = (obj->flag3b_ == 0) ? 'm' : 'w';
+    char var9;
+    if (arg0->unknown_1c_ == 1) {
+        strcpy(var8, data_ov015_0219400a);
+        var9 = (arg0->unknown_3b_ == 0) ? 'm' : 'w';
     } else {
-        strcpy(buf, data_ov015_0219400d);
-        code = (obj->field48_ == 0) ? 'n' : 'b';
-        if (flag != 0) {
-            code = 'f';
+        strcpy(var8, data_ov015_0219400d);
+        var9 = (arg0->unknown_48_ == 0) ? 'n' : 'b';
+        if (arg2 != 0) {
+            var9 = 'f';
         }
     }
-    if (code == 'n' || code == 'f') {
-        if (obj->flag3b_ == 1) {
-            strcpy(buf, data_ov015_02194010);
+    if (var9 == 'n' || var9 == 'f') {
+        if (arg0->unknown_3b_ == 1) {
+            strcpy(var8, data_ov015_02194010);
         }
     }
 
-    sprintf(outBuf, data_ov015_02194013, buf, val2, val1, code);
+    sprintf(arg1, data_ov015_02194013, var8, var4, var5, var9);
 }

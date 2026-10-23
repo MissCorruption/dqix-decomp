@@ -2,68 +2,68 @@
 #include "std_library_functions.h"
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" unsigned long long _ll_udiv(unsigned long long dividend, unsigned int divisor, unsigned int flag);
+extern "C" unsigned long long _ll_udiv(unsigned long long arg0, unsigned int arg1, unsigned int arg2);
 extern "C" int _s32_div_f(int, int);
-extern "C" int abs(int x);
+extern "C" int abs(int arg0);
 
-struct Particle021db110 {
-    short timer;
-    short duration;
-    short paramA;
-    short paramB;
+struct Struct_ov023_021db110 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    short unknown_6_;
 };
 
-struct Obj021db110 {
-    struct Particle021db110 particles[3];
-    unsigned long long lastTick;
-    short frameCounter;
-    short retrigger;
-    unsigned char active;
+struct Struct_ov023_021db110_2 {
+    struct Struct_ov023_021db110 unknown_0_[3];
+    unsigned long long unknown_18_;
+    short unknown_20_;
+    short unknown_22_;
+    unsigned char unknown_24_;
 };
 
 // USA: func_ov023_021db110
-extern "C" ARM void func_ov023_021db110(struct Obj021db110* obj) {
-    if (obj->active == 0) return;
+extern "C" ARM void func_ov023_021db110(struct Struct_ov023_021db110_2* arg0) {
+    if (arg0->unknown_24_ == 0) return;
 
-    unsigned long long scaledNow = _ll_udiv(GetCurrentTimestamp() << 6, 0x82ea, 0);
-    if (scaledNow - obj->lastTick > 30) {
-        obj->lastTick = scaledNow;
+    unsigned long long var0 = _ll_udiv(GetCurrentTimestamp() << 6, 0x82ea, 0);
+    if (var0 - arg0->unknown_18_ > 30) {
+        arg0->unknown_18_ = var0;
     } else {
         return;
     }
 
-    int i;
-    for (i = 0; i < 3; i++) {
-        obj->particles[i].timer--;
-        if (obj->particles[i].timer <= 0) obj->particles[i].timer = 0;
+    int var1;
+    for (var1 = 0; var1 < 3; var1++) {
+        arg0->unknown_0_[var1].unknown_0_--;
+        if (arg0->unknown_0_[var1].unknown_0_ <= 0) arg0->unknown_0_[var1].unknown_0_ = 0;
     }
 
-    obj->retrigger--;
-    if (obj->retrigger <= 0) {
-        obj->retrigger = 0;
-        for (int j = 0; j < 3; j++) {
-            struct Particle021db110* p = &obj->particles[j];
-            if (p->timer > 0) continue;
+    arg0->unknown_22_--;
+    if (arg0->unknown_22_ <= 0) {
+        arg0->unknown_22_ = 0;
+        for (int var2 = 0; var2 < 3; var2++) {
+            struct Struct_ov023_021db110* var3 = &arg0->unknown_0_[var2];
+            if (var3->unknown_0_ > 0) continue;
             if (rand() % 5 != 0) continue;
 
-            p->timer = p->duration;
-            p->paramA = (short)(rand() % 50);
-            p->paramB = (short)(rand() % 15);
+            var3->unknown_0_ = var3->unknown_2_;
+            var3->unknown_4_ = (short)(rand() % 50);
+            var3->unknown_6_ = (short)(rand() % 15);
 
-            for (int k = 0; k < 3; k++) {
-                if (j == k) continue;
-                if (obj->particles[k].timer <= 0) continue;
-                if (abs(p->paramA - obj->particles[k].paramA) > 12) continue;
-                if (abs(p->paramB - obj->particles[k].paramB) <= 12) {
-                    p->timer = 0;
+            for (int var4 = 0; var4 < 3; var4++) {
+                if (var2 == var4) continue;
+                if (arg0->unknown_0_[var4].unknown_0_ <= 0) continue;
+                if (abs(var3->unknown_4_ - arg0->unknown_0_[var4].unknown_4_) > 12) continue;
+                if (abs(var3->unknown_6_ - arg0->unknown_0_[var4].unknown_6_) <= 12) {
+                    var3->unknown_0_ = 0;
                     break;
                 }
             }
-            obj->retrigger = 2;
+            arg0->unknown_22_ = 2;
             break;
         }
     }
 
-    obj->frameCounter++;
-    if (obj->frameCounter >= 0x28) obj->frameCounter = 0;
+    arg0->unknown_20_++;
+    if (arg0->unknown_20_ >= 0x28) arg0->unknown_20_ = 0;
 }

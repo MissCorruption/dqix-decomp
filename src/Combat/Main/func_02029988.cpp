@@ -2,51 +2,51 @@
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct DebugMenuItem {
-    int type;
-    char text[0x30];
-    DebugMenuItem* next;
-    int disabled;
-    char padding_3c[4];
-    int value;
-    char padding_44[8];
-    unsigned short flags;
+struct Struct_02029988_3 {
+    int unknown_0_;
+    char unknown_4_[0x30];
+    Struct_02029988_3* unknown_34_;
+    int unknown_38_;
+    char unknown_3c_[4];
+    int unknown_40_;
+    char unknown_44_[8];
+    unsigned short unknown_4c_;
 };
 
-struct DebugMenu {
-    int type;
-    char text[0x40];
-    DebugMenuItem* items;
-    char padding_48[8];
-    short x;
-    short y;
-    short width;
-    short height;
-    short shownHeight;
-    unsigned short count;
-    short first;
-    short last;
-    short selected;
-    unsigned short visibleCount;
-    unsigned short visibleFirst;
-    unsigned short visibleLast;
-    char padding_68[4];
-    unsigned char state;
-    unsigned char flags;
-    unsigned char activated;
-    unsigned char repeating;
-    unsigned char paging;
-    unsigned char touching;
-    unsigned char touchEnabled;
-    unsigned char touchList;
-    unsigned char touchBar;
+struct Struct_02029988_2 {
+    int unknown_0_;
+    char unknown_4_[0x40];
+    Struct_02029988_3* unknown_44_;
+    char unknown_48_[8];
+    short unknown_50_;
+    short unknown_52_;
+    short unknown_54_;
+    short unknown_56_;
+    short unknown_58_;
+    unsigned short unknown_5a_;
+    short unknown_5c_;
+    short unknown_5e_;
+    short unknown_60_;
+    unsigned short unknown_62_;
+    unsigned short unknown_64_;
+    unsigned short unknown_66_;
+    char unknown_68_[4];
+    unsigned char unknown_6c_;
+    unsigned char unknown_6d_;
+    unsigned char unknown_6e_;
+    unsigned char unknown_6f_;
+    unsigned char unknown_70_;
+    unsigned char unknown_71_;
+    unsigned char unknown_72_;
+    unsigned char unknown_73_;
+    unsigned char unknown_74_;
 };
 
-struct Metrics020ef74c {
-    int field_0;
-    int rowHeight;
-    int columnWidth;
-    int font;
+struct Struct_020ef74c_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
 #if defined(jpn)
@@ -61,32 +61,32 @@ struct Metrics020ef74c {
 #define data_020ef782 data_020ef672
 #endif
 
-struct TextColor020fe9a4 {
+struct Struct_020fe9a4 {
 #if !defined(jpn)
-    void* buffer;
+    void* unknown_0_;
 #endif
-    int highlight;
+    int unknown_4_;
 };
 
-struct IndexList_0202a9ac;
-struct Callback_0202a91c;
-struct WrapField_0202a678;
+struct Struct_02029634;
+struct Struct_02029634_3;
+struct Struct_02029988;
 
-extern "C" void func_02029634(DebugMenu* menu, int ticks);
-extern "C" DebugMenuItem* func_0202a9ac(IndexList_0202a9ac*, int);
-extern "C" void func_0202a91c(Callback_0202a91c*);
+extern "C" void func_02029634(Struct_02029988_2* arg0, int arg1);
+extern "C" Struct_02029988_3* func_0202a9ac(Struct_02029634*, int);
+extern "C" void func_0202a91c(Struct_02029634_3*);
 extern "C" void func_0202a8cc(char*, int);
-extern "C" void func_0202ad98(int a, int b, int c, const char* fmt, ...);
-extern "C" void func_020290e8(int a, int b, const char* fmt, ...);
-extern "C" void func_0202a678(WrapField_0202a678*, int);
-extern "C" void func_0202a6c4(DebugMenu* menu);
+extern "C" void func_0202ad98(int arg0, int arg1, int arg2, const char* arg3, ...);
+extern "C" void func_020290e8(int arg0, int arg1, const char* arg2, ...);
+extern "C" void func_0202a678(Struct_02029988*, int);
+extern "C" void func_0202a6c4(Struct_02029988_2* arg0);
 extern "C" void* __clear(void*, int);
 extern "C" int func_02029384(int, int, int, int);
 extern "C" void func_02029470(int, int, int, int, int, int);
-extern "C" void func_020292ec(int a0, int a1, int a2, int a3, int a4);
+extern "C" void func_020292ec(int arg0, int arg1, int arg2, int arg3, int arg4);
 
-extern Metrics020ef74c data_020ef74c;
-extern TextColor020fe9a4 data_020fe9a4;
+extern Struct_020ef74c_2 data_020ef74c;
+extern Struct_020fe9a4 data_020fe9a4;
 extern const char data_020ef75c[];
 extern const char data_020ef75f[];
 extern const char data_020ef763[];
@@ -99,314 +99,314 @@ extern const char data_020ef778[];
 extern const char data_020ef77d[];
 extern const char data_020ef782[];
 
-static inline DebugMenuItem* GetItem(DebugMenu* menu, int index) {
-    return func_0202a9ac((IndexList_0202a9ac*)menu, index);
+static inline Struct_02029988_3* inline_02029988(Struct_02029988_2* arg0, int arg1) {
+    return func_0202a9ac((Struct_02029634*)arg0, arg1);
 }
 
 // USA: func_02029988
-extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
-    int barH;
-    float scale;
-    int barX;
-    DebugMenu* cur;
-    int barY;
+extern "C" ARM void func_02029988(Struct_02029988_2* arg0, int arg1) {
+    int var0;
+    float var1;
+    int var2;
+    Struct_02029988_2* var3;
+    int var4;
 
-    func_02029634(menu, ticks);
-    if (menu->flags & 8) return;
-    barH = 0;
-    barX = 0;
-    barY = 0;
+    func_02029634(arg0, arg1);
+    if (arg0->unknown_6d_ & 8) return;
+    var0 = 0;
+    var2 = 0;
+    var4 = 0;
 
-    if (menu->state == 0) {
-        cur = (DebugMenu*)GetItem(menu, menu->selected);
-        int row;
-        int len;
-        DebugMenuItem* item;
-        int first = menu->first;
-        int span = menu->last - first;
-        int extra = menu->visibleCount - (menu->count - (menu->last - first));
-        scale = (float)menu->height / (float)span;
-        barH = scale * extra;
-        barX = menu->x + menu->width - 9;
-        barY = menu->y + scale * (menu->visibleFirst - first);
+    if (arg0->unknown_6c_ == 0) {
+        var3 = (Struct_02029988_2*)inline_02029988(arg0, arg0->unknown_60_);
+        int var5;
+        int var6;
+        Struct_02029988_3* var7;
+        int var8 = arg0->unknown_5c_;
+        int var9 = arg0->unknown_5e_ - var8;
+        int var10 = arg0->unknown_62_ - (arg0->unknown_5a_ - (arg0->unknown_5e_ - var8));
+        var1 = (float)arg0->unknown_56_ / (float)var9;
+        var0 = var1 * var10;
+        var2 = arg0->unknown_50_ + arg0->unknown_54_ - 9;
+        var4 = arg0->unknown_52_ + var1 * (arg0->unknown_64_ - var8);
 
-        if (menu->touchEnabled) {
+        if (arg0->unknown_72_) {
             if (g_touchInput.pressed_) {
-                int tx, ty;
-                menu->touching = 1;
-                g_touchInput.GetTouchPoint(&tx, &ty);
-                if (menu->x < tx && tx < menu->x + menu->width - 12 &&
-                    menu->y < ty && ty < menu->y + menu->height) {
-                    menu->touchList = 1;
-                } else if (menu->x + menu->width - 12 < tx && tx < menu->x + menu->width + 4 &&
-                           menu->y < ty && ty < menu->y + menu->height) {
-                    menu->touchBar = 1;
+                int var11, var12;
+                arg0->unknown_71_ = 1;
+                g_touchInput.GetTouchPoint(&var11, &var12);
+                if (arg0->unknown_50_ < var11 && var11 < arg0->unknown_50_ + arg0->unknown_54_ - 12 &&
+                    arg0->unknown_52_ < var12 && var12 < arg0->unknown_52_ + arg0->unknown_56_) {
+                    arg0->unknown_73_ = 1;
+                } else if (arg0->unknown_50_ + arg0->unknown_54_ - 12 < var11 && var11 < arg0->unknown_50_ + arg0->unknown_54_ + 4 &&
+                           arg0->unknown_52_ < var12 && var12 < arg0->unknown_52_ + arg0->unknown_56_) {
+                    arg0->unknown_74_ = 1;
                 }
-            } else if (menu->touching && menu->touchList && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
-                int tx, ty;
-                g_touchInput.GetTouchPoint(&tx, &ty);
-                if (menu->x < tx && tx < menu->x + menu->width - 12 &&
-                    menu->y < ty && ty < menu->y + menu->height) {
-                    int row = (ty - menu->y) / data_020ef74c.rowHeight - 1;
-                    if (first <= row && row <= first + extra) {
-                        int sel = menu->visibleFirst + (row - first);
-                        if (menu->first <= sel && sel <= menu->last) {
-                            menu->selected = sel;
+            } else if (arg0->unknown_71_ && arg0->unknown_73_ && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
+                int var13, var14;
+                g_touchInput.GetTouchPoint(&var13, &var14);
+                if (arg0->unknown_50_ < var13 && var13 < arg0->unknown_50_ + arg0->unknown_54_ - 12 &&
+                    arg0->unknown_52_ < var14 && var14 < arg0->unknown_52_ + arg0->unknown_56_) {
+                    int var15 = (var14 - arg0->unknown_52_) / data_020ef74c.unknown_4_ - 1;
+                    if (var8 <= var15 && var15 <= var8 + var10) {
+                        int var16 = arg0->unknown_64_ + (var15 - var8);
+                        if (arg0->unknown_5c_ <= var16 && var16 <= arg0->unknown_5e_) {
+                            arg0->unknown_60_ = var16;
                         }
                     }
                 }
-            } else if (menu->touching && menu->touchBar && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
-                int tx, ty;
-                g_touchInput.GetTouchPoint(&tx, &ty);
-                barY = ty - barH / 2;
-                if (barY < menu->y) {
-                    barY = menu->y;
-                } else if (menu->y + menu->width < barY + barH) {
-                    barY = menu->y + menu->height - barH;
+            } else if (arg0->unknown_71_ && arg0->unknown_74_ && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
+                int var17, var18;
+                g_touchInput.GetTouchPoint(&var17, &var18);
+                var4 = var18 - var0 / 2;
+                if (var4 < arg0->unknown_52_) {
+                    var4 = arg0->unknown_52_;
+                } else if (arg0->unknown_52_ + arg0->unknown_54_ < var4 + var0) {
+                    var4 = arg0->unknown_52_ + arg0->unknown_56_ - var0;
                 }
-                menu->visibleFirst = first + (barY - menu->y) / scale;
-                menu->visibleLast = menu->visibleFirst + extra;
-                if (menu->selected < menu->visibleFirst) menu->selected = menu->visibleFirst;
-                if (menu->visibleLast < menu->selected) menu->selected = menu->visibleLast;
-            } else if (menu->touching && g_touchInput.released_) {
-                int tx = g_touchInput.prevX_;
-                int ty = g_touchInput.prevY_;
-                if (menu->touchList &&
-                    menu->x < tx && tx < menu->x + menu->width - 12 &&
-                    menu->y < ty && ty < menu->y + menu->height) {
-                    int row = (ty - menu->y) / data_020ef74c.rowHeight - 1;
-                    if (first <= row && row <= first + extra) {
-                        int sel = menu->visibleFirst + (row - first);
-                        if (menu->first <= sel && sel <= menu->last) {
-                            menu->selected = sel;
-                            if (menu->selected < 0 || cur->type != 1) {
-                                if (menu->flags & 2) return;
-                                func_0202a91c((Callback_0202a91c*)menu);
-                                menu->activated = 1;
+                arg0->unknown_64_ = var8 + (var4 - arg0->unknown_52_) / var1;
+                arg0->unknown_66_ = arg0->unknown_64_ + var10;
+                if (arg0->unknown_60_ < arg0->unknown_64_) arg0->unknown_60_ = arg0->unknown_64_;
+                if (arg0->unknown_66_ < arg0->unknown_60_) arg0->unknown_60_ = arg0->unknown_66_;
+            } else if (arg0->unknown_71_ && g_touchInput.released_) {
+                int var19 = g_touchInput.prevX_;
+                int var20 = g_touchInput.prevY_;
+                if (arg0->unknown_73_ &&
+                    arg0->unknown_50_ < var19 && var19 < arg0->unknown_50_ + arg0->unknown_54_ - 12 &&
+                    arg0->unknown_52_ < var20 && var20 < arg0->unknown_52_ + arg0->unknown_56_) {
+                    int var21 = (var20 - arg0->unknown_52_) / data_020ef74c.unknown_4_ - 1;
+                    if (var8 <= var21 && var21 <= var8 + var10) {
+                        int var22 = arg0->unknown_64_ + (var21 - var8);
+                        if (arg0->unknown_5c_ <= var22 && var22 <= arg0->unknown_5e_) {
+                            arg0->unknown_60_ = var22;
+                            if (arg0->unknown_60_ < 0 || var3->unknown_0_ != 1) {
+                                if (arg0->unknown_6d_ & 2) return;
+                                func_0202a91c((Struct_02029634_3*)arg0);
+                                arg0->unknown_6e_ = 1;
                                 return;
                             }
-                            if (cur->type != 1) return;
-                            func_0202a8cc((char*)cur, 1);
-                            menu->state = 4;
+                            if (var3->unknown_0_ != 1) return;
+                            func_0202a8cc((char*)var3, 1);
+                            arg0->unknown_6c_ = 4;
                             return;
                         }
                     }
                 }
-                menu->touching = 0;
-                menu->touchList = 0;
-                menu->touchBar = 0;
+                arg0->unknown_71_ = 0;
+                arg0->unknown_73_ = 0;
+                arg0->unknown_74_ = 0;
             }
         }
 
-        if (menu->visibleLast < menu->selected) {
-            menu->visibleFirst = menu->selected - extra;
-            menu->visibleLast = menu->selected;
-        } else if (menu->selected < menu->visibleFirst) {
-            menu->visibleFirst = menu->selected;
-            menu->visibleLast = menu->selected + extra;
+        if (arg0->unknown_66_ < arg0->unknown_60_) {
+            arg0->unknown_64_ = arg0->unknown_60_ - var10;
+            arg0->unknown_66_ = arg0->unknown_60_;
+        } else if (arg0->unknown_60_ < arg0->unknown_64_) {
+            arg0->unknown_64_ = arg0->unknown_60_;
+            arg0->unknown_66_ = arg0->unknown_60_ + var10;
         }
 
-        if (data_020ef74c.font == 0) {
-            func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 1, 7, menu->text);
-        } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
-            data_020fe9a4.highlight = 0;
-            func_020290e8(menu->x + data_020ef74c.columnWidth, menu->y + data_020ef74c.rowHeight, menu->text);
+        if (data_020ef74c.unknown_c_ == 0) {
+            func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 1, 7, arg0->unknown_4_);
+        } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
+            data_020fe9a4.unknown_4_ = 0;
+            func_020290e8(arg0->unknown_50_ + data_020ef74c.unknown_8_, arg0->unknown_52_ + data_020ef74c.unknown_4_, arg0->unknown_4_);
         }
 
         {
-            char buf[0x80];
-            item = GetItem(menu, 0);
-            for (row = 0; row < first; row++) {
-                if (item == NULL) break;
-                sprintf(buf, data_020ef75c, item->text);
-                data_020fe9a4.highlight = 0;
-                if (item->disabled) data_020fe9a4.highlight = 1;
-                if (data_020ef74c.font == 0) {
-                    func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + row, 7, buf);
-                } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
-                    int px = menu->x + data_020ef74c.columnWidth;
-                    int py = data_020ef74c.rowHeight * (row + 2);
-                    func_020290e8(px, py + menu->y, buf);
+            char var23[0x80];
+            var7 = inline_02029988(arg0, 0);
+            for (var5 = 0; var5 < var8; var5++) {
+                if (var7 == NULL) break;
+                sprintf(var23, data_020ef75c, var7->unknown_4_);
+                data_020fe9a4.unknown_4_ = 0;
+                if (var7->unknown_38_) data_020fe9a4.unknown_4_ = 1;
+                if (data_020ef74c.unknown_c_ == 0) {
+                    func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 2 + var5, 7, var23);
+                } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
+                    int var24 = arg0->unknown_50_ + data_020ef74c.unknown_8_;
+                    int var25 = data_020ef74c.unknown_4_ * (var5 + 2);
+                    func_020290e8(var24, var25 + arg0->unknown_52_, var23);
                 }
-                item = item->next;
+                var7 = var7->unknown_34_;
             }
         }
 
         {
-            char buf[0x80];
-            item = GetItem(menu, menu->last + 1);
-            for (row = menu->last + 1; row < menu->count; row++) {
-                if (item == NULL) break;
-                sprintf(buf, data_020ef75c, item->text);
-                data_020fe9a4.highlight = 0;
-                if (item->disabled) data_020fe9a4.highlight = 1;
-                if (data_020ef74c.font == 0) {
-                    func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + row, 7, buf);
-                } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
-                    int px = menu->x + data_020ef74c.columnWidth;
-                    int py = data_020ef74c.rowHeight * (row + 2);
-                    func_020290e8(px, py + menu->y, buf);
+            char var26[0x80];
+            var7 = inline_02029988(arg0, arg0->unknown_5e_ + 1);
+            for (var5 = arg0->unknown_5e_ + 1; var5 < arg0->unknown_5a_; var5++) {
+                if (var7 == NULL) break;
+                sprintf(var26, data_020ef75c, var7->unknown_4_);
+                data_020fe9a4.unknown_4_ = 0;
+                if (var7->unknown_38_) data_020fe9a4.unknown_4_ = 1;
+                if (data_020ef74c.unknown_c_ == 0) {
+                    func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 2 + var5, 7, var26);
+                } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
+                    int var27 = arg0->unknown_50_ + data_020ef74c.unknown_8_;
+                    int var28 = data_020ef74c.unknown_4_ * (var5 + 2);
+                    func_020290e8(var27, var28 + arg0->unknown_52_, var26);
                 }
-                item = item->next;
+                var7 = var7->unknown_34_;
             }
         }
 
         {
-            char line[0x80];
-            char number[0x10];
-            item = GetItem(menu, menu->visibleFirst);
-            for (row = menu->visibleFirst; row <= menu->visibleLast; row++) {
-                if (item == NULL) break;
-                data_020fe9a4.highlight = 0;
-                len = 0;
-                if (item->disabled) data_020fe9a4.highlight = 1;
-                if (menu->first <= row && row <= menu->last) {
-                    if (menu->selected == row) {
-                        sprintf(line, data_020ef75f);
+            char var29[0x80];
+            char var30[0x10];
+            var7 = inline_02029988(arg0, arg0->unknown_64_);
+            for (var5 = arg0->unknown_64_; var5 <= arg0->unknown_66_; var5++) {
+                if (var7 == NULL) break;
+                data_020fe9a4.unknown_4_ = 0;
+                var6 = 0;
+                if (var7->unknown_38_) data_020fe9a4.unknown_4_ = 1;
+                if (arg0->unknown_5c_ <= var5 && var5 <= arg0->unknown_5e_) {
+                    if (arg0->unknown_60_ == var5) {
+                        sprintf(var29, data_020ef75f);
                     } else {
-                        sprintf(line, data_020ef763);
+                        sprintf(var29, data_020ef763);
                     }
 #if defined(jpn)
-                    enum { regionalMarkLen = 1 };
+                    enum { Enum_02029988_3 = 1 };
 #else
-                    enum { regionalMarkLen = 3 };
+                    enum { Enum_02029988_3 = 3 };
 #endif
-                    len += regionalMarkLen;
+                    var6 += Enum_02029988_3;
                 }
                 {
-                    int suffix;
-                    if (item->type == 2) {
-                        if (menu->selected == row && item->disabled == 0 &&
+                    int var31;
+                    if (var7->unknown_0_ == 2) {
+                        if (arg0->unknown_60_ == var5 && var7->unknown_38_ == 0 &&
                             g_keyManager.TestKeysPressed(0x30)) {
-                            item->value = item->value == 0;
+                            var7->unknown_40_ = var7->unknown_40_ == 0;
                         }
-                        if (item->value) {
-                            sprintf(line + len, data_020ef767);
+                        if (var7->unknown_40_) {
+                            sprintf(var29 + var6, data_020ef767);
                         } else {
-                            sprintf(line + len, data_020ef76b);
+                            sprintf(var29 + var6, data_020ef76b);
                         }
-                        len += 3;
+                        var6 += 3;
                     }
-                    __clear(number, sizeof(number));
-                    suffix = 0;
-                    if (item->type == 3) {
-                        item->flags &= ~2;
-                        item->flags &= ~0xc;
-                        if (menu->selected == row && item->disabled == 0) {
-                            int adjusted = 0;
-                            int savedFirst;
-                            int savedLast;
-                            int old = item->value;
-                            int step = 1;
-                            if (g_keyManager.TestKeysHeld(8)) step = 100;
+                    __clear(var30, sizeof(var30));
+                    var31 = 0;
+                    if (var7->unknown_0_ == 3) {
+                        var7->unknown_4c_ &= ~2;
+                        var7->unknown_4c_ &= ~0xc;
+                        if (arg0->unknown_60_ == var5 && var7->unknown_38_ == 0) {
+                            int var32 = 0;
+                            int var33;
+                            int var34;
+                            int var35 = var7->unknown_40_;
+                            int var36 = 1;
+                            if (g_keyManager.TestKeysHeld(8)) var36 = 100;
                             if (g_keyManager.TestKeyRepeat(0x10)) {
-                                func_0202a678((WrapField_0202a678*)item, step);
-                                adjusted = 1;
+                                func_0202a678((Struct_02029988*)var7, var36);
+                                var32 = 1;
                             }
                             if (g_keyManager.TestKeyRepeat(0x20)) {
-                                func_0202a678((WrapField_0202a678*)item, -step);
-                                adjusted = 1;
+                                func_0202a678((Struct_02029988*)var7, -var36);
+                                var32 = 1;
                             }
                             if (g_keyManager.TestKeyRepeat(0x100)) {
-                                func_0202a678((WrapField_0202a678*)item, step * 10);
-                                adjusted = 1;
+                                func_0202a678((Struct_02029988*)var7, var36 * 10);
+                                var32 = 1;
                             }
                             if (g_keyManager.TestKeyRepeat(0x200)) {
-                                func_0202a678((WrapField_0202a678*)item, step * -10);
-                                adjusted = 1;
+                                func_0202a678((Struct_02029988*)var7, var36 * -10);
+                                var32 = 1;
                             }
-                            if (adjusted) {
-                                savedFirst = menu->visibleFirst;
-                                savedLast = menu->visibleLast;
-                                func_0202a6c4(menu);
-                                menu->visibleFirst = savedFirst;
-                                menu->visibleLast = savedLast;
-                                item->flags |= 2;
-                                if (old < item->value) item->flags |= 4;
-                                if (old > item->value) item->flags |= 8;
+                            if (var32) {
+                                var33 = arg0->unknown_64_;
+                                var34 = arg0->unknown_66_;
+                                func_0202a6c4(arg0);
+                                arg0->unknown_64_ = var33;
+                                arg0->unknown_66_ = var34;
+                                var7->unknown_4c_ |= 2;
+                                if (var35 < var7->unknown_40_) var7->unknown_4c_ |= 4;
+                                if (var35 > var7->unknown_40_) var7->unknown_4c_ |= 8;
                             }
                         }
-                        if (!(item->flags & 0x40)) {
-                            if (item->flags & 0x20) {
-                                if (item->flags & 1) {
-                                    sprintf(number, data_020ef76f, item->value);
-                                } else if (item->flags & 0x80) {
-                                    sprintf(number, data_020ef772, item->value + 0x40);
+                        if (!(var7->unknown_4c_ & 0x40)) {
+                            if (var7->unknown_4c_ & 0x20) {
+                                if (var7->unknown_4c_ & 1) {
+                                    sprintf(var30, data_020ef76f, var7->unknown_40_);
+                                } else if (var7->unknown_4c_ & 0x80) {
+                                    sprintf(var30, data_020ef772, var7->unknown_40_ + 0x40);
                                 } else {
-                                    sprintf(number, data_020ef775, item->value);
+                                    sprintf(var30, data_020ef775, var7->unknown_40_);
                                 }
                             } else {
-                                if (item->flags & 1) {
-                                    sprintf(number, data_020ef778, item->value);
-                                } else if (item->flags & 0x80) {
-                                    sprintf(number, data_020ef77d, item->value + 0x40);
+                                if (var7->unknown_4c_ & 1) {
+                                    sprintf(var30, data_020ef778, var7->unknown_40_);
+                                } else if (var7->unknown_4c_ & 0x80) {
+                                    sprintf(var30, data_020ef77d, var7->unknown_40_ + 0x40);
                                 } else {
-                                    sprintf(number, data_020ef782, item->value);
+                                    sprintf(var30, data_020ef782, var7->unknown_40_);
                                 }
                             }
-                            suffix = 1;
-                            if (item->flags & 0x10) suffix = 2;
+                            var31 = 1;
+                            if (var7->unknown_4c_ & 0x10) var31 = 2;
                         }
                     }
-                    if (suffix == 1) {
-                        sprintf(line + len, data_020ef75c, number);
-                        len += strlen(number);
+                    if (var31 == 1) {
+                        sprintf(var29 + var6, data_020ef75c, var30);
+                        var6 += strlen(var30);
                     }
-                    sprintf(line + len, data_020ef75c, item->text);
-                    len += strlen(item->text);
-                    if (suffix == 2) {
-                        sprintf(line + len, data_020ef75c, number);
-                        len += strlen(number);
+                    sprintf(var29 + var6, data_020ef75c, var7->unknown_4_);
+                    var6 += strlen(var7->unknown_4_);
+                    if (var31 == 2) {
+                        sprintf(var29 + var6, data_020ef75c, var30);
+                        var6 += strlen(var30);
                     }
-                    if (data_020ef74c.font == 0) {
-                        func_0202ad98(menu->x / 8 + 1, menu->y / 8 + 2 + (first + (row - menu->visibleFirst)), 7, line);
-                    } else if (data_020ef74c.font >= 3 && data_020ef74c.font <= 6) {
-                        int px = menu->x + data_020ef74c.columnWidth;
-                        int py = data_020ef74c.rowHeight * (first + (row - menu->visibleFirst) + 2);
-                        func_020290e8(px, py + menu->y, line);
+                    if (data_020ef74c.unknown_c_ == 0) {
+                        func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 2 + (var8 + (var5 - arg0->unknown_64_)), 7, var29);
+                    } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
+                        int var37 = arg0->unknown_50_ + data_020ef74c.unknown_8_;
+                        int var38 = data_020ef74c.unknown_4_ * (var8 + (var5 - arg0->unknown_64_) + 2);
+                        func_020290e8(var37, var38 + arg0->unknown_52_, var29);
                     }
                 }
-                item = item->next;
+                var7 = var7->unknown_34_;
             }
         }
     }
 
-    if (menu->state == 4) {
-        cur = (DebugMenu*)GetItem(menu, menu->selected);
-        if (cur != NULL && cur->type == 1) {
-            func_02029988(cur, ticks);
-            if (cur->state == 1 ? 1 : 0) {
-                func_0202a8cc((char*)menu, 0);
+    if (arg0->unknown_6c_ == 4) {
+        var3 = (Struct_02029988_2*)inline_02029988(arg0, arg0->unknown_60_);
+        if (var3 != NULL && var3->unknown_0_ == 1) {
+            func_02029988(var3, arg1);
+            if (var3->unknown_6c_ == 1 ? 1 : 0) {
+                func_0202a8cc((char*)arg0, 0);
             }
         }
     }
 
-    switch (menu->state) {
+    switch (arg0->unknown_6c_) {
     case 0:
-        if (func_02029384(menu->x, menu->y, menu->width, menu->height)) {
-            if (menu->visibleLast - menu->visibleFirst + 1 < menu->count) {
+        if (func_02029384(arg0->unknown_50_, arg0->unknown_52_, arg0->unknown_54_, arg0->unknown_56_)) {
+            if (arg0->unknown_66_ - arg0->unknown_64_ + 1 < arg0->unknown_5a_) {
                 func_02029470(0, 1, 3, 0, 0, 0);
-                func_020292ec(menu->x + menu->width - 9, menu->y + 1, 8, menu->height - 2, 0x7fff);
+                func_020292ec(arg0->unknown_50_ + arg0->unknown_54_ - 9, arg0->unknown_52_ + 1, 8, arg0->unknown_56_ - 2, 0x7fff);
                 func_02029470(0, 1, 3, 0, 0x1f, 0);
-                if (barH < 0 || barH >= 0x100) {
-                    barY = menu->y + 1;
-                    barH = menu->height - 2;
+                if (var0 < 0 || var0 >= 0x100) {
+                    var4 = arg0->unknown_52_ + 1;
+                    var0 = arg0->unknown_56_ - 2;
                 }
-                func_020292ec(barX, barY, 8, barH, 0x7fff);
+                func_020292ec(var2, var4, 8, var0, 0x7fff);
             }
         }
         break;
     case 1:
         break;
     case 2:
-        menu->shownHeight = menu->height;
-        menu->state = 0;
-        func_02029384(menu->x, menu->y, menu->width, menu->shownHeight);
+        arg0->unknown_58_ = arg0->unknown_56_;
+        arg0->unknown_6c_ = 0;
+        func_02029384(arg0->unknown_50_, arg0->unknown_52_, arg0->unknown_54_, arg0->unknown_58_);
         break;
     case 3:
-        menu->shownHeight = 0;
-        menu->state = 1;
-        func_02029384(menu->x, menu->y, menu->width, menu->shownHeight);
+        arg0->unknown_58_ = 0;
+        arg0->unknown_6c_ = 1;
+        func_02029384(arg0->unknown_50_, arg0->unknown_52_, arg0->unknown_54_, arg0->unknown_58_);
         break;
     }
 }

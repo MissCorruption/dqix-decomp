@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 
-struct Struct0203c1c8 {
+struct Struct_0203c1c8 {
 #if defined(jpn)
-    short textSlots[10];
+    short unknown1_0_[10];
 #endif
-    int x;
-    int y;
+    int unknown_0_;
+    int unknown_4_;
 #if defined(jpn)
-    int lineHeight;
-    int characterAdvance;
+    int unknown_1c_;
+    int unknown_20_;
 #endif
-    int paletteOffset;
-    int alignment;
-    int priority;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
 #if defined(jpn)
-    signed int affineIndex : 16;
-    unsigned int unknown32 : 8;
-    unsigned int unknown33 : 8;
-    int affineMode;
+    signed int unknown_30_0_ : 16;
+    unsigned int unknown_32_0_ : 8;
+    unsigned int unknown_33_0_ : 8;
+    int unknown_34_;
 #else
-    short entryIndex;
+    short unknown_14_;
 #endif
 };
 
 #if defined(jpn)
-extern "C" void func_0203c1c8(Struct0203c1c8* obj, int count);
+extern "C" void func_0203c1c8(Struct_0203c1c8* arg0, int arg1);
 #define REGION_COUNT 2
 #else
-extern "C" void func_0203c1c8(Struct0203c1c8* obj);
+extern "C" void func_0203c1c8(Struct_0203c1c8* arg0);
 #define REGION_COUNT 1
 #endif
 
 // USA: func_ov000_021704d8
-extern "C" ARM void func_ov000_021704d8(Struct0203c1c8* obj, int* arr1, int* arr2, int* arr3) {
-    obj->alignment = 2;
-    obj->priority = 1;
-    int i;
-    for (i = 0; i < REGION_COUNT; i++) {
-        int v0 = arr1[i];
-        int v4 = arr2[i];
-        obj->x = v0;
-        obj->y = v4;
-        obj->paletteOffset = arr3[i];
+extern "C" ARM void func_ov000_021704d8(Struct_0203c1c8* arg0, int* arg1, int* arg2, int* arg3) {
+    arg0->unknown_c_ = 2;
+    arg0->unknown_10_ = 1;
+    int var0;
+    for (var0 = 0; var0 < REGION_COUNT; var0++) {
+        int var1 = arg1[var0];
+        int var2 = arg2[var0];
+        arg0->unknown_0_ = var1;
+        arg0->unknown_4_ = var2;
+        arg0->unknown_8_ = arg3[var0];
 #if defined(jpn)
-        func_0203c1c8(obj, 10);
+        func_0203c1c8(arg0, 10);
 #else
-        func_0203c1c8(obj);
+        func_0203c1c8(arg0);
 #endif
     }
-    obj->paletteOffset = 0;
+    arg0->unknown_8_ = 0;
 }

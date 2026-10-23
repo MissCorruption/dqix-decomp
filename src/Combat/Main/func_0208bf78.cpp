@@ -10,323 +10,323 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct StreamHeader0208d82c;
-struct StreamHeader;
-struct ActiveEntry02046900;
-struct Rec020467f0;
-struct List0208d994;
-struct PackedNibbleArray0206e120;
-struct PackedNibbleArray0206e260;
-struct FindEntryById02096134Table;
-struct HeadNode02046b24;
-struct List0204af64;
-struct Obj0204b5e8;
-struct SelfTag0204b3a0;
+struct Struct_0208b9a0;
+struct Struct_02013fb4;
+struct Struct_02020cb8_4;
+struct Struct_02020aec;
+struct Struct_0208bf78_5;
+struct Struct_0205faf4_3;
+struct Struct_0205faf4_4;
+struct Struct_0205faf4_7;
+struct Struct_02015438;
+struct Struct_02020cb8;
+struct Struct_02020cb8_5;
+struct Struct_02020cb8_6;
 
-struct SaveDate0208bf78 {
-    unsigned int year : 7;
-    unsigned int month : 4;
-    unsigned int day : 5;
-    unsigned int hour : 5;
-    unsigned int minute : 6;
+struct Struct_0208bf78_6 {
+    unsigned int unknown_0_0_ : 7;
+    unsigned int unknown_0_7_ : 4;
+    unsigned int unknown_1_3_ : 5;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 6;
 };
 
-struct GetTableByteOrFFData {
-    unsigned char pad_0[0x178];
-    SaveDate0208bf78 dates[204];
-    unsigned char defeated[0x20];
+struct Struct_02065990_3 {
+    unsigned char unknown_0_[0x178];
+    Struct_0208bf78_6 unknown_178_[204];
+    unsigned char unknown_4a8_[0x20];
 };
 
-struct StatEntry0208bf78 {
-    unsigned int pad_0 : 16;
-    unsigned int hasResists : 1;
-    unsigned int pad_17 : 15;
-    unsigned short resists[2];
-    unsigned short pad_8;
-    unsigned short stats[3];
+struct Struct_0208bf78_7 {
+    unsigned int unknown_0_0_ : 16;
+    unsigned int unknown_2_0_ : 1;
+    unsigned int unknown_2_1_ : 15;
+    unsigned short unknown_4_[2];
+    unsigned short unknown_8_;
+    unsigned short unknown_a_[3];
 };
 
-struct StoreStruct {
-    unsigned char pad_0[0x60];
-    char* buffer;
+struct Struct_020465c0 {
+    unsigned char unknown_0_[0x60];
+    char* unknown_60_;
 };
 
-struct TextLayout0208bf78 {
-    unsigned char pad_0[0x1c];
-    short width;
-    short height;
-    unsigned char pad_20[8];
-    short firstFont;
-    short lastFont;
-    unsigned char pad_2c[0x28];
+struct Struct_0208bf78 {
+    unsigned char unknown_0_[0x1c];
+    short unknown_1c_;
+    short unknown_1e_;
+    unsigned char unknown_20_[8];
+    short unknown_28_;
+    short unknown_2a_;
+    unsigned char unknown_2c_[0x28];
 };
 
-struct TextWindow0208bf78 {
-    unsigned char pad_0[8];
-    char* text;
-    unsigned char pad_c[0x80];
-    TextLayout0208bf78 layout;
+struct Struct_0208bf78_2 {
+    unsigned char unknown_0_[8];
+    char* unknown_8_;
+    unsigned char unknown_c_[0x80];
+    Struct_0208bf78 unknown_8c_;
 };
 
-struct RecordList0208bf78 {
-    unsigned char pad_0[0x1c];
-    unsigned char mode : 4;
-    unsigned char layer : 4;
-    unsigned char pad_1d[3];
+struct Struct_0208bf78_3 {
+    unsigned char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_[3];
 };
 
-struct Arena0208bf78 {
-    unsigned char otherAllocators[0x28];
-    SafeAllocator scriptAllocator;
-    SafeAllocator* GetScriptAllocator() { return &scriptAllocator; }
+struct Struct_02000c9c_25 {
+    unsigned char unknown_0_[0x28];
+    SafeAllocator unknown_28_;
+    SafeAllocator* inline_0208bf78() { return &unknown_28_; }
 };
 
-struct RecordView0208bf78 {
-    Arena0208bf78* arena;
-    Container020e0310 strings;
-    unsigned char pad_c[0x10];
-    StreamHeader0208d860 elements;
-    unsigned char pad_2c[0x90];
-    int taskId;
-    unsigned char pad_c0[0x12];
-    short target;
-    unsigned char complete;
-    unsigned char state;
-    unsigned char loadState;
-    unsigned char pad_d7[3];
-    unsigned short flags;
-    unsigned char hasScript;
-    unsigned char revealed;
-    unsigned char pad_de;
-    unsigned char showDefeated;
+struct Struct_0208bf78_4 {
+    Struct_02000c9c_25* unknown_0_;
+    Struct_0201099c_3 unknown_4_;
+    unsigned char unknown_c_[0x10];
+    Struct_0208d550 unknown_1c_;
+    unsigned char unknown_2c_[0x90];
+    int unknown_bc_;
+    unsigned char unknown_c0_[0x12];
+    short unknown_d2_;
+    unsigned char unknown_d4_;
+    unsigned char unknown_d5_;
+    unsigned char unknown_d6_;
+    unsigned char unknown_d7_[3];
+    unsigned short unknown_da_;
+    unsigned char unknown_dc_;
+    unsigned char unknown_dd_;
+    unsigned char unknown_de_;
+    unsigned char unknown_df_;
 };
 
-extern "C" void func_0208d854(StreamHeader0208d82c*);
-extern "C" GetTableByteOrFFData* func_02094d6c();
-extern "C" unsigned char func_020965ac(GetTableByteOrFFData*, unsigned char);
-extern "C" int func_02095870(void*, StreamHeader*, int, int, unsigned char*);
-extern "C" int func_02046900(ActiveEntry02046900*);
-extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
-extern "C" int func_0208d9e8(List0208d994*, int);
+extern "C" void func_0208d854(Struct_0208b9a0*);
+extern "C" Struct_02065990_3* func_02094d6c();
+extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
+extern "C" int func_02095870(void*, Struct_02013fb4*, int, int, unsigned char*);
+extern "C" int func_02046900(Struct_02020cb8_4*);
+extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" int func_0208d9e8(Struct_0208bf78_5*, int);
 extern "C" int func_02096088(void*, int);
 extern "C" int func_02096100(int, unsigned char*, int);
-extern "C" int func_020e0434(Container020e0310*, int);
-extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
-extern "C" unsigned char func_0209618c(FindEntryById02096134Table*, int);
-extern "C" int func_0208da18(List0208d994*, int, int);
-extern "C" int func_0208dac4(List0208d994*, int);
-extern "C" int func_0208da00(List0208d994*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
+extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+extern "C" unsigned char func_0209618c(Struct_0205faf4_7*, int);
+extern "C" int func_0208da18(Struct_0208bf78_5*, int, int);
+extern "C" int func_0208dac4(Struct_0208bf78_5*, int);
+extern "C" int func_0208da00(Struct_0208bf78_5*, int);
 extern "C" int func_0200fb8c(int*);
-extern "C" int func_02046b24(HeadNode02046b24**);
-extern "C" int func_0208dadc(List0208d994*, int);
-extern "C" int func_0206e260(PackedNibbleArray0206e260*, int);
-extern "C" StoreStruct* func_020421a0();
-extern "C" StatEntry0208bf78* func_02096134(FindEntryById02096134Table*, int);
-extern "C" void func_020465c0(StoreStruct*, int, int);
-extern "C" void func_0204af64(List0204af64*);
+extern "C" int func_02046b24(Struct_02015438**);
+extern "C" int func_0208dadc(Struct_0208bf78_5*, int);
+extern "C" int func_0206e260(Struct_0205faf4_4*, int);
+extern "C" Struct_020465c0* func_020421a0();
+extern "C" Struct_0208bf78_7* func_02096134(Struct_0205faf4_7*, int);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void func_0204af64(Struct_02020cb8*);
 extern "C" void func_0204b11c(unsigned char*, int);
-extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
+extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void func_0208c9cc(int, int, int, int, int);
 extern "C" void func_0204b2e0(void*, char*);
-extern "C" void func_0204b3a0(SelfTag0204b3a0*, char*);
-extern "C" void func_0204c684(TextWindow0208bf78*);
-extern "C" PackedNibbleArray0206e120* func_0205ec34();
-extern "C" void func_0204f41c(TextWindow0208bf78*, short, short, const char*, int, unsigned char, short*, short*, int);
-extern "C" void func_02046380(StoreStruct*);
-extern "C" void func_02046608(StoreStruct*, int, const char*, char*, int, int, int);
+extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+extern "C" void func_0204c684(Struct_0208bf78_2*);
+extern "C" Struct_0205faf4_3* func_0205ec34();
+extern "C" void func_0204f41c(Struct_0208bf78_2*, short, short, const char*, int, unsigned char, short*, short*, int);
+extern "C" void func_02046380(Struct_020465c0*);
+extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
 extern "C" int func_020420e8(char*, int);
-extern "C" void func_0208d42c(void*, TextWindow0208bf78*, short, short, int, unsigned char, unsigned char, unsigned char, unsigned char);
+extern "C" void func_0208d42c(void*, Struct_0208bf78_2*, short, short, int, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_0204b5b4(void*, int);
 
 extern char data_020f1120[], data_020f113b[], data_020f114d[], data_020f116b[], data_020f117f[];
 extern char data_020f1192[], data_020f1197[];
 
-static inline unsigned char GetMonsterIndex0208bf78(GetTableByteOrFFData* table, int target) {
-    return func_020965ac(table, target);
+static inline unsigned char inline_0208bf78_2(Struct_02065990_3* arg0, int arg1) {
+    return func_020965ac(arg0, arg1);
 }
 
-static inline SaveDate0208bf78 GetSaveDate0208bf78(GetTableByteOrFFData* table, unsigned char id) {
-    return table->dates[id];
+static inline Struct_0208bf78_6 inline_0208bf78_3(Struct_02065990_3* arg0, unsigned char arg1) {
+    return arg0->unknown_178_[arg1];
 }
 
-static inline bool HasStatus0208bf78(unsigned char id, int status) {
-    return func_0206e120(func_0205ec34(), id) == status;
+static inline bool inline_0208bf78_4(unsigned char arg0, int arg1) {
+    return func_0206e120(func_0205ec34(), arg0) == arg1;
 }
 
-static inline bool IsStatus0208bf78(PackedNibbleArray0206e120* table, unsigned char id, int status) {
-    return func_0206e120(table, id) == status;
+static inline bool inline_0208bf78_5(Struct_0205faf4_3* arg0, unsigned char arg1, int arg2) {
+    return func_0206e120(arg0, arg1) == arg2;
 }
 
 // USA: func_0208bf78
-extern "C" ARM void func_0208bf78(RecordView0208bf78* view) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (view->loadState == 0) {
-        func_0208d854((StreamHeader0208d82c*)&view->elements);
-        view->taskId = loader->QueueLoadFileInGP2(data_020f1120, data_020f113b, 0);
-        view->loadState++;
-    } else if (view->loadState == 1) {
-        if (!loader->GetTaskStatus(view->taskId)) return;
-        SafeAllocator* allocator = view->arena->GetScriptAllocator();
-        allocator->Reset();
-        void* file = 0;
-        unsigned int length = 0;
-        loader->GetLoadedFileByID(view->taskId, &file, &length);
-        if (allocator && file && length) {
-            func_0208d860(&view->elements, allocator, file, length, &view->target, 1, 0xfff);
+extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    if (arg0->unknown_d6_ == 0) {
+        func_0208d854((Struct_0208b9a0*)&arg0->unknown_1c_);
+        arg0->unknown_bc_ = var0->QueueLoadFileInGP2(data_020f1120, data_020f113b, 0);
+        arg0->unknown_d6_++;
+    } else if (arg0->unknown_d6_ == 1) {
+        if (!var0->GetTaskStatus(arg0->unknown_bc_)) return;
+        SafeAllocator* var1 = arg0->unknown_0_->inline_0208bf78();
+        var1->Reset();
+        void* var2 = 0;
+        unsigned int var3 = 0;
+        var0->GetLoadedFileByID(arg0->unknown_bc_, &var2, &var3);
+        if (var1 && var2 && var3) {
+            func_0208d860(&arg0->unknown_1c_, var1, var2, var3, &arg0->unknown_d2_, 1, 0xfff);
         }
-        loader->RemoveTask(view->taskId);
-        view->taskId = -1;
-        view->loadState++;
-        if (!view->hasScript) view->loadState = 4;
-    } else if (view->loadState == 2) {
-        view->taskId = loader->QueueLoadFile(data_020f114d, 0);
-        view->loadState++;
-    } else if (view->loadState == 3) {
-        if (!loader->GetTaskStatus(view->taskId)) return;
-        void* file;
-        unsigned int length;
-        loader->GetLoadedFileByID(view->taskId, &file, &length);
-        if (file) {
-            GetTableByteOrFFData* table = func_02094d6c();
-            unsigned char revealed = 0;
-            func_02095870(table, (StreamHeader*)file, length, GetMonsterIndex0208bf78(table, view->target), &revealed);
-            view->revealed = revealed;
+        var0->RemoveTask(arg0->unknown_bc_);
+        arg0->unknown_bc_ = -1;
+        arg0->unknown_d6_++;
+        if (!arg0->unknown_dc_) arg0->unknown_d6_ = 4;
+    } else if (arg0->unknown_d6_ == 2) {
+        arg0->unknown_bc_ = var0->QueueLoadFile(data_020f114d, 0);
+        arg0->unknown_d6_++;
+    } else if (arg0->unknown_d6_ == 3) {
+        if (!var0->GetTaskStatus(arg0->unknown_bc_)) return;
+        void* var4;
+        unsigned int var5;
+        var0->GetLoadedFileByID(arg0->unknown_bc_, &var4, &var5);
+        if (var4) {
+            Struct_02065990_3* var6 = func_02094d6c();
+            unsigned char var7 = 0;
+            func_02095870(var6, (Struct_02013fb4*)var4, var5, inline_0208bf78_2(var6, arg0->unknown_d2_), &var7);
+            arg0->unknown_dd_ = var7;
         }
-        loader->RemoveTask(view->taskId);
-        view->taskId = -1;
-        view->loadState++;
-    } else if (view->loadState == 4) {
-        if (view->target == 9999) {
-            view->taskId = loader->QueueLoadFile(data_020f116b, 0);
+        var0->RemoveTask(arg0->unknown_bc_);
+        arg0->unknown_bc_ = -1;
+        arg0->unknown_d6_++;
+    } else if (arg0->unknown_d6_ == 4) {
+        if (arg0->unknown_d2_ == 9999) {
+            arg0->unknown_bc_ = var0->QueueLoadFile(data_020f116b, 0);
         } else {
-            view->taskId = loader->QueueLoadFile(data_020f117f, 0);
+            arg0->unknown_bc_ = var0->QueueLoadFile(data_020f117f, 0);
         }
-        view->loadState++;
-    } else if (view->loadState == 5) {
-        if (!loader->GetTaskStatus(view->taskId)) return;
-        void* records[4] = {0};
-        void* record;
-        void* file;
-        unsigned int length;
-        loader->GetLoadedFileByID(view->taskId, &file, &length);
-        int count = func_02046900((ActiveEntry02046900*)file);
-        int sizes[4];
-        for (int i = 0; i < count; i++) {
-            records[i] = func_020467f0((Rec020467f0*)file, i, &record, &sizes[i]);
+        arg0->unknown_d6_++;
+    } else if (arg0->unknown_d6_ == 5) {
+        if (!var0->GetTaskStatus(arg0->unknown_bc_)) return;
+        void* var8[4] = {0};
+        void* var9;
+        void* var10;
+        unsigned int var11;
+        var0->GetLoadedFileByID(arg0->unknown_bc_, &var10, &var11);
+        int var12 = func_02046900((Struct_02020cb8_4*)var10);
+        int var13[4];
+        for (int var14 = 0; var14 < var12; var14++) {
+            var8[var14] = func_020467f0((Struct_02020aec*)var10, var14, &var9, &var13[var14]);
         }
-        TextWindow0208bf78 window;
-        short width;
-        short height;
-        char* data = (char*)records[0];
-        func_0204c684(&window);
-        window.text = data + 0x10;
-        window.layout.width = 0x20;
-        window.layout.height = 0x18;
-        window.layout.firstFont = 0xc;
-        window.layout.lastFont = 0x10;
-        view->flags &= ~8;
-        if (view->target != 9999) {
+        Struct_0208bf78_2 var15;
+        short var16;
+        short var17;
+        char* var18 = (char*)var8[0];
+        func_0204c684(&var15);
+        var15.unknown_8_ = var18 + 0x10;
+        var15.unknown_8c_.unknown_1c_ = 0x20;
+        var15.unknown_8c_.unknown_1e_ = 0x18;
+        var15.unknown_8c_.unknown_28_ = 0xc;
+        var15.unknown_8c_.unknown_2a_ = 0x10;
+        arg0->unknown_da_ &= ~8;
+        if (arg0->unknown_d2_ != 9999) {
             func_0205ec34();
-            GetTableByteOrFFData* table = func_02094d6c();
-            short target = view->target;
-            char number[8] = {0};
-            sprintf(number, data_020f1192, target);
-            func_0204f41c(&window, 0x18, 0x14, number, 0xc, 0xf, &width, &height, 0);
-            int text = func_0208d9e8((List0208d994*)&view->elements, target);
-            bool unknown = 0;
-            if (view->revealed && !func_02096088(table, GetMonsterIndex0208bf78(table, target))) {
-                if (!func_02096100((int)table, table->defeated, GetMonsterIndex0208bf78(table, target))) unknown = 1;
+            Struct_02065990_3* var19 = func_02094d6c();
+            short var20 = arg0->unknown_d2_;
+            char var21[8] = {0};
+            sprintf(var21, data_020f1192, var20);
+            func_0204f41c(&var15, 0x18, 0x14, var21, 0xc, 0xf, &var16, &var17, 0);
+            int var22 = func_0208d9e8((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
+            bool var23 = 0;
+            if (arg0->unknown_dd_ && !func_02096088(var19, inline_0208bf78_2(var19, var20))) {
+                if (!func_02096100((int)var19, var19->unknown_4a8_, inline_0208bf78_2(var19, var20))) var23 = 1;
             }
-            if (unknown) text = func_020e0434(&view->strings, 3);
-            int kind = 0;
-            func_0204f41c(&window, 0x30, 0x14, (const char*)text, 0xc, 0xf, &width, &height, kind);
-            if (HasStatus0208bf78(GetMonsterIndex0208bf78(table, target), 2)) {
-                text = func_0208da18((List0208d994*)&view->elements, target,
-                                                      func_0209618c((FindEntryById02096134Table*)table, GetMonsterIndex0208bf78(table, target)));
-                kind = 1;
-                if (func_02096088(table, GetMonsterIndex0208bf78(table, target))) view->flags |= 8;
-            } else if (HasStatus0208bf78(GetMonsterIndex0208bf78(table, target), 3)) {
-                view->flags |= 8;
-                text = func_0208dac4((List0208d994*)&view->elements, target);
-                kind = 2;
-            } else if (view->showDefeated && func_02096088(table, GetMonsterIndex0208bf78(table, target))) {
-                view->flags |= 8;
-                text = func_0208dac4((List0208d994*)&view->elements, target);
-                kind = 2;
+            if (var23) var22 = func_020e0434(&arg0->unknown_4_, 3);
+            int var24 = 0;
+            func_0204f41c(&var15, 0x30, 0x14, (const char*)var22, 0xc, 0xf, &var16, &var17, var24);
+            if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 2)) {
+                var22 = func_0208da18((Struct_0208bf78_5*)&arg0->unknown_1c_, var20,
+                                                      func_0209618c((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20)));
+                var24 = 1;
+                if (func_02096088(var19, inline_0208bf78_2(var19, var20))) arg0->unknown_da_ |= 8;
+            } else if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 3)) {
+                arg0->unknown_da_ |= 8;
+                var22 = func_0208dac4((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
+                var24 = 2;
+            } else if (arg0->unknown_df_ && func_02096088(var19, inline_0208bf78_2(var19, var20))) {
+                arg0->unknown_da_ |= 8;
+                var22 = func_0208dac4((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
+                var24 = 2;
             } else {
-                unsigned char id = GetMonsterIndex0208bf78(table, target);
-                PackedNibbleArray0206e120* status = func_0205ec34();
-                bool seen = IsStatus0208bf78(status, id, 0) || IsStatus0208bf78(status, id, 1);
-                if (seen) {
-                    text = func_0208da00((List0208d994*)&view->elements, target);
-                    if (view->flags & 0x40) kind = 1;
-                    if (view->revealed) {
-                        if (HasStatus0208bf78(GetMonsterIndex0208bf78(table, target), 0)) {
-                            text = func_020e0434(&view->strings, 4);
-                        } else if (HasStatus0208bf78(GetMonsterIndex0208bf78(table, target), 1)) {
-                            GameResources* resources = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
-                            if (func_02046b24((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) == 0x2d) {
-                                text = func_0208dadc((List0208d994*)&view->elements, target);
+                unsigned char var25 = inline_0208bf78_2(var19, var20);
+                Struct_0205faf4_3* var26 = func_0205ec34();
+                bool var27 = inline_0208bf78_5(var26, var25, 0) || inline_0208bf78_5(var26, var25, 1);
+                if (var27) {
+                    var22 = func_0208da00((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
+                    if (arg0->unknown_da_ & 0x40) var24 = 1;
+                    if (arg0->unknown_dd_) {
+                        if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 0)) {
+                            var22 = func_020e0434(&arg0->unknown_4_, 4);
+                        } else if (inline_0208bf78_4(inline_0208bf78_2(var19, var20), 1)) {
+                            GameResources* var28 = (GameResources*)func_0200fb8c((int*)GameState::GetInstance());
+                            if (func_02046b24((Struct_02015438**)var28->unknown_ptr_array_36fc[0]) == 0x2d) {
+                                var22 = func_0208dadc((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
                             }
                         }
                     }
                 } else {
-                    PackedNibbleArray0206e260* flags = (PackedNibbleArray0206e260*)func_0205ec34();
-                    if (func_0206e260(flags, GetMonsterIndex0208bf78(table, target))) {
-                        text = func_0208da00((List0208d994*)&view->elements, target);
+                    Struct_0205faf4_4* var29 = (Struct_0205faf4_4*)func_0205ec34();
+                    if (func_0206e260(var29, inline_0208bf78_2(var19, var20))) {
+                        var22 = func_0208da00((Struct_0208bf78_5*)&arg0->unknown_1c_, var20);
                     }
                 }
             }
-            StoreStruct* formatter = func_020421a0();
-            char* buffer = formatter->buffer;
-            memset(buffer, 0, 0x960);
-            StatEntry0208bf78* entry = func_02096134((FindEntryById02096134Table*)table, GetMonsterIndex0208bf78(table, target));
-            if (entry) {
-                func_02046380(formatter);
-                if (entry->hasResists) {
-                    for (int i = 0; i < 3; i++) {
-                        int value = entry->stats[i];
-                        if (value > 99) value = 99;
-                        func_020465c0(formatter, i, value);
+            Struct_020465c0* var30 = func_020421a0();
+            char* var31 = var30->unknown_60_;
+            memset(var31, 0, 0x960);
+            Struct_0208bf78_7* var32 = func_02096134((Struct_0205faf4_7*)var19, inline_0208bf78_2(var19, var20));
+            if (var32) {
+                func_02046380(var30);
+                if (var32->unknown_2_0_) {
+                    for (int var33 = 0; var33 < 3; var33++) {
+                        int var34 = var32->unknown_a_[var33];
+                        if (var34 > 99) var34 = 99;
+                        func_020465c0(var30, var33, var34);
                     }
                 }
-                for (int i = 0; i < 2; i++) {
-                    int value = entry->resists[i];
-                    if (value > 99) value = 99;
-                    func_020465c0(formatter, i + 3, value);
+                for (int var35 = 0; var35 < 2; var35++) {
+                    int var36 = var32->unknown_4_[var35];
+                    if (var36 > 99) var36 = 99;
+                    func_020465c0(var30, var35 + 3, var36);
                 }
             }
-            func_02046608(formatter, 0xc, (const char*)text, buffer, 0xe0, 0, 1);
-            func_0204f41c(&window, 0x10, 0x28, buffer, 0xc, 0xf, &width, &height, 0);
-            window.layout.firstFont = 0xa;
-            window.layout.lastFont = 0x10;
-            func_0204f41c(&window, 0, 0, (const char*)func_020e0434(&view->strings, kind), 0xa, 0xe, &width, &height, 0);
-            window.layout.firstFont = 8;
-            window.layout.lastFont = 0x10;
-            if (kind) {
-                SaveDate0208bf78 date = GetSaveDate0208bf78(table, GetMonsterIndex0208bf78(table, target));
-                char text2[0x100] = {0};
-                sprintf(text2, data_020f1197, date.day, func_020e0434(&view->strings, (short)(date.month + 4)), date.year + 2000);
-                func_0204f41c(&window, 0xc6 - func_020420e8(text2, 0), 0xa8, text2, 8, 0xf, &width, &height, 0);
-                func_0208d42c(view, &window, 0xd7, 0xa8, date.hour, 0xf, 2, 1, 1);
-                func_0208d42c(view, &window, 0xda, 0xa8, date.minute, 0xf, 2, 0, 1);
+            func_02046608(var30, 0xc, (const char*)var22, var31, 0xe0, 0, 1);
+            func_0204f41c(&var15, 0x10, 0x28, var31, 0xc, 0xf, &var16, &var17, 0);
+            var15.unknown_8c_.unknown_28_ = 0xa;
+            var15.unknown_8c_.unknown_2a_ = 0x10;
+            func_0204f41c(&var15, 0, 0, (const char*)func_020e0434(&arg0->unknown_4_, var24), 0xa, 0xe, &var16, &var17, 0);
+            var15.unknown_8c_.unknown_28_ = 8;
+            var15.unknown_8c_.unknown_2a_ = 0x10;
+            if (var24) {
+                Struct_0208bf78_6 var37 = inline_0208bf78_3(var19, inline_0208bf78_2(var19, var20));
+                char var38[0x100] = {0};
+                sprintf(var38, data_020f1197, var37.unknown_1_3_, func_020e0434(&arg0->unknown_4_, (short)(var37.unknown_0_7_ + 4)), var37.unknown_0_0_ + 2000);
+                func_0204f41c(&var15, 0xc6 - func_020420e8(var38, 0), 0xa8, var38, 8, 0xf, &var16, &var17, 0);
+                func_0208d42c(arg0, &var15, 0xd7, 0xa8, var37.unknown_2_0_, 0xf, 2, 1, 1);
+                func_0208d42c(arg0, &var15, 0xda, 0xa8, var37.unknown_2_5_, 0xf, 2, 0, 1);
             }
         }
-        RecordList0208bf78 list;
-        func_0204af64((List0204af64*)&list);
-        func_0204b11c((unsigned char*)&list, 0);
-        list.mode = 1;
-        list.layer = 0;
-        func_0204b5b4(&list, 0);
-        func_0204b5e8((Obj0204b5e8*)&list, 0, 0);
+        Struct_0208bf78_3 var39;
+        func_0204af64((Struct_02020cb8*)&var39);
+        func_0204b11c((unsigned char*)&var39, 0);
+        var39.unknown_1c_0_ = 1;
+        var39.unknown_1c_4_ = 0;
+        func_0204b5b4(&var39, 0);
+        func_0204b5e8((Struct_02020cb8_5*)&var39, 0, 0);
         func_0208c9cc(0, 0, 15, 0, 0);
-        for (int i = 0; i < count; i++) {
-            func_0204b2e0(&list, (char*)records[i]);
-            func_0204b3a0((SelfTag0204b3a0*)&list, (char*)records[i]);
+        for (int var40 = 0; var40 < var12; var40++) {
+            func_0204b2e0(&var39, (char*)var8[var40]);
+            func_0204b3a0((Struct_02020cb8_6*)&var39, (char*)var8[var40]);
         }
-        loader->RemoveTask(view->taskId);
-        view->taskId = -1;
-        view->flags &= ~0x20;
-        view->loadState = 0;
+        var0->RemoveTask(arg0->unknown_bc_);
+        arg0->unknown_bc_ = -1;
+        arg0->unknown_da_ &= ~0x20;
+        arg0->unknown_d6_ = 0;
     }
 }

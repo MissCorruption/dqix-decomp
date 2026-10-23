@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Entry6_021550c8 { short id; char pad[4]; };
-extern "C" void* func_ov004_021550c8(Entry6_021550c8* arr, int key);
+struct Struct_ov004_02155090 { short unknown_0_; char unknown_2_[4]; };
+extern "C" void* func_ov004_021550c8(Struct_ov004_02155090* arg0, int arg1);
 extern char* data_ov004_021707c4;
 
 // USA: func_ov004_02155104
 extern "C" ARM int func_ov004_02155104(void) {
-    Entry6_021550c8* arr = (Entry6_021550c8*)data_ov004_021707c4;
-    int val = 0;
-    void* entry = func_ov004_021550c8(arr, 9);
-    if (entry) {
-        val = val + *((unsigned char*)entry + 5);
-        val = (val << 16) >> 16;
+    Struct_ov004_02155090* var0 = (Struct_ov004_02155090*)data_ov004_021707c4;
+    int var1 = 0;
+    void* var2 = func_ov004_021550c8(var0, 9);
+    if (var2) {
+        var1 = var1 + *((unsigned char*)var2 + 5);
+        var1 = (var1 << 16) >> 16;
     }
-    return val;
+    return var1;
 }

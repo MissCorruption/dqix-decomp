@@ -10,23 +10,23 @@
 
 #include "GameState/GameState.h"
 
-struct ByteHeader0204693c;
-extern "C" void func_0204693c(ByteHeader0204693c* p);
+struct Struct_0204693c;
+extern "C" void func_0204693c(Struct_0204693c* arg0);
 
-struct Struct021a9bc4 {
-	unsigned char byte0;
-	unsigned char pad1[7];
-	unsigned char byte8;
-	unsigned char pad2[REGION_FIELD_0 - 0x9];
-	unsigned char byte26c;
+struct Struct_ov017_021a9bc4 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[7];
+	unsigned char unknown_8_;
+	unsigned char unknown_9_[REGION_FIELD_0 - 0x9];
+	unsigned char unknown_26c_;
 };
 
 // USA: func_ov017_021a9bc4
-extern "C" ARM void func_ov017_021a9bc4(Struct021a9bc4* self, unsigned char value) {
-	func_0204693c((ByteHeader0204693c*)self);
-	self->byte0 = 0x3b;
-	self->byte8 = 0;
-	self->byte26c = 0;
-	GameState* bs = GameState::GetInstance();
-	*((unsigned char*)bs + 0x6000 + REGION_FIELD_1) = value;
+extern "C" ARM void func_ov017_021a9bc4(Struct_ov017_021a9bc4* arg0, unsigned char arg1) {
+	func_0204693c((Struct_0204693c*)arg0);
+	arg0->unknown_0_ = 0x3b;
+	arg0->unknown_8_ = 0;
+	arg0->unknown_26c_ = 0;
+	GameState* var0 = GameState::GetInstance();
+	*((unsigned char*)var0 + 0x6000 + REGION_FIELD_1) = arg1;
 }

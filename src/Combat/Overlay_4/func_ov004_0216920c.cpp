@@ -1,138 +1,138 @@
 #include <globaldefs.h>
 
-struct Grid0216920c;
+struct Struct_ov004_0216920c_7;
 
-class Node0216920c {
+class Struct_ov004_0216920c_8 {
 public:
-    char pad04[0x8];
-    unsigned char flags;
-    char pad0d[0x13];
-    void* f20;
-    char pad24[0x19];
-    unsigned char f3d;
-    char pad3e[0x1e];
-    short f5c;
-    short f5e;
+    char unknown_4_[0x8];
+    unsigned char unknown_c_;
+    char unknown_d_[0x13];
+    void* unknown_20_;
+    char unknown_24_[0x19];
+    unsigned char unknown_3d_;
+    char unknown_3e_[0x1e];
+    short unknown_5c_;
+    short unknown_5e_;
 
-    virtual void v00();
-    virtual void v04();
-    virtual void v08();
-    virtual void v0c();
-    virtual void v10();
-    virtual void v14();
-    virtual void v18();
-    virtual void v1c();
-    virtual void v20();
-    virtual void v24();
-    virtual void v28();
-    virtual void v2c();
-    virtual void v30();
-    virtual void v34();
-    virtual void v38();
-    virtual void v3c();
-    virtual void v40();
-    virtual void v44(int v);
-    virtual void v48();
-    virtual void Show(int v);
-    virtual void v50();
-    virtual void Refresh(int v);
-    virtual void v58();
-    virtual void v5c();
-    virtual void v60();
-    virtual void v64();
-    virtual void v68();
-    virtual void v6c();
-    virtual void v70();
-    virtual void v74();
-    virtual void v78();
-    virtual void v7c(int v);
-    virtual void v80();
-    virtual void v84();
-    virtual void v88();
-    virtual void v8c();
-    virtual void v90();
-    virtual void v94();
-    virtual void v98();
-    virtual void v9c();
-    virtual void va0();
-    virtual void va4();
-    virtual void va8();
-    virtual void vac();
-    virtual void vb0();
-    virtual void vb4();
-    virtual void vb8();
-    virtual void vbc();
-    virtual void vc0();
-    virtual void vc4();
-    virtual void vc8();
-    virtual void vcc();
-    virtual void vd0();
-    virtual void vd4();
-    virtual void vd8();
-    virtual void vdc();
-    virtual void SetValue(int v);
+    virtual void inline_ov004_0216920c_30();
+    virtual void inline_ov004_0216920c_31();
+    virtual void inline_ov004_0216920c_32();
+    virtual void inline_ov004_0216920c_33();
+    virtual void inline_ov004_0216920c_34();
+    virtual void inline_ov004_0216920c_35();
+    virtual void inline_ov004_0216920c_36();
+    virtual void inline_ov004_0216920c_37();
+    virtual void inline_ov004_0216920c_38();
+    virtual void inline_ov004_0216920c_39();
+    virtual void inline_ov004_0216920c_40();
+    virtual void inline_ov004_0216920c_41();
+    virtual void inline_ov004_0216920c_42();
+    virtual void inline_ov004_0216920c_43();
+    virtual void inline_ov004_0216920c_44();
+    virtual void inline_ov004_0216920c_45();
+    virtual void inline_ov004_0216920c_46();
+    virtual void inline_ov004_0216920c_47(int arg0);
+    virtual void inline_ov004_0216920c_48();
+    virtual void inline_ov004_0216920c_49(int arg0);
+    virtual void inline_ov004_0216920c_50();
+    virtual void inline_ov004_0216920c_51(int arg0);
+    virtual void inline_ov004_0216920c_52();
+    virtual void inline_ov004_0216920c_53();
+    virtual void inline_ov004_0216920c_54();
+    virtual void inline_ov004_0216920c_55();
+    virtual void inline_ov004_0216920c_56();
+    virtual void inline_ov004_0216920c_57();
+    virtual void inline_ov004_0216920c();
+    virtual void inline_ov004_0216920c_2();
+    virtual void inline_ov004_0216920c_3();
+    virtual void inline_ov004_0216920c_4(int arg0);
+    virtual void inline_ov004_0216920c_5();
+    virtual void inline_ov004_0216920c_6();
+    virtual void inline_ov004_0216920c_7();
+    virtual void inline_ov004_0216920c_8();
+    virtual void inline_ov004_0216920c_9();
+    virtual void inline_ov004_0216920c_10();
+    virtual void inline_ov004_0216920c_11();
+    virtual void inline_ov004_0216920c_12();
+    virtual void inline_ov004_0216920c_13();
+    virtual void inline_ov004_0216920c_14();
+    virtual void inline_ov004_0216920c_15();
+    virtual void inline_ov004_0216920c_16();
+    virtual void inline_ov004_0216920c_17();
+    virtual void inline_ov004_0216920c_18();
+    virtual void inline_ov004_0216920c_19();
+    virtual void inline_ov004_0216920c_20();
+    virtual void inline_ov004_0216920c_21();
+    virtual void inline_ov004_0216920c_22();
+    virtual void inline_ov004_0216920c_23();
+    virtual void inline_ov004_0216920c_24();
+    virtual void inline_ov004_0216920c_25();
+    virtual void inline_ov004_0216920c_26();
+    virtual void inline_ov004_0216920c_27();
+    virtual void inline_ov004_0216920c_28();
+    virtual void inline_ov004_0216920c_29(int arg0);
 };
 
-struct Entry0216920c {
-    char unknown00[6];
-    char name[11];
-    unsigned char f11;
-    unsigned short value : 14;
-    unsigned short active : 1;
-    char pad14[0x2c - 0x14];
+struct Struct_ov004_0216920c {
+    char unknown_0_[6];
+    char unknown_6_[11];
+    unsigned char unknown_11_;
+    unsigned short unknown_12_0_ : 14;
+    unsigned short unknown_13_6_ : 1;
+    char unknown_14_[0x2c - 0x14];
 };
 
-struct Table0216920c {
-    unsigned char count;
-    char pad01[3];
-    struct Entry0216920c entries[16];
+struct Struct_ov004_0216920c_2 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    struct Struct_ov004_0216920c unknown_4_[16];
 };
 
-struct Slot0216920c { char pad[0x30]; };
+struct Struct_ov004_0216920c_3 { char unknown_0_[0x30]; };
 
-struct Ctx0216920c {
+struct Struct_ov004_0216920c_4 {
 #if defined(jpn)
-    char pad00[0x10];
+    char unknown_0_[0x10];
 #else
-    struct Slot0216920c slots[8];
-    char pad180[0x10];
+    struct Struct_ov004_0216920c_3 unknown1_0_[8];
+    char unknown_180_[0x10];
 #endif
-    struct Table0216920c* table;
-    char pad194[4];
-    unsigned char f198;
+    struct Struct_ov004_0216920c_2* unknown_190_;
+    char unknown_194_[4];
+    unsigned char unknown_198_;
 };
 
-struct Scene0216920c {
-    char pad[0x1b4];
-    int f1b4;
-    unsigned int f1b8;
-    char pad1bc[2];
-    short f1be;
+struct Struct_ov004_0216920c_5 {
+    char unknown_0_[0x1b4];
+    int unknown_1b4_;
+    unsigned int unknown_1b8_;
+    char unknown_1bc_[2];
+    short unknown_1be_;
 };
 
-extern "C" Node0216920c* func_ov023_021f6524(void* ctx, int value);
+extern "C" Struct_ov004_0216920c_8* func_ov023_021f6524(void* arg0, int arg1);
 extern "C" void func_ov023_021f6600(void*, int, int);
-extern "C" Node0216920c* func_ov004_02168a6c(void* a, int id);
-extern "C" Node0216920c* func_ov004_02168a38(void* a, int id);
+extern "C" Struct_ov004_0216920c_8* func_ov004_02168a6c(void* arg0, int arg1);
+extern "C" Struct_ov004_0216920c_8* func_ov004_02168a38(void* arg0, int arg1);
 extern "C" void func_02042764(void*, void*, int);
-extern "C" int func_ov023_021f9b30(struct Grid0216920c* self, unsigned short val, unsigned int x, unsigned int y);
+extern "C" int func_ov023_021f9b30(struct Struct_ov004_0216920c_7* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
 extern "C" void func_ov023_021f65d4(void*, int, int);
 extern "C" void func_ov023_021f9da0(void*, unsigned char);
 extern "C" void func_ov004_02169b4c(void*);
 extern "C" void func_ov023_021f6630(int, int, short, short);
 
-extern struct Ctx0216920c* data_ov004_02171030;
+extern struct Struct_ov004_0216920c_4* data_ov004_02171030;
 
 #if defined(jpn)
-extern "C" Node0216920c* func_ov004_02168f08(void*, int);
+extern "C" Struct_ov004_0216920c_8* func_ov004_02168f08(void*, int);
 extern "C" void func_ov004_02168ed8(void*, int, int);
 extern "C" void func_ov004_02168eac(void*, int, int);
-struct Dispatch0216920c {
-    char pad00[0x104];
-    short page;
-    short column;
+struct Struct_ov004_0216920c_6 {
+    char unknown_0_[0x104];
+    short unknown_104_;
+    short unknown_106_;
 };
-extern "C" Dispatch0216920c* func_ov004_02168fa4(void*, int);
+extern "C" Struct_ov004_0216920c_6* func_ov004_02168fa4(void*, int);
 extern "C" void func_ov023_021f809c(void*, void*);
 #define func_ov023_021f6524 func_ov004_02168f08
 #define func_ov023_021f6600 func_ov004_02168ed8
@@ -140,71 +140,71 @@ extern "C" void func_ov023_021f809c(void*, void*);
 #endif
 
 // USA: func_ov004_0216920c
-extern "C" ARM int func_ov004_0216920c(struct Scene0216920c* scene) {
-    struct Table0216920c* table = data_ov004_02171030->table;
-    if (!table) return 0;
-    Node0216920c* node = func_ov023_021f6524(scene, 0x64);
-    short page = node->f5c;
-    int hidden = 0;
-    short col = node->f5e;
-    func_ov023_021f6600(scene, 2, 8);
-    int i;
-    for (i = 0; i < 8; i++) {
-        Node0216920c* a = func_ov004_02168a6c(scene, i + 0xc8);
-        Node0216920c* b = func_ov004_02168a6c(scene, i + 0xd8);
-        Node0216920c* c = func_ov004_02168a38(scene, i + 0xd0);
-        Node0216920c* d = func_ov004_02168a38(scene, i + 0xe0);
-        struct Entry0216920c* e = &table->entries[page * 8 + i];
-        if (e->active) {
+extern "C" ARM int func_ov004_0216920c(struct Struct_ov004_0216920c_5* arg0) {
+    struct Struct_ov004_0216920c_2* var0 = data_ov004_02171030->unknown_190_;
+    if (!var0) return 0;
+    Struct_ov004_0216920c_8* var1 = func_ov023_021f6524(arg0, 0x64);
+    short var2 = var1->unknown_5c_;
+    int var3 = 0;
+    short var4 = var1->unknown_5e_;
+    func_ov023_021f6600(arg0, 2, 8);
+    int var5;
+    for (var5 = 0; var5 < 8; var5++) {
+        Struct_ov004_0216920c_8* var6 = func_ov004_02168a6c(arg0, var5 + 0xc8);
+        Struct_ov004_0216920c_8* var7 = func_ov004_02168a6c(arg0, var5 + 0xd8);
+        Struct_ov004_0216920c_8* var8 = func_ov004_02168a38(arg0, var5 + 0xd0);
+        Struct_ov004_0216920c_8* var9 = func_ov004_02168a38(arg0, var5 + 0xe0);
+        struct Struct_ov004_0216920c* var10 = &var0->unknown_4_[var2 * 8 + var5];
+        if (var10->unknown_13_6_) {
 #if defined(jpn)
-            a->f20 = e->name;
+            var6->unknown_20_ = var10->unknown_6_;
 #else
-            struct Slot0216920c* slot = &data_ov004_02171030->slots[i];
-            func_02042764(e->name, slot, 1);
-            a->f20 = slot;
+            struct Struct_ov004_0216920c_3* var11 = &data_ov004_02171030->unknown1_0_[var5];
+            func_02042764(var10->unknown_6_, var11, 1);
+            var6->unknown_20_ = var11;
 #endif
-            c->SetValue(e->value);
-            d->SetValue(e->f11);
-            d->f3d = 1;
-            a->flags &= ~8;
-            b->flags &= ~8;
-            c->flags &= ~8;
-            d->flags &= ~8;
-            func_ov023_021f9b30((struct Grid0216920c*)node, (unsigned short)(i + 0xc8), (unsigned short)i, 0);
-            a->Show(3);
+            var8->inline_ov004_0216920c_29(var10->unknown_12_0_);
+            var9->inline_ov004_0216920c_29(var10->unknown_11_);
+            var9->unknown_3d_ = 1;
+            var6->unknown_c_ &= ~8;
+            var7->unknown_c_ &= ~8;
+            var8->unknown_c_ &= ~8;
+            var9->unknown_c_ &= ~8;
+            func_ov023_021f9b30((struct Struct_ov004_0216920c_7*)var1, (unsigned short)(var5 + 0xc8), (unsigned short)var5, 0);
+            var6->inline_ov004_0216920c_49(3);
         } else {
-            a->flags |= 8;
-            b->flags |= 8;
-            c->flags |= 8;
-            d->flags |= 8;
-            func_ov023_021f9b30((struct Grid0216920c*)node, 0, (unsigned short)i, 0);
-            a->Show(3);
-            hidden++;
+            var6->unknown_c_ |= 8;
+            var7->unknown_c_ |= 8;
+            var8->unknown_c_ |= 8;
+            var9->unknown_c_ |= 8;
+            func_ov023_021f9b30((struct Struct_ov004_0216920c_7*)var1, 0, (unsigned short)var5, 0);
+            var6->inline_ov004_0216920c_49(3);
+            var3++;
         }
     }
-    if (hidden == 8) {
-        func_ov023_021f65d4(scene, 2, 8);
-        func_ov023_021f9da0(node, 0);
+    if (var3 == 8) {
+        func_ov023_021f65d4(arg0, 2, 8);
+        func_ov023_021f9da0(var1, 0);
     }
-    func_ov023_021f65d4(scene, 0x14, 4);
-    data_ov004_02171030->f198 = 0;
-    func_ov004_02169b4c(scene);
-    node->Refresh(3);
-    Node0216920c* first = func_ov004_02168a6c(scene, 0xc8);
-    first->v44(0xd);
-    first->v7c(0xd);
+    func_ov023_021f65d4(arg0, 0x14, 4);
+    data_ov004_02171030->unknown_198_ = 0;
+    func_ov004_02169b4c(arg0);
+    var1->inline_ov004_0216920c_51(3);
+    Struct_ov004_0216920c_8* var12 = func_ov004_02168a6c(arg0, 0xc8);
+    var12->inline_ov004_0216920c_47(0xd);
+    var12->inline_ov004_0216920c_4(0xd);
 #if defined(jpn)
-    Dispatch0216920c* dispatch = func_ov004_02168fa4(scene, 0x14);
-    if (dispatch) {
-        dispatch->page = page;
-        dispatch->column = col;
-        func_ov023_021f809c(dispatch, scene);
+    Struct_ov004_0216920c_6* var13 = func_ov004_02168fa4(arg0, 0x14);
+    if (var13) {
+        var13->unknown_104_ = var2;
+        var13->unknown_106_ = var4;
+        func_ov023_021f809c(var13, arg0);
     }
 #else
-    func_ov023_021f6630((int)scene, 0x14, page, col);
+    func_ov023_021f6630((int)arg0, 0x14, var2, var4);
 #endif
-    if (scene->f1b4 != 0 && scene->f1b8 > 0xf) {
-        scene->f1be = 0xf;
+    if (arg0->unknown_1b4_ != 0 && arg0->unknown_1b8_ > 0xf) {
+        arg0->unknown_1be_ = 0xf;
     }
     return 0;
 }

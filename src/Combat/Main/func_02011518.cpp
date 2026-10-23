@@ -9,9 +9,9 @@
 #endif
 
 // USA: func_02011518
-extern "C" ARM int func_02011518(void* obj, unsigned int idx) {
-    if (idx < ((unsigned char*)obj)[BYTE_LOOKUP_COUNT]) {
-        return ((signed char*)obj + idx)[BYTE_LOOKUP_VALUES];
+extern "C" ARM int func_02011518(void* arg0, unsigned int arg1) {
+    if (arg1 < ((unsigned char*)arg0)[BYTE_LOOKUP_COUNT]) {
+        return ((signed char*)arg0 + arg1)[BYTE_LOOKUP_VALUES];
     }
     return -1;
 }

@@ -10,40 +10,40 @@
 #endif
 
 extern "C" void* func_0205ec34(void);
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
-struct PackedNibbleArray0206e2dc;
-extern "C" int func_0206e2dc(struct PackedNibbleArray0206e2dc* obj, int index);
-struct PackedNibbleArray0206e2a0;
-extern "C" void func_0206e2a0(struct PackedNibbleArray0206e2a0* obj, int index);
+struct Struct_0205faf4_13;
+extern "C" int func_0206e2dc(struct Struct_0205faf4_13* arg0, int arg1);
+struct Struct_0206e2a0;
+extern "C" void func_0206e2a0(struct Struct_0206e2a0* arg0, int arg1);
 
-extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 
-struct Bits13At10c_021f5a1c {
-    unsigned short low13 : 13;
-    unsigned short hi3 : 3;
+struct Struct_ov023_021f5a1c {
+    unsigned short unknown_0_0_ : 13;
+    unsigned short unknown_1_5_ : 3;
 };
-struct StructWithOffset10c_021f5a1c {
-    char pad[0x10c];
-    struct Bits13At10c_021f5a1c bits;
+struct Struct_ov023_021f5a1c_2 {
+    char unknown_0_[0x10c];
+    struct Struct_ov023_021f5a1c unknown_10c_;
 };
-struct Data021fff08_021f5a1c {
-    char pad2[0xc];
-    struct StructWithOffset10c_021f5a1c* ptr;
+struct Struct_ov023_021fff08_7 {
+    char unknown_0_[0xc];
+    struct Struct_ov023_021f5a1c_2* unknown_c_;
 };
-extern struct Data021fff08_021f5a1c data_ov023_021fff08;
+extern struct Struct_ov023_021fff08_7 data_ov023_021fff08;
 
 // USA: func_ov023_021f5a1c
-extern "C" ARM int func_ov023_021f5a1c(struct Variant02030b0c* list, int count) {
-    void* obj = func_0205ec34();
-    for (int i = 0; i < count; i++) {
-        int v = ((Script::Parameter*)list)->ToInt();
-        list = (struct Variant02030b0c*)((char*)list + 8);
-        int flag = func_0206e2dc((struct PackedNibbleArray0206e2dc*)obj, v);
-        if (flag == 0) {
-            func_0206e2a0((struct PackedNibbleArray0206e2a0*)obj, v);
-            data_ov023_021fff08.ptr->bits.low13 |= 0x40;
-            func_0206df6c(obj, (unsigned char*)((char*)obj + 0x8c), 0x797, 1);
+extern "C" ARM int func_ov023_021f5a1c(struct Struct_0201c1c8* arg0, int arg1) {
+    void* var0 = func_0205ec34();
+    for (int var1 = 0; var1 < arg1; var1++) {
+        int var2 = ((Script::Parameter*)arg0)->ToInt();
+        arg0 = (struct Struct_0201c1c8*)((char*)arg0 + 8);
+        int var3 = func_0206e2dc((struct Struct_0205faf4_13*)var0, var2);
+        if (var3 == 0) {
+            func_0206e2a0((struct Struct_0206e2a0*)var0, var2);
+            data_ov023_021fff08.unknown_c_->unknown_10c_.unknown_0_0_ |= 0x40;
+            func_0206df6c(var0, (unsigned char*)((char*)var0 + 0x8c), 0x797, 1);
         }
     }
     return 1;

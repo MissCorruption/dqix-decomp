@@ -5,102 +5,102 @@
 #define func_02022bb0 func_02022644
 #endif
 
-extern "C" void func_02022b90(void *owner, int *handle);
+extern "C" void func_02022b90(void *arg0, int *arg1);
 
-struct CleanupReceiver02022bb0 {
+struct Struct_02022bb0 {
 #if defined(jpn)
-    char pad0[0x90c];
+    char unknown_0_[0x90c];
 #else
-    char pad0[0x9b8];
+    char unknown1_0_[0x9b8];
 #endif
-    unsigned char flag9b8;
-    char pad9b9[8];
-    unsigned char currentMode;
-    unsigned char transitionState;
-    unsigned char active;
-    unsigned char flag9c4;
-    unsigned char flag9c5;
-    char pad9c6[6];
-    int task9cc;
-    int task9d0;
-    int task9d4;
-    int entryTasks[8];
+    unsigned char unknown_9b8_;
+    char unknown_9b9_[8];
+    unsigned char unknown_9c1_;
+    unsigned char unknown_9c2_;
+    unsigned char unknown_9c3_;
+    unsigned char unknown_9c4_;
+    unsigned char unknown_9c5_;
+    char unknown_9c6_[6];
+    int unknown_9cc_;
+    int unknown_9d0_;
+    int unknown_9d4_;
+    int unknown_9d8_[8];
 #if defined(jpn)
-    char unused94c[4];
+    char unknown_94c_[4];
 #else
-    int task9f8;
+    int unknown_9f8_;
 #endif
-    int task9fc;
-    int taska00;
-    int taska04;
-    int taska08;
-    int mode2Task;
-    int taska10;
-    int taska14;
-    int taska18;
-    int taska1c;
-    int taska20;
-    int taska24;
-    int taska28;
-    int taska2c;
-    int taska30;
-    unsigned char previousMode;
+    int unknown_9fc_;
+    int unknown_a00_;
+    int unknown_a04_;
+    int unknown_a08_;
+    int unknown_a0c_;
+    int unknown_a10_;
+    int unknown_a14_;
+    int unknown_a18_;
+    int unknown_a1c_;
+    int unknown_a20_;
+    int unknown_a24_;
+    int unknown_a28_;
+    int unknown_a2c_;
+    int unknown_a30_;
+    unsigned char unknown_a34_;
 };
 
 // USA: func_02022bb0
-extern "C" ARM void func_02022bb0(void *receiver) {
-    CleanupReceiver02022bb0 *object = (CleanupReceiver02022bb0 *) receiver;
-    object->active                  = 0;
-    object->transitionState         = 0;
-    object->flag9c5                 = 0;
-    object->flag9b8                 = 0;
-    object->previousMode            = 0xff;
-    object->flag9c4                 = 0;
+extern "C" ARM void func_02022bb0(void *arg0) {
+    Struct_02022bb0 *var0 = (Struct_02022bb0 *) arg0;
+    var0->unknown_9c3_                  = 0;
+    var0->unknown_9c2_         = 0;
+    var0->unknown_9c5_                 = 0;
+    var0->unknown_9b8_                 = 0;
+    var0->unknown_a34_            = 0xff;
+    var0->unknown_9c4_                 = 0;
 
-    BackgroundLoader::GetInstance()->RemoveTask(object->task9cc);
-    object->task9cc = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_9cc_);
+    var0->unknown_9cc_ = -1;
 #if !defined(jpn)
-    BackgroundLoader::GetInstance()->RemoveTask(object->task9f8);
-    object->task9f8 = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_9f8_);
+    var0->unknown_9f8_ = -1;
 #endif
-    BackgroundLoader::GetInstance()->RemoveTask(object->task9d0);
-    object->task9d0 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->task9d4);
-    object->task9d4 = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_9d0_);
+    var0->unknown_9d0_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_9d4_);
+    var0->unknown_9d4_ = -1;
 
-    for (int i = 0; i < 8; i++) {
-        func_02022b90(receiver, &object->entryTasks[i]);
+    for (int var1 = 0; var1 < 8; var1++) {
+        func_02022b90(arg0, &var0->unknown_9d8_[var1]);
     }
 
-    BackgroundLoader::GetInstance()->RemoveTask(object->task9fc);
-    object->task9fc = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska00);
-    object->taska00 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska04);
-    object->taska04 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska08);
-    object->taska08 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska10);
-    object->taska10 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska14);
-    object->taska14 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska18);
-    object->taska18 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska1c);
-    object->taska1c = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska20);
-    object->taska20 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska24);
-    object->taska24 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska28);
-    object->taska28 = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska2c);
-    object->taska2c = -1;
-    BackgroundLoader::GetInstance()->RemoveTask(object->taska30);
-    object->taska30 = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_9fc_);
+    var0->unknown_9fc_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a00_);
+    var0->unknown_a00_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a04_);
+    var0->unknown_a04_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a08_);
+    var0->unknown_a08_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a10_);
+    var0->unknown_a10_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a14_);
+    var0->unknown_a14_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a18_);
+    var0->unknown_a18_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a1c_);
+    var0->unknown_a1c_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a20_);
+    var0->unknown_a20_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a24_);
+    var0->unknown_a24_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a28_);
+    var0->unknown_a28_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a2c_);
+    var0->unknown_a2c_ = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a30_);
+    var0->unknown_a30_ = -1;
 
-    if (object->currentMode == 2) {
-        BackgroundLoader::GetInstance()->RemoveTask(object->mode2Task);
-        object->mode2Task = -1;
+    if (var0->unknown_9c1_ == 2) {
+        BackgroundLoader::GetInstance()->RemoveTask(var0->unknown_a0c_);
+        var0->unknown_a0c_ = -1;
     }
 }

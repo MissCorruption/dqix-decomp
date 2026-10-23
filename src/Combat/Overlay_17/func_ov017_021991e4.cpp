@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { VALUE_FIELD_OFFSET = 0x34ac };
+enum { Enum_ov017_021991e4_14012 = 0x34ac };
 #else
-enum { VALUE_FIELD_OFFSET = 0x36bc };
+enum { Enum_ov017_021991e4_14012 = 0x36bc };
 #endif
 
-extern "C" void func_ov017_021bf410(void* self);
-extern "C" int func_ov017_021bf5f4(void* self);
+extern "C" void func_ov017_021bf410(void* arg0);
+extern "C" int func_ov017_021bf5f4(void* arg0);
 
-struct TailNode020469b4;
-struct TailList020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
+struct Struct_0201bdac;
+struct Struct_0201bdac_2;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
 
-struct Obj021991e4 {
-    char pad0[VALUE_FIELD_OFFSET];
-    int field36bc;
-    char pad1[0x3c];
-    struct TailList020469b4* field36fc;
-    char pad2[0x20];
-    void* field3720;
+struct Struct_ov017_021991e4 {
+    char unknown_0_[Enum_ov017_021991e4_14012];
+    int unknown_36bc_;
+    char unknown_36c0_[0x3c];
+    struct Struct_0201bdac_2* unknown_36fc_;
+    char unknown_3700_[0x20];
+    void* unknown_3720_;
 };
 
 // USA: func_ov017_021991e4
-extern "C" ARM void func_ov017_021991e4(struct Obj021991e4* obj) {
-    func_ov017_021bf410(obj->field3720);
+extern "C" ARM void func_ov017_021991e4(struct Struct_ov017_021991e4* arg0) {
+    func_ov017_021bf410(arg0->unknown_3720_);
 
-    *(int*)((char*)obj->field3720 + 0xc) = obj->field36bc;
+    *(int*)((char*)arg0->unknown_3720_ + 0xc) = arg0->unknown_36bc_;
 
-    if (!func_ov017_021bf5f4(obj->field3720)) {
+    if (!func_ov017_021bf5f4(arg0->unknown_3720_)) {
         return;
     }
 
-    func_020469b4(obj->field36fc, (struct TailNode020469b4*)obj->field3720);
+    func_020469b4(arg0->unknown_36fc_, (struct Struct_0201bdac*)arg0->unknown_3720_);
 }

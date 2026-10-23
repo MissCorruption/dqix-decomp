@@ -6,7 +6,7 @@
 #endif
 #if defined(jpn)
 struct GameState { static GameState* GetInstance(); };
-struct GameObject { char unknown0[0x134]; const char* name; };
+struct GameObject { char unknown_0_[0x134]; const char* unknown_134_; };
 extern "C" int func_020100a8(GameState*);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
 extern "C" int func_020d2ff0(const char*);
@@ -16,35 +16,35 @@ extern "C" int func_020d2ff0(const char*);
 #define func_ov008_02188730 func_ov008_02189444
 #endif
 
-struct Overlay8SpriteEntry {
-    unsigned char unknown00[0x14];
-    int x, y;
-    unsigned char unknown1c[6];
-    unsigned char alpha;
-    unsigned char unknown23[2];
-    signed char palette;
-    signed char priority;
-    unsigned char unknown27;
+struct Struct_ov008_02188730 {
+    unsigned char unknown_0_[0x14];
+    int unknown_14_, unknown_18_;
+    unsigned char unknown_1c_[6];
+    unsigned char unknown_22_;
+    unsigned char unknown_23_[2];
+    signed char unknown_25_;
+    signed char unknown_26_;
+    unsigned char unknown_27_;
 };
-struct Overlay8SpriteView {
-    unsigned char unknown000[0x730];
-    void* renderer;
-    Overlay8SpriteEntry* spriteEntries;
-    unsigned char unknown738[4];
-    void* extraRenderer;
-    Overlay8SpriteEntry* extraEntry;
-    unsigned char entries[8];
-    unsigned char count;
-    unsigned char unknown74d[3];
-    unsigned char cursor[0x40];
-    unsigned char unknown790[0xb10 - 0x790];
-    signed char phase;
-    unsigned char unknownb11[7];
-    unsigned int flags;
-    unsigned char unknownb1c[0xb29 - 0xb1c];
-    unsigned char page;
-    unsigned char unknownb2a[2];
-    int extraX;
+struct Struct_ov008_02188730_2 {
+    unsigned char unknown_0_[0x730];
+    void* unknown_730_;
+    Struct_ov008_02188730* unknown_734_;
+    unsigned char unknown_738_[4];
+    void* unknown_73c_;
+    Struct_ov008_02188730* unknown_740_;
+    unsigned char unknown_744_[8];
+    unsigned char unknown_74c_;
+    unsigned char unknown_74d_[3];
+    unsigned char unknown_750_[0x40];
+    unsigned char unknown_790_[0xb10 - 0x790];
+    signed char unknown_b10_;
+    unsigned char unknown_b11_[7];
+    unsigned int unknown_b18_;
+    unsigned char unknown_b1c_[0xb29 - 0xb1c];
+    unsigned char unknown_b29_;
+    unsigned char unknown_b2a_[2];
+    int unknown_b2c_;
 };
 
 extern "C" {
@@ -55,45 +55,45 @@ extern "C" {
     void func_0205af84(void*, void*, int);
     void func_0205ac40(void*, void*);
 
-    void func_ov008_02188730(Overlay8SpriteView* menu) {
-        if (menu->flags & 0x80000) {
-            int drawn = 0;
-            for (int i = 0; i < 6; ++i) {
-                int entry = menu->entries[menu->page + i];
-                if (entry == 0xff)
+    void func_ov008_02188730(Struct_ov008_02188730_2* arg0) {
+        if (arg0->unknown_b18_ & 0x80000) {
+            int var0 = 0;
+            for (int var1 = 0; var1 < 6; ++var1) {
+                int var2 = arg0->unknown_744_[arg0->unknown_b29_ + var1];
+                if (var2 == 0xff)
                     continue;
-                Overlay8SpriteEntry* sprite = &menu->spriteEntries[entry];
-                sprite->x = 0x10000;
-                sprite->y = ((drawn % 6) << 16) + 0x8000;
-                int selected = func_0205bb84(menu->cursor) - menu->page;
-                int style = 1;
-                if (selected == i)
-                    style = 2;
-                else if (menu->phase == 12)
-                    style = 3;
-                if (func_0202c540(func_0202ae18()) && entry == 5)
-                    style = 3;
-                func_0205afb0(menu->renderer, &menu->spriteEntries[entry], style);
-                func_0205af84(menu->renderer, &menu->spriteEntries[entry], 1);
-                func_0205ac40(menu->renderer, &menu->spriteEntries[entry]);
-                ++drawn;
+                Struct_ov008_02188730* var3 = &arg0->unknown_734_[var2];
+                var3->unknown_14_ = 0x10000;
+                var3->unknown_18_ = ((var0 % 6) << 16) + 0x8000;
+                int var4 = func_0205bb84(arg0->unknown_750_) - arg0->unknown_b29_;
+                int var5 = 1;
+                if (var4 == var1)
+                    var5 = 2;
+                else if (arg0->unknown_b10_ == 12)
+                    var5 = 3;
+                if (func_0202c540(func_0202ae18()) && var2 == 5)
+                    var5 = 3;
+                func_0205afb0(arg0->unknown_730_, &arg0->unknown_734_[var2], var5);
+                func_0205af84(arg0->unknown_730_, &arg0->unknown_734_[var2], 1);
+                func_0205ac40(arg0->unknown_730_, &arg0->unknown_734_[var2]);
+                ++var0;
             }
         }
-        if (menu->flags & 0x10000) {
-            Overlay8SpriteEntry* entry = menu->extraEntry;
+        if (arg0->unknown_b18_ & 0x10000) {
+            Struct_ov008_02188730* var6 = arg0->unknown_740_;
 #if defined(jpn)
-            GameState* game = GameState::GetInstance();
-            GameObject* hero = func_0200ff1c(game, func_020100a8(game));
-            entry->x = ((func_020d2ff0(hero->name) >> 1) * 10 + 0x74) << 12;
-            entry->y = 0;
+            GameState* var7 = GameState::GetInstance();
+            GameObject* var8 = func_0200ff1c(var7, func_020100a8(var7));
+            var6->unknown_14_ = ((func_020d2ff0(var8->unknown_134_) >> 1) * 10 + 0x74) << 12;
+            var6->unknown_18_ = 0;
 #else
-            entry->x = menu->extraX;
-            entry->y = 0x4000;
+            var6->unknown_14_ = arg0->unknown_b2c_;
+            var6->unknown_18_ = 0x4000;
 #endif
-            entry->priority = 1;
-            entry->palette = 0;
-            entry->alpha = 0x7f;
-            func_0205ac40(menu->extraRenderer, entry);
+            var6->unknown_26_ = 1;
+            var6->unknown_25_ = 0;
+            var6->unknown_22_ = 0x7f;
+            func_0205ac40(arg0->unknown_73c_, var6);
         }
     }
 }

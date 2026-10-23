@@ -20,80 +20,80 @@ extern char data_020ef260[];
 
 extern "C" void func_020bb700(int*);
 extern "C" void func_020bb740(int*);
-extern "C" void __clear(void* buf, int len);
+extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* _ZN7Model3DC1Ev(void*);
 extern "C" void* _ZN7Model3DD1Ev(void*);
 extern "C" void func_02018f30(unsigned char*);
 
 // USA: func_02018d28
-extern "C" ARM void func_02018d28(Zone3D* self, SafeAllocator* alloc, void* archive, unsigned int archiveLength) {
-    unsigned int size;
-    int backup[10];
-    Model3D* localList[3];
-    Model3D* globalList[3];
-    char path[0x50];
-    Model3D localB;
-    Model3D localA;
-    void* data;
-    int* dst1;
-    Model3D** p1;
-    int* dst2;
-    Model3D** p2;
+extern "C" ARM void func_02018d28(Zone3D* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3) {
+    unsigned int var0;
+    int var1[10];
+    Model3D* var2[3];
+    Model3D* var3[3];
+    char var4[0x50];
+    Model3D var5;
+    Model3D var6;
+    void* var7;
+    int* var8;
+    Model3D** var9;
+    int* var10;
+    Model3D** var11;
 
-    func_020bb700(backup);
-    _ZN7Model3DC1Ev(&localB);
-    localB.Clear();
-    sprintf(path, data_020ef22c, data_020ef233);
-    if ((data = LoadFileIntoNewAllocation(path, *alloc, &size)) != 0) {
-        localB.SetAndProcessRawFile(data, size, Model3D::TextureStagingMode_Normal);
+    func_020bb700(var1);
+    _ZN7Model3DC1Ev(&var5);
+    var5.Clear();
+    sprintf(var4, data_020ef22c, data_020ef233);
+    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+        var5.SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
-    _ZN7Model3DC1Ev(&localA);
-    localA.Clear();
-    sprintf(path, data_020ef22c, data_020ef242);
-    if ((data = LoadFileIntoNewAllocation(path, *alloc, &size)) != 0) {
-        localA.SetAndProcessRawFile(data, size, Model3D::TextureStagingMode_Normal);
+    _ZN7Model3DC1Ev(&var6);
+    var6.Clear();
+    sprintf(var4, data_020ef22c, data_020ef242);
+    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+        var6.SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
 
-    __clear(localList, 0xc);
-    localList[0] = &localB;
-    localList[1] = &localA;
-    dst1 = &self->chestPaletteOffsets_5f0_[2];
-    p1 = localList;
-    while (*p1 != 0) {
-        NSBXXTex* tex = (*p1)->GetTEX0();
-        if (tex != 0) {
-            *dst1 = tex->block4VRAMLoadOffset_;
+    __clear(var2, 0xc);
+    var2[0] = &var5;
+    var2[1] = &var6;
+    var8 = &arg0->unknown_5f0_[2];
+    var9 = var2;
+    while (*var9 != 0) {
+        NSBXXTex* var12 = (*var9)->GetTEX0();
+        if (var12 != 0) {
+            *var8 = var12->block4VRAMLoadOffset_;
         }
-        p1++;
-        dst1++;
+        var9++;
+        var8++;
     }
 
-    alloc->Reset();
-    func_020bb740(backup);
-    sprintf(path, data_020ef22c, data_020ef251);
-    if ((data = LoadFileIntoNewAllocation(path, *alloc, &size)) != 0) {
-        self->models_498_[0].SetAndProcessRawFile(data, size, Model3D::TextureStagingMode_Normal);
+    arg1->Reset();
+    func_020bb740(var1);
+    sprintf(var4, data_020ef22c, data_020ef251);
+    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+        arg0->models_498_[0].SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
-    sprintf(path, data_020ef22c, data_020ef260);
-    if ((data = LoadFileIntoNewAllocation(path, *alloc, &size)) != 0) {
-        self->models_498_[1].SetAndProcessRawFile(data, size, Model3D::TextureStagingMode_Normal);
+    sprintf(var4, data_020ef22c, data_020ef260);
+    if ((var7 = LoadFileIntoNewAllocation(var4, *arg1, &var0)) != 0) {
+        arg0->models_498_[1].SetAndProcessRawFile(var7, var0, Model3D::TextureStagingMode_Normal);
     }
 
-    __clear(globalList, 0xc);
-    globalList[0] = &self->models_498_[0];
-    globalList[1] = &self->models_498_[1];
-    dst2 = self->chestPaletteOffsets_5f0_;
-    p2 = globalList;
-    while (*p2 != 0) {
-        NSBXXTex* tex = (*p2)->GetTEX0();
-        if (tex != 0) {
-            *dst2 = tex->block4VRAMLoadOffset_;
+    __clear(var3, 0xc);
+    var3[0] = &arg0->models_498_[0];
+    var3[1] = &arg0->models_498_[1];
+    var10 = arg0->unknown_5f0_;
+    var11 = var3;
+    while (*var11 != 0) {
+        NSBXXTex* var13 = (*var11)->GetTEX0();
+        if (var13 != 0) {
+            *var10 = var13->block4VRAMLoadOffset_;
         }
-        p2++;
-        dst2++;
+        var11++;
+        var10++;
     }
 
-    func_02018f30((unsigned char*)self);
-    _ZN7Model3DD1Ev(&localA);
-    _ZN7Model3DD1Ev(&localB);
+    func_02018f30((unsigned char*)arg0);
+    _ZN7Model3DD1Ev(&var6);
+    _ZN7Model3DD1Ev(&var5);
 }

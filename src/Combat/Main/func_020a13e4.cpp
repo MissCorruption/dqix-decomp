@@ -5,71 +5,71 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Script.h"
 
-struct ResetStruct {
-    int w0;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
-    int w18;
-    int w1c;
-    int w20;
-    int w24;
-    int w28;
-    char pad[0x400];
-    unsigned char b42c;
+struct Struct_0201f040 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    char unknown_2c_[0x400];
+    unsigned char unknown_42c_;
 };
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
 #if defined(jpn)
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);
 extern char data_0211e33c[];
 #else
-extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
+extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
 #endif
 
-struct Global02109d94_020a13e4 {
-    unsigned char field0;
-    char pad1;
-    unsigned short field2;
-    void* field4;
-    void* field8;
-    int fieldC;
+struct Struct_02109d94_2 {
+    unsigned char unknown_0_;
+    char unknown_1_;
+    unsigned short unknown_2_;
+    void* unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
 };
-extern struct Global02109d94_020a13e4 data_02109d94;
+extern struct Struct_02109d94_2 data_02109d94;
 
 extern int data_020f1917;
 extern int data_020f192c;
 extern int data_020f18ec;
 
 // USA: func_020a13e4
-extern "C" ARM void func_020a13e4(void* param0, void* param1, int param2, unsigned short param3, unsigned char param4) {
-    if (param1 != 0) {
-        int localVar;
-        void* result;
-        data_02109d94.field4 = param0;
-        data_02109d94.field8 = param1;
-        data_02109d94.fieldC = param2;
-        data_02109d94.field2 = param3;
-        data_02109d94.field0 = param4;
+extern "C" ARM void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4) {
+    if (arg1 != 0) {
+        int var0;
+        void* var1;
+        data_02109d94.unknown_4_ = arg0;
+        data_02109d94.unknown_8_ = arg1;
+        data_02109d94.unknown_c_ = arg2;
+        data_02109d94.unknown_2_ = arg3;
+        data_02109d94.unknown_0_ = arg4;
         BackgroundLoader::AddLockGlobal();
-        localVar = 0;
+        var0 = 0;
         #if defined(jpn)
-        result = LoadFileIntoMemory((const char*)&data_020f1917, data_0211e33c, (unsigned int*)&localVar);
+        var1 = LoadFileIntoMemory((const char*)&data_020f1917, data_0211e33c, (unsigned int*)&var0);
 #else
-        result = ExtractFileFromGP2((const char*)&data_020f1917, (const char*)&data_020f192c, (unsigned int*)&localVar);
+        var1 = ExtractFileFromGP2((const char*)&data_020f1917, (const char*)&data_020f192c, (unsigned int*)&var0);
 #endif
-        if (result != 0) {
-            struct ResetStruct local;
-            ((Script*)&local)->Initialize();
-            ((Script*)&local)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f18ec);
-            ((Script*)((struct StreamState*)&local))->Load((struct StreamHeader*)result, localVar);
-            ((Script*)((struct Struct02030774*)&local))->Execute();
+        if (var1 != 0) {
+            struct Struct_0201f040 var2;
+            ((Script*)&var2)->Initialize();
+            ((Script*)&var2)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f18ec);
+            ((Script*)((struct Struct_0201f040_2*)&var2))->Load((struct Struct_02013fb4*)var1, var0);
+            ((Script*)((struct Struct_0201f040_3*)&var2))->Execute();
         }
         BackgroundLoader::RemoveLockGlobal();
     }

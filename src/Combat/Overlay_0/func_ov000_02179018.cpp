@@ -2,101 +2,101 @@
 
 #include "std_library_functions.h"
 
-struct Elem_0205d81c {
-    char pad0[0xC2];
-    short fieldC2;
-    unsigned char fieldC4;
-    char pad1[0xE0 - 0xC5];
+struct Struct_0205d0e0 {
+    char unknown_0_[0xC2];
+    short unknown_c2_;
+    unsigned char unknown_c4_;
+    char unknown_c5_[0xE0 - 0xC5];
 };
 
 struct Struct_0205d81c {
-    char pad0[0x54];
-    char field54[0x98 - 0x54];
-    int field98;
-    struct Elem_0205d81c* field9C;
-    short fieldA0;
-    short fieldA2;
-    short fieldA4;
-    short fieldA6;
-    short fieldA8;
-    short fieldAA;
-    short fieldAC;
-    short fieldAE;
-    char padB0;
-    unsigned char fieldB1;
-    char padB2;
-    unsigned char fieldB3;
-    unsigned char fieldB4;
+    char unknown_0_[0x54];
+    char unknown_54_[0x98 - 0x54];
+    int unknown_98_;
+    struct Struct_0205d0e0* unknown_9c_;
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
+    char unknown_b2_;
+    unsigned char unknown_b3_;
+    unsigned char unknown_b4_;
 };
 
-struct Owner_02179018 {
-    char pad0[0x188];
-    struct Struct_0205d81c elems;
+struct Struct_ov000_02179018 {
+    char unknown_0_[0x188];
+    struct Struct_0205d81c unknown_188_;
 };
 
-struct Entry_02179018 {
-    char pad0[0x44];
-    int x;
-    int y;
+struct Struct_ov000_02179018_2 {
+    char unknown_0_[0x44];
+    int unknown_44_;
+    int unknown_48_;
 };
 
 extern "C" int func_020421a0();
-extern "C" int func_0205bafc(void* obj);
-extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
-extern "C" void func_ov000_02179194(struct Owner_02179018* obj, struct Entry_02179018* entry);
-extern "C" void func_ov000_0217ab8c(struct Entry_02179018* entry, int a, int b);
-extern "C" void func_ov000_0217936c(struct Owner_02179018* obj, struct Entry_02179018* entry, void* buf);
+extern "C" int func_0205bafc(void* arg0);
+extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void func_ov000_02179194(struct Struct_ov000_02179018* arg0, struct Struct_ov000_02179018_2* arg1);
+extern "C" void func_ov000_0217ab8c(struct Struct_ov000_02179018_2* arg0, int arg1, int arg2);
+extern "C" void func_ov000_0217936c(struct Struct_ov000_02179018* arg0, struct Struct_ov000_02179018_2* arg1, void* arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(struct Struct_0205d81c* s, void* buf, int a, int b, int c, int d, int e);
+extern "C" void func_0205d304(struct Struct_0205d81c* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(struct Struct_0205d81c* s, void* buf, int a, int b, int c, int d, int e, int f);
+extern "C" void func_0205d304(struct Struct_0205d81c* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
-extern "C" void func_ov000_02176210(struct Struct_0205d81c* s, int a, int key);
+extern "C" void func_ov000_02176210(struct Struct_0205d81c* arg0, int arg1, int arg2);
 
 // USA: func_ov000_02179018
-extern "C" ARM void func_ov000_02179018(struct Owner_02179018* obj, struct Entry_02179018* entry, int a, int b) {
-    func_ov000_02179194(obj, entry);
-    int x = entry->x;
-    int y = entry->y;
-    func_ov000_0217ab8c(entry, a, b);
-    struct Struct_0205d81c* s = &obj->elems;
+extern "C" ARM void func_ov000_02179018(struct Struct_ov000_02179018* arg0, struct Struct_ov000_02179018_2* arg1, int arg2, int arg3) {
+    func_ov000_02179194(arg0, arg1);
+    int var0 = arg1->unknown_44_;
+    int var1 = arg1->unknown_48_;
+    func_ov000_0217ab8c(arg1, arg2, arg3);
+    struct Struct_0205d81c* var2 = &arg0->unknown_188_;
 #if defined(jpn)
-    s->fieldA0 = 0xe;
+    var2->unknown_a0_ = 0xe;
 #else
-    s->fieldA0 = 0x10;
+    var2->unknown_a0_ = 0x10;
 #endif
-    s->fieldA2 = 9;
+    var2->unknown_a2_ = 9;
 #if defined(jpn)
-    s->fieldA4 = (x >> 3) + 9;
+    var2->unknown_a4_ = (var0 >> 3) + 9;
 #else
-    s->fieldA4 = (x >> 3) + 0x10;
+    var2->unknown_a4_ = (var0 >> 3) + 0x10;
 #endif
-    s->fieldA6 = y >> 3;
-    s->fieldA8 = 0xc;
-    s->fieldAA = 8;
-    s->fieldAC = 0xa;
-    s->fieldAE = 0xc;
-    s->fieldB1 = 0x10;
-    int many = 0;
-    if (func_0205bafc(s->field54) > 4) {
-        many = 1;
+    var2->unknown_a6_ = var1 >> 3;
+    var2->unknown_a8_ = 0xc;
+    var2->unknown_aa_ = 8;
+    var2->unknown_ac_ = 0xa;
+    var2->unknown_ae_ = 0xc;
+    var2->unknown_b1_ = 0x10;
+    int var3 = 0;
+    if (func_0205bafc(var2->unknown_54_) > 4) {
+        var3 = 1;
     }
 #if defined(jpn)
-    void* buf = *(void**)(func_020421a0() + 0x28);
-    memset(buf, 0, 0x800);
+    void* var4 = *(void**)(func_020421a0() + 0x28);
+    memset(var4, 0, 0x800);
 #else
-    void* buf = *(void**)(func_020421a0() + 0x5c);
-    memset(buf, 0, 0x960);
+    void* var4 = *(void**)(func_020421a0() + 0x5c);
+    memset(var4, 0, 0x960);
 #endif
-    func_ov000_0217936c(obj, entry, buf);
+    func_ov000_0217936c(arg0, arg1, var4);
 #if defined(jpn)
-    func_0205d304(s, buf, 0, 0, many, 1, 0);
+    func_0205d304(var2, var4, 0, 0, var3, 1, 0);
 #else
-    func_0205d304(s, buf, 0, 0, many, 1, 0, 0);
+    func_0205d304(var2, var4, 0, 0, var3, 1, 0, 0);
 #endif
-    struct Elem_0205d81c* e = func_0205d81c(s, 0x23);
-    if (e != 0) {
-        e->fieldC2 = 0;
+    struct Struct_0205d0e0* var5 = func_0205d81c(var2, 0x23);
+    if (var5 != 0) {
+        var5->unknown_c2_ = 0;
     }
-    func_ov000_02176210(&obj->elems, 0x10, 0x23);
+    func_ov000_02176210(&arg0->unknown_188_, 0x10, 0x23);
 }

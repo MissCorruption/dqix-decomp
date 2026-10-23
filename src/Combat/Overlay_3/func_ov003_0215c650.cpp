@@ -5,153 +5,153 @@
 #include "NitroSDK/Graphics.h"
 #include "Combat/MapDisplay.h"
 
-struct MainBgControlBackup02074af4 {
-    unsigned short savedBg0Cnt;
-    char pad2[2];
-    unsigned short savedBg1Cnt;
-    char pad6[2];
-    unsigned short savedBg2Cnt;
-    char padA[2];
-    unsigned short savedBg3Cnt;
-    char padE[2];
-    unsigned char initialized;
-    unsigned char field11;
+struct Struct_02074af4 {
+    unsigned short unknown_0_;
+    char unknown_2_[2];
+    unsigned short unknown_4_;
+    char unknown_6_[2];
+    unsigned short unknown_8_;
+    char unknown_a_[2];
+    unsigned short unknown_c_;
+    char unknown_e_[2];
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
 };
 
-struct Struct020dfc40 {
-    char data[0x18];
+struct Struct_0201099c_14 {
+    char unknown_0_[0x18];
 };
 
-struct InitTarget0205cfd4 {
-    char data[0xbc];
+struct Struct_0205cfd4 {
+    char unknown_0_[0xbc];
 };
 
-struct Elem0204c684 {
-    char data[0xe0];
+struct Struct_02000c9c_83 {
+    char unknown_0_[0xe0];
 };
 
-struct Panel0215c650 {
-    SafeAllocator alloc0;
-    SafeAllocator alloc14;
-    SafeAllocator alloc28;
-    SafeAllocator alloc3c;
-    SafeAllocator alloc50;
-    struct Struct020dfc40 sub64;
+struct Struct_ov003_0215c650 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator unknown_3c_;
+    SafeAllocator unknown_50_;
+    struct Struct_0201099c_14 unknown_64_;
 #if defined(jpn)
-    struct Struct020dfc40 sub7c;
+    struct Struct_0201099c_14 unknown_7c_;
 #endif
-    void* textBuf;
-    struct MainBgControlBackup02074af4 bgBackup;
-    int savedBgPlanes;
-    struct InitTarget0205cfd4 sub98;
-    struct List0204af64 lists[2];
-    struct Elem0204c684 elems[2];
-    int field354;
-    char sub358[0x3ac - 0x358];
-    int field3ac;
-    int field3b0;
-    int field3b4;
-    unsigned char field3b8;
-    unsigned char field3b9;
-    unsigned char field3ba;
-    unsigned char field3bb;
-    unsigned char field3bc;
-    unsigned char field3bd[3];
-    unsigned char field3c0;
-    signed char field3c1;
-    unsigned char field3c2;
-    unsigned char field3c3;
-    unsigned char field3c4[4];
-    int field3c8;
-    int field3cc;
-    int timeOfDay;
-    float nightToMorning;
-    float morningToDay;
-    float dayToEvening;
-    float eveningToNight;
-    float transitionTime;
-    int field3e8;
-    unsigned char field3ec;
-    unsigned char field3ed;
-    unsigned char field3ee;
-    unsigned char field3ef;
-    unsigned char field3f0;
-    unsigned char field3f1;
-    unsigned char field3f2;
-    unsigned char field3f3;
-    unsigned char field3f4;
-    unsigned char field3f5;
-    int field3f8;
+    void* unknown1_7c_;
+    struct Struct_02074af4 unknown_80_;
+    int unknown_94_;
+    struct Struct_0205cfd4 unknown_98_;
+    struct Struct_02020cb8 unknown_154_[2];
+    struct Struct_02000c9c_83 unknown_194_[2];
+    int unknown_354_;
+    char unknown_358_[0x3ac - 0x358];
+    int unknown_3ac_;
+    int unknown_3b0_;
+    int unknown_3b4_;
+    unsigned char unknown_3b8_;
+    unsigned char unknown_3b9_;
+    unsigned char unknown_3ba_;
+    unsigned char unknown_3bb_;
+    unsigned char unknown_3bc_;
+    unsigned char unknown_3bd_[3];
+    unsigned char unknown_3c0_;
+    signed char unknown_3c1_;
+    unsigned char unknown_3c2_;
+    unsigned char unknown_3c3_;
+    unsigned char unknown_3c4_[4];
+    int unknown_3c8_;
+    int unknown_3cc_;
+    int unknown_3d0_;
+    float unknown_3d4_;
+    float unknown_3d8_;
+    float unknown_3dc_;
+    float unknown_3e0_;
+    float unknown_3e4_;
+    int unknown_3e8_;
+    unsigned char unknown_3ec_;
+    unsigned char unknown_3ed_;
+    unsigned char unknown_3ee_;
+    unsigned char unknown_3ef_;
+    unsigned char unknown_3f0_;
+    unsigned char unknown_3f1_;
+    unsigned char unknown_3f2_;
+    unsigned char unknown_3f3_;
+    unsigned char unknown_3f4_;
+    unsigned char unknown_3f5_;
+    int unknown_3f8_;
 };
 
-extern "C" void func_02074af4(struct MainBgControlBackup02074af4* obj);
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
-extern "C" void func_0205cfd4(struct InitTarget0205cfd4* s);
-extern "C" void func_0204af64(struct List0204af64* obj);
-extern "C" void func_0204c684(struct Elem0204c684* obj);
-extern "C" void func_0205a444(char* obj);
+extern "C" void func_02074af4(struct Struct_02074af4* arg0);
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
+extern "C" void func_0205cfd4(struct Struct_0205cfd4* arg0);
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void func_0204c684(struct Struct_02000c9c_83* arg0);
+extern "C" void func_0205a444(char* arg0);
 
 // USA: func_ov003_0215c650
-extern "C" ARM void func_ov003_0215c650(struct Panel0215c650* self) {
-    self->bgBackup.initialized = 0;
-    self->bgBackup.field11 = 0;
-    func_02074af4(&self->bgBackup);
-    self->savedBgPlanes = (DISPCNT & 0x1f00) >> 8;
+extern "C" ARM void func_ov003_0215c650(struct Struct_ov003_0215c650* arg0) {
+    arg0->unknown_80_.unknown_10_ = 0;
+    arg0->unknown_80_.unknown_11_ = 0;
+    func_02074af4(&arg0->unknown_80_);
+    arg0->unknown_94_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
-    self->alloc0.ResetAllocatorPointer();
-    self->alloc28.ResetAllocatorPointer();
-    self->alloc3c.ResetAllocatorPointer();
-    self->alloc50.ResetAllocatorPointer();
-    func_020dfc40(&self->sub64);
+    arg0->unknown_0_.ResetAllocatorPointer();
+    arg0->unknown_28_.ResetAllocatorPointer();
+    arg0->unknown_3c_.ResetAllocatorPointer();
+    arg0->unknown_50_.ResetAllocatorPointer();
+    func_020dfc40(&arg0->unknown_64_);
 #if defined(jpn)
-    func_020dfc40(&self->sub7c);
+    func_020dfc40(&arg0->unknown_7c_);
 #endif
-    self->textBuf = 0;
-    func_0205cfd4(&self->sub98);
+    arg0->unknown1_7c_ = 0;
+    func_0205cfd4(&arg0->unknown_98_);
 
-    for (int i = 0; i < 2; i++) {
-        func_0204af64(&self->lists[i]);
+    for (int var0 = 0; var0 < 2; var0++) {
+        func_0204af64(&arg0->unknown_154_[var0]);
     }
-    for (int j = 0; j < 2; j++) {
-        func_0204c684(&self->elems[j]);
+    for (int var1 = 0; var1 < 2; var1++) {
+        func_0204c684(&arg0->unknown_194_[var1]);
     }
 
-    self->field354 = 0;
-    func_0205a444(self->sub358);
-    self->field3ac = 0;
-    self->field3b0 = 0;
-    self->field3b4 = 0;
-    self->field3b8 = 0;
-    self->field3b9 = 0;
-    self->field3bc = 0;
-    self->field3ba = 0;
-    self->field3bb = 0;
-    for (int k = 0; k < 3; k++) {
-        self->field3bd[k] = 0xff;
+    arg0->unknown_354_ = 0;
+    func_0205a444(arg0->unknown_358_);
+    arg0->unknown_3ac_ = 0;
+    arg0->unknown_3b0_ = 0;
+    arg0->unknown_3b4_ = 0;
+    arg0->unknown_3b8_ = 0;
+    arg0->unknown_3b9_ = 0;
+    arg0->unknown_3bc_ = 0;
+    arg0->unknown_3ba_ = 0;
+    arg0->unknown_3bb_ = 0;
+    for (int var2 = 0; var2 < 3; var2++) {
+        arg0->unknown_3bd_[var2] = 0xff;
     }
-    self->field3c0 = 0;
-    self->field3c1 = -1;
-    self->field3c2 = 0;
-    self->field3c3 = 0;
-    for (int m = 0; m < 4; m++) {
-        self->field3c4[m] = 0xff;
+    arg0->unknown_3c0_ = 0;
+    arg0->unknown_3c1_ = -1;
+    arg0->unknown_3c2_ = 0;
+    arg0->unknown_3c3_ = 0;
+    for (int var3 = 0; var3 < 4; var3++) {
+        arg0->unknown_3c4_[var3] = 0xff;
     }
-    self->field3c8 = -1;
-    self->field3cc = -1;
-    GetDayThresholds(&self->nightToMorning, &self->morningToDay, &self->dayToEvening,
-                     &self->eveningToNight, &self->transitionTime);
-    self->timeOfDay = GameState::GetInstance()->IsMorningDayOrEvening();
-    self->field3ec = 0;
-    self->field3ed = 0;
-    self->field3ee = 0;
-    self->field3ef = 1;
-    self->field3f0 = 0;
-    self->field3f1 = 0;
-    self->field3f2 = 0;
-    self->field3f3 = 0;
-    self->field3f8 = 0;
-    self->field3f4 = 0;
-    self->field3f5 = 0;
-    self->field3e8 = 0;
+    arg0->unknown_3c8_ = -1;
+    arg0->unknown_3cc_ = -1;
+    GetDayThresholds(&arg0->unknown_3d4_, &arg0->unknown_3d8_, &arg0->unknown_3dc_,
+                     &arg0->unknown_3e0_, &arg0->unknown_3e4_);
+    arg0->unknown_3d0_ = GameState::GetInstance()->IsMorningDayOrEvening();
+    arg0->unknown_3ec_ = 0;
+    arg0->unknown_3ed_ = 0;
+    arg0->unknown_3ee_ = 0;
+    arg0->unknown_3ef_ = 1;
+    arg0->unknown_3f0_ = 0;
+    arg0->unknown_3f1_ = 0;
+    arg0->unknown_3f2_ = 0;
+    arg0->unknown_3f3_ = 0;
+    arg0->unknown_3f8_ = 0;
+    arg0->unknown_3f4_ = 0;
+    arg0->unknown_3f5_ = 0;
+    arg0->unknown_3e8_ = 0;
 }

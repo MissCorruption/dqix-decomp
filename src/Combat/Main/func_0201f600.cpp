@@ -2,12 +2,12 @@
 #include "Resource/Script.h"
 #include "Combat/CombatScriptContext.h"
 
-struct TaggedValue02030b44;
+struct Struct_0201d530;
 
 // USA: func_0201f600
-extern "C" ARM int func_0201f600(Script::Parameter* v) {
-    const Script::Parameter* parameters = v;
-    float scaled = 4096.0f * parameters[0].ToFloat();
-    *(int*)(data_020fdc4c.currentObject + 0x38) = (int)scaled;
+extern "C" ARM int func_0201f600(Script::Parameter* arg0) {
+    const Script::Parameter* var0 = arg0;
+    float var1 = 4096.0f * var0[0].ToFloat();
+    *(int*)(data_020fdc4c.unknown_10_ + 0x38) = (int)var1;
     return 1;
 }

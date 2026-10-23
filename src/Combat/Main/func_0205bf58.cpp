@@ -2,177 +2,177 @@
 #include "Input/Input.h"
 
 struct Struct_0205bb84 {
-    int count;
-    int pages;
-    int columns;
-    int rows;
-    int field_0x10;
-    int page;
-    int column;
-    int row;
-    int field_0x20;
-    int* baseColumns;
-    int* baseRows;
-    int* baseSelection;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int* unknown_24_;
+    int* unknown_28_;
+    int* unknown_2c_;
 };
 struct Struct_0205c4a8 : Struct_0205bb84 {};
 struct Struct_0205bf3c : Struct_0205c4a8 {
-    int step;
-    unsigned short key;
-    unsigned char rowRepeat;
-    unsigned char columnRepeat;
-    unsigned char countdown;
-    unsigned char initialDelay;
-    unsigned char repeatDelay;
-    unsigned char padding3b;
-    unsigned char wrapColumns;
-    unsigned char wrapRows;
+    int unknown_30_;
+    unsigned short unknown_34_;
+    unsigned char unknown_36_;
+    unsigned char unknown_37_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
+    unsigned char unknown_3a_;
+    unsigned char unknown_3b_;
+    unsigned char unknown_3c_;
+    unsigned char unknown_3d_;
 };
-struct NavigationSteps { int values[4]; };
-struct NavigationKeys { unsigned short values[5]; };
-struct NavigationRepeatDirections { unsigned char values[4]; };
+struct Struct_020e7dc4 { int unknown_0_[4]; };
+struct Struct_020e7db8 { unsigned short unknown_0_[5]; };
+struct Struct_020e7db0 { unsigned char unknown_0_[4]; };
 extern "C" void func_0205bf3c(Struct_0205bf3c*);
 extern "C" int func_0205bb84(Struct_0205bb84*);
 extern "C" void func_0205c4a8(Struct_0205c4a8*, int);
 extern "C" void func_0205bb04(Struct_0205bf3c*, int);
-extern const NavigationKeys data_020e7db8;
-extern const NavigationSteps data_020e7dc4;
-extern const NavigationRepeatDirections data_020e7db0, data_020e7db4;
+extern const Struct_020e7db8 data_020e7db8;
+extern const Struct_020e7dc4 data_020e7dc4;
+extern const Struct_020e7db0 data_020e7db0, data_020e7db4;
 
 // USA: func_0205bf58
-extern "C" ARM int func_0205bf58(Struct_0205bf3c* navigation, unsigned int ticks) {
-    if (navigation->count == 0) return 0;
-    if (navigation->columns <= 0) return 0;
-    if (navigation->rows <= 0) return 0;
-    unsigned char initialDelay = navigation->initialDelay;
-    unsigned char repeatDelay = navigation->repeatDelay;
-    NavigationKeys keys = data_020e7db8;
-    int index = 0;
-    while (keys.values[index] != 0xffff && navigation->key == 0) {
-        unsigned short key = keys.values[index];
-        if (g_keyManager.TestKeysPressed(key)) {
-            if (navigation->rowRepeat | navigation->columnRepeat) {
-                func_0205bf3c(navigation);
+extern "C" ARM int func_0205bf58(Struct_0205bf3c* arg0, unsigned int arg1) {
+    if (arg0->unknown_0_ == 0) return 0;
+    if (arg0->unknown_8_ <= 0) return 0;
+    if (arg0->unknown_c_ <= 0) return 0;
+    unsigned char var0 = arg0->unknown_39_;
+    unsigned char var1 = arg0->unknown_3a_;
+    Struct_020e7db8 var2 = data_020e7db8;
+    int var3 = 0;
+    while (var2.unknown_0_[var3] != 0xffff && arg0->unknown_34_ == 0) {
+        unsigned short var4 = var2.unknown_0_[var3];
+        if (g_keyManager.TestKeysPressed(var4)) {
+            if (arg0->unknown_36_ | arg0->unknown_37_) {
+                func_0205bf3c(arg0);
                 break;
             }
-            NavigationSteps steps = data_020e7dc4;
-            NavigationRepeatDirections rowRepeats = data_020e7db0;
-            NavigationRepeatDirections columnRepeats = data_020e7db4;
-            navigation->key = key;
-            navigation->countdown = initialDelay;
-            navigation->step = steps.values[index];
-            navigation->rowRepeat = rowRepeats.values[index];
-            navigation->columnRepeat = columnRepeats.values[index];
-            if (navigation->key == 0x40 || navigation->key == 0x80) {
-                int previous = navigation->row;
-                navigation->row += navigation->step;
-                if (navigation->wrapRows) {
-                    if (navigation->rows <= navigation->row) navigation->row = 0;
-                    else if (navigation->row < 0) navigation->row = navigation->rows - 1;
-                    if (navigation->key == 0x40) {
-                        int total = navigation->count;
-                        if (total <= func_0205bb84(navigation))
-                            func_0205bb04(navigation, total - 1);
-                    } else if (navigation->key == 0x80) {
-                        if (navigation->count <= func_0205bb84(navigation))
-                            navigation->row = 0;
+            Struct_020e7dc4 var5 = data_020e7dc4;
+            Struct_020e7db0 var6 = data_020e7db0;
+            Struct_020e7db0 var7 = data_020e7db4;
+            arg0->unknown_34_ = var4;
+            arg0->unknown_38_ = var0;
+            arg0->unknown_30_ = var5.unknown_0_[var3];
+            arg0->unknown_36_ = var6.unknown_0_[var3];
+            arg0->unknown_37_ = var7.unknown_0_[var3];
+            if (arg0->unknown_34_ == 0x40 || arg0->unknown_34_ == 0x80) {
+                int var8 = arg0->unknown_1c_;
+                arg0->unknown_1c_ += arg0->unknown_30_;
+                if (arg0->unknown_3d_) {
+                    if (arg0->unknown_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = 0;
+                    else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = arg0->unknown_c_ - 1;
+                    if (arg0->unknown_34_ == 0x40) {
+                        int var9 = arg0->unknown_0_;
+                        if (var9 <= func_0205bb84(arg0))
+                            func_0205bb04(arg0, var9 - 1);
+                    } else if (arg0->unknown_34_ == 0x80) {
+                        if (arg0->unknown_0_ <= func_0205bb84(arg0))
+                            arg0->unknown_1c_ = 0;
                     }
                 } else {
-                    if (navigation->rows <= navigation->row) navigation->row = previous;
-                    else if (navigation->row < 0) navigation->row = previous;
-                    if (func_0205bb84(navigation) >= navigation->count)
-                        navigation->row = previous;
+                    if (arg0->unknown_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = var8;
+                    else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = var8;
+                    if (func_0205bb84(arg0) >= arg0->unknown_0_)
+                        arg0->unknown_1c_ = var8;
                 }
-            } else if (navigation->key == 0x20 || navigation->key == 0x10) {
-                int previous = navigation->column;
-                navigation->column += navigation->step;
-                if (navigation->columns <= navigation->column) {
-                    if (navigation->wrapColumns) {
-                        navigation->column = 0;
-                        if (navigation->pages > 1) func_0205c4a8(navigation, 1);
+            } else if (arg0->unknown_34_ == 0x20 || arg0->unknown_34_ == 0x10) {
+                int var10 = arg0->unknown_18_;
+                arg0->unknown_18_ += arg0->unknown_30_;
+                if (arg0->unknown_8_ <= arg0->unknown_18_) {
+                    if (arg0->unknown_3c_) {
+                        arg0->unknown_18_ = 0;
+                        if (arg0->unknown_4_ > 1) func_0205c4a8(arg0, 1);
                     } else {
-                        if (navigation->pages == 1) navigation->column = previous;
+                        if (arg0->unknown_4_ == 1) arg0->unknown_18_ = var10;
                         else {
-                            navigation->column = 0;
-                            func_0205c4a8(navigation, 1);
+                            arg0->unknown_18_ = 0;
+                            func_0205c4a8(arg0, 1);
                         }
                     }
-                } else if (navigation->column < 0) {
-                    if (navigation->wrapColumns) {
-                        navigation->column = navigation->columns - 1;
-                        if (navigation->pages > 1) func_0205c4a8(navigation, -1);
+                } else if (arg0->unknown_18_ < 0) {
+                    if (arg0->unknown_3c_) {
+                        arg0->unknown_18_ = arg0->unknown_8_ - 1;
+                        if (arg0->unknown_4_ > 1) func_0205c4a8(arg0, -1);
                     } else {
-                        if (navigation->pages == 1) navigation->column = previous;
+                        if (arg0->unknown_4_ == 1) arg0->unknown_18_ = var10;
                         else {
-                            navigation->column = navigation->columns - 1;
-                            func_0205c4a8(navigation, -1);
+                            arg0->unknown_18_ = arg0->unknown_8_ - 1;
+                            func_0205c4a8(arg0, -1);
                         }
                     }
                 }
-                if (func_0205bb84(navigation) >= navigation->count) {
-                    if (navigation->pages == 1) navigation->column = previous;
+                if (func_0205bb84(arg0) >= arg0->unknown_0_) {
+                    if (arg0->unknown_4_ == 1) arg0->unknown_18_ = var10;
                     else {
-                        navigation->column = 0;
-                        func_0205c4a8(navigation, 1);
+                        arg0->unknown_18_ = 0;
+                        func_0205c4a8(arg0, 1);
                     }
                 }
             }
             return 1;
         }
-        ++index;
+        ++var3;
     }
-    if (navigation->rowRepeat) {
+    if (arg0->unknown_36_) {
         if (g_keyManager.TestKeysHeld(0xf0)) {
-            unsigned char elapsed = ticks;
-            if (elapsed < navigation->countdown) navigation->countdown -= elapsed;
+            unsigned char var11 = arg1;
+            if (var11 < arg0->unknown_38_) arg0->unknown_38_ -= var11;
             else {
-                navigation->countdown = repeatDelay;
-                navigation->rowRepeat = 1;
-                navigation->columnRepeat = 0;
-                navigation->row += navigation->step;
-                if (navigation->rows <= navigation->row) navigation->row = navigation->rows - 1;
-                else if (navigation->row < 0) navigation->row = 0;
-                int total = navigation->count;
-                if (total <= func_0205bb84(navigation))
-                    func_0205bb04(navigation, total - 1);
-                if (navigation->key == 0x40 || navigation->key == 0x20) {
-                    int total = navigation->count;
-                    if (total <= func_0205bb84(navigation))
-                        func_0205bb04(navigation, total - 1);
-                } else if (navigation->key == 0x80 || navigation->key == 0x10) {
-                    if (navigation->count <= func_0205bb84(navigation))
-                        navigation->row = 0;
+                arg0->unknown_38_ = var1;
+                arg0->unknown_36_ = 1;
+                arg0->unknown_37_ = 0;
+                arg0->unknown_1c_ += arg0->unknown_30_;
+                if (arg0->unknown_c_ <= arg0->unknown_1c_) arg0->unknown_1c_ = arg0->unknown_c_ - 1;
+                else if (arg0->unknown_1c_ < 0) arg0->unknown_1c_ = 0;
+                int var12 = arg0->unknown_0_;
+                if (var12 <= func_0205bb84(arg0))
+                    func_0205bb04(arg0, var12 - 1);
+                if (arg0->unknown_34_ == 0x40 || arg0->unknown_34_ == 0x20) {
+                    int var13 = arg0->unknown_0_;
+                    if (var13 <= func_0205bb84(arg0))
+                        func_0205bb04(arg0, var13 - 1);
+                } else if (arg0->unknown_34_ == 0x80 || arg0->unknown_34_ == 0x10) {
+                    if (arg0->unknown_0_ <= func_0205bb84(arg0))
+                        arg0->unknown_1c_ = 0;
                 }
             }
         }
-        if (g_keyManager.TestKeysReleased(0xf0)) func_0205bf3c(navigation);
+        if (g_keyManager.TestKeysReleased(0xf0)) func_0205bf3c(arg0);
         return 1;
-    } else if (navigation->columnRepeat) {
+    } else if (arg0->unknown_37_) {
         if (g_keyManager.TestKeysHeld(0xf0)) {
-            unsigned char elapsed = ticks;
-            if (elapsed < navigation->countdown) navigation->countdown -= elapsed;
+            unsigned char var14 = arg1;
+            if (var14 < arg0->unknown_38_) arg0->unknown_38_ -= var14;
             else {
-                navigation->countdown = repeatDelay;
-                navigation->rowRepeat = 0;
-                navigation->columnRepeat = 1;
-                navigation->column += navigation->step;
-                if (navigation->columns <= navigation->column) {
-                    navigation->column = navigation->columns - 1;
-                    func_0205c4a8(navigation, 1);
-                } else if (navigation->column < 0) {
-                    navigation->column = 0;
-                    func_0205c4a8(navigation, -1);
+                arg0->unknown_38_ = var1;
+                arg0->unknown_36_ = 0;
+                arg0->unknown_37_ = 1;
+                arg0->unknown_18_ += arg0->unknown_30_;
+                if (arg0->unknown_8_ <= arg0->unknown_18_) {
+                    arg0->unknown_18_ = arg0->unknown_8_ - 1;
+                    func_0205c4a8(arg0, 1);
+                } else if (arg0->unknown_18_ < 0) {
+                    arg0->unknown_18_ = 0;
+                    func_0205c4a8(arg0, -1);
                 }
-                if (func_0205bb84(navigation) >= navigation->count) {
-                    if (navigation->pages == 1) navigation->column = 0;
+                if (func_0205bb84(arg0) >= arg0->unknown_0_) {
+                    if (arg0->unknown_4_ == 1) arg0->unknown_18_ = 0;
                     else {
-                        navigation->column = 0;
-                        func_0205c4a8(navigation, 1);
+                        arg0->unknown_18_ = 0;
+                        func_0205c4a8(arg0, 1);
                     }
                 }
             }
         }
-        if (g_keyManager.TestKeysReleased(0xf0)) func_0205bf3c(navigation);
+        if (g_keyManager.TestKeysReleased(0xf0)) func_0205bf3c(arg0);
         return 1;
     }
     return 0;

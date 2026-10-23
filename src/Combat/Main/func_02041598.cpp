@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Obj02041598 {
-    char pad_00[0xc4];
-    char field_c4;
-    char pad_c5[0xb];
-    int field_d0;
+struct Struct_0203d028_20 {
+    char unknown_0_[0xc4];
+    char unknown_c4_;
+    char unknown_c5_[0xb];
+    int unknown_d0_;
 };
 
 // USA: func_02041598
-extern "C" ARM int func_02041598(struct Obj02041598* obj, int value, int) {
-    obj->field_c4 = value;
-    return ((Object3D*)obj)->MaybeSetBCFGAnimation((unsigned char)value, obj->field_d0);
+extern "C" ARM int func_02041598(struct Struct_0203d028_20* arg0, int arg1, int) {
+    arg0->unknown_c4_ = arg1;
+    return ((Object3D*)arg0)->MaybeSetBCFGAnimation((unsigned char)arg1, arg0->unknown_d0_);
 }

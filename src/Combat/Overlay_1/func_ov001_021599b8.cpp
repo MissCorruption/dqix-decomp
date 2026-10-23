@@ -2,7 +2,7 @@
 
 extern int data_02108760;
 extern int data_ov001_0216587c;
-extern "C" void func_0203acc8(void* obj, void* target, int arg);
+extern "C" void func_0203acc8(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov001_021599b8
 extern "C" ARM int func_ov001_021599b8(void) {

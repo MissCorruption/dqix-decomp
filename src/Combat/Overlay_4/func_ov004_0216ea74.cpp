@@ -5,123 +5,123 @@
 #include "World/Zone3D.h"
 #include "Resource/Brightness.h"
 
-struct S_e830;
+struct Struct_0201e830;
 
-struct PackedField017 {
-    unsigned int low : 12;
-    unsigned int f12 : 4;
-    unsigned int f16 : 5;
-    unsigned int f21 : 5;
-    unsigned int top : 6;
+struct Struct_ov004_021589e8 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 5;
+    unsigned int unknown_3_2_ : 6;
 };
 
-struct Ov004Block_0216ea74 {
-    unsigned int word00;
-    unsigned int word04;
-    unsigned int word08;
-    unsigned short half0c;
-    unsigned char pad0e[0x20];
-    unsigned char flags2e[6];
-    signed char flag34;
-    PackedField017 cfg;
-    unsigned char pad3c[0xc];
-    unsigned int word48;
+struct Struct_ov004_0216ea74_4 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned short unknown_c_;
+    unsigned char unknown_e_[0x20];
+    unsigned char unknown_2e_[6];
+    signed char unknown_34_;
+    Struct_ov004_021589e8 unknown_38_;
+    unsigned char unknown_3c_[0xc];
+    unsigned int unknown_48_;
 };
 
-struct Struct02171048_0216ea74 { char pad[4]; struct Ov004Block_0216ea74* ptr; };
-extern Struct02171048_0216ea74 data_ov004_02171048;
+struct Struct_ov004_02171048 { char unknown_0_[4]; struct Struct_ov004_0216ea74_4* unknown_4_; };
+extern Struct_ov004_02171048 data_ov004_02171048;
 
-extern "C" void* func_ov011_021845f8(void* ctx, int v);
+extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* func_02012fe4(void);
-extern "C" int func_ov017_021b2090(PackedField017 a, PackedField017 b);
-extern "C" int func_0201e830(struct S_e830* p);
+extern "C" int func_ov017_021b2090(Struct_ov004_021589e8 arg0, Struct_ov004_021589e8 arg1);
+extern "C" int func_0201e830(struct Struct_0201e830* arg0);
 extern "C" void func_020c5588(int, int, int, int, int);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" int func_020cf0fc(int);
 extern "C" int func_020cf1a8(int);
 
-struct AllocatorContext0216ea74 {
-    unsigned char unknown00[4];
-    SafeAllocator allocator;
+struct Struct_ov004_0216ea74 {
+    unsigned char unknown_0_[4];
+    SafeAllocator unknown_4_;
 };
 
-static inline S_e830* GetZonePlacementData(Zone3D* zone) {
-    return (S_e830*)&zone->substruct_6c_;
+static inline Struct_0201e830* inline_ov004_0216ea74(Zone3D* arg0) {
+    return (Struct_0201e830*)&arg0->substruct_6c_;
 }
 
-struct DownloadedQuestState {
-    unsigned char unknown00[0x44];
-    PackedField017 identifier;
-    unsigned char unknown48[8];
-    unsigned int flags;
+struct Struct_ov004_0216ea74_2 {
+    unsigned char unknown_0_[0x44];
+    Struct_ov004_021589e8 unknown_44_;
+    unsigned char unknown_48_[8];
+    unsigned int unknown_50_;
 };
 
-struct GameStateQuestView0216ea74 {
+struct Struct_ov004_0216ea74_3 {
 #if defined(jpn)
-    unsigned char unknown00[0x6120];
+    unsigned char unknown_0_[0x6120];
 #else
-    unsigned char unknown00[0x6380];
+    unsigned char unknown1_0_[0x6380];
 #endif
-    DownloadedQuestState quest;
+    Struct_ov004_0216ea74_2 unknown_6380_;
 };
 
 // USA: func_ov004_0216ea74
-extern "C" ARM int func_ov004_0216ea74(SafeAllocator* a) {
-    GameState* bs = GameState::GetInstance();
-    data_ov004_02171048.ptr = 0;
-    AllocatorContext0216ea74* ctx = (AllocatorContext0216ea74*)func_ov011_021845f8(a, 0);
-    if (!ctx) return 0;
-    SafeAllocator* alloc = &ctx->allocator;
-    struct Ov004Block_0216ea74* blk = (struct Ov004Block_0216ea74*)alloc->Allocate(sizeof(Ov004Block_0216ea74));
-    data_ov004_02171048.ptr = blk;
-    if (!blk) return 0;
+extern "C" ARM int func_ov004_0216ea74(SafeAllocator* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    data_ov004_02171048.unknown_4_ = 0;
+    Struct_ov004_0216ea74* var1 = (Struct_ov004_0216ea74*)func_ov011_021845f8(arg0, 0);
+    if (!var1) return 0;
+    SafeAllocator* var2 = &var1->unknown_4_;
+    struct Struct_ov004_0216ea74_4* var3 = (struct Struct_ov004_0216ea74_4*)var2->Allocate(sizeof(Struct_ov004_0216ea74_4));
+    data_ov004_02171048.unknown_4_ = var3;
+    if (!var3) return 0;
 
-    blk->word00 = 0;
-    blk->word04 = 0;
-    blk->word08 = 0;
-    blk->half0c = 0x3def;
-    memset(blk->pad0e, 0, 0x20);
-    blk->flags2e[0] = 0;
-    blk->flags2e[1] = 0;
-    blk->flags2e[2] = 0;
-    blk->flags2e[3] = 0;
-    blk->flags2e[4] = 0;
-    blk->flags2e[5] = 0;
-    blk->flag34 = -1;
-    memset(blk->pad3c, 0, 0xc);
-    blk->word48 = 0;
+    var3->unknown_0_ = 0;
+    var3->unknown_4_ = 0;
+    var3->unknown_8_ = 0;
+    var3->unknown_c_ = 0x3def;
+    memset(var3->unknown_e_, 0, 0x20);
+    var3->unknown_2e_[0] = 0;
+    var3->unknown_2e_[1] = 0;
+    var3->unknown_2e_[2] = 0;
+    var3->unknown_2e_[3] = 0;
+    var3->unknown_2e_[4] = 0;
+    var3->unknown_2e_[5] = 0;
+    var3->unknown_34_ = -1;
+    memset(var3->unknown_3c_, 0, 0xc);
+    var3->unknown_48_ = 0;
 
-    Zone3D* zone = (Zone3D*)func_02012fe4();
-    if (!zone) return 0;
-    S_e830* p = GetZonePlacementData(zone);
-    if (!p) return 0;
-    data_ov004_02171048.ptr->half0c = func_0201e830(p);
+    Zone3D* var4 = (Zone3D*)func_02012fe4();
+    if (!var4) return 0;
+    Struct_0201e830* var5 = inline_ov004_0216ea74(var4);
+    if (!var5) return 0;
+    data_ov004_02171048.unknown_4_->unknown_c_ = func_0201e830(var5);
 
-    GameResources* obj = GetGameResources();
-    data_ov004_02171048.ptr->word00 = GetFlags00(obj);
-    data_ov004_02171048.ptr->word04 = GetFlags04(obj);
-    data_ov004_02171048.ptr->word08 = GetFlags08(obj);
-    SetFlags00(obj, 4);
-    SetFlags04(obj, 0x8de);
+    GameResources* var6 = GetGameResources();
+    data_ov004_02171048.unknown_4_->unknown_0_ = GetFlags00(var6);
+    data_ov004_02171048.unknown_4_->unknown_4_ = GetFlags04(var6);
+    data_ov004_02171048.unknown_4_->unknown_8_ = GetFlags08(var6);
+    SetFlags00(var6, 4);
+    SetFlags04(var6, 0x8de);
 
     func_020c5588(0, 0x1f, 0x7fff, 0, 0);
     func_020c54a4(0, 0, 0, 0);
 
-    int slotA[4];
-    int slotB[3];
-    func_020cf0fc((int)slotA);
-    func_020cf1a8((int)slotB);
+    int var7[4];
+    int var8[3];
+    func_020cf0fc((int)var7);
+    func_020cf1a8((int)var8);
 
-    data_ov004_02171048.ptr->cfg.low = slotA[0] + 0x7d0;
-    data_ov004_02171048.ptr->cfg.f12 = slotA[1];
-    data_ov004_02171048.ptr->cfg.f16 = slotA[2];
-    data_ov004_02171048.ptr->cfg.f21 = slotB[0];
-    data_ov004_02171048.ptr->cfg.top = slotB[1];
+    data_ov004_02171048.unknown_4_->unknown_38_.unknown_0_0_ = var7[0] + 0x7d0;
+    data_ov004_02171048.unknown_4_->unknown_38_.unknown_1_4_ = var7[1];
+    data_ov004_02171048.unknown_4_->unknown_38_.unknown_2_0_ = var7[2];
+    data_ov004_02171048.unknown_4_->unknown_38_.unknown_2_5_ = var8[0];
+    data_ov004_02171048.unknown_4_->unknown_38_.unknown_3_2_ = var8[1];
 
-    DownloadedQuestState* quest = &((GameStateQuestView0216ea74*)bs)->quest;
-    if (quest->flags & 1) {
-        if (func_ov017_021b2090(quest->identifier, data_ov004_02171048.ptr->cfg) != 0) {
-            data_ov004_02171048.ptr->flags2e[2] = 1;
+    Struct_ov004_0216ea74_2* var9 = &((Struct_ov004_0216ea74_3*)var0)->unknown_6380_;
+    if (var9->unknown_50_ & 1) {
+        if (func_ov017_021b2090(var9->unknown_44_, data_ov004_02171048.unknown_4_->unknown_38_) != 0) {
+            data_ov004_02171048.unknown_4_->unknown_2e_[2] = 1;
         }
     }
     return 0;

@@ -2,41 +2,41 @@
 #include "std_library_functions.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Buf021d0ef8 {
-    unsigned char f0;
-    unsigned char f1;
-    unsigned char len : 7;
-    unsigned char notClamped : 1;
-    unsigned char data[12];
+struct Struct_ov017_021d0ef8 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_0_ : 7;
+    unsigned char unknown_2_7_ : 1;
+    unsigned char unknown_3_[12];
 };
 
-struct Msg021d0ef8 {
-    unsigned char tag;
-    unsigned char pad[3];
-    Buf021d0ef8 buf;
+struct Struct_ov017_021d0ef8_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov017_021d0ef8 unknown_4_;
 };
 
 // USA: func_ov017_021d0ef8
-extern "C" ARM void func_ov017_021d0ef8(int a1, unsigned char* a2, int a3, int a4, int* outLen) {
-    void* data = func_0202ae24();
+extern "C" ARM void func_ov017_021d0ef8(int arg0, unsigned char* arg1, int arg2, int arg3, int* arg4) {
+    void* var0 = func_0202ae24();
 
-    Msg021d0ef8 msg;
-    Buf021d0ef8* buf = &msg.buf;
-    buf->f0 = (unsigned char)a1;
-    msg.tag = 0xab;
-    int len = a3 - a4;
+    Struct_ov017_021d0ef8_2 var1;
+    Struct_ov017_021d0ef8* var2 = &var1.unknown_4_;
+    var2->unknown_0_ = (unsigned char)arg0;
+    var1.unknown_0_ = 0xab;
+    int var3 = arg2 - arg3;
 
-    *outLen = len;
-    if (len > 12) {
-        *outLen = 12;
+    *arg4 = var3;
+    if (var3 > 12) {
+        *arg4 = 12;
     } else {
-        buf->notClamped = 1;
+        var2->unknown_2_7_ = 1;
     }
-    buf->len = (unsigned char)*outLen;
-    buf->f1 = (unsigned char)a4;
-    memcpy(buf->data, a2 + a4, *outLen);
+    var2->unknown_2_0_ = (unsigned char)*arg4;
+    var2->unknown_1_ = (unsigned char)arg3;
+    memcpy(var2->unknown_3_, arg1 + arg3, *arg4);
 
-    func_0205e330(data, &msg, 0);
+    func_0205e330(var0, &var1, 0);
 }

@@ -2,68 +2,68 @@
 #include "std_library_functions.h"
 #include "Graphics/SpriteAffineTransform.h"
 
-struct OAM0205ac40 {
-    unsigned int attributes;
-    unsigned short tile;
-    short matrix;
+struct Struct_0205ac40_4 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    short unknown_6_;
 };
 
 extern "C" void* func_0203bd08();
-extern "C" OAM0205ac40* func_0203be4c(void*);
-extern "C" OAM0205ac40* func_0203be40(void*);
-extern "C" void func_020b0a1c(OAM0205ac40*, unsigned short, B174Outer*, Matrix2x2*, int*, unsigned short, int);
+extern "C" Struct_0205ac40_4* func_0203be4c(void*);
+extern "C" Struct_0205ac40_4* func_0203be40(void*);
+extern "C" void func_020b0a1c(Struct_0205ac40_4*, unsigned short, Struct_0205ac40_2*, Struct_0205ac40_3*, int*, unsigned short, int);
 
 // USA: func_0205ac40
-extern "C" ARM void func_0205ac40(SpriteContext0205ac40* context, B174Outer* sprite) {
-    int palette;
-    unsigned short count;
-    int priority;
-    void* manager;
-    OAM0205ac40* objects;
-    Matrix2x2* matrix;
-    bool doubleSize;
-    OAM0205ac40* target;
-    Matrix2x2 transform;
-    Matrix2x2 affine;
-    int position[2];
-    if (sprite != NULL) {
-        manager = func_0203bd08();
-        matrix = NULL;
-        objects = func_0203be4c(manager);
-        if (context->subScreen == 0) objects = func_0203be40(manager);
-        doubleSize = false;
-        if (sprite->transformed) {
-            func_0205b0d8(context, &transform, &affine, sprite);
-            matrix = &transform;
-            if (sprite->doubleSize) doubleSize = true;
+extern "C" ARM void func_0205ac40(Struct_0205ac40* arg0, Struct_0205ac40_2* arg1) {
+    int var0;
+    unsigned short var1;
+    int var2;
+    void* var3;
+    Struct_0205ac40_4* var4;
+    Struct_0205ac40_3* var5;
+    bool var6;
+    Struct_0205ac40_4* var7;
+    Struct_0205ac40_3 var8;
+    Struct_0205ac40_3 var9;
+    int var10[2];
+    if (arg1 != NULL) {
+        var3 = func_0203bd08();
+        var5 = NULL;
+        var4 = func_0203be4c(var3);
+        if (arg0->unknown_50_ == 0) var4 = func_0203be40(var3);
+        var6 = false;
+        if (arg1->unknown_23_) {
+            func_0205b0d8(arg0, &var8, &var9, arg1);
+            var5 = &var8;
+            if (arg1->unknown_24_) var6 = true;
         }
-        unsigned short first = sprite->firstObject & 0x7f;
-        unsigned short available = 128 - first;
-        if (matrix != NULL) {
-            OAM0205ac40* target = objects + sprite->matrixIndex * 4;
-            target[0].matrix = affine.values[0] >> 4;
-            target[1].matrix = affine.values[1] >> 4;
-            target[2].matrix = affine.values[2] >> 4;
-            target[3].matrix = affine.values[3] >> 4;
+        unsigned short var11 = arg1->unknown_22_ & 0x7f;
+        unsigned short var12 = 128 - var11;
+        if (var5 != NULL) {
+            Struct_0205ac40_4* var13 = var4 + arg1->unknown_20_ * 4;
+            var13[0].unknown_6_ = var9.unknown_0_[0] >> 4;
+            var13[1].unknown_6_ = var9.unknown_0_[1] >> 4;
+            var13[2].unknown_6_ = var9.unknown_0_[2] >> 4;
+            var13[3].unknown_6_ = var9.unknown_0_[3] >> 4;
         }
-        COPY_ARRAY(position, sprite->position);
-        if (position[1] < -0x40000 || position[1] >= 0xc0000) return;
-        target = objects + first;
-        func_020b0a1c(target, available, sprite, matrix, sprite->position, sprite->matrixIndex, doubleSize);
-        palette = sprite->palette;
-        priority = sprite->priority;
-        if (palette < 0 && priority < 0) return;
-        int mode = func_0205b174(context, sprite);
-        count = sprite->count;
-        while (count != 0) {
-            if (palette >= 0) {
-                target->attributes = (target->attributes & ~0xc00) | (mode << 10);
-                target->tile = (target->tile & ~0xf000) | (palette << 12);
+        COPY_ARRAY(var10, arg1->unknown_14_);
+        if (var10[1] < -0x40000 || var10[1] >= 0xc0000) return;
+        var7 = var4 + var11;
+        func_020b0a1c(var7, var12, arg1, var5, arg1->unknown_14_, arg1->unknown_20_, var6);
+        var0 = arg1->unknown_25_;
+        var2 = arg1->unknown_26_;
+        if (var0 < 0 && var2 < 0) return;
+        int var14 = func_0205b174(arg0, arg1);
+        var1 = arg1->unknown_0_;
+        while (var1 != 0) {
+            if (var0 >= 0) {
+                var7->unknown_0_ = (var7->unknown_0_ & ~0xc00) | (var14 << 10);
+                var7->unknown_4_ = (var7->unknown_4_ & ~0xf000) | (var0 << 12);
             }
-            if (priority >= 0)
-                target->tile = (target->tile & ~0xc00) | (priority << 10);
-            ++target;
-            --count;
+            if (var2 >= 0)
+                var7->unknown_4_ = (var7->unknown_4_ & ~0xc00) | (var2 << 10);
+            ++var7;
+            --var1;
         }
     }
 }

@@ -2,18 +2,18 @@
 #include "World/ZoneChest.h"
 
 // USA: func_020133fc
-extern "C" ARM void func_020133fc(ZoneChestRenderRecord* record) {
-    func_020130a8(&record->position, 0, 0, 0);
-    record->angleY = 0;
-    record->angleX = 0;
-    record->counter = 0;
-    record->active = 1;
-    record->secondPass = 0;
-    record->recordIndex = -1;
-    record->uniqueID = 0;
-    record->owner = -1;
-    record->object = NULL;
-    record->delay = 0;
-    record->taskID = -1;
-    record->special = 0;
+extern "C" ARM void func_020133fc(Struct_020133fc* arg0) {
+    func_020130a8(&arg0->unknown_0_, 0, 0, 0);
+    arg0->unknown_c_ = 0;
+    arg0->unknown_e_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_16_ = 1;
+    arg0->unknown_17_ = 0;
+    arg0->unknown_1a_ = -1;
+    arg0->unknown_1c_ = 0;
+    arg0->unknown_14_ = -1;
+    arg0->unknown_20_ = NULL;
+    arg0->unknown_19_ = 0;
+    arg0->unknown_12_ = -1;
+    arg0->unknown_18_ = 0;
 }

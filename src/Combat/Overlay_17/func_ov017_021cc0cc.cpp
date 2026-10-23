@@ -5,37 +5,37 @@
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" void* func_02052a10(char* obj);
-extern "C" void func_0205e330(void* a, void* b, int c);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void* func_02052a10(char* arg0);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct LocalEvt021cc0cc {
-	unsigned char tag;
-	unsigned char pad0[3];
-	signed char partySlot;
-	unsigned char active;
-	char name[12];
-	unsigned char pad1[2];
+struct Struct_ov017_021cc0cc {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[3];
+	signed char unknown_4_;
+	unsigned char unknown_5_;
+	char unknown_6_[12];
+	unsigned char unknown_12_[2];
 };
 
 // USA: func_ov017_021cc0cc
 extern "C" ARM void func_ov017_021cc0cc(void) {
-	GameState* bs = GameState::GetInstance();
-	void* search = func_0202ae18();
-	void* p = func_0202ae24();
-	GameObject* c = bs->GetProtagonist();
-	if (!c) return;
+	GameState* var0 = GameState::GetInstance();
+	void* var1 = func_0202ae18();
+	void* var2 = func_0202ae24();
+	GameObject* var3 = var0->GetProtagonist();
+	if (!var3) return;
 
-	LocalEvt021cc0cc buf;
-	buf.tag = 0x2b;
-	buf.partySlot = func_0202c1a4((struct SearchStruct0202c1a4*)search);
-	buf.active = 1;
+	Struct_ov017_021cc0cc var4;
+	var4.unknown_0_ = 0x2b;
+	var4.unknown_4_ = func_0202c1a4((struct Struct_0202c1a4*)var1);
+	var4.unknown_5_ = 1;
 	#if defined(jpn)
-    const char* name = c->baseStats_->unk;
+    const char* var5 = var3->baseStats_->unk;
 #else
-    const char* name = (const char*)func_02052a10((char*)c);
+    const char* var5 = (const char*)func_02052a10((char*)var3);
 #endif
-	strncpy(buf.name, name, sizeof(buf.name));
-	func_0205e330(p, &buf, 0);
+	strncpy(var4.unknown_6_, var5, sizeof(var4.unknown_6_));
+	func_0205e330(var2, &var4, 0);
 }

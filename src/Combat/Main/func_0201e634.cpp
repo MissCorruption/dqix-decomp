@@ -2,17 +2,17 @@
 #include "Memory/SafeAllocator.h"
 #include "World/ZoneFeatures.h"
 
-struct List0201e634 {
-    char pad[0x24];
-    void* buf;
-    int count;
-    int capacity;
+struct Struct_0201e634 {
+    char unknown_0_[0x24];
+    void* unknown_24_;
+    int unknown_28_;
+    int unknown_2c_;
 };
 
 // USA: func_0201e634
-ARM void ZoneFeatures::func_0201e634(int capacity, SafeAllocator* alloc) {
-    struct List0201e634* self = (struct List0201e634*)this;
-    self->buf = alloc->Allocate(capacity * 0x74);
-    self->count = 0;
-    self->capacity = capacity;
+ARM void Struct_020134e0::func_0201e634(int arg0, SafeAllocator* arg1) {
+    struct Struct_0201e634* var0 = (struct Struct_0201e634*)this;
+    var0->unknown_24_ = arg1->Allocate(arg0 * 0x74);
+    var0->unknown_28_ = 0;
+    var0->unknown_2c_ = arg0;
 }

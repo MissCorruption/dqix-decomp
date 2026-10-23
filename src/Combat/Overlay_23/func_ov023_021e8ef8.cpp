@@ -3,19 +3,19 @@
 extern "C" void func_02042428(char*, int);
 #endif
 
-struct TableA68;
-extern "C" void* func_02072a68(struct TableA68* table, int key);
-extern "C" int func_02042058(char* dst, const char* src);
+struct Struct_02072a68_2;
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
 // USA: func_ov023_021e8ef8
-extern "C" ARM void func_ov023_021e8ef8(void* obj) {
-    struct TableA68* t = *(struct TableA68**)((char*)obj + 0x5f4);
-    if (!t) return;
-    char* dst = *(char**)((char*)obj + 0x5d8);
+extern "C" ARM void func_ov023_021e8ef8(void* arg0) {
+    struct Struct_02072a68_2* var0 = *(struct Struct_02072a68_2**)((char*)arg0 + 0x5f4);
+    if (!var0) return;
+    char* var1 = *(char**)((char*)arg0 + 0x5d8);
 #if defined(jpn)
-    func_02042428(dst, 12);
-    t = *(struct TableA68**)((char*)obj + 0x5f4);
+    func_02042428(var1, 12);
+    var0 = *(struct Struct_02072a68_2**)((char*)arg0 + 0x5f4);
 #endif
-    void* entry = func_02072a68(t, 0x77);
-    func_02042058(dst, (const char*)entry);
+    void* var2 = func_02072a68(var0, 0x77);
+    func_02042058(var1, (const char*)var2);
 }

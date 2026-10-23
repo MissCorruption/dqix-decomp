@@ -9,210 +9,210 @@
 #define data_ov012_0218b188 data_ov012_0218bea8
 #endif
 
-struct Messages02184acc
+struct Struct_ov012_02184acc_2
 {
 #if defined(jpn)
-    char unk_0[0x868];
+    char unknown_0_[0x868];
 #else
-    char unk_0[0x998];
+    char unknown1_0_[0x998];
 #endif
-    int busy_;
+    int unknown_998_;
 };
 
-struct Profile02184acc
+struct Struct_ov012_02184acc_3
 {
-    unsigned int year_ : 12;
-    unsigned int month_ : 4;
-    unsigned int day_ : 5;
-    unsigned int unk_0_21 : 4;
-    unsigned int female_ : 1;
-    unsigned int initialized_ : 1;
-    unsigned int designChosen_ : 1;
-    unsigned int birthdayChosen_ : 1;
-    unsigned int accoladeChosen_ : 1;
-    unsigned int vocationAccolade_ : 1;
-    unsigned int showBirthday_ : 1;
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 4;
+    unsigned int unknown_3_1_ : 1;
+    unsigned int unknown_3_2_ : 1;
+    unsigned int unknown_3_3_ : 1;
+    unsigned int unknown_3_4_ : 1;
+    unsigned int unknown_3_5_ : 1;
+    unsigned int unknown_3_6_ : 1;
+    unsigned int unknown_3_7_ : 1;
 };
 
-struct Save02184acc
+struct Struct_01ff91ac_12
 {
-    char unk_0[0x5400];
-    Profile02184acc profile_;
+    char unknown_0_[0x5400];
+    Struct_ov012_02184acc_3 unknown_5400_;
 };
 
-struct GameStateSave02184acc
+struct Struct_01ff91ac_13
 {
-    char unk_0[0x29c];
-    Save02184acc save_;
+    char unknown_0_[0x29c];
+    Struct_01ff91ac_12 unknown_29c_;
 };
 
-struct ProfileEditor02184acc
+struct Struct_ov012_02184acc
 {
 #if defined(jpn)
-    char unk_0[0x90];
-    char window_[0xd0c - 0x90];
-    char card_[0x608];
-    char unk_1314[0x1340 - 0x1314];
-    unsigned char step_;
-    unsigned char state_;
-    char unk_1342[0x1350 - 0x1342];
-    int tasks_[4];
-    int unk_1398;
-    int result_;
-    unsigned char unk_13a0;
-    char unk_1369[3];
-    int unk_13a4;
-    char unk_1370[0x1428 - 0x1370];
-    char* message_;
-    unsigned int selection_;
-    char unk_1430[0x144c - 0x1430];
-    unsigned int design_;
-    char unk_1450[0x14d8 - 0x1450];
-    unsigned char checker_[0x20];
-    unsigned char finished_;
+    char unknown_0_[0x90];
+    char unknown_ac_[0xd0c - 0x90];
+    char unknown_d28_[0x608];
+    char unknown_1314_[0x1340 - 0x1314];
+    unsigned char unknown1_1370_;
+    unsigned char unknown_1371_;
+    char unknown_1342_[0x1350 - 0x1342];
+    int unknown_1380_[4];
+    int unknown_1398_;
+    int unknown_139c_;
+    unsigned char unknown_13a0_;
+    char unknown_1369_[3];
+    int unknown_13a4_;
+    char unknown_1370_[0x1428 - 0x1370];
+    char* unknown_13d0_;
+    unsigned int unknown_13d4_;
+    char unknown_1430_[0x144c - 0x1430];
+    unsigned int unknown_144c_;
+    char unknown_1450_[0x14d8 - 0x1450];
+    unsigned char unknown_1480_[0x20];
+    unsigned char unknown_14bc_;
 #else
-    char unk_0[0xac];
-    char window_[0xd28 - 0xac];
-    char card_[0x60c];
-    unsigned char cardUnk_60c;
-    char unk_1335[0x1370 - 0x1335];
-    unsigned char step_;
-    unsigned char state_;
-    char unk_1372[0x1380 - 0x1372];
-    int tasks_[6];
-    int unk_1398;
-    int result_;
-    unsigned char unk_13a0;
-    char unk_13a1[3];
-    int unk_13a4;
-    char unk_13a8[0x13d0 - 0x13a8];
-    char* message_;
-    unsigned int selection_;
-    char unk_13d8[0x13f4 - 0x13d8];
-    unsigned int design_;
-    char unk_13f8[0x1480 - 0x13f8];
-    unsigned char checker_[0x3c];
-    unsigned char finished_;
-    unsigned char unk_14bd;
-    char unk_14be[2];
+    char unknown1_0_[0xac];
+    char unknown_ac_[0xd28 - 0xac];
+    char unknown_d28_[0x60c];
+    unsigned char unknown_1334_;
+    char unknown_1335_[0x1370 - 0x1335];
+    unsigned char unknown1_1370_;
+    unsigned char unknown_1371_;
+    char unknown_1372_[0x1380 - 0x1372];
+    int unknown_1380_[6];
+    int unknown_1398_;
+    int unknown_139c_;
+    unsigned char unknown_13a0_;
+    char unknown_13a1_[3];
+    int unknown_13a4_;
+    char unknown_13a8_[0x13d0 - 0x13a8];
+    char* unknown_13d0_;
+    unsigned int unknown_13d4_;
+    char unknown_13d8_[0x13f4 - 0x13d8];
+    unsigned int unknown_13f4_;
+    char unknown_13f8_[0x1480 - 0x13f8];
+    unsigned char unknown_1480_[0x3c];
+    unsigned char unknown_14bc_;
+    unsigned char unknown_14bd_;
+    char unknown_14be_[2];
 #endif
 };
 
-typedef void (ProfileEditor02184acc::*StateFn02184acc)();
+typedef void (Struct_ov012_02184acc::*Type_01ff91ac_5)();
 
-struct StateTable02184acc
+struct Struct_ov012_0218b188
 {
-    StateFn02184acc states[17];
+    Type_01ff91ac_5 unknown_0_[17];
 };
 
 struct Struct_0205def8;
-struct Entry_0205d6a0;
+struct Struct_0205d6a0;
 
-extern "C" void func_ov023_021e7404(void* card, int input);
-extern "C" int func_0205d0e0(void* window, int input);
-extern "C" void func_ov012_02185cf8(ProfileEditor02184acc* self);
-extern "C" Messages02184acc* func_020421a0();
-extern "C" void func_ov012_0218adac(ProfileEditor02184acc* self, int animate, int design, int keepPage);
+extern "C" void func_ov023_021e7404(void* arg0, int arg1);
+extern "C" int func_0205d0e0(void* arg0, int arg1);
+extern "C" void func_ov012_02185cf8(Struct_ov012_02184acc* arg0);
+extern "C" Struct_ov012_02184acc_2* func_020421a0();
+extern "C" void func_ov012_0218adac(Struct_ov012_02184acc* arg0, int arg1, int arg2, int arg3);
 extern "C" int func_ov017_021959b4();
-extern "C" void func_ov012_021845f8(void* checker);
-extern "C" int func_ov012_02184d80(void* checker, char* text);
+extern "C" void func_ov012_021845f8(void* arg0);
+extern "C" int func_ov012_02184d80(void* arg0, char* arg1);
 #if defined(jpn)
-struct SearchStruct;
-extern "C" SearchStruct* func_0202ae18();
-extern "C" int func_0202c578(SearchStruct*, int);
+struct Struct_0202b2f0;
+extern "C" Struct_0202b2f0* func_0202ae18();
+extern "C" int func_0202c578(Struct_0202b2f0*, int);
 #endif
-extern "C" void func_0205def8(Struct_0205def8* window, int a, int b);
-extern "C" void func_0205d6a0(Entry_0205d6a0* window, int a);
-extern "C" void func_02043204(char* messages);
+extern "C" void func_0205def8(Struct_0205def8* arg0, int arg1, int arg2);
+extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void func_02043204(char* arg0);
 
-extern "C" const StateTable02184acc data_ov012_0218b188;
-extern "C" StateFn02184acc data_020e6d5c;
+extern "C" const Struct_ov012_0218b188 data_ov012_0218b188;
+extern "C" Type_01ff91ac_5 data_020e6d5c;
 
-static inline Profile02184acc* GetProfile02184acc(GameState* gameState)
+static inline Struct_ov012_02184acc_3* inline_ov012_02184acc(GameState* arg0)
 {
-    return &((GameStateSave02184acc*)gameState)->save_.profile_;
+    return &((Struct_01ff91ac_13*)arg0)->unknown_29c_.unknown_5400_;
 }
 
 // USA: func_ov012_02184acc
-extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
+extern "C" ARM int func_ov012_02184acc(Struct_ov012_02184acc* arg0, int arg1)
 {
-    self->unk_13a4 = input;
-    func_ov023_021e7404(self->card_, input);
-    self->unk_1398 = func_0205d0e0(self->window_, input);
-    StateTable02184acc states = data_ov012_0218b188;
-    states.states[16] = data_020e6d5c;
-    if (states.states[self->state_] != 0)
-        (self->*states.states[self->state_])();
-    func_ov012_02185cf8(self);
+    arg0->unknown_13a4_ = arg1;
+    func_ov023_021e7404(arg0->unknown_d28_, arg1);
+    arg0->unknown_1398_ = func_0205d0e0(arg0->unknown_ac_, arg1);
+    Struct_ov012_0218b188 var0 = data_ov012_0218b188;
+    var0.unknown_0_[16] = data_020e6d5c;
+    if (var0.unknown_0_[arg0->unknown_1371_] != 0)
+        (arg0->*var0.unknown_0_[arg0->unknown_1371_])();
+    func_ov012_02185cf8(arg0);
 
-    Messages02184acc* messages = func_020421a0();
+    Struct_ov012_02184acc_2* var1 = func_020421a0();
 #if !defined(jpn)
-    GameState* gameState = GameState::GetInstance();
+    GameState* var2 = GameState::GetInstance();
 #endif
-    if ((self->state_ != 0 && self->state_ < 15) || (self->state_ == 0 && messages->busy_ != 0))
+    if ((arg0->unknown_1371_ != 0 && arg0->unknown_1371_ < 15) || (arg0->unknown_1371_ == 0 && var1->unknown_998_ != 0))
     {
 #if !defined(jpn)
-        if (messages->busy_ == 0 && g_keyManager.TestKeysPressed(0x800))
+        if (var1->unknown_998_ == 0 && g_keyManager.TestKeysPressed(0x800))
         {
-            self->unk_14bd = ++self->unk_14bd & 1;
-            self->cardUnk_60c = self->unk_14bd;
-            if (self->state_ == 13 && self->step_ == 3)
-                func_ov012_0218adac(self, 0, GetProfile02184acc(gameState)->female_ + self->design_ * 2, 1);
+            arg0->unknown_14bd_ = ++arg0->unknown_14bd_ & 1;
+            arg0->unknown_1334_ = arg0->unknown_14bd_;
+            if (arg0->unknown_1371_ == 13 && arg0->unknown1_1370_ == 3)
+                func_ov012_0218adac(arg0, 0, inline_ov012_02184acc(var2)->unknown_3_1_ + arg0->unknown_13f4_ * 2, 1);
             else
-                func_ov012_0218adac(self, 0, -1, 1);
+                func_ov012_0218adac(arg0, 0, -1, 1);
         }
 
 #endif
 #if defined(jpn)
-        if ((messages->busy_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
+        if ((var1->unknown_998_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
             func_0202c578(func_0202ae18(), 0))
 #else
         if (func_ov017_021959b4())
 #endif
         {
 #if defined(jpn)
-            if (self->state_ == 14 && self->step_ == 4)
+            if (arg0->unknown_1371_ == 14 && arg0->unknown1_1370_ == 4)
 #else
-            if (self->state_ == 14 && self->step_ == 4 && *self->message_ != 0)
+            if (arg0->unknown_1371_ == 14 && arg0->unknown1_1370_ == 4 && *arg0->unknown_13d0_ != 0)
 #endif
             {
                 GameState::GetInstance();
 #if !defined(jpn)
                 BackgroundLoader::AddLockGlobal();
                 BackgroundLoader::FreeAllocationsGlobal();
-                func_ov012_021845f8(self->checker_);
+                func_ov012_021845f8(arg0->unknown_1480_);
 #endif
-                int forbidden = func_ov012_02184d80(self->checker_, self->message_);
+                int var3 = func_ov012_02184d80(arg0->unknown_1480_, arg0->unknown_13d0_);
 #if !defined(jpn)
                 BackgroundLoader::RemoveLockGlobal();
 #endif
-                if (forbidden)
+                if (var3)
                 {
-                    func_0205def8((Struct_0205def8*)self->window_, 0, 14);
-                    self->step_ = 10;
+                    func_0205def8((Struct_0205def8*)arg0->unknown_ac_, 0, 14);
+                    arg0->unknown1_1370_ = 10;
                     return 0;
                 }
             }
 
-            self->finished_ = 1;
-            self->unk_13a0 = 0;
-            self->selection_ = 0;
-            func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
-            self->state_ = 15;
-            self->step_ = 0;
-            if (messages->busy_ != 0)
-                func_02043204((char*)messages);
+            arg0->unknown_14bc_ = 1;
+            arg0->unknown_13a0_ = 0;
+            arg0->unknown_13d4_ = 0;
+            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_ac_, 1);
+            arg0->unknown_1371_ = 15;
+            arg0->unknown1_1370_ = 0;
+            if (var1->unknown_998_ != 0)
+                func_02043204((char*)var1);
 
-            BackgroundLoader* loader = BackgroundLoader::GetInstance();
-            for (int i = 0; i < (int)(sizeof(self->tasks_) / sizeof(self->tasks_[0])); i++)
+            BackgroundLoader* var4 = BackgroundLoader::GetInstance();
+            for (int var5 = 0; var5 < (int)(sizeof(arg0->unknown_1380_) / sizeof(arg0->unknown_1380_[0])); var5++)
             {
-                if (self->tasks_[i] > BackgroundLoader::TaskStatus_Invalid)
+                if (arg0->unknown_1380_[var5] > BackgroundLoader::TaskStatus_Invalid)
                 {
-                    loader->RemoveTask(self->tasks_[i]);
-                    self->tasks_[i] = -1;
+                    var4->RemoveTask(arg0->unknown_1380_[var5]);
+                    arg0->unknown_1380_[var5] = -1;
                 }
             }
         }
     }
-    return self->result_;
+    return arg0->unknown_139c_;
 }

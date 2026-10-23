@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct StreamHeader0208d82c;
-extern "C" void func_0208d82c(struct StreamHeader0208d82c* h);
+struct Struct_0208b9a0;
+extern "C" void func_0208d82c(struct Struct_0208b9a0* arg0);
 
 // USA: func_0208d854
-extern "C" ARM void func_0208d854(struct StreamHeader0208d82c* h) {
-    func_0208d82c(h);
+extern "C" ARM void func_0208d854(struct Struct_0208b9a0* arg0) {
+    func_0208d82c(arg0);
 }

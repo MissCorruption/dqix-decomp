@@ -7,8 +7,8 @@
 #endif
 
 // USA: func_020d8524
-extern "C" ARM unsigned int func_020d8524(void* dst, const void* src, unsigned int length) {
-    VectorizedInvertedMemcpy(src, dst, length);
-    CleanInvalidateCacheRange(dst, length);
-    return length;
+extern "C" ARM unsigned int func_020d8524(void* arg0, const void* arg1, unsigned int arg2) {
+    VectorizedInvertedMemcpy(arg1, arg0, arg2);
+    CleanInvalidateCacheRange(arg0, arg2);
+    return arg2;
 }

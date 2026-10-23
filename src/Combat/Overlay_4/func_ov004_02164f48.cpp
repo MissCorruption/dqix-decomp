@@ -5,112 +5,112 @@
 #include "NitroSDK/Timing.h"
 #include "std_library_functions.h"
 
-struct Info02011930 {
-    unsigned char b0;
-    unsigned char b1;
-    unsigned short s0;
+struct Struct_02011930 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
 };
-extern "C" unsigned char func_02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
-extern "C" void func_ov011_021848a0(void* obj, int val);
+extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1, void* arg2, void* arg3);
+extern "C" void func_ov011_021848a0(void* arg0, int arg1);
 extern char* data_ov004_02171010;
 extern "C" void* func_02012fe4(void);
-struct Elem020985ec {
-    unsigned char pad0[0x10];
-    unsigned int key;
-    unsigned char pad1[0xd4];
+struct Struct_020985ec {
+    unsigned char unknown_0_[0x10];
+    unsigned int unknown_10_;
+    unsigned char unknown_14_[0xd4];
 };
-extern "C" struct Elem020985ec* func_020985ec(struct Elem020985ec* arr, int val);
+extern "C" struct Struct_020985ec* func_020985ec(struct Struct_020985ec* arg0, int arg1);
 
 // USA: func_ov004_02164f48
-extern "C" ARM int func_ov004_02164f48(void* a1) {
-    char* battle = (char*)GameState::GetInstance();
-    struct Info02011930 info;
-    char name1buf[0xa];
-    char name2buf[0xa];
-    name1buf[0] = 0;
-    name2buf[0] = 0;
+extern "C" ARM int func_ov004_02164f48(void* arg0) {
+    char* var0 = (char*)GameState::GetInstance();
+    struct Struct_02011930 var1;
+    char var2[0xa];
+    char var3[0xa];
+    var2[0] = 0;
+    var3[0] = 0;
 
-    if (func_02011930(battle, &info, name1buf, name2buf) != 0) {
-        func_ov011_021848a0(a1, 0x69);
+    if (func_02011930(var0, &var1, var2, var3) != 0) {
+        func_ov011_021848a0(arg0, 0x69);
 
         srand(GetMain16BitTimerCounter());
 
-        char* arr = data_ov004_02171010;
+        char* var4 = data_ov004_02171010;
 #if defined(jpn)
-        unsigned char cnt = *(unsigned char*)(arr + 0x1000 + 0x9f4);
+        unsigned char var5 = *(unsigned char*)(var4 + 0x1000 + 0x9f4);
 #else
-        unsigned char cnt = *(unsigned char*)(arr + 0x1000 + 0x8f4);
+        unsigned char var5 = *(unsigned char*)(var4 + 0x1000 + 0x8f4);
 #endif
-        TreasureMapMetadata* meta = (TreasureMapMetadata*)(arr + cnt * 0x1c);
+        TreasureMapMetadata* var6 = (TreasureMapMetadata*)(var4 + var5 * 0x1c);
 
-        if (info.b0 == 1) {
-            meta->InitialiseAsNonLegacyMap(info.b1, info.s0);
-        } else if (info.b0 == 2) {
-            meta->InitialiseAsLegacyBossMap(info.b1, info.s0 & 0xff);
+        if (var1.unknown_0_ == 1) {
+            var6->InitialiseAsNonLegacyMap(var1.unknown_1_, var1.unknown_2_);
+        } else if (var1.unknown_0_ == 2) {
+            var6->InitialiseAsLegacyBossMap(var1.unknown_1_, var1.unknown_2_ & 0xff);
 #if defined(jpn)
-            unsigned short seedOverride = *(unsigned short*)(battle + 0x6100 + 0xfe);
+            unsigned short var7 = *(unsigned short*)(var0 + 0x6100 + 0xfe);
 #else
-            unsigned short seedOverride = *(unsigned short*)(battle + 0x6400 + 0x7e);
+            unsigned short var7 = *(unsigned short*)(var0 + 0x6400 + 0x7e);
 #endif
-            if (seedOverride != 0) meta->SeedOrMinTurns = seedOverride;
+            if (var7 != 0) var6->SeedOrMinTurns = var7;
         } else {
-            meta->InitialiseAsNonLegacyMap(0, 0);
+            var6->InitialiseAsNonLegacyMap(0, 0);
         }
 
-        if (name1buf[0] != 0) {
-            VectorizedInvertedMemcpy(name1buf, (char*)meta + 1, 0xa);
+        if (var2[0] != 0) {
+            VectorizedInvertedMemcpy(var2, (char*)var6 + 1, 0xa);
         } else {
-            meta->DiscoveredBy[0] = 0;
+            var6->DiscoveredBy[0] = 0;
         }
-        if (name2buf[0] != 0) {
-            VectorizedInvertedMemcpy(name2buf, (char*)meta + 0xb, 0xa);
+        if (var3[0] != 0) {
+            VectorizedInvertedMemcpy(var3, (char*)var6 + 0xb, 0xa);
         } else {
-            meta->ClearedBy[0] = 0;
+            var6->ClearedBy[0] = 0;
         }
 
 #if defined(jpn)
-        int locVal = *(int*)(battle + 0x6000 + 0x1f8);
+        int var8 = *(int*)(var0 + 0x6000 + 0x1f8);
 #else
-        int locVal = *(int*)(battle + 0x6000 + 0x478);
+        int var8 = *(int*)(var0 + 0x6000 + 0x478);
 #endif
-        if (locVal != -1) meta->Location = (unsigned char)locVal;
+        if (var8 != -1) var6->Location = (unsigned char)var8;
 #if defined(jpn)
-        unsigned char flagsVal = *(unsigned char*)(battle + 0x6000 + 0x1fc);
+        unsigned char var9 = *(unsigned char*)(var0 + 0x6000 + 0x1fc);
 #else
-        unsigned char flagsVal = *(unsigned char*)(battle + 0x6000 + 0x47c);
+        unsigned char var9 = *(unsigned char*)(var0 + 0x6000 + 0x47c);
 #endif
-        if (flagsVal != 0) meta->TreasureDiscoveryFlags = flagsVal;
+        if (var9 != 0) var6->TreasureDiscoveryFlags = var9;
 
-        unsigned char* arr2 = (unsigned char*)data_ov004_02171010;
+        unsigned char* var10 = (unsigned char*)data_ov004_02171010;
 #if defined(jpn)
-        *(arr2 + 0x1000 + 0x9f4) = *(arr2 + 0x1000 + 0x9f4) + 1;
+        *(var10 + 0x1000 + 0x9f4) = *(var10 + 0x1000 + 0x9f4) + 1;
 #else
-        *(arr2 + 0x1000 + 0x8f4) = *(arr2 + 0x1000 + 0x8f4) + 1;
+        *(var10 + 0x1000 + 0x8f4) = *(var10 + 0x1000 + 0x8f4) + 1;
 #endif
 
 #if defined(jpn)
-        int questIdx = *(int*)(battle + 0x6000 + 0x1f4);
+        int var11 = *(int*)(var0 + 0x6000 + 0x1f4);
 #else
-        int questIdx = *(int*)(battle + 0x6000 + 0x474);
+        int var11 = *(int*)(var0 + 0x6000 + 0x474);
 #endif
-        if (questIdx >= 0) {
+        if (var11 >= 0) {
 #if defined(jpn)
-            struct Elem020985ec* base = (struct Elem020985ec*)((char*)func_02012fe4() + 0x860);
+            struct Struct_020985ec* var12 = (struct Struct_020985ec*)((char*)func_02012fe4() + 0x860);
 #else
-            struct Elem020985ec* base = (struct Elem020985ec*)((char*)func_02012fe4() + 0x840);
+            struct Struct_020985ec* var12 = (struct Struct_020985ec*)((char*)func_02012fe4() + 0x840);
 #endif
-            struct Elem020985ec* elem = func_020985ec(base, questIdx);
-            if (elem) {
-                ((unsigned char*)elem)[0xb] &= ~0x80;
+            struct Struct_020985ec* var13 = func_020985ec(var12, var11);
+            if (var13) {
+                ((unsigned char*)var13)[0xb] &= ~0x80;
             }
         }
 #if defined(jpn)
-        *(int*)(battle + 0x6000 + 0x1f4) = -1;
+        *(int*)(var0 + 0x6000 + 0x1f4) = -1;
 #else
-        *(int*)(battle + 0x6000 + 0x474) = -1;
+        *(int*)(var0 + 0x6000 + 0x474) = -1;
 #endif
     } else {
-        func_ov011_021848a0(a1, 0x69);
+        func_ov011_021848a0(arg0, 0x69);
     }
     return 0;
 }

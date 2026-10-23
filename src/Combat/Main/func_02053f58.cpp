@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { MEMBER_OFFSET = 0x19c };
+enum { Enum_02053f58_424 = 0x19c };
 #else
-enum { MEMBER_OFFSET = 0x1a8 };
+enum { Enum_02053f58_424 = 0x1a8 };
 #endif
 
-struct S3f58 {
-    char unk[MEMBER_OFFSET];
-    int field1a8;
-    int field1ac;
+struct Struct_020236dc_7 {
+    char unknown_0_[Enum_02053f58_424];
+    int unknown_1a8_;
+    int unknown_1ac_;
 };
 
 // USA: func_02053f58
-extern "C" ARM void func_02053f58(struct S3f58* obj, int* out1, int* out2) {
-    *out1 = obj->field1a8;
-    *out2 = obj->field1ac;
+extern "C" ARM void func_02053f58(struct Struct_020236dc_7* arg0, int* arg1, int* arg2) {
+    *arg1 = arg0->unknown_1a8_;
+    *arg2 = arg0->unknown_1ac_;
 }

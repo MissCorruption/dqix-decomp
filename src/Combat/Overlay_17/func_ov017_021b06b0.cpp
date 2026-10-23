@@ -2,93 +2,93 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct TransferState {
-    char pad0[0xa]; unsigned char result_; char padB;
-    signed char player_; char padD[0x25 - 0xd]; unsigned char phase_;
+struct Struct_ov017_021b06b0_3 {
+    char unknown_0_[0xa]; unsigned char unknown_a_; char unknown_b_;
+    signed char unknown_c_; char unknown_d_[0x25 - 0xd]; unsigned char unknown_25_;
 #if defined(jpn)
-    char pad26[0x218 - 0x26]; void* data_;
+    char unknown_26_[0x218 - 0x26]; void* unknown_288_;
 #else
-    char pad26[0x288 - 0x26]; void* data_;
+    char unknown1_26_[0x288 - 0x26]; void* unknown_288_;
 #endif
 };
 #if defined(jpn)
-struct TransferSettings { char pad0[0x27c4]; short field2784_; short field2786_; unsigned char enabled_; };
+struct Struct_ov031_0224e1d0 { char unknown_0_[0x27c4]; short unknown_2784_; short unknown_2786_; unsigned char unknown_2788_; };
 #else
-struct TransferSettings { char pad0[0x2784]; short field2784_; short field2786_; unsigned char enabled_; };
+struct Struct_ov031_0224e1d0 { char unknown_0_[0x2784]; short unknown_2784_; short unknown_2786_; unsigned char unknown_2788_; };
 #endif
-struct PlayerLocation { unsigned short zone_; Vector3fix16 position_; };
-extern "C" TransferSettings* func_02012fe4();
+struct Struct_ov017_021b06b0_2 { unsigned short unknown_0_; Vector3fix16 unknown_2_; };
+extern "C" Struct_ov031_0224e1d0* func_02012fe4();
 extern "C" void* func_0202ae24();
 extern "C" void func_ov017_021cdaa0();
 extern "C" void func_ov017_021cf730(int, int);
 extern "C" void func_ov017_021cfc74(unsigned char);
 extern "C" void func_ov017_021d2184(unsigned char);
-extern "C" PlayerLocation* func_020120a0(char*, unsigned int);
+extern "C" Struct_ov017_021b06b0_2* func_020120a0(char*, unsigned int);
 extern "C" void func_ov017_021d360c(int, unsigned char, unsigned short, Vector3fix16);
 extern "C" void func_ov017_021d1a18(int, int, int, int);
 extern "C" int func_0205e488(void*);
 extern "C" void func_ov017_021cdc24(unsigned char, unsigned int);
 extern "C" void func_ov017_021d22d4(unsigned char, unsigned short, void*);
-struct TransferProgress { unsigned int offset_; char unk4[0x18 - 0x4]; };
+struct Struct_ov017_021b06b0 { unsigned int unknown_0_; char unknown_4_[0x18 - 0x4]; };
 
-inline TransferProgress& GetTransferProgress() {
-    static TransferProgress s;
+inline Struct_ov017_021b06b0& inline_ov017_021b06b0() {
+    static Struct_ov017_021b06b0 s;
     return s;
 }
 
 // USA: func_ov017_021b06b0
-extern "C" ARM unsigned char func_ov017_021b06b0(TransferState* self) {
-    GameState* state = GameState::GetInstance();
-    TransferSettings* settings = func_02012fe4();
-    GrottoStruct* grotto = state->GetGrottoStruct();
-    void* queue = func_0202ae24();
-    if (self->phase_ == 0) {
+extern "C" ARM unsigned char func_ov017_021b06b0(Struct_ov017_021b06b0_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov031_0224e1d0* var1 = func_02012fe4();
+    GrottoStruct* var2 = var0->GetGrottoStruct();
+    void* var3 = func_0202ae24();
+    if (arg0->unknown_25_ == 0) {
         func_ov017_021cdaa0();
-        func_ov017_021cf730(self->player_, 1);
-        func_ov017_021cfc74(grotto->unknown_0[3]);
-        func_ov017_021d2184(self->player_);
-        for (int i = 0; i < 4; ++i) {
-            PlayerLocation* location = func_020120a0((char*)state, i);
-            if (location) func_ov017_021d360c(0, i, location->zone_, location->position_);
+        func_ov017_021cf730(arg0->unknown_c_, 1);
+        func_ov017_021cfc74(var2->unknown_0[3]);
+        func_ov017_021d2184(arg0->unknown_c_);
+        for (int var4 = 0; var4 < 4; ++var4) {
+            Struct_ov017_021b06b0_2* var5 = func_020120a0((char*)var0, var4);
+            if (var5) func_ov017_021d360c(0, var4, var5->unknown_0_, var5->unknown_2_);
         }
-        if (settings->enabled_) func_ov017_021d1a18(1, -1, 1, 0);
-        else func_ov017_021d1a18(settings->field2786_, settings->field2784_, 0, 0);
-        self->phase_ = 1;
-    } else if (self->phase_ == 1) {
-        if (func_0205e488(queue)) {
-            GetTransferProgress().offset_ = 0;
-            self->phase_ = 2;
+        if (var1->unknown_2788_) func_ov017_021d1a18(1, -1, 1, 0);
+        else func_ov017_021d1a18(var1->unknown_2786_, var1->unknown_2784_, 0, 0);
+        arg0->unknown_25_ = 1;
+    } else if (arg0->unknown_25_ == 1) {
+        if (func_0205e488(var3)) {
+            inline_ov017_021b06b0().unknown_0_ = 0;
+            arg0->unknown_25_ = 2;
         }
-    } else if (self->phase_ == 2) {
-        unsigned int offset = GetTransferProgress().offset_;
-        for (int i = 0; i < 48; ++i) {
-            func_ov017_021cdc24(self->player_, offset);
-            GetTransferProgress().offset_ += 14;
-            offset = GetTransferProgress().offset_;
-            if (offset >= 253) break;
+    } else if (arg0->unknown_25_ == 2) {
+        unsigned int var6 = inline_ov017_021b06b0().unknown_0_;
+        for (int var7 = 0; var7 < 48; ++var7) {
+            func_ov017_021cdc24(arg0->unknown_c_, var6);
+            inline_ov017_021b06b0().unknown_0_ += 14;
+            var6 = inline_ov017_021b06b0().unknown_0_;
+            if (var6 >= 253) break;
         }
-        self->phase_ = 3;
-    } else if (self->phase_ == 3) {
-        if (func_0205e488(queue)) {
-            if (GetTransferProgress().offset_ >= 253) {
-                GetTransferProgress().offset_ = 0;
-                self->phase_ = 4;
-            } else self->phase_ = 2;
+        arg0->unknown_25_ = 3;
+    } else if (arg0->unknown_25_ == 3) {
+        if (func_0205e488(var3)) {
+            if (inline_ov017_021b06b0().unknown_0_ >= 253) {
+                inline_ov017_021b06b0().unknown_0_ = 0;
+                arg0->unknown_25_ = 4;
+            } else arg0->unknown_25_ = 2;
         }
-    } else if (self->phase_ == 4) {
-        unsigned int offset = GetTransferProgress().offset_;
-        for (int i = 0; i < 48; ++i) {
-            func_ov017_021d22d4(self->player_, offset, self->data_);
-            GetTransferProgress().offset_ += 14;
-            offset = GetTransferProgress().offset_;
-            if (offset >= 736) break;
+    } else if (arg0->unknown_25_ == 4) {
+        unsigned int var8 = inline_ov017_021b06b0().unknown_0_;
+        for (int var9 = 0; var9 < 48; ++var9) {
+            func_ov017_021d22d4(arg0->unknown_c_, var8, arg0->unknown_288_);
+            inline_ov017_021b06b0().unknown_0_ += 14;
+            var8 = inline_ov017_021b06b0().unknown_0_;
+            if (var8 >= 736) break;
         }
-        self->phase_ = 5;
-    } else if (self->phase_ == 5) {
-        if (func_0205e488(queue)) {
-            if (GetTransferProgress().offset_ >= 736) return 11;
-            self->phase_ = 4;
+        arg0->unknown_25_ = 5;
+    } else if (arg0->unknown_25_ == 5) {
+        if (func_0205e488(var3)) {
+            if (inline_ov017_021b06b0().unknown_0_ >= 736) return 11;
+            arg0->unknown_25_ = 4;
         }
     }
-    return self->result_;
+    return arg0->unknown_a_;
 }

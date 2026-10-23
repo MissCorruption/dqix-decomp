@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct WorkPtrHolder02184288 {
-    int unk0;
-    void* ptr;
-    int unk8;
+struct Struct_ov000_02184288_4 {
+    int unknown_0_;
+    void* unknown_4_;
+    int unknown_8_;
 };
-extern struct WorkPtrHolder02184288 data_ov000_02184288;
+extern struct Struct_ov000_02184288_4 data_ov000_02184288;
 
 // USA: func_ov000_02174504
 extern "C" ARM void* func_ov000_02174504(void) {
-    return data_ov000_02184288.ptr;
+    return data_ov000_02184288.unknown_4_;
 }

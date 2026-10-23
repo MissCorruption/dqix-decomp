@@ -3,100 +3,100 @@
 #include "Combat/Main/BattleList.h"
 #include "GameState/GameState.h"
 
-struct Panel_021784d4 {
-    char pad_0x0[0xa0];
-    short width;
-    short height;
-    short tileX;
-    short tileY;
-    short field_0xa8;
-    short field_0xaa;
-    short field_0xac;
-    short field_0xae;
-    char pad_0xb0;
-    unsigned char field_0xb1;
+struct Struct_ov000_021784d4 {
+    char unknown_0_[0xa0];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
 };
 
-struct Owner_021784d4 {
-    char pad_0x0[0x79];
-    unsigned char memberCount;
-    char pad_0x7a[0x10e];
-    struct Panel_021784d4 panel;
+struct Struct_ov000_021784d4_2 {
+    char unknown_0_[0x79];
+    unsigned char unknown_79_;
+    char unknown_7a_[0x10e];
+    struct Struct_ov000_021784d4 unknown_188_;
 };
 
-struct InStruct_021784d4 {
-    char pad[0x44];
-    int x;
-    int y;
+struct Struct_ov000_021784d4_3 {
+    char unknown_0_[0x44];
+    int unknown_44_;
+    int unknown_48_;
 };
 
-struct TextWorkspace {
+struct Struct_ov000_02178074_4 {
 #if defined(jpn)
-    char unknown0[0x28];
+    char unknown_0_[0x28];
 #else
-    char unknown0[0x5c];
+    char unknown1_0_[0x5c];
 #endif
-    char* textBuffer;
+    char* unknown_5c_;
 };
 
-extern "C" TextWorkspace* func_020421a0();
+extern "C" Struct_ov000_02178074_4* func_020421a0();
 
-extern "C" void func_ov000_0217c638(struct Owner_021784d4* obj, int a, int b);
-extern "C" void func_ov000_02178648(struct Owner_021784d4* obj, void* textBuffer);
+extern "C" void func_ov000_0217c638(struct Struct_ov000_021784d4_2* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02178648(struct Struct_ov000_021784d4_2* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(struct Panel_021784d4* panel, void* textBuffer, int a, int b, int c, int d, int e);
+extern "C" void func_0205d304(struct Struct_ov000_021784d4* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(struct Panel_021784d4* panel, void* textBuffer, int a, int b, int c, int d, int e, int f);
+extern "C" void func_0205d304(struct Struct_ov000_021784d4* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov000_021784d4
-extern "C" ARM void func_ov000_021784d4(struct Owner_021784d4* obj, struct InStruct_021784d4* in, int arg2, int arg3) {
-    if (in == 0) {
+extern "C" ARM void func_ov000_021784d4(struct Struct_ov000_021784d4_2* arg0, struct Struct_ov000_021784d4_3* arg1, int arg2, int arg3) {
+    if (arg1 == 0) {
         return;
     }
-    int x = in->x;
-    int y = in->y;
+    int var0 = arg1->unknown_44_;
+    int var1 = arg1->unknown_48_;
     func_02010828(GameState::GetInstance());
-    unsigned char memberCount = obj->memberCount;
-    func_ov000_0217c638(obj, arg2, arg3);
-    struct Panel_021784d4* panel = &obj->panel;
+    unsigned char var2 = arg0->unknown_79_;
+    func_ov000_0217c638(arg0, arg2, arg3);
+    struct Struct_ov000_021784d4* var3 = &arg0->unknown_188_;
 #if defined(jpn)
-    panel->width = 0xa;
+    var3->unknown_a0_ = 0xa;
 #else
-    panel->width = 0x10;
+    var3->unknown_a0_ = 0x10;
 #endif
-    panel->height = 1;
-    panel->tileX = (x >> 3) + 9;
-    panel->tileY = (y >> 3) + 1;
-    panel->field_0xa8 = 0xc;
-    panel->field_0xaa = 0xa;
-    panel->field_0xac = 0xa;
-    panel->field_0xae = 0xd;
-    if (memberCount == 2) {
-        panel->field_0xa8 = 0xc;
-        panel->field_0xaa = 0xa;
+    var3->unknown_a2_ = 1;
+    var3->unknown_a4_ = (var0 >> 3) + 9;
+    var3->unknown_a6_ = (var1 >> 3) + 1;
+    var3->unknown_a8_ = 0xc;
+    var3->unknown_aa_ = 0xa;
+    var3->unknown_ac_ = 0xa;
+    var3->unknown_ae_ = 0xd;
+    if (var2 == 2) {
+        var3->unknown_a8_ = 0xc;
+        var3->unknown_aa_ = 0xa;
     }
-    if (memberCount == 3) {
-        panel->field_0xa8 = 0xc;
-        panel->field_0xaa = 8;
+    if (var2 == 3) {
+        var3->unknown_a8_ = 0xc;
+        var3->unknown_aa_ = 8;
     }
-    if (memberCount == 4) {
-        panel->field_0xa8 = 0xc;
-        panel->field_0xaa = 4;
-        panel->field_0xac = 0xa;
-        panel->field_0xae = 0xb;
+    if (var2 == 4) {
+        var3->unknown_a8_ = 0xc;
+        var3->unknown_aa_ = 4;
+        var3->unknown_ac_ = 0xa;
+        var3->unknown_ae_ = 0xb;
     }
-    panel->field_0xb1 = 8;
-    char* textBuffer = func_020421a0()->textBuffer;
+    var3->unknown_b1_ = 8;
+    char* var4 = func_020421a0()->unknown_5c_;
 #if defined(jpn)
-    memset(textBuffer, 0, 0x800);
+    memset(var4, 0, 0x800);
 #else
-    memset(textBuffer, 0, 0x960);
+    memset(var4, 0, 0x960);
 #endif
-    func_ov000_02178648(obj, textBuffer);
+    func_ov000_02178648(arg0, var4);
 #if defined(jpn)
-    func_0205d304(&obj->panel, textBuffer, 0, 1, 0, 1, 0);
+    func_0205d304(&arg0->unknown_188_, var4, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(panel, textBuffer, 0, 1, 0, 1, 0, 0);
+    func_0205d304(var3, var4, 0, 1, 0, 1, 0, 0);
 #endif
 }

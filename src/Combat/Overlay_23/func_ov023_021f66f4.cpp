@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct VTable66f4 {
-    char pad[0xf4];
-    void (*fn)(void*, void*);
+struct Struct_ov023_021f66f4_2 {
+    char unknown_0_[0xf4];
+    void (*unknown_f4_)(void*, void*);
 };
-struct Obj66f4 {
-    struct VTable66f4* vtable;
+struct Struct_ov023_021f66f4 {
+    struct Struct_ov023_021f66f4_2* unknown_0_;
 };
 
 extern "C" void* func_ov011_021849c8(void*);
-extern "C" struct Obj66f4* func_ov023_021f6880(void*, int);
+extern "C" struct Struct_ov023_021f66f4* func_ov023_021f6880(void*, int);
 
 // USA: func_ov023_021f66f4
-extern "C" ARM void func_ov023_021f66f4(void* a, int key, void* arg3) {
-    void* base = func_ov011_021849c8(a);
-    struct Obj66f4* node = func_ov023_021f6880(base, key);
-    if (node) node->vtable->fn(node, arg3);
+extern "C" ARM void func_ov023_021f66f4(void* arg0, int arg1, void* arg2) {
+    void* var0 = func_ov011_021849c8(arg0);
+    struct Struct_ov023_021f66f4* var1 = func_ov023_021f6880(var0, arg1);
+    if (var1) var1->unknown_0_->unknown_f4_(var1, arg2);
 }

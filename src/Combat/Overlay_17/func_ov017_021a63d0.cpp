@@ -10,35 +10,35 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
-extern "C" int func_0202c540(void* p);
-extern "C" void func_0205ac40(void* a, void* b);
+extern "C" int func_0202c540(void* arg0);
+extern "C" void func_0205ac40(void* arg0, void* arg1);
 
-extern "C" int func_02039750(void* obj);
+extern "C" int func_02039750(void* arg0);
 extern "C" int func_020421a0();
 extern "C" void* func_020daf90(void);
-extern "C" int func_02046b08(void** obj);
+extern "C" int func_02046b08(void** arg0);
 
-struct Something02015a2c;
-extern "C" int func_02015a2c(struct Something02015a2c* obj);
+struct Struct_02015a2c_2;
+extern "C" int func_02015a2c(struct Struct_02015a2c_2* arg0);
 
-extern "C" int func_020db2d4(void* obj);
+extern "C" int func_020db2d4(void* arg0);
 
-struct Node0x20_021a5ad0;
-extern "C" void func_ov017_021a5ad0(struct Node0x20_021a5ad0* arr, int count, int val);
-extern "C" void func_ov017_021a5b08(struct Node0x20_021a5ad0* arr, int count);
+struct Struct_ov017_021a5ad0;
+extern "C" void func_ov017_021a5ad0(struct Struct_ov017_021a5ad0* arg0, int arg1, int arg2);
+extern "C" void func_ov017_021a5b08(struct Struct_ov017_021a5ad0* arg0, int arg1);
 
-struct Struct0200fb08;
-extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
+struct Struct_02000c9c_8;
+extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
 
-struct Cont0205d1e0;
-struct Cont0205d228;
-struct Cont0205d274;
-extern "C" void func_0205d1e0(Cont0205d1e0*);
-extern "C" void func_0205d228(Cont0205d228*);
-extern "C" void func_0205d274(Cont0205d274*);
+struct Struct_0205d1e0;
+struct Struct_0205d228;
+struct Struct_0205d274;
+extern "C" void func_0205d1e0(Struct_0205d1e0*);
+extern "C" void func_0205d228(Struct_0205d228*);
+extern "C" void func_0205d274(Struct_0205d274*);
 extern "C" void func_0205da88(void*, int, int, int);
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(Obj0205d2bc*);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(Struct_0205d2bc*);
 
 extern unsigned short data_ov017_021d6a9e[5];
 
@@ -65,85 +65,85 @@ static const int OFF_4090 = 0x4090;
 static const int OFF_41c4 = 0x41c4;
 #endif
 
-extern "C" ARM void func_ov017_021a63d0(unsigned char* base) {
+extern "C" ARM void func_ov017_021a63d0(unsigned char* arg0) {
  #if !defined(jpn)
-    short buf[5];
+    short var0[5];
  #endif
 
-    if (*(int*)(base + OFF_41c0) == 0) return;
-    if (*(int*)(base + OFF_41b4) == 0) return;
+    if (*(int*)(arg0 + OFF_41c0) == 0) return;
+    if (*(int*)(arg0 + OFF_41b4) == 0) return;
 
-    void* searchObj = func_0202ae18();
-    int f260 = func_02039750(GameState::GetInstance()->GetProtagonist());
-    int glob1c = func_020421a0();
-    void* g = func_02012fe4();
-    void* ctx = func_020daf90();
+    void* var1 = func_0202ae18();
+    int var2 = func_02039750(GameState::GetInstance()->GetProtagonist());
+    int var3 = func_020421a0();
+    void* var4 = func_02012fe4();
+    void* var5 = func_020daf90();
 
     if (GameState::GetInstance()->GetGrottoStruct()->unknown_0[0] == 0) return;
 
-    int f4080 = *(int*)(base + OFF_4080);
-    if (f4080 != 0) return;
-    if (f260 != -1) return;
+    int var6 = *(int*)(arg0 + OFF_4080);
+    if (var6 != 0) return;
+    if (var2 != -1) return;
 
-    if (!func_02046b08(*(void***)(base + OFF_36fc))) return;
-    if (func_0202c540(searchObj)) return;
+    if (!func_02046b08(*(void***)(arg0 + OFF_36fc))) return;
+    if (func_0202c540(var1)) return;
 
     if (func_020117f0(GameState::GetInstance()) != 0) return;
-    if (*(int*)((char*)glob1c + OFF_998) != 0) return;
-    if (func_02015a2c((struct Something02015a2c*)g)) return;
-    if (func_020db2d4(ctx)) return;
+    if (*(int*)((char*)var3 + OFF_998) != 0) return;
+    if (func_02015a2c((struct Struct_02015a2c_2*)var4)) return;
+    if (func_020db2d4(var5)) return;
 
-    func_ov017_021a5ad0((struct Node0x20_021a5ad0*)(base + OFF_4094), 2, 0x800);
+    func_ov017_021a5ad0((struct Struct_ov017_021a5ad0*)(arg0 + OFF_4094), 2, 0x800);
 
  #if !defined(jpn)
     {
-        unsigned short* dst = (unsigned short*)buf;
-        unsigned short* src = data_ov017_021d6a9e;
-        int n = 5;
+        unsigned short* var7 = (unsigned short*)var0;
+        unsigned short* var8 = data_ov017_021d6a9e;
+        int var9 = 5;
         do {
-            unsigned short* d = dst++;
-            unsigned short t = *src++;
-            *d = t;
-        } while (--n);
+            unsigned short* var10 = var7++;
+            unsigned short var11 = *var8++;
+            *var10 = var11;
+        } while (--var9);
     }
 
-    unsigned char count = func_0200fb08((struct Struct0200fb08*)GameState::GetInstance());
+    unsigned char var12 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
 
  #endif
 
-    if (*(int*)(base + OFF_41b8) >= 3) {
-        void* sub = *(void**)(base + OFF_4090);
-        func_0205d1e0((Cont0205d1e0*)sub);
-        func_0205d228((Cont0205d228*)sub);
-        func_0205da88(sub, 1, 2, 1);
-        func_0205d274((Cont0205d274*)sub);
-        func_0205d2bc((Obj0205d2bc*)sub);
+    if (*(int*)(arg0 + OFF_41b8) >= 3) {
+        void* var13 = *(void**)(arg0 + OFF_4090);
+        func_0205d1e0((Struct_0205d1e0*)var13);
+        func_0205d228((Struct_0205d228*)var13);
+        func_0205da88(var13, 1, 2, 1);
+        func_0205d274((Struct_0205d274*)var13);
+        func_0205d2bc((Struct_0205d2bc*)var13);
 
-        unsigned char* p = *(unsigned char**)(base + OFF_41c4);
-        int val40 = *(int*)(p + 0x40);
-        unsigned char* q = 0;
-        if (val40 != 0) {
-            if (*(unsigned short*)(p + 0x4e) > 6) {
-                q = (unsigned char*)val40 + 0xf0;
+        unsigned char* var14 = *(unsigned char**)(arg0 + OFF_41c4);
+        int var15 = *(int*)(var14 + 0x40);
+        unsigned char* var16 = 0;
+        if (var15 != 0) {
+            if (*(unsigned short*)(var14 + 0x4e) > 6) {
+                var16 = (unsigned char*)var15 + 0xf0;
             }
         }
 
-        if (q) {
+        if (var16) {
 #if defined(jpn)
-            int val = 0xb7000;
+            int var17 = 0xb7000;
 #else
-            int val = (buf[count - 1] + 7) << 12;
+            int var17 = (var0[var12 - 1] + 7) << 12;
 #endif
-            *(int*)(q + 0x14) = val;
-            *(int*)(q + 0x18) = 0xab000;
-            q[0x22] = 0x7e;
-            q[0x26] = 0;
-            *(int*)(q + 0xc) = 0x1000;
-            *(int*)(q + 0x10) = 0x1000;
-            void* p2 = *(void**)(base + OFF_41c4);
-            func_0205ac40(p2, q);
+            *(int*)(var16 + 0x14) = var17;
+            *(int*)(var16 + 0x18) = 0xab000;
+            var16[0x22] = 0x7e;
+            var16[0x26] = 0;
+            *(int*)(var16 + 0xc) = 0x1000;
+            *(int*)(var16 + 0x10) = 0x1000;
+            void* var18 = *(void**)(arg0 + OFF_41c4);
+            func_0205ac40(var18, var16);
         }
     }
 
-    func_ov017_021a5b08((struct Node0x20_021a5ad0*)(base + OFF_4094), 2);
+    func_ov017_021a5b08((struct Struct_ov017_021a5ad0*)(arg0 + OFF_4094), 2);
 }

@@ -1,39 +1,39 @@
 #if defined(jpn)
-enum {regionalOffset0=0x8bc};
+enum {Enum_ov017_021cc97c_2388=0x8bc};
 #else
-enum {regionalOffset0=0x954};
+enum {Enum_ov017_021cc97c_2388=0x954};
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-struct LocalEvt021cc97c {
-    unsigned char tag;
-    unsigned char pad0[3];
-    unsigned short id;
-    unsigned short val;
-    unsigned char arr[12];
+struct Struct_ov017_021cc97c {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_[12];
 };
 
 // USA: func_ov017_021cc97c
-extern "C" ARM void func_ov017_021cc97c(int id) {
-    GameState* bs = GameState::GetInstance();
-    GameObject* combatant = func_0200ff1c(bs, id);
-    if (combatant == NULL) return;
-    int field150 = func_02053c6c((unsigned char*)combatant);
-    if (field150 == 0) return;
+extern "C" ARM void func_ov017_021cc97c(int arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = func_0200ff1c(var0, arg0);
+    if (var1 == NULL) return;
+    int var2 = func_02053c6c((unsigned char*)var1);
+    if (var2 == 0) return;
 
-    void* p = func_0202ae24();
-    LocalEvt021cc97c buf;
-    buf.tag = 0xb;
-    buf.id = (unsigned short)id;
-    buf.val = *(unsigned short*)((char*)field150 + regionalOffset0);
-    int i;
-    for (i = 0; i < 12; i++) {
-        buf.arr[i] = *(unsigned char*)((char*)field150 + (i + 1) + 0x186);
+    void* var3 = func_0202ae24();
+    Struct_ov017_021cc97c var4;
+    var4.unknown_0_ = 0xb;
+    var4.unknown_4_ = (unsigned short)arg0;
+    var4.unknown_6_ = *(unsigned short*)((char*)var2 + Enum_ov017_021cc97c_2388);
+    int var5;
+    for (var5 = 0; var5 < 12; var5++) {
+        var4.unknown_8_[var5] = *(unsigned char*)((char*)var2 + (var5 + 1) + 0x186);
     }
-    func_0205e330(p, &buf, 0);
+    func_0205e330(var3, &var4, 0);
 }

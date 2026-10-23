@@ -2,89 +2,89 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-extern "C" int func_020850d0(unsigned char* obj);
-extern "C" int func_ov000_021564cc(struct Random* rand, int id);
+extern "C" int func_020850d0(unsigned char* arg0);
+extern "C" int func_ov000_021564cc(struct Random* arg0, int arg1);
 
-struct Ctx_021e8dc0 {
-	char pad0[0x10];
-	struct Random* random;
-	char pad14[0x78 - 0x14];
-	unsigned char field0x78;
-	unsigned char pad79;
-	unsigned char field0x7a;
+struct Struct_ov024_021e8dc0 {
+	char unknown_0_[0x10];
+	struct Random* unknown_10_;
+	char unknown_14_[0x78 - 0x14];
+	unsigned char unknown_78_;
+	unsigned char unknown_79_;
+	unsigned char unknown_7a_;
 };
 
-struct Params_021e8dc0 {
-	char pad0[4];
-	unsigned int actionId : 12;
-	unsigned int rest4 : 20;
-	char pad8[0x10 - 0x8];
-	unsigned int flags10;
-	char pad14[0x1c - 0x14];
-	unsigned int low1c : 14;
-	unsigned int repeatType : 5;
-	unsigned int high1c : 13;
+struct Struct_ov024_021e8dc0_2 {
+	char unknown_0_[4];
+	unsigned int unknown_4_0_ : 12;
+	unsigned int unknown_5_4_ : 20;
+	char unknown_8_[0x10 - 0x8];
+	unsigned int unknown_10_;
+	char unknown_14_[0x1c - 0x14];
+	unsigned int unknown_1c_0_ : 14;
+	unsigned int unknown_1d_6_ : 5;
+	unsigned int unknown_1e_3_ : 13;
 };
 
-struct Combatant_021e8dc0 {
+struct Struct_ov024_021e8dc0_3 {
 #if defined(jpn)
-	char pad0[0x144];
+	char unknown_0_[0x144];
 #else
-	char pad0[0x150];
+	char unknown1_0_[0x150];
 #endif
-	unsigned char* field150;
+	unsigned char* unknown_150_;
 };
 
-struct Bits2f4_021e8dc0 {
-	unsigned int bit0 : 1;
-	unsigned int bit1 : 1;
-	unsigned int rest : 30;
+struct Struct_ov024_021e8dc0_4 {
+	unsigned int unknown_0_0_ : 1;
+	unsigned int unknown_0_1_ : 1;
+	unsigned int unknown_0_2_ : 30;
 };
 
-struct ShortBuf_021e8dc0 {
-	short v[32];
+struct Struct_ov024_021fe930 {
+	short unknown_0_[32];
 };
 
-extern struct ShortBuf_021e8dc0 data_ov024_021fe930;
+extern struct Struct_ov024_021fe930 data_ov024_021fe930;
 
-static inline int IsPartyMember(int id) {
-	return id >= 0 && id <= 3;
+static inline int inline_ov000_02169850(int arg0) {
+	return arg0 >= 0 && arg0 <= 3;
 }
 
 // USA: func_ov024_021e8dc0
-extern "C" ARM int func_ov024_021e8dc0(struct Ctx_021e8dc0* ctx, int id, struct Params_021e8dc0* params, short* list, int num) {
-	struct Random* random = ctx->random;
-	int count = 1;
-	switch (params->repeatType) {
-		case 1: count = 2; break;
-		case 2: count = (int)NextRandomFloatBetween(random, 3.0f, 4.0f); break;
-		case 6: count = 4; break;
-		case 9: count = 5; break;
+extern "C" ARM int func_ov024_021e8dc0(struct Struct_ov024_021e8dc0* arg0, int arg1, struct Struct_ov024_021e8dc0_2* arg2, short* arg3, int arg4) {
+	struct Random* var0 = arg0->unknown_10_;
+	int var1 = 1;
+	switch (arg2->unknown_1d_6_) {
+		case 1: var1 = 2; break;
+		case 2: var1 = (int)NextRandomFloatBetween(var0, 3.0f, 4.0f); break;
+		case 6: var1 = 4; break;
+		case 9: var1 = 5; break;
 	}
-	if (count > 1) ctx->field0x7a = 1;
-	if (IsPartyMember(id)) {
-		struct Combatant_021e8dc0* c = (struct Combatant_021e8dc0*)func_0200ff1c(GameState::GetInstance(), id);
-		if (c && (params->flags10 & 0x100000) && func_020850d0(c->field150)) {
-			ctx->field0x7a = 1;
-			count *= 2;
+	if (var1 > 1) arg0->unknown_7a_ = 1;
+	if (inline_ov000_02169850(arg1)) {
+		struct Struct_ov024_021e8dc0_3* var2 = (struct Struct_ov024_021e8dc0_3*)func_0200ff1c(GameState::GetInstance(), arg1);
+		if (var2 && (arg2->unknown_10_ & 0x100000) && func_020850d0(var2->unknown_150_)) {
+			arg0->unknown_7a_ = 1;
+			var1 *= 2;
 		}
-		if (params->actionId == 1) {
-			struct Bits2f4_021e8dc0* w = (struct Bits2f4_021e8dc0*)(c->field150 + 0x2f4);
-			if (!w) return count;
-			if (!w->bit1 && !w->bit0 && func_ov000_021564cc(ctx->random, id)) {
-				ctx->field0x78 = 1;
-				ctx->field0x7a = 1;
-				count++;
+		if (arg2->unknown_4_0_ == 1) {
+			struct Struct_ov024_021e8dc0_4* var3 = (struct Struct_ov024_021e8dc0_4*)(var2->unknown_150_ + 0x2f4);
+			if (!var3) return var1;
+			if (!var3->unknown_0_1_ && !var3->unknown_0_0_ && func_ov000_021564cc(arg0->unknown_10_, arg1)) {
+				arg0->unknown_78_ = 1;
+				arg0->unknown_7a_ = 1;
+				var1++;
 			}
 		}
 	}
-	struct ShortBuf_021e8dc0 buf = data_ov024_021fe930;
-	short n = 0;
-	for (int i = 0; i < count; i++) {
-		for (int j = 0; j < num; j++) {
-			buf.v[n++] = list[j];
+	struct Struct_ov024_021fe930 var4 = data_ov024_021fe930;
+	short var5 = 0;
+	for (int var6 = 0; var6 < var1; var6++) {
+		for (int var7 = 0; var7 < arg4; var7++) {
+			var4.unknown_0_[var5++] = arg3[var7];
 		}
 	}
-	memcpy(list, &buf, n * 2);
-	return n;
+	memcpy(arg3, &var4, var5 * 2);
+	return var5;
 }

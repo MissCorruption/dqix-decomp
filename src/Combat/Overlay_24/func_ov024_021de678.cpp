@@ -2,40 +2,40 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_020888e0(unsigned char* obj);
-extern "C" void func_020888f4(unsigned char* obj);
-extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
-extern "C" void* func_ov000_0215e958(void* a0);
-extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
-extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
+extern "C" int func_020888e0(unsigned char* arg0);
+extern "C" void func_020888f4(unsigned char* arg0);
+extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 
-struct PackedPair_021de678 {
-	unsigned int a : 10;
-	unsigned int b : 10;
-	unsigned int c : 10;
-	unsigned int hi : 2;
+struct Struct_ov024_021de678 {
+	unsigned int unknown_0_0_ : 10;
+	unsigned int unknown_1_2_ : 10;
+	unsigned int unknown_2_4_ : 10;
+	unsigned int unknown_3_6_ : 2;
 };
 
-struct Flag_021de678 { unsigned char pad : 7; unsigned char flag : 1; };
-struct Obj_021de678 { char pad0[0xc]; void* field0xc; void* field0x10; };
-struct Range_021de678 { char pad[0x20]; struct PackedPair_021de678 f20; struct PackedPair_021de678 f24; };
+struct Struct_ov024_021de678_2 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
+struct Struct_ov024_021de678_3 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; };
+struct Struct_ov024_021de678_4 { char unknown_0_[0x20]; struct Struct_ov024_021de678 unknown_20_; struct Struct_ov024_021de678 unknown_24_; };
 
 // USA: func_ov024_021de678
-extern "C" ARM void* func_ov024_021de678(struct Obj_021de678* obj, int unused, int id, struct Range_021de678* range, int unused2, int unused3, unsigned char flagArg) {
-	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
-	if (!c) return 0;
-	int active = func_020888e0((unsigned char*)c->currentStats_);
-	unsigned short sel;
-	if (active != 0 && flagArg != 0) {
-		func_020888f4((unsigned char*)c->currentStats_);
-		sel = func_ov024_021da644(id, range->f20.c, range->f24.a);
+extern "C" ARM void* func_ov024_021de678(struct Struct_ov024_021de678_3* arg0, int arg1, int arg2, struct Struct_ov024_021de678_4* arg3, int arg4, int arg5, unsigned char arg6) {
+	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
+	if (!var0) return 0;
+	int var1 = func_020888e0((unsigned char*)var0->currentStats_);
+	unsigned short var2;
+	if (var1 != 0 && arg6 != 0) {
+		func_020888f4((unsigned char*)var0->currentStats_);
+		var2 = func_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
 	} else {
-		sel = func_ov024_021da644(id, range->f24.b, range->f24.c);
+		var2 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
 	}
-	void* entry = func_ov000_0215e958(obj->field0x10);
-	if (!entry) return 0;
-	func_ov000_0215a88c(obj->field0x10, entry, sel);
-	struct Flag_021de678* fl = (struct Flag_021de678*)((char*)obj->field0xc + 0x1c);
-	func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, fl->flag != 0);
-	return entry;
+	void* var3 = func_ov000_0215e958(arg0->unknown_10_);
+	if (!var3) return 0;
+	func_ov000_0215a88c(arg0->unknown_10_, var3, var2);
+	struct Struct_ov024_021de678_2* var4 = (struct Struct_ov024_021de678_2*)((char*)arg0->unknown_c_ + 0x1c);
+	func_ov000_0215cd44(arg0->unknown_10_, var3, var0, 0, 0, 0, var4->unknown_0_7_ != 0);
+	return var3;
 }

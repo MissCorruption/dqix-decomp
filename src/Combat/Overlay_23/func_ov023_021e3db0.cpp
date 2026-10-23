@@ -1,65 +1,65 @@
 #if defined(jpn)
-enum {regionalOffset0=0x124, regionalOffset1=0x12c, regionalOffset2=0x4e0};
+enum {Enum_ov023_021e3db0_296=0x124, Enum_ov023_021e3db0_304=0x12c, Enum_ov023_021e3db0_1252=0x4e0};
 #else
-enum {regionalOffset0=0x128, regionalOffset1=0x130, regionalOffset2=0x4e4};
+enum {Enum_ov023_021e3db0_296=0x128, Enum_ov023_021e3db0_304=0x130, Enum_ov023_021e3db0_1252=0x4e4};
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 
-extern "C" void func_ov023_021e5020(void* p);
-extern "C" void func_ov023_021e4c18(void* obj);
-extern "C" void func_ov023_021e463c(void* obj, int scaleCount);
-extern "C" void func_ov023_021e447c(void* obj);
-extern "C" void func_ov023_021e456c(void* obj);
-extern "C" void func_ov023_021e3e98(void* obj);
-extern "C" void func_ov005_02154de8(void* arg);
+extern "C" void func_ov023_021e5020(void* arg0);
+extern "C" void func_ov023_021e4c18(void* arg0);
+extern "C" void func_ov023_021e463c(void* arg0, int arg1);
+extern "C" void func_ov023_021e447c(void* arg0);
+extern "C" void func_ov023_021e456c(void* arg0);
+extern "C" void func_ov023_021e3e98(void* arg0);
+extern "C" void func_ov005_02154de8(void* arg0);
 
-struct Obj021e3db0 {
-    void* field0;
-    char pad4[regionalOffset0 - 0x4];
-    void* field128;
-    void* field12c;
-    char pad130[regionalOffset2 - regionalOffset1];
-    unsigned char field4e4;
+struct Struct_ov023_021e3db0 {
+    void* unknown_0_;
+    char unknown_4_[Enum_ov023_021e3db0_296 - 0x4];
+    void* unknown_128_;
+    void* unknown_12c_;
+    char unknown_130_[Enum_ov023_021e3db0_1252 - Enum_ov023_021e3db0_304];
+    unsigned char unknown_4e4_;
 };
 
 // USA: func_ov023_021e3db0
-extern "C" ARM void func_ov023_021e3db0(struct Obj021e3db0* obj) {
-    int val = func_0200fb8c((int*)GameState::GetInstance());
+extern "C" ARM void func_ov023_021e3db0(struct Struct_ov023_021e3db0* arg0) {
+    int var0 = func_0200fb8c((int*)GameState::GetInstance());
 
-    if (obj->field128 != 0) {
-        func_ov023_021e5020(obj->field128);
+    if (arg0->unknown_128_ != 0) {
+        func_ov023_021e5020(arg0->unknown_128_);
     }
-    if (obj->field12c != 0) {
-        func_ov023_021e5020(obj->field12c);
+    if (arg0->unknown_12c_ != 0) {
+        func_ov023_021e5020(arg0->unknown_12c_);
     }
 
-    if (obj->field4e4 == 0) {
-        if (obj->field128 != 0 && *((unsigned char*)obj->field128 + 0xc12) != 0) {
+    if (arg0->unknown_4e4_ == 0) {
+        if (arg0->unknown_128_ != 0 && *((unsigned char*)arg0->unknown_128_ + 0xc12) != 0) {
             return;
         }
-        SetBrightness((GameResources*)val, 0, 15);
-        obj->field4e4++;
-    } else if (obj->field4e4 == 1) {
-        if (!IsBrightnessTransitionActive((GameResources*)val)) {
-            obj->field4e4++;
+        SetBrightness((GameResources*)var0, 0, 15);
+        arg0->unknown_4e4_++;
+    } else if (arg0->unknown_4e4_ == 1) {
+        if (!IsBrightnessTransitionActive((GameResources*)var0)) {
+            arg0->unknown_4e4_++;
         }
-    } else if (obj->field4e4 == 2) {
-        func_ov023_021e4c18(obj);
-        int scaleCount = GameState::GetInstance()->GetTickCount();
-        func_ov023_021e463c(obj, scaleCount);
-        func_ov023_021e447c(obj);
-        func_ov023_021e456c(obj);
-        func_ov023_021e3e98(obj);
+    } else if (arg0->unknown_4e4_ == 2) {
+        func_ov023_021e4c18(arg0);
+        int var1 = GameState::GetInstance()->GetTickCount();
+        func_ov023_021e463c(arg0, var1);
+        func_ov023_021e447c(arg0);
+        func_ov023_021e456c(arg0);
+        func_ov023_021e3e98(arg0);
     }
 
-    if (obj->field0 == 0) {
+    if (arg0->unknown_0_ == 0) {
         return;
     }
-    func_ov005_02154de8(obj->field0);
+    func_ov005_02154de8(arg0->unknown_0_);
 }

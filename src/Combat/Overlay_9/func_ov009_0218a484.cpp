@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
 // USA: func_ov009_0218a484
-extern "C" ARM void func_ov009_0218a484(int unused, char *src, char *dst) {
-	int c;
-	while ((c = *src) != 0) {
-		if (c >= 'a' && c <= 'z') {
-			c -= 0x20;
-			*dst = c;
-			c = *dst;
+extern "C" ARM void func_ov009_0218a484(int arg0, char *arg1, char *arg2) {
+	int var0;
+	while ((var0 = *arg1) != 0) {
+		if (var0 >= 'a' && var0 <= 'z') {
+			var0 -= 0x20;
+			*arg2 = var0;
+			var0 = *arg2;
 		} else {
-			*dst = c;
-			c = *dst;
+			*arg2 = var0;
+			var0 = *arg2;
 		}
-		if (c) {
-			src++;
+		if (var0) {
+			arg1++;
 		}
-		dst++;
+		arg2++;
 	}
 }

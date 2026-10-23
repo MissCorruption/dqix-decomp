@@ -3,20 +3,20 @@
 #include <NitroSDK/Cache.h>
 #include <NitroSDK/Timing.h>
 
-struct IPCStatus0221b284 {
-    unsigned short status;
-    unsigned short padding;
-    int complete;
-    unsigned long backupAddress;
+struct Struct_ov031_0224e6a0_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    int unknown_4_;
+    unsigned long unknown_8_;
 };
-extern IPCStatus0221b284 data_ov031_0224e6a0;
+extern Struct_ov031_0224e6a0_3 data_ov031_0224e6a0;
 extern unsigned char data_ov031_0224e6c0[32] __attribute__((aligned(32)));
 extern "C" void WaitByLoop(int);
 
-typedef unsigned long u32;
-typedef unsigned char u8;
-typedef int BOOL;
-typedef uint64_t OSTick;
+typedef unsigned long Type_020b11c8;
+typedef unsigned char Type_020b1300;
+typedef int Type_020b0a1c_2;
+typedef uint64_t Type_ov031_0221b284;
 #define TRUE 1
 #define FALSE 0
 #define PXI_FIFO_TAG_NVRAM 4
@@ -32,75 +32,75 @@ typedef uint64_t OSTick;
 #define NVRAM_STATUS_WEL  0x02
 #define NVRAM_STATUS_ERR  0x20
 
-static inline BOOL SendRead(u32 address, u32 size, u32 buffer) {
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x02002300 | ((address >> 16) & 0xFF), FALSE) < 0) {
+static inline Type_020b0a1c_2 inline_ov031_0221b284_6(Type_020b11c8 arg0, Type_020b11c8 arg1, Type_020b11c8 arg2) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x02002300 | ((arg0 >> 16) & 0xFF), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x10000 | (address & 0xFFFF), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x10000 | (arg0 & 0xFFFF), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x20000 | (size >> 16), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x20000 | (arg1 >> 16), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x30000 | (size & 0xFFFF), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x30000 | (arg1 & 0xFFFF), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x40000 | (buffer >> 16), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x40000 | (arg2 >> 16), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x01050000 | (buffer & 0xFFFF), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x01050000 | (arg2 & 0xFFFF), FALSE) < 0) {
         return FALSE;
     }
     return TRUE;
 }
 
-static inline BOOL SendWren(void) {
+static inline Type_020b0a1c_2 inline_ov031_0221b284(void) {
     if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x03002000, FALSE) < 0) {
         return FALSE;
     }
     return TRUE;
 }
 
-static inline BOOL SendWrite(u32 address, u32 size, u32 buffer) {
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x02002500 | ((address >> 16) & 0xFF), FALSE) < 0) {
+static inline Type_020b0a1c_2 inline_ov031_0221b284_2(Type_020b11c8 arg0, Type_020b11c8 arg1, Type_020b11c8 arg2) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x02002500 | ((arg0 >> 16) & 0xFF), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x10000 | (address & 0xFFFF), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x10000 | (arg0 & 0xFFFF), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x20000 | size, FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x20000 | arg1, FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x30000 | (buffer >> 16), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x30000 | (arg2 >> 16), FALSE) < 0) {
         return FALSE;
     }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x01040000 | (buffer & 0xFFFF), FALSE) < 0) {
-        return FALSE;
-    }
-    return TRUE;
-}
-
-static inline BOOL SendStatus(void *buf) {
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x02002200 | ((u32)buf >> 24), FALSE) < 0) {
-        return FALSE;
-    }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x10000 | (((u32)buf >> 8) & 0xFFFF), FALSE) < 0) {
-        return FALSE;
-    }
-    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x01020000 | (((u32)buf << 8) & 0xFF00), FALSE) < 0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x01040000 | (arg2 & 0xFFFF), FALSE) < 0) {
         return FALSE;
     }
     return TRUE;
 }
 
-static inline BOOL SendReset(void) {
+static inline Type_020b0a1c_2 inline_ov031_0221b284_3(void *arg0) {
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x02002200 | ((Type_020b11c8)arg0 >> 24), FALSE) < 0) {
+        return FALSE;
+    }
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x10000 | (((Type_020b11c8)arg0 >> 8) & 0xFFFF), FALSE) < 0) {
+        return FALSE;
+    }
+    if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x01020000 | (((Type_020b11c8)arg0 << 8) & 0xFF00), FALSE) < 0) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+static inline Type_020b0a1c_2 inline_ov031_0221b284_4(void) {
     if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x03002D00, FALSE) < 0) {
         return FALSE;
     }
     return TRUE;
 }
 
-static inline BOOL SendWriteDisable(void) {
+static inline Type_020b0a1c_2 inline_ov031_0221b284_5(void) {
     if (SendCommandToArm7(PXI_FIFO_TAG_NVRAM, 0x03002100, FALSE) < 0) {
         return FALSE;
     }
@@ -108,65 +108,65 @@ static inline BOOL SendWriteDisable(void) {
 }
 
 // USA: func_ov031_0221b284
-extern "C" ARM int func_ov031_0221b284(int command, unsigned long address, unsigned long size, unsigned char *buffer) {
-    BOOL sent = FALSE;
-    u8 *status = data_ov031_0224e6c0;
-    OSTick start;
+extern "C" ARM int func_ov031_0221b284(int arg0, unsigned long arg1, unsigned long arg2, unsigned char *arg3) {
+    Type_020b0a1c_2 var0 = FALSE;
+    Type_020b1300 *var1 = data_ov031_0224e6c0;
+    Type_ov031_0221b284 var2;
 
     while (TRUE) {
-        if (!sent) {
-            data_ov031_0224e6a0.complete = 0;
-            switch (command) {
+        if (!var0) {
+            data_ov031_0224e6a0.unknown_4_ = 0;
+            switch (arg0) {
             case NVRAM_CMD_READ:
-                sent = SendRead(address, size, (u32)buffer);
+                var0 = inline_ov031_0221b284_6(arg1, arg2, (Type_020b11c8)arg3);
                 break;
             case NVRAM_CMD_WRITE:
-                sent = SendWren();
+                var0 = inline_ov031_0221b284();
                 break;
             case NVRAM_CMD_PROGRAM:
-                sent = SendWrite(address, size, (u32)buffer);
-                start = GetCurrentTimestamp();
+                var0 = inline_ov031_0221b284_2(arg1, arg2, (Type_020b11c8)arg3);
+                var2 = GetCurrentTimestamp();
                 break;
             case NVRAM_CMD_CHECK_WREN:
             case NVRAM_CMD_WAIT_WRITE:
-                sent = SendStatus(status);
+                var0 = inline_ov031_0221b284_3(var1);
                 break;
             case NVRAM_CMD_ABORT:
-                sent = SendReset();
+                var0 = inline_ov031_0221b284_4();
                 break;
             case NVRAM_CMD_WRITE_DISABLE:
-                sent = SendWriteDisable();
+                var0 = inline_ov031_0221b284_5();
                 break;
             }
-        } else if (data_ov031_0224e6a0.complete == 1) {
-            sent = FALSE;
-            if (data_ov031_0224e6a0.status != 0) {
+        } else if (data_ov031_0224e6a0.unknown_4_ == 1) {
+            var0 = FALSE;
+            if (data_ov031_0224e6a0.unknown_0_ != 0) {
                 break;
             }
-            switch (command) {
+            switch (arg0) {
             case NVRAM_CMD_READ:
                 return TRUE;
             case NVRAM_CMD_WRITE:
-                command = NVRAM_CMD_CHECK_WREN;
+                arg0 = NVRAM_CMD_CHECK_WREN;
                 break;
             case NVRAM_CMD_PROGRAM:
-                command = NVRAM_CMD_WAIT_WRITE;
+                arg0 = NVRAM_CMD_WAIT_WRITE;
                 break;
             case NVRAM_CMD_CHECK_WREN:
             case NVRAM_CMD_WAIT_WRITE:
-                InvalidateDataCacheRange(status, 1);
-                if (command == NVRAM_CMD_CHECK_WREN) {
-                    if (status[0] & NVRAM_STATUS_WEL) {
-                        command = NVRAM_CMD_PROGRAM;
+                InvalidateDataCacheRange(var1, 1);
+                if (arg0 == NVRAM_CMD_CHECK_WREN) {
+                    if (var1[0] & NVRAM_STATUS_WEL) {
+                        arg0 = NVRAM_CMD_PROGRAM;
                     } else {
                         return FALSE;
                     }
                 } else {
-                    if (!(status[0] & NVRAM_STATUS_BUSY)) {
+                    if (!(var1[0] & NVRAM_STATUS_BUSY)) {
                         return TRUE;
                     }
-                    if ((status[0] & NVRAM_STATUS_ERR) || (GetCurrentTimestamp() - start) * 64 / 0x82EA > 4000) {
-                        command = NVRAM_CMD_ABORT;
+                    if ((var1[0] & NVRAM_STATUS_ERR) || (GetCurrentTimestamp() - var2) * 64 / 0x82EA > 4000) {
+                        arg0 = NVRAM_CMD_ABORT;
                     } else {
                         WaitByLoop(0x4000);
                     }

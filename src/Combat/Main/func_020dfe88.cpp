@@ -2,21 +2,21 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct Obj020dfe88 {
-    char pad[0xe];
-    short field_e;
-    int handle;
-    int field_14;
+struct Struct_020dfc40 {
+    char unknown_0_[0xe];
+    short unknown_e_;
+    int unknown_10_;
+    int unknown_14_;
 };
 
 // USA: func_020dfe88
-extern "C" ARM int func_020dfe88(struct Obj020dfe88* obj) {
-    int src = (int)BackgroundLoader::GetInstance();
-    if (obj->handle >= 0) {
-        ((BackgroundLoader*)(src))->RemoveTask((int)(obj->handle));
-        obj->handle = -1;
+extern "C" ARM int func_020dfe88(struct Struct_020dfc40* arg0) {
+    int var0 = (int)BackgroundLoader::GetInstance();
+    if (arg0->unknown_10_ >= 0) {
+        ((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_10_));
+        arg0->unknown_10_ = -1;
     }
-    obj->field_e = 0;
-    obj->field_14 = 0;
+    arg0->unknown_e_ = 0;
+    arg0->unknown_14_ = 0;
     return 1;
 }

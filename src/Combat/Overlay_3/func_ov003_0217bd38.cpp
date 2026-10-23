@@ -3,23 +3,23 @@
 
 extern "C" void* func_ov017_0219bf74(void);
 
-struct Obj0217bd38 {
-    SafeAllocator* field0;
-    SafeAllocator alloc4;
-    SafeAllocator alloc18;
-    SafeAllocator alloc2c;
+struct Struct_ov003_0217bd38 {
+    SafeAllocator* unknown_0_;
+    SafeAllocator unknown_4_;
+    SafeAllocator unknown_18_;
+    SafeAllocator unknown_2c_;
 };
 
 // USA: func_ov003_0217bd38
-extern "C" ARM void func_ov003_0217bd38(Obj0217bd38* self) {
-    self->field0 = (SafeAllocator*)func_ov017_0219bf74();
-    void* p1 = self->field0->Allocate(0x32000);
-    self->alloc4.CreateTypeA(p1, 0x32000);
-    self->alloc4.Reset();
-    void* p2 = self->field0->Allocate(0x6800);
-    self->alloc18.CreateTypeA(p2, 0x6800);
-    self->alloc18.Reset();
-    void* p3 = self->field0->Allocate(0x6800);
-    self->alloc2c.CreateTypeA(p3, 0x6800);
-    self->alloc2c.Reset();
+extern "C" ARM void func_ov003_0217bd38(Struct_ov003_0217bd38* arg0) {
+    arg0->unknown_0_ = (SafeAllocator*)func_ov017_0219bf74();
+    void* var0 = arg0->unknown_0_->Allocate(0x32000);
+    arg0->unknown_4_.CreateTypeA(var0, 0x32000);
+    arg0->unknown_4_.Reset();
+    void* var1 = arg0->unknown_0_->Allocate(0x6800);
+    arg0->unknown_18_.CreateTypeA(var1, 0x6800);
+    arg0->unknown_18_.Reset();
+    void* var2 = arg0->unknown_0_->Allocate(0x6800);
+    arg0->unknown_2c_.CreateTypeA(var2, 0x6800);
+    arg0->unknown_2c_.Reset();
 }

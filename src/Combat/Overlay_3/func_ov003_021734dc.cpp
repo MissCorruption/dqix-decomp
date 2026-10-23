@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 // USA: func_ov003_021734dc
-extern "C" ARM int func_ov003_021734dc(int unused, int a, int b) {
+extern "C" ARM int func_ov003_021734dc(int arg0, int arg1, int arg2) {
 #if defined(jpn)
-    enum { regionalLow = 0x4f, regionalHigh = 0xb1 };
+    enum { Enum_ov003_021734dc_67 = 0x4f, Enum_ov003_021734dc_189 = 0xb1 };
 #else
-    enum { regionalLow = 0x43, regionalHigh = 0xbd };
+    enum { Enum_ov003_021734dc_67 = 0x43, Enum_ov003_021734dc_189 = 0xbd };
 #endif
-    if (a >= regionalLow && a <= regionalHigh && b >= 0x5f && b <= 0x6f) return 1;
+    if (arg1 >= Enum_ov003_021734dc_67 && arg1 <= Enum_ov003_021734dc_189 && arg2 >= 0x5f && arg2 <= 0x6f) return 1;
     return 0;
 }

@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/SignedAllocator.h"
 
-struct Struct02054f80 {
-    int field0;
-    int field4;
-    SignedAllocatorList arr0[3];
-    SignedAllocatorList arr1[3];
-    SignedAllocatorList arr2[3];
-    SignedAllocatorList list74;
-    SignedAllocatorList arr3[3];
-    SignedAllocatorList list_a4;
-    SignedAllocatorList list_b0;
-    SignedAllocatorList list_bc;
-    SignedAllocatorList list_c8;
-    SignedAllocatorList list_d4;
-    SignedAllocatorList list_e0;
-    SignedAllocatorList list_ec;
-    SignedAllocatorList list_f8;
-    SignedAllocatorList list_104;
-    SignedAllocatorList list_110;
-    SignedAllocatorList list_11c;
+struct Struct_02054f80 {
+    int unknown_0_;
+    int unknown_4_;
+    SignedAllocatorList unknown_8_[3];
+    SignedAllocatorList unknown_2c_[3];
+    SignedAllocatorList unknown_50_[3];
+    SignedAllocatorList unknown_74_;
+    SignedAllocatorList unknown_80_[3];
+    SignedAllocatorList unknown_a4_;
+    SignedAllocatorList unknown_b0_;
+    SignedAllocatorList unknown_bc_;
+    SignedAllocatorList unknown_c8_;
+    SignedAllocatorList unknown_d4_;
+    SignedAllocatorList unknown_e0_;
+    SignedAllocatorList unknown_ec_;
+    SignedAllocatorList unknown_f8_;
+    SignedAllocatorList unknown_104_;
+    SignedAllocatorList unknown_110_;
+    SignedAllocatorList unknown_11c_;
 };
 
 // USA: func_02054f80
-extern "C" ARM void func_02054f80(Struct02054f80* obj) {
-    obj->field0 = 0;
-    obj->field4 = 0;
+extern "C" ARM void func_02054f80(Struct_02054f80* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
 
-    for (int i = 0; i < 3; i++) {
-        obj->arr0[i].Initialize(4);
-        obj->arr1[i].Initialize(4);
-        obj->arr2[i].Initialize(4);
-        obj->arr3[i].Initialize(4);
+    for (int var0 = 0; var0 < 3; var0++) {
+        arg0->unknown_8_[var0].Initialize(4);
+        arg0->unknown_2c_[var0].Initialize(4);
+        arg0->unknown_50_[var0].Initialize(4);
+        arg0->unknown_80_[var0].Initialize(4);
     }
 
-    obj->list74.Initialize(4);
-    obj->list_a4.Initialize(4);
-    obj->list_b0.Initialize(4);
-    obj->list_bc.Initialize(4);
-    obj->list_c8.Initialize(4);
-    obj->list_d4.Initialize(4);
-    obj->list_e0.Initialize(4);
-    obj->list_ec.Initialize(4);
-    obj->list_f8.Initialize(4);
-    obj->list_104.Initialize(4);
-    obj->list_110.Initialize(4);
-    obj->list_11c.Initialize(4);
+    arg0->unknown_74_.Initialize(4);
+    arg0->unknown_a4_.Initialize(4);
+    arg0->unknown_b0_.Initialize(4);
+    arg0->unknown_bc_.Initialize(4);
+    arg0->unknown_c8_.Initialize(4);
+    arg0->unknown_d4_.Initialize(4);
+    arg0->unknown_e0_.Initialize(4);
+    arg0->unknown_ec_.Initialize(4);
+    arg0->unknown_f8_.Initialize(4);
+    arg0->unknown_104_.Initialize(4);
+    arg0->unknown_110_.Initialize(4);
+    arg0->unknown_11c_.Initialize(4);
 }

@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct Struct02165880 {
-    unsigned char pad0[0x28];
-    int counter;
+struct Struct_ov001_02165880_48 {
+    unsigned char unknown_0_[0x28];
+    int unknown_28_;
 };
-extern struct Struct02165880 data_ov001_02165880;
+extern struct Struct_ov001_02165880_48 data_ov001_02165880;
 
 // USA: func_ov001_021622f0
 extern "C" ARM void func_ov001_021622f0(void) {
-    data_ov001_02165880.counter += 1;
+    data_ov001_02165880.unknown_28_ += 1;
 }

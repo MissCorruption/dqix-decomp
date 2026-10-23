@@ -1,56 +1,56 @@
 #include <globaldefs.h>
 
-struct FontGlyph0223c7e8 {
-    unsigned char cellWidth;
-    unsigned char cellHeight;
-    unsigned short cellSize;
-    signed char baselinePos;
-    unsigned char maxCharWidth;
-    unsigned char bpp;
-    unsigned char flags;
+struct Struct_ov031_0223c7e8_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    signed char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
 };
-struct FontInfo0223c7e8 {
-    unsigned char pad[8];
-    FontGlyph0223c7e8* glyph;
+struct Struct_ov031_0223c7e8 {
+    unsigned char unknown_0_[8];
+    Struct_ov031_0223c7e8_2* unknown_8_;
 };
-struct Font0223c7e8 {
-    FontInfo0223c7e8* info;
+struct Struct_ov031_0223c7e8_3 {
+    Struct_ov031_0223c7e8* unknown_0_;
 };
-struct TextCanvas0223c7e8 {
-    void* charCanvas;
-    Font0223c7e8* font;
-    int hSpace;
-    int vSpace;
+struct Struct_ov031_0223c7e8_4 {
+    void* unknown_0_;
+    Struct_ov031_0223c7e8_3* unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
-struct Window0223c7e8 {
-    char pad[0x18];
-    TextCanvas0223c7e8 canvas;
+struct Struct_ov031_0223c7e8_5 {
+    char unknown_0_[0x18];
+    Struct_ov031_0223c7e8_4 unknown_18_;
 };
-struct TextDirection0223c7e8 { signed char x, y; };
+struct Struct_ov031_0223c7e8_6 { signed char unknown_0_, unknown_1_; };
 
-extern "C" void func_020b25c4(TextCanvas0223c7e8* canvas, int x, int y, int color, int flags, const char* text, TextDirection0223c7e8 direction);
+extern "C" void func_020b25c4(Struct_ov031_0223c7e8_4* arg0, int arg1, int arg2, int arg3, int arg4, const char* arg5, Struct_ov031_0223c7e8_6 arg6);
 
 // USA: func_ov031_0223c7e8
-extern "C" ARM void func_ov031_0223c7e8(Window0223c7e8* window, int x, int y, int color, int flags, const char* text) {
-    Font0223c7e8* font = window->canvas.font;
-    TextDirection0223c7e8 dir = {0, 0};
-    switch (font->info->glyph->flags) {
+extern "C" ARM void func_ov031_0223c7e8(Struct_ov031_0223c7e8_5* arg0, int arg1, int arg2, int arg3, int arg4, const char* arg5) {
+    Struct_ov031_0223c7e8_3* var0 = arg0->unknown_18_.unknown_4_;
+    Struct_ov031_0223c7e8_6 var1 = {0, 0};
+    switch (var0->unknown_0_->unknown_8_->unknown_7_) {
     case 0:
     case 7:
-        dir.x = 1;
+        var1.unknown_0_ = 1;
         break;
     case 1:
     case 2:
-        dir.y = 1;
+        var1.unknown_1_ = 1;
         break;
     case 3:
     case 4:
-        dir.x = -1;
+        var1.unknown_0_ = -1;
         break;
     case 5:
     case 6:
-        dir.y = -1;
+        var1.unknown_1_ = -1;
         break;
     }
-    func_020b25c4(&window->canvas, x, y, color, flags, text, dir);
+    func_020b25c4(&arg0->unknown_18_, arg1, arg2, arg3, arg4, arg5, var1);
 }

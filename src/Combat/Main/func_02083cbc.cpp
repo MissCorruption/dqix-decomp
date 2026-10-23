@@ -7,40 +7,40 @@
 
 #include "std_library_functions.h"
 
-struct PackedTriple02083cbc {
-    unsigned int fieldA : 10;
-    unsigned int fieldB : 10;
-    unsigned int fieldC : 10;
-    unsigned int reserved : 2;
+struct Struct_02083cbc {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct PackedSource02083cbc {
-    unsigned char unknown[8];
-    PackedTriple02083cbc triples[3];
+struct Struct_02083cbc_2 {
+    unsigned char unknown_0_[8];
+    Struct_02083cbc unknown_8_[3];
 };
 
-struct PackedDestination02083cbc {
-    unsigned char unknown[IS_JPN ? 0x884 : 0x91c];
-    PackedTriple02083cbc triples[3];
-    unsigned char gap[0xc];
-    unsigned char tail[0x16];
+struct Struct_02083cbc_3 {
+    unsigned char unknown_0_[IS_JPN ? 0x884 : 0x91c];
+    Struct_02083cbc unknown_91c_[3];
+    unsigned char unknown_928_[0xc];
+    unsigned char unknown_934_[0x16];
 };
 
 // USA: func_02083cbc
-extern "C" ARM void func_02083cbc(void* dst, void* src, void* tail) {
-    ((PackedDestination02083cbc*)dst)->triples[0].fieldA = ((PackedSource02083cbc*)src)->triples[0].fieldA;
-    ((PackedDestination02083cbc*)dst)->triples[0].fieldB = ((PackedSource02083cbc*)src)->triples[0].fieldB;
-    ((PackedDestination02083cbc*)dst)->triples[0].fieldC = ((PackedSource02083cbc*)src)->triples[0].fieldC;
-    ((PackedDestination02083cbc*)dst)->triples[1].fieldA = ((PackedSource02083cbc*)src)->triples[1].fieldA;
-    ((PackedDestination02083cbc*)dst)->triples[1].fieldB = ((PackedSource02083cbc*)src)->triples[1].fieldB;
-    ((PackedDestination02083cbc*)dst)->triples[1].fieldC = ((PackedSource02083cbc*)src)->triples[1].fieldC;
-    ((PackedDestination02083cbc*)dst)->triples[2].fieldA = ((PackedSource02083cbc*)src)->triples[2].fieldA;
-    ((PackedDestination02083cbc*)dst)->triples[2].fieldB = ((PackedSource02083cbc*)src)->triples[2].fieldB;
-    ((PackedDestination02083cbc*)dst)->triples[2].fieldC = ((PackedSource02083cbc*)src)->triples[2].fieldC;
-    memset(((PackedDestination02083cbc*)dst)->tail, 100, 0x16);
-    if (tail != NULL) {
-        for (int i = 0; i < 0x16; i++) {
-            ((PackedDestination02083cbc*)dst)->tail[i] = ((unsigned char*)tail)[i];
+extern "C" ARM void func_02083cbc(void* arg0, void* arg1, void* arg2) {
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[0].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_0_0_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[0].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_1_2_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[0].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[0].unknown_2_4_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[1].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_0_0_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[1].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_1_2_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[1].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[1].unknown_2_4_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[2].unknown_0_0_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_0_0_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[2].unknown_1_2_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_1_2_;
+    ((Struct_02083cbc_3*)arg0)->unknown_91c_[2].unknown_2_4_ = ((Struct_02083cbc_2*)arg1)->unknown_8_[2].unknown_2_4_;
+    memset(((Struct_02083cbc_3*)arg0)->unknown_934_, 100, 0x16);
+    if (arg2 != NULL) {
+        for (int var0 = 0; var0 < 0x16; var0++) {
+            ((Struct_02083cbc_3*)arg0)->unknown_934_[var0] = ((unsigned char*)arg2)[var0];
         }
     }
 }

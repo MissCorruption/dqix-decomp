@@ -9,166 +9,166 @@
 #include "Input/Input.h"
 
 struct AllocatorUnion;
-struct Struct021931b4;
-struct Owner_021931cc;
-struct Obj021900dc;
+struct Struct_ov015_02190d7c;
+struct Struct_ov015_02190d7c_2;
+struct Struct_ov015_021900dc;
 
-struct ViewerEntry
+struct Struct_ov015_0218b828_3
 {
-    char* name_;
-    char* file_;
-    unsigned short id_;
-    unsigned char page_;
-    unsigned char link_;
+    char* unknown_0_;
+    char* unknown_4_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
 };
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    char unk_0[0x1c];
-    unsigned char kind_;
-    char unk_1d[0x38 - 0x1d];
-    short motion_;
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_;
+    char unknown_1d_[0x38 - 0x1d];
+    short unknown_38_;
 };
 
-struct ViewObjectNode
+struct Struct_ov015_02190e88
 {
-    ViewObject* object_;
-    ViewObjectNode* next_;
+    Struct_ov015_0218c03c_2* unknown_0_;
+    Struct_ov015_02190e88* unknown_4_;
 };
 
-struct DebugMenu
+struct Struct_02029988_2
 {
-    char unk_0[0x5c];
-    short first_;
-    short last_;
-    short cursor_;
-    char unk_62[0x80 - 0x62];
+    char unknown_0_[0x5c];
+    short unknown_5c_;
+    short unknown_5e_;
+    short unknown_60_;
+    char unknown_62_[0x80 - 0x62];
 };
 
-struct S02190c2c
+struct Struct_ov015_02190acc
 {
-    char unk_0[0x2c];
-    ViewObjectNode* objects_;
-    ViewObject* current_;
-    char unk_34[0x194 - 0x34];
-    int menu_;
-    char unk_198[0x1a1 - 0x198];
-    unsigned char field_;
-    char unk_1a2[2];
-    int page_;
-    char unk_1a8[0x268 - 0x1a8];
-    short cursors_[0x29];
-    char unk_2ba[0x2c4 - 0x2ba];
-    DebugMenu menuList_;
-    char unk_344[0x350 - 0x344];
-    unsigned char redraw_;
+    char unknown_0_[0x2c];
+    Struct_ov015_02190e88* unknown_2c_;
+    Struct_ov015_0218c03c_2* unknown_30_;
+    char unknown_34_[0x194 - 0x34];
+    int unknown_194_;
+    char unknown_198_[0x1a1 - 0x198];
+    unsigned char unknown_1a1_;
+    char unknown_1a2_[2];
+    int unknown_1a4_;
+    char unknown_1a8_[0x268 - 0x1a8];
+    short unknown_268_[0x29];
+    char unknown_2ba_[0x2c4 - 0x2ba];
+    Struct_02029988_2 unknown_2c4_;
+    char unknown_344_[0x350 - 0x344];
+    unsigned char unknown_350_;
 };
 
-extern "C" int func_ov015_021925a8(S02190c2c* self);
-extern "C" int func_ov015_02191284(DebugMenu* menu);
-extern "C" void func_ov015_02191af0(S02190c2c* self, int index);
-extern "C" void func_ov015_02191ba0(S02190c2c* self, int index);
-extern "C" void func_ov015_02191c70(S02190c2c* self, int index);
-extern "C" ViewerEntry* func_ov015_02193160(S02190c2c* self, int page, int* index);
-extern "C" void func_ov015_021931b4(Struct021931b4* self, int page);
-extern "C" int func_ov015_021931cc(Owner_021931cc* self);
-extern "C" void func_ov015_02192700(S02190c2c* self, int unk);
-extern "C" int func_ov015_02190c2c(S02190c2c* self);
-extern "C" void func_ov015_02192158(S02190c2c* self, int index);
-extern "C" void func_ov015_0218f308(ViewObject* object, const char* event);
-extern "C" void func_ov015_021900dc(Obj021900dc* object);
-extern "C" void func_ov015_0218f0c4(ViewObject* object);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" ViewObject* func_ov015_021919e4(S02190c2c* self, ViewerEntry* entry);
-extern "C" void func_ov015_02192544(S02190c2c* self);
-extern "C" void func_ov015_02190090(ViewObject* object);
+extern "C" int func_ov015_021925a8(Struct_ov015_02190acc* arg0);
+extern "C" int func_ov015_02191284(Struct_02029988_2* arg0);
+extern "C" void func_ov015_02191af0(Struct_ov015_02190acc* arg0, int arg1);
+extern "C" void func_ov015_02191ba0(Struct_ov015_02190acc* arg0, int arg1);
+extern "C" void func_ov015_02191c70(Struct_ov015_02190acc* arg0, int arg1);
+extern "C" Struct_ov015_0218b828_3* func_ov015_02193160(Struct_ov015_02190acc* arg0, int arg1, int* arg2);
+extern "C" void func_ov015_021931b4(Struct_ov015_02190d7c* arg0, int arg1);
+extern "C" int func_ov015_021931cc(Struct_ov015_02190d7c_2* arg0);
+extern "C" void func_ov015_02192700(Struct_ov015_02190acc* arg0, int arg1);
+extern "C" int func_ov015_02190c2c(Struct_ov015_02190acc* arg0);
+extern "C" void func_ov015_02192158(Struct_ov015_02190acc* arg0, int arg1);
+extern "C" void func_ov015_0218f308(Struct_ov015_0218c03c_2* arg0, const char* arg1);
+extern "C" void func_ov015_021900dc(Struct_ov015_021900dc* arg0);
+extern "C" void func_ov015_0218f0c4(Struct_ov015_0218c03c_2* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" Struct_ov015_0218c03c_2* func_ov015_021919e4(Struct_ov015_02190acc* arg0, Struct_ov015_0218b828_3* arg1);
+extern "C" void func_ov015_02192544(Struct_ov015_02190acc* arg0);
+extern "C" void func_ov015_02190090(Struct_ov015_0218c03c_2* arg0);
 
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov015_02190e88
-extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
+extern "C" ARM void func_ov015_02190e88(Struct_ov015_02190acc* arg0)
 {
-    if (func_ov015_021925a8(self))
+    if (func_ov015_021925a8(arg0))
         return;
     if (g_keyManager.TestKeysPressed(1))
     {
-        int index = func_ov015_02191284(&self->menuList_);
-        self->cursors_[self->page_] = index;
-        switch (self->page_)
+        int var0 = func_ov015_02191284(&arg0->unknown_2c4_);
+        arg0->unknown_268_[arg0->unknown_1a4_] = var0;
+        switch (arg0->unknown_1a4_)
         {
         case 2:
-            func_ov015_02191af0(self, index);
+            func_ov015_02191af0(arg0, var0);
             return;
         case 3:
-            func_ov015_02191ba0(self, index);
+            func_ov015_02191ba0(arg0, var0);
             return;
         case 40:
-            func_ov015_02191c70(self, index);
+            func_ov015_02191c70(arg0, var0);
             return;
         default:
         {
-            int start = 0;
-            func_ov015_02193160(self, self->page_, &start);
-            index += start;
-            ViewerEntry* entry = func_ov015_02193160(self, self->page_, &index);
-            if (entry == NULL)
+            int var1 = 0;
+            func_ov015_02193160(arg0, arg0->unknown_1a4_, &var1);
+            var0 += var1;
+            Struct_ov015_0218b828_3* var2 = func_ov015_02193160(arg0, arg0->unknown_1a4_, &var0);
+            if (var2 == NULL)
                 break;
-            if (entry->link_ != 0)
+            if (var2->unknown_b_ != 0)
             {
-                func_ov015_021931b4((Struct021931b4*)self, self->page_);
-                self->page_ = entry->link_;
-                func_ov015_02192700(self, 0);
+                func_ov015_021931b4((Struct_ov015_02190d7c*)arg0, arg0->unknown_1a4_);
+                arg0->unknown_1a4_ = var2->unknown_b_;
+                func_ov015_02192700(arg0, 0);
                 return;
             }
-            if (func_ov015_02190c2c(self))
+            if (func_ov015_02190c2c(arg0))
             {
-                func_ov015_02192158(self, index);
+                func_ov015_02192158(arg0, var0);
                 return;
             }
-            if (self->page_ == 0x21)
+            if (arg0->unknown_1a4_ == 0x21)
             {
-                func_ov015_0218f308(self->current_, entry->file_);
-                self->menu_ = 1;
-                func_ov015_02192700(self, 0);
-                self->current_->motion_ = 0;
-                func_ov015_021900dc((Obj021900dc*)self->current_);
+                func_ov015_0218f308(arg0->unknown_30_, var2->unknown_4_);
+                arg0->unknown_194_ = 1;
+                func_ov015_02192700(arg0, 0);
+                arg0->unknown_30_->unknown_38_ = 0;
+                func_ov015_021900dc((Struct_ov015_021900dc*)arg0->unknown_30_);
                 return;
             }
             if (g_keyManager.TestKeysHeld(0x100))
             {
-                ViewObjectNode* node = self->objects_;
-                while (node != NULL)
+                Struct_ov015_02190e88* var3 = arg0->unknown_2c_;
+                while (var3 != NULL)
                 {
-                    func_ov015_0218f0c4(node->object_);
-                    func_02012da4(&data_02114e20, node->object_);
-                    ViewObjectNode* next = node;
-                    node = node->next_;
-                    func_02012da4(&data_02114e20, next);
+                    func_ov015_0218f0c4(var3->unknown_0_);
+                    func_02012da4(&data_02114e20, var3->unknown_0_);
+                    Struct_ov015_02190e88* var4 = var3;
+                    var3 = var3->unknown_4_;
+                    func_02012da4(&data_02114e20, var4);
                 }
-                self->objects_ = NULL;
+                arg0->unknown_2c_ = NULL;
             }
-            ViewObject* object = func_ov015_021919e4(self, entry);
-            if (object != NULL && !g_keyManager.TestKeysHeld(0x200))
+            Struct_ov015_0218c03c_2* var5 = func_ov015_021919e4(arg0, var2);
+            if (var5 != NULL && !g_keyManager.TestKeysHeld(0x200))
             {
-                self->current_ = object;
-                switch (object->kind_)
+                arg0->unknown_30_ = var5;
+                switch (var5->unknown_1c_)
                 {
                 case 0:
                 case 1:
-                    func_ov015_021931b4((Struct021931b4*)self, self->page_);
-                    self->page_ = 0x22;
-                    func_ov015_02192700(self, 0);
+                    func_ov015_021931b4((Struct_ov015_02190d7c*)arg0, arg0->unknown_1a4_);
+                    arg0->unknown_1a4_ = 0x22;
+                    func_ov015_02192700(arg0, 0);
                     return;
                 case 2:
-                    func_ov015_021931b4((Struct021931b4*)self, self->page_);
-                    self->page_ = 0x21;
-                    func_ov015_02192700(self, 0);
+                    func_ov015_021931b4((Struct_ov015_02190d7c*)arg0, arg0->unknown_1a4_);
+                    arg0->unknown_1a4_ = 0x21;
+                    func_ov015_02192700(arg0, 0);
                     return;
                 default:
-                    self->menu_ = 1;
-                    func_ov015_02192700(self, 0);
-                    self->current_->motion_ = 0;
-                    func_ov015_021900dc((Obj021900dc*)self->current_);
+                    arg0->unknown_194_ = 1;
+                    func_ov015_02192700(arg0, 0);
+                    arg0->unknown_30_->unknown_38_ = 0;
+                    func_ov015_021900dc((Struct_ov015_021900dc*)arg0->unknown_30_);
                     return;
                 }
             }
@@ -178,16 +178,16 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
     }
     else if (g_keyManager.TestKeysPressed(2))
     {
-        if (self->page_ > 0)
+        if (arg0->unknown_1a4_ > 0)
         {
-            self->cursors_[self->page_] = func_ov015_02191284(&self->menuList_);
-            if (self->page_ == 8)
-                func_ov015_02192544(self);
-            int page = func_ov015_021931cc((Owner_021931cc*)self);
-            if (page >= 0)
+            arg0->unknown_268_[arg0->unknown_1a4_] = func_ov015_02191284(&arg0->unknown_2c4_);
+            if (arg0->unknown_1a4_ == 8)
+                func_ov015_02192544(arg0);
+            int var6 = func_ov015_021931cc((Struct_ov015_02190d7c_2*)arg0);
+            if (var6 >= 0)
             {
-                self->page_ = page;
-                func_ov015_02192700(self, 0);
+                arg0->unknown_1a4_ = var6;
+                func_ov015_02192700(arg0, 0);
             }
         }
     }
@@ -195,36 +195,36 @@ extern "C" ARM void func_ov015_02190e88(S02190c2c* self)
     {
         if (g_keyManager.TestKeyRepeat(0x20))
         {
-            short first = self->menuList_.first_;
-            int cursor = self->menuList_.cursor_ - 8;
-            if (cursor < first)
-                cursor = first;
-            self->menuList_.cursor_ = cursor;
-            self->redraw_ = 1;
+            short var7 = arg0->unknown_2c4_.unknown_5c_;
+            int var8 = arg0->unknown_2c4_.unknown_60_ - 8;
+            if (var8 < var7)
+                var8 = var7;
+            arg0->unknown_2c4_.unknown_60_ = var8;
+            arg0->unknown_350_ = 1;
             return;
         }
         if (g_keyManager.TestKeyRepeat(0x10))
         {
-            short last = self->menuList_.last_;
-            int cursor = self->menuList_.cursor_ + 8;
-            if (cursor > last)
-                cursor = last;
-            self->menuList_.cursor_ = cursor;
-            self->redraw_ = 1;
+            short var9 = arg0->unknown_2c4_.unknown_5e_;
+            int var10 = arg0->unknown_2c4_.unknown_60_ + 8;
+            if (var10 > var9)
+                var10 = var9;
+            arg0->unknown_2c4_.unknown_60_ = var10;
+            arg0->unknown_350_ = 1;
             return;
         }
         if (g_keyManager.TestKeysPressed(0x200))
         {
-            if (self->page_ == 6)
+            if (arg0->unknown_1a4_ == 6)
             {
-                self->field_ = self->field_ == 0;
-                self->redraw_ = 1;
+                arg0->unknown_1a1_ = arg0->unknown_1a1_ == 0;
+                arg0->unknown_350_ = 1;
             }
         }
-        else if (g_keyManager.TestKeysPressed(0x100) && (self->page_ == 0x22 || func_ov015_02190c2c(self)))
+        else if (g_keyManager.TestKeysPressed(0x100) && (arg0->unknown_1a4_ == 0x22 || func_ov015_02190c2c(arg0)))
         {
-            func_ov015_02190090(self->current_);
-            self->redraw_ = 1;
+            func_ov015_02190090(arg0->unknown_30_);
+            arg0->unknown_350_ = 1;
         }
     }
 }

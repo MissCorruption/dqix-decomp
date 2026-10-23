@@ -5,83 +5,83 @@
 
 extern "C" int func_02094a00(void);
 extern "C" void func_02094ab0(void);
-struct Outer020e28dc;
-extern "C" int func_020e28dc(struct Outer020e28dc* o);
-struct Obj020e25e8;
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
-struct Struct02074bd0;
-extern "C" void func_02074bd0(struct Struct02074bd0* obj);
-struct Cont0205d1e0;
-extern "C" void func_0205d1e0(struct Cont0205d1e0* obj);
-struct Cont0205d274;
-extern "C" void func_0205d274(struct Cont0205d274* obj);
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(struct Obj0205d2bc* obj);
-extern "C" void func_0205d048(void* obj);
+struct Struct_020e28dc;
+extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
+struct Struct_02074bd0;
+extern "C" void func_02074bd0(struct Struct_02074bd0* arg0);
+struct Struct_0205d1e0;
+extern "C" void func_0205d1e0(struct Struct_0205d1e0* arg0);
+struct Struct_0205d274;
+extern "C" void func_0205d274(struct Struct_0205d274* arg0);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(struct Struct_0205d2bc* arg0);
+extern "C" void func_0205d048(void* arg0);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 extern "C" int LoadToMainBG1ScreenData(int src, int offset, unsigned int size);
 extern "C" int func_020421a0(void);
-extern "C" void func_02043124(void* self);
-extern "C" void func_02043204(char* obj);
-extern "C" void* __clear(void* dst, int count);
+extern "C" void func_02043124(void* arg0);
+extern "C" void func_02043204(char* arg0);
+extern "C" void* __clear(void* arg0, int arg1);
 
-struct Screen02158d4c {
-    SafeAllocator alloc0;
-    SafeAllocator alloc14;
-    SafeAllocator alloc28;
-    SafeAllocator alloc3c;
-    char pad50[0x7c - 0x50];
-    int field_0x7c;
-    char flags80[0xf4 - 0x80];
-    char list0f4[0x570 - 0xf4];
-    struct Obj020e25e8* selection;
-    char pad574[0x57c - 0x574];
-    int field_0x57c;
+struct Struct_ov003_02158d4c {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator unknown_3c_;
+    char unknown_50_[0x7c - 0x50];
+    int unknown_7c_;
+    char unknown_80_[0xf4 - 0x80];
+    char unknown_f4_[0x570 - 0xf4];
+    struct Struct_020e25e8* unknown_570_;
+    char unknown_574_[0x57c - 0x574];
+    int unknown_57c_;
 };
 
 // USA: func_ov003_02158d4c
-extern "C" ARM void func_ov003_02158d4c(Screen02158d4c* self) {
+extern "C" ARM void func_ov003_02158d4c(Struct_ov003_02158d4c* arg0) {
     func_02094a00();
     func_02094ab0();
 
-    if (self->selection != NULL && func_020e28dc((struct Outer020e28dc*)self->selection)) {
-        func_020e25e8(self->selection);
+    if (arg0->unknown_570_ != NULL && func_020e28dc((struct Struct_020e28dc*)arg0->unknown_570_)) {
+        func_020e25e8(arg0->unknown_570_);
     }
 
-    unsigned int* reg = (unsigned int*)0x4000000;
-    *reg = (*reg & ~0x1f00) | 0x100;
+    unsigned int* var0 = (unsigned int*)0x4000000;
+    *var0 = (*var0 & ~0x1f00) | 0x100;
     *(unsigned short*)0x4000050 = 0;
-    func_02074bd0((struct Struct02074bd0*)self->flags80);
+    func_02074bd0((struct Struct_02074bd0*)arg0->unknown_80_);
 
-    func_0205d1e0((struct Cont0205d1e0*)self->list0f4);
-    func_0205d274((struct Cont0205d274*)self->list0f4);
-    func_0205d2bc((struct Obj0205d2bc*)self->list0f4);
-    func_0205d048(self->list0f4);
+    func_0205d1e0((struct Struct_0205d1e0*)arg0->unknown_f4_);
+    func_0205d274((struct Struct_0205d274*)arg0->unknown_f4_);
+    func_0205d2bc((struct Struct_0205d2bc*)arg0->unknown_f4_);
+    func_0205d048(arg0->unknown_f4_);
 
-    self->alloc28.Reset();
-    void* buf = self->alloc28.Allocate(0x800);
-    memset(buf, 0, 0x800);
-    CleanInvalidateCacheRange(buf, 0x20);
-    LoadToMainBG1CharacterData((int)buf, 0, 0x20);
-    LoadToMainBG1ScreenData((int)buf, 0, 0x800);
+    arg0->unknown_28_.Reset();
+    void* var1 = arg0->unknown_28_.Allocate(0x800);
+    memset(var1, 0, 0x800);
+    CleanInvalidateCacheRange(var1, 0x20);
+    LoadToMainBG1CharacterData((int)var1, 0, 0x20);
+    LoadToMainBG1ScreenData((int)var1, 0, 0x800);
 
-    void* g = (void*)func_020421a0();
-    func_02043124(g);
-    func_02043204((char*)g);
+    void* var2 = (void*)func_020421a0();
+    func_02043124(var2);
+    func_02043204((char*)var2);
 
-    self->field_0x7c = 0;
-    self->field_0x57c = 0;
+    arg0->unknown_7c_ = 0;
+    arg0->unknown_57c_ = 0;
 
-    SafeAllocator* arr[5];
-    __clear(arr, sizeof(arr));
-    arr[0] = &self->alloc3c;
-    arr[1] = &self->alloc28;
-    arr[2] = &self->alloc14;
-    arr[3] = &self->alloc0;
+    SafeAllocator* var3[5];
+    __clear(var3, sizeof(var3));
+    var3[0] = &arg0->unknown_3c_;
+    var3[1] = &arg0->unknown_28_;
+    var3[2] = &arg0->unknown_14_;
+    var3[3] = &arg0->unknown_0_;
 
-    for (int i = 0; arr[i] != NULL; i++) {
-        if (arr[i]->GetSignedAllocator() != NULL) {
-            arr[i]->Destroy();
+    for (int var4 = 0; var3[var4] != NULL; var4++) {
+        if (var3[var4]->GetSignedAllocator() != NULL) {
+            var3[var4]->Destroy();
         }
     }
 }

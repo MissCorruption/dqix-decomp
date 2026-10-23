@@ -12,10 +12,10 @@ extern void* data_020f1ef0;
 extern void* data_020f1ef4;
 
 // USA: func_020bb780
-extern "C" ARM void func_020bb780(void* value, int installHandlers) {
-    *(int*)(&data_0210cf88 + 0x8) = (int)value;
+extern "C" ARM void func_020bb780(void* arg0, int arg1) {
+    *(int*)(&data_0210cf88 + 0x8) = (int)arg0;
     func_020bb948();
-    if (installHandlers) {
+    if (arg1) {
         data_020f1ef0 = (void*)func_020bb7cc;
         data_020f1ef4 = (void*)func_020bb908;
     }

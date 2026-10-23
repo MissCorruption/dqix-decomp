@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct BEntry {
-    char pad[0x50];
-    int field50;
+struct Struct_0203e5d8_2 {
+    char unknown_0_[0x50];
+    int unknown_50_;
 };
 
-struct AEntry {
-    char pad[0x14];
-    struct BEntry* field14;
+struct Struct_0203e5d8_3 {
+    char unknown_0_[0x14];
+    struct Struct_0203e5d8_2* unknown_14_;
 };
 
-struct RootEntries {
-    char pad[0xc];
-    struct AEntry* arr[0x20];
+struct Struct_0203e5d8 {
+    char unknown_0_[0xc];
+    struct Struct_0203e5d8_3* unknown_c_[0x20];
 };
 
 // USA: func_0203e5d8
-extern "C" ARM void func_0203e5d8(struct RootEntries* root, int flag) {
-    struct AEntry** p = root->arr;
-    int i;
-    for (i = 0; i < 0x20; i++, p++) {
-        struct AEntry* a = *p;
-        if (a != 0) {
-            struct BEntry* b = a->field14;
-            if (b != 0) {
-                if (flag) {
-                    b->field50 &= ~0x10;
+extern "C" ARM void func_0203e5d8(struct Struct_0203e5d8* arg0, int arg1) {
+    struct Struct_0203e5d8_3** var0 = arg0->unknown_c_;
+    int var1;
+    for (var1 = 0; var1 < 0x20; var1++, var0++) {
+        struct Struct_0203e5d8_3* var2 = *var0;
+        if (var2 != 0) {
+            struct Struct_0203e5d8_2* var3 = var2->unknown_14_;
+            if (var3 != 0) {
+                if (arg1) {
+                    var3->unknown_50_ &= ~0x10;
                 } else {
-                    b->field50 |= 0x10;
+                    var3->unknown_50_ |= 0x10;
                 }
             }
         }

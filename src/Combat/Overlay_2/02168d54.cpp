@@ -169,7 +169,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         }
         func_02043204(var8);
         func_02043124(var8);
-        FontBankLoader* var9 = func_02094a00();
+        Struct_0208cb08* var9 = func_02094a00();
         func_02094b3c(var9, 0xc);
         func_02094ab0(var9);
         arg0[REGION_VALUE(0x2288, 0x2454)] = 0;
@@ -251,7 +251,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
         arg0[REGION_VALUE(0x22a1, 0x2471)] = 0;
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
     } else if (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)) == 0xf) {
-        FontBankLoader* var13 = func_02094a00();
+        Struct_0208cb08* var13 = func_02094a00();
         func_02094b40(var13);
         func_02094b30(var13, 100, 0);
         (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;

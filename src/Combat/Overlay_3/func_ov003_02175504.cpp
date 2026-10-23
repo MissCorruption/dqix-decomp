@@ -1,21 +1,21 @@
 // USA: func_ov003_02175504
 #include <globaldefs.h>
 
-struct Obj2081;
-struct Container020dedd0 {
-    unsigned short count;
-    unsigned char unknown02[10];
-    void* entries;
-    unsigned char unknown10[4];
-    unsigned char useBinarySearch;
+struct Struct_0207fdcc_2;
+struct Struct_0201099c_10 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[10];
+    void* unknown_c_;
+    unsigned char unknown_10_[4];
+    unsigned char unknown_14_;
 };
-struct Obj020dee58;
+struct Struct_020dee58;
 
-extern "C" unsigned char *func_02081da8(Obj2081 *, int);
+extern "C" unsigned char *func_02081da8(Struct_0207fdcc_2 *, int);
 extern "C" bool func_0204c7cc(unsigned char *);
-extern "C" Obj020dee58 *func_020dedd0(Container020dedd0 *, int);
+extern "C" Struct_020dee58 *func_020dedd0(Struct_0201099c_10 *, int);
 extern "C" void func_020809c4(void *, int, int, short *, short *);
-extern "C" int func_020dee58(Obj020dee58 *);
+extern "C" int func_020dee58(Struct_020dee58 *);
 extern "C" void func_ov003_0217585c(void *, int, int, int, unsigned char);
 extern "C" bool func_0204c7e0(unsigned char *);
 
@@ -27,95 +27,95 @@ extern unsigned char data_ov003_0217fabd[];
 extern unsigned char data_ov003_0217fa9c[];
 #endif
 
-struct Entry02175504 {
-    char unk_0[0xac];
-    short x_;
-    short y_;
+struct Struct_ov003_02175504 {
+    char unknown_0_[0xac];
+    short unknown_ac_;
+    short unknown_ae_;
 };
 
-struct Battle02175504 {
+struct Struct_ov003_02175504_2 {
 #if defined(jpn)
-    unsigned char unknownBeforeKeys[0x7c4];
+    unsigned char unknown_0_[0x7c4];
 #else
-    unsigned char unknownBeforeKeys[0x848];
+    unsigned char unknown1_0_[0x848];
 #endif
-    short keys_[12];
-    unsigned char unknownBeforeEntries[0x14];
-    Container020dedd0 entries;
-    unsigned char unknownAfterEntries[0x10];
-    Obj2081* menu;
-    unsigned char unknownBeforeUpdate[0xff8 - 0x8a0];
-    int updateEnabled;
-    unsigned char unknownBeforeIndex[2];
-    short selectedIndex;
-    unsigned char unknownBeforeState[0xc];
-    short state;
-    unsigned char unknownAfterState[2];
-    short unknown1010;
-    short selection;
-    short page;
+    short unknown_848_[12];
+    unsigned char unknown_860_[0x14];
+    Struct_0201099c_10 unknown_874_;
+    unsigned char unknown_88c_[0x10];
+    Struct_0207fdcc_2* unknown_89c_;
+    unsigned char unknown_8a0_[0xff8 - 0x8a0];
+    int unknown_ff8_;
+    unsigned char unknown_ffc_[2];
+    short unknown_ffe_;
+    unsigned char unknown_1000_[0xc];
+    short unknown_100c_;
+    unsigned char unknown_100e_[2];
+    short unknown_1010_;
+    short unknown_1012_;
+    short unknown_1014_;
 };
 
 // USA: func_ov003_02175504
-extern "C" ARM void func_ov003_02175504(Battle02175504 *self) {
-    Obj2081 *obj     = self->menu;
-    unsigned char k  = 6;
-    unsigned char *e = func_02081da8(obj, 3);
-    if (e) {
-        if (!func_0204c7cc(e)) return;
-        short a = 7;
-        short b = (short) (self->page * 6);
-        for (unsigned char i = 0; i < 6; i++) {
-            Obj020dee58 *it = func_020dedd0(&self->entries,
-                                                                                self->keys_[b]);
-            if (it) {
-                short x, y;
-                func_020809c4(obj, 3, a, &x, &y);
-                int v = func_020dee58(it);
-                func_ov003_0217585c(self, x, y - 1, (v + 6) & 0xff, k);
+extern "C" ARM void func_ov003_02175504(Struct_ov003_02175504_2 *arg0) {
+    Struct_0207fdcc_2 *var0     = arg0->unknown_89c_;
+    unsigned char var1  = 6;
+    unsigned char *var2 = func_02081da8(var0, 3);
+    if (var2) {
+        if (!func_0204c7cc(var2)) return;
+        short var3 = 7;
+        short var4 = (short) (arg0->unknown_1014_ * 6);
+        for (unsigned char var5 = 0; var5 < 6; var5++) {
+            Struct_020dee58 *var6 = func_020dedd0(&arg0->unknown_874_,
+                                                                                arg0->unknown_848_[var4]);
+            if (var6) {
+                short var7, var8;
+                func_020809c4(var0, 3, var3, &var7, &var8);
+                int var9 = func_020dee58(var6);
+                func_ov003_0217585c(arg0, var7, var8 - 1, (var9 + 6) & 0xff, var1);
             }
-            k++;
-            a++;
-            b++;
+            var1++;
+            var3++;
+            var4++;
         }
         return;
     }
-    if (self->state == 0x77) {
-        Entry02175504 *cand = 0;
-        e                   = func_02081da8(obj, 0x15);
-        if (e && func_0204c7cc(e)) cand = (Entry02175504 *) e;
-        e = func_02081da8(obj, 0x16);
-        if (e && func_0204c7cc(e)) cand = (Entry02175504 *) e;
-        e = func_02081da8(obj, 0x1e);
-        if (e && func_0204c7cc(e)) cand = (Entry02175504 *) e;
-        if (cand) {
-            int cx = cand->x_;
-            int cy = cand->y_;
-            cx     = (short) (cx << 3) + 3;
-            cy     = (short) (cy << 3) + 3;
+    if (arg0->unknown_100c_ == 0x77) {
+        Struct_ov003_02175504 *var10 = 0;
+        var2                   = func_02081da8(var0, 0x15);
+        if (var2 && func_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
+        var2 = func_02081da8(var0, 0x16);
+        if (var2 && func_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
+        var2 = func_02081da8(var0, 0x1e);
+        if (var2 && func_0204c7cc(var2)) var10 = (Struct_ov003_02175504 *) var2;
+        if (var10) {
+            int var11 = var10->unknown_ac_;
+            int var12 = var10->unknown_ae_;
+            var11     = (short) (var11 << 3) + 3;
+            var12     = (short) (var12 << 3) + 3;
 #if defined(jpn)
-            func_ov003_0217585c(self, cx, cy, data_ov003_0217e34d[(self->selection + (k - 0x124)) & 0xff], k);
+            func_ov003_0217585c(arg0, var11, var12, data_ov003_0217e34d[(arg0->unknown_1012_ + (var1 - 0x124)) & 0xff], var1);
 #else
-            func_ov003_0217585c(self, cx, cy, data_ov003_0217fabd[(self->selection + (k - 0x124)) & 0xff], k);
+            func_ov003_0217585c(arg0, var11, var12, data_ov003_0217fabd[(arg0->unknown_1012_ + (var1 - 0x124)) & 0xff], var1);
 #endif
             return;
         }
     }
-    if (self->updateEnabled == 0) return;
-    if (self->selectedIndex < 0) return;
-    e = func_02081da8(obj, 0xe);
-    if (!e) return;
-    if (!func_0204c7e0(e)) return;
-    short a = 0x68;
-    for (unsigned char i = 0; i < 8; i++) {
-        short x, y;
-        func_020809c4(obj, 0xe, a, &x, &y);
+    if (arg0->unknown_ff8_ == 0) return;
+    if (arg0->unknown_ffe_ < 0) return;
+    var2 = func_02081da8(var0, 0xe);
+    if (!var2) return;
+    if (!func_0204c7e0(var2)) return;
+    short var13 = 0x68;
+    for (unsigned char var14 = 0; var14 < 8; var14++) {
+        short var15, var16;
+        func_020809c4(var0, 0xe, var13, &var15, &var16);
 #if defined(jpn)
-        func_ov003_0217585c(self, x, y - 1, data_ov003_0217e32c[i], k);
+        func_ov003_0217585c(arg0, var15, var16 - 1, data_ov003_0217e32c[var14], var1);
 #else
-        func_ov003_0217585c(self, x, y - 1, data_ov003_0217fa9c[i], k);
+        func_ov003_0217585c(arg0, var15, var16 - 1, data_ov003_0217fa9c[var14], var1);
 #endif
-        a++;
-        k++;
+        var13++;
+        var1++;
     }
 }

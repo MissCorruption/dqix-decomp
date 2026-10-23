@@ -7,65 +7,65 @@ struct GameResources;
 extern "C" int func_020421a0(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void func_ov017_021b6c78(void);
-struct Obj020397cc;
-extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
-extern "C" void func_ov017_021afb8c(char* self, char* name);
-extern "C" void* __clear(void* dst, int count);
-extern "C" void func_02042764(char* name, void* buf, int flag);
-extern "C" void func_ov017_0218b5c0(int set, int bit);
-extern "C" void func_020daf9c(int a, int b, int c, int d);
-extern "C" void func_ov017_0219aa5c(unsigned char* obj);
-extern "C" int func_ov017_0218d268(void* obj);
-struct ThreeByteStruct;
-extern "C" void func_020966cc(struct ThreeByteStruct* s);
-extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+struct Struct_02018300_3;
+extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void func_ov017_021afb8c(char* arg0, char* arg1);
+extern "C" void* __clear(void* arg0, int arg1);
+extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
+extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
+extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov017_0219aa5c(unsigned char* arg0);
+extern "C" int func_ov017_0218d268(void* arg0);
+struct Struct_020966cc;
+extern "C" void func_020966cc(struct Struct_020966cc* arg0);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 
 // USA: func_ov017_021afcec
-extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
+extern "C" ARM int func_ov017_021afcec(unsigned char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x214};
+ enum {Enum_ov017_021afcec_644=0x214};
 #else
- enum {regionalOffset0=0x284};
+ enum {Enum_ov017_021afcec_644=0x284};
 #endif
-    GameState* bs = GameState::GetInstance();
-    GameResources* ov = GetGameResources();
-    unsigned char* g = (unsigned char*)func_020421a0();
-    unsigned int* dataPtr = (unsigned int*)func_020d6c00();
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    unsigned char* var2 = (unsigned char*)func_020421a0();
+    unsigned int* var3 = (unsigned int*)func_020d6c00();
 
-    if (obj[9] == 2) {
+    if (arg0[9] == 2) {
         func_ov017_021b6c78();
     }
-    if (obj[regionalOffset0] != 0) {
-        GameObject* c = bs->GetUnknownGameObject();
-        if (c != NULL) {
-            func_020397cc((struct Obj020397cc*)c, 0);
+    if (arg0[Enum_ov017_021afcec_644] != 0) {
+        GameObject* var4 = var0->GetUnknownGameObject();
+        if (var4 != NULL) {
+            func_020397cc((struct Struct_02018300_3*)var4, 0);
         }
     }
-    if (obj[9] != 2) {
-        func_ov017_021afb8c((char*)obj, (char*)obj + 0xe);
+    if (arg0[9] != 2) {
+        func_ov017_021afb8c((char*)arg0, (char*)arg0 + 0xe);
 #if defined(jpn)
-        strcpy(ov->partyNames[obj[0xc]], (char*)obj + 0xe);
+        strcpy(var1->unknown_435c_[arg0[0xc]], (char*)arg0 + 0xe);
 
 #else
-        char* dst = ov->partyNames[obj[0xc]];
-        char buf[0x30];
-        __clear(buf, 0x30);
-        func_02042764((char*)obj + 0xe, buf, 1);
-        strcpy(dst, buf);
+        char* var5 = var1->unknown_435c_[arg0[0xc]];
+        char var6[0x30];
+        __clear(var6, 0x30);
+        func_02042764((char*)arg0 + 0xe, var6, 1);
+        strcpy(var5, var6);
 
 #endif
     }
-    SetFlags04(ov, 0x40);
+    SetFlags04(var1, 0x40);
     func_ov017_0218b5c0(0, -1);
     func_020daf9c(1, 1, 0, 1);
 #if defined(jpn)
-    g[0x17ff] |= 4;
+    var2[0x17ff] |= 4;
 #else
-    g[0x1000 + 0x9d0] = 1;
+    var2[0x1000 + 0x9d0] = 1;
 #endif
 
-    func_ov017_0219aa5c((unsigned char*)ov);
-    func_020966cc((struct ThreeByteStruct*)func_ov017_0218d268(ov));
-    func_020466e4(dataPtr, 0x40000);
+    func_ov017_0219aa5c((unsigned char*)var1);
+    func_020966cc((struct Struct_020966cc*)func_ov017_0218d268(var1));
+    func_020466e4(var3, 0x40000);
     return 1;
 }

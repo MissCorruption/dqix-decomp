@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { CursorOffset = 0x1ac6, SeparatorOffset = 0xaa4, NamesOffset = 0x8 };
+enum { Enum_ov002_0215f4e8_7166 = 0x1ac6, Enum_ov002_0215f4e8_3036 = 0xaa4, Enum_ov002_0215f4e8_32 = 0x8 };
 #define func_02041cc0 func_0204234c
 #else
-enum { CursorOffset = 0x1bfe, SeparatorOffset = 0xbdc, NamesOffset = 0x20 };
+enum { Enum_ov002_0215f4e8_7166 = 0x1bfe, Enum_ov002_0215f4e8_3036 = 0xbdc, Enum_ov002_0215f4e8_32 = 0x20 };
 #endif
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310 *c, int key);
-extern "C" int func_02041c08(char *dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char *dst, int cursor);
-extern "C" const char *func_020e51cc(int key);
-extern "C" int func_02042058(char *dst, const char *src);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char *arg0, int arg1);
+extern "C" const char *func_020e51cc(int arg0);
+extern "C" int func_02042058(char *arg0, const char *arg1);
 #if defined(jpn)
-extern "C" int func_0204234c(char *dst, int a);
+extern "C" int func_0204234c(char *arg0, int arg1);
 #else
-extern "C" int func_02041cc0(char *dst, int a);
+extern "C" int func_02041cc0(char *arg0, int arg1);
 #endif
-extern "C" int func_02041a90(char *dst, int x, int y);
-extern "C" int func_02041e70(char *dst, int palette);
-extern "C" int func_02041b70(char *dst, int n, const char *name);
-extern "C" void func_ov002_02156080(void *self, short *out, short *outCount);
-extern "C" int func_ov002_02161920(void *self);
+extern "C" int func_02041a90(char *arg0, int arg1, int arg2);
+extern "C" int func_02041e70(char *arg0, int arg1);
+extern "C" int func_02041b70(char *arg0, int arg1, const char *arg2);
+extern "C" void func_ov002_02156080(void *arg0, short *arg1, short *arg2);
+extern "C" int func_ov002_02161920(void *arg0);
 
 // USA: func_ov002_0215f4e8
-extern "C" ARM void func_ov002_0215f4e8(unsigned char *base, char *dst, int flag) {
-    if (dst == NULL) return;
+extern "C" ARM void func_ov002_0215f4e8(unsigned char *arg0, char *arg1, int arg2) {
+    if (arg1 == NULL) return;
 
-    int cursor = *(short *) (base + CursorOffset);
-    if (flag) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    int var0 = *(short *) (arg0 + Enum_ov002_0215f4e8_7166);
+    if (arg2) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var0);
 #if defined(jpn)
-    func_02042058(dst, (const char *) func_020e0434((struct Container020e0310 *) (base + NamesOffset), 0xfa0));
+    func_02042058(arg1, (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + Enum_ov002_0215f4e8_32), 0xfa0));
 #else
-    func_02042058(dst, func_020e51cc(0x16));
+    func_02042058(arg1, func_020e51cc(0x16));
 #endif
-    func_02042058(dst, *(const char **) (base + 0x1000 + SeparatorOffset));
-    func_02041cc0(dst, 0x18);
-    func_02041a90(dst, 0xc, 0x1f);
+    func_02042058(arg1, *(const char **) (arg0 + 0x1000 + Enum_ov002_0215f4e8_3036));
+    func_02041cc0(arg1, 0x18);
+    func_02041a90(arg1, 0xc, 0x1f);
 
-    short count = 0;
-    short list[9];
-    func_ov002_02156080(base, list, &count);
-    int mode = func_ov002_02161920(base);
-    for (unsigned char i = 0; i < count; i++) {
-        short v = list[i];
-        if (mode == 1 && v == 6) {
-            func_02041e70(dst, 3);
+    short var1 = 0;
+    short var2[9];
+    func_ov002_02156080(arg0, var2, &var1);
+    int var3 = func_ov002_02161920(arg0);
+    for (unsigned char var4 = 0; var4 < var1; var4++) {
+        short var5 = var2[var4];
+        if (var3 == 1 && var5 == 6) {
+            func_02041e70(arg1, 3);
         }
-        func_02041b70(dst, i,
-                      (const char *) func_020e0434((struct Container020e0310 *) (base + NamesOffset), (short) (v + 0xfa1)));
-        if (i != count - 1) {
-            func_02042058(dst, *(const char **) (base + 0x1000 + SeparatorOffset));
+        func_02041b70(arg1, var4,
+                      (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + Enum_ov002_0215f4e8_32), (short) (var5 + 0xfa1)));
+        if (var4 != var1 - 1) {
+            func_02042058(arg1, *(const char **) (arg0 + 0x1000 + Enum_ov002_0215f4e8_3036));
         }
-        if (mode == 1 && v == 6) {
-            func_02041e70(dst, 0xf);
+        if (var3 == 1 && var5 == 6) {
+            func_02041e70(arg1, 0xf);
         }
     }
 }

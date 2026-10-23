@@ -2,170 +2,170 @@
 #include "World/Object3D.h"
 
 #if defined(jpn)
-enum { EntryListOffset = 0x14 };
+enum { Enum_020771fc_24 = 0x14 };
 #else
-enum { EntryListOffset = 0x18 };
+enum { Enum_020771fc_24 = 0x18 };
 #endif
 
-struct TableEntry_020771fc {
-    char pad0[4];
-    short x;
-    short y;
-    short z;
+struct Struct_020771fc {
+    char unknown_0_[4];
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
 };
 
-struct Actor_020771fc {
-    char pad0[2];
-    short f2;
-    short f4;
-    char pad6[0x3e];
-    Vector3i pos44;
-    Vector3i vec50;
-    char pad5c[0xae - 0x5c];
-    short fae;
-    char padb0[2];
-    unsigned short fb2;
-    unsigned short fb4;
-    char padb6[0x139 - 0xb6];
-    unsigned char mode;
-    char pad13a[0x154 - 0x13a];
-    int f154;
-    Vector3i pos158;
-    unsigned short f164;
-    char pad166[0x17c - 0x166];
-    unsigned char f17c;
+struct Struct_020771fc_2 {
+    char unknown_0_[2];
+    short unknown_2_;
+    short unknown_4_;
+    char unknown_6_[0x3e];
+    Vector3i unknown_44_;
+    Vector3i unknown_50_;
+    char unknown_5c_[0xae - 0x5c];
+    short unknown_ae_;
+    char unknown_b0_[2];
+    unsigned short unknown_b2_;
+    unsigned short unknown_b4_;
+    char unknown_b6_[0x139 - 0xb6];
+    unsigned char unknown_139_;
+    char unknown_13a_[0x154 - 0x13a];
+    int unknown_154_;
+    Vector3i unknown_158_;
+    unsigned short unknown_164_;
+    char unknown_166_[0x17c - 0x166];
+    unsigned char unknown_17c_;
 };
 
-struct Entry_02028bd0;
-struct List_020283c0;
-struct Obj02033b68;
-struct BitFlag02033f44;
-struct Obj02033834;
-struct SearchStruct0202c1a4;
-struct Probe_02012fe4 {
-    unsigned short key;
+struct Struct_020fdd44;
+struct Struct_0201a300_11;
+struct Struct_02033b68;
+struct Struct_02033f44;
+struct Struct_02033834_2;
+struct Struct_0202c1a4;
+struct Struct_020771fc_3 {
+    unsigned short unknown_0_;
 #if defined(jpn)
-    char pad2[0x442];
+    char unknown_2_[0x442];
 #else
-    char pad2[0x422];
+    char unknown1_2_[0x422];
 #endif
-    int f424;
+    int unknown_424_;
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* g);
-extern "C" int func_020322c0(void* p, int* s);
-extern "C" void func_020794f8(Actor_020771fc* obj, int a, int b);
-extern "C" Probe_02012fe4* func_02012fe4(void);
-extern "C" int func_02018fbc(Probe_02012fe4* p, Vector3i* d);
-extern "C" void func_ov017_021c9400(int id, int slot, int heading, Vector3i pos, Vector3i vec, int last);
-extern "C" int func_0202c1a4(SearchStruct0202c1a4* s);
-extern "C" int func_0202b7d8(int* g);
-extern "C" Entry_02028bd0* func_02027ca4(void);
-extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* base, int key);
-extern "C" TableEntry_020771fc* func_020283c0(List_020283c0* list, int key);
-extern "C" void func_02033b68(Obj02033b68* obj, int value);
-extern "C" void* func_02033f44(BitFlag02033f44* obj);
-extern "C" void func_02076ccc(void* obj, int mode);
-extern "C" void func_02033834(Obj02033834* obj, int value);
+extern "C" int func_0202c508(void* arg0);
+extern "C" int func_020322c0(void* arg0, int* arg1);
+extern "C" void func_020794f8(Struct_020771fc_2* arg0, int arg1, int arg2);
+extern "C" Struct_020771fc_3* func_02012fe4(void);
+extern "C" int func_02018fbc(Struct_020771fc_3* arg0, Vector3i* arg1);
+extern "C" void func_ov017_021c9400(int arg0, int arg1, int arg2, Vector3i arg3, Vector3i arg4, int arg5);
+extern "C" int func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" Struct_020fdd44* func_02027ca4(void);
+extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+extern "C" Struct_020771fc* func_020283c0(Struct_0201a300_11* arg0, int arg1);
+extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
+extern "C" void* func_02033f44(Struct_02033f44* arg0);
+extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
 
 // USA: func_020771fc
-extern "C" ARM void func_020771fc(Actor_020771fc* obj) {
-    void* g = func_0202ae18();
-    Vector3i a = obj->pos44;
-    a.y = 0;
-    Vector3i b = obj->pos158;
-    b.y = 0;
-    int dist = Vector3fix_Distance(&a, &b);
-    func_02033b68((Obj02033b68*)obj, 1);
-    switch (obj->mode) {
+extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
+    void* var0 = func_0202ae18();
+    Vector3i var1 = arg0->unknown_44_;
+    var1.y = 0;
+    Vector3i var2 = arg0->unknown_158_;
+    var2.y = 0;
+    int var3 = Vector3fix_Distance(&var1, &var2);
+    func_02033b68((Struct_02033b68*)arg0, 1);
+    switch (arg0->unknown_139_) {
     case 0:
-        obj->fb4 = 0;
-        obj->fb2 = 0;
+        arg0->unknown_b4_ = 0;
+        arg0->unknown_b2_ = 0;
         break;
     case 1:
-        obj->fb4 = 0x9a;
-        obj->fb2 = 0x9a;
+        arg0->unknown_b4_ = 0x9a;
+        arg0->unknown_b2_ = 0x9a;
         break;
     case 2:
-        obj->fb4 = 0xe6;
-        obj->fb2 = 0xe6;
+        arg0->unknown_b4_ = 0xe6;
+        arg0->unknown_b2_ = 0xe6;
         break;
     case 3:
-        obj->fb4 = 0x1c2;
-        obj->fb2 = 0x1c2;
+        arg0->unknown_b4_ = 0x1c2;
+        arg0->unknown_b2_ = 0x1c2;
         break;
     }
-    int moved = 0;
-    void* p = func_02033f44((BitFlag02033f44*)obj);
-    int found = 0;
-    if (p != 0) {
-        int s = obj->fae;
-        if (func_020322c0(p, &s) < 0x199) {
-            found = 1;
+    int var4 = 0;
+    void* var5 = func_02033f44((Struct_02033f44*)arg0);
+    int var6 = 0;
+    if (var5 != 0) {
+        int var7 = arg0->unknown_ae_;
+        if (func_020322c0(var5, &var7) < 0x199) {
+            var6 = 1;
         }
     }
-    if (found != 0) {
-        func_02076ccc(obj, 1);
-        obj->f154 = 0;
-        obj->f17c = 1;
-        if (func_0202b7d8((int*)g) != 0) {
-            func_020794f8(obj, 0, 1);
+    if (var6 != 0) {
+        func_02076ccc(arg0, 1);
+        arg0->unknown_154_ = 0;
+        arg0->unknown_17c_ = 1;
+        if (func_0202b7d8((int*)var0) != 0) {
+            func_020794f8(arg0, 0, 1);
         }
         return;
     }
-    if (p == 0) {
-        Vector3i c;
-        Vector3fix_Subtract(&obj->pos158, &a, &c);
-        if (Vector3fix_Length(&c) < 0x1000) {
-            moved = 1;
-            func_02076ccc(obj, 1);
+    if (var5 == 0) {
+        Vector3i var8;
+        Vector3fix_Subtract(&arg0->unknown_158_, &var1, &var8);
+        if (Vector3fix_Length(&var8) < 0x1000) {
+            var4 = 1;
+            func_02076ccc(arg0, 1);
         }
-        Vector3fix_Normalize(&c, &c);
-        func_02033834((Obj02033834*)obj, fix32_Atan2(c.x, c.z));
+        Vector3fix_Normalize(&var8, &var8);
+        func_02033834((Struct_02033834_2*)arg0, fix32_Atan2(var8.x, var8.z));
     }
-    if (dist < 0x1000) {
-        Vector3i d = obj->pos44;
-        if (func_0202c508(g) != 0) {
-            Entry_02028bd0* table = func_02027ca4();
-            int id = ((Object3D*)obj)->GetField06();
-            Entry_02028bd0* entry = func_02028bd0(table, id);
-            if (entry != 0) {
-                List_020283c0* list = (List_020283c0*)((char*)entry + EntryListOffset);
-                if (list != 0) {
-                    TableEntry_020771fc* row = func_020283c0(list, obj->f164);
-                    if (row != 0) {
-                        d.y = row->y << 0xc;
-                        obj->pos44 = d;
+    if (var3 < 0x1000) {
+        Vector3i var9 = arg0->unknown_44_;
+        if (func_0202c508(var0) != 0) {
+            Struct_020fdd44* var10 = func_02027ca4();
+            int var11 = ((Object3D*)arg0)->GetField06();
+            Struct_020fdd44* var12 = func_02028bd0(var10, var11);
+            if (var12 != 0) {
+                Struct_0201a300_11* var13 = (Struct_0201a300_11*)((char*)var12 + Enum_020771fc_24);
+                if (var13 != 0) {
+                    Struct_020771fc* var14 = func_020283c0(var13, arg0->unknown_164_);
+                    if (var14 != 0) {
+                        var9.y = var14->unknown_6_ << 0xc;
+                        arg0->unknown_44_ = var9;
                     }
                 }
             }
-            Probe_02012fe4* probe = func_02012fe4();
-            unsigned short key = probe->key;
-            if (key == ((Object3D*)obj)->GetField06() && probe->f424 == 0) {
-                d.y = func_02018fbc(probe, &d);
-                obj->pos44 = d;
+            Struct_020771fc_3* var15 = func_02012fe4();
+            unsigned short var16 = var15->unknown_0_;
+            if (var16 == ((Object3D*)arg0)->GetField06() && var15->unknown_424_ == 0) {
+                var9.y = func_02018fbc(var15, &var9);
+                arg0->unknown_44_ = var9;
             }
         }
-        moved = 1;
-        func_02076ccc(obj, 1);
+        var4 = 1;
+        func_02076ccc(arg0, 1);
     }
-    if (moved == 0) {
+    if (var4 == 0) {
         return;
     }
-    if (func_0202b7d8((int*)g) == 0) {
+    if (func_0202b7d8((int*)var0) == 0) {
         return;
     }
-    if (func_0202c1a4((SearchStruct0202c1a4*)g) != 0) {
+    if (func_0202c1a4((Struct_0202c1a4*)var0) != 0) {
         return;
     }
-    int id = ((Object3D*)obj)->GetField06();
-    int heading = obj->f2;
-    int wanted = obj->f4 - 0x70;
-    Vector3i* pos = &obj->pos44;
-    Vector3i* vec = &obj->vec50;
-    int slot = wanted % 0xc;
-    if (slot >= 0 && slot < 0xc) {
-        func_ov017_021c9400(id, slot, heading, *pos, *vec, -1);
+    int var17 = ((Object3D*)arg0)->GetField06();
+    int var18 = arg0->unknown_2_;
+    int var19 = arg0->unknown_4_ - 0x70;
+    Vector3i* var20 = &arg0->unknown_44_;
+    Vector3i* var21 = &arg0->unknown_50_;
+    int var22 = var19 % 0xc;
+    if (var22 >= 0 && var22 < 0xc) {
+        func_ov017_021c9400(var17, var22, var18, *var20, *var21, -1);
     }
 }

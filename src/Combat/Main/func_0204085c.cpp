@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kValueOffset = 0x2c8 };
+enum { Enum_0204085c_724 = 0x2c8 };
 #else
-enum { kValueOffset = 0x2d4 };
+enum { Enum_0204085c_724 = 0x2d4 };
 #endif
 
-struct State0xcda8;
-extern "C" void func_0203cda8(struct State0xcda8* obj, int value);
-extern "C" void func_0203db34(unsigned char* obj, int a, int b, int c);
+struct Struct_0203cda8;
+extern "C" void func_0203cda8(struct Struct_0203cda8* arg0, int arg1);
+extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 
-struct Obj0204085c {
-    char pad[0x14];
-    struct State0xcda8* field14;
-    unsigned char* field18;
-    unsigned char* field1c;
+struct Struct_0203d028_16 {
+    char unknown_0_[0x14];
+    struct Struct_0203cda8* unknown_14_;
+    unsigned char* unknown_18_;
+    unsigned char* unknown_1c_;
 };
 
 // USA: func_0204085c
-extern "C" ARM void func_0204085c(struct Obj0204085c* obj, int a, int b, int c) {
-    struct State0xcda8* p;
-    unsigned char* q;
-    p = obj->field14;
-    if (p != NULL) {
-        *(int*)((char*)p + 0x10) = a;
-        *(int*)((char*)p + 0x14) = b;
-        *(int*)((char*)p + 0x18) = c;
-        func_0203cda8(obj->field14, b);
+extern "C" ARM void func_0204085c(struct Struct_0203d028_16* arg0, int arg1, int arg2, int arg3) {
+    struct Struct_0203cda8* var0;
+    unsigned char* var1;
+    var0 = arg0->unknown_14_;
+    if (var0 != NULL) {
+        *(int*)((char*)var0 + 0x10) = arg1;
+        *(int*)((char*)var0 + 0x14) = arg2;
+        *(int*)((char*)var0 + 0x18) = arg3;
+        func_0203cda8(arg0->unknown_14_, arg2);
         return;
     }
-    q = obj->field18;
-    if (q != NULL) {
-        func_0203db34(q, a, b, c);
-        q = obj->field18;
-        *(int*)(q + 0xb0) = b;
+    var1 = arg0->unknown_18_;
+    if (var1 != NULL) {
+        func_0203db34(var1, arg1, arg2, arg3);
+        var1 = arg0->unknown_18_;
+        *(int*)(var1 + 0xb0) = arg2;
         return;
     }
-    q = obj->field1c;
-    if (q == NULL) {
+    var1 = arg0->unknown_1c_;
+    if (var1 == NULL) {
         return;
     }
-    func_0203db34(q, a, b, c);
-    q = obj->field1c;
-    *(int*)(q + kValueOffset) = b;
+    func_0203db34(var1, arg1, arg2, arg3);
+    var1 = arg0->unknown_1c_;
+    *(int*)(var1 + Enum_0204085c_724) = arg2;
 }

@@ -3,6 +3,6 @@
 #include "GameState/GameState.h"
 
 // USA: func_020100bc
-extern "C" ARM void* func_020100bc(GameState* battleStruct) {
-    return battleStruct->unknown_3b0_;
+extern "C" ARM void* func_020100bc(GameState* arg0) {
+    return arg0->unknown_3b0_;
 }

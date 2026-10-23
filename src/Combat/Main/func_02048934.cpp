@@ -3,26 +3,26 @@
 
 extern "C" float _ffltu(unsigned int v);
 extern "C" float _fmul(float a, float b);
-extern "C" float _fadd(float a, float b);
+extern "C" float _fadd(float arg0, float arg1);
 extern "C" unsigned int _ffixu(float v);
 
-struct FieldStruct02048934 {
-    char pad0[0x5c];
-    unsigned short field5c;
-    unsigned short field5e;
+struct Struct_02048934 {
+    char unknown_0_[0x5c];
+    unsigned short unknown_5c_;
+    unsigned short unknown_5e_;
 };
 
-struct Obj02048934 {
-    char pad0[0x188];
-    unsigned short field188;
-    unsigned short field18a;
+struct Struct_02048934_2 {
+    char unknown_0_[0x188];
+    unsigned short unknown_188_;
+    unsigned short unknown_18a_;
 };
 
 // USA: func_02048934
-extern "C" ARM void func_02048934(void* p, struct FieldStruct02048934* f, struct Random* r) {
-    if (f != NULL) {
-        unsigned short v = f->field5c;
-        ((struct Obj02048934*)p)->field188 = 0.5f + v * NextRandomFloatBetween(r, 0.8f, 1.0f);
-        ((struct Obj02048934*)p)->field18a = f->field5e;
+extern "C" ARM void func_02048934(void* arg0, struct Struct_02048934* arg1, struct Random* arg2) {
+    if (arg1 != NULL) {
+        unsigned short var0 = arg1->unknown_5c_;
+        ((struct Struct_02048934_2*)arg0)->unknown_188_ = 0.5f + var0 * NextRandomFloatBetween(arg2, 0.8f, 1.0f);
+        ((struct Struct_02048934_2*)arg0)->unknown_18a_ = arg1->unknown_5e_;
     }
 }

@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct EntryList020bbc68;
-struct Ring020bbc78;
-struct Job020bbc38 { char pad[0xc]; int size; };
+struct Struct_020bbc68_2;
+struct Struct_020bbc78;
+struct Struct_020bbc38 { char unknown_0_[0xc]; int unknown_c_; };
 
-extern "C" Job020bbc38* func_020bbc68(EntryList020bbc68* list);
-extern "C" int func_020bbc78(Ring020bbc78* ring);
-extern "C" int func_020bbc38(Job020bbc38* job);
+extern "C" Struct_020bbc38* func_020bbc68(Struct_020bbc68_2* arg0);
+extern "C" int func_020bbc78(Struct_020bbc78* arg0);
+extern "C" int func_020bbc38(Struct_020bbc38* arg0);
 
 extern char data_0210cf94[];
 
 // USA: func_020bbcb4
 extern "C" ARM void func_020bbcb4(void) {
-    char* q = data_0210cf94;
-    Job020bbc38* job = func_020bbc68((EntryList020bbc68*)q);
-    if (!func_020bbc78((Ring020bbc78*)q)) return;
+    char* var0 = data_0210cf94;
+    Struct_020bbc38* var1 = func_020bbc68((Struct_020bbc68_2*)var0);
+    if (!func_020bbc78((Struct_020bbc78*)var0)) return;
     do {
-        func_020bbc38(job);
-        *(int*)(q + 0x10) -= job->size;
-        job = func_020bbc68((EntryList020bbc68*)q);
-    } while (func_020bbc78((Ring020bbc78*)q));
+        func_020bbc38(var1);
+        *(int*)(var0 + 0x10) -= var1->unknown_c_;
+        var1 = func_020bbc68((Struct_020bbc68_2*)var0);
+    } while (func_020bbc78((Struct_020bbc78*)var0));
 }

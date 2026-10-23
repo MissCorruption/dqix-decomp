@@ -2,20 +2,20 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-struct Node021d6148;
-extern "C" void func_ov017_021d6148(Node021d6148* o, unsigned int v);
+struct Struct_ov001_0215af34;
+extern "C" void func_ov017_021d6148(Struct_ov001_0215af34* arg0, unsigned int arg1);
 extern "C" unsigned int _fflt(int);
 extern "C" unsigned int _fdiv(unsigned int, unsigned int);
 
-struct Vec3Int_0215db3c { int a, b, c; };
+struct Struct_ov001_0215db3c { int unknown_0_, unknown_4_, unknown_8_; };
 
 // USA: func_ov001_0215db3c
-extern "C" ARM int func_ov001_0215db3c(void* self) {
-    int* base = (int*)func_020100bc(GameState::GetInstance());
-    if (base == NULL) return 0;
-    Vec3Int_0215db3c v = *(Vec3Int_0215db3c*)((char*)base + 0x70);
-    func_ov017_021d6148((Node021d6148*)self, _fdiv(_fflt(v.a), 0x45800000u));
-    func_ov017_021d6148((Node021d6148*)((char*)self + 0x8), _fdiv(_fflt(v.b), 0x45800000u));
-    func_ov017_021d6148((Node021d6148*)((char*)self + 0x10), _fdiv(_fflt(v.c), 0x45800000u));
+extern "C" ARM int func_ov001_0215db3c(void* arg0) {
+    int* var0 = (int*)func_020100bc(GameState::GetInstance());
+    if (var0 == NULL) return 0;
+    Struct_ov001_0215db3c var1 = *(Struct_ov001_0215db3c*)((char*)var0 + 0x70);
+    func_ov017_021d6148((Struct_ov001_0215af34*)arg0, _fdiv(_fflt(var1.unknown_0_), 0x45800000u));
+    func_ov017_021d6148((Struct_ov001_0215af34*)((char*)arg0 + 0x8), _fdiv(_fflt(var1.unknown_4_), 0x45800000u));
+    func_ov017_021d6148((Struct_ov001_0215af34*)((char*)arg0 + 0x10), _fdiv(_fflt(var1.unknown_8_), 0x45800000u));
     return 1;
 }

@@ -3,10 +3,10 @@
 #define data_021023c0 data_02102100
 #endif
 
-struct BattleDispatchState { char pad0[0x10]; int state_; char pad14[0x34 - 0x14]; int mode_; };
-struct BattleEffectContext { char data_[0x820]; };
-extern BattleDispatchState data_021015a0;
-extern BattleEffectContext data_021023c0, data_02102be0;
+struct Struct_021015a0_7 { char unknown_0_[0x10]; int unknown_10_; char unknown_14_[0x34 - 0x14]; int unknown_34_; };
+struct Struct_021023c0 { char unknown_0_[0x820]; };
+extern Struct_021015a0_7 data_021015a0;
+extern Struct_021023c0 data_021023c0, data_02102be0;
 extern "C" int func_0202d0b4();
 extern "C" void func_0202dd28();
 extern "C" int func_020d68d0(void*);
@@ -15,34 +15,34 @@ extern "C" int func_0202d54c();
 extern "C" int func_020d5f88(void*);
 extern "C" int func_0202cca4();
 
-static inline int CurrentState() { return data_021015a0.state_; }
+static inline int inline_0202dd98() { return data_021015a0.unknown_10_; }
 
 // USA: func_0202dd98
 extern "C" ARM void func_0202dd98() {
-    if (data_021015a0.state_ == 1) return;
-    if (data_021015a0.state_ == 2) {
+    if (data_021015a0.unknown_10_ == 1) return;
+    if (data_021015a0.unknown_10_ == 2) {
         if (!func_0202d0b4()) func_0202dd28();
         return;
     }
-    if (data_021015a0.state_ != 6 && data_021015a0.state_ != 5 && data_021015a0.state_ != 4) {
-        data_021015a0.state_ = 3;
+    if (data_021015a0.unknown_10_ != 6 && data_021015a0.unknown_10_ != 5 && data_021015a0.unknown_10_ != 4) {
+        data_021015a0.unknown_10_ = 3;
         func_0202dd28();
         return;
     }
-    data_021015a0.state_ = 3;
-    switch (data_021015a0.mode_) {
+    data_021015a0.unknown_10_ = 3;
+    switch (data_021015a0.unknown_34_) {
     case 3: {
-        int result;
-        int state = CurrentState();
-        if (state != 6) result = 0;
+        int var0;
+        int var1 = inline_0202dd98();
+        if (var1 != 6) var0 = 0;
         else {
-            data_021015a0.state_ = state;
-            int status = func_020d68d0(&data_021023c0);
-            if (status) { func_0202c848(status); result = 0; }
-            else if (!func_0202d54c()) result = 0;
-            else result = 1;
+            data_021015a0.unknown_10_ = var1;
+            int var2 = func_020d68d0(&data_021023c0);
+            if (var2) { func_0202c848(var2); var0 = 0; }
+            else if (!func_0202d54c()) var0 = 0;
+            else var0 = 1;
         }
-        if (!result) func_0202dd28();
+        if (!var0) func_0202dd28();
         break;
     }
     case 5:
@@ -51,12 +51,12 @@ extern "C" ARM void func_0202dd98() {
         if (!func_0202d54c()) func_0202dd28();
         break;
     case 2: {
-        int result;
-        int status = func_020d68d0(&data_021023c0);
-        if (status) { func_0202c848(status); result = 0; }
-        else if (func_0202cca4()) result = 1;
-        else { func_0202dd28(); result = 0; }
-        if (!result) func_0202dd28();
+        int var3;
+        int var4 = func_020d68d0(&data_021023c0);
+        if (var4) { func_0202c848(var4); var3 = 0; }
+        else if (func_0202cca4()) var3 = 1;
+        else { func_0202dd28(); var3 = 0; }
+        if (!var3) func_0202dd28();
         break;
     }
     case 4:

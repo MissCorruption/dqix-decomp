@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct ShortField02033ec8 {
-    char pad[0xc6];
-    short field_c6;
+struct Struct_02033ec8 {
+    char unknown_0_[0xc6];
+    short unknown_c6_;
 };
 
 // USA: func_02033ec8
-extern "C" ARM int func_02033ec8(struct ShortField02033ec8* p) {
-    return p->field_c6 == 0;
+extern "C" ARM int func_02033ec8(struct Struct_02033ec8* arg0) {
+    return arg0->unknown_c6_ == 0;
 }

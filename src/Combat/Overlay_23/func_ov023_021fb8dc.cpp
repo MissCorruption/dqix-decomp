@@ -2,53 +2,53 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 
-extern "C" int func_ov011_021849d8(void* p);
+extern "C" int func_ov011_021849d8(void* arg0);
 
-struct List0202fe68;
+struct Struct_020534ac_2;
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-extern "C" char* func_020467c0(void* a, char* b, unsigned int* outSize);
+extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
 
-extern "C" void func_ov023_021fb9c4(void* obj, void* keyObj, int out1, int out2);
+extern "C" void func_ov023_021fb9c4(void* arg0, void* arg1, int arg2, int arg3);
 
-struct Obj021fb8dc {
-    char pad0[0x10];
-    char* f10;
-    char pad1c[0x1c - 0x14];
-    int field1c;
+struct Struct_ov023_021fb534 {
+    char unknown_0_[0x10];
+    char* unknown_10_;
+    char unknown_14_[0x1c - 0x14];
+    int unknown_1c_;
 };
 
 // USA: func_ov023_021fb8dc
-extern "C" ARM void func_ov023_021fb8dc(struct Obj021fb8dc* obj, void* keyObj) {
-    void* listPtr = (void*)(int)BackgroundLoader::GetInstance();
-    int key = func_ov011_021849d8(keyObj);
-    if (key < 0) {
+extern "C" ARM void func_ov023_021fb8dc(struct Struct_ov023_021fb534* arg0, void* arg1) {
+    void* var0 = (void*)(int)BackgroundLoader::GetInstance();
+    int var1 = func_ov011_021849d8(arg1);
+    if (var1 < 0) {
         return;
     }
-    if (!((BackgroundLoader*)(listPtr))->GetTaskStatus((int)(key))) {
+    if (!((BackgroundLoader*)(var0))->GetTaskStatus((int)(var1))) {
         return;
     }
-    if (((BackgroundLoader*)((struct List0202fe68*)listPtr))->GetDetailedTaskStatus((int)(key)) != 2) {
-        return;
-    }
-
-    int out1, out2;
-    ((BackgroundLoader*)((struct List0202fec8*)listPtr))->GetLoadedFileByID((int)(key), (void**)(&out1), (unsigned int*)(&out2));
-
-    void* p;
-    unsigned int n;
-    if (GetFileInNarc((void*)out1, obj->f10, (const void**)&p, &n, 0)) {
-        func_ov023_021fb9c4(obj, keyObj, out1, out2);
-        obj->field1c = 2;
+    if (((BackgroundLoader*)((struct Struct_020534ac_2*)var0))->GetDetailedTaskStatus((int)(var1)) != 2) {
         return;
     }
 
-    p = func_020467c0((void*)out1, obj->f10, &n);
-    if (p == NULL) {
+    int var2, var3;
+    ((BackgroundLoader*)((struct Struct_020534ac*)var0))->GetLoadedFileByID((int)(var1), (void**)(&var2), (unsigned int*)(&var3));
+
+    void* var4;
+    unsigned int var5;
+    if (GetFileInNarc((void*)var2, arg0->unknown_10_, (const void**)&var4, &var5, 0)) {
+        func_ov023_021fb9c4(arg0, arg1, var2, var3);
+        arg0->unknown_1c_ = 2;
         return;
     }
 
-    func_ov023_021fb9c4(obj, keyObj, out1, out2);
-    obj->field1c = 2;
+    var4 = func_020467c0((void*)var2, arg0->unknown_10_, &var5);
+    if (var4 == NULL) {
+        return;
+    }
+
+    func_ov023_021fb9c4(arg0, arg1, var2, var3);
+    arg0->unknown_1c_ = 2;
 }

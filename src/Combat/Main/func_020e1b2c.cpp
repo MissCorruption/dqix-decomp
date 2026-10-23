@@ -1,109 +1,109 @@
 #include <globaldefs.h>
 
-struct SpriteRect_020e1b2c {
-    unsigned int attr;
-    unsigned int offset;
-    unsigned char x;
-    unsigned char y;
-    unsigned char width;
-    unsigned char height;
+struct Struct_020e1b2c {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
 };
 
-struct Struct020e1384 {
-    int field0;
-    int field4;
-    char pad8[4];
-    int field0xc;
-    char pad10[4];
-    unsigned char field0x14;
+struct Struct_020e1384 {
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[4];
+    int unknown_c_;
+    char unknown_10_[4];
+    unsigned char unknown_14_;
 };
 
-struct Panel020e1b2c {
-    char pad0[8];
-    struct SpriteRect_020e1b2c* rects;
-    char pad_c[0x30 - 0xc];
-    int field30;
-    int field34;
-    unsigned char x;
-    unsigned char y;
-    unsigned char width;
-    unsigned char height;
-    unsigned char count;
-    unsigned char pad3d;
-    unsigned char display;
+struct Struct_020e1b2c_2 {
+    char unknown_0_[8];
+    struct Struct_020e1b2c* unknown_8_;
+    char unknown_c_[0x30 - 0xc];
+    int unknown_30_;
+    int unknown_34_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
+    unsigned char unknown_3a_;
+    unsigned char unknown_3b_;
+    unsigned char unknown_3c_;
+    unsigned char unknown_3d_;
+    unsigned char unknown_3e_;
 };
 
-struct Obj020e1b2c {
-    char pad0[4];
-    struct Panel020e1b2c* panel;
+struct Struct_020e1b2c_3 {
+    char unknown_0_[4];
+    struct Struct_020e1b2c_2* unknown_4_;
 };
 
-struct Obj020e1674;
-struct HasDims020e1288;
+struct Struct_020e1674_2;
+struct Struct_020e1288;
 
-extern "C" unsigned int func_020e1438(struct SpriteRect_020e1b2c* out, unsigned int maxCount,
-                                      unsigned int x, unsigned int yBase,
-                                      unsigned int width, unsigned int height);
-extern "C" unsigned int func_0209378c(int engine);
-extern "C" int func_020937f0(int engine);
-extern "C" int func_020e1288(struct HasDims020e1288* obj);
-extern "C" void func_020e1384(struct Struct020e1384* obj);
-extern "C" void func_020e16f4(struct Obj020e1674* self);
+extern "C" unsigned int func_020e1438(struct Struct_020e1b2c* arg0, unsigned int arg1,
+                                      unsigned int arg2, unsigned int arg3,
+                                      unsigned int arg4, unsigned int arg5);
+extern "C" unsigned int func_0209378c(int arg0);
+extern "C" int func_020937f0(int arg0);
+extern "C" int func_020e1288(struct Struct_020e1288* arg0);
+extern "C" void func_020e1384(struct Struct_020e1384* arg0);
+extern "C" void func_020e16f4(struct Struct_020e1674_2* arg0);
 
 // USA: func_020e1b2c
-extern "C" ARM int func_020e1b2c(struct Obj020e1b2c* obj, int arg) {
-    if (obj->panel == 0) return 0;
+extern "C" ARM int func_020e1b2c(struct Struct_020e1b2c_3* arg0, int arg1) {
+    if (arg0->unknown_4_ == 0) return 0;
 
-    func_020e16f4((struct Obj020e1674*)obj);
+    func_020e16f4((struct Struct_020e1674_2*)arg0);
 
-    struct SpriteRect_020e1b2c* rects = obj->panel->rects;
-    unsigned int h = obj->panel->height;
-    unsigned int cap = obj->panel->count;
-    unsigned int w = obj->panel->width;
-    unsigned int chunk;
-    int count;
-    unsigned int y;
-    unsigned int total;
-    unsigned int height;
+    struct Struct_020e1b2c* var0 = arg0->unknown_4_->unknown_8_;
+    unsigned int var1 = arg0->unknown_4_->unknown_3b_;
+    unsigned int var2 = arg0->unknown_4_->unknown_3c_;
+    unsigned int var3 = arg0->unknown_4_->unknown_3a_;
+    unsigned int var4;
+    int var5;
+    unsigned int var6;
+    unsigned int var7;
+    unsigned int var8;
 
-    if (rects == 0 || cap == 0 || w == 0 || h == 0) {
-        count = 0;
+    if (var0 == 0 || var2 == 0 || var3 == 0 || var1 == 0) {
+        var5 = 0;
     } else {
-        count = 0;
-        total = (w + 7) & ~7u;
-        y = 0;
-        height = (h + 7) & ~7u;
-        while (y < total) {
-            if (count >= cap) break;
-            chunk = 0x40;
-            unsigned int rem = total - y;
-            while (chunk > 8 && chunk > rem) chunk >>= 1;
-            count += func_020e1438(&rects[count], cap - count, y, 0, chunk, height);
-            y += chunk;
+        var5 = 0;
+        var7 = (var3 + 7) & ~7u;
+        var6 = 0;
+        var8 = (var1 + 7) & ~7u;
+        while (var6 < var7) {
+            if (var5 >= var2) break;
+            var4 = 0x40;
+            unsigned int var9 = var7 - var6;
+            while (var4 > 8 && var4 > var9) var4 >>= 1;
+            var5 += func_020e1438(&var0[var5], var2 - var5, var6, 0, var4, var8);
+            var6 += var4;
         }
     }
-    obj->panel->count = count;
+    arg0->unknown_4_->unknown_3c_ = var5;
 
-    unsigned int offset = 0;
-    unsigned char display = obj->panel->display;
-    int prod;
-    struct SpriteRect_020e1b2c* arr;
-    unsigned int n = obj->panel->count;
-    arr = obj->panel->rects;
-    for (count = 0; count < n; count++) {
-        struct SpriteRect_020e1b2c* e = &arr[count];
-        e->offset = offset;
-        prod = e->width * e->height;
-        unsigned int mask = 1 << func_0209378c(display);
-        if (mask != 0) mask--;
-        offset += (~mask) & (mask + (prod >> 1));
+    unsigned int var10 = 0;
+    unsigned char var11 = arg0->unknown_4_->unknown_3e_;
+    int var12;
+    struct Struct_020e1b2c* var13;
+    unsigned int var14 = arg0->unknown_4_->unknown_3c_;
+    var13 = arg0->unknown_4_->unknown_8_;
+    for (var5 = 0; var5 < var14; var5++) {
+        struct Struct_020e1b2c* var15 = &var13[var5];
+        var15->unknown_4_ = var10;
+        var12 = var15->unknown_a_ * var15->unknown_b_;
+        unsigned int var16 = 1 << func_0209378c(var11);
+        if (var16 != 0) var16--;
+        var10 += (~var16) & (var16 + (var12 >> 1));
     }
-    obj->panel->field34 = offset;
+    arg0->unknown_4_->unknown_34_ = var10;
 
-    int size = func_020937f0(obj->panel->display);
-    if (arg != -1) size = arg;
-    obj->panel->field30 =
-        size - (obj->panel->field34 + func_020e1288((struct HasDims020e1288*)obj->panel));
-    func_020e1384((struct Struct020e1384*)((char*)obj->panel + 0xc));
-    return obj->panel->field30;
+    int var17 = func_020937f0(arg0->unknown_4_->unknown_3e_);
+    if (arg1 != -1) var17 = arg1;
+    arg0->unknown_4_->unknown_30_ =
+        var17 - (arg0->unknown_4_->unknown_34_ + func_020e1288((struct Struct_020e1288*)arg0->unknown_4_));
+    func_020e1384((struct Struct_020e1384*)((char*)arg0->unknown_4_ + 0xc));
+    return arg0->unknown_4_->unknown_30_;
 }

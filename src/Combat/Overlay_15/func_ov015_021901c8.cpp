@@ -18,32 +18,32 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/Matrix.h"
 
-struct EdgeColors
+struct Struct_ov015_02193d38
 {
-    unsigned short colors_[8];
+    unsigned short unknown_0_[8];
 };
 
 extern "C" void func_020c52e8();
 extern "C" void func_020c5414();
-extern "C" int func_020c555c(int a);
-extern "C" void* func_020100bc(GameState* state);
-extern "C" void func_0202e0a4(void* camera);
-extern "C" void func_020c57d4(int a, int b, int c, int d, void* e);
-extern "C" void func_020c5770(int a, int b, int c, int d, int e, int f, int g, int h, void* i);
-extern "C" void func_020d86d0(int a, int b);
-extern "C" void func_ov015_02190348(void* self);
-extern "C" void func_ov015_02190428(void* self);
-extern "C" void func_ov015_0219050c(void* self);
+extern "C" int func_020c555c(int arg0);
+extern "C" void* func_020100bc(GameState* arg0);
+extern "C" void func_0202e0a4(void* arg0);
+extern "C" void func_020c57d4(int arg0, int arg1, int arg2, int arg3, void* arg4);
+extern "C" void func_020c5770(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, void* arg8);
+extern "C" void func_020d86d0(int arg0, int arg1);
+extern "C" void func_ov015_02190348(void* arg0);
+extern "C" void func_ov015_02190428(void* arg0);
+extern "C" void func_ov015_0219050c(void* arg0);
 
-extern const EdgeColors data_ov015_02193d38;
+extern const Struct_ov015_02193d38 data_ov015_02193d38;
 extern const Vector3fix data_ov015_02193d14;
 extern const Vector3fix data_ov015_02193d2c;
 
 // USA: func_ov015_021901c8
-extern "C" ARM void func_ov015_021901c8(void* self)
+extern "C" ARM void func_ov015_021901c8(void* arg0)
 {
-    GameState* gameState = GameState::GetInstance();
-    if (gameState == NULL)
+    GameState* var0 = GameState::GetInstance();
+    if (var0 == NULL)
         return;
     func_020c52e8();
     func_020c5414();
@@ -52,28 +52,28 @@ extern "C" ARM void func_ov015_021901c8(void* self)
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x10;
     DISP3DCNT = (DISP3DCNT & ~0x3000) | 0x20;
     {
-        EdgeColors colors = data_ov015_02193d38;
-        func_020c555c((int)colors.colors_);
+        Struct_ov015_02193d38 var1 = data_ov015_02193d38;
+        func_020c555c((int)var1.unknown_0_);
     }
-    void* camera = func_020100bc(gameState);
-    if (camera != NULL)
-        func_0202e0a4(camera);
+    void* var2 = func_020100bc(var0);
+    if (var2 != NULL)
+        func_0202e0a4(var2);
     RenderConfig::SubmitToFifo();
     SendQueuedDataToGeometryFifo();
-    func_ov015_02190348(self);
+    func_ov015_02190348(arg0);
     func_020c52e8();
     func_020c5414();
     GXFIFO_MATRIX_MODE = 0;
     {
-        Vector3fix target = data_ov015_02193d14;
-        Vector3fix eye = {0};
-        Vector3fix up = data_ov015_02193d2c;
-        func_020c57d4((int)&eye, (int)&up, (int)&target, 1, NULL);
+        Vector3fix var3 = data_ov015_02193d14;
+        Vector3fix var4 = {0};
+        Vector3fix var5 = data_ov015_02193d2c;
+        func_020c57d4((int)&var4, (int)&var5, (int)&var3, 1, NULL);
     }
     func_020c5770(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, 1, NULL);
     GXFIFO_MATRIX_MODE = 2;
-    func_ov015_02190428(self);
-    func_ov015_0219050c(self);
+    func_ov015_02190428(arg0);
+    func_ov015_0219050c(arg0);
     func_020d86d0(1, 0);
-    UpdateAndApplyBrightness((GameResources*)self);
+    UpdateAndApplyBrightness((GameResources*)arg0);
 }

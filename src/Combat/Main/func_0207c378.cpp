@@ -1,69 +1,69 @@
 #include <globaldefs.h>
 
-struct KeyedList0207caa4;
-extern "C" int func_0207caa4(struct KeyedList0207caa4* base, int value, int key);
+struct Struct_0207c378;
+extern "C" int func_0207caa4(struct Struct_0207c378* arg0, int arg1, int arg2);
 
-struct KeyedList0207c378 {
-    char pad0[0xbd0];
-    short* valueArrays[8];
-    signed char* countArrays[8];
-    short counts[8];
-    unsigned char keys[8];
+struct Struct_020732cc {
+    char unknown_0_[0xbd0];
+    short* unknown_bd0_[8];
+    signed char* unknown_bf0_[8];
+    short unknown_c10_[8];
+    unsigned char unknown_c20_[8];
 };
 
 // USA: func_0207c378
-extern "C" ARM int func_0207c378(struct KeyedList0207c378* obj, int value, int amount, int key) {
-    int found;
-    signed char* countArr;
-    int idx;
-    int i;
-    int result;
-    short* values;
-    short count;
-    short j;
+extern "C" ARM int func_0207c378(struct Struct_020732cc* arg0, int arg1, int arg2, int arg3) {
+    int var0;
+    signed char* var1;
+    int var2;
+    int var3;
+    int var4;
+    short* var5;
+    short var6;
+    short var7;
 
-    if (amount <= 0) {
+    if (arg2 <= 0) {
         return 0;
     }
 
-    result = func_0207caa4((struct KeyedList0207caa4*)obj, value, key);
-    if (result == -2) {
+    var4 = func_0207caa4((struct Struct_0207c378*)arg0, arg1, arg3);
+    if (var4 == -2) {
         return 0;
     }
 
-    idx = -1;
-    for (i = 0; i < 8; i++) {
-        if (key == obj->keys[i]) {
-            idx = i;
+    var2 = -1;
+    for (var3 = 0; var3 < 8; var3++) {
+        if (arg3 == arg0->unknown_c20_[var3]) {
+            var2 = var3;
             break;
         }
     }
-    if (idx < 0) {
+    if (var2 < 0) {
         return 0;
     }
 
-    countArr = obj->countArrays[idx];
-    found = 0;
-    if (result >= 0) {
-        countArr[result] += amount;
-        found = 1;
-        if (countArr[result] > 0x63) {
-            countArr[result] = 0x63;
+    var1 = arg0->unknown_bf0_[var2];
+    var0 = 0;
+    if (var4 >= 0) {
+        var1[var4] += arg2;
+        var0 = 1;
+        if (var1[var4] > 0x63) {
+            var1[var4] = 0x63;
         }
     } else {
-        values = obj->valueArrays[idx];
-        count = obj->counts[idx];
-        for (j = 0; j < count; j++) {
-            if (values[j] < 0) {
-                values[j] = value;
-                countArr[j] = amount;
-                found = 1;
-                if (countArr[j] > 0x63) {
-                    countArr[j] = 0x63;
+        var5 = arg0->unknown_bd0_[var2];
+        var6 = arg0->unknown_c10_[var2];
+        for (var7 = 0; var7 < var6; var7++) {
+            if (var5[var7] < 0) {
+                var5[var7] = arg1;
+                var1[var7] = arg2;
+                var0 = 1;
+                if (var1[var7] > 0x63) {
+                    var1[var7] = 0x63;
                 }
                 break;
             }
         }
     }
-    return found;
+    return var0;
 }

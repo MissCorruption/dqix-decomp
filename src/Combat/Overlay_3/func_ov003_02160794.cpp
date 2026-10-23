@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue470_298 = 0x298 };
-enum { kRegionValue324_20C = 0x20c };
+enum { Enum_ov003_02160794_1136 = 0x298 };
+enum { Enum_ov003_02160794_804 = 0x20c };
 #else
-enum { kRegionValue470_298 = 0x470 };
-enum { kRegionValue324_20C = 0x324 };
+enum { Enum_ov003_02160794_1136 = 0x470 };
+enum { Enum_ov003_02160794_804 = 0x324 };
 #endif
 
 extern short data_ov003_0217f420[3];
 
-extern "C" void func_02080828(void* obj, int id, short* outX, short* outY);
-extern "C" void func_02080854(void* obj, int id, int x, int y);
+extern "C" void func_02080828(void* arg0, int arg1, short* arg2, short* arg3);
+extern "C" void func_02080854(void* arg0, int arg1, int arg2, int arg3);
 
-struct Parent809a0;
-extern "C" ARM void func_020809a0(struct Parent809a0* obj, int id, short x, short y);
+struct Struct_020809a0;
+extern "C" ARM void func_020809a0(struct Struct_020809a0* arg0, int arg1, short arg2, short arg3);
 
 // USA: func_ov003_02160794
-extern "C" ARM void func_ov003_02160794(void* self) {
-    short* base = *(short**)((char*)self + kRegionValue470_298);
-    if (base == 0) {
+extern "C" ARM void func_ov003_02160794(void* arg0) {
+    short* var0 = *(short**)((char*)arg0 + Enum_ov003_02160794_1136);
+    if (var0 == 0) {
         return;
     }
-    void* list = *(void**)((char*)self + kRegionValue324_20C);
-    for (int i = 0; i < 3; i++) {
-        short* basePtr = *(short**)((char*)self + kRegionValue470_298);
-        short id = data_ov003_0217f420[i];
-        short baseVal = *basePtr;
-        if (id > baseVal) {
+    void* var1 = *(void**)((char*)arg0 + Enum_ov003_02160794_804);
+    for (int var2 = 0; var2 < 3; var2++) {
+        short* var3 = *(short**)((char*)arg0 + Enum_ov003_02160794_1136);
+        short var4 = data_ov003_0217f420[var2];
+        short var5 = *var3;
+        if (var4 > var5) {
             continue;
         }
-        if (baseVal >= id + 4) {
+        if (var5 >= var4 + 4) {
             continue;
         }
-        for (int j = 0; j < 4; j++) {
-            short x, y;
-            func_02080828(list, id, &x, &y);
-            func_02080854(list, id, x, y);
-            func_020809a0((struct Parent809a0*)list, id, 0xd0, 0xa);
-            id = (short)(id + 1);
+        for (int var6 = 0; var6 < 4; var6++) {
+            short var7, var8;
+            func_02080828(var1, var4, &var7, &var8);
+            func_02080854(var1, var4, var7, var8);
+            func_020809a0((struct Struct_020809a0*)var1, var4, 0xd0, 0xa);
+            var4 = (short)(var4 + 1);
         }
     }
 }

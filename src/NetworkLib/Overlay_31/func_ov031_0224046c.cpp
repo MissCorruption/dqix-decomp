@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
 // USA: func_ov031_0224046c
-extern "C" ARM signed char func_ov031_0224046c(void* obj, void** chain, int* counter) {
-	if (*chain == 0) {
-		if (*counter < 0x400) {
-			int c = *counter;
-			*counter = c + 1;
-			return *((signed char*)obj + c + 0x20);
+extern "C" ARM signed char func_ov031_0224046c(void* arg0, void** arg1, int* arg2) {
+	if (*arg1 == 0) {
+		if (*arg2 < 0x400) {
+			int var0 = *arg2;
+			*arg2 = var0 + 1;
+			return *((signed char*)arg0 + var0 + 0x20);
 		}
-		*counter = 0;
-		*chain = *(void**)((char*)obj + 0x1c);
+		*arg2 = 0;
+		*arg1 = *(void**)((char*)arg0 + 0x1c);
 	} else {
-		if (*counter == 0x200) {
-			*counter = 0;
-			*chain = *(void**)*chain;
+		if (*arg2 == 0x200) {
+			*arg2 = 0;
+			*arg1 = *(void**)*arg1;
 		}
 	}
-	int c = *counter;
-	*counter = c + 1;
-	return *((signed char*)*chain + c + 4);
+	int var1 = *arg2;
+	*arg2 = var1 + 1;
+	return *((signed char*)*arg1 + var1 + 4);
 }

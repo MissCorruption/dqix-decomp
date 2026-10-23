@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct UnkStruct0205c508;
-extern "C" void func_0205c508(struct UnkStruct0205c508* s, int* out1, int* out2);
+struct Struct_0205c508;
+extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
 
-extern "C" int func_ov000_0217542c(void* obj);
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_ov000_0217542c(void* arg0);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
 
-struct Entry02179ed8 {
-    char pad[0x23];
-    signed char field23;
-    char pad2[0x4c - 0x24];
-    int field4c;
+struct Struct_ov000_02179ed8 {
+    char unknown_0_[0x23];
+    signed char unknown_23_;
+    char unknown_24_[0x4c - 0x24];
+    int unknown_4c_;
 };
 
 // USA: func_ov000_02179ed8
-extern "C" ARM void func_ov000_02179ed8(char* obj, struct Entry02179ed8* entry, char* dst) {
-    if (entry != NULL && dst != NULL) {
-        int a, b;
-        func_0205c508((struct UnkStruct0205c508*)(obj + 0x1dc), &a, &b);
-        int aShifted = a << 24;
-        GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(entry->field4c);
-        if (combatant != NULL) {
+extern "C" ARM void func_ov000_02179ed8(char* arg0, struct Struct_ov000_02179ed8* arg1, char* arg2) {
+    if (arg1 != NULL && arg2 != NULL) {
+        int var0, var1;
+        func_0205c508((struct Struct_0205c508*)(arg0 + 0x1dc), &var0, &var1);
+        int var2 = var0 << 24;
+        GameObject* var3 = GameState::GetInstance()->GetPartyMemberByIndex(arg1->unknown_4c_);
+        if (var3 != NULL) {
 #if defined(jpn)
-            int field950 = *(int*)((char*)func_02053c6c((unsigned char*)combatant) + 0x8b8);
+            int var4 = *(int*)((char*)func_02053c6c((unsigned char*)var3) + 0x8b8);
 #else
-            int field950 = *(int*)((char*)func_02053c6c((unsigned char*)combatant) + 0x950);
+            int var4 = *(int*)((char*)func_02053c6c((unsigned char*)var3) + 0x950);
 #endif
-            signed char byteVal = entry->field23;
-            if (func_ov000_0217542c(obj)) {
-                func_02041c08(dst, byteVal - (aShifted >> 24), 8, 5, 5, 5);
+            signed char var5 = arg1->unknown_23_;
+            if (func_ov000_0217542c(arg0)) {
+                func_02041c08(arg2, var5 - (var2 >> 24), 8, 5, 5, 5);
             }
-            func_02041ea4(dst, byteVal - (aShifted >> 24));
-            func_02041b70(dst, byteVal - (aShifted >> 24), (const char*)func_020e0434((struct Container020e0310*)(obj + 0xb8), (short)(field950 + 0x63)));
+            func_02041ea4(arg2, var5 - (var2 >> 24));
+            func_02041b70(arg2, var5 - (var2 >> 24), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), (short)(var4 + 0x63)));
         }
     }
 }

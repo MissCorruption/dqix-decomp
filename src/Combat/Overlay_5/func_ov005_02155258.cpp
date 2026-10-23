@@ -18,39 +18,39 @@ extern "C" void func_02045f3c(void*, void*, int, int, int, int, int, int, int, i
 #endif
 
 // USA: func_ov005_02155258
-extern "C" ARM void func_ov005_02155258(void* context, int value,
+extern "C" ARM void func_ov005_02155258(void* arg0, int arg1,
 #if defined(jpn)
-    int x, int y
+    int arg2, int arg3
 #else
-    short x, short y
+    short arg2, short arg3
 #endif
-    , unsigned short color) {
-    int drawContext = func_020421a0();
-    volatile unsigned int* ports = (volatile unsigned int*)0x04000444;
-    ports[0] = 0;
-    ports[0x2f] = 1;
-    ports[0xb] = 0;
-    ports[0xb] = 0;
-    ports[0xb] = 0xffc01000;
-    int tens = value / 10;
-    int units = value % 10;
+    , unsigned short arg4) {
+    int var0 = func_020421a0();
+    volatile unsigned int* var1 = (volatile unsigned int*)0x04000444;
+    var1[0] = 0;
+    var1[0x2f] = 1;
+    var1[0xb] = 0;
+    var1[0xb] = 0;
+    var1[0xb] = 0xffc01000;
+    int var2 = arg1 / 10;
+    int var3 = arg1 % 10;
     #if defined(jpn)
-    int position = x;
+    int var4 = arg2;
 #else
-    short position = x;
+    short var4 = arg2;
 #endif
-    if (tens != 0) {
+    if (var2 != 0) {
 #if !defined(jpn)
-        if (units == 1) position++;
-        if (tens == 1) position++;
+        if (var3 == 1) var4++;
+        if (var2 == 1) var4++;
 #endif
-        DRAW_DIGIT((void*)drawContext, (char*)context + DIGIT_BASE + tens * 6, position, y, color);
+        DRAW_DIGIT((void*)var0, (char*)arg0 + DIGIT_BASE + var2 * 6, var4, arg3, arg4);
     }
-    position = x + DIGIT_STEP;
+    var4 = arg2 + DIGIT_STEP;
 #if !defined(jpn)
-    if (units == 1) position++;
+    if (var3 == 1) var4++;
 #endif
-    DRAW_DIGIT((void*)drawContext, (char*)context + DIGIT_BASE + units * 6, position, y, color);
+    DRAW_DIGIT((void*)var0, (char*)arg0 + DIGIT_BASE + var3 * 6, var4, arg3, arg4);
     *(volatile unsigned int*)0x04000504 = 0;
     *(volatile unsigned int*)0x04000448 = 1;
 }

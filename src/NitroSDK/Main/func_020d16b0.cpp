@@ -4,115 +4,115 @@
 #define func_020ca408 func_020cbed4
 #endif
 
-struct GBACartridgeHeader020d16b0 {
-    unsigned long startAddress;
-    unsigned char nintendoLogo[0x9c];
-    char title[12];
-    unsigned long gameCode;
-    unsigned short makerCode;
-    unsigned char isRomCode;
-    unsigned char machineCode;
-    unsigned char deviceType;
-    unsigned char exLsiID[3];
-    unsigned char reserved[4];
-    unsigned char softVersion;
-    unsigned char complement;
-    unsigned short moduleID;
+struct Struct_02112180 {
+    unsigned long unknown_0_;
+    unsigned char unknown_4_[0x9c];
+    char unknown_a0_[12];
+    unsigned long unknown_ac_;
+    unsigned short unknown_b0_;
+    unsigned char unknown_b2_;
+    unsigned char unknown_b3_;
+    unsigned char unknown_b4_;
+    unsigned char unknown_b5_[3];
+    unsigned char unknown_b8_[4];
+    unsigned char unknown_bc_;
+    unsigned char unknown_bd_;
+    unsigned short unknown_be_;
 };
 
-struct CartridgeModuleInfo020d16b0 {
-    unsigned short moduleID;
-    unsigned char exLsiID[3];
-    unsigned char isAgbCartridge : 1;
-    unsigned char detectPullOut : 1;
-    unsigned short makerCode;
-    unsigned long gameCode;
+struct Struct_020d16b0 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[3];
+    unsigned char unknown_5_0_ : 1;
+    unsigned char unknown_5_1_ : 1;
+    unsigned short unknown_6_;
+    unsigned long unknown_8_;
 };
 
-struct CartridgeWork020d16b0 {
-    volatile unsigned short subProcessorInitialized;
-    unsigned short lockID;
+struct Struct_0211214c {
+    volatile unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
-struct Lock020d1540 {
-    int locked;
-    int priorState;
+struct Struct_020d135c_3 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-struct InitFlags020d16b0 {
-    int moduleInfo;
-    int pad[7];
+struct Struct_020d16b0_2 {
+    int unknown_0_;
+    int unknown_4_[7];
 };
-inline InitFlags020d16b0& GetInitFlags020d16b0() {
-    static InitFlags020d16b0 s;
+inline Struct_020d16b0_2& inline_020d16b0() {
+    static Struct_020d16b0_2 s;
     return s;
 }
-extern CartridgeWork020d16b0 data_0211214c;
-extern GBACartridgeHeader020d16b0 data_02112180 __attribute__((aligned(32)));
+extern Struct_0211214c data_0211214c;
+extern Struct_02112180 data_02112180 __attribute__((aligned(32)));
 extern unsigned char data_02112184[0x9c];
 
 unsigned int SetSpecificInterruptsEnabled(unsigned int mask);
-extern "C" void func_020d1468(int* cycle);
-extern "C" void func_020d14b0(int* cycle);
+extern "C" void func_020d1468(int* arg0);
+extern "C" void func_020d14b0(int* arg0);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int channel, unsigned int src, unsigned int dst, unsigned int size);
 void CleanInvalidateDataCache();
-extern "C" void func_020d1564(int data);
-extern "C" unsigned int func_020d1540(int lockID, Lock020d1540* lock);
+extern "C" void func_020d1564(int arg0);
+extern "C" unsigned int func_020d1540(int arg0, Struct_020d135c_3* arg1);
 
 extern "C" {
-    void func_020d14e4(unsigned short lockID, Lock020d1540* lock);
+    void func_020d14e4(unsigned short arg0, Struct_020d135c_3* arg1);
     int func_020d135c();
     void func_020ca408(const void* src, void* dst, unsigned int length);
-    void WaitByLoop(int count);
+    void WaitByLoop(int arg0);
 }
 
 // USA: func_020d16b0
 extern "C" ARM void func_020d16b0() {
-    Lock020d1540 lock;
-    unsigned int lastInterrupts;
-    unsigned short lastMasterEnable;
+    Struct_020d135c_3 var0;
+    unsigned int var1;
+    unsigned short var2;
 
-    if (GetInitFlags020d16b0().moduleInfo) {
+    if (inline_020d16b0().unknown_0_) {
         return;
     }
-    GetInitFlags020d16b0().moduleInfo = true;
+    inline_020d16b0().unknown_0_ = true;
 
     if (!(*(volatile unsigned short*)0x04000300 & 1)) {
         return;
     }
 
-    lastInterrupts = SetSpecificInterruptsEnabled(0x40000);
-    lastMasterEnable = *(volatile unsigned short*)0x04000208;
+    var1 = SetSpecificInterruptsEnabled(0x40000);
+    var2 = *(volatile unsigned short*)0x04000208;
     *(volatile unsigned short*)0x04000208 = 1;
 
-    func_020d14e4(data_0211214c.lockID, &lock);
+    func_020d14e4(data_0211214c.unknown_2_, &var0);
     {
-        int priority = (*(volatile unsigned short*)0x04000204 & 0x8000) >> 15;
-        int cycle[2];
+        int var3 = (*(volatile unsigned short*)0x04000204 & 0x8000) >> 15;
+        int var4[2];
 
-        func_020d1468(cycle);
+        func_020d1468(var4);
         *(volatile unsigned short*)0x04000204 &= ~0x8000;
         InvalidateDataCacheRange(&((unsigned char*)&data_02112180)[0x80], sizeof(data_02112180) - 0x80);
         DMAMemcpySynchronous16Bit(1, 0x08000000 + 0x80, (unsigned int)&((unsigned char*)&data_02112180)[0x80],
             sizeof(data_02112180) - 0x80);
         *(volatile unsigned short*)0x04000204 =
-            (unsigned short)((*(volatile unsigned short*)0x04000204 & ~0x8000) | (priority << 15));
-        func_020d14b0(cycle);
+            (unsigned short)((*(volatile unsigned short*)0x04000204 & ~0x8000) | (var3 << 15));
+        func_020d14b0(var4);
     }
-    func_020d1540(data_0211214c.lockID, &lock);
+    func_020d1540(data_0211214c.unknown_2_, &var0);
 
     if (*(unsigned char*)0x027fff9b || !*(unsigned char*)0x027fff9a) {
-        int i;
-        GBACartridgeHeader020d16b0* src = &data_02112180;
-        CartridgeModuleInfo020d16b0* info = (CartridgeModuleInfo020d16b0*)0x027ffc30;
+        int var5;
+        Struct_02112180* var6 = &data_02112180;
+        Struct_020d16b0* var7 = (Struct_020d16b0*)0x027ffc30;
 
-        info->moduleID = src->moduleID;
-        for (i = 0; i < 3; i++) {
-            info->exLsiID[i] = src->exLsiID[i];
+        var7->unknown_0_ = var6->unknown_be_;
+        for (var5 = 0; var5 < 3; var5++) {
+            var7->unknown_2_[var5] = var6->unknown_b5_[var5];
         }
-        info->makerCode = src->makerCode;
-        info->gameCode = src->gameCode;
+        var7->unknown_6_ = var6->unknown_b0_;
+        var7->unknown_8_ = var6->unknown_ac_;
         *(unsigned char*)0x027fff9b = (unsigned char)(func_020d135c() ? 1 : 0);
         *(unsigned char*)0x027fff9a = true;
     }
@@ -121,11 +121,11 @@ extern "C" ARM void func_020d16b0() {
     CleanInvalidateDataCache();
     func_020d1564(1 | ((((unsigned long)&data_02112180 - 0x02000000) >> 5) << 6));
 
-    while (data_0211214c.subProcessorInitialized != true) {
+    while (data_0211214c.unknown_0_ != true) {
         WaitByLoop(1);
     }
 
     (void)*(volatile unsigned short*)0x04000208;
-    *(volatile unsigned short*)0x04000208 = lastMasterEnable;
-    SetSpecificInterruptsEnabled(lastInterrupts);
+    *(volatile unsigned short*)0x04000208 = var2;
+    SetSpecificInterruptsEnabled(var1);
 }

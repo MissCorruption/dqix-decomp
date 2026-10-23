@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Obj_0205da38;
-extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
+struct Struct_0205da38;
+extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
 extern int data_ov000_02184294;
 
 #if defined(jpn)
-enum { activeObjectOffset = 0 };
+enum { Enum_ov000_0217c594_8 = 0 };
 #else
-enum { activeObjectOffset = 8 };
+enum { Enum_ov000_0217c594_8 = 8 };
 #endif
 
 // USA: func_ov000_0217c594
-extern "C" ARM int func_ov000_0217c594(void* objRaw, int limit) {
-    unsigned char* obj = (unsigned char*)objRaw;
-    unsigned char v = obj[0x956];
-    if ((int)v < limit) {
-        v = v + 1;
-        obj[0x956] = v;
+extern "C" ARM int func_ov000_0217c594(void* arg0, int arg1) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned char var1 = var0[0x956];
+    if ((int)var1 < arg1) {
+        var1 = var1 + 1;
+        var0[0x956] = var1;
         return 0;
     }
-    *(void**)((char*)&data_ov000_02184294 + activeObjectOffset) = objRaw;
-    int a = g_keyManager.TestKeysPressed(0x601);
-    int b = func_0205da38((struct Obj_0205da38*)(obj + 0x188), 0x14);
-    return (a | b) != 0;
+    *(void**)((char*)&data_ov000_02184294 + Enum_ov000_0217c594_8) = arg0;
+    int var2 = g_keyManager.TestKeysPressed(0x601);
+    int var3 = func_0205da38((struct Struct_0205da38*)(var0 + 0x188), 0x14);
+    return (var2 | var3) != 0;
 }

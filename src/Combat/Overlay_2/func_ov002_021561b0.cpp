@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 
-struct LoaderSub_021561b0 {
+struct Struct_ov002_021561b0_2 {
 #if defined(jpn)
-    char pad[0x2aa];
+    char unknown_0_[0x2aa];
 #else
-    char pad[0x47a];
+    char unknown1_0_[0x47a];
 #endif
-    unsigned char state;
-    unsigned char pad47b;
-    unsigned int flags;
+    unsigned char unknown_47a_;
+    unsigned char unknown_47b_;
+    unsigned int unknown_47c_;
 };
 
-struct Loader_021561b0 {
-    char pad[0x2000];
-    struct LoaderSub_021561b0 sub;
+struct Struct_ov002_021561b0 {
+    char unknown_0_[0x2000];
+    struct Struct_ov002_021561b0_2 unknown_2000_;
 };
 
 // USA: func_ov002_021561b0
-extern "C" ARM void func_ov002_021561b0(struct Loader_021561b0* self) {
-    unsigned int flags = self->sub.flags;
-    if ((flags & 2) == 0) {
+extern "C" ARM void func_ov002_021561b0(struct Struct_ov002_021561b0* arg0) {
+    unsigned int var0 = arg0->unknown_2000_.unknown_47c_;
+    if ((var0 & 2) == 0) {
         return;
     }
-    unsigned char state = self->sub.state;
-    if (state == 0) {
-        FontBankLoader* g = func_02094a00();
-        func_02094ab0(g);
-        func_02094b3c(g, 0xc);
-        func_02094b34(g, 0x64, 0x208, 0, 0);
-        self->sub.state = self->sub.state + 1;
+    unsigned char var1 = arg0->unknown_2000_.unknown_47a_;
+    if (var1 == 0) {
+        Struct_0208cb08* var2 = func_02094a00();
+        func_02094ab0(var2);
+        func_02094b3c(var2, 0xc);
+        func_02094b34(var2, 0x64, 0x208, 0, 0);
+        arg0->unknown_2000_.unknown_47a_ = arg0->unknown_2000_.unknown_47a_ + 1;
         return;
     }
-    if (state != 1) {
+    if (var1 != 1) {
         return;
     }
     if (!func_02094b4c(func_02094a00())) {
         return;
     }
-    self->sub.flags = self->sub.flags & ~2;
-    self->sub.state = 0;
+    arg0->unknown_2000_.unknown_47c_ = arg0->unknown_2000_.unknown_47c_ & ~2;
+    arg0->unknown_2000_.unknown_47a_ = 0;
 }

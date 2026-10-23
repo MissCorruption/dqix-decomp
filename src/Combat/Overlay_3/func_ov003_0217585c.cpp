@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion830 = 0x7ac };
-enum { kRegion7d8 = 0x754 };
+enum { Enum_ov003_0217585c_2096 = 0x7ac };
+enum { Enum_ov003_0217585c_2008 = 0x754 };
 #else
-enum { kRegion830 = 0x830 };
-enum { kRegion7d8 = 0x7d8 };
+enum { Enum_ov003_0217585c_2096 = 0x830 };
+enum { Enum_ov003_0217585c_2008 = 0x7d8 };
 #endif
 
 extern "C" void func_0205ac40(void*, void*, int);
 
 // USA: func_ov003_0217585c
-extern "C" ARM void func_ov003_0217585c(void* obj, int a, int b, int idx, unsigned char c) {
-    char* entry = *(char**)((char*)obj + kRegion830) + idx * 0x28;
-    *(unsigned char*)(entry + 0x22) = c;
-    *(int*)(entry + 0x14) = a << 12;
-    *(int*)(entry + 0x18) = b << 12;
-    func_0205ac40((char*)obj + kRegion7d8, entry, b << 12);
+extern "C" ARM void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4) {
+    char* var0 = *(char**)((char*)arg0 + Enum_ov003_0217585c_2096) + arg3 * 0x28;
+    *(unsigned char*)(var0 + 0x22) = arg4;
+    *(int*)(var0 + 0x14) = arg1 << 12;
+    *(int*)(var0 + 0x18) = arg2 << 12;
+    func_0205ac40((char*)arg0 + Enum_ov003_0217585c_2008, var0, arg2 << 12);
 }

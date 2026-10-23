@@ -2,110 +2,110 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* arg0);
 extern "C" int func_020421a0(void);
-extern "C" void func_020e4bf4(void* obj, int combatantId);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
 
-struct Obj02046574;
-extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
+struct Struct_02046574_2;
+extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 
-extern "C" void func_02046380(void* global);
-extern "C" void func_02046608(int a, int b, void* c, void* d, int e, int f, int g);
+extern "C" void func_02046380(void* arg0);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_02042058(char*, const char*);
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
-struct Bits0205de24_021ed4b8 { unsigned char low4 : 4; unsigned char high4 : 4; };
+struct Struct_ov023_021ed4b8 { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; };
 
 // USA: func_ov023_021ed4b8
-extern "C" ARM void func_ov023_021ed4b8(char* obj) {
+extern "C" ARM void func_ov023_021ed4b8(char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x15c, regionalOffset1=0x800};
+ enum {Enum_ov023_021ed4b8_580=0x15c, Enum_ov023_021ed4b8_2400=0x800};
 #else
- enum {regionalOffset0=0x244, regionalOffset1=0x960};
+ enum {Enum_ov023_021ed4b8_580=0x244, Enum_ov023_021ed4b8_2400=0x960};
 #endif
-    unsigned char keyLow = ((struct Bits0205de24_021ed4b8*)(obj + 0xc0))->low4;
-    func_0205de24((struct Struct0205de24*)(obj + 0xc4), keyLow, 3);
+    unsigned char var0 = ((struct Struct_ov023_021ed4b8*)(arg0 + 0xc0))->unknown_0_0_;
+    func_0205de24((struct Struct_0205de24_2*)(arg0 + 0xc4), var0, 3);
 
-    *(unsigned short*)(obj + 0x164) = 0x1e;
+    *(unsigned short*)(arg0 + 0x164) = 0x1e;
 #if defined(jpn)
-    *(unsigned short*)(obj + 0x166) = 6;
+    *(unsigned short*)(arg0 + 0x166) = 6;
 #else
-    *(unsigned short*)(obj + 0x166) = 0x7;
-#endif
-
-    *(unsigned short*)(obj + 0x168) = 0x1;
-    *(unsigned short*)(obj + 0x16a) = 0x9;
-#if defined(jpn)
-    *(unsigned short*)(obj + 0x16c) = 0xa;
-#else
-    *(unsigned short*)(obj + 0x16c) = 0x7;
+    *(unsigned short*)(arg0 + 0x166) = 0x7;
 #endif
 
-    *(unsigned short*)(obj + 0x16e) = 0xa;
-    *(unsigned short*)(obj + 0x170) = 0xc;
+    *(unsigned short*)(arg0 + 0x168) = 0x1;
+    *(unsigned short*)(arg0 + 0x16a) = 0x9;
 #if defined(jpn)
-    *(unsigned short*)(obj + 0x172) = 0x14;
+    *(unsigned short*)(arg0 + 0x16c) = 0xa;
 #else
-    *(unsigned short*)(obj + 0x172) = 0xc;
+    *(unsigned short*)(arg0 + 0x16c) = 0x7;
 #endif
 
-    *(unsigned char*)(obj + 0x17b) = 0xc;
-    *(unsigned char*)(obj + 0x175) = 2;
-    unsigned char zero = 0;
-    *(unsigned char*)(obj + 0x179) = zero;
-    *(unsigned char*)(obj + 0x17a) = zero;
-
-    unsigned char idx = *(unsigned char*)(obj + 0x28);
-    char* base = *(char**)(obj + 0x20);
-    char* elem = base + idx * regionalOffset0;
-
-    memset(*(void**)(obj + 0x1c), zero, regionalOffset1);
-
+    *(unsigned short*)(arg0 + 0x16e) = 0xa;
+    *(unsigned short*)(arg0 + 0x170) = 0xc;
 #if defined(jpn)
-    int key = func_020e0434((struct Container020e0310*)(obj + 4), 0x64);
-    func_02042058(*(char**)(obj + 0x1c), (char*)key);
-    GameState* bs = GameState::GetInstance();
+    *(unsigned short*)(arg0 + 0x172) = 0x14;
 #else
-    GameState* bs = GameState::GetInstance();
+    *(unsigned short*)(arg0 + 0x172) = 0xc;
 #endif
 
-    int id = func_020100a8(bs);
-    GameObject* combatant = func_0200ff1c(bs, id);
-    if (combatant == NULL) return;
+    *(unsigned char*)(arg0 + 0x17b) = 0xc;
+    *(unsigned char*)(arg0 + 0x175) = 2;
+    unsigned char var1 = 0;
+    *(unsigned char*)(arg0 + 0x179) = var1;
+    *(unsigned char*)(arg0 + 0x17a) = var1;
 
-    int g = func_020421a0();
-    func_02046380((void*)g);
+    unsigned char var2 = *(unsigned char*)(arg0 + 0x28);
+    char* var3 = *(char**)(arg0 + 0x20);
+    char* var4 = var3 + var2 * Enum_ov023_021ed4b8_580;
+
+    memset(*(void**)(arg0 + 0x1c), var1, Enum_ov023_021ed4b8_2400);
 
 #if defined(jpn)
-    func_02046574((struct Obj02046574*)g, 0, *(char**)((char*)combatant + 0x134));
-    func_02046574((struct Obj02046574*)g, 1, elem + 0xc);
+    int var5 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 4), 0x64);
+    func_02042058(*(char**)(arg0 + 0x1c), (char*)var5);
+    GameState* var6 = GameState::GetInstance();
+#else
+    GameState* var6 = GameState::GetInstance();
+#endif
+
+    int var7 = func_020100a8(var6);
+    GameObject* var8 = func_0200ff1c(var6, var7);
+    if (var8 == NULL) return;
+
+    int var9 = func_020421a0();
+    func_02046380((void*)var9);
+
+#if defined(jpn)
+    func_02046574((struct Struct_02046574_2*)var9, 0, *(char**)((char*)var8 + 0x134));
+    func_02046574((struct Struct_02046574_2*)var9, 1, var4 + 0xc);
 
 #else
-    char localbuf[0xc];
-    int combatantId = combatant->obj3D_.unknown_4_;
-    func_020e4bf4(localbuf, combatantId);
+    char var10[0xc];
+    int var11 = var8->obj3D_.unknown_4_;
+    func_020e4bf4(var10, var11);
 
-    *(void**)((char*)g + 0x0) = localbuf;
-    func_02046574((struct Obj02046574*)g, 1, elem + 0xc);
+    *(void**)((char*)var9 + 0x0) = var10;
+    func_02046574((struct Struct_02046574_2*)var9, 1, var4 + 0xc);
 
-    int key = func_020e0434((struct Container020e0310*)(obj + 0x4), 0x64);
-    func_02046608(g, 1, (void*)(long)key, *(void**)(obj + 0x1c), 0xe3, 0, 1);
+    int var12 = func_020e0434((struct Struct_0201099c_3*)(arg0 + 0x4), 0x64);
+    func_02046608(var9, 1, (void*)(long)var12, *(void**)(arg0 + 0x1c), 0xe3, 0, 1);
 
 #endif
 #if defined(jpn)
-    func_0205d304(obj + 0xc4, *(void**)(obj + 0x1c), 0, 0, 0, 0, 0);
+    func_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 0, 0);
 #else
-    func_0205d304(obj + 0xc4, *(void**)(obj + 0x1c), 0, 0, 0, 0, 0, 1);
+    func_0205d304(arg0 + 0xc4, *(void**)(arg0 + 0x1c), 0, 0, 0, 0, 0, 1);
 #endif
 
 }

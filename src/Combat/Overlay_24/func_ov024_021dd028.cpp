@@ -1,62 +1,62 @@
 #include <globaldefs.h>
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
-struct Obj021dd028;
-struct Params021dd028;
-struct FlagObj_021dd260;
-extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
-struct Obj3_021ea78c;
-struct Wrapper_021ea78c;
-extern "C" int func_ov024_021ea78c(Wrapper_021ea78c*, int, Obj3_021ea78c*);
+struct Struct_ov024_021dd028_2;
+struct Struct_ov024_021dd028_4;
+struct Struct_ov024_021dd028_5;
+extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+struct Struct_ov024_021dd028_6;
+struct Struct_ov024_021dd028_7;
+extern "C" int func_ov024_021ea78c(Struct_ov024_021dd028_7*, int, Struct_ov024_021dd028_6*);
 extern "C" void func_ov000_02159eac(void*,void*,int);
-extern "C" void func_ov000_0215a004(void*,int,int,int,void*,Params021dd028*,int,int);
+extern "C" void func_ov000_0215a004(void*,int,int,int,void*,Struct_ov024_021dd028_4*,int,int);
 extern "C" void func_02088b34(unsigned char*);
 extern "C" unsigned short func_ov024_021da644(int,int,int);
 extern "C" void* func_ov000_0215e958(void*);
-extern "C" void func_ov024_021e8bf0(Obj021dd028*,void*,unsigned short*);
+extern "C" void func_ov024_021e8bf0(Struct_ov024_021dd028_2*,void*,unsigned short*);
 extern "C" void func_ov000_0215a88c(void*,void*,int);
 extern "C" void func_ov000_0215cd44(void*,void*,GameObject*,int,unsigned long long,unsigned char);
-struct Flags021dd028 {char pad[0x1c]; unsigned char unused:7; unsigned char flag:1;};
-struct Obj021dd028 {char pad[0xc];Flags021dd028* action;void* context;int count;char pad18[0x75-0x18];unsigned char field75;};
-struct Triple021dd028 {unsigned int a:10;unsigned int b:10;unsigned int c:10;unsigned int rest:2;};
-struct Field021dd028 {unsigned int low:19;unsigned int value:5;unsigned int high:8;};
-struct Params021dd028 {char pad[0x1c];Field021dd028 field1c;int field20;Triple021dd028 field24;Triple021dd028 field28;};
-static inline unsigned short GetHP(GameObject* c){ SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currHP; }
+struct Struct_ov024_021dd028_8 {char unknown_0_[0x1c]; unsigned char unknown_1c_0_:7; unsigned char unknown_1c_7_:1;};
+struct Struct_ov024_021dd028_2 {char unknown_0_[0xc];Struct_ov024_021dd028_8* unknown_c_;void* unknown_10_;int unknown_14_;char unknown_18_[0x75-0x18];unsigned char unknown_75_;};
+struct Struct_ov024_021dd028 {unsigned int unknown_0_0_:10;unsigned int unknown_1_2_:10;unsigned int unknown_2_4_:10;unsigned int unknown_3_6_:2;};
+struct Struct_ov024_021dd028_3 {unsigned int unknown_0_0_:19;unsigned int unknown_2_3_:5;unsigned int unknown_3_0_:8;};
+struct Struct_ov024_021dd028_4 {char unknown_0_[0x1c];Struct_ov024_021dd028_3 unknown_1c_;int unknown_20_;Struct_ov024_021dd028 unknown_24_;Struct_ov024_021dd028 unknown_28_;};
+static inline unsigned short inline_ov000_0215a908_2(GameObject* arg0){ SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currHP; }
 // USA: func_ov024_021dd028
-extern "C" ARM void* func_ov024_021dd028(Obj021dd028* obj,int sourceID,int id,Params021dd028* params,int unused,int unused2,unsigned char enabled){
-    GameObject* c=GetCombatantByID((int)obj->context,id);
-    if(!c)return 0;
-    int allowed=1;
-    if(func_ov024_021dd260((FlagObj_021dd260*)c)){
-        if(params->field1c.value==7)allowed=0;
+extern "C" ARM void* func_ov024_021dd028(Struct_ov024_021dd028_2* arg0,int arg1,int arg2,Struct_ov024_021dd028_4* arg3,int arg4,int arg5,unsigned char arg6){
+    GameObject* var0=GetCombatantByID((int)arg0->unknown_10_,arg2);
+    if(!var0)return 0;
+    int var1=1;
+    if(func_ov024_021dd260((Struct_ov024_021dd028_5*)var0)){
+        if(arg3->unknown_1c_.unknown_2_3_==7)var1=0;
     }
-    union {struct {int low;int high;};unsigned long long value;} effects;
-    effects.low=0;
-    effects.high=0;
-    unsigned short selection=0;
-    if(enabled && allowed){
-        if(func_ov024_021ea78c((Wrapper_021ea78c*)obj, id, (Obj3_021ea78c*)params)){
-            func_ov000_02159eac(obj->context,&effects,0x29);
-            func_ov000_0215a004(obj->context,sourceID,id,GetHP(c)-1,&effects,params,obj->action->flag!=0,0);
-            func_ov000_02159eac(obj->context,&effects,0xfe);
-            func_02088b34((unsigned char*)c->currentStats_);
-            selection=0xc8;
+    union {struct {int unknown_0_;int unknown_4_;};unsigned long long unknown1_0_;} var2;
+    var2.unknown_0_=0;
+    var2.unknown_4_=0;
+    unsigned short var3=0;
+    if(arg6 && var1){
+        if(func_ov024_021ea78c((Struct_ov024_021dd028_7*)arg0, arg2, (Struct_ov024_021dd028_6*)arg3)){
+            func_ov000_02159eac(arg0->unknown_10_,&var2,0x29);
+            func_ov000_0215a004(arg0->unknown_10_,arg1,arg2,inline_ov000_0215a908_2(var0)-1,&var2,arg3,arg0->unknown_c_->unknown_1c_7_!=0,0);
+            func_ov000_02159eac(arg0->unknown_10_,&var2,0xfe);
+            func_02088b34((unsigned char*)var0->currentStats_);
+            var3=0xc8;
         }else{
-            func_ov000_0215a004(obj->context,sourceID,id,0xffff,&effects,params,obj->action->flag!=0,8);
-            effects.low=0;
-            effects.high=0;
-            func_ov000_02159eac(obj->context,&effects,0xd);
-            selection=func_ov024_021da644(id,params->field28.a,params->field28.b);
+            func_ov000_0215a004(arg0->unknown_10_,arg1,arg2,0xffff,&var2,arg3,arg0->unknown_c_->unknown_1c_7_!=0,8);
+            var2.unknown_0_=0;
+            var2.unknown_4_=0;
+            func_ov000_02159eac(arg0->unknown_10_,&var2,0xd);
+            var3=func_ov024_021da644(arg2,arg3->unknown_28_.unknown_0_0_,arg3->unknown_28_.unknown_1_2_);
         }
-        obj->count++;
+        arg0->unknown_14_++;
     }else{
-        selection=func_ov024_021da644(id,params->field24.b,params->field24.c);
-        obj->field75=0;
+        var3=func_ov024_021da644(arg2,arg3->unknown_24_.unknown_1_2_,arg3->unknown_24_.unknown_2_4_);
+        arg0->unknown_75_=0;
     }
-    void* entry=func_ov000_0215e958(obj->context);
-    if(!entry)return 0;
-    func_ov024_021e8bf0(obj,obj->action,&selection);
-    func_ov000_0215a88c(obj->context,entry,selection);
-    func_ov000_0215cd44(obj->context,entry,c,0,effects.value,obj->action->flag!=0);
-    return entry;
+    void* var4=func_ov000_0215e958(arg0->unknown_10_);
+    if(!var4)return 0;
+    func_ov024_021e8bf0(arg0,arg0->unknown_c_,&var3);
+    func_ov000_0215a88c(arg0->unknown_10_,var4,var3);
+    func_ov000_0215cd44(arg0->unknown_10_,var4,var0,0,var2.unknown1_0_,arg0->unknown_c_->unknown_1c_7_!=0);
+    return var4;
 }

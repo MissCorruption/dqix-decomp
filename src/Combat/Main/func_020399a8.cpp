@@ -2,10 +2,10 @@
 #include "Combat/ActorAction.h"
 
 // USA: func_020399a8
-extern "C" ARM SubBlock02038508* func_020399a8(void* obj) {
+extern "C" ARM Struct_02037d10* func_020399a8(void* arg0) {
 #if defined(jpn)
-    return (SubBlock02038508*)((char*)obj + 0x260);
+    return (Struct_02037d10*)((char*)arg0 + 0x260);
 #else
-    return (SubBlock02038508*)((char*)obj + 0x26c);
+    return (Struct_02037d10*)((char*)arg0 + 0x26c);
 #endif
 }

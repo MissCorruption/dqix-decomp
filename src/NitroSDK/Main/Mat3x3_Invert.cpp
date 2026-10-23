@@ -5,60 +5,60 @@ extern "C" void func_020ca528(const void* pSrc, void* pDest);
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020c12b4
-extern "C" ARM int Mat3x3_Invert(const Matrix3x3* in, Matrix3x3* out)
+extern "C" ARM int Mat3x3_Invert(const Matrix3x3* arg0, Matrix3x3* arg1)
 {
-    Matrix3x3 tmp;
-    Matrix3x3* p;
-    long det, det00, det10, det20, tmp01, tmp02, tmp11, tmp12, tmp21, tmp22;
+    Matrix3x3 var0;
+    Matrix3x3* var1;
+    long var2, var3, var4, var5, var6, var7, var8, var9, var10, var11;
 
-    if (in == out)
+    if (arg0 == arg1)
     {
-        p = &tmp;
+        var1 = &var0;
     }
     else
     {
-        p = out;
+        var1 = arg1;
     }
 
-    det00 = (long)(((int64_t)in->rows[1].y * in->rows[2].z - (int64_t)in->rows[1].z * in->rows[2].y + (int64_t)0x800) >> 12);
-    det10 = (long)(((int64_t)in->rows[1].x * in->rows[2].z - (int64_t)in->rows[1].z * in->rows[2].x + (int64_t)0x800) >> 12);
-    det20 = (long)(((int64_t)in->rows[1].x * in->rows[2].y - (int64_t)in->rows[1].y * in->rows[2].x + (int64_t)0x800) >> 12);
+    var3 = (long)(((int64_t)arg0->rows[1].y * arg0->rows[2].z - (int64_t)arg0->rows[1].z * arg0->rows[2].y + (int64_t)0x800) >> 12);
+    var4 = (long)(((int64_t)arg0->rows[1].x * arg0->rows[2].z - (int64_t)arg0->rows[1].z * arg0->rows[2].x + (int64_t)0x800) >> 12);
+    var5 = (long)(((int64_t)arg0->rows[1].x * arg0->rows[2].y - (int64_t)arg0->rows[1].y * arg0->rows[2].x + (int64_t)0x800) >> 12);
 
-    det = (long)(((int64_t)in->rows[0].x * det00 - (int64_t)in->rows[0].y * det10 + (int64_t)in->rows[0].z * det20
+    var2 = (long)(((int64_t)arg0->rows[0].x * var3 - (int64_t)arg0->rows[0].y * var4 + (int64_t)arg0->rows[0].z * var5
                   + (int64_t)0x800) >> 12);
 
-    if (0 == det)
+    if (0 == var2)
     {
         return -1;
     }
 
-    fix32_QueueComputeReciprocal(det);
+    fix32_QueueComputeReciprocal(var2);
 
-    tmp01 = (long)(((int64_t)in->rows[0].y * in->rows[2].z - (int64_t)in->rows[2].y * in->rows[0].z) >> 12);
-    tmp02 = (long)(((int64_t)in->rows[0].y * in->rows[1].z - (int64_t)in->rows[1].y * in->rows[0].z) >> 12);
-    tmp11 = (long)(((int64_t)in->rows[0].x * in->rows[2].z - (int64_t)in->rows[2].x * in->rows[0].z) >> 12);
-    tmp12 = (long)(((int64_t)in->rows[0].x * in->rows[1].z - (int64_t)in->rows[1].x * in->rows[0].z) >> 12);
+    var6 = (long)(((int64_t)arg0->rows[0].y * arg0->rows[2].z - (int64_t)arg0->rows[2].y * arg0->rows[0].z) >> 12);
+    var7 = (long)(((int64_t)arg0->rows[0].y * arg0->rows[1].z - (int64_t)arg0->rows[1].y * arg0->rows[0].z) >> 12);
+    var8 = (long)(((int64_t)arg0->rows[0].x * arg0->rows[2].z - (int64_t)arg0->rows[2].x * arg0->rows[0].z) >> 12);
+    var9 = (long)(((int64_t)arg0->rows[0].x * arg0->rows[1].z - (int64_t)arg0->rows[1].x * arg0->rows[0].z) >> 12);
 
-    det = fix32_GetDivisionResult();
-    p->rows[0].x = (long)(((int64_t)det * det00) >> 12);
-    p->rows[0].y = -(long)(((int64_t)det * tmp01) >> 12);
-    p->rows[0].z = (long)(((int64_t)det * tmp02) >> 12);
+    var2 = fix32_GetDivisionResult();
+    var1->rows[0].x = (long)(((int64_t)var2 * var3) >> 12);
+    var1->rows[0].y = -(long)(((int64_t)var2 * var6) >> 12);
+    var1->rows[0].z = (long)(((int64_t)var2 * var7) >> 12);
 
-    p->rows[1].x = -(long)(((int64_t)det * det10) >> 12);
-    p->rows[1].y = (long)(((int64_t)det * tmp11) >> 12);
-    p->rows[1].z = -(long)(((int64_t)det * tmp12) >> 12);
+    var1->rows[1].x = -(long)(((int64_t)var2 * var4) >> 12);
+    var1->rows[1].y = (long)(((int64_t)var2 * var8) >> 12);
+    var1->rows[1].z = -(long)(((int64_t)var2 * var9) >> 12);
 
-    p->rows[2].x = (long)(((int64_t)det * det20) >> 12);
+    var1->rows[2].x = (long)(((int64_t)var2 * var5) >> 12);
 
-    tmp21 = (long)(((int64_t)in->rows[0].x * in->rows[2].y - (int64_t)in->rows[2].x * in->rows[0].y) >> 12);
-    p->rows[2].y = -(long)(((int64_t)det * tmp21) >> 12);
+    var10 = (long)(((int64_t)arg0->rows[0].x * arg0->rows[2].y - (int64_t)arg0->rows[2].x * arg0->rows[0].y) >> 12);
+    var1->rows[2].y = -(long)(((int64_t)var2 * var10) >> 12);
 
-    tmp22 = (long)(((int64_t)in->rows[0].x * in->rows[1].y - (int64_t)in->rows[1].x * in->rows[0].y) >> 12);
-    p->rows[2].z = (long)(((int64_t)det * tmp22) >> 12);
+    var11 = (long)(((int64_t)arg0->rows[0].x * arg0->rows[1].y - (int64_t)arg0->rows[1].x * arg0->rows[0].y) >> 12);
+    var1->rows[2].z = (long)(((int64_t)var2 * var11) >> 12);
 
-    if (p == &tmp)
+    if (var1 == &var0)
     {
-        func_020ca528(&tmp, out);
+        func_020ca528(&var0, arg1);
     }
 
     return 0;

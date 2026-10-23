@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "NitroSDK/WirelessScanDescriptor.h"
 
-struct LookupList_0220ee50 {
-    int field0;
-    WirelessScanNode* head;
+struct Struct_ov031_0220ee50_2 {
+    int unknown_0_;
+    Struct_ov031_0220ec04_2* unknown_4_;
 };
 
-struct LookupContext_0220ee50 {
-    char padding[0x2270];
-    LookupList_0220ee50* list;
-    unsigned int state;
+struct Struct_ov031_0220ee50 {
+    char unknown_0_[0x2270];
+    Struct_ov031_0220ee50_2* unknown_2270_;
+    unsigned int unknown_2274_;
 };
 
 extern "C" int func_ov031_0220d60c(void);
 
 // USA: func_ov031_0220ee50
-extern "C" ARM WirelessScanNode* func_ov031_0220ee50(int id) {
-    LookupContext_0220ee50* context = (LookupContext_0220ee50*)func_ov031_0220d60c();
-    LookupList_0220ee50* list = context->list;
-    WirelessScanNode* node = NULL;
-    if (list != NULL && context->state > 12) {
-        node = list->head;
-        if (node != NULL) {
+extern "C" ARM Struct_ov031_0220ec04_2* func_ov031_0220ee50(int arg0) {
+    Struct_ov031_0220ee50* var0 = (Struct_ov031_0220ee50*)func_ov031_0220d60c();
+    Struct_ov031_0220ee50_2* var1 = var0->unknown_2270_;
+    Struct_ov031_0220ec04_2* var2 = NULL;
+    if (var1 != NULL && var0->unknown_2274_ > 12) {
+        var2 = var1->unknown_4_;
+        if (var2 != NULL) {
             do {
-                if (node->index == id) break;
-                node = node->next;
-            } while (node != NULL);
+                if (var2->unknown_4_ == arg0) break;
+                var2 = var2->unknown_c_;
+            } while (var2 != NULL);
         }
     }
-    return node;
+    return var2;
 }

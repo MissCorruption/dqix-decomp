@@ -3,44 +3,44 @@
 #include "GameState/Field3b0.h"
 #include "NitroSDK/NSBXX/RenderConfig.h"
 
-extern "C" int func_02032fdc(void* obj, void* param1, int flag);
-extern "C" void* func_0202ed74(void* obj);
+extern "C" int func_02032fdc(void* arg0, void* arg1, int arg2);
+extern "C" void* func_0202ed74(void* arg0);
 extern "C" void func_020ca528(void* ptr, void* addr);
 
-extern "C" void func_02047448(int a, int b, int c);
+extern "C" void func_02047448(int arg0, int arg1, int arg2);
 
 extern int data_0210a0cc;
 extern Vector3i data_020e8920;
 
 // USA: func_02076bec
-extern "C" ARM int func_02076bec(GameObject* arg0, void* param1) {
-    unsigned char* obj = (unsigned char*)arg0;
+extern "C" ARM int func_02076bec(GameObject* arg0, void* arg1) {
+    unsigned char* var0 = (unsigned char*)arg0;
     if (!arg0->obj3D_.IsVisible()) {
         return 0;
     }
 
-    int result = func_02032fdc(obj, param1, 0);
-    if (*(unsigned char*)(obj + 0x17a) == 0) {
-        return result;
+    int var1 = func_02032fdc(var0, arg1, 0);
+    if (*(unsigned char*)(var0 + 0x17a) == 0) {
+        return var1;
     }
 
-    GameState* battleStruct = GameState::GetInstance();
-    void* f3b0 = func_020100bc(battleStruct);
+    GameState* var2 = GameState::GetInstance();
+    void* var3 = func_020100bc(var2);
 
-    Vector3i localBuf = arg0->obj3D_.position_;
-    localBuf.y = *(int*)(obj + 0x170);
-    RenderConfig::SetObjectPosition(&localBuf);
+    Vector3i var4 = arg0->obj3D_.position_;
+    var4.y = *(int*)(var0 + 0x170);
+    RenderConfig::SetObjectPosition(&var4);
 
-    if (f3b0 != 0) {
-        void* ptr = func_0202ed74(f3b0);
-        func_020ca528(ptr, &data_0210a0cc);
+    if (var3 != 0) {
+        void* var5 = func_0202ed74(var3);
+        func_020ca528(var5, &data_0210a0cc);
         data_0210a010.flags &= ~0xa4;
     }
 
-    Vector3i localBuf2 = data_020e8920;
-    RenderConfig::SetObjectScale(&localBuf2);
+    Vector3i var6 = data_020e8920;
+    RenderConfig::SetObjectScale(&var6);
     RenderConfig::SubmitToFifo();
 
-    func_02047448(*(int*)(obj + 0x16c), 0, 1);
-    return result;
+    func_02047448(*(int*)(var0 + 0x16c), 0, 1);
+    return var1;
 }

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
-struct Desc021b790c;
+struct Struct_02064a08;
 
 extern "C" int func_020649b0(void*, int, void*);
 
 // USA: func_02064a08
-extern "C" ARM void func_02064a08(void* obj, Desc021b790c* arg) {
-    *(int*)((char*)obj + 0x498) = 0;
-    func_020649b0(obj, 0xf, (void*)arg);
+extern "C" ARM void func_02064a08(void* arg0, Struct_02064a08* arg1) {
+    *(int*)((char*)arg0 + 0x498) = 0;
+    func_020649b0(arg0, 0xf, (void*)arg1);
 }

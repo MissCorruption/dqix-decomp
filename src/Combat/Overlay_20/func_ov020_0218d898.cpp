@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kCounterOffset = 0x480 };
+enum { Enum_ov020_0218d898_1264 = 0x480 };
 #else
-enum { kCounterOffset = 0x4f0 };
+enum { Enum_ov020_0218d898_1264 = 0x4f0 };
 #endif
 
-struct CounterState_0218d898 {
-    char unknown0[kCounterOffset];
-    int mainFadeRemaining;
-    float subBrightness;
-    int subBrightnessTarget;
-    int subFadeRemaining;
+struct Struct_ov020_0218d898 {
+    char unknown_0_[Enum_ov020_0218d898_1264];
+    int unknown_4f0_;
+    float unknown_4f4_;
+    int unknown_4f8_;
+    int unknown_4fc_;
 
-    int IsMainFadeActive() const { return mainFadeRemaining > 0; }
-    int IsSubFadeActive() const { return subFadeRemaining > 0; }
+    int inline_ov020_0218d898() const { return unknown_4f0_ > 0; }
+    int inline_ov020_0218d898_2() const { return unknown_4fc_ > 0; }
 };
 
 // USA: func_ov020_0218d898
-extern "C" ARM int func_ov020_0218d898(struct CounterState_0218d898* obj) {
-    return obj->IsMainFadeActive() || obj->IsSubFadeActive();
+extern "C" ARM int func_ov020_0218d898(struct Struct_ov020_0218d898* arg0) {
+    return arg0->inline_ov020_0218d898() || arg0->inline_ov020_0218d898_2();
 }

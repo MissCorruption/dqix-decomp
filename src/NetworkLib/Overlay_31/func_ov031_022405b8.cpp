@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-struct ListNode_02240410 { ListNode_02240410* next; };
-extern "C" void func_ov031_02240410(char* obj, int idx, ListNode_02240410** outNode, int* outRemainder);
-extern "C" signed char func_ov031_0224046c(void* obj, void** chain, int* counter);
+struct Struct_ov031_02240410 { Struct_ov031_02240410* unknown_0_; };
+extern "C" void func_ov031_02240410(char* arg0, int arg1, Struct_ov031_02240410** arg2, int* arg3);
+extern "C" signed char func_ov031_0224046c(void* arg0, void** arg1, int* arg2);
 
 // USA: func_ov031_022405b8
-extern "C" ARM int func_ov031_022405b8(char* obj, int start, int end) {
-    if (start >= end) {
+extern "C" ARM int func_ov031_022405b8(char* arg0, int arg1, int arg2) {
+    if (arg1 >= arg2) {
         goto fail;
     }
     {
-        ListNode_02240410* node;
-        int remainder;
-        func_ov031_02240410(obj, start, &node, &remainder);
-        if (start >= end) {
+        Struct_ov031_02240410* var0;
+        int var1;
+        func_ov031_02240410(arg0, arg1, &var0, &var1);
+        if (arg1 >= arg2) {
             goto fail;
         }
-        int i = start;
+        int var2 = arg1;
         do {
-            signed char c = func_ov031_0224046c(obj, (void**)&node, &remainder);
-            if (c != 0x20) {
-                return i;
+            signed char var3 = func_ov031_0224046c(arg0, (void**)&var0, &var1);
+            if (var3 != 0x20) {
+                return var2;
             }
-            i++;
-        } while (i < end);
+            var2++;
+        } while (var2 < arg2);
     }
 fail:
     return -1;

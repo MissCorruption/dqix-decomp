@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Fields021849e0 { char pad[0x1b0]; unsigned short field1b0; char pad2[0x1c8-0x1b2]; int field1c8; };
+struct Struct_ov004_02158dcc { char unknown_0_[0x1b0]; unsigned short unknown_1b0_; char unknown_1b2_[0x1c8-0x1b2]; int unknown_1c8_; };
 
 // USA: func_ov011_021849e0
-extern "C" ARM void func_ov011_021849e0(Fields021849e0* obj, unsigned short val) {
-    if (obj->field1b0 != val) {
-        obj->field1c8 = 1;
+extern "C" ARM void func_ov011_021849e0(Struct_ov004_02158dcc* arg0, unsigned short arg1) {
+    if (arg0->unknown_1b0_ != arg1) {
+        arg0->unknown_1c8_ = 1;
     }
-    obj->field1b0 = val;
+    arg0->unknown_1b0_ = arg1;
 }

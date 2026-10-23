@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Obj020dfe88;
-extern "C" int func_020dfe88(struct Obj020dfe88*);
+struct Struct_020dfc40;
+extern "C" int func_020dfe88(struct Struct_020dfc40*);
 
-struct Struct020dfc40 {
-    unsigned char pad[0xc];
-    short field_c;
-    int field_10;
+struct Struct_0201099c_14 {
+    unsigned char unknown_0_[0xc];
+    short unknown_c_;
+    int unknown_10_;
 };
 
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 
 // USA: func_020dfc6c
-extern "C" ARM void func_020dfc6c(struct Struct020dfc40* p) {
-    func_020dfe88((struct Obj020dfe88*)p);
-    func_020dfc40(p);
+extern "C" ARM void func_020dfc6c(struct Struct_0201099c_14* arg0) {
+    func_020dfe88((struct Struct_020dfc40*)arg0);
+    func_020dfc40(arg0);
 }

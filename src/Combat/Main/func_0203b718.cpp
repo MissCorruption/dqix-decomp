@@ -5,20 +5,20 @@ extern char data_021065d8[];
 extern char data_02105fd8[];
 
 // USA: func_0203b718
-extern "C" ARM void func_0203b718(void* objPtr, int mode, int idx, int fillByte) {
-    char* obj = (char*)objPtr;
-    switch (mode) {
+extern "C" ARM void func_0203b718(void* arg0, int arg1, int arg2, int arg3) {
+    char* var0 = (char*)arg0;
+    switch (arg1) {
     case 0:
     case 1:
-        switch (idx) {
+        switch (arg2) {
         case 0:
-            memset(data_021065d8, fillByte, 0x1000);
+            memset(data_021065d8, arg3, 0x1000);
             break;
         case 1:
-            memset(data_02105fd8, fillByte, 0x600);
+            memset(data_02105fd8, arg3, 0x600);
             break;
         }
         break;
     }
-    ((int*)(obj + 0x40))[idx + mode * 4] = 1;
+    ((int*)(var0 + 0x40))[arg2 + arg1 * 4] = 1;
 }

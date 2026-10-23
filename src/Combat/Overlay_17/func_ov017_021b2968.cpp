@@ -6,48 +6,48 @@
 
 extern "C" int func_020429d4(void);
 extern "C" void* func_020d6c00(void);
-struct FlagWord02046708;
-extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+struct Struct_02012de8;
+extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 void SetMainBrightness(GameResources*, int, int);
 void SetBrightness(GameResources*, int, int);
-extern "C" void func_020397c0(void* obj);
+extern "C" void func_020397c0(void* arg0);
 
-struct Obj021b2968 {
-    unsigned char pad0;
-    unsigned char flag1;
-    char pad2[0x36];
-    unsigned int flags0x38;
+struct Struct_ov017_021b2968 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[0x36];
+    unsigned int unknown_38_;
 };
 
 // USA: func_ov017_021b2968
-extern "C" ARM int func_ov017_021b2968(struct Obj021b2968* self) {
-    GameResources* oddStruct = GetGameResources();
+extern "C" ARM int func_ov017_021b2968(struct Struct_ov017_021b2968* arg0) {
+    GameResources* var0 = GetGameResources();
 
-    unsigned int bit3 = (self->flags0x38 << 28) >> 31;
-    if (bit3) {
-        void* buf = (void*)func_020429d4();
-        memset(buf, 0, 0x800);
-        StageMemoryToVRAM(VRAMSubregion_MainBG1Screen, buf, 0, 0x800, true, false);
-        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, buf, 0, 0x800, true, false);
-        StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, buf, 0, 0x800, true, false);
-        StageMemoryToVRAM(VRAMSubregion_MainBG1Character, buf, 0, 0x20, true, false);
-        StageMemoryToVRAM(VRAMSubregion_MainBG2Character, buf, 0, 0x20, true, false);
-        StageMemoryToVRAM(VRAMSubregion_MainBG3Character, buf, 0, 0x20, true, false);
+    unsigned int var1 = (arg0->unknown_38_ << 28) >> 31;
+    if (var1) {
+        void* var2 = (void*)func_020429d4();
+        memset(var2, 0, 0x800);
+        StageMemoryToVRAM(VRAMSubregion_MainBG1Screen, var2, 0, 0x800, true, false);
+        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, var2, 0, 0x800, true, false);
+        StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, var2, 0, 0x800, true, false);
+        StageMemoryToVRAM(VRAMSubregion_MainBG1Character, var2, 0, 0x20, true, false);
+        StageMemoryToVRAM(VRAMSubregion_MainBG2Character, var2, 0, 0x20, true, false);
+        StageMemoryToVRAM(VRAMSubregion_MainBG3Character, var2, 0, 0x20, true, false);
 
-        struct FlagWord02046708* flagWord = (struct FlagWord02046708*)func_020d6c00();
-        if (!func_02046708(flagWord, 1) && !func_02046708(flagWord, 0x40)) {
-            SetMainBrightness((GameResources*)oddStruct, 0, 0x28);
+        struct Struct_02012de8* var3 = (struct Struct_02012de8*)func_020d6c00();
+        if (!func_02046708(var3, 1) && !func_02046708(var3, 0x40)) {
+            SetMainBrightness((GameResources*)var0, 0, 0x28);
         } else {
-            SetBrightness((GameResources*)oddStruct, 0, 0x28);
+            SetBrightness((GameResources*)var0, 0, 0x28);
         }
     }
 
-    GameState* battle = GameState::GetInstance();
-    GameObject* combatant = battle->GetUnknownGameObject();
-    if (combatant) {
-        func_020397c0(combatant);
+    GameState* var4 = GameState::GetInstance();
+    GameObject* var5 = var4->GetUnknownGameObject();
+    if (var5) {
+        func_020397c0(var5);
     }
 
-    self->flag1 = 1;
+    arg0->unknown_1_ = 1;
     return 8;
 }

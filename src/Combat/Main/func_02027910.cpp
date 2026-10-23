@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct Entry02027910 {
-    int f0;
-    int f1;
-    int f2;
-    int f3;
+struct Struct_02027910_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-struct List02027910 {
-    char pad[0x2c];
-    Entry02027910* entries;
-    int count;
+struct Struct_02027910 {
+    char unknown_0_[0x2c];
+    Struct_02027910_2* unknown_2c_;
+    int unknown_30_;
 };
 
-struct List_020278a4;
-extern "C" int func_020278a4(List_020278a4* list, int id);
+struct Struct_020278a4_2;
+extern "C" int func_020278a4(Struct_020278a4_2* arg0, int arg1);
 
 // USA: func_02027910
-extern "C" ARM void func_02027910(List02027910* list, int f0, int id, int f2, int f3) {
-    list->entries[list->count].f0 = f0;
-    list->entries[list->count].f1 = func_020278a4((List_020278a4*)list, id);
-    list->entries[list->count].f2 = f2;
-    list->entries[list->count].f3 = f3;
-    list->count++;
+extern "C" ARM void func_02027910(Struct_02027910* arg0, int arg1, int arg2, int arg3, int arg4) {
+    arg0->unknown_2c_[arg0->unknown_30_].unknown_0_ = arg1;
+    arg0->unknown_2c_[arg0->unknown_30_].unknown_4_ = func_020278a4((Struct_020278a4_2*)arg0, arg2);
+    arg0->unknown_2c_[arg0->unknown_30_].unknown_8_ = arg3;
+    arg0->unknown_2c_[arg0->unknown_30_].unknown_c_ = arg4;
+    arg0->unknown_30_++;
 }

@@ -1,94 +1,94 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_02001aec(void* a, void* b, int n);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
-struct Elem0206e558 {
-    unsigned char d[3];
-    unsigned char f3[4];
-    unsigned short v8[4];
-    unsigned char f10[4];
-    unsigned short v14[4];
+struct Struct_0206e558 {
+    unsigned char unknown_0_[3];
+    unsigned char unknown_3_[4];
+    unsigned short unknown_8_[4];
+    unsigned char unknown_10_[4];
+    unsigned short unknown_14_[4];
 };
 
-struct Obj0206e558 {
-    struct Elem0206e558 a[5];
-    char name1[0x42];
-    char pad0[0x255];
-    char name2[0xf];
-    char flag332;
-    char pad1;
-    struct Elem0206e558 b[5];
-    char name3[0x42];
-    char pad2[2];
-    int f404;
-    int f408;
-    char name4[0xf];
+struct Struct_0206e558_2 {
+    struct Struct_0206e558 unknown_0_[5];
+    char unknown_8c_[0x42];
+    char unknown_ce_[0x255];
+    char unknown_323_[0xf];
+    char unknown_332_;
+    char unknown_333_;
+    struct Struct_0206e558 unknown_334_[5];
+    char unknown_3c0_[0x42];
+    char unknown_402_[2];
+    int unknown_404_;
+    int unknown_408_;
+    char unknown_40c_[0xf];
 };
 
 // USA: func_0206e558
-extern "C" ARM int func_0206e558(struct Obj0206e558* s) {
-    int flag = 0;
-    int i;
+extern "C" ARM int func_0206e558(struct Struct_0206e558_2* arg0) {
+    int var0 = 0;
+    int var1;
 
-    if (s->f404 != 0 || s->f408 != 0) {
-        for (i = 0; i < 5; i++) {
-            struct Elem0206e558* ea = &s->a[i];
-            struct Elem0206e558* eb = &s->b[i];
-            unsigned int va = ea->d[0] * 10000 + ea->d[1] * 100 + ea->d[2];
-            unsigned int vb = eb->d[0] * 10000 + eb->d[1] * 100 + eb->d[2];
+    if (arg0->unknown_404_ != 0 || arg0->unknown_408_ != 0) {
+        for (var1 = 0; var1 < 5; var1++) {
+            struct Struct_0206e558* var2 = &arg0->unknown_0_[var1];
+            struct Struct_0206e558* var3 = &arg0->unknown_334_[var1];
+            unsigned int var4 = var2->unknown_0_[0] * 10000 + var2->unknown_0_[1] * 100 + var2->unknown_0_[2];
+            unsigned int var5 = var3->unknown_0_[0] * 10000 + var3->unknown_0_[1] * 100 + var3->unknown_0_[2];
 
-            if (va > vb) {
+            if (var4 > var5) {
                 continue;
             }
-            if (flag == 0 && func_02001aec(ea, eb, sizeof(struct Elem0206e558)) != 0) {
-                flag = 1;
+            if (var0 == 0 && func_02001aec(var2, var3, sizeof(struct Struct_0206e558)) != 0) {
+                var0 = 1;
             }
-            ea->d[0] = eb->d[0];
-            ea->d[1] = eb->d[1];
-            ea->d[2] = eb->d[2];
+            var2->unknown_0_[0] = var3->unknown_0_[0];
+            var2->unknown_0_[1] = var3->unknown_0_[1];
+            var2->unknown_0_[2] = var3->unknown_0_[2];
             {
-                const unsigned char* p = eb->f3;
-                int n = 4;
-                unsigned char* d = ea->f3;
-                do { *d = *p++; d++; } while (--n);
-            }
-            {
-                const unsigned short* p = eb->v8;
-                int n = 4;
-                unsigned short* d = ea->v8;
-                do { *d = *p++; d++; } while (--n);
+                const unsigned char* var6 = var3->unknown_3_;
+                int var7 = 4;
+                unsigned char* var8 = var2->unknown_3_;
+                do { *var8 = *var6++; var8++; } while (--var7);
             }
             {
-                const unsigned char* p = eb->f10;
-                int n = 4;
-                unsigned char* d = ea->f10;
-                do { *d = *p++; d++; } while (--n);
+                const unsigned short* var9 = var3->unknown_8_;
+                int var10 = 4;
+                unsigned short* var11 = var2->unknown_8_;
+                do { *var11 = *var9++; var11++; } while (--var10);
             }
             {
-                const unsigned short* p = eb->v14;
-                int n = 4;
-                unsigned short* d = ea->v14;
-                do { *d = *p++; d++; } while (--n);
+                const unsigned char* var12 = var3->unknown_10_;
+                int var13 = 4;
+                unsigned char* var14 = var2->unknown_10_;
+                do { *var14 = *var12++; var14++; } while (--var13);
+            }
+            {
+                const unsigned short* var15 = var3->unknown_14_;
+                int var16 = 4;
+                unsigned short* var17 = var2->unknown_14_;
+                do { *var17 = *var15++; var17++; } while (--var16);
             }
         }
 
-        if (flag == 0) {
-            if (func_02001aec(s->name1, s->name3, 0x42) != 0) {
-                flag = s->f404;
+        if (var0 == 0) {
+            if (func_02001aec(arg0->unknown_8c_, arg0->unknown_3c0_, 0x42) != 0) {
+                var0 = arg0->unknown_404_;
             }
         }
-        memcpy(s->name1, s->name3, 0x42);
+        memcpy(arg0->unknown_8c_, arg0->unknown_3c0_, 0x42);
 
-        if (flag == 0) {
-            if (func_02001aec(s->name2, s->name4, 0xf) != 0) {
-                flag = 1;
+        if (var0 == 0) {
+            if (func_02001aec(arg0->unknown_323_, arg0->unknown_40c_, 0xf) != 0) {
+                var0 = 1;
             }
         }
-        memcpy(s->name2, s->name4, 0xf);
+        memcpy(arg0->unknown_323_, arg0->unknown_40c_, 0xf);
 
-        s->f404 = 0;
-        s->f408 = 0;
+        arg0->unknown_404_ = 0;
+        arg0->unknown_408_ = 0;
     }
-    return flag;
+    return var0;
 }

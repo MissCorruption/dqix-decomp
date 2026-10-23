@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kHolderFlagsOffset = 0xc };
+enum { Enum_ov025_021e2c34_28 = 0xc };
 #else
-enum { kHolderFlagsOffset = 0x1c };
+enum { Enum_ov025_021e2c34_28 = 0x1c };
 #endif
 
 #include "GameState/GameState.h"
 
-struct List02160094;
-struct ListNode02160094;
-struct BitFlags02037170;
-struct S190;
+struct Struct_ov000_0215440c_2;
+struct Struct_ov000_02160094;
+struct Struct_02059cfc_4;
+struct Struct_ov025_021e2c34;
 
-extern "C" struct ListNode02160094* func_ov000_02160094(struct List02160094* list, int index);
+extern "C" struct Struct_ov000_02160094* func_ov000_02160094(struct Struct_ov000_0215440c_2* arg0, int arg1);
 extern int data_ov025_021ef988;
 
 // USA: func_ov025_021e2c34
-extern "C" ARM int func_ov025_021e2c34(void* unused, struct List02160094* list) {
-    struct ListNode02160094* node = func_ov000_02160094(list, 0);
-    if (!node) return 0;
-    int id = *(unsigned short*)((char*)node + 0x20);
-    GameState* battle = GameState::GetInstance();
-    GameObject* c = battle->GetGameObjectByIndex(id);
-    int flags = *(int*)((char*)&data_ov025_021ef988 + kHolderFlagsOffset);
-    if (flags & 4) return 0;
-    if (((Object3D*)((struct BitFlags02037170*)c))->HasAnimationStopped()) return 1;
-    return ((Object3D*)((struct S190*)c))->GetOffset40Bit1() != 0;
+extern "C" ARM int func_ov025_021e2c34(void* arg0, struct Struct_ov000_0215440c_2* arg1) {
+    struct Struct_ov000_02160094* var0 = func_ov000_02160094(arg1, 0);
+    if (!var0) return 0;
+    int var1 = *(unsigned short*)((char*)var0 + 0x20);
+    GameState* var2 = GameState::GetInstance();
+    GameObject* var3 = var2->GetGameObjectByIndex(var1);
+    int var4 = *(int*)((char*)&data_ov025_021ef988 + Enum_ov025_021e2c34_28);
+    if (var4 & 4) return 0;
+    if (((Object3D*)((struct Struct_02059cfc_4*)var3))->HasAnimationStopped()) return 1;
+    return ((Object3D*)((struct Struct_ov025_021e2c34*)var3))->GetOffset40Bit1() != 0;
 }

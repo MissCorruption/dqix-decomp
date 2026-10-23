@@ -6,61 +6,61 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct TableItem {
-    unsigned short id : 9;
-    unsigned short flag9 : 1;
-    unsigned short special : 1;
-    unsigned short flag11 : 1;
-    unsigned short flag12 : 1;
-    unsigned short reserved : 3;
+struct Struct_ov004_02166198 {
+    unsigned short unknown_0_0_ : 9;
+    unsigned short unknown_1_1_ : 1;
+    unsigned short unknown_1_2_ : 1;
+    unsigned short unknown_1_3_ : 1;
+    unsigned short unknown_1_4_ : 1;
+    unsigned short unknown_1_5_ : 3;
 };
-struct GetTableByteOrFFData {
-    unsigned char field_0x0[0xa8];
-    TableItem* items;
-    unsigned char bytes[0xcc];
+struct Struct_02065990_3 {
+    unsigned char unknown_0_[0xa8];
+    Struct_ov004_02166198* unknown_a8_;
+    unsigned char unknown_ac_[0xcc];
 };
-struct PackedNibbleArray0206e120;
-struct PackedNibbleArray0206e2dc;
-struct MenuEntry {
-    short index;
-    unsigned short state : 2;
-    unsigned short special : 1;
-    unsigned short flag12 : 1;
-    unsigned short flag9 : 1;
-    unsigned short flag11 : 1;
-    unsigned short reserved : 10;
-    char name[4];
-    int field_0x8;
+struct Struct_0205faf4_3;
+struct Struct_0205faf4_13;
+struct Struct_ov000_02179cdc_2 {
+    short unknown_0_;
+    unsigned short unknown_2_0_ : 2;
+    unsigned short unknown_2_2_ : 1;
+    unsigned short unknown_2_3_ : 1;
+    unsigned short unknown_2_4_ : 1;
+    unsigned short unknown_2_5_ : 1;
+    unsigned short unknown_2_6_ : 10;
+    char unknown_4_[4];
+    int unknown_8_;
 };
-struct MenuLists {
-    MenuEntry* regular;
-    MenuEntry* special;
-    unsigned char field_0x8[0x28];
-    SafeAllocator allocator;
-    unsigned char field_0x44[4];
-    short regularCount;
-    short specialCount;
-    short field_0x4c;
-    short count;
+struct Struct_ov004_02166198_2 {
+    Struct_ov000_02179cdc_2* unknown_0_;
+    Struct_ov000_02179cdc_2* unknown_4_;
+    unsigned char unknown_8_[0x28];
+    SafeAllocator unknown_30_;
+    unsigned char unknown_44_[4];
+    short unknown_48_;
+    short unknown_4a_;
+    short unknown_4c_;
+    short unknown_4e_;
 };
 extern "C" int* func_02094d6c();
 extern "C" void* func_0205ec34();
-extern "C" unsigned char func_020965ac(GetTableByteOrFFData*, unsigned char);
-extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
-extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc*, int);
+extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
+extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
 extern "C" int func_02096088(void*, int);
 extern "C" void func_ov004_021660f4();
-struct QuestWindowOwners {
+struct Struct_ov004_0217101c_2 {
 #if defined(jpn)
-    void** windowLists;
-    MenuLists* main;
+    void** unknown_0_;
+    Struct_ov004_02166198_2* unknown1_0_;
 #else
-    MenuLists* main;
-    void** windowLists;
+    Struct_ov004_02166198_2* unknown1_0_;
+    void** unknown_4_;
 #endif
-    MenuLists* GetMain() { return main; }
+    Struct_ov004_02166198_2* inline_ov004_02166198() { return unknown1_0_; }
 };
-extern QuestWindowOwners data_ov004_0217101c;
+extern Struct_ov004_0217101c_2 data_ov004_0217101c;
 #if defined(jpn)
 extern char data_ov004_02170e54[];
 #else
@@ -69,119 +69,119 @@ extern char data_ov004_021705a0[];
 
 // USA: func_ov004_02166198
 extern "C" ARM void func_ov004_02166198() {
-    MenuEntry* regular;
-    MenuEntry* special;
-    TableItem* items;
-    MenuLists* lists = data_ov004_0217101c.GetMain();
-    short count = lists->count;
-    GetTableByteOrFFData* table = (GetTableByteOrFFData*)(func_02094d6c());
-    items = table->items;
-    void* save = func_0205ec34();
-    short regularCount = 0;
-    short specialCount = 0;
-    TableItem* firstItem;
-    short firstIndex;
-    for (firstIndex = 1; firstIndex <= count; firstIndex++) {
-        int id = func_020965ac(table, (unsigned char)(firstIndex));
-        firstItem = items;
-        int j;
-        for (j = 0; j < 0xcc; j++, firstItem++) {
-            if (firstItem->id == id) break;
+    Struct_ov000_02179cdc_2* var0;
+    Struct_ov000_02179cdc_2* var1;
+    Struct_ov004_02166198* var2;
+    Struct_ov004_02166198_2* var3 = data_ov004_0217101c.inline_ov004_02166198();
+    short var4 = var3->unknown_4e_;
+    Struct_02065990_3* var5 = (Struct_02065990_3*)(func_02094d6c());
+    var2 = var5->unknown_a8_;
+    void* var6 = func_0205ec34();
+    short var7 = 0;
+    short var8 = 0;
+    Struct_ov004_02166198* var9;
+    short var10;
+    for (var10 = 1; var10 <= var4; var10++) {
+        int var11 = func_020965ac(var5, (unsigned char)(var10));
+        var9 = var2;
+        int var12;
+        for (var12 = 0; var12 < 0xcc; var12++, var9++) {
+            if (var9->unknown_0_0_ == var11) break;
         }
-        if (j == 0xcc) continue;
-        if (firstItem->id == 0 || firstItem->id >= 0xff) continue;
-        int state = func_0206e120((PackedNibbleArray0206e120*)(save), firstItem->id);
-        if (firstItem->special) {
-            if (func_0206e2dc((PackedNibbleArray0206e2dc*)(save), firstItem->id)) specialCount++;
+        if (var12 == 0xcc) continue;
+        if (var9->unknown_0_0_ == 0 || var9->unknown_0_0_ >= 0xff) continue;
+        int var13 = func_0206e120((Struct_0205faf4_3*)(var6), var9->unknown_0_0_);
+        if (var9->unknown_1_2_) {
+            if (func_0206e2dc((Struct_0205faf4_13*)(var6), var9->unknown_0_0_)) var8++;
         } else {
-            switch (state) {
+            switch (var13) {
             case 1:
-                if (func_02096088(table, firstItem->id)) regularCount++;
+                if (func_02096088(var5, var9->unknown_0_0_)) var7++;
                 break;
             case 2:
             case 3:
-                regularCount++;
+                var7++;
                 break;
 #if !defined(jpn)
             case 0:
-                if (func_02096088(table, firstItem->id)) regularCount++;
+                if (func_02096088(var5, var9->unknown_0_0_)) var7++;
                 break;
 #endif
             }
         }
     }
-    lists->regularCount = regularCount;
-    lists->specialCount = specialCount;
-    lists->regular = 0;
-    lists->special = 0;
-    lists->allocator.Reset();
-    if (regularCount) lists->regular = (MenuEntry*)(lists->allocator.Allocate(regularCount * sizeof(MenuEntry)));
-    if (specialCount) lists->special = (MenuEntry*)(lists->allocator.Allocate(specialCount * sizeof(MenuEntry)));
-    short regularIndex = 0;
-    short specialIndex = 0;
-    regular = lists->regular;
-    special = lists->special;
-    for (short i = 1; i <= count; i++) {
-        int state;
-        int id = func_020965ac(table, (unsigned char)(i));
-        TableItem* item = items;
-        int j;
-        for (j = 0; j < 0xcc; j++, item++) {
-            if (item->id == id) break;
+    var3->unknown_48_ = var7;
+    var3->unknown_4a_ = var8;
+    var3->unknown_0_ = 0;
+    var3->unknown_4_ = 0;
+    var3->unknown_30_.Reset();
+    if (var7) var3->unknown_0_ = (Struct_ov000_02179cdc_2*)(var3->unknown_30_.Allocate(var7 * sizeof(Struct_ov000_02179cdc_2)));
+    if (var8) var3->unknown_4_ = (Struct_ov000_02179cdc_2*)(var3->unknown_30_.Allocate(var8 * sizeof(Struct_ov000_02179cdc_2)));
+    short var14 = 0;
+    short var15 = 0;
+    var0 = var3->unknown_0_;
+    var1 = var3->unknown_4_;
+    for (short var16 = 1; var16 <= var4; var16++) {
+        int var17;
+        int var18 = func_020965ac(var5, (unsigned char)(var16));
+        Struct_ov004_02166198* var19 = var2;
+        int var20;
+        for (var20 = 0; var20 < 0xcc; var20++, var19++) {
+            if (var19->unknown_0_0_ == var18) break;
         }
-        if (j == 0xcc) continue;
-        if (item->id == 0 || item->id >= 0xff) continue;
-        state = func_0206e120((PackedNibbleArray0206e120*)(save), item->id);
-        bool include = false;
-        if (item->special) {
-            if (func_0206e2dc((PackedNibbleArray0206e2dc*)(save), item->id)) {
-                include = true;
-                if (state == 1 && func_02096088(table, item->id)) state = 3;
+        if (var20 == 0xcc) continue;
+        if (var19->unknown_0_0_ == 0 || var19->unknown_0_0_ >= 0xff) continue;
+        var17 = func_0206e120((Struct_0205faf4_3*)(var6), var19->unknown_0_0_);
+        bool var21 = false;
+        if (var19->unknown_1_2_) {
+            if (func_0206e2dc((Struct_0205faf4_13*)(var6), var19->unknown_0_0_)) {
+                var21 = true;
+                if (var17 == 1 && func_02096088(var5, var19->unknown_0_0_)) var17 = 3;
             }
         } else {
-            switch (state) {
+            switch (var17) {
             case 1:
-                if (func_02096088(table, item->id)) { include = true; state = 3; }
+                if (func_02096088(var5, var19->unknown_0_0_)) { var21 = true; var17 = 3; }
                 break;
             case 2:
             case 3:
-                include = true;
+                var21 = true;
                 break;
 #if !defined(jpn)
             case 0:
-                if (func_02096088(table, item->id)) { include = true; state = 3; }
+                if (func_02096088(var5, var19->unknown_0_0_)) { var21 = true; var17 = 3; }
                 break;
 #endif
             }
         }
-        if (!include) continue;
-        short* index = &regularIndex;
-        MenuEntry* entry = &regular[regularIndex];
-        if (item->special) {
-            index = &specialIndex;
-            entry = &special[specialIndex];
+        if (!var21) continue;
+        short* var22 = &var14;
+        Struct_ov000_02179cdc_2* var23 = &var0[var14];
+        if (var19->unknown_1_2_) {
+            var22 = &var15;
+            var23 = &var1[var15];
         }
-        entry->index = -1;
-        entry->state = 0;
-        entry->special = 0;
-        entry->flag12 = 0;
-        entry->flag9 = 0;
-        entry->flag11 = 0;
-        entry->field_0x8 = 0;
-        memset(entry->name, 0, sizeof(entry->name));
-        entry->index = i;
-        entry->state = (unsigned short)(state);
-        entry->special = item->special;
-        entry->flag12 = item->flag12;
-        entry->flag9 = item->flag9;
-        entry->flag11 = item->flag11;
+        var23->unknown_0_ = -1;
+        var23->unknown_2_0_ = 0;
+        var23->unknown_2_2_ = 0;
+        var23->unknown_2_3_ = 0;
+        var23->unknown_2_4_ = 0;
+        var23->unknown_2_5_ = 0;
+        var23->unknown_8_ = 0;
+        memset(var23->unknown_4_, 0, sizeof(var23->unknown_4_));
+        var23->unknown_0_ = var16;
+        var23->unknown_2_0_ = (unsigned short)(var17);
+        var23->unknown_2_2_ = var19->unknown_1_2_;
+        var23->unknown_2_3_ = var19->unknown_1_4_;
+        var23->unknown_2_4_ = var19->unknown_1_1_;
+        var23->unknown_2_5_ = var19->unknown_1_3_;
 #if defined(jpn)
-        sprintf(entry->name, data_ov004_02170e54, i);
+        sprintf(var23->unknown_4_, data_ov004_02170e54, var16);
 #else
-        sprintf(entry->name, data_ov004_021705a0, i);
+        sprintf(var23->unknown_4_, data_ov004_021705a0, var16);
 #endif
-        entry->field_0x8 = 0;
-        (*index)++;
+        var23->unknown_8_ = 0;
+        (*var22)++;
     }
     func_ov004_021660f4();
 }

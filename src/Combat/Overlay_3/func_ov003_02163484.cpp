@@ -1,50 +1,50 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
-struct Entries {
+struct Struct_ov003_0216201c {
 #if defined(jpn)
-    char pad0[0x2a];
+    char unknown_0_[0x2a];
 #else
-    char pad0[0x36];
+    char unknown1_0_[0x36];
 #endif
-    short sel;
+    short unknown_36_;
 };
 
-struct Scene {
+struct Struct_ov003_02154af4_3 {
 #if defined(jpn)
-    char pad0[0x1f0];
-    char sub308[0x20c - 0x1f0];
-    Entries *entries;
-    char pad328[0x28c - 0x210];
+    char unknown_0_[0x1f0];
+    char unknown_308_[0x20c - 0x1f0];
+    Struct_ov003_0216201c *unknown_324_;
+    char unknown_210_[0x28c - 0x210];
 #else
-    char pad0[0x308];
-    char sub308[0x324 - 0x308];
-    Entries *entries;
-    char pad328[0x464 - 0x328];
+    char unknown1_0_[0x308];
+    char unknown_308_[0x324 - 0x308];
+    Struct_ov003_0216201c *unknown_324_;
+    char unknown_328_[0x464 - 0x328];
 #endif
-    unsigned int flags;
-    char pad468[0x470 - 0x468];
-    short *p470;
-    short h474;
-    char pad476[0x480 - 0x476];
-    short h480;
-    char pad482[0x484 - 0x482];
-    short h484;
-    short h486;
-    short h488;
-    char pad48a[0x494 - 0x48a];
-    short h494;
-    char pad496[0x49f - 0x496];
-    signed char c49f;
-    char pad4a0[0x4a3 - 0x4a0];
-    unsigned char c4a3;
-    unsigned char state;
+    unsigned int unknown_464_;
+    char unknown_468_[0x470 - 0x468];
+    short *unknown_470_;
+    short unknown_474_;
+    char unknown_476_[0x480 - 0x476];
+    short unknown_480_;
+    char unknown_482_[0x484 - 0x482];
+    short unknown_484_;
+    short unknown_486_;
+    short unknown_488_;
+    char unknown_48a_[0x494 - 0x48a];
+    short unknown_494_;
+    char unknown_496_[0x49f - 0x496];
+    signed char unknown_49f_;
+    char unknown_4a0_[0x4a3 - 0x4a0];
+    unsigned char unknown_4a3_;
+    unsigned char unknown_4a4_;
 };
 
-struct Elem {
-    signed char v : 6;
-    char pad1[0x13f - 1];
-    unsigned char m : 3;
+struct Struct_ov003_0216253c {
+    signed char unknown_0_0_ : 6;
+    char unknown_1_[0x13f - 1];
+    unsigned char unknown_13f_0_ : 3;
 };
 
 #if defined(jpn)
@@ -54,149 +54,149 @@ struct Elem {
 #endif
 
 extern int data_02108760;
-struct StatusOwner02081198;
-extern "C" void func_02081198(StatusOwner02081198*, int, int);
-struct StatusOwner02081164;
-extern "C" void func_02081164(StatusOwner02081164*, int, int);
+struct Struct_02081198;
+extern "C" void func_02081198(Struct_02081198*, int, int);
+struct Struct_02081164;
+extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" void func_020813ec(void *, int);
-struct Obj0208203c;
-extern "C" void func_0208203c(Obj0208203c*);
+struct Struct_02081f20_2;
+extern "C" void func_0208203c(Struct_02081f20_2*);
 extern "C" int func_02080468(void *, int);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(Obj0205eaa0 *, int, int);
-struct Cont0207fe44;
-extern "C" void func_0207fe44(Cont0207fe44*);
-extern "C" Elem * func_ov003_02160bd0(void*, int);
-extern "C" int func_ov003_02160a68(Scene *);
-extern "C" int func_ov003_02160854(Scene *);
-extern "C" void func_ov003_021612c0(Scene *);
-extern "C" int func_ov003_02161344(Scene *);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(Struct_02108760 *, int, int);
+struct Struct_0207fe44;
+extern "C" void func_0207fe44(Struct_0207fe44*);
+extern "C" Struct_ov003_0216253c * func_ov003_02160bd0(void*, int);
+extern "C" int func_ov003_02160a68(Struct_ov003_02154af4_3 *);
+extern "C" int func_ov003_02160854(Struct_ov003_02154af4_3 *);
+extern "C" void func_ov003_021612c0(Struct_ov003_02154af4_3 *);
+extern "C" int func_ov003_02161344(Struct_ov003_02154af4_3 *);
 extern "C" void func_ov003_02166f80(void*, int, int);
-extern "C" void func_ov003_02166220(Scene *);
-extern "C" void func_ov003_02166184(Scene *);
-extern "C" void func_ov003_021668fc(Scene *);
+extern "C" void func_ov003_02166220(Struct_ov003_02154af4_3 *);
+extern "C" void func_ov003_02166184(Struct_ov003_02154af4_3 *);
+extern "C" void func_ov003_021668fc(Struct_ov003_02154af4_3 *);
 
 // USA: func_ov003_02163484
-extern "C" ARM void func_ov003_02163484(Scene *self) {
-    unsigned char state = self->state;
-    Entries *entries    = self->entries;
+extern "C" ARM void func_ov003_02163484(Struct_ov003_02154af4_3 *arg0) {
+    unsigned char var0 = arg0->unknown_4a4_;
+    Struct_ov003_0216201c *var1    = arg0->unknown_324_;
 
-    if (state == 0) {
-        self->h480 = -1;
-        self->h488 = 6;
-        self->h474 = -1;
-        if (self->h494 < 0) {
-            self->h494 = func_02080468(entries, self->h488);
+    if (var0 == 0) {
+        arg0->unknown_480_ = -1;
+        arg0->unknown_488_ = 6;
+        arg0->unknown_474_ = -1;
+        if (arg0->unknown_494_ < 0) {
+            arg0->unknown_494_ = func_02080468(var1, arg0->unknown_488_);
         }
-        entries->sel = self->h494;
-        func_02081198((StatusOwner02081198*)entries, 0x18, 1);
-        func_02081164((StatusOwner02081164*)entries, 0x18, 1);
-        func_020813ec(entries, 0x18);
-        func_ov003_02166f80(self, self->h488, 0);
-        func_ov003_02166220(self);
-        func_0208203c((Obj0208203c*)self->sub308);
-        self->p470 = 0;
-        self->flags |= 0x780000;
-        if (self->flags & 1) {
-            *(unsigned int *) ((int) self + REGION_OFF_464) |= 0x800000;
+        var1->unknown_36_ = arg0->unknown_494_;
+        func_02081198((Struct_02081198*)var1, 0x18, 1);
+        func_02081164((Struct_02081164*)var1, 0x18, 1);
+        func_020813ec(var1, 0x18);
+        func_ov003_02166f80(arg0, arg0->unknown_488_, 0);
+        func_ov003_02166220(arg0);
+        func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+        arg0->unknown_470_ = 0;
+        arg0->unknown_464_ |= 0x780000;
+        if (arg0->unknown_464_ & 1) {
+            *(unsigned int *) ((int) arg0 + REGION_OFF_464) |= 0x800000;
         }
-        self->state = self->state + 1;
-    } else if (state == 1) {
-        self->p470 = &self->h494;
-        self->flags |= 1;
-        func_ov003_02166184(self);
-        if (self->flags & 0x1000000) {
-            self->flags |= 0x780000;
-            if (self->flags & 1) {
-                *(unsigned int *) ((int) self + REGION_OFF_464) |= 0x800000;
+        arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
+    } else if (var0 == 1) {
+        arg0->unknown_470_ = &arg0->unknown_494_;
+        arg0->unknown_464_ |= 1;
+        func_ov003_02166184(arg0);
+        if (arg0->unknown_464_ & 0x1000000) {
+            arg0->unknown_464_ |= 0x780000;
+            if (arg0->unknown_464_ & 1) {
+                *(unsigned int *) ((int) arg0 + REGION_OFF_464) |= 0x800000;
             }
         }
-        if (func_ov003_02160854(self) != 0) {
-            int idx = self->h494 - func_02080468(entries, self->h488);
-            idx += self->c49f * 4;
-            Elem *elem = func_ov003_02160bd0(self, idx);
-            if (elem == 0) {
+        if (func_ov003_02160854(arg0) != 0) {
+            int var2 = arg0->unknown_494_ - func_02080468(var1, arg0->unknown_488_);
+            var2 += arg0->unknown_49f_ * 4;
+            Struct_ov003_0216253c *var3 = func_ov003_02160bd0(arg0, var2);
+            if (var3 == 0) {
                 return;
             }
-            if (elem->v < 0) {
+            if (var3->unknown_0_0_ < 0) {
                 return;
             }
-            func_0205eaa0((Obj0205eaa0 *) &data_02108760, 1, 0);
-            func_0208203c((Obj0208203c*)self->sub308);
-            self->p470 = 0;
-            int m      = elem->m;
-            if (m == 3) {
-                func_ov003_02166f80(self, self->h488, 1);
-                self->h484  = 0x58;
-                self->state = 0;
-            } else if (m == 2 || m == 1 || m == 4) {
-                func_ov003_02166f80(self, self->h488, 1);
-                self->h484  = 0x57;
-                self->state = 0;
+            func_0205eaa0((Struct_02108760 *) &data_02108760, 1, 0);
+            func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+            arg0->unknown_470_ = 0;
+            int var4      = var3->unknown_13f_0_;
+            if (var4 == 3) {
+                func_ov003_02166f80(arg0, arg0->unknown_488_, 1);
+                arg0->unknown_484_  = 0x58;
+                arg0->unknown_4a4_ = 0;
+            } else if (var4 == 2 || var4 == 1 || var4 == 4) {
+                func_ov003_02166f80(arg0, arg0->unknown_488_, 1);
+                arg0->unknown_484_  = 0x57;
+                arg0->unknown_4a4_ = 0;
             } else {
-                self->h480 = elem->v;
-                func_ov003_02166f80(self, self->h488, 1);
-                self->h484  = 0x19;
-                self->state = self->state + 1;
-                self->flags |= 0x20;
+                arg0->unknown_480_ = var3->unknown_0_0_;
+                func_ov003_02166f80(arg0, arg0->unknown_488_, 1);
+                arg0->unknown_484_  = 0x19;
+                arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
+                arg0->unknown_464_ |= 0x20;
             }
-        } else if (func_ov003_02160a68(self) != 0) {
-            func_0208203c((Obj0208203c*)self->sub308);
-            self->p470 = 0;
-            func_0207fe44((Cont0207fe44*)entries);
-            self->flags |= 0x80000;
-            self->h484  = 2;
-            self->c4a3  = 1;
-            self->state = 0;
+        } else if (func_ov003_02160a68(arg0) != 0) {
+            func_0208203c((Struct_02081f20_2*)arg0->unknown_308_);
+            arg0->unknown_470_ = 0;
+            func_0207fe44((Struct_0207fe44*)var1);
+            arg0->unknown_464_ |= 0x80000;
+            arg0->unknown_484_  = 2;
+            arg0->unknown_4a3_  = 1;
+            arg0->unknown_4a4_ = 0;
         }
-    } else if (state == 2) {
-        func_ov003_021612c0(self);
-        self->state = self->state + 1;
-    } else if (state == 3) {
-        int r = func_ov003_02161344(self);
-        if (r != -1) {
-            if (r == 1) {
-                self->h484  = 0x1a;
-                self->state = self->state + 1;
-                self->flags |= 0x20;
+    } else if (var0 == 2) {
+        func_ov003_021612c0(arg0);
+        arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
+    } else if (var0 == 3) {
+        int var5 = func_ov003_02161344(arg0);
+        if (var5 != -1) {
+            if (var5 == 1) {
+                arg0->unknown_484_  = 0x1a;
+                arg0->unknown_4a4_ = arg0->unknown_4a4_ + 1;
+                arg0->unknown_464_ |= 0x20;
             }
         } else {
-            func_0207fe44((Cont0207fe44*)entries);
-            self->h484  = 0x1c;
-            self->h486  = 2;
-            self->c4a3  = 1;
-            self->state = 0;
-            self->flags |= 0x80000;
-            self->state = 0;
+            func_0207fe44((Struct_0207fe44*)var1);
+            arg0->unknown_484_  = 0x1c;
+            arg0->unknown_486_  = 2;
+            arg0->unknown_4a3_  = 1;
+            arg0->unknown_4a4_ = 0;
+            arg0->unknown_464_ |= 0x80000;
+            arg0->unknown_4a4_ = 0;
         }
-    } else if (state == 4) {
-        func_0207fe44((Cont0207fe44*)entries);
-        self->flags |= 0x80000;
-        self->h484  = 2;
-        self->c4a3  = 1;
-        self->state = 0;
-        func_ov003_021668fc(self);
-    } else if (state == 5) {
-        func_0207fe44((Cont0207fe44*)entries);
-        self->flags |= 0x80000;
-        self->h484  = 2;
-        self->c4a3  = 1;
-        self->state = 0;
-    } else if (state == 100) {
-        func_ov003_021612c0(self);
-        self->state = 0x65;
-    } else if (state == 101) {
-        int r = func_ov003_02161344(self);
-        if (r != -1) {
-            if (r == 1) {
-                self->h484  = 0x18;
-                self->state = 0;
+    } else if (var0 == 4) {
+        func_0207fe44((Struct_0207fe44*)var1);
+        arg0->unknown_464_ |= 0x80000;
+        arg0->unknown_484_  = 2;
+        arg0->unknown_4a3_  = 1;
+        arg0->unknown_4a4_ = 0;
+        func_ov003_021668fc(arg0);
+    } else if (var0 == 5) {
+        func_0207fe44((Struct_0207fe44*)var1);
+        arg0->unknown_464_ |= 0x80000;
+        arg0->unknown_484_  = 2;
+        arg0->unknown_4a3_  = 1;
+        arg0->unknown_4a4_ = 0;
+    } else if (var0 == 100) {
+        func_ov003_021612c0(arg0);
+        arg0->unknown_4a4_ = 0x65;
+    } else if (var0 == 101) {
+        int var6 = func_ov003_02161344(arg0);
+        if (var6 != -1) {
+            if (var6 == 1) {
+                arg0->unknown_484_  = 0x18;
+                arg0->unknown_4a4_ = 0;
             }
         } else {
-            self->h484  = 0x1c;
-            self->h486  = 2;
-            self->c4a3  = 1;
-            self->state = 0;
+            arg0->unknown_484_  = 0x1c;
+            arg0->unknown_486_  = 2;
+            arg0->unknown_4a3_  = 1;
+            arg0->unknown_4a4_ = 0;
         }
     }
 }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct PointerField32c_ffc0 {
-    char unk[0x32c];
-    void* field;
+struct Struct_0200ffc0 {
+    char unknown_0_[0x32c];
+    void* unknown_32c_;
 };
 
 // USA: func_0200ffc0
-extern "C" ARM void* func_0200ffc0(struct PointerField32c_ffc0* obj) {
-    return obj->field ? obj->field : 0;
+extern "C" ARM void* func_0200ffc0(struct Struct_0200ffc0* arg0) {
+    return arg0->unknown_32c_ ? arg0->unknown_32c_ : 0;
 }

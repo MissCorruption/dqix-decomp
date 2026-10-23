@@ -1,64 +1,64 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kInitialPad = 0x868, kIndexGap = 0x7e, kEnabledGap = 0x5c };
+enum { Enum_020675fc_2456 = 0x868, Enum_020675fc_288 = 0x7e, Enum_020675fc_90 = 0x5c };
 #else
-enum { kInitialPad = 0x998, kIndexGap = 0x120, kEnabledGap = 0x5a };
+enum { Enum_020675fc_2456 = 0x998, Enum_020675fc_288 = 0x120, Enum_020675fc_90 = 0x5a };
 #endif
 
 #include <GameState/GameState.h>
 #include <Combat/EntryGetterTypes.h>
 #include "Resource/GameResources.h"
 
-struct EntryList_203dce4;
-struct Node020406f8;
-struct StructAt020473c8;
-struct Vec3_020406f8 { unsigned int v[3]; };
-struct Vec3copy0202ec84 { unsigned int v[3]; };
-union VectorBuffer020675fc {
-    Vec3_020406f8 selected;
-    Vec3copy0202ec84 copied;
+struct Struct_0203dce4_2;
+struct Struct_0203de84_2;
+struct Struct_02015ef4_2;
+struct Struct_0203de84 { unsigned int unknown_0_[3]; };
+struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
+union Struct_020675fc {
+    Struct_0203de84 unknown_0_;
+    Struct_02015ef4 unknown1_0_;
 };
-struct Owner020675fc {
-    unsigned char padding[kInitialPad];
-    int active;
-    unsigned char padding_0x99c[0xe9c];
-    int entryId;
-    unsigned char padding_0x183c[kIndexGap];
-    unsigned char index;
-    unsigned char padding_0x195d[kEnabledGap];
-    unsigned char enabled;
+struct Struct_020675fc_2 {
+    unsigned char unknown_0_[Enum_020675fc_2456];
+    int unknown_998_;
+    unsigned char unknown_99c_[0xe9c];
+    int unknown_1838_;
+    unsigned char unknown_183c_[Enum_020675fc_288];
+    unsigned char unknown_195c_;
+    unsigned char unknown_195d_[Enum_020675fc_90];
+    unsigned char unknown_19b7_;
 };
-extern "C" EntryList_203dce4* func_0203cf4c();
-extern "C" Entry_203dce4* func_0203dce4(EntryList_203dce4*, int);
+extern "C" Struct_0203dce4_2* func_0203cf4c();
+extern "C" Struct_0203dce4* func_0203dce4(Struct_0203dce4_2*, int);
 extern "C" void* func_020100bc(GameState*);
-extern "C" void func_020406f8(Vec3_020406f8*, Node020406f8*);
-extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
-extern "C" void func_020473c8(StructAt020473c8*, int);
+extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 extern unsigned char data_020e7e08[];
 
 // USA: func_020675fc
-extern "C" ARM void func_020675fc(Owner020675fc* owner) {
-    if (!owner->active) return;
-    Entry_203dce4* entry = func_0203dce4(func_0203cf4c(), owner->entryId);
-    if (entry && owner->enabled) {
-        GameResources* resources = GetGameResources();
-        void* view = func_020100bc(GameState::GetInstance());
-        int x;
-        int y;
-        Vec3copy0202ec84 copied;
-        VectorBuffer020675fc vector;
-        func_020406f8(&vector.selected, (Node020406f8*)entry);
-        copied = vector.copied;
-        func_0202ec84(view, &copied, &x, &y);
-        x -= 12;
-        y -= 62;
-        int scaledX = x << 12;
-        Foo02048004* output = &resources->substruct_array_2b90[data_020e7e08[owner->index]];
-        int scaledY = y << 12;
-        output->words1c[0] = scaledX;
-        output->words1c[1] = scaledY;
-        output->words1c[2] = 0;
-        func_020473c8((StructAt020473c8*)output, 1);
+extern "C" ARM void func_020675fc(Struct_020675fc_2* arg0) {
+    if (!arg0->unknown_998_) return;
+    Struct_0203dce4* var0 = func_0203dce4(func_0203cf4c(), arg0->unknown_1838_);
+    if (var0 && arg0->unknown_19b7_) {
+        GameResources* var1 = GetGameResources();
+        void* var2 = func_020100bc(GameState::GetInstance());
+        int var3;
+        int var4;
+        Struct_02015ef4 var5;
+        Struct_020675fc var6;
+        func_020406f8(&var6.unknown_0_, (Struct_0203de84_2*)var0);
+        var5 = var6.unknown1_0_;
+        func_0202ec84(var2, &var5, &var3, &var4);
+        var3 -= 12;
+        var4 -= 62;
+        int var7 = var3 << 12;
+        Struct_02012fa4* var8 = &var1->substruct_array_2b90[data_020e7e08[arg0->unknown_195c_]];
+        int var9 = var4 << 12;
+        var8->unknown_1c_[0] = var7;
+        var8->unknown_1c_[1] = var9;
+        var8->unknown_1c_[2] = 0;
+        func_020473c8((Struct_02015ef4_2*)var8, 1);
     }
 }

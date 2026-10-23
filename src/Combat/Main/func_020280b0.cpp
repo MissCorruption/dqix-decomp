@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-struct InitStruct {
-    unsigned char b0;
-    unsigned char b1;
-    unsigned char b2;
-    unsigned char b3;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
-    int w18;
-    int w1c;
-    int w20;
-    unsigned char b24;
-    unsigned char b25;
-    int w28;
+struct Struct_0201a300_5 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    unsigned char unknown_24_;
+    unsigned char unknown_25_;
+    int unknown_28_;
 };
 
 // USA: func_020280b0
-extern "C" ARM void func_020280b0(struct InitStruct* s) {
-    s->w1c = 0;
-    s->b0 = 0;
-    s->b1 = 0;
-    s->b2 = 0;
-    s->b3 = 0;
-    s->w4 = 0;
-    s->w8 = 0;
-    s->wc = 0;
-    s->w10 = 0;
-    s->w14 = 0;
-    s->w18 = 0;
-    s->w20 = 1;
-    s->b24 = 0;
-    s->b25 = 0;
-    s->w28 = 0;
+extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0) {
+    arg0->unknown_1c_ = 0;
+    arg0->unknown_0_ = 0;
+    arg0->unknown_1_ = 0;
+    arg0->unknown_2_ = 0;
+    arg0->unknown_3_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = 0;
+    arg0->unknown_18_ = 0;
+    arg0->unknown_20_ = 1;
+    arg0->unknown_24_ = 0;
+    arg0->unknown_25_ = 0;
+    arg0->unknown_28_ = 0;
 }

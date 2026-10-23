@@ -9,413 +9,413 @@
 #define TARGET_FLOAT_MANT_BITS (TARGET_FLOAT_MANT_DIG - TARGET_FLOAT_IMPLICIT_J_BIT)
 #define TARGET_FLOAT_EXP_BITS (TARGET_FLOAT_BITS - TARGET_FLOAT_MANT_BITS - 1)
 
-enum justification_options {
-    left_justification,
-    right_justification,
-    zero_fill
+enum Enum_02001bdc_C {
+    Enum_02001bdc_C_0_4,
+    Enum_02001bdc_C_1_4,
+    Enum_02001bdc_C_2_4
 };
 
-enum sign_options {
-    only_minus,
-    sign_always,
-    space_holder
+enum Enum_02001bdc {
+    Enum_02001bdc_0_4,
+    Enum_02001bdc_1_4,
+    Enum_02001bdc_2_4
 };
 
-enum argument_options {
-    normal_argument,
-    char_argument,
-    short_argument,
-    long_argument,
-    long_long_argument,
-    wchar_argument,
-    intmax_argument,
-    size_t_argument,
-    ptrdiff_argument,
-    long_double_argument
+enum Enum_02001bdc_B {
+    Enum_02001bdc_B_0_2,
+    Enum_02001bdc_B_1_2,
+    Enum_02001bdc_B_2_2,
+    Enum_02001bdc_B_3_2,
+    Enum_02001bdc_B_4_2,
+    Enum_02001bdc_B_5_2,
+    Enum_02001bdc_B_6_2,
+    Enum_02001bdc_B_7_2,
+    Enum_02001bdc_B_8_2,
+    Enum_02001bdc_B_9_2
 };
 
 typedef struct {
-    unsigned char justification_options;
-    unsigned char sign_options;
-    unsigned char precision_specified;
-    unsigned char alternate_form;
-    unsigned char argument_options;
-    unsigned char conversion_char;
-    int field_width;
-    int precision;
-} print_format;
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    int unknown_8_;
+    int unknown_c_;
+} Struct_02001bdc;
 
 #define conversion_max 509
 
-typedef struct decimal {
-    char sgn;
-    char unused;
-    short exp;
+typedef struct Struct_020026b4 {
+    char unknown_0_;
+    char unknown_1_;
+    short unknown_2_;
     struct {
-        unsigned char length;
-        unsigned char text[32];
-        unsigned char unused;
-    } sig;
-} decimal;
+        unsigned char unknown_0_;
+        unsigned char unknown_1_[32];
+        unsigned char unknown_21_;
+    } unknown_4_;
+} Struct_020026b4;
 
-typedef struct decform {
-    char style;
-    char unused;
-    short digits;
-} decform;
+typedef struct Struct_020026b4_2 {
+    char unknown_0_;
+    char unknown_1_;
+    short unknown_2_;
+} Struct_020026b4_2;
 
-extern "C" void func_0200a300(const decform* f, double x, decimal* d);
-extern "C" double func_02008f3c(double x);
-extern "C" char* func_0200216c(long num, char* buff, print_format format);
+extern "C" void func_0200a300(const Struct_020026b4_2* arg0, double arg1, Struct_020026b4* arg2);
+extern "C" double func_02008f3c(double arg0);
+extern "C" char* func_0200216c(long arg0, char* arg1, Struct_02001bdc arg2);
 
-static inline long double fabsl(long double x) {
-    return (long double)func_02008f3c((double)x);
+static inline long double inline_020026b4(long double arg0) {
+    return (long double)func_02008f3c((double)arg0);
 }
 
 extern const unsigned short data_020e69ac[128];
 
-static inline int isupper(int c) {
-    return ((c < 0) || (c >= 128)) ? 0 : (int)(data_020e69ac[c] & 0x200);
+static inline int inline_02002cb4(int arg0) {
+    return ((arg0 < 0) || (arg0 >= 128)) ? 0 : (int)(data_020e69ac[arg0] & 0x200);
 }
 
-static inline int isdigit(int c) {
-    return ((c < 0) || (c >= 128)) ? 0 : (int)(data_020e69ac[c] & 0x008);
+static inline int inline_02001bdc(int arg0) {
+    return ((arg0 < 0) || (arg0 >= 128)) ? 0 : (int)(data_020e69ac[arg0] & 0x008);
 }
 
 // USA: func_020026b4
-extern "C" ARM char* func_020026b4(long double num, char* buff, print_format format) {
-    char*          p;
-    unsigned char* q;
-    unsigned char  working_byte;
-    long double    ld;
-    int            expbits, expmask;
-    unsigned       snum;
-    long           exp;
-    print_format   exp_format;
-    int            hex_precision;
-    int            mantissa_bit;
-    decform        form;
-    decimal        dec;
-    int            radix_marker;
+extern "C" ARM char* func_020026b4(long double arg0, char* arg1, Struct_02001bdc arg2) {
+    char*          var0;
+    unsigned char* var1;
+    unsigned char  var2;
+    long double    var3;
+    int            var4, var5;
+    unsigned       var6;
+    long           var7;
+    Struct_02001bdc   var8;
+    int            var9;
+    int            var10;
+    Struct_020026b4_2        var11;
+    Struct_020026b4        var12;
+    int            var13;
 
-    radix_marker = '.';
-    p            = buff;
-    ld           = num;
+    var13 = '.';
+    var0            = arg1;
+    var3           = arg0;
 
-    if (format.precision > conversion_max) {
+    if (arg2.unknown_c_ > conversion_max) {
         return 0;
     }
 
-    form.style  = (char)0;
-    form.digits = 0x20;
-    func_0200a300(&form, num, &dec);
+    var11.unknown_0_  = (char)0;
+    var11.unknown_2_ = 0x20;
+    func_0200a300(&var11, arg0, &var12);
 
-    if (fabsl(num) == 0.0) {
-        p = buff - 6;
-        strcpy(p, "0x0p0");
-        return p;
+    if (inline_020026b4(arg0) == 0.0) {
+        var0 = arg1 - 6;
+        strcpy(var0, "0x0p0");
+        return var0;
     }
 
-    if (*dec.sig.text == 'I') {
-        if (dec.sgn) {
-            p = buff - 5;
-            if (format.conversion_char == 'A') {
-                strcpy(p, "-INF");
+    if (*var12.unknown_4_.unknown_1_ == 'I') {
+        if (var12.unknown_0_) {
+            var0 = arg1 - 5;
+            if (arg2.unknown_5_ == 'A') {
+                strcpy(var0, "-INF");
             } else {
-                strcpy(p, "-inf");
+                strcpy(var0, "-inf");
             }
         } else {
-            p = buff - 4;
-            if (format.conversion_char == 'A') {
-                strcpy(p, "INF");
+            var0 = arg1 - 4;
+            if (arg2.unknown_5_ == 'A') {
+                strcpy(var0, "INF");
             } else {
-                strcpy(p, "inf");
+                strcpy(var0, "inf");
             }
         }
-        return p;
-    } else if (*dec.sig.text == 'N') {
-        if (dec.sgn) {
-            p = buff - 5;
-            if (format.conversion_char == 'A') {
-                strcpy(p, "-NAN");
+        return var0;
+    } else if (*var12.unknown_4_.unknown_1_ == 'N') {
+        if (var12.unknown_0_) {
+            var0 = arg1 - 5;
+            if (arg2.unknown_5_ == 'A') {
+                strcpy(var0, "-NAN");
             } else {
-                strcpy(p, "-nan");
+                strcpy(var0, "-nan");
             }
         } else {
-            p = buff - 4;
-            if (format.conversion_char == 'A') {
-                strcpy(p, "NAN");
+            var0 = arg1 - 4;
+            if (arg2.unknown_5_ == 'A') {
+                strcpy(var0, "NAN");
             } else {
-                strcpy(p, "nan");
+                strcpy(var0, "nan");
             }
         }
-        return p;
+        return var0;
     }
 
-    exp_format.justification_options = right_justification;
-    exp_format.sign_options          = sign_always;
-    exp_format.precision_specified   = 0;
-    exp_format.alternate_form        = 0;
-    exp_format.argument_options      = normal_argument;
-    exp_format.field_width           = 0;
-    exp_format.precision             = 1;
-    exp_format.conversion_char       = 'd';
+    var8.unknown_0_ = Enum_02001bdc_C_1_4;
+    var8.unknown_1_          = Enum_02001bdc_1_4;
+    var8.unknown_2_   = 0;
+    var8.unknown_3_        = 0;
+    var8.unknown_4_      = Enum_02001bdc_B_0_2;
+    var8.unknown_8_           = 0;
+    var8.unknown_c_             = 1;
+    var8.unknown_5_       = 'd';
 
-    int   i;
-    char* nump = (char*)&num;
-    for (i = 0; i < TARGET_FLOAT_BYTES / 2; i++) {
-        char x                           = nump[i];
-        nump[i]                          = nump[TARGET_FLOAT_BYTES - i - 1];
-        nump[TARGET_FLOAT_BYTES - i - 1] = x;
+    int   var14;
+    char* var15 = (char*)&arg0;
+    for (var14 = 0; var14 < TARGET_FLOAT_BYTES / 2; var14++) {
+        char var16                           = var15[var14];
+        var15[var14]                          = var15[TARGET_FLOAT_BYTES - var14 - 1];
+        var15[TARGET_FLOAT_BYTES - var14 - 1] = var16;
     }
 
-    expbits = TARGET_FLOAT_EXP_BITS;
-    expmask = 0x7FF;
+    var4 = TARGET_FLOAT_EXP_BITS;
+    var5 = 0x7FF;
 
-    snum = ((unsigned char*)&num)[0] << 25;
+    var6 = ((unsigned char*)&arg0)[0] << 25;
     if (TARGET_FLOAT_EXP_BITS > 7) {
-        snum |= ((unsigned char*)&num)[1] << 17;
+        var6 |= ((unsigned char*)&arg0)[1] << 17;
     }
     if (TARGET_FLOAT_EXP_BITS > 15) {
-        snum |= ((unsigned char*)&num)[2] << 9;
+        var6 |= ((unsigned char*)&arg0)[2] << 9;
     }
     if (TARGET_FLOAT_EXP_BITS > 23) {
-        snum |= ((unsigned char*)&num)[3] << 1;
+        var6 |= ((unsigned char*)&arg0)[3] << 1;
     }
 
-    snum = (snum >> (32 - expbits)) & expmask;
-    exp  = snum - 0x3FF;
+    var6 = (var6 >> (32 - var4)) & var5;
+    var7  = var6 - 0x3FF;
 
-    p = func_0200216c(exp, buff, exp_format);
-    if (format.conversion_char == 'a') {
-        *--p = 'p';
+    var0 = func_0200216c(var7, arg1, var8);
+    if (arg2.unknown_5_ == 'a') {
+        *--var0 = 'p';
     } else {
-        *--p = 'P';
+        *--var0 = 'P';
     }
-    q = (unsigned char*)&num;
+    var1 = (unsigned char*)&arg0;
 
     if (TARGET_FLOAT_IMPLICIT_J_BIT) {
-        mantissa_bit = (1 + expbits + format.precision * 4) - 1;
+        var10 = (1 + var4 + arg2.unknown_c_ * 4) - 1;
     } else {
-        mantissa_bit = (1 + expbits + format.precision * 4) - 4;
+        var10 = (1 + var4 + arg2.unknown_c_ * 4) - 4;
     }
 
-    for (hex_precision = format.precision; hex_precision >= 1; hex_precision--) {
-        if (mantissa_bit < 64) {
-            int mantissa_byte;
+    for (var9 = arg2.unknown_c_; var9 >= 1; var9--) {
+        if (var10 < 64) {
+            int var17;
 
-            mantissa_byte = mantissa_bit >> 3;
-            working_byte  = (*(q + mantissa_byte)) >> (7 - (mantissa_bit & 7));
+            var17 = var10 >> 3;
+            var2  = (*(var1 + var17)) >> (7 - (var10 & 7));
 
-            if ((mantissa_bit & ~7) != ((mantissa_bit - 4) & ~7)) {
-                working_byte |= ((*(q + (mantissa_byte - 1))) << 8) >> (7 - ((mantissa_bit) & 7));
+            if ((var10 & ~7) != ((var10 - 4) & ~7)) {
+                var2 |= ((*(var1 + (var17 - 1))) << 8) >> (7 - ((var10) & 7));
             }
 
             if (!TARGET_FLOAT_IMPLICIT_J_BIT) {
-                if (mantissa_bit == 1 + expbits) {
-                    *--p = radix_marker;
-                    working_byte &= 0x1;
+                if (var10 == 1 + var4) {
+                    *--var0 = var13;
+                    var2 &= 0x1;
                 }
             }
 
-            if ((working_byte &= 0xF) < 10) {
-                working_byte += '0';
-            } else if (format.conversion_char == 'a') {
-                working_byte += 'a' - 10;
+            if ((var2 &= 0xF) < 10) {
+                var2 += '0';
+            } else if (arg2.unknown_5_ == 'a') {
+                var2 += 'a' - 10;
             } else {
-                working_byte += 'A' - 10;
+                var2 += 'A' - 10;
             }
         } else {
-            working_byte = '0';
+            var2 = '0';
         }
 
-        *--p = working_byte;
-        mantissa_bit -= 4;
+        *--var0 = var2;
+        var10 -= 4;
     }
 
     if (TARGET_FLOAT_IMPLICIT_J_BIT) {
-        if (format.precision || format.alternate_form) {
-            *--p = radix_marker;
+        if (arg2.unknown_c_ || arg2.unknown_3_) {
+            *--var0 = var13;
         }
-        *--p = '1';
+        *--var0 = '1';
     }
 
-    if (format.conversion_char == 'a') {
-        *--p = 'x';
+    if (arg2.unknown_5_ == 'a') {
+        *--var0 = 'x';
     } else {
-        *--p = 'X';
+        *--var0 = 'X';
     }
 
-    *--p = '0';
+    *--var0 = '0';
 
-    if (dec.sgn) {
-        *--p = '-';
-    } else if (format.sign_options == sign_always) {
-        *--p = '+';
-    } else if (format.sign_options == space_holder) {
-        *--p = ' ';
+    if (var12.unknown_0_) {
+        *--var0 = '-';
+    } else if (arg2.unknown_1_ == Enum_02001bdc_1_4) {
+        *--var0 = '+';
+    } else if (arg2.unknown_1_ == Enum_02001bdc_2_4) {
+        *--var0 = ' ';
     }
 
-    return p;
+    return var0;
 }
 
 // USA: func_02002b90
-extern "C" ARM void func_02002b90(decimal* dec, int new_length) {
-    char  c;
-    char* p;
-    int   carry;
+extern "C" ARM void func_02002b90(Struct_020026b4* arg0, int arg1) {
+    char  var0;
+    char* var1;
+    int   var2;
 
-    if (new_length < 0) {
+    if (arg1 < 0) {
     return_zero:
-        dec->exp        = 0;
-        dec->sig.length = 1;
-        *dec->sig.text  = '0';
+        arg0->unknown_2_        = 0;
+        arg0->unknown_4_.unknown_0_ = 1;
+        *arg0->unknown_4_.unknown_1_  = '0';
         return;
     }
 
-    if (new_length >= dec->sig.length) {
+    if (arg1 >= arg0->unknown_4_.unknown_0_) {
         return;
     }
 
-    p = (char*)dec->sig.text + new_length + 1;
-    c = *--p - '0';
+    var1 = (char*)arg0->unknown_4_.unknown_1_ + arg1 + 1;
+    var0 = *--var1 - '0';
 
-    if (c == 5) {
-        char* q = &((char*)dec->sig.text)[dec->sig.length];
+    if (var0 == 5) {
+        char* var3 = &((char*)arg0->unknown_4_.unknown_1_)[arg0->unknown_4_.unknown_0_];
 
-        while (--q > p && *q == '0')
+        while (--var3 > var1 && *var3 == '0')
             ;
-        carry = (q == p) ? p[-1] & 1 : 1;
+        var2 = (var3 == var1) ? var1[-1] & 1 : 1;
     } else {
-        carry = (c > 5);
+        var2 = (var0 > 5);
     }
 
-    while (new_length != 0) {
-        c = *--p - '0' + carry;
+    while (arg1 != 0) {
+        var0 = *--var1 - '0' + var2;
 
-        if ((carry = (c > 9)) != 0 || c == 0) {
-            --new_length;
+        if ((var2 = (var0 > 9)) != 0 || var0 == 0) {
+            --arg1;
         } else {
-            *p = c + '0';
+            *var1 = var0 + '0';
             break;
         }
     }
 
-    if (carry != 0) {
-        dec->exp += 1;
-        dec->sig.length = 1;
-        *dec->sig.text  = '1';
+    if (var2 != 0) {
+        arg0->unknown_2_ += 1;
+        arg0->unknown_4_.unknown_0_ = 1;
+        *arg0->unknown_4_.unknown_1_  = '1';
         return;
-    } else if (new_length == 0) {
+    } else if (arg1 == 0) {
         goto return_zero;
     }
 
-    dec->sig.length = new_length;
+    arg0->unknown_4_.unknown_0_ = arg1;
 }
 
 // USA: func_02002cb4
-extern "C" ARM char* func_02002cb4(long double num, char* buff, print_format format) {
-    decimal dec;
-    decform form;
-    char*   p;
-    char* q;
-    int   n, digits, sign;
-    int   int_digits, frac_digits;
-    int   radix_marker;
+extern "C" ARM char* func_02002cb4(long double arg0, char* arg1, Struct_02001bdc arg2) {
+    Struct_020026b4 var0;
+    Struct_020026b4_2 var1;
+    char*   var2;
+    char* var3;
+    int   var4, var5, var6;
+    int   var7, var8;
+    int   var9;
 
-    radix_marker = '.';
+    var9 = '.';
 
-    if (format.precision > conversion_max) {
+    if (arg2.unknown_c_ > conversion_max) {
         return 0;
     }
 
-    form.style  = 0;
-    form.digits = 0x20;
-    func_0200a300(&form, num, &dec);
-    p = (char*)dec.sig.text + dec.sig.length;
+    var1.unknown_0_  = 0;
+    var1.unknown_2_ = 0x20;
+    func_0200a300(&var1, arg0, &var0);
+    var2 = (char*)var0.unknown_4_.unknown_1_ + var0.unknown_4_.unknown_0_;
 
-    while (dec.sig.length > 1 && *--p == '0') {
-        --dec.sig.length;
-        ++dec.exp;
+    while (var0.unknown_4_.unknown_0_ > 1 && *--var2 == '0') {
+        --var0.unknown_4_.unknown_0_;
+        ++var0.unknown_2_;
     }
 
-    switch (*dec.sig.text) {
+    switch (*var0.unknown_4_.unknown_1_) {
         case '0':
-            dec.exp = 0;
+            var0.unknown_2_ = 0;
             break;
         case 'I':
-            if (num < 0) {
-                p = buff - 5;
+            if (arg0 < 0) {
+                var2 = arg1 - 5;
 
-                if (isupper(format.conversion_char)) {
-                    strcpy(p, "-INF");
+                if (inline_02002cb4(arg2.unknown_5_)) {
+                    strcpy(var2, "-INF");
                 } else {
-                    strcpy(p, "-inf");
+                    strcpy(var2, "-inf");
                 }
             } else {
-                p = buff - 4;
-                if (isupper(format.conversion_char)) {
-                    strcpy(p, "INF");
+                var2 = arg1 - 4;
+                if (inline_02002cb4(arg2.unknown_5_)) {
+                    strcpy(var2, "INF");
                 } else {
-                    strcpy(p, "inf");
+                    strcpy(var2, "inf");
                 }
             }
 
-            return p;
+            return var2;
 
         case 'N':
-            if (dec.sgn) {
-                p = buff - 5;
-                if (isupper(format.conversion_char)) {
-                    strcpy(p, "-NAN");
+            if (var0.unknown_0_) {
+                var2 = arg1 - 5;
+                if (inline_02002cb4(arg2.unknown_5_)) {
+                    strcpy(var2, "-NAN");
                 } else {
-                    strcpy(p, "-nan");
+                    strcpy(var2, "-nan");
                 }
             } else {
-                p = buff - 4;
-                if (isupper(format.conversion_char)) {
-                    strcpy(p, "NAN");
+                var2 = arg1 - 4;
+                if (inline_02002cb4(arg2.unknown_5_)) {
+                    strcpy(var2, "NAN");
                 } else {
-                    strcpy(p, "nan");
+                    strcpy(var2, "nan");
                 }
             }
 
-            return p;
+            return var2;
     }
 
-    dec.exp += dec.sig.length - 1;
-    p    = buff;
-    *--p = 0;
+    var0.unknown_2_ += var0.unknown_4_.unknown_0_ - 1;
+    var2    = arg1;
+    *--var2 = 0;
 
-    switch (format.conversion_char) {
+    switch (arg2.unknown_5_) {
         case 'g':
         case 'G':
 
-            if (dec.sig.length > format.precision) {
-                func_02002b90(&dec, format.precision);
+            if (var0.unknown_4_.unknown_0_ > arg2.unknown_c_) {
+                func_02002b90(&var0, arg2.unknown_c_);
             }
 
-            if (dec.exp < -4 || dec.exp >= format.precision) {
-                if (format.alternate_form) {
-                    --format.precision;
+            if (var0.unknown_2_ < -4 || var0.unknown_2_ >= arg2.unknown_c_) {
+                if (arg2.unknown_3_) {
+                    --arg2.unknown_c_;
                 } else {
-                    format.precision = dec.sig.length - 1;
+                    arg2.unknown_c_ = var0.unknown_4_.unknown_0_ - 1;
                 }
 
-                if (format.conversion_char == 'g') {
-                    format.conversion_char = 'e';
+                if (arg2.unknown_5_ == 'g') {
+                    arg2.unknown_5_ = 'e';
                 } else {
-                    format.conversion_char = 'E';
+                    arg2.unknown_5_ = 'E';
                 }
 
                 goto e_format;
             }
 
-            if (format.alternate_form) {
-                format.precision -= dec.exp + 1;
+            if (arg2.unknown_3_) {
+                arg2.unknown_c_ -= var0.unknown_2_ + 1;
             } else {
-                if ((format.precision = dec.sig.length - (dec.exp + 1)) < 0) {
-                    format.precision = 0;
+                if ((arg2.unknown_c_ = var0.unknown_4_.unknown_0_ - (var0.unknown_2_ + 1)) < 0) {
+                    arg2.unknown_c_ = 0;
                 }
             }
 
@@ -425,52 +425,52 @@ extern "C" ARM char* func_02002cb4(long double num, char* buff, print_format for
         case 'E':
         e_format:
 
-            if (dec.sig.length > format.precision + 1) {
-                func_02002b90(&dec, format.precision + 1);
+            if (var0.unknown_4_.unknown_0_ > arg2.unknown_c_ + 1) {
+                func_02002b90(&var0, arg2.unknown_c_ + 1);
             }
 
-            n    = dec.exp;
-            sign = '+';
+            var4    = var0.unknown_2_;
+            var6 = '+';
 
-            if (n < 0) {
-                n    = -n;
-                sign = '-';
+            if (var4 < 0) {
+                var4    = -var4;
+                var6 = '-';
             }
 
-            for (digits = 0; n || digits < 2; ++digits) {
-                *--p = n % 10 + '0';
-                n /= 10;
+            for (var5 = 0; var4 || var5 < 2; ++var5) {
+                *--var2 = var4 % 10 + '0';
+                var4 /= 10;
             }
 
-            *--p = sign;
-            *--p = format.conversion_char;
+            *--var2 = var6;
+            *--var2 = arg2.unknown_5_;
 
-            if (buff - p + format.precision > conversion_max) {
+            if (arg1 - var2 + arg2.unknown_c_ > conversion_max) {
                 return 0;
             }
 
-            if (dec.sig.length < format.precision + 1) {
-                for (n = format.precision + 1 - dec.sig.length + 1; --n;) {
-                    *--p = '0';
+            if (var0.unknown_4_.unknown_0_ < arg2.unknown_c_ + 1) {
+                for (var4 = arg2.unknown_c_ + 1 - var0.unknown_4_.unknown_0_ + 1; --var4;) {
+                    *--var2 = '0';
                 }
             }
 
-            for (n = dec.sig.length, q = (char*)dec.sig.text + dec.sig.length; --n;) {
-                *--p = *--q;
+            for (var4 = var0.unknown_4_.unknown_0_, var3 = (char*)var0.unknown_4_.unknown_1_ + var0.unknown_4_.unknown_0_; --var4;) {
+                *--var2 = *--var3;
             }
 
-            if (format.precision || format.alternate_form) {
-                *--p = radix_marker;
+            if (arg2.unknown_c_ || arg2.unknown_3_) {
+                *--var2 = var9;
             }
 
-            *--p = *dec.sig.text;
+            *--var2 = *var0.unknown_4_.unknown_1_;
 
-            if (dec.sgn) {
-                *--p = '-';
-            } else if (format.sign_options == sign_always) {
-                *--p = '+';
-            } else if (format.sign_options == space_holder) {
-                *--p = ' ';
+            if (var0.unknown_0_) {
+                *--var2 = '-';
+            } else if (arg2.unknown_1_ == Enum_02001bdc_1_4) {
+                *--var2 = '+';
+            } else if (arg2.unknown_1_ == Enum_02001bdc_2_4) {
+                *--var2 = ' ';
             }
 
             break;
@@ -479,66 +479,66 @@ extern "C" ARM char* func_02002cb4(long double num, char* buff, print_format for
         case 'F':
         f_format:
 
-            if ((frac_digits = -dec.exp + dec.sig.length - 1) < 0) {
-                frac_digits = 0;
+            if ((var8 = -var0.unknown_2_ + var0.unknown_4_.unknown_0_ - 1) < 0) {
+                var8 = 0;
             }
 
-            if (frac_digits > format.precision) {
-                func_02002b90(&dec, dec.sig.length - (frac_digits - format.precision));
+            if (var8 > arg2.unknown_c_) {
+                func_02002b90(&var0, var0.unknown_4_.unknown_0_ - (var8 - arg2.unknown_c_));
 
-                if ((frac_digits = -dec.exp + dec.sig.length - 1) < 0) {
-                    frac_digits = 0;
+                if ((var8 = -var0.unknown_2_ + var0.unknown_4_.unknown_0_ - 1) < 0) {
+                    var8 = 0;
                 }
             }
 
-            if ((int_digits = dec.exp + 1) < 0) {
-                int_digits = 0;
+            if ((var7 = var0.unknown_2_ + 1) < 0) {
+                var7 = 0;
             }
 
-            if (int_digits + frac_digits > conversion_max) {
+            if (var7 + var8 > conversion_max) {
                 return 0;
             }
 
-            q = (char*)dec.sig.text + dec.sig.length;
+            var3 = (char*)var0.unknown_4_.unknown_1_ + var0.unknown_4_.unknown_0_;
 
-            for (digits = 0; digits < (format.precision - frac_digits); ++digits) {
-                *--p = '0';
+            for (var5 = 0; var5 < (arg2.unknown_c_ - var8); ++var5) {
+                *--var2 = '0';
             }
 
-            for (digits = 0; digits < frac_digits && digits < dec.sig.length; ++digits) {
-                *--p = *--q;
+            for (var5 = 0; var5 < var8 && var5 < var0.unknown_4_.unknown_0_; ++var5) {
+                *--var2 = *--var3;
             }
 
-            for (; digits < frac_digits; ++digits) {
-                *--p = '0';
+            for (; var5 < var8; ++var5) {
+                *--var2 = '0';
             }
 
-            if (format.precision || format.alternate_form) {
-                *--p = radix_marker;
+            if (arg2.unknown_c_ || arg2.unknown_3_) {
+                *--var2 = var9;
             }
 
-            if (int_digits) {
-                for (digits = 0; digits < int_digits - dec.sig.length; ++digits) {
-                    *--p = '0';
+            if (var7) {
+                for (var5 = 0; var5 < var7 - var0.unknown_4_.unknown_0_; ++var5) {
+                    *--var2 = '0';
                 }
 
-                for (; digits < int_digits; ++digits) {
-                    *--p = *--q;
+                for (; var5 < var7; ++var5) {
+                    *--var2 = *--var3;
                 }
             } else {
-                *--p = '0';
+                *--var2 = '0';
             }
 
-            if (dec.sgn) {
-                *--p = '-';
-            } else if (format.sign_options == sign_always) {
-                *--p = '+';
-            } else if (format.sign_options == space_holder) {
-                *--p = ' ';
+            if (var0.unknown_0_) {
+                *--var2 = '-';
+            } else if (arg2.unknown_1_ == Enum_02001bdc_1_4) {
+                *--var2 = '+';
+            } else if (arg2.unknown_1_ == Enum_02001bdc_2_4) {
+                *--var2 = ' ';
             }
 
             break;
     }
 
-    return p;
+    return var2;
 }

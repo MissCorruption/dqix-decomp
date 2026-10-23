@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum {regionalOffset0=0x980, regionalOffset1=0x8c, regionalOffset2=0x7c00, regionalOffset3=0x4f0};
+enum {Enum_ov017_021913d0_2976=0x980, Enum_ov017_021913d0_3936=0x8c, Enum_ov017_021913d0_28672=0x7c00, Enum_ov017_021913d0_1792=0x4f0};
 #else
-enum {regionalOffset0=0xba0, regionalOffset1=0xf60, regionalOffset2=0x7000, regionalOffset3=0x700};
+enum {Enum_ov017_021913d0_2976=0xba0, Enum_ov017_021913d0_3936=0xf60, Enum_ov017_021913d0_28672=0x7000, Enum_ov017_021913d0_1792=0x700};
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
@@ -9,37 +9,37 @@ enum {regionalOffset0=0xba0, regionalOffset1=0xf60, regionalOffset2=0x7000, regi
 extern "C" void func_0202ae18(void);
 extern "C" int func_0202c508(void);
 extern "C" void* func_02012fe4(void);
-extern "C" void func_ov017_0218f574(int* p, int a, int b, int c);
-struct Struct021c1e40;
-extern "C" void func_ov017_021c1e40(struct Struct021c1e40* p);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
-extern "C" void func_ov017_021ce400(int a, int b);
+extern "C" void func_ov017_0218f574(int* arg0, int arg1, int arg2, int arg3);
+struct Struct_ov017_021913d0;
+extern "C" void func_ov017_021c1e40(struct Struct_ov017_021913d0* arg0);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+extern "C" void func_ov017_021ce400(int arg0, int arg1);
 
-struct Vec3_021913d0 { int x; int y; int z; };
+struct Struct_ov017_021913d0_2 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
 // USA: func_ov017_021913d0
-extern "C" ARM void func_ov017_021913d0(unsigned char* obj, int count) {
-    if (count > 0) {
-        unsigned char* r4 = *(unsigned char**)(obj + 0x3000 + regionalOffset0);
-        if (r4[2] == 0) {
-            if (r4[0xb] == 0) {
-                GameState* battle = GameState::GetInstance();
-                GameObject* combatant = battle->GetPartyMemberByIndex(0);
-                struct Vec3_021913d0 a = *(struct Vec3_021913d0*)((char*)combatant + 0x44);
-                int* dest = (int*)((char*)battle + regionalOffset1 + regionalOffset2);
-                func_ov017_0218f574(dest, a.x, a.y, a.z);
+extern "C" ARM void func_ov017_021913d0(unsigned char* arg0, int arg1) {
+    if (arg1 > 0) {
+        unsigned char* var0 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_021913d0_2976);
+        if (var0[2] == 0) {
+            if (var0[0xb] == 0) {
+                GameState* var1 = GameState::GetInstance();
+                GameObject* var2 = var1->GetPartyMemberByIndex(0);
+                struct Struct_ov017_021913d0_2 var3 = *(struct Struct_ov017_021913d0_2*)((char*)var2 + 0x44);
+                int* var4 = (int*)((char*)var1 + Enum_ov017_021913d0_3936 + Enum_ov017_021913d0_28672);
+                func_ov017_0218f574(var4, var3.unknown_0_, var3.unknown_4_, var3.unknown_8_);
             }
-            func_ov017_021c1e40((struct Struct021c1e40*)r4);
-            r4[0xb] = (unsigned char)count;
-            struct TailList020469b4* list = *(struct TailList020469b4**)(obj + 0x3000 + regionalOffset3);
-            func_020469b4(list, (struct TailNode020469b4*)r4);
+            func_ov017_021c1e40((struct Struct_ov017_021913d0*)var0);
+            var0[0xb] = (unsigned char)arg1;
+            struct Struct_0201bdac_2* var5 = *(struct Struct_0201bdac_2**)(arg0 + 0x3000 + Enum_ov017_021913d0_1792);
+            func_020469b4(var5, (struct Struct_0201bdac*)var0);
         }
         func_0202ae18();
         if (func_0202c508()) {
-            unsigned short* entry = (unsigned short*)func_02012fe4();
-            func_ov017_021ce400(count, (unsigned short)*entry);
+            unsigned short* var6 = (unsigned short*)func_02012fe4();
+            func_ov017_021ce400(arg1, (unsigned short)*var6);
         }
     }
 }

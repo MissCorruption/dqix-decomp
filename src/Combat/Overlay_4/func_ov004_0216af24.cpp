@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 
-struct TableA68;
-extern "C" void* func_02072a68(struct TableA68* table, int key);
-extern "C" int func_02042190(int x);
+struct Struct_02072a68_2;
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" int func_02042190(int arg0);
 
-struct Node0216af24 {
-    char pad0[0x20];
-    void* field20;
-    char pad1[0x36 - 0x24];
-    unsigned short field36;
-    short field38;
-    char pad2[0x44 - 0x3a];
-    unsigned char field44 : 4;
+struct Struct_ov004_0216af24 {
+    char unknown_0_[0x20];
+    void* unknown_20_;
+    char unknown_24_[0x36 - 0x24];
+    unsigned short unknown_36_;
+    short unknown_38_;
+    char unknown_3a_[0x44 - 0x3a];
+    unsigned char unknown_44_0_ : 4;
 };
 
-extern "C" void* func_ov011_021849c8(void* a);
-extern "C" Node0216af24* func_ov023_021f6880(void* obj, int key);
-extern "C" int func_ov024_021f6f10(void* self);
-extern "C" void* func_ov023_021fa598(void* p);
-extern "C" int func_020420e8(void* value, int flag);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" Struct_ov004_0216af24* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" int func_ov024_021f6f10(void* arg0);
+extern "C" void* func_ov023_021fa598(void* arg0);
+extern "C" int func_020420e8(void* arg0, int arg1);
 
 // USA: func_ov004_0216af24
-extern "C" ARM int func_ov004_0216af24(void* a, int key) {
-    void* obj = func_ov011_021849c8(a);
-    Node0216af24* node = func_ov023_021f6880(obj, key);
-    if (!node) {
+extern "C" ARM int func_ov004_0216af24(void* arg0, int arg1) {
+    void* var0 = func_ov011_021849c8(arg0);
+    Struct_ov004_0216af24* var1 = func_ov023_021f6880(var0, arg1);
+    if (!var1) {
         return 0;
     }
-    void* entry = node->field20;
-    if (!entry) {
-        Node0216af24* node2 = func_ov023_021f6880(obj, node->field36);
-        if (func_ov024_021f6f10(node2) == 4) {
-            struct TableA68* table = (struct TableA68*)func_ov023_021fa598(node2);
-            entry = func_02072a68(table, node->field38);
+    void* var2 = var1->unknown_20_;
+    if (!var2) {
+        Struct_ov004_0216af24* var3 = func_ov023_021f6880(var0, var1->unknown_36_);
+        if (func_ov024_021f6f10(var3) == 4) {
+            struct Struct_02072a68_2* var4 = (struct Struct_02072a68_2*)func_ov023_021fa598(var3);
+            var2 = func_02072a68(var4, var1->unknown_38_);
         }
     }
-    int result = 0;
-    if (entry) {
-        result = func_020420e8(entry, func_02042190(node->field44));
+    int var5 = 0;
+    if (var2) {
+        var5 = func_020420e8(var2, func_02042190(var1->unknown_44_0_));
     }
-    return result;
+    return var5;
 }

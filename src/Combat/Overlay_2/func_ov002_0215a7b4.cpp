@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Element020de650 { unsigned int v[8]; };
-struct Container020dedd0 {
-    unsigned short count;
-    unsigned char pad[10];
-    struct Element020de650* base;
-    unsigned char pad2[4];
-    unsigned char useBinarySearch;
+struct Struct_0201099c_9 { unsigned int unknown_0_[8]; };
+struct Struct_0201099c_10 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[10];
+    struct Struct_0201099c_9* unknown_c_;
+    unsigned char unknown_10_[4];
+    unsigned char unknown_14_;
 };
-struct Slots0208386c { unsigned char pad[0x454]; short slots[8]; };
-struct KeyMap020a0a08 { short* keys; signed char* vals; short count; };
+struct Struct_02061c04_22 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
+struct Struct_02061c04_23 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
 
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
-extern "C" int func_020dddcc(void* obj);
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" int func_020a0a08(struct KeyMap020a0a08* map, int key, int amount);
-extern "C" int func_020ddcbc(int n, int idx, struct Container020dedd0* container, int unused4);
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_0208386c(struct Slots0208386c* s, int idx);
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" int func_020dddcc(void* arg0);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2);
+extern "C" int func_020ddcbc(int arg0, int arg1, struct Struct_0201099c_10* arg2, int arg3);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
 
 #if defined(jpn)
 #define CONTAINER_0215a7b4 0x750
@@ -30,30 +30,30 @@ extern "C" void func_0208386c(struct Slots0208386c* s, int idx);
 #endif
 
 // USA: func_ov002_0215a7b4
-extern "C" ARM void func_ov002_0215a7b4(char* self, int type, int key, int extra, unsigned char flag) {
-    GameState* battle = GameState::GetInstance();
-    if (type == 4) {
-        if (flag != 0) {
-            struct Element020de650* elem = func_020dedd0((struct Container020dedd0*)(self + CONTAINER_0215a7b4), key);
-            if (elem != 0) {
-                func_020dddcc(elem);
+extern "C" ARM void func_ov002_0215a7b4(char* arg0, int arg1, int arg2, int arg3, unsigned char arg4) {
+    GameState* var0 = GameState::GetInstance();
+    if (arg1 == 4) {
+        if (arg4 != 0) {
+            struct Struct_0201099c_9* var1 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + CONTAINER_0215a7b4), arg2);
+            if (var1 != 0) {
+                func_020dddcc(var1);
             }
         } else {
-            void* p2a04 = func_02010828(battle);
-            func_020a0a08((struct KeyMap020a0a08*)p2a04, key, 1);
+            void* var2 = func_02010828(var0);
+            func_020a0a08((struct Struct_02061c04_23*)var2, arg2, 1);
         }
-        *(unsigned char*)(self + DIRTY_0215a7b4) = 1;
+        *(unsigned char*)(arg0 + DIRTY_0215a7b4) = 1;
         return;
     }
-    if (flag != 0) {
-        func_020ddcbc(type, extra, (struct Container020dedd0*)(self + CONTAINER_0215a7b4), 0);
+    if (arg4 != 0) {
+        func_020ddcbc(arg1, arg3, (struct Struct_0201099c_10*)(arg0 + CONTAINER_0215a7b4), 0);
     } else {
-        GameObject* combatant = func_0200ff1c(battle, type);
-        if (combatant == 0) return;
+        GameObject* var3 = func_0200ff1c(var0, arg1);
+        if (var3 == 0) return;
         {
-            int field150 = func_02053c6c((unsigned char*)combatant);
-            func_0208386c((struct Slots0208386c*)field150, (signed char)extra);
+            int var4 = func_02053c6c((unsigned char*)var3);
+            func_0208386c((struct Struct_02061c04_22*)var4, (signed char)arg3);
         }
     }
-    *(unsigned char*)(self + DIRTY_0215a7b4) = 1;
+    *(unsigned char*)(arg0 + DIRTY_0215a7b4) = 1;
 }

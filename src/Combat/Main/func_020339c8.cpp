@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kEntryPrefix = 0x14 };
+enum { Enum_020339c8_24 = 0x14 };
 #else
-enum { kEntryPrefix = 0x18 };
+enum { Enum_020339c8_24 = 0x18 };
 #endif
 #include "World/Object3D.h"
 
-struct ListEntry_02028430 {
-    unsigned char id_, field1_, adjacentCount_, field3_;
-    Vector3s position_; unsigned short fieldA_;
-    ListEntry_02028430** adjacent_;
+struct Struct_02028430_2 {
+    unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_;
+    Vector3s unknown_4_; unsigned short unknown_a_;
+    Struct_02028430_2** unknown_c_;
 };
-struct List_02028430 { unsigned char header_[4]; ListEntry_02028430* entries_; };
-struct List_020283fc;
-struct Entry_02028bd0 {
-    unsigned short id_; char pad2[kEntryPrefix - 2];
-    List_02028430 list_; char pad20[0x34 - 0x20];
-    int active_; char pad38[0x318 - 0x38];
+struct Struct_02028430 { unsigned char unknown_0_[4]; Struct_02028430_2* unknown_4_; };
+struct Struct_020283fc;
+struct Struct_020fdd44 {
+    unsigned short unknown_0_; char unknown_2_[Enum_020339c8_24 - 2];
+    Struct_02028430 unknown_18_; char unknown_20_[0x34 - 0x20];
+    int unknown_34_; char unknown_38_[0x318 - 0x38];
 };
-struct RoutedObject : Object3D {
-    char padAC[0xb8 - 0xac]; unsigned short routeIndex_;
-    char padBA[8]; unsigned char fieldC2_ : 6; unsigned char routeEnabled_ : 1;
+struct Struct_020339c8 : Object3D {
+    char unknown_ac_[0xb8 - 0xac]; unsigned short unknown_b8_;
+    char unknown_ba_[8]; unsigned char unknown_c2_0_ : 6; unsigned char unknown_c2_6_ : 1;
 };
-extern "C" Entry_02028bd0* func_02027ca4();
-extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0*, int);
-extern "C" ListEntry_02028430* func_02028430(List_02028430*, int);
-extern "C" int func_020283fc(List_020283fc*, int);
+extern "C" Struct_020fdd44* func_02027ca4();
+extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44*, int);
+extern "C" Struct_02028430_2* func_02028430(Struct_02028430*, int);
+extern "C" int func_020283fc(Struct_020283fc*, int);
 extern "C" Vector3fix func_02034104(void*);
-extern "C" int func_02028524(List_02028430*, const Vector3fix&);
+extern "C" int func_02028524(Struct_02028430*, const Vector3fix&);
 
 // USA: func_020339c8
-extern "C" ARM void func_020339c8(RoutedObject* self) {
-    if (!self->routeEnabled_) return;
-    Entry_02028bd0* table = func_02027ca4();
-    Entry_02028bd0* entry = func_02028bd0(table, self->GetField06());
-    if (!entry || !entry->active_) return;
-    ListEntry_02028430* node = func_02028430(&entry->list_, self->routeIndex_);
-    if (!node) return;
-    if (self->unknown_0_ & 0x1200) {
-        int index = func_02028524(&entry->list_, func_02034104(self));
-        if (index > -1) self->routeIndex_ = index;
-    } else if (node->adjacentCount_) {
-        Vector3fix position = func_02034104(self);
-        Vector3fix nodePosition;
-        nodePosition.x = node->position_.x << 12;
-        nodePosition.y = node->position_.y << 12;
-        nodePosition.z = node->position_.z << 12;
-        int distance = Vector3fix_Distance(&position, &nodePosition);
-        int selected = -1;
-        for (int i = 0; i < node->adjacentCount_; ++i) {
-            Vector3fix adjacentPosition;
-            adjacentPosition.x = node->adjacent_[i]->position_.x << 12;
-            adjacentPosition.y = node->adjacent_[i]->position_.y << 12;
-            adjacentPosition.z = node->adjacent_[i]->position_.z << 12;
-            if (Vector3fix_Distance(&adjacentPosition, &position) < distance) selected = node->adjacent_[i]->id_;
+extern "C" ARM void func_020339c8(Struct_020339c8* arg0) {
+    if (!arg0->unknown_c2_6_) return;
+    Struct_020fdd44* var0 = func_02027ca4();
+    Struct_020fdd44* var1 = func_02028bd0(var0, arg0->GetField06());
+    if (!var1 || !var1->unknown_34_) return;
+    Struct_02028430_2* var2 = func_02028430(&var1->unknown_18_, arg0->unknown_b8_);
+    if (!var2) return;
+    if (arg0->unknown_0_ & 0x1200) {
+        int var3 = func_02028524(&var1->unknown_18_, func_02034104(arg0));
+        if (var3 > -1) arg0->unknown_b8_ = var3;
+    } else if (var2->unknown_2_) {
+        Vector3fix var4 = func_02034104(arg0);
+        Vector3fix var5;
+        var5.x = var2->unknown_4_.x << 12;
+        var5.y = var2->unknown_4_.y << 12;
+        var5.z = var2->unknown_4_.z << 12;
+        int var6 = Vector3fix_Distance(&var4, &var5);
+        int var7 = -1;
+        for (int var8 = 0; var8 < var2->unknown_2_; ++var8) {
+            Vector3fix var9;
+            var9.x = var2->unknown_c_[var8]->unknown_4_.x << 12;
+            var9.y = var2->unknown_c_[var8]->unknown_4_.y << 12;
+            var9.z = var2->unknown_c_[var8]->unknown_4_.z << 12;
+            if (Vector3fix_Distance(&var9, &var4) < var6) var7 = var2->unknown_c_[var8]->unknown_0_;
         }
-        if (selected >= 0) {
-            int index = func_020283fc((List_020283fc*)&entry->list_, selected);
-            if (index > -1) self->routeIndex_ = index;
+        if (var7 >= 0) {
+            int var10 = func_020283fc((Struct_020283fc*)&var1->unknown_18_, var7);
+            if (var10 > -1) arg0->unknown_b8_ = var10;
         }
     }
 }

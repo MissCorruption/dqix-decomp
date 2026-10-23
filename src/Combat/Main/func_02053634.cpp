@@ -10,40 +10,40 @@
 #endif
 
 extern "C" int func_020421a0(void);
-extern "C" unsigned char func_020100b0(GameState* battleStruct);
-extern "C" int func_02039874(void* obj);
-extern "C" int func_02053604(signed char* obj);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" int func_02039874(void* arg0);
+extern "C" int func_02053604(signed char* arg0);
 
-extern "C" void func_020531f0(void* obj);
+extern "C" void func_020531f0(void* arg0);
 struct ObjectArchiveLoadInfo;
 extern "C" void* func_02012fe4(void);
-extern "C" void func_0205308c(void* obj, int val);
+extern "C" void func_0205308c(void* arg0, int arg1);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206f81c(void* p);
+extern "C" void func_0206f81c(void* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-extern "C" void func_0205eabc(void* obj, void* target, int arg);
-extern "C" int func_02064a9c(void* param0, void* param1);
-extern "C" int func_020100f8(char* obj);
+extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
+extern "C" int func_02064a9c(void* arg0, void* arg1);
+extern "C" int func_020100f8(char* arg0);
 extern "C" void func_ov017_021cc2f0(int);
-extern "C" void func_020a28a0(unsigned char* obj, unsigned char mask);
-extern "C" void func_020a28b0(unsigned char* obj, int mask);
+extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
 
-struct Params02036804 {
-    int flag;
-    void* data;
-    unsigned int size;
-    void* alloc;
-    int one;
-    int pad18;
-    int pad1c;
-    int pad20;
+struct Struct_02053634 {
+    int unknown_0_;
+    void* unknown_4_;
+    unsigned int unknown_8_;
+    void* unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
 
-struct Entry02053634 { short id; short kind; };
-extern struct Entry02053634 data_020e7c94[];
+struct Struct_020e7c94 { short unknown_0_; short unknown_2_; };
+extern struct Struct_020e7c94 data_020e7c94[];
 
 extern char data_020f0477;
 extern char data_020f047e;
@@ -60,238 +60,238 @@ extern char data_020f0486;
 #endif
 
 // USA: func_02053634
-extern "C" ARM void func_02053634(void* obj) {
-    char* ctx = (char*)obj;
-    GameState* bs = GameState::GetInstance();
+extern "C" ARM void func_02053634(void* arg0) {
+    char* var0 = (char*)arg0;
+    GameState* var1 = GameState::GetInstance();
 
-    int hasEntries0 = ctx[OBJECT_OFFSET(0x17c)] > 0 ? 1 : 0;
-    if (hasEntries0 != 0) {
-        short cid0 = *(short*)(ctx + 4);
-        int activeCid0 = func_020100b0(bs);
-        if (activeCid0 == cid0
+    int var2 = var0[OBJECT_OFFSET(0x17c)] > 0 ? 1 : 0;
+    if (var2 != 0) {
+        short var3 = *(short*)(var0 + 4);
+        int var4 = func_020100b0(var1);
+        if (var4 == var3
             && ((unsigned char*)func_020421a0())[GLOBAL_ACTIVE_OFFSET] != 0) {
-            func_020531f0(ctx);
+            func_020531f0(var0);
             return;
         }
     }
 
-    GameObject* combatant = bs->GetPartyMemberByIndex(*(short*)(ctx + 4));
-    int hasEntries = ctx[OBJECT_OFFSET(0x17c)] > 0 ? 1 : 0;
-    if (hasEntries != 0) {
-        if (func_02039874(combatant) > 0) {
-            func_020531f0(ctx);
+    GameObject* var5 = var1->GetPartyMemberByIndex(*(short*)(var0 + 4));
+    int var6 = var0[OBJECT_OFFSET(0x17c)] > 0 ? 1 : 0;
+    if (var6 != 0) {
+        if (func_02039874(var5) > 0) {
+            func_020531f0(var0);
             return;
         }
     }
 
-    signed char state = ctx[OBJECT_OFFSET(0x17e)];
-    if (state == 0) {
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        if (loader->GetTaskStatus(*(int*)(ctx + OBJECT_OFFSET(0x180))) == 0) {
+    signed char var7 = var0[OBJECT_OFFSET(0x17e)];
+    if (var7 == 0) {
+        BackgroundLoader* var8 = BackgroundLoader::GetInstance();
+        if (var8->GetTaskStatus(*(int*)(var0 + OBJECT_OFFSET(0x180))) == 0) {
             return;
         }
-        if (*(int*)(ctx + OBJECT_OFFSET(0x194)) >= 0) {
-            if (loader->GetTaskStatus(*(int*)(ctx + OBJECT_OFFSET(0x194))) == 0) {
+        if (*(int*)(var0 + OBJECT_OFFSET(0x194)) >= 0) {
+            if (var8->GetTaskStatus(*(int*)(var0 + OBJECT_OFFSET(0x194))) == 0) {
                 return;
             }
         }
 
-        int moreAvailable = 0;
-        if (loader->GetDetailedTaskStatus(*(int*)(ctx + OBJECT_OFFSET(0x180))) != 2) {
+        int var9 = 0;
+        if (var8->GetDetailedTaskStatus(*(int*)(var0 + OBJECT_OFFSET(0x180))) != 2) {
             goto detailFail;
         }
         {
-        ((Object3D*)ctx)->RemoveAnimationPackageByID(2);
-        void* filePtr;
-        unsigned int fileLen;
-        loader->GetLoadedFileByID(*(int*)(ctx + OBJECT_OFFSET(0x180)), &filePtr, &fileLen);
-        if (filePtr != 0) {
-            void* base = *(void**)(ctx + OBJECT_OFFSET(0x154));
-            void* alloc = (char*)base + 0x554;
-            ((SafeAllocator*)alloc)->Reset();
+        ((Object3D*)var0)->RemoveAnimationPackageByID(2);
+        void* var10;
+        unsigned int var11;
+        var8->GetLoadedFileByID(*(int*)(var0 + OBJECT_OFFSET(0x180)), &var10, &var11);
+        if (var10 != 0) {
+            void* var12 = *(void**)(var0 + OBJECT_OFFSET(0x154));
+            void* var13 = (char*)var12 + 0x554;
+            ((SafeAllocator*)var13)->Reset();
 
-            struct Params02036804 params;
-            params.data = filePtr;
-            params.flag = 0;
-            params.pad18 = 0;
-            params.pad1c = 0;
-            params.size = fileLen;
-            params.alloc = alloc;
-            params.pad20 = 2;
-            params.one = 1;
-            if (((Object3D*)ctx)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, (int (*)(BCFG::AnimationRecord*))0) == 0) {
+            struct Struct_02053634 var14;
+            var14.unknown_4_ = var10;
+            var14.unknown_0_ = 0;
+            var14.unknown_14_ = 0;
+            var14.unknown_18_ = 0;
+            var14.unknown_8_ = var11;
+            var14.unknown_c_ = var13;
+            var14.unknown_1c_ = 2;
+            var14.unknown_10_ = 1;
+            if (((Object3D*)var0)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var14, (int (*)(BCFG::AnimationRecord*))0) == 0) {
                 goto loadFail;
             }
-            if (((Object3D*)ctx)->MaybeSetRegularAnimation(&data_020f0477, 1) == 0) {
-                if (((Object3D*)ctx)->MaybeSetRegularAnimation(&data_020f047e, 1) == 0) {
-                    func_020531f0(ctx);
+            if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0477, 1) == 0) {
+                if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f047e, 1) == 0) {
+                    func_020531f0(var0);
                     return;
                 }
-                ctx[OBJECT_OFFSET(0x17f)] = 1;
+                var0[OBJECT_OFFSET(0x17f)] = 1;
             } else {
-                ctx[OBJECT_OFFSET(0x17f)] = 0;
+                var0[OBJECT_OFFSET(0x17f)] = 0;
             }
 
-            if (ctx[OBJECT_OFFSET(0x17f)] == 0) {
-                if (ctx[OBJECT_OFFSET(0x17d)] + 1 < ctx[OBJECT_OFFSET(0x17c)]) {
-                    moreAvailable = 1;
+            if (var0[OBJECT_OFFSET(0x17f)] == 0) {
+                if (var0[OBJECT_OFFSET(0x17d)] + 1 < var0[OBJECT_OFFSET(0x17c)]) {
+                    var9 = 1;
                 }
             }
 
-            struct Entry02053634* e = data_020e7c94;
-            for (; e->id > 0; e++) {
-                if (e->id != func_02053604((signed char*)ctx)) continue;
-                void* arg2 = 0;
-                if (e->kind == 0x4e) {
-                    arg2 = ctx + OBJECT_OFFSET(0x198);
+            struct Struct_020e7c94* var15 = data_020e7c94;
+            for (; var15->unknown_0_ > 0; var15++) {
+                if (var15->unknown_0_ != func_02053604((signed char*)var0)) continue;
+                void* var16 = 0;
+                if (var15->unknown_2_ == 0x4e) {
+                    var16 = var0 + OBJECT_OFFSET(0x198);
                 }
-                unsigned short val = *(unsigned short*)func_02012fe4();
-                if (val == ((Object3D*)ctx)->GetField06()) {
-                    func_0205eaa0((struct Obj0205eaa0*)&data_02108760, e->kind, (int)arg2);
+                unsigned short var17 = *(unsigned short*)func_02012fe4();
+                if (var17 == ((Object3D*)var0)->GetField06()) {
+                    func_0205eaa0((struct Struct_02108760*)&data_02108760, var15->unknown_2_, (int)var16);
                 }
                 break;
             }
-            ctx[OBJECT_OFFSET(0x17e)] = 1;
+            var0[OBJECT_OFFSET(0x17e)] = 1;
             goto loadOK;
         loadFail:
-            func_020531f0(ctx);
+            func_020531f0(var0);
             return;
         } else {
             goto loadOK;
         }
     loadOK:
-        ctx[OBJECT_OFFSET(0x185)] = 1;
+        var0[OBJECT_OFFSET(0x185)] = 1;
         goto detailOK;
     detailFail:
-        func_020531f0(ctx);
+        func_020531f0(var0);
         return;
         }
     detailOK:
-        loader->RemoveTask(*(int*)(ctx + OBJECT_OFFSET(0x180)));
-        *(int*)(ctx + OBJECT_OFFSET(0x180)) = -1;
-        if (moreAvailable != 0) {
-            if (*(unsigned char*)(ctx + OBJECT_OFFSET(0x185)) != 0) {
-                ctx[OBJECT_OFFSET(0x186)] = 1;
+        var8->RemoveTask(*(int*)(var0 + OBJECT_OFFSET(0x180)));
+        *(int*)(var0 + OBJECT_OFFSET(0x180)) = -1;
+        if (var9 != 0) {
+            if (*(unsigned char*)(var0 + OBJECT_OFFSET(0x185)) != 0) {
+                var0[OBJECT_OFFSET(0x186)] = 1;
             } else {
-                signed char idx = ctx[OBJECT_OFFSET(0x17d)];
-                char* p = ctx + (idx + 1) + 0x100;
-                func_0205308c(ctx, p[OBJECT_OFFSET(0x78)]);
+                signed char var18 = var0[OBJECT_OFFSET(0x17d)];
+                char* var19 = var0 + (var18 + 1) + 0x100;
+                func_0205308c(var0, var19[OBJECT_OFFSET(0x78)]);
             }
         }
     } else {
-        if (state == 1) {
-            if (((Object3D*)ctx)->HasAnimationStopped() == 0) {
+        if (var7 == 1) {
+            if (((Object3D*)var0)->HasAnimationStopped() == 0) {
                 return;
             }
-            if (ctx[OBJECT_OFFSET(0x17f)] == 0) {
-                ctx[OBJECT_OFFSET(0x17d)] = ctx[OBJECT_OFFSET(0x17d)] + 1;
-                if (ctx[OBJECT_OFFSET(0x17d)] < ctx[OBJECT_OFFSET(0x17c)]) {
-                    ctx[OBJECT_OFFSET(0x17e)] = 0;
-                    *(int*)(ctx + OBJECT_OFFSET(0x190)) = 0;
+            if (var0[OBJECT_OFFSET(0x17f)] == 0) {
+                var0[OBJECT_OFFSET(0x17d)] = var0[OBJECT_OFFSET(0x17d)] + 1;
+                if (var0[OBJECT_OFFSET(0x17d)] < var0[OBJECT_OFFSET(0x17c)]) {
+                    var0[OBJECT_OFFSET(0x17e)] = 0;
+                    *(int*)(var0 + OBJECT_OFFSET(0x190)) = 0;
                     return;
                 }
-                short cid = *(short*)(ctx + 4);
-                if (cid == func_020100b0(bs)) {
-                    void* p = func_0205ec34();
-                    unsigned char req[0x34];
-                    for (int i = 0; i < 4; i++) {
-                        char* q = ctx + i + 0x100;
-                        ((signed char*)(req + 0x2a))[i] = q[OBJECT_OFFSET(0x78)];
+                short var20 = *(short*)(var0 + 4);
+                if (var20 == func_020100b0(var1)) {
+                    void* var21 = func_0205ec34();
+                    unsigned char var22[0x34];
+                    for (int var23 = 0; var23 < 4; var23++) {
+                        char* var24 = var0 + var23 + 0x100;
+                        ((signed char*)(var22 + 0x2a))[var23] = var24[OBJECT_OFFSET(0x78)];
                     }
-                    if (func_02064a9c(p, req) != 0) {
-                        func_0206f81c(req);
+                    if (func_02064a9c(var21, var22) != 0) {
+                        func_0206f81c(var22);
                     }
                 }
-                func_020531f0(ctx);
+                func_020531f0(var0);
                 return;
-            } else if (ctx[OBJECT_OFFSET(0x17f)] == 1) {
-                int mode = 0;
-                if (ctx[OBJECT_OFFSET(0x17c)] > 1) {
-                    mode = 1;
-                    if (func_02053604((signed char*)ctx) == 0x19) {
-                        func_0205eabc((void*)&data_02108760, ctx + OBJECT_OFFSET(0x198), 0);
+            } else if (var0[OBJECT_OFFSET(0x17f)] == 1) {
+                int var25 = 0;
+                if (var0[OBJECT_OFFSET(0x17c)] > 1) {
+                    var25 = 1;
+                    if (func_02053604((signed char*)var0) == 0x19) {
+                        func_0205eabc((void*)&data_02108760, var0 + OBJECT_OFFSET(0x198), 0);
                     }
                 }
-                if (((Object3D*)ctx)->MaybeSetRegularAnimation(&data_020f0481, mode) != 0) {
-                    ctx[OBJECT_OFFSET(0x17e)] = 2;
+                if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0481, var25) != 0) {
+                    var0[OBJECT_OFFSET(0x17e)] = 2;
                     return;
                 }
-                func_020531f0(ctx);
+                func_020531f0(var0);
                 return;
             } else {
-                func_020531f0(ctx);
+                func_020531f0(var0);
                 return;
             }
-        } else if (state == 2) {
-            bs = GameState::GetInstance();
-            int target = func_020100f8((char*)bs);
-            int flag = 0;
-            if (ctx[OBJECT_OFFSET(0x17c)] > 1) {
-                if (((Object3D*)ctx)->HasAnimationStopped() != 0) {
-                    flag = 1;
+        } else if (var7 == 2) {
+            var1 = GameState::GetInstance();
+            int var26 = func_020100f8((char*)var1);
+            int var27 = 0;
+            if (var0[OBJECT_OFFSET(0x17c)] > 1) {
+                if (((Object3D*)var0)->HasAnimationStopped() != 0) {
+                    var27 = 1;
                 }
             } else {
-                short cid = *(short*)(ctx + 4);
-                if (cid == func_020100b0(bs)
+                short var28 = *(short*)(var0 + 4);
+                if (var28 == func_020100b0(var1)
                     && g_keyManager.TestKeysPressed(0xc03) != 0) {
-                    flag = 1;
-                    func_ov017_021cc2f0(*(short*)(ctx + 4));
+                    var27 = 1;
+                    func_ov017_021cc2f0(*(short*)(var0 + 4));
                 } else {
-                    if (*(unsigned char*)(ctx + OBJECT_OFFSET(0x184)) != 0) {
-                        ctx[OBJECT_OFFSET(0x184)] = *(unsigned char*)(ctx + OBJECT_OFFSET(0x184)) - 1;
-                        flag = 1;
-                    } else if (target != 0) {
-                        func_020a28a0((unsigned char*)target, 1);
+                    if (*(unsigned char*)(var0 + OBJECT_OFFSET(0x184)) != 0) {
+                        var0[OBJECT_OFFSET(0x184)] = *(unsigned char*)(var0 + OBJECT_OFFSET(0x184)) - 1;
+                        var27 = 1;
+                    } else if (var26 != 0) {
+                        func_020a28a0((unsigned char*)var26, 1);
                     }
                 }
-                if (flag != 0 && target != 0) {
-                    func_020a28b0((unsigned char*)target, 1);
+                if (var27 != 0 && var26 != 0) {
+                    func_020a28b0((unsigned char*)var26, 1);
                 }
             }
-            if (flag == 0) {
+            if (var27 == 0) {
                 return;
             }
-            if (((Object3D*)ctx)->MaybeSetRegularAnimation(&data_020f0486, 1) == 0) {
-                func_020531f0(ctx);
+            if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0486, 1) == 0) {
+                func_020531f0(var0);
                 return;
             }
             {
-                signed char cursor = ctx[OBJECT_OFFSET(0x17d)];
-                signed char count = ctx[OBJECT_OFFSET(0x17c)];
-                int next = cursor + 1;
-                if (next < count) {
-                    char* q = ctx + next + 0x100;
-                    func_0205308c(ctx, q[OBJECT_OFFSET(0x78)]);
+                signed char var29 = var0[OBJECT_OFFSET(0x17d)];
+                signed char var30 = var0[OBJECT_OFFSET(0x17c)];
+                int var31 = var29 + 1;
+                if (var31 < var30) {
+                    char* var32 = var0 + var31 + 0x100;
+                    func_0205308c(var0, var32[OBJECT_OFFSET(0x78)]);
                 }
             }
-            ctx[OBJECT_OFFSET(0x17e)] = 3;
+            var0[OBJECT_OFFSET(0x17e)] = 3;
             return;
-        } else if (state == 3) {
-            if (((Object3D*)ctx)->HasAnimationStopped() == 0) {
+        } else if (var7 == 3) {
+            if (((Object3D*)var0)->HasAnimationStopped() == 0) {
                 return;
             }
-            if (func_02053604((signed char*)ctx) == 0x19) {
-                func_0205eabc((void*)&data_02108760, ctx + OBJECT_OFFSET(0x198), 0);
+            if (func_02053604((signed char*)var0) == 0x19) {
+                func_0205eabc((void*)&data_02108760, var0 + OBJECT_OFFSET(0x198), 0);
             }
-            ctx[OBJECT_OFFSET(0x17d)] = ctx[OBJECT_OFFSET(0x17d)] + 1;
-            if (ctx[OBJECT_OFFSET(0x17d)] < ctx[OBJECT_OFFSET(0x17c)]) {
-                ctx[OBJECT_OFFSET(0x17e)] = 0;
-                *(int*)(ctx + OBJECT_OFFSET(0x190)) = 0;
+            var0[OBJECT_OFFSET(0x17d)] = var0[OBJECT_OFFSET(0x17d)] + 1;
+            if (var0[OBJECT_OFFSET(0x17d)] < var0[OBJECT_OFFSET(0x17c)]) {
+                var0[OBJECT_OFFSET(0x17e)] = 0;
+                *(int*)(var0 + OBJECT_OFFSET(0x190)) = 0;
                 return;
             }
-            short cid = *(short*)(ctx + 4);
-            if (cid == func_020100b0(bs)) {
-                void* p = func_0205ec34();
-                unsigned char req[0x34];
-                for (int i = 0; i < 4; i++) {
-                    char* q = ctx + i + 0x100;
-                    ((signed char*)(req + 0x2a))[i] = q[OBJECT_OFFSET(0x78)];
+            short var33 = *(short*)(var0 + 4);
+            if (var33 == func_020100b0(var1)) {
+                void* var34 = func_0205ec34();
+                unsigned char var35[0x34];
+                for (int var36 = 0; var36 < 4; var36++) {
+                    char* var37 = var0 + var36 + 0x100;
+                    ((signed char*)(var35 + 0x2a))[var36] = var37[OBJECT_OFFSET(0x78)];
                 }
-                if (func_02064a9c(p, req) != 0) {
-                    func_0206f81c(req);
+                if (func_02064a9c(var34, var35) != 0) {
+                    func_0206f81c(var35);
                 }
             }
-            func_020531f0(ctx);
+            func_020531f0(var0);
             return;
         }
     }

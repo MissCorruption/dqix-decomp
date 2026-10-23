@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Message0220fbd4
+struct Struct_ov031_0220fbd4_3
 {
-    int length_;
-    unsigned int signature_;
-    int type_;
-    int request_;
-    int value_;
-    char payload_[0x400];
+    int unknown_0_;
+    unsigned int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    char unknown_14_[0x400];
 };
-struct Request0220fbd4 { int state_; int request_; int value_; };
-struct Queue0220fbd4
+struct Struct_ov031_0220fbd4 { int unknown_0_; int unknown_4_; int unknown_8_; };
+struct Struct_ov031_0220fbd4_2
 {
-    char pad_0x0[0x24];
-    Request0220fbd4* current_;
-    int callback_;
-    int completion_;
-    int value_;
+    char unknown_0_[0x24];
+    Struct_ov031_0220fbd4* unknown_24_;
+    int unknown_28_;
+    int unknown_2c_;
+    int unknown_30_;
 };
-extern Queue0220fbd4* data_ov031_0224e580;
-extern "C" void func_ov031_0220fd78(int, Message0220fbd4*);
+extern Struct_ov031_0220fbd4_2* data_ov031_0224e580;
+extern "C" void func_ov031_0220fd78(int, Struct_ov031_0220fbd4_3*);
 extern "C" int func_ov031_0220fe44(int);
 extern "C" int func_ov031_0220ff78(int*);
 extern "C" int func_ov031_0220ff18(void*);
@@ -29,18 +29,18 @@ extern "C" void func_ov031_0220fed8(void);
 // USA: func_ov031_0220fbd4
 extern "C" ARM void func_ov031_0220fbd4(void)
 {
-    unsigned char buffer[0x414];
-    Message0220fbd4* header = (Message0220fbd4*)buffer;
-    func_ov031_0220fd78(data_ov031_0224e580->current_->value_, header);
-    header->length_ = 20;
-    header->signature_ = 0x44535359;
-    header->type_ = 0xda;
-    header->request_ = data_ov031_0224e580->current_->request_;
-    if ((header->value_ = data_ov031_0224e580->value_) == 0)
+    unsigned char var0[0x414];
+    Struct_ov031_0220fbd4_3* var1 = (Struct_ov031_0220fbd4_3*)var0;
+    func_ov031_0220fd78(data_ov031_0224e580->unknown_24_->unknown_8_, var1);
+    var1->unknown_0_ = 20;
+    var1->unknown_4_ = 0x44535359;
+    var1->unknown_8_ = 0xda;
+    var1->unknown_c_ = data_ov031_0224e580->unknown_24_->unknown_4_;
+    if ((var1->unknown_10_ = data_ov031_0224e580->unknown_30_) == 0)
         return;
     if (func_ov031_0220fe44((int)func_ov031_0220ff78) != 0)
     {
-        if (func_ov031_0220ff18(header) != 0)
+        if (func_ov031_0220ff18(var1) != 0)
             func_ov031_0220fea0();
     }
     func_ov031_0220fed8();

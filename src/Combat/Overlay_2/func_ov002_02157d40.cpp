@@ -39,7 +39,7 @@ struct Struct_ov002_02157d40 {
 };
 struct GameState;
 
-struct Container020e0310;
+struct Struct_0201099c_3;
 struct Struct_ov002_02157d40_2;
 struct Struct_ov002_02157d40_3;
 struct Struct_ov002_02157634_6 {
@@ -81,7 +81,7 @@ extern "C" void func_02046a3c(struct Struct_ov002_02157d40_9* arg0, struct Struc
 extern "C" void func_02042058(char* arg0, const char* arg1);
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_ov017_021c2744(struct Struct_ov002_02157d40_13* arg0);
-extern "C" int func_020e0434(struct Container020e0310* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 extern "C" void func_0208247c(void* arg0);
 extern "C" void func_02048350(struct Struct_ov002_02157d40_8* arg0, int arg1);
 extern "C" void func_ov002_02157ce0(char* arg0);
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
     struct Struct_ov002_02157d40_19* var2 = (Struct_ov002_02157d40_19*)GameState::GetInstance();
     int var3 = func_0200fb8c((int*)var2);
     unsigned short* var4 = (unsigned short*)func_02012fe4();
-    ActionDataTables* var5 = func_020797dc();
+    Struct_02108e10* var5 = func_020797dc();
     var1 = (char*)var5;
     struct Struct_ov002_02157634_8* var6 = (struct Struct_ov002_02157634_8*)func_02079e2c(var1, arg0->unknown_1c26_);
     #if defined(jpn)
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 }
                 func_02046574((struct Struct_ov002_02157d40_6*)var26, 1, var17->unknown_0_);
                 if (var16 != 0) {
-                    FMT(var26, 0xc, func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 0x232d), (char*)(var1 + RG(0x860, 0x700)));
+                    FMT(var26, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x232d), (char*)(var1 + RG(0x860, 0x700)));
                     func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     struct Struct_ov002_02157634_3* var27 = var0.unknown_c8_.unknown_8_;
                     for (int var28 = 0; var28 < var0.unknown_c8_.unknown_3_; var28++) {
@@ -452,8 +452,8 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                         func_020465c0((struct Struct_ov002_02157d40_2*)var26, 9, var30->unknown_4_);
-                        FMT(var26, 0xc, func_020e0434((struct Container020e0310*)(arg0->unknown_20_), var29), (char*)(var1 + RG(0x860, 0x700)));
-                        func_02042058(arg0->unknown_1bd0_, (const char*)func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 8));
+                        FMT(var26, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var29), (char*)(var1 + RG(0x860, 0x700)));
+                        func_02042058(arg0->unknown_1bd0_, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
                         func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     }
                     func_02048350((struct Struct_ov002_02157d40_8*)var7, var17->unknown_8_0_);
@@ -469,12 +469,12 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         *(void**)(var26 + 0x10) = arg0->unknown_14_;
 #endif
                     }
-                    func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 0x2333));
-                    func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 8));
+                    func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2333));
+                    func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
                     if (var18 == 1) {
-                        func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 0x2334));
+                        func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2334));
                     } else {
-                        func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 0x2335));
+                        func_02042058((char*)(var1 + RG(0x860, 0x700)), (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x2335));
                     }
                     FMT(var26, 0xc, (int)(var1 + RG(0x860, 0x700)), arg0->unknown_1bd0_);
                 }
@@ -530,7 +530,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 func_020e4bf4(arg0->unknown_8_, arg0->unknown_1c20_);
                 *(void**)var35 = arg0->unknown_8_;
 #endif
-                FMT(var35, 0xc, func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 0x7537), (char*)(var1 + RG(0x860, 0x700)));
+                FMT(var35, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 0x7537), (char*)(var1 + RG(0x860, 0x700)));
                 func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             __clear(var0.unknown_10_, 4);
@@ -581,8 +581,8 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     }
                 }
                 memset(var1 + RG(0x860, 0x700), 0, 0x100);
-                FMT(var35, 0xc, func_020e0434((struct Container020e0310*)(arg0->unknown_20_), var43), (char*)(var1 + RG(0x860, 0x700)));
-                func_02042058(arg0->unknown_1bd0_, (const char*)func_020e0434((struct Container020e0310*)(arg0->unknown_20_), 8));
+                FMT(var35, 0xc, func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), var43), (char*)(var1 + RG(0x860, 0x700)));
+                func_02042058(arg0->unknown_1bd0_, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0->unknown_20_), 8));
                 func_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
             }
             arg0->unknown_1c31_ = 1;

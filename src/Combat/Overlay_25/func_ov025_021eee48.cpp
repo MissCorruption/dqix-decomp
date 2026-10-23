@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Mid021eee48 { unsigned int v[4]; };
+struct Struct_ov025_021eee48 { unsigned int unknown_0_[4]; };
 
-struct Rec021eee48 {
-    unsigned int f0;
-    unsigned int f4;
-    struct Mid021eee48 mid;
-    struct Rec021eee48* next;
+struct Struct_ov025_021dcf14_8 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    struct Struct_ov025_021eee48 unknown_8_;
+    struct Struct_ov025_021dcf14_8* unknown_18_;
 };
 
-struct Obj021eee48 {
-    char pad0[0xe0];
-    struct Rec021eee48* activeHead;
-    struct Rec021eee48* freeHead;
+struct Struct_ov025_021dcf14_7 {
+    char unknown_0_[0xe0];
+    struct Struct_ov025_021dcf14_8* unknown_e0_;
+    struct Struct_ov025_021dcf14_8* unknown_e4_;
 };
 
 // USA: func_ov025_021eee48
-extern "C" ARM void func_ov025_021eee48(struct Obj021eee48* obj, struct Rec021eee48* src) {
-    struct Rec021eee48* node = obj->freeHead;
-    if (node == NULL) {
+extern "C" ARM void func_ov025_021eee48(struct Struct_ov025_021dcf14_7* arg0, struct Struct_ov025_021dcf14_8* arg1) {
+    struct Struct_ov025_021dcf14_8* var0 = arg0->unknown_e4_;
+    if (var0 == NULL) {
         return;
     }
-    struct Rec021eee48* savedNext = node->next;
-    node->f0 = src->f0;
-    node->f4 = src->f4;
-    node->mid = src->mid;
-    node->next = src->next;
-    obj->freeHead = savedNext;
-    node->next = obj->activeHead;
-    obj->activeHead = node;
+    struct Struct_ov025_021dcf14_8* var1 = var0->unknown_18_;
+    var0->unknown_0_ = arg1->unknown_0_;
+    var0->unknown_4_ = arg1->unknown_4_;
+    var0->unknown_8_ = arg1->unknown_8_;
+    var0->unknown_18_ = arg1->unknown_18_;
+    arg0->unknown_e4_ = var1;
+    var0->unknown_18_ = arg0->unknown_e0_;
+    arg0->unknown_e0_ = var0;
 }

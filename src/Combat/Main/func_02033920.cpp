@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Vec3 { int x; int y; int z; };
-extern "C" int func_02032424(struct Vec3*, struct Vec3*);
-struct Obj02033834;
-extern "C" void func_02033834(struct Obj02033834*, int);
+struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" int func_02032424(struct Struct_ov009_0218aa28*, struct Struct_ov009_0218aa28*);
+struct Struct_02033834_2;
+extern "C" void func_02033834(struct Struct_02033834_2*, int);
 int fix32SignedAngleDistance(int a, int b);
 int fix32abs(int x);
 extern char data_020efa3c;
 
-struct Entity02033920 {
-    char pad0[4];
-    short f4;
-    char pad1[0x3e];
-    struct Vec3 f44;
-    char pad2[4];
-    int f54;
-    char pad3[0x56];
-    short fae;
-    short fb0;
-    char pad4[0xc];
-    unsigned char fbe;
-    char pad5[5];
-    unsigned short fc4;
+struct Struct_02033920 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0x3e];
+    struct Struct_ov009_0218aa28 unknown_44_;
+    char unknown_50_[4];
+    int unknown_54_;
+    char unknown_58_[0x56];
+    short unknown_ae_;
+    short unknown_b0_;
+    char unknown_b2_[0xc];
+    unsigned char unknown_be_;
+    char unknown_bf_[5];
+    unsigned short unknown_c4_;
 };
 
 // USA: func_02033920
-extern "C" ARM void func_02033920(struct Entity02033920* obj, int id, int flag) {
-    GameState* battleStruct = GameState::GetInstance();
-    if (id == obj->f4) return;
-    GameObject* combatant = battleStruct->GetGameObjectByIndex(id);
-    if (combatant == 0) return;
-    int angle = func_02032424((struct Vec3*)((char*)combatant + 0x44), &obj->f44);
-    func_02033834((struct Obj02033834*)obj, angle);
-    if (flag == 0) return;
-    if (obj->fbe != 0) return;
-    int d = fix32SignedAngleDistance(obj->f54, obj->fae);
-    int ad = fix32abs(d);
-    if (ad <= 0x1000) return;
-    if (obj->fb0 > 0x10c) return;
-    int r = ((Object3D*)obj)->MaybeSetRegularAnimation(&data_020efa3c, 0x11);
-    if (r != 0) {
-        obj->fc4 |= 0x8000;
+extern "C" ARM void func_02033920(struct Struct_02033920* arg0, int arg1, int arg2) {
+    GameState* var0 = GameState::GetInstance();
+    if (arg1 == arg0->unknown_4_) return;
+    GameObject* var1 = var0->GetGameObjectByIndex(arg1);
+    if (var1 == 0) return;
+    int var2 = func_02032424((struct Struct_ov009_0218aa28*)((char*)var1 + 0x44), &arg0->unknown_44_);
+    func_02033834((struct Struct_02033834_2*)arg0, var2);
+    if (arg2 == 0) return;
+    if (arg0->unknown_be_ != 0) return;
+    int var3 = fix32SignedAngleDistance(arg0->unknown_54_, arg0->unknown_ae_);
+    int var4 = fix32abs(var3);
+    if (var4 <= 0x1000) return;
+    if (arg0->unknown_b0_ > 0x10c) return;
+    int var5 = ((Object3D*)arg0)->MaybeSetRegularAnimation(&data_020efa3c, 0x11);
+    if (var5 != 0) {
+        arg0->unknown_c4_ |= 0x8000;
     }
 }

@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-extern "C" void func_02019568(void* a, int b);
+extern "C" void func_02019568(void* arg0, int arg1);
 
 #if defined(jpn)
-enum { flagsOffset = 0x5b41, effectsOffset = 0xe44, parityOffset = 0x57c8 };
+enum { Enum_ov000_021636ac_22865 = 0x5b41, Enum_ov000_021636ac_3784 = 0xe44, Enum_ov000_021636ac_21976 = 0x57c8 };
 #else
-enum { flagsOffset = 0x5951, effectsOffset = 0xec8, parityOffset = 0x55d8 };
+enum { Enum_ov000_021636ac_22865 = 0x5951, Enum_ov000_021636ac_3784 = 0xec8, Enum_ov000_021636ac_21976 = 0x55d8 };
 #endif
 
-struct Flags5951_021636ac {
-    unsigned char lowBits : 3;
-    unsigned char isActive : 1;
-    unsigned char parityFlag : 1;
-    unsigned char highBits : 3;
+struct Struct_ov000_021636ac {
+    unsigned char unknown_0_0_ : 3;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 1;
+    unsigned char unknown_0_5_ : 3;
 };
 
 // USA: func_ov000_021636ac
-extern "C" ARM void func_ov000_021636ac(void* objRaw) {
-    if (((struct Flags5951_021636ac*)((char*)objRaw + flagsOffset))->isActive) {
+extern "C" ARM void func_ov000_021636ac(void* arg0) {
+    if (((struct Struct_ov000_021636ac*)((char*)arg0 + Enum_ov000_021636ac_22865))->unknown_0_3_) {
         return;
     }
-    func_02019568((char*)objRaw + effectsOffset, 1);
-    ((struct Flags5951_021636ac*)((char*)objRaw + flagsOffset))->isActive = 1;
-    int v = *(int*)((char*)objRaw + parityOffset);
-    ((struct Flags5951_021636ac*)((char*)objRaw + flagsOffset))->parityFlag = (unsigned char)(v % 2);
+    func_02019568((char*)arg0 + Enum_ov000_021636ac_3784, 1);
+    ((struct Struct_ov000_021636ac*)((char*)arg0 + Enum_ov000_021636ac_22865))->unknown_0_3_ = 1;
+    int var0 = *(int*)((char*)arg0 + Enum_ov000_021636ac_21976);
+    ((struct Struct_ov000_021636ac*)((char*)arg0 + Enum_ov000_021636ac_22865))->unknown_0_4_ = (unsigned char)(var0 % 2);
 }

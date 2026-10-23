@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { QUEUE_DATA_OFFSET = 0x4208 };
+enum { Enum_ov017_0219735c_17592 = 0x4208 };
 #else
-enum { QUEUE_DATA_OFFSET = 0x44b8 };
+enum { Enum_ov017_0219735c_17592 = 0x44b8 };
 #endif
 
-struct FourEntryBuffer {
-    unsigned short entries[4];
-    unsigned char nextSlot;
+struct Struct_ov017_021972f8 {
+    unsigned short unknown_0_[4];
+    unsigned char unknown_8_;
 };
 
 // USA: func_ov017_0219735c
-extern "C" ARM int func_ov017_0219735c(unsigned char* obj, unsigned short key) {
-	FourEntryBuffer* buffer = (FourEntryBuffer*)(obj + QUEUE_DATA_OFFSET);
-	unsigned short* entry = buffer->entries;
-	for (int i = 0; i < 4; i++, entry++) {
-		if (*entry == key) {
+extern "C" ARM int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1) {
+	Struct_ov017_021972f8* var0 = (Struct_ov017_021972f8*)(arg0 + Enum_ov017_0219735c_17592);
+	unsigned short* var1 = var0->unknown_0_;
+	for (int var2 = 0; var2 < 4; var2++, var1++) {
+		if (*var1 == arg1) {
 			return 1;
 		}
 	}

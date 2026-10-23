@@ -5,70 +5,70 @@
 #include <globaldefs.h>
 
 // USA: func_0201cb60
-extern "C" ARM bool func_0201cb60(Script::Parameter *param, int numParams, ZoneFeatures::Opcode68Entry &entry) {
-    Script::Parameter *paramStart = param;
-    List0209998c *worldData       = static_cast<List0209998c *>(func_02011584(GameState::GetInstance()));
+extern "C" ARM bool func_0201cb60(Script::Parameter *arg0, int arg1, Struct_020134e0::Struct_0201cb60_3 &arg2) {
+    Script::Parameter *var0 = arg0;
+    Struct_0201cb60_2 *var1       = static_cast<Struct_0201cb60_2 *>(func_02011584(GameState::GetInstance()));
 
-    entry.unk_0 = (param++)->ToInt();
-    if (paramStart[1].type == 0) {
-        Elem0209998c *zone = func_0209998c(worldData, (param++)->ToString());
-        if (zone == NULL) return false;
-        entry.unk_1c = zone->f0;
+    arg2.unknown_0_ = (arg0++)->ToInt();
+    if (var0[1].type == 0) {
+        Struct_0201cb60 *var2 = func_0209998c(var1, (arg0++)->ToString());
+        if (var2 == NULL) return false;
+        arg2.unknown_1c_ = var2->unknown_0_;
     } else {
-        entry.unk_1c = (param++)->ToInt();
+        arg2.unknown_1c_ = (arg0++)->ToInt();
     }
-    entry.unk_64[0] = (param++)->ToInt();
-    entry.unk_64[1] = (param++)->ToInt();
+    arg2.unknown_64_[0] = (arg0++)->ToInt();
+    arg2.unknown_64_[1] = (arg0++)->ToInt();
 
-    Vector3fix tempVector;
-    param           = param->ToVec3fix(&tempVector);
-    entry.unk_20[0] = tempVector;
-    entry.unk_50    = 4096.0f * (param++)->ToFloat();
+    Vector3fix var3;
+    arg0           = arg0->ToVec3fix(&var3);
+    arg2.unknown_20_[0] = var3;
+    arg2.unknown_50_    = 4096.0f * (arg0++)->ToFloat();
 
-    if (numParams - (param - paramStart) > 0) {
-        entry.unk_6c = (param++)->ToInt();
+    if (arg1 - (arg0 - var0) > 0) {
+        arg2.unknown_6c_ = (arg0++)->ToInt();
     }
-    if (numParams - (param - paramStart) > 0) {
-        param           = param->ToVec3fix(&tempVector);
-        entry.unk_20[1] = tempVector;
-        param           = param->ToVec3fix(&tempVector);
-        entry.unk_20[2] = tempVector;
-        param           = param->ToVec3fix(&tempVector);
-        entry.unk_20[3] = tempVector;
+    if (arg1 - (arg0 - var0) > 0) {
+        arg0           = arg0->ToVec3fix(&var3);
+        arg2.unknown_20_[1] = var3;
+        arg0           = arg0->ToVec3fix(&var3);
+        arg2.unknown_20_[2] = var3;
+        arg0           = arg0->ToVec3fix(&var3);
+        arg2.unknown_20_[3] = var3;
     }
     return true;
 }
 
 // USA: func_0201ccc8
-extern "C" ARM int func_0201ccc8(Script::Parameter *params, int numParams) {
-    ZoneFeatures::Opcode68Entry entry;
-    entry.func_0201ce10();
-    Script::Parameter *p = params;
-    fix32_t centreX      = (int) (4096.0f * (p++)->ToFloat());
-    fix32_t centreY      = (int) (4096.0f * (p++)->ToFloat());
-    fix32_t centreZ      = (int) (4096.0f * (p++)->ToFloat());
-    fix32_t halfExtentX      = (int) (4096.0f * (p++)->ToFloat()) / 2;
-    fix32_t halfExtentY      = (int) (4096.0f * (p++)->ToFloat()) / 2;
-    fix32_t halfExtentZ      = (int) (4096.0f * (p++)->ToFloat()) / 2;
+extern "C" ARM int func_0201ccc8(Script::Parameter *arg0, int arg1) {
+    Struct_020134e0::Struct_0201cb60_3 var0;
+    var0.func_0201ce10();
+    Script::Parameter *var1 = arg0;
+    fix32_t var2      = (int) (4096.0f * (var1++)->ToFloat());
+    fix32_t var3      = (int) (4096.0f * (var1++)->ToFloat());
+    fix32_t var4      = (int) (4096.0f * (var1++)->ToFloat());
+    fix32_t var5      = (int) (4096.0f * (var1++)->ToFloat()) / 2;
+    fix32_t var6      = (int) (4096.0f * (var1++)->ToFloat()) / 2;
+    fix32_t var7      = (int) (4096.0f * (var1++)->ToFloat()) / 2;
 
-    fix32_t xMax = centreX + halfExtentX;
-    fix32_t xMin = centreX - halfExtentX;
-    fix32_t yMax = centreY + halfExtentY;
-    fix32_t yMin = centreY - halfExtentY;
-    fix32_t zMax = centreZ + halfExtentZ;
-    fix32_t zMin = centreZ - halfExtentZ;
+    fix32_t var8 = var2 + var5;
+    fix32_t var9 = var2 - var5;
+    fix32_t var10 = var3 + var6;
+    fix32_t var11 = var3 - var6;
+    fix32_t var12 = var4 + var7;
+    fix32_t var13 = var4 - var7;
 
-    entry.unk_58[1] = centreY;
-    entry.unk_4[0]  = xMax;
-    entry.unk_58[0] = centreX;
-    entry.unk_58[2] = centreZ;
-    entry.unk_4[1]  = yMax;
-    entry.unk_4[2]  = zMax;
-    entry.unk_4[3]  = xMin;
-    entry.unk_4[4]  = yMin;
-    entry.unk_4[5]  = zMin;
+    var0.unknown_58_[1] = var3;
+    var0.unknown_4_[0]  = var8;
+    var0.unknown_58_[0] = var2;
+    var0.unknown_58_[2] = var4;
+    var0.unknown_4_[1]  = var10;
+    var0.unknown_4_[2]  = var12;
+    var0.unknown_4_[3]  = var9;
+    var0.unknown_4_[4]  = var11;
+    var0.unknown_4_[5]  = var13;
 
-    if (!func_0201cb60(p, numParams - (p - params), entry)) return 0;
-    data_020fdc20.warp->func_0201e574(entry);
+    if (!func_0201cb60(var1, arg1 - (var1 - arg0), var0)) return 0;
+    data_020fdc20.unknown_8_->func_0201e574(var0);
     return 1;
 }

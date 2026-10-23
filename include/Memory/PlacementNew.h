@@ -1,6 +1,6 @@
 #pragma once
 
-inline void* operator new(unsigned long, void* storage)
+inline void* operator new(unsigned long, void* arg1)
 {
-    return storage;
+    return arg1;
 }

@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Inner_02068878 {
-    char pad0[8];
-    unsigned int field8_lo : 24;
-    unsigned int bits2526 : 2;
-    unsigned int field8_hi : 6;
+struct Struct_02068878_2 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 24;
+    unsigned int unknown_b_0_ : 2;
+    unsigned int unknown_b_2_ : 6;
 };
 
-struct Outer_02068878 {
-    struct Inner_02068878* inner;
+struct Struct_02068878 {
+    struct Struct_02068878_2* unknown_0_;
 };
 
 // USA: func_02068878
-extern "C" ARM int func_02068878(int unused, struct Outer_02068878* p) {
-    struct Inner_02068878* q = p->inner;
-    return q != 0 ? q->bits2526 : 0;
+extern "C" ARM int func_02068878(int arg0, struct Struct_02068878* arg1) {
+    struct Struct_02068878_2* var0 = arg1->unknown_0_;
+    return var0 != 0 ? var0->unknown_b_0_ : 0;
 }

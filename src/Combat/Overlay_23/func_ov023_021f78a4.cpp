@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" void* func_ov011_021849c8(void* ctx);
-extern "C" int func_ov023_021f6bb8(void* obj);
-extern "C" void func_ov023_021f6bb0(void* obj, int v);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" int func_ov023_021f6bb8(void* arg0);
+extern "C" void func_ov023_021f6bb0(void* arg0, int arg1);
 
-struct List0202fe68;
+struct Struct_020534ac_2;
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-extern "C" void func_ov023_021f7b98(void* obj, void* ctx, int flag, int v1, unsigned int entryLength);
-extern "C" void func_0204b088(void* p, int flag);
+extern "C" void func_ov023_021f7b98(void* arg0, void* arg1, int arg2, int arg3, unsigned int arg4);
+extern "C" void func_0204b088(void* arg0, int arg1);
 
-struct Obj021f78a4 {
-    char pad0[0xc];
-    unsigned char flags0xc;
-    char pad0d[0x1c - 0xd];
-    int field1c;
-    void* field20;
+struct Struct_ov023_021f78a4 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_;
+    char unknown_d_[0x1c - 0xd];
+    int unknown_1c_;
+    void* unknown_20_;
 };
 
 // USA: func_ov023_021f78a4
-extern "C" ARM void func_ov023_021f78a4(struct Obj021f78a4* obj) {
+extern "C" ARM void func_ov023_021f78a4(struct Struct_ov023_021f78a4* arg0) {
 #if defined(jpn)
- enum {regionalOffset=0x24};
+ enum {Enum_ov023_021f78a4_40=0x24};
 #else
- enum {regionalOffset=0x28};
+ enum {Enum_ov023_021f78a4_40=0x28};
 #endif
-    if (obj->flags0xc & 0x2) {
-        void* ctx = obj->field20;
-        void* node = func_ov011_021849c8(ctx);
-        int listPtr = (int)BackgroundLoader::GetInstance();
-        int key = func_ov023_021f6bb8(node);
-        if (((BackgroundLoader*)(listPtr))->GetTaskStatus((int)(key))) {
-            if (((BackgroundLoader*)((struct List0202fe68*)listPtr))->GetDetailedTaskStatus((int)(key)) == 2) {
-                int v1, v2;
-                ((BackgroundLoader*)((struct List0202fec8*)listPtr))->GetLoadedFileByID((int)(key), (void**)(&v1), (unsigned int*)(&v2));
-                if (v1 != 0 && v2 != 0) {
-                    func_ov023_021f7b98(obj, ctx, 0, v1, v2);
+    if (arg0->unknown_c_ & 0x2) {
+        void* var0 = arg0->unknown_20_;
+        void* var1 = func_ov011_021849c8(var0);
+        int var2 = (int)BackgroundLoader::GetInstance();
+        int var3 = func_ov023_021f6bb8(var1);
+        if (((BackgroundLoader*)(var2))->GetTaskStatus((int)(var3))) {
+            if (((BackgroundLoader*)((struct Struct_020534ac_2*)var2))->GetDetailedTaskStatus((int)(var3)) == 2) {
+                int var4, var5;
+                ((BackgroundLoader*)((struct Struct_020534ac*)var2))->GetLoadedFileByID((int)(var3), (void**)(&var4), (unsigned int*)(&var5));
+                if (var4 != 0 && var5 != 0) {
+                    func_ov023_021f7b98(arg0, var0, 0, var4, var5);
                 }
             }
-            ((BackgroundLoader*)(listPtr))->RemoveTask((int)(key));
-            func_ov023_021f6bb0(node, -1);
-            obj->field1c = 2;
+            ((BackgroundLoader*)(var2))->RemoveTask((int)(var3));
+            func_ov023_021f6bb0(var1, -1);
+            arg0->unknown_1c_ = 2;
         }
     }
 
-    if (!(obj->flags0xc & 0x1)) {
-        func_0204b088((char*)obj + regionalOffset, 0);
+    if (!(arg0->unknown_c_ & 0x1)) {
+        func_0204b088((char*)arg0 + Enum_ov023_021f78a4_40, 0);
     }
 }

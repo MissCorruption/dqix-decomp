@@ -4,559 +4,559 @@
 
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
-#define REGION_FLAG(jpnField, usaField) (message->flags17ff.jpnField)
+#define REGION_FLAG(jpnField, usaField) (arg0->unknown_17ff_.jpnField)
 extern "C" void func_020665bc(char*, int, const char*, const char*);
 extern const char data_020f07b4[], data_020f07b9[], data_020f07c0[], data_020f07c7[];
 #else
 #define REGION_VALUE(jpnValue, usaValue) usaValue
-#define REGION_FLAG(jpnField, usaField) (message->usaField)
+#define REGION_FLAG(jpnField, usaField) (arg0->usaField)
 #endif
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
-struct Vec3_020406f8 {
-    int v[3];
+struct Struct_0203de84 {
+    int unknown_0_[3];
 };
 
-struct SlotA020cf0fc {
-    int f0;
-    int f4;
-    int f8;
-    int fc;
+struct Struct_02065990_4 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-struct SlotB020cf1a8 {
-    int f0;
-    int f4;
-    int f8;
+struct Struct_02065990_5 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Name56_0218d7b0 {
-    unsigned char f0;
-    unsigned char f1;
-    unsigned short f2;
-    unsigned char f4;
-    unsigned char f5;
+struct Struct_02065990_6 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
 };
 
-union Packed0209c830 {
-    unsigned int w;
+union Struct_02065990_7 {
+    unsigned int unknown_0_;
     struct {
-        unsigned int a : 7;
-        unsigned int b : 4;
-        unsigned int c : 5;
-        unsigned int d : 5;
-        unsigned int e : 6;
-    } b;
+        unsigned int unknown_0_0_ : 7;
+        unsigned int unknown_0_7_ : 4;
+        unsigned int unknown_1_3_ : 5;
+        unsigned int unknown_2_0_ : 5;
+        unsigned int unknown_2_5_ : 6;
+    } unknown1_0_;
 };
 
-struct Container0205a3d0;
-extern "C" void func_0205a42c(Container0205a3d0*, int, int);
-struct Container0205a330;
-extern "C" void func_0205a330(Container0205a330*, int);
-extern "C" void func_0206b104(void* obj);
+struct Struct_0205a254;
+extern "C" void func_0205a42c(Struct_0205a254*, int, int);
+struct Struct_0205a330;
+extern "C" void func_0205a330(Struct_0205a330*, int);
+extern "C" void func_0206b104(void* arg0);
 extern "C" void func_02043204(char*);
-struct Struct02065758;
-extern "C" int func_02065758(Struct02065758*, int);
-extern "C" void func_0202f380(void* obj, int step);
-struct CE28Obj;
-extern "C" int func_0205ce28(CE28Obj*);
-struct Field440Obj0202f6a4;
-extern "C" void func_0202f6a4(Field440Obj0202f6a4*);
-struct Ctx0206b61c;
-extern "C" void func_0206b61c(Ctx0206b61c*);
-extern "C" int func_020657c8(void* obj, int step);
+struct Struct_02065758;
+extern "C" int func_02065758(Struct_02065758*, int);
+extern "C" void func_0202f380(void* arg0, int arg1);
+struct Struct_0205ce28_2;
+extern "C" int func_0205ce28(Struct_0205ce28_2*);
+struct Struct_0202f6a4;
+extern "C" void func_0202f6a4(Struct_0202f6a4*);
+struct Struct_02065990;
+extern "C" void func_0206b61c(Struct_02065990*);
+extern "C" int func_020657c8(void* arg0, int arg1);
 extern "C" void func_020658ac(unsigned char*, unsigned int);
-extern "C" int func_0209ca2c(void* p);
-struct Battle020456d0;
-extern "C" void func_020456d0(Battle020456d0*);
+extern "C" int func_0209ca2c(void* arg0);
+struct Struct_020456d0;
+extern "C" void func_020456d0(Struct_020456d0*);
 extern "C" void func_02065920(unsigned char*, unsigned int);
-extern "C" void func_020676e0(void* obj, int step);
-extern "C" void func_02043124(void* obj);
-extern "C" void func_ov017_0218d7b0(unsigned char* owner, char* name);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
-extern "C" void func_ov016_0218b5c0(int a, signed char b);
-extern "C" void func_ov017_0218b5f8(signed char a);
-struct ListHead02046b60;
-extern "C" int func_02046b60(ListHead02046b60*, int);
-extern "C" void func_ov017_021a5ab0(void* p);
+extern "C" void func_020676e0(void* arg0, int arg1);
+extern "C" void func_02043124(void* arg0);
+extern "C" void func_ov017_0218d7b0(unsigned char* arg0, char* arg1);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void func_ov016_0218b5c0(int arg0, signed char arg1);
+extern "C" void func_ov017_0218b5f8(signed char arg0);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" void func_ov017_021a5ab0(void* arg0);
 extern "C" void* func_0203cf4c();
-struct EntryList_203dce4;
-extern "C" void* func_0203dce4(EntryList_203dce4*, int);
-struct Node020406f8;
-extern "C" void func_020406f8(Vec3_020406f8*, Node020406f8*);
-extern "C" int fix32_Atan2(int x, int z);
+struct Struct_0203dce4_2;
+extern "C" void* func_0203dce4(Struct_0203dce4_2*, int);
+struct Struct_0203de84_2;
+extern "C" void func_020406f8(Struct_0203de84*, Struct_0203de84_2*);
+extern "C" int fix32_Atan2(int arg0, int arg1);
 int fix32ReduceAngle0To2Pi(int angle);
-extern "C" void func_02065418(int a);
-extern "C" int func_020e51cc(int a);
-extern "C" void func_020652d0(char* obj, int a, int b, int c);
+extern "C" void func_02065418(int arg0);
+extern "C" int func_020e51cc(int arg0);
+extern "C" void func_020652d0(char* arg0, int arg1, int arg2, int arg3);
 extern "C" unsigned char* func_0200fb8c(int*);
-struct Obj0208bf28;
-extern "C" void func_0208bf28(Obj0208bf28*, int, unsigned char);
+struct Struct_02065990_2;
+extern "C" void func_0208bf28(Struct_02065990_2*, int, unsigned char);
 extern "C" unsigned char* func_02094d6c();
-struct GetTableByteOrFFData;
-extern "C" int func_020965ac(GetTableByteOrFFData*, unsigned char);
+struct Struct_02065990_3;
+extern "C" int func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" void func_020cf0fc(int);
 extern "C" void func_020cf1a8(int);
-struct Struct0209c830;
-extern "C" void func_0209c830(Struct0209c830*, int);
+struct Struct_02109bf4_2;
+extern "C" void func_0209c830(Struct_02109bf4_2*, int);
 extern "C" void func_0208be94(unsigned char*);
 extern "C" void func_0208beb4(unsigned char*);
-extern "C" void func_0205e944(void* p, int v);
+extern "C" void func_0205e944(void* arg0, int arg1);
 
 extern unsigned char data_02109bf4;
 extern unsigned char data_02108760;
 
 // USA: func_02065990
-extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
-    unsigned char* self = (unsigned char*)message;
-    unsigned short tok;
-    struct Name56_0218d7b0 nm;
-    union Packed0209c830 packed;
-    struct Vec3_020406f8 here;
-    struct Vec3_020406f8 dst;
-    struct SlotA020cf0fc sa;
-    struct SlotB020cf1a8 sb;
-    struct Vec3_020406f8 src;
-    int step = amount;
-    if (step == 0) step = 1;
+extern "C" ARM void func_02065990(Struct_02021b84* arg0, int arg1) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned short var1;
+    struct Struct_02065990_6 var2;
+    union Struct_02065990_7 var3;
+    struct Struct_0203de84 var4;
+    struct Struct_0203de84 var5;
+    struct Struct_02065990_4 var6;
+    struct Struct_02065990_5 var7;
+    struct Struct_0203de84 var8;
+    int var9 = arg1;
+    if (var9 == 0) var9 = 1;
 
-    if (*(void**)(self + REGION_VALUE(0x230, 0x2e0)) != 0 && self[REGION_VALUE(0x236, 0x2e6)] != 0 && message->mode == 6) {
+    if (*(void**)(var0 + REGION_VALUE(0x230, 0x2e0)) != 0 && var0[REGION_VALUE(0x236, 0x2e6)] != 0 && arg0->unknown_9a0_ == 6) {
         if ((*(unsigned short*)0x4000304 & 0x8000) >> 15 == 1) {
-            func_0205a42c((Container0205a3d0*)(*(void**)(self + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
+            func_0205a42c((Struct_0205a254*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
         }
-        func_0205a330((Container0205a330*)(*(void**)(self + REGION_VALUE(0x230, 0x2e0))), step);
+        func_0205a330((Struct_0205a330*)(*(void**)(var0 + REGION_VALUE(0x230, 0x2e0))), var9);
     }
 
-    if (message->active == 0) return;
+    if (arg0->unknown_998_ == 0) return;
 
-    if (REGION_FLAG(flag3, b19d1) != 0) {
-        message->b1958 = *(signed char*)(self + REGION_VALUE(0x1786, 0x1958)) - step;
-        if (*(signed char*)(self + REGION_VALUE(0x1786, 0x1958)) >= 0) return;
-        func_0206b104(self);
-        func_02043204((char*)self);
+    if (REGION_FLAG(unknown_0_3_, unknown_19d1_) != 0) {
+        arg0->unknown_1958_ = *(signed char*)(var0 + REGION_VALUE(0x1786, 0x1958)) - var9;
+        if (*(signed char*)(var0 + REGION_VALUE(0x1786, 0x1958)) >= 0) return;
+        func_0206b104(var0);
+        func_02043204((char*)var0);
         return;
     }
 
-    message->func_020656e4(step);
-    if (func_02065758((Struct02065758*)self, step) != 0) return;
+    arg0->func_020656e4(var9);
+    if (func_02065758((Struct_02065758*)var0, var9) != 0) return;
 
-    if (message->b19b1 != 0) {
-        func_0202f380(self + REGION_VALUE(0x1804, 0x19e0), step);
-        if (func_0205ce28((CE28Obj*)(self + REGION_VALUE(0x1804, 0x19e0))) != 0) {
-            func_0202f6a4((Field440Obj0202f6a4*)(self + REGION_VALUE(0x1804, 0x19e0)));
+    if (arg0->unknown_19b1_ != 0) {
+        func_0202f380(var0 + REGION_VALUE(0x1804, 0x19e0), var9);
+        if (func_0205ce28((Struct_0205ce28_2*)(var0 + REGION_VALUE(0x1804, 0x19e0))) != 0) {
+            func_0202f6a4((Struct_0202f6a4*)(var0 + REGION_VALUE(0x1804, 0x19e0)));
         }
-        unsigned char* w = *(unsigned char**)(self + REGION_VALUE(0x1c44, 0x1e20));
-        int ready;
-        if (w != 0) {
-            ready = *(int*)(w + 8) == 2;
+        unsigned char* var10 = *(unsigned char**)(var0 + REGION_VALUE(0x1c44, 0x1e20));
+        int var11;
+        if (var10 != 0) {
+            var11 = *(int*)(var10 + 8) == 2;
         } else {
-            ready = 0;
+            var11 = 0;
         }
-        if (ready == 0) return;
+        if (var11 == 0) return;
     }
 
-    if (REGION_FLAG(streamMode, b19ce) != 0) message->stream44 = *(int*)(self + REGION_VALUE(0x44, 0x78));
+    if (REGION_FLAG(unknown_0_0_, unknown_19ce_) != 0) arg0->unknown_44_ = *(int*)(var0 + REGION_VALUE(0x44, 0x78));
 
-    if (message->b19b4 != 0) {
-        message->w1868 = message->w1868 + step;
-        if (message->w1868 < message->w1864) return;
-        message->w1868 = 0;
-        func_0206b61c((Ctx0206b61c*)self);
-        message->b19b4 = 0;
-        message->mode = 5;
-        message->b19b5 = 0;
+    if (arg0->unknown_19b4_ != 0) {
+        arg0->unknown_1868_ = arg0->unknown_1868_ + var9;
+        if (arg0->unknown_1868_ < arg0->unknown_1864_) return;
+        arg0->unknown_1868_ = 0;
+        func_0206b61c((Struct_02065990*)var0);
+        arg0->unknown_19b4_ = 0;
+        arg0->unknown_9a0_ = 5;
+        arg0->unknown_19b5_ = 0;
         return;
     }
 
-    if (func_020657c8(self, step) != 0) return;
-    func_020658ac((unsigned char*)self, step);
+    if (func_020657c8(var0, var9) != 0) return;
+    func_020658ac((unsigned char*)var0, var9);
 
-    if ((message->b195b & 1) != 0) {
+    if ((arg0->unknown_195b_ & 1) != 0) {
         if (func_0209ca2c(&data_02109bf4) == 0) {
-            message->b195b = message->b195b & ~1;
+            arg0->unknown_195b_ = arg0->unknown_195b_ & ~1;
         }
     } else {
-        if (message->child != 0 && (message->child)[0xd4] == 2) return;
+        if (arg0->unknown_8c_ != 0 && (arg0->unknown_8c_)[0xd4] == 2) return;
 
-        if (message->b19c9 != 0) {
+        if (arg0->unknown_19c9_ != 0) {
             if (func_0209ca2c(&data_02109bf4) != 0) return;
-            *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-            message->b19c9 = 0;
+            *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+            arg0->unknown_19c9_ = 0;
             return;
         }
 
-        func_020456d0((Battle020456d0*)self);
-        if (message->func_020440cc() != 0) {
-            REGION_FLAG(flag3, b19d1) = 1;
-            message->b1958 = 5;
+        func_020456d0((Struct_020456d0*)var0);
+        if (arg0->func_020440cc() != 0) {
+            REGION_FLAG(unknown_0_3_, unknown_19d1_) = 1;
+            arg0->unknown_1958_ = 5;
             return;
         }
 
-        if (message->mode != 5) {
-            func_02065920((unsigned char*)self, step);
-            if (message->b19bc != 0) {
-                message->func_02045740();
+        if (arg0->unknown_9a0_ != 5) {
+            func_02065920((unsigned char*)var0, var9);
+            if (arg0->unknown_19bc_ != 0) {
+                arg0->func_02045740();
             }
-            func_020676e0(self, step);
-            message->func_02045688();
+            func_020676e0(var0, var9);
+            arg0->func_02045688();
             return;
         }
     }
 
-    if (*(short*)(self + REGION_VALUE(0x1774, 0x1946)) < 0 && message->b19c8 == 0) {
-        *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
-        message->func_02045688();
+    if (*(short*)(var0 + REGION_VALUE(0x1774, 0x1946)) < 0 && arg0->unknown_19c8_ == 0) {
+        *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = 0;
+        arg0->func_02045688();
     }
 #if defined(jpn)
     else {
 #else
-    else if (*(unsigned int*)(self + 0x88) < message->tokenIndex) {
+    else if (*(unsigned int*)(var0 + 0x88) < arg0->unknown_78_) {
 #endif
-        if (*(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) >= 4) {
-            *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) - 4;
-            message->func_02045688();
-            message->func_020455f8();
+        if (*(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) >= 4) {
+            *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) - 4;
+            arg0->func_02045688();
+            arg0->func_020455f8();
         }
-        *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) =
-            *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) + GameState::GetInstance()->GetTickCount();
+        *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) =
+            *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) + GameState::GetInstance()->GetTickCount();
     }
 
-    if (message->b19c5 != 0) step = 0x10;
+    if (arg0->unknown_19c5_ != 0) var9 = 0x10;
 #if defined(jpn)
-    int n = step;
-    bool skipCount = false;
+    int var14 = var9;
+    bool var12 = false;
 #else
-    if ((message->b195b & 4) != 0 && message->mode != 0) step = 0x18;
+    if ((arg0->unknown_195b_ & 4) != 0 && arg0->unknown_9a0_ != 0) var9 = 0x18;
 
-    int old = *(int*)(self + 0x80) >> 4;
-    *(int*)(self + 0x80) += step * 16;
-    int n = (*(int*)(self + 0x80) >> 4) - old;
-    if (*(int*)(self + 0x80) >= 0xffffff) *(int*)(self + 0x80) = 0;
+    int var13 = *(int*)(var0 + 0x80) >> 4;
+    *(int*)(var0 + 0x80) += var9 * 16;
+    int var14 = (*(int*)(var0 + 0x80) >> 4) - var13;
+    if (*(int*)(var0 + 0x80) >= 0xffffff) *(int*)(var0 + 0x80) = 0;
 
 #endif
 
-    while (n != 0) {
-        if (message->tokenCount <= message->tokenIndex) return;
-        tok = ((unsigned short*)message->firstLineBuffer)[message->tokenIndex];
+    while (var14 != 0) {
+        if (arg0->unknown_6c_ <= arg0->unknown_78_) return;
+        var1 = ((unsigned short*)arg0->unknown_4c_)[arg0->unknown_78_];
 #if defined(jpn)
-        if (func_02069430(self, tok) != 0) {
-            int adv = func_02069444(self, tok);
+        if (func_02069430(var0, var1) != 0) {
+            int var15 = func_02069444(var0, var1);
 #else
-        if (func_02044494(self, &tok) != 0) {
-            int adv = func_02044420(self, &tok);
+        if (func_02044494(var0, &var1) != 0) {
+            int var15 = func_02044420(var0, &var1);
 #endif
-            if (adv != 0) {
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + adv + 1;
+            if (var15 != 0) {
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + var15 + 1;
                 continue;
             }
-            if (tok == 0xff01) {
-                if ((message->b195b & 4) != 0) {
-                    message->b195b = message->b195b | 8;
+            if (var1 == 0xff01) {
+                if ((arg0->unknown_195b_ & 4) != 0) {
+                    arg0->unknown_195b_ = arg0->unknown_195b_ | 8;
                 }
-                message->mode = 0;
-                message->func_02045688();
+                arg0->unknown_9a0_ = 0;
+                arg0->func_02045688();
                 return;
-            } else if (tok == 0xff02) {
-                message->mode = 0;
-                message->func_02045688();
+            } else if (var1 == 0xff02) {
+                arg0->unknown_9a0_ = 0;
+                arg0->func_02045688();
                 return;
-            } else if (tok == 0xff03) {
-                message->mode = 0;
-                message->func_02045688();
-                func_02043204((char*)self);
-                func_02043124(self);
+            } else if (var1 == 0xff03) {
+                arg0->unknown_9a0_ = 0;
+                arg0->func_02045688();
+                func_02043204((char*)var0);
+                func_02043124(var0);
                 return;
-            } else if (tok == 0xff0b) {
-                message->mode = 4;
-                message->func_02045688();
-                (self + 0x1000)[REGION_VALUE(0x78d, 0x95f)] = (self + 0x1000)[REGION_VALUE(0x78c, 0x95e)];
-                *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
-                if (*(short*)(self + REGION_VALUE(0x1800, 0x19da)) >= 0) {
-                    (self + 0x1000)[REGION_VALUE(0x78d, 0x95f)] = (unsigned char)*(short*)(self + REGION_VALUE(0x1800, 0x19da));
-                    *(short*)(self + REGION_VALUE(0x1800, 0x19da)) = -1;
+            } else if (var1 == 0xff0b) {
+                arg0->unknown_9a0_ = 4;
+                arg0->func_02045688();
+                (var0 + 0x1000)[REGION_VALUE(0x78d, 0x95f)] = (var0 + 0x1000)[REGION_VALUE(0x78c, 0x95e)];
+                *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = 0;
+                if (*(short*)(var0 + REGION_VALUE(0x1800, 0x19da)) >= 0) {
+                    (var0 + 0x1000)[REGION_VALUE(0x78d, 0x95f)] = (unsigned char)*(short*)(var0 + REGION_VALUE(0x1800, 0x19da));
+                    *(short*)(var0 + REGION_VALUE(0x1800, 0x19da)) = -1;
                 }
                 return;
-            } else if (tok == 0xff0c) {
-                message->inputDelay = message->b1960;
-                message->mode = 1;
-                message->func_02045688();
+            } else if (var1 == 0xff0c) {
+                arg0->unknown_1961_ = arg0->unknown_1960_;
+                arg0->unknown_9a0_ = 1;
+                arg0->func_02045688();
                 return;
-            } else if (tok == 0xff0d) {
-                message->mode = 1;
-                message->func_02045688();
+            } else if (var1 == 0xff0d) {
+                arg0->unknown_9a0_ = 1;
+                arg0->func_02045688();
                 return;
-            } else if (tok == 0xff0a) {
-                message->mode = 3;
-                message->func_02045688();
+            } else if (var1 == 0xff0a) {
+                arg0->unknown_9a0_ = 3;
+                arg0->func_02045688();
                 return;
-            } else if (tok == REGION_VALUE(0xff1d, 0xff1b)) {
-                nm.f0 = 0;
-                nm.f1 = 0;
-                nm.f2 = 0;
-                nm.f4 = 0;
-                nm.f5 = 0;
-                nm.f0 = message->b19c6 == 0;
-                nm.f1 = message->b19c7 == 0;
-                nm.f2 = *(unsigned short*)(self + REGION_VALUE(0x174e, 0x187e));
-                nm.f4 = 1;
-                func_ov017_0218d7b0(((unsigned char*)GetGameResources()), (char*)&nm);
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
+            } else if (var1 == REGION_VALUE(0xff1d, 0xff1b)) {
+                var2.unknown_0_ = 0;
+                var2.unknown_1_ = 0;
+                var2.unknown_2_ = 0;
+                var2.unknown_4_ = 0;
+                var2.unknown_5_ = 0;
+                var2.unknown_0_ = arg0->unknown_19c6_ == 0;
+                var2.unknown_1_ = arg0->unknown_19c7_ == 0;
+                var2.unknown_2_ = *(unsigned short*)(var0 + REGION_VALUE(0x174e, 0x187e));
+                var2.unknown_4_ = 1;
+                func_ov017_0218d7b0(((unsigned char*)GetGameResources()), (char*)&var2);
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
                 return;
-            } else if (tok == REGION_VALUE(0xff1e, 0xff1c)) {
-                int slot = *(signed char*)(self + REGION_VALUE(0x1785, 0x1957));
-                if (slot >= 0 && slot < *(signed char*)(self + REGION_VALUE(0x1784, 0x1956))) {
-                    int val;
-                    int kind = *(signed char*)(message->b1952 + slot);
-                    val = *(signed char*)(self + REGION_VALUE(0x177c, 0x194e) + slot);
-                    if (kind > 0) {
-                        func_0205eaa0((Obj0205eaa0*)&data_02108760, 0x65, 0);
-                        if (kind == 2) {
-                            val = -1;
-                            func_ov016_0218b5c0(1, val);
-                            func_ov017_0218b5f8(val);
+            } else if (var1 == REGION_VALUE(0xff1e, 0xff1c)) {
+                int var16 = *(signed char*)(var0 + REGION_VALUE(0x1785, 0x1957));
+                if (var16 >= 0 && var16 < *(signed char*)(var0 + REGION_VALUE(0x1784, 0x1956))) {
+                    int var17;
+                    int var18 = *(signed char*)(arg0->unknown_1952_ + var16);
+                    var17 = *(signed char*)(var0 + REGION_VALUE(0x177c, 0x194e) + var16);
+                    if (var18 > 0) {
+                        func_0205eaa0((Struct_02108760*)&data_02108760, 0x65, 0);
+                        if (var18 == 2) {
+                            var17 = -1;
+                            func_ov016_0218b5c0(1, var17);
+                            func_ov017_0218b5f8(var17);
                         }
                     }
-                    if (val >= 0xa && val <= 0x32) {
-                        int tens = val / 0xa - 1;
-                        int okt = tens >= 0 && tens <= 3;
-                        if (okt) {
-                            func_ov016_0218b5c0(1, tens);
-                            func_ov017_0218b5f8(tens);
+                    if (var17 >= 0xa && var17 <= 0x32) {
+                        int var19 = var17 / 0xa - 1;
+                        int var20 = var19 >= 0 && var19 <= 3;
+                        if (var20) {
+                            func_ov016_0218b5c0(1, var19);
+                            func_ov017_0218b5f8(var19);
                         }
-                        val = val - (tens + 1) * 0xa;
+                        var17 = var17 - (var19 + 1) * 0xa;
                     }
-                    int okv = val >= 0 && val <= 3;
-                    if (okv) {
-                        func_ov016_0218b5c0(1, val);
-                        func_ov017_0218b5f8(val);
-                        unsigned char* who = ((unsigned char*)GetGameResources());
-                        if (func_02046b60((ListHead02046b60*)(*(void**)(who + REGION_VALUE(0x34ec, 0x36fc))), 0xc) != 0) {
-                            func_ov017_021a5ab0(*(void**)(who + REGION_VALUE(0x350c, 0x371c)));
+                    int var21 = var17 >= 0 && var17 <= 3;
+                    if (var21) {
+                        func_ov016_0218b5c0(1, var17);
+                        func_ov017_0218b5f8(var17);
+                        unsigned char* var22 = ((unsigned char*)GetGameResources());
+                        if (func_02046b60((Struct_02038598_5*)(*(void**)(var22 + REGION_VALUE(0x34ec, 0x36fc))), 0xc) != 0) {
+                            func_ov017_021a5ab0(*(void**)(var22 + REGION_VALUE(0x350c, 0x371c)));
                         }
                     }
                 }
-                message->b1957 = *(signed char*)(self + REGION_VALUE(0x1785, 0x1957)) + 1;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
+                arg0->unknown_1957_ = *(signed char*)(var0 + REGION_VALUE(0x1785, 0x1957)) + 1;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
                 return;
-            } else if (tok == REGION_VALUE(0xff1c, 0xff1a)) {
-                if (REGION_FLAG(flag2, b19d0) != 0) return;
-                message->func_02045688();
-                ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] =
-                    ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] - 1;
-                if (((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] > 0) return;
-                ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] = 0;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) + 1;
-                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) & 3;
-                *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
+            } else if (var1 == REGION_VALUE(0xff1c, 0xff1a)) {
+                if (REGION_FLAG(unknown_0_2_, unknown_19d0_) != 0) return;
+                arg0->func_02045688();
+                ((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] =
+                    ((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] - 1;
+                if (((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] > 0) return;
+                ((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] = 0;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+                arg0->unknown_19ac_ = *(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac)) + 1;
+                arg0->unknown_19ac_ = *(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac)) & 3;
+                *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = 0;
                 return;
-            } else if (tok == REGION_VALUE(0xff1f, 0xff1d)) {
-                message->mode = 2;
-                message->func_02045688();
+            } else if (var1 == REGION_VALUE(0xff1f, 0xff1d)) {
+                arg0->unknown_9a0_ = 2;
+                arg0->func_02045688();
                 return;
-            } else if (tok == REGION_VALUE(0xff20, 0xff1e)) {
-                message->func_02045688();
-                ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] =
-                    ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] - 1;
-                if (((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] > 0) {
+            } else if (var1 == REGION_VALUE(0xff20, 0xff1e)) {
+                arg0->func_02045688();
+                ((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] =
+                    ((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] - 1;
+                if (((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] > 0) {
                     if (g_keyManager.TestKeysPressed(0xfe3) == 0 &&
                         g_touchInput.pressed_ == 0) {
                         return;
                     }
                 }
-                ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] = 0;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) + 1;
-                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) & 3;
-                *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
+                ((int*)(var0 + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac))] = 0;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+                arg0->unknown_19ac_ = *(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac)) + 1;
+                arg0->unknown_19ac_ = *(signed char*)(var0 + REGION_VALUE(0x17dc, 0x19ac)) & 3;
+                *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = 0;
                 return;
-            } else if (tok == REGION_VALUE(0xff21, 0xff1f)) {
-                message->b19ca = 0;
-                message->mode = 2;
-                message->func_02045688();
+            } else if (var1 == REGION_VALUE(0xff21, 0xff1f)) {
+                arg0->unknown_19ca_ = 0;
+                arg0->unknown_9a0_ = 2;
+                arg0->func_02045688();
                 return;
-            } else if (tok == REGION_VALUE(0xff28, 0xff26)) {
-                message->b19b1 = 1;
-                message->b19cd = 1;
-            } else if (tok == REGION_VALUE(0xff29, 0xff27)) {
-                message->b19b1 = 0;
-                message->b19cd = 1;
-            } else if (tok == REGION_VALUE(0xff2a, 0xff28)) {
-                message->b19b8 = 1;
-            } else if (tok == REGION_VALUE(0xff2b, 0xff29)) {
-                message->b19b8 = 0;
-            } else if (tok == REGION_VALUE(0xff2c, 0xff2a)) {
-                message->pendingValue = *(int*)(self + REGION_VALUE(0x1710, 0x1840));
-                message->pendingValueActive = 1;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                message->func_02045688();
+            } else if (var1 == REGION_VALUE(0xff28, 0xff26)) {
+                arg0->unknown_19b1_ = 1;
+                arg0->unknown_19cd_ = 1;
+            } else if (var1 == REGION_VALUE(0xff29, 0xff27)) {
+                arg0->unknown_19b1_ = 0;
+                arg0->unknown_19cd_ = 1;
+            } else if (var1 == REGION_VALUE(0xff2a, 0xff28)) {
+                arg0->unknown_19b8_ = 1;
+            } else if (var1 == REGION_VALUE(0xff2b, 0xff29)) {
+                arg0->unknown_19b8_ = 0;
+            } else if (var1 == REGION_VALUE(0xff2c, 0xff2a)) {
+                arg0->unknown_1844_ = *(int*)(var0 + REGION_VALUE(0x1710, 0x1840));
+                arg0->unknown_19b6_ = 1;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+                arg0->func_02045688();
                 return;
-            } else if (tok == REGION_VALUE(0xff2e, 0xff2c)) {
-                message->pendingValue = message->selectedValue;
-                message->pendingValueActive = 1;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                message->func_02045688();
+            } else if (var1 == REGION_VALUE(0xff2e, 0xff2c)) {
+                arg0->unknown_1844_ = arg0->unknown_183c_;
+                arg0->unknown_19b6_ = 1;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+                arg0->func_02045688();
                 return;
-            } else if (tok == REGION_VALUE(0xff2f, 0xff2d)) {
-                unsigned char* who = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
-                void* node = func_0203dce4((EntryList_203dce4*)func_0203cf4c(), message->selectedEntry);
-                if (who != 0 && node != 0) {
-                    here = *(struct Vec3_020406f8*)(who + 0x44);
-                    func_020406f8(&src, (Node020406f8*)node);
-                    dst = src;
-                    message->pendingValue = fix32ReduceAngle0To2Pi(fix32_Atan2(here.v[0] - dst.v[0], here.v[2] - dst.v[2]));
-                    message->pendingValueActive = 1;
-                    message->func_02045688();
+            } else if (var1 == REGION_VALUE(0xff2f, 0xff2d)) {
+                unsigned char* var23 = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
+                void* var24 = func_0203dce4((Struct_0203dce4_2*)func_0203cf4c(), arg0->unknown_1838_);
+                if (var23 != 0 && var24 != 0) {
+                    var4 = *(struct Struct_0203de84*)(var23 + 0x44);
+                    func_020406f8(&var8, (Struct_0203de84_2*)var24);
+                    var5 = var8;
+                    arg0->unknown_1844_ = fix32ReduceAngle0To2Pi(fix32_Atan2(var4.unknown_0_[0] - var5.unknown_0_[0], var4.unknown_0_[2] - var5.unknown_0_[2]));
+                    arg0->unknown_19b6_ = 1;
+                    arg0->func_02045688();
                 }
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
                 return;
-            } else if (tok == REGION_VALUE(0xff30, 0xff2e)) {
-                message->func_02045688();
-                (self + 0x1000)[REGION_VALUE(0x787, 0x959)] = 0x3c;
-                (self + 0x1000)[REGION_VALUE(0x7e7, 0x9b7)] = 1;
-                (self + 0x1000)[REGION_VALUE(0x78a, 0x95c)] = 0;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
-                func_0205eaa0((Obj0205eaa0*)&data_02108760, 6, 0);
+            } else if (var1 == REGION_VALUE(0xff30, 0xff2e)) {
+                arg0->func_02045688();
+                (var0 + 0x1000)[REGION_VALUE(0x787, 0x959)] = 0x3c;
+                (var0 + 0x1000)[REGION_VALUE(0x7e7, 0x9b7)] = 1;
+                (var0 + 0x1000)[REGION_VALUE(0x78a, 0x95c)] = 0;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+                *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = 0;
+                func_0205eaa0((Struct_02108760*)&data_02108760, 6, 0);
                 return;
-            } else if (tok == REGION_VALUE(0xff31, 0xff2f)) {
-                message->func_02045688();
-                (self + 0x1000)[REGION_VALUE(0x787, 0x959)] = 0x3c;
-                (self + 0x1000)[REGION_VALUE(0x7e7, 0x9b7)] = 1;
-                (self + 0x1000)[REGION_VALUE(0x78a, 0x95c)] = 1;
-                *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
-                func_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1c, 0);
+            } else if (var1 == REGION_VALUE(0xff31, 0xff2f)) {
+                arg0->func_02045688();
+                (var0 + 0x1000)[REGION_VALUE(0x787, 0x959)] = 0x3c;
+                (var0 + 0x1000)[REGION_VALUE(0x7e7, 0x9b7)] = 1;
+                (var0 + 0x1000)[REGION_VALUE(0x78a, 0x95c)] = 1;
+                *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
+                *(signed char*)(var0 + REGION_VALUE(0x7e2, 0x912)) = 0;
+                func_0205eaa0((Struct_02108760*)&data_02108760, 0x1c, 0);
                 return;
-            } else if (tok == 0xff04 || tok == 0xff05 || tok == 0xff06 || tok == 0xff07) {
-                func_02065418(message->b19cc);
-                int first = 0;
-                if (*(int*)(self + REGION_VALUE(0x218, 0x2c8)) == 1 || tok == 0xff05) first = 1;
-                *(int*)(self + REGION_VALUE(0x218, 0x2c8)) = 0;
+            } else if (var1 == 0xff04 || var1 == 0xff05 || var1 == 0xff06 || var1 == 0xff07) {
+                func_02065418(arg0->unknown_19cc_);
+                int var25 = 0;
+                if (*(int*)(var0 + REGION_VALUE(0x218, 0x2c8)) == 1 || var1 == 0xff05) var25 = 1;
+                *(int*)(var0 + REGION_VALUE(0x218, 0x2c8)) = 0;
 #if defined(jpn)
-                func_020665bc((char*)(self + REGION_VALUE(0x50, 0x90)), first, data_020f07b4, data_020f07b9);
+                func_020665bc((char*)(var0 + REGION_VALUE(0x50, 0x90)), var25, data_020f07b4, data_020f07b9);
 #else
-                int a = func_020e51cc(0x1b);
-                int b = func_020e51cc(0x1c);
-                func_020652d0((char*)(self + REGION_VALUE(0x50, 0x90)), first, a, b);
+                int var26 = func_020e51cc(0x1b);
+                int var27 = func_020e51cc(0x1c);
+                func_020652d0((char*)(var0 + REGION_VALUE(0x50, 0x90)), var25, var26, var27);
 #endif
-                message->w94c[2] = first;
-                (self + 0x1000)[REGION_VALUE(0x7ea, 0x9ba)] = 1;
-                *(int*)(self + REGION_VALUE(0x85c, 0x98c)) = 0;
-                message->mode = 6;
-                message->func_02045688();
-                func_0205eaa0((Obj0205eaa0*)&data_02108760, 5, 0);
-                int alive = 1;
-                unsigned char* bs = (unsigned char*)GameState::GetInstance();
-                unsigned char* w = func_0200fb8c((int*)bs);
-                if ((bs + 0x5000)[REGION_VALUE(0xa68, 0xcc8)] == 2) alive = 0;
-                if (w != 0 && alive != 0) (w + 0x4000)[REGION_VALUE(0x134, 0x354)] = 0xa;
+                arg0->unknown_94c_[2] = var25;
+                (var0 + 0x1000)[REGION_VALUE(0x7ea, 0x9ba)] = 1;
+                *(int*)(var0 + REGION_VALUE(0x85c, 0x98c)) = 0;
+                arg0->unknown_9a0_ = 6;
+                arg0->func_02045688();
+                func_0205eaa0((Struct_02108760*)&data_02108760, 5, 0);
+                int var28 = 1;
+                unsigned char* var29 = (unsigned char*)GameState::GetInstance();
+                unsigned char* var30 = func_0200fb8c((int*)var29);
+                if ((var29 + 0x5000)[REGION_VALUE(0xa68, 0xcc8)] == 2) var28 = 0;
+                if (var30 != 0 && var28 != 0) (var30 + 0x4000)[REGION_VALUE(0x134, 0x354)] = 0xa;
                 return;
-            } else if (tok == 0xff08) {
-                volatile unsigned int* reg = (volatile unsigned int*)0x4000000;
-                unsigned int bits = (*reg & 0x1f00) >> 8;
-                unsigned int keep = *reg & ~0x1f00;
-                *reg = keep | ((bits | 0x10) << 8);
-                func_02065418(message->b19cc);
+            } else if (var1 == 0xff08) {
+                volatile unsigned int* var31 = (volatile unsigned int*)0x4000000;
+                unsigned int var32 = (*var31 & 0x1f00) >> 8;
+                unsigned int var33 = *var31 & ~0x1f00;
+                *var31 = var33 | ((var32 | 0x10) << 8);
+                func_02065418(arg0->unknown_19cc_);
 #if defined(jpn)
-                func_020665bc((char*)(self + REGION_VALUE(0x50, 0x90)), 0, data_020f07c0, data_020f07c7);
+                func_020665bc((char*)(var0 + REGION_VALUE(0x50, 0x90)), 0, data_020f07c0, data_020f07c7);
 #else
-                int a = func_020e51cc(0x1d);
-                int b = func_020e51cc(0x1e);
-                func_020652d0((char*)(self + REGION_VALUE(0x50, 0x90)), 0, a, b);
+                int var34 = func_020e51cc(0x1d);
+                int var35 = func_020e51cc(0x1e);
+                func_020652d0((char*)(var0 + REGION_VALUE(0x50, 0x90)), 0, var34, var35);
 #endif
-                message->w94c[2] = 0;
-                (self + 0x1000)[REGION_VALUE(0x7ea, 0x9ba)] = 1;
-                *(int*)(self + REGION_VALUE(0x85c, 0x98c)) = 1;
-                message->mode = 6;
-                message->func_02045688();
-                func_0205eaa0((Obj0205eaa0*)&data_02108760, 5, 0);
-                unsigned char* w = func_0200fb8c((int*)GameState::GetInstance());
-                if (w != 0) (w + 0x4000)[REGION_VALUE(0x134, 0x354)] = 0xa;
+                arg0->unknown_94c_[2] = 0;
+                (var0 + 0x1000)[REGION_VALUE(0x7ea, 0x9ba)] = 1;
+                *(int*)(var0 + REGION_VALUE(0x85c, 0x98c)) = 1;
+                arg0->unknown_9a0_ = 6;
+                arg0->func_02045688();
+                func_0205eaa0((Struct_02108760*)&data_02108760, 5, 0);
+                unsigned char* var36 = func_0200fb8c((int*)GameState::GetInstance());
+                if (var36 != 0) (var36 + 0x4000)[REGION_VALUE(0x134, 0x354)] = 0xa;
                 return;
-            } else if (tok == 0xff0f) {
-                unsigned char* ent = message->child;
+            } else if (var1 == 0xff0f) {
+                unsigned char* var37 = arg0->unknown_8c_;
 #if defined(jpn)
                 {
 #else
-                if (ent != 0) {
+                if (var37 != 0) {
 #endif
-                    *(unsigned short*)(ent + 0xda) = *(unsigned short*)(ent + 0xda) | 0x40;
-                    func_0208bf28((Obj0208bf28*)(message->child), *(short*)(self + REGION_VALUE(0x1776, 0x1948)), 0);
-                    *&message->b195b |= 1;
-                    unsigned char* g = func_02094d6c();
-                    int idx = func_020965ac((GetTableByteOrFFData*)g, (unsigned char)*(short*)(self + REGION_VALUE(0x1776, 0x1948)));
-                    func_020cf0fc((int)&sa);
-                    func_020cf1a8((int)&sb);
-                    packed.b.a = sa.f0;
-                    packed.b.b = sa.f4;
-                    packed.b.c = sa.f8;
-                    packed.b.d = sb.f0;
-                    packed.b.e = sb.f4;
-                    *(unsigned int*)(g + idx * 4 + 0x178) = packed.w;
-                    func_0209c830((Struct0209c830*)&data_02109bf4, 0x32);
+                    *(unsigned short*)(var37 + 0xda) = *(unsigned short*)(var37 + 0xda) | 0x40;
+                    func_0208bf28((Struct_02065990_2*)(arg0->unknown_8c_), *(short*)(var0 + REGION_VALUE(0x1776, 0x1948)), 0);
+                    *&arg0->unknown_195b_ |= 1;
+                    unsigned char* var38 = func_02094d6c();
+                    int var39 = func_020965ac((Struct_02065990_3*)var38, (unsigned char)*(short*)(var0 + REGION_VALUE(0x1776, 0x1948)));
+                    func_020cf0fc((int)&var6);
+                    func_020cf1a8((int)&var7);
+                    var3.unknown1_0_.unknown_0_0_ = var6.unknown_0_;
+                    var3.unknown1_0_.unknown_0_7_ = var6.unknown_4_;
+                    var3.unknown1_0_.unknown_1_3_ = var6.unknown_8_;
+                    var3.unknown1_0_.unknown_2_0_ = var7.unknown_0_;
+                    var3.unknown1_0_.unknown_2_5_ = var7.unknown_4_;
+                    *(unsigned int*)(var38 + var39 * 4 + 0x178) = var3.unknown_0_;
+                    func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x32);
                 }
-            } else if (tok > REGION_VALUE(0xff39, 0xff34) && tok < REGION_VALUE(0xff4e, 0xff49)) {
-                message->func_02045688();
-                func_0209c830((Struct0209c830*)&data_02109bf4, tok - REGION_VALUE(0xff08, 0xff03));
-                message->b19c9 = 1;
+            } else if (var1 > REGION_VALUE(0xff39, 0xff34) && var1 < REGION_VALUE(0xff4e, 0xff49)) {
+                arg0->func_02045688();
+                func_0209c830((Struct_02109bf4_2*)&data_02109bf4, var1 - REGION_VALUE(0xff08, 0xff03));
+                arg0->unknown_19c9_ = 1;
                 return;
-            } else if (tok >= REGION_VALUE(0xff4f, 0xff4a) && tok <= REGION_VALUE(0xff51, 0xff4c)) {
-                int arg = -1;
-                if (tok == REGION_VALUE(0xff50, 0xff4b)) arg = 0xe;
-                if (arg >= 0) {
-                    func_0205eaa0((Obj0205eaa0*)&data_02108760, 0xe, 0);
+            } else if (var1 >= REGION_VALUE(0xff4f, 0xff4a) && var1 <= REGION_VALUE(0xff51, 0xff4c)) {
+                int var40 = -1;
+                if (var1 == REGION_VALUE(0xff50, 0xff4b)) var40 = 0xe;
+                if (var40 >= 0) {
+                    func_0205eaa0((Struct_02108760*)&data_02108760, 0xe, 0);
                 }
-            } else if (tok == 0xff10) {
-                unsigned char* ent = message->child;
-                if (ent != 0) *(short*)(ent + 0xd2) = *(short*)(self + REGION_VALUE(0x1776, 0x1948));
-            } else if (tok == 0xff11) {
-                unsigned char* ent = message->child;
-                if (ent != 0) {
-                    *(unsigned short*)(ent + 0xda) = *(unsigned short*)(ent + 0xda) | 0x200;
-                    func_0208be94((unsigned char*)(message->child));
-                    *&message->b195b |= 1;
-                    func_0209c830((Struct0209c830*)&data_02109bf4, 0x33);
+            } else if (var1 == 0xff10) {
+                unsigned char* var41 = arg0->unknown_8c_;
+                if (var41 != 0) *(short*)(var41 + 0xd2) = *(short*)(var0 + REGION_VALUE(0x1776, 0x1948));
+            } else if (var1 == 0xff11) {
+                unsigned char* var42 = arg0->unknown_8c_;
+                if (var42 != 0) {
+                    *(unsigned short*)(var42 + 0xda) = *(unsigned short*)(var42 + 0xda) | 0x200;
+                    func_0208be94((unsigned char*)(arg0->unknown_8c_));
+                    *&arg0->unknown_195b_ |= 1;
+                    func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x33);
                 }
-            } else if (tok == 0xff13) {
-                unsigned char* ent = message->child;
-                if (ent != 0) {
-                    *(unsigned short*)(ent + 0xda) = *(unsigned short*)(ent + 0xda) | 0x300;
-                    func_0208be94((unsigned char*)(message->child));
-                    *&message->b195b |= 1;
-                    func_0209c830((Struct0209c830*)&data_02109bf4, 0x44);
+            } else if (var1 == 0xff13) {
+                unsigned char* var43 = arg0->unknown_8c_;
+                if (var43 != 0) {
+                    *(unsigned short*)(var43 + 0xda) = *(unsigned short*)(var43 + 0xda) | 0x300;
+                    func_0208be94((unsigned char*)(arg0->unknown_8c_));
+                    *&arg0->unknown_195b_ |= 1;
+                    func_0209c830((Struct_02109bf4_2*)&data_02109bf4, 0x44);
                 }
-            } else if (tok == 0xff12) {
-                if (message->child != 0) {
-                    func_0208beb4((unsigned char*)(message->child));
+            } else if (var1 == 0xff12) {
+                if (arg0->unknown_8c_ != 0) {
+                    func_0208beb4((unsigned char*)(arg0->unknown_8c_));
                 }
 #if defined(jpn)
-            } else if (tok == 0xff37) {
-                skipCount = true;
-            } else if (tok == 0xff38) {
-                skipCount = false;
+            } else if (var1 == 0xff37) {
+                var12 = true;
+            } else if (var1 == 0xff38) {
+                var12 = false;
 #endif
-            } else if (tok >= REGION_VALUE(0xff52, 0xff4d) && tok <= REGION_VALUE(0xff55, 0xff50)) {
-                int v = *(signed char*)(self + REGION_VALUE(0x1778, 0x194a) + (tok - REGION_VALUE(0xff52, 0xff4d)));
-                func_0205e944(&data_02108760, ((v * 0x21dd) >> 10) & 0x7f);
-            } else if (tok == 0xff0e) {
-                message->b19c0 = 1;
-                message->b195d = 0x1e;
+            } else if (var1 >= REGION_VALUE(0xff52, 0xff4d) && var1 <= REGION_VALUE(0xff55, 0xff50)) {
+                int var44 = *(signed char*)(var0 + REGION_VALUE(0x1778, 0x194a) + (var1 - REGION_VALUE(0xff52, 0xff4d)));
+                func_0205e944(&data_02108760, ((var44 * 0x21dd) >> 10) & 0x7f);
+            } else if (var1 == 0xff0e) {
+                arg0->unknown_19c0_ = 1;
+                arg0->unknown_195d_ = 0x1e;
 #if defined(jpn)
-            } else if ((unsigned short)(tok + 0xe6) <= 1) {
-                n++;
+            } else if ((unsigned short)(var1 + 0xe6) <= 1) {
+                var14++;
 #endif
             }
         }
-        message->mode = 5;
-        *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
+        arg0->unknown_9a0_ = 5;
+        *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + 1;
 #if defined(jpn)
-        if (!skipCount) n--;
+        if (!var12) var14--;
 #else
-        n--;
+        var14--;
 #endif
     }
 }

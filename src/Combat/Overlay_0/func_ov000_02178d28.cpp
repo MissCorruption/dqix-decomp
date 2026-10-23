@@ -2,179 +2,179 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct SkillData {
-    char pad0[4];
-    unsigned int kind : 12;
-    unsigned int pad4 : 20;
-    unsigned int adjustKey : 8;
+struct Struct_ov000_0215767c {
+    char unknown_0_[4];
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 20;
+    unsigned int unknown_8_0_ : 8;
 };
 
-struct UnitEntry {
-    char pad0[0xe];
-    short power;
-    char pad10[0x20 - 0x10];
-    signed char cursor;
-    char pad21[0x44 - 0x21];
-    int x;
-    int y;
-    int combatantId;
+struct Struct_ov000_02178d28 {
+    char unknown_0_[0xe];
+    short unknown_e_;
+    char unknown_10_[0x20 - 0x10];
+    signed char unknown_20_;
+    char unknown_21_[0x44 - 0x21];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 };
 
-struct Window {
-    char pad0[0xa0];
-    short left;
-    short top;
-    short x;
-    short y;
-    short width;
-    short height;
-    short field_0xac;
-    short field_0xae;
-    char padb0;
-    unsigned char id;
+struct Struct_ov000_0217636c {
+    char unknown_0_[0xa0];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
 };
 
-struct MenuState {
-    char pad0[0x188];
-    Window window;
+struct Struct_ov000_02178d28_2 {
+    char unknown_0_[0x188];
+    Struct_ov000_0217636c unknown_188_;
 };
 
-struct GlobalData {
+struct Struct_ov000_02184294 {
 #if defined(jpn)
-    char pad0[0x28];
+    char unknown_0_[0x28];
 #else
-    char pad0[0x5c];
+    char unknown1_0_[0x5c];
 #endif
-    char* workBuffer;
+    char* unknown_5c_;
 };
 
-struct StoreStruct;
+struct Struct_020465c0;
 
-extern "C" GlobalData* func_020421a0(void);
-extern "C" void* memset(void* dst, int c, unsigned int n);
-extern "C" SkillData* func_ov000_02171674(void*, int);
-extern "C" GameObject* func_0200ff1c(GameState* gs, int id);
-extern "C" void func_020dd040(int id, char* buf);
-extern "C" void func_02046608(GlobalData* messages, int a, const char* input, char* output, int b, int c, int d);
-extern "C" void func_02046380(GlobalData* messages);
-extern "C" int func_ov000_02153a8c(GameObject* obj);
+extern "C" Struct_ov000_02184294* func_020421a0(void);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
+extern "C" Struct_ov000_0215767c* func_ov000_02171674(void*, int);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void func_020dd040(int arg0, char* arg1);
+extern "C" void func_02046608(Struct_ov000_02184294* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046380(Struct_ov000_02184294* arg0);
+extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void*, unsigned int);
-extern "C" void func_020465c0(StoreStruct*, int, int);
-extern "C" const char* func_020e51cc(int key);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" const char* func_020e51cc(int arg0);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 struct Struct_0205d81c;
 extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 #if defined(jpn)
-extern "C" void func_0205d304(Window* window, char* text, int a, int b, int c, int d, int e);
+extern "C" void func_0205d304(Struct_ov000_0217636c* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
-extern "C" void func_0205d304(Window* window, char* text, int a, int b, int c, int d, int e, int f);
+extern "C" void func_0205d304(Struct_ov000_0217636c* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov000_02178d28
-extern "C" ARM void func_ov000_02178d28(MenuState* menu, UnitEntry* entry) {
-    char* text;
-    GameObject* combatant;
-    SkillData* skill;
-    GameObject* target;
-    GlobalData* messages;
-    if (entry == NULL) {
+extern "C" ARM void func_ov000_02178d28(Struct_ov000_02178d28_2* arg0, Struct_ov000_02178d28* arg1) {
+    char* var0;
+    GameObject* var1;
+    Struct_ov000_0215767c* var2;
+    GameObject* var3;
+    Struct_ov000_02184294* var4;
+    if (arg1 == NULL) {
         return;
     }
-    int cursor = entry->cursor;
-    char* buf = func_020421a0()->workBuffer;
+    int var5 = arg1->unknown_20_;
+    char* var6 = func_020421a0()->unknown_5c_;
 #if defined(jpn)
-    memset(buf, 0, 0x800);
+    memset(var6, 0, 0x800);
 #else
-    memset(buf, 0, 0x960);
+    memset(var6, 0, 0x960);
 #endif
-    GameState* gs = GameState::GetInstance();
-    skill = func_ov000_02171674(entry, cursor);
-    if (skill == NULL) {
+    GameState* var7 = GameState::GetInstance();
+    var2 = func_ov000_02171674(arg1, var5);
+    if (var2 == NULL) {
         return;
     }
-    combatant = gs->GetCombatantByIndex(entry->combatantId);
-    if (combatant == NULL) {
+    var1 = var7->GetCombatantByIndex(arg1->unknown_4c_);
+    if (var1 == NULL) {
         return;
     }
-    target = func_0200ff1c(gs, entry->combatantId);
-    if (target == NULL) {
+    var3 = func_0200ff1c(var7, arg1->unknown_4c_);
+    if (var3 == NULL) {
         return;
     }
 #if !defined(jpn)
-    char textBuf[0x800];
+    char var8[0x800];
 #endif
-    func_020dd040(skill->kind, buf);
+    func_020dd040(var2->unknown_4_0_, var6);
 #if defined(jpn)
-    text = buf;
+    var0 = var6;
 #else
-    func_02046608(func_020421a0(), 10, buf, textBuf, 0x72, 0, 0);
-    text = textBuf;
+    func_02046608(func_020421a0(), 10, var6, var8, 0x72, 0, 0);
+    var0 = var8;
 #endif
-    messages = func_020421a0();
-    func_02046380(messages);
-    int value;
-    if (func_ov000_02153a8c(combatant)) {
-        value = 0;
-    } else if (skill->kind == 0x28 && entry->power < 0x14) {
-        value = 0x14;
-    } else if (skill->adjustKey >= 0xff) {
-        value = entry->power;
+    var4 = func_020421a0();
+    func_02046380(var4);
+    int var9;
+    if (func_ov000_02153a8c(var1)) {
+        var9 = 0;
+    } else if (var2->unknown_4_0_ == 0x28 && arg1->unknown_e_ < 0x14) {
+        var9 = 0x14;
+    } else if (var2->unknown_8_0_ >= 0xff) {
+        var9 = arg1->unknown_e_;
     } else {
-        value = func_020dd290(target, skill->adjustKey);
+        var9 = func_020dd290(var3, var2->unknown_8_0_);
     }
-    func_020465c0((StoreStruct*)messages, 0, value);
-    func_020465c0((StoreStruct*)messages, 1, entry->power);
+    func_020465c0((Struct_020465c0*)var4, 0, var9);
+    func_020465c0((Struct_020465c0*)var4, 1, arg1->unknown_e_);
 #if defined(jpn)
-    func_020465f0((unsigned char*)messages, 0, 3);
-    func_020465f0((unsigned char*)messages, 1, 3);
-    func_020465d8((unsigned char*)messages, 0, 1);
-    func_020465d8((unsigned char*)messages, 1, 1);
-    func_02042058(text, data_ov000_02185169);
+    func_020465f0((unsigned char*)var4, 0, 3);
+    func_020465f0((unsigned char*)var4, 1, 3);
+    func_020465d8((unsigned char*)var4, 0, 1);
+    func_020465d8((unsigned char*)var4, 1, 1);
+    func_02042058(var0, data_ov000_02185169);
 #else
-    func_02042058(text, func_020e51cc(0x3ec));
+    func_02042058(var0, func_020e51cc(0x3ec));
 #endif
-    Window* window = &menu->window;
-    if (func_0205d81c((Struct_0205d81c*)window, 0x22) != NULL) {
+    Struct_ov000_0217636c* var10 = &arg0->unknown_188_;
+    if (func_0205d81c((Struct_0205d81c*)var10, 0x22) != NULL) {
 #if defined(jpn)
-        func_0205d5d0((StructA0205d5d0*)window, 0x22, (int)text, 1);
+        func_0205d5d0((Struct_0205d5d0*)var10, 0x22, (int)var0, 1);
 #else
-        func_0205d5d0((StructA0205d5d0*)window, 0x22, (int)text, 1, 0);
+        func_0205d5d0((Struct_0205d5d0*)var10, 0x22, (int)var0, 1, 0);
 #endif
         return;
     }
-    int x = entry->x;
-    int y = entry->y;
+    int var11 = arg1->unknown_44_;
+    int var12 = arg1->unknown_48_;
 #if defined(jpn)
-    window->left = 0xc;
+    var10->unknown_a0_ = 0xc;
 #else
-    window->left = 0x10;
+    var10->unknown_a0_ = 0x10;
 #endif
 #if defined(jpn)
-    window->top = 6;
+    var10->unknown_a2_ = 6;
 #else
-    window->top = 10;
+    var10->unknown_a2_ = 10;
 #endif
 #if defined(jpn)
-    window->x = (x >> 3) + 0x16;
+    var10->unknown_a4_ = (var11 >> 3) + 0x16;
 #else
-    window->x = (x >> 3) + 0x10;
+    var10->unknown_a4_ = (var11 >> 3) + 0x10;
 #endif
-    window->y = y >> 3;
-    window->width = 7;
+    var10->unknown_a6_ = var12 >> 3;
+    var10->unknown_a8_ = 7;
 #if defined(jpn)
-    window->height = 8;
+    var10->unknown_aa_ = 8;
 #else
-    window->height = 6;
+    var10->unknown_aa_ = 6;
 #endif
-    window->field_0xac = 10;
-    window->field_0xae = 0xe;
-    window->id = 0x22;
+    var10->unknown_ac_ = 10;
+    var10->unknown_ae_ = 0xe;
+    var10->unknown_b1_ = 0x22;
 #if defined(jpn)
-    func_0205d304(window, text, 0, 0, 0, 1, 0);
+    func_0205d304(var10, var0, 0, 0, 0, 1, 0);
 #else
-    func_0205d304(window, text, 0, 0, 0, 1, 0, 0);
+    func_0205d304(var10, var0, 0, 0, 0, 1, 0, 0);
 #endif
 }

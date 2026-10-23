@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" int func_ov017_021d60f4(int a);
-extern "C" void func_ov017_021bbbec(void* p, unsigned short v);
+extern "C" int func_ov017_021d60f4(int arg0);
+extern "C" void func_ov017_021bbbec(void* arg0, unsigned short arg1);
 
 // USA: func_ov001_0215f9dc
-extern "C" ARM int func_ov001_0215f9dc(int id) {
+extern "C" ARM int func_ov001_0215f9dc(int arg0) {
 #if defined(jpn)
-    enum { fieldOffset = 0x524 };
+    enum { Enum_ov001_0215f9dc_1844 = 0x524 };
 #else
-    enum { fieldOffset = 0x734 };
+    enum { Enum_ov001_0215f9dc_1844 = 0x734 };
 #endif
-	void* p = *(void**)((char*)GetGameResources() + 0x3000 + fieldOffset);
-	func_ov017_021bbbec(p, (unsigned short)func_ov017_021d60f4(id));
+	void* var0 = *(void**)((char*)GetGameResources() + 0x3000 + Enum_ov001_0215f9dc_1844);
+	func_ov017_021bbbec(var0, (unsigned short)func_ov017_021d60f4(arg0));
 	return 1;
 }

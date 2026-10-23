@@ -6,161 +6,161 @@
 #define LOW_REGION(j,u) (u)
 #endif
 
-struct Container020e0310;
-struct Obj02046574;
+struct Struct_0201099c_3;
+struct Struct_02046574_2;
 
-struct MsgGlobals021552b8 {
-    void *subject;
-    char pad4[0xc];
-    void *subject2;
-    char pad14[0x28 - 0x14];
-    void *extra;
-    char pad2c[LOW_REGION(0x868,0x998) - 0x2c];
-    int active;
-    int active2;
-    int phase;
+struct Struct_ov003_021552b8_2 {
+    void *unknown_0_;
+    char unknown_4_[0xc];
+    void *unknown_10_;
+    char unknown_14_[0x28 - 0x14];
+    void *unknown_28_;
+    char unknown_2c_[LOW_REGION(0x868,0x998) - 0x2c];
+    int unknown_998_;
+    int unknown_99c_;
+    int unknown_9a0_;
 };
 
-struct PartyData021552b8 {
-    char pad0[LOW_REGION(0x8b8,0x950)];
-    int vocation;
+struct Struct_ov003_021552b8_3 {
+    char unknown_0_[LOW_REGION(0x8b8,0x950)];
+    int unknown_950_;
 };
 
-struct PartyObj021552b8 {
+struct Struct_ov003_021552b8_4 {
 #if defined(jpn)
-    char pad0[0x134];
-    void* name;
-    char pad138[0x144 - 0x138];
+    char unknown_0_[0x134];
+    void* unknown_134_;
+    char unknown_138_[0x144 - 0x138];
 #else
-    char pad0[0x150];
+    char unknown1_0_[0x150];
 #endif
-    PartyData021552b8 *data;
+    Struct_ov003_021552b8_3 *unknown_150_;
 };
 
-struct MsgScene021552b8 {
-    char pad0[4];
-    void *ptr4;
-    char pad8[0xe4 - 8];
-    char messages[LOW_REGION(0x1e8,0x1ec) - 0xe4];
-    short curId;
-    short nextId;
-    char pad1f0[0x1f7 - 0x1f0];
-    signed char slot;
-    unsigned char mode;
-    unsigned char sub;
-    unsigned char step;
-    char pad1fb;
-    unsigned int flags;
+struct Struct_ov003_021552b8_5 {
+    char unknown_0_[4];
+    void *unknown_4_;
+    char unknown_8_[0xe4 - 8];
+    char unknown_e4_[LOW_REGION(0x1e8,0x1ec) - 0xe4];
+    short unknown_1ec_;
+    short unknown_1ee_;
+    char unknown_1f0_[0x1f7 - 0x1f0];
+    signed char unknown_1f7_;
+    unsigned char unknown_1f8_;
+    unsigned char unknown_1f9_;
+    unsigned char unknown_1fa_;
+    char unknown_1fb_;
+    unsigned int unknown_1fc_;
 };
 
-struct StrObj021552b8 {
-    char data[0xc];
+struct Struct_ov003_021552b8 {
+    char unknown_0_[0xc];
 };
 
-extern "C" MsgGlobals021552b8 *func_020421a0();
-extern "C" void func_02046380(MsgGlobals021552b8 *);
+extern "C" Struct_ov003_021552b8_2 *func_020421a0();
+extern "C" void func_02046380(Struct_ov003_021552b8_2 *);
 extern "C" int func_ov003_02156034(void *);
-extern "C" void * func_020e0434(Container020e0310*, int);
+extern "C" void * func_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_020e4bf4(void *, int);
 extern "C" void func_020e4b34(void *, void *, int, int, int, int, int, int, int, int, int, int);
-extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 #if defined(jpn)
-extern "C" void func_0204500c(MsgGlobals021552b8*, void*, int);
+extern "C" void func_0204500c(Struct_ov003_021552b8_2*, void*, int);
 #endif
 #if !defined(jpn)
-extern "C" void func_0204500c(MsgGlobals021552b8 *, void *, int, int);
+extern "C" void func_0204500c(Struct_ov003_021552b8_2 *, void *, int, int);
 #endif
 extern "C" int func_ov003_021538e0(void *);
 extern "C" void func_02043204(char *);
-extern "C" void func_02043124(MsgGlobals021552b8 *);
+extern "C" void func_02043124(Struct_ov003_021552b8_2 *);
 
 // USA: func_ov003_021552b8
-extern "C" ARM void func_ov003_021552b8(MsgScene021552b8 *self) {
-    MsgGlobals021552b8 *g = func_020421a0();
-    if (self->step == 0) {
+extern "C" ARM void func_ov003_021552b8(Struct_ov003_021552b8_5 *arg0) {
+    Struct_ov003_021552b8_2 *var0 = func_020421a0();
+    if (arg0->unknown_1fa_ == 0) {
 #if !defined(jpn)
-        int id = self->curId;
+        int var1 = arg0->unknown_1ec_;
 #endif
-        if (self->flags & 1) {
+        if (arg0->unknown_1fc_ & 1) {
 #if defined(jpn)
-            int id = self->curId;
+            int var1 = arg0->unknown_1ec_;
 #endif
-            switch (id) {
-                case 6: id = 0x1b; break;
-                case 7: id = 0x1c; break;
-                case 8: id = 0x1d; break;
-                case 9: id = 0x1e; break;
-                case 10: id = 0x1f; break;
-                case 11: id = 0x20; break;
-                case 12: id = 0x21; break;
-                case 13: id = 0x22; break;
-                case 0x30: id = 0x32; break;
-                case 0x31: id = 0x33; break;
+            switch (var1) {
+                case 6: var1 = 0x1b; break;
+                case 7: var1 = 0x1c; break;
+                case 8: var1 = 0x1d; break;
+                case 9: var1 = 0x1e; break;
+                case 10: var1 = 0x1f; break;
+                case 11: var1 = 0x20; break;
+                case 12: var1 = 0x21; break;
+                case 13: var1 = 0x22; break;
+                case 0x30: var1 = 0x32; break;
+                case 0x31: var1 = 0x33; break;
             }
-            self->curId = id;
+            arg0->unknown_1ec_ = var1;
         }
-        func_02046380(g);
-        GameState *gs           = GameState::GetInstance();
-        PartyObj021552b8 *party = (PartyObj021552b8 *) gs->GetPartyMemberByIndex(self->slot);
+        func_02046380(var0);
+        GameState *var2           = GameState::GetInstance();
+        Struct_ov003_021552b8_4 *var3 = (Struct_ov003_021552b8_4 *) var2->GetPartyMemberByIndex(arg0->unknown_1f7_);
 #if defined(jpn)
-        void* name = 0;
-        int vocation = 0;
-        if (party) {
-            vocation = party->data->vocation;
-            name = party->name;
+        void* var4 = 0;
+        int var5 = 0;
+        if (var3) {
+            var5 = var3->unknown_150_->unknown_950_;
+            var4 = var3->unknown_134_;
         }
-        func_02046574((Obj02046574*)g, 0, (char*)name);
-        short key = func_ov003_02156034(self) + 0x23;
-        func_02046574((Obj02046574*)g, 1, (char*)(func_020e0434((Container020e0310*)self->messages, key)));
-        func_02046574((Obj02046574*)g, 2, (char*)(func_020e0434((Container020e0310*)self->messages, (short)(vocation + 0x23))));
-        func_02046574((Obj02046574*)g, 3, (char*)(func_020e0434((Container020e0310*)self->messages, (short)(vocation + 0x34))));
-        func_0204500c(g, func_020e0434((Container020e0310*)self->messages, self->curId), 0);
+        func_02046574((Struct_02046574_2*)var0, 0, (char*)var4);
+        short var6 = func_ov003_02156034(arg0) + 0x23;
+        func_02046574((Struct_02046574_2*)var0, 1, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var6)));
+        func_02046574((Struct_02046574_2*)var0, 2, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short)(var5 + 0x23))));
+        func_02046574((Struct_02046574_2*)var0, 3, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short)(var5 + 0x34))));
+        func_0204500c(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, arg0->unknown_1ec_), 0);
 #else
-        int vocation            = 0;
-        if (party) {
-            vocation = party->data->vocation;
+        int var7            = 0;
+        if (var3) {
+            var7 = var3->unknown_150_->unknown_950_;
         }
-        short key = func_ov003_02156034(self) + 0x23;
-        void *a   = func_020e0434((Container020e0310*)self->messages, key);
-        void *b   = func_020e0434((Container020e0310*)self->messages, (short) (vocation + 0x23));
-        StrObj021552b8 unit;
-        func_020e4bf4(&unit, self->slot);
-        g->subject  = &unit;
-        g->subject2 = &unit;
-        StrObj021552b8 obj;
-        void *pick = a;
-        if (id == 0x10 || id == 0x13 || id == 0x16) {
-            pick = b;
+        short var8 = func_ov003_02156034(arg0) + 0x23;
+        void *var9   = func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var8);
+        void *var10   = func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short) (var7 + 0x23));
+        Struct_ov003_021552b8 var11;
+        func_020e4bf4(&var11, arg0->unknown_1f7_);
+        var0->unknown_0_  = &var11;
+        var0->unknown_10_ = &var11;
+        Struct_ov003_021552b8 var12;
+        void *var13 = var9;
+        if (var1 == 0x10 || var1 == 0x13 || var1 == 0x16) {
+            var13 = var10;
         }
-        func_020e4b34(&obj, pick, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        g->extra = &obj;
-        func_02046574((Obj02046574*)g, 1, (char*)a);
-        func_02046574((Obj02046574*)g, 2, (char*)b);
-        func_02046574((Obj02046574*)g, 3, (char*)(func_020e0434((Container020e0310*)self->messages, (short) (vocation + 0x34))));
-        func_0204500c(g, func_020e0434((Container020e0310*)self->messages, id), 0, 0xe3);
+        func_020e4b34(&var12, var13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        var0->unknown_28_ = &var12;
+        func_02046574((Struct_02046574_2*)var0, 1, (char*)var9);
+        func_02046574((Struct_02046574_2*)var0, 2, (char*)var10);
+        func_02046574((Struct_02046574_2*)var0, 3, (char*)(func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, (short) (var7 + 0x34))));
+        func_0204500c(var0, func_020e0434((Struct_0201099c_3*)arg0->unknown_e4_, var1), 0, 0xe3);
 #endif
-        g->active  = 1;
-        g->active2 = 1;
-        self->step++;
-    } else if (self->step == 1) {
-        if (g->active == 0) {
-            self->curId  = self->nextId;
-            self->nextId = -1;
-            self->mode   = 7;
-            self->step   = 0;
-            if (func_ov003_021538e0(self->ptr4) == 0) {
-                self->mode = 5;
-                self->sub  = 0;
+        var0->unknown_998_  = 1;
+        var0->unknown_99c_ = 1;
+        arg0->unknown_1fa_++;
+    } else if (arg0->unknown_1fa_ == 1) {
+        if (var0->unknown_998_ == 0) {
+            arg0->unknown_1ec_  = arg0->unknown_1ee_;
+            arg0->unknown_1ee_ = -1;
+            arg0->unknown_1f8_   = 7;
+            arg0->unknown_1fa_   = 0;
+            if (func_ov003_021538e0(arg0->unknown_4_) == 0) {
+                arg0->unknown_1f8_ = 5;
+                arg0->unknown_1f9_  = 0;
             }
-        } else if (g->phase == 3) {
-            self->curId  = self->nextId;
-            self->nextId = -1;
-            if (self->curId < 0 && (self->flags & 2)) {
-                func_02043204((char *) g);
-                func_02043124(g);
-                self->flags &= ~2;
+        } else if (var0->unknown_9a0_ == 3) {
+            arg0->unknown_1ec_  = arg0->unknown_1ee_;
+            arg0->unknown_1ee_ = -1;
+            if (arg0->unknown_1ec_ < 0 && (arg0->unknown_1fc_ & 2)) {
+                func_02043204((char *) var0);
+                func_02043124(var0);
+                arg0->unknown_1fc_ &= ~2;
             }
-            self->step = 0;
+            arg0->unknown_1fa_ = 0;
         }
     }
 }

@@ -1,152 +1,152 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Vec3 { int x; int y; int z; };
+struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
 
-struct Vec3Fixed02030e2c { int x; int y; int z; };
+struct Struct_ov001_021592bc { int unknown_0_; int unknown_4_; int unknown_8_; };
 struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
-struct Target02059f38;
-struct Vec3_02059f38;
-extern "C" void func_02059f38(struct Target02059f38* dst, struct Vec3_02059f38* src);
+struct Struct_02059cfc_2;
+struct Struct_02059cfc_3;
+extern "C" void func_02059f38(struct Struct_02059cfc_2* arg0, struct Struct_02059cfc_3* arg1);
 
-struct BitFlags02037170;
+struct Struct_02059cfc_4;
 
-extern "C" void func_02059cc8(unsigned char* obj);
-extern "C" void func_0200fd48(GameState* battleStruct, int id);
+extern "C" void func_02059cc8(unsigned char* arg0);
+extern "C" void func_0200fd48(GameState* arg0, int arg1);
 
-struct ListNode02057854;
-extern "C" int func_02057854(struct ListNode02057854* node);
+struct Struct_02057334_2;
+extern "C" int func_02057854(struct Struct_02057334_2* arg0);
 
-extern "C" int func_02055774(int* obj);
+extern "C" int func_02055774(int* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-struct PointerField32c_ffc0;
-extern "C" unsigned char* func_0200ffc0(PointerField32c_ffc0*);
-struct PointerField330_ffd0;
-extern "C" unsigned char* func_0200ffd0(PointerField330_ffd0*);
+struct Struct_0200ffc0;
+extern "C" unsigned char* func_0200ffc0(Struct_0200ffc0*);
+struct Struct_0200ffd0;
+extern "C" unsigned char* func_0200ffd0(Struct_0200ffd0*);
 
 extern int data_02108760;
 
-struct CombatantFlags02059cfc {
-    unsigned char bit0:1;
-    unsigned char bit1:1;
-    unsigned char bit2:1;
-    unsigned char bit3:1;
-    unsigned char bit4:1;
-    unsigned char bit5:1;
-    unsigned char bit6:1;
-    unsigned char bit7:1;
+struct Struct_02059cfc_5 {
+    unsigned char unknown_0_0_:1;
+    unsigned char unknown_0_1_:1;
+    unsigned char unknown_0_2_:1;
+    unsigned char unknown_0_3_:1;
+    unsigned char unknown_0_4_:1;
+    unsigned char unknown_0_5_:1;
+    unsigned char unknown_0_6_:1;
+    unsigned char unknown_0_7_:1;
 };
 
-struct Combatant02059cfc {
-    char pad0[0x4];
-    struct ListNode02057854* listNode;
-    char pad8[0x11];
-    unsigned char field19;
-    char pad1a[0xa];
-    int field24;
-    int field28;
-    char pad2c[0x18];
-    struct Vec3 pos;
-    char pad50[0x5c];
-    int field_ac;
-    short timerB0;
-    char padb2[0x4];
-    short timerB6;
-    int field_b8;
-    int field_bc;
-    struct Vec3 vecC0;
-    struct CombatantFlags02059cfc flags;
+struct Struct_02059cfc {
+    char unknown_0_[0x4];
+    struct Struct_02057334_2* unknown_4_;
+    char unknown_8_[0x11];
+    unsigned char unknown_19_;
+    char unknown_1a_[0xa];
+    int unknown_24_;
+    int unknown_28_;
+    char unknown_2c_[0x18];
+    struct Struct_ov009_0218aa28 unknown_44_;
+    char unknown_50_[0x5c];
+    int unknown_ac_;
+    short unknown_b0_;
+    char unknown_b2_[0x4];
+    short unknown_b6_;
+    int unknown_b8_;
+    int unknown_bc_;
+    struct Struct_ov009_0218aa28 unknown_c0_;
+    struct Struct_02059cfc_5 unknown_cc_;
 };
 
 // USA: func_02059cfc
-extern "C" ARM void func_02059cfc(unsigned char* p, int dt, int id) {
-    struct Combatant02059cfc* c = (struct Combatant02059cfc*)p;
-    GameState* bs = GameState::GetInstance();
+extern "C" ARM void func_02059cfc(unsigned char* arg0, int arg1, int arg2) {
+    struct Struct_02059cfc* var0 = (struct Struct_02059cfc*)arg0;
+    GameState* var1 = GameState::GetInstance();
 
-    if (c->timerB0 > 0) {
-        c->timerB0 -= dt;
+    if (var0->unknown_b0_ > 0) {
+        var0->unknown_b0_ -= arg1;
         return;
     }
 
-    if (c->field_ac == 0) {
-        if (bs->GetGameObjectByIndex(id) == 0) {
+    if (var0->unknown_ac_ == 0) {
+        if (var1->GetGameObjectByIndex(arg2) == 0) {
             return;
         }
 
-        if (c->field_b8 > 0) {
-            int f28 = c->field28;
-            int fbc = c->field_bc;
-            if (f28 <= fbc) {
-                int f24 = c->field24;
-                if (fbc < f24) {
-                    func_0205eaa0((struct Obj0205eaa0*)&data_02108760, c->field_b8, 0);
+        if (var0->unknown_b8_ > 0) {
+            int var2 = var0->unknown_28_;
+            int var3 = var0->unknown_bc_;
+            if (var2 <= var3) {
+                int var4 = var0->unknown_24_;
+                if (var3 < var4) {
+                    func_0205eaa0((struct Struct_02108760*)&data_02108760, var0->unknown_b8_, 0);
                 }
             }
         }
 
-        struct Vec3 pos = c->pos;
+        struct Struct_ov009_0218aa28 var5 = var0->unknown_44_;
 
-        int r5 = 0;
-        if (c->flags.bit4) {
-            unsigned char* q = func_0200ffc0((PointerField32c_ffc0*)bs);
-            if (q != 0) {
-                r5 = *(int*)(q + 0x130);
+        int var6 = 0;
+        if (var0->unknown_cc_.unknown_0_4_) {
+            unsigned char* var7 = func_0200ffc0((Struct_0200ffc0*)var1);
+            if (var7 != 0) {
+                var6 = *(int*)(var7 + 0x130);
             }
-        } else if (c->flags.bit5) {
-            unsigned char* q = func_0200ffd0((PointerField330_ffd0*)bs);
-            if (q != 0) {
-                r5 = *(int*)(q + 0x130);
-            }
-        }
-
-        if (c->flags.bit4 || c->flags.bit5) {
-            if ((r5 & 1) && pos.x > 0) {
-                pos.x -= 0x120000;
-            } else if ((r5 & 2) && pos.x < 0) {
-                pos.x += 0x120000;
-            }
-            if ((r5 & 4) && pos.z > 0) {
-                pos.z -= 0xe0000;
-            } else if ((r5 & 8) && pos.z < 0) {
-                pos.z += 0xe0000;
+        } else if (var0->unknown_cc_.unknown_0_5_) {
+            unsigned char* var8 = func_0200ffd0((Struct_0200ffd0*)var1);
+            if (var8 != 0) {
+                var6 = *(int*)(var8 + 0x130);
             }
         }
 
-        struct Vec3 vel;
-        Vector3fixMultiplyScalar((Vector3i const*)&c->vecC0, dt << 12, (Vector3i*)&vel);
-        Vector3fix_Add((const Vector3fix*)&pos, (const Vector3fix*)&vel, (Vector3fix*)&pos);
-        func_02059f38((struct Target02059f38*)c, (struct Vec3_02059f38*)&pos);
-
-        ((Object3D*)c)->AdvanceEffects();
-
-        if (c->field19 & 1) {
-            if (((Object3D*)((struct BitFlags02037170*)c))->HasAnimationStopped()) {
-                func_0200fd48(bs, id);
-                func_02059cc8(p);
+        if (var0->unknown_cc_.unknown_0_4_ || var0->unknown_cc_.unknown_0_5_) {
+            if ((var6 & 1) && var5.unknown_0_ > 0) {
+                var5.unknown_0_ -= 0x120000;
+            } else if ((var6 & 2) && var5.unknown_0_ < 0) {
+                var5.unknown_0_ += 0x120000;
+            }
+            if ((var6 & 4) && var5.unknown_8_ > 0) {
+                var5.unknown_8_ -= 0xe0000;
+            } else if ((var6 & 8) && var5.unknown_8_ < 0) {
+                var5.unknown_8_ += 0xe0000;
             }
         }
 
-        if (c->timerB6 > 0) {
-            c->timerB6 -= dt;
-            if (c->timerB6 <= 0) {
-                func_0200fd48(bs, id);
-                func_02059cc8(p);
+        struct Struct_ov009_0218aa28 var9;
+        Vector3fixMultiplyScalar((Vector3i const*)&var0->unknown_c0_, arg1 << 12, (Vector3i*)&var9);
+        Vector3fix_Add((const Vector3fix*)&var5, (const Vector3fix*)&var9, (Vector3fix*)&var5);
+        func_02059f38((struct Struct_02059cfc_2*)var0, (struct Struct_02059cfc_3*)&var5);
+
+        ((Object3D*)var0)->AdvanceEffects();
+
+        if (var0->unknown_19_ & 1) {
+            if (((Object3D*)((struct Struct_02059cfc_4*)var0))->HasAnimationStopped()) {
+                func_0200fd48(var1, arg2);
+                func_02059cc8(arg0);
+            }
+        }
+
+        if (var0->unknown_b6_ > 0) {
+            var0->unknown_b6_ -= arg1;
+            if (var0->unknown_b6_ <= 0) {
+                func_0200fd48(var1, arg2);
+                func_02059cc8(arg0);
             }
         }
     } else {
-        if (bs->GetGameObjectByIndex(id) == 0) {
+        if (var1->GetGameObjectByIndex(arg2) == 0) {
             return;
         }
-        if (func_02057854(c->listNode) == 1) {
-            func_0200fd48(bs, id);
-            func_02059cc8(p);
+        if (func_02057854(var0->unknown_4_) == 1) {
+            func_0200fd48(var1, arg2);
+            func_02059cc8(arg0);
         } else {
-            func_02055774((int*)p);
+            func_02055774((int*)arg0);
         }
     }
 }

@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 // USA: func_0200f374
-extern "C" ARM void* __clear(void* dst, int count) {
-    unsigned char* p = (unsigned char*)dst;
-    if (dst != 0 && count != 0) {
+extern "C" ARM void* __clear(void* arg0, int arg1) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    if (arg0 != 0 && arg1 != 0) {
         do {
-            *p++ = 0;
-        } while (--count);
+            *var0++ = 0;
+        } while (--arg1);
     }
-    return dst;
+    return arg0;
 }

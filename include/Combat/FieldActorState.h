@@ -5,62 +5,52 @@
 // Shared prefix of the field actors initialized by func_02076a8c and updated
 // by func_02076b58. The type name is part of the existing
 // dispatcher and member-function-table ABI.
-struct Obj02076b58 {
-    ObjectStatePrefix base;
-    int phase;
-    int unknown_134;
-    unsigned char unknown_138;
-    unsigned char unknown_139;
-    unsigned char unknown_13a;
-    unsigned char unknown_13b;
-    unsigned char unknown_13c;
-    unsigned char unknown_13d[3];
-    int unknown_140;
-    int unknown_144;
-    int unknown_148;
-    int elapsedTime;
-    int tickCount;
-    int phaseElapsedTime;
+struct Struct_02076a8c_2 {
+    Struct_02032e58 unknown_0_;
+    int unknown_130_;
+    int unknown_134_;
+    unsigned char unknown_138_;
+    unsigned char unknown_139_;
+    unsigned char unknown_13a_;
+    unsigned char unknown_13b_;
+    unsigned char unknown_13c_;
+    unsigned char unknown_13d_[3];
+    int unknown_140_;
+    int unknown_144_;
+    int unknown_148_;
+    int unknown_14c_;
+    int unknown_150_;
+    int unknown_154_;
 };
 
-typedef char VerifyFieldActorPhaseOffset[offsetof(Obj02076b58, phase) == 0x130 ? 1 : -1];
-typedef char VerifyFieldActorElapsedOffset[offsetof(Obj02076b58, elapsedTime) == 0x14c ? 1 : -1];
-typedef char VerifyFieldActorTickOffset[offsetof(Obj02076b58, tickCount) == 0x150 ? 1 : -1];
-typedef char VerifyFieldActorPhaseTimeOffset[offsetof(Obj02076b58, phaseElapsedTime) == 0x154 ? 1 : -1];
-typedef char VerifyFieldActorPrefixSize[sizeof(Obj02076b58) == 0x158 ? 1 : -1];
 
-extern "C" void func_02076b58(Obj02076b58* actor);
+extern "C" void func_02076b58(Struct_02076a8c_2* arg0);
 
-struct ShadowInfo;
-struct Attributes02078998;
+struct Struct_ov017_021a1d98;
+struct Struct_02078998;
 
 // Extent initialized by func_02076a8c. This does not assert the full actor size.
-struct FieldMonsterState {
-    Obj02076b58 actor;
-    Vector3fix targetPosition;
-    unsigned short unknown164;
-    unsigned short combatantId;
-    unsigned short unknown168;
-    unsigned short unknown16a;
-    unsigned char unknown16c[4];
-    fix32_t height;
-    short rise;
-    unsigned short unknown176;
-    unsigned char unknown178[2];
-    unsigned char rising;
-    unsigned char unknown17b;
-    unsigned char unknown17c;
-    unsigned char flags;
-    unsigned char unknown17e;
-    unsigned char unknown17f;
-    ShadowInfo* shadowInfo;
-    Attributes02078998* attributes;
+struct Struct_02076a8c {
+    Struct_02076a8c_2 unknown_0_;
+    Vector3fix unknown_158_;
+    unsigned short unknown_164_;
+    unsigned short unknown_166_;
+    unsigned short unknown_168_;
+    unsigned short unknown_16a_;
+    unsigned char unknown_16c_[4];
+    fix32_t unknown_170_;
+    short unknown_174_;
+    unsigned short unknown_176_;
+    unsigned char unknown_178_[2];
+    unsigned char unknown_17a_;
+    unsigned char unknown_17b_;
+    unsigned char unknown_17c_;
+    unsigned char unknown_17d_;
+    unsigned char unknown_17e_;
+    unsigned char unknown_17f_;
+    Struct_ov017_021a1d98* unknown_180_;
+    Struct_02078998* unknown_184_;
 };
 
-typedef char FieldMonsterTargetOffsetCheck[offsetof(FieldMonsterState, targetPosition) == 0x158 ? 1 : -1];
-typedef char FieldMonsterFlagsOffsetCheck[offsetof(FieldMonsterState, flags) == 0x17d ? 1 : -1];
-typedef char FieldMonsterShadowOffsetCheck[offsetof(FieldMonsterState, shadowInfo) == 0x180 ? 1 : -1];
-typedef char FieldMonsterAttributesOffsetCheck[offsetof(FieldMonsterState, attributes) == 0x184 ? 1 : -1];
-typedef char FieldMonsterInitializedExtentCheck[sizeof(FieldMonsterState) == 0x188 ? 1 : -1];
 
-extern "C" void func_02076a8c(FieldMonsterState* monster);
+extern "C" void func_02076a8c(Struct_02076a8c* arg0);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/LoadToVRAM.h"
-typedef void (*VRAMLoader02227d94)(const void*, unsigned int, unsigned int);
+typedef void (*Type_020200c0_2)(const void*, unsigned int, unsigned int);
 extern "C" void func_ov031_02235c18();
 extern "C" void func_ov031_022275e0();
 extern "C" void func_ov031_022236e8();
@@ -12,7 +12,7 @@ extern "C" int func_ov031_02227570(unsigned int);
 extern "C" void* func_ov031_02227630(const char*);
 extern "C" int func_ov031_02223478(const char*);
 extern "C" void func_ov031_0223bd58(int, int);
-extern "C" void func_ov031_022234d8(const char*, VRAMLoader02227d94);
+extern "C" void func_ov031_022234d8(const char*, Type_020200c0_2);
 extern "C" int func_ov031_02227558();
 extern "C" void func_ov031_0223cb68(int, int);
 extern "C" void func_ov031_022274c0(int);

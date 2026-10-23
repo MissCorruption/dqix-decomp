@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 
-struct StructDE234_020de234 {
-    int a, b, c, d;
-    unsigned int field10Low : 10;
-    unsigned int field10Mid : 10;
-    unsigned int field10High : 8;
-    unsigned int field10Unused : 4;
-    short e, f, g, h, i;
+struct Struct_02015ef4_4 {
+    int unknown_0_, unknown_4_, unknown_8_, unknown_c_;
+    unsigned int unknown_10_0_ : 10;
+    unsigned int unknown_11_2_ : 10;
+    unsigned int unknown_12_4_ : 8;
+    unsigned int unknown_13_4_ : 4;
+    short unknown_14_, unknown_16_, unknown_18_, unknown_1a_, unknown_1c_;
 };
 
-struct Container020dedd0 {
-    unsigned short count;
-    unsigned char pad2[10];
-    StructDE234_020de234* base;
-    unsigned char pad10[4];
-    unsigned char useBinarySearch;
+struct Struct_0201099c_10 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[10];
+    Struct_02015ef4_4* unknown_c_;
+    unsigned char unknown_10_[4];
+    unsigned char unknown_14_;
 };
 
-struct Holder021b5c88 {
+struct Struct_ov017_021b5c88 {
 #if defined(jpn)
-    unsigned char pad0[0x2794];
+    unsigned char unknown_0_[0x2794];
 #else
-    unsigned char pad0[0x2754];
+    unsigned char unknown1_0_[0x2754];
 #endif
-    Container020dedd0 entries;
+    Struct_0201099c_10 unknown_2754_;
 };
 
-struct Settings021b5c88 {
-    unsigned short pad0[2];
-    unsigned short pad4 : 2;
-    unsigned short mode : 2;
-    unsigned short pad4b : 12;
+struct Struct_ov017_021b5c88_2 {
+    unsigned short unknown_0_[2];
+    unsigned short unknown_4_0_ : 2;
+    unsigned short unknown_4_2_ : 2;
+    unsigned short unknown_4_4_ : 12;
 };
 
-struct Self021b5c88 {
-    unsigned char pad0[0x12];
-    short key;
-    unsigned short value;
-    unsigned char pad16;
-    signed char category;
-    unsigned char pad18[0x24 - 0x18];
-    Settings021b5c88* settings;
+struct Struct_ov017_021b5c88_3 {
+    unsigned char unknown_0_[0x12];
+    short unknown_12_;
+    unsigned short unknown_14_;
+    unsigned char unknown_16_;
+    signed char unknown_17_;
+    unsigned char unknown_18_[0x24 - 0x18];
+    Struct_ov017_021b5c88_2* unknown_24_;
 };
 
-extern "C" Holder021b5c88* func_02012fe4(void);
-extern "C" StructDE234_020de234* func_020dedd0(Container020dedd0* c, int key);
-extern "C" unsigned short func_020de234(StructDE234_020de234* p, int preferMid);
+extern "C" Struct_ov017_021b5c88* func_02012fe4(void);
+extern "C" Struct_02015ef4_4* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
 
 // USA: func_ov017_021b5c88
-extern "C" ARM int func_ov017_021b5c88(Self021b5c88* self) {
-    Container020dedd0* entries = &func_02012fe4()->entries;
-    if (self->settings->mode == 1) {
-        self->category = 0x69;
-        self->value = 0x7f;
+extern "C" ARM int func_ov017_021b5c88(Struct_ov017_021b5c88_3* arg0) {
+    Struct_0201099c_10* var0 = &func_02012fe4()->unknown_2754_;
+    if (arg0->unknown_24_->unknown_4_2_ == 1) {
+        arg0->unknown_17_ = 0x69;
+        arg0->unknown_14_ = 0x7f;
     } else {
-        StructDE234_020de234* entry = func_020dedd0(entries, self->key);
-        if (entry != NULL) {
-            self->category = entry->field10High;
-            self->value = func_020de234(entry, 0);
+        Struct_02015ef4_4* var1 = func_020dedd0(var0, arg0->unknown_12_);
+        if (var1 != NULL) {
+            arg0->unknown_17_ = var1->unknown_12_4_;
+            arg0->unknown_14_ = func_020de234(var1, 0);
         }
     }
     return 2;

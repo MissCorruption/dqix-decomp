@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Struct020dd768 {
-    char pad0[8];
-    unsigned int lo : 14;
-    unsigned int kind : 2;
+struct Struct_020dd768 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 14;
+    unsigned int unknown_9_6_ : 2;
 };
 
 // USA: func_020dd768
-extern "C" ARM int func_020dd768(struct Struct020dd768* p) {
-    int flag;
-    if (p == NULL) {
+extern "C" ARM int func_020dd768(struct Struct_020dd768* arg0) {
+    int var0;
+    if (arg0 == NULL) {
         return 0;
     }
-    flag = 0;
-    switch (p->kind) {
+    var0 = 0;
+    switch (arg0->unknown_9_6_) {
     case 0:
-        flag |= 4;
+        var0 |= 4;
         break;
     case 1:
-        flag |= 1;
+        var0 |= 1;
         break;
     case 2:
-        flag |= 2;
+        var0 |= 2;
         break;
     }
-    return flag;
+    return var0;
 }

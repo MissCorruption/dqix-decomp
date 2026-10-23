@@ -14,13 +14,13 @@
 #endif
 #include "std_library_functions.h"
 
-struct Pair0209a338;
-extern "C" void func_0209a338(Pair0209a338* p);
-extern "C" void func_0209a3dc(void* a, void* b);
+struct Struct_0200f3a4_8;
+extern "C" void func_0209a338(Struct_0200f3a4_8* arg0);
+extern "C" void func_0209a3dc(void* arg0, void* arg1);
 
 // USA: func_0201133c
-extern "C" ARM void func_0201133c(char* obj) {
-    memset(obj + INIT_DATA_OFFSET, 0, 0x570);
-    func_0209a338((Pair0209a338*)(obj + INIT_PAIR_OFFSET));
-    func_0209a3dc(obj + INIT_PAIR_OFFSET, obj + INIT_DATA_OFFSET);
+extern "C" ARM void func_0201133c(char* arg0) {
+    memset(arg0 + INIT_DATA_OFFSET, 0, 0x570);
+    func_0209a338((Struct_0200f3a4_8*)(arg0 + INIT_PAIR_OFFSET));
+    func_0209a3dc(arg0 + INIT_PAIR_OFFSET, arg0 + INIT_DATA_OFFSET);
 }

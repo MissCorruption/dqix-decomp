@@ -2,78 +2,78 @@
 #include "NitroSDK/Matrix.h"
 #include "Graphics/Vector.h"
 
-struct Model13158
+struct Struct_02013158_2
 {
-    char pad_0[8];
-    Vector3fix offset;
-    char pad_14[2];
-    int16_t rotZ;
-    char pad_18[2];
-    int16_t m1;
-    int16_t m2;
-    int16_t m3;
+    char unknown_0_[8];
+    Vector3fix unknown_8_;
+    char unknown_14_[2];
+    int16_t unknown_16_;
+    char unknown_18_[2];
+    int16_t unknown_1a_;
+    int16_t unknown_1c_;
+    int16_t unknown_1e_;
 };
 
-struct Node13158
+struct Struct_02013158
 {
-    char pad_0[6];
-    int16_t heading;
-    Vector3fix pos;
-    Vector3fix rot;
-    Model13158* model;
-    char pad_24[8];
-    Node13158* child;
-    Node13158* next;
+    char unknown_0_[6];
+    int16_t unknown_6_;
+    Vector3fix unknown_8_;
+    Vector3fix unknown_14_;
+    Struct_02013158_2* unknown_20_;
+    char unknown_24_[8];
+    Struct_02013158* unknown_2c_;
+    Struct_02013158* unknown_30_;
 };
 
 // USA: func_02013158
-extern "C" ARM void func_02013158(Node13158* self, const Vector3fix* base, int* angle, const Vector3fix* scale)
+extern "C" ARM void func_02013158(Struct_02013158* arg0, const Vector3fix* arg1, int* arg2, const Vector3fix* arg3)
 {
-    Matrix3x3 mat;
-    int sine;
-    int cosine;
-    Node13158* n;
-    cosine = fix32cos(*angle);
-    sine = fix32sin(*angle);
-    Mat3x3_WriteRotationY(&mat, sine, cosine);
-    if (self->model != 0)
+    Matrix3x3 var0;
+    int var1;
+    int var2;
+    Struct_02013158* var3;
+    var2 = fix32cos(*arg2);
+    var1 = fix32sin(*arg2);
+    Mat3x3_WriteRotationY(&var0, var1, var2);
+    if (arg0->unknown_20_ != 0)
     {
-        Vector3fix v;
-        Mat3x3_ApplyToVector(&self->model->offset, &mat, &v);
-        Vector3fix_Add(&v, base, &self->pos);
-        self->heading = (int16_t)fix32ReduceAngle0To2Pi(*angle + self->model->rotZ);
-        self->rot.x = FIX32_MULTIPLY(self->model->m1, scale->x);
-        self->rot.y = FIX32_MULTIPLY(self->model->m2, scale->y);
-        self->rot.z = FIX32_MULTIPLY(self->model->m3, scale->z);
+        Vector3fix var4;
+        Mat3x3_ApplyToVector(&arg0->unknown_20_->unknown_8_, &var0, &var4);
+        Vector3fix_Add(&var4, arg1, &arg0->unknown_8_);
+        arg0->unknown_6_ = (int16_t)fix32ReduceAngle0To2Pi(*arg2 + arg0->unknown_20_->unknown_16_);
+        arg0->unknown_14_.x = FIX32_MULTIPLY(arg0->unknown_20_->unknown_1a_, arg3->x);
+        arg0->unknown_14_.y = FIX32_MULTIPLY(arg0->unknown_20_->unknown_1c_, arg3->y);
+        arg0->unknown_14_.z = FIX32_MULTIPLY(arg0->unknown_20_->unknown_1e_, arg3->z);
     }
-    n = self->next;
-    if (n != 0)
+    var3 = arg0->unknown_30_;
+    if (var3 != 0)
     {
-        while (n != 0)
+        while (var3 != 0)
         {
-            Vector3fix w;
-            int a;
-            if (n->model != 0)
+            Vector3fix var5;
+            int var6;
+            if (var3->unknown_20_ != 0)
             {
-                Mat3x3_ApplyToVector(&n->model->offset, &mat, &w);
-                Vector3fix_Add(&w, base, &n->pos);
-                n->heading = (int16_t)fix32ReduceAngle0To2Pi(*angle + n->model->rotZ);
-                n->rot.x = FIX32_MULTIPLY(n->model->m1, scale->x);
-                n->rot.y = FIX32_MULTIPLY(n->model->m2, scale->y);
-                n->rot.z = FIX32_MULTIPLY(n->model->m3, scale->z);
+                Mat3x3_ApplyToVector(&var3->unknown_20_->unknown_8_, &var0, &var5);
+                Vector3fix_Add(&var5, arg1, &var3->unknown_8_);
+                var3->unknown_6_ = (int16_t)fix32ReduceAngle0To2Pi(*arg2 + var3->unknown_20_->unknown_16_);
+                var3->unknown_14_.x = FIX32_MULTIPLY(var3->unknown_20_->unknown_1a_, arg3->x);
+                var3->unknown_14_.y = FIX32_MULTIPLY(var3->unknown_20_->unknown_1c_, arg3->y);
+                var3->unknown_14_.z = FIX32_MULTIPLY(var3->unknown_20_->unknown_1e_, arg3->z);
             }
-            if (n->child != 0)
+            if (var3->unknown_2c_ != 0)
             {
-                a = n->heading;
-                func_02013158(n->child, &n->pos, &a, &n->rot);
+                var6 = var3->unknown_6_;
+                func_02013158(var3->unknown_2c_, &var3->unknown_8_, &var6, &var3->unknown_14_);
             }
-            n = n->next;
+            var3 = var3->unknown_30_;
         }
     }
-    if (self->child != 0)
+    if (arg0->unknown_2c_ != 0)
     {
-        int b;
-        b = self->heading;
-        func_02013158(self->child, &self->pos, &b, &self->rot);
+        int var7;
+        var7 = arg0->unknown_6_;
+        func_02013158(arg0->unknown_2c_, &arg0->unknown_8_, &var7, &arg0->unknown_14_);
     }
 }

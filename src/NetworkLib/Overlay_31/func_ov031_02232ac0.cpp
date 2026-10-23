@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct StateStruct1d_02232ac0 { unsigned char pad[0x1d]; unsigned char field1d; };
-struct DataCC0_02232ac0 { unsigned char field0; unsigned char pad[3]; StateStruct1d_02232ac0 *ptr4; };
-extern DataCC0_02232ac0 data_ov031_02290cc0;
+struct Struct_ov031_02232ac0 { unsigned char unknown_0_[0x1d]; unsigned char unknown_1d_; };
+struct Struct_ov031_02290cc0_5 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02232ac0 *unknown_4_; };
+extern Struct_ov031_02290cc0_5 data_ov031_02290cc0;
 extern "C" int func_ov031_0223c054(int);
 extern "C" int func_ov031_02222ddc(void);
 extern "C" char* func_ov031_02235c70(void);
@@ -14,8 +14,8 @@ extern "C" void func_ov031_02232b44(void);
 extern "C" ARM void func_ov031_02232ac0(void) {
 	if (func_ov031_0223c054(1) != 0) return;
 
-	if (data_ov031_02290cc0.ptr4->field1d == 1) {
-		if (data_ov031_02290cc0.field0 == 3 ||
+	if (data_ov031_02290cc0.unknown_4_->unknown_1d_ == 1) {
+		if (data_ov031_02290cc0.unknown_0_ == 3 ||
 		    *(unsigned char*)(func_ov031_02235c70() + 0xe7) != 0xff) {
 			func_ov031_02222ddc();
 		}

@@ -2,34 +2,34 @@
 #include "Resource/MonsterDefinition.h"
 
 // USA: func_0206f470
-extern "C" ARM void* func_0206f470(struct BinarySearchByComparatorStruct* base, int key, BinarySearchByComparatorFn comp) {
-    MonsterDefinition* arr;
-    int count;
-    int low;
-    int high;
-    int mid;
-    int r;
+extern "C" ARM void* func_0206f470(struct Struct_0206f01c_2* arg0, int arg1, Type_0206f470 arg2) {
+    Struct_0206ef40* var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    int var5;
 
-    arr = base->arr;
-    if (arr == NULL || comp == NULL) {
+    var0 = arg0->unknown_4_;
+    if (var0 == NULL || arg2 == NULL) {
         return NULL;
     }
-    count = base->header.count;
-    if (count == 0) {
+    var1 = arg0->unknown_0_.unknown_0_0_;
+    if (var1 == 0) {
         return NULL;
     }
-    low = 0;
-    high = count - 1;
-    while (low <= high) {
-        mid = low + ((high - low + 1) >> 1);
-        r = comp(&arr[mid]);
-        if (r == key) {
-            return &arr[mid];
+    var2 = 0;
+    var3 = var1 - 1;
+    while (var2 <= var3) {
+        var4 = var2 + ((var3 - var2 + 1) >> 1);
+        var5 = arg2(&var0[var4]);
+        if (var5 == arg1) {
+            return &var0[var4];
         }
-        if (r > key) {
-            high = mid - 1;
+        if (var5 > arg1) {
+            var3 = var4 - 1;
         } else {
-            low = mid + 1;
+            var2 = var4 + 1;
         }
     }
     return NULL;

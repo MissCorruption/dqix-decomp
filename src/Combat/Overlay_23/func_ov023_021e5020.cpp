@@ -4,207 +4,207 @@
 #include "Graphics/Model3D.h"
 #include "World/Object3D.h"
 
-struct Foo0207df50;
-struct Words021e60c4;
-struct Container020dedd0;
+struct Struct_0203d028;
+struct Struct_ov009_02188454;
+struct Struct_0201099c_10;
 
-extern "C" void func_0207df50(struct Foo0207df50* state);
-extern "C" void func_0207df90(char* state);
-extern "C" void func_0207dfac(char* state);
-extern "C" void func_ov023_021e60c4(void* object, struct Words021e60c4* rotation);
-extern "C" void func_ov023_021e5fdc(void* vocation, short* models, short* appearance);
-extern "C" void __clear(void* buffer, unsigned long size);
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_ov023_021e60c4(void* arg0, struct Struct_ov009_02188454* arg1);
+extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
+extern "C" void __clear(void* arg0, unsigned long arg1);
 
-struct PartyMemberAppearance_021e5020
+struct Struct_ov023_021e5020_4
 {
-    short models_[10];
-    unsigned char female_ : 1;
-    unsigned char eyeColor_ : 3;
-    unsigned char skinColor_ : 4;
-    unsigned char hairColor_ : 4;
-    unsigned char unk_15_4 : 4;
-    short unk_16;
-    short width_;
-    short height_;
+    short unknown_0_[10];
+    unsigned char unknown_14_0_ : 1;
+    unsigned char unknown_14_1_ : 3;
+    unsigned char unknown_14_4_ : 4;
+    unsigned char unknown_15_0_ : 4;
+    unsigned char unknown_15_4_ : 4;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
 };
 
-struct PartyMemberData_021e5020
+struct Struct_ov023_021e5020_5
 {
-    char pad0[0x488];
-    PartyMemberAppearance_021e5020 appearance_;
+    char unknown_0_[0x488];
+    Struct_ov023_021e5020_4 unknown_488_;
 };
 
-struct PartEntry_021e5020
+struct Struct_ov023_021e5020
 {
-    void* model_;
-    int unk_4;
-    unsigned int category_ : 4;
-    unsigned int type_ : 5;
-    unsigned int rank_ : 3;
+    void* unknown_0_;
+    int unknown_4_;
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 5;
+    unsigned int unknown_9_1_ : 3;
 };
 
-extern "C" PartEntry_021e5020* func_020dedd0(struct Container020dedd0* names, int id);
+extern "C" Struct_ov023_021e5020* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
 
-struct VRAMManagerState_021e5020
+struct Struct_02000c9c_71
 {
-    char data[0x70];
+    char unknown_0_[0x70];
 };
 
-struct Rotation_021e5020
+struct Struct_ov023_021e5020_2
 {
-    int x;
-    int y;
-    int z;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct CharacterModel_021e5020
+struct Struct_ov023_021e5020_3
 {
-    Object3D parts_[10];
-    SafeAllocator allocators_[10];
-    SafeAllocator animationAllocator_;
-    VRAMManagerState_021e5020 vramStates_[10];
-    short tasks_[12];
-    struct Container020dedd0* names_;
-    unsigned char holdsWithArms_;
-    unsigned char unk_c11;
-    unsigned char loading_;
-    unsigned char bodyChanged_;
-    unsigned char visible_;
-    unsigned char vocation_;
-    char unk_c16[2];
-    PartyMemberData_021e5020* member_;
-    short angle_;
-    unsigned char colored_;
-    char unk_c1f;
+    Object3D unknown_0_[10];
+    SafeAllocator unknown_6b8_[10];
+    SafeAllocator unknown_780_;
+    Struct_02000c9c_71 unknown_794_[10];
+    short unknown_bf4_[12];
+    struct Struct_0201099c_10* unknown_c0c_;
+    unsigned char unknown_c10_;
+    unsigned char unknown_c11_;
+    unsigned char unknown_c12_;
+    unsigned char unknown_c13_;
+    unsigned char unknown_c14_;
+    unsigned char unknown_c15_;
+    char unknown_c16_[2];
+    Struct_ov023_021e5020_5* unknown_c18_;
+    short unknown_c1c_;
+    unsigned char unknown_c1e_;
+    char unknown_c1f_;
 };
 
-extern "C" void func_ov023_021e540c(CharacterModel_021e5020* self);
-extern "C" void func_ov023_021e5e68(CharacterModel_021e5020* self, int width, int height);
+extern "C" void func_ov023_021e540c(Struct_ov023_021e5020_3* arg0);
+extern "C" void func_ov023_021e5e68(Struct_ov023_021e5020_3* arg0, int arg1, int arg2);
 
 extern "C" const char data_ov023_021fdce0[];
 extern "C" const char data_ov023_021fdce9[];
 
 // USA: func_ov023_021e5020
-extern "C" ARM void func_ov023_021e5020(CharacterModel_021e5020* self)
+extern "C" ARM void func_ov023_021e5020(Struct_ov023_021e5020_3* arg0)
 {
-    void* file;
-    unsigned int size;
+    void* var0;
+    unsigned int var1;
 
-    if (self->loading_)
+    if (arg0->unknown_c12_)
     {
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        self->loading_ = 0;
-        for (int i = 0; i < 10; i++)
+        BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+        arg0->unknown_c12_ = 0;
+        for (int var3 = 0; var3 < 10; var3++)
         {
-            if (self->tasks_[i] > -1)
+            if (arg0->unknown_bf4_[var3] > -1)
             {
-                if (loader->GetTaskStatus(self->tasks_[i]))
+                if (var2->GetTaskStatus(arg0->unknown_bf4_[var3]))
                 {
-                    self->parts_[i].Destroy();
-                    self->allocators_[i].Reset();
-                    loader->GetLoadedFileByID(self->tasks_[i], &file, &size);
-                    if (size != 0)
+                    arg0->unknown_0_[var3].Destroy();
+                    arg0->unknown_6b8_[var3].Reset();
+                    var2->GetLoadedFileByID(arg0->unknown_bf4_[var3], &var0, &var1);
+                    if (var1 != 0)
                     {
-                        func_0207df50((Foo0207df50*)&self->vramStates_[i]);
-                        func_0207df90((char*)&self->vramStates_[i]);
-                        self->parts_[i].SetModelFromFileCopy(&self->allocators_[i], file, size, Model3D::TextureStagingMode_Normal);
-                        func_0207dfac((char*)&self->vramStates_[i]);
-                        if (i == 4 && self->parts_[3].pModel_ != NULL)
-                            self->parts_[3].pModel_->ApplyTexturesFromModel(self->parts_[i].pModel_);
+                        func_0207df50((Struct_0203d028*)&arg0->unknown_794_[var3]);
+                        func_0207df90((char*)&arg0->unknown_794_[var3]);
+                        arg0->unknown_0_[var3].SetModelFromFileCopy(&arg0->unknown_6b8_[var3], var0, var1, Model3D::TextureStagingMode_Normal);
+                        func_0207dfac((char*)&arg0->unknown_794_[var3]);
+                        if (var3 == 4 && arg0->unknown_0_[3].pModel_ != NULL)
+                            arg0->unknown_0_[3].pModel_->ApplyTexturesFromModel(arg0->unknown_0_[var3].pModel_);
                     }
-                    loader->RemoveTask(self->tasks_[i]);
-                    self->tasks_[i] = -1;
+                    var2->RemoveTask(arg0->unknown_bf4_[var3]);
+                    arg0->unknown_bf4_[var3] = -1;
                 }
                 else
                 {
-                    self->loading_ = 1;
+                    arg0->unknown_c12_ = 1;
                 }
             }
         }
 
-        short task = self->tasks_[10];
-        if (task > -1)
+        short var4 = arg0->unknown_bf4_[10];
+        if (var4 > -1)
         {
-            if (loader->GetTaskStatus(task))
+            if (var2->GetTaskStatus(var4))
             {
-                loader->GetLoadedFileByID(task, &file, &size);
-                if (size != 0)
+                var2->GetLoadedFileByID(var4, &var0, &var1);
+                if (var1 != 0)
                 {
-                    loader->GetLoadedFileByID(task, &file, &size);
-                    if (size != 0)
-                        self->parts_[0].LoadType0AnimationFromFileInMemory(0, &self->animationAllocator_, file, size);
+                    var2->GetLoadedFileByID(var4, &var0, &var1);
+                    if (var1 != 0)
+                        arg0->unknown_0_[0].LoadType0AnimationFromFileInMemory(0, &arg0->unknown_780_, var0, var1);
                 }
-                loader->RemoveTask(task);
-                self->tasks_[10] = -1;
+                var2->RemoveTask(var4);
+                arg0->unknown_bf4_[10] = -1;
             }
             else
             {
-                self->loading_ = 1;
+                arg0->unknown_c12_ = 1;
             }
         }
 
-        task = self->tasks_[11];
-        if (task > -1)
+        var4 = arg0->unknown_bf4_[11];
+        if (var4 > -1)
         {
-            if (loader->GetTaskStatus(task))
+            if (var2->GetTaskStatus(var4))
             {
-                loader->GetLoadedFileByID(task, &file, &size);
-                if (size != 0)
+                var2->GetLoadedFileByID(var4, &var0, &var1);
+                if (var1 != 0)
                 {
-                    loader->GetLoadedFileByID(task, &file, &size);
-                    if (size != 0)
-                        self->parts_[0].LoadType0AnimationPackageFromBCFGScript(&self->animationAllocator_, file, size);
+                    var2->GetLoadedFileByID(var4, &var0, &var1);
+                    if (var1 != 0)
+                        arg0->unknown_0_[0].LoadType0AnimationPackageFromBCFGScript(&arg0->unknown_780_, var0, var1);
                 }
-                loader->RemoveTask(task);
-                self->tasks_[11] = -1;
+                var2->RemoveTask(var4);
+                arg0->unknown_bf4_[11] = -1;
             }
             else
             {
-                self->loading_ = 1;
+                arg0->unknown_c12_ = 1;
             }
         }
 
-        if (!self->loading_ && !self->colored_)
+        if (!arg0->unknown_c12_ && !arg0->unknown_c1e_)
         {
-            func_ov023_021e540c(self);
-            self->colored_ = 1;
-            self->loading_ = 1;
+            func_ov023_021e540c(arg0);
+            arg0->unknown_c1e_ = 1;
+            arg0->unknown_c12_ = 1;
         }
 
-        if (!self->loading_)
+        if (!arg0->unknown_c12_)
         {
-            PartyMemberAppearance_021e5020* appearance = &self->member_->appearance_;
-            if (self->bodyChanged_)
+            Struct_ov023_021e5020_4* var5 = &arg0->unknown_c18_->unknown_488_;
+            if (arg0->unknown_c13_)
             {
-                if (appearance->female_ == 1 && self->unk_c11 == 0)
+                if (var5->unknown_14_0_ == 1 && arg0->unknown_c11_ == 0)
                 {
-                    if (self->parts_[0].unknown_2_ >= 0)
+                    if (arg0->unknown_0_[0].unknown_2_ >= 0)
                     {
-                        self->parts_[0].StopCurrentAnimation();
-                        self->parts_[0].MaybeSetRegularAnimation(data_ov023_021fdce0, 0);
+                        arg0->unknown_0_[0].StopCurrentAnimation();
+                        arg0->unknown_0_[0].MaybeSetRegularAnimation(data_ov023_021fdce0, 0);
                     }
                 }
-                else if (self->parts_[0].unknown_2_ >= 0)
+                else if (arg0->unknown_0_[0].unknown_2_ >= 0)
                 {
-                    self->parts_[0].StopCurrentAnimation();
-                    self->parts_[0].MaybeSetRegularAnimation(data_ov023_021fdce9, 0);
+                    arg0->unknown_0_[0].StopCurrentAnimation();
+                    arg0->unknown_0_[0].MaybeSetRegularAnimation(data_ov023_021fdce9, 0);
                 }
-                Rotation_021e5020 rotation = {0};
-                rotation.y = self->angle_;
-                func_ov023_021e60c4(&self->parts_[0], (Words021e60c4*)&rotation);
-                func_ov023_021e60c4(&self->parts_[6], (Words021e60c4*)&rotation);
-                func_ov023_021e60c4(&self->parts_[1], (Words021e60c4*)&rotation);
-                func_ov023_021e60c4(&self->parts_[5], (Words021e60c4*)&rotation);
-                func_ov023_021e5e68(self, appearance->width_, appearance->height_);
+                Struct_ov023_021e5020_2 var6 = {0};
+                var6.unknown_4_ = arg0->unknown_c1c_;
+                func_ov023_021e60c4(&arg0->unknown_0_[0], (Struct_ov009_02188454*)&var6);
+                func_ov023_021e60c4(&arg0->unknown_0_[6], (Struct_ov009_02188454*)&var6);
+                func_ov023_021e60c4(&arg0->unknown_0_[1], (Struct_ov009_02188454*)&var6);
+                func_ov023_021e60c4(&arg0->unknown_0_[5], (Struct_ov009_02188454*)&var6);
+                func_ov023_021e5e68(arg0, var5->unknown_18_, var5->unknown_1a_);
             }
 
-            short models[10];
-            func_ov023_021e5fdc((void*)self->vocation_, models, (short*)appearance);
-            PartEntry_021e5020* entry = func_020dedd0(self->names_, models[8]);
-            if (entry != NULL && entry->type_ == 6)
-                self->holdsWithArms_ = 1;
+            short var7[10];
+            func_ov023_021e5fdc((void*)arg0->unknown_c15_, var7, (short*)var5);
+            Struct_ov023_021e5020* var8 = func_020dedd0(arg0->unknown_c0c_, var7[8]);
+            if (var8 != NULL && var8->unknown_8_4_ == 6)
+                arg0->unknown_c10_ = 1;
             else
-                self->holdsWithArms_ = 0;
+                arg0->unknown_c10_ = 0;
         }
     }
 }

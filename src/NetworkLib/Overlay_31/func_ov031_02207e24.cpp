@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
 // USA: func_ov031_02207e24
-extern "C" ARM void func_ov031_02207e24(char* dest, const char* src, int count) {
-	char* start = dest;
-	if (*dest != 0) {
-		while (*++dest != 0) {}
-		if ((dest - start) >= 0xff) {
+extern "C" ARM void func_ov031_02207e24(char* arg0, const char* arg1, int arg2) {
+	char* var0 = arg0;
+	if (*arg0 != 0) {
+		while (*++arg0 != 0) {}
+		if ((arg0 - var0) >= 0xff) {
 			return;
 		}
-		*dest = ',';
-		*(dest + 1) = ' ';
-		dest += 2;
+		*arg0 = ',';
+		*(arg0 + 1) = ' ';
+		arg0 += 2;
 	}
-	while (count-- != 0 && (dest - start) < 0xff) {
-		*dest++ = *src++;
+	while (arg2-- != 0 && (arg0 - var0) < 0xff) {
+		*arg0++ = *arg1++;
 	}
-	*dest = 0;
+	*arg0 = 0;
 }

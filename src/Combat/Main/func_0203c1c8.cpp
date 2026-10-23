@@ -1,71 +1,71 @@
 #include <globaldefs.h>
 
-struct CachedTextTable;
-extern CachedTextTable* data_02105244;
+struct Struct_0203bdf4;
+extern Struct_0203bdf4* data_02105244;
 
-struct Struct0203c1c8 {
+struct Struct_0203c1c8 {
 #if defined(jpn)
-    short textSlots[10];
+    short unknown_0_[10];
 #endif
-    int x;
-    int y;
+    int unknown1_0_;
+    int unknown_4_;
 #if defined(jpn)
-    int lineHeight;
-    int characterAdvance;
+    int unknown_1c_;
+    int unknown_20_;
 #endif
-    int paletteOffset;
-    int alignment;
-    int priority;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
 #if defined(jpn)
-    signed int affineIndex : 16;
-    unsigned int unknown32 : 8;
-    unsigned int unknown33 : 8;
-    int affineMode;
+    signed int unknown_30_0_ : 16;
+    unsigned int unknown_32_0_ : 8;
+    unsigned int unknown_33_0_ : 8;
+    int unknown_34_;
 #else
-    short entryIndex;
+    short unknown_14_;
 #endif
 };
 
 #if defined(jpn)
-extern "C" int func_0203c284(const Struct0203c1c8* text);
-extern "C" void func_0203c4d0(CachedTextTable* cache, int count, const short* slots, int affineMode,
-                            int priority, int affineIndex, int x, int y,
-                            int paletteOffset, int characterAdvance, int lineHeight);
+extern "C" int func_0203c284(const Struct_0203c1c8* arg0);
+extern "C" void func_0203c4d0(Struct_0203bdf4* arg0, int arg1, const short* arg2, int arg3,
+                            int arg4, int arg5, int arg6, int arg7,
+                            int arg8, int arg9, int arg10);
 #else
-extern "C" ARM unsigned char func_0203c284(char* obj);
+extern "C" ARM unsigned char func_0203c284(char* arg0);
 extern "C" void func_0203c4d0(void*, short, int, int, int, int);
 #endif
 
 // USA: func_0203c1c8
 // JPN: func_0203bd44
 #if defined(jpn)
-extern "C" ARM void func_0203c1c8(Struct0203c1c8* obj, int count) {
+extern "C" ARM void func_0203c1c8(Struct_0203c1c8* arg0, int arg1) {
 #else
-extern "C" ARM void func_0203c1c8(Struct0203c1c8* obj) {
+extern "C" ARM void func_0203c1c8(Struct_0203c1c8* arg0) {
 #endif
     if (data_02105244 == NULL) return;
 
 #if defined(jpn)
-    int width = func_0203c284(obj);
+    int var0 = func_0203c284(arg0);
 #else
-    unsigned char width = func_0203c284((char*)obj);
+    unsigned char var0 = func_0203c284((char*)arg0);
 #endif
-    int halfWidth = width >> 1;
-    int x = obj->x;
-    int y = obj->y;
-    int alignment = obj->alignment;
+    int var1 = var0 >> 1;
+    int var2 = arg0->unknown1_0_;
+    int var3 = arg0->unknown_4_;
+    int var4 = arg0->unknown_c_;
 
-    switch (alignment) {
-        case 1: x -= width; break;
-        case 2: x -= halfWidth; break;
-        case 3: x = 0x80 - halfWidth; break;
+    switch (var4) {
+        case 1: var2 -= var0; break;
+        case 2: var2 -= var1; break;
+        case 3: var2 = 0x80 - var1; break;
     }
 
 #if defined(jpn)
-    func_0203c4d0(data_02105244, count, obj->textSlots, obj->affineMode,
-                  obj->priority, obj->affineIndex, x, y,
-                  obj->paletteOffset, obj->characterAdvance, obj->lineHeight);
+    func_0203c4d0(data_02105244, arg1, arg0->unknown_0_, arg0->unknown_34_,
+                  arg0->unknown_10_, arg0->unknown_30_0_, var2, var3,
+                  arg0->unknown_8_, arg0->unknown_20_, arg0->unknown_1c_);
 #else
-    func_0203c4d0(data_02105244, obj->entryIndex, obj->priority, x, y, obj->paletteOffset);
+    func_0203c4d0(data_02105244, arg0->unknown_14_, arg0->unknown_10_, var2, var3, arg0->unknown_8_);
 #endif
 }

@@ -4,56 +4,56 @@
 
 extern "C" int func_02094a00(void);
 extern "C" void func_02094ab0(void);
-extern "C" void func_020397c0(void* obj);
+extern "C" void func_020397c0(void* arg0);
 extern "C" void* func_020d6c00(void);
 
-struct FlagWord020466f4;
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a27ac(void* obj);
-extern "C" void func_020e1154(void* obj);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a27ac(void* arg0);
+extern "C" void func_020e1154(void* arg0);
 
-struct Flags0xc1_020e455c {
-    unsigned char a : 2;
-    unsigned char rest : 6;
+struct Struct_020e455c {
+    unsigned char unknown_0_0_ : 2;
+    unsigned char unknown_0_2_ : 6;
 };
 
-struct MainStruct020e455c {
-    char pad0[0x1];
-    unsigned char f1;
-    char pad2[0xc - 0x2];
-    short fc;
+struct Struct_020e455c_2 {
+    char unknown_0_[0x1];
+    unsigned char unknown_1_;
+    char unknown_2_[0xc - 0x2];
+    short unknown_c_;
 };
 
 // USA: func_020e455c
-extern "C" ARM void func_020e455c(struct MainStruct020e455c* obj) {
-    GameState* battleStruct = GameState::GetInstance();
+extern "C" ARM void func_020e455c(struct Struct_020e455c_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
     func_02094a00();
     func_02094ab0();
-    GameObject* c = battleStruct->GetUnknownGameObject();
-    if (c != 0) {
-        func_020397c0(c);
+    GameObject* var1 = var0->GetUnknownGameObject();
+    if (var1 != 0) {
+        func_020397c0(var1);
     }
-    func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 2);
+    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 2);
 
-    unsigned int mask = 0x1000000;
-    int i;
-    for (i = 0; i < 4; i++) {
-        GameObject* cc = battleStruct->GetPartyMemberByIndex(i);
-        if (cc != 0) {
-            ((Object3D*)((unsigned char*)cc))->DisableFlag(mask);
-            ((struct Flags0xc1_020e455c*)((char*)cc + 0xc1))->a &= ~2;
+    unsigned int var2 = 0x1000000;
+    int var3;
+    for (var3 = 0; var3 < 4; var3++) {
+        GameObject* var4 = var0->GetPartyMemberByIndex(var3);
+        if (var4 != 0) {
+            ((Object3D*)((unsigned char*)var4))->DisableFlag(var2);
+            ((struct Struct_020e455c*)((char*)var4 + 0xc1))->unknown_0_0_ &= ~2;
         }
     }
 
-    if (obj->fc >= 0) {
-        int val = (int)BackgroundLoader::GetInstance();
-        ((BackgroundLoader*)(val))->RemoveTask((int)(obj->fc));
-        obj->fc = -1;
+    if (arg0->unknown_c_ >= 0) {
+        int var5 = (int)BackgroundLoader::GetInstance();
+        ((BackgroundLoader*)(var5))->RemoveTask((int)(arg0->unknown_c_));
+        arg0->unknown_c_ = -1;
     }
 
-    func_020a27ac((void*)func_020100f8((char*)battleStruct));
+    func_020a27ac((void*)func_020100f8((char*)var0));
     func_020e1154((void*)0x3e8);
-    obj->f1 = 1;
+    arg0->unknown_1_ = 1;
 }

@@ -3,12 +3,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 
-struct EffectParam020708c8;
-struct Obj020d7aa0;
+struct Struct_020708c8;
+struct Struct_020d7aa0_2;
 extern "C" void* func_0202ae18();
-extern "C" EffectParam020708c8* func_020704fc();
+extern "C" Struct_020708c8* func_020704fc();
 extern "C" void* func_0202ae24();
-extern "C" void func_020708c8(EffectParam020708c8*, unsigned int);
+extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020531f0(GameObject*);
 extern "C" void func_ov000_02160fa8(void*, int);
@@ -23,8 +23,8 @@ extern "C" int func_020535c8(signed char*);
 #define func_ov000_02165490 func_ov000_02166bdc
 #endif
 extern "C" int func_020535e0(int*);
-extern "C" Obj020d7aa0* func_020d7a50();
-extern "C" void func_020d7aa0(Obj020d7aa0*);
+extern "C" Struct_020d7aa0_2* func_020d7a50();
+extern "C" void func_020d7aa0(Struct_020d7aa0_2*);
 extern "C" void func_ov017_021bd5d0(int);
 extern "C" int func_02046b08(void**);
 extern "C" void func_ov017_02191234(GameResources*);
@@ -44,98 +44,98 @@ extern "C" void func_ov017_021c8398(int, int);
 extern "C" void func_ov017_021c839c(int, int);
 extern "C" void func_ov000_02160d80(void*, int);
 extern unsigned char data_02108760;
-struct BattleConfig02163db4 {
-    char pad_0[8]; unsigned short eventTag; char pad_a[2]; int mode;
-    char pad_10[0x2a - 0x10]; signed char partyId; char pad_2b; int field_2c;
-    char pad_30[0x40 - 0x30];
+struct Struct_ov000_02163db4 {
+    char unknown_0_[8]; unsigned short unknown_8_; char unknown_a_[2]; int unknown_c_;
+    char unknown_10_[0x2a - 0x10]; signed char unknown_2a_; char unknown_2b_; int unknown_2c_;
+    char unknown_30_[0x40 - 0x30];
 };
-struct BattleScene02163db4 {
+struct Struct_ov000_02163db4_2 {
 #if defined(jpn)
-    char pad_0[0x21c]; BattleConfig02163db4* config;
-    char pad_2a4[0xe44 - 0x220]; unsigned short field_ec8;
+    char unknown_0_[0x21c]; Struct_ov000_02163db4* unknown_2a0_;
+    char unknown_220_[0xe44 - 0x220]; unsigned short unknown_ec8_;
 #else
-    char pad_0[0x2a0]; BattleConfig02163db4* config;
-    char pad_2a4[0xec8 - 0x2a4]; unsigned short field_ec8;
+    char unknown1_0_[0x2a0]; Struct_ov000_02163db4* unknown_2a0_;
+    char unknown_2a4_[0xec8 - 0x2a4]; unsigned short unknown_ec8_;
 #endif
 };
 #define REG_DISPLAY_CONTROL (*(volatile unsigned int*)0x04000000)
 #define REG_BLEND_CONTROL (*(volatile unsigned short*)0x04000050)
-static inline void ClearPartyBit(unsigned char* config, unsigned char index) {
-    func_020a367c(config, index);
+static inline void inline_ov000_02163db4(unsigned char* arg0, unsigned char arg1) {
+    func_020a367c(arg0, arg1);
 }
 
 // USA: func_ov000_02163db4
-extern "C" ARM void func_ov000_02163db4(BattleScene02163db4* scene) {
-    GameState* state = GameState::GetInstance();
-    GameResources* resources = GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
     func_0202ae18();
-    EffectParam020708c8* effect = func_020704fc();
+    Struct_020708c8* var3 = func_020704fc();
     func_0202ae24();
-    SetBrightness(resources, -16, 0);
-    func_020708c8(effect, 0);
+    SetBrightness(var1, -16, 0);
+    func_020708c8(var3, 0);
     if (func_ov017_021959b4()) {
-        for (int i = 0; i < 4; i++) {
-            GameObject* combatant = func_0200ff1c(state, i);
-            if (combatant) func_020531f0(combatant);
+        for (int var4 = 0; var4 < 4; var4++) {
+            GameObject* var5 = func_0200ff1c(var0, var4);
+            if (var5) func_020531f0(var5);
         }
-        func_ov000_02160fa8(scene, 0x2000000);
+        func_ov000_02160fa8(arg0, 0x2000000);
     }
-    BattleConfig02163db4* config = scene->config;
-    int partyId = func_ov017_02195658(resources);
-    if (func_020a35e0((unsigned char*)config, partyId & 0xff)) {
-        if (config->partyId == partyId) {
-            func_ov000_02160fa8(scene, 0x2000000);
-            func_ov017_021c8b78(config->eventTag);
+    Struct_ov000_02163db4* var6 = arg0->unknown_2a0_;
+    int var7 = func_ov017_02195658(var1);
+    if (func_020a35e0((unsigned char*)var6, var7 & 0xff)) {
+        if (var6->unknown_2a_ == var7) {
+            func_ov000_02160fa8(arg0, 0x2000000);
+            func_ov017_021c8b78(var6->unknown_8_);
         }
-        ClearPartyBit((unsigned char*)config, partyId);
+        inline_ov000_02163db4((unsigned char*)var6, var7);
     }
-    if (scene->config->partyId != func_020100a8(state) && !func_ov000_02160fd4(scene, 2)) return;
-    for (int i = 0; i < 4; i++) {
-        GameObject* combatant = func_0200ff1c(state, i);
-        if (!combatant) continue;
-        if (func_020a35e0((unsigned char*)scene->config, i & 0xff)) {
-            if (func_020535c8((signed char*)combatant)) func_020531f0(combatant);
+    if (arg0->unknown_2a0_->unknown_2a_ != func_020100a8(var0) && !func_ov000_02160fd4(arg0, 2)) return;
+    for (int var8 = 0; var8 < 4; var8++) {
+        GameObject* var9 = func_0200ff1c(var0, var8);
+        if (!var9) continue;
+        if (func_020a35e0((unsigned char*)arg0->unknown_2a0_, var8 & 0xff)) {
+            if (func_020535c8((signed char*)var9)) func_020531f0(var9);
         } else {
-            if (func_020535e0((int*)combatant)) func_020531f0(combatant);
+            if (func_020535e0((int*)var9)) func_020531f0(var9);
         }
     }
     func_020d7aa0(func_020d7a50());
-    if (scene->config->mode >= 0) func_ov017_021bd5d0(scene->config->mode);
-    if (loader->GetNumQueuedTasks() > 0) return;
-    if (!func_02046b08((void**)resources->unknown_ptr_array_36fc[1])) return;
-    func_ov017_02191234(resources);
-    SetFlags00(resources, 0x10);
-    unsigned int* data = func_020d6c00();
-    func_020466e4(data, 1);
-    func_020466e4(data, 2);
-    func_020466e4(data, 0x2000);
+    if (arg0->unknown_2a0_->unknown_c_ >= 0) func_ov017_021bd5d0(arg0->unknown_2a0_->unknown_c_);
+    if (var2->GetNumQueuedTasks() > 0) return;
+    if (!func_02046b08((void**)var1->unknown_ptr_array_36fc[1])) return;
+    func_ov017_02191234(var1);
+    SetFlags00(var1, 0x10);
+    unsigned int* var10 = func_020d6c00();
+    func_020466e4(var10, 1);
+    func_020466e4(var10, 2);
+    func_020466e4(var10, 0x2000);
     func_02012de8();
-    func_ov000_02164280(scene);
-    if (scene->config->mode == 0x1a && !state->GetGameObjectByIndex(1)) func_ov000_02166e5c(scene);
+    func_ov000_02164280(arg0);
+    if (arg0->unknown_2a0_->unknown_c_ == 0x1a && !var0->GetGameObjectByIndex(1)) func_ov000_02166e5c(arg0);
     func_02012de8();
-    func_ov000_021643d4(scene);
+    func_ov000_021643d4(arg0);
     func_02012de8();
-    func_ov000_02164fac(scene);
+    func_ov000_02164fac(arg0);
     func_02012de8();
-    func_ov000_02165490(scene);
+    func_ov000_02165490(arg0);
     func_02012de8();
-    func_ov000_02166880((unsigned char*)scene);
+    func_ov000_02166880((unsigned char*)arg0);
     func_02012de8();
-    func_ov000_02166978(scene);
+    func_ov000_02166978(arg0);
     func_02012de8();
     func_0205ea20(&data_02108760, 0x65);
     REG_DISPLAY_CONTROL = (REG_DISPLAY_CONTROL & ~0x1f00) | 0x1100;
     REG_BLEND_CONTROL = 0;
-    if (scene->config->field_2c) {
-        func_ov017_021c812c((unsigned char)scene->config->partyId, 1);
-        func_ov017_021c8398((unsigned char)scene->config->partyId, 1);
-        func_ov017_021c839c((unsigned char)scene->config->partyId, 1);
+    if (arg0->unknown_2a0_->unknown_2c_) {
+        func_ov017_021c812c((unsigned char)arg0->unknown_2a0_->unknown_2a_, 1);
+        func_ov017_021c8398((unsigned char)arg0->unknown_2a0_->unknown_2a_, 1);
+        func_ov017_021c839c((unsigned char)arg0->unknown_2a0_->unknown_2a_, 1);
     } else {
-        func_ov000_02160fa8(scene, 0x200000);
+        func_ov000_02160fa8(arg0, 0x200000);
     }
-    if (scene->field_ec8 == 0x785d || scene->field_ec8 == 0x77f7 || scene->field_ec8 == 0x77f5) {
-        SetFlags04(resources, 0x200000);
+    if (arg0->unknown_ec8_ == 0x785d || arg0->unknown_ec8_ == 0x77f7 || arg0->unknown_ec8_ == 0x77f5) {
+        SetFlags04(var1, 0x200000);
     }
-    func_ov000_02160d80(scene, 1);
+    func_ov000_02160d80(arg0, 1);
 }

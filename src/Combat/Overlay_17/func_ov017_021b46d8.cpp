@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-struct ByteHeader0204693c;
-extern "C" void func_0204693c(ByteHeader0204693c* p);
+struct Struct_0204693c;
+extern "C" void func_0204693c(Struct_0204693c* arg0);
 
-struct Struct021b46d8 {
-	unsigned char byte0;
-	unsigned char pad1[7];
-	int word8;
-	int word_c;
-	unsigned char byte10;
-	unsigned char byte11;
-	unsigned short half12;
-	int word14;
+struct Struct_ov017_0219dc90_3 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[7];
+	int unknown_8_;
+	int unknown_c_;
+	unsigned char unknown_10_;
+	unsigned char unknown_11_;
+	unsigned short unknown_12_;
+	int unknown_14_;
 };
 
 // USA: func_ov017_021b46d8
-extern "C" ARM void func_ov017_021b46d8(struct Struct021b46d8* p) {
-	func_0204693c((ByteHeader0204693c*)p);
-	p->byte0 = 0x14;
-	p->word8 = 0;
-	p->byte10 = 0;
-	p->word_c = -1;
-	p->half12 = 0;
+extern "C" ARM void func_ov017_021b46d8(struct Struct_ov017_0219dc90_3* arg0) {
+	func_0204693c((Struct_0204693c*)arg0);
+	arg0->unknown_0_ = 0x14;
+	arg0->unknown_8_ = 0;
+	arg0->unknown_10_ = 0;
+	arg0->unknown_c_ = -1;
+	arg0->unknown_12_ = 0;
 #if !defined(jpn)
-	p->word14 = 0;
+	arg0->unknown_14_ = 0;
 #endif
-	p->byte11 = 0;
+	arg0->unknown_11_ = 0;
 }

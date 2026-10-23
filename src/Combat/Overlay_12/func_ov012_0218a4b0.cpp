@@ -8,48 +8,48 @@ extern char data_ov012_0218bfdf[];
 #endif
 #include <globaldefs.h>
 
-struct EntryA68 {
-    short key;
-    void* value;
+struct Struct_02072a68 {
+    short unknown_0_;
+    void* unknown_4_;
 };
 
-struct TableA68 {
-    struct EntryA68* entries;
-    short count;
+struct Struct_02072a68_2 {
+    struct Struct_02072a68* unknown_0_;
+    short unknown_4_;
 };
 
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" void* func_02072a68(struct TableA68* table, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" int func_02041e70(char* dst, int palette);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int func_02041e70(char* arg0, int arg1);
 
 // USA: func_ov012_0218a4b0
-extern "C" ARM void func_ov012_0218a4b0(unsigned char* self, char* dst, int c) {
-    if (dst == 0) return;
+extern "C" ARM void func_ov012_0218a4b0(unsigned char* arg0, char* arg1, int arg2) {
+    if (arg1 == 0) return;
 
-    int cursor = *(int*)(self + R(0x1440,0x13e8));
-    if (c != 0) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    int var0 = *(int*)(arg0 + R(0x1440,0x13e8));
+    if (arg2 != 0) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var0);
 
-    void* name = func_02072a68((struct TableA68*)(self + R(0x1314,0x133c)), 0xa);
-    func_02041b70(dst, 0, (const char*)name);
+    void* var1 = func_02072a68((struct Struct_02072a68_2*)(arg0 + R(0x1314,0x133c)), 0xa);
+    func_02041b70(arg1, 0, (const char*)var1);
 
-    func_02042058(dst, *(char**)(self + R(0x1348,0x1378)));
+    func_02042058(arg1, *(char**)(arg0 + R(0x1348,0x1378)));
 
-    unsigned short raw = *(unsigned short*)(self + R(0x141c,0x13c4));
-    unsigned int t = ((unsigned int)raw << 16) >> 21;
-    if (t == 0) {
+    unsigned short var2 = *(unsigned short*)(arg0 + R(0x141c,0x13c4));
+    unsigned int var3 = ((unsigned int)var2 << 16) >> 21;
+    if (var3 == 0) {
 #if defined(jpn)
-        func_02042058(dst, data_ov012_0218bfdf);
+        func_02042058(arg1, data_ov012_0218bfdf);
 #else
-        func_02041e70(dst, 3);
+        func_02041e70(arg1, 3);
 #endif
     }
 
-    void* name2 = func_02072a68((struct TableA68*)(self + R(0x1314,0x133c)), 0xb);
-    func_02041b70(dst, 1, (const char*)name2);
+    void* var4 = func_02072a68((struct Struct_02072a68_2*)(arg0 + R(0x1314,0x133c)), 0xb);
+    func_02041b70(arg1, 1, (const char*)var4);
 }

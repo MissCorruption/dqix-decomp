@@ -5,118 +5,118 @@
 #endif
 #include "GameState/GameState.h"
 
-struct FlagWord02046708;
+struct Struct_02012de8;
 
 extern "C" void* func_020d6c00();
-extern "C" int func_02046708(FlagWord02046708* flags, unsigned int mask);
+extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
 
-struct StateObj0201fa2c {
-    unsigned char state;
-    unsigned char f1;
-    unsigned char flags;
-    unsigned char pad3;
-    unsigned short timer;
-    char pad6[0x14 - 6];
+struct Struct_020fdc60_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    char unknown_6_[0x14 - 6];
 };
 
-struct StateObj0201fc40 {
-    unsigned char state;
-    unsigned char f1;
-    unsigned char flags;
-    unsigned char pad3;
-    unsigned short timer;
-    char pad6[0x14 - 6];
+struct Struct_0201fc40 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    char unknown_6_[0x14 - 6];
 };
 
-struct Stopwatch0201fbac {
-    unsigned char state;
-    unsigned char b1;
-    unsigned char flags;
-    unsigned char pad3;
-    unsigned short timer;
-    char pad6[0x14 - 6];
+struct Struct_0201fbac {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    char unknown_6_[0x14 - 6];
 };
 
-struct Entry02026f34 {
-    char pad[0x1c];
-    unsigned char flag1c;
-    unsigned char flag1d;
+struct Struct_020fdcb0_5 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
 };
 
-struct Member02026f34 {
+struct Struct_02026f34 {
 #if defined(jpn)
-    char pad[0x1a6];
+    char unknown1_0_[0x1a6];
 #else
-    char pad[0x1b2];
+    char unknown_0_[0x1b2];
 #endif
-    unsigned short hp;
+    unsigned short unknown_1b2_;
 };
 
-extern StateObj0201fa2c data_020fdc60[4];
-extern Entry02026f34 data_020fdcb0[4];
+extern Struct_020fdc60_4 data_020fdc60[4];
+extern Struct_020fdcb0_5 data_020fdcb0[4];
 
-extern "C" void func_0201fbac(struct Stopwatch0201fbac* t);
-extern "C" void func_0201fc40(struct StateObj0201fc40* p, int arg);
-extern "C" void func_0201fa2c(StateObj0201fa2c* obj, unsigned int arg);
-extern "C" void func_020200c0(int index, void* obj);
+extern "C" void func_0201fbac(struct Struct_0201fbac* arg0);
+extern "C" void func_0201fc40(struct Struct_0201fc40* arg0, int arg1);
+extern "C" void func_0201fa2c(Struct_020fdc60_4* arg0, unsigned int arg1);
+extern "C" void func_020200c0(int arg0, void* arg1);
 
-typedef void (*UpdateStateTimer0201fa2cFn)(StateObj0201fa2c* obj, unsigned int arg, unsigned char id);
+typedef void (*Type_02026f34)(Struct_020fdc60_4* obj, unsigned int arg, unsigned char id);
 
 #if defined(jpn)
-enum { kIdsOffset = 0x6ac, kCountOffset = 0x6b0 };
+enum { Enum_02026f34_1880 = 0x6ac, Enum_02026f34_1884 = 0x6b0 };
 #else
-enum { kIdsOffset = 0x758, kCountOffset = 0x75c };
+enum { Enum_02026f34_1880 = 0x758, Enum_02026f34_1884 = 0x75c };
 #endif
 
 // USA: func_02026f34
-extern "C" ARM void func_02026f34(void* objv) {
-    unsigned char* obj = (unsigned char*)objv;
-    if (func_02046708((FlagWord02046708*)func_020d6c00(), 0x41)) return;
+extern "C" ARM void func_02026f34(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    if (func_02046708((Struct_02012de8*)func_020d6c00(), 0x41)) return;
 
-    GameState* gs = GameState::GetInstance();
-    unsigned int dt = gs->GetEffectiveDeltaTime();
+    GameState* var1 = GameState::GetInstance();
+    unsigned int var2 = var1->GetEffectiveDeltaTime();
 
-    for (int i = 0; i < obj[kCountOffset]; i++) {
-        unsigned char* p = obj + i;
-        unsigned char id = p[kIdsOffset];
-        StateObj0201fa2c* sw;
-        Entry02026f34* ent;
-        unsigned int mask = (unsigned char)(1 << id);
+    for (int var3 = 0; var3 < var0[Enum_02026f34_1884]; var3++) {
+        unsigned char* var4 = var0 + var3;
+        unsigned char var5 = var4[Enum_02026f34_1880];
+        Struct_020fdc60_4* var6;
+        Struct_020fdcb0_5* var7;
+        unsigned int var8 = (unsigned char)(1 << var5);
 
-        if (!(obj[0x55d] & mask)) continue;
+        if (!(var0[0x55d] & var8)) continue;
 
-        sw = (StateObj0201fa2c*)((char*)data_020fdc60 + i * 0x14);
-        ent = (Entry02026f34*)((char*)data_020fdcb0 + (id << 5));
-        void* member = gs->GetPartyMemberByIndex(id);
-        if (member == NULL) continue;
+        var6 = (Struct_020fdc60_4*)((char*)data_020fdc60 + var3 * 0x14);
+        var7 = (Struct_020fdcb0_5*)((char*)data_020fdcb0 + (var5 << 5));
+        void* var9 = var1->GetPartyMemberByIndex(var5);
+        if (var9 == NULL) continue;
 
-        int timer = 0;
-        if (ent->flag1c) timer = 0x7d0;
+        int var10 = 0;
+        if (var7->unknown_1c_) var10 = 0x7d0;
 
-        if (ent->flag1d || (obj[0x55e] & mask)) {
-            func_020200c0((signed char)id, (char*)obj + 0xe8 + id * 0x28);
-            obj[0x55e] &= ~mask;
+        if (var7->unknown_1d_ || (var0[0x55e] & var8)) {
+            func_020200c0((signed char)var5, (char*)var0 + 0xe8 + var5 * 0x28);
+            var0[0x55e] &= ~var8;
         }
 
-        if (data_020fdc60[0].flags & 2) {
-            func_0201fbac((struct Stopwatch0201fbac*)sw);
+        if (data_020fdc60[0].unknown_2_ & 2) {
+            func_0201fbac((struct Struct_0201fbac*)var6);
         } else {
-            if ((sw->flags & 1) && ((Member02026f34*)member)->hp == 0) {
-                sw->flags &= ~1;
-                sw->timer = 0x7d0;
-            } else if (((Member02026f34*)member)->hp != 0) {
-                func_0201fbac((struct Stopwatch0201fbac*)sw);
-                sw->flags |= 1;
-            } else if (timer > 0 && (obj + id)[0x558]) {
-                func_0201fc40((struct StateObj0201fc40*)sw, timer);
+            if ((var6->unknown_2_ & 1) && ((Struct_02026f34*)var9)->unknown_1b2_ == 0) {
+                var6->unknown_2_ &= ~1;
+                var6->unknown_4_ = 0x7d0;
+            } else if (((Struct_02026f34*)var9)->unknown_1b2_ != 0) {
+                func_0201fbac((struct Struct_0201fbac*)var6);
+                var6->unknown_2_ |= 1;
+            } else if (var10 > 0 && (var0 + var5)[0x558]) {
+                func_0201fc40((struct Struct_0201fc40*)var6, var10);
             }
         }
-        ((UpdateStateTimer0201fa2cFn)func_0201fa2c)(sw, dt, id);
+        ((Type_02026f34)func_0201fa2c)(var6, var2, var5);
 
-        if (ent->flag1c) {
-            (obj + id)[0x558] = 1;
+        if (var7->unknown_1c_) {
+            (var0 + var5)[0x558] = 1;
         }
-        ent->flag1d = 0;
-        ent->flag1c = 0;
+        var7->unknown_1d_ = 0;
+        var7->unknown_1c_ = 0;
     }
 }

@@ -3,54 +3,54 @@
 #if defined(jpn)
 extern char data_020f2d2c[];
 extern char data_020f2d31[];
-enum { kFirstFont = 12, kFirstStyle = 9, kSecondFont = 12, kSecondStyle = 11 };
+enum { Enum_020e1cdc_12 = 12, Enum_020e1cdc_9 = 9, Enum_020e1cdc_12_2 = 12, Enum_020e1cdc_11 = 11 };
 #else
-enum { kFirstFont = 9, kFirstStyle = 1, kSecondFont = 11, kSecondStyle = 1 };
+enum { Enum_020e1cdc_9_2 = 9, Enum_020e1cdc_1 = 1, Enum_020e1cdc_11_2 = 11, Enum_020e1cdc_1_2 = 1 };
 #endif
 
 #if defined(jpn)
 #define func_020e1cdc func_020e38d4
 #endif
-struct Panel020e1cdc { char pad[0x38]; unsigned char x, y, width, height; };
-struct Object020e1cdc { const void* staging; Panel020e1cdc* panel; unsigned char count; };
+struct Struct_020e1cdc { char unknown_0_[0x38]; unsigned char unknown_38_, unknown_39_, unknown_3a_, unknown_3b_; };
+struct Struct_020e1cdc_2 { const void* unknown_0_; Struct_020e1cdc* unknown_4_; unsigned char unknown_8_; };
 extern "C" int func_020e51cc(int);
 extern "C" int func_020420e8(int, unsigned char);
-extern "C" void func_020e1b2c(Object020e1cdc*, int);
-extern "C" int func_020e1f1c(Object020e1cdc*);
-extern "C" void func_020e2110(Object020e1cdc*);
+extern "C" void func_020e1b2c(Struct_020e1cdc_2*, int);
+extern "C" int func_020e1f1c(Struct_020e1cdc_2*);
+extern "C" void func_020e2110(Struct_020e1cdc_2*);
 extern "C" void func_020e2310(char*, int, int, int, int, unsigned char, unsigned char);
-extern "C" void func_020e23f4(Object020e1cdc*);
+extern "C" void func_020e23f4(Struct_020e1cdc_2*);
 void FreeVRAMStagingMemory(const void*);
 // USA: func_020e1cdc
-extern "C" ARM int func_020e1cdc(Object020e1cdc* obj, int arg) {
-    if (!obj->panel) return 1;
-    obj->panel->x = 0xc2;
-    obj->panel->y = 0x48;
-    obj->panel->width = 0x3c;
-    obj->panel->height = 0x2c;
+extern "C" ARM int func_020e1cdc(Struct_020e1cdc_2* arg0, int arg1) {
+    if (!arg0->unknown_4_) return 1;
+    arg0->unknown_4_->unknown_38_ = 0xc2;
+    arg0->unknown_4_->unknown_39_ = 0x48;
+    arg0->unknown_4_->unknown_3a_ = 0x3c;
+    arg0->unknown_4_->unknown_3b_ = 0x2c;
 #if !defined(jpn)
-    int first = func_020e51cc(27);
-    int second = func_020e51cc(28);
-    int width = func_020420e8(first, 1);
-    int otherWidth = func_020420e8(second, 1);
-    if (width < otherWidth) width = otherWidth;
-    int span = width + 24;
-    obj->panel->x = 256 - (span + 2);
-    obj->panel->width = span;
+    int var0 = func_020e51cc(27);
+    int var1 = func_020e51cc(28);
+    int var2 = func_020420e8(var0, 1);
+    int var3 = func_020420e8(var1, 1);
+    if (var2 < var3) var2 = var3;
+    int var4 = var2 + 24;
+    arg0->unknown_4_->unknown_38_ = 256 - (var4 + 2);
+    arg0->unknown_4_->unknown_3a_ = var4;
 #endif
-    func_020e1b2c(obj, arg);
-    if (func_020e1f1c(obj)) {
-        obj->count = 0;
-        func_020e2110(obj);
+    func_020e1b2c(arg0, arg1);
+    if (func_020e1f1c(arg0)) {
+        arg0->unknown_8_ = 0;
+        func_020e2110(arg0);
 #if defined(jpn)
-        func_020e2310((char*)obj, 0, 12, 8, (int)data_020f2d2c, kFirstFont, kFirstStyle);
-        func_020e2310((char*)obj, 1, 12, 24, (int)data_020f2d31, kSecondFont, kSecondStyle);
+        func_020e2310((char*)arg0, 0, 12, 8, (int)data_020f2d2c, Enum_020e1cdc_12, Enum_020e1cdc_9);
+        func_020e2310((char*)arg0, 1, 12, 24, (int)data_020f2d31, Enum_020e1cdc_12_2, Enum_020e1cdc_11);
 #else
-        func_020e2310((char*)obj, 0, 12, 8, first, kFirstFont, kFirstStyle);
-        func_020e2310((char*)obj, 1, 12, 24, second, kSecondFont, kSecondStyle);
+        func_020e2310((char*)arg0, 0, 12, 8, var0, Enum_020e1cdc_9_2, Enum_020e1cdc_1);
+        func_020e2310((char*)arg0, 1, 12, 24, var1, Enum_020e1cdc_11_2, Enum_020e1cdc_1_2);
 #endif
-        func_020e23f4(obj);
-        if (obj->staging) FreeVRAMStagingMemory(obj->staging);
+        func_020e23f4(arg0);
+        if (arg0->unknown_0_) FreeVRAMStagingMemory(arg0->unknown_0_);
         return 0;
     }
     return 1;

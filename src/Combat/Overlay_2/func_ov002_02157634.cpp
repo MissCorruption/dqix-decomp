@@ -244,7 +244,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
             return;
         }
         {
-            ActionDataTables* var12 = func_020797dc();
+            Struct_02108e10* var12 = func_020797dc();
             int var13 = var3->unknown_14_;
             if (var3->unknown_8_4_ == 0x1f) {
                 var13 = 0xfc;
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov002_02157634(struct Struct_ov002_02157634_2* arg0) {
         if (!var18) {
             var16 = func_020100b0(var4);
         }
-        ActionDataTables* var19 = func_020797dc();
+        Struct_02108e10* var19 = func_020797dc();
         func_02010828(var4);
         func_ov002_02157ce0((char*)&var0);
         func_ov002_02157ce0((char*)&var0);

@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204b088(void* p, int flag);
+extern "C" void func_0204b088(void* arg0, int arg1);
 
-struct Elem0207fd88 { char b[0x20]; };
+struct Struct_0207fd88_2 { char unknown_0_[0x20]; };
 
-struct Cont0207fd88 {
+struct Struct_0207fd88 {
     #if defined(jpn)
-    char pad0[0x20];
+    char unknown_0_[0x20];
 #else
-    char pad0[0x2c];
+    char unknown1_0_[0x2c];
 #endif
-    Elem0207fd88* list2c;
-    char pad30[0x38 - 0x30];
-    unsigned char count38;
+    Struct_0207fd88_2* unknown_2c_;
+    char unknown_30_[0x38 - 0x30];
+    unsigned char unknown_38_;
 };
 
 // USA: func_0207fd88
-extern "C" ARM void func_0207fd88(Cont0207fd88* obj) {
-    unsigned char count;
-    Elem0207fd88* p = obj->list2c;
-    unsigned char i;
-    if (p == NULL) return;
-    count = obj->count38;
-    for (i = 0; i < count; i++) {
-        func_0204b088(p, 0);
-        p++;
+extern "C" ARM void func_0207fd88(Struct_0207fd88* arg0) {
+    unsigned char var0;
+    Struct_0207fd88_2* var1 = arg0->unknown_2c_;
+    unsigned char var2;
+    if (var1 == NULL) return;
+    var0 = arg0->unknown_38_;
+    for (var2 = 0; var2 < var0; var2++) {
+        func_0204b088(var1, 0);
+        var1++;
     }
 }

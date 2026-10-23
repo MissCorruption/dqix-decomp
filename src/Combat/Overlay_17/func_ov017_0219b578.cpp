@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct Vec3Target0203a46c;
-extern "C" void func_0203a46c(struct Vec3Target0203a46c* obj, int x, int y, int z);
+struct Struct_0203a46c;
+extern "C" void func_0203a46c(struct Struct_0203a46c* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov017_0219b578
-extern "C" ARM void func_ov017_0219b578(char* self, int argY, int argZ) {
+extern "C" ARM void func_ov017_0219b578(char* arg0, int arg1, int arg2) {
 #if defined(jpn)
-    struct Vec3Target0203a46c* obj = *(struct Vec3Target0203a46c**)(self + 0x3000 + 0x420);
+    struct Struct_0203a46c* var0 = *(struct Struct_0203a46c**)(arg0 + 0x3000 + 0x420);
 #else
-    struct Vec3Target0203a46c* obj = *(struct Vec3Target0203a46c**)(self + 0x3000 + 0x630);
+    struct Struct_0203a46c* var0 = *(struct Struct_0203a46c**)(arg0 + 0x3000 + 0x630);
 #endif
-    if (obj == 0) {
+    if (var0 == 0) {
         return;
     }
-    int fieldX = *(int*)((char*)obj + 0x1c);
-    int newX = (int)(((float)fieldX / 4096.0f + (float)argY) * 4096.0f);
-    int fieldY = *(int*)((char*)obj + 0x20);
-    int newY = (int)(((float)fieldY / 4096.0f + (float)argZ) * 4096.0f);
-    func_0203a46c(obj, newX, newY, 0);
+    int var1 = *(int*)((char*)var0 + 0x1c);
+    int var2 = (int)(((float)var1 / 4096.0f + (float)arg1) * 4096.0f);
+    int var3 = *(int*)((char*)var0 + 0x20);
+    int var4 = (int)(((float)var3 / 4096.0f + (float)arg2) * 4096.0f);
+    func_0203a46c(var0, var2, var4, 0);
 }

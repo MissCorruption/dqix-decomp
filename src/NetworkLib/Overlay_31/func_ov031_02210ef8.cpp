@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct StateHolder02210ef8 {
-    int* state;
+struct Struct_ov031_0224e588 {
+    int* unknown_0_;
 };
 
-extern StateHolder02210ef8 data_ov031_0224e588;
+extern Struct_ov031_0224e588 data_ov031_0224e588;
 
 // USA: func_ov031_02210ef8
 extern "C" ARM int func_ov031_02210ef8(void) {
-    if (data_ov031_0224e588.state == NULL) {
+    if (data_ov031_0224e588.unknown_0_ == NULL) {
         return 0;
     }
-    return *data_ov031_0224e588.state == 7;
+    return *data_ov031_0224e588.unknown_0_ == 7;
 }

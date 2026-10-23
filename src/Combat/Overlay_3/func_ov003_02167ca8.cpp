@@ -1,140 +1,140 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct020865b0;
-struct FindEntryContainer02086e50;
-struct Wrapper02168088;
+struct Struct_0201099c_16;
+struct Struct_02086e50;
+struct Struct_ov003_02167b34_2;
 
-extern "C" ARM void func_ov003_02167e28(void* self, void* stats, int flag, unsigned char index,
-                                        int byteValue, int halfValue, int wordValue);
-extern "C" ARM void func_ov003_02167fa4(void* self, int flag, unsigned char* table);
-extern "C" void func_ov003_02168088(struct Wrapper02168088* obj, int* arr);
-extern "C" int func_020813ec(void* list, int arg);
-extern "C" void func_02042764(unsigned char* src, char* dst, int n);
-extern "C" void* func_02086e50(FindEntryContainer02086e50* p, int id);
-extern "C" int func_020865b0(Struct020865b0* p);
+extern "C" ARM void func_ov003_02167e28(void* arg0, void* arg1, int arg2, unsigned char arg3,
+                                        int arg4, int arg5, int arg6);
+extern "C" ARM void func_ov003_02167fa4(void* arg0, int arg1, unsigned char* arg2);
+extern "C" void func_ov003_02168088(struct Struct_ov003_02167b34_2* arg0, int* arg1);
+extern "C" int func_020813ec(void* arg0, int arg1);
+extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
+extern "C" void* func_02086e50(Struct_02086e50* arg0, int arg1);
+extern "C" int func_020865b0(Struct_0201099c_16* arg0);
 
-struct Entry02167ca8 {
-    unsigned char pad0[2];
-    unsigned char metaValues[13];
-    unsigned char tableF[13];
-    int wordValues[13];
-    unsigned char pad50[0xf6 - 0x50];
-    unsigned char tableF6[0x14c - 0xf6];
-    struct { unsigned int v0 : 10; unsigned int v1 : 10; unsigned int v2 : 10; } g0;
-    struct { unsigned int v3 : 10; unsigned int v4 : 10; unsigned int v5 : 10; } g1;
-    struct { unsigned int v6 : 10; } g2;
-    struct { unsigned int v7 : 10; unsigned int v8 : 10; unsigned int v9 : 10; } g3;
-    struct { unsigned int v10 : 10; unsigned int v11 : 10; } g4;
-    unsigned char pad160[0x174 - 0x160];
-    unsigned char flag : 1;
+struct Struct_ov003_02167ca8_3 {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_[13];
+    unsigned char unknown_f_[13];
+    int unknown_1c_[13];
+    unsigned char unknown_50_[0xf6 - 0x50];
+    unsigned char unknown_f6_[0x14c - 0xf6];
+    struct { unsigned int unknown_0_0_ : 10; unsigned int unknown_1_2_ : 10; unsigned int unknown_2_4_ : 10; } unknown_14c_;
+    struct { unsigned int unknown_0_0_ : 10; unsigned int unknown_1_2_ : 10; unsigned int unknown_2_4_ : 10; } unknown_150_;
+    struct { unsigned int unknown_0_0_ : 10; } unknown_154_;
+    struct { unsigned int unknown_0_0_ : 10; unsigned int unknown_1_2_ : 10; unsigned int unknown_2_4_ : 10; } unknown_158_;
+    struct { unsigned int unknown_0_0_ : 10; unsigned int unknown_1_2_ : 10; } unknown_15c_;
+    unsigned char unknown_160_[0x174 - 0x160];
+    unsigned char unknown_174_0_ : 1;
 };
 
-struct Menu_02167ca8 {
-    void* pad00[4];
-    void* list;
-    char pad14[0x2e - 0x14];
-    char stats[0x30];
-    char pad5e[0x76 - 0x5e];
-    signed char combatantId;
+struct Struct_ov003_02167ca8 {
+    void* unknown_0_[4];
+    void* unknown_10_;
+    char unknown_14_[0x2e - 0x14];
+    char unknown_2e_[0x30];
+    char unknown_5e_[0x76 - 0x5e];
+    signed char unknown_76_;
 };
 
 // USA: func_ov003_02167ca8
 #if defined(jpn)
-struct Menu_02167b80 {
-    void* pad00[4];
-    void* list;
-    char pad14[0x46 - 0x14];
-    signed char combatantId;
+struct Struct_ov003_02167ca8_2 {
+    void* unknown_0_[4];
+    void* unknown_10_;
+    char unknown_14_[0x46 - 0x14];
+    signed char unknown_46_;
 };
 
-extern "C" ARM void func_ov003_02167ca8(Menu_02167b80* self) {
-    Entry02167ca8* entry = (Entry02167ca8*)func_02086e50(
-        (FindEntryContainer02086e50*)func_02010828(GameState::GetInstance()),
-        self->combatantId);
-    if (entry == 0) {
+extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8_2* arg0) {
+    Struct_ov003_02167ca8_3* var0 = (Struct_ov003_02167ca8_3*)func_02086e50(
+        (Struct_02086e50*)func_02010828(GameState::GetInstance()),
+        arg0->unknown_46_);
+    if (var0 == 0) {
         return;
     }
-    int index = func_020865b0((Struct020865b0*)entry);
-    func_ov003_02167e28(self, (unsigned char*)entry + 0x140, entry->flag, (unsigned char)index,
-                        entry->tableF[index], entry->metaValues[index], entry->wordValues[index]);
-    func_ov003_02167fa4(self, func_020865b0((Struct020865b0*)entry) & 0xff, entry->tableF6);
-    int values[12];
-    int a0 = entry->g0.v0;
-    int b0 = a0;
-    values[0] = b0;
-    int a1 = entry->g0.v1;
-    int b1 = a1;
-    values[1] = b1;
-    int a2 = entry->g0.v2;
-    int b2 = a2;
-    values[2] = b2;
-    int a3 = entry->g1.v3;
-    int b3 = a3;
-    values[3] = b3;
-    int a4 = entry->g1.v4;
-    values[4] = a4;
-    int a5 = entry->g1.v5;
-    values[5] = a5;
-    int a6 = entry->g2.v6;
-    values[6] = a6;
-    int a7 = entry->g3.v7;
-    values[7] = a7;
-    int a8 = entry->g3.v8;
-    values[8] = a8;
-    int a9 = entry->g3.v9;
-    values[9] = a9;
-    int a10 = entry->g4.v10;
-    values[10] = a10;
-    int a11 = entry->g4.v11;
-    values[11] = a11;
-    func_ov003_02168088((Wrapper02168088*)self, values);
-    func_020813ec(self->list, 0);
+    int var1 = func_020865b0((Struct_0201099c_16*)var0);
+    func_ov003_02167e28(arg0, (unsigned char*)var0 + 0x140, var0->unknown_174_0_, (unsigned char)var1,
+                        var0->unknown_f_[var1], var0->unknown_2_[var1], var0->unknown_1c_[var1]);
+    func_ov003_02167fa4(arg0, func_020865b0((Struct_0201099c_16*)var0) & 0xff, var0->unknown_f6_);
+    int var2[12];
+    int var3 = var0->unknown_14c_.unknown_0_0_;
+    int var4 = var3;
+    var2[0] = var4;
+    int var5 = var0->unknown_14c_.unknown_1_2_;
+    int var6 = var5;
+    var2[1] = var6;
+    int var7 = var0->unknown_14c_.unknown_2_4_;
+    int var8 = var7;
+    var2[2] = var8;
+    int var9 = var0->unknown_150_.unknown_0_0_;
+    int var10 = var9;
+    var2[3] = var10;
+    int var11 = var0->unknown_150_.unknown_1_2_;
+    var2[4] = var11;
+    int var12 = var0->unknown_150_.unknown_2_4_;
+    var2[5] = var12;
+    int var13 = var0->unknown_154_.unknown_0_0_;
+    var2[6] = var13;
+    int var14 = var0->unknown_158_.unknown_0_0_;
+    var2[7] = var14;
+    int var15 = var0->unknown_158_.unknown_1_2_;
+    var2[8] = var15;
+    int var16 = var0->unknown_158_.unknown_2_4_;
+    var2[9] = var16;
+    int var17 = var0->unknown_15c_.unknown_0_0_;
+    var2[10] = var17;
+    int var18 = var0->unknown_15c_.unknown_1_2_;
+    var2[11] = var18;
+    func_ov003_02168088((Struct_ov003_02167b34_2*)arg0, var2);
+    func_020813ec(arg0->unknown_10_, 0);
 }
 #else
-extern "C" ARM void func_ov003_02167ca8(Menu_02167ca8* self) {
-    Entry02167ca8* entry = (Entry02167ca8*)func_02086e50(
-        (FindEntryContainer02086e50*)func_02010828(GameState::GetInstance()),
-        self->combatantId);
-    if (entry == 0) {
+extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8* arg0) {
+    Struct_ov003_02167ca8_3* var19 = (Struct_ov003_02167ca8_3*)func_02086e50(
+        (Struct_02086e50*)func_02010828(GameState::GetInstance()),
+        arg0->unknown_76_);
+    if (var19 == 0) {
         return;
     }
-    int index = func_020865b0((Struct020865b0*)entry);
-    memset(self->stats, 0, 0x30);
-    func_02042764((unsigned char*)entry + 0x140, self->stats, 1);
-    func_ov003_02167e28(self, self->stats, entry->flag, (unsigned char)index,
-                        entry->tableF[index], entry->metaValues[index], entry->wordValues[index]);
-    func_ov003_02167fa4(self, func_020865b0((Struct020865b0*)entry) & 0xff, entry->tableF6);
-    int values[12];
-    int a0 = entry->g0.v0;
-    int b0 = a0;
-    values[0] = b0;
-    int a1 = entry->g0.v1;
-    int b1 = a1;
-    values[1] = b1;
-    int a2 = entry->g0.v2;
-    int b2 = a2;
-    values[2] = b2;
-    int a3 = entry->g1.v3;
-    int b3 = a3;
-    values[3] = b3;
-    int a4 = entry->g1.v4;
-    values[4] = a4;
-    int a5 = entry->g1.v5;
-    values[5] = a5;
-    int a6 = entry->g2.v6;
-    values[6] = a6;
-    int a7 = entry->g3.v7;
-    values[7] = a7;
-    int a8 = entry->g3.v8;
-    values[8] = a8;
-    int a9 = entry->g3.v9;
-    values[9] = a9;
-    int a10 = entry->g4.v10;
-    values[10] = a10;
-    int a11 = entry->g4.v11;
-    values[11] = a11;
-    func_ov003_02168088((Wrapper02168088*)self, values);
-    func_020813ec(self->list, 0);
+    int var20 = func_020865b0((Struct_0201099c_16*)var19);
+    memset(arg0->unknown_2e_, 0, 0x30);
+    func_02042764((unsigned char*)var19 + 0x140, arg0->unknown_2e_, 1);
+    func_ov003_02167e28(arg0, arg0->unknown_2e_, var19->unknown_174_0_, (unsigned char)var20,
+                        var19->unknown_f_[var20], var19->unknown_2_[var20], var19->unknown_1c_[var20]);
+    func_ov003_02167fa4(arg0, func_020865b0((Struct_0201099c_16*)var19) & 0xff, var19->unknown_f6_);
+    int var21[12];
+    int var22 = var19->unknown_14c_.unknown_0_0_;
+    int var23 = var22;
+    var21[0] = var23;
+    int var24 = var19->unknown_14c_.unknown_1_2_;
+    int var25 = var24;
+    var21[1] = var25;
+    int var26 = var19->unknown_14c_.unknown_2_4_;
+    int var27 = var26;
+    var21[2] = var27;
+    int var28 = var19->unknown_150_.unknown_0_0_;
+    int var29 = var28;
+    var21[3] = var29;
+    int var30 = var19->unknown_150_.unknown_1_2_;
+    var21[4] = var30;
+    int var31 = var19->unknown_150_.unknown_2_4_;
+    var21[5] = var31;
+    int var32 = var19->unknown_154_.unknown_0_0_;
+    var21[6] = var32;
+    int var33 = var19->unknown_158_.unknown_0_0_;
+    var21[7] = var33;
+    int var34 = var19->unknown_158_.unknown_1_2_;
+    var21[8] = var34;
+    int var35 = var19->unknown_158_.unknown_2_4_;
+    var21[9] = var35;
+    int var36 = var19->unknown_15c_.unknown_0_0_;
+    var21[10] = var36;
+    int var37 = var19->unknown_15c_.unknown_1_2_;
+    var21[11] = var37;
+    func_ov003_02168088((Struct_ov003_02167b34_2*)arg0, var21);
+    func_020813ec(arg0->unknown_10_, 0);
 }
 #endif

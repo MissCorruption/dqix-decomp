@@ -3,6 +3,6 @@
 
 class GameState;
 
-extern "C" void* func_020100bc(GameState* state);
+extern "C" void* func_020100bc(GameState* arg0);
 
 #endif

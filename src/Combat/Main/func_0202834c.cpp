@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Array0202834c {
-    char pad[0x24];
-    unsigned char capacity;  // 0x24
-    unsigned char count;     // 0x25
-    char pad2[2];            // 0x26,0x27
-    void* buffer;            // 0x28
+struct Struct_0201a300_8 {
+    char unknown_0_[0x24];
+    unsigned char unknown_24_;  // 0x24
+    unsigned char unknown_25_;     // 0x25
+    char unknown_26_[2];            // 0x26,0x27
+    void* unknown_28_;            // 0x28
 };
 
 // USA: func_0202834c
-extern "C" ARM void func_0202834c(struct Array0202834c* obj, SafeAllocator* alloc, int count) {
-    obj->buffer = alloc->Allocate(count * 4);
-    obj->count = 0;
-    obj->capacity = count;
+extern "C" ARM void func_0202834c(struct Struct_0201a300_8* arg0, SafeAllocator* arg1, int arg2) {
+    arg0->unknown_28_ = arg1->Allocate(arg2 * 4);
+    arg0->unknown_25_ = 0;
+    arg0->unknown_24_ = arg2;
 }

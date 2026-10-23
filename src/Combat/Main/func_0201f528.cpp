@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
-struct Struct02030b7c;
-extern "C" void func_02023b0c(char* a, char* b);
-extern "C" void func_020277f4(void* obj, int a, void* b, void* allocator);
+struct Struct_0201c3a4;
+extern "C" void func_02023b0c(char* arg0, char* arg1);
+extern "C" void func_020277f4(void* arg0, int arg1, void* arg2, void* arg3);
 
-struct Global020fdc4c_f528 {
-    int pad0;
+struct Struct_020fdc4c_3 {
+    int unknown_0_;
 
 #if !defined(jpn)
-    int pad4;
+    int unknown_4_;
 #endif
-    void* field8;
-    int padc;
-    void* field10;
+    void* unknown_8_;
+    int unknown_c_;
+    void* unknown_10_;
 };
-extern struct Global020fdc4c_f528 data_020fdc4c;
+extern struct Struct_020fdc4c_3 data_020fdc4c;
 
 // USA: func_0201f528
-extern "C" ARM int func_0201f528(struct Variant02030b0c* arg0) {
-    int a = ((Script::Parameter*)arg0)->ToInt();
-    void* b = (void*)((Script::Parameter*)((struct Struct02030b7c*)((char*)arg0 + 0x8)))->ToString();
-    if (b == 0) return 0;
-    func_02023b0c((char*)data_020fdc4c.field10, (char*)b);
-    func_020277f4(data_020fdc4c.field10, a, b, data_020fdc4c.field8);
+extern "C" ARM int func_0201f528(struct Struct_0201c1c8* arg0) {
+    int var0 = ((Script::Parameter*)arg0)->ToInt();
+    void* var1 = (void*)((Script::Parameter*)((struct Struct_0201c3a4*)((char*)arg0 + 0x8)))->ToString();
+    if (var1 == 0) return 0;
+    func_02023b0c((char*)data_020fdc4c.unknown_10_, (char*)var1);
+    func_020277f4(data_020fdc4c.unknown_10_, var0, var1, data_020fdc4c.unknown_8_);
     return 1;
 }

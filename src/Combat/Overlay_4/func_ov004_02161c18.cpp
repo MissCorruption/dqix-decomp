@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 
-struct MenuState02161c18 {
+struct Struct_ov004_021707e8_4 {
 #if defined(jpn)
-    unsigned char pad0[4];
-    signed char field6;
-    unsigned char pad5;
-    unsigned char field7;
-    unsigned char pad7;
-    signed char fieldB;
-    unsigned char pad9[3];
+    unsigned char unknown1_0_[4];
+    signed char unknown_6_;
+    unsigned char unknown_5_;
+    unsigned char unknown1_7_;
+    unsigned char unknown_7_;
+    signed char unknown_b_;
+    unsigned char unknown_9_[3];
 #else
-    unsigned char pad0[6];
-    signed char field6;
-    unsigned char field7;
-    unsigned char pad8[3];
-    signed char fieldB;
+    unsigned char unknown_0_[6];
+    signed char unknown_6_;
+    unsigned char unknown1_7_;
+    unsigned char unknown_8_[3];
+    signed char unknown_b_;
 #endif
-    char* textBuf;
-    unsigned char pad10[0xc];
-    int combatantId;
+    char* unknown_c_;
+    unsigned char unknown_10_[0xc];
+    int unknown_1c_;
 };
 
-struct MenuEntry02161c18 {
-    short ids[7];
-    unsigned char vals[7];
-    unsigned char active;
+struct Struct_ov004_02161c18 {
+    short unknown_0_[7];
+    unsigned char unknown_e_[7];
+    unsigned char unknown_15_;
 };
 
-struct MenuPage02161c18 {
-    struct MenuEntry02161c18 entries[26];
-    unsigned char cursor;
-    unsigned char pad23d[2];
-    unsigned char count;
+struct Struct_ov004_02170b90_3 {
+    struct Struct_ov004_02161c18 unknown_0_[26];
+    unsigned char unknown_23c_;
+    unsigned char unknown_23d_[2];
+    unsigned char unknown_23f_;
 };
 
-class Node02161c18 {
+class Struct_ov004_02161c18_2 {
 public:
-    virtual void vf00(); virtual void vf04(); virtual void vf08(); virtual void vf0c();
-    virtual void vf10(); virtual void vf14(); virtual void vf18(); virtual void vf1c();
-    virtual void vf20(); virtual void vf24(); virtual void vf28(); virtual void vf2c();
-    virtual void vf30(); virtual void vf34(); virtual void vf38(); virtual void vf3c();
-    virtual void vf40(); virtual void vf44(); virtual void vf48(); virtual void vf4c();
-    virtual void vf50(); virtual void vf54(); virtual void vf58(); virtual void vf5c();
-    virtual void vf60(); virtual void vf64(); virtual void vf68(); virtual void vf6c();
-    virtual void vf70(); virtual void vf74(); virtual void vf78(); virtual void vf7c();
-    virtual void vf80(); virtual void vf84(); virtual void vf88(); virtual void vf8c();
-    virtual void vf90(); virtual void vf94(); virtual void vf98(); virtual void vf9c();
-    virtual void vfa0(); virtual void vfa4(); virtual void vfa8(); virtual void vfac();
-    virtual void vfb0(); virtual void vfb4(); virtual void vfb8(); virtual void vfbc();
-    virtual void vfc0(); virtual void vfc4(); virtual void vfc8(); virtual void vfcc();
-    virtual void vfd0(); virtual void vfd4();
-    virtual void SetState(int arg);
+    virtual void inline_ov004_02161c18_46(); virtual void inline_ov004_02161c18_47(); virtual void inline_ov004_02161c18_48(); virtual void inline_ov004_02161c18_49();
+    virtual void inline_ov004_02161c18_50(); virtual void inline_ov004_02161c18_51(); virtual void inline_ov004_02161c18_52(); virtual void inline_ov004_02161c18_53();
+    virtual void inline_ov004_02161c18_54(); virtual void inline_ov004_02161c18_55(); virtual void inline_ov004_02161c18(); virtual void inline_ov004_02161c18_2();
+    virtual void inline_ov004_02161c18_3(); virtual void inline_ov004_02161c18_4(); virtual void inline_ov004_02161c18_5(); virtual void inline_ov004_02161c18_6();
+    virtual void inline_ov004_02161c18_7(); virtual void inline_ov004_02161c18_8(); virtual void inline_ov004_02161c18_9(); virtual void inline_ov004_02161c18_10();
+    virtual void inline_ov004_02161c18_11(); virtual void inline_ov004_02161c18_12(); virtual void inline_ov004_02161c18_13(); virtual void inline_ov004_02161c18_14();
+    virtual void inline_ov004_02161c18_15(); virtual void inline_ov004_02161c18_16(); virtual void inline_ov004_02161c18_17(); virtual void inline_ov004_02161c18_18();
+    virtual void inline_ov004_02161c18_19(); virtual void inline_ov004_02161c18_20(); virtual void inline_ov004_02161c18_21(); virtual void inline_ov004_02161c18_22();
+    virtual void inline_ov004_02161c18_23(); virtual void inline_ov004_02161c18_24(); virtual void inline_ov004_02161c18_25(); virtual void inline_ov004_02161c18_26();
+    virtual void inline_ov004_02161c18_27(); virtual void inline_ov004_02161c18_28(); virtual void inline_ov004_02161c18_29(); virtual void inline_ov004_02161c18_30();
+    virtual void inline_ov004_02161c18_31(); virtual void inline_ov004_02161c18_32(); virtual void inline_ov004_02161c18_33(); virtual void inline_ov004_02161c18_34();
+    virtual void inline_ov004_02161c18_35(); virtual void inline_ov004_02161c18_36(); virtual void inline_ov004_02161c18_37(); virtual void inline_ov004_02161c18_38();
+    virtual void inline_ov004_02161c18_39(); virtual void inline_ov004_02161c18_40(); virtual void inline_ov004_02161c18_41(); virtual void inline_ov004_02161c18_42();
+    virtual void inline_ov004_02161c18_43(); virtual void inline_ov004_02161c18_44();
+    virtual void inline_ov004_02161c18_45(int arg0);
 
-    unsigned char pad4[8];
-    unsigned char flags;
+    unsigned char unknown_4_[8];
+    unsigned char unknown_c_;
 };
 
-extern "C" void __clear(void* buf, int n);
-extern "C" void* func_ov011_021849c8(void* self);
-extern "C" Node02161c18* func_ov004_0215e47c(void* a, int key);
-extern "C" void func_ov004_0215e574(void* a, unsigned short key, int c, int d, int e);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" Struct_ov004_02161c18_2* func_ov004_0215e47c(void* arg0, int arg1);
+extern "C" void func_ov004_0215e574(void* arg0, unsigned short arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov004_0215e49c(void*, int, int);
-extern "C" Node02161c18* func_ov023_021f6880(void* list, int key);
-extern "C" int func_ov023_021f6f10(Node02161c18* node);
-extern "C" void func_ov004_0215f6f4(void* a, short v1, short v2, int flag);
+extern "C" Struct_ov004_02161c18_2* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" int func_ov023_021f6f10(Struct_ov004_02161c18_2* arg0);
+extern "C" void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int arg3);
 
-extern struct MenuState02161c18 data_ov004_021707e8;
-extern struct MenuPage02161c18 data_ov004_02170b90;
+extern struct Struct_ov004_021707e8_4 data_ov004_021707e8;
+extern struct Struct_ov004_02170b90_3 data_ov004_02170b90;
 extern int data_ov004_0216fe90[];
 #if defined(jpn)
 extern short data_ov004_021710a8[];
@@ -78,134 +78,134 @@ extern unsigned char data_ov004_02170814[];
 
 // JPN: func_ov004_02161c18 (021624fc)
 // USA: func_ov004_02161c18
-extern "C" ARM int func_ov004_02161c18(void* self) {
-    int state;
-    int btn;
-    void* obj;
-    int dim;
-    int side;
-    int j;
-    int i;
-    int st;
-    int k;
-    Node02161c18* node;
-    int found;
-    int idx;
-    int next;
-    unsigned char mark[2];
-    struct MenuPage02161c18* page;
-    struct MenuEntry02161c18* entry;
+extern "C" ARM int func_ov004_02161c18(void* arg0) {
+    int var0;
+    int var1;
+    void* var2;
+    int var3;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    Struct_ov004_02161c18_2* var9;
+    int var10;
+    int var11;
+    int var12;
+    unsigned char var13[2];
+    struct Struct_ov004_02170b90_3* var14;
+    struct Struct_ov004_02161c18* var15;
 
-    data_ov004_021707e8.field7 = 0x66;
-    dim = 0;
-    obj = func_ov011_021849c8(self);
-    if (data_ov004_021707e8.field6 == 0) {
-        node = func_ov004_0215e47c(self, 3);
-        if (node != 0) node->flags &= ~4;
+    data_ov004_021707e8.unknown1_7_ = 0x66;
+    var3 = 0;
+    var2 = func_ov011_021849c8(arg0);
+    if (data_ov004_021707e8.unknown_6_ == 0) {
+        var9 = func_ov004_0215e47c(arg0, 3);
+        if (var9 != 0) var9->unknown_c_ &= ~4;
     } else {
-        node = func_ov004_0215e47c(self, 3);
-        if (node != 0) node->flags |= 4;
+        var9 = func_ov004_0215e47c(arg0, 3);
+        if (var9 != 0) var9->unknown_c_ |= 4;
     }
 
-    if (data_ov004_02170b90.count != 0) {
-        for (i = 0xd; i < 0xf; i++) func_ov004_0215e49c(self, i, 0x3a);
-        for (i = 0xf; i < 0x1d; i++) func_ov004_0215e49c(self, i, 0x11e);
-        func_ov004_0215e49c(self, 0x31, 0x3a);
-        func_ov004_0215e49c(self, 0x32, 0x3a);
-        for (j = 0; j < 3; j++) {
-            node = func_ov023_021f6880(obj, j + 0x65);
-            if (node != 0) node->flags &= ~8;
+    if (data_ov004_02170b90.unknown_23f_ != 0) {
+        for (var6 = 0xd; var6 < 0xf; var6++) func_ov004_0215e49c(arg0, var6, 0x3a);
+        for (var6 = 0xf; var6 < 0x1d; var6++) func_ov004_0215e49c(arg0, var6, 0x11e);
+        func_ov004_0215e49c(arg0, 0x31, 0x3a);
+        func_ov004_0215e49c(arg0, 0x32, 0x3a);
+        for (var5 = 0; var5 < 3; var5++) {
+            var9 = func_ov023_021f6880(var2, var5 + 0x65);
+            if (var9 != 0) var9->unknown_c_ &= ~8;
         }
     #if !defined(jpn)
-    func_ov004_0215e574(self, 0xc, 0xff, 0, 0);
+    func_ov004_0215e574(arg0, 0xc, 0xff, 0, 0);
 #endif
 
-        page = &data_ov004_02170b90;
-        if (page->count <= 1) page->cursor = 0;
-        next = page->cursor;
-        if (next >= 26) next = 0;
-        side = 0;
-        __clear(mark, 2);
-        found = 0;
-        for (i = next; i < 26; i++) {
-            idx = data_ov004_0216fe90[i];
-            entry = &page->entries[idx - 1];
-            if (!entry->active) continue;
+        var14 = &data_ov004_02170b90;
+        if (var14->unknown_23f_ <= 1) var14->unknown_23c_ = 0;
+        var12 = var14->unknown_23c_;
+        if (var12 >= 26) var12 = 0;
+        var4 = 0;
+        __clear(var13, 2);
+        var10 = 0;
+        for (var6 = var12; var6 < 26; var6++) {
+            var11 = data_ov004_0216fe90[var6];
+            var15 = &var14->unknown_0_[var11 - 1];
+            if (!var15->unknown_15_) continue;
             {
-                int cid;
-                int base;
-                func_ov004_0215e49c(self, side + 0xd, i + 0x19f);
+                int var16;
+                int var17;
+                func_ov004_0215e49c(arg0, var4 + 0xd, var6 + 0x19f);
 #if !defined(jpn)
-                if (side == 0) {
-                    func_ov004_0215e574(self, side + 0xd, 0x80, 0, 0);
+                if (var4 == 0) {
+                    func_ov004_0215e574(arg0, var4 + 0xd, 0x80, 0, 0);
                 } else {
-                    func_ov004_0215e574(self, side + 0xd, 0x80, 0x80, 0);
+                    func_ov004_0215e574(arg0, var4 + 0xd, 0x80, 0x80, 0);
                 }
 #endif
-                node = func_ov023_021f6880(obj, side + 0xd);
-                if (node == 0) continue;
-                cid = data_ov004_021707e8.combatantId;
+                var9 = func_ov023_021f6880(var2, var4 + 0xd);
+                if (var9 == 0) continue;
+                var16 = data_ov004_021707e8.unknown_1c_;
 #if defined(jpn)
-                if (idx != data_ov004_021710a8[cid] && idx <= 0xe) st = 3;
-                else st = 0xf;
-                if (idx == 0xd && data_ov004_02171090[cid] == 1) st = 0xf;
+                if (var11 != data_ov004_021710a8[var16] && var11 <= 0xe) var7 = 3;
+                else var7 = 0xf;
+                if (var11 == 0xd && data_ov004_02171090[var16] == 1) var7 = 0xf;
 #else
-                if (idx != data_ov004_02170818[cid] && idx <= 0xe) st = 3;
-                else st = 0xf;
-                if (idx == 0xd && data_ov004_02170814[cid] == 1) st = 0xf;
+                if (var11 != data_ov004_02170818[var16] && var11 <= 0xe) var7 = 3;
+                else var7 = 0xf;
+                if (var11 == 0xd && data_ov004_02170814[var16] == 1) var7 = 0xf;
 #endif
-                node->SetState(st);
-                if (st == 0xf) mark[side] = 1;
+                var9->inline_ov004_02161c18_45(var7);
+                if (var7 == 0xf) var13[var4] = 1;
 
-                for (k = 0; k < 7; k++) {
-                    int key = entry->ids[k];
-                    if (key < 0) break;
-                    base = 0xf;
-                    if (side == 1) base = 0x16;
-                    func_ov004_0215e49c(self, base + k, key);
-                    node = func_ov023_021f6880(obj, base + k);
-                    if (node != 0 && func_ov023_021f6f10(node) == 8) node->SetState(st);
+                for (var8 = 0; var8 < 7; var8++) {
+                    int var18 = var15->unknown_0_[var8];
+                    if (var18 < 0) break;
+                    var17 = 0xf;
+                    if (var4 == 1) var17 = 0x16;
+                    func_ov004_0215e49c(arg0, var17 + var8, var18);
+                    var9 = func_ov023_021f6880(var2, var17 + var8);
+                    if (var9 != 0 && func_ov023_021f6f10(var9) == 8) var9->inline_ov004_02161c18_45(var7);
                 }
             }
-            next = i + 1;
-            found = 1;
-            if (++side == 2) break;
+            var12 = var6 + 1;
+            var10 = 1;
+            if (++var4 == 2) break;
         }
-        if (found) {
-            int avail = 0;
-            for (; next < 26; next++) {
-                if (page->entries[data_ov004_0216fe90[next] - 1].active) {
-                    avail = 1;
+        if (var10) {
+            int var19 = 0;
+            for (; var12 < 26; var12++) {
+                if (var14->unknown_0_[data_ov004_0216fe90[var12] - 1].unknown_15_) {
+                    var19 = 1;
                     break;
                 }
             }
-            if (!avail) next = 26;
-            page->cursor = next;
+            if (!var19) var12 = 26;
+            var14->unknown_23c_ = var12;
         }
-        if (mark[0] == 0 && mark[1] == 0) dim = 1;
+        if (var13[0] == 0 && var13[1] == 0) var3 = 1;
     } else {
-        for (i = 0xd; i < 0xf; i++) func_ov004_0215e49c(self, i, 0x3a);
-        for (i = 0xf; i < 0x1d; i++) func_ov004_0215e49c(self, i, 0x11e);
-        for (j = 0; j < 3; j++) {
-            node = func_ov023_021f6880(obj, j + 0x65);
-            if (node != 0) node->flags |= 8;
+        for (var6 = 0xd; var6 < 0xf; var6++) func_ov004_0215e49c(arg0, var6, 0x3a);
+        for (var6 = 0xf; var6 < 0x1d; var6++) func_ov004_0215e49c(arg0, var6, 0x11e);
+        for (var5 = 0; var5 < 3; var5++) {
+            var9 = func_ov023_021f6880(var2, var5 + 0x65);
+            if (var9 != 0) var9->unknown_c_ |= 8;
         }
-        func_ov004_0215e49c(self, 0x31, 0x1e2);
-        func_ov004_0215e49c(self, 0x32, 0x1e3);
+        func_ov004_0215e49c(arg0, 0x31, 0x1e2);
+        func_ov004_0215e49c(arg0, 0x32, 0x1e3);
 #if !defined(jpn)
-        func_ov004_0215e574(self, 0x31, 0xff, 0, 0);
-        func_ov004_0215e574(self, 0x32, 0xff, 0, 0);
+        func_ov004_0215e574(arg0, 0x31, 0xff, 0, 0);
+        func_ov004_0215e574(arg0, 0x32, 0xff, 0, 0);
 #endif
     }
 
-    state = 0xf;
-    if (dim) state = 3;
-    node = func_ov023_021f6880(obj, 0xc);
-    if (node != 0 && func_ov023_021f6f10(node) == 8) node->SetState(state);
-    for (btn = 0; btn < 4; btn++) {
-        node = func_ov023_021f6880(obj, btn + 0x64);
-        if (node != 0 && func_ov023_021f6f10(node) == 0x13) node->SetState(state);
+    var0 = 0xf;
+    if (var3) var0 = 3;
+    var9 = func_ov023_021f6880(var2, 0xc);
+    if (var9 != 0 && func_ov023_021f6f10(var9) == 8) var9->inline_ov004_02161c18_45(var0);
+    for (var1 = 0; var1 < 4; var1++) {
+        var9 = func_ov023_021f6880(var2, var1 + 0x64);
+        if (var9 != 0 && func_ov023_021f6f10(var9) == 0x13) var9->inline_ov004_02161c18_45(var0);
     }
-    func_ov004_0215f6f4(self, data_ov004_021707e8.fieldB, data_ov004_021707e8.field6, dim);
+    func_ov004_0215f6f4(arg0, data_ov004_021707e8.unknown_b_, data_ov004_021707e8.unknown_6_, var3);
     return 0;
 }

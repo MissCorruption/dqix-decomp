@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Block0207dfc8 {
-    unsigned int v[10];
+struct Struct_0207dfc8 {
+    unsigned int unknown_0_[10];
 };
 
-struct Vec2_0207dfc8 {
-    unsigned int v[2];
+struct Struct_0207dfc8_2 {
+    unsigned int unknown_0_[2];
 };
 
-struct State0207dfc8 {
-    struct Block0207dfc8 a;   // 0x00
-    struct Block0207dfc8 b;   // 0x28
-    unsigned int f50;         // 0x50
-    unsigned int f54;         // 0x54
-    struct Vec2_0207dfc8 v58; // 0x58
-    struct Vec2_0207dfc8 v60; // 0x60
-    unsigned int f68;         // 0x68
-    unsigned int f6c;         // 0x6c
+struct Struct_02015ef4_5 {
+    struct Struct_0207dfc8 unknown_0_;   // 0x00
+    struct Struct_0207dfc8 unknown_28_;   // 0x28
+    unsigned int unknown_50_;         // 0x50
+    unsigned int unknown_54_;         // 0x54
+    struct Struct_0207dfc8_2 unknown_58_; // 0x58
+    struct Struct_0207dfc8_2 unknown_60_; // 0x60
+    unsigned int unknown_68_;         // 0x68
+    unsigned int unknown_6c_;         // 0x6c
 };
 
 // USA: func_0207dfc8
-extern "C" ARM void func_0207dfc8(struct State0207dfc8* src, struct State0207dfc8* dst) {
-    dst->a = src->b;
-    dst->b = src->b;
-    dst->f54 = src->f54;
-    dst->f50 = src->f50;
-    dst->v58 = src->v60;
-    dst->v60 = src->v60;
-    dst->f6c = src->f6c;
-    dst->f68 = src->f68;
+extern "C" ARM void func_0207dfc8(struct Struct_02015ef4_5* arg0, struct Struct_02015ef4_5* arg1) {
+    arg1->unknown_0_ = arg0->unknown_28_;
+    arg1->unknown_28_ = arg0->unknown_28_;
+    arg1->unknown_54_ = arg0->unknown_54_;
+    arg1->unknown_50_ = arg0->unknown_50_;
+    arg1->unknown_58_ = arg0->unknown_60_;
+    arg1->unknown_60_ = arg0->unknown_60_;
+    arg1->unknown_6c_ = arg0->unknown_6c_;
+    arg1->unknown_68_ = arg0->unknown_68_;
 }

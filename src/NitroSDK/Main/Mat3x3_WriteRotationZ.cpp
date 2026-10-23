@@ -2,9 +2,9 @@
 
 // KEEP-NAME: the ROM symbol is a curated name, not a func_ tag.
 // USA: func_020c129c
-struct Mtx33_020c129c { unsigned int v[9]; };
+struct Struct_020c129c_2 { unsigned int unknown_0_[9]; };
 
-extern "C" THUMB asm void Mat3x3_WriteRotationZ(struct Mtx33_020c129c* dst, int s, int c)
+extern "C" THUMB asm void Mat3x3_WriteRotationZ(struct Struct_020c129c_2* dst, int s, int c)
 {
     stmia r0!, {r2}
     mov r3, #0x0

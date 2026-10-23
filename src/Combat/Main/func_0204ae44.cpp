@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Tilemap0204ae44 {
-    short width;   // 0x0
-    short height;  // 0x2
-    char _pad[8];  // 0x4
-    void* buffer;  // 0xc
+struct Struct_0204ae44 {
+    short unknown_0_;   // 0x0
+    short unknown_2_;  // 0x2
+    char unknown_4_[8];  // 0x4
+    void* unknown_c_;  // 0xc
 };
 
-extern "C" void func_0204ae7c(struct Tilemap0204ae44* obj, int palette, int x0, int y0, int width, int height);
+extern "C" void func_0204ae7c(struct Struct_0204ae44* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 // USA: func_0204ae44
-extern "C" ARM void func_0204ae44(struct Tilemap0204ae44* obj, int palette) {
-    if (obj->buffer != NULL) {
-        func_0204ae7c(obj, palette, 0, 0, obj->width, obj->height);
+extern "C" ARM void func_0204ae44(struct Struct_0204ae44* arg0, int arg1) {
+    if (arg0->unknown_c_ != NULL) {
+        func_0204ae7c(arg0, arg1, 0, 0, arg0->unknown_0_, arg0->unknown_2_);
     }
 }

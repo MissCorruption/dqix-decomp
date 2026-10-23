@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 #include "NitroSDK/ProcessorContext.h"
 
-struct EventState0221fcb4 { char field_0x0[0x20]; int active; int cleanup; };
-extern EventState0221fcb4 data_ov031_0224f670;
+struct Struct_ov031_0224f670_15 { char unknown_0_[0x20]; int unknown_20_; int unknown_24_; };
+extern Struct_ov031_0224f670_15 data_ov031_0224f670;
 extern "C" int func_ov031_0221f7c4();
 extern "C" void* func_ov031_0221fa20();
 extern "C" int func_ov031_022077c0();
 
 // USA: func_ov031_0221fcb4
 extern "C" THUMB void func_ov031_0221fcb4() {
-    bool waiting = true;
-    if (data_ov031_0224f670.active != 0) {
+    bool var0 = true;
+    if (data_ov031_0224f670.unknown_20_ != 0) {
         if (func_ov031_0221f7c4() != 0) {
             do {
                 SleepCurrentContext(10);
-                int event = (int)func_ov031_0221fa20();
-                if (event != 0) do {
-                    switch (event) {
+                int var1 = (int)func_ov031_0221fa20();
+                if (var1 != 0) do {
+                    switch (var1) {
                     case 4: case 5: break;
-                    case 14: waiting = false; break;
-                    default: waiting = false; break;
+                    case 14: var0 = false; break;
+                    default: var0 = false; break;
                     }
-                    event = (int)func_ov031_0221fa20();
-                } while (event != 0);
-            } while (waiting != 0);
+                    var1 = (int)func_ov031_0221fa20();
+                } while (var1 != 0);
+            } while (var0 != 0);
         }
-        data_ov031_0224f670.active = 0;
+        data_ov031_0224f670.unknown_20_ = 0;
     }
-    if (data_ov031_0224f670.cleanup != 0) {
-        data_ov031_0224f670.cleanup = 0;
+    if (data_ov031_0224f670.unknown_24_ != 0) {
+        data_ov031_0224f670.unknown_24_ = 0;
         func_ov031_022077c0();
     }
 }

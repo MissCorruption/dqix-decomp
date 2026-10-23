@@ -10,13 +10,13 @@ extern "C" void func_ov031_0222905c(void);
 extern "C" void func_ov031_022274d0(int, int);
 extern "C" void func_ov031_022274c0(int);
 
-struct State02228444 {
-	unsigned char field0;
-	unsigned char pad[3];
-	int field4;
+struct Struct_ov031_02290c50 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[3];
+	int unknown_4_;
 };
 
-extern State02228444 data_ov031_02290c50;
+extern Struct_ov031_02290c50 data_ov031_02290c50;
 
 // USA: func_ov031_02228444
 extern "C" ARM void func_ov031_02228444(void) {
@@ -25,13 +25,13 @@ extern "C" ARM void func_ov031_02228444(void) {
 
 	func_ov031_022238cc();
 	func_ov031_02223440();
-	func_ov031_0223b710(data_ov031_02290c50.field4);
+	func_ov031_0223b710(data_ov031_02290c50.unknown_4_);
 	func_ov031_0223cbbc(1, 1);
 	func_ov031_0223cbbc(0, 0x14);
 
-	unsigned char state = data_ov031_02290c50.field0;
-	if (state == 0) goto case0;
-	if (state == 1) goto case1;
+	unsigned char var0 = data_ov031_02290c50.unknown_0_;
+	if (var0 == 0) goto case0;
+	if (var0 == 1) goto case1;
 	return;
 case0:
 	func_ov031_022274d0(1, 0);

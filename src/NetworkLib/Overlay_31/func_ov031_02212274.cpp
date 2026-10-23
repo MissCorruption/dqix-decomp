@@ -3,78 +3,78 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/Cache.h"
 
-struct ApInfo02212274
+struct Struct_ov031_02212274
 {
-    int aptype;
-    int area;
-    char spotinfo[10];
-    char essid[33];
-    unsigned char bssid[6];
-    char pad[3];
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[10];
+    char unknown_12_[33];
+    unsigned char unknown_33_[6];
+    char unknown_39_[3];
 };
 
 extern "C" int func_ov031_02211f24();
 extern "C" int func_ov031_02213024();
 extern "C" unsigned char* func_ov031_0220f040();
-extern "C" void* func_ov031_0220f084(unsigned short* out);
-extern "C" int func_ov031_02213054(void* buf);
+extern "C" void* func_ov031_0220f084(unsigned short* arg0);
+extern "C" int func_ov031_02213054(void* arg0);
 
-static inline int IsDigit02212274(unsigned int c)
+static inline int inline_ov031_02212274(unsigned int arg0)
 {
-    return c >= '0' && c <= '9';
+    return arg0 >= '0' && arg0 <= '9';
 }
 
 // USA: func_ov031_02212274
-extern "C" ARM int func_ov031_02212274(ApInfo02212274* apinfo)
+extern "C" ARM int func_ov031_02212274(Struct_ov031_02212274* arg0)
 {
-    int intr;
-    unsigned char* bssid;
-    unsigned short essidLength;
-    void* essid;
-    unsigned char spotinfo[10];
+    int var0;
+    unsigned char* var1;
+    unsigned short var2;
+    void* var3;
+    unsigned char var4[10];
 
-    VectorizedMemset(apinfo, 0, sizeof(ApInfo02212274));
-    apinfo->area = 0xff;
+    VectorizedMemset(arg0, 0, sizeof(Struct_ov031_02212274));
+    arg0->unknown_4_ = 0xff;
     if (func_ov031_02211f24() != 4) return 0;
 
-    apinfo->aptype = func_ov031_02213024();
-    if (apinfo->aptype == 0xff || apinfo->aptype > 99)
+    arg0->unknown_0_ = func_ov031_02213024();
+    if (arg0->unknown_0_ == 0xff || arg0->unknown_0_ > 99)
     {
-        apinfo->aptype = 99;
+        arg0->unknown_0_ = 99;
         return 0;
     }
 
-    intr = DisableIRQInterrupts();
-    bssid = func_ov031_0220f040();
-    InvalidateDataCacheRange(bssid, 6);
-    if (bssid == NULL)
+    var0 = DisableIRQInterrupts();
+    var1 = func_ov031_0220f040();
+    InvalidateDataCacheRange(var1, 6);
+    if (var1 == NULL)
     {
-        SetIRQInterruptState(intr);
+        SetIRQInterruptState(var0);
         return 0;
     }
-    VectorizedInvertedMemcpy(bssid, apinfo->bssid, 6);
+    VectorizedInvertedMemcpy(var1, arg0->unknown_33_, 6);
 
-    if (apinfo->aptype >= 0 && apinfo->aptype < 3)
+    if (arg0->unknown_0_ >= 0 && arg0->unknown_0_ < 3)
     {
-        essid = func_ov031_0220f084(&essidLength);
-        InvalidateDataCacheRange(essid, 32);
-        if (essid == NULL)
+        var3 = func_ov031_0220f084(&var2);
+        InvalidateDataCacheRange(var3, 32);
+        if (var3 == NULL)
         {
-            SetIRQInterruptState(intr);
+            SetIRQInterruptState(var0);
             return 0;
         }
-        VectorizedInvertedMemcpy(essid, apinfo->essid, essidLength);
+        VectorizedInvertedMemcpy(var3, arg0->unknown_12_, var2);
     }
-    SetIRQInterruptState(intr);
+    SetIRQInterruptState(var0);
 
-    if (func_ov031_02213054(spotinfo))
+    if (func_ov031_02213054(var4))
     {
-        apinfo->area = IsDigit02212274(spotinfo[0]) ? spotinfo[0] - '0' : 0xff;
-        VectorizedInvertedMemcpy(&spotinfo[1], apinfo->spotinfo, 9);
+        arg0->unknown_4_ = inline_ov031_02212274(var4[0]) ? var4[0] - '0' : 0xff;
+        VectorizedInvertedMemcpy(&var4[1], arg0->unknown_8_, 9);
     }
     else
     {
-        apinfo->area = 0xff;
+        arg0->unknown_4_ = 0xff;
     }
     return 1;
 }

@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-typedef void (*ElementDestructor0200ee38)(void*);
+typedef void (*Type_0200ee38)(void*);
 extern "C" void func_0200efb8();
 
 // USA: func_0200ee38
-extern "C" ARM void func_0200ee38(unsigned char* begin, unsigned char* end,
-    unsigned int stride, ElementDestructor0200ee38 destroy)
+extern "C" ARM void func_0200ee38(unsigned char* arg0, unsigned char* arg1,
+    unsigned int arg2, Type_0200ee38 arg3)
 {
     try {
-        if (end > begin) {
+        if (arg1 > arg0) {
             do {
-                end -= stride;
-                destroy(end);
-            } while (end > begin);
+                arg1 -= arg2;
+                arg3(arg1);
+            } while (arg1 > arg0);
         }
     } catch (...) {
         func_0200efb8();

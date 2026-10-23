@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kBaseOffset = 0xca };
-enum { kFlagsOffset = 0x900 };
+enum { Enum_02026b7c_150 = 0xca };
+enum { Enum_02026b7c_2560 = 0x900 };
 #else
-enum { kBaseOffset = 0x96 };
-enum { kFlagsOffset = 0xa00 };
+enum { Enum_02026b7c_150 = 0x96 };
+enum { Enum_02026b7c_2560 = 0xa00 };
 #endif
 
 #include "GameState/GameState.h"
 
 
 // USA: func_02026b7c
-extern "C" ARM void func_02026b7c(unsigned char* obj) {
-    GameState* bs = GameState::GetInstance();
-    int i;
-    obj += kBaseOffset;
-    for (i = 0; i < 4; i++) {
-        if (bs->GetGameObjectByIndex(i)) {
-            obj[kFlagsOffset] |= (1 << i);
+extern "C" ARM void func_02026b7c(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int var1;
+    arg0 += Enum_02026b7c_150;
+    for (var1 = 0; var1 < 4; var1++) {
+        if (var0->GetGameObjectByIndex(var1)) {
+            arg0[Enum_02026b7c_2560] |= (1 << var1);
         }
     }
 }

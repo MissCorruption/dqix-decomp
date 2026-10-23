@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct S_flag10000_inner {
-    char unk[0x14];
-    int flags;
+struct Struct_ov024_021fb460 {
+    char unknown_0_[0x14];
+    int unknown_14_;
 };
 
-struct S_flag10000 {
-    char unk[0x138];
-    struct S_flag10000_inner* inner;
+struct Struct_ov024_021fa7ec_7 {
+    char unknown_0_[0x138];
+    struct Struct_ov024_021fb460* unknown_138_;
 };
 
 // USA: func_ov024_021fb460
-extern "C" ARM int func_ov024_021fb460(struct S_flag10000* obj) {
-    return (obj->inner->flags & 0x10000) != 0;
+extern "C" ARM int func_ov024_021fb460(struct Struct_ov024_021fa7ec_7* arg0) {
+    return (arg0->unknown_138_->unknown_14_ & 0x10000) != 0;
 }

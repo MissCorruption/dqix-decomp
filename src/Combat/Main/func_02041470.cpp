@@ -9,37 +9,37 @@ int fix32ReduceAngle0To2Pi(int angle);
 extern char data_020efe6c;
 extern char data_020efe71;
 
-struct Obj02041470 : Object3D {
-    unsigned short fac;
-    int fb0;
-    Vector3i posCurrent;
-    char pad2[0xd0 - 0xc0];
-    int fd0;
-    unsigned char bit0d4 : 1;
-    unsigned char runFlag : 1;
-    unsigned char restd4 : 6;
+struct Struct_02041470 : Object3D {
+    unsigned short unknown_ac_;
+    int unknown_b0_;
+    Vector3i unknown_b4_;
+    char unknown_c0_[0xd0 - 0xc0];
+    int unknown_d0_;
+    unsigned char unknown_d4_0_ : 1;
+    unsigned char unknown_d4_1_ : 1;
+    unsigned char unknown_d4_2_ : 6;
 };
 
 // USA: func_02041470
-extern "C" ARM void func_02041470(struct Obj02041470* obj, Vector3i* target) {
-    int dist = Vector3fix_Distance(target, &obj->position_);
-    if (dist == 0) {
+extern "C" ARM void func_02041470(struct Struct_02041470* arg0, Vector3i* arg1) {
+    int var0 = Vector3fix_Distance(arg1, &arg0->position_);
+    if (var0 == 0) {
         return;
     }
-    obj->posCurrent = *target;
-    obj->fac |= 1;
-    int mode = obj->fd0;
-    if (!obj->runFlag) {
-        obj->MaybeSetRegularAnimation(&data_020efe6c, mode);
+    arg0->unknown_b4_ = *arg1;
+    arg0->unknown_ac_ |= 1;
+    int var1 = arg0->unknown_d0_;
+    if (!arg0->unknown_d4_1_) {
+        arg0->MaybeSetRegularAnimation(&data_020efe6c, var1);
     } else {
-        obj->MaybeSetRegularAnimation(&data_020efe71, mode);
+        arg0->MaybeSetRegularAnimation(&data_020efe71, var1);
     }
-    if (!(obj->fac & 4)) {
-        Vector3i diff;
-        Vector3fix_Subtract(&obj->posCurrent, &obj->position_, &diff);
-        int scale = fix32_Divide(0x1000, dist);
-        Vector3fixMultiplyScalar(&diff, scale, &diff);
-        int angle = fix32_Atan2(diff.x, diff.z);
-        obj->fb0 = fix32ReduceAngle0To2Pi(angle);
+    if (!(arg0->unknown_ac_ & 4)) {
+        Vector3i var2;
+        Vector3fix_Subtract(&arg0->unknown_b4_, &arg0->position_, &var2);
+        int var3 = fix32_Divide(0x1000, var0);
+        Vector3fixMultiplyScalar(&var2, var3, &var2);
+        int var4 = fix32_Atan2(var2.x, var2.z);
+        arg0->unknown_b0_ = fix32ReduceAngle0To2Pi(var4);
     }
 }

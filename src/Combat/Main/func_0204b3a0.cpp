@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void __clear(void* buf, int len);
-extern "C" int func_02001aec(void* a, void* b, int n);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
-typedef void (*Fn0204a984)(void*, int, int);
-extern "C" void func_0204a984(int* a0, Fn0204a984 fn, char* ctx);
+typedef void (*Type_0204a984)(void*, int, int);
+extern "C" void func_0204a984(int* arg0, Type_0204a984 arg1, char* arg2);
 
-typedef void (*Callback0204abcc)(void*, int, int);
-struct Obj0204abcc;
-struct P0204abcc;
-extern "C" void func_0204abcc(struct Obj0204abcc* obj, Callback0204abcc fn, struct P0204abcc* p);
+typedef void (*Type_0204abcc)(void*, int, int);
+struct Struct_0204abcc;
+struct Struct_0204abcc_2;
+extern "C" void func_0204abcc(struct Struct_0204abcc* arg0, Type_0204abcc arg1, struct Struct_0204abcc_2* arg2);
 
-typedef void (*Callback0204adb4)(void*, int, int);
-extern "C" void func_0204adb4(unsigned char* dst, Callback0204adb4 callback, unsigned char* src);
+typedef void (*Type_02020cb8)(void*, int, int);
+extern "C" void func_0204adb4(unsigned char* arg0, Type_02020cb8 arg1, unsigned char* arg2);
 
-struct Record0204acb0 { int w0, w4, w8, wc; };
-extern "C" void func_0204acb0(struct Record0204acb0* rec);
+struct Struct_02020cb8_7 { int unknown_0_, unknown_4_, unknown_8_, unknown_c_; };
+extern "C" void func_0204acb0(struct Struct_02020cb8_7* arg0);
 
 extern char data_020f0238;
 extern char data_020f023d;
 extern char data_020f0242;
 extern int data_020f01f8[][4];
-extern Callback0204abcc data_020f01b0[];
+extern Type_0204abcc data_020f01b0[];
 extern int data_020f0218[][4];
 
-struct SelfTag0204b3a0 {
-    unsigned char pad[0x1c];
-    unsigned char lo : 4;
-    unsigned char hi : 4;
+struct Struct_02020cb8_6 {
+    unsigned char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
 };
 
 // USA: func_0204b3a0
-extern "C" ARM void func_0204b3a0(struct SelfTag0204b3a0* self, char* str) {
-    char buf[5];
+extern "C" ARM void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1) {
+    char var0[5];
 
-    if (str == 0) {
+    if (arg1 == 0) {
         return;
     }
 
-    __clear(buf, 5);
-    memcpy(buf, str, 5);
+    __clear(var0, 5);
+    memcpy(var0, arg1, 5);
 
-    if (func_02001aec(buf, &data_020f0238, 4) == 0) {
-        Fn0204a984 fn = (Fn0204a984)data_020f01f8[self->lo][self->hi];
-        func_0204a984((int*)self, fn, str);
+    if (func_02001aec(var0, &data_020f0238, 4) == 0) {
+        Type_0204a984 var1 = (Type_0204a984)data_020f01f8[arg0->unknown_1c_0_][arg0->unknown_1c_4_];
+        func_0204a984((int*)arg0, var1, arg1);
         return;
     }
 
-    if (func_02001aec(buf, &data_020f023d, 4) == 0) {
-        Callback0204abcc fn = data_020f01b0[self->lo];
-        func_0204abcc((struct Obj0204abcc*)((char*)self + 0xc), fn, (struct P0204abcc*)str);
+    if (func_02001aec(var0, &data_020f023d, 4) == 0) {
+        Type_0204abcc var2 = data_020f01b0[arg0->unknown_1c_0_];
+        func_0204abcc((struct Struct_0204abcc*)((char*)arg0 + 0xc), var2, (struct Struct_0204abcc_2*)arg1);
         return;
     }
 
-    if (func_02001aec(buf, &data_020f0242, 4) == 0) {
-        struct Record0204acb0 rec;
-        func_0204acb0(&rec);
-        Callback0204adb4 fn = (Callback0204adb4)data_020f0218[self->lo][self->hi];
-        func_0204adb4((unsigned char*)&rec, fn, (unsigned char*)str);
+    if (func_02001aec(var0, &data_020f0242, 4) == 0) {
+        struct Struct_02020cb8_7 var3;
+        func_0204acb0(&var3);
+        Type_02020cb8 var4 = (Type_02020cb8)data_020f0218[arg0->unknown_1c_0_][arg0->unknown_1c_4_];
+        func_0204adb4((unsigned char*)&var3, var4, (unsigned char*)arg1);
     }
 }

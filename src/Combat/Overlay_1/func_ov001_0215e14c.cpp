@@ -2,23 +2,23 @@
 #include "GameState/GameState.h"
 #include "Combat/Overlay_1/EventArgs.h"
 
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a2b38(void* objRaw, int* a, int* b, int* c);
-extern "C" int func_ov017_021d60f4(void* a);
-extern "C" void func_ov001_02158f64(void* ctx, EventVec3 v1, EventVec3 v2, int d, int one, unsigned char ip);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a2b38(void* arg0, int* arg1, int* arg2, int* arg3);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void func_ov001_02158f64(void* arg0, Struct_ov001_02158efc arg1, Struct_ov001_02158efc arg2, int arg3, int arg4, unsigned char arg5);
 
-struct Data02165880_e14c { char pad[0x24]; void* field24; };
-extern Data02165880_e14c data_ov001_02165880;
+struct Struct_ov001_02165880_37 { char unknown_0_[0x24]; void* unknown_24_; };
+extern Struct_ov001_02165880_37 data_ov001_02165880;
 
 // USA: func_ov001_0215e14c
-extern "C" ARM int func_ov001_0215e14c(void* obj) {
-    int flagResult = func_020100f8((char*)GameState::GetInstance());
-    if (flagResult == 0) {
+extern "C" ARM int func_ov001_0215e14c(void* arg0) {
+    int var0 = func_020100f8((char*)GameState::GetInstance());
+    if (var0 == 0) {
         return 0;
     }
-    EventVec3 a, b, c;
-    func_020a2b38((void*)flagResult, (int*)&a, (int*)&b, (int*)&c);
-    int d = func_ov017_021d60f4(obj);
-    func_ov001_02158f64(data_ov001_02165880.field24, a, b, d, 0, 0);
+    Struct_ov001_02158efc var1, var2, var3;
+    func_020a2b38((void*)var0, (int*)&var1, (int*)&var2, (int*)&var3);
+    int var4 = func_ov017_021d60f4(arg0);
+    func_ov001_02158f64(data_ov001_02165880.unknown_24_, var1, var2, var4, 0, 0);
     return 1;
 }

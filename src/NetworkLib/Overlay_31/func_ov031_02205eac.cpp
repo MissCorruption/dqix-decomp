@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_02205ebc(int a);
+extern "C" int func_ov031_02205ebc(int arg0);
 
-struct Obj02205eac {
-	char pad[0x4];
-	int field4;
+struct Struct_ov031_02205eac {
+	char unknown_0_[0x4];
+	int unknown_4_;
 };
 
 // USA: func_ov031_02205eac
-extern "C" ARM int func_ov031_02205eac(Obj02205eac* obj) {
-	return func_ov031_02205ebc(obj->field4);
+extern "C" ARM int func_ov031_02205eac(Struct_ov031_02205eac* arg0) {
+	return func_ov031_02205ebc(arg0->unknown_4_);
 }

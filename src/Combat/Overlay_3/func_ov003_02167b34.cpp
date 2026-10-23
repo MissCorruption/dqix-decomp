@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion950 = 0x8b8 };
-enum { kRegion76 = 0x46 };
+enum { Enum_ov003_02167b34_2384 = 0x8b8 };
+enum { Enum_ov003_02167b34_118 = 0x46 };
 #else
-enum { kRegion950 = 0x950 };
-enum { kRegion76 = 0x76 };
+enum { Enum_ov003_02167b34_2384 = 0x950 };
+enum { Enum_ov003_02167b34_118 = 0x76 };
 #endif
 #include "GameState/GameState.h"
 
-struct CombatantData_02167b34 {
-    unsigned int value0 : 10;
-    unsigned int value1 : 10;
-    unsigned int value2 : 10;
-    unsigned int value3 : 10;
-    unsigned int value4 : 10;
-    unsigned int value5 : 10;
-    unsigned int value6 : 10;
-    unsigned int value7 : 10;
-    unsigned int value8 : 10;
-    unsigned int value9 : 10;
-    unsigned char pad10[0x138 - 0x10];
-    int wordTable[0xd];
-    unsigned short halfTable[0xd];
-    unsigned char byteTable[0x464 - 0x186];
-    unsigned char entryTable[0x49c - 0x464];
-    unsigned char flag : 1;
-    unsigned char pad49d[kRegion950 - 0x49d];
-    int index;
+struct Struct_ov003_02167b34 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_4_0_ : 10;
+    unsigned int unknown_5_2_ : 10;
+    unsigned int unknown_6_4_ : 10;
+    unsigned int unknown_8_0_ : 10;
+    unsigned int unknown_9_2_ : 10;
+    unsigned int unknown_a_4_ : 10;
+    unsigned int unknown_c_0_ : 10;
+    unsigned char unknown_e_[0x138 - 0x10];
+    int unknown_138_[0xd];
+    unsigned short unknown_16c_[0xd];
+    unsigned char unknown_186_[0x464 - 0x186];
+    unsigned char unknown_464_[0x49c - 0x464];
+    unsigned char unknown_49c_0_ : 1;
+    unsigned char unknown_49d_[Enum_ov003_02167b34_2384 - 0x49d];
+    int unknown_950_;
 };
 
-struct Wrapper02168088;
-struct Menu_02167b34 {
-    unsigned char pad0[0x10];
-    void* list;
-    unsigned char pad14[kRegion76 - 0x14];
-    signed char combatantId;
+struct Struct_ov003_02167b34_2;
+struct Struct_ov003_02167b34_3 {
+    unsigned char unknown_0_[0x10];
+    void* unknown_10_;
+    unsigned char unknown_14_[Enum_ov003_02167b34_118 - 0x14];
+    signed char unknown_76_;
 };
 
-extern "C" void* func_02053c6c(unsigned char* obj);
-extern "C" void func_02083e28(void* data, int arg);
-extern "C" void func_ov003_02167e28(Menu_02167b34* menu, BaseCombatStats* stats, int flag, unsigned char index, int byteValue, int halfValue, int wordValue);
-extern "C" void func_ov003_02167fa4(Menu_02167b34* menu, int flag, unsigned char* table);
-extern "C" void func_ov003_02168088(struct Wrapper02168088* obj, int* arr);
-extern "C" void func_020813ec(void* list, int arg);
+extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void func_ov003_02167e28(Struct_ov003_02167b34_3* arg0, BaseCombatStats* arg1, int arg2, unsigned char arg3, int arg4, int arg5, int arg6);
+extern "C" void func_ov003_02167fa4(Struct_ov003_02167b34_3* arg0, int arg1, unsigned char* arg2);
+extern "C" void func_ov003_02168088(struct Struct_ov003_02167b34_2* arg0, int* arg1);
+extern "C" void func_020813ec(void* arg0, int arg1);
 
-static inline BaseCombatStats* GetBaseStats(GameObject* c) { SDK_NULL_ASSERT(c); return c->baseStats_; }
+static inline BaseCombatStats* inline_02069120(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->baseStats_; }
 
 // USA: func_ov003_02167b34
-extern "C" ARM void func_ov003_02167b34(Menu_02167b34* menu) {
-    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), menu->combatantId);
-    if (combatant == 0) return;
-    CombatantData_02167b34* data = (CombatantData_02167b34*)func_02053c6c((unsigned char*)combatant);
-    func_02083e28(data, 0);
-    func_ov003_02167e28(menu, GetBaseStats(combatant), data->flag, data->index, data->byteTable[data->index], data->halfTable[data->index], data->wordTable[data->index]);
-    func_ov003_02167fa4(menu, data->index & 0xff, data->entryTable);
-    int values[12];
-    values[0] = data->value0;
-    values[1] = data->value1;
-    values[2] = data->value2;
-    values[3] = data->value3;
-    values[4] = data->value4;
-    values[5] = data->value5;
-    values[6] = data->value6;
-    values[7] = data->value7;
-    values[8] = data->value8;
-    values[9] = combatant->baseStats_->primaryStats.attack;
-    values[10] = combatant->baseStats_->primaryStats.defense;
-    values[11] = data->value9;
-    func_ov003_02168088((struct Wrapper02168088*)menu, values);
-    func_020813ec(menu->list, 0);
+extern "C" ARM void func_ov003_02167b34(Struct_ov003_02167b34_3* arg0) {
+    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_76_);
+    if (var0 == 0) return;
+    Struct_ov003_02167b34* var1 = (Struct_ov003_02167b34*)func_02053c6c((unsigned char*)var0);
+    func_02083e28(var1, 0);
+    func_ov003_02167e28(arg0, inline_02069120(var0), var1->unknown_49c_0_, var1->unknown_950_, var1->unknown_186_[var1->unknown_950_], var1->unknown_16c_[var1->unknown_950_], var1->unknown_138_[var1->unknown_950_]);
+    func_ov003_02167fa4(arg0, var1->unknown_950_ & 0xff, var1->unknown_464_);
+    int var2[12];
+    var2[0] = var1->unknown_0_0_;
+    var2[1] = var1->unknown_1_2_;
+    var2[2] = var1->unknown_2_4_;
+    var2[3] = var1->unknown_4_0_;
+    var2[4] = var1->unknown_5_2_;
+    var2[5] = var1->unknown_6_4_;
+    var2[6] = var1->unknown_8_0_;
+    var2[7] = var1->unknown_9_2_;
+    var2[8] = var1->unknown_a_4_;
+    var2[9] = var0->baseStats_->primaryStats.attack;
+    var2[10] = var0->baseStats_->primaryStats.defense;
+    var2[11] = var1->unknown_c_0_;
+    func_ov003_02168088((struct Struct_ov003_02167b34_2*)arg0, var2);
+    func_020813ec(arg0->unknown_10_, 0);
 }

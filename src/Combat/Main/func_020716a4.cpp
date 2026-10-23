@@ -10,83 +10,83 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206dfe8(void* p, int a, int b);
+extern "C" void func_0206dfe8(void* arg0, int arg1, int arg2);
 
-extern "C" void func_0206e080(char* obj, int slot);
-extern "C" void func_0206e0d0(char* obj, int slot);
-extern "C" void func_0206df6c(void* obj, unsigned char* arr, int idx, int flag);
+extern "C" void func_0206e080(char* arg0, int arg1);
+extern "C" void func_0206e0d0(char* arg0, int arg1);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 
-extern "C" void func_02010774(char* obj, int v);
-extern "C" void func_020107a8(char* obj, int v);
-extern "C" void func_020107dc(char* base, int val);
+extern "C" void func_02010774(char* arg0, int arg1);
+extern "C" void func_020107a8(char* arg0, int arg1);
+extern "C" void func_020107dc(char* arg0, int arg1);
 
-struct MsgQueueState02108d70 {
-    unsigned char forceFlag;
-    char pad1[7];
-    void* entries;
-    char pad2[4];
-    int limit;
-    int field14;
-    char pad18[8];
-    int targetValue;
-    char pad20[4];
-    int count;
+struct Struct_02108d70_5 {
+    unsigned char unknown_0_;
+    char unknown_1_[7];
+    void* unknown_8_;
+    char unknown_c_[4];
+    int unknown_10_;
+    int unknown_14_;
+    char unknown_18_[8];
+    int unknown_20_;
+    char unknown_24_[4];
+    int unknown_28_;
 };
-extern struct MsgQueueState02108d70 data_02108d70;
+extern struct Struct_02108d70_5 data_02108d70;
 
 // USA: func_020716a4
-extern "C" ARM int func_020716a4(struct Variant02030b0c* args, int count) {
-    int v0;
-    int a;
-    int b;
-    int c;
-    int v;
-    void* entry;
-    int i;
-    GameState* bs;
+extern "C" ARM int func_020716a4(struct Struct_0201c1c8* arg0, int arg1) {
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    int var4;
+    void* var5;
+    int var6;
+    GameState* var7;
 
-    v0 = ((Script::Parameter*)args)->ToInt();
-    if (data_02108d70.field14 != v0) {
+    var0 = ((Script::Parameter*)arg0)->ToInt();
+    if (data_02108d70.unknown_14_ != var0) {
         return 1;
     }
 
-    a = ((Script::Parameter*)(args + 1))->ToInt();
-    b = ((Script::Parameter*)(args + 2))->ToInt();
+    var1 = ((Script::Parameter*)(arg0 + 1))->ToInt();
+    var2 = ((Script::Parameter*)(arg0 + 2))->ToInt();
     {
-        struct Variant02030b0c* last = args + 3;
-        args = args + 4;
-        c = ((Script::Parameter*)last)->ToInt();
+        struct Struct_0201c1c8* var8 = arg0 + 3;
+        arg0 = arg0 + 4;
+        var3 = ((Script::Parameter*)var8)->ToInt();
     }
 
-    bs = GameState::GetInstance();
-    func_02010774((char*)bs, a);
-    func_020107a8((char*)bs, b);
-    func_020107dc((char*)bs, c);
+    var7 = GameState::GetInstance();
+    func_02010774((char*)var7, var1);
+    func_020107a8((char*)var7, var2);
+    func_020107dc((char*)var7, var3);
 
-    entry = func_0205ec34();
-    func_0206e080((char*)entry, *(unsigned char*)((char*)entry + 0x332));
-    func_0206e0d0((char*)entry, *(unsigned char*)((char*)entry + 0x332));
-    func_0206dfe8(entry, 0, 0x200);
-    func_0206dfe8(entry, 0x38e, 0x3e8);
+    var5 = func_0205ec34();
+    func_0206e080((char*)var5, *(unsigned char*)((char*)var5 + 0x332));
+    func_0206e0d0((char*)var5, *(unsigned char*)((char*)var5 + 0x332));
+    func_0206dfe8(var5, 0, 0x200);
+    func_0206dfe8(var5, 0x38e, 0x3e8);
 
-    for (i = 0; i < count - 4; i++) {
-        v = ((Script::Parameter*)args)->ToInt();
-        args = args + 1;
-        switch (v >> 16) {
+    for (var6 = 0; var6 < arg1 - 4; var6++) {
+        var4 = ((Script::Parameter*)arg0)->ToInt();
+        arg0 = arg0 + 1;
+        switch (var4 >> 16) {
         case 2:
-            func_0206df6c(entry, (unsigned char*)entry + *(unsigned char*)((char*)entry + 0x332) * 0x1c + 3, (unsigned short)v, 1);
+            func_0206df6c(var5, (unsigned char*)var5 + *(unsigned char*)((char*)var5 + 0x332) * 0x1c + 3, (unsigned short)var4, 1);
             break;
         case 1:
-            func_0206df6c(entry, (unsigned char*)entry + *(unsigned char*)((char*)entry + 0x332) * 0x1c + 0x10, (unsigned short)v, 1);
+            func_0206df6c(var5, (unsigned char*)var5 + *(unsigned char*)((char*)var5 + 0x332) * 0x1c + 0x10, (unsigned short)var4, 1);
             break;
         case 0:
-            func_0206df6c(entry, (unsigned char*)entry + 0x8c, (unsigned short)v, 1);
+            func_0206df6c(var5, (unsigned char*)var5 + 0x8c, (unsigned short)var4, 1);
             break;
         }
     }

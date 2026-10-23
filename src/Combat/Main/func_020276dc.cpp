@@ -1,58 +1,58 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02027bd0(int id);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02027bd0(int arg0);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToSubObjStandardPalette(int arg0, int arg1, unsigned int arg2);
 
 extern unsigned char data_020e703e[];
 extern unsigned short data_020e7044[] __attribute__((aligned(4)));
 
-struct Global020fdc4c_020276dc {
-    unsigned short field0;
-    char pad[0x12];
+struct Struct_020fdc4c_8 {
+    unsigned short unknown_0_;
+    char unknown_2_[0x12];
 };
-extern struct Global020fdc4c_020276dc data_020fdc4c;
+extern struct Struct_020fdc4c_8 data_020fdc4c;
 #if defined(jpn)
 #define data_020fdc50 data_020fdc54
 #endif
 extern char data_020fdc50[];
 
-struct PaletteTiers020276dc {
-    unsigned char tiers;
+struct Struct_020276dc {
+    unsigned char unknown_0_;
 };
 
 // USA: func_020276dc
-extern "C" ARM void func_020276dc(PaletteTiers020276dc* self) {
-    GameState* gs = GameState::GetInstance();
-    unsigned i;
-    unsigned short buf[4];
-    for (i = 0; i < 4; i++) {
-        int cur;
-        int sh;
-        int have;
-        unsigned char want;
+extern "C" ARM void func_020276dc(Struct_020276dc* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned var1;
+    unsigned short var2[4];
+    for (var1 = 0; var1 < 4; var1++) {
+        int var3;
+        int var4;
+        int var5;
+        unsigned char var6;
 
-        int k;
+        int var7;
 
-        if (func_0200ff1c(gs, i) == 0) continue;
-        want = data_020e703e[func_02027bd0(i)];
-        cur = self->tiers;
-        sh = i << 1;
-        have = (cur >> sh) & 3;
-        if (have == want) continue;
+        if (func_0200ff1c(var0, var1) == 0) continue;
+        var6 = data_020e703e[func_02027bd0(var1)];
+        var3 = arg0->unknown_0_;
+        var4 = var1 << 1;
+        var5 = (var3 >> var4) & 3;
+        if (var5 == var6) continue;
 
-        self->tiers &= ~(3 << sh);
-        self->tiers |= want << sh;
+        arg0->unknown_0_ &= ~(3 << var4);
+        arg0->unknown_0_ |= var6 << var4;
         {
-            const unsigned short* s = data_020e7044;
-            unsigned short* d = buf;
-            k = 4;
-            do { *d++ = *s++; } while (--k);
+            const unsigned short* var8 = data_020e7044;
+            unsigned short* var9 = var2;
+            var7 = 4;
+            do { *var9++ = *var8++; } while (--var7);
         }
-        data_020fdc4c.field0 = buf[want];
+        data_020fdc4c.unknown_0_ = var2[var6];
         CleanInvalidateCacheRange(data_020fdc50 - 4, 2);
-        LoadToSubObjStandardPalette((int)(data_020fdc50 - 4), i * 32 + 0x1e, 2);
+        LoadToSubObjStandardPalette((int)(data_020fdc50 - 4), var1 * 32 + 0x1e, 2);
     }
 }

@@ -3,56 +3,56 @@
 
 extern "C" int func_020421a0();
 extern "C" void func_02046380(void);
-extern "C" void* __clear(void* dst, int count);
-extern "C" void func_02042764(unsigned char* src, char* dst, int n);
+extern "C" void* __clear(void* arg0, int arg1);
+extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 
-struct Dest_020e4b34 { int f0; int f4; unsigned int f8; };
-extern "C" void func_020e4b34(Dest_020e4b34* dst, void* a1, int a2, unsigned int a3,
-    unsigned char b0, unsigned char b1, unsigned char b2, unsigned char b3,
-    unsigned char b4, unsigned char b5, unsigned char b6, unsigned char b7);
+struct Struct_020e4b34 { int unknown_0_; int unknown_4_; unsigned int unknown_8_; };
+extern "C" void func_020e4b34(Struct_020e4b34* arg0, void* arg1, int arg2, unsigned int arg3,
+    unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7,
+    unsigned char arg8, unsigned char arg9, unsigned char arg10, unsigned char arg11);
 
-extern "C" int func_020e51cc(int value);
+extern "C" int func_020e51cc(int arg0);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 
 extern "C" void func_0204500c(void*, int, int, int);
 
-struct Arg2_02170960 {
-    char pad0[0xc];
-    unsigned int nibble : 4;
-    unsigned int rest : 28;
-    char pad1[0x1e];
-    unsigned char bit0 : 1;
+struct Struct_ov003_02170960 {
+    char unknown_0_[0xc];
+    unsigned int unknown_c_0_ : 4;
+    unsigned int unknown_c_4_ : 28;
+    char unknown_10_[0x1e];
+    unsigned char unknown_2e_0_ : 1;
 };
 
-struct Obj02170960 { char pad[0xd8]; struct Container020e0310* c; };
+struct Struct_ov003_02170960_2 { char unknown_0_[0xd8]; struct Struct_0201099c_3* unknown_d8_; };
 
 // USA: func_ov003_02170960
-extern "C" ARM void func_ov003_02170960(struct Obj02170960* obj, int key, struct Arg2_02170960* p3) {
-    int g = func_020421a0();
+extern "C" ARM void func_ov003_02170960(struct Struct_ov003_02170960_2* arg0, int arg1, struct Struct_ov003_02170960* arg2) {
+    int var0 = func_020421a0();
     func_02046380();
 
-    Dest_020e4b34 structA;
-    Dest_020e4b34 structB;
-    char buf[0x30];
-    __clear(buf, 0x30);
+    Struct_020e4b34 var1;
+    Struct_020e4b34 var2;
+    char var3[0x30];
+    __clear(var3, 0x30);
 
-    if (p3 != 0) {
-        func_02042764((unsigned char*)p3, buf, 1);
+    if (arg2 != 0) {
+        func_02042764((unsigned char*)arg2, var3, 1);
 
-        func_020e4b34(&structA, buf, 0, 0, 0, 0, 0, p3->bit0, 0, 1, 0, 1);
-        *(void**)(g + 0x10) = &structA;
+        func_020e4b34(&var1, var3, 0, 0, 0, 0, 0, arg2->unknown_2e_0_, 0, 1, 0, 1);
+        *(void**)(var0 + 0x10) = &var1;
 
-        int fmt = func_020e51cc(p3->nibble);
+        int var4 = func_020e51cc(arg2->unknown_c_0_);
 
-        func_020e4b34(&structB, (void*)fmt, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-        *(void**)(g + 0x28) = &structB;
+        func_020e4b34(&var2, (void*)var4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        *(void**)(var0 + 0x28) = &var2;
     }
 
-    int fieldVal = func_020e0434(obj->c, (short)key);
-    func_0204500c((void*)g, fieldVal, 0, 0xe3);
+    int var5 = func_020e0434(arg0->unknown_d8_, (short)arg1);
+    func_0204500c((void*)var0, var5, 0, 0xe3);
 
-    *(unsigned char*)(g + 0x1000 + 0x9b2) = 1;
-    *(int*)(g + 0x99c) = 2;
+    *(unsigned char*)(var0 + 0x1000 + 0x9b2) = 1;
+    *(int*)(var0 + 0x99c) = 2;
 }

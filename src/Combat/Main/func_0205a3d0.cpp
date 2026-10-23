@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Elem0205a3d0 {
-    char unk0[8];
-    unsigned short key;
-    char unk2[0x18 - 0xa];
+struct Struct_0205a254_2 {
+    char unknown_0_[8];
+    unsigned short unknown_8_;
+    char unknown_a_[0x18 - 0xa];
 };
 
-struct Container0205a3d0 {
-    struct Elem0205a3d0* entries;
-    unsigned short count;
+struct Struct_0205a254 {
+    struct Struct_0205a254_2* unknown_0_;
+    unsigned short unknown_4_;
 };
 
 // USA: func_0205a3d0
-extern "C" ARM struct Elem0205a3d0* func_0205a3d0(struct Container0205a3d0* c, int key) {
-    struct Elem0205a3d0* result;
-    unsigned short i;
-    if (c->entries == NULL) {
+extern "C" ARM struct Struct_0205a254_2* func_0205a3d0(struct Struct_0205a254* arg0, int arg1) {
+    struct Struct_0205a254_2* var0;
+    unsigned short var1;
+    if (arg0->unknown_0_ == NULL) {
         return NULL;
     }
-    if (c->count == 0) {
+    if (arg0->unknown_4_ == 0) {
         return NULL;
     }
-    result = NULL;
-    for (i = 0; i < c->count; i++) {
-        if (key == c->entries[i].key) {
-            result = &c->entries[i];
+    var0 = NULL;
+    for (var1 = 0; var1 < arg0->unknown_4_; var1++) {
+        if (arg1 == arg0->unknown_0_[var1].unknown_8_) {
+            var0 = &arg0->unknown_0_[var1];
             break;
         }
     }
-    return result;
+    return var0;
 }

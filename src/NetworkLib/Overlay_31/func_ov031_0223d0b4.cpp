@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
-struct InputRepeatState0223d0b4 {
-    unsigned char pad[0x30];
-    unsigned short mask;
-    unsigned short pressed;
-    unsigned short pressedOrRepeat;
-    unsigned short released;
+struct Struct_ov031_0223d0b4 {
+    unsigned char unknown_0_[0x30];
+    unsigned short unknown_30_;
+    unsigned short unknown_32_;
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
 };
 
 extern unsigned char data_ov031_02290d40[];
 extern unsigned char data_ov031_02290d48[];
 
-#define STATE0223d0b4 (*(InputRepeatState0223d0b4**)(data_ov031_02290d40 + 4))
+#define STATE0223d0b4 (*(Struct_ov031_0223d0b4**)(data_ov031_02290d40 + 4))
 
 // USA: func_ov031_0223d0b4
 extern "C" ARM void func_ov031_0223d0b4(void) {
-    InputRepeatState0223d0b4* state = STATE0223d0b4;
-    unsigned short a = *(volatile unsigned short*)0x4000130;
-    unsigned short b = *(volatile unsigned short*)0x27fffa8;
-    unsigned short keyMask = (unsigned short)(((a | b) ^ 0x2fff) & 0x2fff);
-    state->pressed = (unsigned short)((state->mask ^ keyMask) & keyMask);
-    STATE0223d0b4->released = (unsigned short)(state->mask & (state->mask ^ keyMask));
-    STATE0223d0b4->mask = keyMask;
-    STATE0223d0b4->pressedOrRepeat = STATE0223d0b4->pressed;
+    Struct_ov031_0223d0b4* var0 = STATE0223d0b4;
+    unsigned short var1 = *(volatile unsigned short*)0x4000130;
+    unsigned short var2 = *(volatile unsigned short*)0x27fffa8;
+    unsigned short var3 = (unsigned short)(((var1 | var2) ^ 0x2fff) & 0x2fff);
+    var0->unknown_32_ = (unsigned short)((var0->unknown_30_ ^ var3) & var3);
+    STATE0223d0b4->unknown_36_ = (unsigned short)(var0->unknown_30_ & (var0->unknown_30_ ^ var3));
+    STATE0223d0b4->unknown_30_ = var3;
+    STATE0223d0b4->unknown_34_ = STATE0223d0b4->unknown_32_;
 
-    int i = 0;
-    unsigned char* counters = data_ov031_02290d48;
+    int var4 = 0;
+    unsigned char* var5 = data_ov031_02290d48;
     do {
-        unsigned short bit = (unsigned short)(1 << i);
-        if (!(keyMask & bit)) {
-            *counters = 0;
+        unsigned short var6 = (unsigned short)(1 << var4);
+        if (!(var3 & var6)) {
+            *var5 = 0;
         } else {
-            *counters = *counters + 1;
-            if (*counters == 0x28) {
-                STATE0223d0b4->pressedOrRepeat |= bit;
-            } else if (*counters == 0x2f) {
-                STATE0223d0b4->pressedOrRepeat |= bit;
-                *counters = 0x28;
+            *var5 = *var5 + 1;
+            if (*var5 == 0x28) {
+                STATE0223d0b4->unknown_34_ |= var6;
+            } else if (*var5 == 0x2f) {
+                STATE0223d0b4->unknown_34_ |= var6;
+                *var5 = 0x28;
             }
         }
-        i++;
-        counters++;
-    } while (i < 14);
+        var4++;
+        var5++;
+    } while (var4 < 14);
 }

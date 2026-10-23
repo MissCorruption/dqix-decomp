@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kFinalSubflag = 0x3dc };
+enum { Enum_02013e18_956 = 0x3dc };
 #else
-enum { kFinalSubflag = 0x3bc };
+enum { Enum_02013e18_956 = 0x3bc };
 #endif
 
 #include "World/Zone3D.h"
@@ -28,72 +28,72 @@ extern "C" {
 }
 
 // USA: func_02013e18
-extern "C" ARM int func_02013e18(Zone3D* zone)
+extern "C" ARM int func_02013e18(Zone3D* arg0)
 {
-    if (zone->unknown_424_ == 0)
+    if (arg0->unknown_424_ == 0)
         return 1;
 
-    if (!func_02013fb4(zone))
+    if (!func_02013fb4(arg0))
         return 0;
 
-    if (!zone->func_02014108())
+    if (!arg0->func_02014108())
         return 0;
 
-    if (!zone->func_02014c04())
+    if (!arg0->func_02014c04())
         return 0;
 
-    if (!_ZN6Zone3D13func_020146fcEv(zone))
+    if (!_ZN6Zone3D13func_020146fcEv(arg0))
         return 0;
 
-    if (!func_0201498c(zone))
+    if (!func_0201498c(arg0))
         return 0;
 
-    int v = zone->pUnknownStruct_8_->unknown_0_;
+    int var0 = arg0->pUnknownStruct_8_->unknown_0_;
 
-    if (func_0201b5b0(v))
+    if (func_0201b5b0(var0))
     {
-        func_02019728(zone, v % 20, 0, 0, 0);
-        func_0201a600(zone);
+        func_02019728(arg0, var0 % 20, 0, 0, 0);
+        func_0201a600(arg0);
     }
-    else if (func_0201b5d8(v))
+    else if (func_0201b5d8(var0))
     {
-        func_0201a600(zone);
+        func_0201a600(arg0);
     }
 
-    LightingManager* lm = LightingManager::GetInstance();
-    lm->ProcessZoneChange(zone);
+    LightingManager* var1 = LightingManager::GetInstance();
+    var1->ProcessZoneChange(arg0);
 
-    int ovr = lm->lightingIndexOverride_;
-    int idx = lm->timeOfDayIndex_;
-    if (ovr)
-        idx = ovr;
+    int var2 = var1->lightingIndexOverride_;
+    int var3 = var1->timeOfDayIndex_;
+    if (var2)
+        var3 = var2;
 
-    int color;
-    if (zone->lighting_.maybeMode_ == 1)
-        color = zone->lighting_.basic_.backgroundColor[idx];
+    int var4;
+    if (arg0->lighting_.maybeMode_ == 1)
+        var4 = arg0->lighting_.basic_.backgroundColor[var3];
     else
-        color = zone->lighting_.advanced_.backgroundColor[idx];
+        var4 = arg0->lighting_.advanced_.backgroundColor[var3];
 
-    func_020c5588(color, 0x10, 0x7fff, 0, 0);
+    func_020c5588(var4, 0x10, 0x7fff, 0, 0);
 
-    GameResources* res = GetGameResources();
-    int t = (unsigned int)((unsigned char*)zone->pUnknownStruct_8_)[0xe] << 24 >> 31;
-    if (!t)
-        SetFlags04(res, 0x800);
+    GameResources* var5 = GetGameResources();
+    int var6 = (unsigned int)((unsigned char*)arg0->pUnknownStruct_8_)[0xe] << 24 >> 31;
+    if (!var6)
+        SetFlags04(var5, 0x800);
     else
-        ClearFlags04(res, 0x800);
+        ClearFlags04(var5, 0x800);
 
-    func_02018f30((unsigned char*)zone);
-    func_020181fc(zone);
+    func_02018f30((unsigned char*)arg0);
+    func_020181fc(arg0);
     (void)func_020100f8((char const*)GameState::GetInstance());
 
-    zone->unk_830[1] = (char)lm->timeOfDayIndex_;
-    zone->unk_830[2] = 0;
-    zone->unknown_424_ = 0;
+    arg0->unk_830[1] = (char)var1->timeOfDayIndex_;
+    arg0->unk_830[2] = 0;
+    arg0->unknown_424_ = 0;
 
-    unsigned char* sub = (unsigned char*)zone + 0x2000;
-    sub[kFinalSubflag] = 1;
-    func_02018ab8(zone);
-    func_02017a94(zone);
+    unsigned char* var7 = (unsigned char*)arg0 + 0x2000;
+    var7[Enum_02013e18_956] = 1;
+    func_02018ab8(arg0);
+    func_02017a94(arg0);
     return 1;
 }

@@ -8,15 +8,15 @@ extern int data_ov000_02183fe0;
 extern char data_ov000_02185100[];
 #endif
 
-struct Struct0216fd0c {
-	int field0;
+struct Struct_ov000_0216fd0c {
+	int unknown_0_;
 };
 
 // USA: func_ov000_0216fd0c
-extern "C" ARM void func_ov000_0216fd0c(struct Struct0216fd0c* obj) {
+extern "C" ARM void func_ov000_0216fd0c(struct Struct_ov000_0216fd0c* arg0) {
 #if defined(jpn)
-    obj->field0 = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov000_02185100, (SafeAllocator*)0);
+    arg0->unknown_0_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov000_02185100, (SafeAllocator*)0);
 #else
-	obj->field0 = ((BackgroundLoader*)((int)BackgroundLoader::GetInstance()))->QueueLoadFileInGP2((const char*)((int)&data_ov000_02183fcc), (const char*)((int)&data_ov000_02183fe0), (SafeAllocator*)(0));
+	arg0->unknown_0_ = ((BackgroundLoader*)((int)BackgroundLoader::GetInstance()))->QueueLoadFileInGP2((const char*)((int)&data_ov000_02183fcc), (const char*)((int)&data_ov000_02183fe0), (SafeAllocator*)(0));
 #endif
 }

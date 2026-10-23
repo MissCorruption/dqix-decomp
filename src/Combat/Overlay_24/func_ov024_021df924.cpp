@@ -4,229 +4,229 @@
 #include "Memory/SafeAllocator.h"
 #include "Util/Random.h"
 
-struct Field150Holder02052df8;
-struct S_a0720;
-struct S_9fffc;
-struct Field0x30;
-struct S_a0038;
+struct Struct_02052df8;
+struct Struct_020a0720;
+struct Struct_0209fffc;
+struct Struct_020a0750;
+struct Struct_020a0038;
 
-struct Stats021df924 {
-    char pad0[0x3d];
-    unsigned char rank;
+struct Struct_ov024_021df924_7 {
+    char unknown_0_[0x3d];
+    unsigned char unknown_3d_;
 };
-struct Item021df924 {
-    char pad0[0x10];
-    unsigned short id;
+struct Struct_ov024_021df924_8 {
+    char unknown_0_[0x10];
+    unsigned short unknown_10_;
 };
-struct Odds021df924 {
-    char pad0[2];
-    unsigned char rate[2];
-    unsigned short message[2];
+struct Struct_ov024_021df924_9 {
+    char unknown_0_[2];
+    unsigned char unknown_2_[2];
+    unsigned short unknown_4_[2];
 };
-struct Level021df924 {
-    char pad0[4];
-    unsigned int level : 10;
-    unsigned int rest : 22;
+struct Struct_ov024_021df924_10 {
+    char unknown_0_[4];
+    unsigned int unknown_4_0_ : 10;
+    unsigned int unknown_5_2_ : 22;
 };
-struct Fighter021df924 : GameObject {
-    char pad13C[8];
+struct Struct_ov024_021df924_11 : GameObject {
+    char unknown_13c_[8];
 #if defined(jpn)
     union {
-        Item021df924* item;
-        Level021df924* info;
+        Struct_ov024_021df924_8* unknown_144_;
+        Struct_ov024_021df924_10* unknown_150_;
     };
-    Odds021df924* odds;
+    Struct_ov024_021df924_9* unknown_148_;
 #else
-    Item021df924* item;
-    Odds021df924* odds;
-    char pad14C[4];
-    Level021df924* info;
+    Struct_ov024_021df924_8* unknown_144_;
+    Struct_ov024_021df924_9* unknown_148_;
+    char unknown_14c_[4];
+    Struct_ov024_021df924_10* unknown_150_;
 #endif
 };
-struct Message021df924 {
-    char pad0[4];
-    short id;
+struct Struct_ov024_021df924_12 {
+    char unknown_0_[4];
+    short unknown_4_;
 };
-struct BattleFlags021df924 {
-    char pad0[0x1c];
-    unsigned char field_1c : 7;
-    unsigned char alternate : 1;
+struct Struct_ov024_021df924_13 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 7;
+    unsigned char unknown_1c_7_ : 1;
 };
-struct World021df924 {
-    char pad0[0x8e4a];
-    short pending;
+struct Struct_ov024_021df924 {
+    char unknown_0_[0x8e4a];
+    short unknown_8e4a_;
 };
-struct Action021df924 {
-    int field_0;
-    Message021df924* message;
-    int field_8;
-    BattleFlags021df924* flags;
-    World021df924* world;
+struct Struct_ov024_021df924_2 {
+    int unknown_0_;
+    Struct_ov024_021df924_12* unknown_4_;
+    int unknown_8_;
+    Struct_ov024_021df924_13* unknown_c_;
+    Struct_ov024_021df924* unknown_10_;
 };
-struct PackedCodes021df924 {
-    unsigned int first : 10;
-    unsigned int second : 10;
-    unsigned int third : 10;
-    unsigned int flags : 2;
+struct Struct_ov024_021df924_3 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
-struct ActionData021df924 {
-    char pad0[0x20];
-    PackedCodes021df924 success;
-    PackedCodes021df924 failure;
+struct Struct_ov024_021df924_4 {
+    char unknown_0_[0x20];
+    Struct_ov024_021df924_3 unknown_20_;
+    Struct_ov024_021df924_3 unknown_24_;
 };
-struct Counts021df924 {
-    unsigned int low : 10;
-    unsigned int bit10 : 1;
-    unsigned int first : 7;
-    unsigned int second : 7;
-    unsigned int rest : 7;
+struct Struct_ov024_021df924_5 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 1;
+    unsigned int unknown_1_3_ : 7;
+    unsigned int unknown_2_2_ : 7;
+    unsigned int unknown_3_1_ : 7;
 };
-struct Loader021df924 {
-    SafeAllocator alloc;
-    char body[0x2c - sizeof(SafeAllocator)];
-    void* source;
-    char pad30[8];
+struct Struct_ov024_021df924_6 {
+    SafeAllocator unknown_0_;
+    char unknown_14_[0x2c - sizeof(SafeAllocator)];
+    void* unknown_2c_;
+    char unknown_30_[8];
 };
 
 extern float data_ov024_021fe860[];
 
-extern "C" GameObject* func_ov000_021536f8(int unused, int id);
+extern "C" GameObject* func_ov000_021536f8(int arg0, int arg1);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* obj);
-extern "C" int func_ov000_0215fd24(int world, int id);
+extern "C" int func_0202c508(void* arg0);
+extern "C" int func_ov000_0215fd24(int arg0, int arg1);
 extern "C" unsigned short* func_02012fe4(void);
-static inline int GetActionID() { return *func_02012fe4(); }
-extern "C" int func_ov024_021df71c(Fighter021df924* self, unsigned short actionID, int alternate, unsigned short* resultID, unsigned short* combatantKey, unsigned short* entryID);
-extern "C" short func_02052df8(Field150Holder02052df8* holder, int part);
+static inline int inline_ov024_021df924() { return *func_02012fe4(); }
+extern "C" int func_ov024_021df71c(Struct_ov024_021df924_11* arg0, unsigned short arg1, int arg2, unsigned short* arg3, unsigned short* arg4, unsigned short* arg5);
+extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
 extern "C" void* func_ov000_02160130();
-extern "C" char* func_ov000_02160f08(void* work);
-extern "C" void* func_020de824(void* obj);
-extern "C" void func_0207cbe8(char* obj);
+extern "C" char* func_ov000_02160f08(void* arg0);
+extern "C" void* func_020de824(void* arg0);
+extern "C" void func_0207cbe8(char* arg0);
 extern "C" void func_ov000_0215fa70(void*, short, short, short);
-extern "C" int func_0207ccf0(void* buf, int a, int b, int c, int d, int e, int f);
-extern "C" int func_020ac020(void* unused, short* indices, int* dest, int count);
-extern "C" void func_020abe84(void* unused, short* indices, Counts021df924* values, int count);
-extern "C" void func_020ac4c0(void* block);
-extern "C" void func_020a0720(S_a0720* block, unsigned int value);
-extern "C" void func_0209fffc(S_9fffc* block, unsigned int value);
-extern "C" void func_020a0750(Field0x30* block, unsigned int value);
-extern "C" void func_020a0038(S_a0038* block, unsigned int value);
-extern "C" void func_020ac494(void* block);
-extern "C" void* func_ov000_0215e958(void* world);
-extern "C" void func_ov000_0215a88c(void* world, void* entry, int value);
-extern "C" void func_ov000_0215cd44(void* world, void* entry, GameObject* target, int a, int b, int c, int d);
+extern "C" int func_0207ccf0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" int func_020ac020(void* arg0, short* arg1, int* arg2, int arg3);
+extern "C" void func_020abe84(void* arg0, short* arg1, Struct_ov024_021df924_5* arg2, int arg3);
+extern "C" void func_020ac4c0(void* arg0);
+extern "C" void func_020a0720(Struct_020a0720* arg0, unsigned int arg1);
+extern "C" void func_0209fffc(Struct_0209fffc* arg0, unsigned int arg1);
+extern "C" void func_020a0750(Struct_020a0750* arg0, unsigned int arg1);
+extern "C" void func_020a0038(Struct_020a0038* arg0, unsigned int arg1);
+extern "C" void func_020ac494(void* arg0);
+extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, GameObject* arg2, int arg3, int arg4, int arg5, int arg6);
 
 // USA: func_ov024_021df924
-extern "C" ARM void* func_ov024_021df924(Action021df924* self, short id, int targetId, ActionData021df924* data) {
-    Fighter021df924* actor = (Fighter021df924*)func_0200ff1c(GameState::GetInstance(), id);
-    if (!actor) return 0;
-    Fighter021df924* target = (Fighter021df924*)func_ov000_021536f8((int)self->world, targetId);
-    if (!target) return 0;
-    Odds021df924* odds = target->odds;
-    if (!odds) return 0;
-    int stolen = 0;
-    unsigned char* rate;
-    unsigned short* msg;
-    rate = odds->rate;
-    msg = odds->message;
-    short level = (unsigned short)actor->info->level;
-    Random* rng = (Random*)self->world;
-    float rolls[2];
-    rolls[0] = NextRandomFloatBetween(rng, 0.0f, 100.0f);
-    rolls[1] = NextRandomFloatBetween(rng, 0.0f, 100.0f);
-    int anyRate = 0;
-    unsigned short resultID;
-    unsigned short entryID;
-    unsigned short combatantKey;
-    Counts021df924 counts;
-    Loader021df924 loader;
-    int i;
-    for (i = 0; i < 2; i++, rate++, msg++) {
-        if (*rate == 0) continue;
-        resultID = 0;
-        entryID = 0;
-        combatantKey = 0;
-        int found = 0;
-        void* scene = func_0202ae18();
-        if (self->world->pending == 0 && func_0202c508(scene) && func_ov000_0215fd24((int)self->world, id)) {
-            found = func_ov024_021df71c(target, GetActionID(), i != 0, &resultID, &combatantKey, &entryID);
+extern "C" ARM void* func_ov024_021df924(Struct_ov024_021df924_2* arg0, short arg1, int arg2, Struct_ov024_021df924_4* arg3) {
+    Struct_ov024_021df924_11* var0 = (Struct_ov024_021df924_11*)func_0200ff1c(GameState::GetInstance(), arg1);
+    if (!var0) return 0;
+    Struct_ov024_021df924_11* var1 = (Struct_ov024_021df924_11*)func_ov000_021536f8((int)arg0->unknown_10_, arg2);
+    if (!var1) return 0;
+    Struct_ov024_021df924_9* var2 = var1->unknown_148_;
+    if (!var2) return 0;
+    int var3 = 0;
+    unsigned char* var4;
+    unsigned short* var5;
+    var4 = var2->unknown_2_;
+    var5 = var2->unknown_4_;
+    short var6 = (unsigned short)var0->unknown_150_->unknown_4_0_;
+    Random* var7 = (Random*)arg0->unknown_10_;
+    float var8[2];
+    var8[0] = NextRandomFloatBetween(var7, 0.0f, 100.0f);
+    var8[1] = NextRandomFloatBetween(var7, 0.0f, 100.0f);
+    int var9 = 0;
+    unsigned short var10;
+    unsigned short var11;
+    unsigned short var12;
+    Struct_ov024_021df924_5 var13;
+    Struct_ov024_021df924_6 var14;
+    int var15;
+    for (var15 = 0; var15 < 2; var15++, var4++, var5++) {
+        if (*var4 == 0) continue;
+        var10 = 0;
+        var11 = 0;
+        var12 = 0;
+        int var16 = 0;
+        void* var17 = func_0202ae18();
+        if (arg0->unknown_10_->unknown_8e4a_ == 0 && func_0202c508(var17) && func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
+            var16 = func_ov024_021df71c(var1, inline_ov024_021df924(), var15 != 0, &var10, &var12, &var11);
         }
-        if (((Stats021df924*)target->currentStats_)->rank != 0 && !found) continue;
-        if (data_ov024_021fe860[*rate] > 0.0f) anyRate = 1;
-        float low = 2.0f * (100.0f * data_ov024_021fe860[*rate]);
-        float high = 6.0f * (100.0f * data_ov024_021fe860[*rate]);
-        if (func_02052df8((Field150Holder02052df8*)actor, 9) == 0x467f) {
-            low = 2.0f * low;
-            high = 2.0f * high;
+        if (((Struct_ov024_021df924_7*)var1->currentStats_)->unknown_3d_ != 0 && !var16) continue;
+        if (data_ov024_021fe860[*var4] > 0.0f) var9 = 1;
+        float var18 = 2.0f * (100.0f * data_ov024_021fe860[*var4]);
+        float var19 = 6.0f * (100.0f * data_ov024_021fe860[*var4]);
+        if (func_02052df8((Struct_02052df8*)var0, 9) == 0x467f) {
+            var18 = 2.0f * var18;
+            var19 = 2.0f * var19;
         }
-        if (low > 50.0f) low = 50.0f;
-        if (high > 50.0f) high = 50.0f;
-        if (level > 0x33) {
-            if (level >= 999) low = high;
-            else low = low + (float)(level - 0x33) * ((high - low) / 948.0f);
+        if (var18 > 50.0f) var18 = 50.0f;
+        if (var19 > 50.0f) var19 = 50.0f;
+        if (var6 > 0x33) {
+            if (var6 >= 999) var18 = var19;
+            else var18 = var18 + (float)(var6 - 0x33) * ((var19 - var18) / 948.0f);
         }
-        if (!(rolls[i] < low)) continue;
-        self->message->id = *msg;
-        stolen = 1;
-        ((Stats021df924*)target->currentStats_)->rank = i + 1;
-        if (func_ov000_0215fd24((int)self->world, id)) {
-            char* work = func_ov000_02160f08(func_ov000_02160130());
-            char* special = work + 0xd0;
-            char* normal = work + 0xe8;
-            loader.alloc.ResetAllocatorPointer();
-            func_020de824(loader.body);
-            func_0207cbe8((char*)&loader);
-            func_0207cbe8((char*)&loader);
-            if (found) {
-                self->message->id = resultID;
-                func_ov000_0215fa70(self->world, entryID, combatantKey, resultID);
-                loader.source = special;
+        if (!(var8[var15] < var18)) continue;
+        arg0->unknown_4_->unknown_4_ = *var5;
+        var3 = 1;
+        ((Struct_ov024_021df924_7*)var1->currentStats_)->unknown_3d_ = var15 + 1;
+        if (func_ov000_0215fd24((int)arg0->unknown_10_, arg1)) {
+            char* var20 = func_ov000_02160f08(func_ov000_02160130());
+            char* var21 = var20 + 0xd0;
+            char* var22 = var20 + 0xe8;
+            var14.unknown_0_.ResetAllocatorPointer();
+            func_020de824(var14.unknown_14_);
+            func_0207cbe8((char*)&var14);
+            func_0207cbe8((char*)&var14);
+            if (var16) {
+                arg0->unknown_4_->unknown_4_ = var10;
+                func_ov000_0215fa70(arg0->unknown_10_, var11, var12, var10);
+                var14.unknown_2c_ = var21;
             } else {
-                loader.source = normal;
-                func_0207ccf0(&loader, self->message->id, 1, id, 1, 0, 0);
-                counts.low = 0;
-                counts.bit10 = 0;
-                counts.first = 0;
-                counts.second = 0;
-                if (target->item) {
-                    short item = target->item->id;
-                    if (func_020ac020(0, &item, (int*)&counts, 1)) {
-                        if (i == 0) {
-                            unsigned int count = counts.first + 1;
-                            if (count > 99) count = 99;
-                            counts.first = count;
+                var14.unknown_2c_ = var22;
+                func_0207ccf0(&var14, arg0->unknown_4_->unknown_4_, 1, arg1, 1, 0, 0);
+                var13.unknown_0_0_ = 0;
+                var13.unknown_1_2_ = 0;
+                var13.unknown_1_3_ = 0;
+                var13.unknown_2_2_ = 0;
+                if (var1->unknown_144_) {
+                    short var23 = var1->unknown_144_->unknown_10_;
+                    if (func_020ac020(0, &var23, (int*)&var13, 1)) {
+                        if (var15 == 0) {
+                            unsigned int var24 = var13.unknown_1_3_ + 1;
+                            if (var24 > 99) var24 = 99;
+                            var13.unknown_1_3_ = var24;
                         }
-                        if (i == 1) {
-                            unsigned int count = counts.second + 1;
-                            if (count > 99) count = 99;
-                            counts.second = count;
+                        if (var15 == 1) {
+                            unsigned int var25 = var13.unknown_2_2_ + 1;
+                            if (var25 > 99) var25 = 99;
+                            var13.unknown_2_2_ = var25;
                         }
-                        func_020abe84(0, &item, &counts, 1);
+                        func_020abe84(0, &var23, &var13, 1);
                     }
                 }
             }
         }
         break;
     }
-    char block[0xb0];
-    func_020ac4c0(block);
-    char* tail = block + 0x68;
-    func_020a0720((S_a0720*)block, 1);
-    func_0209fffc((S_9fffc*)tail, 1);
-    unsigned short message;
-    if (stolen) {
-        func_020a0750((Field0x30*)block, 1);
-        func_020a0038((S_a0038*)tail, 1);
-        message = data->failure.first;
-    } else if (!anyRate) {
-        message = 0x25a;
+    char var26[0xb0];
+    func_020ac4c0(var26);
+    char* var27 = var26 + 0x68;
+    func_020a0720((Struct_020a0720*)var26, 1);
+    func_0209fffc((Struct_0209fffc*)var27, 1);
+    unsigned short var28;
+    if (var3) {
+        func_020a0750((Struct_020a0750*)var26, 1);
+        func_020a0038((Struct_020a0038*)var27, 1);
+        var28 = arg3->unknown_24_.unknown_0_0_;
+    } else if (!var9) {
+        var28 = 0x25a;
     } else {
-        message = data->failure.third;
+        var28 = arg3->unknown_24_.unknown_2_4_;
     }
-    func_020ac494(block);
-    void* entry = func_ov000_0215e958(self->world);
-    if (!entry) return 0;
-    if (message) func_ov000_0215a88c(self->world, entry, message);
-    func_ov000_0215cd44(self->world, entry, target, 0, 0, 0, self->flags->alternate != 0);
-    return entry;
+    func_020ac494(var26);
+    void* var29 = func_ov000_0215e958(arg0->unknown_10_);
+    if (!var29) return 0;
+    if (var28) func_ov000_0215a88c(arg0->unknown_10_, var29, var28);
+    func_ov000_0215cd44(arg0->unknown_10_, var29, var1, 0, 0, 0, arg0->unknown_c_->unknown_1c_7_ != 0);
+    return var29;
 }

@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Entry021649d4 { int type; char pad[8]; void* ptr; };
-struct IntField0x64_020377c4;
+struct Struct_ov001_021649d4 { int unknown_0_; char unknown_4_[8]; void* unknown_c_; };
+struct Struct_020484f8_3;
 
 // USA: func_ov001_021649d4
-extern "C" ARM int func_ov001_021649d4(Entry021649d4* arr, int idx, int value) {
-    if (idx < 0 || idx >= 0x20) {
+extern "C" ARM int func_ov001_021649d4(Struct_ov001_021649d4* arg0, int arg1, int arg2) {
+    if (arg1 < 0 || arg1 >= 0x20) {
         return 0;
     }
-    int type = arr[idx].type;
-    Entry021649d4* entry = &arr[idx];
-    if (type != 1) {
+    int var0 = arg0[arg1].unknown_0_;
+    Struct_ov001_021649d4* var1 = &arg0[arg1];
+    if (var0 != 1) {
         goto fail;
     }
     {
-        void* ptr = entry->ptr;
-        if (ptr == NULL) {
+        void* var2 = var1->unknown_c_;
+        if (var2 == NULL) {
             return 0;
         }
-        ((Object3D*)((IntField0x64_020377c4*)ptr))->SetRadius(value);
+        ((Object3D*)((Struct_020484f8_3*)var2))->SetRadius(arg2);
         return 1;
     }
 fail:

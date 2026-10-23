@@ -1,53 +1,53 @@
 #include <globaldefs.h>
 
-struct Entry020e52a0 {
-    char pad00[0xc];
-    unsigned short key;
-    char pad0e[2];
+struct Struct_020e52a0_2 {
+    char unknown_0_[0xc];
+    unsigned short unknown_c_;
+    char unknown_e_[2];
 };
 
-struct Header020e52a0 {
-    unsigned int count : 12;
-    unsigned int pad1 : 4;
-    struct Entry020e52a0* entries;
+struct Struct_020e52a0 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    struct Struct_020e52a0_2* unknown_4_;
 };
 
-extern "C" unsigned short func_020e51fc(unsigned char* obj);
+extern "C" unsigned short func_020e51fc(unsigned char* arg0);
 
 // USA: func_020e52a0
-extern "C" ARM void* func_020e52a0(void* arr, int key) {
-    struct Entry020e52a0* table;
-    struct Entry020e52a0* res;
-    int count, mid, hi, lo, k;
-    if (arr == 0) {
+extern "C" ARM void* func_020e52a0(void* arg0, int arg1) {
+    struct Struct_020e52a0_2* var0;
+    struct Struct_020e52a0_2* var1;
+    int var2, var3, var4, var5, var6;
+    if (arg0 == 0) {
         return 0;
     }
-    table = ((struct Header020e52a0*)arr)->entries;
-    if (table == 0 || (void*)func_020e51fc == 0) {
-        res = 0;
+    var0 = ((struct Struct_020e52a0*)arg0)->unknown_4_;
+    if (var0 == 0 || (void*)func_020e51fc == 0) {
+        var1 = 0;
         goto found;
     }
-    count = ((struct Header020e52a0*)arr)->count;
-    if (count == 0) {
-        res = 0;
+    var2 = ((struct Struct_020e52a0*)arg0)->unknown_0_0_;
+    if (var2 == 0) {
+        var1 = 0;
         goto found;
     }
-    lo = 0;
-    hi = count - 1;
-    while (lo <= hi) {
-        mid = lo + ((hi - lo + 1) >> 1);
-        res = &table[mid];
-        k = func_020e51fc((unsigned char*)res);
-        if (k == key) {
+    var5 = 0;
+    var4 = var2 - 1;
+    while (var5 <= var4) {
+        var3 = var5 + ((var4 - var5 + 1) >> 1);
+        var1 = &var0[var3];
+        var6 = func_020e51fc((unsigned char*)var1);
+        if (var6 == arg1) {
             goto found;
         }
-        if (k > key) {
-            hi = mid - 1;
+        if (var6 > arg1) {
+            var4 = var3 - 1;
         } else {
-            lo = mid + 1;
+            var5 = var3 + 1;
         }
     }
-    res = 0;
+    var1 = 0;
 found:
-    return res ? res : 0;
+    return var1 ? var1 : 0;
 }

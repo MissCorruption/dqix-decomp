@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion874 = 0x7f0 };
-enum { kRegion1048 = 0xfc4 };
+enum { Enum_ov003_02179cfc_2164 = 0x7f0 };
+enum { Enum_ov003_02179cfc_4168 = 0xfc4 };
 #else
-enum { kRegion874 = 0x874 };
-enum { kRegion1048 = 0x1048 };
+enum { Enum_ov003_02179cfc_2164 = 0x874 };
+enum { Enum_ov003_02179cfc_4168 = 0x1048 };
 #endif
 
 #include "GameState/GameState.h"
 
-struct Field150Holder02052df8;
-struct Container020dedd0;
-struct Element020de650;
+struct Struct_02052df8;
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
 
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02052df8(struct Field150Holder02052df8* obj, int index);
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02052df8(struct Struct_02052df8* arg0, int arg1);
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
 
-struct Table9x0217fb68 { unsigned int v[9]; };
-extern struct Table9x0217fb68 data_ov003_0217fb68;
+struct Struct_ov003_0217fb68 { unsigned int unknown_0_[9]; };
+extern struct Struct_ov003_0217fb68 data_ov003_0217fb68;
 
-struct Ctx02179cfc {
-    char pad[8];
-    unsigned int idx4 : 4;
-    unsigned int fieldRest : 28;
+struct Struct_ov003_02179cfc {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 28;
 };
 
 // USA: func_ov003_02179cfc
-extern "C" ARM void* func_ov003_02179cfc(char* base, int combatantId, struct Ctx02179cfc* fallback) {
-    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), combatantId);
-    if (combatant == NULL) return fallback;
+extern "C" ARM void* func_ov003_02179cfc(char* arg0, int arg1, struct Struct_ov003_02179cfc* arg2) {
+    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg1);
+    if (var0 == NULL) return arg2;
 
-    struct Table9x0217fb68 table = data_ov003_0217fb68;
+    struct Struct_ov003_0217fb68 var1 = data_ov003_0217fb68;
 
-    int val = func_02052df8((struct Field150Holder02052df8*)combatant, table.v[fallback->idx4]);
-    if (val == -1) return fallback;
+    int var2 = func_02052df8((struct Struct_02052df8*)var0, var1.unknown_0_[arg2->unknown_8_0_]);
+    if (var2 == -1) return arg2;
 
-    struct Element020de650* elem = func_020dedd0((struct Container020dedd0*)(base + kRegion874), val);
-    if (elem == NULL) return fallback;
+    struct Struct_0201099c_9* var3 = func_020dedd0((struct Struct_0201099c_10*)(arg0 + Enum_ov003_02179cfc_2164), var2);
+    if (var3 == NULL) return arg2;
 
-    *(unsigned short*)(base + kRegion1048) = val;
-    return elem;
+    *(unsigned short*)(arg0 + Enum_ov003_02179cfc_4168) = var2;
+    return var3;
 }

@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" void func_ov017_02191234(int a);
-extern "C" void func_02026394(unsigned char* obj, unsigned int index);
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
-extern "C" int func_020546a8(void* obj);
-extern "C" void func_ov017_021907dc(int a, int b, int c, int d, int e);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void func_ov017_02191234(int arg0);
+extern "C" void func_02026394(unsigned char* arg0, unsigned int arg1);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" int func_020546a8(void* arg0);
+extern "C" void func_ov017_021907dc(int arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct LocalEvt021cff0c {
-	unsigned char pad0[4];
-	unsigned char field4;
-	unsigned char field5;
+struct Struct_ov017_021cff0c {
+	unsigned char unknown_0_[4];
+	unsigned char unknown_4_;
+	unsigned char unknown_5_;
 };
 
 // USA: func_ov017_021cff0c
-extern "C" ARM void func_ov017_021cff0c(int unused0, LocalEvt021cff0c* evt, GameState* battleStruct, int table, struct SearchStruct0202c1a4* extra) {
+extern "C" ARM void func_ov017_021cff0c(int arg0, Struct_ov017_021cff0c* arg1, GameState* arg2, int arg3, struct Struct_0202c1a4* arg4) {
 #if defined(jpn)
- enum {regionalOffset0=0x4c0};
+ enum {Enum_ov017_021cff0c_1744=0x4c0};
 #else
- enum {regionalOffset0=0x6d0};
+ enum {Enum_ov017_021cff0c_1744=0x6d0};
 #endif
-	signed char val = func_0202c1a4(extra);
-	if (evt->field4 != val) {
+	signed char var0 = func_0202c1a4(arg4);
+	if (arg1->unknown_4_ != var0) {
 		return;
 	}
-	func_ov017_02191234(table);
-	unsigned char* obj = *(unsigned char**)((unsigned char*)table + 0x3000 + regionalOffset0);
-	func_02026394(obj, evt->field5);
-	int v = evt->field5;
-	GameObject* c = func_0200ff58(battleStruct, v);
-	if (c != NULL) {
-		v = func_020546a8(c);
+	func_ov017_02191234(arg3);
+	unsigned char* var1 = *(unsigned char**)((unsigned char*)arg3 + 0x3000 + Enum_ov017_021cff0c_1744);
+	func_02026394(var1, arg1->unknown_5_);
+	int var2 = arg1->unknown_5_;
+	GameObject* var3 = func_0200ff58(arg2, var2);
+	if (var3 != NULL) {
+		var2 = func_020546a8(var3);
 	}
-	func_ov017_021907dc(table, v, 1, 1, 1);
+	func_ov017_021907dc(arg3, var2, 1, 1, 1);
 }

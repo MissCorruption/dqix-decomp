@@ -4,315 +4,312 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
-struct ProfileName02170d88 { char text[11]; };
-struct ProfileCode02170d88 { unsigned char bytes[6]; };
-struct ProfileEffects02170d88 { short values[14]; };
-union ProfileSettings02170d88 {
+struct Struct_ov003_02170d88_2 { char unknown_0_[11]; };
+struct Struct_ov003_02170d88_5 { unsigned char unknown_0_[6]; };
+struct Struct_ov003_02170d88_6 { short unknown_0_[14]; };
+union Struct_ov003_02170d88_8 {
     struct {
-        unsigned int flags;
-        unsigned int unknown0 : 9;
-        signed int value9 : 10;
-        signed int value19 : 11;
-        unsigned int unknown30 : 2;
-        char message[116];
-    } fields;
-    unsigned int words[31];
+        unsigned int unknown_0_;
+        unsigned int unknown_4_0_ : 9;
+        signed int unknown_5_1_ : 10;
+        signed int unknown_6_3_ : 11;
+        unsigned int unknown_7_6_ : 2;
+        char unknown_8_[116];
+    } unknown_0_;
+    unsigned int unknown1_0_[31];
 };
-union ProfileRecord02170d88 {
+union Struct_ov003_02170d88_14 {
     struct {
-        unsigned int elapsedHours : 14;
-        unsigned int counter : 17;
-        unsigned int captured : 1;
-        unsigned int committedHours : 14;
-        unsigned int statistic : 17;
-        unsigned int unknown31 : 1;
-        unsigned int elapsedMinutes : 7;
-        unsigned int committedMinutes : 7;
-        unsigned int percent307 : 7;
-        unsigned int percent232 : 7;
-        unsigned int unknown28 : 4;
-        unsigned int value0 : 10;
-        unsigned int value10 : 14;
-        unsigned int percent944 : 7;
-        unsigned int unknown3 : 1;
-        unsigned int value9 : 9;
-        unsigned int value14 : 14;
-        unsigned int percent448 : 7;
-        unsigned int unknown4 : 2;
-        short profileValue;
-        unsigned char flag : 1;
-        unsigned char vocationValue : 4;
-        unsigned char unknown16 : 3;
-        unsigned char unknown17;
-    } fields;
-    unsigned int words[6];
+        unsigned int unknown_0_0_ : 14;
+        unsigned int unknown_1_6_ : 17;
+        unsigned int unknown_3_7_ : 1;
+        unsigned int unknown_4_0_ : 14;
+        unsigned int unknown_5_6_ : 17;
+        unsigned int unknown_7_7_ : 1;
+        unsigned int unknown_8_0_ : 7;
+        unsigned int unknown_8_7_ : 7;
+        unsigned int unknown_9_6_ : 7;
+        unsigned int unknown_a_5_ : 7;
+        unsigned int unknown_b_4_ : 4;
+        unsigned int unknown_c_0_ : 10;
+        unsigned int unknown_d_2_ : 14;
+        unsigned int unknown_f_0_ : 7;
+        unsigned int unknown_f_7_ : 1;
+        unsigned int unknown_10_0_ : 9;
+        unsigned int unknown_11_1_ : 14;
+        unsigned int unknown_12_7_ : 7;
+        unsigned int unknown_13_6_ : 2;
+        short unknown_14_;
+        unsigned char unknown_16_0_ : 1;
+        unsigned char unknown_16_1_ : 4;
+        unsigned char unknown_16_5_ : 3;
+        unsigned char unknown_17_;
+    } unknown_0_;
+    unsigned int unknown1_0_[6];
 };
-union ProfileMap02170d88 {
-    TreasureMapMetadata metadata;
-    short values[14];
+union Struct_ov003_02170d88 {
+    TreasureMapMetadata unknown_0_;
+    short unknown1_0_[14];
 };
-typedef char ProfileSettingsSizeCheck02170d88[sizeof(ProfileSettings02170d88) == 124 ? 1 : -1];
-typedef char ProfileRecordSizeCheck02170d88[sizeof(ProfileRecord02170d88) == 24 ? 1 : -1];
-typedef char ProfileMapSizeCheck02170d88[sizeof(ProfileMap02170d88) == 28 ? 1 : -1];
 
-struct Profile02170d88 {
-    ProfileName02170d88 name;
-    unsigned char vocation;
-    unsigned char level;
-    unsigned char hasMap;
-    ProfileCode02170d88 code;
-    ProfileSettings02170d88 settings;
-    ProfileEffects02170d88 effects;
-    ProfileRecord02170d88 record;
-    ProfileMap02170d88 map;
+struct Struct_ov003_02170d88_3 {
+    Struct_ov003_02170d88_2 unknown_0_;
+    unsigned char unknown_b_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    Struct_ov003_02170d88_5 unknown_e_;
+    Struct_ov003_02170d88_8 unknown_14_;
+    Struct_ov003_02170d88_6 unknown_90_;
+    Struct_ov003_02170d88_14 unknown_ac_;
+    Struct_ov003_02170d88 unknown_c4_;
 };
-struct ProfileState02170d88 {
-    unsigned char state;
-    char unknown1[3];
-    unsigned int timer;
-    unsigned char keys[50][8];
-    unsigned char keyCount;
+struct Struct_ov003_02170d88_4 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    unsigned int unknown_4_;
+    unsigned char unknown_8_[50][8];
+    unsigned char unknown_198_;
 #if defined(jpn)
-    char unknown199[0x19c - 0x199];
-    Profile02170d88 current;
-    char unknown27c[0x614 - 0x27c];
+    char unknown_199_[0x19c - 0x199];
+    Struct_ov003_02170d88_3 unknown_1c0_;
+    char unknown_27c_[0x614 - 0x27c];
 #else
-    char unknown199[0x1c0 - 0x199];
-    Profile02170d88 current;
-    char unknown2a0[0xe0];
-    Profile02170d88 sample;
-    char unknown460[0x718 - 0x460];
+    char unknown1_199_[0x1c0 - 0x199];
+    Struct_ov003_02170d88_3 unknown_1c0_;
+    char unknown_2a0_[0xe0];
+    Struct_ov003_02170d88_3 unknown_380_;
+    char unknown_460_[0x718 - 0x460];
 #endif
-    unsigned char active;
-    char unknown719[3];
-    int pending;
-    int accepted;
-    int result;
-    int unknown728;
-    int progress;
-    unsigned char flags;
-    signed char retries;
-    signed char attempts;
-    unsigned char unknown733;
-    unsigned char unknown734;
-    char unknown735[3];
-    int unknown738;
+    unsigned char unknown_718_;
+    char unknown_719_[3];
+    int unknown_71c_;
+    int unknown_720_;
+    int unknown_724_;
+    int unknown_728_;
+    int unknown_72c_;
+    unsigned char unknown_730_;
+    signed char unknown_731_;
+    signed char unknown_732_;
+    unsigned char unknown_733_;
+    unsigned char unknown_734_;
+    char unknown_735_[3];
+    int unknown_738_;
 };
-struct ProfileCharacterData02170d88 {
-    char unknown0[0x16c];
-    unsigned short vocationLevels[13];
-    unsigned char vocationValues[13];
-    char unknown193[0x49c - 0x193];
-    unsigned char flag : 1;
-    unsigned char unknownFlags : 7;
-    char unknown49d[0x56a - 0x49d];
-    unsigned char unknown56a;
+struct Struct_ov003_02170d88_7 {
+    char unknown_0_[0x16c];
+    unsigned short unknown_16c_[13];
+    unsigned char unknown_186_[13];
+    char unknown_193_[0x49c - 0x193];
+    unsigned char unknown_49c_0_ : 1;
+    unsigned char unknown_49c_1_ : 7;
+    char unknown_49d_[0x56a - 0x49d];
+    unsigned char unknown_56a_;
 #if defined(jpn)
-    char unknown56b[0x8b8 - 0x56b];
+    char unknown_56b_[0x8b8 - 0x56b];
 #else
-    char unknown56b[0x950 - 0x56b];
+    char unknown1_56b_[0x950 - 0x56b];
 #endif
-    unsigned int vocation;
+    unsigned int unknown_950_;
 };
-struct ProfileActor02170d88 : GameObject {
+struct Struct_ov003_02170d88_9 : GameObject {
 #if defined(jpn)
-    char unknown13c[0x144 - 0x13c];
+    char unknown_13c_[0x144 - 0x13c];
 #else
-    char unknown13c[0x150 - 0x13c];
+    char unknown1_13c_[0x150 - 0x13c];
 #endif
-    ProfileCharacterData02170d88* data;
+    Struct_ov003_02170d88_7* unknown_150_;
 };
-struct ProfileRecordRegion02170d88 {
-    char unknown0[0x3c];
-    BattleRecordSnapshot record;
+struct Struct_ov003_02170d88_10 {
+    char unknown_0_[0x3c];
+    Struct_02061c04 unknown_3c_;
 };
-struct ProfileSaveState02170d88 {
+struct Struct_ov003_02170d88_11 {
 #if defined(jpn)
-    char unknown0[0x543c];
-    ProfileSettings02170d88 settings;
-    char unknown54b8[0x72be - 0x54b8];
+    char unknown_0_[0x543c];
+    Struct_ov003_02170d88_8 unknown_569c_;
+    char unknown_54b8_[0x72be - 0x54b8];
 #else
-    char unknown0[0x569c];
-    ProfileSettings02170d88 settings;
-    char unknown5718[0x74fe - 0x5718];
+    char unknown1_0_[0x569c];
+    Struct_ov003_02170d88_8 unknown_569c_;
+    char unknown_5718_[0x74fe - 0x5718];
 #endif
-    ProfileCode02170d88 code;
-    ProfileRecordRegion02170d88 region;
+    Struct_ov003_02170d88_5 unknown_74fe_;
+    Struct_ov003_02170d88_10 unknown_7504_;
 };
-struct ProfileResourceState02170d88 {
+struct Struct_ov003_02170d88_12 {
 #if defined(jpn)
-    char unknown0[0x41e4];
+    char unknown_0_[0x41e4];
 #else
-    char unknown0[0x4494];
+    char unknown1_0_[0x4494];
 #endif
-    int profileActive;
+    int unknown_4494_;
 };
-struct Field150Holder02052e2c;
-struct Struct0200fb08;
-struct KeyArrayObj_02171f80;
+struct Struct_02052e2c;
+struct Struct_02000c9c_8;
+struct Struct_ov003_02170d88_13;
 extern "C" void* func_0202ae18();
-struct Obj_0202aec0;
-extern "C" void func_0202aec0(Obj_0202aec0*);
+struct Struct_0202aec0_2;
+extern "C" void func_0202aec0(Struct_0202aec0_2*);
 extern "C" void* func_0202ae24();
 extern "C" void func_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" void* func_02052a10(char*);
-extern "C" short* func_02052e2c(Field150Holder02052e2c*);
+extern "C" short* func_02052e2c(Struct_02052e2c*);
 extern "C" int func_020ac0b4(void*);
 extern "C" int func_020ac4f8(int);
-extern "C" int func_020a0870(BattleRecordSnapshot*);
-extern "C" int func_020a08a4(BattleRecordSnapshot*);
-extern "C" int func_020a08d8(BattleRecordSnapshot*);
-extern "C" int func_020a090c(BattleRecordSnapshot*);
-extern "C" ProfileCharacterData02170d88* func_02053c6c(unsigned char*);
-extern "C" unsigned char func_0200fb08(Struct0200fb08*);
+extern "C" int func_020a0870(Struct_02061c04*);
+extern "C" int func_020a08a4(Struct_02061c04*);
+extern "C" int func_020a08d8(Struct_02061c04*);
+extern "C" int func_020a090c(Struct_02061c04*);
+extern "C" Struct_ov003_02170d88_7* func_02053c6c(unsigned char*);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned char func_020119f8(char*, void*);
-extern "C" void func_ov003_02171f80(KeyArrayObj_02171f80*);
+extern "C" void func_ov003_02171f80(Struct_ov003_02170d88_13*);
 extern "C" void func_ov017_021b1d44(void*, int, int);
 extern const char* data_ov003_021805e4[5];
 extern const char* data_ov003_021805d0[5];
 
 #if defined(jpn)
-static inline ProfileSettings02170d88* GetSettings02170d88(ProfileSaveState02170d88* saved) { return &saved->settings; }
+static inline Struct_ov003_02170d88_8* inline_ov003_02170d88(Struct_ov003_02170d88_11* arg0) { return &arg0->unknown_569c_; }
 #endif
 
 // USA: func_ov003_02170d88
 // EUR: func_ov003_02170d88
-extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
-    ProfileRecordRegion02170d88* region;
-    self->state = 8;
-    self->timer = 0;
-    self->pending = 0;
-    self->accepted = 0;
-    self->result = 0;
-    Obj_0202aec0* searchState = static_cast<Obj_0202aec0*>(func_0202ae18());
-    func_0202aec0(searchState);
-    void* searchData = func_0202ae24();
-    func_0205e22c(searchData);
-    GameState* state = GameState::GetInstance();
-    GameObject* actorObject = state->GetProtagonist();
-    ProfileActor02170d88* actor = static_cast<ProfileActor02170d88*>(actorObject);
+extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
+    Struct_ov003_02170d88_10* var0;
+    arg0->unknown_0_ = 8;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_71c_ = 0;
+    arg0->unknown_720_ = 0;
+    arg0->unknown_724_ = 0;
+    Struct_0202aec0_2* var1 = static_cast<Struct_0202aec0_2*>(func_0202ae18());
+    func_0202aec0(var1);
+    void* var2 = func_0202ae24();
+    func_0205e22c(var2);
+    GameState* var3 = GameState::GetInstance();
+    GameObject* var4 = var3->GetProtagonist();
+    Struct_ov003_02170d88_9* var5 = static_cast<Struct_ov003_02170d88_9*>(var4);
 #if defined(jpn)
-    strcpy(self->current.name.text, (const char*)actor->baseStats_);
+    strcpy(arg0->unknown_1c0_.unknown_0_.unknown_0_, (const char*)var5->baseStats_);
 #else
-    strcpy(self->current.name.text, (const char*)func_02052a10((char*)actor));
+    strcpy(arg0->unknown_1c0_.unknown_0_.unknown_0_, (const char*)func_02052a10((char*)var5));
 #endif
-    self->current.vocation = actor->data->vocation;
-    self->current.level = actor->data->vocationLevels[actor->data->vocation];
-    ProfileSaveState02170d88* saved = (ProfileSaveState02170d88*)state;
-    memcpy(&self->current.settings, &saved->settings, 0x7c);
-    memcpy(&self->current.effects, func_02052e2c((Field150Holder02052e2c*)actor), 0x1c);
-    VectorizedMemset(&self->current.record, 0, 0x18);
-    ProfileRecord02170d88* output = &self->current.record;
-    region = &saved->region;
-    unsigned int counter = 0;
-    func_020ac0b4(&counter);
-    unsigned int flag = 0;
-    unsigned int vocationValue = 0;
-    GameObject* protagonistObject = state->GetProtagonist();
-    ProfileActor02170d88* protagonist = static_cast<ProfileActor02170d88*>(protagonistObject);
-    if (protagonist != 0) {
-        unsigned int vocation = protagonist->data->vocation;
-        flag = protagonist->data->flag;
-        vocationValue = protagonist->data->vocationValues[vocation];
+    arg0->unknown_1c0_.unknown_b_ = var5->unknown_150_->unknown_950_;
+    arg0->unknown_1c0_.unknown_c_ = var5->unknown_150_->unknown_16c_[var5->unknown_150_->unknown_950_];
+    Struct_ov003_02170d88_11* var6 = (Struct_ov003_02170d88_11*)var3;
+    memcpy(&arg0->unknown_1c0_.unknown_14_, &var6->unknown_569c_, 0x7c);
+    memcpy(&arg0->unknown_1c0_.unknown_90_, func_02052e2c((Struct_02052e2c*)var5), 0x1c);
+    VectorizedMemset(&arg0->unknown_1c0_.unknown_ac_, 0, 0x18);
+    Struct_ov003_02170d88_14* var7 = &arg0->unknown_1c0_.unknown_ac_;
+    var0 = &var6->unknown_7504_;
+    unsigned int var8 = 0;
+    func_020ac0b4(&var8);
+    unsigned int var9 = 0;
+    unsigned int var10 = 0;
+    GameObject* var11 = var3->GetProtagonist();
+    Struct_ov003_02170d88_9* var12 = static_cast<Struct_ov003_02170d88_9*>(var11);
+    if (var12 != 0) {
+        unsigned int var13 = var12->unknown_150_->unknown_950_;
+        var9 = var12->unknown_150_->unknown_49c_0_;
+        var10 = var12->unknown_150_->unknown_186_[var13];
     }
     func_020ac4f8(0);
 #if defined(jpn)
-    ProfileSettings02170d88* settings = GetSettings02170d88(saved);
+    Struct_ov003_02170d88_8* var14 = inline_ov003_02170d88(var6);
 #else
-    ProfileSettings02170d88* settings = &saved->settings;
+    Struct_ov003_02170d88_8* var14 = &var6->unknown_569c_;
 #endif
-    VectorizedMemset(output, 0, 0x18);
-    output->fields.elapsedHours = region->record.clocks.elapsed.hours;
-    output->fields.elapsedMinutes = region->record.clocks.elapsed.minutes;
-    output->fields.committedHours = region->record.clocks.committed.hours;
-    output->fields.committedMinutes = region->record.clocks.committed.minutes;
-    output->fields.statistic = region->record.unknown08_0;
-    output->fields.counter = counter;
-    output->fields.value0 = region->record.unknown10_0;
-    output->fields.value9 = region->record.unknown08_24;
-    output->fields.value10 = region->record.unknown0c_14;
-    output->fields.value14 = region->record.unknown10_9;
-    output->fields.percent307 = (unsigned char)func_020a0870(&region->record);
-    output->fields.percent232 = (unsigned char)func_020a08a4(&region->record);
-    output->fields.percent944 = (unsigned char)func_020a08d8(&region->record);
-    output->fields.percent448 = (unsigned char)func_020a090c(&region->record);
-    output->fields.profileValue = settings->fields.value19;
-    output->fields.flag = (unsigned char)flag;
-    output->fields.vocationValue = (unsigned char)vocationValue;
-    output->fields.unknown17 = func_02053c6c((unsigned char*)protagonist)->unknown56a;
+    VectorizedMemset(var7, 0, 0x18);
+    var7->unknown_0_.unknown_0_0_ = var0->unknown_3c_.unknown_0_.unknown_0_.unknown_0_;
+    var7->unknown_0_.unknown_8_0_ = var0->unknown_3c_.unknown_0_.unknown_0_.unknown_2_;
+    var7->unknown_0_.unknown_4_0_ = var0->unknown_3c_.unknown_0_.unknown_4_.unknown_0_;
+    var7->unknown_0_.unknown_8_7_ = var0->unknown_3c_.unknown_0_.unknown_4_.unknown_2_;
+    var7->unknown_0_.unknown_5_6_ = var0->unknown_3c_.unknown_8_0_;
+    var7->unknown_0_.unknown_1_6_ = var8;
+    var7->unknown_0_.unknown_c_0_ = var0->unknown_3c_.unknown_10_0_;
+    var7->unknown_0_.unknown_10_0_ = var0->unknown_3c_.unknown_b_0_;
+    var7->unknown_0_.unknown_d_2_ = var0->unknown_3c_.unknown_d_6_;
+    var7->unknown_0_.unknown_11_1_ = var0->unknown_3c_.unknown_11_1_;
+    var7->unknown_0_.unknown_9_6_ = (unsigned char)func_020a0870(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_a_5_ = (unsigned char)func_020a08a4(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_f_0_ = (unsigned char)func_020a08d8(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_12_7_ = (unsigned char)func_020a090c(&var0->unknown_3c_);
+    var7->unknown_0_.unknown_14_ = var14->unknown_0_.unknown_6_3_;
+    var7->unknown_0_.unknown_16_0_ = (unsigned char)var9;
+    var7->unknown_0_.unknown_16_1_ = (unsigned char)var10;
+    var7->unknown_0_.unknown_17_ = func_02053c6c((unsigned char*)var12)->unknown_56a_;
 #if !defined(jpn)
-    output->fields.captured = 1;
+    var7->unknown_0_.unknown_3_7_ = 1;
 #endif
-    VectorizedMemset(&self->current.map, 0, 0x1c);
-    ProfileCode02170d88 code = saved->code;
-    self->current.code = code;
+    VectorizedMemset(&arg0->unknown_1c0_.unknown_c4_, 0, 0x1c);
+    Struct_ov003_02170d88_5 var15 = var6->unknown_74fe_;
+    arg0->unknown_1c0_.unknown_e_ = var15;
 #if !defined(jpn)
-    unsigned char platformLanguage = func_0200fb08((Struct0200fb08*)state);
-    int language = 0;
-    switch (platformLanguage) {
-    case 2: language = 1; break;
-    case 3: language = 2; break;
-    case 4: language = 3; break;
-    case 5: language = 4; break;
+    unsigned char var16 = func_0200fb08((Struct_02000c9c_8*)var3);
+    int var17 = 0;
+    switch (var16) {
+    case 2: var17 = 1; break;
+    case 3: var17 = 2; break;
+    case 4: var17 = 3; break;
+    case 5: var17 = 4; break;
     }
-    self->sample.name = self->current.name;
-    self->sample.vocation = self->current.vocation;
-    self->sample.level = self->current.level;
-    self->sample.hasMap = self->current.hasMap;
-    self->sample.code = self->current.code;
-    self->sample.settings.words = self->current.settings.words;
-    self->sample.effects = self->current.effects;
-    self->sample.record.words = self->current.record.words;
-    self->sample.map.values = self->current.map.values;
-    memset(self->sample.name.text, 0, 0xb);
-    sprintf(self->sample.name.text, data_ov003_021805e4[language]);
-    memset(self->sample.settings.fields.message, 0, 0x74);
-    sprintf(self->sample.settings.fields.message, data_ov003_021805d0[language]);
-    ProfileRecord02170d88* sampleRecord = &self->sample.record;
-    if (settings->fields.value9 >= 310) {
+    arg0->unknown_380_.unknown_0_ = arg0->unknown_1c0_.unknown_0_;
+    arg0->unknown_380_.unknown_b_ = arg0->unknown_1c0_.unknown_b_;
+    arg0->unknown_380_.unknown_c_ = arg0->unknown_1c0_.unknown_c_;
+    arg0->unknown_380_.unknown_d_ = arg0->unknown_1c0_.unknown_d_;
+    arg0->unknown_380_.unknown_e_ = arg0->unknown_1c0_.unknown_e_;
+    arg0->unknown_380_.unknown_14_.unknown1_0_ = arg0->unknown_1c0_.unknown_14_.unknown1_0_;
+    arg0->unknown_380_.unknown_90_ = arg0->unknown_1c0_.unknown_90_;
+    arg0->unknown_380_.unknown_ac_.unknown1_0_ = arg0->unknown_1c0_.unknown_ac_.unknown1_0_;
+    arg0->unknown_380_.unknown_c4_.unknown1_0_ = arg0->unknown_1c0_.unknown_c4_.unknown1_0_;
+    memset(arg0->unknown_380_.unknown_0_.unknown_0_, 0, 0xb);
+    sprintf(arg0->unknown_380_.unknown_0_.unknown_0_, data_ov003_021805e4[var17]);
+    memset(arg0->unknown_380_.unknown_14_.unknown_0_.unknown_8_, 0, 0x74);
+    sprintf(arg0->unknown_380_.unknown_14_.unknown_0_.unknown_8_, data_ov003_021805d0[var17]);
+    Struct_ov003_02170d88_14* var18 = &arg0->unknown_380_.unknown_ac_;
+    if (var14->unknown_0_.unknown_5_1_ >= 310) {
 #if defined(eur)
-        self->sample.settings.fields.value9 = 201;
+        arg0->unknown_380_.unknown_14_.unknown_0_.unknown_5_1_ = 201;
 #else
-        self->sample.settings.fields.value9 = 203;
+        arg0->unknown_380_.unknown_14_.unknown_0_.unknown_5_1_ = 203;
 #endif
     }
-    short adjustedValue;
-    int originalValue = settings->fields.value19;
-    adjustedValue = originalValue;
-    if (originalValue >= 750 && originalValue < 800) adjustedValue -= 50;
-    else if (originalValue >= 900) adjustedValue -= 100;
-    self->sample.settings.fields.value19 = adjustedValue;
-    sampleRecord->fields.profileValue = adjustedValue;
-    TreasureMapMetadata map;
-    func_020119f8((char*)state, &map);
-    if (map.GetMapType() != TreasureMapType_Invalid) {
-        self->sample.hasMap = 1;
-        self->sample.map.metadata.DiscoveryStateAndMapTypeAndUnknown = map.DiscoveryStateAndMapTypeAndUnknown;
-        INLINE_MEMCPY(self->sample.map.metadata.DiscoveredBy, map.DiscoveredBy, 10);
-        INLINE_MEMCPY(self->sample.map.metadata.ClearedBy, map.ClearedBy, 10);
-        self->sample.map.metadata.Location = map.Location;
-        self->sample.map.metadata.TreasureDiscoveryFlags = map.TreasureDiscoveryFlags;
-        self->sample.map.metadata.QualityOrLegacyBossID = map.QualityOrLegacyBossID;
-        self->sample.map.metadata.LegacyBossLevel = map.LegacyBossLevel;
-        self->sample.map.metadata.SeedOrMinTurns = map.SeedOrMinTurns;
-        TreasureMapMetadata* sampleMap = &self->sample.map.metadata;
-        memset(sampleMap->DiscoveredBy, 0, 10);
-        memset(sampleMap->ClearedBy, 0, 10);
-        char name[11] = {0};
-        memset(name, 0, 11);
-        memcpy(name, data_ov003_021805e4[language], 11);
-        memcpy(sampleMap->DiscoveredBy, name, 10);
-        memset(name, 0, 11);
-        memcpy(name, data_ov003_021805e4[language], 11);
-        memcpy(sampleMap->ClearedBy, name, 10);
+    short var19;
+    int var20 = var14->unknown_0_.unknown_6_3_;
+    var19 = var20;
+    if (var20 >= 750 && var20 < 800) var19 -= 50;
+    else if (var20 >= 900) var19 -= 100;
+    arg0->unknown_380_.unknown_14_.unknown_0_.unknown_6_3_ = var19;
+    var18->unknown_0_.unknown_14_ = var19;
+    TreasureMapMetadata var21;
+    func_020119f8((char*)var3, &var21);
+    if (var21.GetMapType() != TreasureMapType_Invalid) {
+        arg0->unknown_380_.unknown_d_ = 1;
+        arg0->unknown_380_.unknown_c4_.unknown_0_.DiscoveryStateAndMapTypeAndUnknown = var21.DiscoveryStateAndMapTypeAndUnknown;
+        INLINE_MEMCPY(arg0->unknown_380_.unknown_c4_.unknown_0_.DiscoveredBy, var21.DiscoveredBy, 10);
+        INLINE_MEMCPY(arg0->unknown_380_.unknown_c4_.unknown_0_.ClearedBy, var21.ClearedBy, 10);
+        arg0->unknown_380_.unknown_c4_.unknown_0_.Location = var21.Location;
+        arg0->unknown_380_.unknown_c4_.unknown_0_.TreasureDiscoveryFlags = var21.TreasureDiscoveryFlags;
+        arg0->unknown_380_.unknown_c4_.unknown_0_.QualityOrLegacyBossID = var21.QualityOrLegacyBossID;
+        arg0->unknown_380_.unknown_c4_.unknown_0_.LegacyBossLevel = var21.LegacyBossLevel;
+        arg0->unknown_380_.unknown_c4_.unknown_0_.SeedOrMinTurns = var21.SeedOrMinTurns;
+        TreasureMapMetadata* var22 = &arg0->unknown_380_.unknown_c4_.unknown_0_;
+        memset(var22->DiscoveredBy, 0, 10);
+        memset(var22->ClearedBy, 0, 10);
+        char var23[11] = {0};
+        memset(var23, 0, 11);
+        memcpy(var23, data_ov003_021805e4[var17], 11);
+        memcpy(var22->DiscoveredBy, var23, 10);
+        memset(var23, 0, 11);
+        memcpy(var23, data_ov003_021805e4[var17], 11);
+        memcpy(var22->ClearedBy, var23, 10);
     }
 #endif
-    func_ov003_02171f80((KeyArrayObj_02171f80*)self);
-    self->active = 0;
-    self->unknown738 = 0;
-    self->progress = 0;
-    self->flags = 3;
-    ((ProfileResourceState02170d88*)GetGameResources())->profileActive = 1;
+    func_ov003_02171f80((Struct_ov003_02170d88_13*)arg0);
+    arg0->unknown_718_ = 0;
+    arg0->unknown_738_ = 0;
+    arg0->unknown_72c_ = 0;
+    arg0->unknown_730_ = 3;
+    ((Struct_ov003_02170d88_12*)GetGameResources())->unknown_4494_ = 1;
     func_ov017_021b1d44(GetGameResources()->unknown_ptr_array_3afc[19], 0x20, 1);
 }

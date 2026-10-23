@@ -3,24 +3,24 @@
 #include "NitroSDK/NSBXX/NSBXX.h"
 
 // USA: func_0201498c
-extern "C" ARM int func_0201498c(void* zoneRaw) {
-    Zone3D* zone = static_cast<Zone3D*>(zoneRaw);
-    AtmosphericEffectSet* effects = &zone->atmosphericEffects_;
-    if (!effects->IsArchiveLoaded())
+extern "C" ARM int func_0201498c(void* arg0) {
+    Zone3D* var0 = static_cast<Zone3D*>(arg0);
+    AtmosphericEffectSet* var1 = &var0->atmosphericEffects_;
+    if (!var1->IsArchiveLoaded())
         return 0;
 
-    effects->ProcessArchive(effects, zone->pAllocator_68_, zone->unknown_ptr_50_);
-    AtmosphericEffect* effect = effects->GetFirstEffect();
-    while (effect != NULL) {
-        Model3D* model = effect->object_.pModel_;
-        if (model != NULL) {
-            NSBXXTex* texture = model->GetTEX0();
-            if (texture != NULL) {
-                zone->textureImageMemory_ += NSBXX_Tex_GetBlock1Length(texture);
-                zone->texturePaletteMemory_ += NSBXX_Tex_GetBlock4Length(texture);
+    var1->ProcessArchive(var1, var0->pAllocator_68_, var0->unknown_ptr_50_);
+    AtmosphericEffect* var2 = var1->GetFirstEffect();
+    while (var2 != NULL) {
+        Model3D* var3 = var2->object_.pModel_;
+        if (var3 != NULL) {
+            NSBXXTex* var4 = var3->GetTEX0();
+            if (var4 != NULL) {
+                var0->textureImageMemory_ += NSBXX_Tex_GetBlock1Length(var4);
+                var0->texturePaletteMemory_ += NSBXX_Tex_GetBlock4Length(var4);
             }
         }
-        effect = effect->pNext_;
+        var2 = var2->pNext_;
     }
     return 1;
 }

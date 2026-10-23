@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 
-struct SortList0207214c;
-struct SortList020721f8;
-struct Node020722a4;
+struct Struct_02071ffc_2;
+struct Struct_02071ffc_3;
+struct Struct_02071ffc_5;
 
-extern "C" void func_0207214c(struct SortList0207214c* list);
-extern "C" void func_020721f8(struct SortList020721f8* list);
-extern "C" void func_020722a4(struct Node020722a4** list, int n);
+extern "C" void func_0207214c(struct Struct_02071ffc_2* arg0);
+extern "C" void func_020721f8(struct Struct_02071ffc_3* arg0);
+extern "C" void func_020722a4(struct Struct_02071ffc_5** arg0, int arg1);
 
-struct Entry02071ffc {
-    unsigned char pad0[0xc];
-    unsigned int pad0c_lo : 20;
-    unsigned int typeId   : 8;
-    unsigned int pad0c_hi : 4;
-    unsigned int pad10_lo : 21;
-    unsigned int active   : 1;
-    unsigned int pad10_mid: 1;
-    unsigned int groupId  : 8;
-    unsigned int pad10_hi : 1;
-    unsigned char pad14[8];
-    struct Entry02071ffc* next;
+struct Struct_02071ffc {
+    unsigned char unknown_0_[0xc];
+    unsigned int unknown_c_0_ : 20;
+    unsigned int unknown_e_4_   : 8;
+    unsigned int unknown_f_4_ : 4;
+    unsigned int unknown_10_0_ : 21;
+    unsigned int unknown_12_5_   : 1;
+    unsigned int unknown_12_6_: 1;
+    unsigned int unknown_12_7_  : 8;
+    unsigned int unknown_13_7_ : 1;
+    unsigned char unknown_14_[8];
+    struct Struct_02071ffc* unknown_1c_;
 };
 
-struct Container02071ffc {
-    struct Entry02071ffc* head;
-    struct Entry02071ffc* array;
-    unsigned char pad8[2];
-    unsigned short count;
+struct Struct_02071ffc_4 {
+    struct Struct_02071ffc* unknown_0_;
+    struct Struct_02071ffc* unknown_4_;
+    unsigned char unknown_8_[2];
+    unsigned short unknown_a_;
 };
 
 // USA: func_02071ffc
-extern "C" ARM struct Entry02071ffc* func_02071ffc(struct Container02071ffc* obj, int p1, int p2, int p3, short p4, short* pCounter) {
-    unsigned short count = obj->count;
-    struct Entry02071ffc* arr = obj->array;
-    unsigned short i1, i2, i3;
-    struct Entry02071ffc* n;
+extern "C" ARM struct Struct_02071ffc* func_02071ffc(struct Struct_02071ffc_4* arg0, int arg1, int arg2, int arg3, short arg4, short* arg5) {
+    unsigned short var0 = arg0->unknown_a_;
+    struct Struct_02071ffc* var1 = arg0->unknown_4_;
+    unsigned short var2, var3, var4;
+    struct Struct_02071ffc* var5;
 
-    obj->head = NULL;
-    for (i1 = 0; i1 < count; i1++) {
-        struct Entry02071ffc* e = (struct Entry02071ffc*)((char*)arr + (i1 << 5));
-        e->next = NULL;
-        e->active = 1;
+    arg0->unknown_0_ = NULL;
+    for (var2 = 0; var2 < var0; var2++) {
+        struct Struct_02071ffc* var6 = (struct Struct_02071ffc*)((char*)var1 + (var2 << 5));
+        var6->unknown_1c_ = NULL;
+        var6->unknown_12_5_ = 1;
     }
-    if (p1 >= 0) {
-        for (i2 = 0; i2 < count; i2++) {
-            struct Entry02071ffc* e = (struct Entry02071ffc*)((char*)arr + (i2 << 5));
-            e->active = (e->typeId == (unsigned int)p1);
+    if (arg1 >= 0) {
+        for (var3 = 0; var3 < var0; var3++) {
+            struct Struct_02071ffc* var7 = (struct Struct_02071ffc*)((char*)var1 + (var3 << 5));
+            var7->unknown_12_5_ = (var7->unknown_e_4_ == (unsigned int)arg1);
         }
     }
-    if (p2 >= 0) {
-        for (i3 = 0; i3 < count; i3++) {
-            struct Entry02071ffc* e = (struct Entry02071ffc*)((char*)arr + (i3 << 5));
-            e->active = (e->groupId == (unsigned int)p2);
+    if (arg2 >= 0) {
+        for (var4 = 0; var4 < var0; var4++) {
+            struct Struct_02071ffc* var8 = (struct Struct_02071ffc*)((char*)var1 + (var4 << 5));
+            var8->unknown_12_5_ = (var8->unknown_12_7_ == (unsigned int)arg2);
         }
     }
-    if (p3 == 0) {
-        func_0207214c((struct SortList0207214c*)obj);
+    if (arg3 == 0) {
+        func_0207214c((struct Struct_02071ffc_2*)arg0);
     } else {
-        func_020721f8((struct SortList020721f8*)obj);
+        func_020721f8((struct Struct_02071ffc_3*)arg0);
     }
 
-    *pCounter = 0;
-    n = obj->head;
-    while (n != NULL) {
-        (*pCounter)++;
-        n = n->next;
+    *arg5 = 0;
+    var5 = arg0->unknown_0_;
+    while (var5 != NULL) {
+        (*arg5)++;
+        var5 = var5->unknown_1c_;
     }
 
-    func_020722a4((struct Node020722a4**)obj, p4);
-    return obj->head;
+    func_020722a4((struct Struct_02071ffc_5**)arg0, arg4);
+    return arg0->unknown_0_;
 }

@@ -2,61 +2,61 @@
 #include <std_library_functions.h>
 #include <NitroSDK/BGBases.h>
 
-struct Wnd0204cd60 {
-    char pad0[8];
-    unsigned char* buf;
-    short arrA[18];
-    short arrB[18];
-    short arrC[18];
-    short arrD[18];
-    char pad9C[4];
-    int fA0;
-    int fA4;
-    short fA8;
-    short fAA;
-    char padAC[4];
-    short fB0;
-    short fB2;
-    char padB4[2];
-    short fB6;
-    char padB8[2];
-    short fBA;
-    short fBC;
-    short fBE;
-    char padC0[5];
-    unsigned char flags;
-    unsigned char fC6;
-    unsigned char fC7;
-    char padC8[0x10];
-    unsigned char bit0 : 2;
-    unsigned char useBg : 1;
-    unsigned char bit3 : 5;
-    char padD9[2];
-    signed char margins[4];
+struct Struct_0204cd60 {
+    char unknown_0_[8];
+    unsigned char* unknown_8_;
+    short unknown_c_[18];
+    short unknown_30_[18];
+    short unknown_54_[18];
+    short unknown_78_[18];
+    char unknown_9c_[4];
+    int unknown_a0_;
+    int unknown_a4_;
+    short unknown_a8_;
+    short unknown_aa_;
+    char unknown_ac_[4];
+    short unknown_b0_;
+    short unknown_b2_;
+    char unknown_b4_[2];
+    short unknown_b6_;
+    char unknown_b8_[2];
+    short unknown_ba_;
+    short unknown_bc_;
+    short unknown_be_;
+    char unknown_c0_[5];
+    unsigned char unknown_c5_;
+    unsigned char unknown_c6_;
+    unsigned char unknown_c7_;
+    char unknown_c8_[0x10];
+    unsigned char unknown_d8_0_ : 2;
+    unsigned char unknown_d8_2_ : 1;
+    unsigned char unknown_d8_3_ : 5;
+    char unknown_d9_[2];
+    signed char unknown_db_[4];
 };
 
-struct Glyph0204cd60 {
-    int val;
-    char width;
-    signed char skip : 6;
-    signed char unused : 2;
-    char pad6[2];
+struct Struct_0204cd60_2 {
+    int unknown_0_;
+    char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 2;
+    char unknown_6_[2];
 };
 
-extern "C" void* __clear(void* dst, int count);
-extern "C" int func_020420e8(char* str, int id);
-extern "C" int func_020424e4(int key, int tableIdx);
-extern "C" Glyph0204cd60* func_020425b4(int idx, int tableIdx);
-extern "C" int func_020425e4(int a, int b, int tableIdx);
-extern "C" void func_0204cc68(Wnd0204cd60* wnd, int mode, short x0, short y0, short x1, short y1);
-extern "C" void func_0204f914(Wnd0204cd60* wnd, int mode, short x0, short y0, short x1, short y1);
-extern "C" void func_0204ea5c(Wnd0204cd60* wnd);
-extern "C" void func_0204ecb4(Wnd0204cd60* wnd, int a, int b, int w, int h, signed char* margins);
-extern "C" int func_0204fc40(void* unused0, char** cursor, char* tag, short* out, int max);
-extern "C" void func_0204f3bc(Wnd0204cd60* wnd, int idx);
-extern "C" void func_0204df9c(Wnd0204cd60* wnd, Glyph0204cd60* glyph, int x, int y, int color, int font);
-extern "C" void func_0204fae8(Wnd0204cd60* wnd);
-extern "C" void func_0204fa0c(Wnd0204cd60* wnd, short x, short y);
+extern "C" void* __clear(void* arg0, int arg1);
+extern "C" int func_020420e8(char* arg0, int arg1);
+extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" Struct_0204cd60_2* func_020425b4(int arg0, int arg1);
+extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" void func_0204cc68(Struct_0204cd60* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void func_0204f914(Struct_0204cd60* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
+extern "C" void func_0204ea5c(Struct_0204cd60* arg0);
+extern "C" void func_0204ecb4(Struct_0204cd60* arg0, int arg1, int arg2, int arg3, int arg4, signed char* arg5);
+extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
+extern "C" void func_0204f3bc(Struct_0204cd60* arg0, int arg1);
+extern "C" void func_0204df9c(Struct_0204cd60* arg0, Struct_0204cd60_2* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_0204fae8(Struct_0204cd60* arg0);
+extern "C" void func_0204fa0c(Struct_0204cd60* arg0, short arg1, short arg2);
 
 extern const unsigned char data_020e7bdc[];
 extern char data_020f0248[];
@@ -94,359 +94,359 @@ extern char data_020f02e7[];
 extern char data_020f02eb[];
 extern char data_020f02f1[];
 
-static inline void SetCursorPos(Wnd0204cd60* wnd, short x, short y) {
-    wnd->fBC = x;
-    wnd->fBE = y;
+static inline void inline_01ff8b48(Struct_0204cd60* arg0, short arg1, short arg2) {
+    arg0->unknown_bc_ = arg1;
+    arg0->unknown_be_ = arg2;
 }
 
 // USA: func_0204cd60
-extern "C" ARM void func_0204cd60(Wnd0204cd60* wnd, char* text, short border, short font) {
-    char* p;
-    short out[8];
-    char tmp[0x100];
-    int sel;
-    short x;
-    short y;
-    unsigned char* dst;
-    short pitch;
-    unsigned char* buf;
-    short stride;
-    Glyph0204cd60* glyph;
-    unsigned char prev;
-    int code;
-    int hilite;
-    short boxOn;
-    short boxCount;
-    short boxSize;
-    short frameOn, frameW, padL, padT, padR, padB;
-    int cursorIdx;
-    int adj0, adj1, adj2, adj3;
-    int sel2;
-    short insL, insT, insR, insB;
-    int glyphH;
-    short savedX;
-    short lineH;
-    int mode;
-    int color, colorIdx, saveColor, saveColorIdx;
-    int handled;
-    short ax, aw, ay, ah;
-    short x0, x1, y0, y1;
-    unsigned char adv;
-    int ch;
-    char* cursor;
+extern "C" ARM void func_0204cd60(Struct_0204cd60* arg0, char* arg1, short arg2, short arg3) {
+    char* var0;
+    short var1[8];
+    char var2[0x100];
+    int var3;
+    short var4;
+    short var5;
+    unsigned char* var6;
+    short var7;
+    unsigned char* var8;
+    short var9;
+    Struct_0204cd60_2* var10;
+    unsigned char var11;
+    int var12;
+    int var13;
+    short var14;
+    short var15;
+    short var16;
+    short var17, var18, var19, var20, var21, var22;
+    int var23;
+    int var24, var25, var26, var27;
+    int var28;
+    short var29, var30, var31, var32;
+    int var33;
+    short var34;
+    short var35;
+    int var36;
+    int var37, var38, var39, var40;
+    int var41;
+    short var42, var43, var44, var45;
+    short var46, var47, var48, var49;
+    unsigned char var50;
+    int var51;
+    char* var52;
 
-    cursor = text;
-    if (cursor == 0) return;
+    var52 = arg1;
+    if (var52 == 0) return;
 
-    boxOn = 0;
-    prev = 0xff;
-    wnd->flags &= ~2;
-    hilite = -1;
-    pitch = (wnd->fA8 << 3) >> 1;
-    lineH = wnd->fB6;
-    stride = lineH * pitch;
-    y = wnd->fB2;
-    buf = wnd->buf;
-    dst = buf + y * pitch;
-    boxCount = boxOn;
-    boxSize = boxOn;
-    frameOn = boxOn;
-    frameW = boxOn;
-    padL = boxOn;
-    padT = boxOn;
-    padR = boxOn;
-    padB = boxOn;
-    sel2 = adj3 = cursorIdx = adj2 = adj1 = adj0 = hilite;
-    insL = boxOn;
-    insT = boxOn;
-    insR = boxOn;
-    insB = boxOn;
-    sel = hilite;
-    glyphH = wnd->fC7;
-    x = wnd->fB0;
+    var14 = 0;
+    var11 = 0xff;
+    arg0->unknown_c5_ &= ~2;
+    var13 = -1;
+    var7 = (arg0->unknown_a8_ << 3) >> 1;
+    var35 = arg0->unknown_b6_;
+    var9 = var35 * var7;
+    var5 = arg0->unknown_b2_;
+    var8 = arg0->unknown_8_;
+    var6 = var8 + var5 * var7;
+    var15 = var14;
+    var16 = var14;
+    var17 = var14;
+    var18 = var14;
+    var19 = var14;
+    var20 = var14;
+    var21 = var14;
+    var22 = var14;
+    var28 = var27 = var23 = var26 = var25 = var24 = var13;
+    var29 = var14;
+    var30 = var14;
+    var31 = var14;
+    var32 = var14;
+    var3 = var13;
+    var33 = arg0->unknown_c7_;
+    var4 = arg0->unknown_b0_;
 
-    if (wnd->useBg) {
-        memcpy(wnd->buf, (char*)GetSubBG2CharacterBase() + wnd->fA0, wnd->fA4);
+    if (arg0->unknown_d8_2_) {
+        memcpy(arg0->unknown_8_, (char*)GetSubBG2CharacterBase() + arg0->unknown_a0_, arg0->unknown_a4_);
     } else {
-        memset(wnd->buf, 0, wnd->fA4);
+        memset(arg0->unknown_8_, 0, arg0->unknown_a4_);
     }
 
-    if (wnd->flags & 4) {
-        mode = 0;
+    if (arg0->unknown_c5_ & 4) {
+        var36 = 0;
     } else {
-        if (!wnd->useBg) {
-            short rx = 0;
-            short ry = 0;
-            short rw = wnd->fA8 << 3;
-            short rh = wnd->fAA << 3;
-            ry += wnd->margins[0];
-            rh -= wnd->margins[0] + wnd->margins[1];
-            rx += wnd->margins[2];
-            rw -= wnd->margins[2] + wnd->margins[3];
-            func_0204f914(wnd, 0x11, rx, ry, rw, rh);
-            func_0204ea5c(wnd);
+        if (!arg0->unknown_d8_2_) {
+            short var53 = 0;
+            short var54 = 0;
+            short var55 = arg0->unknown_a8_ << 3;
+            short var56 = arg0->unknown_aa_ << 3;
+            var54 += arg0->unknown_db_[0];
+            var56 -= arg0->unknown_db_[0] + arg0->unknown_db_[1];
+            var53 += arg0->unknown_db_[2];
+            var55 -= arg0->unknown_db_[2] + arg0->unknown_db_[3];
+            func_0204f914(arg0, 0x11, var53, var54, var55, var56);
+            func_0204ea5c(arg0);
         }
-        mode = 0x11;
+        var36 = 0x11;
     }
 
-    if (border > 0) {
-        short w = wnd->fA8 << 3;
-        short h = wnd->fAA << 3;
-        func_0204cc68(wnd, 3, 0, 0, w, h);
-        func_0204cc68(wnd, mode, (int)border, (int)border, w - border, h - border);
-    } else if (!(wnd->flags & 0x10)) {
-        func_0204ecb4(wnd, 0, 0, wnd->fA8, wnd->fAA, wnd->margins);
+    if (arg2 > 0) {
+        short var57 = arg0->unknown_a8_ << 3;
+        short var58 = arg0->unknown_aa_ << 3;
+        func_0204cc68(arg0, 3, 0, 0, var57, var58);
+        func_0204cc68(arg0, var36, (int)arg2, (int)arg2, var57 - arg2, var58 - arg2);
+    } else if (!(arg0->unknown_c5_ & 0x10)) {
+        func_0204ecb4(arg0, 0, 0, arg0->unknown_a8_, arg0->unknown_aa_, arg0->unknown_db_);
     }
 
-    color = 0xf0;
-    colorIdx = 0xf;
-    saveColor = color;
-    saveColorIdx = colorIdx;
+    var37 = 0xf0;
+    var38 = 0xf;
+    var39 = var37;
+    var40 = var38;
 
-    while ((ch = *cursor) != 0) {
-        int next = cursor[1];
-        if ((ch == '\\' && next == 'n') || (ch == '\r' && next == '\n')) {
-            y += lineH;
-            x = wnd->fB0;
-            cursor += 2;
-            dst += stride;
+    while ((var51 = *var52) != 0) {
+        int var59 = var52[1];
+        if ((var51 == '\\' && var59 == 'n') || (var51 == '\r' && var59 == '\n')) {
+            var5 += var35;
+            var4 = arg0->unknown_b0_;
+            var52 += 2;
+            var6 += var9;
             continue;
         }
-        if (ch == '\n') {
-            y += lineH;
-            x = wnd->fB0;
-            cursor += 1;
-            dst += stride;
+        if (var51 == '\n') {
+            var5 += var35;
+            var4 = arg0->unknown_b0_;
+            var52 += 1;
+            var6 += var9;
             continue;
         }
-        if (ch == '<') {
-            handled = 1;
-            p = cursor + 1;
-            if (func_0204fc40(wnd, &p, data_020f0248, out, 1)) {
-                switch (out[0]) {
+        if (var51 == '<') {
+            var41 = 1;
+            var0 = var52 + 1;
+            if (func_0204fc40(arg0, &var0, data_020f0248, var1, 1)) {
+                switch (var1[0]) {
                 case 8:
-                    glyphH = 8;
-                    lineH = 9;
+                    var33 = 8;
+                    var35 = 9;
                     break;
                 case 12:
-                    glyphH = 12;
-                    lineH = 13;
+                    var33 = 12;
+                    var35 = 13;
                     break;
                 default:
-                    glyphH = 10;
-                    lineH = wnd->fB6;
+                    var33 = 10;
+                    var35 = arg0->unknown_b6_;
                     break;
                 }
-                if (wnd->fBA != 0) lineH = wnd->fBA;
-            } else if (func_0204fc40(wnd, &p, data_020f024e, out, 1)) {
-                x = out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0251, out, 1)) {
-                y = out[0];
-                dst = buf + pitch * y;
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0254, out, 2)) {
-                y = out[1];
-                x = out[0];
-                dst = buf + pitch * y;
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0258, out, 1)) {
-                x += out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f025b, out, 1)) {
-                dst += pitch * out[0];
-                y += out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f025e, out, 2)) {
-                x += out[0];
-                y += out[1];
-                dst += pitch * out[1];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0262, out, 1)) {
-                func_0204f3bc(wnd, out[0]);
-            } else if (func_0204fc40(wnd, &p, data_020f0268, out, 4)) {
-                func_0204cc68(wnd, (unsigned char)out[0], out[1], out[3], out[2], out[3] + 1);
-            } else if (func_0204fc40(wnd, &p, data_020f026f, out, 4)) {
-                func_0204cc68(wnd, (unsigned char)out[0], out[1], out[2], out[1] + 1, out[3]);
-            } else if (func_0204fc40(wnd, &p, data_020f0276, out, 0)) {
-                color = 0xf0;
-                colorIdx = 0xf;
-            } else if (func_0204fc40(wnd, &p, data_020f027c, out, 0)) {
-                color = 0xd0;
-                colorIdx = 0xd;
-            } else if (func_0204fc40(wnd, &p, data_020f0283, out, 0)) {
-                color = 0xb0;
-                colorIdx = 0xb;
-            } else if (func_0204fc40(wnd, &p, data_020f0288, out, 0)) {
-                color = 0x90;
-                colorIdx = 0x9;
-            } else if (func_0204fc40(wnd, &p, data_020f028c, out, 1)) {
-                out[0] &= 0xf;
-                color = (unsigned char)(out[0] << 4);
-                colorIdx = (unsigned char)out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f0292, out, 5)) {
-                func_0204cc68(wnd, (unsigned char)out[0], out[1], out[2], out[1] + out[3], out[2] + out[4]);
-            } else if (func_0204fc40(wnd, &p, data_020f0298, out, 1)) {
-            } else if (func_0204fc40(wnd, &p, data_020f029d, out, 1)) {
-                sel = out[0];
-                if (sel >= 0 && sel < 18) {
-                    wnd->arrA[sel] = x;
-                    wnd->arrB[sel] = y;
+                if (arg0->unknown_ba_ != 0) var35 = arg0->unknown_ba_;
+            } else if (func_0204fc40(arg0, &var0, data_020f024e, var1, 1)) {
+                var4 = var1[0];
+                var11 = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f0251, var1, 1)) {
+                var5 = var1[0];
+                var6 = var8 + var7 * var5;
+                var11 = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f0254, var1, 2)) {
+                var5 = var1[1];
+                var4 = var1[0];
+                var6 = var8 + var7 * var5;
+                var11 = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f0258, var1, 1)) {
+                var4 += var1[0];
+                var11 = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f025b, var1, 1)) {
+                var6 += var7 * var1[0];
+                var5 += var1[0];
+                var11 = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f025e, var1, 2)) {
+                var4 += var1[0];
+                var5 += var1[1];
+                var6 += var7 * var1[1];
+                var11 = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f0262, var1, 1)) {
+                func_0204f3bc(arg0, var1[0]);
+            } else if (func_0204fc40(arg0, &var0, data_020f0268, var1, 4)) {
+                func_0204cc68(arg0, (unsigned char)var1[0], var1[1], var1[3], var1[2], var1[3] + 1);
+            } else if (func_0204fc40(arg0, &var0, data_020f026f, var1, 4)) {
+                func_0204cc68(arg0, (unsigned char)var1[0], var1[1], var1[2], var1[1] + 1, var1[3]);
+            } else if (func_0204fc40(arg0, &var0, data_020f0276, var1, 0)) {
+                var37 = 0xf0;
+                var38 = 0xf;
+            } else if (func_0204fc40(arg0, &var0, data_020f027c, var1, 0)) {
+                var37 = 0xd0;
+                var38 = 0xd;
+            } else if (func_0204fc40(arg0, &var0, data_020f0283, var1, 0)) {
+                var37 = 0xb0;
+                var38 = 0xb;
+            } else if (func_0204fc40(arg0, &var0, data_020f0288, var1, 0)) {
+                var37 = 0x90;
+                var38 = 0x9;
+            } else if (func_0204fc40(arg0, &var0, data_020f028c, var1, 1)) {
+                var1[0] &= 0xf;
+                var37 = (unsigned char)(var1[0] << 4);
+                var38 = (unsigned char)var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f0292, var1, 5)) {
+                func_0204cc68(arg0, (unsigned char)var1[0], var1[1], var1[2], var1[1] + var1[3], var1[2] + var1[4]);
+            } else if (func_0204fc40(arg0, &var0, data_020f0298, var1, 1)) {
+            } else if (func_0204fc40(arg0, &var0, data_020f029d, var1, 1)) {
+                var3 = var1[0];
+                if (var3 >= 0 && var3 < 18) {
+                    arg0->unknown_c_[var3] = var4;
+                    arg0->unknown_30_[var3] = var5;
                 }
-                if (sel >= 0 && sel == hilite) {
-                    saveColor = color;
-                    saveColorIdx = colorIdx;
-                    color = 0xe0;
-                    colorIdx = 0xe;
-                } else if (sel >= 0 && sel == sel2) {
-                    saveColor = color;
-                    saveColorIdx = colorIdx;
-                    color = 0x50;
-                    colorIdx = 0x5;
+                if (var3 >= 0 && var3 == var13) {
+                    var39 = var37;
+                    var40 = var38;
+                    var37 = 0xe0;
+                    var38 = 0xe;
+                } else if (var3 >= 0 && var3 == var28) {
+                    var39 = var37;
+                    var40 = var38;
+                    var37 = 0x50;
+                    var38 = 0x5;
                 }
-            } else if (func_0204fc40(wnd, &p, data_020f02a0, out, 0)) {
-                if (sel >= 0) {
-                    if (sel == hilite || sel == sel2) {
-                        color = saveColor;
-                        colorIdx = saveColorIdx;
+            } else if (func_0204fc40(arg0, &var0, data_020f02a0, var1, 0)) {
+                if (var3 >= 0) {
+                    if (var3 == var13 || var3 == var28) {
+                        var37 = var39;
+                        var38 = var40;
                     }
                 }
-                if (sel >= 0 && sel < 18) {
-                    wnd->arrC[sel] = x - wnd->arrA[sel];
-                    wnd->arrD[sel] = glyphH + (y - wnd->arrB[sel]) + 1;
-                    if (wnd->arrC[sel] < 4) wnd->arrC[sel] = 4;
+                if (var3 >= 0 && var3 < 18) {
+                    arg0->unknown_54_[var3] = var4 - arg0->unknown_c_[var3];
+                    arg0->unknown_78_[var3] = var33 + (var5 - arg0->unknown_30_[var3]) + 1;
+                    if (arg0->unknown_54_[var3] < 4) arg0->unknown_54_[var3] = 4;
                 }
-                if (sel2 >= 0 && sel == sel2) {
-                    if (!(wnd->flags & 0x10) && (adj0 >= 0 || adj1 >= 0 || adj2 >= 0 || adj3 >= 0)) {
-                        wnd->arrA[sel] -= insL + wnd->fC6;
-                        wnd->arrB[sel] -= insT;
-                        wnd->arrC[sel] += insL + insR;
-                        wnd->arrD[sel] += insT + insB;
+                if (var28 >= 0 && var3 == var28) {
+                    if (!(arg0->unknown_c5_ & 0x10) && (var24 >= 0 || var25 >= 0 || var26 >= 0 || var27 >= 0)) {
+                        arg0->unknown_c_[var3] -= var29 + arg0->unknown_c6_;
+                        arg0->unknown_30_[var3] -= var30;
+                        arg0->unknown_54_[var3] += var29 + var31;
+                        arg0->unknown_78_[var3] += var30 + var32;
                     }
-                    wnd->flags |= 2;
+                    arg0->unknown_c5_ |= 2;
                 }
-                if (!(wnd->flags & 0x10) && frameOn != 0) {
-                    wnd->arrC[sel] = frameW;
-                    ax = wnd->arrA[sel];
-                    aw = wnd->arrC[sel];
-                    ay = wnd->arrB[sel];
-                    ah = wnd->arrD[sel];
-                    x0 = ax - padL;
-                    x1 = padR + (ax + aw);
-                    y0 = ay - padT;
-                    y1 = padB + (ay + ah);
-                    func_0204cc68(wnd, 3, x0 + 1, y0, x1 - 1, y0 + 1);
-                    func_0204cc68(wnd, 3, x0 + 1, y1 - 1, x1 - 1, y1);
-                    func_0204cc68(wnd, 3, x0, y0 + 1, x0 + 1, y1 - 1);
-                    func_0204cc68(wnd, 3, x1 - 1, y0 + 1, x1, y1 - 1);
+                if (!(arg0->unknown_c5_ & 0x10) && var17 != 0) {
+                    arg0->unknown_54_[var3] = var18;
+                    var42 = arg0->unknown_c_[var3];
+                    var43 = arg0->unknown_54_[var3];
+                    var44 = arg0->unknown_30_[var3];
+                    var45 = arg0->unknown_78_[var3];
+                    var46 = var42 - var19;
+                    var47 = var21 + (var42 + var43);
+                    var48 = var44 - var20;
+                    var49 = var22 + (var44 + var45);
+                    func_0204cc68(arg0, 3, var46 + 1, var48, var47 - 1, var48 + 1);
+                    func_0204cc68(arg0, 3, var46 + 1, var49 - 1, var47 - 1, var49);
+                    func_0204cc68(arg0, 3, var46, var48 + 1, var46 + 1, var49 - 1);
+                    func_0204cc68(arg0, 3, var47 - 1, var48 + 1, var47, var49 - 1);
                 }
-                sel = -1;
-            } else if (func_0204fc40(wnd, &p, data_020f02a3, out, 2)) {
-            } else if (func_0204fc40(wnd, &p, data_020f02aa, out, 5)) {
-                sel2 = out[0];
-                insL = out[1];
-                insT = out[2];
-                insR = out[3];
-                insB = out[4];
-            } else if (func_0204fc40(wnd, &p, data_020f02b1, out, 1)) {
-                cursorIdx = out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02b9, out, 3)) {
-                adj0 = (signed char)out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02bd, out, 3)) {
-                adj1 = (signed char)out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02c1, out, 3)) {
-                adj2 = (signed char)out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02c5, out, 3)) {
-                adj3 = (signed char)out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02c9, out, 5)) {
-                frameOn = 1;
-                frameW = out[0];
-                padL = out[1];
-                padT = out[2];
-                padR = out[3];
-                padB = out[4];
-                if (frameW == 0) frameOn = 0;
-            } else if (func_0204fc40(wnd, &p, data_020f02cf, out, 2)) {
-                boxCount = out[0];
-                boxSize = out[1];
-            } else if (func_0204fc40(wnd, &p, data_020f02d4, out, 1)) {
-                boxOn = 1;
-                func_0204f3bc(wnd, out[0]);
-                dst = buf + wnd->fB2 * pitch;
-                y = (out[0] - 10) >> 1;
-            } else if (func_0204fc40(wnd, &p, data_020f02db, out, 0)) {
-                if (boxOn != 0) {
-                    y = wnd->fB2;
-                    x = wnd->fB0;
-                    dst = buf + y * pitch;
-                    boxOn = 0;
+                var3 = -1;
+            } else if (func_0204fc40(arg0, &var0, data_020f02a3, var1, 2)) {
+            } else if (func_0204fc40(arg0, &var0, data_020f02aa, var1, 5)) {
+                var28 = var1[0];
+                var29 = var1[1];
+                var30 = var1[2];
+                var31 = var1[3];
+                var32 = var1[4];
+            } else if (func_0204fc40(arg0, &var0, data_020f02b1, var1, 1)) {
+                var23 = var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f02b9, var1, 3)) {
+                var24 = (signed char)var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f02bd, var1, 3)) {
+                var25 = (signed char)var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f02c1, var1, 3)) {
+                var26 = (signed char)var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f02c5, var1, 3)) {
+                var27 = (signed char)var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f02c9, var1, 5)) {
+                var17 = 1;
+                var18 = var1[0];
+                var19 = var1[1];
+                var20 = var1[2];
+                var21 = var1[3];
+                var22 = var1[4];
+                if (var18 == 0) var17 = 0;
+            } else if (func_0204fc40(arg0, &var0, data_020f02cf, var1, 2)) {
+                var15 = var1[0];
+                var16 = var1[1];
+            } else if (func_0204fc40(arg0, &var0, data_020f02d4, var1, 1)) {
+                var14 = 1;
+                func_0204f3bc(arg0, var1[0]);
+                var6 = var8 + arg0->unknown_b2_ * var7;
+                var5 = (var1[0] - 10) >> 1;
+            } else if (func_0204fc40(arg0, &var0, data_020f02db, var1, 0)) {
+                if (var14 != 0) {
+                    var5 = arg0->unknown_b2_;
+                    var4 = arg0->unknown_b0_;
+                    var6 = var8 + var5 * var7;
+                    var14 = 0;
                 }
-            } else if (func_0204fc40(wnd, &p, data_020f02e2, out, 1)) {
-                hilite = out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02e7, out, 1)) {
-                x = out[0];
-                prev = 0xff;
-                savedX = x;
-                __clear(tmp, 0x100);
-                char* start = p;
-                char* end = strstr(start, data_020f02eb);
-                if (end != 0) {
-                    int len = end - start;
-                    if (len < 0x100) {
-                        memcpy(tmp, start, len);
-                        x -= func_020420e8(tmp, font);
+            } else if (func_0204fc40(arg0, &var0, data_020f02e2, var1, 1)) {
+                var13 = var1[0];
+            } else if (func_0204fc40(arg0, &var0, data_020f02e7, var1, 1)) {
+                var4 = var1[0];
+                var11 = 0xff;
+                var34 = var4;
+                __clear(var2, 0x100);
+                char* var60 = var0;
+                char* var61 = strstr(var60, data_020f02eb);
+                if (var61 != 0) {
+                    int var62 = var61 - var60;
+                    if (var62 < 0x100) {
+                        memcpy(var2, var60, var62);
+                        var4 -= func_020420e8(var2, arg3);
                     }
                 }
-            } else if (func_0204fc40(wnd, &p, data_020f02f1, out, 0)) {
-                x = savedX;
-                prev = 0xff;
+            } else if (func_0204fc40(arg0, &var0, data_020f02f1, var1, 0)) {
+                var4 = var34;
+                var11 = 0xff;
             } else {
-                handled = 0;
+                var41 = 0;
             }
-            if (handled) {
-                cursor = p;
+            if (var41) {
+                var52 = var0;
                 continue;
             }
         }
-        adv = data_020e7bdc[font] + 1;
-        int idx = func_020424e4((int)cursor, font);
-        if (idx >= 0) {
-            code = idx & 0xff;
-            glyph = func_020425b4(idx, font);
-            x += func_020425e4(prev, code, font);
-            func_0204df9c(wnd, glyph, x, y, colorIdx, font);
-            prev = code;
-            adv = (unsigned char)(glyph->width + 1);
-            cursor += glyph->skip;
+        var50 = data_020e7bdc[arg3] + 1;
+        int var63 = func_020424e4((int)var52, arg3);
+        if (var63 >= 0) {
+            var12 = var63 & 0xff;
+            var10 = func_020425b4(var63, arg3);
+            var4 += func_020425e4(var11, var12, arg3);
+            func_0204df9c(arg0, var10, var4, var5, var38, arg3);
+            var11 = var12;
+            var50 = (unsigned char)(var10->unknown_4_ + 1);
+            var52 += var10->unknown_5_0_;
         } else {
-            if (ch != ' ') {
-                func_0204df9c(wnd, func_020425b4(0, font), x, y, colorIdx, font);
+            if (var51 != ' ') {
+                func_0204df9c(arg0, func_020425b4(0, arg3), var4, var5, var38, arg3);
             }
-            cursor++;
+            var52++;
         }
-        x += adv;
+        var4 += var50;
     }
 
-    { int dbg = 0; if (dbg) func_0204fae8((Wnd0204cd60*)dst); }
-    if (wnd->flags & 8) func_0204fae8(wnd);
-    if (!(wnd->flags & 0x10)) {
-        if (sel2 >= 0) wnd->flags |= 2;
-        if (cursorIdx >= 0) {
-            short cx = wnd->arrA[cursorIdx] - 8;
-            short cy = wnd->arrB[cursorIdx] - 1;
-            wnd->fBC = cx;
-            wnd->fBE = cy;
-            func_0204fa0c(wnd, cx, cy);
+    { int var64 = 0; if (var64) func_0204fae8((Struct_0204cd60*)var6); }
+    if (arg0->unknown_c5_ & 8) func_0204fae8(arg0);
+    if (!(arg0->unknown_c5_ & 0x10)) {
+        if (var28 >= 0) arg0->unknown_c5_ |= 2;
+        if (var23 >= 0) {
+            short var65 = arg0->unknown_c_[var23] - 8;
+            short var66 = arg0->unknown_30_[var23] - 1;
+            arg0->unknown_bc_ = var65;
+            arg0->unknown_be_ = var66;
+            func_0204fa0c(arg0, var65, var66);
         }
     }
-    if (boxCount > 0 && boxSize > 0) {
-        short base = y + glyphH;
-        short bx = (short)(wnd->fA8 << 3) - (boxSize * 2 + 2);
-        short by = base - boxSize;
-        short i;
-        for (i = 0; i < boxCount; i++) {
-            func_0204cc68(wnd, 0xf, bx, by, bx + boxSize, by + boxSize);
-            bx -= boxSize * 2;
+    if (var15 > 0 && var16 > 0) {
+        short var67 = var5 + var33;
+        short var68 = (short)(arg0->unknown_a8_ << 3) - (var16 * 2 + 2);
+        short var69 = var67 - var16;
+        short var70;
+        for (var70 = 0; var70 < var15; var70++) {
+            func_0204cc68(arg0, 0xf, var68, var69, var68 + var16, var69 + var16);
+            var68 -= var16 * 2;
         }
     }
 }

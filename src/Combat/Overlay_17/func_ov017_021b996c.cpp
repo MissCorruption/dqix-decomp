@@ -1,62 +1,62 @@
 #if defined(jpn)
-enum { RegionOffset5724 = 0x54c4, RegionOffset6fc = 0x4ec, RegionOffset998 = 0x868 };
+enum { Enum_ov017_021b996c_22308 = 0x54c4, Enum_ov017_021b996c_1788 = 0x4ec, Enum_ov017_021b996c_2456 = 0x868 };
 #else
-enum { RegionOffset5724 = 0x5724, RegionOffset6fc = 0x6fc, RegionOffset998 = 0x998 };
+enum { Enum_ov017_021b996c_22308 = 0x5724, Enum_ov017_021b996c_1788 = 0x6fc, Enum_ov017_021b996c_2456 = 0x998 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_0202ae18(void* ctx);
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-struct U16Field0x6_020375f8;
-struct ListHead02046b60;
-extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
+extern "C" void* func_0202ae18(void* arg0);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct Struct_02039df4;
+struct Struct_02038598_5;
+extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
 extern "C" int func_020421a0();
-extern "C" void func_ov017_021d079c(unsigned char a, unsigned char b, unsigned short c);
+extern "C" void func_ov017_021d079c(unsigned char arg0, unsigned char arg1, unsigned short arg2);
 
-struct Obj021b996c { char pad[0x12c]; int field12c; };
+struct Struct_ov017_021b996c { char unknown_0_[0x12c]; int unknown_12c_; };
 
 // USA: func_ov017_021b996c
-extern "C" ARM void func_ov017_021b996c(struct Obj021b996c* self, int combatantId, int checkVal, unsigned char tag, unsigned short arg5) {
-    void* search = func_0202ae18(self);
-    signed char cur = func_0202c1a4((struct SearchStruct0202c1a4*)search);
-    if (checkVal != cur && checkVal != 4) return;
+extern "C" ARM void func_ov017_021b996c(struct Struct_ov017_021b996c* arg0, int arg1, int arg2, unsigned char arg3, unsigned short arg4) {
+    void* var0 = func_0202ae18(arg0);
+    signed char var1 = func_0202c1a4((struct Struct_0202c1a4*)var0);
+    if (arg2 != var1 && arg2 != 4) return;
 
-    GameState* battle = GameState::GetInstance();
-    GameObject* combatant = battle->GetGameObjectByIndex(combatantId);
-    GameObject* combatant2 = battle->GetUnknownGameObject();
-    unsigned short u1 = ((Object3D*)((struct U16Field0x6_020375f8*)combatant))->GetField06();
-    unsigned short u2 = ((Object3D*)((struct U16Field0x6_020375f8*)combatant2))->GetField06();
-    if (u1 != u2) {
-        func_ov017_021d079c(tag, 1, 1);
+    GameState* var2 = GameState::GetInstance();
+    GameObject* var3 = var2->GetGameObjectByIndex(arg1);
+    GameObject* var4 = var2->GetUnknownGameObject();
+    unsigned short var5 = ((Object3D*)((struct Struct_02039df4*)var3))->GetField06();
+    unsigned short var6 = ((Object3D*)((struct Struct_02039df4*)var4))->GetField06();
+    if (var5 != var6) {
+        func_ov017_021d079c(arg3, 1, 1);
         return;
     }
 
-    int field5724;
-    if (self->field12c != arg5 && (field5724 = *(int*)((char*)battle + RegionOffset5724)) != arg5) {
-        void* p = GetGameResources();
-        struct ListHead02046b60* list = *(struct ListHead02046b60**)((char*)p + 0x3000 + RegionOffset6fc);
-        if (func_02046b60(list, 4)) {
-            func_ov017_021d079c(tag, 1, 0);
+    int var7;
+    if (arg0->unknown_12c_ != arg4 && (var7 = *(int*)((char*)var2 + Enum_ov017_021b996c_22308)) != arg4) {
+        void* var8 = GetGameResources();
+        struct Struct_02038598_5* var9 = *(struct Struct_02038598_5**)((char*)var8 + 0x3000 + Enum_ov017_021b996c_1788);
+        if (func_02046b60(var9, 4)) {
+            func_ov017_021d079c(arg3, 1, 0);
         } else {
-            func_ov017_021d079c(tag, 1, 1);
+            func_ov017_021d079c(arg3, 1, 1);
         }
         return;
     }
 
-    int g = func_020421a0();
-    if (*(int*)(g + RegionOffset998) != 0) {
-        func_ov017_021d079c(tag, 1, 0);
+    int var10 = func_020421a0();
+    if (*(int*)(var10 + Enum_ov017_021b996c_2456) != 0) {
+        func_ov017_021d079c(arg3, 1, 0);
         return;
     }
 
-    unsigned char cur2 = (unsigned char)func_0202c1a4((struct SearchStruct0202c1a4*)search);
-    if (tag < cur2) {
-        func_ov017_021d079c(tag, 1, 1);
+    unsigned char var11 = (unsigned char)func_0202c1a4((struct Struct_0202c1a4*)var0);
+    if (arg3 < var11) {
+        func_ov017_021d079c(arg3, 1, 1);
     } else {
-        func_ov017_021d079c(tag, 1, 0);
+        func_ov017_021d079c(arg3, 1, 0);
     }
 }

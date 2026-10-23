@@ -2,310 +2,310 @@
 #include "std_library_functions.h"
 #include "Combat/Main/BattleList.h"
 
-struct Stats_021fdf04 {
-    PrimaryCombatStats primaryStats;
-    unsigned int flags14;
-    unsigned char pad18[0x21 - 0x18];
-    unsigned char rank21;
-    unsigned char pad22[0x58 - 0x22];
-    signed int attackBuff : 3;
-    signed int defenseBuff : 3;
-    signed int agilityBuff : 3;
-    signed int charmBuff : 3;
-    signed int magicalMightBuff : 3;
-    signed int magicalMendingBuff : 3;
-    signed int decayA : 3;
-    signed int decayB : 3;
+struct Struct_ov024_021fdf04 {
+    PrimaryCombatStats unknown_0_;
+    unsigned int unknown_14_;
+    unsigned char unknown_18_[0x21 - 0x18];
+    unsigned char unknown_21_;
+    unsigned char unknown_22_[0x58 - 0x22];
+    signed int unknown_58_0_ : 3;
+    signed int unknown_58_3_ : 3;
+    signed int unknown_58_6_ : 3;
+    signed int unknown_59_1_ : 3;
+    signed int unknown_59_4_ : 3;
+    signed int unknown_59_7_ : 3;
+    signed int unknown_5a_2_ : 3;
+    signed int unknown_5a_5_ : 3;
 };
-struct Info_021fdf04 {
-    unsigned char padding[0xa];
-    unsigned short unused : 11;
-    unsigned short flag : 1;
+struct Struct_ov024_021fdf04_7 {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_0_ : 11;
+    unsigned short unknown_b_3_ : 1;
 };
-struct Unit_021fdf04 {
-    unsigned char padding_0x0[4];
-    short field_0x4;
-    unsigned char padding_0x6[0x138 - 6];
-    Stats_021fdf04* stats;
-    unsigned char padding_0x13c[0x144 - 0x13c];
+struct Struct_ov024_021fdf04_8 {
+    unsigned char unknown_0_[4];
+    short unknown_4_;
+    unsigned char unknown_6_[0x138 - 6];
+    Struct_ov024_021fdf04* unknown_138_;
+    unsigned char unknown_13c_[0x144 - 0x13c];
 #if defined(jpn)
     union {
-        Info_021fdf04* info;
-        unsigned char* field150;
+        Struct_ov024_021fdf04_7* unknown_144_;
+        unsigned char* unknown_150_;
     };
-    unsigned char padding_0x148[0x17c - 0x148];
+    unsigned char unknown_148_[0x17c - 0x148];
 #else
-    Info_021fdf04* info;
-    unsigned char padding_0x148[0x150 - 0x148];
-    unsigned char* field150;
-    unsigned char padding_0x154[0x17c - 0x154];
+    Struct_ov024_021fdf04_7* unknown_144_;
+    unsigned char unknown1_148_[0x150 - 0x148];
+    unsigned char* unknown_150_;
+    unsigned char unknown_154_[0x17c - 0x154];
 #endif
-    unsigned char group;
-    unsigned char GetGroup() const { return group; }
+    unsigned char unknown_17c_;
+    unsigned char inline_ov024_021fdf04() const { return unknown_17c_; }
 };
-struct Action_021fdf04 {
-    unsigned int field_0x0;
-    unsigned int unused_0x4;
-    unsigned int unused_0x8 : 8;
-    unsigned int mode : 2;
-    unsigned int unused_0xa : 22;
-    unsigned int field_0xc;
-    unsigned int flags;
-    unsigned int unused_0x14 : 28;
-    unsigned int targetKind : 4;
-    unsigned int unused_0x18 : 5;
-    unsigned int sub18 : 7;
-    unsigned int unused_0x18b : 20;
-    unsigned int unused_0x1c : 14;
-    unsigned int range : 5;
-    unsigned int unused_0x1c2 : 13;
-    unsigned int field_0x20[4];
-    short value30;
+struct Struct_ov024_021fdf04_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 2;
+    unsigned int unknown_9_2_ : 22;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned int unknown_14_0_ : 28;
+    unsigned int unknown_17_4_ : 4;
+    unsigned int unknown_18_0_ : 5;
+    unsigned int unknown_18_5_ : 7;
+    unsigned int unknown_19_4_ : 20;
+    unsigned int unknown_1c_0_ : 14;
+    unsigned int unknown_1d_6_ : 5;
+    unsigned int unknown_1e_3_ : 13;
+    unsigned int unknown_20_[4];
+    short unknown_30_;
 };
-struct EntryFlags9_021fdf04 {
-    unsigned char weight : 6;
-    unsigned char flag : 1;
-    unsigned char sel : 1;
+struct Struct_ov024_021fdf04_3 {
+    unsigned char unknown_0_0_ : 6;
+    unsigned char unknown_0_6_ : 1;
+    unsigned char unknown_0_7_ : 1;
 };
-struct Entry_021fdf04 {
-    float value;
-    unsigned char id, flag, index, percent, kind;
-    EntryFlags9_021fdf04 flags9;
-    unsigned char padding[2];
+struct Struct_ov024_021fdf04_4 {
+    float unknown_0_;
+    unsigned char unknown_4_, unknown_5_, unknown_6_, unknown_7_, unknown_8_;
+    Struct_ov024_021fdf04_3 unknown_9_;
+    unsigned char unknown_a_[2];
 };
-struct AddEntryList_021f6a1c {
-    Entry_021fdf04 entries[16];
-    int count;
-    float threshold;
-    AddEntryList_021f6a1c() { memset(this, 0, sizeof(*this)); }
+struct Struct_ov024_021f6a1c {
+    Struct_ov024_021fdf04_4 unknown_0_[16];
+    int unknown_c0_;
+    float unknown_c4_;
+    Struct_ov024_021f6a1c() { memset(this, 0, sizeof(*this)); }
 };
-struct Context_021fdf04 {
-    unsigned char padding_0x0[8];
-    Unit_021fdf04* actor;
-    unsigned char padding_0xc[0x7c - 0xc];
-    Unit_021fdf04* units[8];
-    int count;
-    unsigned char padding_0xa0[0x64c - 0xa0];
-    Action_021fdf04* action;
+struct Struct_ov024_021fdf04_5 {
+    unsigned char unknown_0_[8];
+    Struct_ov024_021fdf04_8* unknown_8_;
+    unsigned char unknown_c_[0x7c - 0xc];
+    Struct_ov024_021fdf04_8* unknown_7c_[8];
+    int unknown_9c_;
+    unsigned char unknown_a0_[0x64c - 0xa0];
+    Struct_ov024_021fdf04_2* unknown_64c_;
 };
-struct Bits2f4_021fdf04 { unsigned int bit0 : 1; unsigned int bit1 : 1; };
-struct Row_021fdf04 { unsigned char weight; unsigned char carry; };
-extern const Row_021fdf04 data_ov024_021fefea[];
+struct Struct_ov024_021fdf04_6 { unsigned int unknown_0_0_ : 1; unsigned int unknown_0_1_ : 1; };
+struct Struct_ov024_021fefea { unsigned char unknown_0_; unsigned char unknown_1_; };
+extern const Struct_ov024_021fefea data_ov024_021fefea[];
 
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void* func_020797dc();
-extern "C" void func_ov024_021f8bd8(Context_021fdf04*, float*, Unit_021fdf04*, Action_021fdf04*);
+extern "C" void func_ov024_021f8bd8(Struct_ov024_021fdf04_5*, float*, Struct_ov024_021fdf04_8*, Struct_ov024_021fdf04_2*);
 extern "C" void __clear(void*, int);
-struct S_flag10000;
-extern "C" int func_ov024_021fb460(S_flag10000*);
-struct S_flag131072;
-extern "C" int func_ov024_021fb478(S_flag131072*);
-extern "C" float func_020748d0(int v);
-extern "C" float func_020748a8(int v);
-extern "C" float func_02074938(int v);
+struct Struct_ov024_021fa7ec_7;
+extern "C" int func_ov024_021fb460(Struct_ov024_021fa7ec_7*);
+struct Struct_ov024_021fa7ec_8;
+extern "C" int func_ov024_021fb478(Struct_ov024_021fa7ec_8*);
+extern "C" float func_020748d0(int arg0);
+extern "C" float func_020748a8(int arg0);
+extern "C" float func_02074938(int arg0);
 extern "C" int func_ov024_021e67b0(GameObject*);
-extern "C" float func_ov024_021f875c(Context_021fdf04*, Unit_021fdf04*, Action_021fdf04*, int);
+extern "C" float func_ov024_021f875c(Struct_ov024_021fdf04_5*, Struct_ov024_021fdf04_8*, Struct_ov024_021fdf04_2*, int);
 extern "C" int func_020882f8(unsigned char*);
-struct FlagObj_021da9b0;
-extern "C" int func_ov024_021da9b0(FlagObj_021da9b0*);
-struct FlagObj_021dd010;
-extern "C" int func_ov024_021dd010(FlagObj_021dd010*);
-struct FlagObj_021de25c;
-extern "C" int func_ov024_021de25c(FlagObj_021de25c*);
-struct FlagObj_021da9c8;
-extern "C" int func_ov024_021da9c8(FlagObj_021da9c8*);
+struct Struct_ov024_021da670_7;
+extern "C" int func_ov024_021da9b0(Struct_ov024_021da670_7*);
+struct Struct_ov024_021dced0_2;
+extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+struct Struct_ov024_021de124;
+extern "C" int func_ov024_021de25c(Struct_ov024_021de124*);
+struct Struct_ov024_021da670_8;
+extern "C" int func_ov024_021da9c8(Struct_ov024_021da670_8*);
 struct Struct_021fa76c;
 extern "C" int func_ov024_021fa76c(Struct_021fa76c*);
-extern "C" void func_ov024_021f6a1c(AddEntryList_021f6a1c*, void*);
-extern "C" void func_ov024_021f9874(Context_021fdf04*, AddEntryList_021f6a1c*, int, int);
+extern "C" void func_ov024_021f6a1c(Struct_ov024_021f6a1c*, void*);
+extern "C" void func_ov024_021f9874(Struct_ov024_021fdf04_5*, Struct_ov024_021f6a1c*, int, int);
 
 // USA: func_ov024_021fdf04
-extern "C" ARM void func_ov024_021fdf04(Context_021fdf04* context, int statusType) {
-    Unit_021fdf04* actor = context->actor;
-    func_02053c6c((unsigned char*)actor);
+extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1) {
+    Struct_ov024_021fdf04_8* var0 = arg0->unknown_8_;
+    func_02053c6c((unsigned char*)var0);
     func_020797dc();
 
-    Action_021fdf04* action = context->action;
-    if (action->mode == 2) return;
+    Struct_ov024_021fdf04_2* var1 = arg0->unknown_64c_;
+    if (var1->unknown_9_0_ == 2) return;
 
-    float base = 1.0f;
-    func_ov024_021f8bd8(context, &base, actor, action);
+    float var2 = 1.0f;
+    func_ov024_021f8bd8(arg0, &var2, var0, var1);
 
-    int total = context->count;
-    float rates[8];
-    Unit_021fdf04** units = context->units;
-    __clear(rates, sizeof(rates));
+    int var3 = arg0->unknown_9c_;
+    float var4[8];
+    Struct_ov024_021fdf04_8** var5 = arg0->unknown_7c_;
+    __clear(var4, sizeof(var4));
 
-    for (int i = 0; i < total; i++) {
-        Unit_021fdf04* unit = units[i];
-        float rate = 1.0f;
-        float scale = base;
+    for (int var6 = 0; var6 < var3; var6++) {
+        Struct_ov024_021fdf04_8* var7 = var5[var6];
+        float var8 = 1.0f;
+        float var9 = var2;
 
-        if (action->flags & 1) {
-            if (func_ov024_021fb460((S_flag10000*)unit) && action->sub18 != 2) {
-                rate = rate * func_020748d0((signed char)unit->stats->decayA);
+        if (var1->unknown_10_ & 1) {
+            if (func_ov024_021fb460((Struct_ov024_021fa7ec_7*)var7) && var1->unknown_18_5_ != 2) {
+                var8 = var8 * func_020748d0((signed char)var7->unknown_138_->unknown_5a_2_);
             }
         }
-        if (action->flags & 4) {
-            if (func_ov024_021fb478((S_flag131072*)unit)) {
-                rate = rate * func_020748a8((signed char)unit->stats->decayB);
+        if (var1->unknown_10_ & 4) {
+            if (func_ov024_021fb478((Struct_ov024_021fa7ec_8*)var7)) {
+                var8 = var8 * func_020748a8((signed char)var7->unknown_138_->unknown_5a_5_);
             }
         }
-        if (action->flags & 0x10) {
-            if (unit->stats->rank21 <= 3) {
-                rate = rate * func_02074938((signed char)unit->stats->rank21);
-            } else if (func_ov024_021e67b0((GameObject*)unit)) {
-                rate = rate * func_02074938(1);
+        if (var1->unknown_10_ & 0x10) {
+            if (var7->unknown_138_->unknown_21_ <= 3) {
+                var8 = var8 * func_02074938((signed char)var7->unknown_138_->unknown_21_);
+            } else if (func_ov024_021e67b0((GameObject*)var7)) {
+                var8 = var8 * func_02074938(1);
             }
         }
-        rate = rate * func_ov024_021f875c(context, unit, action, 1);
-        rates[i] = scale * rate;
+        var8 = var8 * func_ov024_021f875c(arg0, var7, var1, 1);
+        var4[var6] = var9 * var8;
     }
 
-    int kind = action->targetKind;
-    if (kind == 5) {
-        unsigned char* p = actor->field150 + 0x2f4;
-        if (p) {
-            Bits2f4_021fdf04* bits = (Bits2f4_021fdf04*)p;
-            if (bits->bit1) kind = 3;
-            else if (bits->bit0) kind = 4;
-            else kind = 2;
+    int var10 = var1->unknown_17_4_;
+    if (var10 == 5) {
+        unsigned char* var11 = var0->unknown_150_ + 0x2f4;
+        if (var11) {
+            Struct_ov024_021fdf04_6* var12 = (Struct_ov024_021fdf04_6*)var11;
+            if (var12->unknown_0_1_) var10 = 3;
+            else if (var12->unknown_0_0_) var10 = 4;
+            else var10 = 2;
         }
     }
-    if (kind != 2 && kind != 4 && kind != 3) return;
+    if (var10 != 2 && var10 != 4 && var10 != 3) return;
 
-    unsigned int row = action->range;
-    unsigned char weight;
-    unsigned char carry;
-    if (row <= 11) {
-        carry = data_ov024_021fefea[row].carry;
-        weight = data_ov024_021fefea[row].weight;
+    unsigned int var13 = var1->unknown_1d_6_;
+    unsigned char var14;
+    unsigned char var15;
+    if (var13 <= 11) {
+        var15 = data_ov024_021fefea[var13].unknown_1_;
+        var14 = data_ov024_021fefea[var13].unknown_0_;
     } else {
         return;
     }
 
-    AddEntryList_021f6a1c list;
-    memset(&list, 0, sizeof(list));
-    Entry_021fdf04 entry;
+    Struct_ov024_021f6a1c var16;
+    memset(&var16, 0, sizeof(var16));
+    Struct_ov024_021fdf04_4 var17;
 
-    int count = 0;
-    int flag = 0;
+    int var18 = 0;
+    int var19 = 0;
 
-    for (long i = 0; i < context->count; i++) {
-        int eligible = 1;
-        count++;
-        Unit_021fdf04* unit = units[i];
+    for (long var20 = 0; var20 < arg0->unknown_9c_; var20++) {
+        int var21 = 1;
+        var18++;
+        Struct_ov024_021fdf04_8* var22 = var5[var20];
 
-        if (action->flags & 0x400) {
-            if (unit->stats->flags14 & 0x200) flag = 1;
+        if (var1->unknown_10_ & 0x400) {
+            if (var22->unknown_138_->unknown_14_ & 0x200) var19 = 1;
         }
-        if (rates[i] < 30.0f) eligible = 0;
+        if (var4[var20] < 30.0f) var21 = 0;
 
-        if (eligible) {
-            int code = 5;
-            int ok = 0;
-            int check = 0;
-            float threshold = 33.3f;
+        if (var21) {
+            int var23 = 5;
+            int var24 = 0;
+            int var25 = 0;
+            float var26 = 33.3f;
 
-            if (statusType == 4) {
-                if (func_020882f8((unsigned char*)unit->stats) == 0) ok = 1;
-                check = 1;
-                threshold = 35.0f;
-            } else if (statusType == 5) {
-                if ((unit->stats->flags14 & 0x40) == 0) ok = 1;
-                check = 1;
-                threshold = 35.0f;
-            } else if (statusType == 3) {
-                if (func_ov024_021da9b0((FlagObj_021da9b0*)unit) == 0) ok = 1;
-                check = 1;
-            } else if (statusType == 6) {
-                if (func_ov024_021dd010((FlagObj_021dd010*)unit) == 0) ok = 1;
-                check = 1;
-            } else if (statusType == 7) {
-                if (func_ov024_021de25c((FlagObj_021de25c*)unit) == 0) ok = 1;
-                check = 1;
-                threshold = 35.0f;
-            } else if (statusType == 8) {
-                if (func_ov024_021da9c8((FlagObj_021da9c8*)unit) == 0) ok = 1;
-                check = 1;
-                if (action->value30 == 2) {
-                    Info_021fdf04* info = unit->info;
-                    if (info != 0) {
-                        if (info->flag) ok = 0;
+            if (arg1 == 4) {
+                if (func_020882f8((unsigned char*)var22->unknown_138_) == 0) var24 = 1;
+                var25 = 1;
+                var26 = 35.0f;
+            } else if (arg1 == 5) {
+                if ((var22->unknown_138_->unknown_14_ & 0x40) == 0) var24 = 1;
+                var25 = 1;
+                var26 = 35.0f;
+            } else if (arg1 == 3) {
+                if (func_ov024_021da9b0((Struct_ov024_021da670_7*)var22) == 0) var24 = 1;
+                var25 = 1;
+            } else if (arg1 == 6) {
+                if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var22) == 0) var24 = 1;
+                var25 = 1;
+            } else if (arg1 == 7) {
+                if (func_ov024_021de25c((Struct_ov024_021de124*)var22) == 0) var24 = 1;
+                var25 = 1;
+                var26 = 35.0f;
+            } else if (arg1 == 8) {
+                if (func_ov024_021da9c8((Struct_ov024_021da670_8*)var22) == 0) var24 = 1;
+                var25 = 1;
+                if (var1->unknown_30_ == 2) {
+                    Struct_ov024_021fdf04_7* var27 = var22->unknown_144_;
+                    if (var27 != 0) {
+                        if (var27->unknown_b_3_) var24 = 0;
                     }
                 }
-                threshold = 50.0f;
-            } else if (statusType == 9) {
-                if (rates[i] >= 30.0f) ok = 1;
-                code = 2;
-            } else if (statusType == 0x11) {
-                Stats_021fdf04* s = unit->stats;
-                if (s->attackBuff >= -1) ok = 1;
-                if (s->primaryStats.attack <= 40) ok = 0;
-                code = 5;
-            } else if (statusType == 0x12) {
-                Stats_021fdf04* s = unit->stats;
-                if (s->defenseBuff >= -1) ok = 1;
-                if (s->primaryStats.defense <= 20) ok = 0;
-                code = 5;
-            } else if (statusType == 0x13) {
-                Stats_021fdf04* s = unit->stats;
-                if (s->agilityBuff >= -1) ok = 1;
-                if (s->primaryStats.agility <= 40) ok = 0;
-                code = 5;
-            } else if (statusType == 0x14) {
-                Stats_021fdf04* s = unit->stats;
-                if (s->magicalMightBuff >= -1) ok = 1;
-                if ((unsigned short)s->primaryStats.magicalMight <= 100) ok = 0;
-                code = 5;
-            } else if (statusType == 0x15) {
-                Stats_021fdf04* s = unit->stats;
-                if (s->magicalMendingBuff >= -1) ok = 1;
-                if ((unsigned short)s->primaryStats.magicalMending <= 100) ok = 0;
-                code = 5;
-            } else if (statusType == 0x16) {
-                if (unit->stats->decayA >= -1) ok = 1;
-                code = 5;
+                var26 = 50.0f;
+            } else if (arg1 == 9) {
+                if (var4[var20] >= 30.0f) var24 = 1;
+                var23 = 2;
+            } else if (arg1 == 0x11) {
+                Struct_ov024_021fdf04* var28 = var22->unknown_138_;
+                if (var28->unknown_58_0_ >= -1) var24 = 1;
+                if (var28->unknown_0_.attack <= 40) var24 = 0;
+                var23 = 5;
+            } else if (arg1 == 0x12) {
+                Struct_ov024_021fdf04* var29 = var22->unknown_138_;
+                if (var29->unknown_58_3_ >= -1) var24 = 1;
+                if (var29->unknown_0_.defense <= 20) var24 = 0;
+                var23 = 5;
+            } else if (arg1 == 0x13) {
+                Struct_ov024_021fdf04* var30 = var22->unknown_138_;
+                if (var30->unknown_58_6_ >= -1) var24 = 1;
+                if (var30->unknown_0_.agility <= 40) var24 = 0;
+                var23 = 5;
+            } else if (arg1 == 0x14) {
+                Struct_ov024_021fdf04* var31 = var22->unknown_138_;
+                if (var31->unknown_59_4_ >= -1) var24 = 1;
+                if ((unsigned short)var31->unknown_0_.magicalMight <= 100) var24 = 0;
+                var23 = 5;
+            } else if (arg1 == 0x15) {
+                Struct_ov024_021fdf04* var32 = var22->unknown_138_;
+                if (var32->unknown_59_7_ >= -1) var24 = 1;
+                if ((unsigned short)var32->unknown_0_.magicalMending <= 100) var24 = 0;
+                var23 = 5;
+            } else if (arg1 == 0x16) {
+                if (var22->unknown_138_->unknown_5a_2_ >= -1) var24 = 1;
+                var23 = 5;
             }
 
-            if (!check || func_ov024_021fa76c((Struct_021fa76c*)unit)) {
-                if (rates[i] < threshold) ok = 0;
-                if (ok) {
-                    entry.value = action->value30;
-                    entry.index = i;
-                    entry.id = statusType;
-                    entry.flag = 1;
-                    entry.percent = rates[i];
-                    entry.kind = code;
-                    entry.flags9.weight = weight;
-                    entry.flags9.flag = carry;
-                    func_ov024_021f6a1c(&list, &entry);
+            if (!var25 || func_ov024_021fa76c((Struct_021fa76c*)var22)) {
+                if (var4[var20] < var26) var24 = 0;
+                if (var24) {
+                    var17.unknown_0_ = var1->unknown_30_;
+                    var17.unknown_6_ = var20;
+                    var17.unknown_4_ = arg1;
+                    var17.unknown_5_ = 1;
+                    var17.unknown_7_ = var4[var20];
+                    var17.unknown_8_ = var23;
+                    var17.unknown_9_.unknown_0_0_ = var14;
+                    var17.unknown_9_.unknown_0_6_ = var15;
+                    func_ov024_021f6a1c(&var16, &var17);
                 }
             } else {
                 continue;
             }
         }
 
-        int last = 0;
-        if (i == context->count - 1) last = 1;
-        else if (kind == 2) last = 1;
-        else if (kind == 4) {
-            if (unit->GetGroup() != units[(int)i + 1]->GetGroup()) last = 1;
+        int var33 = 0;
+        if (var20 == arg0->unknown_9c_ - 1) var33 = 1;
+        else if (var10 == 2) var33 = 1;
+        else if (var10 == 4) {
+            if (var22->inline_ov024_021fdf04() != var5[(int)var20 + 1]->inline_ov024_021fdf04()) var33 = 1;
         }
-        if (!last) continue;
-        if (count >= 2) {
-            if (carry) flag = 1;
+        if (!var33) continue;
+        if (var18 >= 2) {
+            if (var15) var19 = 1;
         }
-        if (count <= 1) carry = 0;
-        if (!flag) {
-            int p3 = (unsigned char)unit->field_0x4;
-            int p2 = unit->GetGroup();
-            if (kind == 4) p3 = 0xff;
-            else if (kind == 3) { p3 = 0xff; p2 = p3; }
-            func_ov024_021f9874(context, &list, p2, p3);
+        if (var18 <= 1) var15 = 0;
+        if (!var19) {
+            int var34 = (unsigned char)var22->unknown_4_;
+            int var35 = var22->inline_ov024_021fdf04();
+            if (var10 == 4) var34 = 0xff;
+            else if (var10 == 3) { var34 = 0xff; var35 = var34; }
+            func_ov024_021f9874(arg0, &var16, var35, var34);
         }
-        memset(&list, 0, sizeof(list));
-        count = 0;
-        flag = 0;
+        memset(&var16, 0, sizeof(var16));
+        var18 = 0;
+        var19 = 0;
     }
 }

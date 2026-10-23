@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Node02181c94 {
-    char pad0[0xe];
-    short val;
-    char pad1[0x10];
-    struct Node02181c94* next;
+struct Struct_ov000_02181c94_2 {
+    char unknown_0_[0xe];
+    short unknown_e_;
+    char unknown_10_[0x10];
+    struct Struct_ov000_02181c94_2* unknown_20_;
 };
-struct Obj02181c94 {
-    char pad0[0x14];
-    struct Node02181c94* head;
+struct Struct_ov000_02181c94 {
+    char unknown_0_[0x14];
+    struct Struct_ov000_02181c94_2* unknown_14_;
 };
 
 // USA: func_ov000_02181c94
-extern "C" ARM int func_ov000_02181c94(void* unused, struct Obj02181c94* obj, int* outArray) {
-    struct Node02181c94* node = obj->head;
-    int count = 0;
-    while (node) {
-        outArray[count] = node->val;
-        node = node->next;
-        count++;
+extern "C" ARM int func_ov000_02181c94(void* arg0, struct Struct_ov000_02181c94* arg1, int* arg2) {
+    struct Struct_ov000_02181c94_2* var0 = arg1->unknown_14_;
+    int var1 = 0;
+    while (var0) {
+        arg2[var1] = var0->unknown_e_;
+        var0 = var0->unknown_20_;
+        var1++;
     }
-    return count;
+    return var1;
 }

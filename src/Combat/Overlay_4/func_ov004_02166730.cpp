@@ -1,76 +1,76 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct RegionalContextPointer { unsigned int reserved; char* value; };
-extern RegionalContextPointer data_ov004_0217101c;
-#define CONTEXT_VALUE data_ov004_0217101c.value
+struct Struct_ov004_0217101c { unsigned int unknown_0_; char* unknown_4_; };
+extern Struct_ov004_0217101c data_ov004_0217101c;
+#define CONTEXT_VALUE data_ov004_0217101c.unknown_4_
 #else
 extern char* data_ov004_0217101c;
 #define CONTEXT_VALUE data_ov004_0217101c
 #endif
-extern "C" void* func_ov023_021f6524(void* ctx, int value);
+extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 
-struct Node02166730 { char pad[0x5c]; short field5c; short field5e; };
+struct Struct_ov004_02166730 { char unknown_0_[0x5c]; short unknown_5c_; short unknown_5e_; };
 
-struct Obj021f9bdc;
-extern "C" void func_ov023_021f9bdc(struct Obj021f9bdc* o, int divisor);
-extern "C" int func_ov023_021f98e0(void* node, void* obj);
+struct Struct_ov004_021549e4_5;
+extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5* arg0, int arg1);
+extern "C" int func_ov023_021f98e0(void* arg0, void* arg1);
 
-struct Obj021f9bb0;
-extern "C" unsigned int func_ov023_021f9bb0(struct Obj021f9bb0* obj);
-struct Obj021f9bc0;
-extern "C" unsigned short func_ov023_021f9bc0(struct Obj021f9bc0* obj);
-struct Obj9b6c;
-extern "C" unsigned int func_ov023_021f9b6c(struct Obj9b6c* obj, unsigned int a, unsigned int b);
+struct Struct_ov004_021549e4_2;
+extern "C" unsigned int func_ov023_021f9bb0(struct Struct_ov004_021549e4_2* arg0);
+struct Struct_ov004_021549e4_4;
+extern "C" unsigned short func_ov023_021f9bc0(struct Struct_ov004_021549e4_4* arg0);
+struct Struct_ov004_021549e4_3;
+extern "C" unsigned int func_ov023_021f9b6c(struct Struct_ov004_021549e4_3* arg0, unsigned int arg1, unsigned int arg2);
 
-extern "C" void* func_ov011_021849c8(void* obj);
-extern "C" void* func_ov023_021f6880(void* obj, int key);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
 #if defined(jpn)
-extern "C" unsigned int func_ov023_021f6f10(void* self);
+extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #else
-extern "C" int func_ov024_021f6f10(void* self);
+extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" void* func_ov023_021f9cb8(void* unused, void* other, void* node);
-extern "C" int func_ov023_021f88b8(void* obj, void* param1, int id);
+extern "C" void* func_ov023_021f9cb8(void* arg0, void* arg1, void* arg2);
+extern "C" int func_ov023_021f88b8(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov004_02166730
-extern "C" ARM int func_ov004_02166730(void* obj, short key) {
-    void* found = *(void**)(CONTEXT_VALUE + 8);
-    short index = 0;
-    while (found != NULL) {
-        if (*(short*)((char*)found + 0) == key) break;
-        index++;
-        found = *(void**)((char*)found + 8);
+extern "C" ARM int func_ov004_02166730(void* arg0, short arg1) {
+    void* var0 = *(void**)(CONTEXT_VALUE + 8);
+    short var1 = 0;
+    while (var0 != NULL) {
+        if (*(short*)((char*)var0 + 0) == arg1) break;
+        var1++;
+        var0 = *(void**)((char*)var0 + 8);
     }
 
-    short v6 = index / 8;
-    short v7 = index % 8;
-    Node02166730* node = (Node02166730*)func_ov023_021f6524(obj, 0x5b);
-    if (node) {
-        short old5e = node->field5e;
-        node->field5c = v6;
-        node->field5e = old5e;
-        func_ov023_021f9bdc((struct Obj021f9bdc*)node, (unsigned short)v7);
-        func_ov023_021f98e0(node, obj);
+    short var2 = var1 / 8;
+    short var3 = var1 % 8;
+    Struct_ov004_02166730* var4 = (Struct_ov004_02166730*)func_ov023_021f6524(arg0, 0x5b);
+    if (var4) {
+        short var5 = var4->unknown_5e_;
+        var4->unknown_5c_ = var2;
+        var4->unknown_5e_ = var5;
+        func_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)var4, (unsigned short)var3);
+        func_ov023_021f98e0(var4, arg0);
     }
 
-    unsigned int idx = func_ov023_021f9bb0((struct Obj021f9bb0*)node);
-    unsigned short field2a = func_ov023_021f9bc0((struct Obj021f9bc0*)node);
-    unsigned int entry = func_ov023_021f9b6c((struct Obj9b6c*)node, idx, field2a);
+    unsigned int var6 = func_ov023_021f9bb0((struct Struct_ov004_021549e4_2*)var4);
+    unsigned short var7 = func_ov023_021f9bc0((struct Struct_ov004_021549e4_4*)var4);
+    unsigned int var8 = func_ov023_021f9b6c((struct Struct_ov004_021549e4_3*)var4, var6, var7);
 
-    void* base = func_ov011_021849c8(obj);
-    void* n2 = func_ov023_021f6880(base, entry);
-    if (!n2) return (int)n2;
+    void* var9 = func_ov011_021849c8(arg0);
+    void* var10 = func_ov023_021f6880(var9, var8);
+    if (!var10) return (int)var10;
 
 #if defined(jpn)
-    int type = func_ov023_021f6f10(n2);
+    int var11 = func_ov023_021f6f10(var10);
 #else
-    int type = func_ov024_021f6f10(n2);
+    int var11 = func_ov024_021f6f10(var10);
 #endif
-    if (type != 8) return type;
+    if (var11 != 8) return var11;
 
-    void* result = func_ov023_021f9cb8(node, obj, n2);
-    if (!result) return (int)result;
+    void* var12 = func_ov023_021f9cb8(var4, arg0, var10);
+    if (!var12) return (int)var12;
 
-    return func_ov023_021f88b8(result, obj, 0x8000);
+    return func_ov023_021f88b8(var12, arg0, 0x8000);
 }

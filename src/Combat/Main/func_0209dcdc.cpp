@@ -1,87 +1,87 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct ConditionRatings0209dcdc {
-    signed int category0:3;
-    signed int category1:3;
-    signed int category2:3;
-    signed int category3:3;
-    signed int category4:3;
-    signed int category5:3;
-    signed int category6:3;
-    signed int category7:3;
-    signed int category8:3;
-    signed int category9:3;
-    unsigned int padding:2;
+struct Struct_0209dcdc_4 {
+    signed int unknown_0_0_:3;
+    signed int unknown_0_3_:3;
+    signed int unknown_0_6_:3;
+    signed int unknown_1_1_:3;
+    signed int unknown_1_4_:3;
+    signed int unknown_1_7_:3;
+    signed int unknown_2_2_:3;
+    signed int unknown_2_5_:3;
+    signed int unknown_3_0_:3;
+    signed int unknown_3_3_:3;
+    unsigned int unknown_3_6_:2;
 };
-struct ConditionStyle0209dcdc {
-    unsigned short style:2;
-    unsigned short padding:14;
+struct Struct_0209dcdc {
+    unsigned short unknown_0_0_:2;
+    unsigned short unknown_0_2_:14;
 };
-struct ConditionCategory0209dcdc {
-    unsigned char padding:4;
-    unsigned char category:4;
+struct Struct_0209dcdc_2 {
+    unsigned char unknown_0_0_:4;
+    unsigned char unknown_0_4_:4;
 };
-struct ConditionRecord0209dcdc {
-    unsigned long long capabilities[2];
-    unsigned char padding10[8];
-    ConditionStyle0209dcdc styles[2];
-    ConditionCategory0209dcdc categories[2];
-    unsigned char padding1e[0xa];
-    ConditionRatings0209dcdc ratings[2];
+struct Struct_0209dcdc_3 {
+    unsigned long long unknown_0_[2];
+    unsigned char unknown_10_[8];
+    Struct_0209dcdc unknown_18_[2];
+    Struct_0209dcdc_2 unknown_1c_[2];
+    unsigned char unknown_1e_[0xa];
+    Struct_0209dcdc_4 unknown_28_[2];
 };
 
 // USA: func_0209dcdc
-extern "C" ARM int func_0209dcdc(void* manager, ConditionRecord0209dcdc* record, int alternate, unsigned int requested) {
-    unsigned int category;
-    unsigned int capabilities;
-    unsigned int upperCapabilities;
-    unsigned int style;
-    ConditionRatings0209dcdc ratings;
-    if (alternate == 0) {
-        style = record->styles[0].style;
-        category = record->categories[0].category;
-        unsigned long long flags = record->capabilities[0];
-        capabilities = flags;
-        upperCapabilities = flags >> 32;
-        memcpy(&ratings, &record->ratings[0], sizeof(ratings));
+extern "C" ARM int func_0209dcdc(void* arg0, Struct_0209dcdc_3* arg1, int arg2, unsigned int arg3) {
+    unsigned int var0;
+    unsigned int var1;
+    unsigned int var2;
+    unsigned int var3;
+    Struct_0209dcdc_4 var4;
+    if (arg2 == 0) {
+        var3 = arg1->unknown_18_[0].unknown_0_0_;
+        var0 = arg1->unknown_1c_[0].unknown_0_4_;
+        unsigned long long var5 = arg1->unknown_0_[0];
+        var1 = var5;
+        var2 = var5 >> 32;
+        memcpy(&var4, &arg1->unknown_28_[0], sizeof(var4));
     } else {
-        style = record->styles[1].style;
-        category = record->categories[1].category;
-        unsigned long long flags = record->capabilities[1];
-        capabilities = flags;
-        upperCapabilities = flags >> 32;
-        memcpy(&ratings, &record->ratings[1], sizeof(ratings));
+        var3 = arg1->unknown_18_[1].unknown_0_0_;
+        var0 = arg1->unknown_1c_[1].unknown_0_4_;
+        unsigned long long var6 = arg1->unknown_0_[1];
+        var1 = var6;
+        var2 = var6 >> 32;
+        memcpy(&var4, &arg1->unknown_28_[1], sizeof(var4));
     }
-    if ((requested & 0x1) && (capabilities & 2) && style == 1) return 1;
-    if ((requested & 0x2) && (capabilities & 2) && style == 2) return 1;
-    if ((requested & 0x4) && (capabilities & 0x400) && ratings.category0 == 2) return 1;
-    if ((requested & 0x8) && (capabilities & 0x400) && ratings.category0 == 1) return 1;
-    if ((requested & 0x10) && (capabilities & 0x400) && ratings.category0 == -1) return 1;
-    if ((requested & 0x20) && (capabilities & 0x400) && ratings.category0 == -2) return 1;
-    if ((requested & 0x40) && (capabilities & 0x800) && ratings.category1 == 2) return 1;
-    if ((requested & 0x80) && (capabilities & 0x800) && ratings.category1 == 1) return 1;
-    if ((requested & 0x100) && (capabilities & 0x800) && ratings.category1 == -1) return 1;
-    if ((requested & 0x200) && (capabilities & 0x800) && ratings.category1 == -2) return 1;
-    if ((requested & 0x400) && (capabilities & 0x1000) && ratings.category2 == 2) return 1;
-    if ((requested & 0x800) && (capabilities & 0x1000) && ratings.category2 == 1) return 1;
-    if ((requested & 0x1000) && (capabilities & 0x1000) && ratings.category2 == -1) return 1;
-    if ((requested & 0x2000) && (capabilities & 0x1000) && ratings.category2 == -2) return 1;
-    if ((requested & 0x4000) && (capabilities & 0x2000) && ratings.category3 == 1) return 1;
-    if ((requested & 0x8000) && (capabilities & 0x4000) && ratings.category4 == 2) return 1;
-    if ((requested & 0x10000) && (capabilities & 0x4000) && ratings.category4 == 1) return 1;
-    if ((requested & 0x20000) && (capabilities & 0x8000) && ratings.category5 == 2) return 1;
-    if ((requested & 0x40000) && (capabilities & 0x8000) && ratings.category5 == 1) return 1;
-    if ((requested & 0x80000) && (capabilities & 0x10000) && ratings.category6 == 2) return 1;
-    if ((requested & 0x100000) && (capabilities & 0x10000) && ratings.category6 == 1) return 1;
-    if ((requested & 0x200000) && (capabilities & 0x10000) && ratings.category6 == -1) return 1;
-    if ((requested & 0x400000) && (capabilities & 0x10000) && ratings.category6 == -2) return 1;
-    if ((requested & 0x800000) && (capabilities & 0x20000) && ratings.category7 == 2) return 1;
-    if ((requested & 0x1000000) && (capabilities & 0x20000) && ratings.category7 == 1) return 1;
-    if ((requested & 0x2000000) && (upperCapabilities & 1) && ratings.category8 == 2) return 1;
-    if ((requested & 0x4000000) && (capabilities & 0x2000000) && ratings.category9 == 2) return 1;
-    if ((requested & 0x8000000) && (capabilities & 0x800000) && category == 1) return 1;
-    if ((requested & 0x10000000) && (capabilities & 0x800000) && category == 2) return 1;
-    if ((requested & 0x20000000) && (capabilities & 0x800000) && category == 3) return 1;
+    if ((arg3 & 0x1) && (var1 & 2) && var3 == 1) return 1;
+    if ((arg3 & 0x2) && (var1 & 2) && var3 == 2) return 1;
+    if ((arg3 & 0x4) && (var1 & 0x400) && var4.unknown_0_0_ == 2) return 1;
+    if ((arg3 & 0x8) && (var1 & 0x400) && var4.unknown_0_0_ == 1) return 1;
+    if ((arg3 & 0x10) && (var1 & 0x400) && var4.unknown_0_0_ == -1) return 1;
+    if ((arg3 & 0x20) && (var1 & 0x400) && var4.unknown_0_0_ == -2) return 1;
+    if ((arg3 & 0x40) && (var1 & 0x800) && var4.unknown_0_3_ == 2) return 1;
+    if ((arg3 & 0x80) && (var1 & 0x800) && var4.unknown_0_3_ == 1) return 1;
+    if ((arg3 & 0x100) && (var1 & 0x800) && var4.unknown_0_3_ == -1) return 1;
+    if ((arg3 & 0x200) && (var1 & 0x800) && var4.unknown_0_3_ == -2) return 1;
+    if ((arg3 & 0x400) && (var1 & 0x1000) && var4.unknown_0_6_ == 2) return 1;
+    if ((arg3 & 0x800) && (var1 & 0x1000) && var4.unknown_0_6_ == 1) return 1;
+    if ((arg3 & 0x1000) && (var1 & 0x1000) && var4.unknown_0_6_ == -1) return 1;
+    if ((arg3 & 0x2000) && (var1 & 0x1000) && var4.unknown_0_6_ == -2) return 1;
+    if ((arg3 & 0x4000) && (var1 & 0x2000) && var4.unknown_1_1_ == 1) return 1;
+    if ((arg3 & 0x8000) && (var1 & 0x4000) && var4.unknown_1_4_ == 2) return 1;
+    if ((arg3 & 0x10000) && (var1 & 0x4000) && var4.unknown_1_4_ == 1) return 1;
+    if ((arg3 & 0x20000) && (var1 & 0x8000) && var4.unknown_1_7_ == 2) return 1;
+    if ((arg3 & 0x40000) && (var1 & 0x8000) && var4.unknown_1_7_ == 1) return 1;
+    if ((arg3 & 0x80000) && (var1 & 0x10000) && var4.unknown_2_2_ == 2) return 1;
+    if ((arg3 & 0x100000) && (var1 & 0x10000) && var4.unknown_2_2_ == 1) return 1;
+    if ((arg3 & 0x200000) && (var1 & 0x10000) && var4.unknown_2_2_ == -1) return 1;
+    if ((arg3 & 0x400000) && (var1 & 0x10000) && var4.unknown_2_2_ == -2) return 1;
+    if ((arg3 & 0x800000) && (var1 & 0x20000) && var4.unknown_2_5_ == 2) return 1;
+    if ((arg3 & 0x1000000) && (var1 & 0x20000) && var4.unknown_2_5_ == 1) return 1;
+    if ((arg3 & 0x2000000) && (var2 & 1) && var4.unknown_3_0_ == 2) return 1;
+    if ((arg3 & 0x4000000) && (var1 & 0x2000000) && var4.unknown_3_3_ == 2) return 1;
+    if ((arg3 & 0x8000000) && (var1 & 0x800000) && var0 == 1) return 1;
+    if ((arg3 & 0x10000000) && (var1 & 0x800000) && var0 == 2) return 1;
+    if ((arg3 & 0x20000000) && (var1 & 0x800000) && var0 == 3) return 1;
     return 0;
 }

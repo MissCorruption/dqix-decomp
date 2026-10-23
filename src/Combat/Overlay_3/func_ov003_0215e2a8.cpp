@@ -2,86 +2,86 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue3C2_3DA = 0x3da };
-enum { kRegionValue98_B0 = 0xb0 };
-enum { kRegionValue3F2_40A = 0x40a };
-enum { kRegionValue900_700 = 0x700 };
-enum { kRegionValue16_E6 = 0xe6 };
-enum { kRegionValue394_3AC = 0x3ac };
-enum { kRegionValue358_370 = 0x370 };
+enum { Enum_ov003_0215e2a8_962 = 0x3da };
+enum { Enum_ov003_0215e2a8_152 = 0xb0 };
+enum { Enum_ov003_0215e2a8_1010 = 0x40a };
+enum { Enum_ov003_0215e2a8_2304 = 0x700 };
+enum { Enum_ov003_0215e2a8_22 = 0xe6 };
+enum { Enum_ov003_0215e2a8_916 = 0x3ac };
+enum { Enum_ov003_0215e2a8_856 = 0x370 };
 #else
-enum { kRegionValue3C2_3DA = 0x3c2 };
-enum { kRegionValue98_B0 = 0x98 };
-enum { kRegionValue3F2_40A = 0x3f2 };
-enum { kRegionValue900_700 = 0x900 };
-enum { kRegionValue16_E6 = 0x16 };
-enum { kRegionValue394_3AC = 0x394 };
-enum { kRegionValue358_370 = 0x358 };
+enum { Enum_ov003_0215e2a8_962 = 0x3c2 };
+enum { Enum_ov003_0215e2a8_152 = 0x98 };
+enum { Enum_ov003_0215e2a8_1010 = 0x3f2 };
+enum { Enum_ov003_0215e2a8_2304 = 0x900 };
+enum { Enum_ov003_0215e2a8_22 = 0x16 };
+enum { Enum_ov003_0215e2a8_916 = 0x394 };
+enum { Enum_ov003_0215e2a8_856 = 0x358 };
 #endif
 
 struct Struct_0205d81c;
-struct Elem_0205d81c;
-extern "C" Elem_0205d81c* func_0205d8c4(Struct_0205d81c*);
+struct Struct_0205d0e0;
+extern "C" Struct_0205d0e0* func_0205d8c4(Struct_0205d81c*);
 extern "C" int func_0204c7e0(unsigned char*);
 extern "C" int func_020421a0(void);
 
-struct Container0205a3d0;
-struct Elem0205a3d0;
-extern "C" void func_0205a370(Container0205a3d0*, int);
-extern "C" Elem0205a3d0* func_0205a3d0(Container0205a3d0*, int);
+struct Struct_0205a254;
+struct Struct_0205a254_2;
+extern "C" void func_0205a370(Struct_0205a254*, int);
+extern "C" Struct_0205a254_2* func_0205a3d0(Struct_0205a254*, int);
 
-struct Container0205a330;
-extern "C" void func_0205a330(Container0205a330*, int);
+struct Struct_0205a330;
+extern "C" void func_0205a330(Struct_0205a330*, int);
 
-extern "C" void func_0205a42c(Container0205a3d0*, int, int);
+extern "C" void func_0205a42c(Struct_0205a254*, int, int);
 extern "C" void func_0205ae8c(void*);
 
 // USA: func_ov003_0215e2a8
-extern "C" ARM void func_ov003_0215e2a8(char* base) {
-    if (*(unsigned char*)(base + kRegionValue3C2_3DA) == 0) return;
+extern "C" ARM void func_ov003_0215e2a8(char* arg0) {
+    if (*(unsigned char*)(arg0 + Enum_ov003_0215e2a8_962) == 0) return;
 
-    Elem_0205d81c* elem = func_0205d8c4((Struct_0205d81c*)(base + kRegionValue98_B0));
-    if (elem == NULL) return;
-    if (*(unsigned char*)((char*)elem + 0xc4) != 1) return;
-    if (!func_0204c7e0((unsigned char*)elem)) return;
-    if (*(unsigned char*)((char*)elem + 0xc5) & 0x20) return;
+    Struct_0205d0e0* var0 = func_0205d8c4((Struct_0205d81c*)(arg0 + Enum_ov003_0215e2a8_152));
+    if (var0 == NULL) return;
+    if (*(unsigned char*)((char*)var0 + 0xc4) != 1) return;
+    if (!func_0204c7e0((unsigned char*)var0)) return;
+    if (*(unsigned char*)((char*)var0 + 0xc5) & 0x20) return;
 
-    short a = *(short*)((char*)elem + 0xac);
-    short b = *(short*)((char*)elem + 0xae);
-    short d = *(short*)((char*)elem + 0xbc);
-    short e = *(short*)((char*)elem + 0xbe);
+    short var1 = *(short*)((char*)var0 + 0xac);
+    short var2 = *(short*)((char*)var0 + 0xae);
+    short var3 = *(short*)((char*)var0 + 0xbc);
+    short var4 = *(short*)((char*)var0 + 0xbe);
 
-    short x = (short)(d + (short)((a << 3)));
-    short y = (short)(e + (short)((b << 3)));
-    x = (short)(x - 8);
-    y = (short)(y - 2);
+    short var5 = (short)(var3 + (short)((var1 << 3)));
+    short var6 = (short)(var4 + (short)((var2 << 3)));
+    var5 = (short)(var5 - 8);
+    var6 = (short)(var6 - 2);
 
-    if (*(unsigned char*)(base + kRegionValue3F2_40A) != 0) {
-        int f = func_020421a0();
-        int v = *(short*)((char*)f + kRegionValue900_700 + kRegionValue16_E6);
-        x = (short)(x - 2);
-        y = (short)(y + (short)(v % 8));
+    if (*(unsigned char*)(arg0 + Enum_ov003_0215e2a8_1010) != 0) {
+        int var7 = func_020421a0();
+        int var8 = *(short*)((char*)var7 + Enum_ov003_0215e2a8_2304 + Enum_ov003_0215e2a8_22);
+        var5 = (short)(var5 - 2);
+        var6 = (short)(var6 + (short)(var8 % 8));
     }
 
-    GameState* battleStruct = GameState::GetInstance();
-    Container0205a3d0* cont = *(Container0205a3d0**)(base + kRegionValue394_3AC);
-    if (cont == NULL) return;
+    GameState* var9 = GameState::GetInstance();
+    Struct_0205a254* var10 = *(Struct_0205a254**)(arg0 + Enum_ov003_0215e2a8_916);
+    if (var10 == NULL) return;
 
-    func_0205a370(cont, 0);
-    Elem0205a3d0* entry = func_0205a3d0(cont, 0);
-    if (entry != NULL) {
-        *(unsigned char*)((char*)entry + 0x15) |= 8;
+    func_0205a370(var10, 0);
+    Struct_0205a254_2* var11 = func_0205a3d0(var10, 0);
+    if (var11 != NULL) {
+        *(unsigned char*)((char*)var11 + 0x15) |= 8;
     }
 
-    int scaleCount = (int)battleStruct->GetTickCount();
-    func_0205a330((Container0205a330*)cont, scaleCount);
+    int var12 = (int)var9->GetTickCount();
+    func_0205a330((Struct_0205a330*)var10, var12);
 
-    entry = func_0205a3d0(cont, 0);
-    if (entry != NULL) {
-        *(short*)((char*)entry + 0x4) = x;
-        *(short*)((char*)entry + 0x6) = y;
+    var11 = func_0205a3d0(var10, 0);
+    if (var11 != NULL) {
+        *(short*)((char*)var11 + 0x4) = var5;
+        *(short*)((char*)var11 + 0x6) = var6;
     }
 
-    func_0205a42c(cont, 0, 0x3f);
-    func_0205ae8c(base + kRegionValue358_370);
+    func_0205a42c(var10, 0, 0x3f);
+    func_0205ae8c(arg0 + Enum_ov003_0215e2a8_856);
 }

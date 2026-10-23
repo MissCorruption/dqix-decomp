@@ -2,26 +2,26 @@
 
 extern int data_ov031_0224f4e0;
 extern "C" int func_ov031_0221f158();
-extern "C" int func_020c7ea0(void* queue, int* message, int blocking);
+extern "C" int func_020c7ea0(void* arg0, int* arg1, int arg2);
 
 // USA: func_ov031_0221e92c
 extern "C" THUMB int func_ov031_0221e92c() {
-    int result = -1;
+    int var0 = -1;
     if (func_ov031_0221f158() != 0) {
-        int message;
-        int running = 1;
+        int var1;
+        int var2 = 1;
         do {
-        func_020c7ea0(&data_ov031_0224f4e0, &message, 1);
-        switch (message) {
+        func_020c7ea0(&data_ov031_0224f4e0, &var1, 1);
+        switch (var1) {
         case 0xe:
-            running = 0;
-            result = 0;
+            var2 = 0;
+            var0 = 0;
             break;
         default:
-            running = 0;
+            var2 = 0;
             break;
         }
-    } while (running != 0);
+    } while (var2 != 0);
     }
-    return result;
+    return var0;
 }

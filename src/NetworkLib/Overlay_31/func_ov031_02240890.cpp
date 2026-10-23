@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov031_022415b4(void* dst, unsigned int size);
-extern "C" void func_ov031_022415c8(void* dst, const void* src, unsigned int size);
-extern "C" int func_ov031_022415a8(const char* s);
-extern "C" int func_ov031_02241540(const char* a, const char* b, int n);
-extern "C" int func_ov031_02242c54(const char* text, int length);
-extern "C" int func_ov031_02242f14(const char* p, int len);
+extern "C" void func_ov031_022415b4(void* arg0, unsigned int arg1);
+extern "C" void func_ov031_022415c8(void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int func_ov031_022415a8(const char* arg0);
+extern "C" int func_ov031_02241540(const char* arg0, const char* arg1, int arg2);
+extern "C" int func_ov031_02242c54(const char* arg0, int arg1);
+extern "C" int func_ov031_02242f14(const char* arg0, int arg1);
 
 extern int data_ov031_02290fc0;
 extern void* (*data_ov031_02290fc4)(unsigned int size, int align);
@@ -14,228 +14,228 @@ extern const char data_ov031_0224c770[];
 extern const char data_ov031_0224c778[];
 extern const unsigned char data_ov031_022494c0[];
 
-struct HttpSsl {
-    char pad0[0x800];
-    char* host;
-    char pad804[0x2c];
+struct Struct_ov031_02240890 {
+    char unknown_0_[0x800];
+    char* unknown_800_;
+    char unknown_804_[0x2c];
 };
 
-struct HttpBody {
-    char pad0[0xc];
-    unsigned int len;
-    char pad10[8];
-    void* buf;
-    char pad1c[0x404];
+struct Struct_ov031_02240890_2 {
+    char unknown_0_[0xc];
+    unsigned int unknown_c_;
+    char unknown_10_[8];
+    void* unknown_18_;
+    char unknown_1c_[0x404];
 };
 
-struct HttpRequest {
-    char pad0[8];
-    int ssl;
-    int hostEnd;
-    int portEnd;
-    char pad14[0xc];
-    HttpSsl* sslInfo;
-    char* url;
-    int port;
-    void* param;
-    HttpBody* body;
-    char pad34[8];
-    void* callback;
-    int method;
-    unsigned char header[0x14];
+struct Struct_ov031_02218098_2 {
+    char unknown_0_[8];
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    char unknown_14_[0xc];
+    Struct_ov031_02240890* unknown_20_;
+    char* unknown_24_;
+    int unknown_28_;
+    void* unknown_2c_;
+    Struct_ov031_02240890_2* unknown_30_;
+    char unknown_34_[8];
+    void* unknown_3c_;
+    int unknown_40_;
+    unsigned char unknown_44_[0x14];
 };
 
 // USA: func_ov031_02240890
-extern "C" ARM HttpRequest* func_ov031_02240890(const char* url, int method, void* buf, unsigned int len,
-                                                void* callback, void* param) {
-    int prefix;
-    int urlLen;
-    int i;
-    int j;
-    const char* p;
-    int esc;
-    int slash;
-    signed char c;
-    HttpRequest* req = 0;
-    int state;
+extern "C" ARM Struct_ov031_02218098_2* func_ov031_02240890(const char* arg0, int arg1, void* arg2, unsigned int arg3,
+                                                void* arg4, void* arg5) {
+    int var0;
+    int var1;
+    int var2;
+    int var3;
+    const char* var4;
+    int var5;
+    int var6;
+    signed char var7;
+    Struct_ov031_02218098_2* var8 = 0;
+    int var9;
 
-    if (method != 0 && method != 1 && method != 2) {
+    if (arg1 != 0 && arg1 != 1 && arg1 != 2) {
         data_ov031_02290fc0 = 0xb;
         goto fail;
     }
-    if (len == 0) {
+    if (arg3 == 0) {
         data_ov031_02290fc0 = 0xb;
         goto fail;
     }
-    req = (HttpRequest*)data_ov031_02290fc4(sizeof(HttpRequest), 4);
-    if (req == 0) {
+    var8 = (Struct_ov031_02218098_2*)data_ov031_02290fc4(sizeof(Struct_ov031_02218098_2), 4);
+    if (var8 == 0) {
         data_ov031_02290fc0 = 1;
         goto fail;
     }
-    func_ov031_022415b4(req, sizeof(HttpRequest));
-    req->body = (HttpBody*)data_ov031_02290fc4(sizeof(HttpBody), 4);
-    if (req->body == 0) {
+    func_ov031_022415b4(var8, sizeof(Struct_ov031_02218098_2));
+    var8->unknown_30_ = (Struct_ov031_02240890_2*)data_ov031_02290fc4(sizeof(Struct_ov031_02240890_2), 4);
+    if (var8->unknown_30_ == 0) {
         data_ov031_02290fc0 = 1;
         goto fail;
     }
-    func_ov031_022415b4(req->body, sizeof(HttpBody));
-    req->body->buf = buf;
-    req->body->len = len;
+    func_ov031_022415b4(var8->unknown_30_, sizeof(Struct_ov031_02240890_2));
+    var8->unknown_30_->unknown_18_ = arg2;
+    var8->unknown_30_->unknown_c_ = arg3;
 
-    urlLen = func_ov031_022415a8(url);
-    if (urlLen <= 7) {
+    var1 = func_ov031_022415a8(arg0);
+    if (var1 <= 7) {
         data_ov031_02290fc0 = 4;
         goto fail;
     }
-    prefix = 7;
-    req->port = 80;
-    if (func_ov031_02241540(url, data_ov031_0224c770, prefix) != 0) {
-        if (func_ov031_02241540(url, data_ov031_0224c778, 8) != 0) {
+    var0 = 7;
+    var8->unknown_28_ = 80;
+    if (func_ov031_02241540(arg0, data_ov031_0224c770, var0) != 0) {
+        if (func_ov031_02241540(arg0, data_ov031_0224c778, 8) != 0) {
             data_ov031_02290fc0 = 4;
             goto fail;
         }
-        req->ssl = 1;
-        req->port = 443;
-        prefix = 8;
+        var8->unknown_8_ = 1;
+        var8->unknown_28_ = 443;
+        var0 = 8;
     }
-    urlLen -= prefix;
-    p = url + prefix;
-    if (urlLen <= 0) {
+    var1 -= var0;
+    var4 = arg0 + var0;
+    if (var1 <= 0) {
         data_ov031_02290fc0 = 4;
         goto fail;
     }
 
-    for (i = 0, esc = 0, state = 0; i < urlLen && p[i] != '/'; i++) {
-        if (state == 2) {
-            state--;
-        } else if (state == 1) {
-            c = func_ov031_02242c54(&p[i - 1], 2);
-            state--;
-            if (c < 0) {
+    for (var2 = 0, var5 = 0, var9 = 0; var2 < var1 && var4[var2] != '/'; var2++) {
+        if (var9 == 2) {
+            var9--;
+        } else if (var9 == 1) {
+            var7 = func_ov031_02242c54(&var4[var2 - 1], 2);
+            var9--;
+            if (var7 < 0) {
                 data_ov031_02290fc0 = 4;
                 goto fail;
             }
-            if (c == '/') {
-                esc--;
+            if (var7 == '/') {
+                var5--;
                 break;
             }
-        } else if (p[i] == '%') {
-            state = 2;
-            esc++;
+        } else if (var4[var2] == '%') {
+            var9 = 2;
+            var5++;
         }
     }
-    if (state != 0) {
+    if (var9 != 0) {
         data_ov031_02290fc0 = 4;
         goto fail;
     }
 
-    req->url = (char*)data_ov031_02290fc4(prefix + urlLen - esc * 2 + 1, 4);
-    if (req->url == 0) {
+    var8->unknown_24_ = (char*)data_ov031_02290fc4(var0 + var1 - var5 * 2 + 1, 4);
+    if (var8->unknown_24_ == 0) {
         data_ov031_02290fc0 = 1;
         goto fail;
     }
-    func_ov031_022415c8(req->url, url, prefix);
+    func_ov031_022415c8(var8->unknown_24_, arg0, var0);
 
-    for (i = 0, j = 0, state = 0, slash = 0; i < urlLen; i++) {
-        if (state == 2) {
-            state--;
-        } else if (state == 1) {
-            c = func_ov031_02242c54(&p[i - 1], 2);
-            req->url[prefix + j - 1] = c;
-            state--;
-            if (c == '/') {
-                slash = 1;
+    for (var2 = 0, var3 = 0, var9 = 0, var6 = 0; var2 < var1; var2++) {
+        if (var9 == 2) {
+            var9--;
+        } else if (var9 == 1) {
+            var7 = func_ov031_02242c54(&var4[var2 - 1], 2);
+            var8->unknown_24_[var0 + var3 - 1] = var7;
+            var9--;
+            if (var7 == '/') {
+                var6 = 1;
             }
         } else {
-            c = p[i];
-            if (c == '/') {
-                slash = 1;
+            var7 = var4[var2];
+            if (var7 == '/') {
+                var6 = 1;
             }
-            if (slash == 0 && c == '%') {
-                state = 2;
+            if (var6 == 0 && var7 == '%') {
+                var9 = 2;
             } else {
-                req->url[prefix + j] = c;
+                var8->unknown_24_[var0 + var3] = var7;
             }
-            j++;
+            var3++;
         }
     }
-    req->url[prefix + j] = 0;
+    var8->unknown_24_[var0 + var3] = 0;
 
     {
-        const char* host = req->url + prefix;
-        int k;
-        for (k = 0; k < j; k++) {
-            if (host[k] == '/' || host[k] == ':') {
-                req->hostEnd = k + prefix;
+        const char* var10 = var8->unknown_24_ + var0;
+        int var11;
+        for (var11 = 0; var11 < var3; var11++) {
+            if (var10[var11] == '/' || var10[var11] == ':') {
+                var8->unknown_c_ = var11 + var0;
                 break;
             }
         }
-        if (k == j) {
-            req->hostEnd = k + prefix;
-            req->portEnd = k + prefix;
-        } else if (host[k] == '/') {
-            req->portEnd = req->hostEnd;
-        } else if (host[k] == ':') {
-            for (; k < j; k++) {
-                if (host[k] == '/') {
-                    req->portEnd = k + prefix;
+        if (var11 == var3) {
+            var8->unknown_c_ = var11 + var0;
+            var8->unknown_10_ = var11 + var0;
+        } else if (var10[var11] == '/') {
+            var8->unknown_10_ = var8->unknown_c_;
+        } else if (var10[var11] == ':') {
+            for (; var11 < var3; var11++) {
+                if (var10[var11] == '/') {
+                    var8->unknown_10_ = var11 + var0;
                     break;
                 }
             }
-            if (k == j) {
-                req->portEnd = k + prefix;
+            if (var11 == var3) {
+                var8->unknown_10_ = var11 + var0;
             } else {
-                int start = req->hostEnd + 1;
-                int port = func_ov031_02242f14(req->url + start, req->portEnd - start);
-                if (port < 0) {
-                    port = req->port;
-                } else if (port > 0xffff) {
+                int var12 = var8->unknown_c_ + 1;
+                int var13 = func_ov031_02242f14(var8->unknown_24_ + var12, var8->unknown_10_ - var12);
+                if (var13 < 0) {
+                    var13 = var8->unknown_28_;
+                } else if (var13 > 0xffff) {
                     data_ov031_02290fc0 = 4;
                     goto fail;
                 }
-                req->port = (unsigned short)port;
+                var8->unknown_28_ = (unsigned short)var13;
             }
         }
     }
 
-    if (req->ssl != 0) {
-        int hostLen = req->hostEnd - prefix;
-        req->sslInfo = (HttpSsl*)data_ov031_02290fc4(sizeof(HttpSsl), 4);
-        if (req->sslInfo == 0) {
+    if (var8->unknown_8_ != 0) {
+        int var14 = var8->unknown_c_ - var0;
+        var8->unknown_20_ = (Struct_ov031_02240890*)data_ov031_02290fc4(sizeof(Struct_ov031_02240890), 4);
+        if (var8->unknown_20_ == 0) {
             data_ov031_02290fc0 = 1;
             goto fail;
         }
-        func_ov031_022415b4(req->sslInfo, sizeof(HttpSsl));
-        req->sslInfo->host = (char*)data_ov031_02290fc4(hostLen + 1, 4);
-        if (req->sslInfo->host == 0) {
+        func_ov031_022415b4(var8->unknown_20_, sizeof(Struct_ov031_02240890));
+        var8->unknown_20_->unknown_800_ = (char*)data_ov031_02290fc4(var14 + 1, 4);
+        if (var8->unknown_20_->unknown_800_ == 0) {
             data_ov031_02290fc0 = 1;
             goto fail;
         }
-        func_ov031_022415c8(req->sslInfo->host, req->url + prefix, hostLen);
-        req->sslInfo->host[hostLen] = 0;
+        func_ov031_022415c8(var8->unknown_20_->unknown_800_, var8->unknown_24_ + var0, var14);
+        var8->unknown_20_->unknown_800_[var14] = 0;
     }
 
-    func_ov031_022415c8(req->header, data_ov031_022494c0, sizeof(req->header));
-    req->param = param;
-    req->method = method;
-    req->callback = callback;
-    return req;
+    func_ov031_022415c8(var8->unknown_44_, data_ov031_022494c0, sizeof(var8->unknown_44_));
+    var8->unknown_2c_ = arg5;
+    var8->unknown_40_ = arg1;
+    var8->unknown_3c_ = arg4;
+    return var8;
 
 fail:
-    if (req != 0) {
-        if (req->sslInfo != 0) {
-            if (req->sslInfo->host != 0) {
-                data_ov031_02290fc8(req->sslInfo->host);
+    if (var8 != 0) {
+        if (var8->unknown_20_ != 0) {
+            if (var8->unknown_20_->unknown_800_ != 0) {
+                data_ov031_02290fc8(var8->unknown_20_->unknown_800_);
             }
-            data_ov031_02290fc8(req->sslInfo);
+            data_ov031_02290fc8(var8->unknown_20_);
         }
-        if (req->url != 0) {
-            data_ov031_02290fc8(req->url);
+        if (var8->unknown_24_ != 0) {
+            data_ov031_02290fc8(var8->unknown_24_);
         }
-        if (req->body != 0) {
-            data_ov031_02290fc8(req->body);
+        if (var8->unknown_30_ != 0) {
+            data_ov031_02290fc8(var8->unknown_30_);
         }
-        data_ov031_02290fc8(req);
+        data_ov031_02290fc8(var8);
     }
     return 0;
 }

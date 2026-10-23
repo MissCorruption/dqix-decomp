@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" double func_020055d4(char* str);
+extern "C" double func_020055d4(char* arg0);
 extern "C" int func_020421a0(void);
 
 // USA: func_02069c1c
-extern "C" ARM int func_02069c1c(char** obj, char* str) {
-    float localArr[1];
-    for (int i = 0; i < 1; i++) {
-        signed char c = *str;
-        if (c != 0 && c >= '0' && c <= '9') {
-            float f = (float)func_020055d4(str);
-            localArr[i] = f;
+extern "C" ARM int func_02069c1c(char** arg0, char* arg1) {
+    float var0[1];
+    for (int var1 = 0; var1 < 1; var1++) {
+        signed char var2 = *arg1;
+        if (var2 != 0 && var2 >= '0' && var2 <= '9') {
+            float var3 = (float)func_020055d4(arg1);
+            var0[var1] = var3;
             while (1) {
-                c = *str;
-                if (c == 0) break;
-                if (c == ',' || c == '>') {
-                    str++;
+                var2 = *arg1;
+                if (var2 == 0) break;
+                if (var2 == ',' || var2 == '>') {
+                    arg1++;
                     break;
                 }
-                str++;
+                arg1++;
             }
         }
     }
-    char* g = (char*)func_020421a0();
-    *(int*)(g + 0x1000 + 0x840) = (int)(localArr[0] * 4096.0f);
-    void* dst = *obj;
-    unsigned short marker = 0xff2a;
-    memcpy(dst, &marker, 2);
+    char* var4 = (char*)func_020421a0();
+    *(int*)(var4 + 0x1000 + 0x840) = (int)(var0[0] * 4096.0f);
+    void* var5 = *arg0;
+    unsigned short var6 = 0xff2a;
+    memcpy(var5, &var6, 2);
     return 2;
 }

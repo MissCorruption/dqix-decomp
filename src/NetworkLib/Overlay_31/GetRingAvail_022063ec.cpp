@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Ring022063ec { char pad[0x100]; unsigned short head; unsigned short tail; };
-struct Obj022063ec { char pad[0x68]; Ring022063ec* ring; };
+struct Struct_ov031_022063ec_2 { char unknown_0_[0x100]; unsigned short unknown_100_; unsigned short unknown_102_; };
+struct Struct_ov031_022063ec { char unknown_0_[0x68]; Struct_ov031_022063ec_2* unknown_68_; };
 
 // USA: func_ov031_022063ec
-extern "C" ARM int func_ov031_022063ec(Obj022063ec* obj) {
-    Ring022063ec* ring = obj->ring;
-    int capacity = *(int*)((char*)ring + 0xf8);
-    volatile unsigned short* headp = &ring->head;
-    unsigned short head = *headp;
-    int diff = ring->tail - head - 1;
-    if (diff < 0) diff += capacity;
-    return diff;
+extern "C" ARM int func_ov031_022063ec(Struct_ov031_022063ec* arg0) {
+    Struct_ov031_022063ec_2* var0 = arg0->unknown_68_;
+    int var1 = *(int*)((char*)var0 + 0xf8);
+    volatile unsigned short* var2 = &var0->unknown_100_;
+    unsigned short var3 = *var2;
+    int var4 = var0->unknown_102_ - var3 - 1;
+    if (var4 < 0) var4 += var1;
+    return var4;
 }

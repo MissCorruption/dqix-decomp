@@ -4,64 +4,64 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { Field18 = 0x14, Field23ec = 0x240c };
+enum { Enum_ov017_021b5648_24 = 0x14, Enum_ov017_021b5648_9196 = 0x240c };
 #else
-enum { Field18 = 0x18, Field23ec = 0x23ec };
+enum { Enum_ov017_021b5648_24 = 0x18, Enum_ov017_021b5648_9196 = 0x23ec };
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-struct U16Field0x6_020375f8;
-extern "C" unsigned short func_02028460(void* a, void* b);
-extern "C" int func_0202c508(void* obj);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+struct Struct_02039df4;
+extern "C" unsigned short func_02028460(void* arg0, void* arg1);
+extern "C" int func_0202c508(void* arg0);
 extern "C" void* func_02012fe4(void);
-extern "C" int func_ov017_021a2128(void* a, int b, int c, int d, void* e, int f, int g, int h);
+extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, void* arg4, int arg5, int arg6, int arg7);
 
-struct Buf3_021b5648 { unsigned int a, b, c; };
-extern struct Buf3_021b5648 data_ov017_021d6bcc;
+struct Struct_ov017_021d6bcc { unsigned int unknown_0_, unknown_4_, unknown_8_; };
+extern struct Struct_ov017_021d6bcc data_ov017_021d6bcc;
 
 // USA: func_ov017_021b5648
-extern "C" ARM void func_ov017_021b5648(char* self) {
-    GameState* bs = GameState::GetInstance();
-    void* ctx = func_0202ae18();
+extern "C" ARM void func_ov017_021b5648(char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0202ae18();
 
-    int i;
-    for (i = 0; i < 4; i++) {
-        GameObject* c = func_0200ff1c(bs, i);
-        if (c == 0) continue;
-        void* p8 = *(void**)(self + 0x8);
-        if (*(unsigned short*)p8 != ((Object3D*)((struct U16Field0x6_020375f8*)c))->GetField06()) continue;
+    int var2;
+    for (var2 = 0; var2 < 4; var2++) {
+        GameObject* var3 = func_0200ff1c(var0, var2);
+        if (var3 == 0) continue;
+        void* var4 = *(void**)(arg0 + 0x8);
+        if (*(unsigned short*)var4 != ((Object3D*)((struct Struct_02039df4*)var3))->GetField06()) continue;
 
-        unsigned short v = func_02028460((char*)p8 + Field18, (char*)c + 0x44);
-        *(unsigned short*)((char*)c + 0xb8) = v;
-        ((unsigned char*)c)[0xc2] |= 0x40;
+        unsigned short var5 = func_02028460((char*)var4 + Enum_ov017_021b5648_24, (char*)var3 + 0x44);
+        *(unsigned short*)((char*)var3 + 0xb8) = var5;
+        ((unsigned char*)var3)[0xc2] |= 0x40;
     }
 
-    if (func_0202c508(ctx) != 0 && *(unsigned short*)(self + 0x12) != 0) {
-        GameState* bs2 = GameState::GetInstance();
-        void* obj5 = GetGameResources();
-        bs2->GetGrottoStruct();
-        ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)func_02012fe4() + Field23ec);
-        unsigned char env = grotto->GetActiveGrottoEnviron() & 0xff;
+    if (func_0202c508(var1) != 0 && *(unsigned short*)(arg0 + 0x12) != 0) {
+        GameState* var6 = GameState::GetInstance();
+        void* var7 = GetGameResources();
+        var6->GetGrottoStruct();
+        ActiveGrottoClass* var8 = (ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov017_021b5648_9196);
+        unsigned char var9 = var8->GetActiveGrottoEnviron() & 0xff;
 
-        struct Buf3_021b5648 local = data_ov017_021d6bcc;
-        switch (env) {
-            case 1: local.c = 0xfffecccd; break;
-            case 2: local.c = 0xffff019a; break;
-            case 3: local.c = -0x13800; break;
-            case 4: local.c = 0xfffecccd; break;
-            case 5: local.c = 0xfffebb34; break;
-            default: local.c = 0xfffecccd; break;
+        struct Struct_ov017_021d6bcc var10 = data_ov017_021d6bcc;
+        switch (var9) {
+            case 1: var10.unknown_8_ = 0xfffecccd; break;
+            case 2: var10.unknown_8_ = 0xffff019a; break;
+            case 3: var10.unknown_8_ = -0x13800; break;
+            case 4: var10.unknown_8_ = 0xfffecccd; break;
+            case 5: var10.unknown_8_ = 0xfffebb34; break;
+            default: var10.unknown_8_ = 0xfffecccd; break;
         }
 
-        unsigned char flags = 0;
-        if (((unsigned char*)self)[0x11] == 1) flags |= 2;
-        else if (((unsigned char*)self)[0x11] == 2) flags |= 4;
+        unsigned char var11 = 0;
+        if (((unsigned char*)arg0)[0x11] == 1) var11 |= 2;
+        else if (((unsigned char*)arg0)[0x11] == 2) var11 |= 4;
 
-        func_ov017_021a2128(obj5, *(unsigned short*)(*(void**)(self + 0x8)),
-                             *(unsigned short*)(self + 0x12), -1, &local, 0, 0, flags);
+        func_ov017_021a2128(var7, *(unsigned short*)(*(void**)(arg0 + 0x8)),
+                             *(unsigned short*)(arg0 + 0x12), -1, &var10, 0, 0, var11);
     }
 
-    *(unsigned short*)((char*)(*(void**)(self + 0x8)) + 2) |= 0x8;
-    self[1] = 1;
+    *(unsigned short*)((char*)(*(void**)(arg0 + 0x8)) + 2) |= 0x8;
+    arg0[1] = 1;
 }

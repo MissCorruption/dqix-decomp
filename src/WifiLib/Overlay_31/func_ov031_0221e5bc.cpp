@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct Packet02207204;
-extern "C" int func_ov031_02207204(void* obj, struct Packet02207204* pkt);
+struct Struct_ov031_02207204;
+extern "C" int func_ov031_02207204(void* arg0, struct Struct_ov031_02207204* arg1);
 
 // USA: func_ov031_0221e5bc
-extern "C" THUMB int func_ov031_0221e5bc(void* obj, struct Packet02207204* pkt, unsigned char val) {
-    *(unsigned char*)pkt = val;
-    return func_ov031_02207204(obj, pkt);
+extern "C" THUMB int func_ov031_0221e5bc(void* arg0, struct Struct_ov031_02207204* arg1, unsigned char arg2) {
+    *(unsigned char*)arg1 = arg2;
+    return func_ov031_02207204(arg0, arg1);
 }

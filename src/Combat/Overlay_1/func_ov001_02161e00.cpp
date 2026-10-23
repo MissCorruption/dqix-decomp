@@ -2,30 +2,30 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov017_021d60f4(void* obj);
-extern "C" float func_ov017_021d6110(void* obj);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" float func_ov017_021d6110(void* arg0);
 
-struct S1f8 { char pad[0x1f8]; unsigned char active; char pad2[7]; float field200; unsigned int field204; };
+struct Struct_ov001_02161e00 { char unknown_0_[0x1f8]; unsigned char unknown_1f8_; char unknown_1f9_[7]; float unknown_200_; unsigned int unknown_204_; };
 
 // USA: func_ov001_02161e00
-extern "C" ARM int func_ov001_02161e00(void* obj) {
-    GameState* battle = GameState::GetInstance();
-    struct S1f8* combatant = (struct S1f8*)func_020100bc(battle);
-    int flag = func_ov017_021d60f4(obj);
-    float a = func_ov017_021d6110((char*)obj + 8);
-    float b = func_ov017_021d6110((char*)obj + 0x10);
-    int fixedVal = (int)(4096.0f * b);
-    if (combatant == NULL) {
+extern "C" ARM int func_ov001_02161e00(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov001_02161e00* var1 = (struct Struct_ov001_02161e00*)func_020100bc(var0);
+    int var2 = func_ov017_021d60f4(arg0);
+    float var3 = func_ov017_021d6110((char*)arg0 + 8);
+    float var4 = func_ov017_021d6110((char*)arg0 + 0x10);
+    int var5 = (int)(4096.0f * var4);
+    if (var1 == NULL) {
         return 0;
     }
-    if (flag == 0) {
-        combatant->active = 0;
+    if (var2 == 0) {
+        var1->unknown_1f8_ = 0;
     } else {
-        combatant->active = 1;
-        combatant->field200 = 1.0f;
-        combatant->field204 = 0x1000;
-        combatant->field200 = a;
-        combatant->field204 = fixedVal;
+        var1->unknown_1f8_ = 1;
+        var1->unknown_200_ = 1.0f;
+        var1->unknown_204_ = 0x1000;
+        var1->unknown_200_ = var3;
+        var1->unknown_204_ = var5;
     }
     return 1;
 }

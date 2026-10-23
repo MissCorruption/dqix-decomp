@@ -3,10 +3,10 @@
 #include "Memory/PlacementNew.h"
 
 // USA: func_0201c0e8
-extern "C" ARM void* func_0201c0e8(void* obj)
+extern "C" ARM void* func_0201c0e8(void* arg0)
 {
-    Foo02048004* block = new (obj) Foo02048004;
-    func_02048080(&block->nameTable);
-    func_0204719c(block);
-    return obj;
+    Struct_02012fa4* var0 = new (arg0) Struct_02012fa4;
+    func_02048080(&var0->unknown_14_);
+    func_0204719c(var0);
+    return arg0;
 }

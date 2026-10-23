@@ -3,35 +3,35 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/CharacterCreationUI.h"
 
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 
-extern "C" ARM void func_ov009_02184d70(void* storage) {
-    CharacterCreationUI* editor = (CharacterCreationUI*)storage;
-    if (!(editor->flags & 0x80) || editor->resourceStep == 2)
+extern "C" ARM void func_ov009_02184d70(void* arg0) {
+    Struct_ov009_021842a0* var0 = (Struct_ov009_021842a0*)arg0;
+    if (!(var0->unknown_d9c_ & 0x80) || var0->unknown_d94_ == 2)
         return;
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    unsigned char step = editor->resourceStep;
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    unsigned char var2 = var0->unknown_d94_;
 #if !defined(jpn)
-    int state = editor->state;
+    int var3 = var0->unknown_c58_;
 #endif
-    if (step == 0) {
+    if (var2 == 0) {
 #if defined(jpn)
-        int state = editor->state;
+        int var3 = var0->unknown_c58_;
 #endif
-        short key = state;
-        if ((state == 3) | ((state == 2) | (state == 5)))
-            key = editor->sex * 100 + key;
+        short var4 = var3;
+        if ((var3 == 3) | ((var3 == 2) | (var3 == 5)))
+            var4 = var0->unknown_da3_ * 100 + var4;
 #if defined(jpn)
-        const char* filename = (const char*)func_020e0434(&editor->texts, key);
-        editor->resourceTask = loader->QueueLoadFile(filename, 0);
+        const char* var5 = (const char*)func_020e0434(&var0->unknown_e0_, var4);
+        var0->unknown_d90_ = var1->QueueLoadFile(var5, 0);
 #else
-        const char* filename = (const char*)func_020e0434(&editor->texts, (short)(key + 50));
-        const char* archive = (const char*)func_020e0434(&editor->texts, key);
-        editor->resourceTask = loader->QueueLoadFileInGP2(archive, filename, 0);
+        const char* var6 = (const char*)func_020e0434(&var0->unknown_e0_, (short)(var4 + 50));
+        const char* var7 = (const char*)func_020e0434(&var0->unknown_e0_, var4);
+        var0->unknown_d90_ = var1->QueueLoadFileInGP2(var7, var6, 0);
 #endif
-        editor->resourceStep = 1;
-    } else if (step == 1) {
-        if (loader->GetTaskStatus(editor->resourceTask) != 0)
-            editor->resourceStep = 2;
+        var0->unknown_d94_ = 1;
+    } else if (var2 == 1) {
+        if (var1->GetTaskStatus(var0->unknown_d90_) != 0)
+            var0->unknown_d94_ = 2;
     }
 }

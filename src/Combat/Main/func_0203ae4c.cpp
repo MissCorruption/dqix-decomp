@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-extern "C" int func_020becd4(void* obj);
-extern "C" int func_0203ad88(void* obj, void* target, int arg2);
-extern "C" int func_0203ad14(void* obj, int key, void* target, int arg3);
-typedef int (*SetKeyAndApplyRecord0203ad14ShortFn)(void*, short, void*, int);
+extern "C" int func_020becd4(void* arg0);
+extern "C" int func_0203ad88(void* arg0, void* arg1, int arg2);
+extern "C" int func_0203ad14(void* arg0, int arg1, void* arg2, int arg3);
+typedef int (*Type_0203ae4c)(void*, short, void*, int);
 
 // USA: func_0203ae4c
-extern "C" ARM void func_0203ae4c(void* obj, int doScale, void* target) {
-    char* p = (char*)obj;
+extern "C" ARM void func_0203ae4c(void* arg0, int arg1, void* arg2) {
+    char* var0 = (char*)arg0;
 
-    if (*(void**)p == NULL) {
+    if (*(void**)var0 == NULL) {
         return;
     }
 
     {
-        short keySigned = *(short*)(p + 0xa4);
-        if (keySigned < 0) {
+        short var1 = *(short*)(var0 + 0xa4);
+        if (var1 < 0) {
             return;
         }
 
-        if (doScale != 0) {
-            int scaled;
-            short savedKey;
-            int result;
+        if (arg1 != 0) {
+            int var2;
+            short var3;
+            int var4;
 
-            if (target != NULL) {
-                scaled = func_020becd4(target);
+            if (arg2 != NULL) {
+                var2 = func_020becd4(arg2);
             } else {
-                scaled = func_020becd4(p + 0x9c);
+                var2 = func_020becd4(var0 + 0x9c);
             }
 
-            savedKey = *(short*)(p + 0xa4);
-            result = func_0203ad88(obj, target, 0);
-            *(int*)(p + 0xa8) = result;
-            *(short*)(p + 0xa4) = savedKey;
+            var3 = *(short*)(var0 + 0xa4);
+            var4 = func_0203ad88(arg0, arg2, 0);
+            *(int*)(var0 + 0xa8) = var4;
+            *(short*)(var0 + 0xa4) = var3;
 
-            if (*(int*)(p + 0xa8) == scaled) {
-                *(short*)(p + 0xa4) = -1;
+            if (*(int*)(var0 + 0xa8) == var2) {
+                *(short*)(var0 + 0xa4) = -1;
             }
         } else {
-            int rec = *(int*)(p + 0xa8);
-            if (rec != 0) {
-                ((SetKeyAndApplyRecord0203ad14ShortFn)func_0203ad14)(obj, keySigned, target, rec);
+            int var5 = *(int*)(var0 + 0xa8);
+            if (var5 != 0) {
+                ((Type_0203ae4c)func_0203ad14)(arg0, var1, arg2, var5);
             }
         }
     }

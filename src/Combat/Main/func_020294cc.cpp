@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Buffer020294cc {
-    unsigned int unused0;
-    char text[0x2f];
+struct Struct_020294cc {
+    unsigned int unknown_0_;
+    char unknown_4_[0x2f];
 };
 
 // USA: func_020294cc
-extern "C" ARM void func_020294cc(struct Buffer020294cc* self, unsigned char* src) {
-    int len;
-    int extra;
-    unsigned char* p;
-    unsigned char c;
-    int newLen;
+extern "C" ARM void func_020294cc(struct Struct_020294cc* arg0, unsigned char* arg1) {
+    int var0;
+    int var1;
+    unsigned char* var2;
+    unsigned char var3;
+    int var4;
 
-    if (src == 0) return;
+    if (arg1 == 0) return;
 
-    len = 0;
-    p = src;
-    while ((c = *p) != 0) {
-        extra = 0;
-        if ((c >= 0x81 && c <= 0x9f) || (c >= 0xe0 && c <= 0xea)) {
-            c = *++p;
-            extra++;
-            if (c == 0) break;
+    var0 = 0;
+    var2 = arg1;
+    while ((var3 = *var2) != 0) {
+        var1 = 0;
+        if ((var3 >= 0x81 && var3 <= 0x9f) || (var3 >= 0xe0 && var3 <= 0xea)) {
+            var3 = *++var2;
+            var1++;
+            if (var3 == 0) break;
         }
-        newLen = len + (extra + 1);
-        p++;
-        if ((unsigned int)newLen > 0x2e) break;
-        len = newLen;
+        var4 = var0 + (var1 + 1);
+        var2++;
+        if ((unsigned int)var4 > 0x2e) break;
+        var0 = var4;
     }
-    memcpy(self->text, src, len);
-    self->text[len] = 0;
+    memcpy(arg0->unknown_4_, arg1, var0);
+    arg0->unknown_4_[var0] = 0;
 }

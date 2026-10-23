@@ -3,62 +3,62 @@
 extern "C" void* func_02012fe4();
 extern "C" void VectorizedInvertedMemcpy(void* dst, const void* src, unsigned int size);
 
-struct Params020a9b2c {
-    unsigned char pad000[0xd98];
-    unsigned int a;
-    unsigned int b;
-    unsigned int c;
-    unsigned short d;
-    unsigned char e;
+struct Struct_020a9b2c {
+    unsigned char unknown_0_[0xd98];
+    unsigned int unknown_d98_;
+    unsigned int unknown_d9c_;
+    unsigned int unknown_da0_;
+    unsigned short unknown_da4_;
+    unsigned char unknown_da6_;
 };
 
-struct Mid020a9b2c {
-    unsigned char pad000[0xc00];
-    Params020a9b2c params;
+struct Struct_020a9b2c_2 {
+    unsigned char unknown_0_[0xc00];
+    Struct_020a9b2c unknown_c00_;
 };
 
-struct Ctx020a9b2c {
-    unsigned char pad000[0x198];
-    Mid020a9b2c mid;
+struct Struct_020a9b2c_3 {
+    unsigned char unknown_0_[0x198];
+    Struct_020a9b2c_2 unknown_198_;
 };
 
-struct Tail020a9b2c {
-    unsigned char pad000[0xb34];
-    unsigned int f34;
-    unsigned int f38;
-    unsigned int f3c;
-    unsigned char pad40[0x4];
-    unsigned int f44;
-    unsigned char pad48[0x19];
-    unsigned char f61;
+struct Struct_020a9b2c_4 {
+    unsigned char unknown_0_[0xb34];
+    unsigned int unknown_b34_;
+    unsigned int unknown_b38_;
+    unsigned int unknown_b3c_;
+    unsigned char unknown_b40_[0x4];
+    unsigned int unknown_b44_;
+    unsigned char unknown_b48_[0x19];
+    unsigned char unknown_b61_;
 };
 
-struct Block020a9b2c {
-    unsigned char pad000[0x1000];
-    Tail020a9b2c tail;
+struct Struct_020a9b2c_5 {
+    unsigned char unknown_0_[0x1000];
+    Struct_020a9b2c_4 unknown_1000_;
 };
 
-struct Battle020a9b2c {
+struct Struct_020a9b2c_6 {
 #if defined(jpn)
-    unsigned char pad000[0x860];
+    unsigned char unknown_0_[0x860];
 #else
-    unsigned char pad000[0x840];
+    unsigned char unknown1_0_[0x840];
 #endif
-    Block020a9b2c block;
+    Struct_020a9b2c_5 unknown_840_;
 };
 
 // USA: func_020a9b2c
 // JPN: func_020a9b2c
-extern "C" ARM int func_020a9b2c(Ctx020a9b2c* ctx) {
-    Mid020a9b2c* mid = &ctx->mid;
-    Params020a9b2c* params = &mid->params;
-    Battle020a9b2c* battle = static_cast<Battle020a9b2c*>(func_02012fe4());
-    Block020a9b2c* block = &battle->block;
-    block->tail.f38 = params->a;
-    block->tail.f34 = params->b;
-    block->tail.f44 = params->c;
-    block->tail.f3c = params->d & 0xff;
-    block->tail.f61 = params->e != 0;
-    VectorizedInvertedMemcpy(ctx, block, 0x1b30);
+extern "C" ARM int func_020a9b2c(Struct_020a9b2c_3* arg0) {
+    Struct_020a9b2c_2* var0 = &arg0->unknown_198_;
+    Struct_020a9b2c* var1 = &var0->unknown_c00_;
+    Struct_020a9b2c_6* var2 = static_cast<Struct_020a9b2c_6*>(func_02012fe4());
+    Struct_020a9b2c_5* var3 = &var2->unknown_840_;
+    var3->unknown_1000_.unknown_b38_ = var1->unknown_d98_;
+    var3->unknown_1000_.unknown_b34_ = var1->unknown_d9c_;
+    var3->unknown_1000_.unknown_b44_ = var1->unknown_da0_;
+    var3->unknown_1000_.unknown_b3c_ = var1->unknown_da4_ & 0xff;
+    var3->unknown_1000_.unknown_b61_ = var1->unknown_da6_ != 0;
+    VectorizedInvertedMemcpy(arg0, var3, 0x1b30);
     return 1;
 }

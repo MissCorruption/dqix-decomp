@@ -2,6 +2,6 @@
 #include "NitroSDK/ProcessorContext.h"
 
 // USA: func_020d9828
-extern "C" ARM void func_020d9828(ProcessorContext* context) {
-    MarkContextReadyAndSwitch(context);
+extern "C" ARM void func_020d9828(ProcessorContext* arg0) {
+    MarkContextReadyAndSwitch(arg0);
 }

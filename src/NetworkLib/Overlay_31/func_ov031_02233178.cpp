@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct HighlightMap02233178 { unsigned char entries[4]; };
-struct HighlightMaps02233178 { HighlightMap02233178 selected, detail; };
-struct HighlightObjects02233178 { void* first; void* entries[3]; };
-struct HighlightState02233178 { unsigned char selection; unsigned char padding[3]; HighlightObjects02233178* objects; };
-extern HighlightMaps02233178 data_ov031_02249064;
-extern HighlightState02233178 data_ov031_02290cc0;
+struct Struct_ov031_02233178_2 { unsigned char unknown_0_[4]; };
+struct Struct_ov031_02249064 { Struct_ov031_02233178_2 unknown_0_, unknown_4_; };
+struct Struct_ov031_02233178 { void* unknown_0_; void* unknown_4_[3]; };
+struct Struct_ov031_02290cc0_10 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02233178* unknown_4_; };
+extern Struct_ov031_02249064 data_ov031_02249064;
+extern Struct_ov031_02290cc0_10 data_ov031_02290cc0;
 extern "C" void func_ov031_02234ff8(void*, int, int);
 extern "C" int func_ov031_0223607c(int);
 extern "C" void func_ov031_0223bb58(void*, int, int, int);
 
 // USA: func_ov031_02233178
 extern "C" ARM void func_ov031_02233178() {
-    HighlightMap02233178 selected = {{data_ov031_02249064.selected.entries[0], data_ov031_02249064.selected.entries[1], data_ov031_02249064.selected.entries[2], data_ov031_02249064.selected.entries[3]}};
-    HighlightMap02233178 detail = {{data_ov031_02249064.detail.entries[0], data_ov031_02249064.detail.entries[1], data_ov031_02249064.detail.entries[2], data_ov031_02249064.detail.entries[3]}};
-    unsigned char* colors = selected.entries;
-    if (data_ov031_02290cc0.selection > 3) return;
-    int value = colors[data_ov031_02290cc0.selection];
-    func_ov031_02234ff8(data_ov031_02290cc0.objects->first, value, value);
-    if (data_ov031_02290cc0.selection == 3) return;
-    int index = func_ov031_0223607c(data_ov031_02290cc0.selection);
-    if (index > 2) index = 3;
-    func_ov031_0223bb58(data_ov031_02290cc0.objects->entries[data_ov031_02290cc0.selection], -1, 0, detail.entries[index]);
+    Struct_ov031_02233178_2 var0 = {{data_ov031_02249064.unknown_0_.unknown_0_[0], data_ov031_02249064.unknown_0_.unknown_0_[1], data_ov031_02249064.unknown_0_.unknown_0_[2], data_ov031_02249064.unknown_0_.unknown_0_[3]}};
+    Struct_ov031_02233178_2 var1 = {{data_ov031_02249064.unknown_4_.unknown_0_[0], data_ov031_02249064.unknown_4_.unknown_0_[1], data_ov031_02249064.unknown_4_.unknown_0_[2], data_ov031_02249064.unknown_4_.unknown_0_[3]}};
+    unsigned char* var2 = var0.unknown_0_;
+    if (data_ov031_02290cc0.unknown_0_ > 3) return;
+    int var3 = var2[data_ov031_02290cc0.unknown_0_];
+    func_ov031_02234ff8(data_ov031_02290cc0.unknown_4_->unknown_0_, var3, var3);
+    if (data_ov031_02290cc0.unknown_0_ == 3) return;
+    int var4 = func_ov031_0223607c(data_ov031_02290cc0.unknown_0_);
+    if (var4 > 2) var4 = 3;
+    func_ov031_0223bb58(data_ov031_02290cc0.unknown_4_->unknown_4_[data_ov031_02290cc0.unknown_0_], -1, 0, var1.unknown_0_[var4]);
 }

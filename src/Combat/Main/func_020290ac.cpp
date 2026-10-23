@@ -3,11 +3,11 @@
 #include "NitroSDK/LoadToVRAM.h"
 
 // USA: func_020290ac
-extern "C" ARM void func_020290ac(int isSub) {
-    if (glyphBitmapContext.buffer == NULL) return;
-    if (isSub == 0) {
-        LoadToMainBG1CharacterData(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+extern "C" ARM void func_020290ac(int arg0) {
+    if (glyphBitmapContext.unknown_0_ == NULL) return;
+    if (arg0 == 0) {
+        LoadToMainBG1CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
     } else {
-        LoadToSubBG0CharacterData(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+        LoadToSubBG0CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
     }
 }

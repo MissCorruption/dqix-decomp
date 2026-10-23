@@ -4,131 +4,131 @@
 extern "C" {
 #endif
 
-typedef struct DiscoveryGameInfo DiscoveryGameInfo;
-typedef struct DiscoveryEntry DiscoveryEntry;
-typedef struct DiscoveryReply DiscoveryReply;
-typedef struct DiscoverySlot DiscoverySlot;
-typedef struct DiscoveryCrcTable DiscoveryCrcTable;
-typedef struct DiscoveryScanParameters DiscoveryScanParameters;
-typedef struct DiscoveryRc4Context DiscoveryRc4Context;
-typedef struct DiscoveryState DiscoveryState;
+typedef struct Struct_ov031_02215ce0_6 Struct_ov031_02215ce0_6;
+typedef struct Struct_ov031_02215ce0 Struct_ov031_02215ce0;
+typedef struct Struct_ov031_02215ce0_2 Struct_ov031_02215ce0_2;
+typedef struct Struct_ov031_02215ce0_3 Struct_ov031_02215ce0_3;
+typedef struct Struct_ov031_02215ce0_4 Struct_ov031_02215ce0_4;
+typedef struct Struct_0200f3a4_16 Struct_0200f3a4_16;
+typedef struct Struct_0200f3a4_17 Struct_0200f3a4_17;
+typedef struct Struct_ov031_02215ce0_5 Struct_ov031_02215ce0_5;
 
 void VectorizedMemset(void*, int, unsigned int);
 void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 void InvalidateDataCacheRange(const void*, unsigned int);
 
-struct DiscoveryGameInfo {
-    unsigned short magicNumber;
-    unsigned char ver;
-    unsigned char platform;
-    unsigned long ggid;
-    unsigned short tgid;
-    unsigned char userGameInfoLength;
+struct Struct_ov031_02215ce0_6 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned long unknown_4_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_;
     union {
-        unsigned char gameNameCount_attribute;
-        unsigned char attribute;
+        unsigned char unknown_b_;
+        unsigned char unknown1_b_;
     };
-    unsigned short parentMaxSize;
-    unsigned short childMaxSize;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
     union {
-        unsigned short userGameInfo[56];
+        unsigned short unknown_10_[56];
         struct {
-            unsigned short userName[4];
-            unsigned short gameName[8];
-            unsigned short padd1[44];
-        } old_type;
+            unsigned short unknown_0_[4];
+            unsigned short unknown_8_[8];
+            unsigned short unknown_18_[44];
+        } unknown1_10_;
     };
 };
-struct DiscoveryEntry {
-    unsigned short length;
-    unsigned short rssi;
-    unsigned char bssid[6];
-    unsigned short ssidLength;
-    unsigned char ssid[32];
-    unsigned short capaInfo;
+struct Struct_ov031_02215ce0 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_[6];
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[32];
+    unsigned short unknown_2c_;
     struct {
-        unsigned short basic;
-        unsigned short support;
-    } rateSet;
-    unsigned short beaconPeriod;
-    unsigned short dtimPeriod;
-    unsigned short channel;
-    unsigned short cfpPeriod;
-    unsigned short cfpMaxDuration;
-    unsigned short gameInfoLength;
-    unsigned short otherElementCount;
-    DiscoveryGameInfo gameInfo;
+        unsigned short unknown_0_;
+        unsigned short unknown_2_;
+    } unknown_2e_;
+    unsigned short unknown_32_;
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
+    unsigned short unknown_38_;
+    unsigned short unknown_3a_;
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    Struct_ov031_02215ce0_6 unknown_40_;
 };
-struct DiscoveryReply {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
-    unsigned short state;
-    unsigned short channelList;
-    unsigned char reserved[2];
-    unsigned short bssDescCount;
-    DiscoveryEntry* bssDesc[16];
-    unsigned short linkLevel[16];
-};
-
-struct DiscoverySlot {
-    unsigned char ssid[32];
-    unsigned char apNumber[10];
-    unsigned short hotspotId;
-    unsigned char hotspotName[24];
-    unsigned char wepKey[32];
-    unsigned char channel;
-    unsigned char encryption;
-    unsigned char infoFlags;
-    unsigned char reserved[5];
-    unsigned short mtu;
-    unsigned short crc;
+struct Struct_ov031_02215ce0_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[2];
+    unsigned short unknown_e_;
+    Struct_ov031_02215ce0* unknown_10_[16];
+    unsigned short unknown_50_[16];
 };
 
-struct DiscoveryCrcTable {
-    unsigned short table[256];
+struct Struct_ov031_02215ce0_3 {
+    unsigned char unknown_0_[32];
+    unsigned char unknown_20_[10];
+    unsigned short unknown_2a_;
+    unsigned char unknown_2c_[24];
+    unsigned char unknown_44_[32];
+    unsigned char unknown_64_;
+    unsigned char unknown_65_;
+    unsigned char unknown_66_;
+    unsigned char unknown_67_[5];
+    unsigned short unknown_6c_;
+    unsigned short unknown_6e_;
 };
 
-struct DiscoveryScanParameters {
-    DiscoveryEntry* scanBuffer;
-    unsigned short scanBufferSize;
-    unsigned short channelList;
-    unsigned short maxChannelTime;
-    unsigned char bssid[6];
-    unsigned short scanType;
-    unsigned short ssidLength;
-    unsigned char ssid[32];
-    unsigned short ssidMatchLength;
-    unsigned short rsv2[7];
+struct Struct_ov031_02215ce0_4 {
+    unsigned short unknown_0_[256];
 };
 
-struct DiscoveryRc4Context {
-    unsigned char i;
-    unsigned char j;
-    unsigned char reserved[2];
-    unsigned char s[256];
+struct Struct_0200f3a4_16 {
+    Struct_ov031_02215ce0* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[6];
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_[32];
+    unsigned short unknown_34_;
+    unsigned short unknown_36_[7];
 };
 
-struct DiscoveryState {
-    unsigned char wmWork[0xf00] __attribute__((aligned(32)));
-    unsigned char scanBuffer[0x400];
-    DiscoveryScanParameters scanParameters;
-    void (*callback)(void*);
-    DiscoverySlot slots[16];
-    unsigned short linkLevels[16];
-    unsigned short tgids[16];
-    long count;
-    long writeIndex;
-    unsigned long scanState;
-    unsigned short crc;
-    DiscoveryCrcTable crcTable;
-    DiscoveryRc4Context cipher;
+struct Struct_0200f3a4_17 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[2];
+    unsigned char unknown_4_[256];
 };
 
-extern DiscoveryState* data_ov031_0224e5d8;
-void func_ov031_022118a8(DiscoveryRc4Context*, const void*, unsigned long);
-void func_ov031_02211938(DiscoveryRc4Context*, const void*, unsigned long, void*);
+struct Struct_ov031_02215ce0_5 {
+    unsigned char unknown_0_[0xf00] __attribute__((aligned(32)));
+    unsigned char unknown_f00_[0x400];
+    Struct_0200f3a4_16 unknown_1300_;
+    void (*unknown_1344_)(void*);
+    Struct_ov031_02215ce0_3 unknown_1348_[16];
+    unsigned short unknown_1a48_[16];
+    unsigned short unknown_1a68_[16];
+    long unknown_1a88_;
+    long unknown_1a8c_;
+    unsigned long unknown_1a90_;
+    unsigned short unknown_1a94_;
+    Struct_ov031_02215ce0_4 unknown_1a96_;
+    Struct_0200f3a4_17 unknown_1c96_;
+};
+
+extern Struct_ov031_02215ce0_5* data_ov031_0224e5d8;
+void func_ov031_022118a8(Struct_0200f3a4_17*, const void*, unsigned long);
+void func_ov031_02211938(Struct_0200f3a4_17*, const void*, unsigned long, void*);
 void func_020d1be4(const unsigned short*, unsigned short*, const unsigned char*, unsigned int);
 unsigned short func_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
 int func_ov031_02215ccc(int);
@@ -141,66 +141,66 @@ int func_ov031_02215ccc(int);
 #ifdef __cplusplus
 extern "C"
 #endif
-ARM void func_ov031_02215ce0(void* argument) {
-    DiscoveryReply* reply = (DiscoveryReply*)argument;
+ARM void func_ov031_02215ce0(void* arg0) {
+    Struct_ov031_02215ce0_2* var0 = (Struct_ov031_02215ce0_2*)arg0;
     static const unsigned long magic = 0x57445321;
-    InvalidateDataCacheRange(data_ov031_0224e5d8->scanBuffer, 0x400);
-    if (reply->errcode == 0 && reply->state == 5) {
-        unsigned long entryIndex = 0;
-        if (entryIndex < reply->bssDescCount) {
+    InvalidateDataCacheRange(data_ov031_0224e5d8->unknown_f00_, 0x400);
+    if (var0->unknown_2_ == 0 && var0->unknown_8_ == 5) {
+        unsigned long var1 = 0;
+        if (var1 < var0->unknown_e_) {
             do {
-                if (reply->bssDesc[entryIndex]->gameInfo.magicNumber == 1 && reply->bssDesc[entryIndex]->gameInfo.ggid == 0x857) {
-                    unsigned long index;
-                    int found = 0;
-                    index = 0;
-                    if (index < data_ov031_0224e5d8->count) {
-                        unsigned short id = reply->bssDesc[entryIndex]->gameInfo.tgid;
+                if (var0->unknown_10_[var1]->unknown_40_.unknown_0_ == 1 && var0->unknown_10_[var1]->unknown_40_.unknown_4_ == 0x857) {
+                    unsigned long var2;
+                    int var3 = 0;
+                    var2 = 0;
+                    if (var2 < data_ov031_0224e5d8->unknown_1a88_) {
+                        unsigned short var4 = var0->unknown_10_[var1]->unknown_40_.unknown_8_;
                         do {
-                            unsigned short storedId = data_ov031_0224e5d8->tgids[index];
-                            if (storedId == id) {
-                                found = 1;
+                            unsigned short var5 = data_ov031_0224e5d8->unknown_1a68_[var2];
+                            if (var5 == var4) {
+                                var3 = 1;
                                 break;
                             }
-                            ++index;
-                        } while (index < data_ov031_0224e5d8->count);
+                            ++var2;
+                        } while (var2 < data_ov031_0224e5d8->unknown_1a88_);
                     }
-                    if (found != 1) {
-                        unsigned char rc4key[8];
-                        unsigned char* pCrcData;
-                        unsigned short crc;
-                        DiscoveryState* state;
-                        unsigned short storedCrc;
-                        VectorizedInvertedMemcpy(reply->bssDesc[entryIndex]->gameInfo.userGameInfo,
-                            &data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex], 0x70);
-                        VectorizedInvertedMemcpy(&magic, rc4key, 4);
-                        VectorizedInvertedMemcpy(reply->bssDesc[entryIndex]->bssid + 2, rc4key + 4, 4);
-                        func_ov031_022118a8(&data_ov031_0224e5d8->cipher, rc4key, 8);
-                        func_ov031_02211938(&data_ov031_0224e5d8->cipher,
-                            &data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex], 0x70,
-                            &data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex]);
-                        pCrcData = (unsigned char*)&data_ov031_0224e5d8->slots[data_ov031_0224e5d8->writeIndex];
-                        func_020d1be4(data_ov031_0224e5d8->crcTable.table, &data_ov031_0224e5d8->crc, pCrcData, 0x6e);
-                        crc = func_020d1cc8(data_ov031_0224e5d8->crcTable.table, pCrcData, 0x6e);
-                        state = data_ov031_0224e5d8;
-                        storedCrc = state->slots[state->writeIndex].crc;
-                        if (crc != storedCrc && storedCrc != 0) {
-                            VectorizedMemset(&state->slots[state->writeIndex], 0, 0x70);
+                    if (var3 != 1) {
+                        unsigned char var6[8];
+                        unsigned char* var7;
+                        unsigned short var8;
+                        Struct_ov031_02215ce0_5* var9;
+                        unsigned short var10;
+                        VectorizedInvertedMemcpy(var0->unknown_10_[var1]->unknown_40_.unknown_10_,
+                            &data_ov031_0224e5d8->unknown_1348_[data_ov031_0224e5d8->unknown_1a8c_], 0x70);
+                        VectorizedInvertedMemcpy(&magic, var6, 4);
+                        VectorizedInvertedMemcpy(var0->unknown_10_[var1]->unknown_4_ + 2, var6 + 4, 4);
+                        func_ov031_022118a8(&data_ov031_0224e5d8->unknown_1c96_, var6, 8);
+                        func_ov031_02211938(&data_ov031_0224e5d8->unknown_1c96_,
+                            &data_ov031_0224e5d8->unknown_1348_[data_ov031_0224e5d8->unknown_1a8c_], 0x70,
+                            &data_ov031_0224e5d8->unknown_1348_[data_ov031_0224e5d8->unknown_1a8c_]);
+                        var7 = (unsigned char*)&data_ov031_0224e5d8->unknown_1348_[data_ov031_0224e5d8->unknown_1a8c_];
+                        func_020d1be4(data_ov031_0224e5d8->unknown_1a96_.unknown_0_, &data_ov031_0224e5d8->unknown_1a94_, var7, 0x6e);
+                        var8 = func_020d1cc8(data_ov031_0224e5d8->unknown_1a96_.unknown_0_, var7, 0x6e);
+                        var9 = data_ov031_0224e5d8;
+                        var10 = var9->unknown_1348_[var9->unknown_1a8c_].unknown_6e_;
+                        if (var8 != var10 && var10 != 0) {
+                            VectorizedMemset(&var9->unknown_1348_[var9->unknown_1a8c_], 0, 0x70);
                         } else {
-                            state->linkLevels[state->writeIndex] = func_ov031_02215ccc((unsigned char)reply->bssDesc[entryIndex]->rssi);
-                            data_ov031_0224e5d8->tgids[data_ov031_0224e5d8->writeIndex] = reply->bssDesc[entryIndex]->gameInfo.tgid;
-                            data_ov031_0224e5d8->writeIndex = (data_ov031_0224e5d8->writeIndex + 1) % 16;
-                            ++data_ov031_0224e5d8->count;
-                            state = data_ov031_0224e5d8;
-                            if (state->count > 16)
-                                state->count = 16;
+                            var9->unknown_1a48_[var9->unknown_1a8c_] = func_ov031_02215ccc((unsigned char)var0->unknown_10_[var1]->unknown_2_);
+                            data_ov031_0224e5d8->unknown_1a68_[data_ov031_0224e5d8->unknown_1a8c_] = var0->unknown_10_[var1]->unknown_40_.unknown_8_;
+                            data_ov031_0224e5d8->unknown_1a8c_ = (data_ov031_0224e5d8->unknown_1a8c_ + 1) % 16;
+                            ++data_ov031_0224e5d8->unknown_1a88_;
+                            var9 = data_ov031_0224e5d8;
+                            if (var9->unknown_1a88_ > 16)
+                                var9->unknown_1a88_ = 16;
                         }
                     }
                 }
-                ++entryIndex;
-            } while (entryIndex < reply->bssDescCount);
+                ++var1;
+            } while (var1 < var0->unknown_e_);
         }
     }
-    data_ov031_0224e5d8->scanState = 2;
-    if (data_ov031_0224e5d8->callback)
-        data_ov031_0224e5d8->callback(reply);
+    data_ov031_0224e5d8->unknown_1a90_ = 2;
+    if (data_ov031_0224e5d8->unknown_1344_)
+        data_ov031_0224e5d8->unknown_1344_(var0);
 }

@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct ScaleEntry_021f8bd8 {
-    int field_0x0;
-    unsigned int field_0x4_lo : 12;
-    unsigned int statMin : 10;
-    unsigned int statMax : 10;
-    char pad_8[8];
-    unsigned int flags;
-    unsigned int field_0x14_lo : 7;
-    unsigned int valueMin : 7;
-    unsigned int valueMax : 7;
-    unsigned int field_0x14_hi : 11;
-    unsigned int field_0x18_lo : 16;
-    unsigned int kind : 2;
-    unsigned int field_0x18_hi : 14;
+struct Struct_ov024_021f8bd8 {
+    int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 10;
+    unsigned int unknown_6_6_ : 10;
+    char unknown_8_[8];
+    unsigned int unknown_10_;
+    unsigned int unknown_14_0_ : 7;
+    unsigned int unknown_14_7_ : 7;
+    unsigned int unknown_15_6_ : 7;
+    unsigned int unknown_16_5_ : 11;
+    unsigned int unknown_18_0_ : 16;
+    unsigned int unknown_1a_0_ : 2;
+    unsigned int unknown_1a_2_ : 14;
 };
 
 // USA: func_ov024_021f8bd8
-extern "C" ARM void func_ov024_021f8bd8(void* unused, float* out, GameObject* obj, ScaleEntry_021f8bd8* entry) {
-    unsigned short might = obj->currentStats_->primaryStats.magicalMight;
-    unsigned short mending = obj->currentStats_->primaryStats.magicalMending;
-    float result = 100.0f;
-    if (entry->kind == 1) {
-        if (entry->flags & 0x4000) {
-            if (might <= entry->statMin) {
-                result = entry->valueMin;
-            } else if (might >= entry->statMax) {
-                result = entry->valueMax;
+extern "C" ARM void func_ov024_021f8bd8(void* arg0, float* arg1, GameObject* arg2, Struct_ov024_021f8bd8* arg3) {
+    unsigned short var0 = arg2->currentStats_->primaryStats.magicalMight;
+    unsigned short var1 = arg2->currentStats_->primaryStats.magicalMending;
+    float var2 = 100.0f;
+    if (arg3->unknown_1a_0_ == 1) {
+        if (arg3->unknown_10_ & 0x4000) {
+            if (var0 <= arg3->unknown_5_4_) {
+                var2 = arg3->unknown_14_7_;
+            } else if (var0 >= arg3->unknown_6_6_) {
+                var2 = arg3->unknown_15_6_;
             } else {
-                result = (unsigned int)(int)((float)(might - entry->statMin) * ((float)(entry->valueMax - entry->valueMin) / (float)(entry->statMax - entry->statMin))) + entry->valueMin;
+                var2 = (unsigned int)(int)((float)(var0 - arg3->unknown_5_4_) * ((float)(arg3->unknown_15_6_ - arg3->unknown_14_7_) / (float)(arg3->unknown_6_6_ - arg3->unknown_5_4_))) + arg3->unknown_14_7_;
             }
-        } else if (entry->flags & 0x8000) {
-            if (mending <= entry->statMin) {
-                result = entry->valueMin;
-            } else if (mending >= entry->statMax) {
-                result = entry->valueMax;
+        } else if (arg3->unknown_10_ & 0x8000) {
+            if (var1 <= arg3->unknown_5_4_) {
+                var2 = arg3->unknown_14_7_;
+            } else if (var1 >= arg3->unknown_6_6_) {
+                var2 = arg3->unknown_15_6_;
             } else {
-                result = (unsigned int)(int)((float)(mending - entry->statMin) * ((float)(entry->valueMax - entry->valueMin) / (float)(entry->statMax - entry->statMin))) + entry->valueMin;
+                var2 = (unsigned int)(int)((float)(var1 - arg3->unknown_5_4_) * ((float)(arg3->unknown_15_6_ - arg3->unknown_14_7_) / (float)(arg3->unknown_6_6_ - arg3->unknown_5_4_))) + arg3->unknown_14_7_;
             }
         }
     }
-    *out = result;
+    *arg1 = var2;
 }

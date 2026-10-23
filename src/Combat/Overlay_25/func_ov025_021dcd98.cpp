@@ -2,19 +2,19 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-enum { layoutOffset = 0x1f0 };
+enum { Enum_ov025_021dcd98_0 = 0x1f0 };
 #else
-enum { layoutOffset = 0 };
+enum { Enum_ov025_021dcd98_0 = 0 };
 #endif
 
 // USA: func_ov025_021dcd98
-extern "C" ARM void func_ov025_021dcd98(char* obj) {
-    obj[0x6f00 + layoutOffset] = 0;
-    obj[0x6eff + layoutOffset] = 0;
-    memset(obj + 0x6fba + layoutOffset, -1, 8);
-    *(short*)(obj + 0x6fc2 + layoutOffset) = 0;
-    *(int*)(obj + 0x6fc4 + layoutOffset) = 0;
-    *(int*)(obj + 0x6fc8 + layoutOffset) = 0;
-    *(int*)(obj + 0x6fcc + layoutOffset) = 0;
-    *(int*)(obj + 0x6fd0 + layoutOffset) = 0;
+extern "C" ARM void func_ov025_021dcd98(char* arg0) {
+    arg0[0x6f00 + Enum_ov025_021dcd98_0] = 0;
+    arg0[0x6eff + Enum_ov025_021dcd98_0] = 0;
+    memset(arg0 + 0x6fba + Enum_ov025_021dcd98_0, -1, 8);
+    *(short*)(arg0 + 0x6fc2 + Enum_ov025_021dcd98_0) = 0;
+    *(int*)(arg0 + 0x6fc4 + Enum_ov025_021dcd98_0) = 0;
+    *(int*)(arg0 + 0x6fc8 + Enum_ov025_021dcd98_0) = 0;
+    *(int*)(arg0 + 0x6fcc + Enum_ov025_021dcd98_0) = 0;
+    *(int*)(arg0 + 0x6fd0 + Enum_ov025_021dcd98_0) = 0;
 }

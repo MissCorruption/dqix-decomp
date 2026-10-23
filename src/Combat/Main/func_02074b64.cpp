@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-struct SubBgControlBackup02074b64 {
-    char pad0[2];
-    volatile unsigned short savedBg0Cnt;
-    char pad4[2];
-    volatile unsigned short savedBg1Cnt;
-    char pad8[2];
-    volatile unsigned short savedBg2Cnt;
-    char padC[2];
-    volatile unsigned short savedBg3Cnt;
-    char pad10;
-    unsigned char initialized;
+struct Struct_02074b64 {
+    char unknown_0_[2];
+    volatile unsigned short unknown_2_;
+    char unknown_4_[2];
+    volatile unsigned short unknown_6_;
+    char unknown_8_[2];
+    volatile unsigned short unknown_a_;
+    char unknown_c_[2];
+    volatile unsigned short unknown_e_;
+    char unknown_10_;
+    unsigned char unknown_11_;
 };
 
 // USA: func_02074b64
-extern "C" ARM void func_02074b64(struct SubBgControlBackup02074b64* obj) {
-    if (obj->initialized != 0) return;
-    unsigned short* const reg = (unsigned short*)0x4001008;
-    volatile short v0, v1, v2, v3;
+extern "C" ARM void func_02074b64(struct Struct_02074b64* arg0) {
+    if (arg0->unknown_11_ != 0) return;
+    unsigned short* const var0 = (unsigned short*)0x4001008;
+    volatile short var1, var2, var3, var4;
     {
-        unsigned short raw = *(volatile unsigned short*)&reg[0];
-        v0 = raw;
-        obj->savedBg0Cnt = raw;
-        v0;
+        unsigned short var5 = *(volatile unsigned short*)&var0[0];
+        var1 = var5;
+        arg0->unknown_2_ = var5;
+        var1;
     }
     {
-        unsigned short raw = *(volatile unsigned short*)&reg[1];
-        obj->savedBg1Cnt = raw;
-        v1 = raw;
-        v1;
+        unsigned short var6 = *(volatile unsigned short*)&var0[1];
+        arg0->unknown_6_ = var6;
+        var2 = var6;
+        var2;
     }
     {
-        unsigned short raw = *(volatile unsigned short*)&reg[2];
-        v2 = raw;
-        v2;
-        obj->savedBg2Cnt = raw;
-        v2;
+        unsigned short var7 = *(volatile unsigned short*)&var0[2];
+        var3 = var7;
+        var3;
+        arg0->unknown_a_ = var7;
+        var3;
     }
     {
-        unsigned short raw = *(volatile unsigned short*)&reg[3];
-        obj->savedBg3Cnt = raw;
-        v3 = raw;
-        v3;
+        unsigned short var8 = *(volatile unsigned short*)&var0[3];
+        arg0->unknown_e_ = var8;
+        var4 = var8;
+        var4;
     }
-    obj->initialized = 1;
+    arg0->unknown_11_ = 1;
 }

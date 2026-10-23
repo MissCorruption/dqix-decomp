@@ -1,54 +1,54 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue60_30 = 0x30 };
+enum { Enum_ov003_021672e4_96 = 0x30 };
 #else
-enum { kRegionValue60_30 = 0x60 };
+enum { Enum_ov003_021672e4_96 = 0x60 };
 #endif
 
 
 extern "C" unsigned short GetSubBGVRAMBanks(void);
 extern "C" unsigned short GetSubObjVRAMBanks(void);
 
-struct SubBgControlBackup02074b64;
-extern "C" void func_02074b64(struct SubBgControlBackup02074b64* obj);
+struct Struct_02074b64;
+extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
-struct Obj021672e4 {
-    int f0;
-    int f4;
-    int f8;
-    int fc;
-    int f10;
-    int f14;
-    int f18;
-    char pad1c[kRegionValue60_30 - 0x1c];
-    int f60;
-    int f64;
-    int f68;
-    int f6c;
-    int f70;
-    unsigned char f74;
-    unsigned char f75;
-    unsigned char f76;
+struct Struct_ov003_021672e4 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[Enum_ov003_021672e4_96 - 0x1c];
+    int unknown_60_;
+    int unknown_64_;
+    int unknown_68_;
+    int unknown_6c_;
+    int unknown_70_;
+    unsigned char unknown_74_;
+    unsigned char unknown_75_;
+    unsigned char unknown_76_;
 };
 
 // USA: func_ov003_021672e4
-extern "C" ARM void func_ov003_021672e4(struct Obj021672e4* obj, int p1, int p2) {
-    obj->f0 = 0;
-    obj->f4 = 0;
-    obj->f8 = 0;
-    obj->fc = 0;
-    obj->f10 = 0;
-    obj->f14 = GetSubBGVRAMBanks();
-    obj->f18 = GetSubObjVRAMBanks();
-    *((unsigned char*)obj + 0x2c) = 0;
-    *((unsigned char*)obj + 0x2d) = 0;
-    func_02074b64((struct SubBgControlBackup02074b64*)((char*)obj + 0x1c));
-    obj->f60 = (*(volatile unsigned int*)0x4001000 & 0x1f00) >> 8;
-    obj->f64 = -1;
-    obj->f68 = obj->f6c = 0;
-    obj->f70 = p1;
-    obj->f74 = 0;
-    obj->f75 = 0;
-    obj->f76 = (unsigned char)p2;
+extern "C" ARM void func_ov003_021672e4(struct Struct_ov003_021672e4* arg0, int arg1, int arg2) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = GetSubBGVRAMBanks();
+    arg0->unknown_18_ = GetSubObjVRAMBanks();
+    *((unsigned char*)arg0 + 0x2c) = 0;
+    *((unsigned char*)arg0 + 0x2d) = 0;
+    func_02074b64((struct Struct_02074b64*)((char*)arg0 + 0x1c));
+    arg0->unknown_60_ = (*(volatile unsigned int*)0x4001000 & 0x1f00) >> 8;
+    arg0->unknown_64_ = -1;
+    arg0->unknown_68_ = arg0->unknown_6c_ = 0;
+    arg0->unknown_70_ = arg1;
+    arg0->unknown_74_ = 0;
+    arg0->unknown_75_ = 0;
+    arg0->unknown_76_ = (unsigned char)arg2;
 }

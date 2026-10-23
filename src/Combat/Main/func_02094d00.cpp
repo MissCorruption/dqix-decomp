@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct ClearThreeWords02094d00Struct {
-    int a;
-    int b;
-    int c;
+struct Struct_020134e0_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
 // USA: func_02094d00
-extern "C" ARM void func_02094d00(struct ClearThreeWords02094d00Struct* s) {
-    s->a = 0;
-    s->b = 0;
-    s->c = 0;
+extern "C" ARM void func_02094d00(struct Struct_020134e0_2* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
 }

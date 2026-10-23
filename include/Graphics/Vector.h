@@ -5,7 +5,7 @@
 // in the binary
 #include "../NitroSDK/Matrix.h"
 
-extern "C" void func_020130a8(Vector3i* vector, int x, int y, int z);
+extern "C" void func_020130a8(Vector3i* arg0, int arg1, int arg2, int arg3);
 
 fix32_t fix32sin(fix32_t x);
 fix32_t fix32cos(fix32_t x);

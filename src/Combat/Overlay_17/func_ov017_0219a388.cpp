@@ -1,83 +1,83 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void __clear(void* dst, unsigned int size);
-extern "C" int func_02039730(void* unused, int index);
-extern "C" void func_ov017_0219a544(unsigned char* a, char* buf, int type, int value);
+extern "C" void __clear(void* arg0, unsigned int arg1);
+extern "C" int func_02039730(void* arg0, int arg1);
+extern "C" void func_ov017_0219a544(unsigned char* arg0, char* arg1, int arg2, int arg3);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
-extern "C" int func_0205d0e0(void* objPtr, int val);
-extern "C" void func_ov017_0219a644(void* base, int value);
+extern "C" int func_0205d0e0(void* arg0, int arg1);
+extern "C" void func_ov017_0219a644(void* arg0, int arg1);
 
-struct Shorts0219a388 { short v[4]; };
-struct Bytes0219a388 { unsigned char v[4]; };
-struct Ints0219a388 { int v[7]; };
+struct Struct_ov017_021d6448 { short unknown_0_[4]; };
+struct Struct_ov017_021d6444 { unsigned char unknown_0_[4]; };
+struct Struct_ov017_021d6484 { int unknown_0_[7]; };
 
-extern struct Shorts0219a388 data_ov017_021d6458;
-extern struct Shorts0219a388 data_ov017_021d6450;
-extern struct Shorts0219a388 data_ov017_021d6448;
-extern struct Bytes0219a388 data_ov017_021d6444;
-extern struct Ints0219a388 data_ov017_021d6484;
+extern struct Struct_ov017_021d6448 data_ov017_021d6458;
+extern struct Struct_ov017_021d6448 data_ov017_021d6450;
+extern struct Struct_ov017_021d6448 data_ov017_021d6448;
+extern struct Struct_ov017_021d6444 data_ov017_021d6444;
+extern struct Struct_ov017_021d6484 data_ov017_021d6484;
 
-struct Window0219a388 {
-    unsigned char pad0[0xa0];
-    short x;
-    short field_a2;
-    short y;
-    short width;
-    short field_a8;
-    short field_aa;
-    short field_ac;
-    short field_ae;
-    unsigned char pad_b0;
-    unsigned char type;
-    unsigned char pad_b2[3];
-    unsigned char field_b5;
+struct Struct_ov017_0219a388 {
+    unsigned char unknown_0_[0xa0];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    unsigned char unknown_b0_;
+    unsigned char unknown_b1_;
+    unsigned char unknown_b2_[3];
+    unsigned char unknown_b5_;
 };
 
 // USA: func_ov017_0219a388
-extern "C" ARM void func_ov017_0219a388(unsigned char* base) {
+extern "C" ARM void func_ov017_0219a388(unsigned char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0xa90};
+ enum {Enum_ov017_0219a388_3248=0xa90};
 #else
- enum {regionalOffset0=0xcb0};
+ enum {Enum_ov017_0219a388_3248=0xcb0};
 #endif
-    GameState* gs = GameState::GetInstance();
-    GameObject* protagonist = gs->GetProtagonist();
-    struct Shorts0219a388 xs = data_ov017_021d6458;
-    struct Shorts0219a388 ys = data_ov017_021d6450;
-    struct Shorts0219a388 widths = data_ov017_021d6448;
-    struct Bytes0219a388 types = data_ov017_021d6444;
-    struct Ints0219a388 indices = data_ov017_021d6484;
-    char buf[0x80];
-    Window0219a388* win = *(Window0219a388**)(base + 0x3000 + regionalOffset0);
-    int i;
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetProtagonist();
+    struct Struct_ov017_021d6448 var2 = data_ov017_021d6458;
+    struct Struct_ov017_021d6448 var3 = data_ov017_021d6450;
+    struct Struct_ov017_021d6448 var4 = data_ov017_021d6448;
+    struct Struct_ov017_021d6444 var5 = data_ov017_021d6444;
+    struct Struct_ov017_021d6484 var6 = data_ov017_021d6484;
+    char var7[0x80];
+    Struct_ov017_0219a388* var8 = *(Struct_ov017_0219a388**)(arg0 + 0x3000 + Enum_ov017_0219a388_3248);
+    int var9;
 
-    for (i = 0; i < 4; i++) {
-        win->x = xs.v[i];
-        win->field_a2 = 2;
-        win->y = ys.v[i];
-        win->width = widths.v[i];
-        win->field_a8 = 2;
-        win->field_aa = 2;
-        win->field_ac = 0xa;
-        win->field_ae = 0xb;
-        unsigned char type = types.v[i];
-        win->type = type;
-        win->field_b5 = 1;
-        __clear(buf, 0x80);
-        func_ov017_0219a544(base, buf, type, (signed char)func_02039730(protagonist, indices.v[i]));
+    for (var9 = 0; var9 < 4; var9++) {
+        var8->unknown_a0_ = var2.unknown_0_[var9];
+        var8->unknown_a2_ = 2;
+        var8->unknown_a4_ = var3.unknown_0_[var9];
+        var8->unknown_a6_ = var4.unknown_0_[var9];
+        var8->unknown_a8_ = 2;
+        var8->unknown_aa_ = 2;
+        var8->unknown_ac_ = 0xa;
+        var8->unknown_ae_ = 0xb;
+        unsigned char var10 = var5.unknown_0_[var9];
+        var8->unknown_b1_ = var10;
+        var8->unknown_b5_ = 1;
+        __clear(var7, 0x80);
+        func_ov017_0219a544(arg0, var7, var10, (signed char)func_02039730(var1, var6.unknown_0_[var9]));
 #if defined(jpn)
-        func_0205d304(win, buf, 0, 0, 0, 1, 0);
+        func_0205d304(var8, var7, 0, 0, 0, 1, 0);
 #else
-        func_0205d304(win, buf, 0, 0, 0, 1, 0, 0);
+        func_0205d304(var8, var7, 0, 0, 0, 1, 0, 0);
 #endif
 
-        func_0205d0e0(win, gs->GetTickCount());
+        func_0205d0e0(var8, var0->GetTickCount());
     }
-    func_ov017_0219a644(base, 0xff);
+    func_ov017_0219a644(arg0, 0xff);
 }

@@ -4,194 +4,185 @@
 #include "NitroSDK/Matrix.h"
 #include "Memory/SafeAllocator.h"
 
-struct Entry02021578 {
-    int field0;
-    char* name;
-    char pad8[0x1c];
+struct Struct_020210f8 {
+    int unknown_0_;
+    char* unknown_4_;
+    char unknown_8_[0x1c];
 };
 
-struct Struct0205a198 {
-    unsigned short count, flags;
-    void* cells;
-    void* copy;
-    unsigned int field0c, field10, field14, field18;
-    unsigned short field1c, index, field20;
-    unsigned char firstCell, field23, field24, field25;
-    signed char field26;
-    char padding27;
+struct Struct_02043368_2 {
+    unsigned short unknown_0_, unknown_2_;
+    void* unknown_4_;
+    void* unknown_8_;
+    unsigned int unknown_c_, unknown_10_, unknown_14_, unknown_18_;
+    unsigned short unknown_1c_, unknown_1e_, unknown_20_;
+    unsigned char unknown_22_, unknown_23_, unknown_24_, unknown_25_;
+    signed char unknown_26_;
+    char unknown_27_;
 };
 
-struct MapEntryList {
-    unsigned char unknown0[0x40];
-    Struct0205a198* records;
-    unsigned char unknown44[8];
-    unsigned short count;
-    unsigned short unknown4e;
-    unsigned char active;
-    unsigned char unknown51[3];
+struct Struct_02021578 {
+    unsigned char unknown_0_[0x40];
+    Struct_02043368_2* unknown_40_;
+    unsigned char unknown_44_[8];
+    unsigned short unknown_4c_;
+    unsigned short unknown_4e_;
+    unsigned char unknown_50_;
+    unsigned char unknown_51_[3];
 };
 
-struct List0204af64 {
-    int byteCount;
-    char unknown4[8];
-    unsigned char b0c;
-    unsigned char unknown0d;
-    unsigned short h0e;
-    int w10, w14, w18;
-    unsigned char b1c_lo : 4;
-    unsigned char b1c_hi : 4;
-    unsigned char b1d, b1e, b1f;
+struct Struct_02020cb8 {
+    int unknown_0_;
+    char unknown_4_[8];
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned short unknown_e_;
+    int unknown_10_, unknown_14_, unknown_18_;
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_, unknown_1e_, unknown_1f_;
 };
 
-struct ForwardingRecord02024518;
-struct Node02021f88;
+struct Struct_02024518;
+struct Struct_02021f88;
 
-struct MapDisplay {
-    char* GetMapNameText() { return (char*)unknown5b4; }
-    char* GetLevelLabelText() { return (char*)&unknown5b4[0x40]; }
-    unsigned char state;
-    unsigned char unknown1;
-    char headerName[0x10];
-    unsigned char field12;
-    unsigned char unknown13;
-    int displayMode;
-    int forwardingX;
-    int forwardingY;
-    Entry02021578* names;
-    int nameCount;
-    int field28;
-    ForwardingRecord02024518* forwarding;
-    int forwardingCount;
-    int field34;
-    fix32_t scale;
-    fix32_t cameraBiasX;
-    fix32_t cameraBiasZ;
-    int screenX;
-    int screenY;
-    List0204af64 list4c;
-    void* mapState;
-    int mapPalette;
-    int forwardingFill;
-    unsigned char unknown78[0x94 - 0x78];
-    MapEntryList entryList;
-    Struct0205a198 records[28];
-    char name[0x10];
-    unsigned char recordVisible[4];
-    unsigned char forwardingPending;
-    unsigned char mask55d;
-    unsigned char field55e;
-    unsigned char unknown55f;
-    int slots[4];
-    unsigned char slotFlags[4];
-    unsigned char unknown574[0x5a4 - 0x574];
-    int flags;
-    unsigned char field5a8;
-    unsigned char unknown5a9[3];
-    fix32_t cameraX;
-    fix32_t cameraZ;
+struct Struct_02020554 {
+    char* inline_02023218() { return (char*)unknown_5b4_; }
+    char* inline_02023218_2() { return (char*)&unknown_5b4_[0x40]; }
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[0x10];
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    Struct_020210f8* unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    Struct_02024518* unknown_2c_;
+    int unknown_30_;
+    int unknown_34_;
+    fix32_t unknown_38_;
+    fix32_t unknown_3c_;
+    fix32_t unknown_40_;
+    int unknown_44_;
+    int unknown_48_;
+    Struct_02020cb8 unknown_4c_;
+    void* unknown_6c_;
+    int unknown_70_;
+    int unknown_74_;
+    unsigned char unknown_78_[0x94 - 0x78];
+    Struct_02021578 unknown_94_;
+    Struct_02043368_2 unknown_e8_[28];
+    char unknown_548_[0x10];
+    unsigned char unknown_558_[4];
+    unsigned char unknown_55c_;
+    unsigned char unknown_55d_;
+    unsigned char unknown_55e_;
+    unsigned char unknown_55f_;
+    int unknown_560_[4];
+    unsigned char unknown_570_[4];
+    unsigned char unknown_574_[0x5a4 - 0x574];
+    int unknown_5a4_;
+    unsigned char unknown_5a8_;
+    unsigned char unknown_5a9_[3];
+    fix32_t unknown_5ac_;
+    fix32_t unknown_5b0_;
 #if defined(jpn)
-    unsigned char unknown5b4[0x6a8 - 0x5b4];
+    unsigned char unknown_5b4_[0x6a8 - 0x5b4];
 #else
-    unsigned char unknown5b4[0x754 - 0x5b4];
+    unsigned char unknown_5b4_[0x754 - 0x5b4];
 #endif
-    Node02021f88* field754;
-    unsigned char flags758[4];
-    unsigned char field75c;
-    unsigned char field75d;
-    unsigned char unknown75e[2];
-    int field760;
-    unsigned char field764;
-    unsigned char field765;
-    short field766;
-    unsigned char field768;
-    unsigned char unknown769[3];
-    int field76c;
-    int field770;
-    int field774;
-    unsigned char field778;
-    unsigned char refreshRecords;
-    unsigned char field77a;
-    unsigned char unknown77b;
-    int field77c;
-    unsigned char field780;
-    unsigned char unknown781[0x9b4 - 0x781];
-    int field9b4;
-    unsigned char field9b8;
-    unsigned char field9b9;
-    unsigned char field9ba;
-    unsigned char unknown9bb;
-    int field9bc;
-    unsigned char actionState;
-    unsigned char field9c1;
-    signed char loadStage;
-    unsigned char field9c3;
-    unsigned char field9c4;
-    unsigned char field9c5;
-    unsigned char field9c6;
-    unsigned char failed;
-    unsigned char field9c8;
-    unsigned char unknown9c9[3];
-    int fileTask920;
-    int namesTask;
-    int fileTask928;
-    int nameTasks[8];
-    int scriptTask;
-    int task9fc;
-    int taska00;
-    int taska04;
-    int taska08;
-    int taska0c;
-    int taska10;
-    int taska14;
-    int taska18;
-    int taska1c;
-    int taska20;
-    int taska24;
-    int taska28;
-    int taska2c;
-    int fileTask984;
-    unsigned char fielda34;
-    unsigned char bytesa35[0x10];
-    unsigned char bytesa45[0x10];
-    unsigned char bytesa55[0x20];
+    Struct_02021f88* unknown_754_;
+    unsigned char unknown_758_[4];
+    unsigned char unknown_75c_;
+    unsigned char unknown_75d_;
+    unsigned char unknown_75e_[2];
+    int unknown_760_;
+    unsigned char unknown_764_;
+    unsigned char unknown_765_;
+    short unknown_766_;
+    unsigned char unknown_768_;
+    unsigned char unknown_769_[3];
+    int unknown_76c_;
+    int unknown_770_;
+    int unknown_774_;
+    unsigned char unknown_778_;
+    unsigned char unknown_779_;
+    unsigned char unknown_77a_;
+    unsigned char unknown_77b_;
+    int unknown_77c_;
+    unsigned char unknown_780_;
+    unsigned char unknown_781_[0x9b4 - 0x781];
+    int unknown_9b4_;
+    unsigned char unknown_9b8_;
+    unsigned char unknown_9b9_;
+    unsigned char unknown_9ba_;
+    unsigned char unknown_9bb_;
+    int unknown_9bc_;
+    unsigned char unknown_9c0_;
+    unsigned char unknown_9c1_;
+    signed char unknown_9c2_;
+    unsigned char unknown_9c3_;
+    unsigned char unknown_9c4_;
+    unsigned char unknown_9c5_;
+    unsigned char unknown_9c6_;
+    unsigned char unknown_9c7_;
+    unsigned char unknown_9c8_;
+    unsigned char unknown_9c9_[3];
+    int unknown_9cc_;
+    int unknown_9d0_;
+    int unknown_9d4_;
+    int unknown_9d8_[8];
+    int unknown_9f8_;
+    int unknown_9fc_;
+    int unknown_a00_;
+    int unknown_a04_;
+    int unknown_a08_;
+    int unknown_a0c_;
+    int unknown_a10_;
+    int unknown_a14_;
+    int unknown_a18_;
+    int unknown_a1c_;
+    int unknown_a20_;
+    int unknown_a24_;
+    int unknown_a28_;
+    int unknown_a2c_;
+    int unknown_a30_;
+    unsigned char unknown_a34_;
+    unsigned char unknown_a35_[0x10];
+    unsigned char unknown_a45_[0x10];
+    unsigned char unknown_a55_[0x20];
 #if !defined(jpn)
-    unsigned char unknowna75[0x20];
+    unsigned char unknown_a75_[0x20];
 #endif
-    unsigned char fielda95;
-    unsigned char fielda96;
-    unsigned char fielda97;
-    unsigned char unknowna98[4];
-    int fielda9c;
-    short fieldaa0;
-    unsigned char bytesaa2[0x100];
+    unsigned char unknown_a95_;
+    unsigned char unknown_a96_;
+    unsigned char unknown_a97_;
+    unsigned char unknown_a98_[4];
+    int unknown_a9c_;
+    short unknown_aa0_;
+    unsigned char unknown_aa2_[0x100];
 #if !defined(jpn)
-    char scriptName[0x40];
-    unsigned char unknownbe2[2];
-    int scriptNameWidth;
-    int fieldb3c;
-    short fieldb40;
-    short fieldb42;
-    unsigned char savedTiles[0x40];
+    char unknown_ba2_[0x40];
+    unsigned char unknown_be2_[2];
+    int unknown_be4_;
+    int unknown_be8_;
+    short unknown_bec_;
+    short unknown_bee_;
+    unsigned char unknown_bf0_[0x40];
 #endif
 };
 
 #if defined(jpn)
-typedef int MapDisplayTaskHandle;
-typedef char MapDisplaySizeCheck[sizeof(MapDisplay) == 0xad8 ? 1 : -1];
-typedef char MapDisplayStageCheck[offsetof(MapDisplay, loadStage) == 0x916 ? 1 : -1];
-typedef char MapDisplayBufferCheck[offsetof(MapDisplay, bytesaa2) == 0x9d6 ? 1 : -1];
+typedef int Type_02020aec;
 #else
-typedef int* MapDisplayTaskHandle;
-typedef char MapDisplaySizeCheck[sizeof(MapDisplay) == 0xc30 ? 1 : -1];
-typedef char MapDisplayStageCheck[offsetof(MapDisplay, loadStage) == 0x9c2 ? 1 : -1];
-typedef char MapDisplayBufferCheck[offsetof(MapDisplay, bytesaa2) == 0xaa2 ? 1 : -1];
+typedef int* Type_02020aec;
 #endif
-typedef char MapDisplayRecordsCheck[offsetof(MapDisplay, records) == 0xe8 ? 1 : -1];
-typedef char MapDisplayListCheck[offsetof(MapDisplay, entryList) == 0x94 ? 1 : -1];
-typedef char MapDisplayCameraCheck[offsetof(MapDisplay, cameraX) == 0x5ac ? 1 : -1];
 
-extern "C" void func_02020720(MapDisplay* self);
+extern "C" void func_02020720(Struct_02020554* arg0);
 // The caller supplies its display context; this global screen setup does not read it.
-extern "C" void func_02020838(MapDisplay* unusedContext);
-extern "C" void func_02020aec(MapDisplay* self, MapDisplayTaskHandle handle, SafeAllocator* allocator);
-extern "C" void func_02020c18(MapDisplay* self, MapDisplayTaskHandle handle, SafeAllocator* allocator);
+extern "C" void func_02020838(Struct_02020554* arg0);
+extern "C" void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, SafeAllocator* arg2);
+extern "C" void func_02020c18(Struct_02020554* arg0, Type_02020aec arg1, SafeAllocator* arg2);

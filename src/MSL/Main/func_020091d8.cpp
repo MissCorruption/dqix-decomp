@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" int func_0200aa74(double x);
-extern "C" double func_02008da4(double x, double y);
+extern "C" int func_0200aa74(double arg0);
+extern "C" double func_02008da4(double arg0, double arg1);
 
 static const double two54 = 1.80143985094819840000e+16;
 static const double twom54 = 5.55111512312578270212e-17;
@@ -9,45 +9,45 @@ static const double big = 1.0e+300;
 static const double tiny = 1.0e-300;
 
 // USA: func_020091d8
-extern "C" ARM double func_020091d8(double x, int n) {
-    int k, hx, lx;
-    if (!(func_0200aa74(x) > 2) || x == 0.0) {
-        return x;
+extern "C" ARM double func_020091d8(double arg0, int arg1) {
+    int var0, var1, var2;
+    if (!(func_0200aa74(arg0) > 2) || arg0 == 0.0) {
+        return arg0;
     }
 
-    hx = ((int*)&x)[1];
-    lx = ((int*)&x)[0];
-    k = (hx & 0x7ff00000) >> 20;
-    if (k == 0) {
-        if ((lx | (hx & 0x7fffffff)) == 0) {
-            return x;
+    var1 = ((int*)&arg0)[1];
+    var2 = ((int*)&arg0)[0];
+    var0 = (var1 & 0x7ff00000) >> 20;
+    if (var0 == 0) {
+        if ((var2 | (var1 & 0x7fffffff)) == 0) {
+            return arg0;
         }
-        x *= two54;
-        hx = ((int*)&x)[1];
-        k = ((hx & 0x7ff00000) >> 20) - 54;
-        if (n < -50000) {
-            return tiny * x;
+        arg0 *= two54;
+        var1 = ((int*)&arg0)[1];
+        var0 = ((var1 & 0x7ff00000) >> 20) - 54;
+        if (arg1 < -50000) {
+            return tiny * arg0;
         }
     }
-    if (k == 0x7ff) {
-        return x + x;
+    if (var0 == 0x7ff) {
+        return arg0 + arg0;
     }
-    k = k + n;
-    if (k > 0x7fe) {
-        return big * func_02008da4(big, x);
+    var0 = var0 + arg1;
+    if (var0 > 0x7fe) {
+        return big * func_02008da4(big, arg0);
     }
-    if (k > 0) {
-        ((int*)&x)[1] = (hx & 0x800fffff) | (k << 20);
-        return x;
+    if (var0 > 0) {
+        ((int*)&arg0)[1] = (var1 & 0x800fffff) | (var0 << 20);
+        return arg0;
     }
-    if (k <= -54) {
-        if (n > 50000) {
-            return big * func_02008da4(big, x);
+    if (var0 <= -54) {
+        if (arg1 > 50000) {
+            return big * func_02008da4(big, arg0);
         } else {
-            return tiny * func_02008da4(tiny, x);
+            return tiny * func_02008da4(tiny, arg0);
         }
     }
-    k += 54;
-    ((int*)&x)[1] = (hx & 0x800fffff) | (k << 20);
-    return x * twom54;
+    var0 += 54;
+    ((int*)&arg0)[1] = (var1 & 0x800fffff) | (var0 << 20);
+    return arg0 * twom54;
 }

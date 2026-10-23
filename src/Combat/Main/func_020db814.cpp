@@ -6,19 +6,19 @@ void Stub(GameResources*);
 void UpdateBrightnessTransitions(GameResources*);
 void ApplyBrightness(GameResources*);
 
-struct Struct020db814 {
-    char pad[0x28];
-    unsigned char field0x28;
+struct Struct_020db814 {
+    char unknown_0_[0x28];
+    unsigned char unknown_28_;
 };
 
 // USA: func_020db814
 extern "C" ARM void func_020db814(void*) {
-    struct Struct020db814* obj = (struct Struct020db814*)GetGameResources();
-    if (obj == NULL) {
+    struct Struct_020db814* var0 = (struct Struct_020db814*)GetGameResources();
+    if (var0 == NULL) {
         return;
     }
-    obj->field0x28 = 1;
-    Stub((GameResources*)obj);
-    UpdateBrightnessTransitions((GameResources*)obj);
-    ApplyBrightness((GameResources*)obj);
+    var0->unknown_28_ = 1;
+    Stub((GameResources*)var0);
+    UpdateBrightnessTransitions((GameResources*)var0);
+    ApplyBrightness((GameResources*)var0);
 }

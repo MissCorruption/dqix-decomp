@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct List02071d60;
-struct Elem02071d60;
-extern "C" Elem02071d60* func_02071d60(List02071d60* list, int key);
+struct Struct_02071d60;
+struct Struct_02071d60_2;
+extern "C" Struct_02071d60_2* func_02071d60(Struct_02071d60* arg0, int arg1);
 
-struct ArrEntry02153744 {
-    short key;
-    unsigned short bit0 : 1;
-    unsigned short bit1 : 1;
+struct Struct_ov006_02153744 {
+    short unknown_0_;
+    unsigned short unknown_2_0_ : 1;
+    unsigned short unknown_2_1_ : 1;
     unsigned short : 14;
 };
 
-struct EntryView02153744 {
-    char pad[0x10];
-    unsigned int lowbits : 22;
-    unsigned int flagBit : 1;
-    unsigned int highbits : 9;
+struct Struct_ov006_02153744_2 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_0_ : 22;
+    unsigned int unknown_12_6_ : 1;
+    unsigned int unknown_12_7_ : 9;
 };
 
 // USA: func_ov006_02153744
-extern "C" ARM void func_ov006_02153744(void* unused, List02071d60* list, ArrEntry02153744* arr, int count) {
-    int i;
-    for (i = 0; i < count; i++, arr++) {
-        Elem02071d60* e = func_02071d60(list, arr->key);
-        if (e == 0) continue;
-        EntryView02153744* entry = (EntryView02153744*)e;
-        entry->flagBit = arr->bit0 || arr->bit1;
+extern "C" ARM void func_ov006_02153744(void* arg0, Struct_02071d60* arg1, Struct_ov006_02153744* arg2, int arg3) {
+    int var0;
+    for (var0 = 0; var0 < arg3; var0++, arg2++) {
+        Struct_02071d60_2* var1 = func_02071d60(arg1, arg2->unknown_0_);
+        if (var1 == 0) continue;
+        Struct_ov006_02153744_2* var2 = (Struct_ov006_02153744_2*)var1;
+        var2->unknown_12_6_ = arg2->unknown_2_0_ || arg2->unknown_2_1_;
     }
 }

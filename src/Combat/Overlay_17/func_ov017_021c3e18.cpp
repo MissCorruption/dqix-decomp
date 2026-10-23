@@ -1,71 +1,71 @@
 #if defined(jpn)
-enum { RegionOffset7f60 = 0x7c8c };
+enum { Enum_ov017_021c3e18_32608 = 0x7c8c };
 #else
-enum { RegionOffset7f60 = 0x7f60 };
+enum { Enum_ov017_021c3e18_32608 = 0x7f60 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct Vec3_021c3f68 {
-    int x;
-    int y;
-    int z;
+struct Struct_ov017_021c3e18 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Party021c3e18 {
-    unsigned char unk0[0xf78];
-    unsigned char memberIds[4];
-    unsigned char memberCount;
+struct Struct_ov017_021c3e18_2 {
+    unsigned char unknown_0_[0xf78];
+    unsigned char unknown_f78_[4];
+    unsigned char unknown_f7c_;
 };
 
-struct Battle021c3e18 {
-    unsigned char unk0[3];
-    unsigned char active;
+struct Struct_ov017_021c3e18_3 {
+    unsigned char unknown_0_[3];
+    unsigned char unknown_3_;
 };
 
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-extern "C" unsigned char func_020100b0(GameState* gs);
-extern "C" void func_ov017_021c3f68(struct Vec3_021c3f68* obj, int x, int y, int z);
-extern "C" void* func_ov017_021b8468(void* obj);
-extern "C" void* func_ov000_021677d8(void* work, int idx);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" void func_ov017_021c3f68(struct Struct_ov017_021c3e18* arg0, int arg1, int arg2, int arg3);
+extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* func_ov000_021677d8(void* arg0, int arg1);
 extern "C" void func_ov017_021d2ad0(short, int, int, int, unsigned char);
-extern "C" int func_0202c508(void* p);
+extern "C" int func_0202c508(void* arg0);
 
 // USA: func_ov017_021c3e18
-extern "C" ARM void func_ov017_021c3e18(unsigned char arg) {
-    unsigned short* mapId = func_02012fe4();
-    GameState* gs = GameState::GetInstance();
-    GameResources* res = GetGameResources();
-    Party021c3e18* party = (Party021c3e18*)func_02010828(gs);
-    Battle021c3e18* battle = (Battle021c3e18*)res->unknown_ptr_3718;
-    void* search = func_0202ae18();
-    unsigned char self = func_020100b0(gs);
-    for (int i = 0; i < party->memberCount; i++) {
-        unsigned char id = party->memberIds[i];
-        if (id == self) {
+extern "C" ARM void func_ov017_021c3e18(unsigned char arg0) {
+    unsigned short* var0 = func_02012fe4();
+    GameState* var1 = GameState::GetInstance();
+    GameResources* var2 = GetGameResources();
+    Struct_ov017_021c3e18_2* var3 = (Struct_ov017_021c3e18_2*)func_02010828(var1);
+    Struct_ov017_021c3e18_3* var4 = (Struct_ov017_021c3e18_3*)var2->unknown_ptr_3718;
+    void* var5 = func_0202ae18();
+    unsigned char var6 = func_020100b0(var1);
+    for (int var7 = 0; var7 < var3->unknown_f7c_; var7++) {
+        unsigned char var8 = var3->unknown_f78_[var7];
+        if (var8 == var6) {
             continue;
         }
-        GameObject* member = gs->GetPartyMemberByIndex(id);
-        if (member == NULL) {
+        GameObject* var9 = var1->GetPartyMemberByIndex(var8);
+        if (var9 == NULL) {
             continue;
         }
-        Vector3i pos = member->obj3D_.position_;
-        if (*mapId == 10000) {
-            func_ov017_021c3f68((Vec3_021c3f68*)&pos, 0xff000, 0, 0xff000);
+        Vector3i var10 = var9->obj3D_.position_;
+        if (*var0 == 10000) {
+            func_ov017_021c3f68((Struct_ov017_021c3e18*)&var10, 0xff000, 0, 0xff000);
         }
-        if (battle->active != 0) {
-            void* work = func_ov017_021b8468(battle);
-            if (work != NULL) {
-                pos = *(Vector3i*)func_ov000_021677d8(work, id);
+        if (var4->unknown_3_ != 0) {
+            void* var11 = func_ov017_021b8468(var4);
+            if (var11 != NULL) {
+                var10 = *(Vector3i*)func_ov000_021677d8(var11, var8);
             }
         }
-        func_ov017_021d2ad0(member->obj3D_.unknown_4_, pos.x, pos.y, pos.z, arg);
+        func_ov017_021d2ad0(var9->obj3D_.unknown_4_, var10.x, var10.y, var10.z, arg0);
     }
-    if (func_0202c508(search)) {
-        Vector3i pos = *(Vector3i*)((char*)gs + RegionOffset7f60);
-        func_ov017_021d2ad0(0xce, pos.x, pos.y, pos.z, arg);
+    if (func_0202c508(var5)) {
+        Vector3i var12 = *(Vector3i*)((char*)var1 + Enum_ov017_021c3e18_32608);
+        func_ov017_021d2ad0(0xce, var12.x, var12.y, var12.z, arg0);
     }
 }

@@ -7,61 +7,61 @@
 
 enum
 {
-    CARD_MASTER_SELECT_ROM = 0x00,
-    CARD_MASTER_ENABLE = 0x80,
-    CARD_CMD_READ_PAGE = 0xb7,
-    CARD_CTRL_CMD_MASK = 0x07000000,
-    CARD_CTRL_CMD_PAGE = 0x01000000,
-    CARD_CTRL_READ = 0x00000000,
-    CARD_CTRL_RESET_HI = 0x20000000,
-    CARD_CTRL_START = 0x80000000,
-    CARD_CTRL_READY = 0x00800000
+    Enum_01ff83a8_0 = 0x00,
+    Enum_01ff83a8_128 = 0x80,
+    Enum_01ff83a8_183 = 0xb7,
+    Enum_01ff83a8_117440512 = 0x07000000,
+    Enum_01ff83a8_16777216 = 0x01000000,
+    Enum_01ff83a8_0_2 = 0x00000000,
+    Enum_01ff83a8_536870912 = 0x20000000,
+    Enum_01ff83a8_2147483648 = 0x80000000,
+    Enum_01ff83a8_8388608 = 0x00800000
 };
 
 // USA: func_01ff83a8
-extern "C" void func_01ff83a8(unsigned int src, void* dst, int len)
+extern "C" void func_01ff83a8(unsigned int arg0, void* arg1, int arg2)
 {
-    unsigned int* const hdr_GAME_BUF = (unsigned int*)(HW_ROM_HEADER_BUF + 0x60);
+    unsigned int* const var0 = (unsigned int*)(HW_ROM_HEADER_BUF + 0x60);
 
-    const unsigned int ctrl_start = (unsigned int)((*hdr_GAME_BUF & ~CARD_CTRL_CMD_MASK)
-        | (CARD_CTRL_CMD_PAGE | CARD_CTRL_READ | CARD_CTRL_START | CARD_CTRL_RESET_HI));
+    const unsigned int var1 = (unsigned int)((*var0 & ~Enum_01ff83a8_117440512)
+        | (Enum_01ff83a8_16777216 | Enum_01ff83a8_0_2 | Enum_01ff83a8_2147483648 | Enum_01ff83a8_536870912));
 
-    int pos = -(int)(src & 511);
+    int var2 = -(int)(arg0 & 511);
 
-    while (reg_CARD_CNT & CARD_CTRL_START)
+    while (reg_CARD_CNT & Enum_01ff83a8_2147483648)
     {
     }
-    reg_CARD_MASTERCNT = (unsigned int)(CARD_MASTER_SELECT_ROM | CARD_MASTER_ENABLE);
+    reg_CARD_MASTERCNT = (unsigned int)(Enum_01ff83a8_0 | Enum_01ff83a8_128);
 
-    for (src = (unsigned int)(src + pos); pos < len; src += 512)
+    for (arg0 = (unsigned int)(arg0 + var2); var2 < arg2; arg0 += 512)
     {
-        (&reg_CARD_CMD)[0] = (unsigned char)(CARD_CMD_READ_PAGE);
-        (&reg_CARD_CMD)[1] = (unsigned char)(src >> 24);
-        (&reg_CARD_CMD)[2] = (unsigned char)(src >> 16);
-        (&reg_CARD_CMD)[3] = (unsigned char)(src >> 8);
-        (&reg_CARD_CMD)[4] = (unsigned char)(src >> 0);
+        (&reg_CARD_CMD)[0] = (unsigned char)(Enum_01ff83a8_183);
+        (&reg_CARD_CMD)[1] = (unsigned char)(arg0 >> 24);
+        (&reg_CARD_CMD)[2] = (unsigned char)(arg0 >> 16);
+        (&reg_CARD_CMD)[3] = (unsigned char)(arg0 >> 8);
+        (&reg_CARD_CMD)[4] = (unsigned char)(arg0 >> 0);
         (&reg_CARD_CMD)[5] = 0;
         (&reg_CARD_CMD)[6] = 0;
         (&reg_CARD_CMD)[7] = 0;
 
-        reg_CARD_CNT = ctrl_start;
+        reg_CARD_CNT = var1;
         for (;;)
         {
-            unsigned int ctrl = reg_CARD_CNT;
+            unsigned int var3 = reg_CARD_CNT;
 
-            if ((ctrl & CARD_CTRL_READY))
+            if ((var3 & Enum_01ff83a8_8388608))
             {
-                const unsigned int data = reg_CARD_DATA;
+                const unsigned int var4 = reg_CARD_DATA;
 
-                if ((pos >= 0) && (pos < len))
+                if ((var2 >= 0) && (var2 < arg2))
                 {
-                    *(unsigned int*)((unsigned int)dst + pos) = data;
+                    *(unsigned int*)((unsigned int)arg1 + var2) = var4;
                 }
 
-                pos += sizeof(unsigned int);
+                var2 += sizeof(unsigned int);
             }
 
-            if (!(ctrl & CARD_CTRL_START))
+            if (!(var3 & Enum_01ff83a8_2147483648))
             {
                 break;
             }

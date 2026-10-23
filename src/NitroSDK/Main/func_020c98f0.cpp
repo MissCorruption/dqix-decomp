@@ -11,17 +11,17 @@ void NitroVM_Command_AcquireCardReadResources(unsigned short owner);
 unsigned int SetSpecificInterruptsEnabled(unsigned int which);
 unsigned int AcknowledgeSpecificInterrupts(unsigned int flagMask);
 void ResetDMAChannel(int channel);
-extern "C" void func_020c98c4(int command);
+extern "C" void func_020c98c4(int arg0);
 
-static inline int IsMultiBootChild()
+static inline int inline_020c98f0()
 {
     return *(unsigned short*)0x027ffc40 == 2;
 }
 
 // USA: func_020c98f0
-extern "C" ARM void func_020c98f0(int parameter)
+extern "C" ARM void func_020c98f0(int arg0)
 {
-    if (IsMultiBootChild())
+    if (inline_020c98f0())
     {
         func_020c9be0();
     }
@@ -35,7 +35,7 @@ extern "C" ARM void func_020c98f0(int parameter)
     ResetDMAChannel(2);
     ResetDMAChannel(3);
 
-    *(volatile unsigned long*)0x027ffc20 = parameter;
+    *(volatile unsigned long*)0x027ffc20 = arg0;
     func_020c98c4(0x10);
 
     asm

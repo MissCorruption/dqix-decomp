@@ -1,242 +1,242 @@
 #include <globaldefs.h>
 
-struct Struct0205de24;
+struct Struct_0205de24_2;
 struct Struct_0205ba68;
 struct Struct_0205d81c;
-struct Node0205bacc;
-struct Container020e0310;
+struct Struct_0205bacc;
+struct Struct_0201099c_3;
 
-struct ListWindow0217dd60 {
-    char pad0[0x8];
-    int field8;
-    char pad0c[0x58 - 0xc];
-    int field58;
-    char pad5c[0x68 - 0x5c];
-    int page;
-    char pad6c[0x94 - 0x6c];
-    unsigned char field94;
-    unsigned char field95;
-    char pad96[0xa0 - 0x96];
-    short a0;
-    short a2;
-    short a4;
-    short a6;
-    short a8;
-    short aa;
-    short ac;
-    short ae;
-    char padb0;
-    unsigned char fieldb1;
-    char padb2[0xb5 - 0xb2];
-    unsigned char fieldb5;
+struct Struct_ov003_0217dd60 {
+    char unknown_0_[0x8];
+    int unknown_8_;
+    char unknown_c_[0x58 - 0xc];
+    int unknown_58_;
+    char unknown_5c_[0x68 - 0x5c];
+    int unknown_68_;
+    char unknown_6c_[0x94 - 0x6c];
+    unsigned char unknown_94_;
+    unsigned char unknown_95_;
+    char unknown_96_[0xa0 - 0x96];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
+    char unknown_b2_[0xb5 - 0xb2];
+    unsigned char unknown_b5_;
 };
 
 #if defined(jpn)
-struct ListMenu0217dd60 {
-    char pad0[0x14];
-    unsigned char items[0x2c - 0x14];
-    unsigned char itemCount;
-    char pad2d;
-    unsigned char field32;
-    char pad2f[0x8c - 0x2f];
-    struct ListWindow0217dd60* window;
-    char pad90[0xc8 - 0x90];
-    char names[4];
+struct Struct_ov003_0217dd60_2 {
+    char unknown_0_[0x14];
+    unsigned char unknown_14_[0x2c - 0x14];
+    unsigned char unknown_2c_;
+    char unknown_2d_;
+    unsigned char unknown_2e_;
+    char unknown_2f_[0x8c - 0x2f];
+    struct Struct_ov003_0217dd60* unknown_8c_;
+    char unknown_90_[0xc8 - 0x90];
+    char unknown_c8_[4];
 };
 #else
-struct ListMenu0217dd60 {
-    char pad0[0x10];
-    int field10;
-    char pad14[0x18 - 0x14];
-    unsigned char items[0x30 - 0x18];
-    unsigned char itemCount;
-    char pad31;
-    unsigned char field32;
-    char pad33[0x90 - 0x33];
-    struct ListWindow0217dd60* window;
-    char pad94[0xcc - 0x94];
-    char names[4];
+struct Struct_ov003_0217dd60_2 {
+    char unknown_0_[0x10];
+    int unknown_10_;
+    char unknown_14_[0x18 - 0x14];
+    unsigned char unknown_18_[0x30 - 0x18];
+    unsigned char unknown_30_;
+    char unknown_31_;
+    unsigned char unknown_32_;
+    char unknown_33_[0x90 - 0x33];
+    struct Struct_ov003_0217dd60* unknown_90_;
+    char unknown_94_[0xcc - 0x94];
+    char unknown_cc_[4];
 };
 #endif
 
-extern "C" void func_0205de24(struct Struct0205de24*, unsigned char, unsigned char);
+extern "C" void func_0205de24(struct Struct_0205de24_2*, unsigned char, unsigned char);
 extern "C" void func_0205cf04(void*);
 extern "C" void func_0205cef8(void*);
 extern "C" int func_020421a0();
 extern "C" void func_02012fe4();
-extern "C" void __clear(void* buf, int n);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" void func_02041b70(char* dst, int n, const char* name);
-extern "C" void func_02042058(char* dst, const char* src);
-extern "C" unsigned char* func_0205e00c(struct Struct_0205d81c* s, int key);
-extern "C" void func_02050400(unsigned char* elem, int state);
-extern "C" void func_0205042c(unsigned char* elem, unsigned char value);
-extern "C" void func_02050440(unsigned char* elem, int value);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" unsigned char* func_0205e00c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void func_02050400(unsigned char* arg0, int arg1);
+extern "C" void func_0205042c(unsigned char* arg0, unsigned char arg1);
+extern "C" void func_02050440(unsigned char* arg0, int arg1);
 #if defined(jpn)
-struct StoreStruct;
-extern "C" void func_0205d304(void* window, char* buf, int a, int b, int c, int d, int e);
-extern "C" void func_02046380(void* w);
-extern "C" void func_020465c0(struct StoreStruct*, int, int);
+struct Struct_020465c0;
+extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046380(void* arg0);
+extern "C" void func_020465c0(struct Struct_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
-extern "C" void func_02042428(char* dst, int size);
+extern "C" void func_02042428(char* arg0, int arg1);
 #else
-extern "C" void func_0205d304(void* window, char* buf, int a, int b, int c, int d, int e, int f);
+extern "C" void func_0205d304(void* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
-extern "C" void func_0205ba68(struct Struct_0205ba68* t, int a, int b, int c);
-extern "C" void func_0205bacc(struct Node0205bacc* n, int value);
+extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
 
 extern const char data_ov003_02180c7f[];
 
 // USA: func_ov003_0217dd60
 #if defined(jpn)
-extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
-    char buf[0x400];
+extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
+    char var0[0x400];
     func_02012fe4();
-    struct StoreStruct* g = (struct StoreStruct*)func_020421a0();
-    func_0205de24((struct Struct0205de24*)menu->window, 0, 1);
-    menu->window->fieldb1 = 0;
+    struct Struct_020465c0* var1 = (struct Struct_020465c0*)func_020421a0();
+    func_0205de24((struct Struct_0205de24_2*)arg0->unknown_8c_, 0, 1);
+    arg0->unknown_8c_->unknown_b1_ = 0;
     {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a0 = 14;
-        w->a2 = 11;
-    }
-    {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a4 = 9;
-        w->a6 = 2;
+        struct Struct_ov003_0217dd60* var2 = arg0->unknown_8c_;
+        var2->unknown_a0_ = 14;
+        var2->unknown_a2_ = 11;
     }
     {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a8 = 13;
-        w->aa = 6;
+        struct Struct_ov003_0217dd60* var3 = arg0->unknown_8c_;
+        var3->unknown_a4_ = 9;
+        var3->unknown_a6_ = 2;
     }
     {
-        struct ListWindow0217dd60* w = menu->window;
-        w->ac = 10;
-        w->ae = 13;
+        struct Struct_ov003_0217dd60* var4 = arg0->unknown_8c_;
+        var4->unknown_a8_ = 13;
+        var4->unknown_aa_ = 6;
     }
-    menu->window->fieldb5 = 1;
-    func_0205cf04(menu->window);
-    func_0205cef8(menu->window);
-    int end;
-    int i;
-    int page = menu->window->page;
-    __clear(buf, 0x400);
-    end = (page + 1) * 6;
-    if (end > menu->itemCount) {
-        end = menu->itemCount;
+    {
+        struct Struct_ov003_0217dd60* var5 = arg0->unknown_8c_;
+        var5->unknown_ac_ = 10;
+        var5->unknown_ae_ = 13;
     }
-    for (i = page * 6; i < end; i++) {
-        const char* name = (const char*)func_020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
-        func_02041b70(buf, i % 6, name);
-        if (i != end - 1) {
-            func_02042058(buf, data_ov003_02180c7f);
+    arg0->unknown_8c_->unknown_b5_ = 1;
+    func_0205cf04(arg0->unknown_8c_);
+    func_0205cef8(arg0->unknown_8c_);
+    int var6;
+    int var7;
+    int var8 = arg0->unknown_8c_->unknown_68_;
+    __clear(var0, 0x400);
+    var6 = (var8 + 1) * 6;
+    if (var6 > arg0->unknown_2c_) {
+        var6 = arg0->unknown_2c_;
+    }
+    for (var7 = var8 * 6; var7 < var6; var7++) {
+        const char* var9 = (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, (short)(arg0->unknown_14_[var7] + 100));
+        func_02041b70(var0, var7 % 6, var9);
+        if (var7 != var6 - 1) {
+            func_02042058(var0, data_ov003_02180c7f);
         }
     }
-    if (menu->field32 > 1) {
-        func_02046380(g);
-        func_020465c0(g, 0, page + 1);
-        func_020465c0(g, 1, menu->field32);
-        func_020465f0((unsigned char*)g, 0, 2);
-        func_020465f0((unsigned char*)g, 1, 2);
-        func_020465d8((unsigned char*)g, 0, 1);
-        func_020465d8((unsigned char*)g, 1, 0);
-        func_02042428(buf, 8);
-        func_02042058(buf, (const char*)func_020e0434((struct Container020e0310*)menu->names, 200));
+    if (arg0->unknown_2e_ > 1) {
+        func_02046380(var1);
+        func_020465c0(var1, 0, var8 + 1);
+        func_020465c0(var1, 1, arg0->unknown_2e_);
+        func_020465f0((unsigned char*)var1, 0, 2);
+        func_020465f0((unsigned char*)var1, 1, 2);
+        func_020465d8((unsigned char*)var1, 0, 1);
+        func_020465d8((unsigned char*)var1, 1, 0);
+        func_02042428(var0, 8);
+        func_02042058(var0, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_c8_, 200));
     }
-    if (menu->field32 > 1) {
-        func_0205d304(menu->window, buf, 0, 0, 1, 1, 0);
+    if (arg0->unknown_2e_ > 1) {
+        func_0205d304(arg0->unknown_8c_, var0, 0, 0, 1, 1, 0);
     } else {
-        func_0205d304(menu->window, buf, 0, 0, 0, 1, 0);
+        func_0205d304(arg0->unknown_8c_, var0, 0, 0, 0, 1, 0);
     }
-    int field32 = menu->field32;
-    struct ListWindow0217dd60* window = menu->window;
-    window->field8 = field32;
-    window->field58 = field32;
-    func_0205ba68((struct Struct_0205ba68*)((char*)window + 4), 1, 6, 0);
-    func_0205ba68((struct Struct_0205ba68*)((char*)window + 0x54), 1, 6, 0);
-    unsigned char itemCount = menu->itemCount;
-    func_0205bacc((struct Node0205bacc*)((char*)window + 4), itemCount);
-    func_0205bacc((struct Node0205bacc*)((char*)window + 0x54), itemCount);
-    window->field94 = 1;
-    window->field95 = 1;
+    int var10 = arg0->unknown_2e_;
+    struct Struct_ov003_0217dd60* var11 = arg0->unknown_8c_;
+    var11->unknown_8_ = var10;
+    var11->unknown_58_ = var10;
+    func_0205ba68((struct Struct_0205ba68*)((char*)var11 + 4), 1, 6, 0);
+    func_0205ba68((struct Struct_0205ba68*)((char*)var11 + 0x54), 1, 6, 0);
+    unsigned char var12 = arg0->unknown_2c_;
+    func_0205bacc((struct Struct_0205bacc*)((char*)var11 + 4), var12);
+    func_0205bacc((struct Struct_0205bacc*)((char*)var11 + 0x54), var12);
+    var11->unknown_94_ = 1;
+    var11->unknown_95_ = 1;
 }
 #else
-extern "C" ARM void func_ov003_0217dd60(struct ListMenu0217dd60* menu) {
-    char buf[0x400];
+extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
+    char var13[0x400];
     func_02012fe4();
     func_020421a0();
-    func_0205de24((struct Struct0205de24*)menu->window, 0, 1);
-    int field10Value = menu->field10;
-    menu->window->fieldb1 = 0;
-    short scaled = (short)(field10Value >> 3);
+    func_0205de24((struct Struct_0205de24_2*)arg0->unknown_90_, 0, 1);
+    int var14 = arg0->unknown_10_;
+    arg0->unknown_90_->unknown_b1_ = 0;
+    short var15 = (short)(var14 >> 3);
     {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a0 = scaled;
-        w->a2 = 11;
-    }
-    {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a4 = (32 - scaled) >> 1;
-        w->a6 = 2;
+        struct Struct_ov003_0217dd60* var16 = arg0->unknown_90_;
+        var16->unknown_a0_ = var15;
+        var16->unknown_a2_ = 11;
     }
     {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a8 = 12;
-        w->aa = 6;
+        struct Struct_ov003_0217dd60* var17 = arg0->unknown_90_;
+        var17->unknown_a4_ = (32 - var15) >> 1;
+        var17->unknown_a6_ = 2;
     }
     {
-        struct ListWindow0217dd60* w = menu->window;
-        w->ac = 10;
-        w->ae = 13;
+        struct Struct_ov003_0217dd60* var18 = arg0->unknown_90_;
+        var18->unknown_a8_ = 12;
+        var18->unknown_aa_ = 6;
     }
-    if (menu->field32 > 1) {
-        struct ListWindow0217dd60* w = menu->window;
-        w->a0 = scaled;
-        w->a2 = 12;
+    {
+        struct Struct_ov003_0217dd60* var19 = arg0->unknown_90_;
+        var19->unknown_ac_ = 10;
+        var19->unknown_ae_ = 13;
     }
-    menu->window->fieldb5 = 1;
-    func_0205cf04(menu->window);
-    func_0205cef8(menu->window);
-    int end;
-    int i;
-    int page = menu->window->page;
-    __clear(buf, 0x400);
-    end = (page + 1) * 6;
-    if (end > menu->itemCount) {
-        end = menu->itemCount;
+    if (arg0->unknown_32_ > 1) {
+        struct Struct_ov003_0217dd60* var20 = arg0->unknown_90_;
+        var20->unknown_a0_ = var15;
+        var20->unknown_a2_ = 12;
     }
-    for (i = page * 6; i < end; i++) {
-        const char* name = (const char*)func_020e0434((struct Container020e0310*)menu->names, (short)(menu->items[i] + 100));
-        func_02041b70(buf, i % 6, name);
-        if (i != end - 1) {
-            func_02042058(buf, data_ov003_02180c7f);
+    arg0->unknown_90_->unknown_b5_ = 1;
+    func_0205cf04(arg0->unknown_90_);
+    func_0205cef8(arg0->unknown_90_);
+    int var21;
+    int var22;
+    int var23 = arg0->unknown_90_->unknown_68_;
+    __clear(var13, 0x400);
+    var21 = (var23 + 1) * 6;
+    if (var21 > arg0->unknown_30_) {
+        var21 = arg0->unknown_30_;
+    }
+    for (var22 = var23 * 6; var22 < var21; var22++) {
+        const char* var24 = (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_cc_, (short)(arg0->unknown_18_[var22] + 100));
+        func_02041b70(var13, var22 % 6, var24);
+        if (var22 != var21 - 1) {
+            func_02042058(var13, data_ov003_02180c7f);
         }
     }
-    if (menu->field32 > 1) {
-        unsigned char* elem = func_0205e00c((struct Struct_0205d81c*)menu->window, 0);
-        if (elem != NULL) {
-            func_02050400(elem, 1);
-            func_0205042c(elem, page);
-            func_02050440(elem, menu->field32);
+    if (arg0->unknown_32_ > 1) {
+        unsigned char* var25 = func_0205e00c((struct Struct_0205d81c*)arg0->unknown_90_, 0);
+        if (var25 != NULL) {
+            func_02050400(var25, 1);
+            func_0205042c(var25, var23);
+            func_02050440(var25, arg0->unknown_32_);
         }
     }
-    if (menu->field32 > 1) {
-        func_0205d304(menu->window, buf, 0, 0, 1, 1, 0, 0);
+    if (arg0->unknown_32_ > 1) {
+        func_0205d304(arg0->unknown_90_, var13, 0, 0, 1, 1, 0, 0);
     } else {
-        func_0205d304(menu->window, buf, 0, 0, 0, 1, 0, 0);
+        func_0205d304(arg0->unknown_90_, var13, 0, 0, 0, 1, 0, 0);
     }
-    int field32 = menu->field32;
-    struct ListWindow0217dd60* window = menu->window;
-    window->field8 = field32;
-    window->field58 = field32;
-    func_0205ba68((struct Struct_0205ba68*)((char*)window + 4), 1, 6, 0);
-    func_0205ba68((struct Struct_0205ba68*)((char*)window + 0x54), 1, 6, 0);
-    unsigned char itemCount = menu->itemCount;
-    func_0205bacc((struct Node0205bacc*)((char*)window + 4), itemCount);
-    func_0205bacc((struct Node0205bacc*)((char*)window + 0x54), itemCount);
-    window->field94 = 1;
-    window->field95 = 1;
+    int var26 = arg0->unknown_32_;
+    struct Struct_ov003_0217dd60* var27 = arg0->unknown_90_;
+    var27->unknown_8_ = var26;
+    var27->unknown_58_ = var26;
+    func_0205ba68((struct Struct_0205ba68*)((char*)var27 + 4), 1, 6, 0);
+    func_0205ba68((struct Struct_0205ba68*)((char*)var27 + 0x54), 1, 6, 0);
+    unsigned char var28 = arg0->unknown_30_;
+    func_0205bacc((struct Struct_0205bacc*)((char*)var27 + 4), var28);
+    func_0205bacc((struct Struct_0205bacc*)((char*)var27 + 0x54), var28);
+    var27->unknown_94_ = 1;
+    var27->unknown_95_ = 1;
 }
 #endif

@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct Obj0224e5c4_02213054 { unsigned char pad[0x17]; unsigned char field17; unsigned char data18[10]; };
-struct Glob0224e5c4_02213054 { unsigned char pad[0xc]; Obj0224e5c4_02213054* pField; };
-extern Glob0224e5c4_02213054 data_ov031_0224e5c4;
+struct Struct_ov031_02213054 { unsigned char unknown_0_[0x17]; unsigned char unknown_17_; unsigned char unknown_18_[10]; };
+struct Struct_ov031_0224e5c4_4 { unsigned char unknown_0_[0xc]; Struct_ov031_02213054* unknown_c_; };
+extern Struct_ov031_0224e5c4_4 data_ov031_0224e5c4;
 extern "C" int func_ov031_022134b0(void);
 
 // USA: func_ov031_02213054
-extern "C" ARM int func_ov031_02213054(void* buf) {
-	int result = 0;
-	unsigned int v = func_ov031_022134b0();
-	if (v >= 0xa && v <= 0x10) {
-		Obj0224e5c4_02213054* p = data_ov031_0224e5c4.pField;
-		if (p->field17 == 4 || p->field17 == 8) {
-			VectorizedInvertedMemcpy(p->data18, buf, 0xa);
-			result = 1;
+extern "C" ARM int func_ov031_02213054(void* arg0) {
+	int var0 = 0;
+	unsigned int var1 = func_ov031_022134b0();
+	if (var1 >= 0xa && var1 <= 0x10) {
+		Struct_ov031_02213054* var2 = data_ov031_0224e5c4.unknown_c_;
+		if (var2->unknown_17_ == 4 || var2->unknown_17_ == 8) {
+			VectorizedInvertedMemcpy(var2->unknown_18_, arg0, 0xa);
+			var0 = 1;
 		}
 	}
-	return result;
+	return var0;
 }

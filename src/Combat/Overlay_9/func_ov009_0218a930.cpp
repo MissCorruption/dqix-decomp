@@ -10,13 +10,13 @@
 #endif
 
 // USA: func_ov009_0218a930
-extern "C" ARM int func_ov009_0218a930(char* self, int amount) {
-    short v = *(short*)(self + COUNTER_OFFSET);
-    if (v > amount) {
-        *(short*)(self + COUNTER_OFFSET) = v - amount;
+extern "C" ARM int func_ov009_0218a930(char* arg0, int arg1) {
+    short var0 = *(short*)(arg0 + COUNTER_OFFSET);
+    if (var0 > arg1) {
+        *(short*)(arg0 + COUNTER_OFFSET) = var0 - arg1;
         goto ret1;
     }
-    *(short*)(self + COUNTER_OFFSET) = 0;
+    *(short*)(arg0 + COUNTER_OFFSET) = 0;
     return 0;
 ret1:
     return 1;

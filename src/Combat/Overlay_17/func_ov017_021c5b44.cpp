@@ -2,79 +2,79 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" GameObject* func_ov017_021a278c(void* unused, int val);
-struct ListHead02046b38;
-struct ListNode02046b38;
-extern "C" int func_02046b38(struct ListHead02046b38* list, struct ListNode02046b38* target);
-extern "C" void func_ov017_021b6f18(void* node);
-extern "C" void func_ov017_02196c08(unsigned char* obj);
-extern "C" bool func_ov017_021b6e70(void* obj, int combatantId);
-extern "C" void func_ov017_021b7104(unsigned char* dst, void* src);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
+extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+struct Struct_02046b38;
+struct Struct_02046b38_2;
+extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
+extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void func_ov017_02196c08(unsigned char* arg0);
+extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
+extern "C" void func_ov017_021b7104(unsigned char* arg0, void* arg1);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
 
-struct Ctx021c5b44 {
+struct Struct_ov017_021c5b44 {
 #if defined(jpn)
-    unsigned char pad0[0x4ec];
+    unsigned char unknown_0_[0x4ec];
 #else
-    unsigned char pad0[0x6fc];
+    unsigned char unknown1_0_[0x6fc];
 #endif
-    void* list6fc;
-    unsigned char pad2[0x718 - 0x6fc - 4];
-    void* node718;
+    void* unknown_6fc_;
+    unsigned char unknown_700_[0x718 - 0x6fc - 4];
+    void* unknown_718_;
 };
 
-struct Buf021c5b44 {
-    unsigned char field0;
-    unsigned char field1;
-    unsigned short field2;
-    unsigned short field4;
-    unsigned char pad6[2];
-    unsigned int field8;
-    unsigned char fieldc;
-    unsigned char fieldd;
-    unsigned char fielde;
-    unsigned char fieldf;
-    short field10;
-    unsigned char field12;
-    unsigned char pad13;
-    unsigned int field14;
+struct Struct_ov017_021c5b44_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[2];
+    unsigned int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    unsigned int unknown_14_;
 };
 
 // USA: func_ov017_021c5b44
-extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int combatantId, unsigned int arg2, unsigned char arg3, unsigned char arg4) {
+extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned int arg2, unsigned char arg3, unsigned char arg4) {
     GameState::GetInstance();
-    void* baseRaw = (void*)(int)((int)GetGameResources());
-    struct Ctx021c5b44* ctx = (struct Ctx021c5b44*)((char*)baseRaw + 0x3000);
-    int id2 = -1;
-    void* list = ctx->list6fc;
-    void* node = ctx->node718;
+    void* var0 = (void*)(int)((int)GetGameResources());
+    struct Struct_ov017_021c5b44* var1 = (struct Struct_ov017_021c5b44*)((char*)var0 + 0x3000);
+    int var2 = -1;
+    void* var3 = var1->unknown_6fc_;
+    void* var4 = var1->unknown_718_;
 
-    GameObject* combatant = func_ov017_021a278c(baseRaw, combatantId);
-    if (combatant != 0) {
-        id2 = combatant->obj3D_.unknown_4_;
+    GameObject* var5 = func_ov017_021a278c(var0, arg1);
+    if (var5 != 0) {
+        var2 = var5->obj3D_.unknown_4_;
     }
 
-    if (!func_02046b38((struct ListHead02046b38*)list, (struct ListNode02046b38*)node)) {
-        func_ov017_021b6f18(node);
+    if (!func_02046b38((struct Struct_02046b38*)var3, (struct Struct_02046b38_2*)var4)) {
+        func_ov017_021b6f18(var4);
 
-        struct Buf021c5b44 buf;
-        func_ov017_02196c08((unsigned char*)&buf);
+        struct Struct_ov017_021c5b44_2 var6;
+        func_ov017_02196c08((unsigned char*)&var6);
 
-        buf.field0 = 0;
-        buf.field1 = arg0;
-        buf.field4 = combatantId;
-        buf.field2 = id2;
-        buf.field8 = arg2;
-        buf.fieldf = arg3;
+        var6.unknown_0_ = 0;
+        var6.unknown_1_ = arg0;
+        var6.unknown_4_ = arg1;
+        var6.unknown_2_ = var2;
+        var6.unknown_8_ = arg2;
+        var6.unknown_f_ = arg3;
 
-        func_ov017_021b6e70(&buf, id2);
+        func_ov017_021b6e70(&var6, var2);
 
-        buf.field12 = arg4;
+        var6.unknown_12_ = arg4;
 
-        func_ov017_021b7104((unsigned char*)node, &buf);
+        func_ov017_021b7104((unsigned char*)var4, &var6);
 
-        func_020469b4((struct TailList020469b4*)list, (struct TailNode020469b4*)node);
+        func_020469b4((struct Struct_0201bdac_2*)var3, (struct Struct_0201bdac*)var4);
     }
 }

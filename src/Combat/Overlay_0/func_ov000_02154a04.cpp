@@ -4,20 +4,20 @@
 #include <Util/Random.h>
 #include <std_library_functions.h>
 
-struct TargetDefinition {
-    char pad0[8];
-    unsigned int field8 : 8;
-    unsigned int side : 2;
-    unsigned int field8a : 22;
-    char pad1[8];
-    unsigned int field14 : 28;
-    unsigned int selection : 4;
-    int field18;
-    unsigned int field1c : 14;
-    unsigned int repetitions : 5;
-    unsigned int field1ca : 13;
+struct Struct_ov000_02154a04 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 2;
+    unsigned int unknown_9_2_ : 22;
+    char unknown_c_[8];
+    unsigned int unknown_14_0_ : 28;
+    unsigned int unknown_17_4_ : 4;
+    int unknown_18_;
+    unsigned int unknown_1c_0_ : 14;
+    unsigned int unknown_1d_6_ : 5;
+    unsigned int unknown_1e_3_ : 13;
 };
-struct CombatantGroup { char pad[0x17c]; unsigned char group; };
+struct Struct_ov000_02154a04_2 { char unknown_0_[0x17c]; unsigned char unknown_17c_; };
 
 extern "C" void* func_02079e2c(char*, int);
 extern "C" int func_ov000_0215e9fc(Random*, short*, int, int);
@@ -31,53 +31,53 @@ extern "C" signed char func_ov000_0215fbe0(Random*, int);
 extern short data_ov000_02182af4[8];
 
 // USA: func_ov000_02154a04
-extern "C" ARM int func_ov000_02154a04(Random* random, int combatantId, int actionId, short* targets) {
-    int count = 0;
+extern "C" ARM int func_ov000_02154a04(Random* arg0, int arg1, int arg2, short* arg3) {
+    int var0 = 0;
     GameState::GetInstance();
-    TargetDefinition* definition = (TargetDefinition*)func_02079e2c((char*)func_020797dc(), (short)actionId);
-    if (!definition) return 0;
-    unsigned int side = definition->side;
-    unsigned int selection = definition->selection;
-    if (selection == 1) {
-        targets[count++] = combatantId;
-    } else if (side == 1) {
-        if (selection == 2 || selection == 5) {
-            int available = func_ov000_0215e9fc(random, targets, 8, 1);
-            targets[0] = func_ov000_02154f30(random, (short)combatantId, available, targets);
-            count = 1;
-        } else if (selection == 4) {
-            count = func_ov000_0215e9fc(random, targets, 8, 1);
-        } else if (selection == 3) {
-            count = func_ov000_0215e9fc(random, targets, 8, 1);
+    Struct_ov000_02154a04* var1 = (Struct_ov000_02154a04*)func_02079e2c((char*)func_020797dc(), (short)arg2);
+    if (!var1) return 0;
+    unsigned int var2 = var1->unknown_9_0_;
+    unsigned int var3 = var1->unknown_17_4_;
+    if (var3 == 1) {
+        arg3[var0++] = arg1;
+    } else if (var2 == 1) {
+        if (var3 == 2 || var3 == 5) {
+            int var4 = func_ov000_0215e9fc(arg0, arg3, 8, 1);
+            arg3[0] = func_ov000_02154f30(arg0, (short)arg1, var4, arg3);
+            var0 = 1;
+        } else if (var3 == 4) {
+            var0 = func_ov000_0215e9fc(arg0, arg3, 8, 1);
+        } else if (var3 == 3) {
+            var0 = func_ov000_0215e9fc(arg0, arg3, 8, 1);
         }
-    } else if (side == 2) {
-        if (selection == 2) {
-            short chosen = 0;
-            func_ov000_02153d10(random, &chosen);
-            targets[count++] = chosen;
-        } else if (selection == 8) {
-            short chosen = 0;
-            func_ov000_02153d78(random, (short)combatantId, &chosen);
-            targets[count++] = chosen;
-        } else if (selection == 4) {
-            GameObject* combatant = func_0200fea4(GameState::GetInstance(), (short)combatantId);
-            count = func_ov000_02153e78(random, targets, 8, ((CombatantGroup*)combatant)->group, 1);
-        } else if (selection == 3) {
-            count = func_ov000_0215eb1c(random, targets, 8, 1);
+    } else if (var2 == 2) {
+        if (var3 == 2) {
+            short var5 = 0;
+            func_ov000_02153d10(arg0, &var5);
+            arg3[var0++] = var5;
+        } else if (var3 == 8) {
+            short var6 = 0;
+            func_ov000_02153d78(arg0, (short)arg1, &var6);
+            arg3[var0++] = var6;
+        } else if (var3 == 4) {
+            GameObject* var7 = func_0200fea4(GameState::GetInstance(), (short)arg1);
+            var0 = func_ov000_02153e78(arg0, arg3, 8, ((Struct_ov000_02154a04_2*)var7)->unknown_17c_, 1);
+        } else if (var3 == 3) {
+            var0 = func_ov000_0215eb1c(arg0, arg3, 8, 1);
         }
     }
-    short selected[8];
-    unsigned short* source = (unsigned short*)data_ov000_02182af4;
-    int copyCount = 8;
-    unsigned short* destination = (unsigned short*)selected;
-    do { *destination = *source++; destination++; } while (--copyCount);
-    short* chosenTargets = selected;
-    int repetitions = func_ov000_0215fbe0(random, (signed char)definition->repetitions);
-    if (repetitions > 0) {
-        for (int i = 0; i < repetitions; i++) chosenTargets[i] = targets[NextRandomMax(random, count)];
-        memset(targets, 0, count * 2);
-        memcpy(targets, selected, repetitions * 2);
-        count = repetitions;
+    short var8[8];
+    unsigned short* var9 = (unsigned short*)data_ov000_02182af4;
+    int var10 = 8;
+    unsigned short* var11 = (unsigned short*)var8;
+    do { *var11 = *var9++; var11++; } while (--var10);
+    short* var12 = var8;
+    int var13 = func_ov000_0215fbe0(arg0, (signed char)var1->unknown_1d_6_);
+    if (var13 > 0) {
+        for (int var14 = 0; var14 < var13; var14++) var12[var14] = arg3[NextRandomMax(arg0, var0)];
+        memset(arg3, 0, var0 * 2);
+        memcpy(arg3, var8, var13 * 2);
+        var0 = var13;
     }
-    return count;
+    return var0;
 }

@@ -1,69 +1,69 @@
 #include <globaldefs.h>
 
-struct DispatchObj020a0dec {
-    int selector;
+struct Struct_0202ef14_2 {
+    int unknown_0_;
 };
 
 extern "C" int func_020a10a8(int*);
-extern "C" void func_020a0dec(struct DispatchObj020a0dec*);
+extern "C" void func_020a0dec(struct Struct_0202ef14_2*);
 extern "C" void func_0202e894(void*, int);
 int fix32ReduceAngle0To2Pi(int);
 
-struct Obj0202ef14 {
-    char pad[0x168];
+struct Struct_0202ef14 {
+    char unknown_0_[0x168];
 };
 
-typedef void (Obj0202ef14::*DispatchFn0202ef14)(void*);
+typedef void (Struct_0202ef14::*Type_02013158)(void*);
 
-struct DispatchTable0202ef14 {
-    DispatchFn0202ef14 fns[3];
+struct Struct_020e73cc {
+    Type_02013158 unknown_0_[3];
 };
 
-extern const DispatchTable0202ef14 data_020e73cc;
-extern const DispatchTable0202ef14 data_020e73e4;
+extern const Struct_020e73cc data_020e73cc;
+extern const Struct_020e73cc data_020e73e4;
 
 // USA: func_0202ef14
-extern "C" ARM void func_0202ef14(struct Obj0202ef14* self) {
-    char* obj = (char*)self;
-    unsigned int flags = *(unsigned int*)(obj + 0x168);
-    struct DispatchObj020a0dec* arr[3];
-    arr[0] = (struct DispatchObj020a0dec*)(obj + 0x16c);
-    arr[1] = (struct DispatchObj020a0dec*)(obj + 0x194);
-    arr[2] = (struct DispatchObj020a0dec*)(obj + 0x1bc);
+extern "C" ARM void func_0202ef14(struct Struct_0202ef14* arg0) {
+    char* var0 = (char*)arg0;
+    unsigned int var1 = *(unsigned int*)(var0 + 0x168);
+    struct Struct_0202ef14_2* var2[3];
+    var2[0] = (struct Struct_0202ef14_2*)(var0 + 0x16c);
+    var2[1] = (struct Struct_0202ef14_2*)(var0 + 0x194);
+    var2[2] = (struct Struct_0202ef14_2*)(var0 + 0x1bc);
 
-    int i;
-    if (flags & 2) {
-        struct DispatchTable0202ef14 table = data_020e73e4;
-        for (i = 0; i < 3; i++) {
-            if (func_020a10a8((int*)arr[i])) {
-                func_020a0dec(arr[i]);
-                void* arg = (void*)((char*)arr[i] + 4);
-                (self->*table.fns[i])(arg);
+    int var3;
+    if (var1 & 2) {
+        struct Struct_020e73cc var4 = data_020e73e4;
+        for (var3 = 0; var3 < 3; var3++) {
+            if (func_020a10a8((int*)var2[var3])) {
+                func_020a0dec(var2[var3]);
+                void* var5 = (void*)((char*)var2[var3] + 4);
+                (arg0->*var4.unknown_0_[var3])(var5);
             }
         }
     } else {
-        struct DispatchTable0202ef14 table = data_020e73cc;
-        for (i = 0; i < 3; i++) {
-            if (func_020a10a8((int*)arr[i])) {
-                func_020a0dec(arr[i]);
-                void* arg = (void*)((char*)arr[i] + 4);
-                (self->*table.fns[i])(arg);
+        struct Struct_020e73cc var6 = data_020e73cc;
+        for (var3 = 0; var3 < 3; var3++) {
+            if (func_020a10a8((int*)var2[var3])) {
+                func_020a0dec(var2[var3]);
+                void* var7 = (void*)((char*)var2[var3] + 4);
+                (arg0->*var6.unknown_0_[var3])(var7);
             }
         }
     }
 
-    if (*(unsigned short*)(obj + 0x1ee) != 0) {
-        *(unsigned short*)(obj + 0x1ee) -= 1;
-        *(unsigned short*)(obj + 0x7c) = (unsigned short)(*(short*)(obj + 0x7c) + *(short*)(obj + 0x1ec));
+    if (*(unsigned short*)(var0 + 0x1ee) != 0) {
+        *(unsigned short*)(var0 + 0x1ee) -= 1;
+        *(unsigned short*)(var0 + 0x7c) = (unsigned short)(*(short*)(var0 + 0x7c) + *(short*)(var0 + 0x1ec));
     }
 
-    if (*(unsigned short*)(obj + 0x210) != 0) {
-        *(unsigned short*)(obj + 0x210) -= 1;
-        func_0202e894(obj, *(short*)(obj + 0x20e));
+    if (*(unsigned short*)(var0 + 0x210) != 0) {
+        *(unsigned short*)(var0 + 0x210) -= 1;
+        func_0202e894(var0, *(short*)(var0 + 0x20e));
     }
 
-    if (*(unsigned short*)(obj + 0x216) != 0) {
-        *(unsigned short*)(obj + 0x216) -= 1;
-        *(unsigned short*)(obj + 0x212) = (unsigned short)fix32ReduceAngle0To2Pi(*(short*)(obj + 0x212) + *(short*)(obj + 0x214));
+    if (*(unsigned short*)(var0 + 0x216) != 0) {
+        *(unsigned short*)(var0 + 0x216) -= 1;
+        *(unsigned short*)(var0 + 0x212) = (unsigned short)fix32ReduceAngle0To2Pi(*(short*)(var0 + 0x212) + *(short*)(var0 + 0x214));
     }
 }

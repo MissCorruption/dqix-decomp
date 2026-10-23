@@ -12,137 +12,137 @@
 #define data_ov017_021d7c90 data_ov017_021d846c
 #define data_ov017_021d7c95 data_ov017_021d8471
 enum {
-    kAreaList = 0x860, kInfoTag = 0x10, kMsgEntry = 0x1708, kMsgOut = 0x28, kMsgIn = 0x2c,
-    kMsgBusy = 0x868, kMsgKind = 0x86c, kMsgMode = 0x870, kMsgTimer = 0x4c, kMsgFlag = 0x17e2,
-    kTextSize = 0x800
+    Enum_ov017_021b8e8c_2112 = 0x860, Enum_ov017_021b8e8c_4 = 0x10, Enum_ov017_021b8e8c_6200 = 0x1708, Enum_ov017_021b8e8c_92 = 0x28, Enum_ov017_021b8e8c_96 = 0x2c,
+    Enum_ov017_021b8e8c_2456 = 0x868, Enum_ov017_021b8e8c_2460 = 0x86c, Enum_ov017_021b8e8c_2464 = 0x870, Enum_ov017_021b8e8c_140 = 0x4c, Enum_ov017_021b8e8c_6578 = 0x17e2,
+    Enum_ov017_021b8e8c_2400 = 0x800
 };
 #else
 enum {
-    kAreaList = 0x840, kInfoTag = 4, kMsgEntry = 0x1838, kMsgOut = 0x5c, kMsgIn = 0x60,
-    kMsgBusy = 0x998, kMsgKind = 0x99c, kMsgMode = 0x9a0, kMsgTimer = 0x8c, kMsgFlag = 0x19b2,
-    kTextSize = 0x960
+    Enum_ov017_021b8e8c_2112 = 0x840, Enum_ov017_021b8e8c_4 = 4, Enum_ov017_021b8e8c_6200 = 0x1838, Enum_ov017_021b8e8c_92 = 0x5c, Enum_ov017_021b8e8c_96 = 0x60,
+    Enum_ov017_021b8e8c_2456 = 0x998, Enum_ov017_021b8e8c_2460 = 0x99c, Enum_ov017_021b8e8c_2464 = 0x9a0, Enum_ov017_021b8e8c_140 = 0x8c, Enum_ov017_021b8e8c_6578 = 0x19b2,
+    Enum_ov017_021b8e8c_2400 = 0x960
 };
 #endif
 
-struct Obj020397cc;
-struct Obj0205eaa0;
-struct Obj020d7aa0;
-struct Vec3_020406f8;
-struct Node020406f8;
-struct Obj02033834;
-struct Owner02040a90;
-struct Struct0203cedc;
-struct Entry0209854c;
-struct TailList020469b4;
-struct TailNode020469b4;
-struct ListHead02046b60;
-struct Obj0208b8c4;
+struct Struct_02018300_3;
+struct Struct_02108760;
+struct Struct_020d7aa0_2;
+struct Struct_0203de84;
+struct Struct_0203de84_2;
+struct Struct_02033834_2;
+struct Struct_02040a90;
+struct Struct_0203ca24;
+struct Struct_0203d028_12;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+struct Struct_02038598_5;
+struct Struct_0208b8c4;
 
-struct Vec3_021b8e8c {
-    int x;
-    int y;
-    int z;
+struct Struct_ov017_021b8e8c {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Rec021b8e8c {
-    unsigned short id;
-    unsigned char pad2;
-    unsigned char kind;
+struct Struct_ov017_021b8e8c_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
 
-struct Entry021b8e8c {
-    unsigned int flags;
-    char pad4[0x10];
-    Struct0203cedc* combat;
+struct Struct_ov017_021b8e8c_3 {
+    unsigned int unknown_0_;
+    char unknown_4_[0x10];
+    Struct_0203ca24* unknown_14_;
 };
 
-struct Query021b8e8c {
-    int id;
-    char pad4[0x10];
-    int value;
-    char pad18[0x1c];
+struct Struct_ov017_021b8e8c_4 {
+    int unknown_0_;
+    char unknown_4_[0x10];
+    int unknown_14_;
+    char unknown_18_[0x1c];
 };
 
-struct Self021b8e8c {
-    unsigned char kind;
-    unsigned char done;
-    char pad2[6];
-    SafeAllocator allocA;
-    SafeAllocator allocB;
-    unsigned char timer[0xe4];
-    Rec021b8e8c* rec;
-    unsigned char* sub;
-    int state;
-    int task;
-    int f124;
-    unsigned char hasSub;
-    unsigned char subStep;
-    char pad12a[2];
-    int lastId;
-    unsigned char busy;
-    char pad131[6];
-    unsigned char finished;
-    unsigned char changed;
-    unsigned char quiet;
+struct Struct_ov017_021b8e8c_5 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[6];
+    SafeAllocator unknown_8_;
+    SafeAllocator unknown_1c_;
+    unsigned char unknown_30_[0xe4];
+    Struct_ov017_021b8e8c_2* unknown_114_;
+    unsigned char* unknown_118_;
+    int unknown_11c_;
+    int unknown_120_;
+    int unknown_124_;
+    unsigned char unknown_128_;
+    unsigned char unknown_129_;
+    char unknown_12a_[2];
+    int unknown_12c_;
+    unsigned char unknown_130_;
+    char unknown_131_[6];
+    unsigned char unknown_137_;
+    unsigned char unknown_138_;
+    unsigned char unknown_139_;
 };
 
 extern "C" int func_ov017_021959b4(void);
-extern "C" void func_ov017_021b8d80(Self021b8e8c* self);
+extern "C" void func_ov017_021b8d80(Struct_ov017_021b8e8c_5* arg0);
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" char* func_020421a0(void);
 extern "C" void* func_0203cf4c(void);
 extern "C" void* func_0205ec34(void);
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_02043204(char* obj);
-extern "C" void func_02043124(char* obj);
-extern "C" void func_020a27ac(void* obj);
-extern "C" void func_020397cc(Obj020397cc* obj, int arg1);
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void* func_0203df78(void* base, int key);
-extern "C" void func_020397c0(void* obj);
-extern "C" Obj020d7aa0* func_020d7a50(void);
-extern "C" void func_020d7aa0(struct Obj020d7aa0* obj);
-extern "C" int func_020981e4(int a, int id);
-extern "C" int func_02098268(int a, int x);
-extern "C" Vec3_021b8e8c func_020406f8(struct Node020406f8* n);
-extern "C" void func_02033834(struct Obj02033834* obj, int arg);
-extern "C" int func_0203dfdc(void* base, int key);
-extern "C" int func_02040a90(struct Owner02040a90* obj);
-extern "C" int func_02040528(int* obj);
-extern "C" void func_0203cedc(struct Struct0203cedc* obj, int b, int c);
-extern "C" int func_0201079c(char* obj);
-extern "C" int func_020107d0(char* obj);
-extern "C" Entry0209854c* func_0209854c(struct Entry0209854c* list, int target);
-extern "C" void func_ov017_021a967c(TailNode020469b4* node, int id);
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
-extern "C" int func_ov017_0218d2c4(int id);
-extern "C" void func_020a27b8(unsigned char* obj);
-extern "C" void func_ov008_02184754(void* obj);
-extern "C" int func_0206ec1c(int a, int b, unsigned char* c, unsigned int d);
-extern "C" void func_0206ec64(int a, int b, unsigned char* c, unsigned int d);
-extern "C" int func_ov017_021ba810(const void* code, unsigned int length, int id, int a3, int a4, int a5, int a6);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_02043124(char* arg0);
+extern "C" void func_020a27ac(void* arg0);
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void func_020397c0(void* arg0);
+extern "C" Struct_020d7aa0_2* func_020d7a50(void);
+extern "C" void func_020d7aa0(struct Struct_020d7aa0_2* arg0);
+extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int func_02098268(int arg0, int arg1);
+extern "C" Struct_ov017_021b8e8c func_020406f8(struct Struct_0203de84_2* arg0);
+extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
+extern "C" int func_0203dfdc(void* arg0, int arg1);
+extern "C" int func_02040a90(struct Struct_02040a90* arg0);
+extern "C" int func_02040528(int* arg0);
+extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
+extern "C" int func_0201079c(char* arg0);
+extern "C" int func_020107d0(char* arg0);
+extern "C" Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
+extern "C" void func_ov017_021a967c(Struct_0201bdac* arg0, int arg1);
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" int func_ov017_0218d2c4(int arg0);
+extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void func_ov008_02184754(void* arg0);
+extern "C" int func_0206ec1c(int arg0, int arg1, unsigned char* arg2, unsigned int arg3);
+extern "C" void func_0206ec64(int arg0, int arg1, unsigned char* arg2, unsigned int arg3);
+extern "C" int func_ov017_021ba810(const void* arg0, unsigned int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 extern "C" unsigned char* func_0206f504(void);
-extern "C" void func_0206f510(char* obj);
-extern "C" int func_0206f550(unsigned char* s, char* in, char* out);
-extern "C" int func_0206f6cc(unsigned char* obj, int arg);
-extern "C" int func_02046b60(ListHead02046b60* list, int id);
-extern "C" void func_020a0cc4(unsigned int size);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_0208b8c4(struct Obj0208b8c4* obj, SafeAllocator* allocator);
+extern "C" void func_0206f510(char* arg0);
+extern "C" int func_0206f550(unsigned char* arg0, char* arg1, char* arg2);
+extern "C" int func_0206f6cc(unsigned char* arg0, int arg1);
+extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(void* obj, char* buffer, int a);
+extern "C" void func_0204500c(void* arg0, char* arg1, int arg2);
 #else
-extern "C" void func_0204500c(void* obj, char* buffer, int a, int b);
+extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
 #endif
-extern "C" void func_0208bb78(void* timer, unsigned int ticks);
-extern "C" int func_020649b0(void* a, int mode, void* c);
-extern "C" void func_0206f81c(void* p);
-extern "C" void func_ov008_02184a3c(char* obj, unsigned char value);
-extern "C" void func_0208beb4(unsigned char* obj);
-extern "C" void func_ov017_021bd38c(void* obj, int a, int b);
+extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
+extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" void func_0206f81c(void* arg0);
+extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
+extern "C" void func_0208beb4(unsigned char* arg0);
+extern "C" void func_ov017_021bd38c(void* arg0, int arg1, int arg2);
 
-extern "C" void __clear(void* buf, int n);
+extern "C" void __clear(void* arg0, int arg1);
 
 extern char data_02108760;
 extern char data_ov017_021d7c90;
@@ -151,338 +151,338 @@ extern char data_ov017_021d7cad;
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov017_021b8e8c
-extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* list) {
-    if (self->rec == NULL) {
-        self->done = 1;
+extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Struct_02038598_5* arg1) {
+    if (arg0->unknown_114_ == NULL) {
+        arg0->unknown_1_ = 1;
         return;
     }
 
-    GameState* gs = GameState::GetInstance();
-    GameResources* res = GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    unsigned short* area = func_02012fe4();
-    char* msg = func_020421a0();
-    void* table = func_0203cf4c();
-    GameObject* leader = gs->GetUnknownGameObject();
-    void* events = func_0205ec34();
-    void* hud;
-    unsigned short areaId = *area;
-    hud = (void*)func_020100f8((char*)gs);
-    unsigned char* nibbles = (unsigned char*)res->unknown_ptr_44c4;
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+    unsigned short* var3 = func_02012fe4();
+    char* var4 = func_020421a0();
+    void* var5 = func_0203cf4c();
+    GameObject* var6 = var0->GetUnknownGameObject();
+    void* var7 = func_0205ec34();
+    void* var8;
+    unsigned short var9 = *var3;
+    var8 = (void*)func_020100f8((char*)var0);
+    unsigned char* var10 = (unsigned char*)var1->unknown_ptr_44c4;
 
     if (func_ov017_021959b4() != 0) {
-        func_ov017_021b8d80(self);
-        func_02043204(msg);
-        func_02043124(msg);
-        func_020a27ac(hud);
-        ClearFlags00(res, 0x2000);
-        self->done = 1;
+        func_ov017_021b8d80(arg0);
+        func_02043204(var4);
+        func_02043124(var4);
+        func_020a27ac(var8);
+        ClearFlags00(var1, 0x2000);
+        arg0->unknown_1_ = 1;
         return;
     }
 
-    func_020397cc((Obj020397cc*)leader, 1);
+    func_020397cc((Struct_02018300_3*)var6, 1);
 
-    switch (self->state) {
+    switch (arg0->unknown_11c_) {
     case 0: {
-        if (self->quiet == 0) {
-            func_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
+        if (arg0->unknown_139_ == 0) {
+            func_0205eaa0((Struct_02108760*)&data_02108760, 1, 0);
         }
-        *(short*)((char*)leader + 0xb2) = 0;
-        Vec3_021b8e8c from = *(Vec3_021b8e8c*)((char*)leader + 0x44);
-        Entry021b8e8c* entry = (Entry021b8e8c*)func_0203df78(table, self->rec->id);
-        if (entry == NULL) {
-            func_020397c0(leader);
-            if (hud != NULL) {
-                func_020a27ac(hud);
+        *(short*)((char*)var6 + 0xb2) = 0;
+        Struct_ov017_021b8e8c var11 = *(Struct_ov017_021b8e8c*)((char*)var6 + 0x44);
+        Struct_ov017_021b8e8c_3* var12 = (Struct_ov017_021b8e8c_3*)func_0203df78(var5, arg0->unknown_114_->unknown_0_);
+        if (var12 == NULL) {
+            func_020397c0(var6);
+            if (var8 != NULL) {
+                func_020a27ac(var8);
             }
-            self->done = 1;
+            arg0->unknown_1_ = 1;
             break;
         }
         func_020d7aa0(func_020d7a50());
-        self->lastId = self->rec->id;
-        if (func_020981e4((int)((char*)area + kAreaList), areaId) &&
-            func_02098268((int)((char*)area + kAreaList), self->rec->id)) {
-            self->hasSub = 1;
+        arg0->unknown_12c_ = arg0->unknown_114_->unknown_0_;
+        if (func_020981e4((int)((char*)var3 + Enum_ov017_021b8e8c_2112), var9) &&
+            func_02098268((int)((char*)var3 + Enum_ov017_021b8e8c_2112), arg0->unknown_114_->unknown_0_)) {
+            arg0->unknown_128_ = 1;
         }
-        Vec3_021b8e8c to = func_020406f8((Node020406f8*)entry);
-        func_02033834((Obj02033834*)leader, fix32ReduceAngle0To2Pi(fix32_Atan2(to.x - from.x, to.z - from.z)));
-        *(int*)(msg + kMsgEntry) = func_0203dfdc(table, self->rec->id);
-        *(int*)(msg + kMsgEntry + 4) = func_02040a90((Owner02040a90*)entry);
-        char* info = (char*)func_02040528((int*)entry);
-        if (info != NULL && strstr(info + kInfoTag, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
-            entry->combat != NULL) {
-            func_0203cedc(entry->combat, 1, 0);
+        Struct_ov017_021b8e8c var13 = func_020406f8((Struct_0203de84_2*)var12);
+        func_02033834((Struct_02033834_2*)var6, fix32ReduceAngle0To2Pi(fix32_Atan2(var13.unknown_0_ - var11.unknown_0_, var13.unknown_8_ - var11.unknown_8_)));
+        *(int*)(var4 + Enum_ov017_021b8e8c_6200) = func_0203dfdc(var5, arg0->unknown_114_->unknown_0_);
+        *(int*)(var4 + Enum_ov017_021b8e8c_6200 + 4) = func_02040a90((Struct_02040a90*)var12);
+        char* var14 = (char*)func_02040528((int*)var12);
+        if (var14 != NULL && strstr(var14 + Enum_ov017_021b8e8c_4, &data_ov017_021d7c90) != NULL && !(var12->unknown_0_ & 0x4000) &&
+            var12->unknown_14_ != NULL) {
+            func_0203cedc(var12->unknown_14_, 1, 0);
         }
-        int tableId = func_0201079c((char*)gs);
-        char prefix[0xc];
-        strcpy(prefix, *(char**)((char*)area + 8) + 5);
-        prefix[3] = 0;
-        func_020397cc((Obj020397cc*)leader, 1);
-        if (self->hasSub != 0) {
-            TailList020469b4* tail;
-            TailNode020469b4* node = (TailNode020469b4*)res->unknown_ptr_array_3afc[0x22];
-            tail = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
-            Entry0209854c* found = func_0209854c((Entry0209854c*)((char*)area + kAreaList), *(unsigned short*)info);
-            func_ov017_021a967c(node, -1);
-            *(Entry0209854c**)((char*)node + 0x54) = found;
-            func_020469b4(tail, node);
-            self->done = 1;
+        int var15 = func_0201079c((char*)var0);
+        char var16[0xc];
+        strcpy(var16, *(char**)((char*)var3 + 8) + 5);
+        var16[3] = 0;
+        func_020397cc((Struct_02018300_3*)var6, 1);
+        if (arg0->unknown_128_ != 0) {
+            Struct_0201bdac_2* var17;
+            Struct_0201bdac* var18 = (Struct_0201bdac*)var1->unknown_ptr_array_3afc[0x22];
+            var17 = (Struct_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
+            Struct_0203d028_12* var19 = func_0209854c((Struct_0203d028_12*)((char*)var3 + Enum_ov017_021b8e8c_2112), *(unsigned short*)var14);
+            func_ov017_021a967c(var18, -1);
+            *(Struct_0203d028_12**)((char*)var18 + 0x54) = var19;
+            func_020469b4(var17, var18);
+            arg0->unknown_1_ = 1;
             break;
         }
-        char path[0x50];
-        sprintf(path, &data_ov017_021d7c95, prefix, func_ov017_0218d2c4(tableId));
-        if (hud != NULL) {
-            func_020a27b8((unsigned char*)hud);
+        char var20[0x50];
+        sprintf(var20, &data_ov017_021d7c95, var16, func_ov017_0218d2c4(var15));
+        if (var8 != NULL) {
+            func_020a27b8((unsigned char*)var8);
         }
 #if defined(jpn)
-        self->task = loader->QueueLoadFile(path, NULL);
+        arg0->unknown_120_ = var2->QueueLoadFile(var20, NULL);
 #else
-        char name[0x10];
-        __clear(name, sizeof(name));
-        sprintf(name, &data_ov017_021d7cad, *(unsigned short*)info);
-        self->task = loader->QueueLoadFileInGP2(path, name, NULL);
+        char var21[0x10];
+        __clear(var21, sizeof(var21));
+        sprintf(var21, &data_ov017_021d7cad, *(unsigned short*)var14);
+        arg0->unknown_120_ = var2->QueueLoadFileInGP2(var20, var21, NULL);
 #endif
-        self->state = 1;
+        arg0->unknown_11c_ = 1;
         break;
     }
     case 1: {
-        if (self->hasSub != 0) {
-            func_ov008_02184754(self->sub);
+        if (arg0->unknown_128_ != 0) {
+            func_ov008_02184754(arg0->unknown_118_);
         }
-        if (loader->GetTaskStatus(self->task) == 0) {
+        if (var2->GetTaskStatus(arg0->unknown_120_) == 0) {
             break;
         }
-        if (loader->GetDetailedTaskStatus(self->task) != 2) {
-            loader->RemoveTask(self->task);
-            self->task = -1;
-            func_020397c0(leader);
-            if (hud != NULL) {
-                func_020a27ac(hud);
+        if (var2->GetDetailedTaskStatus(arg0->unknown_120_) != 2) {
+            var2->RemoveTask(arg0->unknown_120_);
+            arg0->unknown_120_ = -1;
+            func_020397c0(var6);
+            if (var8 != NULL) {
+                func_020a27ac(var8);
             }
-            self->done = 1;
-            func_02043204(msg);
-            func_02043124(msg);
+            arg0->unknown_1_ = 1;
+            func_02043204(var4);
+            func_02043124(var4);
             break;
         }
-        void* data;
-        unsigned int length;
-        loader->GetLoadedFileByID(self->task, &data, &length);
-        int arg = func_020107d0((char*)gs);
-        unsigned short id = self->rec->id;
-        int lo = func_0206ec1c((int)nibbles, id, nibbles, 0x80);
-        int hi = func_0206ec1c((int)nibbles, id, nibbles + 0x80, 0x80);
-        char* text = (char*)func_ov017_021ba810(data, length, id, arg, self->f124, lo, hi);
-        if (text == NULL) {
-            loader->RemoveTask(self->task);
-            self->task = -1;
-            func_020397c0(leader);
-            if (hud != NULL) {
-                func_020a27ac(hud);
+        void* var22;
+        unsigned int var23;
+        var2->GetLoadedFileByID(arg0->unknown_120_, &var22, &var23);
+        int var24 = func_020107d0((char*)var0);
+        unsigned short var25 = arg0->unknown_114_->unknown_0_;
+        int var26 = func_0206ec1c((int)var10, var25, var10, 0x80);
+        int var27 = func_0206ec1c((int)var10, var25, var10 + 0x80, 0x80);
+        char* var28 = (char*)func_ov017_021ba810(var22, var23, var25, var24, arg0->unknown_124_, var26, var27);
+        if (var28 == NULL) {
+            var2->RemoveTask(arg0->unknown_120_);
+            arg0->unknown_120_ = -1;
+            func_020397c0(var6);
+            if (var8 != NULL) {
+                func_020a27ac(var8);
             }
-            self->done = 1;
-            func_02043204(msg);
-            func_02043124(msg);
+            arg0->unknown_1_ = 1;
+            func_02043204(var4);
+            func_02043124(var4);
             break;
         }
-        func_0206ec64((int)nibbles, id, nibbles, 0x80);
-        func_0206ec64((int)nibbles, id, nibbles + 0x80, 0x80);
-        *(int*)(msg + kMsgKind) = self->rec->kind;
-        char* out = *(char**)(msg + kMsgOut);
-        char* in = *(char**)(msg + kMsgIn);
-        memset(out, 0, kTextSize);
-        memset(in, 0, kTextSize);
+        func_0206ec64((int)var10, var25, var10, 0x80);
+        func_0206ec64((int)var10, var25, var10 + 0x80, 0x80);
+        *(int*)(var4 + Enum_ov017_021b8e8c_2460) = arg0->unknown_114_->unknown_3_;
+        char* var29 = *(char**)(var4 + Enum_ov017_021b8e8c_92);
+        char* var30 = *(char**)(var4 + Enum_ov017_021b8e8c_96);
+        memset(var29, 0, Enum_ov017_021b8e8c_2400);
+        memset(var30, 0, Enum_ov017_021b8e8c_2400);
 #if defined(jpn)
-        Rec021b8e8c* rec = self->rec;
-        if (strlen(text) + strlen((char*)rec + 4) >= kTextSize) {
-            text[kTextSize - 1 - strlen((char*)rec + 4)] = 0;
+        Struct_ov017_021b8e8c_2* var31 = arg0->unknown_114_;
+        if (strlen(var28) + strlen((char*)var31 + 4) >= Enum_ov017_021b8e8c_2400) {
+            var28[Enum_ov017_021b8e8c_2400 - 1 - strlen((char*)var31 + 4)] = 0;
         }
 #else
-        if (strlen(text) >= kTextSize) {
-            text[kTextSize - 1] = 0;
+        if (strlen(var28) >= Enum_ov017_021b8e8c_2400) {
+            var28[Enum_ov017_021b8e8c_2400 - 1] = 0;
         }
 #endif
-        func_02042058(in, text);
-        loader->RemoveTask(self->task);
-        self->task = -1;
-        unsigned char* script = func_0206f504();
-        func_0206f510((char*)script);
-        if (func_0206f550(script, in, out) != 0 && func_0206f6cc(script, 0) == 0) {
-            self->state = 8;
+        func_02042058(var30, var28);
+        var2->RemoveTask(arg0->unknown_120_);
+        arg0->unknown_120_ = -1;
+        unsigned char* var32 = func_0206f504();
+        func_0206f510((char*)var32);
+        if (func_0206f550(var32, var30, var29) != 0 && func_0206f6cc(var32, 0) == 0) {
+            arg0->unknown_11c_ = 8;
             func_02094b34(func_02094a00(), 0x6f, 0x1388, 1, 1);
             break;
         }
-        self->state = 3;
+        arg0->unknown_11c_ = 3;
         break;
     }
     case 8:
         if (func_02094b4c(func_02094a00()) != 0) {
-            if (hud != NULL) {
-                func_020a27ac(hud);
+            if (var8 != NULL) {
+                func_020a27ac(var8);
             }
-            if (func_02046b60(list, 0x2b) != 0 && hud != NULL) {
-                func_020a27b8((unsigned char*)hud);
+            if (func_02046b60(arg1, 0x2b) != 0 && var8 != NULL) {
+                func_020a27b8((unsigned char*)var8);
             }
-            self->state = -1;
-            self->done = 1;
+            arg0->unknown_11c_ = -1;
+            arg0->unknown_1_ = 1;
         }
         break;
     case 3: {
-        if (self->hasSub != 0) {
-            func_ov008_02184754(self->sub);
+        if (arg0->unknown_128_ != 0) {
+            func_ov008_02184754(arg0->unknown_118_);
         }
-        FontBankLoader* fade = func_02094a00();
-        if (self->hasSub != 0) {
-            func_02094b40(fade);
-            func_02094b34(fade, 0x6e, 0x1ff, 0, 0);
+        Struct_0208cb08* var33 = func_02094a00();
+        if (arg0->unknown_128_ != 0) {
+            func_02094b40(var33);
+            func_02094b34(var33, 0x6e, 0x1ff, 0, 0);
         } else {
-            func_02094b34(fade, 0x6f, 0x1388, 1, 1);
+            func_02094b34(var33, 0x6f, 0x1388, 1, 1);
         }
-        self->state = 4;
+        arg0->unknown_11c_ = 4;
         break;
     }
     case 4:
-        if (self->hasSub != 0) {
-            func_ov008_02184754(self->sub);
+        if (arg0->unknown_128_ != 0) {
+            func_ov008_02184754(arg0->unknown_118_);
         }
         if (func_02094b4c(func_02094a00()) != 0) {
-            self->state = 2;
+            arg0->unknown_11c_ = 2;
         }
         break;
     case 2: {
         func_020a0cc4(0xa000);
-        self->allocA.CreateTypeA(func_02012d88(&data_02114e20, 0xa000), 0xa000);
-        func_0208b8c4((Obj0208b8c4*)self->timer, &self->allocA);
-        char* buffer = *(char**)(msg + kMsgOut);
-        int scroll = 1;
-        switch (areaId) {
+        arg0->unknown_8_.CreateTypeA(func_02012d88(&data_02114e20, 0xa000), 0xa000);
+        func_0208b8c4((Struct_0208b8c4*)arg0->unknown_30_, &arg0->unknown_8_);
+        char* var34 = *(char**)(var4 + Enum_ov017_021b8e8c_92);
+        int var35 = 1;
+        switch (var9) {
         case 1:
-            if (self->rec->id == 0xc8) {
-                scroll = 0;
+            if (arg0->unknown_114_->unknown_0_ == 0xc8) {
+                var35 = 0;
             }
             break;
         case 0xc3b5:
         case 0xc419:
         case 0xc47d:
         case 0xc4e1: {
-            unsigned short id = self->rec->id;
-            if (id == 0xd0 || id == 0x63 || id == 0xd3) {
-                scroll = 0;
+            unsigned short var36 = arg0->unknown_114_->unknown_0_;
+            if (var36 == 0xd0 || var36 == 0x63 || var36 == 0xd3) {
+                var35 = 0;
             }
             break;
         }
         }
 #if defined(jpn)
-        func_0204500c(msg, buffer, scroll);
+        func_0204500c(var4, var34, var35);
 #else
-        func_0204500c(msg, buffer, scroll, 0xe3);
+        func_0204500c(var4, var34, var35, 0xe3);
 #endif
-        *(int*)(msg + kMsgBusy) = 1;
-        *(unsigned char*)(msg + kMsgFlag) = 1;
-        *(void**)(msg + kMsgTimer) = self->timer;
-        *(int*)(msg + kMsgKind) = self->rec->kind;
-        self->state = 5;
-        func_0208bb78(self->timer, gs->GetTickCount());
-        if (func_02046b60((ListHead02046b60*)res->unknown_ptr_array_36fc[0], 0x17) == 0) {
+        *(int*)(var4 + Enum_ov017_021b8e8c_2456) = 1;
+        *(unsigned char*)(var4 + Enum_ov017_021b8e8c_6578) = 1;
+        *(void**)(var4 + Enum_ov017_021b8e8c_140) = arg0->unknown_30_;
+        *(int*)(var4 + Enum_ov017_021b8e8c_2460) = arg0->unknown_114_->unknown_3_;
+        arg0->unknown_11c_ = 5;
+        func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
+        if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17) == 0) {
             break;
         }
-        if (hud != NULL) {
-            func_020a27ac(hud);
+        if (var8 != NULL) {
+            func_020a27ac(var8);
         }
-        self->done = 1;
-        func_ov017_021b8d80(self);
-        if (func_0203df78(table, self->rec->id) == NULL) {
+        arg0->unknown_1_ = 1;
+        func_ov017_021b8d80(arg0);
+        if (func_0203df78(var5, arg0->unknown_114_->unknown_0_) == NULL) {
             break;
         }
-        Query021b8e8c query;
-        query.id = self->rec->id;
-        query.value = self->f124;
-        if (func_020649b0(events, 1, &query) != 0) {
-            func_0206f81c(&query);
+        Struct_ov017_021b8e8c_4 var37;
+        var37.unknown_0_ = arg0->unknown_114_->unknown_0_;
+        var37.unknown_14_ = arg0->unknown_124_;
+        if (func_020649b0(var7, 1, &var37) != 0) {
+            func_0206f81c(&var37);
         }
         break;
     }
     case 5: {
-        if (self->busy != 0) {
+        if (arg0->unknown_130_ != 0) {
             break;
         }
-        func_0208bb78(self->timer, gs->GetTickCount());
-        if (self->hasSub != 0) {
-            func_ov008_02184754(self->sub);
+        func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
+        if (arg0->unknown_128_ != 0) {
+            func_ov008_02184754(arg0->unknown_118_);
         }
-        if (*(int*)(msg + kMsgMode) == 3) {
-            func_02043204(msg);
-            func_02043124(msg);
+        if (*(int*)(var4 + Enum_ov017_021b8e8c_2464) == 3) {
+            func_02043204(var4);
+            func_02043124(var4);
         }
-        if (*(int*)(msg + kMsgBusy) != 0) {
+        if (*(int*)(var4 + Enum_ov017_021b8e8c_2456) != 0) {
             break;
         }
-        if (self->hasSub != 0) {
-            if (self->subStep == 0) {
-                func_ov008_02184a3c((char*)self->sub, 0xd);
-                self->subStep++;
+        if (arg0->unknown_128_ != 0) {
+            if (arg0->unknown_129_ == 0) {
+                func_ov008_02184a3c((char*)arg0->unknown_118_, 0xd);
+                arg0->unknown_129_++;
                 break;
             }
-            if (self->sub[0xb10] != 0xe) {
+            if (arg0->unknown_118_[0xb10] != 0xe) {
                 break;
             }
-            self->subStep = 0;
+            arg0->unknown_129_ = 0;
         }
-        Entry021b8e8c* entry = (Entry021b8e8c*)func_0203df78(table, self->rec->id);
-        if (entry == NULL) {
+        Struct_ov017_021b8e8c_3* var38 = (Struct_ov017_021b8e8c_3*)func_0203df78(var5, arg0->unknown_114_->unknown_0_);
+        if (var38 == NULL) {
             break;
         }
-        char* info = (char*)func_02040528((int*)entry);
-        if (info != NULL && strstr(info + kInfoTag, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
-            entry->combat != NULL) {
-            func_0203cedc(entry->combat, 1, 1);
+        char* var39 = (char*)func_02040528((int*)var38);
+        if (var39 != NULL && strstr(var39 + Enum_ov017_021b8e8c_4, &data_ov017_021d7c90) != NULL && !(var38->unknown_0_ & 0x4000) &&
+            var38->unknown_14_ != NULL) {
+            func_0203cedc(var38->unknown_14_, 1, 1);
         }
-        self->state = 6;
+        arg0->unknown_11c_ = 6;
         break;
     }
     case 6: {
-        if (*(short*)(self->timer + 0xd2) < 0) {
-            func_020397c0(leader);
-            if (hud != NULL) {
-                func_020a27ac(hud);
+        if (*(short*)(arg0->unknown_30_ + 0xd2) < 0) {
+            func_020397c0(var6);
+            if (var8 != NULL) {
+                func_020a27ac(var8);
             }
-            self->done = 1;
-            func_ov017_021b8d80(self);
+            arg0->unknown_1_ = 1;
+            func_ov017_021b8d80(arg0);
         } else {
-            self->state = 7;
+            arg0->unknown_11c_ = 7;
         }
-        int was;
-        unsigned char* party = (unsigned char*)res->unknown_ptr_array_36fc[14];
-        was = 0;
-        if (party[2] != 0) {
-            was = 1;
+        int var40;
+        unsigned char* var41 = (unsigned char*)var1->unknown_ptr_array_36fc[14];
+        var40 = 0;
+        if (var41[2] != 0) {
+            var40 = 1;
         }
-        Query021b8e8c query;
-        query.id = self->rec->id;
-        query.value = self->f124;
-        if (func_020649b0(events, 1, &query) != 0) {
-            func_0206f81c(&query);
+        Struct_ov017_021b8e8c_4 var42;
+        var42.unknown_0_ = arg0->unknown_114_->unknown_0_;
+        var42.unknown_14_ = arg0->unknown_124_;
+        if (func_020649b0(var7, 1, &var42) != 0) {
+            func_0206f81c(&var42);
         }
-        if (was == 0 && party[2] != 0) {
-            self->changed = 1;
+        if (var40 == 0 && var41[2] != 0) {
+            arg0->unknown_138_ = 1;
         }
         break;
     }
     case 7:
-        func_0208bb78(self->timer, gs->GetTickCount());
-        if (*(short*)(self->timer + 0xd2) >= 0) {
-            if (self->changed == 0) {
-                func_0208beb4(self->timer);
+        func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
+        if (*(short*)(arg0->unknown_30_ + 0xd2) >= 0) {
+            if (arg0->unknown_138_ == 0) {
+                func_0208beb4(arg0->unknown_30_);
                 break;
             }
-            func_ov017_021bd38c(res->unknown_ptr_array_36fc[14], (int)self->timer, (int)&self->allocA);
-            self->finished = 1;
+            func_ov017_021bd38c(var1->unknown_ptr_array_36fc[14], (int)arg0->unknown_30_, (int)&arg0->unknown_8_);
+            arg0->unknown_137_ = 1;
         }
-        func_020397c0(leader);
-        if (hud != NULL) {
-            func_020a27ac(hud);
+        func_020397c0(var6);
+        if (var8 != NULL) {
+            func_020a27ac(var8);
         }
-        self->done = 1;
-        func_ov017_021b8d80(self);
+        arg0->unknown_1_ = 1;
+        func_ov017_021b8d80(arg0);
         break;
     }
 }

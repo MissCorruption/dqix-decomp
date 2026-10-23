@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Vec3_0215758c {
-	int x, y, z;
+struct Struct_ov001_0215758c_2 {
+	int unknown_0_, unknown_4_, unknown_8_;
 };
 
-struct RingBuf0215758c {
-	struct Vec3_0215758c slots[16];
-	struct Vec3_0215758c alt[16];
-	int count;
+struct Struct_ov001_0215758c {
+	struct Struct_ov001_0215758c_2 unknown_0_[16];
+	struct Struct_ov001_0215758c_2 unknown_c0_[16];
+	int unknown_180_;
 };
 
 // USA: func_ov001_0215758c
-extern "C" ARM int func_ov001_0215758c(struct RingBuf0215758c* buf, struct Vec3_0215758c v1, struct Vec3_0215758c v2) {
-	if (buf->count >= 16) {
+extern "C" ARM int func_ov001_0215758c(struct Struct_ov001_0215758c* arg0, struct Struct_ov001_0215758c_2 arg1, struct Struct_ov001_0215758c_2 arg2) {
+	if (arg0->unknown_180_ >= 16) {
 		return 1;
 	}
-	memcpy(&buf->slots[buf->count], &v1, 0xc);
-	memcpy(&buf->alt[buf->count], &v2, 0xc);
-	buf->count++;
+	memcpy(&arg0->unknown_0_[arg0->unknown_180_], &arg1, 0xc);
+	memcpy(&arg0->unknown_c0_[arg0->unknown_180_], &arg2, 0xc);
+	arg0->unknown_180_++;
 	return 0;
 }

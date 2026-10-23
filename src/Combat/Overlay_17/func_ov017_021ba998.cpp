@@ -3,91 +3,91 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-struct Obj020397cc;
-struct List0206f7f4;
-struct Dialog { char pad0[0x5a0]; signed char selection_; char pad5A1[0x5c0 - 0x5a1]; };
-struct DialogTask {
-    unsigned char field0_; unsigned char finished_; char pad2[6];
-    SafeAllocator allocator_;
-    Dialog* dialog_;
-    unsigned char mode_; signed char selection_; unsigned char phase_;
+struct Struct_02018300_3;
+struct Struct_0206f7f4;
+struct Struct_ov017_021ba998 { char unknown_0_[0x5a0]; signed char unknown_5a0_; char unknown_5a1_[0x5c0 - 0x5a1]; };
+struct Struct_ov017_021ba998_2 {
+    unsigned char unknown_0_; unsigned char unknown_1_; char unknown_2_[6];
+    SafeAllocator unknown_8_;
+    Struct_ov017_021ba998* unknown_1c_;
+    unsigned char unknown_20_; signed char unknown_21_; unsigned char unknown_22_;
 };
 extern "C" unsigned int* func_0200fb8c(int*);
 extern "C" unsigned char* func_020100f8(char*);
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020a0c0c();
 extern "C" void func_020a1df8(int);
-extern "C" List0206f7f4* func_0206f504();
-extern "C" short func_0206f7f4(List0206f7f4*, int);
-extern "C" void func_ov003_02158bb8(Dialog*);
+extern "C" Struct_0206f7f4* func_0206f504();
+extern "C" short func_0206f7f4(Struct_0206f7f4*, int);
+extern "C" void func_ov003_02158bb8(Struct_ov017_021ba998*);
 extern "C" void func_ov003_02159174(void*, unsigned char);
-extern "C" void func_ov003_02158a84(Dialog*, SafeAllocator*);
+extern "C" void func_ov003_02158a84(Struct_ov017_021ba998*, SafeAllocator*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov003_02159240(void*);
-extern "C" int func_ov003_02158e94(Dialog*, int);
+extern "C" int func_ov003_02158e94(Struct_ov017_021ba998*, int);
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
-extern "C" void func_ov003_02158d4c(Dialog*);
+extern "C" void func_ov003_02158d4c(Struct_ov017_021ba998*);
 extern "C" int func_ov003_0215916c(void*);
 extern "C" void func_020397c0(void*);
-extern "C" void func_ov017_021ba94c(DialogTask*);
+extern "C" void func_ov017_021ba94c(Struct_ov017_021ba998_2*);
 extern AllocatorUnion data_02114e20;
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 
 // USA: func_ov017_021ba998
-extern "C" ARM void func_ov017_021ba998(DialogTask* self) {
-    GameState* state = GameState::GetInstance();
-    unsigned int* flags = func_0200fb8c((int*)state);
-    GameObject* actor = state->GetUnknownGameObject();
-    unsigned char* field = func_020100f8((char*)state);
-    SetFlags04((GameResources*)flags, 0xc0);
-    func_020397cc((Obj020397cc*)actor, 1);
-    func_020a28a0(field, 3);
-    int ticks = state->GetTickCount();
-    if (ticks < 0) ticks = 1;
-    if (self->phase_ == 0) {
+extern "C" ARM void func_ov017_021ba998(Struct_ov017_021ba998_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned int* var1 = func_0200fb8c((int*)var0);
+    GameObject* var2 = var0->GetUnknownGameObject();
+    unsigned char* var3 = func_020100f8((char*)var0);
+    SetFlags04((GameResources*)var1, 0xc0);
+    func_020397cc((Struct_02018300_3*)var2, 1);
+    func_020a28a0(var3, 3);
+    int var4 = var0->GetTickCount();
+    if (var4 < 0) var4 = 1;
+    if (arg0->unknown_22_ == 0) {
         func_020a0cc4(0x16e00);
-        void* buffer = func_02012d88(&data_02114e20, 0x16e00);
-        if (!buffer) {
-            func_020a0c0c(); self->finished_ = 1;
+        void* var5 = func_02012d88(&data_02114e20, 0x16e00);
+        if (!var5) {
+            func_020a0c0c(); arg0->unknown_1_ = 1;
             return;
         }
-        self->allocator_.CreateTypeA(buffer, 0x16e00);
-        self->allocator_.Reset();
-        self->dialog_ = (Dialog*)self->allocator_.Allocate(0x5c0);
-        if (!self->dialog_) {
-            func_020a0c0c(); self->finished_ = 1;
+        arg0->unknown_8_.CreateTypeA(var5, 0x16e00);
+        arg0->unknown_8_.Reset();
+        arg0->unknown_1c_ = (Struct_ov017_021ba998*)arg0->unknown_8_.Allocate(0x5c0);
+        if (!arg0->unknown_1c_) {
+            func_020a0c0c(); arg0->unknown_1_ = 1;
             return;
         }
         func_020a1df8(3);
-        short selected;
-        if (self->mode_) selected = self->selection_ - 1;
-        else selected = func_0206f7f4(func_0206f504(), 0) - 1;
-        if (selected < 0) selected = 0;
-        self->selection_ = selected;
-        func_ov003_02158bb8(self->dialog_);
-        func_ov003_02159174(self->dialog_, self->mode_);
-        self->dialog_->selection_ = self->selection_;
-        func_ov003_02158a84(self->dialog_, &self->allocator_);
-        ++self->phase_;
-    } else if (self->phase_ == 1) {
-        if (func_ov017_021959b4()) func_ov003_02159240(self->dialog_);
-        if (func_ov003_02158e94(self->dialog_, ticks)) ++self->phase_;
-    } else if (self->phase_ == 2) {
+        short var6;
+        if (arg0->unknown_20_) var6 = arg0->unknown_21_ - 1;
+        else var6 = func_0206f7f4(func_0206f504(), 0) - 1;
+        if (var6 < 0) var6 = 0;
+        arg0->unknown_21_ = var6;
+        func_ov003_02158bb8(arg0->unknown_1c_);
+        func_ov003_02159174(arg0->unknown_1c_, arg0->unknown_20_);
+        arg0->unknown_1c_->unknown_5a0_ = arg0->unknown_21_;
+        func_ov003_02158a84(arg0->unknown_1c_, &arg0->unknown_8_);
+        ++arg0->unknown_22_;
+    } else if (arg0->unknown_22_ == 1) {
+        if (func_ov017_021959b4()) func_ov003_02159240(arg0->unknown_1c_);
+        if (func_ov003_02158e94(arg0->unknown_1c_, var4)) ++arg0->unknown_22_;
+    } else if (arg0->unknown_22_ == 2) {
         func_ov017_02191108(GetGameResources(), 1, 1, 1, 1);
-        func_ov003_02158d4c(self->dialog_);
-        ++self->phase_;
-    } else if (self->phase_ == 3) {
-        int displayMode = func_ov003_0215916c(self->dialog_);
-        REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | displayMode << 8;
-        ClearFlags04((GameResources*)flags, 0xc0);
-        func_020397c0(actor);
-        func_020a28b0(field, 3);
-        func_ov017_021ba94c(self);
+        func_ov003_02158d4c(arg0->unknown_1c_);
+        ++arg0->unknown_22_;
+    } else if (arg0->unknown_22_ == 3) {
+        int var7 = func_ov003_0215916c(arg0->unknown_1c_);
+        REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | var7 << 8;
+        ClearFlags04((GameResources*)var1, 0xc0);
+        func_020397c0(var2);
+        func_020a28b0(var3, 3);
+        func_ov017_021ba94c(arg0);
         func_020a0c0c();
-        self->finished_ = 1;
+        arg0->unknown_1_ = 1;
     }
 }

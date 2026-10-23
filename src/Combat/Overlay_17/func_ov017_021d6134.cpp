@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct TaggedPtr_021d6134 { int type; int *ptr; };
+struct Struct_ov001_0216089c { int unknown_0_; int *unknown_4_; };
 
 // USA: func_ov017_021d6134
-extern "C" ARM void func_ov017_021d6134(TaggedPtr_021d6134 *a, int val) {
-	if (a->type == 3) {
-		a->ptr[1] = val;
+extern "C" ARM void func_ov017_021d6134(Struct_ov001_0216089c *arg0, int arg1) {
+	if (arg0->unknown_0_ == 3) {
+		arg0->unknown_4_[1] = arg1;
 	}
 }

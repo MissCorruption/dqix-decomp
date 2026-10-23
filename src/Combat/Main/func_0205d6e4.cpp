@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 
-extern "C" void func_0204c804(void* obj);
+extern "C" void func_0204c804(void* arg0);
 
-struct Ctx0205d6e4 {
-    char pad0[0x98];
-    int f98;
-    int f9c;
-    char pad_a0[0xb0 - 0xa0];
-    unsigned char fb0;
-    char pad_b1[0xb4 - 0xb1];
-    unsigned char fb4;
+struct Struct_0205d6e4_2 {
+    char unknown_0_[0x98];
+    int unknown_98_;
+    int unknown_9c_;
+    char unknown_a0_[0xb0 - 0xa0];
+    unsigned char unknown_b0_;
+    char unknown_b1_[0xb4 - 0xb1];
+    unsigned char unknown_b4_;
 };
 
-struct Elem0205d6e4 {
-    char pad0[0xc2];
-    unsigned short fc2;
-    unsigned char fc4;
+struct Struct_0205d6e4 {
+    char unknown_0_[0xc2];
+    unsigned short unknown_c2_;
+    unsigned char unknown_c4_;
 };
 
 // USA: func_0205d6e4
-extern "C" ARM void func_0205d6e4(Ctx0205d6e4* self, unsigned int count) {
-    unsigned char i;
+extern "C" ARM void func_0205d6e4(Struct_0205d6e4_2* arg0, unsigned int arg1) {
+    unsigned char var0;
 
-    if (self->f98 == 0) return;
-    if (self->f9c == 0) return;
-    if (self->fb4 == 0) return;
+    if (arg0->unknown_98_ == 0) return;
+    if (arg0->unknown_9c_ == 0) return;
+    if (arg0->unknown_b4_ == 0) return;
 
-    for (i = 0; i < count; i++) {
-        int idx1 = self->fb4 - 1;
-        void* arr1 = (void*)self->f9c;
-        Elem0205d6e4* e1 = (Elem0205d6e4*)((char*)arr1 + idx1 * 0xe0);
-        e1->fc2 = 0;
-        e1->fc4 = 0;
-        func_0204c804(e1);
+    for (var0 = 0; var0 < arg1; var0++) {
+        int var1 = arg0->unknown_b4_ - 1;
+        void* var2 = (void*)arg0->unknown_9c_;
+        Struct_0205d6e4* var3 = (Struct_0205d6e4*)((char*)var2 + var1 * 0xe0);
+        var3->unknown_c2_ = 0;
+        var3->unknown_c4_ = 0;
+        func_0204c804(var3);
 
-        int newFb4 = self->fb4 - 1;
-        self->fb4 = newFb4;
-        int cnt2 = newFb4 & 0xff;
-        if (cnt2 == 0) return;
+        int var4 = arg0->unknown_b4_ - 1;
+        arg0->unknown_b4_ = var4;
+        int var5 = var4 & 0xff;
+        if (var5 == 0) return;
 
-        void* arr2 = (void*)self->f9c;
-        int idx2 = cnt2 - 1;
-        Elem0205d6e4* e2 = (Elem0205d6e4*)((char*)arr2 + idx2 * 0xe0);
-        e2->fc2 = 0;
+        void* var6 = (void*)arg0->unknown_9c_;
+        int var7 = var5 - 1;
+        Struct_0205d6e4* var8 = (Struct_0205d6e4*)((char*)var6 + var7 * 0xe0);
+        var8->unknown_c2_ = 0;
 
-        int idx3 = self->fb4 - 1;
-        void* arr3 = (void*)self->f9c;
-        Elem0205d6e4* e3 = (Elem0205d6e4*)((char*)arr3 + idx3 * 0xe0);
-        self->fb0 = e3->fc4;
+        int var9 = arg0->unknown_b4_ - 1;
+        void* var10 = (void*)arg0->unknown_9c_;
+        Struct_0205d6e4* var11 = (Struct_0205d6e4*)((char*)var10 + var9 * 0xe0);
+        arg0->unknown_b0_ = var11->unknown_c4_;
     }
 }

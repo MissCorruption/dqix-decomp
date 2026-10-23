@@ -2,26 +2,26 @@
 #include "World/ZoneChest.h"
 
 // USA: func_02018b34
-extern "C" ARM BmdjSceneElement* func_02018b34(Zone3D* zone, ZoneFeatures::Opcode6aEntry* parameter) {
-    BmdjScriptNode* node;
-    BmdjSceneElement* result;
-    int count;
-    int i;
-    if (parameter->maybeType != 2) return NULL;
-    if (zone->unknown_424_ != 0) return NULL;
-    node = zone->firstBMDJStruct_41c_;
-    while (node != NULL) {
-        if (node->unknown0 == parameter->unk_2c.type2.unk_0) break;
-        node = node->next;
+extern "C" ARM Struct_02016874_2* func_02018b34(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1) {
+    Struct_02013454* var0;
+    Struct_02016874_2* var1;
+    int var2;
+    int var3;
+    if (arg1->unknown_4_ != 2) return NULL;
+    if (arg0->unknown_424_ != 0) return NULL;
+    var0 = arg0->firstBMDJStruct_41c_;
+    while (var0 != NULL) {
+        if (var0->unknown_0_ == arg1->unknown_2c_.unknown1_0_.unknown_0_) break;
+        var0 = var0->unknown_54_;
     }
-    result = NULL;
-    if (node == NULL) return result;
-    count = node->scriptState.elementCount;
-    for (i = 0; i < count; i++) {
-        if (parameter->unk_2c.type2.unk_1 == node->elements[i].id) {
-            result = &node->elements[i];
+    var1 = NULL;
+    if (var0 == NULL) return var1;
+    var2 = var0->unknown_4_.unknown_10_;
+    for (var3 = 0; var3 < var2; var3++) {
+        if (arg1->unknown_2c_.unknown1_0_.unknown_1_ == var0->unknown_44_[var3].unknown_0_) {
+            var1 = &var0->unknown_44_[var3];
             break;
         }
     }
-    return result;
+    return var1;
 }

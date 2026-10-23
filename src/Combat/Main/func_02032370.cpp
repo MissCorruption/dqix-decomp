@@ -6,9 +6,9 @@ extern "C" double _ddiv(double, double);
 extern "C" int _dfix(double);
 
 // USA: func_02032370
-extern "C" ARM int func_02032370(int span) {
-    int r = rand();
-    double dspan = _dflt(span);
-    double q = _ddiv(_dflt(r - 1), 32767.0);
-    return _dfix(((dspan) * (q)));
+extern "C" ARM int func_02032370(int arg0) {
+    int var0 = rand();
+    double var1 = _dflt(arg0);
+    double var2 = _ddiv(_dflt(var0 - 1), 32767.0);
+    return _dfix(((var1) * (var2)));
 }

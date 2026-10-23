@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct HalfwordPair {
-    unsigned short a;
-    unsigned short b;
+struct Struct_0201a300_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
-struct BoundedHalfwordPairList {
-    char pad[0x24];
-    unsigned char capacity;
-    unsigned char count;
-    char pad2[2];
-    struct HalfwordPair* entries;
+struct Struct_0201a300_9 {
+    char unknown_0_[0x24];
+    unsigned char unknown_24_;
+    unsigned char unknown_25_;
+    char unknown_26_[2];
+    struct Struct_0201a300_2* unknown_28_;
 };
 
 // USA: func_02028378
-extern "C" ARM void func_02028378(struct BoundedHalfwordPairList* list, struct HalfwordPair* src) {
-    struct HalfwordPair* entries = list->entries;
-    struct HalfwordPair* dst;
-    if (entries == 0) {
+extern "C" ARM void func_02028378(struct Struct_0201a300_9* arg0, struct Struct_0201a300_2* arg1) {
+    struct Struct_0201a300_2* var0 = arg0->unknown_28_;
+    struct Struct_0201a300_2* var1;
+    if (var0 == 0) {
         return;
     }
-    if (list->capacity <= list->count) {
+    if (arg0->unknown_24_ <= arg0->unknown_25_) {
         return;
     }
-    dst = &entries[list->count];
-    dst->a = src->a;
-    dst->b = src->b;
-    list->count++;
+    var1 = &var0[arg0->unknown_25_];
+    var1->unknown_0_ = arg1->unknown_0_;
+    var1->unknown_2_ = arg1->unknown_2_;
+    arg0->unknown_25_++;
 }

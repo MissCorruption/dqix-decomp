@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
-struct Elem0204bbb4 {
-    char pad[0x10];
+struct Struct_0204bab4_3 {
+    char unknown_0_[0x10];
 };
 
-struct Obj0204bbb4 {
-    char pad0[0x10];
-    struct Elem0204bbb4* p10;
-    char pad14[0x1d - 0x14];
-    unsigned char count1d;
+struct Struct_0204bbb4 {
+    char unknown_0_[0x10];
+    struct Struct_0204bab4_3* unknown_10_;
+    char unknown_14_[0x1d - 0x14];
+    unsigned char unknown_1d_;
 };
 
-extern "C" void func_0204bab4(struct Obj0204bbb4*, struct Elem0204bbb4*, int, int, int, int, int, int, int);
+extern "C" void func_0204bab4(struct Struct_0204bbb4*, struct Struct_0204bab4_3*, int, int, int, int, int, int, int);
 
 // USA: func_0204bbb4
-extern "C" ARM void func_0204bbb4(struct Obj0204bbb4* obj, unsigned int idx, int a2, int a3,
-                               short a4, short a5, short a6, short a7, unsigned short a8) {
-    if (obj->count1d > idx && obj->p10 != NULL) {
-        func_0204bab4(obj, &obj->p10[idx], a2, a3, a4, a5, a6, a7, a8);
+extern "C" ARM void func_0204bbb4(struct Struct_0204bbb4* arg0, unsigned int arg1, int arg2, int arg3,
+                               short arg4, short arg5, short arg6, short arg7, unsigned short arg8) {
+    if (arg0->unknown_1d_ > arg1 && arg0->unknown_10_ != NULL) {
+        func_0204bab4(arg0, &arg0->unknown_10_[arg1], arg2, arg3, arg4, arg5, arg6, arg7, arg8);
     }
 }

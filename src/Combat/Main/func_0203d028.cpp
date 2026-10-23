@@ -27,268 +27,268 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #define data_020efe30 data_020efd48
 #define data_020efe38 data_020efd50
 #endif
-struct BattleSub7e78 {
-    char pad0[6];
-    unsigned char field6;
+struct Struct_0203d028_5 {
+    char unknown_0_[6];
+    unsigned char unknown_6_;
 };
-struct BattleStruct {
-    int unk0;
-    int unk4;
-    struct CombatantStruct* combatantList[0xe9];
+struct Struct_0203d028_2 {
+    int unknown_0_;
+    int unknown_4_;
+    struct Struct_0203d028_3* unknown_8_[0xe9];
 #if defined(jpn)
-    char pad3ac[0x7c38 - 0x3ac];
+    char unknown_3ac_[0x7c38 - 0x3ac];
 #else
-    char pad3ac[0x7e78 - 0x3ac];
+    char unknown1_3ac_[0x7e78 - 0x3ac];
 #endif
-    struct BattleSub7e78 sub7e78;
-    struct BattleSub7e78* GetSub7e78() { return &sub7e78; }
+    struct Struct_0203d028_5 unknown_7e78_;
+    struct Struct_0203d028_5* inline_0203d028() { return &unknown_7e78_; }
 };
 
-struct Struct_020652b4 { int field0; };
-extern "C" int func_020652b4(struct Struct_020652b4* p);
-extern "C" int func_0206dda4(int* p);
+struct Struct_020652b4 { int unknown_0_; };
+extern "C" int func_020652b4(struct Struct_020652b4* arg0);
+extern "C" int func_0206dda4(int* arg0);
 
-struct Pool020401fc {
-    unsigned int count;
-    unsigned char field4;
-    unsigned char field5;
-    unsigned char pad6[2];
-    void* elements;
+struct Struct_0203d028_6 {
+    unsigned int unknown_0_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_[2];
+    void* unknown_8_;
 };
-extern "C" void func_020401fc(struct Pool020401fc* pool, unsigned int count, SafeAllocator* alloc);
+extern "C" void func_020401fc(struct Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
 
-extern "C" int func_020652c8(int* obj);
+extern "C" int func_020652c8(int* arg0);
 
-struct Sub1840_02012fe4 {
-    char pad0[0xb5c];
-    unsigned char* tableB5c;
+struct Struct_0203d028_7 {
+    char unknown_0_[0xb5c];
+    unsigned char* unknown_b5c_;
 };
-struct Global02012fe4 {
-    unsigned short id;
-    char pad2[0x1840 - 2];
-    struct Sub1840_02012fe4 sub1840;
-    struct Sub1840_02012fe4* GetSub1840() { return &sub1840; }
+struct Struct_0203d028_8 {
+    unsigned short unknown_0_;
+    char unknown_2_[0x1840 - 2];
+    struct Struct_0203d028_7 unknown_1840_;
+    struct Struct_0203d028_7* inline_0203d028_2() { return &unknown_1840_; }
 };
-extern "C" struct Global02012fe4* func_02012fe4(void);
+extern "C" struct Struct_0203d028_8* func_02012fe4(void);
 extern "C" unsigned int* func_020d6c00(void);
 
-extern "C" int func_020981e4(int a, int id);
-extern "C" int func_02098210(int a, int id);
+extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int func_02098210(int arg0, int arg1);
 
-extern "C" void func_020404c0(int* obj);
+extern "C" void func_020404c0(int* arg0);
 
-struct NodeInfo0203d028 {
-    char pad0[0xa];
-    unsigned char lowA : 7;
-    unsigned char flag7 : 1;
-    unsigned char pad0b;
-    int fieldC;
-    int field10;
-    int field14;
-    int field18;
-    short field1c;
-    unsigned char field1e;
-    unsigned char field1f;
-    char pad20[0x38 - 0x20];
-    int field38;
-    int field3c;
-    char pad40[0x54 - 0x40];
-    int field54;
-    int field58;
+struct Struct_0203d028_9 {
+    char unknown_0_[0xa];
+    unsigned char unknown_a_0_ : 7;
+    unsigned char unknown_a_7_ : 1;
+    unsigned char unknown_b_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    short unknown_1c_;
+    unsigned char unknown_1e_;
+    unsigned char unknown_1f_;
+    char unknown_20_[0x38 - 0x20];
+    int unknown_38_;
+    int unknown_3c_;
+    char unknown_40_[0x54 - 0x40];
+    int unknown_54_;
+    int unknown_58_;
 };
-extern "C" struct NodeInfo0203d028* func_0206db20(void* base, int key);
+extern "C" struct Struct_0203d028_9* func_0206db20(void* arg0, int arg1);
 
-extern "C" void func_02040520(int* obj, int value);
-extern "C" void func_02040530(int* obj, int value);
+extern "C" void func_02040520(int* arg0, int arg1);
+extern "C" void func_02040530(int* arg0, int arg1);
 
-struct State02041244 {
-    char pad_00[0xac];
-    unsigned short field_ac;
-    char pad_ae[2];
-    int field_b0;
-    char pad_b4[0xc];
-    int field_c0;
-    unsigned char field_c4;
-    char pad_c5[3];
-    int field_c8;
-    int field_cc;
-    int field_d0;
-    unsigned char flags_d4;
+struct Struct_0203d028_10 {
+    char unknown_0_[0xac];
+    unsigned short unknown_ac_;
+    char unknown_ae_[2];
+    int unknown_b0_;
+    char unknown_b4_[0xc];
+    int unknown_c0_;
+    unsigned char unknown_c4_;
+    char unknown_c5_[3];
+    int unknown_c8_;
+    int unknown_cc_;
+    int unknown_d0_;
+    unsigned char unknown_d4_;
 };
-extern "C" void func_02041244(struct State02041244* obj);
+extern "C" void func_02041244(struct Struct_0203d028_10* arg0);
 
-struct Struct_203dafc {
-    int field0;
-    int field4;
-    int field8;
-    int fieldc;
-    int field10;
-    int field14;
-    int field18;
-    int field1c;
+struct Struct_0203d028_11 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
-extern "C" void func_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
 
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
 
-struct Entry0209854c;
-extern "C" struct Entry0209854c* func_0209854c(struct Entry0209854c* list, int target);
+struct Struct_0203d028_12;
+extern "C" struct Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
 
 extern "C" void* func_020daf90(void);
-extern "C" int func_020db2d4(void* obj);
-extern "C" void func_020daf9c(int a, int b, int c, int d);
+extern "C" int func_020db2d4(void* arg0);
+extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
 
 void SetMainBrightness(GameResources*, int, int);
-extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 extern "C" int func_020cede0(void);
-extern "C" int func_020cedc0(int a);
+extern "C" int func_020cedc0(int arg0);
 
-extern "C" void func_ov017_0218f064(void* mgr, int a, int b, int c, int d);
+extern "C" void func_ov017_0218f064(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct CombatantStruct;
+struct Struct_0203d028_3;
 
-struct U16Field0x6_020375f0 { char unk[6]; unsigned short field; };
-extern "C" void _ZN8Object3D10SetField06Et(struct U16Field0x6_020375f0* obj, int v);
+struct Struct_0203d028_13 { char unknown_0_[6]; unsigned short unknown_6_; };
+extern "C" void _ZN8Object3D10SetField06Et(struct Struct_0203d028_13* arg0, int arg1);
 
-extern "C" int* func_ov017_021a4658(void* mgr, int a);
+extern "C" int* func_ov017_021a4658(void* arg0, int arg1);
 
-struct Ctx021a3498;
-extern "C" void func_ov017_021a3498(struct Ctx021a3498* ctx);
+struct Struct_0203d028_4;
+extern "C" void func_ov017_021a3498(struct Struct_0203d028_4* arg0);
 
-struct HeadNode02046b24 { signed char id; };
-extern "C" int func_02046b24(struct HeadNode02046b24** obj);
+struct Struct_02015438 { signed char unknown_0_; };
+extern "C" int func_02046b24(struct Struct_02015438** arg0);
 
-extern "C" void func_0203c794(void* obj);
-extern "C" void func_0203db24(unsigned char* obj, int val);
+extern "C" void func_0203c794(void* arg0);
+extern "C" void func_0203db24(unsigned char* arg0, int arg1);
 
-struct Obj0203f02c;
-extern "C" void func_0203f02c(struct Obj0203f02c* obj, int param1, int param2, char* param3, int param5, int param6);
+struct Struct_0203d028_14;
+extern "C" void func_0203f02c(struct Struct_0203d028_14* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5);
 
-extern "C" void func_0203f138(void* obj, int b);
+extern "C" void func_0203f138(void* arg0, int arg1);
 
-extern "C" void func_0203e8f8(void* a, void* b, void* c);
+extern "C" void func_0203e8f8(void* arg0, void* arg1, void* arg2);
 
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
 
 struct GameState;
 extern "C" void func_0200fd48(GameState*, int);
 
-struct FlagWord020466f4 { unsigned int flags; };
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4 { unsigned int unknown_0_; };
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 
-struct FieldsA02040774 { char pad4[4]; int a; int b; int c; };
-struct Node02040774 {
-    char pad[0x14];
-    struct FieldsA02040774* f14;
-    void* f18;
-    void* f1c;
+struct Struct_02040774 { char unknown_0_[4]; int unknown_4_; int unknown_8_; int unknown_c_; };
+struct Struct_0203d028_15 {
+    char unknown_0_[0x14];
+    struct Struct_02040774* unknown_14_;
+    void* unknown_18_;
+    void* unknown_1c_;
 };
-extern "C" void func_02040774(struct Node02040774* obj, int a, int b, int c);
+extern "C" void func_02040774(struct Struct_0203d028_15* arg0, int arg1, int arg2, int arg3);
 
-struct State0xcda8;
-struct Obj0204085c {
-    char pad[0x14];
-    struct State0xcda8* field14;
-    unsigned char* field18;
-    unsigned char* field1c;
+struct Struct_0203cda8;
+struct Struct_0203d028_16 {
+    char unknown_0_[0x14];
+    struct Struct_0203cda8* unknown_14_;
+    unsigned char* unknown_18_;
+    unsigned char* unknown_1c_;
 };
-extern "C" void func_0204085c(struct Obj0204085c* obj, int a, int b, int c);
+extern "C" void func_0204085c(struct Struct_0203d028_16* arg0, int arg1, int arg2, int arg3);
 
-struct Struct_203cec4;
-struct S02037418;
-struct ChildFlags_02040540 { char pad[0xc]; unsigned int val; };
-struct Obj02040540 {
-    unsigned int flags;
-    unsigned int unk4;
-    unsigned int unk8;
-    struct ChildFlags_02040540* child;
-    unsigned int unk10;
-    struct Struct_203cec4* b;
-    struct S02037418* c;
+struct Struct_0203cec4;
+struct Struct_02037d88_8;
+struct Struct_02040540 { char unknown_0_[0xc]; unsigned int unknown_c_; };
+struct Struct_0203d028_17 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    struct Struct_02040540* unknown_c_;
+    unsigned int unknown_10_;
+    struct Struct_0203cec4* unknown_14_;
+    struct Struct_02037d88_8* unknown_18_;
 };
-extern "C" void func_02040540(struct Obj02040540* obj);
+extern "C" void func_02040540(struct Struct_0203d028_17* arg0);
 
 struct ObjectArchiveLoadInfo;
 
-struct Shorts5c_374e0 { char unk0[0x5c]; short a; short b; short c; };
+struct Struct_0203d028_18 { char unknown_0_[0x5c]; short unknown_5c_; short unknown_5e_; short unknown_60_; };
 
-struct FieldsA020408c8 { char pad1c[0x1c]; int a; int b; int c; };
-struct Node020408c8 {
-    char pad[0x14];
-    struct FieldsA020408c8* f14;
-    void* f18;
-    void* f1c;
+struct Struct_020408c8 { char unknown_0_[0x1c]; int unknown_1c_; int unknown_20_; int unknown_24_; };
+struct Struct_0203d028_19 {
+    char unknown_0_[0x14];
+    struct Struct_020408c8* unknown_14_;
+    void* unknown_18_;
+    void* unknown_1c_;
 };
-extern "C" void func_020408c8(struct Node020408c8* obj, short a, short b, short c);
+extern "C" void func_020408c8(struct Struct_0203d028_19* arg0, short arg1, short arg2, short arg3);
 
-struct Obj02041598 {
-    char pad_00[0xc4];
-    char field_c4;
-    char pad_c5[0xb];
-    int field_d0;
+struct Struct_0203d028_20 {
+    char unknown_0_[0xc4];
+    char unknown_c4_;
+    char unknown_c5_[0xb];
+    int unknown_d0_;
 };
-extern "C" int func_02041598(struct Obj02041598* obj, int value, int z);
+extern "C" int func_02041598(struct Struct_0203d028_20* arg0, int arg1, int arg2);
 
-extern "C" void func_0203db34(unsigned char* obj, int a, int b, int c);
+extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 
-struct Obj020415b0 {
-    char pad_00[0xcc];
-    int field_cc;
-    int field_d0;
+struct Struct_0203d028_21 {
+    char unknown_0_[0xcc];
+    int unknown_cc_;
+    int unknown_d0_;
 };
-extern "C" int func_020415b0(Obj020415b0*, int, int);
+extern "C" int func_020415b0(Struct_0203d028_21*, int, int);
 
-extern "C" void func_0203db44(void* a, void* b, void* c);
+extern "C" void func_0203db44(void* arg0, void* arg1, void* arg2);
 
-extern "C" void func_02041628(void* obj, int v, int z);
-extern "C" void func_02041640(void* obj, int v, int z);
+extern "C" void func_02041628(void* arg0, int arg1, int arg2);
+extern "C" void func_02041640(void* arg0, int arg1, int arg2);
 struct Vector3i;
 
-extern "C" int func_02018fbc(void* globalStruct, int* vec3);
+extern "C" int func_02018fbc(void* arg0, int* arg1);
 
-struct TargetA02040bfc { char unk[0x8c]; int value; };
-struct TargetB02040bfc { char unk[0xc8]; int value; };
-struct TargetC02040bfc { char unk[0x2ec]; int value; };
-struct Obj02040bfc {
-    char unk[0x14];
-    struct TargetA02040bfc* a;
-    struct TargetB02040bfc* b;
-    struct TargetC02040bfc* c;
+struct Struct_02040bfc { char unknown_0_[0x8c]; int unknown_8c_; };
+struct Struct_02040bfc_2 { char unknown_0_[0xc8]; int unknown_c8_; };
+struct Struct_02040bfc_3 { char unknown_0_[0x2ec]; int unknown_2ec_; };
+struct Struct_0203d028_22 {
+    char unknown_0_[0x14];
+    struct Struct_02040bfc* unknown_14_;
+    struct Struct_02040bfc_2* unknown_18_;
+    struct Struct_02040bfc_3* unknown_1c_;
 };
-extern "C" void func_02040bfc(struct Obj02040bfc* obj, int value);
+extern "C" void func_02040bfc(struct Struct_0203d028_22* arg0, int arg1);
 
-struct RegNode0203d028 {
-    unsigned short id;
-    unsigned char type;
-    unsigned char field3;
+struct Struct_0203d028_23 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 #if defined(jpn)
-    char pad4[0xc];
+    char unknown_4_[0xc];
 #endif
-    char name[12];
-    struct RegNode0203d028* next;
+    char unknown1_4_[12];
+    struct Struct_0203d028_23* unknown_10_;
 };
 
-struct Node0203d028 {
-    unsigned int flags;
-    int randSeed;
-    struct RegNode0203d028* entry;
-    struct NodeInfo0203d028* info;
-    void* field0x10;
-    void* stateB;
-    struct State02041244* state;
-    struct CombatantStruct* combatant;
+struct Struct_0203d028_24 {
+    unsigned int unknown_0_;
+    int unknown_4_;
+    struct Struct_0203d028_23* unknown_8_;
+    struct Struct_0203d028_9* unknown_c_;
+    void* unknown_10_;
+    void* unknown_14_;
+    struct Struct_0203d028_10* unknown_18_;
+    struct Struct_0203d028_3* unknown_1c_;
 };
 
-struct SelfObj0203d028 {
-    struct Pool020401fc pool;
-    struct Node0203d028* entries[0x20];
-    int loopCount;
-    int listHead;
-    void* nodeTableBase;
-    char pad0x98[4];
-    unsigned char field0x9c;
+struct Struct_0203d028_25 {
+    struct Struct_0203d028_6 unknown_0_;
+    struct Struct_0203d028_24* unknown_c_[0x20];
+    int unknown_8c_;
+    int unknown_90_;
+    void* unknown_94_;
+    char unknown_98_[4];
+    unsigned char unknown_9c_;
 };
 
 extern char data_020efdc4;
@@ -302,387 +302,387 @@ extern char data_020efe27;
 extern char data_020efe30;
 extern char data_020efe38;
 
-struct BitFlag0203d028 { unsigned int b0 : 1; };
+struct Struct_0203d028_26 { unsigned int unknown_0_0_ : 1; };
 
-static inline void Set2e0203d028(void* m, short v) { *(short*)((char*)m + 0x2e) = v; }
-static inline void Set95_0203d028(void* m, unsigned char v) { *((unsigned char*)m + 0x95) = v; }
+static inline void inline_0203d028_3(void* arg0, short arg1) { *(short*)((char*)arg0 + 0x2e) = arg1; }
+static inline void inline_0203d028_4(void* arg0, unsigned char arg1) { *((unsigned char*)arg0 + 0x95) = arg1; }
 
-static inline SafeAllocator& GetResourceAllocator(GameResources* resources, int index) {
-    return resources->allocator_array_1a0[index];
+static inline SafeAllocator& inline_02021578(GameResources* arg0, int arg1) {
+    return arg0->allocator_array_1a0[arg1];
 }
 
-static inline char& GetResourceBuffer(GameResources* resources, int offset) {
-    return resources->unknown_2cc[offset];
+static inline char& inline_0203d028_5(GameResources* arg0, int arg1) {
+    return arg0->unknown_2cc_[arg1];
 }
 
-static inline void SetX90_0203d028(void* motion, int v)
+static inline void inline_0203d028_6(void* arg0, int arg1)
 {
-    if (motion != 0) {
-        *(int*)((char*)motion + 0x90) = v;
+    if (arg0 != 0) {
+        *(int*)((char*)arg0 + 0x90) = arg1;
     }
 }
 
 // USA: func_0203d028
-extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, SafeAllocator* sb, char* fp)
+extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, SafeAllocator* arg2, char* arg3)
 {
-    if (func_020652b4((struct Struct_020652b4*)&self->listHead) ||
-        func_0206dda4((int*)&self->nodeTableBase))
+    if (func_020652b4((struct Struct_020652b4*)&arg0->unknown_90_) ||
+        func_0206dda4((int*)&arg0->unknown_94_))
     {
-        func_020401fc(&self->pool, 0xc, sb);
+        func_020401fc(&arg0->unknown_0_, 0xc, arg2);
         return;
     }
 
-    struct BattleStruct* battleStruct = (BattleStruct*)GameState::GetInstance();
-    GameResources* mgr = GetGameResources();
-    struct RegNode0203d028* entry = (struct RegNode0203d028*)func_020652c8(&self->listHead);
-    struct Global02012fe4* globalStruct = func_02012fe4();
+    struct Struct_0203d028_2* var0 = (Struct_0203d028_2*)GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    struct Struct_0203d028_23* var2 = (struct Struct_0203d028_23*)func_020652c8(&arg0->unknown_90_);
+    struct Struct_0203d028_8* var3 = func_02012fe4();
 #if defined(jpn)
-    char* sub860 = (char*)globalStruct + 0x860;
-#define GLOBAL_SUB sub860
+    char* var4 = (char*)var3 + 0x860;
+#define GLOBAL_SUB var4
 #else
-#define GLOBAL_SUB ((char*)globalStruct + 0x840)
+#define GLOBAL_SUB ((char*)var3 + 0x840)
 #endif
-    unsigned int* dataFlags = func_020d6c00();
-    unsigned int idVal = *(unsigned short*)globalStruct;
-    void* childModelPtr = 0;
-    unsigned int loopIndex = 0;
-    int assignedFlag = 0;
-    func_020401fc(&self->pool, 0xc, sb);
+    unsigned int* var5 = func_020d6c00();
+    unsigned int var6 = *(unsigned short*)var3;
+    void* var7 = 0;
+    unsigned int var8 = 0;
+    int var9 = 0;
+    func_020401fc(&arg0->unknown_0_, 0xc, arg2);
 
-    if (func_020981e4((int)GLOBAL_SUB, idVal) &&
-        func_02098210((int)GLOBAL_SUB, idVal) == 0) {
-        self->pool.field5 = 1;
+    if (func_020981e4((int)GLOBAL_SUB, var6) &&
+        func_02098210((int)GLOBAL_SUB, var6) == 0) {
+        arg0->unknown_0_.unknown_5_ = 1;
     } else {
-        self->pool.field5 = 0;
+        arg0->unknown_0_.unknown_5_ = 0;
     }
-    self->loopCount = 0;
-    self->field0x9c = 0;
+    arg0->unknown_8c_ = 0;
+    arg0->unknown_9c_ = 0;
     BackgroundLoader::AddLockGlobal();
 
-    while (entry != 0) {
-        struct Node0203d028* node = (struct Node0203d028*)sb->Allocate(0x20);
-        if (node == 0) goto abort_unlock;
-        func_020404c0((int*)node);
-        struct NodeInfo0203d028* info = func_0206db20(&self->nodeTableBase, entry->id);
-        func_02040520((int*)node, (int)entry);
-        func_02040530((int*)node, (int)info);
+    while (var2 != 0) {
+        struct Struct_0203d028_24* var10 = (struct Struct_0203d028_24*)arg2->Allocate(0x20);
+        if (var10 == 0) goto abort_unlock;
+        func_020404c0((int*)var10);
+        struct Struct_0203d028_9* var11 = func_0206db20(&arg0->unknown_94_, var2->unknown_0_);
+        func_02040520((int*)var10, (int)var2);
+        func_02040530((int*)var10, (int)var11);
 
-        if (battleStruct->GetSub7e78()->field6 != 0xff && info != 0 && info->field1f != 0) {
-            node->flags |= 0x40000;
+        if (var0->inline_0203d028()->unknown_6_ != 0xff && var11 != 0 && var11->unknown_1f_ != 0) {
+            var10->unknown_0_ |= 0x40000;
         }
 
-        int handledFlag = 0;
-        unsigned int outLen;
-        unsigned int length2;
-        unsigned int gpcLen;
-        unsigned int fileSize;
-        const void* filePtr;
-        unsigned int decompSize;
-        unsigned int outLen64;
-        unsigned int mdlOutLen;
-        void* childModelPtr2;
-        void* mdlPtr;
-        void* decompressed;
+        int var12 = 0;
+        unsigned int var13;
+        unsigned int var14;
+        unsigned int var15;
+        unsigned int var16;
+        const void* var17;
+        unsigned int var18;
+        unsigned int var19;
+        unsigned int var20;
+        void* var21;
+        void* var22;
+        void* var23;
 
-        if (entry->type == 2) {
-            node->state = (struct State02041244*)sb->Allocate(0xd8);
-            if (node->state == 0) goto abort_unlock;
-            func_02041244(node->state);
-            char pathBuf[40];
-            sprintf(pathBuf, &data_020efdc4, entry->name);
-            void* loadedPtr = LoadFileIntoNewAllocation(pathBuf, *sb, &outLen);
-            if (loadedPtr == 0) goto abort_unlock;
-            struct Struct_203dafc params;
-            func_0203dafc(&params);
-            func_0207df90(fp);
-            params.fieldc = (int)sb;
-            params.field4 = (int)loadedPtr;
-            params.field8 = (int)outLen;
-            ((Object3D*)node->state)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-            func_0207dfac(fp);
+        if (var2->unknown_2_ == 2) {
+            var10->unknown_18_ = (struct Struct_0203d028_10*)arg2->Allocate(0xd8);
+            if (var10->unknown_18_ == 0) goto abort_unlock;
+            func_02041244(var10->unknown_18_);
+            char var24[40];
+            sprintf(var24, &data_020efdc4, var2->unknown1_4_);
+            void* var25 = LoadFileIntoNewAllocation(var24, *arg2, &var13);
+            if (var25 == 0) goto abort_unlock;
+            struct Struct_0203d028_11 var26;
+            func_0203dafc(&var26);
+            func_0207df90(arg3);
+            var26.unknown_c_ = (int)arg2;
+            var26.unknown_4_ = (int)var25;
+            var26.unknown_8_ = (int)var13;
+            ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var26, 0);
+            func_0207dfac(arg3);
         }
-        else if (entry->type == 4) {
+        else if (var2->unknown_2_ == 4) {
 #if defined(jpn)
-            unsigned char* table = ((struct Sub1840_02012fe4*)(sub860 + 0x1000))->tableB5c;
+            unsigned char* var27 = ((struct Struct_0203d028_7*)(var4 + 0x1000))->unknown_b5c_;
 #else
-            unsigned char* table = globalStruct->GetSub1840()->tableB5c;
+            unsigned char* var27 = var3->inline_0203d028_2()->unknown_b5c_;
 #endif
-            int slot = 5;
-            struct Entry0209854c* found = func_0209854c((struct Entry0209854c*)GLOBAL_SUB, entry->id);
-            if (found != 0) {
+            int var28 = 5;
+            struct Struct_0203d028_12* var29 = func_0209854c((struct Struct_0203d028_12*)GLOBAL_SUB, var2->unknown_0_);
+            if (var29 != 0) {
                 {
                     if (func_020db2d4(func_020daf90()) == 0) {
                         func_020daf9c(1, 0, 1, 0);
-                        SetMainBrightness(mgr, ~0xf, 0);
+                        SetMainBrightness(var1, ~0xf, 0);
                     }
-                    func_020466e4(dataFlags, 0x400000);
+                    func_020466e4(var5, 0x400000);
                     if (!func_020cede0()) {
                         while (func_020cedc0(1) == 0) {
                         }
                         SleepCurrentContext(1);
                     }
-                    *(short*)(table + 0x568) = slot;
-                    ((unsigned char*)table)[0x56a] = ((unsigned char*)found)[0x4f];
-                    memcpy(table + 0x488, (unsigned char*)found + 0x1a, 0x1c);
+                    *(short*)(var27 + 0x568) = var28;
+                    ((unsigned char*)var27)[0x56a] = ((unsigned char*)var29)[0x4f];
+                    memcpy(var27 + 0x488, (unsigned char*)var29 + 0x1a, 0x1c);
 
-                    func_ov017_0218f064(mgr, 5, 0x4000, 1, 0);
+                    func_ov017_0218f064(var1, 5, 0x4000, 1, 0);
 
-                    node->combatant = (CombatantStruct*)((GameState*)battleStruct)->GetGameObjectByIndex(5);
-                    _ZN8Object3D10SetField06Et((struct U16Field0x6_020375f0*)node->combatant, idVal);
+                    var10->unknown_1c_ = (Struct_0203d028_3*)((GameState*)var0)->GetGameObjectByIndex(5);
+                    _ZN8Object3D10SetField06Et((struct Struct_0203d028_13*)var10->unknown_1c_, var6);
 
-                    int* extra = func_ov017_021a4658(mgr, 5);
-                    extra[3] = 1;
+                    int* var30 = func_ov017_021a4658(var1, 5);
+                    var30[3] = 1;
 
-                    char* base = (char*)mgr + 0x3000;
+                    char* var31 = (char*)var1 + 0x3000;
 #if defined(jpn)
-                    void* ctxA = *(void**)(base + 0x4f0);
-                    void* ctxB = *(void**)(base + 0x4f4);
+                    void* var32 = *(void**)(var31 + 0x4f0);
+                    void* var33 = *(void**)(var31 + 0x4f4);
 #else
-                    void* ctxA = *(void**)(base + 0x700);
-                    void* ctxB = *(void**)(base + 0x704);
+                    void* var32 = *(void**)(var31 + 0x700);
+                    void* var33 = *(void**)(var31 + 0x704);
 #endif
-                    BackgroundLoader* instance = BackgroundLoader::GetInstance();
+                    BackgroundLoader* var34 = BackgroundLoader::GetInstance();
 
-                    while (func_02046b24((struct HeadNode02046b24**)ctxA) == 0x13) {
-                        instance->RemoveAllLocks();
-                        func_ov017_021a3498((struct Ctx021a3498*)ctxA);
-                        if (func_02046b24((struct HeadNode02046b24**)ctxB) == 0x14) {
-                            func_ov017_021a3498((struct Ctx021a3498*)ctxB);
+                    while (func_02046b24((struct Struct_02015438**)var32) == 0x13) {
+                        var34->RemoveAllLocks();
+                        func_ov017_021a3498((struct Struct_0203d028_4*)var32);
+                        if (func_02046b24((struct Struct_02015438**)var33) == 0x14) {
+                            func_ov017_021a3498((struct Struct_0203d028_4*)var33);
                         }
                     }
 
-                    node->stateB = sb->Allocate(0x9c);
-                    if (node->stateB == 0) goto abort_unlock;
-                    func_0203c794(node->stateB);
-                    func_0203db24((unsigned char*)node, (int)self);
+                    var10->unknown_14_ = arg2->Allocate(0x9c);
+                    if (var10->unknown_14_ == 0) goto abort_unlock;
+                    func_0203c794(var10->unknown_14_);
+                    func_0203db24((unsigned char*)var10, (int)arg0);
 
-                    const char* motName = &data_020efdda;
-                    if (node->stateB != 0) {
-                        func_0203f02c(*(struct Obj0203f02c**)((char*)node + 0x14), (int)motName, (int)sb, fp, 0, 0);
+                    const char* var35 = &data_020efdda;
+                    if (var10->unknown_14_ != 0) {
+                        func_0203f02c(*(struct Struct_0203d028_14**)((char*)var10 + 0x14), (int)var35, (int)arg2, arg3, 0, 0);
                     }
-                    if (node->stateB != 0) {
-                        func_0203f138(node->stateB, 1);
+                    if (var10->unknown_14_ != 0) {
+                        func_0203f138(var10->unknown_14_, 1);
                     }
-                    Set2e0203d028(node->stateB, 0x3d);
-                    Set95_0203d028(node->stateB, 1);
-                    func_0203db24((unsigned char*)node, (int)self);
+                    inline_0203d028_3(var10->unknown_14_, 0x3d);
+                    inline_0203d028_4(var10->unknown_14_, 1);
+                    func_0203db24((unsigned char*)var10, (int)arg0);
 
-                    SafeAllocator* savedAlloc = &GetResourceAllocator(mgr, 8);
-                    savedAlloc->Reset();
-                    func_0203e8f8(self, node, savedAlloc);
+                    SafeAllocator* var36 = &inline_02021578(var1, 8);
+                    var36->Reset();
+                    func_0203e8f8(arg0, var10, var36);
 
-                    node->combatant = 0;
-                    SafeAllocator* alloc3 = &GetResourceAllocator(mgr, 3);
-                    char* buf930 = &GetResourceBuffer(mgr, 0x930);
-                    entry->type = 0;
-                    alloc3->Reset();
-                    func_0207df50((struct Foo0207df50*)buf930);
-                    func_0200fd48((GameState*)battleStruct, 5);
-                    func_020466f4((struct FlagWord020466f4*)dataFlags, 0x400000);
+                    var10->unknown_1c_ = 0;
+                    SafeAllocator* var37 = &inline_02021578(var1, 3);
+                    char* var38 = &inline_0203d028_5(var1, 0x930);
+                    var2->unknown_2_ = 0;
+                    var37->Reset();
+                    func_0207df50((struct Struct_0203d028*)var38);
+                    func_0200fd48((GameState*)var0, 5);
+                    func_020466f4((struct Struct_02038598_4*)var5, 0x400000);
                 }
             }
         }
-        else if (entry->type == 5) {
-            node->state = (struct State02041244*)sb->Allocate(0xd8);
-            if (node->state == 0) goto abort_unlock;
-            func_02041244(node->state);
+        else if (var2->unknown_2_ == 5) {
+            var10->unknown_18_ = (struct Struct_0203d028_10*)arg2->Allocate(0xd8);
+            if (var10->unknown_18_ == 0) goto abort_unlock;
+            func_02041244(var10->unknown_18_);
             BackgroundLoader::FreeAllocationsGlobal();
 
-            GPCReadPair pair;
+            GPCReadPair var39;
 #if defined(jpn)
-            GPCReadPair* pairp = &pair;
-#define PAIR (*pairp)
+            GPCReadPair* var40 = &var39;
+#define PAIR (*var40)
 #else
-#define PAIR pair
+#define PAIR var39
 #endif
             ZeroInitGPCPointer(&PAIR.pGPCFile);
             PAIR.ZeroInitializeMachine();
 
-            char innerName[16];
-            sprintf(innerName, &data_020efde9, entry->name);
+            char var41[16];
+            sprintf(var41, &data_020efde9, var2->unknown1_4_);
 
-            if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&PAIR.pGPCFile, pair.machine,
-                    &data_020efdf0, data_0211e33c, length2, 0x30000, false, NULL))
+            if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&PAIR.pGPCFile, var39.machine,
+                    &data_020efdf0, data_0211e33c, var14, 0x30000, false, NULL))
             {
                 PAIR.Reset();
                 ZeroDestroyGPCPointer(&PAIR.pGPCFile);
                 goto abort_unlock;
             }
 
-            unsigned char* dst = data_0211e33c + length2;
-            if (!DecompressFileFromGPCByName(pair.pGPCFile, pair.machine,
-                    dst, gpcLen, 0x30000 - length2, innerName))
+            unsigned char* var42 = data_0211e33c + var14;
+            if (!DecompressFileFromGPCByName(var39.pGPCFile, var39.machine,
+                    var42, var15, 0x30000 - var14, var41))
             {
-                pair.Reset();
-                pair.Reset();
-                ZeroDestroyGPCPointer(&pair.pGPCFile);
+                var39.Reset();
+                var39.Reset();
+                ZeroDestroyGPCPointer(&var39.pGPCFile);
                 goto abort_unlock;
             }
 
-            if (!FindFilesInNarcBySubstring(dst, &data_020efe08, &filePtr, &fileSize, 1)) {
-                pair.Reset();
-                pair.Reset();
-                ZeroDestroyGPCPointer(&pair.pGPCFile);
+            if (!FindFilesInNarcBySubstring(var42, &data_020efe08, &var17, &var16, 1)) {
+                var39.Reset();
+                var39.Reset();
+                ZeroDestroyGPCPointer(&var39.pGPCFile);
                 goto abort_unlock;
             }
 
-            decompressed = DecompressLZ77FileIntoAllocatedSpace(*sb, filePtr, decompSize);
+            var23 = DecompressLZ77FileIntoAllocatedSpace(*arg2, var17, var18);
 
-            struct Struct_203dafc params;
-            func_0203dafc(&params);
-            func_0207df90(fp);
-            params.fieldc = (int)sb;
-            params.field4 = (int)decompressed;
-            params.field8 = (int)decompSize;
-            ((Object3D*)node->state)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&params, 0);
-            func_0207dfac(fp);
+            struct Struct_0203d028_11 var43;
+            func_0203dafc(&var43);
+            func_0207df90(arg3);
+            var43.unknown_c_ = (int)arg2;
+            var43.unknown_4_ = (int)var23;
+            var43.unknown_8_ = (int)var18;
+            ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var43, 0);
+            func_0207dfac(arg3);
 
-            node->state->flags_d4 |= 2;
-            pair.Reset();
-            pair.Reset();
-            ZeroDestroyGPCPointer(&pair.pGPCFile);
+            var10->unknown_18_->unknown_d4_ |= 2;
+            var39.Reset();
+            var39.Reset();
+            ZeroDestroyGPCPointer(&var39.pGPCFile);
         }
         else {
-            node->stateB = sb->Allocate(0x9c);
-            if (node->stateB == 0) goto abort_unlock;
-            func_0203c794(node->stateB);
-            func_0203db24((unsigned char*)node, (int)self);
+            var10->unknown_14_ = arg2->Allocate(0x9c);
+            if (var10->unknown_14_ == 0) goto abort_unlock;
+            func_0203c794(var10->unknown_14_);
+            func_0203db24((unsigned char*)var10, (int)arg0);
 
-            if (entry->name[0] != 0 && entry->type == 0) {
-                int successFlag = 0;
-                char pathBuf[40];
-                if (info != 0 && (info->fieldC & 0x800)) {
-                    successFlag = 1;
-                    sprintf(pathBuf, &data_020efe0e, entry->name);
-                    NitroVM vm;
-                    NitroVM_Initialize(&vm);
-                    if (!NitroVM_PrepareReadFileByPath(&vm, pathBuf)) {
-                        successFlag = 0;
+            if (var2->unknown1_4_[0] != 0 && var2->unknown_2_ == 0) {
+                int var44 = 0;
+                char var45[40];
+                if (var11 != 0 && (var11->unknown_c_ & 0x800)) {
+                    var44 = 1;
+                    sprintf(var45, &data_020efe0e, var2->unknown1_4_);
+                    NitroVM var46;
+                    NitroVM_Initialize(&var46);
+                    if (!NitroVM_PrepareReadFileByPath(&var46, var45)) {
+                        var44 = 0;
                     }
                 }
-                if (successFlag == 0) {
-                    sprintf(pathBuf, &data_020efe20, entry->name);
+                if (var44 == 0) {
+                    sprintf(var45, &data_020efe20, var2->unknown1_4_);
                 } else {
-                    sprintf(pathBuf, &data_020efe27, entry->name);
+                    sprintf(var45, &data_020efe27, var2->unknown1_4_);
                 }
-                if (node->stateB != 0) {
-                    func_0203f02c(*(struct Obj0203f02c**)((char*)node + 0x14), (int)pathBuf, (int)sb, fp, 0, 0);
+                if (var10->unknown_14_ != 0) {
+                    func_0203f02c(*(struct Struct_0203d028_14**)((char*)var10 + 0x14), (int)var45, (int)arg2, arg3, 0, 0);
                 }
-                if (node->stateB != 0) {
-                    func_0203f138(node->stateB, 1);
+                if (var10->unknown_14_ != 0) {
+                    func_0203f138(var10->unknown_14_, 1);
                 }
-                Set2e0203d028(node->stateB, 0x3d);
-                handledFlag = 1;
+                inline_0203d028_3(var10->unknown_14_, 0x3d);
+                var12 = 1;
             }
         }
 
-        if (loopIndex < 0x20) {
-            self->entries[loopIndex] = node;
+        if (var8 < 0x20) {
+            arg0->unknown_c_[var8] = var10;
         }
 
-        if (info != 0) {
-            func_02040774((struct Node02040774*)node, info->field10, info->field14, info->field18);
-            func_0204085c((struct Obj0204085c*)node, 0, info->field1c, 0);
-            func_02040540((struct Obj02040540*)node);
+        if (var11 != 0) {
+            func_02040774((struct Struct_0203d028_15*)var10, var11->unknown_10_, var11->unknown_14_, var11->unknown_18_);
+            func_0204085c((struct Struct_0203d028_16*)var10, 0, var11->unknown_1c_, 0);
+            func_02040540((struct Struct_0203d028_17*)var10);
 
-            if (handledFlag == 0 && info->field54 != 0) {
-                char buf[60];
-                sprintf(buf, &data_020efe30, info->field54);
-                void* loadedPtr = LoadFileIntoNewAllocation(buf, *sb, &outLen64);
-                if (loadedPtr != 0) {
-                    int bit = 0;
-                    struct BitFlag0203d028* p = 0;
-                    if (node->state != 0) p = *(struct BitFlag0203d028**)((char*)node->state + 0xc);
-                    else if (node->combatant != 0) p = *(struct BitFlag0203d028**)((char*)node->combatant + 0xc);
-                    if (p != 0) bit = p->b0;
+            if (var12 == 0 && var11->unknown_54_ != 0) {
+                char var47[60];
+                sprintf(var47, &data_020efe30, var11->unknown_54_);
+                void* var48 = LoadFileIntoNewAllocation(var47, *arg2, &var19);
+                if (var48 != 0) {
+                    int var49 = 0;
+                    struct Struct_0203d028_26* var50 = 0;
+                    if (var10->unknown_18_ != 0) var50 = *(struct Struct_0203d028_26**)((char*)var10->unknown_18_ + 0xc);
+                    else if (var10->unknown_1c_ != 0) var50 = *(struct Struct_0203d028_26**)((char*)var10->unknown_1c_ + 0xc);
+                    if (var50 != 0) var49 = var50->unknown_0_0_;
 
-                    struct Struct_203dafc lockParams;
-                    lockParams.field4 = (int)loadedPtr;
-                    lockParams.fieldc = (int)sb;
-                    lockParams.field8 = (int)outLen64;
-                    lockParams.field1c = 1;
+                    struct Struct_0203d028_11 var51;
+                    var51.unknown_4_ = (int)var48;
+                    var51.unknown_c_ = (int)arg2;
+                    var51.unknown_8_ = (int)var19;
+                    var51.unknown_1c_ = 1;
 
-                    if (bit == 0) {
-                        ((Object3D*)((int)node->state))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&lockParams));
-                    } else if (bit == 1) {
-                        ((Object3D*)node->state)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&lockParams, 0);
+                    if (var49 == 0) {
+                        ((Object3D*)((int)var10->unknown_18_))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&var51));
+                    } else if (var49 == 1) {
+                        ((Object3D*)var10->unknown_18_)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var51, 0);
                     }
                 }
             }
 
-            if (info->fieldC & 0x2000) {
-                if (childModelPtr == 0) {
-                    childModelPtr = sb->Allocate(0xac);
-                    if (childModelPtr == 0) goto abort_unlock;
-                    ((Object3D*)childModelPtr)->Initialize();
-                    mdlPtr = LoadFileIntoNewAllocation(&data_020efe38, *sb, &mdlOutLen);
-                    if (mdlPtr != 0) {
-                        struct Struct_203dafc mdlParams;
-                        func_0203dafc(&mdlParams);
-                        func_0207df90(fp);
-                        mdlParams.field4 = (int)mdlPtr;
-                        mdlParams.field8 = (int)mdlOutLen;
-                        mdlParams.fieldc = (int)sb;
-                        ((Object3D*)((int)childModelPtr))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&mdlParams));
-                        func_0207dfac(fp);
+            if (var11->unknown_c_ & 0x2000) {
+                if (var7 == 0) {
+                    var7 = arg2->Allocate(0xac);
+                    if (var7 == 0) goto abort_unlock;
+                    ((Object3D*)var7)->Initialize();
+                    var22 = LoadFileIntoNewAllocation(&data_020efe38, *arg2, &var20);
+                    if (var22 != 0) {
+                        struct Struct_0203d028_11 var52;
+                        func_0203dafc(&var52);
+                        func_0207df90(arg3);
+                        var52.unknown_4_ = (int)var22;
+                        var52.unknown_8_ = (int)var20;
+                        var52.unknown_c_ = (int)arg2;
+                        ((Object3D*)((int)var7))->LoadFromCHRArchive((ObjectArchiveLoadInfo*)((int)&var52));
+                        func_0207dfac(arg3);
                     }
-                    ((Object3D*)((struct Shorts5c_374e0*)childModelPtr))->SetScale(0x10a, 0x10a, 0x10a);
-                    ((Object3D*)((unsigned char*)childModelPtr))->SetFlag16();
+                    ((Object3D*)((struct Struct_0203d028_18*)var7))->SetScale(0x10a, 0x10a, 0x10a);
+                    ((Object3D*)((unsigned char*)var7))->SetFlag16();
                 }
-                if (assignedFlag == 0) {
-                    node->field0x10 = childModelPtr;
-                    assignedFlag = 1;
+                if (var9 == 0) {
+                    var10->unknown_10_ = var7;
+                    var9 = 1;
                 } else {
-                    childModelPtr2 = sb->Allocate(0xac);
-                    if (childModelPtr2 == 0) goto abort_unlock;
-                    ((Object3D*)childModelPtr2)->Initialize();
-                    ((Object3D*)childModelPtr)->ShallowCloneTo((Object3D*)childModelPtr2);
-                    ((Object3D*)((unsigned char*)childModelPtr2))->SetFlag16();
-                    node->field0x10 = childModelPtr2;
+                    var21 = arg2->Allocate(0xac);
+                    if (var21 == 0) goto abort_unlock;
+                    ((Object3D*)var21)->Initialize();
+                    ((Object3D*)var7)->ShallowCloneTo((Object3D*)var21);
+                    ((Object3D*)((unsigned char*)var21))->SetFlag16();
+                    var10->unknown_10_ = var21;
                 }
             }
 
-            if (node->stateB != 0) {
-                func_020408c8((struct Node020408c8*)node, 0x8f, 0x8f, 0x8f);
+            if (var10->unknown_14_ != 0) {
+                func_020408c8((struct Struct_0203d028_19*)var10, 0x8f, 0x8f, 0x8f);
             }
-            else if (node->state != 0) {
-                ((Object3D*)((struct Shorts5c_374e0*)node->state))->SetScale(0x10a, 0x10a, 0x10a);
-                func_02041598((struct Obj02041598*)node->state, info->field1e, 0);
-                if (node->flags & 0x800) {
-                    ((Object3D*)((unsigned char*)node->state))->SetFlag16();
-                    ((Object3D*)((unsigned char*)node->state))->EnableFlag(0x2000000);
-                    func_0203db34((unsigned char*)node->state, 0x4b5c, info->field1c, 0);
+            else if (var10->unknown_18_ != 0) {
+                ((Object3D*)((struct Struct_0203d028_18*)var10->unknown_18_))->SetScale(0x10a, 0x10a, 0x10a);
+                func_02041598((struct Struct_0203d028_20*)var10->unknown_18_, var11->unknown_1e_, 0);
+                if (var10->unknown_0_ & 0x800) {
+                    ((Object3D*)((unsigned char*)var10->unknown_18_))->SetFlag16();
+                    ((Object3D*)((unsigned char*)var10->unknown_18_))->EnableFlag(0x2000000);
+                    func_0203db34((unsigned char*)var10->unknown_18_, 0x4b5c, var11->unknown_1c_, 0);
                 }
-                if (info->field58 != 0) {
-                    func_020415b0((struct Obj020415b0*)node->state, info->field58, 0);
+                if (var11->unknown_58_ != 0) {
+                    func_020415b0((struct Struct_0203d028_21*)var10->unknown_18_, var11->unknown_58_, 0);
                 }
-                if (info->flag7) {
-                    func_0203db44(self, node, sb);
+                if (var11->unknown_a_7_) {
+                    func_0203db44(arg0, var10, arg2);
                 }
             }
-            else if (node->combatant != 0) {
-                ((Object3D*)((struct Shorts5c_374e0*)node->combatant))->SetScale(0x10a, 0x10a, 0x10a);
-                func_02041628(node->combatant, info->field1e, 0);
-                if (node->flags & 0x800) {
-                    ((Object3D*)((unsigned char*)node->combatant))->SetFlag16();
-                    func_0203db34((unsigned char*)node->combatant, 0x4b5c, info->field1c, 0);
+            else if (var10->unknown_1c_ != 0) {
+                ((Object3D*)((struct Struct_0203d028_18*)var10->unknown_1c_))->SetScale(0x10a, 0x10a, 0x10a);
+                func_02041628(var10->unknown_1c_, var11->unknown_1e_, 0);
+                if (var10->unknown_0_ & 0x800) {
+                    ((Object3D*)((unsigned char*)var10->unknown_1c_))->SetFlag16();
+                    func_0203db34((unsigned char*)var10->unknown_1c_, 0x4b5c, var11->unknown_1c_, 0);
                 }
-                if (info->field58 != 0) {
-                    func_02041640(node->combatant, info->field58, 0);
+                if (var11->unknown_58_ != 0) {
+                    func_02041640(var10->unknown_1c_, var11->unknown_58_, 0);
                 }
-                int localVec3[3];
-                *(Vector3i*)localVec3 = *(Vector3i const*)((int*)((char*)node->combatant + 0x44));
-                localVec3[1] = func_02018fbc(globalStruct, localVec3);
-                *(Vector3i*)((int*)((char*)node->combatant + 0x44)) = *(Vector3i const*)localVec3;
+                int var53[3];
+                *(Vector3i*)var53 = *(Vector3i const*)((int*)((char*)var10->unknown_1c_ + 0x44));
+                var53[1] = func_02018fbc(var3, var53);
+                *(Vector3i*)((int*)((char*)var10->unknown_1c_ + 0x44)) = *(Vector3i const*)var53;
             }
-            func_02040bfc((struct Obj02040bfc*)node, info->field38);
+            func_02040bfc((struct Struct_0203d028_22*)var10, var11->unknown_38_);
 
-            SetX90_0203d028(node->stateB, info->field3c);
+            inline_0203d028_6(var10->unknown_14_, var11->unknown_3c_);
         }
 
-        loopIndex++;
-        self->loopCount++;
-        entry = entry->next;
+        var8++;
+        arg0->unknown_8c_++;
+        var2 = var2->unknown_10_;
     }
 
 abort_unlock:

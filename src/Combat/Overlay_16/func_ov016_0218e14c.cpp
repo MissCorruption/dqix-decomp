@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Node0218e14c {
-	char pad[0x18];
-	Node0218e14c* next;
+struct Struct_ov016_0218b5c4_5 {
+	char unknown_0_[0x18];
+	Struct_ov016_0218b5c4_5* unknown_18_;
 };
 
 // USA: func_ov016_0218e14c
-extern "C" ARM void* func_ov016_0218e14c(Node0218e14c** list, int n) {
-	Node0218e14c* node = *list;
-	while (n > 0) {
-		if (node == NULL) return NULL;
-		node = node->next;
-		n--;
+extern "C" ARM void* func_ov016_0218e14c(Struct_ov016_0218b5c4_5** arg0, int arg1) {
+	Struct_ov016_0218b5c4_5* var0 = *arg0;
+	while (arg1 > 0) {
+		if (var0 == NULL) return NULL;
+		var0 = var0->unknown_18_;
+		arg1--;
 	}
-	return node;
+	return var0;
 }

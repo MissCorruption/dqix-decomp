@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct Obj02176134 { char pad[0xc]; short val; };
+struct Struct_ov000_02176134 { char unknown_0_[0xc]; short unknown_c_; };
 
-extern "C" void func_ov000_0217616c(struct Obj02176134*);
+extern "C" void func_ov000_0217616c(struct Struct_ov000_02176134*);
 
 // USA: func_ov000_02176134
-extern "C" ARM void func_ov000_02176134(struct Obj02176134* obj, short val) {
-    if (val == obj->val) return;
-    obj->val = val;
-    func_ov000_0217616c(obj);
+extern "C" ARM void func_ov000_02176134(struct Struct_ov000_02176134* arg0, short arg1) {
+    if (arg1 == arg0->unknown_c_) return;
+    arg0->unknown_c_ = arg1;
+    func_ov000_0217616c(arg0);
 }

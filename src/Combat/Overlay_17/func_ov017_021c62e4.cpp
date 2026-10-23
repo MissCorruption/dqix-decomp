@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8470(void* arg0);
 
-struct Owner021c62e4 {
-    unsigned char pad0[8];
-    unsigned short id;
+struct Struct_ov017_021c62e4 {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct Slot021c62e4 {
-    unsigned char pad0[2];
-    unsigned char values[8];
-    unsigned char count : 4;
-    unsigned char flags : 4;
-    unsigned char pad0b[0xd];
+struct Struct_ov017_021c62e4_2 {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_[8];
+    unsigned char unknown_a_0_ : 4;
+    unsigned char unknown_a_4_ : 4;
+    unsigned char unknown_b_[0xd];
 };
 
-struct Holder021c62e4 {
-    unsigned char pad0[4];
-    Slot021c62e4 slots[1];
+struct Struct_ov017_021c62e4_3 {
+    unsigned char unknown_0_[4];
+    Struct_ov017_021c62e4_2 unknown_4_[1];
 };
 
-struct Payload021c62e4 {
-    unsigned short id;
-    short slotIndex;
-    unsigned char values[8];
+struct Struct_ov017_021c62e4_4 {
+    unsigned short unknown_0_;
+    short unknown_2_;
+    unsigned char unknown_4_[8];
 };
 
-struct Evt021c62e4 {
-    unsigned char tag;
-    unsigned char pad1[3];
-    Payload021c62e4 payload;
+struct Struct_ov017_021c62e4_5 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov017_021c62e4_4 unknown_4_;
 };
 
 // USA: func_ov017_021c62e4
-extern "C" ARM void func_ov017_021c62e4(int unused0, Evt021c62e4* src, void* unused2, char* base) {
+extern "C" ARM void func_ov017_021c62e4(int arg0, Struct_ov017_021c62e4_5* arg1, void* arg2, char* arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021c62e4_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021c62e4_1816=0x718};
 #endif
-    Slot021c62e4* slot;
-    int i;
-    void* table = *(void**)(base + 0x3000 + regionalOffset0);
+    Struct_ov017_021c62e4_2* var0;
+    int var1;
+    void* var2 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c62e4_1816);
 
-    char* state = (char*)func_ov017_021b8470(table);
-    if (!state) return;
+    char* var3 = (char*)func_ov017_021b8470(var2);
+    if (!var3) return;
 
-    Owner021c62e4* owner = (Owner021c62e4*)func_ov017_021b8478(table);
-    if (!owner) return;
+    Struct_ov017_021c62e4* var4 = (Struct_ov017_021c62e4*)func_ov017_021b8478(var2);
+    if (!var4) return;
 
-    Payload021c62e4* p = &src->payload;
-    if (owner->id != p->id) return;
+    Struct_ov017_021c62e4_4* var5 = &arg1->unknown_4_;
+    if (var4->unknown_8_ != var5->unknown_0_) return;
 
-    slot = &((Holder021c62e4*)(state + 0x1b0 + 0x8000))->slots[p->slotIndex];
-    for (i = 0; i < slot->count; i++) {
-        slot->values[i] = 0;
-        slot->values[i] = p->values[i];
+    var0 = &((Struct_ov017_021c62e4_3*)(var3 + 0x1b0 + 0x8000))->unknown_4_[var5->unknown_2_];
+    for (var1 = 0; var1 < var0->unknown_a_0_; var1++) {
+        var0->unknown_2_[var1] = 0;
+        var0->unknown_2_[var1] = var5->unknown_4_[var1];
     }
 }

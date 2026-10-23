@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Canvas0204e998;
-extern "C" void func_0204c87c(struct Canvas0204e998 *s, int a);
-extern "C" void func_0204e998(struct Canvas0204e998 *s);
+struct Struct_0204c87c;
+extern "C" void func_0204c87c(struct Struct_0204c87c *arg0, int arg1);
+extern "C" void func_0204e998(struct Struct_0204c87c *arg0);
 
 // USA: func_0204c964
-extern "C" ARM void func_0204c964(struct Canvas0204e998 *s) {
-    func_0204c87c(s, 1);
-    func_0204e998(s);
+extern "C" ARM void func_0204c964(struct Struct_0204c87c *arg0) {
+    func_0204c87c(arg0, 1);
+    func_0204e998(arg0);
 }

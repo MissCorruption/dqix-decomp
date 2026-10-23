@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset6fc = 0x4ec, RegionOffset18c = 0x180, RegionOffset998 = 0x868, RegionOffsetb3c = 0x91c };
+enum { Enum_ov017_021c05f4_1788 = 0x4ec, Enum_ov017_021c05f4_396 = 0x180, Enum_ov017_021c05f4_2456 = 0x868, Enum_ov017_021c05f4_2876 = 0x91c };
 #else
-enum { RegionOffset6fc = 0x6fc, RegionOffset18c = 0x18c, RegionOffset998 = 0x998, RegionOffsetb3c = 0xb3c };
+enum { Enum_ov017_021c05f4_1788 = 0x6fc, Enum_ov017_021c05f4_396 = 0x18c, Enum_ov017_021c05f4_2456 = 0x998, Enum_ov017_021c05f4_2876 = 0xb3c };
 #endif
 
 #include <globaldefs.h>
@@ -19,62 +19,62 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset18c = 0x18c, RegionOffset998 = 0x998
 extern "C" void* func_020421a0(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int a, unsigned char* p, int bit);
-extern "C" int func_02046b08(void** p);
-extern "C" int func_02039820(void* obj);
-extern "C" int func_020535c8(signed char* p);
-struct BitField0203402c;
-extern "C" int func_0203402c(BitField0203402c* p);
-struct FlagWord02046708;
-extern "C" int func_02046708(FlagWord02046708* w, unsigned int mask);
-extern "C" int func_02039d7c(char* p);
-extern "C" int func_020c39c8(volatile unsigned short* p);
-struct Obj0205eaa0;
-extern "C" int func_0205eaa0(Obj0205eaa0* obj, int a, int b);
-extern "C" void func_02043204(char* p);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int func_02046b08(void** arg0);
+extern "C" int func_02039820(void* arg0);
+extern "C" int func_020535c8(signed char* arg0);
+struct Struct_0203402c;
+extern "C" int func_0203402c(Struct_0203402c* arg0);
+struct Struct_02012de8;
+extern "C" int func_02046708(Struct_02012de8* arg0, unsigned int arg1);
+extern "C" int func_02039d7c(char* arg0);
+extern "C" int func_020c39c8(volatile unsigned short* arg0);
+struct Struct_02108760;
+extern "C" int func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_02043204(char* arg0);
 extern "C" void* func_020d7a50(void);
-struct Obj020d7aa0;
-extern "C" void func_020d7aa0(Obj020d7aa0* obj);
+struct Struct_020d7aa0_2;
+extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_02017c58(void* a);
-extern "C" void func_ov017_021c0760(unsigned char* obj, unsigned char flag);
-struct List02046a3c;
-struct Node02046a3c;
-extern "C" void func_02046a3c(List02046a3c*, Node02046a3c*);
+extern "C" void* func_02017c58(void* arg0);
+extern "C" void func_ov017_021c0760(unsigned char* arg0, unsigned char arg1);
+struct Struct_02046a3c_2;
+struct Struct_02046a3c;
+extern "C" void func_02046a3c(Struct_02046a3c_2*, Struct_02046a3c*);
 
-extern Obj0205eaa0 data_02108760;
+extern Struct_02108760 data_02108760;
 
 // USA: func_ov017_021c05f4
-extern "C" ARM void func_ov017_021c05f4(void* p9, unsigned char p8, unsigned char p7, int p6) {
-    void* g = func_020421a0();
-    if (p6 != 0) {
-        GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
-        void* d = func_020d6c00();
-        void* f = func_0205ec34();
-        if (func_0206dfb0((int)f, (unsigned char*)f + 0x8c, 0x119a) == 0) return;
-        if (func_02046b08((void**)*(void**)((char*)p9 + 0x3000 + RegionOffset6fc)) == 0) return;
-        if (func_02039820(combatant) == 0) return;
-        if (func_020535c8((signed char*)combatant) != 0) return;
-        if (*(int*)((char*)combatant + RegionOffset18c) & 1) return;
-        if (func_0203402c((BitField0203402c*)combatant) != 0 ||
-            *(short*)((char*)combatant + 0xac) != 0 ||
-            *(int*)((char*)g + RegionOffset998) != 0) return;
-        if (func_02046708((FlagWord02046708*)d, 0x800) != 0) return;
-        if (func_02039d7c((char*)combatant) != 0) return;
+extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned char arg2, int arg3) {
+    void* var0 = func_020421a0();
+    if (arg3 != 0) {
+        GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
+        void* var2 = func_020d6c00();
+        void* var3 = func_0205ec34();
+        if (func_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x119a) == 0) return;
+        if (func_02046b08((void**)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_1788)) == 0) return;
+        if (func_02039820(var1) == 0) return;
+        if (func_020535c8((signed char*)var1) != 0) return;
+        if (*(int*)((char*)var1 + Enum_ov017_021c05f4_396) & 1) return;
+        if (func_0203402c((Struct_0203402c*)var1) != 0 ||
+            *(short*)((char*)var1 + 0xac) != 0 ||
+            *(int*)((char*)var0 + Enum_ov017_021c05f4_2456) != 0) return;
+        if (func_02046708((Struct_02012de8*)var2, 0x800) != 0) return;
+        if (func_02039d7c((char*)var1) != 0) return;
         if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) return;
         if (g_keyManager.TestKeysPressed(4) == 0) return;
-        *(unsigned short*)((char*)combatant + 0xb2) = 0;
+        *(unsigned short*)((char*)var1 + 0xb2) = 0;
         func_0205eaa0(&data_02108760, 1, 0);
     } else {
-        if (*(int*)((char*)g + RegionOffset998) != 0) func_02043204((char*)g);
+        if (*(int*)((char*)var0 + Enum_ov017_021c05f4_2456) != 0) func_02043204((char*)var0);
     }
 
-    void* reset = func_020d7a50();
-    func_020d7aa0((Obj020d7aa0*)reset);
+    void* var4 = func_020d7a50();
+    func_020d7aa0((Struct_020d7aa0_2*)var4);
     func_02017c58(func_02012fe4());
 
-    func_ov017_021c0760((unsigned char*)*(void**)((char*)p9 + 0x3000 + RegionOffsetb3c), p8);
-    char* base = (char*)p9 + 0x3000;
-    *((unsigned char*)*(void**)(base + RegionOffsetb3c) + 0x24) = p7;
-    func_02046a3c((List02046a3c*)(*(void**)(base + RegionOffset6fc)), (Node02046a3c*)(*(void**)(base + RegionOffsetb3c)));
+    func_ov017_021c0760((unsigned char*)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_2876), arg1);
+    char* var5 = (char*)arg0 + 0x3000;
+    *((unsigned char*)*(void**)(var5 + Enum_ov017_021c05f4_2876) + 0x24) = arg2;
+    func_02046a3c((Struct_02046a3c_2*)(*(void**)(var5 + Enum_ov017_021c05f4_1788)), (Struct_02046a3c*)(*(void**)(var5 + Enum_ov017_021c05f4_2876)));
 }

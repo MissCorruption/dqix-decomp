@@ -3,155 +3,155 @@
 extern const unsigned short data_020e69ac[128];
 extern const unsigned char data_020e692c[128];
 
-static inline int IsAlpha020055e4(int c) {
-    return ((c < 0) || (c >= 128)) ? 0 : (int)(data_020e69ac[c] & 0x001);
+static inline int inline_020055e4(int arg0) {
+    return ((arg0 < 0) || (arg0 >= 128)) ? 0 : (int)(data_020e69ac[arg0] & 0x001);
 }
 
-static inline int IsDigit020055e4(int c) {
-    return ((c < 0) || (c >= 128)) ? 0 : (int)(data_020e69ac[c] & 0x008);
+static inline int inline_020055e4_2(int arg0) {
+    return ((arg0 < 0) || (arg0 >= 128)) ? 0 : (int)(data_020e69ac[arg0] & 0x008);
 }
 
-static inline int IsSpace020055e4(int c) {
-    return ((c < 0) || (c >= 128)) ? 0 : (int)(data_020e69ac[c] & 0x100);
+static inline int inline_020055e4_3(int arg0) {
+    return ((arg0 < 0) || (arg0 >= 128)) ? 0 : (int)(data_020e69ac[arg0] & 0x100);
 }
 
-static inline int ToUpper020055e4(int c) {
-    return ((c < 0) || (c >= 128)) ? c : (int)(data_020e692c[c]);
+static inline int inline_020055e4_4(int arg0) {
+    return ((arg0 < 0) || (arg0 >= 128)) ? arg0 : (int)(data_020e692c[arg0]);
 }
 
-enum ScanState020055e4 {
-    SCAN_START = 0x01,
-    SCAN_CHECK_FOR_ZERO = 0x02,
-    SCAN_LEADING_ZERO = 0x04,
-    SCAN_NEED_DIGIT = 0x08,
-    SCAN_DIGIT_LOOP = 0x10,
-    SCAN_FINISHED = 0x20,
-    SCAN_FAILURE = 0x40
+enum Enum_020055e4 {
+    Enum_020055e4_1 = 0x01,
+    Enum_020055e4_2 = 0x02,
+    Enum_020055e4_4 = 0x04,
+    Enum_020055e4_8 = 0x08,
+    Enum_020055e4_16 = 0x10,
+    Enum_020055e4_32 = 0x20,
+    Enum_020055e4_64 = 0x40
 };
 
-typedef int (*ReadProc020055e4)(void* arg, int c, int action);
+typedef int (*Type_020055e4)(void* arg, int c, int action);
 
 // USA: func_020055e4
-extern "C" ARM unsigned long func_020055e4(int base, int maxWidth, ReadProc020055e4 readProc, void* readProcArg,
-                                           int* charsScanned, int* negative, int* overflow) {
-    int scanState = SCAN_START;
-    int count = 0;
-    int spaces = 0;
-    unsigned long value = 0;
-    unsigned long valueMax = 0;
-    int c;
+extern "C" ARM unsigned long func_020055e4(int arg0, int arg1, Type_020055e4 arg2, void* arg3,
+                                           int* arg4, int* arg5, int* arg6) {
+    int var0 = Enum_020055e4_1;
+    int var1 = 0;
+    int var2 = 0;
+    unsigned long var3 = 0;
+    unsigned long var4 = 0;
+    int var5;
 
-    *negative = *overflow = 0;
+    *arg5 = *arg6 = 0;
 
-    if (base < 0 || base == 1 || base > 36 || maxWidth < 1)
-        scanState = SCAN_FAILURE;
+    if (arg0 < 0 || arg0 == 1 || arg0 > 36 || arg1 < 1)
+        var0 = Enum_020055e4_64;
     else
-        c = (count++, readProc(readProcArg, 0, 0));
+        var5 = (var1++, arg2(arg3, 0, 0));
 
-    if (base)
-        valueMax = 0xffffffff / base;
+    if (arg0)
+        var4 = 0xffffffff / arg0;
 
-    while (count <= maxWidth && c != -1 && !(scanState & (SCAN_FINISHED | SCAN_FAILURE))) {
-        switch (scanState) {
-            case SCAN_START:
-                if (IsSpace020055e4(c)) {
-                    c = (count++, readProc(readProcArg, 0, 0));
-                    count--;
-                    spaces++;
+    while (var1 <= arg1 && var5 != -1 && !(var0 & (Enum_020055e4_32 | Enum_020055e4_64))) {
+        switch (var0) {
+            case Enum_020055e4_1:
+                if (inline_020055e4_3(var5)) {
+                    var5 = (var1++, arg2(arg3, 0, 0));
+                    var1--;
+                    var2++;
                     break;
                 }
 
-                if (c == '+')
-                    c = (count++, readProc(readProcArg, 0, 0));
-                else if (c == '-') {
-                    c = (count++, readProc(readProcArg, 0, 0));
-                    *negative = 1;
+                if (var5 == '+')
+                    var5 = (var1++, arg2(arg3, 0, 0));
+                else if (var5 == '-') {
+                    var5 = (var1++, arg2(arg3, 0, 0));
+                    *arg5 = 1;
                 }
 
-                scanState = SCAN_CHECK_FOR_ZERO;
+                var0 = Enum_020055e4_2;
                 break;
 
-            case SCAN_CHECK_FOR_ZERO:
-                if (base == 0 || base == 16) {
-                    if (c == '0') {
-                        scanState = SCAN_LEADING_ZERO;
-                        c = (count++, readProc(readProcArg, 0, 0));
+            case Enum_020055e4_2:
+                if (arg0 == 0 || arg0 == 16) {
+                    if (var5 == '0') {
+                        var0 = Enum_020055e4_4;
+                        var5 = (var1++, arg2(arg3, 0, 0));
                         break;
                     }
                 }
 
-                scanState = SCAN_NEED_DIGIT;
+                var0 = Enum_020055e4_8;
                 break;
 
-            case SCAN_LEADING_ZERO:
-                if (c == 'X' || c == 'x') {
-                    base = 16;
-                    scanState = SCAN_NEED_DIGIT;
-                    c = (count++, readProc(readProcArg, 0, 0));
+            case Enum_020055e4_4:
+                if (var5 == 'X' || var5 == 'x') {
+                    arg0 = 16;
+                    var0 = Enum_020055e4_8;
+                    var5 = (var1++, arg2(arg3, 0, 0));
                     break;
                 }
 
-                if (base == 0)
-                    base = 8;
+                if (arg0 == 0)
+                    arg0 = 8;
 
-                scanState = SCAN_DIGIT_LOOP;
+                var0 = Enum_020055e4_16;
                 break;
 
-            case SCAN_NEED_DIGIT:
-            case SCAN_DIGIT_LOOP:
-                if (base == 0)
-                    base = 10;
+            case Enum_020055e4_8:
+            case Enum_020055e4_16:
+                if (arg0 == 0)
+                    arg0 = 10;
 
-                if (!valueMax)
-                    valueMax = 0xffffffff / base;
+                if (!var4)
+                    var4 = 0xffffffff / arg0;
 
-                if (IsDigit020055e4(c)) {
-                    if ((c -= '0') >= base) {
-                        if (scanState == SCAN_DIGIT_LOOP)
-                            scanState = SCAN_FINISHED;
+                if (inline_020055e4_2(var5)) {
+                    if ((var5 -= '0') >= arg0) {
+                        if (var0 == Enum_020055e4_16)
+                            var0 = Enum_020055e4_32;
                         else
-                            scanState = SCAN_FAILURE;
+                            var0 = Enum_020055e4_64;
 
-                        c += '0';
+                        var5 += '0';
                         break;
                     }
-                } else if (!IsAlpha020055e4(c) || (ToUpper020055e4(c) - 'A' + 10) >= base) {
-                    if (scanState == SCAN_DIGIT_LOOP)
-                        scanState = SCAN_FINISHED;
+                } else if (!inline_020055e4(var5) || (inline_020055e4_4(var5) - 'A' + 10) >= arg0) {
+                    if (var0 == Enum_020055e4_16)
+                        var0 = Enum_020055e4_32;
                     else
-                        scanState = SCAN_FAILURE;
+                        var0 = Enum_020055e4_64;
 
                     break;
                 } else
-                    c = ToUpper020055e4(c) - 'A' + 10;
+                    var5 = inline_020055e4_4(var5) - 'A' + 10;
 
-                if (value > valueMax)
-                    *overflow = 1;
+                if (var3 > var4)
+                    *arg6 = 1;
 
-                value *= base;
+                var3 *= arg0;
 
-                if (c > (0xffffffff - value))
-                    *overflow = 1;
+                if (var5 > (0xffffffff - var3))
+                    *arg6 = 1;
 
-                value += c;
+                var3 += var5;
 
-                scanState = SCAN_DIGIT_LOOP;
+                var0 = Enum_020055e4_16;
 
-                c = (count++, readProc(readProcArg, 0, 0));
+                var5 = (var1++, arg2(arg3, 0, 0));
                 break;
         }
     }
 
-    if (!(scanState & (SCAN_LEADING_ZERO | SCAN_DIGIT_LOOP | SCAN_FINISHED))) {
-        count = 0;
-        value = 0;
-        *charsScanned = 0;
+    if (!(var0 & (Enum_020055e4_4 | Enum_020055e4_16 | Enum_020055e4_32))) {
+        var1 = 0;
+        var3 = 0;
+        *arg4 = 0;
     } else {
-        count--;
-        *charsScanned = count + spaces;
+        var1--;
+        *arg4 = var1 + var2;
     }
 
-    readProc(readProcArg, c, 1);
+    arg2(arg3, var5, 1);
 
-    return value;
+    return var3;
 }

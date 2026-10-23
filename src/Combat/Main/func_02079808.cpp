@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-extern "C" int func_02079840(void* base, int offset, int dflt);
+extern "C" int func_02079840(void* arg0, int arg1, int arg2);
 
-struct Obj02079808 {
-    int f0;
-    char pad[0x30];
-    int f34;
+struct Struct_02079808 {
+    int unknown_0_;
+    char unknown_4_[0x30];
+    int unknown_34_;
 };
 
 // USA: func_02079808
-extern "C" ARM int func_02079808(void* base, struct Obj02079808* obj) {
-    obj->f0 = func_02079840(base, obj->f0, 0);
-    obj->f34 = func_02079840(base, obj->f34, 0);
+extern "C" ARM int func_02079808(void* arg0, struct Struct_02079808* arg1) {
+    arg1->unknown_0_ = func_02079840(arg0, arg1->unknown_0_, 0);
+    arg1->unknown_34_ = func_02079840(arg0, arg1->unknown_34_, 0);
     return 1;
 }

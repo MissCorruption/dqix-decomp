@@ -2,54 +2,54 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { kRegionValueEE_EA = 0xea };
-enum { kRegionValueCC_CA = 0xca };
-enum { kRegionValue840_860 = 0x860 };
-enum { kRegionValueD5_D1 = 0xd1 };
-enum { kRegionValueD0_CC = 0xcc };
-enum { kRegionValue460_35C = 0x35c };
-enum { kRegionValueEC_E8 = 0xe8 };
+enum { Enum_ov003_021733d0_238 = 0xea };
+enum { Enum_ov003_021733d0_204 = 0xca };
+enum { Enum_ov003_021733d0_2112 = 0x860 };
+enum { Enum_ov003_021733d0_213 = 0xd1 };
+enum { Enum_ov003_021733d0_208 = 0xcc };
+enum { Enum_ov003_021733d0_1120 = 0x35c };
+enum { Enum_ov003_021733d0_236 = 0xe8 };
 #else
-enum { kRegionValueEE_EA = 0xee };
-enum { kRegionValueCC_CA = 0xcc };
-enum { kRegionValue840_860 = 0x840 };
-enum { kRegionValueD5_D1 = 0xd5 };
-enum { kRegionValueD0_CC = 0xd0 };
-enum { kRegionValue460_35C = 0x460 };
-enum { kRegionValueEC_E8 = 0xec };
+enum { Enum_ov003_021733d0_238 = 0xee };
+enum { Enum_ov003_021733d0_204 = 0xcc };
+enum { Enum_ov003_021733d0_2112 = 0x840 };
+enum { Enum_ov003_021733d0_213 = 0xd5 };
+enum { Enum_ov003_021733d0_208 = 0xd0 };
+enum { Enum_ov003_021733d0_1120 = 0x460 };
+enum { Enum_ov003_021733d0_236 = 0xec };
 #endif
 
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
 extern "C" int func_02012fe4(void);
-extern "C" void func_02098630(void* obj, void* addr, int a, int b);
+extern "C" void func_02098630(void* arg0, void* arg1, int arg2, int arg3);
 
 int IsMainBrightnessTransitionActive(GameResources*);
-extern "C" void func_ov003_0216fb6c(char* obj);
+extern "C" void func_ov003_0216fb6c(char* arg0);
 
 // USA: func_ov003_021733d0
-extern "C" ARM void func_ov003_021733d0(unsigned char* self) {
-    GameResources* p = GetGameResources();
-    if (self[kRegionValueEE_EA] == 0) {
-        SetMainBrightness(p, -16, 24);
-        self[kRegionValueEE_EA] = 1;
+extern "C" ARM void func_ov003_021733d0(unsigned char* arg0) {
+    GameResources* var0 = GetGameResources();
+    if (arg0[Enum_ov003_021733d0_238] == 0) {
+        SetMainBrightness(var0, -16, 24);
+        arg0[Enum_ov003_021733d0_238] = 1;
         return;
     }
-    if (self[kRegionValueEE_EA] != 1) {
+    if (arg0[Enum_ov003_021733d0_238] != 1) {
         return;
     }
-    if (IsMainBrightnessTransitionActive(p) != 0) {
+    if (IsMainBrightnessTransitionActive(var0) != 0) {
         return;
     }
-    int r4 = func_02012fe4();
-    if (self[kRegionValueCC_CA] == 0) {
-        func_ov003_0216fb6c((char*)r4 + kRegionValue840_860);
-        for (int i = 0; i < self[kRegionValueD5_D1]; i++) {
-            void* addr = (char*)*(int*)(self + kRegionValueD0_CC) + kRegionValue460_35C + (unsigned char)i * 0xe8;
-            func_02098630((char*)r4 + kRegionValue840_860, addr, 1, 0);
+    int var1 = func_02012fe4();
+    if (arg0[Enum_ov003_021733d0_204] == 0) {
+        func_ov003_0216fb6c((char*)var1 + Enum_ov003_021733d0_2112);
+        for (int var2 = 0; var2 < arg0[Enum_ov003_021733d0_213]; var2++) {
+            void* var3 = (char*)*(int*)(arg0 + Enum_ov003_021733d0_208) + Enum_ov003_021733d0_1120 + (unsigned char)var2 * 0xe8;
+            func_02098630((char*)var1 + Enum_ov003_021733d0_2112, var3, 1, 0);
         }
-        func_ov003_0216fb6c((char*)r4 + kRegionValue840_860);
+        func_ov003_0216fb6c((char*)var1 + Enum_ov003_021733d0_2112);
     }
-    self[kRegionValueEC_E8] = 6;
-    self[kRegionValueEE_EA] = 0;
+    arg0[Enum_ov003_021733d0_236] = 6;
+    arg0[Enum_ov003_021733d0_238] = 0;
 }

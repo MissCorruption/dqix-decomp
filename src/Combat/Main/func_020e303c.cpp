@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Bytes020e303c {
-    unsigned char f0;
-    unsigned char f1;
-    unsigned char f2;
-    unsigned char f3;
+struct Struct_020e3004_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
 
 // USA: func_020e303c
-extern "C" ARM void func_020e303c(struct Bytes020e303c* s) {
-    s->f0 = 0;
-    s->f1 = 0;
-    s->f2 = 0;
-    s->f3 = 0;
+extern "C" ARM void func_020e303c(struct Struct_020e3004_2* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_1_ = 0;
+    arg0->unknown_2_ = 0;
+    arg0->unknown_3_ = 0;
 }

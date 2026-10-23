@@ -5,69 +5,69 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { PoolOffset = 0x27c };
+enum { Enum_02046cc8_716 = 0x27c };
 #else
-enum { PoolOffset = 0x2cc };
+enum { Enum_02046cc8_716 = 0x2cc };
 #endif
 
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);
 
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
-struct Fields020407b4;
-extern "C" void func_020407b4(struct Fields020407b4* obj, int a, int b, int c);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+struct Struct_02040774_2;
+extern "C" void func_020407b4(struct Struct_02040774_2* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_02046cc8
-extern "C" ARM int func_02046cc8(void* self) {
-    char* pool;
-    void* base;
-    BackgroundLoader* loader;
-    SafeAllocator* allocator;
-    void* fileData;
-    unsigned int fileSize;
-    ObjectArchiveLoadInfo info;
+extern "C" ARM int func_02046cc8(void* arg0) {
+    char* var0;
+    void* var1;
+    BackgroundLoader* var2;
+    SafeAllocator* var3;
+    void* var4;
+    unsigned int var5;
+    ObjectArchiveLoadInfo var6;
 
-    if (*(int*)((char*)self + 0xe8) != 0) {
+    if (*(int*)((char*)arg0 + 0xe8) != 0) {
         return 1;
     }
-    if (*(int*)((char*)self + 0xec) < 0) {
+    if (*(int*)((char*)arg0 + 0xec) < 0) {
         return 0;
     }
 
     GameState::GetInstance();
-    base = GetGameResources();
-    allocator = *(SafeAllocator**)((char*)self + 0x38);
-    if (allocator == NULL) {
-        allocator = (SafeAllocator*)((char*)self + 0x24);
+    var1 = GetGameResources();
+    var3 = *(SafeAllocator**)((char*)arg0 + 0x38);
+    if (var3 == NULL) {
+        var3 = (SafeAllocator*)((char*)arg0 + 0x24);
     }
-    loader = BackgroundLoader::GetInstance();
+    var2 = BackgroundLoader::GetInstance();
 
-    if (loader->GetTaskStatus(*(int*)((char*)self + 0xec)) != 0) {
-        pool = (char*)base + PoolOffset;
-        if (*(unsigned char*)((char*)self + 0x1d) != 0) {
-            func_0207df50((struct Foo0207df50*)(pool + 0xc40));
-            func_0207df90(pool + 0xc40);
+    if (var2->GetTaskStatus(*(int*)((char*)arg0 + 0xec)) != 0) {
+        var0 = (char*)var1 + Enum_02046cc8_716;
+        if (*(unsigned char*)((char*)arg0 + 0x1d) != 0) {
+            func_0207df50((struct Struct_0203d028*)(var0 + 0xc40));
+            func_0207df90(var0 + 0xc40);
 
-            loader->GetLoadedFileByID(*(int*)((char*)self + 0xec), &fileData, &fileSize);
-            if (fileData != NULL && allocator->GetSignedAllocator() != NULL) {
-                Object3D* obj = (Object3D*)((char*)self + 0x3c);
-                obj->Initialize();
-                info.fileData = fileData;
-                info.unk_8 = fileSize;
-                info.allocator = allocator;
-                info.unk_10 = 1;
-                obj->LoadFromCHRArchive(&info);
-                void* mdl = *(void**)((char*)self + 0x44);
-                NSBXX_Model_SetPolygonID(*(void**)((char*)mdl + 0x54), 0x3d);
-                func_020407b4((struct Fields020407b4*)obj, 0, -0xa000, 0x1000);
-                obj->MaybeSetBCFGAnimation(0, 0);
+            var2->GetLoadedFileByID(*(int*)((char*)arg0 + 0xec), &var4, &var5);
+            if (var4 != NULL && var3->GetSignedAllocator() != NULL) {
+                Object3D* var7 = (Object3D*)((char*)arg0 + 0x3c);
+                var7->Initialize();
+                var6.fileData = var4;
+                var6.unk_8 = var5;
+                var6.allocator = var3;
+                var6.unk_10 = 1;
+                var7->LoadFromCHRArchive(&var6);
+                void* var8 = *(void**)((char*)arg0 + 0x44);
+                NSBXX_Model_SetPolygonID(*(void**)((char*)var8 + 0x54), 0x3d);
+                func_020407b4((struct Struct_02040774_2*)var7, 0, -0xa000, 0x1000);
+                var7->MaybeSetBCFGAnimation(0, 0);
             }
-            func_0207dfac(pool + 0xc40);
+            func_0207dfac(var0 + 0xc40);
         }
-        loader->RemoveTask(*(int*)((char*)self + 0xec));
-        *(int*)((char*)self + 0xec) = -1;
+        var2->RemoveTask(*(int*)((char*)arg0 + 0xec));
+        *(int*)((char*)arg0 + 0xec) = -1;
         return 1;
     }
     return 0;

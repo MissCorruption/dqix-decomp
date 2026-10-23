@@ -1,27 +1,27 @@
 #include <globaldefs.h>
-extern "C" struct SortNode0207214c* func_0207218c(struct Container0207218c*, int);
+extern "C" struct Struct_0207214c* func_0207218c(struct Struct_0207214c_2*, int);
 
-struct SortNode0207214c {
-    unsigned char pad0[0x18];
-    short sortKey;
-    unsigned char pad1a[2];
-    struct SortNode0207214c* next;
+struct Struct_0207214c {
+    unsigned char unknown_0_[0x18];
+    short unknown_18_;
+    unsigned char unknown_1a_[2];
+    struct Struct_0207214c* unknown_1c_;
 };
 
-struct SortList0207214c {
-    struct SortNode0207214c* head;
+struct Struct_02071ffc_2 {
+    struct Struct_0207214c* unknown_0_;
 };
 
 
 // USA: func_0207214c
-extern "C" ARM void func_0207214c(struct SortList0207214c* list) {
-    struct SortNode0207214c* node;
-    list->head = func_0207218c((struct Container0207218c*)(list), (int)(-1));
-    if (list->head == NULL) return;
-    node = list->head;
-    while (node != NULL) {
-        struct SortNode0207214c* next = func_0207218c((struct Container0207218c*)(list), (int)(node->sortKey));
-        node->next = next;
-        node = next;
+extern "C" ARM void func_0207214c(struct Struct_02071ffc_2* arg0) {
+    struct Struct_0207214c* var0;
+    arg0->unknown_0_ = func_0207218c((struct Struct_0207214c_2*)(arg0), (int)(-1));
+    if (arg0->unknown_0_ == NULL) return;
+    var0 = arg0->unknown_0_;
+    while (var0 != NULL) {
+        struct Struct_0207214c* var1 = func_0207218c((struct Struct_0207214c_2*)(arg0), (int)(var0->unknown_18_));
+        var0->unknown_1c_ = var1;
+        var0 = var1;
     }
 }

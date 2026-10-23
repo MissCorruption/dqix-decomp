@@ -2,217 +2,217 @@
 #include "std_library_functions.h"
 #include "Combat/Main/BattleList.h"
 
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" int func_02083b00(unsigned char* obj, int index);
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
-struct S_10088;
-extern "C" int func_02010088(struct S_10088* obj);
-struct S88514;
-extern "C" int func_02088514(struct S88514* obj);
-struct FlagObj_021da9b0;
-extern "C" int func_ov024_021da9b0(struct FlagObj_021da9b0* p);
-extern "C" int func_020882f8(unsigned char* p);
-struct FlagObj_021de25c;
-extern "C" int func_ov024_021de25c(struct FlagObj_021de25c* p);
-struct Combatant_2088660;
-extern "C" int func_02088660(struct Combatant_2088660* p);
-struct S_flag2b;
-extern "C" int func_ov024_021fb430(struct S_flag2b* p);
-struct S_flag4b;
-extern "C" int func_ov024_021fb448(struct S_flag4b* p);
-struct S_flag131072;
-extern "C" int func_ov024_021fb478(struct S_flag131072* p);
-struct S_flag4000000;
-extern "C" int func_ov024_021edc08(struct S_flag4000000* p);
-struct FlagObj_021e47dc;
-extern "C" int func_ov024_021e47dc(struct FlagObj_021e47dc* p);
-struct AddEntryList_021f6a1c;
-extern "C" void func_ov024_021f6a1c(struct AddEntryList_021f6a1c* obj, void* src);
-extern "C" void func_ov024_021f6a4c(void* dst, void* src);
-extern "C" void func_ov024_021fd858(void* obj);
-extern "C" void func_ov024_021f9874(void* obj, void* buf, int unused, int val);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+struct Struct_02010088;
+extern "C" int func_02010088(struct Struct_02010088* arg0);
+struct Struct_02088514;
+extern "C" int func_02088514(struct Struct_02088514* arg0);
+struct Struct_ov024_021da670_7;
+extern "C" int func_ov024_021da9b0(struct Struct_ov024_021da670_7* arg0);
+extern "C" int func_020882f8(unsigned char* arg0);
+struct Struct_ov024_021de124;
+extern "C" int func_ov024_021de25c(struct Struct_ov024_021de124* arg0);
+struct Struct_02088660;
+extern "C" int func_02088660(struct Struct_02088660* arg0);
+struct Struct_ov024_021fa7ec_5;
+extern "C" int func_ov024_021fb430(struct Struct_ov024_021fa7ec_5* arg0);
+struct Struct_ov024_021fa7ec_6;
+extern "C" int func_ov024_021fb448(struct Struct_ov024_021fa7ec_6* arg0);
+struct Struct_ov024_021fa7ec_8;
+extern "C" int func_ov024_021fb478(struct Struct_ov024_021fa7ec_8* arg0);
+struct Struct_ov024_021eda78_5;
+extern "C" int func_ov024_021edc08(struct Struct_ov024_021eda78_5* arg0);
+struct Struct_ov024_021e4604;
+extern "C" int func_ov024_021e47dc(struct Struct_ov024_021e4604* arg0);
+struct Struct_ov024_021f6a1c;
+extern "C" void func_ov024_021f6a1c(struct Struct_ov024_021f6a1c* arg0, void* arg1);
+extern "C" void func_ov024_021f6a4c(void* arg0, void* arg1);
+extern "C" void func_ov024_021fd858(void* arg0);
+extern "C" void func_ov024_021f9874(void* arg0, void* arg1, int arg2, int arg3);
 
-struct Combatant_021fd954 {
-    char pad0[4];
-    short id;
-    char pad6[0x138 - 0x6];
-    struct ModifiableCombatStats* stats;
+struct Struct_ov024_021fd954 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0x138 - 0x6];
+    struct ModifiableCombatStats* unknown_138_;
 #if defined(jpn)
-    char pad13c[0x144 - 0x13c];
+    char unknown_13c_[0x144 - 0x13c];
 #else
-    char pad13c[0x150 - 0x13c];
+    char unknown1_13c_[0x150 - 0x13c];
 #endif
-    unsigned char* field150;
+    unsigned char* unknown_150_;
 };
 
-struct Combatant_021fd954* GetCombatantByID(int unused, int id);
+struct Struct_ov024_021fd954* GetCombatantByID(int unused, int id);
 
-struct Entry_021fd954 {
-    float value;
-    unsigned char id;
-    unsigned char flag5;
-    unsigned char index;
-    unsigned char percent;
-    unsigned char code;
+struct Struct_ov024_021fd954_2 {
+    float unknown_0_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
 };
-struct EntryList_021fd954 {
-    char raw[0xc8];
-    EntryList_021fd954() { memset(this, 0, sizeof(*this)); }
+struct Struct_ov024_021fd954_3 {
+    char unknown_0_[0xc8];
+    Struct_ov024_021fd954_3() { memset(this, 0, sizeof(*this)); }
 };
-struct Action_021fd954 {
-    char pad0[8];
-    unsigned int pad8_lo : 8;
-    unsigned int mode : 2;
-    unsigned int pad8_hi : 22;
-    char padc[4];
-    unsigned int flags10;
-    unsigned int pad14 : 28;
-    unsigned int targetKind : 4;
-    unsigned int kind : 5;
-    unsigned int pad18 : 27;
+struct Struct_ov024_021fd954_4 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 2;
+    unsigned int unknown_9_2_ : 22;
+    char unknown_c_[4];
+    unsigned int unknown_10_;
+    unsigned int unknown_14_0_ : 28;
+    unsigned int unknown_17_4_ : 4;
+    unsigned int unknown_18_0_ : 5;
+    unsigned int unknown_18_5_ : 27;
 };
-struct Battle_021fd954 {
-    char pad[0x8e18];
-    unsigned char* partyWork;
+struct Struct_ov024_021fd954_5 {
+    char unknown_0_[0x8e18];
+    unsigned char* unknown_8e18_;
 };
-struct Obj_021fd954 {
-    struct Battle_021fd954* battle;
-    short field4;
-    struct Combatant_021fd954* actor;
-    char padc[0x64c - 0xc];
-    struct Action_021fd954* action;
-    char pad650[0x658 - 0x650];
-    struct EntryList_021fd954* list;
-    struct Entry_021fd954 entry;
-    struct Combatant_021fd954* target;
-    int targetId;
+struct Struct_ov024_021fbec4 {
+    struct Struct_ov024_021fd954_5* unknown_0_;
+    short unknown_4_;
+    struct Struct_ov024_021fd954* unknown_8_;
+    char unknown_c_[0x64c - 0xc];
+    struct Struct_ov024_021fd954_4* unknown_64c_;
+    char unknown_650_[0x658 - 0x650];
+    struct Struct_ov024_021fd954_3* unknown_658_;
+    struct Struct_ov024_021fd954_2 unknown_65c_;
+    struct Struct_ov024_021fd954* unknown_668_;
+    int unknown_66c_;
 };
 
 // USA: func_ov024_021fd954
-extern "C" ARM void func_ov024_021fd954(struct Obj_021fd954* obj, int statusType) {
-    struct Action_021fd954* action;
-    int targetKind;
-    int i;
-    struct Combatant_021fd954* c;
-    int found;
-    struct Combatant_021fd954* actor;
-    actor = obj->actor;
-    func_02053c6c((unsigned char*)actor);
-    action = obj->action;
-    if (action->mode == 1) return;
-    targetKind = action->targetKind;
-    if (targetKind == 6) {
-        if (func_02083b00(actor->field150, 0xe6)) {
-            targetKind = 3;
+extern "C" ARM void func_ov024_021fd954(struct Struct_ov024_021fbec4* arg0, int arg1) {
+    struct Struct_ov024_021fd954_4* var0;
+    int var1;
+    int var2;
+    struct Struct_ov024_021fd954* var3;
+    int var4;
+    struct Struct_ov024_021fd954* var5;
+    var5 = arg0->unknown_8_;
+    func_02053c6c((unsigned char*)var5);
+    var0 = arg0->unknown_64c_;
+    if (var0->unknown_9_0_ == 1) return;
+    var1 = var0->unknown_17_4_;
+    if (var1 == 6) {
+        if (func_02083b00(var5->unknown_150_, 0xe6)) {
+            var1 = 3;
         } else {
-            targetKind = 2;
+            var1 = 2;
         }
     }
-    if (targetKind != 2 && targetKind != 1 && targetKind != 4 && targetKind != 3) return;
+    if (var1 != 2 && var1 != 1 && var1 != 4 && var1 != 3) return;
 
-    struct EntryList_021fd954 list;
-    memset(&list, 0, sizeof(list));
-    found = 0;
-    for (i = 0; i < 4; i++) {
-        if (targetKind == 1 && i != obj->field4) continue;
-        if (!func_020a35e0(obj->battle->partyWork, i & 0xff)) continue;
-        c = GetCombatantByID((int)obj->battle, (short)i);
-        if (!c) continue;
-        if (func_02010088((struct S_10088*)c)) continue;
-        if ((action->flags10 & 0x400) && (*(unsigned int*)((char*)c->stats + 0x14) & 0x200)) continue;
+    struct Struct_ov024_021fd954_3 var6;
+    memset(&var6, 0, sizeof(var6));
+    var4 = 0;
+    for (var2 = 0; var2 < 4; var2++) {
+        if (var1 == 1 && var2 != arg0->unknown_4_) continue;
+        if (!func_020a35e0(arg0->unknown_0_->unknown_8e18_, var2 & 0xff)) continue;
+        var3 = GetCombatantByID((int)arg0->unknown_0_, (short)var2);
+        if (!var3) continue;
+        if (func_02010088((struct Struct_02010088*)var3)) continue;
+        if ((var0->unknown_10_ & 0x400) && (*(unsigned int*)((char*)var3->unknown_138_ + 0x14) & 0x200)) continue;
 
-        bool ok = false;
-        int code = 8;
-        if (statusType == 2) {
-            if (func_02088514((struct S88514*)c->stats)) ok = true;
-        } else if (statusType == 3) {
-            if (func_ov024_021da9b0((struct FlagObj_021da9b0*)c)) ok = true;
-        } else if (statusType == 4) {
-            if (func_020882f8((unsigned char*)c->stats)) ok = true;
-        } else if (statusType == 7) {
-            if (func_ov024_021de25c((struct FlagObj_021de25c*)c)) ok = true;
-        } else if (statusType == 0x11) {
-            struct ModifiableCombatStats* s = c->stats;
-            if (s->attackBuff <= 0) ok = true;
-            if (s->primaryStats.attack >= 999) ok = false;
-            code = 7;
-        } else if (statusType == 0x12) {
-            struct ModifiableCombatStats* s = c->stats;
-            if (s->defenseBuff <= 0) ok = true;
-            if (s->primaryStats.defense >= 999) ok = false;
-            code = 7;
-        } else if (statusType == 0x13) {
-            struct ModifiableCombatStats* s = c->stats;
-            if (s->agilityBuff <= 0) ok = true;
-            if (s->primaryStats.agility >= 999) ok = false;
-            code = 7;
-        } else if (statusType == 0x14) {
-            struct ModifiableCombatStats* s = c->stats;
-            if (s->magicalMightBuff <= 0) ok = true;
-            if ((unsigned short)s->primaryStats.magicalMight >= 999) ok = false;
-            code = 7;
-        } else if (statusType == 0x15) {
-            struct ModifiableCombatStats* s = c->stats;
-            if (s->magicalMendingBuff <= 0) ok = true;
-            if ((unsigned short)s->primaryStats.magicalMending >= 999) ok = false;
-            code = 7;
-        } else if (statusType == 0x16) {
-            if (c->stats->unkBuff18 <= 0) ok = true;
-            code = 7;
-        } else if (statusType == 0x17) {
-            if ((((*(int*)((char*)c->stats + 0x58)) << 8) >> 29) <= 0) ok = true;
-            code = 7;
-        } else if (statusType == 0xd) {
-            if (!func_02088660((struct Combatant_2088660*)c->stats)) ok = true;
-            code = 7;
-        } else if (statusType == 0xe) {
-            if (!func_ov024_021fb430((struct S_flag2b*)c) && !func_ov024_021fb448((struct S_flag4b*)c)
-                && !func_ov024_021fb478((struct S_flag131072*)c)) ok = true;
-            code = 7;
-        } else if (statusType == 0xf) {
-            if (!func_ov024_021fb430((struct S_flag2b*)c) && !func_ov024_021fb448((struct S_flag4b*)c)
-                && !func_ov024_021fb478((struct S_flag131072*)c)) ok = true;
-            code = 7;
-        } else if (statusType == 0x10) {
-            if (!func_ov024_021edc08((struct S_flag4000000*)c)) ok = true;
-            code = 7;
-        } else if (statusType == 0xb) {
-            if (!func_ov024_021e47dc((struct FlagObj_021e47dc*)c)) ok = true;
-            code = 7;
+        bool var7 = false;
+        int var8 = 8;
+        if (arg1 == 2) {
+            if (func_02088514((struct Struct_02088514*)var3->unknown_138_)) var7 = true;
+        } else if (arg1 == 3) {
+            if (func_ov024_021da9b0((struct Struct_ov024_021da670_7*)var3)) var7 = true;
+        } else if (arg1 == 4) {
+            if (func_020882f8((unsigned char*)var3->unknown_138_)) var7 = true;
+        } else if (arg1 == 7) {
+            if (func_ov024_021de25c((struct Struct_ov024_021de124*)var3)) var7 = true;
+        } else if (arg1 == 0x11) {
+            struct ModifiableCombatStats* var9 = var3->unknown_138_;
+            if (var9->attackBuff <= 0) var7 = true;
+            if (var9->primaryStats.attack >= 999) var7 = false;
+            var8 = 7;
+        } else if (arg1 == 0x12) {
+            struct ModifiableCombatStats* var10 = var3->unknown_138_;
+            if (var10->defenseBuff <= 0) var7 = true;
+            if (var10->primaryStats.defense >= 999) var7 = false;
+            var8 = 7;
+        } else if (arg1 == 0x13) {
+            struct ModifiableCombatStats* var11 = var3->unknown_138_;
+            if (var11->agilityBuff <= 0) var7 = true;
+            if (var11->primaryStats.agility >= 999) var7 = false;
+            var8 = 7;
+        } else if (arg1 == 0x14) {
+            struct ModifiableCombatStats* var12 = var3->unknown_138_;
+            if (var12->magicalMightBuff <= 0) var7 = true;
+            if ((unsigned short)var12->primaryStats.magicalMight >= 999) var7 = false;
+            var8 = 7;
+        } else if (arg1 == 0x15) {
+            struct ModifiableCombatStats* var13 = var3->unknown_138_;
+            if (var13->magicalMendingBuff <= 0) var7 = true;
+            if ((unsigned short)var13->primaryStats.magicalMending >= 999) var7 = false;
+            var8 = 7;
+        } else if (arg1 == 0x16) {
+            if (var3->unknown_138_->unknown_5a_2_ <= 0) var7 = true;
+            var8 = 7;
+        } else if (arg1 == 0x17) {
+            if ((((*(int*)((char*)var3->unknown_138_ + 0x58)) << 8) >> 29) <= 0) var7 = true;
+            var8 = 7;
+        } else if (arg1 == 0xd) {
+            if (!func_02088660((struct Struct_02088660*)var3->unknown_138_)) var7 = true;
+            var8 = 7;
+        } else if (arg1 == 0xe) {
+            if (!func_ov024_021fb430((struct Struct_ov024_021fa7ec_5*)var3) && !func_ov024_021fb448((struct Struct_ov024_021fa7ec_6*)var3)
+                && !func_ov024_021fb478((struct Struct_ov024_021fa7ec_8*)var3)) var7 = true;
+            var8 = 7;
+        } else if (arg1 == 0xf) {
+            if (!func_ov024_021fb430((struct Struct_ov024_021fa7ec_5*)var3) && !func_ov024_021fb448((struct Struct_ov024_021fa7ec_6*)var3)
+                && !func_ov024_021fb478((struct Struct_ov024_021fa7ec_8*)var3)) var7 = true;
+            var8 = 7;
+        } else if (arg1 == 0x10) {
+            if (!func_ov024_021edc08((struct Struct_ov024_021eda78_5*)var3)) var7 = true;
+            var8 = 7;
+        } else if (arg1 == 0xb) {
+            if (!func_ov024_021e47dc((struct Struct_ov024_021e4604*)var3)) var7 = true;
+            var8 = 7;
         }
 
-        struct Entry_021fd954 e;
-        memset(&e, 0, sizeof(e));
-        int percent = 50;
-        if (ok) {
-            percent = 100;
-            found = 1;
+        struct Struct_ov024_021fd954_2 var14;
+        memset(&var14, 0, sizeof(var14));
+        int var15 = 50;
+        if (var7) {
+            var15 = 100;
+            var4 = 1;
         }
-        e.value = 0.0f;
-        e.id = statusType;
-        e.flag5 = 0;
-        e.index = i;
-        e.percent = percent;
-        e.code = code;
-        func_ov024_021f6a1c((struct AddEntryList_021f6a1c*)&list, &e);
-        if (action->kind != 0) {
-            obj->list = &list;
-            func_ov024_021f6a4c(&obj->entry, &e);
-            obj->target = c;
-            obj->targetId = c->id;
-            func_ov024_021fd858(obj);
+        var14.unknown_0_ = 0.0f;
+        var14.unknown_4_ = arg1;
+        var14.unknown_5_ = 0;
+        var14.unknown_6_ = var2;
+        var14.unknown_7_ = var15;
+        var14.unknown_8_ = var8;
+        func_ov024_021f6a1c((struct Struct_ov024_021f6a1c*)&var6, &var14);
+        if (var0->unknown_18_0_ != 0) {
+            arg0->unknown_658_ = &var6;
+            func_ov024_021f6a4c(&arg0->unknown_65c_, &var14);
+            arg0->unknown_668_ = var3;
+            arg0->unknown_66c_ = var3->unknown_4_;
+            func_ov024_021fd858(arg0);
         }
-        if (targetKind == 2 || targetKind == 1) {
-            int value = (unsigned char)c->id;
-            if (found) func_ov024_021f9874(obj, &list, 0, value);
-            memset(&list, 0, sizeof(list));
-            found = 0;
+        if (var1 == 2 || var1 == 1) {
+            int var16 = (unsigned char)var3->unknown_4_;
+            if (var4) func_ov024_021f9874(arg0, &var6, 0, var16);
+            memset(&var6, 0, sizeof(var6));
+            var4 = 0;
         }
     }
-    if (targetKind == 4 || targetKind == 3) {
-        GetCombatantByID((int)obj->battle, 0);
-        int value = (unsigned char)actor->id;
-        if (targetKind == 3) value = 0xff;
-        if (found) func_ov024_021f9874(obj, &list, 0, value);
+    if (var1 == 4 || var1 == 3) {
+        GetCombatantByID((int)arg0->unknown_0_, 0);
+        int var17 = (unsigned char)var5->unknown_4_;
+        if (var1 == 3) var17 = 0xff;
+        if (var4) func_ov024_021f9874(arg0, &var6, 0, var17);
     }
 }

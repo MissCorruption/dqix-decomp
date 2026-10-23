@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-struct RemoveNodeEntry;
-extern "C" RemoveNodeEntry* func_020c8784(RemoveNodeEntry* head, RemoveNodeEntry* node);
+struct Struct_020c8784;
+extern "C" Struct_020c8784* func_020c8784(Struct_020c8784* arg0, Struct_020c8784* arg1);
 
-struct FreeBlock020c87ac;
-extern "C" FreeBlock020c87ac* func_020c87ac(FreeBlock020c87ac* head, FreeBlock020c87ac* blk);
+struct Struct_020c87ac;
+extern "C" Struct_020c87ac* func_020c87ac(Struct_020c87ac* arg0, Struct_020c87ac* arg1);
 
-struct SubEntry020c895c {
-    int unk0;
-    struct FreeBlock020c87ac* freeList;
-    struct RemoveNodeEntry* usedList;
+struct Struct_020c8854 {
+    int unknown_0_;
+    struct Struct_020c87ac* unknown_4_;
+    struct Struct_020c8784* unknown_8_;
 };
 
-struct PoolTable020c895c {
-    int defaultCount;
-    char pad4[0xc];
-    struct SubEntry020c895c* entries;
+struct Struct_020c8854_2 {
+    int unknown_0_;
+    char unknown_4_[0xc];
+    struct Struct_020c8854* unknown_10_;
 };
 
-extern struct PoolTable020c895c* data_02111564[];
+extern struct Struct_020c8854_2* data_02111564[];
 
 // USA: func_020c895c
-extern "C" ARM void func_020c895c(int tableIdx, int count, char* addr) {
-    struct PoolTable020c895c* table;
-    struct SubEntry020c895c* entry;
-    char* blk;
-    int state = DisableIRQInterrupts();
-    table = data_02111564[tableIdx];
-    if (count < 0) {
-        count = table->defaultCount;
+extern "C" ARM void func_020c895c(int arg0, int arg1, char* arg2) {
+    struct Struct_020c8854_2* var0;
+    struct Struct_020c8854* var1;
+    char* var2;
+    int var3 = DisableIRQInterrupts();
+    var0 = data_02111564[arg0];
+    if (arg1 < 0) {
+        arg1 = var0->unknown_0_;
     }
-    entry = &table->entries[count];
-    blk = addr - 0x20;
-    entry->usedList = func_020c8784(entry->usedList, (struct RemoveNodeEntry*)blk);
-    entry->freeList = func_020c87ac(entry->freeList, (struct FreeBlock020c87ac*)blk);
-    SetIRQInterruptState(state);
+    var1 = &var0->unknown_10_[arg1];
+    var2 = arg2 - 0x20;
+    var1->unknown_8_ = func_020c8784(var1->unknown_8_, (struct Struct_020c8784*)var2);
+    var1->unknown_4_ = func_020c87ac(var1->unknown_4_, (struct Struct_020c87ac*)var2);
+    SetIRQInterruptState(var3);
 }

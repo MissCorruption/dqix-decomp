@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-struct KeyedList0207caa4 {
-    char pad0[0xbd0];
-    short* valueArrays[8]; // 0xbd0
-    char pad1[0x20];       // 0xbf0
-    short counts[8];       // 0xc10
-    unsigned char keys[8]; // 0xc20
+struct Struct_0207c378 {
+    char unknown_0_[0xbd0];
+    short* unknown_bd0_[8]; // 0xbd0
+    char unknown_bf0_[0x20];       // 0xbf0
+    short unknown_c10_[8];       // 0xc10
+    unsigned char unknown_c20_[8]; // 0xc20
 };
 
 // USA: func_0207caa4
-extern "C" ARM int func_0207caa4(struct KeyedList0207caa4* base, int value, int key) {
-    int slot;
-    int i;
-    short* values;
-    short count;
-    short j;
-    if (value < 0) {
+extern "C" ARM int func_0207caa4(struct Struct_0207c378* arg0, int arg1, int arg2) {
+    int var0;
+    int var1;
+    short* var2;
+    short var3;
+    short var4;
+    if (arg1 < 0) {
         return -2;
     }
-    slot = -1;
-    for (i = 0; i < 8; i++) {
-        if (key == base->keys[i]) {
-            slot = i;
+    var0 = -1;
+    for (var1 = 0; var1 < 8; var1++) {
+        if (arg2 == arg0->unknown_c20_[var1]) {
+            var0 = var1;
             break;
         }
     }
-    if (slot == -1) {
+    if (var0 == -1) {
         return -2;
     }
-    values = base->valueArrays[slot];
-    count = base->counts[slot];
-    for (j = 0; j < count; j++) {
-        if (value == values[j]) {
-            return j;
+    var2 = arg0->unknown_bd0_[var0];
+    var3 = arg0->unknown_c10_[var0];
+    for (var4 = 0; var4 < var3; var4++) {
+        if (arg1 == var2[var4]) {
+            return var4;
         }
     }
     return -1;

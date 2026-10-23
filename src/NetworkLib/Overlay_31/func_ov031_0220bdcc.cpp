@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
 // USA: func_ov031_0220bdcc
-extern "C" ARM int func_ov031_0220bdcc(unsigned short* a, unsigned short* b, int count) {
-	int i = count - 1;
-	if (i >= 0) {
+extern "C" ARM int func_ov031_0220bdcc(unsigned short* arg0, unsigned short* arg1, int arg2) {
+	int var0 = arg2 - 1;
+	if (var0 >= 0) {
 		do {
-			unsigned short bv = b[i];
-			unsigned short av = a[i];
-			if (av > bv) return 1;
-			if (av < bv) return -1;
-			i--;
-		} while (i >= 0);
+			unsigned short var1 = arg1[var0];
+			unsigned short var2 = arg0[var0];
+			if (var2 > var1) return 1;
+			if (var2 < var1) return -1;
+			var0--;
+		} while (var0 >= 0);
 	}
 	return 0;
 }

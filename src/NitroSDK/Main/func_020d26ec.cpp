@@ -3,23 +3,23 @@
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 
-struct MsgQueue020d26ec {
-    int _pad0;
-    int slot4;
-    void* head;
-    int _pad1[5];
-    int slot20;
+struct Struct_02112780_5 {
+    int unknown_0_;
+    int unknown_4_;
+    void* unknown_8_;
+    int unknown_c_[5];
+    int unknown_20_;
 };
-extern MsgQueue020d26ec data_02112780;
+extern Struct_02112780_5 data_02112780;
 
 // USA: func_020d26ec
 extern "C" ARM int func_020d26ec(void) {
-    unsigned int mask = DisableIRQInterrupts();
-    int result;
-    if (data_02112780.head == 0)
-        result = data_02112780.slot4;
+    unsigned int var0 = DisableIRQInterrupts();
+    int var1;
+    if (data_02112780.unknown_8_ == 0)
+        var1 = data_02112780.unknown_4_;
     else
-        result = data_02112780.slot20;
-    SetIRQInterruptState(mask);
-    return result;
+        var1 = data_02112780.unknown_20_;
+    SetIRQInterruptState(var0);
+    return var1;
 }

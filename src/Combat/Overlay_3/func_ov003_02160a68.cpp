@@ -3,58 +3,58 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-enum { kRegionValue324_20C = 0x20c };
-enum { kRegionValue390_278 = 0x278 };
-enum { kRegionValue328_210 = 0x210 };
-enum { kRegionValue488_2B0 = 0x2b0 };
-enum { kRegionValue394_27C = 0x27c };
+enum { Enum_ov003_02160a68_804 = 0x20c };
+enum { Enum_ov003_02160a68_912 = 0x278 };
+enum { Enum_ov003_02160a68_808 = 0x210 };
+enum { Enum_ov003_02160a68_1160 = 0x2b0 };
+enum { Enum_ov003_02160a68_916 = 0x27c };
 #else
-enum { kRegionValue324_20C = 0x324 };
-enum { kRegionValue390_278 = 0x390 };
-enum { kRegionValue328_210 = 0x328 };
-enum { kRegionValue488_2B0 = 0x488 };
-enum { kRegionValue394_27C = 0x394 };
+enum { Enum_ov003_02160a68_804 = 0x324 };
+enum { Enum_ov003_02160a68_912 = 0x390 };
+enum { Enum_ov003_02160a68_808 = 0x328 };
+enum { Enum_ov003_02160a68_1160 = 0x488 };
+enum { Enum_ov003_02160a68_916 = 0x394 };
 #endif
 
-extern "C" int func_0200fb8c(int* obj);
-extern "C" int func_ov017_021a4e70(unsigned char* base);
+extern "C" int func_0200fb8c(int* arg0);
+extern "C" int func_ov017_021a4e70(unsigned char* arg0);
 
-struct Outer020e28dc;
-extern "C" int func_020e28dc(struct Outer020e28dc* o);
-extern "C" int func_020e2984(struct Outer020e28dc* window);
+struct Struct_020e28dc;
+extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
 
-struct Obj2081;
-extern "C" int func_02080d54(struct Obj2081* obj, int key, int px, int py);
+struct Struct_0207fdcc_2;
+extern "C" int func_02080d54(struct Struct_0207fdcc_2* arg0, int arg1, int arg2, int arg3);
 
-struct Ctx02160a68 {
-    char pad0[kRegionValue324_20C];
-    struct Obj2081* field324;
-    char pad1[kRegionValue390_278 - kRegionValue328_210];
-    struct Outer020e28dc* ptr390;
-    char pad2[kRegionValue488_2B0 - kRegionValue394_27C];
-    short key488;
+struct Struct_ov003_02160a68 {
+    char unknown_0_[Enum_ov003_02160a68_804];
+    struct Struct_0207fdcc_2* unknown_324_;
+    char unknown_328_[Enum_ov003_02160a68_912 - Enum_ov003_02160a68_808];
+    struct Struct_020e28dc* unknown_390_;
+    char unknown_394_[Enum_ov003_02160a68_1160 - Enum_ov003_02160a68_916];
+    short unknown_488_;
 };
 
 // USA: func_ov003_02160a68
-extern "C" ARM int func_ov003_02160a68(struct Ctx02160a68* self) {
-    int flag = 0;
-    unsigned char* battleWord = (unsigned char*)func_0200fb8c((int*)GameState::GetInstance());
+extern "C" ARM int func_ov003_02160a68(struct Struct_ov003_02160a68* arg0) {
+    int var0 = 0;
+    unsigned char* var1 = (unsigned char*)func_0200fb8c((int*)GameState::GetInstance());
     if (g_keyManager.TestKeysPressed(2)) {
-        if (func_ov017_021a4e70(battleWord)) {
-            flag = 1;
+        if (func_ov017_021a4e70(var1)) {
+            var0 = 1;
         }
     }
 
-    if (func_020e28dc(self->ptr390)) {
-        if (func_020e2984(self->ptr390)) {
-            flag = 1;
+    if (func_020e28dc(arg0->unknown_390_)) {
+        if (func_020e2984(arg0->unknown_390_)) {
+            var0 = 1;
         }
     } else if (g_touchInput.pressed_ != 0) {
-        int a, b;
-        g_touchInput.GetTouchPoint(&a, &b);
-        if (!func_02080d54(self->field324, self->key488, (short)a, (short)b)) {
-            flag = 1;
+        int var2, var3;
+        g_touchInput.GetTouchPoint(&var2, &var3);
+        if (!func_02080d54(arg0->unknown_324_, arg0->unknown_488_, (short)var2, (short)var3)) {
+            var0 = 1;
         }
     }
-    return flag;
+    return var0;
 }

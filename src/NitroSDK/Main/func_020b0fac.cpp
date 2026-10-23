@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct TextMeasurer020b0fac {
-    void* field0;
-    int (*getChar)(const char** cursor);
+struct Struct_020b0fac_2 {
+    void* unknown_0_;
+    int (*unknown_4_)(const char** cursor);
 };
 
-struct ReaderContext020b0fac {
-    int reserved0;
-    int reserved1;
-    const char* cursor;
+struct Struct_020b0fac {
+    int unknown_0_;
+    int unknown_4_;
+    const char* unknown_8_;
 };
 
 // USA: func_020b0fac
-extern "C" ARM int func_020b0fac(struct TextMeasurer020b0fac* obj, int width, const char* text) {
-    struct ReaderContext020b0fac ctx;
-    int* zeroFields = (int*)&ctx;
-    ctx.cursor = text;
-    zeroFields[0] = 0;
-    zeroFields[1] = 0;
+extern "C" ARM int func_020b0fac(struct Struct_020b0fac_2* arg0, int arg1, const char* arg2) {
+    struct Struct_020b0fac var0;
+    int* var1 = (int*)&var0;
+    var0.unknown_8_ = arg2;
+    var1[0] = 0;
+    var1[1] = 0;
 
-    int lineCount = 1;
-    int (*getChar)(const char**) = obj->getChar;
-    int ch = getChar(&ctx.cursor);
-    if (ch != 0) {
+    int var2 = 1;
+    int (*var3)(const char**) = arg0->unknown_4_;
+    int var4 = var3(&var0.unknown_8_);
+    if (var4 != 0) {
         do {
-            if (ch == 0xa) lineCount++;
-            ch = getChar(&ctx.cursor);
-        } while (ch != 0);
+            if (var4 == 0xa) var2++;
+            var4 = var3(&var0.unknown_8_);
+        } while (var4 != 0);
     }
 
-    signed char extra = ((signed char*)obj->field0)[1];
-    return lineCount * (width + extra) - width;
+    signed char var5 = ((signed char*)arg0->unknown_0_)[1];
+    return var2 * (arg1 + var5) - arg1;
 }

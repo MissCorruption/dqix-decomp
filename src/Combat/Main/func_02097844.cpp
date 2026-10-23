@@ -1,66 +1,66 @@
 #include <globaldefs.h>
 
-struct Node02097844 {
-    struct Node02097844* next;
-    unsigned char pad4[0xf];
-    unsigned char bit0 : 1;
-    unsigned char marked : 1;
-    unsigned char bit2_7 : 6;
+struct Struct_020974b0_2 {
+    struct Struct_020974b0_2* unknown_0_;
+    unsigned char unknown_4_[0xf];
+    unsigned char unknown_13_0_ : 1;
+    unsigned char unknown_13_1_ : 1;
+    unsigned char unknown_13_2_ : 6;
 };
 
 // USA: func_02097844
-extern "C" ARM void func_02097844(struct Node02097844** headPtr, int groupSize) {
-    int runLen;
-    int markedInRun;
-    struct Node02097844* last;
-    int keptCount;
-    struct Node02097844* runStart;
-    struct Node02097844* prevTail;
-    struct Node02097844* firstTail;
-    struct Node02097844* cursor;
+extern "C" ARM void func_02097844(struct Struct_020974b0_2** arg0, int arg1) {
+    int var0;
+    int var1;
+    struct Struct_020974b0_2* var2;
+    int var3;
+    struct Struct_020974b0_2* var4;
+    struct Struct_020974b0_2* var5;
+    struct Struct_020974b0_2* var6;
+    struct Struct_020974b0_2* var7;
 
-    if (groupSize <= 0) {
+    if (arg1 <= 0) {
         return;
     }
-    runStart = *headPtr;
-    runLen = 0;
-    markedInRun = 0;
-    keptCount = 0;
-    prevTail = NULL;
-    firstTail = NULL;
-    cursor = runStart;
-    while (cursor != NULL) {
-        runLen++;
-        if (cursor->marked) {
-            markedInRun++;
+    var4 = *arg0;
+    var0 = 0;
+    var1 = 0;
+    var3 = 0;
+    var5 = NULL;
+    var6 = NULL;
+    var7 = var4;
+    while (var7 != NULL) {
+        var0++;
+        if (var7->unknown_13_1_) {
+            var1++;
         }
-        last = cursor;
-        cursor = cursor->next;
-        if (runLen == groupSize || cursor == NULL) {
-            if (markedInRun > 0) {
-                keptCount++;
-                if (prevTail != NULL) {
-                    prevTail->next = runStart;
+        var2 = var7;
+        var7 = var7->unknown_0_;
+        if (var0 == arg1 || var7 == NULL) {
+            if (var1 > 0) {
+                var3++;
+                if (var5 != NULL) {
+                    var5->unknown_0_ = var4;
                 } else {
-                    *headPtr = runStart;
+                    *arg0 = var4;
                 }
-                prevTail = last;
+                var5 = var2;
             }
-            runLen = 0;
-            markedInRun = 0;
-            runStart = cursor;
-            if (firstTail == NULL) {
-                firstTail = last;
+            var0 = 0;
+            var1 = 0;
+            var4 = var7;
+            if (var6 == NULL) {
+                var6 = var2;
             }
         }
     }
-    if (keptCount == 0) {
-        if (firstTail != NULL) {
-            firstTail->next = NULL;
+    if (var3 == 0) {
+        if (var6 != NULL) {
+            var6->unknown_0_ = NULL;
         }
     } else {
-        if (prevTail != NULL) {
-            prevTail->next = NULL;
+        if (var5 != NULL) {
+            var5->unknown_0_ = NULL;
         }
     }
 }

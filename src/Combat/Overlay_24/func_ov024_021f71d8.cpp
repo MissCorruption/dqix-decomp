@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
 struct Struct_021f71d8 {
-    char unk0[0xc];
-    unsigned short field0xc;
-    char unk0xe[0x14 - 0xe];
-    float field0x14;
-    float field0x18;
-    float field0x1c;
-    float field0x20;
+    char unknown_0_[0xc];
+    unsigned short unknown_c_;
+    char unknown_e_[0x14 - 0xe];
+    float unknown_14_;
+    float unknown_18_;
+    float unknown_1c_;
+    float unknown_20_;
 };
 
 // USA: func_ov024_021f71d8
-extern "C" ARM int func_ov024_021f71d8(struct Struct_021f71d8* obj) {
-    obj->field0x1c = (4.0f * obj->field0x14) / (float)(obj->field0xc + 1);
-    obj->field0x20 = (4.0f * obj->field0x18) / (float)(obj->field0xc + 1);
+extern "C" ARM int func_ov024_021f71d8(struct Struct_021f71d8* arg0) {
+    arg0->unknown_1c_ = (4.0f * arg0->unknown_14_) / (float)(arg0->unknown_c_ + 1);
+    arg0->unknown_20_ = (4.0f * arg0->unknown_18_) / (float)(arg0->unknown_c_ + 1);
     return 1;
 }

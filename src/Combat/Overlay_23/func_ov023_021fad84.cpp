@@ -1,127 +1,127 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov023_021f6ed8(void* obj);
-extern "C" void* func_ov011_021849c8(void* ctx);
-extern "C" void* func_ov023_021f6880(void* list, int value);
-extern "C" void* func_ov023_021fad18(void* obj);
-extern "C" int func_ov023_021f6c90(void* list, int elemIndex, int flag);
-extern "C" void* func_ov023_021fa854(char* obj, unsigned int idx);
-extern "C" ARM void func_ov023_021f6bec(void* obj, int elemIndex, unsigned int startBit, unsigned int count);
+extern "C" void func_ov023_021f6ed8(void* arg0);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" void* func_ov023_021fad18(void* arg0);
+extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
+extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
+extern "C" ARM void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
 
-struct Obj021fad84 {
-    char pad0[4];
-    unsigned short f4;
-    unsigned short f6;
-    unsigned short f8;
-    unsigned short fa;
-    char pad_c[4];
-    unsigned int f10;
-    char pad_14[8];
-    unsigned int f1c;
-    unsigned short f20;
-    unsigned short f22;
-    unsigned short f24;
-    unsigned short f26;
-    unsigned int f28;
-    unsigned int f2c;
-    unsigned short f30;
-    unsigned short f32;
-    unsigned short f34;
-    unsigned short f36;
-    char f38;
-    char f39;
+struct Struct_ov023_021fad84 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    char unknown_c_[4];
+    unsigned int unknown_10_;
+    char unknown_14_[8];
+    unsigned int unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    unsigned int unknown_28_;
+    unsigned int unknown_2c_;
+    unsigned short unknown_30_;
+    unsigned short unknown_32_;
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
+    char unknown_38_;
+    char unknown_39_;
 #if defined(jpn)
-    unsigned short f3a;
+    unsigned short unknown_3a_;
 #else
-    unsigned char f3a;
-    char pad_3b[1];
+    unsigned char unknown1_3a_;
+    char unknown_3b_[1];
 #endif
 
-    unsigned short f3c;
-    unsigned short f3e;
-    unsigned short f40;
-    unsigned short f42;
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    unsigned short unknown_40_;
+    unsigned short unknown_42_;
 #if defined(jpn)
-    int f44;
-    int f46;
+    int unknown_44_;
+    int unknown_48_;
 #else
-    unsigned short f44;
-    unsigned short f46;
+    unsigned short unknown1_44_;
+    unsigned short unknown_46_;
 #endif
 
-    unsigned short f48;
-    unsigned char f4a;
+    unsigned short unknown1_48_;
+    unsigned char unknown_4a_;
 #if defined(jpn)
 
 #else
-    unsigned char f4b;
+    unsigned char unknown_4b_;
 #endif
 
 };
 
 // USA: func_ov023_021fad84
-extern "C" ARM int func_ov023_021fad84(struct Obj021fad84* obj, void* ctx, int arg3, int arg4, int arg5, int arg6) {
-    func_ov023_021f6ed8(obj);
-    obj->f4 = 1;
-    obj->f6 = arg3;
-    obj->f8 = arg4;
-    obj->fa = 0;
-    obj->f10 = 0;
-    obj->f1c = 2;
-    obj->f20 = arg5;
+extern "C" ARM int func_ov023_021fad84(struct Struct_ov023_021fad84* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5) {
+    func_ov023_021f6ed8(arg0);
+    arg0->unknown_4_ = 1;
+    arg0->unknown_6_ = arg2;
+    arg0->unknown_8_ = arg3;
+    arg0->unknown_a_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_1c_ = 2;
+    arg0->unknown_20_ = arg4;
 #if defined(jpn)
-    obj->f44 = -1;
-    obj->f46 = -1;
+    arg0->unknown_44_ = -1;
+    arg0->unknown_48_ = -1;
 #else
-    obj->f3a = 1;
-    obj->f44 = 0;
-    obj->f46 = 0;
+    arg0->unknown1_3a_ = 1;
+    arg0->unknown1_44_ = 0;
+    arg0->unknown_46_ = 0;
 #endif
 
 
-    void* list = func_ov011_021849c8(ctx);
-    void* node = func_ov023_021f6880(list, obj->f20);
-    if (node == NULL) {
+    void* var0 = func_ov011_021849c8(arg1);
+    void* var1 = func_ov023_021f6880(var0, arg0->unknown_20_);
+    if (var1 == NULL) {
         return 0;
     }
 
-    void* p = func_ov023_021fad18(node);
-    unsigned char b = *(unsigned char*)((char*)p + 0x50);
-    *(unsigned short*)((char*)obj + 0x22) = arg6;
-    void* entry = func_ov023_021fa854((char*)p, *(unsigned short*)((char*)obj + 0x22));
-    unsigned short entryVal = *(unsigned short*)entry;
+    void* var2 = func_ov023_021fad18(var1);
+    unsigned char var3 = *(unsigned char*)((char*)var2 + 0x50);
+    *(unsigned short*)((char*)arg0 + 0x22) = arg5;
+    void* var4 = func_ov023_021fa854((char*)var2, *(unsigned short*)((char*)arg0 + 0x22));
+    unsigned short var5 = *(unsigned short*)var4;
 
-    int r = func_ov023_021f6c90(list, b, entryVal);
-    *(unsigned short*)((char*)obj + 0x24) = r;
-    func_ov023_021f6bec(list, b, *(unsigned short*)((char*)obj + 0x24), entryVal);
+    int var6 = func_ov023_021f6c90(var0, var3, var5);
+    *(unsigned short*)((char*)arg0 + 0x24) = var6;
+    func_ov023_021f6bec(var0, var3, *(unsigned short*)((char*)arg0 + 0x24), var5);
 
-    obj->f26 = 0;
-    obj->f28 = 0;
-    obj->f2c = 0;
-    obj->f30 = obj->f32 = obj->f34 = obj->f36 = 0;
-    obj->f38 = -1;
-    obj->f39 = -1;
+    arg0->unknown_26_ = 0;
+    arg0->unknown_28_ = 0;
+    arg0->unknown_2c_ = 0;
+    arg0->unknown_30_ = arg0->unknown_32_ = arg0->unknown_34_ = arg0->unknown_36_ = 0;
+    arg0->unknown_38_ = -1;
+    arg0->unknown_39_ = -1;
 #if defined(jpn)
-    obj->f3a = 0;
-    obj->f3c = 0;
+    arg0->unknown_3a_ = 0;
+    arg0->unknown_3c_ = 0;
 #else
-    obj->f3c = 0;
+    arg0->unknown_3c_ = 0;
 #endif
 
-    obj->f3e = 0;
-    obj->f40 = 0;
+    arg0->unknown_3e_ = 0;
+    arg0->unknown_40_ = 0;
 #if defined(jpn)
 
 #else
-    obj->f42 = 0;
+    arg0->unknown_42_ = 0;
 #endif
 
-    obj->f48 = 0;
-    obj->f4a = 0;
+    arg0->unknown1_48_ = 0;
+    arg0->unknown_4a_ = 0;
 #if defined(jpn)
 
 #else
-    obj->f4b = 0;
+    arg0->unknown_4b_ = 0;
 #endif
 
     return 1;

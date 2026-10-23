@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-struct MenuPoint { unsigned short x, y; };
-struct MenuRange { unsigned short x, y, x2, y2; };
-struct MenuSelectionState { unsigned char padding[0x1b]; signed char selection; unsigned char mode; };
-extern MenuSelectionState* data_ov031_02290d10;
+struct Struct_ov031_02249308 { unsigned short unknown_0_, unknown_2_; };
+struct Struct_ov031_02238000 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
+struct Struct_ov031_022242ec { unsigned char unknown_0_[0x1b]; signed char unknown_1b_; unsigned char unknown_1c_; };
+extern Struct_ov031_022242ec* data_ov031_02290d10;
 extern unsigned char data_ov031_02249394[];
-extern MenuPoint data_ov031_02249364[][2];
+extern Struct_ov031_02249308 data_ov031_02249364[][2];
 extern unsigned char data_ov031_022492ea[][2];
-extern MenuPoint data_ov031_02249308[];
+extern Struct_ov031_02249308 data_ov031_02249308[];
 extern signed char data_ov031_022492f4[][2];
 extern signed char data_ov031_022492f5[][2];
-extern "C" void func_ov031_0223cb34(MenuPoint*, MenuPoint*, MenuRange*);
-extern "C" int func_ov031_0223d49c(MenuRange*);
+extern "C" void func_ov031_0223cb34(Struct_ov031_02249308*, Struct_ov031_02249308*, Struct_ov031_02238000*);
+extern "C" int func_ov031_0223d49c(Struct_ov031_02238000*);
 extern "C" int func_ov031_0223d354(int);
 extern "C" void func_ov031_022383fc(int);
 
 // USA: func_ov031_02238000
 extern "C" ARM void func_ov031_02238000() {
-    MenuRange range;
-    int i = 0;
-    int count = data_ov031_02249394[data_ov031_02290d10->mode];
-    if (count > 0) do {
-        unsigned char mode = data_ov031_02290d10->mode;
-        func_ov031_0223cb34(&data_ov031_02249364[mode][data_ov031_022492ea[mode][i]], &data_ov031_02249308[mode], &range);
-        if (func_ov031_0223d49c(&range)) {
-            data_ov031_02290d10->selection = i;
+    Struct_ov031_02238000 var0;
+    int var1 = 0;
+    int var2 = data_ov031_02249394[data_ov031_02290d10->unknown_1c_];
+    if (var2 > 0) do {
+        unsigned char var3 = data_ov031_02290d10->unknown_1c_;
+        func_ov031_0223cb34(&data_ov031_02249364[var3][data_ov031_022492ea[var3][var1]], &data_ov031_02249308[var3], &var0);
+        if (func_ov031_0223d49c(&var0)) {
+            data_ov031_02290d10->unknown_1b_ = var1;
             break;
         }
-        ++i;
-    } while (i < data_ov031_02249394[data_ov031_02290d10->mode]);
-    if (func_ov031_0223d354(1)) data_ov031_02290d10->selection = data_ov031_022492f4[data_ov031_02290d10->mode][0];
-    if (func_ov031_0223d354(2)) data_ov031_02290d10->selection = data_ov031_022492f5[data_ov031_02290d10->mode][0];
-    MenuSelectionState* state = data_ov031_02290d10;
-    int selectedIndex = 0;
-    int count2 = data_ov031_02249394[state->mode];
-    if (count2 > 0) {
-    int selection = state->selection;
+        ++var1;
+    } while (var1 < data_ov031_02249394[data_ov031_02290d10->unknown_1c_]);
+    if (func_ov031_0223d354(1)) data_ov031_02290d10->unknown_1b_ = data_ov031_022492f4[data_ov031_02290d10->unknown_1c_][0];
+    if (func_ov031_0223d354(2)) data_ov031_02290d10->unknown_1b_ = data_ov031_022492f5[data_ov031_02290d10->unknown_1c_][0];
+    Struct_ov031_022242ec* var4 = data_ov031_02290d10;
+    int var5 = 0;
+    int var6 = data_ov031_02249394[var4->unknown_1c_];
+    if (var6 > 0) {
+    int var7 = var4->unknown_1b_;
     do {
-        if (selectedIndex == selection) {
-            return func_ov031_022383fc(selectedIndex);
+        if (var5 == var7) {
+            return func_ov031_022383fc(var5);
         }
-        ++selectedIndex;
-    } while (selectedIndex < data_ov031_02249394[state->mode]);
+        ++var5;
+    } while (var5 < data_ov031_02249394[var4->unknown_1c_]);
     }
-    state->selection = -1;
+    var4->unknown_1b_ = -1;
 }

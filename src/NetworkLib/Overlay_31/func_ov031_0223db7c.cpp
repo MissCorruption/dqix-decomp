@@ -5,86 +5,86 @@
 #endif
 #include "NitroSDK/Interrupts.h"
 
-struct Link0223db7c {
-    Link0223db7c* previous;
-    Link0223db7c* next;
+struct Struct_ov031_0223db7c {
+    Struct_ov031_0223db7c* unknown_0_;
+    Struct_ov031_0223db7c* unknown_4_;
 };
 
-struct Segment0223db7c {
-    Link0223db7c node;
-    unsigned short offset;
-    unsigned short length;
+struct Struct_ov031_0223db7c_2 {
+    Struct_ov031_0223db7c unknown_0_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
 };
 
-struct Pool0223db7c {
-    Segment0223db7c entries[32];
-    Segment0223db7c first;
-    Segment0223db7c last;
-    void* list;
-    void* freeEntries;
+struct Struct_ov031_0223db7c_3 {
+    Struct_ov031_0223db7c_2 unknown_0_[32];
+    Struct_ov031_0223db7c_2 unknown_180_;
+    Struct_ov031_0223db7c_2 unknown_18c_;
+    void* unknown_198_;
+    void* unknown_19c_;
 };
 
-struct Pools0223db7c {
-    Pool0223db7c pools[2];
+struct Struct_ov031_0223db7c_4 {
+    Struct_ov031_0223db7c_3 unknown_0_[2];
 };
 
-extern Pools0223db7c* data_ov031_02290d64;
+extern Struct_ov031_0223db7c_4* data_ov031_02290d64;
 extern "C" void* func_ov031_0223bfa0(void*);
 extern "C" void func_ov031_0223d8d8(void*, void*);
 extern "C" void func_020c9be0();
 
-static inline Pool0223db7c* GetPool0223db7c(int index) {
-    Pool0223db7c* pool = data_ov031_02290d64->pools;
-    pool += index;
-    return pool;
+static inline Struct_ov031_0223db7c_3* inline_ov031_0223db7c(int arg0) {
+    Struct_ov031_0223db7c_3* var0 = data_ov031_02290d64->unknown_0_;
+    var0 += arg0;
+    return var0;
 }
 
 // USA: func_ov031_0223db7c
-extern "C" ARM void* func_ov031_0223db7c(int poolIndex, int size, unsigned char forward, int* offset) {
-    Segment0223db7c* entry = static_cast<Segment0223db7c*>(func_ov031_0223bfa0(GetPool0223db7c(poolIndex)->freeEntries));
-    Segment0223db7c* cursor;
-    Segment0223db7c* adjacent;
-    unsigned long interruptState;
-    int start;
-    int units = ((size + 3) & ~3) >> 2;
-    entry->length = units;
-    interruptState = DisableSpecificInterrupts(1);
-    if (forward) {
-        cursor = &GetPool0223db7c(poolIndex)->first;
-        if (cursor != &GetPool0223db7c(poolIndex)->last) {
+extern "C" ARM void* func_ov031_0223db7c(int arg0, int arg1, unsigned char arg2, int* arg3) {
+    Struct_ov031_0223db7c_2* var0 = static_cast<Struct_ov031_0223db7c_2*>(func_ov031_0223bfa0(inline_ov031_0223db7c(arg0)->unknown_19c_));
+    Struct_ov031_0223db7c_2* var1;
+    Struct_ov031_0223db7c_2* var2;
+    unsigned long var3;
+    int var4;
+    int var5 = ((arg1 + 3) & ~3) >> 2;
+    var0->unknown_a_ = var5;
+    var3 = DisableSpecificInterrupts(1);
+    if (arg2) {
+        var1 = &inline_ov031_0223db7c(arg0)->unknown_180_;
+        if (var1 != &inline_ov031_0223db7c(arg0)->unknown_18c_) {
             do {
-                adjacent = (Segment0223db7c*)cursor->node.next;
-                start = cursor->offset + cursor->length;
-                if (start + units <= adjacent->offset) {
-                    entry->offset = start;
-                    func_ov031_0223d8d8(adjacent, entry);
+                var2 = (Struct_ov031_0223db7c_2*)var1->unknown_0_.unknown_4_;
+                var4 = var1->unknown_8_ + var1->unknown_a_;
+                if (var4 + var5 <= var2->unknown_8_) {
+                    var0->unknown_8_ = var4;
+                    func_ov031_0223d8d8(var2, var0);
                     break;
                 }
-                cursor = adjacent;
-            } while (cursor != &data_ov031_02290d64->pools[poolIndex].last);
+                var1 = var2;
+            } while (var1 != &data_ov031_02290d64->unknown_0_[arg0].unknown_18c_);
         }
-        if (cursor == &data_ov031_02290d64->pools[poolIndex].last) {
+        if (var1 == &data_ov031_02290d64->unknown_0_[arg0].unknown_18c_) {
             func_020c9be0();
         }
     } else {
-        cursor = &GetPool0223db7c(poolIndex)->last;
-        if (cursor != &GetPool0223db7c(poolIndex)->first) {
+        var1 = &inline_ov031_0223db7c(arg0)->unknown_18c_;
+        if (var1 != &inline_ov031_0223db7c(arg0)->unknown_180_) {
             do {
-                adjacent = (Segment0223db7c*)cursor->node.previous;
-                start = cursor->offset - units;
-                if (start >= adjacent->offset + adjacent->length) {
-                    entry->offset = start;
-                    func_ov031_0223d8d8(cursor, entry);
+                var2 = (Struct_ov031_0223db7c_2*)var1->unknown_0_.unknown_0_;
+                var4 = var1->unknown_8_ - var5;
+                if (var4 >= var2->unknown_8_ + var2->unknown_a_) {
+                    var0->unknown_8_ = var4;
+                    func_ov031_0223d8d8(var1, var0);
                     break;
                 }
-                cursor = adjacent;
-            } while (cursor != &data_ov031_02290d64->pools[poolIndex].first);
+                var1 = var2;
+            } while (var1 != &data_ov031_02290d64->unknown_0_[arg0].unknown_180_);
         }
-        if (cursor == &data_ov031_02290d64->pools[poolIndex].first) {
+        if (var1 == &data_ov031_02290d64->unknown_0_[arg0].unknown_180_) {
             func_020c9be0();
         }
     }
-    *offset = entry->offset;
-    EnableSpecificInterrupts(interruptState);
-    return entry;
+    *arg3 = var0->unknown_8_;
+    EnableSpecificInterrupts(var3);
+    return var0;
 }

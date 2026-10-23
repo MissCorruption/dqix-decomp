@@ -2,142 +2,142 @@
 #include "GameState/GameState.h"
 #include "World/ZoneResourceTree.h"
 
-struct SearchStruct;
-struct SearchStruct0202c1a4;
-struct Entry0207da94;
-struct Entry020e3544;
-struct BitEntry020e3b08;
-struct Obj0207959c;
-struct ClearField0x17dBits0x38Struct;
+struct Struct_0202b2f0;
+struct Struct_0202c1a4;
+struct Struct_0207da94;
+struct Struct_020e3544;
+struct Struct_020e3b08;
+struct Struct_0207959c;
+struct Struct_0207958c;
 
-extern "C" SearchStruct* func_0202ae18(void);
-extern "C" void func_0207dba8(void* p);
-extern "C" void func_ov017_02190264(void* self, int id);
-extern "C" void func_ov000_0215fb04(void* stack, int id);
-extern "C" void func_ov017_02192654(int bit, int id, int cond);
-extern "C" void* func_ov017_021b8468(void* obj);
+extern "C" Struct_0202b2f0* func_0202ae18(void);
+extern "C" void func_0207dba8(void* arg0);
+extern "C" void func_ov017_02190264(void* arg0, int arg1);
+extern "C" void func_ov000_0215fb04(void* arg0, int arg1);
+extern "C" void func_ov017_02192654(int arg0, int arg1, int arg2);
+extern "C" void* func_ov017_021b8468(void* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
-extern "C" signed char func_0202c1a4(SearchStruct0202c1a4* obj);
-extern "C" unsigned char func_020100b0(GameState* battleStruct);
-extern "C" int func_020100a8(GameState* battleStruct);
-extern "C" void func_0202c600(SearchStruct* obj, int value);
-extern "C" void func_0202c718(SearchStruct* obj, int value);
-extern "C" void func_0202c21c(SearchStruct* obj, int value);
-extern "C" Entry0207da94* func_0207d78c(void);
-extern "C" void func_ov017_0218d500(void* obj);
-extern "C" void func_0207da94(Entry0207da94* list, int idx);
-extern "C" Entry020e3544* func_020e2ff8(void);
-extern "C" void func_020e3544(Entry020e3544* p, int id);
-extern "C" BitEntry020e3b08* func_020e3808(void);
-extern "C" void func_020e3b08(BitEntry020e3b08* entries, int bit);
-extern "C" int func_0207959c(Obj0207959c* obj, int mode);
-extern "C" void func_0207958c(ClearField0x17dBits0x38Struct* s);
-extern "C" void* func_ov017_021b8470(void* obj);
-extern "C" unsigned short func_ov017_021b8480(void* obj);
+extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void func_0202c600(Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c718(Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c21c(Struct_0202b2f0* arg0, int arg1);
+extern "C" Struct_0207da94* func_0207d78c(void);
+extern "C" void func_ov017_0218d500(void* arg0);
+extern "C" void func_0207da94(Struct_0207da94* arg0, int arg1);
+extern "C" Struct_020e3544* func_020e2ff8(void);
+extern "C" void func_020e3544(Struct_020e3544* arg0, int arg1);
+extern "C" Struct_020e3b08* func_020e3808(void);
+extern "C" void func_020e3b08(Struct_020e3b08* arg0, int arg1);
+extern "C" int func_0207959c(Struct_0207959c* arg0, int arg1);
+extern "C" void func_0207958c(Struct_0207958c* arg0);
+extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" unsigned short func_ov017_021b8480(void* arg0);
 
-struct Slot_021905b8 {
-    char data[6];
-    signed char owner;
-    unsigned char f7;
-    unsigned char f8;
-    signed char f9;
+struct Struct_ov017_021905b8 {
+    char unknown_0_[6];
+    signed char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    signed char unknown_9_;
 };
 
-struct Monster_021905b8 {
-    char pad0[0x16a];
-    unsigned short id;
+struct Struct_ov017_021905b8_2 {
+    char unknown_0_[0x16a];
+    unsigned short unknown_16a_;
 };
 
-struct Zone_021905b8 {
-    char pad0[2];
-    unsigned char active;
+struct Struct_ov017_021905b8_3 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
 };
 
-struct ZoneSlot_021905b8 {
-    char pad0[8];
-    unsigned short id;
+struct Struct_ov017_021905b8_4 {
+    char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct ZoneState_021905b8 {
+struct Struct_ov017_021905b8_5 {
 #if defined(jpn)
-    char pad0[0xe24];
+    char unknown_0_[0xe24];
 #else
-    char pad0[0xea8];
+    char unknown1_0_[0xea8];
 #endif
-    int state;
+    int unknown_ea8_;
 };
 
 // USA: func_ov017_021905b8
-extern "C" ARM void func_ov017_021905b8(GameResources* self, int id, int remove) {
-    GameState* gs = GameState::GetInstance();
-    SearchStruct* search = func_0202ae18();
-    if (id <= 0) {
+extern "C" ARM void func_ov017_021905b8(GameResources* arg0, int arg1, int arg2) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_0202b2f0* var1 = func_0202ae18();
+    if (arg1 <= 0) {
         return;
     }
-    if (id == func_0202c1a4((SearchStruct0202c1a4*)search) || id == func_020100b0(gs) ||
-        id == func_020100a8(gs)) {
-        func_0202c600(search, id);
-        func_0202c718(search, id);
+    if (arg1 == func_0202c1a4((Struct_0202c1a4*)var1) || arg1 == func_020100b0(var0) ||
+        arg1 == func_020100a8(var0)) {
+        func_0202c600(var1, arg1);
+        func_0202c718(var1, arg1);
         return;
     }
 
-    Entry0207da94* entries = func_0207d78c();
-    func_0207dba8(entries);
-    func_ov017_0218d500(self);
-    func_0202c600(search, id);
-    func_0202c718(search, id);
-    if (remove) {
-        func_0202c21c(search, id);
+    Struct_0207da94* var2 = func_0207d78c();
+    func_0207dba8(var2);
+    func_ov017_0218d500(arg0);
+    func_0202c600(var1, arg1);
+    func_0202c718(var1, arg1);
+    if (arg2) {
+        func_0202c21c(var1, arg1);
     }
-    func_ov017_02190264(self, id);
-    func_0207da94(entries, (unsigned char)id);
+    func_ov017_02190264(arg0, arg1);
+    func_0207da94(var2, (unsigned char)arg1);
 
 #if defined(jpn)
-    Slot_021905b8* slot = (Slot_021905b8*)((char*)gs + 0x7280);
+    Struct_ov017_021905b8* var3 = (Struct_ov017_021905b8*)((char*)var0 + 0x7280);
 #else
-    Slot_021905b8* slot = (Slot_021905b8*)((char*)gs + 0x74c0);
+    Struct_ov017_021905b8* var3 = (Struct_ov017_021905b8*)((char*)var0 + 0x74c0);
 #endif
-    for (int i = 0; i < 3; i++, slot++) {
-        if (slot->owner == id) {
-            VectorizedMemset(slot, 0, 6);
-            slot->owner = -1;
-            slot->f7 = 0;
-            slot->f8 = 0;
-            slot->f9 = -1;
+    for (int var4 = 0; var4 < 3; var4++, var3++) {
+        if (var3->unknown_6_ == arg1) {
+            VectorizedMemset(var3, 0, 6);
+            var3->unknown_6_ = -1;
+            var3->unknown_7_ = 0;
+            var3->unknown_8_ = 0;
+            var3->unknown_9_ = -1;
             break;
         }
     }
 
-    func_020e3544(func_020e2ff8(), id);
+    func_020e3544(func_020e2ff8(), arg1);
 
-    Zone_021905b8* zone = (Zone_021905b8*)self->unknown_ptr_3718;
-    if (zone->active != 0) {
-        void* stack = func_ov017_021b8470(zone);
-        if (stack != NULL) {
-            func_ov000_0215fb04(stack, id);
+    Struct_ov017_021905b8_3* var5 = (Struct_ov017_021905b8_3*)arg0->unknown_ptr_3718;
+    if (var5->unknown_2_ != 0) {
+        void* var6 = func_ov017_021b8470(var5);
+        if (var6 != NULL) {
+            func_ov000_0215fb04(var6, arg1);
         }
     }
 
-    for (int i = 0; i < 0x30; i++) {
-        Monster_021905b8* mon = (Monster_021905b8*)gs->GetMaybeFieldMonsterByIndex(i + 0x70);
-        if (mon != NULL && func_0207959c((Obj0207959c*)mon, id)) {
-            int cond;
-            Zone_021905b8* z = (Zone_021905b8*)self->unknown_ptr_3718;
-            cond = 1;
-            if (z->active != 0 && func_ov017_021b8480(z) == 0) {
-                ZoneSlot_021905b8* zs = (ZoneSlot_021905b8*)func_ov017_021b8478(z);
-                if (zs != NULL && zs->id == mon->id) {
-                    ZoneState_021905b8* st = (ZoneState_021905b8*)func_ov017_021b8468(z);
-                    if (st != NULL && st->state == 7) {
-                        cond = 0;
+    for (int var7 = 0; var7 < 0x30; var7++) {
+        Struct_ov017_021905b8_2* var8 = (Struct_ov017_021905b8_2*)var0->GetMaybeFieldMonsterByIndex(var7 + 0x70);
+        if (var8 != NULL && func_0207959c((Struct_0207959c*)var8, arg1)) {
+            int var9;
+            Struct_ov017_021905b8_3* var10 = (Struct_ov017_021905b8_3*)arg0->unknown_ptr_3718;
+            var9 = 1;
+            if (var10->unknown_2_ != 0 && func_ov017_021b8480(var10) == 0) {
+                Struct_ov017_021905b8_4* var11 = (Struct_ov017_021905b8_4*)func_ov017_021b8478(var10);
+                if (var11 != NULL && var11->unknown_8_ == var8->unknown_16a_) {
+                    Struct_ov017_021905b8_5* var12 = (Struct_ov017_021905b8_5*)func_ov017_021b8468(var10);
+                    if (var12 != NULL && var12->unknown_ea8_ == 7) {
+                        var9 = 0;
                     }
                 }
             }
-            func_ov017_02192654(func_0202c1a4((SearchStruct0202c1a4*)search), mon->id, cond);
-            func_0207958c((ClearField0x17dBits0x38Struct*)mon);
+            func_ov017_02192654(func_0202c1a4((Struct_0202c1a4*)var1), var8->unknown_16a_, var9);
+            func_0207958c((Struct_0207958c*)var8);
         }
     }
 
-    func_020e3b08(func_020e3808(), id);
+    func_020e3b08(func_020e3808(), arg1);
 }

@@ -9,36 +9,36 @@
 #endif
 
 #if defined(jpn)
-enum { kFirstFadeOffset = 0x478 };
+enum { Enum_ov020_0218d7ac_1256 = 0x478 };
 #else
-enum { kFirstFadeOffset = 0x4e8 };
+enum { Enum_ov020_0218d7ac_1256 = 0x4e8 };
 #endif
 
-extern "C" void func_020c39a0(short* out, int value);
-extern "C" int func_020c39c8(volatile unsigned short* p);
+extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" int func_020c39c8(volatile unsigned short* arg0);
 
-struct MasterBrightnessFade {
-    float currentBrightness;
-    int targetBrightness;
-    int remainingMilliseconds;
+struct Struct_ov020_0218d7ac {
+    float unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct FieldGroup4e8_0218d7ac {
-    char unknown0[kFirstFadeOffset];
-    MasterBrightnessFade mainFade;
+struct Struct_ov020_0218b710 {
+    char unknown_0_[Enum_ov020_0218d7ac_1256];
+    Struct_ov020_0218d7ac unknown_4e8_;
 };
 
 // USA: func_ov020_0218d7ac
-extern "C" ARM void func_ov020_0218d7ac(struct FieldGroup4e8_0218d7ac* display, int targetBrightness, int durationMilliseconds) {
-    if (durationMilliseconds == 0) {
-        func_020c39a0((short*)0x400006c, targetBrightness);
-        display->mainFade.currentBrightness = (float)targetBrightness;
-        display->mainFade.targetBrightness = targetBrightness;
-        display->mainFade.remainingMilliseconds = 0;
+extern "C" ARM void func_ov020_0218d7ac(struct Struct_ov020_0218b710* arg0, int arg1, int arg2) {
+    if (arg2 == 0) {
+        func_020c39a0((short*)0x400006c, arg1);
+        arg0->unknown_4e8_.unknown_0_ = (float)arg1;
+        arg0->unknown_4e8_.unknown_4_ = arg1;
+        arg0->unknown_4e8_.unknown_8_ = 0;
     } else {
-        int currentBrightness = func_020c39c8((volatile unsigned short*)0x400006c);
-        display->mainFade.currentBrightness = (float)currentBrightness;
-        display->mainFade.targetBrightness = targetBrightness;
-        display->mainFade.remainingMilliseconds = durationMilliseconds;
+        int var0 = func_020c39c8((volatile unsigned short*)0x400006c);
+        arg0->unknown_4e8_.unknown_0_ = (float)var0;
+        arg0->unknown_4e8_.unknown_4_ = arg1;
+        arg0->unknown_4e8_.unknown_8_ = arg2;
     }
 }

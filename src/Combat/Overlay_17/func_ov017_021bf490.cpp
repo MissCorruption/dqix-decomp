@@ -4,42 +4,42 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
-extern "C" void func_ov017_0218d5c8(unsigned char* obj);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" int func_020100f8(char* obj);
-extern "C" void func_020a27ac(void* obj);
+extern "C" void func_ov017_0218d5c8(unsigned char* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" int func_020100f8(char* arg0);
+extern "C" void func_020a27ac(void* arg0);
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov017_021bf490
-extern "C" ARM void func_ov017_021bf490(void* objRaw) {
-    unsigned char* obj = (unsigned char*)objRaw;
-    SafeAllocator* allocA = (SafeAllocator*)(obj + 0x34);
-    SafeAllocator* allocB = (SafeAllocator*)(obj + 0x4c);
+extern "C" ARM void func_ov017_021bf490(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    SafeAllocator* var1 = (SafeAllocator*)(var0 + 0x34);
+    SafeAllocator* var2 = (SafeAllocator*)(var0 + 0x4c);
 
-    void* ov = GetGameResources();
-    unsigned char field48 = obj[0x48];
-    if (field48 != 0 && ov != NULL) {
-        func_ov017_0218d5c8((unsigned char*)ov);
-        obj[0x48] = 0;
+    void* var3 = GetGameResources();
+    unsigned char var4 = var0[0x48];
+    if (var4 != 0 && var3 != NULL) {
+        func_ov017_0218d5c8((unsigned char*)var3);
+        var0[0x48] = 0;
     }
 
-    SignedAllocatorHeader* h1 = allocA->GetSignedAllocator();
-    if (h1 != NULL) {
-        allocA->Destroy();
-        func_02012da4(&data_02114e20, h1);
+    SignedAllocatorHeader* var5 = var1->GetSignedAllocator();
+    if (var5 != NULL) {
+        var1->Destroy();
+        func_02012da4(&data_02114e20, var5);
     }
 
-    SignedAllocatorHeader* h2 = allocB->GetSignedAllocator();
-    if (h2 != NULL) {
-        allocB->Destroy();
-        func_02012da4(&data_02114e20, h2);
+    SignedAllocatorHeader* var6 = var2->GetSignedAllocator();
+    if (var6 != NULL) {
+        var2->Destroy();
+        func_02012da4(&data_02114e20, var6);
     }
 
-    int flagResult = func_020100f8((char*)GameState::GetInstance());
-    if (flagResult != 0) {
-        func_020a27ac((void*)flagResult);
+    int var7 = func_020100f8((char*)GameState::GetInstance());
+    if (var7 != 0) {
+        func_020a27ac((void*)var7);
     }
 
-    if (ov == NULL) return;
-    ClearFlags04((GameResources*)ov, 0x80);
+    if (var3 == NULL) return;
+    ClearFlags04((GameResources*)var3, 0x80);
 }

@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Entry6_021538b4 { char pad[5]; unsigned char field5; };
-extern "C" Entry6_021538b4* func_ov004_021538b4(Entry6_021538b4* base, int key);
-extern Entry6_021538b4* data_ov004_021707c0;
+struct Struct_ov004_02153860 { char unknown_0_[5]; unsigned char unknown_5_; };
+extern "C" Struct_ov004_02153860* func_ov004_021538b4(Struct_ov004_02153860* arg0, int arg1);
+extern Struct_ov004_02153860* data_ov004_021707c0;
 
 // USA: func_ov004_021538f0
 extern "C" ARM short func_ov004_021538f0(void) {
-    short total = 0;
-    for (short i = 7; i <= 7; i++) {
-        Entry6_021538b4* entry = func_ov004_021538b4(data_ov004_021707c0, i);
-        if (entry) total = total + entry->field5;
+    short var0 = 0;
+    for (short var1 = 7; var1 <= 7; var1++) {
+        Struct_ov004_02153860* var2 = func_ov004_021538b4(data_ov004_021707c0, var1);
+        if (var2) var0 = var0 + var2->unknown_5_;
     }
-    return total;
+    return var0;
 }

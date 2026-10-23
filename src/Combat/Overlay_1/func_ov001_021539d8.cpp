@@ -5,117 +5,117 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
-struct PairTables021539d8 {
-    char storage[0x70];
+struct Struct_ov001_021539d8_7 {
+    char unknown_0_[0x70];
 };
 
-struct ArchiveInfo021539d8 {
-    int unused0;
-    void* data;
-    unsigned int size;
-    SafeAllocator* allocator;
-    int flag;
-    int pad14;
-    int pad18;
-    int mode;
+struct Struct_ov001_021539d8_8 {
+    int unknown_0_;
+    void* unknown_4_;
+    unsigned int unknown_8_;
+    SafeAllocator* unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
 
-struct ObjState021539d8 {
-    unsigned int flag : 1;
+struct Struct_ov001_021539d8_9 {
+    unsigned int unknown_0_0_ : 1;
 };
 
-struct ObjModel021539d8 {
-    char pad0[0x54];
-    NSBXXInternalModel* model;
+struct Struct_ov001_021539d8_10 {
+    char unknown_0_[0x54];
+    NSBXXInternalModel* unknown_54_;
 };
 
-struct Obj021539d8 {
-    unsigned short flags;
-    char pad2[6];
-    struct ObjModel021539d8* holder;
-    struct ObjState021539d8* state;
-    char pad10[0x34];
-    int posX;
-    int posY;
-    int posZ;
-    char pad50[0x84];
-    unsigned char active : 1;
-    char padd5[0x5b];
-    unsigned int* status;
+struct Struct_ov001_021539d8_11 {
+    unsigned short unknown_0_;
+    char unknown_2_[6];
+    struct Struct_ov001_021539d8_10* unknown_8_;
+    struct Struct_ov001_021539d8_9* unknown_c_;
+    char unknown_10_[0x34];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
+    char unknown_50_[0x84];
+    unsigned char unknown_d4_0_ : 1;
+    char unknown_d5_[0x5b];
+    unsigned int* unknown_130_;
 };
 
-struct Stream021539d8 {
-    int owner;
-    char pad4[0x4c];
-    unsigned int flags;
+struct Struct_ov001_021539d8_12 {
+    int unknown_0_;
+    char unknown_4_[0x4c];
+    unsigned int unknown_50_;
 };
 
-struct Emitter021539d8 {
-    unsigned int flags;
-    int unk4;
-    void* name;
-    void* record;
-    int unk10;
-    struct Stream021539d8* stream;
-    struct Obj021539d8* object;
-    int unk1c;
+struct Struct_ov001_021539d8 {
+    unsigned int unknown_0_;
+    int unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    int unknown_10_;
+    struct Struct_ov001_021539d8_12* unknown_14_;
+    struct Struct_ov001_021539d8_11* unknown_18_;
+    int unknown_1c_;
 };
 
-struct Label021539d8 {
-    char pad0[2];
-    unsigned char kind;
+struct Struct_ov001_021539d8_2 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
 #if defined(jpn)
-    char pad3[0xd];
+    char unknown_3_[0xd];
 #else
-    char pad3;
+    char unknown1_3_;
 #endif
-    char text[0x10];
+    char unknown_4_[0x10];
 };
 
-struct LoadNode021539d8 {
-    unsigned char type : 4;
-    unsigned char unused : 4;
-    unsigned char index;
-    short slot;
-    unsigned char flags;
-    char pad5[3];
+struct Struct_ov001_021539d8_3 {
+    unsigned char unknown_0_0_ : 4;
+    unsigned char unknown_0_4_ : 4;
+    unsigned char unknown_1_;
+    short unknown_2_;
+    unsigned char unknown_4_;
+    char unknown_5_[3];
     union {
-        int key;
-        char name[0x24];
+        int unknown_8_;
+        char unknown1_8_[0x24];
     };
-    int task;
-    unsigned char kind;
-    unsigned char done;
-    char pad32[2];
-    struct LoadNode021539d8* next;
+    int unknown_2c_;
+    unsigned char unknown_30_;
+    unsigned char unknown_31_;
+    char unknown_32_[2];
+    struct Struct_ov001_021539d8_3* unknown_34_;
 };
 
-struct MotionNode021539d8 {
-    unsigned char index;
-    char pad1[0x23];
-    int task;
-    struct MotionNode021539d8* next;
-    unsigned char pending;
+struct Struct_ov001_021539d8_4 {
+    unsigned char unknown_0_;
+    char unknown_1_[0x23];
+    int unknown_24_;
+    struct Struct_ov001_021539d8_4* unknown_28_;
+    unsigned char unknown_2c_;
 };
 
-struct Global021539d8 {
-    char pad0[0x98];
-    unsigned int flags;
+struct Struct_ov001_021539d8_5 {
+    char unknown_0_[0x98];
+    unsigned int unknown_98_;
 };
 
-struct Self021539d8 {
-    char pad0[0x50];
-    unsigned short flags;
+struct Struct_ov001_021539d8_6 {
+    char unknown_0_[0x50];
+    unsigned short unknown_50_;
 #if defined(jpn)
-    char pad52[0x7a];
+    char unknown_52_[0x7a];
 #else
-    char pad52[0x7e];
+    char unknown1_52_[0x7e];
 #endif
-    struct LoadNode021539d8* loads;
-    struct MotionNode021539d8* motions;
-    char padd8[0x1c];
-    int task;
-    unsigned int mode : 27;
+    struct Struct_ov001_021539d8_3* unknown_d0_;
+    struct Struct_ov001_021539d8_4* unknown_d4_;
+    char unknown_d8_[0x1c];
+    int unknown_f4_;
+    unsigned int unknown_f8_0_ : 27;
 };
 
 #if defined(jpn)
@@ -137,99 +137,99 @@ extern char data_ov001_02164bc8[];
 extern char data_ov001_02164bcb[];
 
 extern "C" {
-struct Global021539d8* func_0203cf4c(void);
+struct Struct_ov001_021539d8_5* func_0203cf4c(void);
 
 void* func_0202ae18(void);
-int func_0202c508(void* obj);
-unsigned char func_020100b0(GameState* gs);
-int func_020100a8(GameState* gs);
-void func_0207df50(struct PairTables021539d8* p);
-void func_0207df90(struct PairTables021539d8* p);
-void func_0207dfac(struct PairTables021539d8* p);
-void func_ov001_0215ab54(int kind, int id, int index);
-struct Emitter021539d8* func_0203df78(void* list, int key);
-int func_0203dfdc(void* list, int key);
-void func_0200fd38(GameState* gs, int id, struct Obj021539d8* obj);
+int func_0202c508(void* arg0);
+unsigned char func_020100b0(GameState* arg0);
+int func_020100a8(GameState* arg0);
+void func_0207df50(struct Struct_ov001_021539d8_7* arg0);
+void func_0207df90(struct Struct_ov001_021539d8_7* arg0);
+void func_0207dfac(struct Struct_ov001_021539d8_7* arg0);
+void func_ov001_0215ab54(int arg0, int arg1, int arg2);
+struct Struct_ov001_021539d8* func_0203df78(void* arg0, int arg1);
+int func_0203dfdc(void* arg0, int arg1);
+void func_0200fd38(GameState* arg0, int arg1, struct Struct_ov001_021539d8_11* arg2);
 SafeAllocator* func_ov001_0215aab8(void);
-void _ZN8Object3D10InitializeEv(struct Obj021539d8* obj);
-void _ZN8Object3D11MakeVisibleEv(struct Obj021539d8* obj);
-void _ZN8Object3D10MakeHiddenEv(struct Obj021539d8* obj);
-void _ZN8Object3D10EnableFlagEi(struct Obj021539d8* obj, int mask);
-void _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(struct Obj021539d8* obj, struct ArchiveInfo021539d8* info);
-void _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(struct Obj021539d8* obj, struct ArchiveInfo021539d8* info, void* callback);
-void _ZN8Object3D8SetScaleEiii(struct Obj021539d8* obj, int x, int y, int z);
-void _ZN8Object3D21MaybeSetBCFGAnimationEii(struct Obj021539d8* obj, int a, int b);
-void _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(struct Obj021539d8* obj, SafeAllocator* allocator, void* data, unsigned int size, int mode);
+void _ZN8Object3D10InitializeEv(struct Struct_ov001_021539d8_11* arg0);
+void _ZN8Object3D11MakeVisibleEv(struct Struct_ov001_021539d8_11* arg0);
+void _ZN8Object3D10MakeHiddenEv(struct Struct_ov001_021539d8_11* arg0);
+void _ZN8Object3D10EnableFlagEi(struct Struct_ov001_021539d8_11* arg0, int arg1);
+void _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(struct Struct_ov001_021539d8_11* arg0, struct Struct_ov001_021539d8_8* arg1);
+void _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(struct Struct_ov001_021539d8_11* arg0, struct Struct_ov001_021539d8_8* arg1, void* arg2);
+void _ZN8Object3D8SetScaleEiii(struct Struct_ov001_021539d8_11* arg0, int arg1, int arg2, int arg3);
+void _ZN8Object3D21MaybeSetBCFGAnimationEii(struct Struct_ov001_021539d8_11* arg0, int arg1, int arg2);
+void _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(struct Struct_ov001_021539d8_11* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int arg4);
 void func_02012fe4(void);
-void func_020404c0(struct Emitter021539d8* emitter);
-void func_0206bf2c(void* record);
-void func_0203c794(struct Stream021539d8* stream);
-char* strstr(const char* text, const char* needle);
-void* memcpy(void* dst, const void* src, unsigned int size);
-int sprintf(char* dst, const char* format, ...);
-void func_02040530(struct Emitter021539d8* emitter, void* record);
-void func_02040520(struct Emitter021539d8* emitter, struct Label021539d8* label);
-void func_0203f02c(struct Stream021539d8* stream, char* name, SafeAllocator* allocator, struct PairTables021539d8* pair, void* data, unsigned int size);
-void func_0203f138(struct Stream021539d8* stream, int enabled);
-void func_020408c8(struct Emitter021539d8* emitter, int a, int b, int c);
-int func_0203e03c(void* list);
-void func_0203dd10(void* list, int index, struct Emitter021539d8* emitter);
-int _Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(void* narc, const char* text, void** outFile, unsigned int* outSize, unsigned int count);
-void* _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(SafeAllocator* allocator, void* file, unsigned int* outSize);
+void func_020404c0(struct Struct_ov001_021539d8* arg0);
+void func_0206bf2c(void* arg0);
+void func_0203c794(struct Struct_ov001_021539d8_12* arg0);
+char* strstr(const char* arg0, const char* arg1);
+void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
+int sprintf(char* arg0, const char* arg1, ...);
+void func_02040530(struct Struct_ov001_021539d8* arg0, void* arg1);
+void func_02040520(struct Struct_ov001_021539d8* arg0, struct Struct_ov001_021539d8_2* arg1);
+void func_0203f02c(struct Struct_ov001_021539d8_12* arg0, char* arg1, SafeAllocator* arg2, struct Struct_ov001_021539d8_7* arg3, void* arg4, unsigned int arg5);
+void func_0203f138(struct Struct_ov001_021539d8_12* arg0, int arg1);
+void func_020408c8(struct Struct_ov001_021539d8* arg0, int arg1, int arg2, int arg3);
+int func_0203e03c(void* arg0);
+void func_0203dd10(void* arg0, int arg1, struct Struct_ov001_021539d8* arg2);
+int _Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(void* arg0, const char* arg1, void** arg2, unsigned int* arg3, unsigned int arg4);
+void* _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(SafeAllocator* arg0, void* arg1, unsigned int* arg2);
 void NSBXX_Model_SetPolygonID(NSBXXInternalModel* model, int id);
-void __clear(unsigned char* flags, int count);
+void __clear(unsigned char* arg0, int arg1);
 }
 
-extern "C" int func_0203d004(void* list);
+extern "C" int func_0203d004(void* arg0);
 
-static inline void UpdateStream021539d8(struct Emitter021539d8* emitter, char* name, SafeAllocator* allocator,
-                                        struct PairTables021539d8* pair, void* data, unsigned int size) {
-    if (emitter->stream != 0) {
-        func_0203f02c(emitter->stream, name, allocator, pair, data, size);
+static inline void inline_ov001_021539d8(struct Struct_ov001_021539d8* arg0, char* arg1, SafeAllocator* arg2,
+                                        struct Struct_ov001_021539d8_7* arg3, void* arg4, unsigned int arg5) {
+    if (arg0->unknown_14_ != 0) {
+        func_0203f02c(arg0->unknown_14_, arg1, arg2, arg3, arg4, arg5);
     }
 }
 
-static inline void EnableStream021539d8(struct Emitter021539d8* emitter, int enabled) {
-    if (emitter->stream != 0) {
-        func_0203f138(emitter->stream, enabled);
+static inline void inline_ov001_021539d8_2(struct Struct_ov001_021539d8* arg0, int arg1) {
+    if (arg0->unknown_14_ != 0) {
+        func_0203f138(arg0->unknown_14_, arg1);
     }
 }
 
 // USA: func_ov001_021539d8
-extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
-    GameState* gs = GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    struct Global021539d8* global = func_0203cf4c();
-    char* base = (char*)GetGameResources();
-    void* search = func_0202ae18();
-    struct LoadNode021539d8* node;
-    struct MotionNode021539d8* motion;
-    bool copied;
-    LightingManager* lighting;
-    unsigned int meshIndex;
-    unsigned char* fifoBlob;
-    unsigned char opcode1;
-    unsigned char opcode2;
-    unsigned char opcode3;
-    SafeAllocator* pool;
-    void* record;
-    unsigned char length;
-    NSBXXMesh* mesh;
-    NSBXXInternalModel* model;
-    struct Emitter021539d8* emitter;
-    struct Label021539d8* label;
-    struct PairTables021539d8* pair;
+extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    struct Struct_ov001_021539d8_5* var2 = func_0203cf4c();
+    char* var3 = (char*)GetGameResources();
+    void* var4 = func_0202ae18();
+    struct Struct_ov001_021539d8_3* var5;
+    struct Struct_ov001_021539d8_4* var6;
+    bool var7;
+    LightingManager* var8;
+    unsigned int var9;
+    unsigned char* var10;
+    unsigned char var11;
+    unsigned char var12;
+    unsigned char var13;
+    SafeAllocator* var14;
+    void* var15;
+    unsigned char var16;
+    NSBXXMesh* var17;
+    NSBXXInternalModel* var18;
+    struct Struct_ov001_021539d8* var19;
+    struct Struct_ov001_021539d8_2* var20;
+    struct Struct_ov001_021539d8_7* var21;
 
-    for (node = self->loads; node != 0; node = node->next) {
-        if (node->type == 1) {
-            if (func_0202c508(search) == 0 || !(self->mode & 0x10)) {
-                int current = func_020100b0(gs);
-                if (current != 0) {
-                    struct LoadNode021539d8* other;
-                    for (other = self->loads; other != 0; other = other->next) {
-                        if (other->type >= 0xb && other->type <= 0xd && other->slot == current) {
-                            other->slot = 0;
-                            other->unused = 0;
+    for (var5 = arg0->unknown_d0_; var5 != 0; var5 = var5->unknown_34_) {
+        if (var5->unknown_0_0_ == 1) {
+            if (func_0202c508(var4) == 0 || !(arg0->unknown_f8_0_ & 0x10)) {
+                int var22 = func_020100b0(var0);
+                if (var22 != 0) {
+                    struct Struct_ov001_021539d8_3* var23;
+                    for (var23 = arg0->unknown_d0_; var23 != 0; var23 = var23->unknown_34_) {
+                        if (var23->unknown_0_0_ >= 0xb && var23->unknown_0_0_ <= 0xd && var23->unknown_2_ == var22) {
+                            var23->unknown_2_ = 0;
+                            var23->unknown_0_4_ = 0;
                             break;
                         }
                     }
@@ -239,453 +239,453 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
         }
     }
 
-    copied = false;
-    node = self->loads;
-    while (node != 0) {
+    var7 = false;
+    var5 = arg0->unknown_d0_;
+    while (var5 != 0) {
 
-        if (node->done != 0) {
-            node = node->next;
+        if (var5->unknown_31_ != 0) {
+            var5 = var5->unknown_34_;
             continue;
         }
 
-        pair = &((struct PairTables021539d8*)(base + PAIR_TABLES_021539d8))[27];
-        if (node->kind == 1) {
-            pair = &((struct PairTables021539d8*)(base + PAIR_TABLES_021539d8))[7];
-            if (!copied) {
-                if ((self->flags & 4) || (self->flags & 1)) {
-                    func_0207df50(pair);
-                    copied = true;
+        var21 = &((struct Struct_ov001_021539d8_7*)(var3 + PAIR_TABLES_021539d8))[27];
+        if (var5->unknown_30_ == 1) {
+            var21 = &((struct Struct_ov001_021539d8_7*)(var3 + PAIR_TABLES_021539d8))[7];
+            if (!var7) {
+                if ((arg0->unknown_50_ & 4) || (arg0->unknown_50_ & 1)) {
+                    func_0207df50(var21);
+                    var7 = true;
                 }
             }
         }
 
-        switch (node->type) {
+        switch (var5->unknown_0_0_) {
         case 0: {
-            struct Obj021539d8* obj = (struct Obj021539d8*)gs->GetPartyMemberByIndex(0);
-            if (obj == 0) {
+            struct Struct_ov001_021539d8_11* var24 = (struct Struct_ov001_021539d8_11*)var0->GetPartyMemberByIndex(0);
+            if (var24 == 0) {
                 break;
             }
-            if ((self->mode & 0x10) || !(*obj->status & 1)) {
-                func_ov001_0215ab54(4, 0, node->index);
-            } else if (func_0202c508(search) != 0) {
-                func_ov001_0215ab54(5, func_020100b0(gs), node->index);
+            if ((arg0->unknown_f8_0_ & 0x10) || !(*var24->unknown_130_ & 1)) {
+                func_ov001_0215ab54(4, 0, var5->unknown_1_);
+            } else if (func_0202c508(var4) != 0) {
+                func_ov001_0215ab54(5, func_020100b0(var0), var5->unknown_1_);
             } else {
-                int current = func_020100a8(gs);
-                int i;
-                for (i = 3; i > 0; i--) {
-                    if (current != i) {
-                        obj = (struct Obj021539d8*)gs->GetPartyMemberByIndex(i);
-                        if (obj != 0 && (obj->flags & 0x1000) && !(*obj->status & 1)) {
-                            func_ov001_0215ab54(5, i, node->index);
+                int var25 = func_020100a8(var0);
+                int var26;
+                for (var26 = 3; var26 > 0; var26--) {
+                    if (var25 != var26) {
+                        var24 = (struct Struct_ov001_021539d8_11*)var0->GetPartyMemberByIndex(var26);
+                        if (var24 != 0 && (var24->unknown_0_ & 0x1000) && !(*var24->unknown_130_ & 1)) {
+                            func_ov001_0215ab54(5, var26, var5->unknown_1_);
                             break;
                         }
                     }
                 }
-                if (i == 0) {
+                if (var26 == 0) {
                     break;
                 }
             }
-            _ZN8Object3D11MakeVisibleEv(obj);
+            _ZN8Object3D11MakeVisibleEv(var24);
             break;
         }
         case 1:
-            func_ov001_0215ab54(5, func_020100b0(gs), node->index);
+            func_ov001_0215ab54(5, func_020100b0(var0), var5->unknown_1_);
             break;
         case 9:
         case 11:
         case 12:
         case 13:
-            func_ov001_0215ab54(5, node->slot, node->index);
+            func_ov001_0215ab54(5, var5->unknown_2_, var5->unknown_1_);
             break;
         case 10:
-            func_ov001_0215ab54(1, node->slot, node->index);
+            func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
             break;
         case 4: {
-            struct Emitter021539d8* emitter = func_0203df78(global, node->key);
-            if (emitter != 0 && emitter->object != 0) {
-                emitter->object->active = 1;
-                func_0200fd38(gs, node->slot, emitter->object);
-                emitter->flags |= 0x10000;
-                func_ov001_0215ab54(6, func_0203dfdc(global, node->key), node->index);
+            struct Struct_ov001_021539d8* var27 = func_0203df78(var2, var5->unknown_8_);
+            if (var27 != 0 && var27->unknown_18_ != 0) {
+                var27->unknown_18_->unknown_d4_0_ = 1;
+                func_0200fd38(var0, var5->unknown_2_, var27->unknown_18_);
+                var27->unknown_0_ |= 0x10000;
+                func_ov001_0215ab54(6, func_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
             }
             break;
         }
         case 2: {
-            char name[0x50];
-            struct ArchiveInfo021539d8 info;
-            void* data;
-            unsigned int size;
-            int format;
-            SafeAllocator* allocator;
+            char var28[0x50];
+            struct Struct_ov001_021539d8_8 var29;
+            void* var30;
+            unsigned int var31;
+            int var32;
+            SafeAllocator* var33;
 
-            if (loader->GetDetailedTaskStatus(node->task) != 2) {
-                loader->RemoveTask(node->task);
+            if (var1->GetDetailedTaskStatus(var5->unknown_2c_) != 2) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            format = 0;
-            if (loader->GetTaskFilename(node->task, name)) {
-                if (strstr(name, data_ov001_02164bb0) != 0 || strstr(name, data_ov001_02164bb6) != 0) {
-                    format = 1;
+            var32 = 0;
+            if (var1->GetTaskFilename(var5->unknown_2c_, var28)) {
+                if (strstr(var28, data_ov001_02164bb0) != 0 || strstr(var28, data_ov001_02164bb6) != 0) {
+                    var32 = 1;
                 }
             }
-            allocator = func_ov001_0215aab8();
-            loader->GetLoadedFileByID(node->task, &data, &size);
-            struct Obj021539d8* obj = (struct Obj021539d8*)allocator->Allocate(0xac);
-            if (obj == 0) {
-                loader->RemoveTask(node->task);
+            var33 = func_ov001_0215aab8();
+            var1->GetLoadedFileByID(var5->unknown_2c_, &var30, &var31);
+            struct Struct_ov001_021539d8_11* var34 = (struct Struct_ov001_021539d8_11*)var33->Allocate(0xac);
+            if (var34 == 0) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            func_0207df90(pair);
-            _ZN8Object3D10InitializeEv(obj);
-            info.allocator = allocator;
-            info.data = data;
-            info.size = size;
-            info.flag = 1;
-            if (format == 0) {
-                _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(obj, &info);
-            } else if (format == 1) {
-                _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(obj, &info, 0);
+            func_0207df90(var21);
+            _ZN8Object3D10InitializeEv(var34);
+            var29.unknown_c_ = var33;
+            var29.unknown_4_ = var30;
+            var29.unknown_8_ = var31;
+            var29.unknown_10_ = 1;
+            if (var32 == 0) {
+                _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(var34, &var29);
+            } else if (var32 == 1) {
+                _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var34, &var29, 0);
             }
-            func_0207dfac(pair);
-            _ZN8Object3D8SetScaleEiii(obj, 0x10a, 0x10a, 0x10a);
-            _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            func_0200fd38(gs, node->slot, obj);
-            if (node->flags & 1) {
+            func_0207dfac(var21);
+            _ZN8Object3D8SetScaleEiii(var34, 0x10a, 0x10a, 0x10a);
+            _ZN8Object3D21MaybeSetBCFGAnimationEii(var34, 0, 0);
+            func_0200fd38(var0, var5->unknown_2_, var34);
+            if (var5->unknown_4_ & 1) {
                 func_02012fe4();
-                lighting = LightingManager::GetInstance();
-                model = obj->holder->model;
-                NSBXXNameList* meshList = model->GetMeshListSafe();
-                unsigned int readPos;
-                unsigned int* operandPtr;
-                int totalNumOperands;
+                var8 = LightingManager::GetInstance();
+                var18 = var34->unknown_8_->unknown_54_;
+                NSBXXNameList* var35 = var18->GetMeshListSafe();
+                unsigned int var36;
+                unsigned int* var37;
+                int var38;
 
-                for (meshIndex = 0; meshIndex < model->numMeshes_; meshIndex++) {
-                    unsigned char opcode0;
-                    void* pOffset;
+                for (var9 = 0; var9 < var18->numMeshes_; var9++) {
+                    unsigned char var39;
+                    void* var40;
 
-                    if (meshList != NULL && (pOffset = meshList->GetEntryv3Safe(meshIndex)))
-                        mesh = (NSBXXMesh*)meshList->GetEntryFromPtrOffset(pOffset);
+                    if (var35 != NULL && (var40 = var35->GetEntryv3Safe(var9)))
+                        var17 = (NSBXXMesh*)var35->GetEntryFromPtrOffset(var40);
                     else
-                        mesh = NULL;
+                        var17 = NULL;
 
-                    if (!(mesh->unk_4 & 2))
+                    if (!(var17->unk_4 & 2))
                         continue;
 
-                    fifoBlob = (unsigned char*)mesh + mesh->gpuCommandsOffset_;
-                    readPos = 0;
-                    while (readPos < mesh->gpuCommandsLength_) {
-                        opcode0 = fifoBlob[readPos];
-                        opcode1 = fifoBlob[readPos + 1];
-                        opcode2 = fifoBlob[readPos + 2];
-                        opcode3 = fifoBlob[readPos + 3];
-                        readPos += 4;
+                    var10 = (unsigned char*)var17 + var17->gpuCommandsOffset_;
+                    var36 = 0;
+                    while (var36 < var17->gpuCommandsLength_) {
+                        var39 = var10[var36];
+                        var11 = var10[var36 + 1];
+                        var12 = var10[var36 + 2];
+                        var13 = var10[var36 + 3];
+                        var36 += 4;
 
-                        int oneCommandNumOperands = 0;
-                        operandPtr = (unsigned int*)(fifoBlob + readPos);
+                        int var41 = 0;
+                        var37 = (unsigned int*)(var10 + var36);
 
-                        totalNumOperands = 0;
+                        var38 = 0;
 
-                        if (lighting->GetFifoCommandData(opcode0, &oneCommandNumOperands))
-                            operandPtr[totalNumOperands] = lighting->ColorTransformTintBrightnessContrast(operandPtr[totalNumOperands]);
-                        totalNumOperands += oneCommandNumOperands;
+                        if (var8->GetFifoCommandData(var39, &var41))
+                            var37[var38] = var8->ColorTransformTintBrightnessContrast(var37[var38]);
+                        var38 += var41;
 
-                        if (lighting->GetFifoCommandData(opcode1, &oneCommandNumOperands))
-                            operandPtr[totalNumOperands] = lighting->ColorTransformTintBrightnessContrast(operandPtr[totalNumOperands]);
-                        totalNumOperands += oneCommandNumOperands;
+                        if (var8->GetFifoCommandData(var11, &var41))
+                            var37[var38] = var8->ColorTransformTintBrightnessContrast(var37[var38]);
+                        var38 += var41;
 
-                        if (lighting->GetFifoCommandData(opcode2, &oneCommandNumOperands))
-                            operandPtr[totalNumOperands] = lighting->ColorTransformTintBrightnessContrast(operandPtr[totalNumOperands]);
-                        totalNumOperands += oneCommandNumOperands;
+                        if (var8->GetFifoCommandData(var12, &var41))
+                            var37[var38] = var8->ColorTransformTintBrightnessContrast(var37[var38]);
+                        var38 += var41;
 
-                        if (lighting->GetFifoCommandData(opcode3, &oneCommandNumOperands))
-                            operandPtr[totalNumOperands] = lighting->ColorTransformTintBrightnessContrast(operandPtr[totalNumOperands]);
-                        totalNumOperands += oneCommandNumOperands;
+                        if (var8->GetFifoCommandData(var13, &var41))
+                            var37[var38] = var8->ColorTransformTintBrightnessContrast(var37[var38]);
+                        var38 += var41;
 
-                        readPos += 4 * totalNumOperands;
+                        var36 += 4 * var38;
                     }
                 }
             }
-            func_ov001_0215ab54(1, node->slot, node->index);
-            loader->RemoveTask(node->task);
-            node->done = 1;
+            func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
+            var1->RemoveTask(var5->unknown_2c_);
+            var5->unknown_31_ = 1;
             break;
         }
         case 5: {
-            struct Emitter021539d8* emitter = func_0203df78(global, node->key);
-            if (emitter != 0 && emitter->stream != 0) {
-                emitter->flags |= 0x10000;
-                func_ov001_0215ab54(2, func_0203dfdc(global, node->key), node->index);
+            struct Struct_ov001_021539d8* var42 = func_0203df78(var2, var5->unknown_8_);
+            if (var42 != 0 && var42->unknown_14_ != 0) {
+                var42->unknown_0_ |= 0x10000;
+                func_ov001_0215ab54(2, func_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
             }
             break;
         }
         case 3: {
-            void* data;
-            unsigned int size;
-            int owner;
-            struct Stream021539d8* stream;
+            void* var43;
+            unsigned int var44;
+            int var45;
+            struct Struct_ov001_021539d8_12* var46;
 
-            if (loader->GetDetailedTaskStatus(node->task) != 2) {
-                loader->RemoveTask(node->task);
+            if (var1->GetDetailedTaskStatus(var5->unknown_2c_) != 2) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            pool = func_ov001_0215aab8();
-            loader->GetLoadedFileByID(node->task, &data, &size);
-            emitter = (struct Emitter021539d8*)pool->Allocate(0x20);
-            record = pool->Allocate(0x78);
-            label = (struct Label021539d8*)pool->Allocate(sizeof(struct Label021539d8));
-            stream = (struct Stream021539d8*)pool->Allocate(0x9c);
-            if (emitter == 0 || label == 0 || record == 0 || stream == 0) {
-                loader->RemoveTask(node->task);
+            var14 = func_ov001_0215aab8();
+            var1->GetLoadedFileByID(var5->unknown_2c_, &var43, &var44);
+            var19 = (struct Struct_ov001_021539d8*)var14->Allocate(0x20);
+            var15 = var14->Allocate(0x78);
+            var20 = (struct Struct_ov001_021539d8_2*)var14->Allocate(sizeof(struct Struct_ov001_021539d8_2));
+            var46 = (struct Struct_ov001_021539d8_12*)var14->Allocate(0x9c);
+            if (var19 == 0 || var20 == 0 || var15 == 0 || var46 == 0) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            func_020404c0(emitter);
-            func_0206bf2c(record);
-            func_0203c794(stream);
-            label->kind = 3;
-            if (strstr(node->name, data_ov001_02164bc0) != 0) {
-                length = 5;
-                if (strstr(node->name, data_ov001_02164bc5) != 0) {
-                    length = 7;
-                    stream->flags |= 8;
+            func_020404c0(var19);
+            func_0206bf2c(var15);
+            func_0203c794(var46);
+            var20->unknown_2_ = 3;
+            if (strstr(var5->unknown1_8_, data_ov001_02164bc0) != 0) {
+                var16 = 5;
+                if (strstr(var5->unknown1_8_, data_ov001_02164bc5) != 0) {
+                    var16 = 7;
+                    var46->unknown_50_ |= 8;
                 }
-                memcpy(label->text, node->name + 9, length);
-                if (length < 7u) {
-                    label->text[length] = 0;
+                memcpy(var20->unknown_4_, var5->unknown1_8_ + 9, var16);
+                if (var16 < 7u) {
+                    var20->unknown_4_[var16] = 0;
                 }
             } else {
-                sprintf(label->text, data_ov001_02164bc8, node->name);
+                sprintf(var20->unknown_4_, data_ov001_02164bc8, var5->unknown1_8_);
             }
-            emitter->stream = stream;
-            func_02040530(emitter, record);
-            func_02040520(emitter, label);
-            owner = func_0203d004(global);
-            if (emitter->stream != 0) {
-                emitter->stream->owner = owner;
+            var19->unknown_14_ = var46;
+            func_02040530(var19, var15);
+            func_02040520(var19, var20);
+            var45 = func_0203d004(var2);
+            if (var19->unknown_14_ != 0) {
+                var19->unknown_14_->unknown_0_ = var45;
             }
-            UpdateStream021539d8(emitter, node->name + 9, pool, pair, data, size);
-            EnableStream021539d8(emitter, 1);
-            func_020408c8(emitter, 0x8f, 0x8f, 0x8f);
-            node->slot = func_0203e03c(global);
-            if (node->slot != -1) {
-                func_0203dd10(global, node->slot, emitter);
-                emitter->flags |= 0x10000;
-                func_ov001_0215ab54(2, node->slot, node->index);
-                loader->RemoveTask(node->task);
-                node->done = 1;
+            inline_ov001_021539d8(var19, var5->unknown1_8_ + 9, var14, var21, var43, var44);
+            inline_ov001_021539d8_2(var19, 1);
+            func_020408c8(var19, 0x8f, 0x8f, 0x8f);
+            var5->unknown_2_ = func_0203e03c(var2);
+            if (var5->unknown_2_ != -1) {
+                func_0203dd10(var2, var5->unknown_2_, var19);
+                var19->unknown_0_ |= 0x10000;
+                func_ov001_0215ab54(2, var5->unknown_2_, var5->unknown_1_);
+                var1->RemoveTask(var5->unknown_2c_);
+                var5->unknown_31_ = 1;
             }
             break;
         }
         case 6: {
-            char name[0x50];
-            struct ArchiveInfo021539d8 info;
-            void* data;
-            unsigned int size;
-            unsigned int fileSize;
-            void* file;
-            unsigned int unpackedSize;
-            SafeAllocator* allocator;
-            struct Obj021539d8* obj;
-            void* unpacked;
-            int format;
+            char var47[0x50];
+            struct Struct_ov001_021539d8_8 var48;
+            void* var49;
+            unsigned int var50;
+            unsigned int var51;
+            void* var52;
+            unsigned int var53;
+            SafeAllocator* var54;
+            struct Struct_ov001_021539d8_11* var55;
+            void* var56;
+            int var57;
 
-            if (loader->GetDetailedTaskStatus(node->task) != 2) {
-                loader->RemoveTask(node->task);
+            if (var1->GetDetailedTaskStatus(var5->unknown_2c_) != 2) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            allocator = func_ov001_0215aab8();
-            loader->GetLoadedFileByID(node->task, &data, &size);
-            obj = (struct Obj021539d8*)allocator->Allocate(0xac);
-            if (obj == 0) {
-                loader->RemoveTask(node->task);
+            var54 = func_ov001_0215aab8();
+            var1->GetLoadedFileByID(var5->unknown_2c_, &var49, &var50);
+            var55 = (struct Struct_ov001_021539d8_11*)var54->Allocate(0xac);
+            if (var55 == 0) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            format = 0;
-            if (loader->GetTaskFilename(node->task, name)) {
-                if (strstr(name, data_ov001_02164bb0) != 0 || strstr(name, data_ov001_02164bb6) != 0) {
-                    format = 1;
+            var57 = 0;
+            if (var1->GetTaskFilename(var5->unknown_2c_, var47)) {
+                if (strstr(var47, data_ov001_02164bb0) != 0 || strstr(var47, data_ov001_02164bb6) != 0) {
+                    var57 = 1;
                 }
             }
-            if (_Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(data, data_ov001_02164bcb, &file, &fileSize, 1) == 0) {
+            if (_Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(var49, data_ov001_02164bcb, &var52, &var51, 1) == 0) {
                 break;
             }
-            unpacked = _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(allocator, file, &unpackedSize);
-            if (unpacked == 0) {
+            var56 = _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(var54, var52, &var53);
+            if (var56 == 0) {
                 break;
             }
-            func_0207df90(pair);
-            _ZN8Object3D10InitializeEv(obj);
-            info.data = unpacked;
-            info.allocator = allocator;
-            info.size = unpackedSize;
-            info.flag = 1;
-            if (format == 0) {
-                _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(obj, &info);
-            } else if (format == 1) {
-                _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(obj, &info, 0);
+            func_0207df90(var21);
+            _ZN8Object3D10InitializeEv(var55);
+            var48.unknown_4_ = var56;
+            var48.unknown_c_ = var54;
+            var48.unknown_8_ = var53;
+            var48.unknown_10_ = 1;
+            if (var57 == 0) {
+                _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(var55, &var48);
+            } else if (var57 == 1) {
+                _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var55, &var48, 0);
             }
-            func_0207dfac(pair);
-            _ZN8Object3D8SetScaleEiii(obj, 0x10a, 0x10a, 0x10a);
-            _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            func_0200fd38(gs, node->slot, obj);
-            func_ov001_0215ab54(1, node->slot, node->index);
-            loader->RemoveTask(node->task);
-            node->done = 1;
+            func_0207dfac(var21);
+            _ZN8Object3D8SetScaleEiii(var55, 0x10a, 0x10a, 0x10a);
+            _ZN8Object3D21MaybeSetBCFGAnimationEii(var55, 0, 0);
+            func_0200fd38(var0, var5->unknown_2_, var55);
+            func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
+            var1->RemoveTask(var5->unknown_2c_);
+            var5->unknown_31_ = 1;
             break;
         }
         case 7: {
-            void* data;
-            unsigned int size;
-            SafeAllocator* allocator;
-            void* copy;
+            void* var58;
+            unsigned int var59;
+            SafeAllocator* var60;
+            void* var61;
 
-            if (loader->GetDetailedTaskStatus(node->task) != 2) {
-                loader->RemoveTask(node->task);
+            if (var1->GetDetailedTaskStatus(var5->unknown_2c_) != 2) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            allocator = func_ov001_0215aab8();
-            loader->GetLoadedFileByID(node->task, &data, &size);
-            struct Obj021539d8* obj = (struct Obj021539d8*)allocator->Allocate(0xac);
-            if (obj == 0) {
-                loader->RemoveTask(node->task);
+            var60 = func_ov001_0215aab8();
+            var1->GetLoadedFileByID(var5->unknown_2c_, &var58, &var59);
+            struct Struct_ov001_021539d8_11* var62 = (struct Struct_ov001_021539d8_11*)var60->Allocate(0xac);
+            if (var62 == 0) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            copy = allocator->Allocate(size);
-            memcpy(copy, data, size);
-            func_0207df90(pair);
-            _ZN8Object3D10InitializeEv(obj);
-            _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(obj, allocator, copy, size, 0);
-            func_0207dfac(pair);
-            _ZN8Object3D8SetScaleEiii(obj, 0x10a, 0x10a, 0x10a);
-            _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            func_0200fd38(gs, node->slot, obj);
-            func_ov001_0215ab54(1, node->slot, node->index);
-            loader->RemoveTask(node->task);
-            node->done = 1;
+            var61 = var60->Allocate(var59);
+            memcpy(var61, var58, var59);
+            func_0207df90(var21);
+            _ZN8Object3D10InitializeEv(var62);
+            _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(var62, var60, var61, var59, 0);
+            func_0207dfac(var21);
+            _ZN8Object3D8SetScaleEiii(var62, 0x10a, 0x10a, 0x10a);
+            _ZN8Object3D21MaybeSetBCFGAnimationEii(var62, 0, 0);
+            func_0200fd38(var0, var5->unknown_2_, var62);
+            func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
+            var1->RemoveTask(var5->unknown_2c_);
+            var5->unknown_31_ = 1;
             break;
         }
         case 8: {
-            struct ArchiveInfo021539d8 info;
-            void* data;
-            unsigned int size;
-            SafeAllocator* allocator;
+            struct Struct_ov001_021539d8_8 var63;
+            void* var64;
+            unsigned int var65;
+            SafeAllocator* var66;
 
-            if (loader->GetDetailedTaskStatus(node->task) != 2) {
-                loader->RemoveTask(node->task);
+            if (var1->GetDetailedTaskStatus(var5->unknown_2c_) != 2) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            allocator = func_ov001_0215aab8();
-            loader->GetLoadedFileByID(node->task, &data, &size);
-            struct Obj021539d8* obj = (struct Obj021539d8*)allocator->Allocate(0xac);
-            if (obj == 0) {
-                loader->RemoveTask(node->task);
+            var66 = func_ov001_0215aab8();
+            var1->GetLoadedFileByID(var5->unknown_2c_, &var64, &var65);
+            struct Struct_ov001_021539d8_11* var67 = (struct Struct_ov001_021539d8_11*)var66->Allocate(0xac);
+            if (var67 == 0) {
+                var1->RemoveTask(var5->unknown_2c_);
                 break;
             }
-            func_0207df90(pair);
-            _ZN8Object3D10InitializeEv(obj);
-            info.data = data;
-            info.size = size;
-            info.flag = 1;
-            info.allocator = allocator;
-            _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(obj, &info);
-            func_0207dfac(pair);
-            NSBXX_Model_SetPolygonID(obj->holder->model, 0x3d);
-            obj->posX = 0;
-            obj->posY = -0xa000;
-            obj->posZ = 0x1000;
-            _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
-            func_0200fd38(gs, node->slot, obj);
-            _ZN8Object3D10MakeHiddenEv(obj);
-            func_ov001_0215ab54(1, node->slot, node->index);
-            loader->RemoveTask(node->task);
-            node->done = 1;
+            func_0207df90(var21);
+            _ZN8Object3D10InitializeEv(var67);
+            var63.unknown_4_ = var64;
+            var63.unknown_8_ = var65;
+            var63.unknown_10_ = 1;
+            var63.unknown_c_ = var66;
+            _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(var67, &var63);
+            func_0207dfac(var21);
+            NSBXX_Model_SetPolygonID(var67->unknown_8_->unknown_54_, 0x3d);
+            var67->unknown_44_ = 0;
+            var67->unknown_48_ = -0xa000;
+            var67->unknown_4c_ = 0x1000;
+            _ZN8Object3D21MaybeSetBCFGAnimationEii(var67, 0, 0);
+            func_0200fd38(var0, var5->unknown_2_, var67);
+            _ZN8Object3D10MakeHiddenEv(var67);
+            func_ov001_0215ab54(1, var5->unknown_2_, var5->unknown_1_);
+            var1->RemoveTask(var5->unknown_2c_);
+            var5->unknown_31_ = 1;
             break;
         }
         }
-        node = node->next;
+        var5 = var5->unknown_34_;
     }
 
-    motion = self->motions;
-    while (motion != 0) {
-        if (motion->pending != 0 || motion->task < 0) {
-            motion = motion->next;
+    var6 = arg0->unknown_d4_;
+    while (var6 != 0) {
+        if (var6->unknown_2c_ != 0 || var6->unknown_24_ < 0) {
+            var6 = var6->unknown_28_;
             continue;
         }
-        if (loader->GetDetailedTaskStatus(motion->task) == 2) {
-            struct LoadNode021539d8* target = self->loads;
-            while (target != 0) {
-                if (target->index == motion->index && target->type != 3 && target->type != 5) {
-                    struct Obj021539d8* obj = (struct Obj021539d8*)gs->GetGameObjectByIndex(target->slot);
-                    if (obj != 0) {
-                        struct ArchiveInfo021539d8 info;
-                        void* data;
-                        unsigned int size;
-                        SafeAllocator* allocator = func_ov001_0215aab8();
-                        int format;
+        if (var1->GetDetailedTaskStatus(var6->unknown_24_) == 2) {
+            struct Struct_ov001_021539d8_3* var68 = arg0->unknown_d0_;
+            while (var68 != 0) {
+                if (var68->unknown_1_ == var6->unknown_0_ && var68->unknown_0_0_ != 3 && var68->unknown_0_0_ != 5) {
+                    struct Struct_ov001_021539d8_11* var69 = (struct Struct_ov001_021539d8_11*)var0->GetGameObjectByIndex(var68->unknown_2_);
+                    if (var69 != 0) {
+                        struct Struct_ov001_021539d8_8 var70;
+                        void* var71;
+                        unsigned int var72;
+                        SafeAllocator* var73 = func_ov001_0215aab8();
+                        int var74;
 
-                        loader->GetLoadedFileByID(motion->task, &data, &size);
-                        format = 0;
-                        if (obj->state != 0) {
-                            format = obj->state->flag;
+                        var1->GetLoadedFileByID(var6->unknown_24_, &var71, &var72);
+                        var74 = 0;
+                        if (var69->unknown_c_ != 0) {
+                            var74 = var69->unknown_c_->unknown_0_0_;
                         }
-                        info.allocator = allocator;
-                        info.data = data;
-                        info.size = size;
-                        info.flag = 1;
-                        info.mode = 3;
-                        if (format == 0) {
-                            _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(obj, &info);
-                        } else if (format == 1) {
-                            _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(obj, &info, 0);
+                        var70.unknown_c_ = var73;
+                        var70.unknown_4_ = var71;
+                        var70.unknown_8_ = var72;
+                        var70.unknown_10_ = 1;
+                        var70.unknown_1c_ = 3;
+                        if (var74 == 0) {
+                            _ZN8Object3D18LoadFromCHRArchiveEP21ObjectArchiveLoadInfo(var69, &var70);
+                        } else if (var74 == 1) {
+                            _ZN8Object3D25LoadFromCCHROrCMOTArchiveEP21ObjectArchiveLoadInfoPFiPN4BCFG15AnimationRecordEE(var69, &var70, 0);
                         }
-                        _ZN8Object3D21MaybeSetBCFGAnimationEii(obj, 0, 0);
+                        _ZN8Object3D21MaybeSetBCFGAnimationEii(var69, 0, 0);
                         break;
                     }
                 }
-                target = target->next;
-                motion->pending = 1;
+                var68 = var68->unknown_34_;
+                var6->unknown_2c_ = 1;
             }
         }
-        loader->RemoveTask(motion->task);
-        motion = motion->next;
+        var1->RemoveTask(var6->unknown_24_);
+        var6 = var6->unknown_28_;
     }
 
-    if (self->task > -1) {
-        loader->GetDetailedTaskStatus(self->task);
-        loader->RemoveTask(self->task);
+    if (arg0->unknown_f4_ > -1) {
+        var1->GetDetailedTaskStatus(arg0->unknown_f4_);
+        var1->RemoveTask(arg0->unknown_f4_);
     }
 
-    if (self->mode != 0) {
-        if (self->mode & 1) {
-            SetFlags04((GameResources*)base, 8);
+    if (arg0->unknown_f8_0_ != 0) {
+        if (arg0->unknown_f8_0_ & 1) {
+            SetFlags04((GameResources*)var3, 8);
         }
-        if (self->mode & 2) {
-            SetFlags04((GameResources*)base, 0x10);
+        if (arg0->unknown_f8_0_ & 2) {
+            SetFlags04((GameResources*)var3, 0x10);
         }
-        if (self->mode & 4) {
-            unsigned char used[4];
-            struct LoadNode021539d8* entry;
-            int i;
+        if (arg0->unknown_f8_0_ & 4) {
+            unsigned char var75[4];
+            struct Struct_ov001_021539d8_3* var76;
+            int var77;
 
-            __clear(used, 4);
-            for (entry = self->loads; entry != 0; entry = entry->next) {
-                if (entry->type == 0 || entry->type == 1 || entry->type == 9) {
-                    used[entry->slot] = 1;
+            __clear(var75, 4);
+            for (var76 = arg0->unknown_d0_; var76 != 0; var76 = var76->unknown_34_) {
+                if (var76->unknown_0_0_ == 0 || var76->unknown_0_0_ == 1 || var76->unknown_0_0_ == 9) {
+                    var75[var76->unknown_2_] = 1;
                 }
             }
-            for (i = 0; i < 4; i++) {
-                if (used[i] == 0) {
-                    struct Obj021539d8* obj = (struct Obj021539d8*)gs->GetGameObjectByIndex(i);
-                    if (obj != 0) {
-                        _ZN8Object3D10EnableFlagEi(obj, 1);
+            for (var77 = 0; var77 < 4; var77++) {
+                if (var75[var77] == 0) {
+                    struct Struct_ov001_021539d8_11* var78 = (struct Struct_ov001_021539d8_11*)var0->GetGameObjectByIndex(var77);
+                    if (var78 != 0) {
+                        _ZN8Object3D10EnableFlagEi(var78, 1);
                     }
                 }
             }
         }
-        if (self->mode & 8) {
-            SetFlags04((GameResources*)base, 0x400);
+        if (arg0->unknown_f8_0_ & 8) {
+            SetFlags04((GameResources*)var3, 0x400);
         }
-        if (self->mode & 0x20) {
-            func_0203cf4c()->flags |= 2;
+        if (arg0->unknown_f8_0_ & 0x20) {
+            func_0203cf4c()->unknown_98_ |= 2;
         }
     }
 }

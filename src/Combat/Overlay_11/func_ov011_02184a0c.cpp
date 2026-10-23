@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Trans_02184a0c_Obj {
-    char pad[0x1b2];
-    unsigned short key;
+struct Struct_ov011_02184a0c {
+    char unknown_0_[0x1b2];
+    unsigned short unknown_1b2_;
 };
 
 // USA: func_ov011_02184a0c
-extern "C" ARM void func_ov011_02184a0c(Trans_02184a0c_Obj* obj, unsigned short key) {
-    obj->key = key;
+extern "C" ARM void func_ov011_02184a0c(Struct_ov011_02184a0c* arg0, unsigned short arg1) {
+    arg0->unknown_1b2_ = arg1;
 }

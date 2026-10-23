@@ -4,79 +4,79 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
-struct FlagWord020466f4;
+struct Struct_02038598_4;
 
-struct Struct022439d8 {
-	unsigned char pad0[0x28];
-	SafeAllocator* f28;
-	unsigned char pad1[0x30 - 0x2c];
-	int f30;
-	unsigned char pad2[0x44 - 0x34];
-	unsigned char f44;
-	unsigned char pad3[0x374 - 0x45];
-	unsigned char f374;
-	unsigned char pad4[0x37c - 0x375];
-	void* f37c;
-	unsigned char pad5[0x39c - 0x380];
-	int f39c;
-	int f3a0;
+struct Struct_ov031_022439d8 {
+	unsigned char unknown_0_[0x28];
+	SafeAllocator* unknown_28_;
+	unsigned char unknown_2c_[0x30 - 0x2c];
+	int unknown_30_;
+	unsigned char unknown_34_[0x44 - 0x34];
+	unsigned char unknown_44_;
+	unsigned char unknown_45_[0x374 - 0x45];
+	unsigned char unknown_374_;
+	unsigned char unknown_375_[0x37c - 0x375];
+	void* unknown_37c_;
+	unsigned char unknown_380_[0x39c - 0x380];
+	int unknown_39c_;
+	int unknown_3a0_;
 };
 
 extern SafeAllocator data_ov031_02291e3c;
-extern "C" void func_ov023_021f5b9c(void* a, void* b, int c, void* d);
-extern "C" void func_020397c0(void* p);
-extern "C" FlagWord020466f4* func_020d6c00(void);
-extern "C" void func_020466f4(FlagWord020466f4* p, unsigned int flags);
+extern "C" void func_ov023_021f5b9c(void* arg0, void* arg1, int arg2, void* arg3);
+extern "C" void func_020397c0(void* arg0);
+extern "C" Struct_02038598_4* func_020d6c00(void);
+extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 
 // USA: func_ov031_022439d8
-extern "C" ARM int func_ov031_022439d8(Struct022439d8* ctx) {
-	void* base = GetGameResources();
-	BackgroundLoader* loader = BackgroundLoader::GetInstance();
-	GameObject* obj = GameState::GetInstance()->GetUnknownGameObject();
-	if (obj != 0) {
-		func_020397c0(obj);
+extern "C" ARM int func_ov031_022439d8(Struct_ov031_022439d8* arg0) {
+	void* var0 = GetGameResources();
+	BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+	GameObject* var2 = GameState::GetInstance()->GetUnknownGameObject();
+	if (var2 != 0) {
+		func_020397c0(var2);
 	}
 #if defined(jpn)
-	*(int*)((char*)base + 0x41e4) = 0;
+	*(int*)((char*)var0 + 0x41e4) = 0;
 #else
-	*(int*)((char*)base + 0x4494) = 0;
+	*(int*)((char*)var0 + 0x4494) = 0;
 #endif
-	if (ctx->f39c >= 0) {
-		loader->RemoveTask(ctx->f39c);
-		ctx->f39c = -1;
+	if (arg0->unknown_39c_ >= 0) {
+		var1->RemoveTask(arg0->unknown_39c_);
+		arg0->unknown_39c_ = -1;
 	}
-	if (ctx->f3a0 >= 0) {
-		loader = BackgroundLoader::GetInstance();
-		loader->RemoveTask(ctx->f3a0);
-		ctx->f3a0 = -1;
+	if (arg0->unknown_3a0_ >= 0) {
+		var1 = BackgroundLoader::GetInstance();
+		var1->RemoveTask(arg0->unknown_3a0_);
+		arg0->unknown_3a0_ = -1;
 	}
-	SignedAllocatorHeader* p = data_ov031_02291e3c.GetSignedAllocator();
-	if (p != 0) {
+	SignedAllocatorHeader* var3 = data_ov031_02291e3c.GetSignedAllocator();
+	if (var3 != 0) {
 		data_ov031_02291e3c.Destroy();
-		((SafeAllocator*)ctx)->Free(p);
+		((SafeAllocator*)arg0)->Free(var3);
 	}
-	p = ((SafeAllocator*)ctx)->GetSignedAllocator();
-	if (p != 0) {
-		((SafeAllocator*)ctx)->Destroy();
-		ctx->f28->Free(p);
+	var3 = ((SafeAllocator*)arg0)->GetSignedAllocator();
+	if (var3 != 0) {
+		((SafeAllocator*)arg0)->Destroy();
+		arg0->unknown_28_->Free(var3);
 	}
-	if (ctx->f44 & 1) {
-		((SafeAllocator*)ctx)->ResetAllocatorPointer();
-		void* buf = ctx->f28->Allocate(0xf000);
-		if (buf != 0) {
-			((SafeAllocator*)ctx)->CreateTypeA(buf, 0xf000);
-			((SafeAllocator*)ctx)->Reset();
-			func_ov023_021f5b9c(ctx->f37c, (char*)ctx + 0x50, 4, ctx);
+	if (arg0->unknown_44_ & 1) {
+		((SafeAllocator*)arg0)->ResetAllocatorPointer();
+		void* var4 = arg0->unknown_28_->Allocate(0xf000);
+		if (var4 != 0) {
+			((SafeAllocator*)arg0)->CreateTypeA(var4, 0xf000);
+			((SafeAllocator*)arg0)->Reset();
+			func_ov023_021f5b9c(arg0->unknown_37c_, (char*)arg0 + 0x50, 4, arg0);
 		}
-		p = ((SafeAllocator*)ctx)->GetSignedAllocator();
-		if (p != 0) {
-			((SafeAllocator*)ctx)->Destroy();
-			ctx->f28->Free(p);
+		var3 = ((SafeAllocator*)arg0)->GetSignedAllocator();
+		if (var3 != 0) {
+			((SafeAllocator*)arg0)->Destroy();
+			arg0->unknown_28_->Free(var3);
 		}
 	}
-	if ((ctx->f374 & 0x20) == 0) {
+	if ((arg0->unknown_374_ & 0x20) == 0) {
 		func_020466f4(func_020d6c00(), 0x80);
 	}
-	ctx->f30 = 1;
+	arg0->unknown_30_ = 1;
 	return 2;
 }

@@ -3,44 +3,44 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "std_library_functions.h"
 
-extern "C" int func_ov000_0215e9fc(int battle, unsigned short* table, int count, int flag);
-extern "C" int func_ov024_021ede2c(int* a0);
+extern "C" int func_ov000_0215e9fc(int arg0, unsigned short* arg1, int arg2, int arg3);
+extern "C" int func_ov024_021ede2c(int* arg0);
 
-struct Combatant_20885b4;
-extern "C" int func_020885b4(struct Combatant_20885b4* obj);
-struct S88514;
-extern "C" int func_02088514(struct S88514* obj);
+struct Struct_020885b4;
+extern "C" int func_020885b4(struct Struct_020885b4* arg0);
+struct Struct_02088514;
+extern "C" int func_02088514(struct Struct_02088514* arg0);
 
 extern unsigned short data_ov024_021fea8c;
 
 // USA: func_ov024_021f4a54
-extern "C" ARM int func_ov024_021f4a54(int* a0, int a1, int a2, int* a3, short* a4) {
-	short buf[4];
-	short* d = buf;
-	unsigned short* s = &data_ov024_021fea8c;
-	int n = 4;
+extern "C" ARM int func_ov024_021f4a54(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
+	short var0[4];
+	short* var1 = var0;
+	unsigned short* var2 = &data_ov024_021fea8c;
+	int var3 = 4;
 	do {
-		short* dd = d++;
-		*dd = *s++;
-	} while (--n);
+		short* var4 = var1++;
+		*var4 = *var2++;
+	} while (--var3);
 
-	int count = func_ov000_0215e9fc(*a0, (unsigned short*)buf, 4, 1);
-	if (count <= 0) return 0;
-	if (!func_ov024_021ede2c(a0)) return 0;
+	int var5 = func_ov000_0215e9fc(*arg0, (unsigned short*)var0, 4, 1);
+	if (var5 <= 0) return 0;
+	if (!func_ov024_021ede2c(arg0)) return 0;
 
-	*a3 = 0;
-	for (int i = 0; i < count; i++) {
-		GameObject* c = GetCombatantByID(*a0, buf[i]);
-		if (c && !func_020885b4((struct Combatant_20885b4*)c->currentStats_) &&
-		    !func_02088514((struct S88514*)c->currentStats_)) {
-			int idx = *a3;
-			*a3 = idx + 1;
-			a4[idx] = buf[i];
+	*arg3 = 0;
+	for (int var6 = 0; var6 < var5; var6++) {
+		GameObject* var7 = GetCombatantByID(*arg0, var0[var6]);
+		if (var7 && !func_020885b4((struct Struct_020885b4*)var7->currentStats_) &&
+		    !func_02088514((struct Struct_02088514*)var7->currentStats_)) {
+			int var8 = *arg3;
+			*arg3 = var8 + 1;
+			arg4[var8] = var0[var6];
 		}
 	}
-	if (*a3 <= 0) return 0;
+	if (*arg3 <= 0) return 0;
 
-	*a3 = count;
-	memcpy(a4, buf, 8);
+	*arg3 = var5;
+	memcpy(arg4, var0, 8);
 	return 1;
 }

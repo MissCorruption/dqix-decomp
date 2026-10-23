@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct Inner020bc1cc { char pad[0x3c]; unsigned char f3c; };
-struct Outer020bc1cc { struct Inner020bc1cc* f0; };
+struct Struct_020bc1cc { char unknown_0_[0x3c]; unsigned char unknown_3c_; };
+struct Struct_020bc1cc_2 { struct Struct_020bc1cc* unknown_0_; };
 
-extern "C" void func_020bc1cc(struct Outer020bc1cc*, int, int);
+extern "C" void func_020bc1cc(struct Struct_020bc1cc_2*, int, int);
 extern void* data_ov031_02290d00;
 
 // USA: func_ov031_022368bc
-extern "C" ARM void func_ov031_022368bc(int arg2, int arg3) {
-	func_020bc1cc((struct Outer020bc1cc*)((char*)data_ov031_02290d00 + 0x94), arg2, arg3);
+extern "C" ARM void func_ov031_022368bc(int arg0, int arg1) {
+	func_020bc1cc((struct Struct_020bc1cc_2*)((char*)data_ov031_02290d00 + 0x94), arg0, arg1);
 }

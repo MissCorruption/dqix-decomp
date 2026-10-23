@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
 // USA: func_020d9808
-extern "C" ARM int func_020d9808(int* value, int* lo, int* hi) {
-    int mn = *lo;
-    int v = *value;
-    if (v <= mn) {
-        v = mn;
+extern "C" ARM int func_020d9808(int* arg0, int* arg1, int* arg2) {
+    int var0 = *arg1;
+    int var1 = *arg0;
+    if (var1 <= var0) {
+        var1 = var0;
     }
-    if (v >= *hi) {
-        v = *hi;
+    if (var1 >= *arg2) {
+        var1 = *arg2;
     }
-    return v;
+    return var1;
 }

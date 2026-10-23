@@ -1,83 +1,83 @@
 #include <globaldefs.h>
 
-struct decimal {
-    unsigned char sgn;
-    char unused;
-    short exp;
+struct Struct_020026b4 {
+    unsigned char unknown_0_;
+    char unknown_1_;
+    short unknown_2_;
     struct {
-        unsigned char length;
-        unsigned char text[32];
-        unsigned char unused;
-    } sig;
+        unsigned char unknown_0_;
+        unsigned char unknown_1_[32];
+        unsigned char unknown_21_;
+    } unknown_4_;
 };
 
-extern "C" void func_0200961c(decimal* d, int digits);
+extern "C" void func_0200961c(Struct_020026b4* arg0, int arg1);
 
 // USA: func_02009778
-extern "C" ARM void func_02009778(decimal* result, const decimal* x, const decimal* y) {
-    unsigned int accumulator = 0;
-    unsigned char mantissa[32 * 2];
-    int i = x->sig.length + y->sig.length - 1;
-    unsigned char* ip = mantissa + i + 1;
-    unsigned char* ep = ip;
+extern "C" ARM void func_02009778(Struct_020026b4* arg0, const Struct_020026b4* arg1, const Struct_020026b4* arg2) {
+    unsigned int var0 = 0;
+    unsigned char var1[32 * 2];
+    int var2 = arg1->unknown_4_.unknown_0_ + arg2->unknown_4_.unknown_0_ - 1;
+    unsigned char* var3 = var1 + var2 + 1;
+    unsigned char* var4 = var3;
 
-    result->sgn = 0;
+    arg0->unknown_0_ = 0;
 
-    for (; i > 0; i--) {
-        int k = y->sig.length - 1;
-        int j = i - k - 1;
-        int l;
-        int t;
-        const unsigned char* jp;
-        const unsigned char* kp;
+    for (; var2 > 0; var2--) {
+        int var5 = arg2->unknown_4_.unknown_0_ - 1;
+        int var6 = var2 - var5 - 1;
+        int var7;
+        int var8;
+        const unsigned char* var9;
+        const unsigned char* var10;
 
-        if (j < 0) {
-            j = 0;
-            k = i - 1;
+        if (var6 < 0) {
+            var6 = 0;
+            var5 = var2 - 1;
         }
 
-        jp = x->sig.text + j;
-        kp = y->sig.text + k;
-        l = k + 1;
-        t = x->sig.length - j;
+        var9 = arg1->unknown_4_.unknown_1_ + var6;
+        var10 = arg2->unknown_4_.unknown_1_ + var5;
+        var7 = var5 + 1;
+        var8 = arg1->unknown_4_.unknown_0_ - var6;
 
-        if (l > t) {
-            l = t;
+        if (var7 > var8) {
+            var7 = var8;
         }
 
-        for (; l > 0; l--, jp++, kp--) {
-            accumulator += *jp * *kp;
+        for (; var7 > 0; var7--, var9++, var10--) {
+            var0 += *var9 * *var10;
         }
 
-        *--ip = (unsigned char)(accumulator % 10);
-        accumulator /= 10;
+        *--var3 = (unsigned char)(var0 % 10);
+        var0 /= 10;
     }
 
-    result->exp = (short)(x->exp + y->exp);
+    arg0->unknown_2_ = (short)(arg1->unknown_2_ + arg2->unknown_2_);
 
-    if (accumulator) {
-        *--ip = (unsigned char)(accumulator);
-        result->exp++;
+    if (var0) {
+        *--var3 = (unsigned char)(var0);
+        arg0->unknown_2_++;
     }
 
-    for (i = 0; i < 32 && ip < ep; i++, ip++) {
-        result->sig.text[i] = *ip;
+    for (var2 = 0; var2 < 32 && var3 < var4; var2++, var3++) {
+        arg0->unknown_4_.unknown_1_[var2] = *var3;
     }
-    result->sig.length = (unsigned char)(i);
+    arg0->unknown_4_.unknown_0_ = (unsigned char)(var2);
 
-    if (ip < ep && *ip >= 5) {
-        if (*ip == 5) {
-            unsigned char* jp = ip + 1;
-            for (; jp < ep; jp++) {
-                if (*jp != 0) {
+    if (var3 < var4 && *var3 >= 5) {
+        if (*var3 == 5) {
+            unsigned char* var11 = var3 + 1;
+            for (; var11 < var4; var11++) {
+                if (*var11 != 0) {
                     goto round;
                 }
             }
-            if ((ip[-1] & 1) == 0) {
+            if ((var3[-1] & 1) == 0) {
                 return;
             }
         }
     round:
-        func_0200961c(result, result->sig.length);
+        func_0200961c(arg0, arg0->unknown_4_.unknown_0_);
     }
 }

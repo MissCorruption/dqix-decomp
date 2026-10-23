@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct CopyPayload {
+struct Struct_02093b54 {
 #if defined(jpn)
-    char data[0xb];
+    char unknown1_0_[0xb];
 #else
-    char data[0x30];
+    char unknown_0_[0x30];
 #endif
 };
 
-struct CopyableRecord {
-    struct CopyPayload payload;
+struct Struct_02093ad8 {
+    struct Struct_02093b54 unknown_0_;
 #if defined(jpn)
-    unsigned char byte11;
+    unsigned char unknown_b_;
 #endif
-    short f30;
-    signed char f32;
-    unsigned char f33;
+    short unknown_30_;
+    signed char unknown_32_;
+    unsigned char unknown_33_;
 };
 
 // USA: func_02093b54
-extern "C" ARM void func_02093b54(struct CopyableRecord* dst, struct CopyableRecord* src) {
-    dst->payload = src->payload;
+extern "C" ARM void func_02093b54(struct Struct_02093ad8* arg0, struct Struct_02093ad8* arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
 #if defined(jpn)
-    dst->byte11 = src->byte11;
+    arg0->unknown_b_ = arg1->unknown_b_;
 #endif
-    dst->f30 = src->f30;
-    dst->f32 = src->f32;
-    dst->f33 = src->f33;
+    arg0->unknown_30_ = arg1->unknown_30_;
+    arg0->unknown_32_ = arg1->unknown_32_;
+    arg0->unknown_33_ = arg1->unknown_33_;
 }

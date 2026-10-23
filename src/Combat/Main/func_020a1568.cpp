@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-struct Elem020a1568 {
-    unsigned int w0;
-    unsigned int w1;
-    unsigned int w2;
+struct Struct_020a1180_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
 };
 
-struct Array020a1568 {
-    struct Elem020a1568* base;
-    unsigned short capacity;
-    unsigned short count;
+struct Struct_020a1568 {
+    struct Struct_020a1180_2* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
 // USA: func_020a1568
-extern "C" ARM void func_020a1568(struct Array020a1568* arr, struct Elem020a1568* src) {
-    unsigned short count;
-    struct Elem020a1568* dst;
-    if (src == NULL) {
+extern "C" ARM void func_020a1568(struct Struct_020a1568* arg0, struct Struct_020a1180_2* arg1) {
+    unsigned short var0;
+    struct Struct_020a1180_2* var1;
+    if (arg1 == NULL) {
         return;
     }
-    count = arr->count;
-    if (arr->capacity <= count) {
+    var0 = arg0->unknown_6_;
+    if (arg0->unknown_4_ <= var0) {
         return;
     }
-    dst = &arr->base[count];
-    dst->w0 = src->w0;
-    dst->w1 = src->w1;
-    dst->w2 = src->w2;
-    arr->count++;
+    var1 = &arg0->unknown_0_[var0];
+    var1->unknown_0_ = arg1->unknown_0_;
+    var1->unknown_4_ = arg1->unknown_4_;
+    var1->unknown_8_ = arg1->unknown_8_;
+    arg0->unknown_6_++;
 }

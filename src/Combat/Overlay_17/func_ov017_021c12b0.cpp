@@ -2,24 +2,24 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_ov017_021d2738(unsigned char a, unsigned char b);
+extern "C" void func_ov017_021d2738(unsigned char arg0, unsigned char arg1);
 
 // USA: func_ov017_021c12b0
-extern "C" ARM void func_ov017_021c12b0(unsigned char param) {
-	void* self = GetGameResources();
-	int* list = *(int**)((char*)self + 0x3000
+extern "C" ARM void func_ov017_021c12b0(unsigned char arg0) {
+	void* var0 = GetGameResources();
+	int* var1 = *(int**)((char*)var0 + 0x3000
 #if defined(jpn)
         + 0x50c
 #else
         + 0x71c
 #endif
 );
-	short id = *(short*)((char*)list + 0x22);
-	GameState* bs = GameState::GetInstance();
-	GameObject* c = bs->GetPartyMemberByIndex(id);
-	if (c == NULL) {
-		c = bs->GetProtagonist();
+	short var2 = *(short*)((char*)var1 + 0x22);
+	GameState* var3 = GameState::GetInstance();
+	GameObject* var4 = var3->GetPartyMemberByIndex(var2);
+	if (var4 == NULL) {
+		var4 = var3->GetProtagonist();
 	}
-	short val = c->obj3D_.unknown_4_;
-	func_ov017_021d2738((unsigned char)(val & 0xff), param);
+	short var5 = var4->obj3D_.unknown_4_;
+	func_ov017_021d2738((unsigned char)(var5 & 0xff), arg0);
 }

@@ -3,27 +3,27 @@
 #include "Resource/GameResources.h"
 #include <std_library_functions.h>
 
-struct List02070f98;
-struct Struct02070fe4;
-struct Element02070f98 { unsigned short id : 15; unsigned short flag : 1; };
-struct DefinitionTable { char pad0[0x400]; unsigned int data[3]; };
-struct BattleSelection { char pad0[0x284]; DefinitionTable definitions; };
-struct CameraState { char pad0[0x240]; Vector3i position; };
-struct Obj02033874;
-extern "C" BattleSelection* func_ov017_021b8478(void*);
+struct Struct_02070f98_2;
+struct Struct_02070fe4;
+struct Struct_02070f98 { unsigned short unknown_0_0_ : 15; unsigned short unknown_1_7_ : 1; };
+struct Struct_ov025_021e7b74 { char unknown_0_[0x400]; unsigned int unknown_400_[3]; };
+struct Struct_ov025_021e7b74_2 { char unknown_0_[0x284]; Struct_ov025_021e7b74 unknown_284_; };
+struct Struct_ov001_02158ae4_3 { char unknown_0_[0x240]; Vector3i unknown_240_; };
+struct Struct_02033834;
+extern "C" Struct_ov025_021e7b74_2* func_ov017_021b8478(void*);
 extern "C" void* func_ov000_02160130();
 extern "C" int func_ov000_0215eb1c(void*, short*, int, int);
 extern "C" int func_ov000_0215ed34(void*, short*, int);
 extern "C" int func_ov000_02167484(short*, int);
-extern "C" int func_02070fe4(Struct02070fe4*);
-extern "C" Element02070f98* func_02070f98(List02070f98*, int);
+extern "C" int func_02070fe4(Struct_02070fe4*);
+extern "C" Struct_02070f98* func_02070f98(Struct_02070f98_2*, int);
 extern "C" void func_ov025_021e771c(short*, int, short*, int);
 extern "C" void func_ov000_02161c0c(void*, int);
 extern "C" void func_0200fd48(GameState*, int);
 extern "C" void func_ov000_021677fc(void*);
 extern "C" void func_ov000_02167e6c(unsigned char*);
-extern "C" CameraState* func_ov000_02160f14(void*);
-extern "C" void func_02033874(Obj02033874*, int);
+extern "C" Struct_ov001_02158ae4_3* func_ov000_02160f14(void*);
+extern "C" void func_02033874(Struct_02033834*, int);
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
 extern "C" int func_020493a4(unsigned char*);
@@ -31,68 +31,68 @@ extern "C" void func_ov000_02167fb0(void*, GameObject*);
 extern "C" void func_020d7334(unsigned char*, int);
 
 // USA: func_ov025_021e7b74
-extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* battle) {
-    int retainedCount;
-    DefinitionTable* definitions;
-    GameResources* resources = GetGameResources();
-    GameState* game = GameState::GetInstance();
-    BattleSelection* selection = func_ov017_021b8478(resources->unknown_ptr_3718);
-    void* work = func_ov000_02160130();
-    short retainedIds[8];
-    retainedCount = (unsigned char)func_ov000_0215eb1c(battle, retainedIds, 8, 0x10);
-    short ids[12];
-    unsigned char originalCount = func_ov000_0215ed34(battle, ids, 12);
-    unsigned char count = func_ov000_02167484(ids, originalCount);
-    definitions = &selection->definitions;
-    int size = func_02070fe4((Struct02070fe4*)definitions->data);
-    for (int i = 0; i < size; ++i) {
-        Element02070f98* definition = func_02070f98((List02070f98*)definitions->data, i);
-        if (!definition) continue;
-        int missing = 1;
-        short* id = ids;
-        for (int j = 0; j < count; ++j, ++id) {
-            if (definition->id == *id) { missing = 0; break; }
+extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
+    int var0;
+    Struct_ov025_021e7b74* var1;
+    GameResources* var2 = GetGameResources();
+    GameState* var3 = GameState::GetInstance();
+    Struct_ov025_021e7b74_2* var4 = func_ov017_021b8478(var2->unknown_ptr_3718);
+    void* var5 = func_ov000_02160130();
+    short var6[8];
+    var0 = (unsigned char)func_ov000_0215eb1c(arg3, var6, 8, 0x10);
+    short var7[12];
+    unsigned char var8 = func_ov000_0215ed34(arg3, var7, 12);
+    unsigned char var9 = func_ov000_02167484(var7, var8);
+    var1 = &var4->unknown_284_;
+    int var10 = func_02070fe4((Struct_02070fe4*)var1->unknown_400_);
+    for (int var11 = 0; var11 < var10; ++var11) {
+        Struct_02070f98* var12 = func_02070f98((Struct_02070f98_2*)var1->unknown_400_, var11);
+        if (!var12) continue;
+        int var13 = 1;
+        short* var14 = var7;
+        for (int var15 = 0; var15 < var9; ++var15, ++var14) {
+            if (var12->unknown_0_0_ == *var14) { var13 = 0; break; }
         }
-        if (missing) ids[count++] = definition->id;
+        if (var13) var7[var9++] = var12->unknown_0_0_;
     }
-    func_ov025_021e771c(ids, originalCount, ids, count);
-    unsigned char retained[8];
-    memset(retained, 0, sizeof(retained));
-    short* retainedId = retainedIds;
-    for (int i = 0; i < retainedCount; ++i) {
-        int id = *retainedId;
-        retainedId++;
-        retained[id - 0xc0] = 1;
-        func_ov000_02161c0c(work, id);
+    func_ov025_021e771c(var7, var8, var7, var9);
+    unsigned char var16[8];
+    memset(var16, 0, sizeof(var16));
+    short* var17 = var6;
+    for (int var18 = 0; var18 < var0; ++var18) {
+        int var19 = *var17;
+        var17++;
+        var16[var19 - 0xc0] = 1;
+        func_ov000_02161c0c(var5, var19);
     }
-    unsigned char* retainedSlot = retained;
-    for (short id = 0xc0; id <= 0xc7; ++id, ++retainedSlot) {
-        if (!*retainedSlot) func_0200fd48(game, id);
+    unsigned char* var20 = var16;
+    for (short var21 = 0xc0; var21 <= 0xc7; ++var21, ++var20) {
+        if (!*var20) func_0200fd48(var3, var21);
     }
-    func_ov000_021677fc(work);
-    func_ov000_02167e6c((unsigned char*)work);
-    Vector3i cameraPosition = func_ov000_02160f14(work)->position;
-    int cameraZ = cameraPosition.z;
-    for (int id = 0xc0; id < 0xc8; ++id) {
-        GameObject* actor = game->GetCombatantByIndex(id);
-        if (!actor) continue;
-        Vector3i target = {};
-        target.z = cameraZ;
-        Vector3i position = actor->obj3D_.position_;
-        position.y = 0;
-        Vector3i direction;
-        Vector3fix_Subtract(&target, &position, &direction);
-        direction.y = 0;
-        Vector3fix_Normalize(&direction, &direction);
-        func_02033874((Obj02033874*)actor, fix32_Atan2(direction.x, direction.z));
+    func_ov000_021677fc(var5);
+    func_ov000_02167e6c((unsigned char*)var5);
+    Vector3i var22 = func_ov000_02160f14(var5)->unknown_240_;
+    int var23 = var22.z;
+    for (int var24 = 0xc0; var24 < 0xc8; ++var24) {
+        GameObject* var25 = var3->GetCombatantByIndex(var24);
+        if (!var25) continue;
+        Vector3i var26 = {};
+        var26.z = var23;
+        Vector3i var27 = var25->obj3D_.position_;
+        var27.y = 0;
+        Vector3i var28;
+        Vector3fix_Subtract(&var26, &var27, &var28);
+        var28.y = 0;
+        Vector3fix_Normalize(&var28, &var28);
+        func_02033874((Struct_02033834*)var25, fix32_Atan2(var28.x, var28.z));
     }
-    unsigned char* slots = func_ov000_02163524(work);
-    short* slotId = retainedIds;
-    for (int i = 0; i < retainedCount; ++slotId, ++i) {
-        GameObject* actor = func_0200fea4(game, *slotId);
-        if (actor && func_020493a4((unsigned char*)actor) == 0xff) {
-            func_ov000_02167fb0(work, actor);
-            func_020d7334(slots, *slotId);
+    unsigned char* var29 = func_ov000_02163524(var5);
+    short* var30 = var6;
+    for (int var31 = 0; var31 < var0; ++var30, ++var31) {
+        GameObject* var32 = func_0200fea4(var3, *var30);
+        if (var32 && func_020493a4((unsigned char*)var32) == 0xff) {
+            func_ov000_02167fb0(var5, var32);
+            func_020d7334(var29, *var30);
         }
     }
     return 1;

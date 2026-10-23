@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_02207180(void* v);
-extern "C" int func_ov031_02207970(void* obj, void* v);
+extern "C" int func_ov031_02207180(void* arg0);
+extern "C" int func_ov031_02207970(void* arg0, void* arg1);
 
-struct Obj022078f0 {
-	char pad0[0x70];
-	short field70;
-	char pad72;
-	signed char field73;
+struct Struct_ov031_022078f0 {
+	char unknown_0_[0x70];
+	short unknown_70_;
+	char unknown_72_;
+	signed char unknown_73_;
 };
 
 // USA: func_ov031_022078f0
-extern "C" ARM int func_ov031_022078f0(Obj022078f0* obj, void* v) {
-	if (func_ov031_02207180(obj)) {
+extern "C" ARM int func_ov031_022078f0(Struct_ov031_022078f0* arg0, void* arg1) {
+	if (func_ov031_02207180(arg0)) {
 		return ~0x1b;
 	}
-	signed char f = obj->field73;
-	int match = 1;
-	if (f != 0) {
-		if (f != 4) {
-			match = 0;
+	signed char var0 = arg0->unknown_73_;
+	int var1 = 1;
+	if (var0 != 0) {
+		if (var0 != 4) {
+			var1 = 0;
 		}
 	}
-	if (!match) {
+	if (!var1) {
 		return ~0x1b;
 	}
-	int ok = 0;
-	if (obj == NULL) goto checkOk;
-	if (!(obj->field70 & 1)) goto checkOk;
-	ok = 1;
+	int var2 = 0;
+	if (arg0 == NULL) goto checkOk;
+	if (!(arg0->unknown_70_ & 1)) goto checkOk;
+	var2 = 1;
 checkOk:
-	if (!ok) {
+	if (!var2) {
 		return ~0x26;
 	}
-	if (*(volatile short*)&obj->field70 & 2) {
+	if (*(volatile short*)&arg0->unknown_70_ & 2) {
 		return ~0x1b;
 	}
-	return func_ov031_02207970(obj, v);
+	return func_ov031_02207970(arg0, arg1);
 }

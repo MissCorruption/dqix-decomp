@@ -8,26 +8,26 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_02057924(void* p);
-extern "C" int func_ov000_02162908(void* obj, int idx, int* out);
-extern "C" int func_02058680(char* base, int value, void** out, int limit);
+extern "C" void* func_02057924(void* arg0);
+extern "C" int func_ov000_02162908(void* arg0, int arg1, int* arg2);
+extern "C" int func_02058680(char* arg0, int arg1, void** arg2, int arg3);
 
 // USA: func_ov000_02162954
-extern "C" ARM int func_ov000_02162954(void* self) {
-    GameState* bs = GameState::GetInstance();
-    void* base = func_02057924(bs);
-    int idx = *(int*)((char*)self + 0x5000 + REGION_OFFSET_0);
-    int localArray[12];
-    int count = func_ov000_02162908(self, idx, localArray);
-    int i = 0;
-    while (i < count) {
-        GameObject* c = bs->GetCombatantByIndex(localArray[i]);
-        if (c != NULL) {
-            if (*((unsigned char*)c + 0xbe) == 4) {
+extern "C" ARM int func_ov000_02162954(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02057924(var0);
+    int var2 = *(int*)((char*)arg0 + 0x5000 + REGION_OFFSET_0);
+    int var3[12];
+    int var4 = func_ov000_02162908(arg0, var2, var3);
+    int var5 = 0;
+    while (var5 < var4) {
+        GameObject* var6 = var0->GetCombatantByIndex(var3[var5]);
+        if (var6 != NULL) {
+            if (*((unsigned char*)var6 + 0xbe) == 4) {
                 return 1;
             }
         }
-        i++;
+        var5++;
     }
-    return func_02058680((char*)base, 2, NULL, 0) > 0;
+    return func_02058680((char*)var1, 2, NULL, 0) > 0;
 }

@@ -2,26 +2,26 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void* func_02057924(void* obj);
-extern "C" void func_02057f00(void* obj, int index);
+extern "C" void* func_02057924(void* arg0);
+extern "C" void func_02057f00(void* arg0, int arg1);
 extern "C" void func_020a0c0c(void);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 
 extern int data_02114e20;
 
-struct Obj021beb48 {
-	char pad[0x24];
-	SafeAllocator allocator;
+struct Struct_ov017_021beb48 {
+	char unknown_0_[0x24];
+	SafeAllocator unknown_24_;
 };
 
 // USA: func_ov017_021beb48
-extern "C" ARM void func_ov017_021beb48(struct Obj021beb48* self) {
-	func_02057f00(func_02057924(self), 5);
+extern "C" ARM void func_ov017_021beb48(struct Struct_ov017_021beb48* arg0) {
+	func_02057f00(func_02057924(arg0), 5);
 
-	void* p = self->allocator.GetSignedAllocator();
-	if (p != NULL) {
-		self->allocator.Destroy();
-		func_02012da4((AllocatorUnion*)&data_02114e20, p);
+	void* var0 = arg0->unknown_24_.GetSignedAllocator();
+	if (var0 != NULL) {
+		arg0->unknown_24_.Destroy();
+		func_02012da4((AllocatorUnion*)&data_02114e20, var0);
 	}
 
 	func_020a0c0c();

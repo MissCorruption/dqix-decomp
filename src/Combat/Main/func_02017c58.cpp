@@ -6,68 +6,68 @@
 #endif
 
 #if defined(jpn)
-enum { NodeListOffset = 0x43c };
+enum { Enum_02017c58_1052 = 0x43c };
 #else
-enum { NodeListOffset = 0x41c };
+enum { Enum_02017c58_1052 = 0x41c };
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" void* func_0200fd0c(GameState* battleStruct);
-extern "C" void func_0206eb20(void* a, void* b, int c, int limit);
-extern "C" void func_0206ea8c(void* obj, unsigned char a, short b, int flag);
+extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void func_0206eb20(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void func_0206ea8c(void* arg0, unsigned char arg1, short arg2, int arg3);
 
-struct SubElem_02017c58 {
-    unsigned short value;
-    unsigned short flags;
-    char pad[0x70 - 4];
+struct Struct_02017c58 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    char unknown_4_[0x70 - 4];
 };
 
-struct ListNode_02017c58 {
-    int id;
-    char pad0[0x14 - 4];
-    int count;
-    char pad1[0x44 - 0x14 - 4];
-    SubElem_02017c58* elems;
-    char pad2[0x54 - 0x44 - 4];
-    ListNode_02017c58* next;
+struct Struct_02017c58_2 {
+    int unknown_0_;
+    char unknown_4_[0x14 - 4];
+    int unknown_14_;
+    char unknown_18_[0x44 - 0x14 - 4];
+    Struct_02017c58* unknown_44_;
+    char unknown_48_[0x54 - 0x44 - 4];
+    Struct_02017c58_2* unknown_54_;
 };
 
 // USA: func_02017c58
-extern "C" ARM void func_02017c58(void* obj) {
-    GameState* gs = GameState::GetInstance();
-    if (gs == NULL) {
+extern "C" ARM void func_02017c58(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    if (var0 == NULL) {
         return;
     }
-    char* f3f8 = (char*)func_0200fd0c(gs);
-    if (f3f8 == NULL) {
+    char* var1 = (char*)func_0200fd0c(var0);
+    if (var1 == NULL) {
         return;
     }
-    void* ctx = func_0205ec34();
-    if (ctx == NULL) {
+    void* var2 = func_0205ec34();
+    if (var2 == NULL) {
         return;
     }
 
-    int i;
-    for (i = 0; i < 2; i++) {
-        func_0206eb20(ctx, (void*)(unsigned char)i, 0, 0x7f);
-        func_0206eb20(ctx, (void*)(unsigned char)(unsigned int)i, 0x80, 0xff);
+    int var3;
+    for (var3 = 0; var3 < 2; var3++) {
+        func_0206eb20(var2, (void*)(unsigned char)var3, 0, 0x7f);
+        func_0206eb20(var2, (void*)(unsigned char)(unsigned int)var3, 0x80, 0xff);
     }
 
-    int count;
-    int id;
-    ListNode_02017c58* node = *(ListNode_02017c58**)((char*)obj + NodeListOffset);
-    int j;
-    while (node != NULL) {
-        count = node->count;
-        id = node->id;
-        for (j = 0; j < count; j++) {
-            SubElem_02017c58* e = &node->elems[j];
-            if (e != NULL && (e->flags & 4) != 0) {
-                func_0206ea8c(ctx, id, (short)(e->value + 0x80), 1);
+    int var4;
+    int var5;
+    Struct_02017c58_2* var6 = *(Struct_02017c58_2**)((char*)arg0 + Enum_02017c58_1052);
+    int var7;
+    while (var6 != NULL) {
+        var4 = var6->unknown_14_;
+        var5 = var6->unknown_0_;
+        for (var7 = 0; var7 < var4; var7++) {
+            Struct_02017c58* var8 = &var6->unknown_44_[var7];
+            if (var8 != NULL && (var8->unknown_2_ & 4) != 0) {
+                func_0206ea8c(var2, var5, (short)(var8->unknown_0_ + 0x80), 1);
             } else {
-                func_0206ea8c(ctx, id, (short)e->value, 1);
+                func_0206ea8c(var2, var5, (short)var8->unknown_0_, 1);
             }
         }
-        node = node->next;
+        var6 = var6->unknown_54_;
     }
 }

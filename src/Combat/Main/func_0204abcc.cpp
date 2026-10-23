@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-typedef void (*Callback0204abcc)(void*, int, int);
+typedef void (*Type_0204abcc)(void*, int, int);
 
-struct Obj0204abcc {
-    char pad0[2];
-    unsigned short field2;
+struct Struct_0204abcc {
+    char unknown_0_[2];
+    unsigned short unknown_2_;
 };
 
-struct P0204abcc {
-    char pad0[8];
-    int field8;
-    char field0xc[1];
+struct Struct_0204abcc_2 {
+    char unknown_0_[8];
+    int unknown_8_;
+    char unknown_c_[1];
 };
 
 // USA: func_0204abcc
-extern "C" ARM void func_0204abcc(struct Obj0204abcc* obj, Callback0204abcc fn, struct P0204abcc* p) {
-    int localVal;
-    memcpy(&localVal, &p->field8, 4);
-    if (obj->field2 == 0xffff) {
-        fn(p->field0xc, 0, localVal);
+extern "C" ARM void func_0204abcc(struct Struct_0204abcc* arg0, Type_0204abcc arg1, struct Struct_0204abcc_2* arg2) {
+    int var0;
+    memcpy(&var0, &arg2->unknown_8_, 4);
+    if (arg0->unknown_2_ == 0xffff) {
+        arg1(arg2->unknown_c_, 0, var0);
     } else {
-        int mask = obj->field2 & 0xff;
-        int i;
-        for (i = 0; i < 16; i++) {
-            if (mask & 1) {
-                fn(p->field0xc + i * 32, i * 32, 32);
+        int var1 = arg0->unknown_2_ & 0xff;
+        int var2;
+        for (var2 = 0; var2 < 16; var2++) {
+            if (var1 & 1) {
+                arg1(arg2->unknown_c_ + var2 * 32, var2 * 32, 32);
             }
-            mask = (mask >> 1) & 0xff;
+            var1 = (var1 >> 1) & 0xff;
         }
     }
 }

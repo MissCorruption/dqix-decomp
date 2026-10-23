@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct StatStageStruct02087a9c {
-    char pad14[0x14];
-    unsigned int flags;
-    char pad18[0x40];
+struct Struct_02087a9c {
+    char unknown_0_[0x14];
+    unsigned int unknown_14_;
+    char unknown_18_[0x40];
     int : 9;
-    int stage : 3;
+    int unknown_59_1_ : 3;
 };
 
-extern "C" void func_02087b14(void* obj);
+extern "C" void func_02087b14(void* arg0);
 
 // USA: func_02087a9c
-extern "C" ARM int func_02087a9c(struct StatStageStruct02087a9c* p, int delta) {
-    int newStage = p->stage + delta;
-    if (newStage > 2) newStage = 2;
-    if (newStage < -2) newStage = -2;
-    if (newStage == 0) {
-        func_02087b14(p);
+extern "C" ARM int func_02087a9c(struct Struct_02087a9c* arg0, int arg1) {
+    int var0 = arg0->unknown_59_1_ + arg1;
+    if (var0 > 2) var0 = 2;
+    if (var0 < -2) var0 = -2;
+    if (var0 == 0) {
+        func_02087b14(arg0);
         return 0;
     }
-    p->stage = newStage;
-    *((unsigned char*)p + 0x71) = 6;
-    *((unsigned char*)p + 0x94) = 0;
-    p->flags |= 0x2000;
-    return p->stage;
+    arg0->unknown_59_1_ = var0;
+    *((unsigned char*)arg0 + 0x71) = 6;
+    *((unsigned char*)arg0 + 0x94) = 0;
+    arg0->unknown_14_ |= 0x2000;
+    return arg0->unknown_59_1_;
 }

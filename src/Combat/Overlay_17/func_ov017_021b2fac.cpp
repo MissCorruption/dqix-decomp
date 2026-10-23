@@ -5,75 +5,75 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
-struct Task021b2fac {
-    char pad0[1];
-    unsigned char done;
-    char pad2[6];
-    short combatantId;
-    signed char state;
-    unsigned char flagsB;
-    char padC[4];
-    int taskId;
+struct Struct_ov017_021b2fac {
+    char unknown_0_[1];
+    unsigned char unknown_1_;
+    char unknown_2_[6];
+    short unknown_8_;
+    signed char unknown_a_;
+    unsigned char unknown_b_;
+    char unknown_c_[4];
+    int unknown_10_;
 };
 
-struct Stats021b2fac {
-    char pad0[0x56b];
-    unsigned char kind : 4;
+struct Struct_ov017_021b2fac_2 {
+    char unknown_0_[0x56b];
+    unsigned char unknown_56b_0_ : 4;
     unsigned char : 4;
 };
 
-struct Alloc021b2fac {
-    char pad0[0xcc];
-    char tables[1];
+struct Struct_ov017_021b2fac_3 {
+    char unknown_0_[0xcc];
+    char unknown_cc_[1];
 };
 
-struct Combatant021b2fac {
-    char pad0[4];
-    short field4;
-    char pad6[0x9c - 6];
-    unsigned short field9c;
+struct Struct_ov017_021b2fac_4 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0x9c - 6];
+    unsigned short unknown_9c_;
 #if defined(jpn)
-    char padA0[0x144 - 0x9e];
+    char unknown_9e_[0x144 - 0x9e];
 #else
-    char padA0[0x150 - 0x9e];
+    char unknown1_9e_[0x150 - 0x9e];
 #endif
-    struct Stats021b2fac* stats;
-    struct Alloc021b2fac* alloc;
-    char pad158[0x1c4 - 0x158];
-    unsigned char* entry;
+    struct Struct_ov017_021b2fac_2* unknown_150_;
+    struct Struct_ov017_021b2fac_3* unknown_154_;
+    char unknown_158_[0x1c4 - 0x158];
+    unsigned char* unknown_1c4_;
 };
 
-extern "C" void func_ov017_021b33d8(void* p);
-extern "C" int func_ov017_021b3444(struct Task021b2fac* t);
-extern "C" int func_ov017_021b38c8(struct Task021b2fac* t);
-extern "C" void func_02083e28(void* p, int v);
-extern "C" int func_ov017_021b3560(struct Task021b2fac* t);
-extern "C" void func_ov017_021b3678(struct Task021b2fac* t);
-extern "C" int func_ov017_021b3780(struct Task021b2fac* t);
-extern "C" int func_ov017_021b3e14(struct Task021b2fac* t);
+extern "C" void func_ov017_021b33d8(void* arg0);
+extern "C" int func_ov017_021b3444(struct Struct_ov017_021b2fac* arg0);
+extern "C" int func_ov017_021b38c8(struct Struct_ov017_021b2fac* arg0);
+extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" int func_ov017_021b3560(struct Struct_ov017_021b2fac* arg0);
+extern "C" void func_ov017_021b3678(struct Struct_ov017_021b2fac* arg0);
+extern "C" int func_ov017_021b3780(struct Struct_ov017_021b2fac* arg0);
+extern "C" int func_ov017_021b3e14(struct Struct_ov017_021b2fac* arg0);
 extern "C" void func_ov017_0218fcf8(int, int, int);
-extern "C" void func_020d3c08(char* p);
-struct HandlerSlotArray020d3c84;
-struct StreamHeader;
-extern "C" void func_020d3c84(HandlerSlotArray020d3c84*, StreamHeader*, int);
-struct FindEntryByKindContainer020d3d90;
-extern "C" void* func_020d3d90(FindEntryByKindContainer020d3d90*, int);
-extern "C" void func_ov017_02191508(int id, void* e);
-struct Struct_203dafc;
-extern "C" void func_0203dafc(Struct_203dafc*);
-extern "C" void func_0207df90(char* p);
-extern "C" void func_0207dfac(char* p);
-struct Bytes02033b88;
-extern "C" void func_02033b88(Bytes02033b88*, int);
+extern "C" void func_020d3c08(char* arg0);
+struct Struct_020d3c28;
+struct Struct_02013fb4;
+extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
+struct Struct_020d3d90;
+extern "C" void* func_020d3d90(Struct_020d3d90*, int);
+extern "C" void func_ov017_02191508(int arg0, void* arg1);
+struct Struct_0203d028_11;
+extern "C" void func_0203dafc(Struct_0203d028_11*);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+struct Struct_02010604;
+extern "C" void func_02033b88(Struct_02010604*, int);
 extern "C" void func_02039d48(unsigned char*);
-extern "C" void func_ov017_02191fec(void* p, int v);
+extern "C" void func_ov017_02191fec(void* arg0, int arg1);
 
 #if defined(jpn)
 #define data_ov017_021d7a78 data_ov017_021d81c8
 #define data_ov017_021d7a9c data_ov017_021d81dc
-enum { HandlerStorageSize = 0xa4, EntryRecordSize = 0x20, EntryCharacterOffset = 0xc };
+enum { Enum_ov017_021b2fac_184 = 0xa4, Enum_ov017_021b2fac_36 = 0x20, Enum_ov017_021b2fac_17 = 0xc };
 #else
-enum { HandlerStorageSize = 0xb8, EntryRecordSize = 0x24, EntryCharacterOffset = 0x11 };
+enum { Enum_ov017_021b2fac_184 = 0xb8, Enum_ov017_021b2fac_36 = 0x24, Enum_ov017_021b2fac_17 = 0x11 };
 #endif
 extern char data_ov017_021d7a78[];
 extern char data_ov017_021d7a8c[];
@@ -81,153 +81,153 @@ extern char data_ov017_021d7a9c[];
 
 // USA: func_ov017_021b2fac
 // JPN: func_ov017_021b36bc
-extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
-    struct Alloc021b2fac* a5;
-    void* m;
-    void* src;
-    BackgroundLoader* loader;
-    Combatant021b2fac* c2;
-    struct Alloc021b2fac* a0;
-    unsigned char* ent;
-    GameState* gs;
-    void* mgr;
-    Combatant021b2fac* c;
-    SafeAllocator* alloc4;
-    void* e;
-    struct Alloc021b2fac* a4;
-    int kind;
-    void* file4;
-    unsigned int size4;
-    char handlers[HandlerStorageSize];
-    char name[0x50];
-    void* file5;
-    unsigned int size5;
-    ObjectArchiveLoadInfo info;
-    gs = GameState::GetInstance();
-    loader = BackgroundLoader::GetInstance();
-    mgr = GetGameResources();
-    c = (Combatant021b2fac*)func_0200ff1c(gs, task->combatantId);
-    if (c == 0) {
-        func_ov017_021b33d8(task);
-        task->done = 1;
+extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
+    struct Struct_ov017_021b2fac_3* var0;
+    void* var1;
+    void* var2;
+    BackgroundLoader* var3;
+    Struct_ov017_021b2fac_4* var4;
+    struct Struct_ov017_021b2fac_3* var5;
+    unsigned char* var6;
+    GameState* var7;
+    void* var8;
+    Struct_ov017_021b2fac_4* var9;
+    SafeAllocator* var10;
+    void* var11;
+    struct Struct_ov017_021b2fac_3* var12;
+    int var13;
+    void* var14;
+    unsigned int var15;
+    char var16[Enum_ov017_021b2fac_184];
+    char var17[0x50];
+    void* var18;
+    unsigned int var19;
+    ObjectArchiveLoadInfo var20;
+    var7 = GameState::GetInstance();
+    var3 = BackgroundLoader::GetInstance();
+    var8 = GetGameResources();
+    var9 = (Struct_ov017_021b2fac_4*)func_0200ff1c(var7, arg0->unknown_8_);
+    if (var9 == 0) {
+        func_ov017_021b33d8(arg0);
+        arg0->unknown_1_ = 1;
         return;
     }
-    if (task->state == 0) {
-        int has;
-        if (c->stats != 0) {
-            has = c->stats->kind != 0;
+    if (arg0->unknown_a_ == 0) {
+        int var21;
+        if (var9->unknown_150_ != 0) {
+            var21 = var9->unknown_150_->unknown_56b_0_ != 0;
         } else {
-            has = 0;
+            var21 = 0;
         }
-        if (has != 0) {
-            ((Object3D*)c)->Destroy();
-            a0 = c->alloc;
-            ((SafeAllocator*)((char*)a0 + 4))->Reset();
-            ((SafeAllocator*)((char*)a0 + 0x18))->Reset();
+        if (var21 != 0) {
+            ((Object3D*)var9)->Destroy();
+            var5 = var9->unknown_154_;
+            ((SafeAllocator*)((char*)var5 + 4))->Reset();
+            ((SafeAllocator*)((char*)var5 + 0x18))->Reset();
 #if defined(jpn)
-            task->taskId = loader->QueueLoadFile(data_ov017_021d7a78, 0);
+            arg0->unknown_10_ = var3->QueueLoadFile(data_ov017_021d7a78, 0);
 #else
-            task->taskId = loader->QueueLoadFileInGP2(data_ov017_021d7a78, data_ov017_021d7a8c, 0);
+            arg0->unknown_10_ = var3->QueueLoadFileInGP2(data_ov017_021d7a78, data_ov017_021d7a8c, 0);
 #endif
-            task->state = 4;
-        } else if (func_ov017_021b3444(task) != 0) {
-            task->state = 1;
-        } else if (func_ov017_021b38c8(task) != 0) {
-            func_02083e28(c->stats, 0);
-            task->state = 3;
+            arg0->unknown_a_ = 4;
+        } else if (func_ov017_021b3444(arg0) != 0) {
+            arg0->unknown_a_ = 1;
+        } else if (func_ov017_021b38c8(arg0) != 0) {
+            func_02083e28(var9->unknown_150_, 0);
+            arg0->unknown_a_ = 3;
         } else {
-            task->done = 1;
+            arg0->unknown_1_ = 1;
             return;
         }
-        ((Object3D*)c)->EnableFlag(0x200);
+        ((Object3D*)var9)->EnableFlag(0x200);
         return;
     }
-    if (task->state == 1) {
-        if (func_ov017_021b3560(task) != 0) {
-            task->state = 2;
-            func_ov017_021b3678(task);
+    if (arg0->unknown_a_ == 1) {
+        if (func_ov017_021b3560(arg0) != 0) {
+            arg0->unknown_a_ = 2;
+            func_ov017_021b3678(arg0);
         }
         return;
     }
-    if (task->state == 2) {
-        if (func_ov017_021b3780(task) != 0) {
-            func_ov017_021b38c8(task);
-            task->state = 3;
+    if (arg0->unknown_a_ == 2) {
+        if (func_ov017_021b3780(arg0) != 0) {
+            func_ov017_021b38c8(arg0);
+            arg0->unknown_a_ = 3;
         }
         return;
     }
-    if (task->state == 3) {
-        if (func_ov017_021b3e14(task) != 0) {
-            c2 = (Combatant021b2fac*)func_0200ff1c(gs, task->combatantId);
-            if (c2->field9c != 0) {
-                m = GetGameResources();
-                func_ov017_0218fcf8((int)m, task->combatantId, c2->field9c);
+    if (arg0->unknown_a_ == 3) {
+        if (func_ov017_021b3e14(arg0) != 0) {
+            var4 = (Struct_ov017_021b2fac_4*)func_0200ff1c(var7, arg0->unknown_8_);
+            if (var4->unknown_9c_ != 0) {
+                var1 = GetGameResources();
+                func_ov017_0218fcf8((int)var1, arg0->unknown_8_, var4->unknown_9c_);
             }
-            ((Object3D*)c2)->DisableFlag(0x200);
-            if (task->flagsB & 8) {
-                ((Object3D*)c2)->MakeHidden();
-                task->flagsB &= ~8;
+            ((Object3D*)var4)->DisableFlag(0x200);
+            if (arg0->unknown_b_ & 8) {
+                ((Object3D*)var4)->MakeHidden();
+                arg0->unknown_b_ &= ~8;
             }
-            task->combatantId = -1;
-            task->done = 1;
+            arg0->unknown_8_ = -1;
+            arg0->unknown_1_ = 1;
         }
         return;
     }
-    if (task->state == 4) {
-        if (loader->GetTaskStatus(task->taskId) != 0) {
-            if (loader->GetDetailedTaskStatus(task->taskId) == 2) {
-                loader->GetLoadedFileByID(task->taskId, &file4, &size4);
-                if (file4 != 0) {
-                    func_020d3c08(handlers);
-                    func_020d3c84((HandlerSlotArray020d3c84*)handlers, (StreamHeader*)file4, size4);
-                    kind = c->stats != 0 ? c->stats->kind : 0;
-                    src = func_020d3d90((FindEntryByKindContainer020d3d90*)handlers, kind);
-                    e = ((SafeAllocator*)((char*)c->alloc + 0x18))->Allocate(EntryRecordSize);
-                    if (e != 0) {
-                        memcpy(e, src, EntryRecordSize);
-                        c->entry = (unsigned char*)e;
-                        func_ov017_02191508(task->combatantId, e);
+    if (arg0->unknown_a_ == 4) {
+        if (var3->GetTaskStatus(arg0->unknown_10_) != 0) {
+            if (var3->GetDetailedTaskStatus(arg0->unknown_10_) == 2) {
+                var3->GetLoadedFileByID(arg0->unknown_10_, &var14, &var15);
+                if (var14 != 0) {
+                    func_020d3c08(var16);
+                    func_020d3c84((Struct_020d3c28*)var16, (Struct_02013fb4*)var14, var15);
+                    var13 = var9->unknown_150_ != 0 ? var9->unknown_150_->unknown_56b_0_ : 0;
+                    var2 = func_020d3d90((Struct_020d3d90*)var16, var13);
+                    var11 = ((SafeAllocator*)((char*)var9->unknown_154_ + 0x18))->Allocate(Enum_ov017_021b2fac_36);
+                    if (var11 != 0) {
+                        memcpy(var11, var2, Enum_ov017_021b2fac_36);
+                        var9->unknown_1c4_ = (unsigned char*)var11;
+                        func_ov017_02191508(arg0->unknown_8_, var11);
                     }
                 }
             }
-            loader->RemoveTask(task->taskId);
-            task->taskId = -1;
-            ent = c->entry;
-            a4 = c->alloc;
-            if (ent != 0) {
-                sprintf(name, data_ov017_021d7a9c, ent[EntryCharacterOffset]);
-                task->taskId = loader->QueueLoadFile(name, (SafeAllocator*)((char*)a4 + 4));
+            var3->RemoveTask(arg0->unknown_10_);
+            arg0->unknown_10_ = -1;
+            var6 = var9->unknown_1c4_;
+            var12 = var9->unknown_154_;
+            if (var6 != 0) {
+                sprintf(var17, data_ov017_021d7a9c, var6[Enum_ov017_021b2fac_17]);
+                arg0->unknown_10_ = var3->QueueLoadFile(var17, (SafeAllocator*)((char*)var12 + 4));
             }
-            task->state = 5;
+            arg0->unknown_a_ = 5;
         }
         return;
     }
-    if (task->state == 5) {
-        if (loader->GetTaskStatus(task->taskId) != 0) {
-            a5 = c->alloc;
-            alloc4 = (SafeAllocator*)((char*)a5 + 4);
-            if (loader->GetDetailedTaskStatus(task->taskId) == 2) {
-                loader->GetLoadedFileByID(task->taskId, &file5, &size5);
-                if (file5 != 0) {
-                    func_0203dafc((Struct_203dafc*)&info);
-                    info.fileData = file5;
-                    info.unk_8 = size5;
-                    info.allocator = alloc4;
-                    func_0207df90(a5->tables);
-                    ((Object3D*)c)->LoadFromCCHROrCMOTArchive(&info, 0);
-                    func_0207dfac(a5->tables);
+    if (arg0->unknown_a_ == 5) {
+        if (var3->GetTaskStatus(arg0->unknown_10_) != 0) {
+            var0 = var9->unknown_154_;
+            var10 = (SafeAllocator*)((char*)var0 + 4);
+            if (var3->GetDetailedTaskStatus(arg0->unknown_10_) == 2) {
+                var3->GetLoadedFileByID(arg0->unknown_10_, &var18, &var19);
+                if (var18 != 0) {
+                    func_0203dafc((Struct_0203d028_11*)&var20);
+                    var20.fileData = var18;
+                    var20.unk_8 = var19;
+                    var20.allocator = var10;
+                    func_0207df90(var0->unknown_cc_);
+                    ((Object3D*)var9)->LoadFromCCHROrCMOTArchive(&var20, 0);
+                    func_0207dfac(var0->unknown_cc_);
                 }
             }
-            ((Object3D*)c)->SetScale(0x10a, 0x10a, 0x10a);
-            func_02033b88((Bytes02033b88*)c, 0);
-            ((Object3D*)c)->DisableFlag(0x200);
-            ((Object3D*)c)->SetInheritedAlpha(0);
-            func_02039d48((unsigned char*)c);
-            func_ov017_02191fec(mgr, c->field4);
-            loader->RemoveTask(task->taskId);
-            task->taskId = -1;
-            task->combatantId = -1;
-            task->done = 1;
+            ((Object3D*)var9)->SetScale(0x10a, 0x10a, 0x10a);
+            func_02033b88((Struct_02010604*)var9, 0);
+            ((Object3D*)var9)->DisableFlag(0x200);
+            ((Object3D*)var9)->SetInheritedAlpha(0);
+            func_02039d48((unsigned char*)var9);
+            func_ov017_02191fec(var8, var9->unknown_4_);
+            var3->RemoveTask(arg0->unknown_10_);
+            arg0->unknown_10_ = -1;
+            arg0->unknown_8_ = -1;
+            arg0->unknown_1_ = 1;
         }
     }
 }

@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct0201bc94;
-struct Obj020541a4;
+struct Struct_0201bc94;
+struct Struct_020541a4;
 
-extern "C" void func_ov002_02153e90(void* obj);
-extern "C" struct Struct0201bc94* func_02012fe4();
-extern "C" int func_0201bc94(struct Struct0201bc94* obj);
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" void func_020541a4(struct Obj020541a4* obj, unsigned char val);
+extern "C" void func_ov002_02153e90(void* arg0);
+extern "C" struct Struct_0201bc94* func_02012fe4();
+extern "C" int func_0201bc94(struct Struct_0201bc94* arg0);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" void func_020541a4(struct Struct_020541a4* arg0, unsigned char arg1);
 
 // USA: func_ov002_02154824
-extern "C" ARM int func_ov002_02154824(void* unused, unsigned char* obj, int flag) {
-    GameState* battleStruct;
-    unsigned char* base;
-    int i;
-    int result;
+extern "C" ARM int func_ov002_02154824(void* arg0, unsigned char* arg1, int arg2) {
+    GameState* var0;
+    unsigned char* var1;
+    int var2;
+    int var3;
 
-    if (obj == NULL) return 0;
-    if (flag == 0) return 0;
+    if (arg1 == NULL) return 0;
+    if (arg2 == 0) return 0;
 
-    result = 0;
-    func_ov002_02153e90(obj + 8);
+    var3 = 0;
+    func_ov002_02153e90(arg1 + 8);
     if (func_0201bc94(func_02012fe4())) {
-        battleStruct = GameState::GetInstance();
-        base = (unsigned char*)func_02010828(battleStruct);
-        for (i = 0; i < (int)base[0xf7c]; i++) {
-            unsigned char* p = base + i;
-            GameObject* combatant = battleStruct->GetPartyMemberByIndex(p[0xf78]);
-            func_020541a4((struct Obj020541a4*)combatant, 1);
+        var0 = GameState::GetInstance();
+        var1 = (unsigned char*)func_02010828(var0);
+        for (var2 = 0; var2 < (int)var1[0xf7c]; var2++) {
+            unsigned char* var4 = var1 + var2;
+            GameObject* var5 = var0->GetPartyMemberByIndex(var4[0xf78]);
+            func_020541a4((struct Struct_020541a4*)var5, 1);
         }
 
-        obj[0x8] = 3;
-        result = 1;
-        *(int*)(obj + 0x38) = result;
+        arg1[0x8] = 3;
+        var3 = 1;
+        *(int*)(arg1 + 0x38) = var3;
     }
 
-    return result;
+    return var3;
 }

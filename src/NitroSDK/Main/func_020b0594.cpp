@@ -4,84 +4,84 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/LoadToVRAM.h"
 
-extern "C" void func_020b0334(int *array, int index, int value);
+extern "C" void func_020b0334(int *arg0, int arg1, int arg2);
 
-struct CharacterResourceData020b0594 {
-    unsigned short height;
-    unsigned short width;
-    int format;
-    unsigned int mappingMode;
-    unsigned int unknownc;
-    unsigned int dataSize;
-    void *data;
+struct Struct_020b0594 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    void *unknown_14_;
 };
 
-struct CharacterUploadState020b0594 {
-    int offsets[3];
-    int widthCode;
-    int heightCode;
-    int format;
-    int unknown18;
-    int enabled;
-    unsigned int mappingMode;
+struct Struct_020b0594_2 {
+    int unknown_0_[3];
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    unsigned int unknown_20_;
 };
 
 // USA: func_020b0594
-extern "C" ARM void func_020b0594(int resource, int offset, int tier, void *object) {
-    CharacterResourceData020b0594 *character = (CharacterResourceData020b0594 *) resource;
-    CharacterUploadState020b0594 *state      = (CharacterUploadState020b0594 *) object;
-    unsigned int mappingMode                 = character->mappingMode;
+extern "C" ARM void func_020b0594(int arg0, int arg1, int arg2, void *arg3) {
+    Struct_020b0594 *var0 = (Struct_020b0594 *) arg0;
+    Struct_020b0594_2 *var1      = (Struct_020b0594_2 *) arg3;
+    unsigned int var2                 = var0->unknown_8_;
 
-    if (tier != 0) {
-        switch (tier) {
-            case 1: DISPCNT = (DISPCNT & 0xffcfffef) | mappingMode; break;
-            case 2: DISPCNTSUB = (DISPCNTSUB & 0xffcfffef) | mappingMode; break;
+    if (arg2 != 0) {
+        switch (arg2) {
+            case 1: DISPCNT = (DISPCNT & 0xffcfffef) | var2; break;
+            case 2: DISPCNTSUB = (DISPCNTSUB & 0xffcfffef) | var2; break;
         }
     }
 
-    CleanInvalidateCacheRange(character->data, character->dataSize);
-    switch (tier) {
+    CleanInvalidateCacheRange(var0->unknown_14_, var0->unknown_10_);
+    switch (arg2) {
         case 0:
             MemoryMapTextureImage();
-            LoadToTextureImage(character->data, offset, character->dataSize);
+            LoadToTextureImage(var0->unknown_14_, arg1, var0->unknown_10_);
             MemoryUnmapTextureImage();
             break;
-        case 1: LoadToMainObjVRAM(character->data, offset, character->dataSize); break;
-        case 2: LoadToSubObjVRAM(character->data, offset, character->dataSize); break;
+        case 1: LoadToMainObjVRAM(var0->unknown_14_, arg1, var0->unknown_10_); break;
+        case 2: LoadToSubObjVRAM(var0->unknown_14_, arg1, var0->unknown_10_); break;
     }
 
-    if (character->mappingMode == 0) {
-        int widthCode;
-        switch (character->width) {
-            case 1: widthCode = 0; break;
-            case 2: widthCode = 1; break;
-            case 4: widthCode = 2; break;
-            case 8: widthCode = 3; break;
-            case 16: widthCode = 4; break;
-            case 32: widthCode = 5; break;
-            default: widthCode = 0; break;
+    if (var0->unknown_8_ == 0) {
+        int var3;
+        switch (var0->unknown_2_) {
+            case 1: var3 = 0; break;
+            case 2: var3 = 1; break;
+            case 4: var3 = 2; break;
+            case 8: var3 = 3; break;
+            case 16: var3 = 4; break;
+            case 32: var3 = 5; break;
+            default: var3 = 0; break;
         }
-        state->widthCode = widthCode;
+        var1->unknown_c_ = var3;
 
-        int heightCode;
-        switch (character->height) {
-            case 1: heightCode = 0; break;
-            case 2: heightCode = 1; break;
-            case 4: heightCode = 2; break;
-            case 8: heightCode = 3; break;
-            case 16: heightCode = 4; break;
-            case 32: heightCode = 5; break;
-            default: heightCode = 0; break;
+        int var4;
+        switch (var0->unknown_0_) {
+            case 1: var4 = 0; break;
+            case 2: var4 = 1; break;
+            case 4: var4 = 2; break;
+            case 8: var4 = 3; break;
+            case 16: var4 = 4; break;
+            case 32: var4 = 5; break;
+            default: var4 = 0; break;
         }
-        state->heightCode = heightCode;
+        var1->unknown_10_ = var4;
     } else {
-        state->widthCode  = character->width;
-        state->heightCode = character->height;
+        var1->unknown_c_  = var0->unknown_2_;
+        var1->unknown_10_ = var0->unknown_0_;
     }
 
-    state->format      = character->format;
-    state->unknown18   = 0;
-    state->enabled     = 1;
-    state->mappingMode = character->mappingMode;
-    func_020b0334(state->offsets, tier, offset);
+    var1->unknown_14_      = var0->unknown_4_;
+    var1->unknown_18_   = 0;
+    var1->unknown_1c_     = 1;
+    var1->unknown_20_ = var0->unknown_8_;
+    func_020b0334(var1->unknown_0_, arg2, arg1);
 }

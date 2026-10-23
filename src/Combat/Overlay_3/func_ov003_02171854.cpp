@@ -3,63 +3,63 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue732_62E = 0x62e };
-enum { kRegionValue72C_628 = 0x628 };
-enum { kRegionValue71C_618 = 0x618 };
-enum { kRegionValue720_61C = 0x61c };
-enum { kRegionValue724_620 = 0x620 };
+enum { Enum_ov003_02171854_1842 = 0x62e };
+enum { Enum_ov003_02171854_1836 = 0x628 };
+enum { Enum_ov003_02171854_1820 = 0x618 };
+enum { Enum_ov003_02171854_1824 = 0x61c };
+enum { Enum_ov003_02171854_1828 = 0x620 };
 #else
-enum { kRegionValue732_62E = 0x732 };
-enum { kRegionValue72C_628 = 0x72c };
-enum { kRegionValue71C_618 = 0x71c };
-enum { kRegionValue720_61C = 0x720 };
-enum { kRegionValue724_620 = 0x724 };
+enum { Enum_ov003_02171854_1842 = 0x732 };
+enum { Enum_ov003_02171854_1836 = 0x72c };
+enum { Enum_ov003_02171854_1820 = 0x71c };
+enum { Enum_ov003_02171854_1824 = 0x720 };
+enum { Enum_ov003_02171854_1828 = 0x724 };
 #endif
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b000(void* obj);
-extern "C" void func_0202b0f4(void* p);
-extern "C" int func_0202b800(int* p);
-extern "C" void func_0202c360(void* self, int value);
-extern "C" void func_0202b2f0(void* obj);
-extern "C" void func_0202c410(void* obj);
+extern "C" int func_0202b000(void* arg0);
+extern "C" void func_0202b0f4(void* arg0);
+extern "C" int func_0202b800(int* arg0);
+extern "C" void func_0202c360(void* arg0, int arg1);
+extern "C" void func_0202b2f0(void* arg0);
+extern "C" void func_0202c410(void* arg0);
 
-struct SearchStruct;
-extern "C" void func_0202c21c(struct SearchStruct* obj, int value);
-extern "C" void func_0202c288(void* obj);
-extern "C" unsigned int _u32_div_f(unsigned int a, unsigned int b);
+struct Struct_0202b2f0;
+extern "C" void func_0202c21c(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c288(void* arg0);
+extern "C" unsigned int _u32_div_f(unsigned int arg0, unsigned int arg1);
 
 // USA: func_ov003_02171854
-extern "C" ARM void func_ov003_02171854(char* self) {
-    GameState* battle = GameState::GetInstance();
-    void* search = func_0202ae18();
-    GameObject* combatant = battle->GetProtagonist();
+extern "C" ARM void func_ov003_02171854(char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0202ae18();
+    GameObject* var2 = var0->GetProtagonist();
 
-    int r = func_0202b000(search);
-    if (r != 0) {
-        if (r == 3) {
+    int var3 = func_0202b000(var1);
+    if (var3 != 0) {
+        if (var3 == 3) {
             return;
         }
-        func_0202b0f4(search);
-        self[0] = 0xa;
+        func_0202b0f4(var1);
+        arg0[0] = 0xa;
         return;
     }
 
-    func_0202b800((int*)search);
-    func_0202c360(search, *(int*)((char*)combatant + 0x134));
-    func_0202b2f0(search);
-    func_0202c410(search);
-    func_0202c21c((struct SearchStruct*)search, 0xf);
-    func_0202c288(search);
+    func_0202b800((int*)var1);
+    func_0202c360(var1, *(int*)((char*)var2 + 0x134));
+    func_0202b2f0(var1);
+    func_0202c410(var1);
+    func_0202c21c((struct Struct_0202b2f0*)var1, 0xf);
+    func_0202c288(var1);
 
-    int v = (rand() % 4 + 2) * 500;
-    *(int*)(self + 4) = v;
+    int var4 = (rand() % 4 + 2) * 500;
+    *(int*)(arg0 + 4) = var4;
 
-    *(unsigned int*)(self + 4) = *(unsigned int*)(self + 4) / 2 + *(unsigned int*)(self + 4) / 2 * *(signed char*)(self + kRegionValue732_62E) / 3;
+    *(unsigned int*)(arg0 + 4) = *(unsigned int*)(arg0 + 4) / 2 + *(unsigned int*)(arg0 + 4) / 2 * *(signed char*)(arg0 + Enum_ov003_02171854_1842) / 3;
 
-    *(int*)(self + kRegionValue72C_628) = 0;
-    *(int*)(self + kRegionValue71C_618) = 0;
-    *(int*)(self + kRegionValue720_61C) = 0;
-    *(int*)(self + kRegionValue724_620) = 0;
-    self[0] = 5;
+    *(int*)(arg0 + Enum_ov003_02171854_1836) = 0;
+    *(int*)(arg0 + Enum_ov003_02171854_1820) = 0;
+    *(int*)(arg0 + Enum_ov003_02171854_1824) = 0;
+    *(int*)(arg0 + Enum_ov003_02171854_1828) = 0;
+    arg0[0] = 5;
 }

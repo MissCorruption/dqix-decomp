@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct KeyEntry {
-	const char* name;
-	int modulusLength;
-	unsigned char* modulus;
-	int exponentLength;
-	unsigned char* exponent;
+struct Struct_ov031_02208400_2 {
+	const char* unknown_0_;
+	int unknown_4_;
+	unsigned char* unknown_8_;
+	int unknown_c_;
+	unsigned char* unknown_10_;
 };
 
-struct SignatureState {
-	unsigned char field_0x0[0x468];
-	unsigned char digest[0x14];
-	int digestLength;
-	unsigned char field_0x480[0x124];
-	unsigned char* signature;
-	int signatureLength;
+struct Struct_ov031_02208400 {
+	unsigned char unknown_0_[0x468];
+	unsigned char unknown_468_[0x14];
+	int unknown_47c_;
+	unsigned char unknown_480_[0x124];
+	unsigned char* unknown_5a4_;
+	int unknown_5a8_;
 };
 
 extern "C" void func_ov031_0220c8d0(unsigned short*, unsigned char*, int, int);
@@ -27,51 +27,51 @@ extern void* (*data_ov031_0224c994)(unsigned int);
 extern int (*data_ov031_0224c9c0)(void*);
 
 // USA: func_ov031_02208400
-extern "C" ARM int func_ov031_02208400(SignatureState* state, KeyEntry* key) {
-	unsigned short* workspace;
-	unsigned short* message;
-	unsigned short* exponent;
-	unsigned short* modulus;
-	int words;
-	int result;
-	int i;
-	int length;
-	unsigned char* decoded;
-	if (state->signature == 0 || state->signatureLength == 0 || key->exponent == 0 || key->exponentLength == 0 ||
-	    key->modulus == 0 || key->modulusLength == 0)
+extern "C" ARM int func_ov031_02208400(Struct_ov031_02208400* arg0, Struct_ov031_02208400_2* arg1) {
+	unsigned short* var0;
+	unsigned short* var1;
+	unsigned short* var2;
+	unsigned short* var3;
+	int var4;
+	int var5;
+	int var6;
+	int var7;
+	unsigned char* var8;
+	if (arg0->unknown_5a4_ == 0 || arg0->unknown_5a8_ == 0 || arg1->unknown_10_ == 0 || arg1->unknown_c_ == 0 ||
+	    arg1->unknown_8_ == 0 || arg1->unknown_4_ == 0)
 		return 2;
-	words = (key->modulusLength * 2) / 2;
-	workspace = (unsigned short*)data_ov031_0224c994(words * 8);
-	if (workspace == 0)
+	var4 = (arg1->unknown_4_ * 2) / 2;
+	var0 = (unsigned short*)data_ov031_0224c994(var4 * 8);
+	if (var0 == 0)
 		return 2;
-	message = workspace + words;
-	exponent = message + words;
-	modulus = exponent + words;
-	func_ov031_0220c8d0(message, state->signature, state->signatureLength, words);
-	func_ov031_0220c8d0(exponent, key->exponent, key->exponentLength, words);
-	func_ov031_0220c8d0(modulus, key->modulus, key->modulusLength, words);
-	unsigned int priority = func_ov031_02207cf0();
-	func_ov031_0220c2bc(workspace, message, exponent, words, modulus);
-	func_ov031_02207d3c(priority);
-	decoded = (unsigned char*)message;
-	func_ov031_0220c92c(decoded, workspace, key->modulusLength, words);
-	result = 0;
-	if (decoded[0] != 0 || decoded[1] != 1) {
-		result = 2;
+	var1 = var0 + var4;
+	var2 = var1 + var4;
+	var3 = var2 + var4;
+	func_ov031_0220c8d0(var1, arg0->unknown_5a4_, arg0->unknown_5a8_, var4);
+	func_ov031_0220c8d0(var2, arg1->unknown_10_, arg1->unknown_c_, var4);
+	func_ov031_0220c8d0(var3, arg1->unknown_8_, arg1->unknown_4_, var4);
+	unsigned int var9 = func_ov031_02207cf0();
+	func_ov031_0220c2bc(var0, var1, var2, var4, var3);
+	func_ov031_02207d3c(var9);
+	var8 = (unsigned char*)var1;
+	func_ov031_0220c92c(var8, var0, arg1->unknown_4_, var4);
+	var5 = 0;
+	if (var8[0] != 0 || var8[1] != 1) {
+		var5 = 2;
 	} else {
-		length = key->modulusLength;
-		i = 2;
-		if (i < length) {
+		var7 = arg1->unknown_4_;
+		var6 = 2;
+		if (var6 < var7) {
 			do {
-				if (decoded[i] != 0xff)
+				if (var8[var6] != 0xff)
 					break;
-				i++;
-			} while (i < length);
+				var6++;
+			} while (var6 < var7);
 		}
-		if (i + 1 >= length || decoded[i] != 0 || decoded[i + 1] != 0x30 ||
-		    func_02001aec(state->digest, decoded + length - state->digestLength, state->digestLength) != 0)
-			result = 2;
+		if (var6 + 1 >= var7 || var8[var6] != 0 || var8[var6 + 1] != 0x30 ||
+		    func_02001aec(arg0->unknown_468_, var8 + var7 - arg0->unknown_47c_, arg0->unknown_47c_) != 0)
+			var5 = 2;
 	}
-	data_ov031_0224c9c0(workspace);
-	return result;
+	data_ov031_0224c9c0(var0);
+	return var5;
 }

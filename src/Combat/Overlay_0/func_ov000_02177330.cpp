@@ -12,17 +12,17 @@
 #include "std_library_functions.h"
 
 extern "C" int func_020421a0();
-extern "C" void func_ov000_0217737c(void* obj, void* buf);
+extern "C" void func_ov000_0217737c(void* arg0, void* arg1);
 
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 // USA: func_ov000_02177330
-extern "C" ARM int func_ov000_02177330(void* obj) {
-	void* buf = *(void**)(func_020421a0() + REGION_OFFSET_0);
-	memset(buf, 0, REGION_OFFSET_1);
-	func_ov000_0217737c(obj, buf);
+extern "C" ARM int func_ov000_02177330(void* arg0) {
+	void* var0 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+	memset(var0, 0, REGION_OFFSET_1);
+	func_ov000_0217737c(arg0, var0);
 #if defined(jpn)
-	return func_0205d5d0((StructA0205d5d0*)((char*)obj + 0x188), 1, (int)buf, 1);
+	return func_0205d5d0((Struct_0205d5d0*)((char*)arg0 + 0x188), 1, (int)var0, 1);
 #else
-	return func_0205d5d0((StructA0205d5d0*)((char*)obj + 0x188), 1, (int)buf, 1, 0);
+	return func_0205d5d0((Struct_0205d5d0*)((char*)arg0 + 0x188), 1, (int)var0, 1, 0);
 #endif
 }

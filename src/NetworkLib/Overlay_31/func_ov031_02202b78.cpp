@@ -2,151 +2,151 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/Timing.h"
 
-struct IPv4Packet02202b78 {
-    unsigned char header;
-    unsigned char service;
-    unsigned short length;
-    unsigned short identification;
-    unsigned short fragment;
-    unsigned char ttl;
-    unsigned char protocol;
-    unsigned short checksum;
-    unsigned short sourceHigh;
-    unsigned short sourceLow;
-    unsigned short destinationHigh;
-    unsigned short destinationLow;
+struct Struct_ov031_02202b78 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
 };
-struct FragmentAssembly02202b78 {
-    unsigned long source;
-    unsigned short count;
-    unsigned short identification;
-    unsigned short totalBlocks;
-    unsigned short totalLength;
-    unsigned short starts[8];
-    unsigned short ends[8];
-    unsigned long timestamp;
-    unsigned char* payload;
-    unsigned char* allocation;
+struct Struct_ov031_0224cca8_2 {
+    unsigned long unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_[8];
+    unsigned short unknown_1c_[8];
+    unsigned long unknown_2c_;
+    unsigned char* unknown_30_;
+    unsigned char* unknown_34_;
 };
 struct ProcessorContext;
-struct NetworkAllocator02202b78 {
-    unsigned char sendFailed;
-    unsigned char addressConflict;
-    unsigned short mss;
-    unsigned short pingSequence;
-    unsigned short ipIdentification;
-    unsigned short ephemeralPort;
-    unsigned char field_0x0a[2];
-    int status;
-    unsigned long staticIp;
-    void* (*allocate)(unsigned long);
-    void (*addressCallback)();
-    unsigned long netmask;
-    unsigned long dhcpServer;
-    unsigned long yieldSleep;
-    unsigned long receiveHead;
-    unsigned long gateway;
-    unsigned long receiveTail;
-    unsigned long requestedIp;
-    unsigned long dhcpRetry;
-    void (*scavengerCallback)();
-    void (*release)(void*);
-    unsigned long calmDown;
-    int (*linkIsOn)();
-    unsigned long leaseTime;
-    unsigned long hostIp;
-    ProcessorContext* receiveWaiter;
-    unsigned char* receiveRing;
-    unsigned long receiveRingSize;
-    unsigned long dns[2];
-    unsigned long long random;
-    unsigned long long randomMultiplier;
-    unsigned long long randomAddend;
+struct Struct_ov031_0224c980_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[2];
+    int unknown_c_;
+    unsigned long unknown_10_;
+    void* (*unknown_14_)(unsigned long);
+    void (*unknown_18_)();
+    unsigned long unknown_1c_;
+    unsigned long unknown_20_;
+    unsigned long unknown_24_;
+    unsigned long unknown_28_;
+    unsigned long unknown_2c_;
+    unsigned long unknown_30_;
+    unsigned long unknown_34_;
+    unsigned long unknown_38_;
+    void (*unknown_3c_)();
+    void (*unknown_40_)(void*);
+    unsigned long unknown_44_;
+    int (*unknown_48_)();
+    unsigned long unknown_4c_;
+    unsigned long unknown_50_;
+    ProcessorContext* unknown_54_;
+    unsigned char* unknown_58_;
+    unsigned long unknown_5c_;
+    unsigned long unknown_60_[2];
+    unsigned long long unknown_68_;
+    unsigned long long unknown_70_;
+    unsigned long long unknown_78_;
 };
-extern FragmentAssembly02202b78 data_ov031_0224cca8[8];
-extern const NetworkAllocator02202b78 data_ov031_0224c980[];
+extern Struct_ov031_0224cca8_2 data_ov031_0224cca8[8];
+extern const Struct_ov031_0224c980_3 data_ov031_0224c980[];
 
-static inline unsigned short Swap16_02202b78(unsigned short value) {
-    return (value >> 8) | (value << 8);
+static inline unsigned short inline_ov031_02202b78(unsigned short arg0) {
+    return (arg0 >> 8) | (arg0 << 8);
 }
 
 // USA: func_ov031_02202b78
-extern "C" ARM IPv4Packet02202b78* func_ov031_02202b78(IPv4Packet02202b78* packet, int* release) {
-    unsigned short identification;
-    unsigned long headerLength;
-    FragmentAssembly02202b78* available = NULL;
-    FragmentAssembly02202b78* assembly;
-    unsigned long offset;
-    unsigned long flags, payloadLength, end, source, endBlock, index;
-    unsigned long count;
-    unsigned long total;
-    unsigned long rangeIndex;
-    unsigned long covered;
-    *release = 0;
-    flags = Swap16_02202b78(packet->fragment);
-    if (!(flags & 0x3fff)) return packet;
-    identification = packet->header;
-    unsigned short sourceLow = packet->sourceLow;
-    unsigned short sourceHigh = packet->sourceHigh;
-    headerLength = (identification & 15) * 4;
-    source = ((unsigned long)Swap16_02202b78(sourceHigh) << 16) | Swap16_02202b78(sourceLow);
-    identification = packet->identification;
-    index = 0;
-    assembly = data_ov031_0224cca8;
+extern "C" ARM Struct_ov031_02202b78* func_ov031_02202b78(Struct_ov031_02202b78* arg0, int* arg1) {
+    unsigned short var0;
+    unsigned long var1;
+    Struct_ov031_0224cca8_2* var2 = NULL;
+    Struct_ov031_0224cca8_2* var3;
+    unsigned long var4;
+    unsigned long var5, var6, var7, var8, var9, var10;
+    unsigned long var11;
+    unsigned long var12;
+    unsigned long var13;
+    unsigned long var14;
+    *arg1 = 0;
+    var5 = inline_ov031_02202b78(arg0->unknown_6_);
+    if (!(var5 & 0x3fff)) return arg0;
+    var0 = arg0->unknown_0_;
+    unsigned short var15 = arg0->unknown_e_;
+    unsigned short var16 = arg0->unknown_c_;
+    var1 = (var0 & 15) * 4;
+    var8 = ((unsigned long)inline_ov031_02202b78(var16) << 16) | inline_ov031_02202b78(var15);
+    var0 = arg0->unknown_4_;
+    var10 = 0;
+    var3 = data_ov031_0224cca8;
     do {
-        if (assembly->count && assembly->source == source && assembly->identification == identification) break;
-        ++index;
-        if (!assembly->count && !available) available = assembly;
-        ++assembly;
-    } while (index < 8);
-    payloadLength = Swap16_02202b78(packet->length) - headerLength;
-    offset = flags & 0x1fff;
-    end = payloadLength + (offset << 3);
-    if (index == 8) {
-        if (!available || end > 4096) return NULL;
-        assembly = available;
-        assembly->allocation = static_cast<unsigned char*>(data_ov031_0224c980[0].allocate(headerLength + 14 + 4096));
-        if (!assembly->allocation) return NULL;
-        assembly->source = source;
-        assembly->identification = identification;
-        assembly->totalBlocks = 0;
-        assembly->timestamp = GetCurrentTimestamp() >> 16;
-        assembly->payload = assembly->allocation + 14 + headerLength;
-        VectorizedInvertedMemcpy(packet, assembly->allocation + 14, headerLength);
+        if (var3->unknown_4_ && var3->unknown_0_ == var8 && var3->unknown_6_ == var0) break;
+        ++var10;
+        if (!var3->unknown_4_ && !var2) var2 = var3;
+        ++var3;
+    } while (var10 < 8);
+    var6 = inline_ov031_02202b78(arg0->unknown_2_) - var1;
+    var4 = var5 & 0x1fff;
+    var7 = var6 + (var4 << 3);
+    if (var10 == 8) {
+        if (!var2 || var7 > 4096) return NULL;
+        var3 = var2;
+        var3->unknown_34_ = static_cast<unsigned char*>(data_ov031_0224c980[0].unknown_14_(var1 + 14 + 4096));
+        if (!var3->unknown_34_) return NULL;
+        var3->unknown_0_ = var8;
+        var3->unknown_6_ = var0;
+        var3->unknown_8_ = 0;
+        var3->unknown_2c_ = GetCurrentTimestamp() >> 16;
+        var3->unknown_30_ = var3->unknown_34_ + 14 + var1;
+        VectorizedInvertedMemcpy(arg0, var3->unknown_34_ + 14, var1);
     }
-    if (assembly->count == 8 || end > 4096) {
-        assembly->count = 0;
-        data_ov031_0224c980[0].release(assembly->allocation);
+    if (var3->unknown_4_ == 8 || var7 > 4096) {
+        var3->unknown_4_ = 0;
+        data_ov031_0224c980[0].unknown_40_(var3->unknown_34_);
         return NULL;
     }
-    endBlock = offset + ((payloadLength + 7) >> 3);
-    if (!(flags & 0x2000)) {
-        assembly->totalLength = end;
-        assembly->totalBlocks = endBlock;
+    var9 = var4 + ((var6 + 7) >> 3);
+    if (!(var5 & 0x2000)) {
+        var3->unknown_a_ = var7;
+        var3->unknown_8_ = var9;
     }
-    assembly->starts[assembly->count] = offset;
-    assembly->ends[assembly->count] = endBlock;
-    assembly->count++;
-    VectorizedInvertedMemcpy((unsigned char*)packet + headerLength, assembly->payload + (offset << 3), payloadLength);
-    total = assembly->totalBlocks;
-    if (!total) return NULL;
-    count = assembly->count;
-    covered = 0;
-    rangeIndex = 0;
-    if (rangeIndex < count) do {
-        if (assembly->starts[rangeIndex] <= covered && covered < assembly->ends[rangeIndex]) {
-            covered = assembly->ends[rangeIndex];
-            rangeIndex = 0;
+    var3->unknown_c_[var3->unknown_4_] = var4;
+    var3->unknown_1c_[var3->unknown_4_] = var9;
+    var3->unknown_4_++;
+    VectorizedInvertedMemcpy((unsigned char*)arg0 + var1, var3->unknown_30_ + (var4 << 3), var6);
+    var12 = var3->unknown_8_;
+    if (!var12) return NULL;
+    var11 = var3->unknown_4_;
+    var14 = 0;
+    var13 = 0;
+    if (var13 < var11) do {
+        if (var3->unknown_c_[var13] <= var14 && var14 < var3->unknown_1c_[var13]) {
+            var14 = var3->unknown_1c_[var13];
+            var13 = 0;
         } else {
-            rangeIndex++;
+            var13++;
         }
-    } while (rangeIndex < count);
-    if (covered < total) return NULL;
-    unsigned char* allocation = assembly->allocation;
-    IPv4Packet02202b78* result = (IPv4Packet02202b78*)(allocation + 14);
-    unsigned short length = assembly->totalLength + ((result->header & 15) * 4);
-    result->length = (length >> 8) | (length << 8);
-    assembly->count = 0;
-    *release = 1;
-    return result;
+    } while (var13 < var11);
+    if (var14 < var12) return NULL;
+    unsigned char* var17 = var3->unknown_34_;
+    Struct_ov031_02202b78* var18 = (Struct_ov031_02202b78*)(var17 + 14);
+    unsigned short var19 = var3->unknown_a_ + ((var18->unknown_0_ & 15) * 4);
+    var18->unknown_2_ = (var19 >> 8) | (var19 << 8);
+    var3->unknown_4_ = 0;
+    *arg1 = 1;
+    return var18;
 }

@@ -2,16 +2,16 @@
 #include "Memory/SafeAllocator.h"
 #include "World/ZoneFeatures.h"
 
-struct Foo0201e25c {
-    void* ptr;
-    int   idx;
-    int   count;
+struct Struct_0201e25c {
+    void* unknown_0_;
+    int   unknown_4_;
+    int   unknown_8_;
 };
 
 // USA: func_0201e25c
-ARM void ZoneFeatures::func_0201e25c(int count, SafeAllocator* alloc) {
-    struct Foo0201e25c* obj = (struct Foo0201e25c*)this;
-    obj->ptr = alloc->Allocate(count * 0x58);
-    obj->idx = 0;
-    obj->count = count;
+ARM void Struct_020134e0::func_0201e25c(int arg0, SafeAllocator* arg1) {
+    struct Struct_0201e25c* var0 = (struct Struct_0201e25c*)this;
+    var0->unknown_0_ = arg1->Allocate(arg0 * 0x58);
+    var0->unknown_4_ = 0;
+    var0->unknown_8_ = arg0;
 }

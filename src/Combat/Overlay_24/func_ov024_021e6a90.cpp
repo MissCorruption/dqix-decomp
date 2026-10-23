@@ -1,551 +1,551 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Stats_021e6a90 {
-    char pad0[0x14];
-    unsigned int flags14;
-    unsigned int flags18;
-    char pad1c[0x21 - 0x1c];
-    unsigned char rank21;
-    char pad22[0x24 - 0x22];
-    signed char tension24;
-    char pad25[0x3e - 0x25];
-    unsigned char resist3e;
-    unsigned char resist3f;
-    unsigned char resist40;
-    unsigned char resist41;
-    unsigned char resist42;
-    unsigned char resist43;
-    unsigned char resist44;
-    char pad45[0x58 - 0x45];
-    int lo58 : 18;
-    int decayA : 3;
-    int decayB : 3;
-    int hi58 : 8;
+struct Struct_ov024_021e6a90_9 {
+    char unknown_0_[0x14];
+    unsigned int unknown_14_;
+    unsigned int unknown_18_;
+    char unknown_1c_[0x21 - 0x1c];
+    unsigned char unknown_21_;
+    char unknown_22_[0x24 - 0x22];
+    signed char unknown_24_;
+    char unknown_25_[0x3e - 0x25];
+    unsigned char unknown_3e_;
+    unsigned char unknown_3f_;
+    unsigned char unknown_40_;
+    unsigned char unknown_41_;
+    unsigned char unknown_42_;
+    unsigned char unknown_43_;
+    unsigned char unknown_44_;
+    char unknown_45_[0x58 - 0x45];
+    int unknown_58_0_ : 18;
+    int unknown_5a_2_ : 3;
+    int unknown_5a_5_ : 3;
+    int unknown_5b_0_ : 8;
 };
 
-struct Bits2f4_021e6a90 {
-    unsigned int bit0 : 1;
-    unsigned int bit1 : 1;
-    unsigned int rest : 30;
+struct Struct_ov024_021e6a90_8 {
+    unsigned int unknown_0_0_ : 1;
+    unsigned int unknown_0_1_ : 1;
+    unsigned int unknown_0_2_ : 30;
 };
 
-struct Info_021e6a90 {
-    char pad0[0x34];
-    unsigned short value34;
+struct Struct_ov024_021e6a90_10 {
+    char unknown_0_[0x34];
+    unsigned short unknown_34_;
 };
 
-struct Cbt_021e6a90 {
-    char pad0[0x134];
-    struct Info_021e6a90* info;
-    struct Stats_021e6a90* stats;
+struct Struct_ov024_021e6a90_11 {
+    char unknown_0_[0x134];
+    struct Struct_ov024_021e6a90_10* unknown_134_;
+    struct Struct_ov024_021e6a90_9* unknown_138_;
 #if defined(jpn)
-    char pad13c[0x144 - 0x13c];
+    char unknown1_13c_[0x144 - 0x13c];
 #else
-    char pad13c[0x150 - 0x13c];
+    char unknown_13c_[0x150 - 0x13c];
 #endif
-    unsigned char* field150;
+    unsigned char* unknown_150_;
 };
 
-struct Action_021e6a90 {
-    unsigned int pad0;
-    unsigned int id : 12;
-    unsigned int rest4 : 20;
-    unsigned int lo8 : 8;
-    unsigned int kind : 2;
-    unsigned int mid8 : 12;
-    unsigned int elem : 5;
-    unsigned int hi8 : 5;
-    unsigned int padc;
-    unsigned int flags10;
-    unsigned int pad14;
-    unsigned int lo18 : 5;
-    unsigned int sub18 : 7;
-    unsigned int hi18 : 20;
-    unsigned int cap : 14;
-    unsigned int hi1c : 18;
-    unsigned int pad20[3];
-    unsigned int lo2c : 27;
-    unsigned int flag2c : 1;
-    unsigned int hi2c : 4;
+struct Struct_ov024_021e6a90 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 20;
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 2;
+    unsigned int unknown_9_2_ : 12;
+    unsigned int unknown_a_6_ : 5;
+    unsigned int unknown_b_3_ : 5;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned int unknown_18_0_ : 5;
+    unsigned int unknown_18_5_ : 7;
+    unsigned int unknown_19_4_ : 20;
+    unsigned int unknown_1c_0_ : 14;
+    unsigned int unknown_1d_6_ : 18;
+    unsigned int unknown_20_[3];
+    unsigned int unknown_2c_0_ : 27;
+    unsigned int unknown_2f_3_ : 1;
+    unsigned int unknown_2f_4_ : 4;
 };
 
-struct Hud_021e6a90 {
-    char pad0[0xb];
-    unsigned char lo : 3;
-    unsigned char show : 1;
-    unsigned char mid : 1;
-    unsigned char level : 3;
+struct Struct_ov024_021e6a90_2 {
+    char unknown_0_[0xb];
+    unsigned char unknown_b_0_ : 3;
+    unsigned char unknown_b_3_ : 1;
+    unsigned char unknown_b_4_ : 1;
+    unsigned char unknown_b_5_ : 3;
 };
 
-struct Flags_021e6a90 {
-    char pad0[0x1c];
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char mid : 3;
-    unsigned char bit6 : 1;
-    unsigned char crit : 1;
+struct Struct_ov024_021e6a90_3 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 1;
+    unsigned char unknown_1c_1_ : 1;
+    unsigned char unknown_1c_2_ : 1;
+    unsigned char unknown_1c_3_ : 3;
+    unsigned char unknown_1c_6_ : 1;
+    unsigned char unknown_1c_7_ : 1;
 };
 
-struct Battle_021e6a90 {
-    char pad0[0x8e38];
-    int result8e38;
-    char pad8e3c[0x8e83 - 0x8e3c];
-    signed char level8e83;
-    char pad8e84[0x8e94 - 0x8e84];
-    unsigned char flag8e94;
+struct Struct_ov024_021e6a90_4 {
+    char unknown_0_[0x8e38];
+    int unknown_8e38_;
+    char unknown_8e3c_[0x8e83 - 0x8e3c];
+    signed char unknown_8e83_;
+    char unknown_8e84_[0x8e94 - 0x8e84];
+    unsigned char unknown_8e94_;
 };
 
-struct Ctx_021e6a90 {
-    char pad0[4];
-    struct Hud_021e6a90* hud;
-    char pad8[4];
-    struct Flags_021e6a90* flags;
-    struct Battle_021e6a90* battle;
-    char pad14[0x47 - 0x14];
-    unsigned char state47;
-    char pad48[0x76 - 0x48];
-    unsigned char enabled76;
+struct Struct_ov024_021e6a90_5 {
+    char unknown_0_[4];
+    struct Struct_ov024_021e6a90_2* unknown_4_;
+    char unknown_8_[4];
+    struct Struct_ov024_021e6a90_3* unknown_c_;
+    struct Struct_ov024_021e6a90_4* unknown_10_;
+    char unknown_14_[0x47 - 0x14];
+    unsigned char unknown_47_;
+    char unknown_48_[0x76 - 0x48];
+    unsigned char unknown_76_;
 };
 
-struct Tension_021e6a90 {
-    char pad0[0x16c];
-    unsigned short values[1];
+struct Struct_ov024_021e6a90_6 {
+    char unknown_0_[0x16c];
+    unsigned short unknown_16c_[1];
 #if defined(jpn)
-    char pad16e[0x8b8 - 0x16e];
+    char unknown_16e_[0x8b8 - 0x16e];
 #else
-    char pad16e[0x950 - 0x16e];
+    char unknown1_16e_[0x950 - 0x16e];
 #endif
-    int index;
+    int unknown_950_;
 };
 
-struct Cbt_021e6a90* GetCombatantByID(int, int);
+struct Struct_ov024_021e6a90_11* GetCombatantByID(int, int);
 struct GameObject;
 extern "C" int func_ov024_021e7ba8(GameObject*);
-struct FlagObj_021da998;
-extern "C" int func_ov024_021da998(FlagObj_021da998*);
-struct FlagObj_021dd260;
-extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
-extern "C" float func_02074738(int tension, int mode);
-extern "C" int func_ov000_02156068(struct Battle_021e6a90* battle, int id, int kind, int mode);
-extern "C" struct Tension_021e6a90* func_ov000_02153710(struct Battle_021e6a90* battle, int id);
-extern "C" int func_ov000_02159dbc(struct Battle_021e6a90* battle, int id);
+struct Struct_ov024_021da670_6;
+extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+struct Struct_ov024_021dd028_5;
+extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" float func_02074738(int arg0, int arg1);
+extern "C" int func_ov000_02156068(struct Struct_ov024_021e6a90_4* arg0, int arg1, int arg2, int arg3);
+extern "C" struct Struct_ov024_021e6a90_6* func_ov000_02153710(struct Struct_ov024_021e6a90_4* arg0, int arg1);
+extern "C" int func_ov000_02159dbc(struct Struct_ov024_021e6a90_4* arg0, int arg1);
 float CalculateTensionBonus(int tension, int level);
-struct FieldObj_021ea7fc;
-extern "C" int func_ov024_021ea7fc(void*, FieldObj_021ea7fc*, int);
+struct Struct_ov024_021e6a90_7;
+extern "C" int func_ov024_021ea7fc(void*, Struct_ov024_021e6a90_7*, int);
 struct Random;
 extern "C" float func_02074838(int, int, Random*);
-extern "C" float func_ov000_02156b38(struct Battle_021e6a90* battle, int id, int elem);
-extern "C" int func_02085748(unsigned char* p);
-struct S886b0;
-extern "C" int func_020886b0(S886b0*);
-struct S886f8;
-extern "C" int func_020886f8(S886f8*);
-struct Obj02088740;
-extern "C" int func_02088740(Obj02088740*);
-struct Obj02088788;
-extern "C" int func_02088788(Obj02088788*);
-struct Obj020887d0;
-extern "C" int func_020887d0(Obj020887d0*);
-struct Combatant_2088660;
-extern "C" int func_02088660(Combatant_2088660*);
+extern "C" float func_ov000_02156b38(struct Struct_ov024_021e6a90_4* arg0, int arg1, int arg2);
+extern "C" int func_02085748(unsigned char* arg0);
+struct Struct_020886b0;
+extern "C" int func_020886b0(Struct_020886b0*);
+struct Struct_020886f8;
+extern "C" int func_020886f8(Struct_020886f8*);
+struct Struct_02088740;
+extern "C" int func_02088740(Struct_02088740*);
+struct Struct_02088788;
+extern "C" int func_02088788(Struct_02088788*);
+struct Struct_020887d0;
+extern "C" int func_020887d0(Struct_020887d0*);
+struct Struct_02088660;
+extern "C" int func_02088660(Struct_02088660*);
 extern "C" float func_02085968(char*);
-extern "C" float func_02085818(unsigned char* p);
+extern "C" float func_02085818(unsigned char* arg0);
 extern "C" float func_02085a10(char*);
-struct Actor02085a48;
-extern "C" float func_02085a48(Actor02085a48*);
+struct Struct_02085a48;
+extern "C" float func_02085a48(Struct_02085a48*);
 extern "C" float func_020859d8(char*);
 extern "C" float func_020859a0(char*);
 extern "C" float func_02085930(char*);
-extern "C" float func_02085850(unsigned char* p);
-extern "C" float func_020858f8(unsigned char* p);
-struct Actor02085a80;
-extern "C" float func_02085a80(Actor02085a80*);
-extern "C" float func_020858c0(unsigned char* p);
-extern "C" float func_02085888(unsigned char* p);
-extern "C" float func_020748d0(int v);
-extern "C" float func_020748a8(int v);
-extern "C" float func_02074938(int v);
+extern "C" float func_02085850(unsigned char* arg0);
+extern "C" float func_020858f8(unsigned char* arg0);
+struct Struct_02085a80;
+extern "C" float func_02085a80(Struct_02085a80*);
+extern "C" float func_020858c0(unsigned char* arg0);
+extern "C" float func_02085888(unsigned char* arg0);
+extern "C" float func_020748d0(int arg0);
+extern "C" float func_020748a8(int arg0);
+extern "C" float func_02074938(int arg0);
 extern "C" int func_ov024_021e67b0(GameObject*);
-struct ArrayContainsByteStruct;
-extern "C" int func_02086ef0(ArrayContainsByteStruct*, int);
+struct Struct_02048150;
+extern "C" int func_02086ef0(Struct_02048150*, int);
 extern "C" void func_ov000_0215a8d4(unsigned char*, int);
-extern "C" int func_02085154(unsigned char* p);
-extern "C" int func_020851d8(unsigned char* p);
+extern "C" int func_02085154(unsigned char* arg0);
+extern "C" int func_020851d8(unsigned char* arg0);
 int NextRandomMax(Random*, int);
-extern "C" int func_02085128(unsigned char* p);
+extern "C" int func_02085128(unsigned char* arg0);
 extern "C" void func_ov000_0215cd80(void*);
 
 extern signed char data_ov024_021fe798[];
-struct Scale4_021e6a90 { float v[4]; };
-extern struct Scale4_021e6a90 data_ov024_021fe778;
+struct Struct_ov024_021fe778 { float unknown_0_[4]; };
+extern struct Struct_ov024_021fe778 data_ov024_021fe778;
 
-static inline int IsPartyMember(int id) {
-    return id >= 0 && id <= 3;
+static inline int inline_ov000_02169850(int arg0) {
+    return arg0 >= 0 && arg0 <= 3;
 }
 
 // USA: func_ov024_021e6a90
-extern "C" ARM int func_ov024_021e6a90(struct Ctx_021e6a90* ctx, int attackerId, int targetId,
-                                                          struct Action_021e6a90* action, unsigned int base) {
-    GameState* gs = GameState::GetInstance();
-    struct Cbt_021e6a90* attacker = GetCombatantByID((int)ctx->battle, attackerId);
-    struct Cbt_021e6a90* target = GetCombatantByID((int)ctx->battle, targetId);
-    int crit;
-    if (ctx->flags->crit) {
-        crit = 1;
+extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int arg1, int arg2,
+                                                          struct Struct_ov024_021e6a90* arg3, unsigned int arg4) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov024_021e6a90_11* var1 = GetCombatantByID((int)arg0->unknown_10_, arg1);
+    struct Struct_ov024_021e6a90_11* var2 = GetCombatantByID((int)arg0->unknown_10_, arg2);
+    int var3;
+    if (arg0->unknown_c_->unknown_1c_7_) {
+        var3 = 1;
     } else {
-        crit = 0;
+        var3 = 0;
     }
-    float dmg = base;
-    float baseF = dmg;
+    float var4 = arg4;
+    float var5 = var4;
 
-    if (action->id != 0x150 && func_ov024_021e7ba8((GameObject*)target) &&
-        action->kind == 1) {
-        ctx->flags->bit6 = 1;
-        if ((action->flags10 & 0x2000) &&
-            (func_ov024_021da998((FlagObj_021da998*)attacker) ||
-             func_ov024_021dd260((FlagObj_021dd260*)attacker))) {
-            ctx->state47 = 1;
-            if (func_ov024_021dd260((FlagObj_021dd260*)attacker)) {
-                ctx->state47 = 2;
+    if (arg3->unknown_4_0_ != 0x150 && func_ov024_021e7ba8((GameObject*)var2) &&
+        arg3->unknown_9_0_ == 1) {
+        arg0->unknown_c_->unknown_1c_6_ = 1;
+        if ((arg3->unknown_10_ & 0x2000) &&
+            (func_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
+             func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+            arg0->unknown_47_ = 1;
+            if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
+                arg0->unknown_47_ = 2;
             }
         }
         return 0;
     }
 
-    if (ctx->enabled76 && (action->flags10 & 0x2000) &&
-        (func_ov024_021da998((FlagObj_021da998*)attacker) ||
-         func_ov024_021dd260((FlagObj_021dd260*)attacker))) {
-        if (base != 0 || (action->id != 0x70 && action->id != 0x48)) {
-            float mult;
-            if (IsPartyMember(attackerId)) {
-                mult = func_02074738(attacker->stats->tension24, 0);
+    if (arg0->unknown_76_ && (arg3->unknown_10_ & 0x2000) &&
+        (func_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
+         func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+        if (arg4 != 0 || (arg3->unknown_4_0_ != 0x70 && arg3->unknown_4_0_ != 0x48)) {
+            float var6;
+            if (inline_ov000_02169850(arg1)) {
+                var6 = func_02074738(var1->unknown_138_->unknown_24_, 0);
             } else {
-                mult = func_02074738(attacker->stats->tension24, 1);
+                var6 = func_02074738(var1->unknown_138_->unknown_24_, 1);
             }
-            dmg = dmg * mult;
-            unsigned char ok = 1;
-            if (IsPartyMember(attackerId)) {
-                if (func_ov000_02156068(ctx->battle, targetId, 0, 1)) {
-                    ok = 0;
+            var4 = var4 * var6;
+            unsigned char var7 = 1;
+            if (inline_ov000_02169850(arg1)) {
+                if (func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
+                    var7 = 0;
                 }
             }
-            if (ok) {
-                signed char level;
-                if (IsPartyMember(attackerId)) {
-                    struct Tension_021e6a90* t = func_ov000_02153710(ctx->battle, attackerId);
-                    level = t->values[t->index];
+            if (var7) {
+                signed char var8;
+                if (inline_ov000_02169850(arg1)) {
+                    struct Struct_ov024_021e6a90_6* var9 = func_ov000_02153710(arg0->unknown_10_, arg1);
+                    var8 = var9->unknown_16c_[var9->unknown_950_];
                 } else {
-                    level = func_ov000_02159dbc(ctx->battle, attackerId);
+                    var8 = func_ov000_02159dbc(arg0->unknown_10_, arg1);
                 }
-                dmg = dmg + CalculateTensionBonus(attacker->stats->tension24, level);
+                var4 = var4 + CalculateTensionBonus(var1->unknown_138_->unknown_24_, var8);
             }
         }
-        ctx->state47 = 1;
-        if (func_ov024_021dd260((FlagObj_021dd260*)attacker)) {
-            ctx->state47 = 2;
+        arg0->unknown_47_ = 1;
+        if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var1)) {
+            arg0->unknown_47_ = 2;
         }
     }
 
-    if (crit && func_ov000_02156068(ctx->battle, targetId, 0, 1)) {
-        if (action->flags10 & 0x1000000) {
-            dmg = baseF;
+    if (var3 && func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
+        if (arg3->unknown_10_ & 0x1000000) {
+            var4 = var5;
         }
     }
 
-    if (func_ov024_021ea7fc(ctx, (FieldObj_021ea7fc*)action, crit)) {
-        unsigned char mode = 0;
-        int value = base;
-        float floor = 0.0f;
-        if (action->id == 1 || action->id == 0xdb || action->id == 0x1f9) {
-            value = attacker->info->value34;
-            mode = 1;
-            floor = base;
-            if (IsPartyMember(attackerId)) {
-                struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
-                if (p) {
-                    struct Bits2f4_021e6a90* w = (struct Bits2f4_021e6a90*)(p->field150 + 0x2f4);
-                    if (w && (w->bit1 || w->bit0)) {
-                        mode = 0;
-                        value = base;
-                        floor = 0.0f;
+    if (func_ov024_021ea7fc(arg0, (Struct_ov024_021e6a90_7*)arg3, var3)) {
+        unsigned char var10 = 0;
+        int var11 = arg4;
+        float var12 = 0.0f;
+        if (arg3->unknown_4_0_ == 1 || arg3->unknown_4_0_ == 0xdb || arg3->unknown_4_0_ == 0x1f9) {
+            var11 = var1->unknown_134_->unknown_34_;
+            var10 = 1;
+            var12 = arg4;
+            if (inline_ov000_02169850(arg1)) {
+                struct Struct_ov024_021e6a90_11* var13 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+                if (var13) {
+                    struct Struct_ov024_021e6a90_8* var14 = (struct Struct_ov024_021e6a90_8*)(var13->unknown_150_ + 0x2f4);
+                    if (var14 && (var14->unknown_0_1_ || var14->unknown_0_0_)) {
+                        var10 = 0;
+                        var11 = arg4;
+                        var12 = 0.0f;
                     }
                 }
             }
         }
-        dmg = 1.2f * dmg;
-        float v = func_02074838((short)value, mode, (Random*)ctx->battle);
-        if (dmg < v) {
-            dmg = v;
+        var4 = 1.2f * var4;
+        float var15 = func_02074838((short)var11, var10, (Random*)arg0->unknown_10_);
+        if (var4 < var15) {
+            var4 = var15;
         }
-        if (dmg < floor) {
-            dmg = floor;
+        if (var4 < var12) {
+            var4 = var12;
         }
     }
 
-    dmg = dmg * func_ov000_02156b38(ctx->battle, targetId, action->elem);
+    var4 = var4 * func_ov000_02156b38(arg0->unknown_10_, arg2, arg3->unknown_a_6_);
 
-    int elem = 0;
-    signed char* tbl = data_ov024_021fe798;
-    struct Cbt_021e6a90* self = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
-    if (self) {
-        for (; *tbl != -1; tbl += 2) {
-            if (tbl[1] == func_02085748(self->field150)) {
-                elem = tbl[0];
+    int var16 = 0;
+    signed char* var17 = data_ov024_021fe798;
+    struct Struct_ov024_021e6a90_11* var18 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+    if (var18) {
+        for (; *var17 != -1; var17 += 2) {
+            if (var17[1] == func_02085748(var18->unknown_150_)) {
+                var16 = var17[0];
                 break;
             }
         }
     }
 
-    int useElem = 0;
-    float elemDmg = 0;
-    if (IsPartyMember(attackerId) && func_0200ff1c(gs, attackerId) &&
-        (action->flags10 & 0x40000) && elem >= 1 && elem <= 7) {
-        elemDmg = dmg * func_ov000_02156b38(ctx->battle, targetId, elem);
-        useElem = 1;
+    int var19 = 0;
+    float var20 = 0;
+    if (inline_ov000_02169850(arg1) && func_0200ff1c(var0, arg1) &&
+        (arg3->unknown_10_ & 0x40000) && var16 >= 1 && var16 <= 7) {
+        var20 = var4 * func_ov000_02156b38(arg0->unknown_10_, arg2, var16);
+        var19 = 1;
     }
 
-    float resist = 0;
-    if (target && action->elem == 8 && action->id != 0x1f9 && action->id != 0x205) {
-        if (func_020886b0((S886b0*)attacker->stats)) {
-            resist = 1.1f * dmg;
-            resist = resist * (target->stats->resist3e / 100.0f);
-        } else if (func_020886f8((S886f8*)attacker->stats)) {
-            resist = 1.1f * dmg;
-            resist = resist * (target->stats->resist3f / 100.0f);
-        } else if (func_02088740((Obj02088740*)attacker->stats)) {
-            struct Stats_021e6a90* ts = target->stats;
-            float a = 1.1f * dmg;
-            a = a * (ts->resist41 / 100.0f);
-            float b = 1.1f * dmg;
-            b = b * (ts->resist40 / 100.0f);
-            resist = b;
-            if (b < a) {
-                resist = a;
+    float var21 = 0;
+    if (var2 && arg3->unknown_a_6_ == 8 && arg3->unknown_4_0_ != 0x1f9 && arg3->unknown_4_0_ != 0x205) {
+        if (func_020886b0((Struct_020886b0*)var1->unknown_138_)) {
+            var21 = 1.1f * var4;
+            var21 = var21 * (var2->unknown_138_->unknown_3e_ / 100.0f);
+        } else if (func_020886f8((Struct_020886f8*)var1->unknown_138_)) {
+            var21 = 1.1f * var4;
+            var21 = var21 * (var2->unknown_138_->unknown_3f_ / 100.0f);
+        } else if (func_02088740((Struct_02088740*)var1->unknown_138_)) {
+            struct Struct_ov024_021e6a90_9* var22 = var2->unknown_138_;
+            float var23 = 1.1f * var4;
+            var23 = var23 * (var22->unknown_41_ / 100.0f);
+            float var24 = 1.1f * var4;
+            var24 = var24 * (var22->unknown_40_ / 100.0f);
+            var21 = var24;
+            if (var24 < var23) {
+                var21 = var23;
             }
-        } else if (func_02088788((Obj02088788*)attacker->stats)) {
-            struct Stats_021e6a90* ts = target->stats;
-            float a = 1.1f * dmg;
-            a = a * (ts->resist43 / 100.0f);
-            float b = 1.1f * dmg;
-            b = b * (ts->resist42 / 100.0f);
-            resist = b;
-            if (b < a) {
-                resist = a;
+        } else if (func_02088788((Struct_02088788*)var1->unknown_138_)) {
+            struct Struct_ov024_021e6a90_9* var25 = var2->unknown_138_;
+            float var26 = 1.1f * var4;
+            var26 = var26 * (var25->unknown_43_ / 100.0f);
+            float var27 = 1.1f * var4;
+            var27 = var27 * (var25->unknown_42_ / 100.0f);
+            var21 = var27;
+            if (var27 < var26) {
+                var21 = var26;
             }
-        } else if (func_020887d0((Obj020887d0*)attacker->stats)) {
-            resist = 1.1f * dmg;
-            resist = resist * (target->stats->resist44 / 100.0f);
+        } else if (func_020887d0((Struct_020887d0*)var1->unknown_138_)) {
+            var21 = 1.1f * var4;
+            var21 = var21 * (var2->unknown_138_->unknown_44_ / 100.0f);
         }
-        if (func_02088660((Combatant_2088660*)attacker->stats)) {
-            useElem = 1;
+        if (func_02088660((Struct_02088660*)var1->unknown_138_)) {
+            var19 = 1;
         }
     }
 
-    if (useElem) {
-        if (elemDmg <= resist) {
-            dmg = resist;
+    if (var19) {
+        if (var20 <= var21) {
+            var4 = var21;
         } else {
-            dmg = elemDmg;
+            var4 = var20;
         }
     }
 
-    if (IsPartyMember(attackerId)) {
-        struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
-        if (p && (action->flags10 & 0x40000)) {
-            if (func_ov000_02156068(ctx->battle, targetId, 1, 0)) {
-                dmg = dmg * func_02085968((char*)p->field150);
+    if (inline_ov000_02169850(arg1)) {
+        struct Struct_ov024_021e6a90_11* var28 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+        if (var28 && (arg3->unknown_10_ & 0x40000)) {
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 1, 0)) {
+                var4 = var4 * func_02085968((char*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 2, 0)) {
-                dmg = dmg * func_02085818(p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 2, 0)) {
+                var4 = var4 * func_02085818(var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 3, 0)) {
-                dmg = dmg * func_02085a10((char*)p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 3, 0)) {
+                var4 = var4 * func_02085a10((char*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 4, 0)) {
-                dmg = dmg * func_02085a48((Actor02085a48*)p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 4, 0)) {
+                var4 = var4 * func_02085a48((Struct_02085a48*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 5, 0)) {
-                dmg = dmg * func_020859d8((char*)p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 5, 0)) {
+                var4 = var4 * func_020859d8((char*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 6, 0)) {
-                dmg = dmg * func_020859a0((char*)p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 6, 0)) {
+                var4 = var4 * func_020859a0((char*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 7, 0)) {
-                dmg = dmg * func_02085930((char*)p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 7, 0)) {
+                var4 = var4 * func_02085930((char*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 8, 0)) {
-                dmg = dmg * func_02085850(p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 8, 0)) {
+                var4 = var4 * func_02085850(var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 9, 0)) {
-                dmg = dmg * func_020858f8(p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 9, 0)) {
+                var4 = var4 * func_020858f8(var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 10, 0)) {
-                dmg = dmg * func_02085a80((Actor02085a80*)p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 10, 0)) {
+                var4 = var4 * func_02085a80((Struct_02085a80*)var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 11, 0)) {
-                dmg = dmg * func_020858c0(p->field150);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 11, 0)) {
+                var4 = var4 * func_020858c0(var28->unknown_150_);
             }
-            if (func_ov000_02156068(ctx->battle, targetId, 12, 0)) {
-                dmg = dmg * func_02085888(p->field150);
-            }
-        }
-    }
-
-    unsigned char forced;
-    if (target) {
-        struct Stats_021e6a90* ts = target->stats;
-        unsigned int guard = ts->flags18;
-        if ((guard & 2) && action->elem == 1) {
-            dmg = 0.75f * dmg;
-        }
-        if ((guard & 4) && action->elem == 2) {
-            dmg = 0.75f * dmg;
-        }
-        if ((ts->flags14 & 0x20000000) && func_ov000_02156068(ctx->battle, attackerId, 8, 0)) {
-            dmg = 0.5f * dmg;
-        }
-        if (action->flags10 & 1) {
-            if ((target->stats->flags14 & 0x10000) && action->sub18 != 2) {
-                dmg = dmg * func_020748d0((signed char)target->stats->decayA);
-            }
-        }
-        if ((action->flags10 & 4) && (target->stats->flags14 & 0x20000)) {
-            dmg = dmg * func_020748a8((signed char)target->stats->decayB);
-        }
-        if ((action->flags10 & 0x10) && target && ctx->battle->flag8e94 == 0) {
-            if (target->stats->rank21 <= 3) {
-                dmg = dmg * func_02074938((signed char)target->stats->rank21);
-            }
-            if (func_ov024_021e67b0((GameObject*)target)) {
-                dmg = dmg * func_02074938(1);
-            }
-            if (func_02086ef0((ArrayContainsByteStruct*)(func_02010828(GameState::GetInstance())), targetId) &&
-                target && target->stats->rank21 == 1) {
-                func_ov000_0215a8d4((unsigned char*)ctx->battle, 0);
+            if (func_ov000_02156068(arg0->unknown_10_, arg2, 12, 0)) {
+                var4 = var4 * func_02085888(var28->unknown_150_);
             }
         }
     }
 
-    if (action->id == 0x82 && target->stats->rank21 != 3) {
-        dmg = 1.0f;
+    unsigned char var29;
+    if (var2) {
+        struct Struct_ov024_021e6a90_9* var30 = var2->unknown_138_;
+        unsigned int var31 = var30->unknown_18_;
+        if ((var31 & 2) && arg3->unknown_a_6_ == 1) {
+            var4 = 0.75f * var4;
+        }
+        if ((var31 & 4) && arg3->unknown_a_6_ == 2) {
+            var4 = 0.75f * var4;
+        }
+        if ((var30->unknown_14_ & 0x20000000) && func_ov000_02156068(arg0->unknown_10_, arg1, 8, 0)) {
+            var4 = 0.5f * var4;
+        }
+        if (arg3->unknown_10_ & 1) {
+            if ((var2->unknown_138_->unknown_14_ & 0x10000) && arg3->unknown_18_5_ != 2) {
+                var4 = var4 * func_020748d0((signed char)var2->unknown_138_->unknown_5a_2_);
+            }
+        }
+        if ((arg3->unknown_10_ & 4) && (var2->unknown_138_->unknown_14_ & 0x20000)) {
+            var4 = var4 * func_020748a8((signed char)var2->unknown_138_->unknown_5a_5_);
+        }
+        if ((arg3->unknown_10_ & 0x10) && var2 && arg0->unknown_10_->unknown_8e94_ == 0) {
+            if (var2->unknown_138_->unknown_21_ <= 3) {
+                var4 = var4 * func_02074938((signed char)var2->unknown_138_->unknown_21_);
+            }
+            if (func_ov024_021e67b0((GameObject*)var2)) {
+                var4 = var4 * func_02074938(1);
+            }
+            if (func_02086ef0((Struct_02048150*)(func_02010828(GameState::GetInstance())), arg2) &&
+                var2 && var2->unknown_138_->unknown_21_ == 1) {
+                func_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 0);
+            }
+        }
     }
 
-    forced = 0;
-    if (IsPartyMember(attackerId)) {
-        struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
-        if (p) {
-            if (action->flags10 & 0x80000) {
-                if (func_02085154(p->field150)) {
-                    ctx->flags->bit2 = 0;
+    if (arg3->unknown_4_0_ == 0x82 && var2->unknown_138_->unknown_21_ != 3) {
+        var4 = 1.0f;
+    }
+
+    var29 = 0;
+    if (inline_ov000_02169850(arg1)) {
+        struct Struct_ov024_021e6a90_11* var32 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+        if (var32) {
+            if (arg3->unknown_10_ & 0x80000) {
+                if (func_02085154(var32->unknown_150_)) {
+                    arg0->unknown_c_->unknown_1c_2_ = 0;
                 }
             }
-            if ((action->flags10 & 0x40000) && func_020851d8(p->field150)) {
-                dmg = 1.0f;
-                forced = 1;
-                ctx->flags->bit2 = 0;
-                ctx->flags->bit1 = 0;
+            if ((arg3->unknown_10_ & 0x40000) && func_020851d8(var32->unknown_150_)) {
+                var4 = 1.0f;
+                var29 = 1;
+                arg0->unknown_c_->unknown_1c_2_ = 0;
+                arg0->unknown_c_->unknown_1c_1_ = 0;
             }
         }
     }
 
-    if (dmg > 0) {
-        if (dmg > 0 && ctx->flags->bit2) {
-            dmg = 0;
+    if (var4 > 0) {
+        if (var4 > 0 && arg0->unknown_c_->unknown_1c_2_) {
+            var4 = 0;
         }
-        if (dmg > 0 && ctx->flags->bit1) {
-            dmg = 0;
-        }
-    }
-
-    if (func_ov000_02156068(ctx->battle, targetId, 0, 1) && (action->flags10 & 0x1000000) &&
-        (action->kind == 1 || action->id == 0xdb) && !crit && action->id != 0x205 &&
-        action->id != 0x82) {
-        if (!forced) {
-            dmg = 0;
+        if (var4 > 0 && arg0->unknown_c_->unknown_1c_1_) {
+            var4 = 0;
         }
     }
 
-    if (dmg <= 0) {
-        int miss = 1;
-        if (ctx->flags->bit2) {
-            miss = 0;
-        }
-        if (ctx->flags->bit1) {
-            miss = 0;
-        }
-        if (action->id == 0x70) {
-            miss = 0;
-        }
-        if (action->id == 0x48) {
-            miss = 0;
-        }
-        if (func_ov000_02156b38(ctx->battle, targetId, action->elem) <= 0) {
-            miss = 0;
-        }
-        if (func_ov000_02156b38(ctx->battle, targetId, elem) <= 0) {
-            miss = 0;
-        }
-        if (action->id == 0x1b) {
-            miss = 0;
-        }
-        if (func_ov000_02156068(ctx->battle, targetId, 0, 1) && !(action->flags10 & 0x1000000)) {
-            miss = 0;
-        }
-        if (miss) {
-            dmg = NextRandomMax((Random*)ctx->battle, 2);
+    if (func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1) && (arg3->unknown_10_ & 0x1000000) &&
+        (arg3->unknown_9_0_ == 1 || arg3->unknown_4_0_ == 0xdb) && !var3 && arg3->unknown_4_0_ != 0x205 &&
+        arg3->unknown_4_0_ != 0x82) {
+        if (!var29) {
+            var4 = 0;
         }
     }
 
-    if (func_ov000_02156068(ctx->battle, targetId, 0, 1)) {
-        if (!crit && (action->id == 0x40 || action->id == 0x7e)) {
-            dmg = 1.0f + NextRandomMax((Random*)ctx->battle, 2);
+    if (var4 <= 0) {
+        int var33 = 1;
+        if (arg0->unknown_c_->unknown_1c_2_) {
+            var33 = 0;
         }
-        if (IsPartyMember(attackerId)) {
-            struct Cbt_021e6a90* p = (struct Cbt_021e6a90*)func_0200ff1c(gs, attackerId);
-            if (p && (action->flags10 & 0x40000) && func_02085128(p->field150)) {
-                dmg += 1.0f;
+        if (arg0->unknown_c_->unknown_1c_1_) {
+            var33 = 0;
+        }
+        if (arg3->unknown_4_0_ == 0x70) {
+            var33 = 0;
+        }
+        if (arg3->unknown_4_0_ == 0x48) {
+            var33 = 0;
+        }
+        if (func_ov000_02156b38(arg0->unknown_10_, arg2, arg3->unknown_a_6_) <= 0) {
+            var33 = 0;
+        }
+        if (func_ov000_02156b38(arg0->unknown_10_, arg2, var16) <= 0) {
+            var33 = 0;
+        }
+        if (arg3->unknown_4_0_ == 0x1b) {
+            var33 = 0;
+        }
+        if (func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1) && !(arg3->unknown_10_ & 0x1000000)) {
+            var33 = 0;
+        }
+        if (var33) {
+            var4 = NextRandomMax((Random*)arg0->unknown_10_, 2);
+        }
+    }
+
+    if (func_ov000_02156068(arg0->unknown_10_, arg2, 0, 1)) {
+        if (!var3 && (arg3->unknown_4_0_ == 0x40 || arg3->unknown_4_0_ == 0x7e)) {
+            var4 = 1.0f + NextRandomMax((Random*)arg0->unknown_10_, 2);
+        }
+        if (inline_ov000_02169850(arg1)) {
+            struct Struct_ov024_021e6a90_11* var34 = (struct Struct_ov024_021e6a90_11*)func_0200ff1c(var0, arg1);
+            if (var34 && (arg3->unknown_10_ & 0x40000) && func_02085128(var34->unknown_150_)) {
+                var4 += 1.0f;
             }
         }
-        if (ctx->enabled76 && (action->flags10 & 0x2000) &&
-            (func_ov024_021da998((FlagObj_021da998*)attacker) ||
-             func_ov024_021dd260((FlagObj_021dd260*)attacker))) {
-            float mult;
-            if (IsPartyMember(attackerId)) {
-                mult = func_02074738(attacker->stats->tension24, 0);
+        if (arg0->unknown_76_ && (arg3->unknown_10_ & 0x2000) &&
+            (func_ov024_021da998((Struct_ov024_021da670_6*)var1) ||
+             func_ov024_021dd260((Struct_ov024_021dd028_5*)var1))) {
+            float var35;
+            if (inline_ov000_02169850(arg1)) {
+                var35 = func_02074738(var1->unknown_138_->unknown_24_, 0);
             } else {
-                mult = func_02074738(attacker->stats->tension24, 1);
+                var35 = func_02074738(var1->unknown_138_->unknown_24_, 1);
             }
-            dmg = dmg * mult;
+            var4 = var4 * var35;
         }
     }
 
-    if (func_ov024_021dd260((FlagObj_021dd260*)target) && action->sub18 == 1) {
-        dmg = 0.5f * dmg;
+    if (func_ov024_021dd260((Struct_ov024_021dd028_5*)var2) && arg3->unknown_18_5_ == 1) {
+        var4 = 0.5f * var4;
     }
 
-    if (action->flag2c && dmg >= 1.0f) {
-        struct Scale4_021e6a90 scales = data_ov024_021fe778;
-        signed char level = ctx->battle->level8e83;
-        if (level > 3) {
-            level = 3;
+    if (arg3->unknown_2f_3_ && var4 >= 1.0f) {
+        struct Struct_ov024_021fe778 var36 = data_ov024_021fe778;
+        signed char var37 = arg0->unknown_10_->unknown_8e83_;
+        if (var37 > 3) {
+            var37 = 3;
         }
-        dmg = dmg * scales.v[level];
-        ctx->hud->show = 0;
-        if (level != 0) {
-            ctx->hud->level = level;
+        var4 = var4 * var36.unknown_0_[var37];
+        arg0->unknown_4_->unknown_b_3_ = 0;
+        if (var37 != 0) {
+            arg0->unknown_4_->unknown_b_5_ = var37;
         }
     } else {
-        func_ov000_0215cd80(ctx->battle);
+        func_ov000_0215cd80(arg0->unknown_10_);
     }
 
-    int result = dmg;
-    if (action->cap != 0 && action->cap < result) {
-        result = action->cap;
+    int var38 = var4;
+    if (arg3->unknown_1c_0_ != 0 && arg3->unknown_1c_0_ < var38) {
+        var38 = arg3->unknown_1c_0_;
     }
-    if (action->id == 0xaf) {
-        ctx->battle->result8e38 = 0.25f * result;
+    if (arg3->unknown_4_0_ == 0xaf) {
+        arg0->unknown_10_->unknown_8e38_ = 0.25f * var38;
     }
-    return result;
+    return var38;
 }

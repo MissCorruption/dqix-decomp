@@ -2,20 +2,20 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
-struct Array02028754;
+struct Struct_0201c1c8;
+struct Struct_0201a300_7;
 
-extern "C" void func_02028754(struct Array02028754* obj, SafeAllocator* alloc, int count);
+extern "C" void func_02028754(struct Struct_0201a300_7* arg0, SafeAllocator* arg1, int arg2);
 
-struct Globals02027fbc {
-    struct Array02028754* obj;
-    SafeAllocator* alloc;
+struct Struct_020fdd30_2 {
+    struct Struct_0201a300_7* unknown_0_;
+    SafeAllocator* unknown_4_;
 };
-extern struct Globals02027fbc data_020fdd30;
+extern struct Struct_020fdd30_2 data_020fdd30;
 
 // USA: func_02027fbc
-extern "C" ARM int func_02027fbc(struct Variant02030b0c* p) {
-    int count = ((Script::Parameter*)p)->ToInt();
-    func_02028754(data_020fdd30.obj, data_020fdd30.alloc, count);
+extern "C" ARM int func_02027fbc(struct Struct_0201c1c8* arg0) {
+    int var0 = ((Script::Parameter*)arg0)->ToInt();
+    func_02028754(data_020fdd30.unknown_0_, data_020fdd30.unknown_4_, var0);
     return 1;
 }

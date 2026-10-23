@@ -1,51 +1,51 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kFlagOffset = 0x27c8, kIdOffset = 0x27c6 };
+enum { Enum_0209cd50_10120 = 0x27c8, Enum_0209cd50_10118 = 0x27c6 };
 #else
-enum { kFlagOffset = 0x2788, kIdOffset = 0x2786 };
+enum { Enum_0209cd50_10120 = 0x2788, Enum_0209cd50_10118 = 0x2786 };
 #endif
 
 #include "GameState/GameState.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_02011584(void* obj);
+extern "C" void* func_02011584(void* arg0);
 extern "C" int _s32_div_f(int a, int b);
-struct SearchTable;
-struct SearchEntry;
-extern "C" struct SearchEntry* func_02099950(struct SearchTable* table, int key);
-extern "C" int func_0209caf0(int id);
-extern "C" int func_0209cc3c(void* obj, int id);
+struct Struct_02095924_2;
+struct Struct_02099950;
+extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
+extern "C" int func_0209caf0(int arg0);
+extern "C" int func_0209cc3c(void* arg0, int arg1);
 
 extern int data_02109be0;
 
-struct Entry0209cd50Layout {
-    char pad[0xd];
-    unsigned char idx7 : 7;
+struct Struct_0209cd50 {
+    char unknown_0_[0xd];
+    unsigned char unknown_d_0_ : 7;
     unsigned char : 1;
 };
 
 // USA: func_0209cd50
-extern "C" ARM int func_0209cd50(int value) {
-    int result = 0;
-    GameState* battle = GameState::GetInstance();
-    struct SearchTable* table = (struct SearchTable*)func_02011584(battle);
-    void* base = func_02012fe4();
-    if ((_s32_div_f(value, 100) * 100) == 0x170c) {
-        if (*(unsigned char*)((char*)base + kFlagOffset) == 0) {
-            if (*(unsigned short*)((char*)base + kIdOffset) == 0x76c) {
-                value = 0x76c;
+extern "C" ARM int func_0209cd50(int arg0) {
+    int var0 = 0;
+    GameState* var1 = GameState::GetInstance();
+    struct Struct_02095924_2* var2 = (struct Struct_02095924_2*)func_02011584(var1);
+    void* var3 = func_02012fe4();
+    if ((_s32_div_f(arg0, 100) * 100) == 0x170c) {
+        if (*(unsigned char*)((char*)var3 + Enum_0209cd50_10120) == 0) {
+            if (*(unsigned short*)((char*)var3 + Enum_0209cd50_10118) == 0x76c) {
+                arg0 = 0x76c;
             }
         }
     }
-    struct SearchEntry* entry = func_02099950(table, value);
-    if (entry != 0) {
-        unsigned int idx = ((struct Entry0209cd50Layout*)entry)->idx7;
-        result = func_0209caf0(idx);
+    struct Struct_02099950* var4 = func_02099950(var2, arg0);
+    if (var4 != 0) {
+        unsigned int var5 = ((struct Struct_0209cd50*)var4)->unknown_d_0_;
+        var0 = func_0209caf0(var5);
     }
-    int r = func_0209cc3c(&data_02109be0, value);
-    if (r >= 0) {
-        result = r;
+    int var6 = func_0209cc3c(&data_02109be0, arg0);
+    if (var6 >= 0) {
+        var0 = var6;
     }
-    return result;
+    return var0;
 }

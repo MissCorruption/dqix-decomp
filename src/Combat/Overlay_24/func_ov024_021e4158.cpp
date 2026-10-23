@@ -2,58 +2,58 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-struct StatStageStruct02087b3c;
-struct StatStageStruct02087b90;
-extern "C" int func_02087b3c(struct StatStageStruct02087b3c* p, int decrease);
-extern "C" int func_02087b90(struct StatStageStruct02087b90* p, int delta);
+struct Struct_02087b3c;
+struct Struct_02087b90;
+extern "C" int func_02087b3c(struct Struct_02087b3c* arg0, int arg1);
+extern "C" int func_02087b90(struct Struct_02087b90* arg0, int arg1);
 void UpdateCombatantMagicalMight(int unused, int combatantId);
-extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
-struct Obj_021e8ca0;
-extern "C" void* func_ov024_021e8ca0(struct Obj_021e8ca0* obj, int id);
-extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, int e, int f, int g);
+extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+struct Struct_ov024_021e2bd0;
+extern "C" void* func_ov024_021e8ca0(struct Struct_ov024_021e2bd0* arg0, int arg1);
+extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 
-struct Obj_021e4158 { char pad0[0xc]; void* field0xc; void* field0x10; };
-struct Range_021e4158 { char pad[0x32]; short stageDelta; };
+struct Struct_ov024_021e4158 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; };
+struct Struct_ov024_021e4158_2 { char unknown_0_[0x32]; short unknown_32_; };
 
 // USA: func_ov024_021e4158
-extern "C" ARM unsigned long long func_ov024_021e4158(struct Obj_021e4158* obj, int unused, int id, struct Range_021e4158* range) {
-	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
-	if (!c) return 0;
-	int delta = range->stageDelta;
-	if (delta < -2) delta = -2;
-	if (delta > 2) delta = 2;
-	int decrease = 0;
-	if (delta < 0) decrease = 1;
-	int applied = 0;
-	int stage = 0;
-	if (func_02087b3c((struct StatStageStruct02087b3c*)c->currentStats_, (unsigned char)decrease)) {
-		stage = func_02087b90((struct StatStageStruct02087b90*)c->currentStats_, (signed char)delta);
-		UpdateCombatantMagicalMight((int)obj->field0x10, id);
-		applied = 1;
+extern "C" ARM unsigned long long func_ov024_021e4158(struct Struct_ov024_021e4158* arg0, int arg1, int arg2, struct Struct_ov024_021e4158_2* arg3) {
+	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
+	if (!var0) return 0;
+	int var1 = arg3->unknown_32_;
+	if (var1 < -2) var1 = -2;
+	if (var1 > 2) var1 = 2;
+	int var2 = 0;
+	if (var1 < 0) var2 = 1;
+	int var3 = 0;
+	int var4 = 0;
+	if (func_02087b3c((struct Struct_02087b3c*)var0->currentStats_, (unsigned char)var2)) {
+		var4 = func_02087b90((struct Struct_02087b90*)var0->currentStats_, (signed char)var1);
+		UpdateCombatantMagicalMight((int)arg0->unknown_10_, arg2);
+		var3 = 1;
 	}
-	union { struct { int lo; int hi; }; unsigned long long v; } local;
-	local.lo = 0;
-	local.hi = 0;
-	if (applied) {
-		int msg;
-		if (delta > 0) {
-			switch (stage) {
-			case 2: msg = 0xd0; break;
-			case 0: msg = 0x1b7; break;
-			default: msg = 0xd1; break;
+	union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var5;
+	var5.unknown_0_ = 0;
+	var5.unknown_4_ = 0;
+	if (var3) {
+		int var6;
+		if (var1 > 0) {
+			switch (var4) {
+			case 2: var6 = 0xd0; break;
+			case 0: var6 = 0x1b7; break;
+			default: var6 = 0xd1; break;
 			}
 		} else {
-			switch (stage) {
-			case -2: msg = 0x1b6; break;
-			case 0: msg = 0x1b7; break;
-			default: msg = 0x1b5; break;
+			switch (var4) {
+			case -2: var6 = 0x1b6; break;
+			case 0: var6 = 0x1b7; break;
+			default: var6 = 0x1b5; break;
 			}
 		}
-		func_ov000_02159eac(obj->field0x10, &local, 0x20);
-		void* entry = func_ov024_021e8ca0((struct Obj_021e8ca0*)obj, msg);
-		if (entry) {
-			func_ov000_0215cd44(obj->field0x10, entry, c, 0, 0, 0, 0);
+		func_ov000_02159eac(arg0->unknown_10_, &var5, 0x20);
+		void* var7 = func_ov024_021e8ca0((struct Struct_ov024_021e2bd0*)arg0, var6);
+		if (var7) {
+			func_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);
 		}
 	}
-	return local.v;
+	return var5.unknown1_0_;
 }

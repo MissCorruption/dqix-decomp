@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 
-struct State0xc0cc;
-extern "C" void func_0203c0f0(struct State0xc0cc* obj);
-extern "C" void func_ov000_0216fe9c(void* obj);
-extern "C" void func_ov000_021710ac(void* obj, int combatantId, int flag);
-extern "C" void func_ov000_02174b14(void* obj);
+struct Struct_0203c0cc;
+extern "C" void func_0203c0f0(struct Struct_0203c0cc* arg0);
+extern "C" void func_ov000_0216fe9c(void* arg0);
+extern "C" void func_ov000_021710ac(void* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02174b14(void* arg0);
 extern int data_ov000_02183ff0;
 
-struct Entry02174a50 {
-    char pad0[0x4c];
-    int field4c;
+struct Struct_ov000_02174a50 {
+    char unknown_0_[0x4c];
+    int unknown_4c_;
 #if defined(jpn)
-    char pad2[0x488 - 0x50];
+    char unknown_50_[0x488 - 0x50];
 #else
-    char pad2[0x448 - 0x50];
+    char unknown1_50_[0x448 - 0x50];
 #endif
 };
 
 // USA: func_ov000_02174a50
-extern "C" ARM void func_ov000_02174a50(void* obj, int combatantId) {
-    int valid = (combatantId >= 0 && combatantId <= 3) ? 1 : 0;
-    if (!valid) {
+extern "C" ARM void func_ov000_02174a50(void* arg0, int arg1) {
+    int var0 = (arg1 >= 0 && arg1 <= 3) ? 1 : 0;
+    if (!var0) {
         return;
     }
-    struct Entry02174a50* table = (struct Entry02174a50*)((char*)obj + 0x958);
-    for (int i = 0; i < 4; i++) {
-        signed char e = *(signed char*)((char*)obj + i + 0x6c);
-        struct Entry02174a50* entry = table + e;
-        if (combatantId == entry->field4c) {
-            func_0203c0f0((struct State0xc0cc*)((char*)entry + 0x50));
+    struct Struct_ov000_02174a50* var1 = (struct Struct_ov000_02174a50*)((char*)arg0 + 0x958);
+    for (int var2 = 0; var2 < 4; var2++) {
+        signed char var3 = *(signed char*)((char*)arg0 + var2 + 0x6c);
+        struct Struct_ov000_02174a50* var4 = var1 + var3;
+        if (arg1 == var4->unknown_4c_) {
+            func_0203c0f0((struct Struct_0203c0cc*)((char*)var4 + 0x50));
 #if defined(jpn)
-            enum { stateOffset = 0x88 };
+            enum { Enum_ov000_02174a50_104 = 0x88 };
 #else
-            enum { stateOffset = 0x68 };
+            enum { Enum_ov000_02174a50_104 = 0x68 };
 #endif
-            func_0203c0f0((struct State0xc0cc*)((char*)entry + stateOffset));
-            func_ov000_0216fe9c((char*)entry + 0x8);
-            func_ov000_021710ac(entry, -1, 0);
+            func_0203c0f0((struct Struct_0203c0cc*)((char*)var4 + Enum_ov000_02174a50_104));
+            func_ov000_0216fe9c((char*)var4 + 0x8);
+            func_ov000_021710ac(var4, -1, 0);
             data_ov000_02183ff0 -= 1;
-            func_ov000_02174b14(obj);
+            func_ov000_02174b14(arg0);
             if (data_ov000_02183ff0 <= 0) {
                 data_ov000_02183ff0 = 1;
             }

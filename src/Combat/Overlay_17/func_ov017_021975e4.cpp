@@ -6,138 +6,138 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
-typedef ZoneFeatures::Opcode6aEntry PathNode_021975e4;
+typedef Struct_020134e0::Struct_02018300 Struct_02018300;
 
-struct BitField0203402c;
-struct ListHead02046b60;
+struct Struct_0203402c;
+struct Struct_02038598_5;
 
 extern "C" void* func_02012fe4(void);
 extern "C" unsigned int* func_020d6c00();
-extern "C" int func_020535c8(signed char* obj);
-extern "C" int func_0203402c(BitField0203402c* obj);
-extern "C" int func_02046b60(ListHead02046b60* list, int id);
-extern "C" void* func_0201e838(unsigned char* obj, unsigned int index);
-extern "C" int func_02094b9c(PathNode_021975e4* node, Vector3i* point);
-extern "C" void func_020466e4(unsigned int* field, unsigned int bits);
+extern "C" int func_020535c8(signed char* arg0);
+extern "C" int func_0203402c(Struct_0203402c* arg0);
+extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" int func_02094b9c(Struct_02018300* arg0, Vector3i* arg1);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 
 // USA: func_ov017_021975e4
-extern "C" ARM void func_ov017_021975e4(GameResources* state) {
-    GameState* game = GameState::GetInstance();
-    Zone3D* zone = (Zone3D*)func_02012fe4();
-    unsigned int* flags = func_020d6c00();
-    GameObject* player = game->GetUnknownGameObject();
-    Vector3i anchor = player->obj3D_.position_;
-    SubBlock02038508* current = func_020399a8(player);
-    GameResources* res = GetGameResources();
-    ListHead02046b60* list = (ListHead02046b60*)res->unknown_ptr_array_36fc[0];
+extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Zone3D* var1 = (Zone3D*)func_02012fe4();
+    unsigned int* var2 = func_020d6c00();
+    GameObject* var3 = var0->GetUnknownGameObject();
+    Vector3i var4 = var3->obj3D_.position_;
+    Struct_02037d10* var5 = func_020399a8(var3);
+    GameResources* var6 = GetGameResources();
+    Struct_02038598_5* var7 = (Struct_02038598_5*)var6->unknown_ptr_array_36fc[0];
 
     if (g_keyManager.TestKeysHeld(0x402)) return;
-    if (func_020535c8((signed char*)player) || current->active) return;
-    if (func_0203402c((BitField0203402c*)player)) return;
-    if (func_02046b60(list, 0xc)) return;
-    if (func_02046b60(list, 0x2d)) return;
-    if (func_02046b60(list, 0x26)) return;
-    if (func_02046b60(list, 0x35)) return;
-    int idle = ((unsigned char*)player)[0xbe] == 0 ? 1 : 0;
-    if (idle == 1) return;
+    if (func_020535c8((signed char*)var3) || var5->unknown_0_) return;
+    if (func_0203402c((Struct_0203402c*)var3)) return;
+    if (func_02046b60(var7, 0xc)) return;
+    if (func_02046b60(var7, 0x2d)) return;
+    if (func_02046b60(var7, 0x26)) return;
+    if (func_02046b60(var7, 0x35)) return;
+    int var8 = ((unsigned char*)var3)[0xbe] == 0 ? 1 : 0;
+    if (var8 == 1) return;
 
-    PathNode_021975e4* node = (PathNode_021975e4*)func_0201e838((unsigned char*)&zone->substruct_6c_, 9);
-    while (node != 0) {
-        SubBlock02038508 block;
-        func_02038508(&block);
-        if (func_02094b9c(node, &anchor)) {
-            Vector3i nodeDir;
-            int cosine = fix32cos(node->unk_20);
-            nodeDir.x = fix32sin(node->unk_20);
-            nodeDir.y = 0;
-            nodeDir.z = cosine;
-            Vector3fix_Normalize(&nodeDir, &nodeDir);
+    Struct_02018300* var9 = (Struct_02018300*)func_0201e838((unsigned char*)&var1->substruct_6c_, 9);
+    while (var9 != 0) {
+        Struct_02037d10 var10;
+        func_02038508(&var10);
+        if (func_02094b9c(var9, &var4)) {
+            Vector3i var11;
+            int var12 = fix32cos(var9->unknown_20_);
+            var11.x = fix32sin(var9->unknown_20_);
+            var11.y = 0;
+            var11.z = var12;
+            Vector3fix_Normalize(&var11, &var11);
 
-            short heading = *(short*)((char*)player + 0xae);
-            Vector3i playerDir;
-            cosine = fix32cos(heading);
-            playerDir.x = fix32sin(heading);
-            playerDir.y = 0;
-            playerDir.z = cosine;
-            Vector3fix_Normalize(&playerDir, &playerDir);
+            short var13 = *(short*)((char*)var3 + 0xae);
+            Vector3i var14;
+            var12 = fix32cos(var13);
+            var14.x = fix32sin(var13);
+            var14.y = 0;
+            var14.z = var12;
+            Vector3fix_Normalize(&var14, &var14);
 
-            Vector3i facing = *(Vector3i*)(res->unknown_4420 + 0x18);
-            int alignment = Vector3fix_InnerProduct(&nodeDir, &playerDir);
-            int lateral = Vector3fix_InnerProduct(&nodeDir, &facing);
-            Vector3i offset;
-            Vector3fix_Subtract(&anchor, &node->unk_8.vec, &offset);
+            Vector3i var15 = *(Vector3i*)(var6->unknown_4420_ + 0x18);
+            int var16 = Vector3fix_InnerProduct(&var11, &var14);
+            int var17 = Vector3fix_InnerProduct(&var11, &var15);
+            Vector3i var18;
+            Vector3fix_Subtract(&var4, &var9->unknown_8_.unknown1_0_, &var18);
 
-            if (node->unk_2c.type9.unk_5 & 1) {
-                if (alignment >= 0) {
-                    node = node->pNext;
+            if (var9->unknown_2c_.unknown5_0_.unknown_5_ & 1) {
+                if (var16 >= 0) {
+                    var9 = var9->unknown_70_;
                     continue;
                 }
             } else {
-                if (alignment <= 0) {
-                    node = node->pNext;
+                if (var16 <= 0) {
+                    var9 = var9->unknown_70_;
                     continue;
                 }
             }
 
-            int ready = 0;
-            if ((*(short*)(state->unknown_42e3 + 0xb)) <= 1) {
-                if (((unsigned char*)player)[0xbe] == 1 && (lateral < -0xccc || lateral > 0xccc || alignment < -0xccc || alignment > 0xccc)) {
-                    (*(short*)(state->unknown_42e3 + 0xb))++;
+            int var19 = 0;
+            if ((*(short*)(arg0->unknown_42e3_ + 0xb)) <= 1) {
+                if (((unsigned char*)var3)[0xbe] == 1 && (var17 < -0xccc || var17 > 0xccc || var16 < -0xccc || var16 > 0xccc)) {
+                    (*(short*)(arg0->unknown_42e3_ + 0xb))++;
                 } else {
-                    (*(short*)(state->unknown_42e3 + 0xb)) = 0;
+                    (*(short*)(arg0->unknown_42e3_ + 0xb)) = 0;
                 }
-            } else if ((*(short*)(state->unknown_42e3 + 0xb)) > 1) {
-                (*(short*)(state->unknown_42e3 + 0xb)) = 0;
-                ready = 1;
+            } else if ((*(short*)(arg0->unknown_42e3_ + 0xb)) > 1) {
+                (*(short*)(arg0->unknown_42e3_ + 0xb)) = 0;
+                var19 = 1;
             }
-            if (!ready) {
-                node = node->pNext;
+            if (!var19) {
+                var9 = var9->unknown_70_;
                 continue;
             }
 
-            PathNode_021975e4* partner = func_0201e6d4(&zone->substruct_6c_, node->unk_2c.type9.unk_2);
-            if (!partner) return;
+            Struct_02018300* var20 = func_0201e6d4(&var1->substruct_6c_, var9->unknown_2c_.unknown5_0_.unknown_2_);
+            if (!var20) return;
 
-            block.active = 1;
-            block.heading = node->unk_20;
-            if (node->unk_2c.type9.unk_5 & 1) {
-                block.endNode = node;
-                block.startNode = partner;
-                block.start.vec = partner->unk_8.vec;
-                block.end.vec = node->unk_8.vec;
-                block.startControl.vec = partner->unk_8.vec;
-                block.endControl.vec = node->unk_8.vec;
-                block.startHeading = partner->unk_20;
-                block.endHeading = node->unk_20;
-                block.reversed = 1;
-                block.endControl.vec.x += nodeDir.x;
-                block.endControl.vec.z += nodeDir.z;
-                block.startControl.vec.x += -nodeDir.x >> 2;
-                block.startControl.vec.z += -nodeDir.z >> 2;
-                block.end.vec.y -= 0x1000;
-                block.startHeading -= 0x3243;
-                if (block.startHeading < 0) block.startHeading += 0x6487;
+            var10.unknown_0_ = 1;
+            var10.unknown_6_ = var9->unknown_20_;
+            if (var9->unknown_2c_.unknown5_0_.unknown_5_ & 1) {
+                var10.unknown_5c_ = var9;
+                var10.unknown_58_ = var20;
+                var10.unknown_c_.unknown1_0_ = var20->unknown_8_.unknown1_0_;
+                var10.unknown_18_.unknown1_0_ = var9->unknown_8_.unknown1_0_;
+                var10.unknown_30_.unknown1_0_ = var20->unknown_8_.unknown1_0_;
+                var10.unknown_3c_.unknown1_0_ = var9->unknown_8_.unknown1_0_;
+                var10.unknown_8_ = var20->unknown_20_;
+                var10.unknown_a_ = var9->unknown_20_;
+                var10.unknown_3_ = 1;
+                var10.unknown_3c_.unknown1_0_.x += var11.x;
+                var10.unknown_3c_.unknown1_0_.z += var11.z;
+                var10.unknown_30_.unknown1_0_.x += -var11.x >> 2;
+                var10.unknown_30_.unknown1_0_.z += -var11.z >> 2;
+                var10.unknown_18_.unknown1_0_.y -= 0x1000;
+                var10.unknown_8_ -= 0x3243;
+                if (var10.unknown_8_ < 0) var10.unknown_8_ += 0x6487;
             } else {
-                block.endNode = partner;
-                block.startNode = node;
-                block.start.vec = node->unk_8.vec;
-                block.end.vec = partner->unk_8.vec;
-                block.startControl.vec = node->unk_8.vec;
-                block.endControl.vec = partner->unk_8.vec;
-                block.startHeading = node->unk_20;
-                block.endHeading = partner->unk_20;
-                block.reversed = 0;
-                block.endControl.vec.x += nodeDir.x;
-                block.endControl.vec.z += nodeDir.z;
-                block.startControl.vec.x += -nodeDir.x >> 2;
-                block.startControl.vec.z += -nodeDir.z >> 2;
-                block.end.vec.y -= 0x1000;
-                block.startHeading -= 0x3243;
-                if (block.startHeading < 0) block.startHeading += 0x6487;
+                var10.unknown_5c_ = var20;
+                var10.unknown_58_ = var9;
+                var10.unknown_c_.unknown1_0_ = var9->unknown_8_.unknown1_0_;
+                var10.unknown_18_.unknown1_0_ = var20->unknown_8_.unknown1_0_;
+                var10.unknown_30_.unknown1_0_ = var9->unknown_8_.unknown1_0_;
+                var10.unknown_3c_.unknown1_0_ = var20->unknown_8_.unknown1_0_;
+                var10.unknown_8_ = var9->unknown_20_;
+                var10.unknown_a_ = var20->unknown_20_;
+                var10.unknown_3_ = 0;
+                var10.unknown_3c_.unknown1_0_.x += var11.x;
+                var10.unknown_3c_.unknown1_0_.z += var11.z;
+                var10.unknown_30_.unknown1_0_.x += -var11.x >> 2;
+                var10.unknown_30_.unknown1_0_.z += -var11.z >> 2;
+                var10.unknown_18_.unknown1_0_.y -= 0x1000;
+                var10.unknown_8_ -= 0x3243;
+                if (var10.unknown_8_ < 0) var10.unknown_8_ += 0x6487;
             }
-            func_020398b4(player, &block);
-            func_020466e4(flags, 0x400);
+            func_020398b4(var3, &var10);
+            func_020466e4(var2, 0x400);
         }
-        node = node->pNext;
+        var9 = var9->unknown_70_;
     }
 }

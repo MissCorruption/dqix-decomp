@@ -3,99 +3,99 @@
 #define func_ov012_02184384 func_ov012_021853f8
 #define func_ov012_0218930c func_ov012_02189be8
 enum {
-    kStepOffset = 0x1340,
-    kStateOffset = 0x1341,
-    kActiveOffset = 0x1368,
-    kWindowOffset = 0x90,
-    kChoiceEOffset = 0x1440,
-    kListCountsOffset = 0x141c,
-    kSecondListOffset = 0x1420
+    Enum_ov012_021884f4_4976 = 0x1340,
+    Enum_ov012_021884f4_4977 = 0x1341,
+    Enum_ov012_021884f4_5024 = 0x1368,
+    Enum_ov012_021884f4_172 = 0x90,
+    Enum_ov012_021884f4_5096 = 0x1440,
+    Enum_ov012_021884f4_5060 = 0x141c,
+    Enum_ov012_021884f4_5064 = 0x1420
 };
 #else
 enum {
-    kStepOffset = 0x1370,
-    kStateOffset = 0x1371,
-    kActiveOffset = 0x13a0,
-    kWindowOffset = 0xac,
-    kChoiceEOffset = 0x13e8,
-    kListCountsOffset = 0x13c4,
-    kSecondListOffset = 0x13c8
+    Enum_ov012_021884f4_4976 = 0x1370,
+    Enum_ov012_021884f4_4977 = 0x1371,
+    Enum_ov012_021884f4_5024 = 0x13a0,
+    Enum_ov012_021884f4_172 = 0xac,
+    Enum_ov012_021884f4_5096 = 0x13e8,
+    Enum_ov012_021884f4_5060 = 0x13c4,
+    Enum_ov012_021884f4_5064 = 0x13c8
 };
 #endif
 
 #include <globaldefs.h>
 
-struct ProfileListCounts {
-    unsigned short available : 5;
-    unsigned short other : 11;
+struct Struct_ov012_021884f4 {
+    unsigned short unknown_0_0_ : 5;
+    unsigned short unknown_0_5_ : 11;
 };
 
-extern "C" int func_ov012_02184384(unsigned short* entries, int count);
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
-extern "C" void func_ov023_021e6e60(void* obj);
-extern "C" void func_ov012_0218a438(char* self);
+extern "C" int func_ov012_02184384(unsigned short* arg0, int arg1);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void func_ov012_0218a438(char* arg0);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* s);
-extern "C" int func_ov023_021e6de4(char* obj);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-struct Obj021e6e20;
-extern "C" int func_ov023_021e6e20(struct Obj021e6e20* obj);
-extern "C" void func_ov012_0218930c(void* obj, int a);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int func_ov023_021e6de4(char* arg0);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct Struct_ov012_02186a7c;
+extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
+extern "C" void func_ov012_0218930c(void* arg0, int arg1);
 extern int data_02108760;
 
 // USA: func_ov012_021884f4
-extern "C" ARM void func_ov012_021884f4(char* base) {
-    unsigned char state = *(unsigned char*)(base + kStepOffset);
-    if (state == 0) {
-        *(unsigned char*)(base + kActiveOffset) = 0;
-        *(int*)(base + kChoiceEOffset) = 1;
+extern "C" ARM void func_ov012_021884f4(char* arg0) {
+    unsigned char var0 = *(unsigned char*)(arg0 + Enum_ov012_021884f4_4976);
+    if (var0 == 0) {
+        *(unsigned char*)(arg0 + Enum_ov012_021884f4_5024) = 0;
+        *(int*)(arg0 + Enum_ov012_021884f4_5096) = 1;
 
-        unsigned int count = ((ProfileListCounts*)(base + kListCountsOffset))->other;
-        int ret = func_ov012_02184384(*(unsigned short**)(base + kSecondListOffset), count);
-        if (ret < 0) {
-            *(int*)(base + kChoiceEOffset) = 0;
+        unsigned int var1 = ((Struct_ov012_021884f4*)(arg0 + Enum_ov012_021884f4_5060))->unknown_0_5_;
+        int var2 = func_ov012_02184384(*(unsigned short**)(arg0 + Enum_ov012_021884f4_5064), var1);
+        if (var2 < 0) {
+            *(int*)(arg0 + Enum_ov012_021884f4_5096) = 0;
         }
 
-        func_0205de24((struct Struct0205de24*)(base + kWindowOffset), 0, 3);
-        func_ov023_021e6e60(base);
-        func_ov012_0218a438(base);
+        func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov012_021884f4_172), 0, 3);
+        func_ov023_021e6e60(arg0);
+        func_ov012_0218a438(arg0);
 
-        (*(unsigned char*)(base + kStepOffset))++;
+        (*(unsigned char*)(arg0 + Enum_ov012_021884f4_4976))++;
         return;
     }
-    if (state != 1) return;
+    if (var0 != 1) return;
 
-    *(unsigned char*)(base + kActiveOffset) = 1;
-    int sum = func_0205d794((struct Struct_0205c570*)(base + kWindowOffset));
-    *(int*)(base + kChoiceEOffset) = sum;
+    *(unsigned char*)(arg0 + Enum_ov012_021884f4_5024) = 1;
+    int var3 = func_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_021884f4_172));
+    *(int*)(arg0 + Enum_ov012_021884f4_5096) = var3;
 
-    if (func_ov023_021e6de4(base) != 0) {
-        int v = *(int*)(base + kChoiceEOffset);
-        int cont = 1;
-        switch (v) {
+    if (func_ov023_021e6de4(arg0) != 0) {
+        int var4 = *(int*)(arg0 + Enum_ov012_021884f4_5096);
+        int var5 = 1;
+        switch (var4) {
         case 0:
-            *(unsigned char*)(base + kStateOffset) = 0xb;
-            *(unsigned char*)(base + kStepOffset) = 0;
+            *(unsigned char*)(arg0 + Enum_ov012_021884f4_4977) = 0xb;
+            *(unsigned char*)(arg0 + Enum_ov012_021884f4_4976) = 0;
             break;
         case 1: {
-            if (((ProfileListCounts*)(base + kListCountsOffset))->other != 0) {
-                *(unsigned char*)(base + kStateOffset) = 0xc;
-                *(unsigned char*)(base + kStepOffset) = 0;
+            if (((Struct_ov012_021884f4*)(arg0 + Enum_ov012_021884f4_5060))->unknown_0_5_ != 0) {
+                *(unsigned char*)(arg0 + Enum_ov012_021884f4_4977) = 0xc;
+                *(unsigned char*)(arg0 + Enum_ov012_021884f4_4976) = 0;
             } else {
-                cont = 0;
+                var5 = 0;
             }
             break;
         }
         }
 
-        if (cont != 0) {
-            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
+        if (var5 != 0) {
+            func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
         }
     } else {
-        if (func_ov023_021e6e20((struct Obj021e6e20*)base) != 0) {
-            func_ov012_0218930c(base, 1);
+        if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) {
+            func_ov012_0218930c(arg0, 1);
         }
     }
 }

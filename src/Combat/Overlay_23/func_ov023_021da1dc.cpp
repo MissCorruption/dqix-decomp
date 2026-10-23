@@ -1,78 +1,78 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" void* memset(void* dst, int value, unsigned int length);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
-struct StructA0205d5d0;
-extern "C" int func_0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, unsigned char e);
+struct Struct_0205d5d0;
+extern "C" int func_0205d5d0(struct Struct_0205d5d0* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
-struct WindowFrame_021da1dc {
-    char pad0[0x30];
-    int unk_30;
+struct Struct_ov023_021da1dc {
+    char unknown_0_[0x30];
+    int unknown_30_;
 };
 
-struct CharacterCreation_021da1dc {
-    char pad0[0xf8];
-    void* unk_f8;
-    char padfc[0x2b4 - 0xfc];
-    char window1[0xd85 - 0x2b4];
-    unsigned char unk_d85;
+struct Struct_ov023_021da1dc_2 {
+    char unknown_0_[0xf8];
+    void* unknown_f8_;
+    char unknown_fc_[0x2b4 - 0xfc];
+    char unknown_2b4_[0xd85 - 0x2b4];
+    unsigned char unknown_d85_;
 };
 
-extern "C" void func_ov023_021da100(CharacterCreation_021da1dc* self, char* text, int highlighted);
+extern "C" void func_ov023_021da100(Struct_ov023_021da1dc_2* arg0, char* arg1, int arg2);
 
-static inline WindowFrame_021da1dc* GetFrame(void* window)
+static inline Struct_ov023_021da1dc* inline_ov023_021da1dc(void* arg0)
 {
-    return (WindowFrame_021da1dc*)((char*)window + 4);
+    return (Struct_ov023_021da1dc*)((char*)arg0 + 4);
 }
 
 // USA: func_ov023_021da1dc
 #if defined(jpn)
 
-struct CharacterCreation_021da9a8 {
-    char pad0[0xd8];
-    void* unk_d8;
-    char paddc[0x278 - 0xdc];
-    char window1[0xd49 - 0x278];
-    unsigned char unk_d49;
+struct Struct_ov023_021da1dc_3 {
+    char unknown_0_[0xd8];
+    void* unknown_d8_;
+    char unknown_dc_[0x278 - 0xdc];
+    char unknown_278_[0xd49 - 0x278];
+    unsigned char unknown_d49_;
 };
 
-extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da9a8* self)
+extern "C" ARM void func_ov023_021da1dc(Struct_ov023_021da1dc_3* arg0)
 {
-    unsigned char unk = self->unk_d49;
-    if (unk != 0)
+    unsigned char var0 = arg0->unknown_d49_;
+    if (var0 != 0)
     {
-        int highlighted = 0;
-        if (unk == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
+        int var1 = 0;
+        if (var0 == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
         {
-            WindowFrame_021da1dc* frame = GetFrame(self->window1);
-            if (frame->unk_30 < 0)
+            Struct_ov023_021da1dc* var2 = inline_ov023_021da1dc(arg0->unknown_278_);
+            if (var2->unknown_30_ < 0)
                 return;
-            highlighted = 1;
+            var1 = 1;
         }
-        memset(self->unk_d8, 0, 0x800);
-        func_ov023_021da100((CharacterCreation_021da1dc*)self, (char*)self->unk_d8, highlighted);
-        ((int (*)(struct StructA0205d5d0*, int, int, int))func_0205d5d0)((StructA0205d5d0*)self->window1, 1, (int)self->unk_d8, 0);
+        memset(arg0->unknown_d8_, 0, 0x800);
+        func_ov023_021da100((Struct_ov023_021da1dc_2*)arg0, (char*)arg0->unknown_d8_, var1);
+        ((int (*)(struct Struct_0205d5d0*, int, int, int))func_0205d5d0)((Struct_0205d5d0*)arg0->unknown_278_, 1, (int)arg0->unknown_d8_, 0);
     }
 }
 #else
-extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da1dc* self)
+extern "C" ARM void func_ov023_021da1dc(Struct_ov023_021da1dc_2* arg0)
 {
-    unsigned char unk = self->unk_d85;
-    if (unk != 0)
+    unsigned char var3 = arg0->unknown_d85_;
+    if (var3 != 0)
     {
-        int highlighted = 0;
-        if (unk == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
+        int var4 = 0;
+        if (var3 == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
         {
-            WindowFrame_021da1dc* frame = GetFrame(self->window1);
-            if (frame->unk_30 < 0)
+            Struct_ov023_021da1dc* var5 = inline_ov023_021da1dc(arg0->unknown_2b4_);
+            if (var5->unknown_30_ < 0)
                 return;
-            highlighted = 1;
+            var4 = 1;
         }
-        char* text = (char*)self->unk_f8;
-        memset(text, 0, 0x960);
-        func_ov023_021da100(self, text, highlighted);
-        func_0205d5d0((StructA0205d5d0*)self->window1, 1, (int)text, 0, 1);
+        char* var6 = (char*)arg0->unknown_f8_;
+        memset(var6, 0, 0x960);
+        func_ov023_021da100(arg0, var6, var4);
+        func_0205d5d0((Struct_0205d5d0*)arg0->unknown_2b4_, 1, (int)var6, 0, 1);
     }
 }
 #endif

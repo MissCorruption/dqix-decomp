@@ -1,97 +1,97 @@
 #include <globaldefs.h>
 
-struct S02098834
+struct Struct_02098630
 {
-    unsigned char name[11];
-    unsigned char slot : 7;
-    unsigned char field_0xb : 1;
-    unsigned int flagsLow : 4;
-    unsigned int category : 4;
-    unsigned int field_0xc_bit8 : 7;
-    unsigned int priority : 4;
-    unsigned int level : 5;
-    unsigned int field_0xc_bit24 : 6;
-    unsigned int dirty : 1;
-    unsigned int field_0xc_bit31 : 1;
-    unsigned int used : 2;
-    unsigned int serial : 30;
-    unsigned char key[6];
-    unsigned char field_0x1a[0x6c - 0x1a];
-    unsigned int field_0x6c_bit0 : 26;
-    unsigned int eligible : 1;
-    unsigned int field_0x6c_bit27 : 5;
-    unsigned char field_0x70[0xe8 - 0x70];
+    unsigned char unknown_0_[11];
+    unsigned char unknown_b_0_ : 7;
+    unsigned char unknown_b_7_ : 1;
+    unsigned int unknown_c_0_ : 4;
+    unsigned int unknown_c_4_ : 4;
+    unsigned int unknown_d_0_ : 7;
+    unsigned int unknown_d_7_ : 4;
+    unsigned int unknown_e_3_ : 5;
+    unsigned int unknown_f_0_ : 6;
+    unsigned int unknown_f_6_ : 1;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 2;
+    unsigned int unknown_10_2_ : 30;
+    unsigned char unknown_14_[6];
+    unsigned char unknown_1a_[0x6c - 0x1a];
+    unsigned int unknown_6c_0_ : 26;
+    unsigned int unknown_6f_2_ : 1;
+    unsigned int unknown_6f_3_ : 5;
+    unsigned char unknown_70_[0xe8 - 0x70];
 };
 
-struct Base020989cc
+struct Struct_02097cac_2
 {
-    S02098834 records[30];
-    int field_0x1b30;
-    unsigned int nextSerial;
-    unsigned int count;
-    unsigned char field_0x1b3c[0x1b68 - 0x1b3c];
-    unsigned int pendingSerials[3];
-    int pendingCount;
+    Struct_02098630 unknown_0_[30];
+    int unknown_1b30_;
+    unsigned int unknown_1b34_;
+    unsigned int unknown_1b38_;
+    unsigned char unknown_1b3c_[0x1b68 - 0x1b3c];
+    unsigned int unknown_1b68_[3];
+    int unknown_1b74_;
 };
 
-struct SlotRegistration02098630
+struct Struct_02098630_2
 {
-    int slot;
-    int priority;
-    int level;
-    int field_0xc;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
 extern "C" int func_02001aec(const void*, const void*, int);
-extern "C" int func_02098a84(Base020989cc*);
-extern "C" S02098834* func_02098834(S02098834*, S02098834*);
-extern "C" void func_020989cc(Base020989cc*);
+extern "C" int func_02098a84(Struct_02097cac_2*);
+extern "C" Struct_02098630* func_02098834(Struct_02098630*, Struct_02098630*);
+extern "C" void func_020989cc(Struct_02097cac_2*);
 extern "C" int func_020cf0fc(int);
 
 // USA: func_02098630
-extern "C" ARM int func_02098630(Base020989cc* self, S02098834* source, int advanceSerial, int updateRank)
+extern "C" ARM int func_02098630(Struct_02097cac_2* arg0, Struct_02098630* arg1, int arg2, int arg3)
 {
-    if (!source->eligible)
+    if (!arg1->unknown_6f_2_)
         return 0;
-    for (int i = 0; i < 30; i++)
+    for (int var0 = 0; var0 < 30; var0++)
     {
-        if (func_02001aec(self->records[i].key, source->key, 6) == 0)
+        if (func_02001aec(arg0->unknown_0_[var0].unknown_14_, arg1->unknown_14_, 6) == 0)
             return 0;
     }
-    int index = func_02098a84(self);
-    if (advanceSerial)
-        self->nextSerial++;
-    self->count = 0;
-    S02098834* cursor = self->records;
-    for (int i = 0; i < 30; i++, cursor++)
+    int var1 = func_02098a84(arg0);
+    if (arg2)
+        arg0->unknown_1b34_++;
+    arg0->unknown_1b38_ = 0;
+    Struct_02098630* var2 = arg0->unknown_0_;
+    for (int var3 = 0; var3 < 30; var3++, var2++)
     {
-        if (cursor->serial)
-            self->count++;
+        if (var2->unknown_10_2_)
+            arg0->unknown_1b38_++;
     }
-    if (++self->count > 30)
-        self->count = 30;
-    S02098834* record = &self->records[index];
-    func_02098834(record, source);
-    record->category = 2;
-    record->used = 2;
-    record->dirty = 1;
-    record->serial = self->nextSerial;
-    SlotRegistration02098630 registration;
-    if (func_020cf0fc((int)&registration) == 0)
+    if (++arg0->unknown_1b38_ > 30)
+        arg0->unknown_1b38_ = 30;
+    Struct_02098630* var4 = &arg0->unknown_0_[var1];
+    func_02098834(var4, arg1);
+    var4->unknown_c_4_ = 2;
+    var4->unknown_10_0_ = 2;
+    var4->unknown_f_6_ = 1;
+    var4->unknown_10_2_ = arg0->unknown_1b34_;
+    Struct_02098630_2 var5;
+    if (func_020cf0fc((int)&var5) == 0)
     {
-        self->records[index].slot = (unsigned char)registration.slot;
-        self->records[index].priority = registration.priority;
-        self->records[index].level = registration.level;
+        arg0->unknown_0_[var1].unknown_b_0_ = (unsigned char)var5.unknown_0_;
+        arg0->unknown_0_[var1].unknown_d_7_ = var5.unknown_4_;
+        arg0->unknown_0_[var1].unknown_e_3_ = var5.unknown_8_;
     }
-    if (updateRank)
-        func_020989cc(self);
-    unsigned int serial = record->serial;
-    for (int i = 0; i < 3; i++)
+    if (arg3)
+        func_020989cc(arg0);
+    unsigned int var6 = var4->unknown_10_2_;
+    for (int var7 = 0; var7 < 3; var7++)
     {
-        if (self->pendingSerials[i] == 0xffffffff)
+        if (arg0->unknown_1b68_[var7] == 0xffffffff)
         {
-            self->pendingSerials[i] = serial;
-            self->pendingCount++;
+            arg0->unknown_1b68_[var7] = var6;
+            arg0->unknown_1b74_++;
             break;
         }
     }

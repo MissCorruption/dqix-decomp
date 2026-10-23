@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void __clear(void* ptr, int size);
-extern "C" unsigned char func_020114ec(char* obj, void* dst);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
 extern "C" void func_ov017_021d6134(void*, int);
 
-struct CurrentStats_021ea630 { char pad[4]; unsigned short maxHP; };
-struct Combatant_021ea630 { unsigned short flags0; char pad[0x130 - 2]; struct CurrentStats_021ea630* current; };
+struct Struct_ov023_021ea630 { char unknown_0_[4]; unsigned short unknown_4_; };
+struct Struct_ov023_021ea630_2 { unsigned short unknown_0_; char unknown_2_[0x130 - 2]; struct Struct_ov023_021ea630* unknown_130_; };
 
 // USA: func_ov023_021ea630
-extern "C" ARM int func_ov023_021ea630(void* obj) {
-    GameState* bs = GameState::GetInstance();
-    unsigned char buf[4];
-    __clear(buf, 4);
-    int n = func_020114ec((char*)bs, buf);
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        struct Combatant_021ea630* c = (struct Combatant_021ea630*)func_0200ff1c(bs, buf[i]);
-        if (c == NULL) continue;
-        if (c->flags0 & 0x1000) continue;
-        int hp = c->current->maxHP;
-        if (hp <= 0) count++;
+extern "C" ARM int func_ov023_021ea630(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned char var1[4];
+    __clear(var1, 4);
+    int var2 = func_020114ec((char*)var0, var1);
+    int var3 = 0;
+    for (int var4 = 0; var4 < var2; var4++) {
+        struct Struct_ov023_021ea630_2* var5 = (struct Struct_ov023_021ea630_2*)func_0200ff1c(var0, var1[var4]);
+        if (var5 == NULL) continue;
+        if (var5->unknown_0_ & 0x1000) continue;
+        int var6 = var5->unknown_130_->unknown_4_;
+        if (var6 <= 0) var3++;
     }
-    func_ov017_021d6134(obj, count);
+    func_ov017_021d6134(arg0, var3);
     return 1;
 }

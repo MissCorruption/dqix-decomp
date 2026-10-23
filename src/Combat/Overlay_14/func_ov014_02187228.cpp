@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct Node02187228 { Node02187228* next; };
+struct Struct_ov014_02187228 { Struct_ov014_02187228* unknown_0_; };
 
-extern "C" int func_02080468(void* a, int b);
+extern "C" int func_02080468(void* arg0, int arg1);
 
 // USA: func_ov014_02187228
-extern "C" ARM void func_ov014_02187228(char* obj, Node02187228* target) {
-    *(Node02187228**)(obj + 0xbc) = *(Node02187228**)(obj + 0xb8);
-    *(short*)(obj + 0x176) = 0x1b;
-    void* src = *(void**)(obj + 0xc0);
-    if (src != 0) {
-        *(short*)(obj + 0x176) = (short)func_02080468(src, 5);
+extern "C" ARM void func_ov014_02187228(char* arg0, Struct_ov014_02187228* arg1) {
+    *(Struct_ov014_02187228**)(arg0 + 0xbc) = *(Struct_ov014_02187228**)(arg0 + 0xb8);
+    *(short*)(arg0 + 0x176) = 0x1b;
+    void* var0 = *(void**)(arg0 + 0xc0);
+    if (var0 != 0) {
+        *(short*)(arg0 + 0x176) = (short)func_02080468(var0, 5);
     }
-    if (target == 0) return;
+    if (arg1 == 0) return;
 
-    Node02187228* node = *(Node02187228**)(obj + 0xb8);
-    Node02187228* ckpt = node;
-    short idx = 0;
-    Node02187228* head = *(Node02187228**)(obj + 0xb8);
-    while (node != 0) {
-        if (idx % 16 == 0) { ckpt = node; idx = 0; }
-        if (node == target) break;
-        idx = (short)(idx + 1);
-        node = node->next;
+    Struct_ov014_02187228* var1 = *(Struct_ov014_02187228**)(arg0 + 0xb8);
+    Struct_ov014_02187228* var2 = var1;
+    short var3 = 0;
+    Struct_ov014_02187228* var4 = *(Struct_ov014_02187228**)(arg0 + 0xb8);
+    while (var1 != 0) {
+        if (var3 % 16 == 0) { var2 = var1; var3 = 0; }
+        if (var1 == arg1) break;
+        var3 = (short)(var3 + 1);
+        var1 = var1->unknown_0_;
     }
-    if (node == 0) { idx = 0; ckpt = head; }
-    *(short*)(obj + 0x176) = *(short*)(obj + 0x176) + idx;
-    *(Node02187228**)(obj + 0xbc) = ckpt;
+    if (var1 == 0) { var3 = 0; var2 = var4; }
+    *(short*)(arg0 + 0x176) = *(short*)(arg0 + 0x176) + var3;
+    *(Struct_ov014_02187228**)(arg0 + 0xbc) = var2;
 }

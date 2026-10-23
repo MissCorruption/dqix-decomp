@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-struct Elem02071cc8 {
-    short f0;
-    short f2;
-    short f4;
-    short f6;
-    short f8;
-    unsigned short fa;
-    int fc;
-    int f10;
-    short f14;
-    short f16;
-    short f18;
-    short f1a;
-    int f1c;
+struct Struct_02071874 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    unsigned short unknown_a_;
+    int unknown_c_;
+    int unknown_10_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
+    int unknown_1c_;
 };
 
-struct List02071cc8 {
-    char pad0[4];
-    struct Elem02071cc8* entries;
-    unsigned short capacity;
-    unsigned short count;
+struct Struct_02071cc8 {
+    char unknown_0_[4];
+    struct Struct_02071874* unknown_4_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
 };
 
 // USA: func_02071cc8
-extern "C" ARM void func_02071cc8(struct List02071cc8* list, struct Elem02071cc8* src) {
-    struct Elem02071cc8* dst;
-    if (list->capacity <= list->count) {
+extern "C" ARM void func_02071cc8(struct Struct_02071cc8* arg0, struct Struct_02071874* arg1) {
+    struct Struct_02071874* var0;
+    if (arg0->unknown_8_ <= arg0->unknown_a_) {
         return;
     }
-    dst = &list->entries[list->count];
-    dst->f0 = src->f0;
-    dst->f2 = src->f2;
-    dst->f4 = src->f4;
-    dst->f6 = src->f6;
-    dst->f8 = src->f8;
-    dst->fa = src->fa;
-    dst->fc = src->fc;
-    dst->f10 = src->f10;
-    dst->f14 = src->f14;
-    dst->f16 = src->f16;
-    dst->f18 = src->f18;
-    dst->f1a = src->f1a;
-    dst->f1c = src->f1c;
-    list->count++;
+    var0 = &arg0->unknown_4_[arg0->unknown_a_];
+    var0->unknown_0_ = arg1->unknown_0_;
+    var0->unknown_2_ = arg1->unknown_2_;
+    var0->unknown_4_ = arg1->unknown_4_;
+    var0->unknown_6_ = arg1->unknown_6_;
+    var0->unknown_8_ = arg1->unknown_8_;
+    var0->unknown_a_ = arg1->unknown_a_;
+    var0->unknown_c_ = arg1->unknown_c_;
+    var0->unknown_10_ = arg1->unknown_10_;
+    var0->unknown_14_ = arg1->unknown_14_;
+    var0->unknown_16_ = arg1->unknown_16_;
+    var0->unknown_18_ = arg1->unknown_18_;
+    var0->unknown_1a_ = arg1->unknown_1a_;
+    var0->unknown_1c_ = arg1->unknown_1c_;
+    arg0->unknown_a_++;
 }

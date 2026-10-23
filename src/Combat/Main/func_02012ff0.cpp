@@ -3,12 +3,12 @@
 
 
 // USA: func_02012ff0
-extern "C" ARM void func_02012ff0(struct Struct02012ff0* s) {
-    s->field0 = -1;
-    s->field2 = 0;
-    s->field4 = 0;
-    s->field8 = 0;
-    s->fieldc = 0;
-    s->field10 = 0;
-    s->field14 = 0;
+extern "C" ARM void func_02012ff0(struct Struct_02012ff0* arg0) {
+    arg0->unknown_0_ = -1;
+    arg0->unknown_2_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = 0;
 }

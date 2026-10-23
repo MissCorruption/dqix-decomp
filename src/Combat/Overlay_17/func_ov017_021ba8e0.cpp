@@ -11,18 +11,18 @@
 
 extern "C" int func_020421a0();
 
-struct TailNode020469b4 { unsigned char pad0[2]; unsigned char inList; unsigned char pad3; void* next; };
-struct TailList020469b4 { void* head; void* tail; };
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
+struct Struct_0201bdac { unsigned char unknown_0_[2]; unsigned char unknown_2_; unsigned char unknown_3_; void* unknown_4_; };
+struct Struct_0201bdac_2 { void* unknown_0_; void* unknown_4_; };
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
 
-struct Obj021ba90c;
-extern "C" void func_ov017_021ba90c(Obj021ba90c* p);
+struct Struct_ov017_0219bfb4;
+extern "C" void func_ov017_021ba90c(Struct_ov017_0219bfb4* arg0);
 
 // USA: func_ov017_021ba8e0
-extern "C" ARM void func_ov017_021ba8e0(unsigned char* base) {
+extern "C" ARM void func_ov017_021ba8e0(unsigned char* arg0) {
     func_020421a0();
-    func_ov017_021ba90c(*(Obj021ba90c**)(base + 0x3000 + REGION_FIELD_0));
-    TailList020469b4* list = *(TailList020469b4**)(base + 0x3000 + REGION_FIELD_1);
-    TailNode020469b4* node = *(TailNode020469b4**)(base + 0x3000 + REGION_FIELD_0);
-    func_020469b4(list, node);
+    func_ov017_021ba90c(*(Struct_ov017_0219bfb4**)(arg0 + 0x3000 + REGION_FIELD_0));
+    Struct_0201bdac_2* var0 = *(Struct_0201bdac_2**)(arg0 + 0x3000 + REGION_FIELD_1);
+    Struct_0201bdac* var1 = *(Struct_0201bdac**)(arg0 + 0x3000 + REGION_FIELD_0);
+    func_020469b4(var0, var1);
 }

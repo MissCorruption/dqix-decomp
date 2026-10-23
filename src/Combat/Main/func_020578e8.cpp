@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Point020578e8 {
-    int x;
-    float y;
+struct Struct_020578e8 {
+    int unknown_0_;
+    float unknown_4_;
 };
-struct Wrap020578e8 {
-    Point020578e8* p;
+struct Struct_020557a4 {
+    Struct_020578e8* unknown_0_;
 };
 
 // USA: func_020578e8
-extern "C" ARM float func_020578e8(Wrap020578e8* a, Wrap020578e8* b) {
-    Point020578e8* pa = a->p;
-    Point020578e8* pb = b->p;
-    return (pb->y - pa->y) / (float)(pb->x - pa->x);
+extern "C" ARM float func_020578e8(Struct_020557a4* arg0, Struct_020557a4* arg1) {
+    Struct_020578e8* var0 = arg0->unknown_0_;
+    Struct_020578e8* var1 = arg1->unknown_0_;
+    return (var1->unknown_4_ - var0->unknown_4_) / (float)(var1->unknown_0_ - var0->unknown_0_);
 }

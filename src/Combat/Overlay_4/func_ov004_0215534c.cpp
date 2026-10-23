@@ -16,132 +16,132 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Grid021f9b30 {
-    char pad[0x20];
-    short* cells;
-    unsigned short width;
-    unsigned short height;
-    char pad28[0x34];
-    short x;
-    short y;
+struct Struct_ov004_02153e20 {
+    char unknown_0_[0x20];
+    short* unknown_20_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    char unknown_28_[0x34];
+    short unknown_5c_;
+    short unknown_5e_;
 };
 
-struct Entry0215534c {
-    int field_0x0;
-    int value;
-    int field_0x8;
-    unsigned int flags;
+struct Struct_ov004_0215534c_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned int unknown_c_;
 };
 
-struct ListNode0215534c {
-    ListNode0215534c* next;
-    Entry0215534c* entry;
+struct Struct_ov004_0215534c_3 {
+    Struct_ov004_0215534c_3* unknown_0_;
+    Struct_ov004_0215534c_2* unknown_4_;
 };
 
-struct Slot0215534c {
-    char pad[0xc];
-    unsigned char flags;
-    char padD[0x13];
-    int value;
+struct Struct_ov004_0215534c_4 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_;
+    char unknown_d_[0x13];
+    int unknown_20_;
 };
 
-class VObj0215534c {
+class Struct_ov004_0215534c {
 public:
-	virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-	virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-	virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-	virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-	virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-	virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-	virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-	virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-	virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-	virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-	virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
-	virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
-	virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
-	virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55();
-	virtual void v56(); virtual void v57(); virtual void v58();
-	virtual ListNode0215534c** GetList();
+	virtual void inline_ov004_0215534c(); virtual void inline_ov004_0215534c_2(); virtual void inline_ov004_0215534c_3(); virtual void inline_ov004_0215534c_4();
+	virtual void inline_ov004_0215534c_5(); virtual void inline_ov004_0215534c_6(); virtual void inline_ov004_0215534c_7(); virtual void inline_ov004_0215534c_8();
+	virtual void inline_ov004_0215534c_9(); virtual void inline_ov004_0215534c_10(); virtual void inline_ov004_0215534c_11(); virtual void inline_ov004_0215534c_12();
+	virtual void inline_ov004_0215534c_13(); virtual void inline_ov004_0215534c_14(); virtual void inline_ov004_0215534c_15(); virtual void inline_ov004_0215534c_16();
+	virtual void inline_ov004_0215534c_17(); virtual void inline_ov004_0215534c_18(); virtual void inline_ov004_0215534c_19(); virtual void inline_ov004_0215534c_20();
+	virtual void inline_ov004_0215534c_21(); virtual void inline_ov004_0215534c_22(); virtual void inline_ov004_0215534c_23(); virtual void inline_ov004_0215534c_24();
+	virtual void inline_ov004_0215534c_25(); virtual void inline_ov004_0215534c_26(); virtual void inline_ov004_0215534c_27(); virtual void inline_ov004_0215534c_28();
+	virtual void inline_ov004_0215534c_29(); virtual void inline_ov004_0215534c_30(); virtual void inline_ov004_0215534c_31(); virtual void inline_ov004_0215534c_32();
+	virtual void inline_ov004_0215534c_33(); virtual void inline_ov004_0215534c_34(); virtual void inline_ov004_0215534c_35(); virtual void inline_ov004_0215534c_36();
+	virtual void inline_ov004_0215534c_37(); virtual void inline_ov004_0215534c_38(); virtual void inline_ov004_0215534c_39(); virtual void inline_ov004_0215534c_40();
+	virtual void inline_ov004_0215534c_41(); virtual void inline_ov004_0215534c_42(); virtual void inline_ov004_0215534c_43(); virtual void inline_ov004_0215534c_44();
+	virtual void inline_ov004_0215534c_45(); virtual void inline_ov004_0215534c_46(); virtual void inline_ov004_0215534c_47(); virtual void inline_ov004_0215534c_48();
+	virtual void inline_ov004_0215534c_49(); virtual void inline_ov004_0215534c_50(); virtual void inline_ov004_0215534c_51(); virtual void inline_ov004_0215534c_52();
+	virtual void inline_ov004_0215534c_53(); virtual void inline_ov004_0215534c_54(); virtual void inline_ov004_0215534c_55(); virtual void inline_ov004_0215534c_56();
+	virtual void inline_ov004_0215534c_57(); virtual void inline_ov004_0215534c_58(); virtual void inline_ov004_0215534c_59();
+	virtual Struct_ov004_0215534c_3** inline_ov004_0215534c_60();
 };
 
-extern "C" void* func_ov011_021849c8(void* ctx);
-extern "C" void* func_ov023_021f6880(void* list, int id);
-extern "C" int func_ov023_021f6f10(void* obj);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" int func_ov023_021f6f10(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_ov023_021f9d14(Grid021f9b30* grid, void* ctx);
-extern "C" int func_ov023_021f9b30(Grid021f9b30* self, unsigned short val, unsigned int x, unsigned int y);
-extern "C" void func_ov023_021f9da0(void* self, unsigned char val);
-extern "C" void func_ov023_021f6630(int ctx, int kind, short x, short y);
-extern "C" int func_ov004_021552b8(void* ctx);
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" void func_ov023_021f9d14(Struct_ov004_02153e20* arg0, void* arg1);
+extern "C" int func_ov023_021f9b30(Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+extern "C" void func_ov023_021f9da0(void* arg0, unsigned char arg1);
+extern "C" void func_ov023_021f6630(int arg0, int arg1, short arg2, short arg3);
+extern "C" int func_ov004_021552b8(void* arg0);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 
 // USA: func_ov004_0215534c
-extern "C" ARM int func_ov004_0215534c(void* ctx) {
-    void* list;
-    short x;
-    Grid021f9b30* grid;
-    short y;
-    VObj0215534c* obj;
-    ListNode0215534c** head;
-    ListNode0215534c* node;
-    unsigned char* flags;
-    short i;
-    short j;
-    int id;
-    Slot0215534c* slot;
+extern "C" ARM int func_ov004_0215534c(void* arg0) {
+    void* var0;
+    short var1;
+    Struct_ov004_02153e20* var2;
+    short var3;
+    Struct_ov004_0215534c* var4;
+    Struct_ov004_0215534c_3** var5;
+    Struct_ov004_0215534c_3* var6;
+    unsigned char* var7;
+    short var8;
+    short var9;
+    int var10;
+    Struct_ov004_0215534c_4* var11;
 
-    list = func_ov011_021849c8(ctx);
-    grid = (Grid021f9b30*)func_ov023_021f6880(list, 0x2c);
-    if (!grid) return 0;
-    if (func_ov023_021f6f10(grid) != 7) return 0;
-    x = grid->x;
-    y = grid->y;
-    obj = (VObj0215534c*)func_ov023_021f6880(list, 0x39);
-    if (!obj) return 0;
-    if (func_ov023_021f6f10(obj) != 0x12) return 0;
-    head = obj->GetList();
-    if (!head) return 0;
-    node = *head;
-    if (!node) return 0;
-    flags = (unsigned char*)func_0205ec34();
+    var0 = func_ov011_021849c8(arg0);
+    var2 = (Struct_ov004_02153e20*)func_ov023_021f6880(var0, 0x2c);
+    if (!var2) return 0;
+    if (func_ov023_021f6f10(var2) != 7) return 0;
+    var1 = var2->unknown_5c_;
+    var3 = var2->unknown_5e_;
+    var4 = (Struct_ov004_0215534c*)func_ov023_021f6880(var0, 0x39);
+    if (!var4) return 0;
+    if (func_ov023_021f6f10(var4) != 0x12) return 0;
+    var5 = var4->inline_ov004_0215534c_60();
+    if (!var5) return 0;
+    var6 = *var5;
+    if (!var6) return 0;
+    var7 = (unsigned char*)func_0205ec34();
 
-    short start = x * 16;
-    i = 0;
-    while (node) {
-        if (i == start) break;
-        i++;
-        node = node->next;
+    short var12 = var1 * 16;
+    var8 = 0;
+    while (var6) {
+        if (var8 == var12) break;
+        var8++;
+        var6 = var6->unknown_0_;
     }
 
-    for (j = 0; j < 16; j++) {
-        id = j + 0x1a;
-        slot = (Slot0215534c*)func_ov023_021f6880(list, id);
-        if (slot && func_ov023_021f6f10(slot) == 8) {
-            slot->value = 0;
-            slot->flags &= ~8;
-            if (!node) {
-                func_ov023_021f9b30(grid, 0, (unsigned short)(j >> 1), (unsigned short)(j & 1));
-                slot->flags |= 8;
+    for (var9 = 0; var9 < 16; var9++) {
+        var10 = var9 + 0x1a;
+        var11 = (Struct_ov004_0215534c_4*)func_ov023_021f6880(var0, var10);
+        if (var11 && func_ov023_021f6f10(var11) == 8) {
+            var11->unknown_20_ = 0;
+            var11->unknown_c_ &= ~8;
+            if (!var6) {
+                func_ov023_021f9b30(var2, 0, (unsigned short)(var9 >> 1), (unsigned short)(var9 & 1));
+                var11->unknown_c_ |= 8;
             } else {
-                func_ov023_021f9b30(grid, (unsigned short)id, (unsigned short)(j >> 1), (unsigned short)(j & 1));
-                Entry0215534c* entry = node->entry;
-                if (entry) {
-                    int bits = (unsigned short)((entry->flags << 9) >> 21);
-                    if (bits > 0) {
-                        if (func_0206dfb0((int)flags, flags + 0x8c, bits + 0x76 + 0xc00)) {
-                            slot->value = entry->value;
+                func_ov023_021f9b30(var2, (unsigned short)var10, (unsigned short)(var9 >> 1), (unsigned short)(var9 & 1));
+                Struct_ov004_0215534c_2* var13 = var6->unknown_4_;
+                if (var13) {
+                    int var14 = (unsigned short)((var13->unknown_c_ << 9) >> 21);
+                    if (var14 > 0) {
+                        if (func_0206dfb0((int)var7, var7 + 0x8c, var14 + 0x76 + 0xc00)) {
+                            var11->unknown_20_ = var13->unknown_4_;
                         }
                     }
                 }
-                node = node->next;
+                var6 = var6->unknown_0_;
             }
         }
     }
 
-    func_ov023_021f9da0(grid, 1);
-    func_ov023_021f9d14(grid, ctx);
-    func_ov023_021f6630((int)ctx, 3, x, y);
-    func_ov004_021552b8(ctx);
+    func_ov023_021f9da0(var2, 1);
+    func_ov023_021f9d14(var2, arg0);
+    func_ov023_021f6630((int)arg0, 3, var1, var3);
+    func_ov004_021552b8(arg0);
     return 0;
 }

@@ -3,7 +3,7 @@
 extern char data_0210cf88;
 
 // USA: func_020bb92c
-extern "C" ARM void func_020bb92c(int* src) {
-    *(int*)(&data_0210cf88 + 0x0) = src[0];
-    *(int*)(&data_0210cf88 + 0x4) = src[1];
+extern "C" ARM void func_020bb92c(int* arg0) {
+    *(int*)(&data_0210cf88 + 0x0) = arg0[0];
+    *(int*)(&data_0210cf88 + 0x4) = arg0[1];
 }

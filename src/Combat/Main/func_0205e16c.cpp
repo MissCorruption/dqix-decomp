@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Struct0205e16c {
-    int field0;
-    int field4;
-    int field8;
+struct Struct_0202c7bc_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
 // USA: func_0205e16c
-extern "C" ARM void func_0205e16c(struct Struct0205e16c* p) {
-    p->field0 = 0;
-    p->field4 = 0;
-    p->field8 = 0;
+extern "C" ARM void func_0205e16c(struct Struct_0202c7bc_2* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
 }

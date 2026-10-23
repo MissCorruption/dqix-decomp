@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct Elem0208d9e8 {
-    short h0;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
+struct Struct_0208d9e8 {
+    short unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
 };
 
-struct List0208d994 {
-    struct Elem0208d9e8* base;
-    short count;
+struct Struct_0208bf78_5 {
+    struct Struct_0208d9e8* unknown_0_;
+    short unknown_4_;
 };
 
-extern "C" struct Elem0208d9e8* func_0208d994(struct List0208d994* l, int key);
+extern "C" struct Struct_0208d9e8* func_0208d994(struct Struct_0208bf78_5* arg0, int arg1);
 
 // USA: func_0208d9e8
-extern "C" ARM int func_0208d9e8(struct List0208d994* list, int key) {
-    struct Elem0208d9e8* e = func_0208d994(list, key);
-    return e ? e->w4 : 0;
+extern "C" ARM int func_0208d9e8(struct Struct_0208bf78_5* arg0, int arg1) {
+    struct Struct_0208d9e8* var0 = func_0208d994(arg0, arg1);
+    return var0 ? var0->unknown_4_ : 0;
 }

@@ -2,66 +2,66 @@
 
 extern "C" int rand(void);
 
-struct Vec3s32_020c3030 { int x; int y; int z; };
-extern "C" extern int Vector3fix_Distance(struct Vec3s32_020c3030* a, struct Vec3s32_020c3030* b);
+struct Struct_02028460_3 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" extern int Vector3fix_Distance(struct Struct_02028460_3* arg0, struct Struct_02028460_3* arg1);
 
-struct Node020409b0 {
-    char pad[0x14];
-    void* f14;
-    void* f18;
+struct Struct_020409b0 {
+    char unknown_0_[0x14];
+    void* unknown_14_;
+    void* unknown_18_;
 };
-extern "C" int func_020409b0(struct Node020409b0* obj, int arg);
+extern "C" int func_020409b0(struct Struct_020409b0* arg0, int arg1);
 
-struct Node0204117c {
-    int x, y, z;
-    int f0xc;
-    struct Node0204117c* next;
-};
-
-struct Container0204117c {
-    unsigned char pad0[0x1f];
-    unsigned char modeByte;
-    unsigned char pad20[0x22 - 0x20];
-    unsigned char countByte;
-    unsigned char pad23[0x34 - 0x23];
-    struct Node0204117c* listHead;
+struct Struct_0204117c {
+    int unknown_0_, unknown_4_, unknown_8_;
+    int unknown_c_;
+    struct Struct_0204117c* unknown_10_;
 };
 
-struct Obj0204117c {
-    unsigned char pad0[0xc];
-    struct Container0204117c* cont;
+struct Struct_0204117c_2 {
+    unsigned char unknown_0_[0x1f];
+    unsigned char unknown_1f_;
+    unsigned char unknown_20_[0x22 - 0x20];
+    unsigned char unknown_22_;
+    unsigned char unknown_23_[0x34 - 0x23];
+    struct Struct_0204117c* unknown_34_;
+};
+
+struct Struct_02040c2c_5 {
+    unsigned char unknown_0_[0xc];
+    struct Struct_0204117c_2* unknown_c_;
 };
 
 // USA: func_0204117c
-extern "C" ARM void func_0204117c(struct Obj0204117c* obj, struct Vec3s32_020c3030* refPoint) {
-    struct Node0204117c* node = obj->cont->listHead;
-    while (node != NULL) {
-        if (node->f0xc != 0) {
-            if (Vector3fix_Distance((struct Vec3s32_020c3030*)node, refPoint) != 0) {
-                func_020409b0((struct Node020409b0*)obj, (int)node);
+extern "C" ARM void func_0204117c(struct Struct_02040c2c_5* arg0, struct Struct_02028460_3* arg1) {
+    struct Struct_0204117c* var0 = arg0->unknown_c_->unknown_34_;
+    while (var0 != NULL) {
+        if (var0->unknown_c_ != 0) {
+            if (Vector3fix_Distance((struct Struct_02028460_3*)var0, arg1) != 0) {
+                func_020409b0((struct Struct_020409b0*)arg0, (int)var0);
                 goto epilogue;
             }
             break;
         } else {
-            node = node->next;
+            var0 = var0->unknown_10_;
         }
     }
-    node->f0xc = 0;
-    node = node->next;
-    if (obj->cont->modeByte == 9) {
-        int skip = rand() % obj->cont->countByte;
-        int i;
-        for (i = 0; i < skip; i++) {
-            node = node->next;
+    var0->unknown_c_ = 0;
+    var0 = var0->unknown_10_;
+    if (arg0->unknown_c_->unknown_1f_ == 9) {
+        int var1 = rand() % arg0->unknown_c_->unknown_22_;
+        int var2;
+        for (var2 = 0; var2 < var1; var2++) {
+            var0 = var0->unknown_10_;
         }
     }
     {
-        struct Vec3s32_020c3030 localBuf;
-        localBuf.x = node->x;
-        localBuf.y = node->y;
-        localBuf.z = node->z;
-        node->f0xc = 1;
-        func_020409b0((struct Node020409b0*)obj, (int)&localBuf);
+        struct Struct_02028460_3 var3;
+        var3.unknown_0_ = var0->unknown_0_;
+        var3.unknown_4_ = var0->unknown_4_;
+        var3.unknown_8_ = var0->unknown_8_;
+        var0->unknown_c_ = 1;
+        func_020409b0((struct Struct_020409b0*)arg0, (int)&var3);
     }
 epilogue:;
 }

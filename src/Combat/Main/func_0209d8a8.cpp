@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kFieldOffset = 0x508 };
+enum { Enum_0209d8a8_1816 = 0x508 };
 #else
-enum { kFieldOffset = 0x718 };
+enum { Enum_0209d8a8_1816 = 0x718 };
 #endif
 
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" void* func_02010828(GameState* arg0);
 extern "C" void* func_0209dccc();
-extern "C" int func_ov017_021d60f4(void* p);
-extern "C" void* func_ov017_021b8468(int a);
-extern "C" void* func_ov000_02160f08(void* obj);
-extern "C" void* func_020de824(void* obj);
-extern "C" void func_0207cbe8(char* obj);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void* func_ov017_021b8468(int arg0);
+extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* func_020de824(void* arg0);
+extern "C" void func_0207cbe8(char* arg0);
 
-struct Container020dedd0;
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+struct Struct_0201099c_10;
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
 
-struct Obj0207d200;
-extern "C" int func_0207d200(struct Obj0207d200* self, short key, int amount);
+struct Struct_0207ccf0_4;
+extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
 
-struct SelfBuf0209d8a8 {
-    char pad[0x2c];
-    struct Container020dedd0* container;
-    void* field30;
-    char pad2[4];
+struct Struct_0209d8a8 {
+    char unknown_0_[0x2c];
+    struct Struct_0201099c_10* unknown_2c_;
+    void* unknown_30_;
+    char unknown_34_[4];
 };
 
-struct GlobalManagerFields0209d8a8 {
-    char pad[0x90];
-    int f90;
-    int f94;
+struct Struct_0209d8a8_2 {
+    char unknown_0_[0x90];
+    int unknown_90_;
+    int unknown_94_;
 };
 
 // USA: func_0209d8a8
-extern "C" ARM int func_0209d8a8(void* obj) {
-    SelfBuf0209d8a8 self;
-    int b0;
-    int b1;
+extern "C" ARM int func_0209d8a8(void* arg0) {
+    Struct_0209d8a8 var0;
+    int var1;
+    int var2;
     func_02010828(GameState::GetInstance());
-    GlobalManagerFields0209d8a8* mgr = (GlobalManagerFields0209d8a8*)func_0209dccc();
-    if (mgr == NULL) {
+    Struct_0209d8a8_2* var3 = (Struct_0209d8a8_2*)func_0209dccc();
+    if (var3 == NULL) {
         return 0;
     }
-    b0 = func_ov017_021d60f4(obj);
-    b1 = func_ov017_021d60f4((char*)obj + 8);
-    void* base = GetGameResources();
-    int field = *(int*)((char*)base + 0x3000 + kFieldOffset);
-    void* p = func_ov017_021b8468(field);
-    if (p == NULL) {
+    var1 = func_ov017_021d60f4(arg0);
+    var2 = func_ov017_021d60f4((char*)arg0 + 8);
+    void* var4 = GetGameResources();
+    int var5 = *(int*)((char*)var4 + 0x3000 + Enum_0209d8a8_1816);
+    void* var6 = func_ov017_021b8468(var5);
+    if (var6 == NULL) {
         return 1;
     }
-    void* off = func_ov000_02160f08(p);
-    if (off == NULL) {
+    void* var7 = func_ov000_02160f08(var6);
+    if (var7 == NULL) {
         return 1;
     }
-    struct Container020dedd0* container = (struct Container020dedd0*)((char*)off + 0xd0);
-    ((SafeAllocator*)&self)->ResetAllocatorPointer();
-    func_020de824(self.pad + 0x14);
-    func_0207cbe8(self.pad);
-    if (func_020dedd0(container, (short)b0) != NULL) {
-        self.container = container;
-        func_0207d200((struct Obj0207d200*)&self, b0, (char)b1);
+    struct Struct_0201099c_10* var8 = (struct Struct_0201099c_10*)((char*)var7 + 0xd0);
+    ((SafeAllocator*)&var0)->ResetAllocatorPointer();
+    func_020de824(var0.unknown_0_ + 0x14);
+    func_0207cbe8(var0.unknown_0_);
+    if (func_020dedd0(var8, (short)var1) != NULL) {
+        var0.unknown_2c_ = var8;
+        func_0207d200((struct Struct_0207ccf0_4*)&var0, var1, (char)var2);
     }
-    mgr->f90 = b0;
-    mgr->f94 = b1;
+    var3->unknown_90_ = var1;
+    var3->unknown_94_ = var2;
     return 1;
 }

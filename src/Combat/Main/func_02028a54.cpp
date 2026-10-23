@@ -3,25 +3,25 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
-struct BigRecord020289c4 {
-    unsigned short id;
-    unsigned short flagsX : 2;
-    unsigned short flagB : 1;
-    unsigned short otherFlags : 13;
-    char reserved4[0xc];
-    SafeAllocator* allocator;
+struct Struct_020288e0 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 2;
+    unsigned short unknown_2_2_ : 1;
+    unsigned short unknown_2_3_ : 13;
+    char unknown_4_[0xc];
+    SafeAllocator* unknown_10_;
 #if !defined(jpn)
-    SafeAllocator* secondAllocator;
+    SafeAllocator* unknown_14_;
 #endif
-    char reserved18[0x300];
+    char unknown_18_[0x300];
 };
 
-struct Combatant02028a54 {
-    GameObject object;
-    char reserved13c[0x5c];
+struct Struct_02028a54 {
+    GameObject unknown_0_;
+    char unknown_13c_[0x5c];
 };
 
-extern "C" void func_020289c4(BigRecord020289c4*);
+extern "C" void func_020289c4(Struct_020288e0*);
 extern "C" void func_0200fd48(GameState*, int);
 extern "C" void func_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_0202ae18();
@@ -29,45 +29,45 @@ extern "C" void func_02012fe4();
 extern "C" void func_02076a8c(GameObject*);
 
 // USA: func_02028a54
-extern "C" ARM int func_02028a54(BigRecord020289c4* records, int id)
+extern "C" ARM int func_02028a54(Struct_020288e0* arg0, int arg1)
 {
-    GameState* state = GameState::GetInstance();
+    GameState* var0 = GameState::GetInstance();
     func_0202ae18();
     GetGameResources();
     func_02012fe4();
-    state->GetGrottoStruct();
-    for (int i = 0; i < 4; ++i) {
-        if (id == records[i].id) return 0;
+    var0->GetGrottoStruct();
+    for (int var1 = 0; var1 < 4; ++var1) {
+        if (arg1 == arg0[var1].unknown_0_) return 0;
     }
-    int index = -1;
-    for (int i = 0; i < 4; ++i) {
-        if (!records[i].flagB) {
-            index = i;
+    int var2 = -1;
+    for (int var3 = 0; var3 < 4; ++var3) {
+        if (!arg0[var3].unknown_2_2_) {
+            var2 = var3;
             break;
         }
     }
-    if (index < 0) return 0;
-    BigRecord020289c4* record = &records[index];
-    func_020289c4(record);
-    record->flagB = 1;
-    record->id = id;
-    record->allocator->Reset();
+    if (var2 < 0) return 0;
+    Struct_020288e0* var4 = &arg0[var2];
+    func_020289c4(var4);
+    var4->unknown_2_2_ = 1;
+    var4->unknown_0_ = arg1;
+    var4->unknown_10_->Reset();
 #if !defined(jpn)
-    record->secondAllocator->Reset();
+    var4->unknown_14_->Reset();
 #endif
-    Combatant02028a54* objects = (Combatant02028a54*)record->allocator->Allocate(0x1320);
-    int i = 0;
-    if (!objects) {
-        int firstSlot = index * 12 + 0x70;
-        for (; i < 12; ++i) func_0200fd48(state, i + firstSlot);
+    Struct_02028a54* var5 = (Struct_02028a54*)var4->unknown_10_->Allocate(0x1320);
+    int var6 = 0;
+    if (!var5) {
+        int var7 = var2 * 12 + 0x70;
+        for (; var6 < 12; ++var6) func_0200fd48(var0, var6 + var7);
         return 0;
     }
-    int firstSlot = index * 12;
-    firstSlot += 0x70;
-    for (; i < 12; ++i) {
-        func_02076a8c(&objects[i].object);
-        objects[i].object.obj3D_.MakeHidden();
-        func_0200fd38(state, i + firstSlot, &objects[i].object);
+    int var8 = var2 * 12;
+    var8 += 0x70;
+    for (; var6 < 12; ++var6) {
+        func_02076a8c(&var5[var6].unknown_0_);
+        var5[var6].unknown_0_.obj3D_.MakeHidden();
+        func_0200fd38(var0, var6 + var8, &var5[var6].unknown_0_);
     }
     return 1;
 }

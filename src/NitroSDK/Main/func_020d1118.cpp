@@ -10,12 +10,12 @@ void InitializeInterProcessorCommunication(void);
 void SetArm9IPCCommandHandler(int, IPCCommandHandler);
 extern "C" void func_020d1144(unsigned int, unsigned int, unsigned int);
 
-struct InitGuard020d1118 { int done; void* callback; };
-extern InitGuard020d1118 data_02112140;
+struct Struct_02112140 { int unknown_0_; void* unknown_4_; };
+extern Struct_02112140 data_02112140;
 
 // USA: func_020d1118
 extern "C" ARM void func_020d1118(void) {
     InitializeInterProcessorCommunication();
     SetArm9IPCCommandHandler(0xe, (IPCCommandHandler)func_020d1144);
-    data_02112140.callback = NULL;
+    data_02112140.unknown_4_ = NULL;
 }

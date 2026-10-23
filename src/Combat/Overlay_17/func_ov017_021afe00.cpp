@@ -4,144 +4,144 @@
 #include "Resource/Brightness.h"
 #include "NitroSDK/Graphics.h"
 
-struct SearchStruct;
-struct SearchStruct0202c1a4;
-struct S_e830;
+struct Struct_0202b2f0;
+struct Struct_0202c1a4;
+struct Struct_0201e830;
 struct AllocatorUnion;
 
-struct PartyView021afe00 {
-    char pad0[0x1b2];
-    unsigned short f1b2;
+struct Struct_ov017_021afe00_3 {
+    char unknown_0_[0x1b2];
+    unsigned short unknown_1b2_;
 };
 
-struct Alloc021afe00 {
-    unsigned char b0;
-    char pad1[3];
-    char a4[0x190];
-    char a194[0x110];
-    char a2a4[0x20];
-    unsigned int w2c4;
-    unsigned int w2c8;
-    unsigned int w2cc;
-    unsigned short h2d0;
-    unsigned short h2d2;
-    unsigned char b2d4;
-    unsigned char b2d5;
-    unsigned short h2d6[4];
+struct Struct_ov017_021afe00_4 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    char unknown_4_[0x190];
+    char unknown_194_[0x110];
+    char unknown_2a4_[0x20];
+    unsigned int unknown_2c4_;
+    unsigned int unknown_2c8_;
+    unsigned int unknown_2cc_;
+    unsigned short unknown_2d0_;
+    unsigned short unknown_2d2_;
+    unsigned char unknown_2d4_;
+    unsigned char unknown_2d5_;
+    unsigned short unknown_2d6_[4];
 };
 
-struct Step021afe00 {
-    char unk0[4];
-    signed char* ptr4;
-    char unk8;
-    unsigned char state;
-    unsigned char retA;
-    unsigned char unkB;
-    unsigned char idxC;
-    char unkD[0x1b - 0xd];
-    unsigned char slots[0x38 - 0x1b];
-    unsigned int field4Bits;
-    int axis;
-    unsigned short clearColor;
-    unsigned char restoreDisplay;
-    char unk43[0x288 - 0x43];
-    Alloc021afe00* alloc;
+struct Struct_ov017_021afe00_5 {
+    char unknown_0_[4];
+    signed char* unknown_4_;
+    char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
+    unsigned char unknown_c_;
+    char unknown_d_[0x1b - 0xd];
+    unsigned char unknown_1b_[0x38 - 0x1b];
+    unsigned int unknown_38_;
+    int unknown_3c_;
+    unsigned short unknown_40_;
+    unsigned char unknown_42_;
+    char unknown_43_[0x288 - 0x43];
+    Struct_ov017_021afe00_4* unknown_288_;
 };
 
-struct Sub021afe00 {
-    char pad0[0x1b34];
-    unsigned int w34;
-    unsigned int w38;
-    unsigned int w3c;
-    char pad40[0x1b48 - 0x1b40];
-    unsigned int w48;
-    char pad4c[0x1b62 - 0x1b4c];
-    unsigned char b62;
+struct Struct_ov017_021afe00 {
+    char unknown_0_[0x1b34];
+    unsigned int unknown_1b34_;
+    unsigned int unknown_1b38_;
+    unsigned int unknown_1b3c_;
+    char unknown_1b40_[0x1b48 - 0x1b40];
+    unsigned int unknown_1b48_;
+    char unknown_1b4c_[0x1b62 - 0x1b4c];
+    unsigned char unknown_1b62_;
 };
 
-struct GrottoHead021afe00 {
-    unsigned char flag;
+struct Struct_ov017_021afe00_2 {
+    unsigned char unknown_0_;
 };
 
 extern "C" void* func_0202ae18();
 extern "C" void* func_02012fe4();
-extern "C" void func_020531f0(void* p);
-extern "C" void func_ov017_021cff8c(int a, int b);
-extern "C" void func_ov017_021d0b30(int a, int b, int c);
+extern "C" void func_020531f0(void* arg0);
+extern "C" void func_ov017_021cff8c(int arg0, int arg1);
+extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 
-extern "C" int func_0202c1c0(SearchStruct* obj, int index);
-extern "C" signed char func_0202c1a4(SearchStruct0202c1a4* obj);
-extern "C" unsigned short func_0201e830(S_e830* obj);
-extern "C" void func_020c5588(int a, int b, int c, int d, int e);
-extern "C" int func_020535c8(signed char* obj);
-extern "C" int func_ov017_021a193c(int* obj);
-extern "C" int func_020100a8(GameState* gs);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void* func_020120a0(char* gs, unsigned int idx);
-extern "C" unsigned int func_02012078(void* gs);
-extern "C" void func_020116c8(void* gs);
-extern "C" void func_020dc2d0(int v);
+extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
+extern "C" signed char func_0202c1a4(Struct_0202c1a4* arg0);
+extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" int func_020535c8(signed char* arg0);
+extern "C" int func_ov017_021a193c(int* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
+extern "C" unsigned int func_02012078(void* arg0);
+extern "C" void func_020116c8(void* arg0);
+extern "C" void func_020dc2d0(int arg0);
 
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov017_021afe00
-extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
-    GameState* gs = GameState::GetInstance();
-    SearchStruct* search = (SearchStruct*)func_0202ae18();
-    for (int i = 0; i < 4; i++) {
-        if (func_0202c1c0(search, i) == 0) {
+extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_0202b2f0* var1 = (Struct_0202b2f0*)func_0202ae18();
+    for (int var2 = 0; var2 < 4; var2++) {
+        if (func_0202c1c0(var1, var2) == 0) {
             continue;
         }
-        if (i == func_0202c1a4((SearchStruct0202c1a4*)search)) {
+        if (var2 == func_0202c1a4((Struct_0202c1a4*)var1)) {
             continue;
         }
-        SearchEntry0202c178* e = func_0202c178(search, i);
-        if (e == 0) {
+        Struct_0202b2f0_2* var3 = func_0202c178(var1, var2);
+        if (var3 == 0) {
             continue;
         }
-        if (e->active == 0) {
-            return self->retA;
+        if (var3->unknown_2_0_ == 0) {
+            return arg0->unknown_a_;
         }
     }
-    self->unkB = 1;
-    char* g = (char*)func_02012fe4();
-    Sub021afe00* sub = (Sub021afe00*)(g + 0x840);
-    if (self->state != 2) {
-        GameResources* res = GetGameResources();
-        if (IsBrightnessTransitionActive(res) != 0) {
+    arg0->unknown_b_ = 1;
+    char* var4 = (char*)func_02012fe4();
+    Struct_ov017_021afe00* var5 = (Struct_ov017_021afe00*)(var4 + 0x840);
+    if (arg0->unknown_9_ != 2) {
+        GameResources* var6 = GetGameResources();
+        if (IsBrightnessTransitionActive(var6) != 0) {
             return 1;
         }
-        self->axis = GetBrightness((GameResources*)res, false);
-        if (IsBrightnessOutsideValidRange((GameResources*)res, false) != 0) {
-            self->restoreDisplay = 1;
+        arg0->unknown_3c_ = GetBrightness((GameResources*)var6, false);
+        if (IsBrightnessOutsideValidRange((GameResources*)var6, false) != 0) {
+            arg0->unknown_42_ = 1;
             DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-            char* info = (char*)func_02012fe4();
-            if (info != 0) {
-                S_e830* color = (S_e830*)(info + 0x6c);
-                if (color != 0) {
-                    self->clearColor = func_0201e830(color);
+            char* var7 = (char*)func_02012fe4();
+            if (var7 != 0) {
+                Struct_0201e830* var8 = (Struct_0201e830*)(var7 + 0x6c);
+                if (var8 != 0) {
+                    arg0->unknown_40_ = func_0201e830(var8);
                 }
             }
-            int clear = 0;
-            if (self->axis == 0x10) {
-                clear = 0x7fff;
+            int var9 = 0;
+            if (arg0->unknown_3c_ == 0x10) {
+                var9 = 0x7fff;
             }
-            func_020c5588(clear, 0x1f, 0x7fff, 0, 0);
-            self->field4Bits = GetFlags04(res);
-            ClearFlags04(res, 0xffffffff);
-            SetFlags04(res, 0x8de);
-            SetMainBrightness(res, 0, 2);
+            func_020c5588(var9, 0x1f, 0x7fff, 0, 0);
+            arg0->unknown_38_ = GetFlags04(var6);
+            ClearFlags04(var6, 0xffffffff);
+            SetFlags04(var6, 0x8de);
+            SetMainBrightness(var6, 0, 2);
         }
-        for (int i = 0; i < 4; i++) {
-            GameObject* m = gs->GetPartyMemberByIndex(i);
-            if (m != 0) {
-                if (func_020535c8((signed char*)m) != 0) {
-                    func_020531f0(m);
+        for (int var10 = 0; var10 < 4; var10++) {
+            GameObject* var11 = var0->GetPartyMemberByIndex(var10);
+            if (var11 != 0) {
+                if (func_020535c8((signed char*)var11) != 0) {
+                    func_020531f0(var11);
                 }
             }
         }
-        if (self->ptr4 != 0) {
-            if (*self->ptr4 == 2) {
+        if (arg0->unknown_4_ != 0) {
+            if (*arg0->unknown_4_ == 2) {
                 if (func_ov017_021a193c(*(int**)((char*)GetGameResources() + 0x3708)) != 0) {
                     DISPCNT = (DISPCNT & ~0x1f00) | 0x700;
                 }
@@ -152,57 +152,57 @@ extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
             DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
         }
     }
-    if (self->state == 1) {
-        func_ov017_021cff8c(func_020100a8(gs), 0);
+    if (arg0->unknown_9_ == 1) {
+        func_ov017_021cff8c(func_020100a8(var0), 0);
     }
-    if (self->state == 2 || self->state == 0) {
-        self->alloc = (Alloc021afe00*)func_02012d88(&data_02114e20, 0x2e0);
+    if (arg0->unknown_9_ == 2 || arg0->unknown_9_ == 0) {
+        arg0->unknown_288_ = (Struct_ov017_021afe00_4*)func_02012d88(&data_02114e20, 0x2e0);
     }
-    if (self->state == 0) {
-        Alloc021afe00* a = self->alloc;
-        if (self->alloc != 0) {
-            a->b0 = *(unsigned char*)((char*)gs + 0x5cda);
-            memcpy(a->a4, (char*)gs + 0x5cdc, 0x190);
-            memcpy(a->a194, (char*)gs + 0x5e6c, 0x110);
-            memcpy(a->a2a4, func_020120a0((char*)gs, 0), 0x20);
-            a->w2c4 = func_02012078(gs);
-            a->w2c8 = sub->w34;
-            a->h2d0 = sub->w38;
-            a->h2d2 = sub->w3c;
-            a->w2cc = sub->w48;
-            a->b2d4 = *(unsigned short*)(g + 0x27b4);
-            a->b2d5 = *(unsigned short*)(g + 0x27b6);
-            for (int i = 0; i < 4; i++) {
-                PartyView021afe00* m = (PartyView021afe00*)gs->GetPartyMemberByIndex(i);
-                if (m != 0) {
-                    a->h2d6[i] = m->f1b2;
+    if (arg0->unknown_9_ == 0) {
+        Struct_ov017_021afe00_4* var12 = arg0->unknown_288_;
+        if (arg0->unknown_288_ != 0) {
+            var12->unknown_0_ = *(unsigned char*)((char*)var0 + 0x5cda);
+            memcpy(var12->unknown_4_, (char*)var0 + 0x5cdc, 0x190);
+            memcpy(var12->unknown_194_, (char*)var0 + 0x5e6c, 0x110);
+            memcpy(var12->unknown_2a4_, func_020120a0((char*)var0, 0), 0x20);
+            var12->unknown_2c4_ = func_02012078(var0);
+            var12->unknown_2c8_ = var5->unknown_1b34_;
+            var12->unknown_2d0_ = var5->unknown_1b38_;
+            var12->unknown_2d2_ = var5->unknown_1b3c_;
+            var12->unknown_2cc_ = var5->unknown_1b48_;
+            var12->unknown_2d4_ = *(unsigned short*)(var4 + 0x27b4);
+            var12->unknown_2d5_ = *(unsigned short*)(var4 + 0x27b6);
+            for (int var13 = 0; var13 < 4; var13++) {
+                Struct_ov017_021afe00_3* var14 = (Struct_ov017_021afe00_3*)var0->GetPartyMemberByIndex(var13);
+                if (var14 != 0) {
+                    var12->unknown_2d6_[var13] = var14->unknown_1b2_;
                 } else {
-                    a->h2d6[i] = 0;
+                    var12->unknown_2d6_[var13] = 0;
                 }
             }
         }
     }
-    if (self->state == 0) {
-        memset(&self->slots[0], 0, 4);
-        for (int i = 0; i < 4; i++) {
-            GameObject* o = gs->GetGameObjectByIndex(i);
-            if (o != 0) {
-                if ((o->obj3D_.unknown_0_ & 0x200) != 0) {
-                    self->slots[i] = 1;
+    if (arg0->unknown_9_ == 0) {
+        memset(&arg0->unknown_1b_[0], 0, 4);
+        for (int var15 = 0; var15 < 4; var15++) {
+            GameObject* var16 = var0->GetGameObjectByIndex(var15);
+            if (var16 != 0) {
+                if ((var16->obj3D_.unknown_0_ & 0x200) != 0) {
+                    arg0->unknown_1b_[var15] = 1;
                 } else {
-                    self->slots[i] = 2;
+                    arg0->unknown_1b_[var15] = 2;
                 }
             }
         }
-        self->slots[self->idxC] = 1;
+        arg0->unknown_1b_[arg0->unknown_c_] = 1;
         return 2;
     }
-    if (self->state == 2) {
-        sub->b62 = 0;
+    if (arg0->unknown_9_ == 2) {
+        var5->unknown_1b62_ = 0;
     }
-    GrottoHead021afe00* grotto = (GrottoHead021afe00*)gs->GetGrottoStruct();
-    if (grotto->flag != 0 && self->state == 2) {
-        func_020116c8(gs);
+    Struct_ov017_021afe00_2* var17 = (Struct_ov017_021afe00_2*)var0->GetGrottoStruct();
+    if (var17->unknown_0_ != 0 && arg0->unknown_9_ == 2) {
+        func_020116c8(var0);
         func_020dc2d0(0);
     }
     func_ov017_021d0b30(1, 0, 0);

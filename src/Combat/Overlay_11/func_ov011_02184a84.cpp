@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Sub02184a84 {
-    char pad[0xbc];
-    unsigned short flagA;
-    unsigned short flagB;
+struct Struct_ov011_02184a84 {
+    char unknown_0_[0xbc];
+    unsigned short unknown_bc_;
+    unsigned short unknown_be_;
 };
 
-struct Node02184a84 {
-    char pad0[0x1b4];
-    int (**table)(void*);
+struct Struct_ov011_02184694_2 {
+    char unknown_0_[0x1b4];
+    int (**unknown_1b4_)(void*);
 };
 
 // USA: func_ov011_02184a84
-extern "C" ARM void func_ov011_02184a84(struct Node02184a84* obj) {
-    struct Sub02184a84* sub = (struct Sub02184a84*)((char*)obj + 0x100);
-    unsigned short idx = sub->flagA;
-    if (idx != 0) {
-        int r = obj->table[idx](obj);
-        if (r == 0) {
-            ((struct Sub02184a84*)((char*)obj + 0x100))->flagA = 0;
+extern "C" ARM void func_ov011_02184a84(struct Struct_ov011_02184694_2* arg0) {
+    struct Struct_ov011_02184a84* var0 = (struct Struct_ov011_02184a84*)((char*)arg0 + 0x100);
+    unsigned short var1 = var0->unknown_bc_;
+    if (var1 != 0) {
+        int var2 = arg0->unknown_1b4_[var1](arg0);
+        if (var2 == 0) {
+            ((struct Struct_ov011_02184a84*)((char*)arg0 + 0x100))->unknown_bc_ = 0;
         }
         return;
     }
-    idx = sub->flagB;
-    if (idx == 0) return;
-    obj->table[idx](obj);
+    var1 = var0->unknown_be_;
+    if (var1 == 0) return;
+    arg0->unknown_1b4_[var1](arg0);
 }

@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 
 
-extern "C" void func_ov004_0216afb0(void* obj, int a, int b, int c, int d, int e, int f, int g, int h);
-extern "C" int func_ov004_0216b7bc(void* obj, int a, int b, int c);
-extern "C" void* func_ov004_0216b1c4(void* a, int id);
-extern "C" int func_ov004_0216b2c8(void* obj, int id, int a, int b);
-extern "C" int func_ov004_0216b338(void* a, int id, int val);
-extern "C" void func_ov004_0216b20c(void* a0, int key, int b, int c);
+extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
+extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
+extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov004_0216b338(void* arg0, int arg1, int arg2);
+extern "C" void func_ov004_0216b20c(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_ov011_021849c8(void*);
 
-class VObj0216d358 {
+class Struct_ov004_0216d358 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16();
-    virtual void Method44(int arg);
-    virtual void v18(); virtual void v19(); virtual void v20(); virtual void v21();
-    virtual void v22(); virtual void v23(); virtual void v24(); virtual void v25();
-    virtual void v26(); virtual void v27(); virtual void v28(); virtual void v29();
-    virtual void v30();
-    virtual void Method7c(int arg);
+    virtual void inline_ov004_0216d358_13(); virtual void inline_ov004_0216d358_14(); virtual void inline_ov004_0216d358_15(); virtual void inline_ov004_0216d358_16();
+    virtual void inline_ov004_0216d358_17(); virtual void inline_ov004_0216d358_18(); virtual void inline_ov004_0216d358_19(); virtual void inline_ov004_0216d358_20();
+    virtual void inline_ov004_0216d358_21(); virtual void inline_ov004_0216d358_22(); virtual void inline_ov004_0216d358_23(); virtual void inline_ov004_0216d358_24();
+    virtual void inline_ov004_0216d358_25(); virtual void inline_ov004_0216d358_26(); virtual void inline_ov004_0216d358_27(); virtual void inline_ov004_0216d358_28();
+    virtual void inline_ov004_0216d358_29();
+    virtual void inline_ov004_0216d358_30(int arg0);
+    virtual void inline_ov004_0216d358_31(); virtual void inline_ov004_0216d358_32(); virtual void inline_ov004_0216d358(); virtual void inline_ov004_0216d358_2();
+    virtual void inline_ov004_0216d358_3(); virtual void inline_ov004_0216d358_4(); virtual void inline_ov004_0216d358_5(); virtual void inline_ov004_0216d358_6();
+    virtual void inline_ov004_0216d358_7(); virtual void inline_ov004_0216d358_8(); virtual void inline_ov004_0216d358_9(); virtual void inline_ov004_0216d358_10();
+    virtual void inline_ov004_0216d358_11();
+    virtual void inline_ov004_0216d358_12(int arg0);
 };
-extern "C" VObj0216d358* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov004_0216d358* func_ov023_021f6880(void*, int);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
 extern unsigned char data_ov004_02171034[];
 
 // USA: func_ov004_0216d358
-extern "C" ARM int func_ov004_0216d358(void* a) {
+extern "C" ARM int func_ov004_0216d358(void* arg0) {
 #if defined(jpn)
-    int v0c = *(int*)&data_ov004_02171034[0x10];
+    int var0 = *(int*)&data_ov004_02171034[0x10];
 #else
-    int v0c = *(int*)&data_ov004_02171034[0xc];
+    int var0 = *(int*)&data_ov004_02171034[0xc];
 #endif
 
-    func_ov004_0216afb0(a, 0x37, 2, 0xd4, 0x3a, 0xa, 0xa, 0xc, 1);
-    v0c = func_ov004_0216b7bc(a, 0xd4, v0c, 1);
-    func_ov004_0216b1c4(a, 0x12d);
+    func_ov004_0216afb0(arg0, 0x37, 2, 0xd4, 0x3a, 0xa, 0xa, 0xc, 1);
+    var0 = func_ov004_0216b7bc(arg0, 0xd4, var0, 1);
+    func_ov004_0216b1c4(arg0, 0x12d);
 
-    func_ov004_0216afb0(a, 0x38, 2, 0xd3, 0x3d, 0xa, 0x6, 0xc, 1);
-    func_ov004_0216afb0(a, 0x39, 2, 0xd3, 0x3e, 0xa, 0x14, 0xc, 1);
+    func_ov004_0216afb0(arg0, 0x38, 2, 0xd3, 0x3d, 0xa, 0x6, 0xc, 1);
+    func_ov004_0216afb0(arg0, 0x39, 2, 0xd3, 0x3e, 0xa, 0x14, 0xc, 1);
 
-    for (int i = 0; i < 2; i++) {
-        func_ov004_0216b2c8(a, 0x12d, i + 0x38, i);
+    for (int var1 = 0; var1 < 2; var1++) {
+        func_ov004_0216b2c8(arg0, 0x12d, var1 + 0x38, var1);
     }
-    func_ov004_0216b338(a, 0x12d, 1);
+    func_ov004_0216b338(arg0, 0x12d, 1);
 
-    VObj0216d358* node = func_ov023_021f6880(func_ov011_021849c8(a), 0x38);
-    if (node) {
-        node->Method44(9);
-        node->Method7c(9);
+    Struct_ov004_0216d358* var2 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x38);
+    if (var2) {
+        var2->inline_ov004_0216d358_30(9);
+        var2->inline_ov004_0216d358_12(9);
     }
 
-    func_ov004_0216b20c(a, 0x39, 0x64, 0);
-    func_ov004_0216b7bc(a, 0xd3, v0c, 0);
+    func_ov004_0216b20c(arg0, 0x39, 0x64, 0);
+    func_ov004_0216b7bc(arg0, 0xd3, var0, 0);
 
     func_0205eaa0(&data_02108760, 5, 0);
     return 0;

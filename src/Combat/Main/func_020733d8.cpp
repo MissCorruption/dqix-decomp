@@ -7,515 +7,515 @@
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
 #define data_020e88a8 data_020e89bc
-struct Vec3Target02073d50;
-enum { regionalOffsetList = 0x14, regionalOffsetMask = 0x5c };
+struct Struct_020733d8_2;
+enum { Enum_020733d8_24 = 0x14, Enum_020733d8_96 = 0x5c };
 #else
-enum { regionalOffsetList = 0x18, regionalOffsetMask = 0x60 };
+enum { Enum_020733d8_24 = 0x18, Enum_020733d8_96 = 0x60 };
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
-extern "C" int func_ov017_021a20c0(int unused, int mult, int limit);
-extern "C" void* __clear(void* dst, int count);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int func_ov017_021a20c0(int arg0, int arg1, int arg2);
+extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
 extern "C" void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
-extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* arg0);
 
-struct SearchStruct;
-extern "C" int func_0202c1c0(struct SearchStruct* obj, int value);
-extern "C" int func_02039888(void* obj);
+struct Struct_0202b2f0;
+extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_02039888(void* arg0);
 
-extern "C" void func_02034104(void* out, GameObject* obj);
+extern "C" void func_02034104(void* arg0, GameObject* arg1);
 
-struct ListEntry_02028430 { unsigned char id; unsigned char unk[0xF]; };
-struct List_02028430 { unsigned char unk0[2]; unsigned char count; unsigned char unk3; struct ListEntry_02028430* entries; };
-extern "C" struct ListEntry_02028430* func_02028430(struct List_02028430* list, int index);
+struct Struct_02028430_2 { unsigned char unknown_0_; unsigned char unknown_1_[0xF]; };
+struct Struct_02028430 { unsigned char unknown_0_[2]; unsigned char unknown_2_; unsigned char unknown_3_; struct Struct_02028430_2* unknown_4_; };
+extern "C" struct Struct_02028430_2* func_02028430(struct Struct_02028430* arg0, int arg1);
 
-struct ListEntry_020283c0 { unsigned char id; unsigned char unk[0xF]; };
-struct List_020283c0 { unsigned char unk0[2]; unsigned char count; unsigned char unk3; struct ListEntry_020283c0* entries; };
-extern "C" struct ListEntry_020283c0* func_020283c0(struct List_020283c0* list, int id);
+struct Struct_020283c0 { unsigned char unknown_0_; unsigned char unknown_1_[0xF]; };
+struct Struct_0201a300_11 { unsigned char unknown_0_[2]; unsigned char unknown_2_; unsigned char unknown_3_; struct Struct_020283c0* unknown_4_; };
+extern "C" struct Struct_020283c0* func_020283c0(struct Struct_0201a300_11* arg0, int arg1);
 
-struct SearchCtx_02028460 { unsigned char pad0[2]; unsigned char count; unsigned char pad1[1]; void* nodes; };
-extern "C" int func_02028460(struct SearchCtx_02028460* ctx, Vector3i* pos);
+struct Struct_02028460_2 { unsigned char unknown_0_[2]; unsigned char unknown_2_; unsigned char unknown_3_[1]; void* unknown_4_; };
+extern "C" int func_02028460(struct Struct_02028460_2* arg0, Vector3i* arg1);
 
-struct Bounds02031118 { Vector3i min; Vector3i max; };
-extern "C" int func_02031118(Vector3i* p, struct Bounds02031118* b);
-extern "C" int func_02031468(Vector3i* a, Vector3i* b, Vector3i* p, Vector3i* out);
+struct Struct_020733d8 { Vector3i unknown_0_; Vector3i unknown_c_; };
+extern "C" int func_02031118(Vector3i* arg0, struct Struct_020733d8* arg1);
+extern "C" int func_02031468(Vector3i* arg0, Vector3i* arg1, Vector3i* arg2, Vector3i* arg3);
 
-extern "C" void func_02073d50(struct Vec3Target02073d50* obj, int x, int y, int z);
-extern "C" int func_02073d58(int a, void* b, int c);
-extern "C" int func_02073dfc(unsigned char* self, Vector3i* pos);
-extern "C" void* func_02073ec4(int mask, void* list);
-extern "C" int func_02073fdc(void* p);
-extern "C" int func_ov017_021a2128(void* a, int b, int c, int d, Vector3i* e, int f, int g, int h);
+extern "C" void func_02073d50(struct Struct_020733d8_2* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_02073d58(int arg0, void* arg1, int arg2);
+extern "C" int func_02073dfc(unsigned char* arg0, Vector3i* arg1);
+extern "C" void* func_02073ec4(int arg0, void* arg1);
+extern "C" int func_02073fdc(void* arg0);
+extern "C" int func_ov017_021a2128(void* arg0, int arg1, int arg2, int arg3, Vector3i* arg4, int arg5, int arg6, int arg7);
 
 extern "C" int rand(void);
 
-struct Words4020733d8 { int v[4]; };
-extern struct Words4020733d8 data_020e88a8;
+struct Struct_020e88a8 { int unknown_0_[4]; };
+extern struct Struct_020e88a8 data_020e88a8;
 
-struct Pos020733d8 { int v[3]; };
+struct Struct_020733d8_3 { int unknown_0_[3]; };
 
-struct ModeField020733d8 {
-    unsigned short mode : 2;
-    unsigned short rest : 14;
+struct Struct_020733d8_4 {
+    unsigned short unknown_0_0_ : 2;
+    unsigned short unknown_0_2_ : 14;
 };
 
-struct FlagC2Field020733d8 {
-    unsigned char pad : 6;
-    unsigned char bit6 : 1;
-    unsigned char pad2 : 1;
+struct Struct_020733d8_5 {
+    unsigned char unknown_0_0_ : 6;
+    unsigned char unknown_0_6_ : 1;
+    unsigned char unknown_0_7_ : 1;
 };
 
-struct LevelField020733d8 {
-    unsigned int lowBits : 21;
-    unsigned int level : 4;
-    unsigned int highBits : 7;
+struct Struct_020733d8_6 {
+    unsigned int unknown_0_0_ : 21;
+    unsigned int unknown_2_5_ : 4;
+    unsigned int unknown_3_1_ : 7;
 };
 
-struct ZoneNode020733d8 {
-    unsigned char id;
-    unsigned char mask;
-    unsigned char count;
-    unsigned char flags;
-    short x;
-    short y;
-    short z;
-    unsigned char pad[2];
-    struct ZoneNode020733d8** children;
+struct Struct_020733d8_7 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    unsigned char unknown_a_[2];
+    struct Struct_020733d8_7** unknown_c_;
 };
 
-static inline int NodeCount020733d8(unsigned char* self) {
-    return ((struct List_020283c0*)(self + regionalOffsetList))->count;
+static inline int inline_020733d8(unsigned char* arg0) {
+    return ((struct Struct_0201a300_11*)(arg0 + Enum_020733d8_24))->unknown_2_;
 }
 
-#define SELF_MODE(self) (((struct ModeField020733d8*)((self) + 2))->mode)
-#define SET_VEC3(v, x, y, z) func_02073d50((struct Vec3Target02073d50*)(v), x, y, z)
+#define SELF_MODE(self) (((struct Struct_020733d8_4*)((self) + 2))->unknown_0_0_)
+#define SET_VEC3(v, x, y, z) func_02073d50((struct Struct_020733d8_2*)(v), x, y, z)
 
 // USA: func_020733d8
-extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
-    if (self == 0 || self[0xc] == 0) {
+extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
+    if (arg0 == 0 || arg0[0xc] == 0) {
         return;
     }
 
-    void* dataBase = func_0205ec34();
-    if (func_0206dfb0((int)dataBase, (unsigned char*)dataBase + 0x8c, 0x79a) != 0 &&
-        *(unsigned short*)self >= 0x190 && *(unsigned short*)self <= 0x199) {
+    void* var0 = func_0205ec34();
+    if (func_0206dfb0((int)var0, (unsigned char*)var0 + 0x8c, 0x79a) != 0 &&
+        *(unsigned short*)arg0 >= 0x190 && *(unsigned short*)arg0 <= 0x199) {
         return;
     }
 
-    GameState* gameState = GameState::GetInstance();
-    GameResources* globalB = GetGameResources();
-    unsigned short savedId = *(unsigned short*)self;
-    int timer = *(int*)(self + 8) + gameState->GetTrueDeltaTime();
-    *(int*)(self + 8) = timer;
-    if (timer < 0x3e8) {
+    GameState* var1 = GameState::GetInstance();
+    GameResources* var2 = GetGameResources();
+    unsigned short var3 = *(unsigned short*)arg0;
+    int var4 = *(int*)(arg0 + 8) + var1->GetTrueDeltaTime();
+    *(int*)(arg0 + 8) = var4;
+    if (var4 < 0x3e8) {
         return;
     }
 
-    if (func_ov017_021a20c0((int)globalB, SELF_MODE(self), 0xc) < 0) {
+    if (func_ov017_021a20c0((int)var2, SELF_MODE(arg0), 0xc) < 0) {
         return;
     }
 
-    Vector3i targetPos;
-    void* matchEntry = 0;
-    __clear(&targetPos, sizeof(targetPos));
+    Vector3i var5;
+    void* var6 = 0;
+    __clear(&var5, sizeof(var5));
 
-    struct Words4020733d8 weights = data_020e88a8;
-    int resultCount;
-    int bestIdx = -1;
-    int status = -1;
-    resultCount = 0;
-    int retry;
-    struct ZoneNode020733d8* dest;
-    int level;
-    int wait;
-    int chosen;
-    GameObject* combatant;
-    int angle;
-    struct Pos020733d8 slotPos;
-    Vector3i slotDir;
-    struct Pos020733d8 slotPosTmp;
+    struct Struct_020e88a8 var7 = data_020e88a8;
+    int var8;
+    int var9 = -1;
+    int var10 = -1;
+    var8 = 0;
+    int var11;
+    struct Struct_020733d8_7* var12;
+    int var13;
+    int var14;
+    int var15;
+    GameObject* var16;
+    int var17;
+    struct Struct_020733d8_3 var18;
+    Vector3i var19;
+    struct Struct_020733d8_3 var20;
 
-    for (retry = 0; retry < 4; retry++) {
+    for (var11 = 0; var11 < 4; var11++) {
 #if !defined(jpn)
-        matchEntry = 0;
+        var6 = 0;
 #endif
 
         do {
-            struct Pos020733d8 baseTmp;
-            int d;
-            int best;
-            int minCount;
-            int count;
-            int c;
-            int outCount;
-            int fewCounts[4];
-            int ids[4];
-            GameObject* obj;
-            int m;
-            struct Bounds02031118 box;
-            struct Pos020733d8 base;
-            GameObject* monster;
-            int k;
-            int counts[4];
-            int idx;
-            int found;
-            int slot;
-            GameObject* member;
-            int j;
-            GameObject* unknown;
-            int candIds[4];
-            int candCount;
-            int localWeights[4];
-            int* counter;
-            GameState* gs;
+            struct Struct_020733d8_3 var21;
+            int var22;
+            int var23;
+            int var24;
+            int var25;
+            int var26;
+            int var27;
+            int var28[4];
+            int var29[4];
+            GameObject* var30;
+            int var31;
+            struct Struct_020733d8 var32;
+            struct Struct_020733d8_3 var33;
+            GameObject* var34;
+            int var35;
+            int var36[4];
+            int var37;
+            int var38;
+            int var39;
+            GameObject* var40;
+            int var41;
+            GameObject* var42;
+            int var43[4];
+            int var44;
+            int var45[4];
+            int* var46;
+            GameState* var47;
 
-            gs = GameState::GetInstance();
-            counter = (int*)func_0202ae18();
-            VectorizedInvertedMemcpy(weights.v, localWeights, 0x10);
+            var47 = GameState::GetInstance();
+            var46 = (int*)func_0202ae18();
+            VectorizedInvertedMemcpy(var7.unknown_0_, var45, 0x10);
 
-            candCount = 0;
-            if (func_0202b7d8(counter) == 0) {
-                unknown = gs->GetUnknownGameObject();
-                if (unknown != 0 && localWeights[0] == -1) {
-                    candIds[0] = unknown->obj3D_.unknown_4_;
-                    candCount = 1;
+            var44 = 0;
+            if (func_0202b7d8(var46) == 0) {
+                var42 = var47->GetUnknownGameObject();
+                if (var42 != 0 && var45[0] == -1) {
+                    var43[0] = var42->obj3D_.unknown_4_;
+                    var44 = 1;
                 }
             } else {
-                for (j = 0; j < 4; j++) {
-                    if (!func_0202c1c0((struct SearchStruct*)counter, j)) {
+                for (var41 = 0; var41 < 4; var41++) {
+                    if (!func_0202c1c0((struct Struct_0202b2f0*)var46, var41)) {
                         continue;
                     }
-                    member = gs->GetPartyMemberByIndex(j);
-                    if (member == 0) {
+                    var40 = var47->GetPartyMemberByIndex(var41);
+                    if (var40 == 0) {
                         continue;
                     }
-                    if (*(unsigned short*)self != member->obj3D_.GetField06()) {
+                    if (*(unsigned short*)arg0 != var40->obj3D_.GetField06()) {
                         continue;
                     }
 
-                    if (func_02039888(member) < 0) {
-                        slot = j;
+                    if (func_02039888(var40) < 0) {
+                        var39 = var41;
                     } else {
-                        slot = func_02039888(member);
+                        var39 = func_02039888(var40);
                     }
 
-                    found = 0;
-                    for (idx = 0; idx < 4; idx++) {
-                        if (slot == localWeights[idx]) {
-                            found = 1;
+                    var38 = 0;
+                    for (var37 = 0; var37 < 4; var37++) {
+                        if (var39 == var45[var37]) {
+                            var38 = 1;
                             break;
                         }
                     }
-                    if (found) {
+                    if (var38) {
                         continue;
                     }
-                    if (slot != -1) {
-                        candIds[candCount++] = slot;
+                    if (var39 != -1) {
+                        var43[var44++] = var39;
                     }
                 }
             }
 
-            if (candCount == 0) {
-                bestIdx = -1;
+            if (var44 == 0) {
+                var9 = -1;
                 break;
             }
 
-            for (k = 0; k < candCount; k++) {
-                counts[k] = 0;
-                monster = gs->GetMaybeWanderingMonsterByIndex(candIds[k]);
-                func_02034104(&baseTmp, monster);
-                base = baseTmp;
+            for (var35 = 0; var35 < var44; var35++) {
+                var36[var35] = 0;
+                var34 = var47->GetMaybeWanderingMonsterByIndex(var43[var35]);
+                func_02034104(&var21, var34);
+                var33 = var21;
 
-                box.min.x = base.v[0] + 0xf000;
-                box.min.y = base.v[1] + 0x1800;
-                box.min.z = base.v[2] + 0xf000;
-                SET_VEC3(&box.max, base.v[0] - 0xf000, base.v[1] - 0x800, base.v[2] - 0xf000);
+                var32.unknown_0_.x = var33.unknown_0_[0] + 0xf000;
+                var32.unknown_0_.y = var33.unknown_0_[1] + 0x1800;
+                var32.unknown_0_.z = var33.unknown_0_[2] + 0xf000;
+                SET_VEC3(&var32.unknown_c_, var33.unknown_0_[0] - 0xf000, var33.unknown_0_[1] - 0x800, var33.unknown_0_[2] - 0xf000);
 
-                for (m = 0; m < 0xc; m++) {
-                    obj = gs->GetGameObjectByIndex(m + (SELF_MODE(self) * 0xc + 0x70));
-                    if (obj == 0) {
+                for (var31 = 0; var31 < 0xc; var31++) {
+                    var30 = var47->GetGameObjectByIndex(var31 + (SELF_MODE(arg0) * 0xc + 0x70));
+                    if (var30 == 0) {
                         continue;
                     }
-                    if (!obj->obj3D_.IsVisible()) {
+                    if (!var30->obj3D_.IsVisible()) {
                         continue;
                     }
-                    if (func_02031118(&obj->obj3D_.position_, &box)) {
-                        counts[k]++;
+                    if (func_02031118(&var30->obj3D_.position_, &var32)) {
+                        var36[var35]++;
                     }
                 }
             }
 
-            outCount = 0;
-            for (c = 0; c < candCount; c++) {
-                count = counts[c];
-                if (count < 3) {
-                    ids[outCount] = candIds[c];
-                    fewCounts[outCount] = count;
-                    outCount++;
+            var27 = 0;
+            for (var26 = 0; var26 < var44; var26++) {
+                var25 = var36[var26];
+                if (var25 < 3) {
+                    var29[var27] = var43[var26];
+                    var28[var27] = var25;
+                    var27++;
                 }
             }
 
-            if (outCount == 0) {
-                bestIdx = -1;
+            if (var27 == 0) {
+                var9 = -1;
                 break;
             }
 
-            minCount = 0xc;
-            best = -1;
-            for (d = 0; d < outCount; d++) {
-                if (fewCounts[d] < minCount) {
-                    best = ids[d];
-                    minCount = fewCounts[d];
+            var24 = 0xc;
+            var23 = -1;
+            for (var22 = 0; var22 < var27; var22++) {
+                if (var28[var22] < var24) {
+                    var23 = var29[var22];
+                    var24 = var28[var22];
                 }
             }
-            bestIdx = best;
+            var9 = var23;
         } while (0);
 
-        if (bestIdx < 0) {
+        if (var9 < 0) {
             return;
         }
-        weights.v[resultCount++] = bestIdx;
+        var7.unknown_0_[var8++] = var9;
 
         do {
-            struct Pos020733d8 selfTmp;
-            Vector3i zoneTmp;
-            int len;
-            Vector3i diff;
-            int reach;
-            int closestDist;
-            Vector3i closest;
-            Vector3i entryPos;
-            struct ZoneNode020733d8* entry;
-            int dot;
-            Vector3i dir;
-            Vector3i nodePos;
-            int bestDot;
-            int q;
-            struct ZoneNode020733d8* node;
-            int i;
-            int notFound;
-            unsigned char zoneId;
-            Vector3i zonePos;
-            int p;
-            struct ZoneNode020733d8* stored[16];
-            int pick;
-            int matchCount;
-            Vector3i facing;
-            struct Pos020733d8 selfPos;
-            int closestIdx;
-            struct ZoneNode020733d8* zone;
-            GameObject* slotObj;
+            struct Struct_020733d8_3 var48;
+            Vector3i var49;
+            int var50;
+            Vector3i var51;
+            int var52;
+            int var53;
+            Vector3i var54;
+            Vector3i var55;
+            struct Struct_020733d8_7* var56;
+            int var57;
+            Vector3i var58;
+            Vector3i var59;
+            int var60;
+            int var61;
+            struct Struct_020733d8_7* var62;
+            int var63;
+            int var64;
+            unsigned char var65;
+            Vector3i var66;
+            int var67;
+            struct Struct_020733d8_7* var68[16];
+            int var69;
+            int var70;
+            Vector3i var71;
+            struct Struct_020733d8_3 var72;
+            int var73;
+            struct Struct_020733d8_7* var74;
+            GameObject* var75;
 
-            slotObj = func_0200ff1c(GameState::GetInstance(), bestIdx);
-            if (slotObj == 0) {
-                status = -1;
+            var75 = func_0200ff1c(GameState::GetInstance(), var9);
+            if (var75 == 0) {
+                var10 = -1;
                 break;
             }
-            if (!((struct FlagC2Field020733d8*)((char*)slotObj + 0xc2))->bit6) {
-                status = -1;
+            if (!((struct Struct_020733d8_5*)((char*)var75 + 0xc2))->unknown_0_6_) {
+                var10 = -1;
                 break;
             }
 
-            zone = (struct ZoneNode020733d8*)func_02028430(
-                (struct List_02028430*)(self + regionalOffsetList), *(unsigned short*)((char*)slotObj + 0xb8));
-            if (zone == 0) {
-                func_02034104(&zoneTmp, slotObj);
-                closestIdx = func_02028460((struct SearchCtx_02028460*)(self + regionalOffsetList), &zoneTmp);
-                if (closestIdx < 0) {
-                    status = -1;
+            var74 = (struct Struct_020733d8_7*)func_02028430(
+                (struct Struct_02028430*)(arg0 + Enum_020733d8_24), *(unsigned short*)((char*)var75 + 0xb8));
+            if (var74 == 0) {
+                func_02034104(&var49, var75);
+                var73 = func_02028460((struct Struct_02028460_2*)(arg0 + Enum_020733d8_24), &var49);
+                if (var73 < 0) {
+                    var10 = -1;
                     break;
                 }
-                zone = (struct ZoneNode020733d8*)func_02028430((struct List_02028430*)(self + regionalOffsetList), closestIdx);
-                if (zone == 0) {
-                    status = -1;
+                var74 = (struct Struct_020733d8_7*)func_02028430((struct Struct_02028430*)(arg0 + Enum_020733d8_24), var73);
+                if (var74 == 0) {
+                    var10 = -1;
                     break;
                 }
-                *(unsigned short*)((char*)slotObj + 0xb8) = closestIdx;
+                *(unsigned short*)((char*)var75 + 0xb8) = var73;
             }
-            if (zone == 0 || zone->count == 0) {
-                status = -1;
+            if (var74 == 0 || var74->unknown_2_ == 0) {
+                var10 = -1;
                 break;
             }
 
-            func_02034104(&selfTmp, slotObj);
-            selfPos = selfTmp;
-            __clear(&facing, sizeof(facing));
-            facing.x = fix32sin(slotObj->obj3D_.rotation_.y);
-            facing.z = fix32cos(slotObj->obj3D_.rotation_.y);
+            func_02034104(&var48, var75);
+            var72 = var48;
+            __clear(&var71, sizeof(var71));
+            var71.x = fix32sin(var75->obj3D_.rotation_.y);
+            var71.z = fix32cos(var75->obj3D_.rotation_.y);
 
-            pick = -1;
-            matchCount = 0;
-            for (p = 0; p < zone->count; p++) {
-                if (func_02073d58(zone->children[p]->id, self, pick) != 0) {
+            var69 = -1;
+            var70 = 0;
+            for (var67 = 0; var67 < var74->unknown_2_; var67++) {
+                if (func_02073d58(var74->unknown_c_[var67]->unknown_0_, arg0, var69) != 0) {
                     continue;
                 }
-                stored[matchCount++] = zone->children[p];
+                var68[var70++] = var74->unknown_c_[var67];
             }
 
-            zonePos.x = zone->x << 12;
-            zonePos.y = zone->y << 12;
-            zonePos.z = zone->z << 12;
-            if (Vector3fix_Distance(&zonePos, (Vector3fix*)&selfPos) > 0x5000) {
-                zoneId = zone->id;
-                notFound = 1;
-                for (i = 0; i < matchCount; i++) {
-                    if (zoneId == stored[i]->id) {
-                        notFound = 0;
+            var66.x = var74->unknown_4_ << 12;
+            var66.y = var74->unknown_6_ << 12;
+            var66.z = var74->unknown_8_ << 12;
+            if (Vector3fix_Distance(&var66, (Vector3fix*)&var72) > 0x5000) {
+                var65 = var74->unknown_0_;
+                var64 = 1;
+                for (var63 = 0; var63 < var70; var63++) {
+                    if (var65 == var68[var63]->unknown_0_) {
+                        var64 = 0;
                         break;
                     }
                 }
-                if (notFound) {
-                    if (func_02073d58(zoneId, self, -1) == 0) {
-                        stored[matchCount++] = zone;
+                if (var64) {
+                    if (func_02073d58(var65, arg0, -1) == 0) {
+                        var68[var70++] = var74;
                     }
                 }
             }
 
-            bestDot = 0;
-            for (q = 0; q < matchCount; q++) {
-                node = stored[q];
-                SET_VEC3(&nodePos, node->x << 12, node->y << 12, node->z << 12);
-                Vector3fix_Subtract(&nodePos, (Vector3fix*)&selfPos, &dir);
-                facing.y = 0;
-                Vector3fix_Normalize(&dir, &dir);
-                dot = Vector3fix_InnerProduct(&facing, &dir);
-                if (dot <= 0) {
+            var60 = 0;
+            for (var61 = 0; var61 < var70; var61++) {
+                var62 = var68[var61];
+                SET_VEC3(&var59, var62->unknown_4_ << 12, var62->unknown_6_ << 12, var62->unknown_8_ << 12);
+                Vector3fix_Subtract(&var59, (Vector3fix*)&var72, &var58);
+                var71.y = 0;
+                Vector3fix_Normalize(&var58, &var58);
+                var57 = Vector3fix_InnerProduct(&var71, &var58);
+                if (var57 <= 0) {
                     continue;
                 }
-                if (bestDot < dot) {
-                    bestDot = dot;
-                    pick = node->id;
+                if (var60 < var57) {
+                    var60 = var57;
+                    var69 = var62->unknown_0_;
                 }
             }
 
-            if (pick < 0) {
-                if (matchCount == 0) {
-                    status = -1;
+            if (var69 < 0) {
+                if (var70 == 0) {
+                    var10 = -1;
                     break;
                 }
-                pick = stored[rand() % matchCount]->id;
+                var69 = var68[rand() % var70]->unknown_0_;
             }
 
-            entry = (struct ZoneNode020733d8*)func_020283c0((struct List_020283c0*)(self + regionalOffsetList), pick);
-            if (entry == 0) {
-                status = -1;
+            var56 = (struct Struct_020733d8_7*)func_020283c0((struct Struct_0201a300_11*)(arg0 + Enum_020733d8_24), var69);
+            if (var56 == 0) {
+                var10 = -1;
                 break;
             }
 
-            entryPos.x = entry->x << 12;
-            entryPos.y = entry->y << 12;
-            entryPos.z = entry->z << 12;
-            targetPos = entryPos;
+            var55.x = var56->unknown_4_ << 12;
+            var55.y = var56->unknown_6_ << 12;
+            var55.z = var56->unknown_8_ << 12;
+            var5 = var55;
 
-            if (zone != entry && Vector3fix_Distance(&entryPos, (Vector3fix*)&selfPos) > 0xa000) {
-                closestDist = func_02031468(&entryPos, &zonePos, (Vector3fix*)&selfPos, &closest);
-                if (closestDist > 0) {
-                    if (closestDist < 0xa000) {
-                        reach = FIX32_MULTIPLY(fix32_Sqrt(0x1000 - fix32_Divide(FIX32_MULTIPLY(closestDist, closestDist), 0x64000)), 0xa000);
-                        if (reach > 0x5000) {
-                            Vector3fix_Subtract(&entryPos, &closest, &diff);
-                            len = Vector3fix_Length(&diff);
-                            Vector3fix_Normalize(&diff, &diff);
-                            if (len < reach) {
-                                Vector3fixMultiplyScalar(&diff, len, &diff);
+            if (var74 != var56 && Vector3fix_Distance(&var55, (Vector3fix*)&var72) > 0xa000) {
+                var53 = func_02031468(&var55, &var66, (Vector3fix*)&var72, &var54);
+                if (var53 > 0) {
+                    if (var53 < 0xa000) {
+                        var52 = FIX32_MULTIPLY(fix32_Sqrt(0x1000 - fix32_Divide(FIX32_MULTIPLY(var53, var53), 0x64000)), 0xa000);
+                        if (var52 > 0x5000) {
+                            Vector3fix_Subtract(&var55, &var54, &var51);
+                            var50 = Vector3fix_Length(&var51);
+                            Vector3fix_Normalize(&var51, &var51);
+                            if (var50 < var52) {
+                                Vector3fixMultiplyScalar(&var51, var50, &var51);
                             } else {
-                                Vector3fixMultiplyScalar(&diff, reach, &diff);
+                                Vector3fixMultiplyScalar(&var51, var52, &var51);
                             }
-                            Vector3fix_Add(&closest, &diff, &targetPos);
+                            Vector3fix_Add(&var54, &var51, &var5);
                         }
                     } else {
-                        status = -1;
+                        var10 = -1;
                         break;
                     }
                 }
             }
 
-            if (func_02073dfc(self, &targetPos) != 0 && NodeCount020733d8(self) > 4) {
-                status = -1;
+            if (func_02073dfc(arg0, &var5) != 0 && inline_020733d8(arg0) > 4) {
+                var10 = -1;
                 break;
             }
-            status = pick;
+            var10 = var69;
         } while (0);
 
-        if (status < 0) {
+        if (var10 < 0) {
             continue;
         }
-        if (func_02073dfc(self, &targetPos) != 0) {
+        if (func_02073dfc(arg0, &var5) != 0) {
             continue;
         }
 
-        int crowded;
+        int var76;
         {
-            GameObject* obj;
-            int i;
-            struct Bounds02031118 area;
-            GameState* gs;
+            GameObject* var77;
+            int var78;
+            struct Struct_020733d8 var79;
+            GameState* var80;
 
-            gs = GameState::GetInstance();
-            SET_VEC3(&area.min, targetPos.x + 0x3000, targetPos.y + 0x5000, targetPos.z + 0x3000);
-            SET_VEC3(&area.max, targetPos.x - 0x3000, targetPos.y - 0x5000, targetPos.z - 0x3000);
-            for (i = 0; i < 0xc; i++) {
-                obj = gs->GetGameObjectByIndex(i + (SELF_MODE(self) * 0xc + 0x70));
-                if (obj == 0) {
+            var80 = GameState::GetInstance();
+            SET_VEC3(&var79.unknown_0_, var5.x + 0x3000, var5.y + 0x5000, var5.z + 0x3000);
+            SET_VEC3(&var79.unknown_c_, var5.x - 0x3000, var5.y - 0x5000, var5.z - 0x3000);
+            for (var78 = 0; var78 < 0xc; var78++) {
+                var77 = var80->GetGameObjectByIndex(var78 + (SELF_MODE(arg0) * 0xc + 0x70));
+                if (var77 == 0) {
                     continue;
                 }
-                if (!obj->obj3D_.IsVisible()) {
+                if (!var77->obj3D_.IsVisible()) {
                     continue;
                 }
-                if (func_02031118(&obj->obj3D_.position_, &area)) {
-                    crowded = 1;
+                if (func_02031118(&var77->obj3D_.position_, &var79)) {
+                    var76 = 1;
                     goto crowdChecked;
                 }
             }
-            crowded = 0;
+            var76 = 0;
         }
     crowdChecked:
-        if (crowded) {
+        if (var76) {
             continue;
         }
 
-        dest = (struct ZoneNode020733d8*)func_020283c0((struct List_020283c0*)(self + regionalOffsetList), status);
-        if (dest == 0) {
+        var12 = (struct Struct_020733d8_7*)func_020283c0((struct Struct_0201a300_11*)(arg0 + Enum_020733d8_24), var10);
+        if (var12 == 0) {
             continue;
         }
-        if (dest != 0 && (dest->flags & 2)) {
+        if (var12 != 0 && (var12->unknown_3_ & 2)) {
             continue;
         }
-        matchEntry = func_02073ec4(dest->mask, self + regionalOffsetMask);
-        if (matchEntry == 0) {
+        var6 = func_02073ec4(var12->unknown_1_, arg0 + Enum_020733d8_96);
+        if (var6 == 0) {
             continue;
         }
 
-        level = ((struct LevelField020733d8*)((char*)matchEntry + 4))->level;
-        wait = 6 - level;
-        wait = wait + 1;
-        if (*(int*)(self + 8) >= wait * 0x3e8) {
+        var13 = ((struct Struct_020733d8_6*)((char*)var6 + 4))->unknown_2_5_;
+        var14 = 6 - var13;
+        var14 = var14 + 1;
+        if (*(int*)(arg0 + 8) >= var14 * 0x3e8) {
             break;
         }
     }
 
-    if (matchEntry == 0) {
+    if (var6 == 0) {
         return;
     }
-    chosen = func_02073fdc(matchEntry);
-    if (chosen == -1) {
+    var15 = func_02073fdc(var6);
+    if (var15 == -1) {
         return;
     }
 
-    combatant = func_0200ff1c(gameState, bestIdx);
-    angle = 0;
-    if (combatant != 0) {
-        func_02034104(&slotPosTmp, combatant);
-        slotPos = slotPosTmp;
-        Vector3fix_Subtract((Vector3fix*)&slotPos, &targetPos, &slotDir);
-        Vector3fix_Normalize(&slotDir, &slotDir);
-        angle = fix32_Atan2(slotDir.x, slotDir.z);
+    var16 = func_0200ff1c(var1, var9);
+    var17 = 0;
+    if (var16 != 0) {
+        func_02034104(&var20, var16);
+        var18 = var20;
+        Vector3fix_Subtract((Vector3fix*)&var18, &var5, &var19);
+        Vector3fix_Normalize(&var19, &var19);
+        var17 = fix32_Atan2(var19.x, var19.z);
     }
 
-    if (func_ov017_021a2128(globalB, savedId, chosen, *(unsigned short*)matchEntry, &targetPos, angle,
-                            (unsigned short)status, 0) != 0) {
-        *(int*)(self + 8) = 0;
+    if (func_ov017_021a2128(var2, var3, var15, *(unsigned short*)var6, &var5, var17,
+                            (unsigned short)var10, 0) != 0) {
+        *(int*)(arg0 + 8) = 0;
     }
 }

@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
 // USA: func_0202053c
-extern "C" ARM unsigned short func_0202053c(void* obj) {
+extern "C" ARM unsigned short func_0202053c(void* arg0) {
 #if defined(jpn)
-    char* p = *(char**)((char*)obj + 0x144);
+    char* var0 = *(char**)((char*)arg0 + 0x144);
 #else
-    char* p = *(char**)((char*)obj + 0x150);
+    char* var0 = *(char**)((char*)arg0 + 0x150);
 #endif
 #if defined(jpn)
-    int index = *(int*)(p + 0x8b8);
+    int var1 = *(int*)(var0 + 0x8b8);
 #else
-    int index = *(int*)(p + 0x950);
+    int var1 = *(int*)(var0 + 0x950);
 #endif
-    return *(unsigned short*)(p + index * 2 + 0x16c);
+    return *(unsigned short*)(var0 + var1 * 2 + 0x16c);
 }

@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" void func_ov017_021cf730(int a, int b);
-extern "C" void func_ov017_021c4fa0(int a, int b);
-struct U16Field0x6_020375f8;
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void func_ov017_021cf730(int arg0, int arg1);
+extern "C" void func_ov017_021c4fa0(int arg0, int arg1);
+struct Struct_02039df4;
 extern "C" void func_ov017_021cdaa0(void);
 
-struct Evt021cd9e8 {
-    unsigned char pad0[4];
-    unsigned char lowNibble : 4;
-    unsigned char highNibble : 4;
-    unsigned char pad5[3];
-    int flags8;
+struct Struct_ov017_021cd9e8 {
+    unsigned char unknown_0_[4];
+    unsigned char unknown_4_0_ : 4;
+    unsigned char unknown_4_4_ : 4;
+    unsigned char unknown_5_[3];
+    int unknown_8_;
 };
 
 // USA: func_ov017_021cd9e8
-extern "C" ARM void func_ov017_021cd9e8(int p0, struct Evt021cd9e8* evt, GameState* battleStruct, int p3, struct SearchStruct0202c1a4* search) {
-    signed char cur = func_0202c1a4(search);
-    if (evt->lowNibble != cur) return;
+extern "C" ARM void func_ov017_021cd9e8(int arg0, struct Struct_ov017_021cd9e8* arg1, GameState* arg2, int arg3, struct Struct_0202c1a4* arg4) {
+    signed char var0 = func_0202c1a4(arg4);
+    if (arg1->unknown_4_0_ != var0) return;
 
-    if (evt->flags8 & 0x1) {
+    if (arg1->unknown_8_ & 0x1) {
         func_ov017_021cdaa0();
     }
-    if (evt->flags8 & 0x20) {
-        func_ov017_021cf730((signed char)evt->highNibble, 0);
+    if (arg1->unknown_8_ & 0x20) {
+        func_ov017_021cf730((signed char)arg1->unknown_4_4_, 0);
     }
 
-    int val = -1;
-    if (evt->flags8 & 0x10) {
-        signed char idx = func_0202c1a4(search);
-        GameObject* combatant = battleStruct->GetGameObjectByIndex(idx);
-        if (combatant != NULL) {
-            val = ((Object3D*)((struct U16Field0x6_020375f8*)combatant))->GetField06();
+    int var1 = -1;
+    if (arg1->unknown_8_ & 0x10) {
+        signed char var2 = func_0202c1a4(arg4);
+        GameObject* var3 = arg2->GetGameObjectByIndex(var2);
+        if (var3 != NULL) {
+            var1 = ((Object3D*)((struct Struct_02039df4*)var3))->GetField06();
         }
     }
 
-    if (!(evt->flags8 & 0x4)) return;
-    func_ov017_021c4fa0(evt->highNibble, val);
+    if (!(arg1->unknown_8_ & 0x4)) return;
+    func_ov017_021c4fa0(arg1->unknown_4_4_, var1);
 }

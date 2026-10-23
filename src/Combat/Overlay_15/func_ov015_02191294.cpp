@@ -8,203 +8,203 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct Obj0219011c;
-struct Obj021900dc;
-struct S0219015c;
-struct IndexList_0202a9ac;
+struct Struct_ov015_0219011c;
+struct Struct_ov015_021900dc;
+struct Struct_ov015_0219015c_2;
+struct Struct_02029634;
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    char unk_0[0x38];
-    short motion_;
-    unsigned char playing_;
-    char unk_3b[0x44 - 0x3b];
-    int loop_;
-    int battle_;
-    int step_;
+    char unknown_0_[0x38];
+    short unknown_38_;
+    unsigned char unknown_3a_;
+    char unknown_3b_[0x44 - 0x3b];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 };
 
-struct ViewObjectNode
+struct Struct_ov015_02190e88
 {
-    ViewObject* object_;
-    ViewObjectNode* next_;
+    Struct_ov015_0218c03c_2* unknown_0_;
+    Struct_ov015_02190e88* unknown_4_;
 };
 
-struct DebugMenu
+struct Struct_02029988_2
 {
-    char unk_0[0x5c];
-    short first_;
-    short last_;
-    short cursor_;
-    char unk_62[0x80 - 0x62];
+    char unknown_0_[0x5c];
+    short unknown_5c_;
+    short unknown_5e_;
+    short unknown_60_;
+    char unknown_62_[0x80 - 0x62];
 };
 
-struct S02190c2c
+struct Struct_ov015_02190acc
 {
-    char unk_0[0x2c];
-    ViewObjectNode* objects_;
-    ViewObject* current_;
-    char unk_34[0x194 - 0x34];
-    int menu_;
-    char unk_198[0x19f - 0x198];
-    unsigned char syncMotion_;
-    char unk_1a0[0x2bc - 0x1a0];
-    int repeatDelay_;
-    int repeatTimer_;
-    DebugMenu menuList_;
-    char unk_344[0x350 - 0x344];
-    unsigned char redraw_;
+    char unknown_0_[0x2c];
+    Struct_ov015_02190e88* unknown_2c_;
+    Struct_ov015_0218c03c_2* unknown_30_;
+    char unknown_34_[0x194 - 0x34];
+    int unknown_194_;
+    char unknown_198_[0x19f - 0x198];
+    unsigned char unknown_19f_;
+    char unknown_1a0_[0x2bc - 0x1a0];
+    int unknown_2bc_;
+    int unknown_2c0_;
+    Struct_02029988_2 unknown_2c4_;
+    char unknown_344_[0x350 - 0x344];
+    unsigned char unknown_350_;
 };
 
-extern "C" int func_ov015_021925a8(S02190c2c* self);
-extern "C" void func_ov015_0219011c(Obj0219011c* object, int step);
-extern "C" int func_ov015_02191284(DebugMenu* menu);
-extern "C" void* func_0202a9ac(IndexList_0202a9ac* menu, int index);
-extern "C" const char* func_02029560(void* item);
-extern "C" void func_ov015_0218f364(ViewObject* object, const char* name);
-extern "C" void func_ov015_021900dc(Obj021900dc* object);
-extern "C" void func_ov015_02192700(S02190c2c* self, int unk);
-extern "C" void func_ov015_0219015c(S0219015c* object, int step);
+extern "C" int func_ov015_021925a8(Struct_ov015_02190acc* arg0);
+extern "C" void func_ov015_0219011c(Struct_ov015_0219011c* arg0, int arg1);
+extern "C" int func_ov015_02191284(Struct_02029988_2* arg0);
+extern "C" void* func_0202a9ac(Struct_02029634* arg0, int arg1);
+extern "C" const char* func_02029560(void* arg0);
+extern "C" void func_ov015_0218f364(Struct_ov015_0218c03c_2* arg0, const char* arg1);
+extern "C" void func_ov015_021900dc(Struct_ov015_021900dc* arg0);
+extern "C" void func_ov015_02192700(Struct_ov015_02190acc* arg0, int arg1);
+extern "C" void func_ov015_0219015c(Struct_ov015_0219015c_2* arg0, int arg1);
 
 // USA: func_ov015_02191294
-extern "C" ARM void func_ov015_02191294(S02190c2c* self)
+extern "C" ARM void func_ov015_02191294(Struct_ov015_02190acc* arg0)
 {
-    if (func_ov015_021925a8(self))
+    if (func_ov015_021925a8(arg0))
         return;
     if (g_keyManager.TestKeysReleased(0x20) || g_keyManager.TestKeysReleased(0x10) ||
         g_keyManager.TestKeysReleased(0x100))
     {
-        self->repeatDelay_ = 0x1e;
-        self->repeatTimer_ = 0;
+        arg0->unknown_2bc_ = 0x1e;
+        arg0->unknown_2c0_ = 0;
     }
     if (g_keyManager.TestKeysPressed(1))
     {
         if (g_keyManager.TestKeysHeld(0x100))
         {
-            ViewObject* current = self->current_;
-            current->playing_ = current->playing_ == 0;
-            self->redraw_ = 1;
+            Struct_ov015_0218c03c_2* var0 = arg0->unknown_30_;
+            var0->unknown_3a_ = var0->unknown_3a_ == 0;
+            arg0->unknown_350_ = 1;
             return;
         }
         if (g_keyManager.TestKeysHeld(0x200))
         {
-            ViewObject* current = self->current_;
-            int loop = current->loop_;
-            if (self->syncMotion_)
+            Struct_ov015_0218c03c_2* var1 = arg0->unknown_30_;
+            int var2 = var1->unknown_44_;
+            if (arg0->unknown_19f_)
             {
-                for (ViewObjectNode* node = self->objects_; node != NULL; node = node->next_)
+                for (Struct_ov015_02190e88* var3 = arg0->unknown_2c_; var3 != NULL; var3 = var3->unknown_4_)
                 {
-                    if (loop == 0)
-                        node->object_->loop_ = 1;
+                    if (var2 == 0)
+                        var3->unknown_0_->unknown_44_ = 1;
                     else
-                        node->object_->loop_ = 0;
+                        var3->unknown_0_->unknown_44_ = 0;
                 }
             }
-            else if (loop == 0)
+            else if (var2 == 0)
             {
-                current->loop_ = 1;
+                var1->unknown_44_ = 1;
             }
             else
             {
-                current->loop_ = 0;
+                var1->unknown_44_ = 0;
             }
         }
-        func_ov015_0219011c((Obj0219011c*)self->current_, self->current_->step_);
-        self->current_->motion_ = func_ov015_02191284(&self->menuList_);
-        void* item = func_0202a9ac((IndexList_0202a9ac*)&self->menuList_, func_ov015_02191284(&self->menuList_));
-        if (item != NULL)
+        func_ov015_0219011c((Struct_ov015_0219011c*)arg0->unknown_30_, arg0->unknown_30_->unknown_4c_);
+        arg0->unknown_30_->unknown_38_ = func_ov015_02191284(&arg0->unknown_2c4_);
+        void* var4 = func_0202a9ac((Struct_02029634*)&arg0->unknown_2c4_, func_ov015_02191284(&arg0->unknown_2c4_));
+        if (var4 != NULL)
         {
-            if (self->syncMotion_)
+            if (arg0->unknown_19f_)
             {
-                for (ViewObjectNode* node = self->objects_; node != NULL; node = node->next_)
-                    func_ov015_0218f364(node->object_, func_02029560(item));
+                for (Struct_ov015_02190e88* var5 = arg0->unknown_2c_; var5 != NULL; var5 = var5->unknown_4_)
+                    func_ov015_0218f364(var5->unknown_0_, func_02029560(var4));
             }
             else
             {
-                func_ov015_0218f364(self->current_, func_02029560(item));
+                func_ov015_0218f364(arg0->unknown_30_, func_02029560(var4));
             }
         }
-        func_ov015_021900dc((Obj021900dc*)self->current_);
-        self->redraw_ = 1;
+        func_ov015_021900dc((Struct_ov015_021900dc*)arg0->unknown_30_);
+        arg0->unknown_350_ = 1;
         return;
     }
     if (g_keyManager.TestKeysPressed(2))
     {
-        func_ov015_0219011c((Obj0219011c*)self->current_, self->current_->step_);
-        self->current_->playing_ = 0;
-        self->current_->motion_ = -1;
-        self->current_->loop_ = 0;
-        self->current_->step_ = 0;
-        self->menu_ = 0;
-        func_ov015_02192700(self, 0);
+        func_ov015_0219011c((Struct_ov015_0219011c*)arg0->unknown_30_, arg0->unknown_30_->unknown_4c_);
+        arg0->unknown_30_->unknown_3a_ = 0;
+        arg0->unknown_30_->unknown_38_ = -1;
+        arg0->unknown_30_->unknown_44_ = 0;
+        arg0->unknown_30_->unknown_4c_ = 0;
+        arg0->unknown_194_ = 0;
+        func_ov015_02192700(arg0, 0);
         return;
     }
     if (g_keyManager.TestKeysPressed(0x100))
     {
-        if (self->current_->playing_)
-            self->redraw_ = 1;
+        if (arg0->unknown_30_->unknown_3a_)
+            arg0->unknown_350_ = 1;
         return;
     }
     if (g_keyManager.TestKeyRepeat(0x20))
     {
         if (g_keyManager.TestKeysHeld(0x100))
         {
-            func_ov015_0219015c((S0219015c*)self->current_, -0x28);
+            func_ov015_0219015c((Struct_ov015_0219015c_2*)arg0->unknown_30_, -0x28);
         }
         else
         {
-            short first = self->menuList_.first_;
-            int cursor = self->menuList_.cursor_ - 8;
-            if (cursor < first)
-                cursor = first;
-            self->menuList_.cursor_ = cursor;
+            short var6 = arg0->unknown_2c4_.unknown_5c_;
+            int var7 = arg0->unknown_2c4_.unknown_60_ - 8;
+            if (var7 < var6)
+                var7 = var6;
+            arg0->unknown_2c4_.unknown_60_ = var7;
         }
-        self->redraw_ = 1;
+        arg0->unknown_350_ = 1;
         return;
     }
     if (g_keyManager.TestKeyRepeat(0x10))
     {
         if (g_keyManager.TestKeysHeld(0x100))
         {
-            func_ov015_0219015c((S0219015c*)self->current_, 0x28);
+            func_ov015_0219015c((Struct_ov015_0219015c_2*)arg0->unknown_30_, 0x28);
         }
         else
         {
-            short last = self->menuList_.last_;
-            int cursor = self->menuList_.cursor_ + 8;
-            if (cursor > last)
-                cursor = last;
-            self->menuList_.cursor_ = cursor;
+            short var8 = arg0->unknown_2c4_.unknown_5e_;
+            int var9 = arg0->unknown_2c4_.unknown_60_ + 8;
+            if (var9 > var8)
+                var9 = var8;
+            arg0->unknown_2c4_.unknown_60_ = var9;
         }
-        self->redraw_ = 1;
+        arg0->unknown_350_ = 1;
         return;
     }
     if (g_keyManager.TestKeysHeld(0x20))
     {
         if (!g_keyManager.TestKeysHeld(0x100))
             return;
-        if (self->repeatTimer_ < self->repeatDelay_)
+        if (arg0->unknown_2c0_ < arg0->unknown_2bc_)
         {
-            self->repeatTimer_++;
+            arg0->unknown_2c0_++;
             return;
         }
-        self->repeatTimer_ = 0;
-        self->repeatDelay_ -= 10;
-        func_ov015_0219015c((S0219015c*)self->current_, -0x28);
-        self->redraw_ = 1;
+        arg0->unknown_2c0_ = 0;
+        arg0->unknown_2bc_ -= 10;
+        func_ov015_0219015c((Struct_ov015_0219015c_2*)arg0->unknown_30_, -0x28);
+        arg0->unknown_350_ = 1;
         return;
     }
     if (!g_keyManager.TestKeysHeld(0x10))
         return;
     if (!g_keyManager.TestKeysHeld(0x100))
         return;
-    if (self->repeatTimer_ < self->repeatDelay_)
+    if (arg0->unknown_2c0_ < arg0->unknown_2bc_)
     {
-        self->repeatTimer_++;
+        arg0->unknown_2c0_++;
         return;
     }
-    self->repeatTimer_ = 0;
-    self->repeatDelay_ -= 10;
-    func_ov015_0219015c((S0219015c*)self->current_, 0x28);
-    self->redraw_ = 1;
+    arg0->unknown_2c0_ = 0;
+    arg0->unknown_2bc_ -= 10;
+    func_ov015_0219015c((Struct_ov015_0219015c_2*)arg0->unknown_30_, 0x28);
+    arg0->unknown_350_ = 1;
 }

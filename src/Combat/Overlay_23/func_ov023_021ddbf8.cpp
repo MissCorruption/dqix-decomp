@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 struct GameResources;
 int IsSubBrightnessTransitionActive(GameResources*);
 int IsMainBrightnessTransitionActive(GameResources*);
 
-struct Obj021ddbf8 { char pad[
+struct Struct_ov023_021dd59c { char unknown_0_[
 #if defined(jpn)
 0x6f8
 #else
 0x77c
 #endif
-]; signed char f77c; };
+]; signed char unknown_77c_; };
 
 // USA: func_ov023_021ddbf8
-extern "C" ARM int func_ov023_021ddbf8(Obj021ddbf8* arg) {
-    int* p = (int*)func_0200fb8c((int*)GameState::GetInstance());
-    int r;
-    if (arg->f77c == 1) {
-        r = IsSubBrightnessTransitionActive((GameResources*)p);
+extern "C" ARM int func_ov023_021ddbf8(Struct_ov023_021dd59c* arg0) {
+    int* var0 = (int*)func_0200fb8c((int*)GameState::GetInstance());
+    int var1;
+    if (arg0->unknown_77c_ == 1) {
+        var1 = IsSubBrightnessTransitionActive((GameResources*)var0);
     } else {
-        r = IsMainBrightnessTransitionActive((GameResources*)p);
+        var1 = IsMainBrightnessTransitionActive((GameResources*)var0);
     }
-    return r != 0;
+    return var1 != 0;
 }

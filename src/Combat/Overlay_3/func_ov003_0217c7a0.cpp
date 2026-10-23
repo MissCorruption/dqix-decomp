@@ -7,112 +7,112 @@
 #include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
-struct Obj0204b010;
-struct List0204afb4;
+struct Struct_0204b010;
+struct Struct_02020cb8_3;
 
-struct Camera0217c7a0
+struct Struct_ov003_0217c7a0
 {
-    char unk_0[0x10];
-    Vector3i position;
+    char unknown_0_[0x10];
+    Vector3i unknown_10_;
 };
 
-struct RecordList0217c7a0
+struct Struct_02000c9c_89
 {
-    char data[0x20];
+    char unknown_0_[0x20];
 };
 
-struct Scene0217c7a0
+struct Struct_ov003_0217c7a0_2
 {
-    SafeAllocator* allocator;
-    SafeAllocator allocA;
-    SafeAllocator allocB;
-    SafeAllocator allocC;
-    RecordList0217c7a0 listA;
-    RecordList0217c7a0 listB;
-    char unk_80[0x130 - 0x80];
-    int taskA;
-    int taskB;
-    int taskC;
-    char unk_13c[0x141 - 0x13c];
-    signed char state;
-    char unk_142;
-    unsigned char finished;
-    Vector3i cameraPosition;
-    int cameraTail[3];
+    SafeAllocator* unknown_0_;
+    SafeAllocator unknown_4_;
+    SafeAllocator unknown_18_;
+    SafeAllocator unknown_2c_;
+    Struct_02000c9c_89 unknown_40_;
+    Struct_02000c9c_89 unknown_60_;
+    char unknown_80_[0x130 - 0x80];
+    int unknown_130_;
+    int unknown_134_;
+    int unknown_138_;
+    char unknown_13c_[0x141 - 0x13c];
+    signed char unknown_141_;
+    char unknown_142_;
+    unsigned char unknown_143_;
+    Vector3i unknown_144_;
+    int unknown_150_[3];
 };
 
-extern "C" void func_0204b010(Obj0204b010* obj, void* buf);
-extern "C" void func_0204b04c(void* obj, int flag);
-extern "C" void func_0204b088(void* obj, int flag);
-extern "C" void func_0204afb4(List0204afb4* list);
-extern "C" void func_020c5588(int a, int b, int c, int d, int e);
-extern "C" void func_0202e694(void* obj, int* vec);
-extern "C" void func_020a2794(void* obj);
-extern "C" void func_020a2744(char* obj);
-extern "C" int func_ov003_0217c2a0(int enable);
-extern "C" void func_0200fd48(GameState* gs, int id);
+extern "C" void func_0204b010(Struct_0204b010* arg0, void* arg1);
+extern "C" void func_0204b04c(void* arg0, int arg1);
+extern "C" void func_0204b088(void* arg0, int arg1);
+extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void func_020a2794(void* arg0);
+extern "C" void func_020a2744(char* arg0);
+extern "C" int func_ov003_0217c2a0(int arg0);
+extern "C" void func_0200fd48(GameState* arg0, int arg1);
 
 // USA: func_ov003_0217c7a0
-extern "C" ARM void func_ov003_0217c7a0(Scene0217c7a0* self)
+extern "C" ARM void func_ov003_0217c7a0(Struct_ov003_0217c7a0_2* arg0)
 {
-    GameResources* resources = GetGameResources();
-    if (self->state == 0)
+    GameResources* var0 = GetGameResources();
+    if (arg0->unknown_141_ == 0)
     {
-        SetBrightness(resources, -16, 0x3c);
-        self->state++;
+        SetBrightness(var0, -16, 0x3c);
+        arg0->unknown_141_++;
     }
-    else if (self->state == 1)
+    else if (arg0->unknown_141_ == 1)
     {
-        if (IsBrightnessTransitionActive(resources))
+        if (IsBrightnessTransitionActive(var0))
             return;
 
-        GameState* gs = GameState::GetInstance();
-        void* block;
+        GameState* var1 = GameState::GetInstance();
+        void* var2;
 
-        block = self->allocA.GetSignedAllocator();
-        if (block)
+        var2 = arg0->unknown_4_.GetSignedAllocator();
+        if (var2)
         {
-            self->allocA.Destroy();
-            self->allocator->Free(block);
+            arg0->unknown_4_.Destroy();
+            arg0->unknown_0_->Free(var2);
         }
-        block = self->allocB.GetSignedAllocator();
-        if (block)
+        var2 = arg0->unknown_18_.GetSignedAllocator();
+        if (var2)
         {
-            self->allocB.Destroy();
-            self->allocator->Free(block);
+            arg0->unknown_18_.Destroy();
+            arg0->unknown_0_->Free(var2);
         }
-        block = self->allocC.GetSignedAllocator();
-        if (block)
+        var2 = arg0->unknown_2c_.GetSignedAllocator();
+        if (var2)
         {
-            self->allocC.Destroy();
-            self->allocator->Free(block);
+            arg0->unknown_2c_.Destroy();
+            arg0->unknown_0_->Free(var2);
         }
 
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        loader->RemoveTask(self->taskA);
-        self->taskA = -1;
-        loader->RemoveTask(self->taskB);
-        self->taskB = -1;
-        loader->RemoveTask(self->taskC);
-        self->taskC = -1;
+        BackgroundLoader* var3 = BackgroundLoader::GetInstance();
+        var3->RemoveTask(arg0->unknown_130_);
+        arg0->unknown_130_ = -1;
+        var3->RemoveTask(arg0->unknown_134_);
+        arg0->unknown_134_ = -1;
+        var3->RemoveTask(arg0->unknown_138_);
+        arg0->unknown_138_ = -1;
 
-        func_0204b010((Obj0204b010*)&self->listA, 0);
-        func_0204b04c(&self->listA, 0);
-        func_0204b088(&self->listA, 0);
-        func_0204afb4((List0204afb4*)&self->listA);
-        func_0204b010((Obj0204b010*)&self->listB, 0);
-        func_0204b04c(&self->listB, 0);
-        func_0204b088(&self->listB, 0);
-        func_0204afb4((List0204afb4*)&self->listB);
+        func_0204b010((Struct_0204b010*)&arg0->unknown_40_, 0);
+        func_0204b04c(&arg0->unknown_40_, 0);
+        func_0204b088(&arg0->unknown_40_, 0);
+        func_0204afb4((Struct_02020cb8_3*)&arg0->unknown_40_);
+        func_0204b010((Struct_0204b010*)&arg0->unknown_60_, 0);
+        func_0204b04c(&arg0->unknown_60_, 0);
+        func_0204b088(&arg0->unknown_60_, 0);
+        func_0204afb4((Struct_02020cb8_3*)&arg0->unknown_60_);
 
         func_020c5588(0, 0, 0x7fff, 0, 0);
-        Camera0217c7a0* camera = (Camera0217c7a0*)func_020100bc(gs);
-        camera->position = self->cameraPosition;
-        func_0202e694(camera, self->cameraTail);
-        func_020a2794(camera);
-        func_020a2744((char*)camera);
+        Struct_ov003_0217c7a0* var4 = (Struct_ov003_0217c7a0*)func_020100bc(var1);
+        var4->unknown_10_ = arg0->unknown_144_;
+        func_0202e694(var4, arg0->unknown_150_);
+        func_020a2794(var4);
+        func_020a2744((char*)var4);
         func_ov003_0217c2a0(0);
-        func_0200fd48(gs, 0xa0);
-        self->finished = 1;
+        func_0200fd48(var1, 0xa0);
+        arg0->unknown_143_ = 1;
     }
 }

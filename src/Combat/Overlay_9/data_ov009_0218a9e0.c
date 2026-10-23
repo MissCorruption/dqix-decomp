@@ -4,9 +4,9 @@
 #endif
 
 typedef struct Vector3fix {
-    int x;
-    int y;
-    int z;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 } Vector3fix;
 
 // USA: data_ov009_0218a9e0

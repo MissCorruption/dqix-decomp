@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-struct Arr6_02070ee0 {
-    unsigned short v[6];
+struct Struct_02070ee0 {
+    unsigned short unknown_0_[6];
 };
 
-struct Block22_02070ee0 {
-    unsigned int v[22];
+struct Struct_02070ee0_2 {
+    unsigned int unknown_0_[22];
 };
 
-struct Element02070ee0 {
-    unsigned short f00;
-    unsigned char f02;
-    unsigned char f03;
-    unsigned short f04;
-    unsigned short f06;
-    unsigned int f08;
-    unsigned short f0c;
-    unsigned int f10;
-    unsigned int f14;
-    struct Arr6_02070ee0 f18;
-    unsigned int f24;
-    unsigned char f28;
-    unsigned char f29;
-    unsigned short f2a;
-    struct Block22_02070ee0 f2c;
+struct Struct_02070b6c_5 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned short unknown_c_;
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    struct Struct_02070ee0 unknown_18_;
+    unsigned int unknown_24_;
+    unsigned char unknown_28_;
+    unsigned char unknown_29_;
+    unsigned short unknown_2a_;
+    struct Struct_02070ee0_2 unknown_2c_;
 };
 
 // USA: func_02070ee0
-extern "C" ARM struct Element02070ee0 *func_02070ee0(struct Element02070ee0 *dst, struct Element02070ee0 *src) {
-    dst->f00 = src->f00;
-    dst->f02 = src->f02;
-    dst->f03 = src->f03;
-    dst->f04 = src->f04;
-    dst->f06 = src->f06;
-    dst->f08 = src->f08;
-    dst->f0c = src->f0c;
-    dst->f10 = src->f10;
-    dst->f14 = src->f14;
-    dst->f18 = src->f18;
-    dst->f24 = src->f24;
-    dst->f28 = src->f28;
-    dst->f29 = src->f29;
-    dst->f2a = src->f2a;
-    dst->f2c = src->f2c;
-    return dst;
+extern "C" ARM struct Struct_02070b6c_5 *func_02070ee0(struct Struct_02070b6c_5 *arg0, struct Struct_02070b6c_5 *arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
+    arg0->unknown_2_ = arg1->unknown_2_;
+    arg0->unknown_3_ = arg1->unknown_3_;
+    arg0->unknown_4_ = arg1->unknown_4_;
+    arg0->unknown_6_ = arg1->unknown_6_;
+    arg0->unknown_8_ = arg1->unknown_8_;
+    arg0->unknown_c_ = arg1->unknown_c_;
+    arg0->unknown_10_ = arg1->unknown_10_;
+    arg0->unknown_14_ = arg1->unknown_14_;
+    arg0->unknown_18_ = arg1->unknown_18_;
+    arg0->unknown_24_ = arg1->unknown_24_;
+    arg0->unknown_28_ = arg1->unknown_28_;
+    arg0->unknown_29_ = arg1->unknown_29_;
+    arg0->unknown_2a_ = arg1->unknown_2a_;
+    arg0->unknown_2c_ = arg1->unknown_2c_;
+    return arg0;
 }

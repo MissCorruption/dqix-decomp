@@ -2,29 +2,29 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue1012_F8E = 0xf8e };
-enum { kRegionValue100E_F8A = 0xf8a };
-enum { kRegionValue1014_F90 = 0xf90 };
+enum { Enum_ov003_02175f20_4114 = 0xf8e };
+enum { Enum_ov003_02175f20_4110 = 0xf8a };
+enum { Enum_ov003_02175f20_4116 = 0xf90 };
 #else
-enum { kRegionValue1012_F8E = 0x1012 };
-enum { kRegionValue100E_F8A = 0x100e };
-enum { kRegionValue1014_F90 = 0x1014 };
+enum { Enum_ov003_02175f20_4114 = 0x1012 };
+enum { Enum_ov003_02175f20_4110 = 0x100e };
+enum { Enum_ov003_02175f20_4116 = 0x1014 };
 #endif
 
-extern "C" unsigned char func_0207ca94(int index);
-extern "C" int func_0207c6b8(unsigned char* obj, unsigned int index, int target);
+extern "C" unsigned char func_0207ca94(int arg0);
+extern "C" int func_0207c6b8(unsigned char* arg0, unsigned int arg1, int arg2);
 
 // USA: func_ov003_02175f20
-extern "C" ARM int func_ov003_02175f20(void* obj) {
-    GameState* bs = GameState::GetInstance();
-    void* p = func_02010828(bs);
-    short v1 = *(short*)((char*)obj + kRegionValue1012_F8E);
-    int idx = (short)(v1 - 286);
-    unsigned char cnt = func_0207ca94(idx);
-    short v3 = *(short*)((char*)obj + kRegionValue100E_F8A);
-    short v2 = *(short*)((char*)obj + kRegionValue1014_F90);
-    unsigned char* argPtr = (unsigned char*)p + 0x1d4;
-    short idx2 = (short)(v3 - 295);
-    idx2 = v2 * 5 + idx2;
-    return func_0207c6b8(argPtr, cnt, idx2);
+extern "C" ARM int func_ov003_02175f20(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02010828(var0);
+    short var2 = *(short*)((char*)arg0 + Enum_ov003_02175f20_4114);
+    int var3 = (short)(var2 - 286);
+    unsigned char var4 = func_0207ca94(var3);
+    short var5 = *(short*)((char*)arg0 + Enum_ov003_02175f20_4110);
+    short var6 = *(short*)((char*)arg0 + Enum_ov003_02175f20_4116);
+    unsigned char* var7 = (unsigned char*)var1 + 0x1d4;
+    short var8 = (short)(var5 - 295);
+    var8 = var6 * 5 + var8;
+    return func_0207c6b8(var7, var4, var8);
 }

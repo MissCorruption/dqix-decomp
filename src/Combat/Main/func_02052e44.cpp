@@ -8,49 +8,49 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_020d6c00(void);
-struct FlagWord02046708;
-extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+struct Struct_02012de8;
+extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 
-extern "C" void func_0205308c(void* obj, int val);
-extern "C" void func_ov017_021cc1f8(int a, void* buf, int len, int extra);
+extern "C" void func_0205308c(void* arg0, int arg1);
+extern "C" void func_ov017_021cc1f8(int arg0, void* arg1, int arg2, int arg3);
 
-extern "C" unsigned char func_020100b0(GameState* battleStruct);
-extern "C" int func_020100f8(char* obj);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" int func_020100f8(char* arg0);
 
-struct S020a2c70;
-extern "C" int func_020a2c70(struct S020a2c70* p);
+struct Struct_02037d88_12;
+extern "C" int func_020a2c70(struct Struct_02037d88_12* arg0);
 
-struct Obj02052e44 {
-    char pad0[0x4];
-    short field4;
-    char pad6[(IS_JPN ? 0x16c : 0x178) - 0x6];
-    signed char f178[4];
-    signed char f17c;
-    signed char f17d;
-    signed char f17e;
-    char pad17f[0x180 - 0x17f];
-    int f180;
-    signed char f184;
-    signed char f185;
-    signed char f186;
-    char pad187[0x190 - 0x187];
-    int f190;
-    int f194;
+struct Struct_02037d88 {
+    char unknown_0_[0x4];
+    short unknown_4_;
+    char unknown_6_[(IS_JPN ? 0x16c : 0x178) - 0x6];
+    signed char unknown_178_[4];
+    signed char unknown_17c_;
+    signed char unknown_17d_;
+    signed char unknown_17e_;
+    char unknown_17f_[0x180 - 0x17f];
+    int unknown_180_;
+    signed char unknown_184_;
+    signed char unknown_185_;
+    signed char unknown_186_;
+    char unknown_187_[0x190 - 0x187];
+    int unknown_190_;
+    int unknown_194_;
 };
 
 // USA: func_02052e44
-extern "C" ARM int func_02052e44(Obj02052e44* obj, signed char arg1) {
-    signed char idx;
-    signed char val;
-    GameState* battleStruct;
+extern "C" ARM int func_02052e44(Struct_02037d88* arg0, signed char arg1) {
+    signed char var0;
+    signed char var1;
+    GameState* var2;
 
-    if (func_02046708((struct FlagWord02046708*)func_020d6c00(), 2)) {
+    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 2)) {
         return 0;
     }
 
     {
-        int flag17c = (((signed char*)((char*)obj + 0x100))[(IS_JPN ? 0x70 : 0x7c)] > 0);
-        if (flag17c) {
+        int var3 = (((signed char*)((char*)arg0 + 0x100))[(IS_JPN ? 0x70 : 0x7c)] > 0);
+        if (var3) {
             return 0;
         }
     }
@@ -59,33 +59,33 @@ extern "C" ARM int func_02052e44(Obj02052e44* obj, signed char arg1) {
         return 0;
     }
 
-    obj->f178[0] = arg1;
-    obj->f17c = 1;
-    obj->f17d = 0;
-    obj->f180 = -1;
-    obj->f17e = 0;
-    obj->f184 = 0;
-    obj->f190 = 0;
-    obj->f194 = -1;
-    obj->f185 = 0;
-    obj->f186 = 0;
+    arg0->unknown_178_[0] = arg1;
+    arg0->unknown_17c_ = 1;
+    arg0->unknown_17d_ = 0;
+    arg0->unknown_180_ = -1;
+    arg0->unknown_17e_ = 0;
+    arg0->unknown_184_ = 0;
+    arg0->unknown_190_ = 0;
+    arg0->unknown_194_ = -1;
+    arg0->unknown_185_ = 0;
+    arg0->unknown_186_ = 0;
 
-    idx = ((signed char*)((char*)obj + 0x100))[(IS_JPN ? 0x71 : 0x7d)];
-    val = obj->f178[idx];
-    func_0205308c(obj, val);
+    var0 = ((signed char*)((char*)arg0 + 0x100))[(IS_JPN ? 0x71 : 0x7d)];
+    var1 = arg0->unknown_178_[var0];
+    func_0205308c(arg0, var1);
 
-    func_ov017_021cc1f8(obj->field4, &arg1, 1, 0);
+    func_ov017_021cc1f8(arg0->unknown_4_, &arg1, 1, 0);
 
     {
-        short field4;
-        battleStruct = GameState::GetInstance();
-        field4 = obj->field4;
-        obj = (struct Obj02052e44*)battleStruct;
-        unsigned char cur = func_020100b0((GameState*)obj);
-        if (cur == field4) {
-            int r = func_020100f8((char*)obj);
-            if (r != 0) {
-                func_020a2c70((struct S020a2c70*)r);
+        short var4;
+        var2 = GameState::GetInstance();
+        var4 = arg0->unknown_4_;
+        arg0 = (struct Struct_02037d88*)var2;
+        unsigned char var5 = func_020100b0((GameState*)arg0);
+        if (var5 == var4) {
+            int var6 = func_020100f8((char*)arg0);
+            if (var6 != 0) {
+                func_020a2c70((struct Struct_02037d88_12*)var6);
             }
         }
     }

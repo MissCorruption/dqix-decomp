@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 
-struct GameData02250ba8 {
-	void* item[2];
-	void* item8;
-	unsigned int pad0xc;
-	void* item10;
+struct Struct_ov031_022231f0 {
+	void* unknown_0_[2];
+	void* unknown_8_;
+	unsigned int unknown_c_;
+	void* unknown_10_;
 };
 
-extern "C" ARM void func_ov031_0223e2c0(int a, int b);
-extern "C" ARM void func_ov031_0223ba20(void* p);
-extern "C" ARM void func_ov031_0223cf70(GameData02250ba8** p);
+extern "C" ARM void func_ov031_0223e2c0(int arg0, int arg1);
+extern "C" ARM void func_ov031_0223ba20(void* arg0);
+extern "C" ARM void func_ov031_0223cf70(Struct_ov031_022231f0** arg0);
 
 #if defined(jpn)
-extern "C" GameData02250ba8* data_ov031_02250ba8;
+extern "C" Struct_ov031_022231f0* data_ov031_02250ba8;
 namespace DuplicatePool {
-    extern "C" GameData02250ba8* data_ov031_02250ba8;
+    extern "C" Struct_ov031_022231f0* data_ov031_02250ba8;
 }
 #else
-extern GameData02250ba8* data_ov031_02250ba8;
+extern Struct_ov031_022231f0* data_ov031_02250ba8;
 #endif
 
 // USA: func_ov031_022231f0
-extern "C" ARM void func_ov031_022231f0(int param) {
-	func_ov031_0223e2c0(0, param);
+extern "C" ARM void func_ov031_022231f0(int arg0) {
+	func_ov031_0223e2c0(0, arg0);
 
-	if (data_ov031_02250ba8->item10) {
-		func_ov031_0223e2c0(0, (int)data_ov031_02250ba8->item10);
+	if (data_ov031_02250ba8->unknown_10_) {
+		func_ov031_0223e2c0(0, (int)data_ov031_02250ba8->unknown_10_);
 	}
 
-	int i = 0;
+	int var0 = 0;
 	do {
-		if (data_ov031_02250ba8->item[i]) {
-			func_ov031_0223ba20(data_ov031_02250ba8->item[i]);
+		if (data_ov031_02250ba8->unknown_0_[var0]) {
+			func_ov031_0223ba20(data_ov031_02250ba8->unknown_0_[var0]);
 		}
-		i++;
-	} while (i < 2);
+		var0++;
+	} while (var0 < 2);
 
-	func_ov031_0223ba20(data_ov031_02250ba8->item8);
+	func_ov031_0223ba20(data_ov031_02250ba8->unknown_8_);
 
 #if defined(jpn)
 	func_ov031_0223cf70(&DuplicatePool::data_ov031_02250ba8);
 #else
-	func_ov031_0223cf70((GameData02250ba8**)0x02250BA8);
+	func_ov031_0223cf70((Struct_ov031_022231f0**)0x02250BA8);
 #endif
 }

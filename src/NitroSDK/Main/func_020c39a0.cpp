@@ -5,12 +5,12 @@
 #endif
 
 // USA: func_020c39a0
-extern "C" ARM void func_020c39a0(short* out, int value) {
-    if (value == 0) {
-        *out = 0;
-    } else if (value > 0) {
-        *out = value | 0x4000;
+extern "C" ARM void func_020c39a0(short* arg0, int arg1) {
+    if (arg1 == 0) {
+        *arg0 = 0;
+    } else if (arg1 > 0) {
+        *arg0 = arg1 | 0x4000;
     } else {
-        *out = (-value) | 0x8000;
+        *arg0 = (-arg1) | 0x8000;
     }
 }

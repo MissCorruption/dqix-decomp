@@ -3,71 +3,71 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue730_62C = 0x62c };
-enum { kRegionValue72C_628 = 0x628 };
-enum { kRegionValue724_618 = 0x618 };
-enum { kRegionValue71C_61C = 0x61c };
+enum { Enum_ov003_02171550_1840 = 0x62c };
+enum { Enum_ov003_02171550_1836 = 0x628 };
+enum { Enum_ov003_02171550_1828 = 0x618 };
+enum { Enum_ov003_02171550_1820 = 0x61c };
 #else
-enum { kRegionValue730_62C = 0x730 };
-enum { kRegionValue72C_628 = 0x72c };
-enum { kRegionValue724_618 = 0x724 };
-enum { kRegionValue71C_61C = 0x71c };
+enum { Enum_ov003_02171550_1840 = 0x730 };
+enum { Enum_ov003_02171550_1836 = 0x72c };
+enum { Enum_ov003_02171550_1828 = 0x724 };
+enum { Enum_ov003_02171550_1820 = 0x71c };
 #endif
 
-struct SearchStruct;
-struct Obj02171550 {
-    unsigned char field0;
-    char pad1[kRegionValue730_62C - 1];
-    unsigned char field730;
+struct Struct_0202b2f0;
+struct Struct_ov003_02171550 {
+    unsigned char unknown_0_;
+    char unknown_1_[Enum_ov003_02171550_1840 - 1];
+    unsigned char unknown_730_;
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b000(void* ptr);
-extern "C" void func_0202b0f4(void* ptr);
-extern "C" int func_0202b7ec(void* obj);
-extern "C" void func_0202c360(void* self, int value);
-extern "C" void func_0202b2f0(void* ptr);
-extern "C" void func_0202c410(void* obj);
-extern "C" void func_0202b828(unsigned char* obj);
-extern "C" void func_0202c21c(struct SearchStruct* obj, int value);
-extern "C" void func_0202c1e8(struct SearchStruct* obj, int value);
-extern "C" void func_0202c288(void* ptr);
+extern "C" int func_0202b000(void* arg0);
+extern "C" void func_0202b0f4(void* arg0);
+extern "C" int func_0202b7ec(void* arg0);
+extern "C" void func_0202c360(void* arg0, int arg1);
+extern "C" void func_0202b2f0(void* arg0);
+extern "C" void func_0202c410(void* arg0);
+extern "C" void func_0202b828(unsigned char* arg0);
+extern "C" void func_0202c21c(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c1e8(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" void func_0202c288(void* arg0);
 
 // USA: func_ov003_02171550
-extern "C" ARM void func_ov003_02171550(struct Obj02171550* obj) {
-    if (!(obj->field730 & 1)) {
-        obj->field0 = 8;
+extern "C" ARM void func_ov003_02171550(struct Struct_ov003_02171550* arg0) {
+    if (!(arg0->unknown_730_ & 1)) {
+        arg0->unknown_0_ = 8;
         return;
     }
 
-    GameState* battle = GameState::GetInstance();
-    void* ptr = func_0202ae18();
-    GameObject* c = battle->GetProtagonist();
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0202ae18();
+    GameObject* var2 = var0->GetProtagonist();
 
-    int state = func_0202b000(ptr);
-    if (state != 0) {
-        if (state == 3) return;
-        func_0202b0f4(ptr);
-        obj->field0 = 0xa;
+    int var3 = func_0202b000(var1);
+    if (var3 != 0) {
+        if (var3 == 3) return;
+        func_0202b0f4(var1);
+        arg0->unknown_0_ = 0xa;
         return;
     }
 
-    func_0202b7ec(ptr);
-    func_0202c360(ptr, *(int*)((char*)c + 0x134));
-    func_0202b2f0(ptr);
-    func_0202c410(ptr);
-    func_0202b828((unsigned char*)ptr);
-    func_0202c21c((struct SearchStruct*)ptr, 0xf);
-    func_0202c1e8((struct SearchStruct*)ptr, 0);
-    func_0202c288(ptr);
+    func_0202b7ec(var1);
+    func_0202c360(var1, *(int*)((char*)var2 + 0x134));
+    func_0202b2f0(var1);
+    func_0202c410(var1);
+    func_0202b828((unsigned char*)var1);
+    func_0202c21c((struct Struct_0202b2f0*)var1, 0xf);
+    func_0202c1e8((struct Struct_0202b2f0*)var1, 0);
+    func_0202c288(var1);
 
-    *(int*)((char*)obj + 4) = (rand() % 4 + 2) * 500;
+    *(int*)((char*)arg0 + 4) = (rand() % 4 + 2) * 500;
 
-    *(int*)((char*)obj + kRegionValue72C_628) = 0;
-    *(int*)((char*)obj + kRegionValue724_618) = 0;
-    *(int*)((char*)obj + kRegionValue71C_61C) = 0;
+    *(int*)((char*)arg0 + Enum_ov003_02171550_1836) = 0;
+    *(int*)((char*)arg0 + Enum_ov003_02171550_1828) = 0;
+    *(int*)((char*)arg0 + Enum_ov003_02171550_1820) = 0;
 #if !defined(jpn)
-    *(int*)((char*)obj + 0x720) = 0;
+    *(int*)((char*)arg0 + 0x720) = 0;
 #endif
-    obj->field0 = 1;
+    arg0->unknown_0_ = 1;
 }

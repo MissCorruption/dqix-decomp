@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Holder02042c24;
-extern "C" void func_02042c24(struct Holder02042c24* holder, int x, int y);
+struct Struct_02042b98_3;
+extern "C" void func_02042c24(struct Struct_02042b98_3* arg0, int arg1, int arg2);
 
-struct Holder02042c3c;
-extern "C" void func_02042c3c(struct Holder02042c3c* holder, int width, int height);
+struct Struct_02042b98;
+extern "C" void func_02042c3c(struct Struct_02042b98* arg0, int arg1, int arg2);
 
-struct Rect02042c54;
-extern "C" void func_02042c54(struct Rect02042c54* rect, int left, int top, int right, int bottom);
+struct Struct_02042b98_2;
+extern "C" void func_02042c54(struct Struct_02042b98_2* arg0, int arg1, int arg2, int arg3, int arg4);
 
 #if defined(jpn)
 #define func_02042b98 func_02043270
-enum { kCenterOffset = 0x860, kHolderOffset = 0x1804, kXOffset = 0x1728, kYOffset = 0x172c, kRectOffset = 0x1718 };
+enum { Enum_02042b98_2448 = 0x860, Enum_02042b98_6624 = 0x1804, Enum_02042b98_6232 = 0x1728, Enum_02042b98_6236 = 0x172c, Enum_02042b98_6216 = 0x1718 };
 #else
-enum { kCenterOffset = 0x990, kHolderOffset = 0x19e0, kXOffset = 0x1858, kYOffset = 0x185c, kRectOffset = 0x1848 };
+enum { Enum_02042b98_2448 = 0x990, Enum_02042b98_6624 = 0x19e0, Enum_02042b98_6232 = 0x1858, Enum_02042b98_6236 = 0x185c, Enum_02042b98_6216 = 0x1848 };
 #endif
 
 // USA: func_02042b98
-extern "C" ARM void func_02042b98(void* self, int arg1, int arg2, int arg3, int arg4) {
-    char* p = (char*)self;
-    *(int*)(p + kCenterOffset) = arg1 + (arg3 >> 1);
-    func_02042c24((struct Holder02042c24*)(p + kHolderOffset), (short)arg1, (short)arg2);
-    func_02042c3c((struct Holder02042c3c*)(p + kHolderOffset), (short)arg3, (short)arg4);
-    *(int*)(p + kXOffset) = arg1;
-    *(int*)(p + kYOffset) = arg2 + 8;
-    func_02042c54((struct Rect02042c54*)(p + kRectOffset), arg1, arg2 + 8, arg1 + arg3, arg2 + arg4);
+extern "C" ARM void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4) {
+    char* var0 = (char*)arg0;
+    *(int*)(var0 + Enum_02042b98_2448) = arg1 + (arg3 >> 1);
+    func_02042c24((struct Struct_02042b98_3*)(var0 + Enum_02042b98_6624), (short)arg1, (short)arg2);
+    func_02042c3c((struct Struct_02042b98*)(var0 + Enum_02042b98_6624), (short)arg3, (short)arg4);
+    *(int*)(var0 + Enum_02042b98_6232) = arg1;
+    *(int*)(var0 + Enum_02042b98_6236) = arg2 + 8;
+    func_02042c54((struct Struct_02042b98_2*)(var0 + Enum_02042b98_6216), arg1, arg2 + 8, arg1 + arg3, arg2 + arg4);
 }

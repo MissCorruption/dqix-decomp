@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" void func_0203acc8(void* obj, void* target, int arg);
+extern "C" void func_0203acc8(void* arg0, void* arg1, int arg2);
 
 // USA: func_0205ec20
-extern "C" ARM void func_0205ec20(void* obj, void* target, int arg) {
-    func_0203acc8(obj, target, arg);
+extern "C" ARM void func_0205ec20(void* arg0, void* arg1, int arg2) {
+    func_0203acc8(arg0, arg1, arg2);
 }

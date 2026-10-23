@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct ArrayContainsByteStruct;
+struct Struct_02048150;
 
 extern "C" int *func_0202ae18(void);
-extern "C" int func_02086ef0(ArrayContainsByteStruct *arr, int value);
-extern "C" int func_0202b7d8(int *p);
-extern "C" int func_ov002_02154a34(void *self, int id);
-extern "C" int func_ov002_02154b94(void *self, int id);
+extern "C" int func_02086ef0(Struct_02048150 *arg0, int arg1);
+extern "C" int func_0202b7d8(int *arg0);
+extern "C" int func_ov002_02154a34(void *arg0, int arg1);
+extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 
-struct Entry02153ea4 {
-    unsigned char state;
-    unsigned char pad1;
-    unsigned short value;
-    unsigned char absent;
-    unsigned char pad5;
+struct Struct_ov002_02153ea4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
 };
 
-struct Info02153ea4 {
-    unsigned char pad0[2];
-    signed char kind;
-    unsigned char count;
-    signed char ids[4];
-    Entry02153ea4 entries[4];
-    Entry02153ea4 altEntries[4];
+struct Struct_ov002_02153ea4_2 {
+    unsigned char unknown_0_[2];
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    signed char unknown_4_[4];
+    Struct_ov002_02153ea4 unknown_8_[4];
+    Struct_ov002_02153ea4 unknown_20_[4];
 };
 
-extern "C" void func_ov002_02153e90(Entry02153ea4 *e);
-extern "C" int func_ov002_02154a6c(void *self, int id, int kind);
-extern "C" unsigned short func_ov002_021549c8(void *self, int id, int mode, Entry02153ea4 *e);
-extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
+extern "C" void func_ov002_02153e90(Struct_ov002_02153ea4 *arg0);
+extern "C" int func_ov002_02154a6c(void *arg0, int arg1, int arg2);
+extern "C" unsigned short func_ov002_021549c8(void *arg0, int arg1, int arg2, Struct_ov002_02153ea4 *arg3);
+extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov002_02153ea4
-extern "C" ARM int func_ov002_02153ea4(void *self, Info02153ea4 *info, int enabled, int alt) {
-    if (info == 0) return 0;
-    if (enabled == 0) return 0;
-    ArrayContainsByteStruct *party = (ArrayContainsByteStruct *)func_02010828(GameState::GetInstance());
-    int *g                         = func_0202ae18();
-    int changed                    = 0;
-    Entry02153ea4 *entries         = info->entries;
-    if (alt) entries = info->altEntries;
-    for (int i = 0; i < 4; i++) {
-        func_ov002_02153e90(&entries[i]);
+extern "C" ARM int func_ov002_02153ea4(void *arg0, Struct_ov002_02153ea4_2 *arg1, int arg2, int arg3) {
+    if (arg1 == 0) return 0;
+    if (arg2 == 0) return 0;
+    Struct_02048150 *var0 = (Struct_02048150 *)func_02010828(GameState::GetInstance());
+    int *var1                         = func_0202ae18();
+    int var2                    = 0;
+    Struct_ov002_02153ea4 *var3         = arg1->unknown_8_;
+    if (arg3) var3 = arg1->unknown_20_;
+    for (int var4 = 0; var4 < 4; var4++) {
+        func_ov002_02153e90(&var3[var4]);
     }
-    for (int i = 0; i < info->count; i++) {
-        Entry02153ea4 *e = &entries[i];
-        int id           = info->ids[i];
-        if (!func_02086ef0(party, id)) e->absent = 1;
-        if (!func_ov002_02154a6c(self, id, info->kind)) {
-            e->state = 1;
+    for (int var5 = 0; var5 < arg1->unknown_3_; var5++) {
+        Struct_ov002_02153ea4 *var6 = &var3[var5];
+        int var7           = arg1->unknown_4_[var5];
+        if (!func_02086ef0(var0, var7)) var6->unknown_4_ = 1;
+        if (!func_ov002_02154a6c(arg0, var7, arg1->unknown_2_)) {
+            var6->unknown_0_ = 1;
             continue;
         }
-        if (func_ov002_02154b94(self, id)) {
-            e->state = 2;
+        if (func_ov002_02154b94(arg0, var7)) {
+            var6->unknown_0_ = 2;
             continue;
         }
-        if (!func_ov002_02154a34(self, id)) continue;
-        if (e->absent) {
-            e->value = 1;
-            e->state = 3;
+        if (!func_ov002_02154a34(arg0, var7)) continue;
+        if (var6->unknown_4_) {
+            var6->unknown_2_ = 1;
+            var6->unknown_0_ = 3;
         } else {
-            e->value = func_ov002_021549c8(self, id, 2, e);
+            var6->unknown_2_ = func_ov002_021549c8(arg0, var7, 2, var6);
         }
-        if (e->state == 0) continue;
-        if (func_0202b7d8(g) && func_02086ef0(party, id)) {
-            func_ov017_021c9e00(id, 0, 0, 1);
+        if (var6->unknown_0_ == 0) continue;
+        if (func_0202b7d8(var1) && func_02086ef0(var0, var7)) {
+            func_ov017_021c9e00(var7, 0, 0, 1);
         }
-        changed = 1;
+        var2 = 1;
     }
-    return changed;
+    return var2;
 }

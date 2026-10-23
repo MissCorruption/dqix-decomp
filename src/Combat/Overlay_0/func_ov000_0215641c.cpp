@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct CombatantExtra0215641c {
-    char unk_0[0xc];
-    unsigned int charmBonus : 10;
+struct Struct_ov000_0215641c_2 {
+    char unknown_0_[0xc];
+    unsigned int unknown_c_0_ : 10;
 };
 
-struct Combatant0215641c {
-    char unk_0[0x134];
-    BaseCombatStats* baseStats;
-    ModifiableCombatStats* currentStats;
+struct Struct_ov000_0215641c {
+    char unknown_0_[0x134];
+    BaseCombatStats* unknown_134_;
+    ModifiableCombatStats* unknown_138_;
 #if defined(jpn)
-    char unk_13c[0x144 - 0x13c];
+    char unknown_13c_[0x144 - 0x13c];
 #else
-    char unk_13c[0x150 - 0x13c];
+    char unknown1_13c_[0x150 - 0x13c];
 #endif
-    CombatantExtra0215641c* extra;
+    Struct_ov000_0215641c_2* unknown_150_;
 
-    unsigned short GetCurrentCharm() { return currentStats->primaryStats.charm; }
-    unsigned short GetBaseCharm() { return baseStats->primaryStats.charm; }
+    unsigned short inline_ov000_0215641c() { return unknown_138_->primaryStats.charm; }
+    unsigned short inline_ov000_0215641c_2() { return unknown_134_->primaryStats.charm; }
 };
 
 // USA: func_ov000_0215641c
-extern "C" ARM float func_ov000_0215641c(int unused, int id) {
-    GameState* gs = GameState::GetInstance();
-    float result = 0.0f;
-    int valid = (id >= 0 && id <= 3);
-    if (valid) {
-        Combatant0215641c* c = (Combatant0215641c*)func_0200ff1c(gs, id);
-        if (c == NULL) {
+extern "C" ARM float func_ov000_0215641c(int arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    float var1 = 0.0f;
+    int var2 = (arg1 >= 0 && arg1 <= 3);
+    if (var2) {
+        Struct_ov000_0215641c* var3 = (Struct_ov000_0215641c*)func_0200ff1c(var0, arg1);
+        if (var3 == NULL) {
             return 0.0f;
         }
-        int charm = c->GetBaseCharm();
-        charm = c->GetCurrentCharm() - charm;
-        charm +=(unsigned short)c->extra->charmBonus;
-        result = (charm - 100) * 0.02f;
+        int var4 = var3->inline_ov000_0215641c_2();
+        var4 = var3->inline_ov000_0215641c() - var4;
+        var4 +=(unsigned short)var3->unknown_150_->unknown_c_0_;
+        var1 = (var4 - 100) * 0.02f;
     }
-    return result;
+    return var1;
 }

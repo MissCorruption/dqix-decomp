@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8470(void* obj);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8470(void* arg0);
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Ret021c83a0 {
-    unsigned char pad0[5];
-    unsigned char field5;
-    unsigned char pad1[2];
-    unsigned short field8;
+struct Struct_ov017_021c83a0 {
+    unsigned char unknown_0_[5];
+    unsigned char unknown_5_;
+    unsigned char unknown_6_[2];
+    unsigned short unknown_8_;
 };
 
-struct Tail021c83a0 {
-    unsigned short field4;
-    unsigned char field6;
-    unsigned char pad;
-    unsigned int field8;
+struct Struct_ov017_021c83a0_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned int unknown_4_;
 };
 
-struct LocalEvt021c83a0 {
-    unsigned char tag;
-    unsigned char pad[3];
-    Tail021c83a0 tail;
-    unsigned char pad2[8];
+struct Struct_ov017_021c83a0_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov017_021c83a0_2 unknown_4_;
+    unsigned char unknown_c_[8];
 };
 
 // USA: func_ov017_021c83a0
 extern "C" ARM void func_ov017_021c83a0(void) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021c83a0_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021c83a0_1816=0x718};
 #endif
-    GameResources* ov = GetGameResources();
-    void* h = *(void**)((char*)ov + 0x3000 + regionalOffset0);
-    Ret021c83a0* r = (Ret021c83a0*)func_ov017_021b8478(h);
-    void* work = func_ov017_021b8470(h);
-    void* p = func_0202ae24();
+    GameResources* var0 = GetGameResources();
+    void* var1 = *(void**)((char*)var0 + 0x3000 + Enum_ov017_021c83a0_1816);
+    Struct_ov017_021c83a0* var2 = (Struct_ov017_021c83a0*)func_ov017_021b8478(var1);
+    void* var3 = func_ov017_021b8470(var1);
+    void* var4 = func_0202ae24();
 
-    LocalEvt021c83a0 buf;
-    buf.tag = 0x75;
-    Tail021c83a0* t = &buf.tail;
-    t->field4 = r->field8;
-    t->field8 = *(unsigned int*)((char*)work + 0x8000 + 0xe20);
-    t->field6 = r->field5;
-    func_0205e330(p, &buf, 0);
+    Struct_ov017_021c83a0_3 var5;
+    var5.unknown_0_ = 0x75;
+    Struct_ov017_021c83a0_2* var6 = &var5.unknown_4_;
+    var6->unknown_0_ = var2->unknown_8_;
+    var6->unknown_4_ = *(unsigned int*)((char*)var3 + 0x8000 + 0xe20);
+    var6->unknown_2_ = var2->unknown_5_;
+    func_0205e330(var4, &var5, 0);
 }

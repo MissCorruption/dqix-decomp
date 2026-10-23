@@ -3,63 +3,63 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" int func_ov017_021d60f4(void* obj);
-extern "C" void* func_ov017_021d612c(void* obj);
-extern "C" void* func_02010768(void* obj);
-extern "C" void* func_02011584(void* obj);
-struct List0209998c;
-struct Elem0209998c;
-extern "C" Elem0209998c* func_0209998c(List0209998c* list, const char* name);
-extern "C" void func_02013718(char* obj, int a, int b);
-extern "C" void _ZN6Zone3D10SwitchZoneEti(void* g, int val, int flag);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void* func_ov017_021d612c(void* arg0);
+extern "C" void* func_02010768(void* arg0);
+extern "C" void* func_02011584(void* arg0);
+struct Struct_0201cb60_2;
+struct Struct_0201cb60;
+extern "C" Struct_0201cb60* func_0209998c(Struct_0201cb60_2* arg0, const char* arg1);
+extern "C" void func_02013718(char* arg0, int arg1, int arg2);
+extern "C" void _ZN6Zone3D10SwitchZoneEti(void* arg0, int arg1, int arg2);
 
-struct GlobalBlock_02163b14 {
+struct Struct_ov001_02163b14 {
 #if defined(jpn)
-    char pad[0x6c];
+    char unknown_0_[0x6c];
 #else
-    char pad[0x4c];
+    char unknown1_0_[0x4c];
 #endif
-    SafeAllocator* allocator;
-    int field50;
+    SafeAllocator* unknown_4c_;
+    int unknown_50_;
 };
 
 // USA: func_ov001_02163b14
-extern "C" ARM int func_ov001_02163b14(void* obj) {
-    GameState* battle = GameState::GetInstance();
-    struct GlobalBlock_02163b14* g = (struct GlobalBlock_02163b14*)func_02012fe4();
-    void* fieldPtr = func_02010768(battle);
-    int type = *(int*)obj;
-    int key = -1;
-    if (type == 0) {
-        key = func_ov017_021d60f4(obj);
-    } else if (type == 2) {
-        key = (int)func_ov017_021d612c(obj);
-        if (key == 0) return 0;
-        void* table = func_02011584(battle);
-        struct Elem0209998c* entry = func_0209998c((struct List0209998c*)table, (const char*)key);
-        if (entry == 0) return 0;
-        key = *(unsigned short*)entry;
+extern "C" ARM int func_ov001_02163b14(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov001_02163b14* var1 = (struct Struct_ov001_02163b14*)func_02012fe4();
+    void* var2 = func_02010768(var0);
+    int var3 = *(int*)arg0;
+    int var4 = -1;
+    if (var3 == 0) {
+        var4 = func_ov017_021d60f4(arg0);
+    } else if (var3 == 2) {
+        var4 = (int)func_ov017_021d612c(arg0);
+        if (var4 == 0) return 0;
+        void* var5 = func_02011584(var0);
+        struct Struct_0201cb60* var6 = func_0209998c((struct Struct_0201cb60_2*)var5, (const char*)var4);
+        if (var6 == 0) return 0;
+        var4 = *(unsigned short*)var6;
     }
-    if (key < 0) return 0;
+    if (var4 < 0) return 0;
 
-    SafeAllocator* allocator = g->allocator;
-    int extra = g->field50;
+    SafeAllocator* var7 = var1->unknown_4c_;
+    int var8 = var1->unknown_50_;
 
 #if defined(jpn)
-    void* p1 = allocator->Allocate(0x2864);
+    void* var9 = var7->Allocate(0x2864);
 #else
-    void* p1 = allocator->Allocate(0x2824);
+    void* var9 = var7->Allocate(0x2824);
 #endif
-    if (p1 == 0) return 0;
+    if (var9 == 0) return 0;
 
-    SafeAllocator* p2 = (SafeAllocator*)allocator->Allocate(0x14);
-    unsigned int maxAlloc = allocator->GetMaxPossibleAllocation();
-    void* p3 = allocator->Allocate(maxAlloc);
-    p2->CreateTypeA(p3, maxAlloc);
+    SafeAllocator* var10 = (SafeAllocator*)var7->Allocate(0x14);
+    unsigned int var11 = var7->GetMaxPossibleAllocation();
+    void* var12 = var7->Allocate(var11);
+    var10->CreateTypeA(var12, var11);
 
-    func_02013718((char*)p1, (int)p2, extra);
-    _ZN6Zone3D10SwitchZoneEti(p1, key, 0);
+    func_02013718((char*)var9, (int)var10, var8);
+    _ZN6Zone3D10SwitchZoneEti(var9, var4, 0);
 
-    *(void**)fieldPtr = p1;
+    *(void**)var2 = var9;
     return 1;
 }

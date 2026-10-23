@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct EntityStruct02225678 { unsigned char pad[0x90]; int* field90; };
+struct Struct_ov031_02225678_3 { unsigned char unknown_0_[0x90]; int* unknown_90_; };
 
-struct OffWrap02225678 { int v; };
-struct HiWrap02225678 { int v; };
+struct Struct_ov031_02225678 { int unknown_0_; };
+struct Struct_ov031_02225678_2 { int unknown_0_; };
 
-extern EntityStruct02225678* data_ov031_02250bfc;
-extern "C" void func_ov031_02224ca4(int a, int idx, struct OffWrap02225678 off, struct HiWrap02225678 hi);
-extern "C" void func_ov031_0223e2b8(void* obj, int v);
-extern "C" void func_ov031_022256ec(void* obj);
+extern Struct_ov031_02225678_3* data_ov031_02250bfc;
+extern "C" void func_ov031_02224ca4(int arg0, int arg1, struct Struct_ov031_02225678 arg2, struct Struct_ov031_02225678_2 arg3);
+extern "C" void func_ov031_0223e2b8(void* arg0, int arg1);
+extern "C" void func_ov031_022256ec(void* arg0);
 
 // USA: func_ov031_02225678
-extern "C" ARM void func_ov031_02225678(void* obj) {
-    EntityStruct02225678* e = data_ov031_02250bfc;
-    int val = *e->field90;
-    unsigned char e11d = *((unsigned char*)e + 0x11d);
-    struct HiWrap02225678 hi;
-    struct OffWrap02225678 off;
-    hi.v = (unsigned int)(val & 0x1ff0000) >> 0x10;
-    off.v = (val & 0xff) + 0xc;
-    func_ov031_02224ca4(e11d, 2, off, hi);
-    if (off.v < 0xc0) return;
-    func_ov031_0223e2b8(obj, (int)func_ov031_022256ec);
+extern "C" ARM void func_ov031_02225678(void* arg0) {
+    Struct_ov031_02225678_3* var0 = data_ov031_02250bfc;
+    int var1 = *var0->unknown_90_;
+    unsigned char var2 = *((unsigned char*)var0 + 0x11d);
+    struct Struct_ov031_02225678_2 var3;
+    struct Struct_ov031_02225678 var4;
+    var3.unknown_0_ = (unsigned int)(var1 & 0x1ff0000) >> 0x10;
+    var4.unknown_0_ = (var1 & 0xff) + 0xc;
+    func_ov031_02224ca4(var2, 2, var4, var3);
+    if (var4.unknown_0_ < 0xc0) return;
+    func_ov031_0223e2b8(arg0, (int)func_ov031_022256ec);
 }

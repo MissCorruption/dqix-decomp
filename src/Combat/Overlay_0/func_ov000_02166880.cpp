@@ -21,49 +21,49 @@
 #include "Resource/GameResources.h"
 
 extern "C" void func_0202ae18(void);
-extern "C" void func_02013718(char* obj, int a, int b);
+extern "C" void func_02013718(char* arg0, int arg1, int arg2);
 extern "C" void func_02012fe4(void);
-extern "C" int func_020a3694(int* obj);
-extern "C" void* func_02011584(void* obj);
-struct SearchEntry;
-struct SearchTable;
-extern "C" struct SearchEntry* func_02099950(struct SearchTable* table, int key);
+extern "C" int func_020a3694(int* arg0);
+extern "C" void* func_02011584(void* arg0);
+struct Struct_02099950;
+struct Struct_02095924_2;
+extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 extern "C" void func_02012de8(void);
-struct Obj0202fa00;
-extern "C" void func_02015438(void* p);
+struct Struct_ov000_02166880;
+extern "C" void func_02015438(void* arg0);
 extern "C" void func_020d84f4(void);
-extern "C" void func_ov000_02160fa8(void* work, int mask);
+extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
 
 // USA: func_ov000_02166880
-extern "C" ARM void func_ov000_02166880(unsigned char* obj) {
+extern "C" ARM void func_ov000_02166880(unsigned char* arg0) {
     ((int)GetGameResources());
-    GameState* battle = GameState::GetInstance();
-    struct Obj0202fa00* fieldObj = (struct Obj0202fa00*)(int)BackgroundLoader::GetInstance();
-    battle->GetProtagonist();
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov000_02166880* var1 = (struct Struct_ov000_02166880*)(int)BackgroundLoader::GetInstance();
+    var0->GetProtagonist();
     func_0202ae18();
-    func_02013718((char*)(obj + REGION_OFFSET_0 + 0xc00), (int)(obj + 8), (int)(obj + REGION_OFFSET_1 + REGION_OFFSET_2));
+    func_02013718((char*)(arg0 + REGION_OFFSET_0 + 0xc00), (int)(arg0 + 8), (int)(arg0 + REGION_OFFSET_1 + REGION_OFFSET_2));
     func_02012fe4();
 
-    if (func_020a3694(*(int**)(obj + REGION_OFFSET_3))) {
-        unsigned short v = *(unsigned short*)((char*)*(int**)(obj + REGION_OFFSET_3) + 0x20);
-        if (v != 0) *(unsigned short*)((char*)*(int**)(obj + REGION_OFFSET_3) + 2) = v;
+    if (func_020a3694(*(int**)(arg0 + REGION_OFFSET_3))) {
+        unsigned short var2 = *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 0x20);
+        if (var2 != 0) *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 2) = var2;
     }
 
-    void* table = func_02011584(battle);
-    struct SearchEntry* entry = func_02099950((struct SearchTable*)table,
-        *(unsigned short*)((char*)*(int**)(obj + REGION_OFFSET_3) + 2));
-    if (entry == NULL || *(unsigned short*)((char*)*(int**)(obj + REGION_OFFSET_3) + 2) == 30000) {
-        *(unsigned short*)((char*)*(int**)(obj + REGION_OFFSET_3) + 2) = 0x75a4;
+    void* var3 = func_02011584(var0);
+    struct Struct_02099950* var4 = func_02099950((struct Struct_02095924_2*)var3,
+        *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 2));
+    if (var4 == NULL || *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 2) == 30000) {
+        *(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 2) = 0x75a4;
     }
-    ((Zone3D*)(obj + REGION_OFFSET_0 + 0xc00))->SwitchZone(*(unsigned short*)((char*)*(int**)(obj + REGION_OFFSET_3) + 2), 0);
+    ((Zone3D*)(arg0 + REGION_OFFSET_0 + 0xc00))->SwitchZone(*(unsigned short*)((char*)*(int**)(arg0 + REGION_OFFSET_3) + 2), 0);
 
     GetCurrentTimestamp();
     for (;;) {
         func_02012de8();
-        ((BackgroundLoader*)(fieldObj))->RemoveAllLocks();
-        func_02015438(obj + REGION_OFFSET_0 + 0xc00);
-        if (*(int*)(obj + 0x1000 + REGION_OFFSET_4) == 0) break;
+        ((BackgroundLoader*)(var1))->RemoveAllLocks();
+        func_02015438(arg0 + REGION_OFFSET_0 + 0xc00);
+        if (*(int*)(arg0 + 0x1000 + REGION_OFFSET_4) == 0) break;
         func_020d84f4();
     }
-    func_ov000_02160fa8(obj, 0x10);
+    func_ov000_02160fa8(arg0, 0x10);
 }

@@ -3,74 +3,74 @@
 
 extern "C" int func_020421a0();
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* base, int key);
+extern "C" void* func_0203df78(void* arg0, int arg1);
 
-struct Vec3_020406f8;
-struct Node020406f8;
-extern "C" void func_020406f8(struct Vec3_020406f8* dst, struct Node020406f8* n);
+struct Struct_0203de84;
+struct Struct_0203de84_2;
+extern "C" void func_020406f8(struct Struct_0203de84* arg0, struct Struct_0203de84_2* arg1);
 
-struct Vec3Local_021688d4 { unsigned int v[3]; };
+struct Struct_ov004_021688d4 { unsigned int unknown_0_[3]; };
 
-extern "C" int func_0203dfdc(void* base, int key);
-struct Owner02040a90;
-extern "C" int func_02040a90(struct Owner02040a90* obj);
+extern "C" int func_0203dfdc(void* arg0, int arg1);
+struct Struct_02040a90;
+extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 
 extern "C" int fix32_Atan2(int, int);
-struct Obj02033834;
-extern "C" void func_02033834(struct Obj02033834* obj, int arg);
+struct Struct_02033834_2;
+extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
 
 extern "C" int func_0202ae18(void);
 extern "C" int func_0202c508(void);
 
-extern "C" int func_02011b50(void* obj, int mask);
-extern "C" void func_02011b3c(void* obj, unsigned char mask);
+extern "C" int func_02011b50(void* arg0, int arg1);
+extern "C" void func_02011b3c(void* arg0, unsigned char arg1);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov004_021688d4
 extern "C" ARM int func_ov004_021688d4(void) {
-    char* base17 = (char*)(int)func_020421a0();
-    void* ptr = func_0203cf4c();
-    void* node = func_0203df78(ptr, 6);
-    if (node) {
-        GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
-        struct Vec3Local_021688d4 v1;
-        struct Vec3Local_021688d4 v2;
-        struct Vec3Local_021688d4 tmp;
-        func_020406f8((struct Vec3_020406f8*)&tmp, (struct Node020406f8*)node);
-        v1 = tmp;
-        v2 = *(struct Vec3Local_021688d4*)((char*)combatant + 0x44);
+    char* var0 = (char*)(int)func_020421a0();
+    void* var1 = func_0203cf4c();
+    void* var2 = func_0203df78(var1, 6);
+    if (var2) {
+        GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();
+        struct Struct_ov004_021688d4 var4;
+        struct Struct_ov004_021688d4 var5;
+        struct Struct_ov004_021688d4 var6;
+        func_020406f8((struct Struct_0203de84*)&var6, (struct Struct_0203de84_2*)var2);
+        var4 = var6;
+        var5 = *(struct Struct_ov004_021688d4*)((char*)var3 + 0x44);
 
-        int idx = func_0203dfdc(ptr, 6);
+        int var7 = func_0203dfdc(var1, 6);
 #if defined(jpn)
-        *(int*)(base17 + 0x1708) = idx;
+        *(int*)(var0 + 0x1708) = var7;
 #else
-        *(int*)(base17 + 0x1838) = idx;
+        *(int*)(var0 + 0x1838) = var7;
 #endif
 
-        int fieldVal = func_02040a90((struct Owner02040a90*)node);
+        int var8 = func_02040a90((struct Struct_02040a90*)var2);
 #if defined(jpn)
-        *(int*)(base17 + 0x170c) = fieldVal;
+        *(int*)(var0 + 0x170c) = var8;
 #else
-        *(int*)(base17 + 0x183c) = fieldVal;
+        *(int*)(var0 + 0x183c) = var8;
 #endif
 
-        int dx = (int)v1.v[0] - (int)v2.v[0];
-        int dz = (int)v1.v[2] - (int)v2.v[2];
-        int mid = fix32_Atan2(dx, dz);
-        int angle = fix32ReduceAngle0To2Pi(mid);
-        func_02033834((struct Obj02033834*)combatant, angle);
+        int var9 = (int)var4.unknown_0_[0] - (int)var5.unknown_0_[0];
+        int var10 = (int)var4.unknown_0_[2] - (int)var5.unknown_0_[2];
+        int var11 = fix32_Atan2(var9, var10);
+        int var12 = fix32ReduceAngle0To2Pi(var11);
+        func_02033834((struct Struct_02033834_2*)var3, var12);
     }
 
     func_0202ae18();
     if (func_0202c508()) {
-        GameState* bs = GameState::GetInstance();
-        if (func_02011b50(bs, 0x10)) {
+        GameState* var13 = GameState::GetInstance();
+        if (func_02011b50(var13, 0x10)) {
             func_0205eaa0(&data_02108760, 1, 0);
         }
-        func_02011b3c(bs, 0x10);
+        func_02011b3c(var13, 0x10);
     }
     return 0;
 }

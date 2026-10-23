@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Sub02081ee4 {
-    unsigned short field_0;
-    unsigned char field_2;
+struct Struct_02081ee4_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
 };
 
-struct Obj02081ee4 {
-    struct Sub02081ee4 *field_0;
-    unsigned short field_4;
-    signed char field_6;
-    signed char field_7;
-    signed char field_8;
+struct Struct_02081ee4 {
+    struct Struct_02081ee4_2 *unknown_0_;
+    unsigned short unknown_4_;
+    signed char unknown_6_;
+    signed char unknown_7_;
+    signed char unknown_8_;
 };
 
 // USA: func_02081ee4
-extern "C" ARM void func_02081ee4(struct Obj02081ee4 *obj, struct Sub02081ee4 *sub) {
-    obj->field_0 = 0;
-    if (sub != NULL) {
-        obj->field_0 = sub;
-        sub->field_0 = 0;
-        sub->field_2 = 0;
+extern "C" ARM void func_02081ee4(struct Struct_02081ee4 *arg0, struct Struct_02081ee4_2 *arg1) {
+    arg0->unknown_0_ = 0;
+    if (arg1 != NULL) {
+        arg0->unknown_0_ = arg1;
+        arg1->unknown_0_ = 0;
+        arg1->unknown_2_ = 0;
     }
-    obj->field_4 = 0;
-    obj->field_6 = 20;
-    obj->field_7 = 10;
-    obj->field_8 = obj->field_6;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_6_ = 20;
+    arg0->unknown_7_ = 10;
+    arg0->unknown_8_ = arg0->unknown_6_;
 }

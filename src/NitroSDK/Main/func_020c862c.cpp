@@ -2,15 +2,15 @@
 
 extern "C" unsigned int func_020c7dcc();
 
-struct MemoryRegionState {
-    int initialized;
-    int optionalRegionEnabled;
+struct Struct_0211155c {
+    int unknown_0_;
+    int unknown_4_;
 };
-extern MemoryRegionState data_0211155c;
+extern Struct_0211155c data_0211155c;
 
 // USA: func_020c862c
-extern "C" ARM unsigned int func_020c862c(unsigned int mode) {
-    switch (mode) {
+extern "C" ARM unsigned int func_020c862c(unsigned int arg0) {
+    switch (arg0) {
     case 0:
 #if defined(jpn)
         return 0x022a39a0;
@@ -18,7 +18,7 @@ extern "C" ARM unsigned int func_020c862c(unsigned int mode) {
         return 0x022a3200;
 #endif
     case 2: {
-        if (data_0211155c.optionalRegionEnabled == 0 || (func_020c7dcc() & 3) == 1) return 0;
+        if (data_0211155c.unknown_4_ == 0 || (func_020c7dcc() & 3) == 1) return 0;
         return 0x023e0000;
     }
     case 3:

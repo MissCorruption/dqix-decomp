@@ -9,52 +9,52 @@
 #include <std_library_functions.h>
 #include "Resource/GameResources.h"
 
-struct LoaderOwner0206461c {
-    unsigned char padding[0x47c];
-    int field_0x47c;
-    unsigned char padding_0x480[0x14];
-    int field_0x494;
+struct Struct_0206461c {
+    unsigned char unknown_0_[0x47c];
+    int unknown_47c_;
+    unsigned char unknown_480_[0x14];
+    int unknown_494_;
 };
-struct Request0206461c {
-    unsigned short id;
-    unsigned char padding[3];
-    char name[3];
+struct Struct_0206461c_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[3];
+    char unknown_5_[3];
 };
-struct Obj02064574;
-struct StreamHeader;
-extern Obj02064574 data_02108844;
+struct Struct_02108844;
+struct Struct_02013fb4;
+extern Struct_02108844 data_02108844;
 extern char data_020f05dc[] __attribute__((aligned(4)));
 extern "C" int func_0201079c(char*);
 extern "C" int func_020107d0(char*);
-extern "C" void func_02064574(Obj02064574*, int, StreamHeader*, int, int, int, int);
+extern "C" void func_02064574(Struct_02108844*, int, Struct_02013fb4*, int, int, int, int);
 extern "C" void* func_02094d6c();
 extern "C" void func_02095578(void*);
 
-static inline SafeAllocator* GetAllocator0206461c(GameResources* resources, int index) {
-    return &resources->allocator_array_38[index];
+static inline SafeAllocator* inline_0206461c(GameResources* arg0, int arg1) {
+    return &arg0->allocator_array_38[arg1];
 }
 
 // USA: func_0206461c
-extern "C" ARM int func_0206461c(LoaderOwner0206461c* owner, Request0206461c* request) {
-    GameState* state = GameState::GetInstance();
+extern "C" ARM int func_0206461c(Struct_0206461c* arg0, Struct_0206461c_2* arg1) {
+    GameState* var0 = GameState::GetInstance();
     BackgroundLoader::GetInstance();
-    Obj02064574* object = &data_02108844;
-    SafeAllocator* allocator = GetAllocator0206461c(GetGameResources(), 15);
-    unsigned int size = 0;
-    char name[4];
-    char path[64];
-    int first = func_0201079c((char*)state);
-    int second = func_020107d0((char*)state);
-    allocator->Reset();
-    owner->field_0x47c = 0;
-    owner->field_0x494 = 0;
-    memcpy(name, request->name, 3);
-    name[3] = 0;
-    if (name[0] == 'F') name[1] = 0;
+    Struct_02108844* var1 = &data_02108844;
+    SafeAllocator* var2 = inline_0206461c(GetGameResources(), 15);
+    unsigned int var3 = 0;
+    char var4[4];
+    char var5[64];
+    int var6 = func_0201079c((char*)var0);
+    int var7 = func_020107d0((char*)var0);
+    var2->Reset();
+    arg0->unknown_47c_ = 0;
+    arg0->unknown_494_ = 0;
+    memcpy(var4, arg1->unknown_5_, 3);
+    var4[3] = 0;
+    if (var4[0] == 'F') var4[1] = 0;
     BackgroundLoader::AddLockGlobal();
-    sprintf(path, data_020f05dc, name);
-    StreamHeader* file = (StreamHeader*)LoadFileIntoMemory(path, data_0211e33c, &size);
-    if (file) func_02064574(object, (int)allocator, file, size, request->id, first, second);
+    sprintf(var5, data_020f05dc, var4);
+    Struct_02013fb4* var8 = (Struct_02013fb4*)LoadFileIntoMemory(var5, data_0211e33c, &var3);
+    if (var8) func_02064574(var1, (int)var2, var8, var3, arg1->unknown_0_, var6, var7);
     BackgroundLoader::RemoveLockGlobal();
     func_02095578(func_02094d6c());
     return 1;

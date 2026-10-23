@@ -12,7 +12,7 @@ extern "C" unsigned char func_0209ca98(char*);
 #endif
 
 // USA: func_ov002_0215b234
-extern "C" ARM void func_ov002_0215b234(unsigned char* self) {
-    self[FIELDS_0215b234] = func_0209ca98(&data_02109bf4);
-    self[FIELDS_0215b234 + 1] = func_0205ea18(&data_02108760);
+extern "C" ARM void func_ov002_0215b234(unsigned char* arg0) {
+    arg0[FIELDS_0215b234] = func_0209ca98(&data_02109bf4);
+    arg0[FIELDS_0215b234 + 1] = func_0205ea18(&data_02108760);
 }

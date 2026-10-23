@@ -1,133 +1,133 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Obj0205eaa0;
-struct Obj0203a48c;
-struct Obj0203a588;
-struct Obj02176150;
+struct Struct_02108760;
+struct Struct_0203a48c_3;
+struct Struct_0203a588_2;
+struct Struct_ov000_021537b8_6;
 
-struct InitStruct02078484Struct {
-    unsigned char f00;
-    unsigned char pad01[0xf];
-    unsigned char f10;
-    unsigned char flags11;
-    short f12;
-    short objectId;
-    short f16;
-    short f18;
-    short f1a;
-    short f1c;
-    short pad1e;
-    int f20;
-    int f24;
-    int f28;
-    Vector3fix offset;
-    Vector3fix rotation;
-    Vector3fix scale;
+struct Struct_02078398_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[0xf];
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
+    short unknown_12_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
+    short unknown_1c_;
+    short unknown_1e_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    Vector3fix unknown_2c_;
+    Vector3fix unknown_38_;
+    Vector3fix unknown_44_;
 };
 
-struct Damage021e9d14 {
-    char pad0[0xc];
-    short amount;
+struct Struct_ov025_021e9d14_4 {
+    char unknown_0_[0xc];
+    short unknown_c_;
 };
 
-struct ActionNode021e9d14 {
-    char pad0[0x14];
-    struct Damage021e9d14* damage;
-    char pad18[0x1c - 0x18];
-    short targetId;
-    unsigned short targetValue;
-    unsigned short actorId;
-    char pad22[0x24 - 0x22];
-    unsigned short value;
-    char pad26[0x30 - 0x26];
-    struct ActionNode021e9d14* next;
+struct Struct_ov025_021e9d14_5 {
+    char unknown_0_[0x14];
+    struct Struct_ov025_021e9d14_4* unknown_14_;
+    char unknown_18_[0x1c - 0x18];
+    short unknown_1c_;
+    unsigned short unknown_1e_;
+    unsigned short unknown_20_;
+    char unknown_22_[0x24 - 0x22];
+    unsigned short unknown_24_;
+    char unknown_26_[0x30 - 0x26];
+    struct Struct_ov025_021e9d14_5* unknown_30_;
 };
 
-struct Slot021e9d14 {
-    char pad0[0x10];
-    struct ActionNode021e9d14* head;
+struct Struct_ov025_021e9d14_6 {
+    char unknown_0_[0x10];
+    struct Struct_ov025_021e9d14_5* unknown_10_;
 };
 
-struct Gauge021e9d14 {
-    char pad0[6];
-    unsigned short value;
+struct Struct_ov025_021e9d14 {
+    char unknown_0_[6];
+    unsigned short unknown_6_;
 };
 
-struct Combatant021e9d14 {
-    char pad0[0x130];
-    struct Gauge021e9d14* gauge;
+struct Struct_ov025_021e9d14_2 {
+    char unknown_0_[0x130];
+    struct Struct_ov025_021e9d14* unknown_130_;
 };
 
-struct Entry021e9d14 {
-    char pad0[0xe];
-    unsigned short value;
+struct Struct_ov025_021e9d14_3 {
+    char unknown_0_[0xe];
+    unsigned short unknown_e_;
 };
 
 extern "C" void* func_ov000_02160130(void);
-extern "C" void* func_ov000_02160f20(void* work);
-extern "C" int func_ov025_021def24(void* work);
-extern "C" void* func_ov000_02160f08(void* work);
-extern "C" void* func_ov000_0215feb4(char* base, int threshold, int slot);
-extern "C" struct Entry021e9d14* func_ov025_021dafd0(char* obj, int id);
-extern "C" struct Obj0203a588* func_02039e70(void);
-struct Vec3Int0203a48c;
-extern "C" void func_0203a48c(Obj0203a48c*, int, Vec3Int0203a48c*, int, int, int);
+extern "C" void* func_ov000_02160f20(void* arg0);
+extern "C" int func_ov025_021def24(void* arg0);
+extern "C" void* func_ov000_02160f08(void* arg0);
+extern "C" void* func_ov000_0215feb4(char* arg0, int arg1, int arg2);
+extern "C" struct Struct_ov025_021e9d14_3* func_ov025_021dafd0(char* arg0, int arg1);
+extern "C" struct Struct_0203a588_2* func_02039e70(void);
+struct Struct_0203a48c_2;
+extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
 extern "C" void* func_02057924(void);
-extern "C" void func_02078484(struct InitStruct02078484Struct* p);
-extern "C" void func_02057fb4(void* list, int id, void* config);
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void func_ov000_02176150(struct Obj02176150* obj, unsigned short val);
+extern "C" void func_02078484(struct Struct_02078398_2* arg0);
+extern "C" void func_02057fb4(void* arg0, int arg1, void* arg2);
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
 
-extern struct Obj0205eaa0 data_02108760;
+extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov025_021e9d14
 extern "C" ARM void func_ov025_021e9d14(void) {
-    void* work = func_ov000_02160130();
-    struct Slot021e9d14* slot = (struct Slot021e9d14*)func_ov000_02160f20(work);
-    if (func_ov025_021def24(work) != 0) {
+    void* var0 = func_ov000_02160130();
+    struct Struct_ov025_021e9d14_6* var1 = (struct Struct_ov025_021e9d14_6*)func_ov000_02160f20(var0);
+    if (func_ov025_021def24(var0) != 0) {
         return;
     }
-    GameState* battle = GameState::GetInstance();
-    char* entries = (char*)func_ov000_02160f08(func_ov000_02160130());
-    struct ActionNode021e9d14* node = slot->head;
-    if (func_ov000_0215feb4((char*)node, 0, 5) != NULL) {
+    GameState* var2 = GameState::GetInstance();
+    char* var3 = (char*)func_ov000_02160f08(func_ov000_02160130());
+    struct Struct_ov025_021e9d14_5* var4 = var1->unknown_10_;
+    if (func_ov000_0215feb4((char*)var4, 0, 5) != NULL) {
         return;
     }
-    for (; node != NULL; node = node->next) {
-        int id = node->actorId;
-        unsigned short value = node->value;
-        struct Entry021e9d14* entry = func_ov025_021dafd0(entries, id);
-        GameObject* actor = battle->GetCombatantByIndex(id);
-        if (actor == NULL) {
+    for (; var4 != NULL; var4 = var4->unknown_30_) {
+        int var5 = var4->unknown_20_;
+        unsigned short var6 = var4->unknown_24_;
+        struct Struct_ov025_021e9d14_3* var7 = func_ov025_021dafd0(var3, var5);
+        GameObject* var8 = var2->GetCombatantByIndex(var5);
+        if (var8 == NULL) {
             continue;
         }
-        if (node->damage != NULL) {
-            int amount = -node->damage->amount;
-            if (amount > 0) {
-                struct Obj0203a48c* popups = (struct Obj0203a48c*)func_02039e70();
-                Vector3fix pos = actor->obj3D_.position_;
-                pos.y += actor->obj3D_.GetHeight();
-                func_0203a48c(popups, amount, (Vec3Int0203a48c*)&pos, 3, 0, 0);
-                void* list = func_02057924();
-                struct InitStruct02078484Struct req;
-                func_02078484(&req);
-                req.offset.y += actor->obj3D_.GetHeight() / 2;
-                req.objectId = id;
-                func_02057fb4(list, 0x10, &req);
+        if (var4->unknown_14_ != NULL) {
+            int var9 = -var4->unknown_14_->unknown_c_;
+            if (var9 > 0) {
+                struct Struct_0203a48c_3* var10 = (struct Struct_0203a48c_3*)func_02039e70();
+                Vector3fix var11 = var8->obj3D_.position_;
+                var11.y += var8->obj3D_.GetHeight();
+                func_0203a48c(var10, var9, (Struct_0203a48c_2*)&var11, 3, 0, 0);
+                void* var12 = func_02057924();
+                struct Struct_02078398_2 var13;
+                func_02078484(&var13);
+                var13.unknown_2c_.y += var8->obj3D_.GetHeight() / 2;
+                var13.unknown_14_ = var5;
+                func_02057fb4(var12, 0x10, &var13);
                 func_0205eaa0(&data_02108760, 0x65, 0);
             }
         }
-        int isPartyMember = (id >= 0 && id <= 3) ? 1 : 0;
-        if (!isPartyMember && node->damage != NULL) {
-            value = node->targetValue;
-            entry = func_ov025_021dafd0(entries, node->targetId);
-            actor = battle->GetCombatantByIndex(node->targetId);
+        int var14 = (var5 >= 0 && var5 <= 3) ? 1 : 0;
+        if (!var14 && var4->unknown_14_ != NULL) {
+            var6 = var4->unknown_1e_;
+            var7 = func_ov025_021dafd0(var3, var4->unknown_1c_);
+            var8 = var2->GetCombatantByIndex(var4->unknown_1c_);
         }
-        if (entry != NULL && actor != NULL) {
-            func_ov000_02176150((struct Obj02176150*)entry, value);
-            entry->value = value;
-            ((struct Combatant021e9d14*)actor)->gauge->value = value;
+        if (var7 != NULL && var8 != NULL) {
+            func_ov000_02176150((struct Struct_ov000_021537b8_6*)var7, var6);
+            var7->unknown_e_ = var6;
+            ((struct Struct_ov025_021e9d14_2*)var8)->unknown_130_->unknown_6_ = var6;
         }
     }
 }

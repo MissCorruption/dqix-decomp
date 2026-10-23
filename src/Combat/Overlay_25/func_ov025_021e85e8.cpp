@@ -2,20 +2,20 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { kWorldFlagOffset = 0x41d8 };
+enum { Enum_ov025_021e85e8_17544 = 0x41d8 };
 #else
-enum { kWorldFlagOffset = 0x4488 };
+enum { Enum_ov025_021e85e8_17544 = 0x4488 };
 #endif
 
 // USA: func_ov025_021e85e8
-extern "C" ARM int func_ov025_021e85e8(unsigned char* obj) {
-    unsigned char* base = (unsigned char*)GetGameResources();
-    base[kWorldFlagOffset] = 1;
-    unsigned char flag = obj[8];
-    unsigned char v = 1;
-    if (flag == 0) {
-        v = 0;
+extern "C" ARM int func_ov025_021e85e8(unsigned char* arg0) {
+    unsigned char* var0 = (unsigned char*)GetGameResources();
+    var0[Enum_ov025_021e85e8_17544] = 1;
+    unsigned char var1 = arg0[8];
+    unsigned char var2 = 1;
+    if (var1 == 0) {
+        var2 = 0;
     }
-    base[kWorldFlagOffset] = v;
+    var0[Enum_ov025_021e85e8_17544] = var2;
     return 1;
 }

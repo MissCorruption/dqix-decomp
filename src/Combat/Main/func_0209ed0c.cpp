@@ -31,59 +31,59 @@
 #include "Combat/Main/CandidateFilter.h"
 #include "std_library_functions.h"
 
-struct Record_0209ed0c {
-    unsigned int words[0x10];
+struct Struct_0209ed0c {
+    unsigned int unknown_0_[0x10];
 };
 
-struct RecordList_0209ed0c {
-    int count;
-    Record_0209ed0c records[0x10];
+struct Struct_0209ed0c_2 {
+    int unknown_0_;
+    Struct_0209ed0c unknown_4_[0x10];
 };
 
-struct RecordOwner_0209ed0c {
-    int unk0;
-    char* data;
-    char unk8[0x90];
-    RecordList_0209ed0c active;
-    RecordList_0209ed0c pending;
+struct Struct_0209ed0c_3 {
+    int unknown_0_;
+    char* unknown_4_;
+    char unknown_8_[0x90];
+    Struct_0209ed0c_2 unknown_98_;
+    Struct_0209ed0c_2 unknown_49c_;
 };
 
 // USA: func_0209ed0c
-extern "C" ARM void func_0209ed0c(RecordOwner_0209ed0c* owner, int rebuild, int arg)
+extern "C" ARM void func_0209ed0c(Struct_0209ed0c_3* arg0, int arg1, int arg2)
 {
-    unsigned char total;
-    int i;
+    unsigned char var0;
+    int var1;
 
-    if (rebuild == 0) {
-        i = 0;
-        owner->active.count = 0;
-        total = *(unsigned char*)(owner->data + 0x8e07);
-        while (i < total) {
-            int mode = 1;
-            Record_0209ed0c* rec = (Record_0209ed0c*)(owner->data + 0x5c60) + i;
-            if (rec != NULL && func_0209e1cc(owner, rec, mode, arg)) {
-                int n = owner->active.count;
-                owner->active.count = owner->active.count + 1;
-                memcpy(&owner->active.records[n], rec, 0x40);
+    if (arg1 == 0) {
+        var1 = 0;
+        arg0->unknown_98_.unknown_0_ = 0;
+        var0 = *(unsigned char*)(arg0->unknown_4_ + 0x8e07);
+        while (var1 < var0) {
+            int var2 = 1;
+            Struct_0209ed0c* var3 = (Struct_0209ed0c*)(arg0->unknown_4_ + 0x5c60) + var1;
+            if (var3 != NULL && func_0209e1cc(arg0, var3, var2, arg2)) {
+                int var4 = arg0->unknown_98_.unknown_0_;
+                arg0->unknown_98_.unknown_0_ = arg0->unknown_98_.unknown_0_ + 1;
+                memcpy(&arg0->unknown_98_.unknown_4_[var4], var3, 0x40);
             }
-            i++;
+            var1++;
         }
         return;
     }
 
-    owner->pending.count = 0;
-    memset(owner->pending.records, 0, 0x400);
-    i = 0;
-    while (i < owner->active.count) {
-        Record_0209ed0c* rec = &owner->active.records[i];
-        int mode = 1;
-        if (func_0209e1cc(owner, rec, mode, arg)) {
-            int n = owner->pending.count;
-            owner->pending.count = owner->pending.count + 1;
-            memcpy(&owner->pending.records[n], rec, 0x40);
+    arg0->unknown_49c_.unknown_0_ = 0;
+    memset(arg0->unknown_49c_.unknown_4_, 0, 0x400);
+    var1 = 0;
+    while (var1 < arg0->unknown_98_.unknown_0_) {
+        Struct_0209ed0c* var5 = &arg0->unknown_98_.unknown_4_[var1];
+        int var6 = 1;
+        if (func_0209e1cc(arg0, var5, var6, arg2)) {
+            int var7 = arg0->unknown_49c_.unknown_0_;
+            arg0->unknown_49c_.unknown_0_ = arg0->unknown_49c_.unknown_0_ + 1;
+            memcpy(&arg0->unknown_49c_.unknown_4_[var7], var5, 0x40);
         }
-        i++;
+        var1++;
     }
-    owner->active.count = owner->pending.count;
-    memcpy(owner->active.records, owner->pending.records, 0x400);
+    arg0->unknown_98_.unknown_0_ = arg0->unknown_49c_.unknown_0_;
+    memcpy(arg0->unknown_98_.unknown_4_, arg0->unknown_49c_.unknown_4_, 0x400);
 }

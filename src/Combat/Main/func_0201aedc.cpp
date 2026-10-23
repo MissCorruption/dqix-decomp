@@ -2,60 +2,60 @@
 #include "Graphics/LightingManager.h"
 #include "World/Zone3D.h"
 
-extern "C" int func_0201b5d8(int x);
+extern "C" int func_0201b5d8(int arg0);
 
-struct Obj02052338;
+struct Struct_0201aedc;
 
 extern "C" void func_02016d8c(void* arg0);
 
-struct Vec3Block020b3850;
+struct Struct_02012fe4;
 struct Vector3i;
 
 #if defined(jpn)
-enum { NodeBufferOffset = 0x25f4 };
+enum { Enum_0201aedc_9652 = 0x25f4 };
 #else
-enum { NodeBufferOffset = 0x25b4 };
+enum { Enum_0201aedc_9652 = 0x25b4 };
 #endif
 
 // USA: func_0201aedc
-extern "C" ARM void func_0201aedc(Zone3D* p) {
-    if (func_0201b5d8(p->currentZoneID_)) return;
+extern "C" ARM void func_0201aedc(Zone3D* arg0) {
+    if (func_0201b5d8(arg0->currentZoneID_)) return;
 
-    char* buf = (char*)p + NodeBufferOffset;
+    char* var0 = (char*)arg0 + Enum_0201aedc_9652;
 
-    BmdjScriptNode* node = func_020196fc(p, 5);
-    if (node != 0) {
-        BmdjSceneElement* ptr1 = node->elements;
-        unsigned short flags = ptr1->flags;
-        if (!(flags & 4)) {
-            BmdjElementResource* ptr2 = ptr1->resource;
-            Model3D* r6 = ptr2->model;
-            if (r6 != 0 && r6->rawInternalModel_ != 0) {
-                void* obj = LightingManager::GetInstance();
-                NSBXXInternalModel* arg1 = r6->rawInternalModel_;
-                ((LightingManager*)((Obj02052338*)obj))->ApplyAmbientColorToModel(arg1);
-                func_02016d8c(buf + 0x48);
-                RenderConfig::SetObjectPosition((Vector3i*)(buf + 0x6c));
+    Struct_02013454* var1 = func_020196fc(arg0, 5);
+    if (var1 != 0) {
+        Struct_02016874_2* var2 = var1->unknown_44_;
+        unsigned short var3 = var2->unknown_2_;
+        if (!(var3 & 4)) {
+            Struct_02016874* var4 = var2->unknown_24_;
+            Model3D* var5 = var4->unknown1_4_;
+            if (var5 != 0 && var5->rawInternalModel_ != 0) {
+                void* var6 = LightingManager::GetInstance();
+                NSBXXInternalModel* var7 = var5->rawInternalModel_;
+                ((LightingManager*)((Struct_0201aedc*)var6))->ApplyAmbientColorToModel(var7);
+                func_02016d8c(var0 + 0x48);
+                RenderConfig::SetObjectPosition((Vector3i*)(var0 + 0x6c));
                 RenderConfig::SubmitToFifo();
-                r6->Draw(1);
+                var5->Draw(1);
             }
         }
     }
 
-    BmdjScriptNode* node2 = func_020196fc(p, 4);
-    if (node2 == 0) return;
-    BmdjSceneElement* ptr1b = node2->elements;
-    unsigned short flagsb = ptr1b->flags;
-    if (flagsb & 4) return;
-    BmdjElementResource* ptr2b = ptr1b->resource;
-    Model3D* r5v = ptr2b->model;
-    if (r5v != 0 && r5v->rawInternalModel_ != 0) {
-        void* obj2 = LightingManager::GetInstance();
-        NSBXXInternalModel* arg1b = r5v->rawInternalModel_;
-        ((LightingManager*)((Obj02052338*)obj2))->ApplyAmbientColorToModel(arg1b);
-        func_02016d8c(buf + 0x14);
-        RenderConfig::SetObjectPosition((Vector3i*)(buf + 0x38));
+    Struct_02013454* var8 = func_020196fc(arg0, 4);
+    if (var8 == 0) return;
+    Struct_02016874_2* var9 = var8->unknown_44_;
+    unsigned short var10 = var9->unknown_2_;
+    if (var10 & 4) return;
+    Struct_02016874* var11 = var9->unknown_24_;
+    Model3D* var12 = var11->unknown1_4_;
+    if (var12 != 0 && var12->rawInternalModel_ != 0) {
+        void* var13 = LightingManager::GetInstance();
+        NSBXXInternalModel* var14 = var12->rawInternalModel_;
+        ((LightingManager*)((Struct_0201aedc*)var13))->ApplyAmbientColorToModel(var14);
+        func_02016d8c(var0 + 0x14);
+        RenderConfig::SetObjectPosition((Vector3i*)(var0 + 0x38));
         RenderConfig::SubmitToFifo();
-        r5v->Draw(1);
+        var12->Draw(1);
     }
 }

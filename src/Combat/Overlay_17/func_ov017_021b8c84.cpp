@@ -10,32 +10,32 @@ extern "C" {
 }
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206461c(void* a, int b);
+extern "C" void func_0206461c(void* arg0, int arg1);
 extern int data_ov017_021d7c3c;
 
-struct List0202fe68;
+struct Struct_020534ac_2;
 
-struct Entry021b8c84 {
-    unsigned char pad0;
-    unsigned char flag;
-    unsigned char pad1[6];
-    int key;
+struct Struct_ov017_021a3544_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[6];
+    int unknown_8_;
 };
 
 // USA: func_ov017_021b8c84
-extern "C" ARM void func_ov017_021b8c84(struct Entry021b8c84* obj, void* context) {
+extern "C" ARM void func_ov017_021b8c84(struct Struct_ov017_021a3544_4* arg0, void* arg1) {
     GameState::GetInstance();
-    int listPtr = (int)BackgroundLoader::GetInstance();
-    if (obj->key == -1) {
-        obj->key = ((BackgroundLoader*)(listPtr))->QueueLoadFile((const char*)((int)&data_ov017_021d7c3c), (SafeAllocator*)(0));
+    int var0 = (int)BackgroundLoader::GetInstance();
+    if (arg0->unknown_8_ == -1) {
+        arg0->unknown_8_ = ((BackgroundLoader*)(var0))->QueueLoadFile((const char*)((int)&data_ov017_021d7c3c), (SafeAllocator*)(0));
         return;
     }
-    if (!((BackgroundLoader*)(listPtr))->GetTaskStatus((int)(obj->key))) return;
-    if (((BackgroundLoader*)((struct List0202fe68*)listPtr))->GetDetailedTaskStatus((int)(obj->key)) == 2) {
-        void* a = func_0205ec34();
-        func_0206461c(a, *(int*)((char*)func_02012fe4() + 8));
+    if (!((BackgroundLoader*)(var0))->GetTaskStatus((int)(arg0->unknown_8_))) return;
+    if (((BackgroundLoader*)((struct Struct_020534ac_2*)var0))->GetDetailedTaskStatus((int)(arg0->unknown_8_)) == 2) {
+        void* var1 = func_0205ec34();
+        func_0206461c(var1, *(int*)((char*)func_02012fe4() + 8));
     }
-    ((BackgroundLoader*)(listPtr))->RemoveTask((int)(obj->key));
-    obj->key = -1;
-    obj->flag = 1;
+    ((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_8_));
+    arg0->unknown_8_ = -1;
+    arg0->unknown_1_ = 1;
 }

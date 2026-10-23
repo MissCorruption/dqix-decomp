@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
 // USA: func_02053cd4
-extern "C" ARM int func_02053cd4(unsigned char* obj) {
+extern "C" ARM int func_02053cd4(unsigned char* arg0) {
 #if defined(jpn)
-    enum { kFieldOffset = 0x1ac };
+    enum { Enum_02053cd4_440 = 0x1ac };
 #else
-    enum { kFieldOffset = 0x1b8 };
+    enum { Enum_02053cd4_440 = 0x1b8 };
 #endif
-    return *(int*)(obj + kFieldOffset);
+    return *(int*)(arg0 + Enum_02053cd4_440);
 }

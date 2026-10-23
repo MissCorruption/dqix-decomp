@@ -4,38 +4,38 @@
 #include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
-struct CombatActionPosition {
-    Vector3i position;
-    unsigned char elementId;
-    unsigned char palette;
-    unsigned char type;
-    signed char variant;
-    unsigned char group;
-    unsigned char flag11;
-    unsigned char flag12;
-    unsigned char flag13;
-    unsigned char combatantId;
-    unsigned char unknown15[3];
+struct Struct_020236dc {
+    Vector3i unknown_0_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    signed char unknown_f_;
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    unsigned char unknown_14_;
+    unsigned char unknown_15_[3];
 
-    inline CombatActionPosition() {
-        VectorizedMemset(this, 0, sizeof(CombatActionPosition));
-        variant     = -1;
-        combatantId = 0xff;
+    inline Struct_020236dc() {
+        VectorizedMemset(this, 0, sizeof(Struct_020236dc));
+        unknown_f_     = -1;
+        unknown_14_ = 0xff;
     }
 };
 
-static inline int IsNonCombatantAction(unsigned char type) {
-    return type >= 0x74;
+static inline int inline_02024518(unsigned char arg0) {
+    return arg0 >= 0x74;
 }
 
 extern int data_020e70f0[][4][2];
 extern int data_020e70f4[][4][2];
 
 extern "C" {
-int func_020236dc(CombatActionPosition *entries, unsigned char *groups, Vector3i *position);
-void func_02023b5c(void *receiver, int tileX, int tileY, int xOffset, int yOffset, unsigned char flag);
-void func_02023d84(void *receiver, CombatActionPosition *entries, int count, int tileX, int tileY, int xOffset, int yOffset,
-                   int flags);
-void func_02024e78(void *receiver);
-void func_020251bc(void *receiver);
+int func_020236dc(Struct_020236dc *arg0, unsigned char *arg1, Vector3i *arg2);
+void func_02023b5c(void *arg0, int arg1, int arg2, int arg3, int arg4, unsigned char arg5);
+void func_02023d84(void *arg0, Struct_020236dc *arg1, int arg2, int arg3, int arg4, int arg5, int arg6,
+                   int arg7);
+void func_02024e78(void *arg0);
+void func_020251bc(void *arg0);
 }

@@ -2,26 +2,26 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Sub021cdaa0 {
-    float valA;
+struct Struct_ov017_021cdaa0 {
+    float unknown_0_;
 };
 
-struct LocalEvt021cdaa0 {
-    unsigned char tag;
-    unsigned char pad0[3];
-    Sub021cdaa0 sub;
-    unsigned char pad2[12];
+struct Struct_ov017_021cdaa0_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov017_021cdaa0 unknown_4_;
+    unsigned char unknown_8_[12];
 };
 
 // USA: func_ov017_021cdaa0
 extern "C" ARM void func_ov017_021cdaa0(void) {
-    GameState* battleStruct = GameState::GetInstance();
-    LocalEvt021cdaa0 buf;
-    void* p = func_0202ae24();
-    buf.tag = 0x93;
-    Sub021cdaa0* s = &buf.sub;
-    s->valA = battleStruct->GetDayTimer();
-    func_0205e330(p, &buf, 0);
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov017_021cdaa0_2 var1;
+    void* var2 = func_0202ae24();
+    var1.unknown_0_ = 0x93;
+    Struct_ov017_021cdaa0* var3 = &var1.unknown_4_;
+    var3->unknown_0_ = var0->GetDayTimer();
+    func_0205e330(var2, &var1, 0);
 }

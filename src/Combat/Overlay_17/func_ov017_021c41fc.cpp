@@ -1,78 +1,78 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionalFieldOffset = 0x150 };
+enum { Enum_ov017_021c41fc_348 = 0x150 };
 #else
-enum { kRegionalFieldOffset = 0x15c };
+enum { Enum_ov017_021c41fc_348 = 0x15c };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae24(void);
-struct U16Field0x6_020375f8;
-extern "C" void func_0205e330(void* a, void* b, int c);
+struct Struct_02039df4;
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Payload021c41fc {
-    unsigned char flags;
-    unsigned char lowNibble : 4;
-    unsigned char highNibble : 4;
-    unsigned short field6;
-    unsigned short field8;
+struct Struct_ov017_021c41fc {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_0_ : 4;
+    unsigned char unknown_1_4_ : 4;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
 };
 
-struct Evt021c41fc {
-    unsigned char tag;
-    unsigned char pad1[3];
-    struct Payload021c41fc payload;
-    unsigned char pad2[0xa];
+struct Struct_ov017_021c41fc_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    struct Struct_ov017_021c41fc unknown_4_;
+    unsigned char unknown_a_[0xa];
 };
 
 // USA: func_ov017_021c41fc
-extern "C" ARM void func_ov017_021c41fc(int combatantId, int mode) {
-    GameState* battleStruct = GameState::GetInstance();
+extern "C" ARM void func_ov017_021c41fc(int arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
     ((int)GetGameResources());
-    GameObject* combatant = battleStruct->GetPartyMemberByIndex(combatantId);
-    if (combatant == NULL) return;
+    GameObject* var1 = var0->GetPartyMemberByIndex(arg0);
+    if (var1 == NULL) return;
 
-    void* data = func_0202ae24();
+    void* var2 = func_0202ae24();
 
-    struct Evt021c41fc evt;
-    struct Payload021c41fc* p = &evt.payload;
-    evt.tag = 0;
-    p->lowNibble = combatantId;
-    p->field6 = ((Object3D*)((struct U16Field0x6_020375f8*)combatant))->GetField06();
-    p->flags = 0;
-    if (mode >= 0) {
-        p->highNibble = mode;
-        p->flags |= 1;
+    struct Struct_ov017_021c41fc_2 var3;
+    struct Struct_ov017_021c41fc* var4 = &var3.unknown_4_;
+    var3.unknown_0_ = 0;
+    var4->unknown_1_0_ = arg0;
+    var4->unknown_2_ = ((Object3D*)((struct Struct_02039df4*)var1))->GetField06();
+    var4->unknown_0_ = 0;
+    if (arg1 >= 0) {
+        var4->unknown_1_4_ = arg1;
+        var4->unknown_0_ |= 1;
     } else {
-        p->highNibble = 0;
+        var4->unknown_1_4_ = 0;
     }
 
-    int v = *(int*)((char*)combatant + kRegionalFieldOffset);
-    if (v < 0) {
-        p->field8 = 0;
+    int var5 = *(int*)((char*)var1 + Enum_ov017_021c41fc_348);
+    if (var5 < 0) {
+        var4->unknown_4_ = 0;
     } else {
-        p->field8 = (unsigned short)v;
-        p->flags |= 2;
+        var4->unknown_4_ = (unsigned short)var5;
+        var4->unknown_0_ |= 2;
     }
 
-    GameObject* target = battleStruct->GetUnknownGameObject();
-    if (target != NULL && combatantId == target->obj3D_.unknown_4_) {
-        if (p->field6 == 0x2710) {
-            p->field6 = 0x170c;
-        } else if (p->field6 == 0x2710 + 0x64) {
-            p->field6 = 0x1901;
+    GameObject* var6 = var0->GetUnknownGameObject();
+    if (var6 != NULL && arg0 == var6->obj3D_.unknown_4_) {
+        if (var4->unknown_2_ == 0x2710) {
+            var4->unknown_2_ = 0x170c;
+        } else if (var4->unknown_2_ == 0x2710 + 0x64) {
+            var4->unknown_2_ = 0x1901;
         }
 
-        if (p->field8 != 0) {
-            if (p->field8 == 0x2710) {
-                p->field8 = 0x170c;
-            } else if (p->field8 == 0x2710 + 0x64) {
-                p->field8 = 0x1901;
+        if (var4->unknown_4_ != 0) {
+            if (var4->unknown_4_ == 0x2710) {
+                var4->unknown_4_ = 0x170c;
+            } else if (var4->unknown_4_ == 0x2710 + 0x64) {
+                var4->unknown_4_ = 0x1901;
             }
         }
     }
 
-    func_0205e330(data, &evt, 0);
+    func_0205e330(var2, &var3, 0);
 }

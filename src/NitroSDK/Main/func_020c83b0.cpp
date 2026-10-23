@@ -2,8 +2,8 @@
 
 extern "C" int func_020c8548(int);
 extern "C" int func_020c862c(int);
-extern "C" void func_020c86d4(int index, int value);
-extern "C" void func_020c86e8(int index, int value);
+extern "C" void func_020c86d4(int arg0, int arg1);
+extern "C" void func_020c86e8(int arg0, int arg1);
 
 extern int data_0211155c;
 
@@ -14,31 +14,31 @@ extern "C" ARM void func_020c83b0(void) {
     }
     data_0211155c = 1;
 
-    int v0a = func_020c8548(0);
-    func_020c86d4(0, v0a);
-    int v0b = func_020c862c(0);
-    func_020c86e8(0, v0b);
+    int var0 = func_020c8548(0);
+    func_020c86d4(0, var0);
+    int var1 = func_020c862c(0);
+    func_020c86e8(0, var1);
 
     func_020c86e8(2, 0);
     func_020c86d4(2, 0);
 
-    int v3a = func_020c8548(3);
-    func_020c86d4(3, v3a);
-    int v3b = func_020c862c(3);
-    func_020c86e8(3, v3b);
+    int var2 = func_020c8548(3);
+    func_020c86d4(3, var2);
+    int var3 = func_020c862c(3);
+    func_020c86e8(3, var3);
 
-    int v4a = func_020c8548(4);
-    func_020c86d4(4, v4a);
-    int v4b = func_020c862c(4);
-    func_020c86e8(4, v4b);
+    int var4 = func_020c8548(4);
+    func_020c86d4(4, var4);
+    int var5 = func_020c862c(4);
+    func_020c86e8(4, var5);
 
-    int v5a = func_020c8548(5);
-    func_020c86d4(5, v5a);
-    int v5b = func_020c862c(5);
-    func_020c86e8(5, v5b);
+    int var6 = func_020c8548(5);
+    func_020c86d4(5, var6);
+    int var7 = func_020c862c(5);
+    func_020c86e8(5, var7);
 
-    int v6a = func_020c8548(6);
-    func_020c86d4(6, v6a);
-    int v6b = func_020c862c(6);
-    func_020c86e8(6, v6b);
+    int var8 = func_020c8548(6);
+    func_020c86d4(6, var8);
+    int var9 = func_020c862c(6);
+    func_020c86e8(6, var9);
 }

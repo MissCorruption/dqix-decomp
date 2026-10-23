@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
 struct Struct_0205bb84 {
-    int field0;
-    int field4;
-    int field8;
-    int fieldC;
-    int field10;
-    int field14;
-    int field18;
-    int field1C;
-    int field20;
-    int* field24;
-    int* field28;
-    int* field2C;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int* unknown_24_;
+    int* unknown_28_;
+    int* unknown_2c_;
 };
 
 // USA: func_0205bb84
-extern "C" ARM int func_0205bb84(struct Struct_0205bb84* s) {
-    int p = *s->field24 * *s->field28 + *s->field2C;
-    int q = s->field14 * s->fieldC * s->field8;
-    return (short)q + (short)p;
+extern "C" ARM int func_0205bb84(struct Struct_0205bb84* arg0) {
+    int var0 = *arg0->unknown_24_ * *arg0->unknown_28_ + *arg0->unknown_2c_;
+    int var1 = arg0->unknown_14_ * arg0->unknown_c_ * arg0->unknown_8_;
+    return (short)var1 + (short)var0;
 }

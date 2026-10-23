@@ -2,48 +2,48 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct Obj0215e4c8 {
-    unsigned char kind;
-    signed char width;
-    signed char height;
-    signed char count;
-    short* values;
+struct Struct_ov003_0215e4c8 {
+    unsigned char unknown_0_;
+    signed char unknown_1_;
+    signed char unknown_2_;
+    signed char unknown_3_;
+    short* unknown_4_;
 };
-extern "C" void func_ov003_0215e4c8(struct Obj0215e4c8* obj);
+extern "C" void func_ov003_0215e4c8(struct Struct_ov003_0215e4c8* arg0);
 
-struct Self0215e898;
-extern "C" void func_ov003_0215e898(struct Self0215e898* o, struct Obj0215e4c8* e);
+struct Struct_02000c9c_84;
+extern "C" void func_ov003_0215e898(struct Struct_02000c9c_84* arg0, struct Struct_ov003_0215e4c8* arg1);
 
-struct Globals02180cb8 {
-    void* allocator;
-    struct Self0215e898* target;
+struct Struct_ov003_02180cb8 {
+    void* unknown_0_;
+    struct Struct_02000c9c_84* unknown_4_;
 };
-extern struct Globals02180cb8 data_ov003_02180cb8;
+extern struct Struct_ov003_02180cb8 data_ov003_02180cb8;
 
 // USA: func_ov003_0215e628
-extern "C" ARM int func_ov003_0215e628(struct Variant02030b0c* params) {
-    struct Obj0215e4c8 local;
-    func_ov003_0215e4c8(&local);
-    local.kind = ((Script::Parameter*)&params[0])->ToInt();
-    local.width = ((Script::Parameter*)&params[1])->ToInt();
-    struct Variant02030b0c* heightParam = &params[2];
-    params += 3;
-    local.height = ((Script::Parameter*)heightParam)->ToInt();
-    local.count = local.width * local.height;
-    signed char count = local.count;
-    short* dst = (short*)((SafeAllocator*)data_ov003_02180cb8.allocator)->Allocate(count * 2);
-    local.values = dst;
-    if (dst != NULL) {
-        for (int i = 0; i < count; i++) {
-            *dst = ((Script::Parameter*)(params++))->ToInt();
-            dst++;
+extern "C" ARM int func_ov003_0215e628(struct Struct_0201c1c8* arg0) {
+    struct Struct_ov003_0215e4c8 var0;
+    func_ov003_0215e4c8(&var0);
+    var0.unknown_0_ = ((Script::Parameter*)&arg0[0])->ToInt();
+    var0.unknown_1_ = ((Script::Parameter*)&arg0[1])->ToInt();
+    struct Struct_0201c1c8* var1 = &arg0[2];
+    arg0 += 3;
+    var0.unknown_2_ = ((Script::Parameter*)var1)->ToInt();
+    var0.unknown_3_ = var0.unknown_1_ * var0.unknown_2_;
+    signed char var2 = var0.unknown_3_;
+    short* var3 = (short*)((SafeAllocator*)data_ov003_02180cb8.unknown_0_)->Allocate(var2 * 2);
+    var0.unknown_4_ = var3;
+    if (var3 != NULL) {
+        for (int var4 = 0; var4 < var2; var4++) {
+            *var3 = ((Script::Parameter*)(arg0++))->ToInt();
+            var3++;
         }
     }
-    func_ov003_0215e898(data_ov003_02180cb8.target, &local);
+    func_ov003_0215e898(data_ov003_02180cb8.unknown_4_, &var0);
     return 1;
 }

@@ -3,151 +3,151 @@
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "NitroSDK/Mutex.h"
 
-struct SleepCallback020be9e8 {
-    void (*callback)(void*);
-    void* arg;
-    SleepCallback020be9e8* next;
+struct Struct_01ffd34c_3 {
+    void (*unknown_0_)(void*);
+    void* unknown_4_;
+    Struct_01ffd34c_3* unknown_8_;
 };
 
-struct SelfObj020bc8d0 {
-    void* prev;
-    void* next;
-    SleepCallback020be9e8 preSleep;
-    SleepCallback020be9e8 postSleep;
-    int format;
-    unsigned int active : 1;
-    unsigned int started : 1;
-    unsigned int channelBufferLength;
-    int interval;
-    void (*callback)(int, int, void**, unsigned int, int, void*);
-    void* callbackArg;
-    int currentBuffer;
-    int volume;
-    int alarmNo;
-    unsigned int channelMask;
-    int channelCount;
-    unsigned char channels[16];
+struct Struct_020bc8d0 {
+    void* unknown_0_;
+    void* unknown_4_;
+    Struct_01ffd34c_3 unknown_8_;
+    Struct_01ffd34c_3 unknown_14_;
+    int unknown_20_;
+    unsigned int unknown_24_0_ : 1;
+    unsigned int unknown_24_1_ : 1;
+    unsigned int unknown_28_;
+    int unknown_2c_;
+    void (*unknown_30_)(int, int, void**, unsigned int, int, void*);
+    void* unknown_34_;
+    int unknown_38_;
+    int unknown_3c_;
+    int unknown_40_;
+    unsigned int unknown_44_;
+    int unknown_48_;
+    unsigned char unknown_4c_[16];
 };
 
-struct StreamInfo020be9e8 {
-    unsigned char fileHeader[16];
-    unsigned int blockKind;
-    unsigned int blockSize;
-    unsigned char format;
-    unsigned char loopFlag;
-    unsigned char numChannels;
-    unsigned char reserved;
-    unsigned short sampleRate;
-    unsigned short timer;
-    unsigned int loopStart;
-    unsigned int loopEnd;
-    unsigned int dataOffset;
-    unsigned int numBlocks;
-    unsigned int blockLength;
-    unsigned int blockSamples;
-    unsigned int lastBlockSize;
-    unsigned int lastBlockSamples;
+struct Struct_01ffd34c_5 {
+    unsigned char unknown_0_[16];
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned char unknown_18_;
+    unsigned char unknown_19_;
+    unsigned char unknown_1a_;
+    unsigned char unknown_1b_;
+    unsigned short unknown_1c_;
+    unsigned short unknown_1e_;
+    unsigned int unknown_20_;
+    unsigned int unknown_24_;
+    unsigned int unknown_28_;
+    unsigned int unknown_2c_;
+    unsigned int unknown_30_;
+    unsigned int unknown_34_;
+    unsigned int unknown_38_;
+    unsigned int unknown_3c_;
 };
 
-struct StreamPlayer020be9e8 {
-    SelfObj020bc8d0 stream;
-    NitroVM file;
-    unsigned int fileOffset;
-    StreamInfo020be9e8 info;
-    int fader[4];
-    struct AdpcmState { short sample; unsigned char index; unsigned char reserved; } adpcm[6];
-    unsigned int active : 1;
-    unsigned int play : 1;
-    unsigned int start : 1;
-    unsigned int fadeOut : 1;
-    unsigned int dirty : 1;
-    unsigned int finish : 1;
-    unsigned int mono : 1;
-    int finishCounter;
-    int prepareFlag;
-    int commandCount;
-    int allocChannelCount;
-    unsigned char numChannels;
-    unsigned char reserved;
-    unsigned char channels[6];
-    void* buffer;
-    unsigned int bufSize;
-    void* streamCallback;
-    void* streamCallbackArg;
-    void* archiveCallback;
-    void* archiveCallbackArg;
-    int streamNo;
-    int playerNo;
-    void* handle;
-    int priority;
-    int initialVolume;
-    int externalVolume;
-    int volume;
-    unsigned int currentSample;
-    void* openStream;
-    void* closeStream;
-    void* readStream;
-    void* cancelStream;
+struct Struct_02110a4c {
+    Struct_020bc8d0 unknown_0_;
+    NitroVM unknown_5c_;
+    unsigned int unknown_a4_;
+    Struct_01ffd34c_5 unknown_a8_;
+    int unknown_e8_[4];
+    struct Struct_01ffd34c_2 { short unknown_0_; unsigned char unknown_2_; unsigned char unknown_3_; } unknown_f8_[6];
+    unsigned int unknown_110_0_ : 1;
+    unsigned int unknown_110_1_ : 1;
+    unsigned int unknown_110_2_ : 1;
+    unsigned int unknown_110_3_ : 1;
+    unsigned int unknown_110_4_ : 1;
+    unsigned int unknown_110_5_ : 1;
+    unsigned int unknown_110_6_ : 1;
+    int unknown_114_;
+    int unknown_118_;
+    int unknown_11c_;
+    int unknown_120_;
+    unsigned char unknown_124_;
+    unsigned char unknown_125_;
+    unsigned char unknown_126_[6];
+    void* unknown_12c_;
+    unsigned int unknown_130_;
+    void* unknown_134_;
+    void* unknown_138_;
+    void* unknown_13c_;
+    void* unknown_140_;
+    int unknown_144_;
+    int unknown_148_;
+    void* unknown_14c_;
+    int unknown_150_;
+    int unknown_154_;
+    int unknown_158_;
+    int unknown_15c_;
+    unsigned int unknown_160_;
+    void* unknown_164_;
+    void* unknown_168_;
+    void* unknown_16c_;
+    void* unknown_170_;
 };
 
-struct StreamCommandLink020be9e8 {
-    void* previous;
-    void* next;
+struct Struct_01ffd34c_4 {
+    void* unknown_0_;
+    void* unknown_4_;
 };
 
-struct LoadCommand020be9e8 {
-    StreamCommandLink020be9e8 link;
-    StreamPlayer020be9e8* player;
-    int status;
-    int channelCount;
-    void* buffer[6];
-    unsigned int bufferLength;
+struct Struct_021103e0 {
+    Struct_01ffd34c_4 unknown_0_;
+    Struct_02110a4c* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    void* unknown_14_[6];
+    unsigned int unknown_2c_;
 };
 
-struct StreamState020be9e8 {
-    int initialized;
-    void* prepareThread;
-    unsigned char* decodeBuffer;
+struct Struct_021103b0 {
+    int unknown_0_;
+    void* unknown_4_;
+    unsigned char* unknown_8_;
 };
 
-extern StreamState020be9e8 data_021103b0;
+extern Struct_021103b0 data_021103b0;
 extern SignedAllocatorList data_021103bc;
 extern Mutex data_021103c8;
-extern LoadCommand020be9e8 data_021103e0[8];
+extern Struct_021103e0 data_021103e0[8];
 extern unsigned char data_02110560[];
-extern StreamPlayer020be9e8 data_02110a4c[4];
+extern Struct_02110a4c data_02110a4c[4];
 extern unsigned char data_02111020[512] __attribute__((aligned(32)));
-extern "C" void func_020bc8d0(SelfObj020bc8d0*);
+extern "C" void func_020bc8d0(Struct_020bc8d0*);
 extern "C" int func_020beaec(void*);
 extern "C" void func_020bf2f8(void*, unsigned int);
 
 // USA: func_020be9e8
-extern "C" ARM void func_020be9e8(void* priority, void* heap)
+extern "C" ARM void func_020be9e8(void* arg0, void* arg1)
 {
-    int playerNo;
-    StreamPlayer020be9e8* player;
-    int i;
-    if (data_021103b0.initialized) {
-        func_020beaec(heap);
+    int var0;
+    Struct_02110a4c* var1;
+    int var2;
+    if (data_021103b0.unknown_0_) {
+        func_020beaec(arg1);
         return;
     }
-    data_021103b0.initialized = 1;
+    data_021103b0.unknown_0_ = 1;
     data_021103bc.Initialize(0);
-    for (i = 0; i < 8; i++)
-        data_021103bc.InsertAtEnd((SignedAllocatorHeader*)&data_021103e0[i].link);
+    for (var2 = 0; var2 < 8; var2++)
+        data_021103bc.InsertAtEnd((SignedAllocatorHeader*)&data_021103e0[var2].unknown_0_);
     ZeroInitializeMutex(&data_021103c8);
-    data_021103b0.decodeBuffer = data_02111020;
-    for (playerNo = 0; playerNo < 4; ++playerNo) {
-        player = &data_02110a4c[playerNo];
-        player->active = 0;
-        NitroVM_Initialize(&player->file);
-        func_020bc8d0(&player->stream);
-        player->playerNo = playerNo;
-        player->numChannels = 0;
-        player->buffer = NULL;
-        player->bufSize = 0;
-        player->allocChannelCount = 0;
+    data_021103b0.unknown_8_ = data_02111020;
+    for (var0 = 0; var0 < 4; ++var0) {
+        var1 = &data_02110a4c[var0];
+        var1->unknown_110_0_ = 0;
+        NitroVM_Initialize(&var1->unknown_5c_);
+        func_020bc8d0(&var1->unknown_0_);
+        var1->unknown_148_ = var0;
+        var1->unknown_124_ = 0;
+        var1->unknown_12c_ = NULL;
+        var1->unknown_130_ = 0;
+        var1->unknown_120_ = 0;
     }
-    func_020beaec(heap);
-    func_020bf2f8(data_02110560, (unsigned int)priority);
+    func_020beaec(arg1);
+    func_020bf2f8(data_02110560, (unsigned int)arg0);
 }

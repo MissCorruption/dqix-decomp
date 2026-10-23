@@ -8,36 +8,36 @@
 #define RG(u, j) (u)
 #endif
 
-struct Sub {
-    unsigned char pad[RG(0xc68, 0xb2c)];
-    unsigned char slots[5];
+struct Struct_02061c04_21 {
+    unsigned char unknown_0_[RG(0xc68, 0xb2c)];
+    unsigned char unknown_c68_[5];
 };
 
-extern "C" unsigned char func_020114ec(char* obj, void* dst);
-extern "C" void func_ov002_02154c30(void* p);
+extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" void func_ov002_02154c30(void* arg0);
 
 // USA: func_ov002_02154f4c
-extern "C" ARM int func_ov002_02154f4c(unsigned char* obj) {
-    GameState* battle = GameState::GetInstance();
-    unsigned char buf[8];
-    unsigned char n = func_020114ec((char*)battle, buf);
-    unsigned char count = 0;
-    unsigned char i;
+extern "C" ARM int func_ov002_02154f4c(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned char var1[8];
+    unsigned char var2 = func_020114ec((char*)var0, var1);
+    unsigned char var3 = 0;
+    unsigned char var4;
 
-    buf[n] = 4;
-    for (i = 0; i < n; i++) {
-        if (battle->GetPartyMemberByIndex(buf[i]) != NULL) {
-            ((Sub*)(obj + count + 0x1000))->slots[0] = buf[i];
-            count = count + 1;
+    var1[var2] = 4;
+    for (var4 = 0; var4 < var2; var4++) {
+        if (var0->GetPartyMemberByIndex(var1[var4]) != NULL) {
+            ((Struct_02061c04_21*)(arg0 + var3 + 0x1000))->unknown_c68_[0] = var1[var4];
+            var3 = var3 + 1;
         }
     }
-    ((Sub*)(obj + count + 0x1000))->slots[0] = 4;
-    obj[0x1000 + RG(0xc6d, 0xb31)] = count;
+    ((Struct_02061c04_21*)(arg0 + var3 + 0x1000))->unknown_c68_[0] = 4;
+    arg0[0x1000 + RG(0xc6d, 0xb31)] = var3;
 
-    int j;
-    for (j = 0; j < 4; j++) {
-        memset(obj + RG(0xa70 + 0x1000, 0x19c8) + j * 16, 0, 4);
+    int var5;
+    for (var5 = 0; var5 < 4; var5++) {
+        memset(arg0 + RG(0xa70 + 0x1000, 0x19c8) + var5 * 16, 0, 4);
     }
-    func_ov002_02154c30(obj + RG(0xa70 + 0x1000, 0x19c8));
+    func_ov002_02154c30(arg0 + RG(0xa70 + 0x1000, 0x19c8));
     return 0;
 }

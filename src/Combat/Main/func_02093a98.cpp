@@ -1,41 +1,41 @@
 #include <globaldefs.h>
 
-struct CopyPayload {
+struct Struct_02093b54 {
 #if defined(jpn)
-    char data[11];
+    char unknown1_0_[11];
 #else
-    char data[48];
+    char unknown_0_[48];
 #endif
 };
-struct CopyableRecord {
-    CopyPayload payload;
+struct Struct_02093ad8 {
+    Struct_02093b54 unknown_0_;
 #if defined(jpn)
-    unsigned char byte11;
+    unsigned char unknown_b_;
 #endif
-    short f30;
-    signed char f32;
-    unsigned char f33;
+    short unknown_30_;
+    signed char unknown_32_;
+    unsigned char unknown_33_;
 };
 
-struct NamedRequestQueue {
-    CopyableRecord active[8];
-    CopyableRecord saved[8];
+struct Struct_02093a58 {
+    Struct_02093ad8 unknown_0_[8];
+    Struct_02093ad8 unknown_1a0_[8];
 #if defined(jpn)
-    char unknown100[0x13b - 0x100];
+    char unknown_100_[0x13b - 0x100];
 #else
-    char unknown340[0x3cb - 0x340];
+    char unknown_340_[0x3cb - 0x340];
 #endif
-    signed char activeCount;
-    signed char savedCount;
-    unsigned char flags;
+    signed char unknown_3cb_;
+    signed char unknown_3cc_;
+    unsigned char unknown_3cd_;
 };
 
-extern "C" void func_02093ad8(void*, CopyableRecord* source, CopyableRecord* destination, int count);
+extern "C" void func_02093ad8(void*, Struct_02093ad8* arg1, Struct_02093ad8* arg2, int arg3);
 
-extern "C" ARM void func_02093a98(char* storage) {
-    NamedRequestQueue* queue = reinterpret_cast<NamedRequestQueue*>(storage);
-    func_02093ad8(queue, queue->saved, queue->active, queue->savedCount);
-    queue->activeCount = queue->savedCount;
-    queue->savedCount = 0;
-    queue->flags &= ~4;
+extern "C" ARM void func_02093a98(char* arg0) {
+    Struct_02093a58* var0 = reinterpret_cast<Struct_02093a58*>(arg0);
+    func_02093ad8(var0, var0->unknown_1a0_, var0->unknown_0_, var0->unknown_3cc_);
+    var0->unknown_3cb_ = var0->unknown_3cc_;
+    var0->unknown_3cc_ = 0;
+    var0->unknown_3cd_ &= ~4;
 }

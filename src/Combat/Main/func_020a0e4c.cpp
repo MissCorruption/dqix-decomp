@@ -2,61 +2,61 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct MoveState020a0e4c {
-    int flag_0x0;
-    Vector3i pos_0x4;
-    Vector3i target_0x10;
-    int speed_0x1c;
-    int maxSpeed_0x20;
-    int accel_0x24;
+struct Struct_020a0e4c {
+    int unknown_0_;
+    Vector3i unknown_4_;
+    Vector3i unknown_10_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
 };
 
 // USA: func_020a0e4c
-extern "C" ARM void func_020a0e4c(struct MoveState020a0e4c* obj) {
-    float dt = (float)GameState::GetInstance()->GetEffectiveDeltaTime() / 1000.0f;
-    int accelStep = (int)(obj->accel_0x24 * dt);
-    int speedStep = (int)(obj->speed_0x1c * dt);
+extern "C" ARM void func_020a0e4c(struct Struct_020a0e4c* arg0) {
+    float var0 = (float)GameState::GetInstance()->GetEffectiveDeltaTime() / 1000.0f;
+    int var1 = (int)(arg0->unknown_24_ * var0);
+    int var2 = (int)(arg0->unknown_1c_ * var0);
 
-    Vector3i dir;
-    Vector3fix_Subtract(&obj->target_0x10, &obj->pos_0x4, &dir);
-    Vector3fix_Normalize(&dir, &dir);
-    int dist = Vector3fix_Distance(&obj->target_0x10, &obj->pos_0x4);
+    Vector3i var3;
+    Vector3fix_Subtract(&arg0->unknown_10_, &arg0->unknown_4_, &var3);
+    Vector3fix_Normalize(&var3, &var3);
+    int var4 = Vector3fix_Distance(&arg0->unknown_10_, &arg0->unknown_4_);
 
-    float sp = (float)speedStep / 4096.0f;
-    float num = sp * sp;
-    float aa = (float)accelStep / 4096.0f;
-    float den = 2.0f * aa;
-    float ratio = num / den;
+    float var5 = (float)var2 / 4096.0f;
+    float var6 = var5 * var5;
+    float var7 = (float)var1 / 4096.0f;
+    float var8 = 2.0f * var7;
+    float var9 = var6 / var8;
 
-    if (dist < accelStep) {
-        obj->pos_0x4 = obj->target_0x10;
-        obj->flag_0x0 = 0;
-    } else if ((int)(4096.0f * ratio) < dist + 0x199) {
-        int step = speedStep + accelStep;
-        int newSpeed = (int)(step / dt);
-        obj->speed_0x1c = newSpeed;
-        int maxSpeed = obj->maxSpeed_0x20;
-        if (maxSpeed < newSpeed) {
-            obj->speed_0x1c = maxSpeed;
-            step = (int)(maxSpeed * dt);
+    if (var4 < var1) {
+        arg0->unknown_4_ = arg0->unknown_10_;
+        arg0->unknown_0_ = 0;
+    } else if ((int)(4096.0f * var9) < var4 + 0x199) {
+        int var10 = var2 + var1;
+        int var11 = (int)(var10 / var0);
+        arg0->unknown_1c_ = var11;
+        int var12 = arg0->unknown_20_;
+        if (var12 < var11) {
+            arg0->unknown_1c_ = var12;
+            var10 = (int)(var12 * var0);
         }
-        Vector3i tmp;
-        Vector3fixMultiplyScalar(&dir, step, &tmp);
-        Vector3fix_Add(&obj->pos_0x4, &tmp, &obj->pos_0x4);
+        Vector3i var13;
+        Vector3fixMultiplyScalar(&var3, var10, &var13);
+        Vector3fix_Add(&arg0->unknown_4_, &var13, &arg0->unknown_4_);
     } else {
-        int step = speedStep - accelStep;
-        int half = dist / 2;
-        if (step > half) {
-            step = half;
+        int var14 = var2 - var1;
+        int var15 = var4 / 2;
+        if (var14 > var15) {
+            var14 = var15;
         }
-        obj->speed_0x1c = (int)(step / dt);
-        if (step < accelStep) {
-            obj->pos_0x4 = obj->target_0x10;
-            obj->flag_0x0 = 0;
+        arg0->unknown_1c_ = (int)(var14 / var0);
+        if (var14 < var1) {
+            arg0->unknown_4_ = arg0->unknown_10_;
+            arg0->unknown_0_ = 0;
         } else {
-            Vector3i tmp;
-            Vector3fixMultiplyScalar(&dir, step, &tmp);
-            Vector3fix_Add(&obj->pos_0x4, &tmp, &obj->pos_0x4);
+            Vector3i var16;
+            Vector3fixMultiplyScalar(&var3, var14, &var16);
+            Vector3fix_Add(&arg0->unknown_4_, &var16, &arg0->unknown_4_);
         }
     }
 }

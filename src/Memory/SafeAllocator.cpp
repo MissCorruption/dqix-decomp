@@ -76,10 +76,10 @@ void* SafeAllocator::AllocateReversed(unsigned int len)
     switch (pSignedAlloc->signature)
     {
     case ALLOCATOR_SIGNATURE_HPXE:
-        ret = allocUnion.versions.typeB.pHPXEAllocator->Allocate(len, -4);
+        ret = allocUnion.versions.unknown2_0_.pHPXEAllocator->Allocate(len, -4);
         break;
     case ALLOCATOR_SIGNATURE_HMRF:
-        ret = allocUnion.versions.typeA.pHMRFAllocator->Allocate(len, -4);
+        ret = allocUnion.versions.unknown1_0_.pHMRFAllocator->Allocate(len, -4);
         break;
     case ALLOCATOR_SIGNATURE_HTNU: // not elided!
         break;

@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov023_021e2418(void* obj);
-extern "C" ARM void* func_020421b0(int idx);
+extern "C" void* func_ov023_021e2418(void* arg0);
+extern "C" ARM void* func_020421b0(int arg0);
 
-struct Obj021e2550 {
-    char pad0[0xc];
-    void* field0xc;
+struct Struct_ov023_021e2550 {
+    char unknown_0_[0xc];
+    void* unknown_c_;
 };
 
 // USA: func_ov023_021e2550
-extern "C" ARM void* func_ov023_021e2550(void* obj, int unused, int index) {
-    struct Obj021e2550* e = (struct Obj021e2550*)func_ov023_021e2418(obj);
-    if (!e) return e;
-    void* entry = func_020421b0((index * 4 + 0x28) & 0xff);
-    e->field0xc = entry;
-    return entry;
+extern "C" ARM void* func_ov023_021e2550(void* arg0, int arg1, int arg2) {
+    struct Struct_ov023_021e2550* var0 = (struct Struct_ov023_021e2550*)func_ov023_021e2418(arg0);
+    if (!var0) return var0;
+    void* var1 = func_020421b0((arg2 * 4 + 0x28) & 0xff);
+    var0->unknown_c_ = var1;
+    return var1;
 }

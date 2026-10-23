@@ -8,43 +8,43 @@ extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" void func_ov004_021536e0(void*, int, int);
 extern "C" int func_ov023_021f809c(void*, void*);
 #if defined(jpn)
-extern "C" unsigned int func_ov023_021f6f10(void* self);
+extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov023_021f6f10
 #else
-extern "C" int func_ov024_021f6f10(void* self);
+extern "C" int func_ov024_021f6f10(void* arg0);
 #define NODE_KIND_CALL func_ov024_021f6f10
 #endif
 
-struct VTable02154250 { char pad[0xe0]; void (*fn)(void*, int); };
-struct Obj02154250 { struct VTable02154250* vtable; };
+struct Struct_ov004_02154250 { char unknown_0_[0xe0]; void (*unknown_e0_)(void*, int); };
+struct Struct_ov004_02154250_2 { struct Struct_ov004_02154250* unknown_0_; };
 
 // USA: func_ov004_02154250
-extern "C" ARM int func_ov004_02154250(void* a) {
-    short cur = *(short*)(data_ov004_021707c0 + 0x7a);
-    short max = *(short*)(data_ov004_021707c0 + 0x78);
-    int percent = _s32_div_f(cur * 100, max);
-    percent = (short)percent;
-    if (percent == 0 && cur == 0) percent = 0;
-    if (percent == 0 && cur != 0) percent = 1;
-    if (percent > 100) percent = 100;
-    if (percent < 0) percent = 0;
+extern "C" ARM int func_ov004_02154250(void* arg0) {
+    short var0 = *(short*)(data_ov004_021707c0 + 0x7a);
+    short var1 = *(short*)(data_ov004_021707c0 + 0x78);
+    int var2 = _s32_div_f(var0 * 100, var1);
+    var2 = (short)var2;
+    if (var2 == 0 && var0 == 0) var2 = 0;
+    if (var2 == 0 && var0 != 0) var2 = 1;
+    if (var2 > 100) var2 = 100;
+    if (var2 < 0) var2 = 0;
 
-    void* base = func_ov011_021849c8(a);
-    struct Obj02154250* node1 = (struct Obj02154250*)func_ov023_021f6880(base, 0x13);
-    if (!node1) return 0;
-    node1->vtable->fn(node1, percent);
+    void* var3 = func_ov011_021849c8(arg0);
+    struct Struct_ov004_02154250_2* var4 = (struct Struct_ov004_02154250_2*)func_ov023_021f6880(var3, 0x13);
+    if (!var4) return 0;
+    var4->unknown_0_->unknown_e0_(var4, var2);
 
-    struct Obj02154250* node2 = (struct Obj02154250*)func_ov023_021f6880(base, 0x14);
-    if (!node2) return 0;
-    node2->vtable->fn(node2, cur);
+    struct Struct_ov004_02154250_2* var5 = (struct Struct_ov004_02154250_2*)func_ov023_021f6880(var3, 0x14);
+    if (!var5) return 0;
+    var5->unknown_0_->unknown_e0_(var5, var0);
 
 #if !defined(jpn)
-    func_ov004_021536e0(a, 0x14, 0x19);
+    func_ov004_021536e0(arg0, 0x14, 0x19);
 #endif
 
-    void* node3 = func_ov023_021f6880(base, 0x10);
-    if (!node3) return 0;
-    if (NODE_KIND_CALL(node3) != 6) return 0;
-    func_ov023_021f809c(node3, a);
+    void* var6 = func_ov023_021f6880(var3, 0x10);
+    if (!var6) return 0;
+    if (NODE_KIND_CALL(var6) != 6) return 0;
+    func_ov023_021f809c(var6, arg0);
     return 0;
 }

@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct SoundWaveArchive020d2c00;
+struct Struct_020d2c00;
 
-struct SoundWaveArchiveLink020d2c00 {
-    SoundWaveArchive020d2c00* waveArc;
-    SoundWaveArchiveLink020d2c00* next;
+struct Struct_020d2c00_3 {
+    Struct_020d2c00* unknown_0_;
+    Struct_020d2c00_3* unknown_4_;
 };
 
-struct SoundWaveArchive020d2c00 {
-    unsigned char header[0x18];
-    SoundWaveArchiveLink020d2c00* topLink;
-    unsigned char rest[0x20];
+struct Struct_020d2c00 {
+    unsigned char unknown_0_[0x18];
+    Struct_020d2c00_3* unknown_18_;
+    unsigned char unknown_1c_[0x20];
 };
 
-struct SoundBank020d2c00 {
-    unsigned char header[0x18];
-    SoundWaveArchiveLink020d2c00 waveArcLink[4];
+struct Struct_020d2c00_2 {
+    unsigned char unknown_0_[0x18];
+    Struct_020d2c00_3 unknown_18_[4];
 };
 
 void CleanCacheRange(const void* addr, unsigned int size);
@@ -26,33 +26,33 @@ extern "C" {
 }
 
 // USA: func_020d2c00
-extern "C" ARM void func_020d2c00(SoundBank020d2c00* bank) {
-    SoundWaveArchiveLink020d2c00* bankLink;
-    int i;
+extern "C" ARM void func_020d2c00(Struct_020d2c00_2* arg0) {
+    Struct_020d2c00_3* var0;
+    int var1;
     func_020d21f8();
-    bankLink = &bank->waveArcLink[0];
-    i = 0;
+    var0 = &arg0->unknown_18_[0];
+    var1 = 0;
     do {
-        SoundWaveArchive020d2c00* const waveArc = bank->waveArcLink[i].waveArc;
-        if (waveArc != NULL) {
-            if (bankLink == waveArc->topLink) {
-                waveArc->topLink = bank->waveArcLink[i].next;
-                CleanCacheRange(waveArc, sizeof(SoundWaveArchive020d2c00));
+        Struct_020d2c00* const var2 = arg0->unknown_18_[var1].unknown_0_;
+        if (var2 != NULL) {
+            if (var0 == var2->unknown_18_) {
+                var2->unknown_18_ = arg0->unknown_18_[var1].unknown_4_;
+                CleanCacheRange(var2, sizeof(Struct_020d2c00));
             } else {
-                SoundWaveArchiveLink020d2c00* link = waveArc->topLink;
-                if (link != NULL) {
+                Struct_020d2c00_3* var3 = var2->unknown_18_;
+                if (var3 != NULL) {
                     do {
-                        if (bankLink == link->next)
+                        if (var0 == var3->unknown_4_)
                             break;
-                        link = link->next;
-                    } while (link != NULL);
+                        var3 = var3->unknown_4_;
+                    } while (var3 != NULL);
                 }
-                link->next = bank->waveArcLink[i].next;
-                CleanCacheRange(link, sizeof(SoundWaveArchiveLink020d2c00));
+                var3->unknown_4_ = arg0->unknown_18_[var1].unknown_4_;
+                CleanCacheRange(var3, sizeof(Struct_020d2c00_3));
             }
         }
-        i++;
-        bankLink++;
-    } while (i < 4);
+        var1++;
+        var0++;
+    } while (var1 < 4);
     func_020d220c();
 }

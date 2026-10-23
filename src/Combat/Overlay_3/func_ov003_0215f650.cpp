@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct Name0215f650 {
+struct Struct_ov003_0215f650_3 {
 #if defined(jpn)
-    char str[0x14];
+    char unknown1_0_[0x14];
 #else
-    char str[0x30];
+    char unknown_0_[0x30];
 #endif
 };
 
-struct Data0215f650 {
-    char bytes[6];
+struct Struct_ov003_0215f650 {
+    char unknown_0_[6];
 };
 
-struct Record0215f650 {
-    unsigned char type;
-    Name0215f650 name;
-    Data0215f650 data;
+struct Struct_ov003_0215f650_2 {
+    unsigned char unknown_0_;
+    Struct_ov003_0215f650_3 unknown_1_;
+    Struct_ov003_0215f650 unknown_31_;
 };
 
 // USA: func_ov003_0215f650
-extern "C" ARM Record0215f650* func_ov003_0215f650(Record0215f650* dst, const Record0215f650* src) {
-    dst->type = src->type;
-    dst->name = src->name;
-    dst->data = src->data;
-    return dst;
+extern "C" ARM Struct_ov003_0215f650_2* func_ov003_0215f650(Struct_ov003_0215f650_2* arg0, const Struct_ov003_0215f650_2* arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
+    arg0->unknown_1_ = arg1->unknown_1_;
+    arg0->unknown_31_ = arg1->unknown_31_;
+    return arg0;
 }

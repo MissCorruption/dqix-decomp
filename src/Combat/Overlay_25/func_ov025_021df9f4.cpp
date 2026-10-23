@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Combatant021df9f4 {
-    char pad0[0xc0];
-    unsigned char state;
+struct Struct_ov025_021df9f4 {
+    char unknown_0_[0xc0];
+    unsigned char unknown_c0_;
 #if defined(jpn)
-    char padc1[0x180 - 0xc1];
+    char unknown_c1_[0x180 - 0xc1];
 #else
-    char padc1[0x18c - 0xc1];
+    char unknown1_c1_[0x18c - 0xc1];
 #endif
-    unsigned int flags;
+    unsigned int unknown_18c_;
 };
 
 extern "C" int func_02049ec0(unsigned char*);
@@ -17,27 +17,27 @@ extern "C" int func_02048c10(unsigned char*);
 extern "C" int func_02048c68(unsigned char*);
 
 // USA: func_ov025_021df9f4
-extern "C" ARM int func_ov025_021df9f4(GameObject* obj) {
-    if (obj == 0) {
+extern "C" ARM int func_ov025_021df9f4(GameObject* arg0) {
+    if (arg0 == 0) {
         return 0;
     }
-    int result = 0;
-    if (obj->obj3D_.IsVisible() && func_02049ec0((unsigned char*)obj) &&
-        !func_02048c10((unsigned char*)obj)) {
-        if (!func_02048c68((unsigned char*)obj)) {
-            result = 1;
+    int var0 = 0;
+    if (arg0->obj3D_.IsVisible() && func_02049ec0((unsigned char*)arg0) &&
+        !func_02048c10((unsigned char*)arg0)) {
+        if (!func_02048c68((unsigned char*)arg0)) {
+            var0 = 1;
         }
     }
-    bool isParty = false;
-    if (obj->obj3D_.unknown_4_ >= 0 && obj->obj3D_.unknown_4_ <= 3) {
-        isParty = true;
+    bool var1 = false;
+    if (arg0->obj3D_.unknown_4_ >= 0 && arg0->obj3D_.unknown_4_ <= 3) {
+        var1 = true;
     }
-    if (isParty) {
-        GameState* gs = GameState::GetInstance();
-        Combatant021df9f4* c = (Combatant021df9f4*)func_0200ff1c(gs, obj->obj3D_.unknown_4_);
-        if (c != 0 && ((c->flags & 1) || c->state == 8)) {
-            result = 0;
+    if (var1) {
+        GameState* var2 = GameState::GetInstance();
+        Struct_ov025_021df9f4* var3 = (Struct_ov025_021df9f4*)func_0200ff1c(var2, arg0->obj3D_.unknown_4_);
+        if (var3 != 0 && ((var3->unknown_18c_ & 1) || var3->unknown_c0_ == 8)) {
+            var0 = 0;
         }
     }
-    return result;
+    return var0;
 }

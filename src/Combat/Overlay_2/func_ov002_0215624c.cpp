@@ -26,7 +26,7 @@ struct Struct_ov002_0215624c_24;
 struct Struct_ov002_0215624c_25;
 struct Struct_ov002_0215624c_11;
 struct Struct_ov002_0215624c_26;
-struct Container020e0310;
+struct Struct_0201099c_3;
 
 extern "C" unsigned char *func_0205d8c4(struct Struct_ov002_02155960_2 *arg0);
 extern "C" int func_0204c7cc(unsigned char *arg0);
@@ -65,7 +65,7 @@ extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned ch
                                                                         unsigned char arg2);
 extern "C" int func_02046900(struct Struct_ov002_0215624c_26 *arg0);
 extern "C" void func_020dfec0(void *arg0, void *arg1, void *arg2, unsigned int arg3);
-extern "C" int func_020e0434(struct Container020e0310 *arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
 extern "C" void func_020dc7e8(int arg0, int arg1);
 extern "C" void func_ov002_0215bf34(char *arg0);
 extern "C" void func_ov002_0215c028(char *arg0);
@@ -330,7 +330,7 @@ extern "C" ARM void func_ov002_0215624c(char *arg0) {
             var0->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)), &var36, &var37);
             ((SafeAllocator *) (arg0 + REGIONAL_OFFSET(0x7a0, 0x83c)))->Reset();
             func_020dfec0(arg0 + REGIONAL_OFFSET(0x8, 0x20), arg0 + REGIONAL_OFFSET(0x7a0, 0x83c), var36, var37);
-            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = func_020e0434((struct Container020e0310 *) (arg0 + REGIONAL_OFFSET(0x8, 0x20)), 0);
+            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = func_020e0434((struct Struct_0201099c_3 *) (arg0 + REGIONAL_OFFSET(0x8, 0x20)), 0);
             var0->RemoveTask(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)));
             S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = -1;
         }

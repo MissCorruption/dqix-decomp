@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct S_b284 {
-	char pad[0x39];
-	unsigned char val;
+struct Struct_ov011_02187da8 {
+	char unknown_0_[0x39];
+	unsigned char unknown_39_;
 };
 
 // USA: func_ov023_021fb284
-extern "C" ARM void func_ov023_021fb284(S_b284* obj, int v) {
-	obj->val = v;
+extern "C" ARM void func_ov023_021fb284(Struct_ov011_02187da8* arg0, int arg1) {
+	arg0->unknown_39_ = arg1;
 }

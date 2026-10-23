@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 
-struct TransferLimits02206264 {
-    unsigned char padding_0[0x48];
-    int capacity;
+struct Struct_ov031_02206264_3 {
+    unsigned char unknown_0_[0x48];
+    int unknown_48_;
 };
-struct TransferBuffer02206264 {
-    unsigned char padding_0[0x10c];
-    TransferLimits02206264* limits;
+struct Struct_ov031_02206264 {
+    unsigned char unknown_0_[0x10c];
+    Struct_ov031_02206264_3* unknown_10c_;
 };
-struct TransferContext02206264 {
-    unsigned char padding_0[0x68];
-    TransferBuffer02206264* buffer;
-    unsigned char padding_6c[7];
-    signed char mode;
+struct Struct_ov031_02206264_2 {
+    unsigned char unknown_0_[0x68];
+    Struct_ov031_02206264* unknown_68_;
+    unsigned char unknown_6c_[7];
+    signed char unknown_73_;
 };
-extern "C" int func_ov031_02206368(TransferContext02206264* self, int min, int max, int* out, int flags);
-extern "C" int func_ov031_02206410(TransferContext02206264* self, const unsigned char* source, int length, int offset, unsigned short tag, unsigned int user_data, int flags);
+extern "C" int func_ov031_02206368(Struct_ov031_02206264_2* arg0, int arg1, int arg2, int* arg3, int arg4);
+extern "C" int func_ov031_02206410(Struct_ov031_02206264_2* arg0, const unsigned char* arg1, int arg2, int arg3, unsigned short arg4, unsigned int arg5, int arg6);
 
 // USA: func_ov031_02206264
-extern "C" ARM int func_ov031_02206264(TransferContext02206264* self, const unsigned char* source, int length, unsigned short tag, unsigned int user_data, int flags) {
-    int n;
-    int total = 0;
-    int capacity = self->buffer->limits->capacity;
-    int chunk;
-    int offset;
+extern "C" ARM int func_ov031_02206264(Struct_ov031_02206264_2* arg0, const unsigned char* arg1, int arg2, unsigned short arg3, unsigned int arg4, int arg5) {
+    int var0;
+    int var1 = 0;
+    int var2 = arg0->unknown_68_->unknown_10c_->unknown_48_;
+    int var3;
+    int var4;
 
-    if (self->mode == 1) {
-        if (length > capacity - 42) return total - 35;
-        chunk = length;
+    if (arg0->unknown_73_ == 1) {
+        if (arg2 > var2 - 42) return var1 - 35;
+        var3 = arg2;
     } else {
-        chunk = capacity - 54;
-        if (length <= chunk) chunk = length;
+        var3 = var2 - 54;
+        if (arg2 <= var3) var3 = arg2;
     }
-    while (length > 0) {
-        n = func_ov031_02206368(self, length, chunk, &offset, flags);
-        if (n > 0) {
-            if (func_ov031_02206410(self, source, n, offset, tag, user_data, flags) <= 0) return -6;
-            source += n;
-            length -= n;
-            total += n;
+    while (arg2 > 0) {
+        var0 = func_ov031_02206368(arg0, arg2, var3, &var4, arg5);
+        if (var0 > 0) {
+            if (func_ov031_02206410(arg0, arg1, var0, var4, arg3, arg4, arg5) <= 0) return -6;
+            arg1 += var0;
+            arg2 -= var0;
+            var1 += var0;
         }
-        if (!(flags & 1)) {
-            if (n > 0) break;
+        if (!(arg5 & 1)) {
+            if (var0 > 0) break;
             return -6;
         }
     }
-    return total;
+    return var1;
 }

@@ -4,208 +4,208 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/LoadToVRAM.h"
 
-struct Array02048090 {
-    int count;
-    void* buffer;
+struct Struct_02047b40_5 {
+    int unknown_0_;
+    void* unknown_4_;
 };
-extern "C" void func_02048090(struct Array02048090* obj, int count, SafeAllocator* alloc);
+extern "C" void func_02048090(struct Struct_02047b40_5* arg0, int arg1, SafeAllocator* arg2);
 
-struct Struct02076928;
-extern "C" void func_02076928(struct Struct02076928* s, int val);
+struct Struct_02076080;
+extern "C" void func_02076928(struct Struct_02076080* arg0, int arg1);
 
-extern "C" void func_02076994(void* ctx, unsigned char* data, unsigned int val, unsigned int w, unsigned int h);
+extern "C" void func_02076994(void* arg0, unsigned char* arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4);
 
-struct Struct02076080 {
-    int** f0;
-    int** f4;
-    int** f8;
-    int** fc;
-    unsigned short* f10;
-    char pad14[4];
-    int* f18;
-    void** f1c;
-    void** f20;
-    void** f24;
-    char pad28[0xc];
-    int f34;
-    int f38;
-    int f3c;
-    char pad40[0x10];
-    int f50;
-    struct Array02048090 f54;
-    unsigned short f5c;
-    unsigned char f5e;
-    unsigned char f5f;
+struct Struct_02076080_2 {
+    int** unknown_0_;
+    int** unknown_4_;
+    int** unknown_8_;
+    int** unknown_c_;
+    unsigned short* unknown_10_;
+    char unknown_14_[4];
+    int* unknown_18_;
+    void** unknown_1c_;
+    void** unknown_20_;
+    void** unknown_24_;
+    char unknown_28_[0xc];
+    int unknown_34_;
+    int unknown_38_;
+    int unknown_3c_;
+    char unknown_40_[0x10];
+    int unknown_50_;
+    struct Struct_02047b40_5 unknown_54_;
+    unsigned short unknown_5c_;
+    unsigned char unknown_5e_;
+    unsigned char unknown_5f_;
 };
 
 // USA: func_02076080
-extern "C" ARM int func_02076080(struct Struct02076080* sl, SafeAllocator* sb, unsigned char* data) {
-    int masked;
-    if (sl->f5e == 0) {
-        masked = DISPCNT & 0x300010;
+extern "C" ARM int func_02076080(struct Struct_02076080_2* arg0, SafeAllocator* arg1, unsigned char* arg2) {
+    int var0;
+    if (arg0->unknown_5e_ == 0) {
+        var0 = DISPCNT & 0x300010;
     } else {
-        masked = DISPCNTSUB & 0x300010;
+        var0 = DISPCNTSUB & 0x300010;
     }
 
-    int bpp;
-    switch (masked) {
+    int var1;
+    switch (var0) {
     case 0:        return 1;
-    case 0x10:     bpp = 5; break;
-    case 0x100010: bpp = 6; break;
-    case 0x200010: bpp = 7; break;
-    case 0x300010: bpp = 8; break;
+    case 0x10:     var1 = 5; break;
+    case 0x100010: var1 = 6; break;
+    case 0x200010: var1 = 7; break;
+    case 0x300010: var1 = 8; break;
     default: return 1;
     }
 
-    int formatMode = 0;
-    memcpy(&sl->f5c, data, 2);
-    memcpy(&formatMode, data + 2, 2);
-    data += 4;
+    int var2 = 0;
+    memcpy(&arg0->unknown_5c_, arg2, 2);
+    memcpy(&var2, arg2 + 2, 2);
+    arg2 += 4;
 
-    switch (formatMode) {
-    case 3: sl->f50 = 0; break;
-    case 4: sl->f50 = 1; break;
+    switch (var2) {
+    case 3: arg0->unknown_50_ = 0; break;
+    case 4: arg0->unknown_50_ = 1; break;
     default: return 1;
     }
 
-    sl->f10 = (unsigned short*)sb->Allocate(sl->f5c * 2);
-    sl->f4  = (int**)sb->Allocate(sl->f5c * 4);
-    sl->f0  = (int**)sb->Allocate(sl->f5c * 4);
-    sl->f8  = (int**)sb->Allocate(sl->f5c * 4);
-    sl->fc  = (int**)sb->Allocate(sl->f5c * 4);
+    arg0->unknown_10_ = (unsigned short*)arg1->Allocate(arg0->unknown_5c_ * 2);
+    arg0->unknown_4_  = (int**)arg1->Allocate(arg0->unknown_5c_ * 4);
+    arg0->unknown_0_  = (int**)arg1->Allocate(arg0->unknown_5c_ * 4);
+    arg0->unknown_8_  = (int**)arg1->Allocate(arg0->unknown_5c_ * 4);
+    arg0->unknown_c_  = (int**)arg1->Allocate(arg0->unknown_5c_ * 4);
 
-    unsigned int fp = sl->f38;
-    for (unsigned short i = 0; i < sl->f5c; i++) {
-        unsigned short skipA, skipB;
-        unsigned int cellCount;
-        memcpy(&skipA, data, 2);
-        memcpy(&skipB, data + 2, 2);
-        memcpy(&cellCount, data + 4, 4);
-        sl->f10[i] = (unsigned short)cellCount;
-        data += 8;
+    unsigned int var3 = arg0->unknown_38_;
+    for (unsigned short var4 = 0; var4 < arg0->unknown_5c_; var4++) {
+        unsigned short var5, var6;
+        unsigned int var7;
+        memcpy(&var5, arg2, 2);
+        memcpy(&var6, arg2 + 2, 2);
+        memcpy(&var7, arg2 + 4, 4);
+        arg0->unknown_10_[var4] = (unsigned short)var7;
+        arg2 += 8;
 
-        sl->f4[i] = (int*)sb->Allocate(cellCount * 4);
-        sl->f0[i] = (int*)sb->Allocate(cellCount * 4);
-        sl->f8[i] = (int*)sb->Allocate(cellCount * 4);
-        sl->fc[i] = (int*)sb->Allocate(cellCount * 4);
+        arg0->unknown_4_[var4] = (int*)arg1->Allocate(var7 * 4);
+        arg0->unknown_0_[var4] = (int*)arg1->Allocate(var7 * 4);
+        arg0->unknown_8_[var4] = (int*)arg1->Allocate(var7 * 4);
+        arg0->unknown_c_[var4] = (int*)arg1->Allocate(var7 * 4);
 
-        for (int j = 0; j < cellCount; j++) {
-            unsigned short xVal, yVal, wShift, hShift;
-            memcpy(&xVal, data, 2);
-            memcpy(&yVal, data + 2, 2);
-            memcpy(&wShift, data + 4, 2);
-            memcpy(&hShift, data + 6, 2);
-            unsigned int w = 8u << wShift;
-            unsigned int h = 8u << hShift;
+        for (int var8 = 0; var8 < var7; var8++) {
+            unsigned short var9, var10, var11, var12;
+            memcpy(&var9, arg2, 2);
+            memcpy(&var10, arg2 + 2, 2);
+            memcpy(&var11, arg2 + 4, 2);
+            memcpy(&var12, arg2 + 6, 2);
+            unsigned int var13 = 8u << var11;
+            unsigned int var14 = 8u << var12;
 
-            sl->f8[i][j] = xVal;
-            data += 8;
-            sl->fc[i][j] = yVal;
+            arg0->unknown_8_[var4][var8] = var9;
+            arg2 += 8;
+            arg0->unknown_c_[var4][var8] = var10;
 
-            int* row4 = sl->f4[i];
-            if (w == 8 && h == 8) {
-                row4[j] = 0;
-            } else if (w == 0x10 && h == 0x10) {
-                row4[j] = 0x40000000;
-            } else if (w == 0x20 && h == 0x20) {
-                row4[j] = 0x80000000;
-            } else if (w == 0x40 && h == 0x40) {
-                row4[j] = 0xc0000000;
-            } else if (w == 0x10 && h == 8) {
-                row4[j] = 0x4000;
-            } else if (w == 0x20 && h == 8) {
-                row4[j] = 0x40004000;
-            } else if (w == 0x20 && h == 0x10) {
-                row4[j] = 0x80004000;
-            } else if (w == 0x40 && h == 0x20) {
-                row4[j] = 0xc0004000;
-            } else if (w == 8 && h == 0x10) {
-                row4[j] = 0x8000;
-            } else if (w == 8 && h == 0x20) {
-                row4[j] = 0x40008000;
-            } else if (w == 0x10 && h == 0x20) {
-                row4[j] = 0x80008000;
-            } else if (w == 0x20 && h == 0x40) {
-                row4[j] = 0xc0008000;
+            int* var15 = arg0->unknown_4_[var4];
+            if (var13 == 8 && var14 == 8) {
+                var15[var8] = 0;
+            } else if (var13 == 0x10 && var14 == 0x10) {
+                var15[var8] = 0x40000000;
+            } else if (var13 == 0x20 && var14 == 0x20) {
+                var15[var8] = 0x80000000;
+            } else if (var13 == 0x40 && var14 == 0x40) {
+                var15[var8] = 0xc0000000;
+            } else if (var13 == 0x10 && var14 == 8) {
+                var15[var8] = 0x4000;
+            } else if (var13 == 0x20 && var14 == 8) {
+                var15[var8] = 0x40004000;
+            } else if (var13 == 0x20 && var14 == 0x10) {
+                var15[var8] = 0x80004000;
+            } else if (var13 == 0x40 && var14 == 0x20) {
+                var15[var8] = 0xc0004000;
+            } else if (var13 == 8 && var14 == 0x10) {
+                var15[var8] = 0x8000;
+            } else if (var13 == 8 && var14 == 0x20) {
+                var15[var8] = 0x40008000;
+            } else if (var13 == 0x10 && var14 == 0x20) {
+                var15[var8] = 0x80008000;
+            } else if (var13 == 0x20 && var14 == 0x40) {
+                var15[var8] = 0xc0008000;
             }
 
-            unsigned int pixels = w * h;
-            unsigned int size;
-            if (formatMode == 3) {
-                size = pixels >> 1;
+            unsigned int var16 = var13 * var14;
+            unsigned int var17;
+            if (var2 == 3) {
+                var17 = var16 >> 1;
             } else {
-                size = pixels;
+                var17 = var16;
             }
-            sl->f0[i][j] = fp >> bpp;
-            func_02076994(sl, data, sl->f0[i][j] << bpp, w, h);
-            data += size;
-            fp += (size + ((1 << bpp) - 1)) & ~((1 << bpp) - 1);
+            arg0->unknown_0_[var4][var8] = var3 >> var1;
+            func_02076994(arg0, arg2, arg0->unknown_0_[var4][var8] << var1, var13, var14);
+            arg2 += var17;
+            var3 += (var17 + ((1 << var1) - 1)) & ~((1 << var1) - 1);
         }
     }
 
-    sl->f34 = fp - sl->f38;
+    arg0->unknown_34_ = var3 - arg0->unknown_38_;
 
-    unsigned int paletteSize;
-    memcpy(&paletteSize, data, 4);
-    data += 4;
+    unsigned int var18;
+    memcpy(&var18, arg2, 4);
+    arg2 += 4;
 
-    if (paletteSize <= 0x10) {
-        int shifted = sl->f3c << 5;
-        if (sl->f5e == 0) {
-            LoadToMainObjStandardPalette(data, shifted, 0x20);
+    if (var18 <= 0x10) {
+        int var19 = arg0->unknown_3c_ << 5;
+        if (arg0->unknown_5e_ == 0) {
+            LoadToMainObjStandardPalette(arg2, var19, 0x20);
         } else {
-            LoadToSubObjStandardPalette(data, shifted, 0x20);
+            LoadToSubObjStandardPalette(arg2, var19, 0x20);
         }
-    } else if (paletteSize <= 0x100) {
-        int shifted = sl->f3c << 9;
-        if (sl->f5e == 0) {
-            LoadToMainObjStandardPalette(data, shifted, 0x200);
+    } else if (var18 <= 0x100) {
+        int var20 = arg0->unknown_3c_ << 9;
+        if (arg0->unknown_5e_ == 0) {
+            LoadToMainObjStandardPalette(arg2, var20, 0x200);
         } else {
-            LoadToSubObjStandardPalette(data, shifted, 0x200);
+            LoadToSubObjStandardPalette(arg2, var20, 0x200);
         }
     } else {
-        if (sl->f5e == 0) {
-            LoadToMainObjStandardPalette(data, 0, paletteSize);
+        if (arg0->unknown_5e_ == 0) {
+            LoadToMainObjStandardPalette(arg2, 0, var18);
         } else {
-            LoadToSubObjStandardPalette(data, 0, paletteSize);
+            LoadToSubObjStandardPalette(arg2, 0, var18);
         }
     }
 
-    data += paletteSize * 2;
-    memcpy(&sl->f54.count, data + 0x1e, 4);
-    data += 0x22;
-    func_02048090(&sl->f54, sl->f54.count, sb);
+    arg2 += var18 * 2;
+    memcpy(&arg0->unknown_54_.unknown_0_, arg2 + 0x1e, 4);
+    arg2 += 0x22;
+    func_02048090(&arg0->unknown_54_, arg0->unknown_54_.unknown_0_, arg1);
 
-    int count = sl->f54.count;
-    if (sl->f54.count > 0) {
-        for (int k = 0; k < count; k++) {
-            memcpy((char*)sl->f54.buffer + k * 0x1e, data, 0x1e);
-            data += 0x1e;
+    int var21 = arg0->unknown_54_.unknown_0_;
+    if (arg0->unknown_54_.unknown_0_ > 0) {
+        for (int var22 = 0; var22 < var21; var22++) {
+            memcpy((char*)arg0->unknown_54_.unknown_4_ + var22 * 0x1e, arg2, 0x1e);
+            arg2 += 0x1e;
         }
 
-        int byteCount = count * 4;
-        sl->f18 = (int*)sb->Allocate(byteCount);
-        sl->f1c = (void**)sb->Allocate(byteCount);
-        sl->f20 = (void**)sb->Allocate(byteCount);
-        sl->f24 = (void**)sb->Allocate(byteCount);
+        int var23 = var21 * 4;
+        arg0->unknown_18_ = (int*)arg1->Allocate(var23);
+        arg0->unknown_1c_ = (void**)arg1->Allocate(var23);
+        arg0->unknown_20_ = (void**)arg1->Allocate(var23);
+        arg0->unknown_24_ = (void**)arg1->Allocate(var23);
 
-        for (int m = 0; m < count; m++) {
-            memcpy(&sl->f18[m], data, 4);
-            data += 4;
-            int len4 = sl->f18[m] * 4;
-            sl->f1c[m] = sb->Allocate(len4);
-            sl->f20[m] = sb->Allocate(len4);
-            sl->f24[m] = sb->Allocate(len4);
-            memcpy(sl->f1c[m], data, len4);
-            data += len4;
-            memcpy(sl->f20[m], data, len4);
-            data += len4;
-            memcpy(sl->f24[m], data, len4);
-            data += len4;
+        for (int var24 = 0; var24 < var21; var24++) {
+            memcpy(&arg0->unknown_18_[var24], arg2, 4);
+            arg2 += 4;
+            int var25 = arg0->unknown_18_[var24] * 4;
+            arg0->unknown_1c_[var24] = arg1->Allocate(var25);
+            arg0->unknown_20_[var24] = arg1->Allocate(var25);
+            arg0->unknown_24_[var24] = arg1->Allocate(var25);
+            memcpy(arg0->unknown_1c_[var24], arg2, var25);
+            arg2 += var25;
+            memcpy(arg0->unknown_20_[var24], arg2, var25);
+            arg2 += var25;
+            memcpy(arg0->unknown_24_[var24], arg2, var25);
+            arg2 += var25;
         }
     }
 
-    sl->f5f = 1;
-    func_02076928((struct Struct02076928*)sl, 1);
+    arg0->unknown_5f_ = 1;
+    func_02076928((struct Struct_02076080*)arg0, 1);
     return 0;
 }

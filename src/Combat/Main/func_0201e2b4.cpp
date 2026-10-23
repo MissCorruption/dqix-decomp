@@ -2,6 +2,6 @@
 #include "World/ZoneWarpScript.h"
 
 // USA: func_0201e2b4
-ARM void ZoneFeatures::func_0201e2b4(SafeAllocator* allocator, const void* script, unsigned int length) {
-    func_0201e1d0(script, length, this, allocator);
+ARM void Struct_020134e0::func_0201e2b4(SafeAllocator* arg0, const void* arg1, unsigned int arg2) {
+    func_0201e1d0(arg1, arg2, this, arg0);
 }

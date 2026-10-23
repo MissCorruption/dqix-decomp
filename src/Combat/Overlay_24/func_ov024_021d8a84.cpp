@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov000_02156068(void* obj, int val, int zero, int one);
+extern "C" int func_ov000_02156068(void* arg0, int arg1, int arg2, int arg3);
 
-struct FieldRefStruct_021d8a84 { void* field0; };
+struct Struct_ov024_021d8a84 { void* unknown_0_; };
 
 // USA: func_ov024_021d8a84
-extern "C" ARM int func_ov024_021d8a84(struct FieldRefStruct_021d8a84* s, int unused, int val, int unused3, int unused4, int count) {
-	int result = func_ov000_02156068(s->field0, (short)val, 0, 1);
-	if (result) {
-		return count + 1;
+extern "C" ARM int func_ov024_021d8a84(struct Struct_ov024_021d8a84* arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+	int var0 = func_ov000_02156068(arg0->unknown_0_, (short)arg2, 0, 1);
+	if (var0) {
+		return arg5 + 1;
 	}
-	return count;
+	return arg5;
 }

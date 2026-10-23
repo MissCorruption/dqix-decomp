@@ -1,54 +1,54 @@
 #include <globaldefs.h>
 
-struct SlotEntry020a171c {
-    unsigned int costA : 9;
-    unsigned int costB : 9;
-    unsigned int costC : 9;
-    unsigned int flags : 5;
-    unsigned int word4;
-    unsigned int word8;
+struct Struct_020a171c_2 {
+    unsigned int unknown_0_0_ : 9;
+    unsigned int unknown_1_1_ : 9;
+    unsigned int unknown_2_2_ : 9;
+    unsigned int unknown_3_3_ : 5;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
 };
 
-struct SlotList020a171c {
-    SlotEntry020a171c* entries;
-    unsigned short unk4;
-    unsigned short count;
-    unsigned int word8;
-    unsigned char* usedBits;
+struct Struct_020a171c {
+    Struct_020a171c_2* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned char* unknown_c_;
 };
 
 // USA: func_020a171c
-extern "C" ARM SlotEntry020a171c* func_020a171c(SlotList020a171c* list, int mode, int useHigh) {
-    unsigned short best = 0xffff;
-    unsigned short bestIdx = 0;
-    int i;
+extern "C" ARM Struct_020a171c_2* func_020a171c(Struct_020a171c* arg0, int arg1, int arg2) {
+    unsigned short var0 = 0xffff;
+    unsigned short var1 = 0;
+    int var2;
 
-    for (i = 0; i < list->count; i++) {
-        SlotEntry020a171c* e;
-        unsigned short cur;
-        if (list->usedBits[i / 8] & (unsigned char)(1 << (i % 8))) {
+    for (var2 = 0; var2 < arg0->unknown_6_; var2++) {
+        Struct_020a171c_2* var3;
+        unsigned short var4;
+        if (arg0->unknown_c_[var2 / 8] & (unsigned char)(1 << (var2 % 8))) {
             continue;
         }
-        e = &list->entries[i];
-        cur = 0xffff;
-        if (mode == 1) {
-            cur = e->costA;
-        } else if (mode == 2) {
-            if (useHigh == 0) {
-                cur = e->costB;
+        var3 = &arg0->unknown_0_[var2];
+        var4 = 0xffff;
+        if (arg1 == 1) {
+            var4 = var3->unknown_0_0_;
+        } else if (arg1 == 2) {
+            if (arg2 == 0) {
+                var4 = var3->unknown_1_1_;
             } else {
-                cur = e->costC;
+                var4 = var3->unknown_2_2_;
             }
         }
-        if (best > cur && cur != 0) {
-            bestIdx = i;
-            best = cur;
+        if (var0 > var4 && var4 != 0) {
+            var1 = var2;
+            var0 = var4;
         }
     }
 
-    if (best == 0xffff) {
+    if (var0 == 0xffff) {
         return 0;
     }
-    list->usedBits[bestIdx / 8] |= (unsigned char)(1 << (bestIdx % 8)) & 0xff;
-    return &list->entries[bestIdx];
+    arg0->unknown_c_[var1 / 8] |= (unsigned char)(1 << (var1 % 8)) & 0xff;
+    return &arg0->unknown_0_[var1];
 }

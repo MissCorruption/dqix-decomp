@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kFlagOffset = 0x1c2 };
+enum { Enum_02039df4_462 = 0x1c2 };
 #else
-enum { kFlagOffset = 0x1ce };
+enum { Enum_02039df4_462 = 0x1ce };
 #endif
 
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 
-struct Struct020372b8;
+struct Struct_02037d88_9;
 
-struct S02037418;
+struct Struct_02037d88_8;
 
-struct Obj02039df4 {
-    char pad0[4];
-    short combatantId;
-    char pad6[0xc2 - 6];
-    unsigned char lo0xc2 : 5;
-    unsigned char flagBit0xc2 : 1;
-    unsigned char hi0xc2 : 2;
-    char padc3[kFlagOffset - 0xc3];
-    unsigned char flags1ce;
+struct Struct_02037d88_10 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[0xc2 - 6];
+    unsigned char unknown_c2_0_ : 5;
+    unsigned char unknown_c2_5_ : 1;
+    unsigned char unknown_c2_6_ : 2;
+    char unknown_c3_[Enum_02039df4_462 - 0xc3];
+    unsigned char unknown_1ce_;
 };
 
 // USA: func_02039df4
-extern "C" ARM void func_02039df4(struct Obj02039df4* obj) {
-    int q;
-    GameObject* combatant;
+extern "C" ARM void func_02039df4(struct Struct_02037d88_10* arg0) {
+    int var0;
+    GameObject* var1;
 
-    if (obj->flagBit0xc2) return;
-    combatant = func_0200ff58(GameState::GetInstance(), obj->combatantId);
-    if (combatant == NULL) return;
-    q = ((Object3D*)((struct U16Field0x6_020375f8*)obj))->GetField06() / 100;
-    if (q != 0x2b && q != 0x2d && q != 0x40 && q != 0x29) return;
-    obj->flags1ce |= 4;
-    ((Object3D*)((struct Struct020372b8*)obj))->TransitionInheritedAlpha(0, 0);
-    ((Object3D*)((struct S02037418*)obj))->SetInheritedAlpha(0);
+    if (arg0->unknown_c2_5_) return;
+    var1 = func_0200ff58(GameState::GetInstance(), arg0->unknown_4_);
+    if (var1 == NULL) return;
+    var0 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06() / 100;
+    if (var0 != 0x2b && var0 != 0x2d && var0 != 0x40 && var0 != 0x29) return;
+    arg0->unknown_1ce_ |= 4;
+    ((Object3D*)((struct Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0);
+    ((Object3D*)((struct Struct_02037d88_8*)arg0))->SetInheritedAlpha(0);
 }

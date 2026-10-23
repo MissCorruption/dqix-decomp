@@ -4,10 +4,10 @@
 #define func_ov011_02184740 func_ov011_02185840
 #endif
 
-struct ListHead021f698c;
-extern "C" ARM void func_ov023_021f698c(struct ListHead021f698c* head);
+struct Struct_ov011_02184740;
+extern "C" ARM void func_ov023_021f698c(struct Struct_ov011_02184740* arg0);
 
 // USA: func_ov011_02184740
-extern "C" ARM void func_ov011_02184740(void* obj) {
-    func_ov023_021f698c((struct ListHead021f698c*)((char*)obj + 0x118));
+extern "C" ARM void func_ov011_02184740(void* arg0) {
+    func_ov023_021f698c((struct Struct_ov011_02184740*)((char*)arg0 + 0x118));
 }

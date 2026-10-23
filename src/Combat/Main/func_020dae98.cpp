@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Obj020dae98 { char pad0; unsigned char field_1; };
+struct Struct_020dae98 { char unknown_0_; unsigned char unknown_1_; };
 
-extern "C" void func_020dae08(struct Obj020dae98* obj);
+extern "C" void func_020dae08(struct Struct_020dae98* arg0);
 
 // USA: func_020dae98
-extern "C" ARM void func_020dae98(struct Obj020dae98* obj) {
-    func_020dae08(obj);
-    obj->field_1 = 1;
+extern "C" ARM void func_020dae98(struct Struct_020dae98* arg0) {
+    func_020dae08(arg0);
+    arg0->unknown_1_ = 1;
 }

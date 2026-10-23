@@ -2,42 +2,42 @@
 
 extern "C" void func_ov031_0223521c(void);
 extern "C" void func_ov031_022238cc(void);
-extern "C" int FastIntModulus(int numer, int denom);
+extern "C" int FastIntModulus(int arg0, int arg1);
 extern "C" void func_ov031_0222c660(void);
 extern "C" void func_ov031_0222c3b4(void);
-extern "C" int FastIntDivide(int numer, unsigned int denom);
-extern "C" void func_ov031_022351f8(int a);
+extern "C" int FastIntDivide(int arg0, unsigned int arg1);
+extern "C" void func_ov031_022351f8(int arg0);
 extern "C" void func_ov031_02235204(void);
 extern "C" void func_ov031_0222c8cc(void);
-extern "C" void func_ov031_0223e2c0(int idx, void* obj);
+extern "C" void func_ov031_0223e2c0(int arg0, void* arg1);
 
-struct Inner0222c7d8 {
-	unsigned char pad[0x38];
-	int field38;
-	unsigned char pad2[0x40 - 0x38 - 4];
-	unsigned short field40;
-	unsigned char pad3[0x53 - 0x40 - 2];
-	unsigned char field53;
+struct Struct_ov031_0222c7d8 {
+	unsigned char unknown_0_[0x38];
+	int unknown_38_;
+	unsigned char unknown_3c_[0x40 - 0x38 - 4];
+	unsigned short unknown_40_;
+	unsigned char unknown_42_[0x53 - 0x40 - 2];
+	unsigned char unknown_53_;
 };
-struct Struct0222c7d8 { unsigned char pad[2]; unsigned short field2; Inner0222c7d8* field4; };
-extern Struct0222c7d8 data_ov031_02290c8c;
+struct Struct_ov031_02290c8c_15 { unsigned char unknown_0_[2]; unsigned short unknown_2_; Struct_ov031_0222c7d8* unknown_4_; };
+extern Struct_ov031_02290c8c_15 data_ov031_02290c8c;
 
 // USA: func_ov031_0222c7d8
-extern "C" ARM void func_ov031_0222c7d8(void* obj) {
+extern "C" ARM void func_ov031_0222c7d8(void* arg0) {
 	func_ov031_0223521c();
 	func_ov031_022238cc();
-	data_ov031_02290c8c.field2 += 4;
-	int rem = FastIntModulus(data_ov031_02290c8c.field2, 0x1c);
-	if (rem >= 4) {
+	data_ov031_02290c8c.unknown_2_ += 4;
+	int var0 = FastIntModulus(data_ov031_02290c8c.unknown_2_, 0x1c);
+	if (var0 >= 4) {
 		func_ov031_0222c660();
 		return;
 	}
-	data_ov031_02290c8c.field2 -= rem;
+	data_ov031_02290c8c.unknown_2_ -= var0;
 	func_ov031_0222c3b4();
-	int v = FastIntDivide(data_ov031_02290c8c.field2 * data_ov031_02290c8c.field4->field53, data_ov031_02290c8c.field4->field40);
-	func_ov031_022351f8(v);
+	int var1 = FastIntDivide(data_ov031_02290c8c.unknown_2_ * data_ov031_02290c8c.unknown_4_->unknown_53_, data_ov031_02290c8c.unknown_4_->unknown_40_);
+	func_ov031_022351f8(var1);
 	func_ov031_02235204();
 	func_ov031_0222c8cc();
-	data_ov031_02290c8c.field4->field38 = 0;
-	func_ov031_0223e2c0(0, obj);
+	data_ov031_02290c8c.unknown_4_->unknown_38_ = 0;
+	func_ov031_0223e2c0(0, arg0);
 }

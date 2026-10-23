@@ -1,37 +1,37 @@
 #if defined(jpn)
-enum {regionalOffset0=0xd48, regionalOffset1=0x38, regionalOffset2=0xc0};
+enum {Enum_ov023_021da100_3460=0xd48, Enum_ov023_021da100_48=0x38, Enum_ov023_021da100_224=0xc0};
 #else
-enum {regionalOffset0=0xd84, regionalOffset1=0x30, regionalOffset2=0xe0};
+enum {Enum_ov023_021da100_3460=0xd84, Enum_ov023_021da100_48=0x30, Enum_ov023_021da100_224=0xe0};
 #endif
 #include <globaldefs.h>
 
-struct Container020e0310;
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02041bac(char* dst, int a, int b, int c, int d, int e);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
+struct Struct_0201099c_3;
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02041bac(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
 // USA: func_ov023_021da100
-extern "C" ARM void func_ov023_021da100(char* obj, char* dst, int flag) {
-    if (dst == NULL) return;
+extern "C" ARM void func_ov023_021da100(char* arg0, char* arg1, int arg2) {
+    if (arg1 == NULL) return;
 
-    signed char cursor = *(signed char*)(obj + regionalOffset0);
-    if (flag) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    signed char var0 = *(signed char*)(arg0 + Enum_ov023_021da100_3460);
+    if (arg2) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var0);
 
-    func_02041bac(dst, 0, 0, 0, regionalOffset1, 0x28);
+    func_02041bac(arg1, 0, 0, 0, Enum_ov023_021da100_48, 0x28);
 
-    struct Container020e0310* c = (struct Container020e0310*)(obj + regionalOffset2);
-    for (int i = 0; i < 2; i++) {
-        int name = func_020e0434(c, (short)(i + 0x465a));
-        func_02041b70(dst, i, (const char*)name);
-        if (i != 1) {
-            int sep = func_020e0434(c, 0x4273);
-            func_02042058(dst, (const char*)sep);
+    struct Struct_0201099c_3* var1 = (struct Struct_0201099c_3*)(arg0 + Enum_ov023_021da100_224);
+    for (int var2 = 0; var2 < 2; var2++) {
+        int var3 = func_020e0434(var1, (short)(var2 + 0x465a));
+        func_02041b70(arg1, var2, (const char*)var3);
+        if (var2 != 1) {
+            int var4 = func_020e0434(var1, 0x4273);
+            func_02042058(arg1, (const char*)var4);
         }
     }
 }

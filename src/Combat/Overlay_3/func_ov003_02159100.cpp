@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(struct Obj0205d2bc* obj);
-extern "C" void func_020e2d24(int* obj, int a, int b);
-struct Outer020e28dc;
-extern "C" int func_020e28dc(struct Outer020e28dc* o);
-struct Entry020e2cc4;
-extern "C" void func_020e2cc4(struct Entry020e2cc4* obj, int enabled);
-struct SelfState020e2834;
-extern "C" void func_020e2834(struct SelfState020e2834* self);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(struct Struct_0205d2bc* arg0);
+extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
+struct Struct_020e28dc;
+extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct Struct_020439b0;
+extern "C" void func_020e2cc4(struct Struct_020439b0* arg0, int arg1);
+struct Struct_020e2834;
+extern "C" void func_020e2834(struct Struct_020e2834* arg0);
 
 // USA: func_ov003_02159100
-extern "C" ARM void func_ov003_02159100(void* obj) {
-    unsigned char* base = (unsigned char*)obj;
+extern "C" ARM void func_ov003_02159100(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 
-    if (*(signed char*)(base + 0x588) == 0) return;
-    if (*(unsigned char*)(base + 0x587) != 0) return;
+    if (*(signed char*)(var0 + 0x588) == 0) return;
+    if (*(unsigned char*)(var0 + 0x587) != 0) return;
 
-    func_0205d2bc((struct Obj0205d2bc*)(base + 0xf4));
+    func_0205d2bc((struct Struct_0205d2bc*)(var0 + 0xf4));
 
-    if (*(void**)(base + 0x570) == NULL) return;
+    if (*(void**)(var0 + 0x570) == NULL) return;
 
-    unsigned char* r4 = *(unsigned char**)((char*)(*(void**)(base + 0x570)) + 0x10);
-    int flag;
-    func_020e2d24((int*)(r4 + 0x28), 0x11, 1);
-    flag = func_020e28dc((struct Outer020e28dc*)*(void**)(base + 0x570));
-    func_020e2cc4((struct Entry020e2cc4*)(r4 + 0x28), flag);
-    func_020e2834((struct SelfState020e2834*)*(void**)(base + 0x570));
+    unsigned char* var1 = *(unsigned char**)((char*)(*(void**)(var0 + 0x570)) + 0x10);
+    int var2;
+    func_020e2d24((int*)(var1 + 0x28), 0x11, 1);
+    var2 = func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + 0x570));
+    func_020e2cc4((struct Struct_020439b0*)(var1 + 0x28), var2);
+    func_020e2834((struct Struct_020e2834*)*(void**)(var0 + 0x570));
 }

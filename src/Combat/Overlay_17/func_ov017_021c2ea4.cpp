@@ -7,45 +7,45 @@ extern char* data_ov017_021d87f4;
 #endif
 
 extern "C" void* func_020421a0(void);
-extern "C" void func_020e4bf4(void* obj, int combatantId);
-extern "C" int func_020e51cc(int a);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" int func_020e51cc(int arg0);
 extern "C" void* func_020d7a50(void);
-struct Obj0208b494;
-extern "C" Obj0208b494* func_0208a9b4(void);
-extern "C" void func_0208b494(struct Obj0208b494* obj);
+struct Struct_0208b494;
+extern "C" Struct_0208b494* func_0208a9b4(void);
+extern "C" void func_0208b494(struct Struct_0208b494* arg0);
 
-extern "C" ARM void func_02046608(void* a, int b, int c, void* d, int e, int f, int g);
+extern "C" ARM void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
 
 // USA: func_ov017_021c2ea4
-extern "C" ARM void func_ov017_021c2ea4(unsigned char* self) {
-    char buf1[0xc];
+extern "C" ARM void func_ov017_021c2ea4(unsigned char* arg0) {
+    char var0[0xc];
 #if defined(jpn)
-    char buf2[0x40];
+    char var1[0x40];
 #else
-    char buf2[0x80];
+    char var2[0x80];
 #endif
 #if defined(jpn)
-    GameState* game = GameState::GetInstance();
+    GameState* var3 = GameState::GetInstance();
 #else
     GameState::GetInstance();
 #endif
-    void* g = func_020421a0();
+    void* var4 = func_020421a0();
 #if defined(jpn)
-    GameObject* member = game->GetPartyMemberByIndex(self[0x95]);
-    sprintf(buf2, data_ov017_021d87f4, *(char**)((char*)member + 0x134));
+    GameObject* var5 = var3->GetPartyMemberByIndex(arg0[0x95]);
+    sprintf(var1, data_ov017_021d87f4, *(char**)((char*)var5 + 0x134));
 #else
-    func_020e4bf4(buf1, self[0x95]);
-    *(void**)g = buf1;
-    int r = func_020e51cc(0x31);
-    func_02046608(g, 0xc, r, buf2, 0xe3, 0, 1);
+    func_020e4bf4(var0, arg0[0x95]);
+    *(void**)var4 = var0;
+    int var6 = func_020e51cc(0x31);
+    func_02046608(var4, 0xc, var6, var2, 0xe3, 0, 1);
 #endif
-    void* reset = func_020d7a50();
+    void* var7 = func_020d7a50();
 #if defined(jpn)
-    func_020d7e10(reset, buf2, 0, 0, 1);
+    func_020d7e10(var7, var1, 0, 0, 1);
 #else
-    func_020d7e10(reset, buf2, 0, 0, 1, 1);
+    func_020d7e10(var7, var2, 0, 0, 1, 1);
 #endif
-    Obj0208b494* data = func_0208a9b4();
-    func_0208b494(data);
-    self[0x8c] = 3;
+    Struct_0208b494* var8 = func_0208a9b4();
+    func_0208b494(var8);
+    arg0[0x8c] = 3;
 }

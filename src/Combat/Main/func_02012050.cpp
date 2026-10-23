@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct FieldBlock63d5_12050 {
+struct Struct_02012050 {
 #if defined(jpn)
-    char unk[0x6175];
+    char unknown1_0_[0x6175];
 #else
-    char unk[0x63D5];
+    char unknown_0_[0x63D5];
 #endif
-    unsigned char field;
+    unsigned char unknown_63d5_;
 };
 
 // USA: func_02012050
-extern "C" ARM void func_02012050(struct FieldBlock63d5_12050* obj) {
-    obj->field = 0;
+extern "C" ARM void func_02012050(struct Struct_02012050* arg0) {
+    arg0->unknown_63d5_ = 0;
 }

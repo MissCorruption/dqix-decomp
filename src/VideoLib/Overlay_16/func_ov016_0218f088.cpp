@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 
-struct Stream0218f088 {
-	char* cursor;
-	char pad_4[0x3b0];
-	int value;
+struct Struct_ov016_0218f088_2 {
+	char* unknown_0_;
+	char unknown_4_[0x3b0];
+	int unknown_3b4_;
 };
 
-struct Obj0218f088 {
-	char pad_0[8];
-	signed char tag0;
-	signed char tag1;
-	char pad_a[0x2a];
-	Stream0218f088* stream;
-	int (*advance)(Stream0218f088*);
-	char pad_3c[0x28];
-	int* table;
-	char pad_68[0x34];
-	unsigned int count;
-	unsigned int limit;
+struct Struct_ov016_0218f088 {
+	char unknown_0_[8];
+	signed char unknown_8_;
+	signed char unknown_9_;
+	char unknown_a_[0x2a];
+	Struct_ov016_0218f088_2* unknown_34_;
+	int (*unknown_38_)(Struct_ov016_0218f088_2*);
+	char unknown_3c_[0x28];
+	int* unknown_64_;
+	char unknown_68_[0x34];
+	unsigned int unknown_9c_;
+	unsigned int unknown_a0_;
 	#if !defined(jpn)
-	int wideFlag;
+	int unknown_a4_;
 #endif
-	unsigned int wrap;
-	int idx[6];
-	char pad_c4[8];
-	int fieldcc;
-	int fieldd0;
+	unsigned int unknown_a8_;
+	int unknown_ac_[6];
+	char unknown_c4_[8];
+	int unknown_cc_;
+	int unknown_d0_;
 };
 
 // USA: func_ov016_0218f088
-extern "C" ARM int func_ov016_0218f088(Obj0218f088* o) {
-	int adj;
-	int i;
+extern "C" ARM int func_ov016_0218f088(Struct_ov016_0218f088* arg0) {
+	int var0;
+	int var1;
 
-	if (o->count > o->limit) {
+	if (arg0->unknown_9c_ > arg0->unknown_a0_) {
 		return 0;
 	}
 
-	if ((*(unsigned short*)o->stream->cursor & 0x8000) != 0) {
+	if ((*(unsigned short*)arg0->unknown_34_->unknown_0_ & 0x8000) != 0) {
 #if !defined(jpn)
-		o->wideFlag = 1;
+		arg0->unknown_a4_ = 1;
 #endif
-		adj = 4;
+		var0 = 4;
 	} else {
 #if !defined(jpn)
-		o->wideFlag = 0;
+		arg0->unknown_a4_ = 0;
 #endif
-		adj = 0;
+		var0 = 0;
 	}
 
-	o->stream->cursor += o->advance(o->stream);
+	arg0->unknown_34_->unknown_0_ += arg0->unknown_38_(arg0->unknown_34_);
 
-	if (o->tag0 == 0x4e && o->tag1 == 0x33) {
-		o->stream->cursor += adj;
+	if (arg0->unknown_8_ == 0x4e && arg0->unknown_9_ == 0x33) {
+		arg0->unknown_34_->unknown_0_ += var0;
 	}
 
-	o->table[o->idx[0]] = o->stream->value;
+	arg0->unknown_64_[arg0->unknown_ac_[0]] = arg0->unknown_34_->unknown_3b4_;
 
-	o->fieldcc = 0;
-	o->fieldd0 = 0;
+	arg0->unknown_cc_ = 0;
+	arg0->unknown_d0_ = 0;
 
-	for (i = 0; i < 6; i++) {
-		o->idx[i]++;
-		if (o->wrap == o->idx[i]) {
-			o->idx[i] = 0;
+	for (var1 = 0; var1 < 6; var1++) {
+		arg0->unknown_ac_[var1]++;
+		if (arg0->unknown_a8_ == arg0->unknown_ac_[var1]) {
+			arg0->unknown_ac_[var1] = 0;
 		}
 	}
 
-	o->limit = o->limit + 1;
+	arg0->unknown_a0_ = arg0->unknown_a0_ + 1;
 	return 1;
 }

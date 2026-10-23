@@ -12,30 +12,30 @@ extern const char* data_020f2a38;
 extern const char* data_020f2a30;
 #endif
 
-struct Obj0215a33c {
+struct Struct_ov006_0215a33c {
 #if defined(jpn)
-    unsigned char unknown[8];
-    void* pot;
-    unsigned char unknownAfterPot[0x354 - 0xc];
+    unsigned char unknown_0_[8];
+    void* unknown_8_;
+    unsigned char unknown_c_[0x354 - 0xc];
 #else
-    unsigned char unknown[0x10];
-    void* pot;
-    unsigned char unknownAfterPot[0x354 - 0x14];
+    unsigned char unknown1_0_[0x10];
+    void* unknown_10_;
+    unsigned char unknown_14_[0x354 - 0x14];
 #endif
-    int backgroundTask;
+    int unknown_354_;
 };
 
-extern "C" ARM void func_ov006_0215a33c(Obj0215a33c* owner, int) {
+extern "C" ARM void func_ov006_0215a33c(Struct_ov006_0215a33c* arg0, int) {
 #if defined(jpn)
-    func_ov006_02156e54(owner->pot);
+    func_ov006_02156e54(arg0->unknown_8_);
 #else
-    func_ov006_02156e54(owner->pot);
+    func_ov006_02156e54(arg0->unknown_10_);
 #endif
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    loader->AddFence();
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    var0->AddFence();
 #if defined(jpn)
-    owner->backgroundTask = loader->QueueLoadGP1(data_020f2a38, 0);
+    arg0->unknown_354_ = var0->QueueLoadGP1(data_020f2a38, 0);
 #else
-    owner->backgroundTask = loader->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+    arg0->unknown_354_ = var0->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
 #endif
 }

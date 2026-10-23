@@ -6,12 +6,12 @@
 #define REGION_OFFSET_0 0x4f4
 #endif
 
-struct SubObj02162c90 { char pad[REGION_OFFSET_0]; int val; };
+struct Struct_ov000_02162c90 { char unknown_0_[REGION_OFFSET_0]; int unknown_4f4_; };
 
 // USA: func_ov000_02162c90
-extern "C" ARM void func_ov000_02162c90(char* base, int index, int value) {
-    int valid = (index >= 0 && index <= 3);
-    if (valid) {
-        ((struct SubObj02162c90*)(base + index * 4 + 0x5000))->val = value;
+extern "C" ARM void func_ov000_02162c90(char* arg0, int arg1, int arg2) {
+    int var0 = (arg1 >= 0 && arg1 <= 3);
+    if (var0) {
+        ((struct Struct_ov000_02162c90*)(arg0 + arg1 * 4 + 0x5000))->unknown_4f4_ = arg2;
     }
 }

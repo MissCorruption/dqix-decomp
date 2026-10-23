@@ -3,114 +3,114 @@
 #include "Combat/MapDisplay.h"
 #include "Combat/CombatantRecovery.h"
 
-struct State_1f9b8 {
-    int hp;
-    int mp;
-    int currentHP;
-    int currentMP;
-    int index;
-    unsigned char tableValue;
-    unsigned char field_0x15[3];
-    int status;
-    unsigned char statsChanged;
-    unsigned char stateChanged;
-    unsigned char reset;
-    unsigned char field_0x1f;
+struct Struct_020fdcb0_3 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    unsigned char unknown_14_;
+    unsigned char unknown_15_[3];
+    int unknown_18_;
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
+    unsigned char unknown_1e_;
+    unsigned char unknown_1f_;
 };
-struct Stopwatch0201f9e8 { unsigned char fields[0x14]; };
-struct CombatData02022dc8 {
+struct Struct_020fdc60_3 { unsigned char unknown_0_[0x14]; };
+struct Struct_02022dc8 {
 #if defined(jpn)
-    unsigned char unknown[0x8b8];
+    unsigned char unknown_0_[0x8b8];
 #else
-    unsigned char unknown[0x950];
+    unsigned char unknown1_0_[0x950];
 #endif
-    int index;
+    int unknown_950_;
 };
-struct PartyMember02022dc8 : GameObject {
+struct Struct_02022dc8_2 : GameObject {
 #if defined(jpn)
-    unsigned char unknown13c[0x144 - 0x13c];
+    unsigned char unknown_13c_[0x144 - 0x13c];
 #else
-    unsigned char unknown13c[0x150 - 0x13c];
+    unsigned char unknown1_13c_[0x150 - 0x13c];
 #endif
-    CombatData02022dc8* data;
-    unsigned char unknownAfterData[0x38];
-    unsigned int recoveryFlags;
+    Struct_02022dc8* unknown_150_;
+    unsigned char unknown_154_[0x38];
+    unsigned int unknown_18c_;
 };
-struct FlagWord02046708;
-struct Obj020214f0;
-extern State_1f9b8 data_020fdcb0[4];
-extern Stopwatch0201f9e8 data_020fdc60[4];
-extern "C" void func_0201f9b8(State_1f9b8*);
-extern "C" void func_0201f9e8(Stopwatch0201f9e8*);
+struct Struct_02012de8;
+struct Struct_020214f0;
+extern Struct_020fdcb0_3 data_020fdcb0[4];
+extern Struct_020fdc60_3 data_020fdc60[4];
+extern "C" void func_0201f9b8(Struct_020fdcb0_3*);
+extern "C" void func_0201f9e8(Struct_020fdc60_3*);
 extern "C" unsigned short func_0202053c(void*);
-extern "C" FlagWord02046708* func_020d6c00(void);
-extern "C" int func_02046708(FlagWord02046708*, unsigned int);
+extern "C" Struct_02012de8* func_020d6c00(void);
+extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 #if defined(jpn)
-extern "C" void func_02022644(MapDisplay*);
+extern "C" void func_02022644(Struct_02020554*);
 #else
-extern "C" void func_02022bb0(MapDisplay*);
+extern "C" void func_02022bb0(Struct_02020554*);
 #endif
-extern "C" void func_020e0688(MapDisplay*);
-extern "C" void func_02026694(MapDisplay*);
-extern "C" void func_020214f0(Obj020214f0*);
-extern "C" void func_02026bdc(MapDisplay*, int);
+extern "C" void func_020e0688(Struct_02020554*);
+extern "C" void func_02026694(Struct_02020554*);
+extern "C" void func_020214f0(Struct_020214f0*);
+extern "C" void func_02026bdc(Struct_02020554*, int);
 
 // USA: func_02022dc8
-extern "C" ARM void func_02022dc8(MapDisplay* receiver) {
-    GameState* game = GameState::GetInstance();
-    for (int i = 0; i < 4; ++i) {
-        if (!game->GetPartyMemberByIndex(i)) func_0201f9b8(&data_020fdcb0[i]);
+extern "C" ARM void func_02022dc8(Struct_02020554* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    for (int var1 = 0; var1 < 4; ++var1) {
+        if (!var0->GetPartyMemberByIndex(var1)) func_0201f9b8(&data_020fdcb0[var1]);
     }
-    int memberCount = receiver->field75c;
-    if (memberCount) {
-        for (int i = memberCount; i < 4; ++i) func_0201f9e8(&data_020fdc60[i]);
+    int var2 = arg0->unknown_75c_;
+    if (var2) {
+        for (int var3 = var2; var3 < 4; ++var3) func_0201f9e8(&data_020fdc60[var3]);
     }
-    for (int i = 0; i < receiver->field75c; ++i) {
-        int index = receiver->flags758[i];
-        unsigned char mask = 1 << index;
-        State_1f9b8* state = &data_020fdcb0[index];
-        PartyMember02022dc8* member = (PartyMember02022dc8*)game->GetPartyMemberByIndex(index);
-        if (!member || !(receiver->mask55d & mask)) continue;
-        int hp = member->combatFields_.savedState_130_->hp;
-        int currentHP = member->baseStats_->primaryStats.maxHP;
-        int mp = member->combatFields_.savedState_130_->mp;
-        int currentMP = member->baseStats_->primaryStats.maxMP;
-        int valueIndex = member->data->index;
-        unsigned char value = func_0202053c(member);
-        int status = member->combatFields_.savedState_130_->flags;
-        state->stateChanged |= state->index != valueIndex;
-        state->stateChanged |= state->tableValue != value;
-        state->stateChanged |= state->status != status;
-        if (state->hp >= 0) {
-            state->statsChanged |= state->stateChanged;
-            state->statsChanged |= state->hp != hp;
-            state->statsChanged |= state->mp != mp;
-            state->statsChanged |= state->currentHP != currentHP;
-            state->statsChanged |= state->currentMP != currentMP;
+    for (int var4 = 0; var4 < arg0->unknown_75c_; ++var4) {
+        int var5 = arg0->unknown_758_[var4];
+        unsigned char var6 = 1 << var5;
+        Struct_020fdcb0_3* var7 = &data_020fdcb0[var5];
+        Struct_02022dc8_2* var8 = (Struct_02022dc8_2*)var0->GetPartyMemberByIndex(var5);
+        if (!var8 || !(arg0->unknown_55d_ & var6)) continue;
+        int var9 = var8->unknown_ac_.unknown_84_->unknown_4_;
+        int var10 = var8->baseStats_->primaryStats.maxHP;
+        int var11 = var8->unknown_ac_.unknown_84_->unknown_6_;
+        int var12 = var8->baseStats_->primaryStats.maxMP;
+        int var13 = var8->unknown_150_->unknown_950_;
+        unsigned char var14 = func_0202053c(var8);
+        int var15 = var8->unknown_ac_.unknown_84_->unknown_0_;
+        var7->unknown_1d_ |= var7->unknown_10_ != var13;
+        var7->unknown_1d_ |= var7->unknown_14_ != var14;
+        var7->unknown_1d_ |= var7->unknown_18_ != var15;
+        if (var7->unknown_0_ >= 0) {
+            var7->unknown_1c_ |= var7->unknown_1d_;
+            var7->unknown_1c_ |= var7->unknown_0_ != var9;
+            var7->unknown_1c_ |= var7->unknown_4_ != var11;
+            var7->unknown_1c_ |= var7->unknown_8_ != var10;
+            var7->unknown_1c_ |= var7->unknown_c_ != var12;
         }
-        state->hp = hp;
-        state->mp = mp;
-        state->currentHP = currentHP;
-        state->currentMP = currentMP;
-        state->index = valueIndex;
-        state->tableValue = value;
-        state->status = status;
-        if (state->hp > 0) member->recoveryFlags &= ~1;
-        if (state->reset) {
-            state->statsChanged = 0;
-            state->reset = 0;
+        var7->unknown_0_ = var9;
+        var7->unknown_4_ = var11;
+        var7->unknown_8_ = var10;
+        var7->unknown_c_ = var12;
+        var7->unknown_10_ = var13;
+        var7->unknown_14_ = var14;
+        var7->unknown_18_ = var15;
+        if (var7->unknown_0_ > 0) var8->unknown_18c_ &= ~1;
+        if (var7->unknown_1e_) {
+            var7->unknown_1c_ = 0;
+            var7->unknown_1e_ = 0;
         }
     }
     if (func_02046708(func_020d6c00(), 1)) {
 #if defined(jpn)
-        func_02022644(receiver);
+        func_02022644(arg0);
 #else
-        func_02022bb0(receiver);
+        func_02022bb0(arg0);
 #endif
     } else {
-        if (receiver->field9c5 && receiver->field764) func_020e0688(receiver);
-        if (receiver->field9b8) func_02026694(receiver);
-        if (receiver->field9c3) func_020214f0((Obj020214f0*)receiver);
-        else func_02026bdc(receiver, 1);
+        if (arg0->unknown_9c5_ && arg0->unknown_764_) func_020e0688(arg0);
+        if (arg0->unknown_9b8_) func_02026694(arg0);
+        if (arg0->unknown_9c3_) func_020214f0((Struct_020214f0*)arg0);
+        else func_02026bdc(arg0, 1);
     }
 }

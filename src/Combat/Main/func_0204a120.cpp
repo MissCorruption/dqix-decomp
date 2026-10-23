@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-struct Struct020A2CF0;
-extern "C" void func_020a2cf0(struct Struct020A2CF0*);
-extern "C" ARM void func_0202e08c(unsigned int* obj, unsigned int mask);
+struct Struct_0204a120_2;
+extern "C" void func_020a2cf0(struct Struct_0204a120_2*);
+extern "C" ARM void func_0202e08c(unsigned int* arg0, unsigned int arg1);
 
-struct Obj0204a120 {
-    char pad0[0x21c];
-    int field_21c;
-    int field_220;
-    unsigned char field_224;
-    char pad1[0xf];
-    unsigned char field_234;
-    char pad2[0xf];
-    unsigned char field_244;
-    char pad3[0xf];
-    int field_254;
-    int field_258;
-    int field_25c;
-    int field_260;
-    unsigned char field_264;
-    unsigned char field_265;
+struct Struct_0204a120 {
+    char unknown_0_[0x21c];
+    int unknown_21c_;
+    int unknown_220_;
+    unsigned char unknown_224_;
+    char unknown_225_[0xf];
+    unsigned char unknown_234_;
+    char unknown_235_[0xf];
+    unsigned char unknown_244_;
+    char unknown_245_[0xf];
+    int unknown_254_;
+    int unknown_258_;
+    int unknown_25c_;
+    int unknown_260_;
+    unsigned char unknown_264_;
+    unsigned char unknown_265_;
 };
 
 // USA: func_0204a120
-extern "C" ARM void func_0204a120(struct Obj0204a120* obj) {
-    func_020a2cf0((struct Struct020A2CF0*)obj);
-    func_0202e08c((unsigned int*)obj, 0x10);
-    obj->field_21c = 0;
-    obj->field_220 = 0;
-    obj->field_224 = 0;
-    obj->field_234 = 0;
-    obj->field_244 = 0;
-    obj->field_254 = -1;
-    obj->field_258 = -1;
-    obj->field_25c = -1;
-    obj->field_260 = -1;
-    obj->field_264 = 0;
-    obj->field_265 = 0;
+extern "C" ARM void func_0204a120(struct Struct_0204a120* arg0) {
+    func_020a2cf0((struct Struct_0204a120_2*)arg0);
+    func_0202e08c((unsigned int*)arg0, 0x10);
+    arg0->unknown_21c_ = 0;
+    arg0->unknown_220_ = 0;
+    arg0->unknown_224_ = 0;
+    arg0->unknown_234_ = 0;
+    arg0->unknown_244_ = 0;
+    arg0->unknown_254_ = -1;
+    arg0->unknown_258_ = -1;
+    arg0->unknown_25c_ = -1;
+    arg0->unknown_260_ = -1;
+    arg0->unknown_264_ = 0;
+    arg0->unknown_265_ = 0;
 }

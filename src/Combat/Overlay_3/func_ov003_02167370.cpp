@@ -4,67 +4,67 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue64_34 = 0x34 };
-enum { kRegionValue60_30 = 0x30 };
+enum { Enum_ov003_02167370_100 = 0x34 };
+enum { Enum_ov003_02167370_96 = 0x30 };
 #else
-enum { kRegionValue64_34 = 0x64 };
-enum { kRegionValue60_30 = 0x60 };
+enum { Enum_ov003_02167370_100 = 0x64 };
+enum { Enum_ov003_02167370_96 = 0x60 };
 #endif
 
-struct Struct02074bf4;
-extern "C" void func_02074bf4(struct Struct02074bf4* obj);
+struct Struct_02074bf4;
+extern "C" void func_02074bf4(struct Struct_02074bf4* arg0);
 extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
-struct List0204afb4;
-extern "C" void func_0204afb4(struct List0204afb4* obj);
-struct Obj0204c754;
-extern "C" void func_0204c754(struct Obj0204c754* obj);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+struct Struct_0204c754;
+extern "C" void func_0204c754(struct Struct_0204c754* arg0);
 
 // USA: func_ov003_02167370
-extern "C" ARM void func_ov003_02167370(char* obj) {
-    int data4 = (int)BackgroundLoader::GetInstance();
-    if (*(int*)(obj + kRegionValue64_34) >= 0) {
-        ((BackgroundLoader*)(data4))->RemoveTask((int)(*(int*)(obj + kRegionValue64_34)));
-        *(int*)(obj + kRegionValue64_34) = -1;
+extern "C" ARM void func_ov003_02167370(char* arg0) {
+    int var0 = (int)BackgroundLoader::GetInstance();
+    if (*(int*)(arg0 + Enum_ov003_02167370_100) >= 0) {
+        ((BackgroundLoader*)(var0))->RemoveTask((int)(*(int*)(arg0 + Enum_ov003_02167370_100)));
+        *(int*)(arg0 + Enum_ov003_02167370_100) = -1;
     }
 
-    volatile unsigned int* p1 = (volatile unsigned int*)0x4001010;
-    p1[0] = 0;
-    p1[1] = 0;
+    volatile unsigned int* var1 = (volatile unsigned int*)0x4001010;
+    var1[0] = 0;
+    var1[1] = 0;
 
-    if (*(void**)(obj + 0x10) != 0) {
-        func_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
+    if (*(void**)(arg0 + 0x10) != 0) {
+        func_0207f8bc(*(Struct_0207f7f0**)(arg0 + 0x10));
     }
-    func_02074bf4((struct Struct02074bf4*)(obj + 0x1c));
+    func_02074bf4((struct Struct_02074bf4*)(arg0 + 0x1c));
 
-    volatile unsigned int* dispcnt = (volatile unsigned int*)0x4001000;
-    *dispcnt = (*dispcnt & ~0x1f00) | (*(int*)(obj + kRegionValue60_30) << 8);
+    volatile unsigned int* var2 = (volatile unsigned int*)0x4001000;
+    *var2 = (*var2 & ~0x1f00) | (*(int*)(arg0 + Enum_ov003_02167370_96) << 8);
 
     DisableSubBGVRAMBanks();
-    MapVRAMBanksToSubBG(*(int*)(obj + 0x14));
-    MapVRAMBanksToSubObj(*(int*)(obj + 0x18));
+    MapVRAMBanksToSubBG(*(int*)(arg0 + 0x14));
+    MapVRAMBanksToSubObj(*(int*)(arg0 + 0x18));
 
-    if (*(void**)(obj + 8) != 0) {
-        func_0204afb4(*(struct List0204afb4**)(obj + 8));
-        *(int*)(obj + 8) = 0;
+    if (*(void**)(arg0 + 8) != 0) {
+        func_0204afb4(*(struct Struct_02020cb8_3**)(arg0 + 8));
+        *(int*)(arg0 + 8) = 0;
     }
-    if (*(void**)(obj + 0xc) != 0) {
-        func_0204c754(*(struct Obj0204c754**)(obj + 0xc));
-        *(int*)(obj + 0xc) = 0;
+    if (*(void**)(arg0 + 0xc) != 0) {
+        func_0204c754(*(struct Struct_0204c754**)(arg0 + 0xc));
+        *(int*)(arg0 + 0xc) = 0;
     }
-    if (*(void**)(obj + 0x10) != 0) {
-        func_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
-        *(int*)(obj + 0x10) = 0;
+    if (*(void**)(arg0 + 0x10) != 0) {
+        func_0207f8bc(*(Struct_0207f7f0**)(arg0 + 0x10));
+        *(int*)(arg0 + 0x10) = 0;
     }
-    if (*(int*)obj != 0) {
-        *(int*)obj = 0;
+    if (*(int*)arg0 != 0) {
+        *(int*)arg0 = 0;
     }
-    if (*(int*)(obj + 4) == 0) return;
+    if (*(int*)(arg0 + 4) == 0) return;
 
-    for (int i = 0; i < 3; i++) {
-        if (((SafeAllocator*)(*(char**)(obj + 4) + i * 0x14))->GetSignedAllocator() != 0) {
-            ((SafeAllocator*)(*(char**)(obj + 4) + i * 0x14))->Destroy();
+    for (int var3 = 0; var3 < 3; var3++) {
+        if (((SafeAllocator*)(*(char**)(arg0 + 4) + var3 * 0x14))->GetSignedAllocator() != 0) {
+            ((SafeAllocator*)(*(char**)(arg0 + 4) + var3 * 0x14))->Destroy();
         }
     }
 }

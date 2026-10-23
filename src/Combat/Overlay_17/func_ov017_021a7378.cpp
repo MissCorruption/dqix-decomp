@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Resource/MessageSystem.h"
 #if defined(jpn)
-enum { IntroResourceSize = 0x1000 };
+enum { Enum_ov017_021a7378_5120 = 0x1000 };
 #else
-enum { IntroResourceSize = 0x1400 };
+enum { Enum_ov017_021a7378_5120 = 0x1400 };
 #endif
 #include "Resource/FontBankLoader.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
@@ -15,125 +15,125 @@ enum { IntroResourceSize = 0x1400 };
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "Resource/GameResources.h"
 
-struct MessageWindow {
+struct Struct_ov000_0217964c_3 {
 #if defined(jpn)
-    char pad0[0x868];
+    char unknown_0_[0x868];
 #else
-    char pad0[0x998];
+    char unknown1_0_[0x998];
 #endif
-    int active;
-    char pad99c[0x9a0 - 0x99c];
-    int busy;
+    int unknown_998_;
+    char unknown_99c_[0x9a0 - 0x99c];
+    int unknown_9a0_;
 #if defined(jpn)
-    char pad874[0x17de - 0x874];
+    char unknown_874_[0x17de - 0x874];
 #else
-    char pad9a4[0x19ae - 0x9a4];
+    char unknown_9a4_[0x19ae - 0x9a4];
 #endif
-    unsigned char flag19ae;
-    char pad19af[0x19b2 - 0x19af];
-    unsigned char flag19b2;
+    unsigned char unknown_19ae_;
+    char unknown_19af_[0x19b2 - 0x19af];
+    unsigned char unknown_19b2_;
 };
 
-struct FieldGlobals {
+struct Struct_ov017_021a7378_4 {
 #if defined(jpn)
-    char pad0[0x27f8];
+    char unknown_0_[0x27f8];
 #else
-    char pad0[0x27b8];
+    char unknown1_0_[0x27b8];
 #endif
-    Vector3i cameraTarget;
-    char pad27c4[0x27d0 - 0x27c4];
-    unsigned char battleCount;
+    Vector3i unknown_27b8_;
+    char unknown_27c4_[0x27d0 - 0x27c4];
+    unsigned char unknown_27d0_;
 };
 
-struct CameraState {
-    char pad0[0x44];
-    Vector3i position;
-    char pad50[0x13c - 0x50];
-    int mode;
+struct Struct_ov001_02158ae4_3 {
+    char unknown_0_[0x44];
+    Vector3i unknown_44_;
+    char unknown_50_[0x13c - 0x50];
+    int unknown_13c_;
 };
 
-struct CameraParams {
-    unsigned short angle;
-    unsigned char flag2;
-    unsigned char pad3[2];
-    unsigned char flag5;
-    unsigned char pad6;
-    unsigned char flag7;
-    unsigned char pad8[0x10 - 0x8];
-    int distance;
-    int height;
-    int offset;
-    unsigned short tilt;
-    unsigned char pad1e[0x61 - 0x1e];
-    unsigned char flag61;
+struct Struct_ov017_021a7378 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_[2];
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_[0x10 - 0x8];
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    unsigned short unknown_1c_;
+    unsigned char unknown_1e_[0x61 - 0x1e];
+    unsigned char unknown_61_;
 };
 
-struct TailList020469b4;
-struct TailNode020469b4;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
 
-struct EntryCounter {
-    char pad0[4];
-    unsigned short count;
+struct Struct_ov017_021a7378_2 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
 };
 
-struct Container020e0310;
-struct PointerField330_ffd0;
-struct Obj020d7aa0;
-struct ColorHolder0204bef4;
-struct FindEntryById02096134Table;
+struct Struct_0201099c_3;
+struct Struct_0200ffd0;
+struct Struct_020d7aa0_2;
+struct Struct_0204bef4;
+struct Struct_0205faf4_7;
 
-struct BattleIntro {
-    unsigned char field0;
-    unsigned char done;
-    char pad2[0x8 - 0x2];
-    int state;
-    int mode;
-    int counter;
-    int pad14;
-    int kind;
-    unsigned int savedLayers;
-    int taskId;
+struct Struct_ov017_021a7378_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[0x8 - 0x2];
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    unsigned int unknown_1c_;
+    int unknown_20_;
 #if defined(jpn)
-    unsigned char controls[0x1ec - 0x24];
+    unsigned char unknown_24_[0x1ec - 0x24];
 #else
-    unsigned char controls[0x25c - 0x24];
+    unsigned char unknown_24_[0x25c - 0x24];
 #endif
-    SafeAllocator allocator;
-    char container[0x10];
+    SafeAllocator unknown_25c_;
+    char unknown_270_[0x10];
 };
 
-extern "C" unsigned char* func_020100f8(char* obj);
-extern "C" MessageWindow* func_020421a0();
-extern "C" FieldGlobals* func_02012fe4(void);
-extern "C" CameraState* func_0200ffd0(PointerField330_ffd0* obj);
-extern "C" void func_0205c904(unsigned char* obj, int value);
+extern "C" unsigned char* func_020100f8(char* arg0);
+extern "C" Struct_ov000_0217964c_3* func_020421a0();
+extern "C" Struct_ov017_021a7378_4* func_02012fe4(void);
+extern "C" Struct_ov001_02158ae4_3* func_0200ffd0(Struct_0200ffd0* arg0);
+extern "C" void func_0205c904(unsigned char* arg0, int arg1);
 extern "C" void* func_020d7a50(void);
-extern "C" void func_020d7aa0(Obj020d7aa0* obj);
-extern "C" void func_020a0cc4(unsigned int size);
-extern "C" void func_020ae38c(unsigned char* obj);
-extern "C" void func_020ae380(unsigned char* obj);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_020dfec0(void* dest, SafeAllocator* allocator, void* fileData, unsigned int size);
-extern "C" int func_020e0434(Container020e0310* c, int key);
-extern "C" void func_020a28a0(unsigned char* obj, unsigned char mask);
-extern "C" void func_020a28b0(unsigned char* obj, int mask);
-extern "C" int func_020457e0(MessageWindow* window);
-extern "C" CameraParams* func_0200fd0c(GameState* gs);
-extern "C" void func_02070378(char* obj);
-extern "C" void* func_02033fa0(void* obj);
-extern "C" int func_0204bedc(unsigned short* obj);
-extern "C" int func_0204bef4(ColorHolder0204bef4* obj);
-extern "C" void func_ov017_0219e310(unsigned char* obj, int flag);
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
-extern "C" void func_ov017_021a65c4(void* scene, unsigned char kind, int arg);
-extern "C" void func_ov017_021baedc(TailNode020469b4* node, int flag);
-extern "C" void func_ov017_021d1c2c(unsigned char a, unsigned short b);
+extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
+extern "C" void func_020a0cc4(unsigned int arg0);
+extern "C" void func_020ae38c(unsigned char* arg0);
+extern "C" void func_020ae380(unsigned char* arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_020dfec0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" int func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_020a28a0(unsigned char* arg0, unsigned char arg1);
+extern "C" void func_020a28b0(unsigned char* arg0, int arg1);
+extern "C" int func_020457e0(Struct_ov000_0217964c_3* arg0);
+extern "C" Struct_ov017_021a7378* func_0200fd0c(GameState* arg0);
+extern "C" void func_02070378(char* arg0);
+extern "C" void* func_02033fa0(void* arg0);
+extern "C" int func_0204bedc(unsigned short* arg0);
+extern "C" int func_0204bef4(Struct_0204bef4* arg0);
+extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
+extern "C" void func_ov017_021baedc(Struct_0201bdac* arg0, int arg1);
+extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern "C" void* func_02094d6c(void);
-extern "C" EntryCounter* func_02096134(FindEntryById02096134Table* table, int id);
-extern "C" void func_02043204(char* obj);
-extern "C" void func_0205ce50(unsigned char* obj);
-extern "C" void func_ov017_021a79f0(BattleIntro* self);
+extern "C" Struct_ov017_021a7378_2* func_02096134(Struct_0205faf4_7* arg0, int arg1);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_0205ce50(unsigned char* arg0);
+extern "C" void func_ov017_021a79f0(Struct_ov017_021a7378_3* arg0);
 
 extern AllocatorUnion data_02114e20;
 #if defined(jpn)
@@ -145,186 +145,186 @@ extern const char data_ov017_021d77b2[];
 
 // USA: func_ov017_021a7378
 // JPN: func_ov017_021a7d20
-extern "C" ARM void func_ov017_021a7378(BattleIntro* self, int arg) {
-    GameState* gs = GameState::GetInstance();
-    unsigned char* flags = func_020100f8((char*)gs);
-    MessageWindow* window = func_020421a0();
-    FieldGlobals* globals = func_02012fe4();
-    CameraState* camera = func_0200ffd0((PointerField330_ffd0*)gs);
-    func_0205c904(self->controls, gs->GetTickCount());
+extern "C" ARM void func_ov017_021a7378(Struct_ov017_021a7378_3* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned char* var1 = func_020100f8((char*)var0);
+    Struct_ov000_0217964c_3* var2 = func_020421a0();
+    Struct_ov017_021a7378_4* var3 = func_02012fe4();
+    Struct_ov001_02158ae4_3* var4 = func_0200ffd0((Struct_0200ffd0*)var0);
+    func_0205c904(arg0->unknown_24_, var0->GetTickCount());
 
-    if (self->state == 0) {
-        func_020d7aa0((Obj020d7aa0*)func_020d7a50());
-        self->savedLayers = (DISPCNT & 0x1f00) >> 8;
+    if (arg0->unknown_8_ == 0) {
+        func_020d7aa0((Struct_020d7aa0_2*)func_020d7a50());
+        arg0->unknown_1c_ = (DISPCNT & 0x1f00) >> 8;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1100;
-        func_020a0cc4(IntroResourceSize);
-        func_020ae38c((unsigned char*)func_0200ffd0((PointerField330_ffd0*)gs));
-        FontBankLoader* g = func_02094a00();
-        func_02094b30(g, 0x205, 0);
-        if (func_02094b4c(g)) {
+        func_020a0cc4(Enum_ov017_021a7378_5120);
+        func_020ae38c((unsigned char*)func_0200ffd0((Struct_0200ffd0*)var0));
+        Struct_0208cb08* var5 = func_02094a00();
+        func_02094b30(var5, 0x205, 0);
+        if (func_02094b4c(var5)) {
 #if defined(jpn)
-            self->taskId = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d7bd4, NULL);
+            arg0->unknown_20_ = BackgroundLoader::GetInstance()->QueueLoadFile(data_ov017_021d7bd4, NULL);
 #else
-            self->taskId = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_ov017_021d7798, data_ov017_021d77b2, NULL);
+            arg0->unknown_20_ = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_ov017_021d7798, data_ov017_021d77b2, NULL);
 #endif
-            self->allocator.CreateTypeA(func_02012d88(&data_02114e20, IntroResourceSize), IntroResourceSize);
-            self->state = 1;
+            arg0->unknown_25c_.CreateTypeA(func_02012d88(&data_02114e20, Enum_ov017_021a7378_5120), Enum_ov017_021a7378_5120);
+            arg0->unknown_8_ = 1;
         }
-    } else if (self->state == 1) {
-        BackgroundLoader* bl = BackgroundLoader::GetInstance();
-        if (bl->GetTaskStatus(self->taskId)) {
-            void* fileData;
-            unsigned int size;
-            bl->GetLoadedFileByID(self->taskId, &fileData, &size);
-            self->allocator.Reset();
-            func_020dfec0(self->container, &self->allocator, fileData, size);
-            bl->RemoveTask(self->taskId);
-            self->taskId = -1;
-            if (self->mode == 0) {
+    } else if (arg0->unknown_8_ == 1) {
+        BackgroundLoader* var6 = BackgroundLoader::GetInstance();
+        if (var6->GetTaskStatus(arg0->unknown_20_)) {
+            void* var7;
+            unsigned int var8;
+            var6->GetLoadedFileByID(arg0->unknown_20_, &var7, &var8);
+            arg0->unknown_25c_.Reset();
+            func_020dfec0(arg0->unknown_270_, &arg0->unknown_25c_, var7, var8);
+            var6->RemoveTask(arg0->unknown_20_);
+            arg0->unknown_20_ = -1;
+            if (arg0->unknown_c_ == 0) {
 #if defined(jpn)
-                func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x23), 0);
+                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0);
 #else
-                func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x23), 0, 0xe3);
+                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x23), 0, 0xe3);
 #endif
-                self->state = 0xc8;
+                arg0->unknown_8_ = 0xc8;
             } else {
 #if defined(jpn)
-                func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x24), 0);
+                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0);
 #else
-                func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x24), 0, 0xe3);
+                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x24), 0, 0xe3);
 #endif
-                self->state = 0x12c;
+                arg0->unknown_8_ = 0x12c;
             }
-            window->flag19b2 = 0;
-            window->active = 1;
-            func_020a28a0(flags, 2);
+            var2->unknown_19b2_ = 0;
+            var2->unknown_998_ = 1;
+            func_020a28a0(var1, 2);
         }
-    } else if (self->state == 0xc8) {
-        if (window->busy == 0) {
-            func_020a28b0(flags, 2);
-            if (func_020457e0(window) == 0) {
-                CameraParams* params = func_0200fd0c(gs);
-                func_02070378((char*)params);
-                params->flag2 = 1;
-                params->flag7 = 1;
-                params->flag5 = 1;
-                params->angle = 0x1901;
-                params->tilt = 0x25c2;
-                params->distance = 0x3800;
-                params->height = 0x999;
-                params->offset = -0x3800;
-                self->state = 0x64;
-                func_ov017_021a7378(self, arg);
+    } else if (arg0->unknown_8_ == 0xc8) {
+        if (var2->unknown_9a0_ == 0) {
+            func_020a28b0(var1, 2);
+            if (func_020457e0(var2) == 0) {
+                Struct_ov017_021a7378* var9 = func_0200fd0c(var0);
+                func_02070378((char*)var9);
+                var9->unknown_2_ = 1;
+                var9->unknown_7_ = 1;
+                var9->unknown_5_ = 1;
+                var9->unknown_0_ = 0x1901;
+                var9->unknown_1c_ = 0x25c2;
+                var9->unknown_10_ = 0x3800;
+                var9->unknown_14_ = 0x999;
+                var9->unknown_18_ = -0x3800;
+                arg0->unknown_8_ = 0x64;
+                func_ov017_021a7378(arg0, arg1);
             } else {
-                self->state = 0x64;
-                func_ov017_021a7378(self, arg);
+                arg0->unknown_8_ = 0x64;
+                func_ov017_021a7378(arg0, arg1);
             }
         }
-    } else if (self->state == 0x12c) {
-        if (window->busy == 0) {
-            func_020a28b0(flags, 2);
-            if (func_020457e0(window) == 0) {
-                void* color = func_02033fa0(camera);
-                if (color != NULL && func_0204bedc((unsigned short*)color)) {
-                    self->kind = 0;
-                    self->state = 0x62;
-                    camera->mode = 1;
-                    func_ov017_021a7378(self, arg);
+    } else if (arg0->unknown_8_ == 0x12c) {
+        if (var2->unknown_9a0_ == 0) {
+            func_020a28b0(var1, 2);
+            if (func_020457e0(var2) == 0) {
+                void* var10 = func_02033fa0(var4);
+                if (var10 != NULL && func_0204bedc((unsigned short*)var10)) {
+                    arg0->unknown_18_ = 0;
+                    arg0->unknown_8_ = 0x62;
+                    var4->unknown_13c_ = 1;
+                    func_ov017_021a7378(arg0, arg1);
                 } else {
-                    window->active = 1;
+                    var2->unknown_998_ = 1;
 #if defined(jpn)
-                    func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x26), 0);
+                    func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0);
 #else
-                    func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x26), 0, 0xe3);
+                    func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x26), 0, 0xe3);
 #endif
-                    self->state = 0x12d;
-                    func_020a28a0(flags, 2);
+                    arg0->unknown_8_ = 0x12d;
+                    func_020a28a0(var1, 2);
                 }
             } else {
-                window->active = 1;
+                var2->unknown_998_ = 1;
 #if defined(jpn)
-                func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x25), 0);
+                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0);
 #else
-                func_0204500c((MessageSystem*)window, (const char*)func_020e0434((Container020e0310*)self->container, 0x25), 0, 0xe3);
+                func_0204500c((Struct_02021b84*)var2, (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_270_, 0x25), 0, 0xe3);
 #endif
-                self->state = 0x12d;
-                func_020a28a0(flags, 2);
+                arg0->unknown_8_ = 0x12d;
+                func_020a28a0(var1, 2);
             }
         }
-    } else if (self->state == 0x12d) {
-        if (window->busy == 0) {
-            func_020a28b0(flags, 2);
-            if (func_020457e0(window) == 0) {
-                self->kind = 3;
-                camera->mode = 2;
-                self->state = 0x63;
+    } else if (arg0->unknown_8_ == 0x12d) {
+        if (var2->unknown_9a0_ == 0) {
+            func_020a28b0(var1, 2);
+            if (func_020457e0(var2) == 0) {
+                arg0->unknown_18_ = 3;
+                var4->unknown_13c_ = 2;
+                arg0->unknown_8_ = 0x63;
             } else {
-                self->state = 0x64;
-                func_ov017_021a7378(self, arg);
+                arg0->unknown_8_ = 0x64;
+                func_ov017_021a7378(arg0, arg1);
             }
         }
-    } else if (self->state == 0x62) {
-        if (++self->counter > 0xf) {
-            self->state = 0x63;
+    } else if (arg0->unknown_8_ == 0x62) {
+        if (++arg0->unknown_10_ > 0xf) {
+            arg0->unknown_8_ = 0x63;
         }
-    } else if (self->state == 0x63) {
-        GameResources* res = GetGameResources();
-        CameraParams* params;
-        TailList020469b4* list = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
-        TailNode020469b4* resultNode = (TailNode020469b4*)res->unknown_ptr_array_371c[6];
-        params = func_0200fd0c(gs);
-        func_02070378((char*)params);
-        params->flag7 = 1;
-        void* color = func_02033fa0(camera);
-        switch (self->kind) {
+    } else if (arg0->unknown_8_ == 0x63) {
+        GameResources* var11 = GetGameResources();
+        Struct_ov017_021a7378* var12;
+        Struct_0201bdac_2* var13 = (Struct_0201bdac_2*)var11->unknown_ptr_array_36fc[0];
+        Struct_0201bdac* var14 = (Struct_0201bdac*)var11->unknown_ptr_array_371c[6];
+        var12 = func_0200fd0c(var0);
+        func_02070378((char*)var12);
+        var12->unknown_7_ = 1;
+        void* var15 = func_02033fa0(var4);
+        switch (arg0->unknown_18_) {
         case 0: {
-            params->flag61 = 1;
-            params->angle = func_0204bef4((ColorHolder0204bef4*)color);
-            params->tilt = 0;
-            params->distance = 0x100000;
-            params->height = 0;
-            params->offset = 0x100000;
-            globals->cameraTarget = camera->position;
-            func_0200fcfc(gs, params);
-            TailNode020469b4* node = (TailNode020469b4*)res->unknown_ptr_array_36fc[4];
-            func_ov017_0219e310((unsigned char*)node, 0);
-            func_020469b4(list, node);
-            func_ov017_021a65c4(res, 1, 0);
+            var12->unknown_61_ = 1;
+            var12->unknown_0_ = func_0204bef4((Struct_0204bef4*)var15);
+            var12->unknown_1c_ = 0;
+            var12->unknown_10_ = 0x100000;
+            var12->unknown_14_ = 0;
+            var12->unknown_18_ = 0x100000;
+            var3->unknown_27b8_ = var4->unknown_44_;
+            func_0200fcfc(var0, var12);
+            Struct_0201bdac* var16 = (Struct_0201bdac*)var11->unknown_ptr_array_36fc[4];
+            func_ov017_0219e310((unsigned char*)var16, 0);
+            func_020469b4(var13, var16);
+            func_ov017_021a65c4(var11, 1, 0);
             break;
         }
         case 3:
-            camera->mode = 2;
-            func_ov017_021baedc(resultNode, 1);
-            *(unsigned short*)((char*)resultNode + 8) = 0x7346;
-            func_020469b4(list, resultNode);
+            var4->unknown_13c_ = 2;
+            func_ov017_021baedc(var14, 1);
+            *(unsigned short*)((char*)var14 + 8) = 0x7346;
+            func_020469b4(var13, var14);
             break;
         }
-        Vector3i pos;
-        if (self->kind == 3) {
+        Vector3i var17;
+        if (arg0->unknown_18_ == 3) {
             func_ov017_021d1c2c(3, 0);
-            func_ov017_021d1dc0(3, 0, (int*)&pos, 0x7346, 0);
+            func_ov017_021d1dc0(3, 0, (int*)&var17, 0x7346, 0);
         } else {
-            pos = camera->position;
+            var17 = var4->unknown_44_;
             func_ov017_021d1c2c(0, 0);
-            func_ov017_021d1dc0(0, params->angle, (int*)&pos, 0, 0);
+            func_ov017_021d1dc0(0, var12->unknown_0_, (int*)&var17, 0, 0);
         }
-        if (globals->battleCount < 0xff) {
-            globals->battleCount++;
+        if (var3->unknown_27d0_ < 0xff) {
+            var3->unknown_27d0_++;
         }
-        EntryCounter* entry = func_02096134((FindEntryById02096134Table*)func_02094d6c(), 0xbc);
-        if (entry != NULL && entry->count < 10) {
-            entry->count++;
+        Struct_ov017_021a7378_2* var18 = func_02096134((Struct_0205faf4_7*)func_02094d6c(), 0xbc);
+        if (var18 != NULL && var18->unknown_4_ < 10) {
+            var18->unknown_4_++;
         }
-        self->state = 0x64;
-        func_02043204((char*)window);
-    } else if (self->state == 0x64) {
-        window->flag19ae = 0;
-        if (window->busy == 0) {
-            func_02043204((char*)window);
-            func_0205ce50(self->controls);
-            func_020ae380((unsigned char*)func_0200ffd0((PointerField330_ffd0*)gs));
-            func_ov017_021a79f0(self);
-            self->done = 1;
+        arg0->unknown_8_ = 0x64;
+        func_02043204((char*)var2);
+    } else if (arg0->unknown_8_ == 0x64) {
+        var2->unknown_19ae_ = 0;
+        if (var2->unknown_9a0_ == 0) {
+            func_02043204((char*)var2);
+            func_0205ce50(arg0->unknown_24_);
+            func_020ae380((unsigned char*)func_0200ffd0((Struct_0200ffd0*)var0));
+            func_ov017_021a79f0(arg0);
+            arg0->unknown_1_ = 1;
         }
     }
 }

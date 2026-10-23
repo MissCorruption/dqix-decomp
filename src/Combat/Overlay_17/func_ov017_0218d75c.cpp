@@ -8,7 +8,7 @@
 
 #pragma optimize_for_size off
 // USA: func_ov017_0218d75c
-extern "C" ARM int func_ov017_0218d75c(void* obj) {
-    void* p = *(void**)((char*)obj + REGION_FIELD_0);
-    return p != NULL && *(unsigned char*)((char*)p + 0x14) != 0;
+extern "C" ARM int func_ov017_0218d75c(void* arg0) {
+    void* var0 = *(void**)((char*)arg0 + REGION_FIELD_0);
+    return var0 != NULL && *(unsigned char*)((char*)var0 + 0x14) != 0;
 }

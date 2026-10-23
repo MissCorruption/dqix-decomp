@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-struct UnkStruct0205c508;
-extern "C" void func_0205c508(struct UnkStruct0205c508* s, int* out1, int* out2);
+struct Struct_0205c508;
+extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
 
-extern "C" int func_ov000_0217542c(void* obj);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_ov000_02171674(void* obj, int index);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_ov000_0217542c(void* arg0);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_ov000_02171674(void* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
-struct Entry02178f28 {
-    char pad[0x20];
-    signed char cursor;
+struct Struct_ov000_02178f28 {
+    char unknown_0_[0x20];
+    signed char unknown_20_;
 };
 
 // USA: func_ov000_02178f28
-extern "C" ARM void func_ov000_02178f28(char* obj, struct Entry02178f28* entry, char* dst) {
-    if (entry != NULL && dst != NULL) {
-        int a, b;
-        func_0205c508((struct UnkStruct0205c508*)(obj + 0x1dc), &a, &b);
-        signed char first = a;
-        signed char last = b;
-        signed char cursor = entry->cursor;
-        if (func_ov000_0217542c(obj)) {
-            func_02041c08(dst, cursor - first, 8, 5, 5, 5);
+extern "C" ARM void func_ov000_02178f28(char* arg0, struct Struct_ov000_02178f28* arg1, char* arg2) {
+    if (arg1 != NULL && arg2 != NULL) {
+        int var0, var1;
+        func_0205c508((struct Struct_0205c508*)(arg0 + 0x1dc), &var0, &var1);
+        signed char var2 = var0;
+        signed char var3 = var1;
+        signed char var4 = arg1->unknown_20_;
+        if (func_ov000_0217542c(arg0)) {
+            func_02041c08(arg2, var4 - var2, 8, 5, 5, 5);
         }
-        func_02041ea4(dst, cursor - first);
-        for (signed char i = first; i < last; i++) {
-            const char** name = (const char**)func_ov000_02171674(entry, i);
-            if (name == NULL) continue;
-            func_02041b70(dst, i - first, *name);
-            if (i == last - 1) continue;
-            func_02042058(dst, (const char*)func_020e0434((struct Container020e0310*)(obj + 0xb8), 0));
+        func_02041ea4(arg2, var4 - var2);
+        for (signed char var5 = var2; var5 < var3; var5++) {
+            const char** var6 = (const char**)func_ov000_02171674(arg1, var5);
+            if (var6 == NULL) continue;
+            func_02041b70(arg2, var5 - var2, *var6);
+            if (var5 == var3 - 1) continue;
+            func_02042058(arg2, (const char*)func_020e0434((struct Struct_0201099c_3*)(arg0 + 0xb8), 0));
         }
     }
 }

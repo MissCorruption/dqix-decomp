@@ -2,69 +2,69 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void __clear(void* buf, int len);
-extern "C" int func_02001aec(void* a, void* b, int n);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
-struct Rec0204a848;
-struct Rec0204acdc;
-struct Obj0204aa64;
+struct Struct_0204a848;
+struct Struct_0204acdc;
+struct Struct_0204aa64;
 
-typedef void (*Cb0204b174)(const void*, int, unsigned int);
+typedef void (*Type_0204b174)(const void*, int, unsigned int);
 
-extern "C" int func_0204a848(Rec0204a848* dst, Cb0204b174 cb, unsigned char* src, void* extra);
-extern "C" int func_0204acdc(Rec0204acdc* dst, void* unused, unsigned char* src, SafeAllocator* alloc);
-extern "C" int func_0204aa64(Obj0204aa64* obj, Cb0204b174 cb, unsigned char* src, void* src2);
+extern "C" int func_0204a848(Struct_0204a848* arg0, Type_0204b174 arg1, unsigned char* arg2, void* arg3);
+extern "C" int func_0204acdc(Struct_0204acdc* arg0, void* arg1, unsigned char* arg2, SafeAllocator* arg3);
+extern "C" int func_0204aa64(Struct_0204aa64* arg0, Type_0204b174 arg1, unsigned char* arg2, void* arg3);
 
 extern char data_020f0238;
 extern char data_020f023d;
 extern char data_020f0242;
 extern int data_020f01f8[][4];
-extern Cb0204b174 data_020f01b0[];
+extern Type_0204b174 data_020f01b0[];
 extern int data_020f0218[][4];
 
-struct Self0204b174 {
-    unsigned char pad0[0x10];
-    Rec0204acdc* f10;
-    unsigned char pad14[8];
-    unsigned char lo : 4;
-    unsigned char hi : 4;
-    unsigned char index;
-    unsigned char limit;
+struct Struct_0204b174 {
+    unsigned char unknown_0_[0x10];
+    Struct_0204acdc* unknown_10_;
+    unsigned char unknown_14_[8];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_;
+    unsigned char unknown_1e_;
 };
 
 // USA: func_0204b174
-extern "C" ARM int func_0204b174(struct Self0204b174* self, char* str, Cb0204b174 cb) {
-    char buf[5];
+extern "C" ARM int func_0204b174(struct Struct_0204b174* arg0, char* arg1, Type_0204b174 arg2) {
+    char var0[5];
 
-    if (str == 0) {
+    if (arg1 == 0) {
         return 1;
     }
 
-    __clear(buf, 5);
-    memcpy(buf, str, 5);
+    __clear(var0, 5);
+    memcpy(var0, arg1, 5);
 
-    if (func_02001aec(buf, &data_020f0238, 4) == 0) {
-        Cb0204b174 fn = (Cb0204b174)data_020f01f8[self->lo][self->hi];
-        return func_0204a848((Rec0204a848*)self, fn, (unsigned char*)str, (void*)cb);
+    if (func_02001aec(var0, &data_020f0238, 4) == 0) {
+        Type_0204b174 var1 = (Type_0204b174)data_020f01f8[arg0->unknown_1c_0_][arg0->unknown_1c_4_];
+        return func_0204a848((Struct_0204a848*)arg0, var1, (unsigned char*)arg1, (void*)arg2);
     }
 
-    if (func_02001aec(buf, &data_020f023d, 4) == 0) {
-        Cb0204b174 fn = data_020f01b0[self->lo];
-        return func_0204aa64((Obj0204aa64*)((char*)self + 0xc), fn, (unsigned char*)str, (void*)cb);
+    if (func_02001aec(var0, &data_020f023d, 4) == 0) {
+        Type_0204b174 var2 = data_020f01b0[arg0->unknown_1c_0_];
+        return func_0204aa64((Struct_0204aa64*)((char*)arg0 + 0xc), var2, (unsigned char*)arg1, (void*)arg2);
     }
 
-    if (func_02001aec(buf, &data_020f0242, 4) == 0) {
-        if (self->f10 != 0) {
-            if (self->limit <= self->index) {
+    if (func_02001aec(var0, &data_020f0242, 4) == 0) {
+        if (arg0->unknown_10_ != 0) {
+            if (arg0->unknown_1e_ <= arg0->unknown_1d_) {
                 return 1;
             }
-            int r = func_0204acdc((Rec0204acdc*)((char*)self->f10 + self->index * 0x10),
-                                           (void*)(Cb0204b174)data_020f0218[self->lo][self->hi],
-                                           (unsigned char*)str, (SafeAllocator*)cb);
-            if (r != 0) {
+            int var3 = func_0204acdc((Struct_0204acdc*)((char*)arg0->unknown_10_ + arg0->unknown_1d_ * 0x10),
+                                           (void*)(Type_0204b174)data_020f0218[arg0->unknown_1c_0_][arg0->unknown_1c_4_],
+                                           (unsigned char*)arg1, (SafeAllocator*)arg2);
+            if (var3 != 0) {
                 return 1;
             }
-            self->index = self->index + 1;
+            arg0->unknown_1d_ = arg0->unknown_1d_ + 1;
             return 0;
         }
     }

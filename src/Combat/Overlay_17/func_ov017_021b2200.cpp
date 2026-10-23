@@ -4,44 +4,44 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void func_ov011_02184770(void);
-extern "C" void func_020a1f4c(int flag);
-extern "C" void func_020a1e54(int flag);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_020a1f4c(int arg0);
+extern "C" void func_020a1e54(int arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 
 extern int data_02114e20;
 
-struct GlobalWithSlot_021d83f0_021b2200 {
-	unsigned int field0;
-	int slot;
+struct Struct_ov017_021d83f0_2 {
+	unsigned int unknown_0_;
+	int unknown_4_;
 };
-extern struct GlobalWithSlot_021d83f0_021b2200 data_ov017_021d83f0;
+extern struct Struct_ov017_021d83f0_2 data_ov017_021d83f0;
 
-struct Obj021b2200 {
-	char pad[0xc];
-	int fieldc;
-	char pad2[0x10 - 0x10];
-	SafeAllocator allocator;
+struct Struct_ov017_021a3ef0_12 {
+	char unknown_0_[0xc];
+	int unknown_c_;
+	char unknown_10_[0x10 - 0x10];
+	SafeAllocator unknown1_10_;
 };
 
 // USA: func_ov017_021b2200
-extern "C" ARM void func_ov017_021b2200(struct Obj021b2200* self) {
-	if (self->fieldc > -1) {
-		int x = (int)BackgroundLoader::GetInstance();
-		int y = self->fieldc;
-		((BackgroundLoader*)(x))->RemoveTask((int)(y));
-		self->fieldc = -1;
+extern "C" ARM void func_ov017_021b2200(struct Struct_ov017_021a3ef0_12* arg0) {
+	if (arg0->unknown_c_ > -1) {
+		int var0 = (int)BackgroundLoader::GetInstance();
+		int var1 = arg0->unknown_c_;
+		((BackgroundLoader*)(var0))->RemoveTask((int)(var1));
+		arg0->unknown_c_ = -1;
 	}
 
-	if (data_ov017_021d83f0.slot != 0) {
+	if (data_ov017_021d83f0.unknown_4_ != 0) {
 		func_ov011_02184770();
-		data_ov017_021d83f0.slot = 0;
+		data_ov017_021d83f0.unknown_4_ = 0;
 		func_020a1f4c(1);
 		func_020a1e54(1);
 	}
 
-	void* p = self->allocator.GetSignedAllocator();
-	if (p != NULL) {
-		self->allocator.Destroy();
-		func_02012da4((AllocatorUnion*)&data_02114e20, p);
+	void* var2 = arg0->unknown1_10_.GetSignedAllocator();
+	if (var2 != NULL) {
+		arg0->unknown1_10_.Destroy();
+		func_02012da4((AllocatorUnion*)&data_02114e20, var2);
 	}
 }

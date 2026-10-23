@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "World/ZoneLootableRecord.h"
 
-struct Entry021820fc { unsigned char a; unsigned char b; short c; short d; };
-extern "C" void func_ov000_021820fc(struct Entry021820fc* obj);
+struct Struct_ov000_021820fc { unsigned char unknown_0_; unsigned char unknown_1_; short unknown_2_; short unknown_4_; };
+extern "C" void func_ov000_021820fc(struct Struct_ov000_021820fc* arg0);
 
-struct BattleResources {
-    Foo02048004 resources[13];
-    Entry021820fc state;
+struct Struct_ov000_02161e30_6 {
+    Struct_02012fa4 unknown_0_[13];
+    Struct_ov000_021820fc unknown_6e8_;
 };
 
 // USA: func_ov000_02182114
-extern "C" ARM void func_ov000_02182114(char* storage)
+extern "C" ARM void func_ov000_02182114(char* arg0)
 {
-    BattleResources* battle = (BattleResources*)storage;
-    int i;
-    for (i = 0; i < 13; i++) {
-        func_0204719c(&battle->resources[i]);
+    Struct_ov000_02161e30_6* var0 = (Struct_ov000_02161e30_6*)arg0;
+    int var1;
+    for (var1 = 0; var1 < 13; var1++) {
+        func_0204719c(&var0->unknown_0_[var1]);
     }
-    func_ov000_021820fc(&battle->state);
+    func_ov000_021820fc(&var0->unknown_6e8_);
 }

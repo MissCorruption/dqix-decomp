@@ -1,59 +1,59 @@
 #if defined(jpn)
-enum { RegionOffset3734 = 0x3524, RegionOffset180 = 0x17c };
+enum { Enum_ov017_021c40ec_14132 = 0x3524, Enum_ov017_021c40ec_384 = 0x17c };
 #else
-enum { RegionOffset3734 = 0x3734, RegionOffset180 = 0x180 };
+enum { Enum_ov017_021c40ec_14132 = 0x3734, Enum_ov017_021c40ec_384 = 0x180 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" void func_02052d7c(void* obj, int index, short value);
-extern "C" void func_ov017_0218f5a4(void* self, int combatantId, int flag2, int flag3, int flag4);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void func_02052d7c(void* arg0, int arg1, short arg2);
+extern "C" void func_ov017_0218f5a4(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct Info_021c40ec {
-    char pad0[4];
-    unsigned char idNibble : 4;
-    unsigned char bit4 : 1;
-    signed char arr1[5];
-    short arr2[5];
+struct Struct_ov017_021c40ec {
+    char unknown_0_[4];
+    unsigned char unknown_4_0_ : 4;
+    unsigned char unknown_4_4_ : 1;
+    signed char unknown_5_[5];
+    short unknown_a_[5];
 };
 
 // USA: func_ov017_021c40ec
-extern "C" ARM void func_ov017_021c40ec(void* unused, struct Info_021c40ec* info, GameState* battleStruct, void* ov) {
-    int id = info->idNibble;
-    char* p = (char*)func_02010828(battleStruct);
-    if (p != NULL) {
-        int i;
-        for (i = 0; i < *(unsigned char*)(p + 0xf7c); i++) {
-            if (*(unsigned char*)(p + i + 0xf78) == id) return;
+extern "C" ARM void func_ov017_021c40ec(void* arg0, struct Struct_ov017_021c40ec* arg1, GameState* arg2, void* arg3) {
+    int var0 = arg1->unknown_4_0_;
+    char* var1 = (char*)func_02010828(arg2);
+    if (var1 != NULL) {
+        int var2;
+        for (var2 = 0; var2 < *(unsigned char*)(var1 + 0xf7c); var2++) {
+            if (*(unsigned char*)(var1 + var2 + 0xf78) == var0) return;
         }
     }
 
-    GameObject* combatant = func_0200ff1c(battleStruct, id);
-    if (combatant == NULL) return;
+    GameObject* var3 = func_0200ff1c(arg2, var0);
+    if (var3 == NULL) return;
 
-    char* s = *(char**)((char*)ov + RegionOffset3734);
+    char* var4 = *(char**)((char*)arg3 + Enum_ov017_021c40ec_14132);
 
-    int j;
-    for (j = 0; j < 5; j++) {
-        int elemId = info->arr1[j];
-        int value = info->arr2[j];
-        if (elemId >= 0 && elemId < 0xa) {
-            func_02052d7c(combatant, elemId, value);
+    int var5;
+    for (var5 = 0; var5 < 5; var5++) {
+        int var6 = arg1->unknown_5_[var5];
+        int var7 = arg1->unknown_a_[var5];
+        if (var6 >= 0 && var6 < 0xa) {
+            func_02052d7c(var3, var6, var7);
         }
-        if (*(unsigned char*)(s + 3) != 0) {
-            if (id == 0 && elemId == 6) {
-                signed char v = *(signed char*)(s + RegionOffset180);
-                if (v < 0) {
-                    *(unsigned char*)(s + RegionOffset180) = 6;
+        if (*(unsigned char*)(var4 + 3) != 0) {
+            if (var0 == 0 && var6 == 6) {
+                signed char var8 = *(signed char*)(var4 + Enum_ov017_021c40ec_384);
+                if (var8 < 0) {
+                    *(unsigned char*)(var4 + Enum_ov017_021c40ec_384) = 6;
                 }
             }
         }
     }
 
-    if (info->bit4) {
-        func_ov017_0218f5a4(ov, id, 0, 0, 0);
+    if (arg1->unknown_4_4_) {
+        func_ov017_0218f5a4(arg3, var0, 0, 0, 0);
     }
 }

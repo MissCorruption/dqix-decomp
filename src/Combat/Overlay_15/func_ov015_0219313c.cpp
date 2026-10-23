@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct Struct0219313c { char pad[0x5c]; short f5c; short f5e; short f60; };
+struct Struct_ov015_02192700_9 { char unknown_0_[0x5c]; short unknown_5c_; short unknown_5e_; short unknown_60_; };
 
 // USA: func_ov015_0219313c
-extern "C" ARM void func_ov015_0219313c(Struct0219313c* s, int a, int b) {
-	s->f5c = a;
-	s->f60 = s->f5c;
-	s->f5e = b;
+extern "C" ARM void func_ov015_0219313c(Struct_ov015_02192700_9* arg0, int arg1, int arg2) {
+	arg0->unknown_5c_ = arg1;
+	arg0->unknown_60_ = arg0->unknown_5c_;
+	arg0->unknown_5e_ = arg2;
 }

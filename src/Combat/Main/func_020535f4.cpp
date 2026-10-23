@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct S020535f4 {
+struct Struct_020535f4 {
 #if defined(jpn)
-    char pad[0x178];
+    char unknown1_0_[0x178];
 #else
-    char pad[0x184];
+    char unknown_0_[0x184];
 #endif
-    unsigned char counter;
+    unsigned char unknown_184_;
 };
 
 // USA: func_020535f4
-extern "C" ARM void func_020535f4(struct S020535f4* p) {
-    p->counter++;
+extern "C" ARM void func_020535f4(struct Struct_020535f4* arg0) {
+    arg0->unknown_184_++;
 }

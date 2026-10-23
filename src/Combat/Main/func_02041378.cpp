@@ -3,58 +3,58 @@
 #include "Graphics/Vector.h"
 #include "World/Object3D.h"
 
-extern "C" void func_0203db34(unsigned char *object, int x, int y, int z);
+extern "C" void func_0203db34(unsigned char *arg0, int arg1, int arg2, int arg3);
 
-struct FacingControllerPrefix {
-    Object3D object;
-    unsigned short movementFlags;
-    unsigned short unknownAe;
-    fix32_t targetYaw;
+struct Struct_02041378 {
+    Object3D unknown_0_;
+    unsigned short unknown_ac_;
+    unsigned short unknown_ae_;
+    fix32_t unknown_b0_;
 };
 
 // USA: func_02041378
-extern "C" ARM void func_02041378(void *object) {
-    FacingControllerPrefix *controller = (FacingControllerPrefix *) object;
-    fix32_t target                     = controller->targetYaw;
-    fix32_t current                    = controller->object.rotation_.y;
-    if (current == target) {
+extern "C" ARM void func_02041378(void *arg0) {
+    Struct_02041378 *var0 = (Struct_02041378 *) arg0;
+    fix32_t var1                     = var0->unknown_b0_;
+    fix32_t var2                    = var0->unknown_0_.rotation_.y;
+    if (var2 == var1) {
         return;
     }
 
-    fix32_t distance;
-    if (current < target) {
-        distance = target - current;
-        if (distance > 0x3244) {
-            distance -= FIX_2PI;
+    fix32_t var3;
+    if (var2 < var1) {
+        var3 = var1 - var2;
+        if (var3 > 0x3244) {
+            var3 -= FIX_2PI;
         }
-    } else if (target < current) {
-        distance = -(current - target);
-        if (distance < -0x3244) {
-            distance += FIX_2PI;
+    } else if (var1 < var2) {
+        var3 = -(var2 - var1);
+        if (var3 < -0x3244) {
+            var3 += FIX_2PI;
         }
     }
 
-    int turning = 0;
-    if (distance > 0) {
-        if (distance < 0x333) {
-            distance = target;
+    int var4 = 0;
+    if (var3 > 0) {
+        if (var3 < 0x333) {
+            var3 = var1;
         } else {
-            distance = fix32ReduceAngle0To2Pi(current + 0x333);
+            var3 = fix32ReduceAngle0To2Pi(var2 + 0x333);
         }
-        controller->movementFlags |= 2;
-        turning = 1;
-    } else if (distance < 0) {
-        if (-distance < 0x333) {
-            distance = target;
+        var0->unknown_ac_ |= 2;
+        var4 = 1;
+    } else if (var3 < 0) {
+        if (-var3 < 0x333) {
+            var3 = var1;
         } else {
-            distance = fix32ReduceAngle0To2Pi(current - 0x333);
+            var3 = fix32ReduceAngle0To2Pi(var2 - 0x333);
         }
-        controller->movementFlags |= 2;
-        turning = 1;
+        var0->unknown_ac_ |= 2;
+        var4 = 1;
     }
 
-    if (!turning) {
-        controller->movementFlags &= ~2;
+    if (!var4) {
+        var0->unknown_ac_ &= ~2;
     }
-    func_0203db34((unsigned char *) object, controller->object.rotation_.x, distance, controller->object.rotation_.z);
+    func_0203db34((unsigned char *) arg0, var0->unknown_0_.rotation_.x, var3, var0->unknown_0_.rotation_.z);
 }

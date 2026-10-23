@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kOffset150 = 0x144 };
+enum { Enum_020dd200_336 = 0x144 };
 #else
-enum { kOffset150 = 0x150 };
+enum { Enum_020dd200_336 = 0x150 };
 #endif
 
 #include "GameState/GameState.h"
 
-extern "C" int func_02083b00(unsigned char* obj, int index);
+extern "C" int func_02083b00(unsigned char* arg0, int arg1);
 
-struct Pair16_dd200 { unsigned short a; unsigned short b; };
-extern Pair16_dd200 data_020ee712[];
-extern Pair16_dd200 data_020ee710[];
+struct Struct_020ee710 { unsigned short unknown_0_; unsigned short unknown_2_; };
+extern Struct_020ee710 data_020ee712[];
+extern Struct_020ee710 data_020ee710[];
 
 // USA: func_020dd200
-extern "C" ARM int func_020dd200(int combatantId, int category) {
-    int result = 0;
-    GameState* battleStruct = GameState::GetInstance();
-    GameObject* combatant = func_0200ff1c(battleStruct, combatantId);
-    if (combatant == 0) {
-        return result;
+extern "C" ARM int func_020dd200(int arg0, int arg1) {
+    int var0 = 0;
+    GameState* var1 = GameState::GetInstance();
+    GameObject* var2 = func_0200ff1c(var1, arg0);
+    if (var2 == 0) {
+        return var0;
     }
-    unsigned char idx = 0;
-    while (data_020ee710[idx].a != 0xffff) {
-        unsigned int cat2 = data_020ee712[idx].a & 0xff;
-        if (cat2 == category) {
-            if (func_02083b00(*(unsigned char**)((char*)combatant + kOffset150), data_020ee710[idx].a) != 0) {
-                result = 1;
+    unsigned char var3 = 0;
+    while (data_020ee710[var3].unknown_0_ != 0xffff) {
+        unsigned int var4 = data_020ee712[var3].unknown_0_ & 0xff;
+        if (var4 == arg1) {
+            if (func_02083b00(*(unsigned char**)((char*)var2 + Enum_020dd200_336), data_020ee710[var3].unknown_0_) != 0) {
+                var0 = 1;
             }
             break;
         }
-        idx++;
+        var3++;
     }
-    return result;
+    return var0;
 }

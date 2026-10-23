@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct0216d2d0 {
-    char pad[0x21c];
-    int field21c;
-    unsigned char field220;
-    unsigned char field221;
-    char pad2[2];
-    int field224;
-    int field228;
-    int field22c;
-    int field230;
-    int field234;
-    int field238;
-    int field23c;
-    int field240;
-    int field244;
-    int field248;
-    int field24c;
-    int field250;
-    int field254;
-    int field258;
-    int field25c;
-    unsigned char field260[4];
-    unsigned char field264[0x14];
-    char pad3[0x278 - 0x278];
-    unsigned char field278;
-    char pad4[3];
-    int field27c;
+struct Struct_ov000_0216d2d0 {
+    char unknown_0_[0x21c];
+    int unknown_21c_;
+    unsigned char unknown_220_;
+    unsigned char unknown_221_;
+    char unknown_222_[2];
+    int unknown_224_;
+    int unknown_228_;
+    int unknown_22c_;
+    int unknown_230_;
+    int unknown_234_;
+    int unknown_238_;
+    int unknown_23c_;
+    int unknown_240_;
+    int unknown_244_;
+    int unknown_248_;
+    int unknown_24c_;
+    int unknown_250_;
+    int unknown_254_;
+    int unknown_258_;
+    int unknown_25c_;
+    unsigned char unknown_260_[4];
+    unsigned char unknown_264_[0x14];
+    char unknown_278_[0x278 - 0x278];
+    unsigned char unknown1_278_;
+    char unknown_279_[3];
+    int unknown_27c_;
 };
 
-struct Struct020A2CF0;
-extern "C" void func_020a2cf0(Struct020A2CF0*);
+struct Struct_0204a120_2;
+extern "C" void func_020a2cf0(Struct_0204a120_2*);
 extern "C" void func_0202e08c(unsigned int*, unsigned int);
 
 // USA: func_ov000_0216d2d0
-extern "C" ARM void func_ov000_0216d2d0(struct Struct0216d2d0* obj) {
-    func_020a2cf0((Struct020A2CF0*)obj);
-    func_0202e08c((unsigned int*)obj, 8);
-    obj->field21c = 0;
-    obj->field220 = 0;
-    obj->field221 = 0;
-    obj->field224 = -1;
-    obj->field228 = 0x1000;
-    obj->field22c = 0x1000;
-    obj->field230 = 0x1000;
-    obj->field234 = 0x1000;
-    obj->field238 = 0;
-    obj->field23c = 0;
-    obj->field240 = 0;
-    obj->field244 = 0;
-    obj->field248 = 0;
-    obj->field24c = 0;
-    obj->field250 = 0;
-    obj->field254 = 0;
-    obj->field25c = 0;
-    obj->field258 = 0;
-    memset(obj->field260, 0, 4);
-    memset(obj->field264, 0, 0x14);
-    obj->field278 = 0;
-    obj->field27c = 0;
+extern "C" ARM void func_ov000_0216d2d0(struct Struct_ov000_0216d2d0* arg0) {
+    func_020a2cf0((Struct_0204a120_2*)arg0);
+    func_0202e08c((unsigned int*)arg0, 8);
+    arg0->unknown_21c_ = 0;
+    arg0->unknown_220_ = 0;
+    arg0->unknown_221_ = 0;
+    arg0->unknown_224_ = -1;
+    arg0->unknown_228_ = 0x1000;
+    arg0->unknown_22c_ = 0x1000;
+    arg0->unknown_230_ = 0x1000;
+    arg0->unknown_234_ = 0x1000;
+    arg0->unknown_238_ = 0;
+    arg0->unknown_23c_ = 0;
+    arg0->unknown_240_ = 0;
+    arg0->unknown_244_ = 0;
+    arg0->unknown_248_ = 0;
+    arg0->unknown_24c_ = 0;
+    arg0->unknown_250_ = 0;
+    arg0->unknown_254_ = 0;
+    arg0->unknown_25c_ = 0;
+    arg0->unknown_258_ = 0;
+    memset(arg0->unknown_260_, 0, 4);
+    memset(arg0->unknown_264_, 0, 0x14);
+    arg0->unknown1_278_ = 0;
+    arg0->unknown_27c_ = 0;
 }

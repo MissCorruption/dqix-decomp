@@ -1,93 +1,93 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kEnabled = 0x1c4, kActive = 0x1c3 };
+enum { Enum_020652d0_564 = 0x1c4, Enum_020652d0_563 = 0x1c3 };
 #else
-enum { kEnabled = 0x234, kActive = 0x233 };
+enum { Enum_020652d0_564 = 0x234, Enum_020652d0_563 = 0x233 };
 #endif
 
-extern "C" void func_0205c790(char* obj);
+extern "C" void func_0205c790(char* arg0);
 
 struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
+extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
 
-struct Node0205bacc;
-extern "C" void func_0205bacc(struct Node0205bacc* s, int val);
+struct Struct_0205bacc;
+extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
 
-extern "C" void func_0205cb74(char* obj, int value);
+extern "C" void func_0205cb74(char* arg0, int arg1);
 
 #if defined(jpn)
-extern "C" void func_0205dfa8(void* obj);
+extern "C" void func_0205dfa8(void* arg0);
 extern "C" void func_0206cfd4(char*);
 #else
-extern "C" void func_0205cc50(void* obj, int a, int b);
+extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #endif
 
 extern "C" int func_020421a0(void);
-extern "C" void func_0206b7b0(char* base);
+extern "C" void func_0206b7b0(char* arg0);
 
 struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* s, int index);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
 
-extern "C" void func_0205bb04(void* s, int n);
+extern "C" void func_0205bb04(void* arg0, int arg1);
 
-struct ResetBytesAndSetByte0x16Data;
-extern "C" void func_0205c77c(struct ResetBytesAndSetByte0x16Data* p, int val);
+struct Struct_0205c77c;
+extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
 
-extern "C" void func_0205cd28(unsigned char* obj);
+extern "C" void func_0205cd28(unsigned char* arg0);
 
 // JPN: func_020665bc
 // USA: func_020652d0
 #if defined(jpn)
-extern "C" ARM void func_020665bc(char* obj, int a, const char* b, const char* c) {
+extern "C" ARM void func_020665bc(char* arg0, int arg1, const char* arg2, const char* arg3) {
 #else
-extern "C" ARM void func_020652d0(char* obj, int a, int b, int c) {
+extern "C" ARM void func_020652d0(char* arg0, int arg1, int arg2, int arg3) {
 #endif
-    func_0205c790(obj);
+    func_0205c790(arg0);
 
-    obj[0xb1] = 1;
-    obj[0xb0] = 1;
-    func_0205ba68((struct Struct_0205ba68*)(obj + 0x20), 1, 2, 0);
-    func_0205ba68((struct Struct_0205ba68*)(obj + 0x70), 1, 2, 0);
+    arg0[0xb1] = 1;
+    arg0[0xb0] = 1;
+    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x20), 1, 2, 0);
+    func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x70), 1, 2, 0);
 
-    func_0205bacc((struct Node0205bacc*)(obj + 0x20), 2);
-    func_0205bacc((struct Node0205bacc*)(obj + 0x70), 2);
+    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x20), 2);
+    func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x70), 2);
 
 #if defined(jpn)
-    func_0205cb74(obj, (int)b);
-    func_0205cb74(obj, (int)c);
+    func_0205cb74(arg0, (int)arg2);
+    func_0205cb74(arg0, (int)arg3);
 #else
-    func_0205cb74(obj, b);
-    func_0205cb74(obj, c);
+    func_0205cb74(arg0, arg2);
+    func_0205cb74(arg0, arg3);
 #endif
 
-    *(short*)(obj + 0xb4) = 0;
-    *(short*)(obj + 0xb6) = 0;
+    *(short*)(arg0 + 0xb4) = 0;
+    *(short*)(arg0 + 0xb6) = 0;
 
 #if defined(jpn)
-    func_0205dfa8(obj);
+    func_0205dfa8(arg0);
     func_0206cfd4((char*)func_020421a0());
-    func_0205dfa8(obj);
+    func_0205dfa8(arg0);
 #else
-    func_0205cc50(obj, 1, -4);
+    func_0205cc50(arg0, 1, -4);
     func_0206b7b0((char*)func_020421a0());
-    func_0205cc50(obj, 1, -4);
+    func_0205cc50(arg0, 1, -4);
 #endif
 
-    func_0205bcdc((struct Struct_0205bcdc*)(obj + 0x20), a);
-    func_0205bb04(obj + 0x70, a);
+    func_0205bcdc((struct Struct_0205bcdc*)(arg0 + 0x20), arg1);
+    func_0205bb04(arg0 + 0x70, arg1);
 
-    obj[kEnabled] = 1;
-    func_0205c77c((struct ResetBytesAndSetByte0x16Data*)(obj + 0x4), 1);
+    arg0[Enum_020652d0_564] = 1;
+    func_0205c77c((struct Struct_0205c77c*)(arg0 + 0x4), 1);
 
-    obj[kActive] = 1;
-    obj[kEnabled] = 1;
-    func_0205c77c((struct ResetBytesAndSetByte0x16Data*)(obj + 0x4), 1);
+    arg0[Enum_020652d0_563] = 1;
+    arg0[Enum_020652d0_564] = 1;
+    func_0205c77c((struct Struct_0205c77c*)(arg0 + 0x4), 1);
 
-    func_0205cd28((unsigned char*)obj);
+    func_0205cd28((unsigned char*)arg0);
 
-    int bit = (*(volatile unsigned short*)0x4000304 & 0x8000) >> 15;
-    if (bit == 1) {
-        obj[0xb0] = 0;
+    int var0 = (*(volatile unsigned short*)0x4000304 & 0x8000) >> 15;
+    if (var0 == 1) {
+        arg0[0xb0] = 0;
     }
 }

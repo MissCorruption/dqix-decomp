@@ -3,76 +3,76 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-enum { kRegionValue470_298 = 0x298 };
-enum { kRegionValue49C_2C4 = 0x2c4 };
-enum { kRegionValue324_20C = 0x20c };
-enum { kRegionValue488_2B0 = 0x2b0 };
-enum { kRegionValue308_1F0 = 0x1f0 };
-enum { kRegionValue390_278 = 0x278 };
+enum { Enum_ov003_02161344_1136 = 0x298 };
+enum { Enum_ov003_02161344_1180 = 0x2c4 };
+enum { Enum_ov003_02161344_804 = 0x20c };
+enum { Enum_ov003_02161344_1160 = 0x2b0 };
+enum { Enum_ov003_02161344_776 = 0x1f0 };
+enum { Enum_ov003_02161344_912 = 0x278 };
 #else
-enum { kRegionValue470_298 = 0x470 };
-enum { kRegionValue49C_2C4 = 0x49c };
-enum { kRegionValue324_20C = 0x324 };
-enum { kRegionValue488_2B0 = 0x488 };
-enum { kRegionValue308_1F0 = 0x308 };
-enum { kRegionValue390_278 = 0x390 };
+enum { Enum_ov003_02161344_1136 = 0x470 };
+enum { Enum_ov003_02161344_1180 = 0x49c };
+enum { Enum_ov003_02161344_804 = 0x324 };
+enum { Enum_ov003_02161344_1160 = 0x488 };
+enum { Enum_ov003_02161344_776 = 0x308 };
+enum { Enum_ov003_02161344_912 = 0x390 };
 #endif
 
-struct IntField0x23c_020a27c4;
-extern "C" int func_020100f8(char* obj);
-extern "C" int func_020a27c4(struct IntField0x23c_020a27c4* obj);
-extern "C" int func_ov003_02160854(void* obj);
+struct Struct_020676e0;
+extern "C" int func_020100f8(char* arg0);
+extern "C" int func_020a27c4(struct Struct_020676e0* arg0);
+extern "C" int func_ov003_02160854(void* arg0);
 
-struct Ctx02160a68;
-extern "C" int func_ov003_02160a68(struct Ctx02160a68* self);
+struct Struct_ov003_02160a68;
+extern "C" int func_ov003_02160a68(struct Struct_ov003_02160a68* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-struct Obj2081;
-extern "C" void func_0207fdcc(struct Obj2081* obj, int key);
+struct Struct_0207fdcc_2;
+extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 
-struct Obj0208203c;
-extern "C" void func_0208203c(struct Obj0208203c* obj);
+struct Struct_02081f20_2;
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
-struct Obj020e25e8;
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
-extern struct Obj0205eaa0 data_02108760;
+extern struct Struct_02108760 data_02108760;
 
 // USA: func_ov003_02161344
-extern "C" ARM int func_ov003_02161344(char* obj) {
-    *(void**)(obj + kRegionValue470_298) = obj + kRegionValue49C_2C4;
-    int result = 0;
-    int flagB = result;
+extern "C" ARM int func_ov003_02161344(char* arg0) {
+    *(void**)(arg0 + Enum_ov003_02161344_1136) = arg0 + Enum_ov003_02161344_1180;
+    int var0 = 0;
+    int var1 = var0;
 
-    GameState* battle = GameState::GetInstance();
-    struct IntField0x23c_020a27c4* p = (struct IntField0x23c_020a27c4*)func_020100f8((char*)battle);
-    if (p != 0 && ((*((unsigned char*)p + 0x244) & 2) != 0 || func_020a27c4(p) == 0)) {
-        flagB = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
+    GameState* var2 = GameState::GetInstance();
+    struct Struct_020676e0* var3 = (struct Struct_020676e0*)func_020100f8((char*)var2);
+    if (var3 != 0 && ((*((unsigned char*)var3 + 0x244) & 2) != 0 || func_020a27c4(var3) == 0)) {
+        var1 = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
     }
 
-    if (func_ov003_02160854(obj) != 0 || flagB != 0) {
+    if (func_ov003_02160854(arg0) != 0 || var1 != 0) {
         func_0205eaa0(&data_02108760, 1, 0);
-        result = -1;
-        if (*(short*)(obj + kRegionValue49C_2C4) == 0x2c) {
-            result = 1;
+        var0 = -1;
+        if (*(short*)(arg0 + Enum_ov003_02161344_1180) == 0x2c) {
+            var0 = 1;
         }
     } else {
-        if (func_ov003_02160a68((struct Ctx02160a68*)obj) != 0) {
-            result = -1;
+        if (func_ov003_02160a68((struct Struct_ov003_02160a68*)arg0) != 0) {
+            var0 = -1;
         }
     }
 
-    if (result != 0) {
-        func_0207fdcc(*(struct Obj2081**)(obj + kRegionValue324_20C), *(short*)(obj + kRegionValue488_2B0));
-        func_0208203c((struct Obj0208203c*)(obj + kRegionValue308_1F0));
-        *(void**)(obj + kRegionValue470_298) = 0;
+    if (var0 != 0) {
+        func_0207fdcc(*(struct Struct_0207fdcc_2**)(arg0 + Enum_ov003_02161344_804), *(short*)(arg0 + Enum_ov003_02161344_1160));
+        func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_02161344_776));
+        *(void**)(arg0 + Enum_ov003_02161344_1136) = 0;
     }
 
-    if (*(void**)(obj + kRegionValue390_278) != 0 && result != 0) {
-        func_020e25e8(*(struct Obj020e25e8**)(obj + kRegionValue390_278));
+    if (*(void**)(arg0 + Enum_ov003_02161344_912) != 0 && var0 != 0) {
+        func_020e25e8(*(struct Struct_020e25e8**)(arg0 + Enum_ov003_02161344_912));
     }
 
-    return result;
+    return var0;
 }

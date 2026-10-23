@@ -2,141 +2,141 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 extern "C" int func_020d2ff0(char const*);
-extern "C" char* strcpy(char* dst, const char* src);
+extern "C" char* strcpy(char* arg0, const char* arg1);
 
-struct List0208df94;
-struct Copy0208e000;
-extern "C" void func_0208df94(struct List0208df94* list, SafeAllocator* alloc, struct Copy0208e000* src);
+struct Struct_0208dc84;
+struct Struct_0208dc84_2;
+extern "C" void func_0208df94(struct Struct_0208dc84* arg0, SafeAllocator* arg1, struct Struct_0208dc84_2* arg2);
 
-struct Data02108fd4 {
-    unsigned short* field0;
-    unsigned short* field4;
-    void* field8;
-    void* fieldC;
+struct Struct_02108fd4 {
+    unsigned short* unknown_0_;
+    unsigned short* unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
 };
-extern struct Data02108fd4 data_02108fd4;
+extern struct Struct_02108fd4 data_02108fd4;
 
-struct Bits0208dc84 {
-    unsigned short b0 : 2;
-    unsigned short b2 : 7;
+struct Struct_0208dc84_3 {
+    unsigned short unknown_0_0_ : 2;
+    unsigned short unknown_0_2_ : 7;
 #if defined(jpn)
-    unsigned short b9 : 7;
+    unsigned short unknown_1_1_ : 7;
 #else
-    unsigned short b9 : 6;
-    unsigned short b15 : 1;
+    unsigned short unknown_1_1_ : 6;
+    unsigned short unknown_1_7_ : 1;
 #endif
 };
 
-struct Copy0208dc84 {
-    short field0;
-    struct Bits0208dc84 field2;
-    int field4;
-    int field8;
+struct Struct_0208dc84_4 {
+    short unknown_0_;
+    struct Struct_0208dc84_3 unknown_2_;
+    int unknown_4_;
+    int unknown_8_;
 #if defined(jpn)
-    int fieldC;
+    int unknown_c_;
 #endif
 };
 
 // USA: func_0208dc84
-extern "C" ARM int func_0208dc84(char* p
+extern "C" ARM int func_0208dc84(char* arg0
 #if defined(jpn)
-    , int parameterCount
+    , int arg1
 #endif
 ) {
-    struct Copy0208dc84 c;
+    struct Struct_0208dc84_4 var0;
 #if defined(jpn)
-    char* extra;
+    char* var1;
 #endif
-    char* s;
-    void* dst;
+    char* var2;
+    void* var3;
 
-    c.field0 = -1;
-    c.field2.b0 = 0;
-    c.field2.b2 = 0;
-    c.field2.b9 = 0;
+    var0.unknown_0_ = -1;
+    var0.unknown_2_.unknown_0_0_ = 0;
+    var0.unknown_2_.unknown_0_2_ = 0;
+    var0.unknown_2_.unknown_1_1_ = 0;
 #if !defined(jpn)
-    c.field2.b15 = 0;
+    var0.unknown_2_.unknown_1_7_ = 0;
 #endif
-    c.field4 = 0;
-    c.field8 = 0;
+    var0.unknown_4_ = 0;
+    var0.unknown_8_ = 0;
 #if defined(jpn)
-    c.fieldC = 0;
+    var0.unknown_c_ = 0;
 #endif
 
-    if (data_02108fd4.field4 != 0) {
-        unsigned short i;
-        c.field0 = (short)((Script::Parameter*)((struct Variant02030b0c*)p))->ToInt();
-        s = (char*)(void*)((Script::Parameter*)((struct Variant02030b0c*)(p + 8)))->ToString();
-        c.field2.b0 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x10)))->ToInt();
-        c.field2.b9 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x18)))->ToInt();
-        c.field2.b2 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x20)))->ToInt();
+    if (data_02108fd4.unknown_4_ != 0) {
+        unsigned short var4;
+        var0.unknown_0_ = (short)((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
+        var2 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 8)))->ToString();
+        var0.unknown_2_.unknown_0_0_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x10)))->ToInt();
+        var0.unknown_2_.unknown_1_1_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x18)))->ToInt();
+        var0.unknown_2_.unknown_0_2_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x20)))->ToInt();
 #if defined(jpn)
-        extra = 0;
-        if (parameterCount - 5) {
-            extra = (char*)(void*)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x28)))->ToString();
+        var1 = 0;
+        if (arg1 - 5) {
+            var1 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x28)))->ToString();
         }
 #else
-        c.field2.b15 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x28)))->ToInt();
+        var0.unknown_2_.unknown_1_7_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x28)))->ToInt();
 #endif
-        for (i = 0; i < *data_02108fd4.field0; i++) {
-            if (data_02108fd4.field4[i] == c.field2.b9) {
-                if (s != 0) {
-                    dst = ((SafeAllocator*)data_02108fd4.fieldC)->Allocate((unsigned int)(func_020d2ff0(s) + 1));
-                    c.field4 = (int)dst;
-                    if (dst != 0) {
-                        strcpy((char*)dst, s);
+        for (var4 = 0; var4 < *data_02108fd4.unknown_0_; var4++) {
+            if (data_02108fd4.unknown_4_[var4] == var0.unknown_2_.unknown_1_1_) {
+                if (var2 != 0) {
+                    var3 = ((SafeAllocator*)data_02108fd4.unknown_c_)->Allocate((unsigned int)(func_020d2ff0(var2) + 1));
+                    var0.unknown_4_ = (int)var3;
+                    if (var3 != 0) {
+                        strcpy((char*)var3, var2);
                     }
                 }
 #if defined(jpn)
-                if (extra != 0) {
-                    dst = ((SafeAllocator*)data_02108fd4.fieldC)->Allocate((unsigned int)(func_020d2ff0(extra) + 1));
-                    c.field8 = (int)dst;
-                    if (dst != 0) {
-                        strcpy((char*)dst, extra);
+                if (var1 != 0) {
+                    var3 = ((SafeAllocator*)data_02108fd4.unknown_c_)->Allocate((unsigned int)(func_020d2ff0(var1) + 1));
+                    var0.unknown_8_ = (int)var3;
+                    if (var3 != 0) {
+                        strcpy((char*)var3, var1);
                     }
                 }
 #endif
-                func_0208df94((struct List0208df94*)data_02108fd4.field8,
-                                                (SafeAllocator*)data_02108fd4.fieldC,
-                                                (struct Copy0208e000*)&c);
+                func_0208df94((struct Struct_0208dc84*)data_02108fd4.unknown_8_,
+                                                (SafeAllocator*)data_02108fd4.unknown_c_,
+                                                (struct Struct_0208dc84_2*)&var0);
                 break;
             }
         }
     } else {
-        c.field0 = (short)((Script::Parameter*)((struct Variant02030b0c*)p))->ToInt();
-        s = (char*)(void*)((Script::Parameter*)((struct Variant02030b0c*)(p + 8)))->ToString();
-        if (s != 0) {
-            dst = ((SafeAllocator*)data_02108fd4.fieldC)->Allocate((unsigned int)(func_020d2ff0(s) + 1));
-            c.field4 = (int)dst;
-            if (dst != 0) {
-                strcpy((char*)dst, s);
+        var0.unknown_0_ = (short)((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
+        var2 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 8)))->ToString();
+        if (var2 != 0) {
+            var3 = ((SafeAllocator*)data_02108fd4.unknown_c_)->Allocate((unsigned int)(func_020d2ff0(var2) + 1));
+            var0.unknown_4_ = (int)var3;
+            if (var3 != 0) {
+                strcpy((char*)var3, var2);
             }
         }
-        c.field2.b0 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x10)))->ToInt();
-        c.field2.b9 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x18)))->ToInt();
-        c.field2.b2 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x20)))->ToInt();
+        var0.unknown_2_.unknown_0_0_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x10)))->ToInt();
+        var0.unknown_2_.unknown_1_1_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x18)))->ToInt();
+        var0.unknown_2_.unknown_0_2_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x20)))->ToInt();
 #if defined(jpn)
-        extra = 0;
-        if (parameterCount - 5) {
-            extra = (char*)(void*)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x28)))->ToString();
+        var1 = 0;
+        if (arg1 - 5) {
+            var1 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x28)))->ToString();
         }
 #else
-        c.field2.b15 = (unsigned short)((Script::Parameter*)((struct Variant02030b0c*)(p + 0x28)))->ToInt();
+        var0.unknown_2_.unknown_1_7_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 0x28)))->ToInt();
 #endif
 #if defined(jpn)
-        if (extra != 0) {
-            dst = ((SafeAllocator*)data_02108fd4.fieldC)->Allocate((unsigned int)(func_020d2ff0(extra) + 1));
-            c.field8 = (int)dst;
-            if (dst != 0) {
-                strcpy((char*)dst, extra);
+        if (var1 != 0) {
+            var3 = ((SafeAllocator*)data_02108fd4.unknown_c_)->Allocate((unsigned int)(func_020d2ff0(var1) + 1));
+            var0.unknown_8_ = (int)var3;
+            if (var3 != 0) {
+                strcpy((char*)var3, var1);
             }
         }
 #endif
-        func_0208df94((struct List0208df94*)data_02108fd4.field8,
-                                        (SafeAllocator*)data_02108fd4.fieldC,
-                                        (struct Copy0208e000*)&c);
+        func_0208df94((struct Struct_0208dc84*)data_02108fd4.unknown_8_,
+                                        (SafeAllocator*)data_02108fd4.unknown_c_,
+                                        (struct Struct_0208dc84_2*)&var0);
     }
     return 1;
 }

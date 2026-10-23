@@ -1,57 +1,57 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 #if defined(jpn)
-enum { kRegioned = 0xe9 };
-enum { kRegionef = 0xeb };
-enum { kRegionf0 = 0xec };
-enum { kRegion10c = 0x11a };
-enum { kRegion10d = 0x11b };
-enum { kRegion124 = 0x130 };
+enum { Enum_ov003_02173508_237 = 0xe9 };
+enum { Enum_ov003_02173508_235 = 0xeb };
+enum { Enum_ov003_02173508_240 = 0xec };
+enum { Enum_ov003_02173508_268 = 0x11a };
+enum { Enum_ov003_02173508_269 = 0x11b };
+enum { Enum_ov003_02173508_292 = 0x130 };
 #else
-enum { kRegioned = 0xed };
-enum { kRegionef = 0xef };
-enum { kRegionf0 = 0xf0 };
-enum { kRegion10c = 0x10c };
-enum { kRegion10d = 0x10d };
-enum { kRegion124 = 0x124 };
+enum { Enum_ov003_02173508_237 = 0xed };
+enum { Enum_ov003_02173508_239 = 0xef };
+enum { Enum_ov003_02173508_240 = 0xf0 };
+enum { Enum_ov003_02173508_268 = 0x10c };
+enum { Enum_ov003_02173508_269 = 0x10d };
+enum { Enum_ov003_02173508_292 = 0x124 };
 #endif
 
 extern "C" void func_020dc2bc(void);
-struct SubBgControlBackup02074b64;
-extern "C" void func_02074b64(struct SubBgControlBackup02074b64* obj);
+struct Struct_02074b64;
+extern "C" void func_02074b64(struct Struct_02074b64* arg0);
 
-struct S02173508 {
-    char pad_f0[kRegioned];
-    unsigned char field_ed;
-    unsigned char pad_ee;
-    unsigned char field_ef;
-    char pad_100[kRegion10c - kRegionf0];
-    char field10c[1];
-    char pad_10d[kRegion124 - kRegion10d];
-    int field_124;
+struct Struct_ov003_02173508 {
+    char unknown_0_[Enum_ov003_02173508_237];
+    unsigned char unknown_ed_;
+    unsigned char unknown_ee_;
+    unsigned char unknown_ef_;
+    char unknown_f0_[Enum_ov003_02173508_268 - Enum_ov003_02173508_240];
+    char unknown_10c_[1];
+    char unknown_10d_[Enum_ov003_02173508_292 - Enum_ov003_02173508_269];
+    int unknown_124_;
 };
 
 // USA: func_ov003_02173508
-extern "C" ARM void func_ov003_02173508(S02173508* obj) {
+extern "C" ARM void func_ov003_02173508(Struct_ov003_02173508* arg0) {
     (int)GetGameResources();
-    if (obj->field_ef != 0) return;
+    if (arg0->unknown_ef_ != 0) return;
 
     func_020dc2bc();
-    func_02074b64((struct SubBgControlBackup02074b64*)((char*)obj + kRegion10c));
+    func_02074b64((struct Struct_02074b64*)((char*)arg0 + Enum_ov003_02173508_268));
 
-    volatile unsigned int* reg = (volatile unsigned int*)0x4001000;
-    obj->field_124 = (*reg & 0x1f00) >> 8;
-    *reg = (*reg & ~0x1f00) | 0x1300;
+    volatile unsigned int* var0 = (volatile unsigned int*)0x4001000;
+    arg0->unknown_124_ = (*var0 & 0x1f00) >> 8;
+    *var0 = (*var0 & ~0x1f00) | 0x1300;
 
-    volatile unsigned short* bg = (volatile unsigned short*)((char*)reg + 0x8);
-    bg[0] = bg[0] & ~3;
-    bg[1] = (bg[1] & ~3) | 1;
-    bg[2] = (bg[2] & ~3) | 2;
-    bg[3] = (bg[3] & ~3) | 3;
+    volatile unsigned short* var1 = (volatile unsigned short*)((char*)var0 + 0x8);
+    var1[0] = var1[0] & ~3;
+    var1[1] = (var1[1] & ~3) | 1;
+    var1[2] = (var1[2] & ~3) | 2;
+    var1[3] = (var1[3] & ~3) | 3;
 
-    bg[0] = (bg[0] & 0x43) | 0xe00;
-    bg[1] = (bg[1] & 0x43) | 0xf00;
+    var1[0] = (var1[0] & 0x43) | 0xe00;
+    var1[1] = (var1[1] & 0x43) | 0xf00;
 
-    obj->field_ed = 1;
-    obj->field_ef = 0;
+    arg0->unknown_ed_ = 1;
+    arg0->unknown_ef_ = 0;
 }

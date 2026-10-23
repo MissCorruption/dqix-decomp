@@ -8,20 +8,20 @@ extern const char data_ov017_021d8489[];
 extern const char data_ov017_021d848d[];
 #endif
 
-struct Data_ov017_021d8438 {
-    unsigned char byte0;
-    unsigned char byte1;
-    unsigned char byte2;
-    unsigned char pad3;
-    int fields[];
+struct Struct_ov017_021d8438 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    int unknown_4_[];
 };
-extern struct Data_ov017_021d8438 data_ov017_021d8438;
+extern struct Struct_ov017_021d8438 data_ov017_021d8438;
 
-struct Data_ov017_021d7c54 {
-    signed char byte0;
-    signed char byte1;
+struct Struct_ov017_021d7c54_5 {
+    signed char unknown_0_;
+    signed char unknown_1_;
 };
-extern struct Data_ov017_021d7c54 data_ov017_021d7c54;
+extern struct Struct_ov017_021d7c54_5 data_ov017_021d7c54;
 
 #if defined(jpn)
 extern "C" Script::OpcodeLookupEntry data_ov017_021d8434[];
@@ -30,73 +30,73 @@ extern "C" Script::OpcodeLookupEntry data_ov017_021d7c58[];
 #endif
 
 // USA: func_ov017_021ba810
-extern "C" ARM int func_ov017_021ba810(const void* code, unsigned int length, int id, int a3, int a4, int a5, int a6) {
+extern "C" ARM int func_ov017_021ba810(const void* arg0, unsigned int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 #if defined(jpn)
-    NarcHandle archive;
-    NitroVM file;
-    char path[0x50];
+    NarcHandle var0;
+    NitroVM var1;
+    char var2[0x50];
 #endif
-    Script script;
+    Script var3;
 #if defined(jpn)
-    char recordName[4];
+    char var4[4];
 #endif
-    if (id < 0 || id > 999) {
+    if (arg2 < 0 || arg2 > 999) {
         return 0;
     }
 #if defined(jpn)
-    if (!archive.Initialize(data_ov017_021d8489, static_cast<const unsigned char*>(code))) return 0;
-    NitroVM_Initialize(&file);
-    unsigned int scriptLength;
-    bool found;
-    unsigned int fileIndex = 0;
-    sprintf(recordName, data_ov017_021d848d, id);
-    found = false;
-    while (PrepareReadFileInNARCByID(&file, &archive, fileIndex)) {
-        NitroVM_WriteOutFilePath(&file, path, sizeof(path));
-        scriptLength = file.fileInfo.endOffset - file.fileInfo.startOffset;
-        NitroVM_FinishRead(&file);
-        if (strstr(path, recordName)) {
-            found = true;
+    if (!var0.Initialize(data_ov017_021d8489, static_cast<const unsigned char*>(arg0))) return 0;
+    NitroVM_Initialize(&var1);
+    unsigned int var5;
+    bool var6;
+    unsigned int var7 = 0;
+    sprintf(var4, data_ov017_021d848d, arg2);
+    var6 = false;
+    while (PrepareReadFileInNARCByID(&var1, &var0, var7)) {
+        NitroVM_WriteOutFilePath(&var1, var2, sizeof(var2));
+        var5 = var1.fileInfo.unknown_8_ - var1.fileInfo.unknown_4_;
+        NitroVM_FinishRead(&var1);
+        if (strstr(var2, var4)) {
+            var6 = true;
             break;
         }
-        ++fileIndex;
+        ++var7;
     }
-    if (!found) {
-        archive.Destroy();
+    if (!var6) {
+        var0.Destroy();
         return 0;
     }
-    code = archive.GetFileByIndex(fileIndex);
+    arg0 = var0.GetFileByIndex(var7);
 #endif
-    data_ov017_021d8438.fields[0] = a3;
-    data_ov017_021d8438.fields[6] = id;
-    data_ov017_021d8438.fields[1] = a4;
-    data_ov017_021d8438.fields[3] = 0;
-    data_ov017_021d8438.fields[4] = 0;
-    data_ov017_021d8438.fields[5] = a5;
-    data_ov017_021d8438.fields[7] = a6;
-    data_ov017_021d8438.byte2 = 0;
-    data_ov017_021d7c54.byte0 = -1;
-    data_ov017_021d8438.byte0 = 0;
-    data_ov017_021d8438.byte1 = 0;
-    data_ov017_021d8438.fields[2] = 0;
-    data_ov017_021d7c54.byte1 = -1;
-    script.Initialize();
+    data_ov017_021d8438.unknown_4_[0] = arg3;
+    data_ov017_021d8438.unknown_4_[6] = arg2;
+    data_ov017_021d8438.unknown_4_[1] = arg4;
+    data_ov017_021d8438.unknown_4_[3] = 0;
+    data_ov017_021d8438.unknown_4_[4] = 0;
+    data_ov017_021d8438.unknown_4_[5] = arg5;
+    data_ov017_021d8438.unknown_4_[7] = arg6;
+    data_ov017_021d8438.unknown_2_ = 0;
+    data_ov017_021d7c54.unknown_0_ = -1;
+    data_ov017_021d8438.unknown_0_ = 0;
+    data_ov017_021d8438.unknown_1_ = 0;
+    data_ov017_021d8438.unknown_4_[2] = 0;
+    data_ov017_021d7c54.unknown_1_ = -1;
+    var3.Initialize();
 #if defined(jpn)
-    script.SetOpcodeLookup(data_ov017_021d8434);
+    var3.SetOpcodeLookup(data_ov017_021d8434);
 #else
-    script.SetOpcodeLookup(data_ov017_021d7c58);
+    var3.SetOpcodeLookup(data_ov017_021d7c58);
 #endif
 #if defined(jpn)
-    script.Load(code, scriptLength);
+    var3.Load(arg0, var5);
 #else
-    script.Load(code, length);
+    var3.Load(arg0, arg1);
 #endif
-    script.Execute();
+    var3.Execute();
 #if defined(jpn)
-    archive.Destroy();
+    var0.Destroy();
 #endif
-    if (data_ov017_021d8438.fields[3] != 0) {
-        return data_ov017_021d8438.fields[3];
+    if (data_ov017_021d8438.unknown_4_[3] != 0) {
+        return data_ov017_021d8438.unknown_4_[3];
     }
-    return data_ov017_021d8438.fields[4];
+    return data_ov017_021d8438.unknown_4_[4];
 }

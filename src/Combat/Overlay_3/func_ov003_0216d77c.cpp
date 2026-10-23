@@ -2,30 +2,30 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue12FC_118C = 0x118c };
-enum { kRegionValue1310_11A0 = 0x11a0 };
-enum { kRegionValue126C_10FC = 0x10fc };
+enum { Enum_ov003_0216d77c_4860 = 0x118c };
+enum { Enum_ov003_0216d77c_4880 = 0x11a0 };
+enum { Enum_ov003_0216d77c_4716 = 0x10fc };
 #else
-enum { kRegionValue12FC_118C = 0x12fc };
-enum { kRegionValue1310_11A0 = 0x1310 };
-enum { kRegionValue126C_10FC = 0x126c };
+enum { Enum_ov003_0216d77c_4860 = 0x12fc };
+enum { Enum_ov003_0216d77c_4880 = 0x1310 };
+enum { Enum_ov003_0216d77c_4716 = 0x126c };
 #endif
 
 
-extern "C" void func_0205a494(void* obj);
+extern "C" void func_0205a494(void* arg0);
 
 // USA: func_ov003_0216d77c
-extern "C" ARM void func_ov003_0216d77c(void* obj) {
-    unsigned char* o = (unsigned char*)obj;
+extern "C" ARM void func_ov003_0216d77c(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 
-    if (((SafeAllocator*)(o + kRegionValue12FC_118C))->GetSignedAllocator() != NULL) {
-        ((SafeAllocator*)(o + kRegionValue12FC_118C))->Destroy();
+    if (((SafeAllocator*)(var0 + Enum_ov003_0216d77c_4860))->GetSignedAllocator() != NULL) {
+        ((SafeAllocator*)(var0 + Enum_ov003_0216d77c_4860))->Destroy();
     }
-    if (((SafeAllocator*)(o + kRegionValue1310_11A0))->GetSignedAllocator() != NULL) {
-        ((SafeAllocator*)(o + kRegionValue1310_11A0))->Destroy();
+    if (((SafeAllocator*)(var0 + Enum_ov003_0216d77c_4880))->GetSignedAllocator() != NULL) {
+        ((SafeAllocator*)(var0 + Enum_ov003_0216d77c_4880))->Destroy();
     }
-    func_0205a494(o + kRegionValue126C_10FC);
+    func_0205a494(var0 + Enum_ov003_0216d77c_4716);
 
-    volatile unsigned int* dispcnt = (volatile unsigned int*)0x4000000;
-    *dispcnt = (*dispcnt & ~0x1f00) | ((unsigned int)*(int*)o << 8);
+    volatile unsigned int* var1 = (volatile unsigned int*)0x4000000;
+    *var1 = (*var1 & ~0x1f00) | ((unsigned int)*(int*)var0 << 8);
 }

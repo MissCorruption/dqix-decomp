@@ -2,26 +2,26 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kManagerOffset = 0xe60, kEntryCount = 3 };
+enum { Enum_ov005_02159c24_3684 = 0xe60, Enum_ov005_02159c24_4 = 3 };
 #else
-enum { kManagerOffset = 0xe64, kEntryCount = 4 };
+enum { Enum_ov005_02159c24_3684 = 0xe64, Enum_ov005_02159c24_4 = 4 };
 #endif
 
-struct EntryManager020e2490;
-extern "C" void func_020e2490(EntryManager020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
+struct Struct_020e2490;
+extern "C" void func_020e2490(Struct_020e2490*, int, int, void*, SafeAllocator*, int, unsigned char);
 
-struct Obj02159c24 {
-    char unknown0[0x280];
-    SafeAllocator promptAllocator;
-    char unknownAfterAllocator[kManagerOffset - 0x294];
-    EntryManager020e2490* yesNo;
-    void* yesNoState;
+struct Struct_ov005_02159c24 {
+    char unknown_0_[0x280];
+    SafeAllocator unknown_280_;
+    char unknown_294_[Enum_ov005_02159c24_3684 - 0x294];
+    Struct_020e2490* unknown_e64_;
+    void* unknown_e68_;
 };
 
 // USA: func_ov005_02159c24
-extern "C" ARM void func_ov005_02159c24(Obj02159c24* menu, void* entriesAddress, void* stateAddress) {
-    menu->promptAllocator.Reset();
-    menu->yesNo = (EntryManager020e2490*)menu->promptAllocator.Allocate(0x24);
-    func_020e2490(menu->yesNo, 0, 1, (void*)entriesAddress, &menu->promptAllocator, kEntryCount, 0x40);
-    menu->yesNoState = (void*)stateAddress;
+extern "C" ARM void func_ov005_02159c24(Struct_ov005_02159c24* arg0, void* arg1, void* arg2) {
+    arg0->unknown_280_.Reset();
+    arg0->unknown_e64_ = (Struct_020e2490*)arg0->unknown_280_.Allocate(0x24);
+    func_020e2490(arg0->unknown_e64_, 0, 1, (void*)arg1, &arg0->unknown_280_, Enum_ov005_02159c24_4, 0x40);
+    arg0->unknown_e68_ = (void*)arg2;
 }

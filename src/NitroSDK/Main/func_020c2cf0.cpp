@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct DivHw020c2cf0 {
-    volatile unsigned short cnt;
-    unsigned char _pad[0xe];
-    volatile unsigned int numerLo;
-    volatile unsigned int numerHi;
-    volatile unsigned int denomLo;
-    volatile unsigned int denomHi;
+struct Struct_020c2cf0 {
+    volatile unsigned short unknown_0_;
+    unsigned char unknown_2_[0xe];
+    volatile unsigned int unknown_10_;
+    volatile unsigned int unknown_14_;
+    volatile unsigned int unknown_18_;
+    volatile unsigned int unknown_1c_;
 };
 
 // USA: func_020c2cf0
-extern "C" ARM void fix32_QueueComputeQuotient(unsigned int numerHi, unsigned int denomLo) {
-    struct DivHw020c2cf0* div = (struct DivHw020c2cf0*)0x4000280;
-    div->cnt = 1;
-    div->numerLo = 0;
-    div->numerHi = numerHi;
-    div->denomLo = denomLo;
-    div->denomHi = 0;
+extern "C" ARM void fix32_QueueComputeQuotient(unsigned int arg0, unsigned int arg1) {
+    struct Struct_020c2cf0* var0 = (struct Struct_020c2cf0*)0x4000280;
+    var0->unknown_0_ = 1;
+    var0->unknown_10_ = 0;
+    var0->unknown_14_ = arg0;
+    var0->unknown_18_ = arg1;
+    var0->unknown_1c_ = 0;
 }

@@ -9,143 +9,143 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct PackedNibbleArray0206e120;
-struct PackedNibbleArray0206e260;
-struct PackedNibbleArray0206e2dc;
-extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
-extern "C" int func_0206e260(PackedNibbleArray0206e260*, int);
-extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc*, int);
-extern "C" PackedNibbleArray0206e120* func_0205ec34();
-static inline int NibbleIs0206cf58(PackedNibbleArray0206e120* table, int slot, int value)
+struct Struct_0205faf4_3;
+struct Struct_0205faf4_4;
+struct Struct_0205faf4_13;
+extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+extern "C" int func_0206e260(Struct_0205faf4_4*, int);
+extern "C" int func_0206e2dc(Struct_0205faf4_13*, int);
+extern "C" Struct_0205faf4_3* func_0205ec34();
+static inline int inline_0206cf58(Struct_0205faf4_3* arg0, int arg1, int arg2)
 {
-    return func_0206e120(table, slot) == value;
+    return func_0206e120(arg0, arg1) == arg2;
 }
-struct WorkGlobals0206cf58
+struct Struct_02108cec_5
 {
-    unsigned char day;
-    unsigned char month;
-    unsigned char year;
-    char pad3;
-    short slot;
-    short id;
-    short state;
-    unsigned short sequence;
-    unsigned short expected;
-    char pade[2];
-    void* receiver;
-    SafeAllocator* allocator;
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    char unknown_3_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    char unknown_e_[2];
+    void* unknown_10_;
+    SafeAllocator* unknown_14_;
 };
-extern WorkGlobals0206cf58 data_02108cec;
+extern Struct_02108cec_5 data_02108cec;
 
 // USA: func_0206cf58
-extern "C" ARM int func_0206cf58(Script::Parameter* params, int count)
+extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
 {
-    PackedNibbleArray0206e120* table;
-    Rec0206bf2c* record;
-    data_02108cec.sequence++;
-    int slot = params[0].ToInt();
-    int mode = params[1].ToInt();
-    int startYear = params[2].ToInt();
-    int startMonth = params[3].ToInt();
-    int startDay = params[4].ToInt();
-    int endYear = params[5].ToInt();
-    int endMonth = params[6].ToInt();
-    int endDay = params[7].ToInt();
-    int daytime = params[8].ToInt();
-    int expected = params[9].ToInt();
-    int id = params[10].ToInt();
-    if (data_02108cec.id != id)
+    Struct_0205faf4_3* var0;
+    Struct_0206bf2c* var1;
+    data_02108cec.unknown_a_++;
+    int var2 = arg0[0].ToInt();
+    int var3 = arg0[1].ToInt();
+    int var4 = arg0[2].ToInt();
+    int var5 = arg0[3].ToInt();
+    int var6 = arg0[4].ToInt();
+    int var7 = arg0[5].ToInt();
+    int var8 = arg0[6].ToInt();
+    int var9 = arg0[7].ToInt();
+    int var10 = arg0[8].ToInt();
+    int var11 = arg0[9].ToInt();
+    int var12 = arg0[10].ToInt();
+    if (data_02108cec.unknown_6_ != var12)
     {
-        data_02108cec.id = id;
-        data_02108cec.state = -1;
-        data_02108cec.slot = -1;
+        data_02108cec.unknown_6_ = var12;
+        data_02108cec.unknown_8_ = -1;
+        data_02108cec.unknown_4_ = -1;
     }
-    table = func_0205ec34();
-    if (data_02108cec.slot != slot && data_02108cec.slot > -1)
+    var0 = func_0205ec34();
+    if (data_02108cec.unknown_4_ != var2 && data_02108cec.unknown_4_ > -1)
     {
-        if (NibbleIs0206cf58(table, slot, 1) || NibbleIs0206cf58(table, slot, 2))
+        if (inline_0206cf58(var0, var2, 1) || inline_0206cf58(var0, var2, 2))
         {
         }
-        else if (NibbleIs0206cf58(table, data_02108cec.slot, 3) && NibbleIs0206cf58(table, slot, 3))
+        else if (inline_0206cf58(var0, data_02108cec.unknown_4_, 3) && inline_0206cf58(var0, var2, 3))
         {
-            if (data_02108cec.slot > slot)
+            if (data_02108cec.unknown_4_ > var2)
                 return 1;
         }
     }
-    switch (mode)
+    switch (var3)
     {
     case -1:
-        if (!NibbleIs0206cf58(table, slot, 0)) return 1;
+        if (!inline_0206cf58(var0, var2, 0)) return 1;
         break;
     case 3:
-        if (!NibbleIs0206cf58(table, slot, 1)) return 1;
+        if (!inline_0206cf58(var0, var2, 1)) return 1;
         break;
     case 0:
-        if (!NibbleIs0206cf58(table, slot, 2)) return 1;
+        if (!inline_0206cf58(var0, var2, 2)) return 1;
         break;
     case 1:
-        if (!func_0206e260((PackedNibbleArray0206e260*)table, slot)) return 1;
+        if (!func_0206e260((Struct_0205faf4_4*)var0, var2)) return 1;
         break;
     case 2:
-        if (!NibbleIs0206cf58(table, slot, 3)) return 1;
+        if (!inline_0206cf58(var0, var2, 3)) return 1;
         break;
     case 4:
-        if (func_0206e2dc((PackedNibbleArray0206e2dc*)table, slot) && NibbleIs0206cf58(table, slot, 0))
+        if (func_0206e2dc((Struct_0205faf4_13*)var0, var2) && inline_0206cf58(var0, var2, 0))
         {
         }
         else return 1;
         break;
     }
-    int lastDate = endDay + (endYear * 1000 + endMonth * 10);
-    int date = data_02108cec.day + (data_02108cec.year * 1000 + (short)data_02108cec.month * (short)10);
-    int firstDate = startDay + (startYear * 1000 + startMonth * 10);
-    if (date < firstDate || lastDate < date)
+    int var13 = var9 + (var7 * 1000 + var8 * 10);
+    int var14 = data_02108cec.unknown_0_ + (data_02108cec.unknown_2_ * 1000 + (short)data_02108cec.unknown_1_ * (short)10);
+    int var15 = var6 + (var4 * 1000 + var5 * 10);
+    if (var14 < var15 || var13 < var14)
         return 1;
-    GameState* game = GameState::GetInstance();
-    if (daytime == 1)
+    GameState* var16 = GameState::GetInstance();
+    if (var10 == 1)
     {
-        if (game->IsMorningDayOrEvening())
+        if (var16->IsMorningDayOrEvening())
             return 1;
     }
-    else if (daytime == 0)
+    else if (var10 == 0)
     {
-        if (!game->IsMorningDayOrEvening())
+        if (!var16->IsMorningDayOrEvening())
             return 1;
     }
-    if (expected != data_02108cec.expected)
+    if (var11 != data_02108cec.unknown_c_)
     {
-        func_0206dd68(data_02108cec.receiver, id);
+        func_0206dd68(data_02108cec.unknown_10_, var12);
         return 1;
     }
-    record = (Rec0206bf2c*)data_02108cec.allocator->Allocate(0x78);
-    if (record == NULL)
+    var1 = (Struct_0206bf2c*)data_02108cec.unknown_14_->Allocate(0x78);
+    if (var1 == NULL)
         return 0;
-    func_0206bf2c(record);
-    record->field46 = slot;
-    record->field4 = startYear;
-    record->field5 = startMonth;
-    record->field6 = startDay;
-    record->field7 = endYear;
-    record->field8 = endMonth;
-    record->pad9 = endDay;
-    record->flagsA_b0 = (unsigned char)daytime;
-    record->field2 = expected;
-    record->field0 = id;
-    if (data_02108cec.id != id)
-        data_02108cec.id = id;
-    if (count < 12)
+    func_0206bf2c(var1);
+    var1->unknown_46_ = var2;
+    var1->unknown_4_ = var4;
+    var1->unknown_5_ = var5;
+    var1->unknown_6_ = var6;
+    var1->unknown_7_ = var7;
+    var1->unknown_8_ = var8;
+    var1->unknown_9_ = var9;
+    var1->unknown_a_0_ = (unsigned char)var10;
+    var1->unknown_2_ = var11;
+    var1->unknown_0_ = var12;
+    if (data_02108cec.unknown_6_ != var12)
+        data_02108cec.unknown_6_ = var12;
+    if (arg1 < 12)
     {
-        func_0206dd68(data_02108cec.receiver, id);
-        data_02108cec.slot = slot;
+        func_0206dd68(data_02108cec.unknown_10_, var12);
+        data_02108cec.unknown_4_ = var2;
         return 1;
     }
-    Script::Parameter* next = params[11].ToVec3fix((Vector3fix*)record->vec);
-    record->field1c = (int)(4096.0f * next->ToFloat());
-    if (count > 15)
-        record->field1e = next[1].ToInt();
-    record->field44 = data_02108cec.sequence;
-    record->flagsA_b3 = 1;
-    func_0206db48(data_02108cec.receiver, record);
-    data_02108cec.slot = slot;
+    Script::Parameter* var17 = arg0[11].ToVec3fix((Vector3fix*)var1->unknown1_10_);
+    var1->unknown_1c_ = (int)(4096.0f * var17->ToFloat());
+    if (arg1 > 15)
+        var1->unknown_1e_ = var17[1].ToInt();
+    var1->unknown_44_ = data_02108cec.unknown_a_;
+    var1->unknown_a_6_ = 1;
+    func_0206db48(data_02108cec.unknown_10_, var1);
+    data_02108cec.unknown_4_ = var2;
     return 1;
 }

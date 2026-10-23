@@ -2,65 +2,65 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue4A4_2CC = 0x2cc };
-enum { kRegionValue400_200 = 0x200 };
-enum { kRegionValue82_AA = 0xaa };
-enum { kRegionValue4A3_2CB = 0x2cb };
-enum { kRegionValue84_AC = 0xac };
-enum { kRegionValue86_AE = 0xae };
-enum { kRegionValue80_A8 = 0xa8 };
-enum { kRegionValue464_28C = 0x28c };
+enum { Enum_ov003_02163e4c_1188 = 0x2cc };
+enum { Enum_ov003_02163e4c_1024 = 0x200 };
+enum { Enum_ov003_02163e4c_130 = 0xaa };
+enum { Enum_ov003_02163e4c_1187 = 0x2cb };
+enum { Enum_ov003_02163e4c_132 = 0xac };
+enum { Enum_ov003_02163e4c_134 = 0xae };
+enum { Enum_ov003_02163e4c_128 = 0xa8 };
+enum { Enum_ov003_02163e4c_1124 = 0x28c };
 #else
-enum { kRegionValue4A4_2CC = 0x4a4 };
-enum { kRegionValue400_200 = 0x400 };
-enum { kRegionValue82_AA = 0x82 };
-enum { kRegionValue4A3_2CB = 0x4a3 };
-enum { kRegionValue84_AC = 0x84 };
-enum { kRegionValue86_AE = 0x86 };
-enum { kRegionValue80_A8 = 0x80 };
-enum { kRegionValue464_28C = 0x464 };
+enum { Enum_ov003_02163e4c_1188 = 0x4a4 };
+enum { Enum_ov003_02163e4c_1024 = 0x400 };
+enum { Enum_ov003_02163e4c_130 = 0x82 };
+enum { Enum_ov003_02163e4c_1187 = 0x4a3 };
+enum { Enum_ov003_02163e4c_132 = 0x84 };
+enum { Enum_ov003_02163e4c_134 = 0x86 };
+enum { Enum_ov003_02163e4c_128 = 0x80 };
+enum { Enum_ov003_02163e4c_1124 = 0x464 };
 #endif
 
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_ov017_021b6bb8(int combatantId);
-extern "C" int func_ov017_021b6d60(int a, void* buf);
-extern "C" void func_02086778(void* map, void* buf, int c, int d);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_ov017_021b6bb8(int arg0);
+extern "C" int func_ov017_021b6d60(int arg0, void* arg1);
+extern "C" void func_02086778(void* arg0, void* arg1, int arg2, int arg3);
 
 // USA: func_ov003_02163e4c
-extern "C" ARM void func_ov003_02163e4c(char* obj) {
-    unsigned char step = obj[kRegionValue4A4_2CC];
-    if (step == 0) {
-        char buf[0x23c];
-        GameState* bs = GameState::GetInstance();
-        void* map = func_02010828(bs);
-        short id = *(short*)(obj + kRegionValue400_200 + kRegionValue82_AA);
-        GameObject* c = bs->GetPartyMemberByIndex(id);
-        if (c == NULL) {
-            obj[kRegionValue4A3_2CB] = 0x10;
+extern "C" ARM void func_ov003_02163e4c(char* arg0) {
+    unsigned char var0 = arg0[Enum_ov003_02163e4c_1188];
+    if (var0 == 0) {
+        char var1[0x23c];
+        GameState* var2 = GameState::GetInstance();
+        void* var3 = func_02010828(var2);
+        short var4 = *(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_130);
+        GameObject* var5 = var2->GetPartyMemberByIndex(var4);
+        if (var5 == NULL) {
+            arg0[Enum_ov003_02163e4c_1187] = 0x10;
             return;
         }
-        unsigned char* field150 = (unsigned char*)func_02053c6c((unsigned char*)c);
-        if (field150 == NULL) {
-            obj[kRegionValue4A3_2CB] = 0x10;
+        unsigned char* var6 = (unsigned char*)func_02053c6c((unsigned char*)var5);
+        if (var6 == NULL) {
+            arg0[Enum_ov003_02163e4c_1187] = 0x10;
             return;
         }
-        *(short*)(obj + kRegionValue400_200 + kRegionValue84_AC) = 0xd;
-        short v54 = *(short*)(field150 + 0x400 + 0x54);
-        if (v54 > 0) {
-            *(short*)(obj + kRegionValue400_200 + kRegionValue86_AE) = 0xe;
+        *(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_132) = 0xd;
+        short var7 = *(short*)(var6 + 0x400 + 0x54);
+        if (var7 > 0) {
+            *(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_134) = 0xe;
         }
-        func_ov017_021b6bb8(*(short*)(obj + kRegionValue400_200 + kRegionValue82_AA));
-        func_ov017_021b6d60(*(short*)(obj + kRegionValue400_200 + kRegionValue82_AA), buf);
-        func_02086778(map, buf, 0, 0);
-        short sv = (buf[0] << 26) >> 26;
-        *(short*)(obj + kRegionValue400_200 + kRegionValue80_A8) = sv;
-        obj[kRegionValue4A4_2CC] = (unsigned char)obj[kRegionValue4A4_2CC] + 1;
-        *(int*)(obj + kRegionValue464_28C) |= 8;
+        func_ov017_021b6bb8(*(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_130));
+        func_ov017_021b6d60(*(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_130), var1);
+        func_02086778(var3, var1, 0, 0);
+        short var8 = (var1[0] << 26) >> 26;
+        *(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_128) = var8;
+        arg0[Enum_ov003_02163e4c_1188] = (unsigned char)arg0[Enum_ov003_02163e4c_1188] + 1;
+        *(int*)(arg0 + Enum_ov003_02163e4c_1124) |= 8;
         return;
     }
-    if (step != 1) return;
-    *(short*)(obj + kRegionValue400_200 + kRegionValue84_AC) = 2;
-    *(int*)(obj + kRegionValue464_28C) |= 8;
-    obj[kRegionValue4A3_2CB] = 1;
-    obj[kRegionValue4A4_2CC] = 0;
+    if (var0 != 1) return;
+    *(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_132) = 2;
+    *(int*)(arg0 + Enum_ov003_02163e4c_1124) |= 8;
+    arg0[Enum_ov003_02163e4c_1187] = 1;
+    arg0[Enum_ov003_02163e4c_1188] = 0;
 }

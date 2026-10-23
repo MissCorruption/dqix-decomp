@@ -6,92 +6,92 @@ extern "C" void LoadToTextureImage(void* ptr, int a, int b);
 extern "C" void MemoryUnmapTextureImage(void);
 extern "C" int LoadToMainObjVRAM(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubObjVRAM(int, int, unsigned int);
-extern "C" void func_020b0334(int* arr, int index, int value);
+extern "C" void func_020b0334(int* arg0, int arg1, int arg2);
 
-struct LocalRes020b0368 {
-    unsigned short f0;
-    unsigned short f2;
-    int f4;
-    unsigned int f8;
-    char padc[4];
-    unsigned int f10;
-    void* f14;
+struct Struct_020b0368 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    int unknown_4_;
+    unsigned int unknown_8_;
+    char unknown_c_[4];
+    unsigned int unknown_10_;
+    void* unknown_14_;
 };
 
-struct Obj020b0368 {
-    char pad0[0xc];
-    int f0xc;
-    int f0x10;
-    int f0x14;
-    int f0x18;
-    int f0x1c;
-    int f0x20;
+struct Struct_020b0368_2 {
+    char unknown_0_[0xc];
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
 };
 
 // USA: func_020b0368
-extern "C" ARM void func_020b0368(int local, int val44, int tier, void* objPtr) {
-    struct LocalRes020b0368* res = (struct LocalRes020b0368*)local;
-    struct Obj020b0368* out = (struct Obj020b0368*)objPtr;
-    unsigned int flag8 = res->f8;
+extern "C" ARM void func_020b0368(int arg0, int arg1, int arg2, void* arg3) {
+    struct Struct_020b0368* var0 = (struct Struct_020b0368*)arg0;
+    struct Struct_020b0368_2* var1 = (struct Struct_020b0368_2*)arg3;
+    unsigned int var2 = var0->unknown_8_;
 
-    if (tier != 0) {
-        switch (tier) {
+    if (arg2 != 0) {
+        switch (arg2) {
         case 1:
-            *(volatile unsigned int*)0x04000000 = (*(volatile unsigned int*)0x04000000 & 0xffcfffef) | flag8;
+            *(volatile unsigned int*)0x04000000 = (*(volatile unsigned int*)0x04000000 & 0xffcfffef) | var2;
             break;
         case 2:
-            *(volatile unsigned int*)0x04001000 = (*(volatile unsigned int*)0x04001000 & 0xffcfffef) | flag8;
+            *(volatile unsigned int*)0x04001000 = (*(volatile unsigned int*)0x04001000 & 0xffcfffef) | var2;
             break;
         }
     }
 
-    CleanInvalidateCacheRange(res->f14, res->f10);
+    CleanInvalidateCacheRange(var0->unknown_14_, var0->unknown_10_);
 
-    switch (tier) {
+    switch (arg2) {
     case 0:
         MemoryMapTextureImage();
-        LoadToTextureImage(res->f14, val44, res->f10);
+        LoadToTextureImage(var0->unknown_14_, arg1, var0->unknown_10_);
         MemoryUnmapTextureImage();
         break;
     case 1:
-        LoadToMainObjVRAM((int)res->f14, val44, res->f10);
+        LoadToMainObjVRAM((int)var0->unknown_14_, arg1, var0->unknown_10_);
         break;
     case 2:
-        LoadToSubObjVRAM((int)res->f14, val44, res->f10);
+        LoadToSubObjVRAM((int)var0->unknown_14_, arg1, var0->unknown_10_);
         break;
     }
 
-    if (res->f8 == 0) {
-        int idx;
-        switch (res->f2) {
-        case 1: idx = 0; break;
-        case 2: idx = 1; break;
-        case 4: idx = 2; break;
-        case 8: idx = 3; break;
-        case 16: idx = 4; break;
-        case 32: idx = 5; break;
-        default: idx = 0; break;
+    if (var0->unknown_8_ == 0) {
+        int var3;
+        switch (var0->unknown_2_) {
+        case 1: var3 = 0; break;
+        case 2: var3 = 1; break;
+        case 4: var3 = 2; break;
+        case 8: var3 = 3; break;
+        case 16: var3 = 4; break;
+        case 32: var3 = 5; break;
+        default: var3 = 0; break;
         }
-        out->f0xc = idx;
+        var1->unknown_c_ = var3;
 
-        switch (res->f0) {
-        case 1: idx = 0; break;
-        case 2: idx = 1; break;
-        case 4: idx = 2; break;
-        case 8: idx = 3; break;
-        case 16: idx = 4; break;
-        case 32: idx = 5; break;
-        default: idx = 0; break;
+        switch (var0->unknown_0_) {
+        case 1: var3 = 0; break;
+        case 2: var3 = 1; break;
+        case 4: var3 = 2; break;
+        case 8: var3 = 3; break;
+        case 16: var3 = 4; break;
+        case 32: var3 = 5; break;
+        default: var3 = 0; break;
         }
-        out->f0x10 = idx;
+        var1->unknown_10_ = var3;
     } else {
-        out->f0xc = res->f2;
-        out->f0x10 = res->f0;
+        var1->unknown_c_ = var0->unknown_2_;
+        var1->unknown_10_ = var0->unknown_0_;
     }
 
-    out->f0x14 = res->f4;
-    out->f0x18 = 0;
-    out->f0x1c = 1;
-    out->f0x20 = res->f8;
-    func_020b0334((int*)out, tier, val44);
+    var1->unknown_14_ = var0->unknown_4_;
+    var1->unknown_18_ = 0;
+    var1->unknown_1c_ = 1;
+    var1->unknown_20_ = var0->unknown_8_;
+    func_020b0334((int*)var1, arg2, arg1);
 }

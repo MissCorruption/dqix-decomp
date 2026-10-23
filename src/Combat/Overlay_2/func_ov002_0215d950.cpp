@@ -1,123 +1,123 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct UnkStruct0205c508;
-struct StoreStruct;
-struct Container020dedd0;
-struct KeyMap020a0b3c;
+struct Struct_0205c508;
+struct Struct_020465c0;
+struct Struct_0201099c_10;
+struct Struct_0207cf30_3;
 
 extern "C" void *func_020421a0();
-extern "C" int func_02041c08(char *dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char *dst, int cursor);
-extern "C" int func_02041b70(char *dst, int n, const char *name);
-extern "C" int func_02042058(char *dst, const char *src);
-extern "C" void func_0205c508(struct UnkStruct0205c508 *s, int *out1, int *out2);
-extern "C" void func_02046380(void *messages);
-extern "C" void func_020465c0(StoreStruct *messages, int index, int value);
-extern "C" char *func_020dedd0(Container020dedd0 *c, int key);
-extern "C" void func_0206819c(const char *src, char *dst, int flag);
-extern "C" int func_020a0b3c(KeyMap020a0b3c *map, int key);
-extern "C" void func_ov002_0215b918(unsigned char *self, int a, int b, int c);
-extern "C" void __clear(void *buf, int n);
-extern "C" int sprintf(char *dst, const char *fmt, ...);
+extern "C" int func_02041c08(char *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char *arg0, int arg1);
+extern "C" int func_02041b70(char *arg0, int arg1, const char *arg2);
+extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" void func_0205c508(struct Struct_0205c508 *arg0, int *arg1, int *arg2);
+extern "C" void func_02046380(void *arg0);
+extern "C" void func_020465c0(Struct_020465c0 *arg0, int arg1, int arg2);
+extern "C" char *func_020dedd0(Struct_0201099c_10 *arg0, int arg1);
+extern "C" void func_0206819c(const char *arg0, char *arg1, int arg2);
+extern "C" int func_020a0b3c(Struct_0207cf30_3 *arg0, int arg1);
+extern "C" void func_ov002_0215b918(unsigned char *arg0, int arg1, int arg2, int arg3);
+extern "C" void __clear(void *arg0, int arg1);
+extern "C" int sprintf(char *arg0, const char *arg1, ...);
 extern char data_ov002_0216d270[];
 #if defined(jpn)
-struct Obj02046574;
-struct Container020e0310;
-extern "C" int func_020d2ff0(const char *s);
-extern "C" void func_02046574(struct Obj02046574 *obj, int index, char *str);
-extern "C" int func_020e0434(struct Container020e0310 *c, int key);
-extern "C" void func_020465f0(unsigned char *messages, int index, unsigned char digits);
-extern "C" void func_020465d8(unsigned char *messages, int index, unsigned char value);
-extern "C" void func_020474a8(void *messages, int a, const char *format, char *output);
-extern "C" void func_02042428(char *dst, int a);
-extern "C" void *memset(void *dst, int value, unsigned int length);
+struct Struct_02046574_2;
+struct Struct_0201099c_3;
+extern "C" int func_020d2ff0(const char *arg0);
+extern "C" void func_02046574(struct Struct_02046574_2 *arg0, int arg1, char *arg2);
+extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void func_020465d8(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
+extern "C" void func_02042428(char *arg0, int arg1);
+extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 #endif
 
 // USA: func_ov002_0215d950
-extern "C" ARM void func_ov002_0215d950(char *p, char *dst, int flag2) {
+extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
 #if defined(jpn)
-    char line[0x40];
-    int out1, out2;
-    char *tbl;
-    void *msg;
-    int n;
-    int i;
-    int count;
-    if (dst == 0) return;
-    int cursor = *(short *) (p + 0x1a00 + 0xb0) & 7;
-    if (flag2) func_02041c08(dst, cursor, 8, 5, 5, 5);
-    func_02041ea4(dst, cursor);
-    tbl       = (char *) func_02010828(GameState::GetInstance()) + 0xe04;
-    msg       = func_020421a0();
-    char *fld = p + 0xe20;
-    int sel   = *(int *) (fld + 0x68);
-    count     = *(int *) (fld + 0x58);
-    func_0205c508((struct UnkStruct0205c508 *) (fld + 0x54), &out1, &out2);
-    n = 0;
-    for (i = out1; i < out2; i++) {
-        func_02046380(msg);
-        func_020465c0((StoreStruct *) msg, 0, n);
-        char *e = func_020dedd0((Container020dedd0 *) (p + 0x750), *(short *) (tbl + i * 2 + 0xc));
-        if (e != 0) {
-            int len = func_020d2ff0(dst);
-            func_02046574((struct Obj02046574 *) msg, 0, *(char **) (e + 4));
-            func_020474a8(msg, 0xa, (const char *) func_020e0434((struct Container020e0310 *) (p + 8), 0x480),
-                          dst + len);
-            memset(line, 0, sizeof(line));
-            sprintf(line, (const char *) func_020e0434((struct Container020e0310 *) (p + 8), 0x481),
-                    func_020a0b3c((KeyMap020a0b3c *) tbl, *(short *) (e + 0x18)));
-            func_02042058(dst, line);
-            if (i != out2 - 1) func_02042058(dst, *(char **) (p + 0x1000 + 0xaa4));
+    char var0[0x40];
+    int var1, var2;
+    char *var3;
+    void *var4;
+    int var5;
+    int var6;
+    int var7;
+    if (arg1 == 0) return;
+    int var8 = *(short *) (arg0 + 0x1a00 + 0xb0) & 7;
+    if (arg2) func_02041c08(arg1, var8, 8, 5, 5, 5);
+    func_02041ea4(arg1, var8);
+    var3       = (char *) func_02010828(GameState::GetInstance()) + 0xe04;
+    var4       = func_020421a0();
+    char *var9 = arg0 + 0xe20;
+    int var10   = *(int *) (var9 + 0x68);
+    var7     = *(int *) (var9 + 0x58);
+    func_0205c508((struct Struct_0205c508 *) (var9 + 0x54), &var1, &var2);
+    var5 = 0;
+    for (var6 = var1; var6 < var2; var6++) {
+        func_02046380(var4);
+        func_020465c0((Struct_020465c0 *) var4, 0, var5);
+        char *var11 = func_020dedd0((Struct_0201099c_10 *) (arg0 + 0x750), *(short *) (var3 + var6 * 2 + 0xc));
+        if (var11 != 0) {
+            int var12 = func_020d2ff0(arg1);
+            func_02046574((struct Struct_02046574_2 *) var4, 0, *(char **) (var11 + 4));
+            func_020474a8(var4, 0xa, (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x480),
+                          arg1 + var12);
+            memset(var0, 0, sizeof(var0));
+            sprintf(var0, (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x481),
+                    func_020a0b3c((Struct_0207cf30_3 *) var3, *(short *) (var11 + 0x18)));
+            func_02042058(arg1, var0);
+            if (var6 != var2 - 1) func_02042058(arg1, *(char **) (arg0 + 0x1000 + 0xaa4));
         }
-        n++;
+        var5++;
     }
-    if (count > 1) {
-        func_020465c0((StoreStruct *) msg, 0, sel + 1);
-        func_020465c0((StoreStruct *) msg, 1, count);
-        func_020465f0((unsigned char *) msg, 0, 2);
-        func_020465f0((unsigned char *) msg, 1, 2);
-        func_020465d8((unsigned char *) msg, 0, 1);
-        func_020465d8((unsigned char *) msg, 1, 0);
-        func_02042428(dst, 8);
-        func_02042058(dst, (const char *) func_020e0434((struct Container020e0310 *) (p + 8), 0x47f));
+    if (var7 > 1) {
+        func_020465c0((Struct_020465c0 *) var4, 0, var10 + 1);
+        func_020465c0((Struct_020465c0 *) var4, 1, var7);
+        func_020465f0((unsigned char *) var4, 0, 2);
+        func_020465f0((unsigned char *) var4, 1, 2);
+        func_020465d8((unsigned char *) var4, 0, 1);
+        func_020465d8((unsigned char *) var4, 1, 0);
+        func_02042428(arg1, 8);
+        func_02042058(arg1, (const char *) func_020e0434((struct Struct_0201099c_3 *) (arg0 + 8), 0x47f));
     }
 #else
-    char name[0x100];
-    char line[0x40];
-    int out1, out2;
-    char *tbl;
-    int n;
-    int i;
-    int count;
-    if (dst == 0) return;
-    int cursor = *(short *) (p + 0x1be8) & 7;
-    if (flag2) func_02041c08(dst, cursor, 8, 5, 5, 5);
-    func_02041ea4(dst, cursor);
-    tbl       = (char *) func_02010828(GameState::GetInstance()) + 0xe04;
-    void *msg = func_020421a0();
-    char *fld = p + 0x2c8 + 0xc00;
-    int sel   = *(int *) (fld + 0x68);
-    count     = *(int *) (fld + 0x58);
-    func_0205c508((struct UnkStruct0205c508 *) (fld + 0x54), &out1, &out2);
-    n = 0;
-    for (i = out1; i < out2; i++) {
-        func_02046380(msg);
-        func_020465c0((StoreStruct *) msg, 0, n);
-        char *e = func_020dedd0((Container020dedd0 *) (p + 0x3ec + 0x400),
-                                                                    *(short *) (tbl + i * 2 + 0xc));
-        if (e != 0) {
-            __clear(name, sizeof(name));
-            func_0206819c(*(const char **) (e + 4), name, 0);
-            func_02041b70(dst, n, name);
-            __clear(line, sizeof(line));
-            sprintf(line, data_ov002_0216d270,
-                    func_020a0b3c((KeyMap020a0b3c *) tbl, *(short *) (e + 0x18)));
-            func_02042058(dst, line);
-            if (i != out2 - 1) func_02042058(dst, *(char **) (p + 0x1000 + 0xbdc));
+    char var13[0x100];
+    char var14[0x40];
+    int var15, var16;
+    char *var17;
+    int var18;
+    int var19;
+    int var20;
+    if (arg1 == 0) return;
+    int var21 = *(short *) (arg0 + 0x1be8) & 7;
+    if (arg2) func_02041c08(arg1, var21, 8, 5, 5, 5);
+    func_02041ea4(arg1, var21);
+    var17       = (char *) func_02010828(GameState::GetInstance()) + 0xe04;
+    void *var22 = func_020421a0();
+    char *var23 = arg0 + 0x2c8 + 0xc00;
+    int var24   = *(int *) (var23 + 0x68);
+    var20     = *(int *) (var23 + 0x58);
+    func_0205c508((struct Struct_0205c508 *) (var23 + 0x54), &var15, &var16);
+    var18 = 0;
+    for (var19 = var15; var19 < var16; var19++) {
+        func_02046380(var22);
+        func_020465c0((Struct_020465c0 *) var22, 0, var18);
+        char *var25 = func_020dedd0((Struct_0201099c_10 *) (arg0 + 0x3ec + 0x400),
+                                                                    *(short *) (var17 + var19 * 2 + 0xc));
+        if (var25 != 0) {
+            __clear(var13, sizeof(var13));
+            func_0206819c(*(const char **) (var25 + 4), var13, 0);
+            func_02041b70(arg1, var18, var13);
+            __clear(var14, sizeof(var14));
+            sprintf(var14, data_ov002_0216d270,
+                    func_020a0b3c((Struct_0207cf30_3 *) var17, *(short *) (var25 + 0x18)));
+            func_02042058(arg1, var14);
+            if (var19 != var16 - 1) func_02042058(arg1, *(char **) (arg0 + 0x1000 + 0xbdc));
         }
-        n++;
+        var18++;
     }
-    if (count > 1) func_ov002_0215b918((unsigned char *) p, 10, sel, count);
+    if (var20 > 1) func_ov002_0215b918((unsigned char *) arg0, 10, var24, var20);
 #endif
 }

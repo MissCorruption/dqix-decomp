@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct S02055080;
-extern "C" void* func_02055080(struct S02055080* p);
+struct Struct_020546c8;
+extern "C" void* func_02055080(struct Struct_020546c8* arg0);
 
-struct GetSubField0x10Data {
-    char pad[0x10];
-    void* field10;
+struct Struct_020550f0 {
+    char unknown_0_[0x10];
+    void* unknown_10_;
 };
 
 // USA: func_020550f0
-extern "C" ARM void* func_020550f0(struct S02055080* p) {
-    struct GetSubField0x10Data* r = (struct GetSubField0x10Data*)func_02055080(p);
-    return r == NULL ? NULL : r->field10;
+extern "C" ARM void* func_020550f0(struct Struct_020546c8* arg0) {
+    struct Struct_020550f0* var0 = (struct Struct_020550f0*)func_02055080(arg0);
+    return var0 == NULL ? NULL : var0->unknown_10_;
 }

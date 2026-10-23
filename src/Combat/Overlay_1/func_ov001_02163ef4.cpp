@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-union Value_02163ef4 { int i; float f; };
-struct TaggedValue_02163ef4 { int type; Value_02163ef4 value; };
+union Struct_020117f0_2 { int unknown_0_; float unknown1_0_; };
+struct Struct_ov001_02163ef4 { int unknown_0_; Struct_020117f0_2 unknown_4_; };
 
-extern "C" int func_ov017_021d60f4(TaggedValue_02163ef4* a);
-extern "C" float func_ov017_021d6110(TaggedValue_02163ef4* a);
+extern "C" int func_ov017_021d60f4(Struct_ov001_02163ef4* arg0);
+extern "C" float func_ov017_021d6110(Struct_ov001_02163ef4* arg0);
 extern "C" void* func_02012fe4(void);
-struct Entry02019508;
-struct Base02019508;
-extern "C" ARM struct Entry02019508* func_02019508(struct Base02019508* base, int key1, int key2);
+struct Struct_02019508;
+struct Struct_02019508_3;
+extern "C" ARM struct Struct_02019508* func_02019508(struct Struct_02019508_3* arg0, int arg1, int arg2);
 
 // USA: func_ov001_02163ef4
-extern "C" ARM int func_ov001_02163ef4(TaggedValue_02163ef4* obj) {
-    int key1 = func_ov017_021d60f4(obj);
-    int key2 = func_ov017_021d60f4((TaggedValue_02163ef4*)((char*)obj + 0x8));
-    void* g = func_02012fe4();
-    if (!g) {
+extern "C" ARM int func_ov001_02163ef4(Struct_ov001_02163ef4* arg0) {
+    int var0 = func_ov017_021d60f4(arg0);
+    int var1 = func_ov017_021d60f4((Struct_ov001_02163ef4*)((char*)arg0 + 0x8));
+    void* var2 = func_02012fe4();
+    if (!var2) {
         return 0;
     }
-    struct Entry02019508* e = func_02019508((struct Base02019508*)g, key1, key2);
-    if (!e) {
+    struct Struct_02019508* var3 = func_02019508((struct Struct_02019508_3*)var2, var0, var1);
+    if (!var3) {
         return 0;
     }
-    float val = func_ov017_021d6110((TaggedValue_02163ef4*)((char*)obj + 0x10));
-    *(short*)((char*)e + 0x6) = (short)(4096.0f * val);
+    float var4 = func_ov017_021d6110((Struct_ov001_02163ef4*)((char*)arg0 + 0x10));
+    *(short*)((char*)var3 + 0x6) = (short)(4096.0f * var4);
     return 1;
 }

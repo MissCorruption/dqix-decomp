@@ -3,15 +3,15 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct FormationFlags { char pad0[0x10]; unsigned int flags_; };
-struct FormationActor : GameObject { char pad13C[0xc]; FormationFlags* formation_; };
-struct FormationEntry { unsigned char id_, value_; char pad2[6]; FormationActor* actor_; };
-struct SourceNode { char pad0[0x20]; unsigned short actor_; char pad22[0xe]; SourceNode* next_; };
-struct ActionLists { short id_; char pad2[0xe]; SourceNode* source_; };
-struct ActionRecord { char pad0[0x18]; unsigned int flags_; };
-struct SixCells { unsigned char cells_[6]; };
-struct TimerState { int fields_[3]; int adjacent_; };
-inline int* GetTimer021ef974() { static TimerState s __attribute__((aligned(4))); return &s.adjacent_; }
+struct Struct_ov025_021e16c8 { char unknown_0_[0x10]; unsigned int unknown_10_; };
+struct Struct_ov025_021e16c8_2 : GameObject { char unknown_13c_[0xc]; Struct_ov025_021e16c8* unknown_148_; };
+struct Struct_ov025_021e16c8_3 { unsigned char unknown_0_, unknown_1_; char unknown_2_[6]; Struct_ov025_021e16c8_2* unknown_8_; };
+struct Struct_ov025_021e16c8_4 { char unknown_0_[0x20]; unsigned short unknown_20_; char unknown_22_[0xe]; Struct_ov025_021e16c8_4* unknown_30_; };
+struct Struct_ov025_021e16c8_5 { short unknown_0_; char unknown_2_[0xe]; Struct_ov025_021e16c8_4* unknown_10_; };
+struct Struct_ov025_021e16c8_6 { char unknown_0_[0x18]; unsigned int unknown_18_; };
+struct Struct_ov025_021e16c8_7 { unsigned char unknown_0_[6]; };
+struct Struct_01ff8b48_16 { int unknown_0_[3]; int unknown_c_; };
+inline int* inline_ov025_021dcf14() { static Struct_01ff8b48_16 s __attribute__((aligned(4))); return &s.unknown_c_; }
 extern "C" void func_ov025_021e169c(unsigned char*, int);
 extern "C" unsigned char func_020493a4(unsigned char*);
 extern "C" unsigned int func_020493c8(unsigned char*);
@@ -20,128 +20,128 @@ extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049458(unsigned char*, unsigned char);
 extern "C" int func_ov025_021e1540(int);
-extern "C" void func_ov000_0216f82c(SixCells*, const int*);
-extern "C" void func_ov025_021e1ff4(SixCells*, int, unsigned char*, FormationActor*, FormationActor*, void*, void*);
+extern "C" void func_ov000_0216f82c(Struct_ov025_021e16c8_7*, const int*);
+extern "C" void func_ov025_021e1ff4(Struct_ov025_021e16c8_7*, int, unsigned char*, Struct_ov025_021e16c8_2*, Struct_ov025_021e16c8_2*, void*, void*);
 extern "C" void func_ov025_021e120c(unsigned char*, int, unsigned char, unsigned char, int);
 extern "C" void func_ov025_021e12f8(unsigned char*, int, int, unsigned char, int, int);
-extern "C" void func_ov025_021e13e0(unsigned char*, FormationEntry*);
+extern "C" void func_ov025_021e13e0(unsigned char*, Struct_ov025_021e16c8_3*);
 extern "C" unsigned int func_ov025_021e161c(int, int, unsigned char*, int);
-extern "C" void func_ov025_021e1c20(int, unsigned char*, unsigned char*, int, void*, void*, FormationEntry*);
+extern "C" void func_ov025_021e1c20(int, unsigned char*, unsigned char*, int, void*, void*, Struct_ov025_021e16c8_3*);
 extern "C" unsigned char func_ov025_021e1480(int, unsigned char*, int);
-extern "C" ActionRecord* func_02079e2c(char*, int);
+extern "C" Struct_ov025_021e16c8_6* func_02079e2c(char*, int);
 
-static inline int ActorID(FormationEntry* entry) { return entry->actor_->obj3D_.unknown_4_; }
-static inline void SetCell(unsigned char* cells, unsigned int index, unsigned char value) {
-    if (index < 81) cells[index] = value;
+static inline int inline_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0) { return arg0->unknown_8_->obj3D_.unknown_4_; }
+static inline void inline_ov025_021e120c_2(unsigned char* arg0, unsigned int arg1, unsigned char arg2) {
+    if (arg1 < 81) arg0[arg1] = arg2;
 }
 
 // USA: func_ov025_021e16c8
-extern "C" ARM void func_ov025_021e16c8(FormationEntry* self, FormationEntry* target, unsigned char* cells,
-    ActionLists* lists, ActionRecord* action, void* work, void* context) {
-    unsigned char distances[81];
-    unsigned char occupied[81];
-    unsigned char nearby[81];
-    unsigned char fullCandidates[12];
-    SixCells range;
-    unsigned char nearCandidates[6];
-    SixCells temporary;
-    func_ov025_021e169c(cells, self->value_);
-    memcpy(distances, cells, 81);
-    memset(occupied, 0, 81);
-    int participating = 0;
-    for (SourceNode* node = lists->source_; node; node = node->next_) {
-        if (node->actor_ == ActorID(self)) { participating = 1; break; }
+extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov025_021e16c8_3* arg1, unsigned char* arg2,
+    Struct_ov025_021e16c8_5* arg3, Struct_ov025_021e16c8_6* arg4, void* arg5, void* arg6) {
+    unsigned char var0[81];
+    unsigned char var1[81];
+    unsigned char var2[81];
+    unsigned char var3[12];
+    Struct_ov025_021e16c8_7 var4;
+    unsigned char var5[6];
+    Struct_ov025_021e16c8_7 var6;
+    func_ov025_021e169c(arg2, arg0->unknown_1_);
+    memcpy(var0, arg2, 81);
+    memset(var1, 0, 81);
+    int var7 = 0;
+    for (Struct_ov025_021e16c8_4* var8 = arg3->unknown_10_; var8; var8 = var8->unknown_30_) {
+        if (var8->unknown_20_ == inline_ov025_021e16c8(arg0)) { var7 = 1; break; }
     }
-    unsigned int position = func_020493a4((unsigned char*)target->actor_);
-    if (!participating) {
-        position = func_020493ec((unsigned char*)target->actor_);
-        if (position == 255) position = func_020493c8((unsigned char*)target->actor_);
-        if (position == 255) position = func_020493a4((unsigned char*)target->actor_);
+    unsigned int var9 = func_020493a4((unsigned char*)arg1->unknown_8_);
+    if (!var7) {
+        var9 = func_020493ec((unsigned char*)arg1->unknown_8_);
+        if (var9 == 255) var9 = func_020493c8((unsigned char*)arg1->unknown_8_);
+        if (var9 == 255) var9 = func_020493a4((unsigned char*)arg1->unknown_8_);
     } else {
-        int packed = func_ov025_021e1540(target->id_);
-        func_ov000_0216f82c(&temporary, &packed);
-        range = temporary;
-        func_ov025_021e1ff4(&range, 6, cells, self->actor_, target->actor_, work, context);
+        int var10 = func_ov025_021e1540(arg1->unknown_0_);
+        func_ov000_0216f82c(&var6, &var10);
+        var4 = var6;
+        func_ov025_021e1ff4(&var4, 6, arg2, arg0->unknown_8_, arg1->unknown_8_, arg5, arg6);
     }
-    FormationFlags* formation = 0;
-    int distance = 2;
-    int radius = 1;
-    if (target->actor_->obj3D_.unknown_0_ & 0x400) formation = target->actor_->formation_;
-    if (formation) {
-        unsigned int extension = (formation->flags_ << 1) >> 30;
-        if (extension) { distance += extension; radius += extension; }
+    Struct_ov025_021e16c8* var11 = 0;
+    int var12 = 2;
+    int var13 = 1;
+    if (arg1->unknown_8_->obj3D_.unknown_0_ & 0x400) var11 = arg1->unknown_8_->unknown_148_;
+    if (var11) {
+        unsigned int var14 = (var11->unknown_10_ << 1) >> 30;
+        if (var14) { var12 += var14; var13 += var14; }
     }
-    func_ov025_021e120c(distances, position, distance, radius, 0);
-    if (participating) {
-        func_ov025_021e120c(occupied, position, distance, radius, 0);
-        SetCell(occupied, position, target->value_);
-        unsigned int extension = 0;
-        if (formation) {
-            unsigned int value = (formation->flags_ << 1) >> 30;
-            if (value) extension = value;
+    func_ov025_021e120c(var0, var9, var12, var13, 0);
+    if (var7) {
+        func_ov025_021e120c(var1, var9, var12, var13, 0);
+        inline_ov025_021e120c_2(var1, var9, arg1->unknown_1_);
+        unsigned int var15 = 0;
+        if (var11) {
+            unsigned int var16 = (var11->unknown_10_ << 1) >> 30;
+            if (var16) var15 = var16;
         }
-        func_ov025_021e12f8(occupied, position, target->value_, extension, (unsigned char)radius, 0);
+        func_ov025_021e12f8(var1, var9, arg1->unknown_1_, var15, (unsigned char)var13, 0);
     }
-    if (formation) {
-        unsigned int extension = (formation->flags_ << 1) >> 30;
-        if (extension) func_ov025_021e12f8(distances, position, self->value_, extension, 0, 0);
+    if (var11) {
+        unsigned int var17 = (var11->unknown_10_ << 1) >> 30;
+        if (var17) func_ov025_021e12f8(var0, var9, arg0->unknown_1_, var17, 0, 0);
     }
-    int reachable = 0;
-    if (participating) {
-        int cost = distances[func_020493a4((unsigned char*)self->actor_)];
-        if ((action->flags_ << 16) >> 28 == 2) {
-            if (distance == cost) reachable = 1;
-        } else if (cost > 0 && cost <= distance) {
-            reachable = 1;
-            if (distance - 1 == distances[func_020493a4((unsigned char*)self->actor_)]) {
-                int value = 1;
-                int* adjacent = GetTimer021ef974();
-                *adjacent = value;
+    int var18 = 0;
+    if (var7) {
+        int var19 = var0[func_020493a4((unsigned char*)arg0->unknown_8_)];
+        if ((arg4->unknown_18_ << 16) >> 28 == 2) {
+            if (var12 == var19) var18 = 1;
+        } else if (var19 > 0 && var19 <= var12) {
+            var18 = 1;
+            if (var12 - 1 == var0[func_020493a4((unsigned char*)arg0->unknown_8_)]) {
+                int var20 = 1;
+                int* var21 = inline_ov025_021dcf14();
+                *var21 = var20;
             }
         }
-    } else if (distance == distances[func_020493a4((unsigned char*)self->actor_)]) reachable = 1;
-    if (reachable) {
-        func_ov025_021e13e0(cells, self);
-        if (participating) {
-            unsigned int alternate = func_ov025_021e161c(func_020493a4((unsigned char*)self->actor_), position, distances, distance);
-            if (alternate != 255) {
-                func_020493dc((unsigned char*)self->actor_, alternate);
-                SetCell(cells, (unsigned char)alternate, self->value_);
+    } else if (var12 == var0[func_020493a4((unsigned char*)arg0->unknown_8_)]) var18 = 1;
+    if (var18) {
+        func_ov025_021e13e0(arg2, arg0);
+        if (var7) {
+            unsigned int var22 = func_ov025_021e161c(func_020493a4((unsigned char*)arg0->unknown_8_), var9, var0, var12);
+            if (var22 != 255) {
+                func_020493dc((unsigned char*)arg0->unknown_8_, var22);
+                inline_ov025_021e120c_2(arg2, (unsigned char)var22, arg0->unknown_1_);
             }
-            func_ov025_021e1c20(func_020493a4((unsigned char*)self->actor_), cells, occupied, distance, work, context, self);
+            func_ov025_021e1c20(func_020493a4((unsigned char*)arg0->unknown_8_), arg2, var1, var12, arg5, arg6, arg0);
         }
         return;
     }
-    unsigned char nearCount = 0;
-    unsigned char fullCount = 0;
-    for (int i = 0; i < 81; ++i) {
-        if (distances[i] == distance - 1) nearCandidates[nearCount++] = i;
-        else if (distances[i] == distance) fullCandidates[fullCount++] = i;
+    unsigned char var23 = 0;
+    unsigned char var24 = 0;
+    for (int var25 = 0; var25 < 81; ++var25) {
+        if (var0[var25] == var12 - 1) var5[var23++] = var25;
+        else if (var0[var25] == var12) var3[var24++] = var25;
     }
-    unsigned char selected = 255;
-    if (fullCount == 1) selected = fullCandidates[0];
-    else if (fullCount > 1) selected = func_ov025_021e1480(func_020493a4((unsigned char*)self->actor_), fullCandidates, fullCount);
-    else if (nearCount == 1) selected = nearCandidates[0];
-    else if (nearCount > 1) selected = func_ov025_021e1480(func_020493a4((unsigned char*)self->actor_), nearCandidates, nearCount);
-    if (participating) {
-        ActionRecord* record = func_02079e2c((char*)func_020797dc(), lists->id_);
-        if (record && (record->flags_ << 16) >> 28 != 2) {
-            memset(nearby, 0, 81);
-            func_ov025_021e120c(nearby, position, 1, radius, 0);
-            int current = func_020493a4((unsigned char*)self->actor_);
-            if ((current < 81 && nearby[current] == 1) || position == current) selected = (unsigned char)current;
+    unsigned char var26 = 255;
+    if (var24 == 1) var26 = var3[0];
+    else if (var24 > 1) var26 = func_ov025_021e1480(func_020493a4((unsigned char*)arg0->unknown_8_), var3, var24);
+    else if (var23 == 1) var26 = var5[0];
+    else if (var23 > 1) var26 = func_ov025_021e1480(func_020493a4((unsigned char*)arg0->unknown_8_), var5, var23);
+    if (var7) {
+        Struct_ov025_021e16c8_6* var27 = func_02079e2c((char*)func_020797dc(), arg3->unknown_0_);
+        if (var27 && (var27->unknown_18_ << 16) >> 28 != 2) {
+            memset(var2, 0, 81);
+            func_ov025_021e120c(var2, var9, 1, var13, 0);
+            int var28 = func_020493a4((unsigned char*)arg0->unknown_8_);
+            if ((var28 < 81 && var2[var28] == 1) || var9 == var28) var26 = (unsigned char)var28;
         }
     }
-    if (selected >= 81) selected = func_020493a4((unsigned char*)self->actor_);
-    func_020493b8((unsigned char*)self->actor_, selected);
-    if (selected < 81) SetCell(cells, selected, self->value_);
-    if (participating) {
-        unsigned int alternate = func_ov025_021e161c(selected, position, distances, distance);
-        if (alternate != 255) {
-            func_020493dc((unsigned char*)self->actor_, alternate);
-            SetCell(cells, (unsigned char)alternate, self->value_);
+    if (var26 >= 81) var26 = func_020493a4((unsigned char*)arg0->unknown_8_);
+    func_020493b8((unsigned char*)arg0->unknown_8_, var26);
+    if (var26 < 81) inline_ov025_021e120c_2(arg2, var26, arg0->unknown_1_);
+    if (var7) {
+        unsigned int var29 = func_ov025_021e161c(var26, var9, var0, var12);
+        if (var29 != 255) {
+            func_020493dc((unsigned char*)arg0->unknown_8_, var29);
+            inline_ov025_021e120c_2(arg2, (unsigned char)var29, arg0->unknown_1_);
         }
     }
-    if (participating) func_ov025_021e1c20(selected, cells, occupied, distance, work, context, self);
-    func_02049458((unsigned char*)self->actor_, target->id_);
+    if (var7) func_ov025_021e1c20(var26, arg2, var1, var12, arg5, arg6, arg0);
+    func_02049458((unsigned char*)arg0->unknown_8_, arg1->unknown_0_);
 }

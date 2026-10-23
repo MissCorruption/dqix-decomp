@@ -1,350 +1,350 @@
 #include <globaldefs.h>
 
-struct ByteWriter020d3084;
-struct Sink020d30b4;
-struct Sink020d3108;
-extern "C" void func_020d3084(ByteWriter020d3084* sink, int c);
-extern "C" void func_020d30b4(Sink020d30b4* sink, char value, int count);
-extern "C" void func_020d3108(Sink020d3108* sink, char* src, int count);
+struct Struct_020d3084;
+struct Struct_020d30b4;
+struct Struct_020d3108;
+extern "C" void func_020d3084(Struct_020d3084* arg0, int arg1);
+extern "C" void func_020d30b4(Struct_020d30b4* arg0, char arg1, int arg2);
+extern "C" void func_020d3108(Struct_020d3108* arg0, char* arg1, int arg2);
 
-struct FmtSink020d3160 {
-    unsigned long len;
-    char* cur;
-    char* base;
+struct Struct_020d3160 {
+    unsigned long unknown_0_;
+    char* unknown_4_;
+    char* unknown_8_;
 };
 
-static inline void string_put_char(FmtSink020d3160* p, char c) {
-    func_020d3084((ByteWriter020d3084*)p, c);
+static inline void inline_020d3160(Struct_020d3160* arg0, char arg1) {
+    func_020d3084((Struct_020d3084*)arg0, arg1);
 }
 
-static inline void string_fill_char(FmtSink020d3160* p, char c, int n) {
-    func_020d30b4((Sink020d30b4*)p, c, n);
+static inline void inline_020d3160_2(Struct_020d3160* arg0, char arg1, int arg2) {
+    func_020d30b4((Struct_020d30b4*)arg0, arg1, arg2);
 }
 
-static inline void string_put_string(FmtSink020d3160* p, const char* s, int n) {
-    func_020d3108((Sink020d3108*)p, (char*)s, n);
+static inline void inline_020d3160_3(Struct_020d3160* arg0, const char* arg1, int arg2) {
+    func_020d3108((Struct_020d3108*)arg0, (char*)arg1, arg2);
 }
 
 #define va_arg(list, ty) (*(ty*)((list += 4) - 4))
 #define va_arg_64(list, ty) (*(ty*)((list += 8) - 8))
 
-typedef unsigned long long u64;
-typedef unsigned int u32;
+typedef unsigned long long Type_020b11c8_2;
+typedef unsigned int Type_020b11c8;
 
 // USA: func_020d3160
-extern "C" ARM int func_020d3160(char* dst, unsigned long len, const char* fmt, char* vlist) {
-    char buf[24];
-    int n_buf;
-    char prefix[2];
-    int n_prefix;
+extern "C" ARM int func_020d3160(char* arg0, unsigned long arg1, const char* arg2, char* arg3) {
+    char var0[24];
+    int var1;
+    char var2[2];
+    int var3;
 
-    const char* s = fmt;
+    const char* var4 = arg2;
 
-    struct FmtSink020d3160 str;
-    str.len = len, str.cur = str.base = dst;
+    struct Struct_020d3160 var5;
+    var5.unknown_0_ = arg1, var5.unknown_4_ = var5.unknown_8_ = arg0;
 
-    while (*s) {
-        if ((unsigned int)(((unsigned char)*s ^ 0x20) - 0xA1) < 0x3C) {
-            string_put_char(&str, *s++);
-            if (*s)
-                string_put_char(&str, *s++);
-        } else if (*s != '%') {
-            string_put_char(&str, *s++);
+    while (*var4) {
+        if ((unsigned int)(((unsigned char)*var4 ^ 0x20) - 0xA1) < 0x3C) {
+            inline_020d3160(&var5, *var4++);
+            if (*var4)
+                inline_020d3160(&var5, *var4++);
+        } else if (*var4 != '%') {
+            inline_020d3160(&var5, *var4++);
         } else {
             enum {
-                flag_blank = 000001,
-                flag_plus = 000002,
-                flag_sharp = 000004,
-                flag_minus = 000010,
-                flag_zero = 000020,
-                flag_l1 = 000040,
-                flag_h1 = 000100,
-                flag_l2 = 000200,
-                flag_h2 = 000400,
-                flag_unsigned = 010000,
-                flag_end
+                Enum_020d3160_1 = 000001,
+                Enum_020d3160_2 = 000002,
+                Enum_020d3160_4 = 000004,
+                Enum_020d3160_8 = 000010,
+                Enum_020d3160_16 = 000020,
+                Enum_020d3160_32 = 000040,
+                Enum_020d3160_64 = 000100,
+                Enum_020d3160_128 = 000200,
+                Enum_020d3160_256 = 000400,
+                Enum_020d3160_4096 = 010000,
+                Enum_020d3160_4097
             };
 
-            int flag = 0, width = 0, precision = -1, radix = 10;
-            char hex_char = 'a' - 10;
-            const char* p_start = s;
+            int var6 = 0, var7 = 0, var8 = -1, var9 = 10;
+            char var10 = 'a' - 10;
+            const char* var11 = var4;
 
             for (;;) {
-                switch (*++s) {
+                switch (*++var4) {
                 case '+':
-                    if (s[-1] != ' ')
+                    if (var4[-1] != ' ')
                         break;
-                    flag |= flag_plus;
+                    var6 |= Enum_020d3160_2;
                     continue;
                 case ' ':
-                    flag |= flag_blank;
+                    var6 |= Enum_020d3160_1;
                     continue;
                 case '-':
-                    flag |= flag_minus;
+                    var6 |= Enum_020d3160_8;
                     continue;
                 case '0':
-                    flag |= flag_zero;
+                    var6 |= Enum_020d3160_16;
                     continue;
                 }
                 break;
             }
 
-            if (*s == '*') {
-                ++s, width = va_arg(vlist, int);
-                if (width < 0)
-                    width = -width, flag |= flag_minus;
+            if (*var4 == '*') {
+                ++var4, var7 = va_arg(arg3, int);
+                if (var7 < 0)
+                    var7 = -var7, var6 |= Enum_020d3160_8;
             } else {
-                while ((*s >= '0') && (*s <= '9'))
-                    width = (width * 10) + *s++ - '0';
+                while ((*var4 >= '0') && (*var4 <= '9'))
+                    var7 = (var7 * 10) + *var4++ - '0';
             }
 
-            if (*s == '.') {
-                ++s, precision = 0;
-                if (*s == '*') {
-                    ++s, precision = va_arg(vlist, int);
-                    if (precision < 0)
-                        precision = -1;
+            if (*var4 == '.') {
+                ++var4, var8 = 0;
+                if (*var4 == '*') {
+                    ++var4, var8 = va_arg(arg3, int);
+                    if (var8 < 0)
+                        var8 = -1;
                 } else {
-                    while ((*s >= '0') && (*s <= '9'))
-                        precision = (precision * 10) + *s++ - '0';
+                    while ((*var4 >= '0') && (*var4 <= '9'))
+                        var8 = (var8 * 10) + *var4++ - '0';
                 }
             }
 
-            switch (*s) {
+            switch (*var4) {
             case 'h':
-                if (*++s != 'h')
-                    flag |= flag_h1;
+                if (*++var4 != 'h')
+                    var6 |= Enum_020d3160_64;
                 else
-                    ++s, flag |= flag_h2;
+                    ++var4, var6 |= Enum_020d3160_256;
                 break;
             case 'l':
-                if (*++s != 'l')
-                    flag |= flag_l1;
+                if (*++var4 != 'l')
+                    var6 |= Enum_020d3160_32;
                 else
-                    ++s, flag |= flag_l2;
+                    ++var4, var6 |= Enum_020d3160_128;
                 break;
             }
 
-            switch (*s) {
+            switch (*var4) {
             case 'd':
             case 'i':
                 goto put_integer;
             case 'o':
-                radix = 8;
-                flag |= flag_unsigned;
+                var9 = 8;
+                var6 |= Enum_020d3160_4096;
                 goto put_integer;
             case 'u':
-                flag |= flag_unsigned;
+                var6 |= Enum_020d3160_4096;
                 goto put_integer;
             case 'X':
-                hex_char = 'A' - 10;
+                var10 = 'A' - 10;
                 goto put_hexadecimal;
             case 'x':
                 goto put_hexadecimal;
             case 'p':
-                flag |= flag_sharp;
-                precision = 8;
+                var6 |= Enum_020d3160_4;
+                var8 = 8;
                 goto put_hexadecimal;
             case 'c':
-                if (precision >= 0)
+                if (var8 >= 0)
                     goto put_invalid;
                 {
-                    int c = va_arg(vlist, int);
-                    width -= 1;
-                    if (flag & flag_minus) {
-                        string_put_char(&str, (char)c);
-                        string_fill_char(&str, ' ', width);
+                    int var12 = va_arg(arg3, int);
+                    var7 -= 1;
+                    if (var6 & Enum_020d3160_8) {
+                        inline_020d3160(&var5, (char)var12);
+                        inline_020d3160_2(&var5, ' ', var7);
                     } else {
-                        int pad = (flag & flag_zero) ? '0' : ' ';
-                        string_fill_char(&str, pad, width);
-                        string_put_char(&str, (char)c);
+                        int var13 = (var6 & Enum_020d3160_16) ? '0' : ' ';
+                        inline_020d3160_2(&var5, var13, var7);
+                        inline_020d3160(&var5, (char)var12);
                     }
-                    ++s;
+                    ++var4;
                 }
                 break;
             case 's': {
-                int n_buf = 0;
-                const char* p_buf = va_arg(vlist, const char*);
-                if (precision < 0) {
-                    while (p_buf[n_buf])
-                        ++n_buf;
+                int var14 = 0;
+                const char* var15 = va_arg(arg3, const char*);
+                if (var8 < 0) {
+                    while (var15[var14])
+                        ++var14;
                 } else {
-                    while ((n_buf < precision) && p_buf[n_buf])
-                        ++n_buf;
+                    while ((var14 < var8) && var15[var14])
+                        ++var14;
                 }
-                width -= n_buf;
-                if (flag & flag_minus) {
-                    string_put_string(&str, p_buf, n_buf);
-                    string_fill_char(&str, ' ', width);
+                var7 -= var14;
+                if (var6 & Enum_020d3160_8) {
+                    inline_020d3160_3(&var5, var15, var14);
+                    inline_020d3160_2(&var5, ' ', var7);
                 } else {
-                    int pad = (flag & flag_zero) ? '0' : ' ';
-                    string_fill_char(&str, pad, width);
-                    string_put_string(&str, p_buf, n_buf);
+                    int var16 = (var6 & Enum_020d3160_16) ? '0' : ' ';
+                    inline_020d3160_2(&var5, var16, var7);
+                    inline_020d3160_3(&var5, var15, var14);
                 }
-                ++s;
+                ++var4;
             } break;
             case 'n': {
-                int pos = str.cur - str.base;
-                if (flag & flag_h2)
+                int var17 = var5.unknown_4_ - var5.unknown_8_;
+                if (var6 & Enum_020d3160_256)
                     ;
-                else if (flag & flag_h1)
-                    *va_arg(vlist, signed short*) = (signed short)pos;
-                else if (flag & flag_l2)
-                    *va_arg(vlist, u64*) = (u64)pos;
+                else if (var6 & Enum_020d3160_64)
+                    *va_arg(arg3, signed short*) = (signed short)var17;
+                else if (var6 & Enum_020d3160_128)
+                    *va_arg(arg3, Type_020b11c8_2*) = (Type_020b11c8_2)var17;
                 else
-                    *va_arg(vlist, signed int*) = (signed int)pos;
+                    *va_arg(arg3, signed int*) = (signed int)var17;
             }
-                ++s;
+                ++var4;
                 break;
             case '%':
-                if (p_start + 1 != s)
+                if (var11 + 1 != var4)
                     goto put_invalid;
-                string_put_char(&str, *s++);
+                inline_020d3160(&var5, *var4++);
                 break;
             default:
                 goto put_invalid;
             put_invalid:
-                string_put_string(&str, p_start, s - p_start);
+                inline_020d3160_3(&var5, var11, var4 - var11);
                 break;
             put_hexadecimal:
-                radix = 16;
-                flag |= flag_unsigned;
+                var9 = 16;
+                var6 |= Enum_020d3160_4096;
             put_integer: {
-                u64 val = 0;
-                n_prefix = 0;
+                Type_020b11c8_2 var18 = 0;
+                var3 = 0;
 
-                if (flag & flag_minus)
-                    flag &= ~flag_zero;
-                if (precision < 0)
-                    precision = 1;
+                if (var6 & Enum_020d3160_8)
+                    var6 &= ~Enum_020d3160_16;
+                if (var8 < 0)
+                    var8 = 1;
                 else
-                    flag &= ~flag_zero;
+                    var6 &= ~Enum_020d3160_16;
 
-                if (flag & flag_unsigned) {
-                    if (flag & flag_h2)
-                        val = va_arg(vlist, unsigned char);
-                    else if (flag & flag_h1)
-                        val = va_arg(vlist, unsigned short);
-                    else if (flag & flag_l2)
-                        val = va_arg_64(vlist, u64);
+                if (var6 & Enum_020d3160_4096) {
+                    if (var6 & Enum_020d3160_256)
+                        var18 = va_arg(arg3, unsigned char);
+                    else if (var6 & Enum_020d3160_64)
+                        var18 = va_arg(arg3, unsigned short);
+                    else if (var6 & Enum_020d3160_128)
+                        var18 = va_arg_64(arg3, Type_020b11c8_2);
                     else
-                        val = va_arg(vlist, unsigned long);
-                    flag &= ~(flag_plus | flag_blank);
-                    if (flag & flag_sharp) {
-                        if (radix == 16) {
-                            if (val != 0) {
-                                prefix[0] = (char)(hex_char + (10 + 'x' - 'a'));
-                                prefix[1] = '0';
-                                n_prefix = 2;
+                        var18 = va_arg(arg3, unsigned long);
+                    var6 &= ~(Enum_020d3160_2 | Enum_020d3160_1);
+                    if (var6 & Enum_020d3160_4) {
+                        if (var9 == 16) {
+                            if (var18 != 0) {
+                                var2[0] = (char)(var10 + (10 + 'x' - 'a'));
+                                var2[1] = '0';
+                                var3 = 2;
                             }
-                        } else if (radix == 8) {
-                            prefix[0] = '0';
-                            n_prefix = 1;
+                        } else if (var9 == 8) {
+                            var2[0] = '0';
+                            var3 = 1;
                         }
                     }
                 } else {
-                    if (flag & flag_h2)
-                        val = va_arg(vlist, char);
-                    else if (flag & flag_h1)
-                        val = va_arg(vlist, short);
-                    else if (flag & flag_l2)
-                        val = va_arg_64(vlist, u64);
+                    if (var6 & Enum_020d3160_256)
+                        var18 = va_arg(arg3, char);
+                    else if (var6 & Enum_020d3160_64)
+                        var18 = va_arg(arg3, short);
+                    else if (var6 & Enum_020d3160_128)
+                        var18 = va_arg_64(arg3, Type_020b11c8_2);
                     else
-                        val = va_arg(vlist, long);
-                    if ((val >> 32) & 0x80000000) {
-                        val = ~val + 1;
-                        prefix[0] = '-';
-                        n_prefix = 1;
+                        var18 = va_arg(arg3, long);
+                    if ((var18 >> 32) & 0x80000000) {
+                        var18 = ~var18 + 1;
+                        var2[0] = '-';
+                        var3 = 1;
                     } else {
-                        if (val || precision) {
-                            if (flag & flag_plus) {
-                                prefix[0] = '+';
-                                n_prefix = 1;
-                            } else if (flag & flag_blank) {
-                                prefix[0] = ' ';
-                                n_prefix = 1;
+                        if (var18 || var8) {
+                            if (var6 & Enum_020d3160_2) {
+                                var2[0] = '+';
+                                var3 = 1;
+                            } else if (var6 & Enum_020d3160_1) {
+                                var2[0] = ' ';
+                                var3 = 1;
                             }
                         }
                     }
                 }
 
-                n_buf = 0;
-                switch (radix) {
+                var1 = 0;
+                switch (var9) {
                 case 8:
-                    while (val != 0) {
-                        int d = (int)(val & 0x07);
-                        val >>= 3;
-                        buf[n_buf++] = (char)(d + '0');
+                    while (var18 != 0) {
+                        int var19 = (int)(var18 & 0x07);
+                        var18 >>= 3;
+                        var0[var1++] = (char)(var19 + '0');
                     }
                     break;
                 case 10:
-                    if ((val >> 32) == 0) {
-                        u32 v = (u32)val;
-                        while (v != 0) {
-                            u32 r = v / 10;
-                            int d = (int)(v - (r * 10));
-                            v = r;
-                            buf[n_buf++] = (char)(d + '0');
+                    if ((var18 >> 32) == 0) {
+                        Type_020b11c8 var20 = (Type_020b11c8)var18;
+                        while (var20 != 0) {
+                            Type_020b11c8 var21 = var20 / 10;
+                            int var22 = (int)(var20 - (var21 * 10));
+                            var20 = var21;
+                            var0[var1++] = (char)(var22 + '0');
                         }
                     } else {
-                        while (val != 0) {
-                            u64 r = val / 10;
-                            int d = (int)(val - (r * 10));
-                            val = r;
-                            buf[n_buf++] = (char)(d + '0');
+                        while (var18 != 0) {
+                            Type_020b11c8_2 var23 = var18 / 10;
+                            int var24 = (int)(var18 - (var23 * 10));
+                            var18 = var23;
+                            var0[var1++] = (char)(var24 + '0');
                         }
                     }
                     break;
                 case 16:
-                    while (val != 0) {
-                        int d = (int)(val & 0x0f);
-                        val >>= 4;
-                        buf[n_buf++] = (char)((d < 10) ? (d + '0') : (d + hex_char));
+                    while (var18 != 0) {
+                        int var25 = (int)(var18 & 0x0f);
+                        var18 >>= 4;
+                        var0[var1++] = (char)((var25 < 10) ? (var25 + '0') : (var25 + var10));
                     }
                     break;
                 }
 
-                if ((n_prefix > 0) && (prefix[0] == '0')) {
-                    n_prefix = 0;
-                    buf[n_buf++] = '0';
+                if ((var3 > 0) && (var2[0] == '0')) {
+                    var3 = 0;
+                    var0[var1++] = '0';
                 }
             }
                 goto put_to_stream;
 
             put_to_stream: {
-                int n_pad = precision - n_buf;
-                if (flag & flag_zero) {
-                    if (n_pad < width - n_buf - n_prefix)
-                        n_pad = width - n_buf - n_prefix;
+                int var26 = var8 - var1;
+                if (var6 & Enum_020d3160_16) {
+                    if (var26 < var7 - var1 - var3)
+                        var26 = var7 - var1 - var3;
                 }
 
-                if (n_pad > 0)
-                    width -= n_pad;
-                width -= n_prefix + n_buf;
+                if (var26 > 0)
+                    var7 -= var26;
+                var7 -= var3 + var1;
 
-                if (!(flag & flag_minus))
-                    string_fill_char(&str, ' ', width);
+                if (!(var6 & Enum_020d3160_8))
+                    inline_020d3160_2(&var5, ' ', var7);
 
-                while (n_prefix > 0)
-                    string_put_char(&str, prefix[--n_prefix]);
-                string_fill_char(&str, '0', n_pad);
+                while (var3 > 0)
+                    inline_020d3160(&var5, var2[--var3]);
+                inline_020d3160_2(&var5, '0', var26);
 
-                while (n_buf > 0)
-                    string_put_char(&str, buf[--n_buf]);
+                while (var1 > 0)
+                    inline_020d3160(&var5, var0[--var1]);
 
-                if (flag & flag_minus)
-                    string_fill_char(&str, ' ', width);
-                ++s;
+                if (var6 & Enum_020d3160_8)
+                    inline_020d3160_2(&var5, ' ', var7);
+                ++var4;
             } break;
             }
         }
     }
 
-    if (str.len > 0) {
-        *str.cur = '\0';
-    } else if (len > 0) {
-        str.base[len - 1] = '\0';
+    if (var5.unknown_0_ > 0) {
+        *var5.unknown_4_ = '\0';
+    } else if (arg1 > 0) {
+        var5.unknown_8_[arg1 - 1] = '\0';
     }
 
-    return str.cur - str.base;
+    return var5.unknown_4_ - var5.unknown_8_;
 }

@@ -1,42 +1,42 @@
 #include "globaldefs.h"
 #include "World/Object3D.h"
 
-struct BestiaryDrawMonster {
-    char unknown[0x13];
-    unsigned char unknownFlag : 1;
-    unsigned char eligible : 1;
-    unsigned char remainingFlags : 6;
+struct Struct_ov014_02184a64_4 {
+    char unknown_0_[0x13];
+    unsigned char unknown_13_0_ : 1;
+    unsigned char unknown_13_1_ : 1;
+    unsigned char unknown_13_2_ : 6;
 };
-struct BestiaryDrawRecord {
-    unsigned int count : 10;
-    unsigned int special : 1;
-    unsigned int unknown : 21;
+struct Struct_ov014_02184a64 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 1;
+    unsigned int unknown_1_3_ : 21;
 };
-struct BestiaryPositionedItem {
-    char unknown00[0x14];
-    int x, y;
-    char unknown1c[0xc];
+struct Struct_ov014_02184a64_2 {
+    char unknown_0_[0x14];
+    int unknown_14_, unknown_18_;
+    char unknown_1c_[0xc];
 };
-struct BestiaryDrawState {
-    void* unknown00;
-    void* list;
-    BestiaryPositionedItem* items;
-    char unknown0c[0x34];
-    Object3D* model;
-    void* unknown44;
-    BestiaryDrawMonster* monster;
-    BestiaryDrawMonster* loadingMonster;
-    BestiaryDrawRecord* record;
-    BestiaryDrawRecord* loadingRecord;
-    void* labels;
-    char unknown5c[0x20];
-    unsigned char state;
-    char unknown7d[4];
-    unsigned char flags;
-    char unknown82[0xe];
-    unsigned char offsetEnabled[3];
-    unsigned char unknown93;
-    unsigned char currentIcon;
+struct Struct_ov014_02184a64_3 {
+    void* unknown_0_;
+    void* unknown_4_;
+    Struct_ov014_02184a64_2* unknown_8_;
+    char unknown_c_[0x34];
+    Object3D* unknown_40_;
+    void* unknown_44_;
+    Struct_ov014_02184a64_4* unknown_48_;
+    Struct_ov014_02184a64_4* unknown_4c_;
+    Struct_ov014_02184a64* unknown_50_;
+    Struct_ov014_02184a64* unknown_54_;
+    void* unknown_58_;
+    char unknown_5c_[0x20];
+    unsigned char unknown_7c_;
+    char unknown_7d_[4];
+    unsigned char unknown_81_;
+    char unknown_82_[0xe];
+    unsigned char unknown_90_[3];
+    unsigned char unknown_93_;
+    unsigned char unknown_94_;
 };
 extern "C" {
 void func_ov023_021e2bdc(void*, short, short*, short*);
@@ -46,35 +46,35 @@ extern const short data_ov014_0218948e[6];
 extern const short data_ov014_02189478[3];
 }
 
-extern "C" ARM void func_ov014_02184a64(BestiaryDrawState* state) {
-    if (!state->state) return;
-    if (!state->monster || !state->record) return;
-    int eligible = state->monster->eligible;
-    if (!eligible) return;
-    int first = 0, second = 0;
-    if (state->flags & 0x20) {
-        if (state->loadingMonster && state->loadingMonster->eligible) first = 1;
-        if (state->loadingRecord && state->loadingRecord->special) second = 1;
+extern "C" ARM void func_ov014_02184a64(Struct_ov014_02184a64_3* arg0) {
+    if (!arg0->unknown_7c_) return;
+    if (!arg0->unknown_48_ || !arg0->unknown_50_) return;
+    int var0 = arg0->unknown_48_->unknown_13_1_;
+    if (!var0) return;
+    int var1 = 0, var2 = 0;
+    if (arg0->unknown_81_ & 0x20) {
+        if (arg0->unknown_4c_ && arg0->unknown_4c_->unknown_13_1_) var1 = 1;
+        if (arg0->unknown_54_ && arg0->unknown_54_->unknown_1_2_) var2 = 1;
     } else {
-        if (eligible) first = 1;
-        if (state->record->special) second = 1;
+        if (var0) var1 = 1;
+        if (arg0->unknown_50_->unknown_1_2_) var2 = 1;
     }
-    if (first || second) {
-        for (int i = 0; i < 3; ++i) {
-            short x = 0, y = 0;
-            int visible = i == 2 ? second : first;
-            if (visible) {
-                func_ov023_021e2bdc(state->labels, data_ov014_02189478[i], &x, &y);
-                if (state->offsetEnabled[i]) {
-                    x += data_ov014_0218948c[2*i];
-                    y += data_ov014_0218948e[2*i];
+    if (var1 || var2) {
+        for (int var3 = 0; var3 < 3; ++var3) {
+            short var4 = 0, var5 = 0;
+            int var6 = var3 == 2 ? var2 : var1;
+            if (var6) {
+                func_ov023_021e2bdc(arg0->unknown_58_, data_ov014_02189478[var3], &var4, &var5);
+                if (arg0->unknown_90_[var3]) {
+                    var4 += data_ov014_0218948c[2*var3];
+                    var5 += data_ov014_0218948e[2*var3];
                 }
-                BestiaryPositionedItem* item = &state->items[i];
-                item->x = x << 12;
-                item->y = y << 12;
-                if (state->currentIcon) func_0205ac40(state->list, &state->items[i]);
+                Struct_ov014_02184a64_2* var7 = &arg0->unknown_8_[var3];
+                var7->unknown_14_ = var4 << 12;
+                var7->unknown_18_ = var5 << 12;
+                if (arg0->unknown_94_) func_0205ac40(arg0->unknown_4_, &arg0->unknown_8_[var3]);
             }
         }
     }
-    if ((state->flags & 4) && state->model) state->model->Draw(true);
+    if ((arg0->unknown_81_ & 4) && arg0->unknown_40_) arg0->unknown_40_->Draw(true);
 }

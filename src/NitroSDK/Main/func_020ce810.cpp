@@ -2,17 +2,17 @@
 extern "C" int func_020ce56c(int, int, int);
 
 // USA: func_020ce810
-extern "C" ARM int func_020ce810(int *out8, int *out4) {
-    unsigned short local;
-    int ret = func_020ce56c((int)(0xf), (int)(1), (int)(&local));
-    if (ret != 0) {
-        return ret;
+extern "C" ARM int func_020ce810(int *arg0, int *arg1) {
+    unsigned short var0;
+    int var1 = func_020ce56c((int)(0xf), (int)(1), (int)(&var0));
+    if (var1 != 0) {
+        return var1;
     }
-    if (out8 != NULL) {
-        *out8 = (local & 8) ? 1 : 0;
+    if (arg0 != NULL) {
+        *arg0 = (var0 & 8) ? 1 : 0;
     }
-    if (out4 != NULL) {
-        *out4 = (local & 4) ? 1 : 0;
+    if (arg1 != NULL) {
+        *arg1 = (var0 & 4) ? 1 : 0;
     }
-    return ret;
+    return var1;
 }

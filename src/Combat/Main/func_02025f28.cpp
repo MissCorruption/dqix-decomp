@@ -9,122 +9,122 @@ extern "C" void* func_0205ec34(void);
 extern "C" void* func_0203b628(void);
 extern "C" void* func_02012fe4(void);
 
-struct Bcb8Params;
-extern "C" void func_0203bcb8(struct Bcb8Params* s, int arg1, int arg2);
+struct Struct_02020fc4_3;
+extern "C" void func_0203bcb8(struct Struct_02020fc4_3* arg0, int arg1, int arg2);
 
-struct Obj_0201bb78 { unsigned short field0; };
-extern "C" int func_0201bb78(struct Obj_0201bb78* obj, unsigned int val);
+struct Struct_0201bb78 { unsigned short unknown_0_; };
+extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 
-extern "C" void func_0202756c(void* obj, int p1, int p2, int idx,
-        unsigned char p5, unsigned char p6, unsigned short p7, unsigned char p8, int p9, int p10);
+extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
+        unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
 
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
-extern "C" void func_0202630c(void* obj, int* pos, int margin);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void func_0202630c(void* arg0, int* arg1, int arg2);
 
-extern "C" int _u32_div_f(int a, int b);
+extern "C" int _u32_div_f(int arg0, int arg1);
 extern "C" int _s32_div_f(int a, int b);
-extern "C" int abs(int x);
+extern "C" int abs(int arg0);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, int c, int d);
 
 extern int data_020fdc4c;
 
-struct Elem0xa9c {
-    unsigned short h0;
-    unsigned char b2;
-    char pad3;
-    int w4;
-    int w8;
+struct Struct_02025f28 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    char unknown_3_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Vec3i { int x, y, z; };
+struct Struct_ov026_021de6dc { int unknown_0_, unknown_4_, unknown_8_; };
 
-struct G8Obj {
-    char pad[0xc];
-    unsigned char lowNibble : 4;
-    unsigned char highNibble : 4;
+struct Struct_02025f28_2 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_0_ : 4;
+    unsigned char unknown_c_4_ : 4;
 };
 
 // USA: func_02025f28
-extern "C" ARM void func_02025f28(unsigned char* obj) {
-    GameState* battle = GameState::GetInstance();
-    unsigned char* ctx = (unsigned char*)func_0205ec34();
+extern "C" ARM void func_02025f28(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned char* var1 = (unsigned char*)func_0205ec34();
     func_0203b628();
-    void* g = func_02012fe4();
-    unsigned short g0 = *(unsigned short*)g;
-    void* g8 = *(void**)((char*)g + 8);
-    GameObject* c1 = battle->GetUnknownGameObject();
-    battle->GetProtagonist();
-    struct Vec3i pos0 = *(struct Vec3i*)((char*)c1 + 0x44);
+    void* var2 = func_02012fe4();
+    unsigned short var3 = *(unsigned short*)var2;
+    void* var4 = *(void**)((char*)var2 + 8);
+    GameObject* var5 = var0->GetUnknownGameObject();
+    var0->GetProtagonist();
+    struct Struct_ov026_021de6dc var6 = *(struct Struct_ov026_021de6dc*)((char*)var5 + 0x44);
 
-    if (*(unsigned char*)(obj + 0x55c) != 0) {
-        *(unsigned char*)(obj + 0x55c) = 0;
-        func_0203bcb8((struct Bcb8Params*)(*(char**)(obj + 0x20) + 8), 0, 0);
+    if (*(unsigned char*)(arg0 + 0x55c) != 0) {
+        *(unsigned char*)(arg0 + 0x55c) = 0;
+        func_0203bcb8((struct Struct_02020fc4_3*)(*(char**)(arg0 + 0x20) + 8), 0, 0);
     }
 
-    int p6a = 1;
-    for (int i = 0; i < *(unsigned char*)(obj + 0xa99); i++) {
-        struct Elem0xa9c* arr = *(struct Elem0xa9c**)(obj + 0xa9c);
-        int result = func_0201bb78((struct Obj_0201bb78*)g, (unsigned short)(arr[i].h0 * 100));
-        if (result == 0) continue;
-        struct Elem0xa9c* e = *(struct Elem0xa9c**)(obj + 0xa9c) + i;
-        if (e->b2 == 1) {
-            func_0202756c(obj, e->w4 + 0x7d000, e->w8 + 0x5d000, 0x18,
-                (i + 0x55) & 0xff, p6a, 0xff, 0xff, 0x1000, 0x1000);
-        } else if (e->b2 == 2) {
-            func_0202756c(obj, e->w4 + 0x7d000, e->w8 + 0x5d000, 0x17,
-                (i + 0x55) & 0xff, 0, 0xff, 0xff, 0x1000, 0x1000);
+    int var7 = 1;
+    for (int var8 = 0; var8 < *(unsigned char*)(arg0 + 0xa99); var8++) {
+        struct Struct_02025f28* var9 = *(struct Struct_02025f28**)(arg0 + 0xa9c);
+        int var10 = func_0201bb78((struct Struct_0201bb78*)var2, (unsigned short)(var9[var8].unknown_0_ * 100));
+        if (var10 == 0) continue;
+        struct Struct_02025f28* var11 = *(struct Struct_02025f28**)(arg0 + 0xa9c) + var8;
+        if (var11->unknown_2_ == 1) {
+            func_0202756c(arg0, var11->unknown_4_ + 0x7d000, var11->unknown_8_ + 0x5d000, 0x18,
+                (var8 + 0x55) & 0xff, var7, 0xff, 0xff, 0x1000, 0x1000);
+        } else if (var11->unknown_2_ == 2) {
+            func_0202756c(arg0, var11->unknown_4_ + 0x7d000, var11->unknown_8_ + 0x5d000, 0x17,
+                (var8 + 0x55) & 0xff, 0, 0xff, 0xff, 0x1000, 0x1000);
         }
     }
 
-    int flag2 = (g0 != 10000) && (func_0206dfb0((int)ctx, ctx + 0x8c, 0x2b) != 0);
-    int posVec[3];
-    int ok = 1;
-    if (g0 == 10000 || g0 == 10100) {
-        posVec[0] = pos0.x + 0x80000;
-        posVec[2] = pos0.z + 0x60000;
-    } else if (((struct G8Obj*)g8)->lowNibble == 0) {
-        posVec[0] = fix32_Divide((fix32_t)(pos0.x + *(int*)((char*)g + 0x44)), (fix32_t)(0x6000)) + 0x80000;
-        posVec[2] = fix32_Divide((fix32_t)(pos0.z + *(int*)((char*)g + 0x48)), (fix32_t)(0x6000)) + 0x60000;
+    int var12 = (var3 != 10000) && (func_0206dfb0((int)var1, var1 + 0x8c, 0x2b) != 0);
+    int var13[3];
+    int var14 = 1;
+    if (var3 == 10000 || var3 == 10100) {
+        var13[0] = var6.unknown_0_ + 0x80000;
+        var13[2] = var6.unknown_8_ + 0x60000;
+    } else if (((struct Struct_02025f28_2*)var4)->unknown_c_0_ == 0) {
+        var13[0] = fix32_Divide((fix32_t)(var6.unknown_0_ + *(int*)((char*)var2 + 0x44)), (fix32_t)(0x6000)) + 0x80000;
+        var13[2] = fix32_Divide((fix32_t)(var6.unknown_8_ + *(int*)((char*)var2 + 0x48)), (fix32_t)(0x6000)) + 0x60000;
     } else {
-        int g44 = *(int*)((char*)g + 0x44);
-        if (g44 == 0 || *(int*)((char*)g + 0x48) == 0) {
-            if (g44 == 0) ok = 0;
+        int var15 = *(int*)((char*)var2 + 0x44);
+        if (var15 == 0 || *(int*)((char*)var2 + 0x48) == 0) {
+            if (var15 == 0) var14 = 0;
         } else {
-            posVec[0] = g44 + 0x80000;
-            posVec[2] = *(int*)((char*)g + 0x48) + 0x60000;
+            var13[0] = var15 + 0x80000;
+            var13[2] = *(int*)((char*)var2 + 0x48) + 0x60000;
         }
     }
 
-    if (flag2) {
-        struct Vec3i v = *(struct Vec3i*)((char*)g + 0x2774);
-        v.x += 0x80000;
-        v.z += 0x60000;
-        func_0202630c(obj, (int*)&v, 0x7000);
-        v.x -= 0x4000;
-        v.z -= 0x4000;
-        func_0202756c(obj, v.x, v.z, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
+    if (var12) {
+        struct Struct_ov026_021de6dc var16 = *(struct Struct_ov026_021de6dc*)((char*)var2 + 0x2774);
+        var16.unknown_0_ += 0x80000;
+        var16.unknown_8_ += 0x60000;
+        func_0202630c(arg0, (int*)&var16, 0x7000);
+        var16.unknown_0_ -= 0x4000;
+        var16.unknown_8_ -= 0x4000;
+        func_0202756c(arg0, var16.unknown_0_, var16.unknown_8_, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
     }
 
-    int fieldVal = battle->GetEffectiveDeltaTime();
-    unsigned int sum = *(unsigned int*)((char*)&data_020fdc4c + 0xc) + (unsigned int)fieldVal;
-    unsigned int rem = sum % 0x560u;
-    int q = ((int)rem - 0x2b0) / 0x2b;
-    *(unsigned int*)((char*)&data_020fdc4c + 0xc) = rem;
-    int absQ = abs(q);
-    int q2 = (absQ * 0x4b) / 100;
-    int c = q2 + 5;
-    if (c > 0x10) c = 0x10;
-    int d = 0x10 - c;
-    ColorEffect_ConfigureAlphaBlend((unsigned int*)0x04001050, 0, 3, c, d);
+    int var17 = var0->GetEffectiveDeltaTime();
+    unsigned int var18 = *(unsigned int*)((char*)&data_020fdc4c + 0xc) + (unsigned int)var17;
+    unsigned int var19 = var18 % 0x560u;
+    int var20 = ((int)var19 - 0x2b0) / 0x2b;
+    *(unsigned int*)((char*)&data_020fdc4c + 0xc) = var19;
+    int var21 = abs(var20);
+    int var22 = (var21 * 0x4b) / 100;
+    int var23 = var22 + 5;
+    if (var23 > 0x10) var23 = 0x10;
+    int var24 = 0x10 - var23;
+    ColorEffect_ConfigureAlphaBlend((unsigned int*)0x04001050, 0, 3, var23, var24);
 
-    func_0202630c(obj, posVec, 0x5000);
-    posVec[0] -= 0x4000;
-    posVec[2] -= 0x4000;
+    func_0202630c(arg0, var13, 0x5000);
+    var13[0] -= 0x4000;
+    var13[2] -= 0x4000;
 
-    if (ok) {
-        short f4 = c1->obj3D_.unknown_4_;
-        unsigned char p5 = (unsigned char)(f4 + 0x44);
-        unsigned short p7 = (unsigned short)(f4 + 4);
-        func_0202756c(obj, posVec[0], posVec[2], 5, p5, 0, p7, 0xff, 0x1000, 0x1000);
+    if (var14) {
+        short var25 = var5->obj3D_.unknown_4_;
+        unsigned char var26 = (unsigned char)(var25 + 0x44);
+        unsigned short var27 = (unsigned short)(var25 + 4);
+        func_0202756c(arg0, var13[0], var13[2], 5, var26, 0, var27, 0xff, 0x1000, 0x1000);
     }
 }

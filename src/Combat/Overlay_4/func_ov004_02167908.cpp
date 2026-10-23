@@ -4,23 +4,23 @@ extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 #if defined(jpn)
 #define func_ov024_021f6f10 func_ov023_021f6f10
-extern "C" int func_ov023_021f6f10(void* self);
+extern "C" int func_ov023_021f6f10(void* arg0);
 #else
-extern "C" int func_ov024_021f6f10(void* self);
+extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
 
-class VObj02167908 {
+class Struct_ov004_02167908 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03(); virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07(); virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11(); virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15(); virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19(); virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23(); virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27(); virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31(); virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35(); virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39(); virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43(); virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47(); virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51(); virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55(); virtual void v56(); virtual void v57();
-    virtual int Method58();
+    virtual void inline_ov004_02167908_27(); virtual void inline_ov004_02167908_28(); virtual void inline_ov004_02167908_29(); virtual void inline_ov004_02167908_30(); virtual void inline_ov004_02167908_31(); virtual void inline_ov004_02167908_32(); virtual void inline_ov004_02167908_33(); virtual void inline_ov004_02167908_34(); virtual void inline_ov004_02167908_35(); virtual void inline_ov004_02167908_36(); virtual void inline_ov004_02167908_37(); virtual void inline_ov004_02167908_38(); virtual void inline_ov004_02167908_39(); virtual void inline_ov004_02167908_40(); virtual void inline_ov004_02167908_41(); virtual void inline_ov004_02167908_42(); virtual void inline_ov004_02167908_43(); virtual void inline_ov004_02167908_44(); virtual void inline_ov004_02167908_45(); virtual void inline_ov004_02167908_46(); virtual void inline_ov004_02167908_47(); virtual void inline_ov004_02167908_48(); virtual void inline_ov004_02167908_49(); virtual void inline_ov004_02167908_50(); virtual void inline_ov004_02167908_51(); virtual void inline_ov004_02167908_52(); virtual void inline_ov004_02167908_53(); virtual void inline_ov004_02167908_54(); virtual void inline_ov004_02167908_55(); virtual void inline_ov004_02167908_56(); virtual void inline_ov004_02167908_57(); virtual void inline_ov004_02167908_58(); virtual void inline_ov004_02167908_59(); virtual void inline_ov004_02167908(); virtual void inline_ov004_02167908_2(); virtual void inline_ov004_02167908_3(); virtual void inline_ov004_02167908_4(); virtual void inline_ov004_02167908_5(); virtual void inline_ov004_02167908_6(); virtual void inline_ov004_02167908_7(); virtual void inline_ov004_02167908_8(); virtual void inline_ov004_02167908_9(); virtual void inline_ov004_02167908_10(); virtual void inline_ov004_02167908_11(); virtual void inline_ov004_02167908_12(); virtual void inline_ov004_02167908_13(); virtual void inline_ov004_02167908_14(); virtual void inline_ov004_02167908_15(); virtual void inline_ov004_02167908_16(); virtual void inline_ov004_02167908_17(); virtual void inline_ov004_02167908_18(); virtual void inline_ov004_02167908_19(); virtual void inline_ov004_02167908_20(); virtual void inline_ov004_02167908_21(); virtual void inline_ov004_02167908_22(); virtual void inline_ov004_02167908_23(); virtual void inline_ov004_02167908_24(); virtual void inline_ov004_02167908_25();
+    virtual int inline_ov004_02167908_26();
 };
 
 // USA: func_ov004_02167908
-extern "C" ARM int func_ov004_02167908(void* a, int key) {
-    VObj02167908* node = (VObj02167908*)func_ov023_021f6880(func_ov011_021849c8(a), key);
-    if (!node) goto ret0;
-    if (func_ov024_021f6f10(node) != 0x11) goto ret0;
-    return node->Method58();
+extern "C" ARM int func_ov004_02167908(void* arg0, int arg1) {
+    Struct_ov004_02167908* var0 = (Struct_ov004_02167908*)func_ov023_021f6880(func_ov011_021849c8(arg0), arg1);
+    if (!var0) goto ret0;
+    if (func_ov024_021f6f10(var0) != 0x11) goto ret0;
+    return var0->inline_ov004_02167908_26();
 ret0:
     return 0;
 }

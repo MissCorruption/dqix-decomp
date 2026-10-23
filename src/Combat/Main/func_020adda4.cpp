@@ -2,83 +2,83 @@
 #include <NitroSDK/Matrix.h>
 #include <Graphics/Vector.h>
 
-struct Combatant020adda4 {
-    unsigned char pad_0x00[0x44];
-    Vector3fix origin;
-    unsigned char pad_0x50[0x5e];
-    short tilt;
-    unsigned char pad_0xb0[0xb4];
-    Vector3fix pivot;
-    fix32_t bearing;
-    Vector3fix pivot2;
-    fix32_t bearing2;
+struct Struct_020adda4 {
+    unsigned char unknown_0_[0x44];
+    Vector3fix unknown_44_;
+    unsigned char unknown_50_[0x5e];
+    short unknown_ae_;
+    unsigned char unknown_b0_[0xb4];
+    Vector3fix unknown_164_;
+    fix32_t unknown_170_;
+    Vector3fix unknown_174_;
+    fix32_t unknown_180_;
 };
 
 struct Vector3i;
 ARM void Vector3fixMultiplyScalar(const Vector3fix* in, fix32_t scale, Vector3fix* out);
 
 // USA: func_020adda4
-extern "C" ARM void func_020adda4(Combatant020adda4* self) {
-    Vector3fix pos = self->origin;
-    Vector3fix step;
-    Vector3fix aim;
-    Vector3fix dir;
-    Vector3fix aim2;
-    Vector3fix goal;
-    Vector3fix goal2;
-    short pitch = self->tilt;
-    int cz;
-    int sx;
+extern "C" ARM void func_020adda4(Struct_020adda4* arg0) {
+    Vector3fix var0 = arg0->unknown_44_;
+    Vector3fix var1;
+    Vector3fix var2;
+    Vector3fix var3;
+    Vector3fix var4;
+    Vector3fix var5;
+    Vector3fix var6;
+    short var7 = arg0->unknown_ae_;
+    int var8;
+    int var9;
 
-    cz = fix32cos(pitch);
-    sx = fix32sin(pitch);
-    aim.y = 0;
-    aim.z = cz;
-    aim.x = sx;
+    var8 = fix32cos(var7);
+    var9 = fix32sin(var7);
+    var2.y = 0;
+    var2.z = var8;
+    var2.x = var9;
 
-    cz = fix32cos(self->bearing);
-    sx = fix32sin(self->bearing);
-    dir.y = 0;
-    dir.z = cz;
-    dir.x = sx;
+    var8 = fix32cos(arg0->unknown_170_);
+    var9 = fix32sin(arg0->unknown_170_);
+    var3.y = 0;
+    var3.z = var8;
+    var3.x = var9;
 
-    cz = fix32cos(self->bearing2);
-    sx = fix32sin(self->bearing2);
-    aim2.y = 0;
-    aim2.z = cz;
-    aim2.x = sx;
+    var8 = fix32cos(arg0->unknown_180_);
+    var9 = fix32sin(arg0->unknown_180_);
+    var4.y = 0;
+    var4.z = var8;
+    var4.x = var9;
 
-    Vector3fix_Normalize(&aim, &aim);
-    Vector3fix_Normalize(&dir, &dir);
-    Vector3fix_Normalize(&aim2, &aim2);
+    Vector3fix_Normalize(&var2, &var2);
+    Vector3fix_Normalize(&var3, &var3);
+    Vector3fix_Normalize(&var4, &var4);
 
-    *(Vector3i*)((int*)&step) = *(Vector3i const*)((int*)&aim);
-    Vector3fixMultiplyScalar(&step, 0xe66, &step);
-    Vector3fix_Subtract(&pos, &step, &goal);
-    Vector3fix_Subtract(&goal, &self->pivot, &dir);
-    Vector3fix_Normalize(&dir, &dir);
+    *(Vector3i*)((int*)&var1) = *(Vector3i const*)((int*)&var2);
+    Vector3fixMultiplyScalar(&var1, 0xe66, &var1);
+    Vector3fix_Subtract(&var0, &var1, &var5);
+    Vector3fix_Subtract(&var5, &arg0->unknown_164_, &var3);
+    Vector3fix_Normalize(&var3, &var3);
 
-    step.x = -dir.x;
-    step.y = -dir.y;
-    step.z = -dir.z;
-    Vector3fixMultiplyScalar(&step, 0xe66, &step);
-    Vector3fix_Add(&goal, &step, &self->pivot);
+    var1.x = -var3.x;
+    var1.y = -var3.y;
+    var1.z = -var3.z;
+    Vector3fixMultiplyScalar(&var1, 0xe66, &var1);
+    Vector3fix_Add(&var5, &var1, &arg0->unknown_164_);
 
-    self->bearing = fix32_Atan2(dir.x, dir.z);
-    self->bearing = fix32ReduceAngle0To2Pi(self->bearing);
+    arg0->unknown_170_ = fix32_Atan2(var3.x, var3.z);
+    arg0->unknown_170_ = fix32ReduceAngle0To2Pi(arg0->unknown_170_);
 
-    *(Vector3i*)((int*)&step) = *(Vector3i const*)((int*)&dir);
-    Vector3fixMultiplyScalar(&step, 0xe66, &step);
-    Vector3fix_Subtract(&self->pivot, &step, &goal2);
-    Vector3fix_Subtract(&goal2, &self->pivot2, &aim2);
-    Vector3fix_Normalize(&aim2, &aim2);
+    *(Vector3i*)((int*)&var1) = *(Vector3i const*)((int*)&var3);
+    Vector3fixMultiplyScalar(&var1, 0xe66, &var1);
+    Vector3fix_Subtract(&arg0->unknown_164_, &var1, &var6);
+    Vector3fix_Subtract(&var6, &arg0->unknown_174_, &var4);
+    Vector3fix_Normalize(&var4, &var4);
 
-    step.x = -aim2.x;
-    step.y = -aim2.y;
-    step.z = -aim2.z;
-    Vector3fixMultiplyScalar(&step, 0xe66, &step);
-    Vector3fix_Add(&goal2, &step, &self->pivot2);
+    var1.x = -var4.x;
+    var1.y = -var4.y;
+    var1.z = -var4.z;
+    Vector3fixMultiplyScalar(&var1, 0xe66, &var1);
+    Vector3fix_Add(&var6, &var1, &arg0->unknown_174_);
 
-    self->bearing2 = fix32_Atan2(aim2.x, aim2.z);
-    self->bearing2 = fix32ReduceAngle0To2Pi(self->bearing2);
+    arg0->unknown_180_ = fix32_Atan2(var4.x, var4.z);
+    arg0->unknown_180_ = fix32ReduceAngle0To2Pi(arg0->unknown_180_);
 }

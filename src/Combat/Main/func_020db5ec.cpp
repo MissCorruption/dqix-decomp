@@ -1,60 +1,60 @@
 #include <globaldefs.h>
 
-extern "C" unsigned int func_020937f0(int a);
-extern "C" int func_0209378c(int a);
-extern "C" void func_0203bd08(int a);
+extern "C" unsigned int func_020937f0(int arg0);
+extern "C" int func_0209378c(int arg0);
+extern "C" void func_0203bd08(int arg0);
 
-extern "C" int func_020db2dc(int a, int b);
+extern "C" int func_020db2dc(int arg0, int arg1);
 
-struct Struct020db9a8;
-extern "C" void func_020db360(struct Struct020db9a8* obj, int b);
+struct Struct_020db264;
+extern "C" void func_020db360(struct Struct_020db264* arg0, int arg1);
 
-extern "C" void func_020db6e4(void* obj, int val);
+extern "C" void func_020db6e4(void* arg0, int arg1);
 
-struct Entity020db768;
-extern "C" void func_020db768(struct Entity020db768* s, void* other);
+struct Struct_020db5ec;
+extern "C" void func_020db768(struct Struct_020db5ec* arg0, void* arg1);
 
 void DMAMemsetSynchronous(int, unsigned int, unsigned int, unsigned int);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
-struct Actor020db844;
-extern "C" void func_020db844(struct Actor020db844* a, int b, int c, int d);
+struct Struct_020db3f4_3;
+extern "C" void func_020db844(struct Struct_020db3f4_3* arg0, int arg1, int arg2, int arg3);
 
-typedef void (*DispatchFnA020db5ec)(int, int, int);
-extern DispatchFnA020db5ec data_020f2904[];
-typedef void (*DispatchFnB020db5ec)(int);
-extern DispatchFnB020db5ec data_020f28f4[];
+typedef void (*Type_01ff8b48_8)(int, int, int);
+extern Type_01ff8b48_8 data_020f2904[];
+typedef void (*Type_01ff8b48_9)(int);
+extern Type_01ff8b48_9 data_020f28f4[];
 
-struct DisplayDispatchObj020db5ec {
-    unsigned char pad0[0x3c];
-    unsigned char field3c;
-    unsigned char pad1[0x51 - 0x3c - 1];
-    unsigned char field51;
-    unsigned char pad2[0x53 - 0x51 - 1];
-    unsigned char field53;
-    unsigned char pad3[0x58 - 0x53 - 1];
-    unsigned int field58;
+struct Struct_020db5ec_2 {
+    unsigned char unknown_0_[0x3c];
+    unsigned char unknown_3c_;
+    unsigned char unknown_3d_[0x51 - 0x3c - 1];
+    unsigned char unknown_51_;
+    unsigned char unknown_52_[0x53 - 0x51 - 1];
+    unsigned char unknown_53_;
+    unsigned char unknown_54_[0x58 - 0x53 - 1];
+    unsigned int unknown_58_;
 };
 
 // USA: func_020db5ec
-extern "C" ARM void func_020db5ec(struct DisplayDispatchObj020db5ec* obj) {
-    if (obj->field51 == 0) return;
-    unsigned int base = func_020937f0(obj->field3c);
-    int shift = func_0209378c(obj->field3c);
-    int offsetA = (base - 0xb80) >> shift;
-    int offsetB = (base - 0x800) >> shift;
-    func_0203bd08(shift);
-    int handle = func_020db2dc((int)obj, obj->field3c);
-    func_020db360((struct Struct020db9a8*)obj, 0);
-    if (obj->field53 != 0) {
-        func_020db6e4(obj, offsetB);
+extern "C" ARM void func_020db5ec(struct Struct_020db5ec_2* arg0) {
+    if (arg0->unknown_51_ == 0) return;
+    unsigned int var0 = func_020937f0(arg0->unknown_3c_);
+    int var1 = func_0209378c(arg0->unknown_3c_);
+    int var2 = (var0 - 0xb80) >> var1;
+    int var3 = (var0 - 0x800) >> var1;
+    func_0203bd08(var1);
+    int var4 = func_020db2dc((int)arg0, arg0->unknown_3c_);
+    func_020db360((struct Struct_020db264*)arg0, 0);
+    if (arg0->unknown_53_ != 0) {
+        func_020db6e4(arg0, var3);
     }
-    func_020db768((struct Entity020db768*)obj, (void*)offsetA);
-    CleanInvalidateCacheRange((const void*)handle, 0xe0);
-    data_020f2904[obj->field3c](handle, 0, 0xe0);
-    CleanCacheRange((const void*)handle, 0xe0);
-    DMAMemsetSynchronous(3, handle + 0x20, 0xc0, 0x60);
-    func_020db844((struct Actor020db844*)obj, obj->field3c, 0, 0);
-    data_020f28f4[obj->field3c](obj->field58);
+    func_020db768((struct Struct_020db5ec*)arg0, (void*)var2);
+    CleanInvalidateCacheRange((const void*)var4, 0xe0);
+    data_020f2904[arg0->unknown_3c_](var4, 0, 0xe0);
+    CleanCacheRange((const void*)var4, 0xe0);
+    DMAMemsetSynchronous(3, var4 + 0x20, 0xc0, 0x60);
+    func_020db844((struct Struct_020db3f4_3*)arg0, arg0->unknown_3c_, 0, 0);
+    data_020f28f4[arg0->unknown_3c_](arg0->unknown_58_);
 }

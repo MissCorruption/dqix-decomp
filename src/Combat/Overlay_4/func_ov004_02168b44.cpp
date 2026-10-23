@@ -6,220 +6,220 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-enum { extensionOffset = 0x144, slotsOffset = 0x7280, contextBytes = 0x24, tableOffset = 0x6fbc, fieldOffset = 0x543c, entryOffset = 0x8c, pointerOffset = 0x3964, flagOffset = 0x1790, firstOffset = 0x1794, secondOffset = 0x17b8 };
+enum { Enum_ov004_02168b44_336 = 0x144, Enum_ov004_02168b44_29888 = 0x7280, Enum_ov004_02168b44_420 = 0x24, Enum_ov004_02168b44_29180 = 0x6fbc, Enum_ov004_02168b44_22172 = 0x543c, Enum_ov004_02168b44_108 = 0x8c, Enum_ov004_02168b44_15236 = 0x3964, Enum_ov004_02168b44_6498 = 0x1790, Enum_ov004_02168b44_6500 = 0x1794, Enum_ov004_02168b44_6536 = 0x17b8 };
 #else
-enum { extensionOffset = 0x150, slotsOffset = 0x74c0, contextBytes = 0x1a4, tableOffset = 0x71fc, fieldOffset = 0x569c, entryOffset = 0x6c, pointerOffset = 0x3b84, flagOffset = 0x1962, firstOffset = 0x1964, secondOffset = 0x1988 };
+enum { Enum_ov004_02168b44_336 = 0x150, Enum_ov004_02168b44_29888 = 0x74c0, Enum_ov004_02168b44_420 = 0x1a4, Enum_ov004_02168b44_29180 = 0x71fc, Enum_ov004_02168b44_22172 = 0x569c, Enum_ov004_02168b44_108 = 0x6c, Enum_ov004_02168b44_15236 = 0x3b84, Enum_ov004_02168b44_6498 = 0x1962, Enum_ov004_02168b44_6500 = 0x1964, Enum_ov004_02168b44_6536 = 0x1988 };
 #endif
 
-struct S_e830;
-extern "C" int func_020a0870(BattleRecordSnapshot* p);
-extern "C" int func_020a08a4(BattleRecordSnapshot* p);
-extern "C" int func_020a08d8(BattleRecordSnapshot* p);
-extern "C" int func_020a090c(BattleRecordSnapshot* p);
-extern "C" int func_0201e830(struct S_e830* p);
-extern "C" int func_0202ba00(int* obj);
-extern "C" int func_020ac4f8(int commit);
-extern "C" int func_020ac4c0(void* dst);
-extern "C" int func_020ac0b4(void* dst);
-extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
+struct Struct_0201e830;
+extern "C" int func_020a0870(Struct_02061c04* arg0);
+extern "C" int func_020a08a4(Struct_02061c04* arg0);
+extern "C" int func_020a08d8(Struct_02061c04* arg0);
+extern "C" int func_020a090c(Struct_02061c04* arg0);
+extern "C" int func_0201e830(struct Struct_0201e830* arg0);
+extern "C" int func_0202ba00(int* arg0);
+extern "C" int func_020ac4f8(int arg0);
+extern "C" int func_020ac4c0(void* arg0);
+extern "C" int func_020ac0b4(void* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" int func_020421a0(void);
-extern "C" void func_02043204(char* obj);
-extern "C" void func_020e2d24(int* obj, int a, int b);
-extern "C" void* func_ov004_02168ad4(void* a, int id);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_020e2d24(int* arg0, int arg1, int arg2);
+extern "C" void* func_ov004_02168ad4(void* arg0, int arg1);
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_ov011_021845f8(void* ctx, int v);
-extern "C" void func_ov011_021848a0(void* obj, int val);
+extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
+extern "C" void func_ov011_021848a0(void* arg0, int arg1);
 #if defined(jpn)
-extern "C" void* func_ov004_02168f08(void* ctx, int value);
+extern "C" void* func_ov004_02168f08(void* arg0, int arg1);
 #define NODE_LOOKUP_CALL func_ov004_02168f08
 #else
-extern "C" void* func_ov023_021f6524(void* ctx, int value);
+extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 #define NODE_LOOKUP_CALL func_ov023_021f6524
 #endif
 
-struct Slot3_02168b44 {
-    char pad[6];
-    signed char state;
-    unsigned char f7;
-    unsigned char f8;
-    signed char f9;
+struct Struct_ov004_02168b44 {
+    char unknown_0_[6];
+    signed char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    signed char unknown_9_;
 };
 
-struct Packed02168b44 {
-    unsigned int w0A : 14;
-    unsigned int w0B : 17;
-    unsigned int w0C : 1;
-    unsigned int w4A : 14;
-    unsigned int w4B : 17;
-    unsigned int w4C : 1;
-    unsigned int w8A : 7;
-    unsigned int w8B : 7;
-    unsigned int w8C : 7;
-    unsigned int w8D : 7;
-    unsigned int w8E : 4;
-    unsigned int wcA : 10;
-    unsigned int wcB : 14;
-    unsigned int wcC : 7;
-    unsigned int wcD : 1;
-    unsigned int w10A : 9;
-    unsigned int w10B : 14;
-    unsigned int w10C : 7;
-    unsigned int w10D : 2;
-    short f14;
-    unsigned char f16 : 1;
+struct Struct_ov004_02168b44_2 {
+    unsigned int unknown_0_0_ : 14;
+    unsigned int unknown_1_6_ : 17;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 14;
+    unsigned int unknown_5_6_ : 17;
+    unsigned int unknown_7_7_ : 1;
+    unsigned int unknown_8_0_ : 7;
+    unsigned int unknown_8_7_ : 7;
+    unsigned int unknown_9_6_ : 7;
+    unsigned int unknown_a_5_ : 7;
+    unsigned int unknown_b_4_ : 4;
+    unsigned int unknown_c_0_ : 10;
+    unsigned int unknown_d_2_ : 14;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 7;
+    unsigned int unknown_13_6_ : 2;
+    short unknown_14_;
+    unsigned char unknown_16_0_ : 1;
 };
 
-struct Ctx02168b44 {
+struct Struct_ov004_02168b44_3 {
 #if !defined(jpn)
-    char pad[0x180];
+    char unknown_0_[0x180];
 #endif
-    unsigned int f180;
-    unsigned int f184;
-    unsigned int f188;
-    unsigned short f18c;
-    unsigned short f18e;
-    unsigned char* f190;
-    struct Packed02168b44* f194;
-    unsigned char f198;
-    char pad199[3];
-    void* f19c;
-    unsigned char f1a0;
+    unsigned int unknown_180_;
+    unsigned int unknown_184_;
+    unsigned int unknown_188_;
+    unsigned short unknown_18c_;
+    unsigned short unknown_18e_;
+    unsigned char* unknown_190_;
+    struct Struct_ov004_02168b44_2* unknown_194_;
+    unsigned char unknown_198_;
+    char unknown_199_[3];
+    void* unknown_19c_;
+    unsigned char unknown_1a0_;
 };
 
-struct Combatant02168b44 { char pad[extensionOffset]; struct Flags02168b44* f150; };
-struct Flags02168b44 { char pad[0x49c]; unsigned char bit0 : 1; };
-struct Field02168b44 { unsigned int w0; unsigned int lo : 19; signed int val : 11; unsigned int hi : 2; };
-struct Triple02168b44 { int a, b, c; };
-class Node02168b44 {
+struct Struct_ov004_02168b44_4 { char unknown_0_[Enum_ov004_02168b44_336]; struct Struct_ov004_02168b44_5* unknown_150_; };
+struct Struct_ov004_02168b44_5 { char unknown_0_[0x49c]; unsigned char unknown_49c_0_ : 1; };
+struct Struct_ov004_02168b44_6 { unsigned int unknown_0_; unsigned int unknown_4_0_ : 19; signed int unknown_6_3_ : 11; unsigned int unknown_7_6_ : 2; };
+struct Struct_ov004_021700d4 { int unknown_0_, unknown_4_, unknown_8_; };
+class Struct_ov004_02168b44_7 {
 public:
-    virtual void v00();
-    virtual void v04();
-    virtual void v08();
-    virtual void v0c();
-    virtual void v10();
-    virtual void v14();
-    virtual void v18();
-    virtual void Apply(struct Triple02168b44* t);
+    virtual void inline_ov004_02168b44();
+    virtual void inline_ov004_02168b44_2();
+    virtual void inline_ov004_02168b44_3();
+    virtual void inline_ov004_02168b44_4();
+    virtual void inline_ov004_02168b44_5();
+    virtual void inline_ov004_02168b44_6();
+    virtual void inline_ov004_02168b44_7();
+    virtual void inline_ov004_02168b44_8(struct Struct_ov004_021700d4* arg0);
 };
 
-extern struct Ctx02168b44* data_ov004_02171030;
-extern struct Triple02168b44 data_ov004_021700d4;
+extern struct Struct_ov004_02168b44_3* data_ov004_02171030;
+extern struct Struct_ov004_021700d4 data_ov004_021700d4;
 
 // USA: func_ov004_02168b44
-extern "C" ARM int func_ov004_02168b44(void* a) {
-    GameState* bs = GameState::GetInstance();
-    void* obj = func_0202ae18();
-    struct Slot3_02168b44* slot = (struct Slot3_02168b44*)((char*)bs + slotsOffset);
-    int i;
-    for (i = 0; i < 3; i++, slot++) {
-        if (slot->state >= 4) {
-            if (slot->f7 != 0 || slot->f8 != 0 || slot->f9 >= 0) return 1;
+extern "C" ARM int func_ov004_02168b44(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_0202ae18();
+    struct Struct_ov004_02168b44* var2 = (struct Struct_ov004_02168b44*)((char*)var0 + Enum_ov004_02168b44_29888);
+    int var3;
+    for (var3 = 0; var3 < 3; var3++, var2++) {
+        if (var2->unknown_6_ >= 4) {
+            if (var2->unknown_7_ != 0 || var2->unknown_8_ != 0 || var2->unknown_9_ >= 0) return 1;
         }
     }
-    int kind = func_0202ba00((int*)obj);
-    int depth = *((unsigned char*)obj + 0x100d);
-    int commit = 0;
-    if ((kind == 5 && depth > 1) || kind == 6) commit = 1;
-    func_020ac4f8(commit);
+    int var4 = func_0202ba00((int*)var1);
+    int var5 = *((unsigned char*)var1 + 0x100d);
+    int var6 = 0;
+    if ((var4 == 5 && var5 > 1) || var4 == 6) var6 = 1;
+    func_020ac4f8(var6);
 
     data_ov004_02171030 = 0;
-    void* holder = func_ov011_021845f8(a, 0);
-    if (!holder) return 0;
-    struct Ctx02168b44* ctx =
-        (struct Ctx02168b44*)((SafeAllocator*)((char*)holder + 4))->Allocate(contextBytes);
-    data_ov004_02171030 = ctx;
-    if (!ctx) return 0;
-    ctx->f180 = 0;
-    ctx->f184 = 0;
-    ctx->f188 = 0;
-    ctx->f18c = 0;
-    ctx->f198 = 0;
-    ctx->f190 = 0;
-    ctx->f194 = 0;
-    ctx->f19c = 0;
-    ctx->f1a0 = 1;
-    data_ov004_02171030->f190 = (unsigned char*)bs + tableOffset;
+    void* var7 = func_ov011_021845f8(arg0, 0);
+    if (!var7) return 0;
+    struct Struct_ov004_02168b44_3* var8 =
+        (struct Struct_ov004_02168b44_3*)((SafeAllocator*)((char*)var7 + 4))->Allocate(Enum_ov004_02168b44_420);
+    data_ov004_02171030 = var8;
+    if (!var8) return 0;
+    var8->unknown_180_ = 0;
+    var8->unknown_184_ = 0;
+    var8->unknown_188_ = 0;
+    var8->unknown_18c_ = 0;
+    var8->unknown_198_ = 0;
+    var8->unknown_190_ = 0;
+    var8->unknown_194_ = 0;
+    var8->unknown_19c_ = 0;
+    var8->unknown_1a0_ = 1;
+    data_ov004_02171030->unknown_190_ = (unsigned char*)var0 + Enum_ov004_02168b44_29180;
 
-    BattleRecordSnapshot blk;
-    int ok = func_020ac4c0(&blk);
-    unsigned int score = 0;
-    func_020ac0b4(&score);
-    if (score > 0x1869f) score = 0x1869f;
-    int bit = 0;
-    struct Combatant02168b44* c =
-        (struct Combatant02168b44*)bs->GetProtagonist();
-    if (c) bit = c->f150->bit0;
-    struct Field02168b44* fld = (struct Field02168b44*)((char*)bs + fieldOffset);
-    data_ov004_02171030->f194 =
-        (struct Packed02168b44*)((SafeAllocator*)((char*)holder + 4))->Allocate(0x18);
-    memset(data_ov004_02171030->f194, 0, 0x18);
+    Struct_02061c04 var9;
+    int var10 = func_020ac4c0(&var9);
+    unsigned int var11 = 0;
+    func_020ac0b4(&var11);
+    if (var11 > 0x1869f) var11 = 0x1869f;
+    int var12 = 0;
+    struct Struct_ov004_02168b44_4* var13 =
+        (struct Struct_ov004_02168b44_4*)var0->GetProtagonist();
+    if (var13) var12 = var13->unknown_150_->unknown_49c_0_;
+    struct Struct_ov004_02168b44_6* var14 = (struct Struct_ov004_02168b44_6*)((char*)var0 + Enum_ov004_02168b44_22172);
+    data_ov004_02171030->unknown_194_ =
+        (struct Struct_ov004_02168b44_2*)((SafeAllocator*)((char*)var7 + 4))->Allocate(0x18);
+    memset(data_ov004_02171030->unknown_194_, 0, 0x18);
 
-    if (ok) {
-        data_ov004_02171030->f194->w0A = blk.clocks.elapsed.hours;
-        data_ov004_02171030->f194->w8A = blk.clocks.elapsed.minutes;
-        data_ov004_02171030->f194->w4A = blk.clocks.committed.hours;
-        data_ov004_02171030->f194->w8B = blk.clocks.committed.minutes;
-        data_ov004_02171030->f194->w4B = blk.unknown08_0;
-        data_ov004_02171030->f194->w0B = score;
-        data_ov004_02171030->f194->wcA = blk.unknown10_0;
-        data_ov004_02171030->f194->w10A = blk.unknown08_24;
-        data_ov004_02171030->f194->wcB = blk.unknown0c_14;
-        data_ov004_02171030->f194->w10B = blk.unknown10_9;
-        data_ov004_02171030->f194->w8C =
-            (unsigned char)func_020a0870(&blk);
-        data_ov004_02171030->f194->w8D =
-            (unsigned char)func_020a08a4(&blk);
-        data_ov004_02171030->f194->wcC =
-            (unsigned char)func_020a08d8(&blk);
-        data_ov004_02171030->f194->w10C =
-            (unsigned char)func_020a090c(&blk);
-        data_ov004_02171030->f194->f14 = fld->val;
-        data_ov004_02171030->f194->f16 = bit;
+    if (var10) {
+        data_ov004_02171030->unknown_194_->unknown_0_0_ = var9.unknown_0_.unknown_0_.unknown_0_;
+        data_ov004_02171030->unknown_194_->unknown_8_0_ = var9.unknown_0_.unknown_0_.unknown_2_;
+        data_ov004_02171030->unknown_194_->unknown_4_0_ = var9.unknown_0_.unknown_4_.unknown_0_;
+        data_ov004_02171030->unknown_194_->unknown_8_7_ = var9.unknown_0_.unknown_4_.unknown_2_;
+        data_ov004_02171030->unknown_194_->unknown_5_6_ = var9.unknown_8_0_;
+        data_ov004_02171030->unknown_194_->unknown_1_6_ = var11;
+        data_ov004_02171030->unknown_194_->unknown_c_0_ = var9.unknown_10_0_;
+        data_ov004_02171030->unknown_194_->unknown_10_0_ = var9.unknown_b_0_;
+        data_ov004_02171030->unknown_194_->unknown_d_2_ = var9.unknown_d_6_;
+        data_ov004_02171030->unknown_194_->unknown_11_1_ = var9.unknown_11_1_;
+        data_ov004_02171030->unknown_194_->unknown_9_6_ =
+            (unsigned char)func_020a0870(&var9);
+        data_ov004_02171030->unknown_194_->unknown_a_5_ =
+            (unsigned char)func_020a08a4(&var9);
+        data_ov004_02171030->unknown_194_->unknown_f_0_ =
+            (unsigned char)func_020a08d8(&var9);
+        data_ov004_02171030->unknown_194_->unknown_12_7_ =
+            (unsigned char)func_020a090c(&var9);
+        data_ov004_02171030->unknown_194_->unknown_14_ = var14->unknown_6_3_;
+        data_ov004_02171030->unknown_194_->unknown_16_0_ = var12;
     }
 
-    data_ov004_02171030->f19c = ((SafeAllocator*)((char*)holder + 4))->Allocate(0x800);
-    memset(data_ov004_02171030->f19c, 0, 4);
+    data_ov004_02171030->unknown_19c_ = ((SafeAllocator*)((char*)var7 + 4))->Allocate(0x800);
+    memset(data_ov004_02171030->unknown_19c_, 0, 4);
 
-    void* base = func_02012fe4();
-    if (!base) return 0;
-    struct S_e830* rec = (struct S_e830*)((char*)base + entryOffset);
-    if (!rec) return 0;
-    data_ov004_02171030->f18c = func_0201e830(rec);
+    void* var15 = func_02012fe4();
+    if (!var15) return 0;
+    struct Struct_0201e830* var16 = (struct Struct_0201e830*)((char*)var15 + Enum_ov004_02168b44_108);
+    if (!var16) return 0;
+    data_ov004_02171030->unknown_18c_ = func_0201e830(var16);
 
-    unsigned int* w = (unsigned int*)GetGameResources();
-    data_ov004_02171030->f180 = GetFlags00((GameResources*)w);
-    data_ov004_02171030->f184 = GetFlags04((GameResources*)w);
-    data_ov004_02171030->f188 = GetFlags08((GameResources*)w);
-    SetFlags00((GameResources*)w, 4);
-    SetFlags04((GameResources*)w, 0x8de);
+    unsigned int* var17 = (unsigned int*)GetGameResources();
+    data_ov004_02171030->unknown_180_ = GetFlags00((GameResources*)var17);
+    data_ov004_02171030->unknown_184_ = GetFlags04((GameResources*)var17);
+    data_ov004_02171030->unknown_188_ = GetFlags08((GameResources*)var17);
+    SetFlags00((GameResources*)var17, 4);
+    SetFlags04((GameResources*)var17, 0x8de);
     func_020c5588(0, 0, 0x7fff, 0, 0);
 
-    struct Node02168b44* node = (struct Node02168b44*)NODE_LOOKUP_CALL(a, 0x64);
-    if (data_ov004_02171030->f190[0] <= 8) {
-        *(short*)((char*)node + 0x5c) = 0;
-        *(short*)((char*)node + 0x5e) = 1;
+    struct Struct_ov004_02168b44_7* var18 = (struct Struct_ov004_02168b44_7*)NODE_LOOKUP_CALL(arg0, 0x64);
+    if (data_ov004_02171030->unknown_190_[0] <= 8) {
+        *(short*)((char*)var18 + 0x5c) = 0;
+        *(short*)((char*)var18 + 0x5e) = 1;
     } else {
-        *(short*)((char*)node + 0x5c) = 0;
-        *(short*)((char*)node + 0x5e) = 2;
+        *(short*)((char*)var18 + 0x5c) = 0;
+        *(short*)((char*)var18 + 0x5e) = 2;
     }
 
-    unsigned char* tbl = *(unsigned char**)((char*)w + pointerOffset);
-    if (data_ov004_02171030->f190[0] == 0) {
-        func_ov011_021848a0(a, 0x65);
-    } else if (tbl[9] != 0) {
-        func_ov011_021848a0(a, 0x67);
-        struct Node02168b44* nd = (struct Node02168b44*)func_ov004_02168ad4(a, 2);
-        struct Triple02168b44 tmp = data_ov004_021700d4;
-        nd->Apply(&tmp);
+    unsigned char* var19 = *(unsigned char**)((char*)var17 + Enum_ov004_02168b44_15236);
+    if (data_ov004_02171030->unknown_190_[0] == 0) {
+        func_ov011_021848a0(arg0, 0x65);
+    } else if (var19[9] != 0) {
+        func_ov011_021848a0(arg0, 0x67);
+        struct Struct_ov004_02168b44_7* var20 = (struct Struct_ov004_02168b44_7*)func_ov004_02168ad4(arg0, 2);
+        struct Struct_ov004_021700d4 var21 = data_ov004_021700d4;
+        var20->inline_ov004_02168b44_8(&var21);
     } else {
-        func_ov011_021848a0(a, 0x64);
+        func_ov011_021848a0(arg0, 0x64);
     }
 
-    char* g = (char*)func_020421a0();
-    func_02043204(g);
-    *(unsigned char*)(g + flagOffset) = 1;
-    func_020e2d24((int*)(g + firstOffset), 9, 1);
-    func_020e2d24((int*)(g + secondOffset), 0x19, 1);
+    char* var22 = (char*)func_020421a0();
+    func_02043204(var22);
+    *(unsigned char*)(var22 + Enum_ov004_02168b44_6498) = 1;
+    func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6500), 9, 1);
+    func_020e2d24((int*)(var22 + Enum_ov004_02168b44_6536), 0x19, 1);
     return 0;
 }

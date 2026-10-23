@@ -8,71 +8,71 @@
 #define func_0200b454 func_0200b318
 #endif
 
-struct Obj0205eaa0;
-struct Vec3copy0202ec84;
-struct Field150Holder02052df8;
+struct Struct_02108760;
+struct Struct_02015ef4;
+struct Struct_02052df8;
 
-struct Body {
-    char unk_0[0x50];
-    Vector3fix rotation_;
+struct Struct_ov005_0215690c_2 {
+    char unknown_0_[0x50];
+    Vector3fix unknown_50_;
 };
 
-struct MemberScreen {
+struct Struct_ov005_02153ba4_2 {
 #if defined(jpn)
-    char unk_0[0x4f8];
+    char unknown_0_[0x4f8];
 #else
-    char unk_0[0x4fc];
+    char unknown1_0_[0x4fc];
 #endif
-    int member_;
+    int unknown_4fc_;
 #if defined(jpn)
-    char unk_500[0x56c - 0x4fc];
+    char unknown1_4fc_[0x56c - 0x4fc];
 #else
-    char unk_500[0x634 - 0x500];
+    char unknown_500_[0x634 - 0x500];
 #endif
-    unsigned short flags_;
+    unsigned short unknown_634_;
 };
 
-struct EquipmentSlot {
-    short item_;
-    signed char count_;
-    unsigned char equipped_;
-    void* vramState_;
-    void* model_;
-    int x_;
-    int y_;
-    int offset_;
-    short loadedItem_;
+struct Struct_ov005_02153ba4 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    void* unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    short unknown_18_;
 };
 
-struct EquipmentMenu {
+struct Struct_ov005_02153954 {
 #if defined(jpn)
-    char unk_0[0x196c];
+    char unknown_0_[0x196c];
 #else
-    char unk_0[0x19f4];
+    char unknown1_0_[0x19f4];
 #endif
-    char cursor_[0x2d90 - 0x19f4];
-    EquipmentSlot slots_[24];
-    char slotModels_[0x3d78 - 0x3030];
-    short dragged_;
-    char unk_3d7a[0x3d98 - 0x3d7a];
-    short itemCounts_[8];
-    unsigned char unk_3da8;
-    unsigned char equippedStep_;
-    unsigned char pageStep_;
-    char unk_3dab[0x3db8 - 0x3dab];
-    unsigned char state_;
-    unsigned char lastState_;
-    unsigned char step_;
-    signed char slot_;
-    unsigned char kind_;
-    signed char page_;
-    unsigned char unk_3dbe;
-    signed char lastPage_;
-    signed char unk_3dc0;
-    char unk_3dc1[0x3dcc - 0x3dc1];
-    unsigned int flags_;
-    char unk_3dd0[0x3dfc - 0x3dd0];
-    unsigned char pages_[8];
+    char unknown_19f4_[0x2d90 - 0x19f4];
+    Struct_ov005_02153ba4 unknown_2d90_[24];
+    char unknown_3030_[0x3d78 - 0x3030];
+    short unknown_3d78_;
+    char unknown_3d7a_[0x3d98 - 0x3d7a];
+    short unknown_3d98_[8];
+    unsigned char unknown_3da8_;
+    unsigned char unknown_3da9_;
+    unsigned char unknown_3daa_;
+    char unknown_3dab_[0x3db8 - 0x3dab];
+    unsigned char unknown_3db8_;
+    unsigned char unknown_3db9_;
+    unsigned char unknown_3dba_;
+    signed char unknown_3dbb_;
+    unsigned char unknown_3dbc_;
+    signed char unknown_3dbd_;
+    unsigned char unknown_3dbe_;
+    signed char unknown_3dbf_;
+    signed char unknown_3dc0_;
+    char unknown_3dc1_[0x3dcc - 0x3dc1];
+    unsigned int unknown_3dcc_;
+    char unknown_3dd0_[0x3dfc - 0x3dd0];
+    unsigned char unknown_3dfc_[8];
 };
 
 #if defined(jpn)
@@ -88,156 +88,156 @@ extern unsigned char data_ov005_0215cd58[8];
 extern unsigned char data_ov005_0215cd50[8];
 extern int data_02108760;
 
-extern "C" MemberScreen* func_ov017_021a193c(int* p);
-extern "C" int func_ov005_02157ae8(EquipmentMenu* self, int member);
-struct Obj021e4e20;
-extern "C" Body* func_ov023_021e4e20(Obj021e4e20*);
-extern "C" int func_ov005_02155670(EquipmentMenu* self, int x, int y);
-extern "C" int func_0202ec84(void* obj, Vec3copy0202ec84* src, int* out1, int* out2);
-extern "C" GameObject* func_0200ff1c(GameState* gs, int id);
+extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
+struct Struct_ov005_0215690c;
+extern "C" Struct_ov005_0215690c_2* func_ov023_021e4e20(Struct_ov005_0215690c*);
+extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
+extern "C" int func_0202ec84(void* arg0, Struct_02015ef4* arg1, int* arg2, int* arg3);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 extern "C" double func_0200b454(double x);
-extern "C" short func_02052df8(Field150Holder02052df8* obj, int index);
-extern "C" int func_ov005_02158560(EquipmentMenu* self, unsigned char kind, int silent);
-extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
-extern "C" void func_ov005_021579ec(EquipmentMenu* self, unsigned int state, unsigned char slot);
-extern "C" void func_ov005_021555c0(EquipmentMenu* self);
-extern "C" void* func_02010828(GameState* gs);
-extern "C" short* func_0207c5f8(unsigned char* obj, unsigned int index);
-extern "C" void func_0205bb04(void* cursor, int index);
-extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
+extern "C" short func_02052df8(Struct_02052df8* arg0, int arg1);
+extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
+extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
+extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
 
 // USA: func_ov005_0215690c
-extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
-    GameState* gameState;
-    Body* body;
-    gameState = GameState::GetInstance();
-    unsigned char page;
-    MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
-    unsigned int member = screen->member_;
-    if (!func_ov005_02157ae8(self, member))
+extern "C" ARM void func_ov005_0215690c(Struct_ov005_02153954* arg0, int arg1, int arg2) {
+    GameState* var0;
+    Struct_ov005_0215690c_2* var1;
+    var0 = GameState::GetInstance();
+    unsigned char var2;
+    Struct_ov005_02153ba4_2* var3 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    unsigned int var4 = var3->unknown_4fc_;
+    if (!func_ov005_02157ae8(arg0, var4))
         return;
-    body = func_ov023_021e4e20((Obj021e4e20*)screen);
-    func_ov005_02155670(self, x, y);
-    short item = -1;
-    unsigned char kind = 0xff;
-    if (x > 0 && x < 0x80) {
-        int screenX[8];
-        void* camera;
-        int dx;
-        int screenY[8];
-        camera = func_020100bc(gameState);
-        int count;
-        Matrix4x3 matrix;
-        Vector3fix positions[8];
-        matrix = RotationMatrixY(body->rotation_.y);
-        for (int i = 0; i < 8; i++) {
-            Mat4x3_ApplyToVector(&data_ov005_0215cc84[i], &matrix, &positions[i]);
-            func_0202ec84(camera, (Vec3copy0202ec84*)&positions[i], &screenX[i], &screenY[i]);
+    var1 = func_ov023_021e4e20((Struct_ov005_0215690c*)var3);
+    func_ov005_02155670(arg0, arg1, arg2);
+    short var5 = -1;
+    unsigned char var6 = 0xff;
+    if (arg1 > 0 && arg1 < 0x80) {
+        int var7[8];
+        void* var8;
+        int var9;
+        int var10[8];
+        var8 = func_020100bc(var0);
+        int var11;
+        Matrix4x3 var12;
+        Vector3fix var13[8];
+        var12 = RotationMatrixY(var1->unknown_50_.y);
+        for (int var14 = 0; var14 < 8; var14++) {
+            Mat4x3_ApplyToVector(&data_ov005_0215cc84[var14], &var12, &var13[var14]);
+            func_0202ec84(var8, (Struct_02015ef4*)&var13[var14], &var7[var14], &var10[var14]);
         }
-        GameObject* partyMember = func_0200ff1c(gameState, member);
-        count = 0;
-        float radii[8];
-        int touched[8];
-        for (int i = 0; i < 8; i++) {
-            radii[i] = 20.0f;
-            int dy = y - screenY[i];
-            int dx = x - screenX[i];
-            if ((float)func_0200b454(dx * dx + dy * dy) < radii[i])
-                touched[count++] = i;
+        GameObject* var15 = func_0200ff1c(var0, var4);
+        var11 = 0;
+        float var16[8];
+        int var17[8];
+        for (int var18 = 0; var18 < 8; var18++) {
+            var16[var18] = 20.0f;
+            int var19 = arg2 - var10[var18];
+            int var20 = arg1 - var7[var18];
+            if ((float)func_0200b454(var20 * var20 + var19 * var19) < var16[var18])
+                var17[var11++] = var18;
         }
-        if (count > 0) {
-            int equippedCount = 0;
-            int found = 0;
-            int equipped[8];
-            for (int i = 0; i < count; i++) {
-                int part = touched[i];
-                if (func_02052df8((Field150Holder02052df8*)partyMember, data_ov005_0215cc14[part]) > 0) {
-                    equipped[equippedCount] = part;
-                    found = 1;
-                    equippedCount++;
+        if (var11 > 0) {
+            int var21 = 0;
+            int var22 = 0;
+            int var23[8];
+            for (int var24 = 0; var24 < var11; var24++) {
+                int var25 = var17[var24];
+                if (func_02052df8((Struct_02052df8*)var15, data_ov005_0215cc14[var25]) > 0) {
+                    var23[var21] = var25;
+                    var22 = 1;
+                    var21++;
                 }
             }
-            if (found) {
-                int best = equipped[0];
-                int bestZ = positions[best].z;
-                for (int i = 1; i < equippedCount; i++) {
-                    int part = equipped[i];
-                    if (bestZ < positions[part].z) {
-                        best = part;
-                        bestZ = positions[part].z;
+            if (var22) {
+                int var26 = var23[0];
+                int var27 = var13[var26].z;
+                for (int var28 = 1; var28 < var21; var28++) {
+                    int var29 = var23[var28];
+                    if (var27 < var13[var29].z) {
+                        var26 = var29;
+                        var27 = var13[var29].z;
                     }
                 }
-                kind = data_ov005_0215cd58[best];
-                item = func_02052df8((Field150Holder02052df8*)partyMember, data_ov005_0215cc14[best]);
+                var6 = data_ov005_0215cd58[var26];
+                var5 = func_02052df8((Struct_02052df8*)var15, data_ov005_0215cc14[var26]);
             } else {
-                int best = touched[0];
-                int bestZ = positions[best].z;
-                for (int i = 1; i < count; i++) {
-                    int part = touched[i];
-                    if (bestZ < positions[part].z) {
-                        best = part;
-                        bestZ = positions[part].z;
+                int var30 = var17[0];
+                int var31 = var13[var30].z;
+                for (int var32 = 1; var32 < var11; var32++) {
+                    int var33 = var17[var32];
+                    if (var31 < var13[var33].z) {
+                        var30 = var33;
+                        var31 = var13[var33].z;
                     }
                 }
-                kind = data_ov005_0215cd58[best];
-                if (self->kind_ != kind) {
-                    func_ov005_02158560(self, kind, 1);
-                    self->slot_ = 8;
-                    func_ov005_0215792c(self, 4);
-                    func_ov005_021579ec(self, self->state_, self->slot_);
-                    self->flags_ |= 0x100;
-                    func_ov005_021555c0(self);
+                var6 = data_ov005_0215cd58[var30];
+                if (arg0->unknown_3dbc_ != var6) {
+                    func_ov005_02158560(arg0, var6, 1);
+                    arg0->unknown_3dbb_ = 8;
+                    func_ov005_0215792c(arg0, 4);
+                    func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
+                    arg0->unknown_3dcc_ |= 0x100;
+                    func_ov005_021555c0(arg0);
                     return;
                 }
             }
         }
-    } else if (x > 0x84 && x < 0x9d && y > 0x16 && y < 0x2d) {
-        kind = self->kind_;
-        item = self->slots_[kind].item_;
+    } else if (arg1 > 0x84 && arg1 < 0x9d && arg2 > 0x16 && arg2 < 0x2d) {
+        var6 = arg0->unknown_3dbc_;
+        var5 = arg0->unknown_2d90_[var6].unknown_0_;
     }
-    if (item <= 0)
+    if (var5 <= 0)
         return;
-    int changed = 0;
-    if (self->kind_ != kind) {
-        changed = 1;
-        func_ov005_02158560(self, kind, 1);
-        self->flags_ |= 0x100;
+    int var34 = 0;
+    if (arg0->unknown_3dbc_ != var6) {
+        var34 = 1;
+        func_ov005_02158560(arg0, var6, 1);
+        arg0->unknown_3dcc_ |= 0x100;
     }
-    short* items = func_0207c5f8((unsigned char*)func_02010828(gameState) + 0x1d4, data_ov005_0215cd50[self->kind_]);
-    int empty = -1;
-    int index = -1;
-    for (short i = 0; i < self->itemCounts_[self->kind_]; i++) {
-        short other = items[i];
-        if (item == other) {
-            index = i;
+    short* var35 = func_0207c5f8((unsigned char*)func_02010828(var0) + 0x1d4, data_ov005_0215cd50[arg0->unknown_3dbc_]);
+    int var36 = -1;
+    int var37 = -1;
+    for (short var38 = 0; var38 < arg0->unknown_3d98_[arg0->unknown_3dbc_]; var38++) {
+        short var39 = var35[var38];
+        if (var5 == var39) {
+            var37 = var38;
             break;
         }
-        if (empty < 0 && other == -1)
-            empty = i;
+        if (var36 < 0 && var39 == -1)
+            var36 = var38;
     }
-    if (index < 0)
-        index = empty;
-    page = index / 16;
-    if (self->page_ != page) {
-        self->lastPage_ = self->page_;
-        self->page_ = page;
-        changed = 1;
-        self->pages_[self->kind_] = self->page_;
+    if (var37 < 0)
+        var37 = var36;
+    var2 = var37 / 16;
+    if (arg0->unknown_3dbd_ != var2) {
+        arg0->unknown_3dbf_ = arg0->unknown_3dbd_;
+        arg0->unknown_3dbd_ = var2;
+        var34 = 1;
+        arg0->unknown_3dfc_[arg0->unknown_3dbc_] = arg0->unknown_3dbd_;
     }
-    if (changed) {
-        func_ov005_021555c0(self);
-        self->flags_ |= 0x40;
-        self->pageStep_ = 0;
+    if (var34) {
+        func_ov005_021555c0(arg0);
+        arg0->unknown_3dcc_ |= 0x40;
+        arg0->unknown_3daa_ = 0;
     }
-    func_ov005_0215792c(self, 3);
-    self->dragged_ = self->kind_;
-    self->slot_ = self->dragged_;
-    func_0205bb04(self->cursor_, self->dragged_);
-    self->unk_3dc0 = 1;
-    self->flags_ |= 0x80;
-    func_0205eaa0((Obj0205eaa0*)&data_02108760, 2, 0);
-    screen->flags_ &= ~1;
-    screen->flags_ &= ~0x80;
-    self->flags_ &= ~4;
-    self->flags_ &= ~8;
+    func_ov005_0215792c(arg0, 3);
+    arg0->unknown_3d78_ = arg0->unknown_3dbc_;
+    arg0->unknown_3dbb_ = arg0->unknown_3d78_;
+    func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3d78_);
+    arg0->unknown_3dc0_ = 1;
+    arg0->unknown_3dcc_ |= 0x80;
+    func_0205eaa0((Struct_02108760*)&data_02108760, 2, 0);
+    var3->unknown_634_ &= ~1;
+    var3->unknown_634_ &= ~0x80;
+    arg0->unknown_3dcc_ &= ~4;
+    arg0->unknown_3dcc_ &= ~8;
 }

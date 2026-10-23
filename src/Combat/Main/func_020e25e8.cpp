@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct FlagOwner;
+struct Struct_020e1cb8;
 
-extern "C" void func_020e1cb8(struct FlagOwner* obj);
-extern "C" void func_020e25cc(signed char* p);
+extern "C" void func_020e1cb8(struct Struct_020e1cb8* arg0);
+extern "C" void func_020e25cc(signed char* arg0);
 
-struct Obj020e25e8 {
-    char pad[0x10];
-    struct FlagOwner* owner;
+struct Struct_020e25e8 {
+    char unknown_0_[0x10];
+    struct Struct_020e1cb8* unknown_10_;
 };
 
 // USA: func_020e25e8
-extern "C" ARM void func_020e25e8(struct Obj020e25e8* obj) {
-    func_020e1cb8(obj->owner);
-    func_020e25cc((signed char*)obj);
+extern "C" ARM void func_020e25e8(struct Struct_020e25e8* arg0) {
+    func_020e1cb8(arg0->unknown_10_);
+    func_020e25cc((signed char*)arg0);
 }

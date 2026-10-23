@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue3C1_3D9 = 0x3d9 };
-enum { kRegionValue64_7C = 0x7c };
-enum { kRegionValue3C0_3D8 = 0x3d8 };
-enum { kRegionValue3BD_3D5 = 0x3d5 };
+enum { Enum_ov003_0215e13c_961 = 0x3d9 };
+enum { Enum_ov003_0215e13c_100 = 0x7c };
+enum { Enum_ov003_0215e13c_960 = 0x3d8 };
+enum { Enum_ov003_0215e13c_957 = 0x3d5 };
 #else
-enum { kRegionValue3C1_3D9 = 0x3c1 };
-enum { kRegionValue64_7C = 0x64 };
-enum { kRegionValue3C0_3D8 = 0x3c0 };
-enum { kRegionValue3BD_3D5 = 0x3bd };
+enum { Enum_ov003_0215e13c_961 = 0x3c1 };
+enum { Enum_ov003_0215e13c_100 = 0x64 };
+enum { Enum_ov003_0215e13c_960 = 0x3c0 };
+enum { Enum_ov003_0215e13c_957 = 0x3bd };
 #endif
 
-struct Container020e0310;
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
+struct Struct_0201099c_3;
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
 extern char data_ov003_0217ff3e;
 
 // USA: func_ov003_0215e13c
-extern "C" ARM void func_ov003_0215e13c(char* base, char* dst, int flag) {
-    if (dst == NULL) return;
+extern "C" ARM void func_ov003_0215e13c(char* arg0, char* arg1, int arg2) {
+    if (arg1 == NULL) return;
 
-    signed char cursor = *(signed char*)(base + kRegionValue3C1_3D9);
-    if (flag) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    signed char var0 = *(signed char*)(arg0 + Enum_ov003_0215e13c_961);
+    if (arg2) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var0);
 
-    struct Container020e0310* c = (struct Container020e0310*)(base + kRegionValue64_7C);
-    int i = 0;
-    while (i < *(unsigned char*)(base + kRegionValue3C0_3D8)) {
-        unsigned char key = *(unsigned char*)(base + i + kRegionValue3BD_3D5);
-        int name = func_020e0434(c, key);
-        func_02041b70(dst, i, (const char*)name);
-        if (i != *(unsigned char*)(base + kRegionValue3C0_3D8) - 1) {
-            func_02042058(dst, &data_ov003_0217ff3e);
+    struct Struct_0201099c_3* var1 = (struct Struct_0201099c_3*)(arg0 + Enum_ov003_0215e13c_100);
+    int var2 = 0;
+    while (var2 < *(unsigned char*)(arg0 + Enum_ov003_0215e13c_960)) {
+        unsigned char var3 = *(unsigned char*)(arg0 + var2 + Enum_ov003_0215e13c_957);
+        int var4 = func_020e0434(var1, var3);
+        func_02041b70(arg1, var2, (const char*)var4);
+        if (var2 != *(unsigned char*)(arg0 + Enum_ov003_0215e13c_960) - 1) {
+            func_02042058(arg1, &data_ov003_0217ff3e);
         }
-        i++;
+        var2++;
     }
 }

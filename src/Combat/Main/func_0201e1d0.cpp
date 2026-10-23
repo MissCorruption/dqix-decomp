@@ -5,17 +5,17 @@
 extern Script::OpcodeLookupEntry data_020ef388[];
 
 // USA: func_0201e1d0
-extern "C" ARM void func_0201e1d0(const void* data, unsigned int length, ZoneFeatures* features, SafeAllocator* allocator) {
-    if (length == 0) return;
-    data_020fdc20.warp = features;
-    data_020fdc20.allocator = allocator;
-    data_020fdc20.currentEntry = 0;
-    Script script;
-    script.Initialize();
-    script.SetOpcodeLookup(data_020ef388);
-    script.Load(data, length);
-    script.Execute();
-    data_020fdc20.warp = 0;
-    data_020fdc20.allocator = 0;
-    data_020fdc20.currentEntry = 0;
+extern "C" ARM void func_0201e1d0(const void* arg0, unsigned int arg1, Struct_020134e0* arg2, SafeAllocator* arg3) {
+    if (arg1 == 0) return;
+    data_020fdc20.unknown_8_ = arg2;
+    data_020fdc20.unknown_4_ = arg3;
+    data_020fdc20.unknown_0_ = 0;
+    Script var0;
+    var0.Initialize();
+    var0.SetOpcodeLookup(data_020ef388);
+    var0.Load(arg0, arg1);
+    var0.Execute();
+    data_020fdc20.unknown_8_ = 0;
+    data_020fdc20.unknown_4_ = 0;
+    data_020fdc20.unknown_0_ = 0;
 }

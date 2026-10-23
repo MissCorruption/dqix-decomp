@@ -6,20 +6,20 @@
 
 extern "C" void func_020c9be0(void);
 extern "C" void func_020a1940(int);
-struct InputLog {
-    unsigned char countA;
-    unsigned char countB;
-    signed char logB[8];
-    signed char logA[8];
+struct Struct_02109da4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    signed char unknown_2_[8];
+    signed char unknown_a_[8];
 };
-extern InputLog data_02109da4;
+extern Struct_02109da4 data_02109da4;
 extern signed char data_020f1962[];
 
 // USA: func_020a1df8
-extern "C" ARM void func_020a1df8(int id) {
-    if (data_02109da4.countA >= 8) func_020c9be0();
-    if ((unsigned int)id >= 7) return;
-    func_020a1940(data_020f1962[id]);
-    data_02109da4.logA[data_02109da4.countA] = id;
-    data_02109da4.countA++;
+extern "C" ARM void func_020a1df8(int arg0) {
+    if (data_02109da4.unknown_0_ >= 8) func_020c9be0();
+    if ((unsigned int)arg0 >= 7) return;
+    func_020a1940(data_020f1962[arg0]);
+    data_02109da4.unknown_a_[data_02109da4.unknown_0_] = arg0;
+    data_02109da4.unknown_0_++;
 }

@@ -2,14 +2,14 @@
 
 struct Mutex;
 void LockMutex(Mutex*);
-struct RefNode020c80f8;
+struct Struct_ov031_02290f8c;
 void UnlockMutex(Mutex*);
 
 extern char *data_ov031_0224e60c;
 
 // USA: func_ov031_0221a1d4
-extern "C" ARM void func_ov031_0221a1d4(int a) {
+extern "C" ARM void func_ov031_0221a1d4(int arg0) {
 	LockMutex((Mutex*)(data_ov031_0224e60c + 0x1dc + 0x1000));
-	*(int*)(data_ov031_0224e60c + 0x1000) = a;
+	*(int*)(data_ov031_0224e60c + 0x1000) = arg0;
 	UnlockMutex((Mutex*)(data_ov031_0224e60c + 0x1dc + 0x1000));
 }

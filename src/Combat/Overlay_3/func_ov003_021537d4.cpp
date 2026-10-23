@@ -2,31 +2,31 @@
 
 
 
-class PMFObj021537d4 { public: virtual void Dummy021537d4(); };
-typedef void (PMFObj021537d4::*MemFn021537d4)();
+class Struct_ov003_021537d4 { public: virtual void inline_ov003_021537d4(); };
+typedef void (Struct_ov003_021537d4::*Type_020e6d5c)();
 
-struct Entry021537d4 { unsigned int a; unsigned int b; };
+struct Struct_020e6d5c_12 { unsigned int unknown_0_; unsigned int unknown_4_; };
 
 extern int data_ov003_02180ca0;
-extern struct Entry021537d4 data_020e6d5c;
-extern struct Entry021537d4 data_ov003_0217fc80[];
-extern struct Entry021537d4 data_ov003_0217fc80_tbl[];
+extern struct Struct_020e6d5c_12 data_020e6d5c;
+extern struct Struct_020e6d5c_12 data_ov003_0217fc80[];
+extern struct Struct_020e6d5c_12 data_ov003_0217fc80_tbl[];
 
-union PMFCast021537d4 { struct Entry021537d4* raw; MemFn021537d4* fn; };
+union Struct_ov003_021537d4_2 { struct Struct_020e6d5c_12* unknown_0_; Type_020e6d5c* unknown1_0_; };
 
 // USA: func_ov003_021537d4
-extern "C" ARM int func_ov003_021537d4(PMFObj021537d4* obj) {
+extern "C" ARM int func_ov003_021537d4(Struct_ov003_021537d4* arg0) {
     if (!(data_ov003_02180ca0 & 1)) {
         *(unsigned long long*)((char*)data_ov003_0217fc80 + 0x18) = *(const unsigned long long*)&data_020e6d5c;
         data_ov003_02180ca0 |= 1;
     }
-    unsigned char idx = *((unsigned char*)obj + 0x5a);
-    struct Entry021537d4* tbl = data_ov003_0217fc80_tbl;
-    if (tbl[idx].a == 0) {
+    unsigned char var0 = *((unsigned char*)arg0 + 0x5a);
+    struct Struct_020e6d5c_12* var1 = data_ov003_0217fc80_tbl;
+    if (var1[var0].unknown_0_ == 0) {
         return 1;
     }
-    union PMFCast021537d4 pmf;
-    pmf.raw = &tbl[idx];
-    (obj->*(*pmf.fn))();
+    union Struct_ov003_021537d4_2 var2;
+    var2.unknown_0_ = &var1[var0];
+    (arg0->*(*var2.unknown1_0_))();
     return 0;
 }

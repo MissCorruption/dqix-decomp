@@ -18,39 +18,39 @@ extern "C" void* func_0202ae18(void);
 extern "C" int func_ov017_021959b4(void);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
-extern "C" void func_ov011_021848a8(void* obj);
-struct Node02184a84;
-extern "C" void func_ov011_02184a84(struct Node02184a84* obj);
-extern "C" void func_ov011_02184ae4(void* obj);
-extern "C" void func_ov023_021f68dc(void* list, void* obj);
+extern "C" void func_ov011_021848a8(void* arg0);
+struct Struct_ov011_02184694_2;
+extern "C" void func_ov011_02184a84(struct Struct_ov011_02184694_2* arg0);
+extern "C" void func_ov011_02184ae4(void* arg0);
+extern "C" void func_ov023_021f68dc(void* arg0, void* arg1);
 int IsBrightnessTransitionActive(GameResources*);
-extern "C" void func_ov011_02184770(void* obj);
+extern "C" void func_ov011_02184770(void* arg0);
 
-struct Obj02184694 {
-    char pad[0x1cc];
-    unsigned char flag_1cc;
-    unsigned char flag_1cd;
+struct Struct_ov011_02184694 {
+    char unknown_0_[0x1cc];
+    unsigned char unknown_1cc_;
+    unsigned char unknown_1cd_;
 };
 
 // USA: func_ov011_02184694
-extern "C" ARM int func_ov011_02184694(Obj02184694* obj) {
-    int ctx = (int)GetGameResources();
+extern "C" ARM int func_ov011_02184694(Struct_ov011_02184694* arg0) {
+    int var0 = (int)GetGameResources();
     func_0202ae18();
-    if (obj->flag_1cd == 0) {
-        int flag = func_ov017_021959b4();
-        if (flag) {
-            obj->flag_1cd = 1;
-            if (ctx) {
-                SetBrightness((GameResources*)ctx, -16, 10);
+    if (arg0->unknown_1cd_ == 0) {
+        int var1 = func_ov017_021959b4();
+        if (var1) {
+            arg0->unknown_1cd_ = 1;
+            if (var0) {
+                SetBrightness((GameResources*)var0, -16, 10);
             }
         }
-        func_ov011_021848a8(obj);
-        func_ov011_02184a84((struct Node02184a84*)obj);
-        func_ov011_02184ae4(obj);
-        func_ov023_021f68dc((char*)obj + 0x118, obj);
-    } else if (ctx != 0 && !IsBrightnessTransitionActive((GameResources*)ctx)) {
-        func_ov011_02184770(obj);
-        obj->flag_1cc = 1;
+        func_ov011_021848a8(arg0);
+        func_ov011_02184a84((struct Struct_ov011_02184694_2*)arg0);
+        func_ov011_02184ae4(arg0);
+        func_ov023_021f68dc((char*)arg0 + 0x118, arg0);
+    } else if (var0 != 0 && !IsBrightnessTransitionActive((GameResources*)var0)) {
+        func_ov011_02184770(arg0);
+        arg0->unknown_1cc_ = 1;
     }
-    return obj->flag_1cc == 0;
+    return arg0->unknown_1cc_ == 0;
 }

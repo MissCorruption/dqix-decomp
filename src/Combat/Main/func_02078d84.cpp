@@ -2,54 +2,54 @@
 
 extern "C" int func_0202b7d8(int*);
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4*);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4*);
 
 extern "C" int func_02076ccc(void*, int);
 
-extern "C" void* func_0202ae18(void* obj);
-extern "C" unsigned short func_02078e60(void* obj, char* out);
+extern "C" void* func_0202ae18(void* arg0);
+extern "C" unsigned short func_02078e60(void* arg0, char* arg1);
 
-struct Obj02078d84 {
-    char pad1[0x138];
-    unsigned char field138;
-    char pad2[0x13];
-    unsigned int field14c;
-    char pad3[0x14];
-    unsigned short field164;
+struct Struct_02078d84 {
+    char unknown_0_[0x138];
+    unsigned char unknown_138_;
+    char unknown_139_[0x13];
+    unsigned int unknown_14c_;
+    char unknown_150_[0x14];
+    unsigned short unknown_164_;
 };
 
 // USA: func_02078d84
-extern "C" ARM void func_02078d84(struct Obj02078d84* obj) {
-    void* s = func_0202ae18(obj);
-    if (func_0202b7d8((int*)s) != 0) {
-        if (func_0202c1a4((struct SearchStruct0202c1a4*)s) != 0) {
+extern "C" ARM void func_02078d84(struct Struct_02078d84* arg0) {
+    void* var0 = func_0202ae18(arg0);
+    if (func_0202b7d8((int*)var0) != 0) {
+        if (func_0202c1a4((struct Struct_0202c1a4*)var0) != 0) {
             return;
         }
     }
-    if (obj->field14c <= 0xbb8) {
+    if (arg0->unknown_14c_ <= 0xbb8) {
         return;
     }
-    char localFlag = 0;
-    switch (obj->field138) {
+    char var1 = 0;
+    switch (arg0->unknown_138_) {
     case 0:
-        func_02076ccc(obj, 1);
+        func_02076ccc(arg0, 1);
         return;
     case 1:
     case 3:
     case 4:
     case 5:
 #if !defined(jpn)
-        if (func_02076ccc(obj, 2) != 0) {
+        if (func_02076ccc(arg0, 2) != 0) {
             return;
         }
-        obj->field164 = func_02078e60(obj, &localFlag);
+        arg0->unknown_164_ = func_02078e60(arg0, &var1);
 #endif
-        func_02076ccc(obj, 2);
+        func_02076ccc(arg0, 2);
         return;
     case 2:
-        obj->field164 = func_02078e60(obj, &localFlag);
-        func_02076ccc(obj, 3);
+        arg0->unknown_164_ = func_02078e60(arg0, &var1);
+        func_02076ccc(arg0, 3);
         return;
     }
 }

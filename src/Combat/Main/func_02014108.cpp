@@ -14,7 +14,7 @@
 
 extern "C" {
     void func_020c9be0();
-    void _ZN6Zone3D13func_02014b04Ev(void* obj);
+    void _ZN6Zone3D13func_02014b04Ev(void* arg0);
 }
 
 extern "C" void func_0205e104(char*, SafeAllocator*, const void*, unsigned int);
@@ -38,74 +38,74 @@ ARM int Zone3D::func_02014108() {
         return 1;
     }
 
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (!loader->GetTaskStatus(mapAMBLLoadHandle_)) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    if (!var0->GetTaskStatus(mapAMBLLoadHandle_)) {
         return 0;
     }
 
-    if (loader->GetDetailedTaskStatus(mapAMBLLoadHandle_) != 2) {
-        loader->RemoveTask(mapAMBLLoadHandle_);
+    if (var0->GetDetailedTaskStatus(mapAMBLLoadHandle_) != 2) {
+        var0->RemoveTask(mapAMBLLoadHandle_);
         mapAMBLLoadHandle_ = -1;
         return 1;
     }
 
-    void* archive;
-    unsigned int archiveLength;
-    loader->GetLoadedFileByID(mapAMBLLoadHandle_, &archive, &archiveLength);
+    void* var1;
+    unsigned int var2;
+    var0->GetLoadedFileByID(mapAMBLLoadHandle_, &var1, &var2);
 
-    for (int pass = 0; pass < 2; pass++) {
-        NarcHandle narc;
-        if (narc.Initialize(&data_020ef13a, static_cast<const unsigned char*>(archive))) {
-            NitroVM vm;
-            unsigned int idx = 0;
-            NitroVM_Initialize(&vm);
-            while (PrepareReadFileInNARCByID(&vm, &narc, idx)) {
-                char name[0x50];
-                NitroVM_WriteOutFilePath(&vm, name, 0x50);
-                char* dot = strrchr(name, '.');
-                if (dot == 0) {
-                    NitroVM_FinishRead(&vm);
-                    idx++;
+    for (int var3 = 0; var3 < 2; var3++) {
+        NarcHandle var4;
+        if (var4.Initialize(&data_020ef13a, static_cast<const unsigned char*>(var1))) {
+            NitroVM var5;
+            unsigned int var6 = 0;
+            NitroVM_Initialize(&var5);
+            while (PrepareReadFileInNARCByID(&var5, &var4, var6)) {
+                char var7[0x50];
+                NitroVM_WriteOutFilePath(&var5, var7, 0x50);
+                char* var8 = strrchr(var7, '.');
+                if (var8 == 0) {
+                    NitroVM_FinishRead(&var5);
+                    var6++;
                     continue;
                 }
-                unsigned int size = vm.fileInfo.endOffset - vm.fileInfo.startOffset;
-                NitroVM_FinishRead(&vm);
-                const void* src = narc.GetFileByIndex(idx);
-                if (pass == 0) {
-                    if (strcmp(&data_020ef13e, dot) == 0) {
-                        func_0201445c(src, size, name);
+                unsigned int var9 = var5.fileInfo.unknown_8_ - var5.fileInfo.unknown_4_;
+                NitroVM_FinishRead(&var5);
+                const void* var10 = var4.GetFileByIndex(var6);
+                if (var3 == 0) {
+                    if (strcmp(&data_020ef13e, var8) == 0) {
+                        func_0201445c(var10, var9, var7);
                     }
-                } else if (pass == 1) {
-                    if (strcmp(&data_020ef145, dot) == 0) {
-                        func_02014390(src, size);
-                    } else if (strcmp(&data_020ef14b, dot) == 0) {
-                        SafeAllocator* alloc = pAllocator_68_;
-                        unsigned int decompSize;
-                        void* data = DecompressLZ77FileIntoScratchSpace(*alloc, src, decompSize);
-                        func_0205e104(substruct_c_.buffer1, alloc, data, decompSize);
-                    } else if (strcmp(&data_020ef150, dot) == 0) {
-                        func_020143d8(src, size);
+                } else if (var3 == 1) {
+                    if (strcmp(&data_020ef145, var8) == 0) {
+                        func_02014390(var10, var9);
+                    } else if (strcmp(&data_020ef14b, var8) == 0) {
+                        SafeAllocator* var11 = pAllocator_68_;
+                        unsigned int var12;
+                        void* var13 = DecompressLZ77FileIntoScratchSpace(*var11, var10, var12);
+                        func_0205e104(substruct_c_.unknown_0_, var11, var13, var12);
+                    } else if (strcmp(&data_020ef150, var8) == 0) {
+                        func_020143d8(var10, var9);
                     }
                 }
-                idx++;
+                var6++;
             }
-            narc.Destroy();
+            var4.Destroy();
         }
 
-        if (pass == 0) {
-            unsigned int maxSize = pAllocator_4c_->GetMaxPossibleAllocation();
-            void* mem = pAllocator_4c_->Allocate(maxSize);
-            if (mem == 0) {
+        if (var3 == 0) {
+            unsigned int var14 = pAllocator_4c_->GetMaxPossibleAllocation();
+            void* var15 = pAllocator_4c_->Allocate(var14);
+            if (var15 == 0) {
                 func_020c9be0();
             }
             internalAllocator_.ResetAllocatorPointer();
-            internalAllocator_.CreateTypeA(mem, maxSize);
+            internalAllocator_.CreateTypeA(var15, var14);
             pAllocator_68_ = &internalAllocator_;
             internalAllocator_.Reset();
         }
     }
 
-    loader->RemoveTask(mapAMBLLoadHandle_);
+    var0->RemoveTask(mapAMBLLoadHandle_);
     mapAMBLLoadHandle_ = -1;
     _ZN6Zone3D13func_02014b04Ev(this);
     return 1;

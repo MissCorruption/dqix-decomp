@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kFlagAOffset = 0x865 };
-enum { kFlagBOffset = 0x85d };
+enum { Enum_02085c08_2301 = 0x865 };
+enum { Enum_02085c08_2293 = 0x85d };
 #else
-enum { kFlagAOffset = 0x8fd };
-enum { kFlagBOffset = 0x8f5 };
+enum { Enum_02085c08_2301 = 0x8fd };
+enum { Enum_02085c08_2293 = 0x8f5 };
 #endif
 
 #include "GameState/GameState.h"
 
-extern "C" int func_0201137c(char* base, int id);
+extern "C" int func_0201137c(char* arg0, int arg1);
 
 // USA: func_02085c08
-extern "C" ARM int func_02085c08(unsigned char* actor) {
-    short v = *(short*)(actor + 0x2ac);
-    int sel = 0x21;
-    GameState* bs;
-    int total;
-    if (v > 0) {
-        int w = *(int*)(actor + 0x29c);
-        sel = (unsigned int)(w << 23) >> 27;
+extern "C" ARM int func_02085c08(unsigned char* arg0) {
+    short var0 = *(short*)(arg0 + 0x2ac);
+    int var1 = 0x21;
+    GameState* var2;
+    int var3;
+    if (var0 > 0) {
+        int var4 = *(int*)(arg0 + 0x29c);
+        var1 = (unsigned int)(var4 << 23) >> 27;
     }
-    bs = GameState::GetInstance();
-    total = 0;
-    if (sel != 5) {
-        if (sel == 0x21) {
-            if (actor[kFlagAOffset] & 1) {
-                total += func_0201137c((char*)bs, 0x88);
+    var2 = GameState::GetInstance();
+    var3 = 0;
+    if (var1 != 5) {
+        if (var1 == 0x21) {
+            if (arg0[Enum_02085c08_2301] & 1) {
+                var3 += func_0201137c((char*)var2, 0x88);
             }
         }
     } else {
-        if (actor[kFlagBOffset] & 1) {
-            total += func_0201137c((char*)bs, 0x48);
+        if (arg0[Enum_02085c08_2293] & 1) {
+            var3 += func_0201137c((char*)var2, 0x48);
         }
     }
-    return total;
+    return var3;
 }

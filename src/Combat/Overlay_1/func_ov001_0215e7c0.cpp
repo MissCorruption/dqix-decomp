@@ -2,96 +2,96 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Combat/MapDisplay.h"
 
-extern "C" void func_0204af64(struct List0204af64* obj);
-extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 
 extern "C" void func_0204b5b4(void*, int);
 
-struct Obj0204b5e8 { char pad[0x1c]; unsigned char lo : 4; unsigned char hi : 4; };
-extern "C" int func_0204b5e8(struct Obj0204b5e8* obj, int a, int b);
+struct Struct_02020cb8_5 { char unknown_0_[0x1c]; unsigned char unknown_1c_0_ : 4; unsigned char unknown_1c_4_ : 4; };
+extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 
 extern "C" void func_0204c684(void*);
 
-struct Obj0204fbf8 {
-    char pad0[0x4];
-    struct List0204af64* field4;
-    void* field8;
-    char pad1[0xa0 - 0xc];
-    int fieldA0;
-    int fieldA4;
-    short fieldA8;
-    short fieldAA;
-    char pad2[0xb4 - 0xac];
-    short fieldB4;
-    short fieldB6;
-    char pad3[0xc4 - 0xb8];
-    unsigned char fieldC4;
-    unsigned char fieldC5;
-    char pad4[0xe0 - 0xc6];
+struct Struct_0204fbf8_2 {
+    char unknown_0_[0x4];
+    struct Struct_02020cb8* unknown_4_;
+    void* unknown_8_;
+    char unknown_c_[0xa0 - 0xc];
+    int unknown_a0_;
+    int unknown_a4_;
+    short unknown_a8_;
+    short unknown_aa_;
+    char unknown_ac_[0xb4 - 0xac];
+    short unknown_b4_;
+    short unknown_b6_;
+    char unknown_b8_[0xc4 - 0xb8];
+    unsigned char unknown_c4_;
+    unsigned char unknown_c5_;
+    char unknown_c6_[0xe0 - 0xc6];
 };
-extern "C" void func_0204fbf8(struct Obj0204fbf8* obj);
+extern "C" void func_0204fbf8(struct Struct_0204fbf8_2* arg0);
 
 extern int data_0211e33c;
 
 extern "C" int func_ov017_021d60f4(void*);
 
-struct Entry_02153884 { int key; int val; };
-struct Table_02153884 { struct Entry_02153884* pairs; int count; };
-extern "C" void* func_ov001_02153884(struct Table_02153884* t, int key);
-extern struct Table_02153884 data_ov001_021658d8;
+struct Struct_ov001_02153884 { int unknown_0_; int unknown_4_; };
+struct Struct_ov001_021658d8 { struct Struct_ov001_02153884* unknown_0_; int unknown_4_; };
+extern "C" void* func_ov001_02153884(struct Struct_ov001_021658d8* arg0, int arg1);
+extern struct Struct_ov001_021658d8 data_ov001_021658d8;
 
-extern "C" void func_0204f160(unsigned char* obj, int value, int b);
+extern "C" void func_0204f160(unsigned char* arg0, int arg1, int arg2);
 
 #if defined(jpn)
-extern "C" void func_02050678(void* obj, short b, int c, void* field18, int nibble, int initial4, short* fieldAaddr, short* fieldCaddr);
+extern "C" void func_02050678(void* arg0, short arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7);
 #else
-extern "C" void func_0204f41c(void* obj, short b, int c, void* field18, int nibble, int initial4, short* fieldAaddr, short* fieldCaddr, int zero);
+extern "C" void func_0204f41c(void* arg0, short arg1, int arg2, void* arg3, int arg4, int arg5, short* arg6, short* arg7, int arg8);
 #endif
 
 // USA: func_ov001_0215e7c0
-extern "C" ARM int func_ov001_0215e7c0(void* combatant) {
+extern "C" ARM int func_ov001_0215e7c0(void* arg0) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
 
-    struct List0204af64 list;
-    func_0204af64(&list);
-    list.b1c_lo = 1;
-    list.b1c_hi = 0;
-    func_0204b11c((unsigned char*)&list, 0);
-    func_0204b5b4(&list, 0);
-    func_0204b5e8((struct Obj0204b5e8*)&list, 0, 0);
+    struct Struct_02020cb8 var0;
+    func_0204af64(&var0);
+    var0.unknown_1c_0_ = 1;
+    var0.unknown_1c_4_ = 0;
+    func_0204b11c((unsigned char*)&var0, 0);
+    func_0204b5b4(&var0, 0);
+    func_0204b5e8((struct Struct_02020cb8_5*)&var0, 0, 0);
 
-    struct Obj0204fbf8 obj;
-    func_0204c684(&obj);
-    obj.field4 = &list;
-    obj.field8 = &data_0211e33c;
-    obj.fieldA8 = 0x20;
-    obj.fieldAA = 0x18;
-    obj.fieldA4 = 0x6000;
-    obj.fieldB4 = 0xc;
-    obj.fieldB6 = 0x10;
-    unsigned char c5 = obj.fieldC5;
-    obj.fieldA0 = 0x60;
-    obj.fieldC5 = c5 | 0x10;
+    struct Struct_0204fbf8_2 var1;
+    func_0204c684(&var1);
+    var1.unknown_4_ = &var0;
+    var1.unknown_8_ = &data_0211e33c;
+    var1.unknown_a8_ = 0x20;
+    var1.unknown_aa_ = 0x18;
+    var1.unknown_a4_ = 0x6000;
+    var1.unknown_b4_ = 0xc;
+    var1.unknown_b6_ = 0x10;
+    unsigned char var2 = var1.unknown_c5_;
+    var1.unknown_a0_ = 0x60;
+    var1.unknown_c5_ = var2 | 0x10;
 
-    int key = func_ov017_021d60f4(combatant);
-    struct Entry_02153884* entry = (struct Entry_02153884*)func_ov001_02153884(&data_ov001_021658d8, key);
-    if (entry == 0) {
+    int var3 = func_ov017_021d60f4(arg0);
+    struct Struct_ov001_02153884* var4 = (struct Struct_ov001_02153884*)func_ov001_02153884(&data_ov001_021658d8, var3);
+    if (var4 == 0) {
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }
 
-    func_0204f160((unsigned char*)&obj, 0x60, 0);
+    func_0204f160((unsigned char*)&var1, 0x60, 0);
 
-    short fieldA;
-    short fieldC;
+    short var5;
+    short var6;
 #if defined(jpn)
-    func_02050678(&obj, 0, 0, (void*)entry->val, 0xc, 0xf, &fieldA, &fieldC);
+    func_02050678(&var1, 0, 0, (void*)var4->unknown_4_, 0xc, 0xf, &var5, &var6);
 #else
-    func_0204f41c(&obj, 0, 0, (void*)entry->val, 0xc, 0xf, &fieldA, &fieldC, 0);
+    func_0204f41c(&var1, 0, 0, (void*)var4->unknown_4_, 0xc, 0xf, &var5, &var6, 0);
 #endif
 
-    func_0204fbf8(&obj);
+    func_0204fbf8(&var1);
     BackgroundLoader::RemoveLockGlobal();
     return 1;
 }

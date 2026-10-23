@@ -6,12 +6,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Script.h"
 
-struct ResetStruct;
+struct Struct_0201f040;
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
 int LoadFileIntoMemory(const char*, void*, unsigned int*);
 
@@ -21,18 +21,18 @@ extern char data_020f1b04;
 
 // USA: func_020a6194
 extern "C" ARM void func_020a6194(void*) {
-    int count;
-    char buf[0x430];
-    int header;
+    int var0;
+    char var1[0x430];
+    int var2;
 
     BackgroundLoader::AddLockGlobal();
-    count = 0;
-    header = LoadFileIntoMemory(&data_020f1b14, &data_0211e33c, (unsigned int*)&count);
-    if (header != 0) {
-        ((Script*)((struct ResetStruct*)buf))->Initialize();
-        ((Script*)buf)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1b04);
-        ((Script*)((struct StreamState*)buf))->Load((struct StreamHeader*)header, count);
-        ((Script*)((struct Struct02030774*)buf))->Execute();
+    var0 = 0;
+    var2 = LoadFileIntoMemory(&data_020f1b14, &data_0211e33c, (unsigned int*)&var0);
+    if (var2 != 0) {
+        ((Script*)((struct Struct_0201f040*)var1))->Initialize();
+        ((Script*)var1)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1b04);
+        ((Script*)((struct Struct_0201f040_2*)var1))->Load((struct Struct_02013fb4*)var2, var0);
+        ((Script*)((struct Struct_0201f040_3*)var1))->Execute();
     }
     BackgroundLoader::RemoveLockGlobal();
 }

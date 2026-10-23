@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegionalFieldOffset = 0x2c8 };
+enum { Enum_02040b2c_724 = 0x2c8 };
 #else
-enum { kRegionalFieldOffset = 0x2d4 };
+enum { Enum_02040b2c_724 = 0x2d4 };
 #endif
 
-struct State0xcda8;
-extern "C" void func_0203cda8(struct State0xcda8* obj, int value);
-extern "C" void func_0203db34(unsigned char* obj, int a, int b, int c);
+struct Struct_0203cda8;
+extern "C" void func_0203cda8(struct Struct_0203cda8* arg0, int arg1);
+extern "C" void func_0203db34(unsigned char* arg0, int arg1, int arg2, int arg3);
 
-struct Vec3Block02040b2c { int x, y, z; };
+struct Struct_02040b2c { int unknown_0_, unknown_4_, unknown_8_; };
 
-struct Obj02040b2c {
-    char pad[0x14];
-    struct State0xcda8* field14;
-    unsigned char* field18;
-    unsigned char* field1c;
+struct Struct_0203e2c4_2 {
+    char unknown_0_[0x14];
+    struct Struct_0203cda8* unknown_14_;
+    unsigned char* unknown_18_;
+    unsigned char* unknown_1c_;
 };
 
 // USA: func_02040b2c
-extern "C" ARM void func_02040b2c(struct Obj02040b2c* self, int value) {
-    struct State0xcda8* p;
-    unsigned char* q;
+extern "C" ARM void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1) {
+    struct Struct_0203cda8* var0;
+    unsigned char* var1;
 
-    p = self->field14;
-    if (p != NULL) {
-        func_0203cda8(p, value);
+    var0 = arg0->unknown_14_;
+    if (var0 != NULL) {
+        func_0203cda8(var0, arg1);
         return;
     }
-    q = self->field18;
-    if (q != NULL) {
-        struct Vec3Block02040b2c v = *(struct Vec3Block02040b2c*)(q + 0x50);
-        func_0203db34(q, v.x, value, v.z);
-        q = self->field18;
-        *(int*)(q + 0xb0) = value;
+    var1 = arg0->unknown_18_;
+    if (var1 != NULL) {
+        struct Struct_02040b2c var2 = *(struct Struct_02040b2c*)(var1 + 0x50);
+        func_0203db34(var1, var2.unknown_0_, arg1, var2.unknown_8_);
+        var1 = arg0->unknown_18_;
+        *(int*)(var1 + 0xb0) = arg1;
         return;
     }
-    q = self->field1c;
-    if (q == NULL) return;
+    var1 = arg0->unknown_1c_;
+    if (var1 == NULL) return;
     {
-        struct Vec3Block02040b2c v = *(struct Vec3Block02040b2c*)(q + 0x50);
-        func_0203db34(q, v.x, value, v.z);
+        struct Struct_02040b2c var3 = *(struct Struct_02040b2c*)(var1 + 0x50);
+        func_0203db34(var1, var3.unknown_0_, arg1, var3.unknown_8_);
     }
-    q = self->field1c;
-    *(int*)(q + kRegionalFieldOffset) = value;
+    var1 = arg0->unknown_1c_;
+    *(int*)(var1 + Enum_02040b2c_724) = arg1;
 }

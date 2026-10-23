@@ -2,59 +2,59 @@
 
 #if defined(jpn)
 namespace {
-struct Struct02020520;
-struct S_b20c {
-    void* pixels;
-    Struct02020520* layout;
-    unsigned char mode;
+struct Struct_020200c0_3;
+struct Struct_020200c0_4 {
+    void* unknown_0_;
+    Struct_020200c0_3* unknown_4_;
+    unsigned char unknown_8_;
 };
 }
 extern "C" void __clear(void*, int);
-extern "C" void func_0205b234(S_b20c*, int, int, void*, int, int);
+extern "C" void func_0205b234(Struct_020200c0_4*, int, int, void*, int, int);
 
 // JPN: func_0205c9ac
-extern "C" ARM void func_0205c9ac(S_b20c* destination, short x, short y, int value,
-                                  int pixelSize, int color, unsigned char digits, unsigned char align) {
-    if (destination->pixels != NULL && destination->layout != NULL) {
-        int remaining = value;
-        while ((remaining = remaining / 10) != 0) {}
-        if (align == 1) {
-            x = (short)(x + (short)((digits - 1) * pixelSize));
+extern "C" ARM void func_0205c9ac(Struct_020200c0_4* arg0, short arg1, short arg2, int arg3,
+                                  int arg4, int arg5, unsigned char arg6, unsigned char arg7) {
+    if (arg0->unknown_0_ != NULL && arg0->unknown_4_ != NULL) {
+        int var0 = arg3;
+        while ((var0 = var0 / 10) != 0) {}
+        if (arg7 == 1) {
+            arg1 = (short)(arg1 + (short)((arg6 - 1) * arg4));
         }
-        char text[2];
+        char var1[2];
         do {
-            __clear(text, 2);
-            text[0] = '0';
-            text[0] += (char)(value % 10);
-            func_0205b234(destination, x, y, text, pixelSize, color);
-            x = (short)(x - pixelSize);
-        } while ((value = value / 10) != 0);
+            __clear(var1, 2);
+            var1[0] = '0';
+            var1[0] += (char)(arg3 % 10);
+            func_0205b234(arg0, arg1, arg2, var1, arg4, arg5);
+            arg1 = (short)(arg1 - arg4);
+        } while ((arg3 = arg3 / 10) != 0);
     }
 }
 #else
 
-struct Obj0205b674 { int field0; int field4; };
+struct Struct_020200c0_2 { int unknown_0_; int unknown_4_; };
 
-extern "C" int func_02042658(void* obj, int value);
-extern "C" void __clear(void* buf, int n);
-extern "C" int sprintf(void* dst, void* fmt, int val);
-extern "C" void func_0205b234(struct Obj0205b674* a, int b, int c, void* buf, int d, int e);
+extern "C" int func_02042658(void* arg0, int arg1);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int sprintf(void* arg0, void* arg1, int arg2);
+extern "C" void func_0205b234(struct Struct_020200c0_2* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5);
 extern char data_020f0518;
 
 // USA: func_0205b674
-extern "C" ARM void func_0205b674(struct Obj0205b674* obj, short posX, int param2, int param3,
-                                              unsigned char param4, unsigned char param5, unsigned char param6, unsigned char param7) {
-    if (obj->field0 != 0 && obj->field4 != 0) {
-        int value = param3;
-        while ((value = value / 10) != 0) {}
-        int r0val = func_02042658((void*)param7, param3);
-        if (param6 == 1) {
-            posX = (short)(posX + (short)((param5 << 3) - r0val));
+extern "C" ARM void func_0205b674(struct Struct_020200c0_2* arg0, short arg1, int arg2, int arg3,
+                                              unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7) {
+    if (arg0->unknown_0_ != 0 && arg0->unknown_4_ != 0) {
+        int var0 = arg3;
+        while ((var0 = var0 / 10) != 0) {}
+        int var1 = func_02042658((void*)arg7, arg3);
+        if (arg6 == 1) {
+            arg1 = (short)(arg1 + (short)((arg5 << 3) - var1));
         }
-        char buf[0xa];
-        __clear(buf, 0xa);
-        sprintf(buf, &data_020f0518, param3);
-        func_0205b234(obj, posX, param2, buf, param4, param7);
+        char var2[0xa];
+        __clear(var2, 0xa);
+        sprintf(var2, &data_020f0518, arg3);
+        func_0205b234(arg0, arg1, arg2, var2, arg4, arg7);
     }
 }
 

@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct MirroredPointStruct_020c129c {
-    int x0;
-    int y0;
-    int zero0;
-    int negY;
-    int x1;
-    int zero1;
-    int zero2;
-    int zero3;
-    int one;
+struct Struct_020c129c {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
 };
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020c129c
-extern "C" THUMB void Mat3x3_WriteRotationZ(MirroredPointStruct_020c129c* out, int y, int x) {
-    out->x0 = x;
-    out->y0 = y;
-    out->zero0 = 0;
-    out->negY = -y;
-    out->x1 = x;
-    out->zero1 = 0;
-    out->zero2 = 0;
-    out->zero3 = 0;
-    out->one = 0x1000;
+extern "C" THUMB void Mat3x3_WriteRotationZ(Struct_020c129c* out, int y, int x) {
+    out->unknown_0_ = x;
+    out->unknown_4_ = y;
+    out->unknown_8_ = 0;
+    out->unknown_c_ = -y;
+    out->unknown_10_ = x;
+    out->unknown_14_ = 0;
+    out->unknown_18_ = 0;
+    out->unknown_1c_ = 0;
+    out->unknown_20_ = 0x1000;
 }

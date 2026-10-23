@@ -2,52 +2,52 @@
 
 extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
-extern "C" void* func_ov004_0216b1c4(void* a, int id);
-extern "C" void func_ov004_0216afb0(void* obj, int a, int b, int c, int d, int e, int f, int g, int h);
-extern "C" int func_ov004_0216b2c8(void* obj, int id, int a, int b);
-extern "C" int func_ov004_0216b7bc(void* obj, int a, int b, int c);
+extern "C" void* func_ov004_0216b1c4(void* arg0, int arg1);
+extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
+extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
 
-struct FieldGroup02171034_0216d820 {
+struct Struct_ov004_02171034_5 {
 #if defined(jpn)
-    unsigned char pad0[0x10];
+    unsigned char unknown_0_[0x10];
 #else
-    unsigned char pad0[0xc];
+    unsigned char unknown1_0_[0xc];
 #endif
-    int val0c;
+    int unknown_c_;
 };
-extern struct FieldGroup02171034_0216d820 data_ov004_02171034;
+extern struct Struct_ov004_02171034_5 data_ov004_02171034;
 
-class VObj0216d820 {
+class Struct_ov004_0216d820 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void Notify17(int n); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void Notify31(int n);
+    virtual void inline_ov004_0216d820_18(); virtual void inline_ov004_0216d820_19(); virtual void inline_ov004_0216d820_20(); virtual void inline_ov004_0216d820_21();
+    virtual void inline_ov004_0216d820_22(); virtual void inline_ov004_0216d820_23(); virtual void inline_ov004_0216d820_24(); virtual void inline_ov004_0216d820_25();
+    virtual void inline_ov004_0216d820_26(); virtual void inline_ov004_0216d820_27(); virtual void inline_ov004_0216d820_28(); virtual void inline_ov004_0216d820_29();
+    virtual void inline_ov004_0216d820_30(); virtual void inline_ov004_0216d820_31(); virtual void inline_ov004_0216d820_32(); virtual void inline_ov004_0216d820();
+    virtual void inline_ov004_0216d820_2(); virtual void inline_ov004_0216d820_3(int arg0); virtual void inline_ov004_0216d820_4(); virtual void inline_ov004_0216d820_5();
+    virtual void inline_ov004_0216d820_6(); virtual void inline_ov004_0216d820_7(); virtual void inline_ov004_0216d820_8(); virtual void inline_ov004_0216d820_9();
+    virtual void inline_ov004_0216d820_10(); virtual void inline_ov004_0216d820_11(); virtual void inline_ov004_0216d820_12(); virtual void inline_ov004_0216d820_13();
+    virtual void inline_ov004_0216d820_14(); virtual void inline_ov004_0216d820_15(); virtual void inline_ov004_0216d820_16(); virtual void inline_ov004_0216d820_17(int arg0);
 };
 
 // USA: func_ov004_0216d820
-extern "C" ARM int func_ov004_0216d820(void* a) {
-    void* node = func_ov023_021f6880(func_ov011_021849c8(a), 1);
-    if (node) {
-        *((unsigned char*)node + 0xc) |= 0x8;
+extern "C" ARM int func_ov004_0216d820(void* arg0) {
+    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 1);
+    if (var0) {
+        *((unsigned char*)var0 + 0xc) |= 0x8;
     }
-    func_ov004_0216b1c4(a, 0x12c);
+    func_ov004_0216b1c4(arg0, 0x12c);
 
-    int v0c = data_ov004_02171034.val0c;
+    int var1 = data_ov004_02171034.unknown_c_;
 
-    func_ov004_0216afb0(a, 0x37, 2, 0xd4, 0x3b, 0xa, 0xa, 0xc, 1);
-    func_ov004_0216b2c8(a, 0x12c, 0x37, 0);
+    func_ov004_0216afb0(arg0, 0x37, 2, 0xd4, 0x3b, 0xa, 0xa, 0xc, 1);
+    func_ov004_0216b2c8(arg0, 0x12c, 0x37, 0);
 
-    VObj0216d820* node2 = (VObj0216d820*)func_ov023_021f6880(func_ov011_021849c8(a), 0x37);
-    if (node2) {
-        node2->Notify17(0x10);
-        node2->Notify31(0x10);
+    Struct_ov004_0216d820* var2 = (Struct_ov004_0216d820*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x37);
+    if (var2) {
+        var2->inline_ov004_0216d820_3(0x10);
+        var2->inline_ov004_0216d820_17(0x10);
     }
 
-    func_ov004_0216b7bc(a, 0xd4, v0c, 0);
+    func_ov004_0216b7bc(arg0, 0xd4, var1, 0);
     return 0;
 }

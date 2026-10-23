@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 // USA: func_02001aec
-extern "C" ARM int func_02001aec(unsigned char* a, unsigned char* b, int n) {
-    if (n != 0) {
+extern "C" ARM int func_02001aec(unsigned char* arg0, unsigned char* arg1, int arg2) {
+    if (arg2 != 0) {
         do {
-            if (*a++ != *b++) {
-                return (a[-1] < b[-1]) ? -1 : 1;
+            if (*arg0++ != *arg1++) {
+                return (arg0[-1] < arg1[-1]) ? -1 : 1;
             }
-        } while (--n != 0);
+        } while (--arg2 != 0);
     }
     return 0;
 }

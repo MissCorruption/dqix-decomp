@@ -6,19 +6,19 @@ struct Struct_0205d67c;
 extern "C" int func_0205d67c(struct Struct_0205d67c*);
 
 // USA: func_ov023_021d8ddc
-extern "C" ARM void func_ov023_021d8ddc(void* obj, int* lut) {
+extern "C" ARM void func_ov023_021d8ddc(void* arg0, int* arg1) {
     GameState::GetInstance();
-    unsigned char* idxArr = (unsigned char*)obj + 0x124;
-    unsigned char count = *((unsigned char*)obj + 0x128);
-    memset((char*)obj + 0xdc, 0, 0x10);
-    for (int i = 0; i < count; i++) {
-        *(int*)((char*)obj + 0xdc + i * 4) = lut[idxArr[i]];
+    unsigned char* var0 = (unsigned char*)arg0 + 0x124;
+    unsigned char var1 = *((unsigned char*)arg0 + 0x128);
+    memset((char*)arg0 + 0xdc, 0, 0x10);
+    for (int var2 = 0; var2 < var1; var2++) {
+        *(int*)((char*)arg0 + 0xdc + var2 * 4) = arg1[var0[var2]];
     }
-    int flag = func_0205d67c((struct Struct_0205d67c*)((char*)obj + 0x20));
-    if (flag == 0) {
-        *((unsigned char*)obj + 0x11c) = 0;
+    int var3 = func_0205d67c((struct Struct_0205d67c*)((char*)arg0 + 0x20));
+    if (var3 == 0) {
+        *((unsigned char*)arg0 + 0x11c) = 0;
     } else {
-        *((unsigned char*)obj + 0x11c) = 1;
+        *((unsigned char*)arg0 + 0x11c) = 1;
     }
-    *((unsigned char*)obj + 0x11a) = 1;
+    *((unsigned char*)arg0 + 0x11a) = 1;
 }

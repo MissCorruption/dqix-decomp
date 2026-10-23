@@ -2,106 +2,106 @@
 
 struct Struct_0205d81c;
 
-struct Element_021e68cc {
-    char pad0[0xac];
-    short x;
-    short y;
+struct Struct_ov023_021e68cc_3 {
+    char unknown_0_[0xac];
+    short unknown_ac_;
+    short unknown_ae_;
 };
 
-struct Sprite_021e68cc {
-    char pad0[0x14];
-    int posX;
-    int posY;
-    char pad1c[0x22 - 0x1c];
-    unsigned char tile;
-    char pad23[0x25 - 0x23];
-    unsigned char palette;
-    char pad26[0x28 - 0x26];
+struct Struct_ov023_021e68cc {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[0x22 - 0x1c];
+    unsigned char unknown_22_;
+    char unknown_23_[0x25 - 0x23];
+    unsigned char unknown_25_;
+    char unknown_26_[0x28 - 0x26];
 };
 
 #if defined(jpn)
-struct ProfileEditor_021e68cc {
-    char pad0[0x90];
+struct Struct_ov023_021e68cc_2 {
+    char unknown_0_[0x90];
 #else
-struct ProfileEditor_021e68cc {
-    char pad0[0xac];
+struct Struct_ov023_021e68cc_2 {
+    char unknown_0_[0xac];
 #endif
 
 #if defined(jpn)
-    char list_[0x1334 - 0x90];
+    char unknown_ac_[0x1334 - 0x90];
 #else
-    char list_[0x135c - 0xac];
+    char unknown_ac_[0x135c - 0xac];
 #endif
 
-    void* renderer_;
-    char pad1360[0x1364 - 0x1360];
-    Sprite_021e68cc* sprites_;
+    void* unknown_135c_;
+    char unknown_1360_[0x1364 - 0x1360];
+    Struct_ov023_021e68cc* unknown_1364_;
 #if defined(jpn)
 
 #else
-    char pad1368[0x1370 - 0x1368];
+    char unknown_1368_[0x1370 - 0x1368];
 #endif
 
-    unsigned char mode_;
-    unsigned char page_;
+    unsigned char unknown_1370_;
+    unsigned char unknown_1371_;
 #if defined(jpn)
-    char pad1372[0x1370 - 0x1342];
+    char unknown_1342_[0x1370 - 0x1342];
 #else
-    char pad1372[0x13a8 - 0x1372];
+    char unknown_1372_[0x13a8 - 0x1372];
 #endif
 
-    signed char selected_;
-    char pad13a9[0x13ab - 0x13a9];
-    unsigned char enabledMask_;
+    signed char unknown_13a8_;
+    char unknown_13a9_[0x13ab - 0x13a9];
+    unsigned char unknown_13ab_;
 };
 
-extern "C" Element_021e68cc* func_0205d81c(Struct_0205d81c* s, int key);
-extern "C" void func_0205ac40(void* renderer, void* sprite);
+extern "C" Struct_ov023_021e68cc_3* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" void func_0205ac40(void* arg0, void* arg1);
 
 // USA: func_ov023_021e68cc
-extern "C" ARM void func_ov023_021e68cc(ProfileEditor_021e68cc* self) {
+extern "C" ARM void func_ov023_021e68cc(Struct_ov023_021e68cc_2* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x11};
+ enum {Enum_ov023_021e68cc_19=0x11};
 #else
- enum {regionalOffset0=0x13};
+ enum {Enum_ov023_021e68cc_19=0x13};
 #endif
-    unsigned char page = self->page_;
-    if (page != 7 && page != 8 && page != 9)
+    unsigned char var0 = arg0->unknown_1371_;
+    if (var0 != 7 && var0 != 8 && var0 != 9)
         return;
-    if (self->mode_ != 4)
+    if (arg0->unknown_1370_ != 4)
         return;
 
-    int posX;
-    signed char slot = 0;
-    unsigned char tile = regionalOffset0;
-    for (int row = 0; row < 3; row++) {
-        Element_021e68cc* e = func_0205d81c((Struct_0205d81c*)self->list_, (unsigned char)(row + 7));
-        posX = ((short)(e->x * 8) + 10) << 12;
-        short top = e->y * 8;
-        for (int col = 0; col < 2; col++) {
-            int offset = 0x10;
-            int index = 0xd;
-            int dir = 1;
-            if (col == 1) {
-                offset = 0x1c;
-                index = 0xe;
-                dir = -1;
+    int var1;
+    signed char var2 = 0;
+    unsigned char var3 = Enum_ov023_021e68cc_19;
+    for (int var4 = 0; var4 < 3; var4++) {
+        Struct_ov023_021e68cc_3* var5 = func_0205d81c((Struct_0205d81c*)arg0->unknown_ac_, (unsigned char)(var4 + 7));
+        var1 = ((short)(var5->unknown_ac_ * 8) + 10) << 12;
+        short var6 = var5->unknown_ae_ * 8;
+        for (int var7 = 0; var7 < 2; var7++) {
+            int var8 = 0x10;
+            int var9 = 0xd;
+            int var10 = 1;
+            if (var7 == 1) {
+                var8 = 0x1c;
+                var9 = 0xe;
+                var10 = -1;
             }
-            Sprite_021e68cc* sprite = &self->sprites_[index];
-            int y = top + offset;
-            sprite->posX = posX;
-            sprite->posY = y << 12;
-            sprite->tile = tile++;
-            sprite->palette = 7;
-            if (slot == self->selected_) {
-                sprite->posX = posX;
-                sprite->posY = (y - dir) << 12;
+            Struct_ov023_021e68cc* var11 = &arg0->unknown_1364_[var9];
+            int var12 = var6 + var8;
+            var11->unknown_14_ = var1;
+            var11->unknown_18_ = var12 << 12;
+            var11->unknown_22_ = var3++;
+            var11->unknown_25_ = 7;
+            if (var2 == arg0->unknown_13a8_) {
+                var11->unknown_14_ = var1;
+                var11->unknown_18_ = (var12 - var10) << 12;
             }
-            if (!(self->enabledMask_ & (1 << slot)))
-                sprite->palette = 0xd;
-            func_0205ac40(self->renderer_, sprite);
-            slot++;
+            if (!(arg0->unknown_13ab_ & (1 << var2)))
+                var11->unknown_25_ = 0xd;
+            func_0205ac40(arg0->unknown_135c_, var11);
+            var2++;
         }
     }
-    self->selected_ = -1;
+    arg0->unknown_13a8_ = -1;
 }

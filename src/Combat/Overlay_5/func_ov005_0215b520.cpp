@@ -15,34 +15,34 @@
 #define REGION(j,u) (u)
 #endif
 
-struct MemberScreen {
-    char unknown[REGION(0x4f8,0x4fc)];
-    int member;
+struct Struct_ov005_02153ba4_2 {
+    char unknown_0_[REGION(0x4f8,0x4fc)];
+    int unknown_4fc_;
 };
 
-extern "C" void func_020c51a4(int cmd);
+extern "C" void func_020c51a4(int arg0);
 
-struct BackgroundResourceEntry;
-struct Obj0204b8d0 {
-    char unknown0[0x10];
-    BackgroundResourceEntry* entries;
-    unsigned short* destination;
-    char unknown18[5];
-    unsigned char count;
+struct Struct_02000c9c_91;
+struct Struct_0204b8d0 {
+    char unknown_0_[0x10];
+    Struct_02000c9c_91* unknown_10_;
+    unsigned short* unknown_14_;
+    char unknown_18_[5];
+    unsigned char unknown_1d_;
 };
-extern "C" void func_0204b8d0(struct Obj0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
-struct Obj0204b010;
-extern "C" void func_0204b010(struct Obj0204b010* obj, void* p);
-extern "C" void func_0204b04c(void* p, int flag);
-extern "C" void func_02047554(void* obj, int val, int param1);
-extern "C" void func_ov005_0215792c(void* obj, unsigned char mode);
-extern "C" void func_ov005_021579ec(void* obj, unsigned int a, unsigned char b);
-extern "C" void func_ov005_02154d34(void* obj, int a, int b);
-extern "C" void func_ov005_02154d7c(void* obj, int a, int b);
-extern "C" MemberScreen* func_ov017_021a193c(int* p);
+extern "C" void func_0204b8d0(struct Struct_0204b8d0*, unsigned int, int, int, short, short, short, short, unsigned short);
+struct Struct_0204b010;
+extern "C" void func_0204b010(struct Struct_0204b010* arg0, void* arg1);
+extern "C" void func_0204b04c(void* arg0, int arg1);
+extern "C" void func_02047554(void* arg0, int arg1, int arg2);
+extern "C" void func_ov005_0215792c(void* arg0, unsigned char arg1);
+extern "C" void func_ov005_021579ec(void* arg0, unsigned int arg1, unsigned char arg2);
+extern "C" void func_ov005_02154d34(void* arg0, int arg1, int arg2);
+extern "C" void func_ov005_02154d7c(void* arg0, int arg1, int arg2);
+extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
 struct GameState;
-struct Field150Holder02052e14;
-extern "C" short* func_02052e14(Field150Holder02052e14*);
+struct Struct_02052e14;
+extern "C" short* func_02052e14(Struct_02052e14*);
 
 extern const unsigned char data_ov005_0215cbec[];
 extern const unsigned char data_ov005_0215cbdc[];
@@ -52,252 +52,252 @@ extern const unsigned char data_ov005_0215cbdc[];
 #define G3_MTX_SCALE (*(volatile int*)0x0400046c)
 #define G3_MTX_TRANS (*(volatile int*)0x04000470)
 
-struct Entry0215b520 {
-    char data[0x88];
+struct Struct_ov005_0215b520 {
+    char unknown_0_[0x88];
 };
 
-struct Container020dedd0;
-struct Element020de650;
-struct Obj021dcae0 {
-    char pad0[0x48];
-    Container020dedd0* field48;
-    Element020de650* field4c;
-    char pad50[REGION(0x680,0x704)];
-    int field754;
-    char pad758[0x18];
-    short field770;
-    unsigned short field772;
-    unsigned short flags;
-    unsigned char field776;
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
+struct Struct_ov003_02178910 {
+    char unknown_0_[0x48];
+    Struct_0201099c_10* unknown_48_;
+    Struct_0201099c_9* unknown_4c_;
+    char unknown_50_[REGION(0x680,0x704)];
+    int unknown_754_;
+    char unknown_758_[0x18];
+    short unknown_770_;
+    unsigned short unknown_772_;
+    unsigned short unknown_774_;
+    unsigned char unknown_776_;
 };
-struct EquipmentSlot {
-    short item;
-    signed char count;
-    unsigned char equipped;
-    void* vramState;
-    Entry0215b520* model;
-    int x, y, offset;
-    short loadedItem;
+struct Struct_ov005_02153ba4 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    void* unknown_4_;
+    Struct_ov005_0215b520* unknown_8_;
+    int unknown_c_, unknown_10_, unknown_14_;
+    short unknown_18_;
 };
 extern "C" void func_ov023_021dcba4(void*, short);
 
-struct Scene0215b520 {
-    char pad0[REGION(0xea0,0xea4)];
-    Obj0204b8d0 list;
-    char beforeInfo[0x1244 - 0xec4];
-    Obj021dcae0 infoWindow;
-    char beforeMotion[REGION(0x19ac - 0x1240,0x1a34 - 0x1244) - sizeof(Obj021dcae0)];
-    char motion[0x3c];
-    Entry0215b520 models[36];
-    EquipmentSlot slots[24];
-    Entry0215b520 slotModels[24];
-    Entry0215b520 dragModel;
-    short dragged;
-    char beforeMode[0x3db8 - 0x3d7a];
-    unsigned char mode;
-    char pad4;
-    unsigned char state;
-    signed char modeB;
-    unsigned char cursor;
-    char pad5[0x3dcc - 0x3dbd];
-    unsigned int flags;
-    char pad6[0x3de2 - 0x3dd0];
-    short level;
-    int step;
-    int accum;
-    int phase;
+struct Struct_ov005_0215b520_2 {
+    char unknown_0_[REGION(0xea0,0xea4)];
+    Struct_0204b8d0 unknown_ea4_;
+    char unknown_ec4_[0x1244 - 0xec4];
+    Struct_ov003_02178910 unknown_1244_;
+    char unknown_19bc_[REGION(0x19ac - 0x1240,0x1a34 - 0x1244) - sizeof(Struct_ov003_02178910)];
+    char unknown_1a34_[0x3c];
+    Struct_ov005_0215b520 unknown_1a70_[36];
+    Struct_ov005_02153ba4 unknown_2d90_[24];
+    Struct_ov005_0215b520 unknown_3030_[24];
+    Struct_ov005_0215b520 unknown_3cf0_;
+    short unknown_3d78_;
+    char unknown_3d7a_[0x3db8 - 0x3d7a];
+    unsigned char unknown_3db8_;
+    char unknown_3db9_;
+    unsigned char unknown_3dba_;
+    signed char unknown_3dbb_;
+    unsigned char unknown_3dbc_;
+    char unknown_3dbd_[0x3dcc - 0x3dbd];
+    unsigned int unknown_3dcc_;
+    char unknown_3dd0_[0x3de2 - 0x3dd0];
+    short unknown_3de2_;
+    int unknown_3de4_;
+    int unknown_3de8_;
+    int unknown_3dec_;
 };
 
 // USA: func_ov005_0215b520
-extern "C" ARM void func_ov005_0215b520(Scene0215b520* self) {
-    unsigned char state = self->state;
-    if (state == 0 && self->phase == 0) {
-        func_ov005_0215792c(self, 1);
-        self->flags |= 0x100;
-        void* gs = (void*)GameState::GetInstance();
-        GameResources* res = GetGameResources();
-        MemberScreen* holder = func_ov017_021a193c((int*)res->unknown_ptr_array_36fc[3]);
-        short* tbl = func_02052e14((Field150Holder02052e14*)func_0200ff1c((GameState*)gs, holder->member));
-        self->accum += self->step;
-        if (self->accum >= 3) {
-            self->accum -= 3;
-            self->level += 0x29;
-            if (self->level >= 0x7b) {
-                self->level = 0x7b;
-                self->phase = 1;
+extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
+    unsigned char var0 = arg0->unknown_3dba_;
+    if (var0 == 0 && arg0->unknown_3dec_ == 0) {
+        func_ov005_0215792c(arg0, 1);
+        arg0->unknown_3dcc_ |= 0x100;
+        void* var1 = (void*)GameState::GetInstance();
+        GameResources* var2 = GetGameResources();
+        Struct_ov005_02153ba4_2* var3 = func_ov017_021a193c((int*)var2->unknown_ptr_array_36fc[3]);
+        short* var4 = func_02052e14((Struct_02052e14*)func_0200ff1c((GameState*)var1, var3->unknown_4fc_));
+        arg0->unknown_3de8_ += arg0->unknown_3de4_;
+        if (arg0->unknown_3de8_ >= 3) {
+            arg0->unknown_3de8_ -= 3;
+            arg0->unknown_3de2_ += 0x29;
+            if (arg0->unknown_3de2_ >= 0x7b) {
+                arg0->unknown_3de2_ = 0x7b;
+                arg0->unknown_3dec_ = 1;
             }
         }
-        if (self->mode == 1) {
-            for (int i = 0; i < 8; i++) {
-                int sel = 0;
-                if (i == self->cursor) sel = 1;
-                int k = sel * 11;
-                int y = (i * 0x18) << 12;
+        if (arg0->unknown_3db8_ == 1) {
+            for (int var5 = 0; var5 < 8; var5++) {
+                int var6 = 0;
+                if (var5 == arg0->unknown_3dbc_) var6 = 1;
+                int var7 = var6 * 11;
+                int var8 = (var5 * 0x18) << 12;
                 G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (self->level + 0x7f) << 12;
-                G3_MTX_TRANS = y;
+                G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x7f) << 12;
+                G3_MTX_TRANS = var8;
                 G3_MTX_TRANS = -0x200000;
-                func_02047554(&self->models[k + 4], 0, 1);
+                func_02047554(&arg0->unknown_1a70_[var7 + 4], 0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (self->level + 0x100) << 12;
-                G3_MTX_TRANS = y;
+                G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x100) << 12;
+                G3_MTX_TRANS = var8;
                 G3_MTX_TRANS = -0x200000;
-                Matrix4x3 rot;
-                rot = RotationMatrixY(0x3244);
-                func_020c51a4((int)&rot);
-                func_02047554(&self->models[k + 4], 0, 1);
+                Matrix4x3 var9;
+                var9 = RotationMatrixY(0x3244);
+                func_020c51a4((int)&var9);
+                func_02047554(&arg0->unknown_1a70_[var7 + 4], 0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (self->level + 0x70) << 12;
-                G3_MTX_TRANS = y;
-                G3_MTX_TRANS = -0x200000;
-                G3_MTX_SCALE = 0x14000;
-                G3_MTX_SCALE = 0x1000;
-                G3_MTX_SCALE = 0x1000;
-                func_02047554(&self->models[k + 5], 0, 1);
-                G3_MTX_POP = 1;
-                Entry0215b520* e = &self->models[k + 7 + i];
-                if (tbl[data_ov005_0215cbec[i]] > 0) {
-                    e = &self->models[k + 6];
-                }
-                G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (self->level + 0x85) << 12;
-                G3_MTX_TRANS = y;
-                G3_MTX_TRANS = -0x1ff000;
-                func_02047554(e, 0, 1);
-                G3_MTX_POP = 1;
-            }
-        }
-        if (self->phase == 1) {
-            self->state++;
-            self->level = 0;
-            self->accum = 0;
-            self->phase = 0;
-        }
-    } else if (state == 1 && self->phase == 0) {
-        self->flags |= 0x100;
-        self->accum += self->step;
-        if (self->accum >= 3) {
-            self->accum -= 3;
-            self->level += 6;
-            if (self->level >= 0x10) {
-                self->level = 0x10;
-                self->phase = 1;
-            }
-        }
-        func_0204b010((struct Obj0204b010*)&self->list, 0);
-        func_0204b8d0(&self->list, 0, 0, 0, 0x20 - self->level, 0, 0x10, 0x16, 0xffff);
-        unsigned char cursor = self->cursor;
-        short y = cursor * 2 + 0xf;
-        func_0204b8d0(&self->list, (unsigned char)(cursor + 1), 0, 0, y + 0x10 - self->level, 0, 4, 3, 0xffff);
-        func_0204b04c(&self->list, 0);
-        if (self->phase == 1) {
-            self->state++;
-            self->level = 0;
-            self->accum = 0;
-        }
-    } else if (state == 2 && self->phase == 1) {
-        func_ov005_0215792c(self, 3);
-        self->flags |= 0x100;
-        func_ov005_021579ec(self, self->mode, self->modeB);
-        func_ov005_02154d34(self->motion, 0x85000, 0x17000);
-        func_ov005_02154d7c(self->motion, 0x76000, 0x16000);
-        self->flags |= 0x800;
-    } else if (state == 0 && self->phase == 1) {
-        self->flags |= 0x800;
-        func_ov005_0215792c(self, 1);
-        self->flags |= 0x100;
-        self->accum += self->step;
-        if (self->accum >= 3) {
-            self->accum -= 3;
-            self->level += 6;
-            if (self->level >= 0x10) {
-                self->level = 0x10;
-                self->phase = 2;
-            }
-        }
-        func_0204b010((struct Obj0204b010*)&self->list, 0);
-        func_0204b8d0(&self->list, 0, 0, 0, self->level + 0x10, 0, 0x10, 0x16, 0xffff);
-        unsigned char cursor = self->cursor;
-        short y = cursor * 2 + 0xf;
-        func_0204b8d0(&self->list, (unsigned char)(cursor + 1), 0, 0, y + self->level, 0, 4, 3, 0xffff);
-        func_0204b04c(&self->list, 0);
-        if (self->phase == 2) {
-            self->state++;
-            self->level = 0;
-            self->accum = 0;
-        }
-    } else if (state == 1 && self->phase == 2) {
-        void* gs = (void*)GameState::GetInstance();
-        GameResources* res = GetGameResources();
-        MemberScreen* holder = func_ov017_021a193c((int*)res->unknown_ptr_array_36fc[3]);
-        short* tbl = func_02052e14((Field150Holder02052e14*)func_0200ff1c((GameState*)gs, holder->member));
-        self->accum += self->step;
-        if (self->accum >= 3) {
-            self->accum -= 3;
-            self->level += 0x29;
-            if (self->level >= 0x7b) {
-                self->level = 0x7b;
-                self->phase = 1;
-            }
-        }
-        if (self->mode == 1) {
-            for (int i = 0; i < 8; i++) {
-                int sel = 0;
-                if (i == self->cursor) sel = 1;
-                int k = sel * 11;
-                int y = (i * 0x18) << 12;
-                G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (0xfa - self->level) << 12;
-                G3_MTX_TRANS = y;
-                G3_MTX_TRANS = -0x200000;
-                func_02047554(&self->models[k + 4], 0, 1);
-                G3_MTX_POP = 1;
-                G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (0x17b - self->level) << 12;
-                G3_MTX_TRANS = y;
-                G3_MTX_TRANS = -0x200000;
-                Matrix4x3 rot;
-                rot = RotationMatrixY(0x3244);
-                func_020c51a4((int)&rot);
-                func_02047554(&self->models[k + 4], 0, 1);
-                G3_MTX_POP = 1;
-                G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (0xeb - self->level) << 12;
-                G3_MTX_TRANS = y;
+                G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x70) << 12;
+                G3_MTX_TRANS = var8;
                 G3_MTX_TRANS = -0x200000;
                 G3_MTX_SCALE = 0x14000;
                 G3_MTX_SCALE = 0x1000;
                 G3_MTX_SCALE = 0x1000;
-                func_02047554(&self->models[k + 5], 0, 1);
+                func_02047554(&arg0->unknown_1a70_[var7 + 5], 0, 1);
                 G3_MTX_POP = 1;
-                Entry0215b520* e = &self->models[k + 7 + i];
-                if (tbl[data_ov005_0215cbdc[i]] > 0) {
-                    e = &self->models[k + 6];
+                Struct_ov005_0215b520* var10 = &arg0->unknown_1a70_[var7 + 7 + var5];
+                if (var4[data_ov005_0215cbec[var5]] > 0) {
+                    var10 = &arg0->unknown_1a70_[var7 + 6];
                 }
                 G3_MTX_PUSH = 0;
-                G3_MTX_TRANS = (0x100 - self->level) << 12;
-                G3_MTX_TRANS = y;
+                G3_MTX_TRANS = (arg0->unknown_3de2_ + 0x85) << 12;
+                G3_MTX_TRANS = var8;
                 G3_MTX_TRANS = -0x1ff000;
-                func_02047554(e, 0, 1);
+                func_02047554(var10, 0, 1);
                 G3_MTX_POP = 1;
             }
         }
-        if (self->phase == 1) {
-            self->state = 0;
-            self->level = 0;
-            self->accum = 0;
-            self->phase = 0;
-            func_ov005_0215792c(self, 0);
-            self->flags |= 0x100;
+        if (arg0->unknown_3dec_ == 1) {
+            arg0->unknown_3dba_++;
+            arg0->unknown_3de2_ = 0;
+            arg0->unknown_3de8_ = 0;
+            arg0->unknown_3dec_ = 0;
+        }
+    } else if (var0 == 1 && arg0->unknown_3dec_ == 0) {
+        arg0->unknown_3dcc_ |= 0x100;
+        arg0->unknown_3de8_ += arg0->unknown_3de4_;
+        if (arg0->unknown_3de8_ >= 3) {
+            arg0->unknown_3de8_ -= 3;
+            arg0->unknown_3de2_ += 6;
+            if (arg0->unknown_3de2_ >= 0x10) {
+                arg0->unknown_3de2_ = 0x10;
+                arg0->unknown_3dec_ = 1;
+            }
+        }
+        func_0204b010((struct Struct_0204b010*)&arg0->unknown_ea4_, 0);
+        func_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, 0x20 - arg0->unknown_3de2_, 0, 0x10, 0x16, 0xffff);
+        unsigned char var11 = arg0->unknown_3dbc_;
+        short var12 = var11 * 2 + 0xf;
+        func_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var11 + 1), 0, 0, var12 + 0x10 - arg0->unknown_3de2_, 0, 4, 3, 0xffff);
+        func_0204b04c(&arg0->unknown_ea4_, 0);
+        if (arg0->unknown_3dec_ == 1) {
+            arg0->unknown_3dba_++;
+            arg0->unknown_3de2_ = 0;
+            arg0->unknown_3de8_ = 0;
+        }
+    } else if (var0 == 2 && arg0->unknown_3dec_ == 1) {
+        func_ov005_0215792c(arg0, 3);
+        arg0->unknown_3dcc_ |= 0x100;
+        func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
+        func_ov005_02154d34(arg0->unknown_1a34_, 0x85000, 0x17000);
+        func_ov005_02154d7c(arg0->unknown_1a34_, 0x76000, 0x16000);
+        arg0->unknown_3dcc_ |= 0x800;
+    } else if (var0 == 0 && arg0->unknown_3dec_ == 1) {
+        arg0->unknown_3dcc_ |= 0x800;
+        func_ov005_0215792c(arg0, 1);
+        arg0->unknown_3dcc_ |= 0x100;
+        arg0->unknown_3de8_ += arg0->unknown_3de4_;
+        if (arg0->unknown_3de8_ >= 3) {
+            arg0->unknown_3de8_ -= 3;
+            arg0->unknown_3de2_ += 6;
+            if (arg0->unknown_3de2_ >= 0x10) {
+                arg0->unknown_3de2_ = 0x10;
+                arg0->unknown_3dec_ = 2;
+            }
+        }
+        func_0204b010((struct Struct_0204b010*)&arg0->unknown_ea4_, 0);
+        func_0204b8d0(&arg0->unknown_ea4_, 0, 0, 0, arg0->unknown_3de2_ + 0x10, 0, 0x10, 0x16, 0xffff);
+        unsigned char var13 = arg0->unknown_3dbc_;
+        short var14 = var13 * 2 + 0xf;
+        func_0204b8d0(&arg0->unknown_ea4_, (unsigned char)(var13 + 1), 0, 0, var14 + arg0->unknown_3de2_, 0, 4, 3, 0xffff);
+        func_0204b04c(&arg0->unknown_ea4_, 0);
+        if (arg0->unknown_3dec_ == 2) {
+            arg0->unknown_3dba_++;
+            arg0->unknown_3de2_ = 0;
+            arg0->unknown_3de8_ = 0;
+        }
+    } else if (var0 == 1 && arg0->unknown_3dec_ == 2) {
+        void* var15 = (void*)GameState::GetInstance();
+        GameResources* var16 = GetGameResources();
+        Struct_ov005_02153ba4_2* var17 = func_ov017_021a193c((int*)var16->unknown_ptr_array_36fc[3]);
+        short* var18 = func_02052e14((Struct_02052e14*)func_0200ff1c((GameState*)var15, var17->unknown_4fc_));
+        arg0->unknown_3de8_ += arg0->unknown_3de4_;
+        if (arg0->unknown_3de8_ >= 3) {
+            arg0->unknown_3de8_ -= 3;
+            arg0->unknown_3de2_ += 0x29;
+            if (arg0->unknown_3de2_ >= 0x7b) {
+                arg0->unknown_3de2_ = 0x7b;
+                arg0->unknown_3dec_ = 1;
+            }
+        }
+        if (arg0->unknown_3db8_ == 1) {
+            for (int var19 = 0; var19 < 8; var19++) {
+                int var20 = 0;
+                if (var19 == arg0->unknown_3dbc_) var20 = 1;
+                int var21 = var20 * 11;
+                int var22 = (var19 * 0x18) << 12;
+                G3_MTX_PUSH = 0;
+                G3_MTX_TRANS = (0xfa - arg0->unknown_3de2_) << 12;
+                G3_MTX_TRANS = var22;
+                G3_MTX_TRANS = -0x200000;
+                func_02047554(&arg0->unknown_1a70_[var21 + 4], 0, 1);
+                G3_MTX_POP = 1;
+                G3_MTX_PUSH = 0;
+                G3_MTX_TRANS = (0x17b - arg0->unknown_3de2_) << 12;
+                G3_MTX_TRANS = var22;
+                G3_MTX_TRANS = -0x200000;
+                Matrix4x3 var23;
+                var23 = RotationMatrixY(0x3244);
+                func_020c51a4((int)&var23);
+                func_02047554(&arg0->unknown_1a70_[var21 + 4], 0, 1);
+                G3_MTX_POP = 1;
+                G3_MTX_PUSH = 0;
+                G3_MTX_TRANS = (0xeb - arg0->unknown_3de2_) << 12;
+                G3_MTX_TRANS = var22;
+                G3_MTX_TRANS = -0x200000;
+                G3_MTX_SCALE = 0x14000;
+                G3_MTX_SCALE = 0x1000;
+                G3_MTX_SCALE = 0x1000;
+                func_02047554(&arg0->unknown_1a70_[var21 + 5], 0, 1);
+                G3_MTX_POP = 1;
+                Struct_ov005_0215b520* var24 = &arg0->unknown_1a70_[var21 + 7 + var19];
+                if (var18[data_ov005_0215cbdc[var19]] > 0) {
+                    var24 = &arg0->unknown_1a70_[var21 + 6];
+                }
+                G3_MTX_PUSH = 0;
+                G3_MTX_TRANS = (0x100 - arg0->unknown_3de2_) << 12;
+                G3_MTX_TRANS = var22;
+                G3_MTX_TRANS = -0x1ff000;
+                func_02047554(var24, 0, 1);
+                G3_MTX_POP = 1;
+            }
+        }
+        if (arg0->unknown_3dec_ == 1) {
+            arg0->unknown_3dba_ = 0;
+            arg0->unknown_3de2_ = 0;
+            arg0->unknown_3de8_ = 0;
+            arg0->unknown_3dec_ = 0;
+            func_ov005_0215792c(arg0, 0);
+            arg0->unknown_3dcc_ |= 0x100;
         }
     }
 #if defined(jpn)
     func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
-    short item = self->slots[self->modeB].item;
-    self->infoWindow.flags |= 0x80;
-    func_ov023_021dcba4(&self->infoWindow, item);
+    short var25 = arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_;
+    arg0->unknown_1244_.unknown_774_ |= 0x80;
+    func_ov023_021dcba4(&arg0->unknown_1244_, var25);
 #endif
 
 }

@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct Wnd0204e3e0 {
-    char pad0[0xa4];
-    int fA4;
-    short fA8;
-    short fAA;
-    char padAC[4];
-    short fB0;
-    short fB2;
-    char padB4[2];
-    short fB6;
+struct Struct_0204e3e0_2 {
+    char unknown_0_[0xa4];
+    int unknown_a4_;
+    short unknown_a8_;
+    short unknown_aa_;
+    char unknown_ac_[4];
+    short unknown_b0_;
+    short unknown_b2_;
+    char unknown_b4_[2];
+    short unknown_b6_;
 };
 
-struct Glyph0204e3e0 {
-    int val;
-    char width;
-    signed char skip : 6;
-    signed char unused : 2;
+struct Struct_0204e3e0 {
+    int unknown_0_;
+    char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 2;
 };
 
-extern "C" void* __clear(void* dst, int count);
-extern "C" int func_020420e8(char* str, int id);
-extern "C" int func_020424e4(int key, int tableIdx);
-extern "C" char* func_020424ac(char* str);
-extern "C" Glyph0204e3e0* func_020425b4(int idx, int tableIdx);
-extern "C" int func_020425e4(int a, int b, int tableIdx);
-extern "C" int func_0204fc40(void* unused0, char** cursor, char* tag, short* out, int max);
+extern "C" void* __clear(void* arg0, int arg1);
+extern "C" int func_020420e8(char* arg0, int arg1);
+extern "C" int func_020424e4(int arg0, int arg1);
+extern "C" char* func_020424ac(char* arg0);
+extern "C" Struct_0204e3e0* func_020425b4(int arg0, int arg1);
+extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
 extern const unsigned char data_020e7bd6[];
 extern char data_020f0248[];
 extern char data_020f024e[];
@@ -43,154 +43,154 @@ extern char data_020f02eb[];
 extern char data_020f02f1[];
 
 // USA: func_0204e3e0
-extern "C" ARM short func_0204e3e0(Wnd0204e3e0* wnd, char* text, int mode, unsigned char border, unsigned char grow, unsigned char font) {
-    int boxY;
-    int x, y, maxX, maxY;
-    short prev;
-    int code;
-    bool boxOn;
-    short ret;
-    int savedX;
-    int lineH;
-    char* end;
-    char* cursor;
-    char* p;
-    short out[8];
-    char tmp[0x100];
-    unsigned char adv;
-    Glyph0204e3e0* glyph;
+extern "C" ARM short func_0204e3e0(Struct_0204e3e0_2* arg0, char* arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5) {
+    int var0;
+    int var1, var2, var3, var4;
+    short var5;
+    int var6;
+    bool var7;
+    short var8;
+    int var9;
+    int var10;
+    char* var11;
+    char* var12;
+    char* var13;
+    short var14[8];
+    char var15[0x100];
+    unsigned char var16;
+    Struct_0204e3e0* var17;
 
-    cursor = text;
-    if (cursor == 0) return 0;
+    var12 = arg1;
+    if (var12 == 0) return 0;
 
-    maxX = wnd->fB0;
-    maxY = wnd->fB2;
-    boxOn = 0;
-    boxY = 0;
-    ret = 0;
-    lineH = wnd->fB6;
-    x = wnd->fB0;
-    y = wnd->fB2;
-    prev = 0xff;
+    var3 = arg0->unknown_b0_;
+    var4 = arg0->unknown_b2_;
+    var7 = 0;
+    var0 = 0;
+    var8 = 0;
+    var10 = arg0->unknown_b6_;
+    var1 = arg0->unknown_b0_;
+    var2 = arg0->unknown_b2_;
+    var5 = 0xff;
 
-    while (*cursor != 0) {
-        char ch = *cursor;
-        char next = cursor[1];
-        if ((ch == '\\' && next == 'n') || (ch == '\r' && next == '\n')) {
-            if (maxX < x) maxX = x;
-            x = wnd->fB0;
-            y += wnd->fB6;
-            cursor += 2;
-            prev = 0xff;
+    while (*var12 != 0) {
+        char var18 = *var12;
+        char var19 = var12[1];
+        if ((var18 == '\\' && var19 == 'n') || (var18 == '\r' && var19 == '\n')) {
+            if (var3 < var1) var3 = var1;
+            var1 = arg0->unknown_b0_;
+            var2 += arg0->unknown_b6_;
+            var12 += 2;
+            var5 = 0xff;
             continue;
         }
-        if (ch == '\n') {
-            if (maxX < x) maxX = x;
-            x = wnd->fB0;
-            y += wnd->fB6;
-            cursor += 1;
-            prev = 0xff;
+        if (var18 == '\n') {
+            if (var3 < var1) var3 = var1;
+            var1 = arg0->unknown_b0_;
+            var2 += arg0->unknown_b6_;
+            var12 += 1;
+            var5 = 0xff;
             continue;
         }
-        int idx = func_020424e4((int)cursor, font);
-        if (*cursor == '<' && idx < 0) {
-            p = cursor + 1;
-            end = func_020424ac(cursor);
-            if (func_0204fc40(wnd, &p, data_020f0248, out, 1)) {
-            } else if (func_0204fc40(wnd, &p, data_020f024e, out, 1)) {
-                if (maxX < x) maxX = x;
-                x = out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0251, out, 1)) {
-                if (maxY < y) maxY = y;
-                y = out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0254, out, 2)) {
-                if (maxX < x) maxX = x;
-                if (maxY < y) maxY = y;
-                x = out[0];
-                y = out[1];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0258, out, 1)) {
-                x += out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f025b, out, 1)) {
-                y += out[0];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f025e, out, 2)) {
-                x += out[0];
-                y += out[1];
-                prev = 0xff;
-            } else if (func_0204fc40(wnd, &p, data_020f0298, out, 1)) {
-                ret = out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02d4, out, 1)) {
-                boxOn = 1;
-                boxY = out[0];
-            } else if (func_0204fc40(wnd, &p, data_020f02db, out, 0)) {
-                if (boxOn) {
-                    if (maxX < x) maxX = x;
-                    if (maxY < y) maxY = y;
-                    x = wnd->fB0;
-                    y = boxY + wnd->fB2;
+        int var20 = func_020424e4((int)var12, arg5);
+        if (*var12 == '<' && var20 < 0) {
+            var13 = var12 + 1;
+            var11 = func_020424ac(var12);
+            if (func_0204fc40(arg0, &var13, data_020f0248, var14, 1)) {
+            } else if (func_0204fc40(arg0, &var13, data_020f024e, var14, 1)) {
+                if (var3 < var1) var3 = var1;
+                var1 = var14[0];
+                var5 = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f0251, var14, 1)) {
+                if (var4 < var2) var4 = var2;
+                var2 = var14[0];
+                var5 = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f0254, var14, 2)) {
+                if (var3 < var1) var3 = var1;
+                if (var4 < var2) var4 = var2;
+                var1 = var14[0];
+                var2 = var14[1];
+                var5 = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f0258, var14, 1)) {
+                var1 += var14[0];
+                var5 = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f025b, var14, 1)) {
+                var2 += var14[0];
+                var5 = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f025e, var14, 2)) {
+                var1 += var14[0];
+                var2 += var14[1];
+                var5 = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f0298, var14, 1)) {
+                var8 = var14[0];
+            } else if (func_0204fc40(arg0, &var13, data_020f02d4, var14, 1)) {
+                var7 = 1;
+                var0 = var14[0];
+            } else if (func_0204fc40(arg0, &var13, data_020f02db, var14, 0)) {
+                if (var7) {
+                    if (var3 < var1) var3 = var1;
+                    if (var4 < var2) var4 = var2;
+                    var1 = arg0->unknown_b0_;
+                    var2 = var0 + arg0->unknown_b2_;
                 }
-            } else if (func_0204fc40(wnd, &p, data_020f02e7, out, 1)) {
-                if (maxX < x) maxX = x;
-                x = out[0];
-                prev = 0xff;
-                savedX = x;
-                __clear(tmp, 0x100);
-                char* start = p;
-                char* found = strstr(start, data_020f02eb);
-                if (found != 0) {
-                    int len = found - start;
-                    if (len < 0x100) {
-                        memcpy(tmp, start, len);
-                        x -= func_020420e8(tmp, font);
+            } else if (func_0204fc40(arg0, &var13, data_020f02e7, var14, 1)) {
+                if (var3 < var1) var3 = var1;
+                var1 = var14[0];
+                var5 = 0xff;
+                var9 = var1;
+                __clear(var15, 0x100);
+                char* var21 = var13;
+                char* var22 = strstr(var21, data_020f02eb);
+                if (var22 != 0) {
+                    int var23 = var22 - var21;
+                    if (var23 < 0x100) {
+                        memcpy(var15, var21, var23);
+                        var1 -= func_020420e8(var15, arg5);
                     }
                 }
-            } else if (func_0204fc40(wnd, &p, data_020f02f1, out, 0)) {
-                if (maxX < x) maxX = x;
-                x = savedX;
-                prev = 0xff;
+            } else if (func_0204fc40(arg0, &var13, data_020f02f1, var14, 0)) {
+                if (var3 < var1) var3 = var1;
+                var1 = var9;
+                var5 = 0xff;
             }
-            cursor = end + 1;
+            var12 = var11 + 1;
             continue;
         }
-        adv = data_020e7bd6[font] + 1;
-        if (idx >= 0) {
-            code = idx & 0xff;
-            glyph = func_020425b4(idx, font);
-            int kern = func_020425e4(prev, code, font);
-            prev = code;
-            adv = glyph->width + 1 + kern;
-            cursor += glyph->skip;
+        var16 = data_020e7bd6[arg5] + 1;
+        if (var20 >= 0) {
+            var6 = var20 & 0xff;
+            var17 = func_020425b4(var20, arg5);
+            int var24 = func_020425e4(var5, var6, arg5);
+            var5 = var6;
+            var16 = var17->unknown_4_ + 1 + var24;
+            var12 += var17->unknown_5_0_;
         } else {
-            cursor++;
+            var12++;
         }
-        x += adv;
+        var1 += var16;
     }
 
-    if (x < maxX) x = maxX;
-    if (y < maxY) y = maxY;
-    y = y + lineH - (wnd->fB6 - 10);
-    if (((x + 3) & 7) <= 3) x += 4;
-    int w = ((x + 7) & ~7) >> 3;
-    int h = ((y + 7) & ~7) >> 3;
-    if (w > 32) w = 32;
-    if (h > 32) h = 32;
-    if (grow) {
-        if (wnd->fA8 < w) wnd->fA8 = w;
-        if (wnd->fAA < h) wnd->fAA = h;
+    if (var1 < var3) var1 = var3;
+    if (var2 < var4) var2 = var4;
+    var2 = var2 + var10 - (arg0->unknown_b6_ - 10);
+    if (((var1 + 3) & 7) <= 3) var1 += 4;
+    int var25 = ((var1 + 7) & ~7) >> 3;
+    int var26 = ((var2 + 7) & ~7) >> 3;
+    if (var25 > 32) var25 = 32;
+    if (var26 > 32) var26 = 32;
+    if (arg4) {
+        if (arg0->unknown_a8_ < var25) arg0->unknown_a8_ = var25;
+        if (arg0->unknown_aa_ < var26) arg0->unknown_aa_ = var26;
     }
-    if (border) {
-        y -= wnd->fB2;
-        if ((wnd->fAA << 3) - y < 7) wnd->fAA = wnd->fAA + 1;
-        wnd->fB2 = ((wnd->fAA << 3) - y) >> 1;
+    if (arg3) {
+        var2 -= arg0->unknown_b2_;
+        if ((arg0->unknown_aa_ << 3) - var2 < 7) arg0->unknown_aa_ = arg0->unknown_aa_ + 1;
+        arg0->unknown_b2_ = ((arg0->unknown_aa_ << 3) - var2) >> 1;
     }
-    if (boxOn) {
-        wnd->fB2 = wnd->fB2 + boxY;
-        if (border) wnd->fB2 = wnd->fB2 - 1;
+    if (var7) {
+        arg0->unknown_b2_ = arg0->unknown_b2_ + var0;
+        if (arg3) arg0->unknown_b2_ = arg0->unknown_b2_ - 1;
     }
-    wnd->fA4 = (wnd->fA8 * wnd->fAA) << 5;
-    return ret;
+    arg0->unknown_a4_ = (arg0->unknown_a8_ * arg0->unknown_aa_) << 5;
+    return var8;
 }

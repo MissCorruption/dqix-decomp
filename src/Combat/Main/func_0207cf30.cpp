@@ -4,99 +4,99 @@
 #include "NitroSDK/Memory/SignedAllocator.h"
 #include "GameState/GameState.h"
 
-struct Container020dedd0;
-struct Element020de650;
-struct KeyMap020a0b3c;
-struct KeyMap020a095c;
-struct Obj02061bd8;
-struct Obj0207cf30Field;
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
+struct Struct_0207cf30_3;
+struct Struct_0207cf30_4;
+struct Struct_0205faf4_11;
+struct Struct_0207cf30;
 
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
-extern "C" void* func_0207d6dc(SafeAllocator* self, int param1, int param2);
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" int func_020a0b3c(struct KeyMap020a0b3c* map, int key);
-extern "C" int func_020a095c(struct KeyMap020a095c* map, int key, int amount);
-extern "C" int func_02061bd8(struct Obj02061bd8* obj);
-extern "C" struct Obj0207cf30Field* func_02053c6c(unsigned char* obj);
-extern "C" GameObject* func_0200ff1c(GameState* gs, int id);
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" int func_020a0b3c(struct Struct_0207cf30_3* arg0, int arg1);
+extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
+extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+extern "C" struct Struct_0207cf30* func_02053c6c(unsigned char* arg0);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 
-extern "C" void func_0207cc18(void* self, struct Element020de650* elem);
+extern "C" void func_0207cc18(void* arg0, struct Struct_0201099c_9* arg1);
 
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 
 extern AllocatorUnion data_02114e20 __attribute__((aligned(4)));
 
-struct Obj0207cf30Field {
-    char pad[0x454];
-    short slot[8];
+struct Struct_0207cf30 {
+    char unknown_0_[0x454];
+    short unknown_454_[8];
 };
 
-struct Obj0207cf30 {
-    char pad[0x2c];
-    struct Container020dedd0* container;
-    void* field30;
-    void* field34;
+struct Struct_0207cf30_2 {
+    char unknown_0_[0x2c];
+    struct Struct_0201099c_10* unknown_2c_;
+    void* unknown_30_;
+    void* unknown_34_;
 };
 
 // USA: func_0207cf30
-extern "C" ARM int func_0207cf30(struct Obj0207cf30* self, short key, int max, int enable) {
-    int flag = 0;
-    if (self->container == NULL) {
-        func_0207d6dc((SafeAllocator*)self, (int)&key, 1);
-        flag = 1;
+extern "C" ARM int func_0207cf30(struct Struct_0207cf30_2* arg0, short arg1, int arg2, int arg3) {
+    int var0 = 0;
+    if (arg0->unknown_2c_ == NULL) {
+        func_0207d6dc((SafeAllocator*)arg0, (int)&arg1, 1);
+        var0 = 1;
     }
-    int ret = 0;
-    struct Element020de650* elem = func_020dedd0(self->container, key);
-    if (elem != NULL) {
-        GameState* gs = GameState::GetInstance();
-        char* p = (char*)func_02010828(gs);
-        int n = max;
-        short i = 0;
-        if (enable) {
-            int v = func_020a0b3c((struct KeyMap020a0b3c*)func_02010828(gs), key);
-            v = 99 - v;
-            if (v > max)
-                v = max;
-            n = (short)v;
+    int var1 = 0;
+    struct Struct_0201099c_9* var2 = func_020dedd0(arg0->unknown_2c_, arg1);
+    if (var2 != NULL) {
+        GameState* var3 = GameState::GetInstance();
+        char* var4 = (char*)func_02010828(var3);
+        int var5 = arg2;
+        short var6 = 0;
+        if (arg3) {
+            int var7 = func_020a0b3c((struct Struct_0207cf30_3*)func_02010828(var3), arg1);
+            var7 = 99 - var7;
+            if (var7 > arg2)
+                var7 = arg2;
+            var5 = (short)var7;
         }
-        ret = func_020a095c((struct KeyMap020a095c*)p, key, (signed char)n);
-        i += n;
-        if (ret) {
-            func_0207cc18(self, elem);
-            self->field30 = *(void**)((char*)elem + 4);
-            self->field34 = gs->GetProtagonist()->baseStats_;
+        var1 = func_020a095c((struct Struct_0207cf30_4*)var4, arg1, (signed char)var5);
+        var6 += var5;
+        if (var1) {
+            func_0207cc18(arg0, var2);
+            arg0->unknown_30_ = *(void**)((char*)var2 + 4);
+            arg0->unknown_34_ = var3->GetProtagonist()->baseStats_;
         }
-        if (i < max && enable) {
-            char* q = (char*)func_02010828(gs);
-            for (int j = 0; j < *(unsigned char*)(q + 0xf7c); j++) {
-                GameObject* c = func_0200ff1c(gs, *(unsigned char*)(q + j + 0xf78));
-                if (c == NULL)
+        if (var6 < arg2 && arg3) {
+            char* var8 = (char*)func_02010828(var3);
+            for (int var9 = 0; var9 < *(unsigned char*)(var8 + 0xf7c); var9++) {
+                GameObject* var10 = func_0200ff1c(var3, *(unsigned char*)(var8 + var9 + 0xf78));
+                if (var10 == NULL)
                     continue;
-                if (func_02061bd8((struct Obj02061bd8*)c) != 0)
+                if (func_02061bd8((struct Struct_0205faf4_11*)var10) != 0)
                     continue;
-                struct Obj0207cf30Field* f = func_02053c6c((unsigned char*)c);
-                if (f == NULL)
+                struct Struct_0207cf30* var11 = func_02053c6c((unsigned char*)var10);
+                if (var11 == NULL)
                     continue;
-                for (int k = 0; k < 8; k++) {
-                    if (f->slot[k] > 0)
+                for (int var12 = 0; var12 < 8; var12++) {
+                    if (var11->unknown_454_[var12] > 0)
                         continue;
-                    f->slot[k] = key;
-                    func_0207cc18(self, elem);
-                    i++;
-                    if (i == max)
+                    var11->unknown_454_[var12] = arg1;
+                    func_0207cc18(arg0, var2);
+                    var6++;
+                    if (var6 == arg2)
                         break;
                 }
-                if (i == max)
+                if (var6 == arg2)
                     break;
             }
         }
     }
-    if (flag) {
-        SafeAllocator* alloc = (SafeAllocator*)self;
-        SignedAllocatorHeader* sig = alloc->GetSignedAllocator();
-        alloc->Destroy();
-        func_02012da4(&data_02114e20, sig);
-        self->container = NULL;
+    if (var0) {
+        SafeAllocator* var13 = (SafeAllocator*)arg0;
+        SignedAllocatorHeader* var14 = var13->GetSignedAllocator();
+        var13->Destroy();
+        func_02012da4(&data_02114e20, var14);
+        arg0->unknown_2c_ = NULL;
     }
-    return ret;
+    return var1;
 }

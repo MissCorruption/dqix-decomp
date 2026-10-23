@@ -2,27 +2,27 @@
 
 unsigned long long GetCurrentTimestamp(void);
 
-struct StateObj0201fc40 {
-    unsigned char state;
-    unsigned char f1;
-    unsigned char f2;
-    unsigned char pad3;
-    unsigned short f4;
-    unsigned short pad6;
-    long long f8;
+struct Struct_0201fc40 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    long long unknown_8_;
 };
 
 // USA: func_0201fc40
-extern "C" ARM void func_0201fc40(struct StateObj0201fc40* p, int arg) {
-    if (p->f2 != 0) return;
-    if (p->state == 1 || p->state == 4) {
-        p->f1 = 3;
-        p->f4 = arg;
-        p->f8 = GetCurrentTimestamp();
+extern "C" ARM void func_0201fc40(struct Struct_0201fc40* arg0, int arg1) {
+    if (arg0->unknown_2_ != 0) return;
+    if (arg0->unknown_0_ == 1 || arg0->unknown_0_ == 4) {
+        arg0->unknown_1_ = 3;
+        arg0->unknown_4_ = arg1;
+        arg0->unknown_8_ = GetCurrentTimestamp();
         return;
     }
-    if (p->state == 3 || p->state == 2) {
-        p->f4 = arg;
-        p->f8 = GetCurrentTimestamp();
+    if (arg0->unknown_0_ == 3 || arg0->unknown_0_ == 2) {
+        arg0->unknown_4_ = arg1;
+        arg0->unknown_8_ = GetCurrentTimestamp();
     }
 }

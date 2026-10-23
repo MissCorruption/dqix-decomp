@@ -7,29 +7,29 @@
 
 extern "C" void func_ov023_021dacd4(void*, int, int);
 
-struct Obj021dac40 {
+struct Struct_ov023_021dac40 {
 #if defined(jpn)
-    char unknown0[0xd5c];
+    char unknown_0_[0xd5c];
 #else
-    char unknown0[0xd98];
+    char unknown1_0_[0xd98];
 #endif
-    short fadeTicksRemaining;
-    char unknownAfterTimer[2];
-    int flags;
+    short unknown_d98_;
+    char unknown_d9a_[2];
+    int unknown_d9c_;
 };
 
-enum { kFadeDurationTicks = 90, kMaxPolygonAlpha = 31, kMaxBrightnessAdjustment = 16 };
+enum { Enum_ov023_021dac40_90 = 90, Enum_ov023_021dac40_31 = 31, Enum_ov023_021dac40_16 = 16 };
 
 // USA: func_ov023_021dac40
-extern "C" ARM void func_ov023_021dac40(Obj021dac40* obj, int elapsedTicks) {
-    if (!(obj->flags & 0x10000)) return;
-    obj->fadeTicksRemaining -= elapsedTicks;
-    if (obj->fadeTicksRemaining < 0) obj->fadeTicksRemaining = 0;
-    if (obj->flags & 0x800000) {
-        int alphaRemaining = obj->fadeTicksRemaining * kMaxPolygonAlpha / kFadeDurationTicks;
-        func_ov023_021dacd4(obj, 0, kMaxPolygonAlpha - alphaRemaining);
+extern "C" ARM void func_ov023_021dac40(Struct_ov023_021dac40* arg0, int arg1) {
+    if (!(arg0->unknown_d9c_ & 0x10000)) return;
+    arg0->unknown_d98_ -= arg1;
+    if (arg0->unknown_d98_ < 0) arg0->unknown_d98_ = 0;
+    if (arg0->unknown_d9c_ & 0x800000) {
+        int var0 = arg0->unknown_d98_ * Enum_ov023_021dac40_31 / Enum_ov023_021dac40_90;
+        func_ov023_021dacd4(arg0, 0, Enum_ov023_021dac40_31 - var0);
         return;
     }
-    int brightness = -((kFadeDurationTicks - obj->fadeTicksRemaining) * kMaxBrightnessAdjustment) / kFadeDurationTicks;
-    ColorEffect_ConfigureBrightnessAdjust(0x4000050, 0x16, brightness);
+    int var1 = -((Enum_ov023_021dac40_90 - arg0->unknown_d98_) * Enum_ov023_021dac40_16) / Enum_ov023_021dac40_90;
+    ColorEffect_ConfigureBrightnessAdjust(0x4000050, 0x16, var1);
 }

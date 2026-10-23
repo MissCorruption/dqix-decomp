@@ -2,46 +2,46 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_ov024_021edf00(int* a0, int a1, short* a2);
-extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
-extern "C" void func_ov024_021ed8c0(void* context, int id, int recordAddress, int* count, short* ids);
+extern "C" int func_ov024_021edf00(int* arg0, int arg1, short* arg2);
+extern "C" int func_ov000_0215e9fc(int arg0, short* arg1, int arg2, int arg3);
+extern "C" void func_ov024_021ed8c0(void* arg0, int arg1, int arg2, int* arg3, short* arg4);
 
-struct FlagObj_021df6ec;
-extern "C" int func_ov024_021df6ec(struct FlagObj_021df6ec* obj);
+struct Struct_ov024_021df454_2;
+extern "C" int func_ov024_021df6ec(struct Struct_ov024_021df454_2* arg0);
 
 extern unsigned short data_ov024_021feb2c;
 
 // USA: func_ov024_021edfa0
-extern "C" ARM int func_ov024_021edfa0(int* a0, int a1, int a2, int* a3, short* a4) {
-	GameObject* self = GetCombatantByID(*a0, a1);
-	if (!self) return 0;
-	if (func_ov024_021df6ec((struct FlagObj_021df6ec*)self)) return 0;
+extern "C" ARM int func_ov024_021edfa0(int* arg0, int arg1, int arg2, int* arg3, short* arg4) {
+	GameObject* var0 = GetCombatantByID(*arg0, arg1);
+	if (!var0) return 0;
+	if (func_ov024_021df6ec((struct Struct_ov024_021df454_2*)var0)) return 0;
 
-	short buf[4];
-	short* d = buf;
-	unsigned short* s = &data_ov024_021feb2c;
-	int n = 4;
+	short var1[4];
+	short* var2 = var1;
+	unsigned short* var3 = &data_ov024_021feb2c;
+	int var4 = 4;
 	do {
-		short* dd = d++;
-		*dd = *s++;
-	} while (--n);
+		short* var5 = var2++;
+		*var5 = *var3++;
+	} while (--var4);
 
-	int count = func_ov024_021edf00(a0, a1, buf);
-	if (count <= 0) {
-		count = func_ov000_0215e9fc(*a0, buf, 4, 1);
-		if (count <= 0) return 0;
+	int var6 = func_ov024_021edf00(arg0, arg1, var1);
+	if (var6 <= 0) {
+		var6 = func_ov000_0215e9fc(*arg0, var1, 4, 1);
+		if (var6 <= 0) return 0;
 	}
 
-	*a3 = 0;
-	for (int i = 0; i < count; i++) {
-		GameObject* c = GetCombatantByID(*a0, buf[i]);
-		if (!c) continue;
-		if (self->currentStats_->primaryStats.attack * 2 <= c->currentStats_->primaryStats.defense) continue;
-		a4[*a3] = buf[i];
-		(*a3)++;
+	*arg3 = 0;
+	for (int var7 = 0; var7 < var6; var7++) {
+		GameObject* var8 = GetCombatantByID(*arg0, var1[var7]);
+		if (!var8) continue;
+		if (var0->currentStats_->primaryStats.attack * 2 <= var8->currentStats_->primaryStats.defense) continue;
+		arg4[*arg3] = var1[var7];
+		(*arg3)++;
 	}
-	if (*a3 <= 0) return 0;
+	if (*arg3 <= 0) return 0;
 
-	func_ov024_021ed8c0(a0, a1, a2, a3, a4);
-	return a4[0] >= 0;
+	func_ov024_021ed8c0(arg0, arg1, arg2, arg3, arg4);
+	return arg4[0] >= 0;
 }

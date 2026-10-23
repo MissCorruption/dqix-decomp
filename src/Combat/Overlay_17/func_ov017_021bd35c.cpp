@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Src021bd35c { unsigned short h0, h2, h4, h6, h8; };
-struct S021bd35c { unsigned char pad[
+struct Struct_ov017_021bd35c { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_, unknown_8_; };
+struct Struct_ov017_021bd35c_2 { unsigned char unknown_0_[
 #if defined(jpn)
 0x14c
 #else
 0x150
 #endif
-]; unsigned short d0, d2, d4, d6, d8; };
+]; unsigned short unknown_150_, unknown_152_, unknown_154_, unknown_156_, unknown_158_; };
 
 // USA: func_ov017_021bd35c
-extern "C" ARM void func_ov017_021bd35c(S021bd35c* obj, Src021bd35c* src) {
-	obj->d0 = src->h0;
-	obj->d2 = src->h2;
-	obj->d4 = src->h4;
-	obj->d6 = src->h6;
-	obj->d8 = src->h8;
+extern "C" ARM void func_ov017_021bd35c(Struct_ov017_021bd35c_2* arg0, Struct_ov017_021bd35c* arg1) {
+	arg0->unknown_150_ = arg1->unknown_0_;
+	arg0->unknown_152_ = arg1->unknown_2_;
+	arg0->unknown_154_ = arg1->unknown_4_;
+	arg0->unknown_156_ = arg1->unknown_6_;
+	arg0->unknown_158_ = arg1->unknown_8_;
 }

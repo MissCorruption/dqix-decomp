@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Src021c5f00 { unsigned short w0; unsigned short w2; unsigned char b4; unsigned char b5; unsigned char b6; };
+struct Struct_ov017_021c530c_2 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; unsigned char unknown_6_; };
 
-struct LocalEvt021c5f00 {
-    unsigned char tag;
-    unsigned char pad0[3];
-    unsigned short field4;
-    unsigned short field6;
-    unsigned char field8;
-    unsigned char field9;
-    unsigned char fielda;
-    unsigned char pad2[9];
+struct Struct_ov017_021c5f00 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_[9];
 };
 
 // USA: func_ov017_021c5f00
-extern "C" ARM void func_ov017_021c5f00(Src021c5f00* src) {
-    LocalEvt021c5f00 buf;
-    void* p = func_0202ae24();
-    buf.tag = 0x3f;
-    buf.field4 = src->w0;
-    buf.field6 = src->w2;
-    buf.field8 = src->b4;
-    buf.field9 = src->b5;
-    buf.fielda = src->b6;
-    func_0205e330(p, &buf, 0);
+extern "C" ARM void func_ov017_021c5f00(Struct_ov017_021c530c_2* arg0) {
+    Struct_ov017_021c5f00 var0;
+    void* var1 = func_0202ae24();
+    var0.unknown_0_ = 0x3f;
+    var0.unknown_4_ = arg0->unknown_0_;
+    var0.unknown_6_ = arg0->unknown_2_;
+    var0.unknown_8_ = arg0->unknown_4_;
+    var0.unknown_9_ = arg0->unknown_5_;
+    var0.unknown_a_ = arg0->unknown_6_;
+    func_0205e330(var1, &var0, 0);
 }

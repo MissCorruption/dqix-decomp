@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-extern "C" int func_020dfbfc(void* a, int b, int c);
+extern "C" int func_020dfbfc(void* arg0, int arg1, int arg2);
 
-struct Node020dfbdc {
-    int field0;
-    int field4;
+struct Struct_020dfbdc {
+    int unknown_0_;
+    int unknown_4_;
 };
 
 // USA: func_020dfbdc
-extern "C" ARM int func_020dfbdc(void* a, struct Node020dfbdc* node) {
-    node->field4 = func_020dfbfc(a, node->field4, 0);
+extern "C" ARM int func_020dfbdc(void* arg0, struct Struct_020dfbdc* arg1) {
+    arg1->unknown_4_ = func_020dfbfc(arg0, arg1->unknown_4_, 0);
     return 1;
 }

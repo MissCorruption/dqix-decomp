@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Obj021fbe4c {
-    char pad[0x20];
-    SafeAllocator allocator;
+struct Struct_ov023_021fbe4c {
+    char unknown_0_[0x20];
+    SafeAllocator unknown_20_;
 };
 
 // USA: func_ov023_021fbe4c
-extern "C" ARM void func_ov023_021fbe4c(struct Obj021fbe4c* self) {
-    if (self->allocator.GetSignedAllocator() == NULL) return;
-    self->allocator.Destroy();
+extern "C" ARM void func_ov023_021fbe4c(struct Struct_ov023_021fbe4c* arg0) {
+    if (arg0->unknown_20_.GetSignedAllocator() == NULL) return;
+    arg0->unknown_20_.Destroy();
 }

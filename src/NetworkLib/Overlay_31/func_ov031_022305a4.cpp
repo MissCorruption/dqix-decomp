@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-extern "C" int FastIntDivide(int numer, unsigned int denom);
+extern "C" int FastIntDivide(int arg0, unsigned int arg1);
 
-struct CombatTagData022305e8 {
-	unsigned char unk0;
-	unsigned char unk1;
-	unsigned char unk2;
-	unsigned char unk3;
-	unsigned short field4;
+struct Struct_ov031_02290ca0_16 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_;
+	unsigned char unknown_2_;
+	unsigned char unknown_3_;
+	unsigned short unknown_4_;
 };
-extern struct CombatTagData022305e8 data_ov031_02290ca0;
+extern struct Struct_ov031_02290ca0_16 data_ov031_02290ca0;
 
 // USA: func_ov031_022305a4
-extern "C" ARM int func_ov031_022305a4(int a) {
-	int div = FastIntDivide(data_ov031_02290ca0.field4, 0x1d);
-	int i = 0;
+extern "C" ARM int func_ov031_022305a4(int arg0) {
+	int var0 = FastIntDivide(data_ov031_02290ca0.unknown_4_, 0x1d);
+	int var1 = 0;
 	do {
-		if (div == a) return i;
-		i++;
-		div++;
-	} while (i < 4);
+		if (var0 == arg0) return var1;
+		var1++;
+		var0++;
+	} while (var1 < 4);
 	return -1;
 }

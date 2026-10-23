@@ -4,242 +4,242 @@
 #include "Combat/MapDisplay.h"
 #include "World/Object3D.h"
 
-struct Struct020dfc40 {
-    char unk_0[0x18];
+struct Struct_0201099c_14 {
+    char unknown_0_[0x18];
 };
 
-struct InitTarget0205cfd4 {
-    char unk_0[0xbc];
+struct Struct_0205cfd4 {
+    char unknown_0_[0xbc];
 };
 
-struct Canvas {
-    char unk_0[0xe0];
+struct Struct_ov006_02158478 {
+    char unknown_0_[0xe0];
 };
 
 struct Struct_0205bef8 {
-    int words_[0x10];
+    int unknown_0_[0x10];
 };
 
-struct Struct021847c4 {
-    int x_;
-    int y_;
-    int width_;
-    int height_;
-    int stepX_;
-    int stepY_;
-    int columns_;
-    int rows_;
+struct Struct_ov009_021847c4 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
 
 extern "C" unsigned int* func_020d6c00();
-extern "C" void func_020466e4(unsigned int* field, unsigned int bits);
-extern "C" void func_020de848(void* table);
-extern "C" void func_020dfc40(Struct020dfc40* table);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void func_020de848(void* arg0);
+extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
 #if defined(jpn)
 #define func_ov009_021847ec func_ov009_02185850
 #endif
-extern "C" void func_ov009_021847ec(void* checker);
-extern "C" void func_0204af64(List0204af64* background);
-extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
-extern "C" void func_0204c684(Canvas* canvas);
-extern "C" void func_0205bef8(Struct_0205bef8* cursor);
-extern "C" void func_ov009_021847c4(Struct021847c4* grid);
-extern "C" int func_020424e4(int text, int mode);
+extern "C" void func_ov009_021847ec(void* arg0);
+extern "C" void func_0204af64(Struct_02020cb8* arg0);
+extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
+extern "C" void func_0204c684(Struct_ov006_02158478* arg0);
+extern "C" void func_0205bef8(Struct_0205bef8* arg0);
+extern "C" void func_ov009_021847c4(Struct_ov009_021847c4* arg0);
+extern "C" int func_020424e4(int arg0, int arg1);
 
 extern char data_ov009_0218aca4[];
 
-struct CharacterCreation {
+struct Struct_ov009_021842a0_2 {
 #if defined(jpn)
-    SafeAllocator allocators_[8];
+    SafeAllocator unknown_0_[8];
 #else
-    SafeAllocator allocators_[9];
+    SafeAllocator unknown_0_[9];
 #endif
-    SafeAllocator* modelAllocator_;
-    SafeAllocator* previewAllocators_;
+    SafeAllocator* unknown_b4_;
+    SafeAllocator* unknown_b8_;
 #if !defined(jpn)
-    void* savedKey_;
-    void* keyboard_;
-    void* layout_;
+    void* unknown_bc_;
+    void* unknown_c0_;
+    void* unknown_c4_;
 #endif
-    char partNames_[0x18];
-    Struct020dfc40 texts_;
-    void* unk_f8;
+    char unknown_c8_[0x18];
+    Struct_0201099c_14 unknown_e0_;
+    void* unknown_f8_;
 #if defined(jpn)
-    char checker_[0x20];
+    char unknown_fc_[0x20];
 #else
-    char checker_[0x3c];
+    char unknown_fc_[0x3c];
 #endif
-    List0204af64 backgrounds_[6];
-    InitTarget0205cfd4 windows_[2];
-    Canvas canvases_[1];
-    Canvas canvases2_[4];
-    void* pixels_;
-    void* pixels2_;
-    void* renderer_;
-    void* sprites_;
-    void* unk_7e0;
-    void* renderer2_;
-    void* sprites2_;
-    void* unk_7ec;
-    void* characters_[2];
-    void* character_;
-    void* nextCharacter_;
-    int unk_800;
-    int targetAngle_;
-    char unk_808[0x70];
-    Object3D object_;
-    char camera_[0x2c8];
-    Struct_0205bef8 cursor_;
-    Struct021847c4 grid_;
-    short cursorX_;
-    short cursorY_;
-    short cursorWidth_;
-    short cursorHeight_;
-    short lastX_;
-    short lastY_;
-    signed char state_;
-    unsigned char step_;
-    char unk_c5a[2];
-    int modelTasks_[3];
-    char unk_c68[0x70];
-    Object3D object2_;
-    unsigned char selection_;
-    unsigned char unk_d85;
-    char unk_d86[2];
-    void* member_;
-    int touchedChoice_;
-    int task_;
-    unsigned char loadStep_;
-    unsigned char mode_;
-    short timer_;
-    short unk_d98;
-    char unk_d9a[2];
-    unsigned int flags_;
-    signed char lastStates_[2];
-    unsigned char vocation_;
-    unsigned char sex_;
-    unsigned char bodyType_[2];
-    unsigned char hairStyle_[2];
-    unsigned char skinColor_[2];
-    unsigned char eyeColor_[2];
-    unsigned char face_[2];
-    unsigned char hairColor_[2];
+    Struct_02020cb8 unknown_138_[6];
+    Struct_0205cfd4 unknown_1f8_[2];
+    Struct_ov006_02158478 unknown_370_[1];
+    Struct_ov006_02158478 unknown_450_[4];
+    void* unknown_7d0_;
+    void* unknown_7d4_;
+    void* unknown_7d8_;
+    void* unknown_7dc_;
+    void* unknown_7e0_;
+    void* unknown_7e4_;
+    void* unknown_7e8_;
+    void* unknown_7ec_;
+    void* unknown_7f0_[2];
+    void* unknown_7f8_;
+    void* unknown_7fc_;
+    int unknown_800_;
+    int unknown_804_;
+    char unknown_808_[0x70];
+    Object3D unknown_878_;
+    char unknown_924_[0x2c8];
+    Struct_0205bef8 unknown_bec_;
+    Struct_ov009_021847c4 unknown_c2c_;
+    short unknown_c4c_;
+    short unknown_c4e_;
+    short unknown_c50_;
+    short unknown_c52_;
+    short unknown_c54_;
+    short unknown_c56_;
+    signed char unknown_c58_;
+    unsigned char unknown_c59_;
+    char unknown_c5a_[2];
+    int unknown_c5c_[3];
+    char unknown_c68_[0x70];
+    Object3D unknown_cd8_;
+    unsigned char unknown_d84_;
+    unsigned char unknown_d85_;
+    char unknown_d86_[2];
+    void* unknown_d88_;
+    int unknown_d8c_;
+    int unknown_d90_;
+    unsigned char unknown_d94_;
+    unsigned char unknown_d95_;
+    short unknown_d96_;
+    short unknown_d98_;
+    char unknown_d9a_[2];
+    unsigned int unknown_d9c_;
+    signed char unknown_da0_[2];
+    unsigned char unknown_da2_;
+    unsigned char unknown_da3_;
+    unsigned char unknown_da4_[2];
+    unsigned char unknown_da6_[2];
+    unsigned char unknown_da8_[2];
+    unsigned char unknown_daa_[2];
+    unsigned char unknown_dac_[2];
+    unsigned char unknown_dae_[2];
 #if defined(jpn)
-    char names_[2][11];
-    unsigned char nameFlags_[2];
-    unsigned char unk_db4;
-    unsigned char keyboardResult_;
-    unsigned char unk_db6;
-    char unk_db7;
+    char unknown_d74_[2][11];
+    unsigned char unknown_d8a_[2];
+    unsigned char unknown1_d8c_;
+    unsigned char unknown_d8d_;
+    unsigned char unknown_db6_;
+    char unknown_d8f_;
 #else
-    char** names_;
-    unsigned char unk_db4;
-    unsigned char keyboardResult_;
-    unsigned char unk_db6;
-    char unk_db7;
+    char** unknown_db0_;
+    unsigned char unknown_db4_;
+    unsigned char unknown_db5_;
+    unsigned char unknown_db6_;
+    char unknown_db7_;
 #endif
 };
 
 // USA: func_ov009_0218454c
-extern "C" ARM void func_ov009_0218454c(CharacterCreation* self, int vocation, int mode)
+extern "C" ARM void func_ov009_0218454c(Struct_ov009_021842a0_2* arg0, int arg1, int arg2)
 {
-    self->mode_ = mode;
-    if (self->mode_ == 1)
+    arg0->unknown_d95_ = arg2;
+    if (arg0->unknown_d95_ == 1)
         func_020466e4(func_020d6c00(), 0xf);
-    self->allocators_[0].ResetAllocatorPointer();
-    self->allocators_[1].ResetAllocatorPointer();
-    self->allocators_[2].ResetAllocatorPointer();
-    self->allocators_[3].ResetAllocatorPointer();
-    self->allocators_[4].ResetAllocatorPointer();
-    self->allocators_[5].ResetAllocatorPointer();
-    self->allocators_[6].ResetAllocatorPointer();
-    self->allocators_[7].ResetAllocatorPointer();
+    arg0->unknown_0_[0].ResetAllocatorPointer();
+    arg0->unknown_0_[1].ResetAllocatorPointer();
+    arg0->unknown_0_[2].ResetAllocatorPointer();
+    arg0->unknown_0_[3].ResetAllocatorPointer();
+    arg0->unknown_0_[4].ResetAllocatorPointer();
+    arg0->unknown_0_[5].ResetAllocatorPointer();
+    arg0->unknown_0_[6].ResetAllocatorPointer();
+    arg0->unknown_0_[7].ResetAllocatorPointer();
 #if !defined(jpn)
-    self->allocators_[8].ResetAllocatorPointer();
+    arg0->unknown_0_[8].ResetAllocatorPointer();
 #endif
-    self->modelAllocator_ = NULL;
-    self->previewAllocators_ = NULL;
+    arg0->unknown_b4_ = NULL;
+    arg0->unknown_b8_ = NULL;
 #if !defined(jpn)
-    self->keyboard_ = NULL;
-    self->layout_ = NULL;
+    arg0->unknown_c0_ = NULL;
+    arg0->unknown_c4_ = NULL;
 #endif
-    func_020de848(&self->partNames_);
-    func_020dfc40(&self->texts_);
-    self->unk_f8 = NULL;
-    func_ov009_021847ec(&self->checker_);
-    func_0204af64(&self->backgrounds_[0]);
-    func_0204af64(&self->backgrounds_[1]);
-    func_0204af64(&self->backgrounds_[2]);
-    func_0204af64(&self->backgrounds_[3]);
-    func_0204af64(&self->backgrounds_[4]);
-    func_0204af64(&self->backgrounds_[5]);
-    func_0205cfd4(&self->windows_[0]);
-    func_0205cfd4(&self->windows_[1]);
-    for (int i = 0; i < 1; i++)
-        func_0204c684(&self->canvases_[i]);
-    for (int i = 0; i < 4; i++)
-        func_0204c684(&self->canvases2_[i]);
-    self->pixels_ = NULL;
-    self->pixels2_ = NULL;
-    self->renderer_ = NULL;
-    self->sprites_ = NULL;
-    self->unk_7e0 = NULL;
-    self->renderer2_ = NULL;
-    self->sprites2_ = NULL;
-    self->unk_7ec = NULL;
-    self->characters_[0] = NULL;
-    self->characters_[1] = NULL;
-    self->character_ = NULL;
-    self->nextCharacter_ = NULL;
-    self->unk_800 = 0;
-    self->targetAngle_ = 0;
-    self->object_.Initialize();
-    self->object2_.Initialize();
-    func_0205bef8(&self->cursor_);
-    func_ov009_021847c4(&self->grid_);
-    self->cursorX_ = -1;
-    self->cursorY_ = -1;
-    self->cursorWidth_ = -1;
-    self->cursorHeight_ = -1;
-    self->lastX_ = -1;
-    self->lastY_ = -1;
-    self->state_ = 0;
-    self->step_ = 0;
-    self->selection_ = 0;
-    self->unk_d85 = 0;
-    self->member_ = NULL;
-    self->touchedChoice_ = -1;
-    self->task_ = 0;
-    self->loadStep_ = 0;
-    self->timer_ = 0;
-    self->unk_d98 = 0;
-    memset(&self->flags_, 0, sizeof(self->flags_));
-    for (int i = 0; i < 2; i++)
-        self->lastStates_[i] = 1;
-    self->vocation_ = vocation;
-    self->sex_ = 0;
-    for (int i = 0; i < 2; i++)
+    func_020de848(&arg0->unknown_c8_);
+    func_020dfc40(&arg0->unknown_e0_);
+    arg0->unknown_f8_ = NULL;
+    func_ov009_021847ec(&arg0->unknown_fc_);
+    func_0204af64(&arg0->unknown_138_[0]);
+    func_0204af64(&arg0->unknown_138_[1]);
+    func_0204af64(&arg0->unknown_138_[2]);
+    func_0204af64(&arg0->unknown_138_[3]);
+    func_0204af64(&arg0->unknown_138_[4]);
+    func_0204af64(&arg0->unknown_138_[5]);
+    func_0205cfd4(&arg0->unknown_1f8_[0]);
+    func_0205cfd4(&arg0->unknown_1f8_[1]);
+    for (int var0 = 0; var0 < 1; var0++)
+        func_0204c684(&arg0->unknown_370_[var0]);
+    for (int var1 = 0; var1 < 4; var1++)
+        func_0204c684(&arg0->unknown_450_[var1]);
+    arg0->unknown_7d0_ = NULL;
+    arg0->unknown_7d4_ = NULL;
+    arg0->unknown_7d8_ = NULL;
+    arg0->unknown_7dc_ = NULL;
+    arg0->unknown_7e0_ = NULL;
+    arg0->unknown_7e4_ = NULL;
+    arg0->unknown_7e8_ = NULL;
+    arg0->unknown_7ec_ = NULL;
+    arg0->unknown_7f0_[0] = NULL;
+    arg0->unknown_7f0_[1] = NULL;
+    arg0->unknown_7f8_ = NULL;
+    arg0->unknown_7fc_ = NULL;
+    arg0->unknown_800_ = 0;
+    arg0->unknown_804_ = 0;
+    arg0->unknown_878_.Initialize();
+    arg0->unknown_cd8_.Initialize();
+    func_0205bef8(&arg0->unknown_bec_);
+    func_ov009_021847c4(&arg0->unknown_c2c_);
+    arg0->unknown_c4c_ = -1;
+    arg0->unknown_c4e_ = -1;
+    arg0->unknown_c50_ = -1;
+    arg0->unknown_c52_ = -1;
+    arg0->unknown_c54_ = -1;
+    arg0->unknown_c56_ = -1;
+    arg0->unknown_c58_ = 0;
+    arg0->unknown_c59_ = 0;
+    arg0->unknown_d84_ = 0;
+    arg0->unknown_d85_ = 0;
+    arg0->unknown_d88_ = NULL;
+    arg0->unknown_d8c_ = -1;
+    arg0->unknown_d90_ = 0;
+    arg0->unknown_d94_ = 0;
+    arg0->unknown_d96_ = 0;
+    arg0->unknown_d98_ = 0;
+    memset(&arg0->unknown_d9c_, 0, sizeof(arg0->unknown_d9c_));
+    for (int var2 = 0; var2 < 2; var2++)
+        arg0->unknown_da0_[var2] = 1;
+    arg0->unknown_da2_ = arg1;
+    arg0->unknown_da3_ = 0;
+    for (int var3 = 0; var3 < 2; var3++)
     {
-        self->bodyType_[i] = 0;
-        self->hairStyle_[i] = 0;
-        self->skinColor_[i] = 0;
-        self->eyeColor_[i] = 0;
-        self->face_[i] = 0;
-        self->hairColor_[i] = 0;
+        arg0->unknown_da4_[var3] = 0;
+        arg0->unknown_da6_[var3] = 0;
+        arg0->unknown_da8_[var3] = 0;
+        arg0->unknown_daa_[var3] = 0;
+        arg0->unknown_dac_[var3] = 0;
+        arg0->unknown_dae_[var3] = 0;
 #if defined(jpn)
-        memset(self->names_[i], 0, sizeof(self->names_[i]));
-        self->nameFlags_[i] = 0;
+        memset(arg0->unknown_d74_[var3], 0, sizeof(arg0->unknown_d74_[var3]));
+        arg0->unknown_d8a_[var3] = 0;
 #endif
     }
 #if defined(jpn)
-    self->unk_db4 = 0;
-    self->keyboardResult_ = 0;
+    arg0->unknown1_d8c_ = 0;
+    arg0->unknown_d8d_ = 0;
 #else
-    self->names_ = NULL;
-    self->unk_db4 = func_020424e4((int)data_ov009_0218aca4, 0);
+    arg0->unknown_db0_ = NULL;
+    arg0->unknown_db4_ = func_020424e4((int)data_ov009_0218aca4, 0);
 #endif
-    self->unk_db6 = 0;
+    arg0->unknown_db6_ = 0;
 #if defined(jpn)
-    self->unk_db7 = 0;
+    arg0->unknown_d8f_ = 0;
 #endif
 }

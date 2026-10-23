@@ -3,91 +3,91 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct List021600f8;
-struct ListNode021600f8 {
-    char pad0[0xe];
-    short combatantIndex;
+struct Struct_ov000_0215440c;
+struct Struct_ov000_021600f8 {
+    char unknown_0_[0xe];
+    short unknown_e_;
 };
 
-struct CameraTask021e6ff8 {
-    char pad0[8];
-    unsigned char flags;
-    char pad9[3];
-    fix32_t angle;
-    fix32_t height;
-    fix32_t distance;
+struct Struct_ov025_021e6ff8 {
+    char unknown_0_[8];
+    unsigned char unknown_8_;
+    char unknown_9_[3];
+    fix32_t unknown_c_;
+    fix32_t unknown_10_;
+    fix32_t unknown_14_;
     int arg18;
-    int arg1c;
+    int unknown_1c_;
     int arg20;
-    unsigned char mode;
+    unsigned char unknown_24_;
 };
 
 extern "C" void* func_ov000_02160130(void);
-extern "C" unsigned char func_ov025_021dcc64(void* obj);
-extern "C" ListNode021600f8* func_ov000_021600f8(List021600f8* list, int index);
-extern "C" void func_0202edf8(char* obj, int a, int b, int c, int d);
+extern "C" unsigned char func_ov025_021dcc64(void* arg0);
+extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" void func_0202edf8(char* arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov025_021e6ff8
-extern "C" ARM int func_ov025_021e6ff8(CameraTask021e6ff8* task, List021600f8* list) {
+extern "C" ARM int func_ov025_021e6ff8(Struct_ov025_021e6ff8* arg0, Struct_ov000_0215440c* arg1) {
 #if defined(jpn)
- enum { regionalOffset=0x71c5 };
+ enum { Enum_ov025_021e6ff8_28629=0x71c5 };
 #else
- enum { regionalOffset=0x6fd5 };
+ enum { Enum_ov025_021e6ff8_28629=0x6fd5 };
 #endif
-    GameState* gs = GameState::GetInstance();
-    void* camera = func_020100bc(gs);
-    void* work = func_ov000_02160130();
-    if (work != NULL) {
-        *((unsigned char*)work + regionalOffset) = 1;
-        if (func_ov025_021dcc64(work)) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_020100bc(var0);
+    void* var2 = func_ov000_02160130();
+    if (var2 != NULL) {
+        *((unsigned char*)var2 + Enum_ov025_021e6ff8_28629) = 1;
+        if (func_ov025_021dcc64(var2)) {
             return 1;
         }
     }
-    Vector3fix v = *(Vector3fix*)((char*)camera + 0x70);
-    if (task->flags & 1) {
-        if (fix32SignedAngleDistance(v.x, task->angle) > 0) {
-            fix32_t a = task->angle;
-            while (a < v.x) {
-                a += FIX_2PI;
+    Vector3fix var3 = *(Vector3fix*)((char*)var1 + 0x70);
+    if (arg0->unknown_8_ & 1) {
+        if (fix32SignedAngleDistance(var3.x, arg0->unknown_c_) > 0) {
+            fix32_t var4 = arg0->unknown_c_;
+            while (var4 < var3.x) {
+                var4 += FIX_2PI;
             }
-            v.x = a;
+            var3.x = var4;
         } else {
-            fix32_t a = task->angle;
-            while (v.x < a) {
-                a -= FIX_2PI;
+            fix32_t var5 = arg0->unknown_c_;
+            while (var3.x < var5) {
+                var5 -= FIX_2PI;
             }
-            v.x = a;
+            var3.x = var5;
         }
     }
-    if (task->flags & 2) {
-        v.y = task->height;
+    if (arg0->unknown_8_ & 2) {
+        var3.y = arg0->unknown_10_;
     }
-    if (task->flags & 4) {
-        v.z = task->distance;
+    if (arg0->unknown_8_ & 4) {
+        var3.z = arg0->unknown_14_;
     }
-    if (task->mode == 2) {
-        int height = 1;
-        ListNode021600f8* node = func_ov000_021600f8(list, 0);
-        if (node != NULL) {
-            GameObject* c = gs->GetCombatantByIndex(node->combatantIndex);
-            if (c != NULL) {
-                height = c->obj3D_.GetHeight();
+    if (arg0->unknown_24_ == 2) {
+        int var6 = 1;
+        Struct_ov000_021600f8* var7 = func_ov000_021600f8(arg1, 0);
+        if (var7 != NULL) {
+            GameObject* var8 = var0->GetCombatantByIndex(var7->unknown_e_);
+            if (var8 != NULL) {
+                var6 = var8->obj3D_.GetHeight();
             }
         }
-        float scale = 1.0f;
-        if (height >= 0x1800) {
-            scale = 1.0f + 0.8f * ((float)height / 4096.0f - 1.5f) / 2.5f;
-            if (scale >= 1.8f) {
-                scale = 1.8f;
+        float var9 = 1.0f;
+        if (var6 >= 0x1800) {
+            var9 = 1.0f + 0.8f * ((float)var6 / 4096.0f - 1.5f) / 2.5f;
+            if (var9 >= 1.8f) {
+                var9 = 1.8f;
             }
         }
-        float y = (float)v.y / 4096.0f;
-        float z = (float)v.z / 4096.0f;
-        y = y * scale;
-        z = z * scale;
-        v.y = (int)(4096.0f * y);
-        v.z = (int)(4096.0f * z);
+        float var10 = (float)var3.y / 4096.0f;
+        float var11 = (float)var3.z / 4096.0f;
+        var10 = var10 * var9;
+        var11 = var11 * var9;
+        var3.y = (int)(4096.0f * var10);
+        var3.z = (int)(4096.0f * var11);
     }
-    func_0202edf8((char*)camera, (int)&v, task->arg18, task->arg1c, task->arg20);
+    func_0202edf8((char*)var1, (int)&var3, arg0->arg18, arg0->unknown_1c_, arg0->arg20);
     return 1;
 }

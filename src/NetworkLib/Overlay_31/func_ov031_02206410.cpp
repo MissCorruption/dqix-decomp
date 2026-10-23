@@ -1,90 +1,90 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct Obj0220528c;
-struct TransferBuffer02206410 {
-    unsigned char padding_0[0xf8];
-    int capacity;
-    unsigned char* data;
-    unsigned short position;
-    unsigned char padding_102[0xa];
-    Obj0220528c* callback;
+struct Struct_ov031_0220528c;
+struct Struct_ov031_02206410_3 {
+    unsigned char unknown_0_[0xf8];
+    int unknown_f8_;
+    unsigned char* unknown_fc_;
+    unsigned short unknown_100_;
+    unsigned char unknown_102_[0xa];
+    Struct_ov031_0220528c* unknown_10c_;
 };
-struct TransferContext02206410 {
-    unsigned char padding_0[0xa];
-    unsigned short sequence;
-    unsigned char padding_c[0x5c];
-    TransferBuffer02206410* buffer;
-    unsigned char padding_6c[7];
-    signed char mode;
-    unsigned short pending_sequence;
-    unsigned short pending_tag;
-    void* pending_data;
+struct Struct_ov031_02206410 {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[0x5c];
+    Struct_ov031_02206410_3* unknown_68_;
+    unsigned char unknown_6c_[7];
+    signed char unknown_73_;
+    unsigned short unknown_74_;
+    unsigned short unknown_76_;
+    void* unknown_78_;
 };
-struct TransferRecord02206410 {
-    unsigned char padding_0[0xd];
-    unsigned char flags;
-    unsigned char padding_e[2];
-    void* first_data;
-    int first_size;
-    void* second_data;
-    int second_size;
-    unsigned short position;
-    unsigned char padding_22[2];
-    unsigned short sequence;
-    unsigned short tag;
-    void* user_data;
+struct Struct_ov031_02206410_2 {
+    unsigned char unknown_0_[0xd];
+    unsigned char unknown_d_;
+    unsigned char unknown_e_[2];
+    void* unknown_10_;
+    int unknown_14_;
+    void* unknown_18_;
+    int unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned char unknown_22_[2];
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    void* unknown_28_;
 };
 extern "C" void* func_ov031_02205134(void*, void*, int);
-extern "C" int func_ov031_0220528c(Obj0220528c*, void*);
+extern "C" int func_ov031_0220528c(Struct_ov031_0220528c*, void*);
 extern "C" unsigned short func_ov031_02203078();
 extern "C" void func_ov031_02206584();
 
 // USA: func_ov031_02206410
-extern "C" ARM int func_ov031_02206410(TransferContext02206410* self, const unsigned char* source, int length, int offset, unsigned short tag, void* user_data, int flags) {
-    TransferBuffer02206410* buffer = self->buffer;
-    TransferRecord02206410* record = (TransferRecord02206410*)func_ov031_02205134((void*)func_ov031_02206584, buffer->callback, flags);
-    if (!record) return -33;
-    if ((flags & 1) && self->mode != 1) record->flags = 3;
-    else record->flags = 0;
-    unsigned char* base = buffer->data;
-    int capacity = buffer->capacity;
-    int end = offset + length;
-    if (end < capacity) {
-        record->first_data = base + offset;
-        record->first_size = length;
-        record->second_data = 0;
-        offset = end;
-        record->second_size = 0;
+extern "C" ARM int func_ov031_02206410(Struct_ov031_02206410* arg0, const unsigned char* arg1, int arg2, int arg3, unsigned short arg4, void* arg5, int arg6) {
+    Struct_ov031_02206410_3* var0 = arg0->unknown_68_;
+    Struct_ov031_02206410_2* var1 = (Struct_ov031_02206410_2*)func_ov031_02205134((void*)func_ov031_02206584, var0->unknown_10c_, arg6);
+    if (!var1) return -33;
+    if ((arg6 & 1) && arg0->unknown_73_ != 1) var1->unknown_d_ = 3;
+    else var1->unknown_d_ = 0;
+    unsigned char* var2 = var0->unknown_fc_;
+    int var3 = var0->unknown_f8_;
+    int var4 = arg3 + arg2;
+    if (var4 < var3) {
+        var1->unknown_10_ = var2 + arg3;
+        var1->unknown_14_ = arg2;
+        var1->unknown_18_ = 0;
+        arg3 = var4;
+        var1->unknown_1c_ = 0;
     } else {
-        record->first_data = base + offset;
-        record->first_size = capacity - offset;
-        record->second_data = base;
-        offset = length - record->first_size;
-        record->second_size = offset;
-        VectorizedInvertedMemcpy(source + record->first_size, record->second_data, offset);
+        var1->unknown_10_ = var2 + arg3;
+        var1->unknown_14_ = var3 - arg3;
+        var1->unknown_18_ = var2;
+        arg3 = arg2 - var1->unknown_14_;
+        var1->unknown_1c_ = arg3;
+        VectorizedInvertedMemcpy(arg1 + var1->unknown_14_, var1->unknown_18_, arg3);
     }
-    VectorizedInvertedMemcpy(source, record->first_data, record->first_size);
-    unsigned short old_position = buffer->position;
-    record->position = offset;
-    buffer->position = record->position;
-    if (self->mode == 1) {
-        if (self->pending_sequence == 0) {
-            self->pending_sequence = func_ov031_02203078();
-            self->sequence = self->pending_sequence;
+    VectorizedInvertedMemcpy(arg1, var1->unknown_10_, var1->unknown_14_);
+    unsigned short var5 = var0->unknown_100_;
+    var1->unknown_20_ = arg3;
+    var0->unknown_100_ = var1->unknown_20_;
+    if (arg0->unknown_73_ == 1) {
+        if (arg0->unknown_74_ == 0) {
+            arg0->unknown_74_ = func_ov031_02203078();
+            arg0->unknown_a_ = arg0->unknown_74_;
         }
-        record->sequence = self->pending_sequence;
-        if (self->pending_data == 0 || user_data != 0) {
-            record->user_data = user_data;
-            record->tag = tag;
+        var1->unknown_24_ = arg0->unknown_74_;
+        if (arg0->unknown_78_ == 0 || arg5 != 0) {
+            var1->unknown_28_ = arg5;
+            var1->unknown_26_ = arg4;
         } else {
-            record->user_data = self->pending_data;
-            record->tag = self->pending_tag;
+            var1->unknown_28_ = arg0->unknown_78_;
+            var1->unknown_26_ = arg0->unknown_76_;
         }
-    } else record->user_data = 0;
-    if (func_ov031_0220528c(buffer->callback, record)) {
-        length = 0;
-        buffer->position = old_position;
+    } else var1->unknown_28_ = 0;
+    if (func_ov031_0220528c(var0->unknown_10c_, var1)) {
+        arg2 = 0;
+        var0->unknown_100_ = var5;
     }
-    return length;
+    return arg2;
 }

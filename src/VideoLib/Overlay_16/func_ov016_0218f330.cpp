@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Trans_0218f330_Obj {
-    char pad[0x88];
-    int entries[2];
-    int index;
+struct Struct_ov016_0218f330 {
+    char unknown_0_[0x88];
+    int unknown_88_[2];
+    int unknown_90_;
 };
 
 // USA: func_ov016_0218f330
-extern "C" ARM int func_ov016_0218f330(void* obj) {
-    Trans_0218f330_Obj* self = (Trans_0218f330_Obj*)obj;
-    return self->entries[self->index];
+extern "C" ARM int func_ov016_0218f330(void* arg0) {
+    Struct_ov016_0218f330* var0 = (Struct_ov016_0218f330*)arg0;
+    return var0->unknown_88_[var0->unknown_90_];
 }

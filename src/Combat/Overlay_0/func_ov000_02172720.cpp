@@ -2,11 +2,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct Obj0205d048;
-struct List0204afb4;
-extern "C" void func_0205d048(struct Obj0205d048* obj);
-extern "C" void func_0204afb4(struct List0204afb4* obj);
-extern "C" void func_ov000_02170054(void* obj);
+struct Struct_0205d048;
+struct Struct_02020cb8_3;
+extern "C" void func_0205d048(struct Struct_0205d048* arg0);
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
+extern "C" void func_ov000_02170054(void* arg0);
 
 #if defined(jpn)
 #define SLOT_BYTES 0x488
@@ -17,93 +17,93 @@ extern "C" void func_ov000_02170054(void* obj);
 #define ALLOC_SHIFT 0
 #define FLAG_SHIFT 0
 #endif
-struct Slot_02172720 {
-    char pad0[SLOT_BYTES];
+struct Struct_02000c9c_35 {
+    char unknown_0_[SLOT_BYTES];
 };
 
-struct Owner_02172720 {
-    char pad0[0x188];
-    char field_0x188[0x8a4 - 0x188];
-    char list8a4[0x20];
-    char list8c4[0x20];
-    char pad8e4[0x90c - 0x8e4];
-    int taskId;
-    char pad910[0x958 - 0x910];
-    Slot_02172720 slots[4];
-    SafeAllocator alloc1a78;
-    SafeAllocator alloc1a8c;
-    SafeAllocator alloc1aa0;
-    SafeAllocator alloc1ab4;
-    SafeAllocator alloc1ac8;
-    SafeAllocator alloc1adc;
-    char pad1af0[0x1af8 - 0x1af0];
-    SafeAllocator alloc1af8;
-    char pad1b0c[0x1d72 + FLAG_SHIFT - (0x1b0c + ALLOC_SHIFT)];
-    unsigned short flags;
+struct Struct_ov000_02172720 {
+    char unknown_0_[0x188];
+    char unknown_188_[0x8a4 - 0x188];
+    char unknown_8a4_[0x20];
+    char unknown_8c4_[0x20];
+    char unknown_8e4_[0x90c - 0x8e4];
+    int unknown_90c_;
+    char unknown_910_[0x958 - 0x910];
+    Struct_02000c9c_35 unknown_958_[4];
+    SafeAllocator unknown_1a78_;
+    SafeAllocator unknown_1a8c_;
+    SafeAllocator unknown_1aa0_;
+    SafeAllocator unknown_1ab4_;
+    SafeAllocator unknown_1ac8_;
+    SafeAllocator unknown_1adc_;
+    char unknown_1af0_[0x1af8 - 0x1af0];
+    SafeAllocator unknown_1af8_;
+    char unknown_1b0c_[0x1d72 + FLAG_SHIFT - (0x1b0c + ALLOC_SHIFT)];
+    unsigned short unknown_1d72_;
 };
 
-struct Data02184288 {
-    int field0;
-    int field4;
-    int field8;
+struct Struct_ov000_02184288 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
-extern struct Data02184288 data_ov000_02184288;
+extern struct Struct_ov000_02184288 data_ov000_02184288;
 
-extern "C" void func_ov000_02172850(Owner_02172720* self);
+extern "C" void func_ov000_02172850(Struct_ov000_02172720* arg0);
 
 // USA: func_ov000_02172720
-extern "C" ARM void func_ov000_02172720(Owner_02172720* self) {
-    if (self->taskId >= 0) {
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        loader->RemoveTask(self->taskId);
-        self->taskId = -1;
+extern "C" ARM void func_ov000_02172720(Struct_ov000_02172720* arg0) {
+    if (arg0->unknown_90c_ >= 0) {
+        BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+        var0->RemoveTask(arg0->unknown_90c_);
+        arg0->unknown_90c_ = -1;
     }
-    func_0205d048((struct Obj0205d048*)self->field_0x188);
-    func_0204afb4((struct List0204afb4*)self->list8c4);
-    func_0204afb4((struct List0204afb4*)self->list8a4);
+    func_0205d048((struct Struct_0205d048*)arg0->unknown_188_);
+    func_0204afb4((struct Struct_02020cb8_3*)arg0->unknown_8c4_);
+    func_0204afb4((struct Struct_02020cb8_3*)arg0->unknown_8a4_);
 #if defined(jpn)
-    if (self->alloc1aa0.GetSignedAllocator() != 0) {
-        self->alloc1aa0.Destroy();
+    if (arg0->unknown_1aa0_.GetSignedAllocator() != 0) {
+        arg0->unknown_1aa0_.Destroy();
     }
-    if (self->alloc1ab4.GetSignedAllocator() != 0) {
-        self->alloc1ab4.Destroy();
+    if (arg0->unknown_1ab4_.GetSignedAllocator() != 0) {
+        arg0->unknown_1ab4_.Destroy();
     }
-    if (self->alloc1ac8.GetSignedAllocator() != 0) {
-        self->alloc1ac8.Destroy();
+    if (arg0->unknown_1ac8_.GetSignedAllocator() != 0) {
+        arg0->unknown_1ac8_.Destroy();
     }
-    if (self->alloc1adc.GetSignedAllocator() != 0) {
-        self->alloc1adc.Destroy();
+    if (arg0->unknown_1adc_.GetSignedAllocator() != 0) {
+        arg0->unknown_1adc_.Destroy();
     }
-    if (self->alloc1af8.GetSignedAllocator() != 0) {
-        self->alloc1af8.Destroy();
+    if (arg0->unknown_1af8_.GetSignedAllocator() != 0) {
+        arg0->unknown_1af8_.Destroy();
     }
-    if (self->alloc1a78.GetSignedAllocator() != 0) {
-        self->alloc1a78.Destroy();
+    if (arg0->unknown_1a78_.GetSignedAllocator() != 0) {
+        arg0->unknown_1a78_.Destroy();
     }
-    if (self->alloc1a8c.GetSignedAllocator() != 0) {
-        self->alloc1a8c.Destroy();
+    if (arg0->unknown_1a8c_.GetSignedAllocator() != 0) {
+        arg0->unknown_1a8c_.Destroy();
     }
 #else
-    SafeAllocator* allocs[7] = {
-        &self->alloc1aa0,
-        &self->alloc1ab4,
-        &self->alloc1ac8,
-        &self->alloc1adc,
-        &self->alloc1af8,
-        &self->alloc1a78,
-        &self->alloc1a8c,
+    SafeAllocator* var1[7] = {
+        &arg0->unknown_1aa0_,
+        &arg0->unknown_1ab4_,
+        &arg0->unknown_1ac8_,
+        &arg0->unknown_1adc_,
+        &arg0->unknown_1af8_,
+        &arg0->unknown_1a78_,
+        &arg0->unknown_1a8c_,
     };
-    for (int i = 0; i < 7; i++) {
-        SafeAllocator* alloc = allocs[i];
-        if (alloc->GetSignedAllocator() != 0) {
-            alloc->Destroy();
+    for (int var2 = 0; var2 < 7; var2++) {
+        SafeAllocator* var3 = var1[var2];
+        if (var3->GetSignedAllocator() != 0) {
+            var3->Destroy();
         }
     }
 #endif
-    for (int i = 0; i < 4; i++) {
-        func_ov000_02170054(&self->slots[i]);
+    for (int var4 = 0; var4 < 4; var4++) {
+        func_ov000_02170054(&arg0->unknown_958_[var4]);
     }
-    func_ov000_02172850(self);
-    self->flags &= 0x40;
-    data_ov000_02184288.field8 = 0;
+    func_ov000_02172850(arg0);
+    arg0->unknown_1d72_ &= 0x40;
+    data_ov000_02184288.unknown_8_ = 0;
 }

@@ -3,75 +3,75 @@
 #include <NitroSDK/Memory.h>
 #include <NitroSDK/ProcessorContext.h>
 
-struct CartridgeTask020d19f4;
+struct Struct_020d19f4;
 
-typedef unsigned long (*CartridgeTaskFunction020d19f4)(CartridgeTask020d19f4* task);
+typedef unsigned long (*Type_020d19f4)(Struct_020d19f4* task);
 
-struct CartridgeTask020d19f4 {
-    CartridgeTaskFunction020d19f4 task;
-    CartridgeTaskFunction020d19f4 callback;
-    unsigned long result;
-    unsigned char* data;
-    unsigned char* address;
-    unsigned long offset;
-    unsigned long size;
-    unsigned char* dst;
-    unsigned short sectorCount;
-    unsigned char busy;
-    unsigned char param[1];
+struct Struct_020d19f4 {
+    Type_020d19f4 unknown_0_;
+    Type_020d19f4 unknown_4_;
+    unsigned long unknown_8_;
+    unsigned char* unknown_c_;
+    unsigned char* unknown_10_;
+    unsigned long unknown_14_;
+    unsigned long unknown_18_;
+    unsigned char* unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned char unknown_22_;
+    unsigned char unknown_23_[1];
 };
 
-struct CartridgeTaskWork020d19f4 {
-    unsigned char thread[0xc0];
-    CartridgeTask020d19f4* volatile list;
-    CartridgeTask020d19f4 endTask;
+struct Struct_020d19f4_2 {
+    unsigned char unknown_0_[0xc0];
+    Struct_020d19f4* volatile unknown_c0_;
+    Struct_020d19f4 unknown_c4_;
 };
 
-struct TaskData020d19f4 {
-    CartridgeTaskWork020d19f4* taskWork;
-    CartridgeTask020d19f4 taskList;
+struct Struct_02112328 {
+    Struct_020d19f4_2* unknown_0_;
+    Struct_020d19f4 unknown_4_;
 };
 
-struct TaskCopy020d19f4 {
-    unsigned long words[sizeof(CartridgeTask020d19f4) / 4];
+struct Struct_020d19f4_3 {
+    unsigned long unknown_0_[sizeof(Struct_020d19f4) / 4];
 };
 
-extern TaskData020d19f4 data_02112328;
+extern Struct_02112328 data_02112328;
 
 // USA: func_020d19f4
-extern "C" ARM void func_020d19f4(void* arg) {
-    CartridgeTaskWork020d19f4* const p = (CartridgeTaskWork020d19f4*)arg;
+extern "C" ARM void func_020d19f4(void* arg0) {
+    Struct_020d19f4_2* const var0 = (Struct_020d19f4_2*)arg0;
 
     for (;;) {
-        CartridgeTask020d19f4 task;
+        Struct_020d19f4 var1;
 
-        VectorizedMemset(&task, 0, sizeof(CartridgeTask020d19f4));
+        VectorizedMemset(&var1, 0, sizeof(Struct_020d19f4));
         {
-            int priorState = DisableIRQInterrupts();
-            while (!p->list) {
+            int var2 = DisableIRQInterrupts();
+            while (!var0->unknown_c0_) {
                 BlockCurrentContext(NULL);
             }
-            *(TaskCopy020d19f4*)&task = *(TaskCopy020d19f4*)p->list;
-            SetIRQInterruptState(priorState);
+            *(Struct_020d19f4_3*)&var1 = *(Struct_020d19f4_3*)var0->unknown_c0_;
+            SetIRQInterruptState(var2);
         }
 
-        if (task.task) {
-            task.result = task.task(&task);
+        if (var1.unknown_0_) {
+            var1.unknown_8_ = var1.unknown_0_(&var1);
         }
 
         {
-            int priorState = DisableIRQInterrupts();
-            CartridgeTaskFunction020d19f4 callback = task.callback;
+            int var3 = DisableIRQInterrupts();
+            Type_020d19f4 var4 = var1.unknown_4_;
 
-            data_02112328.taskList.busy = false;
-            if (callback) {
-                callback(&task);
+            data_02112328.unknown_4_.unknown_22_ = false;
+            if (var4) {
+                var4(&var1);
             }
-            if (data_02112328.taskWork == NULL) {
+            if (data_02112328.unknown_0_ == NULL) {
                 break;
             }
-            p->list = NULL;
-            SetIRQInterruptState(priorState);
+            var0->unknown_c0_ = NULL;
+            SetIRQInterruptState(var3);
         }
     }
 

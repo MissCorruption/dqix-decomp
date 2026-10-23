@@ -3,31 +3,31 @@
 
 extern int data_ov009_0218a9ac[];
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 
 // USA: func_ov009_0218a8b8
-extern "C" ARM void func_ov009_0218a8b8(void* objRaw) {
-    char* obj = (char*)objRaw;
-    void** arr = *(void***)(obj + 0xdb0);
-    void* entry = arr[*(unsigned char*)(obj + 0xda3)];
-    int rem;
-    int val;
-    int result;
-    unsigned char idx;
+extern "C" ARM void func_ov009_0218a8b8(void* arg0) {
+    char* var0 = (char*)arg0;
+    void** var1 = *(void***)(var0 + 0xdb0);
+    void* var2 = var1[*(unsigned char*)(var0 + 0xda3)];
+    int var3;
+    int var4;
+    int var5;
+    unsigned char var6;
 
-    memset(entry, 0, 0x48);
+    memset(var2, 0, 0x48);
 
-    idx = *(unsigned char*)(obj + 0xda3);
-    int range = data_ov009_0218a9ac[idx];
-    rem = rand() % range;
+    var6 = *(unsigned char*)(var0 + 0xda3);
+    int var7 = data_ov009_0218a9ac[var6];
+    var3 = rand() % var7;
 
-    idx = *(unsigned char*)(obj + 0xda3);
-    int t = idx * 1000;
-    t += 0xe20;
-    t += 0x4000;
-    val = (short)(rem + t);
-    result = func_020e0434((struct Container020e0310*)(obj + 0xe0), val);
+    var6 = *(unsigned char*)(var0 + 0xda3);
+    int var8 = var6 * 1000;
+    var8 += 0xe20;
+    var8 += 0x4000;
+    var4 = (short)(var3 + var8);
+    var5 = func_020e0434((struct Struct_0201099c_3*)(var0 + 0xe0), var4);
 
-    sprintf((char*)entry, (const char*)(long)result);
+    sprintf((char*)var2, (const char*)(long)var5);
 }

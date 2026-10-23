@@ -1,54 +1,54 @@
 #include <globaldefs.h>
 #include "Graphics/Vector.h"
 
-struct GeometryTriangle { Vector3fix vertices[3]; Vector3fix normal; };
+struct Struct_020312bc { Vector3fix unknown_0_[3]; Vector3fix unknown_24_; };
 extern "C" {
     int func_02031b84(const Vector3fix*, const Vector3fix*, const Vector3fix*,
                     const Vector3fix*, const Vector3fix*, const Vector3fix*,
                     fix32_t*, fix32_t*, fix32_t*, fix32_t*);
     int func_02032090(const Vector3fix*, const Vector3fix*, const Vector4fix*, fix32_t*, Vector3fix*);
 }
-extern "C" ARM int func_020312bc(const GeometryTriangle* triangles, int count,
-                                 const Vector3fix* start, const Vector3fix* end, Vector3fix* point)
+extern "C" ARM int func_020312bc(const Struct_020312bc* arg0, int arg1,
+                                 const Vector3fix* arg2, const Vector3fix* arg3, Vector3fix* arg4)
 {
-    int best = -1;
-    fix32_t bestHeight;
-    for (int index = 0; index < count; ++index) {
-        const GeometryTriangle* triangle = &triangles[index];
-        if (triangle->normal.y > 0x800) {
-            fix32_t a, b, c, parameter;
-            if (func_02031b84(start, end, &triangle->vertices[0], &triangle->vertices[1],
-                             &triangle->vertices[2], &triangle->normal, &a, &b, &c, &parameter) == 1) {
-                int64_t productB = (int64_t)triangle->vertices[1].y * b + 0x800;
-                int64_t productA = (int64_t)triangle->vertices[0].y * a + 0x800;
-                int64_t productC = (int64_t)triangle->vertices[2].y * c + 0x800;
-                fix32_t weightedB = (fix32_t)(productB >> 12);
-                fix32_t weightedA = (fix32_t)(productA >> 12);
-                fix32_t weightedC = (fix32_t)(productC >> 12);
-                fix32_t sum = weightedA + weightedB;
-                fix32_t height = weightedA + weightedB + weightedC;
-                if (best < 0 || bestHeight < height) {
-                    bestHeight = height;
-                    best = index;
+    int var0 = -1;
+    fix32_t var1;
+    for (int var2 = 0; var2 < arg1; ++var2) {
+        const Struct_020312bc* var3 = &arg0[var2];
+        if (var3->unknown_24_.y > 0x800) {
+            fix32_t var4, var5, var6, var7;
+            if (func_02031b84(arg2, arg3, &var3->unknown_0_[0], &var3->unknown_0_[1],
+                             &var3->unknown_0_[2], &var3->unknown_24_, &var4, &var5, &var6, &var7) == 1) {
+                int64_t var8 = (int64_t)var3->unknown_0_[1].y * var5 + 0x800;
+                int64_t var9 = (int64_t)var3->unknown_0_[0].y * var4 + 0x800;
+                int64_t var10 = (int64_t)var3->unknown_0_[2].y * var6 + 0x800;
+                fix32_t var11 = (fix32_t)(var8 >> 12);
+                fix32_t var12 = (fix32_t)(var9 >> 12);
+                fix32_t var13 = (fix32_t)(var10 >> 12);
+                fix32_t var14 = var12 + var11;
+                fix32_t var15 = var12 + var11 + var13;
+                if (var0 < 0 || var1 < var15) {
+                    var1 = var15;
+                    var0 = var2;
                 }
             }
         }
     }
-    if (best >= 0) {
-        const GeometryTriangle* triangle = &triangles[best];
-        Vector4fix normalPlane;
-        Vector3fix secondEdge;
-        Vector3fix firstEdge;
-        Vector4fix crossPlane;
-        fix32_t parameter;
-        normalPlane.xyz = triangle->normal;
-        normalPlane.w = Vector3fix_InnerProduct(&normalPlane.xyz, &triangle->vertices[0]);
-        Vector3fix_Subtract(&triangle->vertices[1], &triangle->vertices[0], &firstEdge);
-        Vector3fix_Subtract(&triangle->vertices[2], &triangle->vertices[0], &secondEdge);
-        Vector3fix_CrossProduct(&firstEdge, &secondEdge, &crossPlane.xyz);
-        crossPlane.w = Vector3fix_InnerProduct(&crossPlane.xyz, &triangle->vertices[0]);
-        if (func_02032090(start, end, &crossPlane, &parameter, point) == 0)
-            best = -1;
+    if (var0 >= 0) {
+        const Struct_020312bc* var16 = &arg0[var0];
+        Vector4fix var17;
+        Vector3fix var18;
+        Vector3fix var19;
+        Vector4fix var20;
+        fix32_t var21;
+        var17.xyz = var16->unknown_24_;
+        var17.w = Vector3fix_InnerProduct(&var17.xyz, &var16->unknown_0_[0]);
+        Vector3fix_Subtract(&var16->unknown_0_[1], &var16->unknown_0_[0], &var19);
+        Vector3fix_Subtract(&var16->unknown_0_[2], &var16->unknown_0_[0], &var18);
+        Vector3fix_CrossProduct(&var19, &var18, &var20.xyz);
+        var20.w = Vector3fix_InnerProduct(&var20.xyz, &var16->unknown_0_[0]);
+        if (func_02032090(arg2, arg3, &var20, &var21, arg4) == 0)
+            var0 = -1;
     }
-    return best;
+    return var0;
 }

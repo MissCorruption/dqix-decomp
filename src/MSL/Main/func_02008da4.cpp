@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 // USA: func_02008da4
-extern "C" ARM double func_02008da4(double x, double y) {
-    unsigned int hx = ((unsigned int*)&x)[1];
-    unsigned int hy = ((unsigned int*)&y)[1];
-    ((unsigned int*)&x)[1] = (hx & 0x7fffffffu) | (hy & 0x80000000u);
-    return x;
+extern "C" ARM double func_02008da4(double arg0, double arg1) {
+    unsigned int var0 = ((unsigned int*)&arg0)[1];
+    unsigned int var1 = ((unsigned int*)&arg1)[1];
+    ((unsigned int*)&arg0)[1] = (var0 & 0x7fffffffu) | (var1 & 0x80000000u);
+    return arg0;
 }

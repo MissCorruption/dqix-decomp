@@ -1,100 +1,100 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion150 = 0x144 };
-enum { kRegion9a0 = 0x870 };
-enum { kRegion960 = 0x800 };
-enum { kRegion860 = 0x700 };
+enum { Enum_ov003_0215a5b4_336 = 0x144 };
+enum { Enum_ov003_0215a5b4_2464 = 0x870 };
+enum { Enum_ov003_0215a5b4_2400 = 0x800 };
+enum { Enum_ov003_0215a5b4_2144 = 0x700 };
 #else
-enum { kRegion150 = 0x150 };
-enum { kRegion9a0 = 0x9a0 };
-enum { kRegion960 = 0x960 };
-enum { kRegion860 = 0x860 };
+enum { Enum_ov003_0215a5b4_336 = 0x150 };
+enum { Enum_ov003_0215a5b4_2464 = 0x9a0 };
+enum { Enum_ov003_0215a5b4_2400 = 0x960 };
+enum { Enum_ov003_0215a5b4_2144 = 0x860 };
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct StatusData0215a5b4 {
-    char pad0[0x56b];
-    unsigned char ailment : 4;
+struct Struct_ov003_0215a5b4 {
+    char unknown_0_[0x56b];
+    unsigned char unknown_56b_0_ : 4;
 };
 
-struct Combatant0215a5b4 {
-    char pad0[kRegion150];
-    struct StatusData0215a5b4* status;
+struct Struct_ov003_0215a5b4_2 {
+    char unknown_0_[Enum_ov003_0215a5b4_336];
+    struct Struct_ov003_0215a5b4* unknown_150_;
 };
 
-struct MessageWork0215a5b4 {
-    char pad0[kRegion9a0];
-    int state;
+struct Struct_ov003_0215a5b4_3 {
+    char unknown_0_[Enum_ov003_0215a5b4_2464];
+    int unknown_9a0_;
 };
 
-struct BattleMenu0215a5b4 {
-    char pad0[0x64];
-    char messages[0x7c - 0x64];
-    char* text;
-    char pad80[0xf4 - 0x80];
-    char menu[0x580 - 0xf4];
-    unsigned char step;
-    char pad581[0x588 - 0x581];
-    unsigned char mode;
+struct Struct_ov003_0215a5b4_4 {
+    char unknown_0_[0x64];
+    char unknown_64_[0x7c - 0x64];
+    char* unknown_7c_;
+    char unknown_80_[0xf4 - 0x80];
+    char unknown_f4_[0x580 - 0xf4];
+    unsigned char unknown_580_;
+    char unknown_581_[0x588 - 0x581];
+    unsigned char unknown_588_;
 };
 
-struct Container020e0310;
+struct Struct_0201099c_3;
 struct Struct_0205d81c;
 
-extern "C" struct MessageWork0215a5b4* func_020421a0();
-extern "C" void func_0205deb4(struct Struct_0205d81c* s, int key, int value);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" void __clear(void* buf, int n);
-extern "C" unsigned char func_020114ec(char* obj, void* dst);
-extern "C" void func_ov003_021592d8(struct BattleMenu0215a5b4* self, struct Combatant0215a5b4* combatant, char* out);
-extern "C" void func_ov003_02159250(struct BattleMenu0215a5b4* self, char* text);
-extern "C" void func_ov003_0215c01c(struct BattleMenu0215a5b4* self, int mode, int flag);
+extern "C" struct Struct_ov003_0215a5b4_3* func_020421a0();
+extern "C" void func_0205deb4(struct Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" void func_ov003_021592d8(struct Struct_ov003_0215a5b4_4* arg0, struct Struct_ov003_0215a5b4_2* arg1, char* arg2);
+extern "C" void func_ov003_02159250(struct Struct_ov003_0215a5b4_4* arg0, char* arg1);
+extern "C" void func_ov003_0215c01c(struct Struct_ov003_0215a5b4_4* arg0, int arg1, int arg2);
 
 // USA: func_ov003_0215a5b4
-extern "C" ARM void func_ov003_0215a5b4(struct BattleMenu0215a5b4* self) {
-    struct MessageWork0215a5b4* work = func_020421a0();
-    unsigned char step = self->step;
-    if (step == 0) {
-        GameState* game = GameState::GetInstance();
-        func_0205deb4((struct Struct_0205d81c*)self->menu, 0, 1);
-        func_0205deb4((struct Struct_0205d81c*)self->menu, 1, 1);
-        func_0205deb4((struct Struct_0205d81c*)self->menu, 2, 1);
-        memset(self->text, 0, kRegion960);
-        func_02042058(self->text,
-                             (const char*)func_020e0434((struct Container020e0310*)self->messages, 0x3fc));
-        unsigned char ids[4];
-        char* line = self->text + kRegion860;
-        __clear(ids, sizeof(ids));
-        int count = func_020114ec((char*)game, ids);
-        for (int i = 0; i < count; i++) {
-            struct Combatant0215a5b4* combatant =
-                (struct Combatant0215a5b4*)func_0200ff1c(game, ids[i]);
-            if (combatant == NULL) {
+extern "C" ARM void func_ov003_0215a5b4(struct Struct_ov003_0215a5b4_4* arg0) {
+    struct Struct_ov003_0215a5b4_3* var0 = func_020421a0();
+    unsigned char var1 = arg0->unknown_580_;
+    if (var1 == 0) {
+        GameState* var2 = GameState::GetInstance();
+        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 0, 1);
+        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 1, 1);
+        func_0205deb4((struct Struct_0205d81c*)arg0->unknown_f4_, 2, 1);
+        memset(arg0->unknown_7c_, 0, Enum_ov003_0215a5b4_2400);
+        func_02042058(arg0->unknown_7c_,
+                             (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x3fc));
+        unsigned char var3[4];
+        char* var4 = arg0->unknown_7c_ + Enum_ov003_0215a5b4_2144;
+        __clear(var3, sizeof(var3));
+        int var5 = func_020114ec((char*)var2, var3);
+        for (int var6 = 0; var6 < var5; var6++) {
+            struct Struct_ov003_0215a5b4_2* var7 =
+                (struct Struct_ov003_0215a5b4_2*)func_0200ff1c(var2, var3[var6]);
+            if (var7 == NULL) {
                 continue;
             }
-            int ailing;
-            if (combatant->status != NULL) {
-                ailing = combatant->status->ailment != 0;
+            int var8;
+            if (var7->unknown_150_ != NULL) {
+                var8 = var7->unknown_150_->unknown_56b_0_ != 0;
             } else {
-                ailing = 0;
+                var8 = 0;
             }
-            if (ailing) {
+            if (var8) {
                 continue;
             }
-            memset(line, 0, 0x80);
-            func_ov003_021592d8(self, combatant, line);
-            func_02042058(self->text, line);
+            memset(var4, 0, 0x80);
+            func_ov003_021592d8(arg0, var7, var4);
+            func_02042058(arg0->unknown_7c_, var4);
         }
-        func_02042058(self->text,
-                             (const char*)func_020e0434((struct Container020e0310*)self->messages, 0x42e));
-        func_ov003_02159250(self, self->text);
-        self->step++;
+        func_02042058(arg0->unknown_7c_,
+                             (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, 0x42e));
+        func_ov003_02159250(arg0, arg0->unknown_7c_);
+        arg0->unknown_580_++;
     }
-    if (step == 1 && work->state == 3) {
-        func_ov003_0215c01c(self, 1, 0);
-        self->mode = 2;
-        self->step = 0;
+    if (var1 == 1 && var0->unknown_9a0_ == 3) {
+        func_ov003_0215c01c(arg0, 1, 0);
+        arg0->unknown_588_ = 2;
+        arg0->unknown_580_ = 0;
     }
 }

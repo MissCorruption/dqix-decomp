@@ -9,75 +9,75 @@
 #include "Grotto/Main/GrottoStruct.h"
 #include "Grotto/Main/DetailedTreasureMapData.h"
 
-extern "C" void* func_0200fd0c(GameState* battleStruct);
+extern "C" void* func_0200fd0c(GameState* arg0);
 extern "C" void* func_02012fe4(void);
-extern "C" int func_0201b588(int id);
-extern "C" int func_0201b5d8(int x);
+extern "C" int func_0201b588(int arg0);
+extern "C" int func_0201b5d8(int arg0);
 
-struct Obj0208f944 {
-    char _pad0[IS_JPN ? 0x280 : 0x260];
-    unsigned char f260;
-    char _pad1;
-    unsigned char f262;
-    char _pad2[5];
-    unsigned int f268;
-    unsigned int f26c;
-    unsigned int f270;
-    unsigned short f274;
+struct Struct_0208f944 {
+    char unknown_0_[IS_JPN ? 0x280 : 0x260];
+    unsigned char unknown_260_;
+    char unknown_261_;
+    unsigned char unknown_262_;
+    char unknown_263_[5];
+    unsigned int unknown_268_;
+    unsigned int unknown_26c_;
+    unsigned int unknown_270_;
+    unsigned short unknown_274_;
 };
 
-struct State0208f944 {
-    unsigned short h0;
-    char _pad0[5];
-    unsigned char b7;
-    char _pad1[2];
-    unsigned char b0xa;
-    char _pad2[5];
-    unsigned int w0x10;
-    unsigned int w0x14;
-    unsigned int w0x18;
-    unsigned short h0x1c;
+struct Struct_0208f944_2 {
+    unsigned short unknown_0_;
+    char unknown_2_[5];
+    unsigned char unknown_7_;
+    char unknown_8_[2];
+    unsigned char unknown_a_;
+    char unknown_b_[5];
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned int unknown_18_;
+    unsigned short unknown_1c_;
 };
 
 // USA: func_0208f944
-extern "C" ARM void func_0208f944(struct Obj0208f944* obj) {
-    GameState* battle = GameState::GetInstance();
-    struct State0208f944* state = (struct State0208f944*)func_0200fd0c(battle);
-    struct GrottoStruct* grotto = battle->GetGrottoStruct();
-    void* misc = func_02012fe4();
-    int a = state->h0;
-    int b = *(unsigned short*)misc;
+extern "C" ARM void func_0208f944(struct Struct_0208f944* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_0208f944_2* var1 = (struct Struct_0208f944_2*)func_0200fd0c(var0);
+    struct GrottoStruct* var2 = var0->GetGrottoStruct();
+    void* var3 = func_02012fe4();
+    int var4 = var1->unknown_0_;
+    int var5 = *(unsigned short*)var3;
 
-    if (obj->f262 != 0 && a != 0xc3b5) {
-        state->h0 = obj->f274;
-        state->b7 = 1;
-        state->h0x1c = 0x3244;
-        state->w0x10 = obj->f268;
-        state->w0x14 = obj->f26c;
-        state->w0x18 = obj->f270;
-        state->b0xa = 0;
-        a = obj->f274;
+    if (arg0->unknown_262_ != 0 && var4 != 0xc3b5) {
+        var1->unknown_0_ = arg0->unknown_274_;
+        var1->unknown_7_ = 1;
+        var1->unknown_1c_ = 0x3244;
+        var1->unknown_10_ = arg0->unknown_268_;
+        var1->unknown_14_ = arg0->unknown_26c_;
+        var1->unknown_18_ = arg0->unknown_270_;
+        var1->unknown_a_ = 0;
+        var4 = arg0->unknown_274_;
     }
 
-    obj->f262 = 0;
+    arg0->unknown_262_ = 0;
 
-    if (!func_0201b588(a)) {
-        if (func_0201b588(b)) {
-            if (a < 0x7530 || a > 0x9c3f) {
-                ((DetailedTreasureMapData*)obj)->Clear();
+    if (!func_0201b588(var4)) {
+        if (func_0201b588(var5)) {
+            if (var4 < 0x7530 || var4 > 0x9c3f) {
+                ((DetailedTreasureMapData*)arg0)->Clear();
             }
         }
     }
 
-    if (func_0201b588(a) && !func_0201b588(b)) {
-        signed char g8 = grotto->unknown_8;
-        if (g8 != -1) {
-            if (!func_0201b5d8(a)) {
-                int rem = a % 20;
-                state->h0 = (unsigned short)((rem + 0x1c40 + 0x8000) + g8 * 20);
+    if (func_0201b588(var4) && !func_0201b588(var5)) {
+        signed char var6 = var2->unknown_8;
+        if (var6 != -1) {
+            if (!func_0201b5d8(var4)) {
+                int var7 = var4 % 20;
+                var1->unknown_0_ = (unsigned short)((var7 + 0x1c40 + 0x8000) + var6 * 20);
             }
         }
     }
 
-    obj->f260 = 0;
+    arg0->unknown_260_ = 0;
 }

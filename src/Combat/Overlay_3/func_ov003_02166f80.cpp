@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion324 = 0x20c };
+enum { Enum_ov003_02166f80_804 = 0x20c };
 #else
-enum { kRegion324 = 0x324 };
+enum { Enum_ov003_02166f80_804 = 0x324 };
 #endif
 
-struct Obj2081;
+struct Struct_0207fdcc_2;
 
-struct Elem2081 {
-    char unk[0xc5];
-    unsigned char flags;
+struct Struct_0207fdcc {
+    char unknown_0_[0xc5];
+    unsigned char unknown_c5_;
 };
 
-extern "C" struct Elem2081* func_02081da8(struct Obj2081* obj, int key);
-extern "C" void func_020813ec(void* obj, int key);
+extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_020813ec(void* arg0, int arg1);
 
 // USA: func_ov003_02166f80
-extern "C" ARM void func_ov003_02166f80(void* self, int key, int set) {
-    struct Obj2081* obj = *(struct Obj2081**)((char*)self + kRegion324);
-    struct Elem2081* elem = func_02081da8(obj, key);
-    if (elem == NULL) {
+extern "C" ARM void func_ov003_02166f80(void* arg0, int arg1, int arg2) {
+    struct Struct_0207fdcc_2* var0 = *(struct Struct_0207fdcc_2**)((char*)arg0 + Enum_ov003_02166f80_804);
+    struct Struct_0207fdcc* var1 = func_02081da8(var0, arg1);
+    if (var1 == NULL) {
         return;
     }
-    if (set) {
-        elem->flags |= 0x40;
+    if (arg2) {
+        var1->unknown_c5_ |= 0x40;
     } else {
-        elem->flags &= ~0x40;
+        var1->unknown_c5_ &= ~0x40;
     }
-    func_020813ec(*(void**)((char*)self + kRegion324), key);
+    func_020813ec(*(void**)((char*)arg0 + Enum_ov003_02166f80_804), arg1);
 }

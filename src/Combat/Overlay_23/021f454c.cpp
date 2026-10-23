@@ -5,286 +5,286 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
-extern "C" int func_02032370(int span);
+extern "C" int func_02032370(int arg0);
 
-struct S_10088;
-struct Obj53dfc;
-struct Container02070e60;
+struct Struct_02010088;
+struct Struct_02053dfc;
+struct Struct_02070b6c_3;
 
-extern "C" int func_02011518(void* obj, unsigned int idx);
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
-extern "C" int func_02010088(struct S_10088* obj);
-extern "C" int func_02053dfc(struct Obj53dfc* obj);
-extern "C" int func_02083b00(unsigned char* obj, int index);
-extern "C" unsigned short func_0202053c(void* obj);
+extern "C" int func_02011518(void* arg0, unsigned int arg1);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" int func_02010088(struct Struct_02010088* arg0);
+extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
+extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" unsigned short func_0202053c(void* arg0);
 
-struct Element_021f454c {
-    unsigned short key;
-    unsigned char type2;
-    unsigned char type3;
-    unsigned short item4;
-    unsigned short item6;
+struct Struct_ov023_021f454c_7 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
-extern "C" struct Element_021f454c* func_02070fd0(struct Container02070e60* container, int key);
+extern "C" struct Struct_ov023_021f454c_7* func_02070fd0(struct Struct_02070b6c_3* arg0, int arg1);
 
 #if defined(jpn)
 #define data_ov023_021fd888 data_ov023_021fcb3c
 #endif
 extern int data_ov023_021fd888[];
 
-struct Combatant_021f454c {
+struct Struct_ov023_021f454c {
 #if defined(jpn)
-    char pad0[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad0[0x150];
+    char unknown1_0_[0x150];
 #endif
-    unsigned char* status;
+    unsigned char* unknown_150_;
 };
 
-struct Reward_021f454c {
-    unsigned short action : 3;
-    unsigned short count : 11;
-    unsigned short flagA : 1;
-    unsigned short flagB : 1;
-    unsigned short key;
-    unsigned short optional;
-    unsigned char flags;
-    unsigned char detailFlags;
-    unsigned char credited;
-    unsigned char specialCount;
+struct Struct_ov023_021f454c_2 {
+    unsigned short unknown_0_0_ : 3;
+    unsigned short unknown_0_3_ : 11;
+    unsigned short unknown_1_6_ : 1;
+    unsigned short unknown_1_7_ : 1;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
 };
 
-struct World_021f454c {
-    char pad0[0x8d66];
-    struct Reward_021f454c rewards[12];
-    char pad8dde[0x8e30 - 0x8dde];
-    int rewardCount;
+struct Struct_ov023_021f454c_3 {
+    char unknown_0_[0x8d66];
+    struct Struct_ov023_021f454c_2 unknown_8d66_[12];
+    char unknown_8dde_[0x8e30 - 0x8dde];
+    int unknown_8e30_;
 };
 
-struct Info_021f454c {
-    char pad0[0x24];
-    unsigned char f24;
-    unsigned char special;
+struct Struct_ov023_021f454c_4 {
+    char unknown_0_[0x24];
+    unsigned char unknown_24_;
+    unsigned char unknown_25_;
 };
 
-struct Drop_021f454c {
-    unsigned short id;
-    unsigned short key : 15;
-    unsigned short top : 1;
-    unsigned char kind;
-    signed char member;
+struct Struct_ov023_021f454c_5 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 15;
+    unsigned short unknown_3_7_ : 1;
+    unsigned char unknown_4_;
+    signed char unknown_5_;
 };
 
-struct Scene_021f454c {
+struct Struct_ov023_021f454c_6 {
 #if defined(jpn)
-    char pad0[0x218];
+    char unknown_0_[0x218];
 #else
-    char pad0[0x29c];
+    char unknown1_0_[0x29c];
 #endif
-    struct World_021f454c* world;
-    struct Info_021f454c* info;
+    struct Struct_ov023_021f454c_3* unknown_29c_;
+    struct Struct_ov023_021f454c_4* unknown_2a0_;
 #if defined(jpn)
-    char pad2a4[0x5abc - 0x220];
+    char unknown_220_[0x5abc - 0x220];
 #else
-    char pad2a4[0x58cc - 0x2a4];
+    char unknown_2a4_[0x58cc - 0x2a4];
 #endif
-    unsigned short scaled;
-    char pad58ce[2];
-    struct Drop_021f454c drops[8];
-    unsigned char dropCount;
-    signed char memberMask;
+    unsigned short unknown_58cc_;
+    char unknown_58ce_[2];
+    struct Struct_ov023_021f454c_5 unknown_58d0_[8];
+    unsigned char unknown_5900_;
+    signed char unknown_5901_;
 #if defined(jpn)
-    char pad5902[0x7014 - 0x5af2];
+    char unknown_5af2_[0x7014 - 0x5af2];
 #else
-    char pad5902[0x6e24 - 0x5902];
+    char unknown_5902_[0x6e24 - 0x5902];
 #endif
-    int map;
-    unsigned short mapItem;
-    unsigned char mapType;
-    unsigned char mapBoss;
-    unsigned short mapLegacy;
+    int unknown_6e24_;
+    unsigned short unknown_6e28_;
+    unsigned char unknown_6e2a_;
+    unsigned char unknown_6e2b_;
+    unsigned short unknown_6e2c_;
 };
 
-#define IsSpecial(info) ((info)->f24 != 0 || (info)->special != 0)
+#define IsSpecial(info) ((info)->unknown_24_ != 0 || (info)->unknown_25_ != 0)
 
 #if defined(jpn)
-enum { regionalOffset0 = 0x240c };
+enum { Enum_ov023_021f454c_9196 = 0x240c };
 #else
-enum { regionalOffset0 = 0x23ec };
+enum { Enum_ov023_021f454c_9196 = 0x23ec };
 #endif
 
 // USA: func_ov023_021f454c
-extern "C" ARM void func_ov023_021f454c(struct Scene_021f454c* self) {
-    unsigned char buf[4];
-    GameState* gs;
-    unsigned short altId;
-    int count;
-    float scaledF;
-    int rate;
-    struct Random* rng;
-    int j;
-    int key;
-    struct Reward_021f454c* rewards;
-    int tA;
-    int tB;
-    struct Container02070e60* table;
-    DetailedTreasureMapData* detail;
-    int round;
-    int chance;
-    struct Reward_021f454c* r;
-    struct Drop_021f454c* cur;
+extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
+    unsigned char var0[4];
+    GameState* var1;
+    unsigned short var2;
+    int var3;
+    float var4;
+    int var5;
+    struct Random* var6;
+    int var7;
+    int var8;
+    struct Struct_ov023_021f454c_2* var9;
+    int var10;
+    int var11;
+    struct Struct_02070b6c_3* var12;
+    DetailedTreasureMapData* var13;
+    int var14;
+    int var15;
+    struct Struct_ov023_021f454c_2* var16;
+    struct Struct_ov023_021f454c_5* var17;
 
-    gs = GameState::GetInstance();
-    table = (struct Container02070e60*)((char*)self->info + 0x684);
+    var1 = GameState::GetInstance();
+    var12 = (struct Struct_02070b6c_3*)((char*)arg0->unknown_2a0_ + 0x684);
     func_0202ae18();
-    detail = ((ActiveGrottoClass*)((char*)func_02012fe4() + regionalOffset0))->GetDetailedData();
-    altId = 0;
-    if (IsSpecial(self->info)) {
-        if (detail->mapType_ == 1) {
-            altId = detail->regular_.bossMonsterID_;
-        } else if (detail->mapType_ == 2) {
-            altId = detail->legacy_.MaybeGetCurrentAlternateID();
+    var13 = ((ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov023_021f454c_9196))->GetDetailedData();
+    var2 = 0;
+    if (IsSpecial(arg0->unknown_2a0_)) {
+        if (var13->mapType_ == 1) {
+            var2 = var13->regular_.bossMonsterID_;
+        } else if (var13->mapType_ == 2) {
+            var2 = var13->legacy_.MaybeGetCurrentAlternateID();
         }
     }
 
-    self->dropCount = 0;
-    self->memberMask = 0;
-    count = self->world->rewardCount;
-    rewards = self->world->rewards;
-    cur = self->drops;
-    scaledF = (float)self->scaled;
-    for (round = 0; round < 5; round++) {
-        rate = 100;
-        if (round > 0) {
-            int member = func_02011518(gs, (unsigned char)(round - 1));
-            struct Combatant_021f454c* c = (struct Combatant_021f454c*)func_0200ff1c(gs, member);
-            if (c == 0) continue;
-            if (!func_020a35e0((unsigned char*)self->info, member)) continue;
-            if (func_02010088((struct S_10088*)c)) continue;
-            if ((float)(unsigned int)func_02053dfc((struct Obj53dfc*)c) / scaledF < 0.5f) continue;
-            if (!func_02083b00(c->status, 0xa4)) continue;
-            rate = func_0202053c(c);
-            cur->member = member;
+    arg0->unknown_5900_ = 0;
+    arg0->unknown_5901_ = 0;
+    var3 = arg0->unknown_29c_->unknown_8e30_;
+    var9 = arg0->unknown_29c_->unknown_8d66_;
+    var17 = arg0->unknown_58d0_;
+    var4 = (float)arg0->unknown_58cc_;
+    for (var14 = 0; var14 < 5; var14++) {
+        var5 = 100;
+        if (var14 > 0) {
+            int var18 = func_02011518(var1, (unsigned char)(var14 - 1));
+            struct Struct_ov023_021f454c* var19 = (struct Struct_ov023_021f454c*)func_0200ff1c(var1, var18);
+            if (var19 == 0) continue;
+            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var18)) continue;
+            if (func_02010088((struct Struct_02010088*)var19)) continue;
+            if ((float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var19) / var4 < 0.5f) continue;
+            if (!func_02083b00(var19->unknown_150_, 0xa4)) continue;
+            var5 = func_0202053c(var19);
+            var17->unknown_5_ = var18;
         } else {
-            cur->member = -1;
+            var17->unknown_5_ = -1;
         }
 
-        if (IsSpecial(self->info)) {
-            int i;
-            for (i = 0; i < count; i++) {
-                if (altId == rewards[i].key) break;
+        if (IsSpecial(arg0->unknown_2a0_)) {
+            int var20;
+            for (var20 = 0; var20 < var3; var20++) {
+                if (var2 == var9[var20].unknown_2_) break;
             }
-            struct Reward_021f454c* found = 0;
-            if (i < count) found = &rewards[i];
-            rng = GetBTRandom();
-            for (int k = 2; k >= 0; k--) {
-                chance = detail->treasureDropRates_[k];
-                if (round > 0) {
-                    int v = chance * rate / 100;
-                    if (detail->treasureDropRates_[k] >= 100) v = 0;
-                    chance = v;
-                } else if (found != 0) {
-                    if (found->flagA && k == 2) chance = 100;
-                    if (found->flagB && k == 1) chance = 100;
+            struct Struct_ov023_021f454c_2* var21 = 0;
+            if (var20 < var3) var21 = &var9[var20];
+            var6 = GetBTRandom();
+            for (int var22 = 2; var22 >= 0; var22--) {
+                var15 = var13->treasureDropRates_[var22];
+                if (var14 > 0) {
+                    int var23 = var15 * var5 / 100;
+                    if (var13->treasureDropRates_[var22] >= 100) var23 = 0;
+                    var15 = var23;
+                } else if (var21 != 0) {
+                    if (var21->unknown_1_6_ && var22 == 2) var15 = 100;
+                    if (var21->unknown_1_7_ && var22 == 1) var15 = 100;
                 }
-                if (NextRandomMax(rng, 100) >= chance) continue;
-                detail->discoveredTreasures_[k] = 1;
-                if (GetTreasureMapTypeFromItemID(detail->treasureItemIDs_[k], buf)) {
-                    if (self->map == 0) {
-                        self->map = 1;
-                        self->mapItem = detail->treasureItemIDs_[k];
-                        self->mapType = buf[0];
-                        self->mapBoss = buf[1];
-                        self->mapLegacy = *(unsigned short*)&buf[2];
+                if (NextRandomMax(var6, 100) >= var15) continue;
+                var13->discoveredTreasures_[var22] = 1;
+                if (GetTreasureMapTypeFromItemID(var13->treasureItemIDs_[var22], var0)) {
+                    if (arg0->unknown_6e24_ == 0) {
+                        arg0->unknown_6e24_ = 1;
+                        arg0->unknown_6e28_ = var13->treasureItemIDs_[var22];
+                        arg0->unknown_6e2a_ = var0[0];
+                        arg0->unknown_6e2b_ = var0[1];
+                        arg0->unknown_6e2c_ = *(unsigned short*)&var0[2];
                     }
                     continue;
                 }
-                cur->id = detail->treasureItemIDs_[k];
-                cur->key = altId;
-                struct Element_021f454c* e = func_02070fd0(table, altId);
-                if (e != 0) {
-                    if (e->item6 == cur->id) {
-                        cur->kind = 2;
-                    } else if (e->item4 == cur->id) {
-                        cur->kind = 1;
+                var17->unknown_0_ = var13->treasureItemIDs_[var22];
+                var17->unknown_2_0_ = var2;
+                struct Struct_ov023_021f454c_7* var24 = func_02070fd0(var12, var2);
+                if (var24 != 0) {
+                    if (var24->unknown_6_ == var17->unknown_0_) {
+                        var17->unknown_4_ = 2;
+                    } else if (var24->unknown_4_ == var17->unknown_0_) {
+                        var17->unknown_4_ = 1;
                     } else {
-                        cur->kind = 0;
+                        var17->unknown_4_ = 0;
                     }
                 }
-                self->dropCount++;
-                if (self->dropCount >= 8) break;
-                signed char m = cur->member;
-                cur++;
-                cur->member = m;
+                arg0->unknown_5900_++;
+                if (arg0->unknown_5900_ >= 8) break;
+                signed char var25 = var17->unknown_5_;
+                var17++;
+                var17->unknown_5_ = var25;
             }
         }
 
-        if (self->dropCount >= 8) break;
+        if (arg0->unknown_5900_ >= 8) break;
 
-        for (j = 0; j < count; j++) {
-            r = &rewards[j];
-            if (r->count == r->specialCount) continue;
-            key = r->key;
-            struct Element_021f454c* e = func_02070fd0(table, key);
-            if (e == 0) continue;
-            if (IsSpecial(self->info) && altId == key) continue;
+        for (var7 = 0; var7 < var3; var7++) {
+            var16 = &var9[var7];
+            if (var16->unknown_0_3_ == var16->unknown_9_) continue;
+            var8 = var16->unknown_2_;
+            struct Struct_ov023_021f454c_7* var26 = func_02070fd0(var12, var8);
+            if (var26 == 0) continue;
+            if (IsSpecial(arg0->unknown_2a0_) && var2 == var8) continue;
 
-            tA = e->type3;
-            int chanceA = data_ov023_021fd888[tA];
-            if (chanceA > 0) {
-                if (round > 0) {
-                    int v = chanceA * 100 / rate;
-                    if (tA == 0) v = 0;
-                    chanceA = v;
-                } else if (r->flagA) {
-                    chanceA = 1;
+            var10 = var26->unknown_3_;
+            int var27 = data_ov023_021fd888[var10];
+            if (var27 > 0) {
+                if (var14 > 0) {
+                    int var28 = var27 * 100 / var5;
+                    if (var10 == 0) var28 = 0;
+                    var27 = var28;
+                } else if (var16->unknown_1_6_) {
+                    var27 = 1;
                 }
-                if (chanceA > 0 && func_02032370(chanceA) == 0) {
-                    cur->id = e->item6;
-                    cur->key = key;
-                    cur->kind = 2;
-                    self->dropCount++;
-                    if (self->dropCount >= 8) break;
-                    signed char m = cur->member;
-                    cur++;
-                    cur->member = m;
+                if (var27 > 0 && func_02032370(var27) == 0) {
+                    var17->unknown_0_ = var26->unknown_6_;
+                    var17->unknown_2_0_ = var8;
+                    var17->unknown_4_ = 2;
+                    arg0->unknown_5900_++;
+                    if (arg0->unknown_5900_ >= 8) break;
+                    signed char var29 = var17->unknown_5_;
+                    var17++;
+                    var17->unknown_5_ = var29;
                     continue;
                 }
             }
 
-            tB = e->type2;
-            int chanceB = data_ov023_021fd888[tB];
-            if (chanceB <= 0) continue;
-            if (round > 0) {
-                int v = chanceB * 100 / rate;
-                if (tB == 0) v = 0;
-                chanceB = v;
-            } else if (r->flagB) {
-                chanceB = 1;
+            var11 = var26->unknown_2_;
+            int var30 = data_ov023_021fd888[var11];
+            if (var30 <= 0) continue;
+            if (var14 > 0) {
+                int var31 = var30 * 100 / var5;
+                if (var11 == 0) var31 = 0;
+                var30 = var31;
+            } else if (var16->unknown_1_7_) {
+                var30 = 1;
             }
-            if (chanceB <= 0) continue;
-            if (func_02032370(chanceB) != 0) continue;
-            cur->id = e->item4;
-            cur->key = key;
-            cur->kind = 1;
-            self->dropCount++;
-            if (self->dropCount >= 8) break;
-            signed char m = cur->member;
-            cur++;
-            cur->member = m;
+            if (var30 <= 0) continue;
+            if (func_02032370(var30) != 0) continue;
+            var17->unknown_0_ = var26->unknown_4_;
+            var17->unknown_2_0_ = var8;
+            var17->unknown_4_ = 1;
+            arg0->unknown_5900_++;
+            if (arg0->unknown_5900_ >= 8) break;
+            signed char var32 = var17->unknown_5_;
+            var17++;
+            var17->unknown_5_ = var32;
         }
 
-        if (self->dropCount >= 8) break;
+        if (arg0->unknown_5900_ >= 8) break;
     }
 
-    if (self->dropCount != 0 || self->map != 0) {
-        for (int i = 0; i < 4; i++) {
-            if (!func_020a35e0((unsigned char*)self->info, i)) continue;
-            struct Combatant_021f454c* c = (struct Combatant_021f454c*)func_0200ff1c(gs, i);
-            if (c == 0) continue;
-            if (!((float)(unsigned int)func_02053dfc((struct Obj53dfc*)c) / scaledF < 0.5f)) {
-                self->memberMask |= 1 << i;
+    if (arg0->unknown_5900_ != 0 || arg0->unknown_6e24_ != 0) {
+        for (int var33 = 0; var33 < 4; var33++) {
+            if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var33)) continue;
+            struct Struct_ov023_021f454c* var34 = (struct Struct_ov023_021f454c*)func_0200ff1c(var1, var33);
+            if (var34 == 0) continue;
+            if (!((float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var34) / var4 < 0.5f)) {
+                arg0->unknown_5901_ |= 1 << var33;
             }
         }
     }

@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 
-struct SessionMessage02210bec {
-    unsigned int length;
-    unsigned int magic;
-    unsigned int command;
-    int code;
-    int unknown_10;
-    int unknown_14;
-    char name[0x3fc];
+struct Struct_ov031_02210bec_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    char unknown_18_[0x3fc];
 };
 
-struct Session02210bec {
-    char pad_0[0x28];
-    int unknown_28;
-    int unknown_2c;
-    void (*callback)(int);
-    char pad_34[0xc];
-    int state;
-    char pad_44[0x45];
-    char name[0x12c];
-    char flag_1b5;
+struct Struct_ov031_02210bec {
+    char unknown_0_[0x28];
+    int unknown_28_;
+    int unknown_2c_;
+    void (*unknown_30_)(int);
+    char unknown_34_[0xc];
+    int unknown_40_;
+    char unknown_44_[0x45];
+    char unknown_89_[0x12c];
+    char unknown_1b5_;
 };
 
-extern Session02210bec* data_ov031_0224e588;
+extern Struct_ov031_02210bec* data_ov031_0224e588;
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
-extern "C" int func_020d2ff0(const char* s);
-extern "C" int func_020d2f28(char* dst, const char* src, int n);
-extern "C" int func_ov031_0221042c(unsigned char* buf);
-extern "C" int func_ov031_022104e4(unsigned char* buf);
-extern "C" void func_ov031_02210358(int a, int b);
-extern "C" void func_ov031_022103f8(void* value);
-extern "C" void func_ov031_022103dc(void* value);
+extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int func_020d2f28(char* arg0, const char* arg1, int arg2);
+extern "C" int func_ov031_0221042c(unsigned char* arg0);
+extern "C" int func_ov031_022104e4(unsigned char* arg0);
+extern "C" void func_ov031_02210358(int arg0, int arg1);
+extern "C" void func_ov031_022103f8(void* arg0);
+extern "C" void func_ov031_022103dc(void* arg0);
 
 // USA: func_ov031_02210bec
 extern "C" ARM void func_ov031_02210bec(void) {
-    int len;
-    unsigned int length;
-    unsigned char buffer[0x414];
-    SessionMessage02210bec* msg = (SessionMessage02210bec*)buffer;
-    unsigned int received;
+    int var0;
+    unsigned int var1;
+    unsigned char var2[0x414];
+    Struct_ov031_02210bec_2* var3 = (Struct_ov031_02210bec_2*)var2;
+    unsigned int var4;
 
-    if (data_ov031_0224e588->state != 3) {
+    if (data_ov031_0224e588->unknown_40_ != 3) {
         func_ov031_022103f8((void*)5);
         return;
     }
-    data_ov031_0224e588->flag_1b5 = 0;
-    len = func_020d2ff0(data_ov031_0224e588->name);
-    length = len + 0x19;
-    VectorizedMemset(buffer, 0, sizeof(buffer));
-    msg->length = length;
-    msg->magic = 0x44535359;
-    msg->command = 0xd3;
-    msg->code = 0;
-    msg->unknown_10 = data_ov031_0224e588->unknown_28;
-    msg->unknown_14 = data_ov031_0224e588->unknown_2c;
-    func_020d2f28(msg->name, data_ov031_0224e588->name, len + 1);
-    if (func_ov031_0221042c(buffer) != length) {
+    data_ov031_0224e588->unknown_1b5_ = 0;
+    var0 = func_020d2ff0(data_ov031_0224e588->unknown_89_);
+    var1 = var0 + 0x19;
+    VectorizedMemset(var2, 0, sizeof(var2));
+    var3->unknown_0_ = var1;
+    var3->unknown_4_ = 0x44535359;
+    var3->unknown_8_ = 0xd3;
+    var3->unknown_c_ = 0;
+    var3->unknown_10_ = data_ov031_0224e588->unknown_28_;
+    var3->unknown_14_ = data_ov031_0224e588->unknown_2c_;
+    func_020d2f28(var3->unknown_18_, data_ov031_0224e588->unknown_89_, var0 + 1);
+    if (func_ov031_0221042c(var2) != var1) {
         func_ov031_022103f8((void*)5);
         return;
     }
-    received = func_ov031_022104e4(buffer);
-    if (received < 0xc || received != msg->length) {
+    var4 = func_ov031_022104e4(var2);
+    if (var4 < 0xc || var4 != var3->unknown_0_) {
         func_ov031_022103f8((void*)5);
         return;
     }
-    switch (msg->command) {
+    switch (var3->unknown_8_) {
     case 0xca:
-        switch (msg->code) {
+        switch (var3->unknown_c_) {
         case 0x15:
             func_ov031_02210358(2, -2);
             break;
@@ -77,19 +77,19 @@ extern "C" ARM void func_ov031_02210bec(void) {
             func_ov031_02210358(2, -2);
             break;
         case 0x1d:
-            data_ov031_0224e588->state = 0;
-            VectorizedMemset(&data_ov031_0224e588->pad_44, 0, 0x174);
+            data_ov031_0224e588->unknown_40_ = 0;
+            VectorizedMemset(&data_ov031_0224e588->unknown_44_, 0, 0x174);
             func_ov031_022103dc((void*)5);
             return;
         }
         func_ov031_022103f8((void*)5);
         return;
     case 0xd4:
-        if (data_ov031_0224e588->unknown_2c == 0) {
-            int code = msg->code;
-            data_ov031_0224e588->unknown_2c = code;
-            if (data_ov031_0224e588->callback != NULL) {
-                data_ov031_0224e588->callback(code);
+        if (data_ov031_0224e588->unknown_2c_ == 0) {
+            int var5 = var3->unknown_c_;
+            data_ov031_0224e588->unknown_2c_ = var5;
+            if (data_ov031_0224e588->unknown_30_ != NULL) {
+                data_ov031_0224e588->unknown_30_(var5);
             }
         }
         func_ov031_022103dc((void*)7);

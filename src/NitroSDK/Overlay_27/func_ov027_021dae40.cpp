@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct DispatchState_021dae40 {
-    unsigned char pad[0x24];
-    unsigned char state;
+struct Struct_ov027_021dd940_4 {
+    unsigned char unknown_0_[0x24];
+    unsigned char unknown_24_;
 };
 
 extern "C" {
@@ -13,12 +13,12 @@ extern "C" {
     void func_ov027_021db154(int, int, int);
 }
 
-extern DispatchState_021dae40 data_ov027_021dd940;
+extern Struct_ov027_021dd940_4 data_ov027_021dd940;
 
 // USA: func_ov027_021dae40
-extern "C" ARM void func_ov027_021dae40(int a, int b, int c) {
+extern "C" ARM void func_ov027_021dae40(int arg0, int arg1, int arg2) {
     for (;;) {
-        switch (data_ov027_021dd940.state) {
+        switch (data_ov027_021dd940.unknown_24_) {
             case 0:
             case 1:
                 if (func_ov027_021daecc() == 0)
@@ -28,13 +28,13 @@ extern "C" ARM void func_ov027_021dae40(int a, int b, int c) {
                 func_ov027_021daf6c();
                 break;
             case 3:
-                func_ov027_021dafc0(a, b, c);
+                func_ov027_021dafc0(arg0, arg1, arg2);
                 return;
             case 4:
                 func_ov027_021db124();
                 break;
             case 5:
-                func_ov027_021db154(a, b, c);
+                func_ov027_021db154(arg0, arg1, arg2);
                 return;
             case 6:
             default:

@@ -5,20 +5,20 @@
 #include "Resource/Script.h"
 
 #if defined(jpn)
-enum { SelectedEntryOffset = 0x5a7a, PackedEntriesOffset = 0x5a7c };
+enum { Enum_0208ea10_23770 = 0x5a7a, Enum_0208ea10_23772 = 0x5a7c };
 #else
-enum { SelectedEntryOffset = 0x5cda, PackedEntriesOffset = 0x5cdc };
+enum { Enum_0208ea10_23770 = 0x5cda, Enum_0208ea10_23772 = 0x5cdc };
 #endif
 
-struct Struct0208e9f4;
-extern "C" void func_0208e9f4(struct Struct0208e9f4*);
+struct Struct_0208e9f4;
+extern "C" void func_0208e9f4(struct Struct_0208e9f4*);
 
-extern "C" void func_020120d4(unsigned char* obj, unsigned char value);
-extern "C" void func_0208ec04(struct Struct0208e9f4*);
+extern "C" void func_020120d4(unsigned char* arg0, unsigned char arg1);
+extern "C" void func_0208ec04(struct Struct_0208e9f4*);
 extern "C" void* func_0208e0a8(void);
 extern "C" int rand(void);
 
-struct ResetStruct0208ea10;
+struct Struct_0208ea10_2;
 
 extern "C" void __clear(void*, int);
 extern "C" int sprintf(char*, const char*, ...);
@@ -28,77 +28,77 @@ extern char data_020f1330[];
 extern char data_020f134a[];
 extern char data_020f1356[];
 
-struct Fields0208ea10 {
-    unsigned int low9 : 9;
-    unsigned int nibA : 4;
-    unsigned int nibB : 4;
-    unsigned int id8 : 8;
-    unsigned int type4 : 4;
-    unsigned int kind : 2;
-    unsigned int flag : 1;
+struct Struct_0208ea10_3 {
+    unsigned int unknown_0_0_ : 9;
+    unsigned int unknown_1_1_ : 4;
+    unsigned int unknown_1_5_ : 4;
+    unsigned int unknown_2_1_ : 8;
+    unsigned int unknown_3_1_ : 4;
+    unsigned int unknown_3_5_ : 2;
+    unsigned int unknown_3_7_ : 1;
 };
 
-struct Entry0208ea10 {
+struct Struct_0208ea10 {
     union {
-        unsigned int raw;
-        struct Fields0208ea10 b;
-    } u;
+        unsigned int unknown_0_;
+        struct Struct_0208ea10_3 unknown1_0_;
+    } unknown_0_;
 };
 
 // USA: func_0208ea10
-extern "C" ARM void func_0208ea10(void* p0, int a1) {
-    char scriptFirst[0x430];
-    char scriptLoop[0x430];
-    char name[0x40];
-    unsigned int fileLen;
-    unsigned int size;
-    const void* ptr;
+extern "C" ARM void func_0208ea10(void* arg0, int arg1) {
+    char var0[0x430];
+    char var1[0x430];
+    char var2[0x40];
+    unsigned int var3;
+    unsigned int var4;
+    const void* var5;
 
-    unsigned char* gs = (unsigned char*)GameState::GetInstance();
+    unsigned char* var6 = (unsigned char*)GameState::GetInstance();
 
-    if (gs[SelectedEntryOffset] == 8) {
-        func_0208e9f4((struct Struct0208e9f4*)p0);
-        func_020120d4(gs, rand() % 8);
+    if (var6[Enum_0208ea10_23770] == 8) {
+        func_0208e9f4((struct Struct_0208e9f4*)arg0);
+        func_020120d4(var6, rand() % 8);
     } else {
-        func_0208ec04((struct Struct0208e9f4*)p0);
+        func_0208ec04((struct Struct_0208e9f4*)arg0);
         return;
     }
 
     BackgroundLoader::AddLockGlobal();
-    __clear(name, 0x40);
-    fileLen = 0;
+    __clear(var2, 0x40);
+    var3 = 0;
 
-    if (LoadFileIntoMemory(data_020f1330, data_0211e33c, &fileLen) != 0) {
-        if (GetFileInNarc(data_0211e33c, data_020f134a, &ptr, &size, 0) != 0) {
-            ((Script*)((struct ResetStruct0208ea10*)scriptFirst))->Initialize();
-            ((Script*)((struct ResetStruct0208ea10*)scriptFirst))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
-            ((Script*)((struct ResetStruct0208ea10*)scriptFirst))->Load(ptr, size);
-            ((Script*)((struct ResetStruct0208ea10*)scriptFirst))->Execute();
+    if (LoadFileIntoMemory(data_020f1330, data_0211e33c, &var3) != 0) {
+        if (GetFileInNarc(data_0211e33c, data_020f134a, &var5, &var4, 0) != 0) {
+            ((Script*)((struct Struct_0208ea10_2*)var0))->Initialize();
+            ((Script*)((struct Struct_0208ea10_2*)var0))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
+            ((Script*)((struct Struct_0208ea10_2*)var0))->Load(var5, var4);
+            ((Script*)((struct Struct_0208ea10_2*)var0))->Execute();
             ((unsigned char*)func_0208e0a8())[0xa] = 1;
         }
 
-        int i;
-        for (i = 1; i <= 0x3f; i++) {
-            sprintf(name, data_020f1356, i);
-            fileLen = 0;
-            if (GetFileInNarc(data_0211e33c, name, &ptr, &size, 0) != 0) {
-                ((Script*)((struct ResetStruct0208ea10*)scriptLoop))->Initialize();
-                ((Script*)((struct ResetStruct0208ea10*)scriptLoop))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
-                ((Script*)((struct ResetStruct0208ea10*)scriptLoop))->Load(ptr, size);
-                ((Script*)((struct ResetStruct0208ea10*)scriptLoop))->Execute();
+        int var7;
+        for (var7 = 1; var7 <= 0x3f; var7++) {
+            sprintf(var2, data_020f1356, var7);
+            var3 = 0;
+            if (GetFileInNarc(data_0211e33c, var2, &var5, &var4, 0) != 0) {
+                ((Script*)((struct Struct_0208ea10_2*)var1))->Initialize();
+                ((Script*)((struct Struct_0208ea10_2*)var1))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1308);
+                ((Script*)((struct Struct_0208ea10_2*)var1))->Load(var5, var4);
+                ((Script*)((struct Struct_0208ea10_2*)var1))->Execute();
             }
         }
 
-        int j;
-        for (j = 0; j < 2; j++) {
-            struct Entry0208ea10* e = &((struct Entry0208ea10*)(gs + PackedEntriesOffset))[j + 0x62];
-            e->u.b.flag = 1;
-            e->u.b.type4 = 2;
-            e->u.b.nibA = 1;
-            e->u.b.nibB = 1;
-            e->u.b.kind = 1;
-            e->u.b.low9 = 0;
-            e->u.raw &= 0xfe01ffff;
+        int var8;
+        for (var8 = 0; var8 < 2; var8++) {
+            struct Struct_0208ea10* var9 = &((struct Struct_0208ea10*)(var6 + Enum_0208ea10_23772))[var8 + 0x62];
+            var9->unknown_0_.unknown1_0_.unknown_3_7_ = 1;
+            var9->unknown_0_.unknown1_0_.unknown_3_1_ = 2;
+            var9->unknown_0_.unknown1_0_.unknown_1_1_ = 1;
+            var9->unknown_0_.unknown1_0_.unknown_1_5_ = 1;
+            var9->unknown_0_.unknown1_0_.unknown_3_5_ = 1;
+            var9->unknown_0_.unknown1_0_.unknown_0_0_ = 0;
+            var9->unknown_0_.unknown_0_ &= 0xfe01ffff;
         }
     }
 

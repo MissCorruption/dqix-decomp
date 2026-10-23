@@ -12,69 +12,69 @@
 #include "std_library_functions.h"
 #include "Input/Input.h"
 
-struct StructA0205d5d0;
-struct ProfileEditor02185cf8
+struct Struct_0205d5d0;
+struct Struct_ov012_02185cf8
 {
-    char unk_0[LOW_REGION(0x90, 0xac)];
-    char window_[LOW_REGION(0x1340, 0x1370) - LOW_REGION(0x90, 0xac)];
-    unsigned char step_;
-    unsigned char state_;
-    char unk_1372[2];
-    char* text_;
-    char unk_1378[LOW_REGION(0x1360, 0x1398) - LOW_REGION(0x1348, 0x1378)];
-    int unk_1398;
+    char unknown_0_[LOW_REGION(0x90, 0xac)];
+    char unknown_ac_[LOW_REGION(0x1340, 0x1370) - LOW_REGION(0x90, 0xac)];
+    unsigned char unknown_1370_;
+    unsigned char unknown_1371_;
+    char unknown_1372_[2];
+    char* unknown_1374_;
+    char unknown_1378_[LOW_REGION(0x1360, 0x1398) - LOW_REGION(0x1348, 0x1378)];
+    int unknown_1398_;
 };
 
-struct Frame02185cf8
+struct Struct_ov012_02185cf8_2
 {
-    char unk_0[0x30];
-    int unk_30;
+    char unknown_0_[0x30];
+    int unknown_30_;
 };
 
-typedef void (ProfileEditor02185cf8::*TextFn02185cf8)(char* text, int hidden);
+typedef void (Struct_ov012_02185cf8::*Type_ov012_02185cf8)(char* text, int hidden);
 
-struct TextTable02185cf8
+struct Struct_ov012_0218b108
 {
-    TextFn02185cf8 functions[16];
+    Type_ov012_02185cf8 unknown_0_[16];
 };
 
-extern "C" const TextTable02185cf8 data_ov012_0218b108;
-extern "C" TextFn02185cf8 data_020e6d5c;
+extern "C" const Struct_ov012_0218b108 data_ov012_0218b108;
+extern "C" Type_ov012_02185cf8 data_020e6d5c;
 
-static inline Frame02185cf8* GetFrame02185cf8(char* window)
+static inline Struct_ov012_02185cf8_2* inline_ov012_02185cf8(char* arg0)
 {
-    return (Frame02185cf8*)(window + 4);
+    return (Struct_ov012_02185cf8_2*)(arg0 + 4);
 }
 
-static inline char* GetWindow02185cf8(ProfileEditor02185cf8* editor)
+static inline char* inline_ov012_02185cf8_2(Struct_ov012_02185cf8* arg0)
 {
-    return (char*)editor + LOW_REGION(0x90, 0xac);
+    return (char*)arg0 + LOW_REGION(0x90, 0xac);
 }
 
 // USA: func_ov012_02185cf8
-extern "C" ARM void func_ov012_02185cf8(ProfileEditor02185cf8* self)
+extern "C" ARM void func_ov012_02185cf8(Struct_ov012_02185cf8* arg0)
 {
-    if (self->unk_1398 == 0)
+    if (arg0->unknown_1398_ == 0)
         return;
 
-    int hidden = 0;
-    if (self->unk_1398 == 2)
+    int var0 = 0;
+    if (arg0->unknown_1398_ == 2)
     {
         if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0 &&
-            GetFrame02185cf8(GetWindow02185cf8(self))->unk_30 < 0)
+            inline_ov012_02185cf8(inline_ov012_02185cf8_2(arg0))->unknown_30_ < 0)
             return;
-        hidden = 1;
+        var0 = 1;
     }
-    memset(self->text_, 0, LOW_REGION(0x800, 0x960));
-    TextTable02185cf8 functions = data_ov012_0218b108;
-    TextFn02185cf8 none = data_020e6d5c;
-    functions.functions[0] = none;
-    functions.functions[15] = none;
-    if (functions.functions[self->state_] != 0)
-        (self->*functions.functions[self->state_])(self->text_, hidden);
+    memset(arg0->unknown_1374_, 0, LOW_REGION(0x800, 0x960));
+    Struct_ov012_0218b108 var1 = data_ov012_0218b108;
+    Type_ov012_02185cf8 var2 = data_020e6d5c;
+    var1.unknown_0_[0] = var2;
+    var1.unknown_0_[15] = var2;
+    if (var1.unknown_0_[arg0->unknown_1371_] != 0)
+        (arg0->*var1.unknown_0_[arg0->unknown_1371_])(arg0->unknown_1374_, var0);
 #if defined(jpn)
-    func_0205d5d0((StructA0205d5d0*)self->window_, self->state_, (int)self->text_, 0);
+    func_0205d5d0((Struct_0205d5d0*)arg0->unknown_ac_, arg0->unknown_1371_, (int)arg0->unknown_1374_, 0);
 #else
-    func_0205d5d0((StructA0205d5d0*)self->window_, self->state_, (int)self->text_, 0, 0);
+    func_0205d5d0((Struct_0205d5d0*)arg0->unknown_ac_, arg0->unknown_1371_, (int)arg0->unknown_1374_, 0, 0);
 #endif
 }

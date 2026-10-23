@@ -5,15 +5,15 @@
 extern "C" int func_ov017_021d60f4(void*);
 
 // USA: func_ov001_0215f1b0
-extern "C" ARM int func_ov001_0215f1b0(void* self) {
+extern "C" ARM int func_ov001_0215f1b0(void* arg0) {
 	GameState::GetInstance();
-	GameResources* p = GetGameResources();
-	int a = func_ov017_021d60f4(self);
-	int b = func_ov017_021d60f4((char*)self + 0x8);
-	if (b != 0) {
-		SetFlags04(p, a);
+	GameResources* var0 = GetGameResources();
+	int var1 = func_ov017_021d60f4(arg0);
+	int var2 = func_ov017_021d60f4((char*)arg0 + 0x8);
+	if (var2 != 0) {
+		SetFlags04(var0, var1);
 	} else {
-		ClearFlags04(p, a);
+		ClearFlags04(var0, var1);
 	}
 	return 1;
 }

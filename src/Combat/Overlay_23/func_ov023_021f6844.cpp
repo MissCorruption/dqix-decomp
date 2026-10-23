@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct ListNode021f6844 {
-    char pad0[0x8];
-    unsigned short field8;
-    char pad1[0x18 - 0x8 - 0x2];
-    struct ListNode021f6844* next;
+struct Struct_ov023_021f6844_2 {
+    char unknown_0_[0x8];
+    unsigned short unknown_8_;
+    char unknown_a_[0x18 - 0x8 - 0x2];
+    struct Struct_ov023_021f6844_2* unknown_18_;
 };
 
-struct ListHead021f6844 {
-    struct ListNode021f6844* first;
+struct Struct_ov023_021f6844 {
+    struct Struct_ov023_021f6844_2* unknown_0_;
 };
 
-extern "C" void func_ov023_021f67ec(struct ListHead021f6844* head, struct ListNode021f6844* node);
+extern "C" void func_ov023_021f67ec(struct Struct_ov023_021f6844* arg0, struct Struct_ov023_021f6844_2* arg1);
 
 // USA: func_ov023_021f6844
-extern "C" ARM void func_ov023_021f6844(struct ListHead021f6844* head, unsigned short value) {
-    struct ListNode021f6844* node = head->first;
-    while (node != 0) {
-        struct ListNode021f6844* next = node->next;
-        if (node->field8 == value) {
-            func_ov023_021f67ec(head, node);
+extern "C" ARM void func_ov023_021f6844(struct Struct_ov023_021f6844* arg0, unsigned short arg1) {
+    struct Struct_ov023_021f6844_2* var0 = arg0->unknown_0_;
+    while (var0 != 0) {
+        struct Struct_ov023_021f6844_2* var1 = var0->unknown_18_;
+        if (var0->unknown_8_ == arg1) {
+            func_ov023_021f67ec(arg0, var0);
         }
-        node = next;
+        var0 = var1;
     }
 }

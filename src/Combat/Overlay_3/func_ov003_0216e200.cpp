@@ -2,34 +2,34 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-enum { kRegionValue5C_28 = 0x28 };
+enum { Enum_ov003_0216e200_92 = 0x28 };
 #else
-enum { kRegionValue5C_28 = 0x5c };
+enum { Enum_ov003_0216e200_92 = 0x5c };
 #endif
 
 extern "C" int func_020421a0(void);
-extern "C" void func_ov003_02170898(void* obj);
-extern "C" void func_ov003_02170688(void* obj);
-extern "C" void func_02074af4(void* p);
-extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
+extern "C" void func_ov003_02170898(void* arg0);
+extern "C" void func_ov003_02170688(void* arg0);
+extern "C" void func_02074af4(void* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov003_0216e200
-extern "C" ARM void func_ov003_0216e200(char* obj) {
-	if (*(signed char*)(obj + 0x2) != 0) return;
+extern "C" ARM void func_ov003_0216e200(char* arg0) {
+	if (*(signed char*)(arg0 + 0x2) != 0) return;
 
-	int baseAddr = func_020421a0();
-	*(int*)(obj + 0x18) = *(int*)(baseAddr + kRegionValue5C_28);
-	func_ov003_02170898(obj);
-	func_ov003_02170688(obj);
-	func_02074af4(obj + 0x48);
+	int var0 = func_020421a0();
+	*(int*)(arg0 + 0x18) = *(int*)(var0 + Enum_ov003_0216e200_92);
+	func_ov003_02170898(arg0);
+	func_ov003_02170688(arg0);
+	func_02074af4(arg0 + 0x48);
 
-	volatile unsigned int* dispcnt = (volatile unsigned int*)0x4000000;
-	*(int*)(obj + 0x5c) = (*dispcnt & 0x1f00) >> 8;
-	*dispcnt = (*dispcnt & ~0x1f00) | 0x700;
+	volatile unsigned int* var1 = (volatile unsigned int*)0x4000000;
+	*(int*)(arg0 + 0x5c) = (*var1 & 0x1f00) >> 8;
+	*var1 = (*var1 & ~0x1f00) | 0x700;
 
-	*(int*)(obj + 0x174) = GetFlags04(GetGameResources());
+	*(int*)(arg0 + 0x174) = GetFlags04(GetGameResources());
 	func_020c5588(0, 0, 0x7fff, 0, 0);
-	*(unsigned char*)(obj + 0x1) = 1;
-	*(unsigned char*)(obj + 0x2) = 0;
-	*(int*)(obj + 0x16c) = 0;
+	*(unsigned char*)(arg0 + 0x1) = 1;
+	*(unsigned char*)(arg0 + 0x2) = 0;
+	*(int*)(arg0 + 0x16c) = 0;
 }

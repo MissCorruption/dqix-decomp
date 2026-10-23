@@ -2,18 +2,18 @@
 #include "Resource/Script.h"
 
 #if defined(jpn)
-enum { FIELD_OFFSET = 0x50 };
+enum { Enum_0205e05c_48 = 0x50 };
 #else
-enum { FIELD_OFFSET = 0x30 };
+enum { Enum_0205e05c_48 = 0x30 };
 #endif
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
 extern void* data_02108740[];
 
 // USA: func_0205e05c
-extern "C" ARM int func_0205e05c(Script::Parameter* p, int) {
-    const Script::Parameter* parameters = p;
-    *(int*)((char*)data_02108740[1] + FIELD_OFFSET) = parameters[0].ToInt();
+extern "C" ARM int func_0205e05c(Script::Parameter* arg0, int) {
+    const Script::Parameter* var0 = arg0;
+    *(int*)((char*)data_02108740[1] + Enum_0205e05c_48) = var0[0].ToInt();
     return 1;
 }

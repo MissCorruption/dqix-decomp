@@ -8,28 +8,28 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct ZoneNode {
-    unsigned int id : 16;
-    unsigned int field_0x2 : 16;
-    unsigned int kind : 4;
-    unsigned int flags : 28;
-    unsigned char field_0x8[0x64];
-    ZoneNode* next;
+struct Struct_0201647c {
+    unsigned int unknown_0_0_ : 16;
+    unsigned int unknown_2_0_ : 16;
+    unsigned int unknown_4_0_ : 4;
+    unsigned int unknown_4_4_ : 28;
+    unsigned char unknown_8_[0x64];
+    Struct_0201647c* unknown_6c_;
 };
-struct ZoneManager {
-    unsigned int field_0x0;
-    ZoneNode* nodes;
-    unsigned int field_0x8;
-    short* ids;
+struct Struct_0201647c_2 {
+    unsigned int unknown_0_;
+    Struct_0201647c* unknown_4_;
+    unsigned int unknown_8_;
+    short* unknown_c_;
 };
-struct ListNode;
+struct Struct_020130b0;
 extern "C" void* func_0205ec34();
 extern "C" int* func_0202ae18();
 extern "C" void* func_0208e0a8();
 extern "C" int func_0208e824(void*, char*);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_0202b7d8(int*);
-extern "C" ListNode* func_0201e844(void*, int, int);
+extern "C" Struct_020130b0* func_0201e844(void*, int, int);
 extern "C" void func_020de848(void*);
 extern "C" int func_020de9a4(void*, SafeAllocator*, void*, unsigned int, short*, unsigned short);
 extern "C" void func_02013b70(Zone3D*, SafeAllocator*);
@@ -41,102 +41,102 @@ extern "C" int func_020e0484(void*, SafeAllocator*, const char*, short*, unsigne
 #endif
 
 // USA: func_0201647c
-extern "C" ARM void func_0201647c(Zone3D* zone) {
-    SafeAllocator* allocator = zone->pAllocator_68_;
-    LootableContainerManager* containers = LootableContainerManager::GetMainInstance();
-    unsigned char* save = (unsigned char*)func_0205ec34();
-    int* flags = func_0202ae18();
-    ZoneManager* zoneItems = (ZoneManager*)func_0208e0a8();
-    LootableContainerManager::Container* container = containers->pContainerList_;
-    bool includeZone = false;
-    if (func_0208e824(zoneItems, zone->pUnknownStruct_8_->mapShortName_)) includeZone = true;
-    int containerCount = 0;
-    for (; container; container = container->pNext) {
-        if (container->containerType == 0 || container->containerType == 4) containerCount++;
+extern "C" ARM void func_0201647c(Zone3D* arg0) {
+    SafeAllocator* var0 = arg0->pAllocator_68_;
+    LootableContainerManager* var1 = LootableContainerManager::GetMainInstance();
+    unsigned char* var2 = (unsigned char*)func_0205ec34();
+    int* var3 = func_0202ae18();
+    Struct_0201647c_2* var4 = (Struct_0201647c_2*)func_0208e0a8();
+    LootableContainerManager::Container* var5 = var1->pContainerList_;
+    bool var6 = false;
+    if (func_0208e824(var4, arg0->pUnknownStruct_8_->mapShortName_)) var6 = true;
+    int var7 = 0;
+    for (; var5; var5 = var5->pNext) {
+        if (var5->containerType == 0 || var5->containerType == 4) var7++;
     }
-    zone->unknown_47c_ = (ZoneChestRenderRecord*)allocator->Allocate(containerCount * sizeof(ZoneChestRenderRecord));
-    if (!zone->unknown_47c_) return;
-    container = containers->pContainerList_;
-    zone->numChests_ = 0;
-    for (; container; container = container->pNext) {
-        if (container->containerType == 0 || container->containerType == 4) {
-            ZoneChestRenderRecord* entry = &zone->unknown_47c_[zone->numChests_];
-            func_020133fc(entry);
-            entry->position = container->position;
-            entry->angleY = container->unk_6;
-            entry->counter = 0;
-            entry->recordIndex = zone->numChests_;
-            entry->uniqueID = container->uniqueID;
-            entry->secondPass = 0;
-            if (container->containerType == 4) entry->secondPass = 1;
-            if ((container->containerType == 0 &&
-                 func_0206dfb0((int)save, save + 0x8c, container->uniqueID + 0x212)) ||
-                (container->containerType == 4 &&
-                 func_0206dfb0((int)save, save + 0x8c, container->uniqueID + 0x79e))) {
-                entry->active = 8;
-                entry->angleX = 0x4000;
-                container->lootType = 0;
+    arg0->unknown_47c_ = (Struct_020133fc*)var0->Allocate(var7 * sizeof(Struct_020133fc));
+    if (!arg0->unknown_47c_) return;
+    var5 = var1->pContainerList_;
+    arg0->numChests_ = 0;
+    for (; var5; var5 = var5->pNext) {
+        if (var5->containerType == 0 || var5->containerType == 4) {
+            Struct_020133fc* var8 = &arg0->unknown_47c_[arg0->numChests_];
+            func_020133fc(var8);
+            var8->unknown_0_ = var5->position;
+            var8->unknown_c_ = var5->unk_6;
+            var8->unknown_10_ = 0;
+            var8->unknown_1a_ = arg0->numChests_;
+            var8->unknown_1c_ = var5->uniqueID;
+            var8->unknown_17_ = 0;
+            if (var5->containerType == 4) var8->unknown_17_ = 1;
+            if ((var5->containerType == 0 &&
+                 func_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x212)) ||
+                (var5->containerType == 4 &&
+                 func_0206dfb0((int)var2, var2 + 0x8c, var5->uniqueID + 0x79e))) {
+                var8->unknown_16_ = 8;
+                var8->unknown_e_ = 0x4000;
+                var5->lootType = 0;
             } else {
-                entry->active = 1;
-                entry->angleX = 0x647a;
+                var8->unknown_16_ = 1;
+                var8->unknown_e_ = 0x647a;
             }
-            if (func_0202b7d8(flags) && container->containerType == 4)
-                entry->special = 1;
-            zone->numChests_++;
-        } else if (container->containerType == 3) {
-            ListNode* node = func_0201e844(&zone->substruct_6c_, 5, (unsigned short)container->unk_6);
-            if (node) *(unsigned short*)((char*)node + 0x30) = container->uniqueID;
+            if (func_0202b7d8(var3) && var5->containerType == 4)
+                var8->unknown_18_ = 1;
+            arg0->numChests_++;
+        } else if (var5->containerType == 3) {
+            Struct_020130b0* var9 = func_0201e844(&arg0->substruct_6c_, 5, (unsigned short)var5->unk_6);
+            if (var9) *(unsigned short*)((char*)var9 + 0x30) = var5->uniqueID;
         }
     }
-    short ids[100];
-    int count = 0;
-    for (container = containers->pContainerList_; container; container = container->pNext) {
-        if (container->lootType == 2) {
-            unsigned int id = container->itemIDOrRank;
-            bool unique = true;
-            for (int i = 0; i < count; i++) {
-                if (id == ids[i]) {
-                    unique = false;
+    short var10[100];
+    int var11 = 0;
+    for (var5 = var1->pContainerList_; var5; var5 = var5->pNext) {
+        if (var5->lootType == 2) {
+            unsigned int var12 = var5->itemIDOrRank;
+            bool var13 = true;
+            for (int var14 = 0; var14 < var11; var14++) {
+                if (var12 == var10[var14]) {
+                    var13 = false;
                     break;
                 }
             }
-            if (unique) ids[count++] = id;
+            if (var13) var10[var11++] = var12;
         }
     }
-    if (includeZone && zoneItems->nodes) {
-        ZoneNode* node = zoneItems->nodes;
-        if (node->kind == 9) {
-            short* source = zoneItems->ids;
-            if (source) {
-                for (int i = 0; i < 16; count++, source++, i++) ids[count] = *source;
+    if (var6 && var4->unknown_4_) {
+        Struct_0201647c* var15 = var4->unknown_4_;
+        if (var15->unknown_4_0_ == 9) {
+            short* var16 = var4->unknown_c_;
+            if (var16) {
+                for (int var17 = 0; var17 < 16; var11++, var16++, var17++) var10[var11] = *var16;
             }
         } else {
-            while (node) {
-                ids[count++] = node->id;
-                node = node->next;
+            while (var15) {
+                var10[var11++] = var15->unknown_0_0_;
+                var15 = var15->unknown_6c_;
             }
         }
     }
-    func_020de848(zone->unknown_struct_2754_);
-    if (count > 0) {
+    func_020de848(arg0->unknown_struct_2754_);
+    if (var11 > 0) {
 #if defined(jpn)
-        func_020e0484(zone->unknown_struct_2754_, allocator, data_020f2a38, ids,
-            (unsigned short)count, true);
+        func_020e0484(arg0->unknown_struct_2754_, var0, data_020f2a38, var10,
+            (unsigned short)var11, true);
 #else
         BackgroundLoader::AddLockGlobal();
-        unsigned int size = 0;
-        void* file = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &size);
-        if (file) func_020de9a4(zone->unknown_struct_2754_, allocator, file, size, ids, (unsigned short)count);
+        unsigned int var18 = 0;
+        void* var19 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var18);
+        if (var19) func_020de9a4(arg0->unknown_struct_2754_, var0, var19, var18, var10, (unsigned short)var11);
         BackgroundLoader::RemoveLockGlobal();
 #endif
     }
-    func_02013b70(zone, zone->pAllocator_68_);
-    if (zone->pendingLootableMask_) {
-        func_02013cb0(zone, zone->pendingLootableMask_);
-        zone->pendingLootableMask_ = 0;
+    func_02013b70(arg0, arg0->pAllocator_68_);
+    if (arg0->unknown_27da_) {
+        func_02013cb0(arg0, arg0->unknown_27da_);
+        arg0->unknown_27da_ = 0;
     }
-    if (zone->pendingType2Mask_) {
-        func_02018c74(zone, zone->pendingType2Mask_);
-        zone->pendingType2Mask_ = 0;
+    if (arg0->unknown_27d8_) {
+        func_02018c74(arg0, arg0->unknown_27d8_);
+        arg0->unknown_27d8_ = 0;
     }
 }

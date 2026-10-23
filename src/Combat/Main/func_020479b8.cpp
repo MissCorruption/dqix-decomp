@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 
-struct ElemE {
-    unsigned char unk0;
-    unsigned char flag;
-    unsigned char unk2[6];
+struct Struct_020479b8_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[6];
 };
 
-struct ElemB {
-    int unk0;
-    int unk4;
-    int index;
+struct Struct_020479b8 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct ElemA {
-    int unk0;
-    struct ElemB* list;
+struct Struct_020479b8_2 {
+    int unknown_0_;
+    struct Struct_020479b8* unknown_4_;
 };
 
-struct LookupBase {
-    char unk0[8];
-    struct ElemE* arrayE;
-    struct ElemA* arrayA;
-    char unk10[0x60];
-    int indexB;
-    int indexA;
-    char unk78[0xc];
-    unsigned char flag0 : 1;
-    unsigned char flagRest : 7;
+struct Struct_020479b8_3 {
+    char unknown_0_[8];
+    struct Struct_020479b8_4* unknown_8_;
+    struct Struct_020479b8_2* unknown_c_;
+    char unknown_10_[0x60];
+    int unknown_70_;
+    int unknown_74_;
+    char unknown_78_[0xc];
+    unsigned char unknown_84_0_ : 1;
+    unsigned char unknown_84_1_ : 7;
 };
 
 // USA: func_020479b8
-extern "C" ARM unsigned char func_020479b8(struct LookupBase* base) {
-    struct ElemA* a;
-    struct ElemB* b;
-    struct ElemE* e;
-    if (base->flag0 == 0) {
+extern "C" ARM unsigned char func_020479b8(struct Struct_020479b8_3* arg0) {
+    struct Struct_020479b8_2* var0;
+    struct Struct_020479b8* var1;
+    struct Struct_020479b8_4* var2;
+    if (arg0->unknown_84_0_ == 0) {
         return 0;
     }
-    a = &base->arrayA[base->indexA];
-    b = &a->list[base->indexB];
-    e = &base->arrayE[b->index];
-    return e->flag;
+    var0 = &arg0->unknown_c_[arg0->unknown_74_];
+    var1 = &var0->unknown_4_[arg0->unknown_70_];
+    var2 = &arg0->unknown_8_[var1->unknown_8_];
+    return var2->unknown_1_;
 }

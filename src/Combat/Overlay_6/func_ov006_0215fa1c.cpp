@@ -1,62 +1,62 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kEntries = 0xc, kMeter = 0x6c, kTextAdjustment = 2 };
+enum { Enum_ov006_0215fa1c_20 = 0xc, Enum_ov006_0215fa1c_116 = 0x6c, Enum_ov006_0215fa1c_4 = 2 };
 #else
-enum { kEntries = 0x14, kMeter = 0x74, kTextAdjustment = 4 };
+enum { Enum_ov006_0215fa1c_20 = 0x14, Enum_ov006_0215fa1c_116 = 0x74, Enum_ov006_0215fa1c_4 = 4 };
 #endif
 
-struct Container02080fa8;
-struct StatusOwner02081164;
-struct BattleMeter {
-    char pad0[kEntries];
-    Container02080fa8* entries;
-    char pad18[kMeter-kEntries-4];
-    int meter;
-    char pad78[0x366-kMeter-4];
-    short command;
-    char pad368[0x38f-0x368];
-    unsigned char mode;
+struct Struct_02080fa8;
+struct Struct_02081164;
+struct Struct_ov006_0215fa1c {
+    char unknown_0_[Enum_ov006_0215fa1c_20];
+    Struct_02080fa8* unknown_14_;
+    char unknown_18_[Enum_ov006_0215fa1c_116-Enum_ov006_0215fa1c_20-4];
+    int unknown_74_;
+    char unknown_78_[0x366-Enum_ov006_0215fa1c_116-4];
+    short unknown_366_;
+    char unknown_368_[0x38f-0x368];
+    unsigned char unknown_38f_;
 };
 extern "C" void func_02080b54(void*, int);
 extern "C" void func_02080b40(void*, int);
 extern "C" void func_0208103c(void*, int, int);
-extern "C" void func_02080fa8(Container02080fa8*, int, int);
-extern "C" void func_02081164(StatusOwner02081164*, int, int);
+extern "C" void func_02080fa8(Struct_02080fa8*, int, int);
+extern "C" void func_02081164(Struct_02081164*, int, int);
 extern "C" void func_020806d8(void*, int, int, int, int);
 extern "C" int func_ov006_02154138(int*);
 extern "C" void func_020813ec(void*, int);
 
 // USA: func_ov006_0215fa1c
-extern "C" ARM void func_ov006_0215fa1c(BattleMeter* self, int showValue) {
-    Container02080fa8* entries = self->entries;
-    func_02080b54(entries, 0xd);
-    func_02080b40(entries, 0x56);
-    func_0208103c(self->entries, 0x56, 0x2b);
-    if (self->mode != 10 && self->mode != 3) {
-        int text = 0x2c;
-        if (!showValue) {
-            switch (self->command) {
-            case 0x25: text = 0x12; break;
-            case 0x26: text = 0x13; break;
+extern "C" ARM void func_ov006_0215fa1c(Struct_ov006_0215fa1c* arg0, int arg1) {
+    Struct_02080fa8* var0 = arg0->unknown_14_;
+    func_02080b54(var0, 0xd);
+    func_02080b40(var0, 0x56);
+    func_0208103c(arg0->unknown_14_, 0x56, 0x2b);
+    if (arg0->unknown_38f_ != 10 && arg0->unknown_38f_ != 3) {
+        int var1 = 0x2c;
+        if (!arg1) {
+            switch (arg0->unknown_366_) {
+            case 0x25: var1 = 0x12; break;
+            case 0x26: var1 = 0x13; break;
             }
         }
-        func_0208103c(entries, 0x57, text);
-        func_02080b40(entries, 0x57);
-        func_020806d8(entries, 0xd, 0x57, 1, kTextAdjustment);
-        if (showValue) {
-            unsigned int meter = (unsigned short)func_ov006_02154138(&self->meter);
-            float fraction = (float)meter / 448.0f;
-            fraction *= 10000.0f;
-            int scaled = (int)fraction;
-            int value = (scaled - scaled % 100) / 100;
-            if (meter && value <= 0) value = 1;
-            if (value > 100) value = 100;
-            func_02080fa8(entries, 0x58, value);
-            func_02080b40(entries, 0x58);
-            func_0208103c(self->entries, 0x56, 0x2e);
+        func_0208103c(var0, 0x57, var1);
+        func_02080b40(var0, 0x57);
+        func_020806d8(var0, 0xd, 0x57, 1, Enum_ov006_0215fa1c_4);
+        if (arg1) {
+            unsigned int var2 = (unsigned short)func_ov006_02154138(&arg0->unknown_74_);
+            float var3 = (float)var2 / 448.0f;
+            var3 *= 10000.0f;
+            int var4 = (int)var3;
+            int var5 = (var4 - var4 % 100) / 100;
+            if (var2 && var5 <= 0) var5 = 1;
+            if (var5 > 100) var5 = 100;
+            func_02080fa8(var0, 0x58, var5);
+            func_02080b40(var0, 0x58);
+            func_0208103c(arg0->unknown_14_, 0x56, 0x2e);
         }
     }
-    func_02081164((StatusOwner02081164*)entries, 0xd, 1);
-    func_020813ec(entries, 0xd);
+    func_02081164((Struct_02081164*)var0, 0xd, 1);
+    func_020813ec(var0, 0xd);
 }

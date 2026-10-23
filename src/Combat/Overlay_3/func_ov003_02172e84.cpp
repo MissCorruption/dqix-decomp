@@ -6,205 +6,205 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct EntryA68;
-struct TableA68 {
-    EntryA68 *entries;
-    short count;
+struct Struct_02072a68;
+struct Struct_02072a68_2 {
+    Struct_02072a68 *unknown_0_;
+    short unknown_4_;
 };
-struct Container0205a330;
+struct Struct_0205a330;
 
-struct Profile02172e84 {
-    unsigned int year_ : 12;
-    unsigned int month_ : 4;
-    unsigned int day_ : 5;
-    unsigned int design_ : 4;
-    unsigned int female_ : 1;
-    unsigned int initialized_ : 1;
-    unsigned int designChosen_ : 1;
-    unsigned int birthdayChosen_ : 1;
-    unsigned int accoladeChosen_ : 1;
-    unsigned int vocationAccolade_ : 1;
-    unsigned int showBirthday_ : 1;
-    unsigned int age_ : 9;
-    int title_ : 10;
-    int accolade_ : 11;
-    int edited_ : 1;
-    unsigned int unk_4_31 : 1;
-};
-
-struct Member02172e84 {
-    char name_[0x6c];
-    Profile02172e84 profile_;
-    char pad74[0xe8 - 0x74];
+struct Struct_ov003_02172e84_8 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 4;
+    unsigned int unknown_3_1_ : 1;
+    unsigned int unknown_3_2_ : 1;
+    unsigned int unknown_3_3_ : 1;
+    unsigned int unknown_3_4_ : 1;
+    unsigned int unknown_3_5_ : 1;
+    unsigned int unknown_3_6_ : 1;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 9;
+    int unknown_5_1_ : 10;
+    int unknown_6_3_ : 11;
+    int unknown_7_6_ : 1;
+    unsigned int unknown_7_7_ : 1;
 };
 
-static inline int GetAccolade(Profile02172e84 *profile) { return profile->accolade_; }
-static inline Profile02172e84 *GetProfile(Member02172e84 *member) { return &member->profile_; }
+struct Struct_ov003_02172e84_9 {
+    char unknown_0_[0x6c];
+    Struct_ov003_02172e84_8 unknown_6c_;
+    char unknown_74_[0xe8 - 0x74];
+};
 
-struct Party02172e84 {
-    unsigned char state_;
+static inline int inline_ov003_02172e84_2(Struct_ov003_02172e84_8 *arg0) { return arg0->unknown_6_3_; }
+static inline Struct_ov003_02172e84_8 *inline_ov003_02172e84(Struct_ov003_02172e84_9 *arg0) { return &arg0->unknown_6c_; }
+
+struct Struct_ov003_02172e84 {
+    unsigned char unknown_0_;
 #if defined(jpn)
-    char pad1[0x35c - 1];
-    Member02172e84 members_[3];
-    unsigned char count_;
-    char pad615[0x634 - 0x615];
+    char unknown_1_[0x35c - 1];
+    Struct_ov003_02172e84_9 unknown_35c_[3];
+    unsigned char unknown_614_;
+    char unknown_615_[0x634 - 0x615];
 #else
-    char pad1[0x460 - 1];
-    Member02172e84 members_[3];
-    unsigned char count_;
-    char pad719[0x738 - 0x719];
+    char unknown1_1_[0x460 - 1];
+    Struct_ov003_02172e84_9 unknown_460_[3];
+    unsigned char unknown_718_;
+    char unknown_719_[0x738 - 0x719];
 #endif
-    unsigned int joined_;
+    unsigned int unknown_738_;
 };
 
-struct Battle02172e84 {
-    char pad0[0x28];
-    unsigned char flag28_;
+struct Struct_ov003_02172e84_2 {
+    char unknown_0_[0x28];
+    unsigned char unknown_28_;
 };
 
-struct Messages02172e84 {
+struct Struct_ov003_02172e84_3 {
 #if defined(jpn)
-    char pad0[0x228];
-    void *target_;
-    int field2dc_;
-    Container0205a330 *entries_;
-    char pad234[0x868 - 0x234];
-    int busy_;
-    int field99c_;
-    int state_;
-    char pad874[0x17ee - 0x874];
-    unsigned char flag19be_;
+    char unknown_0_[0x228];
+    void *unknown_228_;
+    int unknown_22c_;
+    Struct_0205a330 *unknown_230_;
+    char unknown_234_[0x868 - 0x234];
+    int unknown_868_;
+    int unknown_86c_;
+    int unknown_870_;
+    char unknown_874_[0x17ee - 0x874];
+    unsigned char unknown_17ee_;
 #else
-    char pad0[0x2d8];
-    void *target_;
-    int field2dc_;
-    Container0205a330 *entries_;
-    char pad2e4[0x998 - 0x2e4];
-    int busy_;
-    int field99c_;
-    int state_;
-    char pad9a4[0x19be - 0x9a4];
-    unsigned char flag19be_;
+    char unknown1_0_[0x2d8];
+    void *unknown_2d8_;
+    int unknown_2dc_;
+    Struct_0205a330 *unknown_2e0_;
+    char unknown_2e4_[0x998 - 0x2e4];
+    int unknown_998_;
+    int unknown_99c_;
+    int unknown_9a0_;
+    char unknown_9a4_[0x19be - 0x9a4];
+    unsigned char unknown_19be_;
 #endif
 };
 
-struct Progress02172e84 {
-    unsigned char pad0[0xb48];
-    unsigned int seen_;
-    unsigned int announced_;
+struct Struct_ov003_02172e84_4 {
+    unsigned char unknown_0_[0xb48];
+    unsigned int unknown_b48_;
+    unsigned int unknown_b4c_;
 };
 
-struct Save02172e84 {
-    unsigned char pad0[0x1000];
-    Progress02172e84 progress_;
+struct Struct_ov003_02172e84_5 {
+    unsigned char unknown_0_[0x1000];
+    Struct_ov003_02172e84_4 unknown_1000_;
 };
 
-struct Zone02172e84 {
+struct Struct_ov003_02172e84_6 {
 #if defined(jpn)
-    unsigned char pad0[0x860];
+    unsigned char unknown_0_[0x860];
 #else
-    unsigned char pad0[0x840];
+    unsigned char unknown1_0_[0x840];
 #endif
-    Save02172e84 save_;
+    Struct_ov003_02172e84_5 unknown_840_;
 };
 
-static inline bool IsLinked(Party02172e84 *party) { return party->state_ == 8 || party->state_ == 9; }
+static inline bool inline_ov003_02172e84_3(Struct_ov003_02172e84 *arg0) { return arg0->unknown_0_ == 8 || arg0->unknown_0_ == 9; }
 
 #if defined(jpn)
-struct Self02172e84 {
-    unsigned char active_;
-    unsigned char shown_;
-    char text_[0x40];
-    char title_[0x80];
-    unsigned char announceCount_;
-    char padc3[0xc8 - 0xc3];
-    unsigned char done_;
-    unsigned char busy_;
-    char padca[0xcc - 0xca];
-    Party02172e84 *party_;
-    unsigned char shownCount_;
-    unsigned char memberIndex_;
-    char padd2[0xd4 - 0xd2];
-    char fieldd8_[0xe8 - 0xd4];
-    unsigned char mode_;
-    unsigned char subMode_;
-    unsigned char step_;
-    char padeb[0x134 - 0xeb];
-    int field128_;
-    Container0205a330 *entries_;
-    char field130_[0x1cc - 0x13c];
-    int field1c0_;
-    char pad1d0[0x1dc - 0x1d0];
-    TableA68 titles_;
-    TableA68 texts_;
-    char field1e0_[0x319 - 0x1ec];
-    unsigned char field30d_;
-    char pad31a[0x34c - 0x31a];
-    void *field340_;
-    unsigned char pending_;
+struct Struct_ov003_02172e84_7 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[0x40];
+    char unknown_42_[0x80];
+    unsigned char unknown_c2_;
+    char unknown_c3_[0xc8 - 0xc3];
+    unsigned char unknown_c8_;
+    unsigned char unknown_c9_;
+    char unknown_ca_[0xcc - 0xca];
+    Struct_ov003_02172e84 *unknown_cc_;
+    unsigned char unknown_d0_;
+    unsigned char unknown_d1_;
+    char unknown_d2_[0xd4 - 0xd2];
+    char unknown_d4_[0xe8 - 0xd4];
+    unsigned char unknown_e8_;
+    unsigned char unknown_e9_;
+    unsigned char unknown_ea_;
+    char unknown_eb_[0x134 - 0xeb];
+    int unknown_134_;
+    Struct_0205a330 *unknown_138_;
+    char unknown_13c_[0x1cc - 0x13c];
+    int unknown_1cc_;
+    char unknown_1d0_[0x1dc - 0x1d0];
+    Struct_02072a68_2 unknown_1dc_;
+    Struct_02072a68_2 unknown_1e4_;
+    char unknown_1ec_[0x319 - 0x1ec];
+    unsigned char unknown_319_;
+    char unknown_31a_[0x34c - 0x31a];
+    void *unknown_34c_;
+    unsigned char unknown_350_;
 };
 #else
-struct Self02172e84 {
-    unsigned char active_;
-    unsigned char shown_;
-    short bit_;
-    char text_[0x40];
-    char title_[0x80];
-    unsigned char announceCount_;
-    char padc5[0xca - 0xc5];
-    unsigned char done_;
-    unsigned char busy_;
-    char padcc[0xd0 - 0xcc];
-    Party02172e84 *party_;
-    unsigned char shownCount_;
-    unsigned char memberIndex_;
-    char padd6[0xd8 - 0xd6];
-    char fieldd8_[0xec - 0xd8];
-    unsigned char mode_;
-    unsigned char subMode_;
-    unsigned char step_;
-    char padef[0x128 - 0xef];
-    int field128_;
-    Container0205a330 *entries_;
-    char field130_[0x1c0 - 0x130];
-    int field1c0_;
-    char pad1c4[0x1d0 - 0x1c4];
-    TableA68 titles_;
-    TableA68 texts_;
-    char field1e0_[0x30d - 0x1e0];
-    unsigned char field30d_;
-    char pad30e[0x340 - 0x30e];
-    void *field340_;
-    unsigned char pending_;
+struct Struct_ov003_02172e84_7 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    short unknown_2_;
+    char unknown_4_[0x40];
+    char unknown_44_[0x80];
+    unsigned char unknown_c4_;
+    char unknown_c5_[0xca - 0xc5];
+    unsigned char unknown_ca_;
+    unsigned char unknown_cb_;
+    char unknown_cc_[0xd0 - 0xcc];
+    Struct_ov003_02172e84 *unknown_d0_;
+    unsigned char unknown_d4_;
+    unsigned char unknown_d5_;
+    char unknown_d6_[0xd8 - 0xd6];
+    char unknown_d8_[0xec - 0xd8];
+    unsigned char unknown_ec_;
+    unsigned char unknown_ed_;
+    unsigned char unknown_ee_;
+    char unknown_ef_[0x128 - 0xef];
+    int unknown_128_;
+    Struct_0205a330 *unknown_12c_;
+    char unknown_130_[0x1c0 - 0x130];
+    int unknown_1c0_;
+    char unknown_1c4_[0x1d0 - 0x1c4];
+    Struct_02072a68_2 unknown_1d0_;
+    Struct_02072a68_2 unknown_1d8_;
+    char unknown_1e0_[0x30d - 0x1e0];
+    unsigned char unknown_30d_;
+    char unknown_30e_[0x340 - 0x30e];
+    void *unknown_340_;
+    unsigned char unknown_344_;
 };
 #endif
 
-extern "C" Messages02172e84 *func_020421a0();
-extern "C" const char *func_02072a68(TableA68 *table, int key);
+extern "C" Struct_ov003_02172e84_3 *func_020421a0();
+extern "C" const char *func_02072a68(Struct_02072a68_2 *arg0, int arg1);
 #if defined(jpn)
-extern "C" void func_0204500c(Messages02172e84 *window, const char *text, int mode);
-extern "C" void func_020e2168(char *dst, const char *tablePath, int index, int female, int flag);
+extern "C" void func_0204500c(Struct_ov003_02172e84_3 *arg0, const char *arg1, int arg2);
+extern "C" void func_020e2168(char *arg0, const char *arg1, int arg2, int arg3, int arg4);
 extern char data_ov003_0217eb9b[];
 extern char data_ov003_0217ebff[];
 extern char data_ov003_0217ec02[];
 extern char data_ov003_0217ec1d[];
 #else
-extern "C" void func_0204500c(Messages02172e84 *window, const char *text, int mode, int width);
+extern "C" void func_0204500c(Struct_ov003_02172e84_3 *arg0, const char *arg1, int arg2, int arg3);
 #endif
-extern "C" Zone02172e84 *func_02012fe4(void);
-extern "C" void __clear(void *dst, int count);
-extern "C" void func_02042764(Member02172e84 *member, char *buf, int flag);
-extern "C" void *ExtractFileFromGP2(const char *gp2Path, const char *innerFilePath, unsigned int *outSize);
-extern "C" char *func_020e046c(char *buf, void *data, unsigned int size, int idx);
-extern "C" void func_ov003_0217bd38(void *obj, int arg);
-extern "C" unsigned char func_ov017_021b1fa8(void *obj);
+extern "C" Struct_ov003_02172e84_6 *func_02012fe4(void);
+extern "C" void __clear(void *arg0, int arg1);
+extern "C" void func_02042764(Struct_ov003_02172e84_9 *arg0, char *arg1, int arg2);
+extern "C" void *ExtractFileFromGP2(const char *arg0, const char *arg1, unsigned int *arg2);
+extern "C" char *func_020e046c(char *arg0, void *arg1, unsigned int arg2, int arg3);
+extern "C" void func_ov003_0217bd38(void *arg0, int arg1);
+extern "C" unsigned char func_ov017_021b1fa8(void *arg0);
 extern "C" void *func_0202ae18(void);
-extern "C" int func_0202b7d8(int *obj);
-extern "C" void func_0202b0f4(void *obj);
-extern "C" int func_ov003_021734dc(int unused, int a, int b);
-extern "C" void func_0205a330(Container0205a330 *c, int arg);
-extern "C" int func_020457e0(Messages02172e84 *window);
-extern "C" int func_ov003_02172570(unsigned char *obj, void *extra);
+extern "C" int func_0202b7d8(int *arg0);
+extern "C" void func_0202b0f4(void *arg0);
+extern "C" int func_ov003_021734dc(int arg0, int arg1, int arg2);
+extern "C" void func_0205a330(Struct_0205a330 *arg0, int arg1);
+extern "C" int func_020457e0(Struct_ov003_02172e84_3 *arg0);
+extern "C" int func_ov003_02172570(unsigned char *arg0, void *arg1);
 
 extern char data_ov003_02180a49[];
 extern char data_ov003_02180a4c[];
@@ -212,240 +212,240 @@ extern char data_ov003_02180a63[];
 
 // USA: func_ov003_02172e84
 #if defined(jpn)
-extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
-    GameResources *res = GetGameResources();
-    Messages02172e84 *msg = func_020421a0();
-    Battle02172e84 *battle = (Battle02172e84 *) res->unknown_ptr_array_3afc[19];
-    if (self->step_ == 0) {
-        if (IsMainBrightnessTransitionActive(res) == 0) {
-            func_0204500c(msg, data_ov003_0217eb9b, 0);
-            msg->flag19be_ = 1;
-            msg->busy_ = 1;
-            self->step_ = 1;
+extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
+    GameResources *var0 = GetGameResources();
+    Struct_ov003_02172e84_3 *var1 = func_020421a0();
+    Struct_ov003_02172e84_2 *var2 = (Struct_ov003_02172e84_2 *) var0->unknown_ptr_array_3afc[19];
+    if (arg0->unknown_ea_ == 0) {
+        if (IsMainBrightnessTransitionActive(var0) == 0) {
+            func_0204500c(var1, data_ov003_0217eb9b, 0);
+            var1->unknown_17ee_ = 1;
+            var1->unknown_868_ = 1;
+            arg0->unknown_ea_ = 1;
         }
-    } else if (self->step_ == 1) {
-        Zone02172e84 *zone = func_02012fe4();
-        Save02172e84 *save = &zone->save_;
-        unsigned char count = self->party_->count_;
-        unsigned int joined = self->party_->joined_ & ~1;
-        joined &= joined ^ save->progress_.seen_;
-        if (battle->flag28_ != 0) {
-            if (!IsLinked(self->party_)) {
-                self->pending_ = 1;
+    } else if (arg0->unknown_ea_ == 1) {
+        Struct_ov003_02172e84_6 *var3 = func_02012fe4();
+        Struct_ov003_02172e84_5 *var4 = &var3->unknown_840_;
+        unsigned char var5 = arg0->unknown_cc_->unknown_614_;
+        unsigned int var6 = arg0->unknown_cc_->unknown_738_ & ~1;
+        var6 &= var6 ^ var4->unknown_1000_.unknown_b48_;
+        if (var2->unknown_28_ != 0) {
+            if (!inline_ov003_02172e84_3(arg0->unknown_cc_)) {
+                arg0->unknown_350_ = 1;
             }
         }
-        if (joined != 0 && self->shownCount_ < 3) {
-            self->shownCount_++;
-            self->busy_ = 1;
-            self->shown_ = 1;
-            int i;
-            for (i = 1; i < 24; i++) {
-                if (joined & (1 << i)) break;
+        if (var6 != 0 && arg0->unknown_d0_ < 3) {
+            arg0->unknown_d0_++;
+            arg0->unknown_c9_ = 1;
+            arg0->unknown_1_ = 1;
+            int var7;
+            for (var7 = 1; var7 < 24; var7++) {
+                if (var6 & (1 << var7)) break;
             }
-            save->progress_.seen_ |= 1 << i;
-            save->progress_.announced_ |= 1 << i;
-            sprintf(self->text_, data_ov003_0217ebff, func_02072a68(&self->texts_, (short) i));
-            self->announceCount_++;
-            self->step_ = 99;
-        } else if (self->memberIndex_ != count && self->shownCount_ < 3) {
-            Member02172e84 *member = &self->party_->members_[self->memberIndex_];
-            self->memberIndex_++;
-            self->busy_ = 1;
-            self->shownCount_++;
-            sprintf(self->text_, data_ov003_0217ebff, member);
-            int accolade = GetAccolade(GetProfile(member));
-            if (accolade < 700) {
-                func_020e2168(self->title_, data_ov003_0217ec02, (short) accolade, member->profile_.female_, 1);
+            var4->unknown_1000_.unknown_b48_ |= 1 << var7;
+            var4->unknown_1000_.unknown_b4c_ |= 1 << var7;
+            sprintf(arg0->unknown_2_, data_ov003_0217ebff, func_02072a68(&arg0->unknown_1e4_, (short) var7));
+            arg0->unknown_c2_++;
+            arg0->unknown_ea_ = 99;
+        } else if (arg0->unknown_d1_ != var5 && arg0->unknown_d0_ < 3) {
+            Struct_ov003_02172e84_9 *var8 = &arg0->unknown_cc_->unknown_35c_[arg0->unknown_d1_];
+            arg0->unknown_d1_++;
+            arg0->unknown_c9_ = 1;
+            arg0->unknown_d0_++;
+            sprintf(arg0->unknown_2_, data_ov003_0217ebff, var8);
+            int var9 = inline_ov003_02172e84_2(inline_ov003_02172e84(var8));
+            if (var9 < 700) {
+                func_020e2168(arg0->unknown_42_, data_ov003_0217ec02, (short) var9, var8->unknown_6c_.unknown_3_1_, 1);
             } else {
-                sprintf(self->title_, data_ov003_0217ebff,
-                        func_02072a68(&self->titles_, (short) (member->profile_.accolade_ + 20000)));
+                sprintf(arg0->unknown_42_, data_ov003_0217ebff,
+                        func_02072a68(&arg0->unknown_1dc_, (short) (var8->unknown_6c_.unknown_6_3_ + 20000)));
             }
-            self->step_ = 99;
-        } else if (self->pending_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
-            self->field340_ = self->fieldd8_;
-            func_ov003_0217bd38(self->field1e0_, self->field1c0_);
-            self->field30d_ = func_ov017_021b1fa8(battle);
-            self->mode_ = 5;
-            self->step_ = 0;
+            arg0->unknown_ea_ = 99;
+        } else if (arg0->unknown_350_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
+            arg0->unknown_34c_ = arg0->unknown_d4_;
+            func_ov003_0217bd38(arg0->unknown_1ec_, arg0->unknown_1cc_);
+            arg0->unknown_319_ = func_ov017_021b1fa8(var2);
+            arg0->unknown_e8_ = 5;
+            arg0->unknown_ea_ = 0;
         } else {
-            int x = g_touchInput.pressX_;
-            int y = g_touchInput.pressY_;
-            int curX;
-            int curY;
-            g_touchInput.GetTouchPoint(&curX, &curY);
-            if (func_ov003_021734dc((int) self, x, y) && func_ov003_021734dc((int) self, curX, curY)) {
-                self->active_ = 1;
+            int var10 = g_touchInput.pressX_;
+            int var11 = g_touchInput.pressY_;
+            int var12;
+            int var13;
+            g_touchInput.GetTouchPoint(&var12, &var13);
+            if (func_ov003_021734dc((int) arg0, var10, var11) && func_ov003_021734dc((int) arg0, var12, var13)) {
+                arg0->unknown_0_ = 1;
                 if (g_touchInput.released_ != 0) {
-                    self->step_ = 2;
+                    arg0->unknown_ea_ = 2;
                 }
             } else if (g_keyManager.TestKeysPressed(2)) {
-                self->active_ = 1;
-                self->step_ = 2;
+                arg0->unknown_0_ = 1;
+                arg0->unknown_ea_ = 2;
             } else {
-                self->active_ = 0;
+                arg0->unknown_0_ = 0;
             }
         }
-    } else if (self->step_ == 2) {
-        func_0204500c(msg, data_ov003_0217ec1d, 0);
-        msg->busy_ = 1;
-        self->step_ = 3;
-    } else if (self->step_ == 3) {
-        GameState *state = GameState::GetInstance();
-        msg->target_ = self->field130_;
-        msg->field2dc_ = self->field128_;
-        msg->entries_ = self->entries_;
-        self->active_ = 0;
-        Container0205a330 *entries = msg->entries_;
-        func_0205a330(entries, state->GetTickCount() >> 2);
-        if (msg->state_ == 0) {
-            msg->busy_ = 1;
-            if (func_020457e0(msg) == 0) {
-                self->done_ = 1;
-                self->step_ = 4;
+    } else if (arg0->unknown_ea_ == 2) {
+        func_0204500c(var1, data_ov003_0217ec1d, 0);
+        var1->unknown_868_ = 1;
+        arg0->unknown_ea_ = 3;
+    } else if (arg0->unknown_ea_ == 3) {
+        GameState *var14 = GameState::GetInstance();
+        var1->unknown_228_ = arg0->unknown_13c_;
+        var1->unknown_22c_ = arg0->unknown_134_;
+        var1->unknown_230_ = arg0->unknown_138_;
+        arg0->unknown_0_ = 0;
+        Struct_0205a330 *var15 = var1->unknown_230_;
+        func_0205a330(var15, var14->GetTickCount() >> 2);
+        if (var1->unknown_870_ == 0) {
+            var1->unknown_868_ = 1;
+            if (func_020457e0(var1) == 0) {
+                arg0->unknown_c8_ = 1;
+                arg0->unknown_ea_ = 4;
             } else {
-                self->step_ = 0;
+                arg0->unknown_ea_ = 0;
             }
         }
-    } else if (self->step_ == 4) {
-        if (self->done_ != 0 && !IsLinked(self->party_)) {
-            self->mode_ = 4;
-            self->step_ = 0;
-            self->party_->state_ = 10;
-        } else if (IsLinked(self->party_)) {
-            func_ov003_02172570((unsigned char *) self->party_, 0);
+    } else if (arg0->unknown_ea_ == 4) {
+        if (arg0->unknown_c8_ != 0 && !inline_ov003_02172e84_3(arg0->unknown_cc_)) {
+            arg0->unknown_e8_ = 4;
+            arg0->unknown_ea_ = 0;
+            arg0->unknown_cc_->unknown_0_ = 10;
+        } else if (inline_ov003_02172e84_3(arg0->unknown_cc_)) {
+            func_ov003_02172570((unsigned char *) arg0->unknown_cc_, 0);
         }
-    } else if (self->step_ == 99) {
-        if (self->subMode_ == 2) {
-            self->step_ = 1;
+    } else if (arg0->unknown_ea_ == 99) {
+        if (arg0->unknown_e9_ == 2) {
+            arg0->unknown_ea_ = 1;
         }
     }
 }
 #else
-extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
-    GameResources *res = GetGameResources();
-    Messages02172e84 *msg = func_020421a0();
-    Battle02172e84 *battle = (Battle02172e84 *) res->unknown_ptr_array_3afc[19];
-    if (self->step_ == 0) {
-        if (IsMainBrightnessTransitionActive(res) == 0) {
-            func_0204500c(msg, func_02072a68(&self->texts_, 100), 0, 0xe3);
-            msg->flag19be_ = 1;
-            msg->busy_ = 1;
-            self->step_ = 1;
+extern "C" ARM void func_ov003_02172e84(Struct_ov003_02172e84_7 *arg0) {
+    GameResources *var16 = GetGameResources();
+    Struct_ov003_02172e84_3 *var17 = func_020421a0();
+    Struct_ov003_02172e84_2 *var18 = (Struct_ov003_02172e84_2 *) var16->unknown_ptr_array_3afc[19];
+    if (arg0->unknown_ee_ == 0) {
+        if (IsMainBrightnessTransitionActive(var16) == 0) {
+            func_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 100), 0, 0xe3);
+            var17->unknown_19be_ = 1;
+            var17->unknown_998_ = 1;
+            arg0->unknown_ee_ = 1;
         }
-    } else if (self->step_ == 1) {
-        Zone02172e84 *zone = func_02012fe4();
-        Save02172e84 *save = &zone->save_;
-        unsigned char count = self->party_->count_;
-        unsigned int joined = self->party_->joined_ & ~1;
-        joined &= joined ^ save->progress_.seen_;
-        if (battle->flag28_ != 0) {
-            if (!IsLinked(self->party_)) {
-                self->pending_ = 1;
+    } else if (arg0->unknown_ee_ == 1) {
+        Struct_ov003_02172e84_6 *var19 = func_02012fe4();
+        Struct_ov003_02172e84_5 *var20 = &var19->unknown_840_;
+        unsigned char var21 = arg0->unknown_d0_->unknown_718_;
+        unsigned int var22 = arg0->unknown_d0_->unknown_738_ & ~1;
+        var22 &= var22 ^ var20->unknown_1000_.unknown_b48_;
+        if (var18->unknown_28_ != 0) {
+            if (!inline_ov003_02172e84_3(arg0->unknown_d0_)) {
+                arg0->unknown_344_ = 1;
             }
         }
-        if (joined != 0 && self->shownCount_ < 3) {
-            self->shownCount_++;
-            self->busy_ = 1;
-            self->shown_ = 1;
-            int i;
-            for (i = 1; i < 24; i++) {
-                if (joined & (1 << i)) break;
+        if (var22 != 0 && arg0->unknown_d4_ < 3) {
+            arg0->unknown_d4_++;
+            arg0->unknown_cb_ = 1;
+            arg0->unknown_1_ = 1;
+            int var23;
+            for (var23 = 1; var23 < 24; var23++) {
+                if (var22 & (1 << var23)) break;
             }
-            save->progress_.seen_ |= 1 << i;
-            save->progress_.announced_ |= 1 << i;
-            sprintf(self->text_, data_ov003_02180a49, func_02072a68(&self->texts_, (short) i));
-            self->bit_ = i;
-            self->announceCount_++;
-            self->step_ = 99;
-        } else if (self->memberIndex_ != count && self->shownCount_ < 3) {
-            Member02172e84 *member = &self->party_->members_[self->memberIndex_];
-            self->memberIndex_++;
-            self->busy_ = 1;
-            self->shownCount_++;
-            char name[0x30];
-            __clear(name, sizeof(name));
-            func_02042764(member, name, 1);
-            sprintf(self->text_, data_ov003_02180a49, name);
-            if (GetAccolade(GetProfile(member)) < 700) {
+            var20->unknown_1000_.unknown_b48_ |= 1 << var23;
+            var20->unknown_1000_.unknown_b4c_ |= 1 << var23;
+            sprintf(arg0->unknown_4_, data_ov003_02180a49, func_02072a68(&arg0->unknown_1d8_, (short) var23));
+            arg0->unknown_2_ = var23;
+            arg0->unknown_c4_++;
+            arg0->unknown_ee_ = 99;
+        } else if (arg0->unknown_d5_ != var21 && arg0->unknown_d4_ < 3) {
+            Struct_ov003_02172e84_9 *var24 = &arg0->unknown_d0_->unknown_460_[arg0->unknown_d5_];
+            arg0->unknown_d5_++;
+            arg0->unknown_cb_ = 1;
+            arg0->unknown_d4_++;
+            char var25[0x30];
+            __clear(var25, sizeof(var25));
+            func_02042764(var24, var25, 1);
+            sprintf(arg0->unknown_4_, data_ov003_02180a49, var25);
+            if (inline_ov003_02172e84_2(inline_ov003_02172e84(var24)) < 700) {
                 BackgroundLoader::AddLockGlobal();
-                unsigned int size = 0;
-                char path[0x40];
-                char inner[0x20];
-                __clear(path, sizeof(path));
-                __clear(inner, sizeof(inner));
-                sprintf(path, data_ov003_02180a4c, member->profile_.female_);
-                sprintf(inner, data_ov003_02180a63, member->profile_.female_);
-                void *file = ExtractFileFromGP2(path, inner, &size);
-                if (file != 0) {
-                    func_020e046c(self->title_, file, size, (short) member->profile_.accolade_);
+                unsigned int var26 = 0;
+                char var27[0x40];
+                char var28[0x20];
+                __clear(var27, sizeof(var27));
+                __clear(var28, sizeof(var28));
+                sprintf(var27, data_ov003_02180a4c, var24->unknown_6c_.unknown_3_1_);
+                sprintf(var28, data_ov003_02180a63, var24->unknown_6c_.unknown_3_1_);
+                void *var29 = ExtractFileFromGP2(var27, var28, &var26);
+                if (var29 != 0) {
+                    func_020e046c(arg0->unknown_44_, var29, var26, (short) var24->unknown_6c_.unknown_6_3_);
                 }
                 BackgroundLoader::RemoveLockGlobal();
             } else {
-                sprintf(self->title_, data_ov003_02180a49,
-                        func_02072a68(&self->titles_, (short) (member->profile_.accolade_ + 20000)));
+                sprintf(arg0->unknown_44_, data_ov003_02180a49,
+                        func_02072a68(&arg0->unknown_1d0_, (short) (var24->unknown_6c_.unknown_6_3_ + 20000)));
             }
-            self->step_ = 99;
-        } else if (self->pending_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
-            self->field340_ = self->fieldd8_;
-            func_ov003_0217bd38(self->field1e0_, self->field1c0_);
-            self->field30d_ = func_ov017_021b1fa8(battle);
-            self->party_->state_ = 10;
-            void *save = func_0202ae18();
-            if (func_0202b7d8((int *) save)) {
-                func_0202b0f4(save);
+            arg0->unknown_ee_ = 99;
+        } else if (arg0->unknown_344_ != 0 && !((*(unsigned short *) 0x27fffa8 & 0x8000) >> 15)) {
+            arg0->unknown_340_ = arg0->unknown_d8_;
+            func_ov003_0217bd38(arg0->unknown_1e0_, arg0->unknown_1c0_);
+            arg0->unknown_30d_ = func_ov017_021b1fa8(var18);
+            arg0->unknown_d0_->unknown_0_ = 10;
+            void *var30 = func_0202ae18();
+            if (func_0202b7d8((int *) var30)) {
+                func_0202b0f4(var30);
             }
-            self->mode_ = 5;
-            self->step_ = 0;
+            arg0->unknown_ec_ = 5;
+            arg0->unknown_ee_ = 0;
         } else {
-            int x = g_touchInput.pressX_;
-            int y = g_touchInput.pressY_;
-            int curX;
-            int curY;
-            g_touchInput.GetTouchPoint(&curX, &curY);
-            if (func_ov003_021734dc((int) self, x, y) && func_ov003_021734dc((int) self, curX, curY)) {
-                self->active_ = 1;
+            int var31 = g_touchInput.pressX_;
+            int var32 = g_touchInput.pressY_;
+            int var33;
+            int var34;
+            g_touchInput.GetTouchPoint(&var33, &var34);
+            if (func_ov003_021734dc((int) arg0, var31, var32) && func_ov003_021734dc((int) arg0, var33, var34)) {
+                arg0->unknown_0_ = 1;
                 if (g_touchInput.released_ != 0) {
-                    self->step_ = 2;
+                    arg0->unknown_ee_ = 2;
                 }
             } else if (g_keyManager.TestKeysPressed(2)) {
-                self->active_ = 1;
-                self->step_ = 2;
+                arg0->unknown_0_ = 1;
+                arg0->unknown_ee_ = 2;
             } else {
-                self->active_ = 0;
+                arg0->unknown_0_ = 0;
             }
         }
-    } else if (self->step_ == 2) {
-        func_0204500c(msg, func_02072a68(&self->texts_, 101), 0, 0xe3);
-        msg->busy_ = 1;
-        self->step_ = 3;
-    } else if (self->step_ == 3) {
-        GameState *state = GameState::GetInstance();
-        msg->target_ = self->field130_;
-        msg->field2dc_ = self->field128_;
-        msg->entries_ = self->entries_;
-        self->active_ = 0;
-        Container0205a330 *entries = msg->entries_;
-        func_0205a330(entries, state->GetTickCount() >> 2);
-        if (msg->state_ == 0) {
-            msg->busy_ = 1;
-            if (func_020457e0(msg) == 0) {
-                self->done_ = 1;
-                self->step_ = 4;
+    } else if (arg0->unknown_ee_ == 2) {
+        func_0204500c(var17, func_02072a68(&arg0->unknown_1d8_, 101), 0, 0xe3);
+        var17->unknown_998_ = 1;
+        arg0->unknown_ee_ = 3;
+    } else if (arg0->unknown_ee_ == 3) {
+        GameState *var35 = GameState::GetInstance();
+        var17->unknown_2d8_ = arg0->unknown_130_;
+        var17->unknown_2dc_ = arg0->unknown_128_;
+        var17->unknown_2e0_ = arg0->unknown_12c_;
+        arg0->unknown_0_ = 0;
+        Struct_0205a330 *var36 = var17->unknown_2e0_;
+        func_0205a330(var36, var35->GetTickCount() >> 2);
+        if (var17->unknown_9a0_ == 0) {
+            var17->unknown_998_ = 1;
+            if (func_020457e0(var17) == 0) {
+                arg0->unknown_ca_ = 1;
+                arg0->unknown_ee_ = 4;
             } else {
-                self->step_ = 0;
+                arg0->unknown_ee_ = 0;
             }
         }
-    } else if (self->step_ == 4) {
-        if (self->done_ != 0 && !IsLinked(self->party_)) {
-            self->mode_ = 4;
-            self->step_ = 0;
-            self->party_->state_ = 10;
-        } else if (IsLinked(self->party_)) {
-            func_ov003_02172570((unsigned char *) self->party_, 0);
+    } else if (arg0->unknown_ee_ == 4) {
+        if (arg0->unknown_ca_ != 0 && !inline_ov003_02172e84_3(arg0->unknown_d0_)) {
+            arg0->unknown_ec_ = 4;
+            arg0->unknown_ee_ = 0;
+            arg0->unknown_d0_->unknown_0_ = 10;
+        } else if (inline_ov003_02172e84_3(arg0->unknown_d0_)) {
+            func_ov003_02172570((unsigned char *) arg0->unknown_d0_, 0);
         }
-    } else if (self->step_ == 99) {
-        if (self->subMode_ == 2) {
-            self->step_ = 1;
+    } else if (arg0->unknown_ee_ == 99) {
+        if (arg0->unknown_ed_ == 2) {
+            arg0->unknown_ee_ = 1;
         }
     }
 }

@@ -10,59 +10,59 @@
 
 #include "std_library_functions.h"
 
-extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
-extern "C" void func_ov000_02179a70(void* obj, void* ptr, int val2, void* buf);
+extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02179a70(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" int func_020421a0(void);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov000_0217992c
-extern "C" ARM void func_ov000_0217992c(char* obj, void* ptr, int val2, int val3) {
-    if (ptr == NULL) return;
+extern "C" ARM void func_ov000_0217992c(char* arg0, void* arg1, int arg2, int arg3) {
+    if (arg1 == NULL) return;
 
-    int f44 = *(int*)((char*)ptr + 0x44);
-    int f48 = *(int*)((char*)ptr + 0x48);
-    func_ov000_0217ab8c(ptr, val2, val3);
+    int var0 = *(int*)((char*)arg1 + 0x44);
+    int var1 = *(int*)((char*)arg1 + 0x48);
+    func_ov000_0217ab8c(arg1, arg2, arg3);
 
-    signed char kind = *(signed char*)(obj + 0x78);
-    char* base = obj + 0x188;
-    if (kind == 3) {
+    signed char var2 = *(signed char*)(arg0 + 0x78);
+    char* var3 = arg0 + 0x188;
+    if (var2 == 3) {
 #if defined(jpn)
-        *(short*)(base + 0xa0) = 0xa;
+        *(short*)(var3 + 0xa0) = 0xa;
 #else
-        *(short*)(base + 0xa0) = 0xc;
+        *(short*)(var3 + 0xa0) = 0xc;
 #endif
-        *(short*)(base + 0xa2) = 6;
+        *(short*)(var3 + 0xa2) = 6;
     } else {
 #if defined(jpn)
-        *(short*)(base + 0xa0) = 0xa;
+        *(short*)(var3 + 0xa0) = 0xa;
 #else
-        *(short*)(base + 0xa0) = 0xc;
+        *(short*)(var3 + 0xa0) = 0xc;
 #endif
-        *(short*)(base + 0xa2) = 1;
+        *(short*)(var3 + 0xa2) = 1;
     }
 #if defined(jpn)
-    *(short*)(base + 0xa4) = (f44 >> 3) + 0x16;
+    *(short*)(var3 + 0xa4) = (var0 >> 3) + 0x16;
 #else
-    *(short*)(base + 0xa4) = (f44 >> 3) + 0x14;
+    *(short*)(var3 + 0xa4) = (var0 >> 3) + 0x14;
 #endif
-    *(short*)(base + 0xa6) = (f48 >> 3);
-    *(short*)(base + 0xa8) = 0xc;
-    *(short*)(base + 0xaa) = 8;
-    *(short*)(base + 0xac) = 0xa;
-    *(short*)(base + 0xae) = 0xb;
-    *(unsigned char*)(base + 0xb1) = 0x12;
+    *(short*)(var3 + 0xa6) = (var1 >> 3);
+    *(short*)(var3 + 0xa8) = 0xc;
+    *(short*)(var3 + 0xaa) = 8;
+    *(short*)(var3 + 0xac) = 0xa;
+    *(short*)(var3 + 0xae) = 0xb;
+    *(unsigned char*)(var3 + 0xb1) = 0x12;
 
-    int g = func_020421a0();
-    void* buf = *(void**)((char*)g + REGION_OFFSET_0);
-    memset(buf, 0, REGION_OFFSET_1);
-    func_ov000_02179a70(obj, ptr, val2, buf);
+    int var4 = func_020421a0();
+    void* var5 = *(void**)((char*)var4 + REGION_OFFSET_0);
+    memset(var5, 0, REGION_OFFSET_1);
+    func_ov000_02179a70(arg0, arg1, arg2, var5);
 #if defined(jpn)
-    func_0205d304(base, buf, 0, 1, 0, 1, 0);
+    func_0205d304(var3, var5, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(base, buf, 0, 1, 0, 1, 0, 0);
+    func_0205d304(var3, var5, 0, 1, 0, 1, 0, 0);
 #endif
 }

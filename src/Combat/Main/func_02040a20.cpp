@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 #include "Combat/EntryGetterTypes.h"
 
-struct ThreeWords0x50_02040a20 { unsigned int v[3]; };
+struct Struct_02040a20 { unsigned int unknown_0_[3]; };
 
 // USA: func_02040a20
-extern "C" ARM int func_02040a20(Entry_203dce4* obj) {
-    void* p;
+extern "C" ARM int func_02040a20(Struct_0203dce4* arg0) {
+    void* var0;
 
-    p = obj->child14;
-    if (p != NULL) {
-        return func_0203cdd0((struct StructF0x60_0203cdd0*)p);
+    var0 = arg0->unknown_14_;
+    if (var0 != NULL) {
+        return func_0203cdd0((struct Struct_0203cdd0*)var0);
     }
 
-    p = obj->child18;
-    if (p != NULL) {
-        struct ThreeWords0x50_02040a20 t1;
-        t1 = *(struct ThreeWords0x50_02040a20*)((char*)p + 0x50);
-        return (int)t1.v[1];
+    var0 = arg0->unknown_18_;
+    if (var0 != NULL) {
+        struct Struct_02040a20 var1;
+        var1 = *(struct Struct_02040a20*)((char*)var0 + 0x50);
+        return (int)var1.unknown_0_[1];
     }
 
-    p = obj->child1c;
-    if (p != NULL) {
-        struct ThreeWords0x50_02040a20 t2;
-        t2 = *(struct ThreeWords0x50_02040a20*)((char*)p + 0x50);
-        return (int)t2.v[1];
+    var0 = arg0->unknown_1c_;
+    if (var0 != NULL) {
+        struct Struct_02040a20 var2;
+        var2 = *(struct Struct_02040a20*)((char*)var0 + 0x50);
+        return (int)var2.unknown_0_[1];
     }
 
     return 0;

@@ -1,56 +1,56 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue70_40 = 0x40 };
+enum { Enum_ov003_02167a5c_112 = 0x40 };
 #else
-enum { kRegionValue70_40 = 0x70 };
+enum { Enum_ov003_02167a5c_112 = 0x70 };
 #endif
 
 
-struct Cont0207fe44;
-extern "C" void func_0207fe44(struct Cont0207fe44* obj);
+struct Struct_0207fe44;
+extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
 
-struct Pair02167a5c { unsigned int a; unsigned int b; };
-extern struct Pair02167a5c data_020e6d5c;
-struct Inner02167a5c { unsigned int v[2]; };
+struct Struct_020e6d5c_15 { unsigned int unknown_0_; unsigned int unknown_4_; };
+extern struct Struct_020e6d5c_15 data_020e6d5c;
+struct Struct_ov003_02167a5c { unsigned int unknown_0_[2]; };
 
-struct DispatchEntry02167a5c { unsigned int fn; unsigned int locator; };
-struct Table02167a5c { struct DispatchEntry02167a5c entries[7]; };
-extern struct Table02167a5c data_ov003_0217f4f0;
+struct Struct_ov003_02167a5c_2 { unsigned int unknown_0_; unsigned int unknown_4_; };
+struct Struct_ov003_0217f4f0 { struct Struct_ov003_02167a5c_2 unknown_0_[7]; };
+extern struct Struct_ov003_0217f4f0 data_ov003_0217f4f0;
 
-struct Obj02167a5c {
-    char pad0[0x10];
-    struct Cont0207fe44* f10;
-    char pad14[kRegionValue70_40 - 0x14];
-    int f70;
-    unsigned char f74;
-    char pad75;
-    signed char f76;
+struct Struct_ov003_02167a5c_3 {
+    char unknown_0_[0x10];
+    struct Struct_0207fe44* unknown_10_;
+    char unknown_14_[Enum_ov003_02167a5c_112 - 0x14];
+    int unknown_70_;
+    unsigned char unknown_74_;
+    char unknown_75_;
+    signed char unknown_76_;
 };
 
 // USA: func_ov003_02167a5c
-extern "C" ARM void func_ov003_02167a5c(struct Obj02167a5c* obj, int p1, int p2) {
-    if (obj->f74 == 0 || obj->f10 == 0) return;
-    if (obj->f70 == p1 && obj->f76 == p2) return;
+extern "C" ARM void func_ov003_02167a5c(struct Struct_ov003_02167a5c_3* arg0, int arg1, int arg2) {
+    if (arg0->unknown_74_ == 0 || arg0->unknown_10_ == 0) return;
+    if (arg0->unknown_70_ == arg1 && arg0->unknown_76_ == arg2) return;
 
-    if (obj->f70 != p1 || p2 < 0) {
-        func_0207fe44(obj->f10);
+    if (arg0->unknown_70_ != arg1 || arg2 < 0) {
+        func_0207fe44(arg0->unknown_10_);
     }
-    obj->f70 = p1;
-    obj->f76 = (signed char)p2;
+    arg0->unknown_70_ = arg1;
+    arg0->unknown_76_ = (signed char)arg2;
 
-    struct Table02167a5c buf;
-    buf = data_ov003_0217f4f0;
-    *(struct Inner02167a5c*)&buf.entries[0] = *(struct Inner02167a5c*)&data_020e6d5c;
+    struct Struct_ov003_0217f4f0 var0;
+    var0 = data_ov003_0217f4f0;
+    *(struct Struct_ov003_02167a5c*)&var0.unknown_0_[0] = *(struct Struct_ov003_02167a5c*)&data_020e6d5c;
 
-    if (buf.entries[p1].fn == 0) return;
-    struct DispatchEntry02167a5c* d = &buf.entries[p1];
-    void* base = (char*)obj + ((int)d->locator >> 1);
-    void* callback;
-    if (d->locator & 1) {
-        callback = *(void**)((char*)*(void**)base + d->fn);
+    if (var0.unknown_0_[arg1].unknown_0_ == 0) return;
+    struct Struct_ov003_02167a5c_2* var1 = &var0.unknown_0_[arg1];
+    void* var2 = (char*)arg0 + ((int)var1->unknown_4_ >> 1);
+    void* var3;
+    if (var1->unknown_4_ & 1) {
+        var3 = *(void**)((char*)*(void**)var2 + var1->unknown_0_);
     } else {
-        callback = (void*)d->fn;
+        var3 = (void*)var1->unknown_0_;
     }
-    ((void(*)(void*))callback)(base);
+    ((void(*)(void*))var3)(var2);
 }

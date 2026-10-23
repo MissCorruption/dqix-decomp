@@ -3,65 +3,65 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue14_10 = 0x10 };
-enum { kRegionValue30_2C = 0x2c };
-enum { kRegionValue31_2D = 0x2d };
-enum { kRegionValue18_14 = 0x14 };
-enum { kRegionValue34_30 = 0x30 };
-enum { kRegionValue38_34 = 0x34 };
-enum { kRegionValue3C_38 = 0x38 };
-enum { kRegionValue90_8C = 0x8c };
-enum { kRegionValue94_90 = 0x90 };
-enum { kRegionValue98_94 = 0x94 };
-enum { kRegionValue9C_98 = 0x98 };
-enum { kRegionValueA0_9C = 0x9c };
-enum { kRegionValueA4_A0 = 0xa0 };
-enum { kRegionValueB8_B4 = 0xb4 };
-enum { kRegionValueCC_C8 = 0xc8 };
+enum { Enum_ov003_0217daf0_20 = 0x10 };
+enum { Enum_ov003_0217daf0_48 = 0x2c };
+enum { Enum_ov003_0217daf0_49 = 0x2d };
+enum { Enum_ov003_0217daf0_24 = 0x14 };
+enum { Enum_ov003_0217daf0_52 = 0x30 };
+enum { Enum_ov003_0217daf0_56 = 0x34 };
+enum { Enum_ov003_0217daf0_60 = 0x38 };
+enum { Enum_ov003_0217daf0_144 = 0x8c };
+enum { Enum_ov003_0217daf0_148 = 0x90 };
+enum { Enum_ov003_0217daf0_152 = 0x94 };
+enum { Enum_ov003_0217daf0_156 = 0x98 };
+enum { Enum_ov003_0217daf0_160 = 0x9c };
+enum { Enum_ov003_0217daf0_164 = 0xa0 };
+enum { Enum_ov003_0217daf0_184 = 0xb4 };
+enum { Enum_ov003_0217daf0_204 = 0xc8 };
 #else
-enum { kRegionValue14_10 = 0x14 };
-enum { kRegionValue30_2C = 0x30 };
-enum { kRegionValue31_2D = 0x31 };
-enum { kRegionValue18_14 = 0x18 };
-enum { kRegionValue34_30 = 0x34 };
-enum { kRegionValue38_34 = 0x38 };
-enum { kRegionValue3C_38 = 0x3c };
-enum { kRegionValue90_8C = 0x90 };
-enum { kRegionValue94_90 = 0x94 };
-enum { kRegionValue98_94 = 0x98 };
-enum { kRegionValue9C_98 = 0x9c };
-enum { kRegionValueA0_9C = 0xa0 };
-enum { kRegionValueA4_A0 = 0xa4 };
-enum { kRegionValueB8_B4 = 0xb8 };
-enum { kRegionValueCC_C8 = 0xcc };
+enum { Enum_ov003_0217daf0_20 = 0x14 };
+enum { Enum_ov003_0217daf0_48 = 0x30 };
+enum { Enum_ov003_0217daf0_49 = 0x31 };
+enum { Enum_ov003_0217daf0_24 = 0x18 };
+enum { Enum_ov003_0217daf0_52 = 0x34 };
+enum { Enum_ov003_0217daf0_56 = 0x38 };
+enum { Enum_ov003_0217daf0_60 = 0x3c };
+enum { Enum_ov003_0217daf0_144 = 0x90 };
+enum { Enum_ov003_0217daf0_148 = 0x94 };
+enum { Enum_ov003_0217daf0_152 = 0x98 };
+enum { Enum_ov003_0217daf0_156 = 0x9c };
+enum { Enum_ov003_0217daf0_160 = 0xa0 };
+enum { Enum_ov003_0217daf0_164 = 0xa4 };
+enum { Enum_ov003_0217daf0_184 = 0xb8 };
+enum { Enum_ov003_0217daf0_204 = 0xcc };
 #endif
 
 
-extern "C" void func_0205a444(char* obj);
-struct Struct020dfc40;
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
+extern "C" void func_0205a444(char* arg0);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 
 // USA: func_ov003_0217daf0
-extern "C" ARM void func_ov003_0217daf0(char* obj) {
-	*(int*)(obj + 0x0) = (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
-	*(unsigned char*)(obj + 0x4) = 0;
-	*(unsigned char*)(obj + 0x5) = 0;
-	*(unsigned char*)(obj + 0x6) = 0;
-	*(short*)(obj + 0x8) = 1;
-	*(int*)(obj + 0xc) = 0;
-	*(int*)(obj + kRegionValue14_10) = 0;
-	*(unsigned char*)(obj + kRegionValue30_2C) = 0;
-	*(unsigned char*)(obj + kRegionValue31_2D) = 0;
-	VectorizedMemset(obj + kRegionValue18_14, 0, 0x18);
-	*(int*)(obj + kRegionValue34_30) = 0;
-	*(int*)(obj + kRegionValue38_34) = 0;
-	func_0205a444(obj + kRegionValue3C_38);
-	*(int*)(obj + kRegionValue90_8C) = 0;
-	*(int*)(obj + kRegionValue94_90) = 0;
-	*(int*)(obj + kRegionValue98_94) = 0;
-	*(int*)(obj + kRegionValue9C_98) = 0;
-	*(int*)(obj + kRegionValueA0_9C) = 0;
-	((SafeAllocator*)(obj + kRegionValueA4_A0))->ResetAllocatorPointer();
-	((SafeAllocator*)(obj + kRegionValueB8_B4))->ResetAllocatorPointer();
-	func_020dfc40((struct Struct020dfc40*)(obj + kRegionValueCC_C8));
+extern "C" ARM void func_ov003_0217daf0(char* arg0) {
+	*(int*)(arg0 + 0x0) = (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
+	*(unsigned char*)(arg0 + 0x4) = 0;
+	*(unsigned char*)(arg0 + 0x5) = 0;
+	*(unsigned char*)(arg0 + 0x6) = 0;
+	*(short*)(arg0 + 0x8) = 1;
+	*(int*)(arg0 + 0xc) = 0;
+	*(int*)(arg0 + Enum_ov003_0217daf0_20) = 0;
+	*(unsigned char*)(arg0 + Enum_ov003_0217daf0_48) = 0;
+	*(unsigned char*)(arg0 + Enum_ov003_0217daf0_49) = 0;
+	VectorizedMemset(arg0 + Enum_ov003_0217daf0_24, 0, 0x18);
+	*(int*)(arg0 + Enum_ov003_0217daf0_52) = 0;
+	*(int*)(arg0 + Enum_ov003_0217daf0_56) = 0;
+	func_0205a444(arg0 + Enum_ov003_0217daf0_60);
+	*(int*)(arg0 + Enum_ov003_0217daf0_144) = 0;
+	*(int*)(arg0 + Enum_ov003_0217daf0_148) = 0;
+	*(int*)(arg0 + Enum_ov003_0217daf0_152) = 0;
+	*(int*)(arg0 + Enum_ov003_0217daf0_156) = 0;
+	*(int*)(arg0 + Enum_ov003_0217daf0_160) = 0;
+	((SafeAllocator*)(arg0 + Enum_ov003_0217daf0_164))->ResetAllocatorPointer();
+	((SafeAllocator*)(arg0 + Enum_ov003_0217daf0_184))->ResetAllocatorPointer();
+	func_020dfc40((struct Struct_0201099c_14*)(arg0 + Enum_ov003_0217daf0_204));
 }

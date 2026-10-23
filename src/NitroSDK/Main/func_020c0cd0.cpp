@@ -2,54 +2,54 @@
 
 #define DIGEST_BLOCK_SIZE 64
 
-struct HmacHash
+struct Struct_020c0cd0
 {
-    int digestSize;
-    int blockSize;
-    void* context;
-    void* digest;
-    void (*reset)(void* context);
-    void (*setSource)(void* context, const void* input, unsigned long length);
-    void (*getDigest)(void* context, void* digest);
+    int unknown_0_;
+    int unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    void (*unknown_10_)(void* context);
+    void (*unknown_14_)(void* context, const void* input, unsigned long length);
+    void (*unknown_18_)(void* context, void* digest);
 };
 
 // USA: func_020c0cd0
-extern "C" ARM void func_020c0cd0(void* digest, const void* input, int length, const void* key, int keyLength, HmacHash* hash)
+extern "C" ARM void func_020c0cd0(void* arg0, const void* arg1, int arg2, const void* arg3, int arg4, Struct_020c0cd0* arg5)
 {
-    unsigned char keyDigest[DIGEST_BLOCK_SIZE];
-    unsigned char innerPad[DIGEST_BLOCK_SIZE];
-    unsigned char outerPad[DIGEST_BLOCK_SIZE];
-    const unsigned char* keyBytes;
-    int i;
+    unsigned char var0[DIGEST_BLOCK_SIZE];
+    unsigned char var1[DIGEST_BLOCK_SIZE];
+    unsigned char var2[DIGEST_BLOCK_SIZE];
+    const unsigned char* var3;
+    int var4;
 
-    if (digest == NULL || input == NULL || length == 0 || key == NULL || keyLength == 0 || hash == NULL)
+    if (arg0 == NULL || arg1 == NULL || arg2 == 0 || arg3 == NULL || arg4 == 0 || arg5 == NULL)
         return;
 
-    if (keyLength > hash->blockSize)
+    if (arg4 > arg5->unknown_4_)
     {
-        hash->reset(hash->context);
-        hash->setSource(hash->context, key, keyLength);
-        hash->getDigest(hash->context, keyDigest);
-        key = keyDigest;
-        keyLength = hash->digestSize;
+        arg5->unknown_10_(arg5->unknown_8_);
+        arg5->unknown_14_(arg5->unknown_8_, arg3, arg4);
+        arg5->unknown_18_(arg5->unknown_8_, var0);
+        arg3 = var0;
+        arg4 = arg5->unknown_0_;
     }
-    keyBytes = (const unsigned char*)key;
+    var3 = (const unsigned char*)arg3;
 
-    for (i = 0; i < keyLength; i++)
-        innerPad[i] = keyBytes[i] ^ 0x36;
-    for (; i < hash->blockSize; i++)
-        innerPad[i] = 0x36;
-    hash->reset(hash->context);
-    hash->setSource(hash->context, innerPad, hash->blockSize);
-    hash->setSource(hash->context, input, length);
-    hash->getDigest(hash->context, hash->digest);
+    for (var4 = 0; var4 < arg4; var4++)
+        var1[var4] = var3[var4] ^ 0x36;
+    for (; var4 < arg5->unknown_4_; var4++)
+        var1[var4] = 0x36;
+    arg5->unknown_10_(arg5->unknown_8_);
+    arg5->unknown_14_(arg5->unknown_8_, var1, arg5->unknown_4_);
+    arg5->unknown_14_(arg5->unknown_8_, arg1, arg2);
+    arg5->unknown_18_(arg5->unknown_8_, arg5->unknown_c_);
 
-    for (i = 0; i < keyLength; i++)
-        outerPad[i] = keyBytes[i] ^ 0x5c;
-    for (; i < hash->blockSize; i++)
-        outerPad[i] = 0x5c;
-    hash->reset(hash->context);
-    hash->setSource(hash->context, outerPad, hash->blockSize);
-    hash->setSource(hash->context, hash->digest, hash->digestSize);
-    hash->getDigest(hash->context, digest);
+    for (var4 = 0; var4 < arg4; var4++)
+        var2[var4] = var3[var4] ^ 0x5c;
+    for (; var4 < arg5->unknown_4_; var4++)
+        var2[var4] = 0x5c;
+    arg5->unknown_10_(arg5->unknown_8_);
+    arg5->unknown_14_(arg5->unknown_8_, var2, arg5->unknown_4_);
+    arg5->unknown_14_(arg5->unknown_8_, arg5->unknown_c_, arg5->unknown_0_);
+    arg5->unknown_18_(arg5->unknown_8_, arg0);
 }

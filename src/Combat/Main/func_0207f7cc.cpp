@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct List0207f6ac;
+struct Struct_0207f524;
 
-struct FlagEntry0207f7cc {
-    char pad[0x2a];
-    unsigned char flags;
+struct Struct_0207f7cc {
+    char unknown_0_[0x2a];
+    unsigned char unknown_2a_;
 };
 
-extern "C" struct FlagEntry0207f7cc* func_0207f6ac(struct List0207f6ac* list, int id);
+extern "C" struct Struct_0207f7cc* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
 
 // USA: func_0207f7cc
-extern "C" ARM void func_0207f7cc(struct List0207f6ac* list, int id, int mask) {
-    struct FlagEntry0207f7cc* e = func_0207f6ac(list, id);
-    if (e != NULL) {
-        e->flags &= ~mask;
+extern "C" ARM void func_0207f7cc(struct Struct_0207f524* arg0, int arg1, int arg2) {
+    struct Struct_0207f7cc* var0 = func_0207f6ac(arg0, arg1);
+    if (var0 != NULL) {
+        var0->unknown_2a_ &= ~arg2;
     }
 }

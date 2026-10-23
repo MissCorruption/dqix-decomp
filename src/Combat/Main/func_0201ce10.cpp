@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 #include "World/ZoneFeatures.h"
 
-struct Struct0201ce10 {
-    int f00;
-    int pad04[6];
-    int f1c;
-    int f20[12];
-    short f50;
-    short f52;
-    int f54;
-    int f58;
-    int f5c;
-    int f60;
-    int f64;
-    int f68;
-    int f6c;
+struct Struct_0201ce10 {
+    int unknown_0_;
+    int unknown_4_[6];
+    int unknown_1c_;
+    int unknown_20_[12];
+    short unknown_50_;
+    short unknown_52_;
+    int unknown_54_;
+    int unknown_58_;
+    int unknown_5c_;
+    int unknown_60_;
+    int unknown_64_;
+    int unknown_68_;
+    int unknown_6c_;
 };
 
 // USA: func_0201ce10
-ARM void ZoneFeatures::Opcode68Entry::func_0201ce10() {
-    struct Struct0201ce10* p = (struct Struct0201ce10*)this;
-    p->f00 = 0;
-    p->f1c = -1;
-    p->f50 = 0;
-    p->f52 = 0;
-    p->f54 = 0;
-    p->f64 = 0;
-    p->f68 = 0;
-    p->f58 = 0;
-    p->f5c = 0;
-    p->f60 = 0;
-    p->f20[0] = 0;
-    p->f20[1] = 0;
-    p->f20[2] = 0;
-    p->f20[3] = 0;
-    p->f20[4] = 0;
-    p->f20[5] = 0;
-    p->f20[6] = 0;
-    p->f20[7] = 0;
-    p->f20[8] = 0;
-    p->f20[9] = 0;
-    p->f20[10] = 0;
-    p->f20[11] = 0;
-    p->f6c = -1;
+ARM void Struct_020134e0::Struct_0201cb60_3::func_0201ce10() {
+    struct Struct_0201ce10* var0 = (struct Struct_0201ce10*)this;
+    var0->unknown_0_ = 0;
+    var0->unknown_1c_ = -1;
+    var0->unknown_50_ = 0;
+    var0->unknown_52_ = 0;
+    var0->unknown_54_ = 0;
+    var0->unknown_64_ = 0;
+    var0->unknown_68_ = 0;
+    var0->unknown_58_ = 0;
+    var0->unknown_5c_ = 0;
+    var0->unknown_60_ = 0;
+    var0->unknown_20_[0] = 0;
+    var0->unknown_20_[1] = 0;
+    var0->unknown_20_[2] = 0;
+    var0->unknown_20_[3] = 0;
+    var0->unknown_20_[4] = 0;
+    var0->unknown_20_[5] = 0;
+    var0->unknown_20_[6] = 0;
+    var0->unknown_20_[7] = 0;
+    var0->unknown_20_[8] = 0;
+    var0->unknown_20_[9] = 0;
+    var0->unknown_20_[10] = 0;
+    var0->unknown_20_[11] = 0;
+    var0->unknown_6c_ = -1;
 }

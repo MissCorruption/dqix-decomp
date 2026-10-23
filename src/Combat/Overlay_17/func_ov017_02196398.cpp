@@ -3,25 +3,25 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-struct U16Field0x6_020375f8;
-extern "C" void func_ov017_021973e8(void* obj);
-extern "C" void func_ov017_0218e8c8(void* obj, unsigned int value, int mode);
-extern "C" void func_ov017_021a1d98(void* obj, unsigned int value);
+struct Struct_02039df4;
+extern "C" void func_ov017_021973e8(void* arg0);
+extern "C" void func_ov017_0218e8c8(void* arg0, unsigned int arg1, int arg2);
+extern "C" void func_ov017_021a1d98(void* arg0, unsigned int arg1);
 
 // USA: func_ov017_02196398
-extern "C" ARM void func_ov017_02196398(unsigned int* obj) {
-	GameState* battleStruct = GameState::GetInstance();
-	func_020100bc(battleStruct);
-	unsigned short value = ((Object3D*)((struct U16Field0x6_020375f8*)battleStruct->GetProtagonist()))->GetField06();
-	func_ov017_021973e8(obj);
+extern "C" ARM void func_ov017_02196398(unsigned int* arg0) {
+	GameState* var0 = GameState::GetInstance();
+	func_020100bc(var0);
+	unsigned short var1 = ((Object3D*)((struct Struct_02039df4*)var0->GetProtagonist()))->GetField06();
+	func_ov017_021973e8(arg0);
 
-	if (!TestFlags04((GameResources*)obj, 4)) {
-		func_ov017_0218e8c8(obj, value, 1);
+	if (!TestFlags04((GameResources*)arg0, 4)) {
+		func_ov017_0218e8c8(arg0, var1, 1);
 	}
-	if (!TestFlags04((GameResources*)obj, 0x10)) {
-		func_ov017_021a1d98(obj, value);
+	if (!TestFlags04((GameResources*)arg0, 0x10)) {
+		func_ov017_021a1d98(arg0, var1);
 	}
-	if (!TestFlags04((GameResources*)obj, 4)) {
-		func_ov017_0218e8c8(obj, value, 2);
+	if (!TestFlags04((GameResources*)arg0, 4)) {
+		func_ov017_0218e8c8(arg0, var1, 2);
 	}
 }

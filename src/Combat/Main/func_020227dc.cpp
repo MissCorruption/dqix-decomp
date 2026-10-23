@@ -11,57 +11,57 @@ extern "C" unsigned short* func_02012fe4(void);
 extern "C" char* func_0203bd08(void);
 extern "C" ARM void* func_0203b628(void);
 
-extern "C" void func_02021428(void* unused0, int amount);
-extern "C" void func_020209d0(void* context);
-extern "C" void func_0203b66c(char* obj);
-extern "C" void func_0203bd78(char* obj);
-extern "C" void func_0203bd24(char* obj);
+extern "C" void func_02021428(void* arg0, int arg1);
+extern "C" void func_020209d0(void* arg0);
+extern "C" void func_0203b66c(char* arg0);
+extern "C" void func_0203bd78(char* arg0);
+extern "C" void func_0203bd24(char* arg0);
 
-extern "C" int func_0203b784(int* arr1, int idx, int category, int addr, unsigned int len, unsigned int len2);
-extern "C" void func_0203b718(void* objPtr, int mode, int idx, int fillByte);
-extern "C" void func_0203ba74(void* obj);
+extern "C" int func_0203b784(int* arg0, int arg1, int arg2, int arg3, unsigned int arg4, unsigned int arg5);
+extern "C" void func_0203b718(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0203ba74(void* arg0);
 
-extern "C" void func_0205a198(struct Struct0205a198* p);
-extern "C" void func_0205a444(char* obj);
+extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+extern "C" void func_0205a444(char* arg0);
 
-extern "C" void func_02020aa0(void* obj);
+extern "C" void func_02020aa0(void* arg0);
 
-struct State0xbb1c;
-extern "C" void func_0203bb1c(struct State0xbb1c* obj);
+struct Struct_02020fc4;
+extern "C" void func_0203bb1c(struct Struct_02020fc4* arg0);
 
-struct Obj0203bb3c;
-extern "C" void func_0203bb3c(struct Obj0203bb3c* obj, char* src, SafeAllocator* allocator, int category, unsigned short arg5);
+struct Struct_02020fc4_2;
+extern "C" void func_0203bb3c(struct Struct_02020fc4_2* arg0, char* arg1, SafeAllocator* arg2, int arg3, unsigned short arg4);
 
-struct Bcb8Params;
-extern "C" void func_0203bcb8(struct Bcb8Params* s, int arg1, int arg2);
+struct Struct_02020fc4_3;
+extern "C" void func_0203bcb8(struct Struct_02020fc4_3* arg0, int arg1, int arg2);
 
-struct ResetStruct {
-    int w0;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
-    int w18;
-    int w1c;
-    int w20;
-    int w24;
-    int w28;
-    char pad[0x400];
-    unsigned char b42c;
+struct Struct_0201f040 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    char unknown_2c_[0x400];
+    unsigned char unknown_42c_;
 };
 
-struct StreamHeader;
-struct StreamState;
+struct Struct_02013fb4;
+struct Struct_0201f040_2;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
-extern "C" void func_0202445c(void* obj);
-extern "C" void func_ov017_02191234(void* obj);
+extern "C" void func_0202445c(void* arg0);
+extern "C" void func_ov017_02191234(void* arg0);
 extern "C" void func_020c9820(void);
-extern "C" void func_0202343c(void* obj);
-extern "C" void func_02026b7c(unsigned char* obj);
-extern "C" void func_02026bdc(void* obj, int flag);
+extern "C" void func_0202343c(void* arg0);
+extern "C" void func_02026b7c(unsigned char* arg0);
+extern "C" void func_02026bdc(void* arg0, int arg1);
 
 extern char data_020ef67c;
 extern int data_020ef460;
@@ -71,124 +71,124 @@ extern int data_020ef498;
 extern char data_020ef6b5;
 
 #if defined(jpn)
-enum { ContextTailRegionOffset = 0xac, GlobalHeaderRegionOffset = 4 };
+enum { Enum_020227dc_172 = 0xac, Enum_020227dc_0_2 = 4 };
 #else
-enum { ContextTailRegionOffset = 0, GlobalHeaderRegionOffset = 0 };
+enum { Enum_020227dc_0 = 0, Enum_020227dc_0_2 = 0 };
 #endif
 
-struct Global020fdc4c_020227dc {
-    char pad[0x8 - GlobalHeaderRegionOffset];
-    void* allocatorPtr;
-    char pad2[0x10 - 0xc];
-    void* ctxPtr;
+struct Struct_020fdc4c_7 {
+    char unknown_0_[0x8 - Enum_020227dc_0_2];
+    void* unknown_8_;
+    char unknown_c_[0x10 - 0xc];
+    void* unknown_10_;
 };
-extern struct Global020fdc4c_020227dc data_020fdc4c;
+extern struct Struct_020fdc4c_7 data_020fdc4c;
 
 // USA: func_020227dc
-extern "C" ARM void func_020227dc(MapDisplay* ctx) {
+extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    unsigned short* p6 = func_02012fe4();
-    char* axisObj = ((char*)GetGameResources());
-    char* p8 = func_0203bd08();
-    void* dataPtr = func_0203b628();
-    int i;
-    SafeAllocator* sb = (SafeAllocator*)(axisObj + 0x128);
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    unsigned short* var1 = func_02012fe4();
+    char* var2 = ((char*)GetGameResources());
+    char* var3 = func_0203bd08();
+    void* var4 = func_0203b628();
+    int var5;
+    SafeAllocator* var6 = (SafeAllocator*)(var2 + 0x128);
 
-    if (ctx->loadStage == 0) {
-        func_02021428(ctx, 0x19);
-        loader->AddFence();
-        ctx->taska24 = loader->QueueLoadFile(&data_020ef67c, 0);
-        ctx->taska20 = loader->QueueLoadFileInGP2((const char*)(*(int*)((char*)&data_020ef460 + 8 - GlobalHeaderRegionOffset)), &data_020ef692, 0);
-        ctx->taska28 = loader->QueueLoadFile(&data_020ef69f, 0);
-        ctx->loadStage = ctx->loadStage + 1;
+    if (arg0->unknown_9c2_ == 0) {
+        func_02021428(arg0, 0x19);
+        var0->AddFence();
+        arg0->unknown_a24_ = var0->QueueLoadFile(&data_020ef67c, 0);
+        arg0->unknown_a20_ = var0->QueueLoadFileInGP2((const char*)(*(int*)((char*)&data_020ef460 + 8 - Enum_020227dc_0_2)), &data_020ef692, 0);
+        arg0->unknown_a28_ = var0->QueueLoadFile(&data_020ef69f, 0);
+        arg0->unknown_9c2_ = arg0->unknown_9c2_ + 1;
         return;
     }
 
-    if (ctx->loadStage != 1) return;
+    if (arg0->unknown_9c2_ != 1) return;
 
-    if (loader->GetTaskStatus(ctx->taska24) == 0) return;
-    if (loader->GetTaskStatus(ctx->taska20) == 0) return;
-    if (loader->GetTaskStatus(ctx->taska28) == 0) return;
+    if (var0->GetTaskStatus(arg0->unknown_a24_) == 0) return;
+    if (var0->GetTaskStatus(arg0->unknown_a20_) == 0) return;
+    if (var0->GetTaskStatus(arg0->unknown_a28_) == 0) return;
 
-    func_02021428(ctx, 0x19);
-    if (IsBrightnessWithinValidRange((GameResources*)axisObj, true) != 0) return;
+    func_02021428(arg0, 0x19);
+    if (IsBrightnessWithinValidRange((GameResources*)var2, true) != 0) return;
 
-    func_02020720(ctx);
-    func_020209d0(ctx);
-    func_0203b66c((char*)dataPtr);
-    sb->Reset();
-    func_0203bd78(p8);
-    func_0203bd24(p8);
+    func_02020720(arg0);
+    func_020209d0(arg0);
+    func_0203b66c((char*)var4);
+    var6->Reset();
+    func_0203bd78(var3);
+    func_0203bd24(var3);
 
-    char buf[0x20];
-    memset(buf, 0, 0x20);
-    func_0203b784((int*)dataPtr, 1, 1, (int)buf, 0x20, 1);
-    func_0203b718(dataPtr, 1, 0, 0);
-    func_0203b718(dataPtr, 1, 1, 0);
-    func_0203ba74(dataPtr);
+    char var7[0x20];
+    memset(var7, 0, 0x20);
+    func_0203b784((int*)var4, 1, 1, (int)var7, 0x20, 1);
+    func_0203b718(var4, 1, 0, 0);
+    func_0203b718(var4, 1, 1, 0);
+    func_0203ba74(var4);
 
-    for (i = 0; i < 0x1c; i++) {
-        func_0205a198(&ctx->records[i]);
+    for (var5 = 0; var5 < 0x1c; var5++) {
+        func_0205a198(&arg0->unknown_e8_[var5]);
     }
 
-    func_0205a444((char*)&ctx->entryList);
-    ctx->entryList.active = 1;
-    ctx->entryList.records = ctx->records;
-    ctx->entryList.count = 0x1c;
-    ctx->displayMode = 1;
+    func_0205a444((char*)&arg0->unknown_94_);
+    arg0->unknown_94_.unknown_50_ = 1;
+    arg0->unknown_94_.unknown_40_ = arg0->unknown_e8_;
+    arg0->unknown_94_.unknown_4c_ = 0x1c;
+    arg0->unknown_14_ = 1;
 #if defined(jpn)
-    func_02020aec(ctx, ctx->taska24, sb);
+    func_02020aec(arg0, arg0->unknown_a24_, var6);
 #else
-    func_02020aec(ctx, &ctx->taska24, sb);
+    func_02020aec(arg0, &arg0->unknown_a24_, var6);
 #endif
 
-    func_02020aa0(ctx);
-    ctx->nameCount = 1;
-    ctx->forwardingCount = 1;
+    func_02020aa0(arg0);
+    arg0->unknown_24_ = 1;
+    arg0->unknown_30_ = 1;
 
-    void* fileData = 0;
-    unsigned int fileSize = 0;
-    loader->GetLoadedFileByID(ctx->taska20, &fileData, &fileSize);
+    void* var8 = 0;
+    unsigned int var9 = 0;
+    var0->GetLoadedFileByID(arg0->unknown_a20_, &var8, &var9);
 
-    ctx->names = (Entry02021578*)sb->Allocate(sizeof(Entry02021578));
-    func_0203bb1c((struct State0xbb1c*)((char*)ctx->names + 8));
+    arg0->unknown_20_ = (Struct_020210f8*)var6->Allocate(sizeof(Struct_020210f8));
+    func_0203bb1c((struct Struct_02020fc4*)((char*)arg0->unknown_20_ + 8));
 
-    func_0203bb3c((struct Obj0203bb3c*)((char*)ctx->names + 8), (char*)fileData, sb, 1, 0);
-    func_0203bcb8((struct Bcb8Params*)((char*)ctx->names + 8), 0, 0);
+    func_0203bb3c((struct Struct_02020fc4_2*)((char*)arg0->unknown_20_ + 8), (char*)var8, var6, 1, 0);
+    func_0203bcb8((struct Struct_02020fc4_3*)((char*)arg0->unknown_20_ + 8), 0, 0);
 
-    BackgroundLoader::GetInstance()->RemoveTask(ctx->taska20);
-    ctx->taska20 = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a20_);
+    arg0->unknown_a20_ = -1;
 
-    loader->GetLoadedFileByID(ctx->taska28, &fileData, &fileSize);
+    var0->GetLoadedFileByID(arg0->unknown_a28_, &var8, &var9);
 
-    struct ResetStruct local;
-    data_020fdc4c.ctxPtr = ctx;
-    data_020fdc4c.allocatorPtr = sb;
-    ((Script*)&local)->Initialize();
-    ((Script*)&local)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020ef498);
-    ((Script*)((struct StreamState*)&local))->Load((struct StreamHeader*)fileData, (int)fileSize);
-    ((Script*)((struct Struct02030774*)&local))->Execute();
+    struct Struct_0201f040 var10;
+    data_020fdc4c.unknown_10_ = arg0;
+    data_020fdc4c.unknown_8_ = var6;
+    ((Script*)&var10)->Initialize();
+    ((Script*)&var10)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020ef498);
+    ((Script*)((struct Struct_0201f040_2*)&var10))->Load((struct Struct_02013fb4*)var8, (int)var9);
+    ((Script*)((struct Struct_0201f040_3*)&var10))->Execute();
 
-    if (*p6 == 10000 || *p6 == 10100) {
-        ctx->field12 = 1;
-        ctx->refreshRecords = 0;
-        ctx->field9ba = 0;
-        strcpy(ctx->headerName, &data_020ef6b5);
+    if (*var1 == 10000 || *var1 == 10100) {
+        arg0->unknown_12_ = 1;
+        arg0->unknown_779_ = 0;
+        arg0->unknown_9ba_ = 0;
+        strcpy(arg0->unknown_2_, &data_020ef6b5);
     }
 
-    BackgroundLoader::GetInstance()->RemoveTask(ctx->taska28);
-    ctx->taska28 = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_a28_);
+    arg0->unknown_a28_ = -1;
 
-    func_0202445c(ctx);
-    func_ov017_02191234(axisObj);
-    ctx->forwardingPending = 1;
-    ctx->field9c4 = 1;
-    ctx->field9c8 = 0;
-    ctx->field9c3 = 0;
-    ctx->loadStage = ctx->loadStage + 1;
+    func_0202445c(arg0);
+    func_ov017_02191234(var2);
+    arg0->unknown_55c_ = 1;
+    arg0->unknown_9c4_ = 1;
+    arg0->unknown_9c8_ = 0;
+    arg0->unknown_9c3_ = 0;
+    arg0->unknown_9c2_ = arg0->unknown_9c2_ + 1;
     func_020c9820();
-    func_0202343c(ctx);
-    func_02026b7c((unsigned char*)ctx);
-    func_02026bdc(ctx, 0);
+    func_0202343c(arg0);
+    func_02026b7c((unsigned char*)arg0);
+    func_02026bdc(arg0, 0);
 }

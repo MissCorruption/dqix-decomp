@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct ScaledPair020dfbc0 {
-    unsigned short a;
-    unsigned short b;
+struct Struct_020df850_4 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
 // USA: func_020dfbc0
-extern "C" ARM int func_020dfbc0(struct ScaledPair020dfbc0* s) {
-    return (int)((char*)(s->a << 3) + (s->b << 3));
+extern "C" ARM int func_020dfbc0(struct Struct_020df850_4* arg0) {
+    return (int)((char*)(arg0->unknown_0_ << 3) + (arg0->unknown_2_ << 3));
 }

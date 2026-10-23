@@ -3,58 +3,58 @@
 
 extern unsigned short __attribute__((aligned(4))) data_020e8a84[];
 
-struct Sub0208203c {
-    unsigned short field_0;
-    unsigned char field_2;
+struct Struct_02081f20 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
 };
 
-struct Obj0208203c {
-    struct Sub0208203c *field_0;
-    unsigned short field_4;
-    signed char field_6;
-    signed char field_7;
-    signed char field_8;
+struct Struct_02081f20_2 {
+    struct Struct_02081f20 *unknown_0_;
+    unsigned short unknown_4_;
+    signed char unknown_6_;
+    signed char unknown_7_;
+    signed char unknown_8_;
 };
 
-extern "C" void func_0208203c(struct Obj0208203c* obj);
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
 // USA: func_02081f20
-extern "C" ARM unsigned short func_02081f20(struct Obj0208203c* obj, int ticks) {
-    if (obj->field_0 == NULL) return 0;
-    obj->field_0->field_2 = 0;
-    if (obj->field_0->field_0 == 0) {
-        unsigned short ids[4];
+extern "C" ARM unsigned short func_02081f20(struct Struct_02081f20_2* arg0, int arg1) {
+    if (arg0->unknown_0_ == NULL) return 0;
+    arg0->unknown_0_->unknown_2_ = 0;
+    if (arg0->unknown_0_->unknown_0_ == 0) {
+        unsigned short var0[4];
         {
-            const unsigned short* src = data_020e8a84;
-            unsigned short* dst = ids;
-            int n = 4;
+            const unsigned short* var1 = data_020e8a84;
+            unsigned short* var2 = var0;
+            int var3 = 4;
             do {
-                *dst++ = *src++;
-            } while (--n);
+                *var2++ = *var1++;
+            } while (--var3);
         }
-        int i;
-        for (i = 0; i < 4; i++) {
-            unsigned short id = ids[i];
-            if (g_keyManager.TestKeysPressed(id)) {
-                obj->field_0->field_0 = id;
-                obj->field_8 = obj->field_6;
-                obj->field_0->field_2 = 1;
+        int var4;
+        for (var4 = 0; var4 < 4; var4++) {
+            unsigned short var5 = var0[var4];
+            if (g_keyManager.TestKeysPressed(var5)) {
+                arg0->unknown_0_->unknown_0_ = var5;
+                arg0->unknown_8_ = arg0->unknown_6_;
+                arg0->unknown_0_->unknown_2_ = 1;
                 goto end;
             }
         }
         goto end;
     }
-    if (obj->field_0->field_0 != 0) {
-        if (g_keyManager.TestKeysHeld(obj->field_0->field_0)) {
-            obj->field_8 -= (signed char)ticks;
-            if (obj->field_8 < 0) {
-                obj->field_8 += obj->field_7;
-                obj->field_0->field_2 = 2;
+    if (arg0->unknown_0_->unknown_0_ != 0) {
+        if (g_keyManager.TestKeysHeld(arg0->unknown_0_->unknown_0_)) {
+            arg0->unknown_8_ -= (signed char)arg1;
+            if (arg0->unknown_8_ < 0) {
+                arg0->unknown_8_ += arg0->unknown_7_;
+                arg0->unknown_0_->unknown_2_ = 2;
             }
             goto end;
         }
-        func_0208203c(obj);
+        func_0208203c(arg0);
     }
 end:
-    return obj->field_0->field_2;
+    return arg0->unknown_0_->unknown_2_;
 }

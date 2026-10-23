@@ -1007,7 +1007,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
         {
             unsigned int allocSize;
             const void* fileBytes = narc.GetFileByIndex(fileID);
-            unsigned int fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
+            unsigned int fileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
 
             if (loadInfo->unk_10 != 0)
             {
@@ -1065,7 +1065,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
         if (fileType != -1)
         {
             fileBytes = narc.GetFileByIndex(fileID);
-            fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
+            fileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
             if (loadInfo->unk_10 != 0)
             {
                 void* allocation = allocator->Allocate(fileLength);
@@ -1097,7 +1097,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
         else if (strstr(filename, ".bcfg"))
         {
             const void* scriptData = narc.GetFileByIndex(fileID);
-            unsigned int fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
+            unsigned int fileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
             animPackage->bcfgData.Reset();
             animPackage->bcfgData.LoadFromScript(allocator, scriptData, fileLength);
         }
@@ -1252,7 +1252,7 @@ bool Object3D::LoadFromCCHROrCMOTArchive(ObjectArchiveLoadInfo *loadInfo, int (*
                             if (strcmp(filename + 5, candidateName) == 0)
                             {
                                 foundFile = narc.GetFileByIndex(k);
-                                foundFileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
+                                foundFileLength = machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
                                 foundInLookup_inner = true;
                             }
                             NitroVM_FinishRead(&machine);

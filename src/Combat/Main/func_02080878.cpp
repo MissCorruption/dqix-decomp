@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Entry0207f0ac;
-struct List0207f0ac;
-extern "C" struct Entry0207f0ac* func_0207f0ac(struct List0207f0ac*, int);
+struct Struct_0207f0ac_2;
+struct Struct_0207f0ac;
+extern "C" struct Struct_0207f0ac_2* func_0207f0ac(struct Struct_0207f0ac*, int);
 
 // USA: func_02080878
-extern "C" ARM void func_02080878(void* obj, int id, short* outX, short* outY) {
-    struct Entry0207f0ac* e = func_0207f0ac((struct List0207f0ac*)((char*)obj + 0xc), id);
-    if (e != NULL) {
-        *outX = *(short*)((char*)e + 0xe);
-        *outY = *(short*)((char*)e + 0x10);
+extern "C" ARM void func_02080878(void* arg0, int arg1, short* arg2, short* arg3) {
+    struct Struct_0207f0ac_2* var0 = func_0207f0ac((struct Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    if (var0 != NULL) {
+        *arg2 = *(short*)((char*)var0 + 0xe);
+        *arg3 = *(short*)((char*)var0 + 0x10);
     }
 }

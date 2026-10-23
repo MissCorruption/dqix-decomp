@@ -2,63 +2,63 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct Coords020de7a4;
-extern "C" int func_020de7a4(Coords020de7a4* obj);
+struct Struct_020de714_3;
+extern "C" int func_020de7a4(Struct_020de714_3* arg0);
 
-struct Container020de7d0;
-struct Element020de7d0;
-typedef void (*Callback020de7d0)(Container020de7d0*, Element020de7d0*);
-extern "C" int func_020de7d0(Container020de7d0* c, Callback020de7d0 cb);
+struct Struct_020de714;
+struct Struct_020de7d0;
+typedef void (*Type_020de714)(Struct_020de714*, Struct_020de7d0*);
+extern "C" int func_020de7d0(Struct_020de714* arg0, Type_020de714 arg1);
 
-struct Container020de5b0;
-extern "C" int func_020de5b0(Container020de5b0* c);
+struct Struct_020de5b0;
+extern "C" int func_020de5b0(Struct_020de5b0* arg0);
 
-extern "C" ARM int func_020de574(void* table, void* cursor);
+extern "C" ARM int func_020de574(void* arg0, void* arg1);
 
-struct Bits020de888 {
-    unsigned int count : 31;
-    unsigned int flag : 1;
+struct Struct_020de888 {
+    unsigned int unknown_0_0_ : 31;
+    unsigned int unknown_3_7_ : 1;
 };
 
-struct List020de888 {
-    char pad0[8];
+struct Struct_020de888_2 {
+    char unknown_0_[8];
     union {
-        unsigned int raw;
-        struct Bits020de888 bits;
-    } f8;
-    void* field_c;
-    void* field_10;
+        unsigned int unknown_0_;
+        struct Struct_020de888 unknown1_0_;
+    } unknown_8_;
+    void* unknown_c_;
+    void* unknown_10_;
 };
 
 // USA: func_020de888
-extern "C" ARM int func_020de888(List020de888* self, SafeAllocator* allocator, void* file, void* arg3) {
-    int offset;
-    unsigned int count;
-    Callback020de7d0 cb;
+extern "C" ARM int func_020de888(Struct_020de888_2* arg0, SafeAllocator* arg1, void* arg2, void* arg3) {
+    int var0;
+    unsigned int var1;
+    Type_020de714 var2;
 
-    if (allocator == 0 || file == 0 || arg3 == 0) {
+    if (arg1 == 0 || arg2 == 0 || arg3 == 0) {
         return 0;
     }
-    if (allocator != 0 && file != 0) {
-        memcpy(self, file, 0xc);
-        offset = func_020de7a4((Coords020de7a4*)self);
-        count = self->f8.bits.count;
-        if (offset != 0)
-            self->field_c = allocator->Allocate(offset);
+    if (arg1 != 0 && arg2 != 0) {
+        memcpy(arg0, arg2, 0xc);
+        var0 = func_020de7a4((Struct_020de714_3*)arg0);
+        var1 = arg0->unknown_8_.unknown1_0_.unknown_0_0_;
+        if (var0 != 0)
+            arg0->unknown_c_ = arg1->Allocate(var0);
         else
-            self->field_c = 0;
-        self->field_10 = (count != 0) ? allocator->Allocate(count) : 0;
-        if (self->field_c != 0) {
-            memcpy(self->field_c, (char*)file + 0xc, offset);
+            arg0->unknown_c_ = 0;
+        arg0->unknown_10_ = (var1 != 0) ? arg1->Allocate(var1) : 0;
+        if (arg0->unknown_c_ != 0) {
+            memcpy(arg0->unknown_c_, (char*)arg2 + 0xc, var0);
         }
-        if (self->field_10 != 0) {
-            memcpy(self->field_10, (char*)file + (func_020de7a4((Coords020de7a4*)self) + 0xc), count);
+        if (arg0->unknown_10_ != 0) {
+            memcpy(arg0->unknown_10_, (char*)arg2 + (func_020de7a4((Struct_020de714_3*)arg0) + 0xc), var1);
         }
-        cb = (Callback020de7d0)func_020de574;
-        if (cb != 0) {
-            func_020de7d0((Container020de7d0*)self, cb);
+        var2 = (Type_020de714)func_020de574;
+        if (var2 != 0) {
+            func_020de7d0((Struct_020de714*)arg0, var2);
         }
-        self->f8.raw = (self->f8.raw & ~0x80000000u) | 0x80000000u;
+        arg0->unknown_8_.unknown_0_ = (arg0->unknown_8_.unknown_0_ & ~0x80000000u) | 0x80000000u;
     }
-    return func_020de5b0((Container020de5b0*)self);
+    return func_020de5b0((Struct_020de5b0*)arg0);
 }

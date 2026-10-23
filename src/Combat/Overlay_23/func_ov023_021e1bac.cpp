@@ -1,48 +1,48 @@
 #include <globaldefs.h>
 
-struct Elem_021e1bac {
-    char pad0[0xa];
-    unsigned short score;
-    char pad_c[0xe - 0xc];
-    unsigned char skip : 1;
-    unsigned char pad_bit1 : 1;
-    unsigned char category : 6;
-    unsigned char fieldF;
+struct Struct_ov023_021e1bac_2 {
+    char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    char unknown_c_[0xe - 0xc];
+    unsigned char unknown_e_0_ : 1;
+    unsigned char unknown_e_1_ : 1;
+    unsigned char unknown_e_2_ : 6;
+    unsigned char unknown_f_;
 };
 
-struct Obj021e1bac {
-    char pad0[4];
-    Elem_021e1bac* arr;
-    short count;
+struct Struct_ov023_021e1bac {
+    char unknown_0_[4];
+    Struct_ov023_021e1bac_2* unknown_4_;
+    short unknown_8_;
 };
 
 // USA: func_ov023_021e1bac
-extern "C" ARM void* func_ov023_021e1bac(Obj021e1bac* obj, int b, int c, int d) {
-    unsigned short bestScore = 0xffff;
-    Elem_021e1bac* el;
-    Elem_021e1bac* best = 0;
-    Elem_021e1bac* arr = obj->arr;
-    short count = obj->count;
-    for (short i = 0; i < count; i++) {
-        el = &arr[i];
-        if (el->skip) continue;
-        if (bestScore < el->score) continue;
-        if (b == 0) {
-            int ok = (el->category <= 7);
-            if (!ok) continue;
-        } else if (c >= 0 && d >= 0) {
-            if (el->fieldF != d) continue;
-            if (el->category != c) continue;
-        } else if (c >= 0) {
-            if (el->category != c) continue;
-        } else if (d >= 0) {
-            if (el->fieldF != d) continue;
+extern "C" ARM void* func_ov023_021e1bac(Struct_ov023_021e1bac* arg0, int arg1, int arg2, int arg3) {
+    unsigned short var0 = 0xffff;
+    Struct_ov023_021e1bac_2* var1;
+    Struct_ov023_021e1bac_2* var2 = 0;
+    Struct_ov023_021e1bac_2* var3 = arg0->unknown_4_;
+    short var4 = arg0->unknown_8_;
+    for (short var5 = 0; var5 < var4; var5++) {
+        var1 = &var3[var5];
+        if (var1->unknown_e_0_) continue;
+        if (var0 < var1->unknown_a_) continue;
+        if (arg1 == 0) {
+            int var6 = (var1->unknown_e_2_ <= 7);
+            if (!var6) continue;
+        } else if (arg2 >= 0 && arg3 >= 0) {
+            if (var1->unknown_f_ != arg3) continue;
+            if (var1->unknown_e_2_ != arg2) continue;
+        } else if (arg2 >= 0) {
+            if (var1->unknown_e_2_ != arg2) continue;
+        } else if (arg3 >= 0) {
+            if (var1->unknown_f_ != arg3) continue;
         }
-        bestScore = el->score;
-        best = el;
+        var0 = var1->unknown_a_;
+        var2 = var1;
     }
-    if (best != 0) {
-        best->skip = 1;
+    if (var2 != 0) {
+        var2->unknown_e_0_ = 1;
     }
-    return best;
+    return var2;
 }

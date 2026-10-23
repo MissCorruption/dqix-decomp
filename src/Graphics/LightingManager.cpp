@@ -1159,8 +1159,8 @@ TimeOfDay ConvertToTimeOfDay(float time)
     return TimeOfDay_Night;
 }
 
-extern "C" LightingManager* _ZN15LightingManagerC1Ev(LightingManager* self)
+extern "C" LightingManager* _ZN15LightingManagerC1Ev(LightingManager* arg0)
 {
-    self->Initialize();
-    return self;
+    arg0->Initialize();
+    return arg0;
 }

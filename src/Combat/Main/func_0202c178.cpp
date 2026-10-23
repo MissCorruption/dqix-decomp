@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 
-struct SearchStruct;
-extern "C" signed char func_0202bcbc(struct SearchStruct* obj, int value);
+struct Struct_0202b2f0;
+extern "C" signed char func_0202bcbc(struct Struct_0202b2f0* arg0, int arg1);
 
 // USA: func_0202c178
-extern "C" ARM SearchEntry0202c178* func_0202c178(struct SearchStruct* obj, int value) {
-    int idx = func_0202bcbc(obj, value);
-    if (idx < 0) return NULL;
-    return (SearchEntry0202c178*)((char*)obj + 0xbc0 + idx * 0x74);
+extern "C" ARM Struct_0202b2f0_2* func_0202c178(struct Struct_0202b2f0* arg0, int arg1) {
+    int var0 = func_0202bcbc(arg0, arg1);
+    if (var0 < 0) return NULL;
+    return (Struct_0202b2f0_2*)((char*)arg0 + 0xbc0 + var0 * 0x74);
 }

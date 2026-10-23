@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-typedef struct decimal {
-    char sgn;
-    char unused;
-    short exp;
+typedef struct Struct_020026b4 {
+    char unknown_0_;
+    char unknown_1_;
+    short unknown_2_;
     struct {
-        unsigned char length;
-        unsigned char text[32];
-        unsigned char unused;
-    } sig;
-} decimal;
+        unsigned char unknown_0_;
+        unsigned char unknown_1_[32];
+        unsigned char unknown_21_;
+    } unknown_4_;
+} Struct_020026b4;
 
 // USA: func_02009dfc
-extern "C" ARM int func_02009dfc(const decimal* x, const decimal* y) {
-    if (x->sig.text[0] == 0) {
-        if (y->sig.text[0] != 0)
+extern "C" ARM int func_02009dfc(const Struct_020026b4* arg0, const Struct_020026b4* arg1) {
+    if (arg0->unknown_4_.unknown_1_[0] == 0) {
+        if (arg1->unknown_4_.unknown_1_[0] != 0)
             return 1;
         return 0;
     }
-    if (y->sig.text[0] == 0)
+    if (arg1->unknown_4_.unknown_1_[0] == 0)
         return 0;
 
-    if (x->exp == y->exp) {
-        int i;
-        int l = x->sig.length;
+    if (arg0->unknown_2_ == arg1->unknown_2_) {
+        int var0;
+        int var1 = arg0->unknown_4_.unknown_0_;
 
-        if (l > y->sig.length)
-            l = y->sig.length;
+        if (var1 > arg1->unknown_4_.unknown_0_)
+            var1 = arg1->unknown_4_.unknown_0_;
 
-        for (i = 0; i < l; i++) {
-            if (x->sig.text[i] < y->sig.text[i])
+        for (var0 = 0; var0 < var1; var0++) {
+            if (arg0->unknown_4_.unknown_1_[var0] < arg1->unknown_4_.unknown_1_[var0])
                 return 1;
-            if (y->sig.text[i] < x->sig.text[i])
+            if (arg1->unknown_4_.unknown_1_[var0] < arg0->unknown_4_.unknown_1_[var0])
                 return 0;
         }
 
-        if (l == x->sig.length) {
-            for (; i < y->sig.length; i++) {
-                if (y->sig.text[i] != 0)
+        if (var1 == arg0->unknown_4_.unknown_0_) {
+            for (; var0 < arg1->unknown_4_.unknown_0_; var0++) {
+                if (arg1->unknown_4_.unknown_1_[var0] != 0)
                     return 1;
             }
         }
         return 0;
     }
-    return x->exp < y->exp;
+    return arg0->unknown_2_ < arg1->unknown_2_;
 }

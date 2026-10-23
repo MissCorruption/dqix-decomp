@@ -4,58 +4,58 @@
 #define func_020ca3b8 func_020cbe84
 #endif
 
-struct NetworkRecord {
-    unsigned int field_0;
-    unsigned char address_[6];
-    unsigned short nameLength_;
-    char name_[32];
-    unsigned short mode_;
-    unsigned short selected_;
-    unsigned short available_;
-    unsigned short value_;
-    unsigned short field_34;
-    unsigned short addressLength_;
+struct Struct_ov031_0221e6e8_2 {
+    unsigned int unknown_0_;
+    unsigned char unknown_4_[6];
+    unsigned short unknown_a_;
+    char unknown_c_[32];
+    unsigned short unknown_2c_;
+    unsigned short unknown_2e_;
+    unsigned short unknown_30_;
+    unsigned short unknown_32_;
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
 };
-struct NetworkSummary {
-    unsigned int nameLength_;
-    char name_[32];
-    unsigned int addressLength_;
-    char unknown_28[8];
-    unsigned char address_[6];
-    char unknown_36[2];
-    int count_;
-    unsigned char items_[16];
-    unsigned int value_;
-    int mode_;
+struct Struct_ov031_0221e6e8 {
+    unsigned int unknown_0_;
+    char unknown_4_[32];
+    unsigned int unknown_24_;
+    char unknown_28_[8];
+    unsigned char unknown_30_[6];
+    char unknown_36_[2];
+    int unknown_38_;
+    unsigned char unknown_3c_[16];
+    unsigned int unknown_4c_;
+    int unknown_50_;
 };
-struct FlagItem { unsigned short flag_; unsigned char value_; unsigned char unknown_; };
-extern FlagItem data_ov031_0224b0e4[12] __attribute__((aligned(4)));
+struct Struct_ov031_0224b0e4 { unsigned short unknown_0_; unsigned char unknown_2_; unsigned char unknown_3_; };
+extern Struct_ov031_0224b0e4 data_ov031_0224b0e4[12] __attribute__((aligned(4)));
 extern "C" void func_020ca3b8(const void*, void*, unsigned int);
 
 // USA: func_ov031_0221e6e8
-extern "C" THUMB void func_ov031_0221e6e8(NetworkRecord* record, NetworkSummary* summary) {
-    summary->nameLength_ = record->nameLength_;
-    func_020ca3b8(record->name_, summary->name_, 32);
-    summary->addressLength_ = record->addressLength_;
-    func_020ca3b8(record->address_, summary->address_, 6);
-    int i;
-    int count = 0;
-    FlagItem* item = data_ov031_0224b0e4;
-    i = 0;
+extern "C" THUMB void func_ov031_0221e6e8(Struct_ov031_0221e6e8_2* arg0, Struct_ov031_0221e6e8* arg1) {
+    arg1->unknown_0_ = arg0->unknown_a_;
+    func_020ca3b8(arg0->unknown_c_, arg1->unknown_4_, 32);
+    arg1->unknown_24_ = arg0->unknown_36_;
+    func_020ca3b8(arg0->unknown_4_, arg1->unknown_30_, 6);
+    int var0;
+    int var1 = 0;
+    Struct_ov031_0224b0e4* var2 = data_ov031_0224b0e4;
+    var0 = 0;
     do {
-        if (record->available_ & item->flag_) {
-            summary->items_[count] = item->value_;
-            if (record->selected_ & item->flag_)
-                summary->items_[count] = summary->items_[count] | 0x80;
-            count++;
+        if (arg0->unknown_30_ & var2->unknown_0_) {
+            arg1->unknown_3c_[var1] = var2->unknown_2_;
+            if (arg0->unknown_2e_ & var2->unknown_0_)
+                arg1->unknown_3c_[var1] = arg1->unknown_3c_[var1] | 0x80;
+            var1++;
         }
-        i++;
-        item++;
-    } while (i < 12);
-    summary->count_ = count;
-    summary->value_ = record->value_;
-    int mode = record->mode_ & 3;
-    if (mode == 1) summary->mode_ = 1;
-    else if (mode == 2) summary->mode_ = 2;
-    else summary->mode_ = 0;
+        var0++;
+        var2++;
+    } while (var0 < 12);
+    arg1->unknown_38_ = var1;
+    arg1->unknown_4c_ = arg0->unknown_32_;
+    int var3 = arg0->unknown_2c_ & 3;
+    if (var3 == 1) arg1->unknown_50_ = 1;
+    else if (var3 == 2) arg1->unknown_50_ = 2;
+    else arg1->unknown_50_ = 0;
 }

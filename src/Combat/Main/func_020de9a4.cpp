@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_020de6c8(void* obj, void* a, void* b);
-extern "C" int func_020def98(void* b, void* a, void* local, void* e, short f);
+extern "C" int func_020de6c8(void* arg0, void* arg1, void* arg2);
+extern "C" int func_020def98(void* arg0, void* arg1, void* arg2, void* arg3, short arg4);
 
-struct DescA020de9a4 {
-    unsigned short field0;
-    char pad[0x14 - 2];
-    unsigned char flag14;
+struct Struct_020de9a4 {
+    unsigned short unknown_0_;
+    char unknown_2_[0x14 - 2];
+    unsigned char unknown_14_;
 };
 
 // USA: func_020de9a4
-extern "C" ARM int func_020de9a4(DescA020de9a4* a, void* b, void* c, void* d, void* e, unsigned short f) {
-    memset(a, 0, 0x14);
-    if (b == 0 || c == 0 || d == 0 || e == 0 || f == 0) {
+extern "C" ARM int func_020de9a4(Struct_020de9a4* arg0, void* arg1, void* arg2, void* arg3, void* arg4, unsigned short arg5) {
+    memset(arg0, 0, 0x14);
+    if (arg1 == 0 || arg2 == 0 || arg3 == 0 || arg4 == 0 || arg5 == 0) {
         return 0;
     }
-    char local[0x14];
-    func_020de6c8(local, c, d);
-    int result = func_020def98(b, a, local, e, f);
-    unsigned char flag;
-    if (result != 0 && a->field0 > 1) {
-        flag = 1;
+    char var0[0x14];
+    func_020de6c8(var0, arg2, arg3);
+    int var1 = func_020def98(arg1, arg0, var0, arg4, arg5);
+    unsigned char var2;
+    if (var1 != 0 && arg0->unknown_0_ > 1) {
+        var2 = 1;
     } else {
-        flag = 0;
+        var2 = 0;
     }
-    a->flag14 = flag;
-    return result;
+    arg0->unknown_14_ = var2;
+    return var1;
 }

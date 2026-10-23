@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Stopwatch0201f9e8 {
-    unsigned char state; // +0
-    unsigned char b1;    // +1
-    unsigned char b2;    // +2
-    unsigned char b3;    // +3
+struct Struct_020fdc60_3 {
+    unsigned char unknown_0_; // +0
+    unsigned char unknown_1_;    // +1
+    unsigned char unknown_2_;    // +2
+    unsigned char unknown_3_;    // +3
 };
 
 extern "C" void func_0201fa00(void*);
 
 // USA: func_0201f9e8
-extern "C" ARM void func_0201f9e8(struct Stopwatch0201f9e8* t) {
-    t->b2 = 0;
-    t->b3 = 0;
-    func_0201fa00(t);
+extern "C" ARM void func_0201f9e8(struct Struct_020fdc60_3* arg0) {
+    arg0->unknown_2_ = 0;
+    arg0->unknown_3_ = 0;
+    func_0201fa00(arg0);
 }

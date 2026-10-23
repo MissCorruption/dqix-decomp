@@ -3,16 +3,16 @@
 
 #pragma define_section initcode ".init" RX
 
-extern "C" void func_0200ee94(void* obj, int count, int size, void* cb1, void* cb2);
+extern "C" void func_0200ee94(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
 
-extern "C" VRAMStagingManager::Task* _ZN18VRAMStagingManager4TaskC1Ev(VRAMStagingManager::Task* self);
+extern "C" VRAMStagingManager::Task* _ZN18VRAMStagingManager4TaskC1Ev(VRAMStagingManager::Task* arg0);
 extern "C" VRAMStagingManager::StagingSpaceAllocation* _ZN18VRAMStagingManager22StagingSpaceAllocationC1Ev(
-    VRAMStagingManager::StagingSpaceAllocation* self);
+    VRAMStagingManager::StagingSpaceAllocation* arg0);
 extern "C" VRAMStagingManager::CommonVRAMRegionTaskSet* _ZN18VRAMStagingManager23CommonVRAMRegionTaskSetC1EPht(
-    VRAMStagingManager::CommonVRAMRegionTaskSet* self, unsigned char* pendingTaskIndices, unsigned short maxNumTasks);
-extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerC1Ev(VRAMStagingManager* self);
-extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerD1Ev(VRAMStagingManager* self);
-extern "C" void __register_global_object(void* obj, void* func, void* node);
+    VRAMStagingManager::CommonVRAMRegionTaskSet* arg0, unsigned char* arg1, unsigned short arg2);
+extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerC1Ev(VRAMStagingManager* arg0);
+extern "C" VRAMStagingManager* _ZN18VRAMStagingManagerD1Ev(VRAMStagingManager* arg0);
+extern "C" void __register_global_object(void* arg0, void* arg1, void* arg2);
 
 extern VRAMStagingManager::Task g_vramStagingTaskQueue[0x100];
 extern VRAMStagingManager::StagingSpaceAllocation g_vramStagingAllocations[0x80];

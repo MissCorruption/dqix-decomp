@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021d2ad0
-extern "C" ARM void func_ov017_021d2ad0(short a0, int a1, int a2, int a3, unsigned char a4) {
-	void* d = func_0202ae24();
-	unsigned char buf[0x14];
-	buf[0] = 0x23;
-	unsigned char* b = buf + 4;
-	b[0] = a0;
-	*(int*)(b + 4) = a1;
-	*(int*)(b + 8) = a2;
-	*(int*)(b + 0xc) = a3;
-	b[1] = a4;
-	func_0205e330(d, buf, 0);
+extern "C" ARM void func_ov017_021d2ad0(short arg0, int arg1, int arg2, int arg3, unsigned char arg4) {
+	void* var0 = func_0202ae24();
+	unsigned char var1[0x14];
+	var1[0] = 0x23;
+	unsigned char* var2 = var1 + 4;
+	var2[0] = arg0;
+	*(int*)(var2 + 4) = arg1;
+	*(int*)(var2 + 8) = arg2;
+	*(int*)(var2 + 0xc) = arg3;
+	var2[1] = arg4;
+	func_0205e330(var0, var1, 0);
 }

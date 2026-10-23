@@ -60,7 +60,7 @@ extern unsigned int const data_020e9240[];
 // pivot matrix a/b/c/d position lookup
 // both arrays are identical
 extern struct {
-    uint8_t a, b, c, d;
+    uint8_t unknown_0_, unknown_1_, unknown_2_, unknown_3_;
 } const data_020e9260[], data_020e9284[];
 
 // Holds { func_020b9a2c, func_020b9b30, func_020ba390 }.
@@ -132,8 +132,8 @@ struct Struct_0210b678
 
 extern struct
 {
-    Struct_0210b078 vectorData[64];
-    Struct_0210b678 matrixData[64];
+    Struct_0210b078 unknown_0_[64];
+    Struct_0210b678 unknown_600_[64];
 } data_0210b078;
 
 extern "C"

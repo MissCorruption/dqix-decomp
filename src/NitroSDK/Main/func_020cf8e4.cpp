@@ -2,23 +2,23 @@
 
 extern int data_020f2298[13];
 
-struct DateFields_020cf8e4 {
-    unsigned int year;
-    unsigned int month;
-    unsigned int day;
-    int weekday;
+struct Struct_020cf8e4 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    int unknown_c_;
 };
 
 // USA: func_020cf8e4
-extern "C" ARM int func_020cf8e4(struct DateFields_020cf8e4* d) {
-    unsigned int year, month, day;
-    int weekday;
-    if ((year = d->year) >= 100 || (month = d->month) < 1 || month > 12 ||
-        (day = d->day) < 1 || day > 31 || (weekday = d->weekday) >= 7 ||
-        month < 1 || month > 12) {
+extern "C" ARM int func_020cf8e4(struct Struct_020cf8e4* arg0) {
+    unsigned int var0, var1, var2;
+    int var3;
+    if ((var0 = arg0->unknown_0_) >= 100 || (var1 = arg0->unknown_4_) < 1 || var1 > 12 ||
+        (var2 = arg0->unknown_8_) < 1 || var2 > 31 || (var3 = arg0->unknown_c_) >= 7 ||
+        var1 < 1 || var1 > 12) {
         return -1;
     }
-    int days = (day - 1) + data_020f2298[month];
-    if (month >= 3 && (year & 3) == 0) days++;
-    return year * 365 + days + (year + 3) / 4;
+    int var4 = (var2 - 1) + data_020f2298[var1];
+    if (var1 >= 3 && (var0 & 3) == 0) var4++;
+    return var0 * 365 + var4 + (var0 + 3) / 4;
 }

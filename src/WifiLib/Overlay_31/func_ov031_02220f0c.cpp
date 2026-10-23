@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
 extern "C" long long func_0200cf24(long long a, long long b);
-extern "C" void* memcpy(void* dst, const void* src, unsigned int length);
-extern "C" int func_ov031_022212c4(unsigned int* rk, const unsigned char* cipherKey, int keyBits);
-extern "C" void func_ov031_0222127c(const unsigned char* a, const unsigned char* b, unsigned char* out);
-extern "C" void func_ov031_0222170c(const unsigned int* rk, int Nr, const unsigned char* pt, unsigned char* ct);
+extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
+extern "C" int func_ov031_022212c4(unsigned int* arg0, const unsigned char* arg1, int arg2);
+extern "C" void func_ov031_0222127c(const unsigned char* arg0, const unsigned char* arg1, unsigned char* arg2);
+extern "C" void func_ov031_0222170c(const unsigned int* arg0, int arg1, const unsigned char* arg2, unsigned char* arg3);
 
 #define BSWAP64(x) \
     ((((x) & 0x00000000000000ffULL) << 56) | \
@@ -16,63 +16,63 @@ extern "C" void func_ov031_0222170c(const unsigned int* rk, int Nr, const unsign
      (((x) & 0x00ff000000000000ULL) >> 40) | \
      (((x) & 0xff00000000000000ULL) >> 56))
 
-struct Block8 {
-    unsigned char v[8];
+struct Struct_ov031_02220f0c {
+    unsigned char unknown_0_[8];
 };
 
-static inline void Copy8(const unsigned char* src, unsigned char* dst) {
-    unsigned int k;
-    for (k = 8; k != 0; k--) {
-        *dst++ = *src++;
+static inline void inline_ov031_02220f0c(const unsigned char* arg0, unsigned char* arg1) {
+    unsigned int var0;
+    for (var0 = 8; var0 != 0; var0--) {
+        *arg1++ = *arg0++;
     }
 }
 
 // USA: func_ov031_02220f0c  (semantic: AES key wrap, RFC 3394)
-extern "C" THUMB int func_ov031_02220f0c(Block8* cipher, const unsigned char* plain, unsigned int len,
-                                          const unsigned char* kek, unsigned int kekLen) {
-    unsigned int rk[80];
-    Block8 b[2];
-    unsigned long long tb;
-    unsigned int iv[2];
-    unsigned long long t;
-    int n;
-    int i;
-    int j;
-    int Nr;
-    Block8* r;
-    long long nn;
-    long long t0;
+extern "C" THUMB int func_ov031_02220f0c(Struct_ov031_02220f0c* arg0, const unsigned char* arg1, unsigned int arg2,
+                                          const unsigned char* arg3, unsigned int arg4) {
+    unsigned int var0[80];
+    Struct_ov031_02220f0c var1[2];
+    unsigned long long var2;
+    unsigned int var3[2];
+    unsigned long long var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    Struct_ov031_02220f0c* var9;
+    long long var10;
+    long long var11;
 
-    iv[0] = 0xa6a6a6a6;
-    iv[1] = 0xa6a6a6a6;
-    if ((len & 7) || (kekLen & 7)) {
+    var3[0] = 0xa6a6a6a6;
+    var3[1] = 0xa6a6a6a6;
+    if ((arg2 & 7) || (arg4 & 7)) {
         return 0;
     }
-    n = len >> 3;
-    if (n < 2) {
+    var5 = arg2 >> 3;
+    if (var5 < 2) {
         return 0;
     }
-    Nr = func_ov031_022212c4(rk, kek, kekLen * 8);
-    memcpy(cipher + 1, plain, len);
-    Copy8((unsigned char*)iv, b[0].v);
+    var8 = func_ov031_022212c4(var0, arg3, arg4 * 8);
+    memcpy(arg0 + 1, arg1, arg2);
+    inline_ov031_02220f0c((unsigned char*)var3, var1[0].unknown_0_);
 
-    j = 0;
-    nn = n;
+    var7 = 0;
+    var10 = var5;
     do {
-        i = 1;
-        if (i <= n) {
-            t0 = func_0200cf24(nn, j);
+        var6 = 1;
+        if (var6 <= var5) {
+            var11 = func_0200cf24(var10, var7);
             do {
-                r = (Block8*)((char*)cipher + i * sizeof(Block8));
-                b[1] = *r;
-                func_ov031_0222170c(rk, Nr, b[0].v, b[0].v);
-                t = i + t0;
-                tb = BSWAP64(t);
-                func_ov031_0222127c(b[0].v, (unsigned char*)&tb, b[0].v);
-                *r = b[1];
-            } while (++i <= n);
+                var9 = (Struct_ov031_02220f0c*)((char*)arg0 + var6 * sizeof(Struct_ov031_02220f0c));
+                var1[1] = *var9;
+                func_ov031_0222170c(var0, var8, var1[0].unknown_0_, var1[0].unknown_0_);
+                var4 = var6 + var11;
+                var2 = BSWAP64(var4);
+                func_ov031_0222127c(var1[0].unknown_0_, (unsigned char*)&var2, var1[0].unknown_0_);
+                *var9 = var1[1];
+            } while (++var6 <= var5);
         }
-    } while (++j < 6);
-    Copy8(b[0].v, cipher->v);
+    } while (++var7 < 6);
+    inline_ov031_02220f0c(var1[0].unknown_0_, arg0->unknown_0_);
     return 1;
 }

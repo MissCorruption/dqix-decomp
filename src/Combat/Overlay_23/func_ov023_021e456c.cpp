@@ -1,36 +1,36 @@
 #if defined(jpn)
-enum {regionalOffset0=0x56c, regionalOffset1=0x4f8, regionalOffset2=0x124, regionalOffset3=0x128, regionalOffset4=0x130};
+enum {Enum_ov023_021e456c_1588=0x56c, Enum_ov023_021e456c_1276=0x4f8, Enum_ov023_021e456c_296=0x124, Enum_ov023_021e456c_300=0x128, Enum_ov023_021e456c_308=0x130};
 #else
-enum {regionalOffset0=0x634, regionalOffset1=0x4fc, regionalOffset2=0x128, regionalOffset3=0x12c, regionalOffset4=0x134};
+enum {Enum_ov023_021e456c_1588=0x634, Enum_ov023_021e456c_1276=0x4fc, Enum_ov023_021e456c_296=0x128, Enum_ov023_021e456c_300=0x12c, Enum_ov023_021e456c_308=0x134};
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_ov023_021e6194(int arg);
+extern "C" int func_ov023_021e6194(int arg0);
 
-struct S1a0;
+struct Struct_0208f410;
 
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-extern "C" int func_ov023_021e5974(int a, int b, int c, int d, int e);
+extern "C" int func_ov023_021e5974(int arg0, int arg1, int arg2, int arg3, int arg4);
 
 // USA: func_ov023_021e456c
-extern "C" ARM void func_ov023_021e456c(void* objRaw) {
-    char* obj = (char*)objRaw;
-    if (!(*(unsigned short*)(obj + regionalOffset0) & 4)) return;
-    GameState* bs = GameState::GetInstance();
-    GameObject* combatant = func_0200ff1c(bs, *(int*)(obj + regionalOffset1));
-    if (!combatant) return;
-    int flag = 0;
-    if (*(unsigned short*)(obj + regionalOffset0) & 0x10) flag = 1;
-    char* six4 = (char*)func_ov023_021e6194(*(int*)(obj + regionalOffset2));
-    char* five = (char*)func_ov023_021e6194(*(int*)(obj + regionalOffset3));
-    ((Object3D*)five)->MaybeSetRegularAnimation((char const*)(*(int*)(six4 + 0x14)), 0);
-    ((Object3D*)((struct S1a0*)five))->SetCurrentAnimationTime(*(unsigned int*)(six4 + 0x1c));
-    int fieldVal = func_02053c6c((unsigned char*)combatant);
-    func_ov023_021e5974(*(int*)(obj + regionalOffset3), fieldVal, *(int*)(obj + regionalOffset1), flag, 1);
-    *(unsigned short*)(obj + regionalOffset0) &= ~4;
-    *(unsigned short*)(obj + regionalOffset0) &= ~0x10;
-    *(int*)(obj + regionalOffset4) = 0;
-    *(unsigned short*)(obj + regionalOffset0) |= 8;
+extern "C" ARM void func_ov023_021e456c(void* arg0) {
+    char* var0 = (char*)arg0;
+    if (!(*(unsigned short*)(var0 + Enum_ov023_021e456c_1588) & 4)) return;
+    GameState* var1 = GameState::GetInstance();
+    GameObject* var2 = func_0200ff1c(var1, *(int*)(var0 + Enum_ov023_021e456c_1276));
+    if (!var2) return;
+    int var3 = 0;
+    if (*(unsigned short*)(var0 + Enum_ov023_021e456c_1588) & 0x10) var3 = 1;
+    char* var4 = (char*)func_ov023_021e6194(*(int*)(var0 + Enum_ov023_021e456c_296));
+    char* var5 = (char*)func_ov023_021e6194(*(int*)(var0 + Enum_ov023_021e456c_300));
+    ((Object3D*)var5)->MaybeSetRegularAnimation((char const*)(*(int*)(var4 + 0x14)), 0);
+    ((Object3D*)((struct Struct_0208f410*)var5))->SetCurrentAnimationTime(*(unsigned int*)(var4 + 0x1c));
+    int var6 = func_02053c6c((unsigned char*)var2);
+    func_ov023_021e5974(*(int*)(var0 + Enum_ov023_021e456c_300), var6, *(int*)(var0 + Enum_ov023_021e456c_1276), var3, 1);
+    *(unsigned short*)(var0 + Enum_ov023_021e456c_1588) &= ~4;
+    *(unsigned short*)(var0 + Enum_ov023_021e456c_1588) &= ~0x10;
+    *(int*)(var0 + Enum_ov023_021e456c_308) = 0;
+    *(unsigned short*)(var0 + Enum_ov023_021e456c_1588) |= 8;
 }

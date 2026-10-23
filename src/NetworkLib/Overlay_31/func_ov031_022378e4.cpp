@@ -1,91 +1,91 @@
 #include <globaldefs.h>
 
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int len);
-extern "C" int func_02001aec(const void* a, const void* b, unsigned int len);
+extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
 
-typedef void (*NotifyCallback_022378e4)(int);
+typedef void (*Type_ov031_022378e4)(int);
 
-struct NameSlot_022378e4 {
-    char name[6];
-    unsigned char inUse;
+struct Struct_ov031_022378e4 {
+    char unknown_0_[6];
+    unsigned char unknown_6_;
 };
 
-struct SystemState_022378e4 {
-    unsigned char reserved0[0xf00];
-    unsigned char cacheBlock[0x400];
-    NameSlot_022378e4 slots[16];
-    NotifyCallback_022378e4 callback;
-    unsigned char reserved1[0x821];
-    unsigned char pending;
+struct Struct_ov031_022378e4_2 {
+    unsigned char unknown_0_[0xf00];
+    unsigned char unknown_f00_[0x400];
+    Struct_ov031_022378e4 unknown_1300_[16];
+    Type_ov031_022378e4 unknown_1370_;
+    unsigned char unknown_1374_[0x821];
+    unsigned char unknown_1b95_;
 };
 
-struct Peer_022378e4 {
-    unsigned char reserved0[4];
-    char name[6];
-    unsigned char reserved1[2];
-    unsigned char signature[8];
-    unsigned char reserved2[1];
-    unsigned char flags;
+struct Struct_ov031_022378e4_3 {
+    unsigned char unknown_0_[4];
+    char unknown_4_[6];
+    unsigned char unknown_a_[2];
+    unsigned char unknown_c_[8];
+    unsigned char unknown_14_[1];
+    unsigned char unknown_15_;
 };
 
-struct PeerList_022378e4 {
-    unsigned char reserved0[0xe];
-    unsigned short count;
-    Peer_022378e4* peers[1];
+struct Struct_ov031_022378e4_4 {
+    unsigned char unknown_0_[0xe];
+    unsigned short unknown_e_;
+    Struct_ov031_022378e4_3* unknown_10_[1];
 };
 
-extern SystemState_022378e4* data_ov031_02290d0c;
+extern Struct_ov031_022378e4_2* data_ov031_02290d0c;
 extern char data_ov031_02249288[];
 
 // USA: func_ov031_022378e4
-extern "C" ARM void func_ov031_022378e4(PeerList_022378e4* list) {
-    SystemState_022378e4* state = data_ov031_02290d0c;
-    unsigned char pending = state->pending;
-    int count;
-    Peer_022378e4* peer;
-    int i;
-    int j;
-    NameSlot_022378e4* slot;
-    SystemState_022378e4* sys;
+extern "C" ARM void func_ov031_022378e4(Struct_ov031_022378e4_4* arg0) {
+    Struct_ov031_022378e4_2* var0 = data_ov031_02290d0c;
+    unsigned char var1 = var0->unknown_1b95_;
+    int var2;
+    Struct_ov031_022378e4_3* var3;
+    int var4;
+    int var5;
+    Struct_ov031_022378e4* var6;
+    Struct_ov031_022378e4_2* var7;
 
-    if (pending != 0) {
-        NotifyCallback_022378e4 notify = state->callback;
-        if (notify != 0) {
-            notify(pending);
+    if (var1 != 0) {
+        Type_ov031_022378e4 var8 = var0->unknown_1370_;
+        if (var8 != 0) {
+            var8(var1);
         }
         return;
     }
-    InvalidateDataCacheRange(state->cacheBlock, 0x400);
+    InvalidateDataCacheRange(var0->unknown_f00_, 0x400);
 
-    count = list->count;
-    i = 0;
-    if (count <= 0) {
+    var2 = arg0->unknown_e_;
+    var4 = 0;
+    if (var2 <= 0) {
         return;
     }
-    sys = data_ov031_02290d0c;
+    var7 = data_ov031_02290d0c;
     do {
-        peer = list->peers[i];
-        if (func_02001aec(peer->signature, data_ov031_02249288, 8) == 0 && (peer->flags & 1) != 0) {
-            slot = sys->slots;
-            j = 0;
+        var3 = arg0->unknown_10_[var4];
+        if (func_02001aec(var3->unknown_c_, data_ov031_02249288, 8) == 0 && (var3->unknown_15_ & 1) != 0) {
+            var6 = var7->unknown_1300_;
+            var5 = 0;
             do {
-                if (func_02001aec(peer->name, slot->name, 6) == 0) {
-                    NotifyCallback_022378e4 notify;
-                    if (sys->slots[j].inUse != 0) {
+                if (func_02001aec(var3->unknown_4_, var6->unknown_0_, 6) == 0) {
+                    Type_ov031_022378e4 var9;
+                    if (var7->unknown_1300_[var5].unknown_6_ != 0) {
                         break;
                     }
-                    notify = sys->callback;
-                    if (notify == 0) {
-                        sys->pending = 1;
+                    var9 = var7->unknown_1370_;
+                    if (var9 == 0) {
+                        var7->unknown_1b95_ = 1;
                         return;
                     }
-                    notify(1);
+                    var9(1);
                     return;
                 }
-                j++;
-                slot++;
-            } while (j < 16);
+                var5++;
+                var6++;
+            } while (var5 < 16);
         }
-        i++;
-    } while (i < count);
+        var4++;
+    } while (var4 < var2);
 }

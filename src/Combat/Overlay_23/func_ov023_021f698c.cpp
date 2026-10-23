@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-class Node021f698c {
+class Struct_ov023_021f698c {
 public:
-    virtual void Dummy0();
-    virtual void Method();
-    char pad[0x14];
-    Node021f698c* next;
+    virtual void inline_ov023_021f698c_2();
+    virtual void inline_ov023_021f698c();
+    char unknown_4_[0x14];
+    Struct_ov023_021f698c* unknown_18_;
 };
-struct ListHead021f698c { Node021f698c* first; };
+struct Struct_ov011_02184740 { Struct_ov023_021f698c* unknown_0_; };
 
 // USA: func_ov023_021f698c
-extern "C" ARM void func_ov023_021f698c(struct ListHead021f698c* head) {
-    Node021f698c* node = head->first;
-    while (node != NULL) {
-        node->Method();
-        node = node->next;
+extern "C" ARM void func_ov023_021f698c(struct Struct_ov011_02184740* arg0) {
+    Struct_ov023_021f698c* var0 = arg0->unknown_0_;
+    while (var0 != NULL) {
+        var0->inline_ov023_021f698c();
+        var0 = var0->unknown_18_;
     }
 }

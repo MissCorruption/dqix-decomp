@@ -6,470 +6,470 @@
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
-struct BinarySearchByComparatorStruct;
-struct TableA68;
-struct Words021edf38;
-struct Reset_021eefac;
-struct S_a0110;
-struct S_a0330;
-struct S_a0388;
+struct Struct_0206f01c_2;
+struct Struct_02072a68_2;
+struct Struct_ov023_021edc08_5;
+struct Struct_ov023_021eeaac_2;
+struct Struct_020a0110;
+struct Struct_020a0330;
+struct Struct_020a0388;
 
-struct MessageName_021eefd0;
-extern "C" void func_ov023_021edf38(void* dst, Words021edf38* src);
+struct Struct_ov023_021eefd0_8;
+extern "C" void func_ov023_021edf38(void* arg0, Struct_ov023_021edc08_5* arg1);
 
-struct MessageName_021eefd0 {
-    const char* text_;
-    const char* unk_4;
-    unsigned int unk_8;
+struct Struct_ov023_021eefd0_8 {
+    const char* unknown_0_;
+    const char* unknown_4_;
+    unsigned int unknown_8_;
 
-    MessageName_021eefd0& operator=(const MessageName_021eefd0& other)
+    Struct_ov023_021eefd0_8& operator=(const Struct_ov023_021eefd0_8& arg0)
     {
-        func_ov023_021edf38(this, (Words021edf38*)&other);
+        func_ov023_021edf38(this, (Struct_ov023_021edc08_5*)&arg0);
         return *this;
     }
 };
 
-struct MessageSystem_021eefd0 {
-    char unk_0[0x10];
-    MessageName_021eefd0* unk_10;
-    char unk_14[0x20 - 0x14];
-    MessageName_021eefd0* unk_20;
+struct Struct_ov023_021eefd0_9 {
+    char unknown_0_[0x10];
+    Struct_ov023_021eefd0_8* unknown_10_;
+    char unknown_14_[0x20 - 0x14];
+    Struct_ov023_021eefd0_8* unknown_20_;
 #if defined(jpn)
-    char unk_24[0x868 - 0x24];
-    int busy_;
-    char unk_86c[0x17e2 - 0x86c];
-    unsigned char unk_19b2;
+    char unknown1_24_[0x868 - 0x24];
+    int unknown_998_;
+    char unknown_86c_[0x17e2 - 0x86c];
+    unsigned char unknown_19b2_;
 
 #else
-    char unk_24[0x998 - 0x24];
-    int busy_;
-    char unk_99c[0x19b2 - 0x99c];
-    unsigned char unk_19b2;
-    char unk_19b3[0x19d7 - 0x19b3];
-    unsigned char unk_19d7;
+    char unknown_24_[0x998 - 0x24];
+    int unknown_998_;
+    char unknown_99c_[0x19b2 - 0x99c];
+    unsigned char unknown_19b2_;
+    char unknown_19b3_[0x19d7 - 0x19b3];
+    unsigned char unknown_19d7_;
 
 #endif
 };
 
-struct PlayRecords_021eefd0 {
-    char unk_0[0xc];
-    unsigned int unk_c_0 : 7;
-    unsigned int unk_c_7 : 7;
-    unsigned int unk_c_14 : 14;
-    unsigned int unk_c_28 : 4;
-    char unk_10[0x68 - 0x10];
-    char unk_68[0xb0 - 0x68];
+struct Struct_ov023_021eefd0 {
+    char unknown_0_[0xc];
+    unsigned int unknown_c_0_ : 7;
+    unsigned int unknown_c_7_ : 7;
+    unsigned int unknown_d_6_ : 14;
+    unsigned int unknown_f_4_ : 4;
+    char unknown_10_[0x68 - 0x10];
+    char unknown_68_[0xb0 - 0x68];
 };
 
-struct ZoneData_021eefd0 {
-    unsigned short id_;
+struct Struct_ov023_021eefd0_2 {
+    unsigned short unknown_0_;
 #if defined(jpn)
-    char unk_2[0x240c - 2];
+    char unknown_2_[0x240c - 2];
 #else
-    char unk_2[0x23ec - 2];
+    char unknown1_2_[0x23ec - 2];
 #endif
 
-    ActiveGrottoClass grotto_;
+    ActiveGrottoClass unknown_23ec_;
 };
 
-struct Unknown_021b8478_021eefd0 {
-    char unk_0[0xc];
-    int unk_c;
+struct Struct_ov023_021eefd0_3 {
+    char unknown_0_[0xc];
+    int unknown_c_;
 };
 
-struct BattleData_021eefd0 {
-    char unk_0[0x8e30];
-    int monsterCount_;
+struct Struct_ov023_021eefd0_4 {
+    char unknown_0_[0x8e30];
+    int unknown_8e30_;
 };
 
-struct BattleInfo_021eefd0 {
-    char unk_0[0x24];
-    unsigned char grotto_;
-    unsigned char legacyBoss_;
-    char unk_26[0x678 - 0x26];
-    char monsters_[0xc];
+struct Struct_ov023_021eefd0_5 {
+    char unknown_0_[0x24];
+    unsigned char unknown_24_;
+    unsigned char unknown_25_;
+    char unknown_26_[0x678 - 0x26];
+    char unknown_678_[0xc];
 };
 
-struct BattleEnd_021eefd0 {
-    int step_;
-    int task_;
-    int task2_;
-    int task3_;
-    unsigned char nothing_;
-    char unk_11[0x10c - 0x11];
-    char monsters_[0xc];
+struct Struct_ov023_021eefd0_6 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    unsigned char unknown_10_;
+    char unknown_11_[0x10c - 0x11];
+    char unknown_10c_[0xc];
 };
 
-struct BattleScene_021eefd0 {
-    char unk_0[0x30];
-    SafeAllocator allocator_;
+struct Struct_ov023_021eefd0_7 {
+    char unknown_0_[0x30];
+    SafeAllocator unknown_30_;
 #if defined(jpn)
-    char unk_44[0x218 - 0x44];
-    BattleData_021eefd0* data_;
-    BattleInfo_021eefd0* info_;
-    char unk_220[0xe28 - 0x220];
-    int endState_;
-    char unk_e2c[0x5ab9 - 0xe2c];
-    unsigned char victory_;
-    unsigned short victoryMonster_;
-    char unk_5abc[0x5af4 - 0x5abc];
-    char texts_[0x7028 - 0x5af4];
-    int unk_6e38;
-    char unk_702c[0x703a - 0x702c];
-    unsigned char timer_;
+    char unknown_44_[0x218 - 0x44];
+    Struct_ov023_021eefd0_4* unknown_29c_;
+    Struct_ov023_021eefd0_5* unknown_2a0_;
+    char unknown_220_[0xe28 - 0x220];
+    int unknown_eac_;
+    char unknown_e2c_[0x5ab9 - 0xe2c];
+    unsigned char unknown_5ab9_;
+    unsigned short unknown_58ca_;
+    char unknown_5abc_[0x5af4 - 0x5abc];
+    char unknown_5904_[0x7028 - 0x5af4];
+    int unknown_6e38_;
+    char unknown_702c_[0x703a - 0x702c];
+    unsigned char unknown_6e4a_;
 
 #else
-    char unk_44[0x29c - 0x44];
-    BattleData_021eefd0* data_;
-    BattleInfo_021eefd0* info_;
-    char unk_2a4[0xeac - 0x2a4];
-    int endState_;
-    char unk_eb0[0x58c9 - 0xeb0];
-    unsigned char victory_;
-    unsigned short victoryMonster_;
-    char unk_58cc[0x5904 - 0x58cc];
-    char texts_[0x6e38 - 0x5904];
-    int unk_6e38;
-    char unk_6e3c[0x6e4a - 0x6e3c];
-    unsigned char timer_;
+    char unknown1_44_[0x29c - 0x44];
+    Struct_ov023_021eefd0_4* unknown_29c_;
+    Struct_ov023_021eefd0_5* unknown_2a0_;
+    char unknown_2a4_[0xeac - 0x2a4];
+    int unknown_eac_;
+    char unknown_eb0_[0x58c9 - 0xeb0];
+    unsigned char unknown_58c9_;
+    unsigned short unknown_58ca_;
+    char unknown_58cc_[0x5904 - 0x58cc];
+    char unknown_5904_[0x6e38 - 0x5904];
+    int unknown_6e38_;
+    char unknown_6e3c_[0x6e4a - 0x6e3c];
+    unsigned char unknown_6e4a_;
 
 #endif
 };
 
-extern "C" BattleEnd_021eefd0* _ZZ17GetGlobal021ffefcvE1s;
+extern "C" Struct_ov023_021eefd0_6* _ZZ21inline_ov023_021f4c04vE1s;
 extern const char data_ov023_021fe230[];
 extern const char data_ov023_021fe246[];
 extern char data_02109bf4[];
 #if defined(jpn)
 extern const char data_ov023_021fd4ec[];
 extern const char data_ov023_021fd504[];
-extern "C" void func_0204500c(MessageSystem_021eefd0*, const char*, int);
+extern "C" void func_0204500c(Struct_ov023_021eefd0_9*, const char*, int);
 #endif
 
-extern "C" MessageSystem_021eefd0* func_020421a0();
-extern "C" void func_0206efc4(void* monsters);
-extern "C" void func_0206f200(int monsters, int allocator, int file, int size, int monster);
-extern "C" void* func_0206f4f0(BinarySearchByComparatorStruct* monsters, int id);
-extern "C" void func_020e46c4(void* name);
-extern "C" const char* func_02072a68(TableA68* texts, int id);
-extern "C" void func_020ac4c0(void* records);
-extern "C" void func_020a0330(S_a0330* records, unsigned int value);
-extern "C" void func_020a0110(S_a0110* time, unsigned int value);
-extern "C" void func_020a0388(S_a0388* records, unsigned int value);
-extern "C" void func_020ac494(void* records);
-extern "C" void func_0209c6d8(void* obj, int value);
-extern "C" void func_ov017_021cfc74(unsigned char value);
-extern "C" void func_ov023_021eefac(Reset_021eefac* end);
-extern "C" int func_0201b588(int zone);
-extern "C" void func_020117cc(char* gameState, DetailedTreasureMapData* map);
+extern "C" Struct_ov023_021eefd0_9* func_020421a0();
+extern "C" void func_0206efc4(void* arg0);
+extern "C" void func_0206f200(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void* func_0206f4f0(Struct_0206f01c_2* arg0, int arg1);
+extern "C" void func_020e46c4(void* arg0);
+extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void func_020ac4c0(void* arg0);
+extern "C" void func_020a0330(Struct_020a0330* arg0, unsigned int arg1);
+extern "C" void func_020a0110(Struct_020a0110* arg0, unsigned int arg1);
+extern "C" void func_020a0388(Struct_020a0388* arg0, unsigned int arg1);
+extern "C" void func_020ac494(void* arg0);
+extern "C" void func_0209c6d8(void* arg0, int arg1);
+extern "C" void func_ov017_021cfc74(unsigned char arg0);
+extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
+extern "C" int func_0201b588(int arg0);
+extern "C" void func_020117cc(char* arg0, DetailedTreasureMapData* arg1);
 
 extern "C" {
-void __clear(void* buffer, unsigned long size);
-Unknown_021b8478_021eefd0* func_ov017_021b8478(void* unk);
-MessageName_021eefd0 func_ov023_021ed804(MessageName_021eefd0 name, void* monster);
+void __clear(void* arg0, unsigned long arg1);
+Struct_ov023_021eefd0_3* func_ov017_021b8478(void* arg0);
+Struct_ov023_021eefd0_8 func_ov023_021ed804(Struct_ov023_021eefd0_8 arg0, void* arg1);
 #if !defined(jpn)
-void func_0204500c(MessageSystem_021eefd0* messages, const char* text, int a, int b);
+void func_0204500c(Struct_ov023_021eefd0_9* arg0, const char* arg1, int arg2, int arg3);
 #endif
 void* func_0202ae18();
-int func_0202c508(void* unk);
-int func_0202c540(void* unk);
+int func_0202c508(void* arg0);
+int func_0202c540(void* arg0);
 int func_ov023_021f4fc8();
-ZoneData_021eefd0* func_02012fe4();
-void func_020426bc(void* name, char* buffer, int a);
+Struct_ov023_021eefd0_2* func_02012fe4();
+void func_020426bc(void* arg0, char* arg1, int arg2);
 void VectorizedMemset(void* dst, int value, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int size);
-void func_02011744(GameState* gameState);
+void func_02011744(GameState* arg0);
 }
 
 // USA: func_ov023_021eefd0
-extern "C" ARM int func_ov023_021eefd0(BattleScene_021eefd0* self)
+extern "C" ARM int func_ov023_021eefd0(Struct_ov023_021eefd0_7* arg0)
 {
-    BattleEnd_021eefd0* end = _ZZ17GetGlobal021ffefcvE1s;
-    if (end->step_ == 0)
+    Struct_ov023_021eefd0_6* var0 = _ZZ21inline_ov023_021f4c04vE1s;
+    if (var0->unknown_0_ == 0)
     {
-        void* monsters = self->info_->monsters_;
-        MessageSystem_021eefd0* messages = func_020421a0();
-        BackgroundLoader* loader = BackgroundLoader::GetInstance();
-        int load = 1;
-        if (_ZZ17GetGlobal021ffefcvE1s->task3_ > BackgroundLoader::TaskStatus_Invalid)
+        void* var1 = arg0->unknown_2a0_->unknown_678_;
+        Struct_ov023_021eefd0_9* var2 = func_020421a0();
+        BackgroundLoader* var3 = BackgroundLoader::GetInstance();
+        int var4 = 1;
+        if (_ZZ21inline_ov023_021f4c04vE1s->unknown_c_ > BackgroundLoader::TaskStatus_Invalid)
         {
-            if (loader->GetTaskStatus(_ZZ17GetGlobal021ffefcvE1s->task3_))
+            if (var3->GetTaskStatus(_ZZ21inline_ov023_021f4c04vE1s->unknown_c_))
             {
-                void* file;
-                unsigned int size;
-                loader->GetLoadedFileByID(_ZZ17GetGlobal021ffefcvE1s->task3_, &file, &size);
-                if (file != NULL)
+                void* var5;
+                unsigned int var6;
+                var3->GetLoadedFileByID(_ZZ21inline_ov023_021f4c04vE1s->unknown_c_, &var5, &var6);
+                if (var5 != NULL)
                 {
-                    self->allocator_.Reset();
-                    monsters = _ZZ17GetGlobal021ffefcvE1s->monsters_;
-                    func_0206efc4(monsters);
-                    func_0206f200((int)monsters, (int)&self->allocator_, (int)file, size, (short)self->victoryMonster_);
+                    arg0->unknown_30_.Reset();
+                    var1 = _ZZ21inline_ov023_021f4c04vE1s->unknown_10c_;
+                    func_0206efc4(var1);
+                    func_0206f200((int)var1, (int)&arg0->unknown_30_, (int)var5, var6, (short)arg0->unknown_58ca_);
                 }
-                loader->RemoveTask(_ZZ17GetGlobal021ffefcvE1s->task3_);
-                _ZZ17GetGlobal021ffefcvE1s->task3_ = -1;
-                load = 0;
+                var3->RemoveTask(_ZZ21inline_ov023_021f4c04vE1s->unknown_c_);
+                _ZZ21inline_ov023_021f4c04vE1s->unknown_c_ = -1;
+                var4 = 0;
             }
             else
             {
-                return self->endState_;
+                return arg0->unknown_eac_;
             }
         }
-        if (load && self->victoryMonster_ != 0 && func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_) == NULL)
+        if (var4 && arg0->unknown_58ca_ != 0 && func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_) == NULL)
         {
-            monsters = _ZZ17GetGlobal021ffefcvE1s->monsters_;
-            if (func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_) == NULL)
+            var1 = _ZZ21inline_ov023_021f4c04vE1s->unknown_10c_;
+            if (func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_) == NULL)
             {
 #if defined(jpn)
-                _ZZ17GetGlobal021ffefcvE1s->task3_ = loader->QueueLoadFile(data_ov023_021fd4ec, NULL);
+                _ZZ21inline_ov023_021f4c04vE1s->unknown_c_ = var3->QueueLoadFile(data_ov023_021fd4ec, NULL);
 #else
-                _ZZ17GetGlobal021ffefcvE1s->task3_ = loader->QueueLoadFileInGP2(data_ov023_021fe230, data_ov023_021fe246, NULL);
+                _ZZ21inline_ov023_021f4c04vE1s->unknown_c_ = var3->QueueLoadFileInGP2(data_ov023_021fe230, data_ov023_021fe246, NULL);
 #endif
 
-                return self->endState_;
+                return arg0->unknown_eac_;
             }
         }
-        GameResources* resources = GetGameResources();
-        void* unk = NULL;
-        Unknown_021b8478_021eefd0* unk2 = NULL;
-        int kind = -1;
-        if (resources != NULL)
-            unk = resources->unknown_ptr_3718;
-        if (unk != NULL)
-            unk2 = func_ov017_021b8478(unk);
+        GameResources* var7 = GetGameResources();
+        void* var8 = NULL;
+        Struct_ov023_021eefd0_3* var9 = NULL;
+        int var10 = -1;
+        if (var7 != NULL)
+            var8 = var7->unknown_ptr_3718;
+        if (var8 != NULL)
+            var9 = func_ov017_021b8478(var8);
 #if defined(jpn)
-        char name[40];
-        if (unk2 != NULL)
-            kind = unk2->unk_c;
-        __clear(name, sizeof(name));
-        char text[80];
-        switch (self->victory_)
+        char var11[40];
+        if (var9 != NULL)
+            var10 = var9->unknown_c_;
+        __clear(var11, sizeof(var11));
+        char var20[80];
+        switch (arg0->unknown_5ab9_)
         {
         case 0:
         {
-            void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-            if (monster != NULL)
-                strcpy(name, *(const char**)monster);
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 1), name);
+            void* var12 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            if (var12 != NULL)
+                strcpy(var11, *(const char**)var12);
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1), var11);
             break;
         }
         case 1:
         {
-            void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-            if (monster != NULL)
-                sprintf(name, func_02072a68((TableA68*)self->texts_, 5), *(const char**)monster);
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 1), name);
+            void* var13 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            if (var13 != NULL)
+                sprintf(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var13);
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1), var11);
             break;
         }
         case 2:
         {
-            if (kind == 0x36 || kind == 0x43 || kind == 0x50)
-                strcpy(name, data_ov023_021fd504);
+            if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
+                strcpy(var11, data_ov023_021fd504);
             else
-                strcpy(name, func_02072a68((TableA68*)self->texts_, 4));
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 1), name);
+                strcpy(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 4));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1), var11);
             break;
         }
         case 3:
         {
-            void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-            if (monster != NULL)
-                strcpy(name, *(const char**)monster);
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 3), name);
+            void* var14 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            if (var14 != NULL)
+                strcpy(var11, *(const char**)var14);
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3), var11);
             break;
         }
         case 4:
         {
-            void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-            if (monster != NULL)
-                sprintf(name, func_02072a68((TableA68*)self->texts_, 5), *(const char**)monster);
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 3), name);
+            void* var15 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            if (var15 != NULL)
+                sprintf(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var15);
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3), var11);
             break;
         }
         case 5:
         {
-            strcpy(name, func_02072a68((TableA68*)self->texts_, 4));
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 3), name);
+            strcpy(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 4));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3), var11);
             break;
         }
         case 6:
         {
-            void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-            if (monster != NULL)
-                strcpy(name, *(const char**)monster);
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 2), name);
+            void* var16 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            if (var16 != NULL)
+                strcpy(var11, *(const char**)var16);
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2), var11);
             break;
         }
         case 7:
         {
-            void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-            if (monster != NULL)
-                sprintf(name, func_02072a68((TableA68*)self->texts_, 5), *(const char**)monster);
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 2), name);
+            void* var17 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+            if (var17 != NULL)
+                sprintf(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 5), *(const char**)var17);
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2), var11);
             break;
         }
         case 8:
         {
-            strcpy(name, func_02072a68((TableA68*)self->texts_, 4));
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 2), name);
+            strcpy(var11, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 4));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2), var11);
             break;
         }
         }
 
 #else
-        MessageName_021eefd0 name;
-        if (unk2 != NULL)
-            kind = unk2->unk_c;
-        func_020e46c4(&name);
-        void* monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, (short)self->victoryMonster_);
-        if (kind == 0x36 || kind == 0x43 || kind == 0x50)
-            monster = func_0206f4f0((BinarySearchByComparatorStruct*)monsters, 0x1fc);
-        if (monster != NULL)
+        Struct_ov023_021eefd0_8 var18;
+        if (var9 != NULL)
+            var10 = var9->unknown_c_;
+        func_020e46c4(&var18);
+        void* var19 = func_0206f4f0((Struct_0206f01c_2*)var1, (short)arg0->unknown_58ca_);
+        if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
+            var19 = func_0206f4f0((Struct_0206f01c_2*)var1, 0x1fc);
+        if (var19 != NULL)
         {
-            name = func_ov023_021ed804(name, monster);
-            messages->unk_20 = &name;
-            messages->unk_10 = &name;
+            var18 = func_ov023_021ed804(var18, var19);
+            var2->unknown_20_ = &var18;
+            var2->unknown_10_ = &var18;
         }
-        char text[0x12c];
-        switch (self->victory_)
+        char var20[0x12c];
+        switch (arg0->unknown_58c9_)
         {
         case 0:
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 1));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1));
             break;
         case 1:
-            messages->unk_19d7 = 1;
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 1));
+            var2->unknown_19d7_ = 1;
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1));
             break;
         case 2:
-            if (kind == 0x36 || kind == 0x43 || kind == 0x50)
-                sprintf(text, func_02072a68((TableA68*)self->texts_, 1));
+            if (var10 == 0x36 || var10 == 0x43 || var10 == 0x50)
+                sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 1));
             else
-                sprintf(text, func_02072a68((TableA68*)self->texts_, 0x32));
+                sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x32));
             break;
         case 3:
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 3));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3));
             break;
         case 4:
-            messages->unk_19d7 = 1;
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 3));
+            var2->unknown_19d7_ = 1;
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 3));
             break;
         case 5:
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 0x34));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x34));
             break;
         case 6:
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 2));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2));
             break;
         case 7:
-            messages->unk_19d7 = 1;
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 2));
+            var2->unknown_19d7_ = 1;
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 2));
             break;
         case 8:
-            sprintf(text, func_02072a68((TableA68*)self->texts_, 0x33));
+            sprintf(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x33));
             break;
         }
 
 #endif
-        if (self->info_->legacyBoss_ != 0)
-            strcat(text, func_02072a68((TableA68*)self->texts_, 0x22));
-        else if (end->nothing_ == 0)
-            strcat(text, func_02072a68((TableA68*)self->texts_, 0x22));
+        if (arg0->unknown_2a0_->unknown_25_ != 0)
+            strcat(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x22));
+        else if (var0->unknown_10_ == 0)
+            strcat(var20, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x22));
 #if defined(jpn)
-        func_0204500c(messages, text, 1);
+        func_0204500c(var2, var20, 1);
 #else
-        func_0204500c(messages, text, 1, 0xe3);
+        func_0204500c(var2, var20, 1, 0xe3);
 #endif
 
-        messages->unk_19b2 = 0;
-        messages->busy_ = 1;
-        if (self->data_->monsterCount_ > 0)
+        var2->unknown_19b2_ = 0;
+        var2->unknown_998_ = 1;
+        if (arg0->unknown_29c_->unknown_8e30_ > 0)
         {
-            PlayRecords_021eefd0 records;
-            func_020ac4c0(&records);
-            func_020a0330((S_a0330*)&records, 1);
-            func_020a0110((S_a0110*)records.unk_68, 1);
-            func_020ac494(&records);
+            Struct_ov023_021eefd0 var21;
+            func_020ac4c0(&var21);
+            func_020a0330((Struct_020a0330*)&var21, 1);
+            func_020a0110((Struct_020a0110*)var21.unknown_68_, 1);
+            func_020ac494(&var21);
         }
-        if (!func_0202c540(func_0202ae18()) || self->info_->legacyBoss_ == 0)
+        if (!func_0202c540(func_0202ae18()) || arg0->unknown_2a0_->unknown_25_ == 0)
             func_0209c6d8(data_02109bf4, 0x36);
-        end->step_++;
-        if (self->info_->grotto_ != 0 || self->info_->legacyBoss_ != 0)
+        var0->unknown_0_++;
+        if (arg0->unknown_2a0_->unknown_24_ != 0 || arg0->unknown_2a0_->unknown_25_ != 0)
         {
-            GrottoStruct* grotto = GameState::GetInstance()->GetGrottoStruct();
-            self->unk_6e38 = 1;
-            grotto->unknown_0[3] = 1;
+            GrottoStruct* var22 = GameState::GetInstance()->GetGrottoStruct();
+            arg0->unknown_6e38_ = 1;
+            var22->unknown_0[3] = 1;
             func_ov017_021cfc74(1);
         }
-        func_0206efc4(_ZZ17GetGlobal021ffefcvE1s->monsters_);
+        func_0206efc4(_ZZ21inline_ov023_021f4c04vE1s->unknown_10c_);
     }
-    else if (end->step_ == 100)
+    else if (var0->unknown_0_ == 100)
     {
-        self->timer_++;
-        if (func_ov023_021f4fc8() || self->timer_ > 30)
+        arg0->unknown_6e4a_++;
+        if (func_ov023_021f4fc8() || arg0->unknown_6e4a_ > 30)
         {
-            func_ov023_021eefac((Reset_021eefac*)end);
+            func_ov023_021eefac((Struct_ov023_021eeaac_2*)var0);
             return 0x10;
         }
     }
-    else if (end->step_ == 1)
+    else if (var0->unknown_0_ == 1)
     {
         if (func_ov023_021f4fc8())
-            end->step_ = 2;
+            var0->unknown_0_ = 2;
     }
-    else if (end->step_ == 2)
+    else if (var0->unknown_0_ == 2)
     {
-        func_ov023_021eefac((Reset_021eefac*)end);
-        void* unk = func_0202ae18();
-        ZoneData_021eefd0* zone = func_02012fe4();
-        DetailedTreasureMapData* map = zone->grotto_.GetDetailedData();
-        if (self->info_->legacyBoss_ != 0)
+        func_ov023_021eefac((Struct_ov023_021eeaac_2*)var0);
+        void* var23 = func_0202ae18();
+        Struct_ov023_021eefd0_2* var24 = func_02012fe4();
+        DetailedTreasureMapData* var25 = var24->unknown_23ec_.GetDetailedData();
+        if (arg0->unknown_2a0_->unknown_25_ != 0)
         {
-            if (func_0201b588(zone->id_))
+            if (func_0201b588(var24->unknown_0_))
             {
-                PlayRecords_021eefd0 records;
-                func_020ac4c0(&records);
-                func_020a0388((S_a0388*)&records, 1);
-                if (map != NULL && map->mapType_ == 2 && map->legacy_.level_ > records.unk_c_7)
-                    records.unk_c_7 = map->legacy_.level_;
-                func_020ac494(&records);
+                Struct_ov023_021eefd0 var26;
+                func_020ac4c0(&var26);
+                func_020a0388((Struct_020a0388*)&var26, 1);
+                if (var25 != NULL && var25->mapType_ == 2 && var25->legacy_.level_ > var26.unknown_c_7_)
+                    var26.unknown_c_7_ = var25->legacy_.level_;
+                func_020ac494(&var26);
             }
             return 4;
         }
-        if (self->info_->grotto_ != 0)
+        if (arg0->unknown_2a0_->unknown_24_ != 0)
         {
-            DetailedTreasureMapData* map2 = func_02012fe4()->grotto_.GetDetailedData();
-            GameState* gameState = GameState::GetInstance();
-            if (func_0202c508(unk))
+            DetailedTreasureMapData* var27 = func_02012fe4()->unknown_23ec_.GetDetailedData();
+            GameState* var28 = GameState::GetInstance();
+            if (func_0202c508(var23))
             {
-                void* name = gameState->GetProtagonist()->baseStats_;
+                void* var29 = var28->GetProtagonist()->baseStats_;
 #if defined(jpn)
 
 #else
-                char buffer[0xa];
-                __clear(buffer, sizeof(buffer));
-                func_020426bc(name, buffer, 1);
+                char var30[0xa];
+                __clear(var30, sizeof(var30));
+                func_020426bc(var29, var30, 1);
 #endif
 
-                map2->discoveryState_ = 3;
-                VectorizedMemset(map2->clearedBy_, 0, sizeof(map2->clearedBy_));
+                var27->discoveryState_ = 3;
+                VectorizedMemset(var27->clearedBy_, 0, sizeof(var27->clearedBy_));
 #if defined(jpn)
-                VectorizedInvertedMemcpy(name, map2->clearedBy_, 10);
+                VectorizedInvertedMemcpy(var29, var27->clearedBy_, 10);
 #else
-                VectorizedInvertedMemcpy(buffer, map2->clearedBy_, sizeof(buffer));
+                VectorizedInvertedMemcpy(var30, var27->clearedBy_, sizeof(var30));
 #endif
 
-                func_020117cc((char*)gameState, map2);
-                func_02011744(gameState);
+                func_020117cc((char*)var28, var27);
+                func_02011744(var28);
             }
-            if (func_0201b588(zone->id_))
+            if (func_0201b588(var24->unknown_0_))
             {
-                PlayRecords_021eefd0 records;
-                func_020ac4c0(&records);
-                func_020a0388((S_a0388*)&records, 1);
-                if (map != NULL && map->mapType_ == 1 && map->regular_.level_ > records.unk_c_0)
-                    records.unk_c_0 = map->regular_.level_;
-                func_020ac494(&records);
+                Struct_ov023_021eefd0 var31;
+                func_020ac4c0(&var31);
+                func_020a0388((Struct_020a0388*)&var31, 1);
+                if (var25 != NULL && var25->mapType_ == 1 && var25->regular_.level_ > var31.unknown_c_0_)
+                    var31.unknown_c_0_ = var25->regular_.level_;
+                func_020ac494(&var31);
             }
         }
-        return end->nothing_ ? 0xe : 6;
+        return var0->unknown_10_ ? 0xe : 6;
     }
-    return self->endState_;
+    return arg0->unknown_eac_;
 }

@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { expectedFieldOffset = 0xa7a };
+enum { Enum_0208e444_3290 = 0xa7a };
 #else
-enum { expectedFieldOffset = 0xcda };
+enum { Enum_0208e444_3290 = 0xcda };
 #endif
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 #include "Resource/GameResources.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
-struct Globals0208e444 {
-    char pad[0xc];
-    unsigned short* buf;
+struct Struct_02108fe4 {
+    char unknown_0_[0xc];
+    unsigned short* unknown_c_;
 };
-extern struct Globals0208e444 data_02108fe4;
+extern struct Struct_02108fe4 data_02108fe4;
 
 // USA: func_0208e444
-extern "C" ARM int func_0208e444(char* v) {
-    unsigned char* p = (unsigned char*)GameState::GetInstance() + 0x5000;
-    unsigned char expected = p[expectedFieldOffset];
-    unsigned char got = (unsigned char)((Script::Parameter*)((Variant02030b0c*)v))->ToInt();
-    v += 8;
-    if (expected == got) {
-        SafeAllocator* alloc = (SafeAllocator*)(((int)GetGameResources()) + 0x1a0);
-        int buf = (int)alloc->Allocate(0x20);
-        data_02108fe4.buf = (unsigned short*)buf;
-        for (int i = 0; i < 0x10; i++) {
-            unsigned short val = (unsigned short)((Script::Parameter*)((Variant02030b0c*)v))->ToInt();
-            v += 8;
-            *(unsigned short*)buf = val;
-            buf += 2;
+extern "C" ARM int func_0208e444(char* arg0) {
+    unsigned char* var0 = (unsigned char*)GameState::GetInstance() + 0x5000;
+    unsigned char var1 = var0[Enum_0208e444_3290];
+    unsigned char var2 = (unsigned char)((Script::Parameter*)((Struct_0201c1c8*)arg0))->ToInt();
+    arg0 += 8;
+    if (var1 == var2) {
+        SafeAllocator* var3 = (SafeAllocator*)(((int)GetGameResources()) + 0x1a0);
+        int var4 = (int)var3->Allocate(0x20);
+        data_02108fe4.unknown_c_ = (unsigned short*)var4;
+        for (int var5 = 0; var5 < 0x10; var5++) {
+            unsigned short var6 = (unsigned short)((Script::Parameter*)((Struct_0201c1c8*)arg0))->ToInt();
+            arg0 += 8;
+            *(unsigned short*)var4 = var6;
+            var4 += 2;
         }
     }
     return 1;

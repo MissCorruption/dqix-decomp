@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Entry8_0218ba1c { int a; int b; };
-struct List8_0218ba1c { void* f0; Entry8_0218ba1c* arr; void* f8; int count; };
+struct Struct_ov015_0218b6e4 { int unknown_0_; int unknown_4_; };
+struct Struct_ov015_0218ba1c { void* unknown_0_; Struct_ov015_0218b6e4* unknown_4_; void* unknown_8_; int unknown_c_; };
 
 // USA: func_ov015_0218ba1c
-extern "C" ARM void func_ov015_0218ba1c(struct List8_0218ba1c* obj, struct Entry8_0218ba1c* src) {
-	int idx = obj->count;
-	obj->count = idx + 1;
-	struct Entry8_0218ba1c* dst = &obj->arr[idx];
-	dst->a = src->a;
-	dst->b = src->b;
+extern "C" ARM void func_ov015_0218ba1c(struct Struct_ov015_0218ba1c* arg0, struct Struct_ov015_0218b6e4* arg1) {
+	int var0 = arg0->unknown_c_;
+	arg0->unknown_c_ = var0 + 1;
+	struct Struct_ov015_0218b6e4* var1 = &arg0->unknown_4_[var0];
+	var1->unknown_0_ = arg1->unknown_0_;
+	var1->unknown_4_ = arg1->unknown_4_;
 }

@@ -1,78 +1,78 @@
 #include <globaldefs.h>
 
-struct List0207f6ac;
-extern "C" void* func_0207f6ac(struct List0207f6ac* list, int id);
-extern "C" void func_0204fa0c(void* obj, short a, short b);
+struct Struct_0207f524;
+extern "C" void* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
+extern "C" void func_0204fa0c(void* arg0, short arg1, short arg2);
 
-struct Entry02081574 {
-    char pad0[0x6];
-    short field6;
-    short field8;
-    char pad1[0x12 - 0xa];
-    unsigned char field12;
-    unsigned char field13nibble : 4;
-    unsigned char field13rest : 4;
-    char pad2[0x2a - 0x14];
-    unsigned char field2a;
+struct Struct_02081574 {
+    char unknown_0_[0x6];
+    short unknown_6_;
+    short unknown_8_;
+    char unknown_a_[0x12 - 0xa];
+    unsigned char unknown_12_;
+    unsigned char unknown_13_0_ : 4;
+    unsigned char unknown_13_4_ : 4;
+    char unknown_14_[0x2a - 0x14];
+    unsigned char unknown_2a_;
 };
 
 #if defined(jpn)
-enum { kSelectedIdOffset = 0x2a, kOriginOffset = 0x28 };
+enum { Enum_02081574_42 = 0x2a, Enum_02081574_52 = 0x28 };
 #else
-enum { kSelectedIdOffset = 0x36, kOriginOffset = 0x34 };
+enum { Enum_02081574_54 = 0x36, Enum_02081574_52 = 0x34 };
 #endif
 
-struct EntryGroup02081574 {
-    short* ids;
-    char unknown4[0x13 - 4];
-    unsigned char count;
+struct Struct_02081574_2 {
+    short* unknown_0_;
+    char unknown_4_[0x13 - 4];
+    unsigned char unknown_13_;
 };
 
-struct List0207f6ac {
-    Entry02081574* entries;
-    short count;
+struct Struct_0207f524 {
+    Struct_02081574* unknown_0_;
+    short unknown_4_;
 };
 
-struct ElementController02081574 {
-    void* table;
-    List0207f6ac entries;
-    char unknownC[kOriginOffset - 0xc];
-    short originX;
-    short selectedId;
+struct Struct_02081574_3 {
+    void* unknown_0_;
+    Struct_0207f524 unknown_4_;
+    char unknown_c_[Enum_02081574_52 - 0xc];
+    short unknown_34_;
+    short unknown_36_;
 };
 
-typedef void (ElementController02081574::*EntryHandler02081574)(void*, Entry02081574*);
-extern EntryHandler02081574 data_020e8a54[];
+typedef void (Struct_02081574_3::*Type_0204cd60)(void*, Struct_02081574*);
+extern Type_0204cd60 data_020e8a54[];
 
 // USA: func_02081574
-extern "C" ARM void func_02081574(void* obj, void* ctx, void* list) {
-    ElementController02081574* controller = static_cast<ElementController02081574*>(obj);
-    EntryGroup02081574* group = static_cast<EntryGroup02081574*>(list);
-    struct Entry02081574* e;
-    short id;
-    unsigned char i;
-    if (list == NULL) {
+extern "C" ARM void func_02081574(void* arg0, void* arg1, void* arg2) {
+    Struct_02081574_3* var0 = static_cast<Struct_02081574_3*>(arg0);
+    Struct_02081574_2* var1 = static_cast<Struct_02081574_2*>(arg2);
+    struct Struct_02081574* var2;
+    short var3;
+    unsigned char var4;
+    if (arg2 == NULL) {
         return;
     }
-    for (i = 0; i < group->count; i++) {
-        id = group->ids[i];
-        e = (struct Entry02081574*)func_0207f6ac(&controller->entries, id);
-        if (e != NULL) {
-            if (controller->selectedId == id) {
-                short val = e->field8;
-                short diff = (short)(e->field6 - controller->originX);
-                switch (e->field13nibble) {
+    for (var4 = 0; var4 < var1->unknown_13_; var4++) {
+        var3 = var1->unknown_0_[var4];
+        var2 = (struct Struct_02081574*)func_0207f6ac(&var0->unknown_4_, var3);
+        if (var2 != NULL) {
+            if (var0->unknown_36_ == var3) {
+                short var5 = var2->unknown_8_;
+                short var6 = (short)(var2->unknown_6_ - var0->unknown_34_);
+                switch (var2->unknown_13_0_) {
                 case 8:
-                    val = (short)(val - 1);
+                    var5 = (short)(var5 - 1);
                     break;
                 case 0xc:
-                    val = (short)(val + 1);
+                    var5 = (short)(var5 + 1);
                     break;
                 }
-                func_0204fa0c(ctx, diff, val);
+                func_0204fa0c(arg1, var6, var5);
             }
-            if (!(e->field2a & 1)) {
-                (controller->*data_020e8a54[e->field12])(ctx, e);
+            if (!(var2->unknown_2a_ & 1)) {
+                (var0->*data_020e8a54[var2->unknown_12_])(arg1, var2);
             }
         }
     }

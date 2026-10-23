@@ -16,77 +16,77 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Object3D.h"
 
-extern "C" void* __clear(void* dst, int count);
+extern "C" void* __clear(void* arg0, int arg1);
 void* LoadFileIntoMemory(const char* path, void* buf, unsigned int* outLen);
 
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
 struct Vector3i;
 
-struct Struct_203dafc;
-extern "C" void func_0203dafc(struct Struct_203dafc* obj);
+struct Struct_0203d028_11;
+extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
 
-struct Vec3Words02193cfc { unsigned int v[3]; };
+struct Struct_ov015_02193cfc { unsigned int unknown_0_[3]; };
 
 extern char data_ov015_02194129;
-extern struct Vec3Words02193cfc data_ov015_02193cfc;
+extern struct Struct_ov015_02193cfc data_ov015_02193cfc;
 extern int data_0211e33c;
 
 // USA: func_ov015_0218df0c
-extern "C" ARM int func_ov015_0218df0c(void* self, int* desc) {
-    if (desc[1] == 0) {
+extern "C" ARM int func_ov015_0218df0c(void* arg0, int* arg1) {
+    if (arg1[1] == 0) {
         return 0;
     }
 
-    char buf[0x20];
-    __clear(buf, 0x20);
+    char var0[0x20];
+    __clear(var0, 0x20);
 
-    ((SafeAllocator*)(*(void**)((char*)self + 8)))->Reset();
+    ((SafeAllocator*)(*(void**)((char*)arg0 + 8)))->Reset();
 
-    int ok = 1;
-    struct Foo0207df50* mgr = *(struct Foo0207df50**)*(void**)((char*)self + 4);
-    func_0207df50(mgr);
-    func_0207df90((char*)mgr);
+    int var1 = 1;
+    struct Struct_0203d028* var2 = *(struct Struct_0203d028**)*(void**)((char*)arg0 + 4);
+    func_0207df50(var2);
+    func_0207df90((char*)var2);
 
-    sprintf(buf, &data_ov015_02194129, desc[1]);
+    sprintf(var0, &data_ov015_02194129, arg1[1]);
 
     BackgroundLoader::AddLockGlobal();
 
-    unsigned int length = 0;
-    void* buffer = LoadFileIntoMemory(buf, &data_0211e33c, &length);
+    unsigned int var3 = 0;
+    void* var4 = LoadFileIntoMemory(var0, &data_0211e33c, &var3);
 
-    if (buffer == 0) {
-        ok = 0;
+    if (var4 == 0) {
+        var1 = 0;
     } else {
-        ObjectArchiveLoadInfo params;
-        func_0203dafc((struct Struct_203dafc*)&params);
-        SafeAllocator* allocPtr = *(SafeAllocator**)((char*)self + 8);
-        unsigned int sz = length;
-        void* dataPtr = &data_0211e33c;
-        int onePtr = ok;
-        params.fileData = dataPtr;
-        params.unk_8 = sz;
-        params.allocator = allocPtr;
-        params.unk_10 = onePtr;
-        ((Object3D*)(*(void**)((char*)self + 0x24)))->LoadFromCCHROrCMOTArchive(&params, 0);
+        ObjectArchiveLoadInfo var5;
+        func_0203dafc((struct Struct_0203d028_11*)&var5);
+        SafeAllocator* var6 = *(SafeAllocator**)((char*)arg0 + 8);
+        unsigned int var7 = var3;
+        void* var8 = &data_0211e33c;
+        int var9 = var1;
+        var5.fileData = var8;
+        var5.unk_8 = var7;
+        var5.allocator = var6;
+        var5.unk_10 = var9;
+        ((Object3D*)(*(void**)((char*)arg0 + 0x24)))->LoadFromCCHROrCMOTArchive(&var5, 0);
 
-        struct Vec3Words02193cfc v = data_ov015_02193cfc;
-        ((Object3D*)((unsigned char*)*(void**)((char*)self + 0x24)))->SetScale((Vector3i const*)&v);
+        struct Struct_ov015_02193cfc var10 = data_ov015_02193cfc;
+        ((Object3D*)((unsigned char*)*(void**)((char*)arg0 + 0x24)))->SetScale((Vector3i const*)&var10);
 
-        ((Object3D*)(*(void**)((char*)self + 0x24)))->MaybeSetBCFGAnimation(0, *(int*)((char*)self + 0x44));
+        ((Object3D*)(*(void**)((char*)arg0 + 0x24)))->MaybeSetBCFGAnimation(0, *(int*)((char*)arg0 + 0x44));
     }
 
     BackgroundLoader::RemoveLockGlobal();
-    func_0207dfac((char*)mgr);
+    func_0207dfac((char*)var2);
 
-    int result;
-    if (ok == 0) {
-        result = 0;
+    int var11;
+    if (var1 == 0) {
+        var11 = 0;
     } else {
-        *(int*)((char*)self + 0xc) = desc[0];
-        result = 1;
+        *(int*)((char*)arg0 + 0xc) = arg1[0];
+        var11 = 1;
     }
-    return result;
+    return var11;
 }

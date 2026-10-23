@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Words021e60c4 { unsigned int a, b, c; };
+struct Struct_ov009_02188454 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
 
-struct WordsInner021fcc68 { unsigned int v[3]; };
-struct LocalWords021fcc68 { struct WordsInner021fcc68 mid; };
-struct FlagByte021fcc68 { unsigned char pad[0x864]; unsigned char flag : 1; };
-extern "C" void func_ov023_021e613c(struct LocalWords021fcc68* dst, void* src);
+struct Struct_ov023_021fcc68_3 { unsigned int unknown_0_[3]; };
+struct Struct_ov023_021fcc68 { struct Struct_ov023_021fcc68_3 unknown_0_; };
+struct Struct_ov023_021fcc68_2 { unsigned char unknown_0_[0x864]; unsigned char unknown_864_0_ : 1; };
+extern "C" void func_ov023_021e613c(struct Struct_ov023_021fcc68* arg0, void* arg1);
 int fix32ReduceAngle0To2Pi(int angle);
-extern "C" void func_020c54a4(int enable, unsigned int fogMode, unsigned int fogShift, unsigned short fogOffset);
-extern "C" void func_ov023_021e6088(void* obj, struct Words021e60c4* src);
+extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
+extern "C" void func_ov023_021e6088(void* arg0, struct Struct_ov009_02188454* arg1);
 
 // USA: func_ov023_021fcc68
-extern "C" ARM void func_ov023_021fcc68(void* obj) {
+extern "C" ARM void func_ov023_021fcc68(void* arg0) {
     func_020c54a4(0, 0, 0, 0);
-    unsigned int flag = ((struct FlagByte021fcc68*)((char*)obj + 0x1000))->flag;
-    void* entry = (char*)obj + 0x20 + flag * 0xc20;
-    struct LocalWords021fcc68 copy;
-    struct LocalWords021fcc68 tmp;
-    func_ov023_021e613c(&tmp, entry);
-    copy.mid = tmp.mid;
-    copy.mid.v[1] = copy.mid.v[1] + 0x199u;
-    copy.mid.v[1] = fix32ReduceAngle0To2Pi(copy.mid.v[1]);
-    func_ov023_021e6088(entry, (struct Words021e60c4*)&copy);
+    unsigned int var0 = ((struct Struct_ov023_021fcc68_2*)((char*)arg0 + 0x1000))->unknown_864_0_;
+    void* var1 = (char*)arg0 + 0x20 + var0 * 0xc20;
+    struct Struct_ov023_021fcc68 var2;
+    struct Struct_ov023_021fcc68 var3;
+    func_ov023_021e613c(&var3, var1);
+    var2.unknown_0_ = var3.unknown_0_;
+    var2.unknown_0_.unknown_0_[1] = var2.unknown_0_.unknown_0_[1] + 0x199u;
+    var2.unknown_0_.unknown_0_[1] = fix32ReduceAngle0To2Pi(var2.unknown_0_.unknown_0_[1]);
+    func_ov023_021e6088(var1, (struct Struct_ov009_02188454*)&var2);
 }

@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
 extern "C" void* func_02012fe4(void);
-extern "C" int func_ov003_0216ffbc(void* param);
+extern "C" int func_ov003_0216ffbc(void* arg0);
 
-struct S021700bc { char pad[0x170]; void* field170; };
+struct Struct_ov003_0216bcfc { char unknown_0_[0x170]; void* unknown_170_; };
 
 // USA: func_ov003_021700bc
-extern "C" ARM void func_ov003_021700bc(S021700bc* param) {
+extern "C" ARM void func_ov003_021700bc(Struct_ov003_0216bcfc* arg0) {
 #if defined(jpn)
-	param->field170 = (char*)func_02012fe4() + 0x860;
+	arg0->unknown_170_ = (char*)func_02012fe4() + 0x860;
 #else
-	param->field170 = (char*)func_02012fe4() + 0x840;
+	arg0->unknown_170_ = (char*)func_02012fe4() + 0x840;
 #endif
-	func_ov003_0216ffbc(param);
+	func_ov003_0216ffbc(arg0);
 }

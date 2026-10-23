@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { objectOffset = 0xb94, mirrorOffset = 0x218, positionOffset = 0xc04 };
+enum { Enum_ov000_0216118c_3096 = 0xb94, Enum_ov000_0216118c_668 = 0x218, Enum_ov000_0216118c_3208 = 0xc04 };
 #else
-enum { objectOffset = 0xc18, mirrorOffset = 0x29c, positionOffset = 0xc88 };
+enum { Enum_ov000_0216118c_3096 = 0xc18, Enum_ov000_0216118c_668 = 0x29c, Enum_ov000_0216118c_3208 = 0xc88 };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_ov000_021626a0(void* self, int a, int b);
-extern "C" void func_ov000_0216d600(void* obj, int a1, int a2, int a3, int a4, int a5, int a6, int a7);
-extern "C" void func_0202e694(void* obj, int* vec);
-extern "C" void func_ov000_0216f1e4(void* obj, int* srcVec3, int a, int b);
+extern "C" void func_ov000_021626a0(void* arg0, int arg1, int arg2);
+extern "C" void func_ov000_0216d600(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void func_0202e694(void* arg0, int* arg1);
+extern "C" void func_ov000_0216f1e4(void* arg0, int* arg1, int arg2, int arg3);
 
-struct Vec3_0216118c { int v[3]; };
+struct Struct_ov000_0216118c { int unknown_0_[3]; };
 
 // USA: func_ov000_0216118c
-extern "C" ARM void func_ov000_0216118c(void* self, int flag) {
+extern "C" ARM void func_ov000_0216118c(void* arg0, int arg1) {
     GameState::GetInstance();
     ((int)GetGameResources());
-    func_ov000_021626a0(self, 0x26, 0);
-    func_ov000_0216d600((char*)self + objectOffset, 1, 1, 0, 0, 0, 0, 1);
-    if (flag == 0) {
+    func_ov000_021626a0(arg0, 0x26, 0);
+    func_ov000_0216d600((char*)arg0 + Enum_ov000_0216118c_3096, 1, 1, 0, 0, 0, 0, 1);
+    if (arg1 == 0) {
         return;
     }
-    int* mirrorPtr = *(int**)((char*)self + mirrorOffset);
-    if (*(int*)((char*)mirrorPtr + 0x8000 + 0xe20) != 0) {
+    int* var0 = *(int**)((char*)arg0 + Enum_ov000_0216118c_668);
+    if (*(int*)((char*)var0 + 0x8000 + 0xe20) != 0) {
         return;
     }
-    struct Vec3_0216118c temp1 = *(struct Vec3_0216118c*)((char*)self + positionOffset);
-    struct Vec3_0216118c temp2 = temp1;
-    temp2.v[1] += 0x800;
-    temp2.v[2] += 0x3000;
-    func_0202e694((char*)self + objectOffset, temp2.v);
-    func_ov000_0216f1e4((char*)self + objectOffset, temp1.v, 0xf33, 0);
+    struct Struct_ov000_0216118c var1 = *(struct Struct_ov000_0216118c*)((char*)arg0 + Enum_ov000_0216118c_3208);
+    struct Struct_ov000_0216118c var2 = var1;
+    var2.unknown_0_[1] += 0x800;
+    var2.unknown_0_[2] += 0x3000;
+    func_0202e694((char*)arg0 + Enum_ov000_0216118c_3096, var2.unknown_0_);
+    func_ov000_0216f1e4((char*)arg0 + Enum_ov000_0216118c_3096, var1.unknown_0_, 0xf33, 0);
 }

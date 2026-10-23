@@ -1,114 +1,114 @@
 #include <globaldefs.h>
 
-struct Struct022407e4;
-struct Obj022407f8;
+struct Struct_ov031_022407e4;
+struct Struct_ov031_022407f8;
 
-struct HttpBlock_0224185c {
-    HttpBlock_0224185c* next;
-    signed char data[0x200];
+struct Struct_ov031_0224185c_7 {
+    Struct_ov031_0224185c_7* unknown_0_;
+    signed char unknown_4_[0x200];
 };
 
-struct HttpResp_0224185c {
-    volatile int hdrLen;
-    volatile int bodyLen;
-    int ok;
-    int bodyCap;
-    char pad10[0x1c - 0x10];
-    HttpBlock_0224185c* blocks;
-    signed char hdr[0x400];
+struct Struct_ov031_0224185c_3 {
+    volatile int unknown_0_;
+    volatile int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    char unknown_10_[0x1c - 0x10];
+    Struct_ov031_0224185c_7* unknown_1c_;
+    signed char unknown_20_[0x400];
 };
 
-struct HttpHeader_0224185c {
-    HttpHeader_0224185c* prev;
-    HttpHeader_0224185c* next;
-    char* name;
-    char* value;
+struct Struct_ov031_0224185c_4 {
+    Struct_ov031_0224185c_4* unknown_0_;
+    Struct_ov031_0224185c_4* unknown_4_;
+    char* unknown_8_;
+    char* unknown_c_;
 };
 
-struct HttpParam_0224185c {
-    HttpParam_0224185c* prev;
-    HttpParam_0224185c* next;
-    char* name;
-    char* value;
-    int valueLen;
-    int isFile;
+struct Struct_ov031_0224185c_5 {
+    Struct_ov031_0224185c_5* unknown_0_;
+    Struct_ov031_0224185c_5* unknown_4_;
+    char* unknown_8_;
+    char* unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
 };
 
-struct HttpReq_0224185c {
-    int unk0;
-    int canceled;
-    int secure;
-    int hostEnd;
-    int pathStart;
-    int contentLength;
-    int unk18;
-    int unk1c;
-    void* sslCtx;
-    char* url;
-    int port;
-    void* cbArg;
-    HttpResp_0224185c* resp;
-    HttpHeader_0224185c* headers;
-    HttpParam_0224185c* params;
-    void (*callback)(int, HttpResp_0224185c*, void*);
-    int method;
-    char boundary[0x16];
+struct Struct_ov031_0224185c_6 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    void* unknown_20_;
+    char* unknown_24_;
+    int unknown_28_;
+    void* unknown_2c_;
+    Struct_ov031_0224185c_3* unknown_30_;
+    Struct_ov031_0224185c_4* unknown_34_;
+    Struct_ov031_0224185c_5* unknown_38_;
+    void (*unknown_3c_)(int, Struct_ov031_0224185c_3*, void*);
+    int unknown_40_;
+    char unknown_44_[0x16];
 };
 
-struct HttpJob_0224185c {
-    void* prev;
-    void* next;
-    int id;
-    HttpReq_0224185c* req;
-    int sock;
+struct Struct_ov031_0224185c {
+    void* unknown_0_;
+    void* unknown_4_;
+    int unknown_8_;
+    Struct_ov031_0224185c_6* unknown_c_;
+    int unknown_10_;
 };
 
-struct PollFd_0224185c {
-    int fd;
-    short events;
-    short revents;
+struct Struct_ov031_0224185c_2 {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
 };
 
-struct Ring_0224185c { int head; int tail; };
+struct Struct_ov031_022919bc_3 { int unknown_0_; int unknown_4_; };
 
 extern "C" void* func_ov031_02240310(void);
-extern "C" HttpJob_0224185c* func_ov031_022402e0(void);
+extern "C" Struct_ov031_0224185c* func_ov031_022402e0(void);
 extern "C" void func_ov031_02240324(void);
 extern "C" int func_ov031_022403d8(void);
-extern "C" int func_ov031_022413b8(void* unused, int id);
+extern "C" int func_ov031_022413b8(void* arg0, int arg1);
 extern "C" void func_ov031_02241318(void);
-extern "C" int func_ov031_022407e4(Struct022407e4* obj, unsigned int val);
-extern "C" int func_ov031_022407f8(Obj022407f8* obj, int b, int c, int d);
+extern "C" int func_ov031_022407e4(Struct_ov031_022407e4* arg0, unsigned int arg1);
+extern "C" int func_ov031_022407f8(Struct_ov031_022407f8* arg0, int arg1, int arg2, int arg3);
 
-extern "C" int func_ov031_02240fc8(HttpReq_0224185c* req);
-extern "C" int func_ov031_0220783c(PollFd_0224185c* fds, int n, int timeout, int flags);
-extern "C" void func_ov031_0224175c(int sock, void** ctx);
-extern "C" int func_ov031_02241338(HttpReq_0224185c* req);
-extern "C" int func_ov031_02241404(HttpReq_0224185c* req, int sock, int addr, int port);
-extern "C" void func_ov031_02241720(void* ctx);
-extern "C" int func_ov031_022415a8(const char* s);
-extern "C" int func_ov031_022415e0(HttpReq_0224185c* req, int sock, int* pos, const char* buf, int count);
-extern "C" HttpHeader_0224185c* func_ov031_0223ff38(HttpHeader_0224185c** list);
-extern "C" int func_ov031_02242b5c(const char* s);
-extern "C" int func_ov031_02242dd4(signed char* out, int n);
-extern "C" int func_ov031_02242bc4(signed char* out, int c);
-extern "C" int func_ov031_022414cc(HttpReq_0224185c* req, int sock, char* buf, int count, int flags);
-extern "C" int func_ov031_02241480(HttpReq_0224185c* req, int sock, void* buf, int count, int flags);
-extern "C" int func_ov031_022406f8(HttpResp_0224185c* resp, char* dst, int start, int len);
-extern "C" int func_ov031_02241540(const char* a, const char* b, int n);
-extern "C" int func_ov031_02242d3c(char* str, int maxLen);
-extern "C" int func_ov031_022404e8(HttpResp_0224185c* resp, int start, int end, int* outColon);
-extern "C" int func_ov031_022410d8(HttpResp_0224185c* resp, const char* name, int* outStart);
-extern "C" int func_ov031_02240628(HttpResp_0224185c* resp, int start, int end, const char* word, int delim);
-extern "C" int func_ov031_02241694(HttpReq_0224185c* req, int sock);
-extern "C" int func_ov031_02242c54(char* str, int len);
-extern "C" int func_ov031_02240820(HttpReq_0224185c* req, int sock, int pos, int count, int flags);
-extern "C" int func_ov031_02240e70(HttpReq_0224185c* req);
+extern "C" int func_ov031_02240fc8(Struct_ov031_0224185c_6* arg0);
+extern "C" int func_ov031_0220783c(Struct_ov031_0224185c_2* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov031_0224175c(int arg0, void** arg1);
+extern "C" int func_ov031_02241338(Struct_ov031_0224185c_6* arg0);
+extern "C" int func_ov031_02241404(Struct_ov031_0224185c_6* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov031_02241720(void* arg0);
+extern "C" int func_ov031_022415a8(const char* arg0);
+extern "C" int func_ov031_022415e0(Struct_ov031_0224185c_6* arg0, int arg1, int* arg2, const char* arg3, int arg4);
+extern "C" Struct_ov031_0224185c_4* func_ov031_0223ff38(Struct_ov031_0224185c_4** arg0);
+extern "C" int func_ov031_02242b5c(const char* arg0);
+extern "C" int func_ov031_02242dd4(signed char* arg0, int arg1);
+extern "C" int func_ov031_02242bc4(signed char* arg0, int arg1);
+extern "C" int func_ov031_022414cc(Struct_ov031_0224185c_6* arg0, int arg1, char* arg2, int arg3, int arg4);
+extern "C" int func_ov031_02241480(Struct_ov031_0224185c_6* arg0, int arg1, void* arg2, int arg3, int arg4);
+extern "C" int func_ov031_022406f8(Struct_ov031_0224185c_3* arg0, char* arg1, int arg2, int arg3);
+extern "C" int func_ov031_02241540(const char* arg0, const char* arg1, int arg2);
+extern "C" int func_ov031_02242d3c(char* arg0, int arg1);
+extern "C" int func_ov031_022404e8(Struct_ov031_0224185c_3* arg0, int arg1, int arg2, int* arg3);
+extern "C" int func_ov031_022410d8(Struct_ov031_0224185c_3* arg0, const char* arg1, int* arg2);
+extern "C" int func_ov031_02240628(Struct_ov031_0224185c_3* arg0, int arg1, int arg2, const char* arg3, int arg4);
+extern "C" int func_ov031_02241694(Struct_ov031_0224185c_6* arg0, int arg1);
+extern "C" int func_ov031_02242c54(char* arg0, int arg1);
+extern "C" int func_ov031_02240820(Struct_ov031_0224185c_6* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" int func_ov031_02240e70(Struct_ov031_0224185c_6* arg0);
 extern "C" void func_ov031_022417fc(void);
 
-extern Ring_0224185c data_ov031_022919bc;
+extern Struct_ov031_022919bc_3 data_ov031_022919bc;
 extern int data_ov031_02290fd0;
-extern HttpJob_0224185c* data_ov031_02290fcc;
+extern Struct_ov031_0224185c* data_ov031_02290fcc;
 extern void (*data_ov031_02290fc8)(void*);
 extern void* (*data_ov031_02290fc4)(int size, int align);
 extern int data_ov031_02290fc0;
@@ -138,13 +138,13 @@ extern char data_ov031_0224c87c[];
 extern char data_ov031_0224c888[];
 extern char data_ov031_0224c89c[];
 
-static inline HttpBlock_0224185c* AllocBlock_0224185c(void) {
-    return (HttpBlock_0224185c*)data_ov031_02290fc4(sizeof(HttpBlock_0224185c), 4);
+static inline Struct_ov031_0224185c_7* inline_ov031_0224185c(void) {
+    return (Struct_ov031_0224185c_7*)data_ov031_02290fc4(sizeof(Struct_ov031_0224185c_7), 4);
 }
 
 #define HTTP_SEND(str, len)                                                 \
     do {                                                                    \
-        int sent = func_ov031_022415e0(req, sock, &pos, (str), (len));      \
+        int sent = func_ov031_022415e0(var20, var17, &var2, (str), (len));      \
         if (sent < 0) goto done;                                            \
         if (sent != 0) break;                                               \
         goto retry;                                                         \
@@ -152,127 +152,127 @@ static inline HttpBlock_0224185c* AllocBlock_0224185c(void) {
 
 // USA: func_ov031_0224185c
 extern "C" ARM void func_ov031_0224185c(void) {
-    signed char buf[12];
-    void* ctx;
-    int pos;
-    int tmp;
-    int colon;
-    PollFd_0224185c pfd;
-    char ver[3];
-    HttpJob_0224185c* job;
-    int addr;
-    int lastAddr;
-    int lastPort;
-    int hasFile;
-    int lastSecure;
-    int err;
-    int keepAlive;
-    int same;
-    int len;
-    int sock;
-    int total;
-    int chunked;
-    HttpReq_0224185c* req;
-    int id;
-    HttpResp_0224185c* resp;
-    int chunkLen;
-    int n;
-    int i;
+    signed char var0[12];
+    void* var1;
+    int var2;
+    int var3;
+    int var4;
+    Struct_ov031_0224185c_2 var5;
+    char var6[3];
+    Struct_ov031_0224185c* var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
+    int var12;
+    int var13;
+    int var14;
+    int var15;
+    int var16;
+    int var17;
+    int var18;
+    int var19;
+    Struct_ov031_0224185c_6* var20;
+    int var21;
+    Struct_ov031_0224185c_3* var22;
+    int var23;
+    int var24;
+    int var25;
 
-    sock = -1;
-    ctx = 0;
-    data_ov031_022919bc.head = 0;
-    data_ov031_022919bc.tail = 0;
-    hasFile = 0;
-    lastAddr = -1;
-    lastPort = -1;
-    keepAlive = 0;
-    lastSecure = 0;
+    var17 = -1;
+    var1 = 0;
+    data_ov031_022919bc.unknown_0_ = 0;
+    data_ov031_022919bc.unknown_4_ = 0;
+    var11 = 0;
+    var9 = -1;
+    var10 = -1;
+    var14 = 0;
+    var12 = 0;
     while (data_ov031_02290fd0 == 0) {
         func_ov031_02240310();
-        job = func_ov031_022402e0();
-        if (job == 0) {
-            id = -1;
+        var7 = func_ov031_022402e0();
+        if (var7 == 0) {
+            var21 = -1;
         } else {
-            id = job->id;
-            req = job->req;
-            data_ov031_02290fcc = job;
+            var21 = var7->unknown_8_;
+            var20 = var7->unknown_c_;
+            data_ov031_02290fcc = var7;
         }
         func_ov031_02240324();
-        if (id < 0) {
+        if (var21 < 0) {
             func_ov031_022403d8();
             continue;
         }
-        resp = req->resp;
-        if (req->canceled != 0) goto done;
-        addr = func_ov031_02240fc8(req);
-        if (addr == 0) {
-            err = 4;
+        var22 = var20->unknown_30_;
+        if (var20->unknown_4_ != 0) goto done;
+        var8 = func_ov031_02240fc8(var20);
+        if (var8 == 0) {
+            var13 = 4;
             goto done;
         }
-        same = 0;
-        if (addr == lastAddr && req->port == lastPort && req->secure == lastSecure) same = 1;
-        lastPort = req->port;
-        lastSecure = req->secure;
-        lastAddr = addr;
-        keepAlive = keepAlive & same;
+        var15 = 0;
+        if (var8 == var9 && var20->unknown_28_ == var10 && var20->unknown_8_ == var12) var15 = 1;
+        var10 = var20->unknown_28_;
+        var12 = var20->unknown_8_;
+        var9 = var8;
+        var14 = var14 & var15;
     retry:
-        err = 0;
-        if (sock >= 0) {
-            pfd.events = 9;
-            pfd.fd = sock;
-            if (func_ov031_0220783c(&pfd, 1, 0xcc8d, 0) <= 0) {
-                keepAlive = 0;
-            } else if (pfd.revents & 0xe0) {
-                keepAlive = 0;
+        var13 = 0;
+        if (var17 >= 0) {
+            var5.unknown_4_ = 9;
+            var5.unknown_0_ = var17;
+            if (func_ov031_0220783c(&var5, 1, 0xcc8d, 0) <= 0) {
+                var14 = 0;
+            } else if (var5.unknown_6_ & 0xe0) {
+                var14 = 0;
             }
         }
-        if (keepAlive == 0) {
-            if (sock >= 0) {
-                if (func_ov031_022413b8(req, sock) < 0) err = 10;
-                func_ov031_0224175c(sock, &ctx);
-                sock = -1;
-                if (err != 0) goto done;
+        if (var14 == 0) {
+            if (var17 >= 0) {
+                if (func_ov031_022413b8(var20, var17) < 0) var13 = 10;
+                func_ov031_0224175c(var17, &var1);
+                var17 = -1;
+                if (var13 != 0) goto done;
             }
-            sock = func_ov031_02241338(req);
-            if (sock < 0) {
-                err = 3;
+            var17 = func_ov031_02241338(var20);
+            if (var17 < 0) {
+                var13 = 3;
                 goto done;
             }
-            if (req->secure != 0) {
-                ctx = req->sslCtx;
-                req->sslCtx = 0;
+            if (var20->unknown_8_ != 0) {
+                var1 = var20->unknown_20_;
+                var20->unknown_20_ = 0;
             }
             func_ov031_02240310();
-            data_ov031_02290fcc->sock = sock;
+            data_ov031_02290fcc->unknown_10_ = var17;
             func_ov031_02240324();
-            if (req->canceled != 0) goto done;
-            if (func_ov031_02241404(req, sock, addr, req->port) >= 0) {
-                keepAlive = 1;
+            if (var20->unknown_4_ != 0) goto done;
+            if (func_ov031_02241404(var20, var17, var8, var20->unknown_28_) >= 0) {
+                var14 = 1;
             } else {
-                keepAlive = 0;
+                var14 = 0;
             }
         } else {
-            if (req->secure != 0) {
-                func_ov031_02241720(req->sslCtx);
-                req->sslCtx = 0;
+            if (var20->unknown_8_ != 0) {
+                func_ov031_02241720(var20->unknown_20_);
+                var20->unknown_20_ = 0;
             }
             func_ov031_02241318();
             func_ov031_02240310();
-            data_ov031_02290fcc->sock = sock;
+            data_ov031_02290fcc->unknown_10_ = var17;
             func_ov031_02240324();
         }
-        if (req->canceled != 0) goto done;
-        if (keepAlive == 0) {
-            err = 5;
+        if (var20->unknown_4_ != 0) goto done;
+        if (var14 == 0) {
+            var13 = 5;
             goto done;
         }
-        pos = 0;
-        keepAlive = 0;
-        len = func_ov031_022415a8(req->url);
-        err = 10;
+        var2 = 0;
+        var14 = 0;
+        var16 = func_ov031_022415a8(var20->unknown_24_);
+        var13 = 10;
 
-        switch (req->method) {
+        switch (var20->unknown_40_) {
         case 0:
             HTTP_SEND(data_ov031_0224c794, 4);
             break;
@@ -283,298 +283,298 @@ extern "C" ARM void func_ov031_0224185c(void) {
             HTTP_SEND(data_ov031_0224c7a4, 5);
             break;
         }
-        if (len > req->pathStart) {
-            n = len - req->pathStart;
-            if (n != 0) HTTP_SEND(req->url + req->pathStart, n);
+        if (var16 > var20->unknown_10_) {
+            var24 = var16 - var20->unknown_10_;
+            if (var24 != 0) HTTP_SEND(var20->unknown_24_ + var20->unknown_10_, var24);
         } else {
             HTTP_SEND(data_ov031_0224c7ac, 1);
         }
         HTTP_SEND(data_ov031_0224c7b0, 11);
 
-        tmp = req->secure != 0 ? 8 : 7;
+        var3 = var20->unknown_8_ != 0 ? 8 : 7;
         HTTP_SEND(data_ov031_0224c7bc, 6);
-        n = req->hostEnd - tmp;
-        if (n != 0) HTTP_SEND(req->url + tmp, n);
+        var24 = var20->unknown_c_ - var3;
+        if (var24 != 0) HTTP_SEND(var20->unknown_24_ + var3, var24);
         HTTP_SEND(data_ov031_0224c7c4, 2);
 
         {
-            HttpHeader_0224185c* h = func_ov031_0223ff38(&req->headers);
-            while (h != 0) {
-                n = func_ov031_022415a8(h->name);
-                if (n != 0) HTTP_SEND(h->name, n);
+            Struct_ov031_0224185c_4* var26 = func_ov031_0223ff38(&var20->unknown_34_);
+            while (var26 != 0) {
+                var24 = func_ov031_022415a8(var26->unknown_8_);
+                if (var24 != 0) HTTP_SEND(var26->unknown_8_, var24);
                 HTTP_SEND(data_ov031_0224c7c8, 2);
-                n = func_ov031_022415a8(h->value);
-                if (n != 0) HTTP_SEND(h->value, n);
+                var24 = func_ov031_022415a8(var26->unknown_c_);
+                if (var24 != 0) HTTP_SEND(var26->unknown_c_, var24);
                 HTTP_SEND(data_ov031_0224c7c4, 2);
-                data_ov031_02290fc8(h);
-                h = func_ov031_0223ff38(&req->headers);
+                data_ov031_02290fc8(var26);
+                var26 = func_ov031_0223ff38(&var20->unknown_34_);
             }
         }
 
-        if (req->method == 1) {
-            HttpParam_0224185c* list;
-            HttpParam_0224185c* p;
-            total = 0;
-            list = req->params;
-            hasFile = 0;
-            p = list;
-            while (p != 0) {
-                if (p->isFile != 0) {
-                    hasFile = 1;
+        if (var20->unknown_40_ == 1) {
+            Struct_ov031_0224185c_5* var27;
+            Struct_ov031_0224185c_5* var28;
+            var18 = 0;
+            var27 = var20->unknown_38_;
+            var11 = 0;
+            var28 = var27;
+            while (var28 != 0) {
+                if (var28->unknown_14_ != 0) {
+                    var11 = 1;
                     break;
                 }
-                if (p == list->prev) break;
-                p = p->next;
+                if (var28 == var27->unknown_0_) break;
+                var28 = var28->unknown_4_;
             }
-            if (hasFile != 0) {
-                while (list != 0) {
-                    total += 0x16;
-                    total += func_ov031_022415a8(list->name) + 0x29;
-                    if (list->isFile != 0) total += 0x4b;
-                    total += 2;
-                    total += list->valueLen;
-                    total += 2;
-                    if (list == req->params->prev) break;
-                    list = list->next;
+            if (var11 != 0) {
+                while (var27 != 0) {
+                    var18 += 0x16;
+                    var18 += func_ov031_022415a8(var27->unknown_8_) + 0x29;
+                    if (var27->unknown_14_ != 0) var18 += 0x4b;
+                    var18 += 2;
+                    var18 += var27->unknown_10_;
+                    var18 += 2;
+                    if (var27 == var20->unknown_38_->unknown_0_) break;
+                    var27 = var27->unknown_4_;
                 }
-                total += 0x18;
+                var18 += 0x18;
                 HTTP_SEND(data_ov031_0224c7cc, 0x2c);
-                HTTP_SEND(req->boundary + 2, 0x12);
+                HTTP_SEND(var20->unknown_44_ + 2, 0x12);
                 HTTP_SEND(data_ov031_0224c7c4, 2);
             } else {
-                while (list != 0) {
-                    total = total + func_ov031_02242b5c(list->name) + 1;
-                    total += func_ov031_02242b5c(list->value);
-                    if (list == req->params->prev) break;
-                    list = list->next;
-                    total++;
+                while (var27 != 0) {
+                    var18 = var18 + func_ov031_02242b5c(var27->unknown_8_) + 1;
+                    var18 += func_ov031_02242b5c(var27->unknown_c_);
+                    if (var27 == var20->unknown_38_->unknown_0_) break;
+                    var27 = var27->unknown_4_;
+                    var18++;
                 }
                 HTTP_SEND(data_ov031_0224c7fc, 0x31);
             }
             HTTP_SEND(data_ov031_0224c830, 0x10);
-            tmp = func_ov031_02242dd4(buf, total);
-            if (tmp != 0) HTTP_SEND((char*)buf, tmp);
+            var3 = func_ov031_02242dd4(var0, var18);
+            if (var3 != 0) HTTP_SEND((char*)var0, var3);
             HTTP_SEND(data_ov031_0224c7c4, 2);
         }
         HTTP_SEND(data_ov031_0224c7c4, 2);
 
-        if (req->method == 1) {
-            if (hasFile != 0) {
-                HttpParam_0224185c* p = req->params;
-                while (p != 0) {
-                    HTTP_SEND(req->boundary, 0x14);
+        if (var20->unknown_40_ == 1) {
+            if (var11 != 0) {
+                Struct_ov031_0224185c_5* var29 = var20->unknown_38_;
+                while (var29 != 0) {
+                    HTTP_SEND(var20->unknown_44_, 0x14);
                     HTTP_SEND(data_ov031_0224c7c4, 2);
                     HTTP_SEND(data_ov031_022494d8, 0x26);
-                    n = func_ov031_022415a8(p->name);
-                    if (n != 0) HTTP_SEND(p->name, n);
+                    var24 = func_ov031_022415a8(var29->unknown_8_);
+                    if (var24 != 0) HTTP_SEND(var29->unknown_8_, var24);
                     HTTP_SEND(data_ov031_0224c844, 3);
-                    if (p->isFile != 0) HTTP_SEND(data_ov031_02249500, 0x4b);
+                    if (var29->unknown_14_ != 0) HTTP_SEND(data_ov031_02249500, 0x4b);
                     HTTP_SEND(data_ov031_0224c7c4, 2);
-                    if (p->valueLen != 0) HTTP_SEND(p->value, p->valueLen);
+                    if (var29->unknown_10_ != 0) HTTP_SEND(var29->unknown_c_, var29->unknown_10_);
                     HTTP_SEND(data_ov031_0224c7c4, 2);
-                    if (p == req->params->prev) break;
-                    p = p->next;
+                    if (var29 == var20->unknown_38_->unknown_0_) break;
+                    var29 = var29->unknown_4_;
                 }
-                HTTP_SEND(req->boundary, 0x14);
+                HTTP_SEND(var20->unknown_44_, 0x14);
                 HTTP_SEND(data_ov031_0224c848, 4);
             } else {
-                HttpParam_0224185c* q = req->params;
-                while (q != 0) {
-                    for (i = 0; q->name[i] != 0; i++) {
-                        tmp = func_ov031_02242bc4(buf, q->name[i]);
-                        if (tmp != 0) HTTP_SEND((char*)buf, tmp);
+                Struct_ov031_0224185c_5* var30 = var20->unknown_38_;
+                while (var30 != 0) {
+                    for (var25 = 0; var30->unknown_8_[var25] != 0; var25++) {
+                        var3 = func_ov031_02242bc4(var0, var30->unknown_8_[var25]);
+                        if (var3 != 0) HTTP_SEND((char*)var0, var3);
                     }
                     HTTP_SEND(data_ov031_0224c850, 1);
-                    for (i = 0; q->value[i] != 0; i++) {
-                        tmp = func_ov031_02242bc4(buf, q->value[i]);
-                        if (tmp != 0) HTTP_SEND((char*)buf, tmp);
+                    for (var25 = 0; var30->unknown_c_[var25] != 0; var25++) {
+                        var3 = func_ov031_02242bc4(var0, var30->unknown_c_[var25]);
+                        if (var3 != 0) HTTP_SEND((char*)var0, var3);
                     }
-                    if (q == req->params->prev) break;
+                    if (var30 == var20->unknown_38_->unknown_0_) break;
                     HTTP_SEND(data_ov031_0224c854, 1);
-                    q = q->next;
+                    var30 = var30->unknown_4_;
                 }
             }
         }
-        if (pos > 0) {
-            int sent = func_ov031_022414cc(req, sock, data_ov031_02291a04, pos, 0);
-            if (sent < 0) goto done;
-            if (sent == 0) goto retry;
+        if (var2 > 0) {
+            int var31 = func_ov031_022414cc(var20, var17, data_ov031_02291a04, var2, 0);
+            if (var31 < 0) goto done;
+            if (var31 == 0) goto retry;
         }
 
-        resp->hdrLen = 0;
-        buf[0] = 0;
-        buf[1] = 0;
-        buf[2] = 0;
-        buf[3] = 0;
+        var22->unknown_0_ = 0;
+        var0[0] = 0;
+        var0[1] = 0;
+        var0[2] = 0;
+        var0[3] = 0;
         {
-            HttpBlock_0224185c* blk = resp->blocks;
-            err = 7;
-            pos = 0;
+            Struct_ov031_0224185c_7* var32 = var22->unknown_1c_;
+            var13 = 7;
+            var2 = 0;
             for (;;) {
-                int got;
-                if (req->canceled != 0) goto done;
-                if (pos < 0x400) {
-                    got = func_ov031_02241480(req, sock, resp->hdr + pos, 1, 0);
-                    buf[pos & 3] = resp->hdr[pos];
+                int var33;
+                if (var20->unknown_4_ != 0) goto done;
+                if (var2 < 0x400) {
+                    var33 = func_ov031_02241480(var20, var17, var22->unknown_20_ + var2, 1, 0);
+                    var0[var2 & 3] = var22->unknown_20_[var2];
                 } else {
-                    int off = pos & 0x1ff;
-                    if (off == 0) {
-                        if (blk != 0) {
-                            blk->next = AllocBlock_0224185c();
-                            blk = blk->next;
+                    int var34 = var2 & 0x1ff;
+                    if (var34 == 0) {
+                        if (var32 != 0) {
+                            var32->unknown_0_ = inline_ov031_0224185c();
+                            var32 = var32->unknown_0_;
                         } else {
-                            blk = AllocBlock_0224185c();
-                            resp->blocks = blk;
+                            var32 = inline_ov031_0224185c();
+                            var22->unknown_1c_ = var32;
                         }
-                        if (blk == 0) {
-                            err = 1;
+                        if (var32 == 0) {
+                            var13 = 1;
                             goto done;
                         }
-                        blk->next = 0;
+                        var32->unknown_0_ = 0;
                     }
-                    got = func_ov031_02241480(req, sock, blk->data + off, 1, 0);
-                    buf[pos & 3] = blk->data[off];
+                    var33 = func_ov031_02241480(var20, var17, var32->unknown_4_ + var34, 1, 0);
+                    var0[var2 & 3] = var32->unknown_4_[var34];
                 }
-                if (got <= 0) {
-                    err = 10;
+                if (var33 <= 0) {
+                    var13 = 10;
                     goto done;
                 }
-                pos += got;
-                if (buf[(pos - 4) & 3] == '\r' && buf[(pos - 3) & 3] == '\n' &&
-                    buf[(pos - 2) & 3] == '\r' && buf[(pos - 1) & 3] == '\n') {
-                    resp->hdrLen = pos;
+                var2 += var33;
+                if (var0[(var2 - 4) & 3] == '\r' && var0[(var2 - 3) & 3] == '\n' &&
+                    var0[(var2 - 2) & 3] == '\r' && var0[(var2 - 1) & 3] == '\n') {
+                    var22->unknown_0_ = var2;
                     break;
                 }
             }
         }
-        if (resp->hdrLen == 0) goto done;
+        if (var22->unknown_0_ == 0) goto done;
 
-        if (func_ov031_022406f8(resp, data_ov031_02291a04, 0, 0xe) == 0) goto done;
+        if (func_ov031_022406f8(var22, data_ov031_02291a04, 0, 0xe) == 0) goto done;
         if (func_ov031_02241540(data_ov031_02291a04, data_ov031_0224c858, 5) != 0 || data_ov031_02291a04[8] != ' ') goto done;
         if (func_ov031_02242d3c(data_ov031_02291a0d, 3) < 0) goto done;
-        if (func_ov031_022404e8(resp, 0xc, resp->hdrLen, &colon) < 0) goto done;
+        if (func_ov031_022404e8(var22, 0xc, var22->unknown_0_, &var4) < 0) goto done;
 
-        len = func_ov031_022410d8(resp, data_ov031_0224c860, &tmp);
-        if (len == 0) {
-            err = 0;
+        var16 = func_ov031_022410d8(var22, data_ov031_0224c860, &var3);
+        if (var16 == 0) {
+            var13 = 0;
             goto done;
         }
-        if (len > 0x400) goto done;
-        if (len > 0) {
-            if (func_ov031_022406f8(resp, data_ov031_02291a04, tmp, len) == 0) goto done;
-            len = func_ov031_02242d3c(data_ov031_02291a04, len);
-            if (len < 0) goto done;
-            req->contentLength = len;
+        if (var16 > 0x400) goto done;
+        if (var16 > 0) {
+            if (func_ov031_022406f8(var22, data_ov031_02291a04, var3, var16) == 0) goto done;
+            var16 = func_ov031_02242d3c(data_ov031_02291a04, var16);
+            if (var16 < 0) goto done;
+            var20->unknown_14_ = var16;
         } else {
-            req->contentLength = -1;
+            var20->unknown_14_ = -1;
         }
 
-        n = func_ov031_022410d8(resp, data_ov031_0224c870, &tmp);
-        keepAlive = n;
-        if (n == 0) goto done;
-        if (n < 0) {
-            ver[0] = data_ov031_02291a04[5];
-            ver[1] = data_ov031_02291a04[7];
-            ver[2] = 0;
-            if (func_ov031_02242d3c(ver, 2) >= 11) {
-                keepAlive = 1;
+        var24 = func_ov031_022410d8(var22, data_ov031_0224c870, &var3);
+        var14 = var24;
+        if (var24 == 0) goto done;
+        if (var24 < 0) {
+            var6[0] = data_ov031_02291a04[5];
+            var6[1] = data_ov031_02291a04[7];
+            var6[2] = 0;
+            if (func_ov031_02242d3c(var6, 2) >= 11) {
+                var14 = 1;
             } else {
-                keepAlive = 0;
+                var14 = 0;
             }
-        } else if (n > 0x400) {
-            keepAlive = 0;
+        } else if (var24 > 0x400) {
+            var14 = 0;
         } else {
-            if (func_ov031_02240628(resp, tmp, tmp + keepAlive, data_ov031_0224c87c, 0) == 0) {
-                keepAlive = 1;
+            if (func_ov031_02240628(var22, var3, var3 + var14, data_ov031_0224c87c, 0) == 0) {
+                var14 = 1;
             } else {
-                keepAlive = 0;
+                var14 = 0;
             }
         }
 
-        n = func_ov031_022410d8(resp, data_ov031_0224c888, &tmp);
-        if (n == 0) goto done;
-        if (n > 0x400) {
-            chunked = 0;
-        } else if (n > 0) {
-            chunked = func_ov031_02240628(resp, tmp, tmp + n, data_ov031_0224c89c, ';') == 0;
+        var24 = func_ov031_022410d8(var22, data_ov031_0224c888, &var3);
+        if (var24 == 0) goto done;
+        if (var24 > 0x400) {
+            var19 = 0;
+        } else if (var24 > 0) {
+            var19 = func_ov031_02240628(var22, var3, var3 + var24, data_ov031_0224c89c, ';') == 0;
         } else {
-            chunked = 0;
+            var19 = 0;
         }
-        if (req->method == 2) goto done;
+        if (var20->unknown_40_ == 2) goto done;
 
-        if (len >= 0) {
-            while (len > 0 && func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
-                int got = func_ov031_02240820(req, sock, resp->bodyLen, len, 0);
-                if (got < 0) goto done;
-                if (got == 0) break;
-                len -= got;
-                resp->bodyLen += got;
+        if (var16 >= 0) {
+            while (var16 > 0 && func_ov031_022407e4((Struct_ov031_022407e4*)var22, var22->unknown_4_) == 0) {
+                int var35 = func_ov031_02240820(var20, var17, var22->unknown_4_, var16, 0);
+                if (var35 < 0) goto done;
+                if (var35 == 0) break;
+                var16 -= var35;
+                var22->unknown_4_ += var35;
             }
-            if (len != 0) {
-                err = func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) != 0 ? 6 : 10;
+            if (var16 != 0) {
+                var13 = func_ov031_022407e4((Struct_ov031_022407e4*)var22, var22->unknown_4_) != 0 ? 6 : 10;
                 goto done;
             }
-            err = 0;
+            var13 = 0;
             goto done;
         }
-        err = 10;
-        if (chunked != 0) {
+        var13 = 10;
+        if (var19 != 0) {
             for (;;) {
-                signed char c;
-                buf[0] = 0;
-                buf[1] = 0;
-                pos = 0;
+                signed char var36;
+                var0[0] = 0;
+                var0[1] = 0;
+                var2 = 0;
                 do {
-                    if (func_ov031_02241480(req, sock, data_ov031_02291a04 + pos, 1, 0) < 0) goto done;
-                    c = data_ov031_02291a04[pos];
-                    buf[pos & 1] = c;
-                    if (c == ';' || (c == 0xa && buf[(pos - 1) & 1] == 0xd)) {
-                        if (c == 0xa) {
-                            tmp = pos - 1;
+                    if (func_ov031_02241480(var20, var17, data_ov031_02291a04 + var2, 1, 0) < 0) goto done;
+                    var36 = data_ov031_02291a04[var2];
+                    var0[var2 & 1] = var36;
+                    if (var36 == ';' || (var36 == 0xa && var0[(var2 - 1) & 1] == 0xd)) {
+                        if (var36 == 0xa) {
+                            var3 = var2 - 1;
                         } else {
-                            tmp = pos;
-                            if (func_ov031_02241694(req, sock) <= 0) goto done;
+                            var3 = var2;
+                            if (func_ov031_02241694(var20, var17) <= 0) goto done;
                         }
-                        if (tmp == 0) goto done;
-                        chunkLen = func_ov031_02242c54(data_ov031_02291a04, tmp);
-                        if (chunkLen >= 0) break;
+                        if (var3 == 0) goto done;
+                        var23 = func_ov031_02242c54(data_ov031_02291a04, var3);
+                        if (var23 >= 0) break;
                         goto done;
                     }
-                    pos++;
-                } while (pos < 0x400);
-                if (pos == 0x400) {
-                    err = 7;
+                    var2++;
+                } while (var2 < 0x400);
+                if (var2 == 0x400) {
+                    var13 = 7;
                     goto done;
                 }
-                if (chunkLen <= 0) break;
-                while (chunkLen > 0) {
-                    int got = func_ov031_02240820(req, sock, resp->bodyLen, chunkLen, 0);
-                    if (got <= 0) goto done;
-                    resp->bodyLen += got;
-                    chunkLen -= got;
-                    if (chunkLen == 0) {
-                        if (func_ov031_02241480(req, sock, data_ov031_02291a04, 1, 0) <= 0) goto done;
-                        if (func_ov031_02241480(req, sock, data_ov031_02291a04, 1, 0) <= 0) goto done;
+                if (var23 <= 0) break;
+                while (var23 > 0) {
+                    int var37 = func_ov031_02240820(var20, var17, var22->unknown_4_, var23, 0);
+                    if (var37 <= 0) goto done;
+                    var22->unknown_4_ += var37;
+                    var23 -= var37;
+                    if (var23 == 0) {
+                        if (func_ov031_02241480(var20, var17, data_ov031_02291a04, 1, 0) <= 0) goto done;
+                        if (func_ov031_02241480(var20, var17, data_ov031_02291a04, 1, 0) <= 0) goto done;
                     }
                 }
             }
-            func_ov031_02241694(req, sock);
-            err = 0;
+            func_ov031_02241694(var20, var17);
+            var13 = 0;
             goto done;
         }
-        while (func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
-            int got = func_ov031_022407f8((Obj022407f8*)req, sock, resp->bodyLen, 0);
-            if (got < 0) goto done;
-            if (got == 0) {
-                err = 0;
+        while (func_ov031_022407e4((Struct_ov031_022407e4*)var22, var22->unknown_4_) == 0) {
+            int var38 = func_ov031_022407f8((Struct_ov031_022407f8*)var20, var17, var22->unknown_4_, 0);
+            if (var38 < 0) goto done;
+            if (var38 == 0) {
+                var13 = 0;
                 goto done;
             }
-            resp->bodyLen += got;
-            if (func_ov031_022407e4((Struct022407e4*)resp, resp->bodyLen) != 0) {
-                got = func_ov031_02241480(req, sock, data_ov031_02291a04, 1, 0);
-                if (got < 0) goto done;
-                if (got != 0) {
-                    err = 6;
+            var22->unknown_4_ += var38;
+            if (func_ov031_022407e4((Struct_ov031_022407e4*)var22, var22->unknown_4_) != 0) {
+                var38 = func_ov031_02241480(var20, var17, data_ov031_02291a04, 1, 0);
+                if (var38 < 0) goto done;
+                if (var38 != 0) {
+                    var13 = 6;
                     goto done;
                 }
             }
@@ -584,31 +584,31 @@ extern "C" ARM void func_ov031_0224185c(void) {
         data_ov031_02290fc8(data_ov031_02290fcc);
         data_ov031_02290fcc = 0;
         func_ov031_02240324();
-        if (req->canceled != 0) err = 8;
-        if (sock >= 0) {
-            if (keepAlive == 0 || err != 0) {
-                if (func_ov031_022413b8(req, sock) < 0) err = 10;
-                func_ov031_0224175c(sock, &ctx);
-                sock = -1;
-                keepAlive = 0;
+        if (var20->unknown_4_ != 0) var13 = 8;
+        if (var17 >= 0) {
+            if (var14 == 0 || var13 != 0) {
+                if (func_ov031_022413b8(var20, var17) < 0) var13 = 10;
+                func_ov031_0224175c(var17, &var1);
+                var17 = -1;
+                var14 = 0;
             }
         }
-        if (err == 0) {
-            resp->ok = 1;
+        if (var13 == 0) {
+            var22->unknown_8_ = 1;
         } else {
-            resp->ok = 0;
-            data_ov031_02290fc0 = err;
+            var22->unknown_8_ = 0;
+            data_ov031_02290fc0 = var13;
         }
         {
-            void* cbArg = req->cbArg;
-            void (*cb)(int, HttpResp_0224185c*, void*) = req->callback;
-            func_ov031_02240e70(req);
-            cb(err, resp, cbArg);
+            void* var39 = var20->unknown_2c_;
+            void (*var40)(int, Struct_ov031_0224185c_3*, void*) = var20->unknown_3c_;
+            func_ov031_02240e70(var20);
+            var40(var13, var22, var39);
         }
     }
-    if (sock >= 0) {
-        func_ov031_022413b8(req, sock);
-        func_ov031_0224175c(sock, &ctx);
+    if (var17 >= 0) {
+        func_ov031_022413b8(var20, var17);
+        func_ov031_0224175c(var17, &var1);
     }
     func_ov031_022417fc();
 }

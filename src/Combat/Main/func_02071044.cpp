@@ -2,98 +2,98 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct Struct02030b7c {
-    int field0;
-    void* field4;
+struct Struct_0201c3a4 {
+    int unknown_0_;
+    void* unknown_4_;
 };
 
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
-struct MsgArgs02071044 {
-    struct Variant02030b0c v0;
-    struct Variant02030b0c v1;
-    struct Variant02030b0c v2;
-    struct Variant02030b0c v3;
-    struct Variant02030b0c v4;
-    struct Variant02030b0c v5;
-    struct Variant02030b0c v6;
-    struct Struct02030b7c v7;
+struct Struct_02071044 {
+    struct Struct_0201c1c8 unknown_0_;
+    struct Struct_0201c1c8 unknown_8_;
+    struct Struct_0201c1c8 unknown_10_;
+    struct Struct_0201c1c8 unknown_18_;
+    struct Struct_0201c1c8 unknown_20_;
+    struct Struct_0201c1c8 unknown_28_;
+    struct Struct_0201c1c8 unknown_30_;
+    struct Struct_0201c3a4 unknown_38_;
 };
 
-struct MsgEntry02071044 {
-    int id;
-    char text[0x1e];
-    char flag1;
-    char flag2;
+struct Struct_02071044_2 {
+    int unknown_0_;
+    char unknown_4_[0x1e];
+    char unknown_22_;
+    char unknown_23_;
 };
 
-struct MsgQueueState02071044 {
-    unsigned char forceFlag;
-    char pad1[7];
-    struct MsgEntry02071044* entries;
-    char pad2[4];
-    int limit;
-    char pad3[8];
-    int targetValue;
-    char pad4[4];
-    int count;
+struct Struct_02108d70_2 {
+    unsigned char unknown_0_;
+    char unknown_1_[7];
+    struct Struct_02071044_2* unknown_8_;
+    char unknown_c_[4];
+    int unknown_10_;
+    char unknown_14_[8];
+    int unknown_1c_;
+    char unknown_20_[4];
+    int unknown_24_;
 };
-extern struct MsgQueueState02071044 data_02108d70;
+extern struct Struct_02108d70_2 data_02108d70;
 
 // USA: func_02071044
-extern "C" ARM int func_02071044(struct MsgArgs02071044* args) {
-    int v0;
-    int key;
-    int i;
-    void* text;
-    int len;
+extern "C" ARM int func_02071044(struct Struct_02071044* arg0) {
+    int var0;
+    int var1;
+    int var2;
+    void* var3;
+    int var4;
 
-    if (data_02108d70.limit <= data_02108d70.count) {
+    if (data_02108d70.unknown_10_ <= data_02108d70.unknown_24_) {
         return 0;
     }
 
-    v0 = ((Script::Parameter*)&args->v0)->ToInt();
-    ((Script::Parameter*)&args->v1)->ToInt();
+    var0 = ((Script::Parameter*)&arg0->unknown_0_)->ToInt();
+    ((Script::Parameter*)&arg0->unknown_8_)->ToInt();
 
-    if (v0 == data_02108d70.targetValue || data_02108d70.forceFlag != 0) {
-        ((Script::Parameter*)&args->v2)->ToInt();
-        ((Script::Parameter*)&args->v3)->ToInt();
-        ((Script::Parameter*)&args->v4)->ToInt();
-        key = ((Script::Parameter*)&args->v5)->ToInt();
+    if (var0 == data_02108d70.unknown_1c_ || data_02108d70.unknown_0_ != 0) {
+        ((Script::Parameter*)&arg0->unknown_10_)->ToInt();
+        ((Script::Parameter*)&arg0->unknown_18_)->ToInt();
+        ((Script::Parameter*)&arg0->unknown_20_)->ToInt();
+        var1 = ((Script::Parameter*)&arg0->unknown_28_)->ToInt();
 
-        for (i = 0; i < data_02108d70.count; i++) {
-            if (data_02108d70.entries[i].id == key) {
-                if (key < 0x5208 || key >= 0x9c40) {
+        for (var2 = 0; var2 < data_02108d70.unknown_24_; var2++) {
+            if (data_02108d70.unknown_8_[var2].unknown_0_ == var1) {
+                if (var1 < 0x5208 || var1 >= 0x9c40) {
                     return 0;
                 }
             }
         }
 
-        data_02108d70.entries[data_02108d70.count].id = key;
+        data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_0_ = var1;
 
-        ((Script::Parameter*)&args->v6)->ToInt();
-        text = (void*)((Script::Parameter*)&args->v7)->ToString();
-        if (!text) {
+        ((Script::Parameter*)&arg0->unknown_30_)->ToInt();
+        var3 = (void*)((Script::Parameter*)&arg0->unknown_38_)->ToString();
+        if (!var3) {
             return 0;
         }
 
-        memset(data_02108d70.entries[data_02108d70.count].text, 0, 0x20);
+        memset(data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_4_, 0, 0x20);
 
-        len = func_020d2ff0((const char*)text);
-        if (len < 0x1f) {
-            memcpy(data_02108d70.entries[data_02108d70.count].text, text, len);
+        var4 = func_020d2ff0((const char*)var3);
+        if (var4 < 0x1f) {
+            memcpy(data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_4_, var3, var4);
         } else {
-            memcpy(data_02108d70.entries[data_02108d70.count].text, text, 0x1e);
-            data_02108d70.entries[data_02108d70.count].flag1 = 0;
+            memcpy(data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_4_, var3, 0x1e);
+            data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_22_ = 0;
         }
 
-        data_02108d70.entries[data_02108d70.count].flag2 = 0;
-        data_02108d70.count++;
+        data_02108d70.unknown_8_[data_02108d70.unknown_24_].unknown_23_ = 0;
+        data_02108d70.unknown_24_++;
     }
 
     return 1;

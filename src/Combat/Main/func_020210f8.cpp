@@ -3,149 +3,149 @@
 #include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
-struct State0xbb1c;
-struct Obj0203bb3c;
+struct Struct_02020fc4;
+struct Struct_02020fc4_2;
 
-extern "C" void func_0203bb1c(State0xbb1c *state);
-extern "C" void func_0203bb3c(Obj0203bb3c *state, char *source, SafeAllocator *allocator, int category,
-                                          unsigned short flags);
+extern "C" void func_0203bb1c(Struct_02020fc4 *arg0);
+extern "C" void func_0203bb3c(Struct_02020fc4_2 *arg0, char *arg1, SafeAllocator *arg2, int arg3,
+                                          unsigned short arg4);
 
-struct Entry02021578 {
-    int field0;
-    char *name;
-    char pad8[0x1c];
+struct Struct_020210f8 {
+    int unknown_0_;
+    char *unknown_4_;
+    char unknown_8_[0x1c];
 };
 
-struct CharacterTransferReceiverPrefix {
-    char unknown0[0x20];
-    Entry02021578 *entries;
-    int entryCount;
-    char unknown28[0x48];
-    int unknown70;
-    int unknown74;
+struct Struct_020210f8_2 {
+    char unknown_0_[0x20];
+    Struct_020210f8 *unknown_20_;
+    int unknown_24_;
+    char unknown_28_[0x48];
+    int unknown_70_;
+    int unknown_74_;
 };
 
-struct Stream0200fd14 {
-    char *ptr;
+struct Struct_0200fd14 {
+    char *unknown_0_;
 };
-extern "C" void func_0200fd14(Stream0200fd14 *stream, void *dst, unsigned int length);
-extern "C" void *__clear(void *dst, int count);
+extern "C" void func_0200fd14(Struct_0200fd14 *arg0, void *arg1, unsigned int arg2);
+extern "C" void *__clear(void *arg0, int arg1);
 
-struct Node020211b0 {
-    unsigned char type;
-    unsigned char id;
-    unsigned char count;
-    unsigned char pad3;
-    short *data;
-    int x;
-    int y;
-    Node020211b0 *next;
-};
-
-struct Entry020211b0 {
-    unsigned short key1;
-    unsigned char key2;
-    unsigned char pad3;
-    short val1;
-    short val2;
+struct Struct_020211b0_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    short *unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    Struct_020211b0_3 *unknown_10_;
 };
 
-struct Table020211b0 {
+struct Struct_020211b0 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    short unknown_4_;
+    short unknown_6_;
+};
+
+struct Struct_020211b0_2 {
 #if defined(jpn)
-    char pad0[0x9d4];
+    char unknown_0_[0x9d4];
 #else
-    char pad0[0xaa0];
+    char unknown1_0_[0xaa0];
 #endif
-    unsigned short count;
-    Entry020211b0 entries[32];
+    unsigned short unknown_aa0_;
+    Struct_020211b0 unknown_aa2_[32];
 };
 
 // USA: func_020210f8
-extern "C" ARM void func_020210f8(char *receiver, int *handles, SafeAllocator *allocator) {
-    if (handles == NULL) return;
+extern "C" ARM void func_020210f8(char *arg0, int *arg1, SafeAllocator *arg2) {
+    if (arg1 == NULL) return;
 
-    CharacterTransferReceiverPrefix *state = reinterpret_cast<CharacterTransferReceiverPrefix *>(receiver);
-    BackgroundLoader *loader               = BackgroundLoader::GetInstance();
-    void *fileData                         = NULL;
-    unsigned int fileLength                = 0;
-    state->unknown70                       = state->unknown74 + 1;
+    Struct_020210f8_2 *var0 = reinterpret_cast<Struct_020210f8_2 *>(arg0);
+    BackgroundLoader *var1               = BackgroundLoader::GetInstance();
+    void *var2                         = NULL;
+    unsigned int var3                = 0;
+    var0->unknown_70_                       = var0->unknown_74_ + 1;
 
-    for (int index = 0; index < state->entryCount; index++) {
-        loader->GetLoadedFileByID(handles[index], &fileData, &fileLength);
-        func_0203bb1c(reinterpret_cast<State0xbb1c *>(state->entries[index].pad8));
-        func_0203bb3c(reinterpret_cast<Obj0203bb3c *>(state->entries[index].pad8),
-                                             static_cast<char *>(fileData), allocator, 1, 0);
-        BackgroundLoader::GetInstance()->RemoveTask(handles[index]);
-        handles[index] = -1;
+    for (int var4 = 0; var4 < var0->unknown_24_; var4++) {
+        var1->GetLoadedFileByID(arg1[var4], &var2, &var3);
+        func_0203bb1c(reinterpret_cast<Struct_02020fc4 *>(var0->unknown_20_[var4].unknown_8_));
+        func_0203bb3c(reinterpret_cast<Struct_02020fc4_2 *>(var0->unknown_20_[var4].unknown_8_),
+                                             static_cast<char *>(var2), arg2, 1, 0);
+        BackgroundLoader::GetInstance()->RemoveTask(arg1[var4]);
+        arg1[var4] = -1;
     }
 }
 
 // USA: func_020211b0
 #if defined(jpn)
-typedef int CompletedLoadTask;
+typedef int Type_020211b0;
 #else
-typedef int *CompletedLoadTask;
+typedef int *Type_020211b0;
 #endif
-extern "C" ARM void func_020211b0(char *receiver, CompletedLoadTask taskID) {
-    BackgroundLoader *loader = BackgroundLoader::GetInstance();
-    Stream0200fd14 stream;
-    stream.ptr              = 0;
-    unsigned int fileLength = 0;
+extern "C" ARM void func_020211b0(char *arg0, Type_020211b0 arg1) {
+    BackgroundLoader *var0 = BackgroundLoader::GetInstance();
+    Struct_0200fd14 var1;
+    var1.unknown_0_              = 0;
+    unsigned int var2 = 0;
 #if defined(jpn)
-    loader->GetLoadedFileByID(taskID, (void **) &stream.ptr, &fileLength);
+    var0->GetLoadedFileByID(arg1, (void **) &var1.unknown_0_, &var2);
 #else
-    loader->GetLoadedFileByID(*taskID, (void **) &stream.ptr, &fileLength);
+    var0->GetLoadedFileByID(*arg1, (void **) &var1.unknown_0_, &var2);
 #endif
 
-    unsigned short keys[16];
-    unsigned char keyCount = 0;
-    __clear(keys, sizeof(keys));
+    unsigned short var3[16];
+    unsigned char var4 = 0;
+    __clear(var3, sizeof(var3));
 #if defined(jpn)
-    enum { kNodeListOffset = 0x6a8 };
+    enum { Enum_020211b0_1876 = 0x6a8 };
 #else
-    enum { kNodeListOffset = 0x754 };
+    enum { Enum_020211b0_1876 = 0x754 };
 #endif
-    for (Node020211b0 *node = *(Node020211b0 **) (receiver + kNodeListOffset); node; node = node->next) {
-        for (int i = 0; i < node->count; i++) {
-            unsigned short key = node->data[i];
-            if (key >= 20000 && key <= 29999) {
-                keys[keyCount++] = key;
+    for (Struct_020211b0_3 *var5 = *(Struct_020211b0_3 **) (arg0 + Enum_020211b0_1876); var5; var5 = var5->unknown_10_) {
+        for (int var6 = 0; var6 < var5->unknown_2_; var6++) {
+            unsigned short var7 = var5->unknown_4_[var6];
+            if (var7 >= 20000 && var7 <= 29999) {
+                var3[var4++] = var7;
             }
         }
     }
 
-    if (stream.ptr) {
-        ((Table020211b0 *) receiver)->count = 0;
-        VectorizedMemset(((Table020211b0 *) receiver)->entries, 0, 0x100);
-        unsigned short recordCount = 0;
-        func_0200fd14(&stream, &recordCount, 2);
-        for (int i = 0; i < recordCount; i++) {
-            unsigned short key1;
-            unsigned char key2;
-            short val1;
-            short val2;
-            func_0200fd14(&stream, &key1, 2);
-            func_0200fd14(&stream, &key2, 1);
-            func_0200fd14(&stream, &val1, 2);
-            func_0200fd14(&stream, &val2, 2);
-            int found = 0;
-            for (int j = 0; j < keyCount && !found; j++) {
-                if (key1 == keys[j]) found = 1;
+    if (var1.unknown_0_) {
+        ((Struct_020211b0_2 *) arg0)->unknown_aa0_ = 0;
+        VectorizedMemset(((Struct_020211b0_2 *) arg0)->unknown_aa2_, 0, 0x100);
+        unsigned short var8 = 0;
+        func_0200fd14(&var1, &var8, 2);
+        for (int var9 = 0; var9 < var8; var9++) {
+            unsigned short var10;
+            unsigned char var11;
+            short var12;
+            short var13;
+            func_0200fd14(&var1, &var10, 2);
+            func_0200fd14(&var1, &var11, 1);
+            func_0200fd14(&var1, &var12, 2);
+            func_0200fd14(&var1, &var13, 2);
+            int var14 = 0;
+            for (int var15 = 0; var15 < var4 && !var14; var15++) {
+                if (var10 == var3[var15]) var14 = 1;
             }
-            if (found) {
-                Entry020211b0 *entry = &((Table020211b0 *) receiver)->entries[((Table020211b0 *) receiver)->count++];
-                entry->key1          = key1;
-                entry->key2          = key2;
-                entry->val1          = val1;
-                entry->val2          = val2;
+            if (var14) {
+                Struct_020211b0 *var16 = &((Struct_020211b0_2 *) arg0)->unknown_aa2_[((Struct_020211b0_2 *) arg0)->unknown_aa0_++];
+                var16->unknown_0_          = var10;
+                var16->unknown_2_          = var11;
+                var16->unknown_4_          = var12;
+                var16->unknown_6_          = var13;
             }
         }
     }
 
 #if defined(jpn)
-    BackgroundLoader::GetInstance()->RemoveTask(taskID);
+    BackgroundLoader::GetInstance()->RemoveTask(arg1);
 #else
-    BackgroundLoader::GetInstance()->RemoveTask(*taskID);
-    *taskID = -1;
+    BackgroundLoader::GetInstance()->RemoveTask(*arg1);
+    *arg1 = -1;
 #endif
 }

@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct CachedGlyphEntryRelease {
-    short advanceX;
-    short tileIndex;
-    char text[10];
-    unsigned char count;
-    unsigned char unknownf;
+struct Struct_0203c54c_2 {
+    short unknown_0_;
+    short unknown_2_;
+    char unknown_4_[10];
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
 };
 
-struct CachedGlyphOwnerRelease {
-    void* drawingBuffer;
-    CachedGlyphEntryRelease entries[96];
-    int engine;
-    char* bitmapStorage;
-    unsigned int paletteControl;
-    unsigned short nextOamEntry;
-    unsigned short total;
-    unsigned char workBuffer[256];
+struct Struct_0203c54c {
+    void* unknown_0_;
+    Struct_0203c54c_2 unknown_4_[96];
+    int unknown_604_;
+    char* unknown_608_;
+    unsigned int unknown_60c_;
+    unsigned short unknown_610_;
+    unsigned short unknown_612_;
+    unsigned char unknown_614_[256];
 };
 
-extern "C" void func_0203be8c(char* obj);
+extern "C" void func_0203be8c(char* arg0);
 #else
-extern "C" void func_0203be8c(char* obj);
+extern "C" void func_0203be8c(char* arg0);
 #endif
 
 // USA: func_0203c54c
-extern "C" ARM void func_0203c54c(char* obj, short* idxPtr) {
+extern "C" ARM void func_0203c54c(char* arg0, short* arg1) {
 #if defined(jpn)
-    if (idxPtr == NULL) return;
-    CachedGlyphOwnerRelease* cache = reinterpret_cast<CachedGlyphOwnerRelease*>(obj);
-    CachedGlyphEntryRelease* next;
-    for (int i = 0; i < 10; ++i) {
-        short index = idxPtr[i];
-        if (index < 0) continue;
-        CachedGlyphEntryRelease* entry = &cache->entries[index];
-        next = &cache->entries[index + 1];
-        if (entry->count == 0) continue;
-        idxPtr[i] = -1;
-        --entry->count;
-        --next->count;
-        if (entry->count != 0) continue;
-        func_0203be8c(reinterpret_cast<char*>(entry));
-        func_0203be8c(reinterpret_cast<char*>(next));
-        cache->total -= 2;
+    if (arg1 == NULL) return;
+    Struct_0203c54c* var0 = reinterpret_cast<Struct_0203c54c*>(arg0);
+    Struct_0203c54c_2* var1;
+    for (int var2 = 0; var2 < 10; ++var2) {
+        short var3 = arg1[var2];
+        if (var3 < 0) continue;
+        Struct_0203c54c_2* var4 = &var0->unknown_4_[var3];
+        var1 = &var0->unknown_4_[var3 + 1];
+        if (var4->unknown_e_ == 0) continue;
+        arg1[var2] = -1;
+        --var4->unknown_e_;
+        --var1->unknown_e_;
+        if (var4->unknown_e_ != 0) continue;
+        func_0203be8c(reinterpret_cast<char*>(var4));
+        func_0203be8c(reinterpret_cast<char*>(var1));
+        var0->unknown_612_ -= 2;
     }
 #else
-    short idx = *idxPtr;
-    int cnt;
-    char* entry;
-    if (idx < 0) return;
-    entry = obj + 4 + idx * 0x28;
-    *idxPtr = -1;
-    cnt = ((unsigned char*)entry)[0x24];
-    if (cnt == 0) return;
-    cnt = cnt - 1;
-    ((unsigned char*)entry)[0x24] = cnt;
-    if ((cnt & 0xff) != 0) return;
-    func_0203be8c(entry);
-    *(unsigned short*)(obj + 0x512) -= 1;
+    short var5 = *arg1;
+    int var6;
+    char* var7;
+    if (var5 < 0) return;
+    var7 = arg0 + 4 + var5 * 0x28;
+    *arg1 = -1;
+    var6 = ((unsigned char*)var7)[0x24];
+    if (var6 == 0) return;
+    var6 = var6 - 1;
+    ((unsigned char*)var7)[0x24] = var6;
+    if ((var6 & 0xff) != 0) return;
+    func_0203be8c(var7);
+    *(unsigned short*)(arg0 + 0x512) -= 1;
 #endif
 }

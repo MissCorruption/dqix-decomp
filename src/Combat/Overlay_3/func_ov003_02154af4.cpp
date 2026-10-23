@@ -2,116 +2,116 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #if defined(jpn)
-enum { kCache=0x18c, kVocation=0x144, kVocationValue=0x8b8, kModelSelection=0x2a, kGlobalFlag=0x17de };
+enum { Enum_ov003_02154af4_400=0x18c, Enum_ov003_02154af4_336=0x144, Enum_ov003_02154af4_2384=0x8b8, Enum_ov003_02154af4_54=0x2a, Enum_ov003_02154af4_6574=0x17de };
 #else
-enum { kCache=0x190, kVocation=0x150, kVocationValue=0x950, kModelSelection=0x36, kGlobalFlag=0x19ae };
+enum { Enum_ov003_02154af4_400=0x190, Enum_ov003_02154af4_336=0x150, Enum_ov003_02154af4_2384=0x950, Enum_ov003_02154af4_54=0x36, Enum_ov003_02154af4_6574=0x19ae };
 #endif
-struct Status { unsigned int flags; unsigned short hp; unsigned short mp; };
-struct Profile { char pad[0x30]; unsigned short hp; unsigned short mp; };
-struct Vocation { char pad[kVocationValue]; unsigned int value; };
-struct Member { char pad[0x130]; Status* status; Profile* profile; char pad138[kVocation-0x138]; Vocation* vocation;
- unsigned int HP() const { return status->hp; }
- unsigned int MaxHP() const { return profile->hp; }
- unsigned int MP() const { return status->mp; }
- unsigned int MaxMP() const { return profile->mp; }
- unsigned int Voc() const { return vocation->value; }
- unsigned int Flags() const { return status->flags; }
+struct Status { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
+struct Struct_ov003_02154af4_4 { char unknown_0_[0x30]; unsigned short unknown_30_; unsigned short unknown_32_; };
+struct Struct_ov003_02154af4_5 { char unknown_0_[Enum_ov003_02154af4_2384]; unsigned int unknown_950_; };
+struct Struct_ov000_0217c638 { char unknown_0_[0x130]; Status* unknown_130_; Struct_ov003_02154af4_4* unknown_134_; char unknown_138_[Enum_ov003_02154af4_336-0x138]; Struct_ov003_02154af4_5* unknown_150_;
+ unsigned int inline_ov003_02154af4() const { return unknown_130_->unknown_4_; }
+ unsigned int inline_ov003_02154af4_2() const { return unknown_134_->unknown_30_; }
+ unsigned int inline_ov003_02154af4_3() const { return unknown_130_->unknown_6_; }
+ unsigned int inline_ov003_02154af4_4() const { return unknown_134_->unknown_32_; }
+ unsigned int inline_ov003_02154af4_5() const { return unknown_150_->unknown_950_; }
+ unsigned int inline_ov003_02154af4_6() const { return unknown_130_->unknown_0_; }
 };
-struct Cache { unsigned int flags; unsigned short hp, maxHP; unsigned short mp,maxMP; unsigned char table, vocation; char pad[2]; };
-struct Model { char pad[kModelSelection]; short selected; };
-struct Scene {
- void* vtable; void* controller; short* selection; char padc[0x18-0xc]; Model* model; void* inner;
- char pad20[0x80-0x20]; char selector[0xc]; unsigned short field8c; unsigned char field8e;
- char pad8f[kCache-0x8f]; Cache cache[4]; int task; int field1d0; int changed; unsigned int scale;
- char pad1dc[6]; short element; short previous; short field1e6; short pending, field1ea;
- char pad1ec[8]; unsigned char state, flag; char pad1f6[2]; unsigned int flags; int field1fc; int skip;
- char pad204[0x334-0x204]; unsigned char blocked, reset, started;
+struct Struct_ov003_02154af4 { unsigned int unknown_0_; unsigned short unknown_4_, unknown_6_; unsigned short unknown_8_,unknown_a_; unsigned char unknown_c_, unknown_d_; char unknown_e_[2]; };
+struct Struct_ov003_02154af4_2 { char unknown_0_[Enum_ov003_02154af4_54]; short unknown_36_; };
+struct Struct_ov003_02154af4_3 {
+ void* unknown_0_; void* unknown_4_; short* unknown_8_; char unknown_c_[0x18-0xc]; Struct_ov003_02154af4_2* unknown_18_; void* unknown_1c_;
+ char unknown_20_[0x80-0x20]; char unknown_80_[0xc]; unsigned short unknown_8c_; unsigned char unknown_8e_;
+ char unknown_8f_[Enum_ov003_02154af4_400-0x8f]; Struct_ov003_02154af4 unknown_190_[4]; int unknown_1d0_; int unknown_1d4_; int unknown_1d8_; unsigned int unknown_1dc_;
+ char unknown_1e0_[6]; short unknown_1e6_; short unknown_1e8_; short unknown_1ea_; short unknown_1ec_, unknown_1ee_;
+ char unknown_1f0_[8]; unsigned char unknown_1f8_, unknown_1f9_; char unknown_1fa_[2]; unsigned int unknown_1fc_; int unknown_200_; int unknown_204_;
+ char unknown_208_[0x334-0x204]; unsigned char unknown_338_, unknown_339_, unknown_33a_;
 };
-struct Party { char pad[0xf78]; unsigned char ids[4]; unsigned char count; };
-struct Dispatch { unsigned int fn, locator; };
-struct Table { Dispatch entries[8]; };
+struct Struct_ov000_02182a74 { char unknown_0_[0xf78]; unsigned char unknown_f78_[4]; unsigned char unknown_f7c_; };
+struct Struct_020e6d5c_13 { unsigned int unknown_0_, unknown_4_; };
+struct Struct_ov003_0217f340 { Struct_020e6d5c_13 unknown_0_[8]; };
 extern short data_ov003_0217f2a8[3];
-extern Table data_ov003_0217f340;
-extern Dispatch data_020e6d5c;
+extern Struct_ov003_0217f340 data_ov003_0217f340;
+extern Struct_020e6d5c_13 data_020e6d5c;
 extern "C" int func_ov017_021959b4();
 extern "C" char* func_020421a0();
 extern "C" void func_02043204(char*);
-struct Outer020e28dc;
-extern "C" int func_020e28dc(Outer020e28dc*);
-struct Obj020e25e8;
-extern "C" void func_020e25e8(Obj020e25e8*);
+struct Struct_020e28dc;
+extern "C" int func_020e28dc(Struct_020e28dc*);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(Struct_020e25e8*);
 extern "C" void func_ov003_021537d4(void*,unsigned int);
-extern "C" void func_ov003_021552b8(Scene*);
-struct Obj0207fc6c;
-extern "C" void func_0207fc6c(Obj0207fc6c*, int);
+extern "C" void func_ov003_021552b8(Struct_ov003_02154af4_3*);
+struct Struct_0207fc6c;
+extern "C" void func_0207fc6c(Struct_0207fc6c*, int);
 extern "C" unsigned int func_0202053c(void*);
-struct Obj2081;
-extern "C" int func_020811d0(Obj2081*, int);
-extern "C" void func_ov003_02158334(Scene*);
+struct Struct_0207fdcc_2;
+extern "C" int func_020811d0(Struct_0207fdcc_2*, int);
+extern "C" void func_ov003_02158334(Struct_ov003_02154af4_3*);
 extern "C" void func_02081f20(void*,unsigned int);
-extern "C" int func_020800fc(Model*,short*,int,unsigned short,unsigned char,int);
+extern "C" int func_020800fc(Struct_ov003_02154af4_2*,short*,int,unsigned short,unsigned char,int);
 extern "C" void func_020804fc(void*, int);
-extern "C" void func_020813ec(Model*,int);
-struct Ctx020e263c;
-extern "C" void func_020e263c(Ctx020e263c*, int);
+extern "C" void func_020813ec(Struct_ov003_02154af4_2*,int);
+struct Struct_020e263c_2;
+extern "C" void func_020e263c(Struct_020e263c_2*, int);
 // USA: func_ov003_02154af4
-extern "C" ARM int func_ov003_02154af4(Scene* self,unsigned int scale) {
- self->scale=scale;
- if (!self->started && func_ov017_021959b4()) { self->started=1; self->reset=1; }
- if (self->reset && !self->blocked) {
-  if(self->selection) *self->selection=-1;
-  self->selection=0;
+extern "C" ARM int func_ov003_02154af4(Struct_ov003_02154af4_3* arg0,unsigned int arg1) {
+ arg0->unknown_1dc_=arg1;
+ if (!arg0->unknown_33a_ && func_ov017_021959b4()) { arg0->unknown_33a_=1; arg0->unknown_339_=1; }
+ if (arg0->unknown_339_ && !arg0->unknown_338_) {
+  if(arg0->unknown_8_) *arg0->unknown_8_=-1;
+  arg0->unknown_8_=0;
   func_02043204(func_020421a0());
-  self->field1ea=-1; self->pending=self->field1ea;
-  if(self->inner && func_020e28dc((Outer020e28dc*)self->inner)) func_020e25e8((Obj020e25e8*)self->inner);
-  self->state=6; self->flag=0; self->reset=0;
+  arg0->unknown_1ee_=-1; arg0->unknown_1ec_=arg0->unknown_1ee_;
+  if(arg0->unknown_1c_ && func_020e28dc((Struct_020e28dc*)arg0->unknown_1c_)) func_020e25e8((Struct_020e25e8*)arg0->unknown_1c_);
+  arg0->unknown_1f8_=6; arg0->unknown_1f9_=0; arg0->unknown_339_=0;
  }
- if(!self->skip) func_ov003_021537d4(self->controller,scale);
- if(self->pending>=0) { func_ov003_021552b8(self); return 0; }
- if(self->state) func_020421a0()[kGlobalFlag]=0;
- Model* model=self->model;
- if(model) {
-  if(!self->skip) func_0207fc6c((Obj0207fc6c*)model, scale);
-  int i; Cache* c; Member* member; bool changed; int id; Party* party; GameState* gs;
-  changed=false;
-  gs=GameState::GetInstance();
-  party=(Party*)func_02010828(gs);
-  int count=party->count;
-  for(i=0;i<count;i++) {
-   id=party->ids[i];
-   member=(Member*)gs->GetPartyMemberByIndex(id);
-   if(member) {
-    c=&self->cache[id];
-    unsigned int hp=member->HP();
-    unsigned int maxhp,mp,maxmp,voc,flags;
-    if(!(c->hp==hp && ((maxhp=member->MaxHP()), c->maxHP==maxhp) && ((mp=member->MP()), c->mp==mp) && ((maxmp=member->MaxMP()), c->maxMP==maxmp) && ((voc=member->Voc()), c->vocation==voc) && c->table==func_0202053c(member) && ((flags=member->Flags()), c->flags==flags))) {
-     c->hp=member->status->hp; c->maxHP=member->profile->hp; c->mp=member->status->mp; c->maxMP=member->profile->mp;
-     c->vocation=member->vocation->value; c->table=func_0202053c(member); changed=true; c->flags=member->status->flags;
+ if(!arg0->unknown_204_) func_ov003_021537d4(arg0->unknown_4_,arg1);
+ if(arg0->unknown_1ec_>=0) { func_ov003_021552b8(arg0); return 0; }
+ if(arg0->unknown_1f8_) func_020421a0()[Enum_ov003_02154af4_6574]=0;
+ Struct_ov003_02154af4_2* var0=arg0->unknown_18_;
+ if(var0) {
+  if(!arg0->unknown_204_) func_0207fc6c((Struct_0207fc6c*)var0, arg1);
+  int var1; Struct_ov003_02154af4* var2; Struct_ov000_0217c638* var3; bool var4; int var5; Struct_ov000_02182a74* var6; GameState* var7;
+  var4=false;
+  var7=GameState::GetInstance();
+  var6=(Struct_ov000_02182a74*)func_02010828(var7);
+  int var8=var6->unknown_f7c_;
+  for(var1=0;var1<var8;var1++) {
+   var5=var6->unknown_f78_[var1];
+   var3=(Struct_ov000_0217c638*)var7->GetPartyMemberByIndex(var5);
+   if(var3) {
+    var2=&arg0->unknown_190_[var5];
+    unsigned int var9=var3->inline_ov003_02154af4();
+    unsigned int var10,var11,var12,var13,var14;
+    if(!(var2->unknown_4_==var9 && ((var10=var3->inline_ov003_02154af4_2()), var2->unknown_6_==var10) && ((var11=var3->inline_ov003_02154af4_3()), var2->unknown_8_==var11) && ((var12=var3->inline_ov003_02154af4_4()), var2->unknown_a_==var12) && ((var13=var3->inline_ov003_02154af4_5()), var2->unknown_d_==var13) && var2->unknown_c_==func_0202053c(var3) && ((var14=var3->inline_ov003_02154af4_6()), var2->unknown_0_==var14))) {
+     var2->unknown_4_=var3->unknown_130_->unknown_4_; var2->unknown_6_=var3->unknown_134_->unknown_30_; var2->unknown_8_=var3->unknown_130_->unknown_6_; var2->unknown_a_=var3->unknown_134_->unknown_32_;
+     var2->unknown_d_=var3->unknown_150_->unknown_950_; var2->unknown_c_=func_0202053c(var3); var4=true; var2->unknown_0_=var3->unknown_130_->unknown_0_;
     }
    }
   }
-  if(changed) for(int i=0;i<3;i++) if(func_020811d0((Obj2081*)model, data_ov003_0217f2a8[i])) { func_ov003_02158334(self);break; }
+  if(var4) for(int var15=0;var15<3;var15++) if(func_020811d0((Struct_0207fdcc_2*)var0, data_ov003_0217f2a8[var15])) { func_ov003_02158334(arg0);break; }
  }
- if(self->selection) {
-  func_02081f20(self->selector,scale);
-  self->previous=*self->selection;
-  self->changed=func_020800fc(model,self->selection,self->previous,self->field8c,self->field8e,(self->flags&4)!=0);
-  model->selected=*self->selection;
-  if(self->changed) func_020804fc(model, self->element);
-  if(self->previous!=*self->selection) func_020813ec(model,self->element);
+ if(arg0->unknown_8_) {
+  func_02081f20(arg0->unknown_80_,arg1);
+  arg0->unknown_1e8_=*arg0->unknown_8_;
+  arg0->unknown_1d8_=func_020800fc(var0,arg0->unknown_8_,arg0->unknown_1e8_,arg0->unknown_8c_,arg0->unknown_8e_,(arg0->unknown_1fc_&4)!=0);
+  var0->unknown_36_=*arg0->unknown_8_;
+  if(arg0->unknown_1d8_) func_020804fc(var0, arg0->unknown_1e6_);
+  if(arg0->unknown_1e8_!=*arg0->unknown_8_) func_020813ec(var0,arg0->unknown_1e6_);
  }
- if(self->inner && func_020e28dc((Outer020e28dc*)self->inner)) func_020e263c((Ctx020e263c*)self->inner, self->scale);
- Table buf; buf=data_ov003_0217f340;
- unsigned int locator=data_020e6d5c.locator;
- unsigned int fn=data_020e6d5c.fn;
- buf.entries[7].locator=locator; buf.entries[7].fn=fn;
- if(!buf.entries[self->state].fn) {
-  BackgroundLoader::GetInstance()->RemoveTask(self->task);self->task=-1;return 1;
+ if(arg0->unknown_1c_ && func_020e28dc((Struct_020e28dc*)arg0->unknown_1c_)) func_020e263c((Struct_020e263c_2*)arg0->unknown_1c_, arg0->unknown_1dc_);
+ Struct_ov003_0217f340 var16; var16=data_ov003_0217f340;
+ unsigned int var17=data_020e6d5c.unknown_4_;
+ unsigned int var18=data_020e6d5c.unknown_0_;
+ var16.unknown_0_[7].unknown_4_=var17; var16.unknown_0_[7].unknown_0_=var18;
+ if(!var16.unknown_0_[arg0->unknown_1f8_].unknown_0_) {
+  BackgroundLoader::GetInstance()->RemoveTask(arg0->unknown_1d0_);arg0->unknown_1d0_=-1;return 1;
  }
- Dispatch* d=&buf.entries[self->state];
- void* base=(char*)self+((int)d->locator>>1);
- void* callback;
- if(d->locator&1) callback=*(void**)((char*)*(void**)base+d->fn);else callback=(void*)d->fn;
- ((void(*)(void*))callback)(base);
+ Struct_020e6d5c_13* var19=&var16.unknown_0_[arg0->unknown_1f8_];
+ void* var20=(char*)arg0+((int)var19->unknown_4_>>1);
+ void* var21;
+ if(var19->unknown_4_&1) var21=*(void**)((char*)*(void**)var20+var19->unknown_0_);else var21=(void*)var19->unknown_0_;
+ ((void(*)(void*))var21)(var20);
  return 0;
 }

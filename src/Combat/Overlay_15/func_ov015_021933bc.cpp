@@ -1,89 +1,89 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct ViewObject;
-struct VRAMManagerState;
+struct Struct_ov015_0218c03c_2;
+struct Struct_ov005_02155d6c;
 
-struct ViewObjectNode
+struct Struct_ov015_02190e88
 {
-    ViewObject* object_;
-    ViewObjectNode* next_;
+    Struct_ov015_0218c03c_2* unknown_0_;
+    Struct_ov015_02190e88* unknown_4_;
 };
 
-struct ViewerSlot
+struct Struct_ov015_0218bcb0_2
 {
-    VRAMManagerState* states_;
-    unsigned char used_;
-    char unk_5[3];
+    Struct_ov005_02155d6c* unknown_0_;
+    unsigned char unknown_4_;
+    char unknown_5_[3];
 };
 
-struct ViewerConfig
+struct Struct_02000c9c_53
 {
-    void* entries_;
-    void* presets_;
-    int entryCount_;
-    int presetCount_;
+    void* unknown_0_;
+    void* unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-struct S02190c2c
+struct Struct_ov015_02190acc
 {
-    char unk_0[0x2c];
-    ViewObjectNode* objects_;
-    char unk_30[0x3c - 0x30];
-    ViewerConfig config_;
-    char unk_4c[0x84 - 0x4c];
-    void* buffer_;
-    SafeAllocator partsAllocator_;
-    SafeAllocator monstersAllocator_;
-    SafeAllocator soundsAllocator_;
-    ViewerSlot playerSlots_[4];
-    ViewerSlot dollSlots_[4];
-    ViewerSlot slots_[4];
-    char unk_124[0x344 - 0x124];
-    void* items_;
+    char unknown_0_[0x2c];
+    Struct_ov015_02190e88* unknown_2c_;
+    char unknown_30_[0x3c - 0x30];
+    Struct_02000c9c_53 unknown_3c_;
+    char unknown_4c_[0x84 - 0x4c];
+    void* unknown_84_;
+    SafeAllocator unknown_88_;
+    SafeAllocator unknown_9c_;
+    SafeAllocator unknown_b0_;
+    Struct_ov015_0218bcb0_2 unknown_c4_[4];
+    Struct_ov015_0218bcb0_2 unknown_e4_[4];
+    Struct_ov015_0218bcb0_2 unknown_104_[4];
+    char unknown_124_[0x344 - 0x124];
+    void* unknown_344_;
 };
 
-extern "C" void func_ov015_0218f0c4(ViewObject* object);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" void func_ov015_0218b828(ViewerConfig* config);
+extern "C" void func_ov015_0218f0c4(Struct_ov015_0218c03c_2* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void func_ov015_0218b828(Struct_02000c9c_53* arg0);
 
 extern AllocatorUnion data_02114e20;
 
 // USA: func_ov015_021933bc
-extern "C" ARM void func_ov015_021933bc(S02190c2c* self)
+extern "C" ARM void func_ov015_021933bc(Struct_ov015_02190acc* arg0)
 {
-    ViewObjectNode* node = self->objects_;
-    while (node != NULL)
+    Struct_ov015_02190e88* var0 = arg0->unknown_2c_;
+    while (var0 != NULL)
     {
-        func_ov015_0218f0c4(node->object_);
-        func_02012da4(&data_02114e20, node->object_);
-        ViewObjectNode* next = node;
-        node = node->next_;
-        func_02012da4(&data_02114e20, next);
+        func_ov015_0218f0c4(var0->unknown_0_);
+        func_02012da4(&data_02114e20, var0->unknown_0_);
+        Struct_ov015_02190e88* var1 = var0;
+        var0 = var0->unknown_4_;
+        func_02012da4(&data_02114e20, var1);
     }
-    for (int i = 0; i < 4; i++)
+    for (int var2 = 0; var2 < 4; var2++)
     {
-        if (self->playerSlots_[i].states_ != NULL)
-            func_02012da4(&data_02114e20, self->playerSlots_[i].states_);
-        if (self->dollSlots_[i].states_ != NULL)
-            func_02012da4(&data_02114e20, self->dollSlots_[i].states_);
-        if (self->slots_[i].states_ != NULL)
-            func_02012da4(&data_02114e20, self->slots_[i].states_);
+        if (arg0->unknown_c4_[var2].unknown_0_ != NULL)
+            func_02012da4(&data_02114e20, arg0->unknown_c4_[var2].unknown_0_);
+        if (arg0->unknown_e4_[var2].unknown_0_ != NULL)
+            func_02012da4(&data_02114e20, arg0->unknown_e4_[var2].unknown_0_);
+        if (arg0->unknown_104_[var2].unknown_0_ != NULL)
+            func_02012da4(&data_02114e20, arg0->unknown_104_[var2].unknown_0_);
     }
-    func_02012da4(&data_02114e20, self->partsAllocator_.GetSignedAllocator());
-    func_02012da4(&data_02114e20, self->monstersAllocator_.GetSignedAllocator());
-    func_02012da4(&data_02114e20, self->soundsAllocator_.GetSignedAllocator());
-    self->partsAllocator_.Destroy();
-    self->monstersAllocator_.Destroy();
-    self->soundsAllocator_.Destroy();
-    func_ov015_0218b828(&self->config_);
-    if (self->buffer_ != NULL)
+    func_02012da4(&data_02114e20, arg0->unknown_88_.GetSignedAllocator());
+    func_02012da4(&data_02114e20, arg0->unknown_9c_.GetSignedAllocator());
+    func_02012da4(&data_02114e20, arg0->unknown_b0_.GetSignedAllocator());
+    arg0->unknown_88_.Destroy();
+    arg0->unknown_9c_.Destroy();
+    arg0->unknown_b0_.Destroy();
+    func_ov015_0218b828(&arg0->unknown_3c_);
+    if (arg0->unknown_84_ != NULL)
     {
-        func_02012da4(&data_02114e20, self->buffer_);
-        self->buffer_ = NULL;
+        func_02012da4(&data_02114e20, arg0->unknown_84_);
+        arg0->unknown_84_ = NULL;
     }
-    if (self->items_ == NULL)
+    if (arg0->unknown_344_ == NULL)
         return;
-    func_02012da4(&data_02114e20, self->items_);
-    self->items_ = NULL;
+    func_02012da4(&data_02114e20, arg0->unknown_344_);
+    arg0->unknown_344_ = NULL;
 }

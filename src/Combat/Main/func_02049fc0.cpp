@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Inner02049fc0 { unsigned char pad[0x64]; float val; };
-struct S02049fc0 { unsigned char pad[0x13c]; Inner02049fc0* inner; };
+struct Struct_02049fc0 { unsigned char unknown_0_[0x64]; float unknown_64_; };
+struct Struct_02049fc0_2 { unsigned char unknown_0_[0x13c]; Struct_02049fc0* unknown_13c_; };
 
 // USA: func_02049fc0
-extern "C" ARM int func_02049fc0(S02049fc0* obj) {
-    Inner02049fc0* inner = obj->inner;
-    if (inner == 0) {
+extern "C" ARM int func_02049fc0(Struct_02049fc0_2* arg0) {
+    Struct_02049fc0* var0 = arg0->unknown_13c_;
+    if (var0 == 0) {
         return 0;
     }
-    return inner->val != 0.0f;
+    return var0->unknown_64_ != 0.0f;
 }

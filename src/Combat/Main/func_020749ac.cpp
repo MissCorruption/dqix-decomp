@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 
-struct Candidate { int id; float weight; };
+struct Struct_020749ac { int unknown_0_; float unknown_4_; };
 
 // USA: func_020749ac
-extern "C" ARM void func_020749ac(Candidate* arr, int lo, int hi, int mode) {
-    int i = (int)(unsigned int)lo;
-    int j = hi;
-    float pivot = arr[i].weight;
+extern "C" ARM void func_020749ac(Struct_020749ac* arg0, int arg1, int arg2, int arg3) {
+    int var0 = (int)(unsigned int)arg1;
+    int var1 = arg2;
+    float var2 = arg0[var0].unknown_4_;
 
-    if (mode != 0) {
+    if (arg3 != 0) {
         for (;;) {
-            while (arr[i].weight > pivot) {
-                i++;
+            while (arg0[var0].unknown_4_ > var2) {
+                var0++;
             }
-            while (arr[j].weight < pivot) {
-                j--;
+            while (arg0[var1].unknown_4_ < var2) {
+                var1--;
             }
-            if (i >= j) {
+            if (var0 >= var1) {
                 break;
             }
-            float wi = arr[i].weight;
-            int ii = arr[i].id;
-            arr[i].weight = arr[j].weight;
-            arr[i].id = arr[j].id;
-            arr[j].weight = wi;
-            arr[j].id = ii;
-            i++;
-            j--;
+            float var3 = arg0[var0].unknown_4_;
+            int var4 = arg0[var0].unknown_0_;
+            arg0[var0].unknown_4_ = arg0[var1].unknown_4_;
+            arg0[var0].unknown_0_ = arg0[var1].unknown_0_;
+            arg0[var1].unknown_4_ = var3;
+            arg0[var1].unknown_0_ = var4;
+            var0++;
+            var1--;
         }
     } else {
         for (;;) {
-            while (arr[i].weight < pivot) {
-                i++;
+            while (arg0[var0].unknown_4_ < var2) {
+                var0++;
             }
-            while (arr[j].weight > pivot) {
-                j--;
+            while (arg0[var1].unknown_4_ > var2) {
+                var1--;
             }
-            if (i >= j) {
+            if (var0 >= var1) {
                 break;
             }
-            float wi = arr[i].weight;
-            int ii = arr[i].id;
-            arr[i].weight = arr[j].weight;
-            arr[i].id = arr[j].id;
-            arr[j].weight = wi;
-            arr[j].id = ii;
-            i++;
-            j--;
+            float var5 = arg0[var0].unknown_4_;
+            int var6 = arg0[var0].unknown_0_;
+            arg0[var0].unknown_4_ = arg0[var1].unknown_4_;
+            arg0[var0].unknown_0_ = arg0[var1].unknown_0_;
+            arg0[var1].unknown_4_ = var5;
+            arg0[var1].unknown_0_ = var6;
+            var0++;
+            var1--;
         }
     }
 
-    if (lo < i - 1) {
-        func_020749ac(arr, lo, i - 1, mode);
+    if (arg1 < var0 - 1) {
+        func_020749ac(arg0, arg1, var0 - 1, arg3);
     }
-    if (j + 1 < hi) {
-        func_020749ac(arr, j + 1, hi, mode);
+    if (var1 + 1 < arg2) {
+        func_020749ac(arg0, var1 + 1, arg2, arg3);
     }
 }

@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Rects02169674 {
-    short originX;
-    short originY;
-    signed char count;
-    char pad5;
-    short* xMinArr;
-    short* yMinArr;
-    short* xWidthArr;
-    short* yWidthArr;
+struct Struct_ov003_02169674 {
+    short unknown_0_;
+    short unknown_2_;
+    signed char unknown_4_;
+    char unknown_5_;
+    short* unknown_8_;
+    short* unknown_c_;
+    short* unknown_10_;
+    short* unknown_14_;
 };
 
 // USA: func_ov003_02169674
-extern "C" ARM int func_ov003_02169674(int unused, int x, int y, Rects02169674* s) {
-    int relX = x - s->originX;
-    int relY = y - s->originY;
-    short* xMinArr = s->xMinArr;
-    short* yMinArr = s->yMinArr;
-    short* xWidthArr = s->xWidthArr;
-    short* yWidthArr = s->yWidthArr;
-    int count = s->count;
-    for (int i = 0; i < count; i++) {
-        int sumX = xMinArr[i] + xWidthArr[i];
-        int sumY = yMinArr[i] + yWidthArr[i];
-        if (relX < xMinArr[i]) continue;
-        if (relX > sumX) continue;
-        if (relY < yMinArr[i]) continue;
-        if (relY <= sumY) return i;
+extern "C" ARM int func_ov003_02169674(int arg0, int arg1, int arg2, Struct_ov003_02169674* arg3) {
+    int var0 = arg1 - arg3->unknown_0_;
+    int var1 = arg2 - arg3->unknown_2_;
+    short* var2 = arg3->unknown_8_;
+    short* var3 = arg3->unknown_c_;
+    short* var4 = arg3->unknown_10_;
+    short* var5 = arg3->unknown_14_;
+    int var6 = arg3->unknown_4_;
+    for (int var7 = 0; var7 < var6; var7++) {
+        int var8 = var2[var7] + var4[var7];
+        int var9 = var3[var7] + var5[var7];
+        if (var0 < var2[var7]) continue;
+        if (var0 > var8) continue;
+        if (var1 < var3[var7]) continue;
+        if (var1 <= var9) return var7;
     }
     return -1;
 }

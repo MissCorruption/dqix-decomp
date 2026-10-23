@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct SocketAddress022072d0 {
-    unsigned char length;
-    unsigned char family;
-    unsigned short port;
-    unsigned int address;
+struct Struct_ov031_022072d0 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned int unknown_4_;
 };
 
-extern "C" int func_ov031_022058f0(int socket, void* buffer, int length, unsigned short* port, unsigned int* address, int flags);
+extern "C" int func_ov031_022058f0(int arg0, void* arg1, int arg2, unsigned short* arg3, unsigned int* arg4, int arg5);
 
 // USA: func_ov031_022072d0
-extern "C" ARM int func_ov031_022072d0(int socket, void* buffer, int length, int flags, void* from) {
-    unsigned int address;
-    unsigned short port;
-    int result = func_ov031_022058f0(socket, buffer, length, &port, &address, flags);
-    if (result < 0) return result;
-    if (from == NULL) return result;
-    SocketAddress022072d0* output = static_cast<SocketAddress022072d0*>(from);
-    unsigned int hostPort = port;
-    output->port = ((int)hostPort >> 8 & 0xff) | ((hostPort << 8) & 0xff00);
-    unsigned int hostAddress = address;
-    output->address = ((hostAddress >> 24) & 0xff) | ((hostAddress >> 8) & 0xff00) | ((hostAddress << 8) & 0xff0000) | ((hostAddress << 24) & 0xff000000);
-    return result;
+extern "C" ARM int func_ov031_022072d0(int arg0, void* arg1, int arg2, int arg3, void* arg4) {
+    unsigned int var0;
+    unsigned short var1;
+    int var2 = func_ov031_022058f0(arg0, arg1, arg2, &var1, &var0, arg3);
+    if (var2 < 0) return var2;
+    if (arg4 == NULL) return var2;
+    Struct_ov031_022072d0* var3 = static_cast<Struct_ov031_022072d0*>(arg4);
+    unsigned int var4 = var1;
+    var3->unknown_2_ = ((int)var4 >> 8 & 0xff) | ((var4 << 8) & 0xff00);
+    unsigned int var5 = var0;
+    var3->unknown_4_ = ((var5 >> 24) & 0xff) | ((var5 >> 8) & 0xff00) | ((var5 << 8) & 0xff0000) | ((var5 << 24) & 0xff000000);
+    return var2;
 }

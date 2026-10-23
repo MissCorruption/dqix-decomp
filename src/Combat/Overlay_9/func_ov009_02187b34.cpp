@@ -30,330 +30,330 @@
 #define REG_MASTER_BRIGHT_SUB ((short*)0x0400106c)
 #define FX32_FROM_FLOAT(x) ((int)((x) > 0.0f ? 0.5f + 4096.0f * (x) : 4096.0f * (x) - 0.5f))
 
-struct PartyMemberAppearance {
-    short models_[10];
-    unsigned char unk_14[4];
-    short width_;
-    short height_;
+struct Struct_ov009_02187b34 {
+    short unknown_0_[10];
+    unsigned char unknown_14_[4];
+    short unknown_18_;
+    short unknown_1a_;
 };
 
-struct PartyMemberData {
-    char unk_0[0x488];
-    PartyMemberAppearance appearance_;
+struct Struct_ov005_0215840c_2 {
+    char unknown_0_[0x488];
+    Struct_ov009_02187b34 unknown_488_;
 };
 
-struct ModelFile {
-    SafeAllocator* allocator_;
-    const char* name_;
-    unsigned char model_;
+struct Struct_ov009_02187b34_2 {
+    SafeAllocator* unknown_0_;
+    const char* unknown_4_;
+    unsigned char unknown_8_;
 };
 
-struct ModelFiles {
-    ModelFile files[4];
+struct Struct_ov009_0218aa98 {
+    Struct_ov009_02187b34_2 unknown_0_[4];
 };
 
-struct Actor0209c678;
-struct Container020e0310;
-struct Foo0207df50;
-struct FlagWord020466f4;
+struct Struct_02109bf4_4;
+struct Struct_0201099c_3;
+struct Struct_0203d028;
+struct Struct_02038598_4;
 
-extern "C" Object3D* func_ov023_021e6194(void* character);
-extern "C" GameResources* func_0200fb8c(int* gameState);
+extern "C" Object3D* func_ov023_021e6194(void* arg0);
+extern "C" GameResources* func_0200fb8c(int* arg0);
 extern "C" unsigned int* func_020d6c00();
-extern "C" void func_ov023_021dac40(void* self, unsigned int ticks);
-extern "C" int func_ov009_0218a930(void* self, unsigned int ticks);
-extern "C" void func_0202ee38(char* camera, int position, int duration);
-extern "C" void func_0202ee58(char* camera, int target, int duration);
-extern "C" void func_0209c678(Actor0209c678* actor, int state);
-extern "C" int func_0202eeb4(char* camera);
-extern "C" void func_0205ebc0(void* sound, int a, int b);
-extern "C" const char* func_020e0434(Container020e0310* texts, int id);
-extern "C" void func_0207df50(Foo0207df50* a);
-extern "C" void func_0207df90(char* a);
-extern "C" void func_0207dfac(char* a);
-extern "C" void func_0205ebfc(void* sound, int a, int b);
-extern "C" void func_020466e4(unsigned int* field, unsigned int bits);
-extern "C" void func_020466f4(FlagWord020466f4* field, unsigned int bits);
-extern "C" void func_020c39a0(short* reg, int brightness);
-extern "C" void func_0205ebec(void* sound);
+extern "C" void func_ov023_021dac40(void* arg0, unsigned int arg1);
+extern "C" int func_ov009_0218a930(void* arg0, unsigned int arg1);
+extern "C" void func_0202ee38(char* arg0, int arg1, int arg2);
+extern "C" void func_0202ee58(char* arg0, int arg1, int arg2);
+extern "C" void func_0209c678(Struct_02109bf4_4* arg0, int arg1);
+extern "C" int func_0202eeb4(char* arg0);
+extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void func_020c39a0(short* arg0, int arg1);
+extern "C" void func_0205ebec(void* arg0);
 #if defined(jpn)
 #define func_ov009_021855dc func_ov009_021867bc
-extern "C" void func_ov009_021855dc(unsigned char* self, int state);
+extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
 #else
-extern "C" void func_ov009_021855dc(unsigned char* self, int state);
+extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
 #endif
 
-struct Vec3 {
-    int x;
-    int y;
-    int z;
+struct Struct_ov009_0218aa28 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-extern const Vec3 data_ov009_0218aa28;
-extern const Vec3 data_ov009_0218aa34;
-extern const ModelFiles data_ov009_0218aa98;
+extern const Struct_ov009_0218aa28 data_ov009_0218aa28;
+extern const Struct_ov009_0218aa28 data_ov009_0218aa34;
+extern const Struct_ov009_0218aa98 data_ov009_0218aa98;
 extern char data_ov009_0218acd9[];
 extern char data_ov009_0218ad41[];
 extern char data_02109bf4[];
 extern char data_02108760[];
 
-struct CharacterCreation {
-    char unk_0[R(0xa0,0xb4)];
-    SafeAllocator* modelAllocator_;
-    SafeAllocator* previewAllocators_;
-    char unk_bc[R(0xc0-0xa8,0xe0-0xbc)];
-    char texts_[0x18];
-    char unk_f8[R(0x7bc-0xd8,0x7f8-0xf8)];
-    void* character_;
-    void* nextCharacter_;
-    int unk_800;
-    int targetAngle_;
-    char unk_808[0x70];
-    Object3D object_;
-    char camera_[0x2c8];
-    char unk_bec[0xc58 - 0xbec];
-    signed char state_;
-    unsigned char step_;
-    char unk_c5a[2];
-    int modelTasks_[3];
-    char unk_c68[0x70];
-    Object3D object2_;
-    unsigned char selection_;
-    unsigned char unk_d85;
-    char unk_d86[2];
-    PartyMemberData* member_;
-    char unk_d8c[0xd96 - 0xd8c];
-    short timer_;
-    short unk_d98;
-    char unk_d9a[2];
-    unsigned int flags_;
-    signed char lastStates_[2];
-    unsigned char vocation_;
-    unsigned char sex_;
+struct Struct_ov009_021842a0_2 {
+    char unknown_0_[R(0xa0,0xb4)];
+    SafeAllocator* unknown_b4_;
+    SafeAllocator* unknown_b8_;
+    char unknown_bc_[R(0xc0-0xa8,0xe0-0xbc)];
+    char unknown_e0_[0x18];
+    char unknown_f8_[R(0x7bc-0xd8,0x7f8-0xf8)];
+    void* unknown_7f8_;
+    void* unknown_7fc_;
+    int unknown_800_;
+    int unknown_804_;
+    char unknown_808_[0x70];
+    Object3D unknown_878_;
+    char unknown_924_[0x2c8];
+    char unknown_bec_[0xc58 - 0xbec];
+    signed char unknown_c58_;
+    unsigned char unknown_c59_;
+    char unknown_c5a_[2];
+    int unknown_c5c_[3];
+    char unknown_c68_[0x70];
+    Object3D unknown_cd8_;
+    unsigned char unknown_d84_;
+    unsigned char unknown_d85_;
+    char unknown_d86_[2];
+    Struct_ov005_0215840c_2* unknown_d88_;
+    char unknown_d8c_[0xd96 - 0xd8c];
+    short unknown_d96_;
+    short unknown_d98_;
+    char unknown_d9a_[2];
+    unsigned int unknown_d9c_;
+    signed char unknown_da0_[2];
+    unsigned char unknown_da2_;
+    unsigned char unknown_da3_;
 };
 
 // USA: func_ov009_02187b34
-extern "C" ARM void func_ov009_02187b34(CharacterCreation* self)
+extern "C" ARM void func_ov009_02187b34(Struct_ov009_021842a0_2* arg0)
 {
-    GameState* gameState = GameState::GetInstance();
-    GameResources* resources = func_0200fb8c((int*)gameState);
-    Object3D* preview = func_ov023_021e6194(self->character_);
-    unsigned int* unknown = func_020d6c00();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (loader == NULL)
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = func_0200fb8c((int*)var0);
+    Object3D* var2 = func_ov023_021e6194(arg0->unknown_7f8_);
+    unsigned int* var3 = func_020d6c00();
+    BackgroundLoader* var4 = BackgroundLoader::GetInstance();
+    if (var4 == NULL)
         return;
-    unsigned int ticks = gameState->GetTickCount();
-    if (ticks == 0)
-        ticks = 1;
-    func_ov023_021dac40(self, ticks);
-    if (func_ov009_0218a930(self, ticks) > 0)
+    unsigned int var5 = var0->GetTickCount();
+    if (var5 == 0)
+        var5 = 1;
+    func_ov023_021dac40(arg0, var5);
+    if (func_ov009_0218a930(arg0, var5) > 0)
         return;
 
-    switch (self->step_)
+    switch (arg0->unknown_c59_)
     {
     case 0:
     {
-        self->flags_ &= ~1;
-        self->targetAngle_ = 0x7a;
-        self->flags_ |= 8;
-        Vec3 position = data_ov009_0218aa28;
-        Vec3 target = data_ov009_0218aa34;
-        func_0202ee38(self->camera_, (int)&position, 0x1e000);
-        func_0202ee58(self->camera_, (int)&target, 0x1e000);
-        self->unk_d98 = 90;
-        self->flags_ |= 0x10000;
-        func_0209c678((Actor0209c678*)data_02109bf4, 120);
-        self->step_ = 1;
-        int* task = self->modelTasks_;
-        for (unsigned char i = 0; i < 3; i++)
-            *task++ = -1;
-        SafeAllocator* allocator = self->previewAllocators_;
-        for (unsigned char i = 0; i < 2; i++, allocator++)
-            allocator->Reset();
+        arg0->unknown_d9c_ &= ~1;
+        arg0->unknown_804_ = 0x7a;
+        arg0->unknown_d9c_ |= 8;
+        Struct_ov009_0218aa28 var6 = data_ov009_0218aa28;
+        Struct_ov009_0218aa28 var7 = data_ov009_0218aa34;
+        func_0202ee38(arg0->unknown_924_, (int)&var6, 0x1e000);
+        func_0202ee58(arg0->unknown_924_, (int)&var7, 0x1e000);
+        arg0->unknown_d98_ = 90;
+        arg0->unknown_d9c_ |= 0x10000;
+        func_0209c678((Struct_02109bf4_4*)data_02109bf4, 120);
+        arg0->unknown_c59_ = 1;
+        int* var8 = arg0->unknown_c5c_;
+        for (unsigned char var9 = 0; var9 < 3; var9++)
+            *var8++ = -1;
+        SafeAllocator* var10 = arg0->unknown_b8_;
+        for (unsigned char var11 = 0; var11 < 2; var11++, var10++)
+            var10->Reset();
         break;
     }
     case 1:
-        if (self->flags_ & 8)
+        if (arg0->unknown_d9c_ & 8)
             break;
-        if (func_0202eeb4(self->camera_) != 0)
+        if (func_0202eeb4(arg0->unknown_924_) != 0)
             break;
-        self->flags_ |= 0x800000;
-        if (func_ov023_021e6194(self->character_)->normalizedAnimationTime_ >= 0xccc)
+        arg0->unknown_d9c_ |= 0x800000;
+        if (func_ov023_021e6194(arg0->unknown_7f8_)->normalizedAnimationTime_ >= 0xccc)
         {
             func_0205ebc0(data_02108760, 0x6f, 0x6f);
-            self->step_ = 2;
+            arg0->unknown_c59_ = 2;
         }
         break;
     case 2:
     {
-        short bodyID = self->sex_ * 100 + 2001;
-        short headID = self->sex_ * 100 + 2002;
-        ModelFiles files = data_ov009_0218aa98;
-        files.files[0].allocator_ = self->previewAllocators_;
-        files.files[0].name_ = func_020e0434((Container020e0310*)self->texts_, headID);
-        files.files[1].allocator_ = &self->previewAllocators_[1];
-        files.files[1].name_ = func_020e0434((Container020e0310*)self->texts_, bodyID);
-        files.files[2].allocator_ = self->modelAllocator_;
-        files.files[2].name_ = func_020e0434((Container020e0310*)self->texts_, 0x898);
-        ModelFile* file = files.files;
-        const char* archive = data_ov009_0218acd9;
-        for (; file->allocator_ != NULL; file++)
+        short var12 = arg0->unknown_da3_ * 100 + 2001;
+        short var13 = arg0->unknown_da3_ * 100 + 2002;
+        Struct_ov009_0218aa98 var14 = data_ov009_0218aa98;
+        var14.unknown_0_[0].unknown_0_ = arg0->unknown_b8_;
+        var14.unknown_0_[0].unknown_4_ = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var13);
+        var14.unknown_0_[1].unknown_0_ = &arg0->unknown_b8_[1];
+        var14.unknown_0_[1].unknown_4_ = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, var12);
+        var14.unknown_0_[2].unknown_0_ = arg0->unknown_b4_;
+        var14.unknown_0_[2].unknown_4_ = func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 0x898);
+        Struct_ov009_02187b34_2* var15 = var14.unknown_0_;
+        const char* var16 = data_ov009_0218acd9;
+        for (; var15->unknown_0_ != NULL; var15++)
         {
-            int task;
-            if (file->model_ == 2)
-                task = loader->QueueLoadFile(file->name_, file->allocator_);
+            int var17;
+            if (var15->unknown_8_ == 2)
+                var17 = var4->QueueLoadFile(var15->unknown_4_, var15->unknown_0_);
             else
-                task = loader->QueueLoadFileInGP2(archive, file->name_, file->allocator_);
-            self->modelTasks_[file->model_] = task;
+                var17 = var4->QueueLoadFileInGP2(var16, var15->unknown_4_, var15->unknown_0_);
+            arg0->unknown_c5c_[var15->unknown_8_] = var17;
         }
-        self->step_ = 3;
+        arg0->unknown_c59_ = 3;
         break;
     }
     case 3:
     {
-        int done = 1;
-        int* task = self->modelTasks_;
-        for (unsigned char i = 0; i < 3; i++, task++)
+        int var18 = 1;
+        int* var19 = arg0->unknown_c5c_;
+        for (unsigned char var20 = 0; var20 < 3; var20++, var19++)
         {
-            if (*task != -1 && loader->GetTaskStatus(*task) == 0)
-                done = 0;
+            if (*var19 != -1 && var4->GetTaskStatus(*var19) == 0)
+                var18 = 0;
         }
-        if (done)
-            self->step_ = 4;
+        if (var18)
+            arg0->unknown_c59_ = 4;
         break;
     }
     case 4:
     {
-        int* task = self->modelTasks_;
-        for (unsigned char i = 0; i < 3; i++, task++)
+        int* var21 = arg0->unknown_c5c_;
+        for (unsigned char var22 = 0; var22 < 3; var22++, var21++)
         {
-            if (*task == -1)
+            if (*var21 == -1)
                 continue;
-            if (loader->GetTaskStatus(*task) == 1)
+            if (var4->GetTaskStatus(*var21) == 1)
             {
-                unsigned int size = 0;
-                void* file = NULL;
-                loader->GetLoadedFileByID(*task, &file, &size);
-                ObjectArchiveLoadInfo info;
-                info.unk_0 = 0;
-                info.allocator = NULL;
-                info.unk_14 = 0;
-                info.unk_18 = 0;
-                info.unk_10 = 0;
-                info.packageID = 0;
-                info.fileData = file;
-                info.unk_8 = size;
-                switch (i)
+                unsigned int var23 = 0;
+                void* var24 = NULL;
+                var4->GetLoadedFileByID(*var21, &var24, &var23);
+                ObjectArchiveLoadInfo var25;
+                var25.unk_0 = 0;
+                var25.allocator = NULL;
+                var25.unk_14 = 0;
+                var25.unk_18 = 0;
+                var25.unk_10 = 0;
+                var25.packageID = 0;
+                var25.fileData = var24;
+                var25.unk_8 = var23;
+                switch (var22)
                 {
                 case 0:
-                    info.allocator = self->previewAllocators_;
-                    info.packageID = 1;
-                    preview->LoadFromCHRArchive(&info);
+                    var25.allocator = arg0->unknown_b8_;
+                    var25.packageID = 1;
+                    var2->LoadFromCHRArchive(&var25);
                     break;
                 case 1:
-                    info.allocator = &self->previewAllocators_[1];
-                    self->object_.LoadFromCHRArchive(&info);
+                    var25.allocator = &arg0->unknown_b8_[1];
+                    arg0->unknown_878_.LoadFromCHRArchive(&var25);
                     break;
                 case 2:
-                    info.allocator = self->modelAllocator_;
-                    func_0207df50((Foo0207df50*)self->unk_c68);
-                    func_0207df90(self->unk_c68);
-                    self->object2_.LoadFromCHRArchive(&info);
-                    func_0207dfac(self->unk_c68);
+                    var25.allocator = arg0->unknown_b4_;
+                    func_0207df50((Struct_0203d028*)arg0->unknown_c68_);
+                    func_0207df90(arg0->unknown_c68_);
+                    arg0->unknown_cd8_.LoadFromCHRArchive(&var25);
+                    func_0207dfac(arg0->unknown_c68_);
                     break;
                 }
             }
-            loader->RemoveTask(*task);
-            *task = -1;
+            var4->RemoveTask(*var21);
+            *var21 = -1;
         }
-        self->step_ = 5;
-        preview->StopCurrentAnimation();
-        preview->MaybeSetRegularAnimation(func_020e0434((Container020e0310*)self->texts_, 2500), 0);
-        Vector3fix rotation;
-        memset(&rotation, 0, sizeof(rotation));
-        rotation = preview->rotation_;
-        PartyMemberAppearance* appearance = &self->member_->appearance_;
-        int scaleX;
-        int scaleY;
-        short width = appearance->width_;
-        scaleX = FX32_FROM_FLOAT(width / 4096.0f);
-        scaleY = FX32_FROM_FLOAT(appearance->height_ / 4096.0f);
-        int scaleZ = FX32_FROM_FLOAT(width / 4096.0f);
+        arg0->unknown_c59_ = 5;
+        var2->StopCurrentAnimation();
+        var2->MaybeSetRegularAnimation(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        Vector3fix var26;
+        memset(&var26, 0, sizeof(var26));
+        var26 = var2->rotation_;
+        Struct_ov009_02187b34* var27 = &arg0->unknown_d88_->unknown_488_;
+        int var28;
+        int var29;
+        short var30 = var27->unknown_18_;
+        var28 = FX32_FROM_FLOAT(var30 / 4096.0f);
+        var29 = FX32_FROM_FLOAT(var27->unknown_1a_ / 4096.0f);
+        int var31 = FX32_FROM_FLOAT(var30 / 4096.0f);
 #if defined(jpn)
-        self->object_.SetScale(scaleX, scaleY, scaleZ);
-        self->object_.rotation_ = rotation;
-        self->object_.StopCurrentAnimation();
-        self->object_.MaybeSetRegularAnimation(func_020e0434((Container020e0310*)self->texts_, 2500), 0);
-        Vector3fix position;
-        position = ((Object3D*)((char*)preview + 0x408))->position_;
-        self->object2_.rotation_ = rotation;
-        self->object2_.position_ = position;
-        self->object2_.StopCurrentAnimation();
-        self->object2_.MaybeSetRegularAnimation(data_ov009_0218ad41, 0);
+        arg0->unknown_878_.SetScale(var28, var29, var31);
+        arg0->unknown_878_.rotation_ = var26;
+        arg0->unknown_878_.StopCurrentAnimation();
+        arg0->unknown_878_.MaybeSetRegularAnimation(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        Vector3fix var32;
+        var32 = ((Object3D*)((char*)var2 + 0x408))->position_;
+        arg0->unknown_cd8_.rotation_ = var26;
+        arg0->unknown_cd8_.position_ = var32;
+        arg0->unknown_cd8_.StopCurrentAnimation();
+        arg0->unknown_cd8_.MaybeSetRegularAnimation(data_ov009_0218ad41, 0);
 #else
-        Object3D* object = &self->object_;
-        object->SetScale(scaleX, scaleY, scaleZ);
-        object->rotation_ = rotation;
-        object->StopCurrentAnimation();
-        object->MaybeSetRegularAnimation(func_020e0434((Container020e0310*)self->texts_, 2500), 0);
-        Vector3fix position;
-        position = ((Object3D*)((char*)preview + 0x408))->position_;
-        Object3D* object2 = &self->object2_;
-        object2->rotation_ = rotation;
-        object2->position_ = position;
-        object2->StopCurrentAnimation();
-        object2->MaybeSetRegularAnimation(data_ov009_0218ad41, 0);
+        Object3D* var33 = &arg0->unknown_878_;
+        var33->SetScale(var28, var29, var31);
+        var33->rotation_ = var26;
+        var33->StopCurrentAnimation();
+        var33->MaybeSetRegularAnimation(func_020e0434((Struct_0201099c_3*)arg0->unknown_e0_, 2500), 0);
+        Vector3fix var34;
+        var34 = ((Object3D*)((char*)var2 + 0x408))->position_;
+        Object3D* var35 = &arg0->unknown_cd8_;
+        var35->rotation_ = var26;
+        var35->position_ = var34;
+        var35->StopCurrentAnimation();
+        var35->MaybeSetRegularAnimation(data_ov009_0218ad41, 0);
 #endif
-        self->flags_ |= 0x200;
-        self->timer_ = 30;
-        self->step_ = 6;
+        arg0->unknown_d9c_ |= 0x200;
+        arg0->unknown_d96_ = 30;
+        arg0->unknown_c59_ = 6;
         break;
     }
     case 6:
         func_0205ebfc(data_02108760, 0, 0);
-        self->timer_ = 150;
-        self->step_ = 7;
+        arg0->unknown_d96_ = 150;
+        arg0->unknown_c59_ = 7;
         break;
     case 7:
-        func_020466e4(unknown, 0x100);
-        SetBrightness(resources, 16, 40);
+        func_020466e4(var3, 0x100);
+        SetBrightness(var1, 16, 40);
         func_0205ebfc(data_02108760, 1, 0);
-        self->step_ = 8;
+        arg0->unknown_c59_ = 8;
         break;
     case 8:
-        if (IsBrightnessTransitionActive(resources))
+        if (IsBrightnessTransitionActive(var1))
             break;
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, -16);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, -16);
-        self->timer_ = 120;
-        self->step_ = 9;
+        arg0->unknown_d96_ = 120;
+        arg0->unknown_c59_ = 9;
         break;
     case 9:
-        if (self->timer_ > 0)
+        if (arg0->unknown_d96_ > 0)
         {
-            unsigned int elapsed = gameState->GetTickCount();
-            if (elapsed == 0)
-                elapsed = 1;
-            self->timer_ -= elapsed;
+            unsigned int var36 = var0->GetTickCount();
+            if (var36 == 0)
+                var36 = 1;
+            arg0->unknown_d96_ -= var36;
             break;
         }
-        SetBrightness(resources, -16, 120);
-        self->step_ = 10;
+        SetBrightness(var1, -16, 120);
+        arg0->unknown_c59_ = 10;
         break;
     case 10:
-        if (IsBrightnessTransitionActive(resources))
+        if (IsBrightnessTransitionActive(var1))
             break;
         func_020c39a0(REG_MASTER_BRIGHT, -16);
         func_020c39a0(REG_MASTER_BRIGHT_SUB, -16);
-        func_020466f4((FlagWord020466f4*)unknown, 0x100);
+        func_020466f4((Struct_02038598_4*)var3, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, 0);
         func_0205ebec(data_02108760);
-        self->step_ = 11;
+        arg0->unknown_c59_ = 11;
         break;
     case 11:
-        self->step_ = 0xff;
-        func_ov009_021855dc((unsigned char*)self, 11);
+        arg0->unknown_c59_ = 0xff;
+        func_ov009_021855dc((unsigned char*)arg0, 11);
         break;
     }
 }

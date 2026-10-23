@@ -6,8 +6,8 @@
 
 extern char data_02107800;
 
-extern "C" void func_0204af64(struct List0204af64*);
-extern "C" void func_0204b174(void* list, void* rec, void* alloc, int size);
+extern "C" void func_0204af64(struct Struct_02020cb8*);
+extern "C" void func_0204b174(void* arg0, void* arg1, void* arg2, int arg3);
 extern "C" unsigned int GetMainBG1ScreenBase(void);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int a, int b, int c, int d);
 
@@ -21,63 +21,63 @@ extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int a, int b, int c, 
 
 // USA: func_02044d0c
 extern "C" ARM void func_02044d0c(void) {
-    volatile unsigned int* reg32 = (volatile unsigned int*)0x04000000;
-    volatile unsigned short* reg16 = (volatile unsigned short*)0x04000000;
+    volatile unsigned int* var0 = (volatile unsigned int*)0x04000000;
+    volatile unsigned short* var1 = (volatile unsigned short*)0x04000000;
 
-    reg32[0] = (reg32[0] & ~0x1f00u) | 0x1100u;
-    reg32[6] = 0;
-    reg32[7] = 0;
-    reg16[5] = (reg16[5] & 0x43) | 0x1d00;
-    reg16[6] = (reg16[6] & 0x43) | 0x1e00;
-    reg16[7] = (reg16[7] & 0x43) | 0x308 | 0x1c00;
+    var0[0] = (var0[0] & ~0x1f00u) | 0x1100u;
+    var0[6] = 0;
+    var0[7] = 0;
+    var1[5] = (var1[5] & 0x43) | 0x1d00;
+    var1[6] = (var1[6] & 0x43) | 0x1e00;
+    var1[7] = (var1[7] & 0x43) | 0x308 | 0x1c00;
 
 #if defined(jpn)
-    char* base = *(char**)(&data_02107800 + 0x30);
+    char* var2 = *(char**)(&data_02107800 + 0x30);
 #else
-    char* base = *(char**)&data_02107800;
+    char* var2 = *(char**)&data_02107800;
 #endif
-    char* rec = *(char**)((char*)GetGameResources() + 0x2c);
+    char* var3 = *(char**)((char*)GetGameResources() + 0x2c);
 
-    struct List0204af64 local;
-    func_0204af64(&local);
-    local.b1c_lo = 0;
-    local.b1c_hi = 3;
-    func_0204b174(&local, rec, 0, 0);
+    struct Struct_02020cb8 var4;
+    func_0204af64(&var4);
+    var4.unknown_1c_0_ = 0;
+    var4.unknown_1c_4_ = 3;
+    func_0204b174(&var4, var3, 0, 0);
 
-    if (base != 0) {
-        unsigned char i;
-        memset(base, 0, 0x1000);
-        for (i = 0; i < 6; i++) {
-            StageMemoryToVRAM(VRAMSubregion_MainBG3Character, base, i << 12, 0x1000, 1, 0);
+    if (var2 != 0) {
+        unsigned char var5;
+        memset(var2, 0, 0x1000);
+        for (var5 = 0; var5 < 6; var5++) {
+            StageMemoryToVRAM(VRAMSubregion_MainBG3Character, var2, var5 << 12, 0x1000, 1, 0);
         }
-        char* p = *(char**)(&data_02107800 + 4);
-        if (p + BG_UPLOAD_SOURCE_OFFSET != 0) {
-            StageMemoryToVRAM(VRAMSubregion_MainBG2Character, p + BG_UPLOAD_SOURCE_OFFSET, 0x20, BG_UPLOAD_SIZE, 1, 0);
+        char* var6 = *(char**)(&data_02107800 + 4);
+        if (var6 + BG_UPLOAD_SOURCE_OFFSET != 0) {
+            StageMemoryToVRAM(VRAMSubregion_MainBG2Character, var6 + BG_UPLOAD_SOURCE_OFFSET, 0x20, BG_UPLOAD_SIZE, 1, 0);
         }
     }
 
-    if (base != 0) {
-        unsigned short* w;
-        unsigned short v;
-        memset(base, 0, 0x1000);
-        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, base, 0, 0x800, 1, 0);
-        w = (unsigned short*)(base + 0x800);
-        for (v = 0; v < 0x300; v++) {
-            *w = v;
-            w++;
+    if (var2 != 0) {
+        unsigned short* var7;
+        unsigned short var8;
+        memset(var2, 0, 0x1000);
+        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, var2, 0, 0x800, 1, 0);
+        var7 = (unsigned short*)(var2 + 0x800);
+        for (var8 = 0; var8 < 0x300; var8++) {
+            *var7 = var8;
+            var7++;
         }
-        StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, base, 0, 0x800, 1, 0);
-        unsigned int bg = GetMainBG1ScreenBase();
-        if (bg != 0) {
-            memset((void*)bg, 0, 0x800);
+        StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, var2, 0, 0x800, 1, 0);
+        unsigned int var9 = GetMainBG1ScreenBase();
+        if (var9 != 0) {
+            memset((void*)var9, 0, 0x800);
         }
     }
 
     ColorEffect_ConfigureAlphaBlend((void*)0x04000050, 4, 1, 0xa, 6);
 
-    volatile unsigned short* bgcnt = (volatile unsigned short*)0x04000008;
-    bgcnt[0] = (bgcnt[0] & ~3u) | 3u;
-    bgcnt[1] = (bgcnt[1] & ~3u) | 2u;
-    bgcnt[2] = (bgcnt[2] & ~3u) | 1u;
-    bgcnt[3] = bgcnt[3] & ~3u;
+    volatile unsigned short* var10 = (volatile unsigned short*)0x04000008;
+    var10[0] = (var10[0] & ~3u) | 3u;
+    var10[1] = (var10[1] & ~3u) | 2u;
+    var10[2] = (var10[2] & ~3u) | 1u;
+    var10[3] = var10[3] & ~3u;
 }

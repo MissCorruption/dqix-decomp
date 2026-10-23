@@ -6,14 +6,14 @@
 
 extern int* data_ov031_02290c48;
 
-extern "C" int func_ov031_02222adc(void* buf);
+extern "C" int func_ov031_02222adc(void* arg0);
 extern "C" void func_020c9be0(void);
 
 // USA: func_ov031_02227bc8
 extern "C" ARM int func_ov031_02227bc8(void) {
-	char buf[0xe8];
-	int val = *data_ov031_02290c48;
-	switch (val) {
+	char var0[0xe8];
+	int var1 = *data_ov031_02290c48;
+	switch (var1) {
 		case 0:
 		case 1:
 		case 3:
@@ -24,14 +24,14 @@ extern "C" ARM int func_ov031_02227bc8(void) {
 		case 4:
 			return 2;
 		case 6: {
-			int r = func_ov031_02222adc(buf);
-			if (r != 1) {
+			int var2 = func_ov031_02222adc(var0);
+			if (var2 != 1) {
 				func_020c9be0();
 			}
-			int a = *(int*)(buf + 0x20);
-			if (a >= 0 && a <= 3) {
-				int b = *(int*)(buf + 0x24);
-				if (b == 1) {
+			int var3 = *(int*)(var0 + 0x20);
+			if (var3 >= 0 && var3 <= 3) {
+				int var4 = *(int*)(var0 + 0x24);
+				if (var4 == 1) {
 					return 3;
 				}
 			}

@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-struct SlotEntry02039fec {
-    unsigned char pad0[5];
-    signed char timer;
-    unsigned char pad6[2];
-    short velocity;
-    short position;
-    unsigned char pad0xc[0xc];
+struct Struct_02039fec {
+    unsigned char unknown_0_[5];
+    signed char unknown_5_;
+    unsigned char unknown_6_[2];
+    short unknown_8_;
+    short unknown_a_;
+    unsigned char unknown_c_[0xc];
 };
 
-struct Obj02039fec {
-    unsigned char pad0[0x550];
-    struct SlotEntry02039fec slots[16];
-    int cursor;
-    int limit;
+struct Struct_02039fec_2 {
+    unsigned char unknown_0_[0x550];
+    struct Struct_02039fec unknown_550_[16];
+    int unknown_6d0_;
+    int unknown_6d4_;
 };
 
-extern "C" void func_0203a5e8(struct Obj02039fec* obj, int index);
+extern "C" void func_0203a5e8(struct Struct_02039fec_2* arg0, int arg1);
 
 // USA: func_02039fec
-extern "C" ARM void func_02039fec(struct Obj02039fec* obj) {
-    int i = obj->cursor;
-    while (i != obj->limit) {
-        struct SlotEntry02039fec* e = &obj->slots[i];
-        e->position += e->velocity;
-        e->velocity = e->velocity + ((0x1000 - e->position) >> 1);
-        e->velocity = (short)(0.8f * e->velocity);
-        e->timer--;
-        if (e->timer <= 0) {
-            int next = i + 1;
-            obj->cursor = next;
-            if (next >= 16) obj->cursor = 0;
-        } else if (e->timer == 0x22) {
-            func_0203a5e8(obj, i);
+extern "C" ARM void func_02039fec(struct Struct_02039fec_2* arg0) {
+    int var0 = arg0->unknown_6d0_;
+    while (var0 != arg0->unknown_6d4_) {
+        struct Struct_02039fec* var1 = &arg0->unknown_550_[var0];
+        var1->unknown_a_ += var1->unknown_8_;
+        var1->unknown_8_ = var1->unknown_8_ + ((0x1000 - var1->unknown_a_) >> 1);
+        var1->unknown_8_ = (short)(0.8f * var1->unknown_8_);
+        var1->unknown_5_--;
+        if (var1->unknown_5_ <= 0) {
+            int var2 = var0 + 1;
+            arg0->unknown_6d0_ = var2;
+            if (var2 >= 16) arg0->unknown_6d0_ = 0;
+        } else if (var1->unknown_5_ == 0x22) {
+            func_0203a5e8(arg0, var0);
         }
-        i++;
-        if (i >= 16) i = 0;
+        var0++;
+        if (var0 >= 16) var0 = 0;
     }
 }

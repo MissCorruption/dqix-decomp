@@ -3,18 +3,18 @@
 #include "Combat/MapDisplay.h"
 
 // USA: func_0205a198
-extern "C" void func_0205a198(Struct0205a198 *p) {
-    memset(p, 0, 8);
-    p->copy = 0;
-    p->field0c = p->field10 = 0x1000;
-    p->field14 = p->field18 = 0;
-    p->field1c = 0;
-    p->index = 0;
-    p->field20 = 0;
-    p->firstCell = 0;
-    p->field23 = 0;
-    p->field24 = 0;
-    int d = p->field24 - 1;
-    p->field25 = d;
-    p->field26 = d;
+extern "C" void func_0205a198(Struct_02043368_2 *arg0) {
+    memset(arg0, 0, 8);
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = arg0->unknown_10_ = 0x1000;
+    arg0->unknown_14_ = arg0->unknown_18_ = 0;
+    arg0->unknown_1c_ = 0;
+    arg0->unknown_1e_ = 0;
+    arg0->unknown_20_ = 0;
+    arg0->unknown_22_ = 0;
+    arg0->unknown_23_ = 0;
+    arg0->unknown_24_ = 0;
+    int var0 = arg0->unknown_24_ - 1;
+    arg0->unknown_25_ = var0;
+    arg0->unknown_26_ = var0;
 }

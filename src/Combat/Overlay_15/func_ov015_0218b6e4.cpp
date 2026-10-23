@@ -3,76 +3,76 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
-struct Struct02030b7c { int field0; void* field4; };
-struct Variant02030b0c { int tag; union { int i; float f; } u; };
-extern "C" int func_020d2ff0(const char* s);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+struct Struct_0201c3a4 { int unknown_0_; void* unknown_4_; };
+struct Struct_0201c1c8 { int unknown_0_; union { int unknown_0_; float unknown1_0_; } unknown_4_; };
+extern "C" int func_020d2ff0(const char* arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 
-struct Entry8_0218ba1c { int a; int b; };
-struct List8_0218ba1c { void* f0; Entry8_0218ba1c* arr; void* f8; int count; };
-extern "C" void func_ov015_0218ba1c(struct List8_0218ba1c* obj, struct Entry8_0218ba1c* src);
+struct Struct_ov015_0218b6e4 { int unknown_0_; int unknown_4_; };
+struct Struct_ov015_0218ba1c { void* unknown_0_; Struct_ov015_0218b6e4* unknown_4_; void* unknown_8_; int unknown_c_; };
+extern "C" void func_ov015_0218ba1c(struct Struct_ov015_0218ba1c* arg0, struct Struct_ov015_0218b6e4* arg1);
 
-struct NamedNode0218b6e4 {
-    char* name;
-    unsigned short val1;
-    unsigned char val2;
-    NamedNode0218b6e4* next;
+struct Struct_ov015_0218b6e4_2 {
+    char* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_;
+    Struct_ov015_0218b6e4_2* unknown_8_;
 };
 
 extern AllocatorUnion data_02114e20;
-extern struct List8_0218ba1c* data_ov015_02194560;
+extern struct Struct_ov015_0218ba1c* data_ov015_02194560;
 
 // USA: func_ov015_0218b6e4
-extern "C" ARM int func_ov015_0218b6e4(char* obj, int count) {
-    char* base = obj;
-    obj = obj + 8;
-    char* n0 = (char*)(void*)((Script::Parameter*)((struct Struct02030b7c*)base))->ToString();
-    struct Entry8_0218ba1c entry;
-    entry.a = 0;
-    entry.b = 0;
-    if (n0 != 0) {
-        int len = func_020d2ff0(n0);
-        char* buf = (char*)func_02012d88(&data_02114e20, len + 1);
-        entry.a = (int)buf;
-        if (buf != 0) {
-            strcpy(buf, n0);
+extern "C" ARM int func_ov015_0218b6e4(char* arg0, int arg1) {
+    char* var0 = arg0;
+    arg0 = arg0 + 8;
+    char* var1 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c3a4*)var0))->ToString();
+    struct Struct_ov015_0218b6e4 var2;
+    var2.unknown_0_ = 0;
+    var2.unknown_4_ = 0;
+    if (var1 != 0) {
+        int var3 = func_020d2ff0(var1);
+        char* var4 = (char*)func_02012d88(&data_02114e20, var3 + 1);
+        var2.unknown_0_ = (int)var4;
+        if (var4 != 0) {
+            strcpy(var4, var1);
         }
     }
 
-    int i = 1;
-    while (i < count) {
-        struct NamedNode0218b6e4* node;
-        char* name = (char*)(void*)((Script::Parameter*)((struct Struct02030b7c*)obj))->ToString();
-        int v1 = ((Script::Parameter*)((struct Variant02030b0c*)(obj + 8)))->ToInt();
-        char* v2addr = obj + 0x10;
-        obj = obj + 0x18;
-        int v2 = ((Script::Parameter*)((struct Variant02030b0c*)v2addr))->ToInt();
+    int var5 = 1;
+    while (var5 < arg1) {
+        struct Struct_ov015_0218b6e4_2* var6;
+        char* var7 = (char*)(void*)((Script::Parameter*)((struct Struct_0201c3a4*)arg0))->ToString();
+        int var8 = ((Script::Parameter*)((struct Struct_0201c1c8*)(arg0 + 8)))->ToInt();
+        char* var9 = arg0 + 0x10;
+        arg0 = arg0 + 0x18;
+        int var10 = ((Script::Parameter*)((struct Struct_0201c1c8*)var9))->ToInt();
 
-        node = (struct NamedNode0218b6e4*)func_02012d88(&data_02114e20, 0xc);
-        node->name = 0;
-        node->val1 = 0;
-        node->val2 = 0;
-        node->next = 0;
-        if (name != 0) {
-            int len = func_020d2ff0(name);
-            char* buf = (char*)func_02012d88(&data_02114e20, len + 1);
-            node->name = buf;
-            if (buf != 0) {
-                strcpy(buf, name);
+        var6 = (struct Struct_ov015_0218b6e4_2*)func_02012d88(&data_02114e20, 0xc);
+        var6->unknown_0_ = 0;
+        var6->unknown_4_ = 0;
+        var6->unknown_6_ = 0;
+        var6->unknown_8_ = 0;
+        if (var7 != 0) {
+            int var11 = func_020d2ff0(var7);
+            char* var12 = (char*)func_02012d88(&data_02114e20, var11 + 1);
+            var6->unknown_0_ = var12;
+            if (var12 != 0) {
+                strcpy(var12, var7);
             }
         }
-        node->val1 = (unsigned short)v1;
-        node->val2 = (unsigned char)v2;
+        var6->unknown_4_ = (unsigned short)var8;
+        var6->unknown_6_ = (unsigned char)var10;
 
-        struct NamedNode0218b6e4** link = (struct NamedNode0218b6e4**)&entry.b;
-        while (*link != 0) {
-            link = &(*link)->next;
+        struct Struct_ov015_0218b6e4_2** var13 = (struct Struct_ov015_0218b6e4_2**)&var2.unknown_4_;
+        while (*var13 != 0) {
+            var13 = &(*var13)->unknown_8_;
         }
-        *link = node;
+        *var13 = var6;
 
-        i += 3;
+        var5 += 3;
     }
 
-    func_ov015_0218ba1c(data_ov015_02194560, &entry);
+    func_ov015_0218ba1c(data_ov015_02194560, &var2);
     return 1;
 }

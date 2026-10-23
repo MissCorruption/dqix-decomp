@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/IPC.h"
 
-extern "C" void func_020c9890(int unused, unsigned int code);
+extern "C" void func_020c9890(int arg0, unsigned int arg1);
 
 extern short data_02111668;
 

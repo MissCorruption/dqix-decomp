@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 #if defined(jpn)
-enum { kRegioned = 0xe9 };
+enum { Enum_ov003_02173af4_237 = 0xe9 };
 #else
-enum { kRegioned = 0xed };
+enum { Enum_ov003_02173af4_237 = 0xed };
 #endif
 
-struct Obj02173af4 {
-    char pad0[kRegioned];
-    unsigned char fed;
-    unsigned char pad1;
-    unsigned char fef;
+struct Struct_ov003_02173af4 {
+    char unknown_0_[Enum_ov003_02173af4_237];
+    unsigned char unknown_ed_;
+    unsigned char unknown_ee_;
+    unsigned char unknown_ef_;
 };
 
 struct GameResources;
@@ -18,16 +18,16 @@ void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
 
 // USA: func_ov003_02173af4
-extern "C" ARM void func_ov003_02173af4(struct Obj02173af4* p) {
-    GameResources* x = GetGameResources();
-    if (p->fef == 0) {
-        SetSubBrightness(x, -16, 0x18);
-        p->fef = 1;
+extern "C" ARM void func_ov003_02173af4(struct Struct_ov003_02173af4* arg0) {
+    GameResources* var0 = GetGameResources();
+    if (arg0->unknown_ef_ == 0) {
+        SetSubBrightness(var0, -16, 0x18);
+        arg0->unknown_ef_ = 1;
         return;
     }
-    if (p->fef != 1) return;
-    if (!IsSubBrightnessTransitionActive(x)) {
-        p->fed = 6;
-        p->fef = 0;
+    if (arg0->unknown_ef_ != 1) return;
+    if (!IsSubBrightnessTransitionActive(var0)) {
+        arg0->unknown_ed_ = 6;
+        arg0->unknown_ef_ = 0;
     }
 }

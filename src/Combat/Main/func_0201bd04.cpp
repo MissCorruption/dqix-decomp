@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Obj0201b600;
-struct Elem0201b600;
-struct Struct02013380 { unsigned short unk0; unsigned short flags; };
+struct Struct_02017a94;
+struct Struct_0201b600;
+struct Struct_02013380 { unsigned short unknown_0_; unsigned short unknown_2_; };
 
-extern "C" Elem0201b600* func_0201b600(Obj0201b600*, int, unsigned short);
-extern "C" void func_02013380(Struct02013380* obj, int unused, int clear4);
+extern "C" Struct_0201b600* func_0201b600(Struct_02017a94*, int, unsigned short);
+extern "C" void func_02013380(Struct_02013380* arg0, int arg1, int arg2);
 
 // USA: func_0201bd04
-extern "C" ARM void func_0201bd04(Obj0201b600* obj, unsigned int argA, int argB) {
-    Elem0201b600* elem = func_0201b600(obj, argB, argA);
-    int flag = 0;
-    if (argB >= 0) flag = argB & 0xff;
-    if (elem == 0) return;
-    func_02013380((Struct02013380*)elem, flag, 1);
+extern "C" ARM void func_0201bd04(Struct_02017a94* arg0, unsigned int arg1, int arg2) {
+    Struct_0201b600* var0 = func_0201b600(arg0, arg2, arg1);
+    int var1 = 0;
+    if (arg2 >= 0) var1 = arg2 & 0xff;
+    if (var0 == 0) return;
+    func_02013380((Struct_02013380*)var0, var1, 1);
 }

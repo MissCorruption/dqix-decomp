@@ -2,55 +2,55 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue1F7_1F3 = 0x1f3 };
-enum { kRegionValue1FC_1F8 = 0x1f8 };
-enum { kRegionValue330_32C = 0x32c };
-enum { kRegionValue334_330 = 0x330 };
+enum { Enum_ov003_02155740_503 = 0x1f3 };
+enum { Enum_ov003_02155740_508 = 0x1f8 };
+enum { Enum_ov003_02155740_816 = 0x32c };
+enum { Enum_ov003_02155740_820 = 0x330 };
 #else
-enum { kRegionValue1F7_1F3 = 0x1f7 };
-enum { kRegionValue1FC_1F8 = 0x1fc };
-enum { kRegionValue330_32C = 0x330 };
-enum { kRegionValue334_330 = 0x334 };
+enum { Enum_ov003_02155740_503 = 0x1f7 };
+enum { Enum_ov003_02155740_508 = 0x1fc };
+enum { Enum_ov003_02155740_816 = 0x330 };
+enum { Enum_ov003_02155740_820 = 0x334 };
 #endif
 
 extern "C" float _fflt(int v);
 extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float v);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" void func_ov017_021c9e00(int id, int flagA, int flagB, int flagC);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov003_02155740
-extern "C" ARM void func_ov003_02155740(char* obj) {
-    GameState* battle = GameState::GetInstance();
-    signed char idx = *(signed char*)(obj + kRegionValue1F7_1F3);
-    GameObject* c = battle->GetPartyMemberByIndex(idx);
-    if (c == 0) {
+extern "C" ARM void func_ov003_02155740(char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    signed char var1 = *(signed char*)(arg0 + Enum_ov003_02155740_503);
+    GameObject* var2 = var0->GetPartyMemberByIndex(var1);
+    if (var2 == 0) {
         return;
     }
 
-    if (*(int*)(obj + kRegionValue1FC_1F8) & 1) {
-        unsigned short* src = *(unsigned short**)((char*)c + 0x134);
-        unsigned short w = src[0x30 / 2];
-        int v1 = _ffix(_fmul(*(float*)(obj + kRegionValue330_32C), _fflt(w)));
-        unsigned short h = src[0x32 / 2];
-        int v2 = _ffix(_fmul(*(float*)(obj + kRegionValue334_330), _fflt(h)));
+    if (*(int*)(arg0 + Enum_ov003_02155740_508) & 1) {
+        unsigned short* var3 = *(unsigned short**)((char*)var2 + 0x134);
+        unsigned short var4 = var3[0x30 / 2];
+        int var5 = _ffix(_fmul(*(float*)(arg0 + Enum_ov003_02155740_816), _fflt(var4)));
+        unsigned short var6 = var3[0x32 / 2];
+        int var7 = _ffix(_fmul(*(float*)(arg0 + Enum_ov003_02155740_820), _fflt(var6)));
 
-        if (v1 <= 0) v1 = 1;
-        if (v2 <= 0) v2 = 0;
-        if (w < v1) v1 = w;
-        *(unsigned short*)(*(char**)((char*)c + 0x130) + 4) = (unsigned short)v1;
-        if (h < v2) v2 = h;
-        *(unsigned short*)(*(char**)((char*)c + 0x130) + 6) = (unsigned short)v2;
+        if (var5 <= 0) var5 = 1;
+        if (var7 <= 0) var7 = 0;
+        if (var4 < var5) var5 = var4;
+        *(unsigned short*)(*(char**)((char*)var2 + 0x130) + 4) = (unsigned short)var5;
+        if (var6 < var7) var7 = var6;
+        *(unsigned short*)(*(char**)((char*)var2 + 0x130) + 6) = (unsigned short)var7;
     } else {
-        *(unsigned short*)(*(char**)((char*)c + 0x130) + 4) = *(unsigned short*)(*(char**)((char*)c + 0x134) + 0x30);
-        *(unsigned short*)(*(char**)((char*)c + 0x130) + 6) = *(unsigned short*)(*(char**)((char*)c + 0x134) + 0x32);
+        *(unsigned short*)(*(char**)((char*)var2 + 0x130) + 4) = *(unsigned short*)(*(char**)((char*)var2 + 0x134) + 0x30);
+        *(unsigned short*)(*(char**)((char*)var2 + 0x130) + 6) = *(unsigned short*)(*(char**)((char*)var2 + 0x134) + 0x32);
     }
 
-    void* ptr = func_0202ae18();
-    if (func_0202b7d8((int*)ptr) == 0) {
+    void* var8 = func_0202ae18();
+    if (func_0202b7d8((int*)var8) == 0) {
         return;
     }
-    signed char id2 = *(signed char*)(obj + kRegionValue1F7_1F3);
-    func_ov017_021c9e00(id2, 1, 0, 1);
+    signed char var9 = *(signed char*)(arg0 + Enum_ov003_02155740_503);
+    func_ov017_021c9e00(var9, 1, 0, 1);
 }

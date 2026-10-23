@@ -3,21 +3,21 @@
 
 // USA: func_ov023_021e71b4
 // JPN: func_ov023_021e7414
-extern "C" ARM void func_ov023_021e71b4(void* obj, SafeAllocator* src) {
-    if (src == NULL) return;
-    SafeAllocator* arenas = static_cast<SafeAllocator*>(obj);
+extern "C" ARM void func_ov023_021e71b4(void* arg0, SafeAllocator* arg1) {
+    if (arg1 == NULL) return;
+    SafeAllocator* var0 = static_cast<SafeAllocator*>(arg0);
 
-    void* buf = src->Allocate(0x5000);
-    arenas[0].CreateTypeA(buf, 0x5000);
+    void* var1 = arg1->Allocate(0x5000);
+    var0[0].CreateTypeA(var1, 0x5000);
 
-    buf = src->Allocate(0x3400);
-    arenas[1].CreateTypeA(buf, 0x3400);
+    var1 = arg1->Allocate(0x3400);
+    var0[1].CreateTypeA(var1, 0x3400);
 
 #if defined(jpn)
-    const unsigned int thirdArenaSize = 0xc00;
+    const unsigned int var2 = 0xc00;
 #else
-    const unsigned int thirdArenaSize = 0xccc;
+    const unsigned int var2 = 0xccc;
 #endif
-    buf = src->Allocate(thirdArenaSize);
-    arenas[2].CreateTypeA(buf, thirdArenaSize);
+    var1 = arg1->Allocate(var2);
+    var0[2].CreateTypeA(var1, var2);
 }

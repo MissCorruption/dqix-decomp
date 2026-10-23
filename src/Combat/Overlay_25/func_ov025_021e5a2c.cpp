@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kWorkFlagBase = 0x7000, kWorkFlagOffset = 0x1c5 };
+enum { Enum_ov025_021e5a2c_24576 = 0x7000, Enum_ov025_021e5a2c_4053 = 0x1c5 };
 #else
-enum { kWorkFlagBase = 0x6000, kWorkFlagOffset = 0xfd5 };
+enum { Enum_ov025_021e5a2c_24576 = 0x6000, Enum_ov025_021e5a2c_4053 = 0xfd5 };
 #endif
 
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
 
-struct CombatCameraWork {
-    char unknown0[kWorkFlagBase + kWorkFlagOffset];
-    unsigned char cameraUpdated;
+struct Struct_ov025_021e5a2c {
+    char unknown_0_[Enum_ov025_021e5a2c_24576 + Enum_ov025_021e5a2c_4053];
+    unsigned char unknown_6fd5_;
 };
-struct CameraState {
-    int unknown0;
-    Vector3i vector;
+struct Struct_ov001_02158ae4_3 {
+    int unknown_0_;
+    Vector3i unknown_4_;
 };
-struct VectorCommand {
-    char unknown0[8];
-    Vector3i vector;
+struct Struct_ov025_021e5a2c_2 {
+    char unknown_0_[8];
+    Vector3i unknown_8_;
 };
-extern "C" CombatCameraWork* func_ov000_02160130(void);
+extern "C" Struct_ov025_021e5a2c* func_ov000_02160130(void);
 
 // USA: func_ov025_021e5a2c
-extern "C" ARM int func_ov025_021e5a2c(VectorCommand* command) {
-    GameState* bs = GameState::GetInstance();
-    CameraState* f = (CameraState*)func_020100bc(bs);
-    if (f != 0) {
-        f->vector = command->vector;
+extern "C" ARM int func_ov025_021e5a2c(Struct_ov025_021e5a2c_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov001_02158ae4_3* var1 = (Struct_ov001_02158ae4_3*)func_020100bc(var0);
+    if (var1 != 0) {
+        var1->unknown_4_ = arg0->unknown_8_;
     }
-    CombatCameraWork* w = func_ov000_02160130();
-    if (w) {
-        w->cameraUpdated = 1;
+    Struct_ov025_021e5a2c* var2 = func_ov000_02160130();
+    if (var2) {
+        var2->unknown_6fd5_ = 1;
     }
     return 1;
 }

@@ -2,54 +2,54 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 
-struct Block0207df50 { unsigned int v[10]; };
-struct Pair0207df50 { unsigned int v[2]; };
-struct Foo0207df50 {
-    struct Block0207df50 a;
-    struct Block0207df50 b;
-    unsigned int c;
-    unsigned int d;
-    struct Pair0207df50 p1;
-    struct Pair0207df50 p2;
+struct Struct_0207df50 { unsigned int unknown_0_[10]; };
+struct Struct_0207df50_2 { unsigned int unknown_0_[2]; };
+struct Struct_0203d028 {
+    struct Struct_0207df50 unknown_0_;
+    struct Struct_0207df50 unknown_28_;
+    unsigned int unknown_50_;
+    unsigned int unknown_54_;
+    struct Struct_0207df50_2 unknown_58_;
+    struct Struct_0207df50_2 unknown_60_;
 };
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_0207df90(char* obj);
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
 
 // USA: func_ov001_0215eab0
-extern "C" ARM int func_ov001_0215eab0(void* self, int mode) {
+extern "C" ARM int func_ov001_0215eab0(void* arg0, int arg1) {
 #if defined(jpn)
- enum { tableOffset = 0x27c };
+ enum { Enum_ov001_0215eab0_716 = 0x27c };
 #else
- enum { tableOffset = 0x2cc };
+ enum { Enum_ov001_0215eab0_716 = 0x2cc };
 #endif
-    GameState* bs = GameState::GetInstance();
-    if (bs == NULL) {
+    GameState* var0 = GameState::GetInstance();
+    if (var0 == NULL) {
         return 0;
     }
-    int base = func_0200fb8c((int*)bs);
-    if (base == 0) {
+    int var1 = func_0200fb8c((int*)var0);
+    if (var1 == 0) {
         return 0;
     }
-    int val = func_ov017_021d60f4(self);
-    int addr;
-    if (val < 0) {
-        addr = base + tableOffset;
-        addr = addr + 0xbd0;
+    int var2 = func_ov017_021d60f4(arg0);
+    int var3;
+    if (var2 < 0) {
+        var3 = var1 + Enum_ov001_0215eab0_716;
+        var3 = var3 + 0xbd0;
     } else {
-        addr = base + tableOffset + val * 0x70;
+        var3 = var1 + Enum_ov001_0215eab0_716 + var2 * 0x70;
     }
-    if (addr == 0) {
+    if (var3 == 0) {
         return 0;
     }
-    int flag = 1;
-    if (mode >= 2) {
-        flag = func_ov017_021d60f4((char*)self + 0x8);
+    int var4 = 1;
+    if (arg1 >= 2) {
+        var4 = func_ov017_021d60f4((char*)arg0 + 0x8);
     }
-    if (flag != 0) {
-        func_0207df50((struct Foo0207df50*)addr);
+    if (var4 != 0) {
+        func_0207df50((struct Struct_0203d028*)var3);
     }
-    func_0207df90((char*)addr);
+    func_0207df90((char*)var3);
     return 1;
 }

@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-struct Source0203c05c {
-    char pad[0x22];
-    short f22;
+struct Struct_0203c05c_2 {
+    char unknown_0_[0x22];
+    short unknown_22_;
 };
 
-struct Entry0203c05c {
-    unsigned int w;
-    unsigned short h;
-    unsigned short pad;
+struct Struct_0203c05c {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
 
 // USA: func_0203c05c
-extern "C" ARM void func_0203c05c(struct Source0203c05c* p, struct Entry0203c05c* out,
-                                    int a3, int a4, int a5, int a6) {
-    short v = p->f22;
-    int i;
-    if (v < 0) {
+extern "C" ARM void func_0203c05c(struct Struct_0203c05c_2* arg0, struct Struct_0203c05c* arg1,
+                                    int arg2, int arg3, int arg4, int arg5) {
+    short var0 = arg0->unknown_22_;
+    int var1;
+    if (var0 < 0) {
         return;
     }
-    for (i = 0; i < 4; i++) {
-        out->w = 0x80000000 | 0x4000 | (a5 & 0xff) | ((a4 & 0x1ff) << 16);
-        out->h = (unsigned short)(v | ((a3 & 3) << 10) | ((a6 & 0xf) << 12));
-        out++;
-        a4 += 0x20;
-        v = (short)(v + 2);
+    for (var1 = 0; var1 < 4; var1++) {
+        arg1->unknown_0_ = 0x80000000 | 0x4000 | (arg4 & 0xff) | ((arg3 & 0x1ff) << 16);
+        arg1->unknown_4_ = (unsigned short)(var0 | ((arg2 & 3) << 10) | ((arg5 & 0xf) << 12));
+        arg1++;
+        arg3 += 0x20;
+        var0 = (short)(var0 + 2);
     }
 }

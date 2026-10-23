@@ -1,9 +1,9 @@
 #pragma once
 
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 
-extern "C" int func_0205d5d0(StructA0205d5d0* window, int key, int text, int mode
+extern "C" int func_0205d5d0(Struct_0205d5d0* arg0, int arg1, int arg2, int arg3
 #if !defined(jpn)
-                            , unsigned char font
+                            , unsigned char arg4
 #endif
 );

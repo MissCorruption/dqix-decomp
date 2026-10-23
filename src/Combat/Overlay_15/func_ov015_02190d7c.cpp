@@ -8,94 +8,94 @@
 #include "GameState/Field3b0.h"
 #include "Input/Input.h"
 
-extern "C" void func_020a20d8(void* actor);
+extern "C" void func_020a20d8(void* arg0);
 
-struct Struct021931b4;
-extern "C" void func_ov015_021931b4(struct Struct021931b4* s, int v);
-struct Owner_021931cc;
-extern "C" int func_ov015_021931cc(struct Owner_021931cc* o);
-extern "C" void func_ov015_02192700(void* obj, int a1);
-struct S0218f1c4;
-extern "C" ARM void func_ov015_0218f1c4(struct S0218f1c4* obj);
+struct Struct_ov015_02190d7c;
+extern "C" void func_ov015_021931b4(struct Struct_ov015_02190d7c* arg0, int arg1);
+struct Struct_ov015_02190d7c_2;
+extern "C" int func_ov015_021931cc(struct Struct_ov015_02190d7c_2* arg0);
+extern "C" void func_ov015_02192700(void* arg0, int arg1);
+struct Struct_ov015_0218f1c4;
+extern "C" ARM void func_ov015_0218f1c4(struct Struct_ov015_0218f1c4* arg0);
 
-struct ListNode02190d7c {
-    int value;
-    struct ListNode02190d7c* next;
+struct Struct_ov015_02190d7c_3 {
+    int unknown_0_;
+    struct Struct_ov015_02190d7c_3* unknown_4_;
 };
 
-struct S02190d7c {
-    char pad0[0x2c];
-    struct ListNode02190d7c* list;
-    char pad1[0x38 - 0x2c - 4];
-    signed char field38;
-    char pad2[0x194 - 0x38 - 1];
-    int field194;
-    int field198;
-    char pad3[0x1a4 - 0x198 - 4];
-    int field1a4;
+struct Struct_ov015_02190d7c_4 {
+    char unknown_0_[0x2c];
+    struct Struct_ov015_02190d7c_3* unknown_2c_;
+    char unknown_30_[0x38 - 0x2c - 4];
+    signed char unknown_38_;
+    char unknown_39_[0x194 - 0x38 - 1];
+    int unknown_194_;
+    int unknown_198_;
+    char unknown_19c_[0x1a4 - 0x198 - 4];
+    int unknown_1a4_;
 };
 
 // USA: func_ov015_02190d7c
-extern "C" ARM void func_ov015_02190d7c(struct S02190d7c* obj) {
-    GameState* bs = GameState::GetInstance();
-    if (bs == 0) {
+extern "C" ARM void func_ov015_02190d7c(struct Struct_ov015_02190d7c_4* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    if (var0 == 0) {
         return;
     }
-    void* f3b0 = func_020100bc(bs);
-    if (f3b0 != 0) {
-        func_020a20d8(f3b0);
+    void* var1 = func_020100bc(var0);
+    if (var1 != 0) {
+        func_020a20d8(var1);
     }
 
-    struct ListNode02190d7c* node = obj->list;
-    while (node != 0) {
-        func_ov015_0218f1c4((struct S0218f1c4*)node->value);
-        node = node->next;
+    struct Struct_ov015_02190d7c_3* var2 = arg0->unknown_2c_;
+    while (var2 != 0) {
+        func_ov015_0218f1c4((struct Struct_ov015_0218f1c4*)var2->unknown_0_);
+        var2 = var2->unknown_4_;
     }
 
     if (!g_keyManager.TestKeysPressed(4)) {
         return;
     }
 
-    int tmp = obj->field194;
-    obj->field194 = obj->field198;
-    obj->field198 = tmp;
+    int var3 = arg0->unknown_194_;
+    arg0->unknown_194_ = arg0->unknown_198_;
+    arg0->unknown_198_ = var3;
 
-    int v;
-    if (obj->field194 == 2) {
-        func_ov015_021931b4((struct Struct021931b4*)obj, obj->field1a4);
-        obj->field1a4 = 0x23;
+    int var4;
+    if (arg0->unknown_194_ == 2) {
+        func_ov015_021931b4((struct Struct_ov015_02190d7c*)arg0, arg0->unknown_1a4_);
+        arg0->unknown_1a4_ = 0x23;
         goto cleanup;
     }
 
     do {
-        v = func_ov015_021931cc((struct Owner_021931cc*)obj);
-    } while (v >= 0x23);
+        var4 = func_ov015_021931cc((struct Struct_ov015_02190d7c_2*)arg0);
+    } while (var4 >= 0x23);
 
-    signed char state = obj->field38;
-    if (state >= 0) {
-        switch (state) {
+    signed char var5 = arg0->unknown_38_;
+    if (var5 >= 0) {
+        switch (var5) {
         case 0:
         case 1:
-            while (v >= 0xf) {
-                v = func_ov015_021931cc((struct Owner_021931cc*)obj);
+            while (var4 >= 0xf) {
+                var4 = func_ov015_021931cc((struct Struct_ov015_02190d7c_2*)arg0);
             }
             goto reset;
         case 2:
-            while (v >= 0x21) {
-                v = func_ov015_021931cc((struct Owner_021931cc*)obj);
+            while (var4 >= 0x21) {
+                var4 = func_ov015_021931cc((struct Struct_ov015_02190d7c_2*)arg0);
             }
             goto reset;
         default:
         reset:
-            obj->field38 = -1;
-            if (obj->field194 == 1) {
-                obj->field194 = 0;
+            arg0->unknown_38_ = -1;
+            if (arg0->unknown_194_ == 1) {
+                arg0->unknown_194_ = 0;
             }
             break;
         }
     }
 
-    obj->field1a4 = v;
+    arg0->unknown_1a4_ = var4;
 cleanup:
-    func_ov015_02192700(obj, 0);
+    func_ov015_02192700(arg0, 0);
 }

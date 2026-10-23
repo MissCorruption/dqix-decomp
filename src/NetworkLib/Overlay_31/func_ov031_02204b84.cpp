@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_02204b50(char* str, char** endptr);
+extern "C" int func_ov031_02204b50(char* arg0, char** arg1);
 
 // USA: func_ov031_02204b84
-extern "C" ARM int func_ov031_02204b84(char* str, unsigned int* out) {
-    unsigned int accum = 0;
-    char* p = str;
-    int octetIndex = 0;
+extern "C" ARM int func_ov031_02204b84(char* arg0, unsigned int* arg1) {
+    unsigned int var0 = 0;
+    char* var1 = arg0;
+    int var2 = 0;
     do {
-        char* next;
-        int val = func_ov031_02204b50(p, &next);
-        if (p == next)
+        char* var3;
+        int var4 = func_ov031_02204b50(var1, &var3);
+        if (var1 == var3)
             return 0;
-        p = next;
-        if ((unsigned int)val > 0xff)
+        var1 = var3;
+        if ((unsigned int)var4 > 0xff)
             goto fail;
-        if (octetIndex != 3) {
-            unsigned char c = *p;
-            p = p + 1;
-            if (c != '.')
+        if (var2 != 3) {
+            unsigned char var5 = *var1;
+            var1 = var1 + 1;
+            if (var5 != '.')
                 goto fail;
         }
-        if (octetIndex == 3) {
-            if (*(unsigned char*)p != 0)
+        if (var2 == 3) {
+            if (*(unsigned char*)var1 != 0)
                 goto fail;
         }
         goto accumulate;
 fail:
         return 0;
 accumulate:
-        octetIndex++;
-        accum = val | (accum << 8);
-    } while (octetIndex < 4);
-    *out = accum;
+        var2++;
+        var0 = var4 | (var0 << 8);
+    } while (var2 < 4);
+    *arg1 = var0;
     return 1;
 }

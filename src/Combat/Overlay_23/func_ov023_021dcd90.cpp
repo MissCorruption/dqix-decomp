@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kDisplayFlagOffset = 0x717 };
+enum { Enum_ov023_021dcd90_1947 = 0x717 };
 #else
-enum { kDisplayFlagOffset = 0x79b };
+enum { Enum_ov023_021dcd90_1947 = 0x79b };
 #endif
 
 #include "std_library_functions.h"
 
 extern "C" unsigned int GetMainBG1ScreenBase(void);
 extern "C" unsigned int GetMainBG2ScreenBase(void);
-extern "C" void func_ov023_021dcdf4(void* obj);
+extern "C" void func_ov023_021dcdf4(void* arg0);
 
-struct Obj021dcd90 {
-    char pad[kDisplayFlagOffset];
-    unsigned char bit0 : 1;
-    unsigned char flagBit1 : 1;
-    unsigned char rest : 6;
+struct Struct_ov023_021dcd90 {
+    char unknown_0_[Enum_ov023_021dcd90_1947];
+    unsigned char unknown_79b_0_ : 1;
+    unsigned char unknown_79b_1_ : 1;
+    unsigned char unknown_79b_2_ : 6;
 };
 
 // USA: func_ov023_021dcd90
-extern "C" ARM void func_ov023_021dcd90(Obj021dcd90* obj, unsigned char enable) {
-    if (obj->flagBit1 && !enable) {
+extern "C" ARM void func_ov023_021dcd90(Struct_ov023_021dcd90* arg0, unsigned char arg1) {
+    if (arg0->unknown_79b_1_ && !arg1) {
         memset((void*)GetMainBG1ScreenBase(), 0, 0x800);
         memset((void*)GetMainBG2ScreenBase(), 0, 0x800);
-        func_ov023_021dcdf4(obj);
+        func_ov023_021dcdf4(arg0);
     }
-    obj->flagBit1 = enable;
+    arg0->unknown_79b_1_ = arg1;
 }

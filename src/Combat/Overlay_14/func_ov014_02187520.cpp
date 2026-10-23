@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct Node02187520 {
-	struct Node02187520* next;
+struct Struct_ov014_02187520 {
+	struct Struct_ov014_02187520* unknown_0_;
 };
 
-struct S02187520 {
-	unsigned char pad0[0xb8];
-	struct Node02187520* head;
-	struct Node02187520* target;
+struct Struct_ov014_021872dc {
+	unsigned char unknown_0_[0xb8];
+	struct Struct_ov014_02187520* unknown_b8_;
+	struct Struct_ov014_02187520* unknown_bc_;
 };
 
 // USA: func_ov014_02187520
-extern "C" ARM short func_ov014_02187520(struct S02187520* s) {
-	struct Node02187520* n = s->head;
-	short i = 0;
-	while (n != NULL) {
-		if (n == s->target) return i / 16;
-		n = n->next;
-		i++;
+extern "C" ARM short func_ov014_02187520(struct Struct_ov014_021872dc* arg0) {
+	struct Struct_ov014_02187520* var0 = arg0->unknown_b8_;
+	short var1 = 0;
+	while (var0 != NULL) {
+		if (var0 == arg0->unknown_bc_) return var1 / 16;
+		var0 = var0->unknown_0_;
+		var1++;
 	}
 	return -1;
 }

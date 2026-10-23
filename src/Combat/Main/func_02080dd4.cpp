@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 
-struct Entry0207f6ac {
-    unsigned char unknown0[0x2a];
-    unsigned char flags;
-    unsigned char unknown2b[5];
+struct Struct_0207f6ac {
+    unsigned char unknown_0_[0x2a];
+    unsigned char unknown_2a_;
+    unsigned char unknown_2b_[5];
 };
-struct List0207f6ac {
-    Entry0207f6ac* entries;
-    short count;
+struct Struct_0207f524 {
+    Struct_0207f6ac* unknown_0_;
+    short unknown_4_;
 };
-struct MenuStateView {
-    void* textTable;
-    List0207f6ac items;
+struct Struct_02080dd4 {
+    void* unknown_0_;
+    Struct_0207f524 unknown_4_;
 };
 
-extern "C" int func_02080e40(void* menu, int groupId, int x, int y);
-extern "C" struct Entry0207f6ac* func_0207f6ac(struct List0207f6ac* list, int id);
+extern "C" int func_02080e40(void* arg0, int arg1, int arg2, int arg3);
+extern "C" struct Struct_0207f6ac* func_0207f6ac(struct Struct_0207f524* arg0, int arg1);
 
-extern "C" void func_02080558(void* obj, int p1, int result, int flag, unsigned char extra);
+extern "C" void func_02080558(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
 // USA: func_02080dd4
-extern "C" ARM int func_02080dd4(void* menuData, int groupId, int pointX, int pointY,
-                                  unsigned char* outPreviouslySelected, unsigned char refreshDisplay) {
-    MenuStateView* menu = static_cast<MenuStateView*>(menuData);
-    int result;
-    struct Entry0207f6ac* entry;
-    result = func_02080e40(menu, groupId, pointX, pointY);
-    if (result == -1) {
+extern "C" ARM int func_02080dd4(void* arg0, int arg1, int arg2, int arg3,
+                                  unsigned char* arg4, unsigned char arg5) {
+    Struct_02080dd4* var0 = static_cast<Struct_02080dd4*>(arg0);
+    int var1;
+    struct Struct_0207f6ac* var2;
+    var1 = func_02080e40(var0, arg1, arg2, arg3);
+    if (var1 == -1) {
         return -1;
     }
-    *outPreviouslySelected = 0;
-    entry = func_0207f6ac(&menu->items, result);
-    if (entry->flags & 4) {
-        *outPreviouslySelected = 1;
+    *arg4 = 0;
+    var2 = func_0207f6ac(&var0->unknown_4_, var1);
+    if (var2->unknown_2a_ & 4) {
+        *arg4 = 1;
     }
-    func_02080558(menu, groupId, result, 1, refreshDisplay);
-    return result;
+    func_02080558(var0, arg1, var1, 1, arg5);
+    return var1;
 }

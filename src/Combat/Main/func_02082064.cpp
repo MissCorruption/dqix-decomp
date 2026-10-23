@@ -3,134 +3,134 @@
 
 #include "Combat/ResourceScriptEntry.h"
 
-static ResourceScriptEntry *data_02108ef4;
+static Struct_0201099c_2 *data_02108ef4;
 static unsigned int data_02108ef0;
 static unsigned int data_02108eec;
 static int data_02108ee8;
 static unsigned int data_02108ef8;
 
-struct Obj020823e4 {
-    unsigned int field_0;
-    unsigned short field_4;
-    unsigned short field_6;
-    unsigned int field_8;
-    unsigned int field_c;
-    unsigned int field_10;
+struct Struct_02082064_2 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
 };
 
-extern "C" void func_020823e4(struct Obj020823e4 *dst, struct Obj020823e4 *src);
+extern "C" void func_020823e4(struct Struct_02082064_2 *arg0, struct Struct_02082064_2 *arg1);
 
 // USA: func_02082064
-extern "C" ARM int func_02082064(Script::Parameter *params, int numParams) {
-    ResourceScriptFields fields;
-    fields.value4Low = ++data_02108ef8;
-    fields.value0 = (params++)->ToInt();
-    if (data_02108ef0 < data_02108ef8 && fields.value0 <= data_02108eec) {
-        fields.value8.low = (params++)->ToInt();
-        fields.value8.high = (params++)->ToInt();
-        fields.value8.middle = (params++)->ToInt();
-        fields.valueC.low = (params++)->ToInt();
-        fields.valueC.middle = (params++)->ToInt();
-        fields.value10.low = (params++)->ToInt();
-        fields.valueC.high = (params++)->ToInt();
-        fields.value10.middle = (params++)->ToInt();
-        fields.value10.high = (params++)->ToInt();
-        fields.value4High = (params++)->ToInt();
-        func_020823e4((Obj020823e4 *) &data_02108ef4->final, (Obj020823e4 *) &fields);
+extern "C" ARM int func_02082064(Script::Parameter *arg0, int arg1) {
+    Struct_0201099c var0;
+    var0.unknown_4_0_ = ++data_02108ef8;
+    var0.unknown_0_0_ = (arg0++)->ToInt();
+    if (data_02108ef0 < data_02108ef8 && var0.unknown_0_0_ <= data_02108eec) {
+        var0.unknown_8_.unknown_0_0_ = (arg0++)->ToInt();
+        var0.unknown_8_.unknown_2_4_ = (arg0++)->ToInt();
+        var0.unknown_8_.unknown_1_2_ = (arg0++)->ToInt();
+        var0.unknown_c_.unknown_0_0_ = (arg0++)->ToInt();
+        var0.unknown_c_.unknown_1_2_ = (arg0++)->ToInt();
+        var0.unknown_10_.unknown_0_0_ = (arg0++)->ToInt();
+        var0.unknown_c_.unknown_2_4_ = (arg0++)->ToInt();
+        var0.unknown_10_.unknown_1_2_ = (arg0++)->ToInt();
+        var0.unknown_10_.unknown_2_4_ = (arg0++)->ToInt();
+        var0.unknown_4_7_ = (arg0++)->ToInt();
+        func_020823e4((Struct_02082064_2 *) &data_02108ef4->unknown_14_, (Struct_02082064_2 *) &var0);
         data_02108ee8 = 1;
     }
     if (data_02108ef8 == data_02108ef0) {
-        fields.value8.low = (params++)->ToInt();
-        fields.value8.high = (params++)->ToInt();
-        fields.value8.middle = (params++)->ToInt();
-        fields.valueC.low = (params++)->ToInt();
-        fields.valueC.middle = (params++)->ToInt();
-        fields.value10.low = (params++)->ToInt();
-        fields.valueC.high = (params++)->ToInt();
-        fields.value10.middle = (params++)->ToInt();
-        fields.value10.high = (params++)->ToInt();
-        fields.value4High = (params++)->ToInt();
-        func_020823e4((Obj020823e4 *) &data_02108ef4->initial, (Obj020823e4 *) &fields);
+        var0.unknown_8_.unknown_0_0_ = (arg0++)->ToInt();
+        var0.unknown_8_.unknown_2_4_ = (arg0++)->ToInt();
+        var0.unknown_8_.unknown_1_2_ = (arg0++)->ToInt();
+        var0.unknown_c_.unknown_0_0_ = (arg0++)->ToInt();
+        var0.unknown_c_.unknown_1_2_ = (arg0++)->ToInt();
+        var0.unknown_10_.unknown_0_0_ = (arg0++)->ToInt();
+        var0.unknown_c_.unknown_2_4_ = (arg0++)->ToInt();
+        var0.unknown_10_.unknown_1_2_ = (arg0++)->ToInt();
+        var0.unknown_10_.unknown_2_4_ = (arg0++)->ToInt();
+        var0.unknown_4_7_ = (arg0++)->ToInt();
+        func_020823e4((Struct_02082064_2 *) &data_02108ef4->unknown_0_, (Struct_02082064_2 *) &var0);
     }
     return 1;
 }
 
 // USA: func_020823e4
-extern "C" ARM void func_020823e4(struct Obj020823e4 *dst, struct Obj020823e4 *src) {
-    dst->field_0 = src->field_0;
-    dst->field_4 = src->field_4;
-    dst->field_8 = src->field_8;
-    dst->field_c = src->field_c;
-    dst->field_10 = src->field_10;
+extern "C" ARM void func_020823e4(struct Struct_02082064_2 *arg0, struct Struct_02082064_2 *arg1) {
+    arg0->unknown_0_ = arg1->unknown_0_;
+    arg0->unknown_4_ = arg1->unknown_4_;
+    arg0->unknown_8_ = arg1->unknown_8_;
+    arg0->unknown_c_ = arg1->unknown_c_;
+    arg0->unknown_10_ = arg1->unknown_10_;
 }
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
 // USA: func_02082410
-extern "C" ARM int func_02082410(Variant02030b0c *elem) {
-    int i;
-    for (i = 0; i < 0x11; i++) {
-        data_02108ef4->variants[i] = (unsigned char) ((Script::Parameter *) elem)->ToInt();
-        elem = (Variant02030b0c *) ((char *) elem + sizeof(Script::Parameter));
+extern "C" ARM int func_02082410(Struct_0201c1c8 *arg0) {
+    int var0;
+    for (var0 = 0; var0 < 0x11; var0++) {
+        data_02108ef4->unknown_3c_[var0] = (unsigned char) ((Script::Parameter *) arg0)->ToInt();
+        arg0 = (Struct_0201c1c8 *) ((char *) arg0 + sizeof(Script::Parameter));
     }
-    int j;
-    for (j = 0x11; j < 0x16; j++) {
-        data_02108ef4->variants[j] = 0x64;
+    int var1;
+    for (var1 = 0x11; var1 < 0x16; var1++) {
+        data_02108ef4->unknown_3c_[var1] = 0x64;
     }
     return 1;
 }
 
 // USA: func_0208247c
-extern "C" ARM void* func_0208247c(void* obj) {
-    return memset(obj, 0, 0x54);
+extern "C" ARM void* func_0208247c(void* arg0) {
+    return memset(arg0, 0, 0x54);
 }
 
 // USA: func_02082490
-extern "C" ARM int func_02082490(void *output, void *resource, unsigned int size, int selection, int extra) {
-    ResourceScriptEntry *entry = (ResourceScriptEntry *) output;
-    Script script;
-    memset(entry, 0, sizeof(*entry));
+extern "C" ARM int func_02082490(void *arg0, void *arg1, unsigned int arg2, int arg3, int arg4) {
+    Struct_0201099c_2 *var0 = (Struct_0201099c_2 *) arg0;
+    Script var1;
+    memset(var0, 0, sizeof(*var0));
     data_02108ef8 = 0;
-    data_02108ef4 = entry;
-    data_02108eec = extra;
-    data_02108ef0 = selection;
+    data_02108ef4 = var0;
+    data_02108eec = arg4;
+    data_02108ef0 = arg3;
     data_02108ee8 = 0;
-    script.Initialize();
-    script.SetOpcodeLookup(data_020f0ff8);
-    script.Load(resource, size);
-    script.Execute();
+    var1.Initialize();
+    var1.SetOpcodeLookup(data_020f0ff8);
+    var1.Load(arg1, arg2);
+    var1.Execute();
     if (data_02108ee8 != 0) {
-        entry->difference.value4Low      = (unsigned short) (entry->final.value4Low - entry->initial.value4Low);
-        entry->difference.value0         = entry->final.value0 - entry->initial.value0;
-        entry->difference.value8.low     = entry->final.value8.low - entry->initial.value8.low;
-        entry->difference.value8.high    = entry->final.value8.high - entry->initial.value8.high;
-        entry->difference.value8.middle  = entry->final.value8.middle - entry->initial.value8.middle;
-        entry->difference.valueC.low     = entry->final.valueC.low - entry->initial.valueC.low;
-        entry->difference.valueC.middle  = entry->final.valueC.middle - entry->initial.valueC.middle;
-        entry->difference.value10.low    = entry->final.value10.low - entry->initial.value10.low;
-        entry->difference.valueC.high    = entry->final.valueC.high - entry->initial.valueC.high;
-        entry->difference.value10.middle = entry->final.value10.middle - entry->initial.value10.middle;
-        entry->difference.value10.high   = entry->final.value10.high - entry->initial.value10.high;
-        entry->difference.value4High     = (unsigned short) (entry->final.value4High - entry->initial.value4High);
-        return entry->final.value4Low;
+        var0->unknown_28_.unknown_4_0_      = (unsigned short) (var0->unknown_14_.unknown_4_0_ - var0->unknown_0_.unknown_4_0_);
+        var0->unknown_28_.unknown_0_0_         = var0->unknown_14_.unknown_0_0_ - var0->unknown_0_.unknown_0_0_;
+        var0->unknown_28_.unknown_8_.unknown_0_0_     = var0->unknown_14_.unknown_8_.unknown_0_0_ - var0->unknown_0_.unknown_8_.unknown_0_0_;
+        var0->unknown_28_.unknown_8_.unknown_2_4_    = var0->unknown_14_.unknown_8_.unknown_2_4_ - var0->unknown_0_.unknown_8_.unknown_2_4_;
+        var0->unknown_28_.unknown_8_.unknown_1_2_  = var0->unknown_14_.unknown_8_.unknown_1_2_ - var0->unknown_0_.unknown_8_.unknown_1_2_;
+        var0->unknown_28_.unknown_c_.unknown_0_0_     = var0->unknown_14_.unknown_c_.unknown_0_0_ - var0->unknown_0_.unknown_c_.unknown_0_0_;
+        var0->unknown_28_.unknown_c_.unknown_1_2_  = var0->unknown_14_.unknown_c_.unknown_1_2_ - var0->unknown_0_.unknown_c_.unknown_1_2_;
+        var0->unknown_28_.unknown_10_.unknown_0_0_    = var0->unknown_14_.unknown_10_.unknown_0_0_ - var0->unknown_0_.unknown_10_.unknown_0_0_;
+        var0->unknown_28_.unknown_c_.unknown_2_4_    = var0->unknown_14_.unknown_c_.unknown_2_4_ - var0->unknown_0_.unknown_c_.unknown_2_4_;
+        var0->unknown_28_.unknown_10_.unknown_1_2_ = var0->unknown_14_.unknown_10_.unknown_1_2_ - var0->unknown_0_.unknown_10_.unknown_1_2_;
+        var0->unknown_28_.unknown_10_.unknown_2_4_   = var0->unknown_14_.unknown_10_.unknown_2_4_ - var0->unknown_0_.unknown_10_.unknown_2_4_;
+        var0->unknown_28_.unknown_4_7_     = (unsigned short) (var0->unknown_14_.unknown_4_7_ - var0->unknown_0_.unknown_4_7_);
+        return var0->unknown_14_.unknown_4_0_;
     }
     return 0;
 }
 
-struct StreamHeader;
+struct Struct_02013fb4;
 
 // USA: func_0208274c
-extern "C" ARM int func_0208274c(void *param0, StreamHeader *param1, int param2, int param3) {
-    Script script;
-    memset(param0, 0, sizeof(ResourceScriptEntry));
+extern "C" ARM int func_0208274c(void *arg0, Struct_02013fb4 *arg1, int arg2, int arg3) {
+    Script var0;
+    memset(arg0, 0, sizeof(Struct_0201099c_2));
     data_02108ef8 = 0;
     data_02108eec = 0;
-    data_02108ef0 = param3;
-    data_02108ef4 = (ResourceScriptEntry *) param0;
+    data_02108ef0 = arg3;
+    data_02108ef4 = (Struct_0201099c_2 *) arg0;
     data_02108ee8 = 0;
-    script.Initialize();
-    script.SetOpcodeLookup(data_020f0ff8);
-    script.Load(param1, (unsigned int) param2);
-    script.Execute();
+    var0.Initialize();
+    var0.SetOpcodeLookup(data_020f0ff8);
+    var0.Load(arg1, (unsigned int) arg2);
+    var0.Execute();
     return 0;
 }

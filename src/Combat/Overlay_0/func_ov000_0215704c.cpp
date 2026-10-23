@@ -2,100 +2,100 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-struct TargetObj02088418;
+struct Struct_02088418;
 
-struct ActionState0215704c {
-    char pad0[0x22];
-    unsigned short field22_0 : 12;
-    unsigned short targetMode : 2;
-    char pad24[0x28 - 0x24];
-    short targetId;
-    char pad2A[0x4a - 0x2a];
-    unsigned char field4A;
-    char pad4B[0x4e - 0x4b];
-    unsigned char field4E;
-    char pad4F[0x53 - 0x4f];
-    unsigned char rate;
+struct Struct_ov000_0215704c {
+    char unknown_0_[0x22];
+    unsigned short unknown_22_0_ : 12;
+    unsigned short unknown_23_4_ : 2;
+    char unknown_24_[0x28 - 0x24];
+    short unknown_28_;
+    char unknown_2a_[0x4a - 0x2a];
+    unsigned char unknown_4a_;
+    char unknown_4b_[0x4e - 0x4b];
+    unsigned char unknown_4e_;
+    char unknown_4f_[0x53 - 0x4f];
+    unsigned char unknown_53_;
 };
 
-struct Combatant0215704c {
-    char pad0[0x138];
-    struct ActionState0215704c* action;
+struct Struct_ov000_0215704c_2 {
+    char unknown_0_[0x138];
+    struct Struct_ov000_0215704c* unknown_138_;
 };
 
-struct TargetIds0215704c {
-    short ids[4];
+struct Struct_ov000_02182a64 {
+    short unknown_0_[4];
 };
 
-struct TargetChoice0215704c {
-    unsigned char weight;
-    unsigned char enabled;
-    unsigned char mode;
-    unsigned char valid;
+struct Struct_ov000_0215704c_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
 
-struct TargetChoices0215704c {
-    struct TargetChoice0215704c choices[3];
+struct Struct_ov000_02182aa0 {
+    struct Struct_ov000_0215704c_3 unknown_0_[3];
 };
 
-extern struct TargetIds0215704c data_ov000_02182a64;
-extern struct TargetChoices0215704c data_ov000_02182aa0;
+extern struct Struct_ov000_02182a64 data_ov000_02182a64;
+extern struct Struct_ov000_02182aa0 data_ov000_02182aa0;
 
-extern "C" int func_ov000_0215e9fc(struct Random* battle, short* buf, int max, int start);
-extern "C" int func_ov000_02155f9c(struct Random* battle, int combatantId, int checkSubFlag);
-extern "C" float func_ov000_0215641c(struct Random* battle, int id);
+extern "C" int func_ov000_0215e9fc(struct Random* arg0, short* arg1, int arg2, int arg3);
+extern "C" int func_ov000_02155f9c(struct Random* arg0, int arg1, int arg2);
+extern "C" float func_ov000_0215641c(struct Random* arg0, int arg1);
 int NextRandomMax(struct Random* random, int maximum);
-extern "C" int func_02088418(struct TargetObj02088418* c, int index, int actionId);
-extern "C" int func_0208824c(unsigned char* obj);
-extern "C" int func_020883ac(unsigned char* obj);
+extern "C" int func_02088418(struct Struct_02088418* arg0, int arg1, int arg2);
+extern "C" int func_0208824c(unsigned char* arg0);
+extern "C" int func_020883ac(unsigned char* arg0);
 
-static inline int IsPartyIndex(int index) {
-    return index >= 0 && index <= 3;
+static inline int inline_ov000_02156cc4_2(int arg0) {
+    return arg0 >= 0 && arg0 <= 3;
 }
 
 // USA: func_ov000_0215704c
-extern "C" ARM int func_ov000_0215704c(struct Random* battle, int index) {
-    int count;
-    GameState* gs;
-    if (IsPartyIndex(index)) {
+extern "C" ARM int func_ov000_0215704c(struct Random* arg0, int arg1) {
+    int var0;
+    GameState* var1;
+    if (inline_ov000_02156cc4_2(arg1)) {
         return 0;
     }
-    struct TargetIds0215704c targets = data_ov000_02182a64;
-    count = func_ov000_0215e9fc(battle, targets.ids, 4, 1);
-    struct Combatant0215704c* self = (struct Combatant0215704c*)GameState::GetInstance()->GetCombatantByIndex(index);
-    if (self == NULL) {
+    struct Struct_ov000_02182a64 var2 = data_ov000_02182a64;
+    var0 = func_ov000_0215e9fc(arg0, var2.unknown_0_, 4, 1);
+    struct Struct_ov000_0215704c_2* var3 = (struct Struct_ov000_0215704c_2*)GameState::GetInstance()->GetCombatantByIndex(arg1);
+    if (var3 == NULL) {
         return 0;
     }
-    if (func_ov000_02155f9c(battle, index, 0)) {
+    if (func_ov000_02155f9c(arg0, arg1, 0)) {
         return 0;
     }
-    if (self->action->rate == 0) {
+    if (var3->unknown_138_->unknown_53_ == 0) {
         return 0;
     }
-    gs = GameState::GetInstance();
-    for (int i = 0; i < count; i++) {
-        if (func_0200ff1c(gs, targets.ids[i]) == NULL) {
+    var1 = GameState::GetInstance();
+    for (int var4 = 0; var4 < var0; var4++) {
+        if (func_0200ff1c(var1, var2.unknown_0_[var4]) == NULL) {
             continue;
         }
-        float chance = func_ov000_0215641c(battle, targets.ids[i]);
-        chance *= self->action->rate / 100.0f;
-        if (chance > NextRandomMax(battle, 100)) {
-            struct TargetChoices0215704c table = data_ov000_02182aa0;
-            table.choices[0].valid = func_02088418((struct TargetObj02088418*)self->action, 10, 0);
-            table.choices[1].enabled = self->action->field4E;
-            table.choices[1].valid = func_0208824c((unsigned char*)self->action);
-            table.choices[2].enabled = self->action->field4A;
-            table.choices[2].valid = func_020883ac((unsigned char*)self->action);
-            int roll = NextRandomMax(battle, 100);
-            for (int j = 0; j < 3; j++) {
-                if (table.choices[j].weight > roll) {
-                    if (table.choices[j].enabled && table.choices[j].valid) {
-                        self->action->targetMode = table.choices[j].mode;
-                        self->action->targetId = targets.ids[i];
+        float var5 = func_ov000_0215641c(arg0, var2.unknown_0_[var4]);
+        var5 *= var3->unknown_138_->unknown_53_ / 100.0f;
+        if (var5 > NextRandomMax(arg0, 100)) {
+            struct Struct_ov000_02182aa0 var6 = data_ov000_02182aa0;
+            var6.unknown_0_[0].unknown_3_ = func_02088418((struct Struct_02088418*)var3->unknown_138_, 10, 0);
+            var6.unknown_0_[1].unknown_1_ = var3->unknown_138_->unknown_4e_;
+            var6.unknown_0_[1].unknown_3_ = func_0208824c((unsigned char*)var3->unknown_138_);
+            var6.unknown_0_[2].unknown_1_ = var3->unknown_138_->unknown_4a_;
+            var6.unknown_0_[2].unknown_3_ = func_020883ac((unsigned char*)var3->unknown_138_);
+            int var7 = NextRandomMax(arg0, 100);
+            for (int var8 = 0; var8 < 3; var8++) {
+                if (var6.unknown_0_[var8].unknown_0_ > var7) {
+                    if (var6.unknown_0_[var8].unknown_1_ && var6.unknown_0_[var8].unknown_3_) {
+                        var3->unknown_138_->unknown_23_4_ = var6.unknown_0_[var8].unknown_2_;
+                        var3->unknown_138_->unknown_28_ = var2.unknown_0_[var4];
                         return 1;
                     }
                 }
-                roll -= table.choices[j].weight;
+                var7 -= var6.unknown_0_[var8].unknown_0_;
             }
         }
     }

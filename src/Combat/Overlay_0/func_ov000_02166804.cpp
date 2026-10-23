@@ -11,43 +11,43 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-struct Foo0207df50 {
-    char unk_0[0x68];
+struct Struct_0203d028 {
+    char unknown_0_[0x68];
 };
-extern "C" void func_0207df50(struct Foo0207df50* p);
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
 
-struct CombatScene02166804 {
-    char unk_0[0x44 - sizeof(SafeAllocator)];
-    SafeAllocator allocators[2];
-    char unk_after_allocators[REGION_OFFSET_0 - sizeof(struct Foo0207df50) - 0x44 - sizeof(SafeAllocator)];
-    struct Foo0207df50 pairTables[2];
-    char unk_224[REGION_OFFSET_1 - REGION_OFFSET_0 - sizeof(struct Foo0207df50)];
-    void* nodes[4];
+struct Struct_ov000_02166804 {
+    char unknown_0_[0x44 - sizeof(SafeAllocator)];
+    SafeAllocator unknown_30_[2];
+    char unknown_58_[REGION_OFFSET_0 - sizeof(struct Struct_0203d028) - 0x44 - sizeof(SafeAllocator)];
+    struct Struct_0203d028 unknown_154_[2];
+    char unknown_224_[REGION_OFFSET_1 - REGION_OFFSET_0 - sizeof(struct Struct_0203d028)];
+    void* unknown_eb8_[4];
 };
 
-static inline SafeAllocator* GetAllocator(struct CombatScene02166804* scene, int index) {
-    return &scene->allocators[index];
+static inline SafeAllocator* inline_ov000_02166804(struct Struct_ov000_02166804* arg0, int arg1) {
+    return &arg0->unknown_30_[arg1];
 }
 
-static inline struct Foo0207df50* GetPairTables(struct CombatScene02166804* scene, int index) {
-    return &scene->pairTables[index];
+static inline struct Struct_0203d028* inline_ov000_02166804_2(struct Struct_ov000_02166804* arg0, int arg1) {
+    return &arg0->unknown_154_[arg1];
 }
 
 // USA: func_ov000_02166804
-extern "C" ARM void func_ov000_02166804(struct CombatScene02166804* scene) {
-    GameState* state = GameState::GetInstance();
-    short i;
-    for (i = 0xc0; i <= 0xc7; i++) {
-        GameObject* obj = state->GetGameObjectByIndex(i);
-        if (obj != NULL) {
-            obj->obj3D_.Destroy();
+extern "C" ARM void func_ov000_02166804(struct Struct_ov000_02166804* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    short var1;
+    for (var1 = 0xc0; var1 <= 0xc7; var1++) {
+        GameObject* var2 = var0->GetGameObjectByIndex(var1);
+        if (var2 != NULL) {
+            var2->obj3D_.Destroy();
         }
     }
-    for (int j = 0; j < 4; j++) {
-        scene->nodes[j] = NULL;
+    for (int var3 = 0; var3 < 4; var3++) {
+        arg0->unknown_eb8_[var3] = NULL;
     }
-    SafeAllocator* allocator = GetAllocator(scene, 1);
-    struct Foo0207df50* pairTables = GetPairTables(scene, 1);
-    allocator->Reset();
-    func_0207df50(pairTables);
+    SafeAllocator* var4 = inline_ov000_02166804(arg0, 1);
+    struct Struct_0203d028* var5 = inline_ov000_02166804_2(arg0, 1);
+    var4->Reset();
+    func_0207df50(var5);
 }

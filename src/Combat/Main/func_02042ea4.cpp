@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct GlyphKeyRemap {
-    signed char character;
-    const unsigned char* replacement;
+struct Struct_020e848c {
+    signed char unknown_0_;
+    const unsigned char* unknown_4_;
 };
 
 extern unsigned char data_020f008a[];
 extern unsigned char data_020f008d[];
 extern unsigned char data_020f0090[];
-extern GlyphKeyRemap data_020e848c[];
+extern Struct_020e848c data_020e848c[];
 
 // JPN: func_02042ea4
-extern "C" ARM void func_02042ea4(unsigned char* output, const unsigned char* input) {
-    if (output == NULL) return;
-    if (input == NULL) {
-        output[0] = 0;
-        output[1] = 0;
+extern "C" ARM void func_02042ea4(unsigned char* arg0, const unsigned char* arg1) {
+    if (arg0 == NULL) return;
+    if (arg1 == NULL) {
+        arg0[0] = 0;
+        arg0[1] = 0;
         return;
     }
 
-    const GlyphKeyRemap* entry;
-    int character = (signed char)input[0];
-    if (character >= 'A' && character <= 'Z') {
-        const unsigned char* const base = data_020f008a;
-        int offset = character - 'A';
-        output[0] = base[0];
-        output[1] = base[1] + offset;
+    const Struct_020e848c* var0;
+    int var1 = (signed char)arg1[0];
+    if (var1 >= 'A' && var1 <= 'Z') {
+        const unsigned char* const var2 = data_020f008a;
+        int var3 = var1 - 'A';
+        arg0[0] = var2[0];
+        arg0[1] = var2[1] + var3;
         return;
     }
-    if (character >= 'a' && character <= 'z') {
-        const unsigned char* const base = data_020f008d;
-        int offset = character - 'a';
-        output[0] = base[0];
-        output[1] = base[1] + offset;
+    if (var1 >= 'a' && var1 <= 'z') {
+        const unsigned char* const var4 = data_020f008d;
+        int var5 = var1 - 'a';
+        arg0[0] = var4[0];
+        arg0[1] = var4[1] + var5;
         return;
     }
-    if (character >= '0' && character <= '9') {
-        const unsigned char* const base = data_020f0090;
-        int offset = character - '0';
-        output[0] = base[0];
-        output[1] = base[1] + offset;
+    if (var1 >= '0' && var1 <= '9') {
+        const unsigned char* const var6 = data_020f0090;
+        int var7 = var1 - '0';
+        arg0[0] = var6[0];
+        arg0[1] = var6[1] + var7;
         return;
     }
 
-    entry = data_020e848c;
+    var0 = data_020e848c;
     for (;;) {
-        if (entry->character == 0) break;
-        if (character == entry->character) {
-            input = entry->replacement;
+        if (var0->unknown_0_ == 0) break;
+        if (var1 == var0->unknown_0_) {
+            arg1 = var0->unknown_4_;
             break;
         }
-        ++entry;
+        ++var0;
     }
-    output[0] = input[0];
-    output[1] = input[1];
+    arg0[0] = arg1[0];
+    arg0[1] = arg1[1];
 }
 #endif

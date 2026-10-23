@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
-struct Pair_021da55c {
-    unsigned int a;
-    unsigned int b;
+struct Struct_020e6d5c_10 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
 };
-extern struct Pair_021da55c data_020e6d5c;
+extern struct Struct_020e6d5c_10 data_020e6d5c;
 
 extern unsigned int data_ov024_02200140;
 
-struct DispatchEntry_021da55c {
-    unsigned int fn;
-    unsigned int locator;
+struct Struct_ov024_021ff1e0 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
 };
-extern struct DispatchEntry_021da55c data_ov024_021ff1e0[0x43];
+extern struct Struct_ov024_021ff1e0 data_ov024_021ff1e0[0x43];
 
-struct Action_021da55c {
-    char unk_0[0x18];
-    unsigned int unk_18_0 : 18;
-    unsigned int handlerIndex : 9;
-    unsigned int unk_18_27 : 5;
+struct Struct_ov024_021da55c {
+    char unknown_0_[0x18];
+    unsigned int unknown_18_0_ : 18;
+    unsigned int unknown_1a_2_ : 9;
+    unsigned int unknown_1b_3_ : 5;
 };
 
-typedef int (*Handler_021da55c)(void* self, int a2, int a3, unsigned short a4, struct Action_021da55c* action, int fallback);
+typedef int (*Type_ov024_021da55c)(void* self, int a2, int a3, unsigned short a4, struct Struct_ov024_021da55c* action, int fallback);
 
 // USA: func_ov024_021da55c
-extern "C" ARM int func_ov024_021da55c(int* obj, int a1, int a2, int a3, unsigned short a4, struct Action_021da55c* action, int fallback) {
-    unsigned int flags = data_ov024_02200140;
-    if (!(flags & 1)) {
-        struct Pair_021da55c nullEntry = data_020e6d5c;
-        data_ov024_021ff1e0[0].fn = nullEntry.a;
-        data_ov024_021ff1e0[0].locator = nullEntry.b;
-        data_ov024_021ff1e0[46].fn = nullEntry.a;
-        data_ov024_021ff1e0[46].locator = nullEntry.b;
-        data_ov024_021ff1e0[51].fn = nullEntry.a;
-        data_ov024_021ff1e0[51].locator = nullEntry.b;
-        data_ov024_021ff1e0[53].fn = nullEntry.a;
-        data_ov024_021ff1e0[53].locator = nullEntry.b;
-        data_ov024_02200140 = flags | 1;
+extern "C" ARM int func_ov024_021da55c(int* arg0, int arg1, int arg2, int arg3, unsigned short arg4, struct Struct_ov024_021da55c* arg5, int arg6) {
+    unsigned int var0 = data_ov024_02200140;
+    if (!(var0 & 1)) {
+        struct Struct_020e6d5c_10 var1 = data_020e6d5c;
+        data_ov024_021ff1e0[0].unknown_0_ = var1.unknown_0_;
+        data_ov024_021ff1e0[0].unknown_4_ = var1.unknown_4_;
+        data_ov024_021ff1e0[46].unknown_0_ = var1.unknown_0_;
+        data_ov024_021ff1e0[46].unknown_4_ = var1.unknown_4_;
+        data_ov024_021ff1e0[51].unknown_0_ = var1.unknown_0_;
+        data_ov024_021ff1e0[51].unknown_4_ = var1.unknown_4_;
+        data_ov024_021ff1e0[53].unknown_0_ = var1.unknown_0_;
+        data_ov024_021ff1e0[53].unknown_4_ = var1.unknown_4_;
+        data_ov024_02200140 = var0 | 1;
     }
-    *obj = a1;
-    if (action == NULL) {
-        return fallback;
+    *arg0 = arg1;
+    if (arg5 == NULL) {
+        return arg6;
     }
-    unsigned int idx = action->handlerIndex;
-    if (idx >= 0x43) {
-        return fallback;
+    unsigned int var2 = arg5->unknown_1a_2_;
+    if (var2 >= 0x43) {
+        return arg6;
     }
-    if (data_ov024_021ff1e0[idx].fn == 0) {
-        return fallback;
+    if (data_ov024_021ff1e0[var2].unknown_0_ == 0) {
+        return arg6;
     }
-    struct DispatchEntry_021da55c* d = &data_ov024_021ff1e0[idx];
-    void* base = (char*)obj + ((int)d->locator >> 1);
-    Handler_021da55c callback;
-    if (d->locator & 1) {
-        callback = *(Handler_021da55c*)((char*)*(void**)base + d->fn);
+    struct Struct_ov024_021ff1e0* var3 = &data_ov024_021ff1e0[var2];
+    void* var4 = (char*)arg0 + ((int)var3->unknown_4_ >> 1);
+    Type_ov024_021da55c var5;
+    if (var3->unknown_4_ & 1) {
+        var5 = *(Type_ov024_021da55c*)((char*)*(void**)var4 + var3->unknown_0_);
     } else {
-        callback = (Handler_021da55c)d->fn;
+        var5 = (Type_ov024_021da55c)var3->unknown_0_;
     }
-    return callback(base, a2, a3, a4, action, fallback);
+    return var5(var4, arg2, arg3, arg4, arg5, arg6);
 }

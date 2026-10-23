@@ -5,20 +5,20 @@
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" int func_ov017_021d60f4(void* a);
-extern "C" void func_ov017_021d6134(void* param, int val);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void func_ov017_021d6134(void* arg0, int arg1);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 
 // USA: func_ov001_02163390
-extern "C" ARM int func_ov001_02163390(void* param) {
-	unsigned char* base = (unsigned char*)func_0205ec34();
-	int id = func_ov017_021d60f4(param);
-	int idx = base[0x332];
-	int bit = func_0206dfb0((int)base, base + idx * 0x1c + 0x10, id);
-	if (bit != 0) {
-		func_ov017_021d6134((char*)param + 8, 1);
+extern "C" ARM int func_ov001_02163390(void* arg0) {
+	unsigned char* var0 = (unsigned char*)func_0205ec34();
+	int var1 = func_ov017_021d60f4(arg0);
+	int var2 = var0[0x332];
+	int var3 = func_0206dfb0((int)var0, var0 + var2 * 0x1c + 0x10, var1);
+	if (var3 != 0) {
+		func_ov017_021d6134((char*)arg0 + 8, 1);
 	} else {
-		func_ov017_021d6134((char*)param + 8, 0);
+		func_ov017_021d6134((char*)arg0 + 8, 0);
 	}
 	return 1;
 }

@@ -8,40 +8,40 @@ extern char data_020f1088;
 extern char data_020f109e;
 extern Script::OpcodeLookupEntry data_020f1048[];
 
-struct Container02108efc {
-    void* field0;
-    int field4;
-    int field8;
-    void* fieldc;
+struct Struct_02108efc_4 {
+    void* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    void* unknown_c_;
 };
-extern struct Container02108efc data_02108efc;
+extern struct Struct_02108efc_4 data_02108efc;
 
 // USA: func_02089de8
-extern "C" ARM void func_02089de8(void* param0, void* param1, const char* param2) {
+extern "C" ARM void func_02089de8(void* arg0, void* arg1, const char* arg2) {
     BackgroundLoader::AddLockGlobal();
-    unsigned int count;
-    Script script;
-    void* header;
-    void* srcBuf = data_0211e33c;
-    unsigned int* pCount = &count;
-    if (param2 != 0) {
-        header = LoadFileIntoMemory(param2, srcBuf, pCount);
+    unsigned int var0;
+    Script var1;
+    void* var2;
+    void* var3 = data_0211e33c;
+    unsigned int* var4 = &var0;
+    if (arg2 != 0) {
+        var2 = LoadFileIntoMemory(arg2, var3, var4);
     } else {
         #if defined(jpn)
-        header = LoadFileIntoMemory(&data_020f1088, srcBuf, pCount);
+        var2 = LoadFileIntoMemory(&data_020f1088, var3, var4);
 #else
-        header = ExtractFileFromGP2(&data_020f1088, &data_020f109e, pCount);
+        var2 = ExtractFileFromGP2(&data_020f1088, &data_020f109e, var4);
 #endif
     }
-    if (header != 0) {
-        data_02108efc.field0 = param0;
-        data_02108efc.fieldc = param1;
-        data_02108efc.field8 = 0;
-        data_02108efc.field4 = 0;
-        script.Initialize();
-        script.SetOpcodeLookup(data_020f1048);
-        script.Load(header, count);
-        script.Execute();
+    if (var2 != 0) {
+        data_02108efc.unknown_0_ = arg0;
+        data_02108efc.unknown_c_ = arg1;
+        data_02108efc.unknown_8_ = 0;
+        data_02108efc.unknown_4_ = 0;
+        var1.Initialize();
+        var1.SetOpcodeLookup(data_020f1048);
+        var1.Load(var2, var0);
+        var1.Execute();
     }
     BackgroundLoader::RemoveLockGlobal();
 }

@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { stopwatchIdOffset = 0x6ac };
+enum { Enum_02027288_1880 = 0x6ac };
 #else
-enum { stopwatchIdOffset = 0x758 };
+enum { Enum_02027288_1880 = 0x758 };
 #endif
 
-struct Stopwatch0201fbac;
-extern "C" void func_0201fbac(struct Stopwatch0201fbac* t);
+struct Struct_0201fbac;
+extern "C" void func_0201fbac(struct Struct_0201fbac* arg0);
 
-struct RawEntry02027288 { char raw[0x14]; };
-extern struct RawEntry02027288 data_020fdc60[4];
+struct Struct_020fdc60_5 { char unknown_0_[0x14]; };
+extern struct Struct_020fdc60_5 data_020fdc60[4];
 
 // USA: func_02027288
-extern "C" ARM void func_02027288(unsigned char* obj, int id) {
-    if (id < 0) {
-        int i;
-        for (i = 0; i < 4; i++) {
-            func_0201fbac((struct Stopwatch0201fbac*)&data_020fdc60[i]);
+extern "C" ARM void func_02027288(unsigned char* arg0, int arg1) {
+    if (arg1 < 0) {
+        int var0;
+        for (var0 = 0; var0 < 4; var0++) {
+            func_0201fbac((struct Struct_0201fbac*)&data_020fdc60[var0]);
         }
         return;
     }
-    if (id >= 4) return;
+    if (arg1 >= 4) return;
     {
-        int i;
-        unsigned char* p;
-        for (i = 0; i < 4; i++) {
-            p = obj + i;
-            if (id == p[stopwatchIdOffset]) {
-                func_0201fbac((struct Stopwatch0201fbac*)&data_020fdc60[i]);
+        int var1;
+        unsigned char* var2;
+        for (var1 = 0; var1 < 4; var1++) {
+            var2 = arg0 + var1;
+            if (arg1 == var2[Enum_02027288_1880]) {
+                func_0201fbac((struct Struct_0201fbac*)&data_020fdc60[var1]);
                 return;
             }
         }

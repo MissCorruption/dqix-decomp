@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_ov031_022119d0(int* out, int* mapped);
+extern "C" int func_ov031_022119d0(int* arg0, int* arg1);
 
 struct Struct_02245528;
-extern "C" void func_ov031_02245528(Struct_02245528* p, int v);
+extern "C" void func_ov031_02245528(Struct_02245528* arg0, int arg1);
 
 struct Struct_02245478 {
-	unsigned char pad_000[0x37c];
-	void* p37c;
-	int len380;
-	unsigned char pad_384[0x394 - 0x384];
-	int f394;
-	unsigned char f398;
+	unsigned char unknown_0_[0x37c];
+	void* unknown_37c_;
+	int unknown_380_;
+	unsigned char unknown_384_[0x394 - 0x384];
+	int unknown_394_;
+	unsigned char unknown_398_;
 };
 
 // USA: func_ov031_02245478
-extern "C" ARM void func_ov031_02245478(struct Struct_02245478* obj) {
-	int outVal;
-	int mapped;
-	int cat = func_ov031_022119d0(&outVal, &mapped);
-	memset(obj->p37c, 0, obj->len380);
-	obj->f394 = -outVal;
-	switch (mapped) {
+extern "C" ARM void func_ov031_02245478(struct Struct_02245478* arg0) {
+	int var0;
+	int var1;
+	int var2 = func_ov031_022119d0(&var0, &var1);
+	memset(arg0->unknown_37c_, 0, arg0->unknown_380_);
+	arg0->unknown_394_ = -var0;
+	switch (var1) {
 	case 0:
-		obj->f394 = 0;
+		arg0->unknown_394_ = 0;
 		break;
 	case 1:
-		obj->f394 = 0;
+		arg0->unknown_394_ = 0;
 		break;
 	case 6:
-		if ((unsigned int)(cat - 14) <= 1) {
-			obj->f398 = 1;
+		if ((unsigned int)(var2 - 14) <= 1) {
+			arg0->unknown_398_ = 1;
 		}
 		break;
 	case 7:
-		obj->f398 = 2;
+		arg0->unknown_398_ = 2;
 		break;
 	default:
 		break;
 	}
-	func_ov031_02245528((Struct_02245528*)obj, 0);
+	func_ov031_02245528((Struct_02245528*)arg0, 0);
 }

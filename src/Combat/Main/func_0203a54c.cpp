@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 #include "World/ZoneLootableRecord.h"
 
-struct Container0203a54c {
-    struct Foo02048004 arrayA[5];
-    struct Foo02048004 arrayB[5];
+struct Struct_0203a54c {
+    struct Struct_02012fa4 unknown_0_[5];
+    struct Struct_02012fa4 unknown_2a8_[5];
 };
 
-extern "C" void func_02047230(struct Foo02048004* obj);
+extern "C" void func_02047230(struct Struct_02012fa4* arg0);
 
 // USA: func_0203a54c
-extern "C" ARM void func_0203a54c(struct Container0203a54c* c) {
-    int i;
-    for (i = 0; i < 5; i++) {
-        func_02047230(&c->arrayA[i]);
-        func_02047230(&c->arrayB[i]);
+extern "C" ARM void func_0203a54c(struct Struct_0203a54c* arg0) {
+    int var0;
+    for (var0 = 0; var0 < 5; var0++) {
+        func_02047230(&arg0->unknown_0_[var0]);
+        func_02047230(&arg0->unknown_2a8_[var0]);
     }
 }

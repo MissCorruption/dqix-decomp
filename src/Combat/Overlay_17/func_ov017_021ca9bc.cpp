@@ -4,132 +4,132 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { RegionOffset718 = 0x508 };
+enum { Enum_ov017_021ca9bc_1816 = 0x508 };
 #else
-enum { RegionOffset718 = 0x718 };
+enum { Enum_ov017_021ca9bc_1816 = 0x718 };
 #endif
 
-extern "C" void* func_ov017_021b8478(void* obj);
+extern "C" void* func_ov017_021b8478(void* arg0);
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Entry021ca9bc {
-    char pad0[2];
-    unsigned char ids[8];
-    unsigned char count : 4;
-    unsigned char countPad : 4;
-    char pad1[0x18 - 0xb];
+struct Struct_ov017_021ca9bc_5 {
+    char unknown_0_[2];
+    unsigned char unknown_2_[8];
+    unsigned char unknown_a_0_ : 4;
+    unsigned char unknown_a_4_ : 4;
+    char unknown_b_[0x18 - 0xb];
 };
 
-struct Container021ca9bc {
-    unsigned char pad0;
-    unsigned char outerPad0 : 4;
-    unsigned char outerCount : 2;
-    unsigned char outerPad1 : 2;
-    char pad1[2];
-    struct Entry021ca9bc entries[1];
+struct Struct_ov017_021ca9bc_6 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_0_ : 4;
+    unsigned char unknown_1_4_ : 2;
+    unsigned char unknown_1_6_ : 2;
+    char unknown_2_[2];
+    struct Struct_ov017_021ca9bc_5 unknown_4_[1];
 };
 
-struct Bits11_021ca9bc {
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char bit3 : 1;
-    unsigned char nibble : 4;
+struct Struct_ov017_021ca9bc_7 {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 1;
+    unsigned char unknown_0_2_ : 1;
+    unsigned char unknown_0_3_ : 1;
+    unsigned char unknown_0_4_ : 4;
 };
 
-struct Bits13_021ca9bc {
-    bool bit0 : 1;
-    bool bit1 : 1;
-    bool bit2 : 1;
-    bool bit3 : 1;
-    bool bit4 : 1;
-    bool bit5 : 1;
-    bool bit6 : 1;
+struct Struct_ov017_021ca9bc_8 {
+    bool unknown_0_0_ : 1;
+    bool unknown_0_1_ : 1;
+    bool unknown_0_2_ : 1;
+    bool unknown_0_3_ : 1;
+    bool unknown_0_4_ : 1;
+    bool unknown_0_5_ : 1;
+    bool unknown_0_6_ : 1;
 };
 
-struct Elem021ca9bc {
-    char pad0[0xc];
-    unsigned short fc;
-    char pad1[0x30 - 0xe];
-    unsigned short f30;
-    short f32;
-    short f34;
-    char pad2[0x38 - 0x36];
-    unsigned char f38;
-    char pad3;
-    char pad4;
-    struct Bits11_021ca9bc bits3b;
-    struct Bits13_021ca9bc bits3c;
-    unsigned char f3d;
-    char pad5[0xa4 - 0x3e];
+struct Struct_ov017_021ca9bc {
+    char unknown_0_[0xc];
+    unsigned short unknown_c_;
+    char unknown_e_[0x30 - 0xe];
+    unsigned short unknown_30_;
+    short unknown_32_;
+    short unknown_34_;
+    char unknown_36_[0x38 - 0x36];
+    unsigned char unknown_38_;
+    char unknown_39_;
+    char unknown_3a_;
+    struct Struct_ov017_021ca9bc_7 unknown_3b_;
+    struct Struct_ov017_021ca9bc_8 unknown_3c_;
+    unsigned char unknown_3d_;
+    char unknown_3e_[0xa4 - 0x3e];
 };
 
-struct Fields021ca9bc {
-    unsigned short f0;
-    unsigned short f2;
-    short f4;
-    short f6;
-    unsigned short f8;
-    unsigned short fa;
-    unsigned char fc;
-    struct Bits11_021ca9bc bits;
-    unsigned char fe;
-    struct Bits13_021ca9bc bits13;
+struct Struct_ov017_021ca9bc_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    short unknown_4_;
+    short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned char unknown_c_;
+    struct Struct_ov017_021ca9bc_7 unknown_d_;
+    unsigned char unknown_e_;
+    struct Struct_ov017_021ca9bc_8 unknown_f_;
 };
 
-struct Msg021ca9bc {
-    unsigned char tag;
-    unsigned char pad[3];
-    struct Fields021ca9bc fields;
+struct Struct_ov017_021ca9bc_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    struct Struct_ov017_021ca9bc_2 unknown_4_;
 };
 
-struct Obj021ca9bc {
-    char pad0[8];
-    unsigned short f8;
-    char pad1[0x158 - 0xa];
-    struct Elem021ca9bc elems[8];
+struct Struct_ov017_021ca9bc_4 {
+    char unknown_0_[8];
+    unsigned short unknown_8_;
+    char unknown_a_[0x158 - 0xa];
+    struct Struct_ov017_021ca9bc unknown_158_[8];
 };
 
 // USA: func_ov017_021ca9bc
-extern "C" ARM void func_ov017_021ca9bc(struct Container021ca9bc* sl) {
+extern "C" ARM void func_ov017_021ca9bc(struct Struct_ov017_021ca9bc_6* arg0) {
     GameState::GetInstance();
-    unsigned char* table = *(unsigned char**)((char*)GetGameResources() + 0x3000 + RegionOffset718);
-    struct Obj021ca9bc* obj = (struct Obj021ca9bc*)func_ov017_021b8478(table);
-    void* data = func_0202ae24();
+    unsigned char* var0 = *(unsigned char**)((char*)GetGameResources() + 0x3000 + Enum_ov017_021ca9bc_1816);
+    struct Struct_ov017_021ca9bc_4* var1 = (struct Struct_ov017_021ca9bc_4*)func_ov017_021b8478(var0);
+    void* var2 = func_0202ae24();
 
-    for (int i = 0; i < sl->outerCount; i++) {
-        struct Entry021ca9bc* entry = &sl->entries[i];
-        struct Msg021ca9bc msg;
-        for (int j = 0; j < entry->count; j++) {
-            unsigned char idv = entry->ids[j];
-            if (idv >= 8) {
+    for (int var3 = 0; var3 < arg0->unknown_1_4_; var3++) {
+        struct Struct_ov017_021ca9bc_5* var4 = &arg0->unknown_4_[var3];
+        struct Struct_ov017_021ca9bc_3 var5;
+        for (int var6 = 0; var6 < var4->unknown_a_0_; var6++) {
+            unsigned char var7 = var4->unknown_2_[var6];
+            if (var7 >= 8) {
                 continue;
             }
-            struct Elem021ca9bc* elem = &obj->elems[idv];
-            struct Fields021ca9bc* mf = &msg.fields;
-            msg.tag = 0x5f;
-            mf->f0 = obj->f8;
-            mf->f2 = (unsigned short)(entry->ids[j] + 0xc0);
-            mf->f4 = elem->f32;
-            mf->f6 = elem->f34;
-            mf->f8 = elem->fc;
-            mf->fa = elem->f30;
-            mf->fc = elem->f38;
-            mf->bits.bit0 = elem->bits3b.bit0 & 0xff;
-            mf->bits.bit1 = elem->bits3b.bit1 & 0xff;
-            mf->bits.bit2 = elem->bits3b.bit2 & 0xff;
-            mf->bits.bit3 = elem->bits3b.bit3 & 0xff;
-            mf->bits.nibble = elem->bits3b.nibble & 0xff;
-            mf->bits13.bit0 = elem->bits3c.bit0 != 0;
-            mf->bits13.bit1 = elem->bits3c.bit1 != 0;
-            mf->bits13.bit2 = elem->bits3c.bit2 != 0;
-            mf->bits13.bit3 = elem->bits3c.bit3 != 0;
-            mf->bits13.bit4 = elem->bits3c.bit4 != 0;
-            mf->bits13.bit5 = elem->bits3c.bit5 != 0;
-            mf->bits13.bit6 = elem->bits3c.bit6 != 0;
-            mf->fe = elem->f3d;
-            func_0205e330(data, &msg, 0);
+            struct Struct_ov017_021ca9bc* var8 = &var1->unknown_158_[var7];
+            struct Struct_ov017_021ca9bc_2* var9 = &var5.unknown_4_;
+            var5.unknown_0_ = 0x5f;
+            var9->unknown_0_ = var1->unknown_8_;
+            var9->unknown_2_ = (unsigned short)(var4->unknown_2_[var6] + 0xc0);
+            var9->unknown_4_ = var8->unknown_32_;
+            var9->unknown_6_ = var8->unknown_34_;
+            var9->unknown_8_ = var8->unknown_c_;
+            var9->unknown_a_ = var8->unknown_30_;
+            var9->unknown_c_ = var8->unknown_38_;
+            var9->unknown_d_.unknown_0_0_ = var8->unknown_3b_.unknown_0_0_ & 0xff;
+            var9->unknown_d_.unknown_0_1_ = var8->unknown_3b_.unknown_0_1_ & 0xff;
+            var9->unknown_d_.unknown_0_2_ = var8->unknown_3b_.unknown_0_2_ & 0xff;
+            var9->unknown_d_.unknown_0_3_ = var8->unknown_3b_.unknown_0_3_ & 0xff;
+            var9->unknown_d_.unknown_0_4_ = var8->unknown_3b_.unknown_0_4_ & 0xff;
+            var9->unknown_f_.unknown_0_0_ = var8->unknown_3c_.unknown_0_0_ != 0;
+            var9->unknown_f_.unknown_0_1_ = var8->unknown_3c_.unknown_0_1_ != 0;
+            var9->unknown_f_.unknown_0_2_ = var8->unknown_3c_.unknown_0_2_ != 0;
+            var9->unknown_f_.unknown_0_3_ = var8->unknown_3c_.unknown_0_3_ != 0;
+            var9->unknown_f_.unknown_0_4_ = var8->unknown_3c_.unknown_0_4_ != 0;
+            var9->unknown_f_.unknown_0_5_ = var8->unknown_3c_.unknown_0_5_ != 0;
+            var9->unknown_f_.unknown_0_6_ = var8->unknown_3c_.unknown_0_6_ != 0;
+            var9->unknown_e_ = var8->unknown_3d_;
+            func_0205e330(var2, &var5, 0);
         }
     }
 }

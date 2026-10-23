@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kFirstFlagOffset = 0x7e1, kSecondFlagOffset = 0x7e2, kStateOffset = 0x868 };
+enum { Enum_ov025_021e5e1c_2481 = 0x7e1, Enum_ov025_021e5e1c_2482 = 0x7e2, Enum_ov025_021e5e1c_2456 = 0x868 };
 #else
-enum { kFirstFlagOffset = 0x9b1, kSecondFlagOffset = 0x9b2, kStateOffset = 0x998 };
+enum { Enum_ov025_021e5e1c_2481 = 0x9b1, Enum_ov025_021e5e1c_2482 = 0x9b2, Enum_ov025_021e5e1c_2456 = 0x998 };
 #endif
 
 #if defined(jpn)
@@ -12,31 +12,31 @@ enum { kFirstFlagOffset = 0x9b1, kSecondFlagOffset = 0x9b2, kStateOffset = 0x998
 
 extern "C" int func_020421a0();
 #if defined(jpn)
-extern "C" void func_0204500c(void* field, void* buf, int p2);
+extern "C" void func_0204500c(void* arg0, void* arg1, int arg2);
 #else
-extern "C" void func_0204500c(void* field, void* buf, int p2, int p3);
+extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
 #endif
-extern "C" void func_02042b98(void* self, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct Param021e5e1c { char pad[8]; void* field8; };
+struct Struct_ov025_021e5e1c { char unknown_0_[8]; void* unknown_8_; };
 
 // USA: func_ov025_021e5e1c
-extern "C" ARM void func_ov025_021e5e1c(struct Param021e5e1c* p) {
-    int base = func_020421a0();
-    void* field8 = p->field8;
+extern "C" ARM void func_ov025_021e5e1c(struct Struct_ov025_021e5e1c* arg0) {
+    int var0 = func_020421a0();
+    void* var1 = arg0->unknown_8_;
 #if defined(jpn)
-    func_0204500c((void*)base, field8, 0);
+    func_0204500c((void*)var0, var1, 0);
 #else
-    func_0204500c((void*)base, field8, 0, 0xe3);
+    func_0204500c((void*)var0, var1, 0, 0xe3);
 #endif
-    *(unsigned char*)(base + 0x1000 + kFirstFlagOffset) = 0;
+    *(unsigned char*)(var0 + 0x1000 + Enum_ov025_021e5e1c_2481) = 0;
 #if defined(jpn)
-    *(int*)(base + 0x1730) = 0xc;
-    *(int*)(base + 0x1734) = 0x10;
-    func_02042b98((void*)base, *(int*)(base + 0x1730), 0x90, 0x100, 0x30);
+    *(int*)(var0 + 0x1730) = 0xc;
+    *(int*)(var0 + 0x1734) = 0x10;
+    func_02042b98((void*)var0, *(int*)(var0 + 0x1730), 0x90, 0x100, 0x30);
 #else
-    func_02042b98((void*)base, 2, 0x92, 0xfc, 0x4a);
+    func_02042b98((void*)var0, 2, 0x92, 0xfc, 0x4a);
 #endif
-    *(unsigned char*)(base + 0x1000 + kSecondFlagOffset) = 0;
-    *(int*)(base + kStateOffset) = 1;
+    *(unsigned char*)(var0 + 0x1000 + Enum_ov025_021e5e1c_2482) = 0;
+    *(int*)(var0 + Enum_ov025_021e5e1c_2456) = 1;
 }

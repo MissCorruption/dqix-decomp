@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Substruct020416cc {
-    int value;
+struct Struct_020416cc {
+    int unknown_0_;
 };
 
-struct Holder020416cc {
-    char unk[0x18];
-    struct Substruct020416cc* substruct;
+struct Struct_020416cc_2 {
+    char unknown_0_[0x18];
+    struct Struct_020416cc* unknown_18_;
 };
 
 // USA: func_020416cc
-extern "C" ARM int func_020416cc(struct Holder020416cc* holder) {
-    struct Substruct020416cc* substruct = holder->substruct;
-    return substruct != 0 ? substruct->value : 0;
+extern "C" ARM int func_020416cc(struct Struct_020416cc_2* arg0) {
+    struct Struct_020416cc* var0 = arg0->unknown_18_;
+    return var0 != 0 ? var0->unknown_0_ : 0;
 }

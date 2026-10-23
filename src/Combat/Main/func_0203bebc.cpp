@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct02020520 {
-    int a;
-    short b;
-    short c;
-    short d;
-    short e;
+struct Struct_020200c0_3 {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    short unknown_a_;
 };
 
-struct S_b20c {
-    int field0;
-    int field4;
-    unsigned char field8;
+struct Struct_020200c0_4 {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_;
 };
 
-struct Glyph020425b4 {
-    int pad;
-    signed char width;
+struct Struct_0203bebc_4 {
+    int unknown_0_;
+    signed char unknown_4_;
 };
 
-extern "C" void func_0205b20c(struct S_b20c* obj);
-extern "C" void func_0205b220(void* obj, int value);
-extern "C" void func_0205b228(void* obj, int value, unsigned char flag);
+extern "C" void func_0205b20c(struct Struct_020200c0_4* arg0);
+extern "C" void func_0205b220(void* arg0, int arg1);
+extern "C" void func_0205b228(void* arg0, int arg1, unsigned char arg2);
 extern "C" void* func_020421a0(void);
-extern "C" void* func_020425b4(int idx, int tableIdx);
-extern "C" int func_020425e4(int a, int b, int tableIdx);
-extern "C" int func_02042648(int idx);
+extern "C" void* func_020425b4(int arg0, int arg1);
+extern "C" int func_020425e4(int arg0, int arg1, int arg2);
+extern "C" int func_02042648(int arg0);
 void CleanInvalidateCacheRange(const void* p, unsigned int len);
 extern "C" void LoadToSubObjVRAM(const void* data, unsigned int offset, unsigned int length);
-extern "C" int func_0205b36c(void* self, void* glyph, short a, int b, unsigned char c, unsigned char d);
+extern "C" int func_0205b36c(void* arg0, void* arg1, short arg2, int arg3, unsigned char arg4, unsigned char arg5);
 
 #if defined(jpn)
 #include "Resource/FontGlyphTable.h"
@@ -37,166 +37,166 @@ extern "C" int func_0205b36c(void* self, void* glyph, short a, int b, unsigned c
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
 
-struct CachedGlyphEntry0203bebc {
-    short advanceX;
-    short tileIndex;
-    char text[10];
-    unsigned char references;
-    unsigned char unknownf;
+struct Struct_0203bebc_2 {
+    short unknown_0_;
+    short unknown_2_;
+    char unknown_4_[10];
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
 };
 
-struct CachedGlyphOwner0203bebc {
-    void* drawingBuffer;
-    CachedGlyphEntry0203bebc entries[96];
-    int engine;
-    char* bitmapStorage;
-    unsigned int paletteControl;
-    unsigned short nextOamEntry;
-    unsigned short allocatedEntries;
-    unsigned char workBuffer[256];
+struct Struct_0203bebc_3 {
+    void* unknown_0_;
+    Struct_0203bebc_2 unknown_4_[96];
+    int unknown_604_;
+    char* unknown_608_;
+    unsigned int unknown_60c_;
+    unsigned short unknown_610_;
+    unsigned short unknown_612_;
+    unsigned char unknown_614_[256];
 };
 
-struct GlyphTileOffsets0203bebc {
-    unsigned int offsets[8];
+struct Struct_020e8200 {
+    unsigned int unknown_0_[8];
 };
 
-extern CachedGlyphOwner0203bebc* data_02105244;
-extern const GlyphTileOffsets0203bebc data_020e8200;
+extern Struct_0203bebc_3* data_02105244;
+extern const Struct_020e8200 data_020e8200;
 extern "C" void __clear(void*, int);
 #endif
 
 // USA: func_0203bebc
 #if defined(jpn)
-extern "C" ARM void func_0203bebc(void* rawEntry, int engine, char* text, char** glyphs,
-                                int characterAdvance, void* dest)
+extern "C" ARM void func_0203bebc(void* arg0, int arg1, char* arg2, char** arg3,
+                                int arg4, void* arg5)
 #else
-extern "C" ARM void func_0203bebc(void* entry, void* buf, void* dest)
+extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
 #endif
 {
 #if defined(jpn)
-    CachedGlyphEntry0203bebc* entry = static_cast<CachedGlyphEntry0203bebc*>(rawEntry);
-    if (text == NULL) return;
-    memset(entry->text, 0, 10);
-    memcpy(entry->text, text, 6);
-    entry->text[6] = 0;
+    Struct_0203bebc_2* var0 = static_cast<Struct_0203bebc_2*>(arg0);
+    if (arg2 == NULL) return;
+    memset(var0->unknown_4_, 0, 10);
+    memcpy(var0->unknown_4_, arg2, 6);
+    var0->unknown_4_[6] = 0;
 
     switch (DISPCNTSUB & 0x300010) {
     case 0x10:
-        entry->tileIndex = (unsigned int)dest >> 5;
+        var0->unknown_2_ = (unsigned int)arg5 >> 5;
         break;
     case 0x100010:
-        entry->tileIndex = (unsigned int)dest >> 6;
+        var0->unknown_2_ = (unsigned int)arg5 >> 6;
         break;
     case 0x200010:
-        entry->tileIndex = (unsigned int)dest >> 7;
+        var0->unknown_2_ = (unsigned int)arg5 >> 7;
         break;
     }
-    entry->advanceX = characterAdvance;
-    FontGlyphTable* font = func_020429bc(10);
-    if (font == NULL) return;
-    int height = font->glyphHeight;
-    unsigned char raster[256];
-    __clear(raster, 256);
-    for (unsigned char glyph = 0; glyph < 3; ++glyph) {
-        unsigned char bit = 0;
-        const unsigned char* bitmap = reinterpret_cast<const unsigned char*>(glyphs[glyph]);
-        if (bitmap == NULL) continue;
-        unsigned char* row = raster + glyph * 5;
-        for (int y = 0; y < height; ++y) {
-            for (int x = 0; x < 10; ++x) {
-                if (*bitmap & (1 << bit)) {
-                    if (x & 1) {
-                        row[x >> 1] = (row[x >> 1] & 0xf) | 0xf0;
+    var0->unknown_0_ = arg4;
+    Struct_0203bebc* var1 = func_020429bc(10);
+    if (var1 == NULL) return;
+    int var2 = var1->unknown_3_;
+    unsigned char var3[256];
+    __clear(var3, 256);
+    for (unsigned char var4 = 0; var4 < 3; ++var4) {
+        unsigned char var5 = 0;
+        const unsigned char* var6 = reinterpret_cast<const unsigned char*>(arg3[var4]);
+        if (var6 == NULL) continue;
+        unsigned char* var7 = var3 + var4 * 5;
+        for (int var8 = 0; var8 < var2; ++var8) {
+            for (int var9 = 0; var9 < 10; ++var9) {
+                if (*var6 & (1 << var5)) {
+                    if (var9 & 1) {
+                        var7[var9 >> 1] = (var7[var9 >> 1] & 0xf) | 0xf0;
                     } else {
-                        row[x >> 1] &= 0xf0;
-                        row[x >> 1] |= 0xf;
+                        var7[var9 >> 1] &= 0xf0;
+                        var7[var9 >> 1] |= 0xf;
                     }
                 }
-                ++bit;
-                if (bit >= 8) {
-                    bit = 0;
-                    ++bitmap;
+                ++var5;
+                if (var5 >= 8) {
+                    var5 = 0;
+                    ++var6;
                 }
             }
-            row += 16;
+            var7 += 16;
         }
     }
 
-    unsigned int rowOffset;
-    unsigned int outputOffset;
-    unsigned int tile;
-    unsigned int tileRow;
-    unsigned char* const work = data_02105244->workBuffer;
-    memset(work, 0, 256);
-    GlyphTileOffsets0203bebc offsets = data_020e8200;
-    outputOffset = 0;
-    for (tile = 0; tile < 8; ++tile) {
-        rowOffset = 0;
-        for (tileRow = 0; tileRow < 8; ++tileRow) {
-            memcpy(work + outputOffset, raster + offsets.offsets[tile] + rowOffset, 4);
-            rowOffset += 16;
-            outputOffset += 4;
+    unsigned int var10;
+    unsigned int var11;
+    unsigned int var12;
+    unsigned int var13;
+    unsigned char* const var14 = data_02105244->unknown_614_;
+    memset(var14, 0, 256);
+    Struct_020e8200 var15 = data_020e8200;
+    var11 = 0;
+    for (var12 = 0; var12 < 8; ++var12) {
+        var10 = 0;
+        for (var13 = 0; var13 < 8; ++var13) {
+            memcpy(var14 + var11, var3 + var15.unknown_0_[var12] + var10, 4);
+            var10 += 16;
+            var11 += 4;
         }
     }
-    CleanInvalidateCacheRange(work, 256);
-    if (engine == 0) {
-        LoadToMainObjVRAM(work, (unsigned int)dest, 256);
-    } else if (engine == 1) {
-        LoadToSubObjVRAM(work, (unsigned int)dest, 256);
+    CleanInvalidateCacheRange(var14, 256);
+    if (arg1 == 0) {
+        LoadToMainObjVRAM(var14, (unsigned int)arg5, 256);
+    } else if (arg1 == 1) {
+        LoadToSubObjVRAM(var14, (unsigned int)arg5, 256);
     }
 #else
-    int limit;
-    char* g = (char*)func_020421a0();
-    void* fp = *(void**)(g + 0x60);
-    memset(fp, 0, 0x400);
+    int var16;
+    char* var17 = (char*)func_020421a0();
+    void* var18 = *(void**)(var17 + 0x60);
+    memset(var18, 0, 0x400);
 
-    struct Struct02020520 arr[4];
-    int off = 0;
-    int acc = 0;
-    for (int i = 0; i < 4; i++) {
-        struct Struct02020520* e = &arr[i];
-        e->a = off;
-        e->b = acc;
-        e->c = 0;
-        e->d = 0x20;
-        e->e = 0x10;
-        off += 0x100;
-        acc += e->d;
+    struct Struct_020200c0_3 var19[4];
+    int var20 = 0;
+    int var21 = 0;
+    for (int var22 = 0; var22 < 4; var22++) {
+        struct Struct_020200c0_3* var23 = &var19[var22];
+        var23->unknown_0_ = var20;
+        var23->unknown_4_ = var21;
+        var23->unknown_6_ = 0;
+        var23->unknown_8_ = 0x20;
+        var23->unknown_a_ = 0x10;
+        var20 += 0x100;
+        var21 += var23->unknown_8_;
     }
 
-    struct S_b20c localObj;
-    func_0205b20c(&localObj);
-    func_0205b220(&localObj, (int)fp);
-    func_0205b228(&localObj, (int)arr, 4);
+    struct Struct_020200c0_4 var24;
+    func_0205b20c(&var24);
+    func_0205b220(&var24, (int)var18);
+    func_0205b228(&var24, (int)var19, 4);
 
-    *(short*)((char*)entry + 0x22) = (short)((unsigned int)dest >> 7);
-    memset(entry, 0, 0x20);
-    memcpy(entry, buf, ((unsigned char*)entry)[0x20]);
+    *(short*)((char*)arg0 + 0x22) = (short)((unsigned int)arg2 >> 7);
+    memset(arg0, 0, 0x20);
+    memcpy(arg0, arg1, ((unsigned char*)arg0)[0x20]);
 
-    int total = 0;
-    limit = ((unsigned char*)entry)[0x20];
-    int prev = 0xff;
-    int font = func_02042648(0);
-    unsigned char ch;
-    int cnt = 0;
-    unsigned char* p = (unsigned char*)buf;
-    for (; cnt < limit; cnt++) {
-        ch = *p;
-        if (ch == 0) break;
-        int c = font;
-        struct Glyph020425b4* gl = (struct Glyph020425b4*)func_020425b4(ch, 0);
-        if (gl != 0) {
-            c = gl->width;
-            func_0205b36c(&localObj, gl, (short)total, 0, 0xf, 0);
+    int var25 = 0;
+    var16 = ((unsigned char*)arg0)[0x20];
+    int var26 = 0xff;
+    int var27 = func_02042648(0);
+    unsigned char var28;
+    int var29 = 0;
+    unsigned char* var30 = (unsigned char*)arg1;
+    for (; var29 < var16; var29++) {
+        var28 = *var30;
+        if (var28 == 0) break;
+        int var31 = var27;
+        struct Struct_0203bebc_4* var32 = (struct Struct_0203bebc_4*)func_020425b4(var28, 0);
+        if (var32 != 0) {
+            var31 = var32->unknown_4_;
+            func_0205b36c(&var24, var32, (short)var25, 0, 0xf, 0);
         }
-        int w = total + func_020425e4(prev, ch, 0);
-        total = w + (c + 1);
-        prev = ch;
-        p++;
+        int var33 = var25 + func_020425e4(var26, var28, 0);
+        var25 = var33 + (var31 + 1);
+        var26 = var28;
+        var30++;
     }
 
-    CleanInvalidateCacheRange(fp, 0x400);
-    LoadToSubObjVRAM(fp, (unsigned int)dest, 0x400);
-    ((unsigned char*)entry)[0x21] = total - 1;
+    CleanInvalidateCacheRange(var18, 0x400);
+    LoadToSubObjVRAM(var18, (unsigned int)arg2, 0x400);
+    ((unsigned char*)arg0)[0x21] = var25 - 1;
 #endif
 }

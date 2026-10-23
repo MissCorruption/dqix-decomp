@@ -2,51 +2,51 @@
 #include "NitroSDK/ProcessorContext.h"
 
 extern "C" unsigned long long GetCurrentTimestamp(void);
-extern "C" void func_ov031_02200ccc(int a);
-extern "C" int func_ov031_02200160(int a);
+extern "C" void func_ov031_02200ccc(int arg0);
+extern "C" int func_ov031_02200160(int arg0);
 
-struct GlobalStruct0224c980_02203bcc {
-	unsigned char field0;
-	unsigned char field1;
-	char pad18[0x18 - 2];
-	void (*field18)(void);
-	char pad48[0x48 - 0x1c];
-	int (*field48)(void);
-	char pad50[0x50 - 0x4c];
-	int field50;
+struct Struct_ov031_0224c980_11 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_;
+	char unknown_2_[0x18 - 2];
+	void (*unknown_18_)(void);
+	char unknown_1c_[0x48 - 0x1c];
+	int (*unknown_48_)(void);
+	char unknown_4c_[0x50 - 0x4c];
+	int unknown_50_;
 };
 
-extern GlobalStruct0224c980_02203bcc data_ov031_0224c980;
+extern Struct_ov031_0224c980_11 data_ov031_0224c980;
 
 // USA: func_ov031_02203bcc
 extern "C" ARM int func_ov031_02203bcc(void) {
-	data_ov031_0224c980.field18();
-	int f50 = data_ov031_0224c980.field50;
-	if (f50 == 0) {
-		return f50;
+	data_ov031_0224c980.unknown_18_();
+	int var0 = data_ov031_0224c980.unknown_50_;
+	if (var0 == 0) {
+		return var0;
 	}
-	func_ov031_02200ccc(data_ov031_0224c980.field50);
+	func_ov031_02200ccc(data_ov031_0224c980.unknown_50_);
 	SleepCurrentContext(0x64);
-	func_ov031_02200ccc(data_ov031_0224c980.field50);
-	unsigned int t0 = (unsigned int)(GetCurrentTimestamp() >> 16);
+	func_ov031_02200ccc(data_ov031_0224c980.unknown_50_);
+	unsigned int var1 = (unsigned int)(GetCurrentTimestamp() >> 16);
 	goto checkExit;
 retry:
-	if (data_ov031_0224c980.field1 != 0) {
+	if (data_ov031_0224c980.unknown_1_ != 0) {
 		return func_ov031_02200160(4);
 	}
 	SleepCurrentContext(0x64);
 checkExit:
 	{
-		int r = data_ov031_0224c980.field48();
-		if (r == 0) {
-			return r;
+		int var2 = data_ov031_0224c980.unknown_48_();
+		if (var2 == 0) {
+			return var2;
 		}
 	}
 	{
-		unsigned int diff = (unsigned int)(GetCurrentTimestamp() >> 16) - t0;
-		if ((int)diff < 0x17) {
+		unsigned int var3 = (unsigned int)(GetCurrentTimestamp() >> 16) - var1;
+		if ((int)var3 < 0x17) {
 			goto retry;
 		}
-		return diff;
+		return var3;
 	}
 }

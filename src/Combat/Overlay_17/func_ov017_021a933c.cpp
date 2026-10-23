@@ -2,27 +2,27 @@
 #include "Resource/CharacterCreationUI.h"
 
 #if defined(jpn)
-enum { kMessagesOffset = 0x208, kFlagOffset = 0x17e2, kModeOffset = 0x86c };
+enum { Enum_ov017_021a933c_632 = 0x208, Enum_ov017_021a933c_6578 = 0x17e2, Enum_ov017_021a933c_2460 = 0x86c };
 #else
-enum { kMessagesOffset = 0x278, kFlagOffset = 0x19b2, kModeOffset = 0x99c };
+enum { Enum_ov017_021a933c_632 = 0x278, Enum_ov017_021a933c_6578 = 0x19b2, Enum_ov017_021a933c_2460 = 0x99c };
 #endif
 
-struct MessageSelection {
-    char unknown0[0x14];
-    int alternateSet;
-    char unknown18[kMessagesOffset - 0x18];
-    Container020e0310 messages;
+struct Struct_ov017_021a933c {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    char unknown_18_[Enum_ov017_021a933c_632 - 0x18];
+    Struct_0201099c_3 unknown_278_;
 };
 
-struct MessageSelectionController {
-    char unknown0[kModeOffset];
-    int mode;
-    char unknownAfterMode[kFlagOffset - kModeOffset - sizeof(int)];
-    unsigned char messageFlag;
+struct Struct_ov017_021a933c_2 {
+    char unknown_0_[Enum_ov017_021a933c_2460];
+    int unknown_99c_;
+    char unknown_9a0_[Enum_ov017_021a933c_6578 - Enum_ov017_021a933c_2460 - sizeof(int)];
+    unsigned char unknown_19b2_;
 };
 
-extern "C" MessageSelectionController* func_020421a0(void);
-extern "C" int func_020e0434(struct Container020e0310*, int);
+extern "C" Struct_ov017_021a933c_2* func_020421a0(void);
+extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
 #if !defined(jpn)
 extern "C" void func_0204500c(void*, const char*, int, int);
 #endif
@@ -31,26 +31,26 @@ extern "C" void func_0204500c(void*, const char*, int);
 #endif
 
 // USA: func_ov017_021a933c
-extern "C" ARM void func_ov017_021a933c(MessageSelection* selection, int key) {
-    MessageSelectionController* controller = func_020421a0();
-    if (key <= 0xc7 && key >= 0x64) {
-        if (selection->alternateSet == 1) key += 0x64;
+extern "C" ARM void func_ov017_021a933c(Struct_ov017_021a933c* arg0, int arg1) {
+    Struct_ov017_021a933c_2* var0 = func_020421a0();
+    if (arg1 <= 0xc7 && arg1 >= 0x64) {
+        if (arg0->unknown_14_ == 1) arg1 += 0x64;
     }
 #if defined(jpn)
-    func_0204500c(controller, (const char*)func_020e0434(&selection->messages, (short)key), 0);
+    func_0204500c(var0, (const char*)func_020e0434(&arg0->unknown_278_, (short)arg1), 0);
 #else
-    func_0204500c(controller, (const char*)func_020e0434(&selection->messages, (short)key), 0, 0xe3);
+    func_0204500c(var0, (const char*)func_020e0434(&arg0->unknown_278_, (short)arg1), 0, 0xe3);
 #endif
 
-    if (key <= 0x12b && key >= 0x64) {
-        controller->messageFlag = 1;
+    if (arg1 <= 0x12b && arg1 >= 0x64) {
+        var0->unknown_19b2_ = 1;
     } else {
-        controller->messageFlag = 0;
+        var0->unknown_19b2_ = 0;
     }
-    if (key > 0x12b || key < 0x64) return;
-    if (selection->alternateSet == 0) {
-        controller->mode = 2;
+    if (arg1 > 0x12b || arg1 < 0x64) return;
+    if (arg0->unknown_14_ == 0) {
+        var0->unknown_99c_ = 2;
     } else {
-        controller->mode = 1;
+        var0->unknown_99c_ = 1;
     }
 }

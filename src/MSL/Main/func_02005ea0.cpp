@@ -5,8 +5,8 @@
 #endif
 
 extern "C" ARM double func_0200b454(double x);
-extern "C" ARM double func_02008f3c(double x);
-extern "C" ARM double func_0200aae4(double x, int n);
+extern "C" ARM double func_02008f3c(double arg0);
+extern "C" ARM double func_0200aae4(double arg0, int arg1);
 
 extern const double data_020e6acc[];
 extern const double data_020e6abc[];
@@ -39,232 +39,232 @@ static const double zero = 0.0, one = 1.0, two = 2.0, two53 = 9007199254740992.0
                     ivln2_l = 1.92596299112661746887e-08;
 
 // USA: func_02005ea0
-extern "C" ARM double func_02005ea0(double x, double y) {
-    double z, ax, z_h, z_l, p_h, p_l;
-    double y1, t1, t2, r, s, t, u, v, w;
-    int i, j, k, yisint, n;
-    int hx, hy, ix, iy;
-    unsigned int lx, ly;
+extern "C" ARM double func_02005ea0(double arg0, double arg1) {
+    double var0, var1, var2, var3, var4, var5;
+    double var6, var7, var8, var9, var10, var11, var12, var13, var14;
+    int var15, var16, var17, var18, var19;
+    int var20, var21, var22, var23;
+    unsigned int var24, var25;
 
-    hx = ((int*)&x)[1];
-    lx = ((int*)&x)[0];
-    hy = ((int*)&y)[1];
-    ly = ((int*)&y)[0];
-    ix = hx & 0x7fffffff;
-    iy = hy & 0x7fffffff;
+    var20 = ((int*)&arg0)[1];
+    var24 = ((int*)&arg0)[0];
+    var21 = ((int*)&arg1)[1];
+    var25 = ((int*)&arg1)[0];
+    var22 = var20 & 0x7fffffff;
+    var23 = var21 & 0x7fffffff;
 
-    if ((iy | ly) == 0) {
+    if ((var23 | var25) == 0) {
         return one;
     }
 
-    if (ix > 0x7ff00000 || ((ix == 0x7ff00000) && (lx != 0)) || iy > 0x7ff00000 ||
-        ((iy == 0x7ff00000) && (ly != 0))) {
-        return x + y;
+    if (var22 > 0x7ff00000 || ((var22 == 0x7ff00000) && (var24 != 0)) || var23 > 0x7ff00000 ||
+        ((var23 == 0x7ff00000) && (var25 != 0))) {
+        return arg0 + arg1;
     }
 
-    yisint = 0;
-    if (hx < 0) {
-        if (iy >= 0x43400000) {
-            yisint = 2;
-        } else if (iy >= 0x3ff00000) {
-            k = (iy >> 20) - 0x3ff;
-            if (k > 20) {
-                j = ly >> (52 - k);
-                if ((j << (52 - k)) == ly) {
-                    yisint = 2 - (j & 1);
+    var18 = 0;
+    if (var20 < 0) {
+        if (var23 >= 0x43400000) {
+            var18 = 2;
+        } else if (var23 >= 0x3ff00000) {
+            var17 = (var23 >> 20) - 0x3ff;
+            if (var17 > 20) {
+                var16 = var25 >> (52 - var17);
+                if ((var16 << (52 - var17)) == var25) {
+                    var18 = 2 - (var16 & 1);
                 }
-            } else if (ly == 0) {
-                j = iy >> (20 - k);
-                if ((j << (20 - k)) == iy) {
-                    yisint = 2 - (j & 1);
+            } else if (var25 == 0) {
+                var16 = var23 >> (20 - var17);
+                if ((var16 << (20 - var17)) == var23) {
+                    var18 = 2 - (var16 & 1);
                 }
             }
         }
     }
 
-    if (ly == 0) {
-        if (iy == 0x7ff00000) {
-            if (((ix - 0x3ff00000) | lx) == 0) {
-                return y - y;
-            } else if (ix >= 0x3ff00000) {
-                return (hy >= 0) ? y : zero;
+    if (var25 == 0) {
+        if (var23 == 0x7ff00000) {
+            if (((var22 - 0x3ff00000) | var24) == 0) {
+                return arg1 - arg1;
+            } else if (var22 >= 0x3ff00000) {
+                return (var21 >= 0) ? arg1 : zero;
             } else {
-                return (hy < 0) ? -y : zero;
+                return (var21 < 0) ? -arg1 : zero;
             }
         }
-        if (iy == 0x3ff00000) {
-            if (hy < 0) {
-                return one / x;
+        if (var23 == 0x3ff00000) {
+            if (var21 < 0) {
+                return one / arg0;
             } else {
-                return x;
+                return arg0;
             }
         }
-        if (hy == 0x40000000) {
-            return x * x;
+        if (var21 == 0x40000000) {
+            return arg0 * arg0;
         }
-        if (hy == 0x3fe00000) {
-            if (hx >= 0) {
-                return func_0200b454(x);
+        if (var21 == 0x3fe00000) {
+            if (var20 >= 0) {
+                return func_0200b454(arg0);
             }
         }
     }
 
-    ax = func_02008f3c(x);
-    if (lx == 0) {
-        if (ix == 0x7ff00000 || ix == 0 || ix == 0x3ff00000) {
-            z = ax;
-            if (hy < 0) {
-                z = one / z;
+    var1 = func_02008f3c(arg0);
+    if (var24 == 0) {
+        if (var22 == 0x7ff00000 || var22 == 0 || var22 == 0x3ff00000) {
+            var0 = var1;
+            if (var21 < 0) {
+                var0 = one / var0;
             }
-            if (hx < 0) {
-                if (((ix - 0x3ff00000) | yisint) == 0) {
-                    z = (z - z) / (z - z);
-                } else if (yisint == 1) {
-                    z = -z;
+            if (var20 < 0) {
+                if (((var22 - 0x3ff00000) | var18) == 0) {
+                    var0 = (var0 - var0) / (var0 - var0);
+                } else if (var18 == 1) {
+                    var0 = -var0;
                 }
             }
-            return z;
+            return var0;
         }
     }
 
-    if ((((hx >> 31) + 1) | yisint) == 0) {
+    if ((((var20 >> 31) + 1) | var18) == 0) {
         data_020f3390 = 33;
         return data_020eecc8;
     }
 
-    if (iy > 0x41e00000) {
-        if (iy > 0x43f00000) {
-            if (ix <= 0x3fefffff) {
-                return (hy < 0) ? big * big : tiny * tiny;
+    if (var23 > 0x41e00000) {
+        if (var23 > 0x43f00000) {
+            if (var22 <= 0x3fefffff) {
+                return (var21 < 0) ? big * big : tiny * tiny;
             }
-            if (ix >= 0x3ff00000) {
-                return (hy > 0) ? big * big : tiny * tiny;
+            if (var22 >= 0x3ff00000) {
+                return (var21 > 0) ? big * big : tiny * tiny;
             }
         }
-        if (ix < 0x3fefffff) {
-            return (hy < 0) ? big * big : tiny * tiny;
+        if (var22 < 0x3fefffff) {
+            return (var21 < 0) ? big * big : tiny * tiny;
         }
-        if (ix > 0x3ff00000) {
-            return (hy > 0) ? big * big : tiny * tiny;
+        if (var22 > 0x3ff00000) {
+            return (var21 > 0) ? big * big : tiny * tiny;
         }
-        t = x - 1;
-        w = (t * t) * (0.5 - t * (0.3333333333333333333333 - t * 0.25));
-        u = ivln2_h * t;
-        v = t * ivln2_l - w * ivln2;
-        t1 = u + v;
-        ((int*)&t1)[0] = 0;
-        t2 = v - (t1 - u);
+        var11 = arg0 - 1;
+        var14 = (var11 * var11) * (0.5 - var11 * (0.3333333333333333333333 - var11 * 0.25));
+        var12 = ivln2_h * var11;
+        var13 = var11 * ivln2_l - var14 * ivln2;
+        var7 = var12 + var13;
+        ((int*)&var7)[0] = 0;
+        var8 = var13 - (var7 - var12);
     } else {
-        double s2, s_h, s_l, t_h, t_l;
-        n = 0;
-        if (ix < 0x00100000) {
-            ax *= two53;
-            n -= 53;
-            ix = ((int*)&ax)[1];
+        double var26, var27, var28, var29, var30;
+        var19 = 0;
+        if (var22 < 0x00100000) {
+            var1 *= two53;
+            var19 -= 53;
+            var22 = ((int*)&var1)[1];
         }
-        n += ((ix) >> 20) - 0x3ff;
-        j = ix & 0x000fffff;
-        ix = j | 0x3ff00000;
-        if (j <= 0x3988e) {
-            k = 0;
-        } else if (j < 0xbb67a) {
-            k = 1;
+        var19 += ((var22) >> 20) - 0x3ff;
+        var16 = var22 & 0x000fffff;
+        var22 = var16 | 0x3ff00000;
+        if (var16 <= 0x3988e) {
+            var17 = 0;
+        } else if (var16 < 0xbb67a) {
+            var17 = 1;
         } else {
-            k = 0;
-            n += 1;
-            ix -= 0x00100000;
+            var17 = 0;
+            var19 += 1;
+            var22 -= 0x00100000;
         }
-        ((int*)&ax)[1] = ix;
+        ((int*)&var1)[1] = var22;
 
-        u = ax - data_020e6acc[k];
-        v = one / (ax + data_020e6acc[k]);
-        s = u * v;
-        s_h = s;
-        ((int*)&s_h)[0] = 0;
-        t_h = zero;
-        ((int*)&t_h)[1] = ((ix >> 1) | 0x20000000) + 0x00080000 + (k << 18);
-        t_l = ax - (t_h - data_020e6acc[k]);
-        s_l = v * ((u - s_h * t_h) - s_h * t_l);
-        s2 = s * s;
-        r = s2 * s2 * (L1 + s2 * (L2 + s2 * (L3 + s2 * (L4 + s2 * (L5 + s2 * L6)))));
-        r += s_l * (s_h + s);
-        s2 = s_h * s_h;
-        t_h = 3.0 + s2 + r;
-        ((int*)&t_h)[0] = 0;
-        t_l = r - ((t_h - 3.0) - s2);
-        u = s_h * t_h;
-        v = s_l * t_h + t_l * s;
-        p_h = u + v;
-        ((int*)&p_h)[0] = 0;
-        p_l = v - (p_h - u);
-        z_h = cp_h * p_h;
-        z_l = cp_l * p_h + p_l * cp + data_020e6adc[k];
-        t = (double)n;
-        t1 = (((z_h + z_l) + data_020e6abc[k]) + t);
-        ((int*)&t1)[0] = 0;
-        t2 = z_l - (((t1 - t) - data_020e6abc[k]) - z_h);
+        var12 = var1 - data_020e6acc[var17];
+        var13 = one / (var1 + data_020e6acc[var17]);
+        var10 = var12 * var13;
+        var27 = var10;
+        ((int*)&var27)[0] = 0;
+        var29 = zero;
+        ((int*)&var29)[1] = ((var22 >> 1) | 0x20000000) + 0x00080000 + (var17 << 18);
+        var30 = var1 - (var29 - data_020e6acc[var17]);
+        var28 = var13 * ((var12 - var27 * var29) - var27 * var30);
+        var26 = var10 * var10;
+        var9 = var26 * var26 * (L1 + var26 * (L2 + var26 * (L3 + var26 * (L4 + var26 * (L5 + var26 * L6)))));
+        var9 += var28 * (var27 + var10);
+        var26 = var27 * var27;
+        var29 = 3.0 + var26 + var9;
+        ((int*)&var29)[0] = 0;
+        var30 = var9 - ((var29 - 3.0) - var26);
+        var12 = var27 * var29;
+        var13 = var28 * var29 + var30 * var10;
+        var4 = var12 + var13;
+        ((int*)&var4)[0] = 0;
+        var5 = var13 - (var4 - var12);
+        var2 = cp_h * var4;
+        var3 = cp_l * var4 + var5 * cp + data_020e6adc[var17];
+        var11 = (double)var19;
+        var7 = (((var2 + var3) + data_020e6abc[var17]) + var11);
+        ((int*)&var7)[0] = 0;
+        var8 = var3 - (((var7 - var11) - data_020e6abc[var17]) - var2);
     }
 
-    s = one;
-    if ((((hx >> 31) + 1) | (yisint - 1)) == 0) {
-        s = -one;
+    var10 = one;
+    if ((((var20 >> 31) + 1) | (var18 - 1)) == 0) {
+        var10 = -one;
     }
 
-    y1 = y;
-    ((int*)&y1)[0] = 0;
-    p_l = (y - y1) * t1 + y * t2;
-    p_h = y1 * t1;
-    z = p_l + p_h;
-    j = ((int*)&z)[1];
-    i = ((int*)&z)[0];
-    if (j >= 0x40900000) {
-        if (((j - 0x40900000) | i) != 0) {
-            return s * big * big;
+    var6 = arg1;
+    ((int*)&var6)[0] = 0;
+    var5 = (arg1 - var6) * var7 + arg1 * var8;
+    var4 = var6 * var7;
+    var0 = var5 + var4;
+    var16 = ((int*)&var0)[1];
+    var15 = ((int*)&var0)[0];
+    if (var16 >= 0x40900000) {
+        if (((var16 - 0x40900000) | var15) != 0) {
+            return var10 * big * big;
         } else {
-            if (p_l + ovt > z - p_h) {
-                return s * big * big;
+            if (var5 + ovt > var0 - var4) {
+                return var10 * big * big;
             }
         }
-    } else if ((j & 0x7fffffff) >= 0x4090cc00) {
-        if (((j - 0xc090cc00) | i) != 0) {
-            return s * tiny * tiny;
+    } else if ((var16 & 0x7fffffff) >= 0x4090cc00) {
+        if (((var16 - 0xc090cc00) | var15) != 0) {
+            return var10 * tiny * tiny;
         } else {
-            if (p_l <= z - p_h) {
-                return s * tiny * tiny;
+            if (var5 <= var0 - var4) {
+                return var10 * tiny * tiny;
             }
         }
     }
 
-    i = j & 0x7fffffff;
-    k = (i >> 20) - 0x3ff;
-    n = 0;
-    if (i > 0x3fe00000) {
-        n = j + (0x00100000 >> (k + 1));
-        k = ((n & 0x7fffffff) >> 20) - 0x3ff;
-        t = zero;
-        ((int*)&t)[1] = (n & ~(0x000fffff >> k));
-        n = ((n & 0x000fffff) | 0x00100000) >> (20 - k);
-        if (j < 0) {
-            n = -n;
+    var15 = var16 & 0x7fffffff;
+    var17 = (var15 >> 20) - 0x3ff;
+    var19 = 0;
+    if (var15 > 0x3fe00000) {
+        var19 = var16 + (0x00100000 >> (var17 + 1));
+        var17 = ((var19 & 0x7fffffff) >> 20) - 0x3ff;
+        var11 = zero;
+        ((int*)&var11)[1] = (var19 & ~(0x000fffff >> var17));
+        var19 = ((var19 & 0x000fffff) | 0x00100000) >> (20 - var17);
+        if (var16 < 0) {
+            var19 = -var19;
         }
-        p_h -= t;
+        var4 -= var11;
     }
-    t = p_l + p_h;
-    ((int*)&t)[0] = 0;
-    u = t * lg2_h;
-    v = (p_l - (t - p_h)) * lg2 + t * lg2_l;
-    z = u + v;
-    w = v - (z - u);
-    t = z * z;
-    t1 = z - t * (P1 + t * (P2 + t * (P3 + t * (P4 + t * P5))));
-    r = (z * t1) / (t1 - two) - (w + z * w);
-    z = one - (r - z);
-    j = ((int*)&z)[1];
-    j += (n << 20);
-    if ((j >> 20) <= 0) {
-        z = func_0200aae4(z, n);
+    var11 = var5 + var4;
+    ((int*)&var11)[0] = 0;
+    var12 = var11 * lg2_h;
+    var13 = (var5 - (var11 - var4)) * lg2 + var11 * lg2_l;
+    var0 = var12 + var13;
+    var14 = var13 - (var0 - var12);
+    var11 = var0 * var0;
+    var7 = var0 - var11 * (P1 + var11 * (P2 + var11 * (P3 + var11 * (P4 + var11 * P5))));
+    var9 = (var0 * var7) / (var7 - two) - (var14 + var0 * var14);
+    var0 = one - (var9 - var0);
+    var16 = ((int*)&var0)[1];
+    var16 += (var19 << 20);
+    if ((var16 >> 20) <= 0) {
+        var0 = func_0200aae4(var0, var19);
     } else {
-        ((int*)&z)[1] += (n << 20);
+        ((int*)&var0)[1] += (var19 << 20);
     }
-    return s * z;
+    return var10 * var0;
 }

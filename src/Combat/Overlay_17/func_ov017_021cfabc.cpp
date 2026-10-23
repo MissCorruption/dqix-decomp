@@ -2,19 +2,19 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_0202c540(void* p);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202c540(void* arg0);
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021cfabc
 extern "C" ARM void func_ov017_021cfabc(void) {
-    void* x = func_0202ae18();
-    if (func_0202b7d8((int*)x) != 0 && func_0202c540(x) == 0) {
+    void* var0 = func_0202ae18();
+    if (func_0202b7d8((int*)var0) != 0 && func_0202c540(var0) == 0) {
         GameState::GetInstance();
-        void* p = func_0202ae24();
-        unsigned char buf[0x14];
-        buf[0] = 0xa1;
-        func_0205e330(p, buf, 0);
+        void* var1 = func_0202ae24();
+        unsigned char var2[0x14];
+        var2[0] = 0xa1;
+        func_0205e330(var1, var2, 0);
     }
 }

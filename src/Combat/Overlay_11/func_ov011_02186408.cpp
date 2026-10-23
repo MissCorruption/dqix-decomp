@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 // USA: func_ov011_02186408
-extern "C" ARM int func_ov011_02186408(int priority) {
-    volatile unsigned short* bg1cnt = (volatile unsigned short*)0x400000a;
-    int value = (*bg1cnt & ~3) | priority;
-    *bg1cnt = value;
-    return value;
+extern "C" ARM int func_ov011_02186408(int arg0) {
+    volatile unsigned short* var0 = (volatile unsigned short*)0x400000a;
+    int var1 = (*var0 & ~3) | arg0;
+    *var0 = var1;
+    return var1;
 }

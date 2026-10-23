@@ -4,63 +4,63 @@
 #include "World/Object3D.h"
 #include "World/ZoneResourceInitialization.h"
 
-struct InitTarget02013018;
-struct ListNode;
-struct Node020130e0;
-struct Table_1f1b0;
+struct Struct_02013018;
+struct Struct_020130b0;
+struct Struct_020130e0;
+struct Struct_020177d4_3;
 
-extern "C" void func_02013018(InitTarget02013018 *self);
-extern "C" void func_020130b0(ListNode *parent, ListNode *child);
-extern "C" void func_020130e0(Node020130e0 *list, Node020130e0 *node);
-extern "C" int func_0201f1b0(Table_1f1b0 *table, int key);
-extern "C" void func_0201310c(void *node);
-extern "C" int func_ov017_021b8b54(void *object);
+extern "C" void func_02013018(Struct_02013018 *arg0);
+extern "C" void func_020130b0(Struct_020130b0 *arg0, Struct_020130b0 *arg1);
+extern "C" void func_020130e0(Struct_020130e0 *arg0, Struct_020130e0 *arg1);
+extern "C" int func_0201f1b0(Struct_020177d4_3 *arg0, int arg1);
+extern "C" void func_0201310c(void *arg0);
+extern "C" int func_ov017_021b8b54(void *arg0);
 
-struct ZoneResourceTreeRecord {
-    short key;
-    short trackerKey;
-    short parentKey;
-    unsigned short flags;
-    Vector3i position;
-    char unknown14[0xc];
+struct Struct_020177d4_4 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    unsigned short unknown_6_;
+    Vector3i unknown_8_;
+    char unknown_14_[0xc];
 };
 
-struct ZoneResourceRuntimeNode {
-    unsigned short key;
-    unsigned short flags;
-    signed char remaining : 7;
-    unsigned char flag4 : 1;
-    unsigned char unknown5[3];
-    Vector3i position;
-    char unknown14[0xc];
-    ZoneResourceTreeRecord *source;
-    Struct02012ff0 *tracker;
-    ZoneResourceRuntimeNode *parent;
-    ZoneResourceRuntimeNode *firstChild;
-    ZoneResourceRuntimeNode *next;
+struct Struct_02015554 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    signed char unknown_4_0_ : 7;
+    unsigned char unknown_4_7_ : 1;
+    unsigned char unknown_5_[3];
+    Vector3i unknown_8_;
+    char unknown_14_[0xc];
+    Struct_020177d4_4 *unknown_20_;
+    Struct_02012ff0 *unknown_24_;
+    Struct_02015554 *unknown_28_;
+    Struct_02015554 *unknown_2c_;
+    Struct_02015554 *unknown_30_;
     union {
-        short targetAngle;
-        unsigned short animationState;
+        short unknown_34_;
+        unsigned short unknown1_34_;
     };
     union {
-        short rotationSpeed;
-        unsigned short delay;
+        short unknown_36_;
+        unsigned short unknown1_36_;
     };
-    short angle;
+    short unknown_38_;
     union {
-        unsigned short unknown3a;
-        short movementSpeed;
+        unsigned short unknown_3a_;
+        short unknown1_3a_;
     };
-    Vector3i targetPosition;
-    Vector3i direction;
-    Object3D *object;
-    char unknown58[0x18];
+    Vector3i unknown_3c_;
+    Vector3i unknown_48_;
+    Object3D *unknown_54_;
+    char unknown_58_[0x18];
 };
 
-struct ZoneResourceTree {
-    ZoneResourceNode resources;
-    ZoneResourceRuntimeNode *nodes;
-    Vector3i position;
+struct Struct_020177d4_2 {
+    Struct_02014a24_2 unknown_0_;
+    Struct_02015554 *unknown_44_;
+    Vector3i unknown_48_;
 };
 
-extern "C" void *func_ov017_021b8478(void *object);
+extern "C" void *func_ov017_021b8478(void *arg0);

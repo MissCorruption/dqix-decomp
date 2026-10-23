@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 
 unsigned long long GetCurrentTimestamp(void);
-extern "C" unsigned long long _ll_udiv(unsigned long long dividend, unsigned int divisor, unsigned int flag);
+extern "C" unsigned long long _ll_udiv(unsigned long long arg0, unsigned int arg1, unsigned int arg2);
 
-struct StateObj0201fa2c {
-    unsigned char state;
-    unsigned char f1;
-    unsigned char f2;
-    unsigned char pad3;
-    unsigned short f4;
-    unsigned short pad6;
-    unsigned long long f8;
-    float f10;
+struct Struct_020fdc60_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned long long unknown_8_;
+    float unknown_10_;
 };
 
 // USA: func_0201fa2c
-extern "C" ARM void func_0201fa2c(StateObj0201fa2c* obj, unsigned int arg) {
-    if (obj->state == 1) {
-        if (obj->f1 == 3) {
-            obj->state = 3;
-            obj->f1 = 0;
+extern "C" ARM void func_0201fa2c(Struct_020fdc60_4* arg0, unsigned int arg1) {
+    if (arg0->unknown_0_ == 1) {
+        if (arg0->unknown_1_ == 3) {
+            arg0->unknown_0_ = 3;
+            arg0->unknown_1_ = 0;
             return;
         } else {
-            obj->f10 = 176.0f;
-            obj->f1 = 0;
+            arg0->unknown_10_ = 176.0f;
+            arg0->unknown_1_ = 0;
             return;
         }
     }
-    if (obj->state == 2) {
-        if (obj->f2 != 0) return;
-        if (obj->f4 != 0) {
-            unsigned long long diff = GetCurrentTimestamp() - obj->f8;
-            unsigned long long quotient = _ll_udiv(diff << 6, 0x82ea, 0);
-            if (quotient >= obj->f4) obj->f1 = 4;
+    if (arg0->unknown_0_ == 2) {
+        if (arg0->unknown_2_ != 0) return;
+        if (arg0->unknown_4_ != 0) {
+            unsigned long long var0 = GetCurrentTimestamp() - arg0->unknown_8_;
+            unsigned long long var1 = _ll_udiv(var0 << 6, 0x82ea, 0);
+            if (var1 >= arg0->unknown_4_) arg0->unknown_1_ = 4;
         }
-        if (obj->f1 == 4) {
-            obj->state = 4;
-            obj->f1 = 4;
-            obj->f4 = 0;
+        if (arg0->unknown_1_ == 4) {
+            arg0->unknown_0_ = 4;
+            arg0->unknown_1_ = 4;
+            arg0->unknown_4_ = 0;
         }
-        obj->f10 = 136.0f;
+        arg0->unknown_10_ = 136.0f;
         return;
     }
-    if (obj->state == 3) {
-        obj->f10 = obj->f10 - 6.0f * ((float)arg / 33.333332f);
-        if (obj->f10 < 136.0f) {
-            obj->f10 = 136.0f;
-            obj->state = 2;
+    if (arg0->unknown_0_ == 3) {
+        arg0->unknown_10_ = arg0->unknown_10_ - 6.0f * ((float)arg1 / 33.333332f);
+        if (arg0->unknown_10_ < 136.0f) {
+            arg0->unknown_10_ = 136.0f;
+            arg0->unknown_0_ = 2;
         }
         return;
     }
-    if (obj->state != 4) return;
-    obj->f10 = obj->f10 + 6.0f * ((float)arg / 33.333332f);
-    if (176.0f < obj->f10) {
-        obj->f10 = 176.0f;
-        obj->state = 1;
+    if (arg0->unknown_0_ != 4) return;
+    arg0->unknown_10_ = arg0->unknown_10_ + 6.0f * ((float)arg1 / 33.333332f);
+    if (176.0f < arg0->unknown_10_) {
+        arg0->unknown_10_ = 176.0f;
+        arg0->unknown_0_ = 1;
     }
 }

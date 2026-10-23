@@ -4,88 +4,88 @@
 #include "Combat/WorkRecord.h"
 
 // USA: func_0206db48
-extern "C" ARM void func_0206db48(void *receiver, Rec0206bf2c *record) {
-    Rec0206bf2c *node = (Rec0206bf2c *) func_0206db20(receiver, record->field0);
-    int category;
-    if (record->flagsA_b1) {
-        category = 0;
-    } else if (record->flagsA_b3) {
-        category = 1;
-    } else if (record->field46 >= 0) {
-        category = 2;
-    } else if (record->field5 && !record->field8) {
-        category = 3;
-    } else if (record->field8) {
-        category = 4;
+extern "C" ARM void func_0206db48(void *arg0, Struct_0206bf2c *arg1) {
+    Struct_0206bf2c *var0 = (Struct_0206bf2c *) func_0206db20(arg0, arg1->unknown_0_);
+    int var1;
+    if (arg1->unknown_a_2_) {
+        var1 = 0;
+    } else if (arg1->unknown_a_6_) {
+        var1 = 1;
+    } else if (arg1->unknown_46_ >= 0) {
+        var1 = 2;
+    } else if (arg1->unknown_5_ && !arg1->unknown_8_) {
+        var1 = 3;
+    } else if (arg1->unknown_8_) {
+        var1 = 4;
     } else {
-        category = 5;
+        var1 = 5;
     }
-    if (node != 0) {
-        while (node != 0) {
-            int otherCategory;
-            if (node->flagsA_b1) {
-                otherCategory = 0;
-            } else if (node->flagsA_b3) {
-                otherCategory = 1;
-            } else if (node->field46 >= 0) {
-                otherCategory = 2;
-            } else if (node->field5 && !node->field8) {
-                otherCategory = 3;
-            } else if (node->field8) {
-                otherCategory = 4;
+    if (var0 != 0) {
+        while (var0 != 0) {
+            int var2;
+            if (var0->unknown_a_2_) {
+                var2 = 0;
+            } else if (var0->unknown_a_6_) {
+                var2 = 1;
+            } else if (var0->unknown_46_ >= 0) {
+                var2 = 2;
+            } else if (var0->unknown_5_ && !var0->unknown_8_) {
+                var2 = 3;
+            } else if (var0->unknown_8_) {
+                var2 = 4;
             } else {
-                otherCategory = 5;
+                var2 = 5;
             }
-            bool before = false;
-            if (category < otherCategory) {
-                before = true;
-            } else if (category == otherCategory) {
-                if (category == 4 || category == 1) {
-                    int key      = record->field4 * 1000 + record->field5 * 10 + record->field6;
-                    int otherKey = node->field4 * 1000 + node->field5 * 10 + node->field6;
-                    if (key == otherKey && record->field44 < node->field44) {
-                        before = true;
-                    } else if (key < otherKey) {
-                        before = true;
+            bool var3 = false;
+            if (var1 < var2) {
+                var3 = true;
+            } else if (var1 == var2) {
+                if (var1 == 4 || var1 == 1) {
+                    int var4      = arg1->unknown_4_ * 1000 + arg1->unknown_5_ * 10 + arg1->unknown_6_;
+                    int var5 = var0->unknown_4_ * 1000 + var0->unknown_5_ * 10 + var0->unknown_6_;
+                    if (var4 == var5 && arg1->unknown_44_ < var0->unknown_44_) {
+                        var3 = true;
+                    } else if (var4 < var5) {
+                        var3 = true;
                     }
-                } else if (record->field44 < node->field44) {
-                    before = true;
+                } else if (arg1->unknown_44_ < var0->unknown_44_) {
+                    var3 = true;
                 }
             }
-            if (before) {
+            if (var3) {
                 break;
             }
-            node = node->field70;
+            var0 = var0->unknown_70_;
         }
-        if (node == 0) {
+        if (var0 == 0) {
             return;
         }
-        if (node->field6c == 0) {
-            if (node->field64 != 0) {
-                node->field64->field68 = record;
+        if (var0->unknown_6c_ == 0) {
+            if (var0->unknown_64_ != 0) {
+                var0->unknown_64_->unknown_68_ = arg1;
             }
-            if (node->field68 != 0) {
-                node->field68->field64 = record;
+            if (var0->unknown_68_ != 0) {
+                var0->unknown_68_->unknown_64_ = arg1;
             }
-            record->field64 = node->field64;
-            record->field68 = node->field68;
-            node->field64   = 0;
-            node->field68   = 0;
-            if (record->field64 == 0) {
-                *(Rec0206bf2c **) receiver = record;
+            arg1->unknown_64_ = var0->unknown_64_;
+            arg1->unknown_68_ = var0->unknown_68_;
+            var0->unknown_64_   = 0;
+            var0->unknown_68_   = 0;
+            if (arg1->unknown_64_ == 0) {
+                *(Struct_0206bf2c **) arg0 = arg1;
             }
         }
-        if (node->field6c != 0) {
-            node->field6c->field70 = record;
+        if (var0->unknown_6c_ != 0) {
+            var0->unknown_6c_->unknown_70_ = arg1;
         }
-        record->field6c = node->field6c;
-        record->field70 = node;
-        node->field6c   = record;
+        arg1->unknown_6c_ = var0->unknown_6c_;
+        arg1->unknown_70_ = var0;
+        var0->unknown_6c_   = arg1;
     } else {
-        if (*(Rec0206bf2c **) receiver != 0) {
-            (*(Rec0206bf2c **) receiver)->field64 = record;
+        if (*(Struct_0206bf2c **) arg0 != 0) {
+            (*(Struct_0206bf2c **) arg0)->unknown_64_ = arg1;
         }
-        record->field68            = *(Rec0206bf2c **) receiver;
-        *(Rec0206bf2c **) receiver = record;
+        arg1->unknown_68_            = *(Struct_0206bf2c **) arg0;
+        *(Struct_0206bf2c **) arg0 = arg1;
     }
 }

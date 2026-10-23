@@ -6,61 +6,61 @@
 #define data_020ef7a8 data_020ef698
 #endif
 
-struct Input0202d3e0 { unsigned short field_0x00, status, command; };
-struct State0202d3e0 {
-    char reserved[0x10];
-    int state;
-    int field_0x14;
-    void (*callback)(Input0202d3e0*);
-    char reserved_0x1c[0x34 - 0x1c];
-    int mode;
+struct Struct_0202d3e0 { unsigned short unknown_0_, unknown_2_, unknown_4_; };
+struct Struct_021015a0_4 {
+    char unknown_0_[0x10];
+    int unknown_10_;
+    int unknown_14_;
+    void (*unknown_18_)(Struct_0202d3e0*);
+    char unknown_1c_[0x34 - 0x1c];
+    int unknown_34_;
 };
-extern State0202d3e0 data_021015a0 __attribute__((aligned(4)));
-struct BattleEffectContext;
-extern BattleEffectContext data_021023c0, data_02102be0;
+extern Struct_021015a0_4 data_021015a0 __attribute__((aligned(4)));
+struct Struct_021023c0;
+extern Struct_021023c0 data_021023c0, data_02102be0;
 extern int data_020ef7a8;
 extern "C" void func_0202c848(int);
 extern "C" void func_0202dd98();
 
 // USA: func_0202d3e0
-extern "C" ARM void func_0202d3e0(Input0202d3e0* input) {
-    if (input->status != 0) {
-        if (input->status != 15 && input->status != 9 && input->status != 13) {
-            func_0202c848(input->status);
-            data_021015a0.state = 9;
+extern "C" ARM void func_0202d3e0(Struct_0202d3e0* arg0) {
+    if (arg0->unknown_2_ != 0) {
+        if (arg0->unknown_2_ != 15 && arg0->unknown_2_ != 9 && arg0->unknown_2_ != 13) {
+            func_0202c848(arg0->unknown_2_);
+            data_021015a0.unknown_10_ = 9;
         }
     } else {
-        switch (input->command) {
+        switch (arg0->unknown_4_) {
         case 10:
-            if (data_021015a0.mode == 3) {
-                if (data_021015a0.state == 6) break;
-                if (data_021015a0.state == 4) {
-                    int submitted;
-                    if (data_021015a0.state == 6) submitted = 1;
-                    else if (data_021015a0.state != 4) submitted = 0;
+            if (data_021015a0.unknown_34_ == 3) {
+                if (data_021015a0.unknown_10_ == 6) break;
+                if (data_021015a0.unknown_10_ == 4) {
+                    int var0;
+                    if (data_021015a0.unknown_10_ == 6) var0 = 1;
+                    else if (data_021015a0.unknown_10_ != 4) var0 = 0;
                     else {
-                        data_021015a0.state = 6;
-                        int result = func_020d68b4(&data_021023c0, 13);
-                        if (result == 0) submitted = 1;
-                        else { func_0202c848(result); submitted = 0; }
+                        data_021015a0.unknown_10_ = 6;
+                        int var1 = func_020d68b4(&data_021023c0, 13);
+                        if (var1 == 0) var0 = 1;
+                        else { func_0202c848(var1); var0 = 0; }
                     }
-                    if (!submitted) func_0202dd98();
+                    if (!var0) func_0202dd98();
                     break;
                 }
-            } else if (data_021015a0.mode == 5) {
-                int mask = 15;
-                int result = func_020d5d34(&data_02102be0, 13, mask, 0x74, data_020ef7a8);
-                if (result) {
-                    func_0202c848(result);
+            } else if (data_021015a0.unknown_34_ == 5) {
+                int var2 = 15;
+                int var3 = func_020d5d34(&data_02102be0, 13, var2, 0x74, data_020ef7a8);
+                if (var3) {
+                    func_0202c848(var3);
                     func_0202dd98();
                 } else {
-                    data_021015a0.state = 5;
-                    if (data_021015a0.callback) data_021015a0.callback(input);
+                    data_021015a0.unknown_10_ = 5;
+                    if (data_021015a0.unknown_18_) data_021015a0.unknown_18_(arg0);
                 }
                 break;
             }
-            data_021015a0.state = 4;
-            if (data_021015a0.callback) data_021015a0.callback(input);
+            data_021015a0.unknown_10_ = 4;
+            if (data_021015a0.unknown_18_) data_021015a0.unknown_18_(arg0);
             break;
         case 11:
         case 12:

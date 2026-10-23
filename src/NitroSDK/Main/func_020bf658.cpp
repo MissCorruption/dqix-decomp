@@ -1,74 +1,74 @@
 #include <globaldefs.h>
 
-struct Pair020bf658 { unsigned int a; unsigned int b; };
+struct Struct_020bf658 { unsigned int unknown_0_; unsigned int unknown_4_; };
 
-struct Obj020bf658 {
-    char pad0[0xc0];
-    unsigned char state;
-    char pad1[0xc4 - 0xc1];
-    unsigned short field0xc4;
-    char pad2[0x110 - 0xc6];
-    unsigned int flags0x110;
-    char pad3[0x13c - 0x114];
-    int (*fn0x13c)(int, Pair020bf658*, Pair020bf658*, int);
-    int field0x140;
-    int field0x144;
-    int field0x148;
-    char pad4[0x160 - 0x14c];
-    int field0x160;
-    int (*fn0x164)(void*, unsigned int);
-    void (*fn0x168)(void*);
+struct Struct_020bf658_2 {
+    char unknown_0_[0xc0];
+    unsigned char unknown_c0_;
+    char unknown_c1_[0xc4 - 0xc1];
+    unsigned short unknown_c4_;
+    char unknown_c6_[0x110 - 0xc6];
+    unsigned int unknown_110_;
+    char unknown_114_[0x13c - 0x114];
+    int (*unknown_13c_)(int, Struct_020bf658*, Struct_020bf658*, int);
+    int unknown_140_;
+    int unknown_144_;
+    int unknown_148_;
+    char unknown_14c_[0x160 - 0x14c];
+    int unknown_160_;
+    int (*unknown_164_)(void*, unsigned int);
+    void (*unknown_168_)(void*);
 };
 
-extern "C" void* func_020bd5e4(int index);
-extern "C" void func_020bffc4(void* obj, unsigned int id);
+extern "C" void* func_020bd5e4(int arg0);
+extern "C" void func_020bffc4(void* arg0, unsigned int arg1);
 
 // USA: func_020bf658
-extern "C" ARM void func_020bf658(struct Obj020bf658* obj) {
-    Pair020bf658 p1, p2;
-    unsigned int oldC0;
-    unsigned short oldC4, newC4;
-    unsigned int* entry;
-    unsigned int id;
-    unsigned long long prod;
+extern "C" ARM void func_020bf658(struct Struct_020bf658_2* arg0) {
+    Struct_020bf658 var0, var1;
+    unsigned int var2;
+    unsigned short var3, var4;
+    unsigned int* var5;
+    unsigned int var6;
+    unsigned long long var7;
 
-    p1.a = obj->field0x148;
-    p1.b = obj->field0x144;
-    p2.a = obj->field0x144;
-    p2.b = 0;
-    if (!obj->fn0x13c(0, &p1, &p2, obj->field0x140)) return;
+    var0.unknown_0_ = arg0->unknown_148_;
+    var0.unknown_4_ = arg0->unknown_144_;
+    var1.unknown_0_ = arg0->unknown_144_;
+    var1.unknown_4_ = 0;
+    if (!arg0->unknown_13c_(0, &var0, &var1, arg0->unknown_140_)) return;
 
-    entry = (unsigned int*)func_020bd5e4(p2.a);
-    if (entry == 0) return;
+    var5 = (unsigned int*)func_020bd5e4(var1.unknown_0_);
+    if (var5 == 0) return;
 
-    oldC0 = obj->state;
-    oldC4 = obj->field0xc4;
-    obj->fn0x168(obj);
+    var2 = arg0->unknown_c0_;
+    var3 = arg0->unknown_c4_;
+    arg0->unknown_168_(arg0);
 
-    id = *entry;
-    func_020bffc4(obj, id);
+    var6 = *var5;
+    func_020bffc4(arg0, var6);
 
-    id = *entry;
-    if (!obj->fn0x164(obj, id)) return;
+    var6 = *var5;
+    if (!arg0->unknown_164_(arg0, var6)) return;
 
-    newC4 = obj->field0xc4;
-    if (oldC4 != newC4) return;
+    var4 = arg0->unknown_c4_;
+    if (var3 != var4) return;
 
-    if (oldC0 == 0) {
-        if (obj->state != 0) return;
+    if (var2 == 0) {
+        if (arg0->unknown_c0_ != 0) return;
     }
-    if (oldC0 != 0) {
-        if (obj->state == 0) return;
+    if (var2 != 0) {
+        if (arg0->unknown_c0_ == 0) return;
     }
 
-    obj->field0x144 = p2.a;
-    prod = (unsigned long long)obj->field0xc4 * (unsigned long long)p2.b;
-    obj->field0x160 = (int)(prod / 1000);
+    arg0->unknown_144_ = var1.unknown_0_;
+    var7 = (unsigned long long)arg0->unknown_c4_ * (unsigned long long)var1.unknown_4_;
+    arg0->unknown_160_ = (int)(var7 / 1000);
 
-    if (obj->field0x160 != 0 && obj->state == 2) {
-        obj->flags0x110 |= 0x10;
+    if (arg0->unknown_160_ != 0 && arg0->unknown_c0_ == 2) {
+        arg0->unknown_110_ |= 0x10;
     } else {
-        obj->flags0x110 &= ~0x10;
+        arg0->unknown_110_ &= ~0x10;
     }
-    obj->flags0x110 &= ~0x20;
+    arg0->unknown_110_ &= ~0x20;
 }

@@ -2,31 +2,31 @@
 
 // KEEP-NAME: the ROM symbol is the C library name, not a func_ tag.
 // USA: func_0200423c
-extern "C" ARM char* strstr(const char* hay, const char* needle) {
-    unsigned char first;
-    if (needle == 0 || (first = *(const unsigned char*)needle) == 0) {
-        return (char*)hay;
+extern "C" ARM char* strstr(const char* arg0, const char* arg1) {
+    unsigned char var0;
+    if (arg1 == 0 || (var0 = *(const unsigned char*)arg1) == 0) {
+        return (char*)arg0;
     }
 
-    unsigned char h = *(const unsigned char*)hay;
-    char* p = (char*)hay + 1;
-    if (h != 0) {
+    unsigned char var1 = *(const unsigned char*)arg0;
+    char* var2 = (char*)arg0 + 1;
+    if (var1 != 0) {
         do {
-        if (h == first) {
-            const unsigned char* q = (const unsigned char*)p;
-            const unsigned char* n = (const unsigned char*)needle + 1;
-            unsigned char nc;
-            unsigned char hc;
+        if (var1 == var0) {
+            const unsigned char* var3 = (const unsigned char*)var2;
+            const unsigned char* var4 = (const unsigned char*)arg1 + 1;
+            unsigned char var5;
+            unsigned char var6;
             do {
-                nc = *n++;
-                hc = *q++;
-            } while (hc == nc && hc != 0);
-            if (nc == 0) {
-                return p - 1;
+                var5 = *var4++;
+                var6 = *var3++;
+            } while (var6 == var5 && var6 != 0);
+            if (var5 == 0) {
+                return var2 - 1;
             }
         }
-            h = *(const unsigned char*)p++;
-        } while (h != 0);
+            var1 = *(const unsigned char*)var2++;
+        } while (var1 != 0);
     }
     return 0;
 }

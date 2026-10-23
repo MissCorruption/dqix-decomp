@@ -6,102 +6,102 @@
 #include "std_library_functions.h"
 
 struct GameObject;
-struct CombatState020e3c34;
-extern "C" void func_020e3c34(CombatState020e3c34* p);
-extern "C" GameObject* func_0200ff1c(GameState* gameState, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" int func_020100a8(GameState* gameState);
-extern "C" int func_020897b4(int a, int b, int c, int d, int e, int f, int g, int h, int i);
-extern "C" int func_ov017_0218f5a4(char* self, int combatantId, int flag2, int flag3, int flag4);
+struct Struct_020e3b8c_2;
+extern "C" void func_020e3c34(Struct_020e3b8c_2* arg0);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" int func_020897b4(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
+extern "C" int func_ov017_0218f5a4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 extern char* data_020ee9cc[];
 extern char data_020f2cbc;
 
-struct CombatState020e3c34 {
-    unsigned char header;
-    unsigned char byte1;
-    unsigned char pad2[6];
-    unsigned char byte8;
-    signed char byte9;
-    short half_a;
-    int word_c;
-    int word_10;
-    int words_14[2];
-    int word_1c;
-    int word_20;
-    unsigned char byte_24;
+struct Struct_020e3b8c_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[6];
+    unsigned char unknown_8_;
+    signed char unknown_9_;
+    short unknown_a_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_[2];
+    int unknown_1c_;
+    int unknown_20_;
+    unsigned char unknown_24_;
 };
 
 // USA: func_020e3c94
-extern "C" ARM void func_020e3c94(CombatState020e3c34* obj) {
-    GameState* gs = GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GameObject* combatant = func_0200ff1c(gs, obj->byte9);
-    unsigned char* base = 0;
+extern "C" ARM void func_020e3c94(Struct_020e3b8c_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    GameObject* var2 = func_0200ff1c(var0, arg0->unknown_9_);
+    unsigned char* var3 = 0;
 
-    if (combatant) {
-        base = (unsigned char*)func_02053c6c((unsigned char*)combatant);
+    if (var2) {
+        var3 = (unsigned char*)func_02053c6c((unsigned char*)var2);
     }
 
-    if (obj->word_1c == 0) {
-        if (combatant == 0) {
-            func_020e3c34(obj);
-            obj->byte1 = 1;
+    if (arg0->unknown_1c_ == 0) {
+        if (var2 == 0) {
+            func_020e3c34(arg0);
+            arg0->unknown_1_ = 1;
             return;
         }
-        char buf[80];
-        sprintf(buf, &data_020f2cbc, obj->word_c);
-        const char* names[2];
-        names[0] = buf;
-        names[1] = data_020ee9cc[1];
-        for (int i = 0; i < 2; i++) {
-            obj->words_14[i] = loader->QueueLoadFile(names[i], 0);
+        char var4[80];
+        sprintf(var4, &data_020f2cbc, arg0->unknown_c_);
+        const char* var5[2];
+        var5[0] = var4;
+        var5[1] = data_020ee9cc[1];
+        for (int var6 = 0; var6 < 2; var6++) {
+            arg0->unknown_14_[var6] = var1->QueueLoadFile(var5[var6], 0);
         }
-        obj->word_1c = 1;
+        arg0->unknown_1c_ = 1;
     }
 
-    if (obj->word_1c != 1) {
+    if (arg0->unknown_1c_ != 1) {
         return;
     }
 
-    for (int i = 0; i < 2; i++) {
-        if (loader->GetTaskStatus(obj->words_14[i]) == 0) {
+    for (int var7 = 0; var7 < 2; var7++) {
+        if (var1->GetTaskStatus(arg0->unknown_14_[var7]) == 0) {
             return;
         }
     }
 
-    void* ptr0;
-    void* ptr1;
-    unsigned int len0;
-    unsigned int len1;
-    loader->GetLoadedFileByID(obj->words_14[0], &ptr0, &len0);
-    loader->GetLoadedFileByID(obj->words_14[1], &ptr1, &len1);
+    void* var8;
+    void* var9;
+    unsigned int var10;
+    unsigned int var11;
+    var1->GetLoadedFileByID(arg0->unknown_14_[0], &var8, &var10);
+    var1->GetLoadedFileByID(arg0->unknown_14_[1], &var9, &var11);
 
-    unsigned short v = 0;
-    if (base) {
-        if (obj->word_20 & 1) {
-            v = *(unsigned short*)(base + 0x564);
+    unsigned short var12 = 0;
+    if (var3) {
+        if (arg0->unknown_20_ & 1) {
+            var12 = *(unsigned short*)(var3 + 0x564);
         }
     }
 
-    func_020897b4(obj->byte9, obj->half_a, obj->word_c, obj->byte8,
-                 obj->byte_24, (int)ptr0, (int)len0, (int)ptr1, (int)len1);
+    func_020897b4(arg0->unknown_9_, arg0->unknown_a_, arg0->unknown_c_, arg0->unknown_8_,
+                 arg0->unknown_24_, (int)var8, (int)var10, (int)var9, (int)var11);
 
-    if (base) {
-        if ((obj->word_20 & 1) && (obj->byte9 == func_020100a8(gs))) {
-            *(unsigned short*)(base + 0x564) = v;
+    if (var3) {
+        if ((arg0->unknown_20_ & 1) && (arg0->unknown_9_ == func_020100a8(var0))) {
+            *(unsigned short*)(var3 + 0x564) = var12;
         }
-        if (obj->word_20 & 2) {
-            *(int*)((base + obj->word_c * 4) + 0x138) = obj->word_10;
+        if (arg0->unknown_20_ & 2) {
+            *(int*)((var3 + arg0->unknown_c_ * 4) + 0x138) = arg0->unknown_10_;
         }
-        if (obj->word_20 & 4) {
-            func_ov017_0218f5a4((char*)GetGameResources(), obj->byte9, 0, 0, 1);
+        if (arg0->unknown_20_ & 4) {
+            func_ov017_0218f5a4((char*)GetGameResources(), arg0->unknown_9_, 0, 0, 1);
         }
     }
 
-    for (int i = 0; i < 2; i++) {
-        loader->RemoveTask(obj->words_14[i]);
+    for (int var13 = 0; var13 < 2; var13++) {
+        var1->RemoveTask(arg0->unknown_14_[var13]);
     }
 
-    func_020e3c34(obj);
-    obj->byte1 = 1;
+    func_020e3c34(arg0);
+    arg0->unknown_1_ = 1;
 }

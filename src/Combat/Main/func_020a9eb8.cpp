@@ -10,756 +10,756 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Struct020a99d0 {
-    unsigned short header[70];
-    unsigned char flagBits[0x15f];
-    unsigned char block[0xd5];
-    unsigned short counters[6];
-    unsigned char extra[102];
-    unsigned char last;
+struct Struct_020a99d0_3 {
+    unsigned short unknown_0_[70];
+    unsigned char unknown_8c_[0x15f];
+    unsigned char unknown_1eb_[0xd5];
+    unsigned short unknown_2c0_[6];
+    unsigned char unknown_2cc_[102];
+    unsigned char unknown_332_;
 };
 
-struct BattleMemberData {
-    signed char entryId : 6;
-    unsigned char unk1[0x23c - 1];
+struct Struct_020a95a4_7 {
+    signed char unknown_0_0_ : 6;
+    unsigned char unknown_1_[0x23c - 1];
 };
 
-struct BattleData {
-    unsigned char head[0x1d4];
-    unsigned char roster[0xe04 - 0x1d4];
-    unsigned char tactics[0x128];
-    unsigned char unkf2c[0xf68 - 0xf2c];
-    int valueF68;
-    int valueF6c;
-    int valueF70;
-    int valueF74;
-    unsigned char unkf78[5];
-    unsigned char byteF7d;
-    unsigned char unkf7e[2];
-    BattleMemberData members[13];
-    unsigned char memberCount;
-    unsigned char extraIds[7];
-    unsigned int areaId;
+struct Struct_020a95a4_8 {
+    unsigned char unknown_0_[0x1d4];
+    unsigned char unknown_1d4_[0xe04 - 0x1d4];
+    unsigned char unknown_e04_[0x128];
+    unsigned char unknown_f2c_[0xf68 - 0xf2c];
+    int unknown_f68_;
+    int unknown_f6c_;
+    int unknown_f70_;
+    int unknown_f74_;
+    unsigned char unknown_f78_[5];
+    unsigned char unknown_f7d_;
+    unsigned char unknown_f7e_[2];
+    Struct_020a95a4_7 unknown_f80_[13];
+    unsigned char unknown_2c8c_;
+    unsigned char unknown_2c8d_[7];
+    unsigned int unknown_2c94_;
 };
 
-struct FieldSubState {
-    unsigned char current[0xd98];
-    unsigned char saved[0xd98];
-    unsigned char unk1b30[4];
-    int value1b34;
-    int value1b38;
-    int value1b3c;
-    unsigned char unk1b40[4];
-    int value1b44;
-    int savedPosA;
-    int savedPosB;
-    int posA;
-    int posB;
-    unsigned char unk1b58[9];
-    unsigned char byte1b61;
+struct Struct_020a95a4 {
+    unsigned char unknown_0_[0xd98];
+    unsigned char unknown_d98_[0xd98];
+    unsigned char unknown_1b30_[4];
+    int unknown_1b34_;
+    int unknown_1b38_;
+    int unknown_1b3c_;
+    unsigned char unknown_1b40_[4];
+    int unknown_1b44_;
+    int unknown_1b48_;
+    int unknown_1b4c_;
+    int unknown_1b50_;
+    int unknown_1b54_;
+    unsigned char unknown_1b58_[9];
+    unsigned char unknown_1b61_;
 };
 
-struct FieldState {
-    unsigned short mapId;
+struct Struct_020a95a4_2 {
+    unsigned short unknown_0_;
 #if defined(jpn)
-    unsigned char unk2[0x860 - 2];
+    unsigned char unknown_2_[0x860 - 2];
 #else
-    unsigned char unk2[0x840 - 2];
+    unsigned char unknown1_2_[0x840 - 2];
 #endif
-    FieldSubState sub;
+    Struct_020a95a4 unknown_840_;
 #if defined(jpn)
-    unsigned char unk23a4[0x2774 - 0x23a4 + 0x20];
+    unsigned char unknown_23c4_[0x2774 - 0x23a4 + 0x20];
 #else
-    unsigned char unk23a4[0x2774 - 0x23a4];
+    unsigned char unknown_23a4_[0x2774 - 0x23a4];
 #endif
-    Vector3i savedPos;
-    int savedValue;
-    short savedAngle;
-    unsigned short savedDir;
-    unsigned char savedFlag;
-    unsigned char unk2789[0x2794 - 0x2789];
-    int savedExtra;
-    Vector3i pos;
-    int value;
-    short angle;
-    unsigned short dir;
-    unsigned char flag;
-    unsigned char unk27ad[3];
-    int extra;
-    unsigned short savedCountA;
-    unsigned short savedCountB;
-    unsigned char unk27b8[0x27d0 - 0x27b8];
-    unsigned char savedCountC;
-    unsigned char countC;
-    unsigned short countA;
-    unsigned short countB;
+    Vector3i unknown_2774_;
+    int unknown_2780_;
+    short unknown_2784_;
+    unsigned short unknown_2786_;
+    unsigned char unknown_2788_;
+    unsigned char unknown_2789_[0x2794 - 0x2789];
+    int unknown_2794_;
+    Vector3i unknown_2798_;
+    int unknown_27a4_;
+    short unknown_27a8_;
+    unsigned short unknown_27aa_;
+    unsigned char unknown_27ac_;
+    unsigned char unknown_27ad_[3];
+    int unknown_27b0_;
+    unsigned short unknown_27b4_;
+    unsigned short unknown_27b6_;
+    unsigned char unknown_27b8_[0x27d0 - 0x27b8];
+    unsigned char unknown_27d0_;
+    unsigned char unknown_27d1_;
+    unsigned short unknown_27d2_;
+    unsigned short unknown_27d4_;
 };
 
-struct SessionState {
-    int state;
-    unsigned char unk4[0x100d - 4];
-    unsigned char subState;
+struct Struct_ov031_0224e6e0 {
+    int unknown_0_;
+    unsigned char unknown_4_[0x100d - 4];
+    unsigned char unknown_100d_;
 };
 
-struct Global02109418 {
-    unsigned char block0[0xa0];
-    unsigned char unka0[0x178 - 0xa0];
-    unsigned char block178[0x330];
-    unsigned char block4a8[0x1a];
+struct Struct_020a95a4_3 {
+    unsigned char unknown_0_[0xa0];
+    unsigned char unknown_a0_[0x178 - 0xa0];
+    unsigned char unknown_178_[0x330];
+    unsigned char unknown_4a8_[0x1a];
 };
 
-struct Global02109bf4 {
-    unsigned char unk0[0xc8];
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
+struct Struct_02109bf4_7 {
+    unsigned char unknown_0_[0xc8];
+    unsigned char unknown_c8_0_ : 1;
+    unsigned char unknown_c8_1_ : 1;
+    unsigned char unknown_c8_2_ : 1;
 };
 
-struct TreasureMapList {
-    unsigned char numMaps;
-    unsigned char padding;
-    TreasureMapMetadata maps[99];
+struct Struct_020a9eb8 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    TreasureMapMetadata unknown_2_[99];
 };
 
-struct GameStateSaveView {
-    unsigned char unk0[0x3e4];
-    float savedDayTimer;
+struct Struct_020a9eb8_2 {
+    unsigned char unknown_0_[0x3e4];
+    float unknown_3e4_;
 #if defined(jpn)
-    unsigned char unk3e8[0x569c - 0x3e8 - 0x260];
+    unsigned char unknown_3e8_[0x569c - 0x3e8 - 0x260];
 #else
-    unsigned char unk3e8[0x569c - 0x3e8];
+    unsigned char unknown1_3e8_[0x569c - 0x3e8];
 #endif
-    unsigned char block569c[0x7c];
-    unsigned char unk5718[0x5cc8 - 0x5718];
-    unsigned char saving;
-    unsigned char unk5cc9[7];
-    unsigned char grottoBits[10];
-    unsigned char byte5cda;
-    unsigned char unk5cdb;
-    unsigned char block5cdc[0x190];
-    unsigned char block5e6c[0x110];
-    int value5f7c;
-    unsigned char block5f80[0x200];
-    unsigned char block6180[0x200];
-    unsigned char unk6380[0x63dc - 0x6380];
-    unsigned char byte63dc;
+    unsigned char unknown_569c_[0x7c];
+    unsigned char unknown_5718_[0x5cc8 - 0x5718];
+    unsigned char unknown_5cc8_;
+    unsigned char unknown_5cc9_[7];
+    unsigned char unknown_5cd0_[10];
+    unsigned char unknown_5cda_;
+    unsigned char unknown_5cdb_;
+    unsigned char unknown_5cdc_[0x190];
+    unsigned char unknown_5e6c_[0x110];
+    int unknown_5f7c_;
+    unsigned char unknown_5f80_[0x200];
+    unsigned char unknown_6180_[0x200];
+    unsigned char unknown_6380_[0x63dc - 0x6380];
+    unsigned char unknown_63dc_;
 #if defined(jpn)
-    unsigned char unk63dd[0x64f4 - 0x63dd + 0x20];
+    unsigned char unknown_617d_[0x64f4 - 0x63dd + 0x20];
 #else
-    unsigned char unk63dd[0x64f4 - 0x63dd];
+    unsigned char unknown_63dd_[0x64f4 - 0x63dd];
 #endif
-    TreasureMapList treasureMaps;
-    unsigned char unk6fca[2];
-    unsigned char grottoLarge[0x200];
-    unsigned int grottoFlags;
-    unsigned char unk71d0[0x71fc - 0x71d0];
-    unsigned char block71fc[0x2c4];
-    unsigned char unk74c0[0x74fe - 0x74c0];
-    struct Bytes6 { unsigned char v[6]; } name74fe;
-    unsigned char block7504[0xec];
-    unsigned char block75f0[0x4d0];
-    unsigned char block7ac0[0x3b4];
-    int value7e74;
+    Struct_020a9eb8 unknown_64f4_;
+    unsigned char unknown_6fca_[2];
+    unsigned char unknown_6fcc_[0x200];
+    unsigned int unknown_71cc_;
+    unsigned char unknown_71d0_[0x71fc - 0x71d0];
+    unsigned char unknown_71fc_[0x2c4];
+    unsigned char unknown_74c0_[0x74fe - 0x74c0];
+    struct Struct_020a9eb8_3 { unsigned char unknown_0_[6]; } unknown_74fe_;
+    unsigned char unknown_7504_[0xec];
+    unsigned char unknown_75f0_[0x4d0];
+    unsigned char unknown_7ac0_[0x3b4];
+    int unknown_7e74_;
 };
 
-struct MonsterRecord {
-    unsigned char unk0[0x454];
-    unsigned char name[0x10];
+struct Struct_020a95a4_5 {
+    unsigned char unknown_0_[0x454];
+    unsigned char unknown_454_[0x10];
 };
 
-struct Entry_02028bd0 {
-    unsigned short id;
-    unsigned short low : 4;
-    unsigned short area : 12;
-    unsigned short value;
+struct Struct_020fdd44 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 4;
+    unsigned short unknown_2_4_ : 12;
+    unsigned short unknown_4_;
 };
 
-struct EntryList_203dce4;
-struct Vec3s32_020c3030;
-struct OutVec3s16_0203e524 {
-    short x, y, z;
+struct Struct_0203dce4_2;
+struct Struct_02028460_3;
+struct Struct_0203e524 {
+    short unknown_0_, unknown_2_, unknown_4_;
 };
-struct EntryTable02087574;
-struct Entry02087574 {
-    unsigned char data[0x14];
-};
-
-struct BattleSave {
-    BattleMemberData members[13];
-    unsigned char memberCount;
-    unsigned char ids[4];
-    unsigned char idCount;
-    struct Name { unsigned char v[0x12]; } names[4];
-    unsigned char unk1d5a[2];
-    unsigned char head[0x1d4];
-    unsigned short rosterWords[0x3f0];
-    unsigned char rosterBytes[0x3f0];
-    unsigned char rosterFlags[8];
-    unsigned char tactics[0x128];
-    int valueF6c;
-    int valueF68;
-    int valueF70;
-    int valueF74;
-    int zero;
-    unsigned char extraIds[7];
-    unsigned char unk2c4b;
-    unsigned short areaId;
-    unsigned short zero2;
-    unsigned short words[4];
-    unsigned char globalByte;
-    unsigned char globalByte2;
-    unsigned char byteF7d;
-    unsigned char byte63dc;
-    unsigned short dir;
-    short angle;
-    Vector3i pos;
-    int value;
-    int extra;
-    unsigned char flag;
-    unsigned char countA;
-    unsigned char countB;
-    unsigned char countC;
-    GameStateSaveView::Bytes6 name;
-    unsigned char unk2c7e[2];
-    int posA;
-    int posB;
-    unsigned char block4a8[0x1a];
-    unsigned char inspect;
-    unsigned char unk2ca3[5];
+struct Struct_02087574;
+struct Struct_02087574_2 {
+    unsigned char unknown_0_[0x14];
 };
 
-struct SaveHeader {
-    int checksum;
-    struct Info {
-        unsigned char resumed;
-        unsigned char version;
-        unsigned char unk2[2];
-        char name[8];
-        float dayTimer;
-    } info;
+struct Struct_020a95a4_6 {
+    Struct_020a95a4_7 unknown_0_[13];
+    unsigned char unknown_1d0c_;
+    unsigned char unknown_1d0d_[4];
+    unsigned char unknown_1d11_;
+    struct Struct_01ff85b8 { unsigned char unknown_0_[0x12]; } unknown_1d12_[4];
+    unsigned char unknown_1d5a_[2];
+    unsigned char unknown_1d5c_[0x1d4];
+    unsigned short unknown_1f30_[0x3f0];
+    unsigned char unknown_2710_[0x3f0];
+    unsigned char unknown_2b00_[8];
+    unsigned char unknown_2b08_[0x128];
+    int unknown_2c30_;
+    int unknown_2c34_;
+    int unknown_2c38_;
+    int unknown_2c3c_;
+    int unknown_2c40_;
+    unsigned char unknown_2c44_[7];
+    unsigned char unknown_2c4b_;
+    unsigned short unknown_2c4c_;
+    unsigned short unknown_2c4e_;
+    unsigned short unknown_2c50_[4];
+    unsigned char unknown_2c58_;
+    unsigned char unknown_2c59_;
+    unsigned char unknown_2c5a_;
+    unsigned char unknown_2c5b_;
+    unsigned short unknown_2c5c_;
+    short unknown_2c5e_;
+    Vector3i unknown_2c60_;
+    int unknown_2c6c_;
+    int unknown_2c70_;
+    unsigned char unknown_2c74_;
+    unsigned char unknown_2c75_;
+    unsigned char unknown_2c76_;
+    unsigned char unknown_2c77_;
+    Struct_020a9eb8_2::Struct_020a9eb8_3 unknown_2c78_;
+    unsigned char unknown_2c7e_[2];
+    int unknown_2c80_;
+    int unknown_2c84_;
+    unsigned char unknown_2c88_[0x1a];
+    unsigned char unknown_2ca2_;
+    unsigned char unknown_2ca3_[5];
 };
 
-struct StatsSave {
-    int value5cb0;
-    int value5cb4;
-    int value5cb8;
-    int value5cbc;
-    Struct020a99d0 record;
+struct Struct_020a9eb8_4 {
+    int unknown_0_;
+    struct Struct_020a9eb8_5 {
+        unsigned char unknown_0_;
+        unsigned char unknown_1_;
+        unsigned char unknown_2_[2];
+        char unknown_4_[8];
+        float unknown_c_;
+    } unknown_4_;
 };
 
-struct Block194 {
-    unsigned char value;
-    unsigned char unk1[3];
-    unsigned char data[0x190];
+struct Struct_020a9eb8_6 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    Struct_020a99d0_3 unknown_10_;
 };
 
-struct FieldSave {
-    unsigned char data[0xd98];
-    int value1b38;
-    int value1b34;
-    int value1b44;
-    unsigned short value1b3c;
-    unsigned char byte1b61;
-    unsigned char zero;
+struct Struct_020a9eb8_7 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned char unknown_4_[0x190];
 };
 
-struct ItemSave {
-    unsigned char blockA[0x200];
-    unsigned char blockB[0x200];
-    int value;
+struct Struct_020a9eb8_8 {
+    unsigned char unknown_0_[0xd98];
+    int unknown_d98_;
+    int unknown_d9c_;
+    int unknown_da0_;
+    unsigned short unknown_da4_;
+    unsigned char unknown_da6_;
+    unsigned char unknown_da7_;
 };
 
-struct PositionSave {
-    unsigned short objectId;
-    unsigned short rotation;
-    Vector3i pos;
-    unsigned short area;
-    unsigned short entryValue;
-    unsigned char globalBit;
-    unsigned char distance;
-    OutVec3s16_0203e524 nearest;
+struct Struct_020a9eb8_9 {
+    unsigned char unknown_0_[0x200];
+    unsigned char unknown_200_[0x200];
+    int unknown_400_;
 };
 
-struct GrottoSave {
-    unsigned char largeBuffer[0x200];
-    unsigned int flags;
-    unsigned char bits[10];
+struct Struct_020a9eb8_10 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    Vector3i unknown_4_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_;
+    unsigned char unknown_15_;
+    Struct_0203e524 unknown_16_;
 };
 
-struct EntrySave {
-    unsigned short valid;
-    unsigned short count;
-    Entry02087574 entries[3];
+struct Struct_020a9eb8_11 {
+    unsigned char unknown_0_[0x200];
+    unsigned int unknown_200_;
+    unsigned char unknown_204_[10];
 };
 
-struct SaveBody {
-    unsigned int checksum;
-    BattleSave battle;
-    StatsSave stats;
-    unsigned char global0[0xa0];
-    unsigned char global178[0x330];
-    Block194 block194;
-    unsigned char block75f0[0x4d0];
-    unsigned char block7ac0[0x3b4];
-    unsigned char block7504[0xec];
-    unsigned char field[0xd98];
-    FieldSave fieldSaved;
-    ItemSave items;
-    TreasureMapList treasureMaps;
-    unsigned char unk68de[2];
-    unsigned char block569c[0x7c];
-    PositionSave position;
-    unsigned char block71fc[0x2c4];
-    unsigned char block5e6c[0x110];
-    GrottoSave grotto;
-    unsigned char unk6f5c[4];
+struct Struct_020a9eb8_12 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    Struct_02087574_2 unknown_4_[3];
 };
 
-struct SaveFile {
-    unsigned char header[0x84];
-    SaveBody body;
+struct Struct_020a9eb8_13 {
+    unsigned int unknown_0_;
+    Struct_020a95a4_6 unknown_4_;
+    Struct_020a9eb8_6 unknown_2cac_;
+    unsigned char unknown_2ff0_[0xa0];
+    unsigned char unknown_3090_[0x330];
+    Struct_020a9eb8_7 unknown_33c0_;
+    unsigned char unknown_3554_[0x4d0];
+    unsigned char unknown_3a24_[0x3b4];
+    unsigned char unknown_3dd8_[0xec];
+    unsigned char unknown_3ec4_[0xd98];
+    Struct_020a9eb8_8 unknown_4c5c_;
+    Struct_020a9eb8_9 unknown_5a04_;
+    Struct_020a9eb8 unknown_5e08_;
+    unsigned char unknown_68de_[2];
+    unsigned char unknown_68e0_[0x7c];
+    Struct_020a9eb8_10 unknown_695c_;
+    unsigned char unknown_6978_[0x2c4];
+    unsigned char unknown_6c3c_[0x110];
+    Struct_020a9eb8_11 unknown_6d4c_;
+    unsigned char unknown_6f5c_[4];
 };
 
-struct SaveTask {
-    unsigned char state;
-    SaveFile* file;
+struct Struct_020a9eb8_14 {
+    unsigned char unknown_0_[0x84];
+    Struct_020a9eb8_13 unknown_84_;
 };
 
-extern "C" int func_01ff85b8(void* buf, int size);
-extern "C" FieldState* func_02012fe4(void);
-extern "C" SessionState* func_0202ae18(void);
-extern "C" Struct020a99d0* func_0205ec34(void);
-extern "C" int func_0202c540(SessionState* session);
-extern "C" int func_0202c508(SessionState* session);
-extern "C" int func_02075acc(int offset, void* buf, unsigned int size, int flag);
-extern "C" void func_020830cc(MonsterRecord* record, BattleMemberData* dst);
+struct Struct_020a9eb8_15 {
+    unsigned char unknown_0_;
+    Struct_020a9eb8_14* unknown_4_;
+};
+
+extern "C" int func_01ff85b8(void* arg0, int arg1);
+extern "C" Struct_020a95a4_2* func_02012fe4(void);
+extern "C" Struct_ov031_0224e6e0* func_0202ae18(void);
+extern "C" Struct_020a99d0_3* func_0205ec34(void);
+extern "C" int func_0202c540(Struct_ov031_0224e6e0* arg0);
+extern "C" int func_0202c508(Struct_ov031_0224e6e0* arg0);
+extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
+extern "C" void func_020830cc(Struct_020a95a4_5* arg0, Struct_020a95a4_7* arg1);
 extern "C" void func_020a0c0c(void);
-extern "C" void func_020a0cc4(unsigned int size);
+extern "C" void func_020a0cc4(unsigned int arg0);
 
-extern "C" Global02109418* func_02094d6c(void);
-extern "C" int func_020100a8(GameState* gs);
-extern "C" int func_0202b7d8(int* p);
-extern "C" int func_0202ba00(int* p);
-extern "C" int func_0206dfb0(int base, unsigned char* bits, int bit);
-extern "C" MonsterRecord* func_02053c6c(unsigned char* obj);
-extern "C" unsigned short* func_0207c5f8(unsigned char* roster, unsigned int idx);
-extern "C" unsigned char* func_0207c60c(void* roster, unsigned int idx);
-extern "C" short func_0207c620(unsigned char* roster, unsigned int idx);
-extern "C" unsigned char func_0207c694(unsigned char* roster, unsigned int idx);
-extern "C" unsigned short* func_020120a0(char* gs, unsigned int idx);
-extern "C" unsigned char func_0209ca98(char* p);
-extern "C" unsigned char func_0205ea18(unsigned char* p);
-extern "C" int func_0201079c(char* gs);
-extern "C" int func_020107d0(char* gs);
-extern "C" int func_02010804(char* gs);
-extern "C" int func_0201081c(char* gs);
-extern "C" void func_020ac4f8(int running);
-extern "C" int func_0201b588(int mapId);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* p);
-extern "C" int func_02011494(char* gs, void* out);
-extern "C" void func_020a99d0(Struct020a99d0* dst, Struct020a99d0* src);
-extern "C" int func_020ac7b4(int flag);
+extern "C" Struct_020a95a4_3* func_02094d6c(void);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202ba00(int* arg0);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" Struct_020a95a4_5* func_02053c6c(unsigned char* arg0);
+extern "C" unsigned short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" unsigned char* func_0207c60c(void* arg0, unsigned int arg1);
+extern "C" short func_0207c620(unsigned char* arg0, unsigned int arg1);
+extern "C" unsigned char func_0207c694(unsigned char* arg0, unsigned int arg1);
+extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
+extern "C" unsigned char func_0209ca98(char* arg0);
+extern "C" unsigned char func_0205ea18(unsigned char* arg0);
+extern "C" int func_0201079c(char* arg0);
+extern "C" int func_020107d0(char* arg0);
+extern "C" int func_02010804(char* arg0);
+extern "C" int func_0201081c(char* arg0);
+extern "C" void func_020ac4f8(int arg0);
+extern "C" int func_0201b588(int arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" int func_02011494(char* arg0, void* arg1);
+extern "C" void func_020a99d0(Struct_020a99d0_3* arg0, Struct_020a99d0_3* arg1);
+extern "C" int func_020ac7b4(int arg0);
 extern "C" void func_ov017_021d0d58(void);
-extern "C" Entry_02028bd0* func_02027ca4(void);
-extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* base, int id);
-extern "C" EntryList_203dce4* func_0203cf4c(void);
-extern "C" int func_0203e524(EntryList_203dce4* list, Vec3s32_020c3030* pos, OutVec3s16_0203e524* out);
-extern "C" Entry02087574* func_02087574(EntryTable02087574* table, int id);
+extern "C" Struct_020fdd44* func_02027ca4(void);
+extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+extern "C" Struct_0203dce4_2* func_0203cf4c(void);
+extern "C" int func_0203e524(Struct_0203dce4_2* arg0, Struct_02028460_3* arg1, Struct_0203e524* arg2);
+extern "C" Struct_02087574_2* func_02087574(Struct_02087574* arg0, int arg1);
 
 extern char data_020f1bf0[];
 extern AllocatorUnion data_02114e20;
-extern Global02109bf4 data_02109bf4;
+extern Struct_02109bf4_7 data_02109bf4;
 extern unsigned char data_02108760[];
 
-static inline int CalcSaveChecksum(void* data, unsigned int size) {
-    return func_01ff85b8((unsigned char*)data + 4, size - 4);
+static inline int inline_020a9eb8(void* arg0, unsigned int arg1) {
+    return func_01ff85b8((unsigned char*)arg0 + 4, arg1 - 4);
 }
 
 // USA: func_020a9eb8
-extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int flags, int mode) {
-    GameState* gs;
-    Struct020a99d0* record;
-    Global02109418* global;
-    BattleData* battle;
-    bool useArea;
-    unsigned short savedArea;
+extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* arg1, unsigned int arg2, int arg3) {
+    GameState* var0;
+    Struct_020a99d0_3* var1;
+    Struct_020a95a4_3* var2;
+    Struct_020a95a4_8* var3;
+    bool var4;
+    unsigned short var5;
 #if defined(jpn)
-    char* base;
+    char* var21;
 #else
-    int inspect;
+    int var6;
 #endif
-    int k;
-    int total;
-    int j;
-    int slot;
-    int i;
-    Global02109418* global2;
-    SessionState* session2;
-    int keepTimer;
-    int idCount;
-    gs = GameState::GetInstance();
-    FieldState* field = func_02012fe4();
-    SessionState* session = func_0202ae18();
-    record = func_0205ec34();
-    global = func_02094d6c();
-    battle = static_cast<BattleData*>(func_02010828(gs));
-    reinterpret_cast<GameStateSaveView*>(gs)->saving = 1;
+    int var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
+    Struct_020a95a4_3* var12;
+    Struct_ov031_0224e6e0* var13;
+    int var14;
+    int var15;
+    var0 = GameState::GetInstance();
+    Struct_020a95a4_2* var16 = func_02012fe4();
+    Struct_ov031_0224e6e0* var17 = func_0202ae18();
+    var1 = func_0205ec34();
+    var2 = func_02094d6c();
+    var3 = static_cast<Struct_020a95a4_8*>(func_02010828(var0));
+    reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_5cc8_ = 1;
 
-    useArea = false;
-    savedArea = 0;
-    if ((flags & 1) || (flags & 8)) {
-        useArea = true;
-        if (func_0202b7d8(&session->state)) {
-            if (func_0202c540(session)) {
-                useArea = false;
+    var4 = false;
+    var5 = 0;
+    if ((arg2 & 1) || (arg2 & 8)) {
+        var4 = true;
+        if (func_0202b7d8(&var17->unknown_0_)) {
+            if (func_0202c540(var17)) {
+                var4 = false;
             }
         }
-        if (flags & 8) {
-            useArea = true;
+        if (arg2 & 8) {
+            var4 = true;
         }
-        if (useArea) {
-            if (func_0206dfb0((int)record, record->flagBits, 0x113c)) {
-                savedArea = battle->areaId;
+        if (var4) {
+            if (func_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
+                var5 = var3->unknown_2c94_;
             }
-            battle->areaId = field->mapId;
-            if (flags & 8) {
-                battle->areaId = 0x6d;
+            var3->unknown_2c94_ = var16->unknown_0_;
+            if (arg2 & 8) {
+                var3->unknown_2c94_ = 0x6d;
             }
         }
     }
 
-    GameStateSaveView* view = reinterpret_cast<GameStateSaveView*>(GameState::GetInstance());
-    SaveHeader header;
-    strcpy(header.info.name, data_020f1bf0);
-    keepTimer = flags & 4;
-    float dayTimer;
-    if (keepTimer) {
-        dayTimer = view->savedDayTimer;
+    Struct_020a9eb8_2* var18 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance());
+    Struct_020a9eb8_4 var19;
+    strcpy(var19.unknown_4_.unknown_4_, data_020f1bf0);
+    var14 = arg2 & 4;
+    float var20;
+    if (var14) {
+        var20 = var18->unknown_3e4_;
     } else {
-        dayTimer = reinterpret_cast<GameState*>(view)->GetDayTimer();
+        var20 = reinterpret_cast<GameState*>(var18)->GetDayTimer();
     }
-    header.info.dayTimer = dayTimer;
-    if (!keepTimer) {
-        view->savedDayTimer = dayTimer;
+    var19.unknown_4_.unknown_c_ = var20;
+    if (!var14) {
+        var18->unknown_3e4_ = var20;
     }
-    header.info.resumed = mode != 0;
-    header.info.version = 1;
-    header.checksum = CalcSaveChecksum(&header, sizeof(header));
-    func_02075acc(0x10, &header, sizeof(header), 0);
+    var19.unknown_4_.unknown_0_ = arg3 != 0;
+    var19.unknown_4_.unknown_1_ = 1;
+    var19.unknown_0_ = inline_020a9eb8(&var19, sizeof(var19));
+    func_02075acc(0x10, &var19, sizeof(var19), 0);
     func_020ac7b4(0);
 
 #if defined(jpn)
-    base = (char*)body - 0x84;
+    var21 = (char*)arg1 - 0x84;
 #else
-    char* base = (char*)body - 0x84;
+    char* var21 = (char*)arg1 - 0x84;
 #endif
 #if !defined(jpn)
-    inspect = 0;
-    if (mode == 0 && (flags & 0x10)) {
-        inspect = 1;
+    var6 = 0;
+    if (arg3 == 0 && (arg2 & 0x10)) {
+        var6 = 1;
     }
 #endif
 
     {
-        BattleSave* save;
-        FieldState* field2;
-        GameState* gs2 = GameState::GetInstance();
-        BattleData* battle2 = static_cast<BattleData*>(func_02010828(gs2));
-        session2 = func_0202ae18();
-        field2 = func_02012fe4();
+        Struct_020a95a4_6* var22;
+        Struct_020a95a4_2* var23;
+        GameState* var24 = GameState::GetInstance();
+        Struct_020a95a4_8* var25 = static_cast<Struct_020a95a4_8*>(func_02010828(var24));
+        var13 = func_0202ae18();
+        var23 = func_02012fe4();
         GetGameResources();
-        global2 = func_02094d6c();
-        func_020a0cc4(sizeof(BattleSave));
-        save = (BattleSave*)func_02012d88(&data_02114e20, sizeof(BattleSave));
-        if (save != NULL) {
-            memset(save, 0, sizeof(BattleSave));
-            GameStateSaveView::Bytes6 name;
-            unsigned char ids[4];
-            idCount = func_02011494((char*)gs2, ids);
-            memcpy(save->members, battle2->members, battle2->memberCount * sizeof(BattleMemberData));
-            for (i = 0; i < idCount; i++) {
-                slot = i + battle2->memberCount;
-                GameObject* obj = func_0200ff1c(gs2, ids[i]);
-                if (obj != NULL) {
-                    MonsterRecord* rec = func_02053c6c((unsigned char*)obj);
-                    if (rec != NULL) {
-                        func_020830cc(rec, &save->members[slot]);
+        var12 = func_02094d6c();
+        func_020a0cc4(sizeof(Struct_020a95a4_6));
+        var22 = (Struct_020a95a4_6*)func_02012d88(&data_02114e20, sizeof(Struct_020a95a4_6));
+        if (var22 != NULL) {
+            memset(var22, 0, sizeof(Struct_020a95a4_6));
+            Struct_020a9eb8_2::Struct_020a9eb8_3 var26;
+            unsigned char var27[4];
+            var15 = func_02011494((char*)var24, var27);
+            memcpy(var22->unknown_0_, var25->unknown_f80_, var25->unknown_2c8c_ * sizeof(Struct_020a95a4_7));
+            for (var11 = 0; var11 < var15; var11++) {
+                var10 = var11 + var25->unknown_2c8c_;
+                GameObject* var28 = func_0200ff1c(var24, var27[var11]);
+                if (var28 != NULL) {
+                    Struct_020a95a4_5* var29 = func_02053c6c((unsigned char*)var28);
+                    if (var29 != NULL) {
+                        func_020830cc(var29, &var22->unknown_0_[var10]);
                     }
                 }
             }
-            save->memberCount = battle2->memberCount;
-            for (j = 0; j < idCount; j++) {
-                GameObject* obj = func_0200ff1c(gs2, ids[j]);
-                if (obj != NULL) {
-                    memcpy(&save->names[j], func_02053c6c((unsigned char*)obj)->name, 0x10);
+            var22->unknown_1d0c_ = var25->unknown_2c8c_;
+            for (var9 = 0; var9 < var15; var9++) {
+                GameObject* var30 = func_0200ff1c(var24, var27[var9]);
+                if (var30 != NULL) {
+                    memcpy(&var22->unknown_1d12_[var9], func_02053c6c((unsigned char*)var30)->unknown_454_, 0x10);
                 }
             }
-            memcpy(save->ids, ids, 4);
-            save->idCount = idCount;
-            if (func_020100a8(gs2) != 0 || func_0202c540(session2) != 0) {
-                save->ids[0] = 0;
-                save->idCount = 1;
+            memcpy(var22->unknown_1d0d_, var27, 4);
+            var22->unknown_1d11_ = var15;
+            if (func_020100a8(var24) != 0 || func_0202c540(var13) != 0) {
+                var22->unknown_1d0d_[0] = 0;
+                var22->unknown_1d11_ = 1;
             }
-            memcpy(save->head, battle2->head, sizeof(battle2->head));
-            total = 0;
-            for (k = 0; k < 8; k++) {
-                unsigned short* words = func_0207c5f8(battle2->roster, k);
-                unsigned char* bytes = func_0207c60c(battle2->roster, k);
-                short count = func_0207c620(battle2->roster, k);
-                memcpy(&save->rosterWords[total], words, count * 2);
-                memcpy(&save->rosterBytes[total], bytes, count);
-                total += count;
-                save->rosterFlags[k] = func_0207c694(battle2->roster, k);
+            memcpy(var22->unknown_1d5c_, var25->unknown_0_, sizeof(var25->unknown_0_));
+            var8 = 0;
+            for (var7 = 0; var7 < 8; var7++) {
+                unsigned short* var31 = func_0207c5f8(var25->unknown_1d4_, var7);
+                unsigned char* var32 = func_0207c60c(var25->unknown_1d4_, var7);
+                short var33 = func_0207c620(var25->unknown_1d4_, var7);
+                memcpy(&var22->unknown_1f30_[var8], var31, var33 * 2);
+                memcpy(&var22->unknown_2710_[var8], var32, var33);
+                var8 += var33;
+                var22->unknown_2b00_[var7] = func_0207c694(var25->unknown_1d4_, var7);
             }
-            memcpy(save->tactics, battle2->tactics, sizeof(battle2->tactics));
-            save->valueF6c = battle2->valueF6c;
-            save->valueF68 = battle2->valueF68;
-            save->valueF70 = battle2->valueF70;
-            save->valueF74 = battle2->valueF74;
-            save->zero = 0;
-            memcpy(save->extraIds, battle2->extraIds, sizeof(battle2->extraIds));
-            GameStateSaveView* view2 = reinterpret_cast<GameStateSaveView*>(gs2);
-            if (useArea) {
-                save->areaId = battle2->areaId;
-                view2->value7e74 = battle2->areaId;
-                if (func_0202c508(session2)) {
+            memcpy(var22->unknown_2b08_, var25->unknown_e04_, sizeof(var25->unknown_e04_));
+            var22->unknown_2c30_ = var25->unknown_f6c_;
+            var22->unknown_2c34_ = var25->unknown_f68_;
+            var22->unknown_2c38_ = var25->unknown_f70_;
+            var22->unknown_2c3c_ = var25->unknown_f74_;
+            var22->unknown_2c40_ = 0;
+            memcpy(var22->unknown_2c44_, var25->unknown_2c8d_, sizeof(var25->unknown_2c8d_));
+            Struct_020a9eb8_2* var34 = reinterpret_cast<Struct_020a9eb8_2*>(var24);
+            if (var4) {
+                var22->unknown_2c4c_ = var25->unknown_2c94_;
+                var34->unknown_7e74_ = var25->unknown_2c94_;
+                if (func_0202c508(var13)) {
                     func_ov017_021d0d58();
                 }
             } else {
-                save->areaId = view2->value7e74;
+                var22->unknown_2c4c_ = var34->unknown_7e74_;
             }
-            save->zero2 = 0;
-            unsigned short* words = func_020120a0((char*)gs2, func_020100a8(gs2));
-            save->words[0] = words[0];
-            save->words[1] = words[1];
-            save->words[2] = words[2];
-            save->words[3] = words[3];
-            save->globalByte = func_0209ca98((char*)&data_02109bf4);
-            save->globalByte2 = func_0205ea18(data_02108760);
-            save->byteF7d = battle2->byteF7d;
-            save->byte63dc = view2->byte63dc;
-            GameStateSaveView::Bytes6* namePtr = &name;
-            *namePtr = view2->name74fe;
-            save->name = *namePtr;
+            var22->unknown_2c4e_ = 0;
+            unsigned short* var35 = func_020120a0((char*)var24, func_020100a8(var24));
+            var22->unknown_2c50_[0] = var35[0];
+            var22->unknown_2c50_[1] = var35[1];
+            var22->unknown_2c50_[2] = var35[2];
+            var22->unknown_2c50_[3] = var35[3];
+            var22->unknown_2c58_ = func_0209ca98((char*)&data_02109bf4);
+            var22->unknown_2c59_ = func_0205ea18(data_02108760);
+            var22->unknown_2c5a_ = var25->unknown_f7d_;
+            var22->unknown_2c5b_ = var34->unknown_63dc_;
+            Struct_020a9eb8_2::Struct_020a9eb8_3* var36 = &var26;
+            *var36 = var34->unknown_74fe_;
+            var22->unknown_2c78_ = *var36;
 #if defined(jpn)
-            FieldSubState* sub = &field2->sub;
+            Struct_020a95a4* var37 = &var23->unknown_840_;
 #endif
-            if (func_0202c540(session2)) {
+            if (func_0202c540(var13)) {
 #if !defined(jpn)
-                FieldSubState* sub = &field2->sub;
+                Struct_020a95a4* var37 = &var23->unknown_840_;
 #endif
-                save->posA = sub->posA;
-                save->posB = sub->posB;
-                save->dir = field2->dir;
-                save->angle = field2->angle;
-                save->pos = field2->pos;
-                save->value = field2->value;
-                save->flag = field2->flag;
-                save->extra = field2->extra;
-                save->countA = field2->countA;
-                save->countB = field2->countB;
-                save->countC = field2->countC;
+                var22->unknown_2c80_ = var37->unknown_1b50_;
+                var22->unknown_2c84_ = var37->unknown_1b54_;
+                var22->unknown_2c5c_ = var23->unknown_27aa_;
+                var22->unknown_2c5e_ = var23->unknown_27a8_;
+                var22->unknown_2c60_ = var23->unknown_2798_;
+                var22->unknown_2c6c_ = var23->unknown_27a4_;
+                var22->unknown_2c74_ = var23->unknown_27ac_;
+                var22->unknown_2c70_ = var23->unknown_27b0_;
+                var22->unknown_2c75_ = var23->unknown_27d2_;
+                var22->unknown_2c76_ = var23->unknown_27d4_;
+                var22->unknown_2c77_ = var23->unknown_27d1_;
             } else {
 #if !defined(jpn)
-                FieldSubState* sub = &field2->sub;
+                Struct_020a95a4* var37 = &var23->unknown_840_;
 #endif
-                save->posA = sub->savedPosA;
-                save->posB = sub->savedPosB;
-                sub->posA = save->posA;
-                sub->posB = save->posB;
-                save->dir = field2->savedDir;
-                save->angle = field2->savedAngle;
-                save->pos = field2->savedPos;
-                save->value = field2->savedValue;
-                save->flag = field2->savedFlag;
-                save->extra = field2->savedExtra;
-                field2->dir = save->dir;
-                field2->angle = save->angle;
-                field2->pos = save->pos;
-                field2->value = save->value;
-                field2->flag = save->flag;
-                field2->extra = save->extra;
-                save->countA = field2->savedCountA;
-                save->countB = field2->savedCountB;
-                save->countC = field2->savedCountC;
-                field2->countA = save->countA;
-                field2->countB = save->countB;
-                field2->countC = save->countC;
+                var22->unknown_2c80_ = var37->unknown_1b48_;
+                var22->unknown_2c84_ = var37->unknown_1b4c_;
+                var37->unknown_1b50_ = var22->unknown_2c80_;
+                var37->unknown_1b54_ = var22->unknown_2c84_;
+                var22->unknown_2c5c_ = var23->unknown_2786_;
+                var22->unknown_2c5e_ = var23->unknown_2784_;
+                var22->unknown_2c60_ = var23->unknown_2774_;
+                var22->unknown_2c6c_ = var23->unknown_2780_;
+                var22->unknown_2c74_ = var23->unknown_2788_;
+                var22->unknown_2c70_ = var23->unknown_2794_;
+                var23->unknown_27aa_ = var22->unknown_2c5c_;
+                var23->unknown_27a8_ = var22->unknown_2c5e_;
+                var23->unknown_2798_ = var22->unknown_2c60_;
+                var23->unknown_27a4_ = var22->unknown_2c6c_;
+                var23->unknown_27ac_ = var22->unknown_2c74_;
+                var23->unknown_27b0_ = var22->unknown_2c70_;
+                var22->unknown_2c75_ = var23->unknown_27b4_;
+                var22->unknown_2c76_ = var23->unknown_27b6_;
+                var22->unknown_2c77_ = var23->unknown_27d0_;
+                var23->unknown_27d2_ = var22->unknown_2c75_;
+                var23->unknown_27d4_ = var22->unknown_2c76_;
+                var23->unknown_27d1_ = var22->unknown_2c77_;
             }
-            memcpy(save->block4a8, global2->block4a8, sizeof(global2->block4a8));
+            memcpy(var22->unknown_2c88_, var12->unknown_4a8_, sizeof(var12->unknown_4a8_));
 #if !defined(jpn)
-            save->inspect = inspect;
+            var22->unknown_2ca2_ = var6;
 #endif
-            func_02075acc((char*)&body->battle - base, save, sizeof(BattleSave), 0);
-            func_02012da4(&data_02114e20, save);
+            func_02075acc((char*)&arg1->unknown_4_ - var21, var22, sizeof(Struct_020a95a4_6), 0);
+            func_02012da4(&data_02114e20, var22);
         }
         func_020a0c0c();
-        if (func_0206dfb0((int)record, record->flagBits, 0x113c)) {
-            battle->areaId = savedArea;
+        if (func_0206dfb0((int)var1, var1->unknown_8c_, 0x113c)) {
+            var3->unknown_2c94_ = var5;
         }
     }
 
     {
-        GameState* gs3 = GameState::GetInstance();
+        GameState* var38 = GameState::GetInstance();
         func_0202ae18();
-        if (keepTimer) {
-            func_02075acc((char*)&body->stats - base + 0x1fb, record->block, sizeof(record->block), 0);
+        if (var14) {
+            func_02075acc((char*)&arg1->unknown_2cac_ - var21 + 0x1fb, var1->unknown_1eb_, sizeof(var1->unknown_1eb_), 0);
         } else {
-            StatsSave stats;
-            stats.value5cb0 = func_0201079c((char*)gs3);
-            stats.value5cb4 = func_020107d0((char*)gs3);
-            stats.value5cb8 = func_02010804((char*)gs3);
-            stats.value5cbc = func_0201081c((char*)gs3);
-            func_020a99d0(&stats.record, record);
-            func_02075acc((char*)&body->stats - base, &stats, sizeof(stats), 0);
+            Struct_020a9eb8_6 var39;
+            var39.unknown_0_ = func_0201079c((char*)var38);
+            var39.unknown_4_ = func_020107d0((char*)var38);
+            var39.unknown_8_ = func_02010804((char*)var38);
+            var39.unknown_c_ = func_0201081c((char*)var38);
+            func_020a99d0(&var39.unknown_10_, var1);
+            func_02075acc((char*)&arg1->unknown_2cac_ - var21, &var39, sizeof(var39), 0);
         }
     }
 
-    if (!keepTimer) {
-        GameStateSaveView* view4 = reinterpret_cast<GameStateSaveView*>(GameState::GetInstance());
-        Block194* block = (Block194*)func_02012d88(&data_02114e20, sizeof(Block194));
-        if (block != NULL) {
-            block->value = view4->byte5cda;
-            memcpy(block->data, view4->block5cdc, sizeof(block->data));
-            func_02075acc((char*)&body->block194 - base, block, sizeof(Block194), 0);
-            func_02012da4(&data_02114e20, block);
+    if (!var14) {
+        Struct_020a9eb8_2* var40 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance());
+        Struct_020a9eb8_7* var41 = (Struct_020a9eb8_7*)func_02012d88(&data_02114e20, sizeof(Struct_020a9eb8_7));
+        if (var41 != NULL) {
+            var41->unknown_0_ = var40->unknown_5cda_;
+            memcpy(var41->unknown_4_, var40->unknown_5cdc_, sizeof(var41->unknown_4_));
+            func_02075acc((char*)&arg1->unknown_33c0_ - var21, var41, sizeof(Struct_020a9eb8_7), 0);
+            func_02012da4(&data_02114e20, var41);
         }
-        int offset = (char*)body->field - base;
-        FieldSubState* sub = &func_02012fe4()->sub;
-        func_02075acc(offset, sub->current, sizeof(sub->current), 0);
-        func_020a0cc4(sizeof(FieldSave));
-        FieldSave* fieldSave = (FieldSave*)func_02012d88(&data_02114e20, sizeof(FieldSave));
-        if (fieldSave != NULL) {
-            VectorizedInvertedMemcpy(sub->saved, fieldSave->data, sizeof(sub->saved));
-            fieldSave->value1b38 = sub->value1b38;
-            fieldSave->value1b34 = sub->value1b34;
-            fieldSave->value1b44 = sub->value1b44;
-            fieldSave->value1b3c = sub->value1b3c;
-            fieldSave->byte1b61 = sub->byte1b61;
-            fieldSave->zero = 0;
-            func_02075acc(offset + sizeof(sub->current), fieldSave, sizeof(FieldSave), 0);
-            func_02012da4(&data_02114e20, fieldSave);
+        int var42 = (char*)arg1->unknown_3ec4_ - var21;
+        Struct_020a95a4* var43 = &func_02012fe4()->unknown_840_;
+        func_02075acc(var42, var43->unknown_0_, sizeof(var43->unknown_0_), 0);
+        func_020a0cc4(sizeof(Struct_020a9eb8_8));
+        Struct_020a9eb8_8* var44 = (Struct_020a9eb8_8*)func_02012d88(&data_02114e20, sizeof(Struct_020a9eb8_8));
+        if (var44 != NULL) {
+            VectorizedInvertedMemcpy(var43->unknown_d98_, var44->unknown_0_, sizeof(var43->unknown_d98_));
+            var44->unknown_d98_ = var43->unknown_1b38_;
+            var44->unknown_d9c_ = var43->unknown_1b34_;
+            var44->unknown_da0_ = var43->unknown_1b44_;
+            var44->unknown_da4_ = var43->unknown_1b3c_;
+            var44->unknown_da6_ = var43->unknown_1b61_;
+            var44->unknown_da7_ = 0;
+            func_02075acc(var42 + sizeof(var43->unknown_0_), var44, sizeof(Struct_020a9eb8_8), 0);
+            func_02012da4(&data_02114e20, var44);
         }
         func_020a0c0c();
-        GameStateSaveView* view5 = reinterpret_cast<GameStateSaveView*>(GameState::GetInstance());
-        ItemSave items;
-        items.value = view5->value5f7c;
-        memcpy(items.blockA, view5->block5f80, sizeof(items.blockA));
-        memcpy(items.blockB, view5->block6180, sizeof(items.blockB));
-        func_02075acc((char*)&body->items - base, &items, sizeof(items), 0);
-        func_02075acc((char*)body->block5e6c - base, reinterpret_cast<GameStateSaveView*>(GameState::GetInstance())->block5e6c, 0x110, 0);
+        Struct_020a9eb8_2* var45 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance());
+        Struct_020a9eb8_9 var46;
+        var46.unknown_400_ = var45->unknown_5f7c_;
+        memcpy(var46.unknown_0_, var45->unknown_5f80_, sizeof(var46.unknown_0_));
+        memcpy(var46.unknown_200_, var45->unknown_6180_, sizeof(var46.unknown_200_));
+        func_02075acc((char*)&arg1->unknown_5a04_ - var21, &var46, sizeof(var46), 0);
+        func_02075acc((char*)arg1->unknown_6c3c_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance())->unknown_5e6c_, 0x110, 0);
     }
-    func_02075acc((char*)body->global0 - base, global->block0, sizeof(global->block0), 0);
-    func_02075acc((char*)body->global178 - base, func_02094d6c()->block178, 0x330, 0);
-    func_02075acc((char*)body->block75f0 - base, reinterpret_cast<GameStateSaveView*>(gs)->block75f0, 0x4d0, 0);
-    func_02075acc((char*)body->block7ac0 - base, reinterpret_cast<GameStateSaveView*>(gs)->block7ac0, 0x3b4, 0);
+    func_02075acc((char*)arg1->unknown_2ff0_ - var21, var2->unknown_0_, sizeof(var2->unknown_0_), 0);
+    func_02075acc((char*)arg1->unknown_3090_ - var21, func_02094d6c()->unknown_178_, 0x330, 0);
+    func_02075acc((char*)arg1->unknown_3554_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_75f0_, 0x4d0, 0);
+    func_02075acc((char*)arg1->unknown_3a24_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(var0)->unknown_7ac0_, 0x3b4, 0);
 
-    SessionState* session3 = func_0202ae18();
-    int state = func_0202ba00(&session3->state);
-    int subState = session3->subState;
-    int running = 0;
-    if ((state == 5 && subState > 1) || state == 6) {
-        running = 1;
+    Struct_ov031_0224e6e0* var47 = func_0202ae18();
+    int var48 = func_0202ba00(&var47->unknown_0_);
+    int var49 = var47->unknown_100d_;
+    int var50 = 0;
+    if ((var48 == 5 && var49 > 1) || var48 == 6) {
+        var50 = 1;
     }
-    func_020ac4f8(running);
+    func_020ac4f8(var50);
 
-    func_02075acc((char*)body->block7504 - base, reinterpret_cast<GameStateSaveView*>(GameState::GetInstance())->block7504, 0xec, 0);
+    func_02075acc((char*)arg1->unknown_3dd8_ - var21, reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance())->unknown_7504_, 0xec, 0);
 
     {
-        int offset;
-        int n;
-        offset = (char*)&body->treasureMaps - base;
+        int var51;
+        int var52;
+        var51 = (char*)&arg1->unknown_5e08_ - var21;
 #if defined(jpn)
-        FieldState* field5;
-        GameState* gs5 = GameState::GetInstance();
-        field5 = func_02012fe4();
+        Struct_020a95a4_2* var54;
+        GameState* var53 = GameState::GetInstance();
+        var54 = func_02012fe4();
 #else
-        GameState* gs5 = GameState::GetInstance();
-        FieldState* field5 = func_02012fe4();
+        GameState* var53 = GameState::GetInstance();
+        Struct_020a95a4_2* var54 = func_02012fe4();
 #endif
-        TreasureMapList maps;
-        if (mode) {
-            offset += 0x8000;
+        Struct_020a9eb8 var55;
+        if (arg3) {
+            var51 += 0x8000;
         }
-        VectorizedInvertedMemcpy(&reinterpret_cast<GameStateSaveView*>(gs5)->treasureMaps, &maps, sizeof(maps));
-        if (!func_0201b588(field5->mapId)) {
-            TreasureMapMetadata* map = maps.maps;
-            for (n = 0; n < maps.numMaps; n++) {
-                map->ClearInitialByteUnknownBit();
-                map++;
+        VectorizedInvertedMemcpy(&reinterpret_cast<Struct_020a9eb8_2*>(var53)->unknown_64f4_, &var55, sizeof(var55));
+        if (!func_0201b588(var54->unknown_0_)) {
+            TreasureMapMetadata* var56 = var55.unknown_2_;
+            for (var52 = 0; var52 < var55.unknown_0_; var52++) {
+                var56->ClearInitialByteUnknownBit();
+                var56++;
             }
         }
-        func_02075acc(offset, &maps, sizeof(maps), 0);
+        func_02075acc(var51, &var55, sizeof(var55), 0);
     }
 
-    unsigned char* src6 = reinterpret_cast<GameStateSaveView*>(GameState::GetInstance())->block569c;
-    func_02075acc((char*)body->block569c - base, src6, 0x7c, 0);
+    unsigned char* var57 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance())->unknown_569c_;
+    func_02075acc((char*)arg1->unknown_68e0_ - var21, var57, 0x7c, 0);
 
-    if (mode) {
-        PositionSave position;
-        GameObject* obj = GameState::GetInstance()->GetUnknownGameObject();
-        if (obj != NULL) {
-            position.objectId = obj->obj3D_.GetField06();
-            position.pos = obj->obj3D_.position_;
-            position.rotation = obj->obj3D_.rotation_.y;
+    if (arg3) {
+        Struct_020a9eb8_10 var58;
+        GameObject* var59 = GameState::GetInstance()->GetUnknownGameObject();
+        if (var59 != NULL) {
+            var58.unknown_0_ = var59->obj3D_.GetField06();
+            var58.unknown_4_ = var59->obj3D_.position_;
+            var58.unknown_2_ = var59->obj3D_.rotation_.y;
         }
-        FieldState* field6 = func_02012fe4();
-        Entry_02028bd0* entry = func_02028bd0(func_02027ca4(), field6->mapId);
-        if (entry == NULL) {
-            position.entryValue = 0;
-            position.area = 0;
+        Struct_020a95a4_2* var60 = func_02012fe4();
+        Struct_020fdd44* var61 = func_02028bd0(func_02027ca4(), var60->unknown_0_);
+        if (var61 == NULL) {
+            var58.unknown_12_ = 0;
+            var58.unknown_10_ = 0;
         } else {
-            position.entryValue = entry->value;
-            position.area = entry->area;
+            var58.unknown_12_ = var61->unknown_4_;
+            var58.unknown_10_ = var61->unknown_2_4_;
         }
-        position.globalBit = data_02109bf4.bit2;
-        position.distance = func_0203e524(func_0203cf4c(), (Vec3s32_020c3030*)&obj->obj3D_.position_, &position.nearest);
-        func_02075acc((char*)&body->position - base, &position, sizeof(position), 0);
+        var58.unknown_14_ = data_02109bf4.unknown_c8_2_;
+        var58.unknown_15_ = func_0203e524(func_0203cf4c(), (Struct_02028460_3*)&var59->obj3D_.position_, &var58.unknown_16_);
+        func_02075acc((char*)&arg1->unknown_695c_ - var21, &var58, sizeof(var58), 0);
     }
 
-    unsigned char* src8 = reinterpret_cast<GameStateSaveView*>(GameState::GetInstance())->block71fc;
-    func_02075acc((char*)body->block71fc - base, src8, 0x2c4, 0);
+    unsigned char* var62 = reinterpret_cast<Struct_020a9eb8_2*>(GameState::GetInstance())->unknown_71fc_;
+    func_02075acc((char*)arg1->unknown_6978_ - var21, var62, 0x2c4, 0);
 
-    if (mode) {
-        if (mode) {
-            GameState* gs7 = GameState::GetInstance();
-            GameStateSaveView* view7 = reinterpret_cast<GameStateSaveView*>(gs7);
+    if (arg3) {
+        if (arg3) {
+            GameState* var63 = GameState::GetInstance();
+            Struct_020a9eb8_2* var64 = reinterpret_cast<Struct_020a9eb8_2*>(var63);
             GetGameResources();
-            GrottoSave grotto;
-            VectorizedInvertedMemcpy(view7->grottoLarge, grotto.largeBuffer, sizeof(grotto.largeBuffer));
-            VectorizedInvertedMemcpy(view7->grottoBits, grotto.bits, sizeof(grotto.bits));
-            grotto.flags = view7->grottoFlags;
-            if (gs7->GetGrottoStruct()->unknown_0[3]) {
-                grotto.flags |= 1;
+            Struct_020a9eb8_11 var65;
+            VectorizedInvertedMemcpy(var64->unknown_6fcc_, var65.unknown_0_, sizeof(var65.unknown_0_));
+            VectorizedInvertedMemcpy(var64->unknown_5cd0_, var65.unknown_204_, sizeof(var65.unknown_204_));
+            var65.unknown_200_ = var64->unknown_71cc_;
+            if (var63->GetGrottoStruct()->unknown_0[3]) {
+                var65.unknown_200_ |= 1;
             }
-            func_02075acc((char*)&body->grotto - base, &grotto, sizeof(grotto), 0);
+            func_02075acc((char*)&arg1->unknown_6d4c_ - var21, &var65, sizeof(var65), 0);
         }
-    } else if ((flags & 0x10) && mode == 0) {
-        int i;
-        int count;
-        BattleData* battle8 = static_cast<BattleData*>(func_02010828(GameState::GetInstance()));
-        EntrySave entries;
-        memset(&entries, 0, sizeof(entries));
-        count = 0;
-        for (i = 0; i < battle8->memberCount; i++) {
-            Entry02087574* entry = func_02087574((EntryTable02087574*)battle8, battle8->members[i].entryId);
-            if (entry != NULL) {
-                memcpy(&entries.entries[count], entry, sizeof(Entry02087574));
-                count++;
+    } else if ((arg2 & 0x10) && arg3 == 0) {
+        int var66;
+        int var67;
+        Struct_020a95a4_8* var68 = static_cast<Struct_020a95a4_8*>(func_02010828(GameState::GetInstance()));
+        Struct_020a9eb8_12 var69;
+        memset(&var69, 0, sizeof(var69));
+        var67 = 0;
+        for (var66 = 0; var66 < var68->unknown_2c8c_; var66++) {
+            Struct_02087574_2* var70 = func_02087574((Struct_02087574*)var68, var68->unknown_f80_[var66].unknown_0_0_);
+            if (var70 != NULL) {
+                memcpy(&var69.unknown_4_[var67], var70, sizeof(Struct_02087574_2));
+                var67++;
             }
         }
-        if (count) {
-            entries.valid = 1;
-            entries.count = count;
+        if (var67) {
+            var69.unknown_0_ = 1;
+            var69.unknown_2_ = var67;
         }
-        func_02075acc((char*)&body->grotto - base, &entries, sizeof(entries), 0);
+        func_02075acc((char*)&arg1->unknown_6d4c_ - var21, &var69, sizeof(var69), 0);
     }
 
-    SaveFile* file = task->file;
-    if (file != NULL) {
-        body->checksum = CalcSaveChecksum(&file->body, sizeof(file->body));
-        func_02075acc((char*)&body->checksum - base, body, sizeof(body->checksum), 0);
+    Struct_020a9eb8_14* var71 = arg0->unknown_4_;
+    if (var71 != NULL) {
+        arg1->unknown_0_ = inline_020a9eb8(&var71->unknown_84_, sizeof(var71->unknown_84_));
+        func_02075acc((char*)&arg1->unknown_0_ - var21, arg1, sizeof(arg1->unknown_0_), 0);
     }
     return 1;
 }

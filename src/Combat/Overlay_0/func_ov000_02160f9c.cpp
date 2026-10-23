@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kIndexOffset = 0x7c8 };
+enum { Enum_ov000_02160f9c_1496 = 0x7c8 };
 #else
-enum { kIndexOffset = 0x5d8 };
+enum { Enum_ov000_02160f9c_1496 = 0x5d8 };
 #endif
 
 // USA: func_ov000_02160f9c
-extern "C" ARM int func_ov000_02160f9c(void* obj) {
-    return *(int*)((char*)obj + 0x5000 + kIndexOffset);
+extern "C" ARM int func_ov000_02160f9c(void* arg0) {
+    return *(int*)((char*)arg0 + 0x5000 + Enum_ov000_02160f9c_1496);
 }

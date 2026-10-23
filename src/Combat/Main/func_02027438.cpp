@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 
-class FlagWord02046708;
+class Struct_02012de8;
 
-extern "C" FlagWord02046708* func_020d6c00();
-extern "C" bool func_02046708(FlagWord02046708* flags, unsigned int mask);
+extern "C" Struct_02012de8* func_020d6c00();
+extern "C" bool func_02046708(Struct_02012de8* arg0, unsigned int arg1);
 
 #define TILE_PHASE02027438(v) ((v) < 0 ? (v) % 8 + 8 : (v) % 8)
 
-struct ScrollState02027438 {
-    char pad0[0x14];
-    int mode;
-    char pad1[0x44 - 0x18];
-    int scrollX;
-    int scrollY;
+struct Struct_0202343c_4 {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    char unknown_18_[0x44 - 0x18];
+    int unknown_44_;
+    int unknown_48_;
 };
 
 // USA: func_02027438
-extern "C" ARM void func_02027438(struct ScrollState02027438* state) {
+extern "C" ARM void func_02027438(struct Struct_0202343c_4* arg0) {
     if (func_02046708(func_020d6c00(), 0x41)) {
         return;
     }
-    switch (state->mode) {
+    switch (arg0->unknown_14_) {
     case 0: {
-        int x = state->scrollX;
-        int phaseX = TILE_PHASE02027438(x);
-        int y = state->scrollY;
-        int phaseY = TILE_PHASE02027438(y);
+        int var0 = arg0->unknown_44_;
+        int var1 = TILE_PHASE02027438(var0);
+        int var2 = arg0->unknown_48_;
+        int var3 = TILE_PHASE02027438(var2);
         *(volatile unsigned int*)0x4001010 =
-            ((phaseX + 0x80) & 0x1ff) | (((phaseY + 0x20) << 16) & 0x1ff0000);
+            ((var1 + 0x80) & 0x1ff) | (((var3 + 0x20) << 16) & 0x1ff0000);
         break;
     }
     case 2:
     case 3: {
-        int y = state->scrollY;
-        int phaseY = TILE_PHASE02027438(y);
-        *(volatile unsigned int*)0x4001010 = ((phaseY + 0x20) << 16) & 0x1ff0000;
+        int var4 = arg0->unknown_48_;
+        int var5 = TILE_PHASE02027438(var4);
+        *(volatile unsigned int*)0x4001010 = ((var5 + 0x20) << 16) & 0x1ff0000;
         break;
     }
     case 4: {
-        int y = state->scrollY;
-        int phaseY = TILE_PHASE02027438(y);
-        *(volatile unsigned int*)0x4001010 = ((0x20 - phaseY) << 16) & 0x1ff0000;
+        int var6 = arg0->unknown_48_;
+        int var7 = TILE_PHASE02027438(var6);
+        *(volatile unsigned int*)0x4001010 = ((0x20 - var7) << 16) & 0x1ff0000;
         break;
     }
     default:

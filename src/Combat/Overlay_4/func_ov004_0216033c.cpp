@@ -3,271 +3,271 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { field7=6,fieldB=8,field6=4,field8=7,extensionOffset=0x144,statsOffset=0x7b8 };
+enum { Enum_ov004_0216033c_7=6,Enum_ov004_0216033c_11=8,Enum_ov004_0216033c_6=4,Enum_ov004_0216033c_8=7,Enum_ov004_0216033c_336=0x144,Enum_ov004_0216033c_2128=0x7b8 };
 #else
-enum { field7=7,fieldB=0xb,field6=6,field8=8,extensionOffset=0x150,statsOffset=0x850 };
+enum { Enum_ov004_0216033c_7=7,Enum_ov004_0216033c_11=0xb,Enum_ov004_0216033c_6=6,Enum_ov004_0216033c_8=8,Enum_ov004_0216033c_336=0x150,Enum_ov004_0216033c_2128=0x850 };
 #endif
 
-extern "C" void func_ov004_0215f6f4(void* a, short v1, short v2, int flag);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void* func_ov011_021849c8(void* p);
-extern "C" int func_02085fb4(unsigned char* actor);
-extern "C" int func_02086020(unsigned char* actor);
-extern "C" int func_0208608c(unsigned char* actor);
-extern "C" int func_020860f8(unsigned char* actor);
-extern "C" int func_02086164(unsigned char* actor);
-extern "C" int func_020861d0(unsigned char* actor);
-extern "C" int func_0208623c(unsigned char* actor);
-extern "C" int func_020862a8(unsigned char* actor);
-extern "C" int func_02086314(unsigned char* actor);
+extern "C" void func_ov004_0215f6f4(void* arg0, short arg1, short arg2, int arg3);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" int func_02085fb4(unsigned char* arg0);
+extern "C" int func_02086020(unsigned char* arg0);
+extern "C" int func_0208608c(unsigned char* arg0);
+extern "C" int func_020860f8(unsigned char* arg0);
+extern "C" int func_02086164(unsigned char* arg0);
+extern "C" int func_020861d0(unsigned char* arg0);
+extern "C" int func_0208623c(unsigned char* arg0);
+extern "C" int func_020862a8(unsigned char* arg0);
+extern "C" int func_02086314(unsigned char* arg0);
 extern "C" void func_ov004_0215e49c(void*, int, int);
-extern "C" extern int func_ov023_021f6f10(void* self);
+extern "C" extern int func_ov023_021f6f10(void* arg0);
 extern "C" int func_ov004_0215e460(void);
-extern "C" int func_ov004_0215e4e8(void* a, int key);
-extern "C" int func_020dd11c(unsigned int a, unsigned int b);
+extern "C" int func_ov004_0215e4e8(void* arg0, int arg1);
+extern "C" int func_020dd11c(unsigned int arg0, unsigned int arg1);
 
-typedef Vector3i Vec3_0216033c;
-class Node0215e47c {
+typedef Vector3i Type_02000c9c_18;
+class Struct_ov004_0215fdfc_4 {
 public:
-    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
-    virtual void v4(); virtual void v5(); virtual void v6();
-    virtual void SetVal0x1c(const Vec3_0216033c& v);
-    virtual Vec3_0216033c GetVal0x20();
+    virtual void inline_ov004_0215fdfc(); virtual void inline_ov004_0215fdfc_2(); virtual void inline_ov004_0215fdfc_3(); virtual void inline_ov004_0215fdfc_4();
+    virtual void inline_ov004_0215fdfc_5(); virtual void inline_ov004_0215fdfc_6(); virtual void inline_ov004_0215fdfc_7();
+    virtual void inline_ov004_0216033c(const Type_02000c9c_18& arg0);
+    virtual Type_02000c9c_18 inline_ov004_0216033c_2();
 };
-extern "C" Node0215e47c* func_ov004_0215e47c(void* a, int key);
+extern "C" Struct_ov004_0215fdfc_4* func_ov004_0215e47c(void* arg0, int arg1);
 
-extern "C" void* func_ov004_0215e4c0(void* a, int key);
-struct ObjE2_021f8944;
-extern "C" void func_ov023_021f8944(struct ObjE2_021f8944* obj, int a1, int a2, int a3);
+extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
+struct Struct_ov004_0215f6f4;
+extern "C" void func_ov023_021f8944(struct Struct_ov004_0215f6f4* arg0, int arg1, int arg2, int arg3);
 
 extern unsigned char data_ov004_021707e8;
 extern int data_ov004_02170854[];
 #define D0 (&data_ov004_021707e8)
 #define D1 (data_ov004_02170854)
 
-class FNode0216033c {
+class Struct_ov004_0216033c {
 public:
-    virtual void vf00();
-    virtual void vf04();
-    virtual void vf08();
-    virtual void vf0c();
-    virtual void vf10();
-    virtual void vf14();
-    virtual void vf18();
-    virtual void vf1c();
-    virtual void vf20();
-    virtual void vf24();
-    virtual void vf28();
-    virtual void vf2c();
-    virtual void vf30();
-    virtual void vf34();
-    virtual void vf38();
-    virtual void vf3c();
-    virtual void vf40();
-    virtual void vf44();
-    virtual void vf48();
-    virtual void vf4c();
-    virtual void vf50();
-    virtual void vf54();
-    virtual void vf58();
-    virtual void vf5c();
-    virtual void vf60();
-    virtual void vf64();
-    virtual void vf68();
-    virtual void vf6c();
-    virtual void vf70();
-    virtual void vf74();
-    virtual void vf78();
-    virtual void vf7c();
-    virtual void vf80();
-    virtual void vf84();
-    virtual void vf88();
-    virtual void vf8c();
-    virtual void vf90();
-    virtual void vf94();
-    virtual void vf98();
-    virtual void vf9c();
-    virtual void vfa0();
-    virtual void vfa4();
-    virtual void vfa8();
-    virtual void vfac();
-    virtual void vfb0();
-    virtual void vfb4();
-    virtual void vfb8();
-    virtual void vfbc();
-    virtual void vfc0();
-    virtual void vfc4();
-    virtual void vfc8();
-    virtual void vfcc();
-    virtual void vfd0();
-    virtual void vfd4();
-    virtual void SetState(int arg);
-    virtual void vfdc();
-    virtual void SetValue(int arg);
-    unsigned char pad0[0xc - 4];
-    unsigned char field0xc;
-    char pad1[0x20 - 0xd];
-    int field0x20;
-    char pad2[0x38 - 0x24];
-    short field0x38;
+    virtual void inline_ov004_0216033c_3();
+    virtual void inline_ov004_0216033c_4();
+    virtual void inline_ov004_0216033c_5();
+    virtual void inline_ov004_0216033c_6();
+    virtual void inline_ov004_0216033c_7();
+    virtual void inline_ov004_0216033c_8();
+    virtual void inline_ov004_0216033c_9();
+    virtual void inline_ov004_0216033c_10();
+    virtual void inline_ov004_0216033c_11();
+    virtual void inline_ov004_0216033c_12();
+    virtual void inline_ov004_0216033c_13();
+    virtual void inline_ov004_0216033c_14();
+    virtual void inline_ov004_0216033c_15();
+    virtual void inline_ov004_0216033c_16();
+    virtual void inline_ov004_0216033c_17();
+    virtual void inline_ov004_0216033c_18();
+    virtual void inline_ov004_0216033c_19();
+    virtual void inline_ov004_0216033c_20();
+    virtual void inline_ov004_0216033c_21();
+    virtual void inline_ov004_0216033c_22();
+    virtual void inline_ov004_0216033c_23();
+    virtual void inline_ov004_0216033c_24();
+    virtual void inline_ov004_0216033c_25();
+    virtual void inline_ov004_0216033c_26();
+    virtual void inline_ov004_0216033c_27();
+    virtual void inline_ov004_0216033c_28();
+    virtual void inline_ov004_0216033c_29();
+    virtual void inline_ov004_0216033c_30();
+    virtual void inline_ov004_0216033c_31();
+    virtual void inline_ov004_0216033c_32();
+    virtual void inline_ov004_0216033c_33();
+    virtual void inline_ov004_0216033c_34();
+    virtual void inline_ov004_0216033c_35();
+    virtual void inline_ov004_0216033c_36();
+    virtual void inline_ov004_0216033c_37();
+    virtual void inline_ov004_0216033c_38();
+    virtual void inline_ov004_0216033c_39();
+    virtual void inline_ov004_0216033c_40();
+    virtual void inline_ov004_0216033c_41();
+    virtual void inline_ov004_0216033c_42();
+    virtual void inline_ov004_0216033c_43();
+    virtual void inline_ov004_0216033c_44();
+    virtual void inline_ov004_0216033c_45();
+    virtual void inline_ov004_0216033c_46();
+    virtual void inline_ov004_0216033c_47();
+    virtual void inline_ov004_0216033c_48();
+    virtual void inline_ov004_0216033c_49();
+    virtual void inline_ov004_0216033c_50();
+    virtual void inline_ov004_0216033c_51();
+    virtual void inline_ov004_0216033c_52();
+    virtual void inline_ov004_0216033c_53();
+    virtual void inline_ov004_0216033c_54();
+    virtual void inline_ov004_0216033c_55();
+    virtual void inline_ov004_0216033c_56();
+    virtual void inline_ov004_0216033c_57(int arg0);
+    virtual void inline_ov004_0216033c_58();
+    virtual void inline_ov004_0216033c_59(int arg0);
+    unsigned char unknown_4_[0xc - 4];
+    unsigned char unknown_c_;
+    char unknown_d_[0x20 - 0xd];
+    int unknown_20_;
+    char unknown_24_[0x38 - 0x24];
+    short unknown_38_;
 };
-extern "C" FNode0216033c* func_ov023_021f6880(void* obj, int key);
+extern "C" Struct_ov004_0216033c* func_ov023_021f6880(void* arg0, int arg1);
 
-struct Field134_0216033c {
-    char pad[0x30];
-    unsigned short s30, s32, s34, s36;
-};
-
-struct Flags49c {
-    char pad[0x49c];
-    unsigned char bit0 : 1;
+struct Struct_02000c9c_90 {
+    char unknown_0_[0x30];
+    unsigned short unknown_30_, unknown_32_, unknown_34_, unknown_36_;
 };
 
-struct Packed3x10 {
-    unsigned int a : 10;
-    unsigned int b : 10;
-    unsigned int c : 10;
-    unsigned int pad : 2;
+struct Struct_ov004_0216033c_2 {
+    char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
+};
+
+struct Struct_ov003_021539a0_3 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
 
 // USA: func_ov004_0216033c
-extern "C" ARM int func_ov004_0216033c(void* a) {
-    int i;
-    Packed3x10* rowBase;
-    FNode0216033c* node;
-    unsigned char* base150;
-    unsigned char* combatant;
-    *(unsigned char*)((char*)D0 + field7) = 0x64;
-    short v1 = *(signed char*)((char*)D0 + fieldB);
-    short v2 = *(signed char*)((char*)D0 + field6);
-    func_ov004_0215f6f4(a, v1, v2, 0);
+extern "C" ARM int func_ov004_0216033c(void* arg0) {
+    int var0;
+    Struct_ov003_021539a0_3* var1;
+    Struct_ov004_0216033c* var2;
+    unsigned char* var3;
+    unsigned char* var4;
+    *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_7) = 0x64;
+    short var5 = *(signed char*)((char*)D0 + Enum_ov004_0216033c_11);
+    short var6 = *(signed char*)((char*)D0 + Enum_ov004_0216033c_6);
+    func_ov004_0215f6f4(arg0, var5, var6, 0);
 
-    int combatantId = *(int*)((char*)D0 + 0x1c);
-    unsigned char sb = *(unsigned char*)((char*)D0 + field8);
-    GameState* bs = GameState::GetInstance();
-    combatant = (unsigned char*)func_0200ff1c(bs, combatantId);
-    if (!combatant) goto stats_done;
-    base150 = (unsigned char*)func_02053c6c(combatant);
-    if (!base150) goto stats_done;
+    int var7 = *(int*)((char*)D0 + 0x1c);
+    unsigned char var8 = *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8);
+    GameState* var9 = GameState::GetInstance();
+    var4 = (unsigned char*)func_0200ff1c(var9, var7);
+    if (!var4) goto stats_done;
+    var3 = (unsigned char*)func_02053c6c(var4);
+    if (!var3) goto stats_done;
     {
 
-    short st10, st9, st8, st7, st6, st5, st4, st3, st2, st1, st0;
-    void* obj118a = func_ov011_021849c8(a);
+    short var10, var11, var12, var13, var14, var15, var16, var17, var18, var19, var20;
+    void* var21 = func_ov011_021849c8(arg0);
 
-    int t1 = D1[sb];
-    int rowIndex = combatantId * 0xc + (t1 - 1);
-    rowBase = (Packed3x10*)(*(int*)((char*)D0 + 0x14) + rowIndex * 0x18);
+    int var22 = D1[var8];
+    int var23 = var7 * 0xc + (var22 - 1);
+    var1 = (Struct_ov003_021539a0_3*)(*(int*)((char*)D0 + 0x14) + var23 * 0x18);
 
-    for (i = 0; i < 0xe; i++) {
-        node = func_ov023_021f6880(obj118a, i + 0x51);
-        if (!node) continue;
+    for (var0 = 0; var0 < 0xe; var0++) {
+        var2 = func_ov023_021f6880(var21, var0 + 0x51);
+        if (!var2) continue;
 
-        int t2 = D1[sb];
-        if (*(unsigned char*)((char*)D0 + 2) == t2) {
-            Packed3x10* f150;
-            unsigned short val16;
-            switch (i) {
-            case 0: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[0].a; node->SetValue(val16); break;
-            case 1: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[0].b; node->SetValue(val16); break;
-            case 2: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[0].c; node->SetValue(val16); break;
-            case 3: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[1].a; node->SetValue(val16); break;
-            case 4: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[1].b; node->SetValue(val16); break;
-            case 5: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[1].c; node->SetValue(val16); break;
-            case 6: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[2].a; node->SetValue(val16); break;
-            case 7: val16 = *(unsigned short*)((char*)*(void**)((char*)combatant + 0x134) + 0x30); node->SetValue(val16); break;
-            case 8: val16 = *(unsigned short*)((char*)*(void**)((char*)combatant + 0x134) + 0x32); node->SetValue(val16); break;
-            case 9: val16 = *(unsigned short*)((char*)*(void**)((char*)combatant + 0x134) + 0x34); node->SetValue(val16); break;
-            case 10: val16 = *(unsigned short*)((char*)*(void**)((char*)combatant + 0x134) + 0x36); node->SetValue(val16); break;
-            case 11: f150 = *(Packed3x10**)((char*)combatant + extensionOffset); val16 = f150[3].a; node->SetValue(val16); break;
-            case 12: val16 = *(unsigned short*)(base150 + 0x100 + t2 * 2 + 0x6c); node->SetValue(val16); break;
-            case 13: { int val32 = *(int*)(base150 + t2 * 4 + 0x138); node->SetValue(val32); } break;
+        int var24 = D1[var8];
+        if (*(unsigned char*)((char*)D0 + 2) == var24) {
+            Struct_ov003_021539a0_3* var25;
+            unsigned short var26;
+            switch (var0) {
+            case 0: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[0].unknown_0_0_; var2->inline_ov004_0216033c_59(var26); break;
+            case 1: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[0].unknown_1_2_; var2->inline_ov004_0216033c_59(var26); break;
+            case 2: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[0].unknown_2_4_; var2->inline_ov004_0216033c_59(var26); break;
+            case 3: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[1].unknown_0_0_; var2->inline_ov004_0216033c_59(var26); break;
+            case 4: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[1].unknown_1_2_; var2->inline_ov004_0216033c_59(var26); break;
+            case 5: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[1].unknown_2_4_; var2->inline_ov004_0216033c_59(var26); break;
+            case 6: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[2].unknown_0_0_; var2->inline_ov004_0216033c_59(var26); break;
+            case 7: var26 = *(unsigned short*)((char*)*(void**)((char*)var4 + 0x134) + 0x30); var2->inline_ov004_0216033c_59(var26); break;
+            case 8: var26 = *(unsigned short*)((char*)*(void**)((char*)var4 + 0x134) + 0x32); var2->inline_ov004_0216033c_59(var26); break;
+            case 9: var26 = *(unsigned short*)((char*)*(void**)((char*)var4 + 0x134) + 0x34); var2->inline_ov004_0216033c_59(var26); break;
+            case 10: var26 = *(unsigned short*)((char*)*(void**)((char*)var4 + 0x134) + 0x36); var2->inline_ov004_0216033c_59(var26); break;
+            case 11: var25 = *(Struct_ov003_021539a0_3**)((char*)var4 + Enum_ov004_0216033c_336); var26 = var25[3].unknown_0_0_; var2->inline_ov004_0216033c_59(var26); break;
+            case 12: var26 = *(unsigned short*)(var3 + 0x100 + var24 * 2 + 0x6c); var2->inline_ov004_0216033c_59(var26); break;
+            case 13: { int var27 = *(int*)(var3 + var24 * 4 + 0x138); var2->inline_ov004_0216033c_59(var27); } break;
             default: break;
             }
-            node->SetState(0xf);
+            var2->inline_ov004_0216033c_57(0xf);
         } else {
-            int actorBase = func_02053c6c(combatant) + statsOffset;
-            int t3 = D1[sb];
-            int entryOff = (t3 & 0xff) * 0xc;
-            Packed3x10* entryBase = (Packed3x10*)(actorBase + entryOff);
+            int var28 = func_02053c6c(var4) + Enum_ov004_0216033c_2128;
+            int var29 = D1[var8];
+            int var30 = (var29 & 0xff) * 0xc;
+            Struct_ov003_021539a0_3* var31 = (Struct_ov003_021539a0_3*)(var28 + var30);
 
-            st0 = (func_02085fb4(base150) + rowBase[0].a + entryBase[0].a);
-            st1 = (func_02086020(base150) + rowBase[0].b + entryBase[0].b);
-            st2 = (func_0208608c(base150) + rowBase[0].c + entryBase[0].c);
-            st3 = (func_020860f8(base150) + rowBase[1].a + entryBase[1].a);
-            st4 = (func_02086164(base150) + rowBase[1].b + entryBase[1].b);
-            st5 = (func_020861d0(base150) + rowBase[1].c + entryBase[1].c);
-            st6 = (func_0208623c(base150) + rowBase[2].a + entryBase[2].a);
-            st7 = (func_020862a8(base150) + rowBase[2].b + entryBase[2].b);
-            st8 = (func_02086314(base150) + rowBase[2].c + entryBase[2].c);
-            st9 = st0;
-            st10 = st2;
-            int reg11 = (short)(func_02086164(base150) + rowBase[3].a + entryBase[1].b);
+            var20 = (func_02085fb4(var3) + var1[0].unknown_0_0_ + var31[0].unknown_0_0_);
+            var19 = (func_02086020(var3) + var1[0].unknown_1_2_ + var31[0].unknown_1_2_);
+            var18 = (func_0208608c(var3) + var1[0].unknown_2_4_ + var31[0].unknown_2_4_);
+            var17 = (func_020860f8(var3) + var1[1].unknown_0_0_ + var31[1].unknown_0_0_);
+            var16 = (func_02086164(var3) + var1[1].unknown_1_2_ + var31[1].unknown_1_2_);
+            var15 = (func_020861d0(var3) + var1[1].unknown_2_4_ + var31[1].unknown_2_4_);
+            var14 = (func_0208623c(var3) + var1[2].unknown_0_0_ + var31[2].unknown_0_0_);
+            var13 = (func_020862a8(var3) + var1[2].unknown_1_2_ + var31[2].unknown_1_2_);
+            var12 = (func_02086314(var3) + var1[2].unknown_2_4_ + var31[2].unknown_2_4_);
+            var11 = var20;
+            var10 = var18;
+            int var32 = (short)(func_02086164(var3) + var1[3].unknown_0_0_ + var31[1].unknown_1_2_);
 
-            enum { CAP = 999 };
-            if (st0 > CAP) st0 = CAP;
-            if (st1 > CAP) st1 = CAP;
-            if (st2 > CAP) st2 = CAP;
-            if (st3 > CAP) st3 = CAP;
-            if (st4 > CAP) st4 = CAP;
-            if (st5 > CAP) st5 = CAP;
-            if (st6 > CAP) st6 = CAP;
-            if (st7 > CAP) st7 = CAP;
-            if (st8 > CAP) st8 = CAP;
-            if (st9 > CAP) st9 = CAP;
-            if (st10 > CAP) st10 = CAP;
-            if (reg11 > CAP) reg11 = CAP;
+            enum { Enum_ov004_0216033c_999 = 999 };
+            if (var20 > Enum_ov004_0216033c_999) var20 = Enum_ov004_0216033c_999;
+            if (var19 > Enum_ov004_0216033c_999) var19 = Enum_ov004_0216033c_999;
+            if (var18 > Enum_ov004_0216033c_999) var18 = Enum_ov004_0216033c_999;
+            if (var17 > Enum_ov004_0216033c_999) var17 = Enum_ov004_0216033c_999;
+            if (var16 > Enum_ov004_0216033c_999) var16 = Enum_ov004_0216033c_999;
+            if (var15 > Enum_ov004_0216033c_999) var15 = Enum_ov004_0216033c_999;
+            if (var14 > Enum_ov004_0216033c_999) var14 = Enum_ov004_0216033c_999;
+            if (var13 > Enum_ov004_0216033c_999) var13 = Enum_ov004_0216033c_999;
+            if (var12 > Enum_ov004_0216033c_999) var12 = Enum_ov004_0216033c_999;
+            if (var11 > Enum_ov004_0216033c_999) var11 = Enum_ov004_0216033c_999;
+            if (var10 > Enum_ov004_0216033c_999) var10 = Enum_ov004_0216033c_999;
+            if (var32 > Enum_ov004_0216033c_999) var32 = Enum_ov004_0216033c_999;
 
-            switch (i) {
-            case 0: node->SetValue(st0); break;
-            case 1: node->SetValue(st1); break;
-            case 2: node->SetValue(st2); break;
-            case 3: node->SetValue(st3); break;
-            case 4: node->SetValue(st4); break;
-            case 5: node->SetValue(st5); break;
-            case 6: node->SetValue(st6); break;
-            case 7: node->SetValue(st7); break;
-            case 8: node->SetValue(st8); break;
-            case 9: node->SetValue(st9); break;
-            case 10: node->SetValue(st10); break;
-            case 11: node->SetValue(reg11); break;
-            case 12: { unsigned short v16 = *(unsigned short*)(base150 + 0x100 + D1[sb] * 2 + 0x6c); node->SetValue(v16); } break;
-            case 13: { int val32 = *(int*)(base150 + D1[sb] * 4 + 0x138); node->SetValue(val32); } break;
+            switch (var0) {
+            case 0: var2->inline_ov004_0216033c_59(var20); break;
+            case 1: var2->inline_ov004_0216033c_59(var19); break;
+            case 2: var2->inline_ov004_0216033c_59(var18); break;
+            case 3: var2->inline_ov004_0216033c_59(var17); break;
+            case 4: var2->inline_ov004_0216033c_59(var16); break;
+            case 5: var2->inline_ov004_0216033c_59(var15); break;
+            case 6: var2->inline_ov004_0216033c_59(var14); break;
+            case 7: var2->inline_ov004_0216033c_59(var13); break;
+            case 8: var2->inline_ov004_0216033c_59(var12); break;
+            case 9: var2->inline_ov004_0216033c_59(var11); break;
+            case 10: var2->inline_ov004_0216033c_59(var10); break;
+            case 11: var2->inline_ov004_0216033c_59(var32); break;
+            case 12: { unsigned short var33 = *(unsigned short*)(var3 + 0x100 + D1[var8] * 2 + 0x6c); var2->inline_ov004_0216033c_59(var33); } break;
+            case 13: { int var34 = *(int*)(var3 + D1[var8] * 4 + 0x138); var2->inline_ov004_0216033c_59(var34); } break;
             default: break;
             }
-            node->SetState(3);
+            var2->inline_ov004_0216033c_57(3);
         }
     }
 
     {
-        if (!(*(Flags49c**)(combatant + extensionOffset))->bit0) {
-            func_ov004_0215e49c(a, 0xe, 2);
+        if (!(*(Struct_ov004_0216033c_2**)(var4 + Enum_ov004_0216033c_336))->unknown_49c_0_) {
+            func_ov004_0215e49c(arg0, 0xe, 2);
         } else {
-            func_ov004_0215e49c(a, 0xe, 3);
+            func_ov004_0215e49c(arg0, 0xe, 3);
         }
     }
 
     {
-        FNode0216033c* node = func_ov023_021f6880(obj118a, 0xe);
-        if (node) {
-            if (*(unsigned char*)((char*)D0 + 2) == D1[sb]) {
-                node->SetState(0xf);
+        Struct_ov004_0216033c* var35 = func_ov023_021f6880(var21, 0xe);
+        if (var35) {
+            if (*(unsigned char*)((char*)D0 + 2) == D1[var8]) {
+                var35->inline_ov004_0216033c_57(0xf);
             } else {
-                node->SetState(3);
+                var35->inline_ov004_0216033c_57(3);
             }
         }
     }
 
     {
-        FNode0216033c* node = func_ov023_021f6880(obj118a, 0xc);
-        if (node) {
-            if (func_ov023_021f6f10(node) == 8) {
-                node->field0x20 = *(int*)((char*)combatant + 0x134);
-                FNode0216033c* node2 = func_ov023_021f6880(obj118a, 0xe);
-                if (node2) {
-                    if (*(unsigned char*)((char*)D0 + 2) == D1[sb]) {
-                        node2->SetState(0xf);
+        Struct_ov004_0216033c* var36 = func_ov023_021f6880(var21, 0xc);
+        if (var36) {
+            if (func_ov023_021f6f10(var36) == 8) {
+                var36->unknown_20_ = *(int*)((char*)var4 + 0x134);
+                Struct_ov004_0216033c* var37 = func_ov023_021f6880(var21, 0xe);
+                if (var37) {
+                    if (*(unsigned char*)((char*)D0 + 2) == D1[var8]) {
+                        var37->inline_ov004_0216033c_57(0xf);
                     } else {
-                        node2->SetState(3);
+                        var37->inline_ov004_0216033c_57(3);
                     }
                 }
             }
@@ -275,33 +275,33 @@ extern "C" ARM int func_ov004_0216033c(void* a) {
     }
 
     {
-        for (int j = 0; j < 0x13; j++) {
-            FNode0216033c* node = func_ov023_021f6880(obj118a, j + 0x12c);
-            if (node && func_ov023_021f6f10(node) == 8) {
-                if (*(unsigned char*)((char*)D0 + 2) == D1[sb]) {
-                    node->SetState(0xf);
+        for (int var38 = 0; var38 < 0x13; var38++) {
+            Struct_ov004_0216033c* var39 = func_ov023_021f6880(var21, var38 + 0x12c);
+            if (var39 && func_ov023_021f6f10(var39) == 8) {
+                if (*(unsigned char*)((char*)D0 + 2) == D1[var8]) {
+                    var39->inline_ov004_0216033c_57(0xf);
                 } else {
-                    node->SetState(3);
+                    var39->inline_ov004_0216033c_57(3);
                 }
             }
         }
     }
 
     {
-        int t4 = D1[sb];
-        unsigned char statId = *(unsigned char*)(base150 + t4 + 0x186);
-        FNode0216033c* node = func_ov023_021f6880(obj118a, 0xc8);
-        if (node) {
-            if (statId != 0) {
-                node->field0xc &= ~8;
-                node->field0x38 = statId + 0x1d3;
-                if (statId == 0xa) {
-                    node->SetState(0xd);
+        int var40 = D1[var8];
+        unsigned char var41 = *(unsigned char*)(var3 + var40 + 0x186);
+        Struct_ov004_0216033c* var42 = func_ov023_021f6880(var21, 0xc8);
+        if (var42) {
+            if (var41 != 0) {
+                var42->unknown_c_ &= ~8;
+                var42->unknown_38_ = var41 + 0x1d3;
+                if (var41 == 0xa) {
+                    var42->inline_ov004_0216033c_57(0xd);
                 } else {
-                    node->SetState(5);
+                    var42->inline_ov004_0216033c_57(5);
                 }
             } else {
-                node->field0xc |= 8;
+                var42->unknown_c_ |= 8;
             }
         }
     }
@@ -309,157 +309,157 @@ extern "C" ARM int func_ov004_0216033c(void* a) {
     }
 stats_done:
 
-    int r4 = 0;
-    switch (D1[*(unsigned char*)((char*)D0 + field8)]) {
-    case 0: r4 = 4; break;
-    case 1: r4 = 5; break;
-    case 2: r4 = 6; break;
-    case 3: r4 = 7; break;
-    case 4: r4 = 8; break;
-    case 5: r4 = 9; break;
-    case 6: r4 = 0xa; break;
-    case 7: r4 = 0xb; break;
-    case 9: r4 = 0xd; break;
-    case 8: r4 = 0xc; break;
-    case 12: r4 = 0x10; break;
-    case 10: r4 = 0xe; break;
-    case 11: r4 = 0xf; break;
+    int var43 = 0;
+    switch (D1[*(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8)]) {
+    case 0: var43 = 4; break;
+    case 1: var43 = 5; break;
+    case 2: var43 = 6; break;
+    case 3: var43 = 7; break;
+    case 4: var43 = 8; break;
+    case 5: var43 = 9; break;
+    case 6: var43 = 0xa; break;
+    case 7: var43 = 0xb; break;
+    case 9: var43 = 0xd; break;
+    case 8: var43 = 0xc; break;
+    case 12: var43 = 0x10; break;
+    case 10: var43 = 0xe; break;
+    case 11: var43 = 0xf; break;
     }
-    if (func_ov004_0215e460() != 0) r4 = 4;
-    func_ov004_0215e49c(a, 0xf, r4);
+    if (func_ov004_0215e460() != 0) var43 = 4;
+    func_ov004_0215e49c(arg0, 0xf, var43);
 
-    int r5v = func_ov004_0215e4e8(a, 0xf);
-    Node0215e47c* vnode = func_ov004_0215e47c(a, 0xf);
-    if (vnode) {
-        const Vector3i& gv = vnode->GetVal0x20();
-        Vector3i v2;
-        v2 = gv;
-        v2.x = ((0x80 - r5v) >> 1) << 12;
-        vnode->SetVal0x1c(v2);
-        int r2v = v2.x + ((r5v + 2) << 12);
-        v2.x = r2v;
+    int var44 = func_ov004_0215e4e8(arg0, 0xf);
+    Struct_ov004_0215fdfc_4* var45 = func_ov004_0215e47c(arg0, 0xf);
+    if (var45) {
+        const Vector3i& var46 = var45->inline_ov004_0216033c_2();
+        Vector3i var47;
+        var47 = var46;
+        var47.x = ((0x80 - var44) >> 1) << 12;
+        var45->inline_ov004_0216033c(var47);
+        int var48 = var47.x + ((var44 + 2) << 12);
+        var47.x = var48;
 #if defined(jpn)
-        v2.y += 0x2000;
+        var47.y += 0x2000;
 #endif
-        Node0215e47c* vnode2 = func_ov004_0215e47c(a, 0xc8);
-        if (vnode2) {
-            vnode2->SetVal0x1c(v2);
+        Struct_ov004_0215fdfc_4* var49 = func_ov004_0215e47c(arg0, 0xc8);
+        if (var49) {
+            var49->inline_ov004_0216033c(var47);
         }
     }
 
-    int combatantId2 = *(int*)((char*)D0 + 0x1c);
-    unsigned char sb2 = *(unsigned char*)((char*)D0 + field8);
-    GameState* bs2 = GameState::GetInstance();
-    unsigned char* combatant2 = (unsigned char*)func_0200ff1c(bs2, combatantId2);
-    FNode0216033c* iconNode;
-    int tv;
-    FNode0216033c* nameNode;
-    int k;
-    int idx;
-    FNode0216033c* kNode;
-    int hidden;
-    int msgId;
-    void* obj118b = func_ov011_021849c8(a);
-    idx = 0;
-    msgId = 0;
-    hidden = 0;
-    if (func_ov004_0215e460() != 0) hidden = 1;
+    int var50 = *(int*)((char*)D0 + 0x1c);
+    unsigned char var51 = *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8);
+    GameState* var52 = GameState::GetInstance();
+    unsigned char* var53 = (unsigned char*)func_0200ff1c(var52, var50);
+    Struct_ov004_0216033c* var54;
+    int var55;
+    Struct_ov004_0216033c* var56;
+    int var57;
+    int var58;
+    Struct_ov004_0216033c* var59;
+    int var60;
+    int var61;
+    void* var62 = func_ov011_021849c8(arg0);
+    var58 = 0;
+    var61 = 0;
+    var60 = 0;
+    if (func_ov004_0215e460() != 0) var60 = 1;
 
-    for (k = 0; k < 5; k++) {
-        tv = func_020dd11c(D1[sb2] & 0xff, k & 0xff);
-        switch (tv) {
-        case 1: msgId = 0x12; break;
-        case 2: msgId = 0x13; break;
-        case 3: msgId = 0x14; break;
-        case 4: msgId = 0x15; break;
-        case 5: msgId = 0x16; break;
-        case 6: msgId = 0x17; break;
-        case 7: msgId = 0x18; break;
-        case 8: msgId = 0x19; break;
-        case 9: msgId = 0x1a; break;
-        case 10: msgId = 0x1b; break;
-        case 11: msgId = 0x1c; break;
-        case 12: msgId = 0x1d; break;
-        case 13: msgId = 0x1e; break;
-        case 14: msgId = 0x1f; break;
-        case 15: msgId = 0x20; break;
-        case 16: msgId = 0x21; break;
-        case 17: msgId = 0x22; break;
-        case 18: msgId = 0x23; break;
-        case 19: msgId = 0x24; break;
-        case 20: msgId = 0x25; break;
-        case 21: msgId = 0x26; break;
-        case 22: msgId = 0x27; break;
-        case 23: msgId = 0x28; break;
-        case 24: msgId = 0x29; break;
-        case 25: msgId = 0x2a; break;
-        case 26: msgId = 0x2b; break;
+    for (var57 = 0; var57 < 5; var57++) {
+        var55 = func_020dd11c(D1[var51] & 0xff, var57 & 0xff);
+        switch (var55) {
+        case 1: var61 = 0x12; break;
+        case 2: var61 = 0x13; break;
+        case 3: var61 = 0x14; break;
+        case 4: var61 = 0x15; break;
+        case 5: var61 = 0x16; break;
+        case 6: var61 = 0x17; break;
+        case 7: var61 = 0x18; break;
+        case 8: var61 = 0x19; break;
+        case 9: var61 = 0x1a; break;
+        case 10: var61 = 0x1b; break;
+        case 11: var61 = 0x1c; break;
+        case 12: var61 = 0x1d; break;
+        case 13: var61 = 0x1e; break;
+        case 14: var61 = 0x1f; break;
+        case 15: var61 = 0x20; break;
+        case 16: var61 = 0x21; break;
+        case 17: var61 = 0x22; break;
+        case 18: var61 = 0x23; break;
+        case 19: var61 = 0x24; break;
+        case 20: var61 = 0x25; break;
+        case 21: var61 = 0x26; break;
+        case 22: var61 = 0x27; break;
+        case 23: var61 = 0x28; break;
+        case 24: var61 = 0x29; break;
+        case 25: var61 = 0x2a; break;
+        case 26: var61 = 0x2b; break;
         }
-        func_ov004_0215e49c(a, idx + 0x2a, msgId);
+        func_ov004_0215e49c(arg0, var58 + 0x2a, var61);
 
-        kNode = func_ov023_021f6880(obj118b, k + 0x5f);
-        if (kNode) {
-            kNode->SetValue(*(unsigned char*)(*(unsigned char**)(combatant2 + extensionOffset) + tv + 0x464));
-            if (*(unsigned char*)((char*)D0 + 2) != D1[sb2]) {
-                kNode->SetState(3);
-            } else if (*(unsigned char*)(*(unsigned char**)(combatant2 + extensionOffset) + tv + 0x464) >= 100) {
-                kNode->SetState(0xd);
+        var59 = func_ov023_021f6880(var62, var57 + 0x5f);
+        if (var59) {
+            var59->inline_ov004_0216033c_59(*(unsigned char*)(*(unsigned char**)(var53 + Enum_ov004_0216033c_336) + var55 + 0x464));
+            if (*(unsigned char*)((char*)D0 + 2) != D1[var51]) {
+                var59->inline_ov004_0216033c_57(3);
+            } else if (*(unsigned char*)(*(unsigned char**)(var53 + Enum_ov004_0216033c_336) + var55 + 0x464) >= 100) {
+                var59->inline_ov004_0216033c_57(0xd);
             } else {
-                kNode->SetState(0xf);
+                var59->inline_ov004_0216033c_57(0xf);
             }
 
-            nameNode = 0;
-            FNode0216033c* tmp = func_ov023_021f6880(obj118b, idx + 0x2a);
-            if (tmp && func_ov023_021f6f10(tmp) == 8) nameNode = tmp;
-            iconNode = 0;
-            FNode0216033c* tmp2 = func_ov023_021f6880(obj118b, k + 0x13a);
-            if (tmp2 && func_ov023_021f6f10(tmp2) == 8) iconNode = tmp2;
+            var56 = 0;
+            Struct_ov004_0216033c* var63 = func_ov023_021f6880(var62, var58 + 0x2a);
+            if (var63 && func_ov023_021f6f10(var63) == 8) var56 = var63;
+            var54 = 0;
+            Struct_ov004_0216033c* var64 = func_ov023_021f6880(var62, var57 + 0x13a);
+            if (var64 && func_ov023_021f6f10(var64) == 8) var54 = var64;
 
-            if (hidden != 0) {
-                kNode->field0xc |= 8;
-                if (nameNode) nameNode->field0xc |= 8;
-                if (iconNode) iconNode->field0xc |= 8;
+            if (var60 != 0) {
+                var59->unknown_c_ |= 8;
+                if (var56) var56->unknown_c_ |= 8;
+                if (var54) var54->unknown_c_ |= 8;
             } else {
-                kNode->field0xc &= ~8;
-                if (nameNode) nameNode->field0xc &= ~8;
-                if (iconNode) iconNode->field0xc &= ~8;
+                var59->unknown_c_ &= ~8;
+                if (var56) var56->unknown_c_ &= ~8;
+                if (var54) var54->unknown_c_ &= ~8;
             }
 
-            idx += 2;
+            var58 += 2;
         }
     }
 
-    unsigned char langByte = *(unsigned char*)((char*)D0 + field8);
-    int kind;
-    int r5final;
-    void* obj118c = func_ov011_021849c8(a);
-    r5final = 0;
-    kind = 0xf;
-    if (*(unsigned char*)((char*)D0 + 2) == D1[langByte]) {
-        for (int m = 0; m < 0x28; m++) {
-            FNode0216033c* n2 = func_ov023_021f6880(obj118c, m + 0xc);
-            if (n2) n2->SetState(kind);
+    unsigned char var65 = *(unsigned char*)((char*)D0 + Enum_ov004_0216033c_8);
+    int var66;
+    int var67;
+    void* var68 = func_ov011_021849c8(arg0);
+    var67 = 0;
+    var66 = 0xf;
+    if (*(unsigned char*)((char*)D0 + 2) == D1[var65]) {
+        for (int var69 = 0; var69 < 0x28; var69++) {
+            Struct_ov004_0216033c* var70 = func_ov023_021f6880(var68, var69 + 0xc);
+            if (var70) var70->inline_ov004_0216033c_57(var66);
         }
-        for (int m = 0; m < 3; m++) {
-            FNode0216033c* n2 = func_ov023_021f6880(obj118c, m + 0x64);
-            if (n2) n2->SetState(kind);
+        for (int var71 = 0; var71 < 3; var71++) {
+            Struct_ov004_0216033c* var72 = func_ov023_021f6880(var68, var71 + 0x64);
+            if (var72) var72->inline_ov004_0216033c_57(var66);
         }
     } else {
-        for (r5final = 0; r5final < 0x28; r5final++) {
-            FNode0216033c* n2 = func_ov023_021f6880(obj118c, r5final + 0xc);
-            if (n2) n2->SetState(3);
+        for (var67 = 0; var67 < 0x28; var67++) {
+            Struct_ov004_0216033c* var73 = func_ov023_021f6880(var68, var67 + 0xc);
+            if (var73) var73->inline_ov004_0216033c_57(3);
         }
-        for (r5final = 0; r5final < 3; r5final++) {
-            FNode0216033c* n2 = func_ov023_021f6880(obj118c, r5final + 0x64);
-            if (n2) n2->SetState(3);
+        for (var67 = 0; var67 < 3; var67++) {
+            Struct_ov004_0216033c* var74 = func_ov023_021f6880(var68, var67 + 0x64);
+            if (var74) var74->inline_ov004_0216033c_57(3);
         }
-        r5final = 1;
-        kind = 3;
+        var67 = 1;
+        var66 = 3;
     }
-    void* node6 = func_ov004_0215e4c0(a, 3);
-    if (node6) {
-        *(unsigned char*)((char*)node6 + 0x10a) = (unsigned char)kind;
-        func_ov023_021f8944((struct ObjE2_021f8944*)node6, (int)(long)a, r5final, 1);
+    void* var75 = func_ov004_0215e4c0(arg0, 3);
+    if (var75) {
+        *(unsigned char*)((char*)var75 + 0x10a) = (unsigned char)var66;
+        func_ov023_021f8944((struct Struct_ov004_0215f6f4*)var75, (int)(long)arg0, var67, 1);
     }
 
     return 0;

@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 #if defined(jpn)
-enum { kManagerPrefix = 0x34fc };
+enum { Enum_020a88e8_14092 = 0x34fc };
 #else
-enum { kManagerPrefix = 0x370c };
+enum { Enum_020a88e8_14092 = 0x370c };
 #endif
-struct Obj020a88e8 { unsigned char pad0, key1, key2, pad3, pad4, increase, pad6, instant, key3, key4; };
-struct Entry02019508 { unsigned short id, flags; signed char level:7; signed char other:1; };
-struct Base02019508;
-struct Trigger020a88e8 { char pad[3]; unsigned char instant; };
-struct Manager020a88e8 { char pad[kManagerPrefix]; Trigger020a88e8* trigger; };
-extern "C" Base02019508* func_02012fe4();
-extern "C" Entry02019508* func_02019508(Base02019508*, int, int);
+struct Struct_020a88e8 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_, unknown_4_, unknown_5_, unknown_6_, unknown_7_, unknown_8_, unknown_9_; };
+struct Struct_02019508 { unsigned short unknown_0_, unknown_2_; signed char unknown_4_0_:7; signed char unknown_4_7_:1; };
+struct Struct_02019508_3;
+struct Struct_020a88e8_2 { char unknown_0_[3]; unsigned char unknown_3_; };
+struct Struct_020a88e8_3 { char unknown_0_[Enum_020a88e8_14092]; Struct_020a88e8_2* unknown_370c_; };
+extern "C" Struct_02019508_3* func_02012fe4();
+extern "C" Struct_02019508* func_02019508(Struct_02019508_3*, int, int);
 extern "C" void func_020133b4(void*, int);
 // USA: func_020a88e8
-extern "C" ARM void func_020a88e8(Obj020a88e8* self) {
-    Base02019508* base = func_02012fe4();
-    Entry02019508* first = func_02019508(base, self->key1, self->key2);
-    Entry02019508* second = func_02019508(base, self->key3, self->key4);
-    if (!first || !second) return;
-    func_020133b4(first, 1);
-    Trigger020a88e8* trigger = ((Manager020a88e8*)GetGameResources())->trigger;
-    if (self->increase) {
-        unsigned char value = first->level;
-        if (self->instant || trigger->instant) { self->instant = 0; value = 31; }
-        else { value+=2; if (value > 31) value = 31; }
-        first->level = (signed char)value;
+extern "C" ARM void func_020a88e8(Struct_020a88e8* arg0) {
+    Struct_02019508_3* var0 = func_02012fe4();
+    Struct_02019508* var1 = func_02019508(var0, arg0->unknown_1_, arg0->unknown_2_);
+    Struct_02019508* var2 = func_02019508(var0, arg0->unknown_8_, arg0->unknown_9_);
+    if (!var1 || !var2) return;
+    func_020133b4(var1, 1);
+    Struct_020a88e8_2* var3 = ((Struct_020a88e8_3*)GetGameResources())->unknown_370c_;
+    if (arg0->unknown_5_) {
+        unsigned char var4 = var1->unknown_4_0_;
+        if (arg0->unknown_7_ || var3->unknown_3_) { arg0->unknown_7_ = 0; var4 = 31; }
+        else { var4+=2; if (var4 > 31) var4 = 31; }
+        var1->unknown_4_0_ = (signed char)var4;
     } else {
-        if (self->instant || trigger->instant) { first->level = 0; self->instant = 0; }
-        else if (first->level < 2) first->level = 0;
-        else first->level = (signed char)(first->level-2);
+        if (arg0->unknown_7_ || var3->unknown_3_) { var1->unknown_4_0_ = 0; arg0->unknown_7_ = 0; }
+        else if (var1->unknown_4_0_ < 2) var1->unknown_4_0_ = 0;
+        else var1->unknown_4_0_ = (signed char)(var1->unknown_4_0_-2);
     }
-    if (first->level >= 10) second->flags|=4;
-    else second->flags&=~4;
+    if (var1->unknown_4_0_ >= 10) var2->unknown_2_|=4;
+    else var2->unknown_2_&=~4;
 }

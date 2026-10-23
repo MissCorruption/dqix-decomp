@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kElementStride = 52 };
+enum { Enum_02079e60_60 = 52 };
 #else
-enum { kElementStride = 60 };
+enum { Enum_02079e60_60 = 60 };
 #endif
 
 
-typedef int (*CmpFn02079e60)(void*);
+typedef int (*Type_02079e2c)(void*);
 
-struct Obj02079e60 {
-    unsigned int count : 12;
-    char* arr;
+struct Struct_02079e2c {
+    unsigned int unknown_0_0_ : 12;
+    char* unknown_4_;
 };
 
 // USA: func_02079e60
-extern "C" ARM void* func_02079e60(struct Obj02079e60* obj, int key, CmpFn02079e60 cmp) {
-    char* arr = obj->arr;
-    int count;
-    int lo, hi, mid, r;
-    if (arr == 0 || cmp == 0) {
+extern "C" ARM void* func_02079e60(struct Struct_02079e2c* arg0, int arg1, Type_02079e2c arg2) {
+    char* var0 = arg0->unknown_4_;
+    int var1;
+    int var2, var3, var4, var5;
+    if (var0 == 0 || arg2 == 0) {
         return 0;
     }
-    count = obj->count;
-    if (count == 0) {
+    var1 = arg0->unknown_0_0_;
+    if (var1 == 0) {
         return 0;
     }
-    lo = 0;
-    hi = count - 1;
-    while (lo <= hi) {
-        mid = lo + ((hi - lo + 1) >> 1);
-        r = cmp(arr + mid * kElementStride);
-        if (r == key) {
-            return arr + mid * kElementStride;
+    var2 = 0;
+    var3 = var1 - 1;
+    while (var2 <= var3) {
+        var4 = var2 + ((var3 - var2 + 1) >> 1);
+        var5 = arg2(var0 + var4 * Enum_02079e60_60);
+        if (var5 == arg1) {
+            return var0 + var4 * Enum_02079e60_60;
         }
-        if (r > key) {
-            hi = mid - 1;
+        if (var5 > arg1) {
+            var3 = var4 - 1;
         } else {
-            lo = mid + 1;
+            var2 = var4 + 1;
         }
     }
     return 0;

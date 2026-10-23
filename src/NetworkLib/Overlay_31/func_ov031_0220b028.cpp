@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct HashCtx_0220b028 {
-    unsigned char pad[0x10];
-    unsigned int countLo;
-    unsigned int countHi;
-    unsigned char buffer[0x40];
+struct Struct_ov031_0220b028 {
+    unsigned char unknown_0_[0x10];
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned char unknown_18_[0x40];
 };
 
-extern "C" void func_ov031_0220abc4(HashCtx_0220b028*, const void*);
+extern "C" void func_ov031_0220abc4(Struct_ov031_0220b028*, const void*);
 
 // USA: func_ov031_0220b028
-extern "C" ARM void func_ov031_0220b028(HashCtx_0220b028* ctx, const void* input, unsigned int inputLen) {
-    int i;
-    unsigned int index, partLen;
-    index = (ctx->countLo >> 3) & 0x3f;
-    if ((ctx->countLo += (inputLen << 3)) < (inputLen << 3)) ctx->countHi++;
-    ctx->countHi += (inputLen >> 29);
-    partLen = 0x40 - index;
-    if (inputLen >= partLen) {
-        VectorizedInvertedMemcpy(input, ctx->buffer + index, partLen);
-        index = 0;
-        func_ov031_0220abc4(ctx, ctx->buffer);
-        for (i = partLen; i + 63 < inputLen; i += 64) {
-            func_ov031_0220abc4(ctx, (const void*)((unsigned int)input + i));
+extern "C" ARM void func_ov031_0220b028(Struct_ov031_0220b028* arg0, const void* arg1, unsigned int arg2) {
+    int var0;
+    unsigned int var1, var2;
+    var1 = (arg0->unknown_10_ >> 3) & 0x3f;
+    if ((arg0->unknown_10_ += (arg2 << 3)) < (arg2 << 3)) arg0->unknown_14_++;
+    arg0->unknown_14_ += (arg2 >> 29);
+    var2 = 0x40 - var1;
+    if (arg2 >= var2) {
+        VectorizedInvertedMemcpy(arg1, arg0->unknown_18_ + var1, var2);
+        var1 = 0;
+        func_ov031_0220abc4(arg0, arg0->unknown_18_);
+        for (var0 = var2; var0 + 63 < arg2; var0 += 64) {
+            func_ov031_0220abc4(arg0, (const void*)((unsigned int)arg1 + var0));
         }
     } else {
-        i = 0;
+        var0 = 0;
     }
-    VectorizedInvertedMemcpy((const void*)((unsigned int)input + i), ctx->buffer + index, inputLen - i);
+    VectorizedInvertedMemcpy((const void*)((unsigned int)arg1 + var0), arg0->unknown_18_ + var1, arg2 - var0);
 }

@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct Field150Table02052df8 {
-    char pad[0x488];
-    short entries[1];
+struct Struct_02052df8_2 {
+    char unknown_0_[0x488];
+    short unknown_488_[1];
 };
-struct Field150Holder02052df8 {
+struct Struct_02052df8 {
 #if defined(jpn)
-    char pad[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad[0x150];
+    char unknown1_0_[0x150];
 #endif
-    struct Field150Table02052df8* table;
+    struct Struct_02052df8_2* unknown_150_;
 };
 
 // USA: func_02052df8
-extern "C" ARM int func_02052df8(struct Field150Holder02052df8* obj, int index) {
-    struct Field150Table02052df8* table = obj->table;
-    return table ? table->entries[index] : -1;
+extern "C" ARM int func_02052df8(struct Struct_02052df8* arg0, int arg1) {
+    struct Struct_02052df8_2* var0 = arg0->unknown_150_;
+    return var0 ? var0->unknown_488_[arg1] : -1;
 }

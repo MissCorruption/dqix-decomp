@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct ListNode0220713c { unsigned char pad[0x7c]; ListNode0220713c* next; };
-struct ListHead0220713c { ListNode0220713c* head; };
+struct Struct_ov031_02207120_2 { unsigned char unknown_0_[0x7c]; Struct_ov031_02207120_2* unknown_7c_; };
+struct Struct_ov031_02207120 { Struct_ov031_02207120_2* unknown_0_; };
 
-extern "C" ListNode0220713c** func_ov031_0220713c(ListHead0220713c* list, ListNode0220713c* target);
+extern "C" Struct_ov031_02207120_2** func_ov031_0220713c(Struct_ov031_02207120* arg0, Struct_ov031_02207120_2* arg1);
 
 // USA: func_ov031_02207120
-extern "C" ARM ListNode0220713c** func_ov031_02207120(ListHead0220713c* list, ListNode0220713c* target) {
-    ListNode0220713c** link = func_ov031_0220713c(list, target);
-    if (link != NULL) {
-        *link = target->next;
+extern "C" ARM Struct_ov031_02207120_2** func_ov031_02207120(Struct_ov031_02207120* arg0, Struct_ov031_02207120_2* arg1) {
+    Struct_ov031_02207120_2** var0 = func_ov031_0220713c(arg0, arg1);
+    if (var0 != NULL) {
+        *var0 = arg1->unknown_7c_;
     }
-    return link;
+    return var0;
 }

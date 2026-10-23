@@ -3,297 +3,297 @@
 #if defined(jpn)
 #define REGION_LAYOUT(j,u) j
 #define func_020dcf7c func_020de968
-extern "C" void func_020de968(int count, void *buf);
-extern "C" void func_020474a8(void *g, int kind, const char *text, char *out);
+extern "C" void func_020de968(int arg0, void *arg1);
+extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 #else
 #define REGION_LAYOUT(j,u) u
 #endif
 
-struct Container020dedd0;
-struct Container020e0310;
-struct Obj02046574;
-struct StoreStruct;
+struct Struct_0201099c_10;
+struct Struct_0201099c_3;
+struct Struct_02046574_2;
+struct Struct_020465c0;
 extern "C" void *func_020e2ff8(void);
-extern "C" void func_020e3428(void *a, int b);
+extern "C" void func_020e3428(void *arg0, int arg1);
 extern "C" int func_020421a0(void);
-extern "C" char *func_020dedd0(struct Container020dedd0 *c, int key);
-extern "C" void *memset(void *dst, int value, unsigned int length);
-extern "C" void func_02046380(void *g);
-extern "C" void *func_020e46c4(void *p);
-extern "C" void func_02046574(struct Obj02046574 *obj, int index, char *str);
-extern "C" void func_020e4bf4(void *obj, int combatantId);
-extern "C" void __clear(void *buf, int n);
+extern "C" char *func_020dedd0(struct Struct_0201099c_10 *arg0, int arg1);
+extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
+extern "C" void func_02046380(void *arg0);
+extern "C" void *func_020e46c4(void *arg0);
+extern "C" void func_02046574(struct Struct_02046574_2 *arg0, int arg1, char *arg2);
+extern "C" void func_020e4bf4(void *arg0, int arg1);
+extern "C" void __clear(void *arg0, int arg1);
 #if !defined(jpn)
-extern "C" void func_020dcf7c(int count, void *buf);
+extern "C" void func_020dcf7c(int arg0, void *arg1);
 #endif
-extern "C" void func_020465f0(unsigned char *base, int index, unsigned char value);
-extern "C" void func_020465c0(struct StoreStruct *base, int index, int value);
-extern "C" int func_020e0434(struct Container020e0310 *c, int key);
-extern "C" int func_02042058(char *dst, const char *src);
-extern "C" void func_02046608(void *a, int b, int c, void *d, int e, int f, int g);
-extern "C" void func_ov016_0218b5c0(int a, int b);
+extern "C" void func_020465f0(unsigned char *arg0, int arg1, unsigned char arg2);
+extern "C" void func_020465c0(struct Struct_020465c0 *arg0, int arg1, int arg2);
+extern "C" int func_020e0434(struct Struct_0201099c_3 *arg0, int arg1);
+extern "C" int func_02042058(char *arg0, const char *arg1);
+extern "C" void func_02046608(void *arg0, int arg1, int arg2, void *arg3, int arg4, int arg5, int arg6);
+extern "C" void func_ov016_0218b5c0(int arg0, int arg1);
 
-struct Names9900 {
-    char *a;
-    char *b;
-    int c;
+struct Struct_ov002_02159900 {
+    char *unknown_0_;
+    char *unknown_4_;
+    int unknown_8_;
 };
 
-#define TXT(k) func_020e0434((struct Container020e0310 *) (base + REGION_LAYOUT(8, 0x20)), (k))
-#define BD0 (*(char **) (base + REGION_LAYOUT(0x1a98, 0x1000 + 0xbd0)))
+#define TXT(k) func_020e0434((struct Struct_0201099c_3 *) (arg0 + REGION_LAYOUT(8, 0x20)), (k))
+#define BD0 (*(char **) (arg0 + REGION_LAYOUT(0x1a98, 0x1000 + 0xbd0)))
 
 // USA: func_ov002_02159900
-extern "C" ARM void func_ov002_02159900(char *base, char *arr, int any) {
+extern "C" ARM void func_ov002_02159900(char *arg0, char *arg1, int arg2) {
     func_020e3428(func_020e2ff8(), 1);
-    GameState *gs      = GameState::GetInstance();
-    char *g            = (char *) func_020421a0();
-    unsigned char *ent = (unsigned char *) (arr + 8);
-    char *e            = func_020dedd0((struct Container020dedd0 *) (base + REGION_LAYOUT(0x750, 0x3ec + 0x400)),
-                                                                           *(short *) (base + REGION_LAYOUT(0x1aea, 0x1c00 + 0x22)));
-    if (e == NULL) return;
+    GameState *var0      = GameState::GetInstance();
+    char *var1            = (char *) func_020421a0();
+    unsigned char *var2 = (unsigned char *) (arg1 + 8);
+    char *var3            = func_020dedd0((struct Struct_0201099c_10 *) (arg0 + REGION_LAYOUT(0x750, 0x3ec + 0x400)),
+                                                                           *(short *) (arg0 + REGION_LAYOUT(0x1aea, 0x1c00 + 0x22)));
+    if (var3 == NULL) return;
 #if defined(jpn)
-    memset(*(void **) (base + 0x1a98), 0, 0x800);
-    memset(*(void **) (base + 0x1a9c), 0, 0x800);
-    func_02046380(g);
-    char *out = *(char **) (base + 0x1a98);
-    char *m   = (char *)func_0200ff1c(gs, *(signed char *) (arr + 2));
-    if (m != NULL) {
-        func_02046574((struct Obj02046574 *) g, 0, *(char **) (m + 0x134));
+    memset(*(void **) (arg0 + 0x1a98), 0, 0x800);
+    memset(*(void **) (arg0 + 0x1a9c), 0, 0x800);
+    func_02046380(var1);
+    char *var4 = *(char **) (arg0 + 0x1a98);
+    char *var5   = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 2));
+    if (var5 != NULL) {
+        func_02046574((struct Struct_02046574_2 *) var1, 0, *(char **) (var5 + 0x134));
     }
-    char names[0x40];
-    __clear(names, 0x40);
-    func_020dcf7c(*(short *) (e + 0x18), names);
-    func_02046574((struct Obj02046574 *) g, 1, names);
-    char *m2 = (char *)func_0200ff1c(gs, *(signed char *) (arr + 4));
-    if (m2 != NULL) {
-        func_02046574((struct Obj02046574 *) g, 2, *(char **) (m2 + 0x134));
-        func_020465f0((unsigned char *) g, 9, 0);
-        func_020465c0((struct StoreStruct *) g, 9, *(short *) (m2 + 4));
+    char var6[0x40];
+    __clear(var6, 0x40);
+    func_020dcf7c(*(short *) (var3 + 0x18), var6);
+    func_02046574((struct Struct_02046574_2 *) var1, 1, var6);
+    char *var7 = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 4));
+    if (var7 != NULL) {
+        func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var7 + 0x134));
+        func_020465f0((unsigned char *) var1, 9, 0);
+        func_020465c0((struct Struct_020465c0 *) var1, 9, *(short *) (var7 + 4));
     }
 #else
-    memset(*(void **) (base + 0x1000 + 0xbd0), 0, 0x960);
-    memset(*(void **) (base + 0x1000 + 0xbd4), 0, 0x960);
-    func_02046380(g);
-    func_020e46c4(base + 8);
-    func_020e46c4(base + 0x14);
-    char *out = *(char **) (base + 0x1000 + 0xbd0);
-    char *m   = (char *)func_0200ff1c(gs, *(signed char *) (arr + 2));
-    if (m != NULL) {
-        func_02046574((struct Obj02046574 *) g, 0, *(char **) (m + 0x134));
-        func_020e4bf4(base + 8, *(signed char *) (arr + 2));
-        *(char **) g = base + 8;
+    memset(*(void **) (arg0 + 0x1000 + 0xbd0), 0, 0x960);
+    memset(*(void **) (arg0 + 0x1000 + 0xbd4), 0, 0x960);
+    func_02046380(var1);
+    func_020e46c4(arg0 + 8);
+    func_020e46c4(arg0 + 0x14);
+    char *var8 = *(char **) (arg0 + 0x1000 + 0xbd0);
+    char *var9   = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 2));
+    if (var9 != NULL) {
+        func_02046574((struct Struct_02046574_2 *) var1, 0, *(char **) (var9 + 0x134));
+        func_020e4bf4(arg0 + 8, *(signed char *) (arg1 + 2));
+        *(char **) var1 = arg0 + 8;
     }
-    struct Names9900 nm;
-    char buf1[0x80];
-    char buf2[0x80];
-    func_020e46c4(&nm);
-    __clear(buf1, 0x80);
-    __clear(buf2, 0x80);
-    nm.a = buf1;
-    nm.b = buf2;
-    func_020dcf7c(*(short *) (e + 0x18), &nm);
-    *(struct Names9900 **) (g + 0x18) = &nm;
-    func_02046574((struct Obj02046574 *) g, 1, nm.a);
-    char *m2 = (char *)func_0200ff1c(gs, *(signed char *) (arr + 4));
-    if (m2 != NULL) {
-        func_02046574((struct Obj02046574 *) g, 2, *(char **) (m2 + 0x134));
-        func_020e4bf4(base + 0x14, *(signed char *) (arr + 4));
-        *(char **) (g + 0x10) = base + 0x14;
-        func_020465f0((unsigned char *) g, 9, 0);
-        func_020465c0((struct StoreStruct *) g, 9, *(short *) (m2 + 4));
+    struct Struct_ov002_02159900 var10;
+    char var11[0x80];
+    char var12[0x80];
+    func_020e46c4(&var10);
+    __clear(var11, 0x80);
+    __clear(var12, 0x80);
+    var10.unknown_0_ = var11;
+    var10.unknown_4_ = var12;
+    func_020dcf7c(*(short *) (var3 + 0x18), &var10);
+    *(struct Struct_ov002_02159900 **) (var1 + 0x18) = &var10;
+    func_02046574((struct Struct_02046574_2 *) var1, 1, var10.unknown_0_);
+    char *var13 = (char *)func_0200ff1c(var0, *(signed char *) (arg1 + 4));
+    if (var13 != NULL) {
+        func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var13 + 0x134));
+        func_020e4bf4(arg0 + 0x14, *(signed char *) (arg1 + 4));
+        *(char **) (var1 + 0x10) = arg0 + 0x14;
+        func_020465f0((unsigned char *) var1, 9, 0);
+        func_020465c0((struct Struct_020465c0 *) var1, 9, *(short *) (var13 + 4));
     }
 #endif
-    int a              = 0x7918;
-    int b              = 0x7919;
-    unsigned char done = 0;
-    switch ((*(unsigned int *) (e + 8) << 1) >> 27) {
+    int var14              = 0x7918;
+    int var15              = 0x7919;
+    unsigned char var16 = 0;
+    switch ((*(unsigned int *) (var3 + 8) << 1) >> 27) {
         case 2:
-            a = 0x7922;
-            b = 0x7923;
+            var14 = 0x7922;
+            var15 = 0x7923;
             break;
         case 3:
-            if (ent[0] == 3) {
-                a = 0x792c;
-                b = 0x7941;
+            if (var2[0] == 3) {
+                var14 = 0x792c;
+                var15 = 0x7941;
             } else {
-                a = 0x7936;
+                var14 = 0x7936;
             }
             break;
         case 4:
-            if (ent[0] == 3) {
-                a = 0x792c;
-                b = 0x794b;
+            if (var2[0] == 3) {
+                var14 = 0x792c;
+                var15 = 0x794b;
             } else {
-                a = 0x7936;
+                var14 = 0x7936;
             }
             break;
         case 5:
-            if (any) {
-                done = 1;
+            if (arg2) {
+                var16 = 1;
                 func_02042058(BD0, (const char *) TXT(0x792c));
-                if (ent[0] == 3) {
+                if (var2[0] == 3) {
                     func_02042058(BD0, (const char *) TXT(8));
                     func_02042058(BD0, (const char *) TXT(0x7941));
                 }
-                if (*(unsigned char *) (arr + 0x20) == 3) {
+                if (*(unsigned char *) (arg1 + 0x20) == 3) {
                     func_02042058(BD0, (const char *) TXT(8));
                     func_02042058(BD0, (const char *) TXT(0x794b));
                 }
             } else {
-                a = 0x7936;
+                var14 = 0x7936;
             }
             break;
         case 6:
-            if (ent[0] == 3) {
-                *(signed char *) (base + REGION_LAYOUT(0x1ae8, 0x1000 + 0xc20))   = *(signed char *) (arr + 2);
-                *(short *) (base + REGION_LAYOUT(0x1af0, 0x1c00 + 0x28))          = 0x792c;
-                *(short *) (base + REGION_LAYOUT(0x1af2, 0x1c00 + 0x2a))          = done - 1;
-                *(short *) (base + REGION_LAYOUT(0x22b8, 0x2400 + 0x88))          = 0x7955;
-                *(unsigned char *) (base + REGION_LAYOUT(0x22ba, 0x2000 + 0x48a)) = 1;
+            if (var2[0] == 3) {
+                *(signed char *) (arg0 + REGION_LAYOUT(0x1ae8, 0x1000 + 0xc20))   = *(signed char *) (arg1 + 2);
+                *(short *) (arg0 + REGION_LAYOUT(0x1af0, 0x1c00 + 0x28))          = 0x792c;
+                *(short *) (arg0 + REGION_LAYOUT(0x1af2, 0x1c00 + 0x2a))          = var16 - 1;
+                *(short *) (arg0 + REGION_LAYOUT(0x22b8, 0x2400 + 0x88))          = 0x7955;
+                *(unsigned char *) (arg0 + REGION_LAYOUT(0x22ba, 0x2000 + 0x48a)) = 1;
                 return;
             }
-            a = 0x7936;
+            var14 = 0x7936;
             break;
         case 7:
-            if (any) {
-                done = 1;
+            if (arg2) {
+                var16 = 1;
 #if defined(jpn)
-                func_020474a8(g, 0xc, (const char *) TXT(0x792c), out + 0x700);
-                func_02042058(BD0, out + 0x700);
+                func_020474a8(var1, 0xc, (const char *) TXT(0x792c), var4 + 0x700);
+                func_02042058(BD0, var4 + 0x700);
 #else
-                func_02046608(g, 0xc, TXT(0x792c), out + 0x860, 0xe3, 0, 1);
-                func_02042058(BD0, out + 0x860);
+                func_02046608(var1, 0xc, TXT(0x792c), var8 + 0x860, 0xe3, 0, 1);
+                func_02042058(BD0, var8 + 0x860);
 #endif
-                int i;
-                for (i = 0; i < *(unsigned char *) (arr + 3); i++) {
-                    if (ent[i * 6] == 3) {
-                        b = 0x7941;
+                int var17;
+                for (var17 = 0; var17 < *(unsigned char *) (arg1 + 3); var17++) {
+                    if (var2[var17 * 6] == 3) {
+                        var15 = 0x7941;
                     } else {
-                        b = 0x233a;
+                        var15 = 0x233a;
                     }
-                    if (b >= 0) {
-                        int cid = *(signed char *) (arr + i + 4);
-                        char *c = (char *)func_0200ff1c(gs, cid);
-                        if (c != NULL) {
-                            func_02046380(g);
+                    if (var15 >= 0) {
+                        int var18 = *(signed char *) (arg1 + var17 + 4);
+                        char *var19 = (char *)func_0200ff1c(var0, var18);
+                        if (var19 != NULL) {
+                            func_02046380(var1);
 #if defined(jpn)
-                            func_02046574((struct Obj02046574 *) g, 2, *(char **) (c + 0x134));
-                            func_020465c0((struct StoreStruct *) g, 9, cid);
-                            func_020474a8(g, 0xc, (const char *) TXT(b), out + 0x700);
+                            func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var19 + 0x134));
+                            func_020465c0((struct Struct_020465c0 *) var1, 9, var18);
+                            func_020474a8(var1, 0xc, (const char *) TXT(var15), var4 + 0x700);
                             func_02042058(BD0, (const char *) TXT(8));
-                            func_02042058(BD0, out + 0x700);
+                            func_02042058(BD0, var4 + 0x700);
 #else
-                            func_02046574((struct Obj02046574 *) g, 2, *(char **) (c + 0x134));
-                            func_020e4bf4(base + 0x14, cid);
-                            *(char **) (g + 0x10) = base + 0x14;
-                            func_020465c0((struct StoreStruct *) g, 9, cid);
-                            func_02046608(g, 0xc, TXT(b), out + 0x860, 0xe3, 0, 1);
+                            func_02046574((struct Struct_02046574_2 *) var1, 2, *(char **) (var19 + 0x134));
+                            func_020e4bf4(arg0 + 0x14, var18);
+                            *(char **) (var1 + 0x10) = arg0 + 0x14;
+                            func_020465c0((struct Struct_020465c0 *) var1, 9, var18);
+                            func_02046608(var1, 0xc, TXT(var15), var8 + 0x860, 0xe3, 0, 1);
                             func_02042058(BD0, (const char *) TXT(8));
-                            func_02042058(BD0, out + 0x860);
+                            func_02042058(BD0, var8 + 0x860);
 #endif
                         }
                     }
                 }
             } else {
                 func_ov016_0218b5c0(1, -1);
-                a = 0x7936;
-                b = 0x7919;
+                var14 = 0x7936;
+                var15 = 0x7919;
             }
             break;
         case 8:
-            if (ent[0] != 3) {
-                a = 0x7936;
+            if (var2[0] != 3) {
+                var14 = 0x7936;
                 break;
             }
-            func_020465f0((unsigned char *) g, done, done);
-            func_020465c0((struct StoreStruct *) g, 0, *(short *) (ent + 2));
-            a = 0x792c;
-            b = 0x795f;
+            func_020465f0((unsigned char *) var1, var16, var16);
+            func_020465c0((struct Struct_020465c0 *) var1, 0, *(short *) (var2 + 2));
+            var14 = 0x792c;
+            var15 = 0x795f;
             break;
         case 9:
-            a = 0x7968;
-            if (ent[0] == 3) b = 0x7969;
+            var14 = 0x7968;
+            if (var2[0] == 3) var15 = 0x7969;
             break;
         case 12:
-            a = 0x7986;
-            b = 0x7987;
+            var14 = 0x7986;
+            var15 = 0x7987;
             break;
         case 13:
-            if (ent[0] == 3) {
-                func_020465f0((unsigned char *) g, done, done);
-                func_020465c0((struct StoreStruct *) g, 0, *(short *) (ent + 2));
-                int k = -1;
-                switch (*(short *) (e + 0x18)) {
-                    case 0x561d: k = 0x7991; break;
-                    case 0x561e: k = 0x7992; break;
-                    case 0x561f: k = 0x7993; break;
-                    case 0x5620: k = 0x7994; break;
-                    case 0x5621: k = 0x7995; break;
-                    case 0x5622: k = 0x7996; break;
-                    case 0x5623: k = 0x7998; break;
-                    case 0x5624: k = 0x7999; break;
-                    case 0x5619: k = 0x7997; break;
+            if (var2[0] == 3) {
+                func_020465f0((unsigned char *) var1, var16, var16);
+                func_020465c0((struct Struct_020465c0 *) var1, 0, *(short *) (var2 + 2));
+                int var20 = -1;
+                switch (*(short *) (var3 + 0x18)) {
+                    case 0x561d: var20 = 0x7991; break;
+                    case 0x561e: var20 = 0x7992; break;
+                    case 0x561f: var20 = 0x7993; break;
+                    case 0x5620: var20 = 0x7994; break;
+                    case 0x5621: var20 = 0x7995; break;
+                    case 0x5622: var20 = 0x7996; break;
+                    case 0x5623: var20 = 0x7998; break;
+                    case 0x5624: var20 = 0x7999; break;
+                    case 0x5619: var20 = 0x7997; break;
                 }
-                func_02046574((struct Obj02046574 *) g, 5, (char *) TXT(k));
-                a = 0x792c;
-                b = 0x7990;
+                func_02046574((struct Struct_02046574_2 *) var1, 5, (char *) TXT(var20));
+                var14 = 0x792c;
+                var15 = 0x7990;
             } else {
-                a = 0x7936;
+                var14 = 0x7936;
             }
             break;
         case 14:
-            if (ent[0] != 3) {
-                a = 0x7936;
+            if (var2[0] != 3) {
+                var14 = 0x7936;
                 break;
             }
-            func_020465f0((unsigned char *) g, done, done);
-            func_020465c0((struct StoreStruct *) g, 0, *(short *) (ent + 2));
-            a = 0x792c;
-            b = 0x799b;
+            func_020465f0((unsigned char *) var1, var16, var16);
+            func_020465c0((struct Struct_020465c0 *) var1, 0, *(short *) (var2 + 2));
+            var14 = 0x792c;
+            var15 = 0x799b;
             break;
         case 15:
-            a = 0x79a4;
-            b = 0x79a5;
+            var14 = 0x79a4;
+            var15 = 0x79a5;
             break;
         case 16:
-            a = 0x79ae;
-            b = 0x79af;
+            var14 = 0x79ae;
+            var15 = 0x79af;
             break;
         case 17:
-            a = 0x79b8;
-            b = 0x79b9;
+            var14 = 0x79b8;
+            var15 = 0x79b9;
             break;
         case 18:
-            a = 0x79c2;
-            b = 0x79c3;
+            var14 = 0x79c2;
+            var15 = 0x79c3;
             break;
         case 19:
-            a = 0x79cc;
-            b = 0x79cd;
+            var14 = 0x79cc;
+            var15 = 0x79cd;
             break;
         case 20:
-            a = 0x79d6;
-            b = 0x79d7;
+            var14 = 0x79d6;
+            var15 = 0x79d7;
             break;
         case 21:
-            a = 0x79e0;
-            b = 0x79e1;
+            var14 = 0x79e0;
+            var15 = 0x79e1;
             break;
     }
-    if (!done) {
-        func_02042058(BD0, (const char *) TXT(a));
+    if (!var16) {
+        func_02042058(BD0, (const char *) TXT(var14));
         func_02042058(BD0, (const char *) TXT(8));
-        func_02042058(BD0, (const char *) TXT(b));
+        func_02042058(BD0, (const char *) TXT(var15));
     }
 #if defined(jpn)
-    func_020474a8(g, 0xc, *(const char **) (base + 0x1a98), *(char **) (base + 0x1a9c));
-    *(unsigned char *) (base + 0x1af9) = 1;
-    *(short *) (base + 0x22b8)          = -1;
-    *(unsigned char *) (base + 0x22ba) = 0;
+    func_020474a8(var1, 0xc, *(const char **) (arg0 + 0x1a98), *(char **) (arg0 + 0x1a9c));
+    *(unsigned char *) (arg0 + 0x1af9) = 1;
+    *(short *) (arg0 + 0x22b8)          = -1;
+    *(unsigned char *) (arg0 + 0x22ba) = 0;
 #else
-    func_02046608(g, 0xc, *(int *) (base + 0x1000 + 0xbd0), *(void **) (base + 0x1000 + 0xbd4), 0xe3, 0, 1);
-    *(unsigned char *) (base + 0x1000 + 0xc31) = 1;
-    *(short *) (base + 0x2400 + 0x88)          = -1;
-    *(unsigned char *) (base + 0x2000 + 0x48a) = 0;
+    func_02046608(var1, 0xc, *(int *) (arg0 + 0x1000 + 0xbd0), *(void **) (arg0 + 0x1000 + 0xbd4), 0xe3, 0, 1);
+    *(unsigned char *) (arg0 + 0x1000 + 0xc31) = 1;
+    *(short *) (arg0 + 0x2400 + 0x88)          = -1;
+    *(unsigned char *) (arg0 + 0x2000 + 0x48a) = 0;
 #endif
 }

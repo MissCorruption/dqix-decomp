@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-typedef int (*Handler_021f736c)(void*);
+typedef int (*Type_ov024_021f736c)(void*);
 
-struct Inner_021f736c {
-    char pad[0x18];
-    unsigned int field0x18;
+struct Struct_ov024_021f736c_2 {
+    char unknown_0_[0x18];
+    unsigned int unknown_18_;
 };
 
-struct Outer_021f736c {
-    char pad[0x10];
-    struct Inner_021f736c* field0x10;
+struct Struct_ov024_021f736c {
+    char unknown_0_[0x10];
+    struct Struct_ov024_021f736c_2* unknown_10_;
 };
 
-extern Handler_021f736c data_ov024_021ffda4[];
+extern Type_ov024_021f736c data_ov024_021ffda4[];
 
 // USA: func_ov024_021f736c
-extern "C" ARM int func_ov024_021f736c(struct Outer_021f736c* obj) {
-    struct Inner_021f736c* inner = obj->field0x10;
-    if (!inner) return 0;
-    unsigned int idx = (inner->field0x18 << 5) >> 23;
-    if (idx >= 0x42) return 0;
-    Handler_021f736c fn = data_ov024_021ffda4[idx];
-    if (!fn) return 0;
-    return fn(obj);
+extern "C" ARM int func_ov024_021f736c(struct Struct_ov024_021f736c* arg0) {
+    struct Struct_ov024_021f736c_2* var0 = arg0->unknown_10_;
+    if (!var0) return 0;
+    unsigned int var1 = (var0->unknown_18_ << 5) >> 23;
+    if (var1 >= 0x42) return 0;
+    Type_ov024_021f736c var2 = data_ov024_021ffda4[var1];
+    if (!var2) return 0;
+    return var2(arg0);
 }

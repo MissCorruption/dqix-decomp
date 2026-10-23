@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 #include "NitroSDK/ProcessorContext.h"
 
-struct PollEntry0220783c {
-    void* socket;
-    short requested;
-    unsigned short ready;
+struct Struct_ov031_0220783c {
+    void* unknown_0_;
+    short unknown_4_;
+    unsigned short unknown_6_;
 };
 extern "C" int func_ov031_02206fa4(void*);
 
 // USA: func_ov031_0220783c
-extern "C" ARM int func_ov031_0220783c(PollEntry0220783c* entries, unsigned int count, long long timeout) {
-    bool finite = timeout != -1;
-    PollEntry0220783c* entry;
-    unsigned int i;
-    int ready;
+extern "C" ARM int func_ov031_0220783c(Struct_ov031_0220783c* arg0, unsigned int arg1, long long arg2) {
+    bool var0 = arg2 != -1;
+    Struct_ov031_0220783c* var1;
+    unsigned int var2;
+    int var3;
     do {
-        entry = entries;
-        i = ready = 0;
-        if (i < count) {
+        var1 = arg0;
+        var2 = var3 = 0;
+        if (var2 < arg1) {
             do {
-                int requested = entry->requested | 0xe0;
-                int events = requested & func_ov031_02206fa4(entry->socket);
-                entry->ready = events;
-                i++;
-                entry++;
-                if (events) ready++;
-            } while (i < count);
+                int var4 = var1->unknown_4_ | 0xe0;
+                int var5 = var4 & func_ov031_02206fa4(var1->unknown_0_);
+                var1->unknown_6_ = var5;
+                var2++;
+                var1++;
+                if (var5) var3++;
+            } while (var2 < arg1);
         }
-        if (ready > 0) break;
-        if (finite && timeout <= 0) break;
+        if (var3 > 0) break;
+        if (var0 && arg2 <= 0) break;
         SleepCurrentContext(1);
-        timeout -= 0x20b;
+        arg2 -= 0x20b;
     } while (true);
-    return ready;
+    return var3;
 }

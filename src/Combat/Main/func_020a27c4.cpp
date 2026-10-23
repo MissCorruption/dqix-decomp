@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct IntField0x23c_020a27c4 {
-    char pad[0x23c];
-    int value;
+struct Struct_020676e0 {
+    char unknown_0_[0x23c];
+    int unknown_23c_;
 };
 
 // USA: func_020a27c4
-extern "C" ARM int func_020a27c4(struct IntField0x23c_020a27c4* obj) {
-    return obj->value;
+extern "C" ARM int func_020a27c4(struct Struct_020676e0* arg0) {
+    return arg0->unknown_23c_;
 }

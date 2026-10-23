@@ -3,27 +3,27 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" int func_ov001_0215ad2c(int x);
-struct Container02037364;
+extern "C" int func_ov001_0215ad2c(int arg0);
+struct Struct_ov001_0215bcc0;
 extern int data_ov001_02165769;
 
 // USA: func_ov001_0215bcc0
-extern "C" ARM int func_ov001_0215bcc0(void* self, int mode) {
-    GameState* battle = GameState::GetInstance();
+extern "C" ARM int func_ov001_0215bcc0(void* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
     (int)BackgroundLoader::GetInstance();
-    int mode2;
-    int id = func_ov001_0215ad2c(func_ov017_021d60f4(self));
-    mode2 = 3;
-    if (mode >= 2) {
-        mode2 = func_ov017_021d60f4((char*)self + 0x8);
+    int var1;
+    int var2 = func_ov001_0215ad2c(func_ov017_021d60f4(arg0));
+    var1 = 3;
+    if (arg1 >= 2) {
+        var1 = func_ov017_021d60f4((char*)arg0 + 0x8);
     }
-    GameObject* combatant = battle->GetGameObjectByIndex(id);
-    if (combatant == NULL) return 0;
-    unsigned char byteField = combatant->obj3D_.animationFlags_;
-    void* ptrField = combatant->obj3D_.activeAnimationRecord_;
-    ((Object3D*)((struct Container02037364*)combatant))->RemoveAnimationPackageByID(mode2);
-    if (combatant->obj3D_.MaybeSetRegularAnimation((char const*)((int)ptrField), byteField) == 0) {
-        combatant->obj3D_.MaybeSetRegularAnimation((char const*)((int)&data_ov001_02165769), 0);
+    GameObject* var3 = var0->GetGameObjectByIndex(var2);
+    if (var3 == NULL) return 0;
+    unsigned char var4 = var3->obj3D_.animationFlags_;
+    void* var5 = var3->obj3D_.activeAnimationRecord_;
+    ((Object3D*)((struct Struct_ov001_0215bcc0*)var3))->RemoveAnimationPackageByID(var1);
+    if (var3->obj3D_.MaybeSetRegularAnimation((char const*)((int)var5), var4) == 0) {
+        var3->obj3D_.MaybeSetRegularAnimation((char const*)((int)&data_ov001_02165769), 0);
     }
     return 1;
 }

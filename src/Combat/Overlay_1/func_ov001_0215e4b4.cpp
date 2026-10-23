@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
 extern "C" int func_020421a0();
-extern "C" int func_ov017_021d60f4(void* obj);
+extern "C" int func_ov017_021d60f4(void* arg0);
 
 // USA: func_ov001_0215e4b4
-extern "C" ARM int func_ov001_0215e4b4(void* obj) {
+extern "C" ARM int func_ov001_0215e4b4(void* arg0) {
 #if defined(jpn)
-    enum { flagOffset = 0x789, valueOffset = 0x878 };
+    enum { Enum_ov001_0215e4b4_2395 = 0x789, Enum_ov001_0215e4b4_2472 = 0x878 };
 #else
-    enum { flagOffset = 0x95b, valueOffset = 0x9a8 };
+    enum { Enum_ov001_0215e4b4_2395 = 0x95b, Enum_ov001_0215e4b4_2472 = 0x9a8 };
 #endif
-    char* p = (char*)func_020421a0();
-    if (p == NULL) return 0;
-    int v = func_ov017_021d60f4(obj);
-    p += 0x1000;
-    *(unsigned char*)(p + flagOffset) |= 0x4;
-    *(int*)(p - 0x1000 + valueOffset) = v;
+    char* var0 = (char*)func_020421a0();
+    if (var0 == NULL) return 0;
+    int var1 = func_ov017_021d60f4(arg0);
+    var0 += 0x1000;
+    *(unsigned char*)(var0 + Enum_ov001_0215e4b4_2395) |= 0x4;
+    *(int*)(var0 - 0x1000 + Enum_ov001_0215e4b4_2472) = var1;
     return 1;
 }

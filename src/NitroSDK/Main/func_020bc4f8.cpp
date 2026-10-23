@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d1e08(int a, int b, int c, int d);
-extern "C" int func_020d1ebc(int a, int b, int c);
-struct Obj020bc610;
-extern "C" void func_020bc610(Obj020bc610* obj);
+extern "C" int func_020d1e08(int arg0, int arg1, int arg2, int arg3);
+extern "C" int func_020d1ebc(int arg0, int arg1, int arg2);
+struct Struct_020bc4f8;
+extern "C" void func_020bc610(Struct_020bc4f8* arg0);
 extern "C" int func_020d26ec(void);
 
-struct Ptr4Target020bc4f8 { unsigned char pad[0x1c]; int field1c; };
+struct Struct_020bc4f8_2 { unsigned char unknown_0_[0x1c]; int unknown_1c_; };
 
-struct Obj020bc4f8 {
-    unsigned char pad00[4];
-    Ptr4Target020bc4f8* field4;
-    unsigned char pad08[0x24];
-    unsigned char byte2c;
-    unsigned char pad2d[2];
-    unsigned char byte2f;
-    int field30;
-    unsigned char pad34[8];
-    unsigned char byte3c;
+struct Struct_020bc4f8_3 {
+    unsigned char unknown_0_[4];
+    Struct_020bc4f8_2* unknown_4_;
+    unsigned char unknown_8_[0x24];
+    unsigned char unknown_2c_;
+    unsigned char unknown_2d_[2];
+    unsigned char unknown_2f_;
+    int unknown_30_;
+    unsigned char unknown_34_[8];
+    unsigned char unknown_3c_;
 };
 
 // USA: func_020bc4f8
-extern "C" ARM void func_020bc4f8(Obj020bc4f8* obj, int b, int c, int d) {
-    Ptr4Target020bc4f8* p = obj->field4;
-    func_020d1e08(obj->byte3c, b, c, d);
-    if (p->field1c != 0) {
-        func_020d1ebc(obj->byte3c, 0xffff, p->field1c);
+extern "C" ARM void func_020bc4f8(Struct_020bc4f8_3* arg0, int arg1, int arg2, int arg3) {
+    Struct_020bc4f8_2* var0 = arg0->unknown_4_;
+    func_020d1e08(arg0->unknown_3c_, arg1, arg2, arg3);
+    if (var0->unknown_1c_ != 0) {
+        func_020d1ebc(arg0->unknown_3c_, 0xffff, var0->unknown_1c_);
     }
-    func_020bc610((Obj020bc610*)obj);
-    obj->field30 = func_020d26ec();
-    obj->byte2f = 1;
-    obj->byte2c = 1;
+    func_020bc610((Struct_020bc4f8*)arg0);
+    arg0->unknown_30_ = func_020d26ec();
+    arg0->unknown_2f_ = 1;
+    arg0->unknown_2c_ = 1;
 }

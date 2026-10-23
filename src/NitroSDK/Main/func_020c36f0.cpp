@@ -28,25 +28,25 @@ extern "C" ARM void func_020c36f0(void) {
     InitializeVRAM();
 
     if (data_02111222_field == 0) {
-        int id;
+        int var0;
         do {
-            id = (int)GenerateLockOwnerID();
-            if (id == -3) {
+            var0 = (int)GenerateLockOwnerID();
+            if (var0 == -3) {
                 func_020c9be0();
             }
-            data_02111222_field = (unsigned short)id;
+            data_02111222_field = (unsigned short)var0;
         } while (data_02111222_field == 0);
     }
 
     *(volatile unsigned short*)0x4000004 = 0;
     *(volatile unsigned int*)0x4000000 = 0;
 
-    int channel = *(int*)((char*)&data_020f226c + 4);
-    if (channel != -1) {
-        DMAMemsetSynchronous(channel, 0x4000008, 0, 0x60);
+    int var1 = *(int*)((char*)&data_020f226c + 4);
+    if (var1 != -1) {
+        DMAMemsetSynchronous(var1, 0x4000008, 0, 0x60);
         *(volatile unsigned short*)0x400006c = 0;
-        channel = *(int*)((char*)&data_020f226c + 4);
-        DMAMemsetSynchronous(channel, 0x4001000, 0, 0x70);
+        var1 = *(int*)((char*)&data_020f226c + 4);
+        DMAMemsetSynchronous(var1, 0x4001000, 0, 0x70);
     } else {
         func_020ca3ec(0, (void*)0x4000008, 0x60);
         *(volatile unsigned short*)0x400006c = 0;

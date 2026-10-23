@@ -16,48 +16,48 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
-extern "C" void* func_02010828(GameState* gameState);
-extern "C" short* func_0207c5f8(unsigned char* p, unsigned int list);
-extern "C" signed char* func_0207c60c(void* p, unsigned int list);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" short* func_0207c5f8(unsigned char* arg0, unsigned int arg1);
+extern "C" signed char* func_0207c60c(void* arg0, unsigned int arg1);
 
 extern "C" unsigned char data_ov005_0215cd60[8];
 
-struct EquipmentSlot {
-    short item_;
-    signed char count_;
-    unsigned char equipped_;
-    void* vramState_;
-    void* model_;
-    int x_;
-    int y_;
-    int offset_;
-    short loadedItem_;
+struct Struct_ov005_02153ba4 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    void* unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    short unknown_18_;
 };
 
-struct EquipmentMenu {
-    char unk_0[R(0x2d08, 0x2d90)];
-    EquipmentSlot slots_[24];
-    char unk_3030[0x3dbc - 0x3030];
-    unsigned char kind_;
-    signed char page_;
+struct Struct_ov005_02153954 {
+    char unknown_0_[R(0x2d08, 0x2d90)];
+    Struct_ov005_02153ba4 unknown_2d90_[24];
+    char unknown_3030_[0x3dbc - 0x3030];
+    unsigned char unknown_3dbc_;
+    signed char unknown_3dbd_;
 };
 
 // USA: func_ov005_021555c0
-extern "C" ARM void func_ov005_021555c0(EquipmentMenu* self) {
-    char* party = (char*)func_02010828(GameState::GetInstance());
-    short* items = func_0207c5f8((unsigned char*)(party + 0x1d4), data_ov005_0215cd60[self->kind_]);
-    signed char* counts = func_0207c60c(party + 0x1d4, data_ov005_0215cd60[self->kind_]);
-    signed char page = self->page_;
-    for (int i = 0; i < 16; i++) {
-        EquipmentSlot* slot = &self->slots_[i + 8];
-        int index = i + page * 16;
-        short item = items[index];
-        signed char count = counts[index];
-        if (item == slot->loadedItem_)
-            slot->equipped_ = 1;
+extern "C" ARM void func_ov005_021555c0(Struct_ov005_02153954* arg0) {
+    char* var0 = (char*)func_02010828(GameState::GetInstance());
+    short* var1 = func_0207c5f8((unsigned char*)(var0 + 0x1d4), data_ov005_0215cd60[arg0->unknown_3dbc_]);
+    signed char* var2 = func_0207c60c(var0 + 0x1d4, data_ov005_0215cd60[arg0->unknown_3dbc_]);
+    signed char var3 = arg0->unknown_3dbd_;
+    for (int var4 = 0; var4 < 16; var4++) {
+        Struct_ov005_02153ba4* var5 = &arg0->unknown_2d90_[var4 + 8];
+        int var6 = var4 + var3 * 16;
+        short var7 = var1[var6];
+        signed char var8 = var2[var6];
+        if (var7 == var5->unknown_18_)
+            var5->unknown_3_ = 1;
         else
-            slot->equipped_ = 0;
-        slot->item_ = item;
-        slot->count_ = count;
+            var5->unknown_3_ = 0;
+        var5->unknown_0_ = var7;
+        var5->unknown_2_ = var8;
     }
 }

@@ -9,49 +9,49 @@ extern "C" int func_ov004_02155104(void);
 extern char* data_ov004_021707c4;
 
 // Real virtual calls: index 0x3c/4=15 (MethodNotify), index 0xec/4=59 (CallEc).
-class VObj02155ea4 {
+class Struct_ov004_02155ea4 {
 public:
-	virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-	virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-	virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-	virtual void v12(); virtual void v13(); virtual void v14();
-	virtual void MethodNotify0x3c(int a);
-	virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-	virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-	virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-	virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-	virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-	virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-	virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
-	virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
-	virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
-	virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55();
-	virtual void v56(); virtual void v57(); virtual void v58();
-	virtual void CallEc();
+	virtual void inline_ov004_02155ea4_33(); virtual void inline_ov004_02155ea4_34(); virtual void inline_ov004_02155ea4_35(); virtual void inline_ov004_02155ea4_36();
+	virtual void inline_ov004_02155ea4_37(); virtual void inline_ov004_02155ea4_38(); virtual void inline_ov004_02155ea4_39(); virtual void inline_ov004_02155ea4_40();
+	virtual void inline_ov004_02155ea4_41(); virtual void inline_ov004_02155ea4_42(); virtual void inline_ov004_02155ea4_43(); virtual void inline_ov004_02155ea4_44();
+	virtual void inline_ov004_02155ea4_45(); virtual void inline_ov004_02155ea4_46(); virtual void inline_ov004_02155ea4_47();
+	virtual void inline_ov004_02155ea4_48(int arg0);
+	virtual void inline_ov004_02155ea4_49(); virtual void inline_ov004_02155ea4_50(); virtual void inline_ov004_02155ea4_51(); virtual void inline_ov004_02155ea4_52();
+	virtual void inline_ov004_02155ea4_53(); virtual void inline_ov004_02155ea4_54(); virtual void inline_ov004_02155ea4_55(); virtual void inline_ov004_02155ea4_56();
+	virtual void inline_ov004_02155ea4_57(); virtual void inline_ov004_02155ea4_58(); virtual void inline_ov004_02155ea4_59(); virtual void inline_ov004_02155ea4_60();
+	virtual void inline_ov004_02155ea4(); virtual void inline_ov004_02155ea4_2(); virtual void inline_ov004_02155ea4_3(); virtual void inline_ov004_02155ea4_4();
+	virtual void inline_ov004_02155ea4_5(); virtual void inline_ov004_02155ea4_6(); virtual void inline_ov004_02155ea4_7(); virtual void inline_ov004_02155ea4_8();
+	virtual void inline_ov004_02155ea4_9(); virtual void inline_ov004_02155ea4_10(); virtual void inline_ov004_02155ea4_11(); virtual void inline_ov004_02155ea4_12();
+	virtual void inline_ov004_02155ea4_13(); virtual void inline_ov004_02155ea4_14(); virtual void inline_ov004_02155ea4_15(); virtual void inline_ov004_02155ea4_16();
+	virtual void inline_ov004_02155ea4_17(); virtual void inline_ov004_02155ea4_18(); virtual void inline_ov004_02155ea4_19(); virtual void inline_ov004_02155ea4_20();
+	virtual void inline_ov004_02155ea4_21(); virtual void inline_ov004_02155ea4_22(); virtual void inline_ov004_02155ea4_23(); virtual void inline_ov004_02155ea4_24();
+	virtual void inline_ov004_02155ea4_25(); virtual void inline_ov004_02155ea4_26(); virtual void inline_ov004_02155ea4_27(); virtual void inline_ov004_02155ea4_28();
+	virtual void inline_ov004_02155ea4_29(); virtual void inline_ov004_02155ea4_30(); virtual void inline_ov004_02155ea4_31();
+	virtual void inline_ov004_02155ea4_32();
 };
 
 // USA: func_ov004_02155ea4
-extern "C" ARM int func_ov004_02155ea4(void* obj) {
-    VObj02155ea4* node = (VObj02155ea4*)func_ov023_021f6880(func_ov011_021849c8(obj), 0x39);
-    if (!node) return 0;
-    if (func_ov023_021f6f10(node) != 0x12) return 0;
+extern "C" ARM int func_ov004_02155ea4(void* arg0) {
+    Struct_ov004_02155ea4* var0 = (Struct_ov004_02155ea4*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x39);
+    if (!var0) return 0;
+    if (func_ov023_021f6f10(var0) != 0x12) return 0;
 
-    node->CallEc();
-    if (!node) return 0;
+    var0->inline_ov004_02155ea4_32();
+    if (!var0) return 0;
 
     if (*(short*)(data_ov004_021707c4 + 0xe) == 0) {
-        VObj02155ea4* n2 = (VObj02155ea4*)func_ov023_021f6880(func_ov011_021849c8(obj), 0x1a);
-        if (n2) n2->MethodNotify0x3c(0);
+        Struct_ov004_02155ea4* var1 = (Struct_ov004_02155ea4*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1a);
+        if (var1) var1->inline_ov004_02155ea4_48(0);
     }
 
     if (func_ov004_02155090() == 0) {
-        VObj02155ea4* n2 = (VObj02155ea4*)func_ov023_021f6880(func_ov011_021849c8(obj), 0x1b);
-        if (n2) n2->MethodNotify0x3c(0);
+        Struct_ov004_02155ea4* var2 = (Struct_ov004_02155ea4*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1b);
+        if (var2) var2->inline_ov004_02155ea4_48(0);
     }
 
     if (func_ov004_02155104() == 0) {
-        VObj02155ea4* n2 = (VObj02155ea4*)func_ov023_021f6880(func_ov011_021849c8(obj), 0x1c);
-        if (n2) n2->MethodNotify0x3c(0);
+        Struct_ov004_02155ea4* var3 = (Struct_ov004_02155ea4*)func_ov023_021f6880(func_ov011_021849c8(arg0), 0x1c);
+        if (var3) var3->inline_ov004_02155ea4_48(0);
     }
 
     return 0;

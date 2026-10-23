@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-struct MessageHandlers0221e894 {
-    void (*firstHandler)(int);
-    char padding4[4];
-    void* context;
-    void (*completionHandler)(void* context);
+struct Struct_ov031_0224f4c0_2 {
+    void (*unknown_0_)(int);
+    char unknown_4_[4];
+    void* unknown_8_;
+    void (*unknown_c_)(void* context);
 };
 
-extern MessageHandlers0221e894 data_ov031_0224f4c0;
+extern Struct_ov031_0224f4c0_2 data_ov031_0224f4c0;
 extern int data_ov031_0224f4e0;
 extern "C" int func_ov031_0221f190();
-extern "C" int func_020c7ea0(void* queue, int* message, int blocking);
+extern "C" int func_020c7ea0(void* arg0, int* arg1, int arg2);
 
 // USA: func_ov031_0221e894
 extern "C" THUMB int func_ov031_0221e894() {
-    int running = 1;
-    int result = -1;
-    if (data_ov031_0224f4c0.completionHandler == NULL) return result;
+    int var0 = 1;
+    int var1 = -1;
+    if (data_ov031_0224f4c0.unknown_c_ == NULL) return var1;
     if (func_ov031_0221f190() == 0) return -1;
-    int message;
+    int var2;
     do {
-        func_020c7ea0(&data_ov031_0224f4e0, &message, 1);
-        switch (message) {
+        func_020c7ea0(&data_ov031_0224f4e0, &var2, 1);
+        switch (var2) {
         case 4:
         case 5:
             break;
         case 20:
-            running = 0;
-            result = 0;
-            data_ov031_0224f4c0.completionHandler(data_ov031_0224f4c0.context);
+            var0 = 0;
+            var1 = 0;
+            data_ov031_0224f4c0.unknown_c_(data_ov031_0224f4c0.unknown_8_);
             break;
         case 0:
         case 1:
@@ -50,13 +50,13 @@ extern "C" THUMB int func_ov031_0221e894() {
         case 18:
         case 19:
         default:
-            running = 0;
+            var0 = 0;
             break;
         }
-    } while (running != 0);
-    int irqState = DisableIRQInterrupts();
-    data_ov031_0224f4c0.firstHandler = NULL;
-    data_ov031_0224f4c0.completionHandler = NULL;
-    SetIRQInterruptState(irqState);
-    return result;
+    } while (var0 != 0);
+    int var3 = DisableIRQInterrupts();
+    data_ov031_0224f4c0.unknown_0_ = NULL;
+    data_ov031_0224f4c0.unknown_c_ = NULL;
+    SetIRQInterruptState(var3);
+    return var1;
 }

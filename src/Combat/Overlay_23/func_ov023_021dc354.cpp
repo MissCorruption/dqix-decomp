@@ -2,99 +2,99 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-extern "C" void func_ov023_021db2e4(volatile int* p);
+extern "C" void func_ov023_021db2e4(volatile int* arg0);
 extern "C" int func_02094a00(void);
-extern "C" void func_02094ab0(void* obj);
-struct InitStruct02075cdcStruct;
-extern "C" void func_02075d58(struct InitStruct02075cdcStruct* s);
-extern "C" void func_ov023_021dcd18(void* obj);
-extern "C" void func_ov023_021dc134(void* a, int key, int flag);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02094ab0(void* arg0);
+struct Struct_02075cdc;
+extern "C" void func_02075d58(struct Struct_02075cdc* arg0);
+extern "C" void func_ov023_021dcd18(void* arg0);
+extern "C" void func_ov023_021dc134(void* arg0, int arg1, int arg2);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 
 extern AllocatorUnion data_02114e20;
 
 #if defined(jpn)
-struct DataStruct_021dc354 { unsigned int pad0[5]; void* field4; };
+struct Struct_ov023_021ff9e0_4 { unsigned int unknown_0_[5]; void* unknown_4_; };
 #else
-struct DataStruct_021dc354 { unsigned int pad0; void* field4; };
+struct Struct_ov023_021ff9e0_4 { unsigned int unknown_0_; void* unknown_4_; };
 #endif
 
-extern struct DataStruct_021dc354 data_ov023_021ff9e0;
+extern struct Struct_ov023_021ff9e0_4 data_ov023_021ff9e0;
 
-struct Obj021dc354 {
-    SafeAllocator allocator0;
-    SafeAllocator allocator1;
-    SafeAllocator allocator2;
-    SafeAllocator* pAlloc0;
-    SafeAllocator* pAlloc1;
-    SafeAllocator* pAlloc2;
-    unsigned char pad48[0xc4 - 0x48];
-    struct InitStruct02075cdcStruct* ptrC4;
-    struct InitStruct02075cdcStruct* ptrC8;
+struct Struct_ov023_021dc354 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator* unknown_3c_;
+    SafeAllocator* unknown_40_;
+    SafeAllocator* unknown_44_;
+    unsigned char unknown_48_[0xc4 - 0x48];
+    struct Struct_02075cdc* unknown_c4_;
+    struct Struct_02075cdc* unknown_c8_;
 #if defined(jpn)
-    unsigned char padCC[0x6b0 - 0xcc];
+    unsigned char unknown_cc_[0x6b0 - 0xcc];
 #else
-    unsigned char padCC[0x734 - 0xcc];
+    unsigned char unknown1_cc_[0x734 - 0xcc];
 #endif
 
-    int field734;
-    int arr738[7];
-    unsigned char pad754[0x774 - 0x754];
-    unsigned short flags774;
-    unsigned char pad776[0x77b - 0x776];
-    signed char field77b;
-    unsigned char pad77c[0x77e - 0x77c];
-    signed char field77e;
-    unsigned char pad77f[0x780 - 0x77f];
-    int field780;
-    unsigned char pad784[0x79b - 0x784];
-    unsigned char flag79b : 1;
+    int unknown_734_;
+    int unknown_738_[7];
+    unsigned char unknown_754_[0x774 - 0x754];
+    unsigned short unknown_774_;
+    unsigned char unknown_776_[0x77b - 0x776];
+    signed char unknown_77b_;
+    unsigned char unknown_77c_[0x77e - 0x77c];
+    signed char unknown_77e_;
+    unsigned char unknown_77f_[0x780 - 0x77f];
+    int unknown_780_;
+    unsigned char unknown_784_[0x79b - 0x784];
+    unsigned char unknown_79b_0_ : 1;
 };
 
 // USA: func_ov023_021dc354
-extern "C" ARM void func_ov023_021dc354(struct Obj021dc354* obj) {
-    func_ov023_021db2e4((volatile int*)&obj->field780);
-    obj->field77e = -1;
+extern "C" ARM void func_ov023_021dc354(struct Struct_ov023_021dc354* arg0) {
+    func_ov023_021db2e4((volatile int*)&arg0->unknown_780_);
+    arg0->unknown_77e_ = -1;
 
-    if (!(obj->flags774 & 0x10)) {
+    if (!(arg0->unknown_774_ & 0x10)) {
         func_02094ab0((void*)func_02094a00());
     }
 
-    func_ov023_021db2e4((volatile int*)&obj->field734);
-    for (int i = 0; i < 7; i++) {
-        func_ov023_021db2e4((volatile int*)&obj->arr738[i]);
+    func_ov023_021db2e4((volatile int*)&arg0->unknown_734_);
+    for (int var0 = 0; var0 < 7; var0++) {
+        func_ov023_021db2e4((volatile int*)&arg0->unknown_738_[var0]);
     }
 
-    if (obj->ptrC8) {
-        func_02075d58(obj->ptrC8);
+    if (arg0->unknown_c8_) {
+        func_02075d58(arg0->unknown_c8_);
     }
-    if (obj->ptrC4) {
-        func_02075d58(obj->ptrC4);
-    }
-
-    if (obj->field77b != 1) {
-        func_ov023_021dcd18(obj);
+    if (arg0->unknown_c4_) {
+        func_02075d58(arg0->unknown_c4_);
     }
 
-    if (obj->pAlloc2) {
-        obj->pAlloc2->Destroy();
+    if (arg0->unknown_77b_ != 1) {
+        func_ov023_021dcd18(arg0);
     }
-    if (obj->pAlloc1) {
-        obj->pAlloc1->Destroy();
-    }
-    if (obj->pAlloc0) {
-        obj->pAlloc0->Destroy();
-    }
-    obj->allocator2.Destroy();
-    obj->allocator1.Destroy();
-    obj->allocator0.Destroy();
 
-    if (data_ov023_021ff9e0.field4) {
-        if (!obj->flag79b) {
-            func_02012da4(&data_02114e20, data_ov023_021ff9e0.field4);
+    if (arg0->unknown_44_) {
+        arg0->unknown_44_->Destroy();
+    }
+    if (arg0->unknown_40_) {
+        arg0->unknown_40_->Destroy();
+    }
+    if (arg0->unknown_3c_) {
+        arg0->unknown_3c_->Destroy();
+    }
+    arg0->unknown_28_.Destroy();
+    arg0->unknown_14_.Destroy();
+    arg0->unknown_0_.Destroy();
+
+    if (data_ov023_021ff9e0.unknown_4_) {
+        if (!arg0->unknown_79b_0_) {
+            func_02012da4(&data_02114e20, data_ov023_021ff9e0.unknown_4_);
         }
-        data_ov023_021ff9e0.field4 = 0;
+        data_ov023_021ff9e0.unknown_4_ = 0;
     }
 
-    func_ov023_021dc134(obj, -1, obj->field77b);
+    func_ov023_021dc134(arg0, -1, arg0->unknown_77b_);
 }

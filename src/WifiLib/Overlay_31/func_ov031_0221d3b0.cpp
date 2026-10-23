@@ -1,32 +1,32 @@
 #include "NitroSDK/OverlayResponse.h"
 
-extern "C" int func_ov031_0221d6a8(ResponseHeader*);
+extern "C" int func_ov031_0221d6a8(Struct_ov031_0221d3b0*);
 
 // USA: func_ov031_0221d3b0
-extern "C" THUMB int func_ov031_0221d3b0(int state, ResponsePacket* packet, int* rejected, ResponseIdentifiers* identifiers) {
-    ResponseHeader* header = &packet->header;
-    if (func_ov031_0221e638(header->version) < 1) {
-        (*rejected)++;
-        return state;
+extern "C" THUMB int func_ov031_0221d3b0(int arg0, Struct_ov031_0221d3b0_2* arg1, int* arg2, Struct_ov031_0221d3b0_3* arg3) {
+    Struct_ov031_0221d3b0* var0 = &arg1->unknown_c_;
+    if (func_ov031_0221e638(var0->unknown_0_) < 1) {
+        (*arg2)++;
+        return arg0;
     }
-    if (header->transport != 0x11) {
-        (*rejected)++;
-        return state;
+    if (var0->unknown_f_ != 0x11) {
+        (*arg2)++;
+        return arg0;
     }
-    if (func_ov031_0221d6a8(&packet->header) > 0) {
-        (*rejected)++;
-        return state;
+    if (func_ov031_0221d6a8(&arg1->unknown_c_) > 0) {
+        (*arg2)++;
+        return arg0;
     }
-    switch (func_ov031_0221e638(header->type)) {
+    switch (func_ov031_0221e638(var0->unknown_6_)) {
     case 0x1010:
-        state = func_ov031_0221d450(state, packet, rejected, identifiers);
+        arg0 = func_ov031_0221d450(arg0, arg1, arg2, arg3);
         break;
     case 0x2010:
-        state = func_ov031_0221d52c(state, packet, rejected, identifiers);
+        arg0 = func_ov031_0221d52c(arg0, arg1, arg2, arg3);
         break;
     case 0x3010:
-        state = func_ov031_0221d604(state, packet, rejected, identifiers);
+        arg0 = func_ov031_0221d604(arg0, arg1, arg2, arg3);
         break;
     }
-    return state;
+    return arg0;
 }

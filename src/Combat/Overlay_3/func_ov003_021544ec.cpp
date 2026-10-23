@@ -3,97 +3,97 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 
-struct EntryManager020e2490;
-extern "C" void func_020e2490(struct EntryManager020e2490* obj, int arg1, int arg2, void* arg3, SafeAllocator* alloc, int count, unsigned char flag);
-struct List0204af64;
-extern "C" void func_0204af64(struct List0204af64* obj);
+struct Struct_020e2490;
+extern "C" void func_020e2490(struct Struct_020e2490* arg0, int arg1, int arg2, void* arg3, SafeAllocator* arg4, int arg5, unsigned char arg6);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 extern "C" void func_0204c684(void*);
-struct Struct0205a198;
-extern "C" void func_0205a198(struct Struct0205a198*);
+struct Struct_02043368_2;
+extern "C" void func_0205a198(struct Struct_02043368_2*);
 
-struct CombatSubsystem0215376c {
-    char pad0[4];
-    void* field4;
-    void* field8;
-    void* fieldC;
-    char pad10[0x59 - 0x10];
-    signed char field59;
+struct Struct_ov003_021544ec {
+    char unknown_0_[4];
+    void* unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    char unknown_10_[0x59 - 0x10];
+    signed char unknown_59_;
 };
-extern "C" void func_ov003_0215376c(struct CombatSubsystem0215376c* obj);
-extern "C" void func_ov003_021536e0(struct CombatSubsystem0215376c* obj, SafeAllocator* alloc);
+extern "C" void func_ov003_0215376c(struct Struct_ov003_021544ec* arg0);
+extern "C" void func_ov003_021536e0(struct Struct_ov003_021544ec* arg0, SafeAllocator* arg1);
 
-struct AllocatorSizes021544ec {
-    unsigned int v[8];
+struct Struct_ov003_0217f320 {
+    unsigned int unknown_0_[8];
 };
-extern AllocatorSizes021544ec data_ov003_0217f320;
+extern Struct_ov003_0217f320 data_ov003_0217f320;
 
-struct Obj021544ec {
-    SafeAllocator* allocators;
-    struct CombatSubsystem0215376c* subsystem;
-    char pad8[4];
-    void* bufC;
-    struct List0204af64* lists;
-    char* buf14;
-    Manager0207f7f0* buf18;
-    struct EntryManager020e2490* entryManager;
-    int* words;
-    struct Struct0205a198* buf24;
-    void* buf28;
-    char pad2c[0x90 - 0x2c];
-    char field90[0xfc - 0x90];
-    char fieldFc[0x114 - 0xfc];
-    char field114[1];
+struct Struct_ov003_021544ec_2 {
+    SafeAllocator* unknown_0_;
+    struct Struct_ov003_021544ec* unknown_4_;
+    char unknown_8_[4];
+    void* unknown_c_;
+    struct Struct_02020cb8* unknown_10_;
+    char* unknown_14_;
+    Struct_0207f7f0* unknown_18_;
+    struct Struct_020e2490* unknown_1c_;
+    int* unknown_20_;
+    struct Struct_02043368_2* unknown_24_;
+    void* unknown_28_;
+    char unknown_2c_[0x90 - 0x2c];
+    char unknown_90_[0xfc - 0x90];
+    char unknown_fc_[0x114 - 0xfc];
+    char unknown_114_[1];
 };
 
 #if defined(jpn)
-enum { kNotificationBufferSize = 0x68, kEntryCount = 3 };
+enum { Enum_ov003_021544ec_128 = 0x68, Enum_ov003_021544ec_4 = 3 };
 #else
-enum { kNotificationBufferSize = 0x80, kEntryCount = 4 };
+enum { Enum_ov003_021544ec_128 = 0x80, Enum_ov003_021544ec_4 = 4 };
 #endif
 
 // USA: func_ov003_021544ec
-extern "C" ARM void func_ov003_021544ec(struct Obj021544ec* obj, SafeAllocator* alloc) {
-    if (alloc != 0) {
-        obj->allocators = (SafeAllocator*)alloc->Allocate(0xa0);
-        obj->subsystem = (struct CombatSubsystem0215376c*)alloc->Allocate(0x60);
-        obj->bufC = alloc->Allocate(0x4c00);
-        obj->lists = (struct List0204af64*)alloc->Allocate(0x40);
-        obj->buf14 = (char*)alloc->Allocate(0x2a0);
-        obj->buf18 = static_cast<Manager0207f7f0*>(alloc->Allocate(kNotificationBufferSize));
-        obj->words = (int*)alloc->Allocate(0x30);
-        obj->buf24 = (struct Struct0205a198*)alloc->Allocate(0x190);
-        obj->buf28 = alloc->Allocate(8);
-        obj->entryManager = (struct EntryManager020e2490*)alloc->Allocate(0x24);
-        func_020e2490(obj->entryManager, 0, 1, obj->buf28, alloc, kEntryCount, 0x40);
+extern "C" ARM void func_ov003_021544ec(struct Struct_ov003_021544ec_2* arg0, SafeAllocator* arg1) {
+    if (arg1 != 0) {
+        arg0->unknown_0_ = (SafeAllocator*)arg1->Allocate(0xa0);
+        arg0->unknown_4_ = (struct Struct_ov003_021544ec*)arg1->Allocate(0x60);
+        arg0->unknown_c_ = arg1->Allocate(0x4c00);
+        arg0->unknown_10_ = (struct Struct_02020cb8*)arg1->Allocate(0x40);
+        arg0->unknown_14_ = (char*)arg1->Allocate(0x2a0);
+        arg0->unknown_18_ = static_cast<Struct_0207f7f0*>(arg1->Allocate(Enum_ov003_021544ec_128));
+        arg0->unknown_20_ = (int*)arg1->Allocate(0x30);
+        arg0->unknown_24_ = (struct Struct_02043368_2*)arg1->Allocate(0x190);
+        arg0->unknown_28_ = arg1->Allocate(8);
+        arg0->unknown_1c_ = (struct Struct_020e2490*)arg1->Allocate(0x24);
+        func_020e2490(arg0->unknown_1c_, 0, 1, arg0->unknown_28_, arg1, Enum_ov003_021544ec_4, 0x40);
 
-        AllocatorSizes021544ec sizes = data_ov003_0217f320;
-        for (unsigned char i = 0; i < 8; i++) {
-            SafeAllocator* allocators = obj->allocators;
-            unsigned int size = sizes.v[i];
-            allocators[i].ResetAllocatorPointer();
-            allocators[i].CreateTypeA(alloc->Allocate(size), size);
-            allocators[i].Reset();
+        Struct_ov003_0217f320 var0 = data_ov003_0217f320;
+        for (unsigned char var1 = 0; var1 < 8; var1++) {
+            SafeAllocator* var2 = arg0->unknown_0_;
+            unsigned int var3 = var0.unknown_0_[var1];
+            var2[var1].ResetAllocatorPointer();
+            var2[var1].CreateTypeA(arg1->Allocate(var3), var3);
+            var2[var1].Reset();
         }
-        for (unsigned char i = 0; i < 2; i++) {
-            func_0204af64((struct List0204af64*)((char*)obj->lists + i * 0x20));
+        for (unsigned char var4 = 0; var4 < 2; var4++) {
+            func_0204af64((struct Struct_02020cb8*)((char*)arg0->unknown_10_ + var4 * 0x20));
         }
-        for (unsigned char i = 0; i < 3; i++) {
-            func_0204c684(obj->buf14 + i * 0xe0);
+        for (unsigned char var5 = 0; var5 < 3; var5++) {
+            func_0204c684(arg0->unknown_14_ + var5 * 0xe0);
         }
-        func_0207f84c(obj->buf18);
-        for (unsigned char i = 0; i < 12; i++) {
-            obj->words[i] = 0;
+        func_0207f84c(arg0->unknown_18_);
+        for (unsigned char var6 = 0; var6 < 12; var6++) {
+            arg0->unknown_20_[var6] = 0;
         }
-        for (unsigned char i = 0; i < 10; i++) {
-            func_0205a198((struct Struct0205a198*)((char*)obj->buf24 + i * 0x28));
+        for (unsigned char var7 = 0; var7 < 10; var7++) {
+            func_0205a198((struct Struct_02043368_2*)((char*)arg0->unknown_24_ + var7 * 0x28));
         }
         GameState::GetInstance();
-        struct CombatSubsystem0215376c* sub = obj->subsystem;
-        func_ov003_0215376c(sub);
-        func_ov003_021536e0(sub, alloc);
-        sub->field8 = obj->field90;
-        sub->field4 = obj->fieldFc;
-        sub->fieldC = obj->field114;
-        sub->field59 = -1;
+        struct Struct_ov003_021544ec* var8 = arg0->unknown_4_;
+        func_ov003_0215376c(var8);
+        func_ov003_021536e0(var8, arg1);
+        var8->unknown_8_ = arg0->unknown_90_;
+        var8->unknown_4_ = arg0->unknown_fc_;
+        var8->unknown_c_ = arg0->unknown_114_;
+        var8->unknown_59_ = -1;
     }
 }

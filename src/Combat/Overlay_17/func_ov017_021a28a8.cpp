@@ -3,41 +3,41 @@
 #include "Filesystem/GPC.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct BinarySearchByComparatorStruct;
+struct Struct_0206f01c_2;
 #if defined(jpn)
 #define data_ov017_021d7668 data_ov017_021d7aa8
 #define data_ov017_021d7680 data_ov017_021d7ac0
 #define data_ov017_021d7689 data_ov017_021d7ac9
 #endif
-struct ResourceEntry021a28a8 {
+struct Struct_ov017_021a28a8 {
 #if defined(jpn)
-    char field_0[0x40];
+    char unknown_0_[0x40];
 #else
-    char field_0[0x44];
+    char unknown1_0_[0x44];
 #endif
-    char ids[0x2b4];
-    char monsters[0xc];
-    char nodes[0xc];
+    char unknown_44_[0x2b4];
+    char unknown_2f8_[0xc];
+    char unknown_304_[0xc];
 };
-struct ResourceInfo021a28a8 { int field_0; int filename; };
-struct ResourceObject021a28a8 { Object3D object; int field_ac; };
-struct ResourceArena021a28a8 {
+struct Struct_ov017_021a28a8_2 { int unknown_0_; int unknown_4_; };
+struct Struct_ov017_021a28a8_3 { Object3D unknown_0_; int unknown_ac_; };
+struct Struct_ov017_021a28a8_4 {
 #if defined(jpn)
-    char field_0[0xf2c];
+    char unknown_0_[0xf2c];
 #else
-    char field_0[0x113c];
+    char unknown1_0_[0x113c];
 #endif
-    SafeAllocator allocator;
-    char pairTables[0x20];
+    SafeAllocator unknown_113c_;
+    char unknown_1150_[0x20];
 };
 
 extern "C" void func_ov017_021a27e8(void*);
-extern "C" ResourceEntry021a28a8* func_02027cb0();
+extern "C" Struct_ov017_021a28a8* func_02027cb0();
 extern "C" int func_0209c0ec(char*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_0207dfac(char*);
 extern "C" int func_0209c0a8(void*, int);
-extern "C" ResourceInfo021a28a8* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+extern "C" Struct_ov017_021a28a8_2* func_0206f4f0(Struct_0206f01c_2*, int);
 extern "C" void* func_0206ef18(void*, int);
 bool FindFilesInNarcBySubstring(const void*, const char*, const void**, unsigned int*, unsigned int);
 void* DecompressLZ77FileIntoAllocatedSpace(SafeAllocator&, const void*, unsigned int&);
@@ -52,69 +52,69 @@ extern char data_ov017_021d7689[];
 
 // USA: func_ov017_021a28a8
 // JPN: func_ov017_021a3338
-extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
-    GameState* state = GameState::GetInstance();
-    SafeAllocator* allocator = &arena->allocator;
-    char* tables = arena->pairTables;
-    func_ov017_021a27e8(arena);
-    ResourceEntry021a28a8* area = func_02027cb0();
-    if (!area) return;
-    ResourceObject021a28a8* objects = (ResourceObject021a28a8*)allocator->Allocate(func_0209c0ec(area->ids) * 0xb0);
-    if (!objects) return;
-    func_0207df90(tables);
+extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    SafeAllocator* var1 = &arg0->unknown_113c_;
+    char* var2 = arg0->unknown_1150_;
+    func_ov017_021a27e8(arg0);
+    Struct_ov017_021a28a8* var3 = func_02027cb0();
+    if (!var3) return;
+    Struct_ov017_021a28a8_3* var4 = (Struct_ov017_021a28a8_3*)var1->Allocate(func_0209c0ec(var3->unknown_44_) * 0xb0);
+    if (!var4) return;
+    func_0207df90(var2);
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
-    GPCReadPair archive;
-    GPCReadPair* pair = &archive;
-    ZeroInitGPCPointer(&archive.pGPCFile);
-    pair->ZeroInitializeMachine();
-    unsigned int headerLength;
-    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&archive.pGPCFile, archive.machine, data_ov017_021d7668, data_0211e33c, headerLength, 0x30000, false, 0)) {
-        unsigned int start = headerLength;
-        unsigned int available = 0x30000 - start;
-        for (int i = 0; i < func_0209c0ec(area->ids); ++i) {
-            int id = func_0209c0a8(area->ids, i);
-            ResourceInfo021a28a8* info = func_0206f4f0((BinarySearchByComparatorStruct*)area->monsters, (short)id);
-            void* node = func_0206ef18(area->nodes, (short)id);
-            if (info && node) {
-                char filename[16];
-                sprintf(filename, data_ov017_021d7680, info->filename);
-                unsigned int archiveLength = 0;
-                if (DecompressFileFromGPCByName(archive.pGPCFile, archive.machine, data_0211e33c + start, archiveLength, available, filename)) {
-                    const void* file;
-                    unsigned int fileLength;
-                    if (FindFilesInNarcBySubstring(data_0211e33c + start, data_ov017_021d7689, &file, &fileLength, 1)) {
-                        unsigned int length;
-                        void* decompressed = DecompressLZ77FileIntoAllocatedSpace(*allocator, file, length);
-                        if (!decompressed) {
+    GPCReadPair var5;
+    GPCReadPair* var6 = &var5;
+    ZeroInitGPCPointer(&var5.pGPCFile);
+    var6->ZeroInitializeMachine();
+    unsigned int var7;
+    if (LoadAndDecompressGPCHeaderAndInnerFileInfo(&var5.pGPCFile, var5.machine, data_ov017_021d7668, data_0211e33c, var7, 0x30000, false, 0)) {
+        unsigned int var8 = var7;
+        unsigned int var9 = 0x30000 - var8;
+        for (int var10 = 0; var10 < func_0209c0ec(var3->unknown_44_); ++var10) {
+            int var11 = func_0209c0a8(var3->unknown_44_, var10);
+            Struct_ov017_021a28a8_2* var12 = func_0206f4f0((Struct_0206f01c_2*)var3->unknown_2f8_, (short)var11);
+            void* var13 = func_0206ef18(var3->unknown_304_, (short)var11);
+            if (var12 && var13) {
+                char var14[16];
+                sprintf(var14, data_ov017_021d7680, var12->unknown_4_);
+                unsigned int var15 = 0;
+                if (DecompressFileFromGPCByName(var5.pGPCFile, var5.machine, data_0211e33c + var8, var15, var9, var14)) {
+                    const void* var16;
+                    unsigned int var17;
+                    if (FindFilesInNarcBySubstring(data_0211e33c + var8, data_ov017_021d7689, &var16, &var17, 1)) {
+                        unsigned int var18;
+                        void* var19 = DecompressLZ77FileIntoAllocatedSpace(*var1, var16, var18);
+                        if (!var19) {
                             func_0209953c(3);
                         } else {
-                            func_02072ac4(&objects[i]);
-                            objects[i].object.unknown_2_ = id;
-                            ObjectArchiveLoadInfo load;
-                            load.fileData = decompressed;
-                            load.unk_8 = length;
-                            load.unk_0 = 0;
-                            load.unk_10 = 0;
-                            load.unk_14 = 0;
-                            load.unk_18 = 0;
-                            load.packageID = 0;
-                            load.allocator = allocator;
-                            if (objects[i].object.LoadFromCCHROrCMOTArchive(&load, 0)) {
-                                func_0200fd38(state, i + 7, (GameObject*)&objects[i]);
+                            func_02072ac4(&var4[var10]);
+                            var4[var10].unknown_0_.unknown_2_ = var11;
+                            ObjectArchiveLoadInfo var20;
+                            var20.fileData = var19;
+                            var20.unk_8 = var18;
+                            var20.unk_0 = 0;
+                            var20.unk_10 = 0;
+                            var20.unk_14 = 0;
+                            var20.unk_18 = 0;
+                            var20.packageID = 0;
+                            var20.allocator = var1;
+                            if (var4[var10].unknown_0_.LoadFromCCHROrCMOTArchive(&var20, 0)) {
+                                func_0200fd38(var0, var10 + 7, (GameObject*)&var4[var10]);
                             } else func_0209953c(3);
                         }
                     }
                 }
             }
         }
-        archive.Reset();
+        var5.Reset();
     }
     BackgroundLoader::RemoveLockGlobal();
-    func_0207dfac(tables);
-    func_ov017_021a2b1c(arena);
-    archive.Reset();
-    ZeroDestroyGPCPointer(&archive.pGPCFile);
+    func_0207dfac(var2);
+    func_ov017_021a2b1c(arg0);
+    var5.Reset();
+    ZeroDestroyGPCPointer(&var5.pGPCFile);
 }
 
 #if defined(jpn)

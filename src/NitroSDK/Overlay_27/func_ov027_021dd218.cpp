@@ -2,60 +2,60 @@
 #include "NitroSDK/ProcessorContext.h"
 #include "NitroSDK/Interrupts.h"
 
-struct WaitNode021dd218 {
-    WaitNode021dd218* next;
-    unsigned int isActive : 1;
-    unsigned int priority : 31;
-    void (*onDequeue)(WaitNode021dd218*);
-    void (*onComplete)(WaitNode021dd218*);
+struct Struct_ov027_021dd218 {
+    Struct_ov027_021dd218* unknown_0_;
+    unsigned int unknown_4_0_ : 1;
+    unsigned int unknown_4_1_ : 31;
+    void (*unknown_8_)(Struct_ov027_021dd218*);
+    void (*unknown_c_)(Struct_ov027_021dd218*);
 };
 
-struct QueueContext021dd218 {
-    ProcessorContext ctx;
-    WaitNode021dd218* volatile queueHead;
-    WaitNode021dd218 sentinel;
+struct Struct_ov027_021dd218_2 {
+    ProcessorContext unknown_0_;
+    Struct_ov027_021dd218* volatile unknown_c8_;
+    Struct_ov027_021dd218 unknown_cc_;
 };
 
 // USA: func_ov027_021dd218
-extern "C" ARM void func_ov027_021dd218(QueueContext021dd218* obj) {
+extern "C" ARM void func_ov027_021dd218(Struct_ov027_021dd218_2* arg0) {
     for (;;) {
-        WaitNode021dd218* node = NULL;
+        Struct_ov027_021dd218* var0 = NULL;
         {
-            int state = DisableIRQInterrupts();
-            while (obj->queueHead == NULL) {
-                ChangeContextPriority((ProcessorContext*)obj, 0);
+            int var1 = DisableIRQInterrupts();
+            while (arg0->unknown_c8_ == NULL) {
+                ChangeContextPriority((ProcessorContext*)arg0, 0);
                 BlockCurrentContext(NULL);
             }
-            node = obj->queueHead;
-            obj->queueHead = obj->queueHead->next;
-            ChangeContextPriority((ProcessorContext*)obj, node->priority);
-            SetIRQInterruptState(state);
+            var0 = arg0->unknown_c8_;
+            arg0->unknown_c8_ = arg0->unknown_c8_->unknown_0_;
+            ChangeContextPriority((ProcessorContext*)arg0, var0->unknown_4_1_);
+            SetIRQInterruptState(var1);
         }
 
-        if (node->onDequeue != NULL) node->onDequeue(node);
+        if (var0->unknown_8_ != NULL) var0->unknown_8_(var0);
 
         {
-            int state = DisableIRQInterrupts();
-            void (*onComplete)(WaitNode021dd218*) = node->onComplete;
-            const unsigned int currentPriority = GetContextPriority((ProcessorContext*)obj);
-            unsigned int newPriority;
-            if (obj->queueHead == NULL) {
-                newPriority = 0;
-            } else if (currentPriority < obj->queueHead->priority) {
-                newPriority = obj->queueHead->priority;
+            int var2 = DisableIRQInterrupts();
+            void (*var3)(Struct_ov027_021dd218*) = var0->unknown_c_;
+            const unsigned int var4 = GetContextPriority((ProcessorContext*)arg0);
+            unsigned int var5;
+            if (arg0->unknown_c8_ == NULL) {
+                var5 = 0;
+            } else if (var4 < arg0->unknown_c8_->unknown_4_1_) {
+                var5 = arg0->unknown_c8_->unknown_4_1_;
             } else {
-                newPriority = currentPriority;
+                var5 = var4;
             }
-            if (newPriority != currentPriority) {
-                ChangeContextPriority((ProcessorContext*)obj, newPriority);
+            if (var5 != var4) {
+                ChangeContextPriority((ProcessorContext*)arg0, var5);
             }
 
-            node->next = NULL;
-            node->isActive = 0;
-            if (onComplete != NULL) onComplete(node);
+            var0->unknown_0_ = NULL;
+            var0->unknown_4_0_ = 0;
+            if (var3 != NULL) var3(var0);
 
-            if (node == &obj->sentinel) break;
-            SetIRQInterruptState(state);
+            if (var0 == &arg0->unknown_cc_) break;
+            SetIRQInterruptState(var2);
         }
     }
     ContextExecutionReturnProc();

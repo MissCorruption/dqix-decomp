@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov001_02158e0c(int type);
+extern "C" void* func_ov001_02158e0c(int arg0);
 
 // USA: func_ov001_021590dc
-extern "C" ARM void* func_ov001_021590dc(int type, int val) {
-	int* p = (int*)func_ov001_02158e0c(type);
-	if (p) {
-		p[0] = 0xa;
-		p[7] = val;
+extern "C" ARM void* func_ov001_021590dc(int arg0, int arg1) {
+	int* var0 = (int*)func_ov001_02158e0c(arg0);
+	if (var0) {
+		var0[0] = 0xa;
+		var0[7] = arg1;
 	}
-	return p;
+	return var0;
 }

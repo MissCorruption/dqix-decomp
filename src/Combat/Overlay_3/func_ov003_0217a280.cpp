@@ -1,109 +1,109 @@
 #include <globaldefs.h>
 
-struct Obj2081 {
+struct Struct_0207fdcc_2 {
 #if defined(jpn)
-    char unk_0[0x2a];
+    char unknown1_0_[0x2a];
 #else
-    char unk_0[0x36];
+    char unknown_0_[0x36];
 #endif
-    short selected;
+    short unknown_36_;
 };
-extern "C" int func_020811d0(struct Obj2081* obj, int key);
-extern "C" short func_02080468(void* obj, int id);
-extern "C" void func_020813ec(void* obj, int key);
-extern "C" void func_02080c68(void* obj, int id, int value);
-extern "C" void func_0207fdcc(struct Obj2081* obj, int key);
+extern "C" int func_020811d0(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" short func_02080468(void* arg0, int arg1);
+extern "C" void func_020813ec(void* arg0, int arg1);
+extern "C" void func_02080c68(void* arg0, int arg1, int arg2);
+extern "C" void func_0207fdcc(struct Struct_0207fdcc_2* arg0, int arg1);
 
-struct Obj0208203c;
-extern "C" void func_0208203c(struct Obj0208203c* obj);
+struct Struct_02081f20_2;
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
 
-extern "C" int func_ov003_021765b4(void* self);
-extern "C" int func_ov003_021766e8(void* self);
+extern "C" int func_ov003_021765b4(void* arg0);
+extern "C" int func_ov003_021766e8(void* arg0);
 
-struct Menu_0217a280 {
+struct Struct_ov003_0217a280 {
 #if defined(jpn)
-    char unk_0[0x808];
+    char unknown_0_[0x808];
 #else
-    char unk_0[0x88c];
+    char unknown1_0_[0x88c];
 #endif
-    char repeat[0x89c - 0x88c];
-    struct Obj2081* menu;
-    char unk_8a0[0xff8 - 0x8a0];
-    short* cursor;
-    short prevKey;
-    short key;
-    char unk_1000[4];
-    short member1004;
-    char unk_1006[6];
-    short member100c;
-    char unk_100e[4];
-    short field1012;
-    char unk_1014[0x1036 - 0x1014];
-    short nextState;
-    char unk_1038[6];
-    unsigned char mode;
-    unsigned char step;
-    char unk_1040[6];
-    unsigned short flags;
+    char unknown_88c_[0x89c - 0x88c];
+    struct Struct_0207fdcc_2* unknown_89c_;
+    char unknown_8a0_[0xff8 - 0x8a0];
+    short* unknown_ff8_;
+    short unknown_ffc_;
+    short unknown_ffe_;
+    char unknown_1000_[4];
+    short unknown_1004_;
+    char unknown_1006_[6];
+    short unknown_100c_;
+    char unknown_100e_[4];
+    short unknown_1012_;
+    char unknown_1014_[0x1036 - 0x1014];
+    short unknown_1036_;
+    char unknown_1038_[6];
+    unsigned char unknown_103e_;
+    unsigned char unknown_103f_;
+    char unknown_1040_[6];
+    unsigned short unknown_1046_;
 };
 
 // USA: func_ov003_0217a280
-extern "C" ARM void func_ov003_0217a280(struct Menu_0217a280* self) {
-    struct Obj2081* menu = self->menu;
-    if (self->step == 0) {
-        self->key = 2;
-        if (func_020811d0(menu, self->key) == 0) {
-            if (self->member1004 < 0) {
-                self->member1004 = func_02080468(menu, self->key);
+extern "C" ARM void func_ov003_0217a280(struct Struct_ov003_0217a280* arg0) {
+    struct Struct_0207fdcc_2* var0 = arg0->unknown_89c_;
+    if (arg0->unknown_103f_ == 0) {
+        arg0->unknown_ffe_ = 2;
+        if (func_020811d0(var0, arg0->unknown_ffe_) == 0) {
+            if (arg0->unknown_1004_ < 0) {
+                arg0->unknown_1004_ = func_02080468(var0, arg0->unknown_ffe_);
             }
-            menu->selected = self->member1004;
-            func_020813ec(menu, self->key);
-            func_02080c68(menu, self->key, 1);
-            self->prevKey = self->key;
+            var0->unknown_36_ = arg0->unknown_1004_;
+            func_020813ec(var0, arg0->unknown_ffe_);
+            func_02080c68(var0, arg0->unknown_ffe_, 1);
+            arg0->unknown_ffc_ = arg0->unknown_ffe_;
         }
-        self->key = 0x10;
-        if (self->member100c < 0) {
-            self->member100c = func_02080468(menu, self->key);
+        arg0->unknown_ffe_ = 0x10;
+        if (arg0->unknown_100c_ < 0) {
+            arg0->unknown_100c_ = func_02080468(var0, arg0->unknown_ffe_);
         }
-        menu->selected = self->member100c;
-        func_020813ec(menu, self->key);
-        func_0208203c((struct Obj0208203c*)self->repeat);
-        self->cursor = 0;
-        self->step++;
-    } else if (self->step == 1) {
-        self->cursor = &self->member100c;
-        if (func_ov003_021765b4(self)) {
+        var0->unknown_36_ = arg0->unknown_100c_;
+        func_020813ec(var0, arg0->unknown_ffe_);
+        func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
+        arg0->unknown_ff8_ = 0;
+        arg0->unknown_103f_++;
+    } else if (arg0->unknown_103f_ == 1) {
+        arg0->unknown_ff8_ = &arg0->unknown_100c_;
+        if (func_ov003_021765b4(arg0)) {
             func_0205eaa0(&data_02108760, 1, 0);
-            func_0208203c((struct Obj0208203c*)self->repeat);
-            self->cursor = 0;
-            switch (self->member100c) {
+            func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
+            arg0->unknown_ff8_ = 0;
+            switch (arg0->unknown_100c_) {
             case 0x76:
-                self->prevKey = self->key;
-                self->nextState = 0xb;
-                self->mode = 4;
-                self->step = 0;
-                self->flags |= 0x20;
+                arg0->unknown_ffc_ = arg0->unknown_ffe_;
+                arg0->unknown_1036_ = 0xb;
+                arg0->unknown_103e_ = 4;
+                arg0->unknown_103f_ = 0;
+                arg0->unknown_1046_ |= 0x20;
                 break;
             case 0x77:
-                self->prevKey = self->key;
-                self->nextState = 0xc;
-                self->mode = 7;
-                self->step = 0;
-                self->field1012 = -1;
-                self->flags |= 0x20;
+                arg0->unknown_ffc_ = arg0->unknown_ffe_;
+                arg0->unknown_1036_ = 0xc;
+                arg0->unknown_103e_ = 7;
+                arg0->unknown_103f_ = 0;
+                arg0->unknown_1012_ = -1;
+                arg0->unknown_1046_ |= 0x20;
                 break;
             }
-        } else if (func_ov003_021766e8(self)) {
-            func_0208203c((struct Obj0208203c*)self->repeat);
-            self->cursor = 0;
-            self->nextState = 0xa;
-            self->mode = 1;
-            self->step = 0;
-            func_0207fdcc(menu, self->key);
+        } else if (func_ov003_021766e8(arg0)) {
+            func_0208203c((struct Struct_02081f20_2*)arg0->unknown_88c_);
+            arg0->unknown_ff8_ = 0;
+            arg0->unknown_1036_ = 0xa;
+            arg0->unknown_103e_ = 1;
+            arg0->unknown_103f_ = 0;
+            func_0207fdcc(var0, arg0->unknown_ffe_);
         }
     }
 }

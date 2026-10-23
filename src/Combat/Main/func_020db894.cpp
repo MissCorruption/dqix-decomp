@@ -2,65 +2,65 @@
 
 extern "C" void func_020d8654();
 
-struct Obj020db964;
-extern "C" void func_020db964(Obj020db964* obj);
+struct Struct_020db894;
+extern "C" void func_020db964(Struct_020db894* arg0);
 
-struct Actor020db844;
-extern "C" void func_020db844(Actor020db844* a, int b, int c, int d);
+struct Struct_020db3f4_3;
+extern "C" void func_020db844(Struct_020db3f4_3* arg0, int arg1, int arg2, int arg3);
 
-extern "C" void func_020db304(int obj, int b);
+extern "C" void func_020db304(int arg0, int arg1);
 
-struct FlagWord020466f4;
-extern "C" FlagWord020466f4* func_020d6c00();
-extern "C" void func_020466f4(FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4;
+extern "C" Struct_02038598_4* func_020d6c00();
+extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
 
-struct Struct020db0c4;
-extern "C" void func_020db0c4(Struct020db0c4* p);
+struct Struct_020dafd4;
+extern "C" void func_020db0c4(Struct_020dafd4* arg0);
 
-extern "C" void func_020db814(void* obj);
+extern "C" void func_020db814(void* arg0);
 
 extern "C" void func_020d8694();
 
-typedef void (*FnVoidInt)(int);
-typedef int (*FnIntVoid)(void);
-extern FnVoidInt data_020f28dc[];
-extern FnIntVoid data_020f28fc[];
-extern FnVoidInt data_020f28f4[];
+typedef void (*Type_0200f3a4_2)(int);
+typedef int (*Type_01ff8b48_5)(void);
+extern Type_0200f3a4_2 data_020f28dc[];
+extern Type_01ff8b48_5 data_020f28fc[];
+extern Type_0200f3a4_2 data_020f28f4[];
 
-struct Obj020db894 {
-    char pad00[0x3c];
-    unsigned char b3c;
-    char pad3d[0x51 - 0x3d];
-    unsigned char b51;
-    unsigned char pad52;
-    unsigned char b53;
-    char pad54[0x5c - 0x54];
-    int field5c;
-    int field60;
-    unsigned char b64;
-    char pad65[0x6a - 0x65];
-    short sh6a;
+struct Struct_020db894_2 {
+    char unknown_0_[0x3c];
+    unsigned char unknown_3c_;
+    char unknown_3d_[0x51 - 0x3d];
+    unsigned char unknown_51_;
+    unsigned char unknown_52_;
+    unsigned char unknown_53_;
+    char unknown_54_[0x5c - 0x54];
+    int unknown_5c_;
+    int unknown_60_;
+    unsigned char unknown_64_;
+    char unknown_65_[0x6a - 0x65];
+    short unknown_6a_;
 };
 
 // USA: func_020db894
-extern "C" ARM void func_020db894(Obj020db894* obj) {
-    if (!obj->b51) {
+extern "C" ARM void func_020db894(Struct_020db894_2* arg0) {
+    if (!arg0->unknown_51_) {
         return;
     }
     func_020d8654();
-    func_020db964((Obj020db964*)obj);
-    if (obj->b53) {
-        func_020db844((Actor020db844*)obj, obj->b3c, obj->sh6a, 0);
-        data_020f28dc[6](obj->field5c);
-        data_020f28dc[7](obj->field60);
-    } else if (!obj->b64) {
-        int result = data_020f28fc[obj->b3c]();
-        result &= ~0x10;
-        data_020f28f4[obj->b3c](result);
+    func_020db964((Struct_020db894*)arg0);
+    if (arg0->unknown_53_) {
+        func_020db844((Struct_020db3f4_3*)arg0, arg0->unknown_3c_, arg0->unknown_6a_, 0);
+        data_020f28dc[6](arg0->unknown_5c_);
+        data_020f28dc[7](arg0->unknown_60_);
+    } else if (!arg0->unknown_64_) {
+        int var0 = data_020f28fc[arg0->unknown_3c_]();
+        var0 &= ~0x10;
+        data_020f28f4[arg0->unknown_3c_](var0);
     }
-    func_020db304((int)obj, obj->b3c);
+    func_020db304((int)arg0, arg0->unknown_3c_);
     func_020466f4(func_020d6c00(), 0x8000);
-    func_020db0c4((Struct020db0c4*)obj);
-    func_020db814(obj);
+    func_020db0c4((Struct_020dafd4*)arg0);
+    func_020db814(arg0);
     func_020d8694();
 }

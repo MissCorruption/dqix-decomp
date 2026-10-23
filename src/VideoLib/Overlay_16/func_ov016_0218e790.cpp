@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct Obj_0218e790;
-extern "C" void func_0200edb4(Obj_0218e790* obj);
+struct Struct_ov016_0218e790;
+extern "C" void func_0200edb4(Struct_ov016_0218e790* arg0);
 
 // USA: func_ov016_0218e790
-extern "C" ARM Obj_0218e790* func_ov016_0218e790(Obj_0218e790* obj) {
-    func_0200edb4(obj);
-    return obj;
+extern "C" ARM Struct_ov016_0218e790* func_ov016_0218e790(Struct_ov016_0218e790* arg0) {
+    func_0200edb4(arg0);
+    return arg0;
 }

@@ -13,100 +13,100 @@ extern "C" void* func_020421a0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" char* func_020100f8(char*);
 extern "C" unsigned short* func_02012fe4(void);
-extern "C" void func_020d9a58(void* self);
-extern "C" int func_0202b7d8(int* p);
-extern "C" int func_0202c508(void* obj);
-extern "C" void func_ov017_021cf730(int a, int b);
-extern "C" void func_020a27b8(unsigned char* obj);
-extern "C" void func_020531f0(void* obj);
-struct Obj020397cc;
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" void func_020d9a58(void* arg0);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202c508(void* arg0);
+extern "C" void func_ov017_021cf730(int arg0, int arg1);
+extern "C" void func_020a27b8(unsigned char* arg0);
+extern "C" void func_020531f0(void* arg0);
+struct Struct_02018300_3;
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" void func_020e11a4(void);
-extern "C" void func_02046380(void* global);
-extern "C" int func_020e51cc(int value);
+extern "C" void func_02046380(void* arg0);
+extern "C" int func_020e51cc(int arg0);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* global, void* entry, int a, int b);
+extern "C" void func_0204500c(void* arg0, void* arg1, int arg2, int arg3);
 #endif
-extern "C" int func_020457e0(void* global);
-extern "C" void func_ov017_021ab860(short value, int flag);
-extern "C" void func_020e1154(void* obj);
-extern "C" void func_02043204(char* obj);
-extern "C" void func_020397c0(void* obj);
-extern "C" void func_020d9ab0(void* self);
-extern "C" int func_0201b5d8(int x);
+extern "C" int func_020457e0(void* arg0);
+extern "C" void func_ov017_021ab860(short arg0, int arg1);
+extern "C" void func_020e1154(void* arg0);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_020397c0(void* arg0);
+extern "C" void func_020d9ab0(void* arg0);
+extern "C" int func_0201b5d8(int arg0);
 
-struct Obj020d9870 {
-    unsigned char byte0;
-    unsigned char byte1;
-    unsigned char pad2[0x8 - 0x2];
-    unsigned char state;
+struct Struct_020d9870 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[0x8 - 0x2];
+    unsigned char unknown_8_;
 };
 
 // USA: func_020d9870
-extern "C" ARM void func_020d9870(struct Obj020d9870* self) {
+extern "C" ARM void func_020d9870(struct Struct_020d9870* arg0) {
 #if defined(jpn)
-    enum { choiceOffset = 0x17e2, pendingOffset = 0x868 };
+    enum { Enum_020d9870_6578 = 0x17e2, Enum_020d9870_2456 = 0x868 };
 #else
-    enum { choiceOffset = 0x19b2, pendingOffset = 0x998 };
+    enum { Enum_020d9870_6578 = 0x19b2, Enum_020d9870_2456 = 0x998 };
 #endif
-    GameState* gs = GameState::GetInstance();
+    GameState* var0 = GameState::GetInstance();
     GetGameResources();
-    void* unkObj = gs->GetUnknownGameObject();
-    void* g1c = func_020421a0();
-    FontBankLoader* g = func_02094a00();
-    void* t = func_0202ae18();
-    char* f4 = func_020100f8((char*)gs);
-    unsigned short* p = func_02012fe4();
+    void* var1 = var0->GetUnknownGameObject();
+    void* var2 = func_020421a0();
+    Struct_0208cb08* var3 = func_02094a00();
+    void* var4 = func_0202ae18();
+    char* var5 = func_020100f8((char*)var0);
+    unsigned short* var6 = func_02012fe4();
 
     if (func_ov017_021959b4() != 0) {
-        func_020d9a58(self);
+        func_020d9a58(arg0);
         return;
     }
 
-    if (self->state == 0) {
-        if (func_0202b7d8((int*)t) != 0 && func_0202c508(t) != 0) {
+    if (arg0->unknown_8_ == 0) {
+        if (func_0202b7d8((int*)var4) != 0 && func_0202c508(var4) != 0) {
             func_ov017_021cf730(-1, 0);
         }
-        func_020a27b8((unsigned char*)f4);
-        self->state = 1;
-    } else if (self->state == 1) {
-        func_02094b30(g, 0x20e, 0);
-        self->state = 2;
-    } else if (self->state == 2) {
-        if (func_02094b4c(g) != 0) {
-            self->state = 3;
+        func_020a27b8((unsigned char*)var5);
+        arg0->unknown_8_ = 1;
+    } else if (arg0->unknown_8_ == 1) {
+        func_02094b30(var3, 0x20e, 0);
+        arg0->unknown_8_ = 2;
+    } else if (arg0->unknown_8_ == 2) {
+        if (func_02094b4c(var3) != 0) {
+            arg0->unknown_8_ = 3;
         }
-    } else if (self->state == 3) {
-        if (unkObj != NULL) {
-            func_020531f0(unkObj);
-            func_020397cc((Obj020397cc*)unkObj, 1);
+    } else if (arg0->unknown_8_ == 3) {
+        if (var1 != NULL) {
+            func_020531f0(var1);
+            func_020397cc((Struct_02018300_3*)var1, 1);
         }
         func_020e11a4();
-        func_02046380(g1c);
+        func_02046380(var2);
 #if defined(jpn)
-        func_0204500c(g1c, &data_020f29cc, 0);
+        func_0204500c(var2, &data_020f29cc, 0);
 #else
-        func_0204500c(g1c, (void*)func_020e51cc(0x3e), 0, 0xe3);
+        func_0204500c(var2, (void*)func_020e51cc(0x3e), 0, 0xe3);
 #endif
-        *(unsigned char*)((char*)g1c + choiceOffset) = 0;
-        *(int*)((char*)g1c + pendingOffset) = 1;
-        self->state = 4;
-    } else if (self->state == 4) {
-        if (*(int*)((char*)g1c + pendingOffset) == 0) {
-            if (func_020457e0(g1c) == 0) {
-                func_ov017_021ab860(*(short*)((char*)unkObj + 4), 1);
+        *(unsigned char*)((char*)var2 + Enum_020d9870_6578) = 0;
+        *(int*)((char*)var2 + Enum_020d9870_2456) = 1;
+        arg0->unknown_8_ = 4;
+    } else if (arg0->unknown_8_ == 4) {
+        if (*(int*)((char*)var2 + Enum_020d9870_2456) == 0) {
+            if (func_020457e0(var2) == 0) {
+                func_ov017_021ab860(*(short*)((char*)var1 + 4), 1);
                 func_020e1154((void*)0xbb8);
             }
-            func_02043204((char*)g1c);
-            self->state = 5;
+            func_02043204((char*)var2);
+            arg0->unknown_8_ = 5;
         }
-    } else if (self->state == 5) {
-        func_020397c0(unkObj);
-        func_020d9ab0(self);
+    } else if (arg0->unknown_8_ == 5) {
+        func_020397c0(var1);
+        func_020d9ab0(arg0);
     }
 
-    if (func_0201b5d8(*p) != 0) {
+    if (func_0201b5d8(*var6) != 0) {
         return;
     }
-    func_020d9ab0(self);
+    func_020d9ab0(arg0);
 }

@@ -1,147 +1,147 @@
 #include <globaldefs.h>
 
-struct ValueList02098e3c;
-extern "C" int func_02098e3c(struct ValueList02098e3c* s, int val);
+struct Struct_02098a84;
+extern "C" int func_02098e3c(struct Struct_02098a84* arg0, int arg1);
 
-struct S02098834 {
-    unsigned char pad0[0xc];
-    unsigned int flagsLow : 4;
-    unsigned int category : 4;
-    unsigned int flagsHigh : 24;
-    unsigned int used : 2;
-    unsigned int valueId : 30;
-    unsigned char pad1[0xe8 - 0x14];
+struct Struct_02098630 {
+    unsigned char unknown_0_[0xc];
+    unsigned int unknown_c_0_ : 4;
+    unsigned int unknown_c_4_ : 4;
+    unsigned int unknown_d_0_ : 24;
+    unsigned int unknown_10_0_ : 2;
+    unsigned int unknown_10_2_ : 30;
+    unsigned char unknown_14_[0xe8 - 0x14];
 };
 
-extern "C" struct S02098834* func_02098834(struct S02098834* dst, struct S02098834* src);
-extern "C" void func_02098364(void* entry);
+extern "C" struct Struct_02098630* func_02098834(struct Struct_02098630* arg0, struct Struct_02098630* arg1);
+extern "C" void func_02098364(void* arg0);
 
-struct ValueList02098e3c {
-    S02098834 entries[30];
-    unsigned char unknown1b30[8];
-    int field1b38;
-    unsigned char unknown1b3c[0x1b68 - 0x1b3c];
-    unsigned int values[3];
-    int fallbackIndex;
+struct Struct_02098a84 {
+    Struct_02098630 unknown_0_[30];
+    unsigned char unknown_1b30_[8];
+    int unknown_1b38_;
+    unsigned char unknown_1b3c_[0x1b68 - 0x1b3c];
+    unsigned int unknown_1b68_[3];
+    int unknown_1b74_;
 };
 
 // USA: func_02098a84
-extern "C" ARM int func_02098a84(ValueList02098e3c* list) {
-    S02098834* arr = list->entries;
-    if (list->field1b38 == 0) {
+extern "C" ARM int func_02098a84(Struct_02098a84* arg0) {
+    Struct_02098630* var0 = arg0->unknown_0_;
+    if (arg0->unknown_1b38_ == 0) {
         return 0;
     }
 
-    int recycle = 0;
-    int last = recycle;
-    int freeIdx = recycle - 1;
-    int allValid = 1;
-    for (int idx = recycle; idx < 0x1e; idx++) {
-        struct S02098834* e = &arr[idx];
-        if (e->used == 0) {
-            freeIdx = idx;
+    int var1 = 0;
+    int var2 = var1;
+    int var3 = var1 - 1;
+    int var4 = 1;
+    for (int var5 = var1; var5 < 0x1e; var5++) {
+        struct Struct_02098630* var6 = &var0[var5];
+        if (var6->unknown_10_0_ == 0) {
+            var3 = var5;
             break;
         }
-        if (e->category == 9 || e->category == 10) {
+        if (var6->unknown_c_4_ == 9 || var6->unknown_c_4_ == 10) {
             continue;
         }
-        if (func_02098e3c(list, e->valueId) == 0) {
-            allValid = 0;
+        if (func_02098e3c(arg0, var6->unknown_10_2_) == 0) {
+            var4 = 0;
         }
     }
 
-    if (freeIdx == 0) {
+    if (var3 == 0) {
         return 0;
     }
 
-    if (freeIdx != -1) {
-        if (allValid) {
-            if (freeIdx < 6) {
-                return freeIdx;
+    if (var3 != -1) {
+        if (var4) {
+            if (var3 < 6) {
+                return var3;
             }
-            func_02098834(&arr[freeIdx], &arr[list->fallbackIndex]);
-            func_02098364(&arr[list->fallbackIndex]);
-            return list->fallbackIndex;
+            func_02098834(&var0[var3], &var0[arg0->unknown_1b74_]);
+            func_02098364(&var0[arg0->unknown_1b74_]);
+            return arg0->unknown_1b74_;
         }
-        recycle = freeIdx;
+        var1 = var3;
     } else {
-        for (int idx = 0x1d; idx >= 0; idx--) {
-            struct S02098834* e = &arr[idx];
-            if (e->category == 9 || e->category == 10) {
+        for (int var7 = 0x1d; var7 >= 0; var7--) {
+            struct Struct_02098630* var8 = &var0[var7];
+            if (var8->unknown_c_4_ == 9 || var8->unknown_c_4_ == 10) {
                 continue;
             }
-            if (func_02098e3c(list, e->valueId) == 0) {
-                recycle = idx;
+            if (func_02098e3c(arg0, var8->unknown_10_2_) == 0) {
+                var1 = var7;
                 break;
             }
         }
     }
 
-    for (int idx = recycle - 1; idx >= 0; idx--) {
-        struct S02098834* e = &arr[idx];
-        if (e->category == 9 || e->category == 10) {
+    for (int var9 = var1 - 1; var9 >= 0; var9--) {
+        struct Struct_02098630* var10 = &var0[var9];
+        if (var10->unknown_c_4_ == 9 || var10->unknown_c_4_ == 10) {
             continue;
         }
-        if (func_02098e3c(list, e->valueId) == 0) {
-            last = idx;
-            func_02098834(&arr[recycle], e);
-            recycle = idx;
+        if (func_02098e3c(arg0, var10->unknown_10_2_) == 0) {
+            var2 = var9;
+            func_02098834(&var0[var1], var10);
+            var1 = var9;
         }
     }
-    struct S02098834* resetSlot = &arr[last];
-    func_02098364(resetSlot);
+    struct Struct_02098630* var11 = &var0[var2];
+    func_02098364(var11);
 
-    struct S02098834* e;
-    for (recycle = 0; recycle < 6; recycle++) {
-        if (arr[recycle].category == 9 || arr[recycle].category == 10) {
+    struct Struct_02098630* var12;
+    for (var1 = 0; var1 < 6; var1++) {
+        if (var0[var1].unknown_c_4_ == 9 || var0[var1].unknown_c_4_ == 10) {
             continue;
         }
-        e = &arr[recycle];
-        if (func_02098e3c(list, e->valueId) == 0) {
-            e->category = 2;
+        var12 = &var0[var1];
+        if (func_02098e3c(arg0, var12->unknown_10_2_) == 0) {
+            var12->unknown_c_4_ = 2;
         }
     }
-    for (recycle = 6; recycle < 12; recycle++) {
-        if (arr[recycle].category == 9 || arr[recycle].category == 10) {
+    for (var1 = 6; var1 < 12; var1++) {
+        if (var0[var1].unknown_c_4_ == 9 || var0[var1].unknown_c_4_ == 10) {
             continue;
         }
-        e = &arr[recycle];
-        if (func_02098e3c(list, e->valueId) == 0) {
-            e->category = 3;
+        var12 = &var0[var1];
+        if (func_02098e3c(arg0, var12->unknown_10_2_) == 0) {
+            var12->unknown_c_4_ = 3;
         }
     }
-    for (recycle = 12; recycle < 18; recycle++) {
-        if (arr[recycle].category == 9 || arr[recycle].category == 10) {
+    for (var1 = 12; var1 < 18; var1++) {
+        if (var0[var1].unknown_c_4_ == 9 || var0[var1].unknown_c_4_ == 10) {
             continue;
         }
-        e = &arr[recycle];
-        if (func_02098e3c(list, e->valueId) == 0) {
-            e->category = 4;
+        var12 = &var0[var1];
+        if (func_02098e3c(arg0, var12->unknown_10_2_) == 0) {
+            var12->unknown_c_4_ = 4;
         }
     }
-    for (recycle = 18; recycle < 24; recycle++) {
-        if (arr[recycle].category == 9 || arr[recycle].category == 10) {
+    for (var1 = 18; var1 < 24; var1++) {
+        if (var0[var1].unknown_c_4_ == 9 || var0[var1].unknown_c_4_ == 10) {
             continue;
         }
-        e = &arr[recycle];
-        if (func_02098e3c(list, e->valueId) == 0) {
-            e->category = 5;
+        var12 = &var0[var1];
+        if (func_02098e3c(arg0, var12->unknown_10_2_) == 0) {
+            var12->unknown_c_4_ = 5;
         }
     }
-    for (recycle = 24; recycle < 0x1e; recycle++) {
-        if (arr[recycle].category == 9 || arr[recycle].category == 10) {
+    for (var1 = 24; var1 < 0x1e; var1++) {
+        if (var0[var1].unknown_c_4_ == 9 || var0[var1].unknown_c_4_ == 10) {
             continue;
         }
-        e = &arr[recycle];
-        if (func_02098e3c(list, e->valueId) == 0) {
-            e->category = 6;
+        var12 = &var0[var1];
+        if (func_02098e3c(arg0, var12->unknown_10_2_) == 0) {
+            var12->unknown_c_4_ = 6;
         }
     }
 
-    if (last < 6) {
-        return last;
+    if (var2 < 6) {
+        return var2;
     }
-    func_02098834(resetSlot, &arr[list->fallbackIndex]);
-    func_02098364(&arr[list->fallbackIndex]);
-    return list->fallbackIndex;
+    func_02098834(var11, &var0[arg0->unknown_1b74_]);
+    func_02098364(&var0[arg0->unknown_1b74_]);
+    return arg0->unknown_1b74_;
 }

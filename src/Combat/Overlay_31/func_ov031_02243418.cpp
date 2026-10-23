@@ -3,12 +3,12 @@
 extern int data_ov031_02291e04;
 
 #if defined(jpn)
-enum { kFlagOffset = 0x20 };
+enum { Enum_ov031_02243418_48 = 0x20 };
 #else
-enum { kFlagOffset = 0x30 };
+enum { Enum_ov031_02243418_48 = 0x30 };
 #endif
 
 // USA: func_ov031_02243418
 extern "C" ARM void func_ov031_02243418(void) {
-	*(int*)((char*)&data_ov031_02291e04 + kFlagOffset) = 1;
+	*(int*)((char*)&data_ov031_02291e04 + Enum_ov031_02243418_48) = 1;
 }

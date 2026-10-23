@@ -4,103 +4,103 @@
 #include "std_library_functions.h"
 
 extern "C" void* __clear(void*, int);
-struct Vec3copy0202ec84 { unsigned int v[3]; };
-extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
+struct Struct_02015ef4 { unsigned int unknown_0_[3]; };
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 
-struct SlotEntry02039fec {
-    unsigned char pad0[5];
-    signed char timer;
-    unsigned char pad6[2];
-    short velocity;
-    short position;
-    unsigned char pad0xc[0xc];
+struct Struct_02039fec {
+    unsigned char unknown_0_[5];
+    signed char unknown_5_;
+    unsigned char unknown_6_[2];
+    short unknown_8_;
+    short unknown_a_;
+    unsigned char unknown_c_[0xc];
 };
-struct Obj02039fec {
-    unsigned char pad0[0x550];
-    struct SlotEntry02039fec slots[16];
-    int cursor;
-    int limit;
+struct Struct_02039fec_2 {
+    unsigned char unknown_0_[0x550];
+    struct Struct_02039fec unknown_550_[16];
+    int unknown_6d0_;
+    int unknown_6d4_;
 };
-struct SlotProjection0203a5e8 {
-    unsigned char field0[2];
-    short verticalOffset;
-    signed char horizontalOffset;
-    signed char timer;
-    unsigned char field6;
-    unsigned char kind;
-    short velocity;
-    short position;
-    Vec3copy0202ec84 vector;
+struct Struct_0203a5e8 {
+    unsigned char unknown_0_[2];
+    short unknown_2_;
+    signed char unknown_4_;
+    signed char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    short unknown_8_;
+    short unknown_a_;
+    Struct_02015ef4 unknown_c_;
 };
-struct ObjProjection0203a5e8 {
-    unsigned char prefix[0x550];
-    SlotProjection0203a5e8 slots[16];
-    int cursor;
-    int limit;
+struct Struct_0203a5e8_2 {
+    unsigned char unknown_0_[0x550];
+    Struct_0203a5e8 unknown_550_[16];
+    int unknown_6d0_;
+    int unknown_6d4_;
 };
 
 // USA: func_0203a5e8
-extern "C" ARM void func_0203a5e8(Obj02039fec* obj, int index) {
-    SlotProjection0203a5e8* current = (SlotProjection0203a5e8*)&obj->slots[index];
-    ObjProjection0203a5e8* projection = (ObjProjection0203a5e8*)obj;
-    signed char horizontal = 0;
-    int vertical = 0;
-    void* camera = func_020100bc(GameState::GetInstance());
-    if (camera != NULL) {
-        bool alternate = false;
-        int step = alternate;
-        int xs[16];
-        int clampedYs[16];
-        int ys[16];
-        __clear(xs, sizeof(xs));
-        __clear(clampedYs, sizeof(clampedYs));
-        __clear(ys, sizeof(ys));
-        for (int i = 0; i < 16; i++) {
-            if (projection->slots[i].timer > 0) {
-                int x, y = 0;
-                func_0202ec84(camera, &projection->slots[i].vector, &x, &y);
-                x += projection->slots[i].horizontalOffset;
-                y += projection->slots[i].verticalOffset;
-                ys[i] = y;
-                if (y < 36) y = 36;
-                else if (y > 196) y = 196;
-                xs[i] = x;
-                clampedYs[i] = y;
+extern "C" ARM void func_0203a5e8(Struct_02039fec_2* arg0, int arg1) {
+    Struct_0203a5e8* var0 = (Struct_0203a5e8*)&arg0->unknown_550_[arg1];
+    Struct_0203a5e8_2* var1 = (Struct_0203a5e8_2*)arg0;
+    signed char var2 = 0;
+    int var3 = 0;
+    void* var4 = func_020100bc(GameState::GetInstance());
+    if (var4 != NULL) {
+        bool var5 = false;
+        int var6 = var5;
+        int var7[16];
+        int var8[16];
+        int var9[16];
+        __clear(var7, sizeof(var7));
+        __clear(var8, sizeof(var8));
+        __clear(var9, sizeof(var9));
+        for (int var10 = 0; var10 < 16; var10++) {
+            if (var1->unknown_550_[var10].unknown_5_ > 0) {
+                int var11, var12 = 0;
+                func_0202ec84(var4, &var1->unknown_550_[var10].unknown_c_, &var11, &var12);
+                var11 += var1->unknown_550_[var10].unknown_4_;
+                var12 += var1->unknown_550_[var10].unknown_2_;
+                var9[var10] = var12;
+                if (var12 < 36) var12 = 36;
+                else if (var12 > 196) var12 = 196;
+                var7[var10] = var11;
+                var8[var10] = var12;
             }
         }
-        for (int attempt = 0; attempt < 16; attempt++) {
-            bool collision = false;
-            int* rowPositions = ys;
-            int candidateY = vertical + rowPositions[index];
-            if (candidateY < 36) candidateY = 36;
-            else if (candidateY > 196) candidateY = 196;
-            for (int j = 0; j < 16; j++) {
-                if (j == index) continue;
-                if (projection->slots[j].timer <= 0 || projection->slots[j].timer >= 35) continue;
-                if (current->kind == 4 && projection->slots[j].kind == 4) continue;
-                if (abs(horizontal + xs[index] - xs[j]) < 8 && abs(candidateY - clampedYs[j]) < 14) {
-                    collision = true;
+        for (int var13 = 0; var13 < 16; var13++) {
+            bool var14 = false;
+            int* var15 = var9;
+            int var16 = var3 + var15[arg1];
+            if (var16 < 36) var16 = 36;
+            else if (var16 > 196) var16 = 196;
+            for (int var17 = 0; var17 < 16; var17++) {
+                if (var17 == arg1) continue;
+                if (var1->unknown_550_[var17].unknown_5_ <= 0 || var1->unknown_550_[var17].unknown_5_ >= 35) continue;
+                if (var0->unknown_7_ == 4 && var1->unknown_550_[var17].unknown_7_ == 4) continue;
+                if (abs(var2 + var7[arg1] - var7[var17]) < 8 && abs(var16 - var8[var17]) < 14) {
+                    var14 = true;
                     break;
                 }
             }
-            if (!collision) break;
-            if (!alternate) {
-                vertical = 20 * step - 4;
-                step = -step;
-                horizontal = 24;
-                alternate = true;
+            if (!var14) break;
+            if (!var5) {
+                var3 = 20 * var6 - 4;
+                var6 = -var6;
+                var2 = 24;
+                var5 = true;
             } else {
-                vertical = 20 * step;
-                horizontal = 0;
-                if (step <= 0) step--;
-                alternate = false;
+                var3 = 20 * var6;
+                var2 = 0;
+                if (var6 <= 0) var6--;
+                var5 = false;
             }
         }
     }
-    if (current->horizontalOffset == -127) {
-        current->horizontalOffset = 0;
-        current->verticalOffset = 0;
+    if (var0->unknown_4_ == -127) {
+        var0->unknown_4_ = 0;
+        var0->unknown_2_ = 0;
     }
-    current->horizontalOffset += horizontal;
-    current->verticalOffset += vertical;
+    var0->unknown_4_ += var2;
+    var0->unknown_2_ += var3;
 }

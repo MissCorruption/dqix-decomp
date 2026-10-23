@@ -2,51 +2,51 @@
 
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
-extern "C" ARM unsigned int func_ov031_022135ac(unsigned int idx);
-extern "C" ARM void func_ov031_02215778(int a, void* b);
-extern "C" void* func_ov031_0220f084(int a);
+extern "C" ARM unsigned int func_ov031_022135ac(unsigned int arg0);
+extern "C" ARM void func_ov031_02215778(int arg0, void* arg1);
+extern "C" void* func_ov031_0220f084(int arg0);
 
-struct NameObj02213504 {
-	unsigned char pad0[0x17];
-	unsigned char field17;
-	char name[0xa];
-	unsigned char field22;
+struct Struct_ov031_02213504 {
+	unsigned char unknown_0_[0x17];
+	unsigned char unknown_17_;
+	char unknown_18_[0xa];
+	unsigned char unknown_22_;
 };
 
-struct GlobalRef0224e5c4 {
-	unsigned char pad0[0xc];
-	NameObj02213504* obj;
+struct Struct_ov031_0224e5c4_8 {
+	unsigned char unknown_0_[0xc];
+	Struct_ov031_02213504* unknown_c_;
 };
 
-extern GlobalRef0224e5c4 data_ov031_0224e5c4;
+extern Struct_ov031_0224e5c4_8 data_ov031_0224e5c4;
 
 // USA: func_ov031_02213504
-extern "C" ARM void func_ov031_02213504(unsigned int idx) {
-	NameObj02213504* obj = data_ov031_0224e5c4.obj;
-	unsigned int norm = obj->field22;
-	if (norm == 0) {
-		norm = func_ov031_022135ac(idx);
+extern "C" ARM void func_ov031_02213504(unsigned int arg0) {
+	Struct_ov031_02213504* var0 = data_ov031_0224e5c4.unknown_c_;
+	unsigned int var1 = var0->unknown_22_;
+	if (var1 == 0) {
+		var1 = func_ov031_022135ac(arg0);
 	}
 
-	obj = data_ov031_0224e5c4.obj;
-	obj->field17 = norm;
-	void* p = func_ov031_0220f084(0);
-	if (p != NULL) {
-		InvalidateDataCacheRange(p, 0x20);
-		obj = data_ov031_0224e5c4.obj;
-		func_ov031_02215778((int)p, obj->name);
+	var0 = data_ov031_0224e5c4.unknown_c_;
+	var0->unknown_17_ = var1;
+	void* var2 = func_ov031_0220f084(0);
+	if (var2 != NULL) {
+		InvalidateDataCacheRange(var2, 0x20);
+		var0 = data_ov031_0224e5c4.unknown_c_;
+		func_ov031_02215778((int)var2, var0->unknown_18_);
 	}
 
-	int i = 0;
-	char* cur = (char*)data_ov031_0224e5c4.obj;
-	NameObj02213504* base = data_ov031_0224e5c4.obj;
+	int var3 = 0;
+	char* var4 = (char*)data_ov031_0224e5c4.unknown_c_;
+	Struct_ov031_02213504* var5 = data_ov031_0224e5c4.unknown_c_;
 	do {
-		signed char c = *(cur + 0x18);
-		if (c < 0x20 || c > 0x7e) {
-			VectorizedMemset(base->name, 0, 0xa);
+		signed char var6 = *(var4 + 0x18);
+		if (var6 < 0x20 || var6 > 0x7e) {
+			VectorizedMemset(var5->unknown_18_, 0, 0xa);
 			return;
 		}
-		i++;
-		cur++;
-	} while (i < 0xa);
+		var3++;
+		var4++;
+	} while (var3 < 0xa);
 }

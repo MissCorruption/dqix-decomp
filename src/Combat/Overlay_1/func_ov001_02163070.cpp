@@ -6,27 +6,27 @@
 #include <globaldefs.h>
 
 extern "C" void* func_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
-extern "C" int func_020aad1c(int a, int b, int c, int d);
-extern "C" void func_ov017_021d6134(void* obj, int flag);
-struct FlagWord020466f4;
-extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
+extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov017_021d6134(void* arg0, int arg1);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 
-struct S02163070 { char pad[0x4b4]; int field4B4; int field4B8; };
-extern struct S02163070 data_ov001_021658b8;
+struct Struct_ov001_021658b8_15 { char unknown_0_[0x4b4]; int unknown_4b4_; int unknown_4b8_; };
+extern struct Struct_ov001_021658b8_15 data_ov001_021658b8;
 
 // USA: func_ov001_02163070
-extern "C" ARM int func_ov001_02163070(void* obj) {
-    if (data_ov001_021658b8.field4B4 == 0) {
+extern "C" ARM int func_ov001_02163070(void* arg0) {
+    if (data_ov001_021658b8.unknown_4b4_ == 0) {
         return 0;
     }
-    unsigned int* p = (unsigned int*)func_020d6c00();
-    func_020466e4(p, 0x80);
-    int r = func_020aad1c(data_ov001_021658b8.field4B4, data_ov001_021658b8.field4B8, 0xa, 0);
-    int cond = (r != 0);
-    func_ov017_021d6134(obj, cond == 0);
-    if (cond != 0) {
-        func_020466f4((FlagWord020466f4*)p, 0x80);
+    unsigned int* var0 = (unsigned int*)func_020d6c00();
+    func_020466e4(var0, 0x80);
+    int var1 = func_020aad1c(data_ov001_021658b8.unknown_4b4_, data_ov001_021658b8.unknown_4b8_, 0xa, 0);
+    int var2 = (var1 != 0);
+    func_ov017_021d6134(arg0, var2 == 0);
+    if (var2 != 0) {
+        func_020466f4((Struct_02038598_4*)var0, 0x80);
     }
     return 1;
 }

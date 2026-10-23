@@ -2,62 +2,62 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-struct PackedPair_021dbf18 {
-	unsigned int a : 10;
-	unsigned int b : 10;
-	unsigned int c : 10;
-	unsigned int hi : 2;
+struct Struct_ov024_021dbf18 {
+	unsigned int unknown_0_0_ : 10;
+	unsigned int unknown_1_2_ : 10;
+	unsigned int unknown_2_4_ : 10;
+	unsigned int unknown_3_6_ : 2;
 };
 
-struct Flag_021dbf18 { unsigned char pad : 7; unsigned char flag : 1; };
-struct Ctx_021dbf18 { char pad0[0x1c]; struct Flag_021dbf18 flags; };
-struct Obj_021dbf18 { char pad0[0xc]; struct Ctx_021dbf18* ctx; void* field0x10; int field0x14; };
-struct Range_021dbf18 { char pad[0x20]; struct PackedPair_021dbf18 f20; struct PackedPair_021dbf18 f24; };
-struct Stats_021dbf18 { char pad[0x3b]; unsigned char bit0 : 1; unsigned char rest : 7; };
+struct Struct_ov024_021dbf18_2 { unsigned char unknown_0_0_ : 7; unsigned char unknown_0_7_ : 1; };
+struct Struct_ov024_021dbf18_3 { char unknown_0_[0x1c]; struct Struct_ov024_021dbf18_2 unknown_1c_; };
+struct Struct_ov024_021dbf18_4 { char unknown_0_[0xc]; struct Struct_ov024_021dbf18_3* unknown_c_; void* unknown_10_; int unknown_14_; };
+struct Struct_ov024_021dbf18_5 { char unknown_0_[0x20]; struct Struct_ov024_021dbf18 unknown_20_; struct Struct_ov024_021dbf18 unknown_24_; };
+struct Struct_ov024_021dbf18_6 { char unknown_0_[0x3b]; unsigned char unknown_3b_0_ : 1; unsigned char unknown_3b_1_ : 7; };
 
-extern "C" unsigned long long func_ov024_021e4b14(struct Obj_021dbf18* obj, int a1, int id, struct Range_021dbf18* range, int mode);
-extern "C" int func_020882f8(unsigned char* obj);
-extern "C" void func_02088390(void* obj);
-extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
-extern "C" int func_ov000_02159f18(void* a0, unsigned long long mask, int kind);
-extern "C" unsigned short func_ov024_021da644(int idx, int a, int b);
-extern "C" void* func_ov000_0215e958(void* a0);
-extern "C" void func_ov000_0215a88c(void* objRaw, void* listRaw, int c);
-extern "C" void func_ov000_0215cd44(void* a, void* b, void* c, int d, unsigned long long e, int g);
+extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4);
+extern "C" int func_020882f8(unsigned char* arg0);
+extern "C" void func_02088390(void* arg0);
+extern "C" void func_ov000_02159eac(void* arg0, void* arg1, int arg2);
+extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
+extern "C" unsigned short func_ov024_021da644(int arg0, int arg1, int arg2);
+extern "C" void* func_ov000_0215e958(void* arg0);
+extern "C" void func_ov000_0215a88c(void* arg0, void* arg1, int arg2);
+extern "C" void func_ov000_0215cd44(void* arg0, void* arg1, void* arg2, int arg3, unsigned long long arg4, int arg5);
 
 // USA: func_ov024_021dbf18
-extern "C" ARM void* func_ov024_021dbf18(struct Obj_021dbf18* obj, int a1, int id, struct Range_021dbf18* range, int unused2, int unused3, unsigned char flagArg) {
-	GameObject* c = GetCombatantByID((int)obj->field0x10, id);
-	if (!c) return 0;
-	int msg = 0;
-	int counted = 0;
-	unsigned long long mask = 0;
-	if (flagArg) {
-		mask = func_ov024_021e4b14(obj, a1, id, range, 1);
-		if (func_020882f8((unsigned char*)c->currentStats_)) {
-			msg = 0x40;
-			func_02088390(c->currentStats_);
-			if (mask == 0) {
-				func_ov000_02159eac(obj->field0x10, &mask, 0x10);
+extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4, int arg5, unsigned char arg6) {
+	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
+	if (!var0) return 0;
+	int var1 = 0;
+	int var2 = 0;
+	unsigned long long var3 = 0;
+	if (arg6) {
+		var3 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
+		if (func_020882f8((unsigned char*)var0->currentStats_)) {
+			var1 = 0x40;
+			func_02088390(var0->currentStats_);
+			if (var3 == 0) {
+				func_ov000_02159eac(arg0->unknown_10_, &var3, 0x10);
 			}
-			((struct Stats_021dbf18*)c->currentStats_)->bit0 = 1;
-			counted = 1;
-			obj->field0x14++;
+			((struct Struct_ov024_021dbf18_6*)var0->currentStats_)->unknown_3b_0_ = 1;
+			var2 = 1;
+			arg0->unknown_14_++;
 		}
 	}
-	if (func_ov000_02159f18(obj->field0x10, mask, 0x19)) {
-		if (!counted) {
-			obj->field0x14++;
-			counted = 1;
+	if (func_ov000_02159f18(arg0->unknown_10_, var3, 0x19)) {
+		if (!var2) {
+			arg0->unknown_14_++;
+			var2 = 1;
 		}
-		msg = 0x173;
+		var1 = 0x173;
 	}
-	if (!counted) {
-		msg = func_ov024_021da644(id, range->f24.b, range->f24.c);
+	if (!var2) {
+		var1 = func_ov024_021da644(arg2, arg3->unknown_24_.unknown_1_2_, arg3->unknown_24_.unknown_2_4_);
 	}
-	void* entry = func_ov000_0215e958(obj->field0x10);
-	if (!entry) return 0;
-	func_ov000_0215a88c(obj->field0x10, entry, msg);
-	func_ov000_0215cd44(obj->field0x10, entry, c, 0, mask, obj->ctx->flags.flag != 0);
-	return entry;
+	void* var4 = func_ov000_0215e958(arg0->unknown_10_);
+	if (!var4) return 0;
+	func_ov000_0215a88c(arg0->unknown_10_, var4, var1);
+	func_ov000_0215cd44(arg0->unknown_10_, var4, var0, 0, var3, arg0->unknown_c_->unknown_1c_.unknown_0_7_ != 0);
+	return var4;
 }

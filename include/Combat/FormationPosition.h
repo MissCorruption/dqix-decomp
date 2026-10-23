@@ -1,8 +1,8 @@
 #pragma once
 
-struct Vec2_0216f74c {
-    int x;
-    int y;
+struct Struct_02048cf0 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-extern "C" Vec2_0216f74c func_ov000_0216f74c(int *cell);
+extern "C" Struct_02048cf0 func_ov000_0216f74c(int *arg0);

@@ -4,116 +4,116 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-struct EntryBits021f2e6c {
-    unsigned int id : 9;
-    unsigned int pad : 5;
-    unsigned int b14 : 1;
-    unsigned int b15 : 1;
-    unsigned int b16 : 1;
-    unsigned int rest : 15;
+struct Struct_ov023_021f2e6c {
+    unsigned int unknown_0_0_ : 9;
+    unsigned int unknown_1_1_ : 5;
+    unsigned int unknown_1_6_ : 1;
+    unsigned int unknown_1_7_ : 1;
+    unsigned int unknown_2_0_ : 1;
+    unsigned int unknown_2_1_ : 15;
 };
-struct Entry021f2e6c {
-    EntryBits021f2e6c bits;
-    char pad[0xc];
+struct Struct_ov023_021f2e6c_3 {
+    Struct_ov023_021f2e6c unknown_0_;
+    char unknown_4_[0xc];
 };
-struct Table021f2e6c {
-    unsigned char count;
-    char pad[3];
-    Entry021f2e6c entries[1];
+struct Struct_ov023_021f2e6c_4 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    Struct_ov023_021f2e6c_3 unknown_4_[1];
 };
-struct IdList021f2e6c {
-    char pad[4];
-    short ids[8];
-    short count;
+struct Struct_ov023_021f2e6c_5 {
+    char unknown_0_[4];
+    short unknown_4_[8];
+    short unknown_14_;
 };
-struct Mgr021f2e6c {
-    char pad[0x6c];
-    int key6c;
-    int arr70[4];
-    char pad2[0x84 - 0x80];
-    int f84;
-    int f88;
-    int f8c;
+struct Struct_ov023_021f2e6c_6 {
+    char unknown_0_[0x6c];
+    int unknown_6c_;
+    int unknown_70_[4];
+    char unknown_80_[0x84 - 0x80];
+    int unknown_84_;
+    int unknown_88_;
+    int unknown_8c_;
 };
-struct Triple021f2e6c { int w[3]; };
-struct Bufs021f2e6c { char* a; char* b; int c; };
-struct Blk021f2e6c { int w[0x15]; };
+struct Struct_ov023_021f2e6c_7 { int unknown_0_[3]; };
+struct Struct_ov023_021f2e6c_8 { char* unknown_0_; char* unknown_4_; int unknown_8_; };
+struct Struct_ov023_021f2e6c_9 { int unknown_0_[0x15]; };
 
-extern "C" Table021f2e6c* func_02094d6c(void);
+extern "C" Struct_ov023_021f2e6c_4* func_02094d6c(void);
 extern "C" unsigned char* func_020421a0(void);
-extern "C" void func_ov023_021d8b6c(void* p);
-extern "C" void func_ov023_021d8af8(void* p);
-extern "C" void func_ov000_0215fa84(void* obj, short* a, short* b, short* c);
-struct FindEntryById02096134Table;
-extern "C" void* func_02096134(FindEntryById02096134Table*, int);
-extern "C" void func_02046380(unsigned char* st);
-struct TableA68;
-extern "C" char* func_02072a68(TableA68*, int);
-extern "C" void func_020e46c4(void* p);
-extern "C" unsigned char* func_0200fea4(GameState* gs, int id);
-extern "C" Triple021f2e6c func_ov023_021ed804(Triple021f2e6c t, void* p);
-extern "C" void func_ov023_021edf38(Triple021f2e6c* dst, const Triple021f2e6c& src);
-extern "C" void __clear(void* dst, int n);
-extern "C" void func_020dcf7c(int count, void* buf);
-extern "C" void func_0209c6d8(void* actor, int arg);
+extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void func_ov023_021d8af8(void* arg0);
+extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
+struct Struct_0205faf4_7;
+extern "C" void* func_02096134(Struct_0205faf4_7*, int);
+extern "C" void func_02046380(unsigned char* arg0);
+struct Struct_02072a68_2;
+extern "C" char* func_02072a68(Struct_02072a68_2*, int);
+extern "C" void func_020e46c4(void* arg0);
+extern "C" unsigned char* func_0200fea4(GameState* arg0, int arg1);
+extern "C" Struct_ov023_021f2e6c_7 func_ov023_021ed804(Struct_ov023_021f2e6c_7 arg0, void* arg1);
+extern "C" void func_ov023_021edf38(Struct_ov023_021f2e6c_7* arg0, const Struct_ov023_021f2e6c_7& arg1);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" void func_020dcf7c(int arg0, void* arg1);
+extern "C" void func_0209c6d8(void* arg0, int arg1);
 #if !defined(jpn)
-extern "C" void func_0204500c(void* obj, char* buffer, int a, int b);
+extern "C" void func_0204500c(void* arg0, char* arg1, int arg2, int arg3);
 #endif
-extern "C" void func_ov000_0215fa70(void* obj, short a, short b, short c);
+extern "C" void func_ov000_0215fa70(void* arg0, short arg1, short arg2, short arg3);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* p);
+extern "C" int func_0202c540(void* arg0);
 extern "C" int func_ov023_021ed92c(void);
-struct Reset_021eefac;
-extern "C" void func_ov023_021eefac(Reset_021eefac*);
-struct Buffer020d784c;
-extern "C" void func_020d784c(Buffer020d784c*);
+struct Struct_ov023_021eeaac_2;
+extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
+struct Struct_020d784c;
+extern "C" void func_020d784c(Struct_020d784c*);
 extern "C" int func_ov023_021f4fc8(void);
-struct StreamHeader;
-extern "C" void func_020d7870(void*, void*, StreamHeader*, int, unsigned char);
-struct Pair020deb08;
-extern "C" short func_020deb08(Pair020deb08*);
-extern "C" void func_020de868(void* p);
-extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
-extern "C" int func_020dea64(void* a, void* b, void* c, int d, void* e, int flag);
-extern "C" int sprintf(char* buf, const char* fmt, ...);
-extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
+struct Struct_02013fb4;
+extern "C" void func_020d7870(void*, void*, Struct_02013fb4*, int, unsigned char);
+struct Struct_020deb08;
+extern "C" short func_020deb08(Struct_020deb08*);
+extern "C" void func_020de868(void* arg0);
+extern "C" void* ExtractFileFromGP2(const char* arg0, const char* arg1, unsigned int* arg2);
+extern "C" int func_020dea64(void* arg0, void* arg1, void* arg2, int arg3, void* arg4, int arg5);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
+extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void func_0209e3dc(char*, int);
-extern "C" void func_0209fd64(Mgr021f2e6c* mgr, SafeAllocator* alloc, void* data, unsigned int len);
+extern "C" void func_0209fd64(Struct_ov023_021f2e6c_6* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_0209e46c(char*);
-struct IntField0x64_0209fe10;
-extern "C" void func_0209fe10(IntField0x64_0209fe10*, int);
-struct TaskState0209fe18;
-extern "C" void func_0209fe18(TaskState0209fe18*);
-struct List794c;
-extern "C" char* func_020d794c(List794c*, int);
-struct Fields64_021f3a8c;
-extern "C" int func_ov023_021f3a8c(Fields64_021f3a8c*);
-struct StoreStruct;
-extern "C" void func_020465c0(StoreStruct*, int, int);
-extern "C" unsigned char* func_ov000_02162d88(void* self, unsigned short key);
-extern "C" void func_02048614(unsigned char* obj);
-extern "C" void func_02049c88(unsigned char* obj, int v);
-struct Obj02048850;
-struct Param02048850;
-extern "C" void func_02048850(Obj02048850*, Param02048850*);
-extern "C" void func_02048588(unsigned char* src, unsigned char* dst);
-struct Bytes02033b88;
-extern "C" int func_02033b88(Bytes02033b88*, int);
-extern "C" void func_02049f28(unsigned char* obj);
-extern "C" void* func_ov000_02160f14(void* self);
-extern "C" void func_ov000_0216d370(void* cam, int a, int b, int c);
-extern "C" void func_ov000_0216d530(void* cam, int v);
+struct Struct_0209fe10;
+extern "C" void func_0209fe10(Struct_0209fe10*, int);
+struct Struct_0209fe18;
+extern "C" void func_0209fe18(Struct_0209fe18*);
+struct Struct_020d794c;
+extern "C" char* func_020d794c(Struct_020d794c*, int);
+struct Struct_ov023_021f2e6c_2;
+extern "C" int func_ov023_021f3a8c(Struct_ov023_021f2e6c_2*);
+struct Struct_020465c0;
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" unsigned char* func_ov000_02162d88(void* arg0, unsigned short arg1);
+extern "C" void func_02048614(unsigned char* arg0);
+extern "C" void func_02049c88(unsigned char* arg0, int arg1);
+struct Struct_02048850;
+struct Struct_02048850_2;
+extern "C" void func_02048850(Struct_02048850*, Struct_02048850_2*);
+extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
+struct Struct_02010604;
+extern "C" int func_02033b88(Struct_02010604*, int);
+extern "C" void func_02049f28(unsigned char* arg0);
+extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" void func_ov000_0216d370(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov000_0216d530(void* arg0, int arg1);
 extern "C" void func_0202e5c8(unsigned char*, int, int, int);
-extern "C" void func_0202e5d8(void* cam, int a, int b, int c);
-extern "C" void func_ov000_02163b90(void* self, int v);
-extern "C" void func_02049f3c(unsigned char* obj);
-extern "C" Blk021f2e6c* func_0202ed64(void* cam);
-extern "C" void func_ov000_0216d2d0(void* cam);
-struct Dst0202ed0c;
-struct Src0202ed0c;
-extern "C" void func_0202ed0c(Dst0202ed0c*, Src0202ed0c*);
+extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov000_02163b90(void* arg0, int arg1);
+extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" Struct_ov023_021f2e6c_9* func_0202ed64(void* arg0);
+extern "C" void func_ov000_0216d2d0(void* arg0);
+struct Struct_0202ed0c_2;
+struct Struct_0202ed0c;
+extern "C" void func_0202ed0c(Struct_0202ed0c_2*, Struct_0202ed0c*);
 
-extern "C" int* _ZZ17GetGlobal021ffefcvE1s;
+extern "C" int* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02109bf4;
 extern char data_ov023_021fe2ca;
 extern char data_ov023_021fe2e5;
@@ -126,389 +126,389 @@ extern char data_ov023_021fe2f7;
 extern char data_ov023_021fd54e[];
 extern char data_ov023_021fd578[];
 extern char data_ov023_021fd5a2[];
-struct BinarySearchByComparatorStruct;
-extern "C" void* func_0206f4f0(BinarySearchByComparatorStruct*, int);
-struct Obj02046574;
-extern "C" void func_02046574(Obj02046574*, int, char*);
+struct Struct_0206f01c_2;
+extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
+struct Struct_02046574_2;
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 extern "C" void func_020de968(int,char*);
 extern "C" void func_0204500c(void*,char*,int);
 extern "C" int func_020e052c(void*,void*,const char*,void*,short,unsigned char);
 #endif
 // USA: func_ov023_021f2e6c
-extern "C" ARM int func_ov023_021f2e6c(char* self) {
+extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x5778, regionalOffset1=0x5780, regionalOffset2=0x5784, regionalOffset3=0x57ac, regionalOffset4=0x577c, regionalOffset5=0x218, regionalOffset6=0x17e2, regionalOffset7=0x868, regionalOffset8=0xe28, regionalOffset9=0x57b0, regionalOffset10=0x2e4, regionalOffset11=0xe44, regionalOffset12=0x57aa, regionalOffset13=0x57ae, regionalOffset14=0x5788, regionalOffset15=0x57a8};
+ enum {Enum_ov023_021f2e6c_21896=0x5778, Enum_ov023_021f2e6c_21904=0x5780, Enum_ov023_021f2e6c_21908=0x5784, Enum_ov023_021f2e6c_21948=0x57ac, Enum_ov023_021f2e6c_21900=0x577c, Enum_ov023_021f2e6c_668=0x218, Enum_ov023_021f2e6c_6578=0x17e2, Enum_ov023_021f2e6c_2456=0x868, Enum_ov023_021f2e6c_3756=0xe28, Enum_ov023_021f2e6c_21952=0x57b0, Enum_ov023_021f2e6c_552=0x2e4, Enum_ov023_021f2e6c_3784=0xe44, Enum_ov023_021f2e6c_21946=0x57aa, Enum_ov023_021f2e6c_21950=0x57ae, Enum_ov023_021f2e6c_21912=0x5788, Enum_ov023_021f2e6c_21944=0x57a8};
 #else
- enum {regionalOffset0=0x5588, regionalOffset1=0x5590, regionalOffset2=0x5594, regionalOffset3=0x55bc, regionalOffset4=0x558c, regionalOffset5=0x29c, regionalOffset6=0x19b2, regionalOffset7=0x998, regionalOffset8=0xeac, regionalOffset9=0x55c0, regionalOffset10=0x228, regionalOffset11=0xec8, regionalOffset12=0x55ba, regionalOffset13=0x55be, regionalOffset14=0x5598, regionalOffset15=0x55b8};
+ enum {Enum_ov023_021f2e6c_21896=0x5588, Enum_ov023_021f2e6c_21904=0x5590, Enum_ov023_021f2e6c_21908=0x5594, Enum_ov023_021f2e6c_21948=0x55bc, Enum_ov023_021f2e6c_21900=0x558c, Enum_ov023_021f2e6c_668=0x29c, Enum_ov023_021f2e6c_6578=0x19b2, Enum_ov023_021f2e6c_2456=0x998, Enum_ov023_021f2e6c_3756=0xeac, Enum_ov023_021f2e6c_21952=0x55c0, Enum_ov023_021f2e6c_552=0x228, Enum_ov023_021f2e6c_3784=0xec8, Enum_ov023_021f2e6c_21946=0x55ba, Enum_ov023_021f2e6c_21950=0x55be, Enum_ov023_021f2e6c_21912=0x5598, Enum_ov023_021f2e6c_21944=0x55b8};
 #endif
-    unsigned char* st;
-    int* g = _ZZ17GetGlobal021ffefcvE1s;
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    Table021f2e6c* tbl = func_02094d6c();
-    st = func_020421a0();
-    Entry021f2e6c* found_entries;
-    int state = g[0];
-    if (state == 0) {
-        if (*(void**)(self + regionalOffset0) != 0) {
-            func_ov023_021d8b6c(*(void**)(self + regionalOffset0));
-            func_ov023_021d8af8(*(void**)(self + regionalOffset0));
-            *(void**)(self + regionalOffset0) = 0;
+    unsigned char* var0;
+    int* var1 = _ZZ21inline_ov023_021f4c04vE1s;
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+    Struct_ov023_021f2e6c_4* var3 = func_02094d6c();
+    var0 = func_020421a0();
+    Struct_ov023_021f2e6c_3* var4;
+    int var5 = var1[0];
+    if (var5 == 0) {
+        if (*(void**)(arg0 + Enum_ov023_021f2e6c_21896) != 0) {
+            func_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
+            func_ov023_021d8af8(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
+            *(void**)(arg0 + Enum_ov023_021f2e6c_21896) = 0;
         }
-        *(void**)(self + regionalOffset1) = 0;
-        *(void**)(self + regionalOffset2) = 0;
-        *(short*)(self + regionalOffset3) = 0;
-        *(short*)(self + regionalOffset4) = -1;
-        ((SafeAllocator*)(self + 0x30))->Reset();
-        if (*(short*)(*(char**)(self + regionalOffset5) + 0x8e4a) > 0) {
-            short kind = 0;
-            short count = 0;
-            short target = 0;
-            func_ov000_0215fa84(*(void**)(self + regionalOffset5), &kind, &target, &count);
-            void* entry = func_02096134((FindEntryById02096134Table*)tbl, *(short*)(*(char**)(self + regionalOffset5) + 0x8e4a));
-            if (count != 0 && entry != 0) {
-                func_02046380(st);
+        *(void**)(arg0 + Enum_ov023_021f2e6c_21904) = 0;
+        *(void**)(arg0 + Enum_ov023_021f2e6c_21908) = 0;
+        *(short*)(arg0 + Enum_ov023_021f2e6c_21948) = 0;
+        *(short*)(arg0 + Enum_ov023_021f2e6c_21900) = -1;
+        ((SafeAllocator*)(arg0 + 0x30))->Reset();
+        if (*(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) > 0) {
+            short var6 = 0;
+            short var7 = 0;
+            short var8 = 0;
+            func_ov000_0215fa84(*(void**)(arg0 + Enum_ov023_021f2e6c_668), &var6, &var8, &var7);
+            void* var9 = func_02096134((Struct_0205faf4_7*)var3, *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a));
+            if (var7 != 0 && var9 != 0) {
+                func_02046380(var0);
 #if defined(jpn)
-                char* msg = data_ov023_021fd54e;
-                if (kind == 0x12) msg = data_ov023_021fd578;
-                void* name = func_0206f4f0((BinarySearchByComparatorStruct*)(*(char**)(self + 0x21c) + 0x678), target);
-                if (name != 0) func_02046574((Obj02046574*)st, 0, *(char**)name);
-                char rawName[0x40];
-                __clear(rawName,0x40);
-                func_020de968(count,rawName);
-                func_02046574((Obj02046574*)st, 1, rawName);
+                char* var10 = data_ov023_021fd54e;
+                if (var6 == 0x12) var10 = data_ov023_021fd578;
+                void* var11 = func_0206f4f0((Struct_0206f01c_2*)(*(char**)(arg0 + 0x21c) + 0x678), var8);
+                if (var11 != 0) func_02046574((Struct_02046574_2*)var0, 0, *(char**)var11);
+                char var12[0x40];
+                __clear(var12,0x40);
+                func_020de968(var7,var12);
+                func_02046574((Struct_02046574_2*)var0, 1, var12);
 #else
-                int key = 0x29;
-                if (kind == 0x12) {
-                    key = 0x2a;
+                int var13 = 0x29;
+                if (var6 == 0x12) {
+                    var13 = 0x2a;
                 }
-                char* msg = func_02072a68((TableA68*)(self + 0x5904), key);
-                Triple021f2e6c words;
-                func_020e46c4(&words);
-                GameState* gs = GameState::GetInstance();
-                for (int i = 0xc0; i <= 0xc7; i++) {
-                    unsigned char* c = func_0200fea4(gs, i);
-                    if (c != 0) {
-                        void* p = *(void**)(c + 0x144);
-                        if (target == *(short*)((char*)p + 8)) {
-                            func_ov023_021edf38(&words, func_ov023_021ed804(words, p));
-                            *(Triple021f2e6c**)(st + 0x20) = &words;
+                char* var14 = func_02072a68((Struct_02072a68_2*)(arg0 + 0x5904), var13);
+                Struct_ov023_021f2e6c_7 var15;
+                func_020e46c4(&var15);
+                GameState* var16 = GameState::GetInstance();
+                for (int var17 = 0xc0; var17 <= 0xc7; var17++) {
+                    unsigned char* var18 = func_0200fea4(var16, var17);
+                    if (var18 != 0) {
+                        void* var19 = *(void**)(var18 + 0x144);
+                        if (var8 == *(short*)((char*)var19 + 8)) {
+                            func_ov023_021edf38(&var15, func_ov023_021ed804(var15, var19));
+                            *(Struct_ov023_021f2e6c_7**)(var0 + 0x20) = &var15;
                             break;
                         }
                     }
                 }
-                char bufA[0x80];
-                char bufB[0x80];
-                Bufs021f2e6c bufs;
-                __clear(bufA, 0x80);
-                __clear(bufB, 0x80);
-                func_020e46c4(&bufs);
-                bufs.a = bufA;
-                bufs.b = bufB;
-                func_020dcf7c(count, &bufs);
-                *(Bufs021f2e6c**)(st + 0x18) = &bufs;
+                char var20[0x80];
+                char var21[0x80];
+                Struct_ov023_021f2e6c_8 var22;
+                __clear(var20, 0x80);
+                __clear(var21, 0x80);
+                func_020e46c4(&var22);
+                var22.unknown_0_ = var20;
+                var22.unknown_4_ = var21;
+                func_020dcf7c(var7, &var22);
+                *(Struct_ov023_021f2e6c_8**)(var0 + 0x18) = &var22;
 
 #endif
                 func_0209c6d8(&data_02109bf4, 0x3e);
 #if defined(jpn)
-                func_0204500c(st, msg, 1);
+                func_0204500c(var0, var10, 1);
 #else
-                func_0204500c(st, msg, 1, 0xe3);
+                func_0204500c(var0, var14, 1, 0xe3);
 #endif
 
-                st[regionalOffset6] = 0;
-                *(int*)(st + regionalOffset7) = 1;
-                func_ov000_0215fa70(*(void**)(self + regionalOffset5), kind, 0, 0);
-                g[0] = 10;
-                return *(int*)(self + regionalOffset8);
+                var0[Enum_ov023_021f2e6c_6578] = 0;
+                *(int*)(var0 + Enum_ov023_021f2e6c_2456) = 1;
+                func_ov000_0215fa70(*(void**)(arg0 + Enum_ov023_021f2e6c_668), var6, 0, 0);
+                var1[0] = 10;
+                return *(int*)(arg0 + Enum_ov023_021f2e6c_3756);
             }
         }
         if (func_0202c540(func_0202ae18()) != 0) {
             return 0xf;
         }
-        if (func_ov023_021ed92c() != 0 && *(short*)(*(char**)(self + regionalOffset5) + 0x8e4a) == 0) {
+        if (func_ov023_021ed92c() != 0 && *(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) == 0) {
             return 0xf;
         }
-        int count = tbl->count;
-        Entry021f2e6c* entries = tbl->entries;
-        int found = 0;
-        for (int i = 0; i < count; i++) {
-            if (entries[i].bits.b16 && !entries[i].bits.b15) {
-                found = 1;
+        int var23 = var3->unknown_0_;
+        Struct_ov023_021f2e6c_3* var24 = var3->unknown_4_;
+        int var25 = 0;
+        for (int var26 = 0; var26 < var23; var26++) {
+            if (var24[var26].unknown_0_.unknown_2_0_ && !var24[var26].unknown_0_.unknown_1_7_) {
+                var25 = 1;
                 break;
             }
         }
-        if (found == 0) {
-            func_ov023_021eefac((Reset_021eefac*)g);
+        if (var25 == 0) {
+            func_ov023_021eefac((Struct_ov023_021eeaac_2*)var1);
             return 0xf;
         }
-        *(IdList021f2e6c**)(self + regionalOffset2) = (IdList021f2e6c*)((SafeAllocator*)(self + 0x30))->Allocate(0x18);
-        *(Mgr021f2e6c**)(self + regionalOffset1) = (Mgr021f2e6c*)((SafeAllocator*)(self + 0x30))->Allocate(0x8a0);
-        func_020d784c((Buffer020d784c*)(*(IdList021f2e6c**)(self + regionalOffset2)));
-        *(SafeAllocator**)(self + regionalOffset9) = (SafeAllocator*)((SafeAllocator*)(self + 0x30))->Allocate(0x14);
-        (*(SafeAllocator**)(self + regionalOffset9))->CreateTypeA(((SafeAllocator*)(self + 0x30))->Allocate(0xf000), 0xf000);
-        FontBankLoader* h = func_02094a00();
-        func_02094b40(h);
-        func_02094b30(h, 0x210, 1);
-        g[0] = 1;
-    } else if (state == 10) {
+        *(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908) = (Struct_ov023_021f2e6c_5*)((SafeAllocator*)(arg0 + 0x30))->Allocate(0x18);
+        *(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904) = (Struct_ov023_021f2e6c_6*)((SafeAllocator*)(arg0 + 0x30))->Allocate(0x8a0);
+        func_020d784c((Struct_020d784c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)));
+        *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952) = (SafeAllocator*)((SafeAllocator*)(arg0 + 0x30))->Allocate(0x14);
+        (*(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952))->CreateTypeA(((SafeAllocator*)(arg0 + 0x30))->Allocate(0xf000), 0xf000);
+        Struct_0208cb08* var27 = func_02094a00();
+        func_02094b40(var27);
+        func_02094b30(var27, 0x210, 1);
+        var1[0] = 1;
+    } else if (var5 == 10) {
         if (func_ov023_021f4fc8() != 0) {
-            g[0] = 0;
+            var1[0] = 0;
         }
-    } else if (state == 11) {
+    } else if (var5 == 11) {
 #if defined(jpn)
-        g[2] = loader->QueueLoadFile(data_ov023_021fd5a2, 0);
+        var1[2] = var2->QueueLoadFile(data_ov023_021fd5a2, 0);
 #else
-        g[2] = loader->QueueLoadFileInGP2(&data_ov023_021fe2ca, &data_ov023_021fe2e5, 0);
+        var1[2] = var2->QueueLoadFileInGP2(&data_ov023_021fe2ca, &data_ov023_021fe2e5, 0);
 #endif
 
-        g[0]++;
-        return *(int*)(self + regionalOffset8);
-    } else if (state == 12) {
-        if (loader->GetTaskStatus(g[2]) != 0) {
-            unsigned int length;
-            void* data;
-            loader->GetLoadedFileByID(g[2], &data, &length);
-            func_020d784c((Buffer020d784c*)(*(IdList021f2e6c**)(self + regionalOffset2)));
-            int count;
-            Entry021f2e6c* entries = tbl->entries;
-            count = tbl->count;
-            for (int i = 0; i < count; i++) {
-                if (entries[i].bits.b16 && !entries[i].bits.b15) {
-                    int id = entries[i].bits.id;
-                    IdList021f2e6c* list = *(IdList021f2e6c**)(self + regionalOffset2);
-                    list->ids[list->count++] = id;
+        var1[0]++;
+        return *(int*)(arg0 + Enum_ov023_021f2e6c_3756);
+    } else if (var5 == 12) {
+        if (var2->GetTaskStatus(var1[2]) != 0) {
+            unsigned int var28;
+            void* var29;
+            var2->GetLoadedFileByID(var1[2], &var29, &var28);
+            func_020d784c((Struct_020d784c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)));
+            int var30;
+            Struct_ov023_021f2e6c_3* var31 = var3->unknown_4_;
+            var30 = var3->unknown_0_;
+            for (int var32 = 0; var32 < var30; var32++) {
+                if (var31[var32].unknown_0_.unknown_2_0_ && !var31[var32].unknown_0_.unknown_1_7_) {
+                    int var33 = var31[var32].unknown_0_.unknown_0_0_;
+                    Struct_ov023_021f2e6c_5* var34 = *(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908);
+                    var34->unknown_4_[var34->unknown_14_++] = var33;
                 }
             }
-            func_020d7870(*(void**)(self + regionalOffset2), self + 0x30, (StreamHeader*)data, length, 0);
-            loader->RemoveTask(g[2]);
-            g[2] = -1;
-            g[0] = 4;
-            *(short*)(self + regionalOffset3) = 1;
+            func_020d7870(*(void**)(arg0 + Enum_ov023_021f2e6c_21908), arg0 + 0x30, (Struct_02013fb4*)var29, var28, 0);
+            var2->RemoveTask(var1[2]);
+            var1[2] = -1;
+            var1[0] = 4;
+            *(short*)(arg0 + Enum_ov023_021f2e6c_21948) = 1;
         }
-    } else if (state == 1) {
+    } else if (var5 == 1) {
         if (func_02094b4c(func_02094a00()) != 0) {
-            char* heap;
+            char* var35;
 #if defined(jpn)
-            char* sub = self + 0x3ec;
+            char* var36 = arg0 + 0x3ec;
 #else
-            char* sub = self + 0x830;
+            char* var37 = arg0 + 0x830;
 #endif
 
 #if defined(jpn)
-            if (func_020deb08((Pair020deb08*)(sub + 0x3400)) <= 0) {
+            if (func_020deb08((Struct_020deb08*)(var36 + 0x3400)) <= 0) {
 #else
-            if (func_020deb08((Pair020deb08*)(sub + 0x3000)) <= 0) {
+            if (func_020deb08((Struct_020deb08*)(var37 + 0x3000)) <= 0) {
 #endif
 
 #if defined(jpn)
-                func_020de868(sub + 0x3400);
+                func_020de868(var36 + 0x3400);
 #else
-                func_020de868(sub + 0x3000);
+                func_020de868(var37 + 0x3000);
 #endif
 
-                heap = self + regionalOffset10;
-                ((SafeAllocator*)(heap + 0x5000))->Reset();
+                var35 = arg0 + Enum_ov023_021f2e6c_552;
+                ((SafeAllocator*)(var35 + 0x5000))->Reset();
 #if defined(jpn)
-                func_020e052c(sub + 0x3400, heap + 0x5000, data_020f2a38, &data_ov023_021fd862, 3, 1);
+                func_020e052c(var36 + 0x3400, var35 + 0x5000, data_020f2a38, &data_ov023_021fd862, 3, 1);
 #else
                 BackgroundLoader::AddLockGlobal();
-                unsigned int size;
-                void* file = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &size);
-                if (file != 0) {
-                    func_020dea64(sub + 0x3000, heap + 0x5000, file, size, &data_ov023_021fd862, 3);
+                unsigned int var38;
+                void* var39 = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &var38);
+                if (var39 != 0) {
+                    func_020dea64(var37 + 0x3000, var35 + 0x5000, var39, var38, &data_ov023_021fd862, 3);
 
                 }
                 BackgroundLoader::RemoveLockGlobal();
 #endif
 
             }
-            g[0] = 2;
+            var1[0] = 2;
         }
-    } else if (state == 2) {
-        found_entries = tbl->entries;
-        int count = tbl->count;
-        int found = 0;
-        for (short i = *(short*)(self + regionalOffset4) + 1; i < count; i++) {
+    } else if (var5 == 2) {
+        var4 = var3->unknown_4_;
+        int var40 = var3->unknown_0_;
+        int var41 = 0;
+        for (short var42 = *(short*)(arg0 + Enum_ov023_021f2e6c_21900) + 1; var42 < var40; var42++) {
             if (func_0202c540(func_0202ae18()) != 0 || func_ov023_021ed92c() != 0) {
-                if (*(short*)(*(char**)(self + regionalOffset5) + 0x8e4a) != found_entries[i].bits.id) {
+                if (*(short*)(*(char**)(arg0 + Enum_ov023_021f2e6c_668) + 0x8e4a) != var4[var42].unknown_0_.unknown_0_0_) {
                     continue;
                 }
             }
-            if (found_entries[i].bits.b16 && !found_entries[i].bits.b15) {
-                *(short*)(self + regionalOffset4) = i;
-                found = 1;
+            if (var4[var42].unknown_0_.unknown_2_0_ && !var4[var42].unknown_0_.unknown_1_7_) {
+                *(short*)(arg0 + Enum_ov023_021f2e6c_21900) = var42;
+                var41 = 1;
                 break;
             }
         }
-        if (found == 0) {
-            func_ov023_021eefac((Reset_021eefac*)g);
+        if (var41 == 0) {
+            func_ov023_021eefac((Struct_ov023_021eeaac_2*)var1);
             return 0xf;
         }
-        char name[0x40];
-        sprintf(name, &data_ov023_021fe2f7, found_entries[*(short*)(self + regionalOffset4)].bits.id / 50 + 1);
-        g[1] = loader->QueueLoadFile(name, 0);
-        g[0] = 3;
-    } else if (state == 3) {
-        if (loader->GetTaskStatus(g[1]) != 0) {
-            unsigned int length;
-            void* data = 0;
-            loader->GetLoadedFileByID(g[1], &data, &length);
-            if (data == 0) {
-                func_ov023_021eefac((Reset_021eefac*)g);
+        char var43[0x40];
+        sprintf(var43, &data_ov023_021fe2f7, var4[*(short*)(arg0 + Enum_ov023_021f2e6c_21900)].unknown_0_.unknown_0_0_ / 50 + 1);
+        var1[1] = var2->QueueLoadFile(var43, 0);
+        var1[0] = 3;
+    } else if (var5 == 3) {
+        if (var2->GetTaskStatus(var1[1]) != 0) {
+            unsigned int var44;
+            void* var45 = 0;
+            var2->GetLoadedFileByID(var1[1], &var45, &var44);
+            if (var45 == 0) {
+                func_ov023_021eefac((Struct_ov023_021eeaac_2*)var1);
                 return 0xf;
             }
-            void* copy;
-            found_entries = tbl->entries;
-            (*(SafeAllocator**)(self + regionalOffset9))->Reset();
-            copy = (*(SafeAllocator**)(self + regionalOffset9))->Allocate(length);
-            memcpy(copy, data, length);
-            loader->RemoveTask(g[1]);
-            g[1] = -1;
-            func_0209e3dc((char*)(*(Mgr021f2e6c**)(self + regionalOffset1)), (int)(*(void**)(self + regionalOffset5)));
-            func_0209fd64(*(Mgr021f2e6c**)(self + regionalOffset1), *(SafeAllocator**)(self + regionalOffset9), copy, length);
-            func_0209e46c((char*)(*(Mgr021f2e6c**)(self + regionalOffset1)));
-            func_0209fe10((IntField0x64_0209fe10*)(*(Mgr021f2e6c**)(self + regionalOffset1)), found_entries[*(short*)(self + regionalOffset4)].bits.id);
-            g[0] = 4;
+            void* var46;
+            var4 = var3->unknown_4_;
+            (*(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952))->Reset();
+            var46 = (*(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952))->Allocate(var44);
+            memcpy(var46, var45, var44);
+            var2->RemoveTask(var1[1]);
+            var1[1] = -1;
+            func_0209e3dc((char*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)), (int)(*(void**)(arg0 + Enum_ov023_021f2e6c_668)));
+            func_0209fd64(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904), *(SafeAllocator**)(arg0 + Enum_ov023_021f2e6c_21952), var46, var44);
+            func_0209e46c((char*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)));
+            func_0209fe10((Struct_0209fe10*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)), var4[*(short*)(arg0 + Enum_ov023_021f2e6c_21900)].unknown_0_.unknown_0_0_);
+            var1[0] = 4;
         }
-    } else if (state == 4) {
-        if (*(short*)(self + regionalOffset3) == 1) {
-            *(short*)(self + regionalOffset3) = 2;
+    } else if (var5 == 4) {
+        if (*(short*)(arg0 + Enum_ov023_021f2e6c_21948) == 1) {
+            *(short*)(arg0 + Enum_ov023_021f2e6c_21948) = 2;
         } else {
-            func_0209fe18((TaskState0209fe18*)(*(Mgr021f2e6c**)(self + regionalOffset1)));
+            func_0209fe18((Struct_0209fe18*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904)));
         }
-        char* msg = 0;
-        int key = (*(Mgr021f2e6c**)(self + regionalOffset1))->key6c;
-        if (key > 0) {
-            if (*(short*)(self + regionalOffset3) == 2) {
-                msg = func_020d794c((List794c*)(*(IdList021f2e6c**)(self + regionalOffset2)), (short)key);
+        char* var47 = 0;
+        int var48 = (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_6c_;
+        if (var48 > 0) {
+            if (*(short*)(arg0 + Enum_ov023_021f2e6c_21948) == 2) {
+                var47 = func_020d794c((Struct_020d794c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)), (short)var48);
             } else {
-                g[0] = 11;
-                return *(int*)(self + regionalOffset8);
+                var1[0] = 11;
+                return *(int*)(arg0 + Enum_ov023_021f2e6c_3756);
             }
         }
-        if (func_ov023_021f3a8c((Fields64_021f3a8c*)(*(Mgr021f2e6c**)(self + regionalOffset1))) != 0 || msg != 0) {
-            Entry021f2e6c* entries = tbl->entries;
-            if (func_ov023_021f3a8c((Fields64_021f3a8c*)(*(Mgr021f2e6c**)(self + regionalOffset1))) != 0) {
-                if (entries[*(short*)(self + regionalOffset4)].bits.b14) {
-                    entries[*(short*)(self + regionalOffset4)].bits.b15 = 1;
+        if (func_ov023_021f3a8c((Struct_ov023_021f2e6c_2*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))) != 0 || var47 != 0) {
+            Struct_ov023_021f2e6c_3* var49 = var3->unknown_4_;
+            if (func_ov023_021f3a8c((Struct_ov023_021f2e6c_2*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))) != 0) {
+                if (var49[*(short*)(arg0 + Enum_ov023_021f2e6c_21900)].unknown_0_.unknown_1_6_) {
+                    var49[*(short*)(arg0 + Enum_ov023_021f2e6c_21900)].unknown_0_.unknown_1_7_ = 1;
                 }
             }
-            if (msg != 0) {
-                func_02046380(st);
-                for (int i = 0; i < 4; i++) {
-                    func_020465c0((StoreStruct*)st, i, (*(Mgr021f2e6c**)(self + regionalOffset1))->arr70[i]);
+            if (var47 != 0) {
+                func_02046380(var0);
+                for (int var50 = 0; var50 < 4; var50++) {
+                    func_020465c0((Struct_020465c0*)var0, var50, (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_70_[var50]);
                 }
 #if defined(jpn)
-                func_0204500c(st, func_020d794c((List794c*)(*(IdList021f2e6c**)(self + regionalOffset2)), (short)(*(Mgr021f2e6c**)(self + regionalOffset1))->key6c), 1);
+                func_0204500c(var0, func_020d794c((Struct_020d794c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)), (short)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_6c_), 1);
 #else
-                func_0204500c(st, func_020d794c((List794c*)(*(IdList021f2e6c**)(self + regionalOffset2)), (short)(*(Mgr021f2e6c**)(self + regionalOffset1))->key6c), 1, 0xe3);
+                func_0204500c(var0, func_020d794c((Struct_020d794c*)(*(Struct_ov023_021f2e6c_5**)(arg0 + Enum_ov023_021f2e6c_21908)), (short)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_6c_), 1, 0xe3);
 #endif
 
-                st[regionalOffset6] = 0;
-                *(int*)(st + regionalOffset7) = 1;
-                int f84 = (*(Mgr021f2e6c**)(self + regionalOffset1))->f84;
-                if (f84 > 0) {
-                    unsigned char* node = func_ov000_02162d88(self, f84);
-                    if (node != 0) {
-                        GameState* gs = GameState::GetInstance();
-                        int idx = 0xc0;
-                        for (int i = 0xc0; i <= 0xc7; i++) {
-                            unsigned char* c = func_0200fea4(gs, i);
-                            if (c != 0 && *(int*)(c + 0x138) != 0) {
-                                idx = i;
+                var0[Enum_ov023_021f2e6c_6578] = 0;
+                *(int*)(var0 + Enum_ov023_021f2e6c_2456) = 1;
+                int var51 = (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_84_;
+                if (var51 > 0) {
+                    unsigned char* var52 = func_ov000_02162d88(arg0, var51);
+                    if (var52 != 0) {
+                        GameState* var53 = GameState::GetInstance();
+                        int var54 = 0xc0;
+                        for (int var55 = 0xc0; var55 <= 0xc7; var55++) {
+                            unsigned char* var56 = func_0200fea4(var53, var55);
+                            if (var56 != 0 && *(int*)(var56 + 0x138) != 0) {
+                                var54 = var55;
                                 break;
                             }
                         }
-                        unsigned char* obj = func_0200fea4(gs, idx);
-                        int saved = *(int*)(obj + 0x138);
-                        if (obj != 0 && saved != 0) {
-                            int p13c = *(int*)(obj + 0x13c);
-                            int p144 = *(int*)(obj + 0x144);
-                            func_02048614(obj);
-                            *(short*)(obj + 4) = idx;
-                            func_02049c88(obj, p13c);
-                            func_02048850((Obj02048850*)obj, (Param02048850*)p144);
-                            func_02048588(node, obj);
-                            *(int*)(obj + 0x138) = saved;
-                            ((Object3D*)obj)->SetField06(*(unsigned short*)(self + regionalOffset11));
-                            func_02033b88((Bytes02033b88*)obj, 0);
-                            obj[0xc2] |= 0x20;
-                            ((Object3D*)obj)->SetInheritedAlpha(0x1f);
-                            ((Object3D*)obj)->MakeVisible();
-                            func_02049f28(obj);
-                            void* cam = func_ov000_02160f14(self);
-                            func_ov000_0216d370(cam, 1, 1, 1);
-                            func_ov000_0216d530(cam, idx);
-                            int height = ((Object3D*)obj)->GetHeight();
-                            int y = (int)(((long long)height * 0x4cc + 0x800) >> 12);
-                            if (y < 0) {
-                                y = 0;
+                        unsigned char* var57 = func_0200fea4(var53, var54);
+                        int var58 = *(int*)(var57 + 0x138);
+                        if (var57 != 0 && var58 != 0) {
+                            int var59 = *(int*)(var57 + 0x13c);
+                            int var60 = *(int*)(var57 + 0x144);
+                            func_02048614(var57);
+                            *(short*)(var57 + 4) = var54;
+                            func_02049c88(var57, var59);
+                            func_02048850((Struct_02048850*)var57, (Struct_02048850_2*)var60);
+                            func_02048588(var52, var57);
+                            *(int*)(var57 + 0x138) = var58;
+                            ((Object3D*)var57)->SetField06(*(unsigned short*)(arg0 + Enum_ov023_021f2e6c_3784));
+                            func_02033b88((Struct_02010604*)var57, 0);
+                            var57[0xc2] |= 0x20;
+                            ((Object3D*)var57)->SetInheritedAlpha(0x1f);
+                            ((Object3D*)var57)->MakeVisible();
+                            func_02049f28(var57);
+                            void* var61 = func_ov000_02160f14(arg0);
+                            func_ov000_0216d370(var61, 1, 1, 1);
+                            func_ov000_0216d530(var61, var54);
+                            int var62 = ((Object3D*)var57)->GetHeight();
+                            int var63 = (int)(((long long)var62 * 0x4cc + 0x800) >> 12);
+                            if (var63 < 0) {
+                                var63 = 0;
                             }
-                            func_0202e5c8((unsigned char*)cam, 0, y, 0);
-                            int z = (int)(((long long)height * 0x2333 + 0x800) >> 12);
-                            int y2 = y + 0x800;
-                            if (y2 < 0) {
-                                y2 = 0;
+                            func_0202e5c8((unsigned char*)var61, 0, var63, 0);
+                            int var64 = (int)(((long long)var62 * 0x2333 + 0x800) >> 12);
+                            int var65 = var63 + 0x800;
+                            if (var65 < 0) {
+                                var65 = 0;
                             }
-                            func_0202e5d8(cam, 0, y2, z + 0x4000);
-                            func_ov000_02163b90(self, 0);
-                            *(short*)(self + regionalOffset12) = idx;
+                            func_0202e5d8(var61, 0, var65, var64 + 0x4000);
+                            func_ov000_02163b90(arg0, 0);
+                            *(short*)(arg0 + Enum_ov023_021f2e6c_21946) = var54;
                         }
                     }
                 }
-                g[0]++;
+                var1[0]++;
             } else {
-                g[0] = 6;
+                var1[0] = 6;
             }
         }
-    } else if (state == 5) {
-        int done = 0;
-        if (func_ov023_021f4fc8() != 0 || *(unsigned char*)(self + regionalOffset13) != 0) {
-            Mgr021f2e6c* mgr = *(Mgr021f2e6c**)(self + regionalOffset1);
-            if (mgr->f84 > 0 && *(short*)(self + regionalOffset12) > 0) {
-                if (mgr->f88 != 0) {
-                    GameState* gs = GameState::GetInstance();
-                    unsigned char* obj = (unsigned char*)gs->GetGameObjectByIndex(*(short*)(self + regionalOffset12));
-                    if (obj != 0) {
-                        int alpha = ((Object3D*)obj)->GetInheritedAlpha();
-                        if (*(unsigned char*)(self + regionalOffset13) == 0 && alpha == 0x1f) {
-                            ((Object3D*)obj)->TransitionInheritedAlpha(0, 500);
-                            *(unsigned char*)(self + regionalOffset13) = 1;
+    } else if (var5 == 5) {
+        int var66 = 0;
+        if (func_ov023_021f4fc8() != 0 || *(unsigned char*)(arg0 + Enum_ov023_021f2e6c_21950) != 0) {
+            Struct_ov023_021f2e6c_6* var67 = *(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904);
+            if (var67->unknown_84_ > 0 && *(short*)(arg0 + Enum_ov023_021f2e6c_21946) > 0) {
+                if (var67->unknown_88_ != 0) {
+                    GameState* var68 = GameState::GetInstance();
+                    unsigned char* var69 = (unsigned char*)var68->GetGameObjectByIndex(*(short*)(arg0 + Enum_ov023_021f2e6c_21946));
+                    if (var69 != 0) {
+                        int var70 = ((Object3D*)var69)->GetInheritedAlpha();
+                        if (*(unsigned char*)(arg0 + Enum_ov023_021f2e6c_21950) == 0 && var70 == 0x1f) {
+                            ((Object3D*)var69)->TransitionInheritedAlpha(0, 500);
+                            *(unsigned char*)(arg0 + Enum_ov023_021f2e6c_21950) = 1;
                         }
-                        if (alpha <= 0) {
-                            ((Object3D*)obj)->MakeHidden();
-                            func_02049f3c(obj);
-                            *(unsigned char*)(self + regionalOffset13) = 0;
-                            void* cam = func_ov000_02160f14(self);
-                            Blk021f2e6c blk = *func_0202ed64(cam);
-                            func_ov000_0216d2d0(cam);
-                            func_0202ed0c((Dst0202ed0c*)cam, (Src0202ed0c*)&blk);
-                            func_02048614(obj);
-                            *(short*)(self + regionalOffset12) = 0;
-                            done = 1;
+                        if (var70 <= 0) {
+                            ((Object3D*)var69)->MakeHidden();
+                            func_02049f3c(var69);
+                            *(unsigned char*)(arg0 + Enum_ov023_021f2e6c_21950) = 0;
+                            void* var71 = func_ov000_02160f14(arg0);
+                            Struct_ov023_021f2e6c_9 var72 = *func_0202ed64(var71);
+                            func_ov000_0216d2d0(var71);
+                            func_0202ed0c((Struct_0202ed0c_2*)var71, (Struct_0202ed0c*)&var72);
+                            func_02048614(var69);
+                            *(short*)(arg0 + Enum_ov023_021f2e6c_21946) = 0;
+                            var66 = 1;
                         }
                     }
                 }
             } else {
-                done = 1;
+                var66 = 1;
             }
         }
-        if (done != 0) {
-            if (func_ov023_021f3a8c((Fields64_021f3a8c*)(*(Mgr021f2e6c**)(self + regionalOffset1))) != 0) {
-                g[0]++;
+        if (var66 != 0) {
+            if (func_ov023_021f3a8c((Struct_ov023_021f2e6c_2*)(*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))) != 0) {
+                var1[0]++;
             } else {
-                (*(Mgr021f2e6c**)(self + regionalOffset1))->key6c = -1;
-                (*(Mgr021f2e6c**)(self + regionalOffset1))->f84 = 0;
-                g[0] = 4;
+                (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_6c_ = -1;
+                (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_84_ = 0;
+                var1[0] = 4;
             }
         }
-    } else if (state == 6) {
-        int v = (*(Mgr021f2e6c**)(self + regionalOffset1))->f8c;
-        if (v != 0) {
-            *(int*)(self + regionalOffset14 + *(short*)(self + regionalOffset15) * 4) = v;
-            (*(short*)(self + regionalOffset15))++;
+    } else if (var5 == 6) {
+        int var73 = (*(Struct_ov023_021f2e6c_6**)(arg0 + Enum_ov023_021f2e6c_21904))->unknown_8c_;
+        if (var73 != 0) {
+            *(int*)(arg0 + Enum_ov023_021f2e6c_21912 + *(short*)(arg0 + Enum_ov023_021f2e6c_21944) * 4) = var73;
+            (*(short*)(arg0 + Enum_ov023_021f2e6c_21944))++;
         }
-        g[0] = 2;
+        var1[0] = 2;
     }
-    return *(int*)(self + regionalOffset8);
+    return *(int*)(arg0 + Enum_ov023_021f2e6c_3756);
 }

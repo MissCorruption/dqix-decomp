@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov017_021d60f4(void* a);
-extern "C" void func_ov017_021d6134(void* param, int val);
-extern "C" int* func_ov001_0215a818(int* outIdx);
-extern "C" void func_0205eb90(void* obj, int a, int b);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void func_ov017_021d6134(void* arg0, int arg1);
+extern "C" int* func_ov001_0215a818(int* arg0);
+extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 extern int data_02108760;
 
 // USA: func_ov001_02163564
-extern "C" ARM int func_ov001_02163564(void* param, int mode) {
-	int id = func_ov017_021d60f4(param);
-	int outIdx;
-	if (mode >= 2) {
-		int* slot = func_ov001_0215a818(&outIdx);
-		if (slot != NULL) {
-			func_0205eb90(&data_02108760, id, (int)slot);
+extern "C" ARM int func_ov001_02163564(void* arg0, int arg1) {
+	int var0 = func_ov017_021d60f4(arg0);
+	int var1;
+	if (arg1 >= 2) {
+		int* var2 = func_ov001_0215a818(&var1);
+		if (var2 != NULL) {
+			func_0205eb90(&data_02108760, var0, (int)var2);
 		}
-		func_ov017_021d6134((char*)param + 8, outIdx);
+		func_ov017_021d6134((char*)arg0 + 8, var1);
 	} else {
-		func_0205eaa0((struct Obj0205eaa0*)&data_02108760, id, 0);
+		func_0205eaa0((struct Struct_02108760*)&data_02108760, var0, 0);
 	}
 	return 1;
 }

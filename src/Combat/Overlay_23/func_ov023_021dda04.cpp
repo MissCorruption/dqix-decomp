@@ -1,60 +1,60 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* obj);
-extern "C" void func_ov023_021dc520(void* obj);
-extern "C" void func_ov023_021dd404(void* obj);
-extern "C" int func_ov023_021ddbb8(void* obj, int a, int b);
-struct Obj021ddbf8;
-extern "C" int func_ov023_021ddbf8(struct Obj021ddbf8* arg);
-extern "C" void func_ov023_021dc354(void* obj);
-extern "C" void func_020dc2d0(int mode);
+extern "C" int func_0200fb8c(int* arg0);
+extern "C" void func_ov023_021dc520(void* arg0);
+extern "C" void func_ov023_021dd404(void* arg0);
+extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
+struct Struct_ov023_021dd59c;
+extern "C" int func_ov023_021ddbf8(struct Struct_ov023_021dd59c* arg0);
+extern "C" void func_ov023_021dc354(void* arg0);
+extern "C" void func_020dc2d0(int arg0);
 
-struct Obj021dda04 {
+struct Struct_ov023_021dda04 {
 #if defined(jpn)
-    char pad0[0x6f0];
+    char unknown_0_[0x6f0];
 #else
-    char pad0[0x774];
+    char unknown1_0_[0x774];
 #endif
-    unsigned short field774;
-    unsigned char field776;
-    unsigned char field777;
-    char pad778[0x77b - 0x778];
-    signed char field77b;
+    unsigned short unknown_774_;
+    unsigned char unknown_776_;
+    unsigned char unknown_777_;
+    char unknown_778_[0x77b - 0x778];
+    signed char unknown_77b_;
 };
 
 // USA: func_ov023_021dda04
-extern "C" ARM void func_ov023_021dda04(struct Obj021dda04* obj) {
+extern "C" ARM void func_ov023_021dda04(struct Struct_ov023_021dda04* arg0) {
     func_0200fb8c((int*)GameState::GetInstance());
 
-    if (obj->field777 == 0) {
-        func_ov023_021dc520(obj);
-        func_ov023_021dd404(obj);
-        if (!(obj->field774 & 0x40)) {
-            obj->field776 = 3;
+    if (arg0->unknown_777_ == 0) {
+        func_ov023_021dc520(arg0);
+        func_ov023_021dd404(arg0);
+        if (!(arg0->unknown_774_ & 0x40)) {
+            arg0->unknown_776_ = 3;
             return;
         }
-        func_ov023_021ddbb8(obj, ~0xf, 8);
-        obj->field777 = obj->field777 + 1;
+        func_ov023_021ddbb8(arg0, ~0xf, 8);
+        arg0->unknown_777_ = arg0->unknown_777_ + 1;
     }
 
-    if (obj->field777 == 1) {
-        func_ov023_021dc520(obj);
-        func_ov023_021dd404(obj);
-        if (func_ov023_021ddbf8((struct Obj021ddbf8*)obj) == 0) {
-            obj->field777 = obj->field777 + 1;
+    if (arg0->unknown_777_ == 1) {
+        func_ov023_021dc520(arg0);
+        func_ov023_021dd404(arg0);
+        if (func_ov023_021ddbf8((struct Struct_ov023_021dd59c*)arg0) == 0) {
+            arg0->unknown_777_ = arg0->unknown_777_ + 1;
         }
     }
 
-    if (obj->field777 != 2) return;
+    if (arg0->unknown_777_ != 2) return;
 
-    func_ov023_021dc354(obj);
-    if (obj->field774 & 0x200) {
-        obj->field776 = 3;
+    func_ov023_021dc354(arg0);
+    if (arg0->unknown_774_ & 0x200) {
+        arg0->unknown_776_ = 3;
         return;
     }
-    if (obj->field77b != 1) {
+    if (arg0->unknown_77b_ != 1) {
         func_020dc2d0(0);
     }
-    obj->field776 = 3;
+    arg0->unknown_776_ = 3;
 }

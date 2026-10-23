@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "Resource/ActionDataTables.h"
 
-struct Container020e0310;
+struct Struct_0201099c_3;
 
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" int func_ov000_0217542c(void* obj);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int func_ov000_0217542c(void* arg0);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
-extern "C" int func_02041e70(char* dst, int palette);
-extern "C" const char** func_02079e2c(char* table, int key);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_020420e8(const char* text, int large);
-extern "C" int func_02041a90(char* dst, int x, int y);
-extern "C" int func_02041cc0(char* dst, int a1);
+extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" const char** func_02079e2c(char* arg0, int arg1);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_020420e8(const char* arg0, int arg1);
+extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" int func_02041cc0(char* arg0, int arg1);
 #if defined(jpn)
 extern "C" void* func_020421a0();
 extern "C" void func_02046380(void*);
@@ -24,115 +24,115 @@ extern "C" void func_02041f50(const char*, char*);
 extern char data_ov000_021851af[];
 #endif
 
-struct ItemMenu0217a2dc {
-    char pad0[0x10];
-    unsigned short itemIds[5];
-    signed char itemCount;
+struct Struct_ov000_0217a2dc {
+    char unknown_0_[0x10];
+    unsigned short unknown_10_[5];
+    signed char unknown_1a_;
 #if defined(jpn)
-    char pad1B[0x1fa5 - 0x1b];
+    char unknown_1b_[0x1fa5 - 0x1b];
 #else
-    char pad1B[0x1d6d - 0x1b];
+    char unknown1_1b_[0x1d6d - 0x1b];
 #endif
-    signed char cursor;
-    char pad1D6E[0x1d81 - 0x1d6e];
-    unsigned char field1D81;
+    signed char unknown_1d6d_;
+    char unknown_1d6e_[0x1d81 - 0x1d6e];
+    unsigned char unknown_1d81_;
 };
 
 // USA: func_ov000_0217a2dc
-extern "C" ARM void func_ov000_0217a2dc(struct ItemMenu0217a2dc* menu, int unused, char* dst) {
-    struct Container020e0310* strings = (struct Container020e0310*)((char*)menu + 0xb8);
-    const char* emptyName = (const char*)func_020e0434(strings, 0x1f);
-    const char* separator = (const char*)func_020e0434(strings, 0);
-    signed char cursor = menu->cursor;
-    func_02042058(dst, separator);
+extern "C" ARM void func_ov000_0217a2dc(struct Struct_ov000_0217a2dc* arg0, int arg1, char* arg2) {
+    struct Struct_0201099c_3* var0 = (struct Struct_0201099c_3*)((char*)arg0 + 0xb8);
+    const char* var1 = (const char*)func_020e0434(var0, 0x1f);
+    const char* var2 = (const char*)func_020e0434(var0, 0);
+    signed char var3 = arg0->unknown_1d6d_;
+    func_02042058(arg2, var2);
 
-    if (menu->field1D81) {
-        if (func_ov000_0217542c(menu)) {
-            func_02041c08(dst, cursor, 8, 5, 5, 5);
+    if (arg0->unknown_1d81_) {
+        if (func_ov000_0217542c(arg0)) {
+            func_02041c08(arg2, var3, 8, 5, 5, 5);
         }
-        ActionDataTables* table = func_020797dc();
-        if (table == NULL) {
+        Struct_02108e10* var4 = func_020797dc();
+        if (var4 == NULL) {
             return;
         }
-        for (int i = 0; i < menu->itemCount; i++) {
+        for (int var5 = 0; var5 < arg0->unknown_1a_; var5++) {
 #if defined(jpn)
-            if (i == cursor) {
-                func_02041e70(dst, 5);
+            if (var5 == var3) {
+                func_02041e70(arg2, 5);
             } else {
-                func_02041e70(dst, 3);
+                func_02041e70(arg2, 3);
             }
 #else
-            int palette = 3;
-            if (i == cursor) {
-                palette = 5;
+            int var6 = 3;
+            if (var5 == var3) {
+                var6 = 5;
             }
-            func_02041e70(dst, palette);
+            func_02041e70(arg2, var6);
 #endif
-            if (menu->itemIds[i] == 0) {
-                func_02042058(dst, emptyName);
+            if (arg0->unknown_10_[var5] == 0) {
+                func_02042058(arg2, var1);
             } else {
-                const char** entry = func_02079e2c((char*)table, (short)menu->itemIds[i]);
-                if (entry == NULL) {
+                const char** var7 = func_02079e2c((char*)var4, (short)arg0->unknown_10_[var5]);
+                if (var7 == NULL) {
                     continue;
                 }
 #if defined(jpn)
-                char name[0x40];
-                __clear(name, sizeof(name));
-                func_02041f50(*entry, name);
-                func_02042058(dst, name);
+                char var8[0x40];
+                __clear(var8, sizeof(var8));
+                func_02041f50(*var7, var8);
+                func_02042058(arg2, var8);
 #else
-                func_02042058(dst, *entry);
+                func_02042058(arg2, *var7);
 #endif
             }
-            if (i == menu->itemCount - 1) {
+            if (var5 == arg0->unknown_1a_ - 1) {
                 continue;
             }
-            func_02042058(dst, separator);
+            func_02042058(arg2, var2);
         }
     } else {
-        if (func_ov000_0217542c(menu)) {
-            func_02041c08(dst, cursor, 8, 5, 5, 5);
+        if (func_ov000_0217542c(arg0)) {
+            func_02041c08(arg2, var3, 8, 5, 5, 5);
         }
-        func_02041ea4(dst, cursor);
-        ActionDataTables* table = func_020797dc();
-        if (table == NULL) {
+        func_02041ea4(arg2, var3);
+        Struct_02108e10* var9 = func_020797dc();
+        if (var9 == NULL) {
             return;
         }
-        for (int i = 0; i < menu->itemCount; i++) {
-            if (menu->itemIds[i] == 0) {
-                func_02041b70(dst, i, emptyName);
+        for (int var10 = 0; var10 < arg0->unknown_1a_; var10++) {
+            if (arg0->unknown_10_[var10] == 0) {
+                func_02041b70(arg2, var10, var1);
             } else {
-                const char** entry = func_02079e2c((char*)table, (short)menu->itemIds[i]);
-                if (entry == NULL) {
+                const char** var11 = func_02079e2c((char*)var9, (short)arg0->unknown_10_[var10]);
+                if (var11 == NULL) {
                     continue;
                 }
 #if defined(jpn)
-                char name[0x40];
-                __clear(name, sizeof(name));
-                func_02041f50(*entry, name);
-                func_02041b70(dst, i, name);
+                char var12[0x40];
+                __clear(var12, sizeof(var12));
+                func_02041f50(*var11, var12);
+                func_02041b70(arg2, var10, var12);
 #else
-                func_02041b70(dst, i, *entry);
+                func_02041b70(arg2, var10, *var11);
 #endif
             }
-            if (i == menu->itemCount - 1) {
+            if (var10 == arg0->unknown_1a_ - 1) {
                 continue;
             }
-            func_02042058(dst, separator);
+            func_02042058(arg2, var2);
         }
     }
 
-    func_02041e70(dst, 0xf);
+    func_02041e70(arg2, 0xf);
 #if defined(jpn)
-    void* formatter = func_020421a0();
-    func_02046380(formatter);
-    func_02046574(formatter, 0,
-        (const char*)func_020e0434(strings, 0x21));
-    func_02042058(dst, data_ov000_021851af);
+    void* var13 = func_020421a0();
+    func_02046380(var13);
+    func_02046574(var13, 0,
+        (const char*)func_020e0434(var0, 0x21));
+    func_02042058(arg2, data_ov000_021851af);
 #else
-    const char* title = (const char*)func_020e0434(strings, 0x21);
-    func_02041a90(dst, (0xb0 - func_020420e8(title, 0)) >> 1, 5);
-    func_02042058(dst, title);
-    func_02041cc0(dst, 0x11);
+    const char* var14 = (const char*)func_020e0434(var0, 0x21);
+    func_02041a90(arg2, (0xb0 - func_020420e8(var14, 0)) >> 1, 5);
+    func_02042058(arg2, var14);
+    func_02041cc0(arg2, 0x11);
 #endif
 }

@@ -18,77 +18,77 @@ extern unsigned char data_ov027_021dd8e0;
 extern "C" void VectorizedMemset(void *dst, int val, int size);
 extern "C" void VectorizedInvertedMemcpy(const void *src, void *dst, int size);
 
-struct InputDD638_021d9704 {
-	unsigned char type;
-	unsigned short field2;
-	unsigned short field4;
+struct Struct_ov027_021d9704 {
+	unsigned char unknown_0_;
+	unsigned short unknown_2_;
+	unsigned short unknown_4_;
 };
 
-extern "C" void *func_ov027_021dd638(struct InputDD638_021d9704 *in, void *out);
-extern "C" int func_ov027_021dab00(int a, int b, void *c);
+extern "C" void *func_ov027_021dd638(struct Struct_ov027_021d9704 *arg0, void *arg1);
+extern "C" int func_ov027_021dab00(int arg0, int arg1, void *arg2);
 
 #pragma optimize_for_size off
 // USA: func_ov027_021d9704
 extern "C" ARM int func_ov027_021d9704(void) {
-	unsigned char buf[16];
-	signed char found = -1;
-	unsigned short mask = 0;
-	unsigned char seed;
-	unsigned short i;
-	unsigned char attempts;
-	char *base;
+	unsigned char var0[16];
+	signed char var1 = -1;
+	unsigned short var2 = 0;
+	unsigned char var3;
+	unsigned short var4;
+	unsigned char var5;
+	char *var6;
 
-	VectorizedMemset(buf, 0, 16);
+	VectorizedMemset(var0, 0, 16);
 
-	base = (char *)data_ov027_021e33ec;
+	var6 = (char *)data_ov027_021e33ec;
 
-	i = 1;
+	var4 = 1;
 	do {
-		if (*(int *)(base + 0x1000 + i * 4 + 0x4e4) == 5) {
-			signed char idx = *(signed char *)(base + 0x1500 + i + 0x25);
-			buf[idx]++;
+		if (*(int *)(var6 + 0x1000 + var4 * 4 + 0x4e4) == 5) {
+			signed char var7 = *(signed char *)(var6 + 0x1500 + var4 + 0x25);
+			var0[var7]++;
 		}
-		i++;
-	} while (i <= 15);
+		var4++;
+	} while (var4 <= 15);
 
-	seed = data_ov027_021dd8e0;
-	attempts = 0;
+	var3 = data_ov027_021dd8e0;
+	var5 = 0;
 	do {
-		seed = (seed + 1) % 16;
-		if (*(unsigned char *)(base + seed * 0x5d4 + 0x1000 + 0xd52) != 0 && buf[seed] != 0) {
-			found = (signed char)seed;
+		var3 = (var3 + 1) % 16;
+		if (*(unsigned char *)(var6 + var3 * 0x5d4 + 0x1000 + 0xd52) != 0 && var0[var3] != 0) {
+			var1 = (signed char)var3;
 			break;
 		}
-		attempts++;
-	} while (attempts < 16);
+		var5++;
+	} while (var5 < 16);
 
-	if (found == -1) {
+	if (var1 == -1) {
 		return 0x15;
 	}
 
-	data_ov027_021dd8e0 = found;
+	data_ov027_021dd8e0 = var1;
 
-	i = 1;
+	var4 = 1;
 	do {
-		if (*(int *)(base + 0x1000 + i * 4 + 0x4e4) == 5) {
-			if (found == *(signed char *)(base + 0x1500 + i + 0x25)) {
-				mask |= (1 << i);
+		if (*(int *)(var6 + 0x1000 + var4 * 4 + 0x4e4) == 5) {
+			if (var1 == *(signed char *)(var6 + 0x1500 + var4 + 0x25)) {
+				var2 |= (1 << var4);
 			}
 		}
-		i++;
-	} while (i <= 15);
+		var4++;
+	} while (var4 <= 15);
 
 	{
-		struct InputDD638_021d9704 tmp;
-		void *res;
+		struct Struct_ov027_021d9704 var8;
+		void *var9;
 
-		tmp.type = 3;
-		tmp.field2 = (unsigned short)found;
-		res = func_ov027_021dd638(&tmp, base);
-		if (res != NULL) {
-			VectorizedInvertedMemcpy((char *)data_ov027_021e33ec + 0x1400 + 0x388 + found * 0x5d4, res, 0xe4);
+		var8.unknown_0_ = 3;
+		var8.unknown_2_ = (unsigned short)var1;
+		var9 = func_ov027_021dd638(&var8, var6);
+		if (var9 != NULL) {
+			VectorizedInvertedMemcpy((char *)data_ov027_021e33ec + 0x1400 + 0x388 + var1 * 0x5d4, var9, 0xe4);
 		}
 	}
 
-	return func_ov027_021dab00(0xea, mask, data_ov027_021e33ec);
+	return func_ov027_021dab00(0xea, var2, data_ov027_021e33ec);
 }

@@ -1,83 +1,83 @@
 #include <globaldefs.h>
 extern "C" void* memset(void*, int, unsigned int);
 
-struct PackedTriple02082cdc {
-    unsigned int x : 10;
-    unsigned int y : 10;
-    unsigned int z : 10;
-    unsigned int reserved : 2;
+struct Struct_02082cdc_2 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
+    unsigned int unknown_3_6_ : 2;
 };
-struct Obj02082cdc { PackedTriple02082cdc values[3]; };
-struct Obj020827c4 { char data[0x1c]; };
-struct CombatSelection {
-    signed char selected : 6;
-    unsigned char active : 1;
-    unsigned char reserved : 1;
-    unsigned char count : 4;
-    unsigned char ready : 1;
-    unsigned char mode : 3;
-    unsigned char enabled[13];
-    unsigned char status[13];
-    int entries[13];
-    int current;
-    unsigned short selectionMask;
-    char pad56[2];
-    Obj02082cdc triples[13];
-    unsigned short fieldf4;
-    unsigned char flags[27];
-    unsigned char groupFlags[9];
-    unsigned char commandFlags[36];
-    unsigned char field13e;
-    unsigned char cursor : 3;
-    unsigned char capacity : 5;
-    unsigned char field140[12];
-    PackedTriple02082cdc vectors[4];
-    unsigned int timer : 10;
-    unsigned int timerLimit : 10;
-    unsigned int reserved15c : 12;
-    Obj020827c4 timers;
-    unsigned char history[0xc0];
+struct Struct_02082cdc { Struct_02082cdc_2 unknown_0_[3]; };
+struct Struct_020827c4 { char unknown_0_[0x1c]; };
+struct Struct_0201099c_20 {
+    signed char unknown_0_0_ : 6;
+    unsigned char unknown_0_6_ : 1;
+    unsigned char unknown_0_7_ : 1;
+    unsigned char unknown_1_0_ : 4;
+    unsigned char unknown_1_4_ : 1;
+    unsigned char unknown_1_5_ : 3;
+    unsigned char unknown_2_[13];
+    unsigned char unknown_f_[13];
+    int unknown_1c_[13];
+    int unknown_50_;
+    unsigned short unknown_54_;
+    char unknown_56_[2];
+    Struct_02082cdc unknown_58_[13];
+    unsigned short unknown_f4_;
+    unsigned char unknown_f6_[27];
+    unsigned char unknown_111_[9];
+    unsigned char unknown_11a_[36];
+    unsigned char unknown_13e_;
+    unsigned char unknown_13f_0_ : 3;
+    unsigned char unknown_13f_3_ : 5;
+    unsigned char unknown_140_[12];
+    Struct_02082cdc_2 unknown_14c_[4];
+    unsigned int unknown_15c_0_ : 10;
+    unsigned int unknown_15d_2_ : 10;
+    unsigned int unknown_15e_4_ : 12;
+    Struct_020827c4 unknown_160_;
+    unsigned char unknown_17c_[0xc0];
 };
-extern "C" void func_02082cdc(Obj02082cdc*);
-extern "C" void func_020827c4(Obj020827c4*);
+extern "C" void func_02082cdc(Struct_02082cdc*);
+extern "C" void func_020827c4(Struct_020827c4*);
 
 // USA: func_02086404
-extern "C" ARM void func_02086404(CombatSelection* selection) {
-    selection->selected = -1;
-    selection->active = 0;
-    selection->count = 0;
-    selection->ready = 0;
-    for (int i = 0; i < 13; ++i) {
-        selection->entries[i] = 0;
-        selection->enabled[i] = 1;
-        selection->status[i] = 0;
-        func_02082cdc(&selection->triples[i]);
+extern "C" ARM void func_02086404(Struct_0201099c_20* arg0) {
+    arg0->unknown_0_0_ = -1;
+    arg0->unknown_0_6_ = 0;
+    arg0->unknown_1_0_ = 0;
+    arg0->unknown_1_4_ = 0;
+    for (int var0 = 0; var0 < 13; ++var0) {
+        arg0->unknown_1c_[var0] = 0;
+        arg0->unknown_2_[var0] = 1;
+        arg0->unknown_f_[var0] = 0;
+        func_02082cdc(&arg0->unknown_58_[var0]);
     }
-    selection->current = 0;
-    selection->selectionMask = 0;
-    selection->fieldf4 = 0;
-    memset(selection->flags, 0, sizeof(selection->flags));
-    memset(selection->groupFlags, 0, sizeof(selection->groupFlags));
-    memset(selection->commandFlags, 0, sizeof(selection->commandFlags));
-    selection->field13e = 0;
-    memset(selection->field140, 0, sizeof(selection->field140));
-    selection->vectors[0].x = 0;
-    selection->vectors[0].y = 0;
-    selection->vectors[0].z = 0;
-    selection->vectors[1].x = 0;
-    selection->vectors[1].y = 0;
-    selection->vectors[1].z = 0;
-    selection->vectors[2].x = 0;
-    selection->vectors[2].y = 1;
-    selection->vectors[2].z = 0;
-    selection->vectors[3].x = 1;
-    selection->vectors[3].y = 0;
-    selection->vectors[3].z = 0;
-    selection->timer = 0;
-    selection->timerLimit = 0;
-    func_020827c4(&selection->timers);
-    memset(selection->history, -1, sizeof(selection->history));
-    selection->mode = 0;
-    selection->cursor = 0;
-    selection->capacity = 5;
+    arg0->unknown_50_ = 0;
+    arg0->unknown_54_ = 0;
+    arg0->unknown_f4_ = 0;
+    memset(arg0->unknown_f6_, 0, sizeof(arg0->unknown_f6_));
+    memset(arg0->unknown_111_, 0, sizeof(arg0->unknown_111_));
+    memset(arg0->unknown_11a_, 0, sizeof(arg0->unknown_11a_));
+    arg0->unknown_13e_ = 0;
+    memset(arg0->unknown_140_, 0, sizeof(arg0->unknown_140_));
+    arg0->unknown_14c_[0].unknown_0_0_ = 0;
+    arg0->unknown_14c_[0].unknown_1_2_ = 0;
+    arg0->unknown_14c_[0].unknown_2_4_ = 0;
+    arg0->unknown_14c_[1].unknown_0_0_ = 0;
+    arg0->unknown_14c_[1].unknown_1_2_ = 0;
+    arg0->unknown_14c_[1].unknown_2_4_ = 0;
+    arg0->unknown_14c_[2].unknown_0_0_ = 0;
+    arg0->unknown_14c_[2].unknown_1_2_ = 1;
+    arg0->unknown_14c_[2].unknown_2_4_ = 0;
+    arg0->unknown_14c_[3].unknown_0_0_ = 1;
+    arg0->unknown_14c_[3].unknown_1_2_ = 0;
+    arg0->unknown_14c_[3].unknown_2_4_ = 0;
+    arg0->unknown_15c_0_ = 0;
+    arg0->unknown_15d_2_ = 0;
+    func_020827c4(&arg0->unknown_160_);
+    memset(arg0->unknown_17c_, -1, sizeof(arg0->unknown_17c_));
+    arg0->unknown_1_5_ = 0;
+    arg0->unknown_13f_0_ = 0;
+    arg0->unknown_13f_3_ = 5;
 }

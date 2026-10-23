@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 
-struct Entry0204254c
+struct Struct_0204254c
 {
-    char pad_0x0[5];
-    signed char offset_ : 6;
-    signed char terminal_ : 1;
-    signed char unused_ : 1;
+    char unknown_0_[5];
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 1;
+    signed char unknown_5_7_ : 1;
 };
-struct Flags02067fec
+struct Struct_02067fec
 {
-    unsigned int low_ : 28;
-    unsigned int fallback_ : 1;
-    unsigned int bit29_ : 1;
-    unsigned int active_ : 1;
-    unsigned int bit31_ : 1;
+    unsigned int unknown_0_0_ : 28;
+    unsigned int unknown_3_4_ : 1;
+    unsigned int unknown_3_5_ : 1;
+    unsigned int unknown_3_6_ : 1;
+    unsigned int unknown_3_7_ : 1;
 };
-struct State02067fec
+struct Struct_02067fec_2
 {
-    char pad_0x0[8];
-    Flags02067fec flags_;
+    char unknown_0_[8];
+    Struct_02067fec unknown_8_;
 };
-extern "C" Entry0204254c* func_0204254c(int, int);
-extern "C" int func_02067f9c(State02067fec*, int, int);
+extern "C" Struct_0204254c* func_0204254c(int, int);
+extern "C" int func_02067f9c(Struct_02067fec_2*, int, int);
 
 // USA: func_02067fec
-extern "C" ARM int func_02067fec(State02067fec* state, signed char* address, int table)
+extern "C" ARM int func_02067fec(Struct_02067fec_2* arg0, signed char* arg1, int arg2)
 {
-    if (state && !state->flags_.active_)
-        return state->flags_.fallback_;
-    signed char* key = address;
-    Entry0204254c* entry = func_0204254c((int)key, table);
-    if (entry)
+    if (arg0 && !arg0->unknown_8_.unknown_3_6_)
+        return arg0->unknown_8_.unknown_3_4_;
+    signed char* var0 = arg1;
+    Struct_0204254c* var1 = func_0204254c((int)var0, arg2);
+    if (var1)
     {
-        if (entry->terminal_)
+        if (var1->unknown_5_6_)
             return 1;
-        int type = *key;
-        key += entry->offset_;
-        if (type == 'h')
+        int var2 = *var0;
+        var0 += var1->unknown_5_0_;
+        if (var2 == 'h')
         {
-            entry = func_0204254c((int)key, table);
-            if (entry && entry->terminal_)
-                return !func_02067f9c(state, (int)(key + entry->offset_), table);
+            var1 = func_0204254c((int)var0, arg2);
+            if (var1 && var1->unknown_5_6_)
+                return !func_02067f9c(arg0, (int)(var0 + var1->unknown_5_0_), arg2);
         }
-        else if (type == 'y')
-            return !func_02067f9c(state, (int)key, table);
+        else if (var2 == 'y')
+            return !func_02067f9c(arg0, (int)var0, arg2);
     }
     return 0;
 }

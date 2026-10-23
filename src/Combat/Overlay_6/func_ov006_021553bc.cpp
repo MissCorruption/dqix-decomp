@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 #include "Resource/AlchemyPot.h"
 
-struct CallIfFlag0x800_021571ccStruct;
-struct Container020e0310;
+struct Struct_ov006_021553bc;
+struct Struct_0201099c_3;
 
 #if defined(jpn)
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 #else
-extern "C" const char** func_020e5294(void* names, int item);
+extern "C" const char** func_020e5294(void* arg0, int arg1);
 extern "C" void func_020e4864(const char*, char*, int, int, int, int);
 #endif
 extern "C" void func_ov023_021dceac(char*, int, int, unsigned char, unsigned char, unsigned char);
-extern "C" void func_ov023_021dced4(AlchemyItemInfoWindow*, unsigned char);
-extern "C" void func_ov006_021571cc(CallIfFlag0x800_021571ccStruct*);
+extern "C" void func_ov023_021dced4(Struct_02000c9c*, unsigned char);
+extern "C" void func_ov006_021571cc(Struct_ov006_021553bc*);
 
 // USA: func_ov006_021553bc
-extern "C" ARM void func_ov006_021553bc(AlchemyPot* self, short* items, unsigned char* amounts) {
-    const char* names[3] = {0};
-    for (unsigned char i = 0; i < 3; i++) {
-        if (self->itemNames_ != 0) {
+extern "C" ARM void func_ov006_021553bc(Struct_ov006_02154614* arg0, short* arg1, unsigned char* arg2) {
+    const char* var0[3] = {0};
+    for (unsigned char var1 = 0; var1 < 3; var1++) {
+        if (arg0->unknown_1ac_ != 0) {
 #if defined(jpn)
-            names[i] = (const char*)func_020e0434((Container020e0310*)self->itemNames_, items[i]);
+            var0[var1] = (const char*)func_020e0434((Struct_0201099c_3*)arg0->unknown_1ac_, arg1[var1]);
 #else
-            const char** name = func_020e5294(self->itemNames_, items[i]);
-            if (name != 0) {
-                func_020e4864(*name, self->names_[i], 1, 0, 0, 0);
-                names[i] = self->names_[i];
+            const char** var2 = func_020e5294(arg0->unknown_1ac_, arg1[var1]);
+            if (var2 != 0) {
+                func_020e4864(*var2, arg0->unknown_0_[var1], 1, 0, 0, 0);
+                var0[var1] = arg0->unknown_0_[var1];
             }
 #endif
-            func_ov023_021dceac((char*)&self->window_, i, (int)names[i], amounts[i], amounts[i], 0);
+            func_ov023_021dceac((char*)&arg0->unknown_ae4_, var1, (int)var0[var1], arg2[var1], arg2[var1], 0);
         }
     }
-    func_ov023_021dced4(&self->window_, 1);
-    func_ov006_021571cc((CallIfFlag0x800_021571ccStruct*)self);
+    func_ov023_021dced4(&arg0->unknown_ae4_, 1);
+    func_ov006_021571cc((Struct_ov006_021553bc*)arg0);
 }

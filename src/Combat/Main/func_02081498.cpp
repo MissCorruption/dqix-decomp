@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct Params02081498 {
-    char pad0[0xa];
-    short f_a;
-    short f_c;
-    short f_e;
-    short f_10;
-    unsigned char lowNibble : 4;
-    unsigned char highNibble : 4;
-    char pad1[2];
-    unsigned char f_15;
+struct Struct_020813ec_3 {
+    char unknown_0_[0xa];
+    short unknown_a_;
+    short unknown_c_;
+    short unknown_e_;
+    short unknown_10_;
+    unsigned char unknown_12_0_ : 4;
+    unsigned char unknown_12_4_ : 4;
+    char unknown_13_[2];
+    unsigned char unknown_15_;
 };
 
-extern "C" void func_0204f174(void* target, short a, short b, short c, int d, int e, int f, int g, int h);
-extern "C" void func_0204fae8(void* target);
+extern "C" void func_0204f174(void* arg0, short arg1, short arg2, short arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
+extern "C" void func_0204fae8(void* arg0);
 
-struct ShortList02081530 {
-    char pad[4];
-    short* entries;
-    char pad2[0x14 - 8];
-    unsigned char count;
+struct Struct_02081498 {
+    char unknown_0_[4];
+    short* unknown_4_;
+    char unknown_8_[0x14 - 8];
+    unsigned char unknown_14_;
 };
-extern "C" void func_02081530(void* unused, void* ctx, struct ShortList02081530* list);
+extern "C" void func_02081530(void* arg0, void* arg1, struct Struct_02081498* arg2);
 
 // USA: func_02081498
-extern "C" ARM void func_02081498(void* obj, void* ctx, struct Params02081498* p) {
-    int hasBit1 = (p->f_15 & 2) != 0;
-    func_0204f174(ctx, p->f_a, p->f_c, p->f_e, p->f_10, p->lowNibble, p->highNibble, hasBit1, 0);
-    if (p->f_15 & 1) {
-        func_0204fae8(ctx);
+extern "C" ARM void func_02081498(void* arg0, void* arg1, struct Struct_020813ec_3* arg2) {
+    int var0 = (arg2->unknown_15_ & 2) != 0;
+    func_0204f174(arg1, arg2->unknown_a_, arg2->unknown_c_, arg2->unknown_e_, arg2->unknown_10_, arg2->unknown_12_0_, arg2->unknown_12_4_, var0, 0);
+    if (arg2->unknown_15_ & 1) {
+        func_0204fae8(arg1);
     }
-    func_02081530(obj, ctx, (struct ShortList02081530*)p);
+    func_02081530(arg0, arg1, (struct Struct_02081498*)arg2);
 }

@@ -5,153 +5,153 @@
 
 extern "C" void* func_0202ae18(void);
 extern "C" unsigned short* func_02012fe4(void);
-extern "C" int func_0202c508(void* search);
-extern "C" void func_0205e330(void* a, void* b, int c);
-extern "C" void* memset(void* dst, int c, unsigned int n);
+extern "C" int func_0202c508(void* arg0);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* func_0202ae24(void);
 
-struct Entry_02028bd0 {
-    unsigned short id;
-    unsigned short unk2_0 : 4;
-    unsigned short value : 12;
-    unsigned short value2;
+struct Struct_020fdd44 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 4;
+    unsigned short unknown_2_4_ : 12;
+    unsigned short unknown_4_;
 };
-extern "C" struct Entry_02028bd0* func_02027ca4(void);
-extern "C" struct Entry_02028bd0* func_02028bd0(struct Entry_02028bd0* base, int key);
+extern "C" struct Struct_020fdd44* func_02027ca4(void);
+extern "C" struct Struct_020fdd44* func_02028bd0(struct Struct_020fdd44* arg0, int arg1);
 
-struct Obj_021bd3a4;
-extern "C" int func_ov017_021bd3a4(Obj_021bd3a4* obj);
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
-extern "C" void* func_ov017_021b8470(void* obj);
-extern "C" int func_ov017_021b8b94(void* obj);
+struct Struct_ov017_0218e674;
+extern "C" int func_ov017_021bd3a4(Struct_ov017_0218e674* arg0);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" int func_ov017_021b8b94(void* arg0);
 
-struct Unit_021c4fa0 {
-    char pad0[8];
-    unsigned short field8;
-    char padA[8];
-    unsigned char field12;
-    char pad13[5];
-    unsigned short field18;
-    unsigned short field1a;
-    unsigned short field1c;
-    char pad1e[0x32];
-    unsigned short flags50;
-    short field52;
+struct Struct_ov017_021c4fa0_6 {
+    char unknown_0_[8];
+    unsigned short unknown_8_;
+    char unknown_a_[8];
+    unsigned char unknown_12_;
+    char unknown_13_[5];
+    unsigned short unknown_18_;
+    unsigned short unknown_1a_;
+    unsigned short unknown_1c_;
+    char unknown_1e_[0x32];
+    unsigned short unknown_50_;
+    short unknown_52_;
 #if defined(jpn)
-    char pad54[0xae];
+    char unknown_54_[0xae];
 #else
-    char pad54[0xb2];
+    char unknown1_54_[0xb2];
 #endif
-    unsigned char field106;
+    unsigned char unknown_106_;
 };
 
-struct Zone_021c4fa0 {
-    char pad0[2];
-    unsigned char active;
+struct Struct_ov017_021c4fa0 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
 };
 
-struct Slot_021c4fa0 {
-    char pad0[0xc];
-    int index;
+struct Struct_ov017_021c4fa0_2 {
+    char unknown_0_[0xc];
+    int unknown_c_;
 };
 
-struct IdValue_021c4fa0 {
-    unsigned short id;
-    unsigned short value;
+struct Struct_ov017_021c4fa0_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
-struct Payload_021c4fa0 {
-    unsigned char unitIdx;
-    unsigned char mode;
-    unsigned short field2;
-    short field4;
-    float time;
-    unsigned short fieldC;
-    unsigned short fieldE;
+struct Struct_ov017_021c4fa0_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    short unknown_4_;
+    float unknown_8_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
 };
 
-struct Evt_021c4fa0 {
-    unsigned char tag;
-    struct Payload_021c4fa0 payload;
+struct Struct_ov017_021c4fa0_5 {
+    unsigned char unknown_0_;
+    struct Struct_ov017_021c4fa0_4 unknown_4_;
 };
 
 // USA: func_ov017_021c4fa0
-extern "C" ARM void func_ov017_021c4fa0(int unitIdx, int id) {
-    GameState* gs;
-    unsigned short* cur;
-    void* data;
-    char* f6b0;
-    GameResources* res;
-    Payload_021c4fa0* p;
-    Slot_021c4fa0* slot;
-    Unit_021c4fa0* unit;
-    void* search;
-    Zone_021c4fa0* zone;
-    int ok;
-    Entry_02028bd0* entry;
-    IdValue_021c4fa0* iv;
-    Evt_021c4fa0 evt;
+extern "C" ARM void func_ov017_021c4fa0(int arg0, int arg1) {
+    GameState* var0;
+    unsigned short* var1;
+    void* var2;
+    char* var3;
+    GameResources* var4;
+    Struct_ov017_021c4fa0_4* var5;
+    Struct_ov017_021c4fa0_2* var6;
+    Struct_ov017_021c4fa0_6* var7;
+    void* var8;
+    Struct_ov017_021c4fa0* var9;
+    int var10;
+    Struct_020fdd44* var11;
+    Struct_ov017_021c4fa0_3* var12;
+    Struct_ov017_021c4fa0_5 var13;
 
-    gs = GameState::GetInstance();
-    search = func_0202ae18();
-    cur = func_02012fe4();
-    res = GetGameResources();
-    unit = (Unit_021c4fa0*)res->unknown_ptr_array_371c[6];
+    var0 = GameState::GetInstance();
+    var8 = func_0202ae18();
+    var1 = func_02012fe4();
+    var4 = GetGameResources();
+    var7 = (Struct_ov017_021c4fa0_6*)var4->unknown_ptr_array_371c[6];
     func_02027ca4();
-    data = func_0202ae24();
+    var2 = func_0202ae24();
 
-    evt.tag = 0x8f;
-    p = &evt.payload;
-    memset(p, 0, sizeof(*p));
-    p->mode = 0;
-    p->unitIdx = unitIdx;
-    p->time = -1.0f;
+    var13.unknown_0_ = 0x8f;
+    var5 = &var13.unknown_4_;
+    memset(var5, 0, sizeof(*var5));
+    var5->unknown_1_ = 0;
+    var5->unknown_0_ = arg0;
+    var5->unknown_8_ = -1.0f;
 
-    zone = (Zone_021c4fa0*)res->unknown_ptr_3718;
-    f6b0 = (char*)func_ov017_021b8470(zone);
-    slot = (Slot_021c4fa0*)func_ov017_021b8478(zone);
+    var9 = (Struct_ov017_021c4fa0*)var4->unknown_ptr_3718;
+    var3 = (char*)func_ov017_021b8470(var9);
+    var6 = (Struct_ov017_021c4fa0_2*)func_ov017_021b8478(var9);
 
-    if (func_0202c508(search)) {
-        ok = 1;
-        if (unit->field1a != id || (unit->flags50 & 0x800)) {
-            if (unit->field1c != id) {
-                ok = 0;
+    if (func_0202c508(var8)) {
+        var10 = 1;
+        if (var7->unknown_1a_ != arg1 || (var7->unknown_50_ & 0x800)) {
+            if (var7->unknown_1c_ != arg1) {
+                var10 = 0;
             }
         }
-        if (func_ov017_021bd3a4((Obj_021bd3a4*)unit) && unit->field12 != 0 && unit->field106 == 0 && ok) {
-            p->mode = 1;
-            if (unit->field18 == 0) {
-                p->field2 = unit->field8;
-                p->field4 = unit->field52;
+        if (func_ov017_021bd3a4((Struct_ov017_0218e674*)var7) && var7->unknown_12_ != 0 && var7->unknown_106_ == 0 && var10) {
+            var5->unknown_1_ = 1;
+            if (var7->unknown_18_ == 0) {
+                var5->unknown_2_ = var7->unknown_8_;
+                var5->unknown_4_ = var7->unknown_52_;
             } else {
-                p->field2 = unit->field18;
-                p->field4 = unit->field52;
+                var5->unknown_2_ = var7->unknown_18_;
+                var5->unknown_4_ = var7->unknown_52_;
             }
-        } else if (zone->active != 0 && !(f6b0 != NULL && f6b0[0x8e14] != 0) && slot != NULL &&
-                   !func_020a35e0((unsigned char*)slot, unitIdx & 0xff) && !func_ov017_021b8b94(zone) && slot->index >= 0) {
-            p->mode = 2;
-            p->field2 = slot->index;
-            p->field4 = *cur;
+        } else if (var9->unknown_2_ != 0 && !(var3 != NULL && var3[0x8e14] != 0) && var6 != NULL &&
+                   !func_020a35e0((unsigned char*)var6, arg0 & 0xff) && !func_ov017_021b8b94(var9) && var6->unknown_c_ >= 0) {
+            var5->unknown_1_ = 2;
+            var5->unknown_2_ = var6->unknown_c_;
+            var5->unknown_4_ = *var1;
         }
 
-        p->time = gs->GetDayTimer();
-        entry = func_02028bd0(func_02027ca4(), id);
-        if (entry != NULL) {
-            p->fieldC = entry->value;
-            p->fieldE = entry->value2;
+        var5->unknown_8_ = var0->GetDayTimer();
+        var11 = func_02028bd0(func_02027ca4(), arg1);
+        if (var11 != NULL) {
+            var5->unknown_c_ = var11->unknown_2_4_;
+            var5->unknown_e_ = var11->unknown_4_;
         } else {
 #if defined(jpn)
-            iv = (IdValue_021c4fa0*)((char*)res + 0x4204);
+            var12 = (Struct_ov017_021c4fa0_3*)((char*)var4 + 0x4204);
 #else
-            iv = (IdValue_021c4fa0*)((char*)res + 0x44b4);
+            var12 = (Struct_ov017_021c4fa0_3*)((char*)var4 + 0x44b4);
 #endif
-            if (iv->id == id) {
-                p->fieldC = iv->value;
+            if (var12->unknown_0_ == arg1) {
+                var5->unknown_c_ = var12->unknown_2_;
             } else {
-                p->fieldC = 0;
+                var5->unknown_c_ = 0;
             }
-            p->fieldE = 0;
+            var5->unknown_e_ = 0;
         }
     }
-    func_0205e330(data, &evt, 0);
+    func_0205e330(var2, &var13, 0);
 }

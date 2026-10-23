@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_020dc2d0(int mode);
+extern "C" void func_020dc2d0(int arg0);
 
 // USA: func_ov023_021fbb48
 extern "C" ARM void func_ov023_021fbb48() {

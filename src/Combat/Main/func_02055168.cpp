@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct S02055080;
-extern "C" void* func_02055090(struct S02055080* obj);
+struct Struct_020546c8;
+extern "C" void* func_02055090(struct Struct_020546c8* arg0);
 
 // USA: func_02055168
-extern "C" ARM int func_02055168(struct S02055080* obj) {
-    void* x = func_02055090(obj);
-    if (x == NULL) return 0;
-    return *(int*)x;
+extern "C" ARM int func_02055168(struct Struct_020546c8* arg0) {
+    void* var0 = func_02055090(arg0);
+    if (var0 == NULL) return 0;
+    return *(int*)var0;
 }

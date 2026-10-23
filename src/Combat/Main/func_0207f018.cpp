@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 
-struct Elem0207f018 {
-    unsigned int w0;
-    unsigned int w4;
-    short h8;
-    short ha;
-    short hc;
-    short he;
-    short h10;
-    unsigned char b12;
-    unsigned char b13;
-    unsigned char b14;
-    unsigned char b15;
+struct Struct_0207ed48 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    short unknown_8_;
+    short unknown_a_;
+    short unknown_c_;
+    short unknown_e_;
+    short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    unsigned char unknown_14_;
+    unsigned char unknown_15_;
 };
 
-struct Arr0207f018 {
-    struct Elem0207f018* base;
-    short count;
-    short capacity;
+struct Struct_0207f018 {
+    struct Struct_0207ed48* unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
 };
 
 // USA: func_0207f018
-extern "C" ARM void func_0207f018(struct Arr0207f018* arr, struct Elem0207f018* src) {
-    short count;
-    struct Elem0207f018* dst;
-    if (src == NULL) {
+extern "C" ARM void func_0207f018(struct Struct_0207f018* arg0, struct Struct_0207ed48* arg1) {
+    short var0;
+    struct Struct_0207ed48* var1;
+    if (arg1 == NULL) {
         return;
     }
-    count = arr->count;
-    if (arr->capacity <= count) {
+    var0 = arg0->unknown_4_;
+    if (arg0->unknown_6_ <= var0) {
         return;
     }
-    dst = &arr->base[count];
-    dst->w0 = src->w0;
-    dst->w4 = src->w4;
-    dst->h8 = src->h8;
-    dst->ha = src->ha;
-    dst->hc = src->hc;
-    dst->he = src->he;
-    dst->h10 = src->h10;
-    dst->b12 = src->b12;
-    dst->b13 = src->b13;
-    dst->b14 = src->b14;
-    dst->b15 = src->b15;
-    arr->count = arr->count + 1;
+    var1 = &arg0->unknown_0_[var0];
+    var1->unknown_0_ = arg1->unknown_0_;
+    var1->unknown_4_ = arg1->unknown_4_;
+    var1->unknown_8_ = arg1->unknown_8_;
+    var1->unknown_a_ = arg1->unknown_a_;
+    var1->unknown_c_ = arg1->unknown_c_;
+    var1->unknown_e_ = arg1->unknown_e_;
+    var1->unknown_10_ = arg1->unknown_10_;
+    var1->unknown_12_ = arg1->unknown_12_;
+    var1->unknown_13_ = arg1->unknown_13_;
+    var1->unknown_14_ = arg1->unknown_14_;
+    var1->unknown_15_ = arg1->unknown_15_;
+    arg0->unknown_4_ = arg0->unknown_4_ + 1;
 }

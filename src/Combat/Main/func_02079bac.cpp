@@ -3,63 +3,63 @@
 #include "std_library_functions.h"
 #include "Resource/ActionDataTables.h"
 
-struct S02079ce8 {
-    unsigned int f : 12;
+struct Struct_02079bac_3 {
+    unsigned int unknown_0_0_ : 12;
 };
 
-struct Elem02079bac {
-    unsigned char pad[8];
+struct Struct_02079bac {
+    unsigned char unknown_0_[8];
 };
 
-extern "C" int func_02079ce8(struct S02079ce8* p);
+extern "C" int func_02079ce8(struct Struct_02079bac_3* arg0);
 
 // USA: func_02079bac
-extern "C" ARM int func_02079bac(struct Header02079bac* obj, SafeAllocator* alloc, void* src, ElemFn02079bac cb, ObjFn02079bac cb2
+extern "C" ARM int func_02079bac(struct Struct_02079bac_2* arg0, SafeAllocator* arg1, void* arg2, Type_02079bac arg3, Type_02079bac_2 arg4
 #if !defined(jpn)
-    , SafeAllocator* alloc2
+    , SafeAllocator* arg5
 #endif
 ) {
 #if defined(jpn)
-    SafeAllocator* alloc2 = alloc;
+    SafeAllocator* arg5 = arg1;
 #endif
-    int size1;
-    unsigned int size2;
-    int i;
-    struct Elem02079bac* e;
-    int cnt;
+    int var0;
+    unsigned int var1;
+    int var2;
+    struct Struct_02079bac* var3;
+    int var4;
 
-    if (alloc == 0 || src == 0) {
+    if (arg1 == 0 || arg2 == 0) {
         return 0;
     }
 #if !defined(jpn)
-    if (alloc2 == 0) {
-        alloc2 = alloc;
+    if (arg5 == 0) {
+        arg5 = arg1;
     }
 #endif
-    memcpy(obj, src, 4);
-    size1 = func_02079ce8((struct S02079ce8*)obj);
-    size2 = obj->hi;
-    obj->arr = size1 ? (struct Elem02079bac*)alloc->Allocate(size1) : 0;
-    obj->extra = size2 ? (unsigned char*)alloc2->Allocate(size2) : 0;
-    if (obj->arr != 0) {
-        memcpy(obj->arr, (char*)src + 4, size1);
+    memcpy(arg0, arg2, 4);
+    var0 = func_02079ce8((struct Struct_02079bac_3*)arg0);
+    var1 = arg0->unknown_1_4_;
+    arg0->unknown_4_ = var0 ? (struct Struct_02079bac*)arg1->Allocate(var0) : 0;
+    arg0->unknown_8_ = var1 ? (unsigned char*)arg5->Allocate(var1) : 0;
+    if (arg0->unknown_4_ != 0) {
+        memcpy(arg0->unknown_4_, (char*)arg2 + 4, var0);
     }
-    if (obj->extra != 0) {
-        memcpy(obj->extra, (char*)src + (func_02079ce8((struct S02079ce8*)obj) + 4), size2);
+    if (arg0->unknown_8_ != 0) {
+        memcpy(arg0->unknown_8_, (char*)arg2 + (func_02079ce8((struct Struct_02079bac_3*)arg0) + 4), var1);
     }
-    if (cb != 0) {
-        if (obj->arr != 0) {
-            cnt = (short)obj->count;
-            if (cnt != 0 && cb != 0) {
-                for (i = 0, e = obj->arr; i < cnt; i++, e++) {
-                    cb(obj, e);
+    if (arg3 != 0) {
+        if (arg0->unknown_4_ != 0) {
+            var4 = (short)arg0->unknown_0_0_;
+            if (var4 != 0 && arg3 != 0) {
+                for (var2 = 0, var3 = arg0->unknown_4_; var2 < var4; var2++, var3++) {
+                    arg3(arg0, var3);
                 }
             }
         }
     }
-    if (cb2 != 0) {
-        cb2(obj);
+    if (arg4 != 0) {
+        arg4(arg0);
     }
-    obj->flag = 1;
+    arg0->unknown_3_7_ = 1;
     return 1;
 }

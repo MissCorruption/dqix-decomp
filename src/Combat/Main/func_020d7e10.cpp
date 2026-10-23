@@ -6,22 +6,22 @@
 
 extern "C" int func_ov017_021959b4(void);
 
-struct QueuedTextEntry {
+struct Struct_020d7b04_2 {
 #if defined(jpn)
-    char text[0x4f];
+    char unknown_0_[0x4f];
 #else
-    char text[0x6f];
+    char unknown_0_[0x6f];
 #endif
-    unsigned char flags;
+    unsigned char unknown_6f_;
 };
 
-struct TextQueuePrefix {
-    QueuedTextEntry entries[3];
-    unsigned char count : 6;
-    unsigned char reserved6 : 1;
-    unsigned char reserved7 : 1;
-    unsigned char reserved151;
-    unsigned short timer;
+struct Struct_020d7e10 {
+    Struct_020d7b04_2 unknown_0_[3];
+    unsigned char unknown_150_0_ : 6;
+    unsigned char unknown_150_6_ : 1;
+    unsigned char unknown_150_7_ : 1;
+    unsigned char unknown_151_;
+    unsigned short unknown_152_;
 };
 
 #if defined(jpn)
@@ -32,47 +32,47 @@ struct TextQueuePrefix {
 
 // USA: func_020d7e10
 #if defined(jpn)
-extern "C" ARM void func_020d7e10(void *receiver, void *input, int style, int flag7, unsigned char ignoreDuplicates) {
+extern "C" ARM void func_020d7e10(void *arg0, void *arg1, int arg2, int arg3, unsigned char arg4) {
 #else
-extern "C" ARM void func_020d7e10(void *receiver, void *input, int style, int flag7, unsigned char ignoreDuplicates,
-                                  unsigned char flag6) {
+extern "C" ARM void func_020d7e10(void *arg0, void *arg1, int arg2, int arg3, unsigned char arg4,
+                                  unsigned char arg5) {
 #endif
-    TextQueuePrefix *queue = static_cast<TextQueuePrefix *>(receiver);
-    const char *text       = static_cast<const char *>(input);
+    Struct_020d7e10 *var0 = static_cast<Struct_020d7e10 *>(arg0);
+    const char *var1       = static_cast<const char *>(arg1);
     if (func_ov017_021959b4()) return;
-    unsigned int count = queue->count;
-    if (count != 0 && ignoreDuplicates != 0 && strcmp(queue->entries[0].text, text) == 0) return;
-    if (count < 3) {
-        strcpy(queue->entries[count].text, text);
-        QueuedTextEntry *entry = &queue->entries[queue->count];
-        entry->flags           = (entry->flags & ~QUEUE_STYLE_MASK) | (style & QUEUE_STYLE_MASK);
-        entry                  = &queue->entries[queue->count];
-        entry->flags           = (entry->flags & ~0x80) | ((flag7 & 1) << 7);
+    unsigned int var2 = var0->unknown_150_0_;
+    if (var2 != 0 && arg4 != 0 && strcmp(var0->unknown_0_[0].unknown_0_, var1) == 0) return;
+    if (var2 < 3) {
+        strcpy(var0->unknown_0_[var2].unknown_0_, var1);
+        Struct_020d7b04_2 *var3 = &var0->unknown_0_[var0->unknown_150_0_];
+        var3->unknown_6f_           = (var3->unknown_6f_ & ~QUEUE_STYLE_MASK) | (arg2 & QUEUE_STYLE_MASK);
+        var3                  = &var0->unknown_0_[var0->unknown_150_0_];
+        var3->unknown_6f_           = (var3->unknown_6f_ & ~0x80) | ((arg3 & 1) << 7);
 #if !defined(jpn)
-        entry                  = &queue->entries[queue->count];
-        entry->flags           = (entry->flags & ~0x40) | ((flag6 & 1) << 6);
+        var3                  = &var0->unknown_0_[var0->unknown_150_0_];
+        var3->unknown_6f_           = (var3->unknown_6f_ & ~0x40) | ((arg5 & 1) << 6);
 #endif
-        queue->count++;
-        if (queue->timer > 1000) queue->timer %= 1000;
+        var0->unknown_150_0_++;
+        if (var0->unknown_152_ > 1000) var0->unknown_152_ %= 1000;
         return;
     }
-    if (queue->timer != 0) {
-        queue->timer = 0;
-        if (queue->count != 0) {
-            memcpy(&queue->entries[0], &queue->entries[1], sizeof(QueuedTextEntry));
-            memcpy(&queue->entries[1], &queue->entries[2], sizeof(QueuedTextEntry));
-            queue->count--;
+    if (var0->unknown_152_ != 0) {
+        var0->unknown_152_ = 0;
+        if (var0->unknown_150_0_ != 0) {
+            memcpy(&var0->unknown_0_[0], &var0->unknown_0_[1], sizeof(Struct_020d7b04_2));
+            memcpy(&var0->unknown_0_[1], &var0->unknown_0_[2], sizeof(Struct_020d7b04_2));
+            var0->unknown_150_0_--;
         }
     }
-    if (queue->count >= 3) return;
-    strcpy(queue->entries[queue->count].text, text);
-    QueuedTextEntry *entry = &queue->entries[queue->count];
-    entry->flags           = (entry->flags & ~QUEUE_STYLE_MASK) | (style & QUEUE_STYLE_MASK);
-    entry                  = &queue->entries[queue->count];
-    entry->flags           = (entry->flags & ~0x80) | ((flag7 & 1) << 7);
+    if (var0->unknown_150_0_ >= 3) return;
+    strcpy(var0->unknown_0_[var0->unknown_150_0_].unknown_0_, var1);
+    Struct_020d7b04_2 *var4 = &var0->unknown_0_[var0->unknown_150_0_];
+    var4->unknown_6f_           = (var4->unknown_6f_ & ~QUEUE_STYLE_MASK) | (arg2 & QUEUE_STYLE_MASK);
+    var4                  = &var0->unknown_0_[var0->unknown_150_0_];
+    var4->unknown_6f_           = (var4->unknown_6f_ & ~0x80) | ((arg3 & 1) << 7);
 #if !defined(jpn)
-    entry                  = &queue->entries[queue->count];
-    entry->flags           = (entry->flags & ~0x40) | ((flag6 & 1) << 6);
+    var4                  = &var0->unknown_0_[var0->unknown_150_0_];
+    var4->unknown_6f_           = (var4->unknown_6f_ & ~0x40) | ((arg5 & 1) << 6);
 #endif
-    queue->count++;
+    var0->unknown_150_0_++;
 }

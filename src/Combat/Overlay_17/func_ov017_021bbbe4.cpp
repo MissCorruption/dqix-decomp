@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kEntryFieldOffset = 0x9c };
+enum { Enum_ov017_021bbbe4_160 = 0x9c };
 #else
-enum { kEntryFieldOffset = 0xa0 };
+enum { Enum_ov017_021bbbe4_160 = 0xa0 };
 #endif
 
 // USA: func_ov017_021bbbe4
-extern "C" ARM void* func_ov017_021bbbe4(void* obj) {
-    return (char*)obj + kEntryFieldOffset;
+extern "C" ARM void* func_ov017_021bbbe4(void* arg0) {
+    return (char*)arg0 + Enum_ov017_021bbbe4_160;
 }

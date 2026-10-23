@@ -1,70 +1,70 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Trans_021d98b8 {
-    float scale;
-    unsigned int unk4;
-    unsigned short unk8;
-    unsigned short unkA;
+struct Struct_ov028_021d98b8 {
+    float unknown_0_;
+    unsigned int unknown_4_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
 };
 
-struct Obj020979c0 {
-    unsigned int data[8];
+struct Struct_020979c0 {
+    unsigned int unknown_0_[8];
 };
 
-struct Trans_021d8b90 {
-    Trans_021d98b8 trans;
-    unsigned char unkC[0x10];
-    unsigned char unk1c;
-    unsigned char unk1d;
-    Obj020979c0 unk20;
-    unsigned int unk40;
-    SafeAllocator allocator;
-    unsigned int unk58;
-    unsigned int unk5c;
-    unsigned int unk60;
-    unsigned int unk64;
-    unsigned int unk68;
-    unsigned short unk6c;
-    unsigned char unk6e;
-    int unk70;
-    unsigned int unk74;
-    unsigned int unk78;
-    unsigned int unk7c;
-    unsigned char unk80;
-    unsigned char unk81;
+struct Struct_ov028_021d8b90 {
+    Struct_ov028_021d98b8 unknown_0_;
+    unsigned char unknown_c_[0x10];
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
+    Struct_020979c0 unknown_20_;
+    unsigned int unknown_40_;
+    SafeAllocator unknown_44_;
+    unsigned int unknown_58_;
+    unsigned int unknown_5c_;
+    unsigned int unknown_60_;
+    unsigned int unknown_64_;
+    unsigned int unknown_68_;
+    unsigned short unknown_6c_;
+    unsigned char unknown_6e_;
+    int unknown_70_;
+    unsigned int unknown_74_;
+    unsigned int unknown_78_;
+    unsigned int unknown_7c_;
+    unsigned char unknown_80_;
+    unsigned char unknown_81_;
 };
 
-extern "C" void func_020979c0(Obj020979c0* obj, unsigned char flag);
-extern "C" Trans_021d98b8* func_ov028_021d98b8(Trans_021d98b8* self);
+extern "C" void func_020979c0(Struct_020979c0* arg0, unsigned char arg1);
+extern "C" Struct_ov028_021d98b8* func_ov028_021d98b8(Struct_ov028_021d98b8* arg0);
 
-static inline unsigned int GX_GetVisiblePlane(void) {
+static inline unsigned int inline_ov017_021a86d0(void) {
     return (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
 }
 
-static inline unsigned int GXS_GetVisiblePlane(void) {
+static inline unsigned int inline_ov028_021d8b90(void) {
     return (*(volatile unsigned int*)0x4001000 & 0x1f00) >> 8;
 }
 
 // USA: func_ov028_021d8b90
-extern "C" ARM void func_ov028_021d8b90(Trans_021d8b90* self) {
-    func_ov028_021d98b8(&self->trans);
-    self->unk1c = 0;
-    self->unk1d = 0;
-    func_020979c0(&self->unk20, 0);
-    self->unk40 = 0;
-    self->allocator.ResetAllocatorPointer();
-    self->unk58 = GX_GetVisiblePlane();
-    self->unk5c = GXS_GetVisiblePlane();
-    self->unk60 = 0;
-    self->unk64 = 0;
-    self->unk6c = 0;
-    self->unk68 = 0;
-    self->unk6e = 0;
-    self->unk70 = -1;
-    self->unk74 = 0;
-    self->unk78 = 0;
-    self->unk7c = 0;
-    self->unk80 = 0;
-    self->unk81 = 0;
+extern "C" ARM void func_ov028_021d8b90(Struct_ov028_021d8b90* arg0) {
+    func_ov028_021d98b8(&arg0->unknown_0_);
+    arg0->unknown_1c_ = 0;
+    arg0->unknown_1d_ = 0;
+    func_020979c0(&arg0->unknown_20_, 0);
+    arg0->unknown_40_ = 0;
+    arg0->unknown_44_.ResetAllocatorPointer();
+    arg0->unknown_58_ = inline_ov017_021a86d0();
+    arg0->unknown_5c_ = inline_ov028_021d8b90();
+    arg0->unknown_60_ = 0;
+    arg0->unknown_64_ = 0;
+    arg0->unknown_6c_ = 0;
+    arg0->unknown_68_ = 0;
+    arg0->unknown_6e_ = 0;
+    arg0->unknown_70_ = -1;
+    arg0->unknown_74_ = 0;
+    arg0->unknown_78_ = 0;
+    arg0->unknown_7c_ = 0;
+    arg0->unknown_80_ = 0;
+    arg0->unknown_81_ = 0;
 }

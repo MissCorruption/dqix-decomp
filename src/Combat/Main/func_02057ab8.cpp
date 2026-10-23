@@ -10,116 +10,116 @@ struct Model3D;
 void* GetModel3DContext(Model3D*);
 Matrix4x3 RotationMatrixY(int angle);
 void Vector3fixMultiply(const Vector3fix* a, const Vector3fix* b, Vector3fix* out);
-extern "C" void func_02059f54(void* elem, int idx);
+extern "C" void func_02059f54(void* arg0, int arg1);
 
-struct Other02057ab8 {
-    char pad0[0xc4];
-    Vector3fix f_c4;
-    Vector3fix f_d0;
-    Vector3fix f_dc;
-    Matrix4x3 f_e8;
+struct Struct_02057ab8 {
+    char unknown_0_[0xc4];
+    Vector3fix unknown_c4_;
+    Vector3fix unknown_d0_;
+    Vector3fix unknown_dc_;
+    Matrix4x3 unknown_e8_;
 };
 
-struct Elem02057ab8 {
-    char pad0[4];
-    struct Other02057ab8* other;
-    char pad1[0x44 - 0x8];
-    Vector3fix pos;
-    Vector3fix dir;
-    char pad2[0xac - 0x5c];
-    int f_ac;
-    short f_b0;
-    short f_b2;
-    short f_b4;
-    char pad3[0xd4 - 0xb6];
+struct Struct_02057ab8_2 {
+    char unknown_0_[4];
+    struct Struct_02057ab8* unknown_4_;
+    char unknown_8_[0x44 - 0x8];
+    Vector3fix unknown_44_;
+    Vector3fix unknown_50_;
+    char unknown_5c_[0xac - 0x5c];
+    int unknown_ac_;
+    short unknown_b0_;
+    short unknown_b2_;
+    short unknown_b4_;
+    char unknown_b6_[0xd4 - 0xb6];
 };
 
-struct Container02057ab8 {
-    char hdr[8];
-    struct Elem02057ab8 elems[16];
+struct Struct_02057ab8_3 {
+    char unknown_0_[8];
+    struct Struct_02057ab8_2 unknown_8_[16];
 };
 
-extern "C" ARM void func_02057ab8(struct Container02057ab8* c, int id);
+extern "C" ARM void func_02057ab8(struct Struct_02057ab8_3* arg0, int arg1);
 
 // USA: func_02057ab8
-extern "C" ARM void func_02057ab8(struct Container02057ab8* c, int id) {
-    GameState* gs = GameState::GetInstance();
-    int i;
-    if (id < 0) {
+extern "C" ARM void func_02057ab8(struct Struct_02057ab8_3* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    int var1;
+    if (arg1 < 0) {
         return;
     }
-    for (i = 0; i < 16; i++) {
-        struct Elem02057ab8* e = &c->elems[i];
-        if (id != e->f_b2) continue;
-        if (e->f_b0 > 0) continue;
-        void* obj = gs->GetGameObjectByIndex(e->f_b2);
-        if (obj == 0) {
-            e->f_b2 = -1;
+    for (var1 = 0; var1 < 16; var1++) {
+        struct Struct_02057ab8_2* var2 = &arg0->unknown_8_[var1];
+        if (arg1 != var2->unknown_b2_) continue;
+        if (var2->unknown_b0_ > 0) continue;
+        void* var3 = var0->GetGameObjectByIndex(var2->unknown_b2_);
+        if (var3 == 0) {
+            var2->unknown_b2_ = -1;
             continue;
         }
-        void* mdl = *(void**)((char*)obj + 8);
-        if (mdl == 0) {
-            e->f_b2 = -1;
+        void* var4 = *(void**)((char*)var3 + 8);
+        if (var4 == 0) {
+            var2->unknown_b2_ = -1;
             continue;
         }
-        ModelRenderContext* ctx = (ModelRenderContext*)GetModel3DContext((Model3D*)mdl);
-        if (ctx == 0) {
-            e->f_b2 = -1;
+        ModelRenderContext* var5 = (ModelRenderContext*)GetModel3DContext((Model3D*)var4);
+        if (var5 == 0) {
+            var2->unknown_b2_ = -1;
             continue;
         }
 
-        Matrix4x3 m;
-        Mat4x3_WriteIdentity(&m);
-        Vector3fix pos = *(Vector3fix*)((char*)obj + 0x44);
-        Vector3fix dir = *(Vector3fix*)((char*)obj + 0x50);
-        Vector3fix scale = ((Object3D*)obj)->GetScale();
-        int flag = 0;
-        if (e->f_b4 > -1) {
-            if (GetModelBonePositionAndDirectionMatrices(ctx, (Matrix4x3*)flag, (Matrix3x3*)flag, (unsigned int)e->f_b4)) {
-                const Matrix4x3* invView = RenderConfig::GetInverseViewMatrix();
-                GetCurrentPositionAndDirectionMatrices(&m, (Matrix3x3*)flag);
-                Mat4x3_Multiply(&m, invView, &m);
-                flag = 1;
+        Matrix4x3 var6;
+        Mat4x3_WriteIdentity(&var6);
+        Vector3fix var7 = *(Vector3fix*)((char*)var3 + 0x44);
+        Vector3fix var8 = *(Vector3fix*)((char*)var3 + 0x50);
+        Vector3fix var9 = ((Object3D*)var3)->GetScale();
+        int var10 = 0;
+        if (var2->unknown_b4_ > -1) {
+            if (GetModelBonePositionAndDirectionMatrices(var5, (Matrix4x3*)var10, (Matrix3x3*)var10, (unsigned int)var2->unknown_b4_)) {
+                const Matrix4x3* var11 = RenderConfig::GetInverseViewMatrix();
+                GetCurrentPositionAndDirectionMatrices(&var6, (Matrix3x3*)var10);
+                Mat4x3_Multiply(&var6, var11, &var6);
+                var10 = 1;
             }
         }
-        if (e->f_ac == 0) {
-            Vector3fix sp = e->pos;
-            Vector3fix sd = e->dir;
-            Vector3fix ss = ((Object3D*)e)->GetScale();
-            Matrix4x3 rot2;
-            Vector3fix tv;
-            rot2 = RotationMatrixY(dir.y);
-            Mat4x3_ApplyToVector(&sp, &rot2, &tv);
-            Vector3fix_Add(&pos, &tv, &pos);
-            Vector3fixMultiply(&scale, &ss, &scale);
-            e->pos = pos;
-            e->dir = dir;
-            ((Object3D*)e)->SetScale(&scale);
-            func_02059f54(e, i + 0xd0);
-            func_02057ab8(c, i + 0xd0);
-            e->pos = sp;
-            e->dir = sd;
-            ((Object3D*)e)->SetScale(&ss);
-        } else if (e->f_ac == 1) {
-            struct Other02057ab8* o = e->other;
-            if (o != 0) {
-                if (flag == 0) {
-                    o->f_c4 = pos;
-                    o->f_d0 = dir;
-                    o->f_dc = scale;
+        if (var2->unknown_ac_ == 0) {
+            Vector3fix var12 = var2->unknown_44_;
+            Vector3fix var13 = var2->unknown_50_;
+            Vector3fix var14 = ((Object3D*)var2)->GetScale();
+            Matrix4x3 var15;
+            Vector3fix var16;
+            var15 = RotationMatrixY(var8.y);
+            Mat4x3_ApplyToVector(&var12, &var15, &var16);
+            Vector3fix_Add(&var7, &var16, &var7);
+            Vector3fixMultiply(&var9, &var14, &var9);
+            var2->unknown_44_ = var7;
+            var2->unknown_50_ = var8;
+            ((Object3D*)var2)->SetScale(&var9);
+            func_02059f54(var2, var1 + 0xd0);
+            func_02057ab8(arg0, var1 + 0xd0);
+            var2->unknown_44_ = var12;
+            var2->unknown_50_ = var13;
+            ((Object3D*)var2)->SetScale(&var14);
+        } else if (var2->unknown_ac_ == 1) {
+            struct Struct_02057ab8* var17 = var2->unknown_4_;
+            if (var17 != 0) {
+                if (var10 == 0) {
+                    var17->unknown_c4_ = var7;
+                    var17->unknown_d0_ = var8;
+                    var17->unknown_dc_ = var9;
                 } else {
-                    pos.x = m.translation.x;
-                    pos.y = m.translation.y;
-                    pos.z = m.translation.z;
-                    Mat4x3_ApplyScale(&m, &m, 0xf627, 0xf627, 0xf627);
-                    m.translation.x = pos.x;
-                    m.translation.y = pos.y;
-                    m.translation.z = pos.z;
-                    o->f_e8 = m;
+                    var7.x = var6.translation.x;
+                    var7.y = var6.translation.y;
+                    var7.z = var6.translation.z;
+                    Mat4x3_ApplyScale(&var6, &var6, 0xf627, 0xf627, 0xf627);
+                    var6.translation.x = var7.x;
+                    var6.translation.y = var7.y;
+                    var6.translation.z = var7.z;
+                    var17->unknown_e8_ = var6;
                 }
             }
-            func_02059f54(e, i + 0xd0);
-            func_02057ab8(c, i + 0xd0);
+            func_02059f54(var2, var1 + 0xd0);
+            func_02057ab8(arg0, var1 + 0xd0);
         }
     }
 }

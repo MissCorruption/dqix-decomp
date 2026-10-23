@@ -2,8 +2,8 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 // USA: func_02012dbc
-extern "C" ARM void func_02012dbc(AllocatorUnion* alloc, void* data, int flag) {
-    if (flag == 0)
+extern "C" ARM void func_02012dbc(AllocatorUnion* arg0, void* arg1, int arg2) {
+    if (arg2 == 0)
         return;
-    alloc->Free(data);
+    arg0->Free(arg1);
 }

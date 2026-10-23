@@ -3,120 +3,120 @@
 #include "Resource/Script.h"
 #include "Combat/ScriptElementList.h"
 
-struct Init0208d51c;
-extern "C" void func_0208d51c(struct Init0208d51c* p);
+struct Struct_0208d51c;
+extern "C" void func_0208d51c(struct Struct_0208d51c* arg0);
 
-struct Elem0208d928 {
-    short id;
-    char* text4;
-    char* text8;
-    char** texts;
-    char* text10;
-    char* text14;
+struct Struct_0208d594 {
+    short unknown_0_;
+    char* unknown_4_;
+    char* unknown_8_;
+    char** unknown_c_;
+    char* unknown_10_;
+    char* unknown_14_;
 };
 
-struct List0208d928;
-extern "C" void func_0208d928(struct List0208d928* l, struct Elem0208d928* e);
+struct Struct_0208d594_2;
+extern "C" void func_0208d928(struct Struct_0208d594_2* arg0, struct Struct_0208d594* arg1);
 
 extern const char data_020f1244[];
 
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
 // USA: func_0208d594
-extern "C" ARM int func_0208d594(Script::Parameter* p) {
-    struct Elem0208d928 elem;
-    unsigned short flags = data_02108fc0.header->flags;
-    unsigned int mask;
-    unsigned char i;
-    unsigned char j;
-    int found;
-    const char* s;
-    unsigned int len;
-    Script::Parameter* q;
-    char* buf;
+extern "C" ARM int func_0208d594(Script::Parameter* arg0) {
+    struct Struct_0208d594 var0;
+    unsigned short var1 = data_02108fc0.unknown_4_->unknown_e_;
+    unsigned int var2;
+    unsigned char var3;
+    unsigned char var4;
+    int var5;
+    const char* var6;
+    unsigned int var7;
+    Script::Parameter* var8;
+    char* var9;
 
-    func_0208d51c((struct Init0208d51c*)&elem);
-    elem.id = (short)p->ToInt();
-    if (data_02108fc0.header->selectedCount != 0) {
-        const short* cur = data_02108fc0.header->selectedIds;
-        short count = data_02108fc0.header->selectedCount;
-        found = 0;
-        for (short k = 0; k < count; k++) {
-            if (elem.id == *cur) {
-                found = 1;
+    func_0208d51c((struct Struct_0208d51c*)&var0);
+    var0.unknown_0_ = (short)arg0->ToInt();
+    if (data_02108fc0.unknown_4_->unknown_c_ != 0) {
+        const short* var10 = data_02108fc0.unknown_4_->unknown_8_;
+        short var11 = data_02108fc0.unknown_4_->unknown_c_;
+        var5 = 0;
+        for (short var12 = 0; var12 < var11; var12++) {
+            if (var0.unknown_0_ == *var10) {
+                var5 = 1;
             }
-            cur++;
+            var10++;
         }
-        if (!found) {
+        if (!var5) {
             return 1;
         }
     }
 
-    s = (p + 1)->ToString();
-    if (flags & 1) {
-        len = func_020d2ff0(s);
-        if (len != 0) {
-            elem.text4 = (char*)data_02108fc0.allocator->Allocate(len + 1);
-            elem.text4[len] = 0;
-            sprintf(elem.text4, data_020f1244, s);
+    var6 = (arg0 + 1)->ToString();
+    if (var1 & 1) {
+        var7 = func_020d2ff0(var6);
+        if (var7 != 0) {
+            var0.unknown_4_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
+            var0.unknown_4_[var7] = 0;
+            sprintf(var0.unknown_4_, data_020f1244, var6);
         }
     }
 
-    q = p + 2;
-    p += 3;
-    s = q->ToString();
-    if (flags & 2) {
-        len = func_020d2ff0(s);
-        if (len != 0) {
-            elem.text8 = (char*)data_02108fc0.allocator->Allocate(len + 1);
-            elem.text8[len] = 0;
-            sprintf(elem.text8, data_020f1244, s);
+    var8 = arg0 + 2;
+    arg0 += 3;
+    var6 = var8->ToString();
+    if (var1 & 2) {
+        var7 = func_020d2ff0(var6);
+        if (var7 != 0) {
+            var0.unknown_8_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
+            var0.unknown_8_[var7] = 0;
+            sprintf(var0.unknown_8_, data_020f1244, var6);
         }
     }
 
-    if (flags & 0x3fc) {
-        elem.texts = (char**)data_02108fc0.allocator->Allocate(0x20);
-        for (j = 0; j < 8; j++) {
-            elem.texts[j] = 0;
+    if (var1 & 0x3fc) {
+        var0.unknown_c_ = (char**)data_02108fc0.unknown_0_->Allocate(0x20);
+        for (var4 = 0; var4 < 8; var4++) {
+            var0.unknown_c_[var4] = 0;
         }
     }
 
-    mask = 4;
-    for (i = 0; i < 8; i++) {
-        s = p->ToString();
-        p++;
-        if (flags & mask) {
-            len = func_020d2ff0(s);
-            if (len != 0) {
-                elem.texts[i] = (char*)data_02108fc0.allocator->Allocate(len + 1);
-                buf = elem.texts[i];
-                buf[len] = 0;
-                sprintf(buf, data_020f1244, s);
+    var2 = 4;
+    for (var3 = 0; var3 < 8; var3++) {
+        var6 = arg0->ToString();
+        arg0++;
+        if (var1 & var2) {
+            var7 = func_020d2ff0(var6);
+            if (var7 != 0) {
+                var0.unknown_c_[var3] = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
+                var9 = var0.unknown_c_[var3];
+                var9[var7] = 0;
+                sprintf(var9, data_020f1244, var6);
             }
         }
-        mask <<= 1;
+        var2 <<= 1;
     }
 
-    s = p->ToString();
-    if (flags & 0x400) {
-        len = func_020d2ff0(s);
-        if (len != 0) {
-            elem.text10 = (char*)data_02108fc0.allocator->Allocate(len + 1);
-            elem.text10[len] = 0;
-            sprintf(elem.text10, data_020f1244, s);
+    var6 = arg0->ToString();
+    if (var1 & 0x400) {
+        var7 = func_020d2ff0(var6);
+        if (var7 != 0) {
+            var0.unknown_10_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
+            var0.unknown_10_[var7] = 0;
+            sprintf(var0.unknown_10_, data_020f1244, var6);
         }
     }
 
-    s = (p + 1)->ToString();
-    if (flags & 0x800) {
-        len = func_020d2ff0(s);
-        if (len != 0) {
-            elem.text14 = (char*)data_02108fc0.allocator->Allocate(len + 1);
-            elem.text14[len] = 0;
-            sprintf(elem.text14, data_020f1244, s);
+    var6 = (arg0 + 1)->ToString();
+    if (var1 & 0x800) {
+        var7 = func_020d2ff0(var6);
+        if (var7 != 0) {
+            var0.unknown_14_ = (char*)data_02108fc0.unknown_0_->Allocate(var7 + 1);
+            var0.unknown_14_[var7] = 0;
+            sprintf(var0.unknown_14_, data_020f1244, var6);
         }
     }
 
-    func_0208d928((struct List0208d928*)data_02108fc0.header, &elem);
+    func_0208d928((struct Struct_0208d594_2*)data_02108fc0.unknown_4_, &var0);
     return 1;
 }

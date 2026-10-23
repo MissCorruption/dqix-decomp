@@ -8,234 +8,234 @@
 #define data_ov017_021d6aec data_ov017_021d6ee4
 #endif
 
-struct CombatStepObj;
-typedef unsigned char (*CombatStepFn)(CombatStepObj* obj);
+struct Struct_ov017_021af66c_4;
+typedef unsigned char (*Type_01ff91ac)(Struct_ov017_021af66c_4* obj);
 
-struct CombatStepTable {
-    CombatStepFn fn[13];
+struct Struct_ov017_021d6aec {
+    Type_01ff91ac unknown_0_[13];
 };
 
-struct CombatStepObj {
-    unsigned char unk0;
-    unsigned char finished;
-    unsigned char unk2[6];
-    unsigned char requestFinish;
-    unsigned char mode;
-    unsigned char state;
-    unsigned char unkB;
-    unsigned char searchIndex;
-    unsigned char unkD;
-    unsigned char unkE[0x1b - 0xe];
-    unsigned char slots[0x38 - 0x1b];
-    unsigned int field4Bits;
-    int mainBrightness;
-    unsigned short clearColor;
-    unsigned char restoreDisplay;
-    unsigned char unk43[5];
+struct Struct_ov017_021af66c_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[6];
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_[0x1b - 0xe];
+    unsigned char unknown_1b_[0x38 - 0x1b];
+    unsigned int unknown_38_;
+    int unknown_3c_;
+    unsigned short unknown_40_;
+    unsigned char unknown_42_;
+    unsigned char unknown_43_[5];
 #if defined(jpn)
-    unsigned char dispatcher[0x210 - 0x48];
+    unsigned char unknown_48_[0x210 - 0x48];
 #else
-    unsigned char dispatcher[0x280 - 0x48];
+    unsigned char unknown_48_[0x280 - 0x48];
 #endif
-    int bgMode;
-    int unk284;
-    void* allocation;
+    int unknown_280_;
+    int unknown_284_;
+    void* unknown_288_;
 };
 
-struct CombatMenuNode {
-    unsigned char unk0[2];
-    unsigned char active;
+struct Struct_ov017_021af66c {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_;
 #if defined(jpn)
-    unsigned char unk3[0xc8 - 3];
+    unsigned char unknown_3_[0xc8 - 3];
 #else
-    unsigned char unk3[0xcc - 3];
+    unsigned char unknown1_3_[0xcc - 3];
 #endif
-    unsigned char kind;
-    unsigned char value397c;
-    unsigned char flagBit;
-    unsigned char phase;
+    unsigned char unknown_cc_;
+    unsigned char unknown_cd_;
+    unsigned char unknown_ce_;
+    unsigned char unknown_cf_;
 };
 
-struct CombatantFlags {
-    unsigned char unk0[0x49c];
-    unsigned char bit0 : 1;
+struct Struct_ov017_021af66c_2 {
+    unsigned char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
 };
 
-struct GrottoInfo02012fe4 {
-    unsigned short type;
-    unsigned char unk2[6];
-    int param;
+struct Struct_ov017_021af66c_3 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[6];
+    int unknown_8_;
 };
 
-struct SearchStruct;
-struct Obj020397cc;
-struct TailList020469b4;
-struct TailNode020469b4;
-struct ClearList02046968;
-struct FlagWord020466f4;
+struct Struct_0202b2f0;
+struct Struct_02018300_3;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+struct Struct_02046968;
+struct Struct_02038598_4;
 struct AllocatorUnion;
 
 extern "C" void* func_0202ae18();
 extern "C" void func_ov017_021c37a4();
-extern "C" GrottoInfo02012fe4* func_02012fe4();
-extern "C" void func_ov017_021baedc(CombatMenuNode* node, int v);
-extern "C" void func_ov017_021bbae4(CombatMenuNode* node, int param, int v);
-extern "C" void func_ov017_0219577c(int a, int b, int c);
-extern "C" int func_ov017_02195658(GameResources* res);
-extern "C" void* func_ov017_021b8468(CombatMenuNode* node);
-extern "C" void func_ov017_021afb8c(CombatStepObj* obj, unsigned char* p);
-extern "C" void func_ov017_0218b5c0(int a, int b);
+extern "C" Struct_ov017_021af66c_3* func_02012fe4();
+extern "C" void func_ov017_021baedc(Struct_ov017_021af66c* arg0, int arg1);
+extern "C" void func_ov017_021bbae4(Struct_ov017_021af66c* arg0, int arg1, int arg2);
+extern "C" void func_ov017_0219577c(int arg0, int arg1, int arg2);
+extern "C" int func_ov017_02195658(GameResources* arg0);
+extern "C" void* func_ov017_021b8468(Struct_ov017_021af66c* arg0);
+extern "C" void func_ov017_021afb8c(Struct_ov017_021af66c_4* arg0, unsigned char* arg1);
+extern "C" void func_ov017_0218b5c0(int arg0, int arg1);
 
 extern "C" void* func_020d6c00();
 extern "C" void* func_020936f8();
-extern "C" void func_020397cc(Obj020397cc* obj, int v);
-extern "C" void func_0205c904(unsigned char* obj, int v);
-extern "C" int func_0202bd34(SearchStruct* obj, int index);
-extern "C" unsigned char func_020100b0(GameState* gs);
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
-extern "C" void func_02093a14(char* obj);
-extern "C" void func_020dc2d0(int v);
-extern "C" void func_ov000_02163b14(void* p, void* q);
-extern "C" void func_ov000_02163b40(void* p);
-extern "C" void func_020c5588(int a, int b, int c, int d, int e);
-extern "C" void func_02046968(ClearList02046968* list);
-extern "C" void func_020397c0(void* obj);
-extern "C" void func_02039830(void* obj);
-extern "C" void func_0205ce94(unsigned char* obj);
-extern "C" void func_020466f4(FlagWord020466f4* obj, unsigned int mask);
-extern "C" void func_020daf9c(int a, int b, int c, int d);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* p);
-extern "C" MessageSystem* func_020421a0();
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+extern "C" int func_0202bd34(Struct_0202b2f0* arg0, int arg1);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
+extern "C" void func_02093a14(char* arg0);
+extern "C" void func_020dc2d0(int arg0);
+extern "C" void func_ov000_02163b14(void* arg0, void* arg1);
+extern "C" void func_ov000_02163b40(void* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_02046968(Struct_02046968* arg0);
+extern "C" void func_020397c0(void* arg0);
+extern "C" void func_02039830(void* arg0);
+extern "C" void func_0205ce94(unsigned char* arg0);
+extern "C" void func_020466f4(Struct_02038598_4* arg0, unsigned int arg1);
+extern "C" void func_020daf9c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" Struct_02021b84* func_020421a0();
 
-extern CombatStepTable data_ov017_021d6aec;
+extern Struct_ov017_021d6aec data_ov017_021d6aec;
 extern AllocatorUnion data_02114e20;
 
-struct CombatantView {
-    char unk0[0xb2];
-    unsigned short pendingAction;
+struct Struct_ov017_021af66c_5 {
+    char unknown_0_[0xb2];
+    unsigned short unknown_b2_;
 #if defined(jpn)
-    char unkB4[0x144 - 0xb4];
+    char unknown_b4_[0x144 - 0xb4];
 #else
-    char unkB4[0x150 - 0xb4];
+    char unknown1_b4_[0x150 - 0xb4];
 #endif
-    CombatantFlags* flags;
+    Struct_ov017_021af66c_2* unknown_150_;
 };
 
 // USA: func_ov017_021af66c
-extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
-    GameState* gs = GameState::GetInstance();
-    GameResources* res = GetGameResources();
-    SearchStruct* search = (SearchStruct*)func_0202ae18();
-    CombatantView* combatant = (CombatantView*)gs->GetUnknownGameObject();
-    FlagWord020466f4* flags = (FlagWord020466f4*)func_020d6c00();
-    char* global = (char*)func_020936f8();
-    CombatMenuNode* menu = static_cast<CombatMenuNode*>(res->unknown_ptr_3718);
-    func_020397cc((Obj020397cc*)combatant, 0);
-    combatant->pendingAction = 0;
-    CombatStepTable table = data_ov017_021d6aec;
-    if (table.fn[obj->state] != 0) {
-        int tick = gs->GetTickCount();
-        if (tick == 0) {
-            tick = 1;
+extern "C" ARM void func_ov017_021af66c(Struct_ov017_021af66c_4* arg0, void* arg1) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    Struct_0202b2f0* var2 = (Struct_0202b2f0*)func_0202ae18();
+    Struct_ov017_021af66c_5* var3 = (Struct_ov017_021af66c_5*)var0->GetUnknownGameObject();
+    Struct_02038598_4* var4 = (Struct_02038598_4*)func_020d6c00();
+    char* var5 = (char*)func_020936f8();
+    Struct_ov017_021af66c* var6 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718);
+    func_020397cc((Struct_02018300_3*)var3, 0);
+    var3->unknown_b2_ = 0;
+    Struct_ov017_021d6aec var7 = data_ov017_021d6aec;
+    if (var7.unknown_0_[arg0->unknown_a_] != 0) {
+        int var8 = var0->GetTickCount();
+        if (var8 == 0) {
+            var8 = 1;
         }
-        func_0205c904(obj->dispatcher, tick);
-        obj->state = table.fn[obj->state](obj);
+        func_0205c904(arg0->unknown_48_, var8);
+        arg0->unknown_a_ = var7.unknown_0_[arg0->unknown_a_](arg0);
     }
-    if (obj->requestFinish != 0) {
-        obj->finished = 1;
+    if (arg0->unknown_8_ != 0) {
+        arg0->unknown_1_ = 1;
     }
-    if (obj->mode != 2 && *reinterpret_cast<int*>(reinterpret_cast<char*>(search) + 0xfc0) == 0) {
-        if (func_0202bd34(search, obj->searchIndex) == 0) {
-            obj->finished = 1;
+    if (arg0->unknown_9_ != 2 && *reinterpret_cast<int*>(reinterpret_cast<char*>(var2) + 0xfc0) == 0) {
+        if (func_0202bd34(var2, arg0->unknown_c_) == 0) {
+            arg0->unknown_1_ = 1;
         }
     }
-    if (res->unknown_flag_42e2 != 0) {
-        if (obj->mode == 2) {
+    if (var1->unknown_42e2_ != 0) {
+        if (arg0->unknown_9_ == 2) {
             func_ov017_021c37a4();
-            res->unknown_42e3[0] = 1;
-            GrottoInfo02012fe4* info = func_02012fe4();
-            if (info->type == 1) {
-                SetBrightness(res, 0, 30);
-                UnlockAndSetBrightness(res, 0, 30);
+            var1->unknown_42e3_[0] = 1;
+            Struct_ov017_021af66c_3* var9 = func_02012fe4();
+            if (var9->unknown_0_ == 1) {
+                SetBrightness(var1, 0, 30);
+                UnlockAndSetBrightness(var1, 0, 30);
             }
-            CombatMenuNode* node = static_cast<CombatMenuNode*>(res->unknown_ptr_array_371c[6]);
-            if (node->active == 0) {
-                func_ov017_021baedc(node, 1);
-                func_ov017_021bbae4(node, info->param, 2);
-                node->value397c = func_020100b0(gs);
-                node->flagBit = combatant->flags->bit0;
-                node->kind = 1;
-                node->phase = 3;
-                func_020469b4((TailList020469b4*)list, (TailNode020469b4*)node);
+            Struct_ov017_021af66c* var10 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_array_371c[6]);
+            if (var10->unknown_2_ == 0) {
+                func_ov017_021baedc(var10, 1);
+                func_ov017_021bbae4(var10, var9->unknown_8_, 2);
+                var10->unknown_cd_ = func_020100b0(var0);
+                var10->unknown_ce_ = var3->unknown_150_->unknown_49c_0_;
+                var10->unknown_cc_ = 1;
+                var10->unknown_cf_ = 3;
+                func_020469b4((Struct_0201bdac_2*)arg1, (Struct_0201bdac*)var10);
             }
-            ClearFlags00(res, 0x40);
+            ClearFlags00(var1, 0x40);
         } else {
             func_ov017_0219577c(0, 0, 0);
-            CombatMenuNode* node = static_cast<CombatMenuNode*>(res->unknown_ptr_array_371c[6]);
-            if (node->active != 0 && node->phase == 2) {
-                func_02093a14(global);
+            Struct_ov017_021af66c* var11 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_array_371c[6]);
+            if (var11->unknown_2_ != 0 && var11->unknown_cf_ == 2) {
+                func_02093a14(var5);
                 func_020dc2d0(0);
             }
         }
-        obj->finished = 1;
+        arg0->unknown_1_ = 1;
     }
-    int slot = func_ov017_02195658(res);
-    if (slot > 0) {
-        obj->slots[slot] = 0;
-        if (menu->active != 0) {
-            void* p = func_ov017_021b8468(menu);
-            if (p != 0) {
-                func_ov000_02163b14(p, (void*)slot);
-                func_ov017_021afb8c(obj, obj->unkE);
+    int var12 = func_ov017_02195658(var1);
+    if (var12 > 0) {
+        arg0->unknown_1b_[var12] = 0;
+        if (var6->unknown_2_ != 0) {
+            void* var13 = func_ov017_021b8468(var6);
+            if (var13 != 0) {
+                func_ov000_02163b14(var13, (void*)var12);
+                func_ov017_021afb8c(arg0, arg0->unknown_e_);
             }
         }
     }
-    if (menu->active != 0) {
-        void* p = func_ov017_021b8468(menu);
-        if (p != 0) {
-            func_ov000_02163b40(p);
+    if (var6->unknown_2_ != 0) {
+        void* var14 = func_ov017_021b8468(var6);
+        if (var14 != 0) {
+            func_ov000_02163b40(var14);
         }
     }
-    if (obj->finished == 0) {
+    if (arg0->unknown_1_ == 0) {
         return;
     }
-    if (obj->restoreDisplay != 0) {
-        SetMainBrightness(res, obj->mainBrightness, 0);
-        func_020c5588(obj->clearColor, 0, 0x7fff, 0, 0);
-        ClearFlags04(res, 0xffffffff);
-        SetFlags04(res, obj->field4Bits);
+    if (arg0->unknown_42_ != 0) {
+        SetMainBrightness(var1, arg0->unknown_3c_, 0);
+        func_020c5588(arg0->unknown_40_, 0, 0x7fff, 0, 0);
+        ClearFlags04(var1, 0xffffffff);
+        SetFlags04(var1, arg0->unknown_38_);
     }
-    obj->unkB = 0;
-    func_02046968((ClearList02046968*)list);
-    CombatMenuNode* node = static_cast<CombatMenuNode*>(res->unknown_ptr_array_371c[6]);
-    int restore = 1;
-    if (node->active != 0 && node->phase == 2) {
-        restore = 0;
+    arg0->unknown_b_ = 0;
+    func_02046968((Struct_02046968*)arg1);
+    Struct_ov017_021af66c* var15 = static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_array_371c[6]);
+    int var16 = 1;
+    if (var15->unknown_2_ != 0 && var15->unknown_cf_ == 2) {
+        var16 = 0;
     }
-    if (restore) {
-        GameObject* c = gs->GetUnknownGameObject();
-        if (c != 0) {
-            func_020397c0(c);
-            func_02039830(c);
+    if (var16) {
+        GameObject* var17 = var0->GetUnknownGameObject();
+        if (var17 != 0) {
+            func_020397c0(var17);
+            func_02039830(var17);
         }
     }
-    func_0205ce94(obj->dispatcher);
-    func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x800000);
+    func_0205ce94(arg0->unknown_48_);
+    func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x800000);
     func_ov017_0218b5c0(1, -1);
     func_020daf9c(0, 1, 0, 1);
-    DISPCNT = (DISPCNT & ~0x1f00) | (obj->bgMode << 8);
-    ClearFlags04(res, 0x40);
-    if (obj->allocation != 0) {
-        func_02012da4(&data_02114e20, obj->allocation);
-        obj->allocation = 0;
+    DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_280_ << 8);
+    ClearFlags04(var1, 0x40);
+    if (arg0->unknown_288_ != 0) {
+        func_02012da4(&data_02114e20, arg0->unknown_288_);
+        arg0->unknown_288_ = 0;
     }
-    MessageSystem* messages = func_020421a0();
+    Struct_02021b84* var18 = func_020421a0();
 #if defined(jpn)
-    messages->flags17ff.flag2 = 0;
+    var18->unknown_17ff_.unknown_0_2_ = 0;
 #else
-    messages->b19d0 = 0;
+    var18->unknown_19d0_ = 0;
 #endif
-    if (static_cast<CombatMenuNode*>(res->unknown_ptr_3718)->active == 0) {
-        func_020466f4(flags, 0x40000);
+    if (static_cast<Struct_ov017_021af66c*>(var1->unknown_ptr_3718)->unknown_2_ == 0) {
+        func_020466f4(var4, 0x40000);
     }
 }

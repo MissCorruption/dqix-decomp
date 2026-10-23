@@ -2,90 +2,90 @@
 #include "Combat/MapDisplay.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-struct List0204af64;
-extern "C" void func_0204af64(List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(Struct_02020cb8* arg0);
 
-extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 
 extern "C" void func_0204b5b4(void*, int);
 
-struct Obj0204b5e8;
-extern "C" int func_0204b5e8(Obj0204b5e8* obj, int a, int b);
+struct Struct_02020cb8_5;
+extern "C" int func_0204b5e8(Struct_02020cb8_5* arg0, int arg1, int arg2);
 
-extern "C" void func_0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
-struct SelfTag0204b3a0;
-extern "C" void func_0204b3a0(SelfTag0204b3a0* self, char* str);
+struct Struct_02020cb8_6;
+extern "C" void func_0204b3a0(Struct_02020cb8_6* arg0, char* arg1);
 
-struct List0204b0e8;
-extern "C" void func_0204b0e8(List0204b0e8* obj, void* buf);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(Struct_02020cb8_2* arg0, void* arg1);
 
-struct List0204afb4;
-extern "C" void func_0204afb4(List0204afb4* obj);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(Struct_02020cb8_3* arg0);
 
 // USA: func_02020e58
-extern "C" ARM void func_02020e58(void* self, MapDisplayTaskHandle handle) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    void* recListHead = 0;
-    unsigned int val2Ignored = 0;
-    int r = loader->GetTaskStatus(
+extern "C" ARM void func_02020e58(void* arg0, Type_02020aec arg1) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    void* var1 = 0;
+    unsigned int var2 = 0;
+    int var3 = var0->GetTaskStatus(
 #if defined(jpn)
-        handle
+        arg1
 #else
-        *handle
+        *arg1
 #endif
 );
-    if (r == -1) {
+    if (var3 == -1) {
         *(unsigned int*)0x04001000 = (*(unsigned int*)0x04001000 & ~0x1f00) | 0x200;
-        ((MapDisplay*)self)->field768 = 0;
+        ((Struct_02020554*)arg0)->unknown_768_ = 0;
     } else {
-        void* dummyPtr;
-        void* arrayC[3];
-        int arrayB[3];
-        List0204af64 s;
+        void* var4;
+        void* var5[3];
+        int var6[3];
+        Struct_02020cb8 var7;
 
-        loader->GetLoadedFileByID(
+        var0->GetLoadedFileByID(
 #if defined(jpn)
-        handle
+        arg1
 #else
-        *handle
+        *arg1
 #endif
-, &recListHead, &val2Ignored);
-        int count = func_02046900((ActiveEntry02046900*)recListHead);
-        for (int i = 0; i < count; i++) {
-            arrayC[i] = func_020467f0((Rec020467f0*)recListHead, i, &dummyPtr, &arrayB[i]);
+, &var1, &var2);
+        int var8 = func_02046900((Struct_02020cb8_4*)var1);
+        for (int var9 = 0; var9 < var8; var9++) {
+            var5[var9] = func_020467f0((Struct_02020aec*)var1, var9, &var4, &var6[var9]);
         }
-        func_0204af64((List0204af64*)&s);
-        s.b1c_lo = 1;
-        s.b1c_hi = 0;
-        func_0204b5b4(&s, 2);
-        func_0204b11c((unsigned char*)&s, 0);
-        func_0204b5e8((Obj0204b5e8*)&s, 0, 0);
-        for (int i = 0; i < count; i++) {
-            func_0204b2e0(&s, (char*)arrayC[i]);
-            func_0204b3a0((SelfTag0204b3a0*)&s, (char*)arrayC[i]);
+        func_0204af64((Struct_02020cb8*)&var7);
+        var7.unknown_1c_0_ = 1;
+        var7.unknown_1c_4_ = 0;
+        func_0204b5b4(&var7, 2);
+        func_0204b11c((unsigned char*)&var7, 0);
+        func_0204b5e8((Struct_02020cb8_5*)&var7, 0, 0);
+        for (int var10 = 0; var10 < var8; var10++) {
+            func_0204b2e0(&var7, (char*)var5[var10]);
+            func_0204b3a0((Struct_02020cb8_6*)&var7, (char*)var5[var10]);
         }
-        func_0204b0e8((List0204b0e8*)&s, 0);
-        func_0204afb4((List0204afb4*)&s);
-        ((MapDisplay*)self)->forwardingPending = 1;
+        func_0204b0e8((Struct_02020cb8_2*)&var7, 0);
+        func_0204afb4((Struct_02020cb8_3*)&var7);
+        ((Struct_02020554*)arg0)->unknown_55c_ = 1;
     }
-    BackgroundLoader* finalLoader = BackgroundLoader::GetInstance();
-    finalLoader->RemoveTask(
+    BackgroundLoader* var11 = BackgroundLoader::GetInstance();
+    var11->RemoveTask(
 #if defined(jpn)
-        handle
+        arg1
 #else
-        *handle
+        *arg1
 #endif
 );
 #if !defined(jpn)
-    *handle = -1;
+    *arg1 = -1;
 #endif
 }

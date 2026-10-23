@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Container020e0310;
+struct Struct_0201099c_3;
 
-extern "C" int func_ov000_0217542c(void* obj);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
+extern "C" int func_ov000_0217542c(void* arg0);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_020100a8(GameState* battleStruct);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
 extern short data_ov000_021834bc[];
 
 // USA: func_ov000_021775a4
-extern "C" ARM void func_ov000_021775a4(void* base, char* dst) {
-    if (dst == NULL) return;
+extern "C" ARM void func_ov000_021775a4(void* arg0, char* arg1) {
+    if (arg1 == NULL) return;
 
 #if defined(jpn)
-    signed char cursor = *(signed char*)((char*)base + 0x1f00 + 0xa2);
+    signed char var0 = *(signed char*)((char*)arg0 + 0x1f00 + 0xa2);
 #else
-    signed char cursor = *(signed char*)((char*)base + 0x1d00 + 0x6a);
+    signed char var0 = *(signed char*)((char*)arg0 + 0x1d00 + 0x6a);
 #endif
-    int n = 0;
+    int var1 = 0;
 
-    if (func_ov000_0217542c(base)) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    if (func_ov000_0217542c(arg0)) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var0);
 
-    void* p = func_0202ae18();
-    int count = 3;
-    if (func_0202b7d8((int*)p)) {
-        if (func_020100a8(GameState::GetInstance()) == 0) count = 4;
+    void* var2 = func_0202ae18();
+    int var3 = 3;
+    if (func_0202b7d8((int*)var2)) {
+        if (func_020100a8(GameState::GetInstance()) == 0) var3 = 4;
     }
 
-    struct Container020e0310* c = (struct Container020e0310*)((char*)base + 0xb8);
-    for (int i = 0; i < count; i++) {
-        int name = func_020e0434(c, data_ov000_021834bc[i]);
-        func_02041b70(dst, n, (const char*)name);
-        if (i != count - 1) {
-            int sep = func_020e0434(c, 0);
-            func_02042058(dst, (const char*)sep);
+    struct Struct_0201099c_3* var4 = (struct Struct_0201099c_3*)((char*)arg0 + 0xb8);
+    for (int var5 = 0; var5 < var3; var5++) {
+        int var6 = func_020e0434(var4, data_ov000_021834bc[var5]);
+        func_02041b70(arg1, var1, (const char*)var6);
+        if (var5 != var3 - 1) {
+            int var7 = func_020e0434(var4, 0);
+            func_02042058(arg1, (const char*)var7);
         }
-        n++;
+        var1++;
     }
 }

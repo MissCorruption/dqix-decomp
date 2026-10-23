@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct Obj0204b878;
-extern "C" void func_0204b878(struct Obj0204b878* obj, int a2, int a3, int a4,
-                                                  short a5, short a6, short a7, short a8, unsigned short a9);
+struct Struct_0204b878;
+extern "C" void func_0204b878(struct Struct_0204b878* arg0, int arg1, int arg2, int arg3,
+                                                  short arg4, short arg5, short arg6, short arg7, unsigned short arg8);
 
-struct Struct0204c8f0 {
-    char pad0[0x4];
-    void* field4;               // 0x4
-    char pad1[0x94];            // 0x8..0x9b
-    int state_9c;                // 0x9c
-    char pad2[0xc];              // 0xa0..0xab
-    short field_ac;               // 0xac
-    short field_ae;               // 0xae
-    char pad3[0x10];              // 0xb0..0xbf
-    short field_c0;                // 0xc0
-    unsigned short field_c2;       // 0xc2
-    char pad4[0x1];                 // 0xc4
-    unsigned char flags_c5;          // 0xc5
-    char pad5[0x2];                   // 0xc6..0xc7
-    short field_c8;                    // 0xc8
+struct Struct_0204c8f0 {
+    char unknown_0_[0x4];
+    void* unknown_4_;               // 0x4
+    char unknown_8_[0x94];            // 0x8..0x9b
+    int unknown_9c_;                // 0x9c
+    char unknown_a0_[0xc];              // 0xa0..0xab
+    short unknown_ac_;               // 0xac
+    short unknown_ae_;               // 0xae
+    char unknown_b0_[0x10];              // 0xb0..0xbf
+    short unknown_c0_;                // 0xc0
+    unsigned short unknown_c2_;       // 0xc2
+    char unknown_c4_[0x1];                 // 0xc4
+    unsigned char unknown_c5_;          // 0xc5
+    char unknown_c6_[0x2];                   // 0xc6..0xc7
+    short unknown_c8_;                    // 0xc8
 };
 
 // USA: func_0204c8f0
-extern "C" ARM void func_0204c8f0(struct Struct0204c8f0* lr) {
-    if (lr->field4 == NULL) return;
-    if (!(lr->flags_c5 & 1) || lr->state_9c == 0) return;
-    if (lr->flags_c5 & 0x20) return;
+extern "C" ARM void func_0204c8f0(struct Struct_0204c8f0* arg0) {
+    if (arg0->unknown_4_ == NULL) return;
+    if (!(arg0->unknown_c5_ & 1) || arg0->unknown_9c_ == 0) return;
+    if (arg0->unknown_c5_ & 0x20) return;
 
     func_0204b878(
-        (struct Obj0204b878*)lr->field4,
-        (int)((char*)lr + 0xc8),
+        (struct Struct_0204b878*)arg0->unknown_4_,
+        (int)((char*)arg0 + 0xc8),
         0, 0,
-        lr->field_ac, lr->field_ae, lr->field_c8, lr->field_c0,
-        lr->field_c2);
+        arg0->unknown_ac_, arg0->unknown_ae_, arg0->unknown_c8_, arg0->unknown_c0_,
+        arg0->unknown_c2_);
 }

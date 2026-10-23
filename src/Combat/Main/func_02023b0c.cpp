@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kDirtyAOffset = 0x6cd };
-enum { kDirtyBOffset = 0x90e };
+enum { Enum_02023b0c_1913 = 0x6cd };
+enum { Enum_02023b0c_2490 = 0x90e };
 #else
-enum { kDirtyAOffset = 0x779 };
-enum { kDirtyBOffset = 0x9ba };
+enum { Enum_02023b0c_1913 = 0x779 };
+enum { Enum_02023b0c_2490 = 0x9ba };
 #endif
 
 #include "std_library_functions.h"
 
 // USA: func_02023b0c
-extern "C" ARM void func_02023b0c(char* a, char* b) {
-    if (b == NULL) return;
-    if (strcmp(b, a + 2) == 0) {
-        ((unsigned char*)a)[0x12] = 0;
+extern "C" ARM void func_02023b0c(char* arg0, char* arg1) {
+    if (arg1 == NULL) return;
+    if (strcmp(arg1, arg0 + 2) == 0) {
+        ((unsigned char*)arg0)[0x12] = 0;
     } else {
-        ((unsigned char*)a)[0x12] = 1;
+        ((unsigned char*)arg0)[0x12] = 1;
     }
-    if (((unsigned char*)a)[0x12] != 0) {
-        a[kDirtyAOffset] = 0;
-        a[kDirtyBOffset] = 0;
+    if (((unsigned char*)arg0)[0x12] != 0) {
+        arg0[Enum_02023b0c_1913] = 0;
+        arg0[Enum_02023b0c_2490] = 0;
     }
-    strcpy(a + 2, b);
+    strcpy(arg0 + 2, arg1);
 }

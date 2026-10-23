@@ -1,74 +1,74 @@
 #include <globaldefs.h>
 
-struct SequenceParameters020be828 {
-    unsigned short bankNo;
-    unsigned char volume;
-    unsigned char channelPrio;
-    unsigned char playerPrio;
-    unsigned char playerNo;
-    unsigned short reserved;
+struct Struct_020be828_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned short unknown_6_;
 };
 
-struct ArchiveSequenceInfo020be828 {
-    unsigned long fileId;
-    SequenceParameters020be828 param;
+struct Struct_020be828 {
+    unsigned long unknown_0_;
+    Struct_020be828_2 unknown_4_;
 };
 
-struct SoundSequence020be828 {
-    char header[0x18];
-    unsigned long baseOffset;
+struct Struct_020be828_3 {
+    char unknown_0_[0x18];
+    unsigned long unknown_18_;
 };
 
-struct SlotObj020bc454;
-struct Node020bc5bc;
-struct Obj020bc4f8;
-struct Outer020bc16c;
-struct Obj020bc1ac;
-struct Holder;
+struct Struct_020bc454;
+struct Struct_020bc5bc;
+struct Struct_020bc4f8_3;
+struct Struct_020bc16c_2;
+struct Struct_020bc1ac;
+struct Struct_020bc1ec;
 
-extern "C" Node020bc5bc* func_020bc454(SlotObj020bc454* handle, int playerNo, int prio);
-extern "C" void* func_020bc5bc(int playerNo, Node020bc5bc* player);
-extern "C" int func_020bded0(int bankNo, unsigned long loadFlag, void* heap, int setAddress, void** data);
-extern "C" int func_020bddec(int seqNo, unsigned long loadFlag, void* heap, int setAddress,
-                             SoundSequence020be828** data);
-extern "C" void func_020bc4ec(void* player);
-extern "C" void func_020bc4f8(Obj020bc4f8* player, int seqBase, int seqOffset, int bank);
-extern "C" void func_020bc16c(Outer020bc16c* handle, unsigned char volume);
-extern "C" void func_020bc1ac(Obj020bc1ac* handle, int prio);
-extern "C" void func_020bc1ec(Holder* handle, int seqNo);
+extern "C" Struct_020bc5bc* func_020bc454(Struct_020bc454* arg0, int arg1, int arg2);
+extern "C" void* func_020bc5bc(int arg0, Struct_020bc5bc* arg1);
+extern "C" int func_020bded0(int arg0, unsigned long arg1, void* arg2, int arg3, void** arg4);
+extern "C" int func_020bddec(int arg0, unsigned long arg1, void* arg2, int arg3,
+                             Struct_020be828_3** arg4);
+extern "C" void func_020bc4ec(void* arg0);
+extern "C" void func_020bc4f8(Struct_020bc4f8_3* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_020bc16c(Struct_020bc16c_2* arg0, unsigned char arg1);
+extern "C" void func_020bc1ac(Struct_020bc1ac* arg0, int arg1);
+extern "C" void func_020bc1ec(Struct_020bc1ec* arg0, int arg1);
 
 // USA: func_020be828
-extern "C" ARM int func_020be828(void* handle, int playerNo, int bankNo, int playerPrio,
-                                 const ArchiveSequenceInfo020be828* info, int seqNo) {
-    Node020bc5bc* player;
-    void* heap;
-    SoundSequence020be828* seq;
-    void* bank;
-    int result;
+extern "C" ARM int func_020be828(void* arg0, int arg1, int arg2, int arg3,
+                                 const Struct_020be828* arg4, int arg5) {
+    Struct_020bc5bc* var0;
+    void* var1;
+    Struct_020be828_3* var2;
+    void* var3;
+    int var4;
 
-    player = func_020bc454((SlotObj020bc454*)handle, playerNo, playerPrio);
-    if (player == NULL)
+    var0 = func_020bc454((Struct_020bc454*)arg0, arg1, arg3);
+    if (var0 == NULL)
         return 0;
 
-    heap = func_020bc5bc(playerNo, player);
+    var1 = func_020bc5bc(arg1, var0);
 
-    result = func_020bded0(bankNo, 6, heap, 0, &bank);
-    if (result != 0) {
-        func_020bc4ec(player);
-        return 0;
-    }
-
-    result = func_020bddec(seqNo, 1, heap, 0, &seq);
-    if (result != 0) {
-        func_020bc4ec(player);
+    var4 = func_020bded0(arg2, 6, var1, 0, &var3);
+    if (var4 != 0) {
+        func_020bc4ec(var0);
         return 0;
     }
 
-    func_020bc4f8((Obj020bc4f8*)player, (int)((unsigned char*)seq + seq->baseOffset), 0,
-                                    (int)bank);
+    var4 = func_020bddec(arg5, 1, var1, 0, &var2);
+    if (var4 != 0) {
+        func_020bc4ec(var0);
+        return 0;
+    }
 
-    func_020bc16c((Outer020bc16c*)handle, info->param.volume);
-    func_020bc1ac((Obj020bc1ac*)handle, info->param.channelPrio);
-    func_020bc1ec((Holder*)handle, seqNo);
+    func_020bc4f8((Struct_020bc4f8_3*)var0, (int)((unsigned char*)var2 + var2->unknown_18_), 0,
+                                    (int)var3);
+
+    func_020bc16c((Struct_020bc16c_2*)arg0, arg4->unknown_4_.unknown_2_);
+    func_020bc1ac((Struct_020bc1ac*)arg0, arg4->unknown_4_.unknown_3_);
+    func_020bc1ec((Struct_020bc1ec*)arg0, arg5);
     return 1;
 }

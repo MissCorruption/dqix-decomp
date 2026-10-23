@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct List0207f0ac;
+struct Struct_0207f0ac;
 
-struct StatusEntry02081164 {
-    char pad[0x15];
-    unsigned char flags;
+struct Struct_02081164_2 {
+    char unknown_0_[0x15];
+    unsigned char unknown_15_;
 };
 
-extern "C" struct StatusEntry02081164* func_0207f0ac(struct List0207f0ac* list, int id);
+extern "C" struct Struct_02081164_2* func_0207f0ac(struct Struct_0207f0ac* arg0, int arg1);
 
-struct StatusOwner02081164 {
-    char pad[0xc];
+struct Struct_02081164 {
+    char unknown_0_[0xc];
 };
 
 // USA: func_02081164
-extern "C" ARM void func_02081164(struct StatusOwner02081164* owner, int id, int enable) {
-    struct StatusEntry02081164* e = func_0207f0ac((struct List0207f0ac*)((char*)owner + 0xc), id);
-    if (e == NULL) {
+extern "C" ARM void func_02081164(struct Struct_02081164* arg0, int arg1, int arg2) {
+    struct Struct_02081164_2* var0 = func_0207f0ac((struct Struct_0207f0ac*)((char*)arg0 + 0xc), arg1);
+    if (var0 == NULL) {
         return;
     }
-    if (enable) {
-        e->flags |= 0x2;
+    if (arg2) {
+        var0->unknown_15_ |= 0x2;
     } else {
-        e->flags &= ~0x2;
+        var0->unknown_15_ &= ~0x2;
     }
 }

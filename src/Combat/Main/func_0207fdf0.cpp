@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kEntriesOffset = 0x24 };
+enum { Enum_0207fdf0_48 = 0x24 };
 #else
-enum { kEntriesOffset = 0x30 };
+enum { Enum_0207fdf0_48 = 0x30 };
 #endif
 
 extern "C" void func_0204c804(void*);
 
-struct Elem0207fdf0 { char pad[0xc4]; unsigned char key; char pad2[0x1b]; };
+struct Struct_0207fdf0 { char unknown_0_[0xc4]; unsigned char unknown_c4_; char unknown_c5_[0x1b]; };
 
-struct Cont0207fdf0 {
-    char pad0[kEntriesOffset];
-    Elem0207fdf0* elems;
-    char pad34[0x39 - 0x34];
-    unsigned char count39;
+struct Struct_0207fdf0_2 {
+    char unknown_0_[Enum_0207fdf0_48];
+    Struct_0207fdf0* unknown_30_;
+    char unknown_34_[0x39 - 0x34];
+    unsigned char unknown_39_;
 };
 
 // USA: func_0207fdf0
-extern "C" ARM void func_0207fdf0(Cont0207fdf0* obj, int key) {
-    unsigned char count;
-    unsigned char i;
-    if (obj->elems == NULL) return;
-    count = obj->count39;
-    for (i = 0; i < count; i++) {
-        if (key != obj->elems[i].key) {
-            func_0204c804((void*)(&obj->elems[i]));
+extern "C" ARM void func_0207fdf0(Struct_0207fdf0_2* arg0, int arg1) {
+    unsigned char var0;
+    unsigned char var1;
+    if (arg0->unknown_30_ == NULL) return;
+    var0 = arg0->unknown_39_;
+    for (var1 = 0; var1 < var0; var1++) {
+        if (arg1 != arg0->unknown_30_[var1].unknown_c4_) {
+            func_0204c804((void*)(&arg0->unknown_30_[var1]));
         }
     }
 }

@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct MotionState02154d18 {
-    char pad0[8];
-    int base8;
-    char pad2[4];
-    int base10;
-    char pad3[4];
-    int f18;
-    int f1c;
+struct Struct_ov005_02154d18 {
+    char unknown_0_[8];
+    int unknown_8_;
+    char unknown_c_[4];
+    int unknown_10_;
+    char unknown_14_[4];
+    int unknown_18_;
+    int unknown_1c_;
 };
 
 // USA: func_ov005_02154d18
-extern "C" ARM void func_ov005_02154d18(MotionState02154d18* obj, int a, int b) {
-    obj->f18 = a + obj->base8;
-    obj->f1c = b + obj->base10;
+extern "C" ARM void func_ov005_02154d18(Struct_ov005_02154d18* arg0, int arg1, int arg2) {
+    arg0->unknown_18_ = arg1 + arg0->unknown_8_;
+    arg0->unknown_1c_ = arg2 + arg0->unknown_10_;
 }

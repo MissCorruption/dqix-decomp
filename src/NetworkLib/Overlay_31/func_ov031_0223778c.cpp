@@ -2,107 +2,107 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/Memory.h"
 
-struct PeerGameInfo3778c {
-    unsigned short magicNumber;
-    unsigned char ver;
-    unsigned char platform;
-    unsigned long ggid;
-    unsigned short tgid;
-    unsigned char userGameInfoLength;
+struct Struct_02001aec {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned long unknown_4_;
+    unsigned short unknown_8_;
+    unsigned char unknown_a_;
     union {
-        unsigned char gameNameCount_attribute;
-        unsigned char attribute;
+        unsigned char unknown_b_;
+        unsigned char unknown1_b_;
     };
-    unsigned short parentMaxSize;
-    unsigned short childMaxSize;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
     union {
-        unsigned short userGameInfo[56];
+        unsigned short unknown_10_[56];
         struct {
-            unsigned short userName[5];
-            unsigned short gameName[7];
-            unsigned short padd1[44];
-        } old_type;
+            unsigned short unknown_0_[5];
+            unsigned short unknown_a_[7];
+            unsigned short unknown_18_[44];
+        } unknown1_10_;
     };
 };
-struct Peer3778c {
-    unsigned short length;
-    unsigned short rssi;
-    unsigned char bssid[6];
-    unsigned short ssidLength;
-    unsigned char ssid[32];
-    unsigned short capaInfo;
+struct Struct_ov031_0223778c_4 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_[6];
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[32];
+    unsigned short unknown_2c_;
     struct {
-        unsigned short basic;
-        unsigned short support;
-    } rateSet;
-    unsigned short beaconPeriod;
-    unsigned short dtimPeriod;
-    unsigned short channel;
-    unsigned short cfpPeriod;
-    unsigned short cfpMaxDuration;
-    unsigned short gameInfoLength;
-    unsigned short otherElementCount;
-    PeerGameInfo3778c gameInfo;
+        unsigned short unknown_0_;
+        unsigned short unknown_2_;
+    } unknown_2e_;
+    unsigned short unknown_32_;
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
+    unsigned short unknown_38_;
+    unsigned short unknown_3a_;
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    Struct_02001aec unknown_40_;
 };
-struct PeerList3778c {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
-    unsigned short state;
-    unsigned short channelList;
-    unsigned char reserved[2];
-    unsigned short bssDescCount;
-    Peer3778c* bssDesc[16];
-    unsigned short linkLevel[16];
+struct Struct_ov031_0223778c {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[2];
+    unsigned short unknown_e_;
+    Struct_ov031_0223778c_4* unknown_10_[16];
+    unsigned short unknown_50_[16];
 };
 
-struct PeerSlot3778c { unsigned char name[6]; unsigned char active; };
-struct PeerState3778c { unsigned char padding[0x1300]; PeerSlot3778c slots[16]; void (*notify)(int); };
-extern PeerState3778c* data_ov031_02290d0c;
+struct Struct_ov031_0223778c_2 { unsigned char unknown_0_[6]; unsigned char unknown_6_; };
+struct Struct_ov031_0223778c_3 { unsigned char unknown_0_[0x1300]; Struct_ov031_0223778c_2 unknown_1300_[16]; void (*unknown_1370_)(int); };
+extern Struct_ov031_0223778c_3* data_ov031_02290d0c;
 extern unsigned char data_ov031_02249288[8];
 extern unsigned char data_ov031_02249280[6];
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 
 // USA: func_ov031_0223778c
-extern "C" ARM void func_ov031_0223778c(PeerList3778c* list) {
-    Peer3778c* peer;
-    int peerIndex;
-    peerIndex = 0;
-    if ((int)list->bssDescCount <= 0) return;
+extern "C" ARM void func_ov031_0223778c(Struct_ov031_0223778c* arg0) {
+    Struct_ov031_0223778c_4* var0;
+    int var1;
+    var1 = 0;
+    if ((int)arg0->unknown_e_ <= 0) return;
     do {
-        peer = list->bssDesc[peerIndex];
-        InvalidateDataCacheRange(peer, 0xc0);
-        if (func_02001aec(peer->ssid, data_ov031_02249288, 8) == 0) {
-            int existingIndex = 0;
-            PeerSlot3778c* existingSlot;
-            PeerSlot3778c* emptySlot;
-            PeerState3778c* const state = data_ov031_02290d0c;
-            existingSlot = state->slots;
+        var0 = arg0->unknown_10_[var1];
+        InvalidateDataCacheRange(var0, 0xc0);
+        if (func_02001aec(var0->unknown_c_, data_ov031_02249288, 8) == 0) {
+            int var2 = 0;
+            Struct_ov031_0223778c_2* var3;
+            Struct_ov031_0223778c_2* var4;
+            Struct_ov031_0223778c_3* const var5 = data_ov031_02290d0c;
+            var3 = var5->unknown_1300_;
             do {
-                if (func_02001aec(peer->bssid, existingSlot->name, 6) == 0) {
-                    if (state->slots[existingIndex].active == 0 && (peer->ssid[9] & 1) != 0) {
-                        if (state->notify) state->notify(1);
+                if (func_02001aec(var0->unknown_4_, var3->unknown_0_, 6) == 0) {
+                    if (var5->unknown_1300_[var2].unknown_6_ == 0 && (var0->unknown_c_[9] & 1) != 0) {
+                        if (var5->unknown_1370_) var5->unknown_1370_(1);
                         return;
                     }
                     goto nextPeer;
                 }
-                ++existingIndex;
-                ++existingSlot;
-            } while (existingIndex < 16);
-            emptySlot = state->slots;
-            int emptyIndex = 0;
+                ++var2;
+                ++var3;
+            } while (var2 < 16);
+            var4 = var5->unknown_1300_;
+            int var6 = 0;
             do {
-                if (func_02001aec(emptySlot->name, data_ov031_02249280, 6) == 0) {
-                    VectorizedInvertedMemcpy(peer->bssid, state->slots[emptyIndex].name, 6);
-                    data_ov031_02290d0c->slots[emptyIndex].active = (peer->ssid[9] & 1) != 0;
+                if (func_02001aec(var4->unknown_0_, data_ov031_02249280, 6) == 0) {
+                    VectorizedInvertedMemcpy(var0->unknown_4_, var5->unknown_1300_[var6].unknown_0_, 6);
+                    data_ov031_02290d0c->unknown_1300_[var6].unknown_6_ = (var0->unknown_c_[9] & 1) != 0;
                     break;
                 }
-                ++emptyIndex;
-                ++emptySlot;
-            } while (emptyIndex < 16);
+                ++var6;
+                ++var4;
+            } while (var6 < 16);
         }
     nextPeer:
-        ++peerIndex;
-    } while (peerIndex < list->bssDescCount);
+        ++var1;
+    } while (var1 < arg0->unknown_e_);
 }

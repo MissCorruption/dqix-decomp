@@ -2,57 +2,57 @@
 #include "GameState/GameState.h"
 
 
-struct Container0205a3d0;
-struct Container0205a330;
-extern "C" void func_0205a42c(struct Container0205a3d0* c, int key, int val);
-extern "C" void func_0205a370(struct Container0205a3d0* c, int key);
-extern "C" void func_0205a330(struct Container0205a330* c, int arg);
-extern "C" void func_0205ae8c(void* p);
+struct Struct_0205a254;
+struct Struct_0205a330;
+extern "C" void func_0205a42c(struct Struct_0205a254* arg0, int arg1, int arg2);
+extern "C" void func_0205a370(struct Struct_0205a254* arg0, int arg1);
+extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
+extern "C" void func_0205ae8c(void* arg0);
 
-struct Elem0205a3d0_021ecf78 {
-    char pad0[4];
-    unsigned short field4;
-    unsigned short field6;
-    char pad8[0x15 - 8];
-    unsigned char flags15;
+struct Struct_ov023_021ecf78 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    char unknown_8_[0x15 - 8];
+    unsigned char unknown_15_;
 };
-extern "C" struct Elem0205a3d0_021ecf78* func_0205a3d0(struct Container0205a3d0* c, int key);
+extern "C" struct Struct_ov023_021ecf78* func_0205a3d0(struct Struct_0205a254* arg0, int arg1);
 
-struct Obj021ecf78 {
-    char pad0[0x424];
-    void* f424;
-    char pad428[0x42c - 0x428];
-    struct Container0205a3d0* container;
-    char pad430[0x438 - 0x430];
-    unsigned short f438;
-    char pad43a[0x448 - 0x43a];
-    short f448;
+struct Struct_ov023_021ecf78_2 {
+    char unknown_0_[0x424];
+    void* unknown_424_;
+    char unknown_428_[0x42c - 0x428];
+    struct Struct_0205a254* unknown_42c_;
+    char unknown_430_[0x438 - 0x430];
+    unsigned short unknown_438_;
+    char unknown_43a_[0x448 - 0x43a];
+    short unknown_448_;
 };
 
 // USA: func_ov023_021ecf78
-extern "C" ARM void func_ov023_021ecf78(struct Obj021ecf78* obj) {
-    if ((obj->f438 & 0x80) == 0) {
+extern "C" ARM void func_ov023_021ecf78(struct Struct_ov023_021ecf78_2* arg0) {
+    if ((arg0->unknown_438_ & 0x80) == 0) {
         return;
     }
 
-    GameState* battleStruct = GameState::GetInstance();
-    func_0205a42c(obj->container, 0, 0x40);
-    func_0205a370(obj->container, 0);
+    GameState* var0 = GameState::GetInstance();
+    func_0205a42c(arg0->unknown_42c_, 0, 0x40);
+    func_0205a370(arg0->unknown_42c_, 0);
 
-    struct Elem0205a3d0_021ecf78* entry = func_0205a3d0(obj->container, 0);
-    if (entry != NULL) {
-        entry->flags15 |= 8;
+    struct Struct_ov023_021ecf78* var1 = func_0205a3d0(arg0->unknown_42c_, 0);
+    if (var1 != NULL) {
+        var1->unknown_15_ |= 8;
     }
 
-    unsigned int scaleCount = battleStruct->GetTickCount();
-    func_0205a330((struct Container0205a330*)obj->container, scaleCount);
+    unsigned int var2 = var0->GetTickCount();
+    func_0205a330((struct Struct_0205a330*)arg0->unknown_42c_, var2);
 
-    short pos = obj->f448;
-    struct Elem0205a3d0_021ecf78* entry2 = func_0205a3d0(obj->container, 0);
-    if (entry2 != NULL) {
-        entry2->field4 = pos;
-        entry2->field6 = 0x24;
+    short var3 = arg0->unknown_448_;
+    struct Struct_ov023_021ecf78* var4 = func_0205a3d0(arg0->unknown_42c_, 0);
+    if (var4 != NULL) {
+        var4->unknown_4_ = var3;
+        var4->unknown_6_ = 0x24;
     }
 
-    func_0205ae8c(obj->f424);
+    func_0205ae8c(arg0->unknown_424_);
 }

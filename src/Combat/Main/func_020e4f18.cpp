@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-struct Packed020e4f18 { unsigned int field_0x0_0:6, field_0x0_6:6, field_0x0_12:6, field_0x0_18:6, field_0x0_24:2, field_0x0_26:1, field_0x0_27:1, field_0x0_28:1, pad:2, flag:1; };
-struct Description020e4f18 { char* name; char* text; Packed020e4f18 bits; };
+struct Struct_020e4f18_2 { unsigned int unknown_0_0_:6, unknown_0_6_:6, unknown_1_4_:6, unknown_2_2_:6, unknown_3_0_:2, unknown_3_2_:1, unknown_3_3_:1, unknown_3_4_:1, unknown_3_5_:2, unknown_3_7_:1; };
+struct Struct_020e4f18 { char* unknown_0_; char* unknown_4_; Struct_020e4f18_2 unknown_8_; };
 // USA: func_020e4f18
-extern "C" ARM void func_020e4f18(Description020e4f18* src, Description020e4f18* dest, int flags) {
-    if (!src || !dest) return;
-    if (flags & 1) {
-        char* text = dest->text;
-        sprintf(dest->name, src->name);
-        sprintf(text, src->text);
+extern "C" ARM void func_020e4f18(Struct_020e4f18* arg0, Struct_020e4f18* arg1, int arg2) {
+    if (!arg0 || !arg1) return;
+    if (arg2 & 1) {
+        char* var0 = arg1->unknown_4_;
+        sprintf(arg1->unknown_0_, arg0->unknown_0_);
+        sprintf(var0, arg0->unknown_4_);
     }
-    if (flags & 2) {
-        dest->bits.field_0x0_0 = src->bits.field_0x0_0;
-        dest->bits.field_0x0_6 = src->bits.field_0x0_6;
-        dest->bits.field_0x0_12 = src->bits.field_0x0_12;
-        dest->bits.field_0x0_18 = src->bits.field_0x0_18;
+    if (arg2 & 2) {
+        arg1->unknown_8_.unknown_0_0_ = arg0->unknown_8_.unknown_0_0_;
+        arg1->unknown_8_.unknown_0_6_ = arg0->unknown_8_.unknown_0_6_;
+        arg1->unknown_8_.unknown_1_4_ = arg0->unknown_8_.unknown_1_4_;
+        arg1->unknown_8_.unknown_2_2_ = arg0->unknown_8_.unknown_2_2_;
     }
-    dest->bits.field_0x0_24 = src->bits.field_0x0_24;
-    dest->bits.field_0x0_26 = src->bits.field_0x0_26;
-    dest->bits.field_0x0_27 = src->bits.field_0x0_27;
-    dest->bits.field_0x0_28 = src->bits.field_0x0_28;
-    dest->bits.flag = src->bits.flag;
+    arg1->unknown_8_.unknown_3_0_ = arg0->unknown_8_.unknown_3_0_;
+    arg1->unknown_8_.unknown_3_2_ = arg0->unknown_8_.unknown_3_2_;
+    arg1->unknown_8_.unknown_3_3_ = arg0->unknown_8_.unknown_3_3_;
+    arg1->unknown_8_.unknown_3_4_ = arg0->unknown_8_.unknown_3_4_;
+    arg1->unknown_8_.unknown_3_7_ = arg0->unknown_8_.unknown_3_7_;
 }

@@ -3,13 +3,13 @@
 
 struct Struct_020f1f14
 {
-    unsigned int freeStart_;
-    unsigned int freeEnd_;
-    unsigned int maybeIsUsable_;
-    char unk_c[4];
-    unsigned short relatedToPairing_;
-    char unk_12[2];
-    unsigned int poolBase_;
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    char unknown_c_[4];
+    unsigned short unknown_10_;
+    char unknown_12_[2];
+    unsigned int unknown_14_;
 } extern data_020f1f14[5];
 
 extern Struct_020f1f14* data_020f1ef8[2];
@@ -20,177 +20,177 @@ extern Struct_020f1f14* data_020f1f00[5];
 
 struct Struct_0210cf88
 {
-    unsigned int freeStart_;
-    unsigned int freeEnd_;
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
 } extern data_0210cf88;
 
 #pragma optimize_for_size off
 
 // I wasn't able to get this to match, so the file isn't delinked yet
-extern "C" unsigned int MaybeAllocateTextureImageVRAM(unsigned int amount, bool paired, unsigned int defaultOffset)
+extern "C" unsigned int inline_020f1f14_2(unsigned int arg0, bool arg1, unsigned int arg2)
 {
-    unsigned int chosenOffset = defaultOffset;
-    unsigned int alignedSize = amount + 0xf;
-    if (amount == 0)
-        alignedSize = 0x10;
+    unsigned int var0 = arg2;
+    unsigned int var1 = arg0 + 0xf;
+    if (arg0 == 0)
+        var1 = 0x10;
     else
-        alignedSize = (amount + 0xf) & ~0xf;
+        var1 = (arg0 + 0xf) & ~0xf;
 
-    if (alignedSize >= 0x7fff0)
+    if (var1 >= 0x7fff0)
         return 0;
 
-    bool success;
-    if (paired)
+    bool var2;
+    if (arg1)
     {
-        int pass = 0;
+        int var3 = 0;
         do
         {
-            unsigned int start;
-            Struct_020f1f14* secondaryPool;
-            Struct_020f1f14* primaryPool;
+            unsigned int var4;
+            Struct_020f1f14* var5;
+            Struct_020f1f14* var6;
             
-            primaryPool = data_020f1ef8[pass];
+            var6 = data_020f1ef8[var3];
             
-            if (primaryPool->maybeIsUsable_ == 0)
+            if (var6->unknown_8_ == 0)
                 continue;
                 
-            start = primaryPool->freeStart_;
-            if (primaryPool->freeEnd_ - start < alignedSize)
+            var4 = var6->unknown_0_;
+            if (var6->unknown_4_ - var4 < var1)
                 continue;
             
-            switch (primaryPool->relatedToPairing_)
+            switch (var6->unknown_10_)
             {
             case 0:
-                secondaryPool = &data_020f1f14[1];
+                var5 = &data_020f1f14[1];
                 break;
             case 3:
-                secondaryPool = &data_020f1f14[2];
+                var5 = &data_020f1f14[2];
                 break;
             default:
-                secondaryPool = NULL;
+                var5 = NULL;
                 break;
             }
-            if (secondaryPool->maybeIsUsable_ == 0)
+            if (var5->unknown_8_ == 0)
                 continue;
-            if (secondaryPool->freeEnd_ - secondaryPool->freeStart_ >= (alignedSize >> 1))
+            if (var5->unknown_4_ - var5->unknown_0_ >= (var1 >> 1))
             {
-                primaryPool->freeStart_ += alignedSize;
-                success = true;
-                secondaryPool->freeStart_ += (alignedSize >> 1);
-                chosenOffset = start + primaryPool->poolBase_;
+                var6->unknown_0_ += var1;
+                var2 = true;
+                var5->unknown_0_ += (var1 >> 1);
+                var0 = var4 + var6->unknown_14_;
                 goto end;
             }
-        } while (pass++, pass < 2);
-        success = false;
+        } while (var3++, var3 < 2);
+        var2 = false;
     }
     else
     {
-        int pass = 0;
+        int var7 = 0;
         do
         {
-            Struct_020f1f14* pool;
-            pool = data_020f1f00[pass];
-            if (pool->maybeIsUsable_ == 0)
+            Struct_020f1f14* var8;
+            var8 = data_020f1f00[var7];
+            if (var8->unknown_8_ == 0)
                 continue;
-            if (pool->freeEnd_ - pool->freeStart_ >= alignedSize)
+            if (var8->unknown_4_ - var8->unknown_0_ >= var1)
             {
-                success = true;
-                pool->freeEnd_ = (volatile unsigned int&)pool->freeEnd_ - alignedSize;
-                chosenOffset = pool->freeEnd_ + pool->poolBase_;
+                var2 = true;
+                var8->unknown_4_ = (volatile unsigned int&)var8->unknown_4_ - var1;
+                var0 = var8->unknown_4_ + var8->unknown_14_;
                 goto end;
             }
-        } while (pass++, pass < 5);
-        success = false;
+        } while (var7++, var7 < 5);
+        var2 = false;
     }
 
 end:
-    if (!success)
+    if (!var2)
         return 0;
 
-    return ((alignedSize >> 4) << 16) | ((chosenOffset << 13) >> 16) | (paired << 31);
+    return ((var1 >> 4) << 16) | ((var0 << 13) >> 16) | (arg1 << 31);
 }
 
 // What a horrible, horrible way to write a function
-unsigned int MaybeAllocateTexturePaletteVRAM(unsigned int amount, bool eightByteAlign, bool unknown)
+unsigned int inline_020f1f14(unsigned int arg0, bool arg1, bool arg2)
 {  
-    unsigned int chosenPosition = 0;
-    unsigned int frontPadding;
-    unsigned int alignedSize;
-    unsigned int totalSpaceNeeded;
+    unsigned int var0 = 0;
+    unsigned int var1;
+    unsigned int var2;
+    unsigned int var3;
 
-    if (amount == 0)
-        alignedSize = 8;
+    if (arg0 == 0)
+        var2 = 8;
     else
-        alignedSize = (amount + 7) & ~7;
+        var2 = (arg0 + 7) & ~7;
 
     // this is 512k, which is better suited as a bound for texture image VRAM
     // but I guess it's general purpose
-    if (alignedSize >= 0x7fff8)
+    if (var2 >= 0x7fff8)
         return 0;
 
-    bool success;
+    bool var4;
     
-    if (unknown == true)
+    if (arg2 == true)
     {
-        unsigned int start = data_0210cf88.freeStart_;
-        if (eightByteAlign)
-            frontPadding = (8 - (start & 7)) & 7;
+        unsigned int var5 = data_0210cf88.unknown_0_;
+        if (arg1)
+            var1 = (8 - (var5 & 7)) & 7;
         else
-            frontPadding = (16 - (start & 15)) & 15;
+            var1 = (16 - (var5 & 15)) & 15;
         
-        totalSpaceNeeded = alignedSize + frontPadding;
-        unsigned newFreeStart;
-        if (data_0210cf88.freeEnd_ - start < totalSpaceNeeded)
+        var3 = var2 + var1;
+        unsigned var6;
+        if (data_0210cf88.unknown_4_ - var5 < var3)
             goto lab_a4;
-        newFreeStart = start + totalSpaceNeeded;
-        if (!eightByteAlign)
+        var6 = var5 + var3;
+        if (!arg1)
             goto lab_88;
-        if (newFreeStart > 0x10000)
+        if (var6 > 0x10000)
         {
-            success = false;
+            var4 = false;
             goto end;
         }
     lab_88:
-        success = true;
-        chosenPosition = data_0210cf88.freeStart_ + frontPadding;
-        data_0210cf88.freeStart_ += totalSpaceNeeded;
+        var4 = true;
+        var0 = data_0210cf88.unknown_0_ + var1;
+        data_0210cf88.unknown_0_ += var3;
         goto end;
     lab_a4:
-        success = false;
+        var4 = false;
     }
     else
     {
-        if (data_0210cf88.freeEnd_ >= alignedSize)
+        if (data_0210cf88.unknown_4_ >= var2)
         {
-            if (!eightByteAlign)
-                frontPadding = (data_0210cf88.freeEnd_ - alignedSize) & 15;
+            if (!arg1)
+                var1 = (data_0210cf88.unknown_4_ - var2) & 15;
             else
-                frontPadding = (data_0210cf88.freeEnd_ - alignedSize) & 7;
+                var1 = (data_0210cf88.unknown_4_ - var2) & 7;
 
-            int totalSpaceUsed = alignedSize + frontPadding;
+            int var7 = var2 + var1;
 
-            if (data_0210cf88.freeEnd_ - data_0210cf88.freeStart_ >= alignedSize + frontPadding)
+            if (data_0210cf88.unknown_4_ - data_0210cf88.unknown_0_ >= var2 + var1)
             {
-                if (eightByteAlign && data_0210cf88.freeEnd_ > 0x10000)
+                if (arg1 && data_0210cf88.unknown_4_ > 0x10000)
                 {
-                    success = false;
+                    var4 = false;
                     goto end;
                 }
                 else
                 {
-                    success = true;
-                    chosenPosition = *(volatile unsigned int*)&data_0210cf88.freeEnd_ - totalSpaceUsed;
-                    data_0210cf88.freeEnd_ = chosenPosition;
+                    var4 = true;
+                    var0 = *(volatile unsigned int*)&data_0210cf88.unknown_4_ - var7;
+                    data_0210cf88.unknown_4_ = var0;
                     goto end;
                 }
             }
         }
-        success = false;
+        var4 = false;
     }
 end:
-    if (!success)
+    if (!var4)
         return 0;
 
-    int mask = (alignedSize >> 3) << 16 | ((chosenPosition << 13) >> 16);
-    return mask;
+    int var8 = (var2 >> 3) << 16 | ((var0 << 13) >> 16);
+    return var8;
 }

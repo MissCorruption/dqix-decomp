@@ -4,80 +4,80 @@
 
 extern int data_020e7a94[];
 extern "C" int func_020424e4(int, int);
-extern "C" FontCharacter* func_020425b4(int index, int fontIndex);
-extern "C" int func_020425e4(int previousCharacter, int characterIndex, int fontIndex);
+extern "C" Struct_020420e8* func_020425b4(int arg0, int arg1);
+extern "C" int func_020425e4(int arg0, int arg1, int arg2);
 
 #if defined(jpn)
 
 // USA: func_020420e8
-extern "C" ARM void func_02028ce4(const char* text, int* widthOut, int* heightOut) {
-    if (text == 0) return;
-    int glyphAdvance = 10;
-    int lineHeight = 11;
-    int displayMode = data_020ef74c.displayMode;
+extern "C" ARM void func_02028ce4(const char* arg0, int* arg1, int* arg2) {
+    if (arg0 == 0) return;
+    int var0 = 10;
+    int var1 = 11;
+    int var2 = data_020ef74c.unknown_c_;
 
-    if ((unsigned int)(displayMode - 3) <= 1) {
-    } else if ((unsigned int)(displayMode - 5) <= 1) {
-        glyphAdvance = 12;
-        lineHeight = 13;
+    if ((unsigned int)(var2 - 3) <= 1) {
+    } else if ((unsigned int)(var2 - 5) <= 1) {
+        var0 = 12;
+        var1 = 13;
     }
-    int lineWidth;
-    int widestLine = 0;
-    lineWidth = 0;
-    int height = lineHeight;
-    unsigned char glyphCount = 0;
-    const unsigned char* cursor = (const unsigned char*)text;
-    while (*cursor != 0 && glyphCount < 25) {
-        unsigned int leadByte = *cursor;
-        if (leadByte == 10) {
+    int var3;
+    int var4 = 0;
+    var3 = 0;
+    int var5 = var1;
+    unsigned char var6 = 0;
+    const unsigned char* var7 = (const unsigned char*)arg0;
+    while (*var7 != 0 && var6 < 25) {
+        unsigned int var8 = *var7;
+        if (var8 == 10) {
 
-            if (widestLine < lineWidth) {
-                widestLine = lineWidth;
-                lineWidth = 0;
+            if (var4 < var3) {
+                var4 = var3;
+                var3 = 0;
             }
-            height += lineHeight;
-            cursor++;
-        } else if ((leadByte >= 0x81 && leadByte <= 0x9f) || (leadByte >= 0xe0 && leadByte <= 0xea)) {
-            lineWidth += glyphAdvance;
-            cursor += 2;
-            glyphCount++;
+            var5 += var1;
+            var7++;
+        } else if ((var8 >= 0x81 && var8 <= 0x9f) || (var8 >= 0xe0 && var8 <= 0xea)) {
+            var3 += var0;
+            var7 += 2;
+            var6++;
         } else {
-            lineWidth += glyphAdvance;
-            cursor++;
-            glyphCount++;
+            var3 += var0;
+            var7++;
+            var6++;
         }
     }
-    if (widestLine < lineWidth) widestLine = lineWidth;
-    *widthOut = widestLine;
-    *heightOut = height;
+    if (var4 < var3) var4 = var3;
+    *arg1 = var4;
+    *arg2 = var5;
 }
 #else
 
 // USA: func_020420e8
-extern "C" ARM int func_020420e8(char* text, int fontIndex) {
-    if (text == 0) return 0;
-    int fallbackGlyphWidth = data_020e7a94[fontIndex] & 0xff;
-    int noPreviousCharacter = 0xff;
-    int previousCharacter = noPreviousCharacter;
-    int characterIndex;
-    int pixelWidth = 0;
+extern "C" ARM int func_020420e8(char* arg0, int arg1) {
+    if (arg0 == 0) return 0;
+    int var0 = data_020e7a94[arg1] & 0xff;
+    int var1 = 0xff;
+    int var2 = var1;
+    int var3;
+    int var4 = 0;
     for (;;) {
-        if (*text == 0) break;
-        int advance = fallbackGlyphWidth + 1;
-        int index = func_020424e4((int)text, fontIndex);
-        if (index < 0) {
-            previousCharacter = noPreviousCharacter;
-            text++;
+        if (*arg0 == 0) break;
+        int var5 = var0 + 1;
+        int var6 = func_020424e4((int)arg0, arg1);
+        if (var6 < 0) {
+            var2 = var1;
+            arg0++;
         } else {
-            characterIndex = index & 0xff;
-            FontCharacter* entry = func_020425b4(index, fontIndex);
-            int kerning = func_020425e4(previousCharacter, characterIndex, fontIndex);
-            previousCharacter = characterIndex;
-            advance = (entry->width + 1) + kerning;
-            text = text + entry->byteLength;
+            var3 = var6 & 0xff;
+            Struct_020420e8* var7 = func_020425b4(var6, arg1);
+            int var8 = func_020425e4(var2, var3, arg1);
+            var2 = var3;
+            var5 = (var7->unknown_4_ + 1) + var8;
+            arg0 = arg0 + var7->unknown_5_0_;
         }
-        pixelWidth += advance;
+        var4 += var5;
     }
-    return pixelWidth - 1;
+    return var4 - 1;
 }
 #endif

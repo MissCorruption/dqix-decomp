@@ -2,151 +2,151 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct TableA68;
-struct UnkStruct0205c508;
-struct StoreStruct;
-struct ProfileNavigation {
-    int count;
-    int pages;
-    int columns;
-    int rows;
-    int mode;
-    int page;
+struct Struct_02072a68_2;
+struct Struct_0205c508;
+struct Struct_020465c0;
+struct Struct_ov012_02189af4 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
 };
 
-struct ProfileWindowNavigation {
-    unsigned char unknown[0x54];
-    ProfileNavigation navigation;
-    ProfileNavigation* GetNavigation() { return &navigation; }
+struct Struct_ov012_02189af4_2 {
+    unsigned char unknown_0_[0x54];
+    Struct_ov012_02189af4 unknown_54_;
+    Struct_ov012_02189af4* inline_ov012_02189af4_3() { return &unknown_54_; }
 };
 
 extern "C" void func_02041c08(char*, int, int, int, int, int);
 extern "C" int func_02041ea4(char*, int);
 extern "C" void* func_020421a0();
-extern "C" void func_0205c508(UnkStruct0205c508*, int*, int*);
+extern "C" void func_0205c508(Struct_0205c508*, int*, int*);
 extern "C" int func_02042058(char*, const char*);
-extern "C" const char* func_02072a68(TableA68*, int);
+extern "C" const char* func_02072a68(Struct_02072a68_2*, int);
 extern "C" int func_02041b70(char*, int, const char*);
 extern "C" int func_02041a28(char*, int);
 extern "C" void func_02046380(void*);
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern "C" void func_02042428(char*, int);
 extern "C" void func_0202ae18();
 
-extern "C" ARM void func_ov012_02189af4(char* editor, char* text, int hidden) {
-    if (!text) return;
-    int selection = *(int*)(editor + 0x1434) & 15;
-    if (hidden)
-        func_02041c08(text, selection, 8, 5, 5, 5);
-    func_02041ea4(text, selection);
-    void* messages = func_020421a0();
-    int i;
-    int end;
-    int right;
-    ProfileNavigation* navigation = ((ProfileWindowNavigation*)(editor + 0x90))->GetNavigation();
-    int page = navigation->page;
-    int pages = navigation->pages;
-    int first, last;
-    func_0205c508((UnkStruct0205c508*)navigation, &first, &last);
-    end = first + (last + 1 - first) / 2;
-    for (i = first; i < end; ++i) {
-        if (i != first)
-            func_02042058(text, *(const char**)(editor + 0x1348));
-        func_02041b70(text, i & 15, func_02072a68((TableA68*)(editor + 0x1314), (short)(i + 0x2774)));
-        right = i + (last + 1 - first) / 2;
-        if (right < 47) {
-            func_02041a28(text, 0x56);
-            func_02041b70(text, right & 15, func_02072a68((TableA68*)(editor + 0x1314), (short)(right + 0x2774)));
+extern "C" ARM void func_ov012_02189af4(char* arg0, char* arg1, int arg2) {
+    if (!arg1) return;
+    int var0 = *(int*)(arg0 + 0x1434) & 15;
+    if (arg2)
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
+    func_02041ea4(arg1, var0);
+    void* var1 = func_020421a0();
+    int var2;
+    int var3;
+    int var4;
+    Struct_ov012_02189af4* var5 = ((Struct_ov012_02189af4_2*)(arg0 + 0x90))->inline_ov012_02189af4_3();
+    int var6 = var5->unknown_14_;
+    int var7 = var5->unknown_4_;
+    int var8, var9;
+    func_0205c508((Struct_0205c508*)var5, &var8, &var9);
+    var3 = var8 + (var9 + 1 - var8) / 2;
+    for (var2 = var8; var2 < var3; ++var2) {
+        if (var2 != var8)
+            func_02042058(arg1, *(const char**)(arg0 + 0x1348));
+        func_02041b70(arg1, var2 & 15, func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var2 + 0x2774)));
+        var4 = var2 + (var9 + 1 - var8) / 2;
+        if (var4 < 47) {
+            func_02041a28(arg1, 0x56);
+            func_02041b70(arg1, var4 & 15, func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var4 + 0x2774)));
         }
     }
-    func_02046380(messages);
-    func_020465c0((StoreStruct*)messages, 0, page + 1);
-    func_020465c0((StoreStruct*)messages, 1, pages);
-    func_020465f0((unsigned char*)messages, 0, 2);
-    func_020465f0((unsigned char*)messages, 1, 2);
-    func_020465d8((unsigned char*)messages, 0, 1);
-    func_020465d8((unsigned char*)messages, 1, 0);
-    func_02042428(text, 8);
-    func_02042058(text, func_02072a68((TableA68*)(editor + 0x1314), 0x6a));
+    func_02046380(var1);
+    func_020465c0((Struct_020465c0*)var1, 0, var6 + 1);
+    func_020465c0((Struct_020465c0*)var1, 1, var7);
+    func_020465f0((unsigned char*)var1, 0, 2);
+    func_020465f0((unsigned char*)var1, 1, 2);
+    func_020465d8((unsigned char*)var1, 0, 1);
+    func_020465d8((unsigned char*)var1, 1, 0);
+    func_02042428(arg1, 8);
+    func_02042058(arg1, func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), 0x6a));
 }
 
 #else
 #include <globaldefs.h>
 
-struct UnkStruct0205c508;
-struct TableA68;
+struct Struct_0205c508;
+struct Struct_02072a68_2;
 
-struct Cursor02189af4
+struct Struct_ov012_02189af4_3
 {
-    int unk_0;
-    int unk_4;
-    int words_[6];
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_[6];
 };
 
-struct Window02189af4
+struct Struct_01ff91ac_14
 {
-    char unk_0[0x54];
-    Cursor02189af4 cursor_;
-    char unk_74[0x1290 - 0x74];
+    char unknown_0_[0x54];
+    Struct_ov012_02189af4_3 unknown_54_;
+    char unknown_74_[0x1290 - 0x74];
 
-    Cursor02189af4* GetCursor() { return &cursor_; }
+    Struct_ov012_02189af4_3* inline_ov012_02189af4() { return &unknown_54_; }
 };
 
-struct ProfileEditor02189af4
+struct Struct_ov012_02189af4_4
 {
-    char unk_0[0xac];
-    Window02189af4 window_;
-    char strings_[0x1378 - 0x133c];
-    const char* unk_1378;
-    char unk_137c[0x13d8 - 0x137c];
-    int selections_[6];
+    char unknown_0_[0xac];
+    Struct_01ff91ac_14 unknown_ac_;
+    char unknown_133c_[0x1378 - 0x133c];
+    const char* unknown_1378_;
+    char unknown_137c_[0x13d8 - 0x137c];
+    int unknown_13d8_[6];
 
-    Window02189af4* GetWindow() { return &window_; }
+    Struct_01ff91ac_14* inline_ov012_02189af4_2() { return &unknown_ac_; }
 };
 
-extern "C" void func_02041c08(char* text, int a, int b, int c, int d, int e);
-extern "C" void func_02041ea4(char* text, int a);
+extern "C" void func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_02041ea4(char* arg0, int arg1);
 extern "C" void* func_020421a0();
-extern "C" void func_0205c508(UnkStruct0205c508* cursor, int* first, int* last);
-extern "C" void func_02042058(char* text, const char* append);
-extern "C" const char* func_02072a68(TableA68* texts, int id);
-extern "C" void func_02041b70(char* text, int item, const char* itemText);
-extern "C" void func_02041a28(char* text, int x);
-extern "C" void func_ov012_021842a0(ProfileEditor02189af4* self, int canvas, int color, int shadow);
+extern "C" void func_0205c508(Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" void func_02041a28(char* arg0, int arg1);
+extern "C" void func_ov012_021842a0(Struct_ov012_02189af4_4* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov012_02189af4
-extern "C" ARM void func_ov012_02189af4(ProfileEditor02189af4* self, char* text, int hidden)
+extern "C" ARM void func_ov012_02189af4(Struct_ov012_02189af4_4* arg0, char* arg1, int arg2)
 {
-    if (text == 0)
+    if (arg1 == 0)
         return;
 
-    int selection = self->selections_[1] & 0xf;
-    if (hidden)
-        func_02041c08(text, selection, 8, 5, 5, 5);
-    func_02041ea4(text, selection);
+    int var10 = arg0->unknown_13d8_[1] & 0xf;
+    if (arg2)
+        func_02041c08(arg1, var10, 8, 5, 5, 5);
+    func_02041ea4(arg1, var10);
     func_020421a0();
-    Cursor02189af4* cursor = self->GetWindow()->GetCursor();
-    int shadow = cursor->words_[3];
-    int color = cursor->unk_4;
-    int first;
-    int last;
-    func_0205c508((UnkStruct0205c508*)cursor, &first, &last);
-    int end = first + (last + 1 - first) / 2;
-    for (int i = first; i < end; i++)
+    Struct_ov012_02189af4_3* var11 = arg0->inline_ov012_02189af4_2()->inline_ov012_02189af4();
+    int var12 = var11->unknown_8_[3];
+    int var13 = var11->unknown_4_;
+    int var14;
+    int var15;
+    func_0205c508((Struct_0205c508*)var11, &var14, &var15);
+    int var16 = var14 + (var15 + 1 - var14) / 2;
+    for (int var17 = var14; var17 < var16; var17++)
     {
-        if (i != first)
-            func_02042058(text, self->unk_1378);
-        func_02041b70(text, i & 0xf, func_02072a68((TableA68*)self->strings_, (short)(i + 0x2846)));
-        int right = i + (last + 1 - first) / 2;
-        if (right < 0xc0)
+        if (var17 != var14)
+            func_02042058(arg1, arg0->unknown_1378_);
+        func_02041b70(arg1, var17 & 0xf, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, (short)(var17 + 0x2846)));
+        int var18 = var17 + (var15 + 1 - var14) / 2;
+        if (var18 < 0xc0)
         {
-            func_02041a28(text, 0x56);
-            func_02041b70(text, right & 0xf, func_02072a68((TableA68*)self->strings_, (short)(right + 0x2846)));
+            func_02041a28(arg1, 0x56);
+            func_02041b70(arg1, var18 & 0xf, func_02072a68((Struct_02072a68_2*)arg0->unknown_133c_, (short)(var18 + 0x2846)));
         }
     }
-    func_ov012_021842a0(self, 3, shadow, color);
+    func_ov012_021842a0(arg0, 3, var12, var13);
 }
 
 #endif

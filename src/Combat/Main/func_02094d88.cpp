@@ -6,115 +6,115 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Variant02030b0c {
-    int tag;
+struct Struct_0201c1c8 {
+    int unknown_0_;
     union {
-        int i;
-        float f;
-    } u;
+        int unknown_0_;
+        float unknown1_0_;
+    } unknown_4_;
 };
 
 extern "C" void* func_0205ec34(void);
 
-struct PackedNibbleArray0206e120 {
-    unsigned char pad[0x2CC];
-    unsigned char bits[1];
+struct Struct_0205faf4_3 {
+    unsigned char unknown_0_[0x2CC];
+    unsigned char unknown_2cc_[1];
 };
-extern "C" int func_0206e120(struct PackedNibbleArray0206e120* obj, int index);
+extern "C" int func_0206e120(struct Struct_0205faf4_3* arg0, int arg1);
 
-extern "C" void func_0205ec70(SafeAllocator* alloc, int limit, struct Variant02030b0c* arr, void* dst8, void* dstc);
+extern "C" void func_0205ec70(SafeAllocator* arg0, int arg1, struct Struct_0201c1c8* arg2, void* arg3, void* arg4);
 
-struct Owner020958fc { unsigned char pad[0xa0]; void* slot; };
-struct Node020958fc {
-    unsigned short f0;
-    unsigned short bits2 : 9;
-    unsigned short bit9  : 1;
-    unsigned short bit10 : 1;
-    unsigned short bit11 : 1;
-    unsigned short bit12 : 1;
-    unsigned short bit13 : 1;
-    unsigned short pad2  : 2;
-    unsigned int   bits4a : 8;
-    unsigned int   bits4b : 6;
-    unsigned int   bits4c : 5;
-    unsigned int   pad4   : 13;
-    int f8;
-    void* link;
+struct Struct_02109418 { unsigned char unknown_0_[0xa0]; void* unknown_a0_; };
+struct Struct_02094d88 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 9;
+    unsigned short unknown_3_1_  : 1;
+    unsigned short unknown_3_2_ : 1;
+    unsigned short unknown_3_3_ : 1;
+    unsigned short unknown_3_4_ : 1;
+    unsigned short unknown_3_5_ : 1;
+    unsigned short unknown_3_6_  : 2;
+    unsigned int   unknown_4_0_ : 8;
+    unsigned int   unknown_5_0_ : 6;
+    unsigned int   unknown_5_6_ : 5;
+    unsigned int   unknown_6_3_   : 13;
+    int unknown_8_;
+    void* unknown_c_;
 };
-extern "C" void func_020958fc(struct Owner020958fc* owner, struct Node020958fc* node);
+extern "C" void func_020958fc(struct Struct_02109418* arg0, struct Struct_02094d88* arg1);
 
-struct Manager02109404 {
-    unsigned char f0;
-    unsigned char pad1[2];
-    unsigned char f3;
-    unsigned char f4;
-    unsigned char pad5[3];
-    unsigned short f8;
-    unsigned char pad10[2];
-    SafeAllocator* alloc;
+struct Struct_02109404_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[2];
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_[3];
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[2];
+    SafeAllocator* unknown_c_;
 };
-extern Manager02109404 data_02109404;
-extern Owner020958fc data_02109418;
+extern Struct_02109404_2 data_02109404;
+extern Struct_02109418 data_02109418;
 
 // USA: func_02094d88
-extern "C" ARM int func_02094d88(struct Variant02030b0c* arr, int b) {
-    int p0 = ((Script::Parameter*)&arr[0])->ToInt();
-    int p1 = ((Script::Parameter*)&arr[1])->ToInt();
-    if (p1 == data_02109404.f8) {
+extern "C" ARM int func_02094d88(struct Struct_0201c1c8* arg0, int arg1) {
+    int var0 = ((Script::Parameter*)&arg0[0])->ToInt();
+    int var1 = ((Script::Parameter*)&arg0[1])->ToInt();
+    if (var1 == data_02109404.unknown_8_) {
         goto tail;
     }
-    if (data_02109404.f8 < 0xC3B5) {
+    if (data_02109404.unknown_8_ < 0xC3B5) {
         goto early;
     }
-    if (data_02109404.f8 > 0xC3B5 + 0x130) {
+    if (data_02109404.unknown_8_ > 0xC3B5 + 0x130) {
         goto early;
     }
-    if (p1 == 0xC3B5) {
+    if (var1 == 0xC3B5) {
         goto tail;
     }
     return 0;
 early:
     return 1;
 tail:
-    int p2 = ((Script::Parameter*)&arr[2])->ToInt();
-    int p3 = ((Script::Parameter*)&arr[3])->ToInt();
-    int p4 = ((Script::Parameter*)&arr[4])->ToInt();
-    if (p3 * 100 + p4 > data_02109404.f3 * 100 + data_02109404.f4) {
+    int var2 = ((Script::Parameter*)&arg0[2])->ToInt();
+    int var3 = ((Script::Parameter*)&arg0[3])->ToInt();
+    int var4 = ((Script::Parameter*)&arg0[4])->ToInt();
+    if (var3 * 100 + var4 > data_02109404.unknown_3_ * 100 + data_02109404.unknown_4_) {
         return 0;
     }
-    int p5 = ((Script::Parameter*)&arr[5])->ToInt();
-    void* nibbles = func_0205ec34();
-    int p6 = ((Script::Parameter*)&arr[6])->ToInt();
-    if (p6 >= 0) {
-        int ok = (func_0206e120((struct PackedNibbleArray0206e120*)nibbles, p6) == 3);
-        if (ok == 0) {
+    int var5 = ((Script::Parameter*)&arg0[5])->ToInt();
+    void* var6 = func_0205ec34();
+    int var7 = ((Script::Parameter*)&arg0[6])->ToInt();
+    if (var7 >= 0) {
+        int var8 = (func_0206e120((struct Struct_0205faf4_3*)var6, var7) == 3);
+        if (var8 == 0) {
             return 0;
         }
     }
 
-    struct Node020958fc* node = (struct Node020958fc*)data_02109404.alloc->Allocate(0x10);
-    node->f0 = p1;
-    node->bits2 = p0;
-    node->bits4a = p2;
-    node->bits4b = p3;
-    node->bits4c = p4;
-    node->bit9 = p5;
+    struct Struct_02094d88* var9 = (struct Struct_02094d88*)data_02109404.unknown_c_->Allocate(0x10);
+    var9->unknown_0_ = var1;
+    var9->unknown_2_0_ = var0;
+    var9->unknown_4_0_ = var2;
+    var9->unknown_5_0_ = var3;
+    var9->unknown_5_6_ = var4;
+    var9->unknown_3_1_ = var5;
 
-    int p7 = ((Script::Parameter*)&arr[7])->ToInt();
-    node->bit11 = p7;
-    int p8 = ((Script::Parameter*)&arr[8])->ToInt();
-    node->bit10 = p8;
-    int p9 = ((Script::Parameter*)&arr[9])->ToInt();
-    node->bit12 = p9;
-    int p10 = ((Script::Parameter*)&arr[10])->ToInt();
-    node->bit13 = p10;
+    int var10 = ((Script::Parameter*)&arg0[7])->ToInt();
+    var9->unknown_3_3_ = var10;
+    int var11 = ((Script::Parameter*)&arg0[8])->ToInt();
+    var9->unknown_3_2_ = var11;
+    int var12 = ((Script::Parameter*)&arg0[9])->ToInt();
+    var9->unknown_3_4_ = var12;
+    int var13 = ((Script::Parameter*)&arg0[10])->ToInt();
+    var9->unknown_3_5_ = var13;
 
-    node->f8 = 0;
-    node->link = 0;
+    var9->unknown_8_ = 0;
+    var9->unknown_c_ = 0;
 
-    int local8 = 0;
-    func_0205ec70(data_02109404.alloc, b - 0xb, &arr[11], &node->f8, &local8);
+    int var14 = 0;
+    func_0205ec70(data_02109404.unknown_c_, arg1 - 0xb, &arg0[11], &var9->unknown_8_, &var14);
 
-    func_020958fc(&data_02109418, node);
+    func_020958fc(&data_02109418, var9);
     return 1;
 }

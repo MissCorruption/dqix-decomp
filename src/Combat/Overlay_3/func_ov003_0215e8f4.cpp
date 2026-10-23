@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-struct ByteArray_0215e8f4 {
-    char pad[8];
-    unsigned char* data;
-    char pad2[2];
-    short count;
+struct Struct_ov003_0215e8f4_2 {
+    char unknown_0_[8];
+    unsigned char* unknown_8_;
+    char unknown_c_[2];
+    short unknown_e_;
 };
 
-struct Self0215e8f4 {
-    char pad0[4];
-    struct ByteArray_0215e8f4* arr;
-    char pad4[0x1e - 8];
-    unsigned char mask;
+struct Struct_ov003_0215e8f4 {
+    char unknown_0_[4];
+    struct Struct_ov003_0215e8f4_2* unknown_4_;
+    char unknown_8_[0x1e - 8];
+    unsigned char unknown_1e_;
 };
 
 // USA: func_ov003_0215e8f4
-extern "C" ARM void* func_ov003_0215e8f4(struct Self0215e8f4* self) {
-    struct ByteArray_0215e8f4* arr = self->arr;
-    unsigned char mask = self->mask;
-    unsigned char* p = arr->data;
-    int count = arr->count;
-    int i;
-    for (i = 0; i < count; i++, p += 8) {
-        if (*p & mask) {
-            return p;
+extern "C" ARM void* func_ov003_0215e8f4(struct Struct_ov003_0215e8f4* arg0) {
+    struct Struct_ov003_0215e8f4_2* var0 = arg0->unknown_4_;
+    unsigned char var1 = arg0->unknown_1e_;
+    unsigned char* var2 = var0->unknown_8_;
+    int var3 = var0->unknown_e_;
+    int var4;
+    for (var4 = 0; var4 < var3; var4++, var2 += 8) {
+        if (*var2 & var1) {
+            return var2;
         }
     }
     return NULL;

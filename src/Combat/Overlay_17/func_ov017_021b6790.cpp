@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct ByteHeader0204693c;
-extern "C" void func_0204693c(ByteHeader0204693c* p);
+struct Struct_0204693c;
+extern "C" void func_0204693c(Struct_0204693c* arg0);
 
-struct Obj021b6790 {
-	unsigned char byte0;
-	char pad1[0x8 - 0x1];
-	SafeAllocator allocator;
-	char pad2[0x1c - 0x8 - sizeof(SafeAllocator)];
-	unsigned char b1c;
-	unsigned char b1d;
-	unsigned char b1e;
-	unsigned char b1f;
-	unsigned char b20;
-	char pad3[0x24 - 0x21];
-	int f24;
+struct Struct_ov017_021b65e0 {
+	unsigned char unknown_0_;
+	char unknown_1_[0x8 - 0x1];
+	SafeAllocator unknown_8_;
+	char unknown_1c_[0x1c - 0x8 - sizeof(SafeAllocator)];
+	unsigned char unknown1_1c_;
+	unsigned char unknown_1d_;
+	unsigned char unknown_1e_;
+	unsigned char unknown_1f_;
+	unsigned char unknown_20_;
+	char unknown_21_[0x24 - 0x21];
+	int unknown_24_;
 };
 
 // USA: func_ov017_021b6790
-extern "C" ARM void func_ov017_021b6790(Obj021b6790* self) {
-	func_0204693c((ByteHeader0204693c*)self);
-	self->byte0 = 0x17;
-	self->f24 = 0;
-	self->b1f = 0;
-	self->b1c = 0;
-	self->allocator.ResetAllocatorPointer();
-	self->b1d = 0;
-	self->b1e = 0xff;
-	self->b20 = self->b1e - 0x100;
+extern "C" ARM void func_ov017_021b6790(Struct_ov017_021b65e0* arg0) {
+	func_0204693c((Struct_0204693c*)arg0);
+	arg0->unknown_0_ = 0x17;
+	arg0->unknown_24_ = 0;
+	arg0->unknown_1f_ = 0;
+	arg0->unknown1_1c_ = 0;
+	arg0->unknown_8_.ResetAllocatorPointer();
+	arg0->unknown_1d_ = 0;
+	arg0->unknown_1e_ = 0xff;
+	arg0->unknown_20_ = arg0->unknown_1e_ - 0x100;
 }

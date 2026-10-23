@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 extern "C" void func_02027910(void*, int, int, int, int);
 
-struct Global020fdc4c_f5a8 {
-    int pad0;
-    int pad4;
-    void* field8;
+struct Struct_020fdc4c_4 {
+    int unknown_0_;
+    int unknown_4_;
+    void* unknown_8_;
 
 #if !defined(jpn)
-    int padc;
+    int unknown_c_;
 #endif
-    void* field10;
+    void* unknown_10_;
 };
-extern struct Global020fdc4c_f5a8 data_020fdc4c;
+extern struct Struct_020fdc4c_4 data_020fdc4c;
 
-struct Vec4Variant0201f5a8 {
-    struct Variant02030b0c v0;
-    struct Variant02030b0c v1;
-    struct Variant02030b0c v2;
-    struct Variant02030b0c v3;
+struct Struct_0201f5a8 {
+    struct Struct_0201c1c8 unknown_0_;
+    struct Struct_0201c1c8 unknown_8_;
+    struct Struct_0201c1c8 unknown_10_;
+    struct Struct_0201c1c8 unknown_18_;
 };
 
 // USA: func_0201f5a8
-extern "C" ARM int func_0201f5a8(struct Vec4Variant0201f5a8* arg0) {
-    int a = ((Script::Parameter*)&arg0->v0)->ToInt();
-    int b = ((Script::Parameter*)&arg0->v1)->ToInt();
-    int c = ((Script::Parameter*)&arg0->v2)->ToInt();
-    int d = ((Script::Parameter*)&arg0->v3)->ToInt();
-    func_02027910((void*)data_020fdc4c.field10, a, b, c, d);
+extern "C" ARM int func_0201f5a8(struct Struct_0201f5a8* arg0) {
+    int var0 = ((Script::Parameter*)&arg0->unknown_0_)->ToInt();
+    int var1 = ((Script::Parameter*)&arg0->unknown_8_)->ToInt();
+    int var2 = ((Script::Parameter*)&arg0->unknown_10_)->ToInt();
+    int var3 = ((Script::Parameter*)&arg0->unknown_18_)->ToInt();
+    func_02027910((void*)data_020fdc4c.unknown_10_, var0, var1, var2, var3);
     return 1;
 }

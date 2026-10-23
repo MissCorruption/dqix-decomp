@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kWorkFlagBase = 0x7000, kWorkFlagOffset = 0x1c5 };
+enum { Enum_ov025_021e7214_24576 = 0x7000, Enum_ov025_021e7214_4053 = 0x1c5 };
 #else
-enum { kWorkFlagBase = 0x6000, kWorkFlagOffset = 0xfd5 };
+enum { Enum_ov025_021e7214_24576 = 0x6000, Enum_ov025_021e7214_4053 = 0xfd5 };
 #endif
 
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
 
 extern "C" void* func_ov000_02160130(void);
-extern "C" void func_0202e874(unsigned char* obj, short val);
+extern "C" void func_0202e874(unsigned char* arg0, short arg1);
 
-struct Param021e7214 { char pad[8]; short field8; };
+struct Struct_ov025_021e7214 { char unknown_0_[8]; short unknown_8_; };
 
 // USA: func_ov025_021e7214
-extern "C" ARM int func_ov025_021e7214(struct Param021e7214* p) {
-    void* w = func_ov000_02160130();
-    if (w != 0) {
-        *(unsigned char*)((char*)w + kWorkFlagBase + kWorkFlagOffset) = 1;
+extern "C" ARM int func_ov025_021e7214(struct Struct_ov025_021e7214* arg0) {
+    void* var0 = func_ov000_02160130();
+    if (var0 != 0) {
+        *(unsigned char*)((char*)var0 + Enum_ov025_021e7214_24576 + Enum_ov025_021e7214_4053) = 1;
     }
-    GameState* bs = GameState::GetInstance();
-    unsigned char* f = (unsigned char*)func_020100bc(bs);
-    func_0202e874(f, p->field8);
+    GameState* var1 = GameState::GetInstance();
+    unsigned char* var2 = (unsigned char*)func_020100bc(var1);
+    func_0202e874(var2, arg0->unknown_8_);
     return 1;
 }

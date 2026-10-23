@@ -1,37 +1,37 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* arg0);
 unsigned long long GetCurrentTimestamp(void);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* p);
-extern "C" void func_ov017_02191aac(char* obj, int mode, int idx, unsigned char mask);
+extern "C" int func_0202c540(void* arg0);
+extern "C" void func_ov017_02191aac(char* arg0, int arg1, int arg2, unsigned char arg3);
 
-struct Src021ce054 {
-    unsigned char pad0[4];
-    unsigned short field4;
-    short field6;
-    unsigned short field8;
+struct Struct_ov017_021ce054 {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
+    short unknown_6_;
+    unsigned short unknown_8_;
 };
 
 // USA: func_ov017_021ce054
-extern "C" ARM void func_ov017_021ce054(int checkVal, struct Src021ce054* src, GameState* battleStruct, char* obj) {
-    int inRange = (checkVal >= 0) && (checkVal <= 3);
-    if (!inRange) return;
-    GameObject* c = func_0200ff1c(battleStruct, src->field8);
-    if (!c) return;
-    unsigned char* p = (unsigned char*)func_02053c6c((unsigned char*)c);
-    void* g = func_0202ae18();
-    if (src->field4 != 1) return;
-    if (src->field6 > 0) {
-        func_ov017_02191aac(obj, 1, c->obj3D_.unknown_4_, 2);
-        p[0x56c] = 1;
-        if (func_0202c540(g)) return;
-        unsigned long long ts = GetCurrentTimestamp();
-        *(unsigned int*)(p + 0x480) = (unsigned int)ts;
-        *(unsigned int*)(p + 0x484) = (unsigned int)(ts >> 32);
+extern "C" ARM void func_ov017_021ce054(int arg0, struct Struct_ov017_021ce054* arg1, GameState* arg2, char* arg3) {
+    int var0 = (arg0 >= 0) && (arg0 <= 3);
+    if (!var0) return;
+    GameObject* var1 = func_0200ff1c(arg2, arg1->unknown_8_);
+    if (!var1) return;
+    unsigned char* var2 = (unsigned char*)func_02053c6c((unsigned char*)var1);
+    void* var3 = func_0202ae18();
+    if (arg1->unknown_4_ != 1) return;
+    if (arg1->unknown_6_ > 0) {
+        func_ov017_02191aac(arg3, 1, var1->obj3D_.unknown_4_, 2);
+        var2[0x56c] = 1;
+        if (func_0202c540(var3)) return;
+        unsigned long long var4 = GetCurrentTimestamp();
+        *(unsigned int*)(var2 + 0x480) = (unsigned int)var4;
+        *(unsigned int*)(var2 + 0x484) = (unsigned int)(var4 >> 32);
     } else {
-        p[0x56c] = 0;
-        func_ov017_02191aac(obj, 0, c->obj3D_.unknown_4_, 2);
+        var2[0x56c] = 0;
+        func_ov017_02191aac(arg3, 0, var1->obj3D_.unknown_4_, 2);
     }
 }

@@ -1,58 +1,58 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct InitStruct02075cdcStruct;
-extern "C" void func_02075cdc(struct InitStruct02075cdcStruct* s);
+struct Struct_02075cdc;
+extern "C" void func_02075cdc(struct Struct_02075cdc* arg0);
 
-struct Obj021dbfd0 {
-    SafeAllocator allocator0;                  // 0x00
-    SafeAllocator allocator1;                  // 0x14
-    SafeAllocator allocator2;                  // 0x28
-    SafeAllocator* pAlloc0;                    // 0x3c
-    SafeAllocator* pAlloc1;                    // 0x40
-    SafeAllocator* pAlloc2;                    // 0x44
-    unsigned char pad48[0xc4 - 0x48];
-    struct InitStruct02075cdcStruct* ptrC4;    // 0xc4
-    struct InitStruct02075cdcStruct* ptrC8;    // 0xc8
+struct Struct_ov023_021dbfd0 {
+    SafeAllocator unknown_0_;                  // 0x00
+    SafeAllocator unknown_14_;                  // 0x14
+    SafeAllocator unknown_28_;                  // 0x28
+    SafeAllocator* unknown_3c_;                    // 0x3c
+    SafeAllocator* unknown_40_;                    // 0x40
+    SafeAllocator* unknown_44_;                    // 0x44
+    unsigned char unknown_48_[0xc4 - 0x48];
+    struct Struct_02075cdc* unknown_c4_;    // 0xc4
+    struct Struct_02075cdc* unknown_c8_;    // 0xc8
 };
 
-struct Struct02075cdcFields_021dbfd0 {
-    unsigned char pad0[0x38];
-    int f38;
-    int f3c;
-    unsigned char pad40[0x5e - 0x40];
-    unsigned char f5e;
+struct Struct_ov023_021dbfd0_2 {
+    unsigned char unknown_0_[0x38];
+    int unknown_38_;
+    int unknown_3c_;
+    unsigned char unknown_40_[0x5e - 0x40];
+    unsigned char unknown_5e_;
 };
 
 // USA: func_ov023_021dbfd0
-extern "C" ARM void func_ov023_021dbfd0(Obj021dbfd0* obj, SafeAllocator* alloc) {
+extern "C" ARM void func_ov023_021dbfd0(Struct_ov023_021dbfd0* arg0, SafeAllocator* arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x6f8};
+ enum {Enum_ov023_021dbfd0_1916=0x6f8};
 #else
- enum {regionalOffset0=0x77c};
+ enum {Enum_ov023_021dbfd0_1916=0x77c};
 #endif
-    if (alloc == NULL) return;
+    if (arg1 == NULL) return;
 
-    obj->allocator0.CreateTypeA(alloc->Allocate(0xd33), 0xd33);
-    obj->allocator1.CreateTypeA(alloc->Allocate(0x4cc), 0x4cc);
-    obj->allocator2.CreateTypeA(alloc->Allocate(0x400), 0x400);
+    arg0->unknown_0_.CreateTypeA(arg1->Allocate(0xd33), 0xd33);
+    arg0->unknown_14_.CreateTypeA(arg1->Allocate(0x4cc), 0x4cc);
+    arg0->unknown_28_.CreateTypeA(arg1->Allocate(0x400), 0x400);
 
-    obj->ptrC4 = (struct InitStruct02075cdcStruct*)alloc->Allocate(0x70);
-    obj->ptrC8 = (struct InitStruct02075cdcStruct*)alloc->Allocate(0x70);
-    obj->pAlloc0 = (SafeAllocator*)alloc->Allocate(0x14);
-    obj->pAlloc1 = (SafeAllocator*)alloc->Allocate(0x14);
-    obj->pAlloc2 = (SafeAllocator*)alloc->Allocate(0x14);
-    obj->pAlloc2->CreateTypeA(alloc->Allocate(0x180), 0x180);
+    arg0->unknown_c4_ = (struct Struct_02075cdc*)arg1->Allocate(0x70);
+    arg0->unknown_c8_ = (struct Struct_02075cdc*)arg1->Allocate(0x70);
+    arg0->unknown_3c_ = (SafeAllocator*)arg1->Allocate(0x14);
+    arg0->unknown_40_ = (SafeAllocator*)arg1->Allocate(0x14);
+    arg0->unknown_44_ = (SafeAllocator*)arg1->Allocate(0x14);
+    arg0->unknown_44_->CreateTypeA(arg1->Allocate(0x180), 0x180);
 
-    func_02075cdc(obj->ptrC4);
-    func_02075cdc(obj->ptrC8);
+    func_02075cdc(arg0->unknown_c4_);
+    func_02075cdc(arg0->unknown_c8_);
 
-    ((Struct02075cdcFields_021dbfd0*)obj->ptrC4)->f5e = *(signed char*)((char*)obj + regionalOffset0);
-    ((Struct02075cdcFields_021dbfd0*)obj->ptrC4)->f3c = 0;
-    ((Struct02075cdcFields_021dbfd0*)obj->ptrC8)->f5e = *(signed char*)((char*)obj + regionalOffset0);
-    ((Struct02075cdcFields_021dbfd0*)obj->ptrC8)->f38 = 0x120;
-    ((Struct02075cdcFields_021dbfd0*)obj->ptrC8)->f3c = 1;
+    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c4_)->unknown_5e_ = *(signed char*)((char*)arg0 + Enum_ov023_021dbfd0_1916);
+    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c4_)->unknown_3c_ = 0;
+    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c8_)->unknown_5e_ = *(signed char*)((char*)arg0 + Enum_ov023_021dbfd0_1916);
+    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c8_)->unknown_38_ = 0x120;
+    ((Struct_ov023_021dbfd0_2*)arg0->unknown_c8_)->unknown_3c_ = 1;
 
-    obj->pAlloc0->CreateTypeA(alloc->Allocate(0x280), 0x280);
-    obj->pAlloc1->CreateTypeA(alloc->Allocate(0x280), 0x280);
+    arg0->unknown_3c_->CreateTypeA(arg1->Allocate(0x280), 0x280);
+    arg0->unknown_40_->CreateTypeA(arg1->Allocate(0x280), 0x280);
 }

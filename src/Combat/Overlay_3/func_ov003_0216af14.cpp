@@ -1,91 +1,91 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion12c0 = 0x1150 };
-enum { kRegion12c4 = 0x1154 };
-enum { kRegion12d4 = 0x1164 };
-enum { kRegion13ea = 0x127a };
+enum { Enum_ov003_0216af14_4800 = 0x1150 };
+enum { Enum_ov003_0216af14_4804 = 0x1154 };
+enum { Enum_ov003_0216af14_4820 = 0x1164 };
+enum { Enum_ov003_0216af14_5098 = 0x127a };
 #else
-enum { kRegion12c0 = 0x12c0 };
-enum { kRegion12c4 = 0x12c4 };
-enum { kRegion12d4 = 0x12d4 };
-enum { kRegion13ea = 0x13ea };
+enum { Enum_ov003_0216af14_4800 = 0x12c0 };
+enum { Enum_ov003_0216af14_4804 = 0x12c4 };
+enum { Enum_ov003_0216af14_4820 = 0x12d4 };
+enum { Enum_ov003_0216af14_5098 = 0x13ea };
 #endif
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-struct Scene_0216af14 {
-    unsigned char pad0[0x4];
-    short state;
-    unsigned char pad6[0x10 - 0x6];
-    int field_0x10;
-    unsigned char field_0x14[kRegion12c0 - 0x14];
-    void* field_0x12c0;
-    unsigned char pad12c4[kRegion12d4 - kRegion12c4];
-    SafeAllocator allocator;
-    unsigned char pad12d4[kRegion13ea - kRegion12d4 - sizeof(SafeAllocator)];
-    unsigned char field_0x13ea;
-    unsigned char pad13eb;
-    unsigned char flags;
+struct Struct_ov003_0216af14_2 {
+    unsigned char unknown_0_[0x4];
+    short unknown_4_;
+    unsigned char unknown_6_[0x10 - 0x6];
+    int unknown_10_;
+    unsigned char unknown_14_[Enum_ov003_0216af14_4800 - 0x14];
+    void* unknown_12c0_;
+    unsigned char unknown_12c4_[Enum_ov003_0216af14_4820 - Enum_ov003_0216af14_4804];
+    SafeAllocator unknown_12d4_;
+    unsigned char unknown_12e8_[Enum_ov003_0216af14_5098 - Enum_ov003_0216af14_4820 - sizeof(SafeAllocator)];
+    unsigned char unknown_13ea_;
+    unsigned char unknown_13eb_;
+    unsigned char unknown_13ec_;
 };
 
-struct Pair0216af14 { unsigned int a; unsigned int b; };
-extern struct Pair0216af14 data_020e6d5c;
+struct Struct_020e6d5c_16 { unsigned int unknown_0_; unsigned int unknown_4_; };
+extern struct Struct_020e6d5c_16 data_020e6d5c;
 
-struct DispatchEntry0216af14 { unsigned int fn; unsigned int locator; };
-struct Table0216af14 { struct DispatchEntry0216af14 entries[8]; };
-extern struct Table0216af14 data_ov003_0217f578;
+struct Struct_ov003_0216af14 { unsigned int unknown_0_; unsigned int unknown_4_; };
+struct Struct_ov003_0217f578 { struct Struct_ov003_0216af14 unknown_0_[8]; };
+extern struct Struct_ov003_0217f578 data_ov003_0217f578;
 
 extern AllocatorUnion data_02114e20;
 
-extern "C" int func_ov003_0215c924(void* p, int scale);
-extern "C" void func_ov003_0215c800(void* p);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
-extern "C" void func_ov003_0216d818(char* obj);
-extern "C" void func_ov003_0216d84c(void* p);
-extern "C" int func_0205d0e0(void* p, unsigned int tick);
+extern "C" int func_ov003_0215c924(void* arg0, int arg1);
+extern "C" void func_ov003_0215c800(void* arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
+extern "C" void func_ov003_0216d818(char* arg0);
+extern "C" void func_ov003_0216d84c(void* arg0);
+extern "C" int func_0205d0e0(void* arg0, unsigned int arg1);
 
 // USA: func_ov003_0216af14
-extern "C" ARM int func_ov003_0216af14(Scene_0216af14* scene) {
-    GameState* gs = GameState::GetInstance();
-    if (scene->flags & 2) {
-        if (scene->state == 3) {
-            if (func_ov003_0215c924(scene->field_0x14, 1) != 1) return 1;
-            func_ov003_0215c800(scene->field_0x14);
-            void* p = scene->allocator.GetSignedAllocator();
-            if (p != 0) {
-                scene->allocator.Destroy();
-                func_02012da4(&data_02114e20, p);
+extern "C" ARM int func_ov003_0216af14(Struct_ov003_0216af14_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    if (arg0->unknown_13ec_ & 2) {
+        if (arg0->unknown_4_ == 3) {
+            if (func_ov003_0215c924(arg0->unknown_14_, 1) != 1) return 1;
+            func_ov003_0215c800(arg0->unknown_14_);
+            void* var1 = arg0->unknown_12d4_.GetSignedAllocator();
+            if (var1 != 0) {
+                arg0->unknown_12d4_.Destroy();
+                func_02012da4(&data_02114e20, var1);
             }
         }
-        func_ov003_0216d818((char*)scene);
+        func_ov003_0216d818((char*)arg0);
         return 0;
     }
-    if (scene->field_0x13ea != 0) {
-        func_ov003_0216d84c(scene);
-        if (scene->flags & 1) return 1;
+    if (arg0->unknown_13ea_ != 0) {
+        func_ov003_0216d84c(arg0);
+        if (arg0->unknown_13ec_ & 1) return 1;
     }
-    unsigned int tick = gs->GetTickCount();
-    if (scene->field_0x12c0 != 0 && scene->state == 2) {
-        scene->field_0x10 = func_0205d0e0(scene->field_0x12c0, tick);
+    unsigned int var2 = var0->GetTickCount();
+    if (arg0->unknown_12c0_ != 0 && arg0->unknown_4_ == 2) {
+        arg0->unknown_10_ = func_0205d0e0(arg0->unknown_12c0_, var2);
     }
 
-    struct Table0216af14 buf;
-    buf = data_ov003_0217f578;
-    unsigned int locator = data_020e6d5c.b;
-    unsigned int fn = data_020e6d5c.a;
-    buf.entries[7].locator = locator;
-    buf.entries[7].fn = fn;
+    struct Struct_ov003_0217f578 var3;
+    var3 = data_ov003_0217f578;
+    unsigned int var4 = data_020e6d5c.unknown_4_;
+    unsigned int var5 = data_020e6d5c.unknown_0_;
+    var3.unknown_0_[7].unknown_4_ = var4;
+    var3.unknown_0_[7].unknown_0_ = var5;
 
-    if (buf.entries[scene->state].fn == 0) return 0;
-    struct DispatchEntry0216af14* d = &buf.entries[scene->state];
-    void* base = (char*)scene + ((int)d->locator >> 1);
-    void* callback;
-    if (d->locator & 1) {
-        callback = *(void**)((char*)*(void**)base + d->fn);
+    if (var3.unknown_0_[arg0->unknown_4_].unknown_0_ == 0) return 0;
+    struct Struct_ov003_0216af14* var6 = &var3.unknown_0_[arg0->unknown_4_];
+    void* var7 = (char*)arg0 + ((int)var6->unknown_4_ >> 1);
+    void* var8;
+    if (var6->unknown_4_ & 1) {
+        var8 = *(void**)((char*)*(void**)var7 + var6->unknown_0_);
     } else {
-        callback = (void*)d->fn;
+        var8 = (void*)var6->unknown_0_;
     }
-    ((void(*)(void*))callback)(base);
+    ((void(*)(void*))var8)(var7);
     return 1;
 }

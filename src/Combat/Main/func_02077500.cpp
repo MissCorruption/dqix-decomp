@@ -1,84 +1,84 @@
 #if defined(jpn)
-enum { RegionalOffset = 0x14 };
+enum { Enum_02077500_24 = 0x14 };
 #else
-enum { RegionalOffset = 0x18 };
+enum { Enum_02077500_24 = 0x18 };
 #endif
 
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Entry_02028bd0;
-struct List_020283c0;
-struct U16Field0x6_020375f8;
-struct Struct020372b8;
+struct Struct_020fdd44;
+struct Struct_0201a300_11;
+struct Struct_02039df4;
+struct Struct_02037d88_9;
 
-struct Vec3_02077500 {
-    int x;
-    int y;
-    int z;
+struct Struct_02077500 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct TableEntry_02077500 {
-    char pad0[4];
-    short x;
-    short y;
-    short z;
+struct Struct_02077500_2 {
+    char unknown_0_[4];
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
 };
 
-struct Actor_02077500 {
-    char pad0[2];
-    short f2;
-    short f4;
-    char pad6[0xa8];
-    short fae;
-    char padb0[2];
-    short fb2;
-    char padb4[0xa4];
-    Vec3_02077500 pos;
-    unsigned short entryId;
+struct Struct_02077500_3 {
+    char unknown_0_[2];
+    short unknown_2_;
+    short unknown_4_;
+    char unknown_6_[0xa8];
+    short unknown_ae_;
+    char unknown_b0_[2];
+    short unknown_b2_;
+    char unknown_b4_[0xa4];
+    Struct_02077500 unknown_158_;
+    unsigned short unknown_164_;
 };
 
-extern "C" Entry_02028bd0* func_02027ca4();
-extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* table, int id);
-extern "C" TableEntry_02077500* func_020283c0(List_020283c0* list, int id);
+extern "C" Struct_020fdd44* func_02027ca4();
+extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
+extern "C" Struct_02077500_2* func_020283c0(Struct_0201a300_11* arg0, int arg1);
 extern "C" void func_0202ae18();
 extern "C" int func_0202c508();
-extern "C" void func_ov017_021c927c(int a, int b, int c, Vec3_02077500 pos, int d, int e, int f);
+extern "C" void func_ov017_021c927c(int arg0, int arg1, int arg2, Struct_02077500 arg3, int arg4, int arg5, int arg6);
 
 // USA: func_02077500
-extern "C" ARM int func_02077500(Actor_02077500* obj) {
-    Entry_02028bd0* table = func_02027ca4();
-    if (table == 0) {
+extern "C" ARM int func_02077500(Struct_02077500_3* arg0) {
+    Struct_020fdd44* var0 = func_02027ca4();
+    if (var0 == 0) {
         return 0;
     }
-    Entry_02028bd0* entry = func_02028bd0(table, ((Object3D*)((U16Field0x6_020375f8*)obj))->GetField06());
-    if (entry == 0) {
+    Struct_020fdd44* var1 = func_02028bd0(var0, ((Object3D*)((Struct_02039df4*)arg0))->GetField06());
+    if (var1 == 0) {
         return 0;
     }
-    List_020283c0* list = (List_020283c0*)((char*)entry + RegionalOffset);
-    if (list == 0) {
+    Struct_0201a300_11* var2 = (Struct_0201a300_11*)((char*)var1 + Enum_02077500_24);
+    if (var2 == 0) {
         return 0;
     }
-    obj->fb2 = 0;
-    ((Object3D*)((Struct020372b8*)obj))->TransitionInheritedAlpha(0, 0xfa);
-    ((Object3D*)((unsigned char*)obj))->EnableFlag(0x80);
+    arg0->unknown_b2_ = 0;
+    ((Object3D*)((Struct_02037d88_9*)arg0))->TransitionInheritedAlpha(0, 0xfa);
+    ((Object3D*)((unsigned char*)arg0))->EnableFlag(0x80);
     func_0202ae18();
     if (func_0202c508() != 0) {
-        TableEntry_02077500* row = func_020283c0(list, obj->entryId);
-        if (row == 0) {
+        Struct_02077500_2* var3 = func_020283c0(var2, arg0->unknown_164_);
+        if (var3 == 0) {
             return 0;
         }
-        obj->pos.x = row->x << 0xc;
-        obj->pos.y = row->y << 0xc;
-        obj->pos.z = row->z << 0xc;
-        int id = ((Object3D*)((U16Field0x6_020375f8*)obj))->GetField06();
-        int wanted = obj->f4 - 0x70;
-        int heading = obj->f2;
-        Vec3_02077500* pos = &obj->pos;
-        int height = obj->fae;
-        int slot = wanted % 0xc;
-        if (slot >= 0 && slot < 0xc) {
-            func_ov017_021c927c(id, slot, heading, *pos, height, 3, -1);
+        arg0->unknown_158_.unknown_0_ = var3->unknown_4_ << 0xc;
+        arg0->unknown_158_.unknown_4_ = var3->unknown_6_ << 0xc;
+        arg0->unknown_158_.unknown_8_ = var3->unknown_8_ << 0xc;
+        int var4 = ((Object3D*)((Struct_02039df4*)arg0))->GetField06();
+        int var5 = arg0->unknown_4_ - 0x70;
+        int var6 = arg0->unknown_2_;
+        Struct_02077500* var7 = &arg0->unknown_158_;
+        int var8 = arg0->unknown_ae_;
+        int var9 = var5 % 0xc;
+        if (var9 >= 0 && var9 < 0xc) {
+            func_ov017_021c927c(var4, var9, var6, *var7, var8, 3, -1);
         }
     }
     return 1;

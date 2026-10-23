@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 
-struct Vec3_02030ef0 {
-    int x;
-    int y;
-    int z;
+struct Struct_01ff8b48_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
 void Vector3fixDivideScalar(Vector3i const*, int, Vector3i*);
 
-struct MoveState020a1034 {
-    int flag_0x0;
-    Vector3i pos_0x4;
-    Vector3i target_0x10;
-    char unk_1c[0x8];
-    int steps_0x24;
+struct Struct_020a1034 {
+    int unknown_0_;
+    Vector3i unknown_4_;
+    Vector3i unknown_10_;
+    char unknown_1c_[0x8];
+    int unknown_24_;
 };
 
 // USA: func_020a1034
-extern "C" ARM void func_020a1034(struct MoveState020a1034* obj) {
-    Vector3i diff;
-    Vector3fix_Subtract(&obj->target_0x10, &obj->pos_0x4, &diff);
-    if (Vector3fix_Length(&diff) < 0x199) {
-        obj->pos_0x4 = obj->target_0x10;
-        obj->flag_0x0 = 0;
+extern "C" ARM void func_020a1034(struct Struct_020a1034* arg0) {
+    Vector3i var0;
+    Vector3fix_Subtract(&arg0->unknown_10_, &arg0->unknown_4_, &var0);
+    if (Vector3fix_Length(&var0) < 0x199) {
+        arg0->unknown_4_ = arg0->unknown_10_;
+        arg0->unknown_0_ = 0;
     } else {
-        Vector3i quotient;
-        Vector3fixDivideScalar(&diff, obj->steps_0x24, &quotient);
-        Vector3fix_Add(&obj->pos_0x4, &quotient, &obj->pos_0x4);
+        Vector3i var1;
+        Vector3fixDivideScalar(&var0, arg0->unknown_24_, &var1);
+        Vector3fix_Add(&arg0->unknown_4_, &var1, &arg0->unknown_4_);
     }
 }

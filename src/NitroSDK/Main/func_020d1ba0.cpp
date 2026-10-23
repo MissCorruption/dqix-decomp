@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
 // USA: func_020d1ba0
-extern "C" ARM void func_020d1ba0(unsigned short* table, unsigned short poly) {
-    unsigned int crc;
-    unsigned int i;
-    unsigned int bit;
-    i = 0;
+extern "C" ARM void func_020d1ba0(unsigned short* arg0, unsigned short arg1) {
+    unsigned int var0;
+    unsigned int var1;
+    unsigned int var2;
+    var1 = 0;
     do {
-        crc = i;
-        bit = 0;
+        var0 = var1;
+        var2 = 0;
         do {
-            if (crc & 1) {
-                crc = poly ^ (crc >> 1);
+            if (var0 & 1) {
+                var0 = arg1 ^ (var0 >> 1);
             } else {
-                crc = crc >> 1;
+                var0 = var0 >> 1;
             }
-            bit++;
-        } while (bit < 8);
-        table[i] = (unsigned short)crc;
-        i++;
-    } while (i < 0x100);
+            var2++;
+        } while (var2 < 8);
+        arg0[var1] = (unsigned short)var0;
+        var1++;
+    } while (var1 < 0x100);
 }

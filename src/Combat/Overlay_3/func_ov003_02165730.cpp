@@ -1,88 +1,88 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion3c9 = 0x139 };
-enum { kRegion390 = 0x278 };
-enum { kRegiond0 = 0x10 };
+enum { Enum_ov003_02165730_969 = 0x139 };
+enum { Enum_ov003_02165730_912 = 0x278 };
+enum { Enum_ov003_02165730_208 = 0x10 };
 #else
-enum { kRegion3c9 = 0x3c9 };
-enum { kRegion390 = 0x390 };
-enum { kRegiond0 = 0xd0 };
+enum { Enum_ov003_02165730_969 = 0x3c9 };
+enum { Enum_ov003_02165730_912 = 0x390 };
+enum { Enum_ov003_02165730_208 = 0xd0 };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
 
-struct FlagWord02046708;
-struct Obj020e25e8;
+struct Struct_02012de8;
+struct Struct_020e25e8;
 
-struct Global02109030 {
-    unsigned char pad_0x0[kRegion3c9];
-    unsigned char flag3c9 : 1;
+struct Struct_ov003_02165278 {
+    unsigned char unknown_0_[Enum_ov003_02165730_969];
+    unsigned char unknown_3c9_0_ : 1;
 };
 
 extern "C" void* func_020d6c00(void);
-extern "C" Global02109030* func_020936f8(void);
+extern "C" Struct_ov003_02165278* func_020936f8(void);
 extern "C" int func_020421a0(void);
-extern "C" void func_02043204(char* obj);
-extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
+extern "C" void func_02043204(char* arg0);
+extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
-struct PartyList2a04 {
-    unsigned char pad_0x0[0xf78];
-    unsigned char members[4];
-    unsigned char count;
+struct Struct_ov003_02165730 {
+    unsigned char unknown_0_[0xf78];
+    unsigned char unknown_f78_[4];
+    unsigned char unknown_f7c_;
 };
 
-struct BattleView02165730 {
-    unsigned char pad_0x0[kRegion390];
-    struct Obj020e25e8* selection;
-    unsigned char pad_0x394[kRegiond0];
-    unsigned int flags;
-    unsigned char pad_0x468[0x1c];
-    short field_0x484;
-    short field_0x486;
-    unsigned char pad_0x488[0x1b];
-    unsigned char state;
-    unsigned char step;
-    unsigned char field_0x4a5;
+struct Struct_ov003_02165730_2 {
+    unsigned char unknown_0_[Enum_ov003_02165730_912];
+    struct Struct_020e25e8* unknown_390_;
+    unsigned char unknown_394_[Enum_ov003_02165730_208];
+    unsigned int unknown_464_;
+    unsigned char unknown_468_[0x1c];
+    short unknown_484_;
+    short unknown_486_;
+    unsigned char unknown_488_[0x1b];
+    unsigned char unknown_4a3_;
+    unsigned char unknown_4a4_;
+    unsigned char unknown_4a5_;
 };
 
 // USA: func_ov003_02165730
-extern "C" ARM void func_ov003_02165730(BattleView02165730* view) {
-    GameResources* resources = GetGameResources();
-    void* flagData = func_020d6c00();
+extern "C" ARM void func_ov003_02165730(Struct_ov003_02165730_2* arg0) {
+    GameResources* var0 = GetGameResources();
+    void* var1 = func_020d6c00();
 
-    if (view->step == 0) {
-        func_020936f8()->flag3c9 = 1;
+    if (arg0->unknown_4a4_ == 0) {
+        func_020936f8()->unknown_3c9_0_ = 1;
         func_02043204((char*)func_020421a0());
-        view->field_0x484 = view->field_0x486 = -1;
-        view->field_0x4a5 = 0;
+        arg0->unknown_484_ = arg0->unknown_486_ = -1;
+        arg0->unknown_4a5_ = 0;
 
-        GameState* gs = GameState::GetInstance();
-        PartyList2a04* party = (PartyList2a04*)func_02010828(gs);
-        for (int i = 0; i < party->count; i++) {
-            GameObject* member = func_0200ff1c(gs, party->members[i]);
-            if (member != NULL) {
-                member->obj3D_.MakeVisible();
+        GameState* var2 = GameState::GetInstance();
+        Struct_ov003_02165730* var3 = (Struct_ov003_02165730*)func_02010828(var2);
+        for (int var4 = 0; var4 < var3->unknown_f7c_; var4++) {
+            GameObject* var5 = func_0200ff1c(var2, var3->unknown_f78_[var4]);
+            if (var5 != NULL) {
+                var5->obj3D_.MakeVisible();
             }
         }
 
-        if (IsBrightnessTransitionActive(resources) != 0) return;
-        UnlockAndSetBrightness(resources, 0, 0xf);
-        view->step = 1;
-        if (view->selection == NULL) return;
-        func_020e25e8(view->selection);
-    } else if (view->step == 1) {
-        if (IsBrightnessTransitionActive(resources) != 0) return;
-        if (func_02046708((struct FlagWord02046708*)flagData, 0x41) != 0) {
-            view->flags |= 0x800;
+        if (IsBrightnessTransitionActive(var0) != 0) return;
+        UnlockAndSetBrightness(var0, 0, 0xf);
+        arg0->unknown_4a4_ = 1;
+        if (arg0->unknown_390_ == NULL) return;
+        func_020e25e8(arg0->unknown_390_);
+    } else if (arg0->unknown_4a4_ == 1) {
+        if (IsBrightnessTransitionActive(var0) != 0) return;
+        if (func_02046708((struct Struct_02012de8*)var1, 0x41) != 0) {
+            arg0->unknown_464_ |= 0x800;
         }
-        view->step = 2;
-    } else if (view->step == 2) {
+        arg0->unknown_4a4_ = 2;
+    } else if (arg0->unknown_4a4_ == 2) {
         func_02043204((char*)func_020421a0());
-        view->field_0x484 = view->field_0x486 = -1;
-        view->field_0x4a5 = 0;
-        view->state = 0x10;
-        view->step = 0;
+        arg0->unknown_484_ = arg0->unknown_486_ = -1;
+        arg0->unknown_4a5_ = 0;
+        arg0->unknown_4a3_ = 0x10;
+        arg0->unknown_4a4_ = 0;
     }
 }

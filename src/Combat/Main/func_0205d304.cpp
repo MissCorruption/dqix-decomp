@@ -1,146 +1,146 @@
 #include <globaldefs.h>
 
-struct Vec2 {
-    short x;
-    short y;
-    inline void Set(short newX, short newY) { x = newX; y = newY; }
+struct Struct_0205d304_3 {
+    short unknown_0_;
+    short unknown_2_;
+    inline void inline_0205d304(short arg0, short arg1) { unknown_0_ = arg0; unknown_2_ = arg1; }
 };
 
 struct Struct_0205d81c;
 struct Struct_0205bf3c;
-struct Obj5d594;
-struct ScaledElementList0204aa28;
+struct Struct_0205d304_2;
+struct Struct_0204aa28;
 
 extern "C" void* func_0205d81c(struct Struct_0205d81c*, int);
 extern "C" void func_0204c770(char*, void*);
-extern "C" void func_0205d594(struct Obj5d594*, unsigned char*, unsigned char*);
+extern "C" void func_0205d594(struct Struct_0205d304_2*, unsigned char*, unsigned char*);
 #if defined(jpn)
-extern "C" void func_0204d790(void* self, const char* text, unsigned int destination, int mode, unsigned char border, unsigned char fullWidth);
+extern "C" void func_0204d790(void* arg0, const char* arg1, unsigned int arg2, int arg3, unsigned char arg4, unsigned char arg5);
 #else
-extern "C" void func_0204c980(void* self, const char* text, unsigned int destination, int mode, unsigned char border, unsigned char fullWidth, unsigned char font);
+extern "C" void func_0204c980(void* arg0, const char* arg1, unsigned int arg2, int arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6);
 #endif
-extern "C" unsigned int func_0204aa28(struct ScaledElementList0204aa28*);
+extern "C" unsigned int func_0204aa28(struct Struct_0204aa28*);
 extern "C" void func_0205bf3c(struct Struct_0205bf3c*);
 extern "C" void func_0205d904(unsigned char*);
 
-struct Elem0205d304 {
-    char pad0[0x4];
-    void* style;
-    char pad8[0x98];
-    unsigned int destination;
-    int pixelBytes;
-    struct Vec2 layout[4];
-    char padb8[0xa];
-    short c2;
-    unsigned char id;
-    unsigned char flags;
-    char padc6;
-    unsigned char fontHeight;
-    char padc8[0x18];
+struct Struct_0205d304_4 {
+    char unknown_0_[0x4];
+    void* unknown_4_;
+    char unknown_8_[0x98];
+    unsigned int unknown_a0_;
+    int unknown_a4_;
+    struct Struct_0205d304_3 unknown_a8_[4];
+    char unknown_b8_[0xa];
+    short unknown_c2_;
+    unsigned char unknown_c4_;
+    unsigned char unknown_c5_;
+    char unknown_c6_;
+    unsigned char unknown_c7_;
+    char unknown_c8_[0x18];
 };
 
-struct Ctx0205d304 {
-    char pad0[0x54];
-    char resetState[0x44];
-    void* styles;
-    struct Elem0205d304* windows;
-    struct Vec2 layout[4];
-    unsigned char activeWindowId;
-    unsigned char nextWindowId;
-    char padb2;
-    unsigned char windowCapacity;
-    unsigned char windowCount;
-    unsigned char flagBit2;
-    unsigned char noHorizontalInset;
-    unsigned char fontHeight;
+struct Struct_0205d304 {
+    char unknown_0_[0x54];
+    char unknown_54_[0x44];
+    void* unknown_98_;
+    struct Struct_0205d304_4* unknown_9c_;
+    struct Struct_0205d304_3 unknown_a0_[4];
+    unsigned char unknown_b0_;
+    unsigned char unknown_b1_;
+    char unknown_b2_;
+    unsigned char unknown_b3_;
+    unsigned char unknown_b4_;
+    unsigned char unknown_b5_;
+    unsigned char unknown_b6_;
+    unsigned char unknown_b7_;
 };
 
 // USA: func_0205d304
-extern "C" ARM void func_0205d304(struct Ctx0205d304* renderer, const char* text, int mode, unsigned char border,
+extern "C" ARM void func_0205d304(struct Struct_0205d304* arg0, const char* arg1, int arg2, unsigned char arg3,
 #if defined(jpn)
-                                       unsigned char flagBit3, unsigned char fullWidth, void* extraStyle) {
+                                       unsigned char arg4, unsigned char arg5, void* arg6) {
 #else
-                                       unsigned char flagBit3, unsigned char fullWidth, void* extraStyle, unsigned char font) {
+                                       unsigned char arg4, unsigned char arg5, void* arg6, unsigned char arg7) {
 #endif
-    struct Elem0205d304* elem;
-    struct Elem0205d304* e;
-    unsigned char lowA, highA, lowB, highB;
-    int matched;
-    int j;
-    unsigned char i;
-    unsigned int value;
+    struct Struct_0205d304_4* var0;
+    struct Struct_0205d304_4* var1;
+    unsigned char var2, var3, var4, var5;
+    int var6;
+    int var7;
+    unsigned char var8;
+    unsigned int var9;
 
-    if (text == 0 || renderer->styles == NULL || renderer->windows == NULL) return;
-    if (renderer->windowCapacity <= renderer->windowCount) return;
-    if (func_0205d81c((struct Struct_0205d81c*)renderer, renderer->nextWindowId) != 0) return;
+    if (arg1 == 0 || arg0->unknown_98_ == NULL || arg0->unknown_9c_ == NULL) return;
+    if (arg0->unknown_b3_ <= arg0->unknown_b4_) return;
+    if (func_0205d81c((struct Struct_0205d81c*)arg0, arg0->unknown_b1_) != 0) return;
 
-    elem = &renderer->windows[renderer->windowCount];
-    elem->layout[0].Set(renderer->layout[0].x, renderer->layout[0].y);
-    elem->layout[1].Set(renderer->layout[1].x, renderer->layout[1].y);
-    elem->layout[2].Set(renderer->layout[2].x, renderer->layout[2].y);
-    elem->layout[3].Set(renderer->layout[3].x, renderer->layout[3].y);
-    if (flagBit3) {
-        elem->flags |= 8;
+    var0 = &arg0->unknown_9c_[arg0->unknown_b4_];
+    var0->unknown_a8_[0].inline_0205d304(arg0->unknown_a0_[0].unknown_0_, arg0->unknown_a0_[0].unknown_2_);
+    var0->unknown_a8_[1].inline_0205d304(arg0->unknown_a0_[1].unknown_0_, arg0->unknown_a0_[1].unknown_2_);
+    var0->unknown_a8_[2].inline_0205d304(arg0->unknown_a0_[2].unknown_0_, arg0->unknown_a0_[2].unknown_2_);
+    var0->unknown_a8_[3].inline_0205d304(arg0->unknown_a0_[3].unknown_0_, arg0->unknown_a0_[3].unknown_2_);
+    if (arg4) {
+        var0->unknown_c5_ |= 8;
     } else {
-        elem->flags &= ~8;
+        var0->unknown_c5_ &= ~8;
     }
-    elem->id = renderer->nextWindowId;
-    if (renderer->flagBit2) {
-        elem->flags |= 4;
+    var0->unknown_c4_ = arg0->unknown_b1_;
+    if (arg0->unknown_b5_) {
+        var0->unknown_c5_ |= 4;
     } else {
-        elem->flags &= ~4;
+        var0->unknown_c5_ &= ~4;
     }
-    if (renderer->noHorizontalInset) {
-        elem->flags |= 0x10;
+    if (arg0->unknown_b6_) {
+        var0->unknown_c5_ |= 0x10;
     } else {
-        elem->flags &= ~0x10;
+        var0->unknown_c5_ &= ~0x10;
     }
-    elem->fontHeight = renderer->fontHeight;
-    func_0204c770((char*)elem, extraStyle);
+    var0->unknown_c7_ = arg0->unknown_b7_;
+    func_0204c770((char*)var0, arg6);
 
-    if (renderer->windowCount != 0) {
-        matched = 0;
-        func_0205d594((struct Obj5d594*)elem->style, &lowA, &highA);
-        for (j = renderer->windowCount - 1; j >= 0; j--) {
-            e = &renderer->windows[j];
-            func_0205d594((struct Obj5d594*)e->style, &lowB, &highB);
-            if (lowA == lowB && highA == highB) {
-                e = &renderer->windows[j];
-                value = e->destination + e->pixelBytes;
+    if (arg0->unknown_b4_ != 0) {
+        var6 = 0;
+        func_0205d594((struct Struct_0205d304_2*)var0->unknown_4_, &var2, &var3);
+        for (var7 = arg0->unknown_b4_ - 1; var7 >= 0; var7--) {
+            var1 = &arg0->unknown_9c_[var7];
+            func_0205d594((struct Struct_0205d304_2*)var1->unknown_4_, &var4, &var5);
+            if (var2 == var4 && var3 == var5) {
+                var1 = &arg0->unknown_9c_[var7];
+                var9 = var1->unknown_a0_ + var1->unknown_a4_;
 #if defined(jpn)
-                func_0204d790(elem, text, value, mode, border, fullWidth);
+                func_0204d790(var0, arg1, var9, arg2, arg3, arg5);
 #else
-                func_0204c980(elem, text, value, mode, border, fullWidth, font);
+                func_0204c980(var0, arg1, var9, arg2, arg3, arg5, arg7);
 #endif
-                matched = 1;
+                var6 = 1;
                 break;
             }
         }
-        if (!matched) {
-            value = func_0204aa28((struct ScaledElementList0204aa28*)elem->style);
+        if (!var6) {
+            var9 = func_0204aa28((struct Struct_0204aa28*)var0->unknown_4_);
 #if defined(jpn)
-            func_0204d790(elem, text, value, mode, border, fullWidth);
+            func_0204d790(var0, arg1, var9, arg2, arg3, arg5);
 #else
-            func_0204c980(elem, text, value, mode, border, fullWidth, font);
+            func_0204c980(var0, arg1, var9, arg2, arg3, arg5, arg7);
 #endif
         }
-        elem->flags &= ~0x20;
-        for (i = 0; i < renderer->windowCount; i++) {
-            e = &renderer->windows[i];
-            e->c2 = 1;
+        var0->unknown_c5_ &= ~0x20;
+        for (var8 = 0; var8 < arg0->unknown_b4_; var8++) {
+            var1 = &arg0->unknown_9c_[var8];
+            var1->unknown_c2_ = 1;
         }
     } else {
-        value = func_0204aa28((struct ScaledElementList0204aa28*)elem->style);
+        var9 = func_0204aa28((struct Struct_0204aa28*)var0->unknown_4_);
 #if defined(jpn)
-        func_0204d790(elem, text, value, mode, border, fullWidth);
+        func_0204d790(var0, arg1, var9, arg2, arg3, arg5);
 #else
-        func_0204c980(elem, text, value, mode, border, fullWidth, font);
+        func_0204c980(var0, arg1, var9, arg2, arg3, arg5, arg7);
 #endif
-        elem->flags &= ~0x20;
+        var0->unknown_c5_ &= ~0x20;
     }
 
-    renderer->windowCount++;
-    func_0205bf3c((struct Struct_0205bf3c*)renderer->resetState);
-    renderer->activeWindowId = renderer->nextWindowId;
-    func_0205d904((unsigned char*)renderer);
+    arg0->unknown_b4_++;
+    func_0205bf3c((struct Struct_0205bf3c*)arg0->unknown_54_);
+    arg0->unknown_b0_ = arg0->unknown_b1_;
+    func_0205d904((unsigned char*)arg0);
 }

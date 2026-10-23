@@ -1,55 +1,55 @@
 #include <globaldefs.h>
 
-struct CipherKeys_022157f8 {
-    signed char* post;
-    int unused4;
-    signed char* pre;
+struct Struct_ov031_02249ad4 {
+    signed char* unknown_0_;
+    int unknown_4_;
+    signed char* unknown_8_;
 };
 
-struct Order_022157f8 {
-    unsigned char slot[0x18];
+struct Struct_ov031_02246083 {
+    unsigned char unknown_0_[0x18];
 };
 
-extern "C" void func_ov031_02215b64(void* obj, unsigned char* buf, int a, int b);
+extern "C" void func_ov031_02215b64(void* arg0, unsigned char* arg1, int arg2, int arg3);
 
-extern Order_022157f8 data_ov031_02246083;
-extern CipherKeys_022157f8 data_ov031_02249ad4;
+extern Struct_ov031_02246083 data_ov031_02246083;
+extern Struct_ov031_02249ad4 data_ov031_02249ad4;
 
 // USA: func_ov031_022157f8
-extern "C" ARM void func_ov031_022157f8(void* obj, unsigned char* buf) {
-    Order_022157f8 order = data_ov031_02246083;
+extern "C" ARM void func_ov031_022157f8(void* arg0, unsigned char* arg1) {
+    Struct_ov031_02246083 var0 = data_ov031_02246083;
 
-    func_ov031_02215b64(obj, buf, 0x20, 0x18);
+    func_ov031_02215b64(arg0, arg1, 0x20, 0x18);
 
-    for (int i = 0; i < 0x18; i++) {
-        buf[i] ^= data_ov031_02249ad4.pre[i];
+    for (int var1 = 0; var1 < 0x18; var1++) {
+        arg1[var1] ^= data_ov031_02249ad4.unknown_8_[var1];
     }
 
     {
-        unsigned char home = 0;
-        unsigned char slot = 0;
-        unsigned char v = 0;
-        int i = 0;
+        unsigned char var2 = 0;
+        unsigned char var3 = 0;
+        unsigned char var4 = 0;
+        int var5 = 0;
         do {
-            home = (unsigned char)i;
-            slot = home;
-            v = buf[i];
-            if (order.slot[home] != 0xff) {
+            var2 = (unsigned char)var5;
+            var3 = var2;
+            var4 = arg1[var5];
+            if (var0.unknown_0_[var2] != 0xff) {
                 do {
-                    unsigned char next = order.slot[slot];
-                    unsigned char t = buf[next];
-                    buf[order.slot[home]] = v;
-                    order.slot[slot] = 0xff;
-                    home = next;
-                    slot = next;
-                    v = t;
-                } while (order.slot[slot] != 0xff);
+                    unsigned char var6 = var0.unknown_0_[var3];
+                    unsigned char var7 = arg1[var6];
+                    arg1[var0.unknown_0_[var2]] = var4;
+                    var0.unknown_0_[var3] = 0xff;
+                    var2 = var6;
+                    var3 = var6;
+                    var4 = var7;
+                } while (var0.unknown_0_[var3] != 0xff);
             }
-            i++;
-        } while (i < 0x18);
+            var5++;
+        } while (var5 < 0x18);
     }
 
-    for (int i = 0; i < 0x18; i++) {
-        buf[i] ^= data_ov031_02249ad4.post[i];
+    for (int var8 = 0; var8 < 0x18; var8++) {
+        arg1[var8] ^= data_ov031_02249ad4.unknown_0_[var8];
     }
 }

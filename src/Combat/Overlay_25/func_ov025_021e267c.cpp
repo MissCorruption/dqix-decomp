@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffsetc = 0x4 };
+enum { Enum_ov025_021e267c_12 = 0x4 };
 #else
-enum { RegionOffsetc = 0xc };
+enum { Enum_ov025_021e267c_12 = 0xc };
 #endif
 
 #include <globaldefs.h>
@@ -9,69 +9,69 @@ enum { RegionOffsetc = 0xc };
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 
-extern "C" void* func_ov025_021e8a54(char* obj);
-extern "C" unsigned char func_ov025_021e8ba4(void* obj);
+extern "C" void* func_ov025_021e8a54(char* arg0);
+extern "C" unsigned char func_ov025_021e8ba4(void* arg0);
 struct ObjectArchiveLoadInfo;
 
-struct PtrField0x1c_020371b0;
-struct S1a0;
+struct Struct_ov025_021e267c;
+struct Struct_0208f410;
 
-struct Struct_203dafc {
-    int field0;
-    int field4;
-    int field8;
-    int fieldc;
-    int field10;
-    int field14;
-    int field18;
-    int field1c;
+struct Struct_0203d028_11 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
-extern "C" void func_0203dafc(struct Struct_203dafc* obj);
+extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
 
-struct Obj021e8bac;
-struct Node021e8bac {
-    unsigned char byte0;
-    unsigned char byte1;
-    unsigned short half2;
-    unsigned short half4;
-    struct Node021e8bac* next;
+struct Struct_ov025_021e267c_2;
+struct Struct_ov025_021e267c_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    struct Struct_ov025_021e267c_3* unknown_8_;
 };
-extern "C" void func_ov025_021e8bac(struct Obj021e8bac* obj, struct Node021e8bac* node);
+extern "C" void func_ov025_021e8bac(struct Struct_ov025_021e267c_2* arg0, struct Struct_ov025_021e267c_3* arg1);
 
 extern int data_ov025_021ef988;
 
 // USA: func_ov025_021e267c
-extern "C" ARM void func_ov025_021e267c(int combatantId, int arg1, int arg2, int flag) {
-    GameState* battle = GameState::GetInstance();
-    void* entryObj = *(void**)((char*)&data_ov025_021ef988 + RegionOffsetc);
-    void* entry = func_ov025_021e8a54((char*)entryObj);
-    GameObject* combatant = battle->GetGameObjectByIndex(combatantId);
-    if (!combatant) return;
-    struct Node021e8bac* node = (struct Node021e8bac*)((SafeAllocator*)entry)->Allocate(0xc);
-    if (!node) return;
-    char* name = *(char**)((char*)combatant + 0x14);
-    char buf[0x20];
-    if (name) {
-        strcpy(buf, name);
+extern "C" ARM void func_ov025_021e267c(int arg0, int arg1, int arg2, int arg3) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = *(void**)((char*)&data_ov025_021ef988 + Enum_ov025_021e267c_12);
+    void* var2 = func_ov025_021e8a54((char*)var1);
+    GameObject* var3 = var0->GetGameObjectByIndex(arg0);
+    if (!var3) return;
+    struct Struct_ov025_021e267c_3* var4 = (struct Struct_ov025_021e267c_3*)((SafeAllocator*)var2)->Allocate(0xc);
+    if (!var4) return;
+    char* var5 = *(char**)((char*)var3 + 0x14);
+    char var6[0x20];
+    if (var5) {
+        strcpy(var6, var5);
     }
-    void* ptr = (void*)((Object3D*)((struct PtrField0x1c_020371b0*)combatant))->GetCurrentAnimationTime();
-    struct Struct_203dafc s;
-    func_0203dafc(&s);
-    void* byteObj = *(void**)((char*)&data_ov025_021ef988 + RegionOffsetc);
-    s.fieldc = (int)entry;
-    s.field4 = arg1;
-    s.field8 = arg2;
-    s.field10 = 1;
-    unsigned char b = func_ov025_021e8ba4(byteObj);
-    s.field1c = b + 4;
-    combatant->obj3D_.LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&s, (int (*)(BCFG::AnimationRecord*))flag);
-    if (name) {
-        combatant->obj3D_.MaybeSetRegularAnimation((char const*)buf, 0);
-        ((Object3D*)((struct S1a0*)combatant))->SetCurrentAnimationTime((unsigned int)ptr);
+    void* var7 = (void*)((Object3D*)((struct Struct_ov025_021e267c*)var3))->GetCurrentAnimationTime();
+    struct Struct_0203d028_11 var8;
+    func_0203dafc(&var8);
+    void* var9 = *(void**)((char*)&data_ov025_021ef988 + Enum_ov025_021e267c_12);
+    var8.unknown_c_ = (int)var2;
+    var8.unknown_4_ = arg1;
+    var8.unknown_8_ = arg2;
+    var8.unknown_10_ = 1;
+    unsigned char var10 = func_ov025_021e8ba4(var9);
+    var8.unknown_1c_ = var10 + 4;
+    var3->obj3D_.LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&var8, (int (*)(BCFG::AnimationRecord*))arg3);
+    if (var5) {
+        var3->obj3D_.MaybeSetRegularAnimation((char const*)var6, 0);
+        ((Object3D*)((struct Struct_0208f410*)var3))->SetCurrentAnimationTime((unsigned int)var7);
     }
-    node->byte0 = 0;
-    node->half2 = combatantId;
-    node->half4 = s.field1c;
-    void* pushObj = *(void**)((char*)&data_ov025_021ef988 + RegionOffsetc);
-    func_ov025_021e8bac((struct Obj021e8bac*)pushObj, node);
+    var4->unknown_0_ = 0;
+    var4->unknown_2_ = arg0;
+    var4->unknown_4_ = var8.unknown_1c_;
+    void* var11 = *(void**)((char*)&data_ov025_021ef988 + Enum_ov025_021e267c_12);
+    func_ov025_021e8bac((struct Struct_ov025_021e267c_2*)var11, var4);
 }

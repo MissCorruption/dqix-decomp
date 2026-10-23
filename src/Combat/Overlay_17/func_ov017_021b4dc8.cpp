@@ -3,89 +3,89 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 
-struct StreamHeader;
-struct BoundedArray {
-    unsigned short items[0xc];
-    unsigned short count;
+struct Struct_02013fb4;
+struct Struct_0209c08c {
+    unsigned short unknown_0_[0xc];
+    unsigned short unknown_18_;
 };
 
 extern "C" char* func_02012fe4(void);
-extern "C" int func_0201079c(char* battleStruct);
-extern "C" int func_020107d0(char* battleStruct);
-extern "C" int func_0201b5b0(int monsterId);
-extern "C" void func_0209c008(void* obj, struct StreamHeader* buffer, int length, int idFlag, int mulVal, int addVal);
-extern "C" void func_0209bffc(void* obj);
-extern "C" void func_0209c08c(BoundedArray* arr, unsigned short value);
+extern "C" int func_0201079c(char* arg0);
+extern "C" int func_020107d0(char* arg0);
+extern "C" int func_0201b5b0(int arg0);
+extern "C" void func_0209c008(void* arg0, struct Struct_02013fb4* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_0209bffc(void* arg0);
+extern "C" void func_0209c08c(Struct_0209c08c* arg0, unsigned short arg1);
 
 extern const char data_ov017_021d7b5d;
 
-struct ScriptSource_021b4dc8 {
-    unsigned short monsterId;
+struct Struct_ov017_021b4dc8 {
+    unsigned short unknown_0_;
 #if defined(jpn)
-    char pad2[0x40 - 0x2];
+    char unknown_2_[0x40 - 0x2];
 #else
-    char pad2[0x44 - 0x2];
+    char unknown1_2_[0x44 - 0x2];
 #endif
 
-    BoundedArray entries;
+    Struct_0209c08c unknown_44_;
 };
 
-struct ScriptRequest_021b4dc8 {
-    char pad0[8];
-    struct ScriptSource_021b4dc8* source;
-    int taskId;
-    unsigned char state;
-    char pad11;
-    unsigned short extraEntry;
+struct Struct_ov017_021b4dc8_2 {
+    char unknown_0_[8];
+    struct Struct_ov017_021b4dc8* unknown_8_;
+    int unknown_c_;
+    unsigned char unknown_10_;
+    char unknown_11_;
+    unsigned short unknown_12_;
 };
 
 // USA: func_ov017_021b4dc8
-extern "C" ARM void func_ov017_021b4dc8(struct ScriptRequest_021b4dc8* request) {
+extern "C" ARM void func_ov017_021b4dc8(struct Struct_ov017_021b4dc8_2* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x240c};
+ enum {Enum_ov017_021b4dc8_9196=0x240c};
 #else
- enum {regionalOffset0=0x23ec};
+ enum {Enum_ov017_021b4dc8_9196=0x23ec};
 #endif
-    ScriptSource_021b4dc8* source;
-    GameState* battle = GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)func_02012fe4() + regionalOffset0);
-    int monsterId = request->source->monsterId;
+    Struct_ov017_021b4dc8* var0;
+    GameState* var1 = GameState::GetInstance();
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+    ActiveGrottoClass* var3 = (ActiveGrottoClass*)((char*)func_02012fe4() + Enum_ov017_021b4dc8_9196);
+    int var4 = arg0->unknown_8_->unknown_0_;
 
-    if (loader->GetTaskStatus(request->taskId) == 0) {
+    if (var2->GetTaskStatus(arg0->unknown_c_) == 0) {
         return;
     }
 
-    source = request->source;
-    func_0209bffc(&source->entries);
-    if (loader->GetDetailedTaskStatus(request->taskId) == BackgroundLoader::TaskStatus_Complete) {
-        unsigned int size;
-        void* data;
-        loader->GetLoadedFileByID(request->taskId, &data, &size);
-        if (data != 0) {
-            int field5cb0 = func_0201079c((char*)battle);
-            int field5cb4 = func_020107d0((char*)battle);
-            int scriptId = monsterId;
-            if (func_0201b5b0(monsterId)) {
-                int rank = grotto->GetFloorMonsterRank(monsterId % 20);
-                int environ = grotto->GetActiveGrottoEnviron();
-                scriptId = rank + (environ * 100 + 0x9c40);
+    var0 = arg0->unknown_8_;
+    func_0209bffc(&var0->unknown_44_);
+    if (var2->GetDetailedTaskStatus(arg0->unknown_c_) == BackgroundLoader::TaskStatus_Complete) {
+        unsigned int var5;
+        void* var6;
+        var2->GetLoadedFileByID(arg0->unknown_c_, &var6, &var5);
+        if (var6 != 0) {
+            int var7 = func_0201079c((char*)var1);
+            int var8 = func_020107d0((char*)var1);
+            int var9 = var4;
+            if (func_0201b5b0(var4)) {
+                int var10 = var3->GetFloorMonsterRank(var4 % 20);
+                int var11 = var3->GetActiveGrottoEnviron();
+                var9 = var10 + (var11 * 100 + 0x9c40);
             }
-            func_0209c008(&source->entries, (struct StreamHeader*)data, size, scriptId, field5cb0, field5cb4);
+            func_0209c008(&var0->unknown_44_, (struct Struct_02013fb4*)var6, var5, var9, var7, var8);
         }
     }
 
-    if (request->extraEntry != 0) {
-        func_0209c08c(&source->entries, request->extraEntry);
+    if (arg0->unknown_12_ != 0) {
+        func_0209c08c(&var0->unknown_44_, arg0->unknown_12_);
     }
-    if (func_0201b5b0(monsterId)) {
-        func_0209c08c(&source->entries, 0x26);
-        func_0209c08c(&source->entries, 0x27);
-        func_0209c08c(&source->entries, 0x28);
+    if (func_0201b5b0(var4)) {
+        func_0209c08c(&var0->unknown_44_, 0x26);
+        func_0209c08c(&var0->unknown_44_, 0x27);
+        func_0209c08c(&var0->unknown_44_, 0x28);
     }
 
-    loader->RemoveTask(request->taskId);
-    request->taskId = -1;
-    request->taskId = loader->QueueLoadFile(&data_ov017_021d7b5d, 0);
-    request->state = 4;
+    var2->RemoveTask(arg0->unknown_c_);
+    arg0->unknown_c_ = -1;
+    arg0->unknown_c_ = var2->QueueLoadFile(&data_ov017_021d7b5d, 0);
+    arg0->unknown_10_ = 4;
 }

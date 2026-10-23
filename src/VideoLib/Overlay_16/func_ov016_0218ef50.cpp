@@ -1,79 +1,79 @@
 #include <globaldefs.h>
 
-struct OutStruct0218ef50 {
-    int sum;
-    char pad_4[8];
-    int arr1[6];
-    int arr2[6];
+struct Struct_ov016_0218ef50 {
+    int unknown_0_;
+    char unknown_4_[8];
+    int unknown_c_[6];
+    int unknown_24_[6];
 };
 
-struct Base0218ef50 {
-    virtual void v0();
-    virtual void v1();
-    virtual void v2();
-    virtual void v3();
-    virtual int v4(unsigned int a, unsigned int b);
-    virtual void v5();
+struct Struct_ov016_0218e6c0 {
+    virtual void inline_ov016_0218e6c0();
+    virtual void inline_ov016_0218e6c0_2();
+    virtual void inline_ov016_0218e6c0_3();
+    virtual void inline_ov016_0218e6c0_4();
+    virtual int inline_ov016_0218ef50(unsigned int arg0, unsigned int arg1);
+    virtual void inline_ov016_0218ef50_2();
 };
 
-struct Obj0218ef50 {
-    Base0218ef50* child;
-    char pad_4[8];
-    unsigned int capacity;
-    char pad_10[0xe];
-    unsigned short multiplier;
-    char pad_20[0x14];
-    OutStruct0218ef50* out;
-    char pad_38[0x24];
-    int* table1;
-    int* table2;
-    char pad_64[0xc];
-    unsigned int arr70[2];
-    unsigned int arr78[2];
-    unsigned int arr80[2];
-    unsigned int arr88[2];
-    int bufIdx;
-    char pad_94[4];
-    unsigned int writeIdx;
+struct Struct_ov016_0218ef50_2 {
+    Struct_ov016_0218e6c0* unknown_0_;
+    char unknown_4_[8];
+    unsigned int unknown_c_;
+    char unknown_10_[0xe];
+    unsigned short unknown_1e_;
+    char unknown_20_[0x14];
+    Struct_ov016_0218ef50* unknown_34_;
+    char unknown_38_[0x24];
+    int* unknown_5c_;
+    int* unknown_60_;
+    char unknown_64_[0xc];
+    unsigned int unknown_70_[2];
+    unsigned int unknown_78_[2];
+    unsigned int unknown_80_[2];
+    unsigned int unknown_88_[2];
+    int unknown_90_;
+    char unknown_94_[4];
+    unsigned int unknown_98_;
     #if defined(jpn)
-    char pad_9c[0xc];
+    char unknown_9c_[0xc];
 #else
-    char pad_9c[0x10];
+    char unknown1_9c_[0x10];
 #endif
-    int idx2tbl[6];
-    char pad_c4[4];
-    int result;
+    int unknown_ac_[6];
+    char unknown_c4_[4];
+    int unknown_c8_;
 };
 
 // USA: func_ov016_0218ef50
-extern "C" ARM int func_ov016_0218ef50(Obj0218ef50* o) {
-    if (o->writeIdx == o->capacity) {
+extern "C" ARM int func_ov016_0218ef50(Struct_ov016_0218ef50_2* arg0) {
+    if (arg0->unknown_98_ == arg0->unknown_c_) {
         return 0;
     }
-    o->writeIdx = o->writeIdx + 1;
+    arg0->unknown_98_ = arg0->unknown_98_ + 1;
 
-    int idx0 = o->bufIdx;
-    o->bufIdx = (idx0 + 1) % 2;
+    int var0 = arg0->unknown_90_;
+    arg0->unknown_90_ = (var0 + 1) % 2;
 
-    o->child->v5();
+    arg0->unknown_0_->inline_ov016_0218ef50_2();
 
-    unsigned int packed = *(unsigned int*)(o->arr80[o->bufIdx] + o->arr78[o->bufIdx] + o->arr70[o->bufIdx]);
-    o->arr78[idx0] = packed >> 14;
-    o->arr88[idx0] = packed & 0x3fff;
+    unsigned int var1 = *(unsigned int*)(arg0->unknown_80_[arg0->unknown_90_] + arg0->unknown_78_[arg0->unknown_90_] + arg0->unknown_70_[arg0->unknown_90_]);
+    arg0->unknown_78_[var0] = var1 >> 14;
+    arg0->unknown_88_[var0] = var1 & 0x3fff;
 
-    o->out->sum = o->arr70[o->bufIdx] + o->arr80[o->bufIdx];
+    arg0->unknown_34_->unknown_0_ = arg0->unknown_70_[arg0->unknown_90_] + arg0->unknown_80_[arg0->unknown_90_];
 
-    if (o->writeIdx < o->capacity) {
-        o->arr80[idx0] = o->child->v4(o->arr70[idx0], o->arr78[idx0] + 4);
+    if (arg0->unknown_98_ < arg0->unknown_c_) {
+        arg0->unknown_80_[var0] = arg0->unknown_0_->inline_ov016_0218ef50(arg0->unknown_70_[var0], arg0->unknown_78_[var0] + 4);
     }
 
-    int i = 0;
+    int var2 = 0;
     do {
-        o->out->arr1[i] = o->table1[o->idx2tbl[i]];
-        o->out->arr2[i] = o->table2[o->idx2tbl[i]];
-        i++;
-    } while (i < 6);
+        arg0->unknown_34_->unknown_c_[var2] = arg0->unknown_5c_[arg0->unknown_ac_[var2]];
+        arg0->unknown_34_->unknown_24_[var2] = arg0->unknown_60_[arg0->unknown_ac_[var2]];
+        var2++;
+    } while (var2 < 6);
 
-    o->result = o->multiplier * o->arr88[o->bufIdx];
+    arg0->unknown_c8_ = arg0->unknown_1e_ * arg0->unknown_88_[arg0->unknown_90_];
     return 1;
 }

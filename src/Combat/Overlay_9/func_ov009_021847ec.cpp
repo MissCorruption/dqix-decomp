@@ -11,46 +11,46 @@
 #endif
 #include "std_library_functions.h"
 
-struct Entry0218aafc { char str[5]; };
+struct Struct_ov009_0218aafc { char unknown_0_[5]; };
 #if !defined(jpn)
-extern struct Entry0218aafc data_ov009_0218aafc[];
+extern struct Struct_ov009_0218aafc data_ov009_0218aafc[];
 #endif
-extern "C" int func_020424e4(int key, int tableIdx);
+extern "C" int func_020424e4(int arg0, int arg1);
 
-struct Obj021847ec {
+struct Struct_ov009_021847ec {
 #if !defined(jpn)
-    char pad[0x18];
+    char unknown_0_[0x18];
 #endif
-    char unk18[0xc];
-    int field24;
-    short field28;
+    char unknown_18_[0xc];
+    int unknown_24_;
+    short unknown_28_;
 #if defined(jpn)
-    unsigned short field12;
-    int tasks[2];
-    int field1c;
+    unsigned short unknown_12_;
+    int unknown_14_[2];
+    int unknown_1c_;
 #else
-    unsigned char field2a[15];
+    unsigned char unknown_2a_[15];
 #endif
 };
 
 #if defined(jpn)
-extern "C" int func_ov009_02185888(Obj021847ec*);
+extern "C" int func_ov009_02185888(Struct_ov009_021847ec*);
 #endif
 
 // USA: func_ov009_021847ec
-extern "C" ARM void func_ov009_021847ec(struct Obj021847ec* obj) {
-    memset(obj->unk18, 0, 0xc);
-    obj->field24 = 0;
-    obj->field28 = 0;
+extern "C" ARM void func_ov009_021847ec(struct Struct_ov009_021847ec* arg0) {
+    memset(arg0->unknown_18_, 0, 0xc);
+    arg0->unknown_24_ = 0;
+    arg0->unknown_28_ = 0;
 #if defined(jpn)
-    obj->tasks[0] = -1;
-    obj->tasks[1] = -1;
-    func_ov009_02185888(obj);
+    arg0->unknown_14_[0] = -1;
+    arg0->unknown_14_[1] = -1;
+    func_ov009_02185888(arg0);
 #else
-    unsigned char* out = obj->field2a;
-    int i;
-    for (i = 0; i < 15; i++) {
-        *out++ = (unsigned char)func_020424e4((int)&data_ov009_0218aafc[i], 1);
+    unsigned char* var0 = arg0->unknown_2a_;
+    int var1;
+    for (var1 = 0; var1 < 15; var1++) {
+        *var0++ = (unsigned char)func_020424e4((int)&data_ov009_0218aafc[var1], 1);
     }
 #endif
 }

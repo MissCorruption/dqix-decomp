@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 
-struct Sub130_020482e0 {
-    unsigned int flags;
-    unsigned short count;
+struct Struct_020482e0_2 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
 };
 
-struct Combatant020482e0 {
-    char pad[0x130];
-    struct Sub130_020482e0* sub;
+struct Struct_020482e0 {
+    char unknown_0_[0x130];
+    struct Struct_020482e0_2* unknown_130_;
 };
 
 // USA: func_020482e0
-extern "C" ARM int func_020482e0(struct Combatant020482e0* c, int amount, int force) {
-    struct Sub130_020482e0* sub = c->sub;
-    unsigned short count = sub->count;
-    if (count <= amount) {
-        if (force == 0) {
-            sub->count = 1;
-            return count - 1;
+extern "C" ARM int func_020482e0(struct Struct_020482e0* arg0, int arg1, int arg2) {
+    struct Struct_020482e0_2* var0 = arg0->unknown_130_;
+    unsigned short var1 = var0->unknown_4_;
+    if (var1 <= arg1) {
+        if (arg2 == 0) {
+            var0->unknown_4_ = 1;
+            return var1 - 1;
         }
-        sub->count = 0;
-        int hadBit4 = 0;
-        if (c->sub->flags & 4) {
-            hadBit4 = 1;
+        var0->unknown_4_ = 0;
+        int var2 = 0;
+        if (arg0->unknown_130_->unknown_0_ & 4) {
+            var2 = 1;
         }
-        c->sub->flags = 1;
-        if (hadBit4) {
-            c->sub->flags |= 4;
+        arg0->unknown_130_->unknown_0_ = 1;
+        if (var2) {
+            arg0->unknown_130_->unknown_0_ |= 4;
         }
-        return count;
+        return var1;
     }
-    sub->count = count - amount;
-    return amount;
+    var0->unknown_4_ = var1 - arg1;
+    return arg1;
 }

@@ -1,86 +1,86 @@
 #include <globaldefs.h>
 #include "NitroSDK/Matrix.h"
 
-struct State0203f20c;
-extern "C" void func_0203f20c(State0203f20c*);
-extern "C" void func_0203ca24(void* obj, void* p23c);
-struct MoverObj0203c960;
-extern "C" void func_0203c960(MoverObj0203c960*);
+struct Struct_0203c818_3;
+extern "C" void func_0203f20c(Struct_0203c818_3*);
+extern "C" void func_0203ca24(void* arg0, void* arg1);
+struct Struct_0203c818;
+extern "C" void func_0203c960(Struct_0203c818*);
 int fix32ReduceAngle0To2Pi(int angle);
 
-struct Obj0203c818 {
-    char pad0[4];
-    Vector3fix f04;
-    char pad10[0x5c - 0x10];
-    int f5c;
-    int f60;
-    int f64;
-    int f68;
-    Vector3fix f6c;
-    char pad78[0x88 - 0x78];
-    int f88;
+struct Struct_0203c818_2 {
+    char unknown_0_[4];
+    Vector3fix unknown_4_;
+    char unknown_10_[0x5c - 0x10];
+    int unknown_5c_;
+    int unknown_60_;
+    int unknown_64_;
+    int unknown_68_;
+    Vector3fix unknown_6c_;
+    char unknown_78_[0x88 - 0x78];
+    int unknown_88_;
 };
 
 // USA: func_0203c818
-extern "C" ARM void func_0203c818(Obj0203c818* obj, void* p23c, int a2, int a3) {
-    func_0203f20c((State0203f20c*)obj);
+extern "C" ARM void func_0203c818(Struct_0203c818_2* arg0, void* arg1, int arg2, int arg3) {
+    func_0203f20c((Struct_0203c818_3*)arg0);
 
-    if ((obj->f5c & 0x10) || (obj->f5c & 0x20)) {
-        func_0203ca24(obj, p23c);
+    if ((arg0->unknown_5c_ & 0x10) || (arg0->unknown_5c_ & 0x20)) {
+        func_0203ca24(arg0, arg1);
     } else {
-        int moved;
-        int step;
-        int diff;
+        int var0;
+        int var1;
+        int var2;
 
-        if (obj->f5c & 1) {
-            func_0203c960((MoverObj0203c960*)obj);
+        if (arg0->unknown_5c_ & 1) {
+            func_0203c960((Struct_0203c818*)arg0);
         }
 
-        moved = 0;
-        step = obj->f68 * a3;
-        diff = 0;
+        var0 = 0;
+        var1 = arg0->unknown_68_ * arg3;
+        var2 = 0;
 
-        if (obj->f60 < obj->f64) {
-            diff = obj->f64 - obj->f60;
-            if (diff > 0x3244) {
-                diff -= 0x3244 * 2;
+        if (arg0->unknown_60_ < arg0->unknown_64_) {
+            var2 = arg0->unknown_64_ - arg0->unknown_60_;
+            if (var2 > 0x3244) {
+                var2 -= 0x3244 * 2;
             }
-        } else if (obj->f64 < obj->f60) {
-            diff = -(obj->f60 - obj->f64);
-            if (diff < -0x3244) {
-                diff += 0x3244 * 2;
+        } else if (arg0->unknown_64_ < arg0->unknown_60_) {
+            var2 = -(arg0->unknown_60_ - arg0->unknown_64_);
+            if (var2 < -0x3244) {
+                var2 += 0x3244 * 2;
             }
         }
 
-        if (diff > 0) {
-            if (diff < step) {
-                obj->f60 = obj->f64;
+        if (var2 > 0) {
+            if (var2 < var1) {
+                arg0->unknown_60_ = arg0->unknown_64_;
             } else {
-                obj->f60 = obj->f60 + step;
+                arg0->unknown_60_ = arg0->unknown_60_ + var1;
             }
-            obj->f5c |= 2;
-            moved = 1;
-        } else if (diff < 0) {
-            if (-diff < step) {
-                obj->f60 = obj->f64;
+            arg0->unknown_5c_ |= 2;
+            var0 = 1;
+        } else if (var2 < 0) {
+            if (-var2 < var1) {
+                arg0->unknown_60_ = arg0->unknown_64_;
             } else {
-                obj->f60 = obj->f60 - step;
+                arg0->unknown_60_ = arg0->unknown_60_ - var1;
             }
-            obj->f5c |= 2;
-            moved = 1;
+            arg0->unknown_5c_ |= 2;
+            var0 = 1;
         }
 
-        if (moved == 0) {
-            obj->f5c &= ~2;
+        if (var0 == 0) {
+            arg0->unknown_5c_ &= ~2;
         }
 
-        obj->f60 = fix32ReduceAngle0To2Pi(obj->f60);
-        obj->f6c = obj->f04;
+        arg0->unknown_60_ = fix32ReduceAngle0To2Pi(arg0->unknown_60_);
+        arg0->unknown_6c_ = arg0->unknown_4_;
 
-        if (!(obj->f5c & 1)) {
-            obj->f88 = obj->f88 + a2;
+        if (!(arg0->unknown_5c_ & 1)) {
+            arg0->unknown_88_ = arg0->unknown_88_ + arg2;
         } else {
-            obj->f88 = 0;
+            arg0->unknown_88_ = 0;
         }
     }
 }

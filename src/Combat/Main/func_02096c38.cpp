@@ -7,119 +7,119 @@
 #define func_020c51a4 func_020c6c70
 #endif
 
-struct StructAt020473c8 { char data[0x88]; };
-struct StructAt020472e4 { char data[0x88]; };
-union TouchRenderEntry02096c38 {
-    StructAt020473c8 plain;
-    StructAt020472e4 transformed;
+struct Struct_02015ef4_2 { char unknown_0_[0x88]; };
+struct Struct_0201730c_2 { char unknown_0_[0x88]; };
+union Struct_02096c38 {
+    Struct_02015ef4_2 unknown_0_;
+    Struct_0201730c_2 unknown1_0_;
 };
-struct Obj020968d0 {
-    TouchRenderEntry02096c38 entries[4];
-    unsigned char startX, startY, endX, endY, flag;
+struct Struct_020968d0 {
+    Struct_02096c38 unknown_0_[4];
+    unsigned char unknown_220_, unknown_221_, unknown_222_, unknown_223_, unknown_224_;
 };
-struct Facing02096c38 { char pad_0[0xae]; short angle; };
-extern "C" int func_020968d0(Obj020968d0*, int*);
-extern "C" void func_020473c8(StructAt020473c8*, int);
-extern "C" void func_020472e4(StructAt020472e4*, int);
+struct Struct_02096c38_2 { char unknown_0_[0xae]; short unknown_ae_; };
+extern "C" int func_020968d0(Struct_020968d0*, int*);
+extern "C" void func_020473c8(Struct_02015ef4_2*, int);
+extern "C" void func_020472e4(Struct_0201730c_2*, int);
 extern "C" void func_020c51a4(int);
 extern "C" void __clear(void*, int);
 
 // USA: func_02096c38
-extern "C" ARM void func_02096c38(Obj020968d0* object, int startX, int startY, int endX, int endY) {
-    float converted;
-    int firstX, firstY, lastX, lastY;
-    int scaled = startX << 12;
-    if (startX > 0) converted = 0.5f + (float)scaled;
-    else converted = (float)scaled - 0.5f;
-    firstX = (int)converted;
-    scaled = startY << 12;
-    if (startY > 0) converted = 0.5f + (float)scaled;
-    else converted = (float)scaled - 0.5f;
-    firstY = (int)converted;
-    scaled = endX << 12;
-    if (endX > 0) converted = 0.5f + (float)scaled;
-    else converted = (float)scaled - 0.5f;
-    lastX = (int)converted;
-    scaled = endY << 12;
-    if (endY > 0) converted = 0.5f + (float)scaled;
-    else converted = (float)scaled - 0.5f;
-    lastY = (int)converted;
-    Vector3fix start, end;
-    Matrix4x3 rotation;
-    Vector3fix direction;
-    int distance;
-    __clear(&start, 12);
-    start.x = firstX;
-    start.y = firstY;
-    __clear(&end, 12);
-    end.x = lastX;
-    end.y = lastY;
-    int useFacing = 0;
-    if (!func_020968d0(object, &distance)) {
-        if (!object->flag) return;
-        distance = 0x8000;
-        useFacing = 1;
+extern "C" ARM void func_02096c38(Struct_020968d0* arg0, int arg1, int arg2, int arg3, int arg4) {
+    float var0;
+    int var1, var2, var3, var4;
+    int var5 = arg1 << 12;
+    if (arg1 > 0) var0 = 0.5f + (float)var5;
+    else var0 = (float)var5 - 0.5f;
+    var1 = (int)var0;
+    var5 = arg2 << 12;
+    if (arg2 > 0) var0 = 0.5f + (float)var5;
+    else var0 = (float)var5 - 0.5f;
+    var2 = (int)var0;
+    var5 = arg3 << 12;
+    if (arg3 > 0) var0 = 0.5f + (float)var5;
+    else var0 = (float)var5 - 0.5f;
+    var3 = (int)var0;
+    var5 = arg4 << 12;
+    if (arg4 > 0) var0 = 0.5f + (float)var5;
+    else var0 = (float)var5 - 0.5f;
+    var4 = (int)var0;
+    Vector3fix var6, var7;
+    Matrix4x3 var8;
+    Vector3fix var9;
+    int var10;
+    __clear(&var6, 12);
+    var6.x = var1;
+    var6.y = var2;
+    __clear(&var7, 12);
+    var7.x = var3;
+    var7.y = var4;
+    int var11 = 0;
+    if (!func_020968d0(arg0, &var10)) {
+        if (!arg0->unknown_224_) return;
+        var10 = 0x8000;
+        var11 = 1;
     }
-    if (useFacing) {
-        GameState* game = GameState::GetInstance();
-        if (game) {
-            GameObject* protagonist = game->GetProtagonist();
-            if (protagonist) {
-                int angle = ((Facing02096c38*)protagonist)->angle;
-                int cosine = fix32cos(angle);
-                direction.x = fix32sin(angle);
-                direction.y = 0;
-                direction.z = cosine;
-                Vector3fix_Normalize(&direction, &direction);
+    if (var11) {
+        GameState* var12 = GameState::GetInstance();
+        if (var12) {
+            GameObject* var13 = var12->GetProtagonist();
+            if (var13) {
+                int var14 = ((Struct_02096c38_2*)var13)->unknown_ae_;
+                int var15 = fix32cos(var14);
+                var9.x = fix32sin(var14);
+                var9.y = 0;
+                var9.z = var15;
+                Vector3fix_Normalize(&var9, &var9);
             }
         }
     } else {
-        Vector3fix_Subtract(&end, &start, &direction);
-        Vector3fix_Normalize(&direction, &direction);
+        Vector3fix_Subtract(&var7, &var6, &var9);
+        Vector3fix_Normalize(&var9, &var9);
     }
     GXFIFO_MATRIX_PUSH = 0;
-    GXFIFO_MATRIX_TRANSLATE = firstX;
-    GXFIFO_MATRIX_TRANSLATE = firstY;
+    GXFIFO_MATRIX_TRANSLATE = var1;
+    GXFIFO_MATRIX_TRANSLATE = var2;
     GXFIFO_MATRIX_TRANSLATE = 0;
     GXFIFO_MATRIX_PUSH = 0;
     GXFIFO_MATRIX_TRANSLATE = -0x8000;
     GXFIFO_MATRIX_TRANSLATE = -0x8000;
     GXFIFO_MATRIX_TRANSLATE = 0;
-    func_020473c8(&object->entries[0].plain, 1);
+    func_020473c8(&arg0->unknown_0_[0].unknown_0_, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
-    short angle = fix32ReduceAngle0To2Pi(-fix32_Atan2(direction.x, direction.y));
-    rotation = RotationMatrixZ(angle);
-    func_020c51a4((int)&rotation);
+    short var16 = fix32ReduceAngle0To2Pi(-fix32_Atan2(var9.x, var9.y));
+    var8 = RotationMatrixZ(var16);
+    func_020c51a4((int)&var8);
     GXFIFO_MATRIX_PUSH = 0;
     GXFIFO_MATRIX_TRANSLATE = 0;
     GXFIFO_MATRIX_TRANSLATE = 0;
     GXFIFO_MATRIX_TRANSLATE = 0x1000;
     GXFIFO_MATRIX_PUSH = 0;
-    int scale = fix32_Divide(distance - 0x5000, 0x8000);
+    int var17 = fix32_Divide(var10 - 0x5000, 0x8000);
     GXFIFO_MATRIX_SCALE = 0x800;
-    GXFIFO_MATRIX_SCALE = scale;
+    GXFIFO_MATRIX_SCALE = var17;
     GXFIFO_MATRIX_SCALE = 0x1000;
-    func_020472e4(&object->entries[1].transformed, 1);
+    func_020472e4(&arg0->unknown_0_[1].unknown1_0_, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
-    int currentDistance = distance;
-    int depth = 0x3000;
+    int var18 = var10;
+    int var19 = 0x3000;
     GXFIFO_MATRIX_TRANSLATE = 0;
-    GXFIFO_MATRIX_TRANSLATE = currentDistance;
-    GXFIFO_MATRIX_TRANSLATE = depth;
+    GXFIFO_MATRIX_TRANSLATE = var18;
+    GXFIFO_MATRIX_TRANSLATE = var19;
     GXFIFO_MATRIX_SCALE = 0xc00;
     GXFIFO_MATRIX_SCALE = -0xc00;
     GXFIFO_MATRIX_SCALE = 0x1000;
-    func_020472e4(&object->entries[2].transformed, 1);
+    func_020472e4(&arg0->unknown_0_[2].unknown1_0_, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_PUSH = 0;
     GXFIFO_MATRIX_TRANSLATE = -0x4000;
     GXFIFO_MATRIX_TRANSLATE = -0x4000;
     GXFIFO_MATRIX_TRANSLATE = 0x2000;
-    func_020473c8(&object->entries[3].plain, 1);
+    func_020473c8(&arg0->unknown_0_[3].unknown_0_, 1);
     GXFIFO_MATRIX_POP = 1;
     GXFIFO_MATRIX_POP = 1;
 }

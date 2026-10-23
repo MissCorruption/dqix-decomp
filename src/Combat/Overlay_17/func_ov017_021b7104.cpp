@@ -1,82 +1,82 @@
 #if defined(jpn)
-enum {regionalOffset0=0xc8, regionalOffset1=0x4200, regionalOffset2=0x12};
+enum {Enum_ov017_021b7104_744=0xc8, Enum_ov017_021b7104_17408=0x4200, Enum_ov017_021b7104_194=0x12};
 #else
-enum {regionalOffset0=0x2e8, regionalOffset1=0x4400, regionalOffset2=0xc2};
+enum {Enum_ov017_021b7104_744=0x2e8, Enum_ov017_021b7104_17408=0x4400, Enum_ov017_021b7104_194=0xc2};
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_020100a8(GameState* arg0);
 
-struct Src_021b7104 {
-    unsigned char f0;
-    unsigned char f1;
-    unsigned short f2;
-    unsigned short f4;
-    unsigned char pad6[2];
-    unsigned int f8;
-    unsigned char fc;
-    unsigned char fd;
-    unsigned char fe;
-    unsigned char ff;
-    short f10;
-    unsigned char f12;
-    unsigned char pad13[1];
-    unsigned int f14;
+struct Struct_ov017_021b7104 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[2];
+    unsigned int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_[1];
+    unsigned int unknown_14_;
 };
 
-struct Dst_021b7104 {
-    unsigned char pad0[0x20];
-    unsigned char f20;
-    unsigned char f21;
-    unsigned short f22;
-    unsigned short f24;
-    unsigned short f26;
-    unsigned int f28;
-    unsigned char pad2c[0x40 - 0x2c];
-    unsigned char f40;
-    unsigned char f41;
-    unsigned char f42;
-    unsigned char pad43[1];
-    unsigned short f44;
-    unsigned char f46;
-    unsigned char pad47[1];
-    unsigned int f48;
-    unsigned char pad4c[0x51 - 0x4c];
-    unsigned char f51;
+struct Struct_ov017_021b7104_2 {
+    unsigned char unknown_0_[0x20];
+    unsigned char unknown_20_;
+    unsigned char unknown_21_;
+    unsigned short unknown_22_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    unsigned int unknown_28_;
+    unsigned char unknown_2c_[0x40 - 0x2c];
+    unsigned char unknown_40_;
+    unsigned char unknown_41_;
+    unsigned char unknown_42_;
+    unsigned char unknown_43_[1];
+    unsigned short unknown_44_;
+    unsigned char unknown_46_;
+    unsigned char unknown_47_[1];
+    unsigned int unknown_48_;
+    unsigned char unknown_4c_[0x51 - 0x4c];
+    unsigned char unknown_51_;
 };
 
 // USA: func_ov017_021b7104
-extern "C" ARM void func_ov017_021b7104(Dst_021b7104* dst, Src_021b7104* src) {
-    GameState* battle = GameState::GetInstance();
-    GameResources* ov = GetGameResources();
+extern "C" ARM void func_ov017_021b7104(Struct_ov017_021b7104_2* arg0, Struct_ov017_021b7104* arg1) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
 
-    dst->f22 = src->f1;
-    dst->f24 = src->f4;
-    dst->f26 = src->f2;
-    dst->f20 = src->f0;
-    int val;
-    if (src->f0 == 0) {
-        val = -1;
+    arg0->unknown_22_ = arg1->unknown_1_;
+    arg0->unknown_24_ = arg1->unknown_4_;
+    arg0->unknown_26_ = arg1->unknown_2_;
+    arg0->unknown_20_ = arg1->unknown_0_;
+    int var2;
+    if (arg1->unknown_0_ == 0) {
+        var2 = -1;
     } else {
-        val = func_020100a8(battle);
+        var2 = func_020100a8(var0);
     }
-    dst->f46 = (unsigned char)val;
-    dst->f28 = src->f8;
-    dst->f41 = src->fd;
-    dst->f40 = src->fc;
-    dst->f42 = src->fe;
-    dst->f44 = (unsigned short)src->f10;
-    dst->f51 = src->ff;
-    dst->f48 = src->f14;
-    dst->f21 = src->f12;
+    arg0->unknown_46_ = (unsigned char)var2;
+    arg0->unknown_28_ = arg1->unknown_8_;
+    arg0->unknown_41_ = arg1->unknown_d_;
+    arg0->unknown_40_ = arg1->unknown_c_;
+    arg0->unknown_42_ = arg1->unknown_e_;
+    arg0->unknown_44_ = (unsigned short)arg1->unknown_10_;
+    arg0->unknown_51_ = arg1->unknown_f_;
+    arg0->unknown_48_ = arg1->unknown_14_;
+    arg0->unknown_21_ = arg1->unknown_12_;
 
-    if (src->f0 != 0 && src->f14 == 0) {
-        SetFlags00(ov, 0x800);
+    if (arg1->unknown_0_ != 0 && arg1->unknown_14_ == 0) {
+        SetFlags00(var1, 0x800);
     }
 
-    *((unsigned char*)ov + 0x4000 + regionalOffset0) = 0;
-    *(unsigned short*)((char*)ov + regionalOffset1 + regionalOffset2) = 0;
+    *((unsigned char*)var1 + 0x4000 + Enum_ov017_021b7104_744) = 0;
+    *(unsigned short*)((char*)var1 + Enum_ov017_021b7104_17408 + Enum_ov017_021b7104_194) = 0;
 }

@@ -2,23 +2,23 @@
 
 extern int func_ov031_02205d10;
 extern "C" void* func_ov031_02205134(void*, void*, int);
-struct Obj0220527c;
-extern "C" int func_ov031_0220527c(Obj0220527c*, void*);
+struct Struct_ov031_0220527c;
+extern "C" int func_ov031_0220527c(Struct_ov031_0220527c*, void*);
 
-struct LookupRecord {
-    char pad[0x10];
-    unsigned int f10;
-    unsigned int f14;
-    unsigned int f18;
-    unsigned int f1c;
+struct Struct_ov031_02205cc4 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned int unknown_18_;
+    unsigned int unknown_1c_;
 };
 
 // USA: func_ov031_02205cc4
-extern "C" ARM int func_ov031_02205cc4(Obj0220527c* obj, unsigned int a, unsigned int b, unsigned int c, unsigned int d) {
-    LookupRecord* rec = (LookupRecord*)func_ov031_02205134(&func_ov031_02205d10, obj, 1);
-    rec->f10 = a;
-    rec->f14 = b;
-    rec->f18 = c;
-    rec->f1c = d;
-    return func_ov031_0220527c(obj, rec);
+extern "C" ARM int func_ov031_02205cc4(Struct_ov031_0220527c* arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4) {
+    Struct_ov031_02205cc4* var0 = (Struct_ov031_02205cc4*)func_ov031_02205134(&func_ov031_02205d10, arg0, 1);
+    var0->unknown_10_ = arg1;
+    var0->unknown_14_ = arg2;
+    var0->unknown_18_ = arg3;
+    var0->unknown_1c_ = arg4;
+    return func_ov031_0220527c(arg0, var0);
 }

@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void __clear(void* buf, int n);
-extern "C" unsigned char func_02011494(char* obj, void* dst);
-extern "C" void func_ov017_021d6134(void* obj, int v);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" void func_ov017_021d6134(void* arg0, int arg1);
 
 // USA: func_ov023_021ea3ac
-extern "C" ARM int func_ov023_021ea3ac(void* obj) {
-    GameState* bs = GameState::GetInstance();
-    char buf[4];
-    __clear(buf, 4);
-    int v = func_02011494((char*)bs, buf);
-    func_ov017_021d6134(obj, v - 1);
+extern "C" ARM int func_ov023_021ea3ac(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    char var1[4];
+    __clear(var1, 4);
+    int var2 = func_02011494((char*)var0, var1);
+    func_ov017_021d6134(arg0, var2 - 1);
     return 1;
 }

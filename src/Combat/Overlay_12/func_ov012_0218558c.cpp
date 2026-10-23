@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 
-struct Owner0218558c {
-    int field0;
-    int field4;
-    char* base;
+struct Struct_ov012_0218558c_2 {
+    int unknown_0_;
+    int unknown_4_;
+    char* unknown_8_;
 };
 
-struct Table0218558c {
-    char* entries[7];
-    unsigned char field1c;
-    unsigned char field1d;
-    unsigned char count;
+struct Struct_ov012_0218558c {
+    char* unknown_0_[7];
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
+    unsigned char unknown_1e_;
 };
 
 // USA: func_ov012_0218558c
-extern "C" ARM int func_ov012_0218558c(struct Owner0218558c* owner, struct Table0218558c* table) {
-    int i = 0;
-    while (i < table->count) {
-        int missing = 1;
-        int offset = (int)(table->entries[i] - (char*)0);
-        char* value;
-        if (offset != -1 && owner->base != 0) {
-            missing = 0;
+extern "C" ARM int func_ov012_0218558c(struct Struct_ov012_0218558c_2* arg0, struct Struct_ov012_0218558c* arg1) {
+    int var0 = 0;
+    while (var0 < arg1->unknown_1e_) {
+        int var1 = 1;
+        int var2 = (int)(arg1->unknown_0_[var0] - (char*)0);
+        char* var3;
+        if (var2 != -1 && arg0->unknown_8_ != 0) {
+            var1 = 0;
         }
-        if (missing) {
-            value = 0;
+        if (var1) {
+            var3 = 0;
         } else {
-            value = owner->base + offset;
+            var3 = arg0->unknown_8_ + var2;
         }
-        table->entries[i] = value;
-        i++;
+        arg1->unknown_0_[var0] = var3;
+        var0++;
     }
     return 1;
 }

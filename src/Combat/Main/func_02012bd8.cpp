@@ -4,7 +4,7 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
-extern "C" int func_020a18f4(unsigned int idx);
+extern "C" int func_020a18f4(unsigned int arg0);
 extern char data_027e0000;
 
 // USA: func_02012bd8

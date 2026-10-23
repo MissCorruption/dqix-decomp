@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Wf11SubData {
-    char unk[0x38];
-    unsigned char fieldX;
-    unsigned char fieldY;
+struct Struct_020e1e24_2 {
+    char unknown_0_[0x38];
+    unsigned char unknown_38_;
+    unsigned char unknown_39_;
 };
 
-struct Wf11Outer {
-    int unk0;
-    struct Wf11SubData* sub;
+struct Struct_020e1e24 {
+    int unknown_0_;
+    struct Struct_020e1e24_2* unknown_4_;
 };
 
 // USA: func_020e1e24
-extern "C" ARM void func_020e1e24(struct Wf11Outer* obj, unsigned short* outX, unsigned short* outY, int index) {
-    *outX = obj->sub->fieldX + 0xc;
-    *outY = obj->sub->fieldY + 8 + (index << 4);
+extern "C" ARM void func_020e1e24(struct Struct_020e1e24* arg0, unsigned short* arg1, unsigned short* arg2, int arg3) {
+    *arg1 = arg0->unknown_4_->unknown_38_ + 0xc;
+    *arg2 = arg0->unknown_4_->unknown_39_ + 8 + (arg3 << 4);
 }

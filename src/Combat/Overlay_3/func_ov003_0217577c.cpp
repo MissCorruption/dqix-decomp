@@ -1,43 +1,43 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kOffset104b = 0xfc7 };
-enum { kOffset104c = 0xfc8 };
-enum { kOffset89c = 0x818 };
+enum { Enum_ov003_0217577c_4171 = 0xfc7 };
+enum { Enum_ov003_0217577c_4172 = 0xfc8 };
+enum { Enum_ov003_0217577c_2204 = 0x818 };
 #else
-enum { kOffset104b = 0x104b };
-enum { kOffset104c = 0x104c };
-enum { kOffset89c = 0x89c };
+enum { Enum_ov003_0217577c_4171 = 0x104b };
+enum { Enum_ov003_0217577c_4172 = 0x104c };
+enum { Enum_ov003_0217577c_2204 = 0x89c };
 #endif
 
-struct Obj2081;
-struct Elem2081;
-extern "C" struct Elem2081* func_02081da8(struct Obj2081* obj, int key);
-extern "C" int func_0204c7cc(unsigned char* obj);
-extern "C" void func_020809c4(void* obj, int id, int id2, short* out1, short* out2);
-extern "C" void func_ov003_0217585c(void* obj, int a, int b, int idx, unsigned char c);
+struct Struct_0207fdcc_2;
+struct Struct_0207fdcc;
+extern "C" struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
+extern "C" void func_ov003_0217585c(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
-struct Ctx0217577c {
-    char pad[kOffset89c];
-    struct Obj2081* field89c;
+struct Struct_ov003_0217577c {
+    char unknown_0_[Enum_ov003_0217577c_2204];
+    struct Struct_0207fdcc_2* unknown_89c_;
 };
 
 // USA: func_ov003_0217577c
-extern "C" ARM void func_ov003_0217577c(void* objRaw) {
-    Ctx0217577c* obj = (Ctx0217577c*)objRaw;
-    struct Obj2081* target = obj->field89c;
-    struct Elem2081* e = func_02081da8(target, 9);
-    if (e == 0) return;
-    if (!func_0204c7cc((unsigned char*)e)) return;
+extern "C" ARM void func_ov003_0217577c(void* arg0) {
+    Struct_ov003_0217577c* var0 = (Struct_ov003_0217577c*)arg0;
+    struct Struct_0207fdcc_2* var1 = var0->unknown_89c_;
+    struct Struct_0207fdcc* var2 = func_02081da8(var1, 9);
+    if (var2 == 0) return;
+    if (!func_0204c7cc((unsigned char*)var2)) return;
 
-    short out1, out2;
-    int flag1 = 0;
-    if (*(unsigned char*)((char*)objRaw + kOffset104b) != 0) flag1 = 1;
-    func_020809c4(target, 9, 0x58, &out1, &out2);
-    func_ov003_0217585c(objRaw, out1 + flag1, out2 + flag1, 0x1d, 0x1e);
+    short var3, var4;
+    int var5 = 0;
+    if (*(unsigned char*)((char*)arg0 + Enum_ov003_0217577c_4171) != 0) var5 = 1;
+    func_020809c4(var1, 9, 0x58, &var3, &var4);
+    func_ov003_0217585c(arg0, var3 + var5, var4 + var5, 0x1d, 0x1e);
 
-    int flag2 = 0;
-    if (*(unsigned char*)((char*)objRaw + kOffset104c) != 0) flag2 = 1;
-    func_020809c4(target, 9, 0x59, &out1, &out2);
-    func_ov003_0217585c(objRaw, out1 + flag2, out2 + flag2, 0x1e, 0x1f);
+    int var6 = 0;
+    if (*(unsigned char*)((char*)arg0 + Enum_ov003_0217577c_4172) != 0) var6 = 1;
+    func_020809c4(var1, 9, 0x59, &var3, &var4);
+    func_ov003_0217585c(arg0, var3 + var6, var4 + var6, 0x1e, 0x1f);
 }

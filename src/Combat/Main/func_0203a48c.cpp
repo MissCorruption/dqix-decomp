@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 
-struct Vec3Int0203a48c {
-    int x;
-    int y;
-    int z;
+struct Struct_0203a48c_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct PopupEntry0203a48c {
-    unsigned short id;
-    unsigned short field2;
-    unsigned char field4;
-    unsigned char field5;
-    unsigned char digitCount;
-    unsigned char field7;
-    unsigned short field8;
-    unsigned short fieldA;
-    int x;
-    int y;
-    int z;
+struct Struct_0203a48c {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    unsigned char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
 };
 
-struct Obj0203a48c {
-    char pad0[0x550];
-    struct PopupEntry0203a48c entries[16];
-    char pad6d0[4];
-    int count;
+struct Struct_0203a48c_3 {
+    char unknown_0_[0x550];
+    struct Struct_0203a48c unknown_550_[16];
+    char unknown_6d0_[4];
+    int unknown_6d4_;
 };
 
 // USA: func_0203a48c
-extern "C" ARM void func_0203a48c(Obj0203a48c* obj, int id, Vec3Int0203a48c* pos, int field7, int field4, int field2) {
-    int value;
-    int digitCount;
-    struct PopupEntry0203a48c* entry;
+extern "C" ARM void func_0203a48c(Struct_0203a48c_3* arg0, int arg1, Struct_0203a48c_2* arg2, int arg3, int arg4, int arg5) {
+    int var0;
+    int var1;
+    struct Struct_0203a48c* var2;
 
-    value = id;
-    digitCount = 0;
-    while (value > 0) {
-        value = value / 10;
-        digitCount++;
+    var0 = arg1;
+    var1 = 0;
+    while (var0 > 0) {
+        var0 = var0 / 10;
+        var1++;
     }
-    if (digitCount == 0) {
+    if (var1 == 0) {
         return;
     }
 
-    entry = &obj->entries[obj->count];
-    entry->field5 = 0x25;
-    entry->id = id;
-    entry->x = pos->x;
-    entry->y = pos->y;
-    entry->z = pos->z;
-    entry->field4 = field4;
-    entry->field2 = field2;
-    entry->digitCount = digitCount;
-    entry->field8 = 0x358 - 0x25;
-    entry->fieldA = 0x1333;
-    entry->field7 = field7;
+    var2 = &arg0->unknown_550_[arg0->unknown_6d4_];
+    var2->unknown_5_ = 0x25;
+    var2->unknown_0_ = arg1;
+    var2->unknown_c_ = arg2->unknown_0_;
+    var2->unknown_10_ = arg2->unknown_4_;
+    var2->unknown_14_ = arg2->unknown_8_;
+    var2->unknown_4_ = arg4;
+    var2->unknown_2_ = arg5;
+    var2->unknown_6_ = var1;
+    var2->unknown_8_ = 0x358 - 0x25;
+    var2->unknown_a_ = 0x1333;
+    var2->unknown_7_ = arg3;
 
-    obj->count = obj->count + 1;
-    if (obj->count >= 0x10) {
-        obj->count = 0;
+    arg0->unknown_6d4_ = arg0->unknown_6d4_ + 1;
+    if (arg0->unknown_6d4_ >= 0x10) {
+        arg0->unknown_6d4_ = 0;
     }
 }

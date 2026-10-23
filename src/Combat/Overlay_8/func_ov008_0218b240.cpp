@@ -15,60 +15,60 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 
-struct Entry_0205d6a0;
-extern "C" void func_0205d6a0(Entry_0205d6a0*, int);
+struct Struct_0205d6a0;
+extern "C" void func_0205d6a0(Struct_0205d6a0*, int);
 extern "C" void* func_020d6c00();
-struct FlagWord020466f4;
-extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
 
-struct Manager0218b240 {
-    char pad0[R(0xe95,0xe99)];
-    unsigned char e99;
-    unsigned char e9a;
-    unsigned char e9b;
-    unsigned char e9c;
-    char pad1[0xea0 - 0xe9d];
-    int ea0;
-    int ea4;
-    int ea8;
-    char pad2[R(4,0xeb4 - 0xeac)];
-    int eb4;
-    char pad3[0xec0 - 0xeb8];
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char bit3 : 1;
-    unsigned char rest : 4;
+struct Struct_ov008_0218b240 {
+    char unknown_0_[R(0xe95,0xe99)];
+    unsigned char unknown_e99_;
+    unsigned char unknown_e9a_;
+    unsigned char unknown_e9b_;
+    unsigned char unknown_e9c_;
+    char unknown_e9d_[0xea0 - 0xe9d];
+    int unknown_ea0_;
+    int unknown_ea4_;
+    int unknown_ea8_;
+    char unknown_eac_[R(4,0xeb4 - 0xeac)];
+    int unknown_eb4_;
+    char unknown_eb8_[0xec0 - 0xeb8];
+    unsigned char unknown_ec0_0_ : 1;
+    unsigned char unknown_ec0_1_ : 1;
+    unsigned char unknown_ec0_2_ : 1;
+    unsigned char unknown_ec0_3_ : 1;
+    unsigned char unknown_ec0_4_ : 4;
 };
 
 // USA: func_ov008_0218b240
-extern "C" ARM void func_ov008_0218b240(Manager0218b240* obj) {
-    if (obj->bit3) return;
+extern "C" ARM void func_ov008_0218b240(Struct_ov008_0218b240* arg0) {
+    if (arg0->unknown_ec0_3_) return;
 
     GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
 
-    obj->bit0 = 0;
-    func_0205d6a0((Entry_0205d6a0*)((char*)obj + 0x18), 1);
+    arg0->unknown_ec0_0_ = 0;
+    func_0205d6a0((Struct_0205d6a0*)((char*)arg0 + 0x18), 1);
 
-    obj->e99 = 2;
-    obj->e9a = 0;
-    obj->e9b = 2;
-    obj->e9c = 0;
+    arg0->unknown_e99_ = 2;
+    arg0->unknown_e9a_ = 0;
+    arg0->unknown_e9b_ = 2;
+    arg0->unknown_e9c_ = 0;
 
-    void* ptr = func_020d6c00();
-    func_020466f4((FlagWord020466f4*)ptr, 0x2f);
+    void* var1 = func_020d6c00();
+    func_020466f4((Struct_02038598_4*)var1, 0x2f);
     ClearFlags00(GetGameResources(), 0x10);
 
-    loader->RemoveTask(obj->ea0);
-    loader->RemoveTask(obj->eb4);
-    loader->RemoveTask(obj->ea4);
-    loader->RemoveTask(obj->ea8);
+    var0->RemoveTask(arg0->unknown_ea0_);
+    var0->RemoveTask(arg0->unknown_eb4_);
+    var0->RemoveTask(arg0->unknown_ea4_);
+    var0->RemoveTask(arg0->unknown_ea8_);
 
-    obj->ea0 = -1;
-    obj->eb4 = -1;
-    obj->ea4 = -1;
-    obj->ea8 = -1;
+    arg0->unknown_ea0_ = -1;
+    arg0->unknown_eb4_ = -1;
+    arg0->unknown_ea4_ = -1;
+    arg0->unknown_ea8_ = -1;
 
-    obj->bit3 = 1;
+    arg0->unknown_ec0_3_ = 1;
 }

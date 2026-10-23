@@ -7,7 +7,7 @@
 extern "C" int func_0205ec34(int);
 extern "C" void func_0209645c(int, int);
 extern "C" void func_02095ff0(int, int);
-extern "C" void func_0206e100(int base, int index);
+extern "C" void func_0206e100(int arg0, int arg1);
 
 // USA: func_02095cfc
 extern "C" ARM void func_02095cfc(int arg0, int arg1) {

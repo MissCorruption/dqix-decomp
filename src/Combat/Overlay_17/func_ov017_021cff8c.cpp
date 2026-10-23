@@ -2,65 +2,65 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct SubBuf021cff8c {
-    int id;
-    unsigned char idx;
-    unsigned char count;
-    short arr[4];
+struct Struct_ov017_021cff8c {
+    int unknown_0_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_;
+    short unknown_6_[4];
 };
 
-struct EventBuf021cff8c {
-    unsigned char tag;
-    unsigned char pad0[3];
-    struct SubBuf021cff8c sub;
+struct Struct_ov017_021cff8c_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    struct Struct_ov017_021cff8c unknown_4_;
 };
 
 // USA: func_ov017_021cff8c
-extern "C" ARM void func_ov017_021cff8c(int id, int skipCheck) {
-    void* mgr = func_0202ae24();
-    GameState* battle = GameState::GetInstance();
-    unsigned char* list = (unsigned char*)func_02010828(battle);
+extern "C" ARM void func_ov017_021cff8c(int arg0, int arg1) {
+    void* var0 = func_0202ae24();
+    GameState* var1 = GameState::GetInstance();
+    unsigned char* var2 = (unsigned char*)func_02010828(var1);
 
-    int found = 0;
-    if (skipCheck) {
-        found = 1;
+    int var3 = 0;
+    if (arg1) {
+        var3 = 1;
     } else {
-        int i;
-        for (i = 0; i < list[0xf7c]; i++) {
-            unsigned char* row = list + i;
-            if (id == row[0xf78]) { found = 1; break; }
+        int var4;
+        for (var4 = 0; var4 < var2[0xf7c]; var4++) {
+            unsigned char* var5 = var2 + var4;
+            if (arg0 == var5[0xf78]) { var3 = 1; break; }
         }
     }
-    if (!found) return;
+    if (!var3) return;
 
-    GameObject* c = func_0200ff1c(battle, id);
-    if (!c) return;
+    GameObject* var6 = func_0200ff1c(var1, arg0);
+    if (!var6) return;
 
-    int field150 = func_02053c6c((unsigned char*)c);
-    if (!field150) return;
+    int var7 = func_02053c6c((unsigned char*)var6);
+    if (!var7) return;
 
-    short* src = (short*)(field150 + 0x454);
+    short* var8 = (short*)(var7 + 0x454);
 
-    struct EventBuf021cff8c buf;
-    struct SubBuf021cff8c* r6 = &buf.sub;
-    buf.tag = 0xa8;
-    r6->id = id;
-    r6->count = 4;
-    r6->idx = 0;
-    int i;
-    for (i = 0; i < r6->count; i++) {
-        r6->arr[i] = src[r6->idx + i];
+    struct Struct_ov017_021cff8c_2 var9;
+    struct Struct_ov017_021cff8c* var10 = &var9.unknown_4_;
+    var9.unknown_0_ = 0xa8;
+    var10->unknown_0_ = arg0;
+    var10->unknown_5_ = 4;
+    var10->unknown_4_ = 0;
+    int var11;
+    for (var11 = 0; var11 < var10->unknown_5_; var11++) {
+        var10->unknown_6_[var11] = var8[var10->unknown_4_ + var11];
     }
-    func_0205e330(mgr, &buf, 0);
+    func_0205e330(var0, &var9, 0);
 
-    unsigned char cnt2 = r6->count;
-    int j = 0;
-    r6->idx = cnt2;
-    for (; j < r6->count; j++) {
-        r6->arr[j] = src[r6->idx + j];
+    unsigned char var12 = var10->unknown_5_;
+    int var13 = 0;
+    var10->unknown_4_ = var12;
+    for (; var13 < var10->unknown_5_; var13++) {
+        var10->unknown_6_[var13] = var8[var10->unknown_4_ + var13];
     }
-    func_0205e330(mgr, &buf, 0);
+    func_0205e330(var0, &var9, 0);
 }

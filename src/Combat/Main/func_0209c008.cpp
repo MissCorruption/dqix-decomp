@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct ResetStruct {
-    int w0;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
-    int w18;
-    int w1c;
-    int w20;
-    int w24;
-    int w28;
-    char pad[0x400];
-    unsigned char b42c;
+struct Struct_0201f040 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    char unknown_2c_[0x400];
+    unsigned char unknown_42c_;
 };
 
-struct StreamHeader;
-struct StreamState;
+struct Struct_02013fb4;
+struct Struct_0201f040_2;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
 extern int data_020f16f8;
 
-struct LocalA0209c008 {
-    void* field0;
-    unsigned short field4;
-    unsigned short field6;
-    int field8;
+struct Struct_0209c008 {
+    void* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    int unknown_8_;
 };
-extern struct LocalA0209c008* data_02109bc8;
+extern struct Struct_0209c008* data_02109bc8;
 
 // USA: func_0209c008
-extern "C" ARM void func_0209c008(void* obj, struct StreamHeader* buffer, int length, int idFlag, int mulVal, int addVal) {
-    struct LocalA0209c008 local;
-    local.field0 = obj;
-    local.field4 = mulVal * 100 + addVal;
-    local.field6 = idFlag;
-    local.field8 = 1;
-    data_02109bc8 = &local;
+extern "C" ARM void func_0209c008(void* arg0, struct Struct_02013fb4* arg1, int arg2, int arg3, int arg4, int arg5) {
+    struct Struct_0209c008 var0;
+    var0.unknown_0_ = arg0;
+    var0.unknown_4_ = arg4 * 100 + arg5;
+    var0.unknown_6_ = arg3;
+    var0.unknown_8_ = 1;
+    data_02109bc8 = &var0;
 
-    struct ResetStruct local2;
-    ((Script*)&local2)->Initialize();
-    ((Script*)&local2)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f16f8);
-    ((Script*)((struct StreamState*)&local2))->Load(buffer, length);
-    ((Script*)((struct Struct02030774*)&local2))->Execute();
+    struct Struct_0201f040 var1;
+    ((Script*)&var1)->Initialize();
+    ((Script*)&var1)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f16f8);
+    ((Script*)((struct Struct_0201f040_2*)&var1))->Load(arg1, arg2);
+    ((Script*)((struct Struct_0201f040_3*)&var1))->Execute();
 }

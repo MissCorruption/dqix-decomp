@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Node020406b0 {
-    char pad[0x14];
-    void* f14;
-    void* f18;
-    void* f1c;
+struct Struct_020406b0 {
+    char unknown_0_[0x14];
+    void* unknown_14_;
+    void* unknown_18_;
+    void* unknown_1c_;
 };
 
 // USA: func_020406b0
-extern "C" ARM void func_020406b0(struct Node020406b0* obj) {
-    if (obj->f14 != NULL) {
-        *(unsigned int*)((char*)obj->f14 + 0x50) |= 1;
+extern "C" ARM void func_020406b0(struct Struct_020406b0* arg0) {
+    if (arg0->unknown_14_ != NULL) {
+        *(unsigned int*)((char*)arg0->unknown_14_ + 0x50) |= 1;
         return;
     }
-    if (obj->f18 != NULL) {
-        ((Object3D*)((unsigned char*)obj->f18))->MakeHidden();
+    if (arg0->unknown_18_ != NULL) {
+        ((Object3D*)((unsigned char*)arg0->unknown_18_))->MakeHidden();
         return;
     }
-    if (obj->f1c != NULL) {
-        ((Object3D*)((unsigned char*)obj->f1c))->MakeHidden();
+    if (arg0->unknown_1c_ != NULL) {
+        ((Object3D*)((unsigned char*)arg0->unknown_1c_))->MakeHidden();
     }
 }

@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion998 = 0x868 };
+enum { Enum_ov003_0215af9c_2456 = 0x868 };
 #else
-enum { kRegion998 = 0x998 };
+enum { Enum_ov003_0215af9c_2456 = 0x998 };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-struct BattleMessageScene {
-    char unk_0[0x64];
-    char messages[0x580 - 0x64];
-    unsigned char step;
-    char unk_581[0x587 - 0x581];
-    unsigned char actorSlot;
-    unsigned char nextMode;
-    char unk_589[0x59d - 0x589];
-    unsigned char busy;
+struct Struct_ov003_021594c4_2 {
+    char unknown_0_[0x64];
+    char unknown_64_[0x580 - 0x64];
+    unsigned char unknown_580_;
+    char unknown_581_[0x587 - 0x581];
+    unsigned char unknown_587_;
+    unsigned char unknown_588_;
+    char unknown_589_[0x59d - 0x589];
+    unsigned char unknown_59d_;
 };
 
-struct BattleGlobals {
-    char unk_0[kRegion998];
-    int messageActive;
+struct Struct_ov003_0215af9c {
+    char unknown_0_[Enum_ov003_0215af9c_2456];
+    int unknown_998_;
 };
 
-extern "C" BattleGlobals* func_020421a0(void);
+extern "C" Struct_ov003_0215af9c* func_020421a0(void);
 int IsBrightnessTransitionActive(GameResources*);
 void SetMainBrightness(GameResources*, int, int);
 extern "C" int func_020100b0(GameState*);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
-extern "C" void func_02046380(BattleGlobals*);
-struct Obj02046574;
-extern "C" void func_02046574(Obj02046574*, int, char*);
-struct Container020e0310;
-extern "C" void* func_020e0434(Container020e0310*, int);
-extern "C" void func_ov003_02159250(BattleMessageScene*, void*);
+extern "C" void func_02046380(Struct_ov003_0215af9c*);
+struct Struct_02046574_2;
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+struct Struct_0201099c_3;
+extern "C" void* func_020e0434(Struct_0201099c_3*, int);
+extern "C" void func_ov003_02159250(Struct_ov003_021594c4_2*, void*);
 
 // USA: func_ov003_0215af9c
-extern "C" ARM void func_ov003_0215af9c(BattleMessageScene* self) {
-    GameResources* res = GetGameResources();
-    BattleGlobals* g = func_020421a0();
-    unsigned char step = self->step;
+extern "C" ARM void func_ov003_0215af9c(Struct_ov003_021594c4_2* arg0) {
+    GameResources* var0 = GetGameResources();
+    Struct_ov003_0215af9c* var1 = func_020421a0();
+    unsigned char var2 = arg0->unknown_580_;
 
-    if (step == 0) {
-        if (!IsBrightnessTransitionActive(res) &&
-            GetBrightness((GameResources*)res, false) &&
-            GetBrightness((GameResources*)res, true)) {
-            SetMainBrightness(res, 0, 0xf);
+    if (var2 == 0) {
+        if (!IsBrightnessTransitionActive(var0) &&
+            GetBrightness((GameResources*)var0, false) &&
+            GetBrightness((GameResources*)var0, true)) {
+            SetMainBrightness(var0, 0, 0xf);
         }
-        self->step++;
+        arg0->unknown_580_++;
     }
 
-    if (step == 1) {
-        if (self->busy != 0) return;
-        if (IsBrightnessTransitionActive(res)) return;
-        if (GetBrightness((GameResources*)res, false)) return;
+    if (var2 == 1) {
+        if (arg0->unknown_59d_ != 0) return;
+        if (IsBrightnessTransitionActive(var0)) return;
+        if (GetBrightness((GameResources*)var0, false)) return;
 
-        if (self->actorSlot == 1) {
-            GameState* gs = GameState::GetInstance();
-            GameObject* obj = func_0200ff1c(gs, func_020100b0(gs));
-            func_02046380(g);
-            func_02046574((Obj02046574*)g, 0, (char*)obj->baseStats_);
+        if (arg0->unknown_587_ == 1) {
+            GameState* var3 = GameState::GetInstance();
+            GameObject* var4 = func_0200ff1c(var3, func_020100b0(var3));
+            func_02046380(var1);
+            func_02046574((Struct_02046574_2*)var1, 0, (char*)var4->baseStats_);
         }
-        g->messageActive = 1;
-        func_ov003_02159250(self, func_020e0434((Container020e0310*)self->messages, (short)(self->actorSlot + 0x438)));
-        self->step++;
+        var1->unknown_998_ = 1;
+        func_ov003_02159250(arg0, func_020e0434((Struct_0201099c_3*)arg0->unknown_64_, (short)(arg0->unknown_587_ + 0x438)));
+        arg0->unknown_580_++;
     }
 
-    if (step == 2 && g->messageActive == 0) {
-        self->nextMode = 0xb;
-        self->step = 0;
+    if (var2 == 2 && var1->unknown_998_ == 0) {
+        arg0->unknown_588_ = 0xb;
+        arg0->unknown_580_ = 0;
     }
 }

@@ -1,48 +1,48 @@
 #include <globaldefs.h>
 #include <World/Object3D.h>
 
-static inline fix32_t FX_Mul(fix32_t a, fix32_t b)
+static inline fix32_t inline_ov023_021e5e68(fix32_t arg0, fix32_t arg1)
 {
-    return (fix32_t)(((int64_t)a * b + 0x800) >> 12);
+    return (fix32_t)(((int64_t)arg0 * arg1 + 0x800) >> 12);
 }
 
 enum
 {
-    Part_Body,
-    Part_1,
-    Part_2,
-    Part_3,
-    Part_4,
-    Part_5,
-    Part_6,
-    Part_7,
-    Part_8,
-    Part_9
+    Enum_ov023_021e5e68_0,
+    Enum_ov023_021e5e68_1,
+    Enum_ov023_021e5e68_2,
+    Enum_ov023_021e5e68_3,
+    Enum_ov023_021e5e68_4,
+    Enum_ov023_021e5e68_5,
+    Enum_ov023_021e5e68_6,
+    Enum_ov023_021e5e68_7,
+    Enum_ov023_021e5e68_8,
+    Enum_ov023_021e5e68_9
 };
 
-struct CharacterModel_021e5e68
+struct Struct_ov023_021e5e68
 {
-    Object3D parts_[10];
+    Object3D unknown_0_[10];
 };
 
 // USA: func_ov023_021e5e68
-extern "C" ARM void func_ov023_021e5e68(CharacterModel_021e5e68* self, int width, int height)
+extern "C" ARM void func_ov023_021e5e68(Struct_ov023_021e5e68* arg0, int arg1, int arg2)
 {
-    fix32_t scale = FX_Mul(height, width);
-    self->parts_[Part_Body].SetScale(scale, height, scale);
-    self->parts_[Part_6].SetScale(scale, height, scale);
-    self->parts_[Part_1].SetScale(scale, height, scale);
-    self->parts_[Part_5].SetScale(scale, height, scale);
+    fix32_t var0 = inline_ov023_021e5e68(arg2, arg1);
+    arg0->unknown_0_[Enum_ov023_021e5e68_0].SetScale(var0, arg2, var0);
+    arg0->unknown_0_[Enum_ov023_021e5e68_6].SetScale(var0, arg2, var0);
+    arg0->unknown_0_[Enum_ov023_021e5e68_1].SetScale(var0, arg2, var0);
+    arg0->unknown_0_[Enum_ov023_021e5e68_5].SetScale(var0, arg2, var0);
 
-    short inverse = fix32_Divide(0x1000, scale);
-    short inverseHeight = fix32_Divide(0x1000, height);
-    self->parts_[Part_8].SetScale(inverse, inverseHeight, inverse);
-    self->parts_[Part_9].SetScale(inverse, inverseHeight, inverse);
+    short var1 = fix32_Divide(0x1000, var0);
+    short var2 = fix32_Divide(0x1000, arg2);
+    arg0->unknown_0_[Enum_ov023_021e5e68_8].SetScale(var1, var2, var1);
+    arg0->unknown_0_[Enum_ov023_021e5e68_9].SetScale(var1, var2, var1);
 
-    short x = FX_Mul(inverse, 0x1000);
-    short y = FX_Mul(inverseHeight, 0x1000);
-    short z = FX_Mul(0x1000, inverse);
-    self->parts_[Part_2].SetScale(x, y, z);
-    self->parts_[Part_3].SetScale(x, y, z);
-    self->parts_[Part_7].SetScale(x, y, z);
+    short var3 = inline_ov023_021e5e68(var1, 0x1000);
+    short var4 = inline_ov023_021e5e68(var2, 0x1000);
+    short var5 = inline_ov023_021e5e68(0x1000, var1);
+    arg0->unknown_0_[Enum_ov023_021e5e68_2].SetScale(var3, var4, var5);
+    arg0->unknown_0_[Enum_ov023_021e5e68_3].SetScale(var3, var4, var5);
+    arg0->unknown_0_[Enum_ov023_021e5e68_7].SetScale(var3, var4, var5);
 }

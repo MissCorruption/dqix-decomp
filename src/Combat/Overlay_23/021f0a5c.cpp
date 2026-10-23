@@ -11,106 +11,106 @@ struct GameState {
     static GameState* GetInstance();
 };
 struct GameObject;
-struct ArrayContainsByteStruct;
-struct TableA68 { char storage[4]; };
-struct Obj021d9988;
-struct BattleResultEntry { unsigned char id, fileId, type, flag; unsigned int experience; };
-struct BattleEntry { char pad0[0x11b]; unsigned char state; char pad11c[2]; unsigned char count; char pad11f; void* entries; };
-struct LevelStats {
-    unsigned int exp;
-    unsigned short level : 7;
-    unsigned short pct : 9;
-    char pad6[0x14 - 6];
+struct Struct_02048150;
+struct Struct_02072a68_2 { char unknown_0_[4]; };
+struct Struct_ov023_021d9988;
+struct Struct_ov023_021f03a0 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_; unsigned int unknown_4_; };
+struct Struct_ov023_021f03a0_2 { char unknown_0_[0x11b]; unsigned char unknown_11b_; char unknown_11c_[2]; unsigned char unknown_11e_; char unknown_11f_; void* unknown_120_; };
+struct Struct_ov023_021f0a5c_2 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_0_ : 7;
+    unsigned short unknown_4_7_ : 9;
+    char unknown_6_[0x14 - 6];
 };
-struct LoadedEntry { LevelStats base, gained, extra, bonus; int tail; };
-struct CombatStats {
-    char pad0[0x138]; unsigned int exps[0xd];
-    char pad16c[0x16c - 0x16c]; unsigned short levels[0x1fc];
-    unsigned short skillPoints;
+struct Struct_ov023_021f0a5c_3 { Struct_ov023_021f0a5c_2 unknown_0_, unknown_14_, unknown_28_, unknown_3c_; int unknown_50_; };
+struct Struct_ov000_0215d63c_2 {
+    char unknown_0_[0x138]; unsigned int unknown_138_[0xd];
+    char unknown_16c_[0x16c - 0x16c]; unsigned short unknown1_16c_[0x1fc];
+    unsigned short unknown_564_;
 #if defined(jpn)
-    char pad566[0x8b8 - 0x566]; int index;
+    char unknown_566_[0x8b8 - 0x566]; int unknown_950_;
 #else
-    char pad566[0x950 - 0x566]; int index;
+    char unknown1_566_[0x950 - 0x566]; int unknown_950_;
 #endif
 };
 #if defined(jpn)
-struct BattleWork {
-    char pad0[0x30]; SafeAllocator allocator;
-    char pad44[0xe28 - 0x30 - sizeof(SafeAllocator)]; int state;
-    char pade2c[0x371c - 0xe2c]; char entry[0x5778 - 0x371c];
-    BattleEntry* result;
-    char pad577c[0x5960 - 0x577c]; LoadedEntry loaded[4];
-    char pad5ab0[0x5af4 - 0x5ab0]; TableA68 strings;
+struct Struct_ov000_02160da0 {
+    char unknown_0_[0x30]; SafeAllocator unknown_30_;
+    char unknown_44_[0xe28 - 0x30 - sizeof(SafeAllocator)]; int unknown_eac_;
+    char unknown_e2c_[0x371c - 0xe2c]; char unknown_3760_[0x5778 - 0x371c];
+    Struct_ov023_021f03a0_2* unknown_5588_;
+    char unknown_577c_[0x5960 - 0x577c]; Struct_ov023_021f0a5c_3 unknown_5770_[4];
+    char unknown_5ab0_[0x5af4 - 0x5ab0]; Struct_02072a68_2 unknown_5904_;
 };
 #else
-struct BattleWork {
-    char pad0[0x30]; SafeAllocator allocator;
-    char pad44[0xeac - 0x30 - sizeof(SafeAllocator)]; int state;
-    char padeb0[0x3760 - 0xeb0]; char entry[0x5588 - 0x3760];
-    BattleEntry* result;
-    char pad558c[0x5770 - 0x558c]; LoadedEntry loaded[4];
-    char pad58c0[0x5904 - 0x58c0]; TableA68 strings;
+struct Struct_ov000_02160da0 {
+    char unknown_0_[0x30]; SafeAllocator unknown_30_;
+    char unknown_44_[0xeac - 0x30 - sizeof(SafeAllocator)]; int unknown_eac_;
+    char unknown_eb0_[0x3760 - 0xeb0]; char unknown_3760_[0x5588 - 0x3760];
+    Struct_ov023_021f03a0_2* unknown_5588_;
+    char unknown_558c_[0x5770 - 0x558c]; Struct_ov023_021f0a5c_3 unknown_5770_[4];
+    char unknown_58c0_[0x5904 - 0x58c0]; Struct_02072a68_2 unknown_5904_;
 };
 #endif
-struct ResultState {
-    int state, task; char pad8[0x18 - 8]; int id;
-    unsigned char learned[4][0x14];
-    unsigned char learnedCount[4];
-    char pad70[0xe5 - 0x70]; signed char outcome;
-    char pade6[0xf0 - 0xe6]; char skillTable[0x118 - 0xf0];
+struct Struct_ov023_021f0a5c {
+    int unknown_0_, unknown_4_; char unknown_8_[0x18 - 8]; int unknown_18_;
+    unsigned char unknown_1c_[4][0x14];
+    unsigned char unknown_6c_[4];
+    char unknown_70_[0xe5 - 0x70]; signed char unknown_e5_;
+    char unknown_e6_[0xf0 - 0xe6]; char unknown_f0_[0x118 - 0xf0];
 #if defined(jpn)
-    char entries[0x2498 - 0x118]; unsigned char count;
+    char unknown_118_[0x2498 - 0x118]; unsigned char unknown_2788_;
 #else
-    char entries[0x2788 - 0x118]; unsigned char count;
+    char unknown_118_[0x2788 - 0x118]; unsigned char unknown_2788_;
 #endif
-    char copyData[4]; unsigned char copyLength;
+    char unknown_2789_[4]; unsigned char unknown_278d_;
 };
 #if defined(jpn)
-struct MessageController {
-    char pad0[0x10]; void* actor; char pad14[0x868 - 0x14]; int field998;
-    char pad86c[0x17e2 - 0x86c]; unsigned char field19b2;
-    char pad17e3[0x17fb - 0x17e3]; unsigned char field19ca;
+struct Struct_02092e0c {
+    char unknown_0_[0x10]; void* unknown_10_; char unknown_14_[0x868 - 0x14]; int unknown_868_;
+    char unknown_86c_[0x17e2 - 0x86c]; unsigned char unknown_17e2_;
+    char unknown_17e3_[0x17fb - 0x17e3]; unsigned char unknown_19ca_;
 };
 #else
-struct MessageController {
-    char pad0[0x10]; void* actor; char pad14[0x998 - 0x14]; int field998;
-    char pad99c[0x19b2 - 0x99c]; unsigned char field19b2;
-    char pad19b3[0x19ca - 0x19b3]; unsigned char field19ca;
+struct Struct_02092e0c {
+    char unknown_0_[0x10]; void* unknown_10_; char unknown_14_[0x998 - 0x14]; int unknown_998_;
+    char unknown_99c_[0x19b2 - 0x99c]; unsigned char unknown_19b2_;
+    char unknown_19b3_[0x19ca - 0x19b3]; unsigned char unknown_19ca_;
 };
 #endif
 
-extern "C" ResultState* _ZZ17GetGlobal021ffefcvE1s;
+extern "C" Struct_ov023_021f0a5c* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02109bf4[];
 
-extern "C" MessageController* func_020421a0();
-extern "C" void func_02046380(MessageController*);
-extern "C" char* func_02072a68(TableA68*, int);
+extern "C" Struct_02092e0c* func_020421a0();
+extern "C" void func_02046380(Struct_02092e0c*);
+extern "C" char* func_02072a68(Struct_02072a68_2*, int);
 extern "C" void* func_02010828(GameState*);
-extern "C" int func_02086ef0(ArrayContainsByteStruct*, int);
-struct Reset_021eefac;
-extern "C" void func_ov023_021eefac(Reset_021eefac*);
-extern "C" BattleResultEntry* func_ov023_021f0360(void*, int);
-extern "C" int func_02082490(LoadedEntry*, void*, unsigned int, unsigned char, unsigned int);
+extern "C" int func_02086ef0(Struct_02048150*, int);
+struct Struct_ov023_021eeaac_2;
+extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2*);
+extern "C" Struct_ov023_021f03a0* func_ov023_021f0360(void*, int);
+extern "C" int func_02082490(Struct_ov023_021f0a5c_3*, void*, unsigned int, unsigned char, unsigned int);
 extern "C" GameObject* func_0200ff1c(GameState*, int);
-extern "C" CombatStats* func_02053c6c(unsigned char*);
-extern "C" void func_02083cbc(CombatStats*, LevelStats*, LevelStats*);
-extern "C" void func_02083e28(CombatStats*, int);
+extern "C" Struct_ov000_0215d63c_2* func_02053c6c(unsigned char*);
+extern "C" void func_02083cbc(Struct_ov000_0215d63c_2*, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
+extern "C" void func_02083e28(Struct_ov000_0215d63c_2*, int);
 extern "C" unsigned char func_0209aa54(void*, GameObject*, unsigned char*, int);
-struct Obj021eea98;
-extern "C" int func_ov023_021eea98(Obj021eea98*);
+struct Struct_ov023_021edf54;
+extern "C" int func_ov023_021eea98(Struct_ov023_021edf54*);
 extern "C" void func_ov023_021d8b6c(void*);
-extern "C" void func_ov023_021d8af8(BattleEntry*);
-extern "C" void func_ov023_021d8a40(BattleEntry*);
+extern "C" void func_ov023_021d8af8(Struct_ov023_021f03a0_2*);
+extern "C" void func_ov023_021d8a40(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8cb4(void*, void*);
-extern "C" void func_ov023_021d9988(Obj021d9988*, void*, unsigned int);
-extern "C" void func_ov023_021d8e4c(BattleEntry*, int, LevelStats*, LevelStats*);
-struct StoreStruct;
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_ov023_021d9988(Struct_ov023_021d9988*, void*, unsigned int);
+extern "C" void func_ov023_021d8e4c(Struct_ov023_021f03a0_2*, int, Struct_ov023_021f0a5c_2*, Struct_ov023_021f0a5c_2*);
+struct Struct_020465c0;
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
 extern "C" void func_020e4bf4(void*, int);
 #if defined(jpn)
-extern "C" void func_0204500c(MessageController*, char*, int);
+extern "C" void func_0204500c(Struct_02092e0c*, char*, int);
 #else
-extern "C" void func_0204500c(MessageController*, char*, int, int);
+extern "C" void func_0204500c(Struct_02092e0c*, char*, int, int);
 #endif
 extern "C" void func_0209c6d8(void*, int);
 extern "C" void func_ov017_021ce704(int);
@@ -122,215 +122,215 @@ extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_0209ca2c(void*);
 
-static inline int GetLevel(CombatStats* stats) { return stats->levels[stats->index]; }
+static inline int inline_ov023_021f0a5c(Struct_ov000_0215d63c_2* arg0) { return arg0->unknown1_16c_[arg0->unknown_950_]; }
 
 // USA: func_ov023_021f0a5c
-extern "C" ARM int func_ov023_021f0a5c(BattleWork* work) {
-    char text[0x100];
-    char text2[0x100];
-    char filename[40];
-    char actorName[12];
-    char actorName2[12];
-    GameState* game = GameState::GetInstance();
-    ResultState* state = _ZZ17GetGlobal021ffefcvE1s;
-    MessageController* messages = func_020421a0();
+extern "C" ARM int func_ov023_021f0a5c(Struct_ov000_02160da0* arg0) {
+    char var0[0x100];
+    char var1[0x100];
+    char var2[40];
+    char var3[12];
+    char var4[12];
+    GameState* var5 = GameState::GetInstance();
+    Struct_ov023_021f0a5c* var6 = _ZZ21inline_ov023_021f4c04vE1s;
+    Struct_02092e0c* var7 = func_020421a0();
 #if !defined(jpn)
-    func_02046380(messages);
+    func_02046380(var7);
 #endif
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    char* suffix = func_02072a68(&work->strings, 0x22);
-    int inParty = func_02086ef0((ArrayContainsByteStruct*)func_02010828(game), state->id);
-    if (state->state == 0) {
-        state->id++;
-        if (state->id >= 4) {
-            func_ov023_021eefac((Reset_021eefac*)state);
+    BackgroundLoader* var8 = BackgroundLoader::GetInstance();
+    char* var9 = func_02072a68(&arg0->unknown_5904_, 0x22);
+    int var10 = func_02086ef0((Struct_02048150*)func_02010828(var5), var6->unknown_18_);
+    if (var6->unknown_0_ == 0) {
+        var6->unknown_18_++;
+        if (var6->unknown_18_ >= 4) {
+            func_ov023_021eefac((Struct_ov023_021eeaac_2*)var6);
             return 0xb;
         }
-        BattleResultEntry* entry = func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, state->id);
-        if (!entry) return work->state;
-        sprintf(filename, func_02072a68(&work->strings, 0), entry->fileId);
-        state->task = loader->QueueLoadFile(filename, 0);
-        state->state++;
-    } else if (state->state == 1) {
-        if (!loader->GetTaskStatus(state->task)) return work->state;
-        unsigned int length;
-        void* file;
-        int id = state->id;
-        loader->GetLoadedFileByID(state->task, &file, &length);
-        loader->RemoveTask(state->task);
-        int learned = 0;
-        BattleResultEntry* entry = func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, id);
-        if (file && func_02082490(&work->loaded[id], file, length, entry->type, entry->experience)) {
-            if (!entry->flag) learned = 1;
+        Struct_ov023_021f03a0* var11 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var6->unknown_18_);
+        if (!var11) return arg0->unknown_eac_;
+        sprintf(var2, func_02072a68(&arg0->unknown_5904_, 0), var11->unknown_1_);
+        var6->unknown_4_ = var8->QueueLoadFile(var2, 0);
+        var6->unknown_0_++;
+    } else if (var6->unknown_0_ == 1) {
+        if (!var8->GetTaskStatus(var6->unknown_4_)) return arg0->unknown_eac_;
+        unsigned int var12;
+        void* var13;
+        int var14 = var6->unknown_18_;
+        var8->GetLoadedFileByID(var6->unknown_4_, &var13, &var12);
+        var8->RemoveTask(var6->unknown_4_);
+        int var15 = 0;
+        Struct_ov023_021f03a0* var16 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var14);
+        if (var13 && func_02082490(&arg0->unknown_5770_[var14], var13, var12, var16->unknown_2_, var16->unknown_4_)) {
+            if (!var16->unknown_3_) var15 = 1;
         }
-        LevelStats* extra = &work->loaded[id].extra;
-        int type = entry->type;
-        int level = type + extra->level;
-        int retry = 0;
-        if (learned) {
-            if (inParty) {
-                GameObject* actor = func_0200ff1c(game, id);
-                if (actor) {
-                    CombatStats* stats = func_02053c6c((unsigned char*)actor);
-                    stats->levels[stats->index] = level;
-                    unsigned short room = 0xa28 - stats->skillPoints;
-                    if (room < extra->pct) extra->pct = room;
-                    stats->skillPoints += extra->pct;
-                    func_02083cbc(stats, &work->loaded[id].gained, &work->loaded[id].bonus);
-                    func_02083e28(stats, 0);
-                    state->learnedCount[id] = func_0209aa54(state->skillTable, actor, state->learned[id], type);
+        Struct_ov023_021f0a5c_2* var17 = &arg0->unknown_5770_[var14].unknown_28_;
+        int var18 = var16->unknown_2_;
+        int var19 = var18 + var17->unknown_4_0_;
+        int var20 = 0;
+        if (var15) {
+            if (var10) {
+                GameObject* var21 = func_0200ff1c(var5, var14);
+                if (var21) {
+                    Struct_ov000_0215d63c_2* var22 = func_02053c6c((unsigned char*)var21);
+                    var22->unknown1_16c_[var22->unknown_950_] = var19;
+                    unsigned short var23 = 0xa28 - var22->unknown_564_;
+                    if (var23 < var17->unknown_4_7_) var17->unknown_4_7_ = var23;
+                    var22->unknown_564_ += var17->unknown_4_7_;
+                    func_02083cbc(var22, &arg0->unknown_5770_[var14].unknown_14_, &arg0->unknown_5770_[var14].unknown_3c_);
+                    func_02083e28(var22, 0);
+                    var6->unknown_6c_[var14] = func_0209aa54(var6->unknown_f0_, var21, var6->unknown_1c_[var14], var18);
                 }
             }
         } else {
-            state->state = 0;
-            retry = 1;
+            var6->unknown_0_ = 0;
+            var20 = 1;
         }
-        if (inParty) {
-            GameObject* actor = func_0200ff1c(game, id);
-            if (actor) {
-                CombatStats* stats = func_02053c6c((unsigned char*)actor);
-                if (GetLevel(stats) >= 99) {
-                    unsigned int exp = work->loaded[id].base.exp;
-                    if (learned) exp = work->loaded[id].gained.exp;
-                    if (exp != 0 && exp <= func_ov023_021eea98((Obj021eea98*)actor)) {
-                        if (stats) stats->exps[stats->index] = exp;
-                        entry->experience = exp;
+        if (var10) {
+            GameObject* var24 = func_0200ff1c(var5, var14);
+            if (var24) {
+                Struct_ov000_0215d63c_2* var25 = func_02053c6c((unsigned char*)var24);
+                if (inline_ov023_021f0a5c(var25) >= 99) {
+                    unsigned int var26 = arg0->unknown_5770_[var14].unknown_0_.unknown_0_;
+                    if (var15) var26 = arg0->unknown_5770_[var14].unknown_14_.unknown_0_;
+                    if (var26 != 0 && var26 <= func_ov023_021eea98((Struct_ov023_021edf54*)var24)) {
+                        if (var25) var25->unknown_138_[var25->unknown_950_] = var26;
+                        var16->unknown_4_ = var26;
                     }
                 }
             }
         }
-        if (retry) return work->state;
-        state->state++;
-    } else if (state->state == 2) {
-        if (work->result) {
-            func_ov023_021d8b6c(work->result);
-            func_ov023_021d8af8(work->result);
-            work->result = 0;
-            return work->state;
+        if (var20) return arg0->unknown_eac_;
+        var6->unknown_0_++;
+    } else if (var6->unknown_0_ == 2) {
+        if (arg0->unknown_5588_) {
+            func_ov023_021d8b6c(arg0->unknown_5588_);
+            func_ov023_021d8af8(arg0->unknown_5588_);
+            arg0->unknown_5588_ = 0;
+            return arg0->unknown_eac_;
         }
-        work->allocator.Reset();
-        if (!inParty) {
-            state->state = 4;
+        arg0->unknown_30_.Reset();
+        if (!var10) {
+            var6->unknown_0_ = 4;
         } else {
-            work->result = (BattleEntry*)work->allocator.Allocate(0x12c);
-            func_ov023_021d8a40(work->result);
-            func_ov023_021d8cb4(work->result, work->entry);
-            ResultState* global = _ZZ17GetGlobal021ffefcvE1s;
-            unsigned char countEntries = global->count;
-            BattleEntry* result = work->result;
-            result->entries = global->entries;
-            result->count = countEntries;
-            func_ov023_021d9988((Obj021d9988*)work->result, _ZZ17GetGlobal021ffefcvE1s->copyData, _ZZ17GetGlobal021ffefcvE1s->copyLength);
-            state->state++;
+            arg0->unknown_5588_ = (Struct_ov023_021f03a0_2*)arg0->unknown_30_.Allocate(0x12c);
+            func_ov023_021d8a40(arg0->unknown_5588_);
+            func_ov023_021d8cb4(arg0->unknown_5588_, arg0->unknown_3760_);
+            Struct_ov023_021f0a5c* var27 = _ZZ21inline_ov023_021f4c04vE1s;
+            unsigned char var28 = var27->unknown_2788_;
+            Struct_ov023_021f03a0_2* var29 = arg0->unknown_5588_;
+            var29->unknown_120_ = var27->unknown_118_;
+            var29->unknown_11e_ = var28;
+            func_ov023_021d9988((Struct_ov023_021d9988*)arg0->unknown_5588_, _ZZ21inline_ov023_021f4c04vE1s->unknown_2789_, _ZZ21inline_ov023_021f4c04vE1s->unknown_278d_);
+            var6->unknown_0_++;
         }
-    } else if (state->state == 3) {
-        if (work->result->state == 0xff) state->state++;
-    } else if (state->state == 4) {
-        int id = state->id;
-        LevelStats* gained;
-        LevelStats* extra;
-        LevelStats* base;
-        base = &work->loaded[id].base;
-        extra = &work->loaded[id].extra;
-        if (work->result) func_ov023_021d8e4c(work->result, id, base, extra);
+    } else if (var6->unknown_0_ == 3) {
+        if (arg0->unknown_5588_->unknown_11b_ == 0xff) var6->unknown_0_++;
+    } else if (var6->unknown_0_ == 4) {
+        int var30 = var6->unknown_18_;
+        Struct_ov023_021f0a5c_2* var31;
+        Struct_ov023_021f0a5c_2* var32;
+        Struct_ov023_021f0a5c_2* var33;
+        var33 = &arg0->unknown_5770_[var30].unknown_0_;
+        var32 = &arg0->unknown_5770_[var30].unknown_28_;
+        if (arg0->unknown_5588_) func_ov023_021d8e4c(arg0->unknown_5588_, var30, var33, var32);
 #if defined(jpn)
-        BattleResultEntry* found = func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, id);
-        if (found) {
-            gained = &work->loaded[(unsigned int)id].gained;
-            char* name = (char*)(found + 1);
-            if (gained->level - base->level > 1) {
-                sprintf(text, func_02072a68(&work->strings, 0x16), name, base->level, gained->level, name);
+        Struct_ov023_021f03a0* var34 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var30);
+        if (var34) {
+            var31 = &arg0->unknown_5770_[(unsigned int)var30].unknown_14_;
+            char* var35 = (char*)(var34 + 1);
+            if (var31->unknown_4_0_ - var33->unknown_4_0_ > 1) {
+                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0x16), var35, var33->unknown_4_0_, var31->unknown_4_0_, var35);
             } else {
-                sprintf(text, func_02072a68(&work->strings, 0xa), name, gained->level, name);
+                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0xa), var35, var31->unknown_4_0_, var35);
             }
-            strcat(text, suffix);
-            func_0204500c(messages, text, 1);
-            messages->field19b2 = 0;
-            messages->field998 = 1;
+            strcat(var0, var9);
+            func_0204500c(var7, var0, 1);
+            var7->unknown_17e2_ = 0;
+            var7->unknown_868_ = 1;
         }
 #else
-        if (func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, id)) {
-            gained = &work->loaded[(unsigned int)id].gained;
-            if (gained->level - base->level > 1) {
-                sprintf(text, func_02072a68(&work->strings, 0x16));
-                func_020465c0((StoreStruct*)messages, 0, base->level);
-                func_020465c0((StoreStruct*)messages, 1, gained->level);
+        if (func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var30)) {
+            var31 = &arg0->unknown_5770_[(unsigned int)var30].unknown_14_;
+            if (var31->unknown_4_0_ - var33->unknown_4_0_ > 1) {
+                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0x16));
+                func_020465c0((Struct_020465c0*)var7, 0, var33->unknown_4_0_);
+                func_020465c0((Struct_020465c0*)var7, 1, var31->unknown_4_0_);
             } else {
-                sprintf(text, func_02072a68(&work->strings, 0xa));
-                func_020465c0((StoreStruct*)messages, 0, gained->level);
+                sprintf(var0, func_02072a68(&arg0->unknown_5904_, 0xa));
+                func_020465c0((Struct_020465c0*)var7, 0, var31->unknown_4_0_);
             }
-            strcat(text, suffix);
-            func_020e4bf4(actorName, id);
-            messages->actor = actorName;
-            func_0204500c(messages, text, 1, 0xe3);
-            messages->field19b2 = 0;
-            messages->field998 = 1;
+            strcat(var0, var9);
+            func_020e4bf4(var3, var30);
+            var7->unknown_10_ = var3;
+            func_0204500c(var7, var0, 1, 0xe3);
+            var7->unknown_19b2_ = 0;
+            var7->unknown_998_ = 1;
         }
 #endif
-        if (inParty) {
+        if (var10) {
             func_0209c6d8(data_02109bf4, 0x35);
-            func_ov017_021ce704(id);
-            func_ov017_021cc730(id, 0, 0, 1);
-            func_ov017_021c9e00(id, 0, 0, 0);
-            state->state++;
+            func_ov017_021ce704(var30);
+            func_ov017_021cc730(var30, 0, 0, 1);
+            func_ov017_021c9e00(var30, 0, 0, 0);
+            var6->unknown_0_++;
         } else {
-            state->state += 2;
+            var6->unknown_0_ += 2;
         }
-    } else if (state->state == 5) {
+    } else if (var6->unknown_0_ == 5) {
         if (func_ov023_021f4fc8()) {
 #if defined(jpn)
-            BattleResultEntry* found = func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, state->id);
-            if (found) {
-                sprintf(text2, func_02072a68(&work->strings, 0x26), (char*)(found + 1));
-                strcat(text2, suffix);
-                func_0204500c(messages, text2, 1);
-                messages->field19b2 = 0;
-                messages->field998 = 1;
+            Struct_ov023_021f03a0* var36 = func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var6->unknown_18_);
+            if (var36) {
+                sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x26), (char*)(var36 + 1));
+                strcat(var1, var9);
+                func_0204500c(var7, var1, 1);
+                var7->unknown_17e2_ = 0;
+                var7->unknown_868_ = 1;
             }
 #else
-            int id = state->id;
-            if (func_ov023_021f0360(_ZZ17GetGlobal021ffefcvE1s, id)) {
-                sprintf(text2, func_02072a68(&work->strings, 0x26));
-                strcat(text2, suffix);
-                func_020e4bf4(actorName2, id);
-                messages->actor = actorName2;
-                func_0204500c(messages, text2, 1, 0xe3);
-                messages->field19b2 = 0;
-                messages->field998 = 1;
+            int var37 = var6->unknown_18_;
+            if (func_ov023_021f0360(_ZZ21inline_ov023_021f4c04vE1s, var37)) {
+                sprintf(var1, func_02072a68(&arg0->unknown_5904_, 0x26));
+                strcat(var1, var9);
+                func_020e4bf4(var4, var37);
+                var7->unknown_10_ = var4;
+                func_0204500c(var7, var1, 1, 0xe3);
+                var7->unknown_19b2_ = 0;
+                var7->unknown_998_ = 1;
             }
 #endif
-            state->state++;
+            var6->unknown_0_++;
         }
-    } else if (state->state == 6) {
-        if (inParty) {
-            int id = state->id;
-            LevelStats* extra = &work->loaded[id].extra;
-            unsigned short points = 0;
-            GameObject* actor = func_0200ff1c(game, id);
-            if (actor) {
-                CombatStats* stats = func_02053c6c((unsigned char*)actor);
-                if (stats) points = stats->skillPoints;
+    } else if (var6->unknown_0_ == 6) {
+        if (var10) {
+            int var38 = var6->unknown_18_;
+            Struct_ov023_021f0a5c_2* var39 = &arg0->unknown_5770_[var38].unknown_28_;
+            unsigned short var40 = 0;
+            GameObject* var41 = func_0200ff1c(var5, var38);
+            if (var41) {
+                Struct_ov000_0215d63c_2* var42 = func_02053c6c((unsigned char*)var41);
+                if (var42) var40 = var42->unknown_564_;
             }
-            func_02010828(game);
-            if (state->learnedCount[id]) {
-                state->outcome = 10;
-            } else if (extra->pct) {
-                state->outcome = 12;
-            } else if (points && func_ov023_021f5228(id)) {
-                state->outcome = 8;
-                void* base = func_0205ec34();
-                if (func_0206dfb0((int)base, (unsigned char*)base + 0x8c, 0x119c)) messages->field19ca = 0;
+            func_02010828(var5);
+            if (var6->unknown_6c_[var38]) {
+                var6->unknown_e5_ = 10;
+            } else if (var39->unknown_4_7_) {
+                var6->unknown_e5_ = 12;
+            } else if (var40 && func_ov023_021f5228(var38)) {
+                var6->unknown_e5_ = 8;
+                void* var43 = func_0205ec34();
+                if (func_0206dfb0((int)var43, (unsigned char*)var43 + 0x8c, 0x119c)) var7->unknown_19ca_ = 0;
             }
         }
-        state->state++;
-    } else if (state->state == 7) {
-        if (func_0209ca2c(data_02109bf4)) return work->state;
+        var6->unknown_0_++;
+    } else if (var6->unknown_0_ == 7) {
+        if (func_0209ca2c(data_02109bf4)) return arg0->unknown_eac_;
         if (func_ov023_021f4fc8()) {
-            signed char outcome = state->outcome;
-            func_ov023_021eefac((Reset_021eefac*)state);
-            if (outcome >= 0) return outcome;
+            signed char var44 = var6->unknown_e5_;
+            func_ov023_021eefac((Struct_ov023_021eeaac_2*)var6);
+            if (var44 >= 0) return var44;
         }
-        return work->state;
+        return arg0->unknown_eac_;
     }
-    return work->state;
+    return arg0->unknown_eac_;
 }

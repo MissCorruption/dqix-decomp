@@ -2,46 +2,46 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void func_020397c0(void* obj);
+extern "C" void func_020397c0(void* arg0);
 extern "C" void func_ov017_021bf490(void*);
 extern "C" int func_020421a0();
-extern "C" void func_ov017_0218d5ac(void* obj);
+extern "C" void func_ov017_0218d5ac(void* arg0);
 
-typedef int (*StateHandler_021bf534)(void*);
-struct StateTable_021bf534 { StateHandler_021bf534 f[9]; };
-extern StateTable_021bf534 data_ov017_021d6cc4;
+typedef int (*Type_ov017_021bf534)(void*);
+struct Struct_ov017_021d6cc4 { Type_ov017_021bf534 unknown_0_[9]; };
+extern Struct_ov017_021d6cc4 data_ov017_021d6cc4;
 
-struct Obj_021bf534 {
-    unsigned char pad0;
-    unsigned char field1;
-    unsigned char pad2[8];
-    unsigned char state;
+struct Struct_ov017_021bf534 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[8];
+    unsigned char unknown_a_;
 };
 
 // USA: func_ov017_021bf534
-extern "C" ARM void func_ov017_021bf534(struct Obj_021bf534* obj) {
+extern "C" ARM void func_ov017_021bf534(struct Struct_ov017_021bf534* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x228};
+ enum {Enum_ov017_021bf534_728=0x228};
 #else
- enum {regionalOffset0=0x2d8};
+ enum {Enum_ov017_021bf534_728=0x2d8};
 #endif
-    GameState* battleStruct = GameState::GetInstance();
-    GameObject* combatant = battleStruct->GetUnknownGameObject();
-    GameResources* ov = GetGameResources();
-    if (ov) {
-        func_ov017_0218d5ac(ov);
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetUnknownGameObject();
+    GameResources* var2 = GetGameResources();
+    if (var2) {
+        func_ov017_0218d5ac(var2);
     }
 
-    StateTable_021bf534 table = data_ov017_021d6cc4;
-    StateHandler_021bf534 handler = table.f[obj->state];
-    if (handler) {
-        obj->state = (unsigned char)handler(obj);
+    Struct_ov017_021d6cc4 var3 = data_ov017_021d6cc4;
+    Type_ov017_021bf534 var4 = var3.unknown_0_[arg0->unknown_a_];
+    if (var4) {
+        arg0->unknown_a_ = (unsigned char)var4(arg0);
     } else {
-        if (combatant) {
-            func_020397c0(combatant);
+        if (var1) {
+            func_020397c0(var1);
         }
-        func_ov017_021bf490(obj);
-        obj->field1 = 1;
-        *(int*)((char*)func_020421a0() + regionalOffset0) = 0;
+        func_ov017_021bf490(arg0);
+        arg0->unknown_1_ = 1;
+        *(int*)((char*)func_020421a0() + Enum_ov017_021bf534_728) = 0;
     }
 }

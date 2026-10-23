@@ -4,10 +4,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct FontBankLoader;
+struct Struct_0208cb08;
 extern "C" void* func_020421a0();
-struct ListHead02046b60;
-extern "C" int func_02046b60(ListHead02046b60*, int);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void func_ov016_0218b5c0(int, int);
 extern "C" void func_ov017_0218b5f8(int);
 extern "C" void func_02046380(void*);
@@ -20,133 +20,133 @@ extern "C" void func_02042b3c(void*);
 extern "C" void func_02043204(char*);
 extern char data_020f2348[];
 
-struct QueuedTextEntry {
+struct Struct_020d7b04_2 {
 #if defined(jpn)
-    char text[0x4f];
-    unsigned char style : 7;
+    char unknown_0_[0x4f];
+    unsigned char unknown_6f_0_ : 7;
 #else
-    char text[0x6f];
-    unsigned char style : 6;
-    unsigned char compactWindow : 1;
+    char unknown_0_[0x6f];
+    unsigned char unknown_6f_0_ : 6;
+    unsigned char unknown_6f_6_ : 1;
 #endif
-    unsigned char waitForRequestC : 1;
+    unsigned char unknown_6f_7_ : 1;
 };
 
-struct TextMessageQueue {
-    QueuedTextEntry entries[3];
-    unsigned char count : 6;
-    unsigned char windowActive : 1;
-    unsigned char fontRequested : 1;
-    unsigned char unknown151;
-    unsigned short remainingMilliseconds;
+struct Struct_020d7b04_3 {
+    Struct_020d7b04_2 unknown_0_[3];
+    unsigned char unknown_150_0_ : 6;
+    unsigned char unknown_150_6_ : 1;
+    unsigned char unknown_150_7_ : 1;
+    unsigned char unknown_151_;
+    unsigned short unknown_152_;
 };
 
-struct MessageWindowState {
+struct Struct_020d7b04 {
 #if defined(jpn)
-    char unknown0[0x868];
+    char unknown_0_[0x868];
 #else
-    char unknown0[0x998];
+    char unknown1_0_[0x998];
 #endif
-    int active;
+    int unknown_998_;
 #if defined(jpn)
-    char unknownAfterActive[0x17e2 - 0x86c];
+    char unknown_86c_[0x17e2 - 0x86c];
 #else
-    char unknownAfterActive[0x19b2 - 0x99c];
+    char unknown_99c_[0x19b2 - 0x99c];
 #endif
-    unsigned char state;
+    unsigned char unknown_19b2_;
 #if defined(jpn)
-    char unknownAfterState[0x17ff - 0x17e3];
-    unsigned char unknownLow : 2;
-    unsigned char blocked : 1;
-    unsigned char unknownHigh : 5;
+    char unknown_17e3_[0x17ff - 0x17e3];
+    unsigned char unknown_17ff_0_ : 2;
+    unsigned char unknown_19d0_ : 1;
+    unsigned char unknown_17ff_3_ : 5;
 #else
-    char unknownAfterState[0x19d0 - 0x19b3];
-    unsigned char blocked;
+    char unknown_19b3_[0x19d0 - 0x19b3];
+    unsigned char unknown_19d0_;
 #endif
 };
 
-extern "C" ARM void func_020d7b04(TextMessageQueue* queue) {
-    char formattedText[0xc8];
-    GameState* game = GameState::GetInstance();
-    FontBankLoader* fonts = func_02094a00();
-    MessageWindowState* window = static_cast<MessageWindowState*>(func_020421a0());
-    if (queue->fontRequested && !func_02094b4c(fonts)) return;
+extern "C" ARM void func_020d7b04(Struct_020d7b04_3* arg0) {
+    char var0[0xc8];
+    GameState* var1 = GameState::GetInstance();
+    Struct_0208cb08* var2 = func_02094a00();
+    Struct_020d7b04* var3 = static_cast<Struct_020d7b04*>(func_020421a0());
+    if (arg0->unknown_150_7_ && !func_02094b4c(var2)) return;
 
-    void* requests = GetGameResources()->unknown_ptr_array_36fc[0];
-    if (func_02046b60((ListHead02046b60*)requests, 0x25)) return;
-    if (func_02046b60((ListHead02046b60*)requests, 0x26)) return;
+    void* var4 = GetGameResources()->unknown_ptr_array_36fc[0];
+    if (func_02046b60((Struct_02038598_5*)var4, 0x25)) return;
+    if (func_02046b60((Struct_02038598_5*)var4, 0x26)) return;
 
-    unsigned short elapsed = game->GetEffectiveDeltaTime();
-    if (queue->remainingMilliseconds != 0) {
-        if (elapsed < queue->remainingMilliseconds) {
-            queue->remainingMilliseconds -= elapsed;
+    unsigned short var5 = var1->GetEffectiveDeltaTime();
+    if (arg0->unknown_152_ != 0) {
+        if (var5 < arg0->unknown_152_) {
+            arg0->unknown_152_ -= var5;
             return;
         }
-        if (window->blocked) return;
-        queue->remainingMilliseconds = 0;
-        if (queue->count == 0) return;
-        memcpy(&queue->entries[0], &queue->entries[1], sizeof(QueuedTextEntry));
-        memcpy(&queue->entries[1], &queue->entries[2], sizeof(QueuedTextEntry));
-        queue->count--;
-        if (queue->count == 0) {
+        if (var3->unknown_19d0_) return;
+        arg0->unknown_152_ = 0;
+        if (arg0->unknown_150_0_ == 0) return;
+        memcpy(&arg0->unknown_0_[0], &arg0->unknown_0_[1], sizeof(Struct_020d7b04_2));
+        memcpy(&arg0->unknown_0_[1], &arg0->unknown_0_[2], sizeof(Struct_020d7b04_2));
+        arg0->unknown_150_0_--;
+        if (arg0->unknown_150_0_ == 0) {
             func_ov016_0218b5c0(1, -1);
             func_ov017_0218b5f8(-1);
         }
         return;
     }
 
-    if (window->blocked) return;
-    if (queue->count != 0) {
-        if (queue->entries[0].style != 0) {
-            int canLoadFont = 1;
-            if (queue->entries[0].waitForRequestC) {
-                canLoadFont = !func_02046b60((ListHead02046b60*)requests, 0xc);
+    if (var3->unknown_19d0_) return;
+    if (arg0->unknown_150_0_ != 0) {
+        if (arg0->unknown_0_[0].unknown_6f_0_ != 0) {
+            int var6 = 1;
+            if (arg0->unknown_0_[0].unknown_6f_7_) {
+                var6 = !func_02046b60((Struct_02038598_5*)var4, 0xc);
             }
-            if (canLoadFont) {
-                func_02094b3c(fonts, 10);
-                func_02094b30(fonts, 505, 0);
-                queue->entries[0].style = 0;
-                queue->fontRequested = 1;
+            if (var6) {
+                func_02094b3c(var2, 10);
+                func_02094b30(var2, 505, 0);
+                arg0->unknown_0_[0].unknown_6f_0_ = 0;
+                arg0->unknown_150_7_ = 1;
                 return;
             }
         }
-        sprintf(formattedText, data_020f2348, queue->entries[0].text);
-        if (queue->count > 1) {
-            queue->remainingMilliseconds = 1000;
+        sprintf(var0, data_020f2348, arg0->unknown_0_[0].unknown_0_);
+        if (arg0->unknown_150_0_ > 1) {
+            arg0->unknown_152_ = 1000;
         } else {
-            queue->remainingMilliseconds = 3000;
+            arg0->unknown_152_ = 3000;
         }
-        if (queue->entries[0].text[0] != 0) {
+        if (arg0->unknown_0_[0].unknown_0_[0] != 0) {
 #if defined(jpn)
-            func_0204500c(window, formattedText, 0);
+            func_0204500c(var3, var0, 0);
 #else
-            func_02046380(window);
-            if (queue->entries[0].compactWindow) {
-                func_0204500c(window, formattedText, 0, 0xe3);
+            func_02046380(var3);
+            if (arg0->unknown_0_[0].unknown_6f_6_) {
+                func_0204500c(var3, var0, 0, 0xe3);
             } else {
-                func_0204500c(window, formattedText, 0, 0x100);
+                func_0204500c(var3, var0, 0, 0x100);
             }
 #endif
-            func_02042b3c(window);
-            window->active = 1;
-            window->state = 1;
-            queue->windowActive = 1;
+            func_02042b3c(var3);
+            var3->unknown_998_ = 1;
+            var3->unknown_19b2_ = 1;
+            arg0->unknown_150_6_ = 1;
             return;
         }
-        queue->windowActive = 0;
-        queue->remainingMilliseconds = 0;
-        queue->count = 0;
+        arg0->unknown_150_6_ = 0;
+        arg0->unknown_152_ = 0;
+        arg0->unknown_150_0_ = 0;
         return;
     } else {
-        if (queue->fontRequested) {
-            func_02094ab0(fonts);
-            queue->fontRequested = 0;
+        if (arg0->unknown_150_7_) {
+            func_02094ab0(var2);
+            arg0->unknown_150_7_ = 0;
         }
-        if (queue->windowActive) {
+        if (arg0->unknown_150_6_) {
             func_02043204(static_cast<char*>(func_020421a0()));
-            queue->windowActive = 0;
+            arg0->unknown_150_6_ = 0;
         }
     }
-    queue->remainingMilliseconds = 0;
-    queue->count = 0;
+    arg0->unknown_152_ = 0;
+    arg0->unknown_150_0_ = 0;
 }

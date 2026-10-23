@@ -3,29 +3,29 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
-struct Obj020397cc { char padding[0xb2]; short field_b2; };
-struct FlagWord02046708;
-struct ListHead02046b60;
-struct SceneOptions021a5600 {
-    unsigned char flag;
-    char padding[3];
-    int field4, field8;
+struct Struct_02018300_3 { char unknown_0_[0xb2]; short unknown_b2_; };
+struct Struct_02012de8;
+struct Struct_02038598_5;
+struct Struct_ov017_021a5600 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    int unknown_4_, unknown_8_;
 };
 #if defined(jpn)
-enum { SceneDisplayOffset = 0x34, SceneOptionsOffset = 0x2364,
-       SceneSize = 0x2378, SceneHeapSize = 0x293b8, SceneReservationSize = 0x2abd8 };
+enum { Enum_ov017_021a5600_76 = 0x34, Enum_ov017_021a5600_9532 = 0x2364,
+       Enum_ov017_021a5600_9552 = 0x2378, Enum_ov017_021a5600_173456 = 0x293b8, Enum_ov017_021a5600_179632 = 0x2abd8 };
 #else
-enum { SceneDisplayOffset = 0x4c, SceneOptionsOffset = 0x253c,
-       SceneSize = 0x2550, SceneHeapSize = 0x2a590, SceneReservationSize = 0x2bdb0 };
+enum { Enum_ov017_021a5600_76 = 0x4c, Enum_ov017_021a5600_9532 = 0x253c,
+       Enum_ov017_021a5600_9552 = 0x2550, Enum_ov017_021a5600_173456 = 0x2a590, Enum_ov017_021a5600_179632 = 0x2bdb0 };
 #endif
-struct BattleState021a5600 {
-    unsigned char type, complete;
-    char padding2[6];
-    int state;
-    SafeAllocator allocator;
-    unsigned char option20, option21;
-    char padding22[2];
-    SceneOptions021a5600 options;
+struct Struct_ov017_021a5600_2 {
+    unsigned char unknown_0_, unknown_1_;
+    char unknown_2_[6];
+    int unknown_8_;
+    SafeAllocator unknown_c_;
+    unsigned char unknown_20_, unknown_21_;
+    char unknown_22_[2];
+    Struct_ov017_021a5600 unknown_24_;
 };
 extern "C" void func_0202738c(unsigned char*, int, int, int);
 extern "C" void func_02027304(unsigned char*, int);
@@ -35,10 +35,10 @@ extern "C" void func_ov002_0215505c(char*);
 extern "C" void func_ov002_02154d40(char*, SafeAllocator*);
 extern "C" int func_ov002_02155960(char*, int);
 extern "C" void func_ov002_021556fc(char*);
-extern "C" void func_ov017_021a55b0(BattleState021a5600*);
+extern "C" void func_ov017_021a55b0(Struct_ov017_021a5600_2*);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
-extern "C" FlagWord02046708* func_020d6c00();
-extern "C" void func_020397cc(Obj020397cc*, int);
+extern "C" Struct_02012de8* func_020d6c00();
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" unsigned char* func_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a28b0(unsigned char*, int);
@@ -47,87 +47,87 @@ extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020a1df8(int);
 extern "C" void func_020a1ef0(int);
 extern "C" void func_ov002_021556ec(void*, int, int);
-extern "C" int func_02046b60(ListHead02046b60*, int);
+extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void func_020397c0(void*);
 extern "C" void func_0202ac74();
-extern "C" int func_02046708(FlagWord02046708*, unsigned int);
+extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" void func_ov017_021a01bc(unsigned char*);
 extern "C" void func_02039830(void*);
 extern "C" void func_ov017_021a5974(char*);
 extern AllocatorUnion data_02114e20;
 extern char* data_ov017_021d83ac;
 // USA: func_ov017_021a5600
-extern "C" ARM void func_ov017_021a5600(BattleState021a5600* self) {
-    GameState* game = GameState::GetInstance();
-    GameResources* resources = GetGameResources();
-    Obj020397cc* actor = (Obj020397cc*)game->GetUnknownGameObject();
-    FlagWord02046708* flags = func_020d6c00();
-    func_020397cc(actor, 1);
-    actor->field_b2 = 0;
-    SetFlags04(resources, 0xc0);
-    unsigned char* action = func_020100f8((char*)game);
-    func_020a28a0(action, 3);
-    int ticks = game->GetTickCount();
-    if (ticks < 0) ticks = 1;
-    if (self->state == 0) {
-        unsigned char* stopwatch = (unsigned char*)resources->unknown_ptr_36d0;
-        func_02027288(stopwatch, -1);
-        func_0202738c(stopwatch, 1, 2, -1);
-        func_020a0cc4(SceneReservationSize);
-        void* memory = func_02012d88(&data_02114e20, SceneHeapSize);
-        if (!memory) {
+extern "C" ARM void func_ov017_021a5600(Struct_ov017_021a5600_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    Struct_02018300_3* var2 = (Struct_02018300_3*)var0->GetUnknownGameObject();
+    Struct_02012de8* var3 = func_020d6c00();
+    func_020397cc(var2, 1);
+    var2->unknown_b2_ = 0;
+    SetFlags04(var1, 0xc0);
+    unsigned char* var4 = func_020100f8((char*)var0);
+    func_020a28a0(var4, 3);
+    int var5 = var0->GetTickCount();
+    if (var5 < 0) var5 = 1;
+    if (arg0->unknown_8_ == 0) {
+        unsigned char* var6 = (unsigned char*)var1->unknown_ptr_36d0;
+        func_02027288(var6, -1);
+        func_0202738c(var6, 1, 2, -1);
+        func_020a0cc4(Enum_ov017_021a5600_179632);
+        void* var7 = func_02012d88(&data_02114e20, Enum_ov017_021a5600_173456);
+        if (!var7) {
             func_020a0c0c();
-            self->complete = 1;
+            arg0->unknown_1_ = 1;
         } else {
-            self->allocator.CreateTypeA(memory, SceneHeapSize);
-            self->allocator.Reset();
+            arg0->unknown_c_.CreateTypeA(var7, Enum_ov017_021a5600_173456);
+            arg0->unknown_c_.Reset();
             func_020a1df8(2);
             func_020a1ef0(1);
-            data_ov017_021d83ac = (char*)self->allocator.Allocate(SceneSize);
+            data_ov017_021d83ac = (char*)arg0->unknown_c_.Allocate(Enum_ov017_021a5600_9552);
             func_ov002_0215505c(data_ov017_021d83ac);
-            func_ov002_021556ec(data_ov017_021d83ac, self->option20, self->option21);
-            func_ov002_02154d40(data_ov017_021d83ac, &self->allocator);
-            SceneOptions021a5600 options = self->options;
-            char* scene = data_ov017_021d83ac;
-            *reinterpret_cast<unsigned char*>(scene + SceneOptionsOffset) = options.flag;
-            *reinterpret_cast<int*>(scene + SceneOptionsOffset + 4) = options.field4;
-            *reinterpret_cast<int*>(scene + SceneOptionsOffset + 8) = options.field8;
-            ++self->state;
+            func_ov002_021556ec(data_ov017_021d83ac, arg0->unknown_20_, arg0->unknown_21_);
+            func_ov002_02154d40(data_ov017_021d83ac, &arg0->unknown_c_);
+            Struct_ov017_021a5600 var8 = arg0->unknown_24_;
+            char* var9 = data_ov017_021d83ac;
+            *reinterpret_cast<unsigned char*>(var9 + Enum_ov017_021a5600_9532) = var8.unknown_0_;
+            *reinterpret_cast<int*>(var9 + Enum_ov017_021a5600_9532 + 4) = var8.unknown_4_;
+            *reinterpret_cast<int*>(var9 + Enum_ov017_021a5600_9532 + 8) = var8.unknown_8_;
+            ++arg0->unknown_8_;
         }
-    } else if (self->state == 1) {
-        if (func_ov002_02155960(data_ov017_021d83ac, ticks)) ++self->state;
-    } else if (self->state == 2) {
+    } else if (arg0->unknown_8_ == 1) {
+        if (func_ov002_02155960(data_ov017_021d83ac, var5)) ++arg0->unknown_8_;
+    } else if (arg0->unknown_8_ == 2) {
         func_ov002_021556fc(data_ov017_021d83ac);
-        FontBankLoader* music = func_02094a00();
-        func_02094b40(music);
-        func_02094ab0(music);
-        func_02094b34(music, 5000, 0x6f, 1, 1);
-        ++self->state;
-    } else if (self->state == 3) {
-        unsigned int layer = *reinterpret_cast<unsigned int*>(data_ov017_021d83ac + SceneDisplayOffset);
-        REG_DISPCNT = (layer << 8) | (REG_DISPCNT & ~0x1f00);
+        Struct_0208cb08* var10 = func_02094a00();
+        func_02094b40(var10);
+        func_02094ab0(var10);
+        func_02094b34(var10, 5000, 0x6f, 1, 1);
+        ++arg0->unknown_8_;
+    } else if (arg0->unknown_8_ == 3) {
+        unsigned int var11 = *reinterpret_cast<unsigned int*>(data_ov017_021d83ac + Enum_ov017_021a5600_76);
+        REG_DISPCNT = (var11 << 8) | (REG_DISPCNT & ~0x1f00);
         data_ov017_021d83ac = 0;
-        func_ov017_021a55b0(self);
-        int clear = 1;
-        ListHead02046b60* list = (ListHead02046b60*)resources->unknown_ptr_array_36fc[0];
-        if (list && (func_02046b60(list, 2) || func_02046b60(list, 47))) clear = 0;
-        if (clear) {
-            func_020a28b0(action, 3);
-            ClearFlags04(resources, 0xc0);
-            func_020397c0(actor);
+        func_ov017_021a55b0(arg0);
+        int var12 = 1;
+        Struct_02038598_5* var13 = (Struct_02038598_5*)var1->unknown_ptr_array_36fc[0];
+        if (var13 && (func_02046b60(var13, 2) || func_02046b60(var13, 47))) var12 = 0;
+        if (var12) {
+            func_020a28b0(var4, 3);
+            ClearFlags04(var1, 0xc0);
+            func_020397c0(var2);
         }
-        func_ov017_02191108(resources, 1, 1, 0, 1);
+        func_ov017_02191108(var1, 1, 1, 0, 1);
         func_0202ac74();
         func_020a0c0c();
-        if (!func_02046708(flags, 0x100000)) {
-            unsigned char* stopwatch = (unsigned char*)resources->unknown_ptr_36d0;
-            func_0202738c(stopwatch, 0, 2, -1);
-            func_02027304(stopwatch, -1);
+        if (!func_02046708(var3, 0x100000)) {
+            unsigned char* var14 = (unsigned char*)var1->unknown_ptr_36d0;
+            func_0202738c(var14, 0, 2, -1);
+            func_02027304(var14, -1);
         }
-        func_ov017_021a01bc((unsigned char*)resources);
-        func_020397c0(actor);
-        func_02039830(actor);
-        self->complete = 1;
-        func_ov017_021a5974((char*)self);
+        func_ov017_021a01bc((unsigned char*)var1);
+        func_020397c0(var2);
+        func_02039830(var2);
+        arg0->unknown_1_ = 1;
+        func_ov017_021a5974((char*)arg0);
     }
 }

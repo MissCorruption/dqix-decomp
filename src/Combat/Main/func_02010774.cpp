@@ -7,12 +7,12 @@
 extern "C" unsigned char* func_0205ec34(void);
 
 // USA: func_02010774
-extern "C" ARM void func_02010774(char* obj, int v) {
+extern "C" ARM void func_02010774(char* arg0, int arg1) {
 #if defined(jpn)
-    *(int*)(obj + 0x5a50) = v;
+    *(int*)(arg0 + 0x5a50) = arg1;
 #else
-    *(int*)(obj + 0x5cb0) = v;
+    *(int*)(arg0 + 0x5cb0) = arg1;
 #endif
-    unsigned char* p = func_0205ec34();
-    p[p[0x332] * 0x1c] = v;
+    unsigned char* var0 = func_0205ec34();
+    var0[var0[0x332] * 0x1c] = arg1;
 }

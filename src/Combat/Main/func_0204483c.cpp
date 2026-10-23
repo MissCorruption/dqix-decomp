@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct RingBuffer020457e8;
+struct Struct_0204483c_2;
 
-struct ByteStream02044974 {
-    unsigned char* cursor;
+struct Struct_0204483c {
+    unsigned char* unknown_0_;
 };
 
-extern "C" ARM const char* func_020449a4(struct RingBuffer020457e8* rb, const char* msg);
-extern "C" ARM void func_02044974(struct ByteStream02044974* stream, int value);
-extern "C" ARM int func_020d85dc(const char* str, const char* prefix);
-extern "C" ARM int func_02005a94(const char* s);
-extern "C" ARM void func_020457e8(struct RingBuffer020457e8* rb, int value);
+extern "C" ARM const char* func_020449a4(struct Struct_0204483c_2* arg0, const char* arg1);
+extern "C" ARM void func_02044974(struct Struct_0204483c* arg0, int arg1);
+extern "C" ARM int func_020d85dc(const char* arg0, const char* arg1);
+extern "C" ARM int func_02005a94(const char* arg0);
+extern "C" ARM void func_020457e8(struct Struct_0204483c_2* arg0, int arg1);
 
 extern char data_020f00a3[];
 
-enum TextControl0204483c { TextEnd0204483c = 0xff01, TextNewline0204483c = 0xff18, TextTime0204483c = 0xff1a };
+enum Enum_0204483c { Enum_0204483c_65281 = 0xff01, Enum_0204483c_65304 = 0xff18, Enum_0204483c_65306 = 0xff1a };
 
 // USA: func_0204483c
-extern "C" ARM void func_0204483c(struct RingBuffer020457e8* rb, const char* msg, struct ByteStream02044974 stream) {
-    const char* closingTag;
-    if (msg == 0 || stream.cursor == 0) {
+extern "C" ARM void func_0204483c(struct Struct_0204483c_2* arg0, const char* arg1, struct Struct_0204483c arg2) {
+    const char* var0;
+    if (arg1 == 0 || arg2.unknown_0_ == 0) {
         return;
     }
-    msg = func_020449a4(rb, msg);
+    arg1 = func_020449a4(arg0, arg1);
     for (;;) {
-        TextControl0204483c newline;
-        ByteStream02044974* output = &stream;
-        newline = TextNewline0204483c;
-        signed char c = *msg;
-        if (c == 0) {
+        Enum_0204483c var1;
+        Struct_0204483c* var2 = &arg2;
+        var1 = Enum_0204483c_65304;
+        signed char var3 = *arg1;
+        if (var3 == 0) {
             break;
         }
-        signed char next = msg[1];
-        if ((c == '\\' && next == 'n') || (c == '\r' && next == '\n')) {
-            func_02044974(output, newline);
-            msg += 2;
+        signed char var4 = arg1[1];
+        if ((var3 == '\\' && var4 == 'n') || (var3 == '\r' && var4 == '\n')) {
+            func_02044974(var2, var1);
+            arg1 += 2;
             continue;
         }
-        if (c == '\n') {
-            func_02044974(output, newline);
-            msg += 1;
+        if (var3 == '\n') {
+            func_02044974(var2, var1);
+            arg1 += 1;
             continue;
         }
-        if (c == '<') {
-            int recognizedTag = 1;
-            closingTag = strchr(msg, '>');
-            if (closingTag == 0) {
+        if (var3 == '<') {
+            int var5 = 1;
+            var0 = strchr(arg1, '>');
+            if (var0 == 0) {
                 break;
             }
-            const char* nextText = closingTag + 1;
-            if (func_020d85dc(msg + 1, data_020f00a3)) {
-                int timeValue = func_02005a94(msg + 6);
-                if (timeValue < 0) {
-                    timeValue = 0;
+            const char* var6 = var0 + 1;
+            if (func_020d85dc(arg1 + 1, data_020f00a3)) {
+                int var7 = func_02005a94(arg1 + 6);
+                if (var7 < 0) {
+                    var7 = 0;
                 }
-                func_020457e8(rb, timeValue);
-                func_02044974(output, TextTime0204483c);
+                func_020457e8(arg0, var7);
+                func_02044974(var2, Enum_0204483c_65306);
             } else {
-                recognizedTag = 0;
+                var5 = 0;
             }
-            if (recognizedTag) {
-                msg = nextText;
+            if (var5) {
+                arg1 = var6;
                 continue;
             }
         }
-        unsigned char* writeCursor = stream.cursor;
-        stream.cursor = writeCursor + 1;
-        *writeCursor = *msg++;
+        unsigned char* var8 = arg2.unknown_0_;
+        arg2.unknown_0_ = var8 + 1;
+        *var8 = *arg1++;
     }
-    func_02044974(&stream, TextEnd0204483c);
+    func_02044974(&arg2, Enum_0204483c_65281);
 }

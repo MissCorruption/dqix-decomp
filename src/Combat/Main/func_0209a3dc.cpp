@@ -14,24 +14,24 @@
 extern char data_020f1628[];
 extern Script::OpcodeLookupEntry data_020f1608[];
 
-struct Ctx0209a3dc { void* field0; };
-extern struct Ctx0209a3dc* data_02109ba4;
+struct Struct_0209a3dc { void* unknown_0_; };
+extern struct Struct_0209a3dc* data_02109ba4;
 
 // USA: func_0209a3dc
-extern "C" ARM void func_0209a3dc(struct Ctx0209a3dc* ctx, void* value) {
-    unsigned int count;
-    Script script;
+extern "C" ARM void func_0209a3dc(struct Struct_0209a3dc* arg0, void* arg1) {
+    unsigned int var0;
+    Script var1;
 
     BackgroundLoader::AddLockGlobal();
 
-    void* header = LoadFileIntoMemory(data_020f1628, data_0211e33c, &count);
-    if (header != NULL) {
-        ctx->field0 = value;
-        data_02109ba4 = ctx;
-        script.Initialize();
-        script.SetOpcodeLookup(data_020f1608);
-        script.Load(header, count);
-        script.Execute();
+    void* var2 = LoadFileIntoMemory(data_020f1628, data_0211e33c, &var0);
+    if (var2 != NULL) {
+        arg0->unknown_0_ = arg1;
+        data_02109ba4 = arg0;
+        var1.Initialize();
+        var1.SetOpcodeLookup(data_020f1608);
+        var1.Load(var2, var0);
+        var1.Execute();
         data_02109ba4 = NULL;
     }
     BackgroundLoader::RemoveLockGlobal();

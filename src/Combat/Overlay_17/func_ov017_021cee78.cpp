@@ -2,30 +2,30 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 struct Vector3i;
 
-struct LocalEvt021cee78 {
-	unsigned char tag;
-	unsigned char pad0[3];
-	int vec[3];
-	unsigned short field10;
-	unsigned char field12;
-	unsigned char field13;
+struct Struct_ov017_021cee78 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_[3];
+	int unknown_4_[3];
+	unsigned short unknown_10_;
+	unsigned char unknown_12_;
+	unsigned char unknown_13_;
 };
 
 // USA: func_ov017_021cee78
-extern "C" ARM void func_ov017_021cee78(int id, unsigned char b) {
-	GameObject* c = GameState::GetInstance()->GetGameObjectByIndex(id);
-	if (c == NULL) {
+extern "C" ARM void func_ov017_021cee78(int arg0, unsigned char arg1) {
+	GameObject* var0 = GameState::GetInstance()->GetGameObjectByIndex(arg0);
+	if (var0 == NULL) {
 		return;
 	}
-	void* p = func_0202ae24();
-	LocalEvt021cee78 buf;
-	buf.tag = 0x14;
-	buf.field12 = id;
-	*(Vector3i*)buf.vec = *(Vector3i const*)(&c->obj3D_.position_.x);
-	buf.field10 = c->obj3D_.rotation_.y;
-	buf.field13 = b;
-	func_0205e330(p, &buf, 0);
+	void* var1 = func_0202ae24();
+	Struct_ov017_021cee78 var2;
+	var2.unknown_0_ = 0x14;
+	var2.unknown_12_ = arg0;
+	*(Vector3i*)var2.unknown_4_ = *(Vector3i const*)(&var0->obj3D_.position_.x);
+	var2.unknown_10_ = var0->obj3D_.rotation_.y;
+	var2.unknown_13_ = arg1;
+	func_0205e330(var1, &var2, 0);
 }

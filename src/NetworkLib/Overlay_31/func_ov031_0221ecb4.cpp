@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
 
-typedef void (*Callback0221ecb4)(int);
+typedef void (*Type_ov031_0221ecb4)(int);
 
-struct Table0221ecb4 {
-    int pad;
-    Callback0221ecb4 handler;
+struct Struct_ov031_0224f4c0_4 {
+    int unknown_0_;
+    Type_ov031_0221ecb4 unknown_4_;
 };
 
-extern Table0221ecb4 data_ov031_0224f4c0;
+extern Struct_ov031_0224f4c0_4 data_ov031_0224f4c0;
 
 // USA: func_ov031_0221ecb4
-extern "C" THUMB int func_ov031_0221ecb4(int arg) {
-    Callback0221ecb4 handler = data_ov031_0224f4c0.handler;
-    if (handler != NULL) {
-        handler(arg);
+extern "C" THUMB int func_ov031_0221ecb4(int arg0) {
+    Type_ov031_0221ecb4 var0 = data_ov031_0224f4c0.unknown_4_;
+    if (var0 != NULL) {
+        var0(arg0);
     }
     return 0;
 }

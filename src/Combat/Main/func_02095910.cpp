@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Node02095910 { unsigned char pad[0x28]; void* link; };
-struct Owner02095910 { unsigned char pad[0xa4]; struct Node02095910* slot; };
+struct Struct_020951d8 { unsigned char unknown_0_[0x28]; void* unknown_28_; };
+struct Struct_020951d8_2 { unsigned char unknown_0_[0xa4]; struct Struct_020951d8* unknown_a4_; };
 
 // USA: func_02095910
-extern "C" ARM void func_02095910(struct Owner02095910* owner, struct Node02095910* node) {
-    struct Node02095910* old = owner->slot;
-    owner->slot = node;
-    if (old != NULL) {
-        node->link = old;
+extern "C" ARM void func_02095910(struct Struct_020951d8_2* arg0, struct Struct_020951d8* arg1) {
+    struct Struct_020951d8* var0 = arg0->unknown_a4_;
+    arg0->unknown_a4_ = arg1;
+    if (var0 != NULL) {
+        arg1->unknown_28_ = var0;
     }
 }

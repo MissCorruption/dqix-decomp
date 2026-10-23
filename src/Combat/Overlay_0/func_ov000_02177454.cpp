@@ -3,64 +3,64 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_020421a0();
-extern "C" void func_ov000_0217c638(void* obj, int a, int b);
-extern "C" void func_ov000_021775a4(void* obj, void* buf);
+extern "C" void func_ov000_0217c638(void* arg0, int arg1, int arg2);
+extern "C" void func_ov000_021775a4(void* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_020100a8(GameState* arg0);
 
-struct InStruct_02177454 {
-    char pad[0x44];
-    int x;
-    int y;
+struct Struct_ov000_02177454 {
+    char unknown_0_[0x44];
+    int unknown_44_;
+    int unknown_48_;
 };
 
 // USA: func_ov000_02177454
-extern "C" ARM void func_ov000_02177454(void* objRaw, struct InStruct_02177454* in, int arg2, int arg3) {
-    char* obj = (char*)objRaw;
-    if (in == 0) {
+extern "C" ARM void func_ov000_02177454(void* arg0, struct Struct_ov000_02177454* arg1, int arg2, int arg3) {
+    char* var0 = (char*)arg0;
+    if (arg1 == 0) {
         return;
     }
-    int x = in->x;
-    int y = in->y;
-    func_ov000_0217c638(obj, arg2, arg3);
-    char* s = obj + 0x188;
-    *(short*)(s + 0xa0) = 0xa;
-    *(short*)(s + 0xa2) = 7;
-    *(short*)(s + 0xa4) = (x >> 3) + 9;
-    *(short*)(s + 0xa6) = (y >> 3) + 1;
-    *(short*)(s + 0xa8) = 0xc;
-    *(short*)(s + 0xaa) = 7;
-    *(short*)(s + 0xac) = 0xa;
-    *(short*)(s + 0xae) = 0xd;
+    int var1 = arg1->unknown_44_;
+    int var2 = arg1->unknown_48_;
+    func_ov000_0217c638(var0, arg2, arg3);
+    char* var3 = var0 + 0x188;
+    *(short*)(var3 + 0xa0) = 0xa;
+    *(short*)(var3 + 0xa2) = 7;
+    *(short*)(var3 + 0xa4) = (var1 >> 3) + 9;
+    *(short*)(var3 + 0xa6) = (var2 >> 3) + 1;
+    *(short*)(var3 + 0xa8) = 0xc;
+    *(short*)(var3 + 0xaa) = 7;
+    *(short*)(var3 + 0xac) = 0xa;
+    *(short*)(var3 + 0xae) = 0xd;
     if (func_0202b7d8((int*)func_0202ae18())) {
         if (func_020100a8(GameState::GetInstance()) == 0) {
-            *(short*)(s + 0xa8) = 0xc;
-            *(short*)(s + 0xaa) = 4;
-            *(short*)(s + 0xac) = 0xa;
-            *(short*)(s + 0xae) = 0xb;
+            *(short*)(var3 + 0xa8) = 0xc;
+            *(short*)(var3 + 0xaa) = 4;
+            *(short*)(var3 + 0xac) = 0xa;
+            *(short*)(var3 + 0xae) = 0xb;
         }
     }
-    *(unsigned char*)(s + 0xb1) = 2;
+    *(unsigned char*)(var3 + 0xb1) = 2;
 #if defined(jpn)
-    void* buf = *(void**)((char*)func_020421a0() + 0x28);
+    void* var4 = *(void**)((char*)func_020421a0() + 0x28);
 #else
-    void* buf = *(void**)((char*)func_020421a0() + 0x5c);
+    void* var4 = *(void**)((char*)func_020421a0() + 0x5c);
 #endif
 #if defined(jpn)
-    memset(buf, 0, 0x800);
+    memset(var4, 0, 0x800);
 #else
-    memset(buf, 0, 0x960);
+    memset(var4, 0, 0x960);
 #endif
-    func_ov000_021775a4(obj, buf);
+    func_ov000_021775a4(var0, var4);
 #if defined(jpn)
-    func_0205d304(s, buf, 0, 1, 0, 1, 0);
+    func_0205d304(var3, var4, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(s, buf, 0, 1, 0, 1, 0, 0);
+    func_0205d304(var3, var4, 0, 1, 0, 1, 0, 0);
 #endif
 }

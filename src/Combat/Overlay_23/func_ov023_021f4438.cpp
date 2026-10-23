@@ -2,52 +2,52 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* arg0);
 extern "C" void* func_02010828(GameState*);
 
-struct Obj021f4438 {
+struct Struct_ov023_021f4438 {
 #if defined(jpn)
-    char pad0[0x5af0];
+    char unknown_0_[0x5af0];
 #else
-    char pad0[0x5900];
+    char unknown1_0_[0x5900];
 #endif
-    unsigned char byte5900;
-    signed char byte5901;
+    unsigned char unknown_5900_;
+    signed char unknown_5901_;
 #if defined(jpn)
-    char pad1[0x7014 - 0x5af2];
+    char unknown_5af2_[0x7014 - 0x5af2];
 #else
-    char pad1[0x6e24 - 0x5902];
+    char unknown_5902_[0x6e24 - 0x5902];
 #endif
-    int f6e24;
+    int unknown_6e24_;
 };
 
-struct ElemBlock021f4438 {
-    char pad0[0xf78];
-    unsigned char shiftAmt;
-    char pad1[0xf7c - 0xf79];
-    unsigned char count;
+struct Struct_ov023_021f4438_2 {
+    char unknown_0_[0xf78];
+    unsigned char unknown_f78_;
+    char unknown_f79_[0xf7c - 0xf79];
+    unsigned char unknown_f7c_;
 };
 
 // USA: func_ov023_021f4438
-extern "C" ARM int func_ov023_021f4438(Obj021f4438* obj) {
-    int result = 0;
-    if (obj->byte5900 != 0 || obj->f6e24 != 0) {
-        GameState* battleStruct = GameState::GetInstance();
-        void* p = func_0202ae18();
-        result = 1;
-        if (func_0202b7d8((int*)p)) {
-            ElemBlock021f4438* base = (ElemBlock021f4438*)func_02010828(battleStruct);
-            int found = 0;
-            int i;
-            for (i = 0; i < base->count; i++) {
-                ElemBlock021f4438* elem = (ElemBlock021f4438*)((char*)base + i);
-                if (obj->byte5901 & (1 << elem->shiftAmt)) {
-                    found = 1;
+extern "C" ARM int func_ov023_021f4438(Struct_ov023_021f4438* arg0) {
+    int var0 = 0;
+    if (arg0->unknown_5900_ != 0 || arg0->unknown_6e24_ != 0) {
+        GameState* var1 = GameState::GetInstance();
+        void* var2 = func_0202ae18();
+        var0 = 1;
+        if (func_0202b7d8((int*)var2)) {
+            Struct_ov023_021f4438_2* var3 = (Struct_ov023_021f4438_2*)func_02010828(var1);
+            int var4 = 0;
+            int var5;
+            for (var5 = 0; var5 < var3->unknown_f7c_; var5++) {
+                Struct_ov023_021f4438_2* var6 = (Struct_ov023_021f4438_2*)((char*)var3 + var5);
+                if (arg0->unknown_5901_ & (1 << var6->unknown_f78_)) {
+                    var4 = 1;
                     break;
                 }
             }
-            if (!found) result = 0;
+            if (!var4) var0 = 0;
         }
     }
-    return result;
+    return var0;
 }

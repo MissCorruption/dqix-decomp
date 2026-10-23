@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset18 = 0x14 };
+enum { Enum_ov017_021b498c_24 = 0x14 };
 #else
-enum { RegionOffset18 = 0x18 };
+enum { Enum_ov017_021b498c_24 = 0x18 };
 #endif
 
 #include <globaldefs.h>
@@ -9,53 +9,53 @@ enum { RegionOffset18 = 0x18 };
 #include "GameState/GameState.h"
 #include "Filesystem/FileIO.h"
 
-struct List0202fe68;
-struct List0202fec8;
-struct InitStruct;
-extern "C" ARM void func_020280b0(struct InitStruct* s);
-struct Struct0202811c;
-extern "C" void func_02028104(struct Struct0202811c* s, int b, int c, int d);
-extern "C" void func_02028214(void* a, int b);
+struct Struct_020534ac_2;
+struct Struct_020534ac;
+struct Struct_0201a300_5;
+extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
+struct Struct_02028104;
+extern "C" void func_02028104(struct Struct_02028104* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_02028214(void* arg0, int arg1);
 
 extern char data_ov017_021d7b4f;
 extern char data_ov017_021d7b3a;
 
-struct Obj021b498c {
-    char pad0[8];
-    void* sub;
-    int key;
-    unsigned char field10;
-    char pad1[3];
-    int field14;
+struct Struct_ov017_021b498c {
+    char unknown_0_[8];
+    void* unknown_8_;
+    int unknown_c_;
+    unsigned char unknown_10_;
+    char unknown_11_[3];
+    int unknown_14_;
 };
 
 // USA: func_ov017_021b498c
-extern "C" ARM void func_ov017_021b498c(struct Obj021b498c* obj) {
+extern "C" ARM void func_ov017_021b498c(struct Struct_ov017_021b498c* arg0) {
     GameState::GetInstance();
-    int list = (int)BackgroundLoader::GetInstance();
-    if (!((BackgroundLoader*)(list))->GetTaskStatus((int)(obj->key))) {
+    int var0 = (int)BackgroundLoader::GetInstance();
+    if (!((BackgroundLoader*)(var0))->GetTaskStatus((int)(arg0->unknown_c_))) {
         return;
     }
 
-    if (((BackgroundLoader*)((struct List0202fe68*)list))->GetDetailedTaskStatus((int)(obj->key)) == 2) {
-        int out2, out1;
-        ((BackgroundLoader*)((struct List0202fec8*)list))->GetLoadedFileByID((int)(obj->key), (void**)(&out1), (unsigned int*)(&out2));
-        if (out1 != 0) {
-            unsigned int fileSize;
-            const void* filePtr;
-            FindFilesInNarcBySubstring((const void*)out1, &data_ov017_021d7b4f, &filePtr, &fileSize, 1);
-            if (filePtr != 0) {
-                char* sub = (char*)obj->sub;
-                func_020280b0((struct InitStruct*)(sub + RegionOffset18));
-                func_02028104((struct Struct0202811c*)(sub + RegionOffset18), *(int*)((char*)obj->sub + 0x10), (int)filePtr, (int)fileSize);
-                func_02028214(sub + RegionOffset18, *(int*)((char*)obj->sub + 0x10));
-                sub[0xc] = 1;
+    if (((BackgroundLoader*)((struct Struct_020534ac_2*)var0))->GetDetailedTaskStatus((int)(arg0->unknown_c_)) == 2) {
+        int var1, var2;
+        ((BackgroundLoader*)((struct Struct_020534ac*)var0))->GetLoadedFileByID((int)(arg0->unknown_c_), (void**)(&var2), (unsigned int*)(&var1));
+        if (var2 != 0) {
+            unsigned int var3;
+            const void* var4;
+            FindFilesInNarcBySubstring((const void*)var2, &data_ov017_021d7b4f, &var4, &var3, 1);
+            if (var4 != 0) {
+                char* var5 = (char*)arg0->unknown_8_;
+                func_020280b0((struct Struct_0201a300_5*)(var5 + Enum_ov017_021b498c_24));
+                func_02028104((struct Struct_02028104*)(var5 + Enum_ov017_021b498c_24), *(int*)((char*)arg0->unknown_8_ + 0x10), (int)var4, (int)var3);
+                func_02028214(var5 + Enum_ov017_021b498c_24, *(int*)((char*)arg0->unknown_8_ + 0x10));
+                var5[0xc] = 1;
             }
         }
     }
 
-    ((BackgroundLoader*)(list))->RemoveTask((int)(obj->key));
-    obj->key = -1;
-    obj->key = ((BackgroundLoader*)(list))->QueueLoadFile((const char*)((int)&data_ov017_021d7b3a), (SafeAllocator*)(0));
-    obj->field10 = 3;
+    ((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_c_));
+    arg0->unknown_c_ = -1;
+    arg0->unknown_c_ = ((BackgroundLoader*)(var0))->QueueLoadFile((const char*)((int)&data_ov017_021d7b3a), (SafeAllocator*)(0));
+    arg0->unknown_10_ = 3;
 }

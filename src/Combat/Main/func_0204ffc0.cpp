@@ -2,45 +2,45 @@
 #include "NitroSDK/Cache.h"
 #include <std_library_functions.h>
 
-extern "C" int func_02050064(void* obj);
-extern "C" void func_0204fa0c(void* obj, short a, short b);
-extern "C" int func_0204a5e4(int a, int b);
+extern "C" int func_02050064(void* arg0);
+extern "C" void func_0204fa0c(void* arg0, short arg1, short arg2);
+extern "C" int func_0204a5e4(int arg0, int arg1);
 
-struct FlagsRef0204ffc0 {
-    char pad[0x1c];
-    unsigned char nib_lo : 4;
-    unsigned char nib_hi : 4;
+struct Struct_0204ffc0 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
 };
 
-struct Obj0204ffc0 {
-    char pad0[0x4];
-    FlagsRef0204ffc0* ref;      // 0x4
-    void* buf;                  // 0x8
-    char pad1[0xa0-0xc];
-    int srcOff;                 // 0xa0
-    int len;                    // 0xa4
-    char pad2[0xbc-0xa8];
-    short sa;                   // 0xbc
-    short sb;                   // 0xbe
-    char pad3[0xc5-0xc0];
-    unsigned char flags;        // 0xc5
+struct Struct_0204ffc0_2 {
+    char unknown_0_[0x4];
+    Struct_0204ffc0* unknown_4_;      // 0x4
+    void* unknown_8_;                  // 0x8
+    char unknown_c_[0xa0-0xc];
+    int unknown_a0_;                 // 0xa0
+    int unknown_a4_;                    // 0xa4
+    char unknown_a8_[0xbc-0xa8];
+    short unknown_bc_;                   // 0xbc
+    short unknown_be_;                   // 0xbe
+    char unknown_c0_[0xc5-0xc0];
+    unsigned char unknown_c5_;        // 0xc5
 };
 
 // USA: func_0204ffc0
-extern "C" ARM void func_0204ffc0(Obj0204ffc0* a, int) {
-    if (a->ref == NULL || a->buf == NULL)
+extern "C" ARM void func_0204ffc0(Struct_0204ffc0_2* arg0, int) {
+    if (arg0->unknown_4_ == NULL || arg0->unknown_8_ == NULL)
         return;
-    unsigned char lo = a->ref->nib_lo;
-    unsigned char hi = a->ref->nib_hi;
-    int r3 = func_02050064(a);
-    if (!r3)
+    unsigned char var0 = arg0->unknown_4_->unknown_1c_0_;
+    unsigned char var1 = arg0->unknown_4_->unknown_1c_4_;
+    int var2 = func_02050064(arg0);
+    if (!var2)
         return;
-    if (r3) {
-        memcpy(a->buf, (void*)(r3 + a->srcOff), a->len);
+    if (var2) {
+        memcpy(arg0->unknown_8_, (void*)(var2 + arg0->unknown_a0_), arg0->unknown_a4_);
     }
-    a->flags |= 0x40;
-    func_0204fa0c(a, a->sa, a->sb);
-    void (*fp)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))func_0204a5e4(lo, hi);
-    CleanInvalidateCacheRange(a->buf, a->len);
-    fp(a->buf, a->srcOff, a->len);
+    arg0->unknown_c5_ |= 0x40;
+    func_0204fa0c(arg0, arg0->unknown_bc_, arg0->unknown_be_);
+    void (*var3)(void*, int, unsigned int) = (void(*)(void*, int, unsigned int))func_0204a5e4(var0, var1);
+    CleanInvalidateCacheRange(arg0->unknown_8_, arg0->unknown_a4_);
+    var3(arg0->unknown_8_, arg0->unknown_a0_, arg0->unknown_a4_);
 }

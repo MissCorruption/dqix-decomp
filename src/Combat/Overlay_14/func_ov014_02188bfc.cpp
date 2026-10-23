@@ -6,26 +6,26 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-struct HabitatTable {
-    char unk_0[0x14];
-    short monsterID_;
-    short state_;
-    int taskID_;
-    SafeAllocator* allocator_;
+struct Struct_ov014_02188bfc {
+    char unknown_0_[0x14];
+    short unknown_14_;
+    short unknown_16_;
+    int unknown_18_;
+    SafeAllocator* unknown_1c_;
 };
 
-struct HandleState_02188d10;
-extern "C" bool func_ov014_02188d10(HandleState_02188d10*);
-struct HandleState_02188bd0;
-extern "C" bool func_ov014_02188bd0(HandleState_02188bd0*);
-extern "C" bool func_ov014_02188c34(HabitatTable* habitats);
+struct Struct_ov014_021845ec;
+extern "C" bool func_ov014_02188d10(Struct_ov014_021845ec*);
+struct Struct_ov014_021844c4;
+extern "C" bool func_ov014_02188bd0(Struct_ov014_021844c4*);
+extern "C" bool func_ov014_02188c34(Struct_ov014_02188bfc* arg0);
 
 // USA: func_ov014_02188bfc
-extern "C" ARM bool func_ov014_02188bfc(HabitatTable* habitats, SafeAllocator* allocator, short monsterID) {
-    func_ov014_02188d10((HandleState_02188d10*)habitats);
-    func_ov014_02188bd0((HandleState_02188bd0*)habitats);
-    habitats->monsterID_ = monsterID;
-    habitats->allocator_ = allocator;
-    habitats->state_ = 1;
-    return func_ov014_02188c34(habitats);
+extern "C" ARM bool func_ov014_02188bfc(Struct_ov014_02188bfc* arg0, SafeAllocator* arg1, short arg2) {
+    func_ov014_02188d10((Struct_ov014_021845ec*)arg0);
+    func_ov014_02188bd0((Struct_ov014_021844c4*)arg0);
+    arg0->unknown_14_ = arg2;
+    arg0->unknown_1c_ = arg1;
+    arg0->unknown_16_ = 1;
+    return func_ov014_02188c34(arg0);
 }

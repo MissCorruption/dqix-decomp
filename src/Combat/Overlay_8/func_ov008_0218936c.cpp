@@ -19,46 +19,46 @@
 #endif
 #include <globaldefs.h>
 
-extern "C" void func_0205d0e0(void* obj);
-extern "C" void func_ov008_021895a8(void* obj);
-extern "C" void func_ov008_02189c70(void* obj);
-extern "C" void func_ov008_0218af80(void* obj);
-extern "C" void func_ov008_02184754(void* obj);
-extern "C" void func_ov008_0218b084(void* obj);
+extern "C" void func_0205d0e0(void* arg0);
+extern "C" void func_ov008_021895a8(void* arg0);
+extern "C" void func_ov008_02189c70(void* arg0);
+extern "C" void func_ov008_0218af80(void* arg0);
+extern "C" void func_ov008_02184754(void* arg0);
+extern "C" void func_ov008_0218b084(void* arg0);
 
-struct Manager0218936c {
-    char pad[R(0xe95, 0xe99)];
-    signed char sub99;
-    signed char sub9a;
-    signed char sub9b;
-    char pad2[R(0xeb0 - 0xe98, 0xeb8 - 0xe9c)];
-    unsigned char fieldEb8;
+struct Struct_ov008_0218936c {
+    char unknown_0_[R(0xe95, 0xe99)];
+    signed char unknown_e99_;
+    signed char unknown_e9a_;
+    signed char unknown_e9b_;
+    char unknown_e9c_[R(0xeb0 - 0xe98, 0xeb8 - 0xe9c)];
+    unsigned char unknown_eb8_;
 };
 
 // USA: func_ov008_0218936c
-extern "C" ARM unsigned char func_ov008_0218936c(Manager0218936c* obj, unsigned int ticks) {
-    func_0205d0e0((char*)obj + 0x18);
-    switch (obj->sub99) {
+extern "C" ARM unsigned char func_ov008_0218936c(Struct_ov008_0218936c* arg0, unsigned int arg1) {
+    func_0205d0e0((char*)arg0 + 0x18);
+    switch (arg0->unknown_e99_) {
     case 0:
-        func_ov008_021895a8(obj);
+        func_ov008_021895a8(arg0);
         break;
     case 1:
-        func_ov008_02189c70(obj);
+        func_ov008_02189c70(arg0);
         break;
     case 2:
-        obj->sub9a = 0;
+        arg0->unknown_e9a_ = 0;
         break;
     }
-    switch (obj->sub9b) {
+    switch (arg0->unknown_e9b_) {
     case 0:
-        func_ov008_0218af80(obj);
+        func_ov008_0218af80(arg0);
         break;
     case 1:
-        func_ov008_02184754((char*)obj + 0x2a8);
+        func_ov008_02184754((char*)arg0 + 0x2a8);
         break;
     case 2:
-        func_ov008_0218b084(obj);
+        func_ov008_0218b084(arg0);
         break;
     }
-    return obj->fieldEb8;
+    return arg0->unknown_eb8_;
 }

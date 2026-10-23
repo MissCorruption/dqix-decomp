@@ -4,37 +4,37 @@
 #include <std_library_functions.h>
 #include "Resource/GameResources.h"
 
-struct ScriptArgument { char data[8]; };
-struct ObjectLoadCommand {
-    unsigned char kind : 4;
-    unsigned char group : 4;
-    unsigned char action;
-    short objectId;
-    unsigned char field_4;
-    char pad0[3];
-    union { char filename[36]; int resourceId; } resource;
-    int task;
-    unsigned char option;
-    unsigned char field_31;
-    char pad1[2];
-    ObjectLoadCommand* next;
+struct Struct_ov001_0215b72c { char unknown_0_[8]; };
+struct Struct_ov001_02160da8 {
+    unsigned char unknown_0_0_ : 4;
+    unsigned char unknown_0_4_ : 4;
+    unsigned char unknown_1_;
+    short unknown_2_;
+    unsigned char unknown_4_;
+    char unknown_5_[3];
+    union { char unknown_0_[36]; int unknown1_0_; } unknown_8_;
+    int unknown_2c_;
+    unsigned char unknown_30_;
+    unsigned char unknown_31_;
+    char unknown_32_[2];
+    Struct_ov001_02160da8* unknown_34_;
 };
-struct ScriptState {
+struct Struct_ov001_02160da8_2 {
     #if defined(jpn)
-    char pad0[0xcc]; ObjectLoadCommand* commands;
+    char unknown_0_[0xcc]; Struct_ov001_02160da8* unknown_d0_;
 #else
-    char pad0[0xd0]; ObjectLoadCommand* commands;
+    char unknown1_0_[0xd0]; Struct_ov001_02160da8* unknown_d0_;
 #endif
-    char pad1[0xf8 - 0xd4]; unsigned int flags : 27; unsigned int nextObject : 5;
-    char pad2[0x116 - 0xfc]; signed char selectedObject;
+    char unknown_d4_[0xf8 - 0xd4]; unsigned int unknown_f8_0_ : 27; unsigned int unknown_fb_3_ : 5;
+    char unknown_fc_[0x116 - 0xfc]; signed char unknown_116_;
 };
-struct Obj02061bd8;
-extern "C" int func_ov017_021d60f4(ScriptArgument*);
-extern "C" const char* func_ov017_021d612c(ScriptArgument*);
+struct Struct_0205faf4_11;
+extern "C" int func_ov017_021d60f4(Struct_ov001_0215b72c*);
+extern "C" const char* func_ov017_021d612c(Struct_ov001_0215b72c*);
 extern "C" int func_020100b0(GameState*);
 extern "C" GameObject* func_0200ff58(GameState*, int);
 extern "C" int func_ov001_021612ac(void*);
-extern "C" int func_02061bd8(Obj02061bd8*);
+extern "C" int func_02061bd8(Struct_0205faf4_11*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_02165728[];
 extern const char data_ov001_02165745[];
@@ -42,126 +42,126 @@ extern const char data_ov001_02165775[];
 extern const char data_ov001_021657b2[];
 
 // USA: func_ov001_02160da8
-extern "C" ARM int func_ov001_02160da8(ScriptArgument* arguments, int count) {
-    GameState* game = GameState::GetInstance();
-    ObjectLoadCommand* command;
-    ScriptState* state = (ScriptState*)GetGameResources()->unknown_ptr_array_371c[6];
-    SafeAllocator* allocator = data_ov001_021658b8[0];
-    unsigned int objectId = state->nextObject + 160;
-    if (objectId > 191) return 0;
-    command = (ObjectLoadCommand*)allocator->Allocate(sizeof(ObjectLoadCommand));
-    command->kind = 0;
-    command->group = 0;
-    command->action = 0;
-    command->objectId = 0;
-    command->field_4 = 0;
-    memset(command->resource.filename, 0, sizeof(command->resource.filename));
-    command->task = -1;
-    command->next = 0;
-    command->option = 0;
-    command->field_31 = 0;
-    command->kind = (unsigned char)func_ov017_021d60f4(arguments);
-    switch (command->kind) {
+extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov001_02160da8* var1;
+    Struct_ov001_02160da8_2* var2 = (Struct_ov001_02160da8_2*)GetGameResources()->unknown_ptr_array_371c[6];
+    SafeAllocator* var3 = data_ov001_021658b8[0];
+    unsigned int var4 = var2->unknown_fb_3_ + 160;
+    if (var4 > 191) return 0;
+    var1 = (Struct_ov001_02160da8*)var3->Allocate(sizeof(Struct_ov001_02160da8));
+    var1->unknown_0_0_ = 0;
+    var1->unknown_0_4_ = 0;
+    var1->unknown_1_ = 0;
+    var1->unknown_2_ = 0;
+    var1->unknown_4_ = 0;
+    memset(var1->unknown_8_.unknown_0_, 0, sizeof(var1->unknown_8_.unknown_0_));
+    var1->unknown_2c_ = -1;
+    var1->unknown_34_ = 0;
+    var1->unknown_30_ = 0;
+    var1->unknown_31_ = 0;
+    var1->unknown_0_0_ = (unsigned char)func_ov017_021d60f4(arg0);
+    switch (var1->unknown_0_0_) {
     case 0:
     case 1:
     case 9:
-        if (count < 2) return 0;
-        command->action = func_ov017_021d60f4(arguments + 1);
-        if (command->kind == 1) command->objectId = func_020100b0(game);
-        else if (command->kind == 9) {
-            command->objectId = state->selectedObject;
-            if (!func_0200ff1c(game, command->objectId)) command->objectId = func_020100b0(game);
+        if (arg1 < 2) return 0;
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        if (var1->unknown_0_0_ == 1) var1->unknown_2_ = func_020100b0(var0);
+        else if (var1->unknown_0_0_ == 9) {
+            var1->unknown_2_ = var2->unknown_116_;
+            if (!func_0200ff1c(var0, var1->unknown_2_)) var1->unknown_2_ = func_020100b0(var0);
         }
-        if (command->objectId == 0) command->group = 1;
-        else command->group = 2;
+        if (var1->unknown_2_ == 0) var1->unknown_0_4_ = 1;
+        else var1->unknown_0_4_ = 2;
         break;
     case 11:
     case 12:
     case 13:
-        if (count < 2) return 0;
-        command->action = func_ov017_021d60f4(arguments + 1);
-        command->group = 2;
-        func_020100b0(game);
-        if (command->kind == 11) command->objectId = 3;
-        else if (command->kind == 12) command->objectId = 2;
-        else if (command->kind == 13) command->objectId = 1;
-        if (!game->GetGameObjectByIndex(command->objectId)) {
-            command->kind = 15;
+        if (arg1 < 2) return 0;
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_0_4_ = 2;
+        func_020100b0(var0);
+        if (var1->unknown_0_0_ == 11) var1->unknown_2_ = 3;
+        else if (var1->unknown_0_0_ == 12) var1->unknown_2_ = 2;
+        else if (var1->unknown_0_0_ == 13) var1->unknown_2_ = 1;
+        if (!var0->GetGameObjectByIndex(var1->unknown_2_)) {
+            var1->unknown_0_0_ = 15;
             return 0;
         }
         break;
     case 10: {
-        if (count < 2) return 0;
-        command->action = func_ov017_021d60f4(arguments + 1);
-        int group = 0;
-        GameObject* member = func_0200ff58(game, 0xce);
-        if (member) {
-            command->objectId = 0xce;
-            group = func_ov001_021612ac(member);
+        if (arg1 < 2) return 0;
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        int var5 = 0;
+        GameObject* var6 = func_0200ff58(var0, 0xce);
+        if (var6) {
+            var1->unknown_2_ = 0xce;
+            var5 = func_ov001_021612ac(var6);
         } else {
-            int index;
-            for (index = 0; index < 4; ++index) {
-                GameObject* member = func_0200ff58(game, index);
-                if (member && func_02061bd8((Obj02061bd8*)member)) {
-                    command->objectId = index;
-                    group = func_ov001_021612ac(member);
+            int var7;
+            for (var7 = 0; var7 < 4; ++var7) {
+                GameObject* var8 = func_0200ff58(var0, var7);
+                if (var8 && func_02061bd8((Struct_0205faf4_11*)var8)) {
+                    var1->unknown_2_ = var7;
+                    var5 = func_ov001_021612ac(var8);
                     break;
                 }
             }
-            if (index == 4) return 0;
+            if (var7 == 4) return 0;
         }
-        command->group = (unsigned char)(group + 2);
+        var1->unknown_0_4_ = (unsigned char)(var5 + 2);
         break;
     }
     case 2:
     case 6:
     case 7: {
-        if (count < 3) return 0;
-        const char* filename = func_ov017_021d612c(arguments + 1);
-        if (command->kind == 6) {
-            if (!strstr(filename, data_ov001_02165728)) return 0;
-            const char* slash = strrchr(filename, '/');
-            if (slash) filename = slash + 1;
-            strcpy(command->resource.filename, filename);
-        } else sprintf(command->resource.filename, data_ov001_02165745, filename);
-        command->action = func_ov017_021d60f4(arguments + 2);
-        command->objectId = state->nextObject + 160;
-        ++state->nextObject;
-        if (count > 3) command->option = func_ov017_021d60f4(arguments + 3);
+        if (arg1 < 3) return 0;
+        const char* var9 = func_ov017_021d612c(arg0 + 1);
+        if (var1->unknown_0_0_ == 6) {
+            if (!strstr(var9, data_ov001_02165728)) return 0;
+            const char* var10 = strrchr(var9, '/');
+            if (var10) var9 = var10 + 1;
+            strcpy(var1->unknown_8_.unknown_0_, var9);
+        } else sprintf(var1->unknown_8_.unknown_0_, data_ov001_02165745, var9);
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 2);
+        var1->unknown_2_ = var2->unknown_fb_3_ + 160;
+        ++var2->unknown_fb_3_;
+        if (arg1 > 3) var1->unknown_30_ = func_ov017_021d60f4(arg0 + 3);
         break;
     }
     case 8:
-        if (count < 2) return 0;
-        sprintf(command->resource.filename, data_ov001_02165775);
-        command->action = func_ov017_021d60f4(arguments + 1);
-        command->objectId = state->nextObject + 160;
-        ++state->nextObject;
-        if (count > 2) command->option = func_ov017_021d60f4(arguments + 2);
+        if (arg1 < 2) return 0;
+        sprintf(var1->unknown_8_.unknown_0_, data_ov001_02165775);
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_2_ = var2->unknown_fb_3_ + 160;
+        ++var2->unknown_fb_3_;
+        if (arg1 > 2) var1->unknown_30_ = func_ov017_021d60f4(arg0 + 2);
         break;
     case 3:
-        if (count < 3) return 0;
-        sprintf(command->resource.filename, data_ov001_021657b2, func_ov017_021d612c(arguments + 1));
-        command->action = func_ov017_021d60f4(arguments + 2);
-        if (count > 3) command->option = func_ov017_021d60f4(arguments + 3);
+        if (arg1 < 3) return 0;
+        sprintf(var1->unknown_8_.unknown_0_, data_ov001_021657b2, func_ov017_021d612c(arg0 + 1));
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 2);
+        if (arg1 > 3) var1->unknown_30_ = func_ov017_021d60f4(arg0 + 3);
         break;
     case 4:
     case 5:
-        if (count < 3) return 0;
-        command->resource.resourceId = func_ov017_021d60f4(arguments + 1);
-        command->action = func_ov017_021d60f4(arguments + 2);
-        if (command->kind == 4) {
-            command->objectId = state->nextObject + 160;
-            ++state->nextObject;
+        if (arg1 < 3) return 0;
+        var1->unknown_8_.unknown1_0_ = func_ov017_021d60f4(arg0 + 1);
+        var1->unknown_1_ = func_ov017_021d60f4(arg0 + 2);
+        if (var1->unknown_0_0_ == 4) {
+            var1->unknown_2_ = var2->unknown_fb_3_ + 160;
+            ++var2->unknown_fb_3_;
         }
         break;
     default:
         return 0;
     }
-    if (!state->commands) state->commands = command;
+    if (!var2->unknown_d0_) var2->unknown_d0_ = var1;
     else {
-        ObjectLoadCommand* tail = state->commands;
-        while (tail->next) tail = tail->next;
-        tail->next = command;
+        Struct_ov001_02160da8* var11 = var2->unknown_d0_;
+        while (var11->unknown_34_) var11 = var11->unknown_34_;
+        var11->unknown_34_ = var1;
     }
     return 1;
 }

@@ -3,19 +3,19 @@
 #include "std_library_functions.h"
 
 
-struct Element020de650;
-struct Container020dedd0;
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
+struct Struct_0201099c_9;
+struct Struct_0201099c_10;
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
 
-extern "C" void func_ov023_021db0d4(void* obj, int flag);
+extern "C" void func_ov023_021db0d4(void* arg0, int arg1);
 extern int data_ov023_021ffa0c;
 
-struct Obj021dcb70;
-extern "C" unsigned char func_ov023_021dcb70(struct Obj021dcb70* p);
+struct Struct_ov023_021dcb70;
+extern "C" unsigned char func_ov023_021dcb70(struct Struct_ov023_021dcb70* arg0);
 
-extern "C" void __clear(void* buf, int len);
-extern "C" void func_ov023_021dde00(void* obj);
-extern "C" void func_ov023_021dbd10(void* a, void* b);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" void func_ov023_021dde00(void* arg0);
+extern "C" void func_ov023_021dbd10(void* arg0, void* arg1);
 
 
 extern char data_ov023_021fdba9[];
@@ -30,86 +30,86 @@ extern char data_ov023_021fce87[];
 extern char data_ov023_021fce9f[];
 #endif
 // USA: func_ov023_021dfc90
-extern "C" ARM int func_ov023_021dfc90(void* obj) {
+extern "C" ARM int func_ov023_021dfc90(void* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x600, regionalOffset1=0xec, regionalOffset2=0xf5, regionalOffset3=0x6d8, regionalOffset4=0xf7, regionalOffset5=0x6dc, regionalOffset6=0x6e4, regionalOffset7=0xf8, regionalOffset8=0xf0, regionalOffset9=0xf4, regionalOffset10=0x6b0};
+ enum {Enum_ov023_021dfc90_1792=0x600, Enum_ov023_021dfc90_112=0xec, Enum_ov023_021dfc90_121=0xf5, Enum_ov023_021dfc90_1884=0x6d8, Enum_ov023_021dfc90_123=0xf7, Enum_ov023_021dfc90_1888=0x6dc, Enum_ov023_021dfc90_1896=0x6e4, Enum_ov023_021dfc90_124=0xf8, Enum_ov023_021dfc90_116=0xf0, Enum_ov023_021dfc90_120=0xf4, Enum_ov023_021dfc90_1844=0x6b0};
 #else
- enum {regionalOffset0=0x700, regionalOffset1=0x70, regionalOffset2=0x79, regionalOffset3=0x75c, regionalOffset4=0x7b, regionalOffset5=0x760, regionalOffset6=0x768, regionalOffset7=0x7c, regionalOffset8=0x74, regionalOffset9=0x78, regionalOffset10=0x734};
+ enum {Enum_ov023_021dfc90_1792=0x700, Enum_ov023_021dfc90_112=0x70, Enum_ov023_021dfc90_121=0x79, Enum_ov023_021dfc90_1884=0x75c, Enum_ov023_021dfc90_123=0x7b, Enum_ov023_021dfc90_1888=0x760, Enum_ov023_021dfc90_1896=0x768, Enum_ov023_021dfc90_124=0x7c, Enum_ov023_021dfc90_116=0x74, Enum_ov023_021dfc90_120=0x78, Enum_ov023_021dfc90_1844=0x734};
 #endif
-    int listPtr = (int)BackgroundLoader::GetInstance();
+    int var0 = (int)BackgroundLoader::GetInstance();
 
-    if (*(void**)((char*)obj + 0x48) != 0) {
-        short key = *(short*)((char*)obj + regionalOffset0 + regionalOffset1);
-        *(void**)((char*)obj + 0x50) = func_020dedd0((struct Container020dedd0*)*(void**)((char*)obj + 0x48), key);
+    if (*(void**)((char*)arg0 + 0x48) != 0) {
+        short var1 = *(short*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_112);
+        *(void**)((char*)arg0 + 0x50) = func_020dedd0((struct Struct_0201099c_10*)*(void**)((char*)arg0 + 0x48), var1);
     }
 
-    int flag = 0;
-    void* node = *(void**)((char*)obj + 0x50);
-    if (node != 0) {
-        unsigned int field = ((unsigned int)*(int*)((char*)node + 8) << 0x14) >> 0x1d;
-        if (field == 5) flag = 1;
+    int var2 = 0;
+    void* var3 = *(void**)((char*)arg0 + 0x50);
+    if (var3 != 0) {
+        unsigned int var4 = ((unsigned int)*(int*)((char*)var3 + 8) << 0x14) >> 0x1d;
+        if (var4 == 5) var2 = 1;
     }
 
-    func_ov023_021db0d4(&data_ov023_021ffa0c, flag);
+    func_ov023_021db0d4(&data_ov023_021ffa0c, var2);
 
-    unsigned char lookupResult = func_ov023_021dcb70((struct Obj021dcb70*)*(void**)((char*)obj + 0x50));
-    signed char field779 = *(signed char*)((char*)obj + regionalOffset0 + regionalOffset2);
-    int r5 = lookupResult;
+    unsigned char var5 = func_ov023_021dcb70((struct Struct_ov023_021dcb70*)*(void**)((char*)arg0 + 0x50));
+    signed char var6 = *(signed char*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_121);
+    int var7 = var5;
 
-    if (r5 == field779) {
-        *(int*)((char*)obj + regionalOffset3) = 0x3800;
-        if (*(signed char*)((char*)obj + regionalOffset0 + regionalOffset4) == 1) {
-            *(int*)((char*)obj + regionalOffset3) = 0x2800;
+    if (var7 == var6) {
+        *(int*)((char*)arg0 + Enum_ov023_021dfc90_1884) = 0x3800;
+        if (*(signed char*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_123) == 1) {
+            *(int*)((char*)arg0 + Enum_ov023_021dfc90_1884) = 0x2800;
         }
-        *(int*)((char*)obj + regionalOffset5) = 0;
-        *(int*)((char*)obj + regionalOffset6) = 0;
-        func_ov023_021dde00(obj);
-        func_ov023_021dbd10((char*)obj + 0xcc, *(void**)((char*)obj + 0x50));
-        *(void**)((char*)obj + 0x4c) = *(void**)((char*)obj + 0x50);
-        *(void**)((char*)obj + 0x50) = 0;
+        *(int*)((char*)arg0 + Enum_ov023_021dfc90_1888) = 0;
+        *(int*)((char*)arg0 + Enum_ov023_021dfc90_1896) = 0;
+        func_ov023_021dde00(arg0);
+        func_ov023_021dbd10((char*)arg0 + 0xcc, *(void**)((char*)arg0 + 0x50));
+        *(void**)((char*)arg0 + 0x4c) = *(void**)((char*)arg0 + 0x50);
+        *(void**)((char*)arg0 + 0x50) = 0;
 
-        if (*(signed char*)((char*)obj + regionalOffset0 + regionalOffset7) == 1) {
-            unsigned int* reg = (unsigned int*)0x4001000;
-            unsigned int bits = 0x12;
-            if (r5 != 0) bits |= 1;
-            *reg = (*reg & ~0x1f00) | (bits << 8);
+        if (*(signed char*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_124) == 1) {
+            unsigned int* var8 = (unsigned int*)0x4001000;
+            unsigned int var9 = 0x12;
+            if (var7 != 0) var9 |= 1;
+            *var8 = (*var8 & ~0x1f00) | (var9 << 8);
         }
 
-        *(unsigned short*)((char*)obj + regionalOffset0 + regionalOffset8) |= 0x2000;
+        *(unsigned short*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_116) |= 0x2000;
         return 2;
     }
 
-    char buf1[0x40];
+    char var10[0x40];
 #if defined(jpn)
 
 #else
-    char buf2[0x40];
+    char var11[0x40];
 #endif
 
-    __clear(buf1, 0x40);
+    __clear(var10, 0x40);
 #if defined(jpn)
 
 #else
-    __clear(buf2, 0x40);
+    __clear(var11, 0x40);
 #endif
 
 
 #if defined(jpn)
 
 #else
-    int useTwoStrings = 0;
+    int var12 = 0;
 #endif
 
-    if (r5 == 0) {
-        unsigned char m = *(unsigned char*)((char*)obj + regionalOffset0 + regionalOffset9);
-        switch (m) {
+    if (var7 == 0) {
+        unsigned char var13 = *(unsigned char*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_120);
+        switch (var13) {
         case 0:
             goto dfdfc021dfc90;
         case 1:
-            sprintf(buf1, data_ov023_021fdba9);
+            sprintf(var10, data_ov023_021fdba9);
             goto tail021dfc90;
         case 2:
-            sprintf(buf1, data_ov023_021fdbbe);
+            sprintf(var10, data_ov023_021fdbbe);
             goto tail021dfc90;
         default:
             goto tail021dfc90;
@@ -117,43 +117,43 @@ extern "C" ARM int func_ov023_021dfc90(void* obj) {
     }
 
 dfdfc021dfc90:
-    if (!(*(unsigned short*)((char*)obj + regionalOffset0 + regionalOffset8) & 4)) goto e4c021dfc90;
-    if (*(unsigned char*)((char*)obj + regionalOffset0 + regionalOffset9) == 0) goto e24021dfc90;
-    if (*(int*)((char*)obj + regionalOffset10) <= 0) goto e4c021dfc90;
+    if (!(*(unsigned short*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_116) & 4)) goto e4c021dfc90;
+    if (*(unsigned char*)((char*)arg0 + Enum_ov023_021dfc90_1792 + Enum_ov023_021dfc90_120) == 0) goto e24021dfc90;
+    if (*(int*)((char*)arg0 + Enum_ov023_021dfc90_1844) <= 0) goto e4c021dfc90;
 e24021dfc90:
 #if defined(jpn)
-    sprintf(buf1, data_ov023_021fce87, r5);
+    sprintf(var10, data_ov023_021fce87, var7);
 #else
-    sprintf(buf1, data_ov023_021fdbd5, r5);
-    sprintf(buf2, data_ov023_021fdbeb, r5);
-    useTwoStrings = 1;
+    sprintf(var10, data_ov023_021fdbd5, var7);
+    sprintf(var11, data_ov023_021fdbeb, var7);
+    var12 = 1;
 #endif
 
     goto tail021dfc90;
 e4c021dfc90:
 #if defined(jpn)
-    sprintf(buf1, data_ov023_021fce9f, r5);
+    sprintf(var10, data_ov023_021fce9f, var7);
 #else
-    sprintf(buf1, data_ov023_021fdbfd, r5);
-    sprintf(buf2, data_ov023_021fdc12, r5);
-    useTwoStrings = 1;
+    sprintf(var10, data_ov023_021fdbfd, var7);
+    sprintf(var11, data_ov023_021fdc12, var7);
+    var12 = 1;
 #endif
 
 
 tail021dfc90:
     {
-        int result;
+        int var14;
 #if defined(jpn)
-        result = ((BackgroundLoader*)(listPtr))->QueueLoadFile(buf1, (SafeAllocator*)0);
+        var14 = ((BackgroundLoader*)(var0))->QueueLoadFile(var10, (SafeAllocator*)0);
 #else
-        if (useTwoStrings) {
-            result = ((BackgroundLoader*)(listPtr))->QueueLoadFileInGP2((const char*)((int)buf1), (const char*)((int)buf2), (SafeAllocator*)(0));
+        if (var12) {
+            var14 = ((BackgroundLoader*)(var0))->QueueLoadFileInGP2((const char*)((int)var10), (const char*)((int)var11), (SafeAllocator*)(0));
         } else {
-            result = ((BackgroundLoader*)(listPtr))->QueueLoadFile((const char*)((int)buf1), (SafeAllocator*)(0));
+            var14 = ((BackgroundLoader*)(var0))->QueueLoadFile((const char*)((int)var10), (SafeAllocator*)(0));
         }
 
 #endif
-        *(int*)((char*)obj + regionalOffset10) = result;
+        *(int*)((char*)arg0 + Enum_ov023_021dfc90_1844) = var14;
     }
     return 1;
 }

@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion104e = 0xfca };
-enum { kRegion104f = 0xfcb };
-enum { kRegion103f = 0xfbb };
-enum { kRegionff8 = 0xf74 };
-enum { kRegion88c = 0x808 };
-enum { kRegion1046 = 0xfc2 };
-enum { kRegion103e = 0xfba };
-enum { kRegion89c = 0x818 };
+enum { Enum_ov003_02174550_4174 = 0xfca };
+enum { Enum_ov003_02174550_4175 = 0xfcb };
+enum { Enum_ov003_02174550_4159 = 0xfbb };
+enum { Enum_ov003_02174550_4088 = 0xf74 };
+enum { Enum_ov003_02174550_2188 = 0x808 };
+enum { Enum_ov003_02174550_4166 = 0xfc2 };
+enum { Enum_ov003_02174550_4158 = 0xfba };
+enum { Enum_ov003_02174550_2204 = 0x818 };
 #else
-enum { kRegion104e = 0x104e };
-enum { kRegion104f = 0x104f };
-enum { kRegion103f = 0x103f };
-enum { kRegionff8 = 0xff8 };
-enum { kRegion88c = 0x88c };
-enum { kRegion1046 = 0x1046 };
-enum { kRegion103e = 0x103e };
-enum { kRegion89c = 0x89c };
+enum { Enum_ov003_02174550_4174 = 0x104e };
+enum { Enum_ov003_02174550_4175 = 0x104f };
+enum { Enum_ov003_02174550_4159 = 0x103f };
+enum { Enum_ov003_02174550_4088 = 0xff8 };
+enum { Enum_ov003_02174550_2188 = 0x88c };
+enum { Enum_ov003_02174550_4166 = 0x1046 };
+enum { Enum_ov003_02174550_4158 = 0x103e };
+enum { Enum_ov003_02174550_2204 = 0x89c };
 #endif
 
 
-struct Obj0208203c;
-struct Cont0207fe44;
-struct Outer020e28dc;
-struct Obj020e25e8;
+struct Struct_02081f20_2;
+struct Struct_0207fe44;
+struct Struct_020e28dc;
+struct Struct_020e25e8;
 
 extern "C" int func_020421a0();
-extern "C" void func_02043204(char* obj);
-extern "C" void func_0208203c(struct Obj0208203c* obj);
-extern "C" void func_0207fe44(struct Cont0207fe44* obj);
-extern "C" void func_ov003_021749c0(char* base);
-extern "C" int func_020e28dc(struct Outer020e28dc* o);
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
-extern "C" void func_ov003_02175cb0(char* base, int flag);
+extern "C" void func_02043204(char* arg0);
+extern "C" void func_0208203c(struct Struct_02081f20_2* arg0);
+extern "C" void func_0207fe44(struct Struct_0207fe44* arg0);
+extern "C" void func_ov003_021749c0(char* arg0);
+extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
+extern "C" void func_ov003_02175cb0(char* arg0, int arg1);
 
 // USA: func_ov003_02174550
-extern "C" ARM void func_ov003_02174550(char* base) {
-    if (*(unsigned char*)(base + kRegion104e) != 0) return;
-    *(unsigned char*)(base + kRegion104e) = 1;
+extern "C" ARM void func_ov003_02174550(char* arg0) {
+    if (*(unsigned char*)(arg0 + Enum_ov003_02174550_4174) != 0) return;
+    *(unsigned char*)(arg0 + Enum_ov003_02174550_4174) = 1;
 
     func_02043204((char*)func_020421a0());
-    func_0208203c((struct Obj0208203c*)(base + kRegion88c));
+    func_0208203c((struct Struct_02081f20_2*)(arg0 + Enum_ov003_02174550_2188));
 
-    *(int*)(base + kRegionff8) = 0;
-    func_0207fe44(*(struct Cont0207fe44**)(base + kRegion89c));
+    *(int*)(arg0 + Enum_ov003_02174550_4088) = 0;
+    func_0207fe44(*(struct Struct_0207fe44**)(arg0 + Enum_ov003_02174550_2204));
 
-    *(unsigned char*)(base + kRegion103e) = 9;
-    *(unsigned char*)(base + kRegion103f) = 0;
-    if (*(unsigned short*)(base + kRegion1046) & 0x80) {
-        func_ov003_021749c0(base);
+    *(unsigned char*)(arg0 + Enum_ov003_02174550_4158) = 9;
+    *(unsigned char*)(arg0 + Enum_ov003_02174550_4159) = 0;
+    if (*(unsigned short*)(arg0 + Enum_ov003_02174550_4166) & 0x80) {
+        func_ov003_021749c0(arg0);
     }
 
-    if (*(struct Outer020e28dc**)base != NULL && func_020e28dc(*(struct Outer020e28dc**)base)) {
-        func_020e25e8((struct Obj020e25e8*)(*(void**)base));
+    if (*(struct Struct_020e28dc**)arg0 != NULL && func_020e28dc(*(struct Struct_020e28dc**)arg0)) {
+        func_020e25e8((struct Struct_020e25e8*)(*(void**)arg0));
     }
 
-    if (*(unsigned char*)(base + kRegion104f) != 0) {
-        func_ov003_02175cb0(base, 1);
+    if (*(unsigned char*)(arg0 + Enum_ov003_02174550_4175) != 0) {
+        func_ov003_02175cb0(arg0, 1);
     }
 }

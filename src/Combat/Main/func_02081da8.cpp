@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Elem2081 {
-    char unk[0xc4];
-    unsigned char key;
-    char unk2[0x1b];
+struct Struct_0207fdcc {
+    char unknown_0_[0xc4];
+    unsigned char unknown_c4_;
+    char unknown_c5_[0x1b];
 };
 
-struct Obj2081 {
+struct Struct_0207fdcc_2 {
 #if defined(jpn)
-    char unk[0x24];
+    char unknown_0_[0x24];
 #else
-    char unk[0x30];
+    char unknown1_0_[0x30];
 #endif
-    struct Elem2081* elems;
-    char unk2[5];
-    unsigned char count;
+    struct Struct_0207fdcc* unknown_30_;
+    char unknown_34_[5];
+    unsigned char unknown_39_;
 };
 
 // USA: func_02081da8
-extern "C" ARM struct Elem2081* func_02081da8(struct Obj2081* obj, int key) {
-    unsigned char count = obj->count;
-    struct Elem2081* p = obj->elems;
-    unsigned char i;
-    for (i = 0; i < count; i++) {
-        if (key == p->key) {
-            return p;
+extern "C" ARM struct Struct_0207fdcc* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1) {
+    unsigned char var0 = arg0->unknown_39_;
+    struct Struct_0207fdcc* var1 = arg0->unknown_30_;
+    unsigned char var2;
+    for (var2 = 0; var2 < var0; var2++) {
+        if (arg1 == var1->unknown_c4_) {
+            return var1;
         }
-        p++;
+        var1++;
     }
     return NULL;
 }

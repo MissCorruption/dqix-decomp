@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kGlobalHolderInnerOffset = 0x4 };
+enum { Enum_ov025_021e8044_12 = 0x4 };
 #else
-enum { kGlobalHolderInnerOffset = 0xc };
+enum { Enum_ov025_021e8044_12 = 0xc };
 #endif
 
-struct Sub021e8044 {
-    char pad[0x16];
-    unsigned short f16;
+struct Struct_ov025_021e8044 {
+    char unknown_0_[0x16];
+    unsigned short unknown_16_;
 };
 
-struct Base021e8044 {
-    char pad[0x540];
-    struct Sub021e8044 sub;
+struct Struct_ov025_021e8044_2 {
+    char unknown_0_[0x540];
+    struct Struct_ov025_021e8044 unknown_540_;
 
-    struct Sub021e8044* GetSub() { return &sub; }
+    struct Struct_ov025_021e8044* inline_ov025_021e8044() { return &unknown_540_; }
 };
 
-struct Holder021e8044 {
-    char pad[kGlobalHolderInnerOffset];
-    struct Base021e8044* base;
+struct Struct_ov025_021ef988_30 {
+    char unknown_0_[Enum_ov025_021e8044_12];
+    struct Struct_ov025_021e8044_2* unknown_c_;
 };
-extern struct Holder021e8044 data_ov025_021ef988;
+extern struct Struct_ov025_021ef988_30 data_ov025_021ef988;
 
 // USA: func_ov025_021e8044
-extern "C" ARM int func_ov025_021e8044(void* obj) {
-    data_ov025_021ef988.base->GetSub()->f16 = *(unsigned short*)((char*)obj + 8);
+extern "C" ARM int func_ov025_021e8044(void* arg0) {
+    data_ov025_021ef988.unknown_c_->inline_ov025_021e8044()->unknown_16_ = *(unsigned short*)((char*)arg0 + 8);
     return 1;
 }

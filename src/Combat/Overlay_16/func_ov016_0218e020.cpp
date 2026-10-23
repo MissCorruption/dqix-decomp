@@ -2,44 +2,44 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-struct ListNode_0218e020 {
-	unsigned int payload[6]; // 0x0..0x17
-	struct ListNode_0218e020* next; // 0x18
+struct Struct_ov016_0218e020 {
+	unsigned int unknown_0_[6]; // 0x0..0x17
+	struct Struct_ov016_0218e020* unknown_18_; // 0x18
 };
 
-struct ListHead_0218e020 {
-	struct ListNode_0218e020* head; // 0x0
-	unsigned int count;             // 0x4
-	SafeAllocator* allocator;       // 0x8
+struct Struct_ov016_0218de60 {
+	struct Struct_ov016_0218e020* unknown_0_; // 0x0
+	unsigned int unknown_4_;             // 0x4
+	SafeAllocator* unknown_8_;       // 0x8
 };
 
 // USA: func_ov016_0218e020
-extern "C" ARM void func_ov016_0218e020(ListHead_0218e020* list, void* src) {
-	if (list->allocator == NULL)
+extern "C" ARM void func_ov016_0218e020(Struct_ov016_0218de60* arg0, void* arg1) {
+	if (arg0->unknown_8_ == NULL)
 		return;
-	struct ListNode_0218e020* node = (struct ListNode_0218e020*)list->allocator->Allocate(0x1c);
-	if (node == NULL)
+	struct Struct_ov016_0218e020* var0 = (struct Struct_ov016_0218e020*)arg0->unknown_8_->Allocate(0x1c);
+	if (var0 == NULL)
 		return;
-	memcpy(node, src, 0x1c);
-	node->next = NULL;
+	memcpy(var0, arg1, 0x1c);
+	var0->unknown_18_ = NULL;
 	{
-		struct ListNode_0218e020* cur = list->head;
-		struct ListNode_0218e020* next;
-		if (cur == NULL)
+		struct Struct_ov016_0218e020* var1 = arg0->unknown_0_;
+		struct Struct_ov016_0218e020* var2;
+		if (var1 == NULL)
 			goto setHead;
 		goto testFirst;
 	advance:
-		cur = next;
+		var1 = var2;
 	testFirst:
-		next = cur->next;
-		if (next != NULL)
+		var2 = var1->unknown_18_;
+		if (var2 != NULL)
 			goto advance;
-		cur->next = node;
+		var1->unknown_18_ = var0;
 		goto after;
 	setHead:
-		list->head = node;
+		arg0->unknown_0_ = var0;
 	after:
 		;
 	}
-	list->count++;
+	arg0->unknown_4_++;
 }

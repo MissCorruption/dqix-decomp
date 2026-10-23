@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
 // USA: func_ov031_02210f24
-extern "C" ARM int func_ov031_02210f24(const char* s) {
-    if (s != NULL) {
-        int len = func_020d2ff0(s);
-        if (len > 2) {
-            if (len <= 0x40) {
-                int end = len - 1;
-                int i = 1;
-                if (end > 1) {
+extern "C" ARM int func_ov031_02210f24(const char* arg0) {
+    if (arg0 != NULL) {
+        int var0 = func_020d2ff0(arg0);
+        if (var0 > 2) {
+            if (var0 <= 0x40) {
+                int var1 = var0 - 1;
+                int var2 = 1;
+                if (var1 > 1) {
                     do {
-                        if (s[i] == '.') {
+                        if (arg0[var2] == '.') {
                             return 1;
                         }
-                        i++;
-                    } while (i < end);
+                        var2++;
+                    } while (var2 < var1);
                 }
             }
         }

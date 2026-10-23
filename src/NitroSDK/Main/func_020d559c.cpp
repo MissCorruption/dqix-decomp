@@ -3,46 +3,46 @@
 
 extern "C" int func_020d424c(int, int, int, int, int, int);
 extern "C" int func_020d40bc(int, int, int);
-extern "C" void func_020d404c(int index, int value);
+extern "C" void func_020d404c(int arg0, int arg1);
 extern "C" void* func_020d41d8(void);
 
-struct BattleHeader020d559c {
-    unsigned short field0;
-    unsigned char pad[0x180];
-    unsigned short field182;
+struct Struct_020d559c {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[0x180];
+    unsigned short unknown_182_;
 };
 
-struct BattleCtx020d559c {
-    int field0;
-    BattleHeader020d559c* field4;
+struct Struct_020d559c_2 {
+    int unknown_0_;
+    Struct_020d559c* unknown_4_;
 };
 
 
 // USA: func_020d559c
-extern "C" ARM int func_020d559c(int a0, unsigned int a1) {
-    BattleCtx020d559c* ctx = (BattleCtx020d559c*)func_020d41d8();
-    int r = func_020d424c(5, 7, 9, 8, 0xa, 0xb);
-    if (r != 0) {
-        return r;
+extern "C" ARM int func_020d559c(int arg0, unsigned int arg1) {
+    Struct_020d559c_2* var0 = (Struct_020d559c_2*)func_020d41d8();
+    int var1 = func_020d424c(5, 7, 9, 8, 0xa, 0xb);
+    if (var1 != 0) {
+        return var1;
     }
-    unsigned short headerVal = ctx->field4->field0;
-    if (headerVal == 7 || headerVal == 9) {
-        if (a1 < 1 || a1 > 0xf) {
+    unsigned short var2 = var0->unknown_4_->unknown_0_;
+    if (var2 == 7 || var2 == 9) {
+        if (arg1 < 1 || arg1 > 0xf) {
             return 6;
         }
-        InvalidateDataCacheRange(&ctx->field4->field182, 2);
-        if (!(ctx->field4->field182 & (1 << a1))) {
+        InvalidateDataCacheRange(&var0->unknown_4_->unknown_182_, 2);
+        if (!(var0->unknown_4_->unknown_182_ & (1 << arg1))) {
             return 7;
         }
     } else {
-        if (a1 != 0) {
+        if (arg1 != 0) {
             return 6;
         }
     }
-    func_020d404c(0xd, a0);
-    r = func_020d40bc(0xd, 1, 1 << a1);
-    if (r == 0) {
-        r = 2;
+    func_020d404c(0xd, arg0);
+    var1 = func_020d40bc(0xd, 1, 1 << arg1);
+    if (var1 == 0) {
+        var1 = 2;
     }
-    return r;
+    return var1;
 }

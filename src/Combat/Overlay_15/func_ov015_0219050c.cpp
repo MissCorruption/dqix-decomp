@@ -10,68 +10,68 @@
 #endif
 #include <std_library_functions.h>
 
-extern "C" void __clear(void* buffer, unsigned long size);
+extern "C" void __clear(void* arg0, unsigned long arg1);
 
-struct MessageSystem0219050c
+struct Struct_0204500c_5
 {
 #if defined(jpn)
-    char unk_0[0x17e0];
+    char unknown_0_[0x17e0];
 #else
-    char unk_0[0x19b0];
+    char unknown1_0_[0x19b0];
 #endif
-    unsigned char unk_19b0;
+    unsigned char unknown_19b0_;
 };
 
-struct AnimationRecord0219050c
+struct Struct_ov015_0219050c
 {
-    char name[0x18];
-    int frameRate;
+    char unknown_0_[0x18];
+    int unknown_18_;
 };
 
-struct IndexList_0202a9ac;
-struct Obj0218f3c4;
-struct Obj0218f408;
+struct Struct_02029634;
+struct Struct_ov015_0218f3c4_2;
+struct Struct_ov015_0218f408_2;
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    char unk_0[0x34];
-    unsigned short triangles_;
-    unsigned short quads_;
-    short motion_;
+    char unknown_0_[0x34];
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
+    short unknown_38_;
 };
 
-struct CharacterViewer
+struct Struct_ov015_0219050c_2
 {
-    char unk_0[0x30];
-    ViewObject* current_;
-    char unk_34[0x194 - 0x34];
-    int menu_;
-    char unk_198[0x1a0 - 0x198];
-    unsigned char viewMemory_;
-    char unk_1a1[0x24c - 0x1a1];
-    float fps_;
-    char unk_250[0x2c4 - 0x250];
-    char menuList_[0x80];
+    char unknown_0_[0x30];
+    Struct_ov015_0218c03c_2* unknown_30_;
+    char unknown_34_[0x194 - 0x34];
+    int unknown_194_;
+    char unknown_198_[0x1a0 - 0x198];
+    unsigned char unknown_1a0_;
+    char unknown_1a1_[0x24c - 0x1a1];
+    float unknown_24c_;
+    char unknown_250_[0x2c4 - 0x250];
+    char unknown_2c4_[0x80];
 };
 
-extern "C" MessageSystem0219050c* func_020421a0();
-extern "C" void func_02069fec(MessageSystem0219050c* system, const char* text, char* converted);
+extern "C" Struct_0204500c_5* func_020421a0();
+extern "C" void func_02069fec(Struct_0204500c_5* arg0, const char* arg1, char* arg2);
 #if defined(jpn)
-extern "C" int func_02045d14(MessageSystem0219050c* system, const char* converted, unsigned short* line, int unk);
+extern "C" int func_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
 #else
-extern "C" void func_02045d14(MessageSystem0219050c* system, const char* converted, unsigned short* line, int unk);
+extern "C" void func_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
 #endif
 #if defined(jpn)
-extern "C" void func_02046c78(MessageSystem0219050c* system, unsigned short* line, int x, int y, int color, int a, int b, int c);
+extern "C" void func_02046c78(Struct_0204500c_5* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #else
-extern "C" void func_02045f3c(MessageSystem0219050c* system, unsigned short* line, int x, int y, int color, int a, int b, int c, int d, int e);
+extern "C" void func_02045f3c(Struct_0204500c_5* arg0, unsigned short* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
 #endif
-extern "C" void* func_0202a9ac(IndexList_0202a9ac* list, int index);
-extern "C" void* func_02029560(void* item);
-extern "C" AnimationRecord0219050c* func_ov015_0218f39c(ViewObject* self, void* name);
-extern "C" float func_ov015_0218f3c4(Obj0218f3c4* obj);
-extern "C" float func_ov015_0218f408(Obj0218f408* obj);
-extern "C" void func_ov015_0218f794(ViewObject* self);
+extern "C" void* func_0202a9ac(Struct_02029634* arg0, int arg1);
+extern "C" void* func_02029560(void* arg0);
+extern "C" Struct_ov015_0219050c* func_ov015_0218f39c(Struct_ov015_0218c03c_2* arg0, void* arg1);
+extern "C" float func_ov015_0218f3c4(Struct_ov015_0218f3c4_2* arg0);
+extern "C" float func_ov015_0218f408(Struct_ov015_0218f408_2* arg0);
+extern "C" void func_ov015_0218f794(Struct_ov015_0218c03c_2* arg0);
 
 extern const char data_ov015_02194256[];
 extern const char data_ov015_02194261[];
@@ -83,81 +83,81 @@ extern const char data_ov015_02194295[];
 
 #define PREPARE_TEXT()                                                    \
     {                                                                     \
-        memset(line, 0, sizeof(line));                                    \
-        MessageSystem0219050c* system = func_020421a0();     \
+        memset(var1, 0, sizeof(var1));                                    \
+        Struct_0204500c_5* system = func_020421a0();     \
         char converted[0x40] = {};                                        \
-        func_02069fec(system, text, converted);                           \
-        func_02045d14(system, converted, line, PrepareLineMode);          \
+        func_02069fec(system, var0, converted);                           \
+        func_02045d14(system, converted, var1, PrepareLineMode);          \
     }
 
 #if defined(jpn)
 #define DRAW_LINE(x, y, color)                                                     \
     {                                                                              \
-        messages->unk_19b0 = 1;                                                    \
-        func_02046c78(messages, &line[1], x, y, color, 8, 0x14, 0);                  \
+        var2->unknown_19b0_ = 1;                                                    \
+        func_02046c78(var2, &var1[1], x, y, color, 8, 0x14, 0);                  \
     }
 #else
 #define DRAW_LINE(x, y, color)                                                     \
     {                                                                              \
-        messages->unk_19b0 = 1;                                                    \
-        func_02045f3c(messages, &line[1], x, y, color, 8, 0x14, 0, 1, 0x11);       \
+        var2->unknown_19b0_ = 1;                                                    \
+        func_02045f3c(var2, &var1[1], x, y, color, 8, 0x14, 0, 1, 0x11);       \
     }
 #endif
 
 // USA: func_ov015_0219050c
-extern "C" ARM void func_ov015_0219050c(CharacterViewer* self)
+extern "C" ARM void func_ov015_0219050c(Struct_ov015_0219050c_2* arg0)
 {
-    char text[0x20];
-    unsigned short line[0x20];
+    char var0[0x20];
+    unsigned short var1[0x20];
 
-    MessageSystem0219050c* messages = func_020421a0();
-    sprintf(text, data_ov015_02194256, (double)(self->fps_));
+    Struct_0204500c_5* var2 = func_020421a0();
+    sprintf(var0, data_ov015_02194256, (double)(arg0->unknown_24c_));
     PREPARE_TEXT();
     DRAW_LINE(0, 0xa0, 0x7fff);
-    unsigned short triangles = 0;
-    if (self->current_ != NULL)
-        triangles = self->current_->triangles_;
-    sprintf(text, data_ov015_02194261, triangles);
+    unsigned short var3 = 0;
+    if (arg0->unknown_30_ != NULL)
+        var3 = arg0->unknown_30_->unknown_34_;
+    sprintf(var0, data_ov015_02194261, var3);
     PREPARE_TEXT();
     DRAW_LINE(0, 0xaa, 0x7fff);
-    unsigned short quads = 0;
-    if (self->current_ != NULL)
-        quads = self->current_->quads_;
-    sprintf(text, data_ov015_0219426a, quads);
+    unsigned short var4 = 0;
+    if (arg0->unknown_30_ != NULL)
+        var4 = arg0->unknown_30_->unknown_36_;
+    sprintf(var0, data_ov015_0219426a, var4);
     PREPARE_TEXT();
-    messages->unk_19b0 = 1;
+    var2->unknown_19b0_ = 1;
 #if defined(jpn)
-    if (quads != 0)
-        func_02046c78(messages, &line[1], 0, 0xb4, 0x1f, 8, 0x14, 0);
+    if (var4 != 0)
+        func_02046c78(var2, &var1[1], 0, 0xb4, 0x1f, 8, 0x14, 0);
     else
-        func_02046c78(messages, &line[1], 0, 0xb4, 0x7fff, 8, 0x14, 0);
+        func_02046c78(var2, &var1[1], 0, 0xb4, 0x7fff, 8, 0x14, 0);
 #else
-    if (quads != 0)
-        func_02045f3c(messages, &line[1], 0, 0xb4, 0x1f, 8, 0x14, 0, 1, 0x11);
+    if (var4 != 0)
+        func_02045f3c(var2, &var1[1], 0, 0xb4, 0x1f, 8, 0x14, 0, 1, 0x11);
     else
-        func_02045f3c(messages, &line[1], 0, 0xb4, 0x7fff, 8, 0x14, 0, 1, 0x11);
+        func_02045f3c(var2, &var1[1], 0, 0xb4, 0x7fff, 8, 0x14, 0, 1, 0x11);
 #endif
-    if (self->menu_ == 1)
+    if (arg0->unknown_194_ == 1)
     {
-        void* item = func_0202a9ac((IndexList_0202a9ac*)&self->menuList_, self->current_->motion_);
-        if (item == NULL)
+        void* var5 = func_0202a9ac((Struct_02029634*)&arg0->unknown_2c4_, arg0->unknown_30_->unknown_38_);
+        if (var5 == NULL)
             return;
-        AnimationRecord0219050c* record = func_ov015_0218f39c(self->current_, func_02029560(item));
-        if (record == NULL)
+        Struct_ov015_0219050c* var6 = func_ov015_0218f39c(arg0->unknown_30_, func_02029560(var5));
+        if (var6 == NULL)
             return;
-        sprintf(text, data_ov015_02194273, record->name);
+        sprintf(var0, data_ov015_02194273, var6->unknown_0_);
         PREPARE_TEXT();
         DRAW_LINE(0x96, 0x96, 0x7fff);
-        sprintf(text, data_ov015_0219427b, (double)(record->frameRate / 4096.0f));
+        sprintf(var0, data_ov015_0219427b, (double)(var6->unknown_18_ / 4096.0f));
         PREPARE_TEXT();
         DRAW_LINE(0xa0, 0xa0, 0x7fff);
-        sprintf(text, data_ov015_02194288, (double)(func_ov015_0218f3c4((Obj0218f3c4*)self->current_)));
+        sprintf(var0, data_ov015_02194288, (double)(func_ov015_0218f3c4((Struct_ov015_0218f3c4_2*)arg0->unknown_30_)));
         PREPARE_TEXT();
         DRAW_LINE(0xa0, 0xaa, 0x7fff);
-        sprintf(text, data_ov015_02194295, (double)(func_ov015_0218f408((Obj0218f408*)self->current_)));
+        sprintf(var0, data_ov015_02194295, (double)(func_ov015_0218f408((Struct_ov015_0218f408_2*)arg0->unknown_30_)));
         PREPARE_TEXT();
         DRAW_LINE(0xa0, 0xb4, 0x7fff);
     }
-    if (self->viewMemory_ && self->current_ != NULL)
-        func_ov015_0218f794(self->current_);
+    if (arg0->unknown_1a0_ && arg0->unknown_30_ != NULL)
+        func_ov015_0218f794(arg0->unknown_30_);
 }

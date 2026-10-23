@@ -2,68 +2,68 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
-struct BattleInfo0222faac {
-    unsigned char padding0[0x40];
-    unsigned char name[0x80];
-    unsigned char valuesC0[4];
-    unsigned char valuesC4[4];
-    unsigned char valuesC8[4];
-    unsigned char valuesCc[4];
-    unsigned char paddingD0[0x16];
-    unsigned char nameLength : 2;
-    unsigned char nameScale : 6;
-    unsigned char paddingE7[9];
-    unsigned char valuesF0[4];
-    unsigned char fieldF4;
-    unsigned char suppressFirstValues;
-    unsigned char suppressSecondValues;
+struct Struct_ov031_0222faac {
+    unsigned char unknown_0_[0x40];
+    unsigned char unknown_40_[0x80];
+    unsigned char unknown_c0_[4];
+    unsigned char unknown_c4_[4];
+    unsigned char unknown_c8_[4];
+    unsigned char unknown_cc_[4];
+    unsigned char unknown_d0_[0x16];
+    unsigned char unknown_e6_0_ : 2;
+    unsigned char unknown_e6_2_ : 6;
+    unsigned char unknown_e7_[9];
+    unsigned char unknown_f0_[4];
+    unsigned char unknown_f4_;
+    unsigned char unknown_f5_;
+    unsigned char unknown_f6_;
 };
 
-extern "C" BattleInfo0222faac* func_ov031_02235c70();
+extern "C" Struct_ov031_0222faac* func_ov031_02235c70();
 extern "C" void func_ov031_0222ff34(unsigned char*, int);
 extern "C" void func_ov031_02230088(unsigned char*, int);
 
 // USA: func_ov031_0222faac
-extern "C" ARM void func_ov031_0222faac(int index, int row) {
-    BattleInfo0222faac* info = func_ov031_02235c70();
-    switch (index) {
+extern "C" ARM void func_ov031_0222faac(int arg0, int arg1) {
+    Struct_ov031_0222faac* var0 = func_ov031_02235c70();
+    switch (arg0) {
     case 0:
-        func_ov031_0222ff34(info->name, row);
+        func_ov031_0222ff34(var0->unknown_40_, arg1);
         return;
     case 1: {
-        int length;
-        unsigned char maskedName[0x21];
-        switch (info->nameLength) {
+        int var1;
+        unsigned char var2[0x21];
+        switch (var0->unknown_e6_0_) {
         case 0: return;
-        case 1: length = 10; break;
-        case 2: length = 26; break;
-        case 3: length = 32; break;
+        case 1: var1 = 10; break;
+        case 2: var1 = 26; break;
+        case 3: var1 = 32; break;
         }
-        if (info->nameScale == 1) length /= 2;
-        VectorizedMemset(maskedName, 0, sizeof(maskedName));
-        memset(maskedName, '*', length);
-        func_ov031_0222ff34(maskedName, row);
+        if (var0->unknown_e6_2_ == 1) var1 /= 2;
+        VectorizedMemset(var2, 0, sizeof(var2));
+        memset(var2, '*', var1);
+        func_ov031_0222ff34(var2, arg1);
         return;
     }
     case 3:
-        if (info->suppressFirstValues != 0) return;
-        func_ov031_02230088(info->valuesC0, row);
+        if (var0->unknown_f5_ != 0) return;
+        func_ov031_02230088(var0->unknown_c0_, arg1);
         return;
     case 4:
-        if (info->suppressFirstValues != 0) return;
-        func_ov031_02230088(info->valuesF0, row);
+        if (var0->unknown_f5_ != 0) return;
+        func_ov031_02230088(var0->unknown_f0_, arg1);
         return;
     case 5:
-        if (info->suppressFirstValues != 0) return;
-        func_ov031_02230088(info->valuesC4, row);
+        if (var0->unknown_f5_ != 0) return;
+        func_ov031_02230088(var0->unknown_c4_, arg1);
         return;
     case 7:
-        if (info->suppressSecondValues != 0) return;
-        func_ov031_02230088(info->valuesC8, row);
+        if (var0->unknown_f6_ != 0) return;
+        func_ov031_02230088(var0->unknown_c8_, arg1);
         return;
     case 8:
-        if (info->suppressSecondValues != 0) return;
-        func_ov031_02230088(info->valuesCc, row);
+        if (var0->unknown_f6_ != 0) return;
+        func_ov031_02230088(var0->unknown_cc_, arg1);
         return;
     }
 }

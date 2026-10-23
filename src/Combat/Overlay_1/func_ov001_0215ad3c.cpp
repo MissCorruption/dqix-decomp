@@ -9,28 +9,28 @@ extern const char data_ov001_02165728[];
 extern const char data_ov001_0216572d[];
 
 // USA: func_ov001_0215ad3c
-extern "C" ARM int func_ov001_0215ad3c(char* path, char* outTag, char* outExt) {
-    char* p = strstr(path, data_ov001_021656f4);
-    if (p == NULL) {
-        strstr(path, data_ov001_021656fd);
+extern "C" ARM int func_ov001_0215ad3c(char* arg0, char* arg1, char* arg2) {
+    char* var0 = strstr(arg0, data_ov001_021656f4);
+    if (var0 == NULL) {
+        strstr(arg0, data_ov001_021656fd);
     }
-    if (p != NULL) {
-        strcpy(outTag, p + strlen(data_ov001_02165706));
-        strcpy(outExt, data_ov001_0216570d);
+    if (var0 != NULL) {
+        strcpy(arg1, var0 + strlen(data_ov001_02165706));
+        strcpy(arg2, data_ov001_0216570d);
         return 1;
     }
-    if (strstr(path, data_ov001_02165728) != NULL) {
-        char* slash = strrchr(path, '/');
-        if (!slash) {
-            slash = strrchr(path, '\\');
+    if (strstr(arg0, data_ov001_02165728) != NULL) {
+        char* var1 = strrchr(arg0, '/');
+        if (!var1) {
+            var1 = strrchr(arg0, '\\');
         }
-        if (slash) {
-            slash = slash + 1;
+        if (var1) {
+            var1 = var1 + 1;
         } else {
-            slash = path;
+            var1 = arg0;
         }
-        strcpy(outTag, slash);
-        strcpy(outExt, data_ov001_0216572d);
+        strcpy(arg1, var1);
+        strcpy(arg2, data_ov001_0216572d);
         return 1;
     }
     return 0;

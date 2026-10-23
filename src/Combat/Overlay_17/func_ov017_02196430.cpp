@@ -5,394 +5,394 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
-struct Vec3;
-struct HeadNode02046b24;
-struct Outer02077a20;
-struct ArrayContainsByteStruct;
-struct TailList020469b4;
-struct TailNode020469b4;
+struct Struct_ov009_0218aa28;
+struct Struct_02015438;
+struct Struct_02077788_2;
+struct Struct_02048150;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
 
-struct Entry02196430 {
-    unsigned short tag;
-    unsigned short group : 2;
+struct Struct_ov017_02196430_7 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 2;
 };
 
 #if defined(jpn)
-enum { EntryOffset = 0x34e8, ListEndOffset = 0x34f0, NodeOffset = 0x3508,
-       BusyOffset = 0x40c2, ForceEventOffset = 0x40c6, PendingIdOffset = 0x41fe,
-       ActorFlagsOffset = 0x180 };
+enum { Enum_ov017_02196430_14072 = 0x34e8, Enum_ov017_02196430_14080 = 0x34f0, Enum_ov017_02196430_14104 = 0x3508,
+       Enum_ov017_02196430_17122 = 0x40c2, Enum_ov017_02196430_17126 = 0x40c6, Enum_ov017_02196430_17582 = 0x41fe,
+       Enum_ov017_02196430_396 = 0x180 };
 #define data_ov017_021d6438 data_ov017_021d6888
 #else
-enum { EntryOffset = 0x36f8, ListEndOffset = 0x3700, NodeOffset = 0x3718,
-       BusyOffset = 0x42e2, ForceEventOffset = 0x42e6, PendingIdOffset = 0x44ae,
-       ActorFlagsOffset = 0x18c };
+enum { Enum_ov017_02196430_14072 = 0x36f8, Enum_ov017_02196430_14080 = 0x3700, Enum_ov017_02196430_14104 = 0x3718,
+       Enum_ov017_02196430_17122 = 0x42e2, Enum_ov017_02196430_17126 = 0x42e6, Enum_ov017_02196430_17582 = 0x44ae,
+       Enum_ov017_02196430_396 = 0x18c };
 #endif
 
-struct Ctx02196430 {
-    char pad0[EntryOffset];
-    Entry02196430* entry;
-    void* list;
-    char pad3700[NodeOffset - ListEndOffset];
-    void* node;
-    char pad371c[BusyOffset - (NodeOffset + 4)];
-    unsigned char busy;
-    char pad42e3[ForceEventOffset - (BusyOffset + 1)];
-    unsigned char forceEvent;
-    unsigned char locked;
-    unsigned char allowRepeat;
-    char pad42e9[PendingIdOffset - (ForceEventOffset + 3)];
-    unsigned short pendingId;
-    unsigned short pendingArg;
+struct Struct_ov017_02196430_8 {
+    char unknown_0_[Enum_ov017_02196430_14072];
+    Struct_ov017_02196430_7* unknown_36f8_;
+    void* unknown_36fc_;
+    char unknown_3700_[Enum_ov017_02196430_14104 - Enum_ov017_02196430_14080];
+    void* unknown_3718_;
+    char unknown_371c_[Enum_ov017_02196430_17122 - (Enum_ov017_02196430_14104 + 4)];
+    unsigned char unknown_42e2_;
+    char unknown_42e3_[Enum_ov017_02196430_17126 - (Enum_ov017_02196430_17122 + 1)];
+    unsigned char unknown_42e6_;
+    unsigned char unknown_42e7_;
+    unsigned char unknown_42e8_;
+    char unknown_42e9_[Enum_ov017_02196430_17582 - (Enum_ov017_02196430_17126 + 3)];
+    unsigned short unknown_44ae_;
+    unsigned short unknown_44b0_;
 };
 
-struct Actor02196430 {
-    Object3D obj3D;
-    char padac[0xbe - 0xac];
-    unsigned char kind;
-    char padbf[0xc3 - 0xbf];
-    unsigned char fieldc3;
-    char padc4[0x130 - 0xc4];
-    int mode;
-    char pad134[0x166 - 0x134];
-    unsigned short field166;
-    char pad168[0x16a - 0x168];
-    unsigned short eventId;
-    char pad16c[0x17d - 0x16c];
-    unsigned char flags17d;
-    char pad17e[ActorFlagsOffset - 0x17e];
-    unsigned int flags18c;
+struct Struct_ov017_02196430 {
+    Object3D unknown_0_;
+    char unknown_ac_[0xbe - 0xac];
+    unsigned char unknown_be_;
+    char unknown_bf_[0xc3 - 0xbf];
+    unsigned char unknown_c3_;
+    char unknown_c4_[0x130 - 0xc4];
+    int unknown_130_;
+    char unknown_134_[0x166 - 0x134];
+    unsigned short unknown_166_;
+    char unknown_168_[0x16a - 0x168];
+    unsigned short unknown_16a_;
+    char unknown_16c_[0x17d - 0x16c];
+    unsigned char unknown_17d_;
+    char unknown_17e_[Enum_ov017_02196430_396 - 0x17e];
+    unsigned int unknown_18c_;
 
-    int GetFieldC3() const { return fieldc3; }
+    int inline_ov017_02196430() const { return unknown_c3_; }
 };
 
-struct Zone02196430 {
-    char pad0[2];
-    unsigned char busy;
+struct Struct_ov017_02196430_2 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
 };
 
-struct Work02196430 {
-    unsigned short mapId;
+struct Struct_ov017_02196430_3 {
+    unsigned short unknown_0_;
 };
 
-struct Msg02196430 {
-    unsigned char kind;
-    unsigned char field1;
-    short field2;
-    unsigned char field4;
-    char pad5[3];
-    int field8;
-    int fieldc;
-    short angle;
-    short field12;
+struct Struct_ov017_02196430_4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    short unknown_2_;
+    unsigned char unknown_4_;
+    char unknown_5_[3];
+    int unknown_8_;
+    int unknown_c_;
+    short unknown_10_;
+    short unknown_12_;
 };
 
-struct Event02196430 {
-    unsigned char kind;
-    unsigned char field_0x1;
-    unsigned short tag;
-    unsigned short id;
-    unsigned char pad6[2];
-    int field_0x8;
-    unsigned char field_0xc;
-    unsigned char field_0xd;
-    unsigned char field_0xe;
-    unsigned char field_0xf;
-    unsigned short color;
-    unsigned char timeOfDay;
-    unsigned char pad13;
-    int field_0x14;
+struct Struct_ov017_02196430_5 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[2];
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    unsigned short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    int unknown_14_;
 };
 
-struct EventEntry02196430 {
-    char pad0[4];
-    signed char field4;
+struct Struct_ov017_02196430_6 {
+    char unknown_0_[4];
+    signed char unknown_4_;
 };
 
-struct Kinds02196430 {
-    unsigned char v[3];
+struct Struct_ov017_021d6438 {
+    unsigned char unknown_0_[3];
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" Work02196430* func_02012fe4(void);
-extern "C" void* func_0200fd0c(GameState* state);
-extern "C" int func_02046b08(void** obj);
-extern "C" int func_02046b24(HeadNode02046b24** obj);
-extern "C" int func_02053cdc(int* obj);
-extern "C" int func_02039d7c(char* obj);
-extern "C" int func_02039760(void* obj);
-extern "C" int func_02077a20(Outer02077a20* p);
-extern "C" void func_ov017_0219a674(unsigned char* self);
-extern "C" short func_ov017_021a4754(Vector3fix* p0, int baseAngle, Vector3fix* p2);
-extern "C" void func_ov017_0219b33c(Ctx02196430* self, Msg02196430* msg);
-extern "C" int func_ov017_0219735c(unsigned char* obj, unsigned short key);
-extern "C" int func_020795cc(unsigned char* obj);
-extern "C" int func_02086ef0(ArrayContainsByteStruct* arr, int value);
-extern "C" int func_ov017_02196fc8(GameObject* self, GameObject* other, int extra);
-extern "C" int func_020535c8(signed char* obj);
-extern "C" int func_020100a8(GameState* state);
-extern "C" void func_02076ccc(void* obj, int mode);
-extern "C" unsigned short func_ov017_021971c4(Ctx02196430* self);
-extern "C" int func_0202c508(void* obj);
-extern "C" int func_0202c540(void* obj);
-struct Entry0207d9bc;
-extern "C" Entry0207d9bc* func_0207d78c();
-extern "C" EventEntry02196430* func_0207d9bc(Entry0207d9bc* table, unsigned short id);
-extern "C" void func_ov017_021b6f18(void* node);
-extern "C" void func_ov017_02196c08(unsigned char* obj);
-extern "C" void func_ov017_021b6e70(Event02196430* evt, int index);
-extern "C" int func_ov017_021970a0(int mode);
-extern "C" void func_ov017_021b7104(void* node, Event02196430* evt);
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
+extern "C" Struct_ov017_02196430_3* func_02012fe4(void);
+extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" int func_02046b08(void** arg0);
+extern "C" int func_02046b24(Struct_02015438** arg0);
+extern "C" int func_02053cdc(int* arg0);
+extern "C" int func_02039d7c(char* arg0);
+extern "C" int func_02039760(void* arg0);
+extern "C" int func_02077a20(Struct_02077788_2* arg0);
+extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" short func_ov017_021a4754(Vector3fix* arg0, int arg1, Vector3fix* arg2);
+extern "C" void func_ov017_0219b33c(Struct_ov017_02196430_8* arg0, Struct_ov017_02196430_4* arg1);
+extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
+extern "C" int func_020795cc(unsigned char* arg0);
+extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" int func_ov017_02196fc8(GameObject* arg0, GameObject* arg1, int arg2);
+extern "C" int func_020535c8(signed char* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void func_02076ccc(void* arg0, int arg1);
+extern "C" unsigned short func_ov017_021971c4(Struct_ov017_02196430_8* arg0);
+extern "C" int func_0202c508(void* arg0);
+extern "C" int func_0202c540(void* arg0);
+struct Struct_0207d7f4;
+extern "C" Struct_0207d7f4* func_0207d78c();
+extern "C" Struct_ov017_02196430_6* func_0207d9bc(Struct_0207d7f4* arg0, unsigned short arg1);
+extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void func_ov017_02196c08(unsigned char* arg0);
+extern "C" void func_ov017_021b6e70(Struct_ov017_02196430_5* arg0, int arg1);
+extern "C" int func_ov017_021970a0(int arg0);
+extern "C" void func_ov017_021b7104(void* arg0, Struct_ov017_02196430_5* arg1);
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
 
-extern Kinds02196430 data_ov017_021d6438;
+extern Struct_ov017_021d6438 data_ov017_021d6438;
 
 // USA: func_ov017_02196430
 // JPN: func_ov017_02196ff8
-extern "C" ARM int func_ov017_02196430(GameResources* resources) {
-    Ctx02196430* self = (Ctx02196430*)resources;
-    GameState* game = GameState::GetInstance();
-    void* session = func_0202ae18();
-    Entry02196430* entry = self->entry;
-    Actor02196430* player = (Actor02196430*)game->GetUnknownGameObject();
-    Ctx02196430* res = (Ctx02196430*)GetGameResources();
-    Work02196430* work = func_02012fe4();
-    LightingManager* lighting = LightingManager::GetInstance();
-    ArrayContainsByteStruct* party = (ArrayContainsByteStruct*)func_02010828(game);
-    unsigned short tag;
-    int special;
-    int facing;
-    int index;
-    int i;
-    int allowRepeat = res->allowRepeat;
-    Msg02196430 approachMsg;
-    Msg02196430 contactMsg;
-    Msg02196430 nearbyMsg;
-    Event02196430 evt;
-    Vector3fix pos;
-    Vector3fix offset;
-    Vector3fix dir;
-    Kinds02196430 kinds;
+extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
+    Struct_ov017_02196430_8* var0 = (Struct_ov017_02196430_8*)arg0;
+    GameState* var1 = GameState::GetInstance();
+    void* var2 = func_0202ae18();
+    Struct_ov017_02196430_7* var3 = var0->unknown_36f8_;
+    Struct_ov017_02196430* var4 = (Struct_ov017_02196430*)var1->GetUnknownGameObject();
+    Struct_ov017_02196430_8* var5 = (Struct_ov017_02196430_8*)GetGameResources();
+    Struct_ov017_02196430_3* var6 = func_02012fe4();
+    LightingManager* var7 = LightingManager::GetInstance();
+    Struct_02048150* var8 = (Struct_02048150*)func_02010828(var1);
+    unsigned short var9;
+    int var10;
+    int var11;
+    int var12;
+    int var13;
+    int var14 = var5->unknown_42e8_;
+    Struct_ov017_02196430_4 var15;
+    Struct_ov017_02196430_4 var16;
+    Struct_ov017_02196430_4 var17;
+    Struct_ov017_02196430_5 var18;
+    Vector3fix var19;
+    Vector3fix var20;
+    Vector3fix var21;
+    Struct_ov017_021d6438 var22;
 
-    if (self->busy != 0) {
+    if (var0->unknown_42e2_ != 0) {
         return 2;
     }
-    if (func_02046b08((void**)self->list) == 0) {
-        return func_02046b24((HeadNode02046b24**)self->list) == 0x45 ? 0 : 2;
+    if (func_02046b08((void**)var0->unknown_36fc_) == 0) {
+        return func_02046b24((Struct_02015438**)var0->unknown_36fc_) == 0x45 ? 0 : 2;
     }
-    if (entry == NULL) {
+    if (var3 == NULL) {
         return 2;
     }
-    if (func_02053cdc((int*)player)) {
+    if (func_02053cdc((int*)var4)) {
         return 2;
     }
-    if (player->flags18c & 1) {
+    if (var4->unknown_18c_ & 1) {
         return 2;
     }
-    if (func_02039d7c((char*)player) != 0) {
+    if (func_02039d7c((char*)var4) != 0) {
         return 2;
     }
-    if (TestFlags04((GameResources*)self, 0x10)) {
+    if (TestFlags04((GameResources*)var0, 0x10)) {
         return 2;
     }
-    if (res->locked != 0) {
+    if (var5->unknown_42e7_ != 0) {
         return 2;
     }
-    if (((Zone02196430*)func_0200fd0c(game))->busy != 0) {
+    if (((Struct_ov017_02196430_2*)func_0200fd0c(var1))->unknown_2_ != 0) {
         return 2;
     }
-    if (func_02039760(player) != 0 && allowRepeat == 0) {
+    if (func_02039760(var4) != 0 && var14 == 0) {
         return 0;
     }
 
-    int doEvent = 0;
-    special = 0;
-    int skip = 0;
-    int direct = 0;
-    facing = 0;
-    tag = entry->tag;
-    if (player->GetFieldC3() > 0 && allowRepeat == 0) {
-        skip = 1;
+    int var23 = 0;
+    var10 = 0;
+    int var24 = 0;
+    int var25 = 0;
+    var11 = 0;
+    var9 = var3->unknown_0_;
+    if (var4->inline_ov017_02196430() > 0 && var14 == 0) {
+        var24 = 1;
     }
-    unsigned short id = 0;
-    index = -1;
-    if (skip == 0) {
-        for (i = 0; i < 12; i++) {
-            direct = 0;
-            index = i + (entry->group * 12 + 0x70);
-            Actor02196430* other = (Actor02196430*)game->GetMaybeFieldMonsterByIndex(index);
-            if (other == NULL) {
+    unsigned short var26 = 0;
+    var12 = -1;
+    if (var24 == 0) {
+        for (var13 = 0; var13 < 12; var13++) {
+            var25 = 0;
+            var12 = var13 + (var3->unknown_2_0_ * 12 + 0x70);
+            Struct_ov017_02196430* var27 = (Struct_ov017_02196430*)var1->GetMaybeFieldMonsterByIndex(var12);
+            if (var27 == NULL) {
                 continue;
             }
-            if (other->kind != 2 && ((other->flags17d & 2) || (other->flags17d & 4))) {
-                int touching;
-                int playerHeight = player->obj3D.GetHeight();
-                int otherHeight = other->obj3D.GetHeight();
-                if (player->obj3D.position_.y + playerHeight < other->obj3D.position_.y ||
-                    other->obj3D.position_.y + otherHeight < player->obj3D.position_.y) {
-                    touching = 0;
+            if (var27->unknown_be_ != 2 && ((var27->unknown_17d_ & 2) || (var27->unknown_17d_ & 4))) {
+                int var28;
+                int var29 = var4->unknown_0_.GetHeight();
+                int var30 = var27->unknown_0_.GetHeight();
+                if (var4->unknown_0_.position_.y + var29 < var27->unknown_0_.position_.y ||
+                    var27->unknown_0_.position_.y + var30 < var4->unknown_0_.position_.y) {
+                    var28 = 0;
                 } else {
-                    int reach = (player->obj3D.GetRadius() >> 1) + (func_02077a20((Outer02077a20*)other) >> 1);
-                    int dist = Vector3fix_Distance(&player->obj3D.position_, &other->obj3D.position_);
-                    Vector3fix_Subtract(&player->obj3D.position_, &other->obj3D.position_, &dir);
-                    Vector3fix_Normalize(&dir, &dir);
-                    if (dist < reach) {
-                        Vector3fixMultiplyScalar(&dir, reach, &offset);
-                        Vector3fix_Add(&other->obj3D.position_, &offset, &pos);
-                        player->obj3D.position_.x = pos.x;
-                        player->obj3D.position_.y = pos.y;
-                        player->obj3D.position_.z = pos.z;
+                    int var31 = (var4->unknown_0_.GetRadius() >> 1) + (func_02077a20((Struct_02077788_2*)var27) >> 1);
+                    int var32 = Vector3fix_Distance(&var4->unknown_0_.position_, &var27->unknown_0_.position_);
+                    Vector3fix_Subtract(&var4->unknown_0_.position_, &var27->unknown_0_.position_, &var21);
+                    Vector3fix_Normalize(&var21, &var21);
+                    if (var32 < var31) {
+                        Vector3fixMultiplyScalar(&var21, var31, &var20);
+                        Vector3fix_Add(&var27->unknown_0_.position_, &var20, &var19);
+                        var4->unknown_0_.position_.x = var19.x;
+                        var4->unknown_0_.position_.y = var19.y;
+                        var4->unknown_0_.position_.z = var19.z;
                     }
-                    touching = dist < reach + 0x1000;
+                    var28 = var32 < var31 + 0x1000;
                 }
-                if (touching && func_0202c508(session)) {
-                    func_ov017_0219a674((unsigned char*)&approachMsg);
-                    approachMsg.kind = 9;
-                    approachMsg.field2 = other->obj3D.unknown_4_;
-                    approachMsg.angle = func_ov017_021a4754(&player->obj3D.position_, (short)player->obj3D.rotation_.y, &other->obj3D.position_);
-                    if (approachMsg.angle < 0x1922) {
-                        func_ov017_0219b33c(self, &approachMsg);
+                if (var28 && func_0202c508(var2)) {
+                    func_ov017_0219a674((unsigned char*)&var15);
+                    var15.unknown_0_ = 9;
+                    var15.unknown_2_ = var27->unknown_0_.unknown_4_;
+                    var15.unknown_10_ = func_ov017_021a4754(&var4->unknown_0_.position_, (short)var4->unknown_0_.rotation_.y, &var27->unknown_0_.position_);
+                    if (var15.unknown_10_ < 0x1922) {
+                        func_ov017_0219b33c(var0, &var15);
                     }
                 }
                 continue;
             }
-            if (other->kind != 2) {
-                if (other->flags17d & 1) {
+            if (var27->unknown_be_ != 2) {
+                if (var27->unknown_17d_ & 1) {
                     continue;
                 }
 #if !defined(jpn)
-                if (func_ov017_0219735c((unsigned char*)self, other->eventId)) {
+                if (func_ov017_0219735c((unsigned char*)var0, var27->unknown_16a_)) {
                     continue;
                 }
 #endif
-                if (!((unsigned char)(other->flags17d & 8) &&
-                      func_02086ef0(party, func_020795cc((unsigned char*)other)))) {
-                    if (allowRepeat != 0) {
+                if (!((unsigned char)(var27->unknown_17d_ & 8) &&
+                      func_02086ef0(var8, func_020795cc((unsigned char*)var27)))) {
+                    if (var14 != 0) {
                         continue;
                     }
-                    if (!func_ov017_02196fc8((GameObject*)player, (GameObject*)other, 0)) {
+                    if (!func_ov017_02196fc8((GameObject*)var4, (GameObject*)var27, 0)) {
                         continue;
                     }
                 }
             } else {
-                if (!func_ov017_02196fc8((GameObject*)player, (GameObject*)other, 0x1000)) {
+                if (!func_ov017_02196fc8((GameObject*)var4, (GameObject*)var27, 0x1000)) {
                     continue;
                 }
-                if (!other->obj3D.IsVisible()) {
+                if (!var27->unknown_0_.IsVisible()) {
                     continue;
                 }
-                func_ov017_0219a674((unsigned char*)&contactMsg);
-                contactMsg.kind = 0xe;
-                func_ov017_0219b33c(self, &contactMsg);
-                if (g_keyManager.TestKeysPressed(1) == 0 && self->forceEvent == 0) {
+                func_ov017_0219a674((unsigned char*)&var16);
+                var16.unknown_0_ = 0xe;
+                func_ov017_0219b33c(var0, &var16);
+                if (g_keyManager.TestKeysPressed(1) == 0 && var0->unknown_42e6_ == 0) {
                     continue;
                 }
-                if (func_020535c8((signed char*)player)) {
+                if (func_020535c8((signed char*)var4)) {
                     continue;
                 }
-                direct = 1;
+                var25 = 1;
             }
-            if (other->obj3D.GetInheritedAlpha() != 0x1f) {
+            if (var27->unknown_0_.GetInheritedAlpha() != 0x1f) {
                 continue;
             }
-            if (other->kind == 6) {
+            if (var27->unknown_be_ == 6) {
                 continue;
             }
-            if (!other->obj3D.IsVisible()) {
+            if (!var27->unknown_0_.IsVisible()) {
                 continue;
             }
-            if (tag != other->obj3D.GetField06()) {
+            if (var9 != var27->unknown_0_.GetField06()) {
                 continue;
             }
-            if (direct == 0 && (other->flags17d & 8)) {
-                if (!func_02086ef0(party, func_020795cc((unsigned char*)other))) {
+            if (var25 == 0 && (var27->unknown_17d_ & 8)) {
+                if (!func_02086ef0(var8, func_020795cc((unsigned char*)var27))) {
                     continue;
                 }
             }
-            if (other->mode == 0 && !(other->flags17d & 8)) {
+            if (var27->unknown_130_ == 0 && !(var27->unknown_17d_ & 8)) {
                 continue;
             }
-            if (other->mode != 8 && other->mode != 9 && other->mode != 0) {
-                other->field166 = func_020100a8(game);
-                func_02076ccc(other, 8);
+            if (var27->unknown_130_ != 8 && var27->unknown_130_ != 9 && var27->unknown_130_ != 0) {
+                var27->unknown_166_ = func_020100a8(var1);
+                func_02076ccc(var27, 8);
             }
-            id = other->eventId;
-            doEvent = 1;
-            if (9007.6f < (float)func_ov017_021a4754(&other->obj3D.position_, (short)other->obj3D.rotation_.y, &player->obj3D.position_)) {
-                facing = 1;
+            var26 = var27->unknown_16a_;
+            var23 = 1;
+            if (9007.6f < (float)func_ov017_021a4754(&var27->unknown_0_.position_, (short)var27->unknown_0_.rotation_.y, &var4->unknown_0_.position_)) {
+                var11 = 1;
                 break;
             }
-            if (9007.6f < (float)func_ov017_021a4754(&player->obj3D.position_, (short)player->obj3D.rotation_.y, &other->obj3D.position_)) {
-                facing = 2;
+            if (9007.6f < (float)func_ov017_021a4754(&var4->unknown_0_.position_, (short)var4->unknown_0_.rotation_.y, &var27->unknown_0_.position_)) {
+                var11 = 2;
             }
             break;
         }
     }
 
-    unsigned short nearbyId = func_ov017_021971c4(self);
-    if (nearbyId != 0) {
-        func_ov017_0219a674((unsigned char*)&nearbyMsg);
-        nearbyMsg.kind = 0xe;
-        func_ov017_0219b33c(self, &nearbyMsg);
+    unsigned short var33 = func_ov017_021971c4(var0);
+    if (var33 != 0) {
+        func_ov017_0219a674((unsigned char*)&var17);
+        var17.unknown_0_ = 0xe;
+        func_ov017_0219b33c(var0, &var17);
     }
-    if (!func_020535c8((signed char*)player) &&
-        (g_keyManager.TestKeysPressed(1) != 0 || self->forceEvent != 0) && nearbyId != 0) {
-        doEvent = 1;
-        direct = 1;
-        id = nearbyId;
-        if ((unsigned int)(work->mapId - 0x170c) <= 3) {
-            special = 1;
+    if (!func_020535c8((signed char*)var4) &&
+        (g_keyManager.TestKeysPressed(1) != 0 || var0->unknown_42e6_ != 0) && var33 != 0) {
+        var23 = 1;
+        var25 = 1;
+        var26 = var33;
+        if ((unsigned int)(var6->unknown_0_ - 0x170c) <= 3) {
+            var10 = 1;
         }
     }
-    if (doEvent) {
-        if (id < 1 || id > 0x8004) {
-            doEvent = 0;
+    if (var23) {
+        if (var26 < 1 || var26 > 0x8004) {
+            var23 = 0;
         }
     }
-    if (doEvent && direct && func_0202c508(session)) {
-        EventEntry02196430* found = func_0207d9bc(func_0207d78c(), id);
-        if (found != NULL && found->field4 < 0) {
-            doEvent = 0;
+    if (var23 && var25 && func_0202c508(var2)) {
+        Struct_ov017_02196430_6* var34 = func_0207d9bc(func_0207d78c(), var26);
+        if (var34 != NULL && var34->unknown_4_ < 0) {
+            var23 = 0;
         }
     }
-    if (func_0202c540(session) && func_02046b08((void**)self->list) && self->pendingId != 0) {
-        id = self->pendingId;
-        self->pendingId = 0;
-        self->pendingArg = 0;
-        doEvent = 1;
-        direct = 1;
-        index = -1;
+    if (func_0202c540(var2) && func_02046b08((void**)var0->unknown_36fc_) && var0->unknown_44ae_ != 0) {
+        var26 = var0->unknown_44ae_;
+        var0->unknown_44ae_ = 0;
+        var0->unknown_44b0_ = 0;
+        var23 = 1;
+        var25 = 1;
+        var12 = -1;
     }
-    if (doEvent) {
-        func_ov017_021b6f18(self->node);
-        func_ov017_02196c08((unsigned char*)&evt);
-        evt.kind = 1;
-        if (special) {
-            evt.field_0xe = 1;
+    if (var23) {
+        func_ov017_021b6f18(var0->unknown_3718_);
+        func_ov017_02196c08((unsigned char*)&var18);
+        var18.unknown_0_ = 1;
+        if (var10) {
+            var18.unknown_e_ = 1;
         }
-        evt.field_0x1 = func_020100a8(game);
-        evt.id = id;
-        evt.tag = index;
-        func_ov017_021b6e70(&evt, index);
-        if (direct) {
-            evt.field_0xf = 0;
+        var18.unknown_1_ = func_020100a8(var1);
+        var18.unknown_4_ = var26;
+        var18.unknown_2_ = var12;
+        func_ov017_021b6e70(&var18, var12);
+        if (var25) {
+            var18.unknown_f_ = 0;
         } else {
-            evt.field_0xf = func_ov017_021970a0(facing);
+            var18.unknown_f_ = func_ov017_021970a0(var11);
         }
-        GameObject* target = game->GetMaybeFieldMonsterByIndex(index);
-        if (target != NULL) {
-            kinds = data_ov017_021d6438;
-            unsigned char* kind = kinds.v;
-            for (int k = 0; k < 3; k++, kind++) {
-                if (*kind == target->obj3D_.unknown_2_) {
-                    evt.field_0xf = 0;
+        GameObject* var35 = var1->GetMaybeFieldMonsterByIndex(var12);
+        if (var35 != NULL) {
+            var22 = data_ov017_021d6438;
+            unsigned char* var36 = var22.unknown_0_;
+            for (int var37 = 0; var37 < 3; var37++, var36++) {
+                if (*var36 == var35->obj3D_.unknown_2_) {
+                    var18.unknown_f_ = 0;
                     break;
                 }
             }
         }
-        evt.field_0x14 = direct;
-        evt.timeOfDay = lighting->timeOfDayIndex_;
-        func_ov017_021b7104(self->node, &evt);
-        func_020469b4((TailList020469b4*)self->list, (TailNode020469b4*)self->node);
+        var18.unknown_14_ = var25;
+        var18.unknown_12_ = var7->timeOfDayIndex_;
+        func_ov017_021b7104(var0->unknown_3718_, &var18);
+        func_020469b4((Struct_0201bdac_2*)var0->unknown_36fc_, (Struct_0201bdac*)var0->unknown_3718_);
         return 1;
     }
     return 0;

@@ -7,80 +7,80 @@
 #define func_020ca3ec func_020cbeb8
 #endif
 
-struct UserInfo021dc680 {
-	unsigned char playerInfo;
-	unsigned char nameLength;
-	unsigned short name[10];
+struct Struct_ov027_021dc680_2 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_;
+	unsigned short unknown_2_[10];
 };
 
-struct Param021dc680 {
-	unsigned char pad0[8];
-	unsigned int ggid;
-	unsigned short tgid;
-	unsigned short entryFlag;
-	unsigned short maxEntry;
-	unsigned short multiBootFlag;
-	unsigned short KS_Flag;
-	unsigned short CS_Flag;
-	unsigned short beaconPeriod;
-	unsigned char pad1a[0x500 - 0x1a];
-	unsigned short p_sendlen;
-	unsigned short p_recvlen;
-	unsigned char* sendBuf;
-	unsigned char pad508[4];
-	unsigned char flag50c;
-	unsigned char flag50d;
-	unsigned char pad50e[0x518 - 0x50e];
-	unsigned short sendBufSize;
-	unsigned short recvBufSize;
-	unsigned char pad51c[0x52c - 0x51c];
-	unsigned short field52c;
-	unsigned char pad52e[2];
-	unsigned short userName[4];
-	unsigned short gameName[16];
-	unsigned char pad558[0x1e00 - 0x558];
+struct Struct_ov027_021dc680_3 {
+	unsigned char unknown_0_[8];
+	unsigned int unknown_8_;
+	unsigned short unknown_c_;
+	unsigned short unknown_e_;
+	unsigned short unknown_10_;
+	unsigned short unknown_12_;
+	unsigned short unknown_14_;
+	unsigned short unknown_16_;
+	unsigned short unknown_18_;
+	unsigned char unknown_1a_[0x500 - 0x1a];
+	unsigned short unknown_500_;
+	unsigned short unknown_502_;
+	unsigned char* unknown_504_;
+	unsigned char unknown_508_[4];
+	unsigned char unknown_50c_;
+	unsigned char unknown_50d_;
+	unsigned char unknown_50e_[0x518 - 0x50e];
+	unsigned short unknown_518_;
+	unsigned short unknown_51a_;
+	unsigned char unknown_51c_[0x52c - 0x51c];
+	unsigned short unknown_52c_;
+	unsigned char unknown_52e_[2];
+	unsigned short unknown_530_[4];
+	unsigned short unknown_538_[16];
+	unsigned char unknown_558_[0x1e00 - 0x558];
 };
 
-struct PWork021dc680 {
-	unsigned char pad0[0x400];
-	unsigned char buf[0x1300 - 0x400];
-	UserInfo021dc680 user;
-	unsigned short is_started;
-	int block_size_max;
-	int field131c;
-	unsigned char pad1320[0x1340 - 0x1320];
+struct Struct_ov027_021dc680 {
+	unsigned char unknown_0_[0x400];
+	unsigned char unknown_400_[0x1300 - 0x400];
+	Struct_ov027_021dc680_2 unknown_1300_;
+	unsigned short unknown_1316_;
+	int unknown_1318_;
+	int unknown_131c_;
+	unsigned char unknown_1320_[0x1340 - 0x1320];
 };
 
-struct Ctx021dc680 {
-	unsigned short dma;
-	unsigned char* wmBuf;
-	Param021dc680* param;
-	PWork021dc680* pwork;
+struct Struct_ov027_021e33e0_6 {
+	unsigned short unknown_0_;
+	unsigned char* unknown_4_;
+	Struct_ov027_021dc680_3* unknown_8_;
+	Struct_ov027_021dc680* unknown_c_;
 };
 
-extern Ctx021dc680 data_ov027_021e33e0;
+extern Struct_ov027_021e33e0_6 data_ov027_021e33e0;
 
 unsigned short data_ov027_021dd8ec = 5;
 unsigned short data_ov027_021dd8f2 = 0xffff;
 unsigned short data_ov027_021dd8f0 = 40;
 unsigned short data_ov027_021dd8ee = 40;
 
-static inline void SetNames_021dc680(Param021dc680* param, const UserInfo021dc680* user) {
+static inline void inline_ov027_021dc680(Struct_ov027_021dc680_3* arg0, const Struct_ov027_021dc680_2* arg1) {
 	static const wchar_t* gameName = L"multiboot";
-	int i;
+	int var0;
 	{
-		unsigned short* dst = param->userName;
-		for (i = 0; i < user->nameLength; i++) {
-			*dst++ = user->name[i];
+		unsigned short* var1 = arg0->unknown_530_;
+		for (var0 = 0; var0 < arg1->unknown_1_; var0++) {
+			*var1++ = arg1->unknown_2_[var0];
 		}
 	}
 	{
-		unsigned short* dst = param->gameName;
-		for (i = 0; i < 16; i++) {
-			unsigned short c = *gameName;
-			if (c == 0) break;
+		unsigned short* var2 = arg0->unknown_538_;
+		for (var0 = 0; var0 < 16; var0++) {
+			unsigned short var3 = *gameName;
+			if (var3 == 0) break;
 			gameName++;
-			*dst++ = c;
+			*var2++ = var3;
 		}
 	}
 }
@@ -93,53 +93,53 @@ extern "C" void func_020ca390(int val, void* dst, unsigned int size);
 extern "C" unsigned int func_ov027_021dc618(void);
 
 // USA: func_ov027_021dc680
-extern "C" ARM int func_ov027_021dc680(void* work, const UserInfo021dc680* user, unsigned int ggid, unsigned int tgid, unsigned int dma) {
-	Param021dc680* param;
-	PWork021dc680* pwork;
-	int enabled;
+extern "C" ARM int func_ov027_021dc680(void* arg0, const Struct_ov027_021dc680_2* arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4) {
+	Struct_ov027_021dc680_3* var0;
+	Struct_ov027_021dc680* var1;
+	int var2;
 
-	if (data_ov027_021e33e0.pwork != 0 && data_ov027_021e33e0.pwork->is_started != 0) {
+	if (data_ov027_021e33e0.unknown_c_ != 0 && data_ov027_021e33e0.unknown_c_->unknown_1316_ != 0) {
 		return 2;
 	}
-	param = (Param021dc680*)(((unsigned int)work + 31) & ~31);
-	pwork = (PWork021dc680*)(((unsigned int)param + sizeof(Param021dc680) + 31) & ~31);
-	if (tgid == 0x10000) {
-		tgid = func_020d4dd4();
+	var0 = (Struct_ov027_021dc680_3*)(((unsigned int)arg0 + 31) & ~31);
+	var1 = (Struct_ov027_021dc680*)(((unsigned int)var0 + sizeof(Struct_ov027_021dc680_3) + 31) & ~31);
+	if (arg3 == 0x10000) {
+		arg3 = func_020d4dd4();
 	}
-	enabled = DisableIRQInterrupts();
+	var2 = DisableIRQInterrupts();
 	data_ov027_021dd8f2 = 0xffff;
 	data_ov027_021dd8ec = 5;
 	data_ov027_021dd8ee = 40;
 	data_ov027_021dd8f0 = 40;
 	data_ov027_021dd8f8 = 1;
-	data_ov027_021e33e0.dma = dma;
-	data_ov027_021e33e0.param = param;
-	data_ov027_021e33e0.pwork = pwork;
-	func_020ca3ec(0, param, sizeof(Param021dc680));
-	func_020ca390(0, pwork, sizeof(PWork021dc680));
-	SetNames_021dc680(param, user);
-	VectorizedInvertedMemcpy(user, &pwork->user, sizeof(UserInfo021dc680));
-	if (user->nameLength < 10) {
-		pwork->user.name[user->nameLength] = 0;
+	data_ov027_021e33e0.unknown_0_ = arg4;
+	data_ov027_021e33e0.unknown_8_ = var0;
+	data_ov027_021e33e0.unknown_c_ = var1;
+	func_020ca3ec(0, var0, sizeof(Struct_ov027_021dc680_3));
+	func_020ca390(0, var1, sizeof(Struct_ov027_021dc680));
+	inline_ov027_021dc680(var0, arg1);
+	VectorizedInvertedMemcpy(arg1, &var1->unknown_1300_, sizeof(Struct_ov027_021dc680_2));
+	if (arg1->unknown_1_ < 10) {
+		var1->unknown_1300_.unknown_2_[arg1->unknown_1_] = 0;
 	}
-	param->p_sendlen = 0x100;
-	param->p_recvlen = 8;
-	param->sendBufSize = 0;
-	param->recvBufSize = 0;
-	param->field52c = 1;
-	param->sendBuf = pwork->buf;
-	param->entryFlag = 0;
-	param->multiBootFlag = 0;
-	param->CS_Flag = 1;
-	param->KS_Flag = 0;
-	param->ggid = ggid;
-	param->tgid = tgid;
-	param->beaconPeriod = func_ov027_021dc618() + 200;
-	param->maxEntry = 15;
-	param->flag50c = 0;
-	param->flag50d = 0;
-	pwork->is_started = 1;
-	pwork->field131c = 0;
-	SetIRQInterruptState(enabled);
+	var0->unknown_500_ = 0x100;
+	var0->unknown_502_ = 8;
+	var0->unknown_518_ = 0;
+	var0->unknown_51a_ = 0;
+	var0->unknown_52c_ = 1;
+	var0->unknown_504_ = var1->unknown_400_;
+	var0->unknown_e_ = 0;
+	var0->unknown_12_ = 0;
+	var0->unknown_16_ = 1;
+	var0->unknown_14_ = 0;
+	var0->unknown_8_ = arg2;
+	var0->unknown_c_ = arg3;
+	var0->unknown_18_ = func_ov027_021dc618() + 200;
+	var0->unknown_10_ = 15;
+	var0->unknown_50c_ = 0;
+	var0->unknown_50d_ = 0;
+	var1->unknown_1316_ = 1;
+	var1->unknown_131c_ = 0;
+	SetIRQInterruptState(var2);
 	return 0;
 }

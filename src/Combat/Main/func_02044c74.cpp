@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_0204c684(void* obj);
+extern "C" void func_0204c684(void* arg0);
 int AllocateVRAMStagingMemory(unsigned int);
 
 #if defined(jpn)
-enum { kFlagOffset = 0x7fe, kOutputValue = 12 };
+enum { Enum_02044c74_2509 = 0x7fe, Enum_02044c74_8 = 12 };
 #else
-enum { kFlagOffset = 0x9cd, kOutputValue = 8 };
+enum { Enum_02044c74_2509 = 0x9cd, Enum_02044c74_8 = 8 };
 #endif
 
 // USA: func_02044c74
-extern "C" ARM void func_02044c74(void* obj, void* out) {
-    char* o = (char*)obj;
-    char* dst = (char*)out;
-    func_0204c684(out);
-    void* buf = (void*)AllocateVRAMStagingMemory(0x4800);
-    if (buf) {
-        unsigned char* p = (unsigned char*)(o + 0x1000);
-        if (p[kFlagOffset]) {
-            p[kFlagOffset] = 0;
-            memset(buf, 0, 0x4800);
+extern "C" ARM void func_02044c74(void* arg0, void* arg1) {
+    char* var0 = (char*)arg0;
+    char* var1 = (char*)arg1;
+    func_0204c684(arg1);
+    void* var2 = (void*)AllocateVRAMStagingMemory(0x4800);
+    if (var2) {
+        unsigned char* var3 = (unsigned char*)(var0 + 0x1000);
+        if (var3[Enum_02044c74_2509]) {
+            var3[Enum_02044c74_2509] = 0;
+            memset(var2, 0, 0x4800);
         }
-        *(short*)(dst + 0xac) = 0;
-        *(short*)(dst + 0xae) = 6;
-        *(short*)(dst + 0xa8) = 0x20;
-        *(short*)(dst + 0xaa) = 0x12;
-        *(void**)(dst + 0x8) = buf;
-        *(int*)(dst + 0xa4) = 0x4800;
-        *(int*)(dst + 0xa0) = 0;
-        *(short*)(dst + 0xc2) = 0;
-        *(short*)(dst + 0xb0) = 0;
-        *(short*)(dst + 0xb2) = 0;
-        *(short*)(dst + 0xb4) = kOutputValue;
-        *(short*)(dst + 0xb6) = kOutputValue;
-        *(short*)(dst + 0xb8) = kOutputValue;
-        *(short*)(dst + 0xba) = kOutputValue;
+        *(short*)(var1 + 0xac) = 0;
+        *(short*)(var1 + 0xae) = 6;
+        *(short*)(var1 + 0xa8) = 0x20;
+        *(short*)(var1 + 0xaa) = 0x12;
+        *(void**)(var1 + 0x8) = var2;
+        *(int*)(var1 + 0xa4) = 0x4800;
+        *(int*)(var1 + 0xa0) = 0;
+        *(short*)(var1 + 0xc2) = 0;
+        *(short*)(var1 + 0xb0) = 0;
+        *(short*)(var1 + 0xb2) = 0;
+        *(short*)(var1 + 0xb4) = Enum_02044c74_8;
+        *(short*)(var1 + 0xb6) = Enum_02044c74_8;
+        *(short*)(var1 + 0xb8) = Enum_02044c74_8;
+        *(short*)(var1 + 0xba) = Enum_02044c74_8;
     }
 }

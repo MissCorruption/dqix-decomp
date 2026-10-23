@@ -1,51 +1,51 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Sub8e18_021c6254 {
-    unsigned char pad0[8];
-    unsigned short id;
+struct Struct_ov017_021c6254 {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct Slot021c6254 {
-    unsigned char pad0[2];
-    unsigned char values[8];
-    unsigned char count : 4;
-    unsigned char flags : 4;
-    unsigned char pad0b[0xd];
+struct Struct_ov017_021c6254_2 {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_[8];
+    unsigned char unknown_a_0_ : 4;
+    unsigned char unknown_a_4_ : 4;
+    unsigned char unknown_b_[0xd];
 };
 
-struct Holder021c6254 {
-    unsigned char pad0[4];
-    Slot021c6254 slots[1];
+struct Struct_ov017_021c6254_3 {
+    unsigned char unknown_0_[4];
+    Struct_ov017_021c6254_2 unknown_4_[1];
 };
 
-struct Payload021c6254 {
-    unsigned short id;
-    unsigned short slotIndex;
-    unsigned char values[8];
-    unsigned char pad0c[4];
+struct Struct_ov017_021c6254_4 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_[8];
+    unsigned char unknown_c_[4];
 };
 
-struct Evt021c6254 {
-    unsigned char tag;
-    unsigned char pad1[3];
-    Payload021c6254 payload;
+struct Struct_ov017_021c6254_5 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov017_021c6254_4 unknown_4_;
 };
 
 // USA: func_ov017_021c6254
-extern "C" ARM void func_ov017_021c6254(char* self, int slotIndex) {
-    void* data = func_0202ae24();
-    Evt021c6254 evt;
-    Payload021c6254* p = &evt.payload;
-    evt.tag = 0x62;
-    p->id = (*(Sub8e18_021c6254**)(self + 0x8e18))->id;
-    Slot021c6254* slot = &((Holder021c6254*)(self + 0x1b0 + 0x8000))->slots[slotIndex];
-    p->slotIndex = slotIndex;
-    for (int i = 0; i < slot->count; i++) {
-        p->values[i] = 0;
-        p->values[i] = slot->values[i];
+extern "C" ARM void func_ov017_021c6254(char* arg0, int arg1) {
+    void* var0 = func_0202ae24();
+    Struct_ov017_021c6254_5 var1;
+    Struct_ov017_021c6254_4* var2 = &var1.unknown_4_;
+    var1.unknown_0_ = 0x62;
+    var2->unknown_0_ = (*(Struct_ov017_021c6254**)(arg0 + 0x8e18))->unknown_8_;
+    Struct_ov017_021c6254_2* var3 = &((Struct_ov017_021c6254_3*)(arg0 + 0x1b0 + 0x8000))->unknown_4_[arg1];
+    var2->unknown_2_ = arg1;
+    for (int var4 = 0; var4 < var3->unknown_a_0_; var4++) {
+        var2->unknown_4_[var4] = 0;
+        var2->unknown_4_[var4] = var3->unknown_2_[var4];
     }
-    func_0205e330(data, &evt, 0);
+    func_0205e330(var0, &var1, 0);
 }

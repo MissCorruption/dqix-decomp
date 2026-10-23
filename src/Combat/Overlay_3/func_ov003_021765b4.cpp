@@ -2,79 +2,79 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-enum { kRegionValue36_2A = 0x2a };
-enum { kRegionValue89C_818 = 0x818 };
-enum { kRegionValueFF8_F74 = 0xf74 };
-enum { kRegionValue8A0_81C = 0x81c };
-enum { kRegionValueFFE_F7A = 0xf7a };
-enum { kRegionValueFFC_F78 = 0xf78 };
+enum { Enum_ov003_021765b4_54 = 0x2a };
+enum { Enum_ov003_021765b4_2204 = 0x818 };
+enum { Enum_ov003_021765b4_4088 = 0xf74 };
+enum { Enum_ov003_021765b4_2208 = 0x81c };
+enum { Enum_ov003_021765b4_4094 = 0xf7a };
+enum { Enum_ov003_021765b4_4092 = 0xf78 };
 #else
-enum { kRegionValue36_2A = 0x36 };
-enum { kRegionValue89C_818 = 0x89c };
-enum { kRegionValueFF8_F74 = 0xff8 };
-enum { kRegionValue8A0_81C = 0x8a0 };
-enum { kRegionValueFFE_F7A = 0xffe };
-enum { kRegionValueFFC_F78 = 0xffc };
+enum { Enum_ov003_021765b4_54 = 0x36 };
+enum { Enum_ov003_021765b4_2204 = 0x89c };
+enum { Enum_ov003_021765b4_4088 = 0xff8 };
+enum { Enum_ov003_021765b4_2208 = 0x8a0 };
+enum { Enum_ov003_021765b4_4094 = 0xffe };
+enum { Enum_ov003_021765b4_4092 = 0xffc };
 #endif
 
-struct Outer020e28dc;
+struct Struct_020e28dc;
 
-struct Menu {
-    char unk_0[kRegionValue36_2A];
-    short cursor_;
+struct Struct_ov000_0217ab8c {
+    char unknown_0_[Enum_ov003_021765b4_54];
+    short unknown_36_;
 };
 
 extern "C" {
-void func_020813ec(Menu*, int);
+void func_020813ec(Struct_ov000_0217ab8c*, int);
 }
 
-extern "C" int func_020e28dc(Outer020e28dc*);
+extern "C" int func_020e28dc(Struct_020e28dc*);
 extern "C" int func_020e2918(signed char*);
 extern "C" int func_02080dd4(void*, int, int, int, unsigned char*, unsigned char);
 
-struct Ctx021765b4 {
-    Outer020e28dc* choice_;
-    char pad0[kRegionValue89C_818 - 0x4];
-    Menu* menu_;
-    char pad1[kRegionValueFF8_F74 - kRegionValue8A0_81C];
-    short* cursor_;
-    char pad2[kRegionValueFFE_F7A - kRegionValueFFC_F78];
-    short group_;
-    short previousCursor_;
+struct Struct_ov003_021765b4 {
+    Struct_020e28dc* unknown_0_;
+    char unknown_4_[Enum_ov003_021765b4_2204 - 0x4];
+    Struct_ov000_0217ab8c* unknown_89c_;
+    char unknown_8a0_[Enum_ov003_021765b4_4088 - Enum_ov003_021765b4_2208];
+    short* unknown_ff8_;
+    char unknown_ffc_[Enum_ov003_021765b4_4094 - Enum_ov003_021765b4_4092];
+    short unknown_ffe_;
+    short unknown_1000_;
 };
 
 // USA: func_ov003_021765b4
-extern "C" ARM unsigned char func_ov003_021765b4(Ctx021765b4* self)
+extern "C" ARM unsigned char func_ov003_021765b4(Struct_ov003_021765b4* arg0)
 {
-    unsigned char confirmed = 0;
+    unsigned char var0 = 0;
     if (g_keyManager.TestKeysPressed(0x401))
-        confirmed = 1;
-    if (self->choice_ != 0 && func_020e28dc(self->choice_))
+        var0 = 1;
+    if (arg0->unknown_0_ != 0 && func_020e28dc(arg0->unknown_0_))
     {
-        int choice = func_020e2918((signed char*)self->choice_);
-        if (choice >= 0)
+        int var1 = func_020e2918((signed char*)arg0->unknown_0_);
+        if (var1 >= 0)
         {
-            confirmed = 1;
-            *self->cursor_ = choice + 2;
+            var0 = 1;
+            *arg0->unknown_ff8_ = var1 + 2;
         }
     }
-    else if (g_touchInput.pressed_ && self->cursor_ != 0)
+    else if (g_touchInput.pressed_ && arg0->unknown_ff8_ != 0)
     {
-        int x;
-        int y;
-        Menu* menu = self->menu_;
-        g_touchInput.GetTouchPoint(&x, &y);
-        self->previousCursor_ = *self->cursor_;
-        int item = func_02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 1);
-        if (item < 0)
+        int var2;
+        int var3;
+        Struct_ov000_0217ab8c* var4 = arg0->unknown_89c_;
+        g_touchInput.GetTouchPoint(&var2, &var3);
+        arg0->unknown_1000_ = *arg0->unknown_ff8_;
+        int var5 = func_02080dd4(var4, arg0->unknown_ffe_, (short)var2, (short)var3, &var0, 1);
+        if (var5 < 0)
             return 0;
-        *self->cursor_ = item;
-        short cursor = *self->cursor_;
-        if (self->previousCursor_ != cursor)
+        *arg0->unknown_ff8_ = var5;
+        short var6 = *arg0->unknown_ff8_;
+        if (arg0->unknown_1000_ != var6)
         {
-            menu->cursor_ = cursor;
-            func_020813ec(menu, self->group_);
+            var4->unknown_36_ = var6;
+            func_020813ec(var4, arg0->unknown_ffe_);
         }
     }
-    return confirmed;
+    return var0;
 }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
 // USA: func_0201201c
-extern "C" ARM int func_0201201c(void* obj) {
-    unsigned char* base = (unsigned char*)obj;
+extern "C" ARM int func_0201201c(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 #if defined(jpn)
-    return *(int*)(base + 0x7c98);
+    return *(int*)(var0 + 0x7c98);
 #else
-    return *(int*)(base + 0x7f6c);
+    return *(int*)(var0 + 0x7f6c);
 #endif
 }

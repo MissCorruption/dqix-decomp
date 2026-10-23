@@ -9,217 +9,217 @@ extern "C" int func_ov031_02207e90(unsigned char*, int);
 
 extern const char* data_ov031_02249704[];
 
-struct ParseCtx {
-    char pad0[0x458];
-    int f458;
-    int f45c;
-    int f460;
-    int f464;
-    char pad1[0x484 - 0x468];
-    int f484;
-    unsigned char* f488;
-    int f48c;
-    unsigned char* f490;
-    char buf494[0x100];
-    int f594;
-    char buf598[8];
-    int f5a0;
-    unsigned char* f5a4;
-    int f5a8;
-    unsigned char f5ac;
-    unsigned char f5ad;
-    unsigned char f5ae;
-    unsigned char f5af;
-    char buf5b0[0x100];
-    char buf6b0[0x100];
-    char buf7b0[0x5c];
-    unsigned int f80c;
+struct Struct_ov031_02207f10 {
+    char unknown_0_[0x458];
+    int unknown_458_;
+    int unknown_45c_;
+    int unknown_460_;
+    int unknown_464_;
+    char unknown_468_[0x484 - 0x468];
+    int unknown_484_;
+    unsigned char* unknown_488_;
+    int unknown_48c_;
+    unsigned char* unknown_490_;
+    char unknown_494_[0x100];
+    int unknown_594_;
+    char unknown_598_[8];
+    int unknown_5a0_;
+    unsigned char* unknown_5a4_;
+    int unknown_5a8_;
+    unsigned char unknown_5ac_;
+    unsigned char unknown_5ad_;
+    unsigned char unknown_5ae_;
+    unsigned char unknown_5af_;
+    char unknown_5b0_[0x100];
+    char unknown_6b0_[0x100];
+    char unknown_7b0_[0x5c];
+    unsigned int unknown_80c_;
 };
 
 // USA: func_ov031_02207f10
-extern "C" ARM int func_ov031_02207f10(ParseCtx* c, unsigned char** pp, int depth, int flag, int mode) {
-    unsigned char* s = *pp;
-    unsigned char* p = s + 1;
-    unsigned char tag = *s;
-    int len = func_ov031_02207dd4(&p);
-    if (len < 0 || len > 2000) {
+extern "C" ARM int func_ov031_02207f10(Struct_ov031_02207f10* arg0, unsigned char** arg1, int arg2, int arg3, int arg4) {
+    unsigned char* var0 = *arg1;
+    unsigned char* var1 = var0 + 1;
+    unsigned char var2 = *var0;
+    int var3 = func_ov031_02207dd4(&var1);
+    if (var3 < 0 || var3 > 2000) {
         return 1;
     }
-    switch (tag & 0x1f) {
+    switch (var2 & 0x1f) {
     case 2:
-        if (c->f5ad) {
-            if (flag == 0) {
-                if (*p == 0) {
+        if (arg0->unknown_5ad_) {
+            if (arg3 == 0) {
+                if (*var1 == 0) {
                     do {
-                        p++;
-                        len--;
-                    } while (*p == 0);
+                        var1++;
+                        var3--;
+                    } while (*var1 == 0);
                 }
-                switch (mode) {
+                switch (arg4) {
                 case 0:
-                    if (len <= 0x100) {
-                        VectorizedInvertedMemcpy(p, c->buf494, len);
-                        c->f594 = len;
+                    if (var3 <= 0x100) {
+                        VectorizedInvertedMemcpy(var1, arg0->unknown_494_, var3);
+                        arg0->unknown_594_ = var3;
                     }
                     break;
                 case 2:
-                    c->f484 = len;
-                    c->f488 = p;
+                    arg0->unknown_484_ = var3;
+                    arg0->unknown_488_ = var1;
                     break;
                 }
-            } else if (flag == 1) {
-                if (*p == 0) {
+            } else if (arg3 == 1) {
+                if (*var1 == 0) {
                     do {
-                        p++;
-                        len--;
-                    } while (*p == 0);
+                        var1++;
+                        var3--;
+                    } while (*var1 == 0);
                 }
-                switch (mode) {
+                switch (arg4) {
                 case 0:
-                    if (len <= 8) {
-                        VectorizedInvertedMemcpy(p, c->buf598, len);
-                        c->f5a0 = len;
+                    if (var3 <= 8) {
+                        VectorizedInvertedMemcpy(var1, arg0->unknown_598_, var3);
+                        arg0->unknown_5a0_ = var3;
                     }
                     break;
                 case 2:
-                    c->f48c = len;
-                    c->f490 = p;
+                    arg0->unknown_48c_ = var3;
+                    arg0->unknown_490_ = var1;
                     break;
                 }
             }
         }
-        p += len;
+        var1 += var3;
         break;
     case 3:
-        if (depth == 1 && mode != 2) {
-            c->f5a4 = p + 1;
-            c->f5a8 = len - 1;
+        if (arg2 == 1 && arg4 != 2) {
+            arg0->unknown_5a4_ = var1 + 1;
+            arg0->unknown_5a8_ = var3 - 1;
         }
-        if (c->f5ad) {
-            p++;
-            if (func_ov031_02207f10(c, &p, depth, 0, mode)) {
+        if (arg0->unknown_5ad_) {
+            var1++;
+            if (func_ov031_02207f10(arg0, &var1, arg2, 0, arg4)) {
                 return 1;
             }
-            c->f5ad = 0;
+            arg0->unknown_5ad_ = 0;
         } else {
-            p += len;
+            var1 += var3;
         }
         break;
     case 6: {
-        int i;
-        unsigned char* q = p;
-        i = 0;
+        int var4;
+        unsigned char* var5 = var1;
+        var4 = 0;
         do {
-            const char* s = data_ov031_02249704[i];
-            if (func_02001aec(q, s, strlen(s)) == 0) {
-                switch (i) {
+            const char* var6 = data_ov031_02249704[var4];
+            if (func_02001aec(var5, var6, strlen(var6)) == 0) {
+                switch (var4) {
                 case 1:
                 case 2:
-                    if (mode == 0) {
-                        c->f45c = i;
+                    if (arg4 == 0) {
+                        arg0->unknown_45c_ = var4;
                     }
-                    c->f5ad = i;
+                    arg0->unknown_5ad_ = var4;
                     break;
                 case 3:
                 case 4:
-                    if (mode != 2) {
-                        c->f458 = i;
+                    if (arg4 != 2) {
+                        arg0->unknown_458_ = var4;
                     }
                     break;
                 case 5:
-                    if (mode != 2) {
-                        c->f5ae = i;
+                    if (arg4 != 2) {
+                        arg0->unknown_5ae_ = var4;
                     }
                     break;
                 }
                 break;
             }
-            i++;
-        } while (i < 6);
-        p += len;
+            var4++;
+        } while (var4 < 6);
+        var1 += var3;
         break;
     }
     case 12:
     case 19:
     case 20:
     case 22:
-        if (mode != 2) {
-            if (c->f5ac) {
-                func_ov031_02207e24(c->buf6b0, (const char*)p, len);
-                if (c->f5ae == 5 && len <= 0x4f) {
-                    VectorizedInvertedMemcpy(p, c->buf7b0, len);
-                    c->buf7b0[len] = 0;
+        if (arg4 != 2) {
+            if (arg0->unknown_5ac_) {
+                func_ov031_02207e24(arg0->unknown_6b0_, (const char*)var1, var3);
+                if (arg0->unknown_5ae_ == 5 && var3 <= 0x4f) {
+                    VectorizedInvertedMemcpy(var1, arg0->unknown_7b0_, var3);
+                    arg0->unknown_7b0_[var3] = 0;
                 }
             } else {
-                func_ov031_02207e24(c->buf5b0, (const char*)p, len);
+                func_ov031_02207e24(arg0->unknown_5b0_, (const char*)var1, var3);
             }
         }
-        c->f5ae = 0;
-        p += len;
+        arg0->unknown_5ae_ = 0;
+        var1 += var3;
         break;
     case 23:
     case 24:
-        if (mode != 2) {
-            unsigned int d = func_ov031_02207e90(p, tag & 0x1f);
-            if (flag == 0) {
-                if (c->f80c >= d) {
-                    c->f5af = 1;
+        if (arg4 != 2) {
+            unsigned int var7 = func_ov031_02207e90(var1, var2 & 0x1f);
+            if (arg3 == 0) {
+                if (arg0->unknown_80c_ >= var7) {
+                    arg0->unknown_5af_ = 1;
                 }
             } else {
-                if (c->f80c > d) {
-                    c->f5af = 0;
+                if (arg0->unknown_80c_ > var7) {
+                    arg0->unknown_5af_ = 0;
                 }
             }
         }
-        p += len;
-        c->f5ac = 1;
+        var1 += var3;
+        arg0->unknown_5ac_ = 1;
         break;
     case 16: {
-        if (depth == 0 && flag == 0 && mode != 2) {
-            c->f460 = (int)p;
+        if (arg2 == 0 && arg3 == 0 && arg4 != 2) {
+            arg0->unknown_460_ = (int)var1;
         }
-        unsigned char* end = p + len;
-        int i = 0;
-        if (p < end) {
+        unsigned char* var8 = var1 + var3;
+        int var9 = 0;
+        if (var1 < var8) {
             do {
-                int r = func_ov031_02207f10(c, &p, depth + 1, i, mode);
-                i++;
-                if (r) {
+                int var10 = func_ov031_02207f10(arg0, &var1, arg2 + 1, var9, arg4);
+                var9++;
+                if (var10) {
                     return 1;
                 }
-            } while (p < end);
+            } while (var1 < var8);
         }
-        if (depth == 1 && flag == 0 && mode != 2) {
-            c->f464 = (int)p;
+        if (arg2 == 1 && arg3 == 0 && arg4 != 2) {
+            arg0->unknown_464_ = (int)var1;
         }
         break;
     }
     case 17: {
-        unsigned char* end = p + len;
-        if (p < end) {
+        unsigned char* var11 = var1 + var3;
+        if (var1 < var11) {
             do {
-                if (func_ov031_02207f10(c, &p, depth + 1, 0, mode)) {
+                if (func_ov031_02207f10(arg0, &var1, arg2 + 1, 0, arg4)) {
                     return 1;
                 }
-            } while (p < end);
+            } while (var1 < var11);
         }
         break;
     }
     default:
-        if (tag == 0xa0) {
-            unsigned char* end = p + len;
-            if (p < end) {
+        if (var2 == 0xa0) {
+            unsigned char* var12 = var1 + var3;
+            if (var1 < var12) {
                 do {
-                    if (func_ov031_02207f10(c, &p, depth + 1, 0, mode)) {
+                    if (func_ov031_02207f10(arg0, &var1, arg2 + 1, 0, arg4)) {
                         return 1;
                     }
-                } while (p < end);
+                } while (var1 < var12);
             }
         } else {
-            p += len;
+            var1 += var3;
         }
         break;
     }
-    *pp = p;
+    *arg1 = var1;
     return 0;
 }

@@ -2,72 +2,72 @@
 #include <globaldefs.h>
 
 // USA: func_020151cc
-extern "C" ARM int func_020151cc(Zone3D *zone, Struct02012ff0 *tracker, Src02015134 *source) {
-    GameState *gameState      = GameState::GetInstance();
-    SafeAllocator *allocator  = zone->pAllocator_68_;
-    char *pairTables          = static_cast<char *>(zone->unknown_ptr_50_);
-    LightingManager *lighting = LightingManager::GetInstance();
-    int applyLighting         = static_cast<ZoneLoadState *>(func_0200fd0c(gameState))->unknown20 < 0;
-    zone->unknown_834_        = applyLighting;
-    char filename[0x50];
-    unsigned int size;
-    func_02014d18(source->id, data_020ef1e8, filename);
-    const void *file = GetFileFromNARCInMemory(filename);
-    Object3D *object;
-    if (file != NULL) {
-        tracker->field4    = static_cast<Object3D*>(allocator->Allocate(sizeof(Object3D)));
-        void *decompressed = DecompressLZ77FileIntoAllocatedSpace(*allocator, file, size);
-        if (decompressed != NULL && tracker->field4 != 0) {
-            Object3D *object = tracker->field4;
-            object->Initialize();
-            func_0207df90(pairTables);
-            object = tracker->field4;
-            object->SetModelFromFile(allocator, decompressed, size, Model3D::TextureStagingMode_Normal);
-            func_0207dfac(pairTables);
-            Model3D *model = tracker->field4->pModel_;
-            if (model != NULL) {
-                NSBXXTex *texture = model->GetTEX0();
-                if (texture != NULL) {
-                    zone->textureImageMemory_ += NSBXX_Tex_GetBlock1Length(texture);
-                    zone->texturePaletteMemory_ += NSBXX_Tex_GetBlock4Length(texture);
+extern "C" ARM int func_020151cc(Zone3D *arg0, Struct_02012ff0 *arg1, Struct_02014a24 *arg2) {
+    GameState *var0      = GameState::GetInstance();
+    SafeAllocator *var1  = arg0->pAllocator_68_;
+    char *var2          = static_cast<char *>(arg0->unknown_ptr_50_);
+    LightingManager *var3 = LightingManager::GetInstance();
+    int var4         = static_cast<Struct_02014d80 *>(func_0200fd0c(var0))->unknown_20_ < 0;
+    arg0->unknown_834_        = var4;
+    char var5[0x50];
+    unsigned int var6;
+    func_02014d18(arg2->unknown_4_, data_020ef1e8, var5);
+    const void *var7 = GetFileFromNARCInMemory(var5);
+    Object3D *var8;
+    if (var7 != NULL) {
+        arg1->unknown_4_    = static_cast<Object3D*>(var1->Allocate(sizeof(Object3D)));
+        void *var9 = DecompressLZ77FileIntoAllocatedSpace(*var1, var7, var6);
+        if (var9 != NULL && arg1->unknown_4_ != 0) {
+            Object3D *var10 = arg1->unknown_4_;
+            var10->Initialize();
+            func_0207df90(var2);
+            var10 = arg1->unknown_4_;
+            var10->SetModelFromFile(var1, var9, var6, Model3D::TextureStagingMode_Normal);
+            func_0207dfac(var2);
+            Model3D *var11 = arg1->unknown_4_->pModel_;
+            if (var11 != NULL) {
+                NSBXXTex *var12 = var11->GetTEX0();
+                if (var12 != NULL) {
+                    arg0->textureImageMemory_ += NSBXX_Tex_GetBlock1Length(var12);
+                    arg0->texturePaletteMemory_ += NSBXX_Tex_GetBlock4Length(var12);
                 }
-                if (!(static_cast<unsigned char>(source->pad[2]) & 0x20) && applyLighting) {
-                    lighting->ModelTransformTintBrightnessContrast(model->rawInternalModel_);
+                if (!(static_cast<unsigned char>(arg2->unknown_0_[2]) & 0x20) && var4) {
+                    var3->ModelTransformTintBrightnessContrast(var11->rawInternalModel_);
                 }
-                for (Zone3D::Model3DListNode *node = zone->firstModel_418_; node != NULL; node = node->pNext_) {
-                    model->ApplyTexturesFromModel(&node->model_);
-                    model->SetTEX0(node->model_.GetTEX0());
+                for (Zone3D::Model3DListNode *var13 = arg0->firstModel_418_; var13 != NULL; var13 = var13->pNext_) {
+                    var11->ApplyTexturesFromModel(&var13->model_);
+                    var11->SetTEX0(var13->model_.GetTEX0());
                 }
             }
         }
-        object = tracker->field4;
-        if (object == NULL || object->pModel_ == NULL) {
-            tracker->field0 = -1;
+        var8 = arg1->unknown_4_;
+        if (var8 == NULL || var8->pModel_ == NULL) {
+            arg1->unknown_0_ = -1;
             return 0;
         }
     } else {
-        tracker->field0 = -1;
+        arg1->unknown_0_ = -1;
         return 0;
     }
-    if (object != NULL) {
-        ZoneAnimationResources resources = data_020e6f48;
-        for (ZoneAnimationResource *resource = resources.entries; resource->mask != 0; resource++) {
-            if (resource->mask & static_cast<unsigned char>(source->pad[2])) {
-                func_02014d18(source->id, resource->extension, filename);
-                const void *animationFile = GetFileFromNARCInMemory(filename);
-                if (animationFile != NULL) {
-                    void *animationData = DecompressLZ77FileIntoAllocatedSpace(*allocator, animationFile, size);
-                    if (animationData != NULL) {
-                        if (resource->slot < 0) {
-                            object->LoadType0AnimationPackageFromBCFGScript(allocator, animationData, size);
+    if (var8 != NULL) {
+        Struct_020e6f48 var14 = data_020e6f48;
+        for (Struct_020151cc *var15 = var14.unknown_0_; var15->unknown_0_ != 0; var15++) {
+            if (var15->unknown_0_ & static_cast<unsigned char>(arg2->unknown_0_[2])) {
+                func_02014d18(arg2->unknown_4_, var15->unknown_8_, var5);
+                const void *var16 = GetFileFromNARCInMemory(var5);
+                if (var16 != NULL) {
+                    void *var17 = DecompressLZ77FileIntoAllocatedSpace(*var1, var16, var6);
+                    if (var17 != NULL) {
+                        if (var15->unknown_4_ < 0) {
+                            var8->LoadType0AnimationPackageFromBCFGScript(var1, var17, var6);
                         } else {
-                            object->LoadType0AnimationFromPersistentMemory(resource->slot, allocator, animationData, size);
+                            var8->LoadType0AnimationFromPersistentMemory(var15->unknown_4_, var1, var17, var6);
                         }
                     }
                 }
             }
         }
     }
-    tracker->field0 = 2;
+    arg1->unknown_0_ = 2;
     return 1;
 }

@@ -9,17 +9,17 @@
 #endif
 #include <globaldefs.h>
 
-struct TaggedNumber02184c30 {
-    int type;
-    union { int i; float f; } value;
+struct Struct_ov011_02184c30 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
 extern "C" void* func_020421a0();
-extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
+extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 // USA: func_ov011_02188014
-extern "C" ARM int func_ov011_02188014(struct TaggedNumber02184c30* params, int count) {
-    int value = func_ov011_02184c30(&params[0]);
-    *(int*)((char*)func_020421a0() + R(0x86c, 0x99c)) = value;
+extern "C" ARM int func_ov011_02188014(struct Struct_ov011_02184c30* arg0, int arg1) {
+    int var0 = func_ov011_02184c30(&arg0[0]);
+    *(int*)((char*)func_020421a0() + R(0x86c, 0x99c)) = var0;
     return 1;
 }

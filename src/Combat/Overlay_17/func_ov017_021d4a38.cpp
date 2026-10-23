@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Pair021d4a64 { int a; int b; };
-extern "C" void func_ov017_021d4a64(Pair021d4a64* dst, Pair021d4a64* src);
+struct Struct_ov017_021d4a38_2 { int unknown_0_; int unknown_4_; };
+extern "C" void func_ov017_021d4a64(Struct_ov017_021d4a38_2* arg0, Struct_ov017_021d4a38_2* arg1);
 
-struct S1_021d4a38 { unsigned char pad[0x14]; Pair021d4a64* cursor; };
+struct Struct_ov017_021d4a38 { unsigned char unknown_0_[0x14]; Struct_ov017_021d4a38_2* unknown_14_; };
 
 // USA: func_ov017_021d4a38
-extern "C" ARM void func_ov017_021d4a38(S1_021d4a38* obj, Pair021d4a64 arg) {
-	Pair021d4a64* e = obj->cursor;
-	obj->cursor = e + 1;
-	func_ov017_021d4a64(e, &arg);
+extern "C" ARM void func_ov017_021d4a38(Struct_ov017_021d4a38* arg0, Struct_ov017_021d4a38_2 arg1) {
+	Struct_ov017_021d4a38_2* var0 = arg0->unknown_14_;
+	arg0->unknown_14_ = var0 + 1;
+	func_ov017_021d4a64(var0, &arg1);
 }

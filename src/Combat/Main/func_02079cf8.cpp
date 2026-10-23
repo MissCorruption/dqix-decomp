@@ -8,11 +8,11 @@ extern "C" {
     void __clear(void*, unsigned int);
 }
 
-struct Struct0200fb08;
-extern "C" int func_0200fb08(Struct0200fb08*);
+struct Struct_02000c9c_8;
+extern "C" int func_0200fb08(Struct_02000c9c_8*);
 
-struct Obj02079808;
-extern "C" void* func_02079a3c(void* obj);
+struct Struct_02079808;
+extern "C" void* func_02079a3c(void* arg0);
 
 extern unsigned char data_0211e33c[0x30000];
 extern const char data_020f0e02[];
@@ -22,44 +22,44 @@ extern const char data_020f0e28[];
 #if !defined(jpn)
 // USA: func_02079cf8
 #pragma opt_propagation off
-extern "C" ARM void func_02079cf8(ActionDataTables* obj, SafeAllocator* a1, SafeAllocator* a2) {
-    unsigned int len;
-    unsigned char* base;
-    base = data_0211e33c;
-    unsigned int capacity = sizeof(data_0211e33c);
-    GPCReadPair pair;
-    func_02079a3c(&pair);
+extern "C" ARM void func_02079cf8(Struct_02108e10* arg0, SafeAllocator* arg1, SafeAllocator* arg2) {
+    unsigned int var0;
+    unsigned char* var1;
+    var1 = data_0211e33c;
+    unsigned int var2 = sizeof(data_0211e33c);
+    GPCReadPair var3;
+    func_02079a3c(&var3);
 
-    unsigned int sizeOut;
+    unsigned int var4;
 
-    const char* name = data_020f0e02;
-    bool ok = LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine,
-        name, base, sizeOut, capacity, false, NULL);
-    if (ok) {
-        unsigned int outSize2 = 0;
-        len = sizeOut;
-        capacity -= len;
-        GameState* battle = GameState::GetInstance();
-        char buf[0x20];
-        __clear(buf, sizeof(buf));
+    const char* var5 = data_020f0e02;
+    bool var6 = LoadAndDecompressGPCHeaderAndInnerFileInfo(&var3.pGPCFile, var3.machine,
+        var5, var1, var4, var2, false, NULL);
+    if (var6) {
+        unsigned int var7 = 0;
+        var0 = var4;
+        var2 -= var0;
+        GameState* var8 = GameState::GetInstance();
+        char var9[0x20];
+        __clear(var9, sizeof(var9));
 
-        int language = func_0200fb08((Struct0200fb08*)battle);
-        StringReplaceLanguageTag(data_020f0e17, buf, language);
+        int var10 = func_0200fb08((Struct_02000c9c_8*)var8);
+        StringReplaceLanguageTag(data_020f0e17, var9, var10);
 
-        DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, base + len,
-            outSize2, capacity, buf);
+        DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var1 + var0,
+            var7, var2, var9);
 
-        func_02079a58(&obj->alternateActions, a1, base + len,
-            func_02079808, 0, a2);
+        func_02079a58(&arg0->unknown_c_, arg1, var1 + var0,
+            func_02079808, 0, arg2);
 
-        DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, base + len,
-            outSize2, capacity, data_020f0e28);
+        DecompressFileFromGPCByName(var3.pGPCFile, var3.machine, var1 + var0,
+            var7, var2, data_020f0e28);
 
-        func_02079bac(&obj->alternateDamage, a1, base + len, NULL, 0, 0);
+        func_02079bac(&arg0->unknown_24_, arg1, var1 + var0, NULL, 0, 0);
     }
 
-    pair.Reset();
-    ZeroDestroyGPCPointer(&pair.pGPCFile);
+    var3.Reset();
+    ZeroDestroyGPCPointer(&var3.pGPCFile);
 }
 
 #endif

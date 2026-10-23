@@ -2,50 +2,50 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Vec3s02030fc8;
+struct Struct_020341e0;
 struct Vector3s;
 void Vector3fix16Copy(Vector3s*, Vector3s const*);
 
-struct Inner021d360c {
-    unsigned char a;
-    unsigned char b;
-    unsigned short c;
-    unsigned char vec[6];
-    unsigned char pad2[6];
+struct Struct_ov017_021d360c {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_[6];
+    unsigned char unknown_a_[6];
 };
 
-struct LocalEvt021d360c {
-    unsigned char tag;
-    unsigned char pad0[3];
-    struct Inner021d360c fields;
+struct Struct_ov017_021d360c_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    struct Struct_ov017_021d360c unknown_4_;
 };
 
 // USA: func_ov017_021d360c
-extern "C" ARM void func_ov017_021d360c(int a, int b, int c, int d) {
-    void* data = func_0202ae24();
-    struct LocalEvt021d360c buf;
-    struct Inner021d360c* p = &buf.fields;
+extern "C" ARM void func_ov017_021d360c(int arg0, int arg1, int arg2, int arg3) {
+    void* var0 = func_0202ae24();
+    struct Struct_ov017_021d360c_2 var1;
+    struct Struct_ov017_021d360c* var2 = &var1.unknown_4_;
 
-    if (a != 1) goto sendEvent;
+    if (arg0 != 1) goto sendEvent;
     {
-        int le3 = (unsigned int)c <= 3;
-        if (le3) goto sendEvent;
+        int var3 = (unsigned int)arg2 <= 3;
+        if (var3) goto sendEvent;
     }
     {
-        GameObject* combatant = GameState::GetInstance()->GetMaybeFieldMonsterByIndex(c);
-        if (combatant == 0) return;
-        unsigned short v = *(unsigned short*)((char*)combatant + 0x100 + 0x6a);
-        c = (unsigned short)(v + 4);
+        GameObject* var4 = GameState::GetInstance()->GetMaybeFieldMonsterByIndex(arg2);
+        if (var4 == 0) return;
+        unsigned short var5 = *(unsigned short*)((char*)var4 + 0x100 + 0x6a);
+        arg2 = (unsigned short)(var5 + 4);
     }
 
 sendEvent:
-    buf.tag = 0xb6;
-    p->a = (unsigned char)a;
-    p->b = (unsigned char)b;
-    p->c = (unsigned short)c;
-    Vector3fix16Copy((Vector3s*)p->vec, (Vector3s const*)&d);
+    var1.unknown_0_ = 0xb6;
+    var2->unknown_0_ = (unsigned char)arg0;
+    var2->unknown_1_ = (unsigned char)arg1;
+    var2->unknown_2_ = (unsigned short)arg2;
+    Vector3fix16Copy((Vector3s*)var2->unknown_4_, (Vector3s const*)&arg3);
 
-    func_0205e330(data, &buf, 0);
+    func_0205e330(var0, &var1, 0);
 }

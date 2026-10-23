@@ -3,50 +3,50 @@
 #include "std_library_functions.h"
 #endif
 
-struct State0xc0cc {
+struct Struct_0203c0cc {
 #if defined(jpn)
-    char entries[0x14];
-    int unk14;
-    int unk18;
-    int unk1c;
-    int unk20;
-    int unk24;
-    int unk28;
-    int unk2c;
-    unsigned int low16 : 16;
-    unsigned int next8 : 8;
-    unsigned int high8 : 8;
-    int unk34;
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    int unknown_2c_;
+    unsigned int unknown_30_0_ : 16;
+    unsigned int unknown_32_0_ : 8;
+    unsigned int unknown_33_0_ : 8;
+    int unknown_34_;
 #else
-    int unk0;
-    int unk4;
-    int unk8;
-    int unkC;
-    int unk10;
-    short unk14;
+    int unknown1_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    short unknown1_14_;
 #endif
 };
 
 // USA: func_0203c0cc
-extern "C" ARM void func_0203c0cc(struct State0xc0cc* obj) {
+extern "C" ARM void func_0203c0cc(struct Struct_0203c0cc* arg0) {
 #if defined(jpn)
-    memset(obj->entries, -1, sizeof(obj->entries));
-    obj->unk18 = 0;
-    obj->unk14 = 0;
-    obj->unk1c = 16;
-    obj->unk20 = 12;
-    obj->unk24 = 0;
-    obj->unk2c = 0;
-    obj->low16 = 0;
-    obj->next8 = 0;
-    obj->unk34 = 0;
-    obj->unk28 = 0;
+    memset(arg0->unknown_0_, -1, sizeof(arg0->unknown_0_));
+    arg0->unknown_18_ = 0;
+    arg0->unknown_14_ = 0;
+    arg0->unknown_1c_ = 16;
+    arg0->unknown_20_ = 12;
+    arg0->unknown_24_ = 0;
+    arg0->unknown_2c_ = 0;
+    arg0->unknown_30_0_ = 0;
+    arg0->unknown_32_0_ = 0;
+    arg0->unknown_34_ = 0;
+    arg0->unknown_28_ = 0;
 #else
-    obj->unk4 = 0;
-    obj->unk0 = 0;
-    obj->unk8 = 0;
-    obj->unk10 = 0;
-    obj->unkC = 0;
-    obj->unk14 = -1;
+    arg0->unknown_4_ = 0;
+    arg0->unknown1_0_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown1_14_ = -1;
 #endif
 }

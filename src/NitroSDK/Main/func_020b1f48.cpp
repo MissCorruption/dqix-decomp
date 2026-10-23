@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-typedef unsigned short u16;
+typedef unsigned short Type_020b0a1c;
 
-extern "C" void func_020b1ff8(void *areaBase, int areaWidth, int areaHeight, int scnWidth, int charNo, int cplt);
+extern "C" void func_020b1ff8(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 // USA: func_020b1f48
-extern "C" ARM void func_020b1f48(void *scnBase, int areaWidth, int areaHeight, int areaLeft, int areaTop, int scnWidth, int charNo, int cplt) {
-    if (scnWidth <= 32) {
-        void *areaBase = (u16 *)scnBase + (scnWidth * areaTop + areaLeft);
-        func_020b1ff8(areaBase, areaWidth, areaHeight, scnWidth, charNo, cplt);
+extern "C" ARM void func_020b1f48(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
+    if (arg5 <= 32) {
+        void *var0 = (Type_020b0a1c *)arg0 + (arg5 * arg4 + arg3);
+        func_020b1ff8(var0, arg1, arg2, arg5, arg6, arg7);
     } else {
-        const int areaRight = areaLeft + areaWidth;
-        const int areaBottom = areaTop + areaHeight;
-        const u16 cplt_sft = (u16)(cplt << 12);
-        u16 *const pScrBase = (u16 *)scnBase;
-        int x, y;
+        const int var1 = arg3 + arg1;
+        const int var2 = arg4 + arg2;
+        const Type_020b0a1c var3 = (Type_020b0a1c)(arg7 << 12);
+        Type_020b0a1c *const var4 = (Type_020b0a1c *)arg0;
+        int var5, var6;
 
-        for (y = areaTop; y < areaBottom; ++y) {
-            const int py = (y < 32) ? y : y + 32;
-            u16 *pScr = pScrBase + py * 32;
+        for (var6 = arg4; var6 < var2; ++var6) {
+            const int var7 = (var6 < 32) ? var6 : var6 + 32;
+            Type_020b0a1c *var8 = var4 + var7 * 32;
 
-            for (x = areaLeft; x < areaRight; ++x) {
-                const int px = (x < 32) ? x : x + 32 * 31;
-                *(pScr + px) = (u16)(cplt_sft | charNo++);
+            for (var5 = arg3; var5 < var1; ++var5) {
+                const int var9 = (var5 < 32) ? var5 : var5 + 32 * 31;
+                *(var8 + var9) = (Type_020b0a1c)(var3 | arg6++);
             }
         }
     }

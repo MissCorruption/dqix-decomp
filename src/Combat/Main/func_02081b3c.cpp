@@ -1,82 +1,82 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Flags02081b3c {
-    unsigned char loNibble : 4;
-    unsigned char hiNibble : 4;
+struct Struct_02081b3c_2 {
+    unsigned char unknown_0_0_ : 4;
+    unsigned char unknown_0_4_ : 4;
 };
-struct Flags14_02081b3c {
-    unsigned char f14lo : 2;
-    unsigned char f14pad : 6;
+struct Struct_02081b3c {
+    unsigned char unknown_0_0_ : 2;
+    unsigned char unknown_0_2_ : 6;
 };
 
-extern "C" ARM int func_02042190(int x);
+extern "C" ARM int func_02042190(int arg0);
 extern "C" ARM int func_020421a0(void);
-extern "C" ARM void func_0206819c(const char* src, char* dst, int flag);
+extern "C" ARM void func_0206819c(const char* arg0, char* arg1, int arg2);
 
-extern "C" void __clear(void* buf, int n);
-extern "C" int func_020420e8(void* p, int flag);
-extern "C" void func_02046380(void* global);
-extern "C" int func_02046608(int a, int b, void* c, void* d, int e, int f, int g);
-extern "C" int func_0204f41c(void* target, int a, int b, void* c, int d, int e, void* f, void* g, int h);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_020420e8(void* arg0, int arg1);
+extern "C" void func_02046380(void* arg0);
+extern "C" int func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" int func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, void* arg6, void* arg7, int arg8);
 
-#define F13(e) ((struct Flags02081b3c*)((e) + 0x13))
-#define F14(e) ((struct Flags14_02081b3c*)((e) + 0x14))
+#define F13(e) ((struct Struct_02081b3c_2*)((e) + 0x13))
+#define F14(e) ((struct Struct_02081b3c*)((e) + 0x14))
 
 // USA: func_02081b3c
-extern "C" ARM void func_02081b3c(void* worldRaw, void* targetRaw, void* objRaw) {
-    char* world = (char*)worldRaw;
-    char* target = (char*)targetRaw;
-    char* obj = (char*)objRaw;
+extern "C" ARM void func_02081b3c(void* arg0, void* arg1, void* arg2) {
+    char* var0 = (char*)arg0;
+    char* var1 = (char*)arg1;
+    char* var2 = (char*)arg2;
 
-    int hiNibbleOrFive = F13(obj)->hiNibble;
-    if (*(unsigned char*)(obj + 0x2a) & 0x4) {
-        hiNibbleOrFive = 5;
+    int var3 = F13(var2)->unknown_0_4_;
+    if (*(unsigned char*)(var2 + 0x2a) & 0x4) {
+        var3 = 5;
     }
 
-    int boolResult = func_02042190(F13(obj)->loNibble);
+    int var4 = func_02042190(F13(var2)->unknown_0_0_);
 
-    char buf[0x100];
-    char* textPtr = *(char**)(obj + 0x0);
-    __clear(buf, 0x100);
+    char var5[0x100];
+    char* var6 = *(char**)(var2 + 0x0);
+    __clear(var5, 0x100);
 
-    if (*(unsigned char*)(obj + 0x2a) & 0x40) {
-        func_0206819c(textPtr, buf, boolResult);
-        textPtr = buf;
+    if (*(unsigned char*)(var2 + 0x2a) & 0x40) {
+        func_0206819c(var6, var5, var4);
+        var6 = var5;
     }
 
-    if ((*(unsigned char*)(obj + 0x2a) & 0x8) && textPtr != NULL) {
-        int scaled = *(short*)(target + 0xa8) << 0x13;
-        int adj = func_020420e8(textPtr, boolResult);
-        int val = (int)((unsigned int)((scaled >> 0x10) - adj) << 0x10) >> 0x11;
-        *(short*)(obj + 0x6) = (short)val;
+    if ((*(unsigned char*)(var2 + 0x2a) & 0x8) && var6 != NULL) {
+        int var7 = *(short*)(var1 + 0xa8) << 0x13;
+        int var8 = func_020420e8(var6, var4);
+        int var9 = (int)((unsigned int)((var7 >> 0x10) - var8) << 0x10) >> 0x11;
+        *(short*)(var2 + 0x6) = (short)var9;
     }
 
-    int g = func_020421a0();
-    memset(*(void**)(world + 0x18), 0, 0x960);
-    func_02046380((void*)g);
-    func_02046608(g, F13(obj)->loNibble, textPtr, *(void**)(world + 0x18), 0x100, 0, 0);
+    int var10 = func_020421a0();
+    memset(*(void**)(var0 + 0x18), 0, 0x960);
+    func_02046380((void*)var10);
+    func_02046608(var10, F13(var2)->unknown_0_0_, var6, *(void**)(var0 + 0x18), 0x100, 0, 0);
 
-    int loNibble = F13(obj)->loNibble;
-    *(short*)(target + 0xb4) = (short)loNibble;
-    *(short*)(target + 0xb6) = (short)(loNibble + 1);
+    int var11 = F13(var2)->unknown_0_0_;
+    *(short*)(var1 + 0xb4) = (short)var11;
+    *(short*)(var1 + 0xb6) = (short)(var11 + 1);
 
-    if (*(unsigned char*)(obj + 0x2a) & 0x10) {
-        int loNibble2 = F13(obj)->loNibble;
-        if (loNibble2 == 0xc) {
-            *(short*)(target + 0xb4) = (short)loNibble2;
-            *(short*)(target + 0xb6) = 0x14;
+    if (*(unsigned char*)(var2 + 0x2a) & 0x10) {
+        int var12 = F13(var2)->unknown_0_0_;
+        if (var12 == 0xc) {
+            *(short*)(var1 + 0xb4) = (short)var12;
+            *(short*)(var1 + 0xb6) = 0x14;
         }
     }
 
-    int r1 = 0;
-    if (F14(obj)->f14lo) {
-        r1 = func_020420e8(*(void**)(world + 0x18), 0);
+    int var13 = 0;
+    if (F14(var2)->unknown_0_0_) {
+        var13 = func_020420e8(*(void**)(var0 + 0x18), 0);
     }
 
-    short v6 = *(short*)(obj + 0x6);
-    short v28 = *(short*)(obj + 0x28);
-    short v8 = *(short*)(obj + 0x8);
-    int arg1 = (short)(v6 + v28 - r1);
-    func_0204f41c(target, arg1, v8, *(void**)(world + 0x18), F13(obj)->loNibble, hiNibbleOrFive, obj + 0xa, obj + 0xc, 0);
+    short var14 = *(short*)(var2 + 0x6);
+    short var15 = *(short*)(var2 + 0x28);
+    short var16 = *(short*)(var2 + 0x8);
+    int var17 = (short)(var14 + var15 - var13);
+    func_0204f41c(var1, var17, var16, *(void**)(var0 + 0x18), F13(var2)->unknown_0_0_, var3, var2 + 0xa, var2 + 0xc, 0);
 }

@@ -2,99 +2,99 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Unit02155184;
-extern "C" Unit02155184* func_0200fea4(GameState*, int);
-struct Container02070e60;
-struct BinarySearchByComparatorStruct;
-extern "C" void* func_02070fd0(Container02070e60*, int);
-extern "C" void* func_0206f4f0(BinarySearchByComparatorStruct*, int);
+struct Struct_ov000_02155184;
+extern "C" Struct_ov000_02155184* func_0200fea4(GameState*, int);
+struct Struct_02070b6c_3;
+struct Struct_0206f01c_2;
+extern "C" void* func_02070fd0(Struct_02070b6c_3*, int);
+extern "C" void* func_0206f4f0(Struct_0206f01c_2*, int);
 
-struct Unit02155184 {
-    char p0[2]; unsigned short key; char p1[0x138-4];
-    unsigned char* details; char p2[8]; unsigned short* optional;
-    char p3[0x17c-0x148]; unsigned char action, processed, flags;
-    char p4[5]; unsigned char alternate; char p5;
-    unsigned short alternateKey; char p6[4]; unsigned char alternateAction;
+struct Struct_ov000_02155184 {
+    char unknown_0_[2]; unsigned short unknown_2_; char unknown_4_[0x138-4];
+    unsigned char* unknown_138_; char unknown_13c_[8]; unsigned short* unknown_144_;
+    char unknown_148_[0x17c-0x148]; unsigned char unknown_17c_, unknown_17d_, unknown_17e_;
+    char unknown_17f_[5]; unsigned char unknown_184_; char unknown_185_;
+    unsigned short unknown_186_; char unknown_188_[4]; unsigned char unknown_18c_;
 };
-struct Entry02155184 {
-    unsigned short action:3, count:11, flagA:1, flagB:1;
-    unsigned short key, optional;
-    unsigned char flags, detailFlags, credited, specialCount;
+struct Struct_ov000_02155184_4 {
+    unsigned short unknown_0_0_:3, unknown_0_3_:11, unknown_1_6_:1, unknown_1_7_:1;
+    unsigned short unknown_2_, unknown_4_;
+    unsigned char unknown_6_, unknown_7_, unknown_8_, unknown_9_;
 };
-struct Action02155184 { char p[22]; unsigned char flagB, flagA; };
-struct Root02155184 {
-    char p0[0x81b4]; Action02155184 actions[3];
-    char p1[0x8d66-0x81fc]; Entry02155184 entries[12];
-    char p2[0x8e18-0x8dde]; char* info;
-    char p3[12]; int total; int secondary; int entryCount; int specialTotal;
+struct Struct_ov000_02155184_5 { char unknown_0_[22]; unsigned char unknown_16_, unknown_17_; };
+struct Struct_ov000_02155184_6 {
+    char unknown_0_[0x81b4]; Struct_ov000_02155184_5 unknown_81b4_[3];
+    char unknown_81fc_[0x8d66-0x81fc]; Struct_ov000_02155184_4 unknown_8d66_[12];
+    char unknown_8dde_[0x8e18-0x8dde]; char* unknown_8e18_;
+    char unknown_8e1c_[12]; int unknown_8e28_; int unknown_8e2c_; int unknown_8e30_; int unknown_8e34_;
 };
-struct Record02155184 { char p[8]; int total; unsigned short secondary; };
-struct Filter02155184 { char p[10]; unsigned short unused:12, special:1, rest:3; };
+struct Struct_ov000_02155184_2 { char unknown_0_[8]; int unknown_8_; unsigned short unknown_c_; };
+struct Struct_ov000_02155184_3 { char unknown_0_[10]; unsigned short unknown_a_0_:12, unknown_b_4_:1, unknown_b_5_:3; };
 
-static inline int GetAction02155184(Unit02155184* unit) { return unit->action; }
-static inline int IsPartySlot02155184(int id) { return id >= 0 && id <= 3; }
+static inline int inline_ov000_02155184(Struct_ov000_02155184* arg0) { return arg0->unknown_17c_; }
+static inline int inline_ov000_02155184_2(int arg0) { return arg0 >= 0 && arg0 <= 3; }
 
 // USA: func_ov000_02155184
-extern "C" ARM void func_ov000_02155184(Root02155184* obj, int id, int flags) {
-    if (IsPartySlot02155184(id)) return;
-    Unit02155184* unit = func_0200fea4(GameState::GetInstance(), id);
-    if (!unit) return;
-    char* search = obj->info + 0x284;
-    unsigned short key = unit->key;
-    Record02155184* record;
-    char* filterSearch = obj->info + 0x678;
-    int action = unit->action;
-    if (unit->alternate) { key = unit->alternateKey; action = unit->alternateAction; }
-    record = (Record02155184*)func_02070fd0((Container02070e60*)(search + 0x400), key);
-    if (!record) return;
-    Filter02155184* filter = (Filter02155184*)func_0206f4f0((BinarySearchByComparatorStruct*)filterSearch, (short)key);
-    if (!filter || unit->processed) return;
-    int credited = 0;
-    if (!(flags & 0x10) && !(flags & 0x20)) {
-        obj->total += record->total;
-        obj->secondary += record->secondary;
-        credited = 1;
-        if (filter && filter->special) obj->specialTotal += record->total;
-        unit->processed = 1;
+extern "C" ARM void func_ov000_02155184(Struct_ov000_02155184_6* arg0, int arg1, int arg2) {
+    if (inline_ov000_02155184_2(arg1)) return;
+    Struct_ov000_02155184* var0 = func_0200fea4(GameState::GetInstance(), arg1);
+    if (!var0) return;
+    char* var1 = arg0->unknown_8e18_ + 0x284;
+    unsigned short var2 = var0->unknown_2_;
+    Struct_ov000_02155184_2* var3;
+    char* var4 = arg0->unknown_8e18_ + 0x678;
+    int var5 = var0->unknown_17c_;
+    if (var0->unknown_184_) { var2 = var0->unknown_186_; var5 = var0->unknown_18c_; }
+    var3 = (Struct_ov000_02155184_2*)func_02070fd0((Struct_02070b6c_3*)(var1 + 0x400), var2);
+    if (!var3) return;
+    Struct_ov000_02155184_3* var6 = (Struct_ov000_02155184_3*)func_0206f4f0((Struct_0206f01c_2*)var4, (short)var2);
+    if (!var6 || var0->unknown_17d_) return;
+    int var7 = 0;
+    if (!(arg2 & 0x10) && !(arg2 & 0x20)) {
+        arg0->unknown_8e28_ += var3->unknown_8_;
+        arg0->unknown_8e2c_ += var3->unknown_c_;
+        var7 = 1;
+        if (var6 && var6->unknown_b_4_) arg0->unknown_8e34_ += var3->unknown_8_;
+        var0->unknown_17d_ = 1;
     }
-    Entry02155184* entry;
-    int found = 0;
-    for (int i = 0; i < obj->entryCount; i++) {
-        entry = &obj->entries[i];
-        if (entry->key == key && action == entry->action) {
-            Action02155184* a = &obj->actions[entry->action];
-            entry->count = (unsigned short)(entry->count + 1);
-            entry->flagA = a->flagA;
-            entry->flagB = a->flagB;
-            entry->flags |= unit->flags;
-            unsigned char detailFlags = unit->details[0x3d];
-            detailFlags = entry->detailFlags | detailFlags;
-            entry->detailFlags = detailFlags;
-            entry->credited |= credited;
-            if ((flags & 0x10) || (flags & 0x20)) entry->specialCount++;
-            found = 1;
+    Struct_ov000_02155184_4* var8;
+    int var9 = 0;
+    for (int var10 = 0; var10 < arg0->unknown_8e30_; var10++) {
+        var8 = &arg0->unknown_8d66_[var10];
+        if (var8->unknown_2_ == var2 && var5 == var8->unknown_0_0_) {
+            Struct_ov000_02155184_5* var11 = &arg0->unknown_81b4_[var8->unknown_0_0_];
+            var8->unknown_0_3_ = (unsigned short)(var8->unknown_0_3_ + 1);
+            var8->unknown_1_6_ = var11->unknown_17_;
+            var8->unknown_1_7_ = var11->unknown_16_;
+            var8->unknown_6_ |= var0->unknown_17e_;
+            unsigned char var12 = var0->unknown_138_[0x3d];
+            var12 = var8->unknown_7_ | var12;
+            var8->unknown_7_ = var12;
+            var8->unknown_8_ |= var7;
+            if ((arg2 & 0x10) || (arg2 & 0x20)) var8->unknown_9_++;
+            var9 = 1;
             break;
         }
     }
-    if (found) return;
-    if (obj->entryCount >= 12) return;
-    if (GetAction02155184(unit) >= 3) return;
+    if (var9) return;
+    if (arg0->unknown_8e30_ >= 12) return;
+    if (inline_ov000_02155184(var0) >= 3) return;
     {
-        Action02155184* a = &obj->actions[unit->action];
-        entry = &obj->entries[obj->entryCount];
-        memset(entry, 0, sizeof(*entry));
-        entry->key = key;
-        entry->action = (unsigned short)action;
-        entry->count = 1;
-        entry->flagA = a->flagA;
-        entry->flagB = a->flagB;
-        entry->flags |= unit->flags;
-        unsigned char detailFlags = unit->details[0x3d];
-            detailFlags = entry->detailFlags | detailFlags;
-            entry->detailFlags = detailFlags;
-        entry->credited |= credited;
-        if ((flags & 0x10) || (flags & 0x20)) entry->specialCount++;
-        if (unit->optional) entry->optional = unit->optional[8];
-        obj->entryCount++;
+        Struct_ov000_02155184_5* var13 = &arg0->unknown_81b4_[var0->unknown_17c_];
+        var8 = &arg0->unknown_8d66_[arg0->unknown_8e30_];
+        memset(var8, 0, sizeof(*var8));
+        var8->unknown_2_ = var2;
+        var8->unknown_0_0_ = (unsigned short)var5;
+        var8->unknown_0_3_ = 1;
+        var8->unknown_1_6_ = var13->unknown_17_;
+        var8->unknown_1_7_ = var13->unknown_16_;
+        var8->unknown_6_ |= var0->unknown_17e_;
+        unsigned char var14 = var0->unknown_138_[0x3d];
+            var14 = var8->unknown_7_ | var14;
+            var8->unknown_7_ = var14;
+        var8->unknown_8_ |= var7;
+        if ((arg2 & 0x10) || (arg2 & 0x20)) var8->unknown_9_++;
+        if (var0->unknown_144_) var8->unknown_4_ = var0->unknown_144_[8];
+        arg0->unknown_8e30_++;
     }
 }

@@ -2,32 +2,32 @@
 #include "Memory/SafeAllocator.h"
 
 extern "C" void func_ov003_0217db88(void);
-extern "C" int func_020a1e54(int a);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" int func_020a1e54(int arg0);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern int data_02114e20;
 extern "C" void func_020a0c0c(void);
 
-struct Obj020dae08 {
-    char pad0;
-    char field1;
-    char pad2[0xc - 2];
-    int field0xc;
-    char pad3[0x14 - 0xc - 4];
-    SafeAllocator allocator;
+struct Struct_020dae08 {
+    char unknown_0_;
+    char unknown_1_;
+    char unknown_2_[0xc - 2];
+    int unknown_c_;
+    char unknown_10_[0x14 - 0xc - 4];
+    SafeAllocator unknown_14_;
 };
 
 // USA: func_020dae08
-extern "C" ARM void func_020dae08(struct Obj020dae08* self) {
-    if (self->field0xc != 0) {
+extern "C" ARM void func_020dae08(struct Struct_020dae08* arg0) {
+    if (arg0->unknown_c_ != 0) {
         func_ov003_0217db88();
-        self->field0xc = 0;
+        arg0->unknown_c_ = 0;
         func_020a1e54(1);
     }
-    void* p = self->allocator.GetSignedAllocator();
-    if (p != NULL) {
-        self->allocator.Destroy();
-        func_02012da4((AllocatorUnion*)&data_02114e20, p);
+    void* var0 = arg0->unknown_14_.GetSignedAllocator();
+    if (var0 != NULL) {
+        arg0->unknown_14_.Destroy();
+        func_02012da4((AllocatorUnion*)&data_02114e20, var0);
     }
     func_020a0c0c();
-    self->field1 = 1;
+    arg0->unknown_1_ = 1;
 }

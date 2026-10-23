@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-typedef char* va_list;
+typedef char* Type_02001bdc;
 
-extern "C" int func_020c7198(char* dst, unsigned long len, const char* fmt, va_list ap);
+extern "C" int func_020c7198(char* arg0, unsigned long arg1, const char* arg2, Type_02001bdc arg3);
 
 // USA: func_020c7170
-extern "C" ARM int func_020c7170(char* dst, unsigned long len, const char* fmt, ...) {
-    va_list ap = (va_list)(((unsigned int)&fmt & ~3u) + 4);
-    return func_020c7198(dst, len, fmt, ap);
+extern "C" ARM int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...) {
+    Type_02001bdc var0 = (Type_02001bdc)(((unsigned int)&arg2 & ~3u) + 4);
+    return func_020c7198(arg0, arg1, arg2, var0);
 }

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionalFieldOffset = 0x4196 };
+enum { Enum_ov017_02198e30_17478 = 0x4196 };
 #else
-enum { kRegionalFieldOffset = 0x4446 };
+enum { Enum_ov017_02198e30_17478 = 0x4446 };
 #endif
 #include "GameState/GameState.h"
 
@@ -11,79 +11,79 @@ enum { kRegionalFieldOffset = 0x4446 };
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct ZoneNode02198e30 {
-    unsigned short id;
-    short param;
-    char area[0x10 - 4];
-    unsigned int flags;
-    char pos[0x2c - 0x14];
-    struct ZoneNode02198e30* next;
+struct Struct_ov017_02198e30 {
+    unsigned short unknown_0_;
+    short unknown_2_;
+    char unknown_4_[0x10 - 4];
+    unsigned int unknown_10_;
+    char unknown_14_[0x2c - 0x14];
+    struct Struct_ov017_02198e30* unknown_2c_;
 };
 
-struct ZoneMgr02198e30 {
-    char pad0[0x491];
-    signed char activeId;
-    char pad1[0x494 - 0x492];
-    struct ZoneNode02198e30* head;
+struct Struct_ov017_02198e30_2 {
+    char unknown_0_[0x491];
+    signed char unknown_491_;
+    char unknown_492_[0x494 - 0x492];
+    struct Struct_ov017_02198e30* unknown_494_;
 };
 
-struct LookupBuf02198e30 {
-    char pad0[4];
-    int id;
-    char pad1[0x30 - 8];
-    int field30;
+struct Struct_ov017_02198e30_3 {
+    char unknown_0_[4];
+    int unknown_4_;
+    char unknown_8_[0x30 - 8];
+    int unknown_30_;
 };
 
-extern "C" struct ZoneMgr02198e30* func_0205ec34(void);
-extern "C" int func_020321e0(Vector3fix* pos, void* nodePos, int param, void* area, unsigned int flags);
-extern "C" int func_020649b0(void* a, int mode, void* c);
-extern "C" void func_0206f81c(void* p);
+extern "C" struct Struct_ov017_02198e30_2* func_0205ec34(void);
+extern "C" int func_020321e0(Vector3fix* arg0, void* arg1, int arg2, void* arg3, unsigned int arg4);
+extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" void func_0206f81c(void* arg0);
 
 // USA: func_ov017_02198e30
-extern "C" ARM void func_ov017_02198e30(unsigned char* self) {
-    GameState* gs = GameState::GetInstance();
-    struct ZoneMgr02198e30* mgr = func_0205ec34();
-    struct ZoneNode02198e30* node = mgr->head;
-    GameObject* obj = gs->GetUnknownGameObject();
+extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_ov017_02198e30_2* var1 = func_0205ec34();
+    struct Struct_ov017_02198e30* var2 = var1->unknown_494_;
+    GameObject* var3 = var0->GetUnknownGameObject();
 
-    for (; node != 0; node = node->next) {
-        if (func_020321e0(&obj->obj3D_.position_, node->pos, node->param, node->area, node->flags)) {
+    for (; var2 != 0; var2 = var2->unknown_2c_) {
+        if (func_020321e0(&var3->obj3D_.position_, var2->unknown_14_, var2->unknown_2_, var2->unknown_4_, var2->unknown_10_)) {
             break;
         }
     }
 
-    signed char cur = mgr->activeId;
+    signed char var4 = var1->unknown_491_;
 
-    if (node == 0) {
-        if (cur > -1) {
-            struct LookupBuf02198e30 c1;
-            c1.id = cur;
-            if (func_020649b0(mgr, 5, &c1)) {
-                func_0206f81c(&c1);
+    if (var2 == 0) {
+        if (var4 > -1) {
+            struct Struct_ov017_02198e30_3 var5;
+            var5.unknown_4_ = var4;
+            if (func_020649b0(var1, 5, &var5)) {
+                func_0206f81c(&var5);
             }
-            mgr->activeId = -1;
+            var1->unknown_491_ = -1;
         }
         return;
     }
 
-    if (node->id == cur) return;
+    if (var2->unknown_0_ == var4) return;
 
-    struct LookupBuf02198e30 c2;
-    if (cur > -1) {
-        c2.id = cur;
-        if (func_020649b0(mgr, 5, &c2)) {
-            func_0206f81c(&c2);
+    struct Struct_ov017_02198e30_3 var6;
+    if (var4 > -1) {
+        var6.unknown_4_ = var4;
+        if (func_020649b0(var1, 5, &var6)) {
+            func_0206f81c(&var6);
         }
-        c2.id = -1;
-        c2.field30 = 0;
+        var6.unknown_4_ = -1;
+        var6.unknown_30_ = 0;
     }
 
-    self[kRegionalFieldOffset] = node->id;
-    c2.id = node->id;
-    if (func_020649b0(mgr, 2, &c2)) {
-        func_0206f81c(&c2);
+    arg0[Enum_ov017_02198e30_17478] = var2->unknown_0_;
+    var6.unknown_4_ = var2->unknown_0_;
+    if (func_020649b0(var1, 2, &var6)) {
+        func_0206f81c(&var6);
     }
 
-    unsigned short id = node->id;
-    func_0205ec34()->activeId = id;
+    unsigned short var7 = var2->unknown_0_;
+    func_0205ec34()->unknown_491_ = var7;
 }

@@ -2,58 +2,58 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void func_02087628(char* p);
+extern "C" void func_02087628(char* arg0);
 
-extern "C" unsigned char func_02011494(char* src, void* dst);
+extern "C" unsigned char func_02011494(char* arg0, void* arg1);
 
-extern "C" int func_020100a8(GameState* b);
+extern "C" int func_020100a8(GameState* arg0);
 
-extern "C" void __clear(void* buf, int size);
+extern "C" void __clear(void* arg0, int arg1);
 
-extern "C" void* func_02053c6c(unsigned char* p);
+extern "C" void* func_02053c6c(unsigned char* arg0);
 
-extern "C" signed char func_ov017_021b6c2c(int a, int b);
+extern "C" signed char func_ov017_021b6c2c(int arg0, int arg1);
 
-struct Base02087510;
-extern "C" int func_02087510(Base02087510* base, char id, void* data);
+struct Struct_02087510;
+extern "C" int func_02087510(Struct_02087510* arg0, char arg1, void* arg2);
 
 #define GetCombatantAtField0x3ac _Z24GetCombatantAtField0x3acP9GameState
 
-struct Obj020397cc;
-extern "C" void func_020397cc(Obj020397cc* p, int flag);
+struct Struct_02018300_3;
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
 
 // USA: func_ov017_021b6c78
 extern "C" ARM void func_ov017_021b6c78(void) {
-    GameState* battle = GameState::GetInstance();
-    void* region = func_02010828(battle);
-    func_02087628((char*)region);
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02010828(var0);
+    func_02087628((char*)var1);
 
-    if (*((unsigned char*)region + 0xf7c) <= 1) {
+    if (*((unsigned char*)var1 + 0xf7c) <= 1) {
         return;
     }
 
-    char buf1[4];
-    char buf2[0x10];
-    unsigned char count = func_02011494((char*)battle, buf1);
+    char var2[4];
+    char var3[0x10];
+    unsigned char var4 = func_02011494((char*)var0, var2);
 
-    for (unsigned char idx = 0; idx < count; idx = (unsigned char)(idx + 1)) {
-        char id = buf1[idx];
-        if (id != func_020100a8(battle)) {
-            __clear(buf2, 0x10);
-            GameObject* combatant = func_0200ff1c(battle, id);
-            if (combatant) {
-                unsigned char* fp = (unsigned char*)func_02053c6c((unsigned char*)combatant);
-                memcpy(buf2, fp + 0x54 + 0x400, 0x10);
+    for (unsigned char var5 = 0; var5 < var4; var5 = (unsigned char)(var5 + 1)) {
+        char var6 = var2[var5];
+        if (var6 != func_020100a8(var0)) {
+            __clear(var3, 0x10);
+            GameObject* var7 = func_0200ff1c(var0, var6);
+            if (var7) {
+                unsigned char* var8 = (unsigned char*)func_02053c6c((unsigned char*)var7);
+                memcpy(var3, var8 + 0x54 + 0x400, 0x10);
             }
-            signed char v = func_ov017_021b6c2c(id, 1);
-            if (v >= 0) {
-                func_02087510((Base02087510*)region, v, buf2);
+            signed char var9 = func_ov017_021b6c2c(var6, 1);
+            if (var9 >= 0) {
+                func_02087510((Struct_02087510*)var1, var9, var3);
             }
         }
     }
 
-    GameObject* c = battle->GetProtagonist();
-    if (c) {
-        func_020397cc((Obj020397cc*)c, 1);
+    GameObject* var10 = var0->GetProtagonist();
+    if (var10) {
+        func_020397cc((Struct_02018300_3*)var10, 1);
     }
 }

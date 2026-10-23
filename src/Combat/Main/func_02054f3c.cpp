@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Obj02054f3c {
-    int field0;
-    int field4;
-    int field8;
+struct Struct_020546c8_9 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
 // USA: func_02054f3c
-extern "C" ARM bool func_02054f3c(struct Obj02054f3c** out, SafeAllocator* alloc) {
-    struct Obj02054f3c* p;
-    if (alloc == NULL) return false;
-    p = (struct Obj02054f3c*)alloc->Allocate(0xc);
-    *out = p;
-    if (p == NULL) return false;
-    p->field0 = 0;
-    p->field4 = 0;
-    p->field8 = 0;
+extern "C" ARM bool func_02054f3c(struct Struct_020546c8_9** arg0, SafeAllocator* arg1) {
+    struct Struct_020546c8_9* var0;
+    if (arg1 == NULL) return false;
+    var0 = (struct Struct_020546c8_9*)arg1->Allocate(0xc);
+    *arg0 = var0;
+    if (var0 == NULL) return false;
+    var0->unknown_0_ = 0;
+    var0->unknown_4_ = 0;
+    var0->unknown_8_ = 0;
     return true;
 }

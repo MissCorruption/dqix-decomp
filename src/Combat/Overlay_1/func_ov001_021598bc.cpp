@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct LimitStruct021598bc { char pad[0x10]; int limit; };
-struct CounterStruct021598bc { char pad[0x64]; int count; };
+struct Struct_ov001_021598bc { char unknown_0_[0x10]; int unknown_10_; };
+struct Struct_ov001_021598bc_2 { char unknown_0_[0x64]; int unknown_64_; };
 
 // USA: func_ov001_021598bc
-extern "C" ARM int func_ov001_021598bc(LimitStruct021598bc* lim, CounterStruct021598bc* cnt) {
-	int cur = cnt->count;
-	int max = lim->limit;
-	if (cur >= max) {
-		cnt->count = 0;
+extern "C" ARM int func_ov001_021598bc(Struct_ov001_021598bc* arg0, Struct_ov001_021598bc_2* arg1) {
+	int var0 = arg1->unknown_64_;
+	int var1 = arg0->unknown_10_;
+	if (var0 >= var1) {
+		arg1->unknown_64_ = 0;
 		return 0;
 	}
-	cnt->count = cur + 1;
+	arg1->unknown_64_ = var0 + 1;
 	return 1;
 }

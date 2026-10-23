@@ -1,62 +1,62 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" ARM void func_02048144(void* p);
+extern "C" ARM void func_02048144(void* arg0);
 struct Vector3i;
 
-struct Bits41_37474 {
-    char unk0[0x41];
-    unsigned char lo5 : 5;
-    unsigned char hi3 : 3;
+struct Struct_020489e8 {
+    char unknown_0_[0x41];
+    unsigned char unknown_41_0_ : 5;
+    unsigned char unknown_41_5_ : 3;
 };
 
-struct Obj02034a30 {
-    unsigned short field0;
-    unsigned short field2;
-    float field4;
+struct Struct_020489e8_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    float unknown_4_;
 };
 
-extern "C" void func_02048f64(void* obj);
-extern "C" void func_0204956c(void* obj);
+extern "C" void func_02048f64(void* arg0);
+extern "C" void func_0204956c(void* arg0);
 
-struct Obj0204a054;
-extern "C" void func_0204a054(struct Obj0204a054* obj);
+struct Struct_020489e8_3;
+extern "C" void func_0204a054(struct Struct_020489e8_3* arg0);
 
-struct Sub0204a054Ext_020489e8 {
-    char pad0[0x10];
-    int vec[3];
-    char pad1[0x20 - 0x1c];
-    int flags;
+struct Struct_020489e8_4 {
+    char unknown_0_[0x10];
+    int unknown_10_[3];
+    char unknown_1c_[0x20 - 0x1c];
+    int unknown_20_;
 };
 
-struct Obj020489e8 {
-    char pad0[0x44];
-    int vecSrc[3];
-    char pad1[0x54 - 0x50];
-    int field0x54;
-    char pad2[0x13c - 0x58];
-    struct Sub0204a054Ext_020489e8* field13c;
+struct Struct_020489e8_5 {
+    char unknown_0_[0x44];
+    int unknown_44_[3];
+    char unknown_50_[0x54 - 0x50];
+    int unknown_54_;
+    char unknown_58_[0x13c - 0x58];
+    struct Struct_020489e8_4* unknown_13c_;
 };
 
 // USA: func_020489e8
-extern "C" ARM void func_020489e8(struct Obj020489e8* obj) {
-    func_02048144(obj);
-    if (obj->field13c == NULL) return;
-    if (obj->field13c->flags & 1) {
-        *(Vector3i*)obj->field13c->vec = *(Vector3i const*)obj->vecSrc;
-        obj->field13c->vec[1] = obj->field0x54;
+extern "C" ARM void func_020489e8(struct Struct_020489e8_5* arg0) {
+    func_02048144(arg0);
+    if (arg0->unknown_13c_ == NULL) return;
+    if (arg0->unknown_13c_->unknown_20_ & 1) {
+        *(Vector3i*)arg0->unknown_13c_->unknown_10_ = *(Vector3i const*)arg0->unknown_44_;
+        arg0->unknown_13c_->unknown_10_[1] = arg0->unknown_54_;
     }
-    int isNonzero = 0.0f != ((struct Obj02034a30*)((char*)obj->field13c + 0x60))->field4;
-    if (isNonzero) {
-        GameState* battleStruct = GameState::GetInstance();
-        int threshold = battleStruct->GetEffectiveDeltaTime();
-        int bits = ((Object3D*)((struct Bits41_37474*)obj))->GetOwnAlpha();
-        ((AlphaTween*)(&((struct Obj02034a30*)((char*)obj->field13c + 0x60))->field0))->SetCurrentValue((float)bits);
-        float result = ((AlphaTween*)((struct Obj02034a30*)((char*)obj->field13c + 0x60)))->Advance(threshold);
-        unsigned char v = (unsigned char)(int)result;
-        ((struct Bits41_37474*)obj)->lo5 = v;
+    int var0 = 0.0f != ((struct Struct_020489e8_2*)((char*)arg0->unknown_13c_ + 0x60))->unknown_4_;
+    if (var0) {
+        GameState* var1 = GameState::GetInstance();
+        int var2 = var1->GetEffectiveDeltaTime();
+        int var3 = ((Object3D*)((struct Struct_020489e8*)arg0))->GetOwnAlpha();
+        ((AlphaTween*)(&((struct Struct_020489e8_2*)((char*)arg0->unknown_13c_ + 0x60))->unknown_0_))->SetCurrentValue((float)var3);
+        float var4 = ((AlphaTween*)((struct Struct_020489e8_2*)((char*)arg0->unknown_13c_ + 0x60)))->Advance(var2);
+        unsigned char var5 = (unsigned char)(int)var4;
+        ((struct Struct_020489e8*)arg0)->unknown_41_0_ = var5;
     }
-    func_02048f64(obj);
-    func_0204956c(obj);
-    func_0204a054((struct Obj0204a054*)obj);
+    func_02048f64(arg0);
+    func_0204956c(arg0);
+    func_0204a054((struct Struct_020489e8_3*)arg0);
 }

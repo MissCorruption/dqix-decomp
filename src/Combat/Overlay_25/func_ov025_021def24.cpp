@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { WordOffset = 0x8fc };
+enum { Enum_ov025_021def24_1804 = 0x8fc };
 #else
-enum { WordOffset = 0x70c };
+enum { Enum_ov025_021def24_1804 = 0x70c };
 #endif
 
 // USA: func_ov025_021def24
-extern "C" ARM int func_ov025_021def24(void* obj) {
-	unsigned char* base = (unsigned char*)obj;
-	return *(int*)(base + 0x7000 + WordOffset);
+extern "C" ARM int func_ov025_021def24(void* arg0) {
+	unsigned char* var0 = (unsigned char*)arg0;
+	return *(int*)(var0 + 0x7000 + Enum_ov025_021def24_1804);
 }

@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 
-extern "C" void func_02098364(void* entry);
+extern "C" void func_02098364(void* arg0);
 
-struct Entry020982b4 {
-    unsigned char pad[0xe8];
+struct Struct_020982b4_2 {
+    unsigned char unknown_0_[0xe8];
 };
 
-struct Ctx020982b4 {
-    unsigned char pad0[0xb34];
-    int b34;
-    int b38;
-    int b3c;
-    unsigned char b40;
-    unsigned char b41;
-    unsigned char b42;
-    unsigned char pad_b43;
-    int b44;
-    int b48;
-    int b4c;
-    int b50;
-    int b54;
-    int b58;
-    int b5c;
-    unsigned char b60;
-    unsigned char b61;
-    unsigned char b62;
+struct Struct_020982b4 {
+    unsigned char unknown_0_[0xb34];
+    int unknown_b34_;
+    int unknown_b38_;
+    int unknown_b3c_;
+    unsigned char unknown_b40_;
+    unsigned char unknown_b41_;
+    unsigned char unknown_b42_;
+    unsigned char unknown_b43_;
+    int unknown_b44_;
+    int unknown_b48_;
+    int unknown_b4c_;
+    int unknown_b50_;
+    int unknown_b54_;
+    int unknown_b58_;
+    int unknown_b5c_;
+    unsigned char unknown_b60_;
+    unsigned char unknown_b61_;
+    unsigned char unknown_b62_;
 };
 
 // USA: func_020982b4
-extern "C" ARM void func_020982b4(Entry020982b4* arr) {
-    Ctx020982b4* ctx = (Ctx020982b4*)((char*)arr + 0x1000);
-    int zero = 0;
-    ctx->b34 = zero;
-    ctx->b38 = zero;
-    ctx->b3c = 1;
-    ctx->b40 = 1;
-    ctx->b41 = 1;
-    ctx->b42 = zero;
-    ctx->b44 = zero;
-    ctx->b48 = zero;
-    ctx->b4c = zero;
-    ctx->b50 = zero;
-    ctx->b54 = zero;
-    ctx->b60 = 1;
-    ctx->b61 = zero;
-    ctx->b62 = zero;
-    *(unsigned short*)((char*)arr + 0x1b64) = zero;
-    ctx->b58 = zero;
-    Entry020982b4* p = arr;
-    ctx->b5c = zero;
-    for (int i = 0; i < 30; i++, p++) {
-        func_02098364(p);
+extern "C" ARM void func_020982b4(Struct_020982b4_2* arg0) {
+    Struct_020982b4* var0 = (Struct_020982b4*)((char*)arg0 + 0x1000);
+    int var1 = 0;
+    var0->unknown_b34_ = var1;
+    var0->unknown_b38_ = var1;
+    var0->unknown_b3c_ = 1;
+    var0->unknown_b40_ = 1;
+    var0->unknown_b41_ = 1;
+    var0->unknown_b42_ = var1;
+    var0->unknown_b44_ = var1;
+    var0->unknown_b48_ = var1;
+    var0->unknown_b4c_ = var1;
+    var0->unknown_b50_ = var1;
+    var0->unknown_b54_ = var1;
+    var0->unknown_b60_ = 1;
+    var0->unknown_b61_ = var1;
+    var0->unknown_b62_ = var1;
+    *(unsigned short*)((char*)arg0 + 0x1b64) = var1;
+    var0->unknown_b58_ = var1;
+    Struct_020982b4_2* var2 = arg0;
+    var0->unknown_b5c_ = var1;
+    for (int var3 = 0; var3 < 30; var3++, var2++) {
+        func_02098364(var2);
     }
-    for (int i = 0; i < 3; i++) {
-        *(int*)((char*)arr + i * 4 + 0x1b68) = -1;
+    for (int var4 = 0; var4 < 3; var4++) {
+        *(int*)((char*)arg0 + var4 * 4 + 0x1b68) = -1;
     }
-    *(int*)((char*)arr + 0x1b74) = 0;
+    *(int*)((char*)arg0 + 0x1b74) = 0;
 }

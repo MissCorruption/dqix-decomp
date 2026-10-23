@@ -7,27 +7,27 @@
 #define func_020c0c3c func_020c2708
 #endif
 
-struct HashDesc020c0c3c {
-    unsigned int words[7];
+struct Struct_020e93fc {
+    unsigned int unknown_0_[7];
 };
-extern HashDesc020c0c3c data_020e93fc;
+extern Struct_020e93fc data_020e93fc;
 
-struct Sha1Ctx020c089c;
-extern "C" void func_020c089c(struct Sha1Ctx020c089c* ctx);
-struct HashCtx020c08ec;
-extern "C" void func_020c08ec(struct HashCtx020c08ec* ctx, const unsigned char* src, unsigned int len);
+struct Struct_020c089c;
+extern "C" void func_020c089c(struct Struct_020c089c* arg0);
+struct Struct_020c08ec;
+extern "C" void func_020c08ec(struct Struct_020c08ec* arg0, const unsigned char* arg1, unsigned int arg2);
 extern "C" void func_020c0a40(void);
-extern "C" void func_020c0cd0(void* a, void* b, void* c, void* d, void* e, HashDesc020c0c3c* desc);
+extern "C" void func_020c0cd0(void* arg0, void* arg1, void* arg2, void* arg3, void* arg4, Struct_020e93fc* arg5);
 
 // USA: func_020c0c3c
-extern "C" ARM void func_020c0c3c(void* a, void* b, void* c, void* d, void* e) {
-    unsigned char digestBuffer[0x14];
-    HashDesc020c0c3c desc = data_020e93fc;
-    unsigned char ctxBuffer[0x68];
-    desc.words[2] = (unsigned int)ctxBuffer;
-    desc.words[3] = (unsigned int)digestBuffer;
-    desc.words[4] = (unsigned int)func_020c089c;
-    desc.words[5] = (unsigned int)func_020c08ec;
-    desc.words[6] = (unsigned int)func_020c0a40;
-    func_020c0cd0(a, b, c, d, e, &desc);
+extern "C" ARM void func_020c0c3c(void* arg0, void* arg1, void* arg2, void* arg3, void* arg4) {
+    unsigned char var0[0x14];
+    Struct_020e93fc var1 = data_020e93fc;
+    unsigned char var2[0x68];
+    var1.unknown_0_[2] = (unsigned int)var2;
+    var1.unknown_0_[3] = (unsigned int)var0;
+    var1.unknown_0_[4] = (unsigned int)func_020c089c;
+    var1.unknown_0_[5] = (unsigned int)func_020c08ec;
+    var1.unknown_0_[6] = (unsigned int)func_020c0a40;
+    func_020c0cd0(arg0, arg1, arg2, arg3, arg4, &var1);
 }

@@ -2,99 +2,99 @@
 #include <NitroSDK/Matrix.h>
 #include <std_library_functions.h>
 
-struct Entry02156ba0 {
-    int start;
-    int duration;
-    int cubic[3];
-    int quadratic[3];
-    int linear[3];
-    int constant[3];
+struct Struct_ov001_02156ba0_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_[3];
+    int unknown_14_[3];
+    int unknown_20_[3];
+    int unknown_2c_[3];
 };
-struct Buf02156ba0 {
-    Entry02156ba0 entries[16];
-    int count;
-    int field_384;
-    int field_388;
-    Vector3fix initial;
-    int mode;
+struct Struct_ov001_02156ba0 {
+    Struct_ov001_02156ba0_2 unknown_0_[16];
+    int unknown_380_;
+    int unknown_384_;
+    int unknown_388_;
+    Vector3fix unknown_38c_;
+    int unknown_398_;
 };
-extern "C" void func_ov001_02156ba0(Buf02156ba0*);
+extern "C" void func_ov001_02156ba0(Struct_ov001_02156ba0*);
 
-static inline int MultiplyFixed(int value, int factor) {
-    return FIX32_MULTIPLY(value, factor);
+static inline int inline_02024000(int arg0, int arg1) {
+    return FIX32_MULTIPLY(arg0, arg1);
 }
 
 // USA: func_ov001_02156c14
-extern "C" ARM void func_ov001_02156c14(Buf02156ba0* self, const Vector3fix* points, const int* durations, int count, int mode) {
-    func_ov001_02156ba0(self);
-    if (count > 0) {
-        int index;
-        Vector3fix positions[18];
-        self->count = count;
-        self->mode = mode;
-        for (index = 0; index < self->count; ++index) memcpy(&positions[index], &points[index], sizeof(Vector3fix));
-        memcpy(&positions[self->count], &points[self->count - 1], sizeof(Vector3fix));
-        memcpy(&positions[self->count + 1], &points[self->count - 1], sizeof(Vector3fix));
-        self->initial.x = points[0].x;
-        self->initial.y = points[0].y;
-        self->initial.z = points[0].z;
-        for (index = 0; index < self->count; ++index) {
-            if (index == 0) {
-                self->entries[index].start = 0;
-                self->entries[index].duration = durations[index];
-            } else if (index == self->count - 1) {
-                self->entries[index].start = self->entries[index - 1].start + self->entries[index - 1].duration;
-                self->entries[index].duration = 0;
+extern "C" ARM void func_ov001_02156c14(Struct_ov001_02156ba0* arg0, const Vector3fix* arg1, const int* arg2, int arg3, int arg4) {
+    func_ov001_02156ba0(arg0);
+    if (arg3 > 0) {
+        int var0;
+        Vector3fix var1[18];
+        arg0->unknown_380_ = arg3;
+        arg0->unknown_398_ = arg4;
+        for (var0 = 0; var0 < arg0->unknown_380_; ++var0) memcpy(&var1[var0], &arg1[var0], sizeof(Vector3fix));
+        memcpy(&var1[arg0->unknown_380_], &arg1[arg0->unknown_380_ - 1], sizeof(Vector3fix));
+        memcpy(&var1[arg0->unknown_380_ + 1], &arg1[arg0->unknown_380_ - 1], sizeof(Vector3fix));
+        arg0->unknown_38c_.x = arg1[0].x;
+        arg0->unknown_38c_.y = arg1[0].y;
+        arg0->unknown_38c_.z = arg1[0].z;
+        for (var0 = 0; var0 < arg0->unknown_380_; ++var0) {
+            if (var0 == 0) {
+                arg0->unknown_0_[var0].unknown_0_ = 0;
+                arg0->unknown_0_[var0].unknown_4_ = arg2[var0];
+            } else if (var0 == arg0->unknown_380_ - 1) {
+                arg0->unknown_0_[var0].unknown_0_ = arg0->unknown_0_[var0 - 1].unknown_0_ + arg0->unknown_0_[var0 - 1].unknown_4_;
+                arg0->unknown_0_[var0].unknown_4_ = 0;
             } else {
-                self->entries[index].start = self->entries[index - 1].start + self->entries[index - 1].duration;
-                self->entries[index].duration = durations[index];
+                arg0->unknown_0_[var0].unknown_0_ = arg0->unknown_0_[var0 - 1].unknown_0_ + arg0->unknown_0_[var0 - 1].unknown_4_;
+                arg0->unknown_0_[var0].unknown_4_ = arg2[var0];
             }
         }
-        for (index = 0; index < self->count; ++index) {
-            for (int axis = 0; axis < 3; ++axis) {
-                int slope;
-                int previous;
-                int current;
-                int next;
-                int following;
-                if (axis == 0) {
-                    current = positions[index].x;
-                    next = positions[index + 1].x;
-                    following = positions[index + 2].x;
-                    if (index > 0) previous = positions[index - 1].x;
-                } else if (axis == 1) {
-                    current = positions[index].y;
-                    next = positions[index + 1].y;
-                    following = positions[index + 2].y;
-                    if (index > 0) previous = positions[index - 1].y;
+        for (var0 = 0; var0 < arg0->unknown_380_; ++var0) {
+            for (int var2 = 0; var2 < 3; ++var2) {
+                int var3;
+                int var4;
+                int var5;
+                int var6;
+                int var7;
+                if (var2 == 0) {
+                    var5 = var1[var0].x;
+                    var6 = var1[var0 + 1].x;
+                    var7 = var1[var0 + 2].x;
+                    if (var0 > 0) var4 = var1[var0 - 1].x;
+                } else if (var2 == 1) {
+                    var5 = var1[var0].y;
+                    var6 = var1[var0 + 1].y;
+                    var7 = var1[var0 + 2].y;
+                    if (var0 > 0) var4 = var1[var0 - 1].y;
                 } else {
-                    current = positions[index].z;
-                    next = positions[index + 1].z;
-                    following = positions[index + 2].z;
-                    if (index > 0) previous = positions[index - 1].z;
+                    var5 = var1[var0].z;
+                    var6 = var1[var0 + 1].z;
+                    var7 = var1[var0 + 2].z;
+                    if (var0 > 0) var4 = var1[var0 - 1].z;
                 }
-                if (index == 0) slope = next - current;
+                if (var0 == 0) var3 = var6 - var5;
                 else {
-                    int previousTerm = MultiplyFixed(current - previous, self->entries[index].duration << 12);
-                    int nextTerm = MultiplyFixed(next - current, self->entries[index - 1].duration << 12);
-                    slope = fix32_Divide(nextTerm + previousTerm, (self->entries[index - 1].duration + self->entries[index].duration) << 12);
+                    int var8 = inline_02024000(var5 - var4, arg0->unknown_0_[var0].unknown_4_ << 12);
+                    int var9 = inline_02024000(var6 - var5, arg0->unknown_0_[var0 - 1].unknown_4_ << 12);
+                    var3 = fix32_Divide(var9 + var8, (arg0->unknown_0_[var0 - 1].unknown_4_ + arg0->unknown_0_[var0].unknown_4_) << 12);
                 }
-                int nextSlope;
-                if (index == self->count - 1) nextSlope = following - next;
+                int var10;
+                if (var0 == arg0->unknown_380_ - 1) var10 = var7 - var6;
                 else {
-                    int currentTerm = MultiplyFixed(next - current, self->entries[index + 1].duration << 12);
-                    int followingTerm = MultiplyFixed(following - next, self->entries[index].duration << 12);
-                    nextSlope = fix32_Divide(followingTerm + currentTerm, (self->entries[index].duration + self->entries[index + 1].duration) << 12);
+                    int var11 = inline_02024000(var6 - var5, arg0->unknown_0_[var0 + 1].unknown_4_ << 12);
+                    int var12 = inline_02024000(var7 - var6, arg0->unknown_0_[var0].unknown_4_ << 12);
+                    var10 = fix32_Divide(var12 + var11, (arg0->unknown_0_[var0].unknown_4_ + arg0->unknown_0_[var0 + 1].unknown_4_) << 12);
                 }
-                int twiceNext = MultiplyFixed(next, 0x2000);
-                int twiceCurrent = MultiplyFixed(current, 0x2000);
-                self->entries[index].cubic[axis] = twiceCurrent - twiceNext + slope + nextSlope;
-                int tripleNext = MultiplyFixed(next, 0x3000);
-                int tripleCurrent = MultiplyFixed(current, -0x3000);
-                int twiceSlope = MultiplyFixed(slope, 0x2000);
-                self->entries[index].quadratic[axis] = tripleCurrent + tripleNext - twiceSlope - nextSlope;
-                self->entries[index].linear[axis] = slope;
-                self->entries[index].constant[axis] = current;
+                int var13 = inline_02024000(var6, 0x2000);
+                int var14 = inline_02024000(var5, 0x2000);
+                arg0->unknown_0_[var0].unknown_8_[var2] = var14 - var13 + var3 + var10;
+                int var15 = inline_02024000(var6, 0x3000);
+                int var16 = inline_02024000(var5, -0x3000);
+                int var17 = inline_02024000(var3, 0x2000);
+                arg0->unknown_0_[var0].unknown_14_[var2] = var16 + var15 - var17 - var10;
+                arg0->unknown_0_[var0].unknown_20_[var2] = var3;
+                arg0->unknown_0_[var0].unknown_2c_[var2] = var5;
             }
         }
     }

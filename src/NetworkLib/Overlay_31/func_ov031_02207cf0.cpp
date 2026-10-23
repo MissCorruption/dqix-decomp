@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "NitroSDK/ProcessorContext.h"
 
-struct GlobalStruct022496fc {
-	int field0;
-	int field4;
+struct Struct_ov031_022496fc {
+	int unknown_0_;
+	int unknown_4_;
 };
 
-extern GlobalStruct022496fc data_ov031_022496fc;
+extern Struct_ov031_022496fc data_ov031_022496fc;
 
 // USA: func_ov031_02207cf0
 extern "C" ARM unsigned int func_ov031_02207cf0() {
-	if ((unsigned int)data_ov031_022496fc.field4 >= 0x20) {
+	if ((unsigned int)data_ov031_022496fc.unknown_4_ >= 0x20) {
 		return -1;
 	}
-	ProcessorContext* ctx = data_02111304.activeContext;
-	unsigned int old = GetContextPriority(ctx);
-	ChangeContextPriority(ctx, data_ov031_022496fc.field4);
-	return old;
+	ProcessorContext* var0 = data_02111304.activeContext;
+	unsigned int var1 = GetContextPriority(var0);
+	ChangeContextPriority(var0, data_ov031_022496fc.unknown_4_);
+	return var1;
 }

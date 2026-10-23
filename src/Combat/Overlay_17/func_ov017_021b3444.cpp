@@ -2,62 +2,62 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-struct Obj150_021b354c;
-extern "C" unsigned char func_ov017_021b354c(Obj150_021b354c* obj);
-extern "C" void func_02072afc(int id, int* arr, short* arr2);
+struct Struct_ov017_021b3444;
+extern "C" unsigned char func_ov017_021b354c(Struct_ov017_021b3444* arg0);
+extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
 
 extern int data_020f2a38;
 extern int data_020f2a30;
 
-struct Obj_021b3444 {
-    unsigned char pad0[8];
-    short id;
-    unsigned char pad1;
-    unsigned char flagByte;
-    unsigned char pad2[4];
-    int result;
+struct Struct_ov017_021b3444_2 {
+    unsigned char unknown_0_[8];
+    short unknown_8_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
+    unsigned char unknown_c_[4];
+    int unknown_10_;
 };
 
 // USA: func_ov017_021b3444
-extern "C" ARM int func_ov017_021b3444(struct Obj_021b3444* obj) {
-    GameState* bs = GameState::GetInstance();
-    int field4 = (int)BackgroundLoader::GetInstance();
-    GameObject* combatant = func_0200ff1c(bs, obj->id);
-    if (combatant != 0) {
-        if (func_ov017_021b354c((Obj150_021b354c*)combatant) != 0) {
+extern "C" ARM int func_ov017_021b3444(struct Struct_ov017_021b3444_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int var1 = (int)BackgroundLoader::GetInstance();
+    GameObject* var2 = func_0200ff1c(var0, arg0->unknown_8_);
+    if (var2 != 0) {
+        if (func_ov017_021b354c((Struct_ov017_021b3444*)var2) != 0) {
 #if defined(jpn)
-            obj->result = ((BackgroundLoader*)(field4))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
+            arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
 #else
-            obj->result = ((BackgroundLoader*)(field4))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
+            arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
 #endif
             return 1;
         }
     }
 
-    int arr1[11];
-    short arr2[11];
-    func_02072afc(obj->id, arr1, arr2);
-    int flag = obj->flagByte & 1;
+    int var3[11];
+    short var4[11];
+    func_02072afc(arg0->unknown_8_, var3, var4);
+    int var5 = arg0->unknown_b_ & 1;
 
-    int i;
-    for (i = 0; i < 0xb; i++) {
-        GameObject* c = bs->GetGameObjectByIndex(arr1[i]);
-        if (c == 0) {
+    int var6;
+    for (var6 = 0; var6 < 0xb; var6++) {
+        GameObject* var7 = var0->GetGameObjectByIndex(var3[var6]);
+        if (var7 == 0) {
             continue;
         }
-        short* p2 = &c->obj3D_.unknown_2_;
-        if (flag) {
-            *p2 = -1;
+        short* var8 = &var7->obj3D_.unknown_2_;
+        if (var5) {
+            *var8 = -1;
         }
-        short bVal = arr2[i];
-        short aVal = *p2;
-        if (bVal == aVal) {
+        short var9 = var4[var6];
+        short var10 = *var8;
+        if (var9 == var10) {
             continue;
         }
 #if defined(jpn)
-        obj->result = ((BackgroundLoader*)(field4))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
+        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
 #else
-        obj->result = ((BackgroundLoader*)(field4))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
+        arg0->unknown_10_ = ((BackgroundLoader*)(var1))->QueueLoadFileInGP2((const char*)(data_020f2a38), (const char*)(data_020f2a30), (SafeAllocator*)(0));
 #endif
         return 1;
     }

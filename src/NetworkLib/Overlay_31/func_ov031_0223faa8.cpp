@@ -2,10 +2,10 @@
 
 struct Mutex;
 void LockMutex(Mutex*);
-struct RefNode020c80f8;
+struct Struct_ov031_02290f8c;
 void UnlockMutex(Mutex*);
 
-extern struct RefNode020c80f8 data_ov031_02290f8c;
+extern struct Struct_ov031_02290f8c data_ov031_02290f8c;
 extern int data_ov031_02290f88;
 
 // USA: func_ov031_0223faa8

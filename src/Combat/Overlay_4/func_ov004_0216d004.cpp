@@ -2,61 +2,61 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_020421a0(void);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
-extern "C" void func_02012028(void* obj, unsigned char value);
-struct Struct020a9ea4;
-extern "C" void func_020a9ea4(struct Struct020a9ea4* p);
-extern "C" void func_ov004_0216afb0(void* obj, int a, int b, int c, int d, int e, int f, int g, int h);
-extern "C" int func_ov004_0216b2c8(void* obj, int id, int a, int b);
-extern "C" int func_ov004_0216b7bc(void* obj, int a, int b, int c);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
+extern "C" void func_02012028(void* arg0, unsigned char arg1);
+struct Struct_020a9ea4;
+extern "C" void func_020a9ea4(struct Struct_020a9ea4* arg0);
+extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
+extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3);
 
-struct FieldGroup02171034 {
+struct Struct_ov004_02171034_3 {
 #if defined(jpn)
 #else
-    unsigned char pad0[2];
+    unsigned char unknown_0_[2];
 #endif
-    unsigned char flag2;
+    unsigned char unknown_2_;
 #if defined(jpn)
-    unsigned char pad1[4];
+    unsigned char unknown_1_[4];
 #else
 #endif
-    unsigned char state3;
+    unsigned char unknown_3_;
 #if defined(jpn)
-    unsigned char pad4[6];
+    unsigned char unknown_6_[6];
 #else
-    unsigned char pad4[0xc];
+    unsigned char unknown_4_[0xc];
 #endif
-    struct Struct020a9ea4* ptr10;
+    struct Struct_020a9ea4* unknown_10_;
 };
-extern struct FieldGroup02171034 data_ov004_02171034;
+extern struct Struct_ov004_02171034_3 data_ov004_02171034;
 
 // USA: func_ov004_0216d004
-extern "C" ARM int func_ov004_0216d004(void* a) {
-    char* g = (char*)func_020421a0();
+extern "C" ARM int func_ov004_0216d004(void* arg0) {
+    char* var0 = (char*)func_020421a0();
 #if defined(jpn)
-    g[0x1000 + 0x7fb] = 0;
+    var0[0x1000 + 0x7fb] = 0;
 #else
-    g[0x1000 + 0x9ca] = 0;
+    var0[0x1000 + 0x9ca] = 0;
 #endif
     func_0205eaa0(&data_02108760, 5, 0);
 
     func_02012028((void*)GameState::GetInstance(), 0);
-    func_020a9ea4(data_ov004_02171034.ptr10);
-    data_ov004_02171034.flag2 = 1;
+    func_020a9ea4(data_ov004_02171034.unknown_10_);
+    data_ov004_02171034.unknown_2_ = 1;
 
-    if (data_ov004_02171034.state3 == 4) {
-        func_ov004_0216afb0(a, 0x38, 2, 0xd3, 0x3d, 0xc, 0x6, 0xc, 1);
-        func_ov004_0216afb0(a, 0x39, 2, 0xd3, 0x3e, 0xc, 0x14, 0xc, 1);
+    if (data_ov004_02171034.unknown_3_ == 4) {
+        func_ov004_0216afb0(arg0, 0x38, 2, 0xd3, 0x3d, 0xc, 0x6, 0xc, 1);
+        func_ov004_0216afb0(arg0, 0x39, 2, 0xd3, 0x3e, 0xc, 0x14, 0xc, 1);
     } else {
-        func_ov004_0216afb0(a, 0x38, 2, 0xd3, 0x23, 0xa, 0x6, 0xa, 1);
-        func_ov004_0216afb0(a, 0x39, 2, 0xd3, 0x35, 0xa, 0x14, 0xa, 1);
+        func_ov004_0216afb0(arg0, 0x38, 2, 0xd3, 0x23, 0xa, 0x6, 0xa, 1);
+        func_ov004_0216afb0(arg0, 0x39, 2, 0xd3, 0x35, 0xa, 0x14, 0xa, 1);
     }
 
-    for (int i = 0; i < 2; i++) {
-        func_ov004_0216b2c8(a, 0x12d, i + 0x38, i);
+    for (int var1 = 0; var1 < 2; var1++) {
+        func_ov004_0216b2c8(arg0, 0x12d, var1 + 0x38, var1);
     }
-    func_ov004_0216b7bc(a, 0xd3, 0x60, 0);
+    func_ov004_0216b7bc(arg0, 0xd3, 0x60, 0);
     return 0;
 }

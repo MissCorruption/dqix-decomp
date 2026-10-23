@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
-typedef void* (*AllocFn02240104)(int size, int align);
-extern AllocFn02240104 data_ov031_02290fc4;
+typedef void* (*Type_ov031_02240104)(int size, int align);
+extern Type_ov031_02240104 data_ov031_02290fc4;
 
-struct NodeAlloc02240104 {
-	struct NodeAlloc02240104* prev;
-	struct NodeAlloc02240104* next;
-	int field8;
-	int fieldC;
-	int field10;
+struct Struct_ov031_02240104 {
+	struct Struct_ov031_02240104* unknown_0_;
+	struct Struct_ov031_02240104* unknown_4_;
+	int unknown_8_;
+	int unknown_c_;
+	int unknown_10_;
 };
-extern struct NodeAlloc02240104* data_ov031_02290fdc;
+extern struct Struct_ov031_02240104* data_ov031_02290fdc;
 extern int data_ov031_02290fd8;
 
 // USA: func_ov031_02240104
-extern "C" ARM int func_ov031_02240104(int arg) {
-	int id = -1;
-	struct NodeAlloc02240104* node = (struct NodeAlloc02240104*)data_ov031_02290fc4(0x14, 4);
+extern "C" ARM int func_ov031_02240104(int arg0) {
+	int var0 = -1;
+	struct Struct_ov031_02240104* var1 = (struct Struct_ov031_02240104*)data_ov031_02290fc4(0x14, 4);
 
-	if (node != NULL) {
+	if (var1 != NULL) {
 		if (data_ov031_02290fdc == NULL) {
-			node->prev = node;
-			node->next = node;
-			*(struct NodeAlloc02240104* volatile*)&data_ov031_02290fdc = node;
+			var1->unknown_0_ = var1;
+			var1->unknown_4_ = var1;
+			*(struct Struct_ov031_02240104* volatile*)&data_ov031_02290fdc = var1;
 		} else {
-			node->prev = data_ov031_02290fdc->prev;
-			node->next = data_ov031_02290fdc;
-			data_ov031_02290fdc->prev->next = node;
-			data_ov031_02290fdc->prev = node;
+			var1->unknown_0_ = data_ov031_02290fdc->unknown_0_;
+			var1->unknown_4_ = data_ov031_02290fdc;
+			data_ov031_02290fdc->unknown_0_->unknown_4_ = var1;
+			data_ov031_02290fdc->unknown_0_ = var1;
 		}
 
-		int old = *(volatile int*)&data_ov031_02290fd8;
+		int var2 = *(volatile int*)&data_ov031_02290fd8;
 		data_ov031_02290fd8 = *(volatile int*)&data_ov031_02290fd8 + 1;
-		node->field8 = old;
-		node->fieldC = arg;
-		node->field10 = -1;
-		id = node->field8;
+		var1->unknown_8_ = var2;
+		var1->unknown_c_ = arg0;
+		var1->unknown_10_ = -1;
+		var0 = var1->unknown_8_;
 		if (data_ov031_02290fd8 < 0) {
 			data_ov031_02290fd8 = 0;
 		}
 	}
 
-	return id;
+	return var0;
 }

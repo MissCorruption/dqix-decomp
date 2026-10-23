@@ -6,86 +6,86 @@ struct Struct_0205c4a8;
 struct Struct_0205bb84;
 struct Struct_0205bcdc;
 
-struct Element_021e6448 {
-    char pad0[0xa8];
-    short width;
-    short height;
-    short x;
-    short y;
+struct Struct_ov023_021e6448 {
+    char unknown_0_[0xa8];
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
 };
 
-struct ListState_021e6448 {
-    char data[0x50];
+struct Struct_ov023_021e6448_2 {
+    char unknown_0_[0x50];
 };
 
-struct ScrollList_021e6448 {
-    char pad0[0x4];
-    ListState_021e6448 states[2];
+struct Struct_ov023_021e6448_3 {
+    char unknown_0_[0x4];
+    Struct_ov023_021e6448_2 unknown_4_[2];
 };
 
-static inline ListState_021e6448* GetState(ScrollList_021e6448* list, int i) { return &list->states[i]; }
+static inline Struct_ov023_021e6448_2* inline_ov017_021c6d50_4(Struct_ov023_021e6448_3* arg0, int arg1) { return &arg0->unknown_4_[arg1]; }
 
-struct ListMenu_021e6448 {
+struct Struct_ov023_021e6448_4 {
 #if defined(jpn)
-    char pad0[0x90];
+    char unknown_0_[0x90];
 #else
-    char pad0[0xac];
+    char unknown1_0_[0xac];
 #endif
 
-    ScrollList_021e6448 list_;
+    Struct_ov023_021e6448_3 unknown_ac_;
 #if defined(jpn)
-    char pad[0x1341 - 0x90 - sizeof(ScrollList_021e6448)];
+    char unknown_134_[0x1341 - 0x90 - sizeof(Struct_ov023_021e6448_3)];
 #else
-    char pad[0x1371 - 0xac - sizeof(ScrollList_021e6448)];
+    char unknown_150_[0x1371 - 0xac - sizeof(Struct_ov023_021e6448_3)];
 #endif
 
-    unsigned char selectedKey_;
+    unsigned char unknown_1371_;
 #if defined(jpn)
-    char pad1372[0x1360 - 0x1342];
+    char unknown_1342_[0x1360 - 0x1342];
 #else
-    char pad1372[0x1398 - 0x1372];
+    char unknown_1372_[0x1398 - 0x1372];
 #endif
 
-    int scrolled_;
+    int unknown_1398_;
 };
 
-extern "C" int func_0205c6e4(unsigned char* obj);
-extern "C" Element_021e6448* func_0205d81c(Struct_0205d81c* s, int key);
-extern "C" void func_0205c4a8(Struct_0205c4a8* s, int delta);
-extern "C" int func_0205bb84(Struct_0205bb84* s);
-extern "C" void func_0205bcdc(Struct_0205bcdc* s, int index);
-extern "C" void func_0205bb04(void* s, int index);
+extern "C" int func_0205c6e4(unsigned char* arg0);
+extern "C" Struct_ov023_021e6448* func_0205d81c(Struct_0205d81c* arg0, int arg1);
+extern "C" void func_0205c4a8(Struct_0205c4a8* arg0, int arg1);
+extern "C" int func_0205bb84(Struct_0205bb84* arg0);
+extern "C" void func_0205bcdc(Struct_0205bcdc* arg0, int arg1);
+extern "C" void func_0205bb04(void* arg0, int arg1);
 
 // USA: func_ov023_021e6448
-extern "C" ARM int func_ov023_021e6448(ListMenu_021e6448* self) {
-    if (func_0205c6e4((unsigned char*)&self->list_) <= 1)
+extern "C" ARM int func_ov023_021e6448(Struct_ov023_021e6448_4* arg0) {
+    if (func_0205c6e4((unsigned char*)&arg0->unknown_ac_) <= 1)
         return 0;
     if (g_touchInput.pressed_ != 0) {
-        int x, y;
-        g_touchInput.GetTouchPoint(&x, &y);
-        Element_021e6448* e = func_0205d81c((Struct_0205d81c*)&self->list_, self->selectedKey_);
-        if (e != NULL) {
-            short right = e->x;
-            short bottom = e->y;
-            short height = e->height;
-            right += e->width;
-            bottom += height;
-            bottom <<= 3;
-            if (bottom - 16 <= y && y < bottom) {
-                ListState_021e6448* scroll = GetState(&self->list_, 1);
-                short left = e->x << 3;
-                if (x >= left && x < left + 16) {
-                    func_0205c4a8((Struct_0205c4a8*)scroll, -1);
-                    self->scrolled_ = 1;
+        int var0, var1;
+        g_touchInput.GetTouchPoint(&var0, &var1);
+        Struct_ov023_021e6448* var2 = func_0205d81c((Struct_0205d81c*)&arg0->unknown_ac_, arg0->unknown_1371_);
+        if (var2 != NULL) {
+            short var3 = var2->unknown_ac_;
+            short var4 = var2->unknown_ae_;
+            short var5 = var2->unknown_aa_;
+            var3 += var2->unknown_a8_;
+            var4 += var5;
+            var4 <<= 3;
+            if (var4 - 16 <= var1 && var1 < var4) {
+                Struct_ov023_021e6448_2* var6 = inline_ov017_021c6d50_4(&arg0->unknown_ac_, 1);
+                short var7 = var2->unknown_ac_ << 3;
+                if (var0 >= var7 && var0 < var7 + 16) {
+                    func_0205c4a8((Struct_0205c4a8*)var6, -1);
+                    arg0->unknown_1398_ = 1;
                 }
-                right <<= 3;
-                if (right - 16 <= x && x < right) {
-                    func_0205c4a8((Struct_0205c4a8*)scroll, 1);
-                    self->scrolled_ = 1;
+                var3 <<= 3;
+                if (var3 - 16 <= var0 && var0 < var3) {
+                    func_0205c4a8((Struct_0205c4a8*)var6, 1);
+                    arg0->unknown_1398_ = 1;
                 }
-                int index = func_0205bb84((Struct_0205bb84*)scroll);
-                func_0205bcdc((Struct_0205bcdc*)&self->list_.states[0], index);
-                func_0205bb04(&self->list_.states[1], index);
+                int var8 = func_0205bb84((Struct_0205bb84*)var6);
+                func_0205bcdc((Struct_0205bcdc*)&arg0->unknown_ac_.unknown_4_[0], var8);
+                func_0205bb04(&arg0->unknown_ac_.unknown_4_[1], var8);
             }
             return 1;
         }

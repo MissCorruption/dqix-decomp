@@ -9,39 +9,39 @@ extern char data_020f33cc[];
 
 extern "C" void func_02012200(char*);
 extern "C" void func_02012224(char*);
-extern "C" void __register_global_object(void* obj, void* func, void* node);
+extern "C" void __register_global_object(void* arg0, void* arg1, void* arg2);
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020e5920
 extern "C" __declspec(initcode) ARM void __sinit_020e5920(void) {
-    float t;
-    float a;
+    float var0;
+    float var1;
 #if defined(jpn)
-    t = data_020ef07c[2] + data_020ef07c[1];
-    t = data_020ef07c[0] + t;
-    t = data_020ef07c[3] + t;
-    data_020f33b4[2] = t;
-    t = data_020f33b4[5] + data_020ef07c[2];
-    a = data_020ef07c[1];
-    data_020f33b4[4] = t;
-    t = t + a;
-    data_020f33b4[3] = t;
-    a = data_020ef07c[0];
-    t = t + a;
-    data_020f33b4[1] = t;
+    var0 = data_020ef07c[2] + data_020ef07c[1];
+    var0 = data_020ef07c[0] + var0;
+    var0 = data_020ef07c[3] + var0;
+    data_020f33b4[2] = var0;
+    var0 = data_020f33b4[5] + data_020ef07c[2];
+    var1 = data_020ef07c[1];
+    data_020f33b4[4] = var0;
+    var0 = var0 + var1;
+    data_020f33b4[3] = var0;
+    var1 = data_020ef07c[0];
+    var0 = var0 + var1;
+    data_020f33b4[1] = var0;
 #else
-    t = data_020ef07c[1] + data_020ef07c[2];
-    t = data_020ef07c[0] + t;
-    t = data_020ef07c[3] + t;
-    data_020f33b4[1] = t;
-    t = data_020f33b4[5] + data_020ef07c[1];
-    a = data_020ef07c[2];
-    data_020f33b4[4] = t;
-    t = t + a;
-    a = data_020ef07c[0];
-    data_020f33b4[3] = t;
-    t = t + a;
-    data_020f33b4[2] = t;
+    var0 = data_020ef07c[1] + data_020ef07c[2];
+    var0 = data_020ef07c[0] + var0;
+    var0 = data_020ef07c[3] + var0;
+    data_020f33b4[1] = var0;
+    var0 = data_020f33b4[5] + data_020ef07c[1];
+    var1 = data_020ef07c[2];
+    data_020f33b4[4] = var0;
+    var0 = var0 + var1;
+    var1 = data_020ef07c[0];
+    data_020f33b4[3] = var0;
+    var0 = var0 + var1;
+    data_020f33b4[2] = var0;
 #endif
     func_02012200((char*)&data_020f33d8);
     __register_global_object((void*)&data_020f33d8, (void*)func_02012224, (void*)&data_020f33cc);

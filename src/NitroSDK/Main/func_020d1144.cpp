@@ -7,21 +7,21 @@
 extern "C" void func_020c9be0(void);
 extern "C" void func_020d11a8(void);
 
-struct InitGuard020d1144 {
-    int done;
-    int (*callback)(void);
+struct Struct_02112140_2 {
+    int unknown_0_;
+    int (*unknown_4_)(void);
 };
-extern InitGuard020d1144 data_02112140;
+extern Struct_02112140_2 data_02112140;
 
 // USA: func_020d1144
-extern "C" ARM void func_020d1144(unsigned int context, unsigned int code, unsigned int error) {
-    if ((code & 0x3f) == 0x11) {
-        if (data_02112140.done != 0) return;
-        data_02112140.done = 1;
+extern "C" ARM void func_020d1144(unsigned int arg0, unsigned int arg1, unsigned int arg2) {
+    if ((arg1 & 0x3f) == 0x11) {
+        if (data_02112140.unknown_0_ != 0) return;
+        data_02112140.unknown_0_ = 1;
         {
-            int r = 1;
-            if (data_02112140.callback != 0) r = data_02112140.callback();
-            if (r == 0) return;
+            int var0 = 1;
+            if (data_02112140.unknown_4_ != 0) var0 = data_02112140.unknown_4_();
+            if (var0 == 0) return;
             func_020d11a8();
         }
         return;

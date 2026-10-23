@@ -16,40 +16,40 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_020972c8(int* p);
-extern "C" void func_ov014_021845ec(void* self);
+extern "C" void func_020972c8(int* arg0);
+extern "C" void func_ov014_021845ec(void* arg0);
 
-struct Obj_02186b30 {
-    char pad0[0xa4];
-    int fieldA4;
-    char pad1[0xb4 - 0xa8];
-    SafeAllocator* allocators;
-    char pad2[0x168 - 0xb8];
-    int field168;
+struct Struct_ov014_02186b30 {
+    char unknown_0_[0xa4];
+    int unknown_a4_;
+    char unknown_a8_[0xb4 - 0xa8];
+    SafeAllocator* unknown_b4_;
+    char unknown_b8_[0x168 - 0xb8];
+    int unknown_168_;
 };
 
-static inline void RemoveLoaderTask(int& taskId) {
-    BackgroundLoader::GetInstance()->RemoveTask(taskId);
-    taskId = -1;
+static inline void inline_020dbf70(int& arg0) {
+    BackgroundLoader::GetInstance()->RemoveTask(arg0);
+    arg0 = -1;
 }
 
 // USA: func_ov014_02186b30
-extern "C" ARM void func_ov014_02186b30(struct Obj_02186b30* self) {
-    if (self->field168 >= 0) {
-        RemoveLoaderTask(self->field168);
+extern "C" ARM void func_ov014_02186b30(struct Struct_ov014_02186b30* arg0) {
+    if (arg0->unknown_168_ >= 0) {
+        inline_020dbf70(arg0->unknown_168_);
     }
-    FontBankLoader* g = func_02094a00();
-    func_02094b40(g);
-    func_02094ab0(g);
-    func_020972c8(&self->fieldA4);
-    func_ov014_021845ec(self);
-    if (self->allocators == 0) {
+    Struct_0208cb08* var0 = func_02094a00();
+    func_02094b40(var0);
+    func_02094ab0(var0);
+    func_020972c8(&arg0->unknown_a4_);
+    func_ov014_021845ec(arg0);
+    if (arg0->unknown_b4_ == 0) {
         return;
     }
-    int i;
-    for (i = 0; i < 5; i++) {
-        if (self->allocators[i].GetSignedAllocator()) {
-            self->allocators[i].Destroy();
+    int var1;
+    for (var1 = 0; var1 < 5; var1++) {
+        if (arg0->unknown_b4_[var1].GetSignedAllocator()) {
+            arg0->unknown_b4_[var1].Destroy();
         }
     }
 }

@@ -2,95 +2,95 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* arg0);
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 
-struct Vec3 {
-    int x;
-    int y;
-    int z;
+struct Struct_ov009_0218aa28 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-extern "C" struct Vec3 func_02034104(GameObject* combatant);
+extern "C" struct Struct_ov009_0218aa28 func_02034104(GameObject* arg0);
 
-struct Obj02033834;
-extern "C" void func_02033834(struct Obj02033834* obj, int arg);
+struct Struct_02033834_2;
+extern "C" void func_02033834(struct Struct_02033834_2* arg0, int arg1);
 
-struct Vec3Fixed02030e2c {
-    int x;
-    int y;
-    int z;
+struct Struct_ov001_021592bc {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
 
-struct Obj02033b68;
-extern "C" void func_02033b68(struct Obj02033b68* obj, int newVal);
+struct Struct_02033b68;
+extern "C" void func_02033b68(struct Struct_02033b68* arg0, int arg1);
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 
 extern "C" int _s32_div_f(int a, int b);
 
-extern "C" void func_ov017_021c927c(int a, int b, int c, struct Vec3 v, int d, int e, int f);
+extern "C" void func_ov017_021c927c(int arg0, int arg1, int arg2, struct Struct_ov009_0218aa28 arg3, int arg4, int arg5, int arg6);
 
-struct Entity020781e8 {
-    char pad0[0x2];
-    short f2;
-    short f4;
-    char pad1[0x3e];
-    struct Vec3 f44;
-    char pad2[0x62];
-    short fb2;
-    short fb4;
-    char pad3[0xa2];
-    struct Vec3 f158;
-    char pad4[0x2];
-    unsigned short f166;
-    char pad5[0x12];
-    unsigned char f17a;
+struct Struct_020781e8 {
+    char unknown_0_[0x2];
+    short unknown_2_;
+    short unknown_4_;
+    char unknown_6_[0x3e];
+    struct Struct_ov009_0218aa28 unknown_44_;
+    char unknown_50_[0x62];
+    short unknown_b2_;
+    short unknown_b4_;
+    char unknown_b6_[0xa2];
+    struct Struct_ov009_0218aa28 unknown_158_;
+    char unknown_164_[0x2];
+    unsigned short unknown_166_;
+    char unknown_168_[0x12];
+    unsigned char unknown_17a_;
 };
 
 // USA: func_020781e8
-extern "C" ARM int func_020781e8(struct Entity020781e8* e) {
-    GameState* battleStruct = GameState::GetInstance();
-    GameObject* combatant = battleStruct->GetPartyMemberByIndex(e->f166);
-    if (combatant == NULL) {
+extern "C" ARM int func_020781e8(struct Struct_020781e8* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetPartyMemberByIndex(arg0->unknown_166_);
+    if (var1 == NULL) {
         return 0;
     }
 
-    int scale = 0;
-    void* g = func_0202ae18();
-    if (!func_0202b7d8((int*)g) || func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
-        struct Vec3 posCopy = func_02034104(combatant);
-        struct Vec3 delta;
-        Vector3fix_Subtract((const Vector3fix*)&posCopy, (const Vector3fix*)&e->f44, (Vector3fix*)&delta);
-        Vector3fix_Normalize((const Vector3fix*)&delta, (Vector3fix*)&delta);
-        delta.x = -delta.x;
-        delta.y = -delta.y;
-        delta.z = -delta.z;
-        scale = fix32_Atan2(delta.x, delta.z);
-        func_02033834((struct Obj02033834*)e, scale);
-        delta.y = 0;
-        Vector3fixMultiplyScalar((Vector3i const*)&delta, 0x5000, (Vector3i*)&delta);
-        Vector3fix_Add((const Vector3fix*)&e->f44, (const Vector3fix*)&delta, (Vector3fix*)&e->f158);
+    int var2 = 0;
+    void* var3 = func_0202ae18();
+    if (!func_0202b7d8((int*)var3) || func_0202c1a4((struct Struct_0202c1a4*)var3) == 0) {
+        struct Struct_ov009_0218aa28 var4 = func_02034104(var1);
+        struct Struct_ov009_0218aa28 var5;
+        Vector3fix_Subtract((const Vector3fix*)&var4, (const Vector3fix*)&arg0->unknown_44_, (Vector3fix*)&var5);
+        Vector3fix_Normalize((const Vector3fix*)&var5, (Vector3fix*)&var5);
+        var5.unknown_0_ = -var5.unknown_0_;
+        var5.unknown_4_ = -var5.unknown_4_;
+        var5.unknown_8_ = -var5.unknown_8_;
+        var2 = fix32_Atan2(var5.unknown_0_, var5.unknown_8_);
+        func_02033834((struct Struct_02033834_2*)arg0, var2);
+        var5.unknown_4_ = 0;
+        Vector3fixMultiplyScalar((Vector3i const*)&var5, 0x5000, (Vector3i*)&var5);
+        Vector3fix_Add((const Vector3fix*)&arg0->unknown_44_, (const Vector3fix*)&var5, (Vector3fix*)&arg0->unknown_158_);
     }
 
-    e->fb4 = 0x1c2;
-    e->fb2 = 0x1c2;
-    func_02033b68((struct Obj02033b68*)e, 1);
-    ((Object3D*)((unsigned char*)e))->DisableFlag(0x80);
-    e->f17a = 0;
+    arg0->unknown_b4_ = 0x1c2;
+    arg0->unknown_b2_ = 0x1c2;
+    func_02033b68((struct Struct_02033b68*)arg0, 1);
+    ((Object3D*)((unsigned char*)arg0))->DisableFlag(0x80);
+    arg0->unknown_17a_ = 0;
 
-    if (func_0202b7d8((int*)g) && func_0202c1a4((struct SearchStruct0202c1a4*)g) == 0) {
-        int c1 = ((Object3D*)((struct U16Field0x6_020375f8*)e))->GetField06();
-        int f2val = e->f2;
-        struct Vec3* vp = &e->f158;
-        int rem = (e->f4 - 0x70) % 0xc;
-        if (rem >= 0 && rem < 0xc) {
-            struct Vec3 v = *vp;
-            func_ov017_021c927c(c1, rem, f2val, v, scale, 7, e->f166);
+    if (func_0202b7d8((int*)var3) && func_0202c1a4((struct Struct_0202c1a4*)var3) == 0) {
+        int var6 = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
+        int var7 = arg0->unknown_2_;
+        struct Struct_ov009_0218aa28* var8 = &arg0->unknown_158_;
+        int var9 = (arg0->unknown_4_ - 0x70) % 0xc;
+        if (var9 >= 0 && var9 < 0xc) {
+            struct Struct_ov009_0218aa28 var10 = *var8;
+            func_ov017_021c927c(var6, var9, var7, var10, var2, 7, arg0->unknown_166_);
         }
     }
     return 1;

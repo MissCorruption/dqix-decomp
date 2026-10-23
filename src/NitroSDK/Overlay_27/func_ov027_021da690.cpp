@@ -6,86 +6,86 @@
 
 extern "C" void func_020c9be0(void);
 
-struct Base_021da690 {
-	unsigned char pad0[0x28];
-	unsigned int addrA;
-	unsigned int sizeA;
-	unsigned char pad1[0x38 - 0x30];
-	unsigned int addrB;
-	unsigned int sizeB;
+struct Struct_ov027_021da690 {
+	unsigned char unknown_0_[0x28];
+	unsigned int unknown_28_;
+	unsigned int unknown_2c_;
+	unsigned char unknown_30_[0x38 - 0x30];
+	unsigned int unknown_38_;
+	unsigned int unknown_3c_;
 };
 
-struct OutDesc_021da690 {
-	unsigned int field0;
-	unsigned int addr;
-	unsigned int size;
-	unsigned int flags;
+struct Struct_ov027_021da690_2 {
+	unsigned int unknown_0_;
+	unsigned int unknown_4_;
+	unsigned int unknown_8_;
+	unsigned int unknown_c_;
 };
 
 // USA: func_ov027_021da690
 #pragma optimize_for_size off
-extern "C" ARM void func_ov027_021da690(Base_021da690 *obj, int *modePtr, OutDesc_021da690 *out, unsigned int *extra) {
-	int mode = *modePtr;
-	switch (mode) {
+extern "C" ARM void func_ov027_021da690(Struct_ov027_021da690 *arg0, int *arg1, Struct_ov027_021da690_2 *arg2, unsigned int *arg3) {
+	int var0 = *arg1;
+	switch (var0) {
 	case 0: {
-		unsigned int addr = obj->addrA;
-		if (addr >= 0x2000000 && addr < 0x22c0000 && addr + obj->sizeA <= 0x22c0000) {
-			out->size = obj->sizeA;
-			unsigned int addr2 = obj->addrA;
-			out->addr = addr2;
-			out->field0 = addr2;
-			out->flags = out->flags & ~1;
+		unsigned int var1 = arg0->unknown_28_;
+		if (var1 >= 0x2000000 && var1 < 0x22c0000 && var1 + arg0->unknown_2c_ <= 0x22c0000) {
+			arg2->unknown_8_ = arg0->unknown_2c_;
+			unsigned int var2 = arg0->unknown_28_;
+			arg2->unknown_4_ = var2;
+			arg2->unknown_0_ = var2;
+			arg2->unknown_c_ = arg2->unknown_c_ & ~1;
 			return;
 		}
 		func_020c9be0();
 		return;
 	}
 	case 1: {
-		int outOfRange = 0;
-		int useExtra = 0;
-		unsigned int size = obj->sizeB;
-		unsigned int end = obj->addrB + size;
-		unsigned int addr = obj->addrB;
-		if (addr >= 0x2000000 && addr < 0x23fe800) {
-			if (end <= 0x2300000) {
-			} else if (end < 0x23fe800 && size <= 0x40000) {
-				useExtra = 1;
+		int var3 = 0;
+		int var4 = 0;
+		unsigned int var5 = arg0->unknown_3c_;
+		unsigned int var6 = arg0->unknown_38_ + var5;
+		unsigned int var7 = arg0->unknown_38_;
+		if (var7 >= 0x2000000 && var7 < 0x23fe800) {
+			if (var6 <= 0x2300000) {
+			} else if (var6 < 0x23fe800 && var5 <= 0x40000) {
+				var4 = 1;
 			} else {
-				outOfRange = 1;
+				var3 = 1;
 			}
 		} else {
-			if (addr < 0x37f8000) goto rangeFail2;
-			if (addr >= 0x37f8000 + 0x17000) goto rangeFail2;
-			if (end <= 0x37f8000 + 0x17000) {
-				useExtra = 1;
+			if (var7 < 0x37f8000) goto rangeFail2;
+			if (var7 >= 0x37f8000 + 0x17000) goto rangeFail2;
+			if (var6 <= 0x37f8000 + 0x17000) {
+				var4 = 1;
 			} else {
-				outOfRange = 1;
+				var3 = 1;
 			}
 			goto afterRange2;
 		rangeFail2:
-			outOfRange = 1;
+			var3 = 1;
 		afterRange2:;
 		}
-		if (outOfRange == 1) {
+		if (var3 == 1) {
 			func_020c9be0();
 		}
-		out->size = obj->sizeB;
-		out->addr = obj->addrB;
-		if (!useExtra) {
-			out->field0 = out->addr;
+		arg2->unknown_8_ = arg0->unknown_3c_;
+		arg2->unknown_4_ = arg0->unknown_38_;
+		if (!var4) {
+			arg2->unknown_0_ = arg2->unknown_4_;
 		} else {
-			out->field0 = *extra;
-			*extra = *extra + out->size;
+			arg2->unknown_0_ = *arg3;
+			*arg3 = *arg3 + arg2->unknown_8_;
 		}
-		out->flags = (out->flags & ~1) | 1;
+		arg2->unknown_c_ = (arg2->unknown_c_ & ~1) | 1;
 		return;
 	}
 	case 2: {
-		unsigned int fixedAddr = 0x27ffe00;
-		out->size = 0x160;
-		out->addr = fixedAddr;
-		out->field0 = fixedAddr;
-		out->flags = out->flags & ~1;
+		unsigned int var8 = 0x27ffe00;
+		arg2->unknown_8_ = 0x160;
+		arg2->unknown_4_ = var8;
+		arg2->unknown_0_ = var8;
+		arg2->unknown_c_ = arg2->unknown_c_ & ~1;
 		return;
 	}
 	default:

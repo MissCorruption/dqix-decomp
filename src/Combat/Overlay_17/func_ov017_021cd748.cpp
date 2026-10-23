@@ -5,149 +5,149 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct SearchStruct0202c1a4;
-struct TailList020469b4;
-struct TailNode020469b4;
-struct Obj_021bd3a4;
-struct TransitionEvent {
-    char pad_0[4];
-    unsigned short firstArea;
-    unsigned short fallbackDestination;
-    unsigned short destination;
-    unsigned short secondArea;
-    unsigned short field_c;
-    unsigned char enabled;
-    signed char recipient;
-    float parameter;
+struct Struct_0202c1a4;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+struct Struct_ov017_0218e674;
+struct Struct_ov017_021cd748_6 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned char unknown_e_;
+    signed char unknown_f_;
+    float unknown_10_;
 };
-struct TransitionState {
-    char pad_0[2];
-    unsigned char queued;
-    unsigned char active;
-    char pad_4[4];
-    unsigned short destination;
-    char pad_a[0xc];
-    unsigned short firstDestination;
-    unsigned short secondDestination;
-    char pad_1a[0x36];
-    unsigned short field_50;
+struct Struct_ov017_021cd748_7 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    char unknown_4_[4];
+    unsigned short unknown_8_;
+    char unknown_a_[0xc];
+    unsigned short unknown_16_;
+    unsigned short unknown_18_;
+    char unknown_1a_[0x36];
+    unsigned short unknown_50_;
 #if defined(jpn)
-    char pad_52[0xc0];
+    char unknown_52_[0xc0];
 #else
-    char pad_52[0xc4];
+    char unknown1_52_[0xc4];
 #endif
-    signed char sender;
-    char field_117;
-    unsigned short currentDestination;
-    char pad_11a[0x5e];
-    unsigned char valid : 1;
-    unsigned char flags : 7;
-    unsigned char field_179;
-    unsigned char field_17a;
-    unsigned char field_17b;
-    float parameter;
-    char pad_180[0x48];
+    signed char unknown_116_;
+    char unknown_117_;
+    unsigned short unknown_118_;
+    char unknown_11a_[0x5e];
+    unsigned char unknown_178_0_ : 1;
+    unsigned char unknown_178_1_ : 7;
+    unsigned char unknown_179_;
+    unsigned char unknown_17a_;
+    unsigned char unknown_17b_;
+    float unknown_17c_;
+    char unknown_180_[0x48];
 };
 #if defined(jpn)
-struct AreaState { unsigned short area; char pad_2[0x2814]; unsigned short destination; };
+struct Struct_ov017_021cd748 { unsigned short unknown_0_; char unknown_2_[0x2814]; unsigned short unknown_27d6_; };
 #else
-struct AreaState { unsigned short area; char pad_2[0x27d4]; unsigned short destination; };
+struct Struct_ov017_021cd748 { unsigned short unknown_0_; char unknown_2_[0x27d4]; unsigned short unknown_27d6_; };
 #endif
-struct AlternateArea { unsigned short area; };
-struct AlternateMode { char pad_0[3]; unsigned char enabled; };
+struct Struct_ov017_021cd748_2 { unsigned short unknown_0_; };
+struct Struct_ov017_021cd748_3 { char unknown_0_[3]; unsigned char unknown_3_; };
 #if defined(jpn)
-struct GameStatus { char pad_0[0x5a4c]; unsigned char blocked; };
+struct Struct_ov017_021cd748_4 { char unknown_0_[0x5a4c]; unsigned char unknown_5cac_; };
 #else
-struct GameStatus { char pad_0[0x5cac]; unsigned char blocked; };
+struct Struct_ov017_021cd748_4 { char unknown_0_[0x5cac]; unsigned char unknown_5cac_; };
 #endif
 #if defined(jpn)
-struct ResourceStatus { char pad_0[0x41fc]; unsigned short destination; };
+struct Struct_ov017_021cd748_5 { char unknown_0_[0x41fc]; unsigned short unknown_44ac_; };
 #else
-struct ResourceStatus { char pad_0[0x44ac]; unsigned short destination; };
+struct Struct_ov017_021cd748_5 { char unknown_0_[0x44ac]; unsigned short unknown_44ac_; };
 #endif
-struct Get28ByteElementAt0x334Elem { unsigned char field_0; unsigned char field_1; unsigned char field_2; char pad_3[25]; };
-struct Get28ByteElementAt0x334Struct { char pad_0[0x332]; unsigned char index; char field_333; };
-extern "C" Get28ByteElementAt0x334Struct* func_0205ec34();
-extern "C" AreaState* func_02012fe4();
-extern "C" int func_0202c540(SearchStruct0202c1a4*);
-extern "C" signed char func_0202c1a4(SearchStruct0202c1a4*);
+struct Struct_0206ea7c_2 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_; char unknown_3_[25]; };
+struct Struct_0206ea7c { char unknown_0_[0x332]; unsigned char unknown_332_; char unknown_333_; };
+extern "C" Struct_0206ea7c* func_0205ec34();
+extern "C" Struct_ov017_021cd748* func_02012fe4();
+extern "C" int func_0202c540(Struct_0202c1a4*);
+extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
 extern "C" void* func_0200fd0c(GameState*);
 extern "C" int func_02046b08(void**);
 extern "C" void func_ov017_021baedc(void*, int);
-extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
-extern "C" Get28ByteElementAt0x334Elem* func_0206ea7c(Get28ByteElementAt0x334Struct*, int);
-extern "C" int func_ov017_021bd3a4(Obj_021bd3a4*);
-extern "C" int func_0202c508(SearchStruct0202c1a4*);
-extern "C" void func_ov017_021bc6e0(TransitionState*, int, int);
+extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
+extern "C" Struct_0206ea7c_2* func_0206ea7c(Struct_0206ea7c*, int);
+extern "C" int func_ov017_021bd3a4(Struct_ov017_0218e674*);
+extern "C" int func_0202c508(Struct_0202c1a4*);
+extern "C" void func_ov017_021bc6e0(Struct_ov017_021cd748_7*, int, int);
 
 // USA: func_ov017_021cd748
-extern "C" ARM void func_ov017_021cd748(int sender, TransitionEvent* event, GameState* game, GameResources* resources, SearchStruct0202c1a4* search) {
-    int matches;
-    GameState* instance;
-    TransitionState* state;
-    unsigned short area;
-    instance = GameState::GetInstance();
-    TailList020469b4* list = (TailList020469b4*)resources->unknown_ptr_array_36fc[0];
-    state = (TransitionState*)resources->unknown_ptr_array_371c[6];
+extern "C" ARM void func_ov017_021cd748(int arg0, Struct_ov017_021cd748_6* arg1, GameState* arg2, GameResources* arg3, Struct_0202c1a4* arg4) {
+    int var0;
+    GameState* var1;
+    Struct_ov017_021cd748_7* var2;
+    unsigned short var3;
+    var1 = GameState::GetInstance();
+    Struct_0201bdac_2* var4 = (Struct_0201bdac_2*)arg3->unknown_ptr_array_36fc[0];
+    var2 = (Struct_ov017_021cd748_7*)arg3->unknown_ptr_array_371c[6];
     func_0205ec34();
-    AreaState* areaState = func_02012fe4();
-    area = areaState->area;
-    if ((func_0202c540(search) && sender == 0) || event->enabled) {
-        if (event->recipient >= 0 && event->recipient != func_0202c1a4(search)) return;
-        if (((GameStatus*)instance)->blocked) return;
-        matches = 0;
-        if (area == event->firstArea) matches = 1;
-        if (area == event->secondArea) matches = 1;
-        if (!matches && ((AlternateMode*)resources->unknown_ptr_array_36fc[4])->enabled) {
-            unsigned short alternate = ((AlternateArea*)func_0200fd0c(game))->area;
-            if (alternate == event->firstArea) matches = 1;
-            if (alternate == event->secondArea) matches = 1;
+    Struct_ov017_021cd748* var5 = func_02012fe4();
+    var3 = var5->unknown_0_;
+    if ((func_0202c540(arg4) && arg0 == 0) || arg1->unknown_e_) {
+        if (arg1->unknown_f_ >= 0 && arg1->unknown_f_ != func_0202c1a4(arg4)) return;
+        if (((Struct_ov017_021cd748_4*)var1)->unknown_5cac_) return;
+        var0 = 0;
+        if (var3 == arg1->unknown_4_) var0 = 1;
+        if (var3 == arg1->unknown_a_) var0 = 1;
+        if (!var0 && ((Struct_ov017_021cd748_3*)arg3->unknown_ptr_array_36fc[4])->unknown_3_) {
+            unsigned short var6 = ((Struct_ov017_021cd748_2*)func_0200fd0c(arg2))->unknown_0_;
+            if (var6 == arg1->unknown_4_) var0 = 1;
+            if (var6 == arg1->unknown_a_) var0 = 1;
         }
-        if (!matches) return;
-        unsigned short destination = event->destination;
-        if (!destination) destination = event->fallbackDestination;
-        if (!destination) return;
-        if (func_02046b08((void**)list) || event->enabled) {
-            int changed = 0;
-            if (!state->active) {
-                if (state->queued) {
-                    if (event->destination == state->currentDestination) return;
-                    state->destination = destination;
-                    if (event->enabled) state->sender = sender;
-                    changed = 1;
+        if (!var0) return;
+        unsigned short var7 = arg1->unknown_8_;
+        if (!var7) var7 = arg1->unknown_6_;
+        if (!var7) return;
+        if (func_02046b08((void**)var4) || arg1->unknown_e_) {
+            int var8 = 0;
+            if (!var2->unknown_3_) {
+                if (var2->unknown_2_) {
+                    if (arg1->unknown_8_ == var2->unknown_118_) return;
+                    var2->unknown_8_ = var7;
+                    if (arg1->unknown_e_) var2->unknown_116_ = arg0;
+                    var8 = 1;
                 } else {
-                    if (destination == areaState->destination) return;
-                    func_ov017_021baedc(state, 1);
-                    state->destination = destination;
-                    if (event->enabled) state->sender = sender;
-                    func_020469b4(list, (TailNode020469b4*)state);
-                    changed = 1;
+                    if (var7 == var5->unknown_27d6_) return;
+                    func_ov017_021baedc(var2, 1);
+                    var2->unknown_8_ = var7;
+                    if (arg1->unknown_e_) var2->unknown_116_ = arg0;
+                    func_020469b4(var4, (Struct_0201bdac*)var2);
+                    var8 = 1;
                 }
             }
-            if (changed && func_0202c540(search)) {
-                Get28ByteElementAt0x334Struct* party = func_0205ec34();
-                Get28ByteElementAt0x334Elem* entry = func_0206ea7c(party, party->index);
-                state->valid = 0;
-                state->flags = 0;
-                state->field_179 = 0;
-                state->field_17a = 0;
-                state->field_17b = 0;
-                state->parameter = -1.0f;
-                state->valid = 1;
-                state->field_179 = entry->field_0;
-                state->field_17a = entry->field_1;
-                state->field_17b = entry->field_2;
-                state->parameter = event->parameter;
+            if (var8 && func_0202c540(arg4)) {
+                Struct_0206ea7c* var9 = func_0205ec34();
+                Struct_0206ea7c_2* var10 = func_0206ea7c(var9, var9->unknown_332_);
+                var2->unknown_178_0_ = 0;
+                var2->unknown_178_1_ = 0;
+                var2->unknown_179_ = 0;
+                var2->unknown_17a_ = 0;
+                var2->unknown_17b_ = 0;
+                var2->unknown_17c_ = -1.0f;
+                var2->unknown_178_0_ = 1;
+                var2->unknown_179_ = var10->unknown_0_;
+                var2->unknown_17a_ = var10->unknown_1_;
+                var2->unknown_17b_ = var10->unknown_2_;
+                var2->unknown_17c_ = arg1->unknown_10_;
             }
         } else {
-            if (!func_ov017_021bd3a4((Obj_021bd3a4*)state)) ((ResourceStatus*)resources)->destination = destination;
+            if (!func_ov017_021bd3a4((Struct_ov017_0218e674*)var2)) ((Struct_ov017_021cd748_5*)arg3)->unknown_44ac_ = var7;
         }
     } else {
-        if (func_0202c508(search) && func_ov017_021bd3a4((Obj_021bd3a4*)state)) {
-            unsigned short requested = event->fallbackDestination;
-            unsigned short second = state->secondDestination;
-            unsigned short first = state->firstDestination;
-            if (requested == second || requested == first) func_ov017_021bc6e0(state, sender, state->field_50);
+        if (func_0202c508(arg4) && func_ov017_021bd3a4((Struct_ov017_0218e674*)var2)) {
+            unsigned short var11 = arg1->unknown_6_;
+            unsigned short var12 = var2->unknown_18_;
+            unsigned short var13 = var2->unknown_16_;
+            if (var11 == var12 || var11 == var13) func_ov017_021bc6e0(var2, arg0, var2->unknown_50_);
         }
     }
 }

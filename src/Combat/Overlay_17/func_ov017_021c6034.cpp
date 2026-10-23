@@ -2,27 +2,27 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-extern "C" void func_02027288(unsigned char* obj, int id);
-extern "C" void func_0202738c(void* a, int b, int c, int d);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+extern "C" void func_02027288(unsigned char* arg0, int arg1);
+extern "C" void func_0202738c(void* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov017_021c6034
-extern "C" ARM void func_ov017_021c6034(signed char* arr) {
+extern "C" ARM void func_ov017_021c6034(signed char* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x4c0};
+ enum {Enum_ov017_021c6034_1744=0x4c0};
 #else
- enum {regionalOffset0=0x6d0};
+ enum {Enum_ov017_021c6034_1744=0x6d0};
 #endif
-    struct SearchStruct0202c1a4* obj = (struct SearchStruct0202c1a4*)func_0202ae18();
-    signed char idx = func_0202c1a4(obj);
-    if (arr[idx] == 1) return;
-    int t = (int)GetGameResources() + 0x3000;
-    unsigned char* r5 = *(unsigned char**)(t + regionalOffset0);
-    for (int i = 0; i < 4; i++) {
-        if (arr[i] == 1) {
-            func_02027288(r5, i);
-            func_0202738c(r5, 1, 1, i);
+    struct Struct_0202c1a4* var0 = (struct Struct_0202c1a4*)func_0202ae18();
+    signed char var1 = func_0202c1a4(var0);
+    if (arg0[var1] == 1) return;
+    int var2 = (int)GetGameResources() + 0x3000;
+    unsigned char* var3 = *(unsigned char**)(var2 + Enum_ov017_021c6034_1744);
+    for (int var4 = 0; var4 < 4; var4++) {
+        if (arg0[var4] == 1) {
+            func_02027288(var3, var4);
+            func_0202738c(var3, 1, 1, var4);
         }
     }
 }

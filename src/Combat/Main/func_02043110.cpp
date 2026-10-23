@@ -4,20 +4,20 @@
 #define func_02043110 func_02043884
 #endif
 
-struct Struct02043110Target {
-    char pad[0x8];
-    int field8;
+struct Struct_02043110 {
+    char unknown_0_[0x8];
+    int unknown_8_;
 };
 
-struct Struct02043110 {
-    char pad[0x440];
-    struct Struct02043110Target* field440;
+struct Struct_020430b0 {
+    char unknown_0_[0x440];
+    struct Struct_02043110* unknown_440_;
 };
 
 // USA: func_02043110
-extern "C" ARM void func_02043110(struct Struct02043110* s) {
-    struct Struct02043110Target* t = s->field440;
-    if (t != 0) {
-        t->field8 = 0;
+extern "C" ARM void func_02043110(struct Struct_020430b0* arg0) {
+    struct Struct_02043110* var0 = arg0->unknown_440_;
+    if (var0 != 0) {
+        var0->unknown_8_ = 0;
     }
 }

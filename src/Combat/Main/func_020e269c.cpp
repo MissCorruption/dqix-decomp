@@ -1,51 +1,51 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct RectList020e1eb0 {
-    char pad0[8];
-    unsigned char count;
+struct Struct_020e1e4c {
+    char unknown_0_[8];
+    unsigned char unknown_8_;
 };
 
-extern "C" int func_020e1e4c(struct RectList020e1eb0* list);
+extern "C" int func_020e1e4c(struct Struct_020e1e4c* arg0);
 extern "C" long long _s32_div_f(int a, int b);
 
-struct Sel020e269c {
-    char pad0[0x10];
-    struct RectList020e1eb0* list;
-    signed char cur;
-    unsigned char prev;
-    char pad1;
-    unsigned char flag;
+struct Struct_020e269c {
+    char unknown_0_[0x10];
+    struct Struct_020e1e4c* unknown_10_;
+    signed char unknown_14_;
+    unsigned char unknown_15_;
+    char unknown_16_;
+    unsigned char unknown_17_;
 };
 
 // USA: func_020e269c
-extern "C" ARM void func_020e269c(struct Sel020e269c* self) {
-    struct RectList020e1eb0* l = self->list;
-    int step = l->count;
-    int idx = func_020e1e4c(l);
-    if (idx >= 0) {
-        signed char cur = self->cur;
-        if (cur == idx && self->flag) {
-            self->prev = cur;
+extern "C" ARM void func_020e269c(struct Struct_020e269c* arg0) {
+    struct Struct_020e1e4c* var0 = arg0->unknown_10_;
+    int var1 = var0->unknown_8_;
+    int var2 = func_020e1e4c(var0);
+    if (var2 >= 0) {
+        signed char var3 = arg0->unknown_14_;
+        if (var3 == var2 && arg0->unknown_17_) {
+            arg0->unknown_15_ = var3;
         }
-        self->flag = 1;
-        self->cur = idx;
+        arg0->unknown_17_ = 1;
+        arg0->unknown_14_ = var2;
         return;
     }
     if (g_keyManager.TestKeysPressed(0x80)) {
-        self->cur = (int)(_s32_div_f(self->cur + 1, step) >> 32);
-        self->flag = 0;
+        arg0->unknown_14_ = (int)(_s32_div_f(arg0->unknown_14_ + 1, var1) >> 32);
+        arg0->unknown_17_ = 0;
         return;
     }
     if (g_keyManager.TestKeysPressed(0x40)) {
-        signed char v = self->cur;
-        self->cur = (v > 0) ? v - 1 : step - 1;
-        self->flag = 0;
+        signed char var4 = arg0->unknown_14_;
+        arg0->unknown_14_ = (var4 > 0) ? var4 - 1 : var1 - 1;
+        arg0->unknown_17_ = 0;
         return;
     }
     if (g_keyManager.TestKeysPressed(1) ||
         g_keyManager.TestKeysPressed(0x400) ||
         g_keyManager.TestKeysPressed(0x200)) {
-        self->prev = self->cur;
+        arg0->unknown_15_ = arg0->unknown_14_;
     }
 }

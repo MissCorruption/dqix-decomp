@@ -16,40 +16,40 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 #if defined(jpn)
 #else
 #endif
-extern "C" void func_ov008_02187278(void* obj, char* dst, int mode, void* extra);
+extern "C" void func_ov008_02187278(void* arg0, char* arg1, int arg2, void* arg3);
 
-struct Obj021873ac {
-    char pad[0xb8];
-    char* bufPtr;
-    char pad2[0xb18 - 0xbc];
-    int flags;
+struct Struct_ov008_02184968 {
+    char unknown_0_[0xb8];
+    char* unknown_b8_;
+    char unknown_bc_[0xb18 - 0xbc];
+    int unknown_b18_;
 };
 
 // USA: func_ov008_021873ac
-extern "C" ARM void func_ov008_021873ac(struct Obj021873ac* obj, int modeArg) {
-    if (modeArg == 0) {
-        if (!(obj->flags & 0x800)) return;
-        memset(obj->bufPtr, 0, R(0x800,0x960));
-        func_ov008_02187278(obj, obj->bufPtr, modeArg, 0);
+extern "C" ARM void func_ov008_021873ac(struct Struct_ov008_02184968* arg0, int arg1) {
+    if (arg1 == 0) {
+        if (!(arg0->unknown_b18_ & 0x800)) return;
+        memset(arg0->unknown_b8_, 0, R(0x800,0x960));
+        func_ov008_02187278(arg0, arg0->unknown_b8_, arg1, 0);
 #if defined(jpn)
-        func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x130), 1, (int)obj->bufPtr, 1);
+        func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x130), 1, (int)arg0->unknown_b8_, 1);
 #else
-        func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x130), 1, (int)obj->bufPtr, 1, 0);
+        func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x130), 1, (int)arg0->unknown_b8_, 1, 0);
 #endif
-        obj->flags &= ~0x800;
-    } else if (modeArg == 1) {
-        if (!(obj->flags & 0x1000)) return;
-        memset(obj->bufPtr, 0, R(0x800,0x960));
-        func_ov008_02187278(obj, obj->bufPtr, modeArg, 0);
+        arg0->unknown_b18_ &= ~0x800;
+    } else if (arg1 == 1) {
+        if (!(arg0->unknown_b18_ & 0x1000)) return;
+        memset(arg0->unknown_b8_, 0, R(0x800,0x960));
+        func_ov008_02187278(arg0, arg0->unknown_b8_, arg1, 0);
 #if defined(jpn)
-        func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x130), 2, (int)obj->bufPtr, 1);
+        func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x130), 2, (int)arg0->unknown_b8_, 1);
 #else
-        func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x130), 2, (int)obj->bufPtr, 1, 0);
+        func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x130), 2, (int)arg0->unknown_b8_, 1, 0);
 #endif
-        obj->flags &= ~0x1000;
+        arg0->unknown_b18_ &= ~0x1000;
     }
 }

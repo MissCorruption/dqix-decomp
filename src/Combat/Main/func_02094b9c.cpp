@@ -1,81 +1,81 @@
 #include <globaldefs.h>
 
-struct Obj02094b9c {
-    char pad00[0x08];
-    int pos[3];
-    int size[3];
-    char pad20[0x02];
-    short f22;
-    int f24;
-    int f28;
+struct Struct_02094b9c_2 {
+    char unknown_0_[0x08];
+    int unknown_8_[3];
+    int unknown_14_[3];
+    char unknown_20_[0x02];
+    short unknown_22_;
+    int unknown_24_;
+    int unknown_28_;
 };
 
-struct Bounds02094b9c {
-    int v[6];
+struct Struct_02094b9c {
+    int unknown_0_[6];
 };
 
-struct Shape02094b9c {
-    int a;
-    int b;
-    int c;
-    int d;
-    int e;
+struct Struct_02032148 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
 };
 
-extern "C" ARM int func_020321e0(void* anchor, struct Bounds02094b9c* b, short d, int* pos, int e);
-extern "C" ARM int func_02032148(void* anchor, struct Shape02094b9c* s, int e);
+extern "C" ARM int func_020321e0(void* arg0, struct Struct_02094b9c* arg1, short arg2, int* arg3, int arg4);
+extern "C" ARM int func_02032148(void* arg0, struct Struct_02032148* arg1, int arg2);
 
 // USA: func_02094b9c
-extern "C" ARM int func_02094b9c(struct Obj02094b9c* p, void* anchor) {
-    if (p->f28 & 8) {
+extern "C" ARM int func_02094b9c(struct Struct_02094b9c_2* arg0, void* arg1) {
+    if (arg0->unknown_28_ & 8) {
         return 0;
     }
 
-    struct Bounds02094b9c b;
-    struct Shape02094b9c s;
-    struct Bounds02094b9c t;
+    struct Struct_02094b9c var0;
+    struct Struct_02032148 var1;
+    struct Struct_02094b9c var2;
 
-    t.v[0] = p->pos[0] + (p->size[0] >> 1);
-    t.v[1] = p->pos[1] + (p->size[1] >> 1);
-    t.v[2] = p->pos[2] + (p->size[2] >> 1);
-    t.v[3] = p->pos[0] - (p->size[0] >> 1);
-    t.v[4] = p->pos[1] - (p->size[1] >> 1);
-    t.v[5] = p->pos[2] - (p->size[2] >> 1);
+    var2.unknown_0_[0] = arg0->unknown_8_[0] + (arg0->unknown_14_[0] >> 1);
+    var2.unknown_0_[1] = arg0->unknown_8_[1] + (arg0->unknown_14_[1] >> 1);
+    var2.unknown_0_[2] = arg0->unknown_8_[2] + (arg0->unknown_14_[2] >> 1);
+    var2.unknown_0_[3] = arg0->unknown_8_[0] - (arg0->unknown_14_[0] >> 1);
+    var2.unknown_0_[4] = arg0->unknown_8_[1] - (arg0->unknown_14_[1] >> 1);
+    var2.unknown_0_[5] = arg0->unknown_8_[2] - (arg0->unknown_14_[2] >> 1);
 
-    b = t;
+    var0 = var2;
 
-    int result = 0;
-    int ret;
-    int hasSize = p->size[2] > 0;
-    if (hasSize) {
-        ret = func_020321e0(anchor, &b, p->f22, &p->pos[0], p->f24);
+    int var3 = 0;
+    int var4;
+    int var5 = arg0->unknown_14_[2] > 0;
+    if (var5) {
+        var4 = func_020321e0(arg1, &var0, arg0->unknown_22_, &arg0->unknown_8_[0], arg0->unknown_24_);
     } else {
-        s.a = p->pos[0];
-        s.b = p->pos[1];
-        s.c = p->pos[2];
-        s.d = p->size[0];
-        s.e = p->size[1];
-        ret = func_02032148(anchor, &s, s.e);
+        var1.unknown_0_ = arg0->unknown_8_[0];
+        var1.unknown_4_ = arg0->unknown_8_[1];
+        var1.unknown_8_ = arg0->unknown_8_[2];
+        var1.unknown_c_ = arg0->unknown_14_[0];
+        var1.unknown_10_ = arg0->unknown_14_[1];
+        var4 = func_02032148(arg1, &var1, var1.unknown_10_);
     }
-    if (ret) {
-        result = 1;
+    if (var4) {
+        var3 = 1;
     }
 
-    int flags = p->f28;
-    if (result != 0) {
-        if (flags & 1) {
-            if (flags & 4) {
-                result = 0;
+    int var6 = arg0->unknown_28_;
+    if (var3 != 0) {
+        if (var6 & 1) {
+            if (var6 & 4) {
+                var3 = 0;
             } else {
-                p->f28 = flags | 2;
+                arg0->unknown_28_ = var6 | 2;
             }
         }
     } else {
-        if (flags & 1) {
-            if (flags & 2) {
-                p->f28 = flags | 4;
+        if (var6 & 1) {
+            if (var6 & 2) {
+                arg0->unknown_28_ = var6 | 4;
             }
         }
     }
-    return result;
+    return var3;
 }

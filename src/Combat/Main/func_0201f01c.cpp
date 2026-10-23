@@ -2,12 +2,12 @@
 #include "World/BmdjScriptNode.h"
 
 // USA: func_0201f01c
-extern "C" ARM void func_0201f01c(BmdjScriptState* state) {
-    state->unknown0 = 0;
-    state->unknown4 = 0;
-    state->unknown8 = 0;
-    state->unknownC = 0;
-    state->elementCount = 0;
-    state->unknown14 = 0;
-    state->unknown38 = 0;
+extern "C" ARM void func_0201f01c(Struct_02018b34* arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = 0;
+    arg0->unknown_38_ = 0;
 }

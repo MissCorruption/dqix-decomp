@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov017_021d60f4(void* obj);
+extern "C" int func_ov017_021d60f4(void* arg0);
 extern "C" int func_020421a0(void);
 
 // USA: func_ov001_0215e97c
-extern "C" ARM int func_ov001_0215e97c(void* obj) {
-    char* messages = (char*)func_020421a0();
-    unsigned char flag = func_ov017_021d60f4(obj) != 0;
+extern "C" ARM int func_ov001_0215e97c(void* arg0) {
+    char* var0 = (char*)func_020421a0();
+    unsigned char var1 = func_ov017_021d60f4(arg0) != 0;
 #if defined(jpn)
-    messages[0x17fc] = flag;
+    var0[0x17fc] = var1;
 #else
-    messages[0x19cb] = flag;
+    var0[0x19cb] = var1;
 #endif
     return 1;
 }

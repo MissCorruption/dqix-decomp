@@ -6,66 +6,66 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-struct MBUserInfo02238de4 {
-	unsigned char b0;
-	unsigned char nameLength;
-	unsigned short name[10];
+struct Struct_ov031_02238de4_2 {
+	unsigned char unknown_0_;
+	unsigned char unknown_1_;
+	unsigned short unknown_2_[10];
 };
 
-struct ChildInfo02238de4 {
-	struct MBUserInfo02238de4 user;
-	unsigned char macAddress[6];
-	unsigned short playerNo;
+struct Struct_ov031_02238de4_3 {
+	struct Struct_ov031_02238de4_2 unknown_0_;
+	unsigned char unknown_16_[6];
+	unsigned short unknown_1c_;
 };
 
-struct MBPState02238de4 {
-	unsigned short state;
-	unsigned short connectChildBmp;
-	unsigned short requestChildBmp;
-	unsigned short entryChildBmp;
-	unsigned short downloadChildBmp;
-	unsigned short bootableChildBmp;
-	unsigned short rebootChildBmp;
+struct Struct_ov031_02238de4_4 {
+	unsigned short unknown_0_;
+	unsigned short unknown_2_;
+	unsigned short unknown_4_;
+	unsigned short unknown_6_;
+	unsigned short unknown_8_;
+	unsigned short unknown_a_;
+	unsigned short unknown_c_;
 };
 
-struct Work02238de4 {
-	struct MBPState02238de4 state;
-	struct ChildInfo02238de4 child[15];
-	unsigned char pad[0x1b140 - 0x1d0];
-	void* buf140;
-	void* buf144;
+struct Struct_ov031_02238de4_5 {
+	struct Struct_ov031_02238de4_4 unknown_0_;
+	struct Struct_ov031_02238de4_3 unknown_e_[15];
+	unsigned char unknown_1d0_[0x1b140 - 0x1d0];
+	void* unknown_1b140_;
+	void* unknown_1b144_;
 };
 
-struct ConnectInfo02238de4 {
-	unsigned short apiid;
-	unsigned short errcode;
-	unsigned short wlCmdID;
-	unsigned short wlResult;
-	unsigned short state;
-	unsigned char macAddress[6];
+struct Struct_ov031_02238de4_6 {
+	unsigned short unknown_0_;
+	unsigned short unknown_2_;
+	unsigned short unknown_4_;
+	unsigned short unknown_6_;
+	unsigned short unknown_8_;
+	unsigned char unknown_a_[6];
 };
 
-struct ErrorInfo02238de4 {
-	unsigned short errcode;
+struct Struct_ov031_02238de4 {
+	unsigned short unknown_0_;
 };
 
 extern "C" unsigned short func_ov031_0223911c(void);
-extern "C" void func_ov031_02239108(unsigned short v);
+extern "C" void func_ov031_02239108(unsigned short arg0);
 extern "C" void func_ov031_02238db4(void);
-extern "C" int func_ov031_02239188(int bitIdx);
-extern "C" void func_ov031_022389b0(int index);
-extern "C" void func_ov031_02238910(int index);
-extern "C" void func_ov031_02238a88(int index);
-extern "C" void* func_ov027_021d8a68(int index);
+extern "C" int func_ov031_02239188(int arg0);
+extern "C" void func_ov031_022389b0(int arg0);
+extern "C" void func_ov031_02238910(int arg0);
+extern "C" void func_ov031_02238a88(int arg0);
+extern "C" void* func_ov027_021d8a68(int arg0);
 extern "C" void func_020c9be0(void);
 
-extern struct Work02238de4* data_ov031_02290d14;
-#define sMbpState (data_ov031_02290d14->state)
-#define sChildInfo (data_ov031_02290d14->child)
+extern struct Struct_ov031_02238de4_5* data_ov031_02290d14;
+#define sMbpState (data_ov031_02290d14->unknown_0_)
+#define sChildInfo (data_ov031_02290d14->unknown_e_)
 
 // USA: func_ov031_02238de4
-extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status, void* arg) {
-	switch (status) {
+extern "C" ARM void func_ov031_02238de4(unsigned short arg0, unsigned int arg1, void* arg2) {
+	switch (arg1) {
 	case 1:
 		break;
 	case 2: {
@@ -73,36 +73,36 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 			break;
 		}
 		{
-			unsigned short* pBitmap = &sMbpState.connectChildBmp;
-			int e = DisableIRQInterrupts();
-			*pBitmap |= 1 << aid;
-			SetIRQInterruptState(e);
+			unsigned short* var0 = &sMbpState.unknown_2_;
+			int var1 = DisableIRQInterrupts();
+			*var0 |= 1 << arg0;
+			SetIRQInterruptState(var1);
 		}
 		{
-			int off = (aid - 1) * sizeof(struct ChildInfo02238de4);
-			const unsigned char* src = ((struct ConnectInfo02238de4*)arg)->macAddress;
-			unsigned char* dst = sChildInfo[0].macAddress + off;
-			*dst = *src;
-			*(dst + 1) = *(src + 1);
-			*(dst + 2) = *(src + 2);
-			*(dst + 3) = *(src + 3);
-			*(dst + 4) = *(src + 4);
-			*(dst + 5) = *(src + 5);
-			*(unsigned short*)((unsigned char*)&sChildInfo[0].playerNo + off) = aid;
+			int var2 = (arg0 - 1) * sizeof(struct Struct_ov031_02238de4_3);
+			const unsigned char* var3 = ((struct Struct_ov031_02238de4_6*)arg2)->unknown_a_;
+			unsigned char* var4 = sChildInfo[0].unknown_16_ + var2;
+			*var4 = *var3;
+			*(var4 + 1) = *(var3 + 1);
+			*(var4 + 2) = *(var3 + 2);
+			*(var4 + 3) = *(var3 + 3);
+			*(var4 + 4) = *(var3 + 4);
+			*(var4 + 5) = *(var3 + 5);
+			*(unsigned short*)((unsigned char*)&sChildInfo[0].unknown_1c_ + var2) = arg0;
 		}
 		break;
 	}
 	case 3:
-		if (func_ov031_02239188(aid) != 6) {
-			unsigned short mask = (unsigned short)~(1 << aid);
-			int oldIRQ = DisableIRQInterrupts();
-			sMbpState.connectChildBmp &= mask;
-			sMbpState.requestChildBmp &= mask;
-			sMbpState.entryChildBmp &= mask;
-			sMbpState.downloadChildBmp &= mask;
-			sMbpState.bootableChildBmp &= mask;
-			sMbpState.rebootChildBmp &= mask;
-			SetIRQInterruptState(oldIRQ);
+		if (func_ov031_02239188(arg0) != 6) {
+			unsigned short var5 = (unsigned short)~(1 << arg0);
+			int var6 = DisableIRQInterrupts();
+			sMbpState.unknown_2_ &= var5;
+			sMbpState.unknown_4_ &= var5;
+			sMbpState.unknown_6_ &= var5;
+			sMbpState.unknown_8_ &= var5;
+			sMbpState.unknown_a_ &= var5;
+			sMbpState.unknown_c_ &= var5;
+			SetIRQInterruptState(var6);
 			func_ov031_02238db4();
 		}
 		break;
@@ -110,37 +110,37 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 		break;
 	case 10: {
 		if (func_ov031_0223911c() != 2) {
-			func_ov031_022389b0(aid);
+			func_ov031_022389b0(arg0);
 			break;
 		}
-		sMbpState.requestChildBmp |= 1 << aid;
-		func_ov031_02238910(aid);
-		void* user = func_ov027_021d8a68(aid);
-		if (user != NULL) {
-			VectorizedInvertedMemcpy(user, &sChildInfo[aid - 1].user, sizeof(struct MBUserInfo02238de4));
+		sMbpState.unknown_4_ |= 1 << arg0;
+		func_ov031_02238910(arg0);
+		void* var7 = func_ov027_021d8a68(arg0);
+		if (var7 != NULL) {
+			VectorizedInvertedMemcpy(var7, &sChildInfo[arg0 - 1].unknown_0_, sizeof(struct Struct_ov031_02238de4_2));
 		}
 		break;
 	}
 	case 5:
 		break;
 	case 14:
-		sMbpState.requestChildBmp &= ~(1 << aid);
-		sMbpState.entryChildBmp |= 1 << aid;
+		sMbpState.unknown_4_ &= ~(1 << arg0);
+		sMbpState.unknown_6_ |= 1 << arg0;
 		if (func_ov031_0223911c() == 3) {
-			func_ov031_02238a88(aid);
+			func_ov031_02238a88(arg0);
 		}
 		break;
 	case 6:
 		break;
 	case 7:
-		sMbpState.downloadChildBmp &= ~(1 << aid);
-		sMbpState.bootableChildBmp |= 1 << aid;
+		sMbpState.unknown_8_ &= ~(1 << arg0);
+		sMbpState.unknown_a_ |= 1 << arg0;
 		break;
 	case 8:
 		break;
 	case 9:
-		sMbpState.bootableChildBmp &= ~(1 << aid);
-		sMbpState.rebootChildBmp |= 1 << aid;
+		sMbpState.unknown_a_ &= ~(1 << arg0);
+		sMbpState.unknown_c_ |= 1 << arg0;
 		func_ov031_02238db4();
 		break;
 	case 11:
@@ -152,20 +152,20 @@ extern "C" ARM void func_ov031_02238de4(unsigned short aid, unsigned int status,
 			func_ov031_02239108(0);
 		}
 		{
-			struct Work02238de4* w = data_ov031_02290d14;
-			if (w->buf144 != NULL) {
-				w->buf144 = NULL;
+			struct Struct_ov031_02238de4_5* var8 = data_ov031_02290d14;
+			if (var8->unknown_1b144_ != NULL) {
+				var8->unknown_1b144_ = NULL;
 			}
 		}
 		{
-			struct Work02238de4* w = data_ov031_02290d14;
-			if (w->buf140 != NULL) {
-				w->buf140 = NULL;
+			struct Struct_ov031_02238de4_5* var9 = data_ov031_02290d14;
+			if (var9->unknown_1b140_ != NULL) {
+				var9->unknown_1b140_ = NULL;
 			}
 		}
 		break;
 	case 13:
-		switch (((struct ErrorInfo02238de4*)arg)->errcode) {
+		switch (((struct Struct_ov031_02238de4*)arg2)->unknown_0_) {
 		case 8:
 			break;
 		case 1:

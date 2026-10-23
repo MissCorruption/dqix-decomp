@@ -13,115 +13,115 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-struct Node021986fc {
-    unsigned int unk0 : 16;
-    unsigned int id : 7;
-    unsigned int unk23 : 9;
-    unsigned int unk4_0 : 17;
-    unsigned int count : 4;
-    unsigned int mask : 8;
-    unsigned int unk4_29 : 3;
-    LootPointState* entry;
-    Vector3fix pos[8];
-    struct Node021986fc* next;
+struct Struct_ov017_021986fc_2 {
+    unsigned int unknown_0_0_ : 16;
+    unsigned int unknown_2_0_ : 7;
+    unsigned int unknown_2_7_ : 9;
+    unsigned int unknown_4_0_ : 17;
+    unsigned int unknown_6_1_ : 4;
+    unsigned int unknown_6_5_ : 8;
+    unsigned int unknown_7_5_ : 3;
+    Struct_0208ec78* unknown_8_;
+    Vector3fix unknown_c_[8];
+    struct Struct_ov017_021986fc_2* unknown_6c_;
 };
 
-struct Obj0208e7d0 {
-    char pad0[4];
-    struct Node021986fc* head;
+struct Struct_0208e7d0 {
+    char unknown_0_[4];
+    struct Struct_ov017_021986fc_2* unknown_4_;
 };
 
-struct Event021986fc {
-    unsigned char kind;
-    unsigned char padding1[19];
+struct Struct_ov017_021986fc_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[19];
 };
 
-struct TailList020469b4;
-struct TailNode020469b4;
-struct Vec3copy0202ec84;
-struct Cont0208f3b4;
-struct SearchStruct0202c1a4;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+struct Struct_02015ef4;
+struct Struct_0208f3b4;
+struct Struct_0202c1a4;
 
 extern "C" Zone3D* func_02012fe4(void);
-extern "C" Obj0208e7d0* func_0208e0a8(void);
+extern "C" Struct_0208e7d0* func_0208e0a8(void);
 extern "C" int func_0208e824(void*, char*);
 extern "C" int func_020535c8(signed char*);
-extern "C" Cont0208f3b4* func_0208e9e8(void);
+extern "C" Struct_0208f3b4* func_0208e9e8(void);
 extern "C" void* func_020100bc(GameState*);
 extern "C" void func_ov017_0219a674(unsigned char*);
-extern "C" void func_ov017_0219b33c(void*, Event021986fc*);
-extern "C" int func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
-extern "C" SearchStruct0202c1a4* func_0202ae18(void);
-extern "C" int func_0202c1a4(SearchStruct0202c1a4*);
+extern "C" void func_ov017_0219b33c(void*, Struct_ov017_021986fc_3*);
+extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" Struct_0202c1a4* func_0202ae18(void);
+extern "C" int func_0202c1a4(Struct_0202c1a4*);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
-extern "C" void func_0208f3b4(Cont0208f3b4*, int);
-extern "C" int func_0208e7d0(Obj0208e7d0*);
-extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
+extern "C" void func_0208f3b4(Struct_0208f3b4*, int);
+extern "C" int func_0208e7d0(Struct_0208e7d0*);
+extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
 
 // USA: func_ov017_021986fc
-extern "C" ARM void func_ov017_021986fc(GameResources* self) {
-    Zone3D* zone = func_02012fe4();
-    Zone3D_StructPtr_8* info = zone->pUnknownStruct_8_;
-    Obj0208e7d0* list = func_0208e0a8();
-    if (!func_0208e824(list, info->mapShortName_)) return;
-    GameState* gs = GameState::GetInstance();
-    GameObject* actor = gs->GetUnknownGameObject();
-    if (func_020535c8((signed char*)actor)) return;
+extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
+    Zone3D* var0 = func_02012fe4();
+    Zone3D_StructPtr_8* var1 = var0->pUnknownStruct_8_;
+    Struct_0208e7d0* var2 = func_0208e0a8();
+    if (!func_0208e824(var2, var1->mapShortName_)) return;
+    GameState* var3 = GameState::GetInstance();
+    GameObject* var4 = var3->GetUnknownGameObject();
+    if (func_020535c8((signed char*)var4)) return;
     func_0208e9e8();
-    Node021986fc* node = list->head;
-    void* camera = func_020100bc(gs);
+    Struct_ov017_021986fc_2* var5 = var2->unknown_4_;
+    void* var6 = func_020100bc(var3);
 
-    int found = 0;
-    unsigned int mask = 0;
-    unsigned char idx = 0;
-    unsigned char key = 0;
-    for (; node != NULL; node = node->next, idx++) {
-        if (node->entry != NULL) {
-            for (unsigned int i = 0; i < node->count; i++) {
-                unsigned int bit = 1 << i;
-                if ((node->mask & bit) == 0) continue;
-                if (node->pos[i].x - 2867 >= actor->obj3D_.position_.x) continue;
-                if (node->pos[i].x + 2867 <= actor->obj3D_.position_.x) continue;
-                if (node->pos[i].z - 2867 >= actor->obj3D_.position_.z) continue;
-                if (node->pos[i].z + 2867 <= actor->obj3D_.position_.z) continue;
-                key = i + idx * 8;
-                found = 1;
-                mask = bit;
-                Event021986fc event;
-                func_ov017_0219a674((unsigned char*)&event);
-                event.kind = 3;
-                func_ov017_0219b33c(self, &event);
+    int var7 = 0;
+    unsigned int var8 = 0;
+    unsigned char var9 = 0;
+    unsigned char var10 = 0;
+    for (; var5 != NULL; var5 = var5->unknown_6c_, var9++) {
+        if (var5->unknown_8_ != NULL) {
+            for (unsigned int var11 = 0; var11 < var5->unknown_6_1_; var11++) {
+                unsigned int var12 = 1 << var11;
+                if ((var5->unknown_6_5_ & var12) == 0) continue;
+                if (var5->unknown_c_[var11].x - 2867 >= var4->obj3D_.position_.x) continue;
+                if (var5->unknown_c_[var11].x + 2867 <= var4->obj3D_.position_.x) continue;
+                if (var5->unknown_c_[var11].z - 2867 >= var4->obj3D_.position_.z) continue;
+                if (var5->unknown_c_[var11].z + 2867 <= var4->obj3D_.position_.z) continue;
+                var10 = var11 + var9 * 8;
+                var7 = 1;
+                var8 = var12;
+                Struct_ov017_021986fc_3 var13;
+                func_ov017_0219a674((unsigned char*)&var13);
+                var13.unknown_0_ = 3;
+                func_ov017_0219b33c(arg0, &var13);
                 break;
             }
-            if (found) break;
+            if (var7) break;
         }
     }
-    if (!found) return;
+    if (!var7) return;
 
-    int proceed = 0;
-    if (g_keyManager.TestKeysPressed(1)) proceed = 1;
-    int cursorX = -1;
-    int cursorY = -1;
-    if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { cursorX = g_touchInput.prevX_; cursorY = g_touchInput.prevY_; }
-    int screenX, screenY;
-    func_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);
-    if (cursorX > 0x70 && cursorX < 0x90 && cursorY > 0x28 && cursorY < 0x60) proceed = 1;
-    else if (screenX - 12 < cursorX && cursorX < screenX + 12 && screenY - 12 < cursorY && cursorY < screenY + 12) proceed = 1;
-    if (!proceed) return;
+    int var14 = 0;
+    if (g_keyManager.TestKeysPressed(1)) var14 = 1;
+    int var15 = -1;
+    int var16 = -1;
+    if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { var15 = g_touchInput.prevX_; var16 = g_touchInput.prevY_; }
+    int var17, var18;
+    func_0202ec84(var6, (Struct_02015ef4*)&var4->obj3D_.position_, &var17, &var18);
+    if (var15 > 0x70 && var15 < 0x90 && var16 > 0x28 && var16 < 0x60) var14 = 1;
+    else if (var17 - 12 < var15 && var15 < var17 + 12 && var18 - 12 < var16 && var16 < var18 + 12) var14 = 1;
+    if (!var14) return;
 
-    func_ov017_021d38f8(1, func_0202c1a4(func_0202ae18()), mask, node->id, node->entry);
-    node->entry->fields.flags = ~mask & node->entry->fields.flags;
-    node->mask = ~mask & node->mask;
-    node->entry->fields.timer = node->entry->fields.count * 30;
-    void* base = func_0205ec34();
-    func_0206df6c(base, (unsigned char*)base + 0x8c, node->id + 0xc12, 1);
-    func_0208f3b4(func_0208e9e8(), key);
-    if (node->id >= 0x62) node->unk0 = func_0208e7d0(list);
-    func_ov017_021ae800(((Obj021ae800*)self->unknown_ptr_array_3afc[11]));
-    ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->itemId = node->unk0;
-    ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->position = actor->obj3D_.position_;
-    ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->angle = 0;
-    ((Obj021ae800*)self->unknown_ptr_array_3afc[11])->fade = 0x1f;
-    func_020469b4((TailList020469b4*)self->unknown_ptr_array_36fc[0], (TailNode020469b4*)((Obj021ae800*)self->unknown_ptr_array_3afc[11]));
+    func_ov017_021d38f8(1, func_0202c1a4(func_0202ae18()), var8, var5->unknown_2_0_, var5->unknown_8_);
+    var5->unknown_8_->unknown_0_.unknown_2_1_ = ~var8 & var5->unknown_8_->unknown_0_.unknown_2_1_;
+    var5->unknown_6_5_ = ~var8 & var5->unknown_6_5_;
+    var5->unknown_8_->unknown_0_.unknown_0_0_ = var5->unknown_8_->unknown_0_.unknown_3_1_ * 30;
+    void* var19 = func_0205ec34();
+    func_0206df6c(var19, (unsigned char*)var19 + 0x8c, var5->unknown_2_0_ + 0xc12, 1);
+    func_0208f3b4(func_0208e9e8(), var10);
+    if (var5->unknown_2_0_ >= 0x62) var5->unknown_0_0_ = func_0208e7d0(var2);
+    func_ov017_021ae800(((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11]));
+    ((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11])->unknown_c_ = var5->unknown_0_0_;
+    ((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11])->unknown_14_ = var4->obj3D_.position_;
+    ((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11])->unknown_20_ = 0;
+    ((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11])->unknown_24_ = 0x1f;
+    func_020469b4((Struct_0201bdac_2*)arg0->unknown_ptr_array_36fc[0], (Struct_0201bdac*)((Struct_ov017_021986fc*)arg0->unknown_ptr_array_3afc[11]));
 }

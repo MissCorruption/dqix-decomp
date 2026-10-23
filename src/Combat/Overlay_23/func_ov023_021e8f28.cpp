@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020100a8(GameState* battleStruct);
-extern "C" unsigned char func_02011494(char* obj, void* dst);
-extern "C" void* __clear(void* dst, int count);
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" unsigned char func_02011494(char* arg0, void* arg1);
+extern "C" void* __clear(void* arg0, int arg1);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 
 // USA: func_ov023_021e8f28
-extern "C" ARM GameObject* func_ov023_021e8f28(int index) {
-    GameState* battle = GameState::GetInstance();
-    GameObject* result = 0;
-    if (index >= 0) {
-        int inRange = (index >= 0) && (index <= 3);
-        if (inRange) {
-            result = func_0200ff1c(battle, index);
+extern "C" ARM GameObject* func_ov023_021e8f28(int arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = 0;
+    if (arg0 >= 0) {
+        int var2 = (arg0 >= 0) && (arg0 <= 3);
+        if (var2) {
+            var1 = func_0200ff1c(var0, arg0);
         }
     } else {
-        if (index == -1) {
-            int key = func_020100a8(battle);
-            result = func_0200ff1c(battle, key);
+        if (arg0 == -1) {
+            int var3 = func_020100a8(var0);
+            var1 = func_0200ff1c(var0, var3);
         } else {
-            unsigned char local[4];
-            __clear(local, 4);
-            unsigned char count = func_02011494((char*)battle, local);
-            int i = -1 - index;
-            if (i < count) {
-                result = func_0200ff1c(battle, local[i]);
+            unsigned char var4[4];
+            __clear(var4, 4);
+            unsigned char var5 = func_02011494((char*)var0, var4);
+            int var6 = -1 - arg0;
+            if (var6 < var5) {
+                var1 = func_0200ff1c(var0, var4[var6]);
             }
         }
     }
-    return result;
+    return var1;
 }

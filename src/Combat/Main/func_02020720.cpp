@@ -9,60 +9,60 @@
 #include "Combat/MapDisplay.h"
 #include "Combat/CombatScriptContext.h"
 
-struct List0204af64;
-extern "C" ARM void func_0204af64(struct List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" ARM void func_0204af64(struct Struct_02020cb8* arg0);
 
-extern "C" ARM void func_0202445c(void* obj);
+extern "C" ARM void func_0202445c(void* arg0);
 
 // USA: func_02020720
-extern "C" ARM void func_02020720(MapDisplay* obj) {
-    obj->forwardingX = 0;
-    obj->forwardingY = 0;
-    obj->names = 0;
-    obj->nameCount = 0;
-    obj->field28 = 0;
-    obj->forwarding = 0;
-    obj->forwardingCount = 0;
-    obj->field34 = 0;
-    obj->scale = 0x1000;
-    int v = 0x1000 - 0x1400;
-    obj->cameraBiasX = v;
-    obj->cameraBiasZ = v;
-    obj->mapState = 0;
-    obj->mapPalette = 0;
-    obj->forwardingFill = 0;
-    obj->displayMode = 1;
-    obj->forwardingPending = 0;
-    obj->field754 = 0;
-    obj->flags = obj->flags & 1;
-    obj->state = 0;
-    obj->fielda9c = 0;
+extern "C" ARM void func_02020720(Struct_02020554* arg0) {
+    arg0->unknown_18_ = 0;
+    arg0->unknown_1c_ = 0;
+    arg0->unknown_20_ = 0;
+    arg0->unknown_24_ = 0;
+    arg0->unknown_28_ = 0;
+    arg0->unknown_2c_ = 0;
+    arg0->unknown_30_ = 0;
+    arg0->unknown_34_ = 0;
+    arg0->unknown_38_ = 0x1000;
+    int var0 = 0x1000 - 0x1400;
+    arg0->unknown_3c_ = var0;
+    arg0->unknown_40_ = var0;
+    arg0->unknown_6c_ = 0;
+    arg0->unknown_70_ = 0;
+    arg0->unknown_74_ = 0;
+    arg0->unknown_14_ = 1;
+    arg0->unknown_55c_ = 0;
+    arg0->unknown_754_ = 0;
+    arg0->unknown_5a4_ = arg0->unknown_5a4_ & 1;
+    arg0->unknown_0_ = 0;
+    arg0->unknown_a9c_ = 0;
 
-    for (int i = 0; i < 4; i++) {
-        obj->slots[i] = -1;
-        obj->slotFlags[i] = 0;
-        obj->flags758[i] = 0;
-        obj->recordVisible[i] = 1;
+    for (int var1 = 0; var1 < 4; var1++) {
+        arg0->unknown_560_[var1] = -1;
+        arg0->unknown_570_[var1] = 0;
+        arg0->unknown_758_[var1] = 0;
+        arg0->unknown_558_[var1] = 1;
     }
 
-    func_0204af64(&obj->list4c);
+    func_0204af64(&arg0->unknown_4c_);
 
-    obj->field75c = 0;
-    obj->field75d = 0;
-    obj->field77a = 0;
-    obj->field77c = 0;
-    obj->field9b4 = 0;
-    obj->field760 = 0;
-    obj->field764 = 0;
-    obj->field766 = 0;
-    obj->field768 = 1;
+    arg0->unknown_75c_ = 0;
+    arg0->unknown_75d_ = 0;
+    arg0->unknown_77a_ = 0;
+    arg0->unknown_77c_ = 0;
+    arg0->unknown_9b4_ = 0;
+    arg0->unknown_760_ = 0;
+    arg0->unknown_764_ = 0;
+    arg0->unknown_766_ = 0;
+    arg0->unknown_768_ = 1;
 
-    func_0202445c(obj);
+    func_0202445c(arg0);
 
-    obj->field9bc = 0;
-    obj->actionState = 0;
-    data_020fdc4c.unknownCounter = 0;
-    obj->fieldaa0 = 0;
+    arg0->unknown_9bc_ = 0;
+    arg0->unknown_9c0_ = 0;
+    data_020fdc4c.unknown_c_ = 0;
+    arg0->unknown_aa0_ = 0;
 
-    VectorizedMemset(obj->bytesaa2, 0, 0x100);
+    VectorizedMemset(arg0->unknown_aa2_, 0, 0x100);
 }

@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021c9544
-extern "C" ARM void func_ov017_021c9544(int a0, int a1, int a2, int a3) {
-	void* p = func_0202ae24();
-	unsigned char buf[0x14];
-	unsigned char* b = buf + 4;
-	unsigned char byte3 = b[3];
-	unsigned char a1b = (unsigned char)a1;
-	signed char sb = (signed char)a3;
-	byte3 = (byte3 & ~0xf) | (a1b & 0xf);
-	b[3] = byte3;
-	signed char byte3s = *(signed char*)&b[3];
-	buf[0] = 0x86;
-	byte3s = (byte3s & ~0xf0) | ((sb & 0xf) << 4);
-	*(short*)b = (short)a0;
-	b[3] = byte3s;
-	func_0205e330(p, buf, 0);
+extern "C" ARM void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3) {
+	void* var0 = func_0202ae24();
+	unsigned char var1[0x14];
+	unsigned char* var2 = var1 + 4;
+	unsigned char var3 = var2[3];
+	unsigned char var4 = (unsigned char)arg1;
+	signed char var5 = (signed char)arg3;
+	var3 = (var3 & ~0xf) | (var4 & 0xf);
+	var2[3] = var3;
+	signed char var6 = *(signed char*)&var2[3];
+	var1[0] = 0x86;
+	var6 = (var6 & ~0xf0) | ((var5 & 0xf) << 4);
+	*(short*)var2 = (short)arg0;
+	var2[3] = var6;
+	func_0205e330(var0, var1, 0);
 }

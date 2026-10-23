@@ -2,46 +2,46 @@
 #include "GameState/GameState.h"
 
 
-struct Mid021eedb0 { unsigned int v[4]; };
+struct Struct_02000c9c_80 { unsigned int unknown_0_[4]; };
 
-struct Rec021eedb0 {
-    unsigned int f0;
-    unsigned int f4;
-    struct Mid021eedb0 mid;
-    struct Rec021eedb0* next;
+struct Struct_ov025_021eedb0 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    struct Struct_02000c9c_80 unknown_8_;
+    struct Struct_ov025_021eedb0* unknown_18_;
 };
 
-struct Obj021eedb0 {
-    char pad0[0xe0];
-    struct Rec021eedb0* activeHead;
-    struct Rec021eedb0* freeHead;
+struct Struct_ov025_021eedb0_2 {
+    char unknown_0_[0xe0];
+    struct Struct_ov025_021eedb0* unknown_e0_;
+    struct Struct_ov025_021eedb0* unknown_e4_;
 };
 
-typedef int (*Handler021eedb0)(struct Rec021eedb0*);
-extern Handler021eedb0 data_ov025_021ef93c[];
+typedef int (*Type_02000c9c_4)(struct Struct_ov025_021eedb0*);
+extern Type_02000c9c_4 data_ov025_021ef93c[];
 
 // USA: func_ov025_021eedb0
-extern "C" ARM void func_ov025_021eedb0(struct Obj021eedb0* obj) {
-    GameState* battle = GameState::GetInstance();
-    unsigned int elapsed = battle->GetEffectiveDeltaTime();
-    struct Rec021eedb0* node = obj->activeHead;
-    struct Rec021eedb0* prev = 0;
-    while (node != 0) {
-        if (elapsed < node->f4) {
-            node->f4 -= elapsed;
+extern "C" ARM void func_ov025_021eedb0(struct Struct_ov025_021eedb0_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned int var1 = var0->GetEffectiveDeltaTime();
+    struct Struct_ov025_021eedb0* var2 = arg0->unknown_e0_;
+    struct Struct_ov025_021eedb0* var3 = 0;
+    while (var2 != 0) {
+        if (var1 < var2->unknown_4_) {
+            var2->unknown_4_ -= var1;
         } else {
-            node->f4 = 0;
-            if (data_ov025_021ef93c[node->f0](node) != 0) {
-                if (prev != 0) prev->next = node->next;
-                else obj->activeHead = node->next;
-                struct Rec021eedb0* next = node->next;
-                node->next = obj->freeHead;
-                obj->freeHead = node;
-                node = next;
+            var2->unknown_4_ = 0;
+            if (data_ov025_021ef93c[var2->unknown_0_](var2) != 0) {
+                if (var3 != 0) var3->unknown_18_ = var2->unknown_18_;
+                else arg0->unknown_e0_ = var2->unknown_18_;
+                struct Struct_ov025_021eedb0* var4 = var2->unknown_18_;
+                var2->unknown_18_ = arg0->unknown_e4_;
+                arg0->unknown_e4_ = var2;
+                var2 = var4;
                 continue;
             }
         }
-        prev = node;
-        node = node->next;
+        var3 = var2;
+        var2 = var2->unknown_18_;
     }
 }

@@ -6,14 +6,14 @@ extern "C" void* memset(void*, int, unsigned int);
 #endif
 
 // USA: func_02094b40
-extern "C" ARM void func_02094b40(FontBankLoader* loader) {
+extern "C" ARM void func_02094b40(Struct_0208cb08* arg0) {
 #if defined(jpn)
-    loader->primaryBank = -1;
-    loader->primaryValue = 0;
-    loader->primaryLoaded = 0;
-    loader->supplementalBank = -1;
-    loader->supplementalValue = 0;
-    loader->supplementalLoaded = 0;
-    memset(loader->customFontName, 0, sizeof(loader->customFontName));
+    arg0->unknown_3c_ = -1;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_63_ = 0;
+    arg0->unknown_40_ = -1;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_64_ = 0;
+    memset(arg0->unknown_44_, 0, sizeof(arg0->unknown_44_));
 #endif
 }

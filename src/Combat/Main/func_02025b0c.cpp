@@ -5,90 +5,90 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
-struct Bcb8Params;
-struct Entry_02027878;
-struct List_02027878;
-struct BattleTimer0202441c;
-struct Actor02024d48;
-struct ForwardingRecord02024518 {
-    int unknown0;
-    int entryIndex;
-    int x;
-    int y;
+struct Struct_02020fc4_3;
+struct Struct_02024518_3;
+struct Struct_02024518_2;
+struct Struct_0202441c;
+struct Struct_02024d48;
+struct Struct_02024518 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 extern "C" void* func_0203b628();
 extern "C" void* func_02012fe4();
 extern "C" void func_0203b718(void*, int, int, int);
-extern "C" Entry_02027878* func_02027878(List_02027878*, int);
-extern "C" void func_0203bcb8(Bcb8Params*, int, int);
-extern "C" void func_0202441c(BattleTimer0202441c*);
+extern "C" Struct_02024518_3* func_02027878(Struct_02024518_2*, int);
+extern "C" void func_0203bcb8(Struct_02020fc4_3*, int, int);
+extern "C" void func_0202441c(Struct_0202441c*);
 extern "C" int func_020243b8(void*, int);
-extern "C" int func_02024d48(CombatActionPosition*, int);
+extern "C" int func_02024d48(Struct_020236dc*, int);
 extern "C" void func_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
 
 // USA: func_02025b0c
-extern "C" ARM void func_02025b0c(MapDisplay* self) {
-    GameObject* object = GameState::GetInstance()->GetUnknownGameObject();
-    void* displayState = func_0203b628();
+extern "C" ARM void func_02025b0c(Struct_02020554* arg0) {
+    GameObject* var0 = GameState::GetInstance()->GetUnknownGameObject();
+    void* var1 = func_0203b628();
     func_02012fe4();
-    Vector3i position = object->obj3D_.position_;
-    CombatActionPosition entries[17];
-    unsigned char groups[32];
-    memset(groups, 0, sizeof(groups));
-    int count = func_020236dc(entries, groups, &position);
-    int screenX;
-    int cameraY;
-    fix32_t scale;
-    scale = self->scale;
-    screenX = (int)((float)FIX32_MULTIPLY(position.x, scale) / 4096.0f);
-    cameraY = (int)((float)FIX32_MULTIPLY(self->cameraZ, scale) / 4096.0f);
-    int objectY = (int)((float)FIX32_MULTIPLY(position.y, scale) / 4096.0f);
-    if (cameraY - objectY > 5 || objectY - cameraY > 5) {
-        if (objectY < cameraY) {
-            self->cameraZ -= fix32_Divide((cameraY - objectY - 5) << 12, scale);
+    Vector3i var2 = var0->obj3D_.position_;
+    Struct_020236dc var3[17];
+    unsigned char var4[32];
+    memset(var4, 0, sizeof(var4));
+    int var5 = func_020236dc(var3, var4, &var2);
+    int var6;
+    int var7;
+    fix32_t var8;
+    var8 = arg0->unknown_38_;
+    var6 = (int)((float)FIX32_MULTIPLY(var2.x, var8) / 4096.0f);
+    var7 = (int)((float)FIX32_MULTIPLY(arg0->unknown_5b0_, var8) / 4096.0f);
+    int var9 = (int)((float)FIX32_MULTIPLY(var2.y, var8) / 4096.0f);
+    if (var7 - var9 > 5 || var9 - var7 > 5) {
+        if (var9 < var7) {
+            arg0->unknown_5b0_ -= fix32_Divide((var7 - var9 - 5) << 12, var8);
         } else {
-            self->cameraZ += fix32_Divide((objectY - cameraY - 5) << 12, scale);
+            arg0->unknown_5b0_ += fix32_Divide((var9 - var7 - 5) << 12, var8);
         }
     }
-    cameraY = (int)((float)FIX32_MULTIPLY(self->cameraZ, self->scale) / 4096.0f);
-    self->screenX = screenX;
-    self->screenY = cameraY;
-    int tileY = cameraY < 0 ? cameraY / 8 - 1 : cameraY / 8;
-    self->forwardingPending = 0;
-    func_0203b718(displayState, 1, 0, self->forwardingFill);
-    for (int i = 0; i < self->forwardingCount; ++i) {
-        Entry_02027878* entry = func_02027878((List_02027878*)self, self->forwarding[i].entryIndex);
-        if (entry) {
-            int forwardY = self->forwardingY + self->forwarding[i].y;
-            int forwardX = self->forwardingX + self->forwarding[i].x;
-            func_0203bcb8(reinterpret_cast<Bcb8Params*>(reinterpret_cast<unsigned char*>(entry) + 8), forwardX + 16, tileY + forwardY + 16);
+    var7 = (int)((float)FIX32_MULTIPLY(arg0->unknown_5b0_, arg0->unknown_38_) / 4096.0f);
+    arg0->unknown_44_ = var6;
+    arg0->unknown_48_ = var7;
+    int var10 = var7 < 0 ? var7 / 8 - 1 : var7 / 8;
+    arg0->unknown_55c_ = 0;
+    func_0203b718(var1, 1, 0, arg0->unknown_74_);
+    for (int var11 = 0; var11 < arg0->unknown_30_; ++var11) {
+        Struct_02024518_3* var12 = func_02027878((Struct_02024518_2*)arg0, arg0->unknown_2c_[var11].unknown_4_);
+        if (var12) {
+            int var13 = arg0->unknown_1c_ + arg0->unknown_2c_[var11].unknown_c_;
+            int var14 = arg0->unknown_18_ + arg0->unknown_2c_[var11].unknown_8_;
+            func_0203bcb8(reinterpret_cast<Struct_02020fc4_3*>(reinterpret_cast<unsigned char*>(var12) + 8), var14 + 16, var10 + var13 + 16);
         }
     }
-    func_0202441c((BattleTimer0202441c*)self);
-    for (int i = 0; i < count; ++i) {
-        CombatActionPosition* entry = &entries[i];
-        if (!func_020243b8(self, entry->combatantId)) {
+    func_0202441c((Struct_0202441c*)arg0);
+    for (int var15 = 0; var15 < var5; ++var15) {
+        Struct_020236dc* var16 = &var3[var15];
+        if (!func_020243b8(arg0, var16->unknown_14_)) {
             continue;
         }
-        fix32_t entryScale = self->scale;
-        int x = (int)((float)FIX32_MULTIPLY(entry->position.x, entryScale) / 4096.0f);
-        int y = -((int)((float)FIX32_MULTIPLY(entry->position.y, entryScale) / 4096.0f) - self->screenY);
-        if (entry->variant >= 0) {
-            int group = groups[entry->group] - 1;
-            x += data_020e70f0[group][entry->variant][0];
-            y -= data_020e70f4[group][entry->variant][0];
+        fix32_t var17 = arg0->unknown_38_;
+        int var18 = (int)((float)FIX32_MULTIPLY(var16->unknown_0_.x, var17) / 4096.0f);
+        int var19 = -((int)((float)FIX32_MULTIPLY(var16->unknown_0_.y, var17) / 4096.0f) - arg0->unknown_48_);
+        if (var16->unknown_f_ >= 0) {
+            int var20 = var4[var16->unknown_10_] - 1;
+            var18 += data_020e70f0[var20][var16->unknown_f_][0];
+            var19 -= data_020e70f4[var20][var16->unknown_f_][0];
         }
-        if (self->flags & 1) {
-            if (IsNonCombatantAction(entry->type)) {
+        if (arg0->unknown_5a4_ & 1) {
+            if (inline_02024518(var16->unknown_e_)) {
                 continue;
             }
         }
-        if (!func_02024d48(entry, self->actionState)) {
+        if (!func_02024d48(var16, arg0->unknown_9c0_)) {
             continue;
         }
-        func_0202756c(self, (x + 0x7c) << 12, (y + 0x5c) << 12,
-            entry->elementId, entry->type, 0, entry->palette, 0xff, 0x1000, 0x1000);
+        func_0202756c(arg0, (var18 + 0x7c) << 12, (var19 + 0x5c) << 12,
+            var16->unknown_c_, var16->unknown_e_, 0, var16->unknown_d_, 0xff, 0x1000, 0x1000);
     }
-    func_02023b5c(self, 0, self->screenY, 0x7c, 0x5c, 1);
-    func_02023d84(self, entries, count, 0, self->screenY, 0x7c, 0x5c, 1);
+    func_02023b5c(arg0, 0, arg0->unknown_48_, 0x7c, 0x5c, 1);
+    func_02023d84(arg0, var3, var5, 0, arg0->unknown_48_, 0x7c, 0x5c, 1);
 }

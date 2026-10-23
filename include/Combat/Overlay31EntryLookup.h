@@ -1,11 +1,11 @@
 #pragma once
 
-struct LookupNode_0220ee50 {
-    int field0;
-    int id;
-    int field8;
-    LookupNode_0220ee50* next;
+struct Struct_ov031_0220ec04 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    Struct_ov031_0220ec04* unknown_c_;
 };
 
-extern "C" LookupNode_0220ee50* func_ov031_0220ee50(int id);
-extern "C" const void* func_ov031_0220ec04(int index);
+extern "C" Struct_ov031_0220ec04* func_ov031_0220ee50(int arg0);
+extern "C" const void* func_ov031_0220ec04(int arg0);

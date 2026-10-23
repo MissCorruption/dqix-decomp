@@ -1,54 +1,54 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct Ctx021dd6bc {
-	unsigned char pad0[4];
-	char* arr;
-	unsigned int elemSize;
-	int count;
+struct Struct_ov027_021e3424_3 {
+	unsigned char unknown_0_[4];
+	char* unknown_4_;
+	unsigned int unknown_8_;
+	int unknown_c_;
 };
 
-extern Ctx021dd6bc data_ov027_021e3424;
+extern Struct_ov027_021e3424_3 data_ov027_021e3424;
 
-extern "C" int func_ov027_021dd864(int id);
-extern "C" void* func_ov027_021dd7d8(void* dst, int id);
+extern "C" int func_ov027_021dd864(int arg0);
+extern "C" void* func_ov027_021dd7d8(void* arg0, int arg1);
 
 #pragma optimize_for_size off
 // USA: func_ov027_021dd6bc
-extern "C" ARM void* func_ov027_021dd6bc(unsigned char* src, unsigned char* dst, int id) {
-	unsigned char type = src[0];
-	dst[0] = type;
-	unsigned char* result;
-	switch (type) {
+extern "C" ARM void* func_ov027_021dd6bc(unsigned char* arg0, unsigned char* arg1, int arg2) {
+	unsigned char var0 = arg0[0];
+	arg1[0] = var0;
+	unsigned char* var1;
+	switch (var0) {
 	case 7: {
-		if (func_ov027_021dd864(id) == 0) goto notAllSet;
-		return data_ov027_021e3424.arr + (id - 1) * 0x20;
+		if (func_ov027_021dd864(arg2) == 0) goto notAllSet;
+		return data_ov027_021e3424.unknown_4_ + (arg2 - 1) * 0x20;
 	notAllSet:
-		unsigned char field1 = src[1];
-		dst[2] = field1;
-		if (field1 > data_ov027_021e3424.count) {
+		unsigned char var2 = arg0[1];
+		arg1[2] = var2;
+		if (var2 > data_ov027_021e3424.unknown_c_) {
 			return 0;
 		}
-		VectorizedInvertedMemcpy(src + 2, dst + 3, data_ov027_021e3424.elemSize);
-		result = (unsigned char*)func_ov027_021dd7d8(dst, id);
+		VectorizedInvertedMemcpy(arg0 + 2, arg1 + 3, data_ov027_021e3424.unknown_8_);
+		var1 = (unsigned char*)func_ov027_021dd7d8(arg1, arg2);
 		break;
 	}
 	case 8: {
-		result = src + 3;
-		*(unsigned short*)(dst + 2) = src[1];
-		*(unsigned short*)(dst + 2) = *(unsigned short*)(dst + 2) | ((src[2] << 8) & 0xff00);
+		var1 = arg0 + 3;
+		*(unsigned short*)(arg1 + 2) = arg0[1];
+		*(unsigned short*)(arg1 + 2) = *(unsigned short*)(arg1 + 2) | ((arg0[2] << 8) & 0xff00);
 		break;
 	}
 	case 9: {
-		result = src + 3;
-		*(unsigned short*)(dst + 2) = src[1];
-		*(unsigned short*)(dst + 2) = *(unsigned short*)(dst + 2) | ((src[2] << 8) & 0xff00);
-		VectorizedInvertedMemcpy(result, dst + 4, data_ov027_021e3424.elemSize);
-		result = result + data_ov027_021e3424.elemSize;
+		var1 = arg0 + 3;
+		*(unsigned short*)(arg1 + 2) = arg0[1];
+		*(unsigned short*)(arg1 + 2) = *(unsigned short*)(arg1 + 2) | ((arg0[2] << 8) & 0xff00);
+		VectorizedInvertedMemcpy(var1, arg1 + 4, data_ov027_021e3424.unknown_8_);
+		var1 = var1 + data_ov027_021e3424.unknown_8_;
 		break;
 	}
 	default:
 		return 0;
 	}
-	return result;
+	return var1;
 }

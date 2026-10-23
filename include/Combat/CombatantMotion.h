@@ -5,25 +5,22 @@
 #include "std_library_functions.h"
 
 class Object3D;
-struct Container02040c2c;
-struct SpriteMotion02040c2c;
-struct ModelEffect02040c2c;
+struct Struct_02040c2c;
+struct Struct_02040c2c_2;
+struct Struct_02040c2c_3;
 
-struct Obj02040c2c {
-    unsigned int flags;
-    unsigned int idleDelay;
-    char pad_08[0x4];
-    Container02040c2c* settings;
-    Object3D* attachment;
-    SpriteMotion02040c2c* spriteMotion;
-    ModelEffect02040c2c* modelMotion;
+struct Struct_0203dd20 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    char unknown_8_[0x4];
+    Struct_02040c2c* unknown_c_;
+    Object3D* unknown_10_;
+    Struct_02040c2c_2* unknown_14_;
+    Struct_02040c2c_3* unknown_18_;
 };
 
-extern "C" void func_02040c2c(Obj02040c2c* entry, void* context,
-                            int elapsedTicks, int movementTicks);
+extern "C" void func_02040c2c(Struct_0203dd20* arg0, void* arg1,
+                            int arg2, int arg3);
 
-typedef char VerifyCombatantMotionSize[sizeof(Obj02040c2c) == 0x1c ? 1 : -1];
-typedef char VerifyCombatantMotionSettingsOffset[offsetof(Obj02040c2c, settings) == 0xc ? 1 : -1];
-typedef char VerifyCombatantMotionSpriteOffset[offsetof(Obj02040c2c, spriteMotion) == 0x14 ? 1 : -1];
 
 #endif

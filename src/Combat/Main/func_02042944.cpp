@@ -10,9 +10,9 @@ extern int data_02107830[];
 extern int data_02107838[];
 
 // USA: func_02042944
-extern "C" ARM void func_02042944(void* obj) {
+extern "C" ARM void func_02042944(void* arg0) {
     BackgroundLoader::AddLockGlobal();
-    func_02042804(obj, &data_020f0079, data_0210782c, data_02107834);
-    func_02042804(obj, &data_020f007c, data_02107830, data_02107838);
+    func_02042804(arg0, &data_020f0079, data_0210782c, data_02107834);
+    func_02042804(arg0, &data_020f007c, data_02107830, data_02107838);
     BackgroundLoader::RemoveLockGlobal();
 }

@@ -1,41 +1,41 @@
 #include <globaldefs.h>
 
-struct FileModes0200173c {
-    unsigned int openMode : 2;
-    unsigned int ioMode : 3;
-    unsigned int bufferMode : 2;
-    unsigned int fileKind : 3;
-    unsigned int fileOrientation : 2;
-    unsigned int binaryIo : 1;
+struct Struct_0200173c {
+    unsigned int unknown_0_0_ : 2;
+    unsigned int unknown_0_2_ : 3;
+    unsigned int unknown_0_5_ : 2;
+    unsigned int unknown_0_7_ : 3;
+    unsigned int unknown_1_2_ : 2;
+    unsigned int unknown_1_4_ : 1;
 };
 
-struct File0200173c {
-    unsigned long handle;
-    FileModes0200173c mode;
-    unsigned char rest[0x44];
+struct Struct_020eebe0 {
+    unsigned long unknown_0_;
+    Struct_0200173c unknown_4_;
+    unsigned char unknown_8_[0x44];
 };
 
-extern File0200173c data_020eebe0[];
-extern "C" int func_02001878(File0200173c* file);
+extern Struct_020eebe0 data_020eebe0[];
+extern "C" int func_02001878(Struct_020eebe0* arg0);
 
 // USA: func_0200173c
 extern "C" ARM int func_0200173c(void) {
-    int result = 0;
-    File0200173c* file = &data_020eebe0[0];
-    int fileIndex = 1;
+    int var0 = 0;
+    Struct_020eebe0* var1 = &data_020eebe0[0];
+    int var2 = 1;
 
     do {
-        if (file->mode.fileKind != 0) {
-            if (func_02001878(file) != 0) {
-                result = -1;
+        if (var1->unknown_4_.unknown_0_7_ != 0) {
+            if (func_02001878(var1) != 0) {
+                var0 = -1;
             }
         }
-        if (fileIndex < 3) {
-            file = &data_020eebe0[fileIndex++];
+        if (var2 < 3) {
+            var1 = &data_020eebe0[var2++];
         } else {
-            file = 0;
+            var1 = 0;
         }
-    } while (file != 0);
+    } while (var1 != 0);
 
-    return result;
+    return var0;
 }

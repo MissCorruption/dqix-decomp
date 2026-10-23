@@ -1,72 +1,72 @@
 #include <globaldefs.h>
 
-struct NibbleStruct;
-extern "C" int func_020de34c(struct NibbleStruct* s, int lo, int hi);
+struct Struct_020de34c;
+extern "C" int func_020de34c(struct Struct_020de34c* arg0, int arg1, int arg2);
 
-struct Field8Bits4To8;
-extern "C" int func_020de334(struct Field8Bits4To8* obj, int a1, int a2, int value);
+struct Struct_020de334;
+extern "C" int func_020de334(struct Struct_020de334* arg0, int arg1, int arg2, int arg3);
 
-struct Field8Bits0To3;
-extern "C" int func_020de31c(struct Field8Bits0To3* obj, int value);
+struct Struct_020de31c;
+extern "C" int func_020de31c(struct Struct_020de31c* arg0, int arg1);
 
-struct BitPair020de36c;
-extern "C" int func_020de36c(struct BitPair020de36c* obj, int a, int unused, int b);
+struct Struct_020de36c;
+extern "C" int func_020de36c(struct Struct_020de36c* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_020de3f4
 #pragma optimize_for_size off
-extern "C" ARM void func_020de3f4(int a, int b, int c, int d, char* outA, char* outB, char* outC, void** outFunc) {
-    *outA = (char)c;
-    *outB = (char)-1;
-    *outC = (char)d;
-    *outFunc = 0;
+extern "C" ARM void func_020de3f4(int arg0, int arg1, int arg2, int arg3, char* arg4, char* arg5, char* arg6, void** arg7) {
+    *arg4 = (char)arg2;
+    *arg5 = (char)-1;
+    *arg6 = (char)arg3;
+    *arg7 = 0;
 
-    if (a != 0) {
-        switch (b) {
+    if (arg0 != 0) {
+        switch (arg1) {
             case 0:
-                *outA = 0;
-                *outB = 7;
+                *arg4 = 0;
+                *arg5 = 7;
                 break;
             case 1:
-                *outA = 0;
+                *arg4 = 0;
                 break;
             case 2:
-                *outA = 1;
-                *outB = 6;
+                *arg4 = 1;
+                *arg5 = 6;
                 break;
             case 3:
-                *outA = 7;
+                *arg4 = 7;
                 break;
         }
     } else {
-        switch (b) {
+        switch (arg1) {
             case 0:
-                *outA = 8;
-                *outB = 9;
+                *arg4 = 8;
+                *arg5 = 9;
                 break;
             case 1:
-                *outA = 8;
+                *arg4 = 8;
                 break;
             case 2:
-                *outA = 9;
+                *arg4 = 9;
                 break;
         }
     }
 
-    if (*outA == -1) {
-        if (*outC == -1) {
-            *outFunc = 0;
+    if (*arg4 == -1) {
+        if (*arg6 == -1) {
+            *arg7 = 0;
         } else {
-            *outFunc = (void*)&func_020de334;
+            *arg7 = (void*)&func_020de334;
         }
     } else {
-        if (*outC == -1) {
-            if (*outB == -1) {
-                *outFunc = (void*)&func_020de31c;
+        if (*arg6 == -1) {
+            if (*arg5 == -1) {
+                *arg7 = (void*)&func_020de31c;
             } else {
-                *outFunc = (void*)&func_020de34c;
+                *arg7 = (void*)&func_020de34c;
             }
         } else {
-            *outFunc = (void*)&func_020de36c;
+            *arg7 = (void*)&func_020de36c;
         }
     }
 }

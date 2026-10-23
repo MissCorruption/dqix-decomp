@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct FixedVec3_17c4 {
-    int x;
-    int y;
-    int z;
+struct Struct_020c17c4_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct FixedMtx3_17c4 {
-    struct FixedVec3_17c4 row0;
-    struct FixedVec3_17c4 row1;
-    struct FixedVec3_17c4 row2;
+struct Struct_020c17c4 {
+    struct Struct_020c17c4_2 unknown_0_;
+    struct Struct_020c17c4_2 unknown_c_;
+    struct Struct_020c17c4_2 unknown_18_;
 };
 
 // USA: func_020c17c4
-extern "C" ARM void Mat3x3_ApplyToVector(struct FixedVec3_17c4* v, struct FixedMtx3_17c4* m, struct FixedVec3_17c4* out) {
-    int vy = v->y;
-    int vx = v->x;
-    int vz = v->z;
-    out->x = (int)(((long long)vx * m->row0.x + (long long)vy * m->row1.x + (long long)vz * m->row2.x) >> 12);
-    out->y = (int)(((long long)vx * m->row0.y + (long long)vy * m->row1.y + (long long)vz * m->row2.y) >> 12);
-    out->z = (int)(((long long)vx * m->row0.z + (long long)vy * m->row1.z + (long long)vz * m->row2.z) >> 12);
+extern "C" ARM void Mat3x3_ApplyToVector(struct Struct_020c17c4_2* arg0, struct Struct_020c17c4* arg1, struct Struct_020c17c4_2* arg2) {
+    int var0 = arg0->unknown_4_;
+    int var1 = arg0->unknown_0_;
+    int var2 = arg0->unknown_8_;
+    arg2->unknown_0_ = (int)(((long long)var1 * arg1->unknown_0_.unknown_0_ + (long long)var0 * arg1->unknown_c_.unknown_0_ + (long long)var2 * arg1->unknown_18_.unknown_0_) >> 12);
+    arg2->unknown_4_ = (int)(((long long)var1 * arg1->unknown_0_.unknown_4_ + (long long)var0 * arg1->unknown_c_.unknown_4_ + (long long)var2 * arg1->unknown_18_.unknown_4_) >> 12);
+    arg2->unknown_8_ = (int)(((long long)var1 * arg1->unknown_0_.unknown_8_ + (long long)var0 * arg1->unknown_c_.unknown_8_ + (long long)var2 * arg1->unknown_18_.unknown_8_) >> 12);
 }

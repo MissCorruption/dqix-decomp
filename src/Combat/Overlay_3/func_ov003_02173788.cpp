@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegiond8 = 0xd4 };
-enum { kRegionef = 0xeb };
-enum { kRegioncb = 0xc9 };
-enum { kRegioned = 0xe9 };
-enum { kRegionca = 0xc8 };
+enum { Enum_ov003_02173788_216 = 0xd4 };
+enum { Enum_ov003_02173788_239 = 0xeb };
+enum { Enum_ov003_02173788_203 = 0xc9 };
+enum { Enum_ov003_02173788_237 = 0xe9 };
+enum { Enum_ov003_02173788_202 = 0xc8 };
 #else
-enum { kRegiond8 = 0xd8 };
-enum { kRegionef = 0xef };
-enum { kRegioncb = 0xcb };
-enum { kRegioned = 0xed };
-enum { kRegionca = 0xca };
+enum { Enum_ov003_02173788_216 = 0xd8 };
+enum { Enum_ov003_02173788_239 = 0xef };
+enum { Enum_ov003_02173788_203 = 0xcb };
+enum { Enum_ov003_02173788_237 = 0xed };
+enum { Enum_ov003_02173788_202 = 0xca };
 #endif
 
 
-extern "C" void func_020a620c(void* obj);
+extern "C" void func_020a620c(void* arg0);
 
 // USA: func_ov003_02173788
-extern "C" ARM void func_ov003_02173788(unsigned char* obj) {
-    func_020a620c(obj + kRegiond8);
-    if (obj[kRegionef] != 0) {
+extern "C" ARM void func_ov003_02173788(unsigned char* arg0) {
+    func_020a620c(arg0 + Enum_ov003_02173788_216);
+    if (arg0[Enum_ov003_02173788_239] != 0) {
         return;
     }
-    if (obj[kRegioncb] != 0) {
-        obj[kRegioncb] = 0;
-        obj[kRegioned] = 3;
-        obj[kRegionef] = 0;
-    } else if (obj[kRegionca] != 0) {
-        obj[kRegioned] = 4;
-        obj[kRegionef] = 0;
+    if (arg0[Enum_ov003_02173788_203] != 0) {
+        arg0[Enum_ov003_02173788_203] = 0;
+        arg0[Enum_ov003_02173788_237] = 3;
+        arg0[Enum_ov003_02173788_239] = 0;
+    } else if (arg0[Enum_ov003_02173788_202] != 0) {
+        arg0[Enum_ov003_02173788_237] = 4;
+        arg0[Enum_ov003_02173788_239] = 0;
     }
 }

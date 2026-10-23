@@ -2,46 +2,46 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-struct ByteHeader0204693c;
-extern "C" void func_0204693c(struct ByteHeader0204693c* p);
+struct Struct_0204693c;
+extern "C" void func_0204693c(struct Struct_0204693c* arg0);
 extern "C" int func_020421a0();
 
 // USA: func_ov017_021b57fc
-extern "C" ARM void func_ov017_021b57fc(unsigned char* obj) {
-    func_0204693c((struct ByteHeader0204693c*)obj);
+extern "C" ARM void func_ov017_021b57fc(unsigned char* arg0) {
+    func_0204693c((struct Struct_0204693c*)arg0);
 
-    obj[0x0] = 0x15;
-    *(int*)(obj + 0x8) = 0;
-    obj[0xc] = 0;
-    *(unsigned short*)(obj + 0x10) = 0xffff;
-    *(int*)(obj + 0x1c) = 0;
-    *(short*)(obj + 0xe) = 0;
-    *(int*)(obj + 0x20) = 0;
-    *(int*)(obj + 0x24) = 0;
-    *(int*)(obj + 0x28) = -1;
-    *(unsigned short*)(obj + 0x12) = 0xffff;
-    obj[0x16] = 0x3d;
-    *(int*)(obj + 0x38) = 0;
-    obj[0x17] = 0;
-    *(short*)(obj + 0x14) = -1;
-    *(short*)(obj + 0x18) = 0x1f4;
+    arg0[0x0] = 0x15;
+    *(int*)(arg0 + 0x8) = 0;
+    arg0[0xc] = 0;
+    *(unsigned short*)(arg0 + 0x10) = 0xffff;
+    *(int*)(arg0 + 0x1c) = 0;
+    *(short*)(arg0 + 0xe) = 0;
+    *(int*)(arg0 + 0x20) = 0;
+    *(int*)(arg0 + 0x24) = 0;
+    *(int*)(arg0 + 0x28) = -1;
+    *(unsigned short*)(arg0 + 0x12) = 0xffff;
+    arg0[0x16] = 0x3d;
+    *(int*)(arg0 + 0x38) = 0;
+    arg0[0x17] = 0;
+    *(short*)(arg0 + 0x14) = -1;
+    *(short*)(arg0 + 0x18) = 0x1f4;
 
-    ((SafeAllocator*)(obj + 0x40))->ResetAllocatorPointer();
-    ((SafeAllocator*)(obj + 0x58))->ResetAllocatorPointer();
+    ((SafeAllocator*)(arg0 + 0x40))->ResetAllocatorPointer();
+    ((SafeAllocator*)(arg0 + 0x58))->ResetAllocatorPointer();
 
-    int field = func_020421a0();
+    int var0 = func_020421a0();
 #if defined(jpn)
-    void* p = *(void**)((char*)field + 0x28);
-    memset(*(void**)(obj + 0x3c) = p, 0, 0x800);
+    void* var1 = *(void**)((char*)var0 + 0x28);
+    memset(*(void**)(arg0 + 0x3c) = var1, 0, 0x800);
 #else
-    void* p = *(void**)((char*)field + 0x5c);
-    memset(*(void**)(obj + 0x3c) = p, 0, 0x960);
+    void* var2 = *(void**)((char*)var0 + 0x5c);
+    memset(*(void**)(arg0 + 0x3c) = var2, 0, 0x960);
 #endif
 
-    unsigned int f = (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
-    f |= 0x10;
-    unsigned int cleared = *(volatile unsigned int*)0x4000000 & ~0x1f00;
-    *(volatile unsigned int*)0x4000000 = cleared | (f << 8);
+    unsigned int var3 = (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
+    var3 |= 0x10;
+    unsigned int var4 = *(volatile unsigned int*)0x4000000 & ~0x1f00;
+    *(volatile unsigned int*)0x4000000 = var4 | (var3 << 8);
 
-    obj[0x54] = 0;
+    arg0[0x54] = 0;
 }

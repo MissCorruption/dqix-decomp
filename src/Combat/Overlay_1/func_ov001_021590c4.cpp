@@ -8,8 +8,8 @@
 extern "C" void* func_ov001_02158dcc(void*);
 
 // USA: func_ov001_021590c4
-extern "C" ARM void* func_ov001_021590c4(void* ctx) {
-    void* node = func_ov001_02158dcc(ctx);
-    if (node != NULL) *(int*)node = 9;
-    return node;
+extern "C" ARM void* func_ov001_021590c4(void* arg0) {
+    void* var0 = func_ov001_02158dcc(arg0);
+    if (var0 != NULL) *(int*)var0 = 9;
+    return var0;
 }

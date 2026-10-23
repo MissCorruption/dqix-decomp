@@ -11,18 +11,18 @@
 extern unsigned char data_020fdcce;
 
 // USA: func_02026348
-extern "C" ARM void func_02026348(char* obj, unsigned char* src, int count) {
-    int i;
-    if ((unsigned int)count > 4) {
-        obj[LIST_COUNT] = 0;
+extern "C" ARM void func_02026348(char* arg0, unsigned char* arg1, int arg2) {
+    int var0;
+    if ((unsigned int)arg2 > 4) {
+        arg0[LIST_COUNT] = 0;
         return;
     }
-    for (i = 0; i < count; i++) {
-        char* p = obj + i;
-        unsigned char b = src[i];
-        p[LIST_VALUES] = b;
-        (&data_020fdcce)[b << 5] = 1;
+    for (var0 = 0; var0 < arg2; var0++) {
+        char* var1 = arg0 + var0;
+        unsigned char var2 = arg1[var0];
+        var1[LIST_VALUES] = var2;
+        (&data_020fdcce)[var2 << 5] = 1;
     }
-    obj[LIST_COUNT] = count;
+    arg0[LIST_COUNT] = arg2;
 }
 

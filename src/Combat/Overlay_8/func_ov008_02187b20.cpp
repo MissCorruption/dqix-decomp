@@ -17,299 +17,299 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct PlayTime {
-    unsigned short hours_;
-    unsigned char minutes_;
-    unsigned char seconds_;
+struct Struct_01ff8b48_26 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
 };
 
-struct ClearRecords {
-    PlayTime times_[2];
-    unsigned int unk_8_0 : 17;
-    unsigned int unk_8_17 : 7;
-    unsigned int unk_8_24 : 7;
-    unsigned int unk_8_31 : 1;
-    unsigned int unk_c_0 : 17;
-    unsigned int unk_c_17 : 7;
-    unsigned int unk_c_24 : 7;
-    unsigned int unk_c_31 : 1;
-    unsigned int unk_10_0 : 9;
-    unsigned int unk_10_9 : 14;
-    unsigned int title_ : 9;
-    unsigned int unk_14_0 : 8;
-    unsigned int unk_14_8 : 14;
-    unsigned int unk_14_22 : 10;
+struct Struct_ov008_021843f8_2 {
+    Struct_01ff8b48_26 unknown_0_[2];
+    unsigned int unknown_8_0_ : 17;
+    unsigned int unknown_a_1_ : 7;
+    unsigned int unknown_b_0_ : 7;
+    unsigned int unknown_b_7_ : 1;
+    unsigned int unknown_c_0_ : 17;
+    unsigned int unknown_e_1_ : 7;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 9;
+    unsigned int unknown_14_0_ : 8;
+    unsigned int unknown_15_0_ : 14;
+    unsigned int unknown_16_6_ : 10;
 };
 
-struct PlayRecords {
-    PlayTime playTime_;
-    PlayTime unk_4;
-    unsigned int unk_8_0 : 24;
-    unsigned int unk_8_24 : 8;
-    unsigned int unk_c_0 : 7;
-    unsigned int unk_c_7 : 7;
-    unsigned int unk_c_14 : 14;
-    unsigned int unk_c_28 : 4;
-    unsigned int unk_10_0 : 9;
-    unsigned int unk_10_9 : 14;
-    unsigned int unk_10_23 : 9;
+struct Struct_ov008_021843f8_3 {
+    Struct_01ff8b48_26 unknown_0_;
+    Struct_01ff8b48_26 unknown_4_;
+    unsigned int unknown_8_0_ : 24;
+    unsigned int unknown_b_0_ : 8;
+    unsigned int unknown_c_0_ : 7;
+    unsigned int unknown_c_7_ : 7;
+    unsigned int unknown_d_6_ : 14;
+    unsigned int unknown_f_4_ : 4;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 9;
 };
 
-struct GameFlags {
-    unsigned int flags_[15];
+struct Struct_ov000_021735d0 {
+    unsigned int unknown_0_[15];
 };
 
-struct SavedRecords {
-    GameFlags flags_;
-    PlayRecords records_;
+struct Struct_ov008_021843f8 {
+    Struct_ov000_021735d0 unknown_0_;
+    Struct_ov008_021843f8_3 unknown_3c_;
 };
 
-struct GuestRecords {
-    unsigned int hours1_ : 14;
-    unsigned int unk_0_14 : 17;
-    unsigned int unk_0_31 : 1;
-    unsigned int hours2_ : 14;
-    unsigned int unk_4_14 : 17;
-    unsigned int unk_4_31 : 1;
-    unsigned int minutes1_ : 7;
-    unsigned int minutes2_ : 7;
-    unsigned int unk_8_14 : 7;
-    unsigned int unk_8_21 : 7;
-    unsigned int unk_8_28 : 4;
-    unsigned int unk_c_0 : 10;
-    unsigned int unk_c_10 : 14;
-    unsigned int unk_c_24 : 7;
-    unsigned int unk_c_31 : 1;
-    unsigned int unk_10_0 : 9;
-    unsigned int unk_10_9 : 14;
-    unsigned int unk_10_23 : 7;
-    unsigned int unk_10_30 : 2;
-    short title_;
-    unsigned char female_ : 1;
-    unsigned char unk_16_1 : 4;
-    unsigned char unk_16_5 : 3;
-    unsigned char unk_17;
+struct Struct_ov008_02187278 {
+    unsigned int unknown_0_0_ : 14;
+    unsigned int unknown_1_6_ : 17;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 14;
+    unsigned int unknown_5_6_ : 17;
+    unsigned int unknown_7_7_ : 1;
+    unsigned int unknown_8_0_ : 7;
+    unsigned int unknown_8_7_ : 7;
+    unsigned int unknown_9_6_ : 7;
+    unsigned int unknown_a_5_ : 7;
+    unsigned int unknown_b_4_ : 4;
+    unsigned int unknown_c_0_ : 10;
+    unsigned int unknown_d_2_ : 14;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 7;
+    unsigned int unknown_13_6_ : 2;
+    short unknown_14_;
+    unsigned char unknown_16_0_ : 1;
+    unsigned char unknown_16_1_ : 4;
+    unsigned char unknown_16_5_ : 3;
+    unsigned char unknown_17_;
 };
 
-struct TextTable {
-    int pad_0[0x18 / 4];
+struct Struct_01ff8b48_13 {
+    int unknown_0_[0x18 / 4];
 };
 
-struct BackgroundGraphics {
-    int pad_0[0x20 / 4];
+struct Struct_ov003_021594c4 {
+    int unknown_0_[0x20 / 4];
 };
 
-struct TextWindow {
-    int pad_0[0xbc / 4];
+struct Struct_02081870_2 {
+    int unknown_0_[0xbc / 4];
 };
 
-struct Canvas {
-    int pad_0[0xe0 / 4];
+struct Struct_ov006_02158478 {
+    int unknown_0_[0xe0 / 4];
 };
 
-struct WindowCursor {
-    int pad_0[0x40 / 4];
+struct Struct_ov009_02186e00_2 {
+    int unknown_0_[0x40 / 4];
 };
 
-struct BattleRecords {
-    SafeAllocator allocator_;
-    SafeAllocator backgroundAllocator_;
-    SafeAllocator textAllocator_;
-    SafeAllocator spriteAllocator_;
-    SafeAllocator iconAllocator_;
-    SafeAllocator modelAllocator_;
-    SafeAllocator titleAllocator_;
-    SafeAllocator guideAllocator_;
-    TextTable texts_;
-    char* text_;
-    char titleTable_[0x14];
-    BackgroundGraphics backgrounds_[3];
-    TextWindow window_;
-    Canvas canvases_[6];
-    void* pixels_;
-    void* renderer_;
-    void* sprites_;
-    void* animations_;
-    void* iconRenderer_;
-    void* iconSprite_;
-    unsigned char items_[8];
-    unsigned char itemCount_;
-    WindowCursor cursor_;
-    Object3D model_;
-    char camera_[0x2c8];
-    void* titles_;
-    void* guide_;
-    void* page_;
-    signed char state_;
-    unsigned char step_;
-    unsigned char loadStep_;
-    unsigned char exit_;
-    short title_;
-    short comment_;
-    int flags_;
-    int unk_b1c;
-    int task_;
-    int mode_;
-    unsigned char kind_;
-    unsigned char top_;
-    unsigned char closed_;
+struct Struct_ov008_021842a0_2 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator unknown_3c_;
+    SafeAllocator unknown_50_;
+    SafeAllocator unknown_64_;
+    SafeAllocator unknown_78_;
+    SafeAllocator unknown_8c_;
+    Struct_01ff8b48_13 unknown_a0_;
+    char* unknown_b8_;
+    char unknown_bc_[0x14];
+    Struct_ov003_021594c4 unknown_d0_[3];
+    Struct_02081870_2 unknown_130_;
+    Struct_ov006_02158478 unknown_1ec_[6];
+    void* unknown_72c_;
+    void* unknown_730_;
+    void* unknown_734_;
+    void* unknown_738_;
+    void* unknown_73c_;
+    void* unknown_740_;
+    unsigned char unknown_744_[8];
+    unsigned char unknown_74c_;
+    Struct_ov009_02186e00_2 unknown_750_;
+    Object3D unknown_790_;
+    char unknown_83c_[0x2c8];
+    void* unknown_b04_;
+    void* unknown_b08_;
+    void* unknown_b0c_;
+    signed char unknown_b10_;
+    unsigned char unknown_b11_;
+    unsigned char unknown_b12_;
+    unsigned char unknown_b13_;
+    short unknown_b14_;
+    short unknown_b16_;
+    int unknown_b18_;
+    int unknown_b1c_;
+    int unknown_b20_;
+    int unknown_b24_;
+    unsigned char unknown_b28_;
+    unsigned char unknown_b29_;
+    unsigned char unknown_b2a_;
 #if !defined(jpn)
-    int titleX_;
+    int unknown_b2c_;
 #endif
-    const void* guest_;
-    GuestRecords* guestRecords_;
-    void* guestTexts_;
-    void* guestTitles_;
-    PlayTime times_[2];
+    const void* unknown_b30_;
+    Struct_ov008_02187278* unknown_b34_;
+    void* unknown_b38_;
+    void* unknown_b3c_;
+    Struct_01ff8b48_26 unknown_b40_[2];
 };
 
-struct StoreStruct;
-struct Container020e0310;
+struct Struct_020465c0;
+struct Struct_0201099c_3;
 
 #if !defined(jpn)
 extern char data_ov008_0218b4c3[];
 #endif
 
 extern "C" unsigned char* func_020421a0();
-extern "C" void func_020ac0b4(void* count);
-extern "C" void func_020465c0(StoreStruct* messages, int index, int value);
-extern "C" void func_020465f0(unsigned char* messages, int index, unsigned char digits);
-extern "C" void func_020465d8(unsigned char* messages, int index, unsigned char value);
-extern "C" void func_02041e70(char* text, int color);
-extern "C" int func_0206dfb0(int store, unsigned char* bits, int flag);
-extern "C" void func_02041a90(char* text, int x, int y);
-extern "C" const char* func_020e0434(Container020e0310* texts, int id);
-extern "C" void func_02042058(char* text, const char* append);
+extern "C" void func_020ac0b4(void* arg0);
+extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void func_02041e70(char* arg0, int arg1);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void func_02041a90(char* arg0, int arg1, int arg2);
+extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_02042058(char* arg0, const char* arg1);
 
 extern "C" {
-void __clear(void* buffer, unsigned long size);
-void func_02046380(unsigned char* messages);
+void __clear(void* arg0, unsigned long arg1);
+void func_02046380(unsigned char* arg0);
 char* func_0205ec34();
 }
 
 // USA: func_ov008_02187b20
-extern "C" ARM void func_ov008_02187b20(BattleRecords* self, char* text, ClearRecords* records)
+extern "C" ARM void func_ov008_02187b20(Struct_ov008_021842a0_2* arg0, char* arg1, Struct_ov008_021843f8_2* arg2)
 {
-    SavedRecords* saved;
-    int y;
-    if (text == NULL)
+    Struct_ov008_021843f8* var0;
+    int var1;
+    if (arg1 == NULL)
         return;
-    unsigned char* messages = func_020421a0();
-    int count1;
-    unsigned int count2;
-    unsigned char shown;
-    count2 = 0;
-    saved = (SavedRecords*)((char*)GameState::GetInstance() + LOW_REGION(0x2c4 + 0x7000, 0x104 + 0x7400));
-    int count3;
-    GuestRecords* guest = self->guestRecords_;
-    int count4;
-    int count5;
-    int count6;
-    if (guest != NULL)
+    unsigned char* var2 = func_020421a0();
+    int var3;
+    unsigned int var4;
+    unsigned char var5;
+    var4 = 0;
+    var0 = (Struct_ov008_021843f8*)((char*)GameState::GetInstance() + LOW_REGION(0x2c4 + 0x7000, 0x104 + 0x7400));
+    int var6;
+    Struct_ov008_02187278* var7 = arg0->unknown_b34_;
+    int var8;
+    int var9;
+    int var10;
+    if (var7 != NULL)
     {
-        count1 = guest->unk_4_14;
-        count2 = guest->unk_0_14;
-        count3 = self->guestRecords_->unk_c_0;
-        count4 = self->guestRecords_->unk_10_0;
-        count5 = self->guestRecords_->unk_c_10;
-        count6 = self->guestRecords_->unk_10_9;
+        var3 = var7->unknown_5_6_;
+        var4 = var7->unknown_1_6_;
+        var6 = arg0->unknown_b34_->unknown_c_0_;
+        var8 = arg0->unknown_b34_->unknown_10_0_;
+        var9 = arg0->unknown_b34_->unknown_d_2_;
+        var10 = arg0->unknown_b34_->unknown_11_1_;
     }
-    else if (records != NULL)
+    else if (arg2 != NULL)
     {
-        count1 = records->unk_8_0;
-        count2 = records->unk_c_0;
-        count3 = records->unk_10_0;
-        count4 = records->unk_14_0;
-        count5 = records->unk_10_9;
-        count6 = records->unk_14_8;
-    }
-    else
-    {
-        count1 = saved->records_.unk_8_0;
-        func_020ac0b4(&count2);
-        count3 = saved->records_.unk_10_0;
-        count4 = saved->records_.unk_8_24;
-        count5 = saved->records_.unk_c_14;
-        count6 = saved->records_.unk_10_9;
-    }
-    if (self->page_ != NULL)
-        count3--;
-    if (count1 > 99999)
-        count1 = 99999;
-    if ((int)count2 > 99999)
-        count2 = 99999;
-    if (count3 > 999)
-        count3 = 999;
-    if (count4 > 999)
-        count4 = 999;
-    if (count5 > 9999)
-        count5 = 9999;
-    if (count6 > 9999)
-        count6 = 9999;
-    func_02046380(messages);
-    func_020465c0((StoreStruct*)messages, 0, count1);
-    func_020465f0(messages, 0, 5);
-    func_020465d8(messages, 0, 1);
-    func_020465c0((StoreStruct*)messages, 1, count2);
-    func_020465f0(messages, 1, 5);
-    func_020465d8(messages, 1, 1);
-    func_020465c0((StoreStruct*)messages, 2, count3);
-    func_020465f0(messages, 2, LOW_REGION(3, 5));
-    char* store;
-    func_020465d8(messages, 2, 1);
-    func_020465c0((StoreStruct*)messages, 3, count4);
-    func_020465f0(messages, 3, LOW_REGION(3, 5));
-    func_020465d8(messages, 3, 1);
-    func_020465c0((StoreStruct*)messages, 4, count5);
-    func_020465f0(messages, 4, LOW_REGION(4, 5));
-    func_020465d8(messages, 4, 1);
-    func_020465c0((StoreStruct*)messages, 5, count6);
-    func_020465f0(messages, 5, LOW_REGION(4, 5));
-    func_020465d8(messages, 5, 1);
-    func_02041e70(text, 0xe);
-    store = func_0205ec34();
-    shown = 0;
-    if (records != NULL)
-    {
-        for (int i = 0; i < 6; i++)
-            shown += 1 << i;
+        var3 = arg2->unknown_8_0_;
+        var4 = arg2->unknown_c_0_;
+        var6 = arg2->unknown_10_0_;
+        var8 = arg2->unknown_14_0_;
+        var9 = arg2->unknown_11_1_;
+        var10 = arg2->unknown_15_0_;
     }
     else
     {
-        shown += 1;
-        if (func_0206dfb0((int)store, (unsigned char*)(store + 0x8c), 0x1198))
-            shown += 2;
-        shown += 4;
-        if (saved->records_.unk_8_24 != 0)
-            shown += 8;
-        if (saved->records_.unk_c_14 != 0)
-            shown += 0x10;
-        if (func_0206dfb0((int)store, (unsigned char*)(store + 0x8c), 0x1199))
-            shown += 0x20;
+        var3 = var0->unknown_3c_.unknown_8_0_;
+        func_020ac0b4(&var4);
+        var6 = var0->unknown_3c_.unknown_10_0_;
+        var8 = var0->unknown_3c_.unknown_b_0_;
+        var9 = var0->unknown_3c_.unknown_d_6_;
+        var10 = var0->unknown_3c_.unknown_11_1_;
     }
-    int line = 0;
-    for (int i = 0; i < 6; i++)
+    if (arg0->unknown_b0c_ != NULL)
+        var6--;
+    if (var3 > 99999)
+        var3 = 99999;
+    if ((int)var4 > 99999)
+        var4 = 99999;
+    if (var6 > 999)
+        var6 = 999;
+    if (var8 > 999)
+        var8 = 999;
+    if (var9 > 9999)
+        var9 = 9999;
+    if (var10 > 9999)
+        var10 = 9999;
+    func_02046380(var2);
+    func_020465c0((Struct_020465c0*)var2, 0, var3);
+    func_020465f0(var2, 0, 5);
+    func_020465d8(var2, 0, 1);
+    func_020465c0((Struct_020465c0*)var2, 1, var4);
+    func_020465f0(var2, 1, 5);
+    func_020465d8(var2, 1, 1);
+    func_020465c0((Struct_020465c0*)var2, 2, var6);
+    func_020465f0(var2, 2, LOW_REGION(3, 5));
+    char* var11;
+    func_020465d8(var2, 2, 1);
+    func_020465c0((Struct_020465c0*)var2, 3, var8);
+    func_020465f0(var2, 3, LOW_REGION(3, 5));
+    func_020465d8(var2, 3, 1);
+    func_020465c0((Struct_020465c0*)var2, 4, var9);
+    func_020465f0(var2, 4, LOW_REGION(4, 5));
+    func_020465d8(var2, 4, 1);
+    func_020465c0((Struct_020465c0*)var2, 5, var10);
+    func_020465f0(var2, 5, LOW_REGION(4, 5));
+    func_020465d8(var2, 5, 1);
+    func_02041e70(arg1, 0xe);
+    var11 = func_0205ec34();
+    var5 = 0;
+    if (arg2 != NULL)
     {
-        if (shown & (1 << i))
+        for (int var12 = 0; var12 < 6; var12++)
+            var5 += 1 << var12;
+    }
+    else
+    {
+        var5 += 1;
+        if (func_0206dfb0((int)var11, (unsigned char*)(var11 + 0x8c), 0x1198))
+            var5 += 2;
+        var5 += 4;
+        if (var0->unknown_3c_.unknown_b_0_ != 0)
+            var5 += 8;
+        if (var0->unknown_3c_.unknown_d_6_ != 0)
+            var5 += 0x10;
+        if (func_0206dfb0((int)var11, (unsigned char*)(var11 + 0x8c), 0x1199))
+            var5 += 0x20;
+    }
+    int var13 = 0;
+    for (int var14 = 0; var14 < 6; var14++)
+    {
+        if (var5 & (1 << var14))
         {
 #if defined(jpn)
-            func_02041a90(text, 2, line * 15 + 1);
-            func_02042058(text, func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x78)));
+            func_02041a90(arg1, 2, var13 * 15 + 1);
+            func_02042058(arg1, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x78)));
 #else
-            char label[0x40];
-            y = line * 14;
-            func_02041a90(text, 2, y + 7);
-            __clear(label, sizeof(label));
-            const char* name = func_020e0434((Container020e0310*)&self->texts_, (short)(i + 0x78));
-            memcpy(label, name, strlen(name));
-            char* value = strstr(label, data_ov008_0218b4c3);
-            if (value != NULL)
-                *value = 0;
-            func_02042058(text, label);
-            func_02041a90(text, 0x62, y + 7);
-            func_02042058(text, func_020e0434((Container020e0310*)&self->texts_, (short)(i + 500)));
+            char var15[0x40];
+            var1 = var13 * 14;
+            func_02041a90(arg1, 2, var1 + 7);
+            __clear(var15, sizeof(var15));
+            const char* var16 = func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 0x78));
+            memcpy(var15, var16, strlen(var16));
+            char* var17 = strstr(var15, data_ov008_0218b4c3);
+            if (var17 != NULL)
+                *var17 = 0;
+            func_02042058(arg1, var15);
+            func_02041a90(arg1, 0x62, var1 + 7);
+            func_02042058(arg1, func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, (short)(var14 + 500)));
 #endif
-            line++;
+            var13++;
         }
     }
 }

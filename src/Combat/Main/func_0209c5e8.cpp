@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
-struct Flags0209c5e8 {
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char rest : 5;
+struct Struct_0209c5e8_2 {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 1;
+    unsigned char unknown_0_2_ : 1;
+    unsigned char unknown_0_3_ : 5;
 };
 
-struct Actor0209c5e8 {
-    char pad0[0xb0];
-    int state;
-    char pad_b4[0xb8 - 0xb4];
-    short field_b8;
-    short field_ba;
-    void* fieldBC;
-    void* fieldC0;
-    char pad_c4[0xc8 - 0xc4];
-    struct Flags0209c5e8 field_c8;
+struct Struct_0209c5e8 {
+    char unknown_0_[0xb0];
+    int unknown_b0_;
+    char unknown_b4_[0xb8 - 0xb4];
+    short unknown_b8_;
+    short unknown_ba_;
+    void* unknown_bc_;
+    void* unknown_c0_;
+    char unknown_c4_[0xc8 - 0xc4];
+    struct Struct_0209c5e8_2 unknown_c8_;
 };
 
-struct Actor0209c678;
-struct Obj0203aba8;
+struct Struct_02109bf4_4;
+struct Struct_0203aba8;
 
 extern "C" int func_0209c140();
-extern "C" void func_0209c678(struct Actor0209c678* actor, int arg);
-extern "C" void func_0203ac10(void* obj, void* a, int b);
-extern "C" int func_0203aba8(struct Obj0203aba8* obj, void* key, void* target);
+extern "C" void func_0209c678(struct Struct_02109bf4_4* arg0, int arg1);
+extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
+extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg2);
 
 // USA: func_0209c5e8
-extern "C" ARM void func_0209c5e8(struct Actor0209c5e8* actor) {
-    if (actor->field_c8.bit2) return;
+extern "C" ARM void func_0209c5e8(struct Struct_0209c5e8* arg0) {
+    if (arg0->unknown_c8_.unknown_0_2_) return;
     if (func_0209c140() != 0) {
-        func_0209c678((struct Actor0209c678*)actor, 0);
+        func_0209c678((struct Struct_02109bf4_4*)arg0, 0);
         return;
     }
-    if (actor->state == 1) {
-        func_0203ac10(actor, &actor->fieldBC, 0);
-        func_0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_b8, &actor->fieldBC);
+    if (arg0->unknown_b0_ == 1) {
+        func_0203ac10(arg0, &arg0->unknown_bc_, 0);
+        func_0203aba8((struct Struct_0203aba8*)arg0, (void*)(int)arg0->unknown_b8_, &arg0->unknown_bc_);
         return;
     }
-    if (actor->state != 2) return;
-    func_0203ac10(actor, &actor->fieldC0, 0);
-    func_0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_ba, &actor->fieldC0);
+    if (arg0->unknown_b0_ != 2) return;
+    func_0203ac10(arg0, &arg0->unknown_c0_, 0);
+    func_0203aba8((struct Struct_0203aba8*)arg0, (void*)(int)arg0->unknown_ba_, &arg0->unknown_c0_);
 }

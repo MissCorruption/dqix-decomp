@@ -4,95 +4,95 @@
 #include "Combat/DistanceSort.h"
 #include "GameState/GameState.h"
 
-struct ListNode02057854;
-extern "C" int func_02057854(ListNode02057854 *node);
-struct S02055080;
-extern "C" void *func_02055108(S02055080 *source);
+struct Struct_02057334_2;
+extern "C" int func_02057854(Struct_02057334_2 *arg0);
+struct Struct_020546c8;
+extern "C" void *func_02055108(Struct_020546c8 *arg0);
 
-extern "C" void func_02059a54(void *node);
+extern "C" void func_02059a54(void *arg0);
 
-struct DispatchNodePrefix {
-    unsigned char unknown0[0x10];
-    Vector3fix position;
-    unsigned char unknown1c[0x10];
-    unsigned char enabled;
-    unsigned char unknown2d[3];
-    S02055080 *source;
-    DispatchNodePrefix *head;
-    unsigned char suppressed;
-    unsigned char unknown39[0x128 - 0x39];
-    int dispatchIndex;
-    unsigned char unknown12c[0xc];
-    float alpha;
-    unsigned char unknown13c[0xc];
-    DispatchNodePrefix *next;
+struct Struct_0205765c {
+    unsigned char unknown_0_[0x10];
+    Vector3fix unknown_10_;
+    unsigned char unknown_1c_[0x10];
+    unsigned char unknown_2c_;
+    unsigned char unknown_2d_[3];
+    Struct_020546c8 *unknown_30_;
+    Struct_0205765c *unknown_34_;
+    unsigned char unknown_38_;
+    unsigned char unknown_39_[0x128 - 0x39];
+    int unknown_128_;
+    unsigned char unknown_12c_[0xc];
+    float unknown_138_;
+    unsigned char unknown_13c_[0xc];
+    Struct_0205765c *unknown_148_;
 };
 
-struct DispatchSourcePrefix {
-    unsigned char unknown0[5];
-    unsigned char directOrder;
+struct Struct_0205765c_2 {
+    unsigned char unknown_0_[5];
+    unsigned char unknown_5_;
 };
 
-struct ViewPositionPrefix {
-    int unknown0;
-    Vector3fix position;
+struct Struct_0205765c_3 {
+    int unknown_0_;
+    Vector3fix unknown_4_;
 };
 
 // USA: func_0205765c
-extern "C" ARM void func_0205765c(int value) {
-    DispatchNodePrefix *self = (DispatchNodePrefix *) value;
-    if (func_02057854((ListNode02057854 *) self) && self->suppressed) {
+extern "C" ARM void func_0205765c(int arg0) {
+    Struct_0205765c *var0 = (Struct_0205765c *) arg0;
+    if (func_02057854((Struct_02057334_2 *) var0) && var0->unknown_38_) {
         return;
     }
 
-    DispatchSourcePrefix *source = (DispatchSourcePrefix *) func_02055108(self->source);
-    if (!source->directOrder) {
-        SortEntry_02056c3c entries[64];
-        memset(entries, 0, sizeof(entries));
-        Vector3fix viewPosition  = ((ViewPositionPrefix *) func_020100bc(GameState::GetInstance()))->position;
-        viewPosition.y           = 0;
-        int count                = 0;
-        DispatchNodePrefix *node = self->head;
-        while (node != NULL) {
-            if (!node->enabled) {
-                node = node->next;
+    Struct_0205765c_2 *var1 = (Struct_0205765c_2 *) func_02055108(var0->unknown_30_);
+    if (!var1->unknown_5_) {
+        Struct_02056c3c var2[64];
+        memset(var2, 0, sizeof(var2));
+        Vector3fix var3  = ((Struct_0205765c_3 *) func_020100bc(GameState::GetInstance()))->unknown_4_;
+        var3.y           = 0;
+        int var4                = 0;
+        Struct_0205765c *var5 = var0->unknown_34_;
+        while (var5 != NULL) {
+            if (!var5->unknown_2c_) {
+                var5 = var5->unknown_148_;
                 continue;
             }
-            int alpha = (int) node->alpha;
-            if (alpha <= 0) {
-                node = node->next;
+            int var6 = (int) var5->unknown_138_;
+            if (var6 <= 0) {
+                var5 = var5->unknown_148_;
                 continue;
             }
-            if (alpha > 31) {
-                alpha = 31;
+            if (var6 > 31) {
+                var6 = 31;
             }
-            alpha += 31;
-            if (alpha > 47) {
-                alpha -= 17;
+            var6 += 31;
+            if (var6 > 47) {
+                var6 -= 17;
             }
-            node->dispatchIndex     = alpha;
-            Vector3fix position     = node->position;
-            position.y              = 0;
-            entries[count].node     = node;
-            entries[count].distance = (float) Vector3fix_Distance(&position, &viewPosition) / 4096.0f;
-            node                    = node->next;
-            count++;
+            var5->unknown_128_     = var6;
+            Vector3fix var7     = var5->unknown_10_;
+            var7.y              = 0;
+            var2[var4].unknown_0_     = var5;
+            var2[var4].unknown_4_ = (float) Vector3fix_Distance(&var7, &var3) / 4096.0f;
+            var5                    = var5->unknown_148_;
+            var4++;
         }
-        if (count > 0) {
-            func_02056c3c(self, entries, 0, count - 1);
-            for (int index = 0; index < count; index++) {
-                func_02059a54(entries[index].node);
+        if (var4 > 0) {
+            func_02056c3c(var0, var2, 0, var4 - 1);
+            for (int var8 = 0; var8 < var4; var8++) {
+                func_02059a54(var2[var8].unknown_0_);
             }
         }
     } else {
-        DispatchNodePrefix *node = self->head;
-        while (node != NULL) {
-            if (!node->enabled) {
-                node = node->next;
+        Struct_0205765c *var9 = var0->unknown_34_;
+        while (var9 != NULL) {
+            if (!var9->unknown_2c_) {
+                var9 = var9->unknown_148_;
                 continue;
             }
-            func_02059a54(node);
-            node = node->next;
+            func_02059a54(var9);
+            var9 = var9->unknown_148_;
         }
     }
 }

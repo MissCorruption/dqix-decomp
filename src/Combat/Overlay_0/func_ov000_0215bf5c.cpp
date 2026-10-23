@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct GameObject { char p[0x138]; short* details; int GetFirst() const { return details[0]; } int GetSecond() const { return details[1]; } };
+struct GameObject { char unknown_0_[0x138]; short* unknown_138_; int inline_ov000_0215bf5c() const { return unknown_138_[0]; } int inline_ov000_0215bf5c_2() const { return unknown_138_[1]; } };
 class GameState { public: static GameState* GetInstance(); GameObject* GetCombatantByIndex(int); };
-struct List02160094 { void* first; void* last; unsigned char count; };
-struct Node0215bf5c {
-    void* field0; void* field4; void* chain8; void* fieldC; void* chain10;
-    char p0[8]; short sentinel; char p1[2]; unsigned short id; unsigned short field22,field24,field26;
-    unsigned char count28,flag29,count2a; char p2[5]; int field30;
+struct Struct_ov000_0215440c_2 { void* unknown_0_; void* unknown_4_; unsigned char unknown_8_; };
+struct Struct_ov000_0215bf5c_2 {
+    void* unknown_0_; void* unknown_4_; void* unknown_8_; void* unknown_c_; void* unknown_10_;
+    char unknown_14_[8]; short unknown_1c_; char unknown_1e_[2]; unsigned short unknown_20_; unsigned short unknown_22_,unknown_24_,unknown_26_;
+    unsigned char unknown_28_,unknown_29_,unknown_2a_; char unknown_2b_[5]; int unknown_30_;
 };
-struct Flags0215bf5c { unsigned long long flags; };
-struct Work0215bf5c { unsigned short kind; char p[9]; unsigned char flags; };
-struct State0215bf5c { char p0[0xe]; unsigned short id; char p1[7]; unsigned char flag; };
-struct Out0215bf5c { char p0[0x20]; int field20; };
-extern "C" Node0215bf5c* func_ov000_02160094(List02160094*,int);
-extern "C" Flags0215bf5c* func_ov000_0215feb4(char*,int,int);
+struct Struct_ov000_0215bf5c_3 { unsigned long long unknown_0_; };
+struct Struct_ov000_0215bf5c_4 { unsigned short unknown_0_; char unknown_2_[9]; unsigned char unknown_b_; };
+struct Struct_ov000_0215bf5c_5 { char unknown_0_[0xe]; unsigned short unknown_e_; char unknown_10_[7]; unsigned char unknown_17_; };
+struct Struct_ov000_0215bf5c_6 { char unknown_0_[0x20]; int unknown_20_; };
+extern "C" Struct_ov000_0215bf5c_2* func_ov000_02160094(Struct_ov000_0215440c_2*,int);
+extern "C" Struct_ov000_0215bf5c_3* func_ov000_0215feb4(char*,int,int);
 extern "C" void* func_ov000_0215e9d8(void*);
 extern "C" void func_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
@@ -22,74 +22,74 @@ extern "C" void* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
 extern "C" void func_ov000_0215fe84(void*,void*,int);
 extern "C" void func_ov000_0215ffc4(void*,void*,int);
-struct Obj02160068; struct Node02160068;
-extern "C" void func_ov000_02160068(Obj02160068*,Node02160068*);
-struct Obj021600cc; struct Node021600cc;
-extern "C" void func_ov000_021600cc(Obj021600cc*,Node021600cc*);
+struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6;
+extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
+struct Struct_ov000_0215767c_5; struct Struct_ov000_0215767c_4;
+extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*,Struct_ov000_0215767c_4*);
 extern "C" {
 GameObject* _ZN9GameState19GetCombatantByIndexEi(GameState*,int);
-int func_ov000_0215fd90(Flags0215bf5c*,int);
-Out0215bf5c* func_ov000_0215e958(void*);
-void func_ov000_0215ccbc(void*,Out0215bf5c*,GameObject*,short,short,short,unsigned long long,unsigned char);
+int func_ov000_0215fd90(Struct_ov000_0215bf5c_3*,int);
+Struct_ov000_0215bf5c_6* func_ov000_0215e958(void*);
+void func_ov000_0215ccbc(void*,Struct_ov000_0215bf5c_6*,GameObject*,short,short,short,unsigned long long,unsigned char);
 }
 
-struct Root0215bf5c { char p[0x8e00]; unsigned char count0,count1,count2; char q[0x21]; int workCount; };
+struct Struct_ov000_0215bf5c { char unknown_0_[0x8e00]; unsigned char unknown_8e00_,unknown_8e01_,unknown_8e02_; char unknown_8e03_[0x21]; int unknown_8e24_; };
 
-static inline GameObject* ResolveUnit0215bf5c(int id) { return GameState::GetInstance()->GetCombatantByIndex(id); }
-static inline int GetCount0215bf5c(Node0215bf5c* node) { return node->count28; }
+static inline GameObject* inline_02000c9c_5(int arg0) { return GameState::GetInstance()->GetCombatantByIndex(arg0); }
+static inline int inline_ov000_0215bf5c_3(Struct_ov000_0215bf5c_2* arg0) { return arg0->unknown_28_; }
 
 // USA: func_ov000_0215bf5c
-extern "C" ARM void func_ov000_0215bf5c(Root0215bf5c* self,List02160094* list) {
-    for (int i=0;i<list->count;i++) {
-        Node0215bf5c* node=func_ov000_02160094(list,i);
-        if (!node) continue;
-        Flags0215bf5c* flags;
-        bool special;bool moveExtra;
-        Work0215bf5c* work;
-        State0215bf5c* state;
-        Out0215bf5c* out;
-        int id=(short)node->id;
-        GameState* gs=GameState::GetInstance();
-        GameObject* unit=gs->GetCombatantByIndex(id);
-        if (!unit) continue;
-        int count=GetCount0215bf5c(node);
-        flags=func_ov000_0215feb4((char*)node,i,2);
-        special=false; moveExtra=0;
-        if (flags && (func_ov000_0215fd90(flags,0x22) || func_ov000_0215fd90(flags,0x25))) special=true;
-        if (!special && !node->flag29) { moveExtra=1;count+=node->count2a; }
-        if (count<=0) continue;
-        work=(Work0215bf5c*)func_ov000_0215e9d8(self);
-        if (!work) continue;
-        func_ov000_02160030(work);
-        Node0215bf5c* copy=(Node0215bf5c*)func_ov000_0215e918(self);
-        if (!copy) continue;
-        memset(copy,0,0x30);copy->sentinel=-1;copy->field30=0;
-        state=(State0215bf5c*)func_ov000_0215e938(self);
-        if (!state) continue;
-        func_ov000_02157cdc(state);
-        out=func_ov000_0215e958(self);
-        if (!out) continue;
-        memset(out,0,0x20);out->field20=0;
-        work->kind=0x3ae;
-        int moved=0;
-        if (flags && ((flags->flags&2ULL) || (flags->flags&4ULL) || (flags->flags&0x10ULL) || (flags->flags&0x2000ULL))) {
-            func_ov000_0215fe84(copy,flags,2);
-            node->chain8=0;node->count28=0;moved=1;
+extern "C" ARM void func_ov000_0215bf5c(Struct_ov000_0215bf5c* arg0,Struct_ov000_0215440c_2* arg1) {
+    for (int var0=0;var0<arg1->unknown_8_;var0++) {
+        Struct_ov000_0215bf5c_2* var1=func_ov000_02160094(arg1,var0);
+        if (!var1) continue;
+        Struct_ov000_0215bf5c_3* var2;
+        bool var3;bool var4;
+        Struct_ov000_0215bf5c_4* var5;
+        Struct_ov000_0215bf5c_5* var6;
+        Struct_ov000_0215bf5c_6* var7;
+        int var8=(short)var1->unknown_20_;
+        GameState* var9=GameState::GetInstance();
+        GameObject* var10=var9->GetCombatantByIndex(var8);
+        if (!var10) continue;
+        int var11=inline_ov000_0215bf5c_3(var1);
+        var2=func_ov000_0215feb4((char*)var1,var0,2);
+        var3=false; var4=0;
+        if (var2 && (func_ov000_0215fd90(var2,0x22) || func_ov000_0215fd90(var2,0x25))) var3=true;
+        if (!var3 && !var1->unknown_29_) { var4=1;var11+=var1->unknown_2a_; }
+        if (var11<=0) continue;
+        var5=(Struct_ov000_0215bf5c_4*)func_ov000_0215e9d8(arg0);
+        if (!var5) continue;
+        func_ov000_02160030(var5);
+        Struct_ov000_0215bf5c_2* var12=(Struct_ov000_0215bf5c_2*)func_ov000_0215e918(arg0);
+        if (!var12) continue;
+        memset(var12,0,0x30);var12->unknown_1c_=-1;var12->unknown_30_=0;
+        var6=(Struct_ov000_0215bf5c_5*)func_ov000_0215e938(arg0);
+        if (!var6) continue;
+        func_ov000_02157cdc(var6);
+        var7=func_ov000_0215e958(arg0);
+        if (!var7) continue;
+        memset(var7,0,0x20);var7->unknown_20_=0;
+        var5->unknown_0_=0x3ae;
+        int var13=0;
+        if (var2 && ((var2->unknown_0_&2ULL) || (var2->unknown_0_&4ULL) || (var2->unknown_0_&0x10ULL) || (var2->unknown_0_&0x2000ULL))) {
+            func_ov000_0215fe84(var12,var2,2);
+            var1->unknown_8_=0;var1->unknown_28_=0;var13=1;
         }
-        if (!moved && !moveExtra) continue;
-        if (moveExtra) {
-            copy->chain10=node->chain10;copy->count2a=node->count2a;
-            node->chain10=0;node->count2a=0;
+        if (!var13 && !var4) continue;
+        if (var4) {
+            var12->unknown_10_=var1->unknown_10_;var12->unknown_2a_=var1->unknown_2a_;
+            var1->unknown_10_=0;var1->unknown_2a_=0;
         }
-        copy->id=node->id;copy->field24=node->field24;
-        int second=unit->GetSecond();
-        int first=unit->GetFirst();
-        func_ov000_0215ccbc(self,out,unit,0,first,second,0,0);
-        state->id=node->id;state->flag=1;
-        func_ov000_0215ffc4(state,out,0);
-        work->flags|=4;
-        func_ov000_02160068((Obj02160068*)work,(Node02160068*)copy);
-        func_ov000_021600cc((Obj021600cc*)work,(Node021600cc*)state);
-        self->workCount++;self->count0++;self->count1++;self->count2++;
+        var12->unknown_20_=var1->unknown_20_;var12->unknown_24_=var1->unknown_24_;
+        int var14=var10->inline_ov000_0215bf5c_2();
+        int var15=var10->inline_ov000_0215bf5c();
+        func_ov000_0215ccbc(arg0,var7,var10,0,var15,var14,0,0);
+        var6->unknown_e_=var1->unknown_20_;var6->unknown_17_=1;
+        func_ov000_0215ffc4(var6,var7,0);
+        var5->unknown_b_|=4;
+        func_ov000_02160068((Struct_ov000_0215767c_7*)var5,(Struct_ov000_0215767c_6*)var12);
+        func_ov000_021600cc((Struct_ov000_0215767c_5*)var5,(Struct_ov000_0215767c_4*)var6);
+        arg0->unknown_8e24_++;arg0->unknown_8e00_++;arg0->unknown_8e01_++;arg0->unknown_8e02_++;
     }
 }

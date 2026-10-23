@@ -3,174 +3,174 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
-struct CharacterModel_021fc518 {
-    char unk_0[0xc20];
+struct Struct_02000c9c_75 {
+    char unknown_0_[0xc20];
 };
 
-class MenuCharacter_021fc518 {
+class Struct_ov023_021fc518 {
 public:
-    unsigned short type_;
-    unsigned short id_;
-    unsigned short heap_;
-    unsigned short vramState_;
-    unsigned char flags_;
-    char unk_d[3];
-    const char* file_;
-    void* prev_;
-    void* next_;
-    int state_;
-    CharacterModel_021fc518 models_[2];
-    int perspective_;
-    unsigned char current_ : 1;
-    unsigned char turnBack_ : 1;
-    unsigned char unk_1864_2 : 1;
-    unsigned char swap_ : 1;
-    void (**leftCallback_)(void* script);
-    void (**rightCallback_)(void* script);
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned char unknown_c_;
+    char unknown_d_[3];
+    const char* unknown_10_;
+    void* unknown_14_;
+    void* unknown_18_;
+    int unknown_1c_;
+    Struct_02000c9c_75 unknown_20_[2];
+    int unknown_1860_;
+    unsigned char unknown_1864_0_ : 1;
+    unsigned char unknown_1864_1_ : 1;
+    unsigned char unknown_1864_2_ : 1;
+    unsigned char unknown_1864_3_ : 1;
+    void (**unknown_1868_)(void* script);
+    void (**unknown_186c_)(void* script);
 
-    virtual void Update(void* script);
+    virtual void inline_ov023_021fc518_54(void* arg0);
 };
 
-class MenuNode_021fc518 {
+class Struct_ov023_021fc518_3 {
 public:
-    virtual void unk_00();
-    virtual void unk_04();
-    virtual void unk_08();
-    virtual void unk_0c();
-    virtual void unk_10();
-    virtual void unk_14();
-    virtual void unk_18();
-    virtual void unk_1c();
-    virtual void unk_20();
-    virtual void unk_24();
-    virtual void unk_28();
-    virtual void unk_2c();
-    virtual void unk_30();
-    virtual void unk_34();
-    virtual void unk_38();
-    virtual void unk_3c();
-    virtual void unk_40();
-    virtual void unk_44();
-    virtual void unk_48();
-    virtual void unk_4c();
-    virtual void unk_50();
-    virtual void unk_54();
-    virtual void unk_58();
-    virtual void unk_5c();
-    virtual void unk_60();
-    virtual void unk_64();
-    virtual void unk_68();
-    virtual void unk_6c();
-    virtual void unk_70();
-    virtual void unk_74();
-    virtual void unk_78();
-    virtual void unk_7c();
-    virtual void unk_80();
-    virtual void unk_84();
-    virtual void unk_88();
-    virtual void unk_8c();
-    virtual void unk_90();
-    virtual void unk_94();
-    virtual void unk_98();
-    virtual void unk_9c();
-    virtual void unk_a0();
-    virtual void unk_a4();
-    virtual void unk_a8();
-    virtual void unk_ac();
-    virtual void unk_b0();
-    virtual void unk_b4();
-    virtual void unk_b8();
-    virtual void unk_bc();
-    virtual void unk_c0();
-    virtual void unk_c4();
-    virtual void unk_c8();
-    virtual void unk_cc();
-    virtual void unk_d0();
-    virtual void unk_d4();
-    virtual void unk_d8();
-    virtual void unk_dc();
-    virtual void unk_e0();
-    virtual void unk_e4();
-    virtual int GetPerspective();
+    virtual void inline_ov023_021fc518_55();
+    virtual void inline_ov023_021fc518_56();
+    virtual void inline_ov023_021fc518_57();
+    virtual void inline_ov023_021fc518_58();
+    virtual void inline_ov023_021fc518_59();
+    virtual void inline_ov023_021fc518_60();
+    virtual void inline_ov023_021fc518();
+    virtual void inline_ov023_021fc518_2();
+    virtual void inline_ov023_021fc518_3();
+    virtual void inline_ov023_021fc518_4();
+    virtual void inline_ov023_021fc518_5();
+    virtual void inline_ov023_021fc518_6();
+    virtual void inline_ov023_021fc518_7();
+    virtual void inline_ov023_021fc518_8();
+    virtual void inline_ov023_021fc518_9();
+    virtual void inline_ov023_021fc518_10();
+    virtual void inline_ov023_021fc518_11();
+    virtual void inline_ov023_021fc518_12();
+    virtual void inline_ov023_021fc518_13();
+    virtual void inline_ov023_021fc518_14();
+    virtual void inline_ov023_021fc518_15();
+    virtual void inline_ov023_021fc518_16();
+    virtual void inline_ov023_021fc518_17();
+    virtual void inline_ov023_021fc518_18();
+    virtual void inline_ov023_021fc518_19();
+    virtual void inline_ov023_021fc518_20();
+    virtual void inline_ov023_021fc518_21();
+    virtual void inline_ov023_021fc518_22();
+    virtual void inline_ov023_021fc518_23();
+    virtual void inline_ov023_021fc518_24();
+    virtual void inline_ov023_021fc518_25();
+    virtual void inline_ov023_021fc518_26();
+    virtual void inline_ov023_021fc518_27();
+    virtual void inline_ov023_021fc518_28();
+    virtual void inline_ov023_021fc518_29();
+    virtual void inline_ov023_021fc518_30();
+    virtual void inline_ov023_021fc518_31();
+    virtual void inline_ov023_021fc518_32();
+    virtual void inline_ov023_021fc518_33();
+    virtual void inline_ov023_021fc518_34();
+    virtual void inline_ov023_021fc518_35();
+    virtual void inline_ov023_021fc518_36();
+    virtual void inline_ov023_021fc518_37();
+    virtual void inline_ov023_021fc518_38();
+    virtual void inline_ov023_021fc518_39();
+    virtual void inline_ov023_021fc518_40();
+    virtual void inline_ov023_021fc518_41();
+    virtual void inline_ov023_021fc518_42();
+    virtual void inline_ov023_021fc518_43();
+    virtual void inline_ov023_021fc518_44();
+    virtual void inline_ov023_021fc518_45();
+    virtual void inline_ov023_021fc518_46();
+    virtual void inline_ov023_021fc518_47();
+    virtual void inline_ov023_021fc518_48();
+    virtual void inline_ov023_021fc518_49();
+    virtual void inline_ov023_021fc518_50();
+    virtual void inline_ov023_021fc518_51();
+    virtual void inline_ov023_021fc518_52();
+    virtual int inline_ov023_021fc518_53();
 };
 
-struct HeapNode_021fc518 {
-    int unk_0;
-    SafeAllocator allocator;
+struct Struct_ov023_021fc518_2 {
+    int unknown_0_;
+    SafeAllocator unknown_4_;
 };
 
-struct ObjBase021f6ed8;
-struct Foo0207df50;
-struct Vec3Target0202e5c0;
-struct AngleTrig0202e9a4;
+struct Struct_ov023_021f6ed8;
+struct Struct_0203d028;
+struct Struct_0202e5c0;
+struct Struct_0202df68;
 
-extern "C" void func_ov023_021f6ed8(ObjBase021f6ed8* obj);
-extern "C" void* func_ov011_021849c8(void* ctx);
-extern "C" MenuNode_021fc518* func_ov023_021f6880(void* list, int tag);
-extern "C" HeapNode_021fc518* func_ov011_021845f8(void* ctx, int heap);
-extern "C" void func_0207df50(Foo0207df50* p);
-extern "C" void func_0207df90(char* p);
-extern "C" void func_0207dfac(char* p);
-extern "C" void func_ov023_021e4e8c(void* model);
-extern "C" void func_ov023_021e4f64(void* model, SafeAllocator* allocator);
-extern "C" void func_ov023_021e4fd8(void* model);
-extern "C" void func_ov023_021e6198(void* model, int value);
-extern "C" void func_ov023_021e6150(void* model, unsigned char value);
-extern "C" void func_ov023_021e60e0(void* model, unsigned int value);
-extern "C" void func_ov023_021fc71c(void* obj, int id, int flagArg);
-extern "C" char* func_020100f8(char* gameState);
-extern "C" void func_0202e5c0(Vec3Target0202e5c0* camera, int x, int y, int z);
-extern "C" void func_0202e5c8(unsigned char* camera, int x, int y, int z);
-extern "C" int func_0202e9ec(void* camera);
-extern "C" void func_0202e9a4(AngleTrig0202e9a4* camera, int angle);
-extern "C" void func_020a27a0(void* camera);
+extern "C" void func_ov023_021f6ed8(Struct_ov023_021f6ed8* arg0);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" Struct_ov023_021fc518_3* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" Struct_ov023_021fc518_2* func_ov011_021845f8(void* arg0, int arg1);
+extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_ov023_021e4e8c(void* arg0);
+extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
+extern "C" void func_ov023_021e4fd8(void* arg0);
+extern "C" void func_ov023_021e6198(void* arg0, int arg1);
+extern "C" void func_ov023_021e6150(void* arg0, unsigned char arg1);
+extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void func_ov023_021fc71c(void* arg0, int arg1, int arg2);
+extern "C" char* func_020100f8(char* arg0);
+extern "C" void func_0202e5c0(Struct_0202e5c0* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_0202e9ec(void* arg0);
+extern "C" void func_0202e9a4(Struct_0202df68* arg0, int arg1);
+extern "C" void func_020a27a0(void* arg0);
 
 // USA: func_ov023_021fc518
-extern "C" ARM int func_ov023_021fc518(MenuCharacter_021fc518* self, void* ctx, int id, int heap, int parentTag, int character) {
-    func_ov023_021f6ed8((ObjBase021f6ed8*)self);
-    self->type_ = 5;
-    self->id_ = id;
-    self->heap_ = heap;
-    self->vramState_ = 0;
-    self->file_ = NULL;
-    self->current_ = 0;
-    self->perspective_ = 0;
-    self->swap_ = 0;
-    self->turnBack_ = 0;
-    self->unk_1864_2 = 0;
-    self->leftCallback_ = NULL;
-    self->rightCallback_ = NULL;
+extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5) {
+    func_ov023_021f6ed8((Struct_ov023_021f6ed8*)arg0);
+    arg0->unknown_4_ = 5;
+    arg0->unknown_6_ = arg2;
+    arg0->unknown_8_ = arg3;
+    arg0->unknown_a_ = 0;
+    arg0->unknown_10_ = NULL;
+    arg0->unknown_1864_0_ = 0;
+    arg0->unknown_1860_ = 0;
+    arg0->unknown_1864_3_ = 0;
+    arg0->unknown_1864_1_ = 0;
+    arg0->unknown_1864_2_ = 0;
+    arg0->unknown_1868_ = NULL;
+    arg0->unknown_186c_ = NULL;
 
-    MenuNode_021fc518* parent = func_ov023_021f6880(func_ov011_021849c8(ctx), parentTag);
-    HeapNode_021fc518* heapNode = func_ov011_021845f8(ctx, heap);
-    int perspective = parent->GetPerspective();
+    Struct_ov023_021fc518_3* var0 = func_ov023_021f6880(func_ov011_021849c8(arg1), arg4);
+    Struct_ov023_021fc518_2* var1 = func_ov011_021845f8(arg1, arg3);
+    int var2 = var0->inline_ov023_021fc518_53();
 
 #if defined(jpn)
-    char* pairTables = (char*)GetGameResources() + 0x27c;
+    char* var3 = (char*)GetGameResources() + 0x27c;
 #else
-    char* pairTables = GetGameResources()->unknown_2cc;
+    char* var3 = GetGameResources()->unknown_2cc_;
 #endif
-    func_0207df50((Foo0207df50*)pairTables);
-    func_0207df90(pairTables);
-    for (int i = 0; i < 2; i++) {
-        func_ov023_021e4e8c(&self->models_[i]);
-        func_ov023_021e4f64(&self->models_[i], &heapNode->allocator);
-        func_ov023_021e4fd8(&self->models_[i]);
-        func_ov023_021e6198(&self->models_[i], perspective);
-        func_ov023_021e6150(&self->models_[i], 1);
+    func_0207df50((Struct_0203d028*)var3);
+    func_0207df90(var3);
+    for (int var4 = 0; var4 < 2; var4++) {
+        func_ov023_021e4e8c(&arg0->unknown_20_[var4]);
+        func_ov023_021e4f64(&arg0->unknown_20_[var4], &var1->unknown_4_);
+        func_ov023_021e4fd8(&arg0->unknown_20_[var4]);
+        func_ov023_021e6198(&arg0->unknown_20_[var4], var2);
+        func_ov023_021e6150(&arg0->unknown_20_[var4], 1);
     }
-    func_0207dfac(pairTables);
+    func_0207dfac(var3);
 
-    func_ov023_021e60e0(&self->models_[0], 0x1eb);
-    func_ov023_021e60e0(&self->models_[1], 0x1eb);
-    if (character >= 0)
-        func_ov023_021fc71c(self, character, 0);
+    func_ov023_021e60e0(&arg0->unknown_20_[0], 0x1eb);
+    func_ov023_021e60e0(&arg0->unknown_20_[1], 0x1eb);
+    if (arg5 >= 0)
+        func_ov023_021fc71c(arg0, arg5, 0);
 
-    char* camera = func_020100f8((char*)GameState::GetInstance());
-    func_0202e5c0((Vec3Target0202e5c0*)camera, 0xb666, 0xb800, 0x42ccc);
-    func_0202e5c8((unsigned char*)camera, 0xb666, 0xb800, 0);
-    self->perspective_ = func_0202e9ec(camera);
-    func_0202e9a4((AngleTrig0202e9a4*)camera, 0xf000);
-    func_020a27a0(camera);
+    char* var5 = func_020100f8((char*)GameState::GetInstance());
+    func_0202e5c0((Struct_0202e5c0*)var5, 0xb666, 0xb800, 0x42ccc);
+    func_0202e5c8((unsigned char*)var5, 0xb666, 0xb800, 0);
+    arg0->unknown_1860_ = func_0202e9ec(var5);
+    func_0202e9a4((Struct_0202df68*)var5, 0xf000);
+    func_020a27a0(var5);
     return 1;
 }

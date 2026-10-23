@@ -4,16 +4,16 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-extern "C" void* func_ov011_021845f8(unsigned char* context, unsigned int key);
-struct S020a13c4;
-extern "C" void func_020a13c4(S020a13c4* table);
-struct StreamHeader;
-extern "C" void func_020a147c(void*, void*, StreamHeader*, int, int, unsigned short, unsigned char);
-extern "C" int func_020ac460(void* destination);
-extern "C" void __clear(void* destination, int length);
-struct Array020a15bc;
-struct Elem020a15bc;
-extern "C" Elem020a15bc* func_020a15bc(Array020a15bc* table, int id);
+extern "C" void* func_ov011_021845f8(unsigned char* arg0, unsigned int arg1);
+struct Struct_020a13c4;
+extern "C" void func_020a13c4(Struct_020a13c4* arg0);
+struct Struct_02013fb4;
+extern "C" void func_020a147c(void*, void*, Struct_02013fb4*, int, int, unsigned short, unsigned char);
+extern "C" int func_020ac460(void* arg0);
+extern "C" void __clear(void* arg0, int arg1);
+struct Struct_020a15bc;
+struct Struct_020a15bc_2;
+extern "C" Struct_020a15bc_2* func_020a15bc(Struct_020a15bc* arg0, int arg1);
 
 extern void* data_ov004_021707c8;
 #if defined(jpn)
@@ -25,88 +25,88 @@ extern char data_ov004_021703af[];
 
 // USA: func_ov004_021567f8
 // KEEP-NAME
-extern "C" ARM int func_ov004_021567f8(void* context) {
-    char* base = (char*)func_ov011_021845f8((unsigned char*)context, 4);
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    SafeAllocator* allocator = (SafeAllocator*)(base + 4);
+extern "C" ARM int func_ov004_021567f8(void* arg0) {
+    char* var0 = (char*)func_ov011_021845f8((unsigned char*)arg0, 4);
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    SafeAllocator* var2 = (SafeAllocator*)(var0 + 4);
 #if defined(jpn)
-    *(void**)((char*)&data_ov004_021707c8 + 8) = allocator->Allocate(0x14);
+    *(void**)((char*)&data_ov004_021707c8 + 8) = var2->Allocate(0x14);
     BackgroundLoader::AddLockGlobal();
-    unsigned int length = 0;
-    void* file = LoadFileIntoMemory(data_ov004_02170c94, data_0211e33c, &length);
+    unsigned int var3 = 0;
+    void* var5 = LoadFileIntoMemory(data_ov004_02170c94, data_0211e33c, &var3);
 #else
-    *(void**)((char*)&data_ov004_021707c8 + 12) = allocator->Allocate(0x14);
-    int task = loader->QueueLoadFileInGP2(data_ov004_0217039a, data_ov004_021703af, 0);
-    if (task < 0) return 0;
-    while (!loader->GetTaskStatus(task)) {
-        loader->RemoveAllLocks();
+    *(void**)((char*)&data_ov004_021707c8 + 12) = var2->Allocate(0x14);
+    int var4 = var1->QueueLoadFileInGP2(data_ov004_0217039a, data_ov004_021703af, 0);
+    if (var4 < 0) return 0;
+    while (!var1->GetTaskStatus(var4)) {
+        var1->RemoveAllLocks();
     }
-    if (loader->GetDetailedTaskStatus(task) != 2) {
-        loader->RemoveTask(task);
+    if (var1->GetDetailedTaskStatus(var4) != 2) {
+        var1->RemoveTask(var4);
         return 0;
     }
-    void* file;
-    unsigned int length;
-    loader->GetLoadedFileByID(task, &file, &length);
+    void* var5;
+    unsigned int var6;
+    var1->GetLoadedFileByID(var4, &var5, &var6);
 #endif
-    if (file != 0) {
+    if (var5 != 0) {
 #if defined(jpn)
-        func_020a13c4(*(S020a13c4**)((char*)&data_ov004_021707c8 + 8));
-        func_020a147c(*(void**)((char*)&data_ov004_021707c8 + 8), allocator, (StreamHeader*)file, length, 0, 0, 0xf);
+        func_020a13c4(*(Struct_020a13c4**)((char*)&data_ov004_021707c8 + 8));
+        func_020a147c(*(void**)((char*)&data_ov004_021707c8 + 8), var2, (Struct_02013fb4*)var5, var3, 0, 0, 0xf);
 #else
-        func_020a13c4(*(S020a13c4**)((char*)&data_ov004_021707c8 + 12));
-        func_020a147c(*(void**)((char*)&data_ov004_021707c8 + 12), allocator, (StreamHeader*)file, length, 0, 0, 0xf);
+        func_020a13c4(*(Struct_020a13c4**)((char*)&data_ov004_021707c8 + 12));
+        func_020a147c(*(void**)((char*)&data_ov004_021707c8 + 12), var2, (Struct_02013fb4*)var5, var6, 0, 0, 0xf);
 #endif
     }
 #if defined(jpn)
     BackgroundLoader::RemoveLockGlobal();
 #else
-    loader->RemoveTask(task);
+    var1->RemoveTask(var4);
 #endif
-    if (file == 0) return 0;
+    if (var5 == 0) return 0;
 
 #if defined(jpn)
-    short* titleIds = (short*)allocator->Allocate(0x3c0);
-    *(short**)((char*)&data_ov004_021707c8 + 4) = titleIds;
-    memset(titleIds, 0, 0x3c0);
+    short* var7 = (short*)var2->Allocate(0x3c0);
+    *(short**)((char*)&data_ov004_021707c8 + 4) = var7;
+    memset(var7, 0, 0x3c0);
 #else
-    short* titleIds = (short*)allocator->Allocate(0x3c0);
-    *(short**)((char*)&data_ov004_021707c8 + 8) = titleIds;
-    memset(titleIds, 0, 0x3c0);
+    short* var8 = (short*)var2->Allocate(0x3c0);
+    *(short**)((char*)&data_ov004_021707c8 + 8) = var8;
+    memset(var8, 0, 0x3c0);
 #endif
-    unsigned int titleFlags[15];
-    __clear(titleFlags, sizeof(titleFlags));
-    func_020ac460(titleFlags);
+    unsigned int var9[15];
+    __clear(var9, sizeof(var9));
+    func_020ac460(var9);
 
-    int index, id, count;
-    for (count = 0, index = 0; index < 0x1e0; index++) {
-        id = index + 1;
+    int var10, var11, var12;
+    for (var12 = 0, var10 = 0; var10 < 0x1e0; var10++) {
+        var11 = var10 + 1;
 #if defined(jpn)
-        Array020a15bc* table = *(Array020a15bc**)((char*)&data_ov004_021707c8 + 8);
+        Struct_020a15bc* var13 = *(Struct_020a15bc**)((char*)&data_ov004_021707c8 + 8);
 #else
-        Array020a15bc* table = *(Array020a15bc**)((char*)&data_ov004_021707c8 + 12);
+        Struct_020a15bc* var13 = *(Struct_020a15bc**)((char*)&data_ov004_021707c8 + 12);
 #endif
-        if (func_020a15bc(table, (short)id)) {
-            int word = id / 32;
-            int bit = id % 32;
-            if (titleFlags[word] & (1u << bit)) {
+        if (func_020a15bc(var13, (short)var11)) {
+            int var14 = var11 / 32;
+            int var15 = var11 % 32;
+            if (var9[var14] & (1u << var15)) {
 #if defined(jpn)
-                (*(short**)((char*)&data_ov004_021707c8 + 4))[count] = id;
+                (*(short**)((char*)&data_ov004_021707c8 + 4))[var12] = var11;
 #else
-                (*(short**)((char*)&data_ov004_021707c8 + 8))[count] = id;
+                (*(short**)((char*)&data_ov004_021707c8 + 8))[var12] = var11;
 #endif
-                count++;
+                var12++;
             }
         }
     }
 #if defined(jpn)
-    data_ov004_021707c8 = allocator->Allocate(0x3c0);
+    data_ov004_021707c8 = var2->Allocate(0x3c0);
     memset(data_ov004_021707c8, 0, 0x3c0);
 #else
-    short* scratchIds = (short*)allocator->Allocate(0x3c0);
-    *(short**)((char*)&data_ov004_021707c8 + 4) = scratchIds;
-    memset(scratchIds, 0, 0x3c0);
-    data_ov004_021707c8 = allocator->Allocate(0x1000);
+    short* var16 = (short*)var2->Allocate(0x3c0);
+    *(short**)((char*)&data_ov004_021707c8 + 4) = var16;
+    memset(var16, 0, 0x3c0);
+    data_ov004_021707c8 = var2->Allocate(0x1000);
     memset(data_ov004_021707c8, 0, 0x1000);
 #endif
     return 0;

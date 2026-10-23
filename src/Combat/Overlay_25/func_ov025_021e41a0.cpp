@@ -2,126 +2,126 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct EffectCommand {
-    unsigned char padding0[8];
-    const char* name;
-    unsigned char type;
-    signed char slot;
-    unsigned short id;
-    unsigned char flags;
-    unsigned char padding11;
-    short x;
-    short y;
-    short z;
-    short minimumFrame;
-    unsigned char mode;
+struct Struct_ov025_021e41a0_4 {
+    unsigned char unknown_0_[8];
+    const char* unknown_8_;
+    unsigned char unknown_c_;
+    signed char unknown_d_;
+    unsigned short unknown_e_;
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
+    short unknown_12_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
+    unsigned char unknown_1a_;
 };
-struct InitStruct02078484Struct {
-    char name[0x10];
-    unsigned char type;
-    unsigned char screenSpace : 1;
-    unsigned char flag1 : 1;
-    unsigned char flag2 : 1;
-    unsigned char flags : 5;
-    short field12;
-    short combatant;
-    short field16;
-    short field18;
-    short field1a;
-    short field1c;
-    short padding1e;
-    Vector3i field20;
-    Vector3i position;
-    Vector3i rotation;
-    Vector3i scale;
+struct Struct_02078398_2 {
+    char unknown_0_[0x10];
+    unsigned char unknown_10_;
+    unsigned char unknown_11_0_ : 1;
+    unsigned char unknown_11_1_ : 1;
+    unsigned char unknown_11_2_ : 1;
+    unsigned char unknown_11_3_ : 5;
+    short unknown_12_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
+    short unknown_1c_;
+    short unknown_1e_;
+    Vector3i unknown_20_;
+    Vector3i unknown_2c_;
+    Vector3i unknown_38_;
+    Vector3i unknown_44_;
 };
-struct List02160094;
-struct EffectSource { unsigned char padding0[0x20]; unsigned short id; };
-struct EffectTarget { unsigned char padding0[0xe]; short id; };
-struct List021600f8 { unsigned char padding0[9]; unsigned char count; };
+struct Struct_ov000_0215440c_2;
+struct Struct_ov025_021e41a0_2 { unsigned char unknown_0_[0x20]; unsigned short unknown_20_; };
+struct Struct_ov025_021e41a0_3 { unsigned char unknown_0_[0xe]; short unknown_e_; };
+struct Struct_ov000_0215440c { unsigned char unknown_0_[9]; unsigned char unknown_9_; };
 #if defined(jpn)
-struct EffectWork { unsigned char padding0[0x70f2]; unsigned short id; };
+struct Struct_ov025_021e41a0 { unsigned char unknown_0_[0x70f2]; unsigned short unknown_6f02_; };
 #else
-struct EffectWork { unsigned char padding0[0x6f02]; unsigned short id; };
+struct Struct_ov025_021e41a0 { unsigned char unknown_0_[0x6f02]; unsigned short unknown_6f02_; };
 #endif
 #if defined(jpn)
-struct EffectGlobals { unsigned char padding0[4]; char* slots; };
+struct Struct_ov025_021ef988_10 { unsigned char unknown_0_[4]; char* unknown_c_; };
 #else
-struct EffectGlobals { unsigned char padding0[0xc]; char* slots; };
+struct Struct_ov025_021ef988_10 { unsigned char unknown_0_[0xc]; char* unknown_c_; };
 #endif
-extern EffectGlobals data_ov025_021ef988;
+extern Struct_ov025_021ef988_10 data_ov025_021ef988;
 extern "C" void* func_02057924();
-extern "C" EffectSource* func_ov000_02160094(List02160094*, int);
-extern "C" EffectTarget* func_ov000_021600f8(List021600f8*, int);
-extern "C" void func_02078484(InitStruct02078484Struct*);
-extern "C" EffectWork* func_ov000_02160130();
+extern "C" Struct_ov025_021e41a0_2* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+extern "C" Struct_ov025_021e41a0_3* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" void func_02078484(Struct_02078398_2*);
+extern "C" Struct_ov025_021e41a0* func_ov000_02160130();
 extern "C" void* func_02057fb4(void*, int, void*);
 extern "C" void** func_ov025_021e8cf0(char*, int);
 
-static inline void ScaleHorizontal(Vector3i* offset, int factor) {
-    offset->x *= factor;
-    offset->z *= factor;
+static inline void inline_ov025_021e41a0(Vector3i* arg0, int arg1) {
+    arg0->x *= arg1;
+    arg0->z *= arg1;
 }
 
 // USA: func_ov025_021e41a0
-extern "C" ARM int func_ov025_021e41a0(EffectCommand* command, List021600f8* list) {
-    GameState* game = GameState::GetInstance();
-    void* manager = func_02057924();
-    EffectSource* source = func_ov000_02160094((List02160094*)list, 0);
-    if (!source) return 0;
-    int sourceId = source->id;
-    GameObject* object = game->GetGameObjectByIndex(sourceId);
-    int frame = object->obj3D_.normalizedAnimationTime_;
-    if (command->minimumFrame > 0 && frame < command->minimumFrame) return 0;
-    InitStruct02078484Struct effect;
-    func_02078484(&effect);
-    effect.flag2 = 0;
-    int attach = 1;
-    if (command->flags & 1) {
-        Vector3i position = {};
-        for (int i = 0; i < list->count; i++) {
-            EffectTarget* target = func_ov000_021600f8(list, i);
-            if (target) {
-                GameObject* targetObject = game->GetGameObjectByIndex(target->id);
-                if (targetObject) {
-                    Vector3i targetPosition = targetObject->obj3D_.position_;
-                    Vector3fix_Add(&position, &targetPosition, &position);
-                    effect.scale = targetObject->obj3D_.GetScale();
+extern "C" ARM int func_ov025_021e41a0(Struct_ov025_021e41a0_4* arg0, Struct_ov000_0215440c* arg1) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02057924();
+    Struct_ov025_021e41a0_2* var2 = func_ov000_02160094((Struct_ov000_0215440c_2*)arg1, 0);
+    if (!var2) return 0;
+    int var3 = var2->unknown_20_;
+    GameObject* var4 = var0->GetGameObjectByIndex(var3);
+    int var5 = var4->obj3D_.normalizedAnimationTime_;
+    if (arg0->unknown_18_ > 0 && var5 < arg0->unknown_18_) return 0;
+    Struct_02078398_2 var6;
+    func_02078484(&var6);
+    var6.unknown_11_2_ = 0;
+    int var7 = 1;
+    if (arg0->unknown_10_ & 1) {
+        Vector3i var8 = {};
+        for (int var9 = 0; var9 < arg1->unknown_9_; var9++) {
+            Struct_ov025_021e41a0_3* var10 = func_ov000_021600f8(arg1, var9);
+            if (var10) {
+                GameObject* var11 = var0->GetGameObjectByIndex(var10->unknown_e_);
+                if (var11) {
+                    Vector3i var12 = var11->obj3D_.position_;
+                    Vector3fix_Add(&var8, &var12, &var8);
+                    var6.unknown_44_ = var11->obj3D_.GetScale();
                 }
             }
         }
-        if (list->count) {
-            int scale = 4096.0f * (1.0f / (unsigned int)list->count);
-            Vector3fixMultiplyScalar(&position, scale, &position);
+        if (arg1->unknown_9_) {
+            int var13 = 4096.0f * (1.0f / (unsigned int)arg1->unknown_9_);
+            Vector3fixMultiplyScalar(&var8, var13, &var8);
         }
-        EffectTarget* target = func_ov000_021600f8(list, 0);
-        Vector3i offset = {command->x, command->y, command->z};
-        int party = 0;
-        int id = target->id;
-        if (id >= 0 && id <= 3) party = 1;
-        if (!party) ScaleHorizontal(&offset, -1);
-        Vector3fix_Add(&position, &offset, &position);
-        effect.position = position;
-        int facingParty = 0;
-        int facingId = target->id;
-        if (facingId >= 0 && facingId <= 3) facingParty = 1;
-        effect.rotation.y = facingParty ? 0x3244 : 0;
-        attach = 0;
+        Struct_ov025_021e41a0_3* var14 = func_ov000_021600f8(arg1, 0);
+        Vector3i var15 = {arg0->unknown_12_, arg0->unknown_14_, arg0->unknown_16_};
+        int var16 = 0;
+        int var17 = var14->unknown_e_;
+        if (var17 >= 0 && var17 <= 3) var16 = 1;
+        if (!var16) inline_ov025_021e41a0(&var15, -1);
+        Vector3fix_Add(&var8, &var15, &var8);
+        var6.unknown_2c_ = var8;
+        int var18 = 0;
+        int var19 = var14->unknown_e_;
+        if (var19 >= 0 && var19 <= 3) var18 = 1;
+        var6.unknown_38_.y = var18 ? 0x3244 : 0;
+        var7 = 0;
     }
-    if (attach) effect.combatant = sourceId;
-    if (command->name) strcpy(effect.name, command->name);
-    effect.type = command->type;
-    effect.screenSpace = command->mode;
-    if (effect.screenSpace) {
-        effect.combatant = -1;
-        effect.scale.x = 0x800;
-        effect.scale.y = 0x800;
-        effect.scale.z = 0x800;
+    if (var7) var6.unknown_14_ = var3;
+    if (arg0->unknown_8_) strcpy(var6.unknown_0_, arg0->unknown_8_);
+    var6.unknown_10_ = arg0->unknown_c_;
+    var6.unknown_11_0_ = arg0->unknown_1a_;
+    if (var6.unknown_11_0_) {
+        var6.unknown_14_ = -1;
+        var6.unknown_44_.x = 0x800;
+        var6.unknown_44_.y = 0x800;
+        var6.unknown_44_.z = 0x800;
     }
-    EffectWork* work = func_ov000_02160130();
-    work->id = command->id;
-    void* instance = func_02057fb4(manager, command->id, &effect);
-    void** slot = func_ov025_021e8cf0(data_ov025_021ef988.slots, command->slot);
-    if (slot) *slot = instance;
+    Struct_ov025_021e41a0* var20 = func_ov000_02160130();
+    var20->unknown_6f02_ = arg0->unknown_e_;
+    void* var21 = func_02057fb4(var1, arg0->unknown_e_, &var6);
+    void** var22 = func_ov025_021e8cf0(data_ov025_021ef988.unknown_c_, arg0->unknown_d_);
+    if (var22) *var22 = var21;
     return 1;
 }

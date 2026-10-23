@@ -2,128 +2,128 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-struct SearchStruct0202c1a4;
+struct Struct_0202c1a4;
 extern "C" int rand();
 extern "C" void* __clear(void*, int);
-struct Actor02076ccc;
+struct Struct_02076ccc;
 extern "C" void* func_0202ae18();
 extern "C" int func_0202b7d8(int*);
-extern "C" signed char func_0202c1a4(SearchStruct0202c1a4*);
+extern "C" signed char func_0202c1a4(Struct_0202c1a4*);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" bool func_02076ccc(void*, int);
-struct Vec3i021c95ec { int x, y, z; };
-extern "C" void func_ov017_021c95ec(int, int, int, int, int, Vec3i021c95ec, int, unsigned char, unsigned char);
+struct Struct_ov017_021c95ec { int unknown_0_, unknown_4_, unknown_8_; };
+extern "C" void func_ov017_021c95ec(int, int, int, int, int, Struct_ov017_021c95ec, int, unsigned char, unsigned char);
 
-struct Attributes02078998 {
-    char pad0[0xa];
-    unsigned short attack;
-    unsigned short defense;
+struct Struct_02078998 {
+    char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
 };
-struct Actor02078998 {
-    Object3D obj;
-    char padac[0x13b - 0xac];
-    unsigned char selectorA;
-    unsigned char selectorB;
-    char pad13d[3];
-    int priority;
-    char pad144[8];
-    unsigned int counter;
-    char pad150[0x166 - 0x150];
-    unsigned short combatantId;
-    char pad168[8];
-    int height;
-    short rise;
-    char pad176[4];
-    unsigned char rising;
-    char pad17b[0x184 - 0x17b];
-    Attributes02078998* attributes;
+struct Struct_02078998_2 {
+    Object3D unknown_0_;
+    char unknown_ac_[0x13b - 0xac];
+    unsigned char unknown_13b_;
+    unsigned char unknown_13c_;
+    char unknown_13d_[3];
+    int unknown_140_;
+    char unknown_144_[8];
+    unsigned int unknown_14c_;
+    char unknown_150_[0x166 - 0x150];
+    unsigned short unknown_166_;
+    char unknown_168_[8];
+    int unknown_170_;
+    short unknown_174_;
+    char unknown_176_[4];
+    unsigned char unknown_17a_;
+    char unknown_17b_[0x184 - 0x17b];
+    Struct_02078998* unknown_184_;
 };
-static inline void SendModeEvent02078998(int id, int nibble, int unused, int mode, Actor02078998* self) {
-    Vec3i021c95ec position;
-    __clear(&position, sizeof(position));
-    func_ov017_021c95ec(id, nibble, unused, mode, self->combatantId, position, 0, 0, 0);
+static inline void inline_02078998(int arg0, int arg1, int arg2, int arg3, Struct_02078998_2* arg4) {
+    Struct_ov017_021c95ec var0;
+    __clear(&var0, sizeof(var0));
+    func_ov017_021c95ec(arg0, arg1, arg2, arg3, arg4->unknown_166_, var0, 0, 0, 0);
 }
 
 // USA: func_02078998
-extern "C" ARM void func_02078998(Actor02078998* self) {
-    if (self->counter <= 225) {
-        Vector3fix position = self->obj.position_;
-        int scaledY = self->obj.GetScale().y * 15;
-        int scaledHeight = (int)(1.15f * (float)self->obj.GetHeight());
-        scaledHeight = FIX32_MULTIPLY(scaledHeight, scaledY);
-        position.y = scaledHeight + position.y;
-        self->rise += (112 - self->counter * 2) * 3;
-        if (self->rise < 0) self->rise = 0;
-        position.y += self->rise;
-        self->height = position.y;
-        self->rising = 1;
+extern "C" ARM void func_02078998(Struct_02078998_2* arg0) {
+    if (arg0->unknown_14c_ <= 225) {
+        Vector3fix var0 = arg0->unknown_0_.position_;
+        int var1 = arg0->unknown_0_.GetScale().y * 15;
+        int var2 = (int)(1.15f * (float)arg0->unknown_0_.GetHeight());
+        var2 = FIX32_MULTIPLY(var2, var1);
+        var0.y = var2 + var0.y;
+        arg0->unknown_174_ += (112 - arg0->unknown_14c_ * 2) * 3;
+        if (arg0->unknown_174_ < 0) arg0->unknown_174_ = 0;
+        var0.y += arg0->unknown_174_;
+        arg0->unknown_170_ = var0.y;
+        arg0->unknown_17a_ = 1;
     }
-    if (self->counter <= 225) return;
-    self->rising = 0;
-    int* search = (int*)func_0202ae18();
-    if (func_0202b7d8(search) && func_0202c1a4((SearchStruct0202c1a4*)search)) return;
-    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), self->combatantId);
-    if (combatant == NULL) return;
-    func_02053c6c((unsigned char*)combatant);
-    int extraAttack = 0;
-    int extraDefense = 0;
-    int attack = combatant->baseStats_->primaryStats.attack;
-    int defense = combatant->baseStats_->primaryStats.defense;
-    if (self->attributes != NULL) {
-        extraAttack = self->attributes->attack;
-        extraDefense = self->attributes->defense;
+    if (arg0->unknown_14c_ <= 225) return;
+    arg0->unknown_17a_ = 0;
+    int* var3 = (int*)func_0202ae18();
+    if (func_0202b7d8(var3) && func_0202c1a4((Struct_0202c1a4*)var3)) return;
+    GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_166_);
+    if (var4 == NULL) return;
+    func_02053c6c((unsigned char*)var4);
+    int var5 = 0;
+    int var6 = 0;
+    int var7 = var4->baseStats_->primaryStats.attack;
+    int var8 = var4->baseStats_->primaryStats.defense;
+    if (arg0->unknown_184_ != NULL) {
+        var5 = arg0->unknown_184_->unknown_a_;
+        var6 = arg0->unknown_184_->unknown_c_;
     }
-    int mode;
-    if ((attack + defense > (extraAttack + extraDefense) * 3 || self->priority == -99) && self->priority != 99) {
-        switch (self->selectorA) {
+    int var9;
+    if ((var7 + var8 > (var5 + var6) * 3 || arg0->unknown_140_ == -99) && arg0->unknown_140_ != 99) {
+        switch (arg0->unknown_13b_) {
         case 0:
-            func_02076ccc((Actor02076ccc*)self, 12);
-            mode = 12;
+            func_02076ccc((Struct_02076ccc*)arg0, 12);
+            var9 = 12;
             break;
         case 1:
-            func_02076ccc((Actor02076ccc*)self, 6);
-            mode = 6;
+            func_02076ccc((Struct_02076ccc*)arg0, 6);
+            var9 = 6;
             break;
         case 2:
-            func_02076ccc((Actor02076ccc*)self, 7);
-            mode = 7;
+            func_02076ccc((Struct_02076ccc*)arg0, 7);
+            var9 = 7;
             break;
         case 3:
             if (rand() % 2) {
-                func_02076ccc((Actor02076ccc*)self, 7);
-                mode = 7;
+                func_02076ccc((Struct_02076ccc*)arg0, 7);
+                var9 = 7;
             } else {
-                func_02076ccc((Actor02076ccc*)self, 6);
-                mode = 6;
+                func_02076ccc((Struct_02076ccc*)arg0, 6);
+                var9 = 6;
             }
             break;
         }
     } else {
-        switch (self->selectorB) {
+        switch (arg0->unknown_13c_) {
         case 0:
-            func_02076ccc((Actor02076ccc*)self, 5);
-            mode = 5;
+            func_02076ccc((Struct_02076ccc*)arg0, 5);
+            var9 = 5;
             break;
         case 1:
-            func_02076ccc((Actor02076ccc*)self, 4);
-            mode = 4;
+            func_02076ccc((Struct_02076ccc*)arg0, 4);
+            var9 = 4;
             break;
         case 2:
             if (rand() % 2) {
-                func_02076ccc((Actor02076ccc*)self, 7);
-                mode = 7;
+                func_02076ccc((Struct_02076ccc*)arg0, 7);
+                var9 = 7;
             } else {
-                func_02076ccc((Actor02076ccc*)self, 6);
-                mode = 6;
+                func_02076ccc((Struct_02076ccc*)arg0, 6);
+                var9 = 6;
             }
             break;
         }
     }
-    if (!func_0202b7d8(search) || func_0202c1a4((SearchStruct0202c1a4*)search)) return;
-    unsigned short id = self->obj.GetField06();
-    int unused = self->obj.unknown_2_;
-    int nibble = (self->obj.unknown_4_ - 112) % 12;
-    if (nibble >= 0 && nibble < 12) {
-        SendModeEvent02078998(id, nibble, unused, mode, self);
+    if (!func_0202b7d8(var3) || func_0202c1a4((Struct_0202c1a4*)var3)) return;
+    unsigned short var10 = arg0->unknown_0_.GetField06();
+    int var11 = arg0->unknown_0_.unknown_2_;
+    int var12 = (arg0->unknown_0_.unknown_4_ - 112) % 12;
+    if (var12 >= 0 && var12 < 12) {
+        inline_02078998(var10, var12, var11, var9, arg0);
     }
 }

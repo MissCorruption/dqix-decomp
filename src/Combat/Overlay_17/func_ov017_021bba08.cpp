@@ -1,77 +1,77 @@
 #if defined(jpn)
-enum { RegionOffset9c = 0x98 };
+enum { Enum_ov017_021bba08_156 = 0x98 };
 #else
-enum { RegionOffset9c = 0x9c };
+enum { Enum_ov017_021bba08_156 = 0x9c };
 #endif
 
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_0201079c(char* obj);
-extern "C" int func_020107d0(char* obj);
-extern "C" void func_ov017_021baedc(void* self, int flag);
+extern "C" int func_0201079c(char* arg0);
+extern "C" int func_020107d0(char* arg0);
+extern "C" void func_ov017_021baedc(void* arg0, int arg1);
 
 extern char data_ov017_021d7d7e[0xc];
 
-struct Obj021bba08 {
-    char pad0[0xc];
-    unsigned char f0xc;
-    unsigned char f0xd;
-    unsigned char f0xe;
-    unsigned char f0xf;
-    unsigned char f0x10;
-    unsigned char f0x11;
-    unsigned char f0x12;
-    char pad1[0x16 - 0x13];
-    short f0x16;
-    char pad2[0x1a - 0x18];
-    short f0x1a;
-    char pad3[0x1e - 0x1c];
-    char f0x1e[7];
-    char pad4[0x3e - 0x25];
-    char f0x3e[0xc];
-    short f0x4a;
-    short f0x4c;
-    short f0x4e;
-    short f0x50;
-    short f0x52;
-    char f0x54[0xc];
-    short f0x60;
-    char pad6[RegionOffset9c - 0x62];
-    unsigned char f0x9c;
+struct Struct_ov017_021bba08 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
+    unsigned char unknown_12_;
+    char unknown_13_[0x16 - 0x13];
+    short unknown_16_;
+    char unknown_18_[0x1a - 0x18];
+    short unknown_1a_;
+    char unknown_1c_[0x1e - 0x1c];
+    char unknown_1e_[7];
+    char unknown_25_[0x3e - 0x25];
+    char unknown_3e_[0xc];
+    short unknown_4a_;
+    short unknown_4c_;
+    short unknown_4e_;
+    short unknown_50_;
+    short unknown_52_;
+    char unknown_54_[0xc];
+    short unknown_60_;
+    char unknown_62_[Enum_ov017_021bba08_156 - 0x62];
+    unsigned char unknown_9c_;
 };
 
 // USA: func_ov017_021bba08
-extern "C" ARM void func_ov017_021bba08(struct Obj021bba08* obj, unsigned char* arg1) {
-    func_ov017_021baedc(obj, 1);
-    obj->f0x9c = 1;
+extern "C" ARM void func_ov017_021bba08(struct Struct_ov017_021bba08* arg0, unsigned char* arg1) {
+    func_ov017_021baedc(arg0, 1);
+    arg0->unknown_9c_ = 1;
 
-    GameState* bs = GameState::GetInstance();
-    char* b = (char*)bs;
-    obj->f0xc = (unsigned char)func_0201079c(b);
-    obj->f0xe = (unsigned char)func_0201079c(b);
-    obj->f0xd = (unsigned char)func_020107d0(b);
-    obj->f0xf = (unsigned char)func_020107d0(b);
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = (char*)var0;
+    arg0->unknown_c_ = (unsigned char)func_0201079c(var1);
+    arg0->unknown_e_ = (unsigned char)func_0201079c(var1);
+    arg0->unknown_d_ = (unsigned char)func_020107d0(var1);
+    arg0->unknown_f_ = (unsigned char)func_020107d0(var1);
 
-    obj->f0x16 = 3;
-    obj->f0x10 = 1;
-    obj->f0x11 = 0;
+    arg0->unknown_16_ = 3;
+    arg0->unknown_10_ = 1;
+    arg0->unknown_11_ = 0;
 
-    obj->f0x1a = *(unsigned short*)arg1;
-    memcpy(obj->f0x1e, arg1 + 5, 7);
+    arg0->unknown_1a_ = *(unsigned short*)arg1;
+    memcpy(arg0->unknown_1e_, arg1 + 5, 7);
 
-    memcpy(obj->f0x3e, data_ov017_021d7d7e, 0xc);
+    memcpy(arg0->unknown_3e_, data_ov017_021d7d7e, 0xc);
 
-    obj->f0x4a = 100;
-    obj->f0x4c = 200;
-    obj->f0x4e = 300;
-    short v = 0x40;
-    obj->f0x50 = v;
-    obj->f0x52 = v - 0x41;
+    arg0->unknown_4a_ = 100;
+    arg0->unknown_4c_ = 200;
+    arg0->unknown_4e_ = 300;
+    short var2 = 0x40;
+    arg0->unknown_50_ = var2;
+    arg0->unknown_52_ = var2 - 0x41;
 
-    obj->f0x12 = 0;
-    memset(obj->f0x54, 0, 0xc);
+    arg0->unknown_12_ = 0;
+    memset(arg0->unknown_54_, 0, 0xc);
 
-    obj->f0x60 = 0;
+    arg0->unknown_60_ = 0;
 }

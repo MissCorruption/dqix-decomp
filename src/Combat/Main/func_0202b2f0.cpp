@@ -3,191 +3,191 @@
 #include "std_library_functions.h"
 #include "Combat/SearchEntry.h"
 #include "Resource/GameResources.h"
-struct SearchStruct {
-    int state;
-    unsigned short counter;
-    unsigned char padding6[0x7ba];
-    struct Selection {
-        unsigned short padding;
-        unsigned short unused:1;
-        unsigned short excluded:4;
-        unsigned short unused2:11;
-    } selection;
-    unsigned char padding7c4[0x7fc];
-    int preserveEntries;
-    unsigned char paddingfc4[0x4a];
-    unsigned char pendingMask;
-    unsigned char activeMask;
-    unsigned char padding1010;
-    unsigned char refill;
-    unsigned char padding1012[0x26];
-    signed char selectors[16];
-    signed char previousSelectors[16];
-    int IsActive() const {
-        return state != 0;
+struct Struct_0202b2f0 {
+    int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[0x7ba];
+    struct Struct_0202b2f0_3 {
+        unsigned short unknown_0_;
+        unsigned short unknown_2_0_:1;
+        unsigned short unknown_2_1_:4;
+        unsigned short unknown_2_5_:11;
+    } unknown_7c0_;
+    unsigned char unknown_7c4_[0x7fc];
+    int unknown_fc0_;
+    unsigned char unknown_fc4_[0x4a];
+    unsigned char unknown_100e_;
+    unsigned char unknown_100f_;
+    unsigned char unknown_1010_;
+    unsigned char unknown_1011_;
+    unsigned char unknown_1012_[0x26];
+    signed char unknown_1038_[16];
+    signed char unknown_1048_[16];
+    int inline_0202b2f0() const {
+        return unknown_0_ != 0;
     }
 };
-struct FlagWord02046708;
+struct Struct_02012de8;
 extern "C" unsigned short func_0202df58();
 extern "C" void* func_020d6c00();
-extern "C" int func_02046708(FlagWord02046708*, unsigned int);
+extern "C" int func_02046708(Struct_02012de8*, unsigned int);
 extern "C" int func_0202d6a8();
 extern "C" int func_0202d8e8();
 extern "C" void func_0202db64(int, int, int);
-extern "C" void func_0202bc00(SearchStruct*, int);
-extern "C" void func_0202bf40(SearchStruct*);
-extern "C" void func_0202c04c(SearchStruct*);
-extern "C" int func_0202c508(SearchStruct*);
-extern "C" unsigned short func_0202bc8c(SearchStruct*);
-extern "C" signed char func_0202bcbc(SearchStruct*, int);
-extern "C" int func_0202bd34(SearchStruct*, int);
-extern "C" void func_0202c21c(SearchStruct*, int);
-extern "C" int func_0202c1c0(SearchStruct*, int);
-extern "C" void func_0202c5bc(SearchStruct*, int);
-extern "C" void func_0202c1e8(SearchStruct*, int);
-extern "C" void func_0202c660(SearchStruct*, int);
+extern "C" void func_0202bc00(Struct_0202b2f0*, int);
+extern "C" void func_0202bf40(Struct_0202b2f0*);
+extern "C" void func_0202c04c(Struct_0202b2f0*);
+extern "C" int func_0202c508(Struct_0202b2f0*);
+extern "C" unsigned short func_0202bc8c(Struct_0202b2f0*);
+extern "C" signed char func_0202bcbc(Struct_0202b2f0*, int);
+extern "C" int func_0202bd34(Struct_0202b2f0*, int);
+extern "C" void func_0202c21c(Struct_0202b2f0*, int);
+extern "C" int func_0202c1c0(Struct_0202b2f0*, int);
+extern "C" void func_0202c5bc(Struct_0202b2f0*, int);
+extern "C" void func_0202c1e8(Struct_0202b2f0*, int);
+extern "C" void func_0202c660(Struct_0202b2f0*, int);
 extern "C" int func_0202d6b8();
 
 // USA: func_0202b2f0
-extern "C" ARM void func_0202b2f0(SearchStruct* object) {
-    SearchStruct::Selection* selection;
-    unsigned short savedFlags[4];
-    unsigned short savedMask[4];
-    for (int i = 0; i < 4; i++) {
-        if (i == object->selectors[func_0202df58()]) {
+extern "C" ARM void func_0202b2f0(Struct_0202b2f0* arg0) {
+    Struct_0202b2f0::Struct_0202b2f0_3* var0;
+    unsigned short var1[4];
+    unsigned short var2[4];
+    for (int var3 = 0; var3 < 4; var3++) {
+        if (var3 == arg0->unknown_1038_[func_0202df58()]) {
             continue;
         }
-        SearchEntry0202c178* entry = func_0202c178(object, i);
-        if (!entry) {
+        Struct_0202b2f0_2* var4 = func_0202c178(arg0, var3);
+        if (!var4) {
             continue;
         }
-        unsigned int flags = entry->flags.selected;
-        entry->flags.selected = 0;
-        unsigned short mask = entry->mask;
-        savedFlags[i] = flags;
-        savedMask[i] = entry->mask;
-        entry->mask = mask & ~0xffff;
+        unsigned int var5 = var4->unknown_0_.unknown_0_0_;
+        var4->unknown_0_.unknown_0_0_ = 0;
+        unsigned short var6 = var4->unknown_4_;
+        var1[var3] = var5;
+        var2[var3] = var4->unknown_4_;
+        var4->unknown_4_ = var6 & ~0xffff;
     }
     GameState::GetInstance();
-    if (func_02046708((FlagWord02046708*)func_020d6c00(), 0x1000000)) {
-        object->state = -1;
+    if (func_02046708((Struct_02012de8*)func_020d6c00(), 0x1000000)) {
+        arg0->unknown_0_ = -1;
         return;
     }
     switch (func_0202d6a8()) {
     case 7: {
-        int value = func_0202d8e8();
-        object->counter++;
-        func_0202db64(4, object->counter, value);
+        int var7 = func_0202d8e8();
+        arg0->unknown_4_++;
+        func_0202db64(4, arg0->unknown_4_, var7);
         break;
     }
     case 9:
-        object->state = -1;
+        arg0->unknown_0_ = -1;
         break;
     }
-    switch (object->state) {
+    switch (arg0->unknown_0_) {
     case 2:
-        func_0202bc00(object, 1);
+        func_0202bc00(arg0, 1);
         break;
     case 3:
-        func_0202c478(object);
+        func_0202c478(arg0);
         break;
     case 5:
-        func_0202bc00(object, 1);
-        func_0202bf40(object);
-        func_0202c04c(object);
+        func_0202bc00(arg0, 1);
+        func_0202bf40(arg0);
+        func_0202c04c(arg0);
         break;
     case 6:
-        func_0202bf40(object);
-        func_0202c04c(object);
+        func_0202bf40(arg0);
+        func_0202c04c(arg0);
         break;
     }
-    if (object->preserveEntries) {
-        for (int i = 0; i < 4; i++) {
-            if (i == object->selectors[func_0202df58()]) {
+    if (arg0->unknown_fc0_) {
+        for (int var8 = 0; var8 < 4; var8++) {
+            if (var8 == arg0->unknown_1038_[func_0202df58()]) {
                 continue;
             }
-            SearchEntry0202c178* entry = func_0202c178(object, i);
-            if (!entry) {
+            Struct_0202b2f0_2* var9 = func_0202c178(arg0, var8);
+            if (!var9) {
                 continue;
             }
-            entry->flags.selected = savedFlags[i];
-            entry->mask = (entry->mask & ~0xffff) | savedMask[i];
+            var9->unknown_0_.unknown_0_0_ = var1[var8];
+            var9->unknown_4_ = (var9->unknown_4_ & ~0xffff) | var2[var8];
         }
-    } else if (func_0202c508(object)) {
-        if (object->refill) {
-            unsigned int mask = func_0202bc8c(object);
-            selection = &object->selection;
-            unsigned int excluded = selection->excluded;
-            for (int i = 1; i < 4; i++) {
-                if (!(mask & (1 << i)) || object->selectors[i] != 0) {
+    } else if (func_0202c508(arg0)) {
+        if (arg0->unknown_1011_) {
+            unsigned int var10 = func_0202bc8c(arg0);
+            var0 = &arg0->unknown_7c0_;
+            unsigned int var11 = var0->unknown_2_1_;
+            for (int var12 = 1; var12 < 4; var12++) {
+                if (!(var10 & (1 << var12)) || arg0->unknown_1038_[var12] != 0) {
                     continue;
                 }
-                for (int candidate = 1; candidate < 4; candidate++) {
-                    if (excluded & (1 << candidate)) {
+                for (int var13 = 1; var13 < 4; var13++) {
+                    if (var11 & (1 << var13)) {
                         continue;
                     }
-                    int found;
-                    for (int j = 1; j < 4; j++) {
-                        if ((signed char)candidate == object->selectors[j]) {
-                            found = 1;
+                    int var14;
+                    for (int var15 = 1; var15 < 4; var15++) {
+                        if ((signed char)var13 == arg0->unknown_1038_[var15]) {
+                            var14 = 1;
                             goto selectorFound;
                         }
                     }
-                    found = 0;
+                    var14 = 0;
 selectorFound:
-                    if (!found) {
-                        object->selectors[i] = candidate;
+                    if (!var14) {
+                        arg0->unknown_1038_[var12] = var13;
                         break;
                     }
                 }
             }
         }
-        object->pendingMask = 0;
-        int index = func_0202bcbc(object, 0);
-        if (!(object->activeMask & (1 << index))) {
-            selection = &object->selection;
-            for (int i = 1; i < 4; i++) {
-                int index = func_0202bcbc(object, i);
-                if ((object->activeMask & (1 << index)) && !(selection->excluded & (1 << i))) {
-                    if (!func_0202bd34(object, i)) {
-                        func_0202c21c(object, i);
+        arg0->unknown_100e_ = 0;
+        int var16 = func_0202bcbc(arg0, 0);
+        if (!(arg0->unknown_100f_ & (1 << var16))) {
+            var0 = &arg0->unknown_7c0_;
+            for (int var17 = 1; var17 < 4; var17++) {
+                int var18 = func_0202bcbc(arg0, var17);
+                if ((arg0->unknown_100f_ & (1 << var18)) && !(var0->unknown_2_1_ & (1 << var17))) {
+                    if (!func_0202bd34(arg0, var17)) {
+                        func_0202c21c(arg0, var17);
                     }
-                } else if (func_0202c1c0(object, i)) {
-                    if (!func_0202bd34(object, i)) {
-                        func_0202c5bc(object, i);
+                } else if (func_0202c1c0(arg0, var17)) {
+                    if (!func_0202bd34(arg0, var17)) {
+                        func_0202c5bc(arg0, var17);
                     }
-                } else if (func_0202bd34(object, i)) {
-                    func_0202c1e8(object, i);
-                    func_0202c660(object, i);
-                    if (object->IsActive()) {
-                        GameResources* resources = GetGameResources();
-                        memset(resources->partyNames[i], 0, sizeof(resources->partyNames[i]));
+                } else if (func_0202bd34(arg0, var17)) {
+                    func_0202c1e8(arg0, var17);
+                    func_0202c660(arg0, var17);
+                    if (arg0->inline_0202b2f0()) {
+                        GameResources* var19 = GetGameResources();
+                        memset(var19->unknown_435c_[var17], 0, sizeof(var19->unknown_435c_[var17]));
                     }
                 }
             }
         } else {
-            for (int i = 1; i < 4; i++) {
-                if (func_0202c1c0(object, i) && !func_0202bd34(object, i)) {
-                    func_0202c21c(object, i);
+            for (int var20 = 1; var20 < 4; var20++) {
+                if (func_0202c1c0(arg0, var20) && !func_0202bd34(arg0, var20)) {
+                    func_0202c21c(arg0, var20);
                 }
             }
         }
     } else {
-        SearchEntry0202c178* entry = func_0202c178(object, 0);
-        object->selectors[1] = entry->selector1;
-        object->selectors[2] = entry->selector2;
-        object->selectors[3] = entry->selector3;
-        if (entry->selector1) {
-            object->previousSelectors[1] = entry->selector1;
+        Struct_0202b2f0_2* var21 = func_0202c178(arg0, 0);
+        arg0->unknown_1038_[1] = var21->unknown_2_5_;
+        arg0->unknown_1038_[2] = var21->unknown_2_7_;
+        arg0->unknown_1038_[3] = var21->unknown_3_1_;
+        if (var21->unknown_2_5_) {
+            arg0->unknown_1048_[1] = var21->unknown_2_5_;
         }
-        if (entry->selector2) {
-            object->previousSelectors[2] = entry->selector2;
+        if (var21->unknown_2_7_) {
+            arg0->unknown_1048_[2] = var21->unknown_2_7_;
         }
-        if (entry->selector3) {
-            object->previousSelectors[3] = entry->selector3;
+        if (var21->unknown_3_1_) {
+            arg0->unknown_1048_[3] = var21->unknown_3_1_;
         }
     }
-    if (object->selectors[func_0202df58()] != 0 && func_0202d6b8() == 20) {
-        func_0202c5bc(object, 0);
+    if (arg0->unknown_1038_[func_0202df58()] != 0 && func_0202d6b8() == 20) {
+        func_0202c5bc(arg0, 0);
     }
 }

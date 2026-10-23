@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Node021f6d9c {
-    char pad0[0x8];
-    struct Node021f6d9c* prev;
-    struct Node021f6d9c* next;
+struct Struct_ov023_021f6d9c_2 {
+    char unknown_0_[0x8];
+    struct Struct_ov023_021f6d9c_2* unknown_8_;
+    struct Struct_ov023_021f6d9c_2* unknown_c_;
 };
 
-struct Owner021f6d9c {
-    char pad0[0x28];
-    struct Node021f6d9c* cur;
+struct Struct_ov023_021f6d9c {
+    char unknown_0_[0x28];
+    struct Struct_ov023_021f6d9c_2* unknown_28_;
 };
 
 // USA: func_ov023_021f6d9c
-extern "C" ARM void func_ov023_021f6d9c(struct Owner021f6d9c* owner, struct Node021f6d9c* node) {
-    if (node == NULL) {
+extern "C" ARM void func_ov023_021f6d9c(struct Struct_ov023_021f6d9c* arg0, struct Struct_ov023_021f6d9c_2* arg1) {
+    if (arg1 == NULL) {
         return;
     }
-    if (node == owner->cur) {
-        owner->cur = node->next;
+    if (arg1 == arg0->unknown_28_) {
+        arg0->unknown_28_ = arg1->unknown_c_;
     }
-    if (node->prev != NULL) {
-        node->prev->next = node->next;
+    if (arg1->unknown_8_ != NULL) {
+        arg1->unknown_8_->unknown_c_ = arg1->unknown_c_;
     }
-    if (node->next != NULL) {
-        node->next->prev = node->prev;
+    if (arg1->unknown_c_ != NULL) {
+        arg1->unknown_c_->unknown_8_ = arg1->unknown_8_;
     }
 }

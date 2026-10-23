@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov023_021dca88(void* obj);
+extern "C" void func_ov023_021dca88(void* arg0);
 
-struct FlagWord020466f4;
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void* func_020d6c00(void);
 
 // USA: func_ov003_021749c0
-extern "C" ARM void func_ov003_021749c0(char* obj) {
-	func_ov023_021dca88(obj + 0x3c);
+extern "C" ARM void func_ov003_021749c0(char* arg0) {
+	func_ov023_021dca88(arg0 + 0x3c);
 #if defined(jpn)
-    enum { pendingOffset = 0xfc2 };
+    enum { Enum_ov003_021749c0_4166 = 0xfc2 };
 #else
-    enum { pendingOffset = 0x1046 };
+    enum { Enum_ov003_021749c0_4166 = 0x1046 };
 #endif
-	*(unsigned short*)(obj + pendingOffset) &= ~0x800;
-	func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 1);
+	*(unsigned short*)(arg0 + Enum_ov003_021749c0_4166) &= ~0x800;
+	func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 1);
 }

@@ -1,134 +1,134 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 
-struct Inner0205e3ec { unsigned int v[4]; };
-struct Struct0205e3ec { unsigned char a; unsigned char b; unsigned char pad[2]; struct Inner0205e3ec mid; };
-extern "C" struct Struct0205e3ec* func_0205e3ec(struct Struct0205e3ec* dst, struct Struct0205e3ec* src);
+struct Struct_0205e3ec { unsigned int unknown_0_[4]; };
+struct Struct_0205e330_3 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[2]; struct Struct_0205e3ec unknown_4_; };
+extern "C" struct Struct_0205e330_3* func_0205e3ec(struct Struct_0205e330_3* arg0, struct Struct_0205e330_3* arg1);
 
-struct QNode0205e1e4 {
-    char pad[0x18];
-    struct QNode0205e1e4* next;
+struct Struct_0205e1e4_2 {
+    char unknown_0_[0x18];
+    struct Struct_0205e1e4_2* unknown_18_;
 };
-struct QList0205e1e4 {
-    struct QNode0205e1e4* head;
-    struct QNode0205e1e4* tail;
-    int count;
+struct Struct_0205e1e4 {
+    struct Struct_0205e1e4_2* unknown_0_;
+    struct Struct_0205e1e4_2* unknown_4_;
+    int unknown_8_;
 };
-extern "C" struct QNode0205e1e4* func_0205e1e4(struct QList0205e1e4* list);
+extern "C" struct Struct_0205e1e4_2* func_0205e1e4(struct Struct_0205e1e4* arg0);
 
-struct QNode0205e18c {
-    char pad[0x18];
-    struct QNode0205e18c* next;
+struct Struct_0205e18c_2 {
+    char unknown_0_[0x18];
+    struct Struct_0205e18c_2* unknown_18_;
 };
-struct QList0205e18c {
-    struct QNode0205e18c* head;
-    struct QNode0205e18c* tail;
-    int count;
+struct Struct_0205e18c {
+    struct Struct_0205e18c_2* unknown_0_;
+    struct Struct_0205e18c_2* unknown_4_;
+    int unknown_8_;
 };
-extern "C" void func_0205e18c(struct QList0205e18c* list, struct QNode0205e18c* node);
+extern "C" void func_0205e18c(struct Struct_0205e18c* arg0, struct Struct_0205e18c_2* arg1);
 
-struct BitArrayObj0205e830;
-extern "C" int func_0205e830(struct BitArrayObj0205e830* obj, int index);
+struct Struct_0205e57c_6;
+extern "C" int func_0205e830(struct Struct_0205e57c_6* arg0, int arg1);
 
-struct SearchStruct0202c1a4;
+struct Struct_0202c1a4;
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_0202c19c(void* base);
-extern "C" int func_0202c1c0(SearchStruct* obj, int index);
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+extern "C" void* func_0202c19c(void* arg0);
+extern "C" int func_0202c1c0(Struct_0202b2f0* arg0, int arg1);
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 
-struct SearchHeader0205e57c {
-    unsigned char pad[0xfc0];
-    int busy;
+struct Struct_0205e57c {
+    unsigned char unknown_0_[0xfc0];
+    int unknown_fc0_;
 };
 
-struct SlotEntry0205e57c {
-    SearchEntry0202c178 head;
-    struct Struct0205e3ec slots[5];
+struct Struct_0205e57c_2 {
+    Struct_0202b2f0_2 unknown_0_;
+    struct Struct_0205e330_3 unknown_10_[5];
 };
 
-struct Node0205e57c {
-    struct Struct0205e3ec data;
-    short group;
-    unsigned short flags;
-    struct Node0205e57c* next;
+struct Struct_0205e57c_3 {
+    struct Struct_0205e330_3 unknown_0_;
+    short unknown_14_;
+    unsigned short unknown_16_;
+    struct Struct_0205e57c_3* unknown_18_;
 };
 
-struct List0205e57c {
-    struct Node0205e57c* head;
-    struct Node0205e57c* tail;
-    int count;
+struct Struct_0205e57c_4 {
+    struct Struct_0205e57c_3* unknown_0_;
+    struct Struct_0205e57c_3* unknown_4_;
+    int unknown_8_;
 };
 
-struct Obj0205e57c {
-    struct Node0205e57c nodes[0xc0];
-    struct List0205e57c free;
-    struct List0205e57c pending;
-    struct List0205e57c active;
+struct Struct_0205e57c_5 {
+    struct Struct_0205e57c_3 unknown_0_[0xc0];
+    struct Struct_0205e57c_4 unknown_1500_;
+    struct Struct_0205e57c_4 unknown_150c_;
+    struct Struct_0205e57c_4 unknown_1518_;
 };
 
 static int data_0210874c;
 static int data_02108750;
 
 // USA: func_0205e57c
-extern "C" ARM void func_0205e57c(struct Obj0205e57c* obj) {
+extern "C" ARM void func_0205e57c(struct Struct_0205e57c_5* arg0) {
     static unsigned char sSeq;
 
-    SearchStruct* search = (SearchStruct*)func_0202ae18();
+    Struct_0202b2f0* var0 = (Struct_0202b2f0*)func_0202ae18();
     if (sSeq >= 0xfa) {
         sSeq = 0;
     }
-    if (((struct SearchHeader0205e57c*)search)->busy != 0) {
+    if (((struct Struct_0205e57c*)var0)->unknown_fc0_ != 0) {
         return;
     }
 
-    struct SlotEntry0205e57c* table = (struct SlotEntry0205e57c*)func_0202c19c(search);
-    for (int i = 0; i < 5; i++) {
-        if (table->slots[i].a != 0xff) {
+    struct Struct_0205e57c_2* var1 = (struct Struct_0205e57c_2*)func_0202c19c(var0);
+    for (int var2 = 0; var2 < 5; var2++) {
+        if (var1->unknown_10_[var2].unknown_0_ != 0xff) {
             data_0210874c += 0x10;
         }
-        table->slots[i].a = 0xff;
+        var1->unknown_10_[var2].unknown_0_ = 0xff;
     }
 
-    for (int j = 0; j < 5; j++) {
-        int allFree;
-        if (table->slots[j].a != 0xff) continue;
-        struct Node0205e57c* node = obj->pending.head;
-        if (node == NULL) continue;
-        if (node->flags & 1) {
-            allFree = 1;
-            struct SlotEntry0205e57c* cur = (struct SlotEntry0205e57c*)func_0202c19c(func_0202ae18());
-            for (int k = 0; k < 5; k++) {
-                if (cur->slots[k].a != 0xff) {
-                    allFree = 0;
+    for (int var3 = 0; var3 < 5; var3++) {
+        int var4;
+        if (var1->unknown_10_[var3].unknown_0_ != 0xff) continue;
+        struct Struct_0205e57c_3* var5 = arg0->unknown_150c_.unknown_0_;
+        if (var5 == NULL) continue;
+        if (var5->unknown_16_ & 1) {
+            var4 = 1;
+            struct Struct_0205e57c_2* var6 = (struct Struct_0205e57c_2*)func_0202c19c(func_0202ae18());
+            for (int var7 = 0; var7 < 5; var7++) {
+                if (var6->unknown_10_[var7].unknown_0_ != 0xff) {
+                    var4 = 0;
                     break;
                 }
             }
-            if (allFree) {
-                node->flags &= ~1;
+            if (var4) {
+                var5->unknown_16_ &= ~1;
             }
         }
-        if (node->flags & 1) continue;
-        func_0205e1e4((struct QList0205e1e4*)&obj->pending);
-        func_0205e3ec(&table->slots[j], &node->data);
-        table->slots[j].b = ++sSeq;
-        func_0205e18c((struct QList0205e18c*)&obj->free, (struct QNode0205e18c*)node);
+        if (var5->unknown_16_ & 1) continue;
+        func_0205e1e4((struct Struct_0205e1e4*)&arg0->unknown_150c_);
+        func_0205e3ec(&var1->unknown_10_[var3], &var5->unknown_0_);
+        var1->unknown_10_[var3].unknown_1_ = ++sSeq;
+        func_0205e18c((struct Struct_0205e18c*)&arg0->unknown_1500_, (struct Struct_0205e18c_2*)var5);
     }
 
-    for (int g = 0; g < 4; g++) {
-        if (!func_0202c1c0(search, g)) continue;
-        if (g == func_0202c1a4((struct SearchStruct0202c1a4*)search)) continue;
-        struct SlotEntry0205e57c* entry = (struct SlotEntry0205e57c*)func_0202c178(search, g);
-        if (entry == NULL) continue;
-        if (entry->head.flags.selected == 0) continue;
-        for (int s = 0; s < 5; s++) {
-            func_0202c1a4((struct SearchStruct0202c1a4*)search);
-            if (entry->slots[s].a == 0xff) continue;
-            if (!func_0205e830((struct BitArrayObj0205e830*)obj, entry->slots[s].a)) continue;
-            struct Node0205e57c* node = (struct Node0205e57c*)func_0205e1e4((struct QList0205e1e4*)&obj->free);
-            if (node == NULL) continue;
-            func_0205e3ec(&node->data, &entry->slots[s]);
-            node->group = g;
-            func_0205e18c((struct QList0205e18c*)&obj->active, (struct QNode0205e18c*)node);
+    for (int var8 = 0; var8 < 4; var8++) {
+        if (!func_0202c1c0(var0, var8)) continue;
+        if (var8 == func_0202c1a4((struct Struct_0202c1a4*)var0)) continue;
+        struct Struct_0205e57c_2* var9 = (struct Struct_0205e57c_2*)func_0202c178(var0, var8);
+        if (var9 == NULL) continue;
+        if (var9->unknown_0_.unknown_0_.unknown_0_0_ == 0) continue;
+        for (int var10 = 0; var10 < 5; var10++) {
+            func_0202c1a4((struct Struct_0202c1a4*)var0);
+            if (var9->unknown_10_[var10].unknown_0_ == 0xff) continue;
+            if (!func_0205e830((struct Struct_0205e57c_6*)arg0, var9->unknown_10_[var10].unknown_0_)) continue;
+            struct Struct_0205e57c_3* var11 = (struct Struct_0205e57c_3*)func_0205e1e4((struct Struct_0205e1e4*)&arg0->unknown_1500_);
+            if (var11 == NULL) continue;
+            func_0205e3ec(&var11->unknown_0_, &var9->unknown_10_[var10]);
+            var11->unknown_14_ = var8;
+            func_0205e18c((struct Struct_0205e18c*)&arg0->unknown_1518_, (struct Struct_0205e18c_2*)var11);
             data_02108750 += 0x10;
         }
     }

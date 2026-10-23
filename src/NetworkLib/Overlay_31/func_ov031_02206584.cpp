@@ -1,88 +1,88 @@
 #include <globaldefs.h>
 #include "NitroSDK/ProcessorContext.h"
 
-struct Queue6584 {
-    char pad_0x0[0x102];
-    unsigned short count;
-    BlockedContextList blocked;
+struct Struct_ov031_02206584_3 {
+    char unknown_0_[0x102];
+    unsigned short unknown_102_;
+    BlockedContextList unknown_104_;
 };
-struct Channel6584 {
-    char pad_0x0[0x48];
-    int length;
-    char* buffer;
-    char pad_0x50[0x18];
-    Queue6584* queue;
-    char pad_0x6c[4];
-    short flags;
-    char field_0x72;
-    signed char mode;
+struct Struct_ov031_02206584 {
+    char unknown_0_[0x48];
+    int unknown_48_;
+    char* unknown_4c_;
+    char unknown_50_[0x18];
+    Struct_ov031_02206584_3* unknown_68_;
+    char unknown_6c_[4];
+    short unknown_70_;
+    char unknown_72_;
+    signed char unknown_73_;
 };
-struct Transfer6584 {
-    int field_0x0;
-    Channel6584* channel;
-    char pad_0x8[8];
-    char* destinationA;
-    int capacityA;
-    char* destinationB;
-    int capacityB;
-    unsigned short count;
-    unsigned short field_0x22;
-    unsigned short first;
-    unsigned short second;
-    unsigned int update;
+struct Struct_ov031_02206584_2 {
+    int unknown_0_;
+    Struct_ov031_02206584* unknown_4_;
+    char unknown_8_[8];
+    char* unknown_10_;
+    int unknown_14_;
+    char* unknown_18_;
+    int unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    unsigned int unknown_28_;
 };
 extern "C" void func_ov031_022031bc(int, unsigned short, unsigned int);
 extern "C" void func_ov031_02203424();
 extern "C" int func_ov031_022066b4(int);
-extern "C" int func_ov031_02206758(char*, int, Transfer6584*);
+extern "C" int func_ov031_02206758(char*, int, Struct_ov031_02206584_2*);
 extern "C" int func_ov031_02203a84(char*, int);
 
-static inline bool IsSpecialMode6584(Channel6584* channel) {
-    return channel->mode == 0 || channel->mode == 4;
+static inline bool inline_ov031_02206584(Struct_ov031_02206584* arg0) {
+    return arg0->unknown_73_ == 0 || arg0->unknown_73_ == 4;
 }
 
 // USA: func_ov031_02206584
-extern "C" ARM int func_ov031_02206584(Transfer6584* transfer) {
-    char* buffer;
-    Channel6584* channel;
-    Queue6584* queue;
-    int result;
-    channel = transfer->channel;
-    result = 0;
-    queue = channel->queue;
-    if (IsSpecialMode6584(channel)) {
-        if (!(channel->flags & 4)) goto failed;
+extern "C" ARM int func_ov031_02206584(Struct_ov031_02206584_2* arg0) {
+    char* var0;
+    Struct_ov031_02206584* var1;
+    Struct_ov031_02206584_3* var2;
+    int var3;
+    var1 = arg0->unknown_4_;
+    var3 = 0;
+    var2 = var1->unknown_68_;
+    if (inline_ov031_02206584(var1)) {
+        if (!(var1->unknown_70_ & 4)) goto failed;
     }
-    if (transfer->update != 0) {
-        func_ov031_022031bc(transfer->first, transfer->second, transfer->update);
+    if (arg0->unknown_28_ != 0) {
+        func_ov031_022031bc(arg0->unknown_24_, arg0->unknown_26_, arg0->unknown_28_);
     }
     {
-        buffer = channel->buffer;
-        int headerSize = (channel->mode == 0 || channel->mode == 4) ? 0x36 : 0x2a;
-        int length;
-        if (channel->mode == 0 || channel->mode == 4) length = func_ov031_022066b4(channel->length - headerSize);
-        else length = channel->length - headerSize;
+        var0 = var1->unknown_4c_;
+        int var4 = (var1->unknown_73_ == 0 || var1->unknown_73_ == 4) ? 0x36 : 0x2a;
+        int var5;
+        if (var1->unknown_73_ == 0 || var1->unknown_73_ == 4) var5 = func_ov031_022066b4(var1->unknown_48_ - var4);
+        else var5 = var1->unknown_48_ - var4;
         for (;;) {
-            int copied = func_ov031_02206758(buffer + headerSize, length, transfer);
-            if (copied <= 0) break;
-            int received = func_ov031_02203a84(buffer + headerSize, copied);
-            if (received <= 0) {
-                if (IsSpecialMode6584(channel)) {
-                    channel->flags &= ~0xe;
-                    channel->flags |= 0x80;
+            int var6 = func_ov031_02206758(var0 + var4, var5, arg0);
+            if (var6 <= 0) break;
+            int var7 = func_ov031_02203a84(var0 + var4, var6);
+            if (var7 <= 0) {
+                if (inline_ov031_02206584(var1)) {
+                    var1->unknown_70_ &= ~0xe;
+                    var1->unknown_70_ |= 0x80;
                     func_ov031_02203424();
                 }
-                result = -76;
+                var3 = -76;
                 break;
             }
-            result += received;
+            var3 += var7;
         }
         goto completed;
     }
 failed:
-    result = -76;
+    var3 = -76;
 completed:
-    queue->count = transfer->count;
-    UnblockContexts(&queue->blocked);
-    return result;
+    var2->unknown_102_ = arg0->unknown_20_;
+    UnblockContexts(&var2->unknown_104_);
+    return var3;
 }

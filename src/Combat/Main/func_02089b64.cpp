@@ -2,21 +2,21 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
-struct Pool02089ea0;
+struct Struct_0201c1c8;
+struct Struct_02089ea0;
 
-extern "C" void func_02089ea0(struct Pool02089ea0* out, SafeAllocator* alloc, int count);
+extern "C" void func_02089ea0(struct Struct_02089ea0* arg0, SafeAllocator* arg1, int arg2);
 
-struct ArrayPoolContext02108efc {
-    struct Pool02089ea0* pool;
-    int unk4;
-    int unk8;
-    SafeAllocator* alloc;
+struct Struct_02108efc_3 {
+    struct Struct_02089ea0* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    SafeAllocator* unknown_c_;
 };
-extern ArrayPoolContext02108efc data_02108efc;
+extern Struct_02108efc_3 data_02108efc;
 
 // USA: func_02089b64
-extern "C" ARM int func_02089b64(struct Variant02030b0c* variant) {
-    func_02089ea0(data_02108efc.pool, data_02108efc.alloc, (short)((Script::Parameter*)variant)->ToInt());
+extern "C" ARM int func_02089b64(struct Struct_0201c1c8* arg0) {
+    func_02089ea0(data_02108efc.unknown_0_, data_02108efc.unknown_c_, (short)((Script::Parameter*)arg0)->ToInt());
     return 1;
 }

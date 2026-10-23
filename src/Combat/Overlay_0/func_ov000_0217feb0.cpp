@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-struct Entry0217feb0 {
-    char pad0[0x4c];
-    int id;
+struct Struct_ov000_0217feb0_2 {
+    char unknown_0_[0x4c];
+    int unknown_4c_;
 #if defined(jpn)
-    char pad1[0xc7 - 0x50];
+    char unknown_50_[0xc7 - 0x50];
 #else
-    char pad1[0x87 - 0x50];
+    char unknown1_50_[0x87 - 0x50];
 #endif
-    unsigned char field87;
-    char pad2[0x448 - 0x88];
+    unsigned char unknown_87_;
+    char unknown_88_[0x448 - 0x88];
 };
 
-struct Battle0217feb0 {
-    char pad0[0x6c];
-    signed char slots[4];
-    char pad1[0x958 - 0x70];
-    struct Entry0217feb0 entries[1];
+struct Struct_ov000_0217feb0 {
+    char unknown_0_[0x6c];
+    signed char unknown_6c_[4];
+    char unknown_70_[0x958 - 0x70];
+    struct Struct_ov000_0217feb0_2 unknown_958_[1];
 };
 
-static inline struct Entry0217feb0* GetSlotEntry(struct Battle0217feb0* obj, int i) {
-    return &obj->entries[obj->slots[i]];
+static inline struct Struct_ov000_0217feb0_2* inline_ov000_0217feb0(struct Struct_ov000_0217feb0* arg0, int arg1) {
+    return &arg0->unknown_958_[arg0->unknown_6c_[arg1]];
 }
 
 // USA: func_ov000_0217feb0
-extern "C" ARM void func_ov000_0217feb0(struct Battle0217feb0* obj, unsigned char value, int id) {
-    if (id < 0) {
-        for (int i = 0; i < 4; i++) {
-            struct Entry0217feb0* e = GetSlotEntry(obj, i);
-            e->field87 = value;
+extern "C" ARM void func_ov000_0217feb0(struct Struct_ov000_0217feb0* arg0, unsigned char arg1, int arg2) {
+    if (arg2 < 0) {
+        for (int var0 = 0; var0 < 4; var0++) {
+            struct Struct_ov000_0217feb0_2* var1 = inline_ov000_0217feb0(arg0, var0);
+            var1->unknown_87_ = arg1;
         }
     } else {
-        for (int i = 0; i < 4; i++) {
-            struct Entry0217feb0* e = GetSlotEntry(obj, i);
-            if (id == e->id) {
-                e->field87 = value;
+        for (int var2 = 0; var2 < 4; var2++) {
+            struct Struct_ov000_0217feb0_2* var3 = inline_ov000_0217feb0(arg0, var2);
+            if (arg2 == var3->unknown_4c_) {
+                var3->unknown_87_ = arg1;
                 return;
             }
         }

@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" int func_ov011_021849d8(void* p);
+extern "C" int func_ov011_021849d8(void* arg0);
 
-struct List0202fe68;
+struct Struct_020534ac_2;
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-extern "C" char* func_020467c0(void* a, char* b, unsigned int* outSize);
-extern "C" void func_ov023_021f7aac(void* obj, void* arg1, char* entry, unsigned int entryLength);
+extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
+extern "C" void func_ov023_021f7aac(void* arg0, void* arg1, char* arg2, unsigned int arg3);
 
-struct Obj021f7a08 {
-    char pad0[0x10];
-    char* f10;
+struct Struct_ov023_021f745c {
+    char unknown_0_[0x10];
+    char* unknown_10_;
 };
 
 // USA: func_ov023_021f7a08
-extern "C" ARM void func_ov023_021f7a08(struct Obj021f7a08* obj, void* keyObj) {
-    void* listPtr = (void*)(int)BackgroundLoader::GetInstance();
-    int key = func_ov011_021849d8(keyObj);
-    if (key < 0) {
+extern "C" ARM void func_ov023_021f7a08(struct Struct_ov023_021f745c* arg0, void* arg1) {
+    void* var0 = (void*)(int)BackgroundLoader::GetInstance();
+    int var1 = func_ov011_021849d8(arg1);
+    if (var1 < 0) {
         return;
     }
-    if (!((BackgroundLoader*)(listPtr))->GetTaskStatus((int)(key))) {
+    if (!((BackgroundLoader*)(var0))->GetTaskStatus((int)(var1))) {
         return;
     }
-    if (((BackgroundLoader*)((struct List0202fe68*)listPtr))->GetDetailedTaskStatus((int)(key)) != 2) {
-        return;
-    }
-
-    int out1, out2;
-    ((BackgroundLoader*)((struct List0202fec8*)listPtr))->GetLoadedFileByID((int)(key), (void**)(&out1), (unsigned int*)(&out2));
-    if (out1 == 0 || out2 == 0) {
+    if (((BackgroundLoader*)((struct Struct_020534ac_2*)var0))->GetDetailedTaskStatus((int)(var1)) != 2) {
         return;
     }
 
-    unsigned int entryLength;
-    char* entry = func_020467c0((void*)out1, obj->f10, &entryLength);
-    if (entry == NULL) {
+    int var2, var3;
+    ((BackgroundLoader*)((struct Struct_020534ac*)var0))->GetLoadedFileByID((int)(var1), (void**)(&var2), (unsigned int*)(&var3));
+    if (var2 == 0 || var3 == 0) {
         return;
     }
 
-    func_ov023_021f7aac(obj, keyObj, entry, entryLength);
+    unsigned int var4;
+    char* var5 = func_020467c0((void*)var2, arg0->unknown_10_, &var4);
+    if (var5 == NULL) {
+        return;
+    }
+
+    func_ov023_021f7aac(arg0, arg1, var5, var4);
 }

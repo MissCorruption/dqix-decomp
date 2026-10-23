@@ -2,40 +2,40 @@
 #include "Combat/Main/BattleList.h"
 #include "std_library_functions.h"
 
-extern "C" int func_020ac460(void* dst);
-extern "C" int func_020ac4c0(void* dst);
-extern "C" int func_020ac3c8(unsigned int* dst, short* indices, int count);
-extern "C" int func_020ac494(void* src);
+extern "C" int func_020ac460(void* arg0);
+extern "C" int func_020ac4c0(void* arg0);
+extern "C" int func_020ac3c8(unsigned int* arg0, short* arg1, int arg2);
+extern "C" int func_020ac494(void* arg0);
 
-struct S_a03c4 {
-    char pad[0x10];
-    unsigned int val : 9;
-    unsigned int hi : 23;
+struct Struct_020a03c4 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 23;
 };
-extern "C" void func_020a03c4(struct S_a03c4* p, unsigned int amount);
+extern "C" void func_020a03c4(struct Struct_020a03c4* arg0, unsigned int arg1);
 
 // USA: func_ov023_021ed724
-extern "C" ARM int func_ov023_021ed724(void* obj, short* src, int count) {
-    if (obj == 0) return 0;
-    if (src == 0) return 0;
-    if (count == 0) return 0;
+extern "C" ARM int func_ov023_021ed724(void* arg0, short* arg1, int arg2) {
+    if (arg0 == 0) return 0;
+    if (arg1 == 0) return 0;
+    if (arg2 == 0) return 0;
 
-    short shortsBuf[50];
-    char block[0xb0];
-    unsigned int dst[15];
+    short var0[50];
+    char var1[0xb0];
+    unsigned int var2[15];
 
-    int flag = 0;
-    func_020ac460(dst);
-    memset(shortsBuf, 0, 0x64);
-    for (int i = 0; i < count; i++) {
-        shortsBuf[i] = src[i];
+    int var3 = 0;
+    func_020ac460(var2);
+    memset(var0, 0, 0x64);
+    for (int var4 = 0; var4 < arg2; var4++) {
+        var0[var4] = arg1[var4];
     }
-    func_020ac3c8(dst, shortsBuf, count);
-    func_020ac4c0(block);
-    if (((struct S_a03c4*)block)->val == 0) {
-        flag |= 1;
+    func_020ac3c8(var2, var0, arg2);
+    func_020ac4c0(var1);
+    if (((struct Struct_020a03c4*)var1)->unknown_10_0_ == 0) {
+        var3 |= 1;
     }
-    func_020a03c4((struct S_a03c4*)block, count);
-    func_020ac494(block);
-    return flag;
+    func_020a03c4((struct Struct_020a03c4*)var1, arg2);
+    func_020ac494(var1);
+    return var3;
 }

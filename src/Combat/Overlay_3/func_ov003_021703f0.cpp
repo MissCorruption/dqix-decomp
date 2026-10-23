@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
-struct Elem_0205d81c {
-    char pad0[0xac];
-    short posX;
-    short posY;
+struct Struct_0205d0e0 {
+    char unknown_0_[0xac];
+    short unknown_ac_;
+    short unknown_ae_;
 };
 
 struct Struct_0205d81c;
-extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
-extern "C" int func_0204c7e0(unsigned char* obj);
+extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" int func_0204c7e0(unsigned char* arg0);
 
-struct ShortArrays0204c610;
-extern "C" void func_0204c610(struct ShortArrays0204c610* base, int index, short* out0, short* out1, short* out2, short* out3);
+struct Struct_0204c610;
+extern "C" void func_0204c610(struct Struct_0204c610* arg0, int arg1, short* arg2, short* arg3, short* arg4, short* arg5);
 
-struct Obj_021703f0 {
-    char pad0[1];
-    signed char state;
-    char pad2[4];
-    signed char row;
-    char pad7;
-    signed char index;
-    char pad9[0x3c - 0x9];
-    struct Struct_0205d81c* list;
-    char pad40[4];
-    unsigned char* owner;
+struct Struct_ov003_021703f0 {
+    char unknown_0_[1];
+    signed char unknown_1_;
+    char unknown_2_[4];
+    signed char unknown_6_;
+    char unknown_7_;
+    signed char unknown_8_;
+    char unknown_9_[0x3c - 0x9];
+    struct Struct_0205d81c* unknown_3c_;
+    char unknown_40_[4];
+    unsigned char* unknown_44_;
 };
 
 // USA: func_ov003_021703f0
-extern "C" ARM void func_ov003_021703f0(struct Obj_021703f0* obj, short* outX, short* outY) {
-    if (obj->state == 5) {
-        if (obj->owner != 0 && func_0204c7e0(obj->owner) != 0) {
+extern "C" ARM void func_ov003_021703f0(struct Struct_ov003_021703f0* arg0, short* arg1, short* arg2) {
+    if (arg0->unknown_1_ == 5) {
+        if (arg0->unknown_44_ != 0 && func_0204c7e0(arg0->unknown_44_) != 0) {
 #if defined(jpn)
-            *outX = 0x2c;
-            *outY = obj->index * 17 + 0x3a;
+            *arg1 = 0x2c;
+            *arg2 = arg0->unknown_8_ * 17 + 0x3a;
 #else
-            struct Elem_0205d81c* elem = func_0205d81c(obj->list, 0);
-            if (elem == 0) return;
-            short ex = elem->posX << 3;
-            short ey = elem->posY << 3;
-            short x0, y0, w, h;
-            func_0204c610((struct ShortArrays0204c610*)elem, obj->index, &x0, &y0, &w, &h);
-            int x = x0;
-            int y = y0;
-            x = (short)(x + ex);
-            y = (short)(y + ey);
-            *outX = x - 0x10;
-            *outY = y - 2;
+            struct Struct_0205d0e0* var0 = func_0205d81c(arg0->unknown_3c_, 0);
+            if (var0 == 0) return;
+            short var1 = var0->unknown_ac_ << 3;
+            short var2 = var0->unknown_ae_ << 3;
+            short var3, var4, var5, var6;
+            func_0204c610((struct Struct_0204c610*)var0, arg0->unknown_8_, &var3, &var4, &var5, &var6);
+            int var7 = var3;
+            int var8 = var4;
+            var7 = (short)(var7 + var1);
+            var8 = (short)(var8 + var2);
+            *arg1 = var7 - 0x10;
+            *arg2 = var8 - 2;
 #endif
         } else {
-            *outX = 0;
-            *outY = 0;
+            *arg1 = 0;
+            *arg2 = 0;
         }
-    } else if (obj->state == 4 || obj->state == 2) {
-        *outX = 4;
-        *outY = obj->row * 16 + 0x2b;
+    } else if (arg0->unknown_1_ == 4 || arg0->unknown_1_ == 2) {
+        *arg1 = 4;
+        *arg2 = arg0->unknown_6_ * 16 + 0x2b;
     } else {
-        *outX = 0;
-        *outY = 0;
+        *arg1 = 0;
+        *arg2 = 0;
     }
 }

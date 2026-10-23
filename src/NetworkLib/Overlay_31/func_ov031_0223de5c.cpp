@@ -18,13 +18,13 @@ extern "C" void MapVRAMBanksToSubBGExtendedPalette(unsigned short value);
 extern "C" void MapVRAMBanksToSubObjExtendedPalette(unsigned short value);
 extern "C" void MapVRAMBanksToLCDC(unsigned short mask);
 
-struct VramInitBlock_02290d68 {
-    int field0, field4, field8, fieldc, field10, field14, field18, field1c;
-    int field20, field24, field28, field2c, field30;
+struct Struct_ov031_02290d68_2 {
+    int unknown_0_, unknown_4_, unknown_8_, unknown_c_, unknown_10_, unknown_14_, unknown_18_, unknown_1c_;
+    int unknown_20_, unknown_24_, unknown_28_, unknown_2c_, unknown_30_;
 };
-extern VramInitBlock_02290d68 data_ov031_02290d68;
+extern Struct_ov031_02290d68_2 data_ov031_02290d68;
 
-typedef void (*IntFn)(int);
+typedef void (*Type_ov031_0223de5c)(int);
 
 // USA: func_ov031_0223de5c
 extern "C" ARM void func_ov031_0223de5c() {
@@ -34,18 +34,18 @@ extern "C" ARM void func_ov031_0223de5c() {
     DisableSubObjVRAMBanks();
     func_ov031_0223df4c();
 
-    MapVRAMBanksToMainBG(data_ov031_02290d68.field0);
-    MapVRAMBanksToMainObj(data_ov031_02290d68.field4);
-    MapVRAMBanksToMainBGExtendedPalette(data_ov031_02290d68.field8);
-    MapVRAMBanksToMainObjExtendedPalette(data_ov031_02290d68.fieldc);
-    MapVRAMBanksToTextureImage(data_ov031_02290d68.field10);
-    MapVRAMBanksToTexturePalette(data_ov031_02290d68.field14);
-    MapVRAMBanksToClearTextures(data_ov031_02290d68.field18);
-    MapVRAMBanksToSubBG(data_ov031_02290d68.field1c);
-    ((IntFn)MapVRAMBanksToSubObj)(data_ov031_02290d68.field20);
-    ((IntFn)MapVRAMBanksToSubBGExtendedPalette)(data_ov031_02290d68.field24);
-    ((IntFn)MapVRAMBanksToSubObjExtendedPalette)(data_ov031_02290d68.field28);
-    ((IntFn)MapVRAMBanksToLCDC)(data_ov031_02290d68.field30);
+    MapVRAMBanksToMainBG(data_ov031_02290d68.unknown_0_);
+    MapVRAMBanksToMainObj(data_ov031_02290d68.unknown_4_);
+    MapVRAMBanksToMainBGExtendedPalette(data_ov031_02290d68.unknown_8_);
+    MapVRAMBanksToMainObjExtendedPalette(data_ov031_02290d68.unknown_c_);
+    MapVRAMBanksToTextureImage(data_ov031_02290d68.unknown_10_);
+    MapVRAMBanksToTexturePalette(data_ov031_02290d68.unknown_14_);
+    MapVRAMBanksToClearTextures(data_ov031_02290d68.unknown_18_);
+    MapVRAMBanksToSubBG(data_ov031_02290d68.unknown_1c_);
+    ((Type_ov031_0223de5c)MapVRAMBanksToSubObj)(data_ov031_02290d68.unknown_20_);
+    ((Type_ov031_0223de5c)MapVRAMBanksToSubBGExtendedPalette)(data_ov031_02290d68.unknown_24_);
+    ((Type_ov031_0223de5c)MapVRAMBanksToSubObjExtendedPalette)(data_ov031_02290d68.unknown_28_);
+    ((Type_ov031_0223de5c)MapVRAMBanksToLCDC)(data_ov031_02290d68.unknown_30_);
 
     *(volatile unsigned short *)0x4000050 = 0;
     *(volatile unsigned short *)0x4001050 = 0;

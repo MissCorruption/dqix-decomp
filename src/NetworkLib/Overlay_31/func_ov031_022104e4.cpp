@@ -2,53 +2,53 @@
 
 extern void* data_ov031_0224e588;
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
-extern "C" int func_ov031_0220728c(int a, int b, int c);
-extern "C" void func_ov031_02210358(int a, int b);
+extern "C" int func_ov031_0220728c(int arg0, int arg1, int arg2);
+extern "C" void func_ov031_02210358(int arg0, int arg1);
 
 // USA: func_ov031_022104e4
-extern "C" ARM int func_ov031_022104e4(unsigned char* buf) {
-    int n = 0;
-    unsigned int processed = n;
-    unsigned char* header = buf;
-    unsigned char* cur = buf;
+extern "C" ARM int func_ov031_022104e4(unsigned char* arg0) {
+    int var0 = 0;
+    unsigned int var1 = var0;
+    unsigned char* var2 = arg0;
+    unsigned char* var3 = arg0;
     if (data_ov031_0224e588 == NULL) {
-        return n - 0x1c;
+        return var0 - 0x1c;
     }
-    VectorizedMemset(buf, 0, 0x414);
+    VectorizedMemset(arg0, 0, 0x414);
     do {
-        int handle = *(int*)((char*)data_ov031_0224e588 + 0x1b8);
-        n = func_ov031_0220728c(handle, (int)cur, 4 - processed);
-        if (n > 0) {
-            processed += n;
-            cur += n;
+        int var4 = *(int*)((char*)data_ov031_0224e588 + 0x1b8);
+        var0 = func_ov031_0220728c(var4, (int)var3, 4 - var1);
+        if (var0 > 0) {
+            var1 += var0;
+            var3 += var0;
         } else {
-            if ((int)processed > 0 || n != 0) {
+            if ((int)var1 > 0 || var0 != 0) {
                 func_ov031_02210358(6, -0x32);
             }
-            return processed;
+            return var1;
         }
-    } while (processed < 4);
-    unsigned int total = *(unsigned int*)header;
-    if (total > 0x414) {
+    } while (var1 < 4);
+    unsigned int var5 = *(unsigned int*)var2;
+    if (var5 > 0x414) {
         func_ov031_02210358(6, -0x32);
         return ~0x22;
     }
-    if (processed < total) {
+    if (var1 < var5) {
         do {
-            int handle = *(int*)((char*)data_ov031_0224e588 + 0x1b8);
-            n = func_ov031_0220728c(handle, (int)cur, total - processed);
-            if (n > 0) {
-                processed += n;
-                cur += n;
+            int var6 = *(int*)((char*)data_ov031_0224e588 + 0x1b8);
+            var0 = func_ov031_0220728c(var6, (int)var3, var5 - var1);
+            if (var0 > 0) {
+                var1 += var0;
+                var3 += var0;
             } else {
                 func_ov031_02210358(6, -0x32);
-                return processed;
+                return var1;
             }
-        } while (processed < total);
+        } while (var1 < var5);
     }
-    if (processed < 0xc || *(unsigned int*)(header + 4) != 0x44535359) {
+    if (var1 < 0xc || *(unsigned int*)(var2 + 4) != 0x44535359) {
         func_ov031_02210358(6, -0x28);
         return 0;
     }
-    return processed;
+    return var1;
 }

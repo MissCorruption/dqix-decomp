@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 
-struct MonsterListEntry;
+struct Struct_ov014_02184f78;
 
-struct MonsterRecord {
-    unsigned int defeatCount_ : 10;
-    unsigned int complete_ : 1;
-    unsigned int dropCount0_ : 7;
-    unsigned int dropCount1_ : 7;
-    unsigned int unk_0_25_ : 7;
+struct Struct_020a95a4_5 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 1;
+    unsigned int unknown_1_3_ : 7;
+    unsigned int unknown_2_2_ : 7;
+    unsigned int unknown_3_1_ : 7;
 };
 
-struct MonsterInfoScreen {
-    char unk_0[0x48];
-    MonsterListEntry* monster_;
-    MonsterListEntry* prevMonster_;
-    MonsterRecord* record_;
-    char unk_54[0x80 - 0x54];
-    unsigned char page_;
-    unsigned char flags_;
-    char unk_82[0x90 - 0x82];
-    unsigned char buttonPressed_[3];
-    unsigned char unk_93;
+struct Struct_ov014_02184dcc {
+    char unknown_0_[0x48];
+    Struct_ov014_02184f78* unknown_48_;
+    Struct_ov014_02184f78* unknown_4c_;
+    Struct_020a95a4_5* unknown_50_;
+    char unknown_54_[0x80 - 0x54];
+    unsigned char unknown_80_;
+    unsigned char unknown_81_;
+    char unknown_82_[0x90 - 0x82];
+    unsigned char unknown_90_[3];
+    unsigned char unknown_93_;
 };
 
-extern "C" void func_ov014_02184f78(MonsterInfoScreen* self, MonsterListEntry* monster, MonsterRecord* record, bool loadModel);
+extern "C" void func_ov014_02184f78(Struct_ov014_02184dcc* arg0, Struct_ov014_02184f78* arg1, Struct_020a95a4_5* arg2, bool arg3);
 
 // USA: func_ov014_02184dcc
-extern "C" ARM void func_ov014_02184dcc(MonsterInfoScreen* self) {
-    if (self->flags_ & 1)
+extern "C" ARM void func_ov014_02184dcc(Struct_ov014_02184dcc* arg0) {
+    if (arg0->unknown_81_ & 1)
         return;
-    if (self->flags_ & 8)
+    if (arg0->unknown_81_ & 8)
         return;
-    if (self->record_ == NULL || !self->record_->complete_)
+    if (arg0->unknown_50_ == NULL || !arg0->unknown_50_->unknown_1_2_)
         return;
-    unsigned char page = self->page_;
-    func_ov014_02184f78(self, self->monster_, self->record_, false);
-    self->page_ = page + 1;
-    self->page_ %= 2;
-    self->buttonPressed_[2] = true;
-    self->flags_ |= 8;
+    unsigned char var0 = arg0->unknown_80_;
+    func_ov014_02184f78(arg0, arg0->unknown_48_, arg0->unknown_50_, false);
+    arg0->unknown_80_ = var0 + 1;
+    arg0->unknown_80_ %= 2;
+    arg0->unknown_90_[2] = true;
+    arg0->unknown_81_ |= 8;
 }

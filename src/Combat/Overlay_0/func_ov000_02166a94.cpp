@@ -8,160 +8,160 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-struct BattleEffectResource02166a94 { int state; char pad_4[0x84]; };
-struct BattleWork02166a94 {
-    char pad_0[4];
-    SafeAllocator* allocator;
+struct Struct_ov000_02166a94_2 { int unknown_0_; char unknown_4_[0x84]; };
+struct Struct_ov000_02166a94_3 {
+    char unknown_0_[4];
+    SafeAllocator* unknown_4_;
 #if defined(jpn)
-    char pad_8[0xe20 - 8];
-    void* entryManager;
-    char pad_e24[0x57f0 - 0xe24];
-    BattleEffectResource02166a94 effects[2];
-    char pad_5900[0x5ca0 - 0x5900];
-    Object3D models[2];
-    char pad_5df8[0x71ec - 0x5df8];
+    char unknown_8_[0xe20 - 8];
+    void* unknown_ea4_;
+    char unknown_e24_[0x57f0 - 0xe24];
+    Struct_ov000_02166a94_2 unknown_5600_[2];
+    char unknown_5900_[0x5ca0 - 0x5900];
+    Object3D unknown_5ab0_[2];
+    char unknown_5df8_[0x71ec - 0x5df8];
 #else
-    char pad_8[0xea4 - 8];
-    void* entryManager;
-    char pad_ea8[0x5600 - 0xea8];
-    BattleEffectResource02166a94 effects[2];
-    char pad_5710[0x5ab0 - 0x5710];
-    Object3D models[2];
-    char pad_5c08[0x6ffc - 0x5c08];
+    char unknown1_8_[0xea4 - 8];
+    void* unknown_ea4_;
+    char unknown_ea8_[0x5600 - 0xea8];
+    Struct_ov000_02166a94_2 unknown_5600_[2];
+    char unknown_5710_[0x5ab0 - 0x5710];
+    Object3D unknown_5ab0_[2];
+    char unknown_5c08_[0x6ffc - 0x5c08];
 #endif
-    char battleResources[4];
+    char unknown_6ffc_[4];
 };
-struct BattlePairTables02166a94 {
-    char pad_0[0x230];
-    char tables[4];
+struct Struct_ov000_02166a94_4 {
+    char unknown_0_[0x230];
+    char unknown_230_[4];
 };
-struct NodeList02057de0;
-struct Struct_203dafc { int words[8]; };
-union BattleModelLoadInfo02166a94 { Struct_203dafc words; ObjectArchiveLoadInfo archive; };
-struct Container020d6d18;
-struct Obj020d6d90;
-struct MergeLowNibbleField020d76fc;
-struct Container020d6f44;
-extern "C" NodeList02057de0* func_02057924();
+struct Struct_02057de0_2;
+struct Struct_0203d028_11 { int unknown_0_[8]; };
+union Struct_ov000_02166a94 { Struct_0203d028_11 unknown_0_; ObjectArchiveLoadInfo unknown1_0_; };
+struct Struct_020d6d18_2;
+struct Struct_020d6d90_3;
+struct Struct_020d76fc;
+struct Struct_020d6ec8;
+extern "C" Struct_02057de0_2* func_02057924();
 extern "C" void func_020c9be0();
 extern "C" void func_0207df90(char*);
 extern "C" void func_0207dfac(char*);
-extern "C" void func_02057de0(NodeList02057de0*, int, SafeAllocator*, int, int);
-extern "C" void func_0203dafc(Struct_203dafc*);
+extern "C" void func_02057de0(Struct_02057de0_2*, int, SafeAllocator*, int, int);
+extern "C" void func_0203dafc(Struct_0203d028_11*);
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void func_ov000_02182114(char*);
 extern "C" void func_ov000_0218214c(void*, SafeAllocator*, const void*);
 extern "C" char* func_02039e70();
 extern "C" void func_02039e7c(void*);
 extern "C" void func_02039f04(char*, int, const void*);
-extern "C" void func_020d6d18(Container020d6d18*);
-extern "C" void func_020d6d90(Obj020d6d90*, const void*, SafeAllocator*, char*);
-extern "C" void func_020d76fc(MergeLowNibbleField020d76fc*);
+extern "C" void func_020d6d18(Struct_020d6d18_2*);
+extern "C" void func_020d6d90(Struct_020d6d90_3*, const void*, SafeAllocator*, char*);
+extern "C" void func_020d76fc(Struct_020d76fc*);
 extern "C" void func_020d771c(unsigned char*);
-extern "C" void func_020d6ec8(Container020d6f44*, SafeAllocator*);
+extern "C" void func_020d6ec8(Struct_020d6ec8*, SafeAllocator*);
 extern "C" void func_ov000_02160fa8(void*, int);
 extern const char data_ov000_02183a5a[], data_ov000_02183a6f[], data_ov000_02183a7a[], data_ov000_02183a85[], data_ov000_02183a93[];
 extern const char data_ov000_02183910[][16];
-struct BattleModelIDList02166a94 {
-    int entries[3];
-    int Get(int i) const { return entries[i]; }
+struct Struct_ov000_02183028 {
+    int unknown_0_[3];
+    int inline_ov000_02166a94(int arg0) const { return unknown_0_[arg0]; }
 };
 extern int data_ov000_021838fc[];
-extern BattleModelIDList02166a94 data_ov000_02183028;
+extern Struct_ov000_02183028 data_ov000_02183028;
 
 // USA: func_ov000_02166a94
-extern "C" ARM void func_ov000_02166a94(BattleWork02166a94* self) {
-    SafeAllocator* sourceAllocator;
-    BattlePairTables02166a94* pairTables;
-    NodeList02057de0* nodes;
-    SafeAllocator* destinationAllocator;
-    GameResources* resources = GetGameResources();
-    nodes = func_02057924();
-    sourceAllocator = &resources->allocator_array_38[0];
-    destinationAllocator = &resources->allocator_array_38[5];
-    pairTables = (BattlePairTables02166a94*)resources->unknown_2cc;
-    unsigned int size;
-    const void* data;
+extern "C" ARM void func_ov000_02166a94(Struct_ov000_02166a94_3* arg0) {
+    SafeAllocator* var0;
+    Struct_ov000_02166a94_4* var1;
+    Struct_02057de0_2* var2;
+    SafeAllocator* var3;
+    GameResources* var4 = GetGameResources();
+    var2 = func_02057924();
+    var0 = &var4->allocator_array_38[0];
+    var3 = &var4->allocator_array_38[5];
+    var1 = (Struct_ov000_02166a94_4*)var4->unknown_2cc_;
+    unsigned int var5;
+    const void* var6;
     BackgroundLoader::AddLockGlobal();
-    if (!LoadFileIntoMemory(data_ov000_02183a5a, data_0211e33c, &size)) func_020c9be0();
-    func_0207df90(pairTables->tables);
-    if (GetFileInNarc(data_0211e33c, data_ov000_02183a6f, &data, &size, 0)) {
-        void* buffer = sourceAllocator->Allocate(size);
-        if (buffer) {
-            memcpy(buffer, data, size);
-            func_02057de0(nodes, 2, sourceAllocator, (int)buffer, size);
+    if (!LoadFileIntoMemory(data_ov000_02183a5a, data_0211e33c, &var5)) func_020c9be0();
+    func_0207df90(var1->unknown_230_);
+    if (GetFileInNarc(data_0211e33c, data_ov000_02183a6f, &var6, &var5, 0)) {
+        void* var7 = var0->Allocate(var5);
+        if (var7) {
+            memcpy(var7, var6, var5);
+            func_02057de0(var2, 2, var0, (int)var7, var5);
         }
     }
-    SafeAllocator* sourceAllocators[4] = {sourceAllocator, self->allocator, self->allocator, self->allocator};
-    SafeAllocator* destinationAllocators[4] = {destinationAllocator, destinationAllocator, self->allocator, self->allocator};
-    long resourceIndex;
-    SafeAllocator** sourceSlot;
-    SafeAllocator** destinationSlot;
-    resourceIndex = 0;
-    sourceSlot = sourceAllocators;
-    destinationSlot = destinationAllocators;
-    for (; data_ov000_021838fc[resourceIndex] >= 0; ++resourceIndex, ++sourceSlot, ++destinationSlot) {
-        if (GetFileInNarc(data_0211e33c, data_ov000_02183910[resourceIndex], &data, &size, 0)) {
-            void* buffer = (*sourceSlot)->Allocate(size);
-            if (buffer) {
-                memcpy(buffer, data, size);
-                func_02057de0(nodes, data_ov000_021838fc[resourceIndex], *destinationSlot, (int)buffer, size);
+    SafeAllocator* var8[4] = {var0, arg0->unknown_4_, arg0->unknown_4_, arg0->unknown_4_};
+    SafeAllocator* var9[4] = {var3, var3, arg0->unknown_4_, arg0->unknown_4_};
+    long var10;
+    SafeAllocator** var11;
+    SafeAllocator** var12;
+    var10 = 0;
+    var11 = var8;
+    var12 = var9;
+    for (; data_ov000_021838fc[var10] >= 0; ++var10, ++var11, ++var12) {
+        if (GetFileInNarc(data_0211e33c, data_ov000_02183910[var10], &var6, &var5, 0)) {
+            void* var13 = (*var11)->Allocate(var5);
+            if (var13) {
+                memcpy(var13, var6, var5);
+                func_02057de0(var2, data_ov000_021838fc[var10], *var12, (int)var13, var5);
             }
         }
     }
-    Object3D* models[3] = {};
-    models[0] = &self->models[0];
-    models[1] = &self->models[1];
-    char path[80];
-    BattleModelLoadInfo02166a94 loadInfo;
-    Object3D* const* modelSlots;
-    BattleModelIDList02166a94* modelIDs;
-    long modelIndex;
-    Object3D* model;
-    for (modelIndex = 0; data_ov000_02183028.entries[modelIndex] > 0; ++modelIndex) {
-        modelIDs = &data_ov000_02183028;
-        sprintf(path, data_ov000_02183a7a, modelIDs->Get(modelIndex));
-        GetFileInNarc(data_0211e33c, path, &data, &size, 0);
-        if (data) {
-            modelSlots = models;
-            model = modelSlots[modelIndex];
-            func_0203dafc(&loadInfo.words);
-            const void* modelData;
-            int modelSize;
-            modelSize = size;
-            modelData = data;
-            loadInfo.archive.unk_10 = 1;
-            loadInfo.archive.fileData = modelData;
-            loadInfo.archive.allocator = destinationAllocator;
-            loadInfo.archive.unk_8 = modelSize;
-            model->Initialize();
-            model->LoadFromCHRArchive(&loadInfo.archive);
-            model->SetScale(0x10a, 0x10a, 0x10a);
+    Object3D* var14[3] = {};
+    var14[0] = &arg0->unknown_5ab0_[0];
+    var14[1] = &arg0->unknown_5ab0_[1];
+    char var15[80];
+    Struct_ov000_02166a94 var16;
+    Object3D* const* var17;
+    Struct_ov000_02183028* var18;
+    long var19;
+    Object3D* var20;
+    for (var19 = 0; data_ov000_02183028.unknown_0_[var19] > 0; ++var19) {
+        var18 = &data_ov000_02183028;
+        sprintf(var15, data_ov000_02183a7a, var18->inline_ov000_02166a94(var19));
+        GetFileInNarc(data_0211e33c, var15, &var6, &var5, 0);
+        if (var6) {
+            var17 = var14;
+            var20 = var17[var19];
+            func_0203dafc(&var16.unknown_0_);
+            const void* var21;
+            int var22;
+            var22 = var5;
+            var21 = var6;
+            var16.unknown1_0_.unk_10 = 1;
+            var16.unknown1_0_.fileData = var21;
+            var16.unknown1_0_.allocator = var3;
+            var16.unknown1_0_.unk_8 = var22;
+            var20->Initialize();
+            var20->LoadFromCHRArchive(&var16.unknown1_0_);
+            var20->SetScale(0x10a, 0x10a, 0x10a);
         }
     }
-    if (GetFileInNarc(data_0211e33c, data_ov000_02183a85, &data, &size, 0)) {
-        func_02047b30(&self->effects[0], (int)data, size, (int)destinationAllocator);
-        self->effects[0].state = 0x3e;
+    if (GetFileInNarc(data_0211e33c, data_ov000_02183a85, &var6, &var5, 0)) {
+        func_02047b30(&arg0->unknown_5600_[0], (int)var6, var5, (int)var3);
+        arg0->unknown_5600_[0].unknown_0_ = 0x3e;
     }
-    if (GetFileInNarc(data_0211e33c, data_ov000_02183a93, &data, &size, 0)) {
-        func_02047b30(&self->effects[1], (int)data, size, (int)destinationAllocator);
-        self->effects[1].state = 0x3e;
+    if (GetFileInNarc(data_0211e33c, data_ov000_02183a93, &var6, &var5, 0)) {
+        func_02047b30(&arg0->unknown_5600_[1], (int)var6, var5, (int)var3);
+        arg0->unknown_5600_[1].unknown_0_ = 0x3e;
     }
-    char* battleResources = self->battleResources;
-    func_ov000_02182114(battleResources);
-    func_ov000_0218214c(battleResources, destinationAllocator, data_0211e33c);
-    char* objectResources = func_02039e70();
-    func_02039e7c(objectResources);
-    func_02039f04(objectResources, (int)destinationAllocator, data_0211e33c);
-    func_0207dfac(pairTables->tables);
-    self->entryManager = destinationAllocator->Allocate(0xa48);
-    func_020d6d18((Container020d6d18*)self->entryManager);
-    func_020d6d90((Obj020d6d90*)self->entryManager, data_0211e33c, destinationAllocator, pairTables->tables);
-    func_020d76fc((MergeLowNibbleField020d76fc*)self->entryManager);
-    func_020d771c((unsigned char*)self->entryManager);
-    func_020d6ec8((Container020d6f44*)self->entryManager, self->allocator);
-    func_0207df90(pairTables->tables);
-    func_0207dfac(pairTables->tables);
-    func_ov000_02160fa8(self, 0x40);
+    char* var23 = arg0->unknown_6ffc_;
+    func_ov000_02182114(var23);
+    func_ov000_0218214c(var23, var3, data_0211e33c);
+    char* var24 = func_02039e70();
+    func_02039e7c(var24);
+    func_02039f04(var24, (int)var3, data_0211e33c);
+    func_0207dfac(var1->unknown_230_);
+    arg0->unknown_ea4_ = var3->Allocate(0xa48);
+    func_020d6d18((Struct_020d6d18_2*)arg0->unknown_ea4_);
+    func_020d6d90((Struct_020d6d90_3*)arg0->unknown_ea4_, data_0211e33c, var3, var1->unknown_230_);
+    func_020d76fc((Struct_020d76fc*)arg0->unknown_ea4_);
+    func_020d771c((unsigned char*)arg0->unknown_ea4_);
+    func_020d6ec8((Struct_020d6ec8*)arg0->unknown_ea4_, arg0->unknown_4_);
+    func_0207df90(var1->unknown_230_);
+    func_0207dfac(var1->unknown_230_);
+    func_ov000_02160fa8(arg0, 0x40);
     BackgroundLoader::RemoveLockGlobal();
 }

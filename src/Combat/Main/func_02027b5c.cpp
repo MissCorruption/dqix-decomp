@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { slotArrayOffset = 0x9cc };
+enum { Enum_02027b5c_2712 = 0x9cc };
 #else
-enum { slotArrayOffset = 0xa98 };
+enum { Enum_02027b5c_2712 = 0xa98 };
 #endif
 
-struct Elem02027b5c {
-    unsigned short h0;
-    unsigned char b2;
-    int w4;
-    int w8;
+struct Struct_02027b5c {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Container02027b5c {
-    char pad[slotArrayOffset];
-    unsigned char capacity;
-    unsigned char count;
-    char pad2[2];
-    struct Elem02027b5c* base;
+struct Struct_0201f3b4 {
+    char unknown_0_[Enum_02027b5c_2712];
+    unsigned char unknown_a98_;
+    unsigned char unknown_a99_;
+    char unknown_a9a_[2];
+    struct Struct_02027b5c* unknown_a9c_;
 };
 
 // USA: func_02027b5c
-extern "C" ARM void func_02027b5c(struct Container02027b5c* c, unsigned short h, unsigned char b, int w4, int w8) {
-    struct Elem02027b5c* base = c->base;
-    struct Elem02027b5c* dst;
-    if (base == NULL) return;
-    if (c->capacity <= c->count) return;
-    dst = &base[c->count];
-    dst->h0 = h;
-    dst->b2 = b;
-    dst->w4 = w4;
-    dst->w8 = w8;
-    c->count++;
+extern "C" ARM void func_02027b5c(struct Struct_0201f3b4* arg0, unsigned short arg1, unsigned char arg2, int arg3, int arg4) {
+    struct Struct_02027b5c* var0 = arg0->unknown_a9c_;
+    struct Struct_02027b5c* var1;
+    if (var0 == NULL) return;
+    if (arg0->unknown_a98_ <= arg0->unknown_a99_) return;
+    var1 = &var0[arg0->unknown_a99_];
+    var1->unknown_0_ = arg1;
+    var1->unknown_2_ = arg2;
+    var1->unknown_4_ = arg3;
+    var1->unknown_8_ = arg4;
+    arg0->unknown_a99_++;
 }

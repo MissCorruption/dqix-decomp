@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Node021d6148 { unsigned int type; Node021d6148* link; };
+struct Struct_ov001_0215af34 { unsigned int unknown_0_; Struct_ov001_0215af34* unknown_4_; };
 
 // USA: func_ov017_021d6148
-extern "C" ARM void func_ov017_021d6148(Node021d6148* o, unsigned int v) {
-	if (o->type == 3) {
-		o = o->link;
-		o->link = (Node021d6148*)v;
+extern "C" ARM void func_ov017_021d6148(Struct_ov001_0215af34* arg0, unsigned int arg1) {
+	if (arg0->unknown_0_ == 3) {
+		arg0 = arg0->unknown_4_;
+		arg0->unknown_4_ = (Struct_ov001_0215af34*)arg1;
 	}
 }

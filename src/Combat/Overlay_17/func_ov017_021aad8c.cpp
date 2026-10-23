@@ -1,98 +1,98 @@
 #if defined(jpn)
-enum { RegionOffset2d8 = 0x228 };
+enum { Enum_ov017_021aad8c_728 = 0x228 };
 #else
-enum { RegionOffset2d8 = 0x2d8 };
+enum { Enum_ov017_021aad8c_728 = 0x2d8 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Obj0207fcb8;
-extern "C" void func_0207fcb8(struct Obj0207fcb8* obj);
-struct Obj0207fd00;
-extern "C" void func_0207fd00(struct Obj0207fd00* obj);
-extern "C" void func_0207fe80(void* obj, int a, int b, int c);
-struct Cont0207fd44;
-extern "C" void func_0207fd44(struct Cont0207fd44* obj);
-struct Obj2081;
-extern "C" void* func_02081da8(struct Obj2081* obj, int key);
-extern "C" void func_020809c4(void* obj, int id, int id2, short* out1, short* out2);
+struct Struct_0207fcb8;
+extern "C" void func_0207fcb8(struct Struct_0207fcb8* arg0);
+struct Struct_0207fd00;
+extern "C" void func_0207fd00(struct Struct_0207fd00* arg0);
+extern "C" void func_0207fe80(void* arg0, int arg1, int arg2, int arg3);
+struct Struct_0207fd44_2;
+extern "C" void func_0207fd44(struct Struct_0207fd44_2* arg0);
+struct Struct_0207fdcc_2;
+extern "C" void* func_02081da8(struct Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_020809c4(void* arg0, int arg1, int arg2, short* arg3, short* arg4);
 extern "C" int func_020421a0(void);
-struct Container0205a330;
-extern "C" void func_0205a330(struct Container0205a330* c, int arg);
-struct Container0205a3d0;
-extern "C" void func_0205a370(struct Container0205a3d0* c, int key);
-extern "C" void* func_0205a3d0(struct Container0205a3d0* c, int key);
-extern "C" void func_0205ae8c(void* obj);
+struct Struct_0205a330;
+extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
+struct Struct_0205a254;
+extern "C" void func_0205a370(struct Struct_0205a254* arg0, int arg1);
+extern "C" void* func_0205a3d0(struct Struct_0205a254* arg0, int arg1);
+extern "C" void func_0205ae8c(void* arg0);
 
-struct Elem0205a3d0_021aad8c {
-    char pad0[4];
-    short field4;
-    short field6;
-    char pad8[0x15 - 8];
-    unsigned char flags15;
+struct Struct_ov017_021aad8c_3 {
+    char unknown_0_[4];
+    short unknown_4_;
+    short unknown_6_;
+    char unknown_8_[0x15 - 8];
+    unsigned char unknown_15_;
 };
 
-struct Global02d8_021aad8c {
-    char pad0[RegionOffset2d8];
-    void* f2d8;
-    char pad1[4];
-    void* f2e0;
-    unsigned short f2e4;
+struct Struct_ov017_021aad8c {
+    char unknown_0_[Enum_ov017_021aad8c_728];
+    void* unknown_2d8_;
+    char unknown_2dc_[4];
+    void* unknown_2e0_;
+    unsigned short unknown_2e4_;
 };
 
-struct Self021aad8c {
-    char pad0[0x14];
-    int state;
-    void* list18;
-    char pad2[0x28];
-    short* f44;
-    short f48;
+struct Struct_ov017_021aad8c_2 {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    void* unknown_18_;
+    char unknown_1c_[0x28];
+    short* unknown_44_;
+    short unknown_48_;
 };
 
 // USA: func_ov017_021aad8c
-extern "C" ARM void func_ov017_021aad8c(struct Self021aad8c* self) {
-    if (self->state != 5) return;
+extern "C" ARM void func_ov017_021aad8c(struct Struct_ov017_021aad8c_2* arg0) {
+    if (arg0->unknown_14_ != 5) return;
 
-    if (self->list18 != NULL) {
-        void* list = self->list18;
-        func_0207fcb8((struct Obj0207fcb8*)list);
-        func_0207fd00((struct Obj0207fd00*)list);
-        func_0207fe80(list, 2, 1, 1);
-        func_0207fd44((struct Cont0207fd44*)list);
+    if (arg0->unknown_18_ != NULL) {
+        void* var0 = arg0->unknown_18_;
+        func_0207fcb8((struct Struct_0207fcb8*)var0);
+        func_0207fd00((struct Struct_0207fd00*)var0);
+        func_0207fe80(var0, 2, 1, 1);
+        func_0207fd44((struct Struct_0207fd44_2*)var0);
     }
 
-    if (self->f44 == NULL) return;
-    if (self->f48 < 0) return;
-    if (func_02081da8((struct Obj2081*)self->list18, self->f48) == NULL) return;
+    if (arg0->unknown_44_ == NULL) return;
+    if (arg0->unknown_48_ < 0) return;
+    if (func_02081da8((struct Struct_0207fdcc_2*)arg0->unknown_18_, arg0->unknown_48_) == NULL) return;
 
-    short turnDelta, lookDelta;
-    func_020809c4(self->list18, self->f48, *self->f44, &turnDelta, &lookDelta);
-    turnDelta -= 0x10;
-    lookDelta -= 3;
+    short var1, var2;
+    func_020809c4(arg0->unknown_18_, arg0->unknown_48_, *arg0->unknown_44_, &var1, &var2);
+    var1 -= 0x10;
+    var2 -= 3;
 
-    struct Global02d8_021aad8c* g = (struct Global02d8_021aad8c*)func_020421a0();
-    void* cont = g->f2e0;
-    int key = g->f2e4;
-    void* p2d8 = g->f2d8;
-    if (p2d8 != NULL && cont != NULL) {
-        GameState* battle = GameState::GetInstance();
-        unsigned int scaleCount = battle->GetTickCount();
-        func_0205a330((struct Container0205a330*)cont, scaleCount);
-        func_0205a370((struct Container0205a3d0*)cont, key);
+    struct Struct_ov017_021aad8c* var3 = (struct Struct_ov017_021aad8c*)func_020421a0();
+    void* var4 = var3->unknown_2e0_;
+    int var5 = var3->unknown_2e4_;
+    void* var6 = var3->unknown_2d8_;
+    if (var6 != NULL && var4 != NULL) {
+        GameState* var7 = GameState::GetInstance();
+        unsigned int var8 = var7->GetTickCount();
+        func_0205a330((struct Struct_0205a330*)var4, var8);
+        func_0205a370((struct Struct_0205a254*)var4, var5);
 
-        struct Elem0205a3d0_021aad8c* e1 = (struct Elem0205a3d0_021aad8c*)func_0205a3d0((struct Container0205a3d0*)cont, key);
-        if (e1 != NULL) e1->flags15 |= 8;
+        struct Struct_ov017_021aad8c_3* var9 = (struct Struct_ov017_021aad8c_3*)func_0205a3d0((struct Struct_0205a254*)var4, var5);
+        if (var9 != NULL) var9->unknown_15_ |= 8;
 
-        short a;
-        short b = lookDelta;
-        a = turnDelta;
-        struct Elem0205a3d0_021aad8c* e2 = (struct Elem0205a3d0_021aad8c*)func_0205a3d0((struct Container0205a3d0*)cont, key);
-        if (e2 != NULL) {
-            e2->field4 = a;
-            e2->field6 = b;
+        short var10;
+        short var11 = var2;
+        var10 = var1;
+        struct Struct_ov017_021aad8c_3* var12 = (struct Struct_ov017_021aad8c_3*)func_0205a3d0((struct Struct_0205a254*)var4, var5);
+        if (var12 != NULL) {
+            var12->unknown_4_ = var10;
+            var12->unknown_6_ = var11;
         }
 
-        func_0205ae8c(p2d8);
+        func_0205ae8c(var6);
     }
 }

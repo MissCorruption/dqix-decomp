@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 #include <NitroSDK/Matrix.h>
 
-struct Obj021fa03c;
-struct Elem021fa03c;
-extern "C" Elem021fa03c* func_ov023_021fa03c(Obj021fa03c*);
-struct Obj021f9eb4;
-extern "C" void func_ov023_021f9eb4(Obj021f9eb4*);
+struct Struct_ov023_021fa03c;
+struct Struct_ov023_021fa03c_2;
+extern "C" Struct_ov023_021fa03c_2* func_ov023_021fa03c(Struct_ov023_021fa03c*);
+struct Struct_ov023_021f9eb4;
+extern "C" void func_ov023_021f9eb4(Struct_ov023_021f9eb4*);
 extern "C" void* func_ov011_021849c8(void*);
 
-class VNode021fa078 {
+class Struct_ov023_021fa078 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual Vector3i MethodAt20();
+    virtual void inline_ov023_021fa078(); virtual void inline_ov023_021fa078_2(); virtual void inline_ov023_021fa078_3(); virtual void inline_ov023_021fa078_4();
+    virtual void inline_ov023_021fa078_5(); virtual void inline_ov023_021fa078_6(); virtual void inline_ov023_021fa078_7(); virtual void inline_ov023_021fa078_8();
+    virtual Vector3i inline_ov023_021fa078_9();
 };
 
-extern "C" VNode021fa078* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov023_021fa078* func_ov023_021f6880(void*, int);
 
-struct Slot021fa078 {
-    unsigned short field0;
-    unsigned char field2;
-    unsigned char field3;
-    int field4;
-    int field8;
-    int fieldc;
-    Vector3i field10;
-    Vector3i field1c;
+struct Struct_ov023_021fa078_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    Vector3i unknown_10_;
+    Vector3i unknown_1c_;
 };
 
 // USA: func_ov023_021fa078
-extern "C" ARM void func_ov023_021fa078(Obj021fa03c* obj, void* ctx, unsigned short val, Vector3i* srcVec, int p5, int p6) {
-    Slot021fa078* slot = (Slot021fa078*)func_ov023_021fa03c(obj);
-    if (slot == NULL) return;
-    func_ov023_021f9eb4((Obj021f9eb4*)slot);
-    slot->field2 = 1;
-    slot->field0 = val;
-    void* base = func_ov011_021849c8(ctx);
-    VNode021fa078* node = func_ov023_021f6880(base, slot->field0);
-    if (node == NULL) return;
-    slot->field4 = 0;
-    slot->field8 = p6;
-    slot->fieldc = p5;
-    slot->field10 = node->MethodAt20();
-    slot->field1c = *srcVec;
+extern "C" ARM void func_ov023_021fa078(Struct_ov023_021fa03c* arg0, void* arg1, unsigned short arg2, Vector3i* arg3, int arg4, int arg5) {
+    Struct_ov023_021fa078_2* var0 = (Struct_ov023_021fa078_2*)func_ov023_021fa03c(arg0);
+    if (var0 == NULL) return;
+    func_ov023_021f9eb4((Struct_ov023_021f9eb4*)var0);
+    var0->unknown_2_ = 1;
+    var0->unknown_0_ = arg2;
+    void* var1 = func_ov011_021849c8(arg1);
+    Struct_ov023_021fa078* var2 = func_ov023_021f6880(var1, var0->unknown_0_);
+    if (var2 == NULL) return;
+    var0->unknown_4_ = 0;
+    var0->unknown_8_ = arg5;
+    var0->unknown_c_ = arg4;
+    var0->unknown_10_ = var2->inline_ov023_021fa078_9();
+    var0->unknown_1c_ = *arg3;
 }

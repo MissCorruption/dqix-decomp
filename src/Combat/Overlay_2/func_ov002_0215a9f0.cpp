@@ -3,15 +3,15 @@
 extern int data_ov002_0216c9dc;
 
 // USA: func_ov002_0215a9f0
-extern "C" ARM signed char func_ov002_0215a9f0(void* obj) {
+extern "C" ARM signed char func_ov002_0215a9f0(void* arg0) {
 #if defined(jpn)
-    enum { regionalBase = 0x1a00, regionalIndex = 0xd2, regionalOuter = 0x1b00, regionalField = 0x40 };
+    enum { Enum_ov002_0215a9f0_7168 = 0x1a00, Enum_ov002_0215a9f0_10 = 0xd2, Enum_ov002_0215a9f0_7168_2 = 0x1b00, Enum_ov002_0215a9f0_124 = 0x40 };
 #else
-    enum { regionalBase = 0x1c00, regionalIndex = 0xa, regionalOuter = 0x1c00, regionalField = 0x7c };
+    enum { Enum_ov002_0215a9f0_7168 = 0x1c00, Enum_ov002_0215a9f0_10 = 0xa, Enum_ov002_0215a9f0_7168_2 = 0x1c00, Enum_ov002_0215a9f0_124 = 0x7c };
 #endif
-    unsigned char* p = (unsigned char*)obj + regionalBase;
-    short idx = *(short*)(p + regionalIndex);
-    int off = (&data_ov002_0216c9dc)[idx];
-    unsigned char* q = (unsigned char*)obj + off + regionalOuter;
-    return *(signed char*)(q + regionalField);
+    unsigned char* var0 = (unsigned char*)arg0 + Enum_ov002_0215a9f0_7168;
+    short var1 = *(short*)(var0 + Enum_ov002_0215a9f0_10);
+    int var2 = (&data_ov002_0216c9dc)[var1];
+    unsigned char* var3 = (unsigned char*)arg0 + var2 + Enum_ov002_0215a9f0_7168_2;
+    return *(signed char*)(var3 + Enum_ov002_0215a9f0_124);
 }

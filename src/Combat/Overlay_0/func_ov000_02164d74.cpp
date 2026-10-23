@@ -2,141 +2,141 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-struct PtrBlock02164d74 {
-    char pad0[0xf78];
-    unsigned char ids[4];
-    unsigned char count;
+struct Struct_ov000_02164d74 {
+    char unknown_0_[0xf78];
+    unsigned char unknown_f78_[4];
+    unsigned char unknown_f7c_;
 };
 
-struct Info02164d74 {
-    char pad0[0x2c];
-    int field2c;
-    int field30;
+struct Struct_ov000_02164d74_2 {
+    char unknown_0_[0x2c];
+    int unknown_2c_;
+    int unknown_30_;
 };
 
-struct Stats02164d74 {
-    char pad0[0x14];
-    unsigned int flags14;
+struct Struct_ov000_02164d74_3 {
+    char unknown_0_[0x14];
+    unsigned int unknown_14_;
 };
 
-struct Combatant02164d74 {
-    Object3D obj3D;
-    char padac[0xc1 - sizeof(Object3D)];
-    unsigned char visFlags : 2;
-    unsigned char visRest : 6;
-    char padc2[0x130 - 0xc2];
-    char* field130;
-    char* field134;
-    struct Stats02164d74* stats;
+struct Struct_ov000_02164d74_4 {
+    Object3D unknown_0_;
+    char unknown_ac_[0xc1 - sizeof(Object3D)];
+    unsigned char unknown_c1_0_ : 2;
+    unsigned char unknown_c1_2_ : 6;
+    char unknown_c2_[0x130 - 0xc2];
+    char* unknown_130_;
+    char* unknown_134_;
+    struct Struct_ov000_02164d74_3* unknown_138_;
 #if defined(jpn)
-    char pad13c[0x180 - 0x13c];
+    char unknown_13c_[0x180 - 0x13c];
 #else
-    char pad13c[0x18c - 0x13c];
+    char unknown1_13c_[0x18c - 0x13c];
 #endif
-    unsigned int flags18c;
+    unsigned int unknown_18c_;
 };
 
-struct Battle02164d74 {
+struct Struct_ov000_02164d74_5 {
 #if defined(jpn)
-    char pad0[0x218];
+    char unknown_0_[0x218];
 #else
-    char pad0[0x29c];
+    char unknown1_0_[0x29c];
 #endif
-    int field29c;
-    struct Info02164d74* info;
-    char pad2a4[0xec8 - 0x2a4];
-    unsigned short fieldEc8;
+    int unknown_29c_;
+    struct Struct_ov000_02164d74_2* unknown_2a0_;
+    char unknown_2a4_[0xec8 - 0x2a4];
+    unsigned short unknown_ec8_;
 #if defined(jpn)
-    char padEca[0x371c - 0xe46];
-    char sub3760[0x79c2 - 0x371c];
+    char unknown_e46_[0x371c - 0xe46];
+    char unknown_3760_[0x79c2 - 0x371c];
 #else
-    char padEca[0x3760 - 0xeca];
-    char sub3760[0x77d2 - 0x3760];
+    char unknown_eca_[0x3760 - 0xeca];
+    char unknown_3760_[0x77d2 - 0x3760];
 #endif
-    unsigned char field77d2;
-    char pad77d3;
-    unsigned char field77d4;
+    unsigned char unknown_77d2_;
+    char unknown_77d3_;
+    unsigned char unknown_77d4_;
 };
 
-struct Bytes02033b88;
+struct Struct_02010604;
 
 extern "C" void func_ov000_02163524(void*);
-extern "C" void func_ov000_0217feb0(void* obj, unsigned char value, int id);
+extern "C" void func_ov000_0217feb0(void* arg0, unsigned char arg1, int arg2);
 extern "C" int func_020a35e0(unsigned char*, unsigned char);
-extern "C" void func_ov000_02174a50(void* obj, int combatantId);
-extern "C" struct Combatant02164d74* func_0200fea4(GameState* gs, int id);
-extern "C" void func_02033b88(Bytes02033b88*, int);
-extern "C" void func_02089560(char* dst, char* buf, char* src);
-extern "C" void func_0208936c(char* dst, char* src1, char* src2);
+extern "C" void func_ov000_02174a50(void* arg0, int arg1);
+extern "C" struct Struct_ov000_02164d74_4* func_0200fea4(GameState* arg0, int arg1);
+extern "C" void func_02033b88(Struct_02010604*, int);
+extern "C" void func_02089560(char* arg0, char* arg1, char* arg2);
+extern "C" void func_0208936c(char* arg0, char* arg1, char* arg2);
 void ApplyCombatantBuffs(int unused, int combatantId);
-extern "C" void func_ov000_02174738(void* obj, int combatantId);
-extern "C" void func_ov017_021917f0(int id, int flag);
-extern "C" void func_ov000_021675a0(struct Battle02164d74* battle);
-extern "C" void func_ov000_021676a8(struct Battle02164d74* battle);
-extern "C" void func_ov017_021901ac(void* ov);
-extern "C" void func_02049f3c(unsigned char* obj);
-extern "C" void func_ov000_021677fc(struct Battle02164d74* battle);
-extern "C" void func_ov000_02167cd4(struct Battle02164d74* battle);
-extern "C" void func_ov000_02167dd8(unsigned char* obj);
-extern "C" void func_ov000_02160fa8(void* work, int mask);
+extern "C" void func_ov000_02174738(void* arg0, int arg1);
+extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void func_ov000_021675a0(struct Struct_ov000_02164d74_5* arg0);
+extern "C" void func_ov000_021676a8(struct Struct_ov000_02164d74_5* arg0);
+extern "C" void func_ov017_021901ac(void* arg0);
+extern "C" void func_02049f3c(unsigned char* arg0);
+extern "C" void func_ov000_021677fc(struct Struct_ov000_02164d74_5* arg0);
+extern "C" void func_ov000_02167cd4(struct Struct_ov000_02164d74_5* arg0);
+extern "C" void func_ov000_02167dd8(unsigned char* arg0);
+extern "C" void func_ov000_02160fa8(void* arg0, int arg1);
 
 #define REG_POWCNT1 (*(volatile unsigned short*)0x04000304)
 
 // USA: func_ov000_02164d74
-extern "C" ARM void func_ov000_02164d74(struct Battle02164d74* battle) {
-    GameState* gs = GameState::GetInstance();
-    GameResources* ov = GetGameResources();
-    func_ov000_02163524(battle);
-    struct PtrBlock02164d74* pb = (PtrBlock02164d74*)func_02010828(gs);
-    int i;
-    for (i = 0; i < pb->count; i++) {
-        func_ov000_0217feb0(battle->sub3760, 1, pb->ids[i]);
+extern "C" ARM void func_ov000_02164d74(struct Struct_ov000_02164d74_5* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    func_ov000_02163524(arg0);
+    struct Struct_ov000_02164d74* var2 = (Struct_ov000_02164d74*)func_02010828(var0);
+    int var3;
+    for (var3 = 0; var3 < var2->unknown_f7c_; var3++) {
+        func_ov000_0217feb0(arg0->unknown_3760_, 1, var2->unknown_f78_[var3]);
     }
     REG_POWCNT1 |= 0x8000;
-    for (i = 0; i < 4; i++) {
-        if (!func_020a35e0((unsigned char*)battle->info, i)) {
-            func_ov000_02174a50(battle->sub3760, i);
+    for (var3 = 0; var3 < 4; var3++) {
+        if (!func_020a35e0((unsigned char*)arg0->unknown_2a0_, var3)) {
+            func_ov000_02174a50(arg0->unknown_3760_, var3);
             continue;
         }
-        struct Combatant02164d74* c = (Combatant02164d74*)func_0200ff1c(gs, i);
-        if (c == NULL) {
+        struct Struct_ov000_02164d74_4* var4 = (Struct_ov000_02164d74_4*)func_0200ff1c(var0, var3);
+        if (var4 == NULL) {
             continue;
         }
-        c->obj3D.MakeVisible();
-        c->visFlags |= 3;
-        func_02033b88((Bytes02033b88*)c, 0);
-        c->obj3D.SetField06(battle->fieldEc8);
-        if (battle->info->field30 != 0) {
-            func_02089560((char*)c->stats, c->field130, c->field134);
-            ApplyCombatantBuffs(battle->field29c, (short)i);
+        var4->unknown_0_.MakeVisible();
+        var4->unknown_c1_0_ |= 3;
+        func_02033b88((Struct_02010604*)var4, 0);
+        var4->unknown_0_.SetField06(arg0->unknown_ec8_);
+        if (arg0->unknown_2a0_->unknown_30_ != 0) {
+            func_02089560((char*)var4->unknown_138_, var4->unknown_130_, var4->unknown_134_);
+            ApplyCombatantBuffs(arg0->unknown_29c_, (short)var3);
         } else {
-            func_0208936c((char*)c->stats, c->field130, c->field134);
+            func_0208936c((char*)var4->unknown_138_, var4->unknown_130_, var4->unknown_134_);
         }
-        if (!(c->stats->flags14 & 1)) {
-            c->flags18c &= ~1;
+        if (!(var4->unknown_138_->unknown_14_ & 1)) {
+            var4->unknown_18c_ &= ~1;
         } else {
-            func_02033b88((Bytes02033b88*)c, 4);
+            func_02033b88((Struct_02010604*)var4, 4);
         }
-        func_ov000_02174738(battle->sub3760, i);
-        func_ov017_021917f0(i, 1);
+        func_ov000_02174738(arg0->unknown_3760_, var3);
+        func_ov017_021917f0(var3, 1);
     }
-    battle->field77d2 = 1;
-    func_ov000_021675a0(battle);
-    func_ov000_021676a8(battle);
-    func_ov017_021901ac(ov);
-    ClearFlags04(ov, 4);
-    if (battle->info->field2c != 0) {
-        unsigned char mask = battle->field77d4;
-        for (i = 0; i < 8; i++) {
-            struct Combatant02164d74* c = func_0200fea4(gs, i + 0xc0);
-            if (c != NULL && !(mask & (1 << i))) {
-                c->obj3D.MakeHidden();
-                func_02049f3c((unsigned char*)c);
+    arg0->unknown_77d2_ = 1;
+    func_ov000_021675a0(arg0);
+    func_ov000_021676a8(arg0);
+    func_ov017_021901ac(var1);
+    ClearFlags04(var1, 4);
+    if (arg0->unknown_2a0_->unknown_2c_ != 0) {
+        unsigned char var5 = arg0->unknown_77d4_;
+        for (var3 = 0; var3 < 8; var3++) {
+            struct Struct_ov000_02164d74_4* var6 = func_0200fea4(var0, var3 + 0xc0);
+            if (var6 != NULL && !(var5 & (1 << var3))) {
+                var6->unknown_0_.MakeHidden();
+                func_02049f3c((unsigned char*)var6);
             }
         }
     }
-    func_ov000_021677fc(battle);
-    func_ov000_02167cd4(battle);
-    func_ov000_02167dd8((unsigned char*)battle);
-    func_ov000_02160fa8(battle, 0x200);
+    func_ov000_021677fc(arg0);
+    func_ov000_02167cd4(arg0);
+    func_ov000_02167dd8((unsigned char*)arg0);
+    func_ov000_02160fa8(arg0, 0x200);
 }

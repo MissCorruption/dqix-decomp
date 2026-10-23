@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
 // USA: func_ov003_02169658
-extern "C" ARM void func_ov003_02169658(void* obj) {
-    unsigned char* p = (unsigned char*)obj;
+extern "C" ARM void func_ov003_02169658(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 #if defined(jpn)
-    enum { fieldBase = 0x598 };
+    enum { Enum_ov003_02169658_1436 = 0x598 };
 #else
-    enum { fieldBase = 0x59c };
+    enum { Enum_ov003_02169658_1436 = 0x59c };
 #endif
-    p[fieldBase] = 0;
-    p[fieldBase + 1] = 0;
-    p[fieldBase + 2] = 0;
-    p[fieldBase + 10] = 0;
-    p[fieldBase + 11] = 0;
+    var0[Enum_ov003_02169658_1436] = 0;
+    var0[Enum_ov003_02169658_1436 + 1] = 0;
+    var0[Enum_ov003_02169658_1436 + 2] = 0;
+    var0[Enum_ov003_02169658_1436 + 10] = 0;
+    var0[Enum_ov003_02169658_1436 + 11] = 0;
 }

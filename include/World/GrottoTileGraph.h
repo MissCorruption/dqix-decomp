@@ -2,59 +2,55 @@
 
 #include "World/Zone3D.h"
 
-struct Elem02028170 {
-    unsigned char id;
-    unsigned char field_1;
-    unsigned char field_2;
-    unsigned char flags;
-    unsigned short x;
-    unsigned short field_6;
-    unsigned short z;
-    int field_c;
+struct Struct_0201a300_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    int unknown_c_;
 };
 
-struct AppendEntry { Elem02028170* first; Elem02028170* second; };
-struct HalfwordPair { unsigned short first; unsigned short second; };
+struct Struct_0201a300 { Struct_0201a300_3* unknown_0_; Struct_0201a300_3* unknown_4_; };
+struct Struct_0201a300_2 { unsigned short unknown_0_; unsigned short unknown_2_; };
 
-struct GrottoTileLists0201a300 {
-    unsigned char tileCapacity;
-    unsigned char pairCapacity;
-    unsigned char tileCount;
-    unsigned char pairCount;
-    Elem02028170* tiles;
-    AppendEntry* pairs;
-    int unknownC;
-    int unknown10;
-    int unknown14;
-    int unknown18;
-    int unknown1c;
-    int unknown20;
-    unsigned char originCapacity;
-    unsigned char originCount;
-    unsigned char unknown26[2];
-    HalfwordPair* origins;
+struct Struct_01ff87a4 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    Struct_0201a300_3* unknown_4_;
+    Struct_0201a300* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    unsigned char unknown_24_;
+    unsigned char unknown_25_;
+    unsigned char unknown_26_[2];
+    Struct_0201a300_2* unknown_28_;
 };
 
 // Known prefix used by the tile graph builder and its resource-load callers.
-struct GrottoTileOwner0201a300 {
-    unsigned short zoneId;
-    unsigned char unknown2[0xa];
-    unsigned char loaded;
-    unsigned char unknownD[3];
-    SafeAllocator* allocator;
+struct Struct_0201a300_4 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[0xa];
+    unsigned char unknown_c_;
+    unsigned char unknown_d_[3];
+    SafeAllocator* unknown_10_;
 #if !defined(jpn)
-    int unknown14;
+    int unknown_14_;
 #endif
-    GrottoTileLists0201a300 lists;
+    Struct_01ff87a4 unknown_18_;
 };
 
-typedef char GrottoTileListsSizeCheck[sizeof(GrottoTileLists0201a300) == 0x2c ? 1 : -1];
-typedef char GrottoTileElementSizeCheck[sizeof(Elem02028170) == 0x10 ? 1 : -1];
 #if defined(jpn)
-typedef char GrottoTileOwnerListOffsetCheck[offsetof(GrottoTileOwner0201a300, lists) == 0x14 ? 1 : -1];
 #else
-typedef char GrottoTileOwnerListOffsetCheck[offsetof(GrottoTileOwner0201a300, lists) == 0x18 ? 1 : -1];
 #endif
 
-extern "C" int func_0201a300(Zone3D* zone, int floor, GrottoTileOwner0201a300* owner,
-                            const TileFeaturePlacementData* placements, FloorMap* map);
+extern "C" int func_0201a300(Zone3D* arg0, int arg1, Struct_0201a300_4* arg2,
+                            const TileFeaturePlacementData* arg3, FloorMap* arg4);

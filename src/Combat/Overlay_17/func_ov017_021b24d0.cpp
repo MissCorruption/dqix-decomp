@@ -10,97 +10,97 @@
 #endif
 
 #if defined(jpn)
-enum { Field105 = 0x125, Field2cc = 0x27c };
+enum { Enum_ov017_021b24d0_261 = 0x125, Enum_ov017_021b24d0_716 = 0x27c };
 #else
-enum { Field105 = 0x105, Field2cc = 0x2cc };
+enum { Enum_ov017_021b24d0_261 = 0x105, Enum_ov017_021b24d0_716 = 0x2cc };
 #endif
 
 extern "C" void func_020c9be0(void);
 extern "C" void* func_02012fe4(void);
-extern "C" void func_020a1940(unsigned int id);
-extern "C" void func_020a1ef0(int value);
-extern "C" void func_020a1df8(int value);
-extern "C" void func_ov011_0218438c(char* obj);
-extern "C" void func_ov011_02184550(char* obj, SafeAllocator* allocator, void* data, unsigned int length);
-extern "C" void func_ov011_021845c8(char* obj, void* buffer, unsigned int size);
-extern "C" void func_ov011_02184640(char* obj, char* entry);
-extern "C" void func_ov011_02184694(char* obj);
-extern "C" void func_020c5588(int a, int b, int c, int d, int e);
+extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void func_020a1ef0(int arg0);
+extern "C" void func_020a1df8(int arg0);
+extern "C" void func_ov011_0218438c(char* arg0);
+extern "C" void func_ov011_02184550(char* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" void func_ov011_021845c8(char* arg0, void* arg1, unsigned int arg2);
+extern "C" void func_ov011_02184640(char* arg0, char* arg1);
+extern "C" void func_ov011_02184694(char* arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct Flags021b24d0 {
-    char pad[Field105];
-    unsigned char flags;
+struct Struct_ov017_021b24d0 {
+    char unknown_0_[Enum_ov017_021b24d0_261];
+    unsigned char unknown_105_;
 };
 
-struct Region2cc {
-    char pad[0xc40];
-    char entry[1];
+struct Struct_ov017_021b24d0_2 {
+    char unknown_0_[0xc40];
+    char unknown_c40_[1];
 };
 
-struct Holder021b24d0 {
-    int f0;
-    char* scene;
+struct Struct_ov017_021d83f0_6 {
+    int unknown_0_;
+    char* unknown_4_;
 };
 
-extern Holder021b24d0 data_ov017_021d83f0;
+extern Struct_ov017_021d83f0_6 data_ov017_021d83f0;
 
-struct Task021b24d0 {
-    char pad0[8];
-    int result;
-    int taskId;
-    SafeAllocator allocator;
-    char pad1[0x30 - 0x24];
-    void (*onAllocate)(SafeAllocator* allocator, char* scene);
-    char pad2[0x38 - 0x34];
-    unsigned int flag0 : 5;
-    unsigned int keepField4Bits : 1;
+struct Struct_ov017_021b24d0_3 {
+    char unknown_0_[8];
+    int unknown_8_;
+    int unknown_c_;
+    SafeAllocator unknown_10_;
+    char unknown_24_[0x30 - 0x24];
+    void (*unknown_30_)(SafeAllocator* allocator, char* scene);
+    char unknown_34_[0x38 - 0x34];
+    unsigned int unknown_38_0_ : 5;
+    unsigned int unknown_38_5_ : 1;
 };
 
 // USA: func_ov017_021b24d0
-extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
-    GameResources* res = GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (IsBrightnessTransitionActive(res)) {
-        return task->result;
+extern "C" ARM int func_ov017_021b24d0(Struct_ov017_021b24d0_3* arg0) {
+    GameResources* var0 = GetGameResources();
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    if (IsBrightnessTransitionActive(var0)) {
+        return arg0->unknown_8_;
     }
-    if (loader->GetTaskStatus(task->taskId) == 0) {
-        return task->result;
+    if (var1->GetTaskStatus(arg0->unknown_c_) == 0) {
+        return arg0->unknown_8_;
     }
-    if (loader->GetDetailedTaskStatus(task->taskId) != 2) {
+    if (var1->GetDetailedTaskStatus(arg0->unknown_c_) != 2) {
         func_020c9be0();
     }
-    Flags021b24d0* flags = (Flags021b24d0*)func_02012fe4();
-    if (flags != NULL) {
-        flags->flags |= 1;
+    Struct_ov017_021b24d0* var2 = (Struct_ov017_021b24d0*)func_02012fe4();
+    if (var2 != NULL) {
+        var2->unknown_105_ |= 1;
     }
-    unsigned int length;
-    void* data;
-    loader->GetLoadedFileByID(task->taskId, &data, &length);
-    if (data == NULL || length == 0) {
+    unsigned int var3;
+    void* var4;
+    var1->GetLoadedFileByID(arg0->unknown_c_, &var4, &var3);
+    if (var4 == NULL || var3 == 0) {
         func_020c9be0();
     }
     func_020a1940(OVERLAY_ID(11));
     func_020a1ef0(1);
     func_020a1df8(4);
-    data_ov017_021d83f0.scene = (char*)task->allocator.Allocate(0x1e0);
-    if (data_ov017_021d83f0.scene == NULL) {
+    data_ov017_021d83f0.unknown_4_ = (char*)arg0->unknown_10_.Allocate(0x1e0);
+    if (data_ov017_021d83f0.unknown_4_ == NULL) {
         func_020c9be0();
     }
-    func_ov011_0218438c(data_ov017_021d83f0.scene);
-    func_ov011_02184550(data_ov017_021d83f0.scene, &task->allocator, data, length);
-    if (task->onAllocate != NULL) {
-        task->onAllocate(&task->allocator, data_ov017_021d83f0.scene);
+    func_ov011_0218438c(data_ov017_021d83f0.unknown_4_);
+    func_ov011_02184550(data_ov017_021d83f0.unknown_4_, &arg0->unknown_10_, var4, var3);
+    if (arg0->unknown_30_ != NULL) {
+        arg0->unknown_30_(&arg0->unknown_10_, data_ov017_021d83f0.unknown_4_);
     }
-    unsigned int size = task->allocator.GetMaxPossibleAllocation();
-    func_ov011_021845c8(data_ov017_021d83f0.scene, task->allocator.Allocate(size), size);
-    func_ov011_02184640(data_ov017_021d83f0.scene, ((Region2cc*)((char*)res + Field2cc))->entry);
-    loader->RemoveTask(task->taskId);
+    unsigned int var5 = arg0->unknown_10_.GetMaxPossibleAllocation();
+    func_ov011_021845c8(data_ov017_021d83f0.unknown_4_, arg0->unknown_10_.Allocate(var5), var5);
+    func_ov011_02184640(data_ov017_021d83f0.unknown_4_, ((Struct_ov017_021b24d0_2*)((char*)var0 + Enum_ov017_021b24d0_716))->unknown_c40_);
+    var1->RemoveTask(arg0->unknown_c_);
 #if !defined(jpn)
-    task->taskId = -1;
+    arg0->unknown_c_ = -1;
 #endif
-    func_ov011_02184694(data_ov017_021d83f0.scene);
-    if (!task->keepField4Bits) {
-        SetFlags04(res, 0x609fe);
+    func_ov011_02184694(data_ov017_021d83f0.unknown_4_);
+    if (!arg0->unknown_38_5_) {
+        SetFlags04(var0, 0x609fe);
     }
     func_020c5588(0, 0, 0x7fff, 0, 0);
     return 2;

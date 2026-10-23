@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
 
-struct SearchStruct;
-extern "C" void func_0202c5bc(struct SearchStruct* obj, int value);
+struct Struct_0202b2f0;
+extern "C" void func_0202c5bc(struct Struct_0202b2f0* arg0, int arg1);
 
 // USA: func_ov017_021cea64
-extern "C" ARM void func_ov017_021cea64(int unused0, int* p, int unused2, int unused3, struct SearchStruct0202c1a4* extra) {
-    int field = p[1];
-    int val = func_0202c1a4(extra);
-    if (field == val) return;
-    func_0202c5bc((struct SearchStruct*)extra, field);
+extern "C" ARM void func_ov017_021cea64(int arg0, int* arg1, int arg2, int arg3, struct Struct_0202c1a4* arg4) {
+    int var0 = arg1[1];
+    int var1 = func_0202c1a4(arg4);
+    if (var0 == var1) return;
+    func_0202c5bc((struct Struct_0202b2f0*)arg4, var0);
 }

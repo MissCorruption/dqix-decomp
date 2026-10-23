@@ -991,7 +991,7 @@ data_ov023_021ff9e0 kind:bss addr:0x021fec40
 data_ov023_021ffa0c kind:bss addr:0x021fec6c
 data_ov023_021ffa34 kind:bss addr:0x021fec94
 data_ov023_021ffa4c kind:bss addr:0x021feca4
-_ZZ17GetGlobal021ffefcvE1s kind:bss addr:0x021ff154
+_ZZ21inline_ov023_021f4c04vE1s kind:bss addr:0x021ff154
 data_ov023_021fff08 kind:bss addr:0x021ff160
 data_ov023_021fff1c kind:bss addr:0x021ff174
 data_ov023_021fff24 kind:bss addr:0x021ff17c

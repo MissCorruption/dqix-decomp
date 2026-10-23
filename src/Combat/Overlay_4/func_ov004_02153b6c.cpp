@@ -10,60 +10,60 @@ extern "C" int func_ov023_021f6f10(void*);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_020deb58(void*, int, int, int, int);
 extern "C" void* func_020dec30(void*, int, int, int, int, int);
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 
-class VObj02153b6c {
+class Struct_ov004_02153b6c_2 {
 public:
-	virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-	virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-	virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-	virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-	virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-	virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-	virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-	virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-	virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-	virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-	virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
-	virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
-	virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
-	virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55();
-	virtual void v56(); virtual void v57();
-	virtual void* Method58();
+	virtual void inline_ov004_02153b6c_36(); virtual void inline_ov004_02153b6c_37(); virtual void inline_ov004_02153b6c_38(); virtual void inline_ov004_02153b6c_39();
+	virtual void inline_ov004_02153b6c_40(); virtual void inline_ov004_02153b6c_41(); virtual void inline_ov004_02153b6c_42(); virtual void inline_ov004_02153b6c_43();
+	virtual void inline_ov004_02153b6c_44(); virtual void inline_ov004_02153b6c_45(); virtual void inline_ov004_02153b6c_46(); virtual void inline_ov004_02153b6c_47();
+	virtual void inline_ov004_02153b6c_48(); virtual void inline_ov004_02153b6c_49(); virtual void inline_ov004_02153b6c_50(); virtual void inline_ov004_02153b6c_51();
+	virtual void inline_ov004_02153b6c_52(); virtual void inline_ov004_02153b6c_53(); virtual void inline_ov004_02153b6c_54(); virtual void inline_ov004_02153b6c_55();
+	virtual void inline_ov004_02153b6c_56(); virtual void inline_ov004_02153b6c_57(); virtual void inline_ov004_02153b6c_58(); virtual void inline_ov004_02153b6c_59();
+	virtual void inline_ov004_02153b6c(); virtual void inline_ov004_02153b6c_2(); virtual void inline_ov004_02153b6c_3(); virtual void inline_ov004_02153b6c_4();
+	virtual void inline_ov004_02153b6c_5(); virtual void inline_ov004_02153b6c_6(); virtual void inline_ov004_02153b6c_7(); virtual void inline_ov004_02153b6c_8();
+	virtual void inline_ov004_02153b6c_9(); virtual void inline_ov004_02153b6c_10(); virtual void inline_ov004_02153b6c_11(); virtual void inline_ov004_02153b6c_12();
+	virtual void inline_ov004_02153b6c_13(); virtual void inline_ov004_02153b6c_14(); virtual void inline_ov004_02153b6c_15(); virtual void inline_ov004_02153b6c_16();
+	virtual void inline_ov004_02153b6c_17(); virtual void inline_ov004_02153b6c_18(); virtual void inline_ov004_02153b6c_19(); virtual void inline_ov004_02153b6c_20();
+	virtual void inline_ov004_02153b6c_21(); virtual void inline_ov004_02153b6c_22(); virtual void inline_ov004_02153b6c_23(); virtual void inline_ov004_02153b6c_24();
+	virtual void inline_ov004_02153b6c_25(); virtual void inline_ov004_02153b6c_26(); virtual void inline_ov004_02153b6c_27(); virtual void inline_ov004_02153b6c_28();
+	virtual void inline_ov004_02153b6c_29(); virtual void inline_ov004_02153b6c_30(); virtual void inline_ov004_02153b6c_31(); virtual void inline_ov004_02153b6c_32();
+	virtual void inline_ov004_02153b6c_33(); virtual void inline_ov004_02153b6c_34();
+	virtual void* inline_ov004_02153b6c_35();
 };
 
-struct Entry02153b6c {
-    unsigned int pad0;
-    unsigned int pad4;
-    unsigned int pad8;
-    unsigned int fieldC;
+struct Struct_ov004_02153b6c {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
 };
 
 // USA: func_ov004_02153b6c
-extern "C" ARM void func_ov004_02153b6c(void* obj, int arg1, int arg2, int arg3, short* out1, short* out2) {
-    void* node = func_ov023_021f6880(func_ov011_021849c8(obj), 0x2d);
-    if (node) {
-        if (func_ov023_021f6f10(node) == 0x11) {
-            void* obj2 = ((VObj02153b6c*)node)->Method58();
-            void* ptr = func_0205ec34();
-            int count = func_020deb58(obj2, 1, arg1, arg2, arg3);
+extern "C" ARM void func_ov004_02153b6c(void* arg0, int arg1, int arg2, int arg3, short* arg4, short* arg5) {
+    void* var0 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x2d);
+    if (var0) {
+        if (func_ov023_021f6f10(var0) == 0x11) {
+            void* var1 = ((Struct_ov004_02153b6c_2*)var0)->inline_ov004_02153b6c_35();
+            void* var2 = func_0205ec34();
+            int var3 = func_020deb58(var1, 1, arg1, arg2, arg3);
 
-            short matchCount = 0;
-            short i;
-            for (i = 0; i < count; i++) {
-                struct Entry02153b6c* entry = (struct Entry02153b6c*)func_020dec30(obj2, i, 1, arg1, arg2, arg3);
-                if (entry) {
-                    int extracted = (entry->fieldC << 9) >> 21;
-                    extracted = (unsigned short)extracted;
-                    if (extracted > 0) {
-                        if (func_0206dfb0((int)ptr, (unsigned char*)ptr + 0x8c, extracted + 0x76 + 0xc00)) {
-                            matchCount++;
+            short var4 = 0;
+            short var5;
+            for (var5 = 0; var5 < var3; var5++) {
+                struct Struct_ov004_02153b6c* var6 = (struct Struct_ov004_02153b6c*)func_020dec30(var1, var5, 1, arg1, arg2, arg3);
+                if (var6) {
+                    int var7 = (var6->unknown_c_ << 9) >> 21;
+                    var7 = (unsigned short)var7;
+                    if (var7 > 0) {
+                        if (func_0206dfb0((int)var2, (unsigned char*)var2 + 0x8c, var7 + 0x76 + 0xc00)) {
+                            var4++;
                         }
                     }
                 }
             }
-            *out1 = matchCount;
-            *out2 = (short)count;
+            *arg4 = var4;
+            *arg5 = (short)var3;
         }
     }
 }

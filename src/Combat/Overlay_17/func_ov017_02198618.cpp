@@ -1,71 +1,71 @@
 #if defined(jpn)
-enum {regionalOffset0=0x8c, regionalOffset1=0xc4, regionalOffset2=0xc6};
+enum {Enum_ov017_02198618_108=0x8c, Enum_ov017_02198618_132=0xc4, Enum_ov017_02198618_134=0xc6};
 #else
-enum {regionalOffset0=0x6c, regionalOffset1=0x84, regionalOffset2=0x86};
+enum {Enum_ov017_02198618_108=0x6c, Enum_ov017_02198618_132=0x84, Enum_ov017_02198618_134=0x86};
 #endif
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 
-struct BitField0203402c {
-    char pad[0xc4];
-    unsigned short field15 : 15;
-    unsigned short bit15 : 1;
+struct Struct_0203402c {
+    char unknown_0_[0xc4];
+    unsigned short unknown_c4_0_ : 15;
+    unsigned short unknown_c5_7_ : 1;
 };
 
-extern "C" int func_020535c8(signed char* obj);
-extern "C" int func_0203402c(struct BitField0203402c* p);
+extern "C" int func_020535c8(signed char* arg0);
+extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_0201e838(unsigned char* obj, unsigned int index);
-extern "C" int func_02094b9c(void* self, void* data);
-extern "C" void func_ov017_0219a674(unsigned char* self);
-extern "C" void func_ov017_0219b33c(void* a, void* buf, int b, int tag);
+extern "C" void* func_0201e838(unsigned char* arg0, unsigned int arg1);
+extern "C" int func_02094b9c(void* arg0, void* arg1);
+extern "C" void func_ov017_0219a674(unsigned char* arg0);
+extern "C" void func_ov017_0219b33c(void* arg0, void* arg1, int arg2, int arg3);
 
-struct Buf3021986 { unsigned int w0, w1, w2; };
+struct Struct_ov017_02198618 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
 
-struct LocalBuf021986 {
-    unsigned char tag;
-    unsigned char field1;
-    unsigned short field2;
-    unsigned char field4;
-    unsigned char pad5[3];
-    void* ptr8;
-    unsigned char pad12[4];
-    unsigned short field10;
-    unsigned char pad18[2];
+struct Struct_ov017_02198618_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_[3];
+    void* unknown_8_;
+    unsigned char unknown_c_[4];
+    unsigned short unknown_10_;
+    unsigned char unknown_12_[2];
 };
 
 // USA: func_ov017_02198618
-extern "C" ARM void func_ov017_02198618(void* p0) {
-    GameState* battle = GameState::GetInstance();
-    GameObject* c = battle->GetUnknownGameObject();
-    if (c == NULL) return;
-    if (func_020535c8((signed char*)c) != 0) return;
-    if (func_0203402c((struct BitField0203402c*)c) != 0) return;
+extern "C" ARM void func_ov017_02198618(void* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetUnknownGameObject();
+    if (var1 == NULL) return;
+    if (func_020535c8((signed char*)var1) != 0) return;
+    if (func_0203402c((struct Struct_0203402c*)var1) != 0) return;
 
-    unsigned char* misc = (unsigned char*)func_02012fe4();
-    func_020100bc(battle);
-    unsigned char* arr = (unsigned char*)func_0201e838(misc + regionalOffset0, 10);
-    struct Buf3021986 buf3 = *(struct Buf3021986*)((char*)c + 0x44);
+    unsigned char* var2 = (unsigned char*)func_02012fe4();
+    func_020100bc(var0);
+    unsigned char* var3 = (unsigned char*)func_0201e838(var2 + Enum_ov017_02198618_108, 10);
+    struct Struct_ov017_02198618 var4 = *(struct Struct_ov017_02198618*)((char*)var1 + 0x44);
 
-    while (arr != NULL) {
-        if (func_02094b9c(arr, &buf3) != 0) {
-            unsigned short field2c = *(unsigned short*)(arr + 0x2c);
-            short field84 = *(short*)(misc + 0x2700 + regionalOffset1);
-            if (field2c == field84) {
-                unsigned short misc0 = *(unsigned short*)misc;
-                unsigned short field86 = *(unsigned short*)(misc + 0x2700 + regionalOffset2);
-                if (misc0 == field86) {
-                    struct LocalBuf021986 lb;
-                    func_ov017_0219a674((unsigned char*)&lb);
-                    lb.tag = 0xb;
-                    lb.ptr8 = arr;
-                    lb.field4 = 1;
-                    func_ov017_0219b33c(p0, &lb, 1, 0xb);
+    while (var3 != NULL) {
+        if (func_02094b9c(var3, &var4) != 0) {
+            unsigned short var5 = *(unsigned short*)(var3 + 0x2c);
+            short var6 = *(short*)(var2 + 0x2700 + Enum_ov017_02198618_132);
+            if (var5 == var6) {
+                unsigned short var7 = *(unsigned short*)var2;
+                unsigned short var8 = *(unsigned short*)(var2 + 0x2700 + Enum_ov017_02198618_134);
+                if (var7 == var8) {
+                    struct Struct_ov017_02198618_2 var9;
+                    func_ov017_0219a674((unsigned char*)&var9);
+                    var9.unknown_0_ = 0xb;
+                    var9.unknown_8_ = var3;
+                    var9.unknown_4_ = 1;
+                    func_ov017_0219b33c(arg0, &var9, 1, 0xb);
                     return;
                 }
             }
         }
-        arr = *(unsigned char**)(arr + 0x70);
+        var3 = *(unsigned char**)(var3 + 0x70);
     }
 }

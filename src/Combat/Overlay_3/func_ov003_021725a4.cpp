@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue718_614 = 0x614 };
-enum { kRegionValue460_35C = 0x35c };
+enum { Enum_ov003_021725a4_1816 = 0x614 };
+enum { Enum_ov003_021725a4_1120 = 0x35c };
 #else
-enum { kRegionValue718_614 = 0x718 };
-enum { kRegionValue460_35C = 0x460 };
+enum { Enum_ov003_021725a4_1816 = 0x718 };
+enum { Enum_ov003_021725a4_1120 = 0x460 };
 #endif
 
 
-extern "C" int func_02001aec(void* a, void* b, int n);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov003_021725a4
-extern "C" ARM int func_ov003_021725a4(void* obj, void* other) {
-    int i;
-    unsigned int field = *(unsigned int*)((char*)other + 0x6c);
-    if (((field << 5) >> 31) == 0) {
+extern "C" ARM int func_ov003_021725a4(void* arg0, void* arg1) {
+    int var0;
+    unsigned int var1 = *(unsigned int*)((char*)arg1 + 0x6c);
+    if (((var1 << 5) >> 31) == 0) {
         return 0;
     }
-    unsigned char count = *((unsigned char*)obj + kRegionValue718_614);
-    if (count == 0) {
+    unsigned char var2 = *((unsigned char*)arg0 + Enum_ov003_021725a4_1816);
+    if (var2 == 0) {
         return 1;
     }
-    for (i = 0; i < count; i++) {
-        char* base = (char*)obj + kRegionValue460_35C;
-        if (func_02001aec(base + i * 0xe8 + 0x14, (char*)other + 0x14, 6) == 0) {
+    for (var0 = 0; var0 < var2; var0++) {
+        char* var3 = (char*)arg0 + Enum_ov003_021725a4_1120;
+        if (func_02001aec(var3 + var0 * 0xe8 + 0x14, (char*)arg1 + 0x14, 6) == 0) {
             return 0;
         }
     }

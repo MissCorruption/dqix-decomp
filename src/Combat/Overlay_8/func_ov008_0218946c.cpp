@@ -19,20 +19,20 @@
 #endif
 #include <globaldefs.h>
 
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(struct Obj0205d2bc*);
-extern "C" void func_ov008_02184968(void* p);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(struct Struct_0205d2bc*);
+extern "C" void func_ov008_02184968(void* arg0);
 
-struct FlagE99_0218946c { char pad[R(0x95, 0x99)]; signed char flag99; };
-struct FlagE9b_0218946c { char pad[R(0x97, 0x9b)]; signed char flag9b; };
-struct FlagEc0_0218946c { char pad[R(0xeb8, 0xec0)]; unsigned char flag : 1; };
+struct Struct_ov008_0218946c_2 { char unknown_0_[R(0x95, 0x99)]; signed char unknown_99_; };
+struct Struct_ov008_0218946c_3 { char unknown_0_[R(0x97, 0x9b)]; signed char unknown_9b_; };
+struct Struct_ov008_0218946c { char unknown_0_[R(0xeb8, 0xec0)]; unsigned char unknown_ec0_0_ : 1; };
 
 // USA: func_ov008_0218946c
-extern "C" ARM void func_ov008_0218946c(char* obj) {
-    if (((struct FlagE99_0218946c*)(obj + 0xe00))->flag99 != 0) {
-        func_0205d2bc((struct Obj0205d2bc*)(obj + 0x18));
+extern "C" ARM void func_ov008_0218946c(char* arg0) {
+    if (((struct Struct_ov008_0218946c_2*)(arg0 + 0xe00))->unknown_99_ != 0) {
+        func_0205d2bc((struct Struct_0205d2bc*)(arg0 + 0x18));
     }
-    if (((struct FlagE9b_0218946c*)(obj + 0xe00))->flag9b == 0) return;
-    if (!((struct FlagEc0_0218946c*)obj)->flag) return;
-    func_ov008_02184968(obj + 0x2a8);
+    if (((struct Struct_ov008_0218946c_3*)(arg0 + 0xe00))->unknown_9b_ == 0) return;
+    if (!((struct Struct_ov008_0218946c*)arg0)->unknown_ec0_0_) return;
+    func_ov008_02184968(arg0 + 0x2a8);
 }

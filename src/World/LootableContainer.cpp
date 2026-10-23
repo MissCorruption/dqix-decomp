@@ -16,9 +16,9 @@ extern "C"
 }
 
 struct {
-    LootDistribution* distribution;
-    LootableContainerManager* manager;
-    SafeAllocator* allocator;
+    LootDistribution* unknown_0_;
+    LootableContainerManager* unknown_4_;
+    SafeAllocator* unknown_8_;
 } extern data_02108e78;
 
 extern LootableContainerManager data_02108e90;
@@ -33,7 +33,7 @@ int Loot_Opcode_65(Script::Parameter* params, int numParams) { return 1; }
 
 int LootManager_Unknown_66(Script::Parameter* params, int numParams)
 {
-    data_02108e78.manager->unk_10 = params[0].ToInt();
+    data_02108e78.unknown_4_->unk_10 = params[0].ToInt();
     return 1;
 }
 
@@ -41,7 +41,7 @@ int LootManager_CreateContainer(Script::Parameter* params, int numParams)
 {
     (void)GetGameResources();
     LootableContainerManager::Container* container =
-        (LootableContainerManager::Container*)data_02108e78.allocator->Allocate(sizeof(LootableContainerManager::Container));
+        (LootableContainerManager::Container*)data_02108e78.unknown_8_->Allocate(sizeof(LootableContainerManager::Container));
     if (container == NULL)
         return 0;
 
@@ -108,7 +108,7 @@ int LootManager_CreateContainer(Script::Parameter* params, int numParams)
             container->unk_6 = entries[3];
         }
     }
-    data_02108e78.manager->RegisterContainer(container);
+    data_02108e78.unknown_4_->RegisterContainer(container);
     return 1;
 }
 
@@ -122,11 +122,11 @@ void LootableContainerManager::Reset()
 
 void LootableContainerManager::ResetAllocator(SafeAllocator *alloc)
 {
-    data_02108e78.allocator = &GetGameResources()->lootableContainerAllocator_18c_;
+    data_02108e78.unknown_8_ = &GetGameResources()->lootableContainerAllocator_18c_;
     if (alloc != NULL)
         alloc->Reset();
     else
-        data_02108e78.allocator->Reset();
+        data_02108e78.unknown_8_->Reset();
     pContainerList_ = 0;
     numEntries_ = 0;
 }
@@ -149,19 +149,19 @@ void LootableContainerManager::LoadZoneContainers(const void *treasureArchive,
     unsigned int scriptFileLength;
     if (!GetFileInNarcPermissive(treasureArchive, scriptFilename, &scriptFile, &scriptFileLength))
         return;
-    data_02108e78.manager = this;
+    data_02108e78.unknown_4_ = this;
     GameResources* resources = GetGameResources();
 
     if (alloc != NULL)
-        data_02108e78.allocator = alloc;
+        data_02108e78.unknown_8_ = alloc;
     else
-        data_02108e78.allocator = &resources->lootableContainerAllocator_18c_;
+        data_02108e78.unknown_8_ = &resources->lootableContainerAllocator_18c_;
     Script runner;
     runner.Initialize();
     runner.SetOpcodeLookup(s_zoneContainerOpcodes);
     runner.Load(scriptFile, scriptFileLength);
     runner.Execute();
-    data_02108e78.allocator = &resources->lootableContainerAllocator_18c_;
+    data_02108e78.unknown_8_ = &resources->lootableContainerAllocator_18c_;
 
     char allocationBuffer[0x400];
     SafeAllocator tempAlloc;
@@ -262,13 +262,13 @@ int LootDistribution_DeclareOutcome(Script::Parameter* params, int numParams)
     outcome.lootType = resultType;
     outcome.itemID = id;
     outcome.percentage = percentage;
-    data_02108e78.distribution->InsertOutcome(&outcome);
+    data_02108e78.unknown_0_->InsertOutcome(&outcome);
     return 1;
 }
 
 int LootDistribution_AllocateOutcomes(Script::Parameter* params, int numParams)
 {
-    data_02108e78.distribution->AllocateOutcomes(params[0].ToInt());
+    data_02108e78.unknown_0_->AllocateOutcomes(params[0].ToInt());
     return 1;
 }
 
@@ -290,14 +290,14 @@ static Script::OpcodeLookupEntry s_distributionOpcodes[] = {
 
 void LootDistribution::LoadFromScript(SafeAllocator* alloc, const void* script, unsigned int length)
 {
-    data_02108e78.distribution = this;
+    data_02108e78.unknown_0_ = this;
     pAllocator_ = alloc;
     Script runner;
     runner.Initialize();
     runner.SetOpcodeLookup(s_distributionOpcodes);
     runner.Load(script, length);
     runner.Execute();
-    data_02108e78.distribution = NULL;
+    data_02108e78.unknown_0_ = NULL;
 }
 
 void LootDistribution::InsertOutcome(Outcome *source)

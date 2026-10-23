@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct Setter020e1374 {
-    char pad[0xc];
-    unsigned int a;
-    unsigned int b;
-    unsigned char c;
+struct Struct_020e1374 {
+    char unknown_0_[0xc];
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned char unknown_14_;
 };
 
 // USA: func_020e1374
-extern "C" ARM void func_020e1374(struct Setter020e1374* p, unsigned int a, unsigned int b, int c) {
-    p->a = a;
-    p->b = b;
-    p->c = (unsigned char)c;
+extern "C" ARM void func_020e1374(struct Struct_020e1374* arg0, unsigned int arg1, unsigned int arg2, int arg3) {
+    arg0->unknown_c_ = arg1;
+    arg0->unknown_10_ = arg2;
+    arg0->unknown_14_ = (unsigned char)arg3;
 }

@@ -1,62 +1,62 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct Elem02083738 {
-    void* pB;
-    void* pResult;
-    char pad[0x18];
+struct Struct_02083738_2 {
+    void* unknown_0_;
+    void* unknown_4_;
+    char unknown_8_[0x18];
 };
 
-struct ElemB02083738 {
-    char data[0x20];
+struct Struct_0200f3a4_14 {
+    char unknown_0_[0x20];
 };
 
-struct Obj02083738 {
-    char pad[0x194];
-    struct Elem02083738 arrA[11];
+struct Struct_02083738 {
+    char unknown_0_[0x194];
+    struct Struct_02083738_2 unknown_194_[11];
     #if defined(jpn)
-    char pad2[0x364];
+    char unknown_2f4_[0x364];
 #else
-    char pad2[0x3fc];
+    char unknown1_2f4_[0x3fc];
 #endif
-    struct ElemB02083738 arrB[11];
+    struct Struct_0200f3a4_14 unknown_6f0_[11];
 };
 
-struct StructDE1D4;
-extern "C" void func_020de1d4(struct StructDE1D4*);
-extern "C" unsigned char* func_0208349c(unsigned char* base, int idx);
+struct Struct_02083508_2;
+extern "C" void func_020de1d4(struct Struct_02083508_2*);
+extern "C" unsigned char* func_0208349c(unsigned char* arg0, int arg1);
 
 // USA: func_02083738
-extern "C" ARM void func_02083738(struct Obj02083738* o, int a1) {
-    int i = -1;
-    int j = -1;
-    switch (a1) {
-    case 0: i = 8; j = 7; break;
-    case 1: i = 9; j = 8; break;
-    case 4: i = 7; j = 6; break;
-    case 2: i = 0; j = 0; break;
-    case 5: i = 5; j = 4; break;
-    case 3: i = 1; j = 1; break;
-    case 6: i = 6; j = 5; break;
-    case 7: i = 10; j = 9; break;
+extern "C" ARM void func_02083738(struct Struct_02083738* arg0, int arg1) {
+    int var0 = -1;
+    int var1 = -1;
+    switch (arg1) {
+    case 0: var0 = 8; var1 = 7; break;
+    case 1: var0 = 9; var1 = 8; break;
+    case 4: var0 = 7; var1 = 6; break;
+    case 2: var0 = 0; var1 = 0; break;
+    case 5: var0 = 5; var1 = 4; break;
+    case 3: var0 = 1; var1 = 1; break;
+    case 6: var0 = 6; var1 = 5; break;
+    case 7: var0 = 10; var1 = 9; break;
     }
-    if (i >= 0 && j >= 0) {
-        struct Elem02083738* e = &o->arrA[i];
-        void* pb = e->pB;
-        void* pr = e->pResult;
-        *(short*)((char*)o + j * 2 + 0x488) = -1;
-        memset(pb, 0, 0x20);
+    if (var0 >= 0 && var1 >= 0) {
+        struct Struct_02083738_2* var2 = &arg0->unknown_194_[var0];
+        void* var3 = var2->unknown_0_;
+        void* var4 = var2->unknown_4_;
+        *(short*)((char*)arg0 + var1 * 2 + 0x488) = -1;
+        memset(var3, 0, 0x20);
 #if defined(jpn)
-        memset(pr, 0, 0x14);
+        memset(var4, 0, 0x14);
 #else
-        *(unsigned char*)pr = 0;
+        *(unsigned char*)var4 = 0;
 #endif
-        func_020de1d4((struct StructDE1D4*)e);
-        e->pB = &o->arrB[i];
+        func_020de1d4((struct Struct_02083508_2*)var2);
+        var2->unknown_0_ = &arg0->unknown_6f0_[var0];
 #if defined(jpn)
-        e->pResult = (unsigned char*)o + 0x56f + i * 0x15;
+        var2->unknown_4_ = (unsigned char*)arg0 + 0x56f + var0 * 0x15;
 #else
-        e->pResult = func_0208349c((unsigned char*)o, i);
+        var2->unknown_4_ = func_0208349c((unsigned char*)arg0, var0);
 #endif
     }
 }

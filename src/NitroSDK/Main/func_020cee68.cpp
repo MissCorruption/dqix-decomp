@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
 
-struct NodeCEE68 {
-    char _pad[8];
-    struct NodeCEE68* next;
+struct Struct_0210cfdc {
+    char unknown_0_[8];
+    struct Struct_0210cfdc* unknown_8_;
 };
 
-struct ListHeadCEE68 {
-    struct NodeCEE68* head;
+struct Struct_020cee68 {
+    struct Struct_0210cfdc* unknown_0_;
 };
 
 // USA: func_020cee68
-extern "C" ARM void func_020cee68(struct ListHeadCEE68* list, struct NodeCEE68* node) {
-    struct NodeCEE68* cur;
-    struct NodeCEE68* next;
-    if (list == 0) return;
-    cur = list->head;
-    if (cur == 0) {
-        node->next = 0;
-        list->head = node;
+extern "C" ARM void func_020cee68(struct Struct_020cee68* arg0, struct Struct_0210cfdc* arg1) {
+    struct Struct_0210cfdc* var0;
+    struct Struct_0210cfdc* var1;
+    if (arg0 == 0) return;
+    var0 = arg0->unknown_0_;
+    if (var0 == 0) {
+        arg1->unknown_8_ = 0;
+        arg0->unknown_0_ = arg1;
         return;
     }
-    next = cur->next;
-    if (next != 0) {
+    var1 = var0->unknown_8_;
+    if (var1 != 0) {
         do {
-            cur = next;
-            next = next->next;
-        } while (next != 0);
+            var0 = var1;
+            var1 = var1->unknown_8_;
+        } while (var1 != 0);
     }
-    node->next = next;
-    cur->next = node;
+    arg1->unknown_8_ = var1;
+    var0->unknown_8_ = arg1;
 }

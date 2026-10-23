@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct ResetBytesAndSetByte0x16Data {
-    unsigned char pad[0x13];
-    unsigned char f13;
-    unsigned char f14;
-    unsigned char f15;
-    unsigned char f16;
+struct Struct_0205c77c {
+    unsigned char unknown_0_[0x13];
+    unsigned char unknown_13_;
+    unsigned char unknown_14_;
+    unsigned char unknown_15_;
+    unsigned char unknown_16_;
 };
 
 // USA: func_0205c77c
-extern "C" ARM void func_0205c77c(struct ResetBytesAndSetByte0x16Data* p, int val) {
-    p->f13 = 0;
-    p->f15 = 0;
-    p->f16 = val;
+extern "C" ARM void func_0205c77c(struct Struct_0205c77c* arg0, int arg1) {
+    arg0->unknown_13_ = 0;
+    arg0->unknown_15_ = 0;
+    arg0->unknown_16_ = arg1;
 }

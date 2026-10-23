@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-extern "C" int func_0205b734(void* a, int b, int c, short d, short e, int f);
+extern "C" int func_0205b734(void* arg0, int arg1, int arg2, short arg3, short arg4, int arg5);
 
-struct Level2_020e23c0 {
-    char pad[4];
-    void* field4;
+struct Struct_020e23c0_2 {
+    char unknown_0_[4];
+    void* unknown_4_;
 };
-struct Level1_020e23c0 {
-    char pad[4];
-    struct Level2_020e23c0* field4;
+struct Struct_020e23c0 {
+    char unknown_0_[4];
+    struct Struct_020e23c0_2* unknown_4_;
 };
 
 // USA: func_020e23c0
-extern "C" ARM int func_020e23c0(struct Level1_020e23c0* p0, int p1, int p2, int p3, short p4, short p5) {
-    return func_0205b734(p0->field4->field4, p2, p3, p4, p5, p1);
+extern "C" ARM int func_020e23c0(struct Struct_020e23c0* arg0, int arg1, int arg2, int arg3, short arg4, short arg5) {
+    return func_0205b734(arg0->unknown_4_->unknown_4_, arg2, arg3, arg4, arg5, arg1);
 }

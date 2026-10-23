@@ -5,36 +5,36 @@ extern char data_02101600;
 extern char data_02101640;
 
 extern "C" int func_0202c958(void);
-extern "C" void func_0202c848(int arg);
-extern "C" void func_0202c918(unsigned short* a);
-extern "C" int func_020d68dc(int value, unsigned int count, void* data);
+extern "C" void func_0202c848(int arg0);
+extern "C" void func_0202c918(unsigned short* arg0);
+extern "C" int func_020d68dc(int arg0, unsigned int arg1, void* arg2);
 
-typedef unsigned int (*FuncPtr3c0202c864)(void*, void*);
+typedef unsigned int (*Type_0202c864)(void*, void*);
 
 // USA: func_0202c864
-extern "C" ARM void func_0202c864(unsigned short* a)
+extern "C" ARM void func_0202c864(unsigned short* arg0)
 {
-    unsigned short v = a[1];
-    if (v != 0) {
-        func_0202c848(v);
+    unsigned short var0 = arg0[1];
+    if (var0 != 0) {
+        func_0202c848(var0);
         *(int*)(&data_021015a0 + 0x10) = 9;
         return;
     }
 
-    FuncPtr3c0202c864 fn = *(FuncPtr3c0202c864*)(&data_021015a0 + 0x3c);
-    if (fn != 0) {
-        int result;
+    Type_0202c864 var1 = *(Type_0202c864*)(&data_021015a0 + 0x3c);
+    if (var1 != 0) {
+        int var2;
         *(int*)(&data_021015a0 + 0x10) = 3;
-        unsigned int ret = fn(&data_02101600, &data_02101640);
-        result = func_020d68dc((int)func_0202c918, ret, &data_02101600);
-        if (result == 2) {
-            result = 1;
+        unsigned int var3 = var1(&data_02101600, &data_02101640);
+        var2 = func_020d68dc((int)func_0202c918, var3, &data_02101600);
+        if (var2 == 2) {
+            var2 = 1;
         } else {
-            func_0202c848(result);
+            func_0202c848(var2);
             *(int*)(&data_021015a0 + 0x10) = 9;
-            result = 0;
+            var2 = 0;
         }
-        if (result == 0) {
+        if (var2 == 0) {
             *(int*)(&data_021015a0 + 0x10) = 9;
         }
     } else {

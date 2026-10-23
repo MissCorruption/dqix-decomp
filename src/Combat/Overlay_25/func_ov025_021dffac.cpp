@@ -3,24 +3,24 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct Source021dffac { char field_0[0x20]; unsigned short actorIndex; };
-struct Target021dffac { char field_0[0xe]; short actorIndex; };
-struct Action021dffac {
-    unsigned short id; char field_2[0xe]; Source021dffac* source; Target021dffac* target; char field_18[0x10];
+struct Struct_ov025_021dffac { char unknown_0_[0x20]; unsigned short unknown_20_; };
+struct Struct_ov025_021dffac_2 { char unknown_0_[0xe]; short unknown_e_; };
+struct Struct_ov025_021dffac_3 {
+    unsigned short unknown_0_; char unknown_2_[0xe]; Struct_ov025_021dffac* unknown_10_; Struct_ov025_021dffac_2* unknown_14_; char unknown_18_[0x10];
 };
-struct Battle021dffac { char field_0[0x821c]; Action021dffac actions[77]; int count; };
+struct Struct_ov025_021dffac_4 { char unknown_0_[0x821c]; Struct_ov025_021dffac_3 unknown_821c_[77]; int unknown_8e24_; };
 #if defined(jpn)
-struct Context021dffac { char field_0[0x218]; Battle021dffac* battle; char field_2a0[0x57c8-0x21c]; int actionIndex; };
+struct Struct_ov025_021dffac_5 { char unknown_0_[0x218]; Struct_ov025_021dffac_4* unknown_29c_; char unknown_21c_[0x57c8-0x21c]; int unknown_55d8_; };
 #else
-struct Context021dffac { char field_0[0x29c]; Battle021dffac* battle; char field_2a0[0x5338]; int actionIndex; };
+struct Struct_ov025_021dffac_5 { char unknown_0_[0x29c]; Struct_ov025_021dffac_4* unknown_29c_; char unknown_2a0_[0x5338]; int unknown_55d8_; };
 #endif
-union Position021dffac { Vector3fix vector; int coordinates[3]; };
-struct Entry021dffac { unsigned char index; char field_1[3]; int flag; GameObject* actor; };
-struct Cell021dffac { int x, z; };
+union Struct_ov025_021dffac_6 { Vector3fix unknown_0_; int unknown1_0_[3]; };
+struct Struct_ov025_021dffac_7 { unsigned char unknown_0_; char unknown_1_[3]; int unknown_4_; GameObject* unknown_8_; };
+struct Struct_ov025_021dffac_8 { int unknown_0_, unknown_4_; };
 extern "C" int func_ov000_02163690(int);
 extern "C" void* func_02079e2c(char*, int);
 extern "C" int func_ov000_021627fc(void*);
-extern "C" int func_ov025_021e1048(Battle021dffac*, Entry021dffac*);
+extern "C" int func_ov025_021e1048(Struct_ov025_021dffac_4*, Struct_ov025_021dffac_7*);
 extern "C" unsigned char func_020493a4(unsigned char*);
 extern "C" unsigned char func_020493c8(unsigned char*);
 extern "C" unsigned char func_020493ec(unsigned char*);
@@ -29,152 +29,152 @@ extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049400(unsigned char*, unsigned char);
 extern "C" int func_ov025_021e1540(int);
-extern "C" Entry021dffac* func_ov025_021e1010(unsigned char*, int, int);
-extern "C" void func_ov025_021e110c(unsigned char*, Entry021dffac*, int);
+extern "C" Struct_ov025_021dffac_7* func_ov025_021e1010(unsigned char*, int, int);
+extern "C" void func_ov025_021e110c(unsigned char*, Struct_ov025_021dffac_7*, int);
 extern "C" int func_02048bd0(unsigned char*);
-extern "C" Cell021dffac func_ov000_0216f74c(int*);
+extern "C" Struct_ov025_021dffac_8 func_ov000_0216f74c(int*);
 extern "C" void __clear(void*, int);
 extern "C" int func_02031468(const Vector3fix*, const Vector3fix*, const Vector3fix*, Vector3fix*);
-extern "C" void func_ov025_021e1ff4(unsigned char*, unsigned char, unsigned char*, GameObject*, GameObject*, Entry021dffac*, int);
+extern "C" void func_ov025_021e1ff4(unsigned char*, unsigned char, unsigned char*, GameObject*, GameObject*, Struct_ov025_021dffac_7*, int);
 extern "C" int func_ov025_021e1f40(GameObject*, int);
-extern "C" void func_ov025_021e16c8(Entry021dffac*, Entry021dffac*, unsigned char*, Action021dffac*, void*, Entry021dffac*, int);
-extern "C" void func_ov025_021e1d54(Entry021dffac*, unsigned char*);
+extern "C" void func_ov025_021e16c8(Struct_ov025_021dffac_7*, Struct_ov025_021dffac_7*, unsigned char*, Struct_ov025_021dffac_3*, void*, Struct_ov025_021dffac_7*, int);
+extern "C" void func_ov025_021e1d54(Struct_ov025_021dffac_7*, unsigned char*);
 extern "C" int func_ov025_021e1f08(unsigned char*, unsigned char*);
 extern "C" int func_ov000_021628c8(void*, int, int*);
 extern "C" int func_ov025_021dfbd4(int);
 
-inline int IsSpecialGameObject(unsigned char index) {
-    return index >= 0xc0 && index <= 0xc7;
+inline int inline_ov025_021dffac(unsigned char arg0) {
+    return arg0 >= 0xc0 && arg0 <= 0xc7;
 }
-inline int IsOccupied021dffac(unsigned char cell) {
-    return cell >= 0xf2;
+inline int inline_ov025_021dffac_2(unsigned char arg0) {
+    return arg0 >= 0xf2;
 }
 
-inline Action021dffac* SelectAction021dffac(Battle021dffac* battle, int index) { return &battle->actions[index]; }
+inline Struct_ov025_021dffac_3* inline_ov025_021dffac_3(Struct_ov025_021dffac_4* arg0, int arg1) { return &arg0->unknown_821c_[arg1]; }
 
 // USA: func_ov025_021dffac
-extern "C" ARM int func_ov025_021dffac(Context021dffac* context) {
-    GameState* game = GameState::GetInstance();
-    Battle021dffac* battle = context->battle;
-    int sourceIndex;
-    Action021dffac* selected = SelectAction021dffac(battle, context->actionIndex);
-    int id = selected->id;
-    if (func_ov000_02163690(id)) id = 1;
-    void* actionData = func_02079e2c((char*)func_020797dc(), (short)id);
-    if (!actionData) return 0;
-    if (!func_ov000_021627fc(context)) return 0;
-    Entry021dffac entries[12];
-    int count = func_ov025_021e1048(battle, entries);
-    Action021dffac* actions = battle->actions;
-    int actionCount = battle->count;
-    int selectedIndex = context->actionIndex;
-    for (int i = 0; i < count; ++i) {
-        func_020493b8((unsigned char*)entries[i].actor, func_020493a4((unsigned char*)entries[i].actor));
-        func_02049400((unsigned char*)entries[i].actor, 0xff);
+extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov025_021dffac_4* var1 = arg0->unknown_29c_;
+    int var2;
+    Struct_ov025_021dffac_3* var3 = inline_ov025_021dffac_3(var1, arg0->unknown_55d8_);
+    int var4 = var3->unknown_0_;
+    if (func_ov000_02163690(var4)) var4 = 1;
+    void* var5 = func_02079e2c((char*)func_020797dc(), (short)var4);
+    if (!var5) return 0;
+    if (!func_ov000_021627fc(arg0)) return 0;
+    Struct_ov025_021dffac_7 var6[12];
+    int var7 = func_ov025_021e1048(var1, var6);
+    Struct_ov025_021dffac_3* var8 = var1->unknown_821c_;
+    int var9 = var1->unknown_8e24_;
+    int var10 = arg0->unknown_55d8_;
+    for (int var11 = 0; var11 < var7; ++var11) {
+        func_020493b8((unsigned char*)var6[var11].unknown_8_, func_020493a4((unsigned char*)var6[var11].unknown_8_));
+        func_02049400((unsigned char*)var6[var11].unknown_8_, 0xff);
     }
-    for (int i = 0; i < count; ++i) {
-        GameObject* actor = entries[i].actor;
-        int current = func_020493a4((unsigned char*)actor);
-        if (current == func_020493ec((unsigned char*)actor))
-            func_02049390((unsigned char*)actor, (unsigned char)func_ov025_021e1540(actor->obj3D_.unknown_4_));
+    for (int var12 = 0; var12 < var7; ++var12) {
+        GameObject* var13 = var6[var12].unknown_8_;
+        int var14 = func_020493a4((unsigned char*)var13);
+        if (var14 == func_020493ec((unsigned char*)var13))
+            func_02049390((unsigned char*)var13, (unsigned char)func_ov025_021e1540(var13->obj3D_.unknown_4_));
     }
-    sourceIndex = 0;
-    if (selected->source) sourceIndex = selected->source->actorIndex;
-    Entry021dffac* sourceEntry = func_ov025_021e1010((unsigned char*)entries, count, sourceIndex);
-    if (!sourceEntry) return 0;
-    int targetIndex = -1;
-    if (selected->target) targetIndex = selected->target->actorIndex;
-    Entry021dffac* targetEntry = func_ov025_021e1010((unsigned char*)entries, count, targetIndex);
-    if (!targetEntry) return 0;
-    if (sourceIndex == targetIndex) return 1;
-    unsigned char occupied[81];
-    unsigned char candidates[81];
-    unsigned char processed[12];
-    int indices[12];
-    Position021dffac position;
-    Position021dffac projected;
-    Position021dffac targetPosition;
-    Position021dffac sourcePosition;
-    memset(occupied, 0, sizeof(occupied));
-    memset(processed, 0, sizeof(processed));
-    Action021dffac* action;
-    Action021dffac* previousAction;
-    int indexCount;
-    Entry021dffac* previousEntry;
-    Source021dffac* source;
-    for (int i = selectedIndex; i < actionCount; ++i) {
-        func_ov025_021e110c(occupied, entries, count);
-        action = &actions[i];
-        source = action->source;
-        if (!source || !action->target) continue;
-        int actorIndex = source->actorIndex;
-        unsigned char compactIndex = actorIndex;
-        if (IsSpecialGameObject(compactIndex)) compactIndex -= 0xbc;
-        if (compactIndex < 12) {
-            if (processed[compactIndex]) continue;
-            processed[compactIndex] = 1;
+    var2 = 0;
+    if (var3->unknown_10_) var2 = var3->unknown_10_->unknown_20_;
+    Struct_ov025_021dffac_7* var15 = func_ov025_021e1010((unsigned char*)var6, var7, var2);
+    if (!var15) return 0;
+    int var16 = -1;
+    if (var3->unknown_14_) var16 = var3->unknown_14_->unknown_e_;
+    Struct_ov025_021dffac_7* var17 = func_ov025_021e1010((unsigned char*)var6, var7, var16);
+    if (!var17) return 0;
+    if (var2 == var16) return 1;
+    unsigned char var18[81];
+    unsigned char var19[81];
+    unsigned char var20[12];
+    int var21[12];
+    Struct_ov025_021dffac_6 var22;
+    Struct_ov025_021dffac_6 var23;
+    Struct_ov025_021dffac_6 var24;
+    Struct_ov025_021dffac_6 var25;
+    memset(var18, 0, sizeof(var18));
+    memset(var20, 0, sizeof(var20));
+    Struct_ov025_021dffac_3* var26;
+    Struct_ov025_021dffac_3* var27;
+    int var28;
+    Struct_ov025_021dffac_7* var29;
+    Struct_ov025_021dffac* var30;
+    for (int var31 = var10; var31 < var9; ++var31) {
+        func_ov025_021e110c(var18, var6, var7);
+        var26 = &var8[var31];
+        var30 = var26->unknown_10_;
+        if (!var30 || !var26->unknown_14_) continue;
+        int var32 = var30->unknown_20_;
+        unsigned char var33 = var32;
+        if (inline_ov025_021dffac(var33)) var33 -= 0xbc;
+        if (var33 < 12) {
+            if (var20[var33]) continue;
+            var20[var33] = 1;
         }
-        GameObject* actor = game->GetCombatantByIndex(actorIndex);
-        if (!actor) continue;
-        if (selectedIndex == i) {
-            GameObject* target = game->GetCombatantByIndex(targetIndex);
-            unsigned short actionID = action->id;
-            if (actor && target && func_02048bd0((unsigned char*)actor) && (unsigned int)(actionID - 9) <= 2) {
-                COPY_ARRAY(sourcePosition.coordinates, ((const Position021dffac*)&actor->obj3D_.position_)->coordinates);
-                COPY_ARRAY(targetPosition.coordinates, ((const Position021dffac*)&target->obj3D_.position_)->coordinates);
-                int candidateCount = 0;
-                for (int cellIndex = 0; cellIndex < 81; ++cellIndex) {
-                    if (cellIndex % 18 == 17) continue;
-                    Cell021dffac cell = func_ov000_0216f74c(&cellIndex);
-                    __clear(&position, 12);
-                    position.vector.x = cell.x;
-                    position.vector.z = cell.z;
-                    if (func_02031468(&sourcePosition.vector, &targetPosition.vector, &position.vector, &projected.vector) < 0x1800)
-                        candidates[candidateCount++] = cellIndex;
+        GameObject* var34 = var0->GetCombatantByIndex(var32);
+        if (!var34) continue;
+        if (var10 == var31) {
+            GameObject* var35 = var0->GetCombatantByIndex(var16);
+            unsigned short var36 = var26->unknown_0_;
+            if (var34 && var35 && func_02048bd0((unsigned char*)var34) && (unsigned int)(var36 - 9) <= 2) {
+                COPY_ARRAY(var25.unknown1_0_, ((const Struct_ov025_021dffac_6*)&var34->obj3D_.position_)->unknown1_0_);
+                COPY_ARRAY(var24.unknown1_0_, ((const Struct_ov025_021dffac_6*)&var35->obj3D_.position_)->unknown1_0_);
+                int var37 = 0;
+                for (int var38 = 0; var38 < 81; ++var38) {
+                    if (var38 % 18 == 17) continue;
+                    Struct_ov025_021dffac_8 var39 = func_ov000_0216f74c(&var38);
+                    __clear(&var22, 12);
+                    var22.unknown_0_.x = var39.unknown_0_;
+                    var22.unknown_0_.z = var39.unknown_4_;
+                    if (func_02031468(&var25.unknown_0_, &var24.unknown_0_, &var22.unknown_0_, &var23.unknown_0_) < 0x1800)
+                        var19[var37++] = var38;
                 }
-                func_ov025_021e1ff4(candidates, (unsigned char)candidateCount, occupied, actor, target, entries, count);
+                func_ov025_021e1ff4(var19, (unsigned char)var37, var18, var34, var35, var6, var7);
             }
         }
-        if (!func_ov025_021e1f40(actor, targetIndex)) continue;
-        if (selectedIndex == i) {
-            func_ov025_021e16c8(sourceEntry, targetEntry, occupied, &actions[selectedIndex], actionData, entries, count);
-            func_02049400((unsigned char*)sourceEntry->actor, func_020493c8((unsigned char*)targetEntry->actor));
+        if (!func_ov025_021e1f40(var34, var16)) continue;
+        if (var10 == var31) {
+            func_ov025_021e16c8(var15, var17, var18, &var8[var10], var5, var6, var7);
+            func_02049400((unsigned char*)var15->unknown_8_, func_020493c8((unsigned char*)var17->unknown_8_));
         } else {
-            Entry021dffac* entry = func_ov025_021e1010((unsigned char*)entries, count, source->actorIndex);
-            if (entry && entry->flag) func_ov025_021e1d54(entry, occupied);
-            else if (entry && func_020493a4((unsigned char*)entry->actor) != 0xff) {
-                int fallback = func_ov025_021e1f08((unsigned char*)entry->actor, (unsigned char*)action);
-                Entry021dffac* other = func_ov025_021e1010((unsigned char*)entries, count, fallback);
-                if (!other) continue;
-                func_ov025_021e16c8(entry, other, occupied, &actions[selectedIndex], actionData, entries, count);
-                func_02049400((unsigned char*)entry->actor, func_020493c8((unsigned char*)other->actor));
+            Struct_ov025_021dffac_7* var40 = func_ov025_021e1010((unsigned char*)var6, var7, var30->unknown_20_);
+            if (var40 && var40->unknown_4_) func_ov025_021e1d54(var40, var18);
+            else if (var40 && func_020493a4((unsigned char*)var40->unknown_8_) != 0xff) {
+                int var41 = func_ov025_021e1f08((unsigned char*)var40->unknown_8_, (unsigned char*)var26);
+                Struct_ov025_021dffac_7* var42 = func_ov025_021e1010((unsigned char*)var6, var7, var41);
+                if (!var42) continue;
+                func_ov025_021e16c8(var40, var42, var18, &var8[var10], var5, var6, var7);
+                func_02049400((unsigned char*)var40->unknown_8_, func_020493c8((unsigned char*)var42->unknown_8_));
             }
         }
     }
-    for (int i = 0; i < selectedIndex; ++i) {
-        func_ov025_021e110c(occupied, entries, count);
-        previousAction = &actions[i];
-        if (!previousAction->source || !previousAction->target) continue;
-        indexCount = func_ov000_021628c8(context, i, indices);
-        for (int j = 0; j < indexCount; ++j) {
-            int actorIndex = indices[j];
-            unsigned char compactIndex = actorIndex;
-            if (IsSpecialGameObject(compactIndex)) compactIndex -= 0xbc;
-            if (compactIndex < 12) {
-                if (processed[compactIndex]) continue;
-                processed[compactIndex] = 1;
+    for (int var43 = 0; var43 < var10; ++var43) {
+        func_ov025_021e110c(var18, var6, var7);
+        var27 = &var8[var43];
+        if (!var27->unknown_10_ || !var27->unknown_14_) continue;
+        var28 = func_ov000_021628c8(arg0, var43, var21);
+        for (int var44 = 0; var44 < var28; ++var44) {
+            int var45 = var21[var44];
+            unsigned char var46 = var45;
+            if (inline_ov025_021dffac(var46)) var46 -= 0xbc;
+            if (var46 < 12) {
+                if (var20[var46]) continue;
+                var20[var46] = 1;
             }
-            previousEntry = func_ov025_021e1010((unsigned char*)entries, count, actorIndex);
-            GameObject* actor = game->GetCombatantByIndex(actorIndex);
-            if (!actor || !previousEntry || !func_ov025_021e1f40(actor, targetIndex)) continue;
-            unsigned char cell = func_020493ec((unsigned char*)actor);
-            if (cell < 81 && (!IsOccupied021dffac(occupied[cell]) || occupied[cell] == func_ov025_021dfbd4(actor->obj3D_.unknown_4_)))
-                func_020493b8((unsigned char*)actor, cell);
-            else func_ov025_021e1d54(previousEntry, occupied);
-            func_020493dc((unsigned char*)actor, 0xff);
-            int fallback = func_ov025_021e1f08((unsigned char*)actor, (unsigned char*)previousAction);
-            GameObject* other = game->GetCombatantByIndex(fallback);
-            if (other) func_02049400((unsigned char*)actor, func_020493c8((unsigned char*)other));
+            var29 = func_ov025_021e1010((unsigned char*)var6, var7, var45);
+            GameObject* var47 = var0->GetCombatantByIndex(var45);
+            if (!var47 || !var29 || !func_ov025_021e1f40(var47, var16)) continue;
+            unsigned char var48 = func_020493ec((unsigned char*)var47);
+            if (var48 < 81 && (!inline_ov025_021dffac_2(var18[var48]) || var18[var48] == func_ov025_021dfbd4(var47->obj3D_.unknown_4_)))
+                func_020493b8((unsigned char*)var47, var48);
+            else func_ov025_021e1d54(var29, var18);
+            func_020493dc((unsigned char*)var47, 0xff);
+            int var49 = func_ov025_021e1f08((unsigned char*)var47, (unsigned char*)var27);
+            GameObject* var50 = var0->GetCombatantByIndex(var49);
+            if (var50) func_02049400((unsigned char*)var47, func_020493c8((unsigned char*)var50));
         }
     }
     return 1;

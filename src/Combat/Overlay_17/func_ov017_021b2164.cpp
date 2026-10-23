@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct FlagPair_021b2164 { int a; int b; };
-extern FlagPair_021b2164 data_ov017_021d83f0;
+struct Struct_ov017_021d83f0 { int unknown_0_; int unknown_4_; };
+extern Struct_ov017_021d83f0 data_ov017_021d83f0;
 
 // USA: func_ov017_021b2164
 extern "C" ARM int func_ov017_021b2164(void) {
-	return data_ov017_021d83f0.b;
+	return data_ov017_021d83f0.unknown_4_;
 }

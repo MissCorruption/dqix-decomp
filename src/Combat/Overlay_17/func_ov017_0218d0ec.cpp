@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset6fc = 0x4ec, RegionOffset718 = 0x508 };
+enum { Enum_ov017_0218d0ec_1788 = 0x4ec, Enum_ov017_0218d0ec_1816 = 0x508 };
 #else
-enum { RegionOffset6fc = 0x6fc, RegionOffset718 = 0x718 };
+enum { Enum_ov017_0218d0ec_1788 = 0x6fc, Enum_ov017_0218d0ec_1816 = 0x718 };
 #endif
 
 #include <globaldefs.h>
@@ -18,65 +18,65 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset718 = 0x718 };
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* obj);
+extern "C" int func_0202c508(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 
-struct HeadNode02046b24;
-extern "C" int func_02046b24(struct HeadNode02046b24** obj);
-extern "C" unsigned char func_0200fb9c(char* obj);
-extern "C" int func_0201201c(void* obj);
+struct Struct_02015438;
+extern "C" int func_02046b24(struct Struct_02015438** arg0);
+extern "C" unsigned char func_0200fb9c(char* arg0);
+extern "C" int func_0201201c(void* arg0);
 
-struct ScaledAccum02010240;
+struct Struct_ov017_0218d0ec_3;
 
 extern "C" void func_ov017_021cdaa0(void);
-extern "C" int func_ov017_021b8b54(void* obj);
+extern "C" int func_ov017_021b8b54(void* arg0);
 
-struct Data02107930 { unsigned char pad0[0x94]; float accum; int tableIndex; };
+struct Struct_ov017_0218d0ec_4 { unsigned char unknown_0_[0x94]; float unknown_94_; int unknown_98_; };
 
-struct Struct020fb3f0 { unsigned char pad0[8]; unsigned char* field8; };
-struct NibbleByte0218d0ec { unsigned char lowNibble : 4; unsigned char highNibble : 4; };
+struct Struct_ov017_0218d0ec { unsigned char unknown_0_[8]; unsigned char* unknown_8_; };
+struct Struct_ov017_0218d0ec_2 { unsigned char unknown_0_0_ : 4; unsigned char unknown_0_4_ : 4; };
 
 // USA: func_ov017_0218d0ec
-extern "C" ARM void func_ov017_0218d0ec(unsigned char* ov) {
-    GameState* bs = GameState::GetInstance();
-    Struct020fb3f0* p1 = (Struct020fb3f0*)func_02012fe4();
-    void* p2 = func_0202ae18();
+extern "C" ARM void func_ov017_0218d0ec(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov017_0218d0ec* var1 = (Struct_ov017_0218d0ec*)func_02012fe4();
+    void* var2 = func_0202ae18();
 
-    if (func_02046b24(*(struct HeadNode02046b24***)(ov + 0x3000 + RegionOffset6fc)) == 3) return;
-    if (func_0200fb9c((char*)bs) == 6) return;
-    if (func_0201201c(bs) == 5) return;
+    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 3) return;
+    if (func_0200fb9c((char*)var0) == 6) return;
+    if (func_0201201c(var0) == 5) return;
 
-    NibbleByte0218d0ec* nb = (NibbleByte0218d0ec*)(p1->field8 + 0xc);
-    unsigned int nibble = nb->lowNibble;
-    int flagNibble = 1;
-    if (nibble != 0 && nibble != 7) flagNibble = 0;
+    Struct_ov017_0218d0ec_2* var3 = (Struct_ov017_0218d0ec_2*)(var1->unknown_8_ + 0xc);
+    unsigned int var4 = var3->unknown_0_0_;
+    int var5 = 1;
+    if (var4 != 0 && var4 != 7) var5 = 0;
 
-    int idx1 = bs->GetTimeOfDay();
-    if (flagNibble != 0) {
-        ((GameState*)((struct ScaledAccum02010240*)bs))->AdvanceDayTimer();
+    int var6 = var0->GetTimeOfDay();
+    if (var5 != 0) {
+        ((GameState*)((struct Struct_ov017_0218d0ec_3*)var0))->AdvanceDayTimer();
     }
 
-    int idx2 = bs->GetTimeOfDay();
-    if (func_0202c508(p2) != 0 && idx1 != idx2) {
+    int var7 = var0->GetTimeOfDay();
+    if (func_0202c508(var2) != 0 && var6 != var7) {
         func_ov017_021cdaa0();
     }
 
-    if (func_02046b24(*(struct HeadNode02046b24***)(ov + 0x3000 + RegionOffset6fc)) == 0xa) {
-        if (func_ov017_021b8b54(*(void**)(ov + 0x3000 + RegionOffset718)) != 0) return;
+    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0xa) {
+        if (func_ov017_021b8b54(*(void**)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1816)) != 0) return;
     }
-    if (func_02046b24(*(struct HeadNode02046b24***)(ov + 0x3000 + RegionOffset6fc)) == 4) return;
-    if (func_02046b24(*(struct HeadNode02046b24***)(ov + 0x3000 + RegionOffset6fc)) == 0x16) return;
+    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 4) return;
+    if (func_02046b24(*(struct Struct_02015438***)(arg0 + 0x3000 + Enum_ov017_0218d0ec_1788)) == 0x16) return;
 
-    Data02107930* d = (Data02107930*)LightingManager::GetInstance();
-    int prevIdx = d->tableIndex;
-    if (prevIdx != bs->GetTimeOfDay()) {
-        if (bs->GetTimeOfDay() == 1 || bs->GetTimeOfDay() == 0) {
-            void* base = func_0205ec34();
-            func_0206df6c(base, (unsigned char*)base + 0x8c, 0x1140, 1);
+    Struct_ov017_0218d0ec_4* var8 = (Struct_ov017_0218d0ec_4*)LightingManager::GetInstance();
+    int var9 = var8->unknown_98_;
+    if (var9 != var0->GetTimeOfDay()) {
+        if (var0->GetTimeOfDay() == 1 || var0->GetTimeOfDay() == 0) {
+            void* var10 = func_0205ec34();
+            func_0206df6c(var10, (unsigned char*)var10 + 0x8c, 0x1140, 1);
         }
     }
 
-    d->accum = bs->GetDayTimer();
-    d->tableIndex = bs->GetTimeOfDay();
+    var8->unknown_94_ = var0->GetDayTimer();
+    var8->unknown_98_ = var0->GetTimeOfDay();
 }

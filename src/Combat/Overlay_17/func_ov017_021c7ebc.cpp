@@ -1,99 +1,99 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8468(void* obj);
-extern "C" void* func_ov017_021b8470(void* obj);
-extern "C" int func_020100a8(GameState* battleStruct);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" int func_020100a8(GameState* arg0);
 
-struct Ret021c7ebc {
-	unsigned char pad0[8];
-	unsigned short field8;
-	unsigned char pad1[0x20];
-	signed char field2a;
+struct Struct_ov017_021c7ebc {
+	unsigned char unknown_0_[8];
+	unsigned short unknown_8_;
+	unsigned char unknown_a_[0x20];
+	signed char unknown_2a_;
 };
 
-struct Src021c7ebc {
-	unsigned char pad0[4];
-	unsigned short field4;
-	unsigned short field6;
-	unsigned int v1;
-	unsigned int v2;
-	unsigned char selector;
+struct Struct_ov017_021c7ebc_2 {
+	unsigned char unknown_0_[4];
+	unsigned short unknown_4_;
+	unsigned short unknown_6_;
+	unsigned int unknown_8_;
+	unsigned int unknown_c_;
+	unsigned char unknown_10_;
 };
 
-struct StatLevelsLow_021c7ebc {
-	unsigned int s0:3, s1:3, s2:3, s3:3, s4:3, s5:3, s6:3, s7:3, s8:3, s9:3;
+struct Struct_ov017_021c7ebc_3 {
+	unsigned int unknown_0_0_:3, unknown_0_3_:3, unknown_0_6_:3, unknown_1_1_:3, unknown_1_4_:3, unknown_1_7_:3, unknown_2_2_:3, unknown_2_5_:3, unknown_3_0_:3, unknown_3_3_:3;
 };
 
-struct StatLevelsHigh_021c7ebc {
-	unsigned int s0:3, s1:3, s2:3, s3:3, s4:4;
+struct Struct_ov017_021c7ebc_4 {
+	unsigned int unknown_0_0_:3, unknown_0_3_:3, unknown_0_6_:3, unknown_1_1_:3, unknown_1_4_:4;
 };
 
-struct StatDisplay_021c7ebc {
-	unsigned char levels[15];
+struct Struct_ov017_021c7ebc_5 {
+	unsigned char unknown_0_[15];
 };
 
 // USA: func_ov017_021c7ebc
-extern "C" ARM void func_ov017_021c7ebc(int unused0, Src021c7ebc* src, GameState* battleStruct, unsigned char* globalObj) {
-	unsigned char* base = globalObj + 0x3000;
+extern "C" ARM void func_ov017_021c7ebc(int arg0, Struct_ov017_021c7ebc_2* arg1, GameState* arg2, unsigned char* arg3) {
+	unsigned char* var0 = arg3 + 0x3000;
 #if defined(jpn)
-	void* h = *(void**)(base + 0x508);
+	void* var1 = *(void**)(var0 + 0x508);
 #else
-	void* h = *(void**)(base + 0x718);
+	void* var1 = *(void**)(var0 + 0x718);
 #endif
-	Ret021c7ebc* r = (Ret021c7ebc*)func_ov017_021b8478(h);
-	if (!r) return;
-	if (!func_ov017_021b8468(h)) return;
-	if (!func_ov017_021b8470(h)) return;
-	int val = func_020100a8(battleStruct);
-	if (r->field2a == val) return;
-	if (r->field8 != src->field4) return;
-	GameObject* c = battleStruct->GetCombatantByIndex(src->field6);
-	if (!c) return;
-	StatLevelsLow_021c7ebc* low = (StatLevelsLow_021c7ebc*)&src->v1;
-	StatLevelsHigh_021c7ebc* high = (StatLevelsHigh_021c7ebc*)&src->v2;
-	if (src->selector == 1) {
+	Struct_ov017_021c7ebc* var2 = (Struct_ov017_021c7ebc*)func_ov017_021b8478(var1);
+	if (!var2) return;
+	if (!func_ov017_021b8468(var1)) return;
+	if (!func_ov017_021b8470(var1)) return;
+	int var3 = func_020100a8(arg2);
+	if (var2->unknown_2a_ == var3) return;
+	if (var2->unknown_8_ != arg1->unknown_4_) return;
+	GameObject* var4 = arg2->GetCombatantByIndex(arg1->unknown_6_);
+	if (!var4) return;
+	Struct_ov017_021c7ebc_3* var5 = (Struct_ov017_021c7ebc_3*)&arg1->unknown_8_;
+	Struct_ov017_021c7ebc_4* var6 = (Struct_ov017_021c7ebc_4*)&arg1->unknown_c_;
+	if (arg1->unknown_10_ == 1) {
 #if defined(jpn)
-		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)(c->currentStats_) + 0x70);
+		Struct_ov017_021c7ebc_5* var7 = (Struct_ov017_021c7ebc_5*)((unsigned char*)(var4->currentStats_) + 0x70);
 #else
-		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)c->currentStats_ + 0x70);
+		Struct_ov017_021c7ebc_5* var7 = (Struct_ov017_021c7ebc_5*)((unsigned char*)var4->currentStats_ + 0x70);
 #endif
-		out->levels[0] = low->s0;
-		out->levels[1] = low->s1;
-		out->levels[2] = low->s2;
-		out->levels[3] = low->s3;
-		out->levels[4] = low->s4;
-		out->levels[5] = low->s5;
-		out->levels[6] = low->s6;
-		out->levels[7] = low->s7;
-		out->levels[8] = low->s8;
-		out->levels[9] = low->s9;
-		out->levels[10] = high->s0;
-		out->levels[11] = high->s1;
-		out->levels[12] = high->s2;
-		out->levels[13] = high->s3;
-		out->levels[14] = high->s4;
+		var7->unknown_0_[0] = var5->unknown_0_0_;
+		var7->unknown_0_[1] = var5->unknown_0_3_;
+		var7->unknown_0_[2] = var5->unknown_0_6_;
+		var7->unknown_0_[3] = var5->unknown_1_1_;
+		var7->unknown_0_[4] = var5->unknown_1_4_;
+		var7->unknown_0_[5] = var5->unknown_1_7_;
+		var7->unknown_0_[6] = var5->unknown_2_2_;
+		var7->unknown_0_[7] = var5->unknown_2_5_;
+		var7->unknown_0_[8] = var5->unknown_3_0_;
+		var7->unknown_0_[9] = var5->unknown_3_3_;
+		var7->unknown_0_[10] = var6->unknown_0_0_;
+		var7->unknown_0_[11] = var6->unknown_0_3_;
+		var7->unknown_0_[12] = var6->unknown_0_6_;
+		var7->unknown_0_[13] = var6->unknown_1_1_;
+		var7->unknown_0_[14] = var6->unknown_1_4_;
 	} else {
 #if defined(jpn)
-		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)(c->currentStats_) + 0x93);
+		Struct_ov017_021c7ebc_5* var8 = (Struct_ov017_021c7ebc_5*)((unsigned char*)(var4->currentStats_) + 0x93);
 #else
-		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)c->currentStats_ + 0x93);
+		Struct_ov017_021c7ebc_5* var8 = (Struct_ov017_021c7ebc_5*)((unsigned char*)var4->currentStats_ + 0x93);
 #endif
-		out->levels[0] = low->s0;
-		out->levels[1] = low->s1;
-		out->levels[2] = low->s2;
-		out->levels[3] = low->s3;
-		out->levels[4] = low->s4;
-		out->levels[5] = low->s5;
-		out->levels[6] = low->s6;
-		out->levels[7] = low->s7;
-		out->levels[8] = low->s8;
-		out->levels[9] = low->s9;
-		out->levels[10] = high->s0;
-		out->levels[11] = high->s1;
-		out->levels[12] = high->s2;
-		out->levels[13] = high->s3;
-		out->levels[14] = high->s4;
+		var8->unknown_0_[0] = var5->unknown_0_0_;
+		var8->unknown_0_[1] = var5->unknown_0_3_;
+		var8->unknown_0_[2] = var5->unknown_0_6_;
+		var8->unknown_0_[3] = var5->unknown_1_1_;
+		var8->unknown_0_[4] = var5->unknown_1_4_;
+		var8->unknown_0_[5] = var5->unknown_1_7_;
+		var8->unknown_0_[6] = var5->unknown_2_2_;
+		var8->unknown_0_[7] = var5->unknown_2_5_;
+		var8->unknown_0_[8] = var5->unknown_3_0_;
+		var8->unknown_0_[9] = var5->unknown_3_3_;
+		var8->unknown_0_[10] = var6->unknown_0_0_;
+		var8->unknown_0_[11] = var6->unknown_0_3_;
+		var8->unknown_0_[12] = var6->unknown_0_6_;
+		var8->unknown_0_[13] = var6->unknown_1_1_;
+		var8->unknown_0_[14] = var6->unknown_1_4_;
 	}
 }

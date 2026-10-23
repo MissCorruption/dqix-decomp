@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct B885cInner {
-    char unk[0x8];
-    unsigned int pad : 24;
-    unsigned int field : 2;
+struct Struct_0206885c_2 {
+    char unknown_0_[0x8];
+    unsigned int unknown_8_0_ : 24;
+    unsigned int unknown_b_0_ : 2;
 };
 
-struct B885cObj {
-    char unk[0x8];
-    struct B885cInner* field8;
+struct Struct_0206885c {
+    char unknown_0_[0x8];
+    struct Struct_0206885c_2* unknown_8_;
 };
 
 // USA: func_0206885c
-extern "C" ARM int func_0206885c(int unused, struct B885cObj* obj) {
-    struct B885cInner* p = obj->field8;
-    if (p != 0) {
-        return p->field;
+extern "C" ARM int func_0206885c(int arg0, struct Struct_0206885c* arg1) {
+    struct Struct_0206885c_2* var0 = arg1->unknown_8_;
+    if (var0 != 0) {
+        return var0->unknown_b_0_;
     }
     return 0;
 }

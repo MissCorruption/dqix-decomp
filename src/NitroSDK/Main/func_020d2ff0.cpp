@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 // USA: func_020d2ff0
-extern "C" ARM int func_020d2ff0(const char* s) {
-    int i = 0;
-    if (s[i] != 0) {
+extern "C" ARM int func_020d2ff0(const char* arg0) {
+    int var0 = 0;
+    if (arg0[var0] != 0) {
         do {
-            i++;
-        } while (s[i] != 0);
+            var0++;
+        } while (arg0[var0] != 0);
     }
-    return i;
+    return var0;
 }

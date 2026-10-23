@@ -41,7 +41,7 @@ struct Struct_ov002_0215a0a4 {
     unsigned char unknown_8_[12];
     unsigned char unknown_14_[12];
 #endif
-    Container020e0310 unknown_20_;
+    Struct_0201099c_3 unknown_20_;
     unsigned char unknown_28_[0x1000 - Enum_ov002_0215a0a4_40];
     Struct_ov002_0215a0a4_6 unknown_1000_;
     unsigned char unknown_1bd8_[Enum_ov002_0215a0a4_7200 - 0x1000 - sizeof(Struct_ov002_0215a0a4_6)];
@@ -82,7 +82,7 @@ extern "C" void func_02046574(Struct_ov002_02157d40_6*, int, char*);
 extern "C" void func_020e4bf4(void*, int);
 extern "C" int func_02048350(Struct_ov002_02157d40_8*, int);
 extern "C" int func_0202b7d8(int*);
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_02042058(char*, const char*);
 extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
 extern "C" int* func_0202ae18();

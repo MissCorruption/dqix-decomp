@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct Vec3_02059f38 {
-    int x;
-    int y;
-    int z;
+struct Struct_02059cfc_3 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Target02059f38 {
-    char unk0[0x44];
-    int field44;
-    int field48;
-    int field4c;
+struct Struct_02059cfc_2 {
+    char unknown_0_[0x44];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 };
 
 // USA: func_02059f38
-extern "C" ARM void func_02059f38(struct Target02059f38* dst, struct Vec3_02059f38* src) {
-    dst->field44 = src->x;
-    dst->field48 = src->y;
-    dst->field4c = src->z;
+extern "C" ARM void func_02059f38(struct Struct_02059cfc_2* arg0, struct Struct_02059cfc_3* arg1) {
+    arg0->unknown_44_ = arg1->unknown_0_;
+    arg0->unknown_48_ = arg1->unknown_4_;
+    arg0->unknown_4c_ = arg1->unknown_8_;
 }

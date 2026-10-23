@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct ResetStruct {
-    int w0;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
-    int w18;
-    int w1c;
-    int w20;
-    int w24;
-    int w28;
-    char pad[0x400];
-    unsigned char b42c;
+struct Struct_0201f040 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    char unknown_2c_[0x400];
+    unsigned char unknown_42c_;
 };
 
-struct StreamHeader;
-struct StreamState;
+struct Struct_02013fb4;
+struct Struct_0201f040_2;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
-struct LocalA0209bc98 {
-    void* field0;
-    int field4;
-    int field8;
-    int fieldc;
-    int field10;
-    int field14;
-    int field18;
+struct Struct_0209bc98 {
+    void* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
 };
 
-struct Data02109bb00209bc98 {
-    struct LocalA0209bc98* current;
+struct Struct_02109bb0 {
+    struct Struct_0209bc98* unknown_0_;
 };
-extern struct Data02109bb00209bc98 data_02109bb0;
+extern struct Struct_02109bb0 data_02109bb0;
 extern int data_020f16c0;
 
 // USA: func_0209bc98
-extern "C" ARM void func_0209bc98(void* param0, struct StreamHeader* param1, int param2, int param3, int arg5, int arg6, int arg7) {
-    if (param1 != 0) {
-        struct LocalA0209bc98 local;
-        data_02109bb0.current = &local;
-        data_02109bb0.current->field0 = param0;
-        data_02109bb0.current->field4 = arg5;
-        data_02109bb0.current->field8 = arg6;
-        data_02109bb0.current->fieldc = arg7;
-        data_02109bb0.current->field10 = 1;
-        data_02109bb0.current->field14 = 0;
+extern "C" ARM void func_0209bc98(void* arg0, struct Struct_02013fb4* arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+    if (arg1 != 0) {
+        struct Struct_0209bc98 var0;
+        data_02109bb0.unknown_0_ = &var0;
+        data_02109bb0.unknown_0_->unknown_0_ = arg0;
+        data_02109bb0.unknown_0_->unknown_4_ = arg4;
+        data_02109bb0.unknown_0_->unknown_8_ = arg5;
+        data_02109bb0.unknown_0_->unknown_c_ = arg6;
+        data_02109bb0.unknown_0_->unknown_10_ = 1;
+        data_02109bb0.unknown_0_->unknown_14_ = 0;
 
-        struct ResetStruct local2;
-        ((Script*)&local2)->Initialize();
-        ((Script*)&local2)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f16c0);
-        ((Script*)((struct StreamState*)&local2))->Load(param1, param2);
-        ((Script*)((struct Struct02030774*)&local2))->Execute();
+        struct Struct_0201f040 var1;
+        ((Script*)&var1)->Initialize();
+        ((Script*)&var1)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f16c0);
+        ((Script*)((struct Struct_0201f040_2*)&var1))->Load(arg1, arg2);
+        ((Script*)((struct Struct_0201f040_3*)&var1))->Execute();
     }
 }

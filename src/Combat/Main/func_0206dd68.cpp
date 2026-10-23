@@ -2,24 +2,24 @@
 
 #include "Combat/NodeLookup.h"
 
-struct DLNode0206dd68 {
-    char pad[0x64];
-    struct DLNode0206dd68* prev;
-    struct DLNode0206dd68* next;
+struct Struct_0206dd68 {
+    char unknown_0_[0x64];
+    struct Struct_0206dd68* unknown_64_;
+    struct Struct_0206dd68* unknown_68_;
 };
 
 // USA: func_0206dd68
-extern "C" ARM void func_0206dd68(void* base, int key) {
-    struct DLNode0206dd68* node = (DLNode0206dd68*)func_0206db20(base, key);
-    if (node == NULL) {
+extern "C" ARM void func_0206dd68(void* arg0, int arg1) {
+    struct Struct_0206dd68* var0 = (Struct_0206dd68*)func_0206db20(arg0, arg1);
+    if (var0 == NULL) {
         return;
     }
-    if (node->prev != NULL) {
-        node->prev->next = node->next;
+    if (var0->unknown_64_ != NULL) {
+        var0->unknown_64_->unknown_68_ = var0->unknown_68_;
     } else {
-        *(struct DLNode0206dd68**)base = node->next;
+        *(struct Struct_0206dd68**)arg0 = var0->unknown_68_;
     }
-    if (node->next != NULL) {
-        node->next->prev = node->prev;
+    if (var0->unknown_68_ != NULL) {
+        var0->unknown_68_->unknown_64_ = var0->unknown_64_;
     }
 }

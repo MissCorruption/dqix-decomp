@@ -3,39 +3,39 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
-enum { kRegionValue6FC_4EC = 0x4ec };
-enum { kRegionValue734_524 = 0x524 };
-enum { kRegionValue400_200 = 0x200 };
-enum { kRegionValueA2_CA = 0xca };
-enum { kRegionValueCD_C9 = 0xc9 };
-enum { kRegionValueCE_CA = 0xca };
-enum { kRegionValueCF_CB = 0xcb };
-enum { kRegionValue4A3_2CB = 0x2cb };
-enum { kRegionValue464_28C = 0x28c };
+enum { Enum_ov003_02163d7c_1788 = 0x4ec };
+enum { Enum_ov003_02163d7c_1844 = 0x524 };
+enum { Enum_ov003_02163d7c_1024 = 0x200 };
+enum { Enum_ov003_02163d7c_162 = 0xca };
+enum { Enum_ov003_02163d7c_205 = 0xc9 };
+enum { Enum_ov003_02163d7c_206 = 0xca };
+enum { Enum_ov003_02163d7c_207 = 0xcb };
+enum { Enum_ov003_02163d7c_1187 = 0x2cb };
+enum { Enum_ov003_02163d7c_1124 = 0x28c };
 #else
-enum { kRegionValue6FC_4EC = 0x6fc };
-enum { kRegionValue734_524 = 0x734 };
-enum { kRegionValue400_200 = 0x400 };
-enum { kRegionValueA2_CA = 0xa2 };
-enum { kRegionValueCD_C9 = 0xcd };
-enum { kRegionValueCE_CA = 0xce };
-enum { kRegionValueCF_CB = 0xcf };
-enum { kRegionValue4A3_2CB = 0x4a3 };
-enum { kRegionValue464_28C = 0x464 };
+enum { Enum_ov003_02163d7c_1788 = 0x6fc };
+enum { Enum_ov003_02163d7c_1844 = 0x734 };
+enum { Enum_ov003_02163d7c_1024 = 0x400 };
+enum { Enum_ov003_02163d7c_162 = 0xa2 };
+enum { Enum_ov003_02163d7c_205 = 0xcd };
+enum { Enum_ov003_02163d7c_206 = 0xce };
+enum { Enum_ov003_02163d7c_207 = 0xcf };
+enum { Enum_ov003_02163d7c_1187 = 0x4a3 };
+enum { Enum_ov003_02163d7c_1124 = 0x464 };
 #endif
 
-struct Field150 {
-    char pad[0x14];
-    unsigned char flag : 1;
+struct Struct_0209a678_2 {
+    char unknown_0_[0x14];
+    unsigned char unknown_14_0_ : 1;
 };
 
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(TailList020469b4*, TailNode020469b4*);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(Struct_0201bdac_2*, Struct_0201bdac*);
 extern "C" int func_0202b7d8(int*);
 extern "C" void func_ov017_02195530(unsigned char*);
-struct Field150Holder02052e2c;
-extern "C" Field150* func_02052e2c(Field150Holder02052e2c*);
+struct Struct_02052e2c;
+extern "C" Struct_0209a678_2* func_02052e2c(Struct_02052e2c*);
 extern "C" char* func_02012fe4();
 extern "C" char* func_0202ae18();
 extern "C" int func_0202c508(char*);
@@ -43,27 +43,27 @@ extern "C" void func_ov003_02161480();
 extern "C" void func_ov017_021bbae4(char*, unsigned int, int);
 
 // USA: func_ov003_02163d7c
-extern "C" ARM void func_ov003_02163d7c(char* self) {
+extern "C" ARM void func_ov003_02163d7c(char* arg0) {
     func_ov003_02161480();
-    GameState* state = GameState::GetInstance();
-    char* info = func_02012fe4();
-    GameResources* res = GetGameResources();
-    char* list = *(char**)((char*)res + 0x3000 + kRegionValue6FC_4EC);
-    char* node = *(char**)((char*)res + 0x3000 + kRegionValue734_524);
-    Field150* field = func_02052e2c((Field150Holder02052e2c*)(state->GetGameObjectByIndex(*(signed char*)(self + kRegionValue400_200 + kRegionValueA2_CA))));
-    char* entry = func_0202ae18();
-    func_ov017_021bbae4(node, *(unsigned int*)(info + 0x8), 1);
-    node[kRegionValueCD_C9] = *(signed char*)(self + kRegionValue400_200 + kRegionValueA2_CA);
-    node[kRegionValueCE_CA] = field->flag;
-    node[kRegionValueCF_CB] = 0;
-    func_020469b4((TailList020469b4*)list, (TailNode020469b4*)node);
-    self[kRegionValue4A3_2CB] = 0x10;
-    *(unsigned int*)(self + kRegionValue464_28C) &= ~0x8000;
-    if (!func_0202b7d8((int*)entry)) {
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = func_02012fe4();
+    GameResources* var2 = GetGameResources();
+    char* var3 = *(char**)((char*)var2 + 0x3000 + Enum_ov003_02163d7c_1788);
+    char* var4 = *(char**)((char*)var2 + 0x3000 + Enum_ov003_02163d7c_1844);
+    Struct_0209a678_2* var5 = func_02052e2c((Struct_02052e2c*)(var0->GetGameObjectByIndex(*(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162))));
+    char* var6 = func_0202ae18();
+    func_ov017_021bbae4(var4, *(unsigned int*)(var1 + 0x8), 1);
+    var4[Enum_ov003_02163d7c_205] = *(signed char*)(arg0 + Enum_ov003_02163d7c_1024 + Enum_ov003_02163d7c_162);
+    var4[Enum_ov003_02163d7c_206] = var5->unknown_14_0_;
+    var4[Enum_ov003_02163d7c_207] = 0;
+    func_020469b4((Struct_0201bdac_2*)var3, (Struct_0201bdac*)var4);
+    arg0[Enum_ov003_02163d7c_1187] = 0x10;
+    *(unsigned int*)(arg0 + Enum_ov003_02163d7c_1124) &= ~0x8000;
+    if (!func_0202b7d8((int*)var6)) {
         return;
     }
-    if (!func_0202c508(entry)) {
+    if (!func_0202c508(var6)) {
         return;
     }
-    func_ov017_02195530((unsigned char*)res);
+    func_ov017_02195530((unsigned char*)var2);
 }

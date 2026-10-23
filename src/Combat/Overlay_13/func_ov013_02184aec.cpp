@@ -13,23 +13,23 @@
 extern "C" void* func_020421a0();
 extern "C" void func_0204359c(void*, int);
 extern "C" void func_020439b0(void*, int);
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(Obj0205d2bc*);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(Struct_0205d2bc*);
 extern "C" void func_0205cb60(void*);
 
 // USA: func_ov013_02184aec
-extern "C" ARM void func_ov013_02184aec(void* obj) {
-    unsigned char* o = (unsigned char*)obj;
-    unsigned char tag = o[R(0x5c8,0x63c)];
-    switch (tag) {
+extern "C" ARM void func_ov013_02184aec(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned char var1 = var0[R(0x5c8,0x63c)];
+    switch (var1) {
         case 0: case 5: case 6: return;
     }
 
-    void* battle = GameState::GetInstance();
-    void* field = func_020421a0();
-    int count = ((GameState*)battle)->GetTickCount();
-    func_0204359c(field, count);
-    func_020439b0(field, 0);
-    func_0205d2bc((Obj0205d2bc*)(o + R(0x34,0x38)));
-    func_0205cb60(o + R(0x3d0,0x3d4));
+    void* var2 = GameState::GetInstance();
+    void* var3 = func_020421a0();
+    int var4 = ((GameState*)var2)->GetTickCount();
+    func_0204359c(var3, var4);
+    func_020439b0(var3, 0);
+    func_0205d2bc((Struct_0205d2bc*)(var0 + R(0x34,0x38)));
+    func_0205cb60(var0 + R(0x3d0,0x3d4));
 }

@@ -4,45 +4,45 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-extern "C" void* func_ov031_0223cf4c(unsigned int id, unsigned int size);
+extern "C" void* func_ov031_0223cf4c(unsigned int arg0, unsigned int arg1);
 
-struct ArrBasePair022276b4;
-extern "C" int func_ov031_022276b4(ArrBasePair022276b4* p, unsigned int idx);
+struct Struct_ov031_022276b4;
+extern "C" int func_ov031_022276b4(Struct_ov031_022276b4* arg0, unsigned int arg1);
 extern "C" int func_ov031_022275a0(void);
 
-struct InitParams_0223a4cc;
-extern "C" void func_ov031_0223a4cc(void* obj, InitParams_0223a4cc* p);
+struct Struct_ov031_022276f8;
+extern "C" void func_ov031_0223a4cc(void* arg0, Struct_ov031_022276f8* arg1);
 extern "C" int func_ov031_0223a718(void);
 extern "C" void func_020c9be0(void);
-extern "C" void* func_ov031_0223e218(void* a, void* b, void* c, int d);
+extern "C" void* func_ov031_0223e218(void* arg0, void* arg1, void* arg2, int arg3);
 
 extern void* data_ov031_02290c44;
-extern ArrBasePair022276b4* data_ov031_02290c4c;
+extern Struct_ov031_022276b4* data_ov031_02290c4c;
 
-struct InitParamsRaw022276f8 { unsigned int words[7]; };
-extern InitParamsRaw022276f8 data_ov031_0224b66c;
+struct Struct_ov031_0224b66c { unsigned int unknown_0_[7]; };
+extern Struct_ov031_0224b66c data_ov031_0224b66c;
 
 extern "C" void func_ov031_02227898(void);
 
 // USA: func_ov031_022276f8
 extern "C" ARM void func_ov031_022276f8(int arg0) {
-	void* ptr = func_ov031_0223cf4c(0x1e2a4, 0x20);
-	data_ov031_02290c44 = ptr;
-	*(int*)((char*)ptr + 0x1e000 + 0x298) = arg0;
+	void* var0 = func_ov031_0223cf4c(0x1e2a4, 0x20);
+	data_ov031_02290c44 = var0;
+	*(int*)((char*)var0 + 0x1e000 + 0x298) = arg0;
 	*(unsigned char*)((char*)data_ov031_02290c44 + 0x1e000 + 0x2a0) = 0;
 	*(unsigned char*)((char*)data_ov031_02290c44 + 0x1e000 + 0x2a1) = 0;
 
-	InitParamsRaw022276f8 buf = data_ov031_0224b66c;
-	buf.words[1] = func_ov031_022276b4(data_ov031_02290c4c, 0);
-	buf.words[2] = func_ov031_022276b4(data_ov031_02290c4c, 1);
-	*(unsigned char*)&buf.words[6] = (unsigned char)func_ov031_022275a0();
+	Struct_ov031_0224b66c var1 = data_ov031_0224b66c;
+	var1.unknown_0_[1] = func_ov031_022276b4(data_ov031_02290c4c, 0);
+	var1.unknown_0_[2] = func_ov031_022276b4(data_ov031_02290c4c, 1);
+	*(unsigned char*)&var1.unknown_0_[6] = (unsigned char)func_ov031_022275a0();
 
-	func_ov031_0223a4cc(data_ov031_02290c44, (InitParams_0223a4cc*)&buf);
+	func_ov031_0223a4cc(data_ov031_02290c44, (Struct_ov031_022276f8*)&var1);
 
 	if (func_ov031_0223a718() == 0) {
 		func_020c9be0();
 	}
 
-	void* result = func_ov031_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);
-	*(void**)((char*)data_ov031_02290c44 + 0x1e000 + 0x29c) = result;
+	void* var2 = func_ov031_0223e218(0, (void*)func_ov031_02227898, 0, 0x78);
+	*(void**)((char*)data_ov031_02290c44 + 0x1e000 + 0x29c) = var2;
 }

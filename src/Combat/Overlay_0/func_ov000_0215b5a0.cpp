@@ -3,170 +3,170 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-struct Stats0215b5a0 {
-    char pad0[0x14];
-    unsigned int flags;
-    char pad18[0x22 - 0x18];
-    unsigned short pad22 : 14;
-    unsigned short pending : 1;
-    unsigned short pad22hi : 1;
-    unsigned char level;
+struct Struct_ov000_0215b5a0 {
+    char unknown_0_[0x14];
+    unsigned int unknown_14_;
+    char unknown_18_[0x22 - 0x18];
+    unsigned short unknown_22_0_ : 14;
+    unsigned short unknown_23_6_ : 1;
+    unsigned short unknown_23_7_ : 1;
+    unsigned char unknown_24_;
 };
 
-struct Battle0215b5a0 {
-    Random rng;
-    char pad20[0x8e00 - sizeof(Random)];
-    unsigned char tableCount;
-    unsigned char targetCount;
-    unsigned char resultCount;
-    char pad8e03[0x8e24 - 0x8e03];
-    int workCount;
+struct Struct_ov000_0215b5a0_2 {
+    Random unknown_0_;
+    char unknown_20_[0x8e00 - sizeof(Random)];
+    unsigned char unknown_8e00_;
+    unsigned char unknown_8e01_;
+    unsigned char unknown_8e02_;
+    char unknown_8e03_[0x8e24 - 0x8e03];
+    int unknown_8e24_;
 };
 
-struct Work0215b5a0 { unsigned short kind; char pad2[0xb - 2]; unsigned char flags; };
-struct Entry0215b5a0 { char pad0[0x1c]; short sentinel; short pad1e; unsigned short id, hp, mp; char pad26[0x30 - 0x26]; int tail; };
-struct Target0215b5a0 { char pad0[0xe]; short ids[4]; char pad16; unsigned char count; };
-struct OutStruct0215ccbc { char pad0[0x20]; int tail; };
-struct List021600f8 { unsigned short kind; char pad2[9 - 2]; unsigned char count; };
+struct Struct_ov000_0215b5a0_3 { unsigned short unknown_0_; char unknown_2_[0xb - 2]; unsigned char unknown_b_; };
+struct Struct_ov000_0215b5a0_4 { char unknown_0_[0x1c]; short unknown_1c_; short unknown_1e_; unsigned short unknown_20_, unknown_22_, unknown_24_; char unknown_26_[0x30 - 0x26]; int unknown_30_; };
+struct Struct_ov000_0215b5a0_5 { char unknown_0_[0xe]; short unknown_e_[4]; char unknown_16_; unsigned char unknown_17_; };
+struct Struct_ov000_021584e8 { char unknown_0_[0x20]; int unknown_20_; };
+struct Struct_ov000_0215440c { unsigned short unknown_0_; char unknown_2_[9 - 2]; unsigned char unknown_9_; };
 
-struct S_10088;
-extern "C" Target0215b5a0* func_ov000_021600f8(List021600f8*, int);
-extern "C" int func_02010088(S_10088*);
+struct Struct_02010088;
+extern "C" Struct_ov000_0215b5a0_5* func_ov000_021600f8(Struct_ov000_0215440c*, int);
+extern "C" int func_02010088(Struct_02010088*);
 extern "C" int func_ov000_02153c0c(GameObject*);
 extern "C" int func_020882f8(unsigned char*);
 extern "C" int func_ov000_02156038(GameObject*);
 extern "C" int func_ov000_02156050(GameObject*);
 extern "C" int func_020881c4(unsigned char*);
-extern "C" Work0215b5a0* func_ov000_0215e9d8(void*);
+extern "C" Struct_ov000_0215b5a0_3* func_ov000_0215e9d8(void*);
 extern "C" void func_ov000_02160030(void*);
-extern "C" Entry0215b5a0* func_ov000_0215e918(void*);
-extern "C" Target0215b5a0* func_ov000_0215e938(void*);
+extern "C" Struct_ov000_0215b5a0_4* func_ov000_0215e918(void*);
+extern "C" Struct_ov000_0215b5a0_5* func_ov000_0215e938(void*);
 extern "C" void func_ov000_02157cdc(void*);
 extern "C" void func_02088150(void*);
 extern "C" void func_02088220(void*, int);
 extern "C" void func_ov000_0215ffc4(void*, void*, int);
 extern "C" void func_ov000_0215a88c(void*, void*, int);
-struct Obj02160068; struct Node02160068; struct Obj021600cc; struct Node021600cc;
-extern "C" void func_ov000_02160068(Obj02160068*, Node02160068*);
-extern "C" void func_ov000_021600cc(Obj021600cc*, Node021600cc*);
-extern "C" void func_ov000_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, unsigned long long, unsigned char);
-extern "C" OutStruct0215ccbc* func_ov000_0215e958(void*);
+struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct Struct_ov000_0215767c_5; struct Struct_ov000_0215767c_4;
+extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+extern "C" void func_ov000_021600cc(Struct_ov000_0215767c_5*, Struct_ov000_0215767c_4*);
+extern "C" void func_ov000_0215ccbc(int, Struct_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
+extern "C" Struct_ov000_021584e8* func_ov000_0215e958(void*);
 extern "C" int func_ov000_02159f18(void*, unsigned long long, int);
 
-static inline Stats0215b5a0* GetStats(GameObject* c) { return (Stats0215b5a0*)c->currentStats_; }
-static inline short CurrHP(GameObject* c) { return c->currentStats_->primaryStats.currHP; }
-static inline short CurrMP(GameObject* c) { return c->currentStats_->primaryStats.currMP; }
-static inline bool IsParty(short id) { return id >= 0 && id <= 3; }
+static inline Struct_ov000_0215b5a0* inline_ov000_0215b5a0(GameObject* arg0) { return (Struct_ov000_0215b5a0*)arg0->currentStats_; }
+static inline short inline_ov000_021584e8(GameObject* arg0) { return arg0->currentStats_->primaryStats.currHP; }
+static inline short inline_ov000_021584e8_2(GameObject* arg0) { return arg0->currentStats_->primaryStats.currMP; }
+static inline bool inline_ov000_021537b8(short arg0) { return arg0 >= 0 && arg0 <= 3; }
 
 // USA: func_ov000_0215b5a0
-extern "C" ARM void func_ov000_0215b5a0(Battle0215b5a0* self, List021600f8* list) {
-    short ids[8] = {-1};
+extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, Struct_ov000_0215440c* arg1) {
+    short var0[8] = {-1};
     static const int sSleepChance[4] = {100, 50, 25, 25};
-    short n = 0;
-    for (int i = 0; i < list->count; i++) {
-        Target0215b5a0* node = func_ov000_021600f8(list, i);
-        if (!node) continue;
-        short id = node->ids[(signed char)(node->count - 1)];
-        bool found = false;
-        for (int j = 0; j < n; j++) {
-            if (id == ids[j]) { found = true; break; }
+    short var1 = 0;
+    for (int var2 = 0; var2 < arg1->unknown_9_; var2++) {
+        Struct_ov000_0215b5a0_5* var3 = func_ov000_021600f8(arg1, var2);
+        if (!var3) continue;
+        short var4 = var3->unknown_e_[(signed char)(var3->unknown_17_ - 1)];
+        bool var5 = false;
+        for (int var6 = 0; var6 < var1; var6++) {
+            if (var4 == var0[var6]) { var5 = true; break; }
         }
-        if (!found) ids[n++] = id;
+        if (!var5) var0[var1++] = var4;
     }
-    for (int k = 0; k < n; k++) {
-        Work0215b5a0* work; Entry0215b5a0* entry; Target0215b5a0* target; OutStruct0215ccbc* out;
-        GameState* gs = GameState::GetInstance();
-        short id = ids[k];
-        GameObject* unit = gs->GetCombatantByIndex(id);
-        if (!unit) continue;
-        if (!GetStats(unit)->pending) continue;
-        GetStats(unit)->pending = 0;
-        if (func_02010088((S_10088*)unit)) continue;
-        if (func_ov000_02153c0c(unit)) continue;
-        if (func_020882f8((unsigned char*)unit->currentStats_)) continue;
-        if (func_ov000_02156038(unit)) continue;
-        if (func_ov000_02156050(unit)) continue;
-        if (GetStats(unit)->flags & 0x1000000) continue;
-        if (!func_020881c4((unsigned char*)unit->currentStats_)) continue;
-        int level = GetStats(unit)->level;
-        if (NextRandomMax(&self->rng, 100) >= sSleepChance[level]) continue;
+    for (int var7 = 0; var7 < var1; var7++) {
+        Struct_ov000_0215b5a0_3* var8; Struct_ov000_0215b5a0_4* var9; Struct_ov000_0215b5a0_5* var10; Struct_ov000_021584e8* var11;
+        GameState* var12 = GameState::GetInstance();
+        short var13 = var0[var7];
+        GameObject* var14 = var12->GetCombatantByIndex(var13);
+        if (!var14) continue;
+        if (!inline_ov000_0215b5a0(var14)->unknown_23_6_) continue;
+        inline_ov000_0215b5a0(var14)->unknown_23_6_ = 0;
+        if (func_02010088((Struct_02010088*)var14)) continue;
+        if (func_ov000_02153c0c(var14)) continue;
+        if (func_020882f8((unsigned char*)var14->currentStats_)) continue;
+        if (func_ov000_02156038(var14)) continue;
+        if (func_ov000_02156050(var14)) continue;
+        if (inline_ov000_0215b5a0(var14)->unknown_14_ & 0x1000000) continue;
+        if (!func_020881c4((unsigned char*)var14->currentStats_)) continue;
+        int var15 = inline_ov000_0215b5a0(var14)->unknown_24_;
+        if (NextRandomMax(&arg0->unknown_0_, 100) >= sSleepChance[var15]) continue;
 
-        work = func_ov000_0215e9d8(self);
-        if (!work) continue;
-        func_ov000_02160030(work);
-        entry = func_ov000_0215e918(self);
-        if (!entry) continue;
-        memset(entry, 0, 0x30); entry->sentinel = -1; entry->tail = 0;
-        target = func_ov000_0215e938(self);
-        if (!target) continue;
-        func_ov000_02157cdc(target);
-        out = func_ov000_0215e958(self);
-        if (!out) continue;
-        memset(out, 0, 0x20); out->tail = 0;
-        work->kind = 0x3a0;
-        unsigned long long bits = 0;
-        bits |= 1ULL << 36;
-        if (level + 1 >= 4) {
-            func_02088150(unit->currentStats_);
-            bits |= 1ULL << 7;
+        var8 = func_ov000_0215e9d8(arg0);
+        if (!var8) continue;
+        func_ov000_02160030(var8);
+        var9 = func_ov000_0215e918(arg0);
+        if (!var9) continue;
+        memset(var9, 0, 0x30); var9->unknown_1c_ = -1; var9->unknown_30_ = 0;
+        var10 = func_ov000_0215e938(arg0);
+        if (!var10) continue;
+        func_ov000_02157cdc(var10);
+        var11 = func_ov000_0215e958(arg0);
+        if (!var11) continue;
+        memset(var11, 0, 0x20); var11->unknown_20_ = 0;
+        var8->unknown_0_ = 0x3a0;
+        unsigned long long var16 = 0;
+        var16 |= 1ULL << 36;
+        if (var15 + 1 >= 4) {
+            func_02088150(var14->currentStats_);
+            var16 |= 1ULL << 7;
         } else {
-            func_02088220(unit->currentStats_, level + 1);
+            func_02088220(var14->currentStats_, var15 + 1);
         }
-        int msg = 0;
-        switch (level + 1) {
-        case 1: msg = 0x31; break;
-        case 2: msg = 0x32; break;
-        case 3: msg = 0x33; break;
-        case 4: msg = 0x34; break;
+        int var17 = 0;
+        switch (var15 + 1) {
+        case 1: var17 = 0x31; break;
+        case 2: var17 = 0x32; break;
+        case 3: var17 = 0x33; break;
+        case 4: var17 = 0x34; break;
         }
-        entry->id = ids[k];
-        entry->hp = unit->currentStats_->primaryStats.currHP;
-        entry->mp = unit->currentStats_->primaryStats.currMP;
+        var9->unknown_20_ = var0[var7];
+        var9->unknown_22_ = var14->currentStats_->primaryStats.currHP;
+        var9->unknown_24_ = var14->currentStats_->primaryStats.currMP;
         {
-            short mp = CurrMP(unit);
-            short hp = CurrHP(unit);
-            func_ov000_0215ccbc((int)self, out, unit, level + 1, hp, mp, bits, 0);
+            short var18 = inline_ov000_021584e8_2(var14);
+            short var19 = inline_ov000_021584e8(var14);
+            func_ov000_0215ccbc((int)arg0, var11, var14, var15 + 1, var19, var18, var16, 0);
         }
-        func_ov000_0215a88c(self, out, msg);
-        target->ids[0] = ids[k];
-        target->count = 1;
-        func_ov000_0215ffc4(target, out, 0);
-        func_ov000_02160068((Obj02160068*)work, (Node02160068*)entry);
-        func_ov000_021600cc((Obj021600cc*)work, (Node021600cc*)target);
-        work->flags |= 4;
-        self->workCount++; self->tableCount++; self->targetCount++; self->resultCount++;
+        func_ov000_0215a88c(arg0, var11, var17);
+        var10->unknown_e_[0] = var0[var7];
+        var10->unknown_17_ = 1;
+        func_ov000_0215ffc4(var10, var11, 0);
+        func_ov000_02160068((Struct_ov000_0215767c_7*)var8, (Struct_ov000_0215767c_6*)var9);
+        func_ov000_021600cc((Struct_ov000_0215767c_5*)var8, (Struct_ov000_0215767c_4*)var10);
+        var8->unknown_b_ |= 4;
+        arg0->unknown_8e24_++; arg0->unknown_8e00_++; arg0->unknown_8e01_++; arg0->unknown_8e02_++;
 
-        if (!func_ov000_02159f18(self, bits, 7)) continue;
-        work = func_ov000_0215e9d8(self);
-        if (!work) continue;
-        func_ov000_02160030(work);
-        entry = func_ov000_0215e918(self);
-        if (!entry) continue;
-        memset(entry, 0, 0x30); entry->sentinel = -1; entry->tail = 0;
-        target = func_ov000_0215e938(self);
-        if (!target) continue;
-        func_ov000_02157cdc(target);
-        out = func_ov000_0215e958(self);
-        if (!out) continue;
-        memset(out, 0, 0x20); out->tail = 0;
-        int party = IsParty(id);
-        work->kind = party ? 0x39c : 0x39d;
-        entry->id = ids[k];
-        entry->hp = unit->currentStats_->primaryStats.currHP;
-        entry->mp = unit->currentStats_->primaryStats.currMP;
-        work->flags |= 4;
+        if (!func_ov000_02159f18(arg0, var16, 7)) continue;
+        var8 = func_ov000_0215e9d8(arg0);
+        if (!var8) continue;
+        func_ov000_02160030(var8);
+        var9 = func_ov000_0215e918(arg0);
+        if (!var9) continue;
+        memset(var9, 0, 0x30); var9->unknown_1c_ = -1; var9->unknown_30_ = 0;
+        var10 = func_ov000_0215e938(arg0);
+        if (!var10) continue;
+        func_ov000_02157cdc(var10);
+        var11 = func_ov000_0215e958(arg0);
+        if (!var11) continue;
+        memset(var11, 0, 0x20); var11->unknown_20_ = 0;
+        int var20 = inline_ov000_021537b8(var13);
+        var8->unknown_0_ = var20 ? 0x39c : 0x39d;
+        var9->unknown_20_ = var0[var7];
+        var9->unknown_22_ = var14->currentStats_->primaryStats.currHP;
+        var9->unknown_24_ = var14->currentStats_->primaryStats.currMP;
+        var8->unknown_b_ |= 4;
         {
-            short mp = CurrMP(unit);
-            short hp = CurrHP(unit);
-            func_ov000_0215ccbc((int)self, out, unit, 0, hp, mp, 0, 0);
+            short var21 = inline_ov000_021584e8_2(var14);
+            short var22 = inline_ov000_021584e8(var14);
+            func_ov000_0215ccbc((int)arg0, var11, var14, 0, var22, var21, 0, 0);
         }
-        func_ov000_0215a88c(self, out, 0x35);
-        target->ids[0] = ids[k];
-        target->count = 1;
-        func_ov000_0215ffc4(target, out, 0);
-        self->resultCount++;
-        func_ov000_02160068((Obj02160068*)work, (Node02160068*)entry);
-        func_ov000_021600cc((Obj021600cc*)work, (Node021600cc*)target);
-        self->workCount++; self->tableCount++; self->targetCount++; self->resultCount++;
+        func_ov000_0215a88c(arg0, var11, 0x35);
+        var10->unknown_e_[0] = var0[var7];
+        var10->unknown_17_ = 1;
+        func_ov000_0215ffc4(var10, var11, 0);
+        arg0->unknown_8e02_++;
+        func_ov000_02160068((Struct_ov000_0215767c_7*)var8, (Struct_ov000_0215767c_6*)var9);
+        func_ov000_021600cc((Struct_ov000_0215767c_5*)var8, (Struct_ov000_0215767c_4*)var10);
+        arg0->unknown_8e24_++; arg0->unknown_8e00_++; arg0->unknown_8e01_++; arg0->unknown_8e02_++;
     }
 }

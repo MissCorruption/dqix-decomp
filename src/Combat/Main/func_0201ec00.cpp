@@ -2,64 +2,64 @@
 #include "Resource/Script.h"
 #include "Memory/SafeAllocator.h"
 
-struct Elem0201f0f0 {
-    signed short f0;
-    unsigned char f2;
-    unsigned char f3;
-    char* f4;
-    int f8;
+struct Struct_0201ec00_2 {
+    signed short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    char* unknown_4_;
+    int unknown_8_;
 };
 
-struct List0201f0f0 {
-    struct Elem0201f0f0* base;
-    int count;
-    int capacity;
+struct Struct_0201f0f0 {
+    struct Struct_0201ec00_2* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Entry_1f170 {
-    signed short id;
-    char unk[0xa];
+struct Struct_0201f170 {
+    signed short unknown_0_;
+    char unknown_2_[0xa];
 };
 
-struct EntryList_1f170 {
-    struct Entry_1f170* entries;
-    int count;
+struct Struct_0201ec00 {
+    struct Struct_0201f170* unknown_0_;
+    int unknown_4_;
 };
 
-extern "C" void func_0201f0f0(struct List0201f0f0*, struct Elem0201f0f0*);
-extern "C" struct Entry_1f170* func_0201f170(struct EntryList_1f170*, int);
+extern "C" void func_0201f0f0(struct Struct_0201f0f0*, struct Struct_0201ec00_2*);
+extern "C" struct Struct_0201f170* func_0201f170(struct Struct_0201ec00*, int);
 
-struct Container0201ec00 {
-    struct Entry_1f170* f0;
-    SafeAllocator* alloc;
-    struct List0201f0f0* list;
-    char pad[16];
+struct Struct_020fdc40_2 {
+    struct Struct_0201f170* unknown_0_;
+    SafeAllocator* unknown_4_;
+    struct Struct_0201f0f0* unknown_8_;
+    char unknown_c_[16];
 };
-extern struct Container0201ec00 data_020fdc40;
+extern struct Struct_020fdc40_2 data_020fdc40;
 
 // USA: func_0201ec00
-extern "C" ARM int func_0201ec00(Script::Parameter* params, int count) {
-    struct Elem0201f0f0 e;
-    e.f0 = params->ToInt();
-    params++;
-    const char* text = (params++)->ToString();
-    if (text == NULL) {
+extern "C" ARM int func_0201ec00(Script::Parameter* arg0, int arg1) {
+    struct Struct_0201ec00_2 var0;
+    var0.unknown_0_ = arg0->ToInt();
+    arg0++;
+    const char* var1 = (arg0++)->ToString();
+    if (var1 == NULL) {
         return 0;
     }
-    e.f4 = (char*)data_020fdc40.alloc->Allocate(strlen(text) + 1);
-    strcpy(e.f4, text);
-    e.f2 = 0;
-    if (count >= 3) {
-        e.f2 = params->ToInt();
-        e.f2 &= 0x3f;
-        params++;
+    var0.unknown_4_ = (char*)data_020fdc40.unknown_4_->Allocate(strlen(var1) + 1);
+    strcpy(var0.unknown_4_, var1);
+    var0.unknown_2_ = 0;
+    if (arg1 >= 3) {
+        var0.unknown_2_ = arg0->ToInt();
+        var0.unknown_2_ &= 0x3f;
+        arg0++;
     }
-    e.f3 = 0;
-    if (count >= 4) {
-        e.f3 = params->ToInt();
+    var0.unknown_3_ = 0;
+    if (arg1 >= 4) {
+        var0.unknown_3_ = arg0->ToInt();
     }
-    e.f8 = 0;
-    func_0201f0f0(data_020fdc40.list, &e);
-    data_020fdc40.f0 = func_0201f170((struct EntryList_1f170*)data_020fdc40.list, e.f0);
+    var0.unknown_8_ = 0;
+    func_0201f0f0(data_020fdc40.unknown_8_, &var0);
+    data_020fdc40.unknown_0_ = func_0201f170((struct Struct_0201ec00*)data_020fdc40.unknown_8_, var0.unknown_0_);
     return 1;
 }

@@ -2,12 +2,12 @@
 #include "Graphics/Model3D.h"
 
 #if defined(jpn)
-enum { kFlagsOffset = 0x194 };
+enum { Enum_02053e10_416 = 0x194 };
 #else
-enum { kFlagsOffset = 0x1a0 };
+enum { Enum_02053e10_416 = 0x1a0 };
 #endif
 
-struct Struct0207ea38;
+struct Struct_0204a4ac_3;
 
 extern char data_020f048a;
 extern char data_020f048f;
@@ -17,29 +17,29 @@ extern char data_020f04a1;
 extern char data_020f04a7;
 extern char data_020f04ad;
 
-struct Obj02053e10 {
-    char pad0[0x8];
-    struct Struct0207ea38* field8;
-    char pad1[kFlagsOffset - 0xc];
-    unsigned char f1a0;
-    unsigned char f1a1;
-    unsigned char f1a2;
-    unsigned char f1a3;
-    unsigned char f1a4;
-    unsigned char f1a5;
-    unsigned char f1a6;
+struct Struct_02053e10 {
+    char unknown_0_[0x8];
+    struct Struct_0204a4ac_3* unknown_8_;
+    char unknown_c_[Enum_02053e10_416 - 0xc];
+    unsigned char unknown_1a0_;
+    unsigned char unknown_1a1_;
+    unsigned char unknown_1a2_;
+    unsigned char unknown_1a3_;
+    unsigned char unknown_1a4_;
+    unsigned char unknown_1a5_;
+    unsigned char unknown_1a6_;
 };
 
 // USA: func_02053e10
-extern "C" ARM void func_02053e10(struct Obj02053e10* self) {
-    struct Struct0207ea38* obj = self->field8;
-    if (obj == NULL)
+extern "C" ARM void func_02053e10(struct Struct_02053e10* arg0) {
+    struct Struct_0204a4ac_3* var0 = arg0->unknown_8_;
+    if (var0 == NULL)
         return;
-    self->f1a0 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f048a);
-    self->f1a1 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f048f);
-    self->f1a2 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f0495);
-    self->f1a3 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f049b);
-    self->f1a4 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f04a1);
-    self->f1a5 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f04a7);
-    self->f1a6 = (unsigned char)((Model3D*)obj)->GetBoneIndex(&data_020f04ad);
+    arg0->unknown_1a0_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f048a);
+    arg0->unknown_1a1_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f048f);
+    arg0->unknown_1a2_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f0495);
+    arg0->unknown_1a3_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f049b);
+    arg0->unknown_1a4_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f04a1);
+    arg0->unknown_1a5_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f04a7);
+    arg0->unknown_1a6_ = (unsigned char)((Model3D*)var0)->GetBoneIndex(&data_020f04ad);
 }

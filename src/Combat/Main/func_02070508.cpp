@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct State02070508 {
-    unsigned char active;
-    unsigned char pad[0xB];
-    int field0xc;
-    int field0x10;
+struct Struct_02108d5c {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[0xB];
+    int unknown_c_;
+    int unknown_10_;
 };
 
 // USA: func_02070508
-extern "C" ARM void func_02070508(struct State02070508 *obj) {
-    obj->active = 0;
-    obj->field0xc = 0;
-    obj->field0x10 = 0;
+extern "C" ARM void func_02070508(struct Struct_02108d5c *arg0) {
+    arg0->unknown_0_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_10_ = 0;
 }

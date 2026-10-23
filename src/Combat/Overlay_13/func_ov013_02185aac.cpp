@@ -8,64 +8,64 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
 struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
+extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
 
-struct Node0205bacc;
-extern "C" void func_0205bacc(struct Node0205bacc* s, int val);
+struct Struct_0205bacc;
+extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
 
 struct Struct_0205bcdc;
-extern "C" void func_0205bcdc(struct Struct_0205bcdc* s, int index);
+extern "C" void func_0205bcdc(struct Struct_0205bcdc* arg0, int arg1);
 
-extern "C" void func_0205bb04(void* s, int n);
-extern "C" void func_ov013_02185be0(void* obj, void* buf);
+extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" void func_ov013_02185be0(void* arg0, void* arg1);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, int p6);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, int p6, int p7);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 extern int data_ov013_02187d98;
 
 // USA: func_ov013_02185aac
-extern "C" ARM void func_ov013_02185aac(unsigned char* obj) {
-    func_0205de24((struct Struct0205de24*)(obj + R(0x34, 0x38)), 0, 2);
+extern "C" ARM void func_ov013_02185aac(unsigned char* arg0) {
+    func_0205de24((struct Struct_0205de24_2*)(arg0 + R(0x34, 0x38)), 0, 2);
 
-    *(unsigned short*)(obj + R(0xd4, 0xd8)) = 7;
-    *(unsigned short*)(obj + R(0xd6, 0xda)) = 5;
-    *(unsigned short*)(obj + R(0xd8, 0xdc)) = 0x19;
-    *(unsigned short*)(obj + R(0xda, 0xde)) = 0x13;
-    *(unsigned short*)(obj + R(0xdc, 0xe0)) = 0xc;
-    *(unsigned short*)(obj + R(0xde, 0xe2)) = 7;
-    *(unsigned short*)(obj + R(0xe0, 0xe4)) = 0xa;
-    *(unsigned short*)(obj + R(0xe2, 0xe6)) = 0x10;
-    obj[R(0xe5, 0xe9)] = 3;
+    *(unsigned short*)(arg0 + R(0xd4, 0xd8)) = 7;
+    *(unsigned short*)(arg0 + R(0xd6, 0xda)) = 5;
+    *(unsigned short*)(arg0 + R(0xd8, 0xdc)) = 0x19;
+    *(unsigned short*)(arg0 + R(0xda, 0xde)) = 0x13;
+    *(unsigned short*)(arg0 + R(0xdc, 0xe0)) = 0xc;
+    *(unsigned short*)(arg0 + R(0xde, 0xe2)) = 7;
+    *(unsigned short*)(arg0 + R(0xe0, 0xe4)) = 0xa;
+    *(unsigned short*)(arg0 + R(0xe2, 0xe6)) = 0x10;
+    arg0[R(0xe5, 0xe9)] = 3;
 
-    if (obj[R(0x5cc, 0x640)] != 0) obj[R(0xe9, 0xed)] = 0;
-    else obj[R(0xe9, 0xed)] = 1;
+    if (arg0[R(0x5cc, 0x640)] != 0) arg0[R(0xe9, 0xed)] = 0;
+    else arg0[R(0xe9, 0xed)] = 1;
 
-    memset(*(void**)(obj + R(0x5e0, 0x658)), 0, R(0x800, 0x960));
+    memset(*(void**)(arg0 + R(0x5e0, 0x658)), 0, R(0x800, 0x960));
 
-    func_ov013_02185be0(obj, *(void**)(obj + R(0x5e0, 0x658)));
+    func_ov013_02185be0(arg0, *(void**)(arg0 + R(0x5e0, 0x658)));
 
 #if defined(jpn)
-    func_0205d304(obj + R(0x34, 0x38), *(void**)(obj + R(0x5e0, 0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d98);
+    func_0205d304(arg0 + R(0x34, 0x38), *(void**)(arg0 + R(0x5e0, 0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d98);
 #else
-    func_0205d304(obj + R(0x34, 0x38), *(void**)(obj + R(0x5e0, 0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d98, 1);
+    func_0205d304(arg0 + R(0x34, 0x38), *(void**)(arg0 + R(0x5e0, 0x658)), 0, 0, 0, 1, (int)&data_ov013_02187d98, 1);
 #endif
 
-    obj[R(0xe5, 0xe9)] = 3;
-    *(int*)(obj + R(0x3c, 0x40)) = 1;
-    *(int*)(obj + R(0x8c, 0x90)) = 1;
-    func_0205ba68((struct Struct_0205ba68*)(obj + R(0x38, 0x3c)), 1, 2, 0);
-    func_0205ba68((struct Struct_0205ba68*)(obj + R(0x88, 0x8c)), 1, 2, 0);
-    func_0205bacc((struct Node0205bacc*)(obj + R(0x38, 0x3c)), 2);
-    func_0205bacc((struct Node0205bacc*)(obj + R(0x88, 0x8c)), 2);
+    arg0[R(0xe5, 0xe9)] = 3;
+    *(int*)(arg0 + R(0x3c, 0x40)) = 1;
+    *(int*)(arg0 + R(0x8c, 0x90)) = 1;
+    func_0205ba68((struct Struct_0205ba68*)(arg0 + R(0x38, 0x3c)), 1, 2, 0);
+    func_0205ba68((struct Struct_0205ba68*)(arg0 + R(0x88, 0x8c)), 1, 2, 0);
+    func_0205bacc((struct Struct_0205bacc*)(arg0 + R(0x38, 0x3c)), 2);
+    func_0205bacc((struct Struct_0205bacc*)(arg0 + R(0x88, 0x8c)), 2);
 
-    int idx = *(int*)(obj + R(0x5e8, 0x660));
-    func_0205bcdc((struct Struct_0205bcdc*)(obj + R(0x38, 0x3c)), idx);
-    func_0205bb04(obj + R(0x88, 0x8c), idx);
+    int var0 = *(int*)(arg0 + R(0x5e8, 0x660));
+    func_0205bcdc((struct Struct_0205bcdc*)(arg0 + R(0x38, 0x3c)), var0);
+    func_0205bb04(arg0 + R(0x88, 0x8c), var0);
 }

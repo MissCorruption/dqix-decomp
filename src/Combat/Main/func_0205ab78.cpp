@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 
-struct FieldArray {
-    char pad[8];
-    int arr[3];
+struct Struct_020b033c {
+    char unknown_0_[8];
+    int unknown_8_[3];
 };
-extern "C" void func_020b033c(struct FieldArray* obj);
+extern "C" void func_020b033c(struct Struct_020b033c* arg0);
 
-struct Hdr02b0288 {
-    unsigned char pad[0xc];
-    unsigned short dataOffset;
-    unsigned short count;
+struct Struct_0205ab78 {
+    unsigned char unknown_0_[0xc];
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
 };
-extern "C" int func_020b022c(struct Hdr02b0288* h, void** out);
-extern "C" int func_020b01f0(struct Hdr02b0288* h, void** out);
+extern "C" int func_020b022c(struct Struct_0205ab78* arg0, void** arg1);
+extern "C" int func_020b01f0(struct Struct_0205ab78* arg0, void** arg1);
 
-extern "C" void func_020b08b8(void* plttChunk, void* pcmpChunk, int zero, int mode, void* fieldArr);
-extern "C" void func_020b07c0(void* plttChunk, int zero, int mode, void* fieldArr);
+extern "C" void func_020b08b8(void* arg0, void* arg1, int arg2, int arg3, void* arg4);
+extern "C" void func_020b07c0(void* arg0, int arg1, int arg2, void* arg3);
 
-struct Obj0205ab78 {
-    char pad0[0x24];
-    struct FieldArray fieldArr;
-    char pad1[0x50 - 0x38];
-    unsigned char byte50;
+struct Struct_0205ab78_2 {
+    char unknown_0_[0x24];
+    struct Struct_020b033c unknown_24_;
+    char unknown_38_[0x50 - 0x38];
+    unsigned char unknown_50_;
 };
 
 // USA: func_0205ab78
-extern "C" ARM int func_0205ab78(struct Obj0205ab78* obj, struct Hdr02b0288* h, void* other) {
-    int fail;
-    int mode;
+extern "C" ARM int func_0205ab78(struct Struct_0205ab78_2* arg0, struct Struct_0205ab78* arg1, void* arg2) {
+    int var0;
+    int var1;
 
-    func_020b033c(&obj->fieldArr);
-    void* plttChunk = 0;
-    void* pcmpChunk = 0;
-    int pcmpFound = func_020b022c(h, &pcmpChunk);
+    func_020b033c(&arg0->unknown_24_);
+    void* var2 = 0;
+    void* var3 = 0;
+    int var4 = func_020b022c(arg1, &var3);
 
-    if (h == 0) {
-        fail = 1;
-    } else if (other == 0) {
-        fail = 1;
+    if (arg1 == 0) {
+        var0 = 1;
+    } else if (arg2 == 0) {
+        var0 = 1;
     } else {
-        if (func_020b01f0(h, &plttChunk)) {
-            fail = 0;
+        if (func_020b01f0(arg1, &var2)) {
+            var0 = 0;
         } else {
-            fail = 1;
+            var0 = 1;
         }
     }
-    if (fail) {
+    if (var0) {
         return 1;
     }
 
-    mode = (obj->byte50 == 0) ? 1 : 2;
-    if (pcmpFound) {
-        func_020b08b8(plttChunk, pcmpChunk, 0, mode, &obj->fieldArr);
+    var1 = (arg0->unknown_50_ == 0) ? 1 : 2;
+    if (var4) {
+        func_020b08b8(var2, var3, 0, var1, &arg0->unknown_24_);
     } else {
-        func_020b07c0(plttChunk, 0, mode, &obj->fieldArr);
+        func_020b07c0(var2, 0, var1, &arg0->unknown_24_);
     }
     return 0;
 }

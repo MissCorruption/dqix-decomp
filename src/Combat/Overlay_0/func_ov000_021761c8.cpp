@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
-struct Obj021761c8 {
+struct Struct_ov000_021761c8 {
 #if defined(jpn)
-    char pad[0xf54];
+    char unknown1_0_[0xf54];
 #else
-    char pad[0xd1c];
+    char unknown_0_[0xd1c];
 #endif
-    int arr[8];
+    int unknown_d1c_[8];
 };
 
 // USA: func_ov000_021761c8
-extern "C" ARM int func_ov000_021761c8(char* base, int index) {
-    if (index < 0 || index >= 8) index = 0;
-    return ((struct Obj021761c8*)(base + 0x1000))->arr[index];
+extern "C" ARM int func_ov000_021761c8(char* arg0, int arg1) {
+    if (arg1 < 0 || arg1 >= 8) arg1 = 0;
+    return ((struct Struct_ov000_021761c8*)(arg0 + 0x1000))->unknown_d1c_[arg1];
 }

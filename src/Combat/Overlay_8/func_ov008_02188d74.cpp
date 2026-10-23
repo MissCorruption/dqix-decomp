@@ -12,95 +12,95 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct Container020e0310;
-struct Struct0205a198;
-struct ActiveEntry02046900;
-struct Rec020467f0;
+struct Struct_0201099c_3;
+struct Struct_02043368_2;
+struct Struct_02020cb8_4;
+struct Struct_02020aec;
 
-struct Sprite
+struct Struct_ov006_021580b8
 {
-    char unk_0[0x28];
+    char unknown_0_[0x28];
 };
 
-struct SpriteRenderer
+struct Struct_ov008_02188d74
 {
-    char unk_0[0x3c];
-    void* animations_;
-    Sprite* sprites_;
-    char unk_44[4];
-    unsigned int unk_48;
-    short numSprites_;
-    unsigned short capacity_;
-    unsigned char unk_50;
-    char unk_51[3];
+    char unknown_0_[0x3c];
+    void* unknown_3c_;
+    Struct_ov006_021580b8* unknown_40_;
+    char unknown_44_[4];
+    unsigned int unknown_48_;
+    short unknown_4c_;
+    unsigned short unknown_4e_;
+    unsigned char unknown_50_;
+    char unknown_51_[3];
 
-    void SetSprites(Sprite* sprites, short numSprites)
+    void inline_ov008_02188d74(Struct_ov006_021580b8* arg0, short arg1)
     {
-        sprites_ = sprites;
-        numSprites_ = numSprites;
+        unknown_40_ = arg0;
+        unknown_4c_ = arg1;
     }
 };
 
-extern "C" const char* func_020e0434(Container020e0310* texts, int id);
-extern "C" void func_0205a444(char* renderer);
-extern "C" void func_0205a198(Struct0205a198* sprite);
-extern "C" int func_02046900(ActiveEntry02046900* archive);
-extern "C" void* func_020467f0(Rec020467f0* archive, int index, void** name, int* size);
-extern "C" void func_0205a528(SpriteRenderer* renderer, void* file, unsigned int size, SafeAllocator* allocator);
+extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_0205a444(char* arg0);
+extern "C" void func_0205a198(Struct_02043368_2* arg0);
+extern "C" int func_02046900(Struct_02020cb8_4* arg0);
+extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
 
-struct BattleRecords
+struct Struct_ov008_021842a0_2
 {
-    char unk_0[0x50];
-    SafeAllocator iconAllocator_;
-    char unk_64[0xa0 - 0x50 - sizeof(SafeAllocator)];
-    char texts_[0x18];
-    char unk_b8[0x73c - 0xb8];
-    SpriteRenderer* iconRenderer_;
-    Sprite* iconSprite_;
-    char unk_744[0xb12 - 0x744];
-    unsigned char loadStep_;
-    char unk_b13[0xb20 - 0xb13];
-    int task_;
+    char unknown_0_[0x50];
+    SafeAllocator unknown_50_;
+    char unknown_64_[0xa0 - 0x50 - sizeof(SafeAllocator)];
+    char unknown_a0_[0x18];
+    char unknown_b8_[0x73c - 0xb8];
+    Struct_ov008_02188d74* unknown_73c_;
+    Struct_ov006_021580b8* unknown_740_;
+    char unknown_744_[0xb12 - 0x744];
+    unsigned char unknown_b12_;
+    char unknown_b13_[0xb20 - 0xb13];
+    int unknown_b20_;
 };
 
 // USA: func_ov008_02188d74
-extern "C" ARM int func_ov008_02188d74(BattleRecords* self)
+extern "C" ARM int func_ov008_02188d74(Struct_ov008_021842a0_2* arg0)
 {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    unsigned char step = self->loadStep_;
-    if (step == 0)
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    unsigned char var1 = arg0->unknown_b12_;
+    if (var1 == 0)
     {
-        self->iconRenderer_ = NULL;
-        self->iconSprite_ = NULL;
-        self->iconAllocator_.Reset();
-        self->iconRenderer_ = (SpriteRenderer*)self->iconAllocator_.Allocate(sizeof(SpriteRenderer));
-        self->iconSprite_ = (Sprite*)self->iconAllocator_.Allocate(sizeof(Sprite));
-        func_0205a444((char*)self->iconRenderer_);
-        self->iconRenderer_->unk_50 = 1;
-        SpriteRenderer* renderer = self->iconRenderer_;
-        renderer->SetSprites(self->iconSprite_, 1);
-        for (int i = 0; i < 1; i++)
-            func_0205a198((Struct0205a198*)&self->iconSprite_[i]);
-        self->task_ = loader->QueueLoadFile(func_020e0434((Container020e0310*)&self->texts_, LOW_REGION(4, 7)), NULL);
-        self->loadStep_++;
+        arg0->unknown_73c_ = NULL;
+        arg0->unknown_740_ = NULL;
+        arg0->unknown_50_.Reset();
+        arg0->unknown_73c_ = (Struct_ov008_02188d74*)arg0->unknown_50_.Allocate(sizeof(Struct_ov008_02188d74));
+        arg0->unknown_740_ = (Struct_ov006_021580b8*)arg0->unknown_50_.Allocate(sizeof(Struct_ov006_021580b8));
+        func_0205a444((char*)arg0->unknown_73c_);
+        arg0->unknown_73c_->unknown_50_ = 1;
+        Struct_ov008_02188d74* var2 = arg0->unknown_73c_;
+        var2->inline_ov008_02188d74(arg0->unknown_740_, 1);
+        for (int var3 = 0; var3 < 1; var3++)
+            func_0205a198((Struct_02043368_2*)&arg0->unknown_740_[var3]);
+        arg0->unknown_b20_ = var0->QueueLoadFile(func_020e0434((Struct_0201099c_3*)&arg0->unknown_a0_, LOW_REGION(4, 7)), NULL);
+        arg0->unknown_b12_++;
     }
-    if (step == 1 && loader->GetTaskStatus(self->task_))
+    if (var1 == 1 && var0->GetTaskStatus(arg0->unknown_b20_))
     {
-        char name[4];
-        void* archive;
-        unsigned int archiveSize;
-        loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
-        int count = func_02046900((ActiveEntry02046900*)archive);
-        for (int i = 0; i < count; i++)
+        char var4[4];
+        void* var5;
+        unsigned int var6;
+        var0->GetLoadedFileByID(arg0->unknown_b20_, &var5, &var6);
+        int var7 = func_02046900((Struct_02020cb8_4*)var5);
+        for (int var8 = 0; var8 < var7; var8++)
         {
-            unsigned int size;
-            void* file = func_020467f0((Rec020467f0*)archive, i, (void**)name, (int*)&size);
-            if (file != NULL)
-                func_0205a528(self->iconRenderer_, file, size, &self->iconAllocator_);
+            unsigned int var9;
+            void* var10 = func_020467f0((Struct_02020aec*)var5, var8, (void**)var4, (int*)&var9);
+            if (var10 != NULL)
+                func_0205a528(arg0->unknown_73c_, var10, var9, &arg0->unknown_50_);
         }
-        loader->RemoveTask(self->task_);
-        self->task_ = -1;
-        self->loadStep_ = 0;
+        var0->RemoveTask(arg0->unknown_b20_);
+        arg0->unknown_b20_ = -1;
+        arg0->unknown_b12_ = 0;
         return 1;
     }
     return 0;

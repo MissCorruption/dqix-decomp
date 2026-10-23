@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
 // USA: func_02067f5c
-extern "C" ARM void func_02067f5c(signed char* s, int count) {
-    if (s == NULL) {
+extern "C" ARM void func_02067f5c(signed char* arg0, int arg1) {
+    if (arg0 == NULL) {
         return;
     }
-    int i = 0;
-    while (i < count) {
-        int c = *s;
-        if (c == 0) {
+    int var0 = 0;
+    while (var0 < arg1) {
+        int var1 = *arg0;
+        if (var1 == 0) {
             return;
         }
-        if (c >= 0x61 && c <= 0x7a) {
-            c = c - 0x20;
+        if (var1 >= 0x61 && var1 <= 0x7a) {
+            var1 = var1 - 0x20;
         }
-        *s = (signed char)c;
-        s++;
-        i++;
+        *arg0 = (signed char)var1;
+        arg0++;
+        var0++;
     }
 }

@@ -1,100 +1,100 @@
 #if defined(jpn)
-enum { RegionOffset770c = 0x78fc };
+enum { Enum_ov025_021dee20_30476 = 0x78fc };
 #else
-enum { RegionOffset770c = 0x770c };
+enum { Enum_ov025_021dee20_30476 = 0x770c };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 
-struct ThreeShorts021ded84 {
-    unsigned short a;
-    unsigned short b;
-    unsigned short c;
+struct Struct_ov025_021ded50_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
 };
 
-struct Table_021deda0;
-struct Struct0215fef0;
+struct Struct_ov025_021ded50;
+struct Struct_ov000_0215fef0;
 
-extern "C" int func_ov025_021deda0(struct Table_021deda0* table, struct ThreeShorts021ded84* out);
-extern "C" void func_ov000_02160030(void* obj);
-extern "C" void func_ov000_0215fe64(void* p);
-extern "C" void func_ov000_0215fef0(struct Struct0215fef0* obj);
+extern "C" int func_ov025_021deda0(struct Struct_ov025_021ded50* arg0, struct Struct_ov025_021ded50_2* arg1);
+extern "C" void func_ov000_02160030(void* arg0);
+extern "C" void func_ov000_0215fe64(void* arg0);
+extern "C" void func_ov000_0215fef0(struct Struct_ov000_0215fef0* arg0);
 
-struct Record1_021dee20 {
-    unsigned short field0x0;
-    unsigned char pad1[0x8 - 0x2];
-    unsigned char flags0x8;
-    unsigned char flags0x9;
-    unsigned char pad2[0xb - 0xa];
-    unsigned char flags0xb;
-    unsigned char pad3[0x10 - 0xc];
-    void* sub0x10;
-    void* sub0x14;
-    unsigned short field0x18;
+struct Struct_ov025_021dee20_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[0x8 - 0x2];
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_[0xb - 0xa];
+    unsigned char unknown_b_;
+    unsigned char unknown_c_[0x10 - 0xc];
+    void* unknown_10_;
+    void* unknown_14_;
+    unsigned short unknown_18_;
 };
 
-struct Record2_021dee20 {
-    unsigned char pad0[0x20];
-    unsigned short field0x20;
-    unsigned short field0x22;
-    unsigned short field0x24;
-    unsigned char pad1[0x30 - 0x26];
-    int field0x30;
+struct Struct_ov025_021dee20_3 {
+    unsigned char unknown_0_[0x20];
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned short unknown_24_;
+    unsigned char unknown_26_[0x30 - 0x26];
+    int unknown_30_;
 };
 
-struct Record3_021dee20 {
-    unsigned char pad0[0xe];
-    unsigned short field0xe;
-    unsigned char pad1[0x20 - 0x10];
-    int field0x20;
+struct Struct_ov025_021dee20 {
+    unsigned char unknown_0_[0xe];
+    unsigned short unknown_e_;
+    unsigned char unknown_10_[0x20 - 0x10];
+    int unknown_20_;
 };
 
 // USA: func_ov025_021dee20
-extern "C" ARM void func_ov025_021dee20(void* obj) {
-    struct ThreeShorts021ded84 row;
-    if (!func_ov025_021deda0((struct Table_021deda0*)obj, &row)) {
+extern "C" ARM void func_ov025_021dee20(void* arg0) {
+    struct Struct_ov025_021ded50_2 var0;
+    if (!func_ov025_021deda0((struct Struct_ov025_021ded50*)arg0, &var0)) {
         return;
     }
 
-    SafeAllocator* alloc = (SafeAllocator*)((char*)obj + 0x30);
-    struct Record1_021dee20* rec = (struct Record1_021dee20*)alloc->Allocate(0x28);
-    if (!rec) {
+    SafeAllocator* var1 = (SafeAllocator*)((char*)arg0 + 0x30);
+    struct Struct_ov025_021dee20_2* var2 = (struct Struct_ov025_021dee20_2*)var1->Allocate(0x28);
+    if (!var2) {
         return;
     }
-    func_ov000_02160030(rec);
-    rec->field0x0 = row.b;
+    func_ov000_02160030(var2);
+    var2->unknown_0_ = var0.unknown_2_;
 
-    GameState* battleStruct = GameState::GetInstance();
-    GameObject* combatant = battleStruct->GetCombatantByIndex(row.a);
-    if (!combatant) {
+    GameState* var3 = GameState::GetInstance();
+    GameObject* var4 = var3->GetCombatantByIndex(var0.unknown_0_);
+    if (!var4) {
         return;
     }
 
-    rec->flags0x8 = 1;
-    rec->sub0x10 = alloc->Allocate(0x34);
-    void* rec2 = rec->sub0x10;
-    if (!rec2) {
+    var2->unknown_8_ = 1;
+    var2->unknown_10_ = var1->Allocate(0x34);
+    void* var5 = var2->unknown_10_;
+    if (!var5) {
         return;
     }
-    func_ov000_0215fe64(rec2);
-    ((struct Record2_021dee20*)rec2)->field0x30 = 0;
-    ((struct Record2_021dee20*)rec->sub0x10)->field0x20 = row.a;
-    ((struct Record2_021dee20*)rec->sub0x10)->field0x22 = combatant->currentStats_->primaryStats.currHP;
-    ((struct Record2_021dee20*)rec->sub0x10)->field0x24 = combatant->currentStats_->primaryStats.currMP;
-    rec->flags0x9 = 1;
+    func_ov000_0215fe64(var5);
+    ((struct Struct_ov025_021dee20_3*)var5)->unknown_30_ = 0;
+    ((struct Struct_ov025_021dee20_3*)var2->unknown_10_)->unknown_20_ = var0.unknown_0_;
+    ((struct Struct_ov025_021dee20_3*)var2->unknown_10_)->unknown_22_ = var4->currentStats_->primaryStats.currHP;
+    ((struct Struct_ov025_021dee20_3*)var2->unknown_10_)->unknown_24_ = var4->currentStats_->primaryStats.currMP;
+    var2->unknown_9_ = 1;
 
-    rec->sub0x14 = alloc->Allocate(0x24);
-    void* rec3 = rec->sub0x14;
-    if (!rec3) {
+    var2->unknown_14_ = var1->Allocate(0x24);
+    void* var6 = var2->unknown_14_;
+    if (!var6) {
         return;
     }
-    func_ov000_0215fef0((struct Struct0215fef0*)rec3);
-    ((struct Record3_021dee20*)rec3)->field0x20 = 0;
-    ((struct Record3_021dee20*)rec->sub0x14)->field0xe = row.a;
-    rec->field0x18 = row.c;
-    rec->flags0xb |= 4;
+    func_ov000_0215fef0((struct Struct_ov000_0215fef0*)var6);
+    ((struct Struct_ov025_021dee20*)var6)->unknown_20_ = 0;
+    ((struct Struct_ov025_021dee20*)var2->unknown_14_)->unknown_e_ = var0.unknown_0_;
+    var2->unknown_18_ = var0.unknown_4_;
+    var2->unknown_b_ |= 4;
 
-    *(void**)((char*)obj + RegionOffset770c) = rec;
+    *(void**)((char*)arg0 + Enum_ov025_021dee20_30476) = var2;
 }

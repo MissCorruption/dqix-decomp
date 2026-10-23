@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "Combat/MapDisplay.h"
 
-struct Struct0204a82c;
-extern "C" ARM void func_0204a82c(struct Struct0204a82c*);
+struct Struct_020421c4;
+extern "C" ARM void func_0204a82c(struct Struct_020421c4*);
 
 // USA: func_0204af64
-extern "C" ARM void func_0204af64(struct List0204af64* obj) {
-    func_0204a82c((struct Struct0204a82c*)obj);
-    obj->b0c = 0;
-    obj->h0e = 0xffff;
-    obj->w10 = 0;
-    obj->w14 = 0;
-    obj->w18 = 0;
-    obj->b1c_lo = 0;
-    obj->b1c_hi = 0;
-    obj->b1d = 0;
-    obj->b1e = 0;
-    obj->b1f = 0;
+extern "C" ARM void func_0204af64(struct Struct_02020cb8* arg0) {
+    func_0204a82c((struct Struct_020421c4*)arg0);
+    arg0->unknown_c_ = 0;
+    arg0->unknown_e_ = 0xffff;
+    arg0->unknown_10_ = 0;
+    arg0->unknown_14_ = 0;
+    arg0->unknown_18_ = 0;
+    arg0->unknown_1c_0_ = 0;
+    arg0->unknown_1c_4_ = 0;
+    arg0->unknown_1d_ = 0;
+    arg0->unknown_1e_ = 0;
+    arg0->unknown_1f_ = 0;
 }

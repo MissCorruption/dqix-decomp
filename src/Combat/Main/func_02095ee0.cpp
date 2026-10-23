@@ -2,65 +2,65 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Script.h"
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-struct ResetStruct;
+struct Struct_0201f040;
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
-struct DataStruct02109404_95ee0 {
-    char pad0;
-    unsigned char f1;
-    unsigned char f2;
-    char pad3[3];
-    unsigned short f6;
+struct Struct_02109404_8 {
+    char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    char unknown_3_[3];
+    unsigned short unknown_6_;
 };
-extern struct DataStruct02109404_95ee0 data_02109404;
+extern struct Struct_02109404_8 data_02109404;
 extern char data_020f13fc[];
 
-struct Ctx02095ee0 {
-    char pad0[0xa8];
-    int fieldA8;
-    char pad_ac[0x4c4 - 0xac];
-    int field4c4;
+struct Struct_02095ee0 {
+    char unknown_0_[0xa8];
+    int unknown_a8_;
+    char unknown_ac_[0x4c4 - 0xac];
+    int unknown_4c4_;
 };
 
 // USA: func_02095ee0
-extern "C" ARM int func_02095ee0(struct Ctx02095ee0* ctx) {
-    char local[0x430];
-    int id = (int)BackgroundLoader::GetInstance();
-    int out1, out2;
-    int i;
+extern "C" ARM int func_02095ee0(struct Struct_02095ee0* arg0) {
+    char var0[0x430];
+    int var1 = (int)BackgroundLoader::GetInstance();
+    int var2, var3;
+    int var4;
 
-    if (ctx->field4c4 < 0) {
+    if (arg0->unknown_4c4_ < 0) {
         return -1;
     }
 
-    if (((BackgroundLoader*)(id))->GetTaskStatus((int)(ctx->field4c4)) != 0) {
-        ((BackgroundLoader*)((struct List0202fec8*)id))->GetLoadedFileByID((int)(ctx->field4c4), (void**)(&out1), (unsigned int*)(&out2));
+    if (((BackgroundLoader*)(var1))->GetTaskStatus((int)(arg0->unknown_4c4_)) != 0) {
+        ((BackgroundLoader*)((struct Struct_020534ac*)var1))->GetLoadedFileByID((int)(arg0->unknown_4c4_), (void**)(&var2), (unsigned int*)(&var3));
 
-        data_02109404.f6 = 0;
-        data_02109404.f1 = 0;
+        data_02109404.unknown_6_ = 0;
+        data_02109404.unknown_1_ = 0;
 
-        if (ctx->fieldA8 == 0) {
-            ((BackgroundLoader*)(id))->RemoveTask((int)(ctx->field4c4));
-            ctx->field4c4 = -1;
+        if (arg0->unknown_a8_ == 0) {
+            ((BackgroundLoader*)(var1))->RemoveTask((int)(arg0->unknown_4c4_));
+            arg0->unknown_4c4_ = -1;
             return 2;
         }
 
-        ((Script*)((struct ResetStruct*)local))->Initialize();
-        ((Script*)local)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f13fc);
-        ((Script*)((struct StreamState*)local))->Load((struct StreamHeader*)out1, out2);
-        ((Script*)((struct Struct02030774*)local))->Execute();
-        ((BackgroundLoader*)(id))->RemoveTask((int)(ctx->field4c4));
-        ctx->field4c4 = -1;
+        ((Script*)((struct Struct_0201f040*)var0))->Initialize();
+        ((Script*)var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f13fc);
+        ((Script*)((struct Struct_0201f040_2*)var0))->Load((struct Struct_02013fb4*)var2, var3);
+        ((Script*)((struct Struct_0201f040_3*)var0))->Execute();
+        ((BackgroundLoader*)(var1))->RemoveTask((int)(arg0->unknown_4c4_));
+        arg0->unknown_4c4_ = -1;
 
-        for (i = 0; i < data_02109404.f6; i++) {}
+        for (var4 = 0; var4 < data_02109404.unknown_6_; var4++) {}
         return 1;
     }
 
-    return (((BackgroundLoader*)(id))->GetTaskStatus((int)(ctx->field4c4)) == -1) ? 2 : 0;
+    return (((BackgroundLoader*)(var1))->GetTaskStatus((int)(arg0->unknown_4c4_)) == -1) ? 2 : 0;
 }

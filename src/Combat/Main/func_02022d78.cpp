@@ -7,29 +7,29 @@
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
-extern "C" void func_02022bb0(void* obj);
+extern "C" void func_02022bb0(void* arg0);
 
-struct Obj02022d78 {
+struct Struct_02022d78 {
     #if defined(jpn)
-    char pad[0x915];
+    char unknown_0_[0x915];
 #else
-    char pad[0x9c1];
+    char unknown1_0_[0x9c1];
 #endif
-    unsigned char curValue;
-    unsigned char field9c2;
-    unsigned char activeFlag;
-    char pad2[0xa34 - 0x9c4];
-    unsigned char prevValue;
+    unsigned char unknown_9c1_;
+    unsigned char unknown_9c2_;
+    unsigned char unknown_9c3_;
+    char unknown_9c4_[0xa34 - 0x9c4];
+    unsigned char unknown_a34_;
 };
 
 // USA: func_02022d78
-extern "C" ARM void func_02022d78(struct Obj02022d78* obj, int newValue) {
-    if (obj->activeFlag != 0) {
+extern "C" ARM void func_02022d78(struct Struct_02022d78* arg0, int arg1) {
+    if (arg0->unknown_9c3_ != 0) {
         SetSubBrightness(GetGameResources(), -16, 0);
     }
-    func_02022bb0(obj);
-    obj->prevValue = obj->curValue;
-    obj->curValue = newValue;
-    obj->activeFlag = 1;
-    obj->field9c2 = 0;
+    func_02022bb0(arg0);
+    arg0->unknown_a34_ = arg0->unknown_9c1_;
+    arg0->unknown_9c1_ = arg1;
+    arg0->unknown_9c3_ = 1;
+    arg0->unknown_9c2_ = 0;
 }

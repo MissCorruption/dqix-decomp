@@ -4,115 +4,115 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { textOffset=0x28, textSize=0x800, width=12, height=7, xOffset=0x17, lineHeight=8 };
+enum { Enum_ov000_0217964c_92=0x28, Enum_ov000_0217964c_2400=0x800, Enum_ov000_0217964c_16=12, Enum_ov000_0217964c_8=7, Enum_ov000_0217964c_16_2=0x17, Enum_ov000_0217964c_5=8 };
 #else
-enum { textOffset=0x5c, textSize=0x960, width=16, height=8, xOffset=0x10, lineHeight=5 };
+enum { Enum_ov000_0217964c_92=0x5c, Enum_ov000_0217964c_2400=0x960, Enum_ov000_0217964c_16=16, Enum_ov000_0217964c_8=8, Enum_ov000_0217964c_16_2=0x10, Enum_ov000_0217964c_5=5 };
 #endif
-extern "C" void func_020dcfc8(int id, char* buf);
-struct GlobalText {
-    char pad0[textOffset];
-    char* textBuf;
+extern "C" void func_020dcfc8(int arg0, char* arg1);
+struct Struct_ov000_0217964c {
+    char unknown_0_[Enum_ov000_0217964c_92];
+    char* unknown_5c_;
 };
 
-struct ActionInfo {
-    char pad0[0x18];
-    short messageId;
+struct Struct_ov000_02171ffc_5 {
+    char unknown_0_[0x18];
+    short unknown_18_;
 };
 
-struct BattleActor {
-    char pad0[0x22];
-    signed char actionSlot;
-    char pad23[0x44 - 0x23];
-    int x;
-    int y;
-    int combatantId;
+struct Struct_ov000_0217964c_2 {
+    char unknown_0_[0x22];
+    signed char unknown_22_;
+    char unknown_23_[0x44 - 0x23];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 };
 
 struct Struct_0205d81c;
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 
-struct MessageWindow {
-    char pad0[0xa0];
-    short width;
-    short height;
-    short posX;
-    short posY;
-    short field_0xa8;
-    short field_0xaa;
-    short field_0xac;
-    short field_0xae;
-    char padB0;
-    unsigned char kind;
+struct Struct_ov000_0217964c_3 {
+    char unknown_0_[0xa0];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
 };
 
-struct BattleMenu {
-    char pad0[0x188];
-    struct MessageWindow window;
+struct Struct_ov000_02176e3c {
+    char unknown_0_[0x188];
+    struct Struct_ov000_0217964c_3 unknown_188_;
 };
 
-extern "C" GlobalText* func_020421a0();
-extern "C" void* func_02053c6c(unsigned char* obj);
-extern "C" ActionInfo* func_ov000_02171b9c(void* obj, int idx);
-extern "C" void func_02046608(GlobalText* g, int a, char* src, char* dst, int b, int c, int d);
-extern "C" void* func_0205d81c(struct Struct_0205d81c* s, int key);
+extern "C" Struct_ov000_0217964c* func_020421a0();
+extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
+extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
 #if defined(jpn)
 extern "C" void func_0205d304(void*, void*, int, int, int, int, int);
 #define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1)
 #define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0)
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #define APPLY_TEXT(s,k,t) func_0205d5d0(s,k,(int)t,1,0)
 #define DRAW_TEXT(s,t) func_0205d304(s,t,0,0,0,1,0,0)
 #endif
 
 // USA: func_ov000_0217964c
-extern "C" ARM void func_ov000_0217964c(BattleMenu* menu, BattleActor* actor) {
-    char* msg;
-    MessageWindow* window;
+extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov000_0217964c_2* arg1) {
+    char* var0;
+    Struct_ov000_0217964c_3* var1;
 #if !defined(jpn)
-    char buf[0x800];
+    char var2[0x800];
 #endif
-    if (actor == NULL) {
+    if (arg1 == NULL) {
         return;
     }
-    char* text = func_020421a0()->textBuf;
-    memset(text, 0, textSize);
-    GameObject* combatant = func_0200ff1c(GameState::GetInstance(), actor->combatantId);
-    if (combatant == NULL) {
+    char* var3 = func_020421a0()->unknown_5c_;
+    memset(var3, 0, Enum_ov000_0217964c_2400);
+    GameObject* var4 = func_0200ff1c(GameState::GetInstance(), arg1->unknown_4c_);
+    if (var4 == NULL) {
         return;
     }
-    func_02053c6c((unsigned char*)combatant);
-    ActionInfo* action = func_ov000_02171b9c(actor, actor->actionSlot);
-    if (action == NULL) {
+    func_02053c6c((unsigned char*)var4);
+    Struct_ov000_02171ffc_5* var5 = func_ov000_02171b9c(arg1, arg1->unknown_22_);
+    if (var5 == NULL) {
         return;
     }
-    if (action->messageId <= 0) {
+    if (var5->unknown_18_ <= 0) {
         return;
     }
-    func_020dcfc8(action->messageId, text);
+    func_020dcfc8(var5->unknown_18_, var3);
 #if !defined(jpn)
-    func_02046608(func_020421a0(), 0xa, text, buf, 0x72, 0, 0);
+    func_02046608(func_020421a0(), 0xa, var3, var2, 0x72, 0, 0);
 #endif
-    window = &menu->window;
+    var1 = &arg0->unknown_188_;
 #if defined(jpn)
-    msg = text;
+    var0 = var3;
 #else
-    msg = buf;
+    var0 = var2;
 #endif
-    if (func_0205d81c((struct Struct_0205d81c*)window, 0x24) != NULL) {
-        APPLY_TEXT((struct StructA0205d5d0*)window, 0x24, msg);
+    if (func_0205d81c((struct Struct_0205d81c*)var1, 0x24) != NULL) {
+        APPLY_TEXT((struct Struct_0205d5d0*)var1, 0x24, var0);
     } else {
-        int x = actor->x;
-        int y = actor->y;
-        window->width = width;
-        window->height = height;
-        window->posX = (x >> 3) + xOffset;
-        window->posY = y >> 3;
-        window->field_0xa8 = 7;
-        window->field_0xaa = lineHeight;
-        window->field_0xac = 0xa;
-        window->field_0xae = 0xe;
-        window->kind = 0x24;
-        DRAW_TEXT(window, msg);
+        int var6 = arg1->unknown_44_;
+        int var7 = arg1->unknown_48_;
+        var1->unknown_a0_ = Enum_ov000_0217964c_16;
+        var1->unknown_a2_ = Enum_ov000_0217964c_8;
+        var1->unknown_a4_ = (var6 >> 3) + Enum_ov000_0217964c_16_2;
+        var1->unknown_a6_ = var7 >> 3;
+        var1->unknown_a8_ = 7;
+        var1->unknown_aa_ = Enum_ov000_0217964c_5;
+        var1->unknown_ac_ = 0xa;
+        var1->unknown_ae_ = 0xe;
+        var1->unknown_b1_ = 0x24;
+        DRAW_TEXT(var1, var0);
     }
 }

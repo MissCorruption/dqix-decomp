@@ -1,53 +1,53 @@
 #include <globaldefs.h>
 
-struct Block020473c8 {
-    char pad[8];
-    int val;
+struct Struct_020473c8_2 {
+    char unknown_0_[8];
+    int unknown_8_;
 };
 
-struct ArrEntry020473c8 {
-    int unused0;
-    struct Block020473c8* field4;
+struct Struct_020473c8_3 {
+    int unknown_0_;
+    struct Struct_020473c8_2* unknown_4_;
 };
 
-struct Flags020473c8 {
-    unsigned char flag0 : 1;
-    unsigned char flag1 : 1;
-    unsigned char rest : 6;
+struct Struct_020473c8 {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 1;
+    unsigned char unknown_0_2_ : 6;
 };
 
-struct StructAt020473c8 {
-    char pad0[0xc];
-    struct ArrEntry020473c8* arrayPtr; // 0xc
-    char pad1[0x70 - 0xc - 4];
-    int idx70; // 0x70
-    int idx74; // 0x74
-    char pad2[0x82 - 0x78];
-    short field82; // 0x82
-    struct Flags020473c8 field84; // 0x84
+struct Struct_02015ef4_2 {
+    char unknown_0_[0xc];
+    struct Struct_020473c8_3* unknown_c_; // 0xc
+    char unknown_10_[0x70 - 0xc - 4];
+    int unknown_70_; // 0x70
+    int unknown_74_; // 0x74
+    char unknown_78_[0x82 - 0x78];
+    short unknown_82_; // 0x82
+    struct Struct_020473c8 unknown_84_; // 0x84
 };
 
-extern "C" void func_02047554(struct StructAt020473c8* obj, int val, int param1);
+extern "C" void func_02047554(struct Struct_02015ef4_2* arg0, int arg1, int arg2);
 
 // USA: func_020473c8
-extern "C" ARM void func_020473c8(struct StructAt020473c8* obj, int param1) {
-    struct ArrEntry020473c8* entry;
-    struct Block020473c8* block;
-    if (!obj->field84.flag0) {
+extern "C" ARM void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1) {
+    struct Struct_020473c8_3* var0;
+    struct Struct_020473c8_2* var1;
+    if (!arg0->unknown_84_.unknown_0_0_) {
         return;
     }
-    if (!obj->field84.flag1) {
+    if (!arg0->unknown_84_.unknown_0_1_) {
         return;
     }
-    if (obj->field82 <= 0) {
+    if (arg0->unknown_82_ <= 0) {
         return;
     }
-    if (obj->arrayPtr == NULL) {
+    if (arg0->unknown_c_ == NULL) {
         return;
     }
-    entry = &obj->arrayPtr[obj->idx74];
-    block = &entry->field4[obj->idx70];
+    var0 = &arg0->unknown_c_[arg0->unknown_74_];
+    var1 = &var0->unknown_4_[arg0->unknown_70_];
     *(int*)0x4000444 = 0;
-    func_02047554(obj, block->val, param1);
+    func_02047554(arg0, var1->unknown_8_, arg1);
     *(int*)0x4000448 = 1;
 }

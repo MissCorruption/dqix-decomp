@@ -3,51 +3,51 @@
 #include "Resource/Brightness.h"
 
 extern "C" void* func_02012fe4(void);
-struct ListNode0x2037a50;
-extern "C" int _ZN8Object3D4DrawEb(void* obj, int flag);
-struct Bits40_37464;
+struct Struct_ov017_021973e8;
+extern "C" int _ZN8Object3D4DrawEb(void* arg0, int arg1);
+struct Struct_020243b8;
 
-struct Vec3_37774 { int a[3]; };
-struct Src_37774;
-extern "C" void _ZNK8Object3D20MaybeGetShadowSourceEv(struct Vec3_37774* dst, struct Src_37774* src);
-extern "C" void func_0208f87c(const void* self, int b, int c, int d, int polygonId);
+struct Struct_ov017_021973e8_2 { int unknown_0_[3]; };
+struct Struct_ov017_021973e8_3;
+extern "C" void _ZNK8Object3D20MaybeGetShadowSourceEv(struct Struct_ov017_021973e8_2* arg0, struct Struct_ov017_021973e8_3* arg1);
+extern "C" void func_0208f87c(const void* arg0, int arg1, int arg2, int arg3, int arg4);
 
 #if defined(jpn)
-enum { RegionOffset38 = 0x58, RegionOffset3c = 0x5c };
+enum { Enum_ov017_021973e8_56 = 0x58, Enum_ov017_021973e8_60 = 0x5c };
 #else
-enum { RegionOffset38 = 0x38, RegionOffset3c = 0x3c };
+enum { Enum_ov017_021973e8_56 = 0x38, Enum_ov017_021973e8_60 = 0x3c };
 #endif
 
 // USA: func_ov017_021973e8
-extern "C" ARM void func_ov017_021973e8(unsigned int* flagsObj) {
-    GameState* bs = GameState::GetInstance();
-    void* ctx = func_02012fe4();
-    unsigned short field38 = *(unsigned short*)((char*)ctx + RegionOffset38);
-    unsigned int field3c = *(unsigned int*)((char*)ctx + RegionOffset3c);
+extern "C" ARM void func_ov017_021973e8(unsigned int* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02012fe4();
+    unsigned short var2 = *(unsigned short*)((char*)var1 + Enum_ov017_021973e8_56);
+    unsigned int var3 = *(unsigned int*)((char*)var1 + Enum_ov017_021973e8_60);
 
-    if (TestFlags04((GameResources*)flagsObj, 0x100) != 0) return;
+    if (TestFlags04((GameResources*)arg0, 0x100) != 0) return;
 
-    int flag9 = 1;
-    if (TestFlags04((GameResources*)flagsObj, 0x1000) != 0) {
-        flag9 = 0;
+    int var4 = 1;
+    if (TestFlags04((GameResources*)arg0, 0x1000) != 0) {
+        var4 = 0;
     }
 
-    int id;
-    for (id = 0xa0; id < 0xc0; id++) {
-        GameObject* c = bs->GetGameObjectByIndex(id);
-        if (!c) continue;
-        if (((Object3D*)((struct ListNode0x2037a50*)c))->IsChild()) continue;
-        if (c->obj3D_.GetFlag(0x40000000) != 0) continue;
-        ((Object3D*)((unsigned char*)c))->EnableFlag(4);
-        if (!_ZN8Object3D4DrawEb(c, flag9)) continue;
-        if (c->obj3D_.GetFlag(0x10) != 0) continue;
+    int var5;
+    for (var5 = 0xa0; var5 < 0xc0; var5++) {
+        GameObject* var6 = var0->GetGameObjectByIndex(var5);
+        if (!var6) continue;
+        if (((Object3D*)((struct Struct_ov017_021973e8*)var6))->IsChild()) continue;
+        if (var6->obj3D_.GetFlag(0x40000000) != 0) continue;
+        ((Object3D*)((unsigned char*)var6))->EnableFlag(4);
+        if (!_ZN8Object3D4DrawEb(var6, var4)) continue;
+        if (var6->obj3D_.GetFlag(0x10) != 0) continue;
 
-        int bits = ((Object3D*)((struct Bits40_37464*)c))->GetInheritedAlpha();
-        int computed = (int)((float)field3c / 31.0f * (float)bits);
+        int var7 = ((Object3D*)((struct Struct_020243b8*)var6))->GetInheritedAlpha();
+        int var8 = (int)((float)var3 / 31.0f * (float)var7);
 
-        struct Vec3_37774 vec;
-        _ZNK8Object3D20MaybeGetShadowSourceEv(&vec, (struct Src_37774*)c);
-        int intAt64 = ((Object3D*)((unsigned char*)c))->GetRadius();
-        func_0208f87c(&vec, field38, intAt64, computed, 8);
+        struct Struct_ov017_021973e8_2 var9;
+        _ZNK8Object3D20MaybeGetShadowSourceEv(&var9, (struct Struct_ov017_021973e8_3*)var6);
+        int var10 = ((Object3D*)((unsigned char*)var6))->GetRadius();
+        func_0208f87c(&var9, var2, var10, var8, 8);
     }
 }

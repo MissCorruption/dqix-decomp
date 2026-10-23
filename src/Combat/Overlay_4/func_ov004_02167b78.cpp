@@ -6,102 +6,102 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" void func_ov004_0216794c(short* p1, short* p2, short* p3, char* p4, int* p5);
+extern "C" void func_ov004_0216794c(short* arg0, short* arg1, short* arg2, char* arg3, int* arg4);
 extern "C" int func_020421a0(void);
-extern "C" void func_02046380(void* g);
-struct Obj02046574;
-extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
+extern "C" void func_02046380(void* arg0);
+struct Struct_02046574_2;
+extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
 #if defined(jpn)
-struct Container020dedd0;
-struct Element020de650;
-extern "C" Element020de650* func_020dedd0(Container020dedd0*, int);
-extern "C" Container020dedd0* func_ov004_02167908(void* a1, int b);
+struct Struct_0201099c_10;
+struct Struct_0201099c_9;
+extern "C" Struct_0201099c_9* func_020dedd0(Struct_0201099c_10*, int);
+extern "C" Struct_0201099c_10* func_ov004_02167908(void* arg0, int arg1);
 #else
-extern "C" int func_ov004_02167908(void* a1, int b);
+extern "C" int func_ov004_02167908(void* arg0, int arg1);
 #endif
-struct StoreStruct;
-extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
-extern "C" void* func_020e46c4(void* p);
-extern "C" void func_020dcf7c(int count, void* buf);
+struct Struct_020465c0;
+extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void* func_020e46c4(void* arg0);
+extern "C" void func_020dcf7c(int arg0, void* arg1);
 
-struct A2Struct02167b78 {
-    short f0;
-    short f2;
+struct Struct_ov004_02170010_2 {
+    short unknown_0_;
+    short unknown_2_;
 };
-extern struct A2Struct02167b78 data_ov004_02170010[];
+extern struct Struct_ov004_02170010_2 data_ov004_02170010[];
 
-struct Sub24_02167b78 {
-    void* a;
-    void* b;
-    unsigned int unknown8;
+struct Struct_ov004_02167b78 {
+    void* unknown_0_;
+    void* unknown_4_;
+    unsigned int unknown_8_;
 };
-struct Handle24_02167b78 {
-    void* bufA;
-    struct Sub24_02167b78* sub;
-    void* bufB;
+struct Struct_ov004_02171024 {
+    void* unknown_0_;
+    struct Struct_ov004_02167b78* unknown_4_;
+    void* unknown_8_;
 };
-extern struct Handle24_02167b78 data_ov004_02171024;
+extern struct Struct_ov004_02171024 data_ov004_02171024;
 
-struct Local78 {
-    char reached;
-    short threshold;
-    short matches;
-    short current;
-    int thresholdIndex;
+struct Struct_ov004_02167b78_2 {
+    char unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    short unknown_6_;
+    int unknown_8_;
 };
 
 // USA: func_ov004_02167b78
-extern "C" ARM int func_ov004_02167b78(void* a1, struct A2Struct02167b78* a2) {
-    struct Local78 local;
-    func_ov004_0216794c(&local.current, &local.matches, &local.threshold, &local.reached, &local.thresholdIndex);
+extern "C" ARM int func_ov004_02167b78(void* arg0, struct Struct_ov004_02170010_2* arg1) {
+    struct Struct_ov004_02167b78_2 var0;
+    func_ov004_0216794c(&var0.unknown_6_, &var0.unknown_4_, &var0.unknown_2_, &var0.unknown_0_, &var0.unknown_8_);
 
-    int sum = (short)(local.current + local.matches);
-    if (sum > 0x50) sum = 0x50;
+    int var1 = (short)(var0.unknown_6_ + var0.unknown_4_);
+    if (var1 > 0x50) var1 = 0x50;
 
-    void* g = (void*)func_020421a0();
-    func_02046380(g);
+    void* var2 = (void*)func_020421a0();
+    func_02046380(var2);
 
-    GameObject* c = GameState::GetInstance()->GetUnknownGameObject();
-    if (c != 0) {
-        func_02046574((struct Obj02046574*)g, 0, c->baseStats_->unk);
+    GameObject* var3 = GameState::GetInstance()->GetUnknownGameObject();
+    if (var3 != 0) {
+        func_02046574((struct Struct_02046574_2*)var2, 0, var3->baseStats_->unk);
     }
 
 #if defined(jpn)
-    Container020dedd0* haveX = func_ov004_02167908(a1, 5);
+    Struct_0201099c_10* var4 = func_ov004_02167908(arg0, 5);
 #else
-    int haveX = func_ov004_02167908(a1, 5);
+    int var4 = func_ov004_02167908(arg0, 5);
 #endif
 
-    func_020465c0((struct StoreStruct*)g, 0, local.current);
-    func_020465c0((struct StoreStruct*)g, 1, local.matches);
-    func_020465c0((struct StoreStruct*)g, 2, local.threshold);
-    func_020465c0((struct StoreStruct*)g, 3, sum);
+    func_020465c0((struct Struct_020465c0*)var2, 0, var0.unknown_6_);
+    func_020465c0((struct Struct_020465c0*)var2, 1, var0.unknown_4_);
+    func_020465c0((struct Struct_020465c0*)var2, 2, var0.unknown_2_);
+    func_020465c0((struct Struct_020465c0*)var2, 3, var1);
 
-    if (haveX != 0) {
-        if (a2 == 0) {
-            int idx = local.thresholdIndex;
-            if (idx >= 0) {
-                a2 = &data_ov004_02170010[idx];
+    if (var4 != 0) {
+        if (arg1 == 0) {
+            int var5 = var0.unknown_8_;
+            if (var5 >= 0) {
+                arg1 = &data_ov004_02170010[var5];
             }
         }
-        if (a2 != 0) {
+        if (arg1 != 0) {
 #if defined(jpn)
-            Element020de650* entry = func_020dedd0(haveX, a2->f2);
-            if (entry != 0) {
-                func_02046574((struct Obj02046574*)g, 1, *(char**)((char*)entry + 4));
+            Struct_0201099c_9* var6 = func_020dedd0(var4, arg1->unknown_2_);
+            if (var6 != 0) {
+                func_02046574((struct Struct_02046574_2*)var2, 1, *(char**)((char*)var6 + 4));
             }
 #else
-            if (data_ov004_02171024.sub != 0 && data_ov004_02171024.bufA != 0 && data_ov004_02171024.bufB != 0) {
-                func_020e46c4(data_ov004_02171024.sub);
-                data_ov004_02171024.sub->a = data_ov004_02171024.bufA;
-                data_ov004_02171024.sub->b = data_ov004_02171024.bufB;
-                memset(data_ov004_02171024.bufA, 0, 0x80);
-                memset(data_ov004_02171024.bufB, 0, 0x80);
+            if (data_ov004_02171024.unknown_4_ != 0 && data_ov004_02171024.unknown_0_ != 0 && data_ov004_02171024.unknown_8_ != 0) {
+                func_020e46c4(data_ov004_02171024.unknown_4_);
+                data_ov004_02171024.unknown_4_->unknown_0_ = data_ov004_02171024.unknown_0_;
+                data_ov004_02171024.unknown_4_->unknown_4_ = data_ov004_02171024.unknown_8_;
+                memset(data_ov004_02171024.unknown_0_, 0, 0x80);
+                memset(data_ov004_02171024.unknown_8_, 0, 0x80);
             }
-            func_020dcf7c(a2->f2, data_ov004_02171024.sub);
-            *(void**)((char*)g + 0x18) = data_ov004_02171024.sub;
+            func_020dcf7c(arg1->unknown_2_, data_ov004_02171024.unknown_4_);
+            *(void**)((char*)var2 + 0x18) = data_ov004_02171024.unknown_4_;
 #endif
-            func_020465c0((struct StoreStruct*)g, 2, a2->f0);
+            func_020465c0((struct Struct_020465c0*)var2, 2, arg1->unknown_0_);
         }
     }
     return 0;

@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Sub0x150_020685cc {
-    char pad[0x49c];
-    unsigned char bit0 : 1;
+struct Struct_020685cc {
+    char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
 };
 
 // USA: func_020685cc
-extern "C" ARM int func_020685cc(GameState* battleStruct) {
-    GameObject* combatant = battleStruct->GetUnknownGameObject();
-    if (combatant != 0) {
-        struct Sub0x150_020685cc* sub = *(struct Sub0x150_020685cc**)((char*)combatant + 0x150);
-        return sub->bit0;
+extern "C" ARM int func_020685cc(GameState* arg0) {
+    GameObject* var0 = arg0->GetUnknownGameObject();
+    if (var0 != 0) {
+        struct Struct_020685cc* var1 = *(struct Struct_020685cc**)((char*)var0 + 0x150);
+        return var1->unknown_49c_0_;
     }
     return 0;
 }

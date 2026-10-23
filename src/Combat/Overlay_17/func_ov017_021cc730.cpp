@@ -1,53 +1,53 @@
 #if defined(jpn)
-enum { RegionOffset950 = 0x8b8 };
+enum { Enum_ov017_021cc730_2384 = 0x8b8 };
 #else
-enum { RegionOffset950 = 0x950 };
+enum { Enum_ov017_021cc730_2384 = 0x950 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-struct LocalEvt021cc730 {
-    unsigned char tag;
-    unsigned char pad0[3];
-    unsigned short idLow3:3;
-    unsigned short byteVal:8;
-    unsigned short idxLow4:4;
-    unsigned short flagBit:1;
-    unsigned short field6;
-    unsigned int field8;
-    unsigned char fieldc;
-    unsigned char fieldd;
-    unsigned char fielde;
-    unsigned char pad2[4];
+struct Struct_ov017_021cc730 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    unsigned short unknown_4_0_:3;
+    unsigned short unknown_4_3_:8;
+    unsigned short unknown_5_3_:4;
+    unsigned short unknown_5_7_:1;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_[4];
 };
 
 // USA: func_ov017_021cc730
-extern "C" ARM void func_ov017_021cc730(int id, unsigned char arg1, unsigned char arg2, unsigned char arg3) {
-    GameState* bs = GameState::GetInstance();
-    GameObject* combatant = func_0200ff1c(bs, id);
-    if (combatant == 0) return;
-    int field150 = func_02053c6c((unsigned char*)combatant);
-    if (field150 == 0) return;
+extern "C" ARM void func_ov017_021cc730(int arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = func_0200ff1c(var0, arg0);
+    if (var1 == 0) return;
+    int var2 = func_02053c6c((unsigned char*)var1);
+    if (var2 == 0) return;
 
-    void* p = func_0202ae24();
-    LocalEvt021cc730 buf;
-    int idx = *(int*)((char*)field150 + RegionOffset950);
+    void* var3 = func_0202ae24();
+    Struct_ov017_021cc730 var4;
+    int var5 = *(int*)((char*)var2 + Enum_ov017_021cc730_2384);
 
-    buf.tag = 0xa;
-    buf.idLow3 = (unsigned short)id;
-    buf.byteVal = *(unsigned short*)((char*)field150 + idx * 2 + 0x16c);
-    buf.idxLow4 = (unsigned short)*(int*)((char*)field150 + RegionOffset950);
-    buf.field8 = *(unsigned int*)((char*)field150 + idx * 4 + 0x138);
-    buf.field6 = *(unsigned short*)((char*)field150 + 0x564);
-    buf.fieldc = *(unsigned char*)((char*)field150 + idx + 0x186);
-    buf.flagBit = (unsigned short)arg1;
-    buf.fieldd = arg2;
-    buf.fielde = arg3;
+    var4.unknown_0_ = 0xa;
+    var4.unknown_4_0_ = (unsigned short)arg0;
+    var4.unknown_4_3_ = *(unsigned short*)((char*)var2 + var5 * 2 + 0x16c);
+    var4.unknown_5_3_ = (unsigned short)*(int*)((char*)var2 + Enum_ov017_021cc730_2384);
+    var4.unknown_8_ = *(unsigned int*)((char*)var2 + var5 * 4 + 0x138);
+    var4.unknown_6_ = *(unsigned short*)((char*)var2 + 0x564);
+    var4.unknown_c_ = *(unsigned char*)((char*)var2 + var5 + 0x186);
+    var4.unknown_5_7_ = (unsigned short)arg1;
+    var4.unknown_d_ = arg2;
+    var4.unknown_e_ = arg3;
 
-    func_0205e330(p, &buf, 0);
+    func_0205e330(var3, &var4, 0);
 }

@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" void func_02083e28(void* a, int arg2);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" void func_02083e28(void* arg0, int arg1);
 
-struct BitTriple10 {
-    unsigned int f0 : 10;
-    unsigned int f1 : 10;
-    unsigned int f2 : 10;
+struct Struct_02084a64 {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 10;
+    unsigned int unknown_2_4_ : 10;
     unsigned int : 2;
 };
 
-struct Last_ce8ac {
-    unsigned int f0 : 10;
-    unsigned int id : 3;
-    unsigned int rest : 19;
+struct Struct_ov017_021ce8ac {
+    unsigned int unknown_0_0_ : 10;
+    unsigned int unknown_1_2_ : 3;
+    unsigned int unknown_1_5_ : 19;
 };
 
-struct Src021ce8ac {
-    char pad[4];
-    BitTriple10 w0;
-    BitTriple10 w1;
-    BitTriple10 w2;
-    Last_ce8ac w3;
+struct Struct_ov017_021ce8ac_2 {
+    char unknown_0_[4];
+    Struct_02084a64 unknown_4_;
+    Struct_02084a64 unknown_8_;
+    Struct_02084a64 unknown_c_;
+    Struct_ov017_021ce8ac unknown_10_;
 };
 
 // USA: func_ov017_021ce8ac
-extern "C" ARM void func_ov017_021ce8ac(int unused0, Src021ce8ac* src, GameState* battleStruct) {
-    GameObject* c = func_0200ff1c(battleStruct, src->w3.id);
-    if (!c) return;
-    unsigned char* p = (unsigned char*)func_02053c6c((unsigned char*)c);
-    if (!p) return;
+extern "C" ARM void func_ov017_021ce8ac(int arg0, Struct_ov017_021ce8ac_2* arg1, GameState* arg2) {
+    GameObject* var0 = func_0200ff1c(arg2, arg1->unknown_10_.unknown_1_2_);
+    if (!var0) return;
+    unsigned char* var1 = (unsigned char*)func_02053c6c((unsigned char*)var0);
+    if (!var1) return;
 #if defined(jpn)
-    BitTriple10* stats = (BitTriple10*)(p + 0x884);
+    Struct_02084a64* var2 = (Struct_02084a64*)(var1 + 0x884);
 #else
-    BitTriple10* stats = (BitTriple10*)(p + 0x91c);
+    Struct_02084a64* var2 = (Struct_02084a64*)(var1 + 0x91c);
 #endif
-    stats[0].f0 = src->w0.f0;
-    stats[0].f1 = src->w0.f1;
-    stats[0].f2 = src->w0.f2;
-    stats[1].f0 = src->w1.f0;
-    stats[1].f1 = src->w1.f1;
-    stats[1].f2 = src->w1.f2;
-    stats[2].f0 = src->w2.f0;
-    stats[2].f1 = src->w2.f1;
-    stats[2].f2 = src->w2.f2;
-    stats[3].f0 = src->w3.f0;
-    func_02083e28(p, 0);
+    var2[0].unknown_0_0_ = arg1->unknown_4_.unknown_0_0_;
+    var2[0].unknown_1_2_ = arg1->unknown_4_.unknown_1_2_;
+    var2[0].unknown_2_4_ = arg1->unknown_4_.unknown_2_4_;
+    var2[1].unknown_0_0_ = arg1->unknown_8_.unknown_0_0_;
+    var2[1].unknown_1_2_ = arg1->unknown_8_.unknown_1_2_;
+    var2[1].unknown_2_4_ = arg1->unknown_8_.unknown_2_4_;
+    var2[2].unknown_0_0_ = arg1->unknown_c_.unknown_0_0_;
+    var2[2].unknown_1_2_ = arg1->unknown_c_.unknown_1_2_;
+    var2[2].unknown_2_4_ = arg1->unknown_c_.unknown_2_4_;
+    var2[3].unknown_0_0_ = arg1->unknown_10_.unknown_0_0_;
+    func_02083e28(var1, 0);
 }

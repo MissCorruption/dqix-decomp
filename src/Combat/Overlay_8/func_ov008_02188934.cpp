@@ -1,57 +1,57 @@
 #include <globaldefs.h>
 
-struct Sprite
+struct Struct_ov006_021580b8
 {
-    char unk_0[0x14];
-    int x_;
-    int y_;
-    char unk_1c[0x28 - 0x1c];
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[0x28 - 0x1c];
 };
 
-struct SpriteRenderer;
+struct Struct_ov008_02188d74;
 
-extern "C" void func_0205af84(int renderer, void* sprite, int);
-extern "C" void func_0205ac40(SpriteRenderer* renderer, Sprite* sprite);
+extern "C" void func_0205af84(int arg0, void* arg1, int);
+extern "C" void func_0205ac40(Struct_ov008_02188d74* arg0, Struct_ov006_021580b8* arg1);
 
 extern const signed char data_ov008_0218b300[2];
 extern const unsigned char data_ov008_0218b30c[4][2];
 extern const int data_ov008_0218b314[2];
 
-struct BattleRecords
+struct Struct_ov008_021842a0_2
 {
-    char unk_0[0x730];
-    SpriteRenderer* renderer_;
-    Sprite* sprites_;
-    char unk_738[0x74c - 0x738];
-    unsigned char itemCount_;
-    char unk_74d[0xb18 - 0x74d];
-    int flags_;
-    char unk_b1c[0xb29 - 0xb1c];
-    unsigned char top_;
+    char unknown_0_[0x730];
+    Struct_ov008_02188d74* unknown_730_;
+    Struct_ov006_021580b8* unknown_734_;
+    char unknown_738_[0x74c - 0x738];
+    unsigned char unknown_74c_;
+    char unknown_74d_[0xb18 - 0x74d];
+    int unknown_b18_;
+    char unknown_b1c_[0xb29 - 0xb1c];
+    unsigned char unknown_b29_;
 };
 
 // USA: func_ov008_02188934
-extern "C" ARM void func_ov008_02188934(BattleRecords* self)
+extern "C" ARM void func_ov008_02188934(Struct_ov008_021842a0_2* arg0)
 {
-    if (self->renderer_ == NULL)
+    if (arg0->unknown_730_ == NULL)
         return;
-    int flags = self->flags_;
-    if (!(flags & 0x10))
+    int var0 = arg0->unknown_b18_;
+    if (!(var0 & 0x10))
         return;
-    if (!(flags & 0x80000))
+    if (!(var0 & 0x80000))
         return;
-    for (int i = 0; i < 2; i++)
+    for (int var1 = 0; var1 < 2; var1++)
     {
-        unsigned char top = self->top_;
-        if (self->itemCount_ == 7 && top == 1)
-            top = 2;
-        if (data_ov008_0218b30c[top][i])
+        unsigned char var2 = arg0->unknown_b29_;
+        if (arg0->unknown_74c_ == 7 && var2 == 1)
+            var2 = 2;
+        if (data_ov008_0218b30c[var2][var1])
         {
-            Sprite* sprite = &self->sprites_[data_ov008_0218b300[i]];
-            sprite->x_ = 0x46000;
-            sprite->y_ = data_ov008_0218b314[i];
-            func_0205af84((int)self->renderer_, &self->sprites_[data_ov008_0218b300[i]], 1);
-            func_0205ac40(self->renderer_, &self->sprites_[data_ov008_0218b300[i]]);
+            Struct_ov006_021580b8* var3 = &arg0->unknown_734_[data_ov008_0218b300[var1]];
+            var3->unknown_14_ = 0x46000;
+            var3->unknown_18_ = data_ov008_0218b314[var1];
+            func_0205af84((int)arg0->unknown_730_, &arg0->unknown_734_[data_ov008_0218b300[var1]], 1);
+            func_0205ac40(arg0->unknown_730_, &arg0->unknown_734_[data_ov008_0218b300[var1]]);
         }
     }
 }

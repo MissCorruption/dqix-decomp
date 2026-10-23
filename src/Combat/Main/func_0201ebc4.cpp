@@ -2,25 +2,25 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
+struct Struct_0201c1c8;
 
-struct Node0201ebc4 {
-    void* buf;
-    int f4;
-    int count;
+struct Struct_0201ebc4 {
+    void* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
-struct Container0201ebc4 {
-    int f0;
-    SafeAllocator* alloc;
-    Node0201ebc4* node;
+struct Struct_020fdc40 {
+    int unknown_0_;
+    SafeAllocator* unknown_4_;
+    Struct_0201ebc4* unknown_8_;
 };
-extern Container0201ebc4 data_020fdc40;
+extern Struct_020fdc40 data_020fdc40;
 
 // USA: func_0201ebc4
-extern "C" ARM int func_0201ebc4(Variant02030b0c* p) {
-    int count = ((Script::Parameter*)p)->ToInt();
-    Node0201ebc4* node = data_020fdc40.node;
-    node->buf = data_020fdc40.alloc->Allocate(count * 0xc);
-    node->count = count;
+extern "C" ARM int func_0201ebc4(Struct_0201c1c8* arg0) {
+    int var0 = ((Script::Parameter*)arg0)->ToInt();
+    Struct_0201ebc4* var1 = data_020fdc40.unknown_8_;
+    var1->unknown_0_ = data_020fdc40.unknown_4_->Allocate(var0 * 0xc);
+    var1->unknown_8_ = var0;
     return 1;
 }

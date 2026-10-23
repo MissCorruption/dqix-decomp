@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Obj020bc084 {
-    int field0;
+struct Struct_020bc084 {
+    int unknown_0_;
 };
 
-static inline bool HasObj(struct Obj020bc084* const* slot) {
-    return *slot != NULL;
+static inline bool inline_020bc084(struct Struct_020bc084* const* arg0) {
+    return *arg0 != NULL;
 }
 
 // USA: func_020bc084
-extern "C" ARM void func_020bc084(struct Obj020bc084** slot) {
-    if (!HasObj(slot)) {
+extern "C" ARM void func_020bc084(struct Struct_020bc084** arg0) {
+    if (!inline_020bc084(arg0)) {
         return;
     }
-    (*slot)->field0 = 0;
-    *slot = NULL;
+    (*arg0)->unknown_0_ = 0;
+    *arg0 = NULL;
 }

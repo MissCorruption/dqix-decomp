@@ -1,64 +1,64 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kOffset1010 = 0xf8c };
-enum { kOffset1014 = 0xf90 };
-enum { kOffset1016 = 0xf92 };
-enum { kOffset101c = 0xf98 };
-enum { kOffset1030 = 0xfac };
-enum { kOffset1043 = 0xfbf };
-enum { kOffset89c = 0x818 };
+enum { Enum_ov003_02179e44_4112 = 0xf8c };
+enum { Enum_ov003_02179e44_4116 = 0xf90 };
+enum { Enum_ov003_02179e44_4118 = 0xf92 };
+enum { Enum_ov003_02179e44_4124 = 0xf98 };
+enum { Enum_ov003_02179e44_4144 = 0xfac };
+enum { Enum_ov003_02179e44_4163 = 0xfbf };
+enum { Enum_ov003_02179e44_2204 = 0x818 };
 #else
-enum { kOffset1010 = 0x1010 };
-enum { kOffset1014 = 0x1014 };
-enum { kOffset1016 = 0x1016 };
-enum { kOffset101c = 0x101c };
-enum { kOffset1030 = 0x1030 };
-enum { kOffset1043 = 0x1043 };
-enum { kOffset89c = 0x89c };
+enum { Enum_ov003_02179e44_4112 = 0x1010 };
+enum { Enum_ov003_02179e44_4116 = 0x1014 };
+enum { Enum_ov003_02179e44_4118 = 0x1016 };
+enum { Enum_ov003_02179e44_4124 = 0x101c };
+enum { Enum_ov003_02179e44_4144 = 0x1030 };
+enum { Enum_ov003_02179e44_4163 = 0x1043 };
+enum { Enum_ov003_02179e44_2204 = 0x89c };
 #endif
 
 #include "GameState/GameState.h"
 
-extern "C" short func_02080468(void* obj, int id);
-struct S_a0b8c;
-extern "C" int func_020a0b8c(struct S_a0b8c* p);
+extern "C" short func_02080468(void* arg0, int arg1);
+struct Struct_020a0b8c;
+extern "C" int func_020a0b8c(struct Struct_020a0b8c* arg0);
 
 // USA: func_ov003_02179e44
-extern "C" ARM int func_ov003_02179e44(char* obj) {
-    GameState* battle = GameState::GetInstance();
-    void* ptr = func_02010828(battle);
-    int state = *(int*)(obj + kOffset1030);
-    void* field89c = *(void**)(obj + kOffset89c);
-    int type;
-    switch (state) {
-        case 1: type = 0x11; break;
-        case 2: type = 0x12; break;
-        case 3: type = 0x13; break;
-        case 4: type = 0x14; break;
+extern "C" ARM int func_ov003_02179e44(char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02010828(var0);
+    int var2 = *(int*)(arg0 + Enum_ov003_02179e44_4144);
+    void* var3 = *(void**)(arg0 + Enum_ov003_02179e44_2204);
+    int var4;
+    switch (var2) {
+        case 1: var4 = 0x11; break;
+        case 2: var4 = 0x12; break;
+        case 3: var4 = 0x13; break;
+        case 4: var4 = 0x14; break;
     }
 
-    *(char*)(obj + kOffset1043) = -1;
-    short idx = func_02080468(field89c, type);
-    short v10 = *(short*)(obj + kOffset1010);
-    int state2 = *(int*)(obj + kOffset1030);
-    short diff = (short)(v10 - idx);
-    if (state2 > diff) {
-        int val = *(int*)(obj + kOffset101c + diff * 4);
-        *(char*)(obj + kOffset1043) = (char)val;
-        *(short*)(obj + kOffset1014) = 0;
-        *(short*)(obj + kOffset1016) = 1;
+    *(char*)(arg0 + Enum_ov003_02179e44_4163) = -1;
+    short var5 = func_02080468(var3, var4);
+    short var6 = *(short*)(arg0 + Enum_ov003_02179e44_4112);
+    int var7 = *(int*)(arg0 + Enum_ov003_02179e44_4144);
+    short var8 = (short)(var6 - var5);
+    if (var7 > var8) {
+        int var9 = *(int*)(arg0 + Enum_ov003_02179e44_4124 + var8 * 4);
+        *(char*)(arg0 + Enum_ov003_02179e44_4163) = (char)var9;
+        *(short*)(arg0 + Enum_ov003_02179e44_4116) = 0;
+        *(short*)(arg0 + Enum_ov003_02179e44_4118) = 1;
         return 1;
     } else {
-        int count = func_020a0b8c((struct S_a0b8c*)ptr);
-        int n = (count + 7) / 8;
-        *(short*)(obj + kOffset1014) = 0;
-        *(short*)(obj + kOffset1016) = n;
-        short v16 = *(short*)(obj + kOffset1016);
-        if (v16 == 0) {
-            v16 = 1;
-            *(short*)(obj + kOffset1016) = v16;
+        int var10 = func_020a0b8c((struct Struct_020a0b8c*)var1);
+        int var11 = (var10 + 7) / 8;
+        *(short*)(arg0 + Enum_ov003_02179e44_4116) = 0;
+        *(short*)(arg0 + Enum_ov003_02179e44_4118) = var11;
+        short var12 = *(short*)(arg0 + Enum_ov003_02179e44_4118);
+        if (var12 == 0) {
+            var12 = 1;
+            *(short*)(arg0 + Enum_ov003_02179e44_4118) = var12;
         }
-        return v16;
+        return var12;
     }
 }

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Row4_020c2208 { int x, y, z, w; };
-struct Row3_020c2208 { int x, y, z; };
-struct Mtx44_020c2208 { struct Row4_020c2208 r[4]; };
-struct Mtx43_020c2208 { struct Row3_020c2208 r[4]; };
+struct Struct_020b6bb0 { int unknown_0_, unknown_4_, unknown_8_, unknown_c_; };
+struct Struct_020b6bb0_2 { int unknown_0_, unknown_4_, unknown_8_; };
+struct Struct_020c2208 { struct Struct_020b6bb0 unknown_0_[4]; };
+struct Struct_020c2208_2 { struct Struct_020b6bb0_2 unknown_0_[4]; };
 
 // USA: func_020c2208
 //
@@ -14,7 +14,7 @@ struct Mtx43_020c2208 { struct Row3_020c2208 r[4]; };
 // blocks with the src pointer advanced past the dropped 4th word via raw `add r0,#4`
 // (not a field access) is the register-block tell: no compiler reaches for that shape
 // from a field copy.
-extern "C" ARM asm void Mat4x4_ConvertTo4x3(struct Mtx44_020c2208 *src, struct Mtx43_020c2208 *dst) {
+extern "C" ARM asm void Mat4x4_ConvertTo4x3(struct Struct_020c2208 *src, struct Struct_020c2208_2 *dst) {
     ldmia r0!, {r2, r3, r12}
     add r0, r0, #4
     stmia r1!, {r2, r3, r12}

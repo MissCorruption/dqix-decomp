@@ -2,58 +2,58 @@
 
 #include "Resource/Script.h"
 
-struct Elem02072560 {
-    short f0;
-    short f2;
-    short v[18];
-    unsigned short f28;
-    unsigned char f2a;
-    unsigned char f2b;
+struct Struct_02072398 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_[18];
+    unsigned short unknown_28_;
+    unsigned char unknown_2a_;
+    unsigned char unknown_2b_;
 };
 
-struct List02072560 {
-    struct Elem02072560* entries;
-    short capacity;
-    short count;
+struct Struct_02072560 {
+    struct Struct_02072398* unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
 };
 
-struct Session02072398 {
-    int f0;
-    struct List02072560* list;
+struct Struct_02108da8_2 {
+    int unknown_0_;
+    struct Struct_02072560* unknown_4_;
 };
 
-extern "C" void func_02072560(struct List02072560* list, struct Elem02072560* src);
+extern "C" void func_02072560(struct Struct_02072560* arg0, struct Struct_02072398* arg1);
 
-extern Session02072398 data_02108da8;
+extern Struct_02108da8_2 data_02108da8;
 
 // USA: func_02072398
-extern "C" ARM int func_02072398(Script::Parameter* params, int count) {
-    struct Elem02072560 e;
-    e.f0 = -1;
-    e.f2 = -1;
-    unsigned char i = 0;
-    while (i < 18) {
-        e.v[i] = -1;
-        i++;
+extern "C" ARM int func_02072398(Script::Parameter* arg0, int arg1) {
+    struct Struct_02072398 var0;
+    var0.unknown_0_ = -1;
+    var0.unknown_2_ = -1;
+    unsigned char var1 = 0;
+    while (var1 < 18) {
+        var0.unknown_4_[var1] = -1;
+        var1++;
     }
-    e.f28 = 100;
-    e.f2a = 0;
-    e.f0 = (params++)->ToInt();
-    e.f2 = (params++)->ToInt();
-    count -= 2;
-    for (int j = 0; j < 18; j++) {
-        e.v[j] = params[0].ToInt();
-        params++;
-        count--;
+    var0.unknown_28_ = 100;
+    var0.unknown_2a_ = 0;
+    var0.unknown_0_ = (arg0++)->ToInt();
+    var0.unknown_2_ = (arg0++)->ToInt();
+    arg1 -= 2;
+    for (int var2 = 0; var2 < 18; var2++) {
+        var0.unknown_4_[var2] = arg0[0].ToInt();
+        arg0++;
+        arg1--;
     }
-    if (count != 0) {
-        e.f28 = params[0].ToInt();
-        params++;
-        count--;
+    if (arg1 != 0) {
+        var0.unknown_28_ = arg0[0].ToInt();
+        arg0++;
+        arg1--;
     }
-    if (count != 0) {
-        e.f2a = params[0].ToInt();
+    if (arg1 != 0) {
+        var0.unknown_2a_ = arg0[0].ToInt();
     }
-    func_02072560(data_02108da8.list, &e);
+    func_02072560(data_02108da8.unknown_4_, &var0);
     return 1;
 }

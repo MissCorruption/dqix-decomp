@@ -5,92 +5,92 @@
 #define data_020e8d54 data_020e8e70
 #endif
 
-struct Object3DState0208f588 {
-    unsigned char storage[0xac];
+struct Struct_02000c9c_26 {
+    unsigned char unknown_0_[0xac];
 };
 
-struct ObjectArchiveLoadInfo0208f588 {
-    int unused0;
-    void* data;
-    unsigned int size;
-    void* allocator;
-    int flag;
-    int pad14;
-    int pad18;
-    int pad1c;
+struct Struct_0208f588 {
+    int unknown_0_;
+    void* unknown_4_;
+    unsigned int unknown_8_;
+    void* unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
 
-struct ModeFlags02012fe4 {
-    unsigned char pad0[0xc];
-    unsigned char mode : 4;
-    unsigned char high : 4;
+struct Struct_0208f588_2 {
+    unsigned char unknown_0_[0xc];
+    unsigned char unknown_c_0_ : 4;
+    unsigned char unknown_c_4_ : 4;
 };
 
-struct Context02012fe4 {
-    unsigned char pad0[8];
-    struct ModeFlags02012fe4* flags;
+struct Struct_0208f588_3 {
+    unsigned char unknown_0_[8];
+    struct Struct_0208f588_2* unknown_8_;
 };
 
-struct ArchiveHolder0208f588 {
-    void* data;
-    unsigned int size;
-    struct Object3DState0208f588 object;
-    unsigned char loaded;
-    unsigned char ready;
+struct Struct_0208f588_4 {
+    void* unknown_0_;
+    unsigned int unknown_4_;
+    struct Struct_02000c9c_26 unknown_8_;
+    unsigned char unknown_b4_;
+    unsigned char unknown_b5_;
 };
 
-struct ArchivePath0208f588 {
-    char text[0x28];
+struct Struct_020e8d54 {
+    char unknown_0_[0x28];
 };
 
-extern const struct ArchivePath0208f588 data_020e8d54;
+extern const struct Struct_020e8d54 data_020e8d54;
 
-extern "C" struct Context02012fe4* func_02012fe4(void);
+extern "C" struct Struct_0208f588_3* func_02012fe4(void);
 struct ObjectArchiveLoadInfo;
 
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
 
 // USA: func_0208f588
-extern "C" ARM int func_0208f588(struct ArchiveHolder0208f588* self, SafeAllocator* allocator, char* pairObj) {
-    unsigned int size;
-    struct ArchivePath0208f588 path;
-    struct ObjectArchiveLoadInfo0208f588 info;
-    void* data;
+extern "C" ARM int func_0208f588(struct Struct_0208f588_4* arg0, SafeAllocator* arg1, char* arg2) {
+    unsigned int var0;
+    struct Struct_020e8d54 var1;
+    struct Struct_0208f588 var2;
+    void* var3;
 
-    self->loaded = 0;
-    ((Object3D*)&self->object)->Destroy();
-    ((Object3D*)&self->object)->Initialize();
-    if (func_02012fe4()->flags->mode != 0) {
+    arg0->unknown_b4_ = 0;
+    ((Object3D*)&arg0->unknown_8_)->Destroy();
+    ((Object3D*)&arg0->unknown_8_)->Initialize();
+    if (func_02012fe4()->unknown_8_->unknown_c_0_ != 0) {
         return 0;
     }
 
-    path = data_020e8d54;
-    data = LoadFileIntoNewAllocation(path.text, *allocator, &size);
-    if (data == 0) {
+    var1 = data_020e8d54;
+    var3 = LoadFileIntoNewAllocation(var1.unknown_0_, *arg1, &var0);
+    if (var3 == 0) {
         return 0;
     }
-    unsigned int length = size;
-    self->data = data;
-    self->size = length;
-    self->loaded = 1;
-    self->ready = 1;
+    unsigned int var4 = var0;
+    arg0->unknown_0_ = var3;
+    arg0->unknown_4_ = var4;
+    arg0->unknown_b4_ = 1;
+    arg0->unknown_b5_ = 1;
 
-    info.unused0 = 0;
-    info.data = 0;
-    info.size = 0;
-    info.flag = 0;
-    info.pad14 = 0;
-    info.pad18 = 0;
-    info.pad1c = 0;
-    info.allocator = allocator;
-    info.data = self->data;
-    info.size = self->size;
+    var2.unknown_0_ = 0;
+    var2.unknown_4_ = 0;
+    var2.unknown_8_ = 0;
+    var2.unknown_10_ = 0;
+    var2.unknown_14_ = 0;
+    var2.unknown_18_ = 0;
+    var2.unknown_1c_ = 0;
+    var2.unknown_c_ = arg1;
+    var2.unknown_4_ = arg0->unknown_0_;
+    var2.unknown_8_ = arg0->unknown_4_;
 
-    func_0207df90(pairObj);
-    ((Object3D*)&self->object)->Initialize();
-    ((Object3D*)&self->object)->LoadFromCHRArchive((ObjectArchiveLoadInfo*)&info);
-    ((Object3D*)&self->object)->MakeHidden();
-    func_0207dfac(pairObj);
+    func_0207df90(arg2);
+    ((Object3D*)&arg0->unknown_8_)->Initialize();
+    ((Object3D*)&arg0->unknown_8_)->LoadFromCHRArchive((ObjectArchiveLoadInfo*)&var2);
+    ((Object3D*)&arg0->unknown_8_)->MakeHidden();
+    func_0207dfac(arg2);
     return 1;
 }

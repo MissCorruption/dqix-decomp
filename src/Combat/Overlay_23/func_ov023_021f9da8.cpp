@@ -1,70 +1,70 @@
 #include <globaldefs.h>
 
-struct Cursor021f9da8 {
-    char pad0[0x20];
-    unsigned short* table;
-    unsigned short rows;
-    unsigned short cols;
+struct Struct_ov023_021f9da8_3 {
+    char unknown_0_[0x20];
+    unsigned short* unknown_20_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
 };
 
-struct Sub_021f9da8 {
-    char pad[0xa8];
-    short f_a8;
-    short f_aa;
-    short f_ac;
-    short f_ae;
+struct Struct_ov023_021f9da8 {
+    char unknown_0_[0xa8];
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
 };
 
-struct Node021f9da8 {
-    char pad[0x20];
-    Sub_021f9da8 sub;
-    Sub_021f9da8* GetSub() { return &sub; }
+struct Struct_ov023_021f9da8_2 {
+    char unknown_0_[0x20];
+    Struct_ov023_021f9da8 unknown_20_;
+    Struct_ov023_021f9da8* inline_ov023_021f9da8() { return &unknown_20_; }
 };
 
-extern "C" void* func_ov011_021849c8(void* obj);
-extern "C" void* func_ov023_021f6880(void* base, int key);
-extern "C" Node021f9da8* func_ov023_021f9cb8(void* unused, void* other, void* node);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" Struct_ov023_021f9da8_2* func_ov023_021f9cb8(void* arg0, void* arg1, void* arg2);
 
 // USA: func_ov023_021f9da8
-extern "C" ARM int func_ov023_021f9da8(Cursor021f9da8* self, void* other, int x, int y) {
-    void* nodes = func_ov011_021849c8(other);
-    unsigned short total = self->rows * self->cols;
-    unsigned short i;
-    for (i = 0; i < total; i++) {
-        void* node = func_ov023_021f6880(nodes, self->table[i]);
-        Node021f9da8* linked = func_ov023_021f9cb8(self, other, node);
-        if (linked == 0) {
+extern "C" ARM int func_ov023_021f9da8(Struct_ov023_021f9da8_3* arg0, void* arg1, int arg2, int arg3) {
+    void* var0 = func_ov011_021849c8(arg1);
+    unsigned short var1 = arg0->unknown_24_ * arg0->unknown_26_;
+    unsigned short var2;
+    for (var2 = 0; var2 < var1; var2++) {
+        void* var3 = func_ov023_021f6880(var0, arg0->unknown_20_[var2]);
+        Struct_ov023_021f9da8_2* var4 = func_ov023_021f9cb8(arg0, arg1, var3);
+        if (var4 == 0) {
             continue;
         }
-        Sub_021f9da8* sub = linked->GetSub();
-        if (sub == 0) {
+        Struct_ov023_021f9da8* var5 = var4->inline_ov023_021f9da8();
+        if (var5 == 0) {
             continue;
         }
-        short ht = sub->f_ae * 8;
-        short lc = sub->f_ac;
-        short wd = sub->f_a8;
-        lc = lc * 8;
-        wd = wd * 8;
-        short bottom = (short)(sub->f_aa * 8) + ht;
-        short right = lc + wd;
-        short left = lc;
-        int r = 0;
-        if (bottom - 16 > y) {
+        short var6 = var5->unknown_ae_ * 8;
+        short var7 = var5->unknown_ac_;
+        short var8 = var5->unknown_a8_;
+        var7 = var7 * 8;
+        var8 = var8 * 8;
+        short var9 = (short)(var5->unknown_aa_ * 8) + var6;
+        short var10 = var7 + var8;
+        short var11 = var7;
+        int var12 = 0;
+        if (var9 - 16 > arg3) {
             return 0;
         }
-        if (y >= bottom) {
+        if (arg3 >= var9) {
             return 0;
         }
-        if (left <= x && x < left + 16) {
-            r--;
+        if (var11 <= arg2 && arg2 < var11 + 16) {
+            var12--;
         }
-        if (right - 16 > x) {
-            return r;
+        if (var10 - 16 > arg2) {
+            return var12;
         }
-        if (x < right) {
-            r = 1;
+        if (arg2 < var10) {
+            var12 = 1;
         }
-        return r;
+        return var12;
     }
     return 0;
 }

@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-struct ToggleState;
+struct Struct_02021410;
 
 // USA: func_02021410
-extern "C" ARM void func_02021410(ToggleState* state, int active, int mode) {
-    unsigned char* storage = (unsigned char*)state;
+extern "C" ARM void func_02021410(Struct_02021410* arg0, int arg1, int arg2) {
+    unsigned char* var0 = (unsigned char*)arg0;
 #if defined(jpn)
-    storage[0x918] = active != 0;
-    storage[0x91c] = mode;
+    var0[0x918] = arg1 != 0;
+    var0[0x91c] = arg2;
 #else
-    storage[0x9c4] = active != 0;
-    storage[0x9c8] = mode;
+    var0[0x9c4] = arg1 != 0;
+    var0[0x9c8] = arg2;
 #endif
 }

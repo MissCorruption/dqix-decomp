@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
 // USA: func_02053604
-extern "C" ARM int func_02053604(signed char* obj) {
+extern "C" ARM int func_02053604(signed char* arg0) {
 #if defined(jpn)
-    signed char a = obj[0x170];
+    signed char var0 = arg0[0x170];
 #else
-    signed char a = obj[0x17c];
+    signed char var0 = arg0[0x17c];
 #endif
-    if (a == 0) return -1;
+    if (var0 == 0) return -1;
 #if defined(jpn)
-    signed char b = obj[0x171];
+    signed char var1 = arg0[0x171];
 #else
-    signed char b = obj[0x17d];
+    signed char var1 = arg0[0x17d];
 #endif
-    if (b >= 4) return -1;
-    signed char* q = obj + b;
+    if (var1 >= 4) return -1;
+    signed char* var2 = arg0 + var1;
 #if defined(jpn)
-    return q[0x16c];
+    return var2[0x16c];
 #else
-    return q[0x178];
+    return var2[0x178];
 #endif
 }

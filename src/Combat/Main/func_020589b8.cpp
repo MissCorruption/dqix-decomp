@@ -2,49 +2,49 @@
 #include <NitroSDK/Memory/SignedAllocator.h>
 #include <std_library_functions.h>
 
-struct S02055080;
-struct Track020589b8 { char pad[0xd4]; SignedAllocatorList entries; };
-struct Entry020589b8 { unsigned int time; float value0; float value1; float randomRange; };
-struct Node020589b8 { Entry020589b8* entry; };
-struct Count020589b8 { char pad[9]; unsigned char count; };
-struct Obj020589b8 {
-    char pad0[4];
-    unsigned int time;
-    char pad1[0x20];
-    Track020589b8* track;
-    char pad2[0x18];
-    float velocity0;
-    float velocity1;
-    char pad3[0xc];
-    float value0;
-    float value1;
-    char pad4[8];
-    unsigned short index;
+struct Struct_020546c8;
+struct Struct_020589b8 { char unknown_0_[0xd4]; SignedAllocatorList unknown_d4_; };
+struct Struct_020589b8_2 { unsigned int unknown_0_; float unknown_4_; float unknown_8_; float unknown_c_; };
+struct Struct_020589b8_3 { Struct_020589b8_2* unknown_0_; };
+struct Struct_020589b8_4 { char unknown_0_[9]; unsigned char unknown_9_; };
+struct Struct_020589b8_5 {
+    char unknown_0_[4];
+    unsigned int unknown_4_;
+    char unknown_8_[0x20];
+    Struct_020589b8* unknown_28_;
+    char unknown_2c_[0x18];
+    float unknown_44_;
+    float unknown_48_;
+    char unknown_4c_[0xc];
+    float unknown_58_;
+    float unknown_5c_;
+    char unknown_60_[8];
+    unsigned short unknown_68_;
 };
-extern "C" void* func_02055138(S02055080*);
+extern "C" void* func_02055138(Struct_020546c8*);
 
 // USA: func_020589b8
-extern "C" ARM void func_020589b8(Obj020589b8* self) {
-    Count020589b8* counts = (Count020589b8*)func_02055138((S02055080*)self->track);
-    if (counts->count <= 1 || counts->count <= self->index) return;
-    Node020589b8* previous = (Node020589b8*)self->track->entries.GetNthElement(self->index);
-    if (!previous || previous->entry->time >= self->time) return;
-    self->index++;
-    if (self->index >= counts->count) {
-        self->velocity0 = 0;
-        self->velocity1 = 0;
+extern "C" ARM void func_020589b8(Struct_020589b8_5* arg0) {
+    Struct_020589b8_4* var0 = (Struct_020589b8_4*)func_02055138((Struct_020546c8*)arg0->unknown_28_);
+    if (var0->unknown_9_ <= 1 || var0->unknown_9_ <= arg0->unknown_68_) return;
+    Struct_020589b8_3* var1 = (Struct_020589b8_3*)arg0->unknown_28_->unknown_d4_.GetNthElement(arg0->unknown_68_);
+    if (!var1 || var1->unknown_0_->unknown_0_ >= arg0->unknown_4_) return;
+    arg0->unknown_68_++;
+    if (arg0->unknown_68_ >= var0->unknown_9_) {
+        arg0->unknown_44_ = 0;
+        arg0->unknown_48_ = 0;
         return;
     }
-    Node020589b8* next = (Node020589b8*)self->track->entries.GetNthElement(self->index);
-    if (!next) return;
-    Entry020589b8* entry = next->entry;
-    int random = rand();
-    int range = (int)entry->randomRange;
-    float delta = (float)((random & (range << 1)) - (int)entry->randomRange) / 100.0f;
-    float prevValue0 = self->value0;
-    float prevValue1 = self->value1;
-    self->value0 = entry->value0 + entry->value0 * delta;
-    self->value1 = next->entry->value1 + next->entry->value1 * delta;
-    self->velocity0 = (self->value0 - prevValue0) / (float)(int)(next->entry->time - previous->entry->time);
-    self->velocity1 = (self->value1 - prevValue1) / (float)(int)(next->entry->time - previous->entry->time);
+    Struct_020589b8_3* var2 = (Struct_020589b8_3*)arg0->unknown_28_->unknown_d4_.GetNthElement(arg0->unknown_68_);
+    if (!var2) return;
+    Struct_020589b8_2* var3 = var2->unknown_0_;
+    int var4 = rand();
+    int var5 = (int)var3->unknown_c_;
+    float var6 = (float)((var4 & (var5 << 1)) - (int)var3->unknown_c_) / 100.0f;
+    float var7 = arg0->unknown_58_;
+    float var8 = arg0->unknown_5c_;
+    arg0->unknown_58_ = var3->unknown_4_ + var3->unknown_4_ * var6;
+    arg0->unknown_5c_ = var2->unknown_0_->unknown_8_ + var2->unknown_0_->unknown_8_ * var6;
+    arg0->unknown_44_ = (arg0->unknown_58_ - var7) / (float)(int)(var2->unknown_0_->unknown_0_ - var1->unknown_0_->unknown_0_);
+    arg0->unknown_48_ = (arg0->unknown_5c_ - var8) / (float)(int)(var2->unknown_0_->unknown_0_ - var1->unknown_0_->unknown_0_);
 }

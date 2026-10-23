@@ -3,39 +3,39 @@
 #include "Combat/ActionState.h"
 
 #if defined(jpn)
-enum { PartyIdOffset = 0x6ac };
+enum { Enum_0202738c_1880 = 0x6ac };
 #else
-enum { PartyIdOffset = 0x758 };
+enum { Enum_0202738c_1880 = 0x758 };
 #endif
 
 // USA: func_0202738c
-extern "C" ARM void func_0202738c(unsigned char *obj, int add, int mask, int id) {
-    if (id < 0) {
-        int i;
-        for (i = 0; i < 4; i++) {
-            ActionState0201fbe0 *e = &data_020fdc60[i];
-            if (add) {
-                e->b2 = e->b2 | mask;
+extern "C" ARM void func_0202738c(unsigned char *arg0, int arg1, int arg2, int arg3) {
+    if (arg3 < 0) {
+        int var0;
+        for (var0 = 0; var0 < 4; var0++) {
+            Struct_020fdc60 *var1 = &data_020fdc60[var0];
+            if (arg1) {
+                var1->unknown_2_ = var1->unknown_2_ | arg2;
             } else {
-                e->b2 = e->b2 & ~mask;
+                var1->unknown_2_ = var1->unknown_2_ & ~arg2;
             }
         }
         return;
     }
-    if (id >= 4) return;
+    if (arg3 >= 4) return;
     {
-        int i;
-        unsigned char *p;
-        ActionState0201fbe0 *e;
-        for (i = 0; i < 4; i++) {
-            p = obj + i;
-            e = &data_020fdc60[i];
-            if (id == p[PartyIdOffset]) {
-                if (add) {
-                    e->b2 = e->b2 | mask;
+        int var2;
+        unsigned char *var3;
+        Struct_020fdc60 *var4;
+        for (var2 = 0; var2 < 4; var2++) {
+            var3 = arg0 + var2;
+            var4 = &data_020fdc60[var2];
+            if (arg3 == var3[Enum_0202738c_1880]) {
+                if (arg1) {
+                    var4->unknown_2_ = var4->unknown_2_ | arg2;
                     return;
                 }
-                e->b2 = e->b2 & ~mask;
+                var4->unknown_2_ = var4->unknown_2_ & ~arg2;
                 return;
             }
         }

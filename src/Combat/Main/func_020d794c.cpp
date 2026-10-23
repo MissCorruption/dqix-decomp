@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Node794c {
-    short unk0;
-    short key;
-    int value;
-    struct Node794c* next;
+struct Struct_020d794c_2 {
+    short unknown_0_;
+    short unknown_2_;
+    int unknown_4_;
+    struct Struct_020d794c_2* unknown_8_;
 };
 
-struct List794c {
-    struct Node794c* head;
+struct Struct_020d794c {
+    struct Struct_020d794c_2* unknown_0_;
 };
 
 // USA: func_020d794c
-extern "C" ARM int func_020d794c(struct List794c* list, int key) {
-    struct Node794c* node = list->head;
-    while (node != 0) {
-        if (node->key == key) {
-            return node->value;
+extern "C" ARM int func_020d794c(struct Struct_020d794c* arg0, int arg1) {
+    struct Struct_020d794c_2* var0 = arg0->unknown_0_;
+    while (var0 != 0) {
+        if (var0->unknown_2_ == arg1) {
+            return var0->unknown_4_;
         }
-        node = node->next;
+        var0 = var0->unknown_8_;
     }
     return 0;
 }

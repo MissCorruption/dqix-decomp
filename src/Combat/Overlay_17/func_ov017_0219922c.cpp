@@ -1,7 +1,7 @@
 #if defined(jpn)
-enum { RegionOffset6bc = 0x4ac, RegionOffset3600 = 0x3400, RegionOffsetb6 = 0xa6, RegionOffsetc6 = 0xb6, RegionOffsetb24 = 0x904, RegionOffset6fc = 0x4ec };
+enum { Enum_ov017_0219922c_1724 = 0x4ac, Enum_ov017_0219922c_13824 = 0x3400, Enum_ov017_0219922c_182 = 0xa6, Enum_ov017_0219922c_198 = 0xb6, Enum_ov017_0219922c_2852 = 0x904, Enum_ov017_0219922c_1788 = 0x4ec };
 #else
-enum { RegionOffset6bc = 0x6bc, RegionOffset3600 = 0x3600, RegionOffsetb6 = 0xb6, RegionOffsetc6 = 0xc6, RegionOffsetb24 = 0xb24, RegionOffset6fc = 0x6fc };
+enum { Enum_ov017_0219922c_1724 = 0x6bc, Enum_ov017_0219922c_13824 = 0x3600, Enum_ov017_0219922c_182 = 0xb6, Enum_ov017_0219922c_198 = 0xc6, Enum_ov017_0219922c_2852 = 0xb24, Enum_ov017_0219922c_1788 = 0x6fc };
 #endif
 
 #include <globaldefs.h>
@@ -12,64 +12,64 @@ enum { RegionOffset6bc = 0x6bc, RegionOffset3600 = 0x3600, RegionOffsetb6 = 0xb6
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" int func_020649b0(void* a, int mode, void* c);
-extern "C" void func_0206f81c(void* p);
-extern "C" void func_ov017_021adc58(unsigned char* self);
-extern "C" unsigned char func_020100b0(GameState* battleStruct);
+extern "C" int func_020649b0(void* arg0, int arg1, void* arg2);
+extern "C" void func_0206f81c(void* arg0);
+extern "C" void func_ov017_021adc58(unsigned char* arg0);
+extern "C" unsigned char func_020100b0(GameState* arg0);
 int fix32ReduceAngle0To2Pi(int angle);
 struct Vector3i;
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
 
-struct LocalBuf0219922c {
-    char pad0[0x20];
-    int f0x20;
-    char pad1[0x34 - 0x24];
+struct Struct_ov017_0219922c {
+    char unknown_0_[0x20];
+    int unknown_20_;
+    char unknown_24_[0x34 - 0x24];
 };
 
 // USA: func_ov017_0219922c
-extern "C" ARM void func_ov017_0219922c(unsigned char* self) {
-    GameState* battle = GameState::GetInstance();
-    unsigned char* search = *(unsigned char**)(self + 0x3000 + RegionOffset6bc);
-    int flag = (search[0x16] == 1);
-    unsigned short val_b6 = *(unsigned short*)(self + RegionOffset3600 + RegionOffsetb6);
-    signed short val_c6 = *(signed short*)(self + RegionOffset3600 + RegionOffsetc6);
+extern "C" ARM void func_ov017_0219922c(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned char* var1 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_1724);
+    int var2 = (var1[0x16] == 1);
+    unsigned short var3 = *(unsigned short*)(arg0 + Enum_ov017_0219922c_13824 + Enum_ov017_0219922c_182);
+    signed short var4 = *(signed short*)(arg0 + Enum_ov017_0219922c_13824 + Enum_ov017_0219922c_198);
 
-    if (!flag) {
-        void* p = func_0205ec34();
-        struct LocalBuf0219922c c;
-        c.f0x20 = *(unsigned short*)(search + 0x1c);
-        if (func_020649b0(p, 0x12, &c)) {
-            func_0206f81c(&c);
+    if (!var2) {
+        void* var5 = func_0205ec34();
+        struct Struct_ov017_0219922c var6;
+        var6.unknown_20_ = *(unsigned short*)(var1 + 0x1c);
+        if (func_020649b0(var5, 0x12, &var6)) {
+            func_0206f81c(&var6);
         }
         return;
     }
 
-    unsigned char* node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
-    func_ov017_021adc58(node);
+    unsigned char* var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
+    func_ov017_021adc58(var7);
 
-    node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
-    node[0xa] = (unsigned char)val_b6;
+    var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
+    var7[0xa] = (unsigned char)var3;
 
-    int fv = func_020100b0(battle);
-    node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
-    node[8] = (unsigned char)fv;
+    int var8 = func_020100b0(var0);
+    var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
+    var7[8] = (unsigned char)var8;
 
-    int angle = val_c6 + 0x3244;
-    int r = fix32ReduceAngle0To2Pi(angle);
-    node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
-    *(unsigned short*)(node + 0x10) = (unsigned short)r;
+    int var9 = var4 + 0x3244;
+    int var10 = fix32ReduceAngle0To2Pi(var9);
+    var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
+    *(unsigned short*)(var7 + 0x10) = (unsigned short)var10;
 
-    node = *(unsigned char**)(self + 0x3000 + RegionOffsetb24);
-    *(Vector3i*)((int*)(node + 0x14)) = *(Vector3i const*)((int*)search);
+    var7 = *(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852);
+    *(Vector3i*)((int*)(var7 + 0x14)) = *(Vector3i const*)((int*)var1);
 
-    if (search[0x17] == 2) {
-        (*(unsigned char**)(self + 0x3000 + RegionOffsetb24))[0x20] = 1;
+    if (var1[0x17] == 2) {
+        (*(unsigned char**)(arg0 + 0x3000 + Enum_ov017_0219922c_2852))[0x20] = 1;
     }
 
-    unsigned char* base3000 = self + 0x3000;
-    struct TailList020469b4* list = *(struct TailList020469b4**)(base3000 + RegionOffset6fc);
-    struct TailNode020469b4* tail = *(struct TailNode020469b4**)(base3000 + RegionOffsetb24);
-    func_020469b4(list, tail);
+    unsigned char* var11 = arg0 + 0x3000;
+    struct Struct_0201bdac_2* var12 = *(struct Struct_0201bdac_2**)(var11 + Enum_ov017_0219922c_1788);
+    struct Struct_0201bdac* var13 = *(struct Struct_0201bdac**)(var11 + Enum_ov017_0219922c_2852);
+    func_020469b4(var12, var13);
 }

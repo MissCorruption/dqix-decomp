@@ -2,67 +2,67 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue14_10 = 0x10 };
-enum { kRegionValue90_8C = 0x8c };
-enum { kRegionValue18_14 = 0x14 };
+enum { Enum_ov003_0217ce3c_20 = 0x10 };
+enum { Enum_ov003_0217ce3c_144 = 0x8c };
+enum { Enum_ov003_0217ce3c_24 = 0x14 };
 #else
-enum { kRegionValue14_10 = 0x14 };
-enum { kRegionValue90_8C = 0x90 };
-enum { kRegionValue18_14 = 0x18 };
+enum { Enum_ov003_0217ce3c_20 = 0x14 };
+enum { Enum_ov003_0217ce3c_144 = 0x90 };
+enum { Enum_ov003_0217ce3c_24 = 0x18 };
 #endif
 
 
-struct Struct6_0217dc94;
-extern "C" void func_ov003_0217dc94(Struct6_0217dc94* obj);
-extern "C" int func_0205d0e0(void* p, int val);
+struct Struct_ov003_0217ce3c;
+extern "C" void func_ov003_0217dc94(Struct_ov003_0217ce3c* arg0);
+extern "C" int func_0205d0e0(void* arg0, int arg1);
 
-struct Block10Words0217ce3c { unsigned int w[10]; };
-extern struct Block10Words0217ce3c data_ov003_0217fbc8;
-struct Pair0217ce3c { unsigned int a; unsigned int b; };
-extern struct Pair0217ce3c data_020e6d5c;
-struct DispatchEntry0217ce3c { unsigned int fn; unsigned int locator; };
+struct Struct_ov003_0217fbc8 { unsigned int unknown_0_[10]; };
+extern struct Struct_ov003_0217fbc8 data_ov003_0217fbc8;
+struct Struct_020e6d5c_19 { unsigned int unknown_0_; unsigned int unknown_4_; };
+extern struct Struct_020e6d5c_19 data_020e6d5c;
+struct Struct_ov003_0217ce3c_2 { unsigned int unknown_0_; unsigned int unknown_4_; };
 
-struct Obj0217ce3c {
-    char pad0[4];
-    signed char field4;
-    char pad1[8 - 5];
-    unsigned short field8;
-    char pad2[kRegionValue14_10 - 0xa];
-    int field14;
-    char pad3[kRegionValue90_8C - kRegionValue18_14];
-    void* field90;
+struct Struct_ov003_0217ce3c_3 {
+    char unknown_0_[4];
+    signed char unknown_4_;
+    char unknown_5_[8 - 5];
+    unsigned short unknown_8_;
+    char unknown_a_[Enum_ov003_0217ce3c_20 - 0xa];
+    int unknown_14_;
+    char unknown_18_[Enum_ov003_0217ce3c_144 - Enum_ov003_0217ce3c_24];
+    void* unknown_90_;
 };
 
 // USA: func_ov003_0217ce3c
-extern "C" ARM int func_ov003_0217ce3c(struct Obj0217ce3c* obj) {
-    GameState* bs = GameState::GetInstance();
-    func_ov003_0217dc94((struct Struct6_0217dc94*)obj);
-    if (obj->field8 & 1) return 1;
+extern "C" ARM int func_ov003_0217ce3c(struct Struct_ov003_0217ce3c_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    func_ov003_0217dc94((struct Struct_ov003_0217ce3c*)arg0);
+    if (arg0->unknown_8_ & 1) return 1;
 
-    unsigned int scaleCount = bs->GetTickCount();
-    if (obj->field90 != 0) {
-        obj->field14 = func_0205d0e0(obj->field90, scaleCount);
+    unsigned int var1 = var0->GetTickCount();
+    if (arg0->unknown_90_ != 0) {
+        arg0->unknown_14_ = func_0205d0e0(arg0->unknown_90_, var1);
     }
 
-    struct Block10Words0217ce3c buf;
-    buf = data_ov003_0217fbc8;
-    struct Pair0217ce3c* pr = &data_020e6d5c;
-    unsigned int tmp1 = pr->b;
-    unsigned int tmp0 = pr->a;
-    ((struct DispatchEntry0217ce3c*)&buf)[4].locator = tmp1;
-    ((struct DispatchEntry0217ce3c*)&buf)[4].fn = tmp0;
+    struct Struct_ov003_0217fbc8 var2;
+    var2 = data_ov003_0217fbc8;
+    struct Struct_020e6d5c_19* var3 = &data_020e6d5c;
+    unsigned int var4 = var3->unknown_4_;
+    unsigned int var5 = var3->unknown_0_;
+    ((struct Struct_ov003_0217ce3c_2*)&var2)[4].unknown_4_ = var4;
+    ((struct Struct_ov003_0217ce3c_2*)&var2)[4].unknown_0_ = var5;
 
-    signed char idx = obj->field4;
-    struct DispatchEntry0217ce3c* entries = (struct DispatchEntry0217ce3c*)&buf;
-    if (entries[idx].fn == 0) return 0;
-    struct DispatchEntry0217ce3c* d = &entries[idx];
-    void* base = (char*)obj + ((int)d->locator >> 1);
-    void (*callback)(void*);
-    if (d->locator & 1) {
-        callback = (void(*)(void*))(*(void**)((char*)*(void**)base + d->fn));
+    signed char var6 = arg0->unknown_4_;
+    struct Struct_ov003_0217ce3c_2* var7 = (struct Struct_ov003_0217ce3c_2*)&var2;
+    if (var7[var6].unknown_0_ == 0) return 0;
+    struct Struct_ov003_0217ce3c_2* var8 = &var7[var6];
+    void* var9 = (char*)arg0 + ((int)var8->unknown_4_ >> 1);
+    void (*var10)(void*);
+    if (var8->unknown_4_ & 1) {
+        var10 = (void(*)(void*))(*(void**)((char*)*(void**)var9 + var8->unknown_0_));
     } else {
-        callback = (void(*)(void*))d->fn;
+        var10 = (void(*)(void*))var8->unknown_0_;
     }
-    callback(base);
+    var10(var9);
     return 1;
 }

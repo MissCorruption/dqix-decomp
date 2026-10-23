@@ -3,47 +3,47 @@
 #include "Resource/CharacterCreationUI.h"
 
 namespace {
-struct ProfileValueState {
-    unsigned char unknown0[0x4c];
-    Container020e0310 messages;
-    unsigned char unknown54[0x5d8 - 0x54];
-    char* text;
+struct Struct_ov023_021e8604 {
+    unsigned char unknown_0_[0x4c];
+    Struct_0201099c_3 unknown_4c_;
+    unsigned char unknown_54_[0x5d8 - 0x54];
+    char* unknown_5d8_;
 };
 }
 
-extern "C" void* func_02010828(GameState* battleStruct);
+extern "C" void* func_02010828(GameState* arg0);
 extern "C" int func_020421a0(void);
 
-struct StoreStruct;
-extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
-extern "C" void func_020465d8(unsigned char* base, int index, unsigned char value);
-extern "C" void func_020465f0(unsigned char* base, int index, unsigned char value);
+struct Struct_020465c0;
+extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
 
 #if defined(jpn)
-extern "C" void func_020474a8(void* messages, unsigned char font, const char* format, char* output);
+extern "C" void func_020474a8(void* arg0, unsigned char arg1, const char* arg2, char* arg3);
 #else
-extern "C" void func_02046608(int a, int b, void* c, void* d, int e, int f, int g);
+extern "C" void func_02046608(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6);
 #endif
 
-struct Combatant021e8604 { char pad[0xf74]; int val; };
+struct Struct_ov023_021e8604_2 { char unknown_0_[0xf74]; int unknown_f74_; };
 
 // USA: func_ov023_021e8604
 // JPN: func_ov023_021e8574
-extern "C" ARM void func_ov023_021e8604(void* obj) {
-    ProfileValueState* state = static_cast<ProfileValueState*>(obj);
-    GameState* battleStruct = GameState::GetInstance();
-    Combatant021e8604* combatant = static_cast<Combatant021e8604*>(func_02010828(battleStruct));
-    int field = func_020421a0();
-    func_020465c0((struct StoreStruct*)field, 0, combatant->val);
-    func_020465d8((unsigned char*)field, 0, 1);
-    func_020465f0((unsigned char*)field, 0, 0xa);
-    int key = func_020e0434(&state->messages, 2);
+extern "C" ARM void func_ov023_021e8604(void* arg0) {
+    Struct_ov023_021e8604* var0 = static_cast<Struct_ov023_021e8604*>(arg0);
+    GameState* var1 = GameState::GetInstance();
+    Struct_ov023_021e8604_2* var2 = static_cast<Struct_ov023_021e8604_2*>(func_02010828(var1));
+    int var3 = func_020421a0();
+    func_020465c0((struct Struct_020465c0*)var3, 0, var2->unknown_f74_);
+    func_020465d8((unsigned char*)var3, 0, 1);
+    func_020465f0((unsigned char*)var3, 0, 0xa);
+    int var4 = func_020e0434(&var0->unknown_4c_, 2);
 #if defined(jpn)
-    func_020474a8(((void*)(field)), 0xa, ((const char*)(key)), state->text);
+    func_020474a8(((void*)(var3)), 0xa, ((const char*)(var4)), var0->unknown_5d8_);
 #else
-    func_02046608(field, 0xa, ((void*)(key)), state->text, 0x100, 0, 0);
+    func_02046608(var3, 0xa, ((void*)(var4)), var0->unknown_5d8_, 0x100, 0, 0);
 #endif
 }

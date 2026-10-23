@@ -5,58 +5,58 @@
 #if defined(jpn)
 extern char data_ov023_021fce18[];
 extern char data_ov023_021fce2d[];
-enum { ModeFlagsOffset = 0x6f0, CurrentModeOffset = 0x6f9, PendingModeOffset = 0x6fa, ModeTaskOffset = 0x6fc };
+enum { Enum_ov023_021dd4cc_1908 = 0x6f0, Enum_ov023_021dd4cc_1917 = 0x6f9, Enum_ov023_021dd4cc_1786 = 0x6fa, Enum_ov023_021dd4cc_1788 = 0x6fc };
 #else
 extern char data_ov023_021fdb40[];
 extern char data_ov023_021fdb52[];
 extern char data_ov023_021fdb60[];
 extern char data_ov023_021fdb72[];
-enum { ModeFlagsOffset = 0x774, CurrentModeOffset = 0x77d, PendingModeOffset = 0x77e, ModeTaskOffset = 0x780 };
+enum { Enum_ov023_021dd4cc_1908 = 0x774, Enum_ov023_021dd4cc_1917 = 0x77d, Enum_ov023_021dd4cc_1918 = 0x77e, Enum_ov023_021dd4cc_1920 = 0x780 };
 #endif
 
-struct ModeLoadRequest {
-    char unknown0[ModeFlagsOffset];
-    unsigned short flags;
-    char unknownAfterFlags[CurrentModeOffset - ModeFlagsOffset - sizeof(unsigned short)];
-    signed char currentMode;
-    signed char pendingMode;
-    char unknownBeforeTask;
-    int taskId;
+struct Struct_ov023_021dd4cc {
+    char unknown_0_[Enum_ov023_021dd4cc_1908];
+    unsigned short unknown_774_;
+    char unknown_776_[Enum_ov023_021dd4cc_1917 - Enum_ov023_021dd4cc_1908 - sizeof(unsigned short)];
+    signed char unknown_77d_;
+    signed char unknown_77e_;
+    char unknown_77f_;
+    int unknown_780_;
 };
 
 // USA: func_ov023_021dd4cc
-extern "C" ARM void func_ov023_021dd4cc(ModeLoadRequest* request, int mode) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    signed char currentMode = request->currentMode;
-    if (mode == currentMode) {
-        if (request->taskId < 0) return;
-        loader->RemoveTask(request->taskId);
-        request->taskId = -1;
-        request->pendingMode = request->currentMode;
+extern "C" ARM void func_ov023_021dd4cc(Struct_ov023_021dd4cc* arg0, int arg1) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    signed char var1 = arg0->unknown_77d_;
+    if (arg1 == var1) {
+        if (arg0->unknown_780_ < 0) return;
+        var0->RemoveTask(arg0->unknown_780_);
+        arg0->unknown_780_ = -1;
+        arg0->unknown_77e_ = arg0->unknown_77d_;
         return;
     }
-    signed char other = request->pendingMode;
-    if (mode == other) return;
-    if (request->taskId >= 0) {
-        loader->RemoveTask(request->taskId);
-        request->taskId = -1;
-        request->pendingMode = -1;
+    signed char var2 = arg0->unknown_77e_;
+    if (arg1 == var2) return;
+    if (arg0->unknown_780_ >= 0) {
+        var0->RemoveTask(arg0->unknown_780_);
+        arg0->unknown_780_ = -1;
+        arg0->unknown_77e_ = -1;
     }
-    int result;
-    if (mode == 2) {
+    int var3;
+    if (arg1 == 2) {
 #if defined(jpn)
-        result = loader->QueueLoadFile(data_ov023_021fce18, NULL);
+        var3 = var0->QueueLoadFile(data_ov023_021fce18, NULL);
 #else
-        result = loader->QueueLoadFileInGP2(data_ov023_021fdb40, data_ov023_021fdb52, NULL);
+        var3 = var0->QueueLoadFileInGP2(data_ov023_021fdb40, data_ov023_021fdb52, NULL);
 #endif
     } else {
 #if defined(jpn)
-        result = loader->QueueLoadFile(data_ov023_021fce2d, NULL);
+        var3 = var0->QueueLoadFile(data_ov023_021fce2d, NULL);
 #else
-        result = loader->QueueLoadFileInGP2(data_ov023_021fdb60, data_ov023_021fdb72, NULL);
+        var3 = var0->QueueLoadFileInGP2(data_ov023_021fdb60, data_ov023_021fdb72, NULL);
 #endif
     }
-    request->taskId = result;
-    request->flags |= 8;
-    request->pendingMode = (char)mode;
+    arg0->unknown_780_ = var3;
+    arg0->unknown_774_ |= 8;
+    arg0->unknown_77e_ = (char)arg1;
 }

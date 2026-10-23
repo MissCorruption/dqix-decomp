@@ -1,76 +1,76 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct SearchStruct;
+struct Struct_0202b2f0;
 
-struct CombatantFlagsC2 {
-    unsigned char low : 5;
-    unsigned char flag : 1;
-    unsigned char high : 2;
+struct Struct_020dc920 {
+    unsigned char unknown_0_0_ : 5;
+    unsigned char unknown_0_5_ : 1;
+    unsigned char unknown_0_6_ : 2;
 };
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_020100a8(GameState* gameState);
-extern "C" int func_0202be08(struct SearchStruct* search, int id);
-extern "C" int func_0202be70(struct SearchStruct* search, int id);
-extern "C" int func_0202bed8(struct SearchStruct* search, int id);
-extern "C" char* func_0200ff58(GameState* gameState, int index);
-extern "C" int func_020546a8(void* obj);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_0202be70(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" int func_0202bed8(struct Struct_0202b2f0* arg0, int arg1);
+extern "C" char* func_0200ff58(GameState* arg0, int arg1);
+extern "C" int func_020546a8(void* arg0);
 
 // USA: func_020dc920
-extern "C" ARM int func_020dc920(int a, int b, int c, int d) {
-    GameState* battle = GameState::GetInstance();
-    GameObject* protagonist = battle->GetProtagonist();
-    struct SearchStruct* search = (struct SearchStruct*)func_0202ae18();
-    if (protagonist != NULL) {
-        GameObject* party = battle->GetPartyMemberByIndex(a);
-        if (party != NULL) {
-            if (func_0202b7d8((int*)search) && d) {
-                int id = a;
-                if (party->obj3D_.unknown_0_ & 0x1000)
-                    id = 0;
-                if (id != func_020100a8(battle)) {
-                    if (!func_0202be70(search, id))
+extern "C" ARM int func_020dc920(int arg0, int arg1, int arg2, int arg3) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetProtagonist();
+    struct Struct_0202b2f0* var2 = (struct Struct_0202b2f0*)func_0202ae18();
+    if (var1 != NULL) {
+        GameObject* var3 = var0->GetPartyMemberByIndex(arg0);
+        if (var3 != NULL) {
+            if (func_0202b7d8((int*)var2) && arg3) {
+                int var4 = arg0;
+                if (var3->obj3D_.unknown_0_ & 0x1000)
+                    var4 = 0;
+                if (var4 != func_020100a8(var0)) {
+                    if (!func_0202be70(var2, var4))
                         return 0;
                 }
             }
-            if (b != 0 && a != func_020100a8(battle)) {
-                if (func_0202be08(search, a))
+            if (arg1 != 0 && arg0 != func_020100a8(var0)) {
+                if (func_0202be08(var2, arg0))
                     return 0;
-                char* combatant = func_0200ff58(battle, a);
-                if (combatant != NULL) {
-                    int id = func_020546a8(combatant);
-                    if (func_0202be08(search, id)) {
-                        if (id != func_020100a8(battle))
+                char* var5 = func_0200ff58(var0, arg0);
+                if (var5 != NULL) {
+                    int var6 = func_020546a8(var5);
+                    if (func_0202be08(var2, var6)) {
+                        if (var6 != func_020100a8(var0))
                             return 0;
                     }
                 }
-                if (func_0202bed8(search, a))
+                if (func_0202bed8(var2, arg0))
                     return 0;
-                combatant = func_0200ff58(battle, a);
-                if (combatant != NULL) {
-                    int id = func_020546a8(combatant);
-                    if (func_0202bed8(search, id)) {
-                        if (id != func_020100a8(battle))
+                var5 = func_0200ff58(var0, arg0);
+                if (var5 != NULL) {
+                    int var7 = func_020546a8(var5);
+                    if (func_0202bed8(var2, var7)) {
+                        if (var7 != func_020100a8(var0))
                             return 0;
                     }
                 }
             }
-            int flag = 0;
-            if (protagonist->obj3D_.GetField06() == party->obj3D_.GetField06()) {
-                flag = 1;
-            } else if (c != 0 && ((protagonist->obj3D_.GetField06() == 10000 && party->obj3D_.GetField06() == 5900) ||
-                                  (protagonist->obj3D_.GetField06() == 5900 && party->obj3D_.GetField06() == 10000))) {
-                flag = 1;
-            } else if (c != 0 && ((protagonist->obj3D_.GetField06() == 10100 && party->obj3D_.GetField06() == 6401) ||
-                                  (protagonist->obj3D_.GetField06() == 6401 && party->obj3D_.GetField06() == 10100))) {
-                flag = 1;
+            int var8 = 0;
+            if (var1->obj3D_.GetField06() == var3->obj3D_.GetField06()) {
+                var8 = 1;
+            } else if (arg2 != 0 && ((var1->obj3D_.GetField06() == 10000 && var3->obj3D_.GetField06() == 5900) ||
+                                  (var1->obj3D_.GetField06() == 5900 && var3->obj3D_.GetField06() == 10000))) {
+                var8 = 1;
+            } else if (arg2 != 0 && ((var1->obj3D_.GetField06() == 10100 && var3->obj3D_.GetField06() == 6401) ||
+                                  (var1->obj3D_.GetField06() == 6401 && var3->obj3D_.GetField06() == 10100))) {
+                var8 = 1;
             }
-            if (flag != 0) {
-                if (((struct CombatantFlagsC2*)((unsigned char*)protagonist + 0xc2))->flag)
-                    return ((struct CombatantFlagsC2*)((unsigned char*)party + 0xc2))->flag != 0;
-                return ((struct CombatantFlagsC2*)((unsigned char*)party + 0xc2))->flag == 0;
+            if (var8 != 0) {
+                if (((struct Struct_020dc920*)((unsigned char*)var1 + 0xc2))->unknown_0_5_)
+                    return ((struct Struct_020dc920*)((unsigned char*)var3 + 0xc2))->unknown_0_5_ != 0;
+                return ((struct Struct_020dc920*)((unsigned char*)var3 + 0xc2))->unknown_0_5_ == 0;
             }
         }
     }

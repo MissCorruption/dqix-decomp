@@ -5,32 +5,32 @@
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" int func_0206dfb0(int unused, unsigned char* arr, int index);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
 
 extern int data_ov003_0217f304[];
 
-static inline int GetId02156054(int i) {
-    return data_ov003_0217f304[i];
+static inline int inline_ov003_02156054(int arg0) {
+    return data_ov003_0217f304[arg0];
 }
 
-struct Ctx02156054 {
-    char pad0[0x20];
-    int* entries;
+struct Struct_ov003_02156054 {
+    char unknown_0_[0x20];
+    int* unknown_20_;
 };
 
 // USA: func_ov003_02156054
-extern "C" ARM void func_ov003_02156054(struct Ctx02156054* self) {
-    unsigned char count = 0;
-    for (unsigned char i = 1; i < 7; i++) {
-        self->entries[count] = i;
-        count++;
+extern "C" ARM void func_ov003_02156054(struct Struct_ov003_02156054* arg0) {
+    unsigned char var0 = 0;
+    for (unsigned char var1 = 1; var1 < 7; var1++) {
+        arg0->unknown_20_[var0] = var1;
+        var0++;
     }
-    unsigned char* ctx = (unsigned char*)func_0205ec34();
-    for (unsigned char j = 0; data_ov003_0217f304[j] != 0; j++) {
-        int id = GetId02156054(j);
-        if (func_0206dfb0((int)ctx, ctx + 0x8c, id + 0x113f)) {
-            self->entries[count] = id;
-            count++;
+    unsigned char* var2 = (unsigned char*)func_0205ec34();
+    for (unsigned char var3 = 0; data_ov003_0217f304[var3] != 0; var3++) {
+        int var4 = inline_ov003_02156054(var3);
+        if (func_0206dfb0((int)var2, var2 + 0x8c, var4 + 0x113f)) {
+            arg0->unknown_20_[var0] = var4;
+            var0++;
         }
     }
 }

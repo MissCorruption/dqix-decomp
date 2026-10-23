@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Elem0208d994;
-struct List0208d994;
-struct Obj02046574;
+struct Struct_0208d994;
+struct Struct_0208bf78_5;
+struct Struct_02046574_2;
 
 extern "C" int func_020421a0(void);
-extern "C" void func_02046380(void* g);
+extern "C" void func_02046380(void* arg0);
 extern "C" int func_ov004_021666bc(void*, int*);
-extern "C" Elem0208d994* func_0208d994(List0208d994*, int);
-extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" Struct_0208d994* func_0208d994(Struct_0208bf78_5*, int);
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
 
 #if defined(jpn)
 extern void* data_ov004_0217101c[2];
@@ -19,15 +19,15 @@ extern void* data_ov004_0217101c;
 #endif
 
 // USA: func_ov004_02167310
-extern "C" ARM int func_ov004_02167310(void* a) {
-    void* list = CurrentBase0217101c;
-    int g = func_020421a0();
-    func_02046380((void*)g);
-    int local;
-    int key = func_ov004_021666bc(a, &local);
-    Elem0208d994* e = func_0208d994((List0208d994*)((char*)list + 0xc), key);
-    if (e) {
-        func_02046574((Obj02046574*)g, 0, *(char**)((char*)e + 0x4));
+extern "C" ARM int func_ov004_02167310(void* arg0) {
+    void* var0 = CurrentBase0217101c;
+    int var1 = func_020421a0();
+    func_02046380((void*)var1);
+    int var2;
+    int var3 = func_ov004_021666bc(arg0, &var2);
+    Struct_0208d994* var4 = func_0208d994((Struct_0208bf78_5*)((char*)var0 + 0xc), var3);
+    if (var4) {
+        func_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var4 + 0x4));
     }
     return 0;
 }

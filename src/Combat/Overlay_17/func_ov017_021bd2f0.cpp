@@ -1,49 +1,49 @@
 #include <globaldefs.h>
 
-struct Values021bd2f0 {
-    unsigned short v[4];
+struct Struct_ov017_021bd2f0 {
+    unsigned short unknown_0_[4];
 };
 
-struct Params021bd2f0 {
-    unsigned char kind;
-    unsigned char b1;
-    unsigned char b2;
-    unsigned char b3;
-    unsigned short h4;
-    unsigned short h6;
-    unsigned char flag;
-    unsigned char pad9;
-    Values021bd2f0 values;
+struct Struct_ov017_021bd2f0_3 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    Struct_ov017_021bd2f0 unknown_a_;
 };
 
-struct Obj021bd2f0 {
+struct Struct_ov017_021bd2f0_2 {
 #if defined(jpn)
-    unsigned char pad0[0xf8];
+    unsigned char unknown_0_[0xf8];
 #else
-    unsigned char pad0[0xfc];
+    unsigned char unknown1_0_[0xfc];
 #endif
-    unsigned char dirty;
-    unsigned char padfd[0x13c - 0xfd];
-    unsigned char kind;
-    unsigned char b1;
-    unsigned char b2;
-    unsigned char b3;
-    unsigned short h4;
-    unsigned short h6;
-    unsigned char flag;
-    unsigned char pad145;
-    Values021bd2f0 values;
+    unsigned char unknown_fc_;
+    unsigned char unknown_fd_[0x13c - 0xfd];
+    unsigned char unknown_13c_;
+    unsigned char unknown_13d_;
+    unsigned char unknown_13e_;
+    unsigned char unknown_13f_;
+    unsigned short unknown_140_;
+    unsigned short unknown_142_;
+    unsigned char unknown_144_;
+    unsigned char unknown_145_;
+    Struct_ov017_021bd2f0 unknown_146_;
 };
 
 // USA: func_ov017_021bd2f0
-extern "C" ARM void func_ov017_021bd2f0(Obj021bd2f0* obj, Params021bd2f0* params) {
-    obj->kind = params->kind;
-    obj->b1 = params->b1;
-    obj->b2 = params->b2;
-    obj->b3 = params->b3;
-    obj->h4 = params->h4;
-    obj->h6 = params->h6;
-    obj->flag = params->flag;
-    obj->values = params->values;
-    obj->dirty = 1;
+extern "C" ARM void func_ov017_021bd2f0(Struct_ov017_021bd2f0_2* arg0, Struct_ov017_021bd2f0_3* arg1) {
+    arg0->unknown_13c_ = arg1->unknown_0_;
+    arg0->unknown_13d_ = arg1->unknown_1_;
+    arg0->unknown_13e_ = arg1->unknown_2_;
+    arg0->unknown_13f_ = arg1->unknown_3_;
+    arg0->unknown_140_ = arg1->unknown_4_;
+    arg0->unknown_142_ = arg1->unknown_6_;
+    arg0->unknown_144_ = arg1->unknown_8_;
+    arg0->unknown_146_ = arg1->unknown_a_;
+    arg0->unknown_fc_ = 1;
 }

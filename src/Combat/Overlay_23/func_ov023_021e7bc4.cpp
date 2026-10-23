@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-class PMFObj021e7bc4 { public: virtual void Dummy021e7bc4(); };
-typedef void (PMFObj021e7bc4::*MemFn021e7bc4)();
+class Struct_ov002_021650d4 { public: virtual void inline_ov002_021650d4(); };
+typedef void (Struct_ov002_021650d4::*Type_ov002_021650d4)();
 
-struct DispatchTable021e7bc4 { MemFn021e7bc4 fns[3]; };
-extern const DispatchTable021e7bc4 data_ov023_021fd79c;
+struct Struct_ov023_021fd79c { Type_ov002_021650d4 unknown_0_[3]; };
+extern const Struct_ov023_021fd79c data_ov023_021fd79c;
 
 // USA: func_ov023_021e7bc4
-extern "C" ARM void func_ov023_021e7bc4(PMFObj021e7bc4 *obj, unsigned int selector, int idx) {
-	char *base = (char*)obj;
-	if (*(int*)(base + 0x5d4) == 0) return;
-	if (*(int*)(base + 0x5dc) == 0) return;
+extern "C" ARM void func_ov023_021e7bc4(Struct_ov002_021650d4 *arg0, unsigned int arg1, int arg2) {
+	char *var0 = (char*)arg0;
+	if (*(int*)(var0 + 0x5d4) == 0) return;
+	if (*(int*)(var0 + 0x5dc) == 0) return;
 
-	int inRange;
-	if (idx < 0) goto zero;
-	if (idx <= 3) {
-		inRange = 1;
+	int var1;
+	if (arg2 < 0) goto zero;
+	if (arg2 <= 3) {
+		var1 = 1;
 		goto check;
 	}
 zero:
-	inRange = 0;
+	var1 = 0;
 check:
-	if (inRange == 0) return;
+	if (var1 == 0) return;
 
-	*(int*)(base + 0x5f0) = idx;
-	DispatchTable021e7bc4 table = data_ov023_021fd79c;
-	(obj->*table.fns[selector])();
+	*(int*)(var0 + 0x5f0) = arg2;
+	Struct_ov023_021fd79c var2 = data_ov023_021fd79c;
+	(arg0->*var2.unknown_0_[arg1])();
 }

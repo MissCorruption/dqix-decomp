@@ -2,66 +2,66 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue4D4_4D0 = 0x4d0 };
-enum { kRegionValue7000_8000 = 0x8000 };
-enum { kRegionValue1000_400 = 0x400 };
-enum { kRegionValue280_140 = 0x140 };
-enum { kRegionValue5C_28 = 0x28 };
+enum { Enum_ov003_021680d4_1236 = 0x4d0 };
+enum { Enum_ov003_021680d4_28672 = 0x8000 };
+enum { Enum_ov003_021680d4_4096 = 0x400 };
+enum { Enum_ov003_021680d4_640 = 0x140 };
+enum { Enum_ov003_021680d4_92 = 0x28 };
 #else
-enum { kRegionValue4D4_4D0 = 0x4d4 };
-enum { kRegionValue7000_8000 = 0x7000 };
-enum { kRegionValue1000_400 = 0x1000 };
-enum { kRegionValue280_140 = 0x280 };
-enum { kRegionValue5C_28 = 0x5c };
+enum { Enum_ov003_021680d4_1236 = 0x4d4 };
+enum { Enum_ov003_021680d4_28672 = 0x7000 };
+enum { Enum_ov003_021680d4_4096 = 0x1000 };
+enum { Enum_ov003_021680d4_640 = 0x280 };
+enum { Enum_ov003_021680d4_92 = 0x5c };
 #endif
 
-struct Struct0205a198;
-extern "C" void func_0205a198(Struct0205a198*);
-struct ClearTarget0205a234;
-extern "C" void func_0205a234(ClearTarget0205a234*);
+struct Struct_02043368_2;
+extern "C" void func_0205a198(Struct_02043368_2*);
+struct Struct_02043368;
+extern "C" void func_0205a234(Struct_02043368*);
 extern "C" int func_020421a0();
 
-struct Obj021680d4 {
-    SafeAllocator alloc0;
-    SafeAllocator alloc14;
-    SafeAllocator alloc28;
-    SafeAllocator alloc3c;
-    SafeAllocator alloc50;
-    char pad64[0x7c - 0x64];
-    int field7c;
-    char pad80[kRegionValue4D4_4D0 - 0x80];
-    void* field4d4;
-    void* field4d8;
+struct Struct_ov003_021680d4 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator unknown_3c_;
+    SafeAllocator unknown_50_;
+    char unknown_64_[0x7c - 0x64];
+    int unknown_7c_;
+    char unknown_80_[Enum_ov003_021680d4_1236 - 0x80];
+    void* unknown_4d4_;
+    void* unknown_4d8_;
 };
 
 // USA: func_ov003_021680d4
-extern "C" ARM void func_ov003_021680d4(struct Obj021680d4* obj, SafeAllocator* alloc) {
-    if (alloc == 0) return;
-    void* p1 = alloc->Allocate(0x4000);
-    obj->alloc0.CreateTypeA(p1, 0x4000);
-    void* p2 = alloc->Allocate(0x8000);
-    obj->alloc14.CreateTypeA(p2, 0x8000);
-    void* p3 = alloc->Allocate(kRegionValue7000_8000);
-    obj->alloc28.CreateTypeA(p3, kRegionValue7000_8000);
-    void* p4 = alloc->Allocate(kRegionValue1000_400);
-    obj->alloc3c.CreateTypeA(p4, kRegionValue1000_400);
-    void* p5 = alloc->Allocate(0x400);
-    obj->alloc50.CreateTypeA(p5, 0x400);
-    void* p6 = alloc->Allocate(kRegionValue280_140);
-    obj->field4d4 = p6;
+extern "C" ARM void func_ov003_021680d4(struct Struct_ov003_021680d4* arg0, SafeAllocator* arg1) {
+    if (arg1 == 0) return;
+    void* var0 = arg1->Allocate(0x4000);
+    arg0->unknown_0_.CreateTypeA(var0, 0x4000);
+    void* var1 = arg1->Allocate(0x8000);
+    arg0->unknown_14_.CreateTypeA(var1, 0x8000);
+    void* var2 = arg1->Allocate(Enum_ov003_021680d4_28672);
+    arg0->unknown_28_.CreateTypeA(var2, Enum_ov003_021680d4_28672);
+    void* var3 = arg1->Allocate(Enum_ov003_021680d4_4096);
+    arg0->unknown_3c_.CreateTypeA(var3, Enum_ov003_021680d4_4096);
+    void* var4 = arg1->Allocate(0x400);
+    arg0->unknown_50_.CreateTypeA(var4, 0x400);
+    void* var5 = arg1->Allocate(Enum_ov003_021680d4_640);
+    arg0->unknown_4d4_ = var5;
 
-    int i;
+    int var6;
 #if defined(jpn)
-    for (i = 0; i < 8; i++) {
+    for (var6 = 0; var6 < 8; var6++) {
 #else
-    for (i = 0; i < 0x10; i++) {
+    for (var6 = 0; var6 < 0x10; var6++) {
 #endif
-        func_0205a198((Struct0205a198*)((char*)obj->field4d4 + i * 0x28));
+        func_0205a198((Struct_02043368_2*)((char*)arg0->unknown_4d4_ + var6 * 0x28));
     }
 
-    void* p7 = alloc->Allocate(8);
-    obj->field4d8 = p7;
-    func_0205a234((ClearTarget0205a234*)p7);
+    void* var7 = arg1->Allocate(8);
+    arg0->unknown_4d8_ = var7;
+    func_0205a234((Struct_02043368*)var7);
 
-    obj->field7c = *(int*)(func_020421a0() + kRegionValue5C_28);
+    arg0->unknown_7c_ = *(int*)(func_020421a0() + Enum_ov003_021680d4_92);
 }

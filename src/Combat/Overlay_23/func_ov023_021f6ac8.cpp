@@ -1,73 +1,73 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" void* func_ov023_021f6880(void** list, int value);
-extern "C" void func_ov011_021848a0(void* obj, int val);
-extern "C" void func_ov011_02184a40(void* a, int b);
+extern "C" void* func_ov023_021f6880(void** arg0, int arg1);
+extern "C" void func_ov011_021848a0(void* arg0, int arg1);
+extern "C" void func_ov011_02184a40(void* arg0, int arg1);
 
-struct Elem021f6ac8 {
-    unsigned char count;
-    char pad1;
-    unsigned short vals[8];
-    short f12;
-    short f14;
+struct Struct_ov023_021f6ac8 {
+    unsigned char unknown_0_;
+    char unknown_1_;
+    unsigned short unknown_2_[8];
+    short unknown_12_;
+    short unknown_14_;
 };
 
-struct Obj021f6ac8 {
-    char pad0[0x30];
-    Elem021f6ac8 array[3];
+struct Struct_ov023_021f6ac8_2 {
+    char unknown_0_[0x30];
+    Struct_ov023_021f6ac8 unknown_30_[3];
 };
 
-class VNode021f6ac8 {
+class Struct_ov023_021f6ac8_3 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-    virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-    virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-    virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
-    virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
-    virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
-    virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55();
-    virtual void v56(); virtual void v57(); virtual void v58(); virtual void v59();
+    virtual void inline_ov023_021f6ac8_39(); virtual void inline_ov023_021f6ac8_40(); virtual void inline_ov023_021f6ac8_41(); virtual void inline_ov023_021f6ac8_42();
+    virtual void inline_ov023_021f6ac8_43(); virtual void inline_ov023_021f6ac8_44(); virtual void inline_ov023_021f6ac8_45(); virtual void inline_ov023_021f6ac8_46();
+    virtual void inline_ov023_021f6ac8_47(); virtual void inline_ov023_021f6ac8_48(); virtual void inline_ov023_021f6ac8_49(); virtual void inline_ov023_021f6ac8_50();
+    virtual void inline_ov023_021f6ac8_51(); virtual void inline_ov023_021f6ac8_52(); virtual void inline_ov023_021f6ac8_53(); virtual void inline_ov023_021f6ac8_54();
+    virtual void inline_ov023_021f6ac8_55(); virtual void inline_ov023_021f6ac8_56(); virtual void inline_ov023_021f6ac8_57(); virtual void inline_ov023_021f6ac8_58();
+    virtual void inline_ov023_021f6ac8_59(); virtual void inline_ov023_021f6ac8_60(); virtual void inline_ov023_021f6ac8_61(); virtual void inline_ov023_021f6ac8_62();
+    virtual void inline_ov023_021f6ac8_63(); virtual void inline_ov023_021f6ac8(); virtual void inline_ov023_021f6ac8_2(); virtual void inline_ov023_021f6ac8_3();
+    virtual void inline_ov023_021f6ac8_4(); virtual void inline_ov023_021f6ac8_5(); virtual void inline_ov023_021f6ac8_6(); virtual void inline_ov023_021f6ac8_7();
+    virtual void inline_ov023_021f6ac8_8(); virtual void inline_ov023_021f6ac8_9(); virtual void inline_ov023_021f6ac8_10(); virtual void inline_ov023_021f6ac8_11();
+    virtual void inline_ov023_021f6ac8_12(); virtual void inline_ov023_021f6ac8_13(); virtual void inline_ov023_021f6ac8_14(); virtual void inline_ov023_021f6ac8_15();
+    virtual void inline_ov023_021f6ac8_16(); virtual void inline_ov023_021f6ac8_17(); virtual void inline_ov023_021f6ac8_18(); virtual void inline_ov023_021f6ac8_19();
+    virtual void inline_ov023_021f6ac8_20(); virtual void inline_ov023_021f6ac8_21(); virtual void inline_ov023_021f6ac8_22(); virtual void inline_ov023_021f6ac8_23();
+    virtual void inline_ov023_021f6ac8_24(); virtual void inline_ov023_021f6ac8_25(); virtual void inline_ov023_021f6ac8_26(); virtual void inline_ov023_021f6ac8_27();
+    virtual void inline_ov023_021f6ac8_28(); virtual void inline_ov023_021f6ac8_29(); virtual void inline_ov023_021f6ac8_30(); virtual void inline_ov023_021f6ac8_31();
+    virtual void inline_ov023_021f6ac8_32(); virtual void inline_ov023_021f6ac8_33(); virtual void inline_ov023_021f6ac8_34(); virtual void inline_ov023_021f6ac8_35();
 #if defined(jpn)
-    virtual void v60();
+    virtual void inline_ov023_021f6ac8_36();
 #else
-    virtual void v60(); virtual void v61();
+    virtual void inline_ov023_021f6ac8_36(); virtual void inline_ov023_021f6ac8_37();
 #endif
-    virtual int MethodF8();
+    virtual int inline_ov023_021f6ac8_38();
 };
 
 // USA: func_ov023_021f6ac8
-extern "C" ARM int func_ov023_021f6ac8(void* obj, void* arg1) {
+extern "C" ARM int func_ov023_021f6ac8(void* arg0, void* arg1) {
     if (g_touchInput.pressed_ != 0) {
-        struct Obj021f6ac8* o = (struct Obj021f6ac8*)obj;
-        int j;
-        for (j = 0; j < 3; j++) {
-            struct Elem021f6ac8* elem = &o->array[j];
-            if (elem->count == 0) continue;
+        struct Struct_ov023_021f6ac8_2* var0 = (struct Struct_ov023_021f6ac8_2*)arg0;
+        int var1;
+        for (var1 = 0; var1 < 3; var1++) {
+            struct Struct_ov023_021f6ac8* var2 = &var0->unknown_30_[var1];
+            if (var2->unknown_0_ == 0) continue;
 
-            int found = 0;
-            int k;
-            for (k = 0; k < elem->count && !found; k++) {
-                void* node = func_ov023_021f6880((void**)obj, elem->vals[k]);
-                if (node != 0) {
-                    VNode021f6ac8* v = (VNode021f6ac8*)node;
-                    if (v->MethodF8() != 0) {
-                        found = 1;
+            int var3 = 0;
+            int var4;
+            for (var4 = 0; var4 < var2->unknown_0_ && !var3; var4++) {
+                void* var5 = func_ov023_021f6880((void**)arg0, var2->unknown_2_[var4]);
+                if (var5 != 0) {
+                    Struct_ov023_021f6ac8_3* var6 = (Struct_ov023_021f6ac8_3*)var5;
+                    if (var6->inline_ov023_021f6ac8_38() != 0) {
+                        var3 = 1;
                     }
                 }
             }
 
-            if (found) continue;
+            if (var3) continue;
 
-            if (elem->f12 > 0) func_ov011_021848a0(arg1, elem->f12);
-            if (elem->f14 > 0) func_ov011_02184a40(arg1, elem->f14);
+            if (var2->unknown_12_ > 0) func_ov011_021848a0(arg1, var2->unknown_12_);
+            if (var2->unknown_14_ > 0) func_ov011_02184a40(arg1, var2->unknown_14_);
             return 1;
         }
     }

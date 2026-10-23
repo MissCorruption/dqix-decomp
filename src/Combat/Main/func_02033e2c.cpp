@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct ShortField02033e2c {
-    char pad[0xc6];
-    short field_c6;
+struct Struct_02033e2c {
+    char unknown_0_[0xc6];
+    short unknown_c6_;
 };
 
 // USA: func_02033e2c
-extern "C" ARM void func_02033e2c(struct ShortField02033e2c* obj) {
-    obj->field_c6 = 0;
+extern "C" ARM void func_02033e2c(struct Struct_02033e2c* arg0) {
+    arg0->unknown_c6_ = 0;
 }

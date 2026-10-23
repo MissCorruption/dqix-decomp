@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Event020da2fc {
-    unsigned char pad[0xd];
-    unsigned char flags;
+struct Struct_ov017_021d82fc_6 {
+    unsigned char unknown_0_[0xd];
+    unsigned char unknown_d_;
 };
 
-extern "C" void func_020da8e0(Event020da2fc*);
-extern "C" void func_020da31c(Event020da2fc*);
+extern "C" void func_020da8e0(Struct_ov017_021d82fc_6*);
+extern "C" void func_020da31c(Struct_ov017_021d82fc_6*);
 
 // USA: func_020da2fc
-extern "C" ARM void func_020da2fc(Event020da2fc* e) {
-    if (e->flags & 1) {
-        func_020da8e0(e);
+extern "C" ARM void func_020da2fc(Struct_ov017_021d82fc_6* arg0) {
+    if (arg0->unknown_d_ & 1) {
+        func_020da8e0(arg0);
         return;
     }
-    func_020da31c(e);
+    func_020da31c(arg0);
 }

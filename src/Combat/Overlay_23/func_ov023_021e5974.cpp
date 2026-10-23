@@ -6,91 +6,91 @@
 #include "Graphics/Model3D.h"
 #include "World/Object3D.h"
 
-struct Container020dedd0;
+struct Struct_0201099c_10;
 
-struct PartModel_021e5974
+struct Struct_ov023_021e5974_2
 {
-    int unk_0;
-    unsigned int unk_4_0 : 12;
-    unsigned int id_ : 8;
-    unsigned int unk_4_20 : 12;
+    int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 8;
+    unsigned int unknown_6_4_ : 12;
 };
 
-struct StructDE234_020de234
+struct Struct_02015ef4_4
 {
-    PartModel_021e5974* model_;
-    int unk_4;
-    int unk_8;
-    int unk_c;
-    unsigned int unk_10_0 : 20;
-    unsigned int letter_ : 8;
-    unsigned int unk_10_28 : 4;
-    short unk_14;
-    short unk_16;
-    short level_;
+    Struct_ov023_021e5974_2* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    unsigned int unknown_10_0_ : 20;
+    unsigned int unknown_12_4_ : 8;
+    unsigned int unknown_13_4_ : 4;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
 };
 
-struct PartyMemberAppearance_021e5974
+struct Struct_ov023_021e5974_3
 {
-    short models_[10];
-    unsigned char female_ : 1;
-    unsigned char eyeColor_ : 3;
-    unsigned char skinColor_ : 4;
-    unsigned char hairColor_ : 4;
-    unsigned char unk_15_4 : 4;
-    short unk_16;
-    short width_;
-    short height_;
+    short unknown_0_[10];
+    unsigned char unknown_14_0_ : 1;
+    unsigned char unknown_14_1_ : 3;
+    unsigned char unknown_14_4_ : 4;
+    unsigned char unknown_15_0_ : 4;
+    unsigned char unknown_15_4_ : 4;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
 };
 
-struct PartyMemberData_021e5974
+struct Struct_ov023_021e5974_4
 {
-    char pad0[0x488];
-    PartyMemberAppearance_021e5974 appearance_;
-    char pad4a4[0x568 - 0x4a4];
-    short vocation_;
-    unsigned char unk_56a;
+    char unknown_0_[0x488];
+    Struct_ov023_021e5974_3 unknown_488_;
+    char unknown_4a4_[0x568 - 0x4a4];
+    short unknown_568_;
+    unsigned char unknown_56a_;
 };
 
-struct VRAMManagerState_021e5974
+struct Struct_02000c9c_72
 {
-    char data[0x70];
+    char unknown_0_[0x70];
 };
 
-struct CharacterModel_021e5974
+struct Struct_ov023_021e5974
 {
-    Object3D parts_[10];
-    SafeAllocator allocators_[10];
-    SafeAllocator animationAllocator_;
-    VRAMManagerState_021e5974 vramStates_[10];
-    short tasks_[12];
-    struct Container020dedd0* names_;
-    unsigned char holdsWithArms_;
-    unsigned char unk_c11;
-    unsigned char loading_;
-    unsigned char bodyChanged_;
-    unsigned char visible_;
-    unsigned char vocation_;
-    char unk_c16[2];
-    PartyMemberData_021e5974* member_;
-    short angle_;
-    unsigned char colored_;
-    char unk_c1f;
+    Object3D unknown_0_[10];
+    SafeAllocator unknown_6b8_[10];
+    SafeAllocator unknown_780_;
+    Struct_02000c9c_72 unknown_794_[10];
+    short unknown_bf4_[12];
+    struct Struct_0201099c_10* unknown_c0c_;
+    unsigned char unknown_c10_;
+    unsigned char unknown_c11_;
+    unsigned char unknown_c12_;
+    unsigned char unknown_c13_;
+    unsigned char unknown_c14_;
+    unsigned char unknown_c15_;
+    char unknown_c16_[2];
+    Struct_ov023_021e5974_4* unknown_c18_;
+    short unknown_c1c_;
+    unsigned char unknown_c1e_;
+    char unknown_c1f_;
 };
 
-struct Extension_021e5974
+struct Struct_ov023_021fd678
 {
-    char name_[8];
+    char unknown_0_[8];
 };
 
-extern "C" int func_020100a8(GameState* state);
-extern "C" void func_ov023_021e5fdc(void* vocation, short* models, short* appearance);
-extern "C" StructDE234_020de234* func_020dedd0(struct Container020dedd0* names, int id);
-extern "C" unsigned short func_020de234(StructDE234_020de234* p, int preferMid);
-extern "C" void func_ov023_021e61a0(CharacterModel_021e5974* self);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
+extern "C" Struct_02015ef4_4* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" unsigned short func_020de234(Struct_02015ef4_4* arg0, int arg1);
+extern "C" void func_ov023_021e61a0(Struct_ov023_021e5974* arg0);
 
 extern const int data_ov023_021fd698[5];
-extern const Extension_021e5974 data_ov023_021fd678;
+extern const Struct_ov023_021fd678 data_ov023_021fd678;
 extern const char data_ov023_021fdd16[];
 extern const char data_ov023_021fd680[10];
 extern const char data_ov023_021fdd1c[];
@@ -99,160 +99,160 @@ extern const char data_ov023_021fdd45[];
 extern const char data_ov023_021fdd58[];
 
 // USA: func_ov023_021e5974
-extern "C" ARM void func_ov023_021e5974(CharacterModel_021e5974* self, PartyMemberData_021e5974* member,
-                                        int vocation, int unused, int force)
+extern "C" ARM void func_ov023_021e5974(Struct_ov023_021e5974* arg0, Struct_ov023_021e5974_4* arg1,
+                                        int arg2, int arg3, int arg4)
 {
-    char path[0x80];
-    char anim[0x80];
-    short models[10];
-    short modelId;
+    char var0[0x80];
+    char var1[0x80];
+    short var2[10];
+    short var3;
 
-    if (member == NULL)
+    if (arg1 == NULL)
         return;
 
-    self->member_ = member;
-    func_ov023_021e61a0(self);
-    GameState* state = GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    PartyMemberAppearance_021e5974* appearance = &member->appearance_;
-    if (vocation < 0)
-        vocation = member->vocation_;
-    if (vocation < 0)
-        vocation = func_020100a8(state);
-    self->vocation_ = vocation;
-    func_ov023_021e5fdc((void*)vocation, models, appearance->models_);
-    self->parts_[3].unknown_2_ = -1;
-    self->parts_[4].unknown_2_ = -1;
-    func_020dedd0(self->names_, models[7]);
-    StructDE234_020de234* entries[10] = {0};
-    entries[0] = func_020dedd0(self->names_, models[0]);
-    entries[7] = func_020dedd0(self->names_, models[7]);
-    self->angle_ = self->parts_[0].rotation_.y;
+    arg0->unknown_c18_ = arg1;
+    func_ov023_021e61a0(arg0);
+    GameState* var4 = GameState::GetInstance();
+    BackgroundLoader* var5 = BackgroundLoader::GetInstance();
+    Struct_ov023_021e5974_3* var6 = &arg1->unknown_488_;
+    if (arg2 < 0)
+        arg2 = arg1->unknown_568_;
+    if (arg2 < 0)
+        arg2 = func_020100a8(var4);
+    arg0->unknown_c15_ = arg2;
+    func_ov023_021e5fdc((void*)arg2, var2, var6->unknown_0_);
+    arg0->unknown_0_[3].unknown_2_ = -1;
+    arg0->unknown_0_[4].unknown_2_ = -1;
+    func_020dedd0(arg0->unknown_c0c_, var2[7]);
+    Struct_02015ef4_4* var7[10] = {0};
+    var7[0] = func_020dedd0(arg0->unknown_c0c_, var2[0]);
+    var7[7] = func_020dedd0(arg0->unknown_c0c_, var2[7]);
+    arg0->unknown_c1c_ = arg0->unknown_0_[0].rotation_.y;
 
-    self->bodyChanged_ = 0;
-    for (int i = 0; i < 5; i++)
+    arg0->unknown_c13_ = 0;
+    for (int var8 = 0; var8 < 5; var8++)
     {
-        int part = data_ov023_021fd698[i];
-        if (models[part] != (modelId = self->parts_[part].unknown_2_) || force != 0)
+        int var9 = data_ov023_021fd698[var8];
+        if (var2[var9] != (var3 = arg0->unknown_0_[var9].unknown_2_) || arg4 != 0)
         {
-            self->bodyChanged_ = 1;
-            self->parts_[0].unknown_2_ = -1;
-            self->parts_[6].unknown_2_ = -1;
-            self->parts_[5].unknown_2_ = -1;
-            self->parts_[1].unknown_2_ = -1;
+            arg0->unknown_c13_ = 1;
+            arg0->unknown_0_[0].unknown_2_ = -1;
+            arg0->unknown_0_[6].unknown_2_ = -1;
+            arg0->unknown_0_[5].unknown_2_ = -1;
+            arg0->unknown_0_[1].unknown_2_ = -1;
             break;
         }
     }
 
-    for (int i = 0; i < 10; i++)
+    for (int var10 = 0; var10 < 10; var10++)
     {
-        if (models[i] < 0)
+        if (var2[var10] < 0)
         {
-            self->parts_[i].Destroy();
-            self->parts_[i].unknown_2_ = -1;
-            if (i == 0)
-                models[5] = -1;
+            arg0->unknown_0_[var10].Destroy();
+            arg0->unknown_0_[var10].unknown_2_ = -1;
+            if (var10 == 0)
+                var2[5] = -1;
             continue;
         }
-        StructDE234_020de234* entry = func_020dedd0(self->names_, models[i]);
-        if (entry == NULL)
+        Struct_02015ef4_4* var11 = func_020dedd0(arg0->unknown_c0c_, var2[var10]);
+        if (var11 == NULL)
         {
-            self->parts_[i].Initialize();
-            self->parts_[i].unknown_2_ = models[i];
+            arg0->unknown_0_[var10].Initialize();
+            arg0->unknown_0_[var10].unknown_2_ = var2[var10];
             continue;
         }
-        self->parts_[i].Destroy();
-        self->allocators_[i].Reset();
-        bool ok;
-        if (member == NULL)
+        arg0->unknown_0_[var10].Destroy();
+        arg0->unknown_6b8_[var10].Reset();
+        bool var12;
+        if (arg1 == NULL)
         {
-            ok = false;
+            var12 = false;
         }
         else
         {
-            int id;
-            StructDE234_020de234* body = entries[0];
-            StructDE234_020de234* weapon = entries[7];
-            int female = member->appearance_.female_;
-            id = func_020de234(entry, female);
-            Extension_021e5974 ext = data_ov023_021fd678;
-            char prefix[2] = {0};
+            int var13;
+            Struct_02015ef4_4* var14 = var7[0];
+            Struct_02015ef4_4* var15 = var7[7];
+            int var16 = arg1->unknown_488_.unknown_14_0_;
+            var13 = func_020de234(var11, var16);
+            Struct_ov023_021fd678 var17 = data_ov023_021fd678;
+            char var18[2] = {0};
 
-            if (i == 4)
+            if (var10 == 4)
             {
-                strcpy(ext.name_, data_ov023_021fdd16);
-                prefix[0] = 'a';
-                prefix[1] = 0;
-                id += appearance->hairColor_;
+                strcpy(var17.unknown_0_, data_ov023_021fdd16);
+                var18[0] = 'a';
+                var18[1] = 0;
+                var13 += var6->unknown_15_0_;
             }
-            if (i == 3)
+            if (var10 == 3)
             {
-                prefix[0] = 'a';
-                prefix[1] = 0;
-                if (weapon != NULL && weapon->level_ > -1)
+                var18[0] = 'a';
+                var18[1] = 0;
+                if (var15 != NULL && var15->unknown_18_ > -1)
                 {
-                    unsigned int rank = (unsigned int)func_020de234(weapon, female) / 100;
-                    if (rank < 10)
+                    unsigned int var19 = (unsigned int)func_020de234(var15, var16) / 100;
+                    if (var19 < 10)
                     {
-                        char c = data_ov023_021fd680[rank];
-                        if (c == 0)
+                        char var20 = data_ov023_021fd680[var19];
+                        if (var20 == 0)
                         {
-                            ok = false;
+                            var12 = false;
                             goto queue;
                         }
-                        prefix[0] = c;
-                        if (rank == 3 && female == 0 && appearance->models_[3] == 0x2329)
-                            prefix[0] = 'f';
+                        var18[0] = var20;
+                        if (var19 == 3 && var16 == 0 && var6->unknown_0_[3] == 0x2329)
+                            var18[0] = 'f';
                     }
                     else
                     {
-                        ok = false;
+                        var12 = false;
                         goto queue;
                     }
                 }
             }
-            if (i == 5)
+            if (var10 == 5)
             {
-                modelId = appearance->models_[4];
-                if (modelId == 0x1f4a || modelId < 0)
-                    id = func_020de234(body, female);
+                var3 = var6->unknown_0_[4];
+                if (var3 == 0x1f4a || var3 < 0)
+                    var13 = func_020de234(var14, var16);
             }
-            if (entry->level_ == 1000)
-                id += member->unk_56a;
-            sprintf(path, data_ov023_021fdd1c, (char)entry->letter_, id, prefix, ext.name_);
-            ok = true;
+            if (var11->unknown_18_ == 1000)
+                var13 += arg1->unknown_56a_;
+            sprintf(var0, data_ov023_021fdd1c, (char)var11->unknown_12_4_, var13, var18, var17.unknown_0_);
+            var12 = true;
         }
     queue:
-        if (ok)
+        if (var12)
         {
-            self->tasks_[i] = loader->QueueLoadFileInGP2(data_ov023_021fdd2a, path, NULL);
-            self->parts_[i].unknown_2_ = models[i];
+            arg0->unknown_bf4_[var10] = var5->QueueLoadFileInGP2(data_ov023_021fdd2a, var0, NULL);
+            arg0->unknown_0_[var10].unknown_2_ = var2[var10];
         }
     }
 
-    self->bodyChanged_ = 1;
-    if (self->bodyChanged_)
+    arg0->unknown_c13_ = 1;
+    if (arg0->unknown_c13_)
     {
-        StructDE234_020de234* body = func_020dedd0(self->names_, models[0]);
-        StructDE234_020de234* weapon = func_020dedd0(self->names_, models[8]);
-        unsigned char weaponId = 0;
-        if (weapon != NULL)
-            weaponId = weapon->model_->id_;
-        if (body != NULL)
+        Struct_02015ef4_4* var21 = func_020dedd0(arg0->unknown_c0c_, var2[0]);
+        Struct_02015ef4_4* var22 = func_020dedd0(arg0->unknown_c0c_, var2[8]);
+        unsigned char var23 = 0;
+        if (var22 != NULL)
+            var23 = var22->unknown_0_->unknown_5_4_;
+        if (var21 != NULL)
         {
-            int sex = 'm';
-            if (appearance->female_ == 1)
-                sex = 'w';
-            sprintf(anim, data_ov023_021fdd45, body->model_->id_, weaponId, sex);
-            self->tasks_[10] = loader->QueueLoadFileInGP2(data_ov023_021fdd2a, anim, NULL);
-            sprintf(anim, data_ov023_021fdd58, body->model_->id_, weaponId, sex);
-            self->tasks_[11] = loader->QueueLoadFileInGP2(data_ov023_021fdd2a, anim, NULL);
-            if (self->parts_[0].pModel_ != NULL)
-                self->parts_[0].pModel_->RemoveAnimations();
-            self->parts_[0].RemoveAllAnimationPackages();
-            self->animationAllocator_.Reset();
+            int var24 = 'm';
+            if (var6->unknown_14_0_ == 1)
+                var24 = 'w';
+            sprintf(var1, data_ov023_021fdd45, var21->unknown_0_->unknown_5_4_, var23, var24);
+            arg0->unknown_bf4_[10] = var5->QueueLoadFileInGP2(data_ov023_021fdd2a, var1, NULL);
+            sprintf(var1, data_ov023_021fdd58, var21->unknown_0_->unknown_5_4_, var23, var24);
+            arg0->unknown_bf4_[11] = var5->QueueLoadFileInGP2(data_ov023_021fdd2a, var1, NULL);
+            if (arg0->unknown_0_[0].pModel_ != NULL)
+                arg0->unknown_0_[0].pModel_->RemoveAnimations();
+            arg0->unknown_0_[0].RemoveAllAnimationPackages();
+            arg0->unknown_780_.Reset();
         }
     }
-    self->loading_ = 1;
-    self->colored_ = 0;
+    arg0->unknown_c12_ = 1;
+    arg0->unknown_c1e_ = 0;
 }

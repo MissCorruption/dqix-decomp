@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct ResetStruct;
+struct Struct_0201f040;
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
-struct DataStruct02109404_95870 {
-    char pad0;
-    unsigned char f1;
-    unsigned char f2;
-    char pad3[3];
-    unsigned short f6;
+struct Struct_02109404_7 {
+    char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    char unknown_3_[3];
+    unsigned short unknown_6_;
 };
-extern struct DataStruct02109404_95870 data_02109404;
+extern struct Struct_02109404_7 data_02109404;
 extern short data_020f13d8;
 extern char data_020f13fc[];
 
 // USA: func_02095870
-extern "C" ARM int func_02095870(void* unused, struct StreamHeader* buffer, int length, int flag, unsigned char* outByte) {
-    char local[0x430];
+extern "C" ARM int func_02095870(void* arg0, struct Struct_02013fb4* arg1, int arg2, int arg3, unsigned char* arg4) {
+    char var0[0x430];
 
-    data_02109404.f6 = 0;
-    data_02109404.f1 = 0;
-    data_02109404.f2 = 0;
-    data_020f13d8 = (short)flag;
+    data_02109404.unknown_6_ = 0;
+    data_02109404.unknown_1_ = 0;
+    data_02109404.unknown_2_ = 0;
+    data_020f13d8 = (short)arg3;
 
-    if (flag <= 0) {
+    if (arg3 <= 0) {
         return 1;
     }
 
-    ((Script*)((struct ResetStruct*)local))->Initialize();
-    ((Script*)local)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f13fc);
-    ((Script*)((struct StreamState*)local))->Load(buffer, length);
-    ((Script*)((struct Struct02030774*)local))->Execute();
+    ((Script*)((struct Struct_0201f040*)var0))->Initialize();
+    ((Script*)var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)data_020f13fc);
+    ((Script*)((struct Struct_0201f040_2*)var0))->Load(arg1, arg2);
+    ((Script*)((struct Struct_0201f040_3*)var0))->Execute();
 
-    *outByte = data_02109404.f2;
+    *arg4 = data_02109404.unknown_2_;
     return 0;
 }

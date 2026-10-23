@@ -2,103 +2,103 @@
 #include "Combat/MapDisplay.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-struct ActiveEntry02046900;
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
 
-struct Rec020467f0;
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* out44);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
 
-struct List0204af64;
-extern "C" void func_0204af64(struct List0204af64* obj);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(struct Struct_02020cb8* arg0);
 
-extern "C" void func_0204b11c(unsigned char* obj, int value);
+extern "C" void func_0204b11c(unsigned char* arg0, int arg1);
 
 extern "C" void func_0204b5b4(void*, int);
 
-struct Obj0204b5e8;
-extern "C" int func_0204b5e8(struct Obj0204b5e8* obj, int a, int b);
+struct Struct_02020cb8_5;
+extern "C" int func_0204b5e8(struct Struct_02020cb8_5* arg0, int arg1, int arg2);
 
-extern "C" void func_0204b2e0(void* obj, char* str);
+extern "C" void func_0204b2e0(void* arg0, char* arg1);
 
-struct SelfTag0204b3a0;
-extern "C" void func_0204b3a0(struct SelfTag0204b3a0* self, char* str);
+struct Struct_02020cb8_6;
+extern "C" void func_0204b3a0(struct Struct_02020cb8_6* arg0, char* arg1);
 
-struct Record0204acb0;
-extern "C" void func_0204acb0(struct Record0204acb0* rec);
-extern "C" void func_0204ad88(void* a, void* b);
-extern "C" int func_0204a5f8(int a, int b);
-typedef void (*Callback0204adb4)(void*, int, int);
-extern "C" void func_0204adb4(unsigned char* dst, Callback0204adb4 callback, unsigned char* src);
-extern "C" void func_0204acd0(struct Record0204acb0* rec);
+struct Struct_02020cb8_7;
+extern "C" void func_0204acb0(struct Struct_02020cb8_7* arg0);
+extern "C" void func_0204ad88(void* arg0, void* arg1);
+extern "C" int func_0204a5f8(int arg0, int arg1);
+typedef void (*Type_02020cb8)(void*, int, int);
+extern "C" void func_0204adb4(unsigned char* arg0, Type_02020cb8 arg1, unsigned char* arg2);
+extern "C" void func_0204acd0(struct Struct_02020cb8_7* arg0);
 
-struct List0204b0e8;
-extern "C" void func_0204b0e8(struct List0204b0e8* obj, void* buf);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(struct Struct_02020cb8_2* arg0, void* arg1);
 
-struct List0204afb4;
-extern "C" void func_0204afb4(struct List0204afb4* obj);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(struct Struct_02020cb8_3* arg0);
 
 // USA: func_02020cb8
-extern "C" ARM void func_02020cb8(void* self, MapDisplayTaskHandle handle) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    void* recListHead = 0;
-    unsigned int val2Ignored = 0;
-    void* dummyPtr;
-    void* arrayC[3];
-    int arrayB[3];
-    List0204af64 s;
-    unsigned char struct2[0x10];
+extern "C" ARM void func_02020cb8(void* arg0, Type_02020aec arg1) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    void* var1 = 0;
+    unsigned int var2 = 0;
+    void* var3;
+    void* var4[3];
+    int var5[3];
+    Struct_02020cb8 var6;
+    unsigned char var7[0x10];
 
-    loader->GetLoadedFileByID(
+    var0->GetLoadedFileByID(
 #if defined(jpn)
-        handle
+        arg1
 #else
-        *handle
+        *arg1
 #endif
-, &recListHead, &val2Ignored);
-    int count = func_02046900((struct ActiveEntry02046900*)recListHead);
-    for (int i = 0; i < count; i++) {
-        arrayC[i] = func_020467f0((struct Rec020467f0*)recListHead, i, &dummyPtr, &arrayB[i]);
+, &var1, &var2);
+    int var8 = func_02046900((struct Struct_02020cb8_4*)var1);
+    for (int var9 = 0; var9 < var8; var9++) {
+        var4[var9] = func_020467f0((struct Struct_02020aec*)var1, var9, &var3, &var5[var9]);
     }
 
-    func_0204af64((struct List0204af64*)&s);
-    s.b1c_lo = 1;
-    s.b1c_hi = 1;
-    func_0204b5b4(&s, 3);
-    func_0204b11c((unsigned char*)&s, 0);
-    func_0204b5e8((struct Obj0204b5e8*)&s, 0, 0);
+    func_0204af64((struct Struct_02020cb8*)&var6);
+    var6.unknown_1c_0_ = 1;
+    var6.unknown_1c_4_ = 1;
+    func_0204b5b4(&var6, 3);
+    func_0204b11c((unsigned char*)&var6, 0);
+    func_0204b5e8((struct Struct_02020cb8_5*)&var6, 0, 0);
 
-    s.byteCount = 0x6000;
-    s.h0e = 0xfffe;
-    unsigned short* tbl = (unsigned short*)((char*)arrayC[2] + 0x10);
-    for (int i = 0; i < 0x300; i++) {
-        tbl[i] = tbl[i] + 0x300;
+    var6.unknown_0_ = 0x6000;
+    var6.unknown_e_ = 0xfffe;
+    unsigned short* var10 = (unsigned short*)((char*)var4[2] + 0x10);
+    for (int var11 = 0; var11 < 0x300; var11++) {
+        var10[var11] = var10[var11] + 0x300;
     }
 
-    for (int i = 0; i < 2; i++) {
-        func_0204b2e0(&s, (char*)arrayC[i]);
-        func_0204b3a0((struct SelfTag0204b3a0*)&s, (char*)arrayC[i]);
+    for (int var12 = 0; var12 < 2; var12++) {
+        func_0204b2e0(&var6, (char*)var4[var12]);
+        func_0204b3a0((struct Struct_02020cb8_6*)&var6, (char*)var4[var12]);
     }
 
-    func_0204acb0((struct Record0204acb0*)struct2);
-    func_0204ad88(struct2, arrayC[2]);
-    Callback0204adb4 fn = (Callback0204adb4)func_0204a5f8(1, 1);
-    func_0204adb4(struct2, fn, (unsigned char*)arrayC[2]);
-    func_0204acd0((struct Record0204acb0*)struct2);
+    func_0204acb0((struct Struct_02020cb8_7*)var7);
+    func_0204ad88(var7, var4[2]);
+    Type_02020cb8 var13 = (Type_02020cb8)func_0204a5f8(1, 1);
+    func_0204adb4(var7, var13, (unsigned char*)var4[2]);
+    func_0204acd0((struct Struct_02020cb8_7*)var7);
 
-    func_0204b0e8((struct List0204b0e8*)&s, 0);
-    func_0204afb4((struct List0204afb4*)&s);
+    func_0204b0e8((struct Struct_02020cb8_2*)&var6, 0);
+    func_0204afb4((struct Struct_02020cb8_3*)&var6);
 
-    BackgroundLoader* finalLoader = BackgroundLoader::GetInstance();
-    finalLoader->RemoveTask(
+    BackgroundLoader* var14 = BackgroundLoader::GetInstance();
+    var14->RemoveTask(
 #if defined(jpn)
-        handle
+        arg1
 #else
-        *handle
+        *arg1
 #endif
 );
 #if !defined(jpn)
-    *handle = -1;
+    *arg1 = -1;
 #endif
 }

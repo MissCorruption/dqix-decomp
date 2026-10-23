@@ -1,82 +1,82 @@
 #include <globaldefs.h>
 
 extern "C" int func_020421a0(void);
-extern "C" void __clear(void* buf, int size);
-extern "C" void func_02042764(char* name, void* buf, int flag);
-struct Obj02046574;
-extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
-extern "C" int func_020e51cc(int value);
-extern "C" void func_02046608(void* a, int b, int c, void* d, int e, int f, int g);
-extern "C" void func_0205c790(char* obj);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" void func_02042764(char* arg0, void* arg1, int arg2);
+struct Struct_02046574_2;
+extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" int func_020e51cc(int arg0);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_0205c790(char* arg0);
 struct Struct_0205ba68;
-extern "C" void func_0205ba68(struct Struct_0205ba68* s, int a, int b, int mode);
-struct Node0205bacc;
-extern "C" void func_0205bacc(struct Node0205bacc* s, int val);
-extern "C" void func_0205cb74(char* obj, int value);
-extern "C" void func_0205cc50(void* obj, int a, int b);
+extern "C" void func_0205ba68(struct Struct_0205ba68* arg0, int arg1, int arg2, int arg3);
+struct Struct_0205bacc;
+extern "C" void func_0205bacc(struct Struct_0205bacc* arg0, int arg1);
+extern "C" void func_0205cb74(char* arg0, int arg1);
+extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_0205dfa8(void*);
 extern "C" int sprintf(char*,const char*,...);
 extern char data_ov017_021d7f74[];
 extern char data_ov017_021d8104[];
 #endif
-struct ResetBytesAndSetByte0x16Data;
-extern "C" void func_0205c77c(struct ResetBytesAndSetByte0x16Data* p, int val);
-extern "C" void func_0205cd28(unsigned char* obj);
+struct Struct_0205c77c;
+extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
+extern "C" void func_0205cd28(unsigned char* arg0);
 extern "C" void* func_020d6c00(void);
-extern "C" void func_020466e4(unsigned int* p, unsigned int mask);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 
 // USA: func_ov017_021afb8c
-extern "C" ARM void func_ov017_021afb8c(char* self, char* name) {
+extern "C" ARM void func_ov017_021afb8c(char* arg0, char* arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x20c, regionalOffset1=0x20b};
+ enum {Enum_ov017_021afb8c_636=0x20c, Enum_ov017_021afb8c_635=0x20b};
 #else
- enum {regionalOffset0=0x27c, regionalOffset1=0x27b};
+ enum {Enum_ov017_021afb8c_636=0x27c, Enum_ov017_021afb8c_635=0x27b};
 #endif
-    if ((unsigned char)self[2] != 0 && (unsigned char)self[9] != 2) {
+    if ((unsigned char)arg0[2] != 0 && (unsigned char)arg0[9] != 2) {
 #if defined(jpn)
-        char buf2[0x64];
-        sprintf(buf2,data_ov017_021d8104,name);
+        char var3[0x64];
+        sprintf(var3,data_ov017_021d8104,arg1);
 
 #else
-        void* g = (void*)func_020421a0();
-        char buf1[0x30];
-        __clear(buf1, 0x30);
-        func_02042764(name, buf1, 1);
-        func_02046574((struct Obj02046574*)g, 0, buf1);
+        void* var0 = (void*)func_020421a0();
+        char var1[0x30];
+        __clear(var1, 0x30);
+        func_02042764(arg1, var1, 1);
+        func_02046574((struct Struct_02046574_2*)var0, 0, var1);
 
-        int ret = func_020e51cc(0x24);
-        char buf2[0x64];
-        func_02046608(g, 0xc, ret, buf2, 0x100, 0, 1);
+        int var2 = func_020e51cc(0x24);
+        char var3[0x64];
+        func_02046608(var0, 0xc, var2, var3, 0x100, 0, 1);
 
 #endif
-        func_0205c790(self + 0x48);
-        func_0205ba68((struct Struct_0205ba68*)(self + 0x68), 1, 1, 0);
-        func_0205ba68((struct Struct_0205ba68*)(self + 0xb8), 1, 1, 0);
-        func_0205bacc((struct Node0205bacc*)(self + 0x68), 1);
-        func_0205bacc((struct Node0205bacc*)(self + 0xb8), 1);
+        func_0205c790(arg0 + 0x48);
+        func_0205ba68((struct Struct_0205ba68*)(arg0 + 0x68), 1, 1, 0);
+        func_0205ba68((struct Struct_0205ba68*)(arg0 + 0xb8), 1, 1, 0);
+        func_0205bacc((struct Struct_0205bacc*)(arg0 + 0x68), 1);
+        func_0205bacc((struct Struct_0205bacc*)(arg0 + 0xb8), 1);
 
-        func_0205cb74(self + 0x48, (int)buf2);
+        func_0205cb74(arg0 + 0x48, (int)var3);
 
-        *(short*)(self + 0xfc) = 0xc;
-        *(short*)(self + 0xfe) = 0x40;
+        *(short*)(arg0 + 0xfc) = 0xc;
+        *(short*)(arg0 + 0xfe) = 0x40;
 #if defined(jpn)
-        func_0205dfa8(self + 0x48);
+        func_0205dfa8(arg0 + 0x48);
 #else
-        func_0205cc50(self + 0x48, 0, -4);
+        func_0205cc50(arg0 + 0x48, 0, -4);
 #endif
 
-        self[regionalOffset0] = 1;
-        func_0205c77c((struct ResetBytesAndSetByte0x16Data*)(self + 0x4c), 1);
-        self[regionalOffset1] = 1;
-        self[regionalOffset0] = 1;
-        func_0205c77c((struct ResetBytesAndSetByte0x16Data*)(self + 0x4c), 1);
+        arg0[Enum_ov017_021afb8c_636] = 1;
+        func_0205c77c((struct Struct_0205c77c*)(arg0 + 0x4c), 1);
+        arg0[Enum_ov017_021afb8c_635] = 1;
+        arg0[Enum_ov017_021afb8c_636] = 1;
+        func_0205c77c((struct Struct_0205c77c*)(arg0 + 0x4c), 1);
 
-        short v = *(short*)(self + 0x100);
-        *(short*)(self + 0xfc) = (0x100 - v) / 2;
-        *(short*)(self + 0xfe) = 0x40;
+        short var4 = *(short*)(arg0 + 0x100);
+        *(short*)(arg0 + 0xfc) = (0x100 - var4) / 2;
+        *(short*)(arg0 + 0xfe) = 0x40;
 
-        func_0205cd28((unsigned char*)(self + 0x48));
+        func_0205cd28((unsigned char*)(arg0 + 0x48));
         func_020466e4((unsigned int*)func_020d6c00(), 0x800000);
     }
 }

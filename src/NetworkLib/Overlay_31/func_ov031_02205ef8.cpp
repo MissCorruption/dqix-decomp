@@ -3,91 +3,91 @@
 #include "NitroSDK/Memory.h"
 #include "NitroSDK/ProcessorContext.h"
 
-struct Packet02205ef8 {
-    Packet02205ef8* next;
-    unsigned short length;
-    unsigned short port;
-    unsigned int address;
-    unsigned char data[1];
+struct Struct_ov031_02205ef8 {
+    Struct_ov031_02205ef8* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned char unknown_c_[1];
 };
 
-struct Queue02205ef8 {
-    char padding[0xfe];
-    signed char peek;
-    char paddingff;
-    Packet02205ef8* tail;
-    Packet02205ef8* volatile head;
-    unsigned short queuedBytes;
-    char padding10a[2];
-    BlockedContextList waiters;
+struct Struct_ov031_02205ef8_2 {
+    char unknown_0_[0xfe];
+    signed char unknown_fe_;
+    char unknown_ff_;
+    Struct_ov031_02205ef8* unknown_100_;
+    Struct_ov031_02205ef8* volatile unknown_104_;
+    unsigned short unknown_108_;
+    char unknown_10a_[2];
+    BlockedContextList unknown_10c_;
 };
 
-struct Socket02205ef8 {
-    char padding[0x64];
-    Queue02205ef8* queue;
-    char padding68[8];
-    volatile short flags;
+struct Struct_ov031_02205ef8_3 {
+    char unknown_0_[0x64];
+    Struct_ov031_02205ef8_2* unknown_64_;
+    char unknown_68_[8];
+    volatile short unknown_70_;
 };
 
-struct Allocator02205ef8 {
-    char padding[0x1c];
-    void (*free)(void*);
+struct Struct_ov031_02205ef8_4 {
+    char unknown_0_[0x1c];
+    void (*unknown_1c_)(void*);
 };
 
-extern Allocator02205ef8* data_ov031_022496a4;
+extern Struct_ov031_02205ef8_4* data_ov031_022496a4;
 extern "C" int func_ov031_02207180(void*);
 
 // USA: func_ov031_02205ef8
-extern "C" ARM int func_ov031_02205ef8(Socket02205ef8* socket, void* buffer, int length,
-                                       unsigned short* portOut, unsigned int* addressOut, int flags) {
-    Queue02205ef8* queue;
-    Packet02205ef8* packet;
-    int result;
-    int irqState;
-    queue = socket->queue;
-    packet = queue->head;
-    irqState = DisableIRQInterrupts();
-    packet = queue->head;
-    if (packet == NULL) {
-        int block = flags & 1;
+extern "C" ARM int func_ov031_02205ef8(Struct_ov031_02205ef8_3* arg0, void* arg1, int arg2,
+                                       unsigned short* arg3, unsigned int* arg4, int arg5) {
+    Struct_ov031_02205ef8_2* var0;
+    Struct_ov031_02205ef8* var1;
+    int var2;
+    int var3;
+    var0 = arg0->unknown_64_;
+    var1 = var0->unknown_104_;
+    var3 = DisableIRQInterrupts();
+    var1 = var0->unknown_104_;
+    if (var1 == NULL) {
+        int var4 = arg5 & 1;
         do {
-            if (!block) {
-                result = -6;
+            if (!var4) {
+                var2 = -6;
                 break;
             }
-            BlockCurrentContext(&queue->waiters);
-            if (!func_ov031_02207180(socket)) {
-                int valid = 0;
-                if (socket != NULL) valid = (socket->flags & 1) != 0;
-                if (valid) {
+            BlockCurrentContext(&var0->unknown_10c_);
+            if (!func_ov031_02207180(arg0)) {
+                int var5 = 0;
+                if (arg0 != NULL) var5 = (arg0->unknown_70_ & 1) != 0;
+                if (var5) {
                     continue;
                 }
             }
-            result = -56;
+            var2 = -56;
             break;
-        } while ((packet = queue->head) == NULL);
+        } while ((var1 = var0->unknown_104_) == NULL);
     }
-    if (packet != NULL) {
-        if (length > packet->length) {
-            length = packet->length;
+    if (var1 != NULL) {
+        if (arg2 > var1->unknown_4_) {
+            arg2 = var1->unknown_4_;
         }
-        VectorizedInvertedMemcpy(packet->data, buffer, length);
-        if (portOut != NULL) {
-            *portOut = packet->port;
+        VectorizedInvertedMemcpy(var1->unknown_c_, arg1, arg2);
+        if (arg3 != NULL) {
+            *arg3 = var1->unknown_6_;
         }
-        if (addressOut != NULL) {
-            *addressOut = packet->address;
+        if (arg4 != NULL) {
+            *arg4 = var1->unknown_8_;
         }
-        result = packet->length;
-        if (queue->peek == 0) {
-            queue->head = packet->next;
-            if (packet->next == NULL) {
-                queue->tail = NULL;
+        var2 = var1->unknown_4_;
+        if (var0->unknown_fe_ == 0) {
+            var0->unknown_104_ = var1->unknown_0_;
+            if (var1->unknown_0_ == NULL) {
+                var0->unknown_100_ = NULL;
             }
-            data_ov031_022496a4->free(packet);
-            queue->queuedBytes -= result;
+            data_ov031_022496a4->unknown_1c_(var1);
+            var0->unknown_108_ -= var2;
         }
     }
-    SetIRQInterruptState(irqState);
-    return result;
+    SetIRQInterruptState(var3);
+    return var2;
 }

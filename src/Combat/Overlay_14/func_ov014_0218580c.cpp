@@ -19,186 +19,186 @@
 #define BGCNT_MASK_PRIORITY 3
 #define BGCNT_MASK_MOSAIC 0x40
 
-struct LayoutElement {
-    short id_;
-    unsigned short count_;
-    short* items_;
-    short x_;
-    short y_;
-    short parent_;
-    short child_;
-    short previous_;
-    short next_;
-    short unk_14;
-    unsigned char flags_;
-    unsigned char unk_17;
+struct Struct_ov006_0215b7e8 {
+    short unknown_0_;
+    unsigned short unknown_2_;
+    short* unknown_4_;
+    short unknown_8_;
+    short unknown_a_;
+    short unknown_c_;
+    short unknown_e_;
+    short unknown_10_;
+    short unknown_12_;
+    short unknown_14_;
+    unsigned char unknown_16_;
+    unsigned char unknown_17_;
 };
 
-struct Sprite {
-    char unk_0[0x14];
-    int x_;
-    int y_;
-    char unk_1c[6];
-    unsigned char unk_22;
-    char unk_23[2];
-    unsigned char unk_25;
-    unsigned char unk_26;
-    char unk_27;
+struct Struct_ov006_021580b8 {
+    char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    char unknown_1c_[6];
+    unsigned char unknown_22_;
+    char unknown_23_[2];
+    unsigned char unknown_25_;
+    unsigned char unknown_26_;
+    char unknown_27_;
 };
 
-struct SpriteRenderer;
-struct ActiveEntry02046900;
-struct Rec020467f0;
+struct Struct_ov008_02188d74;
+struct Struct_02020cb8_4;
+struct Struct_02020aec;
 
-struct MonsterInfoScreen {
-    void** buffers_;
-    SpriteRenderer* spriteRenderer_;
-    Sprite* sprites_;
-    char unk_c[0x3c - 0xc];
-    SafeAllocator* allocators_;
-    void* model_;
-    void* camera_;
-    char unk_48[0x58 - 0x48];
-    void* layout_;
-    char unk_5c[0x6c - 0x5c];
-    int taskID_;
-    int backgroundTaskID_;
-    int animationIndex_;
-    int unk_78;
-    unsigned char state_;
-    unsigned char initStep_;
-    unsigned char backgroundStep_;
-    unsigned char loadStep_;
-    unsigned char page_;
-    unsigned char flags_;
+struct Struct_ov014_02184dcc {
+    void** unknown_0_;
+    Struct_ov008_02188d74* unknown_4_;
+    Struct_ov006_021580b8* unknown_8_;
+    char unknown_c_[0x3c - 0xc];
+    SafeAllocator* unknown_3c_;
+    void* unknown_40_;
+    void* unknown_44_;
+    char unknown_48_[0x58 - 0x48];
+    void* unknown_58_;
+    char unknown_5c_[0x6c - 0x5c];
+    int unknown_6c_;
+    int unknown_70_;
+    int unknown_74_;
+    int unknown_78_;
+    unsigned char unknown_7c_;
+    unsigned char unknown_7d_;
+    unsigned char unknown_7e_;
+    unsigned char unknown_7f_;
+    unsigned char unknown_80_;
+    unsigned char unknown_81_;
 };
 
-struct Statics_02189800 {
-    char unk_0[0xc];
-    void* previousCamera;
+struct Struct_ov014_02189800 {
+    char unknown_0_[0xc];
+    void* unknown_c_;
 };
-extern Statics_02189800 data_ov014_02189800;
+extern Struct_ov014_02189800 data_ov014_02189800;
 extern char data_ov014_02189692[];
 extern char data_ov014_021896a7[];
 
-extern "C" void func_ov023_021e20c0(void* layout);
-extern "C" int func_ov023_021e20f0(void* layout, SafeAllocator* allocator, void* file, unsigned int size);
-extern "C" LayoutElement* func_ov014_021842a0(void* layout, short id);
-extern "C" int func_02046900(ActiveEntry02046900* pac);
-extern "C" void* func_020467f0(Rec020467f0* pac, int index, void** outName, int* outSize);
-extern "C" void func_0205a528(SpriteRenderer* renderer, void* file, unsigned int size, SafeAllocator* allocator);
-extern "C" void func_ov023_021e2bdc(void* layout, int id, short* x, short* y);
-extern "C" void* func_020100f8(char* gameState);
-extern "C" void func_020a2010(void* camera);
-extern "C" void func_0202e5c8(unsigned char* camera, int x, int y, int z);
-extern "C" void func_0202e5d8(void* camera, int x, int y, int z);
-extern "C" void func_0202e0a4(void* camera);
-extern "C" void func_020a27a0(void* camera);
-extern "C" void func_020100c4(GameState* gameState, int camera);
+extern "C" void func_ov023_021e20c0(void* arg0);
+extern "C" int func_ov023_021e20f0(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
+extern "C" Struct_ov006_0215b7e8* func_ov014_021842a0(void* arg0, short arg1);
+extern "C" int func_02046900(Struct_02020cb8_4* arg0);
+extern "C" void* func_020467f0(Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" void func_0205a528(Struct_ov008_02188d74* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3);
+extern "C" void func_ov023_021e2bdc(void* arg0, int arg1, short* arg2, short* arg3);
+extern "C" void* func_020100f8(char* arg0);
+extern "C" void func_020a2010(void* arg0);
+extern "C" void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0202e5d8(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0202e0a4(void* arg0);
+extern "C" void func_020a27a0(void* arg0);
+extern "C" void func_020100c4(GameState* arg0, int arg1);
 extern "C" void func_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void func_020c5588(int, int, int, int, int);
 
 #define HIDE_ELEMENT(layout, id)                                        \
     {                                                                   \
-        LayoutElement* element = func_ov014_021842a0(layout, id);       \
+        Struct_ov006_0215b7e8* element = func_ov014_021842a0(layout, id);       \
         if (element != NULL)                                            \
-            element->flags_ &= ~1;                                      \
+            element->unknown_16_ &= ~1;                                      \
     }
 
 // USA: func_ov014_0218580c
-extern "C" ARM void func_ov014_0218580c(MonsterInfoScreen* self) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (self->initStep_ == 0) {
+extern "C" ARM void func_ov014_0218580c(Struct_ov014_02184dcc* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    if (arg0->unknown_7d_ == 0) {
         BG1CNT = (BG1CNT & (BGCNT_MASK_PRIORITY | BGCNT_MASK_MOSAIC)) | (0x1f << 8);
-        self->flags_ |= 0x10;
-        self->initStep_++;
+        arg0->unknown_81_ |= 0x10;
+        arg0->unknown_7d_++;
     }
 
-    if (self->initStep_ == 1) {
-        func_ov023_021e20c0(self->layout_);
-        self->taskID_ = loader->QueueLoadFile(data_ov014_02189692, NULL);
-        self->initStep_++;
+    if (arg0->unknown_7d_ == 1) {
+        func_ov023_021e20c0(arg0->unknown_58_);
+        arg0->unknown_6c_ = var0->QueueLoadFile(data_ov014_02189692, NULL);
+        arg0->unknown_7d_++;
     }
 
-    if (self->initStep_ == 2 && loader->GetTaskStatus(self->taskID_)) {
-        void* file;
-        unsigned int size;
-        loader->GetLoadedFileByID(self->taskID_, &file, &size);
-        if (file != NULL) {
-            SafeAllocator* allocators = self->allocators_;
-            allocators[3].Reset();
-            func_ov023_021e20f0(self->layout_, &allocators[3], file, size);
-            HIDE_ELEMENT(self->layout_, 1);
+    if (arg0->unknown_7d_ == 2 && var0->GetTaskStatus(arg0->unknown_6c_)) {
+        void* var1;
+        unsigned int var2;
+        var0->GetLoadedFileByID(arg0->unknown_6c_, &var1, &var2);
+        if (var1 != NULL) {
+            SafeAllocator* var3 = arg0->unknown_3c_;
+            var3[3].Reset();
+            func_ov023_021e20f0(arg0->unknown_58_, &var3[3], var1, var2);
+            HIDE_ELEMENT(arg0->unknown_58_, 1);
         }
-        loader->RemoveTask(self->taskID_);
-        self->taskID_ = -1;
-        self->taskID_ = loader->QueueLoadFile(data_ov014_021896a7, NULL);
-        self->initStep_++;
+        var0->RemoveTask(arg0->unknown_6c_);
+        arg0->unknown_6c_ = -1;
+        arg0->unknown_6c_ = var0->QueueLoadFile(data_ov014_021896a7, NULL);
+        arg0->unknown_7d_++;
     }
 
-    if (self->initStep_ == 3 && loader->GetTaskStatus(self->taskID_)) {
-        void* name;
-        void* file;
-        unsigned int size;
-        int cellsSize;
-        loader->GetLoadedFileByID(self->taskID_, &file, &size);
-        int numFiles = func_02046900((ActiveEntry02046900*)file);
-        self->allocators_[5].Reset();
-        for (int i = 0; i < numFiles; i++) {
-            void* cells = func_020467f0((Rec020467f0*)file, i, &name, &cellsSize);
-            if (cells != NULL)
-                func_0205a528(self->spriteRenderer_, cells, cellsSize, &self->allocators_[5]);
+    if (arg0->unknown_7d_ == 3 && var0->GetTaskStatus(arg0->unknown_6c_)) {
+        void* var4;
+        void* var5;
+        unsigned int var6;
+        int var7;
+        var0->GetLoadedFileByID(arg0->unknown_6c_, &var5, &var6);
+        int var8 = func_02046900((Struct_02020cb8_4*)var5);
+        arg0->unknown_3c_[5].Reset();
+        for (int var9 = 0; var9 < var8; var9++) {
+            void* var10 = func_020467f0((Struct_02020aec*)var5, var9, &var4, &var7);
+            if (var10 != NULL)
+                func_0205a528(arg0->unknown_4_, var10, var7, &arg0->unknown_3c_[5]);
         }
 
-        short x = 0;
-        short y = 0;
-        Sprite* sprite;
-        HIDE_ELEMENT(self->layout_, 0x1a);
-        func_ov023_021e2bdc(self->layout_, 0x1a, &x, &y);
-        sprite = &self->sprites_[0];
-        sprite->x_ = x << 12;
-        sprite->y_ = y << 12;
-        sprite->unk_22 = 0x21;
-        sprite->unk_26 = 0;
-        HIDE_ELEMENT(self->layout_, 0x1b);
-        func_ov023_021e2bdc(self->layout_, 0x1b, &x, &y);
-        sprite = &self->sprites_[1];
-        sprite->x_ = x << 12;
-        sprite->y_ = y << 12;
-        sprite->unk_22 = 0x22;
-        sprite->unk_26 = 0;
-        func_ov023_021e2bdc(self->layout_, 0x14, &x, &y);
-        sprite = &self->sprites_[2];
-        sprite->x_ = x << 12;
-        sprite->y_ = y << 12;
-        sprite->unk_22 = 0x20;
-        sprite->unk_26 = 0;
-        loader->RemoveTask(self->taskID_);
-        self->taskID_ = -1;
-        self->initStep_++;
+        short var11 = 0;
+        short var12 = 0;
+        Struct_ov006_021580b8* var13;
+        HIDE_ELEMENT(arg0->unknown_58_, 0x1a);
+        func_ov023_021e2bdc(arg0->unknown_58_, 0x1a, &var11, &var12);
+        var13 = &arg0->unknown_8_[0];
+        var13->unknown_14_ = var11 << 12;
+        var13->unknown_18_ = var12 << 12;
+        var13->unknown_22_ = 0x21;
+        var13->unknown_26_ = 0;
+        HIDE_ELEMENT(arg0->unknown_58_, 0x1b);
+        func_ov023_021e2bdc(arg0->unknown_58_, 0x1b, &var11, &var12);
+        var13 = &arg0->unknown_8_[1];
+        var13->unknown_14_ = var11 << 12;
+        var13->unknown_18_ = var12 << 12;
+        var13->unknown_22_ = 0x22;
+        var13->unknown_26_ = 0;
+        func_ov023_021e2bdc(arg0->unknown_58_, 0x14, &var11, &var12);
+        var13 = &arg0->unknown_8_[2];
+        var13->unknown_14_ = var11 << 12;
+        var13->unknown_18_ = var12 << 12;
+        var13->unknown_22_ = 0x20;
+        var13->unknown_26_ = 0;
+        var0->RemoveTask(arg0->unknown_6c_);
+        arg0->unknown_6c_ = -1;
+        arg0->unknown_7d_++;
     }
 
-    if (self->initStep_ == 4) {
+    if (arg0->unknown_7d_ == 4) {
         BG0CNT = (BG0CNT & ~BGCNT_MASK_PRIORITY);
         BG1CNT = (BG1CNT & ~BGCNT_MASK_PRIORITY) | 1;
         BG2CNT = (BG2CNT & ~BGCNT_MASK_PRIORITY) | 2;
         BG3CNT = (BG3CNT & ~BGCNT_MASK_PRIORITY) | 3;
         DISPCNT = (DISPCNT & ~0x1f00) | (0x13 << 8);
-        GameState* gameState = GameState::GetInstance();
-        data_ov014_02189800.previousCamera = func_020100f8((char*)gameState);
-        func_020a2010(self->camera_);
-        func_0202e5c8((unsigned char*)self->camera_, 0, 0, 0);
-        func_0202e5d8(self->camera_, 0, 0, 0xa000);
-        func_0202e0a4(self->camera_);
-        func_020a27a0(self->camera_);
-        func_020100c4(gameState, (int)self->camera_);
-        GameResources* resources = GetGameResources();
-        SetFlags04(resources, 0x6093e);
-        ClearFlags04(resources, 0x20);
+        GameState* var14 = GameState::GetInstance();
+        data_ov014_02189800.unknown_c_ = func_020100f8((char*)var14);
+        func_020a2010(arg0->unknown_44_);
+        func_0202e5c8((unsigned char*)arg0->unknown_44_, 0, 0, 0);
+        func_0202e5d8(arg0->unknown_44_, 0, 0, 0xa000);
+        func_0202e0a4(arg0->unknown_44_);
+        func_020a27a0(arg0->unknown_44_);
+        func_020100c4(var14, (int)arg0->unknown_44_);
+        GameResources* var15 = GetGameResources();
+        SetFlags04(var15, 0x6093e);
+        ClearFlags04(var15, 0x20);
         func_020c54a4(0, 0, 0, 0);
         func_020c5588(0, 0, 0x7fff, 0, 0);
         LightingManager::GetInstance()->fogEnabled_ = false;
-        self->state_ = 1;
-        self->initStep_ = 0;
+        arg0->unknown_7c_ = 1;
+        arg0->unknown_7d_ = 0;
     }
 }

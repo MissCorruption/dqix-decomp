@@ -2,8 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct Struct020dfc40;
-extern "C" void func_020dfc6c(struct Struct020dfc40*);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc6c(struct Struct_0201099c_14*);
 
 
 #if defined(jpn)
@@ -19,18 +19,18 @@ extern int data_020f2a20;
 
 
 // USA: func_ov023_021e0c38
-extern "C" ARM int func_ov023_021e0c38(void* obj) {
+extern "C" ARM int func_ov023_021e0c38(void* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x6cc};
+ enum {Enum_ov023_021e0c38_1740=0x6cc};
 #else
- enum {regionalOffset0=0x750};
+ enum {Enum_ov023_021e0c38_1872=0x750};
 #endif
-    int listPtr = (int)BackgroundLoader::GetInstance();
-    func_020dfc6c((struct Struct020dfc40*)((char*)obj + 0xa4));
+    int var0 = (int)BackgroundLoader::GetInstance();
+    func_020dfc6c((struct Struct_0201099c_14*)((char*)arg0 + 0xa4));
 #if defined(jpn)
-    *(int*)((char*)obj + regionalOffset0) = ((BackgroundLoader*)(listPtr))->QueueLoadFileInGP2((const char*)(data_020f2cb0), (const char*)(data_020f2c9c), (SafeAllocator*)(0));
+    *(int*)((char*)arg0 + Enum_ov023_021e0c38_1740) = ((BackgroundLoader*)(var0))->QueueLoadFileInGP2((const char*)(data_020f2cb0), (const char*)(data_020f2c9c), (SafeAllocator*)(0));
 #else
-    *(int*)((char*)obj + regionalOffset0) = ((BackgroundLoader*)(listPtr))->QueueLoadFileInGP2((const char*)(data_020f2a1c), (const char*)(data_020f2a20), (SafeAllocator*)(0));
+    *(int*)((char*)arg0 + Enum_ov023_021e0c38_1872) = ((BackgroundLoader*)(var0))->QueueLoadFileInGP2((const char*)(data_020f2a1c), (const char*)(data_020f2a20), (SafeAllocator*)(0));
 #endif
 
     return 0x3;

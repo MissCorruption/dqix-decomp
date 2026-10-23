@@ -1,57 +1,57 @@
 #include <globaldefs.h>
 
-extern "C" ARM void* func_020421b0(int idx);
-extern "C" ARM void func_0205b530(void* mgr, void* entry, short x, short y, int w, int h);
-extern "C" ARM void* __clear(void* dst, int count);
+extern "C" ARM void* func_020421b0(int arg0);
+extern "C" ARM void func_0205b530(void* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5);
+extern "C" ARM void* __clear(void* arg0, int arg1);
 
 extern unsigned char data_020ee94c;
 
 // USA: func_020e2110
-extern "C" ARM void func_020e2110(void* obj) {
-    void* ctx = *(void**)((char*)obj + 4);
-    void* mgr = *(void**)((char*)ctx + 4);
-    unsigned char width = ((unsigned char*)ctx)[0x3a];
-    unsigned char height = ((unsigned char*)ctx)[0x3b];
+extern "C" ARM void func_020e2110(void* arg0) {
+    void* var0 = *(void**)((char*)arg0 + 4);
+    void* var1 = *(void**)((char*)var0 + 4);
+    unsigned char var2 = ((unsigned char*)var0)[0x3a];
+    unsigned char var3 = ((unsigned char*)var0)[0x3b];
 
-    void* e1 = func_020421b0(1);
-    void* e6 = func_020421b0(6);
-    if (e1 != 0 && e6 != 0) {
-        int x, i;
-        int n = width - 9;
-        for (x = 8, i = 0; i < n >> 3; x += 8, i++) {
-            func_0205b530(mgr, e1, x, 0, 8, 0xf);
-            func_0205b530(mgr, e6, x, (short)(height - 8), 8, 0xf);
+    void* var4 = func_020421b0(1);
+    void* var5 = func_020421b0(6);
+    if (var4 != 0 && var5 != 0) {
+        int var6, var7;
+        int var8 = var2 - 9;
+        for (var6 = 8, var7 = 0; var7 < var8 >> 3; var6 += 8, var7++) {
+            func_0205b530(var1, var4, var6, 0, 8, 0xf);
+            func_0205b530(var1, var5, var6, (short)(var3 - 8), 8, 0xf);
         }
     }
 
-    void* e3 = func_020421b0(3);
-    void* e4 = func_020421b0(4);
-    if (e3 != 0 && e4 != 0) {
-        int y, j;
-        int m = height - 9;
-        for (y = 8, j = 0; j < m >> 3; y += 8, j++) {
-            func_0205b530(mgr, e3, 0, y, 8, 0xf);
-            func_0205b530(mgr, e4, (short)(width - 8), y, 8, 0xf);
+    void* var9 = func_020421b0(3);
+    void* var10 = func_020421b0(4);
+    if (var9 != 0 && var10 != 0) {
+        int var11, var12;
+        int var13 = var3 - 9;
+        for (var11 = 8, var12 = 0; var12 < var13 >> 3; var11 += 8, var12++) {
+            func_0205b530(var1, var9, 0, var11, 8, 0xf);
+            func_0205b530(var1, var10, (short)(var2 - 8), var11, 8, 0xf);
         }
     }
 
-    short xs[4];
-    short ys[4];
-    __clear(xs, 8);
-    short cornerX = (short)(width - 8);
-    xs[1] = cornerX;
-    xs[3] = cornerX;
-    __clear(ys, 8);
-    short cornerY = (short)(height - 8);
-    ys[2] = cornerY;
-    ys[3] = cornerY;
+    short var14[4];
+    short var15[4];
+    __clear(var14, 8);
+    short var16 = (short)(var2 - 8);
+    var14[1] = var16;
+    var14[3] = var16;
+    __clear(var15, 8);
+    short var17 = (short)(var3 - 8);
+    var15[2] = var17;
+    var15[3] = var17;
 
-    int k;
-    for (k = 0; k < 4; k++) {
-        int idx = (&data_020ee94c)[k];
-        void* entry = func_020421b0(idx);
-        if (entry != 0) {
-            func_0205b530(mgr, entry, xs[k], ys[k], 8, 0xf);
+    int var18;
+    for (var18 = 0; var18 < 4; var18++) {
+        int var19 = (&data_020ee94c)[var18];
+        void* var20 = func_020421b0(var19);
+        if (var20 != 0) {
+            func_0205b530(var1, var20, var14[var18], var15[var18], 8, 0xf);
         }
     }
 }

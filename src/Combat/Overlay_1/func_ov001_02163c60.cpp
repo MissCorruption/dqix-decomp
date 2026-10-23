@@ -3,33 +3,33 @@
 
 extern "C" unsigned int func_02010768(void*);
 extern "C" unsigned int func_02013750(void*, int);
-struct Foo0207df50;
-extern "C" unsigned int func_0207df50(Foo0207df50*);
+struct Struct_0203d028;
+extern "C" unsigned int func_0207df50(Struct_0203d028*);
 extern "C" unsigned int func_02012fe4();
 
 // USA: func_ov001_02163c60
 extern "C" ARM int func_ov001_02163c60(void) {
 #if defined(jpn)
-    enum { allocatorOffset = 0x6c, copyFieldsOffset = 0x70 };
+    enum { Enum_ov001_02163c60_76 = 0x6c, Enum_ov001_02163c60_80 = 0x70 };
 #else
-    enum { allocatorOffset = 0x4c, copyFieldsOffset = 0x50 };
+    enum { Enum_ov001_02163c60_76 = 0x4c, Enum_ov001_02163c60_80 = 0x50 };
 #endif
-    unsigned int allocator;
-    unsigned int state = (unsigned int)GameState::GetInstance();
-    unsigned int grotto = func_02012fe4();
-    unsigned int* slot = (unsigned int*)func_02010768((void*)state);
-    unsigned int entry = *slot;
-    if (entry != 0) {
-        func_02013750((void*)entry, 1);
-        allocator = *(unsigned int*)((char*)entry + allocatorOffset);
-        if (allocator != 0) {
-            ((SafeAllocator*)allocator)->Destroy();
+    unsigned int var0;
+    unsigned int var1 = (unsigned int)GameState::GetInstance();
+    unsigned int var2 = func_02012fe4();
+    unsigned int* var3 = (unsigned int*)func_02010768((void*)var1);
+    unsigned int var4 = *var3;
+    if (var4 != 0) {
+        func_02013750((void*)var4, 1);
+        var0 = *(unsigned int*)((char*)var4 + Enum_ov001_02163c60_76);
+        if (var0 != 0) {
+            ((SafeAllocator*)var0)->Destroy();
         }
     }
-    *slot = 0;
-    allocator = *(unsigned int*)((char*)grotto + allocatorOffset);
-    unsigned int fields = *(unsigned int*)((char*)grotto + copyFieldsOffset);
-    ((SafeAllocator*)allocator)->Reset();
-    func_0207df50((Foo0207df50*)fields);
+    *var3 = 0;
+    var0 = *(unsigned int*)((char*)var2 + Enum_ov001_02163c60_76);
+    unsigned int var5 = *(unsigned int*)((char*)var2 + Enum_ov001_02163c60_80);
+    ((SafeAllocator*)var0)->Reset();
+    func_0207df50((Struct_0203d028*)var5);
     return 1;
 }

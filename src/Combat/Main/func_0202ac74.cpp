@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_0202ab34(void* data, int a, int b);
+extern "C" void func_0202ab34(void* arg0, int arg1, int arg2);
 extern "C" void LoadToMainBGStandardPalette(int src, int dstOffset, unsigned int size);
 extern "C" void func_020ca458(int a, void* ptr, int size);
 

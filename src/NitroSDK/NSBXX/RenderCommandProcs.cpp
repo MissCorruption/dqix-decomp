@@ -171,9 +171,9 @@ void BoneMatrixScaleCalculationProc_Type1(BoneMatrixRenderData* renderData, NSBX
         {
             unsigned int thisBoneIdx = ip[1];
             data_0210a274->boneMatrixBitfield_[thisBoneIdx >> 5] &= ~(1 << (thisBoneIdx & 0x1f));
-            data_0210b078.vectorData[thisBoneIdx].vec1_.x = scaling->x_v2;
-            data_0210b078.vectorData[thisBoneIdx].vec1_.y = scaling->y_v2;
-            data_0210b078.vectorData[thisBoneIdx].vec1_.z = scaling->z_v2;
+            data_0210b078.unknown_0_[thisBoneIdx].vec1_.x = scaling->x_v2;
+            data_0210b078.unknown_0_[thisBoneIdx].vec1_.y = scaling->y_v2;
+            data_0210b078.unknown_0_[thisBoneIdx].vec1_.z = scaling->z_v2;
         }
     }
 
@@ -187,7 +187,7 @@ void BoneMatrixScaleCalculationProc_Type1(BoneMatrixRenderData* renderData, NSBX
         }
         else
         {
-            renderData->scale_v1_ = data_0210b078.vectorData[parentBoneIdx].vec1_;
+            renderData->scale_v1_ = data_0210b078.unknown_0_[parentBoneIdx].vec1_;
         }
     }
 
@@ -354,44 +354,44 @@ extern "C" void CreateTextureMatrix_v0_NoExtensions(Matrix4x4* matrix, MaterialR
 void MaterialTextureMatrixLoadProc_Type0(MaterialRenderData* renderData)
 {
     struct {
-        uint32_t commands;
-        uint32_t initialMatrixMode;
-        Matrix4x4 matrix;
-        uint32_t finalMatrixMode;
+        uint32_t unknown_0_;
+        uint32_t unknown_4_;
+        Matrix4x4 unknown_8_;
+        uint32_t unknown_48_;
     } fifoData;
 
     if (renderData->flags_ & 8)
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x4, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x4, GXFifoCommand_SetMatrixMode);
     else
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x4, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x4, GXFifoCommand_SetMatrixMode);
     
-    fifoData.initialMatrixMode = 3; // texture matrix
-    fifoData.finalMatrixMode = 2; // return to position+vector mode
+    fifoData.unknown_4_ = 3; // texture matrix
+    fifoData.unknown_48_ = 2; // return to position+vector mode
 
     // initialize the 9+1 trivial entries
-    fifoData.matrix.entries[2] = fifoData.matrix.entries[3] = fifoData.matrix.entries[6] 
-        = fifoData.matrix.entries[7] = fifoData.matrix.entries[8] = fifoData.matrix.entries[9]
-        = fifoData.matrix.entries[10] = fifoData.matrix.entries[11] = fifoData.matrix.entries[14] = 0;
-    fifoData.matrix.entries[15] = 1 << 12;
+    fifoData.unknown_8_.entries[2] = fifoData.unknown_8_.entries[3] = fifoData.unknown_8_.entries[6] 
+        = fifoData.unknown_8_.entries[7] = fifoData.unknown_8_.entries[8] = fifoData.unknown_8_.entries[9]
+        = fifoData.unknown_8_.entries[10] = fifoData.unknown_8_.entries[11] = fifoData.unknown_8_.entries[14] = 0;
+    fifoData.unknown_8_.entries[15] = 1 << 12;
     // Build the six nontrivial entries of the matrix by composing rotation,
     // translation and scale in that order (keep only the ones we have data for)
-    data_020f1e88[renderData->flags_ & 7](&fifoData.matrix, renderData);
+    data_020f1e88[renderData->flags_ & 7](&fifoData.unknown_8_, renderData);
     
     if (renderData->materialxScale_ != 1 << 12)
     {
-        fifoData.matrix.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[0]) >> 12;
-        fifoData.matrix.entries[1] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[1]) >> 12;
-        fifoData.matrix.entries[12] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[12]) >> 12;
+        fifoData.unknown_8_.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[0]) >> 12;
+        fifoData.unknown_8_.entries[1] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[1]) >> 12;
+        fifoData.unknown_8_.entries[12] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[12]) >> 12;
     }
 
     if (renderData->materialyScale_ != 1 << 12)
     {
-        fifoData.matrix.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[4]) >> 12;
-        fifoData.matrix.entries[5] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[5]) >> 12;
-        fifoData.matrix.entries[13] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[13]) >> 12;
+        fifoData.unknown_8_.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[4]) >> 12;
+        fifoData.unknown_8_.entries[5] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[5]) >> 12;
+        fifoData.unknown_8_.entries[13] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[13]) >> 12;
     }
 
-    SubmitCommandToGeometryFifo(fifoData.commands, (uint32_t*)&fifoData + 1, 18);
+    SubmitCommandToGeometryFifo(fifoData.unknown_0_, (uint32_t*)&fifoData + 1, 18);
 }
 
 void BoneMatrixDataSubmissionProc_Type2(BoneMatrixRenderData* renderData)
@@ -449,8 +449,8 @@ void BoneMatrixScaleCalculationProc_Type2(BoneMatrixRenderData* renderData, NSBX
         }
         else
         {
-            Struct_0210b078* parent = &data_0210b078.vectorData[parentBoneIdx];
-            func_020ca408(parent, &data_0210b078.vectorData[thisBoneIdx], sizeof(Struct_0210b078));
+            Struct_0210b078* parent = &data_0210b078.unknown_0_[parentBoneIdx];
+            func_020ca408(parent, &data_0210b078.unknown_0_[thisBoneIdx], sizeof(Struct_0210b078));
             // copy to scale2 and scale3
             func_020ca408(parent, &renderData->scale_v1_, 2 * 3 * sizeof(fix32_t));
         }
@@ -462,20 +462,20 @@ void BoneMatrixScaleCalculationProc_Type2(BoneMatrixRenderData* renderData, NSBX
         renderData->scale_v0_.z = scaling->z;
         if (data_0210a274->boneMatrixBitfield_[parentBoneIdx >> 5] & (1 << (parentBoneIdx & 0x1f)))
         {
-            func_020ca408(scaling, &data_0210b078.vectorData[thisBoneIdx], 2 * 3 * sizeof(fix32_t));
+            func_020ca408(scaling, &data_0210b078.unknown_0_[thisBoneIdx], 2 * 3 * sizeof(fix32_t));
             data_0210a274->boneMatrixBitfield_[thisBoneIdx >> 5] &= ~(1 << (thisBoneIdx & 0x1f));
             renderData->flags_ |= 0x18;
         }
         else
         {
             data_0210a274->boneMatrixBitfield_[thisBoneIdx >> 5] &= ~(1 << (thisBoneIdx & 0x1f));
-            data_0210b078.vectorData[thisBoneIdx].vec0_.x = ((int64_t)scaling->x * (int64_t)data_0210b078.vectorData[parentBoneIdx].vec0_.x) >> 12;
-            data_0210b078.vectorData[thisBoneIdx].vec0_.y = ((int64_t)scaling->y * (int64_t)data_0210b078.vectorData[parentBoneIdx].vec0_.y) >> 12;
-            data_0210b078.vectorData[thisBoneIdx].vec0_.z = ((int64_t)scaling->z * (int64_t)data_0210b078.vectorData[parentBoneIdx].vec0_.z) >> 12;
-            data_0210b078.vectorData[thisBoneIdx].vec1_.x = ((int64_t)scaling->x_v2 * (int64_t)data_0210b078.vectorData[parentBoneIdx].vec1_.x) >> 12;
-            data_0210b078.vectorData[thisBoneIdx].vec1_.y = ((int64_t)scaling->y_v2 * (int64_t)data_0210b078.vectorData[parentBoneIdx].vec1_.y) >> 12;
-            data_0210b078.vectorData[thisBoneIdx].vec1_.z = ((int64_t)scaling->z_v2 * (int64_t)data_0210b078.vectorData[parentBoneIdx].vec1_.z) >> 12;
-            func_020ca408(&data_0210b078.vectorData[parentBoneIdx], &renderData->scale_v1_, 2 * 3 * sizeof(fix32_t));
+            data_0210b078.unknown_0_[thisBoneIdx].vec0_.x = ((int64_t)scaling->x * (int64_t)data_0210b078.unknown_0_[parentBoneIdx].vec0_.x) >> 12;
+            data_0210b078.unknown_0_[thisBoneIdx].vec0_.y = ((int64_t)scaling->y * (int64_t)data_0210b078.unknown_0_[parentBoneIdx].vec0_.y) >> 12;
+            data_0210b078.unknown_0_[thisBoneIdx].vec0_.z = ((int64_t)scaling->z * (int64_t)data_0210b078.unknown_0_[parentBoneIdx].vec0_.z) >> 12;
+            data_0210b078.unknown_0_[thisBoneIdx].vec1_.x = ((int64_t)scaling->x_v2 * (int64_t)data_0210b078.unknown_0_[parentBoneIdx].vec1_.x) >> 12;
+            data_0210b078.unknown_0_[thisBoneIdx].vec1_.y = ((int64_t)scaling->y_v2 * (int64_t)data_0210b078.unknown_0_[parentBoneIdx].vec1_.y) >> 12;
+            data_0210b078.unknown_0_[thisBoneIdx].vec1_.z = ((int64_t)scaling->z_v2 * (int64_t)data_0210b078.unknown_0_[parentBoneIdx].vec1_.z) >> 12;
+            func_020ca408(&data_0210b078.unknown_0_[parentBoneIdx], &renderData->scale_v1_, 2 * 3 * sizeof(fix32_t));
         }
     }
 }
@@ -483,37 +483,37 @@ void BoneMatrixScaleCalculationProc_Type2(BoneMatrixRenderData* renderData, NSBX
 void MaterialTextureMatrixLoadProc_Type1(MaterialRenderData* renderData)
 {
     struct {
-        uint32_t commands;
-        uint32_t initialMatrixMode;
-        Matrix4x3 matrix; // local_38
-        uint32_t finalMatrixMode;
+        uint32_t unknown_0_;
+        uint32_t unknown_4_;
+        Matrix4x3 unknown_8_; // local_38
+        uint32_t unknown_38_;
     } fifoData;
 
     if (renderData->flags_ & 8)
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x3, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x3, GXFifoCommand_SetMatrixMode);
     else
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x3, GXFifoCommand_SetMatrixMode);
-    fifoData.initialMatrixMode = 3; // switch to texture matrix mode
-    fifoData.finalMatrixMode = 2; // back to position+vector
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x3, GXFifoCommand_SetMatrixMode);
+    fifoData.unknown_4_ = 3; // switch to texture matrix mode
+    fifoData.unknown_38_ = 2; // back to position+vector
 
-    fifoData.matrix.entries[1] = fifoData.matrix.entries[2] = fifoData.matrix.entries[3] = fifoData.matrix.entries[5]
-        = fifoData.matrix.entries[6] = fifoData.matrix.entries[7] = fifoData.matrix.entries[8] = fifoData.matrix.entries[11] = 0;
+    fifoData.unknown_8_.entries[1] = fifoData.unknown_8_.entries[2] = fifoData.unknown_8_.entries[3] = fifoData.unknown_8_.entries[5]
+        = fifoData.unknown_8_.entries[6] = fifoData.unknown_8_.entries[7] = fifoData.unknown_8_.entries[8] = fifoData.unknown_8_.entries[11] = 0;
     
     // This version only does translation and scaling, translation is negated and
     // applies before scaling.
     if (renderData->flags_ & 4) // no translation data
     {
-        fifoData.matrix.entries[9] = 0;
-        fifoData.matrix.entries[10] = 0;
+        fifoData.unknown_8_.entries[9] = 0;
+        fifoData.unknown_8_.entries[10] = 0;
         if (renderData->flags_ & 1) // no scaling data
         {
-            fifoData.matrix.entries[0] = 1 << 12;
-            fifoData.matrix.entries[4] = 1 << 12;
+            fifoData.unknown_8_.entries[0] = 1 << 12;
+            fifoData.unknown_8_.entries[4] = 1 << 12;
         }
         else
         {
-            fifoData.matrix.entries[0] = renderData->extensionScaleX_;
-            fifoData.matrix.entries[4] = renderData->extensionScaleY_;
+            fifoData.unknown_8_.entries[0] = renderData->extensionScaleX_;
+            fifoData.unknown_8_.entries[4] = renderData->extensionScaleY_;
         }
     }
     else // has translation data
@@ -521,34 +521,34 @@ void MaterialTextureMatrixLoadProc_Type1(MaterialRenderData* renderData)
         if (renderData->flags_ & 1) // no scaling data
         {
             fix32_t tx = -(renderData->translateX_ * 16);
-            fifoData.matrix.entries[9] = tx * renderData->materialWidth_;
+            fifoData.unknown_8_.entries[9] = tx * renderData->materialWidth_;
             fix32_t ty = -(renderData->translateY_ * 16);
-            fifoData.matrix.entries[10] = ty * renderData->materialHeight_;
-            fifoData.matrix.entries[0] = 1 << 12;
-            fifoData.matrix.entries[4] = 1 << 12;
+            fifoData.unknown_8_.entries[10] = ty * renderData->materialHeight_;
+            fifoData.unknown_8_.entries[0] = 1 << 12;
+            fifoData.unknown_8_.entries[4] = 1 << 12;
         }
         else
         {
-            fifoData.matrix.entries[9] = renderData->materialWidth_ * -(fix32_t)(((int64_t)renderData->extensionScaleX_ * renderData->translateX_) >> 8);
-            fifoData.matrix.entries[10] = renderData->materialHeight_ * -(fix32_t)(((int64_t)renderData->extensionScaleY_ * renderData->translateY_) >> 8);
-            fifoData.matrix.entries[0] = renderData->extensionScaleX_;
-            fifoData.matrix.entries[4] = renderData->extensionScaleY_;
+            fifoData.unknown_8_.entries[9] = renderData->materialWidth_ * -(fix32_t)(((int64_t)renderData->extensionScaleX_ * renderData->translateX_) >> 8);
+            fifoData.unknown_8_.entries[10] = renderData->materialHeight_ * -(fix32_t)(((int64_t)renderData->extensionScaleY_ * renderData->translateY_) >> 8);
+            fifoData.unknown_8_.entries[0] = renderData->extensionScaleX_;
+            fifoData.unknown_8_.entries[4] = renderData->extensionScaleY_;
         }
     }
 
     if (renderData->materialxScale_ != (1 << 12))
     {
-        fifoData.matrix.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[0]) >> 12;
-        fifoData.matrix.entries[9] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[9]) >> 12;
+        fifoData.unknown_8_.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[0]) >> 12;
+        fifoData.unknown_8_.entries[9] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[9]) >> 12;
     }
 
     if (renderData->materialyScale_ != (1 << 12))
     {
-        fifoData.matrix.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[4]) >> 12;
-        fifoData.matrix.entries[10] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[10]) >> 12;
+        fifoData.unknown_8_.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[4]) >> 12;
+        fifoData.unknown_8_.entries[10] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[10]) >> 12;
     }
 
-    SubmitCommandToGeometryFifo(fifoData.commands, (uint32_t*)&fifoData + 1, 14);
+    SubmitCommandToGeometryFifo(fifoData.unknown_0_, (uint32_t*)&fifoData + 1, 14);
 }
 
 extern "C" void CreateTextureMatrix_v2_TranslateRotateScale(Matrix4x4* matrix, MaterialRenderData* renderData)
@@ -736,45 +736,45 @@ extern "C" void CreateTextureMatrix_v2_NoExtensions(Matrix4x4* matrix, MaterialR
 void MaterialTextureMatrixLoadProc_Type2(MaterialRenderData* renderData)
 {
     struct {
-        uint32_t commands;
-        uint32_t initialMatrixMode;
-        Matrix4x4 matrix;
-        uint32_t finalMatrixMode;
+        uint32_t unknown_0_;
+        uint32_t unknown_4_;
+        Matrix4x4 unknown_8_;
+        uint32_t unknown_48_;
     } fifoData;
 
     if (renderData->flags_ & 8)
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x4, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x4, GXFifoCommand_SetMatrixMode);
     else
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x4, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x4, GXFifoCommand_SetMatrixMode);
 
-    fifoData.initialMatrixMode = 3; // load/adjust texture matrix
-    fifoData.finalMatrixMode = 2; // return to position+vector mode after
+    fifoData.unknown_4_ = 3; // load/adjust texture matrix
+    fifoData.unknown_48_ = 2; // return to position+vector mode after
 
-    fifoData.matrix.entries[2] = fifoData.matrix.entries[3] = fifoData.matrix.entries[6]
-        = fifoData.matrix.entries[7] = fifoData.matrix.entries[8] = fifoData.matrix.entries[9]
-        = fifoData.matrix.entries[10] = fifoData.matrix.entries[11] = fifoData.matrix.entries[14] = 0;
-    fifoData.matrix.entries[15] = 1 << 12;
+    fifoData.unknown_8_.entries[2] = fifoData.unknown_8_.entries[3] = fifoData.unknown_8_.entries[6]
+        = fifoData.unknown_8_.entries[7] = fifoData.unknown_8_.entries[8] = fifoData.unknown_8_.entries[9]
+        = fifoData.unknown_8_.entries[10] = fifoData.unknown_8_.entries[11] = fifoData.unknown_8_.entries[14] = 0;
+    fifoData.unknown_8_.entries[15] = 1 << 12;
 
     // apply whichever of translation, rotation, scale are available.
     // Note that this time, translation happens first. Also rotation is stupid,
     // the center of rotation is not (8w, 8h) like in v0.
-    data_020f1ea8[renderData->flags_ & 7](&fifoData.matrix, renderData);
+    data_020f1ea8[renderData->flags_ & 7](&fifoData.unknown_8_, renderData);
 
     if (renderData->materialxScale_ != (1 << 12))
     {
-        fifoData.matrix.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[0]) >> 12;
-        fifoData.matrix.entries[1] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[1]) >> 12;
-        fifoData.matrix.entries[12] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[12]) >> 12;
+        fifoData.unknown_8_.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[0]) >> 12;
+        fifoData.unknown_8_.entries[1] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[1]) >> 12;
+        fifoData.unknown_8_.entries[12] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[12]) >> 12;
     }
 
     if (renderData->materialyScale_ != (1 << 12))
     {
-        fifoData.matrix.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[4]) >> 12;
-        fifoData.matrix.entries[5] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[5]) >> 12;
-        fifoData.matrix.entries[13] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[13]) >> 12;
+        fifoData.unknown_8_.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[4]) >> 12;
+        fifoData.unknown_8_.entries[5] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[5]) >> 12;
+        fifoData.unknown_8_.entries[13] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[13]) >> 12;
     }
 
-    SubmitCommandToGeometryFifo(fifoData.commands, (uint32_t*)&fifoData + 1, 18);
+    SubmitCommandToGeometryFifo(fifoData.unknown_0_, (uint32_t*)&fifoData + 1, 18);
 }
 
 extern "C" void CreateTextureMatrix_v3_ScaleTranslateRotate(Matrix4x4* matrix, MaterialRenderData* renderData)
@@ -968,24 +968,24 @@ extern "C" void CreateTextureMatrix_v3_NoExtensions(Matrix4x4* matrix, MaterialR
 void MaterialTextureMatrixLoadProc_Type3(MaterialRenderData* renderData)
 {
     struct {
-        uint32_t commands;
-        uint32_t initialMatrixMode;
-        Matrix4x4 matrix;
-        uint32_t finalMatrixMode;
+        uint32_t unknown_0_;
+        uint32_t unknown_4_;
+        Matrix4x4 unknown_8_;
+        uint32_t unknown_48_;
     } fifoData;
 
     if (renderData->flags_ & 8)
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x4, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_LoadMat4x4, GXFifoCommand_SetMatrixMode);
     else
-        fifoData.commands = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x4, GXFifoCommand_SetMatrixMode);
+        fifoData.unknown_0_ = COMBINE_GXFIFO_COMMANDS3(GXFifoCommand_SetMatrixMode, GXFifoCommand_MultiplyMat4x4, GXFifoCommand_SetMatrixMode);
 
-    fifoData.initialMatrixMode = 3; // load/adjust texture matrix
-    fifoData.finalMatrixMode = 2; // return to position+vector mode after
+    fifoData.unknown_4_ = 3; // load/adjust texture matrix
+    fifoData.unknown_48_ = 2; // return to position+vector mode after
 
-    fifoData.matrix.entries[2] = fifoData.matrix.entries[3] = fifoData.matrix.entries[6]
-        = fifoData.matrix.entries[7] = fifoData.matrix.entries[8] = fifoData.matrix.entries[9]
-        = fifoData.matrix.entries[10] = fifoData.matrix.entries[11] = fifoData.matrix.entries[14] = 0;
-    fifoData.matrix.entries[15] = 1 << 12;
+    fifoData.unknown_8_.entries[2] = fifoData.unknown_8_.entries[3] = fifoData.unknown_8_.entries[6]
+        = fifoData.unknown_8_.entries[7] = fifoData.unknown_8_.entries[8] = fifoData.unknown_8_.entries[9]
+        = fifoData.unknown_8_.entries[10] = fifoData.unknown_8_.entries[11] = fifoData.unknown_8_.entries[14] = 0;
+    fifoData.unknown_8_.entries[15] = 1 << 12;
 
     if (renderData->flags_ & 1)
     {
@@ -1003,21 +1003,21 @@ void MaterialTextureMatrixLoadProc_Type3(MaterialRenderData* renderData)
         renderData->translateX_ = renderData->translateY_ = 0;
     }
 
-    data_020f1ec8[renderData->flags_ & 7](&fifoData.matrix, renderData);
+    data_020f1ec8[renderData->flags_ & 7](&fifoData.unknown_8_, renderData);
 
     if (renderData->materialxScale_ != (1 << 12))
     {
-        fifoData.matrix.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[0]) >> 12;
-        fifoData.matrix.entries[1] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[1]) >> 12;
-        fifoData.matrix.entries[12] = ((int64_t)renderData->materialxScale_ * fifoData.matrix.entries[12]) >> 12;
+        fifoData.unknown_8_.entries[0] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[0]) >> 12;
+        fifoData.unknown_8_.entries[1] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[1]) >> 12;
+        fifoData.unknown_8_.entries[12] = ((int64_t)renderData->materialxScale_ * fifoData.unknown_8_.entries[12]) >> 12;
     }
 
     if (renderData->materialyScale_ != (1 << 12))
     {
-        fifoData.matrix.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[4]) >> 12;
-        fifoData.matrix.entries[5] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[5]) >> 12;
-        fifoData.matrix.entries[13] = ((int64_t)renderData->materialyScale_ * fifoData.matrix.entries[13]) >> 12;
+        fifoData.unknown_8_.entries[4] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[4]) >> 12;
+        fifoData.unknown_8_.entries[5] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[5]) >> 12;
+        fifoData.unknown_8_.entries[13] = ((int64_t)renderData->materialyScale_ * fifoData.unknown_8_.entries[13]) >> 12;
     }
 
-    SubmitCommandToGeometryFifo(fifoData.commands, (uint32_t*)&fifoData + 1, 18);
+    SubmitCommandToGeometryFifo(fifoData.unknown_0_, (uint32_t*)&fifoData + 1, 18);
 }

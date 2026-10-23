@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
 #include "World/Zone3D.h"
-struct ProximityNode0201b678 {
-    int field0;
-    int field4;
-    Vector3fix position;
-    char unknown14[0x28];
-    int radius;
-    char unknown40[0x30];
-    ProximityNode0201b678* next;
+struct Struct_0201b678 {
+    int unknown_0_;
+    int unknown_4_;
+    Vector3fix unknown_8_;
+    char unknown_14_[0x28];
+    int unknown_3c_;
+    char unknown_40_[0x30];
+    Struct_0201b678* unknown_70_;
 };
 extern "C" void* func_0201e838(unsigned char*, unsigned int);
 int Vector3fix_Distance(const Vector3fix*, const Vector3fix*);
 
 // USA: func_0201b678
-extern "C" ARM ProximityNode0201b678* func_0201b678(Zone3D* zone, const Vector3fix* input) {
-    ProximityNode0201b678* preferred = 0;
-    ProximityNode0201b678* node = (ProximityNode0201b678*)func_0201e838((unsigned char*)&zone->substruct_6c_, 10);
-    Vector3fix position;
-    position.x = input->x * 6;
-    position.y = input->y * 6;
-    position.z = input->z * 6;
-    int preferredDistance = 0x0ffff000;
-    int fallbackDistance = preferredDistance;
-    ProximityNode0201b678* fallback = 0;
-    position.x -= zone->substruct_c_.unknown_38_;
-    position.z -= zone->substruct_c_.unknown_3c_;
-    while (node) {
-        int distance = Vector3fix_Distance(&node->position, &position);
-        if (distance < preferredDistance) {
-            if (distance <= node->radius) {
-                preferredDistance = distance;
-                preferred = node;
-            } else if (distance < fallbackDistance) {
-                fallbackDistance = distance;
-                fallback = node;
+extern "C" ARM Struct_0201b678* func_0201b678(Zone3D* arg0, const Vector3fix* arg1) {
+    Struct_0201b678* var0 = 0;
+    Struct_0201b678* var1 = (Struct_0201b678*)func_0201e838((unsigned char*)&arg0->substruct_6c_, 10);
+    Vector3fix var2;
+    var2.x = arg1->x * 6;
+    var2.y = arg1->y * 6;
+    var2.z = arg1->z * 6;
+    int var3 = 0x0ffff000;
+    int var4 = var3;
+    Struct_0201b678* var5 = 0;
+    var2.x -= arg0->substruct_c_.unknown_38_;
+    var2.z -= arg0->substruct_c_.unknown_3c_;
+    while (var1) {
+        int var6 = Vector3fix_Distance(&var1->unknown_8_, &var2);
+        if (var6 < var3) {
+            if (var6 <= var1->unknown_3c_) {
+                var3 = var6;
+                var0 = var1;
+            } else if (var6 < var4) {
+                var4 = var6;
+                var5 = var1;
             }
         }
-        node = node->next;
+        var1 = var1->unknown_70_;
     }
-    if (preferred) return preferred;
-    if (!fallback) fallback = 0;
-    return fallback;
+    if (var0) return var0;
+    if (!var5) var5 = 0;
+    return var5;
 }

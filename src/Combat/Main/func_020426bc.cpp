@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 
-struct Entry020426bc {
-    int val;
-    char pad4;
-    signed char field5 : 6;
-    signed char unused2 : 2;
-    char pad6[2];
+struct Struct_020426bc {
+    int unknown_0_;
+    char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 2;
+    char unknown_6_[2];
 };
 
-extern "C" struct Entry020426bc* func_0204254c(int key, int tableIdx);
-extern "C" int func_020424e4(int key, int tableIdx);
+extern "C" struct Struct_020426bc* func_0204254c(int arg0, int arg1);
+extern "C" int func_020424e4(int arg0, int arg1);
 
 // USA: func_020426bc
-extern "C" ARM int func_020426bc(char* str, unsigned char* out, int id) {
-    if (out == 0) return 0;
-    if (str == 0) {
-        if (out != 0) *out = 0;
+extern "C" ARM int func_020426bc(char* arg0, unsigned char* arg1, int arg2) {
+    if (arg1 == 0) return 0;
+    if (arg0 == 0) {
+        if (arg1 != 0) *arg1 = 0;
         return 0;
     }
-    int count = 0;
+    int var0 = 0;
     for (;;) {
-        signed char c = *str;
-        if (c == 0) {
-            *out = 0;
+        signed char var1 = *arg0;
+        if (var1 == 0) {
+            *arg1 = 0;
             break;
         }
-        int step = 1;
-        int code = 0;
-        struct Entry020426bc* e = func_0204254c((int)str, id);
-        if (e != 0) {
-            step = e->field5;
+        int var2 = 1;
+        int var3 = 0;
+        struct Struct_020426bc* var4 = func_0204254c((int)arg0, arg2);
+        if (var4 != 0) {
+            var2 = var4->unknown_5_0_;
         }
-        if (c == 0x20) code = 0xff;
-        int idx = func_020424e4((int)str, id);
-        if (idx > 0) code = idx & 0xff;
-        *out++ = (unsigned char)code;
-        str += step;
-        count++;
+        if (var1 == 0x20) var3 = 0xff;
+        int var5 = func_020424e4((int)arg0, arg2);
+        if (var5 > 0) var3 = var5 & 0xff;
+        *arg1++ = (unsigned char)var3;
+        arg0 += var2;
+        var0++;
     }
-    return count;
+    return var0;
 }

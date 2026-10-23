@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-extern "C" void func_020b0318(int* p);
-extern "C" int func_0205a1f0(void* a, void* b, int c);
-extern "C" void func_020b0594(int local, int zero, int tier, void* obj);
-extern "C" void func_020b0368(int local, int val44, int tier, void* obj);
+extern "C" void func_020b0318(int* arg0);
+extern "C" int func_0205a1f0(void* arg0, void* arg1, int arg2);
+extern "C" void func_020b0594(int arg0, int arg1, int arg2, void* arg3);
+extern "C" void func_020b0368(int arg0, int arg1, int arg2, void* arg3);
 
-struct Obj0205aaf8 {
-    int words[3];
-    char pad0xc[0x38 - 0xc];
-    int field0x38;
-    char pad0x3c[0x44 - 0x3c];
-    int field0x44;
-    char pad0x48[0x50 - 0x48];
-    unsigned char field0x50;
+struct Struct_0205a528 {
+    int unknown_0_[3];
+    char unknown_c_[0x38 - 0xc];
+    int unknown_38_;
+    char unknown_3c_[0x44 - 0x3c];
+    int unknown_44_;
+    char unknown_48_[0x50 - 0x48];
+    unsigned char unknown_50_;
 };
 
 // USA: func_0205aaf8
-extern "C" ARM int func_0205aaf8(struct Obj0205aaf8* obj, void* param2, int param3) {
-    int local;
-    int tier;
-    func_020b0318((int*)obj);
-    if (func_0205a1f0(&local, param2, param3) != 0) {
+extern "C" ARM int func_0205aaf8(struct Struct_0205a528* arg0, void* arg1, int arg2) {
+    int var0;
+    int var1;
+    func_020b0318((int*)arg0);
+    if (func_0205a1f0(&var0, arg1, arg2) != 0) {
         return 1;
     }
-    tier = (obj->field0x50 == 0) ? 1 : 2;
-    if (obj->field0x38 == 4) {
-        func_020b0594(local, 0, tier, obj);
+    var1 = (arg0->unknown_50_ == 0) ? 1 : 2;
+    if (arg0->unknown_38_ == 4) {
+        func_020b0594(var0, 0, var1, arg0);
     } else {
-        func_020b0368(local, obj->field0x44, tier, obj);
+        func_020b0368(var0, arg0->unknown_44_, var1, arg0);
     }
     return 0;
 }

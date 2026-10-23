@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 
-extern "C" void* func_ov017_021b8478(void* obj);
-extern "C" void* func_ov017_021b8468(void* obj);
-extern "C" void* func_ov017_021b8470(void* obj);
-extern "C" void func_ov000_02162b90(void* self, int unused1, int c, int unused3, int compareVal, signed char idx6, signed char p2);
+extern "C" void* func_ov017_021b8478(void* arg0);
+extern "C" void* func_ov017_021b8468(void* arg0);
+extern "C" void* func_ov017_021b8470(void* arg0);
+extern "C" void func_ov000_02162b90(void* arg0, int arg1, int arg2, int arg3, int arg4, signed char arg5, signed char arg6);
 
-struct EventHdr021c6b04 {
-    unsigned char pad0[8];
-    unsigned short field8;
+struct Struct_ov017_021c6b04 {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct LocalEvt021c6b04 {
-    unsigned char pad0[4];
-    unsigned short field4;
-    unsigned short field6;
-    unsigned char field8;
-    unsigned char field9;
-    signed char fieldA;
-    signed char fieldB;
+struct Struct_ov017_021c6b04_2 {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    signed char unknown_a_;
+    signed char unknown_b_;
 };
 
 // USA: func_ov017_021c6b04
-extern "C" ARM void func_ov017_021c6b04(int unused0, LocalEvt021c6b04* evt, int unused2, unsigned char* base) {
+extern "C" ARM void func_ov017_021c6b04(int arg0, Struct_ov017_021c6b04_2* arg1, int arg2, unsigned char* arg3) {
 #if defined(jpn)
- enum {regionalOffset0=0x508};
+ enum {Enum_ov017_021c6b04_1816=0x508};
 #else
- enum {regionalOffset0=0x718};
+ enum {Enum_ov017_021c6b04_1816=0x718};
 #endif
-    void* table = *(void**)(base + 0x3000 + regionalOffset0);
-    EventHdr021c6b04* a = (EventHdr021c6b04*)func_ov017_021b8478(table);
-    if (!a) return;
-    void* b = func_ov017_021b8468(table);
-    if (!b) return;
-    void* work = func_ov017_021b8470(table);
-    if (!work) return;
-    if (a->field8 != evt->field4) return;
-    func_ov000_02162b90(b, *(short*)&evt->field4, evt->field6, evt->field8, evt->field9, evt->fieldA, evt->fieldB);
+    void* var0 = *(void**)(arg3 + 0x3000 + Enum_ov017_021c6b04_1816);
+    Struct_ov017_021c6b04* var1 = (Struct_ov017_021c6b04*)func_ov017_021b8478(var0);
+    if (!var1) return;
+    void* var2 = func_ov017_021b8468(var0);
+    if (!var2) return;
+    void* var3 = func_ov017_021b8470(var0);
+    if (!var3) return;
+    if (var1->unknown_8_ != arg1->unknown_4_) return;
+    func_ov000_02162b90(var2, *(short*)&arg1->unknown_4_, arg1->unknown_6_, arg1->unknown_8_, arg1->unknown_9_, arg1->unknown_a_, arg1->unknown_b_);
 }

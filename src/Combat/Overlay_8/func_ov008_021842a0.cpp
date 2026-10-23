@@ -13,56 +13,56 @@
 #include <globaldefs.h>
 #include <Memory/SafeAllocator.h>
 
-struct Unk020421a0 {
-    char pad_0[R(0x28,0x5c)];
-    void* unk_5c;
+struct Struct_ov008_021842a0 {
+    char unknown_0_[R(0x28,0x5c)];
+    void* unknown_5c_;
 };
 
-extern "C" Unk020421a0* func_020421a0();
+extern "C" Struct_ov008_021842a0* func_020421a0();
 
-struct BattleRecords {
-    SafeAllocator allocator_;
-    SafeAllocator backgroundAllocator_;
-    SafeAllocator textAllocator_;
-    SafeAllocator spriteAllocator_;
-    SafeAllocator iconAllocator_;
-    SafeAllocator modelAllocator_;
-    SafeAllocator titleAllocator_;
-    SafeAllocator guideAllocator_;
-    char texts_[0x18];
-    char* text_;
-    char pad_bc[0x72c - 0xbc];
-    void* pixels_;
-    void* renderer_;
-    void* sprites_;
-    void* animations_;
-    char pad_73c[0xb24 - 0x73c];
-    int mode_;
+struct Struct_ov008_021842a0_2 {
+    SafeAllocator unknown_0_;
+    SafeAllocator unknown_14_;
+    SafeAllocator unknown_28_;
+    SafeAllocator unknown_3c_;
+    SafeAllocator unknown_50_;
+    SafeAllocator unknown_64_;
+    SafeAllocator unknown_78_;
+    SafeAllocator unknown_8c_;
+    char unknown_a0_[0x18];
+    char* unknown_b8_;
+    char unknown_bc_[0x72c - 0xbc];
+    void* unknown_72c_;
+    void* unknown_730_;
+    void* unknown_734_;
+    void* unknown_738_;
+    char unknown_73c_[0xb24 - 0x73c];
+    int unknown_b24_;
 };
 
 // USA: func_ov008_021842a0
-extern "C" ARM void func_ov008_021842a0(BattleRecords* self, SafeAllocator* allocator)
+extern "C" ARM void func_ov008_021842a0(Struct_ov008_021842a0_2* arg0, SafeAllocator* arg1)
 {
-    if (allocator == NULL)
+    if (arg1 == NULL)
         return;
-    self->backgroundAllocator_.CreateTypeA(allocator->Allocate(0x2400), 0x2400);
-    self->textAllocator_.CreateTypeA(allocator->Allocate(0x800), 0x800);
-    if (self->mode_ == 0)
+    arg0->unknown_14_.CreateTypeA(arg1->Allocate(0x2400), 0x2400);
+    arg0->unknown_28_.CreateTypeA(arg1->Allocate(0x800), 0x800);
+    if (arg0->unknown_b24_ == 0)
     {
-        self->allocator_.CreateTypeA(allocator->Allocate(0x1000), 0x1000);
-        self->spriteAllocator_.CreateTypeA(allocator->Allocate(0x200), 0x200);
-        self->iconAllocator_.CreateTypeA(allocator->Allocate(0x400), 0x400);
-        self->modelAllocator_.CreateTypeA(allocator->Allocate(0x8800), 0x8800);
-        self->titleAllocator_.CreateTypeA(allocator->Allocate(R(0xa000,0x8000)), R(0xa000,0x8000));
-        self->guideAllocator_.CreateTypeA(allocator->Allocate(R(0x6000,0x8000)), R(0x6000,0x8000));
-        self->renderer_ = allocator->Allocate(0x54);
-        self->sprites_ = allocator->Allocate(0x2d0);
-        self->animations_ = allocator->Allocate(8);
-        self->text_ = (char*)func_020421a0()->unk_5c;
+        arg0->unknown_0_.CreateTypeA(arg1->Allocate(0x1000), 0x1000);
+        arg0->unknown_3c_.CreateTypeA(arg1->Allocate(0x200), 0x200);
+        arg0->unknown_50_.CreateTypeA(arg1->Allocate(0x400), 0x400);
+        arg0->unknown_64_.CreateTypeA(arg1->Allocate(0x8800), 0x8800);
+        arg0->unknown_78_.CreateTypeA(arg1->Allocate(R(0xa000,0x8000)), R(0xa000,0x8000));
+        arg0->unknown_8c_.CreateTypeA(arg1->Allocate(R(0x6000,0x8000)), R(0x6000,0x8000));
+        arg0->unknown_730_ = arg1->Allocate(0x54);
+        arg0->unknown_734_ = arg1->Allocate(0x2d0);
+        arg0->unknown_738_ = arg1->Allocate(8);
+        arg0->unknown_b8_ = (char*)func_020421a0()->unknown_5c_;
     }
     else
     {
-        self->text_ = (char*)allocator->Allocate(R(0x800,0x960));
+        arg0->unknown_b8_ = (char*)arg1->Allocate(R(0x800,0x960));
     }
-    self->pixels_ = self->backgroundAllocator_.Allocate(0x1c00);
+    arg0->unknown_72c_ = arg0->unknown_14_.Allocate(0x1c00);
 }

@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct TagValueEntry020e38e4 { unsigned int val; unsigned char tag; };
-struct TagValueEntry020e385c { unsigned int val; unsigned char tag; };
+struct Struct_020e38e4 { unsigned int unknown_0_; unsigned char unknown_4_; };
+struct Struct_020e385c { unsigned int unknown_0_; unsigned char unknown_4_; };
 
 extern "C" void* func_020e3808(void);
 extern "C" void* func_0202ae24(void);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* state);
-extern "C" int func_020e38e4(struct TagValueEntry020e38e4* entries, int tag, int val);
-extern "C" struct TagValueEntry020e385c* func_020e385c(struct TagValueEntry020e385c* entries, int tag, int val);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" int func_0202c508(void* arg0);
+extern "C" int func_020e38e4(struct Struct_020e38e4* arg0, int arg1, int arg2);
+extern "C" struct Struct_020e385c* func_020e385c(struct Struct_020e385c* arg0, int arg1, int arg2);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021cebcc
-extern "C" ARM void func_ov017_021cebcc(int kind, int a1, int a2) {
-	struct TagValueEntry020e38e4* entries = (struct TagValueEntry020e38e4*)func_020e3808();
-	void* p = func_0202ae24();
+extern "C" ARM void func_ov017_021cebcc(int arg0, int arg1, int arg2) {
+	struct Struct_020e38e4* var0 = (struct Struct_020e38e4*)func_020e3808();
+	void* var1 = func_0202ae24();
 
-	unsigned char buf[0x14];
-	buf[0] = 0x34;
-	unsigned char* b = buf + 4;
-	b[0] = kind;
-	*(int*)(b + 4) = a2;
-	b[8] = a1;
+	unsigned char var2[0x14];
+	var2[0] = 0x34;
+	unsigned char* var3 = var2 + 4;
+	var3[0] = arg0;
+	*(int*)(var3 + 4) = arg2;
+	var3[8] = arg1;
 
-	if (func_0202c508(func_0202ae18()) != 0 && kind == 3) {
-		b[1] = func_020e38e4(entries, a1, a2);
-		struct TagValueEntry020e385c* found = func_020e385c((struct TagValueEntry020e385c*)entries, a1, a2);
-		if (found != NULL) {
-			memcpy(b + 4, found, 8);
+	if (func_0202c508(func_0202ae18()) != 0 && arg0 == 3) {
+		var3[1] = func_020e38e4(var0, arg1, arg2);
+		struct Struct_020e385c* var4 = func_020e385c((struct Struct_020e385c*)var0, arg1, arg2);
+		if (var4 != NULL) {
+			memcpy(var3 + 4, var4, 8);
 		}
 	}
 
-	func_0205e330(p, buf, 0);
+	func_0205e330(var1, var2, 0);
 }

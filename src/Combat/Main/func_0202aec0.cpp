@@ -1,85 +1,85 @@
 #include <globaldefs.h>
 #include "Resource/TextEncoding.h"
 
-extern "C" void* memset(void* dst, int c, unsigned long n);
-extern "C" void func_020c99c8(void* out);
+extern "C" void* memset(void* arg0, int arg1, unsigned long arg2);
+extern "C" void func_020c99c8(void* arg0);
 
-struct SubState_0202aec0 {
-    int f0;
-    int f4;
-    int f8;
-    unsigned char fc;
-    unsigned char fd;
-    unsigned char fe;
-    unsigned char ff;
-    unsigned char f10;
-    unsigned char f11;
-    unsigned char pad12[2];
-    unsigned char f14[0x14];
-    unsigned char f28;
-    unsigned char f29;
-    unsigned char pad2a[10];
-    int f34;
-    unsigned char f38[0x10];
-    unsigned char f48[0x10];
+struct Struct_0202aec0 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    unsigned char unknown_10_;
+    unsigned char unknown_11_;
+    unsigned char unknown_12_[2];
+    unsigned char unknown_14_[0x14];
+    unsigned char unknown_28_;
+    unsigned char unknown_29_;
+    unsigned char unknown_2a_[10];
+    int unknown_34_;
+    unsigned char unknown_38_[0x10];
+    unsigned char unknown_48_[0x10];
 };
 
-struct Obj_0202aec0 {
-    int f0;
-    short f4;
-    short pad6;
-    int f8;
-    int fc;
-    unsigned char f10[0x780];
-    unsigned char f790[0x28];
-    unsigned char pad7b8[8];
-    unsigned char f7c0[0x400];
-    unsigned char fbc0[0x400];
-    int ffc0;
-    unsigned char ffc4[0x3c];
-    SubState_0202aec0 sub;
+struct Struct_0202aec0_2 {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    int unknown_8_;
+    int unknown_c_;
+    unsigned char unknown_10_[0x780];
+    unsigned char unknown_790_[0x28];
+    unsigned char unknown_7b8_[8];
+    unsigned char unknown_7c0_[0x400];
+    unsigned char unknown_bc0_[0x400];
+    int unknown_fc0_;
+    unsigned char unknown_fc4_[0x3c];
+    Struct_0202aec0 unknown_1000_;
 };
 
-struct Info_0202aec0 {
-    int f0;
-    unsigned short name[11];
-    unsigned short f1a;
-    unsigned char pad1c[0x38];
+struct Struct_0202aec0_3 {
+    int unknown_0_;
+    unsigned short unknown_4_[11];
+    unsigned short unknown_1a_;
+    unsigned char unknown_1c_[0x38];
 };
 
-extern "C" int _ZZ14GetTurnCountervE1s;
+extern "C" int _ZZ15inline_0202c04cvE1s;
 
 // USA: func_0202aec0
-extern "C" ARM void func_0202aec0(Obj_0202aec0* obj) {
-    Info_0202aec0 info;
+extern "C" ARM void func_0202aec0(Struct_0202aec0_2* arg0) {
+    Struct_0202aec0_3 var0;
 
-    obj->f0 = 0;
-    obj->f4 = 0;
-    obj->f8 = 0;
-    obj->fc = 0;
-    obj->ffc0 = 0;
-    obj->sub.f4 = 0;
-    obj->sub.f8 = -1;
-    memset(obj->sub.f14, 0, 0x24);
-    memset(obj->f10, 0, 0x780);
-    memset(obj->f790, 0, 0x28);
-    memset(obj->f7c0, 0, 0x400);
-    memset(obj->fbc0, 0, 0x400);
-    memset(obj->ffc4, 0, 0x40);
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
+    arg0->unknown_8_ = 0;
+    arg0->unknown_c_ = 0;
+    arg0->unknown_fc0_ = 0;
+    arg0->unknown_1000_.unknown_4_ = 0;
+    arg0->unknown_1000_.unknown_8_ = -1;
+    memset(arg0->unknown_1000_.unknown_14_, 0, 0x24);
+    memset(arg0->unknown_10_, 0, 0x780);
+    memset(arg0->unknown_790_, 0, 0x28);
+    memset(arg0->unknown_7c0_, 0, 0x400);
+    memset(arg0->unknown_bc0_, 0, 0x400);
+    memset(arg0->unknown_fc4_, 0, 0x40);
 
-    func_020c99c8(&info);
-    obj->sub.f28 = info.f1a;
-    func_020328bc(obj->sub.f14, info.name, obj->sub.f28);
+    func_020c99c8(&var0);
+    arg0->unknown_1000_.unknown_28_ = var0.unknown_1a_;
+    func_020328bc(arg0->unknown_1000_.unknown_14_, var0.unknown_4_, arg0->unknown_1000_.unknown_28_);
 
-    obj->sub.f29 = obj->sub.f29 & ~8;
-    obj->sub.f34 = 0;
-    obj->sub.fc = 1;
-    obj->sub.fd = 1;
-    obj->sub.fe = 0;
-    obj->sub.ff = 0;
-    obj->sub.f10 = 0;
-    (&_ZZ14GetTurnCountervE1s)[1] = 0;
-    memset(obj->sub.f38, 0, 0x10);
-    memset(obj->sub.f48, 0, 0x10);
-    obj->sub.f11 = 1;
+    arg0->unknown_1000_.unknown_29_ = arg0->unknown_1000_.unknown_29_ & ~8;
+    arg0->unknown_1000_.unknown_34_ = 0;
+    arg0->unknown_1000_.unknown_c_ = 1;
+    arg0->unknown_1000_.unknown_d_ = 1;
+    arg0->unknown_1000_.unknown_e_ = 0;
+    arg0->unknown_1000_.unknown_f_ = 0;
+    arg0->unknown_1000_.unknown_10_ = 0;
+    (&_ZZ15inline_0202c04cvE1s)[1] = 0;
+    memset(arg0->unknown_1000_.unknown_38_, 0, 0x10);
+    memset(arg0->unknown_1000_.unknown_48_, 0, 0x10);
+    arg0->unknown_1000_.unknown_11_ = 1;
 }

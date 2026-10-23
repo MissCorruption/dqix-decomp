@@ -1,83 +1,83 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct CombatantExt02170ffc {
+struct Struct_ov000_02170ffc_2 {
 #if defined(jpn)
-    char pad0[0x8b4];
+    char unknown_0_[0x8b4];
 #else
-    char pad0[0x94c];
+    char unknown1_0_[0x94c];
 #endif
-    int field94c;
+    int unknown_94c_;
 };
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" struct CombatantExt02170ffc* func_02053c6c(unsigned char* obj);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" struct Struct_ov000_02170ffc_2* func_02053c6c(unsigned char* arg0);
 
-struct Obj0203c108 {
-    char pad[0x14];
-    short idx;
+struct Struct_0203c108_3 {
+    char unknown_0_[0x14];
+    short unknown_14_;
 };
-extern "C" void func_0203c108(struct Obj0203c108* obj, char* fmt);
+extern "C" void func_0203c108(struct Struct_0203c108_3* arg0, char* arg1);
 
-extern "C" void __clear(void* buf, int count);
+extern "C" void __clear(void* arg0, int arg1);
 
-struct Obj02170ffc {
-    char pad0[4];
-    struct Container020e0310* container;
-    char pad8[0x24 - 0x8];
-    unsigned char flags;
-    char pad25[0x4c - 0x25];
-    int combatantId;
-    struct Obj0203c108 label;
+struct Struct_ov000_02170ffc {
+    char unknown_0_[4];
+    struct Struct_0201099c_3* unknown_4_;
+    char unknown_8_[0x24 - 0x8];
+    unsigned char unknown_24_;
+    char unknown_25_[0x4c - 0x25];
+    int unknown_4c_;
+    struct Struct_0203c108_3 unknown_50_;
 #if defined(jpn)
-    char pad66[0xc7 - 0x66];
+    char unknown_66_[0xc7 - 0x66];
 #else
-    char pad66[0x87 - 0x66];
+    char unknown1_66_[0x87 - 0x66];
 #endif
-    unsigned char visible;
+    unsigned char unknown_87_;
 };
 
-extern "C" int func_ov000_021719f8(int* obj);
+extern "C" int func_ov000_021719f8(int* arg0);
 #if defined(jpn)
-extern "C" int func_ov000_02171a74(struct Obj02170ffc* obj);
+extern "C" int func_ov000_02171a74(struct Struct_ov000_02170ffc* arg0);
 #else
-extern "C" int func_ov000_02171a74(struct Obj02170ffc* obj, char* buf);
+extern "C" int func_ov000_02171a74(struct Struct_ov000_02170ffc* arg0, char* arg1);
 #endif
 
 // USA: func_ov000_02170ffc
-extern "C" ARM void func_ov000_02170ffc(struct Obj02170ffc* obj) {
+extern "C" ARM void func_ov000_02170ffc(struct Struct_ov000_02170ffc* arg0) {
 #if !defined(jpn)
-    char buf[0x80];
+    char var0[0x80];
 #endif
-    if (obj->flags & 2) {
+    if (arg0->unknown_24_ & 2) {
         return;
     }
-    if (obj->visible == 0) {
+    if (arg0->unknown_87_ == 0) {
         return;
     }
-    if (func_ov000_021719f8((int*)obj)) {
+    if (func_ov000_021719f8((int*)arg0)) {
 #if defined(jpn)
-        int key = func_ov000_02171a74(obj);
-        struct Container020e0310* container = obj->container;
-        if (container != NULL && key >= 0) {
-            func_0203c108(&obj->label, (char*)func_020e0434(container, key));
+        int var1 = func_ov000_02171a74(arg0);
+        struct Struct_0201099c_3* var2 = arg0->unknown_4_;
+        if (var2 != NULL && var1 >= 0) {
+            func_0203c108(&arg0->unknown_50_, (char*)func_020e0434(var2, var1));
             return;
         }
 #else
-        __clear(buf, sizeof(buf));
-        if (func_ov000_02171a74(obj, buf) >= 0) {
-            func_0203c108(&obj->label, buf);
+        __clear(var0, sizeof(var0));
+        if (func_ov000_02171a74(arg0, var0) >= 0) {
+            func_0203c108(&arg0->unknown_50_, var0);
             return;
         }
 #endif
     }
-    short key = 0x753e;
-    GameObject* member = GameState::GetInstance()->GetPartyMemberByIndex(obj->combatantId);
-    if (member == NULL) {
+    short var3 = 0x753e;
+    GameObject* var4 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
+    if (var4 == NULL) {
         return;
     }
-    struct CombatantExt02170ffc* ext = func_02053c6c((unsigned char*)member);
-    key += (signed char)ext->field94c;
-    func_0203c108(&obj->label, (char*)func_020e0434(obj->container, key));
+    struct Struct_ov000_02170ffc_2* var5 = func_02053c6c((unsigned char*)var4);
+    var3 += (signed char)var5->unknown_94c_;
+    func_0203c108(&arg0->unknown_50_, (char*)func_020e0434(arg0->unknown_4_, var3));
 }

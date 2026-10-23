@@ -3,54 +3,54 @@
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern AllocatorUnion data_02114e20;
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 
-struct ResetStruct0218eef0;
-extern "C" void func_ov015_0218eef0(struct ResetStruct0218eef0* s);
+struct Struct_ov015_0218eef0;
+extern "C" void func_ov015_0218eef0(struct Struct_ov015_0218eef0* arg0);
 
-struct FieldStruct0218f0c4 {
-    unsigned int f00;
-    void* f04;
-    SafeAllocator* f08;
-    unsigned int f0c;
-    unsigned int f10;
-    void* f14;
-    unsigned int f18;
-    unsigned char f1c;
-    unsigned char pad1d[3];
-    void* f20;
-    void* f24;
-    void* f28;
+struct Struct_ov015_0218f0c4 {
+    unsigned int unknown_0_;
+    void* unknown_4_;
+    SafeAllocator* unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    void* unknown_14_;
+    unsigned int unknown_18_;
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_[3];
+    void* unknown_20_;
+    void* unknown_24_;
+    void* unknown_28_;
 };
 
 // USA: func_ov015_0218f0c4
-extern "C" ARM void func_ov015_0218f0c4(void* p) {
-    FieldStruct0218f0c4* s = (FieldStruct0218f0c4*)p;
+extern "C" ARM void func_ov015_0218f0c4(void* arg0) {
+    Struct_ov015_0218f0c4* var0 = (Struct_ov015_0218f0c4*)arg0;
 
-    if (s->f08 != 0) {
-        if (s->f1c == 0 || s->f1c == 1) {
-            SafeAllocator* arr = s->f08;
-            for (int i = 0; i < 10; i++, arr = (SafeAllocator*)((char*)arr + 0x14)) {
-                void* signedAlloc = arr->GetSignedAllocator();
-                arr->Destroy();
-                func_02012da4(&data_02114e20, signedAlloc);
+    if (var0->unknown_8_ != 0) {
+        if (var0->unknown_1c_ == 0 || var0->unknown_1c_ == 1) {
+            SafeAllocator* var1 = var0->unknown_8_;
+            for (int var2 = 0; var2 < 10; var2++, var1 = (SafeAllocator*)((char*)var1 + 0x14)) {
+                void* var3 = var1->GetSignedAllocator();
+                var1->Destroy();
+                func_02012da4(&data_02114e20, var3);
             }
         } else {
-            void* signedAlloc = s->f08->GetSignedAllocator();
-            s->f08->Destroy();
-            func_02012da4(&data_02114e20, signedAlloc);
+            void* var4 = var0->unknown_8_->GetSignedAllocator();
+            var0->unknown_8_->Destroy();
+            func_02012da4(&data_02114e20, var4);
         }
-        func_02012da4(&data_02114e20, s->f08);
+        func_02012da4(&data_02114e20, var0->unknown_8_);
     }
 
-    if (s->f20 != 0) func_02012da4(&data_02114e20, s->f20);
-    if (s->f14 != 0) func_02012da4(&data_02114e20, s->f14);
-    if (s->f24 != 0) func_02012da4(&data_02114e20, s->f24);
-    if (s->f28 != 0) func_02012da4(&data_02114e20, s->f28);
+    if (var0->unknown_20_ != 0) func_02012da4(&data_02114e20, var0->unknown_20_);
+    if (var0->unknown_14_ != 0) func_02012da4(&data_02114e20, var0->unknown_14_);
+    if (var0->unknown_24_ != 0) func_02012da4(&data_02114e20, var0->unknown_24_);
+    if (var0->unknown_28_ != 0) func_02012da4(&data_02114e20, var0->unknown_28_);
 
-    if (s->f04 != 0) {
-        *((unsigned char*)s->f04 + 4) = 0;
+    if (var0->unknown_4_ != 0) {
+        *((unsigned char*)var0->unknown_4_ + 4) = 0;
     }
 
-    func_ov015_0218eef0((struct ResetStruct0218eef0*)s);
+    func_ov015_0218eef0((struct Struct_ov015_0218eef0*)var0);
 }

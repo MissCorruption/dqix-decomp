@@ -2,272 +2,272 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kYesNo = 0xe60, kTextBytes = 0x800, kPanel = 0xee0 };
+enum { Enum_ov005_02159274_3684 = 0xe60, Enum_ov005_02159274_2400 = 0x800, Enum_ov005_02159274_3812 = 0xee0 };
 #define func_ov005_02157b74 func_ov005_0215916c
 #else
-enum { kYesNo = 0xe64, kTextBytes = 0x960, kPanel = 0xee4 };
+enum { Enum_ov005_02159274_3684 = 0xe64, Enum_ov005_02159274_2400 = 0x960, Enum_ov005_02159274_3812 = 0xee4 };
 #endif
 
 #include <std_library_functions.h>
 #include <GameState/GameState.h>
 
-struct Outer020e28dc;
-struct Ctx020e263c;
-struct Obj0205eaa0;
-struct StructA0205d5d0;
-struct Container020dedd0;
-struct Struct020dd768;
+struct Struct_020e28dc;
+struct Struct_020e263c_2;
+struct Struct_02108760;
+struct Struct_0205d5d0;
+struct Struct_0201099c_10;
+struct Struct_020dd768;
 
-struct ItemBits02159274 {
-    unsigned int amount : 4;
-    unsigned int pad0 : 14;
-    unsigned int flag18 : 1;
-    unsigned int pad1 : 13;
+struct Struct_ov005_02159274 {
+    unsigned int unknown_0_0_ : 4;
+    unsigned int unknown_0_4_ : 14;
+    unsigned int unknown_2_2_ : 1;
+    unsigned int unknown_2_3_ : 13;
 };
 
-struct EquipmentSlot02159274 {
-    short id;
-    signed char count;
-    unsigned char equipped;
-    void* vramState;
-    void* model;
-    int x;
-    int y;
-    int offset;
-    short loadedItem;
+struct Struct_ov005_02159274_2 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    void* unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    short unknown_18_;
 };
 
-struct Menu02159274 {
-    char unknown0[0xdf4];
-    Container020dedd0* items_;
-    char unknownDf8[0xe10 - 0xdf8];
-    char* text_;
-    char unknownE14[kYesNo - 0xe14];
-    void* yesNo_;
+struct Struct_ov005_02159274_3 {
+    char unknown_0_[0xdf4];
+    Struct_0201099c_10* unknown_df4_;
+    char unknown_df8_[0xe10 - 0xdf8];
+    char* unknown_e10_;
+    char unknown_e14_[Enum_ov005_02159274_3684 - 0xe14];
+    void* unknown_e64_;
 #if defined(jpn)
-    char unknownAfterYesNo[0x2d08 - kYesNo - 4];
+    char unknown1_e64_[0x2d08 - Enum_ov005_02159274_3684 - 4];
 #else
-    char unknownAfterYesNo[0x2d90 - kYesNo - 4];
+    char unknown_e68_[0x2d90 - Enum_ov005_02159274_3684 - 4];
 #endif
-    EquipmentSlot02159274 slots[24];
-    char unknownAfterSlots[0x3daa - 0x3030];
-    unsigned char f3daa_;
-    char unknownDab[0x3dbb - 0x3dab];
-    signed char selectedSlot;
-    char unknownDbc[0x3dcc - 0x3dbc];
-    unsigned int dirty_;
-    unsigned char unknownDd0;
-    unsigned char message_;
-    char unknownDd2[0x3ddc - 0x3dd2];
-    unsigned char step_;
-    unsigned char unknownDdd;
-    unsigned char unknownDde;
-    unsigned char menuState_;
+    Struct_ov005_02159274_2 unknown_2d90_[24];
+    char unknown_3030_[0x3daa - 0x3030];
+    unsigned char unknown_3daa_;
+    char unknown_3dab_[0x3dbb - 0x3dab];
+    signed char unknown_3dbb_;
+    char unknown_3dbc_[0x3dcc - 0x3dbc];
+    unsigned int unknown_3dcc_;
+    unsigned char unknown_3dd0_;
+    unsigned char unknown_3dd1_;
+    char unknown_3dd2_[0x3ddc - 0x3dd2];
+    unsigned char unknown_3ddc_;
+    unsigned char unknown_3ddd_;
+    unsigned char unknown_3dde_;
+    unsigned char unknown_3ddf_;
 };
 
 extern "C" char data_02108760[];
 
-extern "C" int func_020e28dc(Outer020e28dc* o);
-extern "C" void func_020e263c(Ctx020e263c* w, int value);
-extern "C" void func_ov005_021589f4(void* self);
-extern "C" void func_ov005_02159b74(void* self);
-extern "C" int func_ov005_02158b3c(void* object, void* buffer);
+extern "C" int func_020e28dc(Struct_020e28dc* arg0);
+extern "C" void func_020e263c(Struct_020e263c_2* arg0, int arg1);
+extern "C" void func_ov005_021589f4(void* arg0);
+extern "C" void func_ov005_02159b74(void* arg0);
+extern "C" int func_ov005_02158b3c(void* arg0, void* arg1);
 extern "C" int func_020e2918(signed char*);
-extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
-struct Obj020e25e8;
-extern "C" void func_020e25e8(Obj020e25e8*);
-extern "C" int func_020e2984(struct Outer020e28dc* window);
-extern "C" void* func_020dedd0(Container020dedd0* c, int key);
-extern "C" int func_020dd768(Struct020dd768* s);
-extern "C" void func_ov005_02157b74(void* self, int key, int keep);
-struct KeyedList0207c484;
-extern "C" void func_0207c484(KeyedList0207c484*, int, int, int);
-extern "C" void func_ov005_021555c0(void* self);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(Struct_020e25e8*);
+extern "C" int func_020e2984(struct Struct_020e28dc* arg0);
+extern "C" void* func_020dedd0(Struct_0201099c_10* arg0, int arg1);
+extern "C" int func_020dd768(Struct_020dd768* arg0);
+extern "C" void func_ov005_02157b74(void* arg0, int arg1, int arg2);
+struct Struct_0207c484;
+extern "C" void func_0207c484(Struct_0207c484*, int, int, int);
+extern "C" void func_ov005_021555c0(void* arg0);
 
 // USA: func_ov005_02159274
-extern "C" ARM void func_ov005_02159274(Menu02159274* self) {
-    int sel = GameState::GetInstance()->GetTickCount();
-    if (sel == 0)
-        sel = 1;
+extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
+    int var0 = GameState::GetInstance()->GetTickCount();
+    if (var0 == 0)
+        var0 = 1;
 
-    if (self->yesNo_ != 0 && func_020e28dc((Outer020e28dc*)self->yesNo_))
-        func_020e263c((Ctx020e263c*)self->yesNo_, sel);
+    if (arg0->unknown_e64_ != 0 && func_020e28dc((Struct_020e28dc*)arg0->unknown_e64_))
+        func_020e263c((Struct_020e263c_2*)arg0->unknown_e64_, var0);
 
-    if (self->step_ == 0) {
-        self->message_ = 8;
-        func_ov005_021589f4(self);
-        func_ov005_02159b74(self);
-        self->step_++;
+    if (arg0->unknown_3ddc_ == 0) {
+        arg0->unknown_3dd1_ = 8;
+        func_ov005_021589f4(arg0);
+        func_ov005_02159b74(arg0);
+        arg0->unknown_3ddc_++;
         return;
     }
-    if (self->step_ == 1) {
-        sel = func_020e2918((signed char*)self->yesNo_);
-        if (sel >= 0) {
-            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            func_020e25e8((Obj020e25e8*)self->yesNo_);
-        } else if (func_020e2984((struct Outer020e28dc*)self->yesNo_)) {
-            func_020e25e8((Obj020e25e8*)self->yesNo_);
-            sel = -2;
+    if (arg0->unknown_3ddc_ == 1) {
+        var0 = func_020e2918((signed char*)arg0->unknown_e64_);
+        if (var0 >= 0) {
+            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+        } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
+            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+            var0 = -2;
         }
-        if (sel == 0) {
-            void* item;
-            int notfound;
-            int flag;
-            item = func_020dedd0(
-                self->items_,
-                self->slots[self->selectedSlot].id);
-            flag = func_020dd768((Struct020dd768*)item);
-            if (flag == 1) {
-                self->message_ = 0xa;
-                memset(self->text_, 0, kTextBytes);
-                func_ov005_02158b3c(self, self->text_);
-                if (self->selectedSlot >= 0 && self->selectedSlot < 8) {
-                    if (((ItemBits02159274*)((char*)item + 8))->flag18) {
-                        self->message_ = 0xc;
-                        memset(self->text_, 0, kTextBytes);
-                        func_ov005_02158b3c(self, self->text_);
+        if (var0 == 0) {
+            void* var1;
+            int var2;
+            int var3;
+            var1 = func_020dedd0(
+                arg0->unknown_df4_,
+                arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
+            var3 = func_020dd768((Struct_020dd768*)var1);
+            if (var3 == 1) {
+                arg0->unknown_3dd1_ = 0xa;
+                memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
+                func_ov005_02158b3c(arg0, arg0->unknown_e10_);
+                if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
+                    if (((Struct_ov005_02159274*)((char*)var1 + 8))->unknown_2_2_) {
+                        arg0->unknown_3dd1_ = 0xc;
+                        memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
+                        func_ov005_02158b3c(arg0, arg0->unknown_e10_);
                         func_0205d5d0(
-                            (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
+                            (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
                         );
-                        self->menuState_ = 4;
-                        self->step_ = 0;
+                        arg0->unknown_3ddf_ = 4;
+                        arg0->unknown_3ddc_ = 0;
                         return;
                     }
-                    func_ov005_02157b74(self, 0xffff, 1);
-                } else if (self->selectedSlot >= 8 &&
-                       self->selectedSlot < 0x18) {
-                    char* list = (char*)func_02010828(GameState::GetInstance());
-                    int amount = ((ItemBits02159274*)((char*)item + 8))->amount;
-                    sel = *(short*)((char*)item + 0x18);
-                    func_0207c484((KeyedList0207c484*)(list + 0x1d4), sel, 1, amount);
-                    notfound = 1;
-                    func_ov005_021555c0(self);
-                    for (int i = 8; i < 0x18; i++) {
-                        if (self->slots[i].id == sel) {
-                            notfound = 0;
+                    func_ov005_02157b74(arg0, 0xffff, 1);
+                } else if (arg0->unknown_3dbb_ >= 8 &&
+                       arg0->unknown_3dbb_ < 0x18) {
+                    char* var4 = (char*)func_02010828(GameState::GetInstance());
+                    int var5 = ((Struct_ov005_02159274*)((char*)var1 + 8))->unknown_0_0_;
+                    var0 = *(short*)((char*)var1 + 0x18);
+                    func_0207c484((Struct_0207c484*)(var4 + 0x1d4), var0, 1, var5);
+                    var2 = 1;
+                    func_ov005_021555c0(arg0);
+                    for (int var6 = 8; var6 < 0x18; var6++) {
+                        if (arg0->unknown_2d90_[var6].unknown_0_ == var0) {
+                            var2 = 0;
                             break;
                         }
                     }
-                    if (notfound) {
-                        self->dirty_ |= 0x40;
-                        self->f3daa_ = 0;
+                    if (var2) {
+                        arg0->unknown_3dcc_ |= 0x40;
+                        arg0->unknown_3daa_ = 0;
                     }
                 }
                 func_0205d5d0(
-                    (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
+                    (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
                         );
-            } else if (flag == 2) {
-                self->message_ = 9;
-                memset(self->text_, 0, kTextBytes);
-                func_ov005_02158b3c(self, self->text_);
+            } else if (var3 == 2) {
+                arg0->unknown_3dd1_ = 9;
+                memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
+                func_ov005_02158b3c(arg0, arg0->unknown_e10_);
                 func_0205d5d0(
-                    (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
+                    (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
                         );
-                self->step_++;
+                arg0->unknown_3ddc_++;
                 return;
-            } else if (flag == 4) {
-                self->message_ = 0xb;
-                memset(self->text_, 0, kTextBytes);
-                func_ov005_02158b3c(self, self->text_);
+            } else if (var3 == 4) {
+                arg0->unknown_3dd1_ = 0xb;
+                memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
+                func_ov005_02158b3c(arg0, arg0->unknown_e10_);
                 func_0205d5d0(
-                    (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
+                    (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
                         );
             }
-            self->menuState_ = 4;
-            self->step_ = 0;
+            arg0->unknown_3ddf_ = 4;
+            arg0->unknown_3ddc_ = 0;
             return;
         }
-        if (sel == -2 || sel == 1) {
-            self->menuState_ = 4;
-            self->step_ = 0;
+        if (var0 == -2 || var0 == 1) {
+            arg0->unknown_3ddf_ = 4;
+            arg0->unknown_3ddc_ = 0;
             return;
         }
         return;
     }
-    if (self->step_ == 2) {
-        func_ov005_02159b74(self);
-        self->step_++;
+    if (arg0->unknown_3ddc_ == 2) {
+        func_ov005_02159b74(arg0);
+        arg0->unknown_3ddc_++;
         return;
     }
-    if (self->step_ == 3) {
-        sel = func_020e2918((signed char*)self->yesNo_);
-        if (sel >= 0) {
-            func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-            func_020e25e8((Obj020e25e8*)self->yesNo_);
-        } else if (func_020e2984((struct Outer020e28dc*)self->yesNo_)) {
-            func_020e25e8((Obj020e25e8*)self->yesNo_);
-            sel = -2;
+    if (arg0->unknown_3ddc_ == 3) {
+        var0 = func_020e2918((signed char*)arg0->unknown_e64_);
+        if (var0 >= 0) {
+            func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+        } else if (func_020e2984((struct Struct_020e28dc*)arg0->unknown_e64_)) {
+            func_020e25e8((Struct_020e25e8*)arg0->unknown_e64_);
+            var0 = -2;
         }
-        if (sel == 0) {
-            void* item;
-            int notfound;
-            self->message_ = 0xa;
-            memset(self->text_, 0, kTextBytes);
-            func_ov005_02158b3c(self, self->text_);
-            if (self->selectedSlot >= 0 && self->selectedSlot < 8) {
-                item = func_020dedd0(
-                    self->items_,
-                    self->slots[self->selectedSlot].id);
-                if (((ItemBits02159274*)((char*)item + 8))->flag18) {
-                    self->message_ = 0xc;
-                    memset(self->text_, 0, kTextBytes);
-                    func_ov005_02158b3c(self, self->text_);
+        if (var0 == 0) {
+            void* var7;
+            int var8;
+            arg0->unknown_3dd1_ = 0xa;
+            memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
+            func_ov005_02158b3c(arg0, arg0->unknown_e10_);
+            if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
+                var7 = func_020dedd0(
+                    arg0->unknown_df4_,
+                    arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
+                if (((Struct_ov005_02159274*)((char*)var7 + 8))->unknown_2_2_) {
+                    arg0->unknown_3dd1_ = 0xc;
+                    memset(arg0->unknown_e10_, 0, Enum_ov005_02159274_2400);
+                    func_ov005_02158b3c(arg0, arg0->unknown_e10_);
                     func_0205d5d0(
-                        (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
+                        (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
                         );
-                    self->menuState_ = 4;
-                    self->step_ = 0;
+                    arg0->unknown_3ddf_ = 4;
+                    arg0->unknown_3ddc_ = 0;
                     return;
                 }
-                func_ov005_02157b74(self, 0xffff, 1);
-            } else if (self->selectedSlot >= 8 && self->selectedSlot < 0x18) {
-                char* list = (char*)func_02010828(GameState::GetInstance());
-                item = func_020dedd0(
-                    self->items_,
-                    self->slots[self->selectedSlot].id);
-                sel = *(short*)((char*)item + 0x18);
-                func_0207c484((KeyedList0207c484*)(list + 0x1d4), sel, 1, ((ItemBits02159274*)((char*)item + 8))->amount);
-                notfound = 1;
-                func_ov005_021555c0(self);
-                for (int i = 8; i < 0x18; i++) {
-                    if (self->slots[i].id == sel) {
-                        notfound = 0;
+                func_ov005_02157b74(arg0, 0xffff, 1);
+            } else if (arg0->unknown_3dbb_ >= 8 && arg0->unknown_3dbb_ < 0x18) {
+                char* var9 = (char*)func_02010828(GameState::GetInstance());
+                var7 = func_020dedd0(
+                    arg0->unknown_df4_,
+                    arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
+                var0 = *(short*)((char*)var7 + 0x18);
+                func_0207c484((Struct_0207c484*)(var9 + 0x1d4), var0, 1, ((Struct_ov005_02159274*)((char*)var7 + 8))->unknown_0_0_);
+                var8 = 1;
+                func_ov005_021555c0(arg0);
+                for (int var10 = 8; var10 < 0x18; var10++) {
+                    if (arg0->unknown_2d90_[var10].unknown_0_ == var0) {
+                        var8 = 0;
                         break;
                     }
                 }
-                if (notfound) {
-                    self->dirty_ |= 0x40;
-                    self->f3daa_ = 0;
+                if (var8) {
+                    arg0->unknown_3dcc_ |= 0x40;
+                    arg0->unknown_3daa_ = 0;
                 }
             }
             func_0205d5d0(
-                (StructA0205d5d0*)((char*)self + kPanel), 0, (int)self->text_, 1
+                (Struct_0205d5d0*)((char*)arg0 + Enum_ov005_02159274_3812), 0, (int)arg0->unknown_e10_, 1
 #if !defined(jpn)
                             , 0
 #endif
                         );
-            self->menuState_ = 4;
-            self->step_ = 0;
+            arg0->unknown_3ddf_ = 4;
+            arg0->unknown_3ddc_ = 0;
             return;
         }
-        if (sel == -2 || sel == 1) {
-            self->menuState_ = 4;
-            self->step_ = 0;
+        if (var0 == -2 || var0 == 1) {
+            arg0->unknown_3ddf_ = 4;
+            arg0->unknown_3ddc_ = 0;
             return;
         }
         return;

@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct Rec_021e6060 {
-    char pad0[0x2c];
-    unsigned int f2c_lo : 10;
-    unsigned int kind : 4;
-    unsigned int f2c_hi : 18;
+struct Struct_ov024_021e6060_2 {
+    char unknown_0_[0x2c];
+    unsigned int unknown_2c_0_ : 10;
+    unsigned int unknown_2d_2_ : 4;
+    unsigned int unknown_2d_6_ : 18;
 };
 
-struct Act_021e6060 {
-    virtual void Vtbl0();
+struct Struct_ov024_021e6060 {
+    virtual void inline_ov024_021e6060();
 };
 
-typedef void (Act_021e6060::*Handler_021e6060)(int id, Rec_021e6060* rec, int amount);
+typedef void (Struct_ov024_021e6060::*Type_ov024_021e6060)(int id, Struct_ov024_021e6060_2* rec, int amount);
 
 extern unsigned int data_ov024_02200144[];
-extern Handler_021e6060 data_020e6d5c;
-extern Handler_021e6060 data_ov024_021ff3f8[0xb];
+extern Type_ov024_021e6060 data_020e6d5c;
+extern Type_ov024_021e6060 data_ov024_021ff3f8[0xb];
 
 // USA: func_ov024_021e6060
-extern "C" ARM void func_ov024_021e6060(Act_021e6060* self, int id, Rec_021e6060* rec, int amount) {
+extern "C" ARM void func_ov024_021e6060(Struct_ov024_021e6060* arg0, int arg1, Struct_ov024_021e6060_2* arg2, int arg3) {
     if (!(data_ov024_02200144[1] & 1)) {
         data_ov024_021ff3f8[0] = data_020e6d5c;
         data_ov024_021ff3f8[7] = data_020e6d5c;
         data_ov024_02200144[1] |= 1;
     }
-    if (rec->kind >= 0xb) return;
-    if (data_ov024_021ff3f8[rec->kind] == 0) return;
-    (self->*data_ov024_021ff3f8[rec->kind])(id, rec, amount);
+    if (arg2->unknown_2d_2_ >= 0xb) return;
+    if (data_ov024_021ff3f8[arg2->unknown_2d_2_] == 0) return;
+    (arg0->*data_ov024_021ff3f8[arg2->unknown_2d_2_])(arg1, arg2, arg3);
 }

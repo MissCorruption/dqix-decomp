@@ -1,96 +1,96 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kMember = 0x4f8 };
-enum { kScreenFlags = 0x56c, kCursor = 0x196c };
+enum { Enum_ov005_021567ac_1276 = 0x4f8 };
+enum { Enum_ov005_021567ac_1588 = 0x56c, Enum_ov005_021567ac_6644 = 0x196c };
 #else
-enum { kMember = 0x4fc };
-enum { kScreenFlags = 0x634, kCursor = 0x19f4 };
+enum { Enum_ov005_021567ac_1276 = 0x4fc };
+enum { Enum_ov005_021567ac_1588 = 0x634, Enum_ov005_021567ac_6644 = 0x19f4 };
 #endif
 
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
-struct Obj0205eaa0;
+struct Struct_02108760;
 
-struct MemberScreen {
-    char unk_0[kMember];
-    int member_;
-    char unk_500[kScreenFlags - kMember - 4];
-    unsigned short flags_;
+struct Struct_ov005_02153ba4_2 {
+    char unknown_0_[Enum_ov005_021567ac_1276];
+    int unknown_4fc_;
+    char unknown_500_[Enum_ov005_021567ac_1588 - Enum_ov005_021567ac_1276 - 4];
+    unsigned short unknown_634_;
 };
 
-struct EquipmentSlot {
-    short item_;
-    signed char count_;
-    unsigned char equipped_;
-    void* vramState_;
-    void* model_;
-    int x_;
-    int y_;
-    int offset_;
-    short loadedItem_;
+struct Struct_ov005_02153ba4 {
+    short unknown_0_;
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    void* unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    short unknown_18_;
 };
 
-struct EquipmentMenu {
-    char unk_0[kCursor];
-    char cursor_[0x2d90 - 0x19f4];
-    EquipmentSlot slots_[24];
-    char slotModels_[0x3d78 - 0x3030];
-    short dragged_;
-    char unk_3d7a[0x3db8 - 0x3d7a];
-    unsigned char state_;
-    unsigned char lastState_;
-    unsigned char step_;
-    signed char slot_;
-    unsigned char kind_;
-    signed char page_;
-    unsigned char unk_3dbe;
-    signed char lastPage_;
-    signed char unk_3dc0;
-    char unk_3dc1[0x3dcc - 0x3dc1];
-    unsigned int flags_;
-    char unk_3dd0[0x3de0 - 0x3dd0];
-    short swapped_;
+struct Struct_ov005_02153954 {
+    char unknown_0_[Enum_ov005_021567ac_6644];
+    char unknown_19f4_[0x2d90 - 0x19f4];
+    Struct_ov005_02153ba4 unknown_2d90_[24];
+    char unknown_3030_[0x3d78 - 0x3030];
+    short unknown_3d78_;
+    char unknown_3d7a_[0x3db8 - 0x3d7a];
+    unsigned char unknown_3db8_;
+    unsigned char unknown_3db9_;
+    unsigned char unknown_3dba_;
+    signed char unknown_3dbb_;
+    unsigned char unknown_3dbc_;
+    signed char unknown_3dbd_;
+    unsigned char unknown_3dbe_;
+    signed char unknown_3dbf_;
+    signed char unknown_3dc0_;
+    char unknown_3dc1_[0x3dcc - 0x3dc1];
+    unsigned int unknown_3dcc_;
+    char unknown_3dd0_[0x3de0 - 0x3dd0];
+    short unknown_3de0_;
 };
 
 extern int data_02108760;
 
-extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
-extern "C" MemberScreen* func_ov017_021a193c(int* p);
-extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
-extern "C" void func_ov005_021579ec(EquipmentMenu* self, unsigned int state, unsigned char slot);
-extern "C" int func_ov005_02157ae8(EquipmentMenu* self, int member);
-extern "C" void func_0205bb04(void* cursor, int index);
-extern "C" int func_ov005_02155670(EquipmentMenu* self, int x, int y);
+extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
+extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
+extern "C" void func_0205bb04(void* arg0, int arg1);
+extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int arg2);
 
 // USA: func_ov005_021567ac
-extern "C" ARM void func_ov005_021567ac(EquipmentMenu* self, int x, int y) {
+extern "C" ARM void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, int arg2) {
     GameState::GetInstance();
-    MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
-    if (!func_ov005_02157ae8(self, screen->member_))
+    Struct_ov005_02153ba4_2* var0 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+    if (!func_ov005_02157ae8(arg0, var0->unknown_4fc_))
         return;
-    self->dragged_ = func_ov005_02155670(self, x, y);
-    if (self->dragged_ >= 8 && self->dragged_ < 24) {
-        if (self->slots_[self->dragged_].item_ == -1) {
-            self->dragged_ = -1;
-            self->unk_3dc0 = -1;
+    arg0->unknown_3d78_ = func_ov005_02155670(arg0, arg1, arg2);
+    if (arg0->unknown_3d78_ >= 8 && arg0->unknown_3d78_ < 24) {
+        if (arg0->unknown_2d90_[arg0->unknown_3d78_].unknown_0_ == -1) {
+            arg0->unknown_3d78_ = -1;
+            arg0->unknown_3dc0_ = -1;
             return;
         }
-        func_ov005_0215792c(self, 4);
-        self->slot_ = self->dragged_;
-        func_ov005_021579ec(self, self->state_, self->slot_);
-        func_0205bb04(self->cursor_, self->slot_ - 8);
-        self->swapped_ = (self->slot_ - 8) + self->page_ * 16;
-        self->unk_3dc0 = 0;
-        self->flags_ |= 0x80;
-        func_0205eaa0((Obj0205eaa0*)&data_02108760, 2, 0);
-        screen->flags_ &= ~1;
-        screen->flags_ &= ~0x80;
-        self->flags_ &= ~4;
-        self->flags_ &= ~8;
+        func_ov005_0215792c(arg0, 4);
+        arg0->unknown_3dbb_ = arg0->unknown_3d78_;
+        func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbb_);
+        func_0205bb04(arg0->unknown_19f4_, arg0->unknown_3dbb_ - 8);
+        arg0->unknown_3de0_ = (arg0->unknown_3dbb_ - 8) + arg0->unknown_3dbd_ * 16;
+        arg0->unknown_3dc0_ = 0;
+        arg0->unknown_3dcc_ |= 0x80;
+        func_0205eaa0((Struct_02108760*)&data_02108760, 2, 0);
+        var0->unknown_634_ &= ~1;
+        var0->unknown_634_ &= ~0x80;
+        arg0->unknown_3dcc_ &= ~4;
+        arg0->unknown_3dcc_ &= ~8;
         return;
     }
-    self->dragged_ = -1;
-    self->unk_3dc0 = -1;
+    arg0->unknown_3d78_ = -1;
+    arg0->unknown_3dc0_ = -1;
 }

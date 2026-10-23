@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 
-struct ProfileEditor
+struct Struct_ov012_02185ab8
 {
 #if defined(jpn)
-    char unknown0[0x90];
-    char window[0xd0c - 0x90];
-    char card[0x608];
-    char unknown1314[0x1340 - 0x1314];
+    char unknown1_0_[0x90];
+    char unknown_ac_[0xd0c - 0x90];
+    char unknown_d28_[0x608];
+    char unknown_1314_[0x1340 - 0x1314];
 #else
-    char unknown0[0xac];
-    char window[0xd28 - 0xac];
-    char card[0x60c];
-    char unknown1334[0x1370 - 0x1334];
+    char unknown_0_[0xac];
+    char unknown_ac_[0xd28 - 0xac];
+    char unknown_d28_[0x60c];
+    char unknown_1334_[0x1370 - 0x1334];
 #endif
-    unsigned char step;
-    unsigned char state;
+    unsigned char unknown_1370_;
+    unsigned char unknown_1371_;
 };
 
-struct Obj0205d2bc;
-extern "C" void func_0205d2bc(Obj0205d2bc*);
-struct Container021e76a8;
-extern "C" void func_ov023_021e76a8(Container021e76a8*);
-extern "C" unsigned int func_ov023_021e6b8c(ProfileEditor* editor);
+struct Struct_0205d2bc;
+extern "C" void func_0205d2bc(Struct_0205d2bc*);
+struct Struct_ov002_02155f4c;
+extern "C" void func_ov023_021e76a8(Struct_ov002_02155f4c*);
+extern "C" unsigned int func_ov023_021e6b8c(Struct_ov012_02185ab8* arg0);
 
 // USA: func_ov012_02185ab8
 #if defined(jpn)
-extern "C" ARM void func_ov012_02185ab8(ProfileEditor* editor)
+extern "C" ARM void func_ov012_02185ab8(Struct_ov012_02185ab8* arg0)
 #else
-extern "C" ARM unsigned int func_ov012_02185ab8(ProfileEditor* editor)
+extern "C" ARM unsigned int func_ov012_02185ab8(Struct_ov012_02185ab8* arg0)
 #endif
 {
-    func_ov023_021e76a8((Container021e76a8*)editor->card);
-    if (editor->state != 0)
-        func_0205d2bc((Obj0205d2bc*)editor->window);
+    func_ov023_021e76a8((Struct_ov002_02155f4c*)arg0->unknown_d28_);
+    if (arg0->unknown_1371_ != 0)
+        func_0205d2bc((Struct_0205d2bc*)arg0->unknown_ac_);
 #if !defined(jpn)
-    return func_ov023_021e6b8c(editor);
+    return func_ov023_021e6b8c(arg0);
 #endif
 }

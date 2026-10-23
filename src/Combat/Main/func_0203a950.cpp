@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
-struct Obj020bd984;
-extern "C" void func_020bd984(struct Obj020bd984*);
+struct Struct_0203a950;
+extern "C" void func_020bd984(struct Struct_0203a950*);
 extern "C" void func_0203a914(void*);
 
 // USA: func_0203a950
-extern "C" ARM void func_0203a950(void* obj) {
-    void* p = *(void**)obj;
-    if (p != NULL) {
-        func_020bd984((struct Obj020bd984*)p);
+extern "C" ARM void func_0203a950(void* arg0) {
+    void* var0 = *(void**)arg0;
+    if (var0 != NULL) {
+        func_020bd984((struct Struct_0203a950*)var0);
     }
-    func_0203a914(obj);
+    func_0203a914(arg0);
 }

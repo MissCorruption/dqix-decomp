@@ -6,19 +6,19 @@
 #include <globaldefs.h>
 
 extern int data_ov015_02194560;
-struct Owner_0218b978;
-extern "C" unsigned int func_ov015_0218b978(Owner_0218b978*, int);
+struct Struct_ov015_0218b5a0;
+extern "C" unsigned int func_ov015_0218b978(Struct_ov015_0218b5a0*, int);
 extern "C" unsigned int _ZNK6Script9Parameter5ToIntEv(unsigned int, unsigned int);
 
 // USA: func_ov015_0218b5a0
-extern "C" ARM unsigned int func_ov015_0218b5a0(unsigned int r0, unsigned int r1, unsigned int r2, unsigned int r3) {
-    unsigned int r4 = 0;
-    r1 = (unsigned int)&data_ov015_02194560;
-    r4 = *(unsigned int*)((char*)r1 + 0x0);
-    r0 = (unsigned int)_ZNK6Script9Parameter5ToIntEv(r0, r1);
-    r1 = r0;
-    r0 = r4;
-    r0 = (unsigned int)func_ov015_0218b978((Owner_0218b978*)r0, r1);
-    r0 = 0x1;
-    return r0;
+extern "C" ARM unsigned int func_ov015_0218b5a0(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3) {
+    unsigned int var0 = 0;
+    arg1 = (unsigned int)&data_ov015_02194560;
+    var0 = *(unsigned int*)((char*)arg1 + 0x0);
+    arg0 = (unsigned int)_ZNK6Script9Parameter5ToIntEv(arg0, arg1);
+    arg1 = arg0;
+    arg0 = var0;
+    arg0 = (unsigned int)func_ov015_0218b978((Struct_ov015_0218b5a0*)arg0, arg1);
+    arg0 = 0x1;
+    return arg0;
 }

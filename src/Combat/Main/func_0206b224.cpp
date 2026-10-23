@@ -2,51 +2,51 @@
 
 #if defined(jpn)
 #define func_0206b224 func_0206cba0
-enum { kInitialPad = 0x18, kBufferSize = 0x140 };
+enum { Enum_0206b224_76 = 0x18, Enum_0206b224_640 = 0x140 };
 #else
-enum { kInitialPad = 0x4c, kBufferSize = 0x280 };
+enum { Enum_0206b224_76 = 0x4c, Enum_0206b224_640 = 0x280 };
 #endif
 
 #include "std_library_functions.h"
 
-extern "C" void func_0206b104(void* obj);
-extern "C" void func_0206aa28(void* p);
-extern "C" void func_0206b974(void* p, int a1, void* a2, void* a3, int a4, int a5, int a6, int a7);
-extern "C" int func_020d2ff0(const char* s);
+extern "C" void func_0206b104(void* arg0);
+extern "C" void func_0206aa28(void* arg0);
+extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" int func_020d2ff0(const char* arg0);
 
-struct Ctx0206b224 {
-    char pad0[kInitialPad];
-    void* field4c;
-    void* field50;
-    void* field54;
-    unsigned char* field58;
-    char pad5c[4];
-    void* field60;
+struct Struct_0206b224 {
+    char unknown_0_[Enum_0206b224_76];
+    void* unknown_4c_;
+    void* unknown_50_;
+    void* unknown_54_;
+    unsigned char* unknown_58_;
+    char unknown_5c_[4];
+    void* unknown_60_;
 };
 
 // USA: func_0206b224
-extern "C" ARM void func_0206b224(struct Ctx0206b224* obj) {
-    func_0206b104(obj);
-    memset(obj->field4c, 0, kBufferSize);
-    memset(obj->field50, 0, kBufferSize);
+extern "C" ARM void func_0206b224(struct Struct_0206b224* arg0) {
+    func_0206b104(arg0);
+    memset(arg0->unknown_4c_, 0, Enum_0206b224_640);
+    memset(arg0->unknown_50_, 0, Enum_0206b224_640);
 
 #if defined(jpn)
-    int skip = 2;
-    unsigned char* base = obj->field58;
+    int var0 = 2;
+    unsigned char* var1 = arg0->unknown_58_;
 #else
-    int skip = 1;
-    unsigned char* base = obj->field58;
-    if (base[1] == 0xff) {
-        skip = 2;
+    int var0 = 1;
+    unsigned char* var1 = arg0->unknown_58_;
+    if (var1[1] == 0xff) {
+        var0 = 2;
     }
 #endif
-    obj->field54 = base + skip;
-    obj->field58 = base + skip;
+    arg0->unknown_54_ = var1 + var0;
+    arg0->unknown_58_ = var1 + var0;
 
-    func_0206aa28(obj);
+    func_0206aa28(arg0);
 #if !defined(jpn)
-    func_0206b974(obj, 1, obj->field50, obj->field60, 0xe3, 0, 1, 1);
-    int len = func_020d2ff0((const char*)obj->field60);
-    memcpy(obj->field50, obj->field60, len);
+    func_0206b974(arg0, 1, arg0->unknown_50_, arg0->unknown_60_, 0xe3, 0, 1, 1);
+    int var2 = func_020d2ff0((const char*)arg0->unknown_60_);
+    memcpy(arg0->unknown_50_, arg0->unknown_60_, var2);
 #endif
 }

@@ -4,122 +4,122 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-struct Struct0205a198;
-struct ClearTarget0205a234;
-struct ActiveEntry02046900;
-struct Rec020467f0;
+struct Struct_02043368_2;
+struct Struct_02043368;
+struct Struct_02020cb8_4;
+struct Struct_02020aec;
 
-extern "C" void func_0205a444(char* p);
-extern "C" void func_0205a198(struct Struct0205a198* p);
-extern "C" void func_0205a234(struct ClearTarget0205a234* p);
-extern "C" int func_02046900(struct ActiveEntry02046900* entry);
-extern "C" void* func_020467f0(struct Rec020467f0* rec, int index, void** out, int* outLength);
-extern "C" void func_0205a528(void* a, void* b, int c, void* d);
+extern "C" void func_0205a444(char* arg0);
+extern "C" void func_0205a198(struct Struct_02043368_2* arg0);
+extern "C" void func_0205a234(struct Struct_02043368* arg0);
+extern "C" int func_02046900(struct Struct_02020cb8_4* arg0);
+extern "C" void* func_020467f0(struct Struct_02020aec* arg0, int arg1, void** arg2, int* arg3);
+extern "C" void func_0205a528(void* arg0, void* arg1, int arg2, void* arg3);
 
 extern char data_020f007f;
 extern char data_020f0093;
 
-struct LoadTable {
-    char pad0[0x3c];
-    struct ClearTarget0205a234* clearTarget;
-    void* entries;
-    char pad1[8];
-    unsigned short entryCount;
-    char pad2[2];
-    unsigned char flag50;
+struct Struct_02043368_3 {
+    char unknown_0_[0x3c];
+    struct Struct_02043368* unknown_3c_;
+    void* unknown_40_;
+    char unknown_44_[8];
+    unsigned short unknown_4c_;
+    char unknown_4e_[2];
+    unsigned char unknown_50_;
 };
 
-struct LoadController {
+struct Struct_02043368_4 {
 #if defined(jpn)
-    char pad0[0x220];
+    char unknown_0_[0x220];
 #else
-    char pad0[0x2d0];
+    char unknown1_0_[0x2d0];
 #endif
-    int taskId;
-    SafeAllocator* allocator;
-    struct LoadTable* table;
-    char* tableEntries;
-    struct ClearTarget0205a234* clearTarget;
-    unsigned short f2e4;
-    char pad1[1];
-    unsigned char state;
+    int unknown_2d0_;
+    SafeAllocator* unknown_2d4_;
+    struct Struct_02043368_3* unknown_2d8_;
+    char* unknown_2dc_;
+    struct Struct_02043368* unknown_2e0_;
+    unsigned short unknown_2e4_;
+    char unknown_2e6_[1];
+    unsigned char unknown_2e7_;
 };
 
 // USA: func_02043368
-extern "C" ARM void func_02043368(struct LoadController* self) {
-    if (self->allocator == 0) {
+extern "C" ARM void func_02043368(struct Struct_02043368_4* arg0) {
+    if (arg0->unknown_2d4_ == 0) {
         return;
     }
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
 
-    if (self->state == 0) {
-        if (self->table != 0) {
+    if (arg0->unknown_2e7_ == 0) {
+        if (arg0->unknown_2d8_ != 0) {
             return;
         }
-        GrottoStruct* grotto = GameState::GetInstance()->GetGrottoStruct();
-        if (grotto != 0 && grotto->unknown_0[0] != 0 && grotto->unknown_0[2] == 0) {
+        GrottoStruct* var1 = GameState::GetInstance()->GetGrottoStruct();
+        if (var1 != 0 && var1->unknown_0[0] != 0 && var1->unknown_0[2] == 0) {
             return;
         }
 #if defined(jpn)
-        self->taskId = loader->QueueLoadFile(&data_020f0093, 0);
+        arg0->unknown_2d0_ = var0->QueueLoadFile(&data_020f0093, 0);
 #else
-        self->taskId = loader->QueueLoadFileInGP2(&data_020f007f, &data_020f0093, 0);
+        arg0->unknown_2d0_ = var0->QueueLoadFileInGP2(&data_020f007f, &data_020f0093, 0);
 #endif
-        self->state++;
+        arg0->unknown_2e7_++;
         return;
     }
 
-    if (self->state == 1) {
-        if (loader->GetTaskStatus(self->taskId) == 0) {
+    if (arg0->unknown_2e7_ == 1) {
+        if (var0->GetTaskStatus(arg0->unknown_2d0_) == 0) {
             return;
         }
-        self->allocator->Reset();
-        self->table = (struct LoadTable*)self->allocator->Allocate(0x54);
-        self->tableEntries = (char*)self->allocator->Allocate(0xf0);
-        self->clearTarget = (struct ClearTarget0205a234*)self->allocator->Allocate(8);
+        arg0->unknown_2d4_->Reset();
+        arg0->unknown_2d8_ = (struct Struct_02043368_3*)arg0->unknown_2d4_->Allocate(0x54);
+        arg0->unknown_2dc_ = (char*)arg0->unknown_2d4_->Allocate(0xf0);
+        arg0->unknown_2e0_ = (struct Struct_02043368*)arg0->unknown_2d4_->Allocate(8);
 
-        if (self->table != 0 && self->tableEntries != 0 && self->clearTarget != 0) {
-            func_0205a444((char*)self->table);
-            for (unsigned short i = 0; i < 6; i++) {
-                func_0205a198((struct Struct0205a198*)(self->tableEntries + i * 0x28));
+        if (arg0->unknown_2d8_ != 0 && arg0->unknown_2dc_ != 0 && arg0->unknown_2e0_ != 0) {
+            func_0205a444((char*)arg0->unknown_2d8_);
+            for (unsigned short var2 = 0; var2 < 6; var2++) {
+                func_0205a198((struct Struct_02043368_2*)(arg0->unknown_2dc_ + var2 * 0x28));
             }
-            func_0205a234(self->clearTarget);
-            self->table->flag50 = 0;
+            func_0205a234(arg0->unknown_2e0_);
+            arg0->unknown_2d8_->unknown_50_ = 0;
             {
-                struct LoadTable* table = self->table;
-                table->entries = self->tableEntries;
-                table->entryCount = 6;
+                struct Struct_02043368_3* var3 = arg0->unknown_2d8_;
+                var3->unknown_40_ = arg0->unknown_2dc_;
+                var3->unknown_4c_ = 6;
             }
-            self->table->clearTarget = self->clearTarget;
-            self->f2e4 = 0;
+            arg0->unknown_2d8_->unknown_3c_ = arg0->unknown_2e0_;
+            arg0->unknown_2e4_ = 0;
 
-            void* rec;
-            void* found;
-            unsigned int foundLen;
-            int recLen;
-            loader->GetLoadedFileByID(self->taskId, &found, &foundLen);
-            int count = func_02046900((struct ActiveEntry02046900*)found);
-            for (int i = 0; i < count; i++) {
-                void* r = func_020467f0((struct Rec020467f0*)found, i, &rec, &recLen);
-                func_0205a528(self->table, r, recLen, self->allocator);
+            void* var4;
+            void* var5;
+            unsigned int var6;
+            int var7;
+            var0->GetLoadedFileByID(arg0->unknown_2d0_, &var5, &var6);
+            int var8 = func_02046900((struct Struct_02020cb8_4*)var5);
+            for (int var9 = 0; var9 < var8; var9++) {
+                void* var10 = func_020467f0((struct Struct_02020aec*)var5, var9, &var4, &var7);
+                func_0205a528(arg0->unknown_2d8_, var10, var7, arg0->unknown_2d4_);
             }
         }
 
-        loader->RemoveTask(self->taskId);
-        self->taskId = -1;
-        self->state++;
+        var0->RemoveTask(arg0->unknown_2d0_);
+        arg0->unknown_2d0_ = -1;
+        arg0->unknown_2e7_++;
         return;
     }
 
-    if (self->state == 2) {
-        if (self->table != 0 && self->clearTarget != 0) {
+    if (arg0->unknown_2e7_ == 2) {
+        if (arg0->unknown_2d8_ != 0 && arg0->unknown_2e0_ != 0) {
             return;
         }
-        self->table = 0;
-        self->tableEntries = 0;
-        self->clearTarget = 0;
-        self->f2e4 = 0;
-        self->taskId = -1;
-        self->state = 0;
+        arg0->unknown_2d8_ = 0;
+        arg0->unknown_2dc_ = 0;
+        arg0->unknown_2e0_ = 0;
+        arg0->unknown_2e4_ = 0;
+        arg0->unknown_2d0_ = -1;
+        arg0->unknown_2e7_ = 0;
     }
 }

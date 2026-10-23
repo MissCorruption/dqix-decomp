@@ -8,465 +8,465 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 #if defined(jpn)
-enum { Field29c = 0x218, Field55d8 = 0x57c8, Field18c = 0x180, Fielde78 = 0xdf4 };
+enum { Enum_ov025_021e0638_668 = 0x218, Enum_ov025_021e0638_21976 = 0x57c8, Enum_ov025_021e0638_396 = 0x180, Enum_ov025_021e0638_3704 = 0xdf4 };
 #else
-enum { Field29c = 0x29c, Field55d8 = 0x55d8, Field18c = 0x18c, Fielde78 = 0xe78 };
+enum { Enum_ov025_021e0638_668 = 0x29c, Enum_ov025_021e0638_21976 = 0x55d8, Enum_ov025_021e0638_396 = 0x18c, Enum_ov025_021e0638_3704 = 0xe78 };
 #endif
 
-struct BattleStruct {
-    int unk0;
-    int unk4;
-    struct CombatantStruct* combatantList[0xe9];
+struct Struct_0203d028_2 {
+    int unknown_0_;
+    int unknown_4_;
+    struct Struct_0203d028_3* unknown_8_[0xe9];
 };
-struct CombatantStruct {
-    unsigned short flags;
-    char unk[0x132];
-    struct BaseCombatStats* baseStats;
-    struct ModifiableCombatStats* currentStats;
-};
-
-struct Obj02048c90;
-struct Obj02049410;
-struct Obj02049a74;
-struct Obj020494c0;
-struct List02160094;
-struct List021600f8;
-
-struct Ent021e0638 {
-    unsigned char id;
-    unsigned char val;
-    char pad[6];
-    unsigned char* obj;
+struct Struct_0203d028_3 {
+    unsigned short unknown_0_;
+    char unknown_2_[0x132];
+    struct BaseCombatStats* unknown_134_;
+    struct ModifiableCombatStats* unknown_138_;
 };
 
-struct Node021e0638 {
-    unsigned char data[12];
-    Node021e0638* next;
+struct Struct_02048c90;
+struct Struct_02049410;
+struct Struct_02048f64;
+struct Struct_02048f64_2;
+struct Struct_ov000_0215440c_2;
+struct Struct_ov000_0215440c;
+
+struct Struct_ov025_021e0638_11 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[6];
+    unsigned char* unknown_8_;
 };
 
-struct Pool021e0638 {
-    unsigned char seq[16];
-    unsigned char mark[16];
-    unsigned char len;
+struct Struct_ov025_021e0638_12 {
+    unsigned char unknown_0_[12];
+    Struct_ov025_021e0638_12* unknown_c_;
 };
 
-struct Table021e0638 {
-    void* data;
-    int count;
-    unsigned char buf[12];
-    unsigned char len;
+struct Struct_ov025_021e0638 {
+    unsigned char unknown_0_[16];
+    unsigned char unknown_10_[16];
+    unsigned char unknown_20_;
 };
 
-struct B6_021e0638 {
-    unsigned char b[6];
+struct Struct_ov025_021e0638_2 {
+    void* unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_[12];
+    unsigned char unknown_14_;
 };
 
-struct Vec3_021e0638 { int x; int y; int z; };
-struct Pos2_021e0638 { int v[2]; };
-
-struct ElemList021e0638 {
-    char pad0[8];
-    unsigned char count8;
-    unsigned char count9;
-    char pad1[6];
-    unsigned char* p10;
-    unsigned char* p14;
-    char pad2[0x10];
+struct Struct_ov025_021e0638_3 {
+    unsigned char unknown_0_[6];
 };
 
-struct Lists021e0638 {
-    char pad[0x8000];
-    ElemList021e0638 lists[77];
+struct Struct_ov025_021e0638_4 { int unknown_0_; int unknown_4_; int unknown_8_; };
+struct Struct_ov025_021e0638_5 { int unknown_0_[2]; };
+
+struct Struct_ov025_021e0638_6 {
+    char unknown_0_[8];
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    char unknown_a_[6];
+    unsigned char* unknown_10_;
+    unsigned char* unknown_14_;
+    char unknown_18_[0x10];
 };
 
-struct World021e0638 {
-    char pad[0x21c];
-    Lists021e0638 sub;
-    int count;
+struct Struct_ov025_021e0638_7 {
+    char unknown_0_[0x8000];
+    Struct_ov025_021e0638_6 unknown_8000_[77];
 };
 
-static inline Lists021e0638* GetSub021e0638(World021e0638* world) { return &world->sub; }
-static inline ElemList021e0638* GetLists021e0638(Lists021e0638* sub) { return sub->lists; }
-
-struct Sub148_021e0638 {
-    char pad[0x10];
-    unsigned int flags;
+struct Struct_ov025_021e0638_8 {
+    char unknown_0_[0x21c];
+    Struct_ov025_021e0638_7 unknown_21c_;
+    int unknown_8e24_;
 };
 
-struct Data021e0638 {
-    Vec3_021e0638 a;
-    Vec3_021e0638 b;
-    int radius;
-    unsigned char flag;
+static inline Struct_ov025_021e0638_7* inline_ov025_021e0638(Struct_ov025_021e0638_8* arg0) { return &arg0->unknown_21c_; }
+static inline Struct_ov025_021e0638_6* inline_ov025_021e0638_2(Struct_ov025_021e0638_7* arg0) { return arg0->unknown_8000_; }
+
+struct Struct_ov025_021e0638_9 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_;
 };
 
-extern "C" int func_ov025_021e1048(void* world, void* out);
-extern "C" void func_ov025_021e20ec(void* tbl, SafeAllocator* alloc);
-extern "C" int func_ov025_021e2148(void* tbl, int a, int b, void* out, int n);
-extern "C" void func_ov025_021e120c(void* buf, int id, int a, int b, int c);
+struct Struct_ov025_021e0638_10 {
+    Struct_ov025_021e0638_4 unknown_0_;
+    Struct_ov025_021e0638_4 unknown_c_;
+    int unknown_18_;
+    unsigned char unknown_1c_;
+};
+
+extern "C" int func_ov025_021e1048(void* arg0, void* arg1);
+extern "C" void func_ov025_021e20ec(void* arg0, SafeAllocator* arg1);
+extern "C" int func_ov025_021e2148(void* arg0, int arg1, int arg2, void* arg3, int arg4);
+extern "C" void func_ov025_021e120c(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_020c9be0(void);
-extern "C" void func_ov000_0216f82c(B6_021e0638* out, const int* cell);
-extern "C" void func_ov000_0216f74c(Pos2_021e0638* out, const int* cell);
+extern "C" void func_ov000_0216f82c(Struct_ov025_021e0638_3* arg0, const int* arg1);
+extern "C" void func_ov000_0216f74c(Struct_ov025_021e0638_5* arg0, const int* arg1);
 struct Vector3i;
-extern "C" void __clear(void* p, int n);
+extern "C" void __clear(void* arg0, int arg1);
 
-extern "C" void func_ov025_021e20d8(void* obj);
-extern "C" void func_02048c90(Obj02048c90*);
+extern "C" void func_ov025_021e20d8(void* arg0);
+extern "C" void func_02048c90(Struct_02048c90*);
 extern "C" int func_020493a4(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" int func_02049444(unsigned char*);
 extern "C" int func_02049ee8(unsigned char*);
 extern "C" void func_ov025_021e2114(unsigned char*, void*, int);
-extern "C" void func_02049410(Obj02049410*, void*, int);
-extern "C" void func_02049a74(Obj02049a74*);
+extern "C" void func_02049410(Struct_02049410*, void*, int);
+extern "C" void func_02049a74(Struct_02048f64*);
 extern "C" void func_02049ae4(unsigned char*);
 extern "C" void func_0204950c(unsigned char*);
 extern "C" void func_020494f8(unsigned char*);
 extern "C" void func_02048994(void);
-extern "C" Data021e0638* func_020489b0(void);
+extern "C" Struct_ov025_021e0638_10* func_020489b0(void);
 extern "C" int func_02049ec0(unsigned char*);
 extern "C" int func_02048c10(unsigned char*);
-extern "C" void func_020494c0(Obj020494c0*);
-extern "C" unsigned char* func_ov000_02160094(List02160094*, int);
-extern "C" unsigned char* func_ov000_021600f8(List021600f8*, int);
+extern "C" void func_020494c0(Struct_02048f64_2*);
+extern "C" unsigned char* func_ov000_02160094(Struct_ov000_0215440c_2*, int);
+extern "C" unsigned char* func_ov000_021600f8(Struct_ov000_0215440c*, int);
 
-static inline Node021e0638* NthNode021e0638(Node021e0638* head, int idx) {
-    if (idx == 0) {
-        return head;
+static inline Struct_ov025_021e0638_12* inline_01ff8b48_2(Struct_ov025_021e0638_12* arg0, int arg1) {
+    if (arg1 == 0) {
+        return arg0;
     }
-    Node021e0638* p = head->next;
-    for (int x = 0; x < idx - 1; x++) {
-        if (p == 0) {
+    Struct_ov025_021e0638_12* var0 = arg0->unknown_c_;
+    for (int var1 = 0; var1 < arg1 - 1; var1++) {
+        if (var0 == 0) {
             return 0;
         }
-        p = p->next;
+        var0 = var0->unknown_c_;
     }
-    return p;
+    return var0;
 }
 
 // USA: func_ov025_021e0638
-extern "C" ARM void func_ov025_021e0638(unsigned char* self) {
-    int n;
-    Node021e0638* tail;
-    GameState* gs = GameState::GetInstance();
-    World021e0638* world = *(World021e0638**)(self + Field29c);
-    ElemList021e0638* cur = &world->sub.lists[*(int*)(self + Field55d8)];
-    Ent021e0638 ents[12];
-    int ids[60];
-    unsigned char seen[0x51];
-    Node021e0638 head;
-    Table021e0638 tbl;
-    unsigned char tmp[12];
-    unsigned char out[16];
-    unsigned char sendbuf[32];
-    unsigned char common[6];
-    Pos2_021e0638 pp;
-    Pos2_021e0638 pos;
-    int posCell;
-    int cellB;
-    B6_021e0638 nbB;
-    int cellA;
-    B6_021e0638 nbA;
-    B6_021e0638 s2;
-    B6_021e0638 s1;
-    SafeAllocator* alloc = (SafeAllocator*)(self + 0x30);
+extern "C" ARM void func_ov025_021e0638(unsigned char* arg0) {
+    int var0;
+    Struct_ov025_021e0638_12* var1;
+    GameState* var2 = GameState::GetInstance();
+    Struct_ov025_021e0638_8* var3 = *(Struct_ov025_021e0638_8**)(arg0 + Enum_ov025_021e0638_668);
+    Struct_ov025_021e0638_6* var4 = &var3->unknown_21c_.unknown_8000_[*(int*)(arg0 + Enum_ov025_021e0638_21976)];
+    Struct_ov025_021e0638_11 var5[12];
+    int var6[60];
+    unsigned char var7[0x51];
+    Struct_ov025_021e0638_12 var8;
+    Struct_ov025_021e0638_2 var9;
+    unsigned char var10[12];
+    unsigned char var11[16];
+    unsigned char var12[32];
+    unsigned char var13[6];
+    Struct_ov025_021e0638_5 var14;
+    Struct_ov025_021e0638_5 var15;
+    int var16;
+    int var17;
+    Struct_ov025_021e0638_3 var18;
+    int var19;
+    Struct_ov025_021e0638_3 var20;
+    Struct_ov025_021e0638_3 var21;
+    Struct_ov025_021e0638_3 var22;
+    SafeAllocator* var23 = (SafeAllocator*)(arg0 + 0x30);
 
-    alloc->Reset();
-    n = func_ov025_021e1048(world, ents);
-    head.next = 0;
-    Pool021e0638* pool = (Pool021e0638*)alloc->Allocate(n * 33);
-    if (pool == 0) {
+    var23->Reset();
+    var0 = func_ov025_021e1048(var3, var5);
+    var8.unknown_c_ = 0;
+    Struct_ov025_021e0638* var24 = (Struct_ov025_021e0638*)var23->Allocate(var0 * 33);
+    if (var24 == 0) {
         return;
     }
-    for (int i = 0; i < n; i++) {
-        func_02048c90((Obj02048c90*)ents[i].obj);
-        head.data[i] = func_020493a4(ents[i].obj);
-        pool[i].len = 0;
-        memset(pool[i].mark, 0, 0x10);
+    for (int var25 = 0; var25 < var0; var25++) {
+        func_02048c90((Struct_02048c90*)var5[var25].unknown_8_);
+        var8.unknown_0_[var25] = func_020493a4(var5[var25].unknown_8_);
+        var24[var25].unknown_20_ = 0;
+        memset(var24[var25].unknown_10_, 0, 0x10);
     }
-    func_ov025_021e20d8(&tbl);
-    func_ov025_021e20ec(&tbl, alloc);
-    int i;
-    int changed;
-    int nodes;
-    int nids;
-    nodes = 0;
-    nids = 0;
-    changed = 1;
-    tail = &head;
-    for (i = *(int*)(self + Field55d8); i < world->count; i++) {
-        unsigned char* o = GetLists021e0638(GetSub021e0638(world))[i].p10;
-        if (o != 0) {
-            ids[nids++] = *(unsigned short*)(o + 0x20);
+    func_ov025_021e20d8(&var9);
+    func_ov025_021e20ec(&var9, var23);
+    int var26;
+    int var27;
+    int var28;
+    int var29;
+    var28 = 0;
+    var29 = 0;
+    var27 = 1;
+    var1 = &var8;
+    for (var26 = *(int*)(arg0 + Enum_ov025_021e0638_21976); var26 < var3->unknown_8e24_; var26++) {
+        unsigned char* var30 = inline_ov025_021e0638_2(inline_ov025_021e0638(var3))[var26].unknown_10_;
+        if (var30 != 0) {
+            var6[var29++] = *(unsigned short*)(var30 + 0x20);
         }
     }
-    Lists021e0638* lists = &world->sub;
-    for (int j = 0; j < *(int*)(self + Field55d8); j++) {
-        ElemList021e0638* e = &lists->lists[j];
-        if (e->p10 != 0) {
-            ids[nids++] = *(unsigned short*)(e->p10 + 0x20);
+    Struct_ov025_021e0638_7* var31 = &var3->unknown_21c_;
+    for (int var32 = 0; var32 < *(int*)(arg0 + Enum_ov025_021e0638_21976); var32++) {
+        Struct_ov025_021e0638_6* var33 = &var31->unknown_8000_[var32];
+        if (var33->unknown_10_ != 0) {
+            var6[var29++] = *(unsigned short*)(var33->unknown_10_ + 0x20);
         }
     }
-    while (changed) {
-        changed = 0;
-        for (int i = 0; i < nids; i++) {
-            int id = ids[i];
-            int k;
-            for (k = 0; k < n; k++) {
-                if (id == ents[k].id) {
+    while (var27) {
+        var27 = 0;
+        for (int var34 = 0; var34 < var29; var34++) {
+            int var35 = var6[var34];
+            int var36;
+            for (var36 = 0; var36 < var0; var36++) {
+                if (var35 == var5[var36].unknown_0_) {
                     goto found;
                 }
             }
-            k = -1;
+            var36 = -1;
 found:
-            if (k < 0 || n <= k) {
+            if (var36 < 0 || var0 <= var36) {
                 continue;
             }
-            unsigned char* obj = ents[k].obj;
-            int target;
-            int off = k * 33;
-            unsigned char* entry = (unsigned char*)pool + off;
-            unsigned char len = (&pool->len)[off];
-            if (len >= 0x10) {
+            unsigned char* var37 = var5[var36].unknown_8_;
+            int var38;
+            int var39 = var36 * 33;
+            unsigned char* var40 = (unsigned char*)var24 + var39;
+            unsigned char var41 = (&var24->unknown_20_)[var39];
+            if (var41 >= 0x10) {
                 continue;
             }
-            int prev;
-            if (len != 0) {
-                prev = entry[len - 1];
+            int var42;
+            if (var41 != 0) {
+                var42 = var40[var41 - 1];
             } else {
-                prev = func_020493a4(obj);
+                var42 = func_020493a4(var37);
             }
-            target = func_020493c8(obj);
-            if (prev == target) {
+            var38 = func_020493c8(var37);
+            if (var42 == var38) {
                 continue;
             }
-            unsigned char m = 0;
-            for (int j = 0; j < n; j++) {
-                unsigned char b = tail->data[j];
-                if (target != b) {
-                    tmp[m++] = b;
+            unsigned char var43 = 0;
+            for (int var44 = 0; var44 < var0; var44++) {
+                unsigned char var45 = var1->unknown_0_[var44];
+                if (var38 != var45) {
+                    var10[var43++] = var45;
                 }
             }
-            func_ov025_021e2114((unsigned char*)&tbl, tmp, m);
-            __clear(out, 0x10);
-            unsigned char cnt = func_ov025_021e2148(&tbl, prev, target, out, 0x10);
-            if (cnt < 2) {
+            func_ov025_021e2114((unsigned char*)&var9, var10, var43);
+            __clear(var11, 0x10);
+            unsigned char var46 = func_ov025_021e2148(&var9, var42, var38, var11, 0x10);
+            if (var46 < 2) {
                 continue;
             }
-            if (len == 0) {
-                entry[len++] = tail->data[k];
+            if (var41 == 0) {
+                var40[var41++] = var1->unknown_0_[var36];
             }
-            if (len >= 0x10) {
+            if (var41 >= 0x10) {
                 func_020c9be0();
             }
-            unsigned char v = out[cnt - 2];
-            unsigned char nl = len + 1;
-            entry[len] = v;
-            (&pool->len)[off] = nl;
-            tail->data[k] = v;
-            if (nl > 2 && nodes > 0) {
-                unsigned char c;
-                unsigned char a = entry[nl - 1];
-                unsigned char bq = entry[nl - 3];
-                int y;
-                int x;
-                int m2;
-                unsigned char u;
-                unsigned char cc;
-                int flag;
-                int xn;
-                int x2;
-                int y2;
-                Node021e0638* p;
-                cellA = bq;
-                func_ov000_0216f82c(&nbA, &cellA);
-                s1 = nbA;
-                cellB = a;
-                func_ov000_0216f82c(&nbB, &cellB);
-                s2 = nbB;
-                m2 = 0;
-                for (x = 0; x < 6; x++) {
-                    u = s1.b[x];
-                    if (u == 0xff) {
+            unsigned char var47 = var11[var46 - 2];
+            unsigned char var48 = var41 + 1;
+            var40[var41] = var47;
+            (&var24->unknown_20_)[var39] = var48;
+            var1->unknown_0_[var36] = var47;
+            if (var48 > 2 && var28 > 0) {
+                unsigned char var49;
+                unsigned char var50 = var40[var48 - 1];
+                unsigned char var51 = var40[var48 - 3];
+                int var52;
+                int var53;
+                int var54;
+                unsigned char var55;
+                unsigned char var56;
+                int var57;
+                int var58;
+                int var59;
+                int var60;
+                Struct_ov025_021e0638_12* var61;
+                var19 = var51;
+                func_ov000_0216f82c(&var20, &var19);
+                var22 = var20;
+                var17 = var50;
+                func_ov000_0216f82c(&var18, &var17);
+                var21 = var18;
+                var54 = 0;
+                for (var53 = 0; var53 < 6; var53++) {
+                    var55 = var22.unknown_0_[var53];
+                    if (var55 == 0xff) {
                         continue;
                     }
-                    for (y = 0; y < 6; y++) {
-                        unsigned char w = s2.b[y];
-                        if (w == 0xff) {
+                    for (var52 = 0; var52 < 6; var52++) {
+                        unsigned char var62 = var21.unknown_0_[var52];
+                        if (var62 == 0xff) {
                             continue;
                         }
-                        if (u == w) {
-                            common[m2] = u;
-                            m2++;
+                        if (var55 == var62) {
+                            var13[var54] = var55;
+                            var54++;
                         }
                     }
                 }
-                cc = m2;
-                if (nodes - 1 == 0) {
-                    p = &head;
+                var56 = var54;
+                if (var28 - 1 == 0) {
+                    var61 = &var8;
                 } else {
-                    p = head.next;
-                    for (xn = 0; xn < nodes - 2; xn++) {
-                        if (p == 0) {
-                            p = 0;
+                    var61 = var8.unknown_c_;
+                    for (var58 = 0; var58 < var28 - 2; var58++) {
+                        if (var61 == 0) {
+                            var61 = 0;
                             break;
                         }
-                        p = p->next;
+                        var61 = var61->unknown_c_;
                     }
                 }
-                flag = 0;
-                for (x2 = 0; x2 < cc; x2++) {
-                    flag = 1;
-                    y2 = 0;
-                    c = common[x2];
-                    for (; y2 < n; y2++) {
-                        if (y2 == i) {
+                var57 = 0;
+                for (var59 = 0; var59 < var56; var59++) {
+                    var57 = 1;
+                    var60 = 0;
+                    var49 = var13[var59];
+                    for (; var60 < var0; var60++) {
+                        if (var60 == var34) {
                             continue;
                         }
-                        if (c == p->data[y2]) {
-                            flag = 0;
+                        if (var49 == var61->unknown_0_[var60]) {
+                            var57 = 0;
                             break;
                         }
                     }
-                    if (flag == 0) {
+                    if (var57 == 0) {
                         break;
                     }
                 }
-                if (flag != 0) {
-                    unsigned char* mp = (unsigned char*)((unsigned int)pool + off);
-                    mp += nl - 2;
-                    mp[0x10] = 1;
+                if (var57 != 0) {
+                    unsigned char* var63 = (unsigned char*)((unsigned int)var24 + var39);
+                    var63 += var48 - 2;
+                    var63[0x10] = 1;
                 }
             }
-            changed = 1;
+            var27 = 1;
         }
-        Node021e0638* node = (Node021e0638*)alloc->Allocate(0x10);
-        if (node == 0) {
+        Struct_ov025_021e0638_12* var64 = (Struct_ov025_021e0638_12*)var23->Allocate(0x10);
+        if (var64 == 0) {
             break;
         }
-        memcpy(node, tail, 0x10);
-        node->next = 0;
-        Node021e0638* t = tail->next;
-        if (t == 0) {
-            tail->next = node;
+        memcpy(var64, var1, 0x10);
+        var64->unknown_c_ = 0;
+        Struct_ov025_021e0638_12* var65 = var1->unknown_c_;
+        if (var65 == 0) {
+            var1->unknown_c_ = var64;
         } else {
-            while (t->next != 0) {
-                t = t->next;
+            while (var65->unknown_c_ != 0) {
+                var65 = var65->unknown_c_;
             }
-            t->next = node;
+            var65->unknown_c_ = var64;
         }
-        nodes++;
-        tail = node;
+        var28++;
+        var1 = var64;
     }
-    for (int i = 0; i < n; i++) {
-        unsigned char m = 0;
-        for (int j = 0; j < pool[i].len; j++) {
-            if (pool[i].mark[j] == 0) {
-                sendbuf[m++] = pool[i].seq[j];
+    for (int var66 = 0; var66 < var0; var66++) {
+        unsigned char var67 = 0;
+        for (int var68 = 0; var68 < var24[var66].unknown_20_; var68++) {
+            if (var24[var66].unknown_10_[var68] == 0) {
+                var12[var67++] = var24[var66].unknown_0_[var68];
             }
         }
-        func_02049410((Obj02049410*)ents[i].obj, sendbuf, m);
+        func_02049410((Struct_02049410*)var5[var66].unknown_8_, var12, var67);
     }
-    for (int i = 0; i < n; i++) {
-        int flag = 0;
-        unsigned char* c = (unsigned char*)(CombatantStruct*)func_0200ff1c(gs, *(short*)(ents[i].obj + 4));
-        if (c != 0 && (*(unsigned int*)(c + Field18c) & 1)) {
-            flag = 1;
+    for (int var69 = 0; var69 < var0; var69++) {
+        int var70 = 0;
+        unsigned char* var71 = (unsigned char*)(Struct_0203d028_3*)func_0200ff1c(var2, *(short*)(var5[var69].unknown_8_ + 4));
+        if (var71 != 0 && (*(unsigned int*)(var71 + Enum_ov025_021e0638_396) & 1)) {
+            var70 = 1;
         }
-        if (func_02049ee8(ents[i].obj) != 0 && flag == 0 && self[Fielde78] != 0) {
-            func_02049a74((Obj02049a74*)ents[i].obj);
+        if (func_02049ee8(var5[var69].unknown_8_) != 0 && var70 == 0 && arg0[Enum_ov025_021e0638_3704] != 0) {
+            func_02049a74((Struct_02048f64*)var5[var69].unknown_8_);
         } else {
-            func_02049ae4(ents[i].obj);
+            func_02049ae4(var5[var69].unknown_8_);
         }
-        func_0204950c(ents[i].obj);
+        func_0204950c(var5[var69].unknown_8_);
     }
-    for (int i = 0; i < nids; i++) {
-        unsigned char* c = (unsigned char*)gs->GetCombatantByIndex(ids[i]);
-        if (c != 0 && func_02049444(c) != 0) {
-            func_02049ae4(c);
-            func_020494f8(c);
+    for (int var72 = 0; var72 < var29; var72++) {
+        unsigned char* var73 = (unsigned char*)var2->GetCombatantByIndex(var6[var72]);
+        if (var73 != 0 && func_02049444(var73) != 0) {
+            func_02049ae4(var73);
+            func_020494f8(var73);
         }
     }
-    for (int i = 0; i < cur->count8; i++) {
-        if (cur->p10 != 0) {
-            unsigned char* c = (unsigned char*)gs->GetCombatantByIndex(*(unsigned short*)(cur->p10 + i * 0x34 + 0x20));
-            if (c != 0) {
-                func_02049ae4(c);
-                func_0204950c(c);
+    for (int var74 = 0; var74 < var4->unknown_8_; var74++) {
+        if (var4->unknown_10_ != 0) {
+            unsigned char* var75 = (unsigned char*)var2->GetCombatantByIndex(*(unsigned short*)(var4->unknown_10_ + var74 * 0x34 + 0x20));
+            if (var75 != 0) {
+                func_02049ae4(var75);
+                func_0204950c(var75);
             }
         }
     }
-    for (int i = 0; i < cur->count9; i++) {
-        if (cur->p14 != 0) {
-            unsigned char* c = (unsigned char*)gs->GetCombatantByIndex(*(short*)(cur->p14 + i * 0x24 + 0xe));
-            if (c != 0) {
-                func_02049ae4(c);
-                func_0204950c(c);
+    for (int var76 = 0; var76 < var4->unknown_9_; var76++) {
+        if (var4->unknown_14_ != 0) {
+            unsigned char* var77 = (unsigned char*)var2->GetCombatantByIndex(*(short*)(var4->unknown_14_ + var76 * 0x24 + 0xe));
+            if (var77 != 0) {
+                func_02049ae4(var77);
+                func_0204950c(var77);
             }
         }
     }
-    for (int i = 0; i < cur->count9; i++) {
-        if (cur->p14 != 0) {
-            unsigned char* c = (unsigned char*)gs->GetCombatantByIndex(*(short*)(cur->p14 + i * 0x24 + 0xe));
-            if (c != 0) {
-                memset(seen, 0, 0x51);
-                Sub148_021e0638* sub = 0;
-                int extra = 1;
-                if (*(unsigned short*)c & 0x400) {
-                    sub = *(Sub148_021e0638**)(c + 0x148);
+    for (int var78 = 0; var78 < var4->unknown_9_; var78++) {
+        if (var4->unknown_14_ != 0) {
+            unsigned char* var79 = (unsigned char*)var2->GetCombatantByIndex(*(short*)(var4->unknown_14_ + var78 * 0x24 + 0xe));
+            if (var79 != 0) {
+                memset(var7, 0, 0x51);
+                Struct_ov025_021e0638_9* var80 = 0;
+                int var81 = 1;
+                if (*(unsigned short*)var79 & 0x400) {
+                    var80 = *(Struct_ov025_021e0638_9**)(var79 + 0x148);
                 }
-                if (sub != 0) {
-                    unsigned int t2 = (sub->flags << 1) >> 0x1e;
-                    if (t2 != 0) {
-                        extra += t2;
+                if (var80 != 0) {
+                    unsigned int var82 = (var80->unknown_10_ << 1) >> 0x1e;
+                    if (var82 != 0) {
+                        var81 += var82;
                     }
                 }
-                func_ov025_021e120c(seen, func_020493a4(c), 1, extra & 0xff, 0);
-                for (int j = 0; j < n; j++) {
-                    int id = func_020493c8(ents[j].obj);
-                    if (id < 0x51 && seen[id] == 1) {
-                        func_02049ae4(c);
-                        func_0204950c(c);
+                func_ov025_021e120c(var7, func_020493a4(var79), 1, var81 & 0xff, 0);
+                for (int var83 = 0; var83 < var0; var83++) {
+                    int var84 = func_020493c8(var5[var83].unknown_8_);
+                    if (var84 < 0x51 && var7[var84] == 1) {
+                        func_02049ae4(var79);
+                        func_0204950c(var79);
                     }
                 }
             }
         }
     }
     func_02048994();
-    unsigned char* na = func_ov000_02160094((List02160094*)cur, 0);
-    unsigned char* nb = func_ov000_021600f8((List021600f8*)cur, 0);
-    if (na != 0 && nb != 0) {
-        unsigned char* ca = (unsigned char*)gs->GetCombatantByIndex(*(unsigned short*)(na + 0x20));
-        unsigned char* cb = (unsigned char*)gs->GetCombatantByIndex(*(short*)(nb + 0xe));
-        if (ca != 0 && cb != 0) {
-            unsigned int id = func_020493c8(ca);
-            if (id >= 0x51) {
-                id = func_020493a4(ca);
+    unsigned char* var85 = func_ov000_02160094((Struct_ov000_0215440c_2*)var4, 0);
+    unsigned char* var86 = func_ov000_021600f8((Struct_ov000_0215440c*)var4, 0);
+    if (var85 != 0 && var86 != 0) {
+        unsigned char* var87 = (unsigned char*)var2->GetCombatantByIndex(*(unsigned short*)(var85 + 0x20));
+        unsigned char* var88 = (unsigned char*)var2->GetCombatantByIndex(*(short*)(var86 + 0xe));
+        if (var87 != 0 && var88 != 0) {
+            unsigned int var89 = func_020493c8(var87);
+            if (var89 >= 0x51) {
+                var89 = func_020493a4(var87);
             }
-            if (id < 0x51) {
-                posCell = id;
-                func_ov000_0216f74c(&pos, &posCell);
-                pp = pos;
-                Vec3_021e0638 va;
-                __clear(&va, 0xc);
-                va.x = pp.v[0];
-                va.z = pp.v[1];
-                Vec3_021e0638 vb = *(Vec3_021e0638*)(cb + 0x44);
-                vb.y = 0;
-                Data021e0638* d = func_020489b0();
-                *(Vector3i*)&d->a = *(Vector3i const*)&va;
-                *(Vector3i*)&d->b = *(Vector3i const*)&vb;
-                d->radius = ((Object3D*)ca)->GetRadius() >> 1;
-                d->flag = 1;
+            if (var89 < 0x51) {
+                var16 = var89;
+                func_ov000_0216f74c(&var15, &var16);
+                var14 = var15;
+                Struct_ov025_021e0638_4 var90;
+                __clear(&var90, 0xc);
+                var90.unknown_0_ = var14.unknown_0_[0];
+                var90.unknown_8_ = var14.unknown_0_[1];
+                Struct_ov025_021e0638_4 var91 = *(Struct_ov025_021e0638_4*)(var88 + 0x44);
+                var91.unknown_4_ = 0;
+                Struct_ov025_021e0638_10* var92 = func_020489b0();
+                *(Vector3i*)&var92->unknown_0_ = *(Vector3i const*)&var90;
+                *(Vector3i*)&var92->unknown_c_ = *(Vector3i const*)&var91;
+                var92->unknown_18_ = ((Object3D*)var87)->GetRadius() >> 1;
+                var92->unknown_1c_ = 1;
             }
         }
     }
-    for (int i = 0; i < n; i++) {
-        unsigned char* o = ents[i].obj;
-        if (func_02049ee8(o) != 0 && func_02049444(o) == 0 && func_02049ec0(o) != 0
-            && (*(unsigned int*)(*(unsigned char**)(o + 0x138) + 0x14) & 1) == 0 && self[Fielde78] != 0
-            && func_02048c10(o) == 0) {
-            func_020494c0((Obj020494c0*)o);
+    for (int var93 = 0; var93 < var0; var93++) {
+        unsigned char* var94 = var5[var93].unknown_8_;
+        if (func_02049ee8(var94) != 0 && func_02049444(var94) == 0 && func_02049ec0(var94) != 0
+            && (*(unsigned int*)(*(unsigned char**)(var94 + 0x138) + 0x14) & 1) == 0 && arg0[Enum_ov025_021e0638_3704] != 0
+            && func_02048c10(var94) == 0) {
+            func_020494c0((Struct_02048f64_2*)var94);
         }
     }
 }

@@ -1,50 +1,50 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegionec = 0xe8 };
-enum { kRegionee = 0xea };
-enum { kRegion130 = 0x13c };
-enum { kRegion44000 = 0x4f000 };
+enum { Enum_ov003_02173b4c_236 = 0xe8 };
+enum { Enum_ov003_02173b4c_238 = 0xea };
+enum { Enum_ov003_02173b4c_304 = 0x13c };
+enum { Enum_ov003_02173b4c_278528 = 0x4f000 };
 #else
-enum { kRegionec = 0xec };
-enum { kRegionee = 0xee };
-enum { kRegion130 = 0x130 };
-enum { kRegion44000 = 0x44000 };
+enum { Enum_ov003_02173b4c_236 = 0xec };
+enum { Enum_ov003_02173b4c_238 = 0xee };
+enum { Enum_ov003_02173b4c_304 = 0x130 };
+enum { Enum_ov003_02173b4c_278528 = 0x44000 };
 #endif
 
-struct Obj02173bb0;
-extern "C" void* func_ov003_02173bb0(Obj02173bb0*, unsigned int);
+struct Struct_ov003_02173b4c;
+extern "C" void* func_ov003_02173bb0(Struct_ov003_02173b4c*, unsigned int);
 extern "C" void func_0205ac40(void*, void*);
 
 // USA: func_ov003_02173b4c
-extern "C" ARM void func_ov003_02173b4c(void* obj) {
-    unsigned char* o = (unsigned char*)obj;
-    unsigned int flag;
-    void* elem;
-    if (o[kRegionec] == 0) {
+extern "C" ARM void func_ov003_02173b4c(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned int var1;
+    void* var2;
+    if (var0[Enum_ov003_02173b4c_236] == 0) {
         return;
     }
-    if (o[kRegionec] == 1) {
-        if (o[kRegionee] < 2) {
+    if (var0[Enum_ov003_02173b4c_236] == 1) {
+        if (var0[Enum_ov003_02173b4c_238] < 2) {
             return;
         }
     }
 #if defined(jpn)
-    if (o[0] != 0) {
-        elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + kRegion130), 1);
+    if (var0[0] != 0) {
+        var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173b4c_304), 1);
     } else {
-        elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + kRegion130), 0);
+        var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173b4c_304), 0);
     }
 #else
-    flag = 6;
-    if (o[0] != 0) {
-        flag = 7;
+    var1 = 6;
+    if (var0[0] != 0) {
+        var1 = 7;
     }
-    elem = func_ov003_02173bb0((Obj02173bb0*)((char*)obj + kRegion130), flag);
+    var2 = func_ov003_02173bb0((Struct_ov003_02173b4c*)((char*)arg0 + Enum_ov003_02173b4c_304), var1);
 #endif
-    if (elem == 0) {
+    if (var2 == 0) {
         return;
     }
-    *(int*)((char*)elem + 0x14) = kRegion44000;
-    *(int*)((char*)elem + 0x18) = 0x5f000;
-    func_0205ac40((char*)obj + kRegion130, elem);
+    *(int*)((char*)var2 + 0x14) = Enum_ov003_02173b4c_278528;
+    *(int*)((char*)var2 + 0x18) = 0x5f000;
+    func_0205ac40((char*)arg0 + Enum_ov003_02173b4c_304, var2);
 }

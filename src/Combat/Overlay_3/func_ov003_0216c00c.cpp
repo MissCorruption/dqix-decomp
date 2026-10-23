@@ -9,17 +9,17 @@
 #include "Resource/FontBankLoader.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
-struct Struct_ov017_44C8;
-struct BattleStruct {
-    int unk0;
-    int unk4;
-    struct CombatantStruct* combatantList[0xe9];
+struct Struct_01ff91ac_31;
+struct Struct_0203d028_2 {
+    int unknown_0_;
+    int unknown_4_;
+    struct Struct_0203d028_3* unknown_8_[0xe9];
 };
-struct CombatantStruct {
-    unsigned short flags;
-    char unk[0x132];
-    struct BaseCombatStats* baseStats;
-    struct ModifiableCombatStats* currentStats;
+struct Struct_0203d028_3 {
+    unsigned short unknown_0_;
+    char unknown_2_[0x132];
+    struct BaseCombatStats* unknown_134_;
+    struct ModifiableCombatStats* unknown_138_;
 };
 
 extern "C" int func_020421a0();
@@ -27,26 +27,26 @@ extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18();
 extern "C" void* func_020d6c00(void);
 #if defined(jpn)
-extern "C" void func_ov003_0216d8d4(char* obj, int keyA);
+extern "C" void func_ov003_0216d8d4(char* arg0, int arg1);
 #else
-extern "C" void func_ov003_0216d8d4(char* obj, int keyA, int p3, int p4, int p5);
+extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
-extern "C" int func_020457e0(char* obj);
-extern "C" void func_02043204(char* obj);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+extern "C" int func_020457e0(char* arg0);
+extern "C" void func_02043204(char* arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov003_02170d38(char*);
-class Base021714a0;
-extern "C" int func_ov003_021714a0(Base021714a0* obj);
-extern "C" void func_ov003_02173c40(char* obj);
-extern "C" void func_ov003_021726f8(char* obj, SafeAllocator* allocator);
+class Struct_ov003_0216c00c;
+extern "C" int func_ov003_021714a0(Struct_ov003_0216c00c* arg0);
+extern "C" void func_ov003_02173c40(char* arg0);
+extern "C" void func_ov003_021726f8(char* arg0, SafeAllocator* arg1);
 extern "C" void VectorizedMemset(void*, int, int);
 extern "C" void VectorizedInvertedMemcpy(void* dst, void* src, int size);
-extern "C" int func_020aad1c(int a, int b, int c, int d);
+extern "C" int func_020aad1c(int arg0, int arg1, int arg2, int arg3);
 
-extern "C" void func_ov003_02170d88(void* p);
-extern "C" int func_ov003_021727c8(char* obj);
-extern "C" void func_ov003_02173d40(char* obj);
+extern "C" void func_ov003_02170d88(void* arg0);
+extern "C" int func_ov003_021727c8(char* arg0);
+extern "C" void func_ov003_02173d40(char* arg0);
 
 extern "C" void func_020119f8(char*, void*);
 extern "C" int func_0202b7d8(int*);
@@ -55,42 +55,42 @@ extern "C" void* func_02053c6c(unsigned char*);
 struct GameState;
 extern "C" int func_02011804(GameState*);
 extern "C" void func_020119d8(void*);
-extern "C" void func_ov017_021a9ff0(int flag);
-extern "C" void func_ov017_021c1798(GameResources* p, unsigned char v);
+extern "C" void func_ov017_021a9ff0(int arg0);
+extern "C" void func_ov017_021c1798(GameResources* arg0, unsigned char arg1);
 int IsBrightnessTransitionActive(void* word);
-struct Obj020397cc;
-extern "C" void func_020397cc(Obj020397cc*, int);
-extern "C" void func_020466e4(unsigned int* word, unsigned int mask);
+struct Struct_02018300_3;
+extern "C" void func_020397cc(Struct_02018300_3*, int);
+extern "C" void func_020466e4(unsigned int* arg0, unsigned int arg1);
 void SetMainBrightness(void* obj, int a, int b);
 void SetSubBrightness(void* obj, int a, int b);
-struct FlagWord020466f4;
-extern "C" void func_020466f4(FlagWord020466f4*, unsigned int);
-struct Struct020a9ea4;
-extern "C" void func_020a9ea4(Struct020a9ea4*);
-extern "C" void func_0209c2e0(void* obj, int a, int b);
-struct Actor0209c3b4;
-extern "C" void func_0209c3b4(struct Actor0209c3b4* actor, int val);
-struct Target02059f38;
-struct Vec3_02059f38;
-extern "C" void func_02059f38(Target02059f38*, Vec3_02059f38*);
-struct Obj02033874;
-extern "C" void func_02033874(Obj02033874*, int);
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
-extern "C" int func_ov017_021b1fa8(void* p);
-extern "C" int func_ov017_021b1fb0(void* p);
-extern "C" void* func_ov017_021b1fb8(void* p);
-extern "C" int func_020ac4c0(void* dst);
-struct S_a03f8;
-extern "C" void func_020a03f8(S_a03f8*, unsigned int);
-extern "C" void func_020ac494(void* p);
-extern "C" void func_020ac760(void* p);
-extern "C" void func_020ac734(void* p);
-extern "C" const char* func_020e51cc(int key);
-struct Src02011818;
-extern "C" void func_02011818(void*, Src02011818*);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(Struct_02038598_4*, unsigned int);
+struct Struct_020a9ea4;
+extern "C" void func_020a9ea4(Struct_020a9ea4*);
+extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
+struct Struct_0209c3b4_2;
+extern "C" void func_0209c3b4(struct Struct_0209c3b4_2* arg0, int arg1);
+struct Struct_02059cfc_2;
+struct Struct_02059cfc_3;
+extern "C" void func_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
+struct Struct_02033834;
+extern "C" void func_02033874(Struct_02033834*, int);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" int func_ov017_021b1fa8(void* arg0);
+extern "C" int func_ov017_021b1fb0(void* arg0);
+extern "C" void* func_ov017_021b1fb8(void* arg0);
+extern "C" int func_020ac4c0(void* arg0);
+struct Struct_020a03f8;
+extern "C" void func_020a03f8(Struct_020a03f8*, unsigned int);
+extern "C" void func_020ac494(void* arg0);
+extern "C" void func_020ac760(void* arg0);
+extern "C" void func_020ac734(void* arg0);
+extern "C" const char* func_020e51cc(int arg0);
+struct Struct_02011818;
+extern "C" void func_02011818(void*, Struct_02011818*);
 extern "C" void func_02011ab8(char*);
 extern "C" void func_02011a74(char*, unsigned int, char const*);
 
@@ -102,1081 +102,1081 @@ extern char data_ov003_021801f8[];
 extern char data_ov003_021801fc[];
 extern char data_ov003_02180201[];
 
-struct S88 { char pad[0x414]; unsigned char b0:1; };
-struct EntBlk { char pad0[0x44]; };
-struct Stat950 { char pad[0x950]; int f950; };
-struct Mem150 { char pad[0x150]; struct Stat950* f150; };
-struct Ent { char pad0[0x44]; struct EntBlk blk[2]; };
-static inline struct S88* GetEntFlags(struct Ent* ent, int i) {
-    return (struct S88*)&ent->blk[i];
+struct Struct_ov003_0216c00c_2 { char unknown_0_[0x414]; unsigned char unknown_414_0_:1; };
+struct Struct_01ff91ac_32 { char unknown_0_[0x44]; };
+struct Struct_ov003_0216c00c_3 { char unknown_0_[0x950]; int unknown_950_; };
+struct Struct_ov003_0216c00c_4 { char unknown_0_[0x150]; struct Struct_ov003_0216c00c_3* unknown_150_; };
+struct Struct_ov003_0215d4fc { char unknown_0_[0x44]; struct Struct_01ff91ac_32 unknown_44_[2]; };
+static inline struct Struct_ov003_0216c00c_2* inline_ov003_0216c00c(struct Struct_ov003_0215d4fc* arg0, int arg1) {
+    return (struct Struct_ov003_0216c00c_2*)&arg0->unknown_44_[arg1];
 }
-struct Rec5400 { unsigned int _p0:21, b21:4, b25:1, b26:1; int _p1:19, v:11; };
-struct Sub29c { char pad[0x5400]; struct Rec5400 rec; };
-struct Battle29c { char pad[0x29c]; struct Sub29c sub; };
-static inline struct Sub29c* GetSub29c(void* b) { return &((struct Battle29c*)b)->sub; }
-struct B7 { char pad[0xd]; unsigned char v:7; };
-struct Name10 { char c[10]; };
-struct Vec3 { int x, y, z; ~Vec3() {} };
-struct ObjA64 { char pad[0xa64]; struct TreasureMapMetadata meta; };
-#define META(o) (&((struct ObjA64*)(o))->meta)
-static inline int IsKind5(char* obj) {
-    return *(unsigned char*)(obj + 0x1000 + 8) == 5;
+struct Struct_ov003_0216c00c_5 { unsigned int unknown_0_0_:21, unknown_2_5_:4, unknown_3_1_:1, unknown_3_2_:1; int unknown_4_0_:19, unknown_6_3_:11; };
+struct Struct_ov003_0216c00c_6 { char unknown_0_[0x5400]; struct Struct_ov003_0216c00c_5 unknown_5400_; };
+struct Struct_ov003_0216c00c_7 { char unknown_0_[0x29c]; struct Struct_ov003_0216c00c_6 unknown_29c_; };
+static inline struct Struct_ov003_0216c00c_6* inline_ov003_0216c00c_2(void* arg0) { return &((struct Struct_ov003_0216c00c_7*)arg0)->unknown_29c_; }
+struct Struct_ov003_0216c00c_8 { char unknown_0_[0xd]; unsigned char unknown_d_0_:7; };
+struct Struct_ov003_0216c00c_9 { char unknown_0_[10]; };
+struct Struct_ov009_0218aa28 { int unknown_0_, unknown_4_, unknown_8_; ~Struct_ov009_0218aa28() {} };
+struct Struct_ov003_0216c00c_10 { char unknown_0_[0xa64]; struct TreasureMapMetadata unknown_a64_; };
+#define META(o) (&((struct Struct_ov003_0216c00c_10*)(o))->unknown_a64_)
+static inline int inline_ov003_0216c00c_3(char* arg0) {
+    return *(unsigned char*)(arg0 + 0x1000 + 8) == 5;
 }
 
-struct Save840 { char pad[0x1b34]; int fb34; char pad1b38[0x1b60 - 0x1b38]; unsigned char fb60; };
-struct Ctx840 { char pad[0x840]; struct Save840 save; };
-static inline struct Save840* GetSave(void* c) { return &((struct Ctx840*)c)->save; }
-static inline int GetB34(struct Save840* s) { return s->fb34; }
-static inline void SetB34(struct Save840* s, int v) { s->fb34 = v; }
-static inline unsigned char GetB60(struct Save840* s) { return s->fb60; }
-static inline void SetB60(struct Save840* s, unsigned char v) { s->fb60 = v; }
+struct Struct_ov003_0216c00c_11 { char unknown_0_[0x1b34]; int unknown_1b34_; char unknown_1b38_[0x1b60 - 0x1b38]; unsigned char unknown_1b60_; };
+struct Struct_01ff91ac_33 { char unknown_0_[0x840]; struct Struct_ov003_0216c00c_11 unknown_840_; };
+static inline struct Struct_ov003_0216c00c_11* inline_ov003_0216c00c_4(void* arg0) { return &((struct Struct_01ff91ac_33*)arg0)->unknown_840_; }
+static inline int inline_ov003_0216c00c_5(struct Struct_ov003_0216c00c_11* arg0) { return arg0->unknown_1b34_; }
+static inline void inline_ov003_0216c00c_6(struct Struct_ov003_0216c00c_11* arg0, int arg1) { arg0->unknown_1b34_ = arg1; }
+static inline unsigned char inline_ov003_0216c00c_7(struct Struct_ov003_0216c00c_11* arg0) { return arg0->unknown_1b60_; }
+static inline void inline_ov003_0216c00c_8(struct Struct_ov003_0216c00c_11* arg0, unsigned char arg1) { arg0->unknown_1b60_ = arg1; }
 #if defined(jpn)
-struct Obj02046574;
-extern "C" void func_02046574(Obj02046574*, int, char*);
-struct StoreStruct;
-extern "C" void func_020465c0(StoreStruct*, int, int);
-struct Container020e0310;
-extern "C" char* func_020e0434(Container020e0310*, int);
+struct Struct_02046574_2;
+extern "C" void func_02046574(Struct_02046574_2*, int, char*);
+struct Struct_020465c0;
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
+struct Struct_0201099c_3;
+extern "C" char* func_020e0434(Struct_0201099c_3*, int);
 extern char data_ov003_0217e99c[];
 extern char data_ov003_0217e9b4[];
 extern char data_ov003_0217e9b8[];
-struct Stat8b8 { char pad[0x8b8]; int f8b8; };
-struct Mem144 { char pad[0x144]; struct Stat8b8* f144; };
-struct SubJ { char pad[0x5400]; struct Rec5400 rec; };
-struct BattleJ { char pad[0x3c]; struct SubJ sub; };
-static inline struct SubJ* GetSubJ(void* b) { return &((struct BattleJ*)b)->sub; }
-struct ObjJ9c8 { char pad[0x9c8]; struct TreasureMapMetadata meta; };
-#define METAJ(o) (&((struct ObjJ9c8*)(o))->meta)
-static inline int IsKind5J(char* obj) {
-    return *(unsigned char*)(obj + 0xe88) == 5;
+struct Struct_ov003_0216c00c_12 { char unknown_0_[0x8b8]; int unknown_8b8_; };
+struct Struct_ov003_0216c00c_13 { char unknown_0_[0x144]; struct Struct_ov003_0216c00c_12* unknown_144_; };
+struct Struct_ov003_0216c00c_14 { char unknown_0_[0x5400]; struct Struct_ov003_0216c00c_5 unknown_5400_; };
+struct Struct_ov003_0216c00c_15 { char unknown_0_[0x3c]; struct Struct_ov003_0216c00c_14 unknown_3c_; };
+static inline struct Struct_ov003_0216c00c_14* inline_ov003_0216c00c_9(void* arg0) { return &((struct Struct_ov003_0216c00c_15*)arg0)->unknown_3c_; }
+struct Struct_ov003_0216c00c_16 { char unknown_0_[0x9c8]; struct TreasureMapMetadata unknown_9c8_; };
+#define METAJ(o) (&((struct Struct_ov003_0216c00c_16*)(o))->unknown_9c8_)
+static inline int inline_ov003_0216c00c_10(char* arg0) {
+    return *(unsigned char*)(arg0 + 0xe88) == 5;
 }
-static inline struct Rec5400* GetRecJ(void* b) { return &GetSubJ(b)->rec; }
-struct CtxJ { char pad[0x860]; struct Save840 save; };
+static inline struct Struct_ov003_0216c00c_5* inline_ov003_0216c00c_11(void* arg0) { return &inline_ov003_0216c00c_9(arg0)->unknown_5400_; }
+struct Struct_ov003_0216c00c_17 { char unknown_0_[0x860]; struct Struct_ov003_0216c00c_11 unknown_860_; };
 // JPN: func_ov003_0216c00c
-extern "C" ARM void func_ov003_0216c00c(char* obj) {
-    struct BattleStruct* battle = (BattleStruct*)GameState::GetInstance();
-    GameResources* ov17 = GetGameResources();
-    char* g = (char*)func_020421a0();
-    struct CtxJ* ctx = (struct CtxJ*)func_02012fe4();
-    struct Save840* save = &ctx->save;
-    void* w = func_0202ae18();
-    void* dataPtr0 = func_020d6c00();
+extern "C" ARM void func_ov003_0216c00c(char* arg0) {
+    struct Struct_0203d028_2* var0 = (Struct_0203d028_2*)GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    char* var2 = (char*)func_020421a0();
+    struct Struct_ov003_0216c00c_17* var3 = (struct Struct_ov003_0216c00c_17*)func_02012fe4();
+    struct Struct_ov003_0216c00c_11* var4 = &var3->unknown_860_;
+    void* var5 = func_0202ae18();
+    void* var6 = func_020d6c00();
 
-    short subreq = *(short*)(obj + 0xa);
-    if (subreq == 1) {
-        func_ov003_0216d8d4(obj, 0x41);
-        *(unsigned char*)(g + 0x1000 + 0x7e2) = 1;
-        *(int*)(g + 0x86c) = 2;
-        *(int*)(g + 0x868) = 1;
-        *(short*)(obj + 6) = 3;
-        *(short*)(obj + 0xa) = 0;
-    } else if (subreq == 2) {
-        struct TreasureMapMetadata local10c;
-        func_020119f8((char*)battle, &local10c);
-        if (local10c.GetMapType() != 0) {
-            func_ov003_0216d8d4(obj, 0x4a);
+    short var7 = *(short*)(arg0 + 0xa);
+    if (var7 == 1) {
+        func_ov003_0216d8d4(arg0, 0x41);
+        *(unsigned char*)(var2 + 0x1000 + 0x7e2) = 1;
+        *(int*)(var2 + 0x86c) = 2;
+        *(int*)(var2 + 0x868) = 1;
+        *(short*)(arg0 + 6) = 3;
+        *(short*)(arg0 + 0xa) = 0;
+    } else if (var7 == 2) {
+        struct TreasureMapMetadata var8;
+        func_020119f8((char*)var0, &var8);
+        if (var8.GetMapType() != 0) {
+            func_ov003_0216d8d4(arg0, 0x4a);
         } else {
-            func_ov003_0216d8d4(obj, 0x43);
+            func_ov003_0216d8d4(arg0, 0x43);
         }
-        *(short*)(obj + 6) = 0x12c;
-        *(unsigned char*)(g + 0x1000 + 0x7e2) = 1;
-        *(int*)(g + 0x86c) = 2;
-        *(int*)(g + 0x868) = 1;
-        *(short*)(obj + 0xa) = 0;
+        *(short*)(arg0 + 6) = 0x12c;
+        *(unsigned char*)(var2 + 0x1000 + 0x7e2) = 1;
+        *(int*)(var2 + 0x86c) = 2;
+        *(int*)(var2 + 0x868) = 1;
+        *(short*)(arg0 + 0xa) = 0;
     }
 
-    short state = *(short*)(obj + 6);
-    if (state == 0) {
-        func_02046574((Obj02046574*)g, 0, *(char**)((char*)((GameState*)battle)->GetUnknownGameObject() + 0x134));
-        if (GetB60(save) == 0) {
-            func_ov003_0216d8d4(obj, 0x47);
-            *(short*)(obj + 6) = 0x63;
-        } else if (func_0202b7d8((int*)w) != 0) {
-            func_ov003_0216d8d4(obj, 0x3f);
-            *(short*)(obj + 6) = 0x63;
+    short var9 = *(short*)(arg0 + 6);
+    if (var9 == 0) {
+        func_02046574((Struct_02046574_2*)var2, 0, *(char**)((char*)((GameState*)var0)->GetUnknownGameObject() + 0x134));
+        if (inline_ov003_0216c00c_7(var4) == 0) {
+            func_ov003_0216d8d4(arg0, 0x47);
+            *(short*)(arg0 + 6) = 0x63;
+        } else if (func_0202b7d8((int*)var5) != 0) {
+            func_ov003_0216d8d4(arg0, 0x3f);
+            *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_ov003_0216d8d4(obj, 0x2b);
-            *(short*)(obj + 6) = 1;
-            func_02011a40((char*)battle);
+            func_ov003_0216d8d4(arg0, 0x2b);
+            *(short*)(arg0 + 6) = 1;
+            func_02011a40((char*)var0);
         }
-    } else if (state == 1) {
-        if (*(int*)(g + 0x870) != 3) return;
-        if ((&((struct BattleJ*)battle)->sub.rec)->b26 != 0) {
-            func_ov003_0216d8d4(obj, 0x2d);
-            *(short*)(obj + 6) = 3;
+    } else if (var9 == 1) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        if ((&((struct Struct_ov003_0216c00c_15*)var0)->unknown_3c_.unknown_5400_)->unknown_3_2_ != 0) {
+            func_ov003_0216d8d4(arg0, 0x2d);
+            *(short*)(arg0 + 6) = 3;
         } else {
-            func_ov003_0216d8d4(obj, 0x2c);
-            *(short*)(obj + 6) = 2;
+            func_ov003_0216d8d4(arg0, 0x2c);
+            *(short*)(arg0 + 6) = 2;
         }
-    } else if (state == 2) {
-        if (*(int*)(g + 0x870) != 0) return;
-        if (func_020457e0(g) == 1) {
-            *(int*)(g + 0x868) = 1;
-            func_ov003_0216d8d4(obj, 0x40);
-            *(short*)(obj + 6) = 3;
-            struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetProtagonist();
-            if (c != 0) {
-                struct S88* fp = GetEntFlags((struct Ent*)func_02053c6c((unsigned char*)c), 1);
-                struct Rec5400* fl = &((struct BattleJ*)battle)->sub.rec;
-                fl->b25 = fp->b0;
-                fl->b21 = fp->b0;
-                struct Rec5400* rec = GetRecJ(battle);
-                rec->v = ((struct Mem144*)c)->f144->f8b8 + 700;
+    } else if (var9 == 2) {
+        if (*(int*)(var2 + 0x870) != 0) return;
+        if (func_020457e0(var2) == 1) {
+            *(int*)(var2 + 0x868) = 1;
+            func_ov003_0216d8d4(arg0, 0x40);
+            *(short*)(arg0 + 6) = 3;
+            struct Struct_0203d028_3* var10 = (Struct_0203d028_3*)((GameState*)var0)->GetProtagonist();
+            if (var10 != 0) {
+                struct Struct_ov003_0216c00c_2* var11 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)func_02053c6c((unsigned char*)var10), 1);
+                struct Struct_ov003_0216c00c_5* var12 = &((struct Struct_ov003_0216c00c_15*)var0)->unknown_3c_.unknown_5400_;
+                var12->unknown_3_1_ = var11->unknown_414_0_;
+                var12->unknown_2_5_ = var11->unknown_414_0_;
+                struct Struct_ov003_0216c00c_5* var13 = inline_ov003_0216c00c_11(var0);
+                var13->unknown_6_3_ = ((struct Struct_ov003_0216c00c_13*)var10)->unknown_144_->unknown_8b8_ + 700;
             }
         } else {
-            func_02043204(g);
-            *(short*)(obj + 4) = 7;
-            *(short*)(obj + 6) = 0;
-            func_ov017_021c1798(ov17, 0);
+            func_02043204(var2);
+            *(short*)(arg0 + 4) = 7;
+            *(short*)(arg0 + 6) = 0;
+            func_ov017_021c1798(var1, 0);
         }
-    } else if (state == 3) {
-        if (*(int*)(g + 0x870) != 0) return;
-        *(int*)(g + 0x868) = 1;
-        if (func_020457e0(g) == 1) {
-            if (func_02011804((GameState*)battle) != 0) {
-                func_ov003_0216d8d4(obj, 0x4c);
-                *(short*)(obj + 6) = 0x64;
+    } else if (var9 == 3) {
+        if (*(int*)(var2 + 0x870) != 0) return;
+        *(int*)(var2 + 0x868) = 1;
+        if (func_020457e0(var2) == 1) {
+            if (func_02011804((GameState*)var0) != 0) {
+                func_ov003_0216d8d4(arg0, 0x4c);
+                *(short*)(arg0 + 6) = 0x64;
             } else {
-                func_ov003_0216d8d4(obj, 0x5e);
-                *(short*)(obj + 6) = 0x12c;
+                func_ov003_0216d8d4(arg0, 0x5e);
+                *(short*)(arg0 + 6) = 0x12c;
             }
         } else {
-            func_ov003_0216d8d4(obj, 0x2f);
-            *(short*)(obj + 6) = 0x67;
+            func_ov003_0216d8d4(arg0, 0x2f);
+            *(short*)(arg0 + 6) = 0x67;
         }
-    } else if (state == 0x67) {
-        if (*(int*)(g + 0x870) != 3) return;
-        *(int*)(g + 0x868) = 1;
-        if (func_02011804((GameState*)battle) != 0) {
-            func_ov003_0216d8d4(obj, 0x4d);
-            *(short*)(obj + 6) = 0x64;
+    } else if (var9 == 0x67) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        *(int*)(var2 + 0x868) = 1;
+        if (func_02011804((GameState*)var0) != 0) {
+            func_ov003_0216d8d4(arg0, 0x4d);
+            *(short*)(arg0 + 6) = 0x64;
         } else {
-            func_ov003_0216d8d4(obj, 0x5e);
-            *(short*)(obj + 6) = 0x12c;
+            func_ov003_0216d8d4(arg0, 0x5e);
+            *(short*)(arg0 + 6) = 0x12c;
         }
-    } else if (state == 0x64) {
-        if (*(int*)(g + 0x870) != 0) return;
-        *(int*)(g + 0x868) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x48);
-            *(short*)(obj + 6) = 0x12c;
+    } else if (var9 == 0x64) {
+        if (*(int*)(var2 + 0x870) != 0) return;
+        *(int*)(var2 + 0x868) = 1;
+        if (func_020457e0(var2) == 1) {
+            func_ov003_0216d8d4(arg0, 0x48);
+            *(short*)(arg0 + 6) = 0x12c;
         } else {
-            func_ov003_0216d8d4(obj, 0x49);
-            *(short*)(obj + 6) = 0x65;
+            func_ov003_0216d8d4(arg0, 0x49);
+            *(short*)(arg0 + 6) = 0x65;
         }
-    } else if (state == 4) {
-        if (*(int*)(g + 0x870) != 0) return;
-        *(int*)(g + 0x868) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x32);
-            *(short*)(obj + 6) = 0x63;
-        } else if (func_02011804((GameState*)battle) != 0) {
-            func_ov003_0216d8d4(obj, 0x39);
-            *(short*)(obj + 6) = 0x65;
+    } else if (var9 == 4) {
+        if (*(int*)(var2 + 0x870) != 0) return;
+        *(int*)(var2 + 0x868) = 1;
+        if (func_020457e0(var2) == 1) {
+            func_ov003_0216d8d4(arg0, 0x32);
+            *(short*)(arg0 + 6) = 0x63;
+        } else if (func_02011804((GameState*)var0) != 0) {
+            func_ov003_0216d8d4(arg0, 0x39);
+            *(short*)(arg0 + 6) = 0x65;
         } else {
-            func_ov003_0216d8d4(obj, 0x30);
-            *(short*)(obj + 6) = 5;
+            func_ov003_0216d8d4(arg0, 0x30);
+            *(short*)(arg0 + 6) = 5;
         }
-    } else if (state == 0x65) {
-        *(unsigned char*)(g + 0x1000 + 0x7de) = 0;
-        if (*(int*)(g + 0x870) != 0) return;
-        func_02043204(g);
-        *(short*)(obj + 4) = 7;
-        *(short*)(obj + 6) = 0;
-        func_020119d8(battle);
+    } else if (var9 == 0x65) {
+        *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
+        if (*(int*)(var2 + 0x870) != 0) return;
+        func_02043204(var2);
+        *(short*)(arg0 + 4) = 7;
+        *(short*)(arg0 + 6) = 0;
+        func_020119d8(var0);
         func_ov017_021a9ff0(0);
-    } else if (state == 0x66) {
-        if (*(int*)(g + 0x870) != 0) return;
-        *(int*)(g + 0x868) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x32);
-            *(short*)(obj + 6) = 0x63;
+    } else if (var9 == 0x66) {
+        if (*(int*)(var2 + 0x870) != 0) return;
+        *(int*)(var2 + 0x868) = 1;
+        if (func_020457e0(var2) == 1) {
+            func_ov003_0216d8d4(arg0, 0x32);
+            *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_ov003_0216d8d4(obj, 0x30);
-            *(short*)(obj + 6) = 5;
+            func_ov003_0216d8d4(arg0, 0x30);
+            *(short*)(arg0 + 6) = 5;
         }
-    } else if (state == 5) {
-        *(unsigned char*)(g + 0x1000 + 0x7de) = 0;
-        *(int*)(obj + 0x1000 + 0x298) += (int)((GameState*)battle)->GetTickCount();
-        if (*(int*)(g + 0x870) != 0) {
-            if (*(int*)(obj + 0x1000 + 0x298) < 0x12c) return;
+    } else if (var9 == 5) {
+        *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
+        *(int*)(arg0 + 0x1000 + 0x298) += (int)((GameState*)var0)->GetTickCount();
+        if (*(int*)(var2 + 0x870) != 0) {
+            if (*(int*)(arg0 + 0x1000 + 0x298) < 0x12c) return;
         }
-        *(int*)(obj + 0x1000 + 0x298) = 0;
-        func_02043204(g);
+        *(int*)(arg0 + 0x1000 + 0x298) = 0;
+        func_02043204(var2);
         func_0209c2e0(&data_02109bf4, 0, 0x12);
-        func_ov003_02170d88(obj + 0x368 + 0x400);
-        struct TreasureMapMetadata localF0;
-        func_020119f8((char*)battle, &localF0);
-        int mapType = localF0.GetMapType();
-        if (mapType != 0) {
-            *(unsigned char*)(obj + 0x911) = 1;
-            METAJ(obj)->DiscoveryStateAndMapTypeAndUnknown = localF0.DiscoveryStateAndMapTypeAndUnknown;
-            *(struct Name10*)METAJ(obj)->DiscoveredBy = *(struct Name10*)localF0.DiscoveredBy;
-            *(struct Name10*)METAJ(obj)->ClearedBy = *(struct Name10*)localF0.ClearedBy;
-            METAJ(obj)->Location = localF0.Location;
-            METAJ(obj)->TreasureDiscoveryFlags = localF0.TreasureDiscoveryFlags;
-            METAJ(obj)->QualityOrLegacyBossID = localF0.QualityOrLegacyBossID;
-            METAJ(obj)->LegacyBossLevel = localF0.LegacyBossLevel;
-            METAJ(obj)->SeedOrMinTurns = localF0.SeedOrMinTurns;
+        func_ov003_02170d88(arg0 + 0x368 + 0x400);
+        struct TreasureMapMetadata var14;
+        func_020119f8((char*)var0, &var14);
+        int var15 = var14.GetMapType();
+        if (var15 != 0) {
+            *(unsigned char*)(arg0 + 0x911) = 1;
+            METAJ(arg0)->DiscoveryStateAndMapTypeAndUnknown = var14.DiscoveryStateAndMapTypeAndUnknown;
+            *(struct Struct_ov003_0216c00c_9*)METAJ(arg0)->DiscoveredBy = *(struct Struct_ov003_0216c00c_9*)var14.DiscoveredBy;
+            *(struct Struct_ov003_0216c00c_9*)METAJ(arg0)->ClearedBy = *(struct Struct_ov003_0216c00c_9*)var14.ClearedBy;
+            METAJ(arg0)->Location = var14.Location;
+            METAJ(arg0)->TreasureDiscoveryFlags = var14.TreasureDiscoveryFlags;
+            METAJ(arg0)->QualityOrLegacyBossID = var14.QualityOrLegacyBossID;
+            METAJ(arg0)->LegacyBossLevel = var14.LegacyBossLevel;
+            METAJ(arg0)->SeedOrMinTurns = var14.SeedOrMinTurns;
         } else {
-            *(unsigned char*)(obj + 0x911) = 0;
+            *(unsigned char*)(arg0 + 0x911) = 0;
         }
-        void* mem = func_02012d88(&data_02114e20, 0x13800);
-        ((SafeAllocator*)(obj + 0x164 + 0x1000))->CreateTypeA(mem, 0x13800);
-        func_ov003_02173c40(obj + 0xda0);
-        func_ov003_021726f8(obj + 0xda0, (SafeAllocator*)(obj + 0x164 + 0x1000));
-        Base021714a0* base768 = (Base021714a0*)(obj + 0x368 + 0x400);
-        if (base768 != 0) {
-            *(Base021714a0**)(obj + 0xe6c) = base768;
+        void* var16 = func_02012d88(&data_02114e20, 0x13800);
+        ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->CreateTypeA(var16, 0x13800);
+        func_ov003_02173c40(arg0 + 0xda0);
+        func_ov003_021726f8(arg0 + 0xda0, (SafeAllocator*)(arg0 + 0x164 + 0x1000));
+        Struct_ov003_0216c00c* var17 = (Struct_ov003_0216c00c*)(arg0 + 0x368 + 0x400);
+        if (var17 != 0) {
+            *(Struct_ov003_0216c00c**)(arg0 + 0xe6c) = var17;
         }
         func_020466e4((unsigned int*)func_020d6c00(), 0x10080);
-        SetMainBrightness(ov17, -16, 0x24);
-        SetSubBrightness(ov17, -16, 0x24);
-        *(short*)(obj + 6) = 6;
-    } else if (state == 6) {
-        int r;
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        func_020397cc((Obj020397cc*)c, 1);
-        if (IsBrightnessTransitionActive(ov17) != 0) {
-            if (IsKind5J(obj) == 0) return;
+        SetMainBrightness(var1, -16, 0x24);
+        SetSubBrightness(var1, -16, 0x24);
+        *(short*)(arg0 + 6) = 6;
+    } else if (var9 == 6) {
+        int var18;
+        struct Struct_0203d028_3* var19 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
+        func_020397cc((Struct_02018300_3*)var19, 1);
+        if (IsBrightnessTransitionActive(var1) != 0) {
+            if (inline_ov003_0216c00c_10(arg0) == 0) return;
         }
-        if (*(int*)(obj + 0x1000 + 0x280) > 0) {
-            *(int*)(obj + 0x1000 + 0x280) -= 1;
+        if (*(int*)(arg0 + 0x1000 + 0x280) > 0) {
+            *(int*)(arg0 + 0x1000 + 0x280) -= 1;
         }
-        if (IsKind5J(obj) == 0 && *(int*)(obj + 0x1000 + 0x280) == 0) {
-            r = func_ov003_021714a0((Base021714a0*)(obj + 0x368 + 0x400));
-            *(unsigned char*)(obj + 0x1000 + 0x27b) = (unsigned char)r;
-            if ((r & 0xff) == 0) {
-                *(int*)(obj + 0x1000 + 0x280) = 0xb4;
+        if (inline_ov003_0216c00c_10(arg0) == 0 && *(int*)(arg0 + 0x1000 + 0x280) == 0) {
+            var18 = func_ov003_021714a0((Struct_ov003_0216c00c*)(arg0 + 0x368 + 0x400));
+            *(unsigned char*)(arg0 + 0x1000 + 0x27b) = (unsigned char)var18;
+            if ((var18 & 0xff) == 0) {
+                *(int*)(arg0 + 0x1000 + 0x280) = 0xb4;
             }
         }
-        if (func_ov003_021727c8(obj + 0xda0) == 0) {
-        *(unsigned char*)(obj + 0x1000 + 0x27b) = 1;
-        func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x10080);
-        *(unsigned char*)(obj + 0x1000 + 0x27e) = 0;
-        *(unsigned char*)(obj + 0x1000 + 0x27e) = *(unsigned char*)(obj + 0xe70);
-        int flag = *(unsigned char*)(obj + 0xd97);
-        *(unsigned char*)(obj + 0x1000 + 0x27d) = *(unsigned char*)(obj + 0xe62);
-        func_ov003_02170d38(obj + 0x368 + 0x400);
-        func_ov003_02173d40(obj + 0xda0);
-        void* sig = ((SafeAllocator*)(obj + 0x164 + 0x1000))->GetSignedAllocator();
-        if (sig != 0) {
-            ((SafeAllocator*)(obj + 0x164 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, sig);
+        if (func_ov003_021727c8(arg0 + 0xda0) == 0) {
+        *(unsigned char*)(arg0 + 0x1000 + 0x27b) = 1;
+        func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x10080);
+        *(unsigned char*)(arg0 + 0x1000 + 0x27e) = 0;
+        *(unsigned char*)(arg0 + 0x1000 + 0x27e) = *(unsigned char*)(arg0 + 0xe70);
+        int var20 = *(unsigned char*)(arg0 + 0xd97);
+        *(unsigned char*)(arg0 + 0x1000 + 0x27d) = *(unsigned char*)(arg0 + 0xe62);
+        func_ov003_02170d38(arg0 + 0x368 + 0x400);
+        func_ov003_02173d40(arg0 + 0xda0);
+        void* var21 = ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->GetSignedAllocator();
+        if (var21 != 0) {
+            ((SafeAllocator*)(arg0 + 0x164 + 0x1000))->Destroy();
+            func_02012da4(&data_02114e20, var21);
         }
-        int battleBlock[0x2c];
-        func_020ac4c0(battleBlock);
-        func_020a03f8((S_a03f8*)battleBlock, *(unsigned char*)(obj + 0x1000 + 0x27e));
-        func_020ac494(battleBlock);
-        { int cur = GetB34(save); SetB34(save, *(unsigned char*)(obj + 0x1000 + 0x27d) + cur); }
-        if (flag != 0) {
-            struct CombatantStruct* cc = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-            int i;
-            for (i = 0; i < 4; i++) {
-                if (i == *(short*)((char*)cc + 4)) {
-                    Vec3 pos = *(Vec3*)((char*)cc + 0x44);
-                    Vec3 rot = *(Vec3*)((char*)cc + 0x50);
-                    pos.z += 0x1800;
-                    func_02059f38((Target02059f38*)cc, (Vec3_02059f38*)&pos);
-                    func_02033874((Obj02033874*)cc, 0);
+        int var22[0x2c];
+        func_020ac4c0(var22);
+        func_020a03f8((Struct_020a03f8*)var22, *(unsigned char*)(arg0 + 0x1000 + 0x27e));
+        func_020ac494(var22);
+        { int var23 = inline_ov003_0216c00c_5(var4); inline_ov003_0216c00c_6(var4, *(unsigned char*)(arg0 + 0x1000 + 0x27d) + var23); }
+        if (var20 != 0) {
+            struct Struct_0203d028_3* var24 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
+            int var25;
+            for (var25 = 0; var25 < 4; var25++) {
+                if (var25 == *(short*)((char*)var24 + 4)) {
+                    Struct_ov009_0218aa28 var26 = *(Struct_ov009_0218aa28*)((char*)var24 + 0x44);
+                    Struct_ov009_0218aa28 var27 = *(Struct_ov009_0218aa28*)((char*)var24 + 0x50);
+                    var26.unknown_8_ += 0x1800;
+                    func_02059f38((Struct_02059cfc_2*)var24, (Struct_02059cfc_3*)&var26);
+                    func_02033874((Struct_02033834*)var24, 0);
                 } else {
-                    void* r = ((GameState*)battle)->GetPartyMemberByIndex(i);
-                    if (r != 0) {
-                        ((Object3D*)r)->MakeHidden();
+                    void* var28 = ((GameState*)var0)->GetPartyMemberByIndex(var25);
+                    if (var28 != 0) {
+                        ((Object3D*)var28)->MakeHidden();
                     }
                 }
             }
-            *(short*)(obj + 6) = 0xd;
+            *(short*)(arg0 + 6) = 0xd;
         } else {
-            *(short*)(obj + 6) = 0xc;
+            *(short*)(arg0 + 6) = 0xc;
         }
         }
-    } else if (state == 7) {
-        if (*(int*)(g + 0x870) != 3) return;
-        func_ov003_0216d8d4(obj, 0x35);
-        *(short*)(obj + 6) = 0x62;
-    } else if (state == 8) {
-        if (*(int*)(g + 0x870) != 3) return;
-        if (*(unsigned char*)(obj + 0x1000 + 0x27d) != 0) {
-            *(unsigned char*)(obj + 0x1000 + 0x27d) = 0;
-            func_ov003_0216d8d4(obj, 0x42);
+    } else if (var9 == 7) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x35);
+        *(short*)(arg0 + 6) = 0x62;
+    } else if (var9 == 8) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        if (*(unsigned char*)(arg0 + 0x1000 + 0x27d) != 0) {
+            *(unsigned char*)(arg0 + 0x1000 + 0x27d) = 0;
+            func_ov003_0216d8d4(arg0, 0x42);
         } else {
-            func_ov003_0216d8d4(obj, 0x35);
+            func_ov003_0216d8d4(arg0, 0x35);
         }
-        *(short*)(obj + 6) = 0x62;
-    } else if (state == 9) {
-        if (*(int*)(g + 0x870) != 3) return;
-        func_ov003_0216d8d4(obj, 0x36);
-        *(short*)(obj + 6) = 0x62;
-    } else if (state == 0xa) {
-        if (*(int*)(g + 0x870) != 3) return;
-        func_ov003_0216d8d4(obj, 0x37);
-        *(short*)(obj + 6) = 8;
-    } else if (state == 0xb) {
-        if (*(int*)(g + 0x870) != 3) return;
-        func_ov003_0216d8d4(obj, 0x38);
-        *(short*)(obj + 6) = 8;
-    } else if (state == 0xc) {
-        FontBankLoader* actor = func_02094a00();
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        if (c != 0) {
-            func_020397cc((Obj020397cc*)c, 1);
+        *(short*)(arg0 + 6) = 0x62;
+    } else if (var9 == 9) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x36);
+        *(short*)(arg0 + 6) = 0x62;
+    } else if (var9 == 0xa) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x37);
+        *(short*)(arg0 + 6) = 8;
+    } else if (var9 == 0xb) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x38);
+        *(short*)(arg0 + 6) = 8;
+    } else if (var9 == 0xc) {
+        Struct_0208cb08* var29 = func_02094a00();
+        struct Struct_0203d028_3* var30 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
+        if (var30 != 0) {
+            func_020397cc((Struct_02018300_3*)var30, 1);
         }
-        func_02094b34(actor, 0x1f5, 0x66, 0, 0);
-        if (func_02094b4c(actor) == 0) return;
-        if (IsBrightnessTransitionActive(ov17) != 0) return;
-        void* p8 = *(void**)((char*)ctx + 8);
-        int val = ((struct B7*)p8)->v;
-        func_0209c3b4((struct Actor0209c3b4*)&data_02109bf4, val);
+        func_02094b34(var29, 0x1f5, 0x66, 0, 0);
+        if (func_02094b4c(var29) == 0) return;
+        if (IsBrightnessTransitionActive(var1) != 0) return;
+        void* var31 = *(void**)((char*)var3 + 8);
+        int var32 = ((struct Struct_ov003_0216c00c_8*)var31)->unknown_d_0_;
+        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var32);
         func_0209c2e0(&data_02109bf4, 0x7f, 0);
-        if (*(unsigned char*)(obj + 0x1000 + 0x279) != 0) {
-            *(int*)(g + 0x868) = 1;
-            func_ov003_0216d8d4(obj, 0x4b);
-            *(short*)(obj + 6) = 0x62;
+        if (*(unsigned char*)(arg0 + 0x1000 + 0x279) != 0) {
+            *(int*)(var2 + 0x868) = 1;
+            func_ov003_0216d8d4(arg0, 0x4b);
+            *(short*)(arg0 + 6) = 0x62;
             return;
         }
-        *(int*)(g + 0x868) = 1;
-        func_ov003_0216d8d4(obj, 0x33);
-        unsigned char v27e = *(unsigned char*)(obj + 0x1000 + 0x27e);
-        if (v27e == 0) {
-            *(short*)(obj + 6) = 9;
+        *(int*)(var2 + 0x868) = 1;
+        func_ov003_0216d8d4(arg0, 0x33);
+        unsigned char var33 = *(unsigned char*)(arg0 + 0x1000 + 0x27e);
+        if (var33 == 0) {
+            *(short*)(arg0 + 6) = 9;
             goto phase2;
         }
-        if (v27e < 3) {
-            SetB60(save, 0);
-            *(short*)(obj + 6) = 0xa;
+        if (var33 < 3) {
+            inline_ov003_0216c00c_8(var4, 0);
+            *(short*)(arg0 + 6) = 0xa;
         } else {
-            SetB60(save, 0);
-            *(short*)(obj + 6) = 0xb;
+            inline_ov003_0216c00c_8(var4, 0);
+            *(short*)(arg0 + 6) = 0xb;
         }
     }
 
 phase2:;
-    state = *(short*)(obj + 6);
-    if (state == 0x12c) {
-        if (*(int*)(g + 0x870) != 0) return;
-        *(int*)(g + 0x868) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x32);
-            *(short*)(obj + 6) = 0x63;
+    var9 = *(short*)(arg0 + 6);
+    if (var9 == 0x12c) {
+        if (*(int*)(var2 + 0x870) != 0) return;
+        *(int*)(var2 + 0x868) = 1;
+        if (func_020457e0(var2) == 1) {
+            func_ov003_0216d8d4(arg0, 0x32);
+            *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_020a9ea4((Struct020a9ea4*)(obj + 0x29c + 0x1000));
-            func_ov003_0216d8d4(obj, 0xc8);
-            *(short*)(obj + 6) = 0x12e;
-            func_020466e4((unsigned int*)dataPtr0, 0x80);
+            func_020a9ea4((Struct_020a9ea4*)(arg0 + 0x29c + 0x1000));
+            func_ov003_0216d8d4(arg0, 0xc8);
+            *(short*)(arg0 + 6) = 0x12e;
+            func_020466e4((unsigned int*)var6, 0x80);
         }
         return;
-    } else if (state == 0x12e) {
-        *(unsigned char*)(g + 0x1000 + 0x7de) = 0;
-        *(unsigned char*)(obj + 0x1000 + 0x27c) |= 4;
+    } else if (var9 == 0x12e) {
+        *(unsigned char*)(var2 + 0x1000 + 0x7de) = 0;
+        *(unsigned char*)(arg0 + 0x1000 + 0x27c) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(obj + 0x29c + 0x1000), (int)data_0211e33c, 8, 0) == 1) {
-            *(unsigned char*)(obj + 0x1000 + 0x27c) &= ~4;
-            func_ov003_0216d8d4(obj, 0xc9);
-            *(short*)(obj + 6) = 0x12f;
+        if (func_020aad1c((int)(arg0 + 0x29c + 0x1000), (int)data_0211e33c, 8, 0) == 1) {
+            *(unsigned char*)(arg0 + 0x1000 + 0x27c) &= ~4;
+            func_ov003_0216d8d4(arg0, 0xc9);
+            *(short*)(arg0 + 6) = 0x12f;
             BackgroundLoader::RemoveLockGlobal();
         }
         return;
-    } else if (state == 0x12f) {
-        func_020466f4((FlagWord020466f4*)dataPtr0, 0x80);
-        if (*(int*)(g + 0x870) != 3) return;
-        func_ov003_0216d8d4(obj, 0x30);
-        *(short*)(obj + 6) = 5;
+    } else if (var9 == 0x12f) {
+        func_020466f4((Struct_02038598_4*)var6, 0x80);
+        if (*(int*)(var2 + 0x870) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x30);
+        *(short*)(arg0 + 6) = 5;
         return;
-    } else if (state == 0x130) {
-        func_ov003_0216d8d4(obj, 0x30);
-        *(short*)(obj + 6) = 5;
+    } else if (var9 == 0x130) {
+        func_ov003_0216d8d4(arg0, 0x30);
+        *(short*)(arg0 + 6) = 5;
         return;
-    } else if (state == 0xd) {
-        *(short*)(obj + 8) = 0;
-        *(unsigned char*)(obj + 0x1000 + 0x27c) |= 1;
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        if (c != 0) {
-            func_020397cc((Obj020397cc*)c, 1);
+    } else if (var9 == 0xd) {
+        *(short*)(arg0 + 8) = 0;
+        *(unsigned char*)(arg0 + 0x1000 + 0x27c) |= 1;
+        struct Struct_0203d028_3* var34 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
+        if (var34 != 0) {
+            func_020397cc((Struct_02018300_3*)var34, 1);
         }
-        *(unsigned char*)(obj + 0x1000 + 0x279) = 1;
-        *(short*)(obj + 6) = 0xe;
+        *(unsigned char*)(arg0 + 0x1000 + 0x279) = 1;
+        *(short*)(arg0 + 6) = 0xe;
         return;
-    } else if (state == 0xe) {
-        ((SafeAllocator*)(obj + 0x178 + 0x1000))->ResetAllocatorPointer();
-        void* mem = func_02012d88(&data_02114e20, 0xc800);
-        ((SafeAllocator*)(obj + 0x178 + 0x1000))->CreateTypeA(mem, 0xc800);
-        ((SafeAllocator*)(obj + 0x178 + 0x1000))->Reset();
-        unsigned int fileSize;
-        void* fileData = LoadFileIntoNewAllocation(data_ov003_0217e99c, *(SafeAllocator*)(obj + 0x178 + 0x1000), &fileSize);
-        if (fileData == 0) {
-            *(short*)(obj + 6) = 0xf;
+    } else if (var9 == 0xe) {
+        ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->ResetAllocatorPointer();
+        void* var35 = func_02012d88(&data_02114e20, 0xc800);
+        ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->CreateTypeA(var35, 0xc800);
+        ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->Reset();
+        unsigned int var36;
+        void* var37 = LoadFileIntoNewAllocation(data_ov003_0217e99c, *(SafeAllocator*)(arg0 + 0x178 + 0x1000), &var36);
+        if (var37 == 0) {
+            *(short*)(arg0 + 6) = 0xf;
             return;
         }
-        struct Foo0207df50* fields = (struct Foo0207df50*)((char (*)[0x70])ov17->unknown_2cc)[0x1c];
-        func_0207df50(fields);
-        func_0207df90((char*)fields);
-        struct ObjectArchiveLoadInfo loadInfo;
-        loadInfo.unk_0 = 0;
-        loadInfo.unk_14 = 0;
-        loadInfo.unk_18 = 0;
-        loadInfo.packageID = 0;
-        loadInfo.unk_10 = 0;
-        loadInfo.allocator = (SafeAllocator*)(obj + 0x178 + 0x1000);
-        loadInfo.fileData = fileData;
-        loadInfo.unk_8 = fileSize;
-        ((Object3D*)(obj + 0x1cc + 0x1000))->LoadFromCHRArchive(&loadInfo);
-        func_0207dfac((char*)fields);
-        *(unsigned char*)(obj + 0x1000 + 0x278) = 1;
-        ((Object3D*)(obj + 0x1cc + 0x1000))->MaybeSetRegularAnimation(data_ov003_0217e9b4, 1);
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        func_02059f38((Target02059f38*)(obj + 0x1cc + 0x1000), (Vec3_02059f38*)((char*)c + 0x44));
-        ((Object3D*)(obj + 0x1cc + 0x1000))->SetScale(&((Object3D*)c)->GetScale());
-        SetBrightness(ov17, 0, 0xa);
-        *(short*)(obj + 6) = 0xf;
+        struct Struct_0203d028* var38 = (struct Struct_0203d028*)((char (*)[0x70])var1->unknown_2cc_)[0x1c];
+        func_0207df50(var38);
+        func_0207df90((char*)var38);
+        struct ObjectArchiveLoadInfo var39;
+        var39.unk_0 = 0;
+        var39.unk_14 = 0;
+        var39.unk_18 = 0;
+        var39.packageID = 0;
+        var39.unk_10 = 0;
+        var39.allocator = (SafeAllocator*)(arg0 + 0x178 + 0x1000);
+        var39.fileData = var37;
+        var39.unk_8 = var36;
+        ((Object3D*)(arg0 + 0x1cc + 0x1000))->LoadFromCHRArchive(&var39);
+        func_0207dfac((char*)var38);
+        *(unsigned char*)(arg0 + 0x1000 + 0x278) = 1;
+        ((Object3D*)(arg0 + 0x1cc + 0x1000))->MaybeSetRegularAnimation(data_ov003_0217e9b4, 1);
+        struct Struct_0203d028_3* var40 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
+        func_02059f38((Struct_02059cfc_2*)(arg0 + 0x1cc + 0x1000), (Struct_02059cfc_3*)((char*)var40 + 0x44));
+        ((Object3D*)(arg0 + 0x1cc + 0x1000))->SetScale(&((Object3D*)var40)->GetScale());
+        SetBrightness(var1, 0, 0xa);
+        *(short*)(arg0 + 6) = 0xf;
         return;
-    } else if (state == 0xf) {
-        if (IsBrightnessTransitionActive(ov17) != 0) return;
-        ((Object3D*)(obj + 0x1cc + 0x1000))->AdvanceEffects();
-        if (((Object3D*)(obj + 0x1cc + 0x1000))->HasAnimationStopped() == 0) return;
-        void* sig = ((SafeAllocator*)(obj + 0x178 + 0x1000))->GetSignedAllocator();
-        if (sig != 0) {
-            ((SafeAllocator*)(obj + 0x178 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, sig);
+    } else if (var9 == 0xf) {
+        if (IsBrightnessTransitionActive(var1) != 0) return;
+        ((Object3D*)(arg0 + 0x1cc + 0x1000))->AdvanceEffects();
+        if (((Object3D*)(arg0 + 0x1cc + 0x1000))->HasAnimationStopped() == 0) return;
+        void* var41 = ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->GetSignedAllocator();
+        if (var41 != 0) {
+            ((SafeAllocator*)(arg0 + 0x178 + 0x1000))->Destroy();
+            func_02012da4(&data_02114e20, var41);
         }
-        *(unsigned char*)(obj + 0x1000 + 0x278) = 0;
-        void* combatant2 = *(void**)((char*)ov17 + 0x3928);
-        func_020465c0((StoreStruct*)g, 1, func_ov017_021b1fb0(combatant2));
-        short key = func_ov017_021b1fa8(combatant2) + 0x64;
-        func_02046574((Obj02046574*)g, 5, func_020e0434((Container020e0310*)(obj + 0x1b4 + 0x1000), key));
-        *(int*)(g + 0x868) = 1;
-        func_ov003_0216d8d4(obj, 0x4f);
-        *(short*)(obj + 6) = 0x10;
+        *(unsigned char*)(arg0 + 0x1000 + 0x278) = 0;
+        void* var42 = *(void**)((char*)var1 + 0x3928);
+        func_020465c0((Struct_020465c0*)var2, 1, func_ov017_021b1fb0(var42));
+        short var43 = func_ov017_021b1fa8(var42) + 0x64;
+        func_02046574((Struct_02046574_2*)var2, 5, func_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), var43));
+        *(int*)(var2 + 0x868) = 1;
+        func_ov003_0216d8d4(arg0, 0x4f);
+        *(short*)(arg0 + 6) = 0x10;
         return;
-    } else if (state == 0x10) {
-        if (*(int*)(g + 0x868) != 0) return;
-        SetBrightness(ov17, -16, 0x1e);
-        *(short*)(obj + 6) = 0x11;
+    } else if (var9 == 0x10) {
+        if (*(int*)(var2 + 0x868) != 0) return;
+        SetBrightness(var1, -16, 0x1e);
+        *(short*)(arg0 + 6) = 0x11;
         return;
-    } else if (state == 0x11) {
-        if (IsBrightnessTransitionActive(ov17) != 0) return;
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        int i;
-        for (i = 0; i < 4; i++) {
-            if (i == *(short*)((char*)c + 4)) {
-                Vec3 pos = *(Vec3*)((char*)c + 0x44);
-                Vec3 rot = *(Vec3*)((char*)c + 0x50);
-                pos.z -= 0x1800;
-                func_02059f38((Target02059f38*)c, (Vec3_02059f38*)&pos);
-                func_02033874((Obj02033874*)c, 0x323d);
+    } else if (var9 == 0x11) {
+        if (IsBrightnessTransitionActive(var1) != 0) return;
+        struct Struct_0203d028_3* var44 = (Struct_0203d028_3*)((GameState*)var0)->GetUnknownGameObject();
+        int var45;
+        for (var45 = 0; var45 < 4; var45++) {
+            if (var45 == *(short*)((char*)var44 + 4)) {
+                Struct_ov009_0218aa28 var46 = *(Struct_ov009_0218aa28*)((char*)var44 + 0x44);
+                Struct_ov009_0218aa28 var47 = *(Struct_ov009_0218aa28*)((char*)var44 + 0x50);
+                var46.unknown_8_ -= 0x1800;
+                func_02059f38((Struct_02059cfc_2*)var44, (Struct_02059cfc_3*)&var46);
+                func_02033874((Struct_02033834*)var44, 0x323d);
             } else {
-                void* r = ((GameState*)battle)->GetPartyMemberByIndex(i);
-                if (r != 0) {
-                    ((Object3D*)r)->MakeVisible();
+                void* var48 = ((GameState*)var0)->GetPartyMemberByIndex(var45);
+                if (var48 != 0) {
+                    ((Object3D*)var48)->MakeVisible();
                 }
             }
         }
-        SetBrightness(ov17, 0, 0x1e);
-        *(short*)(obj + 6) = 0x12;
+        SetBrightness(var1, 0, 0x1e);
+        *(short*)(arg0 + 6) = 0x12;
         return;
-    } else if (state == 0x12) {
-        void* c2 = func_02012fe4();
-        int val = (*(struct B7**)((char*)c2 + 8))->v;
-        func_0209c3b4((struct Actor0209c3b4*)&data_02109bf4, val);
+    } else if (var9 == 0x12) {
+        void* var49 = func_02012fe4();
+        int var50 = (*(struct Struct_ov003_0216c00c_8**)((char*)var49 + 8))->unknown_d_0_;
+        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var50);
         func_0209c2e0(&data_02109bf4, 0x7f, 0);
-        if ((unsigned int)func_02011804((GameState*)battle) >= 0x63) {
-            *(short*)(obj + 6) = 0x13;
-            char* g2 = (char*)func_020421a0();
-            *(int*)(g2 + 0x868) = 1;
-            func_ov003_0216d8d4(obj, 0x72);
-            *(int*)(g + 0x218) = 1;
+        if ((unsigned int)func_02011804((GameState*)var0) >= 0x63) {
+            *(short*)(arg0 + 6) = 0x13;
+            char* var51 = (char*)func_020421a0();
+            *(int*)(var51 + 0x868) = 1;
+            func_ov003_0216d8d4(arg0, 0x72);
+            *(int*)(var2 + 0x218) = 1;
         } else {
-            void* mb = GetGameResources();
-            struct CombatantStruct* c3 = *(struct CombatantStruct**)((char*)mb + 0x3000 + 0x928);
+            void* var52 = GetGameResources();
+            struct Struct_0203d028_3* var53 = *(struct Struct_0203d028_3**)((char*)var52 + 0x3000 + 0x928);
             struct {
-                unsigned char count;
-                char pad;
-                struct TreasureMapMetadata maps[99];
-            } region;
-            func_020ac760(&region);
-            VectorizedMemset(&region.maps[region.count], 0, sizeof(struct TreasureMapMetadata));
-            int b28 = func_ov017_021b1fa8(c3);
-            int b29 = func_ov017_021b1fb0(c3);
-            region.maps[region.count].InitialiseAsLegacyBossMap(b28, b29);
-            void* p2a = func_ov017_021b1fb8(c3);
-            VectorizedInvertedMemcpy(p2a, region.maps[region.count].DiscoveredBy, 8);
-            region.count += 1;
-            func_020ac734(&region);
-            *(short*)(obj + 6) = 0xc;
+                unsigned char unknown_0_;
+                char unknown_1_;
+                struct TreasureMapMetadata unknown_2_[99];
+            } var54;
+            func_020ac760(&var54);
+            VectorizedMemset(&var54.unknown_2_[var54.unknown_0_], 0, sizeof(struct TreasureMapMetadata));
+            int var55 = func_ov017_021b1fa8(var53);
+            int var56 = func_ov017_021b1fb0(var53);
+            var54.unknown_2_[var54.unknown_0_].InitialiseAsLegacyBossMap(var55, var56);
+            void* var57 = func_ov017_021b1fb8(var53);
+            VectorizedInvertedMemcpy(var57, var54.unknown_2_[var54.unknown_0_].DiscoveredBy, 8);
+            var54.unknown_0_ += 1;
+            func_020ac734(&var54);
+            *(short*)(arg0 + 6) = 0xc;
         }
         return;
-    } else if (state == 0x13) {
-        char* g2 = (char*)func_020421a0();
-        if (*(int*)(g2 + 0x868) != 0) return;
-        int fr = func_020457e0(g2);
-        if (fr == 0) {
-            *(short*)(obj + 6) = 0xc;
+    } else if (var9 == 0x13) {
+        char* var58 = (char*)func_020421a0();
+        if (*(int*)(var58 + 0x868) != 0) return;
+        int var59 = func_020457e0(var58);
+        if (var59 == 0) {
+            *(short*)(arg0 + 6) = 0xc;
             return;
         }
-        if (fr != 1) return;
-        void* mb = GetGameResources();
-        struct CombatantStruct* c4 = *(struct CombatantStruct**)((char*)mb + 0x3000 + 0x928);
-        char nameBuf[0x28];
-        VectorizedMemset(nameBuf, 0, 0x28);
-        nameBuf[7] = 0;
-        nameBuf[0x13] = 0;
-        nameBuf[6] = 0;
-        *(int*)(nameBuf + 0x20) = -1;
-        nameBuf[0] = 2;
-        nameBuf[1] = (char)func_ov017_021b1fa8(c4);
-        nameBuf[2] = (char)func_ov017_021b1fb0(c4);
-        *(short*)(nameBuf + 4) = 0;
-        nameBuf[6] = 1;
-        void* p2a = func_ov017_021b1fb8(c4);
-        strcpy(nameBuf + 7, (char*)p2a);
-        func_02011818(battle, (Src02011818*)nameBuf);
-        int level = func_ov017_021b1fb0(c4);
-        char lvlString[0x20];
-        sprintf(lvlString, data_ov003_0217e9b8, level);
-        func_02011ab8((char*)battle);
-        func_02011a74((char*)battle, 0, func_020e0434((Container020e0310*)(obj + 0x1b4 + 0x1000), (short)(func_ov017_021b1fa8(c4) + 0x64)));
-        func_02011a74((char*)battle, 1, func_020e0434((Container020e0310*)(obj + 0x1b4 + 0x1000), 0x64));
-        func_02011a74((char*)battle, 3, lvlString);
+        if (var59 != 1) return;
+        void* var60 = GetGameResources();
+        struct Struct_0203d028_3* var61 = *(struct Struct_0203d028_3**)((char*)var60 + 0x3000 + 0x928);
+        char var62[0x28];
+        VectorizedMemset(var62, 0, 0x28);
+        var62[7] = 0;
+        var62[0x13] = 0;
+        var62[6] = 0;
+        *(int*)(var62 + 0x20) = -1;
+        var62[0] = 2;
+        var62[1] = (char)func_ov017_021b1fa8(var61);
+        var62[2] = (char)func_ov017_021b1fb0(var61);
+        *(short*)(var62 + 4) = 0;
+        var62[6] = 1;
+        void* var63 = func_ov017_021b1fb8(var61);
+        strcpy(var62 + 7, (char*)var63);
+        func_02011818(var0, (Struct_02011818*)var62);
+        int var64 = func_ov017_021b1fb0(var61);
+        char var65[0x20];
+        sprintf(var65, data_ov003_0217e9b8, var64);
+        func_02011ab8((char*)var0);
+        func_02011a74((char*)var0, 0, func_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), (short)(func_ov017_021b1fa8(var61) + 0x64)));
+        func_02011a74((char*)var0, 1, func_020e0434((Struct_0201099c_3*)(arg0 + 0x1b4 + 0x1000), 0x64));
+        func_02011a74((char*)var0, 3, var65);
         func_ov017_021a9ff0(1);
-        *(short*)(obj + 6) = 0x14;
+        *(short*)(arg0 + 6) = 0x14;
         return;
-    } else if (state == 0x14) {
-        void* mb = GetGameResources();
-        void* p = *(void**)((char*)mb + 0x3000 + 0x92c);
-        if (*((unsigned char*)p + 2) == 0) {
-            *(short*)(obj + 6) = 0xc;
+    } else if (var9 == 0x14) {
+        void* var66 = GetGameResources();
+        void* var67 = *(void**)((char*)var66 + 0x3000 + 0x92c);
+        if (*((unsigned char*)var67 + 2) == 0) {
+            *(short*)(arg0 + 6) = 0xc;
         }
         return;
-    } else if (state == 0x63) {
-        if (*(int*)(g + 0x870) != 3) return;
-        *(int*)(g + 0x868) = 1;
-        func_ov003_0216d8d4(obj, 0x29);
-        *(short*)(obj + 6) = 0;
-        *(short*)(obj + 4) = 2;
-        *(short*)(obj + 6) = 0;
+    } else if (var9 == 0x63) {
+        if (*(int*)(var2 + 0x870) != 3) return;
+        *(int*)(var2 + 0x868) = 1;
+        func_ov003_0216d8d4(arg0, 0x29);
+        *(short*)(arg0 + 6) = 0;
+        *(short*)(arg0 + 4) = 2;
+        *(short*)(arg0 + 6) = 0;
         return;
-    } else if (state == 0x62) {
-        if (*(int*)(g + 0x870) != 0 || *(int*)(g + 0x868) != 0) return;
-        func_02043204(g);
-        *(short*)(obj + 4) = 7;
-        *(short*)(obj + 6) = 0;
+    } else if (var9 == 0x62) {
+        if (*(int*)(var2 + 0x870) != 0 || *(int*)(var2 + 0x868) != 0) return;
+        func_02043204(var2);
+        *(short*)(arg0 + 4) = 7;
+        *(short*)(arg0 + 6) = 0;
     }
 }
 #else
 // USA: func_ov003_0216c00c
-extern "C" ARM void func_ov003_0216c00c(char* obj) {
-    struct BattleStruct* battle = (BattleStruct*)GameState::GetInstance();
-    GameResources* ov17 = GetGameResources();
-    char* g = (char*)func_020421a0();
-    void* ctx = func_02012fe4();
-    void* w = func_0202ae18();
-    void* dataPtr0 = func_020d6c00();
+extern "C" ARM void func_ov003_0216c00c(char* arg0) {
+    struct Struct_0203d028_2* var68 = (Struct_0203d028_2*)GameState::GetInstance();
+    GameResources* var69 = GetGameResources();
+    char* var70 = (char*)func_020421a0();
+    void* var71 = func_02012fe4();
+    void* var72 = func_0202ae18();
+    void* var73 = func_020d6c00();
 
-    short subreq = *(short*)(obj + 0xa);
-    if (subreq == 1) {
-        func_ov003_0216d8d4(obj, 0x41, -1, -1, -1);
-        *(unsigned char*)(g + 0x1000 + 0x9b2) = 1;
-        *(int*)(g + 0x99c) = 2;
-        *(int*)(g + 0x998) = 1;
-        *(short*)(obj + 6) = 3;
-        *(short*)(obj + 0xa) = 0;
-    } else if (subreq == 2) {
-        struct TreasureMapMetadata local10c;
-        func_020119f8((char*)battle, &local10c);
-        if (local10c.GetMapType() != 0) {
-            func_ov003_0216d8d4(obj, 0x4a, -1, -1, -1);
+    short var74 = *(short*)(arg0 + 0xa);
+    if (var74 == 1) {
+        func_ov003_0216d8d4(arg0, 0x41, -1, -1, -1);
+        *(unsigned char*)(var70 + 0x1000 + 0x9b2) = 1;
+        *(int*)(var70 + 0x99c) = 2;
+        *(int*)(var70 + 0x998) = 1;
+        *(short*)(arg0 + 6) = 3;
+        *(short*)(arg0 + 0xa) = 0;
+    } else if (var74 == 2) {
+        struct TreasureMapMetadata var75;
+        func_020119f8((char*)var68, &var75);
+        if (var75.GetMapType() != 0) {
+            func_ov003_0216d8d4(arg0, 0x4a, -1, -1, -1);
         } else {
-            func_ov003_0216d8d4(obj, 0x43, -1, -1, -1);
+            func_ov003_0216d8d4(arg0, 0x43, -1, -1, -1);
         }
-        *(short*)(obj + 6) = 0x12c;
-        *(unsigned char*)(g + 0x1000 + 0x9b2) = 1;
-        *(int*)(g + 0x99c) = 2;
-        *(int*)(g + 0x998) = 1;
-        *(short*)(obj + 0xa) = 0;
+        *(short*)(arg0 + 6) = 0x12c;
+        *(unsigned char*)(var70 + 0x1000 + 0x9b2) = 1;
+        *(int*)(var70 + 0x99c) = 2;
+        *(int*)(var70 + 0x998) = 1;
+        *(short*)(arg0 + 0xa) = 0;
     }
 
-    short state = *(short*)(obj + 6);
-    if (state == 0) {
-        if (GetB60(GetSave(ctx)) == 0) {
-            func_ov003_0216d8d4(obj, 0x47, -1, -1, -1);
-            *(short*)(obj + 6) = 0x63;
-        } else if (func_0202b7d8((int*)w) != 0) {
-            func_ov003_0216d8d4(obj, 0x3f, -1, -1, -1);
-            *(short*)(obj + 6) = 0x63;
+    short var76 = *(short*)(arg0 + 6);
+    if (var76 == 0) {
+        if (inline_ov003_0216c00c_7(inline_ov003_0216c00c_4(var71)) == 0) {
+            func_ov003_0216d8d4(arg0, 0x47, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x63;
+        } else if (func_0202b7d8((int*)var72) != 0) {
+            func_ov003_0216d8d4(arg0, 0x3f, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_ov003_0216d8d4(obj, 0x2b, -1, -1, -1);
-            *(short*)(obj + 6) = 1;
-            func_02011a40((char*)battle);
+            func_ov003_0216d8d4(arg0, 0x2b, -1, -1, -1);
+            *(short*)(arg0 + 6) = 1;
+            func_02011a40((char*)var68);
         }
-    } else if (state == 1) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        if ((&((struct Battle29c*)battle)->sub.rec)->b26 != 0) {
-            func_ov003_0216d8d4(obj, 0x2d, -1, -1, -1);
-            *(short*)(obj + 6) = 3;
+    } else if (var76 == 1) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        if ((&((struct Struct_ov003_0216c00c_7*)var68)->unknown_29c_.unknown_5400_)->unknown_3_2_ != 0) {
+            func_ov003_0216d8d4(arg0, 0x2d, -1, -1, -1);
+            *(short*)(arg0 + 6) = 3;
         } else {
-            func_ov003_0216d8d4(obj, 0x2c, -1, -1, -1);
-            *(short*)(obj + 6) = 2;
+            func_ov003_0216d8d4(arg0, 0x2c, -1, -1, -1);
+            *(short*)(arg0 + 6) = 2;
         }
-    } else if (state == 2) {
-        if (*(int*)(g + 0x9a0) != 0) return;
-        if (func_020457e0(g) == 1) {
-            *(int*)(g + 0x998) = 1;
-            func_ov003_0216d8d4(obj, 0x40, -1, -1, -1);
-            *(short*)(obj + 6) = 3;
-            struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetProtagonist();
-            if (c != 0) {
-                struct S88* fp = GetEntFlags((struct Ent*)func_02053c6c((unsigned char*)c), 1);
-                struct Rec5400* fl = &((struct Battle29c*)battle)->sub.rec;
-                fl->b25 = fp->b0;
-                fl->b21 = fp->b0;
-                struct Rec5400* rec = &GetSub29c(battle)->rec;
-                int base = 20700;
-                if (fp->b0 == 1) base += 50;
-                rec->v = base - 20000 + ((struct Mem150*)c)->f150->f950;
+    } else if (var76 == 2) {
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        if (func_020457e0(var70) == 1) {
+            *(int*)(var70 + 0x998) = 1;
+            func_ov003_0216d8d4(arg0, 0x40, -1, -1, -1);
+            *(short*)(arg0 + 6) = 3;
+            struct Struct_0203d028_3* var77 = (Struct_0203d028_3*)((GameState*)var68)->GetProtagonist();
+            if (var77 != 0) {
+                struct Struct_ov003_0216c00c_2* var78 = inline_ov003_0216c00c((struct Struct_ov003_0215d4fc*)func_02053c6c((unsigned char*)var77), 1);
+                struct Struct_ov003_0216c00c_5* var79 = &((struct Struct_ov003_0216c00c_7*)var68)->unknown_29c_.unknown_5400_;
+                var79->unknown_3_1_ = var78->unknown_414_0_;
+                var79->unknown_2_5_ = var78->unknown_414_0_;
+                struct Struct_ov003_0216c00c_5* var80 = &inline_ov003_0216c00c_2(var68)->unknown_5400_;
+                int var81 = 20700;
+                if (var78->unknown_414_0_ == 1) var81 += 50;
+                var80->unknown_6_3_ = var81 - 20000 + ((struct Struct_ov003_0216c00c_4*)var77)->unknown_150_->unknown_950_;
             }
         } else {
-            func_02043204(g);
-            *(short*)(obj + 4) = 7;
-            *(short*)(obj + 6) = 0;
-            func_ov017_021c1798(ov17, 0);
+            func_02043204(var70);
+            *(short*)(arg0 + 4) = 7;
+            *(short*)(arg0 + 6) = 0;
+            func_ov017_021c1798(var69, 0);
         }
-    } else if (state == 3) {
-        if (*(int*)(g + 0x9a0) != 0) return;
-        *(int*)(g + 0x998) = 1;
-        if (func_020457e0(g) == 1) {
-            if (func_02011804((GameState*)battle) != 0) {
-                func_ov003_0216d8d4(obj, 0x4c, -1, -1, -1);
-                *(short*)(obj + 6) = 0x64;
+    } else if (var76 == 3) {
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        *(int*)(var70 + 0x998) = 1;
+        if (func_020457e0(var70) == 1) {
+            if (func_02011804((GameState*)var68) != 0) {
+                func_ov003_0216d8d4(arg0, 0x4c, -1, -1, -1);
+                *(short*)(arg0 + 6) = 0x64;
             } else {
-                func_ov003_0216d8d4(obj, 0x5e, -1, -1, -1);
-                *(short*)(obj + 6) = 0x12c;
+                func_ov003_0216d8d4(arg0, 0x5e, -1, -1, -1);
+                *(short*)(arg0 + 6) = 0x12c;
             }
         } else {
-            func_ov003_0216d8d4(obj, 0x2f, -1, -1, -1);
-            *(short*)(obj + 6) = 0x67;
+            func_ov003_0216d8d4(arg0, 0x2f, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x67;
         }
-    } else if (state == 0x67) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        *(int*)(g + 0x998) = 1;
-        if (func_02011804((GameState*)battle) != 0) {
-            func_ov003_0216d8d4(obj, 0x4d, -1, -1, -1);
-            *(short*)(obj + 6) = 0x64;
+    } else if (var76 == 0x67) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        *(int*)(var70 + 0x998) = 1;
+        if (func_02011804((GameState*)var68) != 0) {
+            func_ov003_0216d8d4(arg0, 0x4d, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x64;
         } else {
-            func_ov003_0216d8d4(obj, 0x5e, -1, -1, -1);
-            *(short*)(obj + 6) = 0x12c;
+            func_ov003_0216d8d4(arg0, 0x5e, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x12c;
         }
-    } else if (state == 0x64) {
-        if (*(int*)(g + 0x9a0) != 0) return;
-        *(int*)(g + 0x998) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x48, -1, -1, -1);
-            *(short*)(obj + 6) = 0x12c;
+    } else if (var76 == 0x64) {
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        *(int*)(var70 + 0x998) = 1;
+        if (func_020457e0(var70) == 1) {
+            func_ov003_0216d8d4(arg0, 0x48, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x12c;
         } else {
-            func_ov003_0216d8d4(obj, 0x49, -1, -1, -1);
-            *(short*)(obj + 6) = 0x65;
+            func_ov003_0216d8d4(arg0, 0x49, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x65;
         }
-    } else if (state == 4) {
-        if (*(int*)(g + 0x9a0) != 0) return;
-        *(int*)(g + 0x998) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x32, -1, -1, -1);
-            *(short*)(obj + 6) = 0x63;
-        } else if (func_02011804((GameState*)battle) != 0) {
-            func_ov003_0216d8d4(obj, 0x39, -1, -1, -1);
-            *(short*)(obj + 6) = 0x65;
+    } else if (var76 == 4) {
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        *(int*)(var70 + 0x998) = 1;
+        if (func_020457e0(var70) == 1) {
+            func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x63;
+        } else if (func_02011804((GameState*)var68) != 0) {
+            func_ov003_0216d8d4(arg0, 0x39, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x65;
         } else {
-            func_ov003_0216d8d4(obj, 0x30, -1, -1, -1);
-            *(short*)(obj + 6) = 5;
+            func_ov003_0216d8d4(arg0, 0x30, -1, -1, -1);
+            *(short*)(arg0 + 6) = 5;
         }
-    } else if (state == 0x65) {
-        *(unsigned char*)(g + 0x1000 + 0x9ae) = 0;
-        if (*(int*)(g + 0x9a0) != 0) return;
-        func_02043204(g);
-        *(short*)(obj + 4) = 7;
-        *(short*)(obj + 6) = 0;
-        func_020119d8(battle);
+    } else if (var76 == 0x65) {
+        *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        func_02043204(var70);
+        *(short*)(arg0 + 4) = 7;
+        *(short*)(arg0 + 6) = 0;
+        func_020119d8(var68);
         func_ov017_021a9ff0(0);
-    } else if (state == 0x66) {
-        if (*(int*)(g + 0x9a0) != 0) return;
-        *(int*)(g + 0x998) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x32, -1, -1, -1);
-            *(short*)(obj + 6) = 0x63;
+    } else if (var76 == 0x66) {
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        *(int*)(var70 + 0x998) = 1;
+        if (func_020457e0(var70) == 1) {
+            func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_ov003_0216d8d4(obj, 0x30, -1, -1, -1);
-            *(short*)(obj + 6) = 5;
+            func_ov003_0216d8d4(arg0, 0x30, -1, -1, -1);
+            *(short*)(arg0 + 6) = 5;
         }
-    } else if (state == 5) {
-        *(unsigned char*)(g + 0x1000 + 0x9ae) = 0;
-        *(int*)(obj + 0x1000 + 0x408) += (int)((GameState*)battle)->GetTickCount();
-        if (*(int*)(g + 0x9a0) != 0) {
-            if (*(int*)(obj + 0x1000 + 0x408) < 0x12c) return;
+    } else if (var76 == 5) {
+        *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
+        *(int*)(arg0 + 0x1000 + 0x408) += (int)((GameState*)var68)->GetTickCount();
+        if (*(int*)(var70 + 0x9a0) != 0) {
+            if (*(int*)(arg0 + 0x1000 + 0x408) < 0x12c) return;
         }
-        *(int*)(obj + 0x1000 + 0x408) = 0;
-        func_02043204(g);
+        *(int*)(arg0 + 0x1000 + 0x408) = 0;
+        func_02043204(var70);
         func_0209c2e0(&data_02109bf4, 0, 0x12);
-        func_ov003_02170d88(obj + 0x7e0);
-        struct TreasureMapMetadata localF0;
-        func_020119f8((char*)battle, &localF0);
-        int mapType = localF0.GetMapType();
-        if (mapType != 0) {
-            *(unsigned char*)(obj + 0x9ad) = 1;
-            META(obj)->DiscoveryStateAndMapTypeAndUnknown = localF0.DiscoveryStateAndMapTypeAndUnknown;
-            *(struct Name10*)META(obj)->DiscoveredBy = *(struct Name10*)localF0.DiscoveredBy;
-            *(struct Name10*)META(obj)->ClearedBy = *(struct Name10*)localF0.ClearedBy;
-            META(obj)->Location = localF0.Location;
-            META(obj)->TreasureDiscoveryFlags = localF0.TreasureDiscoveryFlags;
-            META(obj)->QualityOrLegacyBossID = localF0.QualityOrLegacyBossID;
-            META(obj)->LegacyBossLevel = localF0.LegacyBossLevel;
-            META(obj)->SeedOrMinTurns = localF0.SeedOrMinTurns;
+        func_ov003_02170d88(arg0 + 0x7e0);
+        struct TreasureMapMetadata var82;
+        func_020119f8((char*)var68, &var82);
+        int var83 = var82.GetMapType();
+        if (var83 != 0) {
+            *(unsigned char*)(arg0 + 0x9ad) = 1;
+            META(arg0)->DiscoveryStateAndMapTypeAndUnknown = var82.DiscoveryStateAndMapTypeAndUnknown;
+            *(struct Struct_ov003_0216c00c_9*)META(arg0)->DiscoveredBy = *(struct Struct_ov003_0216c00c_9*)var82.DiscoveredBy;
+            *(struct Struct_ov003_0216c00c_9*)META(arg0)->ClearedBy = *(struct Struct_ov003_0216c00c_9*)var82.ClearedBy;
+            META(arg0)->Location = var82.Location;
+            META(arg0)->TreasureDiscoveryFlags = var82.TreasureDiscoveryFlags;
+            META(arg0)->QualityOrLegacyBossID = var82.QualityOrLegacyBossID;
+            META(arg0)->LegacyBossLevel = var82.LegacyBossLevel;
+            META(arg0)->SeedOrMinTurns = var82.SeedOrMinTurns;
         } else {
-            *(unsigned char*)(obj + 0x9ad) = 0;
+            *(unsigned char*)(arg0 + 0x9ad) = 0;
         }
-        void* mem = func_02012d88(&data_02114e20, 0x13800);
-        ((SafeAllocator*)(obj + 0x2d4 + 0x1000))->CreateTypeA(mem, 0x13800);
-        func_ov003_02173c40(obj + 0x31c + 0xc00);
-        func_ov003_021726f8(obj + 0x31c + 0xc00, (SafeAllocator*)(obj + 0x2d4 + 0x1000));
-        Base021714a0* base7e0 = (Base021714a0*)(obj + 0x7e0);
-        if (base7e0 != 0) {
-            *(Base021714a0**)(obj + 0xfec) = base7e0;
+        void* var84 = func_02012d88(&data_02114e20, 0x13800);
+        ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->CreateTypeA(var84, 0x13800);
+        func_ov003_02173c40(arg0 + 0x31c + 0xc00);
+        func_ov003_021726f8(arg0 + 0x31c + 0xc00, (SafeAllocator*)(arg0 + 0x2d4 + 0x1000));
+        Struct_ov003_0216c00c* var85 = (Struct_ov003_0216c00c*)(arg0 + 0x7e0);
+        if (var85 != 0) {
+            *(Struct_ov003_0216c00c**)(arg0 + 0xfec) = var85;
         }
         func_020466e4((unsigned int*)func_020d6c00(), 0x10080);
-        SetMainBrightness(ov17, -16, 0x24);
-        SetSubBrightness(ov17, -16, 0x24);
-        *(short*)(obj + 6) = 6;
-    } else if (state == 6) {
-        int r;
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        func_020397cc((Obj020397cc*)c, 1);
-        if (IsBrightnessTransitionActive(ov17) != 0) {
-            if (IsKind5(obj) == 0) return;
+        SetMainBrightness(var69, -16, 0x24);
+        SetSubBrightness(var69, -16, 0x24);
+        *(short*)(arg0 + 6) = 6;
+    } else if (var76 == 6) {
+        int var86;
+        struct Struct_0203d028_3* var87 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
+        func_020397cc((Struct_02018300_3*)var87, 1);
+        if (IsBrightnessTransitionActive(var69) != 0) {
+            if (inline_ov003_0216c00c_3(arg0) == 0) return;
         }
-        if (*(int*)(obj + 0x1000 + 0x3f0) > 0) {
-            *(int*)(obj + 0x1000 + 0x3f0) -= 1;
+        if (*(int*)(arg0 + 0x1000 + 0x3f0) > 0) {
+            *(int*)(arg0 + 0x1000 + 0x3f0) -= 1;
         }
-        if (IsKind5(obj) == 0 && *(int*)(obj + 0x1000 + 0x3f0) == 0) {
-            r = func_ov003_021714a0((Base021714a0*)(obj + 0x7e0));
-            *(unsigned char*)(obj + 0x1000 + 0x3eb) = (unsigned char)r;
-            if ((r & 0xff) == 0) {
-                *(int*)(obj + 0x1000 + 0x3f0) = 0xb4;
+        if (inline_ov003_0216c00c_3(arg0) == 0 && *(int*)(arg0 + 0x1000 + 0x3f0) == 0) {
+            var86 = func_ov003_021714a0((Struct_ov003_0216c00c*)(arg0 + 0x7e0));
+            *(unsigned char*)(arg0 + 0x1000 + 0x3eb) = (unsigned char)var86;
+            if ((var86 & 0xff) == 0) {
+                *(int*)(arg0 + 0x1000 + 0x3f0) = 0xb4;
             }
         }
-        if (func_ov003_021727c8(obj + 0x31c + 0xc00) == 0) {
-        *(unsigned char*)(obj + 0x1000 + 0x3eb) = 1;
-        func_020466f4((FlagWord020466f4*)func_020d6c00(), 0x10080);
-        *(unsigned char*)(obj + 0x1000 + 0x3ee) = 0;
-        *(unsigned char*)(obj + 0x1000 + 0x3ee) = *(unsigned char*)(obj + 0xff0);
-        int flag = *(unsigned char*)(obj + 0xf13);
-        *(unsigned char*)(obj + 0x1000 + 0x3ed) = *(unsigned char*)(obj + 0xfe0);
-        func_ov003_02170d38(obj + 0x7e0);
-        func_ov003_02173d40(obj + 0x31c + 0xc00);
-        void* sig = ((SafeAllocator*)(obj + 0x2d4 + 0x1000))->GetSignedAllocator();
-        if (sig != 0) {
-            ((SafeAllocator*)(obj + 0x2d4 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, sig);
+        if (func_ov003_021727c8(arg0 + 0x31c + 0xc00) == 0) {
+        *(unsigned char*)(arg0 + 0x1000 + 0x3eb) = 1;
+        func_020466f4((Struct_02038598_4*)func_020d6c00(), 0x10080);
+        *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = 0;
+        *(unsigned char*)(arg0 + 0x1000 + 0x3ee) = *(unsigned char*)(arg0 + 0xff0);
+        int var88 = *(unsigned char*)(arg0 + 0xf13);
+        *(unsigned char*)(arg0 + 0x1000 + 0x3ed) = *(unsigned char*)(arg0 + 0xfe0);
+        func_ov003_02170d38(arg0 + 0x7e0);
+        func_ov003_02173d40(arg0 + 0x31c + 0xc00);
+        void* var89 = ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->GetSignedAllocator();
+        if (var89 != 0) {
+            ((SafeAllocator*)(arg0 + 0x2d4 + 0x1000))->Destroy();
+            func_02012da4(&data_02114e20, var89);
         }
-        int battleBlock[0x2c];
-        func_020ac4c0(battleBlock);
-        func_020a03f8((S_a03f8*)battleBlock, *(unsigned char*)(obj + 0x1000 + 0x3ee));
-        func_020ac494(battleBlock);
-        SetB34(GetSave(ctx), *(unsigned char*)(obj + 0x1000 + 0x3ed) + GetB34(GetSave(ctx)));
-        if (flag != 0) {
-            struct CombatantStruct* cc = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-            int i;
-            for (i = 0; i < 4; i++) {
-                if (i == *(short*)((char*)cc + 4)) {
-                    Vec3 pos = *(Vec3*)((char*)cc + 0x44);
-                    Vec3 rot = *(Vec3*)((char*)cc + 0x50);
-                    pos.z += 0x1800;
-                    func_02059f38((Target02059f38*)cc, (Vec3_02059f38*)&pos);
-                    func_02033874((Obj02033874*)cc, 0);
+        int var90[0x2c];
+        func_020ac4c0(var90);
+        func_020a03f8((Struct_020a03f8*)var90, *(unsigned char*)(arg0 + 0x1000 + 0x3ee));
+        func_020ac494(var90);
+        inline_ov003_0216c00c_6(inline_ov003_0216c00c_4(var71), *(unsigned char*)(arg0 + 0x1000 + 0x3ed) + inline_ov003_0216c00c_5(inline_ov003_0216c00c_4(var71)));
+        if (var88 != 0) {
+            struct Struct_0203d028_3* var91 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
+            int var92;
+            for (var92 = 0; var92 < 4; var92++) {
+                if (var92 == *(short*)((char*)var91 + 4)) {
+                    Struct_ov009_0218aa28 var93 = *(Struct_ov009_0218aa28*)((char*)var91 + 0x44);
+                    Struct_ov009_0218aa28 var94 = *(Struct_ov009_0218aa28*)((char*)var91 + 0x50);
+                    var93.unknown_8_ += 0x1800;
+                    func_02059f38((Struct_02059cfc_2*)var91, (Struct_02059cfc_3*)&var93);
+                    func_02033874((Struct_02033834*)var91, 0);
                 } else {
-                    void* r = ((GameState*)battle)->GetPartyMemberByIndex(i);
-                    if (r != 0) {
-                        ((Object3D*)r)->MakeHidden();
+                    void* var95 = ((GameState*)var68)->GetPartyMemberByIndex(var92);
+                    if (var95 != 0) {
+                        ((Object3D*)var95)->MakeHidden();
                     }
                 }
             }
-            *(short*)(obj + 6) = 0xd;
+            *(short*)(arg0 + 6) = 0xd;
         } else {
-            *(short*)(obj + 6) = 0xc;
+            *(short*)(arg0 + 6) = 0xc;
         }
         }
-    } else if (state == 7) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        unsigned char v3ee = *(unsigned char*)(obj + 0x1000 + 0x3ee);
-        func_ov003_0216d8d4(obj, 0x35, -1, -1, v3ee);
-        *(short*)(obj + 6) = 0x62;
-    } else if (state == 8) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        if (*(unsigned char*)(obj + 0x1000 + 0x3ed) != 0) {
-            *(unsigned char*)(obj + 0x1000 + 0x3ed) = 0;
-            func_ov003_0216d8d4(obj, 0x42, -1, -1, -1);
+    } else if (var76 == 7) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        unsigned char var96 = *(unsigned char*)(arg0 + 0x1000 + 0x3ee);
+        func_ov003_0216d8d4(arg0, 0x35, -1, -1, var96);
+        *(short*)(arg0 + 6) = 0x62;
+    } else if (var76 == 8) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        if (*(unsigned char*)(arg0 + 0x1000 + 0x3ed) != 0) {
+            *(unsigned char*)(arg0 + 0x1000 + 0x3ed) = 0;
+            func_ov003_0216d8d4(arg0, 0x42, -1, -1, -1);
         } else {
-            unsigned char v3ee = *(unsigned char*)(obj + 0x1000 + 0x3ee);
-            func_ov003_0216d8d4(obj, 0x35, -1, -1, v3ee);
+            unsigned char var97 = *(unsigned char*)(arg0 + 0x1000 + 0x3ee);
+            func_ov003_0216d8d4(arg0, 0x35, -1, -1, var97);
         }
-        *(short*)(obj + 6) = 0x62;
-    } else if (state == 9) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        func_ov003_0216d8d4(obj, 0x36, -1, -1, -1);
-        *(short*)(obj + 6) = 0x62;
-    } else if (state == 0xa) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        func_ov003_0216d8d4(obj, 0x37, -1, -1, -1);
-        *(short*)(obj + 6) = 8;
-    } else if (state == 0xb) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        func_ov003_0216d8d4(obj, 0x38, -1, -1, -1);
-        *(short*)(obj + 6) = 8;
-    } else if (state == 0xc) {
-        FontBankLoader* actor = func_02094a00();
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        if (c != 0) {
-            func_020397cc((Obj020397cc*)c, 1);
+        *(short*)(arg0 + 6) = 0x62;
+    } else if (var76 == 9) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x36, -1, -1, -1);
+        *(short*)(arg0 + 6) = 0x62;
+    } else if (var76 == 0xa) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x37, -1, -1, -1);
+        *(short*)(arg0 + 6) = 8;
+    } else if (var76 == 0xb) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x38, -1, -1, -1);
+        *(short*)(arg0 + 6) = 8;
+    } else if (var76 == 0xc) {
+        Struct_0208cb08* var98 = func_02094a00();
+        struct Struct_0203d028_3* var99 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
+        if (var99 != 0) {
+            func_020397cc((Struct_02018300_3*)var99, 1);
         }
-        func_02094b34(actor, 0x1f5, 0x66, 0, 0);
-        if (func_02094b4c(actor) == 0) return;
-        if (IsBrightnessTransitionActive(ov17) != 0) return;
-        void* p8 = *(void**)((char*)ctx + 8);
-        int val = ((struct B7*)p8)->v;
-        func_0209c3b4((struct Actor0209c3b4*)&data_02109bf4, val);
+        func_02094b34(var98, 0x1f5, 0x66, 0, 0);
+        if (func_02094b4c(var98) == 0) return;
+        if (IsBrightnessTransitionActive(var69) != 0) return;
+        void* var100 = *(void**)((char*)var71 + 8);
+        int var101 = ((struct Struct_ov003_0216c00c_8*)var100)->unknown_d_0_;
+        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var101);
         func_0209c2e0(&data_02109bf4, 0x7f, 0);
-        if (*(unsigned char*)(obj + 0x1000 + 0x3e9) != 0) {
-            *(int*)(g + 0x998) = 1;
-            func_ov003_0216d8d4(obj, 0x4b, -1, -1, -1);
-            *(short*)(obj + 6) = 0x62;
+        if (*(unsigned char*)(arg0 + 0x1000 + 0x3e9) != 0) {
+            *(int*)(var70 + 0x998) = 1;
+            func_ov003_0216d8d4(arg0, 0x4b, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x62;
             return;
         }
-        *(int*)(g + 0x998) = 1;
-        func_ov003_0216d8d4(obj, 0x33, -1, -1, -1);
-        unsigned char v3ee = *(unsigned char*)(obj + 0x1000 + 0x3ee);
-        if (v3ee == 0) {
-            *(short*)(obj + 6) = 9;
+        *(int*)(var70 + 0x998) = 1;
+        func_ov003_0216d8d4(arg0, 0x33, -1, -1, -1);
+        unsigned char var102 = *(unsigned char*)(arg0 + 0x1000 + 0x3ee);
+        if (var102 == 0) {
+            *(short*)(arg0 + 6) = 9;
             goto phase2;
         }
-        if (v3ee < 3) {
-            SetB60(GetSave(ctx), 0);
-            *(short*)(obj + 6) = 0xa;
+        if (var102 < 3) {
+            inline_ov003_0216c00c_8(inline_ov003_0216c00c_4(var71), 0);
+            *(short*)(arg0 + 6) = 0xa;
         } else {
-            SetB60(GetSave(ctx), 0);
-            *(short*)(obj + 6) = 0xb;
+            inline_ov003_0216c00c_8(inline_ov003_0216c00c_4(var71), 0);
+            *(short*)(arg0 + 6) = 0xb;
         }
     }
 
 phase2:;
-    state = *(short*)(obj + 6);
-    if (state == 0x12c) {
-        if (*(int*)(g + 0x9a0) != 0) return;
-        *(int*)(g + 0x998) = 1;
-        if (func_020457e0(g) == 1) {
-            func_ov003_0216d8d4(obj, 0x32, -1, -1, -1);
-            *(short*)(obj + 6) = 0x63;
+    var76 = *(short*)(arg0 + 6);
+    if (var76 == 0x12c) {
+        if (*(int*)(var70 + 0x9a0) != 0) return;
+        *(int*)(var70 + 0x998) = 1;
+        if (func_020457e0(var70) == 1) {
+            func_ov003_0216d8d4(arg0, 0x32, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x63;
         } else {
-            func_020a9ea4((Struct020a9ea4*)(obj + 0xc + 0x1400));
-            func_ov003_0216d8d4(obj, 0xc8, -1, -1, -1);
-            *(short*)(obj + 6) = 0x12e;
-            func_020466e4((unsigned int*)dataPtr0, 0x80);
+            func_020a9ea4((Struct_020a9ea4*)(arg0 + 0xc + 0x1400));
+            func_ov003_0216d8d4(arg0, 0xc8, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x12e;
+            func_020466e4((unsigned int*)var73, 0x80);
         }
         return;
-    } else if (state == 0x12e) {
-        *(unsigned char*)(g + 0x1000 + 0x9ae) = 0;
-        *(unsigned char*)(obj + 0x1000 + 0x3ec) |= 4;
+    } else if (var76 == 0x12e) {
+        *(unsigned char*)(var70 + 0x1000 + 0x9ae) = 0;
+        *(unsigned char*)(arg0 + 0x1000 + 0x3ec) |= 4;
         BackgroundLoader::AddLockGlobal();
-        if (func_020aad1c((int)(obj + 0xc + 0x1400), (int)data_0211e33c, 8, 0) == 1) {
-            *(unsigned char*)(obj + 0x1000 + 0x3ec) &= ~4;
-            func_ov003_0216d8d4(obj, 0xc9, -1, -1, -1);
-            *(short*)(obj + 6) = 0x12f;
+        if (func_020aad1c((int)(arg0 + 0xc + 0x1400), (int)data_0211e33c, 8, 0) == 1) {
+            *(unsigned char*)(arg0 + 0x1000 + 0x3ec) &= ~4;
+            func_ov003_0216d8d4(arg0, 0xc9, -1, -1, -1);
+            *(short*)(arg0 + 6) = 0x12f;
             BackgroundLoader::RemoveLockGlobal();
         }
         return;
-    } else if (state == 0x12f) {
-        func_020466f4((FlagWord020466f4*)dataPtr0, 0x80);
-        if (*(int*)(g + 0x9a0) != 3) return;
-        func_ov003_0216d8d4(obj, 0x30, -1, -1, -1);
-        *(short*)(obj + 6) = 5;
+    } else if (var76 == 0x12f) {
+        func_020466f4((Struct_02038598_4*)var73, 0x80);
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        func_ov003_0216d8d4(arg0, 0x30, -1, -1, -1);
+        *(short*)(arg0 + 6) = 5;
         return;
-    } else if (state == 0x130) {
-        func_ov003_0216d8d4(obj, 0x30, -1, -1, -1);
-        *(short*)(obj + 6) = 5;
+    } else if (var76 == 0x130) {
+        func_ov003_0216d8d4(arg0, 0x30, -1, -1, -1);
+        *(short*)(arg0 + 6) = 5;
         return;
-    } else if (state == 0xd) {
-        *(short*)(obj + 8) = 0;
-        *(unsigned char*)(obj + 0x1000 + 0x3ec) |= 1;
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        if (c != 0) {
-            func_020397cc((Obj020397cc*)c, 1);
+    } else if (var76 == 0xd) {
+        *(short*)(arg0 + 8) = 0;
+        *(unsigned char*)(arg0 + 0x1000 + 0x3ec) |= 1;
+        struct Struct_0203d028_3* var103 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
+        if (var103 != 0) {
+            func_020397cc((Struct_02018300_3*)var103, 1);
         }
-        *(unsigned char*)(obj + 0x1000 + 0x3e9) = 1;
-        *(short*)(obj + 6) = 0xe;
+        *(unsigned char*)(arg0 + 0x1000 + 0x3e9) = 1;
+        *(short*)(arg0 + 6) = 0xe;
         return;
-    } else if (state == 0xe) {
-        ((SafeAllocator*)(obj + 0x2e8 + 0x1000))->ResetAllocatorPointer();
-        void* mem = func_02012d88(&data_02114e20, 0xc800);
-        ((SafeAllocator*)(obj + 0x2e8 + 0x1000))->CreateTypeA(mem, 0xc800);
-        ((SafeAllocator*)(obj + 0x2e8 + 0x1000))->Reset();
-        unsigned int fileSize;
-        void* fileData = LoadFileIntoNewAllocation(data_ov003_021801e0, *(SafeAllocator*)(obj + 0x2e8 + 0x1000), &fileSize);
-        if (fileData == 0) {
-            *(short*)(obj + 6) = 0xf;
+    } else if (var76 == 0xe) {
+        ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->ResetAllocatorPointer();
+        void* var104 = func_02012d88(&data_02114e20, 0xc800);
+        ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->CreateTypeA(var104, 0xc800);
+        ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->Reset();
+        unsigned int var105;
+        void* var106 = LoadFileIntoNewAllocation(data_ov003_021801e0, *(SafeAllocator*)(arg0 + 0x2e8 + 0x1000), &var105);
+        if (var106 == 0) {
+            *(short*)(arg0 + 6) = 0xf;
             return;
         }
-        struct Foo0207df50* fields = (struct Foo0207df50*)((char (*)[0x70])ov17->unknown_2cc)[0x1c];
-        func_0207df50(fields);
-        func_0207df90((char*)fields);
-        struct ObjectArchiveLoadInfo loadInfo;
-        loadInfo.unk_0 = 0;
-        loadInfo.unk_14 = 0;
-        loadInfo.unk_18 = 0;
-        loadInfo.packageID = 0;
-        loadInfo.unk_10 = 0;
-        loadInfo.allocator = (SafeAllocator*)(obj + 0x2e8 + 0x1000);
-        loadInfo.fileData = fileData;
-        loadInfo.unk_8 = fileSize;
-        ((Object3D*)(obj + 0x33c + 0x1000))->LoadFromCHRArchive(&loadInfo);
-        func_0207dfac((char*)fields);
-        *(unsigned char*)(obj + 0x1000 + 0x3e8) = 1;
-        ((Object3D*)(obj + 0x33c + 0x1000))->MaybeSetRegularAnimation(data_ov003_021801f8, 1);
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        func_02059f38((Target02059f38*)(obj + 0x33c + 0x1000), (Vec3_02059f38*)((char*)c + 0x44));
-        ((Object3D*)(obj + 0x33c + 0x1000))->SetScale(&((Object3D*)c)->GetScale());
-        SetBrightness(ov17, 0, 0xa);
-        *(short*)(obj + 6) = 0xf;
+        struct Struct_0203d028* var107 = (struct Struct_0203d028*)((char (*)[0x70])var69->unknown_2cc_)[0x1c];
+        func_0207df50(var107);
+        func_0207df90((char*)var107);
+        struct ObjectArchiveLoadInfo var108;
+        var108.unk_0 = 0;
+        var108.unk_14 = 0;
+        var108.unk_18 = 0;
+        var108.packageID = 0;
+        var108.unk_10 = 0;
+        var108.allocator = (SafeAllocator*)(arg0 + 0x2e8 + 0x1000);
+        var108.fileData = var106;
+        var108.unk_8 = var105;
+        ((Object3D*)(arg0 + 0x33c + 0x1000))->LoadFromCHRArchive(&var108);
+        func_0207dfac((char*)var107);
+        *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 1;
+        ((Object3D*)(arg0 + 0x33c + 0x1000))->MaybeSetRegularAnimation(data_ov003_021801f8, 1);
+        struct Struct_0203d028_3* var109 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
+        func_02059f38((Struct_02059cfc_2*)(arg0 + 0x33c + 0x1000), (Struct_02059cfc_3*)((char*)var109 + 0x44));
+        ((Object3D*)(arg0 + 0x33c + 0x1000))->SetScale(&((Object3D*)var109)->GetScale());
+        SetBrightness(var69, 0, 0xa);
+        *(short*)(arg0 + 6) = 0xf;
         return;
-    } else if (state == 0xf) {
-        if (IsBrightnessTransitionActive(ov17) != 0) return;
-        ((Object3D*)(obj + 0x33c + 0x1000))->AdvanceEffects();
-        if (((Object3D*)(obj + 0x33c + 0x1000))->HasAnimationStopped() == 0) return;
-        void* sig = ((SafeAllocator*)(obj + 0x2e8 + 0x1000))->GetSignedAllocator();
-        if (sig != 0) {
-            ((SafeAllocator*)(obj + 0x2e8 + 0x1000))->Destroy();
-            func_02012da4(&data_02114e20, sig);
+    } else if (var76 == 0xf) {
+        if (IsBrightnessTransitionActive(var69) != 0) return;
+        ((Object3D*)(arg0 + 0x33c + 0x1000))->AdvanceEffects();
+        if (((Object3D*)(arg0 + 0x33c + 0x1000))->HasAnimationStopped() == 0) return;
+        void* var110 = ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->GetSignedAllocator();
+        if (var110 != 0) {
+            ((SafeAllocator*)(arg0 + 0x2e8 + 0x1000))->Destroy();
+            func_02012da4(&data_02114e20, var110);
         }
-        *(unsigned char*)(obj + 0x1000 + 0x3e8) = 0;
-        void* combatant2 = *(void**)((char*)ov17 + 0x3b48);
-        *(int*)(g + 0x998) = 1;
-        int byte28 = func_ov017_021b1fa8(combatant2);
-        int byte29 = func_ov017_021b1fb0(combatant2);
-        func_ov003_0216d8d4(obj, 0x4f, byte28 + 0x64, byte29, -1);
-        *(short*)(obj + 6) = 0x10;
+        *(unsigned char*)(arg0 + 0x1000 + 0x3e8) = 0;
+        void* var111 = *(void**)((char*)var69 + 0x3b48);
+        *(int*)(var70 + 0x998) = 1;
+        int var112 = func_ov017_021b1fa8(var111);
+        int var113 = func_ov017_021b1fb0(var111);
+        func_ov003_0216d8d4(arg0, 0x4f, var112 + 0x64, var113, -1);
+        *(short*)(arg0 + 6) = 0x10;
         return;
-    } else if (state == 0x10) {
-        if (*(int*)(g + 0x998) != 0) return;
-        SetBrightness(ov17, -16, 0x1e);
-        *(short*)(obj + 6) = 0x11;
+    } else if (var76 == 0x10) {
+        if (*(int*)(var70 + 0x998) != 0) return;
+        SetBrightness(var69, -16, 0x1e);
+        *(short*)(arg0 + 6) = 0x11;
         return;
-    } else if (state == 0x11) {
-        if (IsBrightnessTransitionActive(ov17) != 0) return;
-        struct CombatantStruct* c = (CombatantStruct*)((GameState*)battle)->GetUnknownGameObject();
-        int i;
-        for (i = 0; i < 4; i++) {
-            if (i == *(short*)((char*)c + 4)) {
-                Vec3 pos = *(Vec3*)((char*)c + 0x44);
-                Vec3 rot = *(Vec3*)((char*)c + 0x50);
-                pos.z -= 0x1800;
-                func_02059f38((Target02059f38*)c, (Vec3_02059f38*)&pos);
-                func_02033874((Obj02033874*)c, 0x323d);
+    } else if (var76 == 0x11) {
+        if (IsBrightnessTransitionActive(var69) != 0) return;
+        struct Struct_0203d028_3* var114 = (Struct_0203d028_3*)((GameState*)var68)->GetUnknownGameObject();
+        int var115;
+        for (var115 = 0; var115 < 4; var115++) {
+            if (var115 == *(short*)((char*)var114 + 4)) {
+                Struct_ov009_0218aa28 var116 = *(Struct_ov009_0218aa28*)((char*)var114 + 0x44);
+                Struct_ov009_0218aa28 var117 = *(Struct_ov009_0218aa28*)((char*)var114 + 0x50);
+                var116.unknown_8_ -= 0x1800;
+                func_02059f38((Struct_02059cfc_2*)var114, (Struct_02059cfc_3*)&var116);
+                func_02033874((Struct_02033834*)var114, 0x323d);
             } else {
-                void* r = ((GameState*)battle)->GetPartyMemberByIndex(i);
-                if (r != 0) {
-                    ((Object3D*)r)->MakeVisible();
+                void* var118 = ((GameState*)var68)->GetPartyMemberByIndex(var115);
+                if (var118 != 0) {
+                    ((Object3D*)var118)->MakeVisible();
                 }
             }
         }
-        SetBrightness(ov17, 0, 0x1e);
-        *(short*)(obj + 6) = 0x12;
+        SetBrightness(var69, 0, 0x1e);
+        *(short*)(arg0 + 6) = 0x12;
         return;
-    } else if (state == 0x12) {
-        void* c2 = func_02012fe4();
-        int val = (*(struct B7**)((char*)c2 + 8))->v;
-        func_0209c3b4((struct Actor0209c3b4*)&data_02109bf4, val);
+    } else if (var76 == 0x12) {
+        void* var119 = func_02012fe4();
+        int var120 = (*(struct Struct_ov003_0216c00c_8**)((char*)var119 + 8))->unknown_d_0_;
+        func_0209c3b4((struct Struct_0209c3b4_2*)&data_02109bf4, var120);
         func_0209c2e0(&data_02109bf4, 0x7f, 0);
-        if ((unsigned int)func_02011804((GameState*)battle) >= 0x63) {
-            *(short*)(obj + 6) = 0x13;
-            char* g2 = (char*)func_020421a0();
-            *(int*)(g2 + 0x998) = 1;
-            func_ov003_0216d8d4(obj, 0x72, -1, -1, -1);
-            *(int*)(g + 0x2c8) = 1;
+        if ((unsigned int)func_02011804((GameState*)var68) >= 0x63) {
+            *(short*)(arg0 + 6) = 0x13;
+            char* var121 = (char*)func_020421a0();
+            *(int*)(var121 + 0x998) = 1;
+            func_ov003_0216d8d4(arg0, 0x72, -1, -1, -1);
+            *(int*)(var70 + 0x2c8) = 1;
         } else {
-            void* mb = GetGameResources();
-            struct CombatantStruct* c3 = *(struct CombatantStruct**)((char*)mb + 0x3000 + 0xb48);
+            void* var122 = GetGameResources();
+            struct Struct_0203d028_3* var123 = *(struct Struct_0203d028_3**)((char*)var122 + 0x3000 + 0xb48);
             struct {
-                unsigned char count;
-                char pad;
-                struct TreasureMapMetadata maps[99];
-            } region;
-            func_020ac760(&region);
-            unsigned char idx = region.count;
-            struct TreasureMapMetadata* slot = &region.maps[idx];
-            VectorizedMemset(slot, 0, sizeof(struct TreasureMapMetadata));
-            int b28 = func_ov017_021b1fa8(c3);
-            int b29 = func_ov017_021b1fb0(c3);
-            slot->InitialiseAsLegacyBossMap(b28, b29);
-            void* p2a = func_ov017_021b1fb8(c3);
-            VectorizedInvertedMemcpy(p2a, (char*)slot + 1, 8);
-            region.count += 1;
-            func_020ac734(&region);
-            *(short*)(obj + 6) = 0xc;
+                unsigned char unknown_0_;
+                char unknown_1_;
+                struct TreasureMapMetadata unknown_2_[99];
+            } var124;
+            func_020ac760(&var124);
+            unsigned char var125 = var124.unknown_0_;
+            struct TreasureMapMetadata* var126 = &var124.unknown_2_[var125];
+            VectorizedMemset(var126, 0, sizeof(struct TreasureMapMetadata));
+            int var127 = func_ov017_021b1fa8(var123);
+            int var128 = func_ov017_021b1fb0(var123);
+            var126->InitialiseAsLegacyBossMap(var127, var128);
+            void* var129 = func_ov017_021b1fb8(var123);
+            VectorizedInvertedMemcpy(var129, (char*)var126 + 1, 8);
+            var124.unknown_0_ += 1;
+            func_020ac734(&var124);
+            *(short*)(arg0 + 6) = 0xc;
         }
         return;
-    } else if (state == 0x13) {
-        char* g2 = (char*)func_020421a0();
-        if (*(int*)(g2 + 0x998) != 0) return;
-        int fr = func_020457e0(g2);
-        if (fr == 0) {
-            *(short*)(obj + 6) = 0xc;
+    } else if (var76 == 0x13) {
+        char* var130 = (char*)func_020421a0();
+        if (*(int*)(var130 + 0x998) != 0) return;
+        int var131 = func_020457e0(var130);
+        if (var131 == 0) {
+            *(short*)(arg0 + 6) = 0xc;
             return;
         }
-        if (fr != 1) return;
-        void* mb = GetGameResources();
-        struct CombatantStruct* c4 = *(struct CombatantStruct**)((char*)mb + 0x3000 + 0xb48);
-        char nameBuf[0x28];
-        VectorizedMemset(nameBuf, 0, 0x28);
-        nameBuf[7] = 0;
-        nameBuf[0x13] = 0;
-        nameBuf[6] = 0;
-        *(int*)(nameBuf + 0x20) = -1;
-        nameBuf[0] = 2;
-        nameBuf[1] = (char)func_ov017_021b1fa8(c4);
-        nameBuf[2] = (char)func_ov017_021b1fb0(c4);
-        *(short*)(nameBuf + 4) = 0;
-        nameBuf[6] = 1;
-        void* p2a = func_ov017_021b1fb8(c4);
-        strcpy(nameBuf + 7, (char*)p2a);
-        func_02011818(battle, (Src02011818*)nameBuf);
-        const char* lvPrefix = func_020e51cc(1011);
-        int level = func_ov017_021b1fb0(c4);
-        char lvlString[0x20];
-        sprintf(lvlString, data_ov003_021801fc, lvPrefix, level);
-        func_02011ab8((char*)battle);
-        short itemID = (short)(func_ov017_021b1fa8(c4) + 0x45);
-        const char* itemName = func_020e51cc(itemID);
-        char popup[0x40];
-        sprintf(popup, data_ov003_02180201, itemName, lvlString);
-        func_02011a74((char*)battle, 0, popup);
+        if (var131 != 1) return;
+        void* var132 = GetGameResources();
+        struct Struct_0203d028_3* var133 = *(struct Struct_0203d028_3**)((char*)var132 + 0x3000 + 0xb48);
+        char var134[0x28];
+        VectorizedMemset(var134, 0, 0x28);
+        var134[7] = 0;
+        var134[0x13] = 0;
+        var134[6] = 0;
+        *(int*)(var134 + 0x20) = -1;
+        var134[0] = 2;
+        var134[1] = (char)func_ov017_021b1fa8(var133);
+        var134[2] = (char)func_ov017_021b1fb0(var133);
+        *(short*)(var134 + 4) = 0;
+        var134[6] = 1;
+        void* var135 = func_ov017_021b1fb8(var133);
+        strcpy(var134 + 7, (char*)var135);
+        func_02011818(var68, (Struct_02011818*)var134);
+        const char* var136 = func_020e51cc(1011);
+        int var137 = func_ov017_021b1fb0(var133);
+        char var138[0x20];
+        sprintf(var138, data_ov003_021801fc, var136, var137);
+        func_02011ab8((char*)var68);
+        short var139 = (short)(func_ov017_021b1fa8(var133) + 0x45);
+        const char* var140 = func_020e51cc(var139);
+        char var141[0x40];
+        sprintf(var141, data_ov003_02180201, var140, var138);
+        func_02011a74((char*)var68, 0, var141);
         func_ov017_021a9ff0(1);
-        *(short*)(obj + 6) = 0x14;
+        *(short*)(arg0 + 6) = 0x14;
         return;
-    } else if (state == 0x14) {
-        void* mb = GetGameResources();
-        void* p = *(void**)((char*)mb + 0x3000 + 0xb4c);
-        if (*((unsigned char*)p + 2) == 0) {
-            *(short*)(obj + 6) = 0xc;
+    } else if (var76 == 0x14) {
+        void* var142 = GetGameResources();
+        void* var143 = *(void**)((char*)var142 + 0x3000 + 0xb4c);
+        if (*((unsigned char*)var143 + 2) == 0) {
+            *(short*)(arg0 + 6) = 0xc;
         }
         return;
-    } else if (state == 0x63) {
-        if (*(int*)(g + 0x9a0) != 3) return;
-        *(int*)(g + 0x998) = 1;
-        func_ov003_0216d8d4(obj, 0x29, -1, -1, -1);
-        *(short*)(obj + 6) = 0;
-        *(short*)(obj + 4) = 2;
-        *(short*)(obj + 6) = 0;
+    } else if (var76 == 0x63) {
+        if (*(int*)(var70 + 0x9a0) != 3) return;
+        *(int*)(var70 + 0x998) = 1;
+        func_ov003_0216d8d4(arg0, 0x29, -1, -1, -1);
+        *(short*)(arg0 + 6) = 0;
+        *(short*)(arg0 + 4) = 2;
+        *(short*)(arg0 + 6) = 0;
         return;
-    } else if (state == 0x62) {
-        if (*(int*)(g + 0x9a0) != 0 || *(int*)(g + 0x998) != 0) return;
-        func_02043204(g);
-        *(short*)(obj + 4) = 7;
-        *(short*)(obj + 6) = 0;
+    } else if (var76 == 0x62) {
+        if (*(int*)(var70 + 0x9a0) != 0 || *(int*)(var70 + 0x998) != 0) return;
+        func_02043204(var70);
+        *(short*)(arg0 + 4) = 7;
+        *(short*)(arg0 + 6) = 0;
     }
 }
 #endif

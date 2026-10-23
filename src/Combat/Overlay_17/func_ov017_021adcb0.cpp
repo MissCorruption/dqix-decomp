@@ -10,127 +10,127 @@
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
 #define func_0206df6c func_0206f0c0
-enum { ContainerListOffset = 0x2764, ContainerDataOffset = 0x2794, MessageBufferOffset = 0x2c, MessageBufferSize = 0x800 };
+enum { Enum_ov017_021adcb0_10020 = 0x2764, Enum_ov017_021adcb0_10068 = 0x2794, Enum_ov017_021adcb0_96 = 0x2c, Enum_ov017_021adcb0_2400 = 0x800 };
 extern const char* data_ov017_021d7f9c[];
 extern const char* data_ov017_021d7fb4[];
 extern char data_ov017_021d8068[], data_ov017_021d8082[], data_ov017_021d80ac[];
 extern char data_ov017_021d80b0[], data_ov017_021d80b3[];
 extern unsigned char data_ov017_021d6ec0[];
 #else
-enum { ContainerListOffset = 0x2724, ContainerDataOffset = 0x2754, MessageBufferOffset = 0x60, MessageBufferSize = 0x960 };
+enum { Enum_ov017_021adcb0_10020 = 0x2724, Enum_ov017_021adcb0_10068 = 0x2754, Enum_ov017_021adcb0_96 = 0x60, Enum_ov017_021adcb0_2400 = 0x960 };
 #endif
 
-struct Obj020397cc;
-struct Obj02033834;
-struct Obj02033b68;
-struct Obj02086aec;
-struct Obj020d7aa0;
-struct BitFlags020d805c;
-struct Struct0218d618;
-struct Obj0205eaa0;
-struct Obj02046574;
-struct Obj021c2744;
-struct TailList020469b4;
-struct TailNode020469b4;
-struct List02046a3c;
-struct Node02046a3c;
-struct GetElement02094d5cList;
-struct Container020dedd0;
+struct Struct_02018300_3;
+struct Struct_02033834_2;
+struct Struct_02033b68;
+struct Struct_02053f7c;
+struct Struct_020d7aa0_2;
+struct Struct_020d805c;
+struct Struct_ov017_0218d618_2;
+struct Struct_02108760;
+struct Struct_02046574_2;
+struct Struct_ov017_021adcb0;
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+struct Struct_02046a3c_2;
+struct Struct_02046a3c;
+struct Struct_02015ef4_3;
+struct Struct_0201099c_10;
 
 typedef LootableContainerManager::Container Container;
 
-struct Element021adcb0 {
-    char pad0[0x16];
-    unsigned char active;
-    unsigned char kind;
-    char pad18[4];
-    unsigned short containerId;
+struct Struct_ov017_021adcb0_2 {
+    char unknown_0_[0x16];
+    unsigned char unknown_16_;
+    unsigned char unknown_17_;
+    char unknown_18_[4];
+    unsigned short unknown_1c_;
 };
 
-struct Notice021adcb0 {
-    char pad0[2];
-    unsigned char busy;
-    char pad3[0xe];
-    unsigned char ready;
-    char pad12[2];
-    int memberId;
-    int itemId;
+struct Struct_ov017_021adcb0_3 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
+    char unknown_3_[0xe];
+    unsigned char unknown_11_;
+    char unknown_12_[2];
+    int unknown_14_;
+    int unknown_18_;
 };
 
-struct LootTextContext {
-    SafeAllocator allocator; char list[0x18]; Container020dedd0* containerData;
-    int field30; int field34;
+struct Struct_ov017_021a7e14_4 {
+    SafeAllocator unknown_0_; char unknown_14_[0x18]; Struct_0201099c_10* unknown_2c_;
+    int unknown_30_; int unknown_34_;
 };
 
-struct Chest021adcb0 {
-    char pad0[8];
-    unsigned char member;
-    unsigned char state;
-    unsigned char slot;
-    unsigned char special;
-    signed char delay;
-    char padD;
-    unsigned short timer;
-    short mode;
-    char pad12[0xe];
-    unsigned char useList;
-    unsigned char ambush;
-    unsigned short itemId;
-    char pad24[8];
-    SafeAllocator allocator;
+struct Struct_ov017_021adcb0_4 {
+    char unknown_0_[8];
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    unsigned char unknown_b_;
+    signed char unknown_c_;
+    char unknown_d_;
+    unsigned short unknown_e_;
+    short unknown_10_;
+    char unknown_12_[0xe];
+    unsigned char unknown_20_;
+    unsigned char unknown_21_;
+    unsigned short unknown_22_;
+    char unknown_24_[8];
+    SafeAllocator unknown_2c_;
 };
 
 extern "C" void* func_020421a0(void);
 extern "C" unsigned char* func_02012fe4(void);
 extern "C" void* func_020d7a50(void);
-extern "C" void func_ov017_021ae760(Chest021adcb0* self);
-extern "C" void func_ov017_0218d5ac(void* res);
-extern "C" void* func_020100f8(char* gs);
-extern "C" void func_020a27a0(void* obj);
-extern "C" void func_020a2794(void* obj);
-extern "C" void func_02033834(Obj02033834* obj, int arg);
+extern "C" void func_ov017_021ae760(Struct_ov017_021adcb0_4* arg0);
+extern "C" void func_ov017_0218d5ac(void* arg0);
+extern "C" void* func_020100f8(char* arg0);
+extern "C" void func_020a27a0(void* arg0);
+extern "C" void func_020a2794(void* arg0);
+extern "C" void func_02033834(Struct_02033834_2* arg0, int arg1);
 extern "C" int* func_0202ae18(void);
-extern "C" unsigned char* func_020177a8(unsigned char* p, int i);
-extern "C" Container* func_02094d5c(GetElement02094d5cList* list, int id);
-extern "C" void* func_02010828(GameState* gs);
-extern "C" int func_0202b7d8(int* p);
-extern "C" int func_0202c540(void* p);
-extern "C" void func_020e4bf4(void* obj, int combatantId);
-extern "C" int func_020e51cc(int key);
-extern "C" void func_02046608(void* g, int mode, int fmt, char* out, int size, int a, int b);
-extern "C" void func_020397cc(Obj020397cc* obj, int arg);
-extern "C" int func_020d805c(BitFlags020d805c* obj);
-extern "C" void func_020d7aa0(Obj020d7aa0* obj);
-extern "C" short func_02086aec(Obj02086aec* obj, int key);
-extern "C" int sprintf(char* dst, const char* fmt, ...);
-extern "C" void func_020113a8(void* arr, int bit, int value);
-extern "C" void func_02033b68(Obj02033b68* obj, int v);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_ov017_0218d510(GameResources* res, SafeAllocator* alloc);
-extern "C" void func_020397c0(void* obj);
-struct UpdateStateStruct;
-extern "C" void func_02015a98(UpdateStateStruct*, int, int, int);
-extern "C" void func_ov017_021cfd5c(unsigned char a, unsigned short b, unsigned short c);
-extern "C" int func_ov017_0218d618(Struct0218d618* obj);
-extern "C" void* memset(void* dst, int c, unsigned int n);
+extern "C" unsigned char* func_020177a8(unsigned char* arg0, int arg1);
+extern "C" Container* func_02094d5c(Struct_02015ef4_3* arg0, int arg1);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202c540(void* arg0);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" int func_020e51cc(int arg0);
+extern "C" void func_02046608(void* arg0, int arg1, int arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" int func_020d805c(Struct_020d805c* arg0);
+extern "C" void func_020d7aa0(Struct_020d7aa0_2* arg0);
+extern "C" short func_02086aec(Struct_02053f7c* arg0, int arg1);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
+extern "C" void func_020113a8(void* arg0, int arg1, int arg2);
+extern "C" void func_02033b68(Struct_02033b68* arg0, int arg1);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_ov017_0218d510(GameResources* arg0, SafeAllocator* arg1);
+extern "C" void func_020397c0(void* arg0);
+struct Struct_02015a98;
+extern "C" void func_02015a98(Struct_02015a98*, int, int, int);
+extern "C" void func_ov017_021cfd5c(unsigned char arg0, unsigned short arg1, unsigned short arg2);
+extern "C" int func_ov017_0218d618(Struct_ov017_0218d618_2* arg0);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_ov017_021a9bc4(void* node, int flag);
-extern "C" void func_ov017_021a9a9c(void* node, int a, int b, int c, int d);
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
+extern "C" void func_ov017_021a9bc4(void* arg0, int arg1);
+extern "C" void func_ov017_021a9a9c(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
 extern "C" void* func_020de824(void*);
 extern "C" void func_0207cbe8(char*);
 extern "C" int func_0207d538(void*, int, int, char*, int);
 extern "C" void func_ov017_0218d644(GameResources*, Vector3fix*, int);
-extern "C" void func_0205eb80(void* obj);
-extern "C" void func_0205eb54(void* obj, int arg1, int arg2);
-extern "C" void func_0205eb90(void* obj, int a, int b);
-extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
-extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0205eb80(void* arg0);
+extern "C" void func_0205eb54(void* arg0, int arg1, int arg2);
+extern "C" void func_0205eb90(void* arg0, int arg1, int arg2);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
-extern "C" int func_ov017_0218d75c(void* obj);
-extern "C" void func_02046574(Obj02046574* obj, int index, char* str);
-extern "C" void func_ov017_021c2744(Obj021c2744* p);
-extern "C" void func_02046a3c(List02046a3c* list, Node02046a3c* node);
+extern "C" int func_ov017_0218d75c(void* arg0);
+extern "C" void func_02046574(Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void func_ov017_021c2744(Struct_ov017_021adcb0* arg0);
+extern "C" void func_02046a3c(Struct_02046a3c_2* arg0, Struct_02046a3c* arg1);
 
 extern char data_ov017_021d799c[];
 extern char data_ov017_021d79a2[];
@@ -141,331 +141,331 @@ extern unsigned char data_ov017_021d6ac0[];
 
 // USA: func_ov017_021adcb0
 // JPN: func_ov017_021ae4b8
-extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
-    GameState* gs = GameState::GetInstance();
-    void* g = func_020421a0();
-    unsigned char* save = func_02012fe4();
-    LootableContainerManager* mgr = LootableContainerManager::GetMainInstance();
-    GetElement02094d5cList* list = (GetElement02094d5cList*)(save + ContainerListOffset);
-    void* reset = func_020d7a50();
-    GameObject* member = gs->GetPartyMemberByIndex(self->member);
-    GameResources* res = GetGameResources();
-    TailList020469b4* tail = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
+extern "C" ARM void func_ov017_021adcb0(Struct_ov017_021adcb0_4* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_020421a0();
+    unsigned char* var2 = func_02012fe4();
+    LootableContainerManager* var3 = LootableContainerManager::GetMainInstance();
+    Struct_02015ef4_3* var4 = (Struct_02015ef4_3*)(var2 + Enum_ov017_021adcb0_10020);
+    void* var5 = func_020d7a50();
+    GameObject* var6 = var0->GetPartyMemberByIndex(arg0->unknown_8_);
+    GameResources* var7 = GetGameResources();
+    Struct_0201bdac_2* var8 = (Struct_0201bdac_2*)var7->unknown_ptr_array_36fc[0];
 
-    if (member == NULL) {
-        func_ov017_021ae760(self);
+    if (var6 == NULL) {
+        func_ov017_021ae760(arg0);
         return;
     }
-    if (res) {
-        func_ov017_0218d5ac(res);
+    if (var7) {
+        func_ov017_0218d5ac(var7);
     }
 
-    if (self->state == 0) {
-        GameState* gs2 = GameState::GetInstance();
-        void* camera = func_020100f8((char*)gs2);
-        if (camera) {
-            func_020a27a0(camera);
+    if (arg0->unknown_9_ == 0) {
+        GameState* var9 = GameState::GetInstance();
+        void* var10 = func_020100f8((char*)var9);
+        if (var10) {
+            func_020a27a0(var10);
         }
-        if (res) {
-            SetFlags04(res, 0x80);
+        if (var7) {
+            SetFlags04(var7, 0x80);
         }
-        *(unsigned short*)((char*)member + 0xb2) = 0;
-        func_02033834((Obj02033834*)member, self->mode);
-        int* search = func_0202ae18();
-        Element021adcb0* elem = (Element021adcb0*)func_020177a8(save, self->slot);
-        Container* container = NULL;
-        if (elem) {
-            if (self->useList) {
-                container = func_02094d5c(list, elem->containerId);
+        *(unsigned short*)((char*)var6 + 0xb2) = 0;
+        func_02033834((Struct_02033834_2*)var6, arg0->unknown_10_);
+        int* var11 = func_0202ae18();
+        Struct_ov017_021adcb0_2* var12 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
+        Container* var13 = NULL;
+        if (var12) {
+            if (arg0->unknown_20_) {
+                var13 = func_02094d5c(var4, var12->unknown_1c_);
             } else {
-                container = mgr->GetContainerByID(elem->containerId, NULL);
+                var13 = var3->GetContainerByID(var12->unknown_1c_, NULL);
             }
         }
-        Obj02086aec* party = (Obj02086aec*)func_02010828(gs2);
-        if (func_0202b7d8(search) && func_0202c540(search) && container && container->containerType == 0) {
+        Struct_02053f7c* var14 = (Struct_02053f7c*)func_02010828(var9);
+        if (func_0202b7d8(var11) && func_0202c540(var11) && var13 && var13->containerType == 0) {
 #if !defined(jpn)
-            char who[0xc];
+            char var15[0xc];
 #endif
-            char text[0x50];
+            char var16[0x50];
 #if defined(jpn)
-            sprintf(text, data_ov017_021d7f9c[2], member->baseStats_->unk);
-            func_020d7e10(func_020d7a50(), text, 0, 0, 1);
+            sprintf(var16, data_ov017_021d7f9c[2], var6->baseStats_->unk);
+            func_020d7e10(func_020d7a50(), var16, 0, 0, 1);
 #else
-            func_020e4bf4(who, self->member);
-            *(char**)g = who;
-            func_02046608(g, 0xc, func_020e51cc(0x28), text, 0xe3, 0, 1);
-            func_020d7e10(func_020d7a50(), text, 0, 0, 1, 1);
+            func_020e4bf4(var15, arg0->unknown_8_);
+            *(char**)var1 = var15;
+            func_02046608(var1, 0xc, func_020e51cc(0x28), var16, 0xe3, 0, 1);
+            func_020d7e10(func_020d7a50(), var16, 0, 0, 1, 1);
 #endif
-            func_ov017_021ae760(self);
-        } else if (container && container->unk_4_0 != 0) {
-            func_020397cc((Obj020397cc*)member, 1);
-            void* r = func_020d7a50();
-            if (func_020d805c((BitFlags020d805c*)r)) {
-                func_020d7aa0((Obj020d7aa0*)r);
+            func_ov017_021ae760(arg0);
+        } else if (var13 && var13->unk_4_0 != 0) {
+            func_020397cc((Struct_02018300_3*)var6, 1);
+            void* var17 = func_020d7a50();
+            if (func_020d805c((Struct_020d805c*)var17)) {
+                func_020d7aa0((Struct_020d7aa0_2*)var17);
             }
-            int found = 0;
-            int keyA = func_02086aec(party, 0x561c);
-            int keyB = func_02086aec(party, 0x561a);
-            int keyC = func_02086aec(party, 0x561b);
-            if (keyA > 0) {
-                found = 1;
-            } else if (container->unk_4_0 == 1 && (keyB > 0 || keyC > 0)) {
-                found = 1;
-            } else if (container->unk_4_0 == 2 && keyC > 0) {
-                found = 1;
+            int var18 = 0;
+            int var19 = func_02086aec(var14, 0x561c);
+            int var20 = func_02086aec(var14, 0x561a);
+            int var21 = func_02086aec(var14, 0x561b);
+            if (var19 > 0) {
+                var18 = 1;
+            } else if (var13->unk_4_0 == 1 && (var20 > 0 || var21 > 0)) {
+                var18 = 1;
+            } else if (var13->unk_4_0 == 2 && var21 > 0) {
+                var18 = 1;
             }
-            if (found) {
+            if (var18) {
 #if defined(jpn)
-                char text[0x78];
-                sprintf(text, data_ov017_021d8068, data_ov017_021d7f9c[1], member->baseStats_->unk);
-                func_020d7e10(func_020d7a50(), text, 0, 0, 1);
+                char var22[0x78];
+                sprintf(var22, data_ov017_021d8068, data_ov017_021d7f9c[1], var6->baseStats_->unk);
+                func_020d7e10(func_020d7a50(), var22, 0, 0, 1);
 #else
-                char text[0x100];
-                char who[0xc];
-                char fmt[0x100];
-                int name = func_020e51cc(0x29);
-                sprintf(fmt, data_ov017_021d799c, name, func_020e51cc(0x2b));
-                func_020e4bf4(who, self->member);
-                *(char**)g = who;
-                func_02046608(g, 0xc, (int)fmt, text, 0xe3, 0, 1);
-                func_020d7e10(func_020d7a50(), text, 0, 0, 1, 1);
+                char var23[0x100];
+                char var24[0xc];
+                char var25[0x100];
+                int var26 = func_020e51cc(0x29);
+                sprintf(var25, data_ov017_021d799c, var26, func_020e51cc(0x2b));
+                func_020e4bf4(var24, arg0->unknown_8_);
+                *(char**)var1 = var24;
+                func_02046608(var1, 0xc, (int)var25, var23, 0xe3, 0, 1);
+                func_020d7e10(func_020d7a50(), var23, 0, 0, 1, 1);
 #endif
-                self->delay = 0xf;
-                self->state = 9;
+                arg0->unknown_c_ = 0xf;
+                arg0->unknown_9_ = 9;
             } else {
 #if defined(jpn)
-                char text[0x78];
-                if (keyB > 0 || keyC > 0) {
-                    sprintf(text, data_ov017_021d8082, data_ov017_021d7f9c[1]);
+                char var27[0x78];
+                if (var20 > 0 || var21 > 0) {
+                    sprintf(var27, data_ov017_021d8082, data_ov017_021d7f9c[1]);
                 } else {
-                    sprintf(text, data_ov017_021d80ac, data_ov017_021d7f9c[1]);
+                    sprintf(var27, data_ov017_021d80ac, data_ov017_021d7f9c[1]);
                 }
-                func_020d7e10(func_020d7a50(), text, 0, 0, 1);
+                func_020d7e10(func_020d7a50(), var27, 0, 0, 1);
 #else
-                char text[0x100];
-                if (keyB > 0 || keyC > 0) {
-                    int name = func_020e51cc(0x29);
-                    sprintf(text, data_ov017_021d799c, name, func_020e51cc(0x2c));
+                char var28[0x100];
+                if (var20 > 0 || var21 > 0) {
+                    int var29 = func_020e51cc(0x29);
+                    sprintf(var28, data_ov017_021d799c, var29, func_020e51cc(0x2c));
                 } else {
-                    sprintf(text, data_ov017_021d79a2, func_020e51cc(0x29));
+                    sprintf(var28, data_ov017_021d79a2, func_020e51cc(0x29));
                 }
-                func_020d7e10(func_020d7a50(), text, 0, 0, 1, 1);
+                func_020d7e10(func_020d7a50(), var28, 0, 0, 1, 1);
 #endif
-                self->timer = 0;
-                self->state = 8;
+                arg0->unknown_e_ = 0;
+                arg0->unknown_9_ = 8;
             }
         } else {
-            func_020397cc((Obj020397cc*)member, 1);
-            if (self->useList) {
-                func_020113a8(gs2, *(unsigned short*)save % 20, self->slot);
+            func_020397cc((Struct_02018300_3*)var6, 1);
+            if (arg0->unknown_20_) {
+                func_020113a8(var9, *(unsigned short*)var2 % 20, arg0->unknown_a_);
             }
-            func_02033b68((Obj02033b68*)member, 7);
-            self->state = 1;
+            func_02033b68((Struct_02033b68*)var6, 7);
+            arg0->unknown_9_ = 1;
         }
-        if ((self->state == 1 || self->state == 9) && container && container->itemIDOrRank == 0x5617) {
-            self->special = 1;
-            self->allocator.ResetAllocatorPointer();
-            self->allocator.CreateTypeA(func_02012d88(&data_02114e20, 0x4000), 0x4000);
-            self->allocator.Reset();
-            func_ov017_0218d510(GetGameResources(), &self->allocator);
+        if ((arg0->unknown_9_ == 1 || arg0->unknown_9_ == 9) && var13 && var13->itemIDOrRank == 0x5617) {
+            arg0->unknown_b_ = 1;
+            arg0->unknown_2c_.ResetAllocatorPointer();
+            arg0->unknown_2c_.CreateTypeA(func_02012d88(&data_02114e20, 0x4000), 0x4000);
+            arg0->unknown_2c_.Reset();
+            func_ov017_0218d510(GetGameResources(), &arg0->unknown_2c_);
         }
-    } else if (self->state == 8) {
-        self->timer += gs->GetEffectiveDeltaTime();
-        if (self->timer > 0x2ee) {
-            GameObject* leader = gs->GetUnknownGameObject();
-            if (leader) {
-                func_020397c0(leader);
+    } else if (arg0->unknown_9_ == 8) {
+        arg0->unknown_e_ += var0->GetEffectiveDeltaTime();
+        if (arg0->unknown_e_ > 0x2ee) {
+            GameObject* var30 = var0->GetUnknownGameObject();
+            if (var30) {
+                func_020397c0(var30);
             }
-            func_ov017_021ae760(self);
+            func_ov017_021ae760(arg0);
         }
-    } else if (self->state == 9) {
-        self->delay--;
-        if (self->delay <= 0) {
-            func_02033b68((Obj02033b68*)member, 7);
-            self->state = 1;
+    } else if (arg0->unknown_9_ == 9) {
+        arg0->unknown_c_--;
+        if (arg0->unknown_c_ <= 0) {
+            func_02033b68((Struct_02033b68*)var6, 7);
+            arg0->unknown_9_ = 1;
         }
-    } else if (self->state == 1) {
-        if (member->obj3D_.normalizedAnimationTime_ >= 0x666) {
-            Element021adcb0* elem = (Element021adcb0*)func_020177a8(save, self->slot);
-            if (elem) {
-                if (elem->kind == 2 || elem->kind == 1) {
-                    func_02015a98((UpdateStateStruct*)elem, member->obj3D_.unknown_4_, 1, 1);
+    } else if (arg0->unknown_9_ == 1) {
+        if (var6->obj3D_.normalizedAnimationTime_ >= 0x666) {
+            Struct_ov017_021adcb0_2* var31 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
+            if (var31) {
+                if (var31->unknown_17_ == 2 || var31->unknown_17_ == 1) {
+                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.unknown_4_, 1, 1);
                 } else {
-                    func_02015a98((UpdateStateStruct*)elem, member->obj3D_.unknown_4_, 1, 0);
+                    func_02015a98((Struct_02015a98*)var31, var6->obj3D_.unknown_4_, 1, 0);
                 }
             }
-            func_ov017_021cfd5c(member->obj3D_.unknown_4_, *(unsigned short*)save, self->slot);
-            self->state = 2;
+            func_ov017_021cfd5c(var6->obj3D_.unknown_4_, *(unsigned short*)var2, arg0->unknown_a_);
+            arg0->unknown_9_ = 2;
         }
-    } else if (self->state == 2) {
-        if (member->obj3D_.normalizedAnimationTime_ >= 0xb33) {
-            if (self->special && !func_ov017_0218d618((Struct0218d618*)GetGameResources())) {
+    } else if (arg0->unknown_9_ == 2) {
+        if (var6->obj3D_.normalizedAnimationTime_ >= 0xb33) {
+            if (arg0->unknown_b_ && !func_ov017_0218d618((Struct_ov017_0218d618_2*)GetGameResources())) {
                 return;
             }
-            if (!self->ambush && !self->special) {
-                GameObject* leader = gs->GetUnknownGameObject();
-                if (leader) {
-                    func_020397c0(leader);
+            if (!arg0->unknown_21_ && !arg0->unknown_b_) {
+                GameObject* var32 = var0->GetUnknownGameObject();
+                if (var32) {
+                    func_020397c0(var32);
                 }
-                void* camera = func_020100f8((char*)GameState::GetInstance());
-                if (camera) {
-                    func_020a2794(camera);
+                void* var33 = func_020100f8((char*)GameState::GetInstance());
+                if (var33) {
+                    func_020a2794(var33);
                 }
-                if (res) {
-                    ClearFlags04(res, 0x80);
+                if (var7) {
+                    ClearFlags04(var7, 0x80);
                 }
             }
-            self->state = 4;
+            arg0->unknown_9_ = 4;
         }
-    } else if (self->state == 4) {
-        save = func_02012fe4();
-        Element021adcb0* elem = (Element021adcb0*)func_020177a8(save, self->slot);
-        if (elem) {
-            char* text = *(char**)((char*)g + MessageBufferOffset);
-            memset(text, 0, MessageBufferSize);
-            int done = 0;
-            if (elem) {
+    } else if (arg0->unknown_9_ == 4) {
+        var2 = func_02012fe4();
+        Struct_ov017_021adcb0_2* var34 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
+        if (var34) {
+            char* var35 = *(char**)((char*)var1 + Enum_ov017_021adcb0_96);
+            memset(var35, 0, Enum_ov017_021adcb0_2400);
+            int var36 = 0;
+            if (var34) {
                 func_0205ec34();
-                unsigned short pos = 0;
-                Container* container;
-                if (self->useList) {
-                    container = func_02094d5c(list, elem->containerId);
+                unsigned short var37 = 0;
+                Container* var38;
+                if (arg0->unknown_20_) {
+                    var38 = func_02094d5c(var4, var34->unknown_1c_);
                 } else {
-                    container = mgr->GetContainerByID(elem->containerId, &pos);
+                    var38 = var3->GetContainerByID(var34->unknown_1c_, &var37);
                 }
-                if (container) {
-                    if (container->lootType == 4) {
-                        void* node = res->unknown_ptr_array_3afc[0x1b];
-                        func_ov017_021a9bc4(node, 0);
-                        func_ov017_021a9a9c(node, 1, 0, 0, 0);
-                        func_020469b4(tail, (TailNode020469b4*)node);
-                        done = 1;
-                    } else if (container->lootType == 3) {
-                        done = 1;
-                        self->ambush = done;
-                        self->itemId = container->itemIDOrRank;
+                if (var38) {
+                    if (var38->lootType == 4) {
+                        void* var39 = var7->unknown_ptr_array_3afc[0x1b];
+                        func_ov017_021a9bc4(var39, 0);
+                        func_ov017_021a9a9c(var39, 1, 0, 0, 0);
+                        func_020469b4(var8, (Struct_0201bdac*)var39);
+                        var36 = 1;
+                    } else if (var38->lootType == 3) {
+                        var36 = 1;
+                        arg0->unknown_21_ = var36;
+                        arg0->unknown_22_ = var38->itemIDOrRank;
                     } else {
-                        LootTextContext context;
-                        context.allocator.ResetAllocatorPointer();
-                        func_020de824(context.list);
-                        func_0207cbe8((char*)&context);
-                        char item[0x80] = {};
-                        func_0207cbe8((char*)&context);
-                        context.containerData = (Container020dedd0*)(save + ContainerDataOffset);
-                        if (func_0207d538(&context, container->lootType, container->itemIDOrRank, item, 1)) {
+                        Struct_ov017_021a7e14_4 var40;
+                        var40.unknown_0_.ResetAllocatorPointer();
+                        func_020de824(var40.unknown_14_);
+                        func_0207cbe8((char*)&var40);
+                        char var41[0x80] = {};
+                        func_0207cbe8((char*)&var40);
+                        var40.unknown_2c_ = (Struct_0201099c_10*)(var2 + Enum_ov017_021adcb0_10068);
+                        if (func_0207d538(&var40, var38->lootType, var38->itemIDOrRank, var41, 1)) {
 #if defined(jpn)
-                            sprintf(text, data_ov017_021d80b0, item);
+                            sprintf(var35, data_ov017_021d80b0, var41);
 #else
-                            sprintf(text, data_ov017_021d79a2, item);
+                            sprintf(var35, data_ov017_021d79a2, var41);
 #endif
-                            done = 1;
+                            var36 = 1;
                         }
                     }
                 }
             }
-            if (!done) {
+            if (!var36) {
 #if defined(jpn)
-                sprintf(text, data_ov017_021d80b3);
+                sprintf(var35, data_ov017_021d80b3);
 #else
-                sprintf(text, (char*)func_020e51cc(0x2d));
+                sprintf(var35, (char*)func_020e51cc(0x2d));
 #endif
             }
         }
-        Element021adcb0* elem2 = (Element021adcb0*)func_020177a8(save, self->slot);
-        if (elem2) {
-            LootableContainerManager* mgr2 = LootableContainerManager::GetMainInstance();
-            unsigned short pos2 = 0;
-            Container* chest;
-            if (self->useList) {
-                chest = func_02094d5c(list, elem2->containerId);
+        Struct_ov017_021adcb0_2* var42 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
+        if (var42) {
+            LootableContainerManager* var43 = LootableContainerManager::GetMainInstance();
+            unsigned short var44 = 0;
+            Container* var45;
+            if (arg0->unknown_20_) {
+                var45 = func_02094d5c(var4, var42->unknown_1c_);
             } else {
-                chest = mgr2->GetContainerByID(elem2->containerId, &pos2);
+                var45 = var43->GetContainerByID(var42->unknown_1c_, &var44);
             }
-            if (chest) {
-                GameResources* res2 = GetGameResources();
-                if (self->special) {
-                    func_ov017_0218d644(res2, &chest->position, 0);
+            if (var45) {
+                GameResources* var46 = GetGameResources();
+                if (arg0->unknown_b_) {
+                    func_ov017_0218d644(var46, &var45->position, 0);
                 }
-                int type = chest->lootType;
-                if (type != 4) {
+                int var47 = var45->lootType;
+                if (var47 != 4) {
 #if defined(jpn)
-                    func_020d7e10(reset, *(char**)((char*)g + MessageBufferOffset), type == 2, chest->lootType == 2, 0);
+                    func_020d7e10(var5, *(char**)((char*)var1 + Enum_ov017_021adcb0_96), var47 == 2, var45->lootType == 2, 0);
 #else
-                    func_020d7e10(reset, *(char**)((char*)g + MessageBufferOffset), type == 2, chest->lootType == 2, 0, 0);
+                    func_020d7e10(var5, *(char**)((char*)var1 + Enum_ov017_021adcb0_96), var47 == 2, var45->lootType == 2, 0, 0);
 #endif
-                    if (self->ambush) {
+                    if (arg0->unknown_21_) {
                         func_0205eb80(&data_02108760);
                         func_0205eb54(&data_02108760, 0x15e, 0x15e);
                         func_0205eb90(&data_02108760, 0, 0);
-                    } else if (chest->lootType != 0 && chest->itemIDOrRank != 0x5617) {
-                        func_0205eaa0((Obj0205eaa0*)&data_02108760, 0xe, 0);
+                    } else if (var45->lootType != 0 && var45->itemIDOrRank != 0x5617) {
+                        func_0205eaa0((Struct_02108760*)&data_02108760, 0xe, 0);
                     }
                 }
-                int id = chest->uniqueID;
-                unsigned char* flags = (unsigned char*)func_0205ec34();
-                if (chest->containerType == 0) {
-                    func_0206df6c(flags, flags + 0x8c, id + 0x212, 1);
-                    func_ov017_021cdb00(1, id, 1, -1);
-                } else if (!self->useList) {
-                    func_0206df6c(flags, flags + 0x8c, id + 0x79e, 1);
+                int var48 = var45->uniqueID;
+                unsigned char* var49 = (unsigned char*)func_0205ec34();
+                if (var45->containerType == 0) {
+                    func_0206df6c(var49, var49 + 0x8c, var48 + 0x212, 1);
+                    func_ov017_021cdb00(1, var48, 1, -1);
+                } else if (!arg0->unknown_20_) {
+                    func_0206df6c(var49, var49 + 0x8c, var48 + 0x79e, 1);
                 }
-                chest->unk_4_0 = 0;
-                chest->lootType = 0;
+                var45->unk_4_0 = 0;
+                var45->lootType = 0;
             }
         }
-        self->state = 5;
-    } else if (self->state == 5) {
-        if (self->special) {
+        arg0->unknown_9_ = 5;
+    } else if (arg0->unknown_9_ == 5) {
+        if (arg0->unknown_b_) {
             if (!func_ov017_0218d75c(GetGameResources())) {
-                GameObject* leader = gs->GetUnknownGameObject();
-                if (leader) {
-                    func_020397c0(leader);
+                GameObject* var50 = var0->GetUnknownGameObject();
+                if (var50) {
+                    func_020397c0(var50);
                 }
-                func_ov017_021ae760(self);
+                func_ov017_021ae760(arg0);
             }
-        } else if (self->ambush) {
-            self->state = 6;
+        } else if (arg0->unknown_21_) {
+            arg0->unknown_9_ = 6;
         } else {
-            func_ov017_021ae760(self);
+            func_ov017_021ae760(arg0);
         }
-    } else if (self->state == 6) {
-        Notice021adcb0* notice = (Notice021adcb0*)res->unknown_ptr_array_3afc[0x2c];
-        if (notice->busy == 0) {
-            Element021adcb0* elem = (Element021adcb0*)func_020177a8(save, self->slot);
-            if (elem) {
-                elem->active = 0;
+    } else if (arg0->unknown_9_ == 6) {
+        Struct_ov017_021adcb0_3* var51 = (Struct_ov017_021adcb0_3*)var7->unknown_ptr_array_3afc[0x2c];
+        if (var51->unknown_2_ == 0) {
+            Struct_ov017_021adcb0_2* var52 = (Struct_ov017_021adcb0_2*)func_020177a8(var2, arg0->unknown_a_);
+            if (var52) {
+                var52->unknown_16_ = 0;
             }
-            char text[0x78];
-            text[0] = 0;
+            char var53[0x78];
+            var53[0] = 0;
 #if defined(jpn)
-            const char** msgs = data_ov017_021d7fb4;
-            const unsigned char* ids = data_ov017_021d6ec0;
+            const char** var54 = data_ov017_021d7fb4;
+            const unsigned char* var56 = data_ov017_021d6ec0;
 #else
-            const short* msgs = data_ov017_021d6ac4;
-            const unsigned char* ids = data_ov017_021d6ac0;
+            const short* var55 = data_ov017_021d6ac4;
+            const unsigned char* var56 = data_ov017_021d6ac0;
 #endif
-            for (int i = 0; i < 3; i++) {
-                unsigned char id = ids[i];
-                if (id == self->itemId) {
+            for (int var57 = 0; var57 < 3; var57++) {
+                unsigned char var58 = var56[var57];
+                if (var58 == arg0->unknown_22_) {
 #if defined(jpn)
-                    sprintf(text, data_ov017_021d7f9c[0], msgs[i]);
+                    sprintf(var53, data_ov017_021d7f9c[0], var54[var57]);
 #else
-                    func_02046574((Obj02046574*)g, 0, (char*)func_020e51cc(msgs[i]));
-                    func_02046608(g, 0xc, func_020e51cc(0x2a), text, 0xe3, 0, 1);
+                    func_02046574((Struct_02046574_2*)var1, 0, (char*)func_020e51cc(var55[var57]));
+                    func_02046608(var1, 0xc, func_020e51cc(0x2a), var53, 0xe3, 0, 1);
 #endif
                 }
             }
 #if defined(jpn)
-            func_020d7e10(func_020d7a50(), text, 0, 0, 1);
+            func_020d7e10(func_020d7a50(), var53, 0, 0, 1);
 #else
-            func_020d7e10(func_020d7a50(), text, 0, 0, 1, 1);
+            func_020d7e10(func_020d7a50(), var53, 0, 0, 1, 1);
 #endif
-            func_ov017_021c2744((Obj021c2744*)notice);
-            notice->memberId = member->obj3D_.unknown_4_;
-            notice->ready = 1;
-            notice->itemId = self->itemId;
-            func_02046a3c((List02046a3c*)tail, (Node02046a3c*)notice);
+            func_ov017_021c2744((Struct_ov017_021adcb0*)var51);
+            var51->unknown_14_ = var6->obj3D_.unknown_4_;
+            var51->unknown_11_ = 1;
+            var51->unknown_18_ = arg0->unknown_22_;
+            func_02046a3c((Struct_02046a3c_2*)var8, (Struct_02046a3c*)var51);
         }
-        func_ov017_021ae760(self);
+        func_ov017_021ae760(arg0);
     }
 }

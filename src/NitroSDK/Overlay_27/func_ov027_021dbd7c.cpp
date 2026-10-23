@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct FieldHolder021dbd7c {
-    unsigned int field0;
-    unsigned int field4;
-    unsigned char* field8;
+struct Struct_ov027_021e33e0_4 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned char* unknown_8_;
 };
 
-extern FieldHolder021dbd7c data_ov027_021e33e0;
+extern Struct_ov027_021e33e0_4 data_ov027_021e33e0;
 
-typedef void (*Callback021dbd7c)(int, void*);
+typedef void (*Type_ov027_021dbd7c)(int, void*);
 
-struct Obj021dbd7c {
-    unsigned short f0;
-    unsigned short f2;
-    unsigned short f4;
+struct Struct_ov027_021dbd7c {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
 };
 
 // USA: func_ov027_021dbd7c
-extern "C" ARM void func_ov027_021dbd7c(Obj021dbd7c* obj) {
-    if (obj->f2 != 0) return;
-    switch (obj->f4) {
+extern "C" ARM void func_ov027_021dbd7c(Struct_ov027_021dbd7c* arg0) {
+    if (arg0->unknown_2_ != 0) return;
+    switch (arg0->unknown_4_) {
     case 7:
     case 9:
         break;
@@ -27,8 +27,8 @@ extern "C" ARM void func_ov027_021dbd7c(Obj021dbd7c* obj) {
     case 0x1a:
         break;
     case 0x15: {
-        Callback021dbd7c fn = *(Callback021dbd7c*)(data_ov027_021e33e0.field8 + 0x51c);
-        fn(9, obj);
+        Type_ov027_021dbd7c var0 = *(Type_ov027_021dbd7c*)(data_ov027_021e33e0.unknown_8_ + 0x51c);
+        var0(9, arg0);
         break;
     }
     default:

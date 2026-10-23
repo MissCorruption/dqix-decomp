@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
-struct AxisFloats0203b5f8;
+struct Struct_ov004_02164670;
 extern "C" int func_020421a0(void);
 extern char* data_ov004_02171010;
-struct SelectionState {
+struct Struct_ov004_021652e8 {
 #if defined(jpn)
-    unsigned char unknown[0x19f4];
+    unsigned char unknown_0_[0x19f4];
 #else
-    unsigned char unknown[0x18f4];
+    unsigned char unknown1_0_[0x18f4];
 #endif
-    unsigned char entryCount;
-    unsigned char unknownF5;
-    short page;
-    short pageCount;
-    unsigned char unknownFA[2];
-    unsigned char mode;
+    unsigned char unknown_18f4_;
+    unsigned char unknown_18f5_;
+    short unknown_18f6_;
+    short unknown_18f8_;
+    unsigned char unknown_18fa_[2];
+    unsigned char unknown_18fc_;
 };
-extern "C" void func_02026420(unsigned char* obj, unsigned char value);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern struct Obj0205eaa0 data_02108760;
-extern "C" int func_ov004_021651c8(void* a1);
+extern "C" void func_02026420(unsigned char* arg0, unsigned char arg1);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern struct Struct_02108760 data_02108760;
+extern "C" int func_ov004_021651c8(void* arg0);
 
 #if defined(jpn)
-enum { StatusOffset021652e8 = 0x868, ObjectOffset021652e8 = 0x4c0 };
+enum { Enum_ov004_021652e8_2456 = 0x868, Enum_ov004_021652e8_1744 = 0x4c0 };
 // USA: func_ov004_021652e8
-extern "C" ARM int func_ov004_02165b78(void* a1) {
+extern "C" ARM int func_ov004_02165b78(void* arg0) {
 #else
-enum { StatusOffset021652e8 = 0x998, ObjectOffset021652e8 = 0x6d0 };
+enum { Enum_ov004_021652e8_2456 = 0x998, Enum_ov004_021652e8_1744 = 0x6d0 };
 // USA: func_ov004_021652e8
-extern "C" ARM int func_ov004_021652e8(void* a1) {
+extern "C" ARM int func_ov004_021652e8(void* arg0) {
 #endif
-    struct AxisFloats0203b5f8* axis = (struct AxisFloats0203b5f8*)GetGameResources();
-    if (!IsBrightnessZero((GameResources*)axis, false) || !IsBrightnessZero((GameResources*)axis, true)) return 0;
-    if (*(void**)((char*)func_020421a0() + StatusOffset021652e8) != NULL) return 0;
+    struct Struct_ov004_02164670* var0 = (struct Struct_ov004_02164670*)GetGameResources();
+    if (!IsBrightnessZero((GameResources*)var0, false) || !IsBrightnessZero((GameResources*)var0, true)) return 0;
+    if (*(void**)((char*)func_020421a0() + Enum_ov004_021652e8_2456) != NULL) return 0;
 
     {
-        SelectionState* selection = (SelectionState*)data_ov004_02171010;
-        unsigned char v = selection->entryCount;
-        if (v == 0) return 0;
+        Struct_ov004_021652e8* var1 = (Struct_ov004_021652e8*)data_ov004_02171010;
+        unsigned char var2 = var1->unknown_18f4_;
+        if (var2 == 0) return 0;
 
-        unsigned char* mode = &selection->mode;
-        v = selection->mode;
-        if (v == 0) {
-            *mode = 1;
-        } else if (v == 1) {
-            *mode = 0;
+        unsigned char* var3 = &var1->unknown_18fc_;
+        var2 = var1->unknown_18fc_;
+        if (var2 == 0) {
+            *var3 = 1;
+        } else if (var2 == 1) {
+            *var3 = 0;
         }
 
-        unsigned char* fieldObj = *(unsigned char**)((char*)GetGameResources() + 0x3000 + ObjectOffset021652e8);
-        unsigned char v2 = ((SelectionState*)data_ov004_02171010)->mode;
-        if (v2 == 1) {
-            func_02026420(fieldObj, 0);
-        } else if (v2 == 0) {
-            func_02026420(fieldObj, 1);
+        unsigned char* var4 = *(unsigned char**)((char*)GetGameResources() + 0x3000 + Enum_ov004_021652e8_1744);
+        unsigned char var5 = ((Struct_ov004_021652e8*)data_ov004_02171010)->unknown_18fc_;
+        if (var5 == 1) {
+            func_02026420(var4, 0);
+        } else if (var5 == 0) {
+            func_02026420(var4, 1);
         }
 
-        func_ov004_021651c8(a1);
+        func_ov004_021651c8(arg0);
         func_0205eaa0(&data_02108760, 1, 0);
         return 0;
     }

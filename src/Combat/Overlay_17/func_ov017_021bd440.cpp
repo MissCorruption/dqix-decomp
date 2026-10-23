@@ -4,30 +4,30 @@
 struct Vector3i;
 
 // USA: func_ov017_021bd440
-extern "C" ARM void func_ov017_021bd440(void* self, int partyMemberIndex) {
-	unsigned char* base = (unsigned char*)self;
-	unsigned char partyMemberMask = 1 << partyMemberIndex;
-	int wasRestoreBitSet = 0;
+extern "C" ARM void func_ov017_021bd440(void* arg0, int arg1) {
+	unsigned char* var0 = (unsigned char*)arg0;
+	unsigned char var1 = 1 << arg1;
+	int var2 = 0;
 #if defined(jpn)
-	if (base[0x170] & partyMemberMask) wasRestoreBitSet = 1;
-	base[0x170] &= ~partyMemberMask;
-	base[0x171] |= partyMemberMask;
+	if (var0[0x170] & var1) var2 = 1;
+	var0[0x170] &= ~var1;
+	var0[0x171] |= var1;
 #else
-	if (base[0x174] & partyMemberMask) wasRestoreBitSet = 1;
-	base[0x174] &= ~partyMemberMask;
-	base[0x175] |= partyMemberMask;
+	if (var0[0x174] & var1) var2 = 1;
+	var0[0x174] &= ~var1;
+	var0[0x175] |= var1;
 #endif
-	if (!wasRestoreBitSet) return;
-	GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(partyMemberIndex);
-	if (!combatant) return;
+	if (!var2) return;
+	GameObject* var3 = GameState::GetInstance()->GetPartyMemberByIndex(arg1);
+	if (!var3) return;
 #if defined(jpn)
-	*(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)(base + 0x184 + partyMemberIndex * 0xc));
-	int savedRotationY = *(int*)(base + 0x1b4 + partyMemberIndex * 4);
+	*(Vector3i*)(&var3->obj3D_.position_.x) = *(Vector3i const*)((int*)(var0 + 0x184 + arg1 * 0xc));
+	int var4 = *(int*)(var0 + 0x1b4 + arg1 * 4);
 #else
-	*(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)(base + 0x188 + partyMemberIndex * 0xc));
-	int savedRotationY = *(int*)(base + 0x1b8 + partyMemberIndex * 4);
+	*(Vector3i*)(&var3->obj3D_.position_.x) = *(Vector3i const*)((int*)(var0 + 0x188 + arg1 * 0xc));
+	int var4 = *(int*)(var0 + 0x1b8 + arg1 * 4);
 #endif
-	combatant->obj3D_.rotation_.x = 0;
-	combatant->obj3D_.rotation_.y = savedRotationY;
-	combatant->obj3D_.rotation_.z = 0;
+	var3->obj3D_.rotation_.x = 0;
+	var3->obj3D_.rotation_.y = var4;
+	var3->obj3D_.rotation_.z = 0;
 }

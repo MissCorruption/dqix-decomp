@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Vec020311e8 {
-    int x;
-    int y;
-    int z;
+struct Struct_020311e8 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Dst02031188 {
-    Vec020311e8 v0;
-    Vec020311e8 v1;
-    Vec020311e8 v2;
-    Vec020311e8 v3;
+struct Struct_02031188_2 {
+    Struct_020311e8 unknown_0_;
+    Struct_020311e8 unknown_c_;
+    Struct_020311e8 unknown_18_;
+    Struct_020311e8 unknown_24_;
 };
 
-struct Src02031188 {
-    short s[12];
+struct Struct_02031188 {
+    short unknown_0_[12];
 };
 
-extern "C" ARM void func_020311e8(Vec020311e8* v, int x, int y, int z);
+extern "C" ARM void func_020311e8(Struct_020311e8* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_02031188
-extern "C" ARM void func_02031188(Dst02031188* d, Src02031188* s) {
-    func_020311e8(&d->v3, s->s[9], s->s[10], s->s[11]);
-    func_020311e8(&d->v0, s->s[0], s->s[1], s->s[2]);
-    func_020311e8(&d->v1, s->s[3], s->s[4], s->s[5]);
-    func_020311e8(&d->v2, s->s[6], s->s[7], s->s[8]);
+extern "C" ARM void func_02031188(Struct_02031188_2* arg0, Struct_02031188* arg1) {
+    func_020311e8(&arg0->unknown_24_, arg1->unknown_0_[9], arg1->unknown_0_[10], arg1->unknown_0_[11]);
+    func_020311e8(&arg0->unknown_0_, arg1->unknown_0_[0], arg1->unknown_0_[1], arg1->unknown_0_[2]);
+    func_020311e8(&arg0->unknown_c_, arg1->unknown_0_[3], arg1->unknown_0_[4], arg1->unknown_0_[5]);
+    func_020311e8(&arg0->unknown_18_, arg1->unknown_0_[6], arg1->unknown_0_[7], arg1->unknown_0_[8]);
 }

@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct Container020e0310;
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
+struct Struct_0201099c_3;
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
 extern char data_ov003_0217fe7f;
 
 // USA: func_ov003_0215be70
-extern "C" ARM void func_ov003_0215be70(char* base, char* dst, int flag) {
-	int i;
-	struct Container020e0310* c;
-	signed char cursor;
+extern "C" ARM void func_ov003_0215be70(char* arg0, char* arg1, int arg2) {
+	int var0;
+	struct Struct_0201099c_3* var1;
+	signed char var2;
 
-	if (dst == NULL) return;
+	if (arg1 == NULL) return;
 
-	cursor = *(signed char*)(base + 0x586);
-	if (flag) {
-		func_02041c08(dst, cursor, 8, 5, 5, 5);
+	var2 = *(signed char*)(arg0 + 0x586);
+	if (arg2) {
+		func_02041c08(arg1, var2, 8, 5, 5, 5);
 	}
-	func_02041ea4(dst, cursor);
+	func_02041ea4(arg1, var2);
 
-	c = (struct Container020e0310*)(base + 0x64);
-	for (i = 0; i < 2; i++) {
-		int name = func_020e0434(c, (short)(i + 0x14));
-		func_02041b70(dst, i, (const char*)name);
-		if (i != 1) {
-			func_02042058(dst, &data_ov003_0217fe7f);
+	var1 = (struct Struct_0201099c_3*)(arg0 + 0x64);
+	for (var0 = 0; var0 < 2; var0++) {
+		int var3 = func_020e0434(var1, (short)(var0 + 0x14));
+		func_02041b70(arg1, var0, (const char*)var3);
+		if (var0 != 1) {
+			func_02042058(arg1, &data_ov003_0217fe7f);
 		}
 	}
 }

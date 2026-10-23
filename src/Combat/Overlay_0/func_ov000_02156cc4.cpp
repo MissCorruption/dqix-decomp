@@ -2,70 +2,70 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
-struct Combatant02156cc4 {
+struct Struct_02000c9c_29 {
 #if defined(jpn)
-    char pad0[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad0[0x150];
+    char unknown1_0_[0x150];
 #endif
-    unsigned char* status;
+    unsigned char* unknown_150_;
 };
 
-struct Battler02156cc4 {
-    char pad0[4];
-    unsigned int deftness : 10;
-    unsigned int rest : 22;
+struct Struct_ov000_02156cc4 {
+    char unknown_0_[4];
+    unsigned int unknown_4_0_ : 10;
+    unsigned int unknown_5_2_ : 22;
 };
 
-struct Param2085ab8 {
-    char pad0[8];
-    unsigned int lo8 : 29;
-    unsigned int alwaysCrit : 1;
-    unsigned int hi8 : 2;
-    char pad1[0x14 - 0xc];
-    unsigned int lo14 : 21;
-    unsigned int critChance : 7;
-    unsigned int hi14 : 4;
+struct Struct_02085ab8 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 29;
+    unsigned int unknown_b_5_ : 1;
+    unsigned int unknown_b_6_ : 2;
+    char unknown_c_[0x14 - 0xc];
+    unsigned int unknown_14_0_ : 21;
+    unsigned int unknown_16_5_ : 7;
+    unsigned int unknown_17_4_ : 4;
 };
 
-extern "C" unsigned char* func_02053c6c(unsigned char* obj);
-extern "C" int func_02083b00(unsigned char* obj, int index);
-extern "C" float func_02084e78(void* param0);
-extern "C" int func_02085ab8(unsigned char* actor, Param2085ab8* action);
+extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" int func_02083b00(unsigned char* arg0, int arg1);
+extern "C" float func_02084e78(void* arg0);
+extern "C" int func_02085ab8(unsigned char* arg0, Struct_02085ab8* arg1);
 float CalculateCritRate(int deftness, float accessoryBonus, float bookBonus, float skillBonus, unsigned char hitCount);
-extern "C" float func_020748f8(float a, unsigned int b);
-extern "C" float func_ov000_02155a04(GameObject* obj);
+extern "C" float func_020748f8(float arg0, unsigned int arg1);
+extern "C" float func_ov000_02155a04(GameObject* arg0);
 
-static inline unsigned char* GetStatus(GameObject* c) {
-    return ((Combatant02156cc4*)c)->status;
+static inline unsigned char* inline_ov000_02156cc4(GameObject* arg0) {
+    return ((Struct_02000c9c_29*)arg0)->unknown_150_;
 }
 
-static inline int IsPartyIndex(int id) {
-    return id >= 0 && id <= 3;
+static inline int inline_ov000_02156cc4_2(int arg0) {
+    return arg0 >= 0 && arg0 <= 3;
 }
 
 // USA: func_ov000_02156cc4
-extern "C" ARM int func_ov000_02156cc4(struct Random* rand, int attackerId, Param2085ab8* action, int hitCount) {
-    if (action->alwaysCrit) {
+extern "C" ARM int func_ov000_02156cc4(struct Random* arg0, int arg1, Struct_02085ab8* arg2, int arg3) {
+    if (arg2->unknown_b_5_) {
         return 1;
     }
-    GameState* bs = GameState::GetInstance();
-    float rate;
-    if (IsPartyIndex(attackerId)) {
-        GameObject* attacker = func_0200ff1c(bs, attackerId);
-        unsigned char* battler = func_02053c6c((unsigned char*)attacker);
-        int deftness = ((Battler02156cc4*)battler)->deftness;
-        float mending = func_02084e78(battler);
-        float bonus = func_02085ab8(battler, action);
-        rate = CalculateCritRate(deftness, mending, bonus, action->critChance / 100.0f, (unsigned char)hitCount);
-        if (func_02083b00(GetStatus(attacker), 0x11d)) {
-            if (func_ov000_02155a04(attacker) < 0.25f) {
-                rate *= 2.0f;
+    GameState* var0 = GameState::GetInstance();
+    float var1;
+    if (inline_ov000_02156cc4_2(arg1)) {
+        GameObject* var2 = func_0200ff1c(var0, arg1);
+        unsigned char* var3 = func_02053c6c((unsigned char*)var2);
+        int var4 = ((Struct_ov000_02156cc4*)var3)->unknown_4_0_;
+        float var5 = func_02084e78(var3);
+        float var6 = func_02085ab8(var3, arg2);
+        var1 = CalculateCritRate(var4, var5, var6, arg2->unknown_16_5_ / 100.0f, (unsigned char)arg3);
+        if (func_02083b00(inline_ov000_02156cc4(var2), 0x11d)) {
+            if (func_ov000_02155a04(var2) < 0.25f) {
+                var1 *= 2.0f;
             }
         }
     } else {
-        rate = func_020748f8(action->critChance / 100.0f, (unsigned char)hitCount);
+        var1 = func_020748f8(arg2->unknown_16_5_ / 100.0f, (unsigned char)arg3);
     }
-    rate = 100.0f * rate;
-    return NextRandomMax(rand, 10000) < (int)rate;
+    var1 = 100.0f * var1;
+    return NextRandomMax(arg0, 10000) < (int)var1;
 }

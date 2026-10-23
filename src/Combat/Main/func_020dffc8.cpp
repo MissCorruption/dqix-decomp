@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct Element020dffc8 {
-    int a;
-    int b;
+struct Struct_020dffc8 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-struct Container020dffc8 {
-    unsigned int count : 12;
-    unsigned int rest : 20;
-    struct Element020dffc8 *elements;
+struct Struct_020dfec0 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 20;
+    struct Struct_020dffc8 *unknown_4_;
 };
 
-typedef int (*ElementCallback020dffc8)(struct Container020dffc8 *, struct Element020dffc8 *);
+typedef int (*Type_020dfec0)(struct Struct_020dfec0 *, struct Struct_020dffc8 *);
 
 // USA: func_020dffc8
-extern "C" ARM int func_020dffc8(struct Container020dffc8 *self, ElementCallback020dffc8 cb) {
-    int count;
-    struct Element020dffc8 *elem;
-    int i;
+extern "C" ARM int func_020dffc8(struct Struct_020dfec0 *arg0, Type_020dfec0 arg1) {
+    int var0;
+    struct Struct_020dffc8 *var1;
+    int var2;
 
-    elem = self->elements;
-    if (elem == NULL || (count = self->count) == 0 || cb == NULL) return 0;
-    for (i = 0; i < count; i++, elem++) {
-        cb(self, elem);
+    var1 = arg0->unknown_4_;
+    if (var1 == NULL || (var0 = arg0->unknown_0_0_) == 0 || arg1 == NULL) return 0;
+    for (var2 = 0; var2 < var0; var2++, var1++) {
+        arg1(arg0, var1);
     }
     return 1;
 }

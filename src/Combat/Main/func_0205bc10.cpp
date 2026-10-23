@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
 struct Struct_0205bc10 {
-    char unk0[0x4c];
-    unsigned char b4c;
-    unsigned char b4d;
-    unsigned char b4e;
+    char unknown_0_[0x4c];
+    unsigned char unknown_4c_;
+    unsigned char unknown_4d_;
+    unsigned char unknown_4e_;
 };
 
 // USA: func_0205bc10
-extern "C" ARM void func_0205bc10(struct Struct_0205bc10* s) {
-    s->b4c = 0;
-    s->b4d = 0;
-    s->b4e = 0;
+extern "C" ARM void func_0205bc10(struct Struct_0205bc10* arg0) {
+    arg0->unknown_4c_ = 0;
+    arg0->unknown_4d_ = 0;
+    arg0->unknown_4e_ = 0;
 }

@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct HpMpGauge0216258c {
-    char pad0[8];
-    unsigned short maxHP;
-    unsigned short maxMP;
-    short currHP;
-    short currMP;
+struct Struct_ov000_0216258c_3 {
+    char unknown_0_[8];
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    short unknown_c_;
+    short unknown_e_;
 };
 
-struct CombatantFlags0216258c {
-    char pad[0x14];
-    unsigned int flags;
+struct Struct_ov000_0216258c {
+    char unknown_0_[0x14];
+    unsigned int unknown_14_;
 };
 
-struct BattleUi0216258c {
+struct Struct_ov000_0216258c_2 {
 #if defined(jpn)
-    char pad0[0x21c];
+    char unknown_0_[0x21c];
 #else
-    char pad0[0x2a0];
+    char unknown1_0_[0x2a0];
 #endif
-    unsigned char* activeBits;
+    unsigned char* unknown_2a0_;
 #if defined(jpn)
-    char pad2a4[0x371c - 0x220];
+    char unknown_220_[0x371c - 0x220];
 #else
-    char pad2a4[0x3760 - 0x2a4];
+    char unknown_2a4_[0x3760 - 0x2a4];
 #endif
-    char gauges[1];
+    char unknown_3760_[1];
 };
 
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
-extern "C" HpMpGauge0216258c* func_ov000_02161318(void* obj, int index);
-extern "C" void func_ov000_0217f518(HpMpGauge0216258c* gauge);
-extern "C" void func_ov000_02176134(HpMpGauge0216258c* gauge, unsigned short val);
-extern "C" void func_ov000_02176150(HpMpGauge0216258c* gauge, unsigned short val);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" Struct_ov000_0216258c_3* func_ov000_02161318(void* arg0, int arg1);
+extern "C" void func_ov000_0217f518(Struct_ov000_0216258c_3* arg0);
+extern "C" void func_ov000_02176134(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
+extern "C" void func_ov000_02176150(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
 
 // USA: func_ov000_0216258c
-extern "C" ARM void func_ov000_0216258c(BattleUi0216258c* self) {
-    GameState* bs = GameState::GetInstance();
-    for (int i = 0; i < 4; i++) {
-        if (!func_020a35e0(self->activeBits, i & 0xff)) continue;
-        GameObject* c = func_0200ff1c(bs, i);
-        if (!c) continue;
-        HpMpGauge0216258c* gauge = func_ov000_02161318(self->gauges, i);
-        if (!gauge) continue;
-        if (gauge->currHP == 0 && !(((CombatantFlags0216258c*)c->currentStats_)->flags & 1)) {
-            func_ov000_0217f518(gauge);
+extern "C" ARM void func_ov000_0216258c(Struct_ov000_0216258c_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    for (int var1 = 0; var1 < 4; var1++) {
+        if (!func_020a35e0(arg0->unknown_2a0_, var1 & 0xff)) continue;
+        GameObject* var2 = func_0200ff1c(var0, var1);
+        if (!var2) continue;
+        Struct_ov000_0216258c_3* var3 = func_ov000_02161318(arg0->unknown_3760_, var1);
+        if (!var3) continue;
+        if (var3->unknown_c_ == 0 && !(((Struct_ov000_0216258c*)var2->currentStats_)->unknown_14_ & 1)) {
+            func_ov000_0217f518(var3);
         }
-        unsigned short hp = c->currentStats_->primaryStats.currHP;
-        func_ov000_02176134(gauge, hp);
-        gauge->currHP = hp;
-        unsigned short mp = c->currentStats_->primaryStats.currMP;
-        func_ov000_02176150(gauge, mp);
-        gauge->currMP = mp;
-        gauge->maxHP = c->baseStats_->primaryStats.maxHP;
-        gauge->maxMP = c->baseStats_->primaryStats.maxMP;
+        unsigned short var4 = var2->currentStats_->primaryStats.currHP;
+        func_ov000_02176134(var3, var4);
+        var3->unknown_c_ = var4;
+        unsigned short var5 = var2->currentStats_->primaryStats.currMP;
+        func_ov000_02176150(var3, var5);
+        var3->unknown_e_ = var5;
+        var3->unknown_8_ = var2->baseStats_->primaryStats.maxHP;
+        var3->unknown_a_ = var2->baseStats_->primaryStats.maxMP;
     }
 }

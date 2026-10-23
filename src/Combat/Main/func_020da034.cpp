@@ -2,16 +2,16 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct SlotManager020da034 {
-    unsigned char pad[8];
-    unsigned short usedMask;
-    unsigned char pad2[2];
-    int slots[1];
+struct Struct_020da034 {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[2];
+    int unknown_c_[1];
 };
 
 // USA: func_020da034
-extern "C" ARM void func_020da034(SlotManager020da034* mgr, int index) {
-    ((BackgroundLoader*)((int)BackgroundLoader::GetInstance()))->RemoveTask((int)(mgr->slots[index]));
-    mgr->slots[index] = -1;
-    mgr->usedMask &= ~(1 << index);
+extern "C" ARM void func_020da034(Struct_020da034* arg0, int arg1) {
+    ((BackgroundLoader*)((int)BackgroundLoader::GetInstance()))->RemoveTask((int)(arg0->unknown_c_[arg1]));
+    arg0->unknown_c_[arg1] = -1;
+    arg0->unknown_8_ &= ~(1 << arg1);
 }

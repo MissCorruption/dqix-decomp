@@ -2,42 +2,42 @@
 
 extern "C" void func_0204b620(void*, void*, int, int, int, int, int, int, int, int);
 
-struct Obj0204bab4 {
-    char pad0[0x14];
-    void* field14;
+struct Struct_0204bab4 {
+    char unknown_0_[0x14];
+    void* unknown_14_;
 };
 
-struct Pointish0204bab4 {
-    short x;
-    short y;
-    char pad4[8];
-    void* field0xc;
+struct Struct_0204bab4_2 {
+    short unknown_0_;
+    short unknown_2_;
+    char unknown_4_[8];
+    void* unknown_c_;
 };
 
 // USA: func_0204bab4
-extern "C" ARM void func_0204bab4(struct Obj0204bab4* obj, struct Pointish0204bab4* pt, int width, int height,
-                        int x0, short y0, int countX, int countY, unsigned short a9) {
-    int curX;
-    short curY;
-    short x, y;
+extern "C" ARM void func_0204bab4(struct Struct_0204bab4* arg0, struct Struct_0204bab4_2* arg1, int arg2, int arg3,
+                        int arg4, short arg5, int arg6, int arg7, unsigned short arg8) {
+    int var0;
+    short var1;
+    short var2, var3;
 
-    if (width <= 0 || height <= 0) return;
-    if (pt->field0xc == NULL) return;
+    if (arg2 <= 0 || arg3 <= 0) return;
+    if (arg1->unknown_c_ == NULL) return;
 
-    x = pt->x;
-    y = pt->y;
-    curY = y0;
-    if (x < width) width = x;
-    if (y < height) height = y;
+    var2 = arg1->unknown_0_;
+    var3 = arg1->unknown_2_;
+    var1 = arg5;
+    if (var2 < arg2) arg2 = var2;
+    if (var3 < arg3) arg3 = var3;
 
-    for (unsigned short j = 0; j < countY; j++) {
-        curX = x0;
-        for (unsigned short i = 0; i < countX; i++) {
-            if (obj->field14 != NULL) {
-                func_0204b620(obj, obj->field14, (int)pt, 0, 0, curX, curY, width, height, a9);
+    for (unsigned short var4 = 0; var4 < arg7; var4++) {
+        var0 = arg4;
+        for (unsigned short var5 = 0; var5 < arg6; var5++) {
+            if (arg0->unknown_14_ != NULL) {
+                func_0204b620(arg0, arg0->unknown_14_, (int)arg1, 0, 0, var0, var1, arg2, arg3, arg8);
             }
-            curX = (short)(curX + width);
+            var0 = (short)(var0 + arg2);
         }
-        curY = (short)(curY + height);
+        var1 = (short)(var1 + arg3);
     }
 }

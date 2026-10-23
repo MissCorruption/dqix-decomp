@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
 extern "C" void* func_0202ae24(void);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
 // USA: func_ov017_021cdd70
-extern "C" ARM void func_ov017_021cdd70(unsigned short a0, unsigned short a1, unsigned short a2, unsigned short a3, unsigned short a4, unsigned short a5, unsigned char a6) {
-	void* p = func_0202ae24();
-	unsigned char buf[0x14];
-	buf[0] = 0x6b;
-	unsigned char* b = buf + 4;
-	*(unsigned short*)(b + 0) = a0;
-	*(unsigned short*)(b + 2) = a1;
-	*(unsigned short*)(b + 4) = a2;
-	*(unsigned short*)(b + 6) = a3;
-	*(unsigned short*)(b + 0xa) = a4;
-	*(unsigned short*)(b + 8) = a5;
-	b[0xc] = a6;
-	func_0205e330(p, buf, 0);
+extern "C" ARM void func_ov017_021cdd70(unsigned short arg0, unsigned short arg1, unsigned short arg2, unsigned short arg3, unsigned short arg4, unsigned short arg5, unsigned char arg6) {
+	void* var0 = func_0202ae24();
+	unsigned char var1[0x14];
+	var1[0] = 0x6b;
+	unsigned char* var2 = var1 + 4;
+	*(unsigned short*)(var2 + 0) = arg0;
+	*(unsigned short*)(var2 + 2) = arg1;
+	*(unsigned short*)(var2 + 4) = arg2;
+	*(unsigned short*)(var2 + 6) = arg3;
+	*(unsigned short*)(var2 + 0xa) = arg4;
+	*(unsigned short*)(var2 + 8) = arg5;
+	var2[0xc] = arg6;
+	func_0205e330(var0, var1, 0);
 }

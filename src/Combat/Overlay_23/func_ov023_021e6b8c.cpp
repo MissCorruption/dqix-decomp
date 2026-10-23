@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-struct S_b20c {
-    int field_0;
-    int field_4;
-    unsigned char field_8;
+struct Struct_020200c0_4 {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_;
 };
-struct WeightedEntry021e6b8c {
-    int field_0;
-    short offset;
-    short field_6;
-    short width;
-    short height;
+struct Struct_ov023_021e6b8c {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    short unknown_a_;
 };
-struct SpriteFlags021e6b8c {
-    unsigned int field_0;
-    unsigned short flags;
+struct Struct_ov023_021e6b8c_2 {
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
 };
-struct SpriteHeader021e6b8c {
-    void* data;
-    SpriteFlags021e6b8c* flags;
+struct Struct_ov023_021e6b8c_3 {
+    void* unknown_0_;
+    Struct_ov023_021e6b8c_2* unknown_4_;
 };
-struct SpriteEntry021e6b8c : SpriteHeader021e6b8c {
-    unsigned char padding_8[0x20];
+struct Struct_ov023_021e6b8c_4 : Struct_ov023_021e6b8c_3 {
+    unsigned char unknown_8_[0x20];
 };
-struct Label021e6b8c {
-    short field_0;
-    short field_2;
-    const char* text;
-    const char* alternate;
-    unsigned char field_c;
-    unsigned char mode;
-    unsigned char index;
+struct Struct_ov023_021e6b8c_5 {
+    short unknown_0_;
+    short unknown_2_;
+    const char* unknown_4_;
+    const char* unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
 };
-struct LabelOwner021e6b8c {
-    Label021e6b8c* selected;
-    unsigned char padding_4[0x1a];
-    unsigned char flags;
-    unsigned char padding_1f;
-    unsigned char mode;
+struct Struct_ov023_021e6b8c_6 {
+    Struct_ov023_021e6b8c_5* unknown_0_;
+    unsigned char unknown_4_[0x1a];
+    unsigned char unknown_1e_;
+    unsigned char unknown_1f_;
+    unsigned char unknown_20_;
 };
-struct LabelState021e6b8c {
-    LabelOwner021e6b8c* owner;
-    unsigned char padding_4[0x1364 - 4];
-    SpriteEntry021e6b8c* sprites;
-    unsigned char padding_1368[8];
-    unsigned char index;
-    unsigned char mode;
-    unsigned char padding_1372[10];
-    void* buffer;
+struct Struct_ov023_021e6b8c_7 {
+    Struct_ov023_021e6b8c_6* unknown_0_;
+    unsigned char unknown_4_[0x1364 - 4];
+    Struct_ov023_021e6b8c_4* unknown_1364_;
+    unsigned char unknown_1368_[8];
+    unsigned char unknown_1370_;
+    unsigned char unknown_1371_;
+    unsigned char unknown_1372_[10];
+    void* unknown_137c_;
 };
-extern "C" void func_0205b20c(S_b20c*);
+extern "C" void func_0205b20c(Struct_020200c0_4*);
 extern "C" void func_0205b220(void*, int);
 extern "C" void func_0205b228(void*, int, unsigned char);
 extern "C" {
 void func_ov003_0215ec68(int, short*, short*);
-void func_0205b890(WeightedEntry021e6b8c*, int, SpriteEntry021e6b8c*);
+void func_0205b890(Struct_ov023_021e6b8c*, int, Struct_ov023_021e6b8c_4*);
 void* memcpy(void*, const void*, unsigned int);
 int func_020420e8(const char*, int);
 void func_0205b734(void*, short, short, short, short, short);
@@ -64,45 +64,45 @@ void LoadToMainObjVRAM(const void*, unsigned int, unsigned int);
 }
 
 // USA: func_ov023_021e6b8c
-extern "C" ARM void func_ov023_021e6b8c(LabelState021e6b8c* self, unsigned short address, Label021e6b8c* label, int size) {
-    if (self->mode != 14 || self->index <= 1 || self->index >= 10) return;
-    label = self->owner->selected;
-    if (label == 0 || label->index == 3) return;
-    SpriteEntry021e6b8c* sprite = &self->sprites[label->index + 15];
-    short x;
-    short y;
-    func_ov003_0215ec68(label->index, &x, &y);
-    WeightedEntry021e6b8c entries[3];
-    for (int i = 0; i < 3; i++) {
-        entries[i].field_0 = 0;
-        entries[i].offset = 0;
-        entries[i].field_6 = 0;
-        entries[i].width = 0;
-        entries[i].height = 0;
+extern "C" ARM void func_ov023_021e6b8c(Struct_ov023_021e6b8c_7* arg0, unsigned short arg1, Struct_ov023_021e6b8c_5* arg2, int arg3) {
+    if (arg0->unknown_1371_ != 14 || arg0->unknown_1370_ <= 1 || arg0->unknown_1370_ >= 10) return;
+    arg2 = arg0->unknown_0_->unknown_0_;
+    if (arg2 == 0 || arg2->unknown_e_ == 3) return;
+    Struct_ov023_021e6b8c_4* var0 = &arg0->unknown_1364_[arg2->unknown_e_ + 15];
+    short var1;
+    short var2;
+    func_ov003_0215ec68(arg2->unknown_e_, &var1, &var2);
+    Struct_ov023_021e6b8c var3[3];
+    for (int var4 = 0; var4 < 3; var4++) {
+        var3[var4].unknown_0_ = 0;
+        var3[var4].unknown_4_ = 0;
+        var3[var4].unknown_6_ = 0;
+        var3[var4].unknown_8_ = 0;
+        var3[var4].unknown_a_ = 0;
     }
-    func_0205b890(entries, 3, sprite);
-    int offset = 0;
-    size = 0;
-    for (int i = 0; i < 3; i++) {
-        entries[i].offset = offset;
-        offset += entries[i].width;
-        size += (entries[i].width * entries[i].height) >> 1;
+    func_0205b890(var3, 3, var0);
+    int var5 = 0;
+    arg3 = 0;
+    for (int var6 = 0; var6 < 3; var6++) {
+        var3[var6].unknown_4_ = var5;
+        var5 += var3[var6].unknown_8_;
+        arg3 += (var3[var6].unknown_8_ * var3[var6].unknown_a_) >> 1;
     }
-    SpriteHeader021e6b8c copy = *sprite;
-    address = (unsigned short)(copy.flags->flags & 0x3ff) << 5;
-    memcpy(self->buffer, (const void*)(0x6400000 + address), size);
-    unsigned char flags = self->owner->flags;
-    unsigned char mode = self->owner->mode;
-    const char* text = label->text;
-    if (label->mode == 0 && (mode != 0 || (flags & 2) != 0)) text = label->alternate;
-    int center = (x - func_020420e8(text, 1)) >> 1;
-    S_b20c destination;
-    func_0205b20c(&destination);
-    func_0205b220(&destination, (int)self->buffer);
-    func_0205b228(&destination, (int)entries, 3);
-    func_0205b734(&destination, 9, 9, (short)(x + 7), (short)(y + 7), 9);
-    func_0205b234(&destination, (short)(center + 8), 10, text, 2, 1);
-    CleanInvalidateCacheRange(self->buffer, size);
-    LoadToMainObjVRAM(self->buffer, address, size);
-    CleanCacheRange(self->buffer, size);
+    Struct_ov023_021e6b8c_3 var7 = *var0;
+    arg1 = (unsigned short)(var7.unknown_4_->unknown_4_ & 0x3ff) << 5;
+    memcpy(arg0->unknown_137c_, (const void*)(0x6400000 + arg1), arg3);
+    unsigned char var8 = arg0->unknown_0_->unknown_1e_;
+    unsigned char var9 = arg0->unknown_0_->unknown_20_;
+    const char* var10 = arg2->unknown_4_;
+    if (arg2->unknown_d_ == 0 && (var9 != 0 || (var8 & 2) != 0)) var10 = arg2->unknown_8_;
+    int var11 = (var1 - func_020420e8(var10, 1)) >> 1;
+    Struct_020200c0_4 var12;
+    func_0205b20c(&var12);
+    func_0205b220(&var12, (int)arg0->unknown_137c_);
+    func_0205b228(&var12, (int)var3, 3);
+    func_0205b734(&var12, 9, 9, (short)(var1 + 7), (short)(var2 + 7), 9);
+    func_0205b234(&var12, (short)(var11 + 8), 10, var10, 2, 1);
+    CleanInvalidateCacheRange(arg0->unknown_137c_, arg3);
+    LoadToMainObjVRAM(arg0->unknown_137c_, arg1, arg3);
+    CleanCacheRange(arg0->unknown_137c_, arg3);
 }

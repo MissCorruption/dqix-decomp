@@ -1,25 +1,25 @@
 #pragma once
 
-struct BackupDeviceSpec {
-    unsigned int totalSize;
-    unsigned int sectorSize;
-    unsigned int subsectorSize;
-    unsigned int pageSize;
-    unsigned int addressWidth;
-    unsigned int programPageTime;
-    unsigned int writePageTime;
-    unsigned int writePageTimeout;
-    unsigned int eraseChipTime;
-    unsigned int eraseChipTimeout;
-    unsigned int eraseSectorTime;
-    unsigned int eraseSectorTimeout;
-    unsigned int eraseSubsectorTime;
-    unsigned int eraseSubsectorTimeout;
-    unsigned int erasePageTime;
-    unsigned char initialStatus;
-    unsigned char padding55[3];
-    unsigned int capabilities;
-    unsigned int unknown5c;
+struct Struct_020d0078 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned int unknown_14_;
+    unsigned int unknown_18_;
+    unsigned int unknown_1c_;
+    unsigned int unknown_20_;
+    unsigned int unknown_24_;
+    unsigned int unknown_28_;
+    unsigned int unknown_2c_;
+    unsigned int unknown_30_;
+    unsigned int unknown_34_;
+    unsigned int unknown_38_;
+    unsigned char unknown_3c_;
+    unsigned char unknown_3d_[3];
+    unsigned int unknown_40_;
+    unsigned int unknown_44_;
 };
 
-extern "C" void func_020d0078(unsigned int type);
+extern "C" void func_020d0078(unsigned int arg0);

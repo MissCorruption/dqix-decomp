@@ -9,11 +9,11 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" char* func_020467c0(void* a, char* b, unsigned int* outSize);
-extern "C" int func_020b01a4(void* file, void** out);
-struct Hdr02b0288;
-extern "C" int func_020b01f0(struct Hdr02b0288* h, void** out);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" char* func_020467c0(void* arg0, char* arg1, unsigned int* arg2);
+extern "C" int func_020b01a4(void* arg0, void** arg1);
+struct Struct_0205ab78;
+extern "C" int func_020b01f0(struct Struct_0205ab78* arg0, void** arg1);
 extern "C" void func_020c9be0(void);
 
 extern AllocatorUnion data_02114e20;
@@ -22,68 +22,68 @@ extern const char data_020f290c;
 extern const char data_020f2925;
 extern const char data_020f2936;
 
-struct CharBlockData020db0f0 {
-    char pad[0x10];
-    unsigned int size;
-    void* data;
+struct Struct_020db0f0 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_;
+    void* unknown_14_;
 };
 
-struct PlttChunkData020db0f0 {
-    char pad[0xc];
-    void* data;
+struct Struct_020db0f0_2 {
+    char unknown_0_[0xc];
+    void* unknown_c_;
 };
 
-struct Manager020db0f0 {
-    SafeAllocator allocator;
-    char pad[0x40 - sizeof(SafeAllocator)];
-    void* charBuf;
-    unsigned int charBufSize;
-    void* plttBuf;
-    unsigned int plttBufSize;
+struct Struct_02000c9c_18 {
+    SafeAllocator unknown_0_;
+    char unknown_14_[0x40 - sizeof(SafeAllocator)];
+    void* unknown_40_;
+    unsigned int unknown_44_;
+    void* unknown_48_;
+    unsigned int unknown_4c_;
 };
 
 // USA: func_020db0f0
-extern "C" ARM void func_020db0f0(Manager020db0f0* mgr) {
-    unsigned int fileLength;
-    unsigned int characterFileLength;
-    unsigned int paletteFileLength;
-    char* ncgrEntry;
-    Hdr02b0288* nclrEntry;
-    CharBlockData020db0f0* charBlock;
-    PlttChunkData020db0f0* plttChunk;
-    void* buf;
+extern "C" ARM void func_020db0f0(Struct_02000c9c_18* arg0) {
+    unsigned int var0;
+    unsigned int var1;
+    unsigned int var2;
+    char* var3;
+    Struct_0205ab78* var4;
+    Struct_020db0f0* var5;
+    Struct_020db0f0_2* var6;
+    void* var7;
 
-    mgr->allocator.CreateTypeA(func_02012d88(&data_02114e20, 0x300), 0x300);
-    mgr->allocator.Reset();
+    arg0->unknown_0_.CreateTypeA(func_02012d88(&data_02114e20, 0x300), 0x300);
+    arg0->unknown_0_.Reset();
     BackgroundLoader::AddLockGlobal();
 
-    buf = data_0211e33c;
+    var7 = data_0211e33c;
 
-    fileLength = 0;
-    LoadFileIntoMemory(&data_020f290c, buf, &fileLength);
+    var0 = 0;
+    LoadFileIntoMemory(&data_020f290c, var7, &var0);
 
-    characterFileLength = 0;
-    paletteFileLength = 0;
-    ncgrEntry = func_020467c0(buf, (char*)&data_020f2925, &characterFileLength);
-    nclrEntry = (Hdr02b0288*)func_020467c0(buf, (char*)&data_020f2936, &paletteFileLength);
+    var1 = 0;
+    var2 = 0;
+    var3 = func_020467c0(var7, (char*)&data_020f2925, &var1);
+    var4 = (Struct_0205ab78*)func_020467c0(var7, (char*)&data_020f2936, &var2);
 
-    charBlock = NULL;
-    if (!func_020b01a4(ncgrEntry, (void**)&charBlock)) {
+    var5 = NULL;
+    if (!func_020b01a4(var3, (void**)&var5)) {
         func_020c9be0();
     }
 
-    mgr->charBufSize = charBlock->size;
-    mgr->charBuf = mgr->allocator.Allocate(mgr->charBufSize);
-    VectorizedInvertedMemcpy(charBlock->data, mgr->charBuf, mgr->charBufSize);
+    arg0->unknown_44_ = var5->unknown_10_;
+    arg0->unknown_40_ = arg0->unknown_0_.Allocate(arg0->unknown_44_);
+    VectorizedInvertedMemcpy(var5->unknown_14_, arg0->unknown_40_, arg0->unknown_44_);
 
-    plttChunk = NULL;
-    if (!func_020b01f0(nclrEntry, (void**)&plttChunk)) {
+    var6 = NULL;
+    if (!func_020b01f0(var4, (void**)&var6)) {
         func_020c9be0();
     }
 
-    mgr->plttBufSize = 0x20;
-    mgr->plttBuf = mgr->allocator.Allocate(mgr->plttBufSize);
-    VectorizedInvertedMemcpy(plttChunk->data, mgr->plttBuf, mgr->plttBufSize);
+    arg0->unknown_4c_ = 0x20;
+    arg0->unknown_48_ = arg0->unknown_0_.Allocate(arg0->unknown_4c_);
+    VectorizedInvertedMemcpy(var6->unknown_c_, arg0->unknown_48_, arg0->unknown_4c_);
 
     BackgroundLoader::RemoveLockGlobal();
 }

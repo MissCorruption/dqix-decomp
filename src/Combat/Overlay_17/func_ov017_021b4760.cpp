@@ -2,17 +2,17 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct Obj021b4760 {
-	char pad[0xc];
-	int fieldc;
+struct Struct_ov017_0219dc90_4 {
+	char unknown_0_[0xc];
+	int unknown_c_;
 };
 
 // USA: func_ov017_021b4760
-extern "C" ARM void func_ov017_021b4760(struct Obj021b4760* self) {
-	int x = (int)BackgroundLoader::GetInstance();
-	if (self->fieldc <= -1) {
+extern "C" ARM void func_ov017_021b4760(struct Struct_ov017_0219dc90_4* arg0) {
+	int var0 = (int)BackgroundLoader::GetInstance();
+	if (arg0->unknown_c_ <= -1) {
 		return;
 	}
-	((BackgroundLoader*)(x))->RemoveTask((int)(self->fieldc));
-	self->fieldc = -1;
+	((BackgroundLoader*)(var0))->RemoveTask((int)(arg0->unknown_c_));
+	arg0->unknown_c_ = -1;
 }

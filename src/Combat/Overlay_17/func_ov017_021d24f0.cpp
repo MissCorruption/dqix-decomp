@@ -2,40 +2,40 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct ListHead02046b60;
-extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 
-struct TailNode020469b4;
-struct TailList020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
+struct Struct_0201bdac;
+struct Struct_0201bdac_2;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
 
-extern "C" void func_ov017_021c2b28(void* objRaw, unsigned char a, unsigned char b);
+extern "C" void func_ov017_021c2b28(void* arg0, unsigned char arg1, unsigned char arg2);
 
-struct Node021d24f0 {
-    char pad0[4];
-    unsigned char field4;
-    char pad1[3];
-    int field8;
+struct Struct_ov017_021d24f0 {
+    char unknown_0_[4];
+    unsigned char unknown_4_;
+    char unknown_5_[3];
+    int unknown_8_;
 };
 
 // USA: func_ov017_021d24f0
-extern "C" ARM void func_ov017_021d24f0(void* unused0, Node021d24f0* node, GameState* battleStruct) {
+extern "C" ARM void func_ov017_021d24f0(void* arg0, Struct_ov017_021d24f0* arg1, GameState* arg2) {
 #if defined(jpn)
- enum {regionalOffset0=0x4ec, regionalOffset1=0x990};
+ enum {Enum_ov017_021d24f0_1788=0x4ec, Enum_ov017_021d24f0_2992=0x990};
 #else
- enum {regionalOffset0=0x6fc, regionalOffset1=0xbb0};
+ enum {Enum_ov017_021d24f0_1788=0x6fc, Enum_ov017_021d24f0_2992=0xbb0};
 #endif
-    int base = ((int)GetGameResources());
-    struct TailList020469b4* list = *(struct TailList020469b4**)((char*)base + 0x3000 + regionalOffset0);
-    if (func_02046b60((struct ListHead02046b60*)list, 0xa)) return;
-    GameObject* c = battleStruct->GetUnknownGameObject();
-    unsigned short u = ((Object3D*)((struct U16Field0x6_020375f8*)c))->GetField06();
-    if (node->field8 != u) return;
-    if (func_02046b60((struct ListHead02046b60*)list, 0x1a)) return;
-    struct TailNode020469b4* n2 = *(struct TailNode020469b4**)((char*)base + 0x3000 + regionalOffset1);
-    if (*((unsigned char*)n2 + 2) != 0) return;
-    func_ov017_021c2b28((void*)n2, 1, node->field4);
-    func_020469b4(list, n2);
+    int var0 = ((int)GetGameResources());
+    struct Struct_0201bdac_2* var1 = *(struct Struct_0201bdac_2**)((char*)var0 + 0x3000 + Enum_ov017_021d24f0_1788);
+    if (func_02046b60((struct Struct_02038598_5*)var1, 0xa)) return;
+    GameObject* var2 = arg2->GetUnknownGameObject();
+    unsigned short var3 = ((Object3D*)((struct Struct_02039df4*)var2))->GetField06();
+    if (arg1->unknown_8_ != var3) return;
+    if (func_02046b60((struct Struct_02038598_5*)var1, 0x1a)) return;
+    struct Struct_0201bdac* var4 = *(struct Struct_0201bdac**)((char*)var0 + 0x3000 + Enum_ov017_021d24f0_2992);
+    if (*((unsigned char*)var4 + 2) != 0) return;
+    func_ov017_021c2b28((void*)var4, 1, arg1->unknown_4_);
+    func_020469b4(var1, var4);
 }

@@ -3,129 +3,129 @@
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
 
-struct ListHead02046b60;
+struct Struct_02038598_5;
 
-struct Event_021c5c5c {
-    char pad0[8];
-    unsigned short targetId;
+struct Struct_ov017_021c5c5c {
+    char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct Node718_021c5c5c {
-    char pad0[2];
-    unsigned char active;
+struct Struct_ov017_021c5c5c_2 {
+    char unknown_0_[2];
+    unsigned char unknown_2_;
 };
 
-struct NodeB0c_021c5c5c {
-    char pad0;
-    unsigned char field1;
-    char pad2;
-    unsigned char field3;
-    char pad4[0x64 - 4];
-    int field64;
+struct Struct_ov017_021c5c5c_3 {
+    char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_;
+    unsigned char unknown_3_;
+    char unknown_4_[0x64 - 4];
+    int unknown_64_;
 };
 
-struct Ctx_021c5c5c {
+struct Struct_ov017_021c5c5c_4 {
 #if defined(jpn)
-    char pad0[0x34ec];
+    char unknown_0_[0x34ec];
 #else
-    char pad0[0x36fc];
+    char unknown1_0_[0x36fc];
 #endif
-    ListHead02046b60* list;
-    char pad3700[0x3718 - 0x3700];
-    Node718_021c5c5c* node718;
+    Struct_02038598_5* unknown_36fc_;
+    char unknown_3700_[0x3718 - 0x3700];
+    Struct_ov017_021c5c5c_2* unknown_3718_;
 #if defined(jpn)
-    char pad371c[0x38ec - 0x350c];
+    char unknown_350c_[0x38ec - 0x350c];
 #else
-    char pad371c[0x3b0c - 0x371c];
+    char unknown_371c_[0x3b0c - 0x371c];
 #endif
-    NodeB0c_021c5c5c* nodeB0c;
-    char pad3b10[0x42e7 - 0x3b10];
-    unsigned char busy;
+    Struct_ov017_021c5c5c_3* unknown_3b0c_;
+    char unknown_3b10_[0x42e7 - 0x3b10];
+    unsigned char unknown_42e7_;
 };
 
-struct Status_021c5c5c {
-    unsigned int flags;
+struct Struct_ov017_021c5c5c_5 {
+    unsigned int unknown_0_;
 };
 
-struct Combatant_021c5c5c {
-    Object3D obj3D;
-    char padAc[0xc3 - 0xac];
-    unsigned char fieldC3;
-    char padC4[0x130 - 0xc4];
-    Status_021c5c5c* status;
-    char pad134[0x17d - 0x134];
-    unsigned char flags17d;
+struct Struct_ov017_021c5c5c_6 {
+    Object3D unknown_0_;
+    char unknown_ac_[0xc3 - 0xac];
+    unsigned char unknown_c3_;
+    char unknown_c4_[0x130 - 0xc4];
+    Struct_ov017_021c5c5c_5* unknown_130_;
+    char unknown_134_[0x17d - 0x134];
+    unsigned char unknown_17d_;
 #if defined(jpn)
-    char pad17e[0x180 - 0x17e];
+    char unknown_17e_[0x180 - 0x17e];
 #else
-    char pad17e[0x18c - 0x17e];
+    char unknown1_17e_[0x18c - 0x17e];
 #endif
-    unsigned int flags18c;
+    unsigned int unknown_18c_;
 };
 
-extern "C" Event_021c5c5c* func_ov017_021b8478(Node718_021c5c5c* node);
-extern "C" Combatant_021c5c5c* func_ov017_021a278c(void* base, int val);
-extern "C" unsigned char func_02039d7c(char* obj);
-extern "C" int func_02046b60(ListHead02046b60* list, int id);
-extern "C" void func_ov017_021ab010(void* obj, int flag);
-extern "C" int func_02046b08(void** list);
+extern "C" Struct_ov017_021c5c5c* func_ov017_021b8478(Struct_ov017_021c5c5c_2* arg0);
+extern "C" Struct_ov017_021c5c5c_6* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" unsigned char func_02039d7c(char* arg0);
+extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" void func_ov017_021ab010(void* arg0, int arg1);
+extern "C" int func_02046b08(void** arg0);
 
 // USA: func_ov017_021c5c5c
-extern "C" ARM int func_ov017_021c5c5c(int unused, int id) {
-    GameState* gs = GameState::GetInstance();
-    Ctx_021c5c5c* ctx = (Ctx_021c5c5c*)GetGameResources();
-    Combatant_021c5c5c* leader;
-    ListHead02046b60* list = ctx->list;
-    leader = (Combatant_021c5c5c*)gs->GetUnknownGameObject();
-    if (leader == NULL) {
+extern "C" ARM int func_ov017_021c5c5c(int arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov017_021c5c5c_4* var1 = (Struct_ov017_021c5c5c_4*)GetGameResources();
+    Struct_ov017_021c5c5c_6* var2;
+    Struct_02038598_5* var3 = var1->unknown_36fc_;
+    var2 = (Struct_ov017_021c5c5c_6*)var0->GetUnknownGameObject();
+    if (var2 == NULL) {
         return 0;
     }
-    if (ctx->busy != 0) {
+    if (var1->unknown_42e7_ != 0) {
         return 0;
     }
-    if (ctx->node718->active != 0) {
-        Event_021c5c5c* ev = func_ov017_021b8478(ctx->node718);
-        if (ev->targetId == id) {
+    if (var1->unknown_3718_->unknown_2_ != 0) {
+        Struct_ov017_021c5c5c* var4 = func_ov017_021b8478(var1->unknown_3718_);
+        if (var4->unknown_8_ == arg1) {
             return 1;
         }
     }
-    if (!(leader->status->flags & 1) && !(leader->flags18c & 1) && (int)leader->fieldC3 > 0) {
+    if (!(var2->unknown_130_->unknown_0_ & 1) && !(var2->unknown_18c_ & 1) && (int)var2->unknown_c3_ > 0) {
         return 0;
     }
 
-    Combatant_021c5c5c* other = func_ov017_021a278c(ctx, id);
-    if (other == NULL) {
+    Struct_ov017_021c5c5c_6* var5 = func_ov017_021a278c(var1, arg1);
+    if (var5 == NULL) {
         return 0;
     }
-    unsigned char claimed = other->flags17d & 0x80;
-    if (claimed) {
+    unsigned char var6 = var5->unknown_17d_ & 0x80;
+    if (var6) {
         return 0;
     }
-    other->flags17d |= 0x80;
+    var5->unknown_17d_ |= 0x80;
 
-    if (leader->obj3D.GetField06() != other->obj3D.GetField06()) {
+    if (var2->unknown_0_.GetField06() != var5->unknown_0_.GetField06()) {
         return 0;
     }
-    if (func_02039d7c((char*)leader) != 0) {
-        return 0;
-    }
-
-    Vector3fix leaderPos = leader->obj3D.position_;
-    Vector3fix otherPos = other->obj3D.position_;
-    if (fix32abs(leaderPos.y - otherPos.y) > 0x1800) {
-        return 0;
-    }
-    if (Vector3fix_Distance(&otherPos, &leaderPos) > 0xf000) {
+    if (func_02039d7c((char*)var2) != 0) {
         return 0;
     }
 
-    NodeB0c_021c5c5c* node = ctx->nodeB0c;
-    if (func_02046b60(list, 0x1a) && node->field64 != 0) {
+    Vector3fix var7 = var2->unknown_0_.position_;
+    Vector3fix var8 = var5->unknown_0_.position_;
+    if (fix32abs(var7.y - var8.y) > 0x1800) {
         return 0;
     }
-    if (node->field3 != 0 && node->field1 == 0) {
-        func_ov017_021ab010(node, 0);
-    } else if (!func_02046b08((void**)list)) {
+    if (Vector3fix_Distance(&var8, &var7) > 0xf000) {
+        return 0;
+    }
+
+    Struct_ov017_021c5c5c_3* var9 = var1->unknown_3b0c_;
+    if (func_02046b60(var3, 0x1a) && var9->unknown_64_ != 0) {
+        return 0;
+    }
+    if (var9->unknown_3_ != 0 && var9->unknown_1_ == 0) {
+        func_ov017_021ab010(var9, 0);
+    } else if (!func_02046b08((void**)var3)) {
         return 0;
     }
     return 1;

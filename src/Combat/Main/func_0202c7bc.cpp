@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 
-struct Struct0205e16c;
-extern "C" ARM void func_0205e16c(struct Struct0205e16c* p);
-extern "C" void func_0205e22c(void* obj);
+struct Struct_0202c7bc_2;
+extern "C" ARM void func_0205e16c(struct Struct_0202c7bc_2* arg0);
+extern "C" void func_0205e22c(void* arg0);
 
-struct BattleElem0202c7bc {
-    unsigned char pad[0x14];
-    unsigned short at14;
-    unsigned short at16;
-    unsigned int at18;
+struct Struct_0202c7bc {
+    unsigned char unknown_0_[0x14];
+    unsigned short unknown_14_;
+    unsigned short unknown_16_;
+    unsigned int unknown_18_;
 };
 
 // USA: func_0202c7bc
-extern "C" ARM void* func_0202c7bc(void* obj) {
-    struct BattleElem0202c7bc* p = (struct BattleElem0202c7bc*)obj;
-    struct BattleElem0202c7bc* end = (struct BattleElem0202c7bc*)((char*)obj + 0x1500);
+extern "C" ARM void* func_0202c7bc(void* arg0) {
+    struct Struct_0202c7bc* var0 = (struct Struct_0202c7bc*)arg0;
+    struct Struct_0202c7bc* var1 = (struct Struct_0202c7bc*)((char*)arg0 + 0x1500);
     do {
-        p->at14 = 0;
-        p->at16 = 0;
-        p->at18 = 0;
-        p++;
-    } while (p < end);
-    func_0205e16c((struct Struct0205e16c*)((char*)obj + 0x1500));
-    func_0205e16c((struct Struct0205e16c*)((char*)obj + 0x150c));
-    func_0205e16c((struct Struct0205e16c*)((char*)obj + 0x1518));
-    func_0205e22c(obj);
-    return obj;
+        var0->unknown_14_ = 0;
+        var0->unknown_16_ = 0;
+        var0->unknown_18_ = 0;
+        var0++;
+    } while (var0 < var1);
+    func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x1500));
+    func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x150c));
+    func_0205e16c((struct Struct_0202c7bc_2*)((char*)arg0 + 0x1518));
+    func_0205e22c(arg0);
+    return arg0;
 }

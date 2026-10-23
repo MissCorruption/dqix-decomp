@@ -1,54 +1,54 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue840_860 = 0x860 };
+enum { Enum_ov003_02170898_2112 = 0x860 };
 #else
-enum { kRegionValue840_860 = 0x840 };
+enum { Enum_ov003_02170898_2112 = 0x840 };
 #endif
 
 extern "C" void* func_02012fe4(void);
 
-struct Elem020985ec {
-    unsigned char pad0[0x10];
-    unsigned int key;
-    unsigned char pad1[0xd4];
+struct Struct_020985ec {
+    unsigned char unknown_0_[0x10];
+    unsigned int unknown_10_;
+    unsigned char unknown_14_[0xd4];
 };
 
-struct Ctx020985ec {
-    unsigned char pad[0x1b38];
-    int count;
+struct Struct_ov003_02170898 {
+    unsigned char unknown_0_[0x1b38];
+    int unknown_1b38_;
 };
 
 // USA: func_ov003_02170898
-extern "C" ARM void func_ov003_02170898(unsigned char* self) {
-    struct Elem020985ec* arr = (struct Elem020985ec*)((char*)func_02012fe4() + kRegionValue840_860);
-    int count = (*(struct Ctx020985ec**)(self + 0x170))->count;
+extern "C" ARM void func_ov003_02170898(unsigned char* arg0) {
+    struct Struct_020985ec* var0 = (struct Struct_020985ec*)((char*)func_02012fe4() + Enum_ov003_02170898_2112);
+    int var1 = (*(struct Struct_ov003_02170898**)(arg0 + 0x170))->unknown_1b38_;
 
-    int i;
-    for (i = 0; i < 0x1e; i++) {
-        *(int*)(self + i * 4 + 0xf4) = 0;
+    int var2;
+    for (var2 = 0; var2 < 0x1e; var2++) {
+        *(int*)(arg0 + var2 * 4 + 0xf4) = 0;
     }
 
-    int n;
-    int j = 0;
-    for (n = 0; n < 0x1e; n++) {
-        struct Elem020985ec* e = &arr[n];
-        if ((e->key >> 2) != 0) {
-            *(struct Elem020985ec**)(self + j * 4 + 0xf4) = e;
-            j++;
+    int var3;
+    int var4 = 0;
+    for (var3 = 0; var3 < 0x1e; var3++) {
+        struct Struct_020985ec* var5 = &var0[var3];
+        if ((var5->unknown_10_ >> 2) != 0) {
+            *(struct Struct_020985ec**)(arg0 + var4 * 4 + 0xf4) = var5;
+            var4++;
         }
     }
 
-    int divRaw = (count - 1) / 8 + 1;
-    self[4] = divRaw;
-    if (self[0] > self[4]) self[0] = self[4];
+    int var6 = (var1 - 1) / 8 + 1;
+    arg0[4] = var6;
+    if (arg0[0] > arg0[4]) arg0[0] = arg0[4];
 
-    if (self[0] == self[4]) {
-        int mod = count % 8;
-        if (mod != 0) {
-            self[5] = (unsigned char)mod;
+    if (arg0[0] == arg0[4]) {
+        int var7 = var1 % 8;
+        if (var7 != 0) {
+            arg0[5] = (unsigned char)var7;
             return;
         }
     }
-    self[5] = 8;
+    arg0[5] = 8;
 }

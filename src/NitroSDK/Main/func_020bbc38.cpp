@@ -2,19 +2,19 @@
 
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 
-typedef int (*JobFn020bbc38)(int, int, int);
-extern JobFn020bbc38 data_020e92a8[];
+typedef int (*Type_020bbc38)(int, int, int);
+extern Type_020bbc38 data_020e92a8[];
 
-struct Job020bbc38 {
-    int idx;    // +0x0
-    int addr;   // +0x4
-    int mid;    // +0x8
-    int size;   // +0xc
+struct Struct_020bbc38 {
+    int unknown_0_;    // +0x0
+    int unknown_4_;   // +0x4
+    int unknown_8_;    // +0x8
+    int unknown_c_;   // +0xc
 };
 
 // USA: func_020bbc38
-extern "C" ARM int func_020bbc38(Job020bbc38* job) {
-    JobFn020bbc38 fn = data_020e92a8[job->idx];
-    CleanInvalidateCacheRange((const void*)(job->addr), job->size);
-    return fn(job->addr, job->mid, job->size);
+extern "C" ARM int func_020bbc38(Struct_020bbc38* arg0) {
+    Type_020bbc38 var0 = data_020e92a8[arg0->unknown_0_];
+    CleanInvalidateCacheRange((const void*)(arg0->unknown_4_), arg0->unknown_c_);
+    return var0(arg0->unknown_4_, arg0->unknown_8_, arg0->unknown_c_);
 }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 // USA: func_0202e5c8
-extern "C" ARM void func_0202e5c8(unsigned char* obj, int a, int b, int c) {
-    *(int*)(obj + 0x10) = a;
-    *(int*)(obj + 0x14) = b;
-    *(int*)(obj + 0x18) = c;
+extern "C" ARM void func_0202e5c8(unsigned char* arg0, int arg1, int arg2, int arg3) {
+    *(int*)(arg0 + 0x10) = arg1;
+    *(int*)(arg0 + 0x14) = arg2;
+    *(int*)(arg0 + 0x18) = arg3;
 }

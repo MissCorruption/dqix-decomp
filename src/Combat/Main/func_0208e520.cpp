@@ -13,8 +13,8 @@
 #define data_020f1290 data_020f1360
 #endif
 
-extern "C" void __clear(void* buf, int count);
-extern "C" int func_02001aec(const void* a, const void* b, unsigned int length);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_02001aec(const void* arg0, const void* arg1, unsigned int arg2);
 
 extern char data_020f12b8[];
 extern char data_020f12bf[];
@@ -24,68 +24,68 @@ extern char data_020f12fb[];
 extern Script::OpcodeLookupEntry data_020f1278[];
 extern Script::OpcodeLookupEntry data_020f1290[];
 
-struct Obj0208e4f8 {
-    char field0[4];
-    int field4;
-    short field8;
-    unsigned char fielda;
+struct Struct_0208e4f8 {
+    char unknown_0_[4];
+    int unknown_4_;
+    short unknown_8_;
+    unsigned char unknown_a_;
 };
 
-extern "C" void func_0208e4f8(struct Obj0208e4f8*);
+extern "C" void func_0208e4f8(struct Struct_0208e4f8*);
 
 // USA: func_0208e520
-extern "C" ARM void func_0208e520(struct Obj0208e4f8* p, char* name) {
-    char path[0x40];
-    unsigned int len;
-    char tag[4];
-    unsigned int fileLen;
-    const void* fileData;
+extern "C" ARM void func_0208e520(struct Struct_0208e4f8* arg0, char* arg1) {
+    char var0[0x40];
+    unsigned int var1;
+    char var2[4];
+    unsigned int var3;
+    const void* var4;
 
     if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) {
         return;
     }
     BackgroundLoader::AddLockGlobal();
-    len = 0;
-    if (func_02001aec(name, data_020f12b8, 6) == 0 && func_02001aec(name, p->field0, 3) != 0 &&
-        LoadFileIntoMemory(data_020f12bf, data_0211e33c, &len)) {
-        func_0208e4f8(p);
-        Script scriptC;
-        scriptC.Initialize();
-        scriptC.SetOpcodeLookup(data_020f1278);
-        scriptC.Load(data_0211e33c, len);
-        scriptC.Execute();
-        strncpy(p->field0, name, 3);
+    var1 = 0;
+    if (func_02001aec(arg1, data_020f12b8, 6) == 0 && func_02001aec(arg1, arg0->unknown_0_, 3) != 0 &&
+        LoadFileIntoMemory(data_020f12bf, data_0211e33c, &var1)) {
+        func_0208e4f8(arg0);
+        Script var5;
+        var5.Initialize();
+        var5.SetOpcodeLookup(data_020f1278);
+        var5.Load(data_0211e33c, var1);
+        var5.Execute();
+        strncpy(arg0->unknown_0_, arg1, 3);
     }
-    if (name[0] != 'F') {
+    if (arg1[0] != 'F') {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    if (func_02001aec(name, p->field0, 3) == 0) {
+    if (func_02001aec(arg1, arg0->unknown_0_, 3) == 0) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    __clear(tag, 4);
-    strncpy(tag, name, 3);
-    __clear(path, 0x40);
-    sprintf(path, data_020f12d3, tag);
-    if (LoadFileIntoMemory(data_020f12e1, data_0211e33c, &len)) {
-        if (p->fielda == 0 && GetFileInNarc(data_0211e33c, data_020f12fb, &fileData, &fileLen, 0)) {
-            Script scriptB;
-            scriptB.Initialize();
-            scriptB.SetOpcodeLookup(data_020f1290);
-            scriptB.Load(fileData, fileLen);
-            scriptB.Execute();
-            p->fielda = 1;
+    __clear(var2, 4);
+    strncpy(var2, arg1, 3);
+    __clear(var0, 0x40);
+    sprintf(var0, data_020f12d3, var2);
+    if (LoadFileIntoMemory(data_020f12e1, data_0211e33c, &var1)) {
+        if (arg0->unknown_a_ == 0 && GetFileInNarc(data_0211e33c, data_020f12fb, &var4, &var3, 0)) {
+            Script var6;
+            var6.Initialize();
+            var6.SetOpcodeLookup(data_020f1290);
+            var6.Load(var4, var3);
+            var6.Execute();
+            arg0->unknown_a_ = 1;
         }
-        func_0208e4f8(p);
-        if (GetFileInNarc(data_0211e33c, path, &fileData, &fileLen, 0)) {
-            Script scriptA;
-            scriptA.Initialize();
-            scriptA.SetOpcodeLookup(data_020f1290);
-            scriptA.Load(fileData, fileLen);
-            scriptA.Execute();
+        func_0208e4f8(arg0);
+        if (GetFileInNarc(data_0211e33c, var0, &var4, &var3, 0)) {
+            Script var7;
+            var7.Initialize();
+            var7.SetOpcodeLookup(data_020f1290);
+            var7.Load(var4, var3);
+            var7.Execute();
         }
-        strcpy(p->field0, tag);
+        strcpy(arg0->unknown_0_, var2);
     }
     BackgroundLoader::RemoveLockGlobal();
 }

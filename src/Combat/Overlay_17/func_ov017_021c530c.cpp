@@ -2,404 +2,404 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" void __clear(void* buf, int size);
-extern "C" int func_02010038(GameState* battleStruct, unsigned char* out);
-struct Obj02053f7c;
-extern "C" void func_02053f7c(Obj02053f7c*, unsigned short, int);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
+struct Struct_02053f7c_3;
+extern "C" void func_02053f7c(Struct_02053f7c_3*, unsigned short, int);
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c508(void* search);
+extern "C" int func_0202c508(void* arg0);
 extern "C" void func_ov017_021cdaa0(void);
-extern "C" int func_ov017_021c5bf8(int index, int key);
+extern "C" int func_ov017_021c5bf8(int arg0, int arg1);
 extern "C" void func_ov017_021c5e28(int, int);
-extern "C" void func_ov017_021c5a8c(int a, int key);
-extern "C" int func_ov017_021c5a1c(int val);
+extern "C" void func_ov017_021c5a8c(int arg0, int arg1);
+extern "C" int func_ov017_021c5a1c(int arg0);
 extern "C" void* func_0207d78c(void);
-extern "C" int func_0207d7f4(void* entries, unsigned short id, int charId, int flag,
-                             signed char field4, unsigned short field2, unsigned char field5);
-extern "C" int func_ov017_021c5c5c(int index, int id, int arg);
-extern "C" void func_ov017_021c5b44(unsigned char arg0, int combatantId, unsigned int arg2, unsigned char arg3, unsigned char arg4);
-extern "C" void func_0207dcf0(unsigned short id);
-extern "C" GameObject* func_ov017_021a278c(void* base, int val);
-extern "C" void func_02076ccc(void* obj, int mode);
-struct Event021c530c;
-extern "C" Event021c530c* func_ov017_021b8478(void* node);
-extern "C" int func_02046b08(void** list);
-struct Src021c5f00 { unsigned short w0; unsigned short w2; unsigned char b4; unsigned char b5; unsigned char b6; };
-extern "C" void func_ov017_021c5f00(Src021c5f00* src);
-struct ListHead02046b38;
-struct ListNode02046b38;
-extern "C" int func_02046b38(struct ListHead02046b38* list, struct ListNode02046b38* target);
-extern "C" void func_ov017_021b6f18(void* node);
-extern "C" void func_ov017_02196c08(unsigned char* obj);
-extern "C" bool func_ov017_021b6e70(void* obj, int combatantId);
-extern "C" void func_ov017_021b7104(void* node, void* src);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
-extern "C" void func_ov017_021a7a74(void* unused, void* src);
-extern "C" int func_ov017_0219735c(unsigned char* obj, unsigned short key);
-extern "C" void func_ov017_021972f8(void* obj, unsigned short val);
-struct ListHead02046b60;
-extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
-extern "C" unsigned short func_ov017_021bb9f4(void* obj);
-extern "C" short func_ov017_021bb9fc(void* obj);
-extern "C" void func_ov017_021bb9ec(void* obj, unsigned short v);
+extern "C" int func_0207d7f4(void* arg0, unsigned short arg1, int arg2, int arg3,
+                             signed char arg4, unsigned short arg5, unsigned char arg6);
+extern "C" int func_ov017_021c5c5c(int arg0, int arg1, int arg2);
+extern "C" void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned int arg2, unsigned char arg3, unsigned char arg4);
+extern "C" void func_0207dcf0(unsigned short arg0);
+extern "C" GameObject* func_ov017_021a278c(void* arg0, int arg1);
+extern "C" void func_02076ccc(void* arg0, int arg1);
+struct Struct_ov017_021c530c;
+extern "C" Struct_ov017_021c530c* func_ov017_021b8478(void* arg0);
+extern "C" int func_02046b08(void** arg0);
+struct Struct_ov017_021c530c_2 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned char unknown_4_; unsigned char unknown_5_; unsigned char unknown_6_; };
+extern "C" void func_ov017_021c5f00(Struct_ov017_021c530c_2* arg0);
+struct Struct_02046b38;
+struct Struct_02046b38_2;
+extern "C" int func_02046b38(struct Struct_02046b38* arg0, struct Struct_02046b38_2* arg1);
+extern "C" void func_ov017_021b6f18(void* arg0);
+extern "C" void func_ov017_02196c08(unsigned char* arg0);
+extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
+extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+extern "C" void func_ov017_021a7a74(void* arg0, void* arg1);
+extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
+extern "C" void func_ov017_021972f8(void* arg0, unsigned short arg1);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+extern "C" unsigned short func_ov017_021bb9f4(void* arg0);
+extern "C" short func_ov017_021bb9fc(void* arg0);
+extern "C" void func_ov017_021bb9ec(void* arg0, unsigned short arg1);
 extern "C" void* func_02012fe4(void);
 
-struct Cmd021c530c {
-    unsigned char pad0[4];
-    unsigned short id;
-    unsigned short field6;
-    unsigned char field8;
-    unsigned char field9;
-    unsigned short fielda;
-    unsigned char fieldc;
-    unsigned char fieldd;
-    unsigned short fielde;
-    unsigned char field10;
+struct Struct_ov017_021c530c_3 {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned short unknown_a_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned short unknown_e_;
+    unsigned char unknown_10_;
 };
 
-struct Event021c530c {
-    unsigned char pad0[8];
-    unsigned short targetId;
+struct Struct_ov017_021c530c {
+    unsigned char unknown_0_[8];
+    unsigned short unknown_8_;
 };
 
-struct Node021c530c {
-    unsigned char pad0[2];
-    unsigned char active;
+struct Struct_ov017_021c530c_4 {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_;
 };
 
-struct Leader021c530c {
-    Object3D obj3D;
-    unsigned char padAc[0xb2 - 0xac];
-    unsigned short fieldB2;
-    unsigned char padB4[0xc3 - 0xb4];
-    unsigned char fieldC3;
+struct Struct_ov017_021c530c_5 {
+    Object3D unknown_0_;
+    unsigned char unknown_ac_[0xb2 - 0xac];
+    unsigned short unknown_b2_;
+    unsigned char unknown_b4_[0xc3 - 0xb4];
+    unsigned char unknown_c3_;
 };
 
-struct Pending021c530c {
-    unsigned short id;
-    unsigned short value;
+struct Struct_ov017_021c530c_6 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
-struct Ctx021c530c {
+struct Struct_ov017_021c530c_7 {
 #if defined(jpn)
-    unsigned char pad0[0x34ec];
+    unsigned char unknown_0_[0x34ec];
 #else
-    unsigned char pad0[0x36fc];
+    unsigned char unknown1_0_[0x36fc];
 #endif
-    void* list6fc;
-    unsigned char pad3700[0x3718 - 0x3700];
-    Node021c530c* node718;
-    unsigned char pad371c[0x3734 - 0x371c];
-    void* obj734;
+    void* unknown_36fc_;
+    unsigned char unknown_3700_[0x3718 - 0x3700];
+    Struct_ov017_021c530c_4* unknown_3718_;
+    unsigned char unknown_371c_[0x3734 - 0x371c];
+    void* unknown_3734_;
 #if defined(jpn)
-    unsigned char pad3738[0x38f4 - 0x3528];
+    unsigned char unknown_3528_[0x38f4 - 0x3528];
 #else
-    unsigned char pad3738[0x3b14 - 0x3738];
+    unsigned char unknown_3738_[0x3b14 - 0x3738];
 #endif
-    void* nodeB14;
-    unsigned char pad3b18[0x3b90 - 0x3b18];
-    void* nodeB90;
+    void* unknown_3b14_;
+    unsigned char unknown_3b18_[0x3b90 - 0x3b18];
+    void* unknown_3b90_;
 #if defined(jpn)
-    unsigned char pad3b94[0x41fe - 0x3974];
+    unsigned char unknown_3974_[0x41fe - 0x3974];
 #else
-    unsigned char pad3b94[0x44ae - 0x3b94];
+    unsigned char unknown_3b94_[0x44ae - 0x3b94];
 #endif
-    Pending021c530c pending;
+    Struct_ov017_021c530c_6 unknown_44ae_;
 };
 
-struct Desc021c530c {
-    unsigned char field0;
-    unsigned char field1;
-    unsigned short field2;
-    unsigned short field4;
-    unsigned char pad6[2];
-    int field8;
-    unsigned char fieldc;
-    unsigned char fieldd;
-    unsigned char fielde;
-    unsigned char fieldf;
-    short field10;
-    unsigned char field12;
-    unsigned char pad13;
-    int field14;
+struct Struct_ov017_021c530c_8 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[2];
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
+    int unknown_14_;
 };
 
-struct Zone021c530c {
-    unsigned short id;
+struct Struct_ov017_021c530c_9 {
+    unsigned short unknown_0_;
 };
 
-static inline int IsSpecialId(int id) {
-    return id >= 0x8005 && id <= 0x8005 + 1000;
+static inline int inline_ov017_021c530c(int arg0) {
+    return arg0 >= 0x8005 && arg0 <= 0x8005 + 1000;
 }
 
-static inline unsigned short GetZoneId(Zone021c530c* zone) {
-    return zone->id;
+static inline unsigned short inline_ov004_02163304(Struct_ov017_021c530c_9* arg0) {
+    return arg0->unknown_0_;
 }
 
 // USA: func_ov017_021c530c
-extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* gs, unsigned char* work, void* search) {
-    unsigned char members[4] = {0};
-    GameObject* member;
-    bool ok;
-    GameObject* resetTarget;
-    int id;
-    Leader021c530c* leader;
-    Event021c530c* evt;
-    Ctx021c530c* ctx1;
-    Node021c530c* node1;
-    void* list1;
-    unsigned short zone;
-    Ctx021c530c* ctx2;
-    Leader021c530c* leader2;
-    GameObject* modeTarget;
-    int plainId;
-    int normal;
-    Ctx021c530c* ctx3;
-    void* list3;
-    int found;
-    GameObject* combatant;
-    Zone021c530c* zoneInfo;
-    int inB14;
-    int inB90;
-    Pending021c530c* pending;
-    int count;
-    int i;
-    void* entries;
-    int state;
-    int queued;
-    void* fieldObj;
-    unsigned char field8;
-    unsigned short cid;
-    short fielda;
-    unsigned char fieldc;
-    unsigned char field10;
-    void* list2;
-    void* node2;
+extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1, GameState* arg2, unsigned char* arg3, void* arg4) {
+    unsigned char var0[4] = {0};
+    GameObject* var1;
+    bool var2;
+    GameObject* var3;
+    int var4;
+    Struct_ov017_021c530c_5* var5;
+    Struct_ov017_021c530c* var6;
+    Struct_ov017_021c530c_7* var7;
+    Struct_ov017_021c530c_4* var8;
+    void* var9;
+    unsigned short var10;
+    Struct_ov017_021c530c_7* var11;
+    Struct_ov017_021c530c_5* var12;
+    GameObject* var13;
+    int var14;
+    int var15;
+    Struct_ov017_021c530c_7* var16;
+    void* var17;
+    int var18;
+    GameObject* var19;
+    Struct_ov017_021c530c_9* var20;
+    int var21;
+    int var22;
+    Struct_ov017_021c530c_6* var23;
+    int var24;
+    int var25;
+    void* var26;
+    int var27;
+    int var28;
+    void* var29;
+    unsigned char var30;
+    unsigned short var31;
+    short var32;
+    unsigned char var33;
+    unsigned char var34;
+    void* var35;
+    void* var36;
 
-    members[0] = index;
-    count = 1;
-    if (index == 0) {
-        count = func_02010038(gs, members);
+    var0[0] = arg0;
+    var24 = 1;
+    if (arg0 == 0) {
+        var24 = func_02010038(arg2, var0);
     }
-    for (i = 0; i < count; i++) {
-        member = gs->GetPartyMemberByIndex(members[i]);
-        if (member != NULL) {
-            func_02053f7c((Obj02053f7c*)member, cmd->id, 1);
+    for (var25 = 0; var25 < var24; var25++) {
+        var1 = arg2->GetPartyMemberByIndex(var0[var25]);
+        if (var1 != NULL) {
+            func_02053f7c((Struct_02053f7c_3*)var1, arg1->unknown_4_, 1);
         }
     }
 
-    if (func_0202c508(search)) {
+    if (func_0202c508(arg4)) {
         func_ov017_021cdaa0();
-        if (!IsSpecialId(cmd->id)) {
-            if (cmd->field9 != 0) {
-                if (func_ov017_021c5bf8(index, cmd->id) == 0) {
-                    func_ov017_021c5e28(index, cmd->id);
+        if (!inline_ov017_021c530c(arg1->unknown_4_)) {
+            if (arg1->unknown_9_ != 0) {
+                if (func_ov017_021c5bf8(arg0, arg1->unknown_4_) == 0) {
+                    func_ov017_021c5e28(arg0, arg1->unknown_4_);
                 } else {
-                    func_ov017_021c5a8c(index, cmd->id);
+                    func_ov017_021c5a8c(arg0, arg1->unknown_4_);
                 }
-            } else if (func_ov017_021c5a1c(cmd->id)) {
-                if (func_ov017_021c5bf8(index, cmd->id) == 0) {
+            } else if (func_ov017_021c5a1c(arg1->unknown_4_)) {
+                if (func_ov017_021c5bf8(arg0, arg1->unknown_4_) == 0) {
                     if (!func_0202c508(func_0202ae18())) {
-                        ok = false;
+                        var2 = false;
                     } else {
-                        entries = func_0207d78c();
-                        func_0207d7f4(entries, cmd->id, index, 1, index, cmd->field6, cmd->fieldc);
-                        ok = func_ov017_021c5c5c(index, cmd->id, index) != 0;
-                        func_0207d7f4(entries, cmd->id, 0, ok, index, cmd->field6, cmd->fieldc);
+                        var26 = func_0207d78c();
+                        func_0207d7f4(var26, arg1->unknown_4_, arg0, 1, arg0, arg1->unknown_6_, arg1->unknown_c_);
+                        var2 = func_ov017_021c5c5c(arg0, arg1->unknown_4_, arg0) != 0;
+                        func_0207d7f4(var26, arg1->unknown_4_, 0, var2, arg0, arg1->unknown_6_, arg1->unknown_c_);
                     }
-                    if (ok) {
-                        func_ov017_021c5b44(cmd->field8, cmd->id, -1, cmd->fieldc, cmd->field10);
+                    if (var2) {
+                        func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, -1, arg1->unknown_c_, arg1->unknown_10_);
                     }
-                    func_0207dcf0(cmd->id);
-                    resetTarget = func_ov017_021a278c(work, cmd->id);
-                    if (resetTarget != NULL) {
-                        func_02076ccc(resetTarget, 9);
+                    func_0207dcf0(arg1->unknown_4_);
+                    var3 = func_ov017_021a278c(arg3, arg1->unknown_4_);
+                    if (var3 != NULL) {
+                        func_02076ccc(var3, 9);
                     }
                 } else {
-                    func_ov017_021c5a8c(index, cmd->id);
+                    func_ov017_021c5a8c(arg0, arg1->unknown_4_);
                 }
             } else {
-                func_ov017_021c5e28(index, cmd->id);
+                func_ov017_021c5e28(arg0, arg1->unknown_4_);
             }
         } else {
-            func_ov017_021c5a8c(index, cmd->id);
+            func_ov017_021c5a8c(arg0, arg1->unknown_4_);
         }
         return;
     }
 
-    if (cmd->fieldd != 0) {
+    if (arg1->unknown_d_ != 0) {
         return;
     }
 
-    id = cmd->id;
-    if (!IsSpecialId(cmd->id)) {
-        if (cmd->field9 != 0) {
-            Desc021c530c event;
-            leader = (Leader021c530c*)GameState::GetInstance()->GetUnknownGameObject();
-            if (leader == NULL) {
-                state = 0;
+    var4 = arg1->unknown_4_;
+    if (!inline_ov017_021c530c(arg1->unknown_4_)) {
+        if (arg1->unknown_9_ != 0) {
+            Struct_ov017_021c530c_8 var37;
+            var5 = (Struct_ov017_021c530c_5*)GameState::GetInstance()->GetUnknownGameObject();
+            if (var5 == NULL) {
+                var27 = 0;
             } else {
-                ctx1 = (Ctx021c530c*)GetGameResources();
-                node1 = ctx1->node718;
-                list1 = ctx1->list6fc;
-                evt = NULL;
-                if (node1->active != 0 && (evt = func_ov017_021b8478(node1), evt->targetId == id)) {
-                    state = 1;
+                var7 = (Struct_ov017_021c530c_7*)GetGameResources();
+                var8 = var7->unknown_3718_;
+                var9 = var7->unknown_36fc_;
+                var6 = NULL;
+                if (var8->unknown_2_ != 0 && (var6 = func_ov017_021b8478(var8), var6->unknown_8_ == var4)) {
+                    var27 = 1;
                 } else {
-                    zone = leader->obj3D.GetField06();
-                    if (zone != 0x170c && zone != 0x170d && zone != 0x170e && zone != 0x170f) {
-                        state = 0;
-                    } else if ((int)leader->fieldC3 > 0) {
-                        state = 0;
-                    } else if (func_02046b08((void**)list1) == 0) {
-                        state = 2;
+                    var10 = var5->unknown_0_.GetField06();
+                    if (var10 != 0x170c && var10 != 0x170d && var10 != 0x170e && var10 != 0x170f) {
+                        var27 = 0;
+                    } else if ((int)var5->unknown_c3_ > 0) {
+                        var27 = 0;
+                    } else if (func_02046b08((void**)var9) == 0) {
+                        var27 = 2;
                     } else {
-                        state = 1;
+                        var27 = 1;
                     }
                 }
             }
 
-            Src021c5f00 src;
-            src.w0 = cmd->id;
-            src.w2 = cmd->field6;
-            src.b5 = 0;
-            src.b6 = 1;
-            if (state == 1) {
-                src.b4 = 1;
+            Struct_ov017_021c530c_2 var38;
+            var38.unknown_0_ = arg1->unknown_4_;
+            var38.unknown_2_ = arg1->unknown_6_;
+            var38.unknown_5_ = 0;
+            var38.unknown_6_ = 1;
+            if (var27 == 1) {
+                var38.unknown_4_ = 1;
             } else {
-                src.b4 = 0;
+                var38.unknown_4_ = 0;
             }
-            func_ov017_021c5f00(&src);
+            func_ov017_021c5f00(&var38);
 
-            if (state == 1) {
-                field10 = cmd->field10;
-                fieldc = cmd->fieldc;
-                fielda = cmd->fielda;
-                cid = cmd->id;
-                field8 = cmd->field8;
-                ctx2 = (Ctx021c530c*)GetGameResources();
-                list2 = ctx2->list6fc;
-                node2 = ctx2->node718;
-                if (!func_02046b38((ListHead02046b38*)list2, (ListNode02046b38*)node2)) {
-                    func_ov017_021b6f18(node2);
-                    Desc021c530c desc;
-                    func_ov017_02196c08((unsigned char*)&desc);
-                    desc.field0 = 0;
-                    desc.field1 = field8;
-                    desc.field4 = cid;
-                    desc.field2 = 0xffff;
-                    desc.field8 = -1;
-                    desc.fielde = 1;
-                    desc.field10 = fielda;
-                    desc.fieldf = fieldc;
-                    func_ov017_021b6e70(&desc, desc.field2);
-                    desc.field12 = field10;
-                    func_ov017_021b7104(node2, &desc);
-                    func_020469b4((TailList020469b4*)list2, (TailNode020469b4*)node2);
+            if (var27 == 1) {
+                var34 = arg1->unknown_10_;
+                var33 = arg1->unknown_c_;
+                var32 = arg1->unknown_a_;
+                var31 = arg1->unknown_4_;
+                var30 = arg1->unknown_8_;
+                var11 = (Struct_ov017_021c530c_7*)GetGameResources();
+                var35 = var11->unknown_36fc_;
+                var36 = var11->unknown_3718_;
+                if (!func_02046b38((Struct_02046b38*)var35, (Struct_02046b38_2*)var36)) {
+                    func_ov017_021b6f18(var36);
+                    Struct_ov017_021c530c_8 var39;
+                    func_ov017_02196c08((unsigned char*)&var39);
+                    var39.unknown_0_ = 0;
+                    var39.unknown_1_ = var30;
+                    var39.unknown_4_ = var31;
+                    var39.unknown_2_ = 0xffff;
+                    var39.unknown_8_ = -1;
+                    var39.unknown_e_ = 1;
+                    var39.unknown_10_ = var32;
+                    var39.unknown_f_ = var33;
+                    func_ov017_021b6e70(&var39, var39.unknown_2_);
+                    var39.unknown_12_ = var34;
+                    func_ov017_021b7104(var36, &var39);
+                    func_020469b4((Struct_0201bdac_2*)var35, (Struct_0201bdac*)var36);
                 }
-                leader2 = (Leader021c530c*)gs->GetUnknownGameObject();
-                if (leader2 != NULL) {
-                    leader2->fieldB2 = 0;
+                var12 = (Struct_ov017_021c530c_5*)arg2->GetUnknownGameObject();
+                if (var12 != NULL) {
+                    var12->unknown_b2_ = 0;
                 }
-            } else if (state == 2 || state == 0) {
-                func_ov017_02196c08((unsigned char*)&event);
-                event.field0 = 1;
-                event.field1 = cmd->field8;
-                event.field4 = cmd->id;
-                event.field2 = 0xffff;
-                event.field8 = -1;
-                event.fielde = 1;
-                event.field10 = cmd->fielda;
-                func_ov017_021b6e70(&event, event.field2);
-                if (state == 2) {
-                    func_ov017_021a7a74(work, &event);
+            } else if (var27 == 2 || var27 == 0) {
+                func_ov017_02196c08((unsigned char*)&var37);
+                var37.unknown_0_ = 1;
+                var37.unknown_1_ = arg1->unknown_8_;
+                var37.unknown_4_ = arg1->unknown_4_;
+                var37.unknown_2_ = 0xffff;
+                var37.unknown_8_ = -1;
+                var37.unknown_e_ = 1;
+                var37.unknown_10_ = arg1->unknown_a_;
+                func_ov017_021b6e70(&var37, var37.unknown_2_);
+                if (var27 == 2) {
+                    func_ov017_021a7a74(arg3, &var37);
                 }
             }
-        } else if (func_ov017_021c5a1c(id)) {
-            if (!func_ov017_0219735c(work, cmd->id)) {
-                func_ov017_021972f8(work, cmd->id);
-                queued = func_ov017_021c5c5c(index, cmd->id, cmd->field8);
-                Src021c5f00 src;
-                src.w0 = cmd->id;
-                src.w2 = cmd->field6;
-                src.b4 = queued;
-                src.b5 = 0;
-                src.b6 = 0;
-                func_ov017_021c5f00(&src);
-                if (queued) {
-                    func_ov017_021c5b44(cmd->field8, cmd->id, -1, cmd->fieldc, cmd->field10);
+        } else if (func_ov017_021c5a1c(var4)) {
+            if (!func_ov017_0219735c(arg3, arg1->unknown_4_)) {
+                func_ov017_021972f8(arg3, arg1->unknown_4_);
+                var28 = func_ov017_021c5c5c(arg0, arg1->unknown_4_, arg1->unknown_8_);
+                Struct_ov017_021c530c_2 var40;
+                var40.unknown_0_ = arg1->unknown_4_;
+                var40.unknown_2_ = arg1->unknown_6_;
+                var40.unknown_4_ = var28;
+                var40.unknown_5_ = 0;
+                var40.unknown_6_ = 0;
+                func_ov017_021c5f00(&var40);
+                if (var28) {
+                    func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, -1, arg1->unknown_c_, arg1->unknown_10_);
                 } else {
-                    modeTarget = func_ov017_021a278c(work, cmd->id);
-                    if (modeTarget != NULL) {
-                        func_02076ccc(modeTarget, 9);
+                    var13 = func_ov017_021a278c(arg3, arg1->unknown_4_);
+                    if (var13 != NULL) {
+                        func_02076ccc(var13, 9);
                     }
                 }
             }
         } else {
 #if !defined(jpn)
-            if (!func_ov017_0219735c(work, cmd->id)) {
-                func_ov017_021972f8(work, cmd->id);
+            if (!func_ov017_0219735c(arg3, arg1->unknown_4_)) {
+                func_ov017_021972f8(arg3, arg1->unknown_4_);
             }
 #endif
-            plainId = cmd->id;
-            if (plainId < 1) {
-                normal = 0;
-            } else if (plainId > 0x7fff) {
-                normal = 0;
+            var14 = arg1->unknown_4_;
+            if (var14 < 1) {
+                var15 = 0;
+            } else if (var14 > 0x7fff) {
+                var15 = 0;
             } else {
-                normal = 1;
+                var15 = 1;
             }
-            if (normal) {
-                Src021c5f00 src;
-                src.w0 = cmd->id;
-                src.w2 = cmd->field6;
-                src.b4 = 0;
-                src.b5 = 0;
-                func_ov017_021c5f00(&src);
+            if (var15) {
+                Struct_ov017_021c530c_2 var41;
+                var41.unknown_0_ = arg1->unknown_4_;
+                var41.unknown_2_ = arg1->unknown_6_;
+                var41.unknown_4_ = 0;
+                var41.unknown_5_ = 0;
+                func_ov017_021c5f00(&var41);
             }
         }
         return;
     }
 
-    ctx3 = (Ctx021c530c*)GetGameResources();
-    list3 = ctx3->list6fc;
-    fieldObj = ctx3->obj734;
-    found = 0;
-    if (func_02046b60((ListHead02046b60*)list3, 4)) {
-        if (func_ov017_021bb9f4(fieldObj) == 5 && cmd->id == func_ov017_021bb9fc(fieldObj) + 0x8005) {
-            func_ov017_021bb9ec(fieldObj, 6);
-            func_ov017_021c5b44(cmd->field8, cmd->id, func_ov017_021bb9fc(fieldObj), cmd->fieldc, cmd->field10);
-            found = 1;
+    var16 = (Struct_ov017_021c530c_7*)GetGameResources();
+    var17 = var16->unknown_36fc_;
+    var29 = var16->unknown_3734_;
+    var18 = 0;
+    if (func_02046b60((Struct_02038598_5*)var17, 4)) {
+        if (func_ov017_021bb9f4(var29) == 5 && arg1->unknown_4_ == func_ov017_021bb9fc(var29) + 0x8005) {
+            func_ov017_021bb9ec(var29, 6);
+            func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, func_ov017_021bb9fc(var29), arg1->unknown_c_, arg1->unknown_10_);
+            var18 = 1;
         }
     } else {
-        combatant = func_0200ff1c(gs, cmd->field8);
-        zoneInfo = (Zone021c530c*)func_02012fe4();
-        if (index != 0) {
+        var19 = func_0200ff1c(arg2, arg1->unknown_8_);
+        var20 = (Struct_ov017_021c530c_9*)func_02012fe4();
+        if (arg0 != 0) {
             return;
         }
-        if (combatant != NULL) {
-            if (func_02046b08((void**)list3) && combatant->obj3D_.GetField06() == GetZoneId(zoneInfo)) {
-                func_ov017_021c5b44(cmd->field8, cmd->id, func_ov017_021bb9fc(fieldObj), cmd->fieldc, cmd->field10);
-                found = 1;
-            } else if (combatant->obj3D_.GetField06() == GetZoneId(zoneInfo)) {
-                list1 = ctx3->nodeB14;
-                void* nodeB90 = ctx3->nodeB90;
-                inB14 = func_02046b38((ListHead02046b38*)list3, (ListNode02046b38*)list1);
-                inB90 = func_02046b38((ListHead02046b38*)list3, (ListNode02046b38*)nodeB90);
-                if (!(inB14 | inB90)) {
-                    pending = &ctx3->pending;
-                    pending->id = cmd->id;
-                    pending->value = cmd->fielde;
+        if (var19 != NULL) {
+            if (func_02046b08((void**)var17) && var19->obj3D_.GetField06() == inline_ov004_02163304(var20)) {
+                func_ov017_021c5b44(arg1->unknown_8_, arg1->unknown_4_, func_ov017_021bb9fc(var29), arg1->unknown_c_, arg1->unknown_10_);
+                var18 = 1;
+            } else if (var19->obj3D_.GetField06() == inline_ov004_02163304(var20)) {
+                var9 = var16->unknown_3b14_;
+                void* var42 = var16->unknown_3b90_;
+                var21 = func_02046b38((Struct_02046b38*)var17, (Struct_02046b38_2*)var9);
+                var22 = func_02046b38((Struct_02046b38*)var17, (Struct_02046b38_2*)var42);
+                if (!(var21 | var22)) {
+                    var23 = &var16->unknown_44ae_;
+                    var23->unknown_0_ = arg1->unknown_4_;
+                    var23->unknown_2_ = arg1->unknown_e_;
                 }
             }
         }
     }
-    Src021c5f00 src;
-    src.w0 = cmd->id;
-    src.w2 = cmd->field6;
-    src.b4 = found;
-    src.b5 = 1;
-    func_ov017_021c5f00(&src);
+    Struct_ov017_021c530c_2 var43;
+    var43.unknown_0_ = arg1->unknown_4_;
+    var43.unknown_2_ = arg1->unknown_6_;
+    var43.unknown_4_ = var18;
+    var43.unknown_5_ = 1;
+    func_ov017_021c5f00(&var43);
 }

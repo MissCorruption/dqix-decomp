@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 
-struct Inner020bec10 {
-    unsigned int pad[68];
-    unsigned int flags;
+struct Struct_020bec10_2 {
+    unsigned int unknown_0_[68];
+    unsigned int unknown_110_;
 };
 
-struct Owner020bec10 {
-    struct Inner020bec10* inner;
+struct Struct_020bec10 {
+    struct Struct_020bec10_2* unknown_0_;
 };
 
-static inline bool HasInner(const struct Owner020bec10* o) { return o->inner != NULL; }
+static inline bool inline_020bc158(const struct Struct_020bec10* arg0) { return arg0->unknown_0_ != NULL; }
 
 // USA: func_020bec10
-extern "C" ARM void func_020bec10(struct Owner020bec10* owner) {
-    if (HasInner(owner)) {
-        owner->inner->flags |= 4;
+extern "C" ARM void func_020bec10(struct Struct_020bec10* arg0) {
+    if (inline_020bc158(arg0)) {
+        arg0->unknown_0_->unknown_110_ |= 4;
     }
 }

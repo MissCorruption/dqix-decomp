@@ -2,15 +2,15 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 
-extern "C" unsigned char func_020114ec(char* obj, void* dst);
-extern "C" int func_02061bd8(struct Obj02061bd8* obj);
-extern "C" unsigned short func_ov004_0215eb20(void* obj, int bit);
-struct Obj0205eaa0;
-extern struct Obj0205eaa0 data_02108760;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void* func_ov004_0215e4c0(void* a, int key);
-struct Obj021f809c;
-extern "C" void func_ov023_021f809c(struct Obj021f809c*, void*);
+extern "C" unsigned char func_020114ec(char* arg0, void* arg1);
+extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
+extern "C" unsigned short func_ov004_0215eb20(void* arg0, int arg1);
+struct Struct_02108760;
+extern struct Struct_02108760 data_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void* func_ov004_0215e4c0(void* arg0, int arg1);
+struct Struct_ov004_0215fdfc;
+extern "C" void func_ov023_021f809c(struct Struct_ov004_0215fdfc*, void*);
 extern "C" void func_ov023_021fc71c(void*, int, int);
 extern "C" void func_020dc7e8(int, int);
 extern "C" void func_ov004_0215ee90(void*);
@@ -23,80 +23,80 @@ extern "C" void func_ov004_02161514(void*);
 extern "C" void func_ov004_02161c18(void*);
 extern "C" void func_ov004_02162108(void*);
 extern "C" void func_ov004_0216276c(void*);
-extern "C" void func_ov023_021f66bc(void* a, int b, void* c);
+extern "C" void func_ov023_021f66bc(void* arg0, int arg1, void* arg2);
 
-struct Sub950 {
+struct Struct_ov004_0215fdfc_2 {
 #if defined(jpn)
-    char pad[0x8b8];
+    char unknown_0_[0x8b8];
 #else
-    char pad[0x950];
+    char unknown1_0_[0x950];
 #endif
-    int field950;
+    int unknown_950_;
 };
 
-struct FlagBitHolder {
+struct Struct_ov004_0215fdfc_3 {
 #if defined(jpn)
-    char pad[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad[0x150];
+    char unknown1_0_[0x150];
 #endif
-    Sub950* sub;
+    Struct_ov004_0215fdfc_2* unknown_150_;
 };
 
-class Node0215e47c {
+class Struct_ov004_0215fdfc_4 {
 public:
-    char pad4[0xc];
-    unsigned char flags;
+    char unknown_0_[0xc];
+    unsigned char unknown_c_;
 };
 
-struct NodeShorts {
-    char pad[0x104];
-    short s104;
-    short s106;
+struct Struct_ov004_0215fdfc_5 {
+    char unknown_0_[0x104];
+    short unknown_104_;
+    short unknown_106_;
 };
 
-extern "C" Node0215e47c* func_ov004_0215e47c(void* a, int key);
+extern "C" Struct_ov004_0215fdfc_4* func_ov004_0215e47c(void* arg0, int arg1);
 
-struct CursorState {
+struct Struct_ov004_021707e8_2 {
 #if defined(jpn)
-    signed char f5;
-    unsigned char index;
-    unsigned char f2;
-    unsigned char f1;
-    signed char f6;
-    signed char f9;
-    unsigned char type;
-    unsigned char entry;
-    signed char fb;
-    unsigned char f3;
-    unsigned char padA;
-    unsigned char busy;
+    signed char unknown_5_;
+    unsigned char unknown1_a_;
+    unsigned char unknown_2_;
+    unsigned char unknown_1_;
+    signed char unknown_6_;
+    signed char unknown_9_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    signed char unknown_b_;
+    unsigned char unknown_3_;
+    unsigned char unknown_a_;
+    unsigned char unknown_0_;
 #else
-    unsigned char busy;
-    unsigned char f1;
-    unsigned char f2;
-    unsigned char f3;
-    unsigned char f4;
-    signed char f5;
-    signed char f6;
-    unsigned char type;
-    unsigned char entry;
-    signed char f9;
-    unsigned char index;
-    signed char fb;
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    signed char unknown_5_;
+    signed char unknown_6_;
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    signed char unknown_9_;
+    unsigned char unknown1_a_;
+    signed char unknown_b_;
 #endif
-    char pad[0x10];
-    int combatant;
+    char unknown_c_[0x10];
+    int unknown_1c_;
 #if defined(jpn)
-    char pad2[0x40];
+    char unknown_20_[0x40];
 #else
-    char pad2[0x4c];
+    char unknown1_20_[0x4c];
 #endif
-    int f6c;
-    int f70;
+    int unknown_6c_;
+    int unknown_70_;
 };
 
-extern CursorState data_ov004_021707e8;
+extern Struct_ov004_021707e8_2 data_ov004_021707e8;
 #if defined(jpn)
 extern int data_ov004_021705c4[];
 extern unsigned char data_ov004_021710d5[];
@@ -111,176 +111,176 @@ extern unsigned char data_ov004_02170b90[];
 
 // JPN: func_ov004_0215fdfc (02160780)
 // USA: func_ov004_0215fdfc
-extern "C" ARM int func_ov004_0215fdfc(void* a) {
-    if (data_ov004_021707e8.busy == 1) return 0;
-    data_ov004_021707e8.busy = 1;
-    GameState* gs;
-    GameObject* c;
-    unsigned char saved;
-    int none;
-    int target;
-    int n;
-    unsigned char order[4];
-    gs = GameState::GetInstance();
-    n = func_020114ec((char*)gs, order);
-    target = data_ov004_021707e8.combatant;
-    none = 0;
-    saved = data_ov004_021707e8.index;
-    if (func_0200ff1c(gs, target) == NULL) none = 1;
-    if (!none) {
-        data_ov004_021707e8.index = data_ov004_021707e8.index + 1;
-        data_ov004_021707e8.index = (unsigned)data_ov004_021707e8.index % n;
+extern "C" ARM int func_ov004_0215fdfc(void* arg0) {
+    if (data_ov004_021707e8.unknown_0_ == 1) return 0;
+    data_ov004_021707e8.unknown_0_ = 1;
+    GameState* var0;
+    GameObject* var1;
+    unsigned char var2;
+    int var3;
+    int var4;
+    int var5;
+    unsigned char var6[4];
+    var0 = GameState::GetInstance();
+    var5 = func_020114ec((char*)var0, var6);
+    var4 = data_ov004_021707e8.unknown_1c_;
+    var3 = 0;
+    var2 = data_ov004_021707e8.unknown1_a_;
+    if (func_0200ff1c(var0, var4) == NULL) var3 = 1;
+    if (!var3) {
+        data_ov004_021707e8.unknown1_a_ = data_ov004_021707e8.unknown1_a_ + 1;
+        data_ov004_021707e8.unknown1_a_ = (unsigned)data_ov004_021707e8.unknown1_a_ % var5;
     }
-    data_ov004_021707e8.combatant = order[data_ov004_021707e8.index];
-    c = func_0200ff1c(gs, data_ov004_021707e8.combatant);
-    if (data_ov004_021707e8.combatant == target && !none) {
-        c = NULL;
-        while (c == NULL) {
-            data_ov004_021707e8.index = data_ov004_021707e8.index + 1;
-            data_ov004_021707e8.index = (unsigned)data_ov004_021707e8.index % n;
-            data_ov004_021707e8.combatant = order[data_ov004_021707e8.index];
-            if (data_ov004_021707e8.combatant == target) {
-                data_ov004_021707e8.index = saved;
-                data_ov004_021707e8.combatant = target;
-                data_ov004_021707e8.busy = 0;
-                Node0215e47c* nd = func_ov004_0215e47c(a, 0x85);
-                if (nd) nd->flags |= 0x78;
+    data_ov004_021707e8.unknown_1c_ = var6[data_ov004_021707e8.unknown1_a_];
+    var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+    if (data_ov004_021707e8.unknown_1c_ == var4 && !var3) {
+        var1 = NULL;
+        while (var1 == NULL) {
+            data_ov004_021707e8.unknown1_a_ = data_ov004_021707e8.unknown1_a_ + 1;
+            data_ov004_021707e8.unknown1_a_ = (unsigned)data_ov004_021707e8.unknown1_a_ % var5;
+            data_ov004_021707e8.unknown_1c_ = var6[data_ov004_021707e8.unknown1_a_];
+            if (data_ov004_021707e8.unknown_1c_ == var4) {
+                data_ov004_021707e8.unknown1_a_ = var2;
+                data_ov004_021707e8.unknown_1c_ = var4;
+                data_ov004_021707e8.unknown_0_ = 0;
+                Struct_ov004_0215fdfc_4* var7 = func_ov004_0215e47c(arg0, 0x85);
+                if (var7) var7->unknown_c_ |= 0x78;
                 return 0;
             }
-            c = func_0200ff1c(gs, data_ov004_021707e8.combatant);
-            if (c != NULL) break;
+            var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+            if (var1 != NULL) break;
         }
     }
-    if (c == NULL) {
-        while (c == NULL) {
-            data_ov004_021707e8.index = data_ov004_021707e8.index + 1;
-            data_ov004_021707e8.index = (unsigned)data_ov004_021707e8.index % n;
-            data_ov004_021707e8.combatant = order[data_ov004_021707e8.index];
-            if (data_ov004_021707e8.combatant == target) {
-                data_ov004_021707e8.index = saved;
-                data_ov004_021707e8.combatant = target;
-                data_ov004_021707e8.busy = 0;
-                Node0215e47c* nd = func_ov004_0215e47c(a, 0x85);
-                if (nd) nd->flags |= 0x78;
+    if (var1 == NULL) {
+        while (var1 == NULL) {
+            data_ov004_021707e8.unknown1_a_ = data_ov004_021707e8.unknown1_a_ + 1;
+            data_ov004_021707e8.unknown1_a_ = (unsigned)data_ov004_021707e8.unknown1_a_ % var5;
+            data_ov004_021707e8.unknown_1c_ = var6[data_ov004_021707e8.unknown1_a_];
+            if (data_ov004_021707e8.unknown_1c_ == var4) {
+                data_ov004_021707e8.unknown1_a_ = var2;
+                data_ov004_021707e8.unknown_1c_ = var4;
+                data_ov004_021707e8.unknown_0_ = 0;
+                Struct_ov004_0215fdfc_4* var8 = func_ov004_0215e47c(arg0, 0x85);
+                if (var8) var8->unknown_c_ |= 0x78;
                 return 0;
             }
-            c = func_0200ff1c(gs, data_ov004_021707e8.combatant);
-            if (c != NULL) break;
+            var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+            if (var1 != NULL) break;
         }
     }
-    if (func_02061bd8((struct Obj02061bd8*)c)) {
-        int ok = 0;
-        while (!ok) {
-            data_ov004_021707e8.index = data_ov004_021707e8.index + 1;
-            data_ov004_021707e8.index = (unsigned)data_ov004_021707e8.index % n;
-            data_ov004_021707e8.combatant = order[data_ov004_021707e8.index];
-            if (data_ov004_021707e8.combatant == target) {
-                data_ov004_021707e8.index = saved;
-                data_ov004_021707e8.combatant = target;
-                data_ov004_021707e8.busy = 0;
+    if (func_02061bd8((struct Struct_0205faf4_11*)var1)) {
+        int var9 = 0;
+        while (!var9) {
+            data_ov004_021707e8.unknown1_a_ = data_ov004_021707e8.unknown1_a_ + 1;
+            data_ov004_021707e8.unknown1_a_ = (unsigned)data_ov004_021707e8.unknown1_a_ % var5;
+            data_ov004_021707e8.unknown_1c_ = var6[data_ov004_021707e8.unknown1_a_];
+            if (data_ov004_021707e8.unknown_1c_ == var4) {
+                data_ov004_021707e8.unknown1_a_ = var2;
+                data_ov004_021707e8.unknown_1c_ = var4;
+                data_ov004_021707e8.unknown_0_ = 0;
                 return 0;
             }
-            c = func_0200ff1c(gs, data_ov004_021707e8.combatant);
-            if (c == NULL) {
-                data_ov004_021707e8.index = saved;
-                data_ov004_021707e8.combatant = target;
+            var1 = func_0200ff1c(var0, data_ov004_021707e8.unknown_1c_);
+            if (var1 == NULL) {
+                data_ov004_021707e8.unknown1_a_ = var2;
+                data_ov004_021707e8.unknown_1c_ = var4;
                 break;
             }
-            if (func_02061bd8((struct Obj02061bd8*)c) == 0) ok = 1;
+            if (func_02061bd8((struct Struct_0205faf4_11*)var1) == 0) var9 = 1;
         }
     }
-    int v = ((FlagBitHolder*)c)->sub->field950;
-    data_ov004_021707e8.f2 = v;
-    data_ov004_021707e8.entry = 0;
-    data_ov004_021707e8.f6c = 0;
-    int key = v & 0xff;
-    data_ov004_021707e8.f70 = key;
-    unsigned char i = 1;
-    unsigned char j = 2;
-    while (j < 0xd) {
+    int var10 = ((Struct_ov004_0215fdfc_3*)var1)->unknown_150_->unknown_950_;
+    data_ov004_021707e8.unknown_2_ = var10;
+    data_ov004_021707e8.unknown_8_ = 0;
+    data_ov004_021707e8.unknown_6c_ = 0;
+    int var11 = var10 & 0xff;
+    data_ov004_021707e8.unknown_70_ = var11;
+    unsigned char var12 = 1;
+    unsigned char var13 = 2;
+    while (var13 < 0xd) {
 #if defined(jpn)
-        int t = data_ov004_021705c4[i];
+        int var14 = data_ov004_021705c4[var12];
 #else
-        int t = data_ov004_0216fe5c[i];
+        int var14 = data_ov004_0216fe5c[var12];
 #endif
-        data_ov004_02170854[j] = t;
-        if (key != t) {
-            j++;
-            i++;
+        data_ov004_02170854[var13] = var14;
+        if (var11 != var14) {
+            var13++;
+            var12++;
         } else {
-            i++;
+            var12++;
         }
     }
-    int e = data_ov004_021707e8.entry;
-    while (key != data_ov004_02170854[(unsigned char)e]) {
-        data_ov004_021707e8.entry = (unsigned char)e + 1;
-        e = data_ov004_021707e8.entry % 13;
-        data_ov004_021707e8.entry = e;
-        if (key == data_ov004_02170854[data_ov004_021707e8.entry]) break;
+    int var15 = data_ov004_021707e8.unknown_8_;
+    while (var11 != data_ov004_02170854[(unsigned char)var15]) {
+        data_ov004_021707e8.unknown_8_ = (unsigned char)var15 + 1;
+        var15 = data_ov004_021707e8.unknown_8_ % 13;
+        data_ov004_021707e8.unknown_8_ = var15;
+        if (var11 == data_ov004_02170854[data_ov004_021707e8.unknown_8_]) break;
     }
-    for (int k = 0; k < 13; k++) {
-        if (func_ov004_0215eb20(c, data_ov004_02170854[k]) != 0) data_ov004_02170838[k] = 1;
-        else data_ov004_02170838[k] = 0;
+    for (int var16 = 0; var16 < 13; var16++) {
+        if (func_ov004_0215eb20(var1, data_ov004_02170854[var16]) != 0) data_ov004_02170838[var16] = 1;
+        else data_ov004_02170838[var16] = 0;
 #if defined(jpn)
-        if (func_ov004_0215eb20(c, data_ov004_021705c4[k]) != 0) data_ov004_021710d5[k] = 1;
-        else data_ov004_021710d5[k] = 0;
+        if (func_ov004_0215eb20(var1, data_ov004_021705c4[var16]) != 0) data_ov004_021710d5[var16] = 1;
+        else data_ov004_021710d5[var16] = 0;
 #else
-        if (func_ov004_0215eb20(c, data_ov004_0216fe5c[k]) != 0) data_ov004_02170845[k] = 1;
-        else data_ov004_02170845[k] = 0;
+        if (func_ov004_0215eb20(var1, data_ov004_0216fe5c[var16]) != 0) data_ov004_02170845[var16] = 1;
+        else data_ov004_02170845[var16] = 0;
 #endif
     }
-    data_ov004_021707e8.f3 = data_ov004_021707e8.entry;
+    data_ov004_021707e8.unknown_3_ = data_ov004_021707e8.unknown_8_;
     func_ov004_0215ee90(data_ov004_02170b90);
-    data_ov004_021707e8.f9 = 0;
-    data_ov004_021707e8.f5 = 0;
+    data_ov004_021707e8.unknown_9_ = 0;
+    data_ov004_021707e8.unknown_5_ = 0;
 #if defined(jpn)
-    func_ov004_0215e5fc(a, data_ov004_021707e8.combatant);
-    func_ov004_0215f0c0(a);
+    func_ov004_0215e5fc(arg0, data_ov004_021707e8.unknown_1c_);
+    func_ov004_0215f0c0(arg0);
 #else
-    func_ov004_0215f0c0(a);
-    func_ov004_0215e5fc(a, data_ov004_021707e8.combatant);
+    func_ov004_0215f0c0(arg0);
+    func_ov004_0215e5fc(arg0, data_ov004_021707e8.unknown_1c_);
 #endif
-    func_ov004_0215eb40(a);
+    func_ov004_0215eb40(arg0);
 #if defined(jpn)
     func_ov004_0215fa1c();
 #else
     func_ov004_0215ef14();
 #endif
-    data_ov004_021707e8.f1 = 1;
+    data_ov004_021707e8.unknown_1_ = 1;
     func_0205eaa0(&data_02108760, 1, 0);
-    Node0215e47c* nd = func_ov004_0215e47c(a, 0x82);
-    func_ov023_021fc71c(nd, data_ov004_021707e8.combatant, 1);
-    data_ov004_021707e8.fb = 0;
-    data_ov004_021707e8.f6 = 0;
-    switch (data_ov004_021707e8.type - 0x64) {
+    Struct_ov004_0215fdfc_4* var17 = func_ov004_0215e47c(arg0, 0x82);
+    func_ov023_021fc71c(var17, data_ov004_021707e8.unknown_1c_, 1);
+    data_ov004_021707e8.unknown_b_ = 0;
+    data_ov004_021707e8.unknown_6_ = 0;
+    switch (data_ov004_021707e8.unknown_7_ - 0x64) {
     case 0:
-        data_ov004_021707e8.f6 = data_ov004_021707e8.f9;
-        func_ov004_0216033c(a);
+        data_ov004_021707e8.unknown_6_ = data_ov004_021707e8.unknown_9_;
+        func_ov004_0216033c(arg0);
         break;
     case 1:
-        data_ov004_021707e8.f6 = data_ov004_021707e8.f5;
-        func_ov004_02161514(a);
+        data_ov004_021707e8.unknown_6_ = data_ov004_021707e8.unknown_5_;
+        func_ov004_02161514(arg0);
         break;
     case 2:
-        data_ov004_021707e8.f6 = data_ov004_02170b90[0x23f];
-        func_ov004_02161c18(a);
+        data_ov004_021707e8.unknown_6_ = data_ov004_02170b90[0x23f];
+        func_ov004_02161c18(arg0);
         break;
     case 3:
-        data_ov004_021707e8.f6 = data_ov004_02170b90[0x47f];
-        func_ov004_02162108(a);
+        data_ov004_021707e8.unknown_6_ = data_ov004_02170b90[0x47f];
+        func_ov004_02162108(arg0);
         break;
     case 4:
-        data_ov004_021707e8.f6 = 1;
-        func_ov004_0216276c(a);
+        data_ov004_021707e8.unknown_6_ = 1;
+        func_ov004_0216276c(arg0);
         break;
     }
-    func_020dc7e8(2, (signed char)data_ov004_021707e8.combatant);
-    func_020dc7e8(5, (signed char)data_ov004_021707e8.combatant);
-    NodeShorts* node = (NodeShorts*)func_ov004_0215e4c0(a, 3);
-    node->s104 = data_ov004_021707e8.fb;
-    node->s106 = data_ov004_021707e8.f6;
-    func_ov023_021f809c((struct Obj021f809c*)node, a);
-    data_ov004_021707e8.busy = 0;
-    func_ov023_021f66bc(a, 0x85, (void*)1);
+    func_020dc7e8(2, (signed char)data_ov004_021707e8.unknown_1c_);
+    func_020dc7e8(5, (signed char)data_ov004_021707e8.unknown_1c_);
+    Struct_ov004_0215fdfc_5* var18 = (Struct_ov004_0215fdfc_5*)func_ov004_0215e4c0(arg0, 3);
+    var18->unknown_104_ = data_ov004_021707e8.unknown_b_;
+    var18->unknown_106_ = data_ov004_021707e8.unknown_6_;
+    func_ov023_021f809c((struct Struct_ov004_0215fdfc*)var18, arg0);
+    data_ov004_021707e8.unknown_0_ = 0;
+    func_ov023_021f66bc(arg0, 0x85, (void*)1);
     return 0;
 }

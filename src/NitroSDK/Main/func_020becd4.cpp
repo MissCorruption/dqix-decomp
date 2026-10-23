@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct StreamPlayer020becd4 {
-    unsigned char unknown_0[0xc4];
-    unsigned short sampleRate;
-    unsigned char unknown_c6[6];
-    unsigned int loopEnd;
+struct Struct_020becd4_2 {
+    unsigned char unknown_0_[0xc4];
+    unsigned short unknown_c4_;
+    unsigned char unknown_c6_[6];
+    unsigned int unknown_cc_;
 };
 
-struct StreamHandle020becd4 {
-    StreamPlayer020becd4* player;
+struct Struct_020becd4 {
+    Struct_020becd4_2* unknown_0_;
 };
 
-static inline bool IsStreamHandleValid020becd4(const StreamHandle020becd4* handle)
+static inline bool inline_020becd4(const Struct_020becd4* arg0)
 {
-    return handle->player != NULL;
+    return arg0->unknown_0_ != NULL;
 }
 
 // USA: func_020becd4
-extern "C" ARM unsigned int func_020becd4(void* object)
+extern "C" ARM unsigned int func_020becd4(void* arg0)
 {
-    StreamHandle020becd4* handle = (StreamHandle020becd4*)object;
-    StreamPlayer020becd4* player;
-    unsigned long long length;
-    if (!IsStreamHandleValid020becd4(handle))
+    Struct_020becd4* var0 = (Struct_020becd4*)arg0;
+    Struct_020becd4_2* var1;
+    unsigned long long var2;
+    if (!inline_020becd4(var0))
         return 0;
-    player = handle->player;
-    length = player->loopEnd;
-    length *= 1000;
-    length /= (unsigned int)player->sampleRate;
-    return (unsigned int)length;
+    var1 = var0->unknown_0_;
+    var2 = var1->unknown_cc_;
+    var2 *= 1000;
+    var2 /= (unsigned int)var1->unknown_c4_;
+    return (unsigned int)var2;
 }

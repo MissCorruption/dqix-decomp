@@ -6,34 +6,34 @@
 #include "NitroSDK/Cache.h"
 #include "NitroSDK/LoadToVRAM.h"
 
-struct StatusTextState {
+struct Struct_ov023_021dcedc {
 #if defined(jpn)
-    unsigned char padding0[0x6f8];
+    unsigned char unknown_0_[0x6f8];
 #else
-    unsigned char padding0[0x77c];
+    unsigned char unknown1_0_[0x77c];
 #endif
-    signed char paletteReady;
-    signed char expanded;
-    unsigned char padding77e[6];
-    const char* names[3];
-    unsigned char quantities[3];
-    unsigned char limits[3];
-    unsigned char costs[3];
-    unsigned char multiplier;
+    signed char unknown_77c_;
+    signed char unknown_77d_;
+    unsigned char unknown_77e_[6];
+    const char* unknown_784_[3];
+    unsigned char unknown_790_[3];
+    unsigned char unknown_793_[3];
+    unsigned char unknown_796_[3];
+    unsigned char unknown_799_;
 };
 #if defined(jpn)
-struct StatusTextGlobals { int field0; int field4; int field8; int palette; int field10; int enabled; };
+struct Struct_ov023_021ff9e0_7 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; int unknown_10_; int unknown1_4_; };
 #define data_ov023_021fdb3b data_ov023_021fcdec
-enum { ExpandedNameX = 5, ExpandedOpenX = 0xb9, ExpandedCloseX = 0xcb,
-       CollapsedNameX = 0x46, CollapsedTimesX = 0xaa, CollapsedQuantityX = 0xb9,
-       NumberYOffset = 1 };
+enum { Enum_ov023_021dcedc_5 = 5, Enum_ov023_021dcedc_192 = 0xb9, Enum_ov023_021dcedc_200 = 0xcb,
+       Enum_ov023_021dcedc_70 = 0x46, Enum_ov023_021dcedc_170 = 0xaa, Enum_ov023_021dcedc_185 = 0xb9,
+       Enum_ov023_021dcedc_1 = 1 };
 #else
-struct StatusTextGlobals { int field0; int enabled; int field8; int palette; };
-enum { ExpandedNameX = 0, ExpandedOpenX = 0xc0, ExpandedCloseX = 0xc8,
-       CollapsedNameX = 0x40, CollapsedTimesX = 0xc0, CollapsedQuantityX = 0xc8,
-       NumberYOffset = 0 };
+struct Struct_ov023_021ff9e0_7 { int unknown_0_; int unknown1_4_; int unknown_8_; int unknown_c_; };
+enum { Enum_ov023_021dcedc_0_2 = 0, Enum_ov023_021dcedc_192 = 0xc0, Enum_ov023_021dcedc_200 = 0xc8,
+       Enum_ov023_021dcedc_64 = 0x40, Enum_ov023_021dcedc_192_2 = 0xc0, Enum_ov023_021dcedc_200_2 = 0xc8,
+       Enum_ov023_021dcedc_0 = 0 };
 #endif
-extern StatusTextGlobals data_ov023_021ff9e0;
+extern Struct_ov023_021ff9e0_7 data_ov023_021ff9e0;
 extern char data_ov023_021fdb2d[];
 extern char data_ov023_021fdb31[];
 extern char data_ov023_021fdb35[];
@@ -49,101 +49,101 @@ extern "C" void func_02050678(void*, short, short, const char*, int, int, short*
 #else
 extern "C" void func_0204f41c(void*, short, short, const char*, int, int, short*, short*, int);
 #endif
-static inline void DrawStatusText(void* canvas, short x, short y, const char* text, int font, int color) {
-    short height;
-    short width;
+static inline void inline_ov023_021dcedc(void* arg0, short arg1, short arg2, const char* arg3, int arg4, int arg5) {
+    short var0;
+    short var1;
 #if defined(jpn)
-    func_02050678(canvas, x, y, text, font, color, &width, &height);
+    func_02050678(arg0, arg1, arg2, arg3, arg4, arg5, &var1, &var0);
 #else
-    func_0204f41c(canvas, x, y, text, font, color, &width, &height, 0);
+    func_0204f41c(arg0, arg1, arg2, arg3, arg4, arg5, &var1, &var0, 0);
 #endif
 }
 
 // USA: func_ov023_021dcedc
-extern "C" ARM void func_ov023_021dcedc(StatusTextState* state, void* canvas) {
-    if (!data_ov023_021ff9e0.enabled) return;
-    if (state->paletteReady == 0) {
-        unsigned short color = 0x110f;
-        unsigned int offset = data_ov023_021ff9e0.palette * 32;
-        CleanInvalidateCacheRange(&color, 2);
-        LoadToMainBGStandardPalette(&color, offset + 0x12, 2);
+extern "C" ARM void func_ov023_021dcedc(Struct_ov023_021dcedc* arg0, void* arg1) {
+    if (!data_ov023_021ff9e0.unknown1_4_) return;
+    if (arg0->unknown_77c_ == 0) {
+        unsigned short var0 = 0x110f;
+        unsigned int var1 = data_ov023_021ff9e0.unknown_c_ * 32;
+        CleanInvalidateCacheRange(&var0, 2);
+        LoadToMainBGStandardPalette(&var0, var1 + 0x12, 2);
     }
-    char text[64] = {};
+    char var2[64] = {};
 #if !defined(jpn)
-    void* formatter = func_020421a0();
+    void* var3 = func_020421a0();
 #endif
-    for (int i = 0; i < 3; i++) {
-        const char* name = state->names[i];
-        if (!name) continue;
-        unsigned char quantity = state->multiplier * state->quantities[i];
-        unsigned char limit = state->limits[i];
-        unsigned char cost = state->costs[i];
-        int color = 15;
-        if (quantity > limit) color = 9;
-        if (!quantity) continue;
-        if (state->expanded == 1) {
-            short y = i * 14 + 7;
+    for (int var4 = 0; var4 < 3; var4++) {
+        const char* var5 = arg0->unknown_784_[var4];
+        if (!var5) continue;
+        unsigned char var6 = arg0->unknown_799_ * arg0->unknown_790_[var4];
+        unsigned char var7 = arg0->unknown_793_[var4];
+        unsigned char var8 = arg0->unknown_796_[var4];
+        int var9 = 15;
+        if (var6 > var7) var9 = 9;
+        if (!var6) continue;
+        if (arg0->unknown_77d_ == 1) {
+            short var10 = var4 * 14 + 7;
 #if defined(jpn)
-            short numberY = y + NumberYOffset;
-            DrawStatusText(canvas, ExpandedNameX, y, name, 10, color);
+            short var11 = var10 + Enum_ov023_021dcedc_1;
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_5, var10, var5, 10, var9);
 #else
-            char source[256] = {};
-            char converted[256] = {};
-            func_0206819c(name, source, 0);
-            func_02046608(formatter, 10, source, converted, 0x400, 0, 0);
-            DrawStatusText(canvas, ExpandedNameX, y, converted, 10, color);
+            char var12[256] = {};
+            char var13[256] = {};
+            func_0206819c(var5, var12, 0);
+            func_02046608(var3, 10, var12, var13, 0x400, 0, 0);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_0_2, var10, var13, 10, var9);
 #endif
-            sprintf(text, data_ov023_021fdb2d);
+            sprintf(var2, data_ov023_021fdb2d);
 #if defined(jpn)
-            DrawStatusText(canvas, 0x72, numberY, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0x72, var11, var2, 8, var9);
 #else
-            DrawStatusText(canvas, 0x72, y, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0x72, var10, var2, 8, var9);
 #endif
-            sprintf(text, data_ov023_021fdb31, quantity);
+            sprintf(var2, data_ov023_021fdb31, var6);
 #if defined(jpn)
-            DrawStatusText(canvas, 0x7d, numberY, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0x7d, var11, var2, 8, var9);
 #else
-            DrawStatusText(canvas, 0x7d, y, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0x7d, var10, var2, 8, var9);
 #endif
-            sprintf(text, data_ov023_021fdb35, limit);
+            sprintf(var2, data_ov023_021fdb35, var7);
 #if defined(jpn)
-            DrawStatusText(canvas, 0xa1, numberY, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0xa1, var11, var2, 8, var9);
 #else
-            DrawStatusText(canvas, 0xa1, y, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0xa1, var10, var2, 8, var9);
 #endif
-            sprintf(text, data_ov023_021fdb39);
-            DrawStatusText(canvas, ExpandedOpenX, y, text, 10, color);
-            sprintf(text, data_ov023_021fdb3b, cost);
+            sprintf(var2, data_ov023_021fdb39);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_192, var10, var2, 10, var9);
+            sprintf(var2, data_ov023_021fdb3b, var8);
 #if defined(jpn)
-            DrawStatusText(canvas, 0xc3, numberY, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0xc3, var11, var2, 8, var9);
 #else
-            DrawStatusText(canvas, 0xc3, y, text, 8, color);
+            inline_ov023_021dcedc(arg1, 0xc3, var10, var2, 8, var9);
 #endif
-            sprintf(text, data_ov023_021fdb3e);
-            DrawStatusText(canvas, ExpandedCloseX, y, text, 10, color);
+            sprintf(var2, data_ov023_021fdb3e);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_200, var10, var2, 10, var9);
         } else {
-            short y = i * 14;
+            short var14 = var4 * 14;
 #if defined(jpn)
-            short numberY = y + NumberYOffset;
-            DrawStatusText(canvas, CollapsedNameX, y, name, 10, color);
+            short var15 = var14 + Enum_ov023_021dcedc_1;
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_70, var14, var5, 10, var9);
 #else
-            char source[256] = {};
-            char converted[256] = {};
-            func_0206819c(name, source, 0);
-            func_02046608(formatter, 10, source, converted, 0x400, 0, 0);
-            DrawStatusText(canvas, CollapsedNameX, y, converted, 10, color);
+            char var16[256] = {};
+            char var17[256] = {};
+            func_0206819c(var5, var16, 0);
+            func_02046608(var3, 10, var16, var17, 0x400, 0, 0);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_64, var14, var17, 10, var9);
 #endif
-            sprintf(text, data_ov023_021fdb2d);
+            sprintf(var2, data_ov023_021fdb2d);
 #if defined(jpn)
-            DrawStatusText(canvas, CollapsedTimesX, numberY, text, 8, color);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_170, var15, var2, 8, var9);
 #else
-            DrawStatusText(canvas, CollapsedTimesX, y, text, 8, color);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_192_2, var14, var2, 8, var9);
 #endif
-            sprintf(text, data_ov023_021fdb31, quantity);
+            sprintf(var2, data_ov023_021fdb31, var6);
 #if defined(jpn)
-            DrawStatusText(canvas, CollapsedQuantityX, numberY, text, 8, color);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_185, var15, var2, 8, var9);
 #else
-            DrawStatusText(canvas, CollapsedQuantityX, y, text, 8, color);
+            inline_ov023_021dcedc(arg1, Enum_ov023_021dcedc_200_2, var14, var2, 8, var9);
 #endif
         }
     }

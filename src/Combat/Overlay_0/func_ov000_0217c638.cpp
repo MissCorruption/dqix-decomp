@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 
 struct Struct_0205ba68;
-struct Node0205bacc;
+struct Struct_0205bacc;
 struct Struct_0205bcdc;
-struct Struct0205cf1c;
+struct Struct_0205cf1c;
 
 extern "C" void* func_02010828(GameState*);
 extern "C" void func_ov000_02174da4(int, void*);
@@ -15,11 +15,11 @@ extern "C" int func_ov000_0218155c(void*);
 extern "C" void* func_ov000_02161318(void*, int);
 extern "C" void* func_02053c6c(unsigned char*);
 extern "C" void func_0205cf10(void*);
-extern "C" void func_0205cf1c(Struct0205cf1c*);
+extern "C" void func_0205cf1c(Struct_0205cf1c*);
 extern "C" void func_0205cef8(void*);
 extern "C" void func_0205cf04(void*);
 extern "C" void func_0205ba68(Struct_0205ba68*, int, int, int);
-extern "C" void func_0205bacc(Node0205bacc*, int);
+extern "C" void func_0205bacc(Struct_0205bacc*, int);
 extern "C" void func_0205bcdc(Struct_0205bcdc*, int);
 extern "C" void func_0205bb04(void*, int);
 
@@ -29,162 +29,162 @@ extern int data_ov000_02184294[3];
 extern int data_ov000_02184294[2];
 #endif
 
-struct Party {
-    char pad[0xf7c];
-    unsigned char count;
+struct Struct_ov000_02182a74 {
+    char unknown_0_[0xf7c];
+    unsigned char unknown_f7c_;
 };
 
-struct Member {
+struct Struct_ov000_0217c638 {
 #if defined(jpn)
-    char pad[0x8b4];
+    char unknown_0_[0x8b4];
 #else
-    char pad[0x94c];
+    char unknown1_0_[0x94c];
 #endif
-    int value;
+    int unknown_94c_;
 };
 
-struct Panel {
-    int head;
-    int level;
-    char rest[0x48];
+struct Struct_ov000_0217c638_2 {
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[0x48];
 };
 
-struct Battle0217c638 {
-    char pad0[0x1a];
-    signed char byte1a;
-    char pad1b;
-    signed char byte1c;
-    char pad1d[0x66 - 0x1d];
-    short word66;
-    char pad68[0x79 - 0x68];
-    unsigned char limit;
-    char pad7a[0x188 - 0x7a];
-    char flags[4];
-    Panel first;
-    Panel second;
+struct Struct_ov000_0217c638_3 {
+    char unknown_0_[0x1a];
+    signed char unknown_1a_;
+    char unknown_1b_;
+    signed char unknown_1c_;
+    char unknown_1d_[0x66 - 0x1d];
+    short unknown_66_;
+    char unknown_68_[0x79 - 0x68];
+    unsigned char unknown_79_;
+    char unknown_7a_[0x188 - 0x7a];
+    char unknown_188_[4];
+    Struct_ov000_0217c638_2 unknown_18c_;
+    Struct_ov000_0217c638_2 unknown_1dc_;
 #if defined(jpn)
-    char pad22c[0x1f98 - 0x22c];
+    char unknown_22c_[0x1f98 - 0x22c];
 #else
-    char pad22c[0x1d60 - 0x22c];
+    char unknown1_22c_[0x1d60 - 0x22c];
 #endif
-    signed char commands[8];
-    signed char index;
-    signed char sel[7];
-    char pad1d70[4];
-    signed char table[8];
+    signed char unknown_1d60_[8];
+    signed char unknown_1d68_;
+    signed char unknown_1d69_[7];
+    char unknown_1d70_[4];
+    signed char unknown_1d74_[8];
 };
 
 // USA: func_ov000_0217c638
-extern "C" ARM void func_ov000_0217c638(Battle0217c638* battle, int a, int b) {
-    int columns = 1;
-    int total = b;
-    int rows;
-    int pages = columns;
-    signed char selected;
+extern "C" ARM void func_ov000_0217c638(Struct_ov000_0217c638_3* arg0, int arg1, int arg2) {
+    int var0 = 1;
+    int var1 = arg2;
+    int var2;
+    int var3 = var0;
+    signed char var4;
 #if defined(jpn)
-    data_ov000_02184294[2] = a;
-    data_ov000_02184294[1] = b;
+    data_ov000_02184294[2] = arg1;
+    data_ov000_02184294[1] = arg2;
 #else
-    data_ov000_02184294[1] = a;
-    data_ov000_02184294[0] = b;
+    data_ov000_02184294[1] = arg1;
+    data_ov000_02184294[0] = arg2;
 #endif
-    GameState* gs = GameState::GetInstance();
-    Party* party = (Party*)func_02010828(gs);
-    switch (battle->commands[battle->index]) {
+    GameState* var5 = GameState::GetInstance();
+    Struct_ov000_02182a74* var6 = (Struct_ov000_02182a74*)func_02010828(var5);
+    switch (arg0->unknown_1d60_[arg0->unknown_1d68_]) {
     case 1: {
-        int buf[4];
-        total = 0;
-        func_ov000_02174da4((int)battle, buf);
-        for (int i = 0; i < 4; i++) {
-            if (buf[i] >= 0) total++;
+        int var7[4];
+        var1 = 0;
+        func_ov000_02174da4((int)arg0, var7);
+        for (int var8 = 0; var8 < 4; var8++) {
+            if (var7[var8] >= 0) var1++;
         }
-        rows = total;
-        selected = battle->sel[0];
+        var2 = var1;
+        var4 = arg0->unknown_1d69_[0];
         break;
     }
     case 2: {
-        void* state = func_0202ae18();
-        rows = 3;
-        if (func_0202b7d8((int*)state)) {
-            if (func_020100a8(gs) == 0) rows = 4;
+        void* var9 = func_0202ae18();
+        var2 = 3;
+        if (func_0202b7d8((int*)var9)) {
+            if (func_020100a8(var5) == 0) var2 = 4;
         }
-        total = rows;
-        selected = battle->sel[1];
+        var1 = var2;
+        var4 = arg0->unknown_1d69_[1];
         break;
     }
     case 3:
-        total = party->count;
-        selected = battle->sel[2];
-        rows = total;
+        var1 = var6->unknown_f7c_;
+        var4 = arg0->unknown_1d69_[2];
+        var2 = var1;
         break;
     case 5:
-        total = party->count;
-        selected = battle->sel[2];
-        rows = total;
+        var1 = var6->unknown_f7c_;
+        var4 = arg0->unknown_1d69_[2];
+        var2 = var1;
         break;
     case 6: {
-        rows = 4;
-        int n = func_ov000_0218155c(battle);
-        total = n;
-        selected = battle->sel[5];
-        if (n < 4) rows = n;
-        pages = (n + 3) / 4;
+        var2 = 4;
+        int var10 = func_ov000_0218155c(arg0);
+        var1 = var10;
+        var4 = arg0->unknown_1d69_[5];
+        if (var10 < 4) var2 = var10;
+        var3 = (var10 + 3) / 4;
         break;
     }
     case 7: {
-        total = battle->word66;
-        selected = battle->sel[6];
-        rows = 4;
-        if (total < 4) rows = total;
-        pages = (total + 3) / 4;
+        var1 = arg0->unknown_66_;
+        var4 = arg0->unknown_1d69_[6];
+        var2 = 4;
+        if (var1 < 4) var2 = var1;
+        var3 = (var1 + 3) / 4;
         break;
     }
     case 4: {
-        columns = 2;
-        rows = 3;
-        int slot = battle->table[battle->sel[2]];
-        total = 6;
-        signed char sl = 0;
-        int ok = slot >= 0 && slot <= 3;
-        if (ok && func_ov000_02161318(battle, slot)) {
-            GameObject* member = gs->GetPartyMemberByIndex(slot);
-            if (member) {
-                sl = (signed char)((Member*)func_02053c6c((unsigned char*)member))->value;
+        var0 = 2;
+        var2 = 3;
+        int var11 = arg0->unknown_1d74_[arg0->unknown_1d69_[2]];
+        var1 = 6;
+        signed char var12 = 0;
+        int var13 = var11 >= 0 && var11 <= 3;
+        if (var13 && func_ov000_02161318(arg0, var11)) {
+            GameObject* var14 = var5->GetPartyMemberByIndex(var11);
+            if (var14) {
+                var12 = (signed char)((Struct_ov000_0217c638*)func_02053c6c((unsigned char*)var14))->unknown_94c_;
             }
         }
-        battle->sel[3] = sl;
-        selected = battle->sel[3];
+        arg0->unknown_1d69_[3] = var12;
+        var4 = arg0->unknown_1d69_[3];
         break;
     }
     case 8:
-        total = battle->limit;
-        selected = battle->sel[2];
-        rows = total;
+        var1 = arg0->unknown_79_;
+        var4 = arg0->unknown_1d69_[2];
+        var2 = var1;
         break;
     case 23:
-        rows = battle->byte1a;
-        selected = battle->sel[4];
-        total = rows;
+        var2 = arg0->unknown_1a_;
+        var4 = arg0->unknown_1d69_[4];
+        var1 = var2;
         break;
     case 25:
-        rows = 1;
-        columns = total;
-        pages = rows;
-        selected = battle->byte1c;
+        var2 = 1;
+        var0 = var1;
+        var3 = var2;
+        var4 = arg0->unknown_1c_;
         break;
     default:
-        func_0205cf10(battle->flags);
-        func_0205cf1c((Struct0205cf1c*)battle->flags);
+        func_0205cf10(arg0->unknown_188_);
+        func_0205cf1c((Struct_0205cf1c*)arg0->unknown_188_);
         return;
     }
-    func_0205cef8(battle->flags);
-    func_0205cf04(battle->flags);
-    func_0205ba68((Struct_0205ba68*)&battle->first, columns, rows, 0);
-    func_0205ba68((Struct_0205ba68*)&battle->second, columns, rows, 0);
-    func_0205bacc((Node0205bacc*)&battle->first, total);
-    func_0205bacc((Node0205bacc*)&battle->second, total);
-    battle->first.level = pages;
-    battle->second.level = pages;
-    func_0205bcdc((Struct_0205bcdc*)&battle->first, selected);
-    func_0205bb04(&battle->second, selected);
+    func_0205cef8(arg0->unknown_188_);
+    func_0205cf04(arg0->unknown_188_);
+    func_0205ba68((Struct_0205ba68*)&arg0->unknown_18c_, var0, var2, 0);
+    func_0205ba68((Struct_0205ba68*)&arg0->unknown_1dc_, var0, var2, 0);
+    func_0205bacc((Struct_0205bacc*)&arg0->unknown_18c_, var1);
+    func_0205bacc((Struct_0205bacc*)&arg0->unknown_1dc_, var1);
+    arg0->unknown_18c_.unknown_4_ = var3;
+    arg0->unknown_1dc_.unknown_4_ = var3;
+    func_0205bcdc((Struct_0205bcdc*)&arg0->unknown_18c_, var4);
+    func_0205bb04(&arg0->unknown_1dc_, var4);
 }

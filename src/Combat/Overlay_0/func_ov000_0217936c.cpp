@@ -1,78 +1,78 @@
 #include <globaldefs.h>
 
-struct UnkStruct0205c508;
-struct Container020e0310;
+struct Struct_0205c508;
+struct Struct_0201099c_3;
 
-struct ListMenu {
-    char pad0[0x1e];
-    short cursor;
+struct Struct_ov000_0217936c_2 {
+    char unknown_0_[0x1e];
+    short unknown_1e_;
 };
 
-struct ListWindow {
-    char pad0[0xb8];
-    char texts[0x1dc - 0xb8];
-    char scroll[4];
+struct Struct_ov000_0217936c {
+    char unknown_0_[0xb8];
+    char unknown_b8_[0x1dc - 0xb8];
+    char unknown_1dc_[4];
 };
 
-extern "C" void func_0205c508(struct UnkStruct0205c508* s, int* out1, int* out2);
-extern "C" int func_ov000_0217542c(void* obj);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int* func_ov000_0217199c(void* obj, int index);
-extern "C" int func_ov000_0217c4e8(void* obj, int index);
-extern "C" int func_02041e70(char* dst, int palette);
-extern "C" void __clear(void* buf, int size);
-extern "C" void func_020e4864(int id, char* dst, int a, int b, int c, int d);
-extern "C" void func_0206819c(const char* src, char* dst, int flag);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" void func_0205c508(struct Struct_0205c508* arg0, int* arg1, int* arg2);
+extern "C" int func_ov000_0217542c(void* arg0);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int* func_ov000_0217199c(void* arg0, int arg1);
+extern "C" int func_ov000_0217c4e8(void* arg0, int arg1);
+extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" void func_020e4864(int arg0, char* arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void func_0206819c(const char* arg0, char* arg1, int arg2);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
 // USA: func_ov000_0217936c
-extern "C" ARM void func_ov000_0217936c(struct ListWindow* window, struct ListMenu* menu, char* dst) {
+extern "C" ARM void func_ov000_0217936c(struct Struct_ov000_0217936c* arg0, struct Struct_ov000_0217936c_2* arg1, char* arg2) {
 #if !defined(jpn)
-    char name[0x80];
-    char upper[0x80];
+    char var0[0x80];
+    char var1[0x80];
 #endif
-    int first;
-    int last;
-    if (menu == NULL || dst == NULL) {
+    int var2;
+    int var3;
+    if (arg1 == NULL || arg2 == NULL) {
         return;
     }
-    func_0205c508((struct UnkStruct0205c508*)window->scroll, &first, &last);
-    short top = first;
-    short end = last;
-    short cursor = menu->cursor;
-    if (func_ov000_0217542c(window)) {
-        func_02041c08(dst, cursor - top, 8, 5, 5, 5);
+    func_0205c508((struct Struct_0205c508*)arg0->unknown_1dc_, &var2, &var3);
+    short var4 = var2;
+    short var5 = var3;
+    short var6 = arg1->unknown_1e_;
+    if (func_ov000_0217542c(arg0)) {
+        func_02041c08(arg2, var6 - var4, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor - top);
-    for (short i = top; i < end; i++) {
-        int* entry = func_ov000_0217199c(menu, i);
-        if (entry == NULL) {
+    func_02041ea4(arg2, var6 - var4);
+    for (short var7 = var4; var7 < var5; var7++) {
+        int* var8 = func_ov000_0217199c(arg1, var7);
+        if (var8 == NULL) {
             continue;
         }
 #if defined(jpn)
-        if (func_ov000_0217c4e8(menu, i)) {
-            func_02041e70(dst, 0xf);
+        if (func_ov000_0217c4e8(arg1, var7)) {
+            func_02041e70(arg2, 0xf);
         } else {
-            func_02041e70(dst, 3);
+            func_02041e70(arg2, 3);
         }
-        func_02041b70(dst, i - top, (const char*)*entry);
+        func_02041b70(arg2, var7 - var4, (const char*)*var8);
 #else
-        int palette = 3;
-        if (func_ov000_0217c4e8(menu, i)) {
-            palette = 0xf;
+        int var9 = 3;
+        if (func_ov000_0217c4e8(arg1, var7)) {
+            var9 = 0xf;
         }
-        func_02041e70(dst, palette);
-        __clear(name, sizeof(name));
-        __clear(upper, sizeof(upper));
-        func_020e4864(*entry, name, 1, 0, 0, 0);
-        func_0206819c(name, upper, 0);
-        func_02041b70(dst, i - top, name);
+        func_02041e70(arg2, var9);
+        __clear(var0, sizeof(var0));
+        __clear(var1, sizeof(var1));
+        func_020e4864(*var8, var0, 1, 0, 0, 0);
+        func_0206819c(var0, var1, 0);
+        func_02041b70(arg2, var7 - var4, var0);
 #endif
-        if (i != end - 1) {
-            func_02042058(dst, (const char*)func_020e0434((struct Container020e0310*)window->texts, 0));
+        if (var7 != var5 - 1) {
+            func_02042058(arg2, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_b8_, 0));
         }
     }
 }

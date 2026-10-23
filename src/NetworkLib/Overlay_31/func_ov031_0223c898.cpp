@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct ParamA020b1d70;
-struct Obj020b1d70;
-extern "C" int func_020b1d70(struct ParamA020b1d70* paramA, struct Obj020b1d70** paramB, int accA, int accB, int paramE, unsigned short paramF);
+struct Struct_020b1d70;
+struct Struct_020b1d70_2;
+extern "C" int func_020b1d70(struct Struct_020b1d70* arg0, struct Struct_020b1d70_2** arg1, int arg2, int arg3, int arg4, unsigned short arg5);
 
 extern char* data_ov031_02290d38;
 
 // USA: func_ov031_0223c898
-extern "C" ARM int func_ov031_0223c898(struct ParamA020b1d70* paramA, int accA, int accB, int paramE, unsigned short paramF, int index) {
-    struct Obj020b1d70** paramB = (struct Obj020b1d70**)(data_ov031_02290d38 + index * 8);
-    return func_020b1d70(paramA, paramB, accA, accB, paramE, paramF);
+extern "C" ARM int func_ov031_0223c898(struct Struct_020b1d70* arg0, int arg1, int arg2, int arg3, unsigned short arg4, int arg5) {
+    struct Struct_020b1d70_2** var0 = (struct Struct_020b1d70_2**)(data_ov031_02290d38 + arg5 * 8);
+    return func_020b1d70(arg0, var0, arg1, arg2, arg3, arg4);
 }

@@ -38,62 +38,62 @@ extern "C"
 #ifdef jpn
 
 // JPN: func_020a5c20
-void RemoveFurigana(const char* src, char* dst)
+void RemoveFurigana(const char* arg0, char* arg1)
 {
-    if (dst == NULL)
+    if (arg1 == NULL)
         return;
 
-    VectorizedMemset(dst, 0, 4);
+    VectorizedMemset(arg1, 0, 4);
 
-    unsigned int mode = 0;
-    int srcIndex;
-    int dstIndex = 0;
+    unsigned int var0 = 0;
+    int var1;
+    int var2 = 0;
 
-    for (srcIndex = 0; src[srcIndex] != '\0'; srcIndex++)
+    for (var1 = 0; arg0[var1] != '\0'; var1++)
     {
-        int inChar = src[srcIndex];
+        int var3 = arg0[var1];
 
-        if (inChar == '[')
+        if (var3 == '[')
         {
-            mode = 1;
+            var0 = 1;
             continue;
         }
 
-        if (inChar == '/')
+        if (var3 == '/')
         {
-            mode = 2;
+            var0 = 2;
             continue;
         }
 
-        if (inChar == ']')
+        if (var3 == ']')
         {
-            mode = 0;
+            var0 = 0;
             continue;
         }
 
-        if (mode <= 1)
+        if (var0 <= 1)
         {
-            unsigned char castChar = inChar;
-            bool twoBytes;
-            if ((castChar >= 0x81 && castChar <= 0x9F) || (castChar >= 0xE0 && castChar <= 0xFC))
-                twoBytes = true;
+            unsigned char var4 = var3;
+            bool var5;
+            if ((var4 >= 0x81 && var4 <= 0x9F) || (var4 >= 0xE0 && var4 <= 0xFC))
+                var5 = true;
             else
-                twoBytes = false;
+                var5 = false;
 
-            if (twoBytes)
+            if (var5)
             {
-                int srcIndexPlusOne = srcIndex + 1;
-                dst[dstIndex] = src[srcIndexPlusOne - 1];
-                srcIndex++;
-                dstIndex++;
+                int var6 = var1 + 1;
+                arg1[var2] = arg0[var6 - 1];
+                var1++;
+                var2++;
             }
 
-            dst[dstIndex] = src[srcIndex];
-            dstIndex++;
+            arg1[var2] = arg0[var1];
+            var2++;
         }
     }
 
-    dst[dstIndex] = 0;
+    arg1[var2] = 0;
 }
 
 #endif
@@ -398,8 +398,8 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
 
     RemoveFurigana(bossName_, bossNameUndecorated);
     sprintf(mapNameNoLevel_, data_020f1c0c, bossNameUndecorated);
-    sprintf(bossNameGenitive_, data_020f1c15, bossName_);
-    strcpy(fixedStringChizu_, data_020f1c1a);
+    sprintf(unknown_90_, data_020f1c15, bossName_);
+    strcpy(unknown_b0_, data_020f1c1a);
     strcpy(mapLevelString_, data_020f1c26);
     sprintf(mapLevelString_, data_020f1c27, level_);
     sprintf(topScreenName_, data_020f1c2c, mapNameNoLevel_, mapLevelString_);
@@ -1035,7 +1035,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(nameNoLevel_, tempBuffer);
-            strcpy(prefixString_, tempBuffer);
+            strcpy(unknown_3b_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1053,7 +1053,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(nameNoLevel_, tempBuffer);
-            strcpy(suffixString_, tempBuffer);
+            strcpy(unknown_5b_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1101,7 +1101,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(popupName_, tempBuffer);
-            strcpy(prefixString_, tempBuffer);
+            strcpy(unknown_3b_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1119,7 +1119,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
             VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
             tempBuffer[stringLength] = '\0';
             strcat(popupName_, tempBuffer);
-            strcpy(suffixString_, tempBuffer);
+            strcpy(unknown_5b_, tempBuffer);
             break;
         }
         readOffset += stringLength;
@@ -1139,7 +1139,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
                 VectorizedInvertedMemcpy(langData + readOffset, tempBuffer, stringLength);
                 tempBuffer[stringLength] = '\0';
                 strcat(popupName_, tempBuffer);
-                strcpy(localeString_, tempBuffer);
+                strcpy(unknown_7b_, tempBuffer);
                 i = numEntries;
                 break;
             }

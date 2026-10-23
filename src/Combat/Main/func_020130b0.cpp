@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
-struct ListNode {
-    char unk[0x28];
-    struct ListNode* field28;
-    struct ListNode* field2c;
-    struct ListNode* field30;
+struct Struct_020130b0 {
+    char unknown_0_[0x28];
+    struct Struct_020130b0* unknown_28_;
+    struct Struct_020130b0* unknown_2c_;
+    struct Struct_020130b0* unknown_30_;
 };
 
 // USA: func_020130b0
-extern "C" ARM void func_020130b0(struct ListNode* a, struct ListNode* b) {
-    struct ListNode* node;
-    b->field28 = a;
-    node = a->field2c;
-    if (node == 0) {
-        a->field2c = b;
+extern "C" ARM void func_020130b0(struct Struct_020130b0* arg0, struct Struct_020130b0* arg1) {
+    struct Struct_020130b0* var0;
+    arg1->unknown_28_ = arg0;
+    var0 = arg0->unknown_2c_;
+    if (var0 == 0) {
+        arg0->unknown_2c_ = arg1;
         return;
     }
-    while (node->field30 != 0) {
-        node = node->field30;
+    while (var0->unknown_30_ != 0) {
+        var0 = var0->unknown_30_;
     }
-    node->field30 = b;
+    var0->unknown_30_ = arg1;
 }

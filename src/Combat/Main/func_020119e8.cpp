@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
 // USA: func_020119e8
-extern "C" ARM void func_020119e8(void* obj) {
-    unsigned char* base = (unsigned char*)obj;
+extern "C" ARM void func_020119e8(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
 #if defined(jpn)
-    (base + 0x6000)[0x200] = 0;
+    (var0 + 0x6000)[0x200] = 0;
 #else
-    (base + 0x6000)[0x480] = 0;
+    (var0 + 0x6000)[0x480] = 0;
 #endif
 }

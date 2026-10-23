@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 
-struct S021882d4 {
-	unsigned char pad0[0x17a];
-	unsigned char byte17a;
-	unsigned char byte17b;
+struct Struct_ov014_021882d4 {
+	unsigned char unknown_0_[0x17a];
+	unsigned char unknown_17a_;
+	unsigned char unknown_17b_;
 };
 
 // USA: func_ov014_021882d4
-extern "C" ARM void func_ov014_021882d4(struct S021882d4* r4) {
-	int val = func_0200fb8c((int*)GameState::GetInstance());
-	if (r4->byte17b == 0) {
-		SetBrightness((GameResources*)val, -16, 8);
-		r4->byte17b++;
+extern "C" ARM void func_ov014_021882d4(struct Struct_ov014_021882d4* arg0) {
+	int var0 = func_0200fb8c((int*)GameState::GetInstance());
+	if (arg0->unknown_17b_ == 0) {
+		SetBrightness((GameResources*)var0, -16, 8);
+		arg0->unknown_17b_++;
 		return;
 	}
-	if (r4->byte17b != 1) return;
-	if (!IsBrightnessTransitionActive((GameResources*)val)) {
-		r4->byte17a = 6;
-		r4->byte17b = 0;
+	if (arg0->unknown_17b_ != 1) return;
+	if (!IsBrightnessTransitionActive((GameResources*)var0)) {
+		arg0->unknown_17a_ = 6;
+		arg0->unknown_17b_ = 0;
 	}
 }

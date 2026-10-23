@@ -6,77 +6,77 @@
 #define REG_BG_SCROLL_020439b0 (*(volatile unsigned int*)0x04000018)
 #define REG_DISPLAY_020439b0 (*(volatile unsigned int*)0x04000000)
 
-extern "C" void func_0206b804(char* obj, int* out1, int* out2);
-extern "C" void func_02044c74(void* obj, void* out);
-extern "C" void func_02066cf0(void* self, int flag);
+extern "C" void func_0206b804(char* arg0, int* arg1, int* arg2);
+extern "C" void func_02044c74(void* arg0, void* arg1);
+extern "C" void func_02066cf0(void* arg0, int arg1);
 #if defined(jpn)
 #define func_02044074 func_0204483c
 #endif
-extern "C" void func_02044074(struct Struct02044074* s);
+extern "C" void func_02044074(struct Struct_02044074* arg0);
 #if defined(jpn)
 #define func_02042b98 func_02043270
 #define func_02043600 func_02043de0
 #endif
-extern "C" void func_02042b98(void* self, int arg1, int arg2, int arg3, int arg4);
-extern "C" void func_0204408c(struct Struct0204408c* s, short x, short y, short z, short w);
-extern "C" void func_02043600(void* a, void* box);
+extern "C" void func_02042b98(void* arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_0204408c(struct Struct_020439b0_7* arg0, short arg1, short arg2, short arg3, short arg4);
+extern "C" void func_02043600(void* arg0, void* arg1);
 #include "Resource/MessageUpdate.h"
-extern "C" void func_02043124(void* self);
-extern "C" void func_020437bc(void* buf, void* box, int index);
+extern "C" void func_02043124(void* arg0);
+extern "C" void func_020437bc(void* arg0, void* arg1, int arg2);
 
-struct Struct0204394c;
+struct Struct_0204394c;
 #if defined(jpn)
 #define func_0204394c func_02044104
 #endif
-extern "C" void func_0204394c(struct Struct0204394c* obj);
+extern "C" void func_0204394c(struct Struct_0204394c* arg0);
 
-struct Entry020e2cc4;
-extern "C" void func_020e2cc4(struct Entry020e2cc4* obj, int enabled);
+struct Struct_020439b0;
+extern "C" void func_020e2cc4(struct Struct_020439b0* arg0, int arg1);
 
-extern "C" void func_0207df90(char* obj);
-struct Obj02041754;
-extern "C" void func_02041754(MessageGlyphSlot* obj);
-extern "C" void func_0207dfac(char* obj);
-extern "C" void func_02042af4(int unused, unsigned char* arr, int index);
+extern "C" void func_0207df90(char* arg0);
+struct Struct_0200f3a4_13;
+extern "C" void func_02041754(Struct_0204166c* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_02042af4(int arg0, unsigned char* arg1, int arg2);
 
-struct Rect020e2d2c;
-extern "C" void func_020e2d2c(struct Rect020e2d2c* s, int a, int b, int c, int d);
+struct Struct_020439b0_3;
+extern "C" void func_020e2d2c(struct Struct_020439b0_3* arg0, int arg1, int arg2, int arg3, int arg4);
 
-struct Entry020e2c34;
-extern "C" void func_020e2c34(struct Entry020e2c34* obj);
+struct Struct_020439b0_4;
+extern "C" void func_020e2c34(struct Struct_020439b0_4* arg0);
 
-struct RectangleState020439b0 {
-    short x;
-    short y;
-    short width;
-    short height;
-    int state;
+struct Struct_020439b0_5 {
+    short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    short unknown_6_;
+    int unknown_8_;
 };
 
-struct Holder02042c24 {
-    char pad[0x440];
-    RectangleState020439b0* currentBounds;
+struct Struct_02042b98_3 {
+    char unknown_0_[0x440];
+    Struct_020439b0_5* unknown_440_;
 };
 
-struct Stream020439b0 { char pad00[8]; int value; char pad0c[0xa8-0xc]; short sw, count, sx, sy; };
-struct Struct02044074 { unsigned short x, y, z, w; };
-struct Struct0204408c { short x, y, z, w; };
-union Rect020439b0 { Struct02044074 zero; Struct0204408c bounds; };
+struct Struct_020439b0_6 { char unknown_0_[8]; int unknown_8_; char unknown_c_[0xa8-0xc]; short unknown_a8_, unknown_aa_, unknown_ac_, unknown_ae_; };
+struct Struct_02044074 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
+struct Struct_020439b0_7 { short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
+union Struct_020439b0_8 { Struct_02044074 unknown_0_; Struct_020439b0_7 unknown1_0_; };
 #if defined(jpn)
-enum { StreamOffset = 0, BoundsOffset = 0x104, BoundsStateOffset = 0x10c,
-       ShowBoundsOffset = 0x213, FirstRectangleOffset = 0x7e4,
-       SecondRectangleOffset = 0x800, HolderOffset = 0x1804,
-       EndTokenOffset = 0x40, OtherBoundsFlagOffset = 0x17ea,
-       CompositeFlagOffset = 0x17fc, ShowEntriesOffset = 0x1790 };
+enum { Enum_020439b0_52 = 0, Enum_020439b0_324 = 0x104, Enum_020439b0_332 = 0x10c,
+       Enum_020439b0_707 = 0x213, Enum_020439b0_2324 = 0x7e4,
+       Enum_020439b0_2352 = 0x800, Enum_020439b0_6624 = 0x1804,
+       Enum_020439b0_116 = 0x40, Enum_020439b0_6586 = 0x17ea,
+       Enum_020439b0_6603 = 0x17fc, Enum_020439b0_6498 = 0x1790 };
 #else
-enum { StreamOffset = 0x34, BoundsOffset = 0x144, BoundsStateOffset = 0x14c,
-       ShowBoundsOffset = 0x2c3, FirstRectangleOffset = 0x914,
-       SecondRectangleOffset = 0x930, HolderOffset = 0x19e0,
-       EndTokenOffset = 0x74, OtherBoundsFlagOffset = 0x19ba,
-       CompositeFlagOffset = 0x19cb, ShowEntriesOffset = 0x1962 };
+enum { Enum_020439b0_52 = 0x34, Enum_020439b0_324 = 0x144, Enum_020439b0_332 = 0x14c,
+       Enum_020439b0_707 = 0x2c3, Enum_020439b0_2324 = 0x914,
+       Enum_020439b0_2352 = 0x930, Enum_020439b0_6624 = 0x19e0,
+       Enum_020439b0_116 = 0x74, Enum_020439b0_6586 = 0x19ba,
+       Enum_020439b0_6603 = 0x19cb, Enum_020439b0_6498 = 0x1962 };
 #endif
 
-struct MapTables020439b0 { short otherMap[0x400]; short tiles[0x400]; };
+struct Struct_020439b0_9 { short unknown_0_[0x400]; short unknown_800_[0x400]; };
 extern void* data_02107800;
 #if defined(jpn)
 #define TILE_MAP_BUFFER (*(void**)((char*)&data_02107800 + 0x30))
@@ -84,217 +84,217 @@ extern void* data_02107800;
 #define TILE_MAP_BUFFER data_02107800
 #endif
 
-static inline short GetStreamWidth020439b0(Stream020439b0* stream) { return stream->sw; }
+static inline short inline_020439b0(Struct_020439b0_6* arg0) { return arg0->unknown_a8_; }
 
 // USA: func_020439b0
-extern "C" ARM void func_020439b0(char* self, int flag) {
-    MessageSystem* controller = (MessageSystem*)self;
-    int dx, dy;
-    Rect020439b0 mainBounds, targetBounds, otherBounds;
+extern "C" ARM void func_020439b0(char* arg0, int arg1) {
+    Struct_02021b84* var0 = (Struct_02021b84*)arg0;
+    int var1, var2;
+    Struct_020439b0_8 var3, var4, var5;
 
-    if (controller->b19cc != 0) {
-        func_0206b804(self, &dx, &dy);
-        func_02044c74(self, (*(Stream020439b0**)(self + StreamOffset)));
+    if (var0->unknown_19cc_ != 0) {
+        func_0206b804(arg0, &var1, &var2);
+        func_02044c74(arg0, (*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)));
 
-        Stream020439b0* stream = (*(Stream020439b0**)(self + StreamOffset));
-        int streamValue = stream->value;
-        if (streamValue != 0) {
-            stream->value = streamValue;
+        Struct_020439b0_6* var6 = (*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52));
+        int var7 = var6->unknown_8_;
+        if (var7 != 0) {
+            var6->unknown_8_ = var7;
 
-            controller->b19cc = 0;
-            func_02066cf0(self, 1);
-            controller->b19cc = 1;
-            if (controller->b19c0 != 0) {
-                controller->stream40 = 0;
+            var0->unknown_19cc_ = 0;
+            func_02066cf0(arg0, 1);
+            var0->unknown_19cc_ = 1;
+            if (var0->unknown_19c0_ != 0) {
+                var0->unknown_40_ = 0;
             }
 
-            func_02044074(&mainBounds.zero);
-            func_02044074(&targetBounds.zero);
-            func_02044074(&otherBounds.zero);
+            func_02044074(&var3.unknown_0_);
+            func_02044074(&var4.unknown_0_);
+            func_02044074(&var5.unknown_0_);
 
-            if (controller->active != 0 && controller->b19b1 != 0) {
+            if (var0->unknown_998_ != 0 && var0->unknown_19b1_ != 0) {
                 goto prepareBounds;
             }
-            if ((*(unsigned char*)(self + CompositeFlagOffset)) != 0) {
+            if ((*(unsigned char*)(arg0 + Enum_020439b0_6603)) != 0) {
             prepareBounds:
-                if (controller->b19b1 != 0) {
-                    func_02042b98(self, 2, 0x74, 0xfc, 0x4a);
-                    func_0204408c(&mainBounds.bounds, dx + 2, dy + 0x74, 0xfc, 0x4a);
-                    func_02043600((*(Stream020439b0**)(self + StreamOffset)), &mainBounds);
-                    func_0204408c(&mainBounds.bounds, 2, 0x74, 0xfc, 0x4a);
+                if (var0->unknown_19b1_ != 0) {
+                    func_02042b98(arg0, 2, 0x74, 0xfc, 0x4a);
+                    func_0204408c(&var3.unknown1_0_, var1 + 2, var2 + 0x74, 0xfc, 0x4a);
+                    func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var3);
+                    func_0204408c(&var3.unknown1_0_, 2, 0x74, 0xfc, 0x4a);
 
                 }
 
-                if (controller->b19c4 != 0 && controller->b19c3 != 0) {
-                    struct Holder02042c24* holder = (Holder02042c24*)(self + HolderOffset);
-                    holder->currentBounds = &(*(RectangleState020439b0*)(self + SecondRectangleOffset));
-                    int cond = (holder->currentBounds != 0) ? (holder->currentBounds->state == 2) : 0;
-                    if (cond) {
-                        short sx, sy, sz, sw;
-                        if (holder->currentBounds != 0) {
-                            sx = holder->currentBounds->x;
-                            sy = holder->currentBounds->y;
+                if (var0->unknown_19c4_ != 0 && var0->unknown_19c3_ != 0) {
+                    struct Struct_02042b98_3* var8 = (Struct_02042b98_3*)(arg0 + Enum_020439b0_6624);
+                    var8->unknown_440_ = &(*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2352));
+                    int var9 = (var8->unknown_440_ != 0) ? (var8->unknown_440_->unknown_8_ == 2) : 0;
+                    if (var9) {
+                        short var10, var11, var12, var13;
+                        if (var8->unknown_440_ != 0) {
+                            var10 = var8->unknown_440_->unknown_0_;
+                            var11 = var8->unknown_440_->unknown_2_;
                         }
-                        if (holder->currentBounds != 0) {
-                            sz = holder->currentBounds->width;
-                            sw = holder->currentBounds->height;
+                        if (var8->unknown_440_ != 0) {
+                            var12 = var8->unknown_440_->unknown_4_;
+                            var13 = var8->unknown_440_->unknown_6_;
                         }
-                        func_0204408c(&targetBounds.bounds, sx + dx, sy + dy, sz, sw);
-                        func_02043600((*(Stream020439b0**)(self + StreamOffset)), &targetBounds);
-                        func_0204408c(&targetBounds.bounds, sx, sy, sz, sw);
+                        func_0204408c(&var4.unknown1_0_, var10 + var1, var11 + var2, var12, var13);
+                        func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var4);
+                        func_0204408c(&var4.unknown1_0_, var10, var11, var12, var13);
                     }
-                    holder->currentBounds = &(*(RectangleState020439b0*)(self + FirstRectangleOffset));
+                    var8->unknown_440_ = &(*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2324));
                 }
 
-                if (controller->mode == 6) {
-                    if ((*(unsigned char*)(self + OtherBoundsFlagOffset)) != 0 && (*(unsigned char*)(self + ShowBoundsOffset)) != 0) {
-                        func_0204408c(&otherBounds.bounds, (*(Struct0204408c*)(self + BoundsOffset)).x, (*(Struct0204408c*)(self + BoundsOffset)).y,
-                            (*(Struct0204408c*)(self + BoundsOffset)).z, (*(Struct0204408c*)(self + BoundsOffset)).w);
-                        func_02043600((*(Stream020439b0**)(self + StreamOffset)), &otherBounds);
+                if (var0->unknown_9a0_ == 6) {
+                    if ((*(unsigned char*)(arg0 + Enum_020439b0_6586)) != 0 && (*(unsigned char*)(arg0 + Enum_020439b0_707)) != 0) {
+                        func_0204408c(&var5.unknown1_0_, (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_0_, (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_2_,
+                            (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_4_, (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_6_);
+                        func_02043600((*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52)), &var5);
                     }
                 }
             }
 
-            Stream020439b0* updatedStream = (*(Stream020439b0**)(self + StreamOffset));
-            if (updatedStream != 0) {
-                short i;
-                int base;
-                int val;
-                short count;
-                int step;
-                short sx = updatedStream->sx;
-                short sy = updatedStream->sy;
-                short sw = GetStreamWidth020439b0(updatedStream);
-                count = updatedStream->count;
-                base = (sx + (sy << 5)) << 5;
-                val = updatedStream->value;
-                i = 0;
-                for (; i < count; i++) {
-                    step = sw << 5;
-                    StageMemoryToVRAM(VRAMSubregion_MainBG3Character, (const void*)val, base, step, 1, 0);
-                    val += step;
-                    base += 0x400;
+            Struct_020439b0_6* var14 = (*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52));
+            if (var14 != 0) {
+                short var15;
+                int var16;
+                int var17;
+                short var18;
+                int var19;
+                short var20 = var14->unknown_ac_;
+                short var21 = var14->unknown_ae_;
+                short var22 = inline_020439b0(var14);
+                var18 = var14->unknown_aa_;
+                var16 = (var20 + (var21 << 5)) << 5;
+                var17 = var14->unknown_8_;
+                var15 = 0;
+                for (; var15 < var18; var15++) {
+                    var19 = var22 << 5;
+                    StageMemoryToVRAM(VRAMSubregion_MainBG3Character, (const void*)var17, var16, var19, 1, 0);
+                    var17 += var19;
+                    var16 += 0x400;
                 }
             }
 
-            int oldX = controller->w94c[0];
-            int oldY = controller->w94c[1];
-            REG_BG_SCROLL_020439b0 = ((-oldX) & 0x1ff) | (((-oldY) << 16) & 0x1ff0000);
-            controller->w94c[0] = dx;
-            controller->w94c[1] = dy;
+            int var23 = var0->unknown_94c_[0];
+            int var24 = var0->unknown_94c_[1];
+            REG_BG_SCROLL_020439b0 = ((-var23) & 0x1ff) | (((-var24) << 16) & 0x1ff0000);
+            var0->unknown_94c_[0] = var1;
+            var0->unknown_94c_[1] = var2;
 
-            if (controller->mode != 1 && controller->mode != 0) {
+            if (var0->unknown_9a0_ != 1 && var0->unknown_9a0_ != 0) {
                 memset(TILE_MAP_BUFFER, 0, 0x800);
 
-                if (controller->active != 0 && controller->b19b1 != 0) {
+                if (var0->unknown_998_ != 0 && var0->unknown_19b1_ != 0) {
                     goto stageBounds;
                 }
-                if ((*(unsigned char*)(self + CompositeFlagOffset)) != 0) {
+                if ((*(unsigned char*)(arg0 + Enum_020439b0_6603)) != 0) {
                 stageBounds:
-                    if (controller->b19b1 != 0) {
-                        void* rbuf = TILE_MAP_BUFFER;
-                        func_020437bc(rbuf, &mainBounds, 0);
-                        func_020437bc(rbuf, &targetBounds, 1);
-                        func_020437bc(rbuf, &otherBounds, 2);
-                        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, rbuf, 0, 0x800, 1, 0);
+                    if (var0->unknown_19b1_ != 0) {
+                        void* var25 = TILE_MAP_BUFFER;
+                        func_020437bc(var25, &var3, 0);
+                        func_020437bc(var25, &var4, 1);
+                        func_020437bc(var25, &var5, 2);
+                        StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, var25, 0, 0x800, 1, 0);
                     }
                 }
 
-                if (controller->b19b1 == 0) {
+                if (var0->unknown_19b1_ == 0) {
                     StageMemoryToVRAM(VRAMSubregion_MainBG2Screen, TILE_MAP_BUFFER, 0, 0x800, 1, 0);
                 }
 
-                if (!((*(unsigned int*)(self + EndTokenOffset)) != controller->tokenIndex && controller->active != 0)) {
-                    MapTables020439b0* buf = (MapTables020439b0*)TILE_MAP_BUFFER;
-                    unsigned short i;
-                    for (i = 0; i < 0x100; i++) {
-                        buf->tiles[i] = 0;
+                if (!((*(unsigned int*)(arg0 + Enum_020439b0_116)) != var0->unknown_78_ && var0->unknown_998_ != 0)) {
+                    Struct_020439b0_9* var26 = (Struct_020439b0_9*)TILE_MAP_BUFFER;
+                    unsigned short var27;
+                    for (var27 = 0; var27 < 0x100; var27++) {
+                        var26->unknown_800_[var27] = 0;
                     }
-                    for (unsigned short tableIndex = 0x100; tableIndex < 0x300; tableIndex++) {
-                        buf->tiles[tableIndex] = (short)tableIndex;
+                    for (unsigned short var28 = 0x100; var28 < 0x300; var28++) {
+                        var26->unknown_800_[var28] = (short)var28;
                     }
-                    StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, buf->tiles, 0, 0x800, 1, 0);
+                    StageMemoryToVRAM(VRAMSubregion_MainBG3Screen, var26->unknown_800_, 0, 0x800, 1, 0);
                 }
             }
 
             REG_DISPLAY_020439b0 = (REG_DISPLAY_020439b0 & ~0x1f00) | 0x1d00;
         }
 
-        FreeVRAMStagingMemory((const void*)(*(Stream020439b0**)(self + StreamOffset))->value);
+        FreeVRAMStagingMemory((const void*)(*(Struct_020439b0_6**)(arg0 + Enum_020439b0_52))->unknown_8_);
 
-        if (controller->active == 0) {
-            func_02043040((MessageSystem*)self);
-            func_02043124(self);
-            func_020430b0((MessageSystem*)self);
+        if (var0->unknown_998_ == 0) {
+            func_02043040((Struct_02021b84*)arg0);
+            func_02043124(arg0);
+            func_020430b0((Struct_02021b84*)arg0);
         }
     }
 
     if ((
 #if defined(jpn)
-            controller->flags17ff.streamMode
+            var0->unknown_17ff_.unknown_0_0_
 #else
-            controller->b19ce
+            var0->unknown_19ce_
 #endif
-        ) != 0 && controller->stream44 == 0) {
-        func_0204394c((struct Struct0204394c*)(controller->encoder));
+        ) != 0 && var0->unknown_44_ == 0) {
+        func_0204394c((struct Struct_0204394c*)(var0->unknown_1e28_));
     }
     {
-        int i;
-        for (i = 0; i < 2; i++) {
-            func_020e2cc4((Entry020e2cc4*)&controller->entries[i], 0);
+        int var29;
+        for (var29 = 0; var29 < 2; var29++) {
+            func_020e2cc4((Struct_020439b0*)&var0->unknown_1964_[var29], 0);
         }
     }
 
-    if (flag != 0 && controller->active == 0) return;
+    if (arg1 != 0 && var0->unknown_998_ == 0) return;
     {
-        void* encoder = controller->encoder;
-        if (encoder != 0) {
-            MessageGlyphSlot* entry;
-            int j;
-            for (j = 0; j < 0x80; j++) {
-                if (controller->glyphReferences[j] != 0) {
-                    entry = &controller->glyphs[j];
-                    if (entry->pendingUpload) {
-                        if (controller->b19cc != 0 || (
+        void* var30 = var0->unknown_1e28_;
+        if (var30 != 0) {
+            Struct_0204166c* var31;
+            int var32;
+            for (var32 = 0; var32 < 0x80; var32++) {
+                if (var0->unknown_17b8_[var32] != 0) {
+                    var31 = &var0->unknown_9b8_[var32];
+                    if (var31->unknown_16_0_) {
+                        if (var0->unknown_19cc_ != 0 || (
 #if defined(jpn)
-            controller->flags17ff.streamMode
+            var0->unknown_17ff_.unknown_0_0_
 #else
-            controller->b19ce
+            var0->unknown_19ce_
 #endif
         ) != 0) {
-                            entry->pendingUpload = 0;
+                            var31->unknown_16_0_ = 0;
                         } else {
-                            func_0207df90((char*)controller->encoder);
-                            func_02041754(entry);
-                            func_0207dfac((char*)controller->encoder);
+                            func_0207df90((char*)var0->unknown_1e28_);
+                            func_02041754(var31);
+                            func_0207dfac((char*)var0->unknown_1e28_);
                         }
-                        func_02042af4((int)self, controller->bitmapAllocationBits, entry->bitmapIndex);
+                        func_02042af4((int)arg0, var0->unknown_2cc_, var31->unknown_8_);
                     }
                 }
             }
         }
     }
 
-    if ((*(RectangleState020439b0*)(self + FirstRectangleOffset)).state >= 2) {
-        func_020e2d2c((Rect020e2d2c*)&controller->entries[0], 4, 0x76, 0xf8, 0x46);
-        if ((*(unsigned char*)(self + ShowEntriesOffset)) != 0) {
-            func_020e2cc4((Entry020e2cc4*)&controller->entries[0], 1);
+    if ((*(Struct_020439b0_5*)(arg0 + Enum_020439b0_2324)).unknown_8_ >= 2) {
+        func_020e2d2c((Struct_020439b0_3*)&var0->unknown_1964_[0], 4, 0x76, 0xf8, 0x46);
+        if ((*(unsigned char*)(arg0 + Enum_020439b0_6498)) != 0) {
+            func_020e2cc4((Struct_020439b0*)&var0->unknown_1964_[0], 1);
         }
     }
 
-    if ((*(int*)(self + BoundsStateOffset)) >= 2) {
-        int left = (*(Struct0204408c*)(self + BoundsOffset)).x;
-        int top = (*(Struct0204408c*)(self + BoundsOffset)).y;
-        int right = (*(Struct0204408c*)(self + BoundsOffset)).z;
-        int bottom = (*(Struct0204408c*)(self + BoundsOffset)).w;
-        func_020e2d2c((Rect020e2d2c*)&controller->entries[1], left + 2, top + 2, right - 4, bottom - 4);
-        if ((*(unsigned char*)(self + ShowEntriesOffset)) != 0) {
-            func_020e2cc4((Entry020e2cc4*)&controller->entries[1], 1);
+    if ((*(int*)(arg0 + Enum_020439b0_332)) >= 2) {
+        int var33 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_0_;
+        int var34 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_2_;
+        int var35 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_4_;
+        int var36 = (*(Struct_020439b0_7*)(arg0 + Enum_020439b0_324)).unknown_6_;
+        func_020e2d2c((Struct_020439b0_3*)&var0->unknown_1964_[1], var33 + 2, var34 + 2, var35 - 4, var36 - 4);
+        if ((*(unsigned char*)(arg0 + Enum_020439b0_6498)) != 0) {
+            func_020e2cc4((Struct_020439b0*)&var0->unknown_1964_[1], 1);
         }
     }
 
-    int k;
-    for (k = 0; k < 2; k++) {
-        func_020e2c34((Entry020e2c34*)&controller->entries[k]);
+    int var37;
+    for (var37 = 0; var37 < 2; var37++) {
+        func_020e2c34((Struct_020439b0_4*)&var0->unknown_1964_[var37]);
     }
 }

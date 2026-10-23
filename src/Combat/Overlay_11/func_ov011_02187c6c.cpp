@@ -1,38 +1,38 @@
 #include <globaldefs.h>
 
-struct TaggedNumber02184c30;
-extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
+struct Struct_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 extern "C" void* func_ov017_021b2164(void);
 extern "C" void* func_ov011_021849c8(void*);
 
-class VObj02187c6c {
+class Struct_ov011_02187c6c {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-    virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-    virtual void v36();
-    virtual void Method94(int a);
-    virtual void v38();
-    virtual void Method9c(int a);
+    virtual void inline_ov011_02187c6c_6(); virtual void inline_ov011_02187c6c_7(); virtual void inline_ov011_02187c6c_8(); virtual void inline_ov011_02187c6c_9();
+    virtual void inline_ov011_02187c6c_10(); virtual void inline_ov011_02187c6c_11(); virtual void inline_ov011_02187c6c_12(); virtual void inline_ov011_02187c6c_13();
+    virtual void inline_ov011_02187c6c_14(); virtual void inline_ov011_02187c6c_15(); virtual void inline_ov011_02187c6c_16(); virtual void inline_ov011_02187c6c_17();
+    virtual void inline_ov011_02187c6c_18(); virtual void inline_ov011_02187c6c_19(); virtual void inline_ov011_02187c6c_20(); virtual void inline_ov011_02187c6c_21();
+    virtual void inline_ov011_02187c6c_22(); virtual void inline_ov011_02187c6c_23(); virtual void inline_ov011_02187c6c_24(); virtual void inline_ov011_02187c6c_25();
+    virtual void inline_ov011_02187c6c_26(); virtual void inline_ov011_02187c6c_27(); virtual void inline_ov011_02187c6c_28(); virtual void inline_ov011_02187c6c_29();
+    virtual void inline_ov011_02187c6c_30(); virtual void inline_ov011_02187c6c_31(); virtual void inline_ov011_02187c6c_32(); virtual void inline_ov011_02187c6c_33();
+    virtual void inline_ov011_02187c6c_34(); virtual void inline_ov011_02187c6c_35(); virtual void inline_ov011_02187c6c_36(); virtual void inline_ov011_02187c6c_37();
+    virtual void inline_ov011_02187c6c_38(); virtual void inline_ov011_02187c6c_39(); virtual void inline_ov011_02187c6c_40(); virtual void inline_ov011_02187c6c();
+    virtual void inline_ov011_02187c6c_2();
+    virtual void inline_ov011_02187c6c_3(int arg0);
+    virtual void inline_ov011_02187c6c_4();
+    virtual void inline_ov011_02187c6c_5(int arg0);
 };
-extern "C" struct VObj02187c6c* func_ov023_021f6880(void*, int);
+extern "C" struct Struct_ov011_02187c6c* func_ov023_021f6880(void*, int);
 
 // USA: func_ov011_02187c6c
-extern "C" ARM int func_ov011_02187c6c(struct TaggedNumber02184c30* tagged) {
-    int v0 = func_ov011_02184c30(tagged);
-    int v1 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 8));
-    int v2 = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 0x10));
-    struct VObj02187c6c* node = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), v0);
-    if (node) {
-        node->Method94(v1);
-        node->Method9c(v2);
+extern "C" ARM int func_ov011_02187c6c(struct Struct_ov011_02184c30* arg0) {
+    int var0 = func_ov011_02184c30(arg0);
+    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
+    int var2 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 0x10));
+    struct Struct_ov011_02187c6c* var3 = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), var0);
+    if (var3) {
+        var3->inline_ov011_02187c6c_3(var1);
+        var3->inline_ov011_02187c6c_5(var2);
     }
     return 1;
 }

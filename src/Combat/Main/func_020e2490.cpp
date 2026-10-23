@@ -1,67 +1,67 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-extern "C" void func_020e25cc(signed char* p);
-struct Struct02020520;
-extern "C" void func_02020520(struct Struct02020520* s);
-struct ZeroStruct;
-extern "C" void func_020e1568(struct ZeroStruct* s);
-extern "C" void func_020e1588(unsigned char* p);
-extern "C" void func_020e15f8(char* obj, int arg1, int arg2);
-struct ClearTarget0205a234;
-extern "C" void func_0205a234(struct ClearTarget0205a234* target);
+extern "C" void func_020e25cc(signed char* arg0);
+struct Struct_020200c0_3;
+extern "C" void func_02020520(struct Struct_020200c0_3* arg0);
+struct Struct_020e1568;
+extern "C" void func_020e1568(struct Struct_020e1568* arg0);
+extern "C" void func_020e1588(unsigned char* arg0);
+extern "C" void func_020e15f8(char* arg0, int arg1, int arg2);
+struct Struct_02043368;
+extern "C" void func_0205a234(struct Struct_02043368* arg0);
 
-struct EntryManager020e2490 {
-    void* field0;
-    void* field4;
-    void* field8;
-    unsigned char* fieldC;
-    unsigned char* field10;
-    signed char byte14;
-    signed char byte15;
-    signed char byte16;
-    signed char byte17;
-    short short18;
-    short short1a;
-    short short1c;
-    signed char byte1e;
-    signed char pad1f;
-    void* field20;
+struct Struct_020e2490 {
+    void* unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    unsigned char* unknown_c_;
+    unsigned char* unknown_10_;
+    signed char unknown_14_;
+    signed char unknown_15_;
+    signed char unknown_16_;
+    signed char unknown_17_;
+    short unknown_18_;
+    short unknown_1a_;
+    short unknown_1c_;
+    signed char unknown_1e_;
+    signed char unknown_1f_;
+    void* unknown_20_;
 };
 
 // USA: func_020e2490
-extern "C" ARM void func_020e2490(struct EntryManager020e2490* obj, int arg1, int arg2, void* arg3, SafeAllocator* alloc, int count, unsigned char flag) {
-    obj->short1c = 0;
-    obj->byte1e = 8;
-    obj->short18 = 0;
-    obj->short1a = 0;
-    obj->byte16 = 0;
-    func_020e25cc((signed char*)obj);
+extern "C" ARM void func_020e2490(struct Struct_020e2490* arg0, int arg1, int arg2, void* arg3, SafeAllocator* arg4, int arg5, unsigned char arg6) {
+    arg0->unknown_1c_ = 0;
+    arg0->unknown_1e_ = 8;
+    arg0->unknown_18_ = 0;
+    arg0->unknown_1a_ = 0;
+    arg0->unknown_16_ = 0;
+    func_020e25cc((signed char*)arg0);
 
-    obj->field0 = alloc->Allocate(count * 0xc);
-    obj->field4 = alloc->Allocate(0xc);
-    obj->field8 = alloc->Allocate(count * 0xc);
-    obj->fieldC = (unsigned char*)alloc->Allocate(0x40);
-    obj->field10 = (unsigned char*)alloc->Allocate(0x4c);
-    obj->field20 = arg3;
+    arg0->unknown_0_ = arg4->Allocate(arg5 * 0xc);
+    arg0->unknown_4_ = arg4->Allocate(0xc);
+    arg0->unknown_8_ = arg4->Allocate(arg5 * 0xc);
+    arg0->unknown_c_ = (unsigned char*)arg4->Allocate(0x40);
+    arg0->unknown_10_ = (unsigned char*)arg4->Allocate(0x4c);
+    arg0->unknown_20_ = arg3;
 
-    int i;
-    for (i = 0; i < count; i++) {
-        func_02020520((struct Struct02020520*)((char*)obj->field0 + i * 0xc));
-        func_020e1568((struct ZeroStruct*)((char*)obj->field8 + i * 0xc));
+    int var0;
+    for (var0 = 0; var0 < arg5; var0++) {
+        func_02020520((struct Struct_020200c0_3*)((char*)arg0->unknown_0_ + var0 * 0xc));
+        func_020e1568((struct Struct_020e1568*)((char*)arg0->unknown_8_ + var0 * 0xc));
     }
 
-    func_020e1588(obj->fieldC);
-    *(void**)(obj->fieldC + 0x0) = obj->field0;
-    *(void**)(obj->fieldC + 0x4) = obj->field4;
-    *(void**)(obj->fieldC + 0x8) = obj->field8;
-    obj->fieldC[0x3c] = (unsigned char)count;
-    obj->fieldC[0x3d] = flag;
+    func_020e1588(arg0->unknown_c_);
+    *(void**)(arg0->unknown_c_ + 0x0) = arg0->unknown_0_;
+    *(void**)(arg0->unknown_c_ + 0x4) = arg0->unknown_4_;
+    *(void**)(arg0->unknown_c_ + 0x8) = arg0->unknown_8_;
+    arg0->unknown_c_[0x3c] = (unsigned char)arg5;
+    arg0->unknown_c_[0x3d] = arg6;
 
-    func_020e15f8((char*)obj->field10, arg1, arg2);
-    *(void**)(obj->field10 + 0x4) = obj->fieldC;
+    func_020e15f8((char*)arg0->unknown_10_, arg1, arg2);
+    *(void**)(arg0->unknown_10_ + 0x4) = arg0->unknown_c_;
 
-    if (obj->field20 != NULL) {
-        func_0205a234((struct ClearTarget0205a234*)obj->field20);
+    if (arg0->unknown_20_ != NULL) {
+        func_0205a234((struct Struct_02043368*)arg0->unknown_20_);
     }
 }

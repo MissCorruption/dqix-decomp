@@ -3,27 +3,27 @@
 unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 
-struct MsgNode020d248c {
-    MsgNode020d248c* next;   /* 0x0 */
+struct Struct_020d217c_2 {
+    Struct_020d217c_2* unknown_0_;   /* 0x0 */
 };
-struct MsgQueue020d248c {
-    int _pad[2];             /* 0x0,0x4 */
-    MsgNode020d248c* head;   /* 0x8 */
-    MsgNode020d248c* tail;   /* 0xc */
+struct Struct_02112780_3 {
+    int unknown_0_[2];             /* 0x0,0x4 */
+    Struct_020d217c_2* unknown_8_;   /* 0x8 */
+    Struct_020d217c_2* unknown_c_;   /* 0xc */
 };
-extern MsgQueue020d248c data_02112780;
+extern Struct_02112780_3 data_02112780;
 
 // USA: func_020d248c
-extern "C" ARM void func_020d248c(MsgNode020d248c* node) {
-    unsigned int mask = DisableIRQInterrupts();
-    MsgNode020d248c* tail = data_02112780.tail;
-    if (tail == 0) {
-        data_02112780.head = node;
-        data_02112780.tail = node;
+extern "C" ARM void func_020d248c(Struct_020d217c_2* arg0) {
+    unsigned int var0 = DisableIRQInterrupts();
+    Struct_020d217c_2* var1 = data_02112780.unknown_c_;
+    if (var1 == 0) {
+        data_02112780.unknown_8_ = arg0;
+        data_02112780.unknown_c_ = arg0;
     } else {
-        tail->next = node;
-        data_02112780.tail = node;
+        var1->unknown_0_ = arg0;
+        data_02112780.unknown_c_ = arg0;
     }
-    node->next = 0;
-    SetIRQInterruptState(mask);
+    arg0->unknown_0_ = 0;
+    SetIRQInterruptState(var0);
 }

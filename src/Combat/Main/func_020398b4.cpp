@@ -2,33 +2,33 @@
 #include "Combat/ActorAction.h"
 
 #if defined(jpn)
-enum { kOffset26c = 0x260 };
+enum { Enum_020398b4_620 = 0x260 };
 #else
-enum { kOffset26c = 0x26c };
+enum { Enum_020398b4_620 = 0x26c };
 #endif
 
 // USA: func_020398b4
-extern "C" ARM void func_020398b4(GameObject* obj, SubBlock02038508* src) {
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->active = src->active;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->command = src->command;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown2 = src->unknown2;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->reversed = src->reversed;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown4 = src->unknown4;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->heading = src->heading;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->startHeading = src->startHeading;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->endHeading = src->endHeading;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->start = src->start;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->end = src->end;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown24 = src->unknown24;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->startControl = src->startControl;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->endControl = src->endControl;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown48 = src->unknown48;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown4c = src->unknown4c;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown50 = src->unknown50;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown52 = src->unknown52;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown53 = src->unknown53;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown54 = src->unknown54;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->startNode = src->startNode;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->endNode = src->endNode;
-    ((SubBlock02038508*)((char*)obj + kOffset26c))->unknown60 = src->unknown60;
+extern "C" ARM void func_020398b4(GameObject* arg0, Struct_02037d10* arg1) {
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_0_ = arg1->unknown_0_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_1_ = arg1->unknown_1_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_2_ = arg1->unknown_2_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_3_ = arg1->unknown_3_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_4_ = arg1->unknown_4_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_6_ = arg1->unknown_6_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_8_ = arg1->unknown_8_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_a_ = arg1->unknown_a_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_c_ = arg1->unknown_c_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_18_ = arg1->unknown_18_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_24_ = arg1->unknown_24_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_30_ = arg1->unknown_30_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_3c_ = arg1->unknown_3c_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_48_ = arg1->unknown_48_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_4c_ = arg1->unknown_4c_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_50_ = arg1->unknown_50_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_52_ = arg1->unknown_52_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_53_ = arg1->unknown_53_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_54_ = arg1->unknown_54_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_58_ = arg1->unknown_58_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_5c_ = arg1->unknown_5c_;
+    ((Struct_02037d10*)((char*)arg0 + Enum_020398b4_620))->unknown_60_ = arg1->unknown_60_;
 }

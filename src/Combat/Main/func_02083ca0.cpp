@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
 // USA: func_02083ca0
-extern "C" ARM void func_02083ca0(unsigned char* obj, int bit) {
+extern "C" ARM void func_02083ca0(unsigned char* arg0, int arg1) {
 #if defined(jpn)
-    *(unsigned short*)(obj + 0x8bc) |= 1 << bit;
+    *(unsigned short*)(arg0 + 0x8bc) |= 1 << arg1;
 #else
-    *(unsigned short*)(obj + 0x954) |= 1 << bit;
+    *(unsigned short*)(arg0 + 0x954) |= 1 << arg1;
 #endif
 #if defined(jpn)
-    *(int*)(obj + 0x8b8) = bit;
+    *(int*)(arg0 + 0x8b8) = arg1;
 #else
-    *(int*)(obj + 0x950) = bit;
+    *(int*)(arg0 + 0x950) = arg1;
 #endif
 }

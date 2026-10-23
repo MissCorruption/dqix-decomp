@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kPrefixSize = 0x854 };
+enum { Enum_02083a50_2284 = 0x854 };
 #else
-enum { kPrefixSize = 0x8ec };
+enum { Enum_02083a50_2284 = 0x8ec };
 #endif
 
 
-struct BitScan02083a50 {
-    unsigned char pad[kPrefixSize];
-    unsigned char bytes[0x24];
+struct Struct_02083a50 {
+    unsigned char unknown_0_[Enum_02083a50_2284];
+    unsigned char unknown_8ec_[0x24];
 };
 
 // USA: func_02083a50
-extern "C" ARM int func_02083a50(struct BitScan02083a50* obj, short* out, int max) {
-    int j;
-    int k;
-    int count;
-    count = 0;
-    for (j = 0; j < 0x24; j++) {
-        unsigned char b = obj->bytes[j];
-        if (b == 0) {
+extern "C" ARM int func_02083a50(struct Struct_02083a50* arg0, short* arg1, int arg2) {
+    int var0;
+    int var1;
+    int var2;
+    var2 = 0;
+    for (var0 = 0; var0 < 0x24; var0++) {
+        unsigned char var3 = arg0->unknown_8ec_[var0];
+        if (var3 == 0) {
             continue;
         }
-        for (k = 0; k < 8; k++) {
-            if (obj->bytes[j] & (1 << k)) {
-                out[count] = (short)(k + (j << 3));
-                count++;
-                if (count == max) {
-                    return count;
+        for (var1 = 0; var1 < 8; var1++) {
+            if (arg0->unknown_8ec_[var0] & (1 << var1)) {
+                arg1[var2] = (short)(var1 + (var0 << 3));
+                var2++;
+                if (var2 == arg2) {
+                    return var2;
                 }
             }
         }
     }
-    return count;
+    return var2;
 }

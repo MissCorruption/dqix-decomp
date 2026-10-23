@@ -10,74 +10,74 @@
 #include "Input/Input.h"
 
 extern "C" int func_020421a0();
-struct ResetBytesAndSetByte0x16Data;
-extern "C" void func_0205c77c(struct ResetBytesAndSetByte0x16Data* p, int val);
-extern "C" void func_0205cd28(unsigned char* obj);
-extern "C" void func_0205c904(unsigned char* p, int a1);
-struct Container0205a330;
-extern "C" void func_0205a330(struct Container0205a330* c, int arg);
-extern "C" int func_0205cde8(unsigned char* p);
-extern "C" int func_0205cecc(void* s);
-extern "C" int func_0205cb64(void* obj);
-extern "C" unsigned char func_0200fb9c(char* obj);
-extern "C" void func_0200fb94(char* obj, unsigned char value);
-extern "C" int func_020ab9c0(int flag);
-extern "C" int func_0205c96c(unsigned char* p, int a1);
+struct Struct_0205c77c;
+extern "C" void func_0205c77c(struct Struct_0205c77c* arg0, int arg1);
+extern "C" void func_0205cd28(unsigned char* arg0);
+extern "C" void func_0205c904(unsigned char* arg0, int arg1);
+struct Struct_0205a330;
+extern "C" void func_0205a330(struct Struct_0205a330* arg0, int arg1);
+extern "C" int func_0205cde8(unsigned char* arg0);
+extern "C" int func_0205cecc(void* arg0);
+extern "C" int func_0205cb64(void* arg0);
+extern "C" unsigned char func_0200fb9c(char* arg0);
+extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" int func_020ab9c0(int arg0);
+extern "C" int func_0205c96c(unsigned char* arg0, int arg1);
 extern int data_ov020_0218d990[8];
 extern int data_ov020_0218d974[7];
 
-struct DispatchState_0218c840 {
-    int f0;
-    int f4;
-    char pad[REGION(0x1cf, 0x23f) - 0x8];
-    unsigned char byte23f;
-    unsigned char byte240;
+struct Struct_ov020_0218c840 {
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[REGION(0x1cf, 0x23f) - 0x8];
+    unsigned char unknown_23f_;
+    unsigned char unknown_240_;
 };
 
 // USA: func_ov020_0218c840
-extern "C" ARM void func_ov020_0218c840(struct DispatchState_0218c840* obj) {
-    GameState* battleStruct = GameState::GetInstance();
-    unsigned char* g = (unsigned char*)func_020421a0();
+extern "C" ARM void func_ov020_0218c840(struct Struct_ov020_0218c840* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    unsigned char* var1 = (unsigned char*)func_020421a0();
 
-    if (obj->f4 == 0) {
-        obj->byte23f = 1;
-        obj->byte240 = 1;
-        func_0205c77c((struct ResetBytesAndSetByte0x16Data*)((char*)obj + 0x10), 1);
-        func_0205cd28((unsigned char*)obj + 0xc);
+    if (arg0->unknown_4_ == 0) {
+        arg0->unknown_23f_ = 1;
+        arg0->unknown_240_ = 1;
+        func_0205c77c((struct Struct_0205c77c*)((char*)arg0 + 0x10), 1);
+        func_0205cd28((unsigned char*)arg0 + 0xc);
     }
 
-    func_0205c904((unsigned char*)obj + 0xc, 1);
+    func_0205c904((unsigned char*)arg0 + 0xc, 1);
 
-    struct Container0205a330* container = *(struct Container0205a330**)(g + REGION(0x230, 0x2e0));
-    if (container != 0) {
-        func_0205a330(container, 1);
+    struct Struct_0205a330* var2 = *(struct Struct_0205a330**)(var1 + REGION(0x230, 0x2e0));
+    if (var2 != 0) {
+        func_0205a330(var2, 1);
     }
 
-    if (func_0205cde8((unsigned char*)obj + 0xc) != 0) {
-        if (obj->f4 > 5) {
-            volatile unsigned int* ime = (volatile unsigned int*)0x4000000;
-            *ime = (*ime & ~0x1f00) | 0x1300;
+    if (func_0205cde8((unsigned char*)arg0 + 0xc) != 0) {
+        if (arg0->unknown_4_ > 5) {
+            volatile unsigned int* var3 = (volatile unsigned int*)0x4000000;
+            *var3 = (*var3 & ~0x1f00) | 0x1300;
         }
 
-        int hasFlag = g_keyManager.TestKeysPressed(0x401);
-        int active = func_0205cecc((unsigned char*)obj + 0xc) >= 0;
-        if ((hasFlag | active) != 0) {
-            int idx = func_0205cb64((unsigned char*)obj + 0xc);
-            if (func_0200fb9c((char*)battleStruct) == 6) return;
+        int var4 = g_keyManager.TestKeysPressed(0x401);
+        int var5 = func_0205cecc((unsigned char*)arg0 + 0xc) >= 0;
+        if ((var4 | var5) != 0) {
+            int var6 = func_0205cb64((unsigned char*)arg0 + 0xc);
+            if (func_0200fb9c((char*)var0) == 6) return;
 
             if (func_020ab9c0(1) == 4) {
-                func_0200fb94((char*)battleStruct, (unsigned char)data_ov020_0218d990[idx]);
-                obj->f0 = -1;
-                obj->f4 = -1;
+                func_0200fb94((char*)var0, (unsigned char)data_ov020_0218d990[var6]);
+                arg0->unknown_0_ = -1;
+                arg0->unknown_4_ = -1;
                 return;
             } else {
-                func_0200fb94((char*)battleStruct, (unsigned char)data_ov020_0218d974[idx]);
-                obj->f0 = -1;
-                obj->f4 = -1;
+                func_0200fb94((char*)var0, (unsigned char)data_ov020_0218d974[var6]);
+                arg0->unknown_0_ = -1;
+                arg0->unknown_4_ = -1;
                 return;
             }
         }
     }
 
-    func_0205c96c((unsigned char*)obj + 0xc, 0);
+    func_0205c96c((unsigned char*)arg0 + 0xc, 0);
 }

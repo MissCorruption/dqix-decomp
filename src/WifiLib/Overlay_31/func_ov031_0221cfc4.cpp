@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 // USA: func_ov031_0221cfc4
-extern "C" THUMB unsigned int func_ov031_0221cfc4(unsigned int a, unsigned int b) {
-    unsigned int ab = a & b;
-    unsigned int notb = ~b;
-    unsigned int t = (a & notb) + 1;
-    t = t | ab;
-    unsigned int u = notb | ab;
-    if (t < u)
-        return t;
-    return 1 | ab;
+extern "C" THUMB unsigned int func_ov031_0221cfc4(unsigned int arg0, unsigned int arg1) {
+    unsigned int var0 = arg0 & arg1;
+    unsigned int var1 = ~arg1;
+    unsigned int var2 = (arg0 & var1) + 1;
+    var2 = var2 | var0;
+    unsigned int var3 = var1 | var0;
+    if (var2 < var3)
+        return var2;
+    return 1 | var0;
 }

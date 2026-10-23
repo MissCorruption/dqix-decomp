@@ -2,36 +2,36 @@
 #include "Resource/FontBankLoader.h"
 
 #if defined(jpn)
-enum { kRegionValue3EC_404 = 0x404 };
-enum { kRegionValue3ED_405 = 0x405 };
-enum { kRegionValue3F0_408 = 0x408 };
+enum { Enum_ov003_0215dc20_1004 = 0x404 };
+enum { Enum_ov003_0215dc20_1005 = 0x405 };
+enum { Enum_ov003_0215dc20_1008 = 0x408 };
 #else
-enum { kRegionValue3EC_404 = 0x3ec };
-enum { kRegionValue3ED_405 = 0x3ed };
-enum { kRegionValue3F0_408 = 0x3f0 };
+enum { Enum_ov003_0215dc20_1004 = 0x3ec };
+enum { Enum_ov003_0215dc20_1005 = 0x3ed };
+enum { Enum_ov003_0215dc20_1008 = 0x3f0 };
 #endif
 
 // USA: func_ov003_0215dc20
-extern "C" ARM void func_ov003_0215dc20(void* obj) {
-	unsigned char* o = (unsigned char*)obj;
-	unsigned char state;
-	FontBankLoader* g;
-	if (o[kRegionValue3EC_404] == 0) return;
-	state = o[kRegionValue3ED_405];
-	if (state == 0) {
-		g = func_02094a00();
-		func_02094b3c(g, 0xa);
-		if (o[kRegionValue3F0_408] != 0) {
-			func_02094b30(g, 0x1f5, 0);
+extern "C" ARM void func_ov003_0215dc20(void* arg0) {
+	unsigned char* var0 = (unsigned char*)arg0;
+	unsigned char var1;
+	Struct_0208cb08* var2;
+	if (var0[Enum_ov003_0215dc20_1004] == 0) return;
+	var1 = var0[Enum_ov003_0215dc20_1005];
+	if (var1 == 0) {
+		var2 = func_02094a00();
+		func_02094b3c(var2, 0xa);
+		if (var0[Enum_ov003_0215dc20_1008] != 0) {
+			func_02094b30(var2, 0x1f5, 0);
 		} else {
-			func_02094b30(g, 0x200, 1);
+			func_02094b30(var2, 0x200, 1);
 		}
-		o[kRegionValue3ED_405] = o[kRegionValue3ED_405] + 1;
+		var0[Enum_ov003_0215dc20_1005] = var0[Enum_ov003_0215dc20_1005] + 1;
 		return;
 	}
-	if (state != 1) return;
+	if (var1 != 1) return;
 	if (func_02094b4c(func_02094a00()) != 0) {
-		o[kRegionValue3EC_404] = 0;
-		o[kRegionValue3ED_405] = 0;
+		var0[Enum_ov003_0215dc20_1004] = 0;
+		var0[Enum_ov003_0215dc20_1005] = 0;
 	}
 }

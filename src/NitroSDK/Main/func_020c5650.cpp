@@ -2,9 +2,9 @@
 
 
 // USA: func_020c5650
-extern "C" ARM int func_020c5650(int* out) {
-    volatile unsigned int* gxstat = (volatile unsigned int*)0x4000600;
-    if (*gxstat & 0x4000) return -1;
-    *out = (*gxstat & 0x1f00) >> 8;
+extern "C" ARM int func_020c5650(int* arg0) {
+    volatile unsigned int* var0 = (volatile unsigned int*)0x4000600;
+    if (*var0 & 0x4000) return -1;
+    *arg0 = (*var0 & 0x1f00) >> 8;
     return 0;
 }

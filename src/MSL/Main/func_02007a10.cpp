@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" ARM double func_0200aae4(double x, int n);
-extern "C" ARM double func_02008f5c(double x);
+extern "C" ARM double func_0200aae4(double arg0, int arg1);
+extern "C" ARM double func_02008f5c(double arg0);
 
 extern const int data_020e6c74[];
 extern const double data_020e6c84[];
@@ -13,141 +13,141 @@ two24  = 1.67772160000000000000e+07,
 twon24 = 5.96046447753906250000e-08;
 
 // USA: func_02007a10
-extern "C" ARM int func_02007a10(double* x, double* y, int e0, int nx, int prec, const int* ipio2) {
-    int jz, jx, jv, jp, jk, carry, n, iq[20], i, j, k, m, q0, ih;
-    double z, fw, f[20], fq[20], q[20];
+extern "C" ARM int func_02007a10(double* arg0, double* arg1, int arg2, int arg3, int arg4, const int* arg5) {
+    int var0, var1, var2, var3, var4, var5, var6, var7[20], var8, var9, var10, var11, var12, var13;
+    double var14, var15, var16[20], var17[20], var18[20];
 
-    jk = data_020e6c74[prec];
-    jp = jk;
+    var4 = data_020e6c74[arg4];
+    var3 = var4;
 
-    jx = nx - 1;
-    jv = (e0 - 3) / 24; if (jv < 0) jv = 0;
-    q0 = e0 - 24 * (jv + 1);
+    var1 = arg3 - 1;
+    var2 = (arg2 - 3) / 24; if (var2 < 0) var2 = 0;
+    var12 = arg2 - 24 * (var2 + 1);
 
-    j = jv - jx; m = jx + jk;
-    for (i = 0; i <= m; i++, j++) f[i] = (j < 0) ? zero : (double)ipio2[j];
+    var9 = var2 - var1; var11 = var1 + var4;
+    for (var8 = 0; var8 <= var11; var8++, var9++) var16[var8] = (var9 < 0) ? zero : (double)arg5[var9];
 
-    for (i = 0; i <= jk; i++) {
-        for (j = 0, fw = 0.0; j <= jx; j++) fw += x[j] * f[jx + i - j];
-        q[i] = fw;
+    for (var8 = 0; var8 <= var4; var8++) {
+        for (var9 = 0, var15 = 0.0; var9 <= var1; var9++) var15 += arg0[var9] * var16[var1 + var8 - var9];
+        var18[var8] = var15;
     }
 
-    jz = jk;
+    var0 = var4;
 recompute:
-    for (i = 0, j = jz, z = q[jz]; j > 0; i++, j--) {
-        fw    = (double)((int)(twon24 * z));
-        iq[i] = (int)(z - two24 * fw);
-        z     = q[j - 1] + fw;
+    for (var8 = 0, var9 = var0, var14 = var18[var0]; var9 > 0; var8++, var9--) {
+        var15    = (double)((int)(twon24 * var14));
+        var7[var8] = (int)(var14 - two24 * var15);
+        var14     = var18[var9 - 1] + var15;
     }
 
-    z  = func_0200aae4(z, q0);
-    z -= 8.0 * func_02008f5c(z * 0.125);
-    n  = (int)z;
-    z -= (double)n;
-    ih = 0;
-    if (q0 > 0) {
-        i  = (iq[jz - 1] >> (24 - q0)); n += i;
-        iq[jz - 1] -= i << (24 - q0);
-        ih = iq[jz - 1] >> (23 - q0);
+    var14  = func_0200aae4(var14, var12);
+    var14 -= 8.0 * func_02008f5c(var14 * 0.125);
+    var6  = (int)var14;
+    var14 -= (double)var6;
+    var13 = 0;
+    if (var12 > 0) {
+        var8  = (var7[var0 - 1] >> (24 - var12)); var6 += var8;
+        var7[var0 - 1] -= var8 << (24 - var12);
+        var13 = var7[var0 - 1] >> (23 - var12);
     }
-    else if (q0 == 0) ih = iq[jz - 1] >> 23;
-    else if (z >= 0.5) ih = 2;
+    else if (var12 == 0) var13 = var7[var0 - 1] >> 23;
+    else if (var14 >= 0.5) var13 = 2;
 
-    if (ih > 0) {
-        n += 1; carry = 0;
-        for (i = 0; i < jz; i++) {
-            j = iq[i];
-            if (carry == 0) {
-                if (j != 0) {
-                    carry = 1; iq[i] = 0x1000000 - j;
+    if (var13 > 0) {
+        var6 += 1; var5 = 0;
+        for (var8 = 0; var8 < var0; var8++) {
+            var9 = var7[var8];
+            if (var5 == 0) {
+                if (var9 != 0) {
+                    var5 = 1; var7[var8] = 0x1000000 - var9;
                 }
-            } else iq[i] = 0xffffff - j;
+            } else var7[var8] = 0xffffff - var9;
         }
-        if (q0 > 0) {
-            switch (q0) {
+        if (var12 > 0) {
+            switch (var12) {
             case 1:
-                iq[jz - 1] &= 0x7fffff; break;
+                var7[var0 - 1] &= 0x7fffff; break;
             case 2:
-                iq[jz - 1] &= 0x3fffff; break;
+                var7[var0 - 1] &= 0x3fffff; break;
             }
         }
-        if (ih == 2) {
-            z = one - z;
-            if (carry != 0) z -= func_0200aae4(one, q0);
+        if (var13 == 2) {
+            var14 = one - var14;
+            if (var5 != 0) var14 -= func_0200aae4(one, var12);
         }
     }
 
-    if (z == zero) {
-        j = 0;
-        for (i = jz - 1; i >= jk; i--) j |= iq[i];
-        if (j == 0) {
-            for (k = 1; iq[jk - k] == 0; k++);
+    if (var14 == zero) {
+        var9 = 0;
+        for (var8 = var0 - 1; var8 >= var4; var8--) var9 |= var7[var8];
+        if (var9 == 0) {
+            for (var10 = 1; var7[var4 - var10] == 0; var10++);
 
-            for (i = jz + 1; i <= jz + k; i++) {
-                f[jx + i] = (double)ipio2[jv + i];
-                for (j = 0, fw = 0.0; j <= jx; j++) fw += x[j] * f[jx + i - j];
-                q[i] = fw;
+            for (var8 = var0 + 1; var8 <= var0 + var10; var8++) {
+                var16[var1 + var8] = (double)arg5[var2 + var8];
+                for (var9 = 0, var15 = 0.0; var9 <= var1; var9++) var15 += arg0[var9] * var16[var1 + var8 - var9];
+                var18[var8] = var15;
             }
-            jz += k;
+            var0 += var10;
             goto recompute;
         }
     }
 
-    if (z == 0.0) {
-        jz -= 1; q0 -= 24;
-        while (iq[jz] == 0) { jz--; q0 -= 24; }
+    if (var14 == 0.0) {
+        var0 -= 1; var12 -= 24;
+        while (var7[var0] == 0) { var0--; var12 -= 24; }
     } else {
-        z = func_0200aae4(z, -q0);
-        if (z >= two24) {
-            fw = (double)((int)(twon24 * z));
-            iq[jz] = (int)(z - two24 * fw);
-            jz += 1; q0 += 24;
-            iq[jz] = (int)fw;
-        } else iq[jz] = (int)z;
+        var14 = func_0200aae4(var14, -var12);
+        if (var14 >= two24) {
+            var15 = (double)((int)(twon24 * var14));
+            var7[var0] = (int)(var14 - two24 * var15);
+            var0 += 1; var12 += 24;
+            var7[var0] = (int)var15;
+        } else var7[var0] = (int)var14;
     }
 
-    fw = func_0200aae4(one, q0);
-    for (i = jz; i >= 0; i--) {
-        q[i] = fw * (double)iq[i]; fw *= twon24;
+    var15 = func_0200aae4(one, var12);
+    for (var8 = var0; var8 >= 0; var8--) {
+        var18[var8] = var15 * (double)var7[var8]; var15 *= twon24;
     }
 
-    for (i = jz; i >= 0; i--) {
-        for (fw = 0.0, k = 0; k <= jp && k <= jz - i; k++) fw += data_020e6c84[k] * q[i + k];
-        fq[jz - i] = fw;
+    for (var8 = var0; var8 >= 0; var8--) {
+        for (var15 = 0.0, var10 = 0; var10 <= var3 && var10 <= var0 - var8; var10++) var15 += data_020e6c84[var10] * var18[var8 + var10];
+        var17[var0 - var8] = var15;
     }
 
-    switch (prec) {
+    switch (arg4) {
     case 0:
-        fw = 0.0;
-        for (i = jz; i >= 0; i--) fw += fq[i];
-        y[0] = (ih == 0) ? fw : -fw;
+        var15 = 0.0;
+        for (var8 = var0; var8 >= 0; var8--) var15 += var17[var8];
+        arg1[0] = (var13 == 0) ? var15 : -var15;
         break;
     case 1:
     case 2:
-        fw = 0.0;
-        for (i = jz; i >= 0; i--) fw += fq[i];
-        y[0] = (ih == 0) ? fw : -fw;
-        fw = fq[0] - fw;
-        for (i = 1; i <= jz; i++) fw += fq[i];
-        y[1] = (ih == 0) ? fw : -fw;
+        var15 = 0.0;
+        for (var8 = var0; var8 >= 0; var8--) var15 += var17[var8];
+        arg1[0] = (var13 == 0) ? var15 : -var15;
+        var15 = var17[0] - var15;
+        for (var8 = 1; var8 <= var0; var8++) var15 += var17[var8];
+        arg1[1] = (var13 == 0) ? var15 : -var15;
         break;
     case 3:
-        for (i = jz; i > 0; i--) {
-            fw      = fq[i - 1] + fq[i];
-            fq[i]  += fq[i - 1] - fw;
-            fq[i - 1] = fw;
+        for (var8 = var0; var8 > 0; var8--) {
+            var15      = var17[var8 - 1] + var17[var8];
+            var17[var8]  += var17[var8 - 1] - var15;
+            var17[var8 - 1] = var15;
         }
-        for (i = jz; i > 1; i--) {
-            fw      = fq[i - 1] + fq[i];
-            fq[i]  += fq[i - 1] - fw;
-            fq[i - 1] = fw;
+        for (var8 = var0; var8 > 1; var8--) {
+            var15      = var17[var8 - 1] + var17[var8];
+            var17[var8]  += var17[var8 - 1] - var15;
+            var17[var8 - 1] = var15;
         }
-        for (fw = 0.0, i = jz; i >= 2; i--) fw += fq[i];
-        if (ih == 0) {
-            y[0] = fq[0]; y[1] = fq[1]; y[2] = fw;
+        for (var15 = 0.0, var8 = var0; var8 >= 2; var8--) var15 += var17[var8];
+        if (var13 == 0) {
+            arg1[0] = var17[0]; arg1[1] = var17[1]; arg1[2] = var15;
         } else {
-            y[0] = -fq[0]; y[1] = -fq[1]; y[2] = -fw;
+            arg1[0] = -var17[0]; arg1[1] = -var17[1]; arg1[2] = -var15;
         }
     }
-    return n & 7;
+    return var6 & 7;
 }

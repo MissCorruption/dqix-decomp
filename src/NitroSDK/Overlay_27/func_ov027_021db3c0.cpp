@@ -7,26 +7,26 @@
 
 extern "C" int func_020d4aa8(void);
 
-struct Obj021db3c0 {
-    unsigned char pad0[4];
-    unsigned short field4;
+struct Struct_ov027_021db3c0 {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
 };
 
 // USA: func_ov027_021db3c0
-extern "C" ARM int func_ov027_021db3c0(Obj021db3c0* obj) {
-    unsigned int mask = func_020d4aa8();
-    if (mask == 0) return 0;
-    unsigned short i = 0;
-    unsigned short start = obj->field4;
-    unsigned short cur = start;
+extern "C" ARM int func_ov027_021db3c0(Struct_ov027_021db3c0* arg0) {
+    unsigned int var0 = func_020d4aa8();
+    if (var0 == 0) return 0;
+    unsigned short var1 = 0;
+    unsigned short var2 = arg0->unknown_4_;
+    unsigned short var3 = var2;
     do {
-        if ((mask & (1 << (cur - 1))) && start != cur) {
-            obj->field4 = cur;
+        if ((var0 & (1 << (var3 - 1))) && var2 != var3) {
+            arg0->unknown_4_ = var3;
             goto found;
         }
-        i = i + 1;
-        cur = (cur == 16) ? 1 : cur + 1;
-    } while (i < 16);
+        var1 = var1 + 1;
+        var3 = (var3 == 16) ? 1 : var3 + 1;
+    } while (var1 < 16);
 found:
     return 1;
 }

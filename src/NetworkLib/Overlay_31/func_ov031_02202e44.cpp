@@ -1,51 +1,51 @@
 #include <globaldefs.h>
-struct IPv4Packet02202e44 {
-    unsigned char header;
-    unsigned char service;
-    unsigned short length;
-    unsigned short identification;
-    unsigned short fragment;
-    unsigned char ttl;
-    unsigned char protocol;
-    unsigned short checksum;
-    unsigned short sourceHigh;
-    unsigned short sourceLow;
-    unsigned short destinationHigh;
-    unsigned short destinationLow;
+struct Struct_ov031_02202e44 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
 };
-struct NetworkState02202e44 { char unknown0[0x40]; void (*release)(void*); char unknown44[0xc]; unsigned int address; };
-extern NetworkState02202e44 data_ov031_0224c980;
+struct Struct_ov031_0224c980_4 { char unknown_0_[0x40]; void (*unknown_40_)(void*); char unknown_44_[0xc]; unsigned int unknown_50_; };
+extern Struct_ov031_0224c980_4 data_ov031_0224c980;
 extern "C" int func_ov031_022007a4(unsigned int);
 extern "C" unsigned int func_ov031_02200684(void*, unsigned int);
 extern "C" void func_ov031_02200e38(void*, unsigned int, int);
-extern "C" IPv4Packet02202e44* func_ov031_02202b78(IPv4Packet02202e44*, int*);
-extern "C" void func_ov031_0220296c(IPv4Packet02202e44*, void*, unsigned int);
-extern "C" void func_ov031_02201bb4(IPv4Packet02202e44*, void*, unsigned int);
-extern "C" void func_ov031_0220284c(IPv4Packet02202e44*, void*, unsigned int);
-static inline unsigned short Swap16_02202e44(unsigned short value) { return (value >> 8) | (value << 8); }
-#define SourceAddress02202e44(packet) (((unsigned short)((packet->sourceHigh >> 8) | (packet->sourceHigh << 8)) << 16) | (unsigned short)((packet->sourceLow >> 8) | (packet->sourceLow << 8)))
-#define DestinationAddress02202e44(packet) (((unsigned short)((packet->destinationHigh >> 8) | (packet->destinationHigh << 8)) << 16) | (unsigned short)((packet->destinationLow >> 8) | (packet->destinationLow << 8)))
+extern "C" Struct_ov031_02202e44* func_ov031_02202b78(Struct_ov031_02202e44*, int*);
+extern "C" void func_ov031_0220296c(Struct_ov031_02202e44*, void*, unsigned int);
+extern "C" void func_ov031_02201bb4(Struct_ov031_02202e44*, void*, unsigned int);
+extern "C" void func_ov031_0220284c(Struct_ov031_02202e44*, void*, unsigned int);
+static inline unsigned short inline_ov031_02202e44(unsigned short arg0) { return (arg0 >> 8) | (arg0 << 8); }
+#define SourceAddress02202e44(packet) (((unsigned short)((packet->unknown_c_ >> 8) | (packet->unknown_c_ << 8)) << 16) | (unsigned short)((packet->unknown_e_ >> 8) | (packet->unknown_e_ << 8)))
+#define DestinationAddress02202e44(packet) (((unsigned short)((packet->unknown_10_ >> 8) | (packet->unknown_10_ << 8)) << 16) | (unsigned short)((packet->unknown_12_ >> 8) | (packet->unknown_12_ << 8)))
 
 // USA: func_ov031_02202e44
-extern "C" ARM void func_ov031_02202e44(IPv4Packet02202e44* packet, unsigned int available) {
-    unsigned int source = (Swap16_02202e44(packet->sourceHigh) << 16) | Swap16_02202e44(packet->sourceLow);
-    unsigned int destination = (Swap16_02202e44(packet->destinationHigh) << 16) | Swap16_02202e44(packet->destinationLow);
-    if (destination != source) {
-        if (!func_ov031_022007a4(destination)) return;
-        if (available < Swap16_02202e44(packet->length)) return;
-        if (func_ov031_02200684(packet, (packet->header & 15) << 2) != 0xffff) return;
-        if (data_ov031_0224c980.address == DestinationAddress02202e44(packet))
-            func_ov031_02200e38((char*)packet - 8, SourceAddress02202e44(packet), 1);
+extern "C" ARM void func_ov031_02202e44(Struct_ov031_02202e44* arg0, unsigned int arg1) {
+    unsigned int var0 = (inline_ov031_02202e44(arg0->unknown_c_) << 16) | inline_ov031_02202e44(arg0->unknown_e_);
+    unsigned int var1 = (inline_ov031_02202e44(arg0->unknown_10_) << 16) | inline_ov031_02202e44(arg0->unknown_12_);
+    if (var1 != var0) {
+        if (!func_ov031_022007a4(var1)) return;
+        if (arg1 < inline_ov031_02202e44(arg0->unknown_2_)) return;
+        if (func_ov031_02200684(arg0, (arg0->unknown_0_ & 15) << 2) != 0xffff) return;
+        if (data_ov031_0224c980.unknown_50_ == DestinationAddress02202e44(arg0))
+            func_ov031_02200e38((char*)arg0 - 8, SourceAddress02202e44(arg0), 1);
     }
-    int release;
-    packet = func_ov031_02202b78(packet, &release);
-    if (!packet) return;
-    void* payload = (char*)packet + ((packet->header & 15) << 2);
-    unsigned int payloadLength = Swap16_02202e44(packet->length) - ((packet->header & 15) << 2);
-    if (packet->protocol == 17) func_ov031_0220296c(packet, payload, payloadLength);
-    else if (data_ov031_0224c980.address) {
-        if (packet->protocol == 1) func_ov031_02201bb4(packet, payload, payloadLength);
-        else if (packet->protocol == 6) func_ov031_0220284c(packet, payload, payloadLength);
+    int var2;
+    arg0 = func_ov031_02202b78(arg0, &var2);
+    if (!arg0) return;
+    void* var3 = (char*)arg0 + ((arg0->unknown_0_ & 15) << 2);
+    unsigned int var4 = inline_ov031_02202e44(arg0->unknown_2_) - ((arg0->unknown_0_ & 15) << 2);
+    if (arg0->unknown_9_ == 17) func_ov031_0220296c(arg0, var3, var4);
+    else if (data_ov031_0224c980.unknown_50_) {
+        if (arg0->unknown_9_ == 1) func_ov031_02201bb4(arg0, var3, var4);
+        else if (arg0->unknown_9_ == 6) func_ov031_0220284c(arg0, var3, var4);
     }
-    if (release) data_ov031_0224c980.release((char*)packet - 14);
+    if (var2) data_ov031_0224c980.unknown_40_((char*)arg0 - 14);
 }

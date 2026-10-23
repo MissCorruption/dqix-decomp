@@ -3,116 +3,116 @@
 
 extern "C" void* func_0202ae18(void);
 
-struct Obj02061bd8;
-extern "C" int func_02061bd8(struct Obj02061bd8* obj);
+struct Struct_0205faf4_11;
+extern "C" int func_02061bd8(struct Struct_0205faf4_11* arg0);
 
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_02053c6c(unsigned char* arg0);
 
-extern "C" void __clear(void* buf, int len);
+extern "C" void __clear(void* arg0, int arg1);
 
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 
-struct Obj53dfc;
-extern "C" int func_02053dfc(struct Obj53dfc* obj);
+struct Struct_02053dfc;
+extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
 
-extern "C" unsigned short func_0202053c(void* obj);
+extern "C" unsigned short func_0202053c(void* arg0);
 
-extern "C" int func_0202b7d8(int* obj);
+extern "C" int func_0202b7d8(int* arg0);
 
-struct SearchStruct;
-extern "C" int func_0202c1c0(struct SearchStruct* obj, int value);
+struct Struct_0202b2f0;
+extern "C" int func_0202c1c0(struct Struct_0202b2f0* arg0, int arg1);
 
-extern "C" int func_ov023_021f5578(void* a, void* b, int def);
+extern "C" int func_ov023_021f5578(void* arg0, void* arg1, int arg2);
 
-extern "C" int func_0208538c(unsigned char* obj);
+extern "C" int func_0208538c(unsigned char* arg0);
 
-struct DataOv023_021ffefc { void* field0; int field4; };
-extern "C" struct DataOv023_021ffefc _ZZ17GetGlobal021ffefcvE1s;
+struct Struct_ov023_021f4098 { void* unknown_0_; int unknown_4_; };
+extern "C" struct Struct_ov023_021f4098 _ZZ21inline_ov023_021f4c04vE1s;
 
 // USA: func_ov023_021f4098
-extern "C" ARM int func_ov023_021f4098(void* obj, int id, int flag) {
+extern "C" ARM int func_ov023_021f4098(void* arg0, int arg1, int arg2) {
 #if defined(jpn)
- enum {regionalOffset0=0xab0, regionalOffset1=0x5a00, regionalOffset2=0xbc, regionalOffset3=0x21c, regionalOffset4=0x144};
+ enum {Enum_ov023_021f4098_2240=0xab0, Enum_ov023_021f4098_22528=0x5a00, Enum_ov023_021f4098_204=0xbc, Enum_ov023_021f4098_672=0x21c, Enum_ov023_021f4098_336=0x144};
 #else
- enum {regionalOffset0=0x8c0, regionalOffset1=0x5800, regionalOffset2=0xcc, regionalOffset3=0x2a0, regionalOffset4=0x150};
+ enum {Enum_ov023_021f4098_2240=0x8c0, Enum_ov023_021f4098_22528=0x5800, Enum_ov023_021f4098_204=0xcc, Enum_ov023_021f4098_672=0x2a0, Enum_ov023_021f4098_336=0x150};
 #endif
-    GameState* battleStruct = GameState::GetInstance();
-    struct SearchStruct* p = (struct SearchStruct*)func_0202ae18();
-    GameObject* c9 = func_0200ff1c(battleStruct, id);
-    if (c9 == 0 || func_02061bd8((struct Obj02061bd8*)c9) != 0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)func_0202ae18();
+    GameObject* var2 = func_0200ff1c(var0, arg1);
+    if (var2 == 0 || func_02061bd8((struct Struct_0205faf4_11*)var2) != 0) {
         return 0;
     }
-    if (func_02053c6c((unsigned char*)c9) == 0) {
+    if (func_02053c6c((unsigned char*)var2) == 0) {
         return 0;
     }
 
-    float flagF = (float)(unsigned int)*(unsigned int*)((char*)obj + 0x5000 + regionalOffset0);
-    float unusedB = (float)(unsigned short)*(unsigned short*)((char*)obj + regionalOffset1 + regionalOffset2);
-    float arrB[4];
-    float arrC[4];
-    __clear(arrB, 0x10);
-    __clear(arrC, 0x10);
+    float var3 = (float)(unsigned int)*(unsigned int*)((char*)arg0 + 0x5000 + Enum_ov023_021f4098_2240);
+    float var4 = (float)(unsigned short)*(unsigned short*)((char*)arg0 + Enum_ov023_021f4098_22528 + Enum_ov023_021f4098_204);
+    float var5[4];
+    float var6[4];
+    __clear(var5, 0x10);
+    __clear(var6, 0x10);
 
-    int i;
-    for (i = 0; i < 4; i++) {
-        if (func_020a35e0(*(unsigned char**)((char*)obj + regionalOffset3), i)) {
-            GameObject* ci = func_0200ff1c(battleStruct, i);
-            if (ci != 0 && func_02061bd8((struct Obj02061bd8*)ci) == 0) {
-                arrC[i] = (float)(unsigned int)func_02053dfc((struct Obj53dfc*)ci);
-                arrB[i] = (float)(unsigned int)func_0202053c(ci);
+    int var7;
+    for (var7 = 0; var7 < 4; var7++) {
+        if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7)) {
+            GameObject* var8 = func_0200ff1c(var0, var7);
+            if (var8 != 0 && func_02061bd8((struct Struct_0205faf4_11*)var8) == 0) {
+                var6[var7] = (float)(unsigned int)func_02053dfc((struct Struct_02053dfc*)var8);
+                var5[var7] = (float)(unsigned int)func_0202053c(var8);
             }
         }
     }
 
-    float countF = 1.0f;
-    if (func_0202b7d8((int*)p)) {
-        countF = 0.0f;
-        for (i = 0; i < 4; i++) {
-            if (func_020a35e0(*(unsigned char**)((char*)obj + regionalOffset3), i) && func_0202c1c0(p, i)) {
-                countF += 1.0f;
+    float var9 = 1.0f;
+    if (func_0202b7d8((int*)var1)) {
+        var9 = 0.0f;
+        for (var7 = 0; var7 < 4; var7++) {
+            if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), var7) && func_0202c1c0(var1, var7)) {
+                var9 += 1.0f;
             }
         }
     }
 
-    if (flag != 0) {
-        flagF = (float)(unsigned int)flag;
+    if (arg2 != 0) {
+        var3 = (float)(unsigned int)arg2;
     }
 
-    float scaledFlag = flagF * (1.0f + (countF - 1.0f) / 10.0f);
-    int intScaled = (int)scaledFlag;
-    int shiftVal = func_ov023_021f5578((char*)_ZZ17GetGlobal021ffefcvE1s.field0 + 0xf4, (void*)intScaled, 4);
+    float var10 = var3 * (1.0f + (var9 - 1.0f) / 10.0f);
+    int var11 = (int)var10;
+    int var12 = func_ov023_021f5578((char*)_ZZ21inline_ov023_021f4c04vE1s.unknown_0_ + 0xf4, (void*)var11, 4);
 
-    float term1 = arrC[3] * (arrB[3] + (float)shiftVal);
-    float temp2 = arrC[2] * (arrB[2] + (float)shiftVal);
-    float temp3 = arrC[0] * (arrB[0] + (float)shiftVal);
-    float temp4 = arrC[1] * (arrB[1] + (float)shiftVal);
-    float total = term1 + ((temp3 + temp4) + temp2);
+    float var13 = var6[3] * (var5[3] + (float)var12);
+    float var14 = var6[2] * (var5[2] + (float)var12);
+    float var15 = var6[0] * (var5[0] + (float)var12);
+    float var16 = var6[1] * (var5[1] + (float)var12);
+    float var17 = var13 + ((var15 + var16) + var14);
 
-    if (total == 0.0f) {
-        total = 1.0f;
+    if (var17 == 0.0f) {
+        var17 = 1.0f;
     }
 
-    float scaledFlag2 = flagF * (1.0f + (countF - 1.0f) / 10.0f);
-    float normalized = ((float)shiftVal + arrB[id]) * arrC[id] / total;
-    float result = scaledFlag2 * normalized;
+    float var18 = var3 * (1.0f + (var9 - 1.0f) / 10.0f);
+    float var19 = ((float)var12 + var5[arg1]) * var6[arg1] / var17;
+    float var20 = var18 * var19;
 
-    if (func_0208538c(*(unsigned char**)((char*)c9 + regionalOffset4))) {
-        result *= 1.05f;
+    if (func_0208538c(*(unsigned char**)((char*)var2 + Enum_ov023_021f4098_336))) {
+        var20 *= 1.05f;
     }
 
-    int truncated = (int)result;
-    float fracCheck = result - (float)truncated;
-    if (0.0f < fracCheck) {
-        result += 1.0f;
+    int var21 = (int)var20;
+    float var22 = var20 - (float)var21;
+    if (0.0f < var22) {
+        var20 += 1.0f;
     }
 
-    if (flag == 0) {
-        for (flag = 0; flag < 4; flag++) {
-            if (func_020a35e0(*(unsigned char**)((char*)obj + regionalOffset3), flag)) {
-                func_0200ff1c(battleStruct, flag);
+    if (arg2 == 0) {
+        for (arg2 = 0; arg2 < 4; arg2++) {
+            if (func_020a35e0(*(unsigned char**)((char*)arg0 + Enum_ov023_021f4098_672), arg2)) {
+                func_0200ff1c(var0, arg2);
             }
         }
     }
 
-    return (int)result;
+    return (int)var20;
 }

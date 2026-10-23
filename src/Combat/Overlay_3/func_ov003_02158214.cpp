@@ -4,87 +4,87 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
-enum { kRegionValue1F9_1F5 = 0x1f5 };
-enum { kRegionValue32C_328 = 0x328 };
-enum { kRegionValue1EE_1EA = 0x1ea };
-enum { kRegionValue1EC_1E8 = 0x1e8 };
-enum { kRegionValue204_200 = 0x200 };
-enum { kRegionValue200_1FC = 0x1fc };
-enum { kRegionValue1F8_1F4 = 0x1f4 };
+enum { Enum_ov003_02158214_505 = 0x1f5 };
+enum { Enum_ov003_02158214_812 = 0x328 };
+enum { Enum_ov003_02158214_494 = 0x1ea };
+enum { Enum_ov003_02158214_492 = 0x1e8 };
+enum { Enum_ov003_02158214_516 = 0x200 };
+enum { Enum_ov003_02158214_512 = 0x1fc };
+enum { Enum_ov003_02158214_504 = 0x1f4 };
 #else
-enum { kRegionValue1F9_1F5 = 0x1f9 };
-enum { kRegionValue32C_328 = 0x32c };
-enum { kRegionValue1EE_1EA = 0x1ee };
-enum { kRegionValue1EC_1E8 = 0x1ec };
-enum { kRegionValue204_200 = 0x204 };
-enum { kRegionValue200_1FC = 0x200 };
-enum { kRegionValue1F8_1F4 = 0x1f8 };
+enum { Enum_ov003_02158214_505 = 0x1f9 };
+enum { Enum_ov003_02158214_812 = 0x32c };
+enum { Enum_ov003_02158214_494 = 0x1ee };
+enum { Enum_ov003_02158214_492 = 0x1ec };
+enum { Enum_ov003_02158214_516 = 0x204 };
+enum { Enum_ov003_02158214_512 = 0x200 };
+enum { Enum_ov003_02158214_504 = 0x1f8 };
 #endif
 
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 extern "C" int func_020421a0();
-extern "C" void func_02043204(char* obj);
+extern "C" void func_02043204(char* arg0);
 
-struct Outer020e28dc;
-extern "C" int func_020e28dc(struct Outer020e28dc* o);
-struct Obj020e25e8;
-extern "C" void func_020e25e8(struct Obj020e25e8* obj);
+struct Struct_020e28dc;
+extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
+struct Struct_020e25e8;
+extern "C" void func_020e25e8(struct Struct_020e25e8* arg0);
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" void func_ov023_021eb414(char* obj);
-extern "C" void func_ov023_021eb43c(void* obj);
-extern "C" void func_ov023_021eb26c(void* obj);
+extern "C" void func_ov023_021eb414(char* arg0);
+extern "C" void func_ov023_021eb43c(void* arg0);
+extern "C" void func_ov023_021eb26c(void* arg0);
 
 // USA: func_ov003_02158214
-extern "C" ARM void func_ov003_02158214(void* p) {
-    char* self = (char*)p;
-    GameState* bs = GameState::GetInstance();
-    int word0 = func_0200fb8c((int*)bs);
-    unsigned char state = *(unsigned char*)(self + kRegionValue1F9_1F5);
+extern "C" ARM void func_ov003_02158214(void* arg0) {
+    char* var0 = (char*)arg0;
+    GameState* var1 = GameState::GetInstance();
+    int var2 = func_0200fb8c((int*)var1);
+    unsigned char var3 = *(unsigned char*)(var0 + Enum_ov003_02158214_505);
 
-    if (state == 0) {
-        *(int*)(self + kRegionValue32C_328) = 0;
+    if (var3 == 0) {
+        *(int*)(var0 + Enum_ov003_02158214_812) = 0;
         func_02043204((char*)func_020421a0());
 
-        *(short*)(self + kRegionValue1EE_1EA) = -1;
-        *(short*)(self + kRegionValue1EC_1E8) = *(short*)(self + kRegionValue1EE_1EA);
+        *(short*)(var0 + Enum_ov003_02158214_494) = -1;
+        *(short*)(var0 + Enum_ov003_02158214_492) = *(short*)(var0 + Enum_ov003_02158214_494);
 
-        if (*(void**)(self + 0x1c) != 0 &&
-            func_020e28dc((struct Outer020e28dc*)*(void**)(self + 0x1c)) != 0) {
-            func_020e25e8((struct Obj020e25e8*)*(void**)(self + 0x1c));
+        if (*(void**)(var0 + 0x1c) != 0 &&
+            func_020e28dc((struct Struct_020e28dc*)*(void**)(var0 + 0x1c)) != 0) {
+            func_020e25e8((struct Struct_020e25e8*)*(void**)(var0 + 0x1c));
         }
 
-        unsigned char newState = 3;
-        *(unsigned char*)(self + kRegionValue1F9_1F5) = newState;
-        if (*(void**)(self + kRegionValue204_200) == 0) return;
-        SetSubBrightness((GameResources*)word0, newState - 0x13, 0);
-        *(unsigned char*)(self + kRegionValue1F9_1F5) = 1;
+        unsigned char var4 = 3;
+        *(unsigned char*)(var0 + Enum_ov003_02158214_505) = var4;
+        if (*(void**)(var0 + Enum_ov003_02158214_516) == 0) return;
+        SetSubBrightness((GameResources*)var2, var4 - 0x13, 0);
+        *(unsigned char*)(var0 + Enum_ov003_02158214_505) = 1;
         return;
     }
 
-    if (state == 1) {
-        if (IsSubBrightnessTransitionActive((GameResources*)word0) != 0) return;
-        func_ov023_021eb414(*(char**)(self + kRegionValue204_200));
-        *(unsigned char*)(self + kRegionValue1F9_1F5) = 2;
+    if (var3 == 1) {
+        if (IsSubBrightnessTransitionActive((GameResources*)var2) != 0) return;
+        func_ov023_021eb414(*(char**)(var0 + Enum_ov003_02158214_516));
+        *(unsigned char*)(var0 + Enum_ov003_02158214_505) = 2;
         return;
     }
 
-    if (state == 2) {
-        func_ov023_021eb43c(*(void**)(self + kRegionValue204_200));
-        if (*(unsigned short*)(*(char**)(self + kRegionValue204_200) + 0x438) & 4) {
-            func_ov023_021eb26c(*(void**)(self + kRegionValue204_200));
-            ((SafeAllocator*)(*(char**)(self + 0) + 0x64))->Reset();
-            *(int*)(self + kRegionValue204_200) = 0;
-            *(int*)(self + kRegionValue200_1FC) = 0;
-            *(unsigned char*)(self + kRegionValue1F9_1F5) = 3;
+    if (var3 == 2) {
+        func_ov023_021eb43c(*(void**)(var0 + Enum_ov003_02158214_516));
+        if (*(unsigned short*)(*(char**)(var0 + Enum_ov003_02158214_516) + 0x438) & 4) {
+            func_ov023_021eb26c(*(void**)(var0 + Enum_ov003_02158214_516));
+            ((SafeAllocator*)(*(char**)(var0 + 0) + 0x64))->Reset();
+            *(int*)(var0 + Enum_ov003_02158214_516) = 0;
+            *(int*)(var0 + Enum_ov003_02158214_512) = 0;
+            *(unsigned char*)(var0 + Enum_ov003_02158214_505) = 3;
         }
         return;
     }
 
-    if (state == 3) {
-        *(unsigned char*)(self + kRegionValue1F8_1F4) = 5;
-        *(unsigned char*)(self + kRegionValue1F9_1F5) = 0;
+    if (var3 == 3) {
+        *(unsigned char*)(var0 + Enum_ov003_02158214_504) = 5;
+        *(unsigned char*)(var0 + Enum_ov003_02158214_505) = 0;
     }
 }

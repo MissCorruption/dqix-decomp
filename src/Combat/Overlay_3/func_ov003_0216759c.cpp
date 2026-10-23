@@ -4,16 +4,16 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct View6759c {
-    int value; SafeAllocator* alloc; List0204af64* lists; Node0207f7f0* objects; Manager0207f7f0* manager;
+struct Struct_ov003_0216759c {
+    int unknown_0_; SafeAllocator* unknown_4_; Struct_02020cb8* unknown_8_; Struct_0207f7f0_2* unknown_c_; Struct_0207f7f0* unknown_10_;
 #if defined(jpn)
-    char pad[0x34-0x14];
+    char unknown_14_[0x34-0x14];
 #else
-    char pad[0x64-0x14];
+    char unknown1_14_[0x64-0x14];
 #endif
-    int task; char pad2[8]; int selected; unsigned char ready; unsigned char stage; signed char pending;
+    int unknown_64_; char unknown_68_[8]; int unknown_70_; unsigned char unknown_74_; unsigned char unknown_75_; signed char unknown_76_;
 };
-struct Entry6759c { char pad[8]; unsigned int size; void* data; };
+struct Struct_ov003_0216759c_2 { char unknown_0_[8]; unsigned int unknown_8_; void* unknown_c_; };
 extern "C" {
 void* __clear(void*, int);
 void func_0204af64(void*);
@@ -29,7 +29,7 @@ void* func_020467f0(void*,int,void**,int*);
 void func_0204b174(void*,void*,SafeAllocator*,int);
 void func_0204bc74(void*,int,int,int,int,int,int);
 void func_0204b0e8(void*,void*);
-Entry6759c* func_0204af14(void*,unsigned int);
+Struct_ov003_0216759c_2* func_0204af14(void*,unsigned int);
 void _Z25CleanInvalidateCacheRangePKvj(const void*,unsigned int);
 void LoadToSubBG1ScreenData(void*,int,unsigned int);
 void func_0204c684(void*);
@@ -54,98 +54,98 @@ extern char data_ov003_0217e87f[];
 #endif
 
 // USA: func_ov003_0216759c
-extern "C" ARM int func_ov003_0216759c(View6759c* self) {
-    if (self->ready != 0) return 1;
-    int result = 1;
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (self->stage == 0) {
+extern "C" ARM int func_ov003_0216759c(Struct_ov003_0216759c* arg0) {
+    if (arg0->unknown_74_ != 0) return 1;
+    int var0 = 1;
+    BackgroundLoader* var1 = BackgroundLoader::GetInstance();
+    if (arg0->unknown_75_ == 0) {
         *(volatile unsigned int*)0x4001010 = 0;
         *(volatile unsigned int*)0x4001014 = 0;
-        SafeAllocator* alloc = self->alloc;
-        alloc->Reset();
-        self->lists = (List0204af64*)alloc->Allocate(0x40);
-        int words[2];
-        __clear(words, sizeof(words));
-        List0204af64* list;
-        for (int i=0; i<2; i++) {
-            list = self->lists+i;
-            func_0204af64(list);
-            func_0204b11c(list, words[i]);
-            list->b1c_lo=1;
-            list->b1c_hi=i;
-            func_0204b5b4(list,i);
-            func_0204b12c(list,alloc);
-            func_0204b5e8(list,0,0);
+        SafeAllocator* var2 = arg0->unknown_4_;
+        var2->Reset();
+        arg0->unknown_8_ = (Struct_02020cb8*)var2->Allocate(0x40);
+        int var3[2];
+        __clear(var3, sizeof(var3));
+        Struct_02020cb8* var4;
+        for (int var5=0; var5<2; var5++) {
+            var4 = arg0->unknown_8_+var5;
+            func_0204af64(var4);
+            func_0204b11c(var4, var3[var5]);
+            var4->unknown_1c_0_=1;
+            var4->unknown_1c_4_=var5;
+            func_0204b5b4(var4,var5);
+            func_0204b12c(var4,var2);
+            func_0204b5e8(var4,0,0);
         }
-        func_0204af38(self->lists+1,1,alloc);
+        func_0204af38(arg0->unknown_8_+1,1,var2);
         DisableSubBGVRAMBanks();
         MapVRAMBanksToSubBG(0x80);
         *(volatile unsigned short*)0x4001008 = (*(volatile unsigned short*)0x4001008 & 0x43) | 0xe00;
         *(volatile unsigned short*)0x400100a = (*(volatile unsigned short*)0x400100a & 0x43) | 0xf00;
         *(volatile unsigned short*)0x4001050 = 0;
-        loader->MaybeFreeAllocations();
-        self->task = loader->QueueLoadFile(data_ov003_021800a4,0);
-        self->stage++;
-        result=0;
-    } else if (self->stage == 1) {
-        if (loader->GetTaskStatus(self->task) != 0) {
-            void* out; void* data; unsigned int size; int value;
-            loader->GetLoadedFileByID(self->task,&data,&size);
-            int count = func_02046900(data);
-            SafeAllocator* alloc=self->alloc;
-            List0204af64* list=self->lists;
-            for (int i=0;i<count;i++) {
-                void* record=func_020467f0(data,i,&out,&value);
-                if (record) {
-                    func_0204b174(list,record,alloc,value);
-                    list=self->lists+1;
+        var1->MaybeFreeAllocations();
+        arg0->unknown_64_ = var1->QueueLoadFile(data_ov003_021800a4,0);
+        arg0->unknown_75_++;
+        var0=0;
+    } else if (arg0->unknown_75_ == 1) {
+        if (var1->GetTaskStatus(arg0->unknown_64_) != 0) {
+            void* var6; void* var7; unsigned int var8; int var9;
+            var1->GetLoadedFileByID(arg0->unknown_64_,&var7,&var8);
+            int var10 = func_02046900(var7);
+            SafeAllocator* var11=arg0->unknown_4_;
+            Struct_02020cb8* var12=arg0->unknown_8_;
+            for (int var13=0;var13<var10;var13++) {
+                void* var14=func_020467f0(var7,var13,&var6,&var9);
+                if (var14) {
+                    func_0204b174(var12,var14,var11,var9);
+                    var12=arg0->unknown_8_+1;
                 }
             }
-            loader->RemoveTask(self->task);
-            self->task=-1;
-            list=self->lists;
-            func_0204bc74(list,0,0,0,0x20,0x19,0);
-            func_0204b0e8(list,0);
-            Entry6759c* entry=func_0204af14(self->lists+1,0);
-            if (entry) {
-                void* data; unsigned int size=entry->size; data=entry->data;
-                _Z25CleanInvalidateCacheRangePKvj(data,size);
-                LoadToSubBG1ScreenData(data,0,size);
+            var1->RemoveTask(arg0->unknown_64_);
+            arg0->unknown_64_=-1;
+            var12=arg0->unknown_8_;
+            func_0204bc74(var12,0,0,0,0x20,0x19,0);
+            func_0204b0e8(var12,0);
+            Struct_ov003_0216759c_2* var15=func_0204af14(arg0->unknown_8_+1,0);
+            if (var15) {
+                void* var16; unsigned int var17=var15->unknown_8_; var16=var15->unknown_c_;
+                _Z25CleanInvalidateCacheRangePKvj(var16,var17);
+                LoadToSubBG1ScreenData(var16,0,var17);
             }
-            alloc=self->alloc;
-            alloc[1].Reset();
-            self->objects=(Node0207f7f0*)alloc[1].Allocate(0x380);
-            for (result=0;result<4;result++) {
-                Node0207f7f0* obj=self->objects+result;
-                func_0204c684(obj);
-                func_0204c7a8(obj,alloc+1,self->value,0x600);
-                obj->lists=self->lists;
+            var11=arg0->unknown_4_;
+            var11[1].Reset();
+            arg0->unknown_c_=(Struct_0207f7f0_2*)var11[1].Allocate(0x380);
+            for (var0=0;var0<4;var0++) {
+                Struct_0207f7f0_2* var18=arg0->unknown_c_+var0;
+                func_0204c684(var18);
+                func_0204c7a8(var18,var11+1,arg0->unknown_0_,0x600);
+                var18->unknown_4_=arg0->unknown_8_;
             }
-            self->stage++;
+            arg0->unknown_75_++;
         }
-        result=0;
-    } else if (self->stage == 2) {
-        SafeAllocator* alloc=self->alloc;
-        alloc[2].Reset();
+        var0=0;
+    } else if (arg0->unknown_75_ == 2) {
+        SafeAllocator* var19=arg0->unknown_4_;
+        var19[2].Reset();
 #if defined(jpn)
-        self->manager=(Manager0207f7f0*)alloc[2].Allocate(0x34);
+        arg0->unknown_10_=(Struct_0207f7f0*)var19[2].Allocate(0x34);
 #else
-        self->manager=(Manager0207f7f0*)alloc[2].Allocate(0x40);
+        arg0->unknown_10_=(Struct_0207f7f0*)var19[2].Allocate(0x40);
 #endif
-        func_0207f84c(self->manager);
+        func_0207f84c(arg0->unknown_10_);
 #if defined(jpn)
-        func_02080654(self->manager,alloc+2,data_ov003_0217e87f);
+        func_02080654(arg0->unknown_10_,var19+2,data_ov003_0217e87f);
 #else
-        func_0207f914(self->manager,alloc+2,data_ov003_021800bb,data_ov003_021800d5);
+        func_0207f914(arg0->unknown_10_,var19+2,data_ov003_021800bb,data_ov003_021800d5);
 #endif
-        self->stage++;
-        result=0;
-    } else if (self->stage == 3) {
-        int status=func_0207f9f4(self->manager);
-        if (status==0) self->stage++;
-        if (status<0) self->ready=2;
-        result=0;
-    } else if (self->stage == 4) {
+        arg0->unknown_75_++;
+        var0=0;
+    } else if (arg0->unknown_75_ == 3) {
+        int var20=func_0207f9f4(arg0->unknown_10_);
+        if (var20==0) arg0->unknown_75_++;
+        if (var20<0) arg0->unknown_74_=2;
+        var0=0;
+    } else if (arg0->unknown_75_ == 4) {
         *(volatile unsigned short*)0x4001008 &= ~3;
         *(volatile unsigned short*)0x400100a = (*(volatile unsigned short*)0x400100a & ~3) | 1;
         *(volatile unsigned short*)0x400100c = (*(volatile unsigned short*)0x400100c & ~3) | 2;
@@ -157,19 +157,19 @@ extern "C" ARM int func_ov003_0216759c(View6759c* self) {
         _Z25CleanInvalidateCacheRangePKvj(data_ov003_0217f4dc,2);
         LoadToSubBGStandardPalette(data_ov003_0217f4dc,0x22,2);
         _Z15CleanCacheRangePKvj(data_ov003_0217f4dc,2);
-        func_0207f7f0(self->manager,self->objects,4);
-        Manager0207f7f0* manager=self->manager;
-        manager->lists=self->lists;
-        manager->mode=1;
-        self->manager->active=0;
-        self->ready=1;
-        self->stage=0;
-        if (self->selected != 0 && self->pending>=0) {
-            func_0207fe44(self->manager);
-            signed char index=self->pending;
-            self->pending=-1;
-            func_ov003_02167a5c(self,self->selected,index);
+        func_0207f7f0(arg0->unknown_10_,arg0->unknown_c_,4);
+        Struct_0207f7f0* var21=arg0->unknown_10_;
+        var21->unknown_2c_=arg0->unknown_8_;
+        var21->unknown_38_=1;
+        arg0->unknown_10_->unknown_3a_=0;
+        arg0->unknown_74_=1;
+        arg0->unknown_75_=0;
+        if (arg0->unknown_70_ != 0 && arg0->unknown_76_>=0) {
+            func_0207fe44(arg0->unknown_10_);
+            signed char var22=arg0->unknown_76_;
+            arg0->unknown_76_=-1;
+            func_ov003_02167a5c(arg0,arg0->unknown_70_,var22);
         }
     }
-    return result;
+    return var0;
 }

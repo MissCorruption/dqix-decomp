@@ -1,82 +1,82 @@
 #if defined(jpn)
-enum { RegionOffset3734 = 0x3524, RegionOffset101 = 0xfd };
+enum { Enum_ov017_021c46ec_14132 = 0x3524, Enum_ov017_021c46ec_257 = 0xfd };
 #else
-enum { RegionOffset3734 = 0x3734, RegionOffset101 = 0x101 };
+enum { Enum_ov017_021c46ec_14132 = 0x3734, Enum_ov017_021c46ec_257 = 0x101 };
 #endif
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Evt021c46ec {
-    unsigned char pad0[4];
-    unsigned short id;
-    unsigned char pad6[0x10 - 0x6];
-    int field10;
+struct Struct_ov017_021c46ec {
+    unsigned char unknown_0_[4];
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[0x10 - 0x6];
+    int unknown_10_;
 };
 
-struct Mode021c46ec {
-    unsigned char pad0[3];
-    unsigned char active;
-    unsigned char pad4[0x12 - 0x4];
-    unsigned char field12;
-    unsigned char pad13[RegionOffset101 - 0x13];
-    unsigned char field101;
+struct Struct_ov017_021c46ec_2 {
+    unsigned char unknown_0_[3];
+    unsigned char unknown_3_;
+    unsigned char unknown_4_[0x12 - 0x4];
+    unsigned char unknown_12_;
+    unsigned char unknown_13_[Enum_ov017_021c46ec_257 - 0x13];
+    unsigned char unknown_101_;
 };
 
-struct Ov021c46ec {
-    unsigned char pad0[RegionOffset3734];
-    struct Mode021c46ec* mode;
+struct Struct_ov017_021c46ec_3 {
+    unsigned char unknown_0_[Enum_ov017_021c46ec_14132];
+    struct Struct_ov017_021c46ec_2* unknown_3734_;
 };
 
-struct SearchStruct0202c1a4;
-extern "C" int func_0202c540(struct SearchStruct0202c1a4* search);
-extern "C" int func_0202c508(struct SearchStruct0202c1a4* search);
-extern "C" void func_020103c8(GameState* battleStruct, int arg);
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
-extern "C" signed char func_020546a8(void* obj);
-extern "C" void func_ov017_0219dac4(struct Ov021c46ec* ov, int idx, int id);
-extern "C" void func_ov017_021c4fa0(int idx, int id);
+struct Struct_0202c1a4;
+extern "C" int func_0202c540(struct Struct_0202c1a4* arg0);
+extern "C" int func_0202c508(struct Struct_0202c1a4* arg0);
+extern "C" void func_020103c8(GameState* arg0, int arg1);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" signed char func_020546a8(void* arg0);
+extern "C" void func_ov017_0219dac4(struct Struct_ov017_021c46ec_3* arg0, int arg1, int arg2);
+extern "C" void func_ov017_021c4fa0(int arg0, int arg1);
 
 // USA: func_ov017_021c46ec
-extern "C" ARM void func_ov017_021c46ec(int idx, struct Evt021c46ec* evt, GameState* battleStruct, struct Ov021c46ec* ov, struct SearchStruct0202c1a4* search) {
-    unsigned short id = evt->id;
-    if (func_0202c540(search) != 0 && idx == 0) {
-        func_020103c8(battleStruct, evt->field10);
+extern "C" ARM void func_ov017_021c46ec(int arg0, struct Struct_ov017_021c46ec* arg1, GameState* arg2, struct Struct_ov017_021c46ec_3* arg3, struct Struct_0202c1a4* arg4) {
+    unsigned short var0 = arg1->unknown_4_;
+    if (func_0202c540(arg4) != 0 && arg0 == 0) {
+        func_020103c8(arg2, arg1->unknown_10_);
     }
 
-    int active = 0;
-    int i;
-    struct Mode021c46ec* mode = ov->mode;
-    if (mode->active != 0) {
-        active = 1;
+    int var1 = 0;
+    int var2;
+    struct Struct_ov017_021c46ec_2* var3 = arg3->unknown_3734_;
+    if (var3->unknown_3_ != 0) {
+        var1 = 1;
     }
 
-    GameObject* objs[4];
-    GameObject* leader = battleStruct->GetPartyMemberByIndex(idx);
-    if (!active || mode->field101 == 0) {
-        int count = 0;
-        objs[count++] = leader;
-        for (i = 0; i < 4; i++) {
-            GameObject* c = func_0200ff58(battleStruct, i);
-            if (c != NULL && idx == func_020546a8(c)) {
-                objs[count++] = c;
+    GameObject* var4[4];
+    GameObject* var5 = arg2->GetPartyMemberByIndex(arg0);
+    if (!var1 || var3->unknown_101_ == 0) {
+        int var6 = 0;
+        var4[var6++] = var5;
+        for (var2 = 0; var2 < 4; var2++) {
+            GameObject* var7 = func_0200ff58(arg2, var2);
+            if (var7 != NULL && arg0 == func_020546a8(var7)) {
+                var4[var6++] = var7;
             }
         }
 
-        if (!active || mode->field101 != 0 || mode->field12 == 0 || idx != 0) {
-            for (i = 0; i < count; i++) {
-                GameObject* c = objs[i];
-                if (c != NULL) {
-                    if (id != c->obj3D_.GetField06() || id == 0x170c) {
-                        c->obj3D_.MakeHidden();
+        if (!var1 || var3->unknown_101_ != 0 || var3->unknown_12_ == 0 || arg0 != 0) {
+            for (var2 = 0; var2 < var6; var2++) {
+                GameObject* var8 = var4[var2];
+                if (var8 != NULL) {
+                    if (var0 != var8->obj3D_.GetField06() || var0 == 0x170c) {
+                        var8->obj3D_.MakeHidden();
                     }
                 }
             }
         }
     }
 
-    func_ov017_0219dac4(ov, idx, id);
-    if (func_0202c508(search) != 0) {
-        func_ov017_021c4fa0(idx, id);
+    func_ov017_0219dac4(arg3, arg0, var0);
+    if (func_0202c508(arg4) != 0) {
+        func_ov017_021c4fa0(arg0, var0);
     }
 }

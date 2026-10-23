@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Node020dfbdc {
-    int field0;
-    int field4;
+struct Struct_020dfbdc {
+    int unknown_0_;
+    int unknown_4_;
 };
-extern "C" int func_020dfbdc(void* a, struct Node020dfbdc* node);
+extern "C" int func_020dfbdc(void* arg0, struct Struct_020dfbdc* arg1);
 
-extern "C" void* func_020e0280(void* a, void* b, void* out, void* fn);
+extern "C" void* func_020e0280(void* arg0, void* arg1, void* arg2, void* arg3);
 
-struct Container020e0310 {
-    unsigned int w[3];
+struct Struct_0201099c_3 {
+    unsigned int unknown_0_[3];
 };
-extern "C" int func_020e0440(struct Container020e0310* c, int key);
+extern "C" int func_020e0440(struct Struct_0201099c_3* arg0, int arg1);
 
 // USA: func_020e046c
-extern "C" ARM char* func_020e046c(char* buf, void* b, void* c, int idx) {
-    struct Container020e0310 local;
-    int out;
-    char* str;
-    if (buf == NULL || b == NULL || c == NULL || idx < 0) return NULL;
-    memset(&local, 0, sizeof(local));
-    func_020e0280(&local, b, &out, (void*)func_020dfbdc);
-    str = (char*)func_020e0440(&local, idx);
-    if (str == NULL) {
-        buf[0] = 0;
+extern "C" ARM char* func_020e046c(char* arg0, void* arg1, void* arg2, int arg3) {
+    struct Struct_0201099c_3 var0;
+    int var1;
+    char* var2;
+    if (arg0 == NULL || arg1 == NULL || arg2 == NULL || arg3 < 0) return NULL;
+    memset(&var0, 0, sizeof(var0));
+    func_020e0280(&var0, arg1, &var1, (void*)func_020dfbdc);
+    var2 = (char*)func_020e0440(&var0, arg3);
+    if (var2 == NULL) {
+        arg0[0] = 0;
         return NULL;
     }
-    strcpy(buf, str);
-    return buf;
+    strcpy(arg0, var2);
+    return arg0;
 }

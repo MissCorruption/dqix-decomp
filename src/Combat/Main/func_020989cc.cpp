@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct Sub020989cc {
-    char pad[0xb38];
-    unsigned int field_b38;
-    unsigned int field_b3c;
-    unsigned char field_b40;
-    unsigned char field_b41;
+struct Struct_020989cc {
+    char unknown_0_[0xb38];
+    unsigned int unknown_b38_;
+    unsigned int unknown_b3c_;
+    unsigned char unknown_b40_;
+    unsigned char unknown_b41_;
 };
 
-struct Base020989cc {
-    char pad[0x1000];
-    struct Sub020989cc sub;
+struct Struct_02097cac_2 {
+    char unknown_0_[0x1000];
+    struct Struct_020989cc unknown_1000_;
 };
 
 // USA: func_020989cc
-extern "C" ARM void func_020989cc(struct Base020989cc* base) {
-    unsigned int v;
-    unsigned char rank;
-    if (base->sub.field_b3c == 6) return;
-    v = base->sub.field_b38;
-    if (v < 7) base->sub.field_b41 = 1;
-    else if (v >= 7 && v < 0xd) base->sub.field_b41 = 2;
-    else if (v >= 0xd && v < 0x13) base->sub.field_b41 = 3;
-    else if (v >= 0x13 && v < 0x19) base->sub.field_b41 = 4;
-    else if (v >= 0x19 && v < 0x1e) base->sub.field_b41 = 5;
-    else if (v >= 0x1e) base->sub.field_b41 = 6;
-    rank = base->sub.field_b41;
-    if (rank > base->sub.field_b3c) base->sub.field_b3c = base->sub.field_b3c + 1;
+extern "C" ARM void func_020989cc(struct Struct_02097cac_2* arg0) {
+    unsigned int var0;
+    unsigned char var1;
+    if (arg0->unknown_1000_.unknown_b3c_ == 6) return;
+    var0 = arg0->unknown_1000_.unknown_b38_;
+    if (var0 < 7) arg0->unknown_1000_.unknown_b41_ = 1;
+    else if (var0 >= 7 && var0 < 0xd) arg0->unknown_1000_.unknown_b41_ = 2;
+    else if (var0 >= 0xd && var0 < 0x13) arg0->unknown_1000_.unknown_b41_ = 3;
+    else if (var0 >= 0x13 && var0 < 0x19) arg0->unknown_1000_.unknown_b41_ = 4;
+    else if (var0 >= 0x19 && var0 < 0x1e) arg0->unknown_1000_.unknown_b41_ = 5;
+    else if (var0 >= 0x1e) arg0->unknown_1000_.unknown_b41_ = 6;
+    var1 = arg0->unknown_1000_.unknown_b41_;
+    if (var1 > arg0->unknown_1000_.unknown_b3c_) arg0->unknown_1000_.unknown_b3c_ = arg0->unknown_1000_.unknown_b3c_ + 1;
 }

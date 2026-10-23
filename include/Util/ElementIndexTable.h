@@ -1,13 +1,13 @@
 #pragma once
 
-struct Element_1f2a4 {
-    char unk[0x20];
+struct Struct_02019568 {
+    char unknown_0_[0x20];
 };
 
-struct Manager_1f2a4 {
-    char unk[0xc];
-    struct Element_1f2a4 *elements;
-    int count;
+struct Struct_020177d4 {
+    char unknown_0_[0xc];
+    struct Struct_02019568 *unknown_c_;
+    int unknown_10_;
 };
 
-extern "C" Element_1f2a4 *func_0201f2a4(Manager_1f2a4 *manager, int index);
+extern "C" Struct_02019568 *func_0201f2a4(Struct_020177d4 *arg0, int arg1);

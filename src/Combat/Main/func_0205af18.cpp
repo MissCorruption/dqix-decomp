@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-struct B190Outer;
-extern "C" int func_0205b190(int unused, struct B190Outer* obj);
+struct Struct_0205af18;
+extern "C" int func_0205b190(int arg0, struct Struct_0205af18* arg1);
 
 // USA: func_0205af18
-extern "C" ARM unsigned short func_0205af18(int unused, struct B190Outer* obj) {
-    if (obj == 0) {
+extern "C" ARM unsigned short func_0205af18(int arg0, struct Struct_0205af18* arg1) {
+    if (arg1 == 0) {
         return 0;
     }
-    return func_0205b190(unused, obj);
+    return func_0205b190(arg0, arg1);
 }

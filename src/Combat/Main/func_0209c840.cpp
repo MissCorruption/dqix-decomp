@@ -1,107 +1,107 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020bc0a4(int id);
-struct Obj020bc180;
-extern "C" void func_020bc180(struct Obj020bc180* obj, int value, int arg);
-extern "C" void* func_020bc068(void* obj, int unused);
-extern "C" void func_0203aa80(void* obj, int arg2);
-extern "C" int func_0203aaf8(void* obj, void* arg1, int* out);
-struct Obj0203aba8;
-extern "C" int func_0203aba8(struct Obj0203aba8* obj, void* key, void* target);
-extern "C" void func_0209c2e0(void* obj, int a, int b);
+extern "C" int func_020bc0a4(int arg0);
+struct Struct_0209c2e0_2;
+extern "C" void func_020bc180(struct Struct_0209c2e0_2* arg0, int arg1, int arg2);
+extern "C" void* func_020bc068(void* arg0, int arg1);
+extern "C" void func_0203aa80(void* arg0, int arg1);
+extern "C" int func_0203aaf8(void* arg0, void* arg1, int* arg2);
+struct Struct_0203aba8;
+extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg2);
+extern "C" void func_0209c2e0(void* arg0, int arg1, int arg2);
 extern "C" void func_020bbd9c(void);
-extern "C" void func_0203ac10(void* obj, void* a, int b);
-extern "C" int func_0203ab6c(void* obj, void* arg1);
+extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
+extern "C" int func_0203ab6c(void* arg0, void* arg1);
 
-struct Actor0209c840 {
-    char pad0[0xb0];
-    int state;
-    int field_b4;
-    short field_b8;
-    short field_ba;
-    void* fieldBC;
-    void* fieldC0;
-    void* fieldC4;
-    unsigned char fc8_bit0 : 1;
-    unsigned char fc8_rest : 7;
-    unsigned char field_c9;
-    unsigned short field_ca;
-    unsigned char field_cc;
-    unsigned char field_cd;
-    short field_ce;
+struct Struct_0209c840 {
+    char unknown_0_[0xb0];
+    int unknown_b0_;
+    int unknown_b4_;
+    short unknown_b8_;
+    short unknown_ba_;
+    void* unknown_bc_;
+    void* unknown_c0_;
+    void* unknown_c4_;
+    unsigned char unknown_c8_0_ : 1;
+    unsigned char unknown_c8_1_ : 7;
+    unsigned char unknown_c9_;
+    unsigned short unknown_ca_;
+    unsigned char unknown_cc_;
+    unsigned char unknown_cd_;
+    short unknown_ce_;
 };
 
 // USA: func_0209c840
-extern "C" ARM void func_0209c840(struct Actor0209c840* actor) {
-    GameState* battle = GameState::GetInstance();
+extern "C" ARM void func_0209c840(struct Struct_0209c840* arg0) {
+    GameState* var0 = GameState::GetInstance();
 
-    if (actor->field_c9 == 1) {
-        actor->field_ca = 0x320;
-        if (actor->state == 1) {
-            int count = func_020bc0a4(actor->field_b8);
-            if (count <= 0) {
-                actor->field_ca = 0;
+    if (arg0->unknown_c9_ == 1) {
+        arg0->unknown_ca_ = 0x320;
+        if (arg0->unknown_b0_ == 1) {
+            int var1 = func_020bc0a4(arg0->unknown_b8_);
+            if (var1 <= 0) {
+                arg0->unknown_ca_ = 0;
             } else {
-                actor->fc8_bit0 = 1;
-                func_020bc180((struct Obj020bc180*)&actor->fieldBC, 0, 0x14);
+                arg0->unknown_c8_0_ = 1;
+                func_020bc180((struct Struct_0209c2e0_2*)&arg0->unknown_bc_, 0, 0x14);
             }
-        } else if (actor->state == 2) {
-            actor->field_ca = 0;
+        } else if (arg0->unknown_b0_ == 2) {
+            arg0->unknown_ca_ = 0;
         }
-        actor->field_c9 = 2;
+        arg0->unknown_c9_ = 2;
         return;
     }
 
-    if (actor->field_c9 == 2) {
-        unsigned int elapsed = battle->GetEffectiveDeltaTime();
-        if (elapsed < actor->field_ca) {
-            actor->field_ca = actor->field_ca - elapsed;
+    if (arg0->unknown_c9_ == 2) {
+        unsigned int var2 = var0->GetEffectiveDeltaTime();
+        if (var2 < arg0->unknown_ca_) {
+            arg0->unknown_ca_ = arg0->unknown_ca_ - var2;
             return;
         }
-        func_020bc068(&actor->fieldBC, 1);
-        if (actor->field_b4 > 0) {
-            func_0203aa80(actor, actor->field_b4);
+        func_020bc068(&arg0->unknown_bc_, 1);
+        if (arg0->unknown_b4_ > 0) {
+            func_0203aa80(arg0, arg0->unknown_b4_);
         }
-        func_0203aaf8(actor, (void*)(int)actor->field_ce, 0);
-        func_0203aba8((struct Obj0203aba8*)actor, (void*)(int)actor->field_ce, &actor->fieldC4);
-        func_0209c2e0(actor, actor->field_cd, 0);
+        func_0203aaf8(arg0, (void*)(int)arg0->unknown_ce_, 0);
+        func_0203aba8((struct Struct_0203aba8*)arg0, (void*)(int)arg0->unknown_ce_, &arg0->unknown_c4_);
+        func_0209c2e0(arg0, arg0->unknown_cd_, 0);
         func_020bbd9c();
-        actor->field_ca = 0x1f4;
-        actor->field_c9 = 3;
+        arg0->unknown_ca_ = 0x1f4;
+        arg0->unknown_c9_ = 3;
         return;
     }
 
-    if (actor->field_c9 != 3) {
+    if (arg0->unknown_c9_ != 3) {
         return;
     }
 
-    if (actor->field_ce > -1 && func_020bc0a4(actor->field_ce) > 0) {
+    if (arg0->unknown_ce_ > -1 && func_020bc0a4(arg0->unknown_ce_) > 0) {
         return;
     }
 
     {
-        unsigned int elapsed = battle->GetEffectiveDeltaTime();
-        if (elapsed < actor->field_ca) {
-            actor->field_ca = actor->field_ca - elapsed;
+        unsigned int var3 = var0->GetEffectiveDeltaTime();
+        if (var3 < arg0->unknown_ca_) {
+            arg0->unknown_ca_ = arg0->unknown_ca_ - var3;
             return;
         }
     }
 
-    func_0203ac10(actor, &actor->fieldC4, 0);
-    actor->field_ce = -1;
-    if (actor->state == 1) {
-        if (actor->field_b4 > 0) {
-            func_0203aa80(actor, actor->field_b4);
+    func_0203ac10(arg0, &arg0->unknown_c4_, 0);
+    arg0->unknown_ce_ = -1;
+    if (arg0->unknown_b0_ == 1) {
+        if (arg0->unknown_b4_ > 0) {
+            func_0203aa80(arg0, arg0->unknown_b4_);
         }
-        func_0203ab6c(actor, (void*)(int)actor->field_b8);
-        if (actor->fc8_bit0) {
-            func_020bc068(&actor->fieldBC, 0);
-            func_020bc180((struct Obj020bc180*)&actor->fieldBC, 0, 0);
-            func_0209c2e0(actor, actor->field_cd, 0x1e);
+        func_0203ab6c(arg0, (void*)(int)arg0->unknown_b8_);
+        if (arg0->unknown_c8_0_) {
+            func_020bc068(&arg0->unknown_bc_, 0);
+            func_020bc180((struct Struct_0209c2e0_2*)&arg0->unknown_bc_, 0, 0);
+            func_0209c2e0(arg0, arg0->unknown_cd_, 0x1e);
         } else {
-            func_0209c2e0(actor, actor->field_cd, 0);
+            func_0209c2e0(arg0, arg0->unknown_cd_, 0);
         }
     }
-    actor->field_c9 = 0;
+    arg0->unknown_c9_ = 0;
 }

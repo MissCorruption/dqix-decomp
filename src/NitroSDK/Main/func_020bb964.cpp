@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct WrapCtx020bb964 {
-    int unk_0;
-    unsigned int modulus;
+struct Struct_020bb964 {
+    int unknown_0_;
+    unsigned int unknown_4_;
 };
 
 // USA: func_020bb964
-extern "C" ARM unsigned short func_020bb964(WrapCtx020bb964* ctx, unsigned int value) {
-    return (unsigned short)((value + 1) % ctx->modulus);
+extern "C" ARM unsigned short func_020bb964(Struct_020bb964* arg0, unsigned int arg1) {
+    return (unsigned short)((arg1 + 1) % arg0->unknown_4_);
 }

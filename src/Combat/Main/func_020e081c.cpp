@@ -10,44 +10,44 @@
 #endif
 
 #if defined(jpn)
-enum { kBackupAllocator = 0x6c0, kBackupBuffer = 0x6c4, kBackupSize = 0x6c8,
-       kStage = 0x916, kActive = 0x917, kBaseTask = 0x950, kObjectTask = 0x95c,
-       kBackupBytes = 0x2500, kDisplay = 0x200, kDisplayWidth = 0x608 };
+enum { Enum_020e081c_1900 = 0x6c0, Enum_020e081c_1904 = 0x6c4, Enum_020e081c_1908 = 0x6c8,
+       Enum_020e081c_2498 = 0x916, Enum_020e081c_2499 = 0x917, Enum_020e081c_2556 = 0x950, Enum_020e081c_2568 = 0x95c,
+       Enum_020e081c_13312 = 0x2500, Enum_020e081c_600 = 0x200, Enum_020e081c_1288 = 0x608 };
 #define data_020f2b78 data_020f2cd0
 extern const char data_020f2ce8[];
 #else
-enum { kBackupAllocator = 0x76c, kBackupBuffer = 0x770, kBackupSize = 0x774,
-       kStage = 0x9c2, kActive = 0x9c3, kBaseTask = 0x9fc, kObjectTask = 0xa08,
-       kBackupBytes = 0x3400, kDisplay = 0x258, kDisplayWidth = 0x508 };
+enum { Enum_020e081c_1900 = 0x76c, Enum_020e081c_1904 = 0x770, Enum_020e081c_1908 = 0x774,
+       Enum_020e081c_2498 = 0x9c2, Enum_020e081c_2499 = 0x9c3, Enum_020e081c_2556 = 0x9fc, Enum_020e081c_2568 = 0xa08,
+       Enum_020e081c_13312 = 0x3400, Enum_020e081c_600 = 0x258, Enum_020e081c_1288 = 0x508 };
 extern const char data_020f2b90[];
 extern const char data_020f2ba2[];
 #endif
 
-struct Struct0205a198 { char bytes[0x28]; };
-struct Rec020467f0;
-struct SetFlagStruct;
-struct ToggleState;
-struct Script020e081c {
-    char unknown0[0x40];
-    Struct0205a198* records;
-    char unknown44[8];
-    unsigned short count;
-    char unknown4e[2];
-    unsigned char active;
-    char unknown51[3];
+struct Struct_02043368_2 { char unknown_0_[0x28]; };
+struct Struct_02020aec;
+struct Struct_020213fc;
+struct Struct_02021410;
+struct Struct_020e081c {
+    char unknown_0_[0x40];
+    Struct_02043368_2* unknown_40_;
+    char unknown_44_[8];
+    unsigned short unknown_4c_;
+    char unknown_4e_[2];
+    unsigned char unknown_50_;
+    char unknown_51_[3];
 };
 
 extern "C" void* func_02012fe4();
 extern "C" char* func_0203bd08();
 extern "C" char* func_0203b628();
-extern "C" void func_020213fc(SetFlagStruct*, int);
+extern "C" void func_020213fc(Struct_020213fc*, int);
 extern "C" void func_02021428(void*, int);
-extern "C" void func_020209d0(void* context);
+extern "C" void func_020209d0(void* arg0);
 extern "C" void func_0203b66c(char*);
 extern "C" void func_0203bd24(char*);
-extern "C" void func_0205a198(Struct0205a198*);
+extern "C" void func_0205a198(Struct_02043368_2*);
 extern "C" void func_0205a444(char*);
-extern "C" int func_0205a498(void*, Rec020467f0*, int, void*);
+extern "C" int func_0205a498(void*, Struct_02020aec*, int, void*);
 extern "C" void* func_0203bd14();
 extern "C" void* func_0203be4c(char*);
 extern "C" void func_020c9be0();
@@ -58,72 +58,72 @@ extern "C" void func_02020cb8(void*, int);
 extern "C" void func_02020cb8(void*, int*);
 #endif
 extern "C" void func_02022b90(void*, int*);
-extern "C" void func_02021410(ToggleState*, int, int);
+extern "C" void func_02021410(Struct_02021410*, int, int);
 extern const char data_020f2b78[];
 
-static inline SafeAllocator* GetResourceAllocator(GameResources* resources, int index) {
-    return &resources->allocator_array_38[index];
+static inline SafeAllocator* inline_02021578(GameResources* arg0, int arg1) {
+    return &arg0->allocator_array_38[arg1];
 }
 
 // KEEP-NAME: func_020e081c is the shared regional export.
 // USA: func_020e081c
-extern "C" ARM void func_020e081c(char* self) {
+extern "C" ARM void func_020e081c(char* arg0) {
     GameState::GetInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
     func_02012fe4();
-    GameResources* resources = GetGameResources();
-    char* battle = func_0203bd08();
-    char* table = func_0203b628();
-    SafeAllocator* allocator = GetResourceAllocator(resources, 12);
-    if (*(signed char*)(self + kStage) == 0) {
-        func_020213fc((SetFlagStruct*)self, 0);
-        func_02021428(self, 0x19);
-        func_020209d0(self);
-        allocator->Reset();
-        func_0203b66c(table);
-        func_0203bd24(battle);
-        for (int i = 0; i < 28; ++i)
-            func_0205a198(&((Struct0205a198*)(self + 0xe8))[i]);
-        func_0205a444(self + 0x94);
-        Script020e081c* script = (Script020e081c*)(self + 0x94);
-        script->active = 1;
-        script->records = (Struct0205a198*)(self + 0xe8);
-        script->count = 5;
-        loader->AddFence();
-        *(int*)(self + kBaseTask) = loader->QueueLoadFile(data_020f2b78, 0);
+    GameResources* var1 = GetGameResources();
+    char* var2 = func_0203bd08();
+    char* var3 = func_0203b628();
+    SafeAllocator* var4 = inline_02021578(var1, 12);
+    if (*(signed char*)(arg0 + Enum_020e081c_2498) == 0) {
+        func_020213fc((Struct_020213fc*)arg0, 0);
+        func_02021428(arg0, 0x19);
+        func_020209d0(arg0);
+        var4->Reset();
+        func_0203b66c(var3);
+        func_0203bd24(var2);
+        for (int var5 = 0; var5 < 28; ++var5)
+            func_0205a198(&((Struct_02043368_2*)(arg0 + 0xe8))[var5]);
+        func_0205a444(arg0 + 0x94);
+        Struct_020e081c* var6 = (Struct_020e081c*)(arg0 + 0x94);
+        var6->unknown_50_ = 1;
+        var6->unknown_40_ = (Struct_02043368_2*)(arg0 + 0xe8);
+        var6->unknown_4c_ = 5;
+        var0->AddFence();
+        *(int*)(arg0 + Enum_020e081c_2556) = var0->QueueLoadFile(data_020f2b78, 0);
 #if defined(jpn)
-        *(int*)(self + kObjectTask) = loader->QueueLoadFile(data_020f2ce8, 0);
+        *(int*)(arg0 + Enum_020e081c_2568) = var0->QueueLoadFile(data_020f2ce8, 0);
 #else
-        *(int*)(self + kObjectTask) = loader->QueueLoadFileInGP2(data_020f2b90, data_020f2ba2, 0);
+        *(int*)(arg0 + Enum_020e081c_2568) = var0->QueueLoadFileInGP2(data_020f2b90, data_020f2ba2, 0);
 #endif
-        ++*(signed char*)(self + kStage);
-    } else if (*(signed char*)(self + kStage) == 1) {
-        if (!loader->GetTaskStatus(*(int*)(self + kBaseTask))) return;
-        if (!loader->GetTaskStatus(*(int*)(self + kObjectTask))) return;
-        func_02021428(self, 0x19);
-        if (IsBrightnessWithinValidRange((GameResources*)resources, true)) return;
-        void* file = 0;
-        unsigned int length = 0;
-        loader->GetLoadedFileByID(*(int*)(self + kObjectTask), &file, &length);
-        func_0205a498(self + 0x94, (Rec020467f0*)file, length, allocator);
-        *(int*)((char*)func_0203bd14() + kDisplayWidth) = 0x2800;
-        void* display = (char*)func_0203be4c(func_0203bd08()) + kDisplay;
-        *(void**)func_0203bd14() = display;
-        if (!*(SafeAllocator**)(self + kBackupAllocator)) func_020c9be0();
-        if (*(SafeAllocator**)(self + kBackupAllocator) && *(void**)(self + kBackupBuffer))
-            (*(SafeAllocator**)(self + kBackupAllocator))->Free(*(void**)(self + kBackupBuffer));
-        *(unsigned int*)(self + kBackupSize) = kBackupBytes;
-        *(void**)(self + kBackupBuffer) = (*(SafeAllocator**)(self + kBackupAllocator))->Allocate(*(unsigned int*)(self + kBackupSize));
-        VectorizedInvertedMemcpy((const void*)0x06600000, *(void**)(self + kBackupBuffer), *(unsigned int*)(self + kBackupSize));
+        ++*(signed char*)(arg0 + Enum_020e081c_2498);
+    } else if (*(signed char*)(arg0 + Enum_020e081c_2498) == 1) {
+        if (!var0->GetTaskStatus(*(int*)(arg0 + Enum_020e081c_2556))) return;
+        if (!var0->GetTaskStatus(*(int*)(arg0 + Enum_020e081c_2568))) return;
+        func_02021428(arg0, 0x19);
+        if (IsBrightnessWithinValidRange((GameResources*)var1, true)) return;
+        void* var7 = 0;
+        unsigned int var8 = 0;
+        var0->GetLoadedFileByID(*(int*)(arg0 + Enum_020e081c_2568), &var7, &var8);
+        func_0205a498(arg0 + 0x94, (Struct_02020aec*)var7, var8, var4);
+        *(int*)((char*)func_0203bd14() + Enum_020e081c_1288) = 0x2800;
+        void* var9 = (char*)func_0203be4c(func_0203bd08()) + Enum_020e081c_600;
+        *(void**)func_0203bd14() = var9;
+        if (!*(SafeAllocator**)(arg0 + Enum_020e081c_1900)) func_020c9be0();
+        if (*(SafeAllocator**)(arg0 + Enum_020e081c_1900) && *(void**)(arg0 + Enum_020e081c_1904))
+            (*(SafeAllocator**)(arg0 + Enum_020e081c_1900))->Free(*(void**)(arg0 + Enum_020e081c_1904));
+        *(unsigned int*)(arg0 + Enum_020e081c_1908) = Enum_020e081c_13312;
+        *(void**)(arg0 + Enum_020e081c_1904) = (*(SafeAllocator**)(arg0 + Enum_020e081c_1900))->Allocate(*(unsigned int*)(arg0 + Enum_020e081c_1908));
+        VectorizedInvertedMemcpy((const void*)0x06600000, *(void**)(arg0 + Enum_020e081c_1904), *(unsigned int*)(arg0 + Enum_020e081c_1908));
         func_020c9820();
 #if defined(jpn)
-        func_02020cb8(self, *(int*)(self + kBaseTask));
+        func_02020cb8(arg0, *(int*)(arg0 + Enum_020e081c_2556));
 #else
-        func_02020cb8(self, (int*)(self + kBaseTask));
+        func_02020cb8(arg0, (int*)(arg0 + Enum_020e081c_2556));
 #endif
-        func_02022b90(self, (int*)(self + kObjectTask));
-        func_02021410((ToggleState*)self, 1, 3);
-        *(unsigned char*)(self + kActive) = 0;
-        ++*(signed char*)(self + kStage);
+        func_02022b90(arg0, (int*)(arg0 + Enum_020e081c_2568));
+        func_02021410((Struct_02021410*)arg0, 1, 3);
+        *(unsigned char*)(arg0 + Enum_020e081c_2499) = 0;
+        ++*(signed char*)(arg0 + Enum_020e081c_2498);
     }
 }

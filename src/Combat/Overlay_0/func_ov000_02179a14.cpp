@@ -13,15 +13,15 @@
 
 extern "C" int func_020421a0();
 extern "C" void func_ov000_02179a70(void*, int, int, void*);
-struct StructA0205d5d0;
+struct Struct_0205d5d0;
 // USA: func_ov000_02179a14
-extern "C" ARM void func_ov000_02179a14(void* obj, int a, int b) {
-    void* buf = *(void**)(func_020421a0() + REGION_OFFSET_0);
-    memset(buf, 0, REGION_OFFSET_1);
-    func_ov000_02179a70(obj, a, b, buf);
+extern "C" ARM void func_ov000_02179a14(void* arg0, int arg1, int arg2) {
+    void* var0 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+    memset(var0, 0, REGION_OFFSET_1);
+    func_ov000_02179a70(arg0, arg1, arg2, var0);
 #if defined(jpn)
-    func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x188), 0x12, (int)buf, 1);
+    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 0x12, (int)var0, 1);
 #else
-    func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x188), 0x12, (int)buf, 1, 0);
+    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 0x12, (int)var0, 1, 0);
 #endif
 }

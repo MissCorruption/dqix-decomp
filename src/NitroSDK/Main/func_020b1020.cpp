@@ -4,42 +4,42 @@
 extern "C" {
 #endif
 
-typedef struct NNSG2dFontInformation {
-    unsigned char fontType;
-    signed char linefeed;
-} NNSG2dFontInformation;
+typedef struct Struct_020b27c8 {
+    unsigned char unknown_0_;
+    signed char unknown_1_;
+} Struct_020b27c8;
 
-typedef struct NNSG2dFont {
-    NNSG2dFontInformation* pRes;
-} NNSG2dFont;
+typedef struct Struct_020b1020 {
+    Struct_020b27c8* unknown_0_;
+} Struct_020b1020;
 
-typedef struct NNSG2dTextRect {
-    int width;
-    int height;
-} NNSG2dTextRect;
+typedef struct Struct_020b1020_2 {
+    int unknown_0_;
+    int unknown_4_;
+} Struct_020b1020_2;
 
-int func_020b0f00(const NNSG2dFont* pFont, int hSpace, const void* str, const void** pPos);
+int func_020b0f00(const Struct_020b1020* arg0, int arg1, const void* arg2, const void** arg3);
 
-static inline int NNS_G2dFontGetLineFeed(const NNSG2dFont* pFont) {
-    return pFont->pRes->linefeed;
+static inline int inline_020b1020(const Struct_020b1020* arg0) {
+    return arg0->unknown_0_->unknown_1_;
 }
 
 // USA: func_020b1020
-ARM NNSG2dTextRect func_020b1020(const NNSG2dFont* pFont, int hSpace, int vSpace, const void* txt) {
-    int lines = 1;
-    NNSG2dTextRect rect = {0, 0};
+ARM Struct_020b1020_2 func_020b1020(const Struct_020b1020* arg0, int arg1, int arg2, const void* arg3) {
+    int var0 = 1;
+    Struct_020b1020_2 var1 = {0, 0};
 
-    while (txt != NULL) {
-        const int width = func_020b0f00(pFont, hSpace, txt, &txt);
-        if (width > rect.width) {
-            rect.width = width;
+    while (arg3 != NULL) {
+        const int var2 = func_020b0f00(arg0, arg1, arg3, &arg3);
+        if (var2 > var1.unknown_0_) {
+            var1.unknown_0_ = var2;
         }
-        lines++;
+        var0++;
     }
 
-    rect.height = (lines - 1) * (NNS_G2dFontGetLineFeed(pFont) + vSpace) - vSpace;
+    var1.unknown_4_ = (var0 - 1) * (inline_020b1020(arg0) + arg2) - arg2;
 
-    return rect;
+    return var1;
 }
 
 #ifdef __cplusplus

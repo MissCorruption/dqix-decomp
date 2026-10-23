@@ -12,17 +12,17 @@
 #include "std_library_functions.h"
 
 extern "C" int func_020421a0();
-extern "C" void func_ov000_0217a688(void* obj, int a, int b, void* buf);
-struct StructA0205d5d0;
+extern "C" void func_ov000_0217a688(void* arg0, int arg1, int arg2, void* arg3);
+struct Struct_0205d5d0;
 // USA: func_ov000_0217a628
-extern "C" ARM void func_ov000_0217a628(void* obj, int a, int b) {
-    if (a == 0) return;
-    void* buf = *(void**)(func_020421a0() + REGION_OFFSET_0);
-    memset(buf, 0, REGION_OFFSET_1);
-    func_ov000_0217a688(obj, a, b, buf);
+extern "C" ARM void func_ov000_0217a628(void* arg0, int arg1, int arg2) {
+    if (arg1 == 0) return;
+    void* var0 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+    memset(var0, 0, REGION_OFFSET_1);
+    func_ov000_0217a688(arg0, arg1, arg2, var0);
 #if defined(jpn)
-    func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x188), 0x19, (int)buf, 1);
+    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 0x19, (int)var0, 1);
 #else
-    func_0205d5d0((struct StructA0205d5d0*)((char*)obj + 0x188), 0x19, (int)buf, 1, 0);
+    func_0205d5d0((struct Struct_0205d5d0*)((char*)arg0 + 0x188), 0x19, (int)var0, 1, 0);
 #endif
 }

@@ -3,121 +3,121 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" void func_ov017_021acd7c(void* obj);
-extern "C" void func_ov017_021adb50(char* obj);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
-struct Field3f8Struct;
-extern "C" Field3f8Struct* func_0200fd0c(GameState* bs);
+extern "C" void func_ov017_021acd7c(void* arg0);
+extern "C" void func_ov017_021adb50(char* arg0);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+struct Struct_02000c9c_54;
+extern "C" Struct_02000c9c_54* func_0200fd0c(GameState* arg0);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int length);
-struct ListHead02046b60;
-extern "C" int func_02046b60(struct ListHead02046b60* list, int id);
-extern "C" void func_02046a8c(void* list, void* node);
-extern "C" int func_020ac4f8(int commit);
-extern "C" void func_ov017_021d1118(int a, int b, int c, int d);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(struct Struct_02038598_5* arg0, int arg1);
+extern "C" void func_02046a8c(void* arg0, void* arg1);
+extern "C" int func_020ac4f8(int arg0);
+extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
 
-struct Field3f8Struct0219577c {
-    unsigned short field_0;
-    unsigned char field_2;
-    unsigned char pad3;
-    unsigned char field_4;
-    unsigned char pad5[2];
-    unsigned char active;
-    unsigned char field_8;
-    unsigned char field_9;
-    unsigned char pada;
-    signed char field_b;
-    unsigned char field_c;
-    unsigned char padd[3];
-    Vector3i pos;
-    short angle;
-    short field_1e;
-    int field_20;
-    int field_24;
-    int field_28;
-    int field_2c;
-    unsigned char pad30[0x35];
-    unsigned char field_65;
-    unsigned char field_66;
-    unsigned char pad67[5];
-    short field_6c;
+struct Struct_ov017_0219577c_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    unsigned char unknown_4_;
+    unsigned char unknown_5_[2];
+    unsigned char unknown_7_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
+    unsigned char unknown_a_;
+    signed char unknown_b_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_[3];
+    Vector3i unknown_10_;
+    short unknown_1c_;
+    short unknown_1e_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    int unknown_2c_;
+    unsigned char unknown_30_[0x35];
+    unsigned char unknown_65_;
+    unsigned char unknown_66_;
+    unsigned char unknown_67_[5];
+    short unknown_6c_;
 };
 
-struct Node0219577c {
-    unsigned char pad0[2];
-    unsigned char busy;
+struct Struct_ov017_0219577c {
+    unsigned char unknown_0_[2];
+    unsigned char unknown_2_;
 #if defined(jpn)
-    unsigned char pad3[0x20c];
+    unsigned char unknown_3_[0x20c];
 #else
-    unsigned char pad3[0x27c];
+    unsigned char unknown1_3_[0x27c];
 #endif
-    unsigned char field_27f;
-    unsigned char field_280;
-    unsigned char field_281;
-    unsigned char field_282;
+    unsigned char unknown_27f_;
+    unsigned char unknown_280_;
+    unsigned char unknown_281_;
+    unsigned char unknown_282_;
 };
 
 // USA: func_ov017_0219577c
-extern "C" ARM void func_ov017_0219577c(unsigned char mode, int resetField, int append) {
+extern "C" ARM void func_ov017_0219577c(unsigned char arg0, int arg1, int arg2) {
 #if defined(jpn)
- enum {regionalList=0x4ec,regionalNode=0x900,regionalPending=0xa84,regionalAlternate=0x4fc,regionalExtra=0x978};
+ enum {Enum_ov017_0219577c_1788=0x4ec,Enum_ov017_0219577c_2848=0x900,Enum_ov017_0219577c_3236=0xa84,Enum_ov017_0219577c_1804=0x4fc,Enum_ov017_0219577c_2968=0x978};
 #else
- enum {regionalList=0x6fc,regionalNode=0xb20,regionalPending=0xca4,regionalAlternate=0x70c,regionalExtra=0xb98};
+ enum {Enum_ov017_0219577c_1788=0x6fc,Enum_ov017_0219577c_2848=0xb20,Enum_ov017_0219577c_3236=0xca4,Enum_ov017_0219577c_1804=0x70c,Enum_ov017_0219577c_2968=0xb98};
 #endif
-    GameState* gs = GameState::GetInstance();
-    char* ctx = (char*)GetGameResources();
-    void* list = *(void**)(ctx + 0x3000 + regionalList);
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = (char*)GetGameResources();
+    void* var2 = *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_1788);
     func_02012fe4();
-    Node0219577c* node = *(Node0219577c**)(ctx + 0x3000 + regionalNode);
-    if (node->busy) return;
+    Struct_ov017_0219577c* var3 = *(Struct_ov017_0219577c**)(var1 + 0x3000 + Enum_ov017_0219577c_2848);
+    if (var3->unknown_2_) return;
 
-    func_ov017_021acd7c(node);
-    node->field_280 = 1;
-    node->field_27f = mode;
-    node->field_281 = resetField == 0;
-    node->field_282 = append == 0;
-    if (mode == 0 && append != 0) {
-        func_ov017_021adb50((char*)node);
+    func_ov017_021acd7c(var3);
+    var3->unknown_280_ = 1;
+    var3->unknown_27f_ = arg0;
+    var3->unknown_281_ = arg1 == 0;
+    var3->unknown_282_ = arg2 == 0;
+    if (arg0 == 0 && arg2 != 0) {
+        func_ov017_021adb50((char*)var3);
     }
-    func_020469b4((struct TailList020469b4*)list, (struct TailNode020469b4*)node);
+    func_020469b4((struct Struct_0201bdac_2*)var2, (struct Struct_0201bdac*)var3);
 
-    if (resetField) {
-        Field3f8Struct0219577c* field = (Field3f8Struct0219577c*)func_0200fd0c(gs);
-        VectorizedMemset(field, 0, 0x70);
-        field->field_4 = 1;
-        field->field_8 = 1;
-        field->field_9 = 1;
-        field->field_b = -1;
-        field->field_20 = -1;
-        field->field_24 = -1;
-        field->field_28 = -1;
-        field->field_2c = -1;
-        field->field_1e = -1;
-        field->field_c = 0;
-        field->field_6c = -1;
-        field->field_2 = 1;
-        field->field_0 = 0xc3b5;
-        field->active = 1;
-        field->angle = 0;
-        field->pos.x = 0x48cc;
-        field->pos.y = 0x199;
-        field->pos.z = -0x733;
-        field->field_66 = 1;
-        field->field_65 = 1;
+    if (arg1) {
+        Struct_ov017_0219577c_2* var4 = (Struct_ov017_0219577c_2*)func_0200fd0c(var0);
+        VectorizedMemset(var4, 0, 0x70);
+        var4->unknown_4_ = 1;
+        var4->unknown_8_ = 1;
+        var4->unknown_9_ = 1;
+        var4->unknown_b_ = -1;
+        var4->unknown_20_ = -1;
+        var4->unknown_24_ = -1;
+        var4->unknown_28_ = -1;
+        var4->unknown_2c_ = -1;
+        var4->unknown_1e_ = -1;
+        var4->unknown_c_ = 0;
+        var4->unknown_6c_ = -1;
+        var4->unknown_2_ = 1;
+        var4->unknown_0_ = 0xc3b5;
+        var4->unknown_7_ = 1;
+        var4->unknown_1c_ = 0;
+        var4->unknown_10_.x = 0x48cc;
+        var4->unknown_10_.y = 0x199;
+        var4->unknown_10_.z = -0x733;
+        var4->unknown_66_ = 1;
+        var4->unknown_65_ = 1;
 
-        if (func_02046b60((struct ListHead02046b60*)list, 0x4e)) {
-            func_02046a8c(list, *(void**)(ctx + 0x3000 + regionalPending));
+        if (func_02046b60((struct Struct_02038598_5*)var2, 0x4e)) {
+            func_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_3236));
         }
-        if (func_02046b60((struct ListHead02046b60*)list, 3)) {
-            func_02046a8c(list, *(void**)(ctx + 0x3000 + regionalAlternate));
+        if (func_02046b60((struct Struct_02038598_5*)var2, 3)) {
+            func_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_1804));
         }
     }
-    if (func_02046b60((struct ListHead02046b60*)list, 0x40)) {
-        func_02046a8c(list, *(void**)(ctx + 0x3000 + regionalExtra));
+    if (func_02046b60((struct Struct_02038598_5*)var2, 0x40)) {
+        func_02046a8c(var2, *(void**)(var1 + 0x3000 + Enum_ov017_0219577c_2968));
     }
     func_020ac4f8(1);
-    if (mode) {
+    if (arg0) {
         func_ov017_021d1118(-1, 1, 1, 2);
     }
 }

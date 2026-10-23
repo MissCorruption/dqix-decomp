@@ -3,9 +3,9 @@
 
 // USA: func_ov005_02157190
 extern "C" ARM int func_ov005_02157190(void*) {
-	int result = 0;
+	int var0 = 0;
 	if (!g_keyManager.TestKeysPressed(0x30)) {
-		if (g_keyManager.TestKeysPressed(0x401)) result = 1;
+		if (g_keyManager.TestKeysPressed(0x401)) var0 = 1;
 	}
-	return result;
+	return var0;
 }

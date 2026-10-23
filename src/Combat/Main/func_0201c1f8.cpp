@@ -1,69 +1,69 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Queue_0201c4d4;
-struct ScriptRecord {
-    unsigned short id_, value_;
-    unsigned char history_;
-    char name_[8], text_[28];
-    unsigned char category_ : 3;
-    unsigned char flag3_ : 1;
-    unsigned char flag4_ : 1;
-    unsigned char flag5_ : 1;
-    unsigned char flag6_ : 1;
-    unsigned char flag7_ : 1;
-    unsigned char mode_;
-    void SetId(unsigned short v) { id_ = v; }
-    void SetValue(unsigned short v) { value_ = v; }
-    void SetCategory(unsigned char v) { category_ = v; }
-    void SetMode(unsigned char v) { mode_ = v; }
-    void SetFlag3(unsigned char v) { flag3_ = v; }
-    void SetFlag4(unsigned char v) { flag4_ = v; }
-    void SetFlag5(unsigned char v) { flag5_ = v; }
-    void SetFlag6(unsigned char v) { flag6_ = v; }
-    void SetFlag7(unsigned char v) { flag7_ = v; }
+struct Struct_0201c1f8;
+struct Struct_0201c1f8_2 {
+    unsigned short unknown_0_, unknown_2_;
+    unsigned char unknown_4_;
+    char unknown_5_[8], unknown_d_[28];
+    unsigned char unknown_29_0_ : 3;
+    unsigned char unknown_29_3_ : 1;
+    unsigned char unknown_29_4_ : 1;
+    unsigned char unknown_29_5_ : 1;
+    unsigned char unknown_29_6_ : 1;
+    unsigned char unknown_29_7_ : 1;
+    unsigned char unknown_2a_;
+    void inline_0201c1f8(unsigned short arg0) { unknown_0_ = arg0; }
+    void inline_0201c1f8_2(unsigned short arg0) { unknown_2_ = arg0; }
+    void inline_0201c1f8_3(unsigned char arg0) { unknown_29_0_ = arg0; }
+    void inline_0201c1f8_4(unsigned char arg0) { unknown_2a_ = arg0; }
+    void inline_0201c1f8_5(unsigned char arg0) { unknown_29_3_ = arg0; }
+    void inline_0201c1f8_6(unsigned char arg0) { unknown_29_4_ = arg0; }
+    void inline_0201c1f8_7(unsigned char arg0) { unknown_29_5_ = arg0; }
+    void inline_0201c1f8_8(unsigned char arg0) { unknown_29_6_ = arg0; }
+    void inline_0201c1f8_9(unsigned char arg0) { unknown_29_7_ = arg0; }
 };
-struct ScriptQueues { void* fields_[2]; Queue_0201c4d4* queue_; };
-extern ScriptQueues data_020fdc14 __attribute__((aligned(4)));
-extern "C" void func_0201c4d4(Queue_0201c4d4*, ScriptRecord*);
+struct Struct_020fdc14_2 { void* unknown_0_[2]; Struct_0201c1f8* unknown_8_; };
+extern Struct_020fdc14_2 data_020fdc14 __attribute__((aligned(4)));
+extern "C" void func_0201c4d4(Struct_0201c1f8*, Struct_0201c1f8_2*);
 
 // USA: func_0201c1f8
-extern "C" ARM int func_0201c1f8(Script::Parameter* params) {
-    ScriptRecord record;
-    int result = 0;
-    record.id_ = 0;
-    record.value_ = 0;
-    record.name_[0] = 0;
-    record.history_ = 0;
-    record.category_ = 0;
-    record.flag4_ = 1;
-    record.flag3_ = 0;
-    record.flag5_ = 0;
-    record.flag6_ = 0;
-    record.flag7_ = 0;
-    record.SetId(params[0].ToInt());
-    record.SetValue(params[1].ToInt());
-    const char* label = params[2].ToString();
-    record.SetCategory(params[3].ToInt());
-    const char* name = params[4].ToString();
-    const char* text = params[5].ToString();
-    record.SetMode(params[6].ToInt());
-    record.SetFlag4(params[7].ToInt());
-    record.SetFlag3(params[8].ToInt());
-    record.SetFlag5(params[9].ToInt());
-    record.SetFlag6(params[10].ToInt());
-    record.SetFlag7(params[11].ToInt());
-    if (text == NULL) {
-        result = 0;
+extern "C" ARM int func_0201c1f8(Script::Parameter* arg0) {
+    Struct_0201c1f8_2 var0;
+    int var1 = 0;
+    var0.unknown_0_ = 0;
+    var0.unknown_2_ = 0;
+    var0.unknown_5_[0] = 0;
+    var0.unknown_4_ = 0;
+    var0.unknown_29_0_ = 0;
+    var0.unknown_29_4_ = 1;
+    var0.unknown_29_3_ = 0;
+    var0.unknown_29_5_ = 0;
+    var0.unknown_29_6_ = 0;
+    var0.unknown_29_7_ = 0;
+    var0.inline_0201c1f8(arg0[0].ToInt());
+    var0.inline_0201c1f8_2(arg0[1].ToInt());
+    const char* var2 = arg0[2].ToString();
+    var0.inline_0201c1f8_3(arg0[3].ToInt());
+    const char* var3 = arg0[4].ToString();
+    const char* var4 = arg0[5].ToString();
+    var0.inline_0201c1f8_4(arg0[6].ToInt());
+    var0.inline_0201c1f8_6(arg0[7].ToInt());
+    var0.inline_0201c1f8_5(arg0[8].ToInt());
+    var0.inline_0201c1f8_7(arg0[9].ToInt());
+    var0.inline_0201c1f8_8(arg0[10].ToInt());
+    var0.inline_0201c1f8_9(arg0[11].ToInt());
+    if (var4 == NULL) {
+        var1 = 0;
     } else {
-        memcpy(record.name_, name, sizeof(record.name_));
-        record.name_[7] = 0;
-        memcpy(record.text_, text, sizeof(record.text_));
-        ScriptQueues* queues = &data_020fdc14;
-        Queue_0201c4d4* queue = queues->queue_;
-        record.text_[27] = 0;
-        func_0201c4d4(queue, &record);
-        result = 1;
+        memcpy(var0.unknown_5_, var3, sizeof(var0.unknown_5_));
+        var0.unknown_5_[7] = 0;
+        memcpy(var0.unknown_d_, var4, sizeof(var0.unknown_d_));
+        Struct_020fdc14_2* var5 = &data_020fdc14;
+        Struct_0201c1f8* var6 = var5->unknown_8_;
+        var0.unknown_d_[27] = 0;
+        func_0201c4d4(var6, &var0);
+        var1 = 1;
     }
-    return result;
+    return var1;
 }

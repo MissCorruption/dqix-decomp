@@ -2,150 +2,150 @@
 #include <GameState/GameState.h>
 #include <Resource/CharacterCreationUI.h>
 
-struct NameDescriptor { char* singular_; char* plural_; unsigned int flags_; };
-struct StoreStruct { char pad0[0x20]; NameDescriptor* names_; };
-struct TargetMenu {
-    char pad0[0x1c];
-    signed char selected_;
-    char pad1D[0xb8 - 0x1d];
-    Container020e0310 strings_;
+struct Struct_020200c0_5 { char* unknown_0_; char* unknown_4_; unsigned int unknown_8_; };
+struct Struct_020465c0 { char unknown_0_[0x20]; Struct_020200c0_5* unknown_20_; };
+struct Struct_ov000_02178938 {
+    char unknown_0_[0x1c];
+    signed char unknown_1c_;
+    char unknown_1d_[0xb8 - 0x1d];
+    Struct_0201099c_3 unknown_b8_;
 #if defined(jpn)
-    char padC0[0x1d94 - 0xc0];
-    char nameSlots[8][0x38];
+    char unknown_c0_[0x1d94 - 0xc0];
+    char unknown_1d94_[8][0x38];
 #else
-    char padC0[0x1d1c - 0xc0];
+    char unknown1_c0_[0x1d1c - 0xc0];
 #endif
-    int groupIDs_[8];
-    int combatantIDs_[8];
+    int unknown_1d1c_[8];
+    int unknown_1d3c_[8];
 };
 
 extern "C" int func_ov000_02175348(void*, int);
-extern "C" StoreStruct* func_020421a0();
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" Struct_020465c0* func_020421a0();
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" int func_ov000_0217542c(void*);
 extern "C" int func_02041c08(char*, int, int, int, int, int);
 extern "C" int func_02041ea4(char*, int);
 extern "C" int func_02042058(char*, const char*);
 extern "C" void* __clear(void*, int);
-extern "C" void func_02046380(StoreStruct*);
+extern "C" void func_02046380(Struct_020465c0*);
 extern "C" void* func_020e46c4(void*);
 extern "C" GameObject* func_0200fea4(GameState*, int);
-extern "C" void func_020e4ce8(NameDescriptor*, GameObject*, int);
+extern "C" void func_020e4ce8(Struct_020200c0_5*, GameObject*, int);
 extern "C" void func_ov000_0217aa08(char*, char*);
-extern "C" void func_020e4f18(NameDescriptor*, NameDescriptor*, int);
-extern "C" void func_020465c0(StoreStruct*, int, int);
-extern "C" void func_02046608(StoreStruct*, int, const char*, char*, int, int, int);
+extern "C" void func_020e4f18(Struct_020200c0_5*, Struct_020200c0_5*, int);
+extern "C" void func_020465c0(Struct_020465c0*, int, int);
+extern "C" void func_02046608(Struct_020465c0*, int, const char*, char*, int, int, int);
 extern "C" int func_02041b70(char*, int, const char*);
 extern char data_ov000_02184060[];
 
 #if defined(jpn)
 extern "C" void func_0203bdf4(char*, char*);
-extern "C" void func_02046574(StoreStruct*, int, char*);
-extern "C" void func_020474a8(StoreStruct*, int, const char*, char*);
+extern "C" void func_02046574(Struct_020465c0*, int, char*);
+extern "C" void func_020474a8(Struct_020465c0*, int, const char*, char*);
 #endif
 
 // USA: func_ov000_0217a688
-extern "C" ARM void func_ov000_0217a688(TargetMenu* self, void* unused, int count, char* output) {
-    if (!output) return;
-    int cursor;
-    unsigned int previous;
+extern "C" ARM void func_ov000_0217a688(Struct_ov000_02178938* arg0, void* arg1, int arg2, char* arg3) {
+    if (!arg3) return;
+    int var0;
+    unsigned int var1;
 #if defined(jpn)
-    bool separated;
+    bool var2;
 #else
-    int separated;
+    int var2;
 #endif
-    int selected;
-    int i;
-    previous = -1;
-    cursor = 0;
-    separated = 0;
-    i = 0;
-    selected = self->selected_;
-    for (; i < count; ++i) {
-        int group = self->groupIDs_[i];
-        if (previous == group) continue;
-        previous = group;
-        int members = func_ov000_02175348(self, group);
-        if (i <= selected && selected < i + members) cursor = i;
+    int var3;
+    int var4;
+    var1 = -1;
+    var0 = 0;
+    var2 = 0;
+    var4 = 0;
+    var3 = arg0->unknown_1c_;
+    for (; var4 < arg2; ++var4) {
+        int var5 = arg0->unknown_1d1c_[var4];
+        if (var1 == var5) continue;
+        var1 = var5;
+        int var6 = func_ov000_02175348(arg0, var5);
+        if (var4 <= var3 && var3 < var4 + var6) var0 = var4;
     }
-    StoreStruct* store = func_020421a0();
+    Struct_020465c0* var7 = func_020421a0();
 #if !defined(jpn)
-    GameState* game = GameState::GetInstance();
-    const char* separator = (const char*)func_020e0434(&self->strings_, 0);
-    const char* format = (const char*)func_020e0434(&self->strings_, 0x754f);
+    GameState* var8 = GameState::GetInstance();
+    const char* var9 = (const char*)func_020e0434(&arg0->unknown_b8_, 0);
+    const char* var10 = (const char*)func_020e0434(&arg0->unknown_b8_, 0x754f);
 #endif
-    previous = -1;
+    var1 = -1;
 #if defined(jpn)
-    int showCursor = func_ov000_0217542c(self);
-    if (showCursor)
+    int var11 = func_ov000_0217542c(arg0);
+    if (var11)
 #else
-    if (func_ov000_0217542c(self))
+    if (func_ov000_0217542c(arg0))
 #endif
-        func_02041c08(output, cursor, 8, 5, 5, 5);
-    func_02041ea4(output, cursor);
-    for (int i = 0; i < count; ++i) {
-        int group = self->groupIDs_[i];
-        if (previous == group) continue;
-        previous = group;
-        int members = func_ov000_02175348(self, group);
-        if (!members) continue;
+        func_02041c08(arg3, var0, 8, 5, 5, 5);
+    func_02041ea4(arg3, var0);
+    for (int var12 = 0; var12 < arg2; ++var12) {
+        int var13 = arg0->unknown_1d1c_[var12];
+        if (var1 == var13) continue;
+        var1 = var13;
+        int var14 = func_ov000_02175348(arg0, var13);
+        if (!var14) continue;
 #if defined(jpn)
-        if (separated) func_02042058(output, (const char*)func_020e0434(&self->strings_, 0));
+        if (var2) func_02042058(arg3, (const char*)func_020e0434(&arg0->unknown_b8_, 0));
 #else
-        if (separated) func_02042058(output, separator);
+        if (var2) func_02042058(arg3, var9);
 #endif
 #if defined(jpn)
-        char nameText[0x20];
-        __clear(nameText, sizeof(nameText));
-        char text[0x40];
-        __clear(text, sizeof(text));
+        char var15[0x20];
+        __clear(var15, sizeof(var15));
+        char var16[0x40];
+        __clear(var16, sizeof(var16));
 #else
-        char text[0x80];
-        __clear(text, sizeof(text));
+        char var16[0x80];
+        __clear(var16, sizeof(var16));
 #endif
-        int index = i;
-        if (i <= selected && selected < i + members) index = selected;
+        int var17 = var12;
+        if (var12 <= var3 && var3 < var12 + var14) var17 = var3;
 #if defined(jpn)
-        func_0203bdf4(self->nameSlots[index], nameText);
-        if (showCursor && cursor == i) {
-            char original[0x20];
-            __clear(original, sizeof(original));
-            memcpy(original, nameText, sizeof(original));
-            memset(nameText, 0, sizeof(nameText));
-            func_ov000_0217aa08(original, nameText);
+        func_0203bdf4(arg0->unknown_1d94_[var17], var15);
+        if (var11 && var0 == var12) {
+            char var18[0x20];
+            __clear(var18, sizeof(var18));
+            memcpy(var18, var15, sizeof(var18));
+            memset(var15, 0, sizeof(var15));
+            func_ov000_0217aa08(var18, var15);
         }
-        func_02046380(store);
-        func_02046574(store, 0, nameText);
-        func_020465c0(store, 0, members);
-        func_020474a8(store, 10, (const char*)func_020e0434(&self->strings_, 0x754f), text);
+        func_02046380(var7);
+        func_02046574(var7, 0, var15);
+        func_020465c0(var7, 0, var14);
+        func_020474a8(var7, 10, (const char*)func_020e0434(&arg0->unknown_b8_, 0x754f), var16);
 #else
-        func_02046380(store);
-        NameDescriptor names;
-        func_020e46c4(&names);
-        GameObject* target = func_0200fea4(game, self->combatantIDs_[index]);
-        char singular[0x80];
-        __clear(singular, sizeof(singular));
-        char plural[0x80];
-        __clear(plural, sizeof(plural));
-        if (target) {
-            func_020e4ce8(&names, target, 1);
-            NameDescriptor original;
-            func_020e4ce8(&original, target, 0);
-            func_ov000_0217aa08(names.singular_, singular);
-            func_ov000_0217aa08(names.plural_, plural);
-            names.singular_ = singular;
-            names.plural_ = plural;
-            func_020e4f18(&original, &names, 2);
-            names.flags_ &= ~0x80000000;
+        func_02046380(var7);
+        Struct_020200c0_5 var19;
+        func_020e46c4(&var19);
+        GameObject* var20 = func_0200fea4(var8, arg0->unknown_1d3c_[var17]);
+        char var21[0x80];
+        __clear(var21, sizeof(var21));
+        char var22[0x80];
+        __clear(var22, sizeof(var22));
+        if (var20) {
+            func_020e4ce8(&var19, var20, 1);
+            Struct_020200c0_5 var23;
+            func_020e4ce8(&var23, var20, 0);
+            func_ov000_0217aa08(var19.unknown_0_, var21);
+            func_ov000_0217aa08(var19.unknown_4_, var22);
+            var19.unknown_0_ = var21;
+            var19.unknown_4_ = var22;
+            func_020e4f18(&var23, &var19, 2);
+            var19.unknown_8_ &= ~0x80000000;
         }
-        store->names_ = &names;
-        func_020465c0(store, 0, members);
-        func_02046608(store, 10, format, text, 0x100, 0, 0);
+        var7->unknown_20_ = &var19;
+        func_020465c0(var7, 0, var14);
+        func_02046608(var7, 10, var10, var16, 0x100, 0, 0);
 #endif
-        func_02041b70(output, i, text);
-        separated = 1;
+        func_02041b70(arg3, var12, var16);
+        var2 = 1;
     }
 #if !defined(jpn)
-    func_02042058(output, data_ov000_02184060);
+    func_02042058(arg3, data_ov000_02184060);
 #endif
 }

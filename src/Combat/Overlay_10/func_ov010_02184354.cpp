@@ -17,403 +17,403 @@ extern const char data_ov010_02184a80[];
 extern const char data_ov010_02184a95[];
 extern const char data_ov010_02184aa6[];
 
-struct Struct021842d8;
-extern "C" void func_ov010_021842d8(struct Struct021842d8* obj);
+struct Struct_ov010_021842d8;
+extern "C" void func_ov010_021842d8(struct Struct_ov010_021842d8* arg0);
 
-struct Obj020397cc;
-extern "C" void func_020397cc(struct Obj020397cc* obj, int arg1);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
+struct Struct_02018300_3;
+extern "C" void func_020397cc(struct Struct_02018300_3* arg0, int arg1);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
 
-struct List020727d8 {
-    void* entries;
-    short capacity;
-    short count;
+struct Struct_020727d8 {
+    void* unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
 };
-extern "C" void func_020727d8(struct List020727d8* list);
-extern "C" void func_020728ac(void* list, void* alloc, void* buffer, int length, int a4, int a5, int a6);
+extern "C" void func_020727d8(struct Struct_020727d8* arg0);
+extern "C" void func_020728ac(void* arg0, void* arg1, void* arg2, int arg3, int arg4, int arg5, int arg6);
 
-struct TableA68;
-extern "C" void* func_02072a68(struct TableA68* table, int key);
+struct Struct_02072a68_2;
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-extern "C" void func_0205ebc0(void* obj, int a, int b);
-extern "C" void func_0205ebfc(void* obj, int a, int b);
-extern "C" void func_0205ebec(void* obj);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void func_0205ebec(void* arg0);
 
-struct ColorHolder0204bd7c;
-extern "C" unsigned short func_0204bd7c(struct ColorHolder0204bd7c* obj);
+struct Struct_0204bd7c;
+extern "C" unsigned short func_0204bd7c(struct Struct_0204bd7c* arg0);
 
-struct SearchEntry {
-    unsigned short key;
-    unsigned char pad2[0xc];
-    unsigned char lowPair : 2;
-    unsigned char kind : 4;
-    unsigned char highPair : 2;
-    unsigned char padf;
+struct Struct_02099950 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[0xc];
+    unsigned char unknown_e_0_ : 2;
+    unsigned char unknown_e_2_ : 4;
+    unsigned char unknown_e_6_ : 2;
+    unsigned char unknown_f_;
 };
-struct SearchTable;
-extern "C" struct SearchEntry* func_02099950(struct SearchTable* table, int key);
+struct Struct_02095924_2;
+extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
 
-extern "C" void* func_02033fa0(void* obj);
-extern "C" void* func_02011584(void* obj);
-extern "C" int func_020100a8(GameState* b);
-extern "C" void* func_020120a0(char* base, unsigned int index);
-extern "C" unsigned char func_020100b0(GameState* battleStruct);
+extern "C" void* func_02033fa0(void* arg0);
+extern "C" void* func_02011584(void* arg0);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
+extern "C" unsigned char func_020100b0(GameState* arg0);
 
-struct Flags020340b4;
-extern "C" void func_020340b4(struct Flags020340b4* p);
+struct Struct_020340b4;
+extern "C" void func_020340b4(struct Struct_020340b4* arg0);
 
-extern "C" void func_020e4bf4(void* obj, int combatantId);
-extern "C" void func_02046380(void* global);
-extern "C" int func_020457e0(void* global);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" void func_02046380(void* arg0);
+extern "C" int func_020457e0(void* arg0);
 
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
 
-struct NodeList02057de0;
+struct Struct_02057de0_2;
 extern "C" void* func_02057924(void);
-extern "C" int func_02057de0(struct NodeList02057de0* list, int a1, SafeAllocator* alloc, int a2, int a3);
-extern "C" int func_02057fb4(void* list, int id, void* params);
+extern "C" int func_02057de0(struct Struct_02057de0_2* arg0, int arg1, SafeAllocator* arg2, int arg3, int arg4);
+extern "C" int func_02057fb4(void* arg0, int arg1, void* arg2);
 
 struct Vector3i;
 
-extern "C" void* func_02079e2c(char* p, int key);
+extern "C" void* func_02079e2c(char* arg0, int arg1);
 
-struct Obj02048350;
-extern "C" int func_02048350(struct Obj02048350* obj, int amount);
+struct Struct_02048350_2;
+extern "C" int func_02048350(struct Struct_02048350_2* arg0, int arg1);
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
-extern "C" int func_0202c508(void* obj);
+extern "C" int func_0202c508(void* arg0);
 
-struct Vec3s02184354 { short x; short y; short z; };
-extern "C" void func_ov017_021d360c(int a, unsigned char b, int c, struct Vec3s02184354 d);
+struct Struct_ov010_02184354 { short unknown_0_; short unknown_2_; short unknown_4_; };
+extern "C" void func_ov017_021d360c(int arg0, unsigned char arg1, int arg2, struct Struct_ov010_02184354 arg3);
 
-struct MoveRecord02184354 {
-    unsigned short id;
-    unsigned char pad2[6];
-    struct MoveInfo02184354* info;
+struct Struct_ov010_02184354_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[6];
+    struct Struct_ov010_02184354_3* unknown_8_;
 };
-struct MoveInfo02184354 {
-    unsigned char pad0[0xc];
-    unsigned char category : 4;
-    unsigned char categoryHi : 4;
-    unsigned char pad0d;
-    unsigned char flagsLow : 6;
-    unsigned char isSelfTargeting : 1;
-    unsigned char flagHi : 1;
-};
-
-struct Actor02184354 {
-    unsigned char pad0[0xc];
-    unsigned char combatantId;
-};
-extern "C" MessageSystem* func_020421a0(void);
-
-struct TableEntry02184354 {
-    unsigned char pad0[8];
-    unsigned int amount : 8;
-    unsigned int amountHi : 24;
+struct Struct_ov010_02184354_3 {
+    unsigned char unknown_0_[0xc];
+    unsigned char unknown_c_0_ : 4;
+    unsigned char unknown_c_4_ : 4;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_0_ : 6;
+    unsigned char unknown_e_6_ : 1;
+    unsigned char unknown_e_7_ : 1;
 };
 
-struct Vec3i02184354 { int x; int y; int z; };
+struct Struct_ov010_02184354_4 {
+    unsigned char unknown_0_[0xc];
+    unsigned char unknown_c_;
+};
+extern "C" Struct_02021b84* func_020421a0(void);
 
-struct Params02078484 {
-    unsigned char f00;
-    unsigned char pad01[0xf];
-    unsigned char f10;
-    unsigned char b0 : 1;
-    unsigned char b1 : 1;
-    unsigned char b2 : 1;
-    unsigned char b3 : 1;
-    unsigned char b4 : 1;
-    unsigned char b5 : 1;
-    unsigned char b6 : 1;
-    unsigned char b7 : 1;
-    short f12;
-    short f14;
-    short f16;
-    short f18;
-    short f1a;
-    short f1c;
-    short pad1e;
-    int f20; int f24; int f28;
-    int f2c; int f30; int f34;
-    int f38; int f3c; int f40;
-    int f44; int f48; int f4c;
+struct Struct_ov010_02184354_5 {
+    unsigned char unknown_0_[8];
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 24;
 };
 
-struct Ctx02184354 {
-    unsigned char state;
-    unsigned char visible;
-    unsigned short waitFrames;
-    int taskId;
-    int nodeId;
-    struct List020727d8 list;
-    SafeAllocator alloc;
+struct Struct_ov010_02184354_6 { int unknown_0_; int unknown_4_; int unknown_8_; };
+
+struct Struct_ov010_02184354_7 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[0xf];
+    unsigned char unknown_10_;
+    unsigned char unknown_11_0_ : 1;
+    unsigned char unknown_11_1_ : 1;
+    unsigned char unknown_11_2_ : 1;
+    unsigned char unknown_11_3_ : 1;
+    unsigned char unknown_11_4_ : 1;
+    unsigned char unknown_11_5_ : 1;
+    unsigned char unknown_11_6_ : 1;
+    unsigned char unknown_11_7_ : 1;
+    short unknown_12_;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
+    short unknown_1a_;
+    short unknown_1c_;
+    short unknown_1e_;
+    int unknown_20_; int unknown_24_; int unknown_28_;
+    int unknown_2c_; int unknown_30_; int unknown_34_;
+    int unknown_38_; int unknown_3c_; int unknown_40_;
+    int unknown_44_; int unknown_48_; int unknown_4c_;
+};
+
+struct Struct_ov010_02184354_8 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    int unknown_4_;
+    int unknown_8_;
+    struct Struct_020727d8 unknown_c_;
+    SafeAllocator unknown_14_;
 };
 
 // USA: func_ov010_02184354
-extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    MessageSystem* presenter = func_020421a0();
-    GameState* bs = GameState::GetInstance();
-    GameObject* caster;
-    struct MoveRecord02184354* move;
+extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    Struct_02021b84* var1 = func_020421a0();
+    GameState* var2 = GameState::GetInstance();
+    GameObject* var3;
+    struct Struct_ov010_02184354_2* var4;
 #if defined(jpn)
-    struct Actor02184354* actorInfo = *(Actor02184354**)((char*)GetGameResources() + 0x3988);
+    struct Struct_ov010_02184354_4* var5 = *(Struct_ov010_02184354_4**)((char*)GetGameResources() + 0x3988);
 #else
-    struct Actor02184354* actorInfo = *(Actor02184354**)((char*)GetGameResources() + 0x3ba8);
+    struct Struct_ov010_02184354_4* var5 = *(Struct_ov010_02184354_4**)((char*)GetGameResources() + 0x3ba8);
 #endif
-    caster = bs->GetPartyMemberByIndex(actorInfo->combatantId);
-    GameObject* active = bs->GetPartyMemberByIndex(func_020100b0(bs));
-    void* scene = func_0202ae18();
-    void* ov17 = GetGameResources();
-    move = (struct MoveRecord02184354*)func_02012fe4();
+    var3 = var2->GetPartyMemberByIndex(var5->unknown_c_);
+    GameObject* var6 = var2->GetPartyMemberByIndex(func_020100b0(var2));
+    void* var7 = func_0202ae18();
+    void* var8 = GetGameResources();
+    var4 = (struct Struct_ov010_02184354_2*)func_02012fe4();
 #if defined(jpn)
-    char message[200];
+    char var9[200];
 #endif
 
-    if (caster == NULL || active == NULL) {
-        func_ov010_021842d8((struct Struct021842d8*)obj);
+    if (var3 == NULL || var6 == NULL) {
+        func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
         return 1;
     }
 
-    unsigned char state = obj->state;
-    if (state == 0) {
-        func_020397cc((struct Obj020397cc*)active, 1);
-        void* buffer = func_02012d88(&data_02114e20, 0x7800);
-        if (buffer == NULL) {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+    unsigned char var10 = arg0->unknown_0_;
+    if (var10 == 0) {
+        func_020397cc((struct Struct_02018300_3*)var6, 1);
+        void* var11 = func_02012d88(&data_02114e20, 0x7800);
+        if (var11 == NULL) {
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
         }
-        obj->alloc.CreateTypeA(buffer, 0x7800);
+        arg0->unknown_14_.CreateTypeA(var11, 0x7800);
 #if defined(jpn)
-        obj->taskId = loader->QueueLoadFile(data_ov010_02184a80, NULL);
+        arg0->unknown_4_ = var0->QueueLoadFile(data_ov010_02184a80, NULL);
 #else
-        obj->taskId = loader->QueueLoadFileInGP2(data_ov010_02184a80, data_ov010_02184a95, NULL);
+        arg0->unknown_4_ = var0->QueueLoadFileInGP2(data_ov010_02184a80, data_ov010_02184a95, NULL);
 #endif
-        obj->state = 1;
-    } else if (state == 1) {
-        if (loader->GetTaskStatus(obj->taskId) == 0) return 0;
-        if (loader->GetDetailedTaskStatus(obj->taskId) != 2) {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+        arg0->unknown_0_ = 1;
+    } else if (var10 == 1) {
+        if (var0->GetTaskStatus(arg0->unknown_4_) == 0) return 0;
+        if (var0->GetDetailedTaskStatus(arg0->unknown_4_) != 2) {
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
         }
-        void* filePtr;
-        unsigned int fileLen;
-        loader->GetLoadedFileByID(obj->taskId, &filePtr, &fileLen);
-        func_020727d8(&obj->list);
-        func_020728ac(&obj->list, &obj->alloc, filePtr, fileLen, 0, 0, 0);
-        loader->RemoveTask(obj->taskId);
+        void* var12;
+        unsigned int var13;
+        var0->GetLoadedFileByID(arg0->unknown_4_, &var12, &var13);
+        func_020727d8(&arg0->unknown_c_);
+        func_020728ac(&arg0->unknown_c_, &arg0->unknown_14_, var12, var13, 0, 0, 0);
+        var0->RemoveTask(arg0->unknown_4_);
 
-        unsigned short* slot = (unsigned short*)func_020120a0((char*)bs, func_020100a8(bs));
-        if (slot == NULL) {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+        unsigned short* var14 = (unsigned short*)func_020120a0((char*)var2, func_020100a8(var2));
+        if (var14 == NULL) {
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
         }
-        struct MoveInfo02184354* info = move->info;
-        if (info == NULL) {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+        struct Struct_ov010_02184354_3* var15 = var4->unknown_8_;
+        if (var15 == NULL) {
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
         }
 
-        unsigned char visible = 1;
-        obj->visible = visible;
-        if (info->category == 0) {
-            void* colour = func_02033fa0(caster);
-            if (colour != NULL) {
-                struct SearchTable* table = (struct SearchTable*)func_02011584(bs);
-                struct SearchEntry* entry = func_02099950(table,
-                    func_0204bd7c((struct ColorHolder0204bd7c*)colour));
-                if (entry != NULL) {
-                    if (entry->kind != 0) obj->visible = 0;
+        unsigned char var16 = 1;
+        arg0->unknown_1_ = var16;
+        if (var15->unknown_c_0_ == 0) {
+            void* var17 = func_02033fa0(var3);
+            if (var17 != NULL) {
+                struct Struct_02095924_2* var18 = (struct Struct_02095924_2*)func_02011584(var2);
+                struct Struct_02099950* var19 = func_02099950(var18,
+                    func_0204bd7c((struct Struct_0204bd7c*)var17));
+                if (var19 != NULL) {
+                    if (var19->unknown_e_2_ != 0) arg0->unknown_1_ = 0;
                 }
             }
         } else {
-            struct MoveInfo02184354* self = move->info;
-            if (self != NULL) {
-                if (self->isSelfTargeting == 0) visible = 0;
-                obj->visible = visible;
+            struct Struct_ov010_02184354_3* var20 = var4->unknown_8_;
+            if (var20 != NULL) {
+                if (var20->unknown_e_6_ == 0) var16 = 0;
+                arg0->unknown_1_ = var16;
             }
         }
 
-        int key;
-        if (obj->visible == 0) {
-            obj->state = 3;
-            key = 2;
-        } else if (*slot != 0) {
-            obj->state = 2;
-            key = 1;
+        int var21;
+        if (arg0->unknown_1_ == 0) {
+            arg0->unknown_0_ = 3;
+            var21 = 2;
+        } else if (*var14 != 0) {
+            arg0->unknown_0_ = 2;
+            var21 = 1;
         } else {
-            key = 0;
-            obj->state = 4;
-            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, key);
+            var21 = 0;
+            arg0->unknown_0_ = 4;
+            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x64, var21);
         }
 
-        void* entry = func_02072a68((struct TableA68*)&obj->list, (short)key);
+        void* var22 = func_02072a68((struct Struct_02072a68_2*)&arg0->unknown_c_, (short)var21);
 #if defined(jpn)
-        sprintf(message, (const char*)entry, *(char**)((char*)caster + 0x134));
-        func_0204500c(presenter, message, 0);
-        presenter->active = 1;
+        sprintf(var9, (const char*)var22, *(char**)((char*)var3 + 0x134));
+        func_0204500c(var1, var9, 0);
+        var1->unknown_998_ = 1;
 #else
-        struct Vec3i02184354 casterObj;
-        func_020e4bf4(&casterObj, actorInfo->combatantId);
-        func_02046380(presenter);
-        *(void**)presenter = &casterObj;
-        func_0204500c(presenter, (const char*)entry, 0, 0xe3);
-        presenter->active = 1;
+        struct Struct_ov010_02184354_6 var23;
+        func_020e4bf4(&var23, var5->unknown_c_);
+        func_02046380(var1);
+        *(void**)var1 = &var23;
+        func_0204500c(var1, (const char*)var22, 0, 0xe3);
+        var1->unknown_998_ = 1;
 #endif
-    } else if (state == 2) {
+    } else if (var10 == 2) {
 #if defined(jpn)
-        if (presenter->active != 0) return 0;
+        if (var1->unknown_998_ != 0) return 0;
 #else
-        if (presenter->active != 0) return 0;
+        if (var1->unknown_998_ != 0) return 0;
 #endif
-        if (func_020457e0(presenter) == 0) {
-            void* entry = func_02072a68((struct TableA68*)&obj->list, 0);
+        if (func_020457e0(var1) == 0) {
+            void* var24 = func_02072a68((struct Struct_02072a68_2*)&arg0->unknown_c_, 0);
 #if defined(jpn)
-            sprintf(message, (const char*)entry, *(char**)((char*)caster + 0x134));
-            func_0204500c(presenter, message, 0);
-            presenter->active = 1;
+            sprintf(var9, (const char*)var24, *(char**)((char*)var3 + 0x134));
+            func_0204500c(var1, var9, 0);
+            var1->unknown_998_ = 1;
 #else
-            struct Vec3i02184354 casterObj;
-            func_020e4bf4(&casterObj, actorInfo->combatantId);
-            func_02046380(presenter);
-            *(void**)presenter = &casterObj;
-            func_0204500c(presenter, (const char*)entry, 0, 0xe3);
-            presenter->active = 1;
+            struct Struct_ov010_02184354_6 var25;
+            func_020e4bf4(&var25, var5->unknown_c_);
+            func_02046380(var1);
+            *(void**)var1 = &var25;
+            func_0204500c(var1, (const char*)var24, 0, 0xe3);
+            var1->unknown_998_ = 1;
 #endif
-            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, 0);
-            unsigned short* slot = (unsigned short*)func_020120a0((char*)bs, func_020100a8(bs));
-            if (slot != NULL) *slot = 0;
-            obj->state = 4;
+            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x64, 0);
+            unsigned short* var26 = (unsigned short*)func_020120a0((char*)var2, func_020100a8(var2));
+            if (var26 != NULL) *var26 = 0;
+            arg0->unknown_0_ = 4;
         } else {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
         }
-    } else if (state == 4) {
-        obj->taskId = loader->QueueLoadFile(data_ov010_02184aa6, NULL);
-        obj->state = 5;
-        obj->waitFrames = 0;
-    } else if (state == 5) {
-        if (loader->GetTaskStatus(obj->taskId) == 0) return 0;
-        if (loader->GetDetailedTaskStatus(obj->taskId) != 2) {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+    } else if (var10 == 4) {
+        arg0->unknown_4_ = var0->QueueLoadFile(data_ov010_02184aa6, NULL);
+        arg0->unknown_0_ = 5;
+        arg0->unknown_2_ = 0;
+    } else if (var10 == 5) {
+        if (var0->GetTaskStatus(arg0->unknown_4_) == 0) return 0;
+        if (var0->GetDetailedTaskStatus(arg0->unknown_4_) != 2) {
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             return 1;
         }
-        if (obj->waitFrames < 0xf) {
-            obj->waitFrames = obj->waitFrames + 1;
+        if (arg0->unknown_2_ < 0xf) {
+            arg0->unknown_2_ = arg0->unknown_2_ + 1;
             return 0;
         }
         func_0205ebc0(&data_02108760, 0x74, 0x74);
         func_0205ebfc(&data_02108760, 0, 0);
 
-        void* filePtr;
-        unsigned int fileLen;
-        loader->GetLoadedFileByID(obj->taskId, &filePtr, &fileLen);
+        void* var27;
+        unsigned int var28;
+        var0->GetLoadedFileByID(arg0->unknown_4_, &var27, &var28);
 
 #if defined(jpn)
-        char* stage = (char*)ov17 + 0x27c;
+        char* var29 = (char*)var8 + 0x27c;
 #else
-        char* stage = (char*)ov17 + 0x2cc;
+        char* var29 = (char*)var8 + 0x2cc;
 #endif
-        struct Vec3i02184354 pos = *(struct Vec3i02184354*)((char*)caster + 0x44);
-        func_0207df50((struct Foo0207df50*)(stage + 0xc40));
-        func_0207df90(stage + 0xc40);
-        void* nodes = func_02057924();
-        func_02057de0((struct NodeList02057de0*)nodes, 0x11, &obj->alloc,
-                                      (int)filePtr, (int)fileLen);
-        func_0207dfac(stage + 0xc40);
+        struct Struct_ov010_02184354_6 var30 = *(struct Struct_ov010_02184354_6*)((char*)var3 + 0x44);
+        func_0207df50((struct Struct_0203d028*)(var29 + 0xc40));
+        func_0207df90(var29 + 0xc40);
+        void* var31 = func_02057924();
+        func_02057de0((struct Struct_02057de0_2*)var31, 0x11, &arg0->unknown_14_,
+                                      (int)var27, (int)var28);
+        func_0207dfac(var29 + 0xc40);
 
-        struct Vec3i02184354 scale;
-        scale.x = 0x10a;
-        scale.y = 0x10a;
-        scale.z = 0x10a;
+        struct Struct_ov010_02184354_6 var32;
+        var32.unknown_0_ = 0x10a;
+        var32.unknown_4_ = 0x10a;
+        var32.unknown_8_ = 0x10a;
 
-        struct Params02078484 params;
-        params.f00 = 0;
-        params.f10 = 1;
-        params.f12 = 0;
-        params.f14 = -1;
-        params.f16 = -1;
-        params.f18 = -1;
-        params.f1a = -1;
-        params.f1c = -0x1000;
-        params.f20 = 0;
-        params.f24 = 0;
-        params.f28 = 0;
-        params.f2c = 0;
-        params.f30 = 0;
-        params.f34 = 0;
-        params.f38 = 0;
-        params.f3c = 0;
-        params.f40 = 0;
-        params.f44 = 0x1000;
-        params.f48 = 0x1000;
-        params.f4c = 0x1000;
-        params.b0 = 0;
-        params.b1 = 0;
-        params.b2 = 1;
-        params.b3 = 0;
-        params.b4 = 0;
-        params.b5 = 0;
-        params.b6 = 0;
-        params.b7 = 0;
+        struct Struct_ov010_02184354_7 var33;
+        var33.unknown_0_ = 0;
+        var33.unknown_10_ = 1;
+        var33.unknown_12_ = 0;
+        var33.unknown_14_ = -1;
+        var33.unknown_16_ = -1;
+        var33.unknown_18_ = -1;
+        var33.unknown_1a_ = -1;
+        var33.unknown_1c_ = -0x1000;
+        var33.unknown_20_ = 0;
+        var33.unknown_24_ = 0;
+        var33.unknown_28_ = 0;
+        var33.unknown_2c_ = 0;
+        var33.unknown_30_ = 0;
+        var33.unknown_34_ = 0;
+        var33.unknown_38_ = 0;
+        var33.unknown_3c_ = 0;
+        var33.unknown_40_ = 0;
+        var33.unknown_44_ = 0x1000;
+        var33.unknown_48_ = 0x1000;
+        var33.unknown_4c_ = 0x1000;
+        var33.unknown_11_0_ = 0;
+        var33.unknown_11_1_ = 0;
+        var33.unknown_11_2_ = 1;
+        var33.unknown_11_3_ = 0;
+        var33.unknown_11_4_ = 0;
+        var33.unknown_11_5_ = 0;
+        var33.unknown_11_6_ = 0;
+        var33.unknown_11_7_ = 0;
 
-        *(Vector3i*)&params.f2c = *(Vector3i const*)&pos.x;
-        *(Vector3i*)&params.f44 = *(Vector3i const*)&scale.x;
-        obj->nodeId = func_02057fb4(nodes, 0x11, &params);
+        *(Vector3i*)&var33.unknown_2c_ = *(Vector3i const*)&var30.unknown_0_;
+        *(Vector3i*)&var33.unknown_44_ = *(Vector3i const*)&var32.unknown_0_;
+        arg0->unknown_8_ = func_02057fb4(var31, 0x11, &var33);
 
-        struct Vec3s02184354 anchor;
-        anchor.x = (short)(pos.x >> 4);
-        anchor.y = (short)(pos.y >> 4);
-        anchor.z = (short)(pos.z >> 4);
+        struct Struct_ov010_02184354 var34;
+        var34.unknown_0_ = (short)(var30.unknown_0_ >> 4);
+        var34.unknown_2_ = (short)(var30.unknown_4_ >> 4);
+        var34.unknown_4_ = (short)(var30.unknown_8_ >> 4);
 
-        if (func_0202c508(scene) != 0) {
-            unsigned short* slot = (unsigned short*)func_020120a0((char*)bs, func_020100a8(bs));
-            if (slot != NULL) {
-                slot[0] = move->id;
-                slot[1] = anchor.x;
-                slot[2] = anchor.y;
-                slot[3] = anchor.z;
+        if (func_0202c508(var7) != 0) {
+            unsigned short* var35 = (unsigned short*)func_020120a0((char*)var2, func_020100a8(var2));
+            if (var35 != NULL) {
+                var35[0] = var4->unknown_0_;
+                var35[1] = var34.unknown_0_;
+                var35[2] = var34.unknown_2_;
+                var35[3] = var34.unknown_4_;
             }
         }
 
-        struct TableEntry02184354* row =
-            (struct TableEntry02184354*)func_02079e2c((char*)func_020797dc(), 0xd2);
-        if (row != NULL) {
-            func_02048350((struct Obj02048350*)caster, row->amount);
+        struct Struct_ov010_02184354_5* var36 =
+            (struct Struct_ov010_02184354_5*)func_02079e2c((char*)func_020797dc(), 0xd2);
+        if (var36 != NULL) {
+            func_02048350((struct Struct_02048350_2*)var3, var36->unknown_8_0_);
         }
-        GameObject* target = bs->GetUnknownGameObject();
-        if (target != NULL) {
-            func_020340b4((struct Flags020340b4*)target);
+        GameObject* var37 = var2->GetUnknownGameObject();
+        if (var37 != NULL) {
+            func_020340b4((struct Struct_020340b4*)var37);
         }
-        func_ov017_021d360c(0, func_020100a8(bs), move->id, anchor);
-        obj->state = 3;
-    } else if (state == 3) {
-        GameState* now = GameState::GetInstance();
-        int finished = 0;
-        if (obj->visible != 0) {
+        func_ov017_021d360c(0, func_020100a8(var2), var4->unknown_0_, var34);
+        arg0->unknown_0_ = 3;
+    } else if (var10 == 3) {
+        GameState* var38 = GameState::GetInstance();
+        int var39 = 0;
+        if (arg0->unknown_1_ != 0) {
 #if defined(jpn)
-            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && presenter->active == 0) {
+            if (var38->GetGameObjectByIndex(arg0->unknown_8_) == NULL && var1->unknown_998_ == 0) {
 #else
-            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && presenter->active == 0) {
+            if (var38->GetGameObjectByIndex(arg0->unknown_8_) == NULL && var1->unknown_998_ == 0) {
 #endif
-                finished = 1;
+                var39 = 1;
             }
         } else {
 #if defined(jpn)
-            if (presenter->active == 0) finished = 1;
+            if (var1->unknown_998_ == 0) var39 = 1;
 #else
-            if (presenter->active == 0) finished = 1;
+            if (var1->unknown_998_ == 0) var39 = 1;
 #endif
         }
-        if (finished != 0) {
-            func_ov010_021842d8((struct Struct021842d8*)obj);
+        if (var39 != 0) {
+            func_ov010_021842d8((struct Struct_ov010_021842d8*)arg0);
             func_0205ebec(&data_02108760);
             return 1;
         }

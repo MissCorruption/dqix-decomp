@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct HandleState_02188d10;
-extern "C" int func_ov014_02188d10(struct HandleState_02188d10* s);
+struct Struct_ov014_021845ec;
+extern "C" int func_ov014_02188d10(struct Struct_ov014_021845ec* arg0);
 
-struct HandleState_02188bd0 {
-	char pad[0x14];
-	short field14;
-	int handle;
-	int field1c;
+struct Struct_ov014_021844c4 {
+	char unknown_0_[0x14];
+	short unknown_14_;
+	int unknown_18_;
+	int unknown_1c_;
 };
 
 // USA: func_ov014_02188bd0
-extern "C" ARM int func_ov014_02188bd0(struct HandleState_02188bd0* s) {
-	memset(s, 0, 0x14);
-	s->field14 = -1;
-	s->handle = -1;
-	return func_ov014_02188d10((struct HandleState_02188d10*)s);
+extern "C" ARM int func_ov014_02188bd0(struct Struct_ov014_021844c4* arg0) {
+	memset(arg0, 0, 0x14);
+	arg0->unknown_14_ = -1;
+	arg0->unknown_18_ = -1;
+	return func_ov014_02188d10((struct Struct_ov014_021845ec*)arg0);
 }

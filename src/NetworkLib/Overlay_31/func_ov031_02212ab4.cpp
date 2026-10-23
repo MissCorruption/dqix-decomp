@@ -3,38 +3,38 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
-enum DWCNdError {
-    DWC_ND_ERROR_NONE,
-    DWC_ND_ERROR_ALLOC,
-    DWC_ND_ERROR_BUSY,
-    DWC_ND_ERROR_HTTP,
-    DWC_ND_ERROR_BUFFULL,
-    DWC_ND_ERROR_DLSERVER,
-    DWC_ND_ERROR_CANCELED,
-    DWC_ND_ERROR_PARAM,
-    DWC_ND_ERROR_FATAL,
-    DWC_ND_ERROR_MAX
+enum Enum_020019c8 {
+    Enum_020019c8_0,
+    Enum_020019c8_1,
+    Enum_020019c8_2,
+    Enum_020019c8_3,
+    Enum_020019c8_4,
+    Enum_020019c8_5,
+    Enum_020019c8_6,
+    Enum_020019c8_7,
+    Enum_020019c8_8,
+    Enum_020019c8_9
 };
-enum DWCNdCallbackReason {
-    DWC_ND_CBREASON_INITIALIZE,
-    DWC_ND_CBREASON_GETFILELISTNUM,
-    DWC_ND_CBREASON_GETFILELIST,
-    DWC_ND_CBREASON_GETFILE,
-    DWC_ND_CBREASON_MAX
+enum Enum_020019c8_B {
+    Enum_020019c8_B_0,
+    Enum_020019c8_B_1,
+    Enum_020019c8_B_2,
+    Enum_020019c8_B_3,
+    Enum_020019c8_B_4
 };
-typedef void (*DWCNdCallback)(DWCNdCallbackReason, DWCNdError, int);
-typedef void (*DWCNdCleanupCallback)(void);
+typedef void (*Type_ov031_02212ab4)(Enum_020019c8_B, Enum_020019c8, int);
+typedef void (*Type_020019c8)(void);
 
-struct RegisteredContext02212ab4 {
-    DWCNdCallback callback;
-    DWCNdCleanupCallback cleanupCallback;
-    char gameCode[32];
-    char password[32];
-    int callbackRegistered;
-    unsigned char registration[0x9c0 - 0x4c];
-    ProcessorContext context;
+struct Struct_ov031_02212ab4 {
+    Type_ov031_02212ab4 unknown_0_;
+    Type_020019c8 unknown_4_;
+    char unknown_8_[32];
+    char unknown_28_[32];
+    int unknown_48_;
+    unsigned char unknown_4c_[0x9c0 - 0x4c];
+    ProcessorContext unknown_9c0_;
 };
-extern RegisteredContext02212ab4* data_ov031_0224e5c0;
+extern Struct_ov031_02212ab4* data_ov031_0224e5c0;
 extern char data_ov031_02249ab4[];
 extern "C" int func_ov031_02211aec();
 extern "C" void* func_ov031_02212790(void*, int);
@@ -43,20 +43,20 @@ extern "C" int func_ov031_02212524(char*, void*);
 extern "C" void func_ov031_022128fc();
 
 // USA: func_ov031_02212ab4
-extern "C" ARM int func_ov031_02212ab4(DWCNdCallback callback, char* gameCode, char* password) {
+extern "C" ARM int func_ov031_02212ab4(Type_ov031_02212ab4 arg0, char* arg1, char* arg2) {
     if (func_ov031_02211aec()) return 0;
-    data_ov031_0224e5c0 = (RegisteredContext02212ab4*)func_ov031_02212790((void*)0xa80, 32);
-    data_ov031_0224e5c0->callbackRegistered = 0;
+    data_ov031_0224e5c0 = (Struct_ov031_02212ab4*)func_ov031_02212790((void*)0xa80, 32);
+    data_ov031_0224e5c0->unknown_48_ = 0;
     VectorizedMemset(data_ov031_0224e5c0, 0, 0xa80);
-    data_ov031_0224e5c0->callback = callback;
-    strncpy(data_ov031_0224e5c0->gameCode, gameCode, 31);
-    strncpy(data_ov031_0224e5c0->password, password, 31);
-    if (!func_ov031_02212524(data_ov031_02249ab4, data_ov031_0224e5c0->registration)) {
+    data_ov031_0224e5c0->unknown_0_ = arg0;
+    strncpy(data_ov031_0224e5c0->unknown_8_, arg1, 31);
+    strncpy(data_ov031_0224e5c0->unknown_28_, arg2, 31);
+    if (!func_ov031_02212524(data_ov031_02249ab4, data_ov031_0224e5c0->unknown_4c_)) {
         func_ov031_022127a8(data_ov031_0224e5c0);
         data_ov031_0224e5c0 = 0;
         return 0;
     }
-    PopulateContext(&data_ov031_0224e5c0->context, (unsigned int)func_ov031_022128fc, 0, (unsigned int)&data_ov031_0224e5c0->context, 0x800, 16);
-    MarkContextReadyAndSwitch(&data_ov031_0224e5c0->context);
+    PopulateContext(&data_ov031_0224e5c0->unknown_9c0_, (unsigned int)func_ov031_022128fc, 0, (unsigned int)&data_ov031_0224e5c0->unknown_9c0_, 0x800, 16);
+    MarkContextReadyAndSwitch(&data_ov031_0224e5c0->unknown_9c0_);
     return 1;
 }

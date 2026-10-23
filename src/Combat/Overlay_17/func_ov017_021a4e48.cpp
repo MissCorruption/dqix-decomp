@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kCounterOffset = 0x4134 };
+enum { Enum_ov017_021a4e48_17236 = 0x4134 };
 #else
-enum { kCounterOffset = 0x4354 };
+enum { Enum_ov017_021a4e48_17236 = 0x4354 };
 #endif
 
-struct CounterOwner {
-    unsigned char unknown0[kCounterOffset];
-    signed char counter;
+struct Struct_ov017_021a4e48 {
+    unsigned char unknown_0_[Enum_ov017_021a4e48_17236];
+    signed char unknown_4354_;
 };
 
 // USA: func_ov017_021a4e48
-extern "C" ARM void func_ov017_021a4e48(unsigned char* obj) {
-    CounterOwner* owner = (CounterOwner*)obj;
-    owner->counter--;
-    if (owner->counter < 0) {
-        owner->counter = 0;
+extern "C" ARM void func_ov017_021a4e48(unsigned char* arg0) {
+    Struct_ov017_021a4e48* var0 = (Struct_ov017_021a4e48*)arg0;
+    var0->unknown_4354_--;
+    if (var0->unknown_4354_ < 0) {
+        var0->unknown_4354_ = 0;
     }
 }

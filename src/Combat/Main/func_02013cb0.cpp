@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 
-struct Entry_02028bd0;
-extern "C" Entry_02028bd0* func_02027ca4();
-extern "C" Entry_02028bd0* func_02028bd0(Entry_02028bd0* base, int key);
+struct Struct_020fdd44;
+extern "C" Struct_020fdd44* func_02027ca4();
+extern "C" Struct_020fdd44* func_02028bd0(Struct_020fdd44* arg0, int arg1);
 
 // USA: func_02013cb0
-extern "C" ARM void func_02013cb0(Zone3D* zone, unsigned int mask) {
-    int i;
-    for (i = 0; i < zone->unknown_476_; i++) {
-        if (mask & (1 << i)) {
-            zone->unknown_478_[i].field2 = -1;
+extern "C" ARM void func_02013cb0(Zone3D* arg0, unsigned int arg1) {
+    int var0;
+    for (var0 = 0; var0 < arg0->unknown_476_; var0++) {
+        if (arg1 & (1 << var0)) {
+            arg0->unknown_478_[var0].unknown_2_ = -1;
         }
     }
-    Entry_02028bd0* base = func_02027ca4();
-    Entry_02028bd0* result = func_02028bd0(base, zone->currentZoneID_);
-    if (result == NULL) {
+    Struct_020fdd44* var1 = func_02027ca4();
+    Struct_020fdd44* var2 = func_02028bd0(var1, arg0->currentZoneID_);
+    if (var2 == NULL) {
         return;
     }
-    unsigned short* fieldPtr = (unsigned short*)((unsigned char*)result + 2);
-    unsigned int cur = *fieldPtr;
-    *fieldPtr = (cur & 0xffff000f) | ((mask << 20) >> 16);
+    unsigned short* var3 = (unsigned short*)((unsigned char*)var2 + 2);
+    unsigned int var4 = *var3;
+    *var3 = (var4 & 0xffff000f) | ((arg1 << 20) >> 16);
 }

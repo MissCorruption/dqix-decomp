@@ -8,29 +8,29 @@
 
 // USA: func_02028e90
 extern "C" ARM void func_02028e90(void) {
-    if (glyphBitmapContext.buffer == 0) {
+    if (glyphBitmapContext.unknown_0_ == 0) {
         return;
     }
 
-    if (glyphBitmapContext.buffer != 0) {
-        memset(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+    if (glyphBitmapContext.unknown_0_ != 0) {
+        memset(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
     }
-    int mode = data_020ef74c.displayMode;
-    CleanInvalidateCacheRange(glyphBitmapContext.buffer, 256 * 192 / 2);
-    if (mode == 3) {
-        LoadToMainBG1CharacterData(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+    int var0 = data_020ef74c.unknown_c_;
+    CleanInvalidateCacheRange(glyphBitmapContext.unknown_0_, 256 * 192 / 2);
+    if (var0 == 3) {
+        LoadToMainBG1CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
         return;
     }
-    if (mode == 4) {
-        LoadToSubBG0CharacterData(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+    if (var0 == 4) {
+        LoadToSubBG0CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
         return;
     }
-    if (mode == 5) {
-        LoadToMainBG1CharacterData(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+    if (var0 == 5) {
+        LoadToMainBG1CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
         return;
     }
-    if (mode == 6) {
-        LoadToSubBG0CharacterData(glyphBitmapContext.buffer, 0, 256 * 192 / 2);
+    if (var0 == 6) {
+        LoadToSubBG0CharacterData(glyphBitmapContext.unknown_0_, 0, 256 * 192 / 2);
         return;
     }
 }

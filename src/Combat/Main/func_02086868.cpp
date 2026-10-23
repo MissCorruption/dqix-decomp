@@ -1,59 +1,59 @@
 #include <globaldefs.h>
 
-union CopyBytes13_02086868 { unsigned char bytes[13]; };
-union CopyWords13_02086868 { int words[13]; };
-union CopyWords39_02086868 { int words[39]; };
-union CopyBytes27_02086868 { unsigned char bytes[27]; };
-union CopyBytes9_02086868 { unsigned char bytes[9]; };
-union CopyBytes36_02086868 { unsigned char bytes[36]; };
-union CopyBytes12_02086868 { unsigned char bytes[12]; };
-union CopyWords5_02086868 { int words[5]; };
-union CopyHalfwords14_02086868 { unsigned short halfwords[14]; };
-union CopyHalfwords96_02086868 { unsigned short halfwords[96]; };
+union Struct_02086868_5 { unsigned char unknown_0_[13]; };
+union Struct_02086868_11 { int unknown_0_[13]; };
+union Struct_02086868 { int unknown_0_[39]; };
+union Struct_02086868_2 { unsigned char unknown_0_[27]; };
+union Struct_02086868_3 { unsigned char unknown_0_[9]; };
+union Struct_02086868_4 { unsigned char unknown_0_[36]; };
+union Struct_02086868_6 { unsigned char unknown_0_[12]; };
+union Struct_02086868_7 { int unknown_0_[5]; };
+union Struct_02086868_8 { unsigned short unknown_0_[14]; };
+union Struct_02086868_9 { unsigned short unknown_0_[96]; };
 
-struct CopyEntry02086868 {
-    signed char field00;
-    unsigned char field01;
-    CopyBytes13_02086868 field02;
-    CopyBytes13_02086868 field0f;
-    CopyWords13_02086868 field1c;
-    int field50;
-    unsigned short field54;
-    unsigned char padding56[2];
-    CopyWords39_02086868 field58;
-    unsigned short fieldf4;
-    CopyBytes27_02086868 fieldf6;
-    CopyBytes9_02086868 field111;
-    CopyBytes36_02086868 field11a;
-    unsigned char field13e;
-    unsigned char field13f;
-    CopyBytes12_02086868 field140;
-    CopyWords5_02086868 field14c;
-    CopyHalfwords14_02086868 field160;
-    CopyHalfwords96_02086868 field17c;
+struct Struct_02086868_10 {
+    signed char unknown_0_;
+    unsigned char unknown_1_;
+    Struct_02086868_5 unknown_2_;
+    Struct_02086868_5 unknown_f_;
+    Struct_02086868_11 unknown_1c_;
+    int unknown_50_;
+    unsigned short unknown_54_;
+    unsigned char unknown_56_[2];
+    Struct_02086868 unknown_58_;
+    unsigned short unknown_f4_;
+    Struct_02086868_2 unknown_f6_;
+    Struct_02086868_3 unknown_111_;
+    Struct_02086868_4 unknown_11a_;
+    unsigned char unknown_13e_;
+    unsigned char unknown_13f_;
+    Struct_02086868_6 unknown_140_;
+    Struct_02086868_7 unknown_14c_;
+    Struct_02086868_8 unknown_160_;
+    Struct_02086868_9 unknown_17c_;
 };
 
 // USA: func_02086868
-extern "C" ARM void* func_02086868(void* destination, void* source) {
-    CopyEntry02086868* dst = (CopyEntry02086868*)destination;
-    CopyEntry02086868* src = (CopyEntry02086868*)source;
-    dst->field00 = src->field00;
-    dst->field01 = src->field01;
-    dst->field02 = src->field02;
-    dst->field0f = src->field0f;
-    dst->field1c = src->field1c;
-    dst->field50 = src->field50;
-    dst->field54 = src->field54;
-    dst->field58 = src->field58;
-    dst->fieldf4 = src->fieldf4;
-    dst->fieldf6 = src->fieldf6;
-    dst->field111 = src->field111;
-    dst->field11a = src->field11a;
-    dst->field13e = src->field13e;
-    dst->field13f = src->field13f;
-    dst->field140 = src->field140;
-    dst->field14c = src->field14c;
-    dst->field160 = src->field160;
-    dst->field17c = src->field17c;
-    return destination;
+extern "C" ARM void* func_02086868(void* arg0, void* arg1) {
+    Struct_02086868_10* var0 = (Struct_02086868_10*)arg0;
+    Struct_02086868_10* var1 = (Struct_02086868_10*)arg1;
+    var0->unknown_0_ = var1->unknown_0_;
+    var0->unknown_1_ = var1->unknown_1_;
+    var0->unknown_2_ = var1->unknown_2_;
+    var0->unknown_f_ = var1->unknown_f_;
+    var0->unknown_1c_ = var1->unknown_1c_;
+    var0->unknown_50_ = var1->unknown_50_;
+    var0->unknown_54_ = var1->unknown_54_;
+    var0->unknown_58_ = var1->unknown_58_;
+    var0->unknown_f4_ = var1->unknown_f4_;
+    var0->unknown_f6_ = var1->unknown_f6_;
+    var0->unknown_111_ = var1->unknown_111_;
+    var0->unknown_11a_ = var1->unknown_11a_;
+    var0->unknown_13e_ = var1->unknown_13e_;
+    var0->unknown_13f_ = var1->unknown_13f_;
+    var0->unknown_140_ = var1->unknown_140_;
+    var0->unknown_14c_ = var1->unknown_14c_;
+    var0->unknown_160_ = var1->unknown_160_;
+    var0->unknown_17c_ = var1->unknown_17c_;
+    return arg0;
 }

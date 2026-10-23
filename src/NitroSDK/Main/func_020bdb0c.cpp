@@ -2,48 +2,48 @@
 #include "NitroSDK/Memory/HMRFAllocator.h"
 
 extern "C" void func_020bdc60();
-extern "C" int func_020bd99c(void* obj);
-extern "C" int func_020bdc24(void* objPtr);
+extern "C" int func_020bd99c(void* arg0);
+extern "C" int func_020bdc24(void* arg0);
 
-struct Obj020bdb0c {
-    HMRFAllocator* allocator;
-    SignedAllocatorList list;
+struct Struct_020bdb0c {
+    HMRFAllocator* unknown_0_;
+    SignedAllocatorList unknown_4_;
 };
 
-typedef void (*Callback020bdb0c)(void*, int, int, int);
+typedef void (*Type_020bdb0c)(void*, int, int, int);
 
 // USA: func_020bdb0c
-extern "C" ARM void func_020bdb0c(struct Obj020bdb0c* obj, int arg2) {
-    SignedAllocatorList* childList;
-    int anyInvoked;
-    SignedAllocatorHeader* entry;
-    entry = NULL;
-    anyInvoked = 0;
-    if (arg2 == 0) {
-        func_020bd99c(obj);
+extern "C" ARM void func_020bdb0c(struct Struct_020bdb0c* arg0, int arg1) {
+    SignedAllocatorList* var0;
+    int var1;
+    SignedAllocatorHeader* var2;
+    var2 = NULL;
+    var1 = 0;
+    if (arg1 == 0) {
+        func_020bd99c(arg0);
         return;
     }
-    if (arg2 < obj->list.numElements) {
+    if (arg1 < arg0->unknown_4_.numElements) {
         do {
-            childList = (SignedAllocatorList*)obj->list.ElementBefore(NULL);
-            entry = childList->ElementBefore(entry);
-            if (entry != NULL) {
+            var0 = (SignedAllocatorList*)arg0->unknown_4_.ElementBefore(NULL);
+            var2 = var0->ElementBefore(var2);
+            if (var2 != NULL) {
                 do {
-                    Callback020bdb0c cb = *(Callback020bdb0c*)((char*)entry + 0xc);
-                    if (cb != NULL) {
-                        cb((char*)entry + 0x20, *(int*)((char*)entry + 8), *(int*)((char*)entry + 0x10), *(int*)((char*)entry + 0x14));
-                        anyInvoked = 1;
+                    Type_020bdb0c var3 = *(Type_020bdb0c*)((char*)var2 + 0xc);
+                    if (var3 != NULL) {
+                        var3((char*)var2 + 0x20, *(int*)((char*)var2 + 8), *(int*)((char*)var2 + 0x10), *(int*)((char*)var2 + 0x14));
+                        var1 = 1;
                     }
-                    entry = childList->ElementBefore(entry);
-                } while (entry != NULL);
+                    var2 = var0->ElementBefore(var2);
+                } while (var2 != NULL);
             }
-            obj->list.Remove((SignedAllocatorHeader*)childList);
-        } while (arg2 < obj->list.numElements);
+            arg0->unknown_4_.Remove((SignedAllocatorHeader*)var0);
+        } while (arg1 < arg0->unknown_4_.numElements);
     }
-    obj->allocator->RestoreState(arg2);
-    if (anyInvoked) {
+    arg0->unknown_0_->RestoreState(arg1);
+    if (var1) {
         func_020bdc60();
     }
-    obj->allocator->SaveCurrentState(obj->list.numElements);
-    func_020bdc24(obj);
+    arg0->unknown_0_->SaveCurrentState(arg0->unknown_4_.numElements);
+    func_020bdc24(arg0);
 }

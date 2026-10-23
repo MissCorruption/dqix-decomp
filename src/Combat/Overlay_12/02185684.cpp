@@ -5,129 +5,129 @@ extern "C" void* __clear(void*, int);
 extern "C" int func_ov012_021859f4(void*, unsigned char*, int, int);
 
 // USA: func_ov012_02185684
-extern "C" ARM int func_ov012_02185684(void* owner, unsigned char* pattern,
-    unsigned char* text, int unused, int limit) {
-    unsigned char* markers = static_cast<unsigned char*>(owner);
-    unsigned int any;
-    unsigned int open;
-    unsigned int close;
-    unsigned int repeatOpen;
-    unsigned int repeatClose;
-    unsigned int special;
-    int offset;
-    any = markers[0x2a];
-    open = markers[0x2b];
-    close = markers[0x2c];
-    repeatOpen = markers[0x2d];
-    repeatClose = markers[0x2e];
-    special = markers[0x31];
-    offset = 0;
-    while (offset < limit) {
-        unsigned char* p = pattern;
-        unsigned char* q = text;
+extern "C" ARM int func_ov012_02185684(void* arg0, unsigned char* arg1,
+    unsigned char* arg2, int arg3, int arg4) {
+    unsigned char* var0 = static_cast<unsigned char*>(arg0);
+    unsigned int var1;
+    unsigned int var2;
+    unsigned int var3;
+    unsigned int var4;
+    unsigned int var5;
+    unsigned int var6;
+    int var7;
+    var1 = var0[0x2a];
+    var2 = var0[0x2b];
+    var3 = var0[0x2c];
+    var4 = var0[0x2d];
+    var5 = var0[0x2e];
+    var6 = var0[0x31];
+    var7 = 0;
+    while (var7 < arg4) {
+        unsigned char* var8 = arg1;
+        unsigned char* var9 = arg2;
         for (;;) {
-            int token = *p;
-            if (token == 0) return 1;
-            unsigned int current;
-            int length;
-            int minimum = 1;
-            current = *q;
-            int maximum = minimum;
-            unsigned char* next = p;
-            if (token == open) {
+            int var10 = *var8;
+            if (var10 == 0) return 1;
+            unsigned int var11;
+            int var12;
+            int var13 = 1;
+            var11 = *var9;
+            int var14 = var13;
+            unsigned char* var15 = var8;
+            if (var10 == var2) {
                 for (;;) {
-                    if (*next == close) { ++next; break; }
-                    ++next;
+                    if (*var15 == var3) { ++var15; break; }
+                    ++var15;
                 }
-            } else next = p + 1;
-            if (*next == repeatOpen) {
-                minimum = next[1] - 8;
-                maximum = next[3] - 8;
-                if (next[4] - 8 == 0) maximum *= 10;
+            } else var15 = var8 + 1;
+            if (*var15 == var4) {
+                var13 = var15[1] - 8;
+                var14 = var15[3] - 8;
+                if (var15[4] - 8 == 0) var14 *= 10;
             }
-            int matched = 1;
-            if (token == special) {
-                if (minimum == 0 && maximum == 60) {
-                    unsigned int terminator = p[7];
+            int var16 = 1;
+            if (var10 == var6) {
+                if (var13 == 0 && var14 == 60) {
+                    unsigned int var17 = var8[7];
                     for (;;) {
-                        unsigned int c = *q;
-                        if (c == 0 || c == 0xff) return 0;
-                        if (terminator == c) break;
-                        ++q;
+                        unsigned int var18 = *var9;
+                        if (var18 == 0 || var18 == 0xff) return 0;
+                        if (var17 == var18) break;
+                        ++var9;
                     }
-                    p += 8;
-                    ++q;
+                    var8 += 8;
+                    ++var9;
                     continue;
                 }
-            } else if (token == any) {
-                if (current < 0x12 || current > 0x2b) matched = 0;
-            } else if (token == open) {
-                unsigned char group[8];
-                __clear(group, sizeof(group));
-                int negate = 0;
-                unsigned char* src;
-                unsigned char* dst;
-                dst = group;
-                src = p + 1;
-                length = negate;
-                unsigned int rangeMarker;
-                unsigned int negateMarker;
-                unsigned int end;
-                end = markers[0x2c];
-                negateMarker = markers[0x2f];
-                rangeMarker = markers[0x30];
-                while (*src != end) {
-                    unsigned int c = *src;
-                    *dst = c;
-                    if (c == negateMarker) length = 2;
-                    if (c == rangeMarker) negate = 1;
-                    ++src;
-                    ++dst;
+            } else if (var10 == var1) {
+                if (var11 < 0x12 || var11 > 0x2b) var16 = 0;
+            } else if (var10 == var2) {
+                unsigned char var19[8];
+                __clear(var19, sizeof(var19));
+                int var20 = 0;
+                unsigned char* var21;
+                unsigned char* var22;
+                var22 = var19;
+                var21 = var8 + 1;
+                var12 = var20;
+                unsigned int var23;
+                unsigned int var24;
+                unsigned int var25;
+                var25 = var0[0x2c];
+                var24 = var0[0x2f];
+                var23 = var0[0x30];
+                while (*var21 != var25) {
+                    unsigned int var26 = *var21;
+                    *var22 = var26;
+                    if (var26 == var24) var12 = 2;
+                    if (var26 == var23) var20 = 1;
+                    ++var21;
+                    ++var22;
                 }
-                negate += length;
-                length = strlen(reinterpret_cast<char*>(group));
-                if (negate == 0)
-                    matched = func_ov012_021859f4(owner, group, length, current);
-                else if (negate == 1) {
-                    unsigned int low = group[0];
-                    unsigned int high = group[length - 1];
-                    matched = low <= current && current <= high;
+                var20 += var12;
+                var12 = strlen(reinterpret_cast<char*>(var19));
+                if (var20 == 0)
+                    var16 = func_ov012_021859f4(arg0, var19, var12, var11);
+                else if (var20 == 1) {
+                    unsigned int var27 = var19[0];
+                    unsigned int var28 = var19[var12 - 1];
+                    var16 = var27 <= var11 && var11 <= var28;
                 }
-                else if (negate == 2)
-                    matched = !func_ov012_021859f4(owner, group + 1, length - 1, current);
-                else if (negate == 3) {
-                    unsigned char* ranged = group + 1;
-                    unsigned int high = ranged[length - 2];
-                    unsigned int low = group[1];
-                    matched = !(low <= current && current <= high);
+                else if (var20 == 2)
+                    var16 = !func_ov012_021859f4(arg0, var19 + 1, var12 - 1, var11);
+                else if (var20 == 3) {
+                    unsigned char* var29 = var19 + 1;
+                    unsigned int var30 = var29[var12 - 2];
+                    unsigned int var31 = var19[1];
+                    var16 = !(var31 <= var11 && var11 <= var30);
                 }
-                p += length + 1;
-            } else if (token != current) matched = 0;
-            if (matched) {
-                int n = 0;
-                while (n < minimum) {
-                    if (current != *q) { matched = 0; break; }
-                    ++n;
-                    ++q;
+                var8 += var12 + 1;
+            } else if (var10 != var11) var16 = 0;
+            if (var16) {
+                int var32 = 0;
+                while (var32 < var13) {
+                    if (var11 != *var9) { var16 = 0; break; }
+                    ++var32;
+                    ++var9;
                 }
-                if (!matched) break;
-                while (minimum < maximum) {
-                    if (current != *q) break;
-                    ++minimum;
-                    ++q;
+                if (!var16) break;
+                while (var13 < var14) {
+                    if (var11 != *var9) break;
+                    ++var13;
+                    ++var9;
                 }
-            } else if (matched == 0 && minimum != 0) break;
-            ++p;
-            if (*p == repeatOpen) {
+            } else if (var16 == 0 && var13 != 0) break;
+            ++var8;
+            if (*var8 == var4) {
                 for (;;) {
-                    if (*p != repeatClose) ++p;
+                    if (*var8 != var5) ++var8;
                     else break;
                 }
-                ++p;
+                ++var8;
             }
         }
-        ++offset;
-        ++text;
+        ++var7;
+        ++arg2;
     }
     return 0;
 }

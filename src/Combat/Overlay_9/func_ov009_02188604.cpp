@@ -6,108 +6,108 @@
 #endif
 
 struct Vector3fix {
-    int x;
-    int y;
-    int z;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
 
-struct Words021e60c4;
+struct Struct_ov009_02188454;
 
-extern "C" Vector3fix func_ov023_021e613c(void* character);
+extern "C" Vector3fix func_ov023_021e613c(void* arg0);
 int fix32ReduceAngle0To2Pi(int angle);
-extern "C" void func_ov023_021e60e0(void* character, unsigned int angle);
-extern "C" void func_ov023_021e6088(void* character, Words021e60c4* rotation);
+extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void func_ov023_021e6088(void* arg0, Struct_ov009_02188454* arg1);
 
-struct CharacterCreation {
+struct Struct_ov009_021842a0_2 {
 #if defined(jpn)
-    char unk_0[0x7bc];
+    char unknown_0_[0x7bc];
 #else
-    char unk_0[0x7f8];
+    char unknown1_0_[0x7f8];
 #endif
-    void* character_;
-    void* nextCharacter_;
-    int unk_800;
-    int targetAngle_;
-    char unk_808[0xd9c - 0x808];
-    unsigned int flags_;
+    void* unknown_7f8_;
+    void* unknown_7fc_;
+    int unknown_800_;
+    int unknown_804_;
+    char unknown_808_[0xd9c - 0x808];
+    unsigned int unknown_d9c_;
 };
 
 // USA: func_ov009_02188604
-extern "C" ARM void func_ov009_02188604(CharacterCreation* self, unsigned int ticks)
+extern "C" ARM void func_ov009_02188604(Struct_ov009_021842a0_2* arg0, unsigned int arg1)
 {
-    if (self->flags_ & 8)
+    if (arg0->unknown_d9c_ & 8)
     {
-        int done = 0;
-        Vector3fix rotation = func_ov023_021e613c(self->character_);
-        int angle;
-        int y = rotation.y;
-        int difference = fix32ReduceAngle0To2Pi(self->targetAngle_ - y);
-        if (difference >= 0 && difference < 0x3244)
+        int var0 = 0;
+        Vector3fix var1 = func_ov023_021e613c(arg0->unknown_7f8_);
+        int var2;
+        int var3 = var1.unknown_4_;
+        int var4 = fix32ReduceAngle0To2Pi(arg0->unknown_804_ - var3);
+        if (var4 >= 0 && var4 < 0x3244)
         {
-            angle = y + difference / 12;
-            for (unsigned int i = 0; i < ticks - 1; i++)
-                angle += fix32ReduceAngle0To2Pi(self->targetAngle_ - angle) / 12;
+            var2 = var3 + var4 / 12;
+            for (unsigned int var5 = 0; var5 < arg1 - 1; var5++)
+                var2 += fix32ReduceAngle0To2Pi(arg0->unknown_804_ - var2) / 12;
         }
-        else if (difference >= 0x3244 && difference < 0x6488)
+        else if (var4 >= 0x3244 && var4 < 0x6488)
         {
-            angle = y - (0x6488 - difference) / 12;
-            for (unsigned int i = 0; i < ticks - 1; i++)
-                angle -= (0x6488 - fix32ReduceAngle0To2Pi(self->targetAngle_ - angle)) / 12;
+            var2 = var3 - (0x6488 - var4) / 12;
+            for (unsigned int var6 = 0; var6 < arg1 - 1; var6++)
+                var2 -= (0x6488 - fix32ReduceAngle0To2Pi(arg0->unknown_804_ - var2)) / 12;
         }
-        func_ov023_021e60e0(self->character_, fix32ReduceAngle0To2Pi(angle));
-        int remaining = fix32ReduceAngle0To2Pi(self->targetAngle_ - angle);
-        if ((remaining < 0 ? -remaining : remaining) < 40)
-            done = 1;
-        else if (((0x6488 - remaining) < 0 ? -(0x6488 - remaining) : (0x6488 - remaining)) < 40)
-            done = 1;
-        if (done)
+        func_ov023_021e60e0(arg0->unknown_7f8_, fix32ReduceAngle0To2Pi(var2));
+        int var7 = fix32ReduceAngle0To2Pi(arg0->unknown_804_ - var2);
+        if ((var7 < 0 ? -var7 : var7) < 40)
+            var0 = 1;
+        else if (((0x6488 - var7) < 0 ? -(0x6488 - var7) : (0x6488 - var7)) < 40)
+            var0 = 1;
+        if (var0)
         {
-            func_ov023_021e60e0(self->character_, fix32ReduceAngle0To2Pi(self->targetAngle_));
-            self->targetAngle_ = 0;
-            self->flags_ &= ~8;
+            func_ov023_021e60e0(arg0->unknown_7f8_, fix32ReduceAngle0To2Pi(arg0->unknown_804_));
+            arg0->unknown_804_ = 0;
+            arg0->unknown_d9c_ &= ~8;
         }
     }
-    else if (self->flags_ & 1)
+    else if (arg0->unknown_d9c_ & 1)
     {
-        int left = 0;
-        int right = 0;
-        int touched = 0;
-        int x;
-        int y;
-        g_touchInput.GetTouchPoint(&x, &y);
+        int var8 = 0;
+        int var9 = 0;
+        int var10 = 0;
+        int var11;
+        int var12;
+        g_touchInput.GetTouchPoint(&var11, &var12);
         if (g_touchInput.pressed_ != 0 || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
             g_touchInput.released_ != 0)
         {
-            touched = 1;
-            if (y >= 0xa9 && y <= 0xb1)
+            var10 = 1;
+            if (var12 >= 0xa9 && var12 <= 0xb1)
             {
-                if (x >= 0xe && x <= 0x17)
-                    left = 1;
-                if (x >= 0x3b && x <= 0x44)
-                    right = 1;
+                if (var11 >= 0xe && var11 <= 0x17)
+                    var8 = 1;
+                if (var11 >= 0x3b && var11 <= 0x44)
+                    var9 = 1;
             }
         }
-        if (touched == 0)
+        if (var10 == 0)
         {
             if (g_keyManager.TestKeysHeld(0x200))
-                left = 1;
+                var8 = 1;
             if (g_keyManager.TestKeysHeld(0x100))
-                right = 1;
+                var9 = 1;
         }
-        if (left != 0 && right != 0)
+        if (var8 != 0 && var9 != 0)
         {
-            self->targetAngle_ = 0x1eb;
-            self->flags_ |= 8;
+            arg0->unknown_804_ = 0x1eb;
+            arg0->unknown_d9c_ |= 8;
         }
-        else if (left != 0 || right != 0)
+        else if (var8 != 0 || var9 != 0)
         {
-            Vector3fix rotation = func_ov023_021e613c(self->character_);
-            if (left != 0)
-                rotation.y += (int)(4096.0f * (0.08f * ticks));
-            if (right != 0)
-                rotation.y -= (int)(4096.0f * (0.08f * ticks));
-            rotation.y = fix32ReduceAngle0To2Pi(rotation.y);
-            func_ov023_021e6088(self->character_, (Words021e60c4*)&rotation);
+            Vector3fix var13 = func_ov023_021e613c(arg0->unknown_7f8_);
+            if (var8 != 0)
+                var13.unknown_4_ += (int)(4096.0f * (0.08f * arg1));
+            if (var9 != 0)
+                var13.unknown_4_ -= (int)(4096.0f * (0.08f * arg1));
+            var13.unknown_4_ = fix32ReduceAngle0To2Pi(var13.unknown_4_);
+            func_ov023_021e6088(arg0->unknown_7f8_, (Struct_ov009_02188454*)&var13);
         }
     }
 }

@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct Obj_021fd320 {
-    char pad0[0x4];
-    unsigned short f4;
-    unsigned short f6;
-    unsigned short f8;
-    char pad1[0x1c - 0xa];
-    int f1c;
-    unsigned short f20;
-    unsigned short f22;
-    unsigned short f24;
-    unsigned short f26;
-    unsigned short f28;
-    unsigned short f2a;
-    unsigned char f2c;
+struct Struct_ov011_02188184_3 {
+    char unknown_0_[0x4];
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    char unknown_a_[0x1c - 0xa];
+    int unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    unsigned short unknown_28_;
+    unsigned short unknown_2a_;
+    unsigned char unknown_2c_;
 };
 
 extern "C" void func_ov023_021f6ed8(void*);
 
 // USA: func_ov023_021fd320
-extern "C" ARM int func_ov023_021fd320(struct Obj_021fd320* obj, int unused, int val, int byteVal, int p5, int p6, int p7, int p8, int p9) {
-    func_ov023_021f6ed8(obj);
-    obj->f4 = 0x13;
-    obj->f6 = (unsigned short)val;
-    obj->f8 = (unsigned short)byteVal;
-    obj->f1c = 2;
-    obj->f20 = (unsigned short)val;
-    obj->f22 = (unsigned short)p5;
-    obj->f24 = (unsigned short)p6;
-    obj->f26 = (unsigned short)p7;
-    obj->f28 = (unsigned short)p8;
-    obj->f2a = 0;
-    obj->f2c = (unsigned char)p9;
+extern "C" ARM int func_ov023_021fd320(struct Struct_ov011_02188184_3* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8) {
+    func_ov023_021f6ed8(arg0);
+    arg0->unknown_4_ = 0x13;
+    arg0->unknown_6_ = (unsigned short)arg2;
+    arg0->unknown_8_ = (unsigned short)arg3;
+    arg0->unknown_1c_ = 2;
+    arg0->unknown_20_ = (unsigned short)arg2;
+    arg0->unknown_22_ = (unsigned short)arg4;
+    arg0->unknown_24_ = (unsigned short)arg5;
+    arg0->unknown_26_ = (unsigned short)arg6;
+    arg0->unknown_28_ = (unsigned short)arg7;
+    arg0->unknown_2a_ = 0;
+    arg0->unknown_2c_ = (unsigned char)arg8;
     return 1;
 }

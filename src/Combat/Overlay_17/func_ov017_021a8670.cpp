@@ -9,24 +9,24 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
-struct ByteHeader0204693c;
-extern "C" void func_0204693c(struct ByteHeader0204693c* p);
-extern "C" void func_0205c790(char* obj);
-struct Struct020dfc40;
-extern "C" void func_020dfc40(struct Struct020dfc40* p);
+struct Struct_0204693c;
+extern "C" void func_0204693c(struct Struct_0204693c* arg0);
+extern "C" void func_0205c790(char* arg0);
+struct Struct_0201099c_14;
+extern "C" void func_020dfc40(struct Struct_0201099c_14* arg0);
 
 // USA: func_ov017_021a8670
-extern "C" ARM void func_ov017_021a8670(char* obj) {
-	func_0204693c((struct ByteHeader0204693c*)obj);
-	obj[0] = 0x38;
-	*(int*)(obj + 0x8) = 0;
-	*(int*)(obj + 0x28) = -1;
-	*(int*)(obj + 0xc) = 0;
-	*(int*)(obj + 0x10) = 0;
-	*(int*)(obj + 0x14) = 0;
-	memset(obj + 0x18, 0, 5);
-	*(int*)(obj + 0x20) = 0;
-	func_0205c790(obj + 0x2c);
-	((SafeAllocator*)(obj + ALLOC_OFFSET))->ResetAllocatorPointer();
-	func_020dfc40((struct Struct020dfc40*)(obj + RESET_OFFSET));
+extern "C" ARM void func_ov017_021a8670(char* arg0) {
+	func_0204693c((struct Struct_0204693c*)arg0);
+	arg0[0] = 0x38;
+	*(int*)(arg0 + 0x8) = 0;
+	*(int*)(arg0 + 0x28) = -1;
+	*(int*)(arg0 + 0xc) = 0;
+	*(int*)(arg0 + 0x10) = 0;
+	*(int*)(arg0 + 0x14) = 0;
+	memset(arg0 + 0x18, 0, 5);
+	*(int*)(arg0 + 0x20) = 0;
+	func_0205c790(arg0 + 0x2c);
+	((SafeAllocator*)(arg0 + ALLOC_OFFSET))->ResetAllocatorPointer();
+	func_020dfc40((struct Struct_0201099c_14*)(arg0 + RESET_OFFSET));
 }

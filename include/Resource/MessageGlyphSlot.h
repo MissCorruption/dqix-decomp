@@ -2,48 +2,47 @@
 
 #include <globaldefs.h>
 
-struct FontCharacter {
-    const char* text;
-    signed char width;
-    signed char byteLength : 6;
-    signed char reserved : 1;
-    signed char uppercase : 1;
-    char padding[2];
+struct Struct_020420e8 {
+    const char* unknown_0_;
+    signed char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 1;
+    signed char unknown_5_7_ : 1;
+    char unknown_6_[2];
 };
 
 
 
 
-struct State0204166c {
-    unsigned char* pixels;
-    unsigned int textureOffset;
-    int bitmapIndex;
-    int x;
-    int y;
+struct Struct_0204166c {
+    unsigned char* unknown_0_;
+    unsigned int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
 #if defined(jpn)
-    int depth;
+    int unknown_14_;
     union {
-        unsigned char encodedCharacter[2];
-        unsigned short encodedCode;
+        unsigned char unknown_18_[2];
+        unsigned short unknown1_18_;
     };
-    unsigned char fontPixelSize;
-    unsigned char pendingUpload : 1;
-    unsigned char renderFlag1 : 1;
-    unsigned char renderFlag2 : 1;
-    unsigned char unknownFlags : 5;
+    unsigned char unknown_1a_;
+    unsigned char unknown_16_0_ : 1;
+    unsigned char unknown_16_1_ : 1;
+    unsigned char unknown_16_2_ : 1;
+    unsigned char unknown_1b_3_ : 5;
 #else
-    unsigned short depth;
-    unsigned char pendingUpload : 1;
-    unsigned char renderFlag1 : 1;
-    unsigned char renderFlag2 : 1;
-    unsigned char fontIndex : 1;
-    unsigned char unknownFlags : 4;
-    unsigned char characterIndex;
-    FontCharacter* character;
+    unsigned short unknown_14_;
+    unsigned char unknown_16_0_ : 1;
+    unsigned char unknown_16_1_ : 1;
+    unsigned char unknown_16_2_ : 1;
+    unsigned char unknown_16_3_ : 1;
+    unsigned char unknown_16_4_ : 4;
+    unsigned char unknown_17_;
+    Struct_020420e8* unknown2_18_;
 #endif
 };
 
-typedef State0204166c MessageGlyphSlot;
-typedef char MessageGlyphSlotSizeCheck[sizeof(MessageGlyphSlot) == 0x1c ? 1 : -1];
+typedef Struct_0204166c Struct_0204166c;
 
-extern "C" void func_0204166c(MessageGlyphSlot* slot);
+extern "C" void func_0204166c(Struct_0204166c* arg0);

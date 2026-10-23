@@ -3,208 +3,208 @@
 #include "NitroSDK/Graphics.h"
 #include "std_library_functions.h"
 
-struct List020727d8;
-struct Struct020dfc40;
-struct InitTarget0205cfd4;
-struct List0204af64;
+struct Struct_020727d8;
+struct Struct_0201099c_14;
+struct Struct_0205cfd4;
+struct Struct_02020cb8;
 
-extern "C" void func_02074af4(void* p);
-extern "C" void func_ov023_021e7220(void* card, int mode);
-extern "C" void func_020727d8(List020727d8* list);
-extern "C" void func_020dfc40(Struct020dfc40* texts);
-extern "C" void func_0205cfd4(InitTarget0205cfd4* window);
-extern "C" void func_0204af64(List0204af64* background);
-extern "C" void func_0204c684(void* canvas);
+extern "C" void func_02074af4(void* arg0);
+extern "C" void func_ov023_021e7220(void* arg0, int arg1);
+extern "C" void func_020727d8(Struct_020727d8* arg0);
+extern "C" void func_020dfc40(Struct_0201099c_14* arg0);
+extern "C" void func_0205cfd4(Struct_0205cfd4* arg0);
+extern "C" void func_0204af64(Struct_02020cb8* arg0);
+extern "C" void func_0204c684(void* arg0);
 #if defined(jpn)
 #define func_ov012_021845f8 func_ov012_02185690
-extern "C" void func_0205bef8(void* cursor);
-extern "C" void func_ov023_021e20c0(void* profile);
+extern "C" void func_0205bef8(void* arg0);
+extern "C" void func_ov023_021e20c0(void* arg0);
 #endif
-extern "C" void func_ov012_021845f8(void* checker);
+extern "C" void func_ov012_021845f8(void* arg0);
 
-struct PEBackground { char raw[0x20]; };
-struct PECanvas { char raw[0xe0]; };
+struct Struct_02000c9c_40 { char unknown_0_[0x20]; };
+struct Struct_02000c9c_41 { char unknown_0_[0xe0]; };
 
-struct ProfileEditor021843d4
+struct Struct_ov012_021843d4
 {
 #if !defined(jpn)
-    void* unk_0;
-    void* unk_4;
+    void* unknown_0_;
+    void* unknown_4_;
 #endif
-    char unk_8[0x10];
-    unsigned char unk_18;
-    unsigned char unk_19;
-    char unk_1a[2];
-    int planes_;
+    char unknown_8_[0x10];
+    unsigned char unknown_18_;
+    unsigned char unknown_19_;
+    char unknown_1a_[2];
+    int unknown_1c_;
 #if defined(jpn)
-    SafeAllocator allocators_[6];
+    SafeAllocator unknown_20_[6];
 #else
-    SafeAllocator allocators_[7];
+    SafeAllocator unknown_20_[7];
 #endif
-    char window_[0xbc];
-    PEBackground backgrounds_[3];
-    PECanvas canvases_[13];
+    char unknown_ac_[0xbc];
+    Struct_02000c9c_40 unknown_168_[3];
+    Struct_02000c9c_41 unknown_1c8_[13];
 #if defined(jpn)
-    char card_[0x608];
+    char unknown_d28_[0x608];
 #else
-    char card_[0x614];
+    char unknown_d28_[0x614];
 #endif
-    char strings_[8];
-    char texts_[0x18];
-    void* renderer_;
-    void* unk_1360;
-    void* sprites_;
+    char unknown_133c_[8];
+    char unknown_1344_[0x18];
+    void* unknown_135c_;
+    void* unknown_1360_;
+    void* unknown_1364_;
 #if !defined(jpn)
-    void* renderer2_;
-    void* sprites2_;
+    void* unknown_1368_;
+    void* unknown_136c_;
 #endif
-    unsigned char step_;
-    unsigned char state_;
-    char unk_1372[2];
-    char* text_;
-    const char* unk_1378;
-    void* pixels_;
+    unsigned char unknown_1370_;
+    unsigned char unknown_1371_;
+    char unknown_1372_[2];
+    char* unknown_1374_;
+    const char* unknown_1378_;
+    void* unknown_137c_;
 #if defined(jpn)
-    int tasks_[4];
+    int unknown_1380_[4];
 #else
-    int tasks_[6];
+    int unknown_1380_[6];
 #endif
-    int unk_1398;
-    int result_;
-    unsigned char unk_13a0;
-    char unk_13a1[3];
-    int unk_13a4;
-    signed char unk_13a8;
-    signed char unk_13a9;
-    unsigned char unk_13aa;
-    unsigned char unk_13ab;
+    int unknown_1398_;
+    int unknown_139c_;
+    unsigned char unknown_13a0_;
+    char unknown_13a1_[3];
+    int unknown_13a4_;
+    signed char unknown_13a8_;
+    signed char unknown_13a9_;
+    unsigned char unknown_13aa_;
+    unsigned char unknown_13ab_;
 #if defined(jpn)
-    unsigned char nameFlag_;
-    unsigned char nameStep_;
-    char align_1376[2];
-    char nameCursor_[0x40];
-    int profileIndex_;
-    char profile_[0x48];
+    unsigned char unknown1_1374_;
+    unsigned char unknown_1375_;
+    char unknown_1376_[2];
+    char unknown1_1378_[0x40];
+    int unknown_13b8_;
+    char unknown_13bc_[0x48];
 #endif
-    void* unk_13ac;
-    char* name_;
-    void* unk_13b4;
-    unsigned int unk_13b8;
-    char* unk_13bc;
-    signed char* unk_13c0;
-    unsigned short unk_13c4_0 : 5;
-    unsigned short unk_13c4_5 : 11;
-    char unk_13c6[2];
-    unsigned short* unk_13c8;
-    unsigned int* unk_13cc;
-    char* message_;
-    unsigned int selection_;
-    int selections_[6];
-    int unk_13f0;
-    unsigned int design_;
-    unsigned int unk_13f8;
-    unsigned short year_;
-    unsigned char month_;
-    unsigned char day_;
-    char accoladeText_[0x40];
-    char titleText_[0x40];
+    void* unknown_13ac_;
+    char* unknown_13b0_;
+    void* unknown_13b4_;
+    unsigned int unknown1_13b8_;
+    char* unknown1_13bc_;
+    signed char* unknown_13c0_;
+    unsigned short unknown_13c4_0_ : 5;
+    unsigned short unknown_13c4_5_ : 11;
+    char unknown_13c6_[2];
+    unsigned short* unknown_13c8_;
+    unsigned int* unknown_13cc_;
+    char* unknown_13d0_;
+    unsigned int unknown_13d4_;
+    int unknown_13d8_[6];
+    int unknown_13f0_;
+    unsigned int unknown_13f4_;
+    unsigned int unknown_13f8_;
+    unsigned short unknown_13fc_;
+    unsigned char unknown_13fe_;
+    unsigned char unknown_13ff_;
+    char unknown_1400_[0x40];
+    char unknown_1440_[0x40];
 #if defined(jpn)
-    unsigned char checker_[0x20];
+    unsigned char unknown_1480_[0x20];
 #else
-    unsigned char checker_[0x3c];
+    unsigned char unknown_1480_[0x3c];
 #endif
-    unsigned char finished_;
-    unsigned char unk_14bd;
-    char unk_14be[2];
+    unsigned char unknown_14bc_;
+    unsigned char unknown_14bd_;
+    char unknown_14be_[2];
 };
 
 // USA: func_ov012_021843d4
-extern "C" ARM void func_ov012_021843d4(ProfileEditor021843d4* self)
+extern "C" ARM void func_ov012_021843d4(Struct_ov012_021843d4* arg0)
 {
 #if !defined(jpn)
-    self->unk_0 = 0;
-    self->unk_4 = 0;
+    arg0->unknown_0_ = 0;
+    arg0->unknown_4_ = 0;
 #endif
-    self->unk_18 = 0;
-    self->unk_19 = 0;
-    func_02074af4(self->unk_8);
-    self->planes_ = (DISPCNT & 0x1f00) >> 8;
+    arg0->unknown_18_ = 0;
+    arg0->unknown_19_ = 0;
+    func_02074af4(arg0->unknown_8_);
+    arg0->unknown_1c_ = (DISPCNT & 0x1f00) >> 8;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
-    self->finished_ = 0;
-    self->allocators_[0].ResetAllocatorPointer();
-    self->allocators_[1].ResetAllocatorPointer();
-    self->allocators_[2].ResetAllocatorPointer();
-    self->allocators_[3].ResetAllocatorPointer();
+    arg0->unknown_14bc_ = 0;
+    arg0->unknown_20_[0].ResetAllocatorPointer();
+    arg0->unknown_20_[1].ResetAllocatorPointer();
+    arg0->unknown_20_[2].ResetAllocatorPointer();
+    arg0->unknown_20_[3].ResetAllocatorPointer();
 #if defined(jpn)
-    self->allocators_[4].ResetAllocatorPointer();
-    self->allocators_[5].ResetAllocatorPointer();
+    arg0->unknown_20_[4].ResetAllocatorPointer();
+    arg0->unknown_20_[5].ResetAllocatorPointer();
 #else
-    self->allocators_[5].ResetAllocatorPointer();
-    self->allocators_[6].ResetAllocatorPointer();
+    arg0->unknown_20_[5].ResetAllocatorPointer();
+    arg0->unknown_20_[6].ResetAllocatorPointer();
 #endif
-    func_ov023_021e7220(self->card_, 2);
-    func_020727d8((List020727d8*)self->strings_);
-    func_020dfc40((Struct020dfc40*)self->texts_);
-    self->renderer_ = 0;
-    self->sprites_ = 0;
-    self->unk_1360 = 0;
+    func_ov023_021e7220(arg0->unknown_d28_, 2);
+    func_020727d8((Struct_020727d8*)arg0->unknown_133c_);
+    func_020dfc40((Struct_0201099c_14*)arg0->unknown_1344_);
+    arg0->unknown_135c_ = 0;
+    arg0->unknown_1364_ = 0;
+    arg0->unknown_1360_ = 0;
 #if !defined(jpn)
-    self->renderer2_ = 0;
-    self->sprites2_ = 0;
+    arg0->unknown_1368_ = 0;
+    arg0->unknown_136c_ = 0;
 #endif
-    func_0205cfd4((InitTarget0205cfd4*)self->window_);
-    for (int i = 0; i < 3; i++)
-        func_0204af64((List0204af64*)&self->backgrounds_[i]);
-    for (int i = 0; i < 13; i++)
-        func_0204c684(&self->canvases_[i]);
-    self->step_ = 0;
-    self->state_ = 0;
-    self->text_ = 0;
-    self->pixels_ = 0;
-    self->unk_1378 = 0;
-    self->result_ = 0;
-    self->unk_13a0 = 0;
-    self->unk_1398 = 0;
-    for (int i = 0; i < (int)(sizeof(self->tasks_) / sizeof(self->tasks_[0])); i++)
-        self->tasks_[i] = -1;
-    self->unk_13a8 = -1;
-    self->unk_13a9 = 0;
-    self->unk_13aa = 0;
-    self->unk_13ab = 0;
+    func_0205cfd4((Struct_0205cfd4*)arg0->unknown_ac_);
+    for (int var0 = 0; var0 < 3; var0++)
+        func_0204af64((Struct_02020cb8*)&arg0->unknown_168_[var0]);
+    for (int var1 = 0; var1 < 13; var1++)
+        func_0204c684(&arg0->unknown_1c8_[var1]);
+    arg0->unknown_1370_ = 0;
+    arg0->unknown_1371_ = 0;
+    arg0->unknown_1374_ = 0;
+    arg0->unknown_137c_ = 0;
+    arg0->unknown_1378_ = 0;
+    arg0->unknown_139c_ = 0;
+    arg0->unknown_13a0_ = 0;
+    arg0->unknown_1398_ = 0;
+    for (int var2 = 0; var2 < (int)(sizeof(arg0->unknown_1380_) / sizeof(arg0->unknown_1380_[0])); var2++)
+        arg0->unknown_1380_[var2] = -1;
+    arg0->unknown_13a8_ = -1;
+    arg0->unknown_13a9_ = 0;
+    arg0->unknown_13aa_ = 0;
+    arg0->unknown_13ab_ = 0;
 #if defined(jpn)
-    self->nameFlag_ = 0;
-    self->nameStep_ = 0;
-    func_0205bef8(self->nameCursor_);
-    self->profileIndex_ = 0;
-    func_ov023_021e20c0(self->profile_);
+    arg0->unknown1_1374_ = 0;
+    arg0->unknown_1375_ = 0;
+    func_0205bef8(arg0->unknown1_1378_);
+    arg0->unknown_13b8_ = 0;
+    func_ov023_021e20c0(arg0->unknown_13bc_);
 #endif
-    self->unk_13ac = 0;
-    self->name_ = 0;
-    self->unk_13b4 = 0;
-    self->unk_13b8 = 0;
-    self->unk_13bc = 0;
-    self->unk_13c0 = 0;
-    self->unk_13c4_0 = 0;
-    self->unk_13c4_5 = 0;
-    self->unk_13c8 = 0;
-    self->unk_13cc = 0;
-    self->message_ = 0;
-    self->selection_ = 0;
-    self->design_ = 0;
-    self->unk_13f8 = 0;
-    self->year_ = 0;
-    self->month_ = 0;
-    self->day_ = 0;
-    self->selections_[0] = -1;
-    self->selections_[1] = -1;
-    self->selections_[2] = -1;
-    self->selections_[3] = -1;
-    self->selections_[4] = -1;
-    self->selections_[5] = -1;
-    memset(self->accoladeText_, 0, sizeof(self->accoladeText_));
-    memset(self->titleText_, 0, sizeof(self->titleText_));
-    func_ov012_021845f8(self->checker_);
+    arg0->unknown_13ac_ = 0;
+    arg0->unknown_13b0_ = 0;
+    arg0->unknown_13b4_ = 0;
+    arg0->unknown1_13b8_ = 0;
+    arg0->unknown1_13bc_ = 0;
+    arg0->unknown_13c0_ = 0;
+    arg0->unknown_13c4_0_ = 0;
+    arg0->unknown_13c4_5_ = 0;
+    arg0->unknown_13c8_ = 0;
+    arg0->unknown_13cc_ = 0;
+    arg0->unknown_13d0_ = 0;
+    arg0->unknown_13d4_ = 0;
+    arg0->unknown_13f4_ = 0;
+    arg0->unknown_13f8_ = 0;
+    arg0->unknown_13fc_ = 0;
+    arg0->unknown_13fe_ = 0;
+    arg0->unknown_13ff_ = 0;
+    arg0->unknown_13d8_[0] = -1;
+    arg0->unknown_13d8_[1] = -1;
+    arg0->unknown_13d8_[2] = -1;
+    arg0->unknown_13d8_[3] = -1;
+    arg0->unknown_13d8_[4] = -1;
+    arg0->unknown_13d8_[5] = -1;
+    memset(arg0->unknown_1400_, 0, sizeof(arg0->unknown_1400_));
+    memset(arg0->unknown_1440_, 0, sizeof(arg0->unknown_1440_));
+    func_ov012_021845f8(arg0->unknown_1480_);
 #if !defined(jpn)
-    self->unk_14bd = 0;
+    arg0->unknown_14bd_ = 0;
 #endif
 }

@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-struct Header_0223bd28;
-extern "C" void func_ov031_0223bd28(Header_0223bd28*, int, unsigned int*, unsigned int*);
+struct Struct_ov031_02222f44_2;
+extern "C" void func_ov031_0223bd28(Struct_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_02222eb0(void*);
 extern "C" void func_ov031_0223e2b8(void*, void*);
 extern "C" void func_ov031_022231f0(int);
 
-struct Struct0222318c_arr { int arr[1]; unsigned char pad[19]; unsigned char type; };
-extern Struct0222318c_arr* data_ov031_02250ba8;
+struct Struct_ov031_0222318c { int unknown_0_[1]; unsigned char unknown_4_[19]; unsigned char unknown_17_; };
+extern Struct_ov031_0222318c* data_ov031_02250ba8;
 
 // USA: func_ov031_0222318c
-extern "C" ARM void func_ov031_0222318c(void* a) {
-	unsigned int outHi, outLo;
-	Struct0222318c_arr* p = data_ov031_02250ba8;
-	func_ov031_0223bd28((Header_0223bd28*)p->arr[2], 0, &outHi, &outLo);
-	outLo += 4;
-	func_ov031_02222eb0((void*)outLo);
-	if ((int)outLo < 0xc0) return;
-	func_ov031_0223e2b8(a, (void*)func_ov031_022231f0);
+extern "C" ARM void func_ov031_0222318c(void* arg0) {
+	unsigned int var0, var1;
+	Struct_ov031_0222318c* var2 = data_ov031_02250ba8;
+	func_ov031_0223bd28((Struct_ov031_02222f44_2*)var2->unknown_0_[2], 0, &var0, &var1);
+	var1 += 4;
+	func_ov031_02222eb0((void*)var1);
+	if ((int)var1 < 0xc0) return;
+	func_ov031_0223e2b8(arg0, (void*)func_ov031_022231f0);
 }

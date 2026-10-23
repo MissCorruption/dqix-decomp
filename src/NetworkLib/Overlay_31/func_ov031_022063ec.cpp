@@ -6,44 +6,44 @@ void SetIRQInterruptState(int state);
 struct BlockedContextList;
 void BlockCurrentContext(BlockedContextList* p);
 
-struct Queue02206368 {
-    char pad0[0x100];
-    unsigned short field100;
-    char pad1[0x104 - 0x100 - 2];
-    char field104;
+struct Struct_ov031_02206368 {
+    char unknown_0_[0x100];
+    unsigned short unknown_100_;
+    char unknown_102_[0x104 - 0x100 - 2];
+    char unknown_104_;
 };
 
-struct Obj02206368 {
-    char pad[0x68];
-    Queue02206368* q;
+struct Struct_ov031_02206368_2 {
+    char unknown_0_[0x68];
+    Struct_ov031_02206368* unknown_68_;
 };
 
-extern "C" ARM int func_ov031_022063ec(Obj02206368* obj);
+extern "C" ARM int func_ov031_022063ec(Struct_ov031_02206368_2* arg0);
 
 // USA: func_ov031_02206368
-extern "C" ARM int func_ov031_02206368(Obj02206368* obj, int min, int max, int* out, int flags) {
-    Queue02206368* q = obj->q;
-    if (max > min) {
-        max = min;
+extern "C" ARM int func_ov031_02206368(Struct_ov031_02206368_2* arg0, int arg1, int arg2, int* arg3, int arg4) {
+    Struct_ov031_02206368* var0 = arg0->unknown_68_;
+    if (arg2 > arg1) {
+        arg2 = arg1;
     }
-    unsigned int state = DisableIRQInterrupts();
-    int result;
-    int bit0 = flags & 1;
+    unsigned int var1 = DisableIRQInterrupts();
+    int var2;
+    int var3 = arg4 & 1;
     for (;;) {
-        result = func_ov031_022063ec(obj);
-        if (result >= max) {
-            *out = q->field100;
-            if (result >= min) {
-                result = min;
+        var2 = func_ov031_022063ec(arg0);
+        if (var2 >= arg2) {
+            *arg3 = var0->unknown_100_;
+            if (var2 >= arg1) {
+                var2 = arg1;
             }
             break;
         }
-        if (!bit0) {
-            result = 0;
+        if (!var3) {
+            var2 = 0;
             break;
         }
-        BlockCurrentContext((BlockedContextList*)&q->field104);
+        BlockCurrentContext((BlockedContextList*)&var0->unknown_104_);
     }
-    SetIRQInterruptState(state);
-    return result;
+    SetIRQInterruptState(var1);
+    return var2;
 }

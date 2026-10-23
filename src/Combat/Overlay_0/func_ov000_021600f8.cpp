@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct ListNode021600f8 {
-    char pad[0x20];
-    struct ListNode021600f8* next;
+struct Struct_ov000_021600f8 {
+    char unknown_0_[0x20];
+    struct Struct_ov000_021600f8* unknown_20_;
 };
 
-struct List021600f8 {
-    char pad0[9];
-    unsigned char count;
-    char pad1[10];
-    struct ListNode021600f8* head;
+struct Struct_ov000_0215440c {
+    char unknown_0_[9];
+    unsigned char unknown_9_;
+    char unknown_a_[10];
+    struct Struct_ov000_021600f8* unknown_14_;
 };
 
 // USA: func_ov000_021600f8
-extern "C" ARM struct ListNode021600f8* func_ov000_021600f8(struct List021600f8* list, int index) {
-    struct ListNode021600f8* node;
-    int i;
-    if (list->count <= index) return 0;
-    node = list->head;
-    i = 0;
-    while (i < index && node != 0) {
-        node = node->next;
-        i++;
+extern "C" ARM struct Struct_ov000_021600f8* func_ov000_021600f8(struct Struct_ov000_0215440c* arg0, int arg1) {
+    struct Struct_ov000_021600f8* var0;
+    int var1;
+    if (arg0->unknown_9_ <= arg1) return 0;
+    var0 = arg0->unknown_14_;
+    var1 = 0;
+    while (var1 < arg1 && var0 != 0) {
+        var0 = var0->unknown_20_;
+        var1++;
     }
-    return node;
+    return var0;
 }

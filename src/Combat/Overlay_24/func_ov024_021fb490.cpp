@@ -2,84 +2,84 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Action_021fb490 {
-    unsigned int field_0x0;
-    unsigned int unused_0x4;
-    unsigned int unused_0x8 : 8;
-    unsigned int mode : 2;
-    unsigned int unused_0x8b : 4;
-    unsigned int key : 8;
-    unsigned int unused_0x8c : 10;
-    unsigned int field_0xc;
-    unsigned int flags;
-    unsigned int unused_0x14 : 28;
-    unsigned int targetKind : 4;
-    unsigned int unused_0x18;
-    unsigned int unused_0x1c : 14;
-    unsigned int range : 5;
-    unsigned int unused_0x1c2 : 13;
+struct Struct_ov024_021fb490 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 2;
+    unsigned int unknown_9_2_ : 4;
+    unsigned int unknown_9_6_ : 8;
+    unsigned int unknown_a_6_ : 10;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned int unknown_14_0_ : 28;
+    unsigned int unknown_17_4_ : 4;
+    unsigned int unknown_18_;
+    unsigned int unknown_1c_0_ : 14;
+    unsigned int unknown_1d_6_ : 5;
+    unsigned int unknown_1e_3_ : 13;
 };
-struct EntryFlags9_021fb490 {
-    unsigned char weight : 6;
-    unsigned char flag : 1;
-    unsigned char sel : 1;
+struct Struct_ov024_021fb490_7 {
+    unsigned char unknown_0_0_ : 6;
+    unsigned char unknown_0_6_ : 1;
+    unsigned char unknown_0_7_ : 1;
 };
-struct Entry_021fb490 {
-    float value;
-    unsigned char id, flag, index, percent, kind;
-    EntryFlags9_021fb490 flags9;
-    unsigned char padding[2];
+struct Struct_ov024_021fb490_8 {
+    float unknown_0_;
+    unsigned char unknown_4_, unknown_5_, unknown_6_, unknown_7_, unknown_8_;
+    Struct_ov024_021fb490_7 unknown_9_;
+    unsigned char unknown_a_[2];
 };
-struct AddEntryList_021f6a1c {
-    Entry_021fb490 entries[16];
-    int count;
-    float threshold;
-    AddEntryList_021f6a1c() { memset(this, 0, sizeof(*this)); }
+struct Struct_ov024_021f6a1c {
+    Struct_ov024_021fb490_8 unknown_0_[16];
+    int unknown_c0_;
+    float unknown_c4_;
+    Struct_ov024_021f6a1c() { memset(this, 0, sizeof(*this)); }
 };
-struct Info_021fb490 {
-    unsigned char padding[0xa];
-    unsigned short unused : 12;
-    unsigned short flag : 1;
+struct Struct_ov024_021fb490_2 {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_0_ : 12;
+    unsigned short unknown_b_4_ : 1;
 };
-struct Unit_021fb490 {
-    unsigned char padding_0x0[4];
-    short field_0x4;
-    unsigned char padding_0x6[0x138 - 6];
-    unsigned int* stats;
-    unsigned char padding_0x13c[0x144 - 0x13c];
-    struct Info_021fb490* info;
-    unsigned char padding_0x148[0x17c - 0x148];
-    unsigned char group;
-    unsigned char GetGroup() const { return group; }
+struct Struct_ov024_021fb490_3 {
+    unsigned char unknown_0_[4];
+    short unknown_4_;
+    unsigned char unknown_6_[0x138 - 6];
+    unsigned int* unknown_138_;
+    unsigned char unknown_13c_[0x144 - 0x13c];
+    struct Struct_ov024_021fb490_2* unknown_144_;
+    unsigned char unknown_148_[0x17c - 0x148];
+    unsigned char unknown_17c_;
+    unsigned char inline_ov024_021fb490() const { return unknown_17c_; }
 };
-struct ActionWork_021fb490 {
-    unsigned char padding[0x3ec];
-    int scaling;
-    Action_021fb490* action;
-    unsigned char padding_0x3f4[5];
-    unsigned char eligible;
-    unsigned char padding_0x3fa[2];
-    AddEntryList_021f6a1c* list;
-    Entry_021fb490 savedEntry;
-    Unit_021fb490* target;
-    int targetIndex;
+struct Struct_ov024_021fb490_4 {
+    unsigned char unknown_0_[0x3ec];
+    int unknown_3ec_;
+    Struct_ov024_021fb490* unknown_3f0_;
+    unsigned char unknown_3f4_[5];
+    unsigned char unknown_3f9_;
+    unsigned char unknown_3fa_[2];
+    Struct_ov024_021f6a1c* unknown_3fc_;
+    Struct_ov024_021fb490_8 unknown_400_;
+    Struct_ov024_021fb490_3* unknown_40c_;
+    int unknown_410_;
 };
-struct Context_021fb490 {
-    unsigned char padding_0x0[8];
-    unsigned char* actor;
-    unsigned char padding_0xc[0x2c - 0xc];
-    unsigned char flag_0x2c;
-    unsigned char padding_0x2d[0x34 - 0x2d];
-    unsigned char flag_0x34;
-    unsigned char padding_0x35[0x7c - 0x35];
-    Unit_021fb490* units[8];
-    int count;
-    unsigned char padding_0xa0[0x25c - 0xa0];
-    ActionWork_021fb490 work;
+struct Struct_ov024_021fb490_5 {
+    unsigned char unknown_0_[8];
+    unsigned char* unknown_8_;
+    unsigned char unknown_c_[0x2c - 0xc];
+    unsigned char unknown_2c_;
+    unsigned char unknown_2d_[0x34 - 0x2d];
+    unsigned char unknown_34_;
+    unsigned char unknown_35_[0x7c - 0x35];
+    Struct_ov024_021fb490_3* unknown_7c_[8];
+    int unknown_9c_;
+    unsigned char unknown_a0_[0x25c - 0xa0];
+    Struct_ov024_021fb490_4 unknown_25c_;
 };
-struct Bits2f4_021fb490 { unsigned int bit0 : 1; unsigned int bit1 : 1; };
-struct FlagObj_021da998;
-struct FlagObj_021dd260;
+struct Struct_ov024_021fb490_6 { unsigned int unknown_0_0_ : 1; unsigned int unknown_0_1_ : 1; };
+struct Struct_ov024_021da670_6;
+struct Struct_ov024_021dd028_5;
 
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void* func_020797dc();
@@ -87,9 +87,9 @@ extern "C" void* func_02079ee0(void*, int);
 extern "C" float func_02074948(int);
 extern "C" float _fmul(float, float);
 extern "C" int _fgeq(float, float);
-extern "C" int func_ov024_021da998(FlagObj_021da998*);
-extern "C" int func_ov024_021dd260(FlagObj_021dd260*);
-extern "C" void func_ov024_021f6a1c(AddEntryList_021f6a1c*, void*);
+extern "C" int func_ov024_021da998(Struct_ov024_021da670_6*);
+extern "C" int func_ov024_021dd260(Struct_ov024_021dd028_5*);
+extern "C" void func_ov024_021f6a1c(Struct_ov024_021f6a1c*, void*);
 extern "C" void func_ov024_021f8938(void*, float*, float*, int, void*, void*);
 extern "C" void func_ov024_021fa7ec(void*, float*, float*, float*, int*, float, float, void*, void*, int);
 extern "C" void func_ov024_021f8d80(void*, int*, void*, void*, int, float*, float*, int, void*);
@@ -97,143 +97,143 @@ extern "C" void func_ov024_021f6a4c(void*, void*);
 extern "C" void func_ov024_021fd858(void*);
 extern "C" void func_ov024_021f9874(void*, void*, int, int);
 
-struct Row_021fb490 {
-    unsigned char a;
-    unsigned char b;
-    unsigned char carry;
+struct Struct_ov024_021ff002 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
 };
-extern const Row_021fb490 data_ov024_021ff002[];
+extern const Struct_ov024_021ff002 data_ov024_021ff002[];
 
 // USA: func_ov024_021fb490
-extern "C" ARM void func_ov024_021fb490(Context_021fb490* context) {
+extern "C" ARM void func_ov024_021fb490(Struct_ov024_021fb490_5* arg0) {
 #if defined(jpn)
-    enum { regionalOffset0 = 0x144 };
+    enum { Enum_ov024_021fb490_336 = 0x144 };
 #else
-    enum { regionalOffset0 = 0x150 };
+    enum { Enum_ov024_021fb490_336 = 0x150 };
 #endif
-    float hi[8];
-    float lo[8];
-    float avg[8];
-    Action_021fb490* action;
-    void* data;
-    int total;
-    void* element;
-    unsigned char* actor;
-    Unit_021fb490** units;
-    actor = context->actor;
-    func_02053c6c(context->actor);
-    data = func_020797dc();
-    action = context->work.action;
-    int scaling = context->work.scaling;
-    if (action->mode == 2) return;
-    float value;
-    float spread;
-    int outIndex;
-    value = 0;
-    spread = 0;
-    outIndex = -1;
-    func_ov024_021f8938(context, &value, &spread, scaling, action, actor);
-    units = context->units;
-    total = context->count;
-    element = func_02079ee0(data, action->key);
-    for (int j = 0; j < total; j++) {
-        lo[j] = 0;
-        avg[j] = 0;
-        hi[j] = 0;
-        float* pHi = &hi[j];
-        float* pLo = &lo[j];
-        float* pAvg = &avg[j];
-        Unit_021fb490* unit = units[j];
-        if (!unit->info || !unit->info->flag || (action->flags & 0x1000000)) {
-            func_ov024_021fa7ec(context, pHi, pLo, pAvg, &outIndex, value, spread, element, unit, j);
+    float var0[8];
+    float var1[8];
+    float var2[8];
+    Struct_ov024_021fb490* var3;
+    void* var4;
+    int var5;
+    void* var6;
+    unsigned char* var7;
+    Struct_ov024_021fb490_3** var8;
+    var7 = arg0->unknown_8_;
+    func_02053c6c(arg0->unknown_8_);
+    var4 = func_020797dc();
+    var3 = arg0->unknown_25c_.unknown_3f0_;
+    int var9 = arg0->unknown_25c_.unknown_3ec_;
+    if (var3->unknown_9_0_ == 2) return;
+    float var10;
+    float var11;
+    int var12;
+    var10 = 0;
+    var11 = 0;
+    var12 = -1;
+    func_ov024_021f8938(arg0, &var10, &var11, var9, var3, var7);
+    var8 = arg0->unknown_7c_;
+    var5 = arg0->unknown_9c_;
+    var6 = func_02079ee0(var4, var3->unknown_9_6_);
+    for (int var13 = 0; var13 < var5; var13++) {
+        var1[var13] = 0;
+        var2[var13] = 0;
+        var0[var13] = 0;
+        float* var14 = &var0[var13];
+        float* var15 = &var1[var13];
+        float* var16 = &var2[var13];
+        Struct_ov024_021fb490_3* var17 = var8[var13];
+        if (!var17->unknown_144_ || !var17->unknown_144_->unknown_b_4_ || (var3->unknown_10_ & 0x1000000)) {
+            func_ov024_021fa7ec(arg0, var14, var15, var16, &var12, var10, var11, var6, var17, var13);
         }
     }
-    int kind = action->targetKind;
-    if (kind == 5) {
-        char* p = (char*)(*(int**)(actor + regionalOffset0)) + 0x2f4;
-        if (p) {
-            Bits2f4_021fb490* bits = (Bits2f4_021fb490*)p;
-            if (bits->bit1) kind = 3;
-            else if (bits->bit0) kind = 4;
-            else kind = 2;
+    int var18 = var3->unknown_17_4_;
+    if (var18 == 5) {
+        char* var19 = (char*)(*(int**)(var7 + Enum_ov024_021fb490_336)) + 0x2f4;
+        if (var19) {
+            Struct_ov024_021fb490_6* var20 = (Struct_ov024_021fb490_6*)var19;
+            if (var20->unknown_0_1_) var18 = 3;
+            else if (var20->unknown_0_0_) var18 = 4;
+            else var18 = 2;
         }
     }
-    if (kind != 2 && kind != 4 && kind != 3) return;
-    unsigned int row = action->range;
-    short a;
-    short b;
-    unsigned char carry;
-    int product;
-    if (row <= 11) {
-        a = data_ov024_021ff002[row].a;
-        b = data_ov024_021ff002[row].b;
-        product = a * b;
-        carry = data_ov024_021ff002[row].carry;
+    if (var18 != 2 && var18 != 4 && var18 != 3) return;
+    unsigned int var21 = var3->unknown_1d_6_;
+    short var22;
+    short var23;
+    unsigned char var24;
+    int var25;
+    if (var21 <= 11) {
+        var22 = data_ov024_021ff002[var21].unknown_0_;
+        var23 = data_ov024_021ff002[var21].unknown_1_;
+        var25 = var22 * var23;
+        var24 = data_ov024_021ff002[var21].unknown_2_;
     } else {
         return;
     }
-    int selected = -1;
-    if (kind == 2 && a == 1) {
-        func_ov024_021f8d80(context, &selected, action, context->units, context->count, avg, lo, product, actor);
+    int var26 = -1;
+    if (var18 == 2 && var22 == 1) {
+        func_ov024_021f8d80(arg0, &var26, var3, arg0->unknown_7c_, arg0->unknown_9c_, var2, var1, var25, var7);
     }
-    AddEntryList_021f6a1c list;
-    memset(&list, 0, sizeof(list));
-    int count = 0;
-    int flag = 0;
-    int lookups = 0;
-    int i = 0;
-    unsigned char weight = product;
-    for (; i < context->count; i++) {
-        context->flag_0x2c = 0;
-        if (selected >= 0 && selected != i) continue;
-        if (outIndex == i) context->flag_0x34 = 1;
-        count++;
-        Unit_021fb490* unit = units[i];
-        if (action->flags & 0x400) {
-            if (unit->stats[0x14 / 4] & 0x200) flag = 1;
+    Struct_ov024_021f6a1c var27;
+    memset(&var27, 0, sizeof(var27));
+    int var28 = 0;
+    int var29 = 0;
+    int var30 = 0;
+    int var31 = 0;
+    unsigned char var32 = var25;
+    for (; var31 < arg0->unknown_9c_; var31++) {
+        arg0->unknown_2c_ = 0;
+        if (var26 >= 0 && var26 != var31) continue;
+        if (var12 == var31) arg0->unknown_34_ = 1;
+        var28++;
+        Struct_ov024_021fb490_3* var33 = var8[var31];
+        if (var3->unknown_10_ & 0x400) {
+            if (var33->unknown_138_[0x14 / 4] & 0x200) var29 = 1;
         }
-        if (kind != 2 && (context->work.action->flags & 0x20000)) {
-            avg[i] = _fmul(avg[i], func_02074948((signed char)lookups));
-            lookups++;
+        if (var18 != 2 && (arg0->unknown_25c_.unknown_3f0_->unknown_10_ & 0x20000)) {
+            var2[var31] = _fmul(var2[var31], func_02074948((signed char)var30));
+            var30++;
         }
-        Entry_021fb490 entry;
-        entry.flag = 1;
-        entry.percent = 100;
-        entry.kind = 0;
-        entry.value = avg[i];
-        entry.index = i;
-        entry.flags9.weight = weight;
-        entry.flags9.flag = carry;
-        func_ov024_021f6a1c(&list, &entry);
-        if (hi[i] >= 0.1f && !func_ov024_021da998((FlagObj_021da998*)actor) &&
-            !func_ov024_021dd260((FlagObj_021dd260*)actor)) {
-            context->work.list = &list;
-            func_ov024_021f6a4c(&context->work.savedEntry, &entry);
-            context->work.target = unit;
-            context->work.targetIndex = i;
-            func_ov024_021fd858(context);
+        Struct_ov024_021fb490_8 var34;
+        var34.unknown_5_ = 1;
+        var34.unknown_7_ = 100;
+        var34.unknown_8_ = 0;
+        var34.unknown_0_ = var2[var31];
+        var34.unknown_6_ = var31;
+        var34.unknown_9_.unknown_0_0_ = var32;
+        var34.unknown_9_.unknown_0_6_ = var24;
+        func_ov024_021f6a1c(&var27, &var34);
+        if (var0[var31] >= 0.1f && !func_ov024_021da998((Struct_ov024_021da670_6*)var7) &&
+            !func_ov024_021dd260((Struct_ov024_021dd028_5*)var7)) {
+            arg0->unknown_25c_.unknown_3fc_ = &var27;
+            func_ov024_021f6a4c(&arg0->unknown_25c_.unknown_400_, &var34);
+            arg0->unknown_25c_.unknown_40c_ = var33;
+            arg0->unknown_25c_.unknown_410_ = var31;
+            func_ov024_021fd858(arg0);
         }
-        int last = 0;
-        if (i == context->count - 1) last = 1;
-        else if (kind == 2) last = 1;
-        else if (kind == 4) {
-            if (unit->GetGroup() != units[i + 1]->GetGroup()) last = 1;
+        int var35 = 0;
+        if (var31 == arg0->unknown_9c_ - 1) var35 = 1;
+        else if (var18 == 2) var35 = 1;
+        else if (var18 == 4) {
+            if (var33->inline_ov024_021fb490() != var8[var31 + 1]->inline_ov024_021fb490()) var35 = 1;
         }
-        if (!last) continue;
-        if (count >= 2) {
-            if (carry) flag = 1;
+        if (!var35) continue;
+        if (var28 >= 2) {
+            if (var24) var29 = 1;
         }
-        if (count <= 1) carry = 0;
-        if (!flag) {
-            int p3 = (unsigned char)unit->field_0x4;
-            int p2 = unit->GetGroup();
-            if (kind == 4) p3 = 0xff;
-            else if (kind == 3) { p3 = 0xff; p2 = p3; }
-            func_ov024_021f9874(context, &list, p2, p3);
+        if (var28 <= 1) var24 = 0;
+        if (!var29) {
+            int var36 = (unsigned char)var33->unknown_4_;
+            int var37 = var33->inline_ov024_021fb490();
+            if (var18 == 4) var36 = 0xff;
+            else if (var18 == 3) { var36 = 0xff; var37 = var36; }
+            func_ov024_021f9874(arg0, &var27, var37, var36);
         }
-        memset(&list, 0, sizeof(list));
-        count = 0;
-        flag = 0;
-        lookups = 0;
+        memset(&var27, 0, sizeof(var27));
+        var28 = 0;
+        var29 = 0;
+        var30 = 0;
     }
 }

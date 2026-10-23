@@ -14,362 +14,362 @@
 #endif
 
 struct GameResources;
-struct ArrayContainsByteStruct;
-struct Entry_0205d6a0;
-struct TableA68;
-struct Container02186e74;
-struct Reset_021eefac;
+struct Struct_02048150;
+struct Struct_0205d6a0;
+struct Struct_02072a68_2;
+struct Struct_ov002_021682c0;
+struct Struct_ov023_021eeaac_2;
 
-struct MessageSystem_021f1234 {
+struct Struct_ov023_021f1234_4 {
 #if defined(jpn)
-    char unk_0[0x868];
+    char unknown_0_[0x868];
 #else
-    char unk_0[0x998];
+    char unknown1_0_[0x998];
 #endif
 
-    int busy_;
-    char unk_99c[4];
-    int unk_9a0;
+    int unknown_998_;
+    char unknown_99c_[4];
+    int unknown_9a0_;
 #if defined(jpn)
-    char unk_9a4[0x17df - 0x874];
+    char unknown_874_[0x17df - 0x874];
 #else
-    char unk_9a4[0x19af - 0x9a4];
+    char unknown_9a4_[0x19af - 0x9a4];
 #endif
 
-    unsigned char unk_19af;
+    unsigned char unknown_19af_;
 #if defined(jpn)
-    char unk_19b0[0x17e2 - 0x17e0];
+    char unknown_17e0_[0x17e2 - 0x17e0];
 #else
-    char unk_19b0[0x19b2 - 0x19b0];
+    char unknown_19b0_[0x19b2 - 0x19b0];
 #endif
 
-    unsigned char unk_19b2;
+    unsigned char unknown_19b2_;
 };
 
-struct SkillPointMenu_021f1234 {
-    char unk_0[0x18];
-    void* spriteRenderer_;
-    short cursorAnimation_;
+struct Struct_ov023_021f1234_5 {
+    char unknown_0_[0x18];
+    void* unknown_18_;
+    short unknown_1c_;
 #if defined(jpn)
-    char unk_1e[0x5e4 - 0x1e];
+    char unknown_1e_[0x5e4 - 0x1e];
 #else
-    char unk_1e[0x65c - 0x1e];
+    char unknown1_1e_[0x65c - 0x1e];
 #endif
 
-    int selection_;
+    int unknown_65c_;
 };
 
-struct SkillAbilityList_021f1234 {
+struct Struct_ov023_021f1234 {
 #if defined(jpn)
-    char unk_0[0x53];
+    char unknown_0_[0x53];
 #else
-    char unk_0[0x67];
+    char unknown1_0_[0x67];
 #endif
 
-    unsigned char member_;
+    unsigned char unknown_67_;
 };
 
-struct BattleEnd_021f1234 {
-    int step_;
-    char unk_4[0x18 - 4];
-    int current_;
-    char unk_1c[0x74 - 0x1c];
-    unsigned short newSkills_[55];
-    unsigned char newSkillCount_;
-    unsigned char newSkill_;
-    char unk_e4[0xe8 - 0xe4];
-    char skillTable_[8];
+struct Struct_ov023_021f1234_2 {
+    int unknown_0_;
+    char unknown_4_[0x18 - 4];
+    int unknown_18_;
+    char unknown_1c_[0x74 - 0x1c];
+    unsigned short unknown_74_[55];
+    unsigned char unknown_e2_;
+    unsigned char unknown_e3_;
+    char unknown_e4_[0xe8 - 0xe4];
+    char unknown_e8_[8];
 };
 
-struct BattleScene_021f1234 {
-    char unk_0[0x30];
-    SafeAllocator allocator_;
+struct Struct_ov023_021f1234_3 {
+    char unknown_0_[0x30];
+    SafeAllocator unknown_30_;
 #if defined(jpn)
-    char unk_44[0xe28 - 0x44];
+    char unknown_44_[0xe28 - 0x44];
 #else
-    char unk_44[0xeac - 0x44];
+    char unknown1_44_[0xeac - 0x44];
 #endif
 
-    int endState_;
+    int unknown_eac_;
 #if defined(jpn)
-    char unk_eb0[0x371c - 0xe2c];
+    char unknown_e2c_[0x371c - 0xe2c];
 #else
-    char unk_eb0[0x3760 - 0xeb0];
+    char unknown_eb0_[0x3760 - 0xeb0];
 #endif
 
 #if defined(jpn)
-    char menu_[0x52e4 - 0x371c];
+    char unknown_3760_[0x52e4 - 0x371c];
 #else
-    char menu_[0x5228 - 0x3760];
+    char unknown_3760_[0x5228 - 0x3760];
 #endif
 
-    SafeAllocator menuAllocator_;
+    SafeAllocator unknown_5228_;
 #if defined(jpn)
-    char unk_523c[0x5768 - 0x52f8];
+    char unknown_52f8_[0x5768 - 0x52f8];
 #else
-    char unk_523c[0x5574 - 0x523c];
+    char unknown_523c_[0x5574 - 0x523c];
 #endif
 
-    SkillPointMenu_021f1234* skillMenu_;
-    SkillAbilityList_021f1234* abilities_;
+    Struct_ov023_021f1234_5* unknown_5574_;
+    Struct_ov023_021f1234* unknown_5578_;
 #if defined(jpn)
-    char unk_557c[0x5774 - 0x5770];
+    char unknown_5770_[0x5774 - 0x5770];
 #else
-    char unk_557c[0x5584 - 0x557c];
+    char unknown_557c_[0x5584 - 0x557c];
 #endif
 
-    unsigned char unk_5584;
-    char unk_5585[3];
-    void* resultWindow_;
+    unsigned char unknown_5584_;
+    char unknown_5585_[3];
+    void* unknown_5588_;
 #if defined(jpn)
-    char unk_558c[0x5af4 - 0x577c];
+    char unknown_577c_[0x5af4 - 0x577c];
 #else
-    char unk_558c[0x5904 - 0x558c];
+    char unknown_558c_[0x5904 - 0x558c];
 #endif
 
-    char texts_[4];
+    char unknown_5904_[4];
 };
 
-extern "C" BattleEnd_021f1234* _ZZ17GetGlobal021ffefcvE1s;
+extern "C" Struct_ov023_021f1234_2* _ZZ21inline_ov023_021f4c04vE1s;
 extern char data_02108760[];
 
-extern "C" MessageSystem_021f1234* func_020421a0();
-extern "C" int func_02086ef0(ArrayContainsByteStruct* array, int id);
-extern "C" void func_ov023_021d8b6c(void* window);
-extern "C" void func_0205d6a0(Entry_0205d6a0* window, int value);
-extern "C" int func_0206dfb0(int a, unsigned char* b, int flag);
-extern "C" void func_0206df6c(void* a, unsigned char* b, int flag, int value);
-extern "C" const char* func_02072a68(TableA68* texts, int id);
-extern "C" void func_02043204(char* messages);
+extern "C" Struct_ov023_021f1234_4* func_020421a0();
+extern "C" int func_02086ef0(Struct_02048150* arg0, int arg1);
+extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" void func_0206df6c(void* arg0, unsigned char* arg1, int arg2, int arg3);
+extern "C" const char* func_02072a68(Struct_02072a68_2* arg0, int arg1);
+extern "C" void func_02043204(char* arg0);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsMainBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_020de868(void* icons);
-extern "C" void func_ov013_02186e74(Container02186e74* abilities, SafeAllocator* allocator);
-extern "C" void func_0205ea20(void* sound, int mode);
-extern "C" unsigned char* func_02053c6c(unsigned char* member);
-extern "C" void func_ov023_021eefac(Reset_021eefac* end);
+extern "C" void func_020de868(void* arg0);
+extern "C" void func_ov013_02186e74(Struct_ov002_021682c0* arg0, SafeAllocator* arg1);
+extern "C" void func_0205ea20(void* arg0, int arg1);
+extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
 
 extern "C" {
 void* func_0205ec34();
-void func_ov023_021f1818(void* menu, int hidden);
-void func_ov023_021d8af8(void* window);
-void func_ov013_02184360(SkillPointMenu_021f1234* menu, void* parent);
-void func_ov013_02184cf0(SkillPointMenu_021f1234* menu, SafeAllocator* allocator);
+void func_ov023_021f1818(void* arg0, int arg1);
+void func_ov023_021d8af8(void* arg0);
+void func_ov013_02184360(Struct_ov023_021f1234_5* arg0, void* arg1);
+void func_ov013_02184cf0(Struct_ov023_021f1234_5* arg0, SafeAllocator* arg1);
 #if !defined(jpn)
-void func_0204500c(MessageSystem_021f1234* messages, const char* text, int a, int b);
+void func_0204500c(Struct_ov023_021f1234_4* arg0, const char* arg1, int arg2, int arg3);
 #endif
 #if defined(jpn)
-void func_0204500c(MessageSystem_021f1234*,const char*,int);
+void func_0204500c(Struct_ov023_021f1234_4*,const char*,int);
 #endif
 int func_ov023_021f4fc8();
-void func_ov013_02186eec(SkillAbilityList_021f1234* abilities, int a);
-void func_ov013_02184b4c(SkillPointMenu_021f1234* menu, void* member);
-int func_ov013_021870f0(SkillAbilityList_021f1234* abilities);
-unsigned char func_ov013_021847c4(void* menu, int ticks);
-void func_ov013_0218782c(SkillAbilityList_021f1234* abilities, int member, int skill);
-void func_ov013_02186fa0(SkillAbilityList_021f1234* abilities);
-void func_ov013_02184c8c(SkillPointMenu_021f1234* menu, void* member);
-unsigned char func_0209a678(char* table, void* member, unsigned short* skills);
-void func_02083e28(unsigned char* data, int a);
-void func_ov017_021cc730(int id, int a, int b, int c);
-void func_ov017_021ccc34(int id);
-void func_ov017_021c9e00(int id, int a, int b, int c);
-void func_ov017_021cd0d8(int id, unsigned short* skills, int count);
+void func_ov013_02186eec(Struct_ov023_021f1234* arg0, int arg1);
+void func_ov013_02184b4c(Struct_ov023_021f1234_5* arg0, void* arg1);
+int func_ov013_021870f0(Struct_ov023_021f1234* arg0);
+unsigned char func_ov013_021847c4(void* arg0, int arg1);
+void func_ov013_0218782c(Struct_ov023_021f1234* arg0, int arg1, int arg2);
+void func_ov013_02186fa0(Struct_ov023_021f1234* arg0);
+void func_ov013_02184c8c(Struct_ov023_021f1234_5* arg0, void* arg1);
+unsigned char func_0209a678(char* arg0, void* arg1, unsigned short* arg2);
+void func_02083e28(unsigned char* arg0, int arg1);
+void func_ov017_021cc730(int arg0, int arg1, int arg2, int arg3);
+void func_ov017_021ccc34(int arg0);
+void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+void func_ov017_021cd0d8(int arg0, unsigned short* arg1, int arg2);
 }
 
 // USA: func_ov023_021f1234
-extern "C" ARM int func_ov023_021f1234(BattleScene_021f1234* self)
+extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
 {
-    GameState* gameState = GameState::GetInstance();
-    BattleEnd_021f1234* end = _ZZ17GetGlobal021ffefcvE1s;
-    GameResources* resources = GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    void* unk = func_0205ec34();
-    MessageSystem_021f1234* messages = func_020421a0();
-    int id = end->current_;
-    int inParty = func_02086ef0((ArrayContainsByteStruct*)func_02010828(gameState), id);
-    if (self->skillMenu_ == NULL)
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov023_021f1234_2* var1 = _ZZ21inline_ov023_021f4c04vE1s;
+    GameResources* var2 = GetGameResources();
+    BackgroundLoader* var3 = BackgroundLoader::GetInstance();
+    void* var4 = func_0205ec34();
+    Struct_ov023_021f1234_4* var5 = func_020421a0();
+    int var6 = var1->unknown_18_;
+    int var7 = func_02086ef0((Struct_02048150*)func_02010828(var0), var6);
+    if (arg0->unknown_5574_ == NULL)
     {
-        if (self->resultWindow_ != NULL)
+        if (arg0->unknown_5588_ != NULL)
         {
-            func_ov023_021f1818(self->menu_, 1);
-            func_ov023_021d8b6c(self->resultWindow_);
-            func_ov023_021d8af8(self->resultWindow_);
-            self->resultWindow_ = NULL;
+            func_ov023_021f1818(arg0->unknown_3760_, 1);
+            func_ov023_021d8b6c(arg0->unknown_5588_);
+            func_ov023_021d8af8(arg0->unknown_5588_);
+            arg0->unknown_5588_ = NULL;
         }
-        func_0205d6a0((Entry_0205d6a0*)&self->menu_[0x188], 1);
-        self->allocator_.Reset();
+        func_0205d6a0((Struct_0205d6a0*)&arg0->unknown_3760_[0x188], 1);
+        arg0->unknown_30_.Reset();
 #if defined(jpn)
-        self->skillMenu_ = (SkillPointMenu_021f1234*)self->allocator_.Allocate(0x654);
+        arg0->unknown_5574_ = (Struct_ov023_021f1234_5*)arg0->unknown_30_.Allocate(0x654);
 #else
-        self->skillMenu_ = (SkillPointMenu_021f1234*)self->allocator_.Allocate(0x6cc);
+        arg0->unknown_5574_ = (Struct_ov023_021f1234_5*)arg0->unknown_30_.Allocate(0x6cc);
 #endif
-        func_ov013_02184360(self->skillMenu_, self->menu_);
-        func_ov013_02184cf0(self->skillMenu_, &self->allocator_);
-        SkillPointMenu_021f1234* menu = self->skillMenu_;
-        menu->spriteRenderer_ = &self->menu_[0x11c];
-        menu->cursorAnimation_ = 0;
-        self->unk_5584 = 0;
+        func_ov013_02184360(arg0->unknown_5574_, arg0->unknown_3760_);
+        func_ov013_02184cf0(arg0->unknown_5574_, &arg0->unknown_30_);
+        Struct_ov023_021f1234_5* var8 = arg0->unknown_5574_;
+        var8->unknown_18_ = &arg0->unknown_3760_[0x11c];
+        var8->unknown_1c_ = 0;
+        arg0->unknown_5584_ = 0;
     }
-    else if (self->skillMenu_ != NULL)
+    else if (arg0->unknown_5574_ != NULL)
     {
-        if (end->step_ == 0)
+        if (var1->unknown_0_ == 0)
         {
-            if (!func_0206dfb0((int)unk, (unsigned char*)unk + 0x8c, 0x119c))
+            if (!func_0206dfb0((int)var4, (unsigned char*)var4 + 0x8c, 0x119c))
             {
-                func_0206df6c(unk, (unsigned char*)unk + 0x8c, 0x119c, 1);
-                if (inParty)
+                func_0206df6c(var4, (unsigned char*)var4 + 0x8c, 0x119c, 1);
+                if (var7)
                 {
 #if defined(jpn)
-                    func_0204500c(messages, func_02072a68((TableA68*)self->texts_, 0x24), 1);
+                    func_0204500c(var5, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x24), 1);
 #else
-                    func_0204500c(messages, func_02072a68((TableA68*)self->texts_, 0x24), 1, 0xe3);
+                    func_0204500c(var5, func_02072a68((Struct_02072a68_2*)arg0->unknown_5904_, 0x24), 1, 0xe3);
 #endif
 
-                    messages->unk_19b2 = 0;
-                    messages->busy_ = 1;
+                    var5->unknown_19b2_ = 0;
+                    var5->unknown_998_ = 1;
                 }
-                end->step_ = 100;
+                var1->unknown_0_ = 100;
             }
             else
             {
-                func_02043204((char*)messages);
-                SetMainBrightness(resources, -0x10, 0x10);
-                end->step_++;
+                func_02043204((char*)var5);
+                SetMainBrightness(var2, -0x10, 0x10);
+                var1->unknown_0_++;
             }
         }
-        else if (end->step_ == 100)
+        else if (var1->unknown_0_ == 100)
         {
-            if (messages->unk_9a0 == 3)
-                messages->unk_19af = 0;
+            if (var5->unknown_9a0_ == 3)
+                var5->unknown_19af_ = 0;
             if (func_ov023_021f4fc8())
             {
-                func_02043204((char*)messages);
-                SetMainBrightness(resources, -0x10, 0x10);
-                end->step_ = 1;
+                func_02043204((char*)var5);
+                SetMainBrightness(var2, -0x10, 0x10);
+                var1->unknown_0_ = 1;
             }
         }
-        else if (end->step_ == 1)
+        else if (var1->unknown_0_ == 1)
         {
-            if (!IsMainBrightnessTransitionActive(resources))
+            if (!IsMainBrightnessTransitionActive(var2))
             {
-                end->step_++;
-                func_02043204((char*)messages);
-                func_020de868(&self->menu_[0xd0]);
-                SafeAllocator* allocator = &self->menuAllocator_;
-                allocator->Reset();
+                var1->unknown_0_++;
+                func_02043204((char*)var5);
+                func_020de868(&arg0->unknown_3760_[0xd0]);
+                SafeAllocator* var9 = &arg0->unknown_5228_;
+                var9->Reset();
 #if defined(jpn)
-                self->abilities_ = (SkillAbilityList_021f1234*)allocator->Allocate(0x58);
+                arg0->unknown_5578_ = (Struct_ov023_021f1234*)var9->Allocate(0x58);
 #else
-                self->abilities_ = (SkillAbilityList_021f1234*)allocator->Allocate(0x6c);
+                arg0->unknown_5578_ = (Struct_ov023_021f1234*)var9->Allocate(0x6c);
 #endif
 
-                func_ov013_02186eec(self->abilities_, 0);
-                func_ov013_02186e74((Container02186e74*)self->abilities_, allocator);
-                GameObject* member = func_0200ff1c(gameState, id);
-                if (member != NULL)
+                func_ov013_02186eec(arg0->unknown_5578_, 0);
+                func_ov013_02186e74((Struct_ov002_021682c0*)arg0->unknown_5578_, var9);
+                GameObject* var10 = func_0200ff1c(var0, var6);
+                if (var10 != NULL)
                 {
-                    func_ov013_02184b4c(self->skillMenu_, member);
-                    self->abilities_->member_ = member->obj3D_.unknown_4_;
+                    func_ov013_02184b4c(arg0->unknown_5574_, var10);
+                    arg0->unknown_5578_->unknown_67_ = var10->obj3D_.unknown_4_;
                 }
             }
         }
-        else if (end->step_ == 2)
+        else if (var1->unknown_0_ == 2)
         {
-            if (func_ov013_021870f0(self->abilities_))
-                end->step_++;
+            if (func_ov013_021870f0(arg0->unknown_5578_))
+                var1->unknown_0_++;
         }
-        else if (end->step_ == 3)
+        else if (var1->unknown_0_ == 3)
         {
-            SetMainBrightness(resources, 0, 0x10);
-            end->step_++;
+            SetMainBrightness(var2, 0, 0x10);
+            var1->unknown_0_++;
         }
-        else if (end->step_ == 4)
+        else if (var1->unknown_0_ == 4)
         {
-            if (!IsMainBrightnessTransitionActive(resources))
+            if (!IsMainBrightnessTransitionActive(var2))
             {
                 func_0205ea20(data_02108760, 100);
-                end->step_++;
+                var1->unknown_0_++;
             }
         }
-        else if (end->step_ == 5)
+        else if (var1->unknown_0_ == 5)
         {
-            GameObject* member = func_0200ff1c(gameState, id);
-            if (func_ov013_021847c4(self->skillMenu_, gameState->GetTickCount()) == 6)
+            GameObject* var11 = func_0200ff1c(var0, var6);
+            if (func_ov013_021847c4(arg0->unknown_5574_, var0->GetTickCount()) == 6)
             {
-                if (loader->GetNumQueuedTasks() > 0)
-                    return self->endState_;
-                end->step_++;
-                return self->endState_;
+                if (var3->GetNumQueuedTasks() > 0)
+                    return arg0->unknown_eac_;
+                var1->unknown_0_++;
+                return arg0->unknown_eac_;
             }
-            int skill = self->skillMenu_->selection_;
-            if (member != NULL)
-                func_ov013_0218782c(self->abilities_, (signed char)member->obj3D_.unknown_4_, (unsigned char)skill);
+            int var12 = arg0->unknown_5574_->unknown_65c_;
+            if (var11 != NULL)
+                func_ov013_0218782c(arg0->unknown_5578_, (signed char)var11->obj3D_.unknown_4_, (unsigned char)var12);
         }
-        else if (end->step_ == 6)
+        else if (var1->unknown_0_ == 6)
         {
-            SetMainBrightness(resources, -0x10, 0);
-            end->step_++;
+            SetMainBrightness(var2, -0x10, 0);
+            var1->unknown_0_++;
         }
-        else if (end->step_ == 7)
+        else if (var1->unknown_0_ == 7)
         {
-            if (!IsMainBrightnessTransitionActive(resources))
-                end->step_++;
+            if (!IsMainBrightnessTransitionActive(var2))
+                var1->unknown_0_++;
         }
-        else if (end->step_ == 8)
+        else if (var1->unknown_0_ == 8)
         {
-            func_ov013_02186fa0(self->abilities_);
-            self->abilities_ = NULL;
-            end->step_++;
+            func_ov013_02186fa0(arg0->unknown_5578_);
+            arg0->unknown_5578_ = NULL;
+            var1->unknown_0_++;
         }
-        else if (end->step_ == 9)
+        else if (var1->unknown_0_ == 9)
         {
-            SetMainBrightness(resources, 0, 0x10);
-            end->step_++;
+            SetMainBrightness(var2, 0, 0x10);
+            var1->unknown_0_++;
         }
-        else if (end->step_ == 10)
+        else if (var1->unknown_0_ == 10)
         {
-            if (!IsMainBrightnessTransitionActive(resources))
+            if (!IsMainBrightnessTransitionActive(var2))
             {
                 func_0205ea20(data_02108760, 0x65);
-                func_0200ff1c(gameState, id);
-                GameObject* member = func_0200ff1c(gameState, id);
-                if (member != NULL)
+                func_0200ff1c(var0, var6);
+                GameObject* var13 = func_0200ff1c(var0, var6);
+                if (var13 != NULL)
                 {
-                    func_ov013_02184c8c(self->skillMenu_, member);
-                    end->newSkillCount_ = func_0209a678(end->skillTable_, member, end->newSkills_);
-                    func_02083e28(func_02053c6c((unsigned char*)member), 0);
+                    func_ov013_02184c8c(arg0->unknown_5574_, var13);
+                    var1->unknown_e2_ = func_0209a678(var1->unknown_e8_, var13, var1->unknown_74_);
+                    func_02083e28(func_02053c6c((unsigned char*)var13), 0);
                 }
-                func_ov017_021cc730(id, 0, 0, 1);
-                func_ov017_021ccc34(id);
-                func_ov017_021c9e00(id, 0, 0, 0);
-                if (end->newSkillCount_ != 0)
+                func_ov017_021cc730(var6, 0, 0, 1);
+                func_ov017_021ccc34(var6);
+                func_ov017_021c9e00(var6, 0, 0, 0);
+                if (var1->unknown_e2_ != 0)
                 {
-                    self->skillMenu_ = NULL;
-                    func_ov023_021eefac((Reset_021eefac*)end);
-                    end->newSkill_ = 0;
-                    func_ov017_021cd0d8(id, end->newSkills_, end->newSkillCount_);
+                    arg0->unknown_5574_ = NULL;
+                    func_ov023_021eefac((Struct_ov023_021eeaac_2*)var1);
+                    var1->unknown_e3_ = 0;
+                    func_ov017_021cd0d8(var6, var1->unknown_74_, var1->unknown_e2_);
                     return 9;
                 }
-                end->step_++;
+                var1->unknown_0_++;
             }
         }
-        else if (end->step_ == 11)
+        else if (var1->unknown_0_ == 11)
         {
-            FontBankLoader* music = func_02094a00();
-            func_02094b40(music);
-            func_02094b34(music, 0x65, 500, 0, 0);
-            end->step_++;
+            Struct_0208cb08* var14 = func_02094a00();
+            func_02094b40(var14);
+            func_02094b34(var14, 0x65, 500, 0, 0);
+            var1->unknown_0_++;
         }
-        else if (end->step_ == 12)
+        else if (var1->unknown_0_ == 12)
         {
             if (func_02094b4c(func_02094a00()))
             {
-                self->skillMenu_ = NULL;
-                func_ov023_021eefac((Reset_021eefac*)end);
+                arg0->unknown_5574_ = NULL;
+                func_ov023_021eefac((Struct_ov023_021eeaac_2*)var1);
                 return 7;
             }
         }
     }
-    return self->endState_;
+    return arg0->unknown_eac_;
 }

@@ -5,48 +5,48 @@
 #include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" int func_0202c508(void* obj);
-struct SearchStruct;
-struct SearchStruct0202c1a4;
-extern "C" signed char func_0202c1a4(struct SearchStruct0202c1a4* obj);
-struct FlagsByte0xc1_02034104 {
-    unsigned char lowBits2 : 2;
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" int func_0202c508(void* arg0);
+struct Struct_0202b2f0;
+struct Struct_0202c1a4;
+extern "C" signed char func_0202c1a4(struct Struct_0202c1a4* arg0);
+struct Struct_02034104 {
+    unsigned char unknown_0_0_ : 2;
 };
 
 // USA: func_02034104
-extern "C" ARM Vector3fix func_02034104(void* obj) {
-    Object3D* object = (Object3D*)obj;
-    void* thing = func_0202ae18();
+extern "C" ARM Vector3fix func_02034104(void* arg0) {
+    Object3D* var0 = (Object3D*)arg0;
+    void* var1 = func_0202ae18();
     GetGameResources();
-    if (func_0202b7d8((int*)thing)) {
-        if (func_0202c508(thing)) {
-            short field4 = object->unknown_4_;
-            if (func_0202c178((struct SearchStruct*)thing, field4)) {
-                field4 = object->unknown_4_;
-                signed char cur = func_0202c1a4((struct SearchStruct0202c1a4*)thing);
-                if (cur != field4) {
-                    FlagsByte0xc1_02034104* flags = (FlagsByte0xc1_02034104*)((char*)obj + 0xc1);
-                    if (flags->lowBits2 & 1) {
-                        field4 = object->unknown_4_;
-                        SearchEntry0202c178* entry = func_0202c178((struct SearchStruct*)thing, field4);
-                        Vector3fix16 tmp;
+    if (func_0202b7d8((int*)var1)) {
+        if (func_0202c508(var1)) {
+            short var2 = var0->unknown_4_;
+            if (func_0202c178((struct Struct_0202b2f0*)var1, var2)) {
+                var2 = var0->unknown_4_;
+                signed char var3 = func_0202c1a4((struct Struct_0202c1a4*)var1);
+                if (var3 != var2) {
+                    Struct_02034104* var4 = (Struct_02034104*)((char*)arg0 + 0xc1);
+                    if (var4->unknown_0_0_ & 1) {
+                        var2 = var0->unknown_4_;
+                        Struct_0202b2f0_2* var5 = func_0202c178((struct Struct_0202b2f0*)var1, var2);
+                        Vector3fix16 var6;
 #if defined(jpn)
-                        tmp.x = entry->x;
-                        tmp.y = entry->y;
-                        tmp.z = entry->z;
+                        var6.x = var5->unknown_8_;
+                        var6.y = var5->unknown_a_;
+                        var6.z = var5->unknown_c_;
 #else
-                        Vector3fix16Copy(&tmp, (const Vector3fix16*)&entry->x);
+                        Vector3fix16Copy(&var6, (const Vector3fix16*)&var5->unknown_8_);
 #endif
-                        Vector3fix scaled;
-                        scaled.x = tmp.x << 7;
-                        scaled.y = tmp.y << 7;
-                        scaled.z = tmp.z << 7;
-                        return scaled;
+                        Vector3fix var7;
+                        var7.x = var6.x << 7;
+                        var7.y = var6.y << 7;
+                        var7.z = var6.z << 7;
+                        return var7;
                     }
                 }
             }
         }
     }
-    return object->position_;
+    return var0->position_;
 }

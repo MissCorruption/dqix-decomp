@@ -12,117 +12,117 @@
 #endif
 #include <globaldefs.h>
 
-struct Obj0215c300;
-extern "C" int func_ov003_0215c300(struct Obj0215c300* obj, int amount);
-extern "C" void func_ov003_02159464(void* obj);
-extern "C" void func_ov003_0215c510(void* obj);
+struct Struct_ov003_02158e94_2;
+extern "C" int func_ov003_0215c300(struct Struct_ov003_02158e94_2* arg0, int arg1);
+extern "C" void func_ov003_02159464(void* arg0);
+extern "C" void func_ov003_0215c510(void* arg0);
 
-struct Outer020e28dc;
-extern "C" int func_020e28dc(struct Outer020e28dc* o);
+struct Struct_020e28dc;
+extern "C" int func_020e28dc(struct Struct_020e28dc* arg0);
 
 struct Struct_0205d81c;
-struct Elem_0205d81c {
-    unsigned char pad0[0xc5];
-    unsigned char flagsC5;
+struct Struct_0205d0e0 {
+    unsigned char unknown_0_[0xc5];
+    unsigned char unknown_c5_;
 };
-extern "C" struct Elem_0205d81c* func_0205d8c4(struct Struct_0205d81c* s);
-extern "C" int func_0204c7cc(unsigned char* obj);
-extern "C" void func_0205bc24(void* obj, int value);
-extern "C" int func_0205d0e0(void* p, int val);
+extern "C" struct Struct_0205d0e0* func_0205d8c4(struct Struct_0205d81c* arg0);
+extern "C" int func_0204c7cc(unsigned char* arg0);
+extern "C" void func_0205bc24(void* arg0, int arg1);
+extern "C" int func_0205d0e0(void* arg0, int arg1);
 
-extern "C" void func_ov003_021594c4(void* obj);
-extern "C" void func_ov003_02159b20(void* obj);
-extern "C" void func_ov003_02159c04(void* obj);
-extern "C" void func_ov003_02159d0c(void* obj, int amount);
-extern "C" void func_ov003_0215a5b4(void* obj);
-extern "C" void func_ov003_0215a740(void* obj, int amount, int msgId);
-extern "C" void func_ov003_0215af00(void* obj);
-extern "C" void func_ov003_0215b1dc(void* obj, int amount);
-extern "C" void func_ov003_0215af9c(void* obj);
-extern "C" void func_ov003_0215b0e8(void* obj);
-extern "C" void func_ov003_0215c0ec(void* obj);
+extern "C" void func_ov003_021594c4(void* arg0);
+extern "C" void func_ov003_02159b20(void* arg0);
+extern "C" void func_ov003_02159c04(void* arg0);
+extern "C" void func_ov003_02159d0c(void* arg0, int arg1);
+extern "C" void func_ov003_0215a5b4(void* arg0);
+extern "C" void func_ov003_0215a740(void* arg0, int arg1, int arg2);
+extern "C" void func_ov003_0215af00(void* arg0);
+extern "C" void func_ov003_0215b1dc(void* arg0, int arg1);
+extern "C" void func_ov003_0215af9c(void* arg0);
+extern "C" void func_ov003_0215b0e8(void* arg0);
+extern "C" void func_ov003_0215c0ec(void* arg0);
 
-struct Obj02158e94 {
-    unsigned char pad0[0xf4];
-    unsigned char elements[0x4];
-    unsigned char field_0xf8[0x478];
-    struct Outer020e28dc* choice;
-    int lastAmount;
-    unsigned char pad578[0xa];
-    unsigned char field_0x582;
-    unsigned char pad583[0x4];
-    unsigned char field_0x587;
-    signed char state;
-    unsigned char pad589[0x16];
-    unsigned char flags;
+struct Struct_ov003_02158e94 {
+    unsigned char unknown_0_[0xf4];
+    unsigned char unknown_f4_[0x4];
+    unsigned char unknown_f8_[0x478];
+    struct Struct_020e28dc* unknown_570_;
+    int unknown_574_;
+    unsigned char unknown_578_[0xa];
+    unsigned char unknown_582_;
+    unsigned char unknown_583_[0x4];
+    unsigned char unknown_587_;
+    signed char unknown_588_;
+    unsigned char unknown_589_[0x16];
+    unsigned char unknown_59f_;
 };
 
 // USA: func_ov003_02158e94
-extern "C" ARM int func_ov003_02158e94(struct Obj02158e94* self, int amount) {
-    if (self->state == 11) {
+extern "C" ARM int func_ov003_02158e94(struct Struct_ov003_02158e94* arg0, int arg1) {
+    if (arg0->unknown_588_ == 11) {
         return 1;
     }
 
-    self->lastAmount = amount;
+    arg0->unknown_574_ = arg1;
 
-    if (func_ov003_0215c300((struct Obj0215c300*)self, amount) != 0) {
+    if (func_ov003_0215c300((struct Struct_ov003_02158e94_2*)arg0, arg1) != 0) {
         return 0;
     }
 
-    func_ov003_02159464(self);
+    func_ov003_02159464(arg0);
 
-    if ((self->flags & 8) && !(self->flags & 0x10)) {
-        func_ov003_0215c510(self);
+    if ((arg0->unknown_59f_ & 8) && !(arg0->unknown_59f_ & 0x10)) {
+        func_ov003_0215c510(arg0);
         return 0;
     }
 
-    if (self->choice != 0 && !func_020e28dc(self->choice) && self->state != 0 && self->field_0x587 == 0) {
-        struct Elem_0205d81c* elem = func_0205d8c4((struct Struct_0205d81c*)self->elements);
-        if (elem != 0 && func_0204c7cc((unsigned char*)elem) != 0 && (elem->flagsC5 & 2) == 0) {
-            func_0205bc24(self->field_0xf8, -1);
+    if (arg0->unknown_570_ != 0 && !func_020e28dc(arg0->unknown_570_) && arg0->unknown_588_ != 0 && arg0->unknown_587_ == 0) {
+        struct Struct_0205d0e0* var0 = func_0205d8c4((struct Struct_0205d81c*)arg0->unknown_f4_);
+        if (var0 != 0 && func_0204c7cc((unsigned char*)var0) != 0 && (var0->unknown_c5_ & 2) == 0) {
+            func_0205bc24(arg0->unknown_f8_, -1);
         }
-        self->field_0x582 = func_0205d0e0(self->elements, amount);
+        arg0->unknown_582_ = func_0205d0e0(arg0->unknown_f4_, arg1);
     }
 
-    switch (self->state) {
+    switch (arg0->unknown_588_) {
     case 0:
-        func_ov003_021594c4(self);
+        func_ov003_021594c4(arg0);
         break;
     case 1:
-        func_ov003_02159b20(self);
+        func_ov003_02159b20(arg0);
         break;
     case 2:
-        func_ov003_02159c04(self);
+        func_ov003_02159c04(arg0);
         break;
     case 3:
-        func_ov003_02159d0c(self, amount);
+        func_ov003_02159d0c(arg0, arg1);
         break;
     case 4:
-        func_ov003_0215a5b4(self);
+        func_ov003_0215a5b4(arg0);
         break;
     case 5:
-        func_ov003_0215a740(self, amount, 0x406);
+        func_ov003_0215a740(arg0, arg1, 0x406);
         break;
     case 6:
-        func_ov003_0215a740(self, amount, 0x410);
+        func_ov003_0215a740(arg0, arg1, 0x410);
         break;
     case 7:
-        func_ov003_0215a740(self, amount, 0x41a);
+        func_ov003_0215a740(arg0, arg1, 0x41a);
         break;
     case 8:
-        func_ov003_0215af00(self);
+        func_ov003_0215af00(arg0);
         break;
     case 9:
-        func_ov003_0215b1dc(self, amount);
+        func_ov003_0215b1dc(arg0, arg1);
         break;
     case 10:
-        func_ov003_0215af9c(self);
+        func_ov003_0215af9c(arg0);
         break;
     case 12:
-        func_ov003_0215b0e8(self);
+        func_ov003_0215b0e8(arg0);
         break;
     }
 
-    func_ov003_0215c0ec(self);
+    func_ov003_0215c0ec(arg0);
     return 0;
 }

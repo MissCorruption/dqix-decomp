@@ -3,8 +3,8 @@
 #include "Graphics/Model3D.h"
 #include "World/Object3D.h"
 
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
 
 #if defined(jpn)
 static const int kModel=0x34b8, kObject=0x34bc, kFields=0x51c;
@@ -13,9 +13,9 @@ static const int kModel=0x36c8, kObject=0x36cc, kFields=0x56c;
 #endif
 
 // USA: func_ov017_0219bc50
-extern "C" ARM void func_ov017_0219bc50(unsigned char* self) {
-	((Model3D*)(*(unsigned char**)(self + kModel)))->Clear();
-	((Object3D*)(*(void**)(self + kObject)))->Initialize();
-	((SafeAllocator*)(self + 0xb0))->Reset();
-	func_0207df50((struct Foo0207df50*)(self + kFields));
+extern "C" ARM void func_ov017_0219bc50(unsigned char* arg0) {
+	((Model3D*)(*(unsigned char**)(arg0 + kModel)))->Clear();
+	((Object3D*)(*(void**)(arg0 + kObject)))->Initialize();
+	((SafeAllocator*)(arg0 + 0xb0))->Reset();
+	func_0207df50((struct Struct_0203d028*)(arg0 + kFields));
 }

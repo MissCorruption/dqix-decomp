@@ -8,99 +8,99 @@
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
-extern "C" void func_0206df6c(void *obj, unsigned char *arr, int idx, int flag);
+extern "C" void func_0206df6c(void *arg0, unsigned char *arg1, int arg2, int arg3);
 extern "C" void *func_0202ae18(void);
-extern "C" int func_0202b7d8(int *ctx);
-struct SearchStruct0202c1a4;
-extern "C" int func_0202c1a4(SearchStruct0202c1a4 *ctx);
-extern "C" void func_ov017_021d0924(int a, int b, int p1, int flag);
-extern "C" void func_0206ece8(int a, int b, unsigned char *c, unsigned d);
-extern "C" int func_0202c508(void *ctx);
+extern "C" int func_0202b7d8(int *arg0);
+struct Struct_0202c1a4;
+extern "C" int func_0202c1a4(Struct_0202c1a4 *arg0);
+extern "C" void func_ov017_021d0924(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0206ece8(int arg0, int arg1, unsigned char *arg2, unsigned arg3);
+extern "C" int func_0202c508(void *arg0);
 extern "C" void *func_02012fe4(void);
-extern "C" void *func_0201e838(unsigned char *arr, unsigned idx);
-struct AppendNode;
-struct AppendList;
-extern "C" void func_0206445c(int a, AppendNode *msg, AppendList *list);
+extern "C" void *func_0201e838(unsigned char *arg0, unsigned arg1);
+struct Struct_02061c04_25;
+struct Struct_02061c04_26;
+extern "C" void func_0206445c(int arg0, Struct_02061c04_25 *arg1, Struct_02061c04_26 *arg2);
 extern "C" void func_ov017_021cdaa0();
 extern "C" void *func_02094d6c(void);
-extern "C" int func_020961b0(void *g, int p1);
-extern "C" int func_0206dfb0(int obj, unsigned char *arr, int idx);
-struct Struct020d9ae8;
-extern "C" void func_020d9ae8(Struct020d9ae8 *node, int mode);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(TailList020469b4 *list, TailNode020469b4 *node);
-extern "C" void func_0206e164(void *obj, int p1, int mode);
-struct FindEntryById02096134Table;
-extern "C" void *func_02096134(FindEntryById02096134Table *table, int p1);
-extern "C" void func_0206eb64(unsigned char *obj, int p2, int flag);
-extern "C" void func_ov017_021c1a98(void *ctx, int flag);
+extern "C" int func_020961b0(void *arg0, int arg1);
+extern "C" int func_0206dfb0(int arg0, unsigned char *arg1, int arg2);
+struct Struct_02061c04_7;
+extern "C" void func_020d9ae8(Struct_02061c04_7 *arg0, int arg1);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(Struct_0201bdac_2 *arg0, Struct_0201bdac *arg1);
+extern "C" void func_0206e164(void *arg0, int arg1, int arg2);
+struct Struct_0205faf4_7;
+extern "C" void *func_02096134(Struct_0205faf4_7 *arg0, int arg1);
+extern "C" void func_0206eb64(unsigned char *arg0, int arg1, int arg2);
+extern "C" void func_ov017_021c1a98(void *arg0, int arg1);
 extern "C" void func_02083acc(unsigned char*, int);
 extern "C" void func_02083b60(unsigned char*, int);
-extern "C" void func_020ae6e8(int key);
-extern "C" void func_020ae730(int key);
-extern "C" void func_020ae7d4(int key);
-extern "C" void func_020ae880(int key);
+extern "C" void func_020ae6e8(int arg0);
+extern "C" void func_020ae730(int arg0);
+extern "C" void func_020ae7d4(int arg0);
+extern "C" void func_020ae880(int arg0);
 extern "C" void func_ov017_021d0d58();
-struct ListHead02046b60;
-extern "C" int func_02046b60(ListHead02046b60*, int);
-extern "C" void *func_ov017_021b8478(void *node);
+struct Struct_02038598_5;
+extern "C" int func_02046b60(Struct_02038598_5*, int);
+extern "C" void *func_ov017_021b8478(void *arg0);
 extern "C" int func_020a3694(int*);
-struct Obj021aa16c;
-extern "C" void func_ov017_021aa16c(Obj021aa16c*);
-struct HeadList020469f8;
-struct HeadNode020469f8;
-extern "C" void func_020469f8(HeadList020469f8*, HeadNode020469f8*);
+struct Struct_02061c04_8;
+extern "C" void func_ov017_021aa16c(Struct_02061c04_8*);
+struct Struct_020469f8;
+struct Struct_020469f8_2;
+extern "C" void func_020469f8(Struct_020469f8*, Struct_020469f8_2*);
 extern "C" void func_ov017_021a6b9c(void*, int);
 extern "C" void * func_02064904(void*, int, unsigned int);
-extern "C" void func_ov017_021a5568(void *node);
+extern "C" void func_ov017_021a5568(void *arg0);
 extern "C" void func_ov017_021a55a4(unsigned char*, unsigned char, unsigned char);
 void *GetBTRandom();
 struct Random;
 int NextRandomBetween(Random*, int, int);
 int NextRandomMax(Random*, int);
 extern short data_020e7de8[14];
-extern "C" void *memmove(void *dst, const void *src, unsigned int n);
-struct Src021cd6d8 {
-    short f0, f1, f2, f3;
-    unsigned char f4;
-    short f5;
-    signed char f6;
-    float f7;
+extern "C" void *memmove(void *arg0, const void *arg1, unsigned int arg2);
+struct Struct_02061c04_10 {
+    short unknown_0_, unknown_2_, unknown_4_, unknown_6_;
+    unsigned char unknown_8_;
+    short unknown_a_;
+    signed char unknown_c_;
+    float unknown_10_;
 };
-extern "C" void func_ov017_021cd6d8(Src021cd6d8 *ev);
+extern "C" void func_ov017_021cd6d8(Struct_02061c04_10 *arg0);
 extern "C" void func_0202ea10(unsigned char*, int, int);
 extern "C" void func_0202ea3c(unsigned char*);
-struct FlagsAndWords0202ea20;
-extern "C" void func_0202ea20(FlagsAndWords0202ea20*);
+struct Struct_0202ea20;
+extern "C" void func_0202ea20(Struct_0202ea20*);
 extern "C" void *func_0208a9b4();
 extern "C" void func_0202c288(void);
-struct Obj_021b994c;
-extern "C" void func_ov017_021b994c(Obj_021b994c*);
+struct Struct_02061c04_11;
+extern "C" void func_ov017_021b994c(Struct_02061c04_11*);
 extern "C" void func_ov017_021d079c(unsigned char, unsigned char, unsigned short);
-extern "C" void func_020ae990(int key);
-extern "C" void func_020aea40(int a, int b);
-extern "C" void func_ov017_02191484(void *base);
+extern "C" void func_020ae990(int arg0);
+extern "C" void func_020aea40(int arg0, int arg1);
+extern "C" void func_ov017_02191484(void *arg0);
 extern "C" void func_020d3c08(char*);
-struct Obj020d3c28;
-extern "C" void func_020d3c28(Obj020d3c28*);
+struct Struct_02061c04_12;
+extern "C" void func_020d3c28(Struct_02061c04_12*);
 extern "C" void * func_020d3d78(unsigned char*, int);
-extern "C" void func_ov017_021913d0(void *base, int field);
-struct ElemFlags3Bit0d3d78 { unsigned char field3 : 3; unsigned char rest : 5; };
+extern "C" void func_ov017_021913d0(void *arg0, int arg1);
+struct Struct_02061c04_13 { unsigned char unknown_0_0_ : 3; unsigned char unknown_0_3_ : 5; };
 extern int data_02108844;
 extern "C" void func_ov017_0218b664(char*);
 extern "C" void func_ov017_021d0860(int, int, int);
 extern "C" void func_ov017_02198f70(void*, int);
 extern "C" void func_ov017_0219c520(void);
 extern "C" void func_ov017_0218d7b0(unsigned char*, char*);
-struct BitFlag17Entry { unsigned int pad : 17; unsigned int flag17 : 1; };
+struct Struct_02061c04_14 { unsigned int unknown_0_0_ : 17; unsigned int unknown_2_1_ : 1; };
 
-struct PackedNibbleArray0206e120;
-extern "C" int func_0206e120(PackedNibbleArray0206e120*, int);
-struct Struct020d9dec;
-extern "C" void func_020d9dec(Struct020d9dec*, int);
-struct S020d9fb4;
-extern "C" void func_020d9fb4(S020d9fb4*, int);
+struct Struct_0205faf4_3;
+extern "C" int func_0206e120(Struct_0205faf4_3*, int);
+struct Struct_02061c04_15;
+extern "C" void func_020d9dec(Struct_02061c04_15*, int);
+struct Struct_02061c04_16;
+extern "C" void func_020d9fb4(Struct_02061c04_16*, int);
 extern "C" void * func_02010828(GameState*);
 extern "C" int func_0201079c(char*);
 extern "C" int func_020107d0(char*);
@@ -115,425 +115,425 @@ extern "C" void func_0206e348(unsigned char*, int, int);
 #define REGION_VALUE(jpnValue, usaValue) usaValue
 #endif
 
-struct CmdMsg64 { unsigned short cmd, p1, p2, p3, p4, p5; unsigned short rest[8]; };
+struct Struct_02061c04_17 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_, unknown_8_, unknown_a_; unsigned short unknown_c_[8]; };
 
-struct FlagsField0x2e { unsigned short pad0x2e_lo : 4; unsigned short flagsHi : 12; };
+struct Struct_02061c04_18 { unsigned short unknown_0_0_ : 4; unsigned short unknown_0_4_ : 12; };
 
-extern "C" void func_020732cc(int p1);
-extern "C" void func_ov017_021d1c2c(unsigned char a, unsigned short b);
+extern "C" void func_020732cc(int arg0);
+extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
 extern "C" void func_ov017_021d1dc0(unsigned short, int, int*, int, int);
 extern AllocatorUnion data_02114e20;
-extern "C" void *func_02012d88(AllocatorUnion *alloc, unsigned int size);
-extern "C" void func_02012da4(AllocatorUnion *alloc, void *data);
-extern "C" void *func_02086f24(void *p, unsigned char b, SafeAllocator *alloc);
-extern "C" void func_020aee04(unsigned short a, unsigned char b);
-extern struct Str02109bf4 {
-    char unk[0xc8];
-    unsigned char low : 2;
-    unsigned char foo : 1;
+extern "C" void *func_02012d88(AllocatorUnion *arg0, unsigned int arg1);
+extern "C" void func_02012da4(AllocatorUnion *arg0, void *arg1);
+extern "C" void *func_02086f24(void *arg0, unsigned char arg1, SafeAllocator *arg2);
+extern "C" void func_020aee04(unsigned short arg0, unsigned char arg1);
+extern struct Struct_02109bf4 {
+    char unknown_0_[0xc8];
+    unsigned char unknown_c8_0_ : 2;
+    unsigned char unknown_c8_2_ : 1;
 } data_02109bf4;
 extern "C" void func_020dac40(void);
 extern "C" void * func_02053c6c(unsigned char*);
-struct Slots0208386c;
-extern "C" void func_0208386c(Slots0208386c*, int);
-struct KeyMap020a0a08;
-extern "C" void func_020a0a08(KeyMap020a0a08*, int, int);
+struct Struct_02061c04_22;
+extern "C" void func_0208386c(Struct_02061c04_22*, int);
+struct Struct_02061c04_23;
+extern "C" void func_020a0a08(Struct_02061c04_23*, int, int);
 extern "C" void func_020ae9f0(void);
-extern "C" void func_020cf0fc(int p);
-extern "C" void func_020cf1a8(int p);
+extern "C" void func_020cf0fc(int arg0);
+extern "C" void func_020cf1a8(int arg0);
 extern "C" void func_02095cfc(int, int);
-extern "C" int func_0202c540(void *ctx);
-extern "C" void func_020ac0b4(void *dst);
-struct SmallRecord020643e0;
-extern "C" void func_020643e0(SmallRecord020643e0*, SmallRecord020643e0*);
-extern "C" int func_020a0870(BattleRecordSnapshot* record);
-extern "C" int func_020a090c(BattleRecordSnapshot* record);
-extern "C" int func_020a08a4(BattleRecordSnapshot* record);
-extern "C" int func_020a08d8(BattleRecordSnapshot* record);
+extern "C" int func_0202c540(void *arg0);
+extern "C" void func_020ac0b4(void *arg0);
+struct Struct_02061c04_24;
+extern "C" void func_020643e0(Struct_02061c04_24*, Struct_02061c04_24*);
+extern "C" int func_020a0870(Struct_02061c04* arg0);
+extern "C" int func_020a090c(Struct_02061c04* arg0);
+extern "C" int func_020a08a4(Struct_02061c04* arg0);
+extern "C" int func_020a08d8(Struct_02061c04* arg0);
 
-struct SnapshotE7 {
-    unsigned char head[8];
-    unsigned int a_lo : 17;
-    unsigned int a_mid : 7;
-    unsigned int a_hi : 7;
-    unsigned int a_top : 1;
-    unsigned int b_lo : 17;
-    unsigned int b_mid : 7;
-    unsigned int b_hi : 7;
-    unsigned int b_top : 1;
-    unsigned int c_lo : 9;
-    unsigned int c_mid : 14;
-    unsigned int c_top : 9;
-    unsigned int d_lo : 8;
-    unsigned int d_mid : 14;
-    unsigned int d_hi : 10;
-    unsigned int e_lo : 24;
-    unsigned int done : 1;
-    unsigned int e_top : 7;
-    unsigned int total;
+struct Struct_01ff91ac_2 {
+    unsigned char unknown_0_[8];
+    unsigned int unknown_8_0_ : 17;
+    unsigned int unknown_a_1_ : 7;
+    unsigned int unknown_b_0_ : 7;
+    unsigned int unknown_b_7_ : 1;
+    unsigned int unknown_c_0_ : 17;
+    unsigned int unknown_e_1_ : 7;
+    unsigned int unknown_f_0_ : 7;
+    unsigned int unknown_f_7_ : 1;
+    unsigned int unknown_10_0_ : 9;
+    unsigned int unknown_11_1_ : 14;
+    unsigned int unknown_12_7_ : 9;
+    unsigned int unknown_14_0_ : 8;
+    unsigned int unknown_15_0_ : 14;
+    unsigned int unknown_16_6_ : 10;
+    unsigned int unknown_18_0_ : 24;
+    unsigned int unknown_1b_0_ : 1;
+    unsigned int unknown_1b_1_ : 7;
+    unsigned int unknown_1c_;
 };
-struct SrcWord44 { unsigned int v24 : 24; unsigned int hi8 : 8; };
-struct SrcWord48 { unsigned int lo : 14; unsigned int v14 : 14; unsigned int hi : 4; };
-struct SrcWord4c { unsigned int v9 : 9; unsigned int v14 : 14; unsigned int hi : 9; };
+struct Struct_01ff91ac_3 { unsigned int unknown_0_0_ : 24; unsigned int unknown_3_0_ : 8; };
+struct Struct_01ff91ac_4 { unsigned int unknown_0_0_ : 14; unsigned int unknown_1_6_ : 14; unsigned int unknown_3_4_ : 4; };
+struct Struct_01ff91ac_5 { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 14; unsigned int unknown_2_7_ : 9; };
 extern "C" void *func_0203cf4c(void);
-extern "C" void *func_0203df78(void *g, int key);
-struct S02040538;
-extern "C" void * func_02040538(S02040538*);
-extern "C" void func_020cf0fc(int p);
-extern "C" int func_020ac2d4(int a, void *p1, void *p2, int flag);
-extern "C" void func_020ac104(void *pooled, void *p1, int flag);
+extern "C" void *func_0203df78(void *arg0, int arg1);
+struct Struct_0203e0a0;
+extern "C" void * func_02040538(Struct_0203e0a0*);
+extern "C" void func_020cf0fc(int arg0);
+extern "C" int func_020ac2d4(int arg0, void *arg1, void *arg2, int arg3);
+extern "C" void func_020ac104(void *arg0, void *arg1, int arg2);
 extern char data_0211e33c;
 extern "C" void * func_ov017_021bdbf0(unsigned char*);
 extern "C" void * func_ov017_021beba4(char*);
-struct Base02019508;
-extern "C" void * func_02019508(Base02019508*, int, int);
-extern "C" void func_0206ea8c(void *obj, unsigned char a, short b, int flag);
-struct Struct02013380;
-extern "C" void func_02013380(Struct02013380*, int, int);
-extern "C" void func_020e1154(void *p);
-extern "C" void func_ov017_021a9bc4(void *node, unsigned char b);
-extern "C" void func_ov017_021a9a9c(void *node, unsigned char a, unsigned char b, unsigned short c, unsigned char d);
-extern "C" void func_ov017_021a8614(void *base, short p1, unsigned short p2, unsigned short p3, unsigned short p4, unsigned short p5);
-extern "C" void func_ov017_021ce110(int a, unsigned short b, unsigned short c, unsigned char d);
-extern "C" void func_0206e748(void *obj, int a, int b, int c, int d);
-struct Node64af8;
-struct Obj64af8;
-extern "C" void func_02064af8(Obj64af8*, Node64af8*);
-struct Obj02061bd8;
-extern "C" int func_02061bd8(Obj02061bd8*);
+struct Struct_02019508_3;
+extern "C" void * func_02019508(Struct_02019508_3*, int, int);
+extern "C" void func_0206ea8c(void *arg0, unsigned char arg1, short arg2, int arg3);
+struct Struct_02013380;
+extern "C" void func_02013380(Struct_02013380*, int, int);
+extern "C" void func_020e1154(void *arg0);
+extern "C" void func_ov017_021a9bc4(void *arg0, unsigned char arg1);
+extern "C" void func_ov017_021a9a9c(void *arg0, unsigned char arg1, unsigned char arg2, unsigned short arg3, unsigned char arg4);
+extern "C" void func_ov017_021a8614(void *arg0, short arg1, unsigned short arg2, unsigned short arg3, unsigned short arg4, unsigned short arg5);
+extern "C" void func_ov017_021ce110(int arg0, unsigned short arg1, unsigned short arg2, unsigned char arg3);
+extern "C" void func_0206e748(void *arg0, int arg1, int arg2, int arg3, int arg4);
+struct Struct_02061c04_27;
+struct Struct_02061c04_28;
+extern "C" void func_02064af8(Struct_02061c04_28*, Struct_02061c04_27*);
+struct Struct_0205faf4_11;
+extern "C" int func_02061bd8(Struct_0205faf4_11*);
 extern "C" void func_02048418(unsigned char*, unsigned short);
-extern "C" void func_ov017_02191108(void *base, int a, int b, int c, int d);
-struct Foo02033b58;
-extern "C" void func_02033b58(Foo02033b58*, unsigned char);
+extern "C" void func_ov017_02191108(void *arg0, int arg1, int arg2, int arg3, int arg4);
+struct Struct_02033b58;
+extern "C" void func_02033b58(Struct_02033b58*, unsigned char);
 extern "C" void *func_02027ca4(void);
-struct Element0x318_02028bac;
-extern "C" void * func_02028bac(Element0x318_02028bac*, int);
-extern "C" void func_ov017_021a23b0(void *base, unsigned short v);
-extern "C" void func_ov017_021c9544(int a, int b, int c, int d);
-extern "C" int func_0202ba00(int *ctx);
-extern "C" void func_020ac4f8(int flag);
+struct Struct_02028bac;
+extern "C" void * func_02028bac(Struct_02028bac*, int);
+extern "C" void func_ov017_021a23b0(void *arg0, unsigned short arg1);
+extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
+extern "C" int func_0202ba00(int *arg0);
+extern "C" void func_020ac4f8(int arg0);
 extern "C" void func_02010810(char*, int);
 extern "C" int func_0201081c(char*);
 
 // USA: func_02061c04
-struct SharedFrame { unsigned int word0; unsigned short h4, h6, h8; };
-struct Vec3 { int x, y, z; };
-struct Vec3W { int w[3]; };
-struct PackedRegSlots7f { unsigned int f0 : 7; unsigned int f1 : 4; unsigned int f2 : 5;
-                          unsigned int f3 : 5; unsigned int f4 : 6; };
-union SlotEntry { unsigned int w; struct { unsigned int id : 9; unsigned int pad9 : 2; unsigned int slot : 3; } b; };
-struct EntryFlags { unsigned int pad0 : 10; unsigned int bit10 : 1; unsigned int pad11 : 21; };
-struct Elem2Flags { unsigned short pad0 : 2; unsigned short bit2 : 1; unsigned short rest : 13; };
+struct Struct_01ff91ac_6 { unsigned int unknown_0_; unsigned short unknown_4_, unknown_6_, unknown_8_; };
+struct Struct_ov009_0218aa28 { int unknown_0_, unknown_4_, unknown_8_; };
+struct Struct_02061c04_29 { int unknown_0_[3]; };
+struct Struct_02061c04_30 { unsigned int unknown_0_0_ : 7; unsigned int unknown_0_7_ : 4; unsigned int unknown_1_3_ : 5;
+                          unsigned int unknown_2_0_ : 5; unsigned int unknown_2_5_ : 6; };
+union Struct_02061c04_31 { unsigned int unknown_0_; struct { unsigned int unknown_0_0_ : 9; unsigned int unknown_1_1_ : 2; unsigned int unknown_1_3_ : 3; } unknown1_0_; };
+struct Struct_02061c04_32 { unsigned int unknown_0_0_ : 10; unsigned int unknown_1_2_ : 1; unsigned int unknown_1_3_ : 21; };
+struct Struct_02061c04_33 { unsigned short unknown_0_0_ : 2; unsigned short unknown_0_2_ : 1; unsigned short unknown_0_3_ : 13; };
 
-struct FrameB { short opt; unsigned short flags; unsigned short h4, h6, h8, ha, hc, he; };
+struct Struct_02061c04_4 { short unknown_0_; unsigned short unknown_2_; unsigned short unknown_4_, unknown_6_, unknown_8_, unknown_a_, unknown_c_, unknown_e_; };
 
-static inline char *SubA(void *b) { return (char *)b + REGION_VALUE(0x2c4, 0x104); }
-static inline char *SubB(char *a) { return a + REGION_VALUE(0x7000, 0x7400); }
-struct Blk7400 { char pad[REGION_VALUE(0x7000, 0x7400)]; };
-static inline int GetSlot332(void *obj) { return *((unsigned char *)obj + 0x332); }
-static inline int Field134_30(void *c) { return *(unsigned short *)((char *)*(void **)((char *)c + 0x134) + 0x30); }
-static inline int AngleMax() { return 0x6488; }
-static inline int FxMul(int a, int b) { return (int)(((long long)a * b + 0x800) >> 12); }
-extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
-    char cdLocal[REGION_VALUE(0xa4, 0xb8)];
-    struct { int a0, a1, a2, a3; } sa;
-    struct { int b0, b1, b2; } sb;
-    struct Vec3 halfOut;
-    CmdMsg64 m9b;
-    CmdMsg64 m9c;
-    CmdMsg64 m9d;
-    CmdMsg64 m9e;
-    CmdMsg64 m9f;
-    struct Src021cd6d8 c0Local;
-    unsigned short deck[14];
-    struct { int a, b, c; } d8Local;
-    SafeAllocator dbAlloc;
-    struct Vec3 midOut;
-    struct Vec3 half;
-    struct Vec3 mid;
-    struct Vec3 diff;
-    struct LowRegion {
-        short p1;
-        short pad2;
-        unsigned int fword0;
-        unsigned short fh4, fh6, fh8;
-        unsigned char d0, d1;
-        short d2;
-        unsigned char d3, d4;
-        struct FrameB fb;
-        struct PackedRegSlots7f packed;
-    } lr;
-    switch (msg->cmd) {
+static inline char *inline_02061c04(void *arg0) { return (char *)arg0 + REGION_VALUE(0x2c4, 0x104); }
+static inline char *inline_02061c04_2(char *arg0) { return arg0 + REGION_VALUE(0x7000, 0x7400); }
+struct Struct_02061c04_5 { char unknown_0_[REGION_VALUE(0x7000, 0x7400)]; };
+static inline int inline_02061c04_3(void *arg0) { return *((unsigned char *)arg0 + 0x332); }
+static inline int inline_02061c04_4(void *arg0) { return *(unsigned short *)((char *)*(void **)((char *)arg0 + 0x134) + 0x30); }
+static inline int inline_01ff91ac() { return 0x6488; }
+static inline int inline_02061c04_5(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
+extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg2) {
+    char var0[REGION_VALUE(0xa4, 0xb8)];
+    struct { int unknown_0_, unknown_4_, unknown_8_, unknown_c_; } var1;
+    struct { int unknown_0_, unknown_4_, unknown_8_; } var2;
+    struct Struct_ov009_0218aa28 var3;
+    Struct_02061c04_17 var4;
+    Struct_02061c04_17 var5;
+    Struct_02061c04_17 var6;
+    Struct_02061c04_17 var7;
+    Struct_02061c04_17 var8;
+    struct Struct_02061c04_10 var9;
+    unsigned short var10[14];
+    struct { int unknown_0_, unknown_4_, unknown_8_; } var11;
+    SafeAllocator var12;
+    struct Struct_ov009_0218aa28 var13;
+    struct Struct_ov009_0218aa28 var14;
+    struct Struct_ov009_0218aa28 var15;
+    struct Struct_ov009_0218aa28 var16;
+    struct Struct_02061c04_6 {
+        short unknown_0_;
+        short unknown_2_;
+        unsigned int unknown_4_;
+        unsigned short unknown_8_, unknown_a_, unknown_c_;
+        unsigned char unknown_e_, unknown_f_;
+        short unknown_10_;
+        unsigned char unknown_12_, unknown_13_;
+        struct Struct_02061c04_4 unknown_14_;
+        struct Struct_02061c04_30 unknown_24_;
+    } var17;
+    switch (arg1->unknown_0_) {
     case 0x64: {
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 1);
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
-            func_ov017_021d0924(0, 0, msg->p1, 1);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
+        void *var18 = func_0202ae18();
+        if (func_0202b7d8((int *)var18) && !func_0202c1a4((Struct_0202c1a4 *)var18))
+            func_ov017_021d0924(0, 0, arg1->unknown_2_, 1);
         return 1;
     }
     case 0x65: {
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 0);
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
-            func_ov017_021d0924(0, 0, msg->p1, 0);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 0);
+        void *var19 = func_0202ae18();
+        if (func_0202b7d8((int *)var19) && !func_0202c1a4((Struct_0202c1a4 *)var19))
+            func_ov017_021d0924(0, 0, arg1->unknown_2_, 0);
         return 1;
     }
     case 0x66: {
-        unsigned char slot = *((unsigned char *)obj + 0x332);
-        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 3, msg->p1, 1);
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
-            func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 1);
+        unsigned char var20 = *((unsigned char *)arg0 + 0x332);
+        func_0206df6c(arg0, (unsigned char *)arg0 + var20 * 0x1c + 3, arg1->unknown_2_, 1);
+        void *var21 = func_0202ae18();
+        if (func_0202b7d8((int *)var21) && !func_0202c1a4((Struct_0202c1a4 *)var21))
+            func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
         return 1;
     }
     case 0x67: {
-        unsigned char slot = *((unsigned char *)obj + 0x332);
-        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 3, msg->p1, 0);
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
-            func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 0);
+        unsigned char var22 = *((unsigned char *)arg0 + 0x332);
+        func_0206df6c(arg0, (unsigned char *)arg0 + var22 * 0x1c + 3, arg1->unknown_2_, 0);
+        void *var23 = func_0202ae18();
+        if (func_0202b7d8((int *)var23) && !func_0202c1a4((Struct_0202c1a4 *)var23))
+            func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
         return 1;
     }
     case 0x68: {
-        unsigned char slot = *((unsigned char *)obj + 0x332);
-        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 0x10, msg->p1, 1);
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
-            func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 1);
+        unsigned char var24 = *((unsigned char *)arg0 + 0x332);
+        func_0206df6c(arg0, (unsigned char *)arg0 + var24 * 0x1c + 0x10, arg1->unknown_2_, 1);
+        void *var25 = func_0202ae18();
+        if (func_0202b7d8((int *)var25) && !func_0202c1a4((Struct_0202c1a4 *)var25))
+            func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
         return 1;
     }
     case 0x69: {
-        unsigned char slot = *((unsigned char *)obj + 0x332);
-        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 0x10, msg->p1, 0);
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
-            func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 0);
+        unsigned char var26 = *((unsigned char *)arg0 + 0x332);
+        func_0206df6c(arg0, (unsigned char *)arg0 + var26 * 0x1c + 0x10, arg1->unknown_2_, 0);
+        void *var27 = func_0202ae18();
+        if (func_0202b7d8((int *)var27) && !func_0202c1a4((Struct_0202c1a4 *)var27))
+            func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
         return 1;
     }
     case 0x6a: {
-        void *p = GetGameResources();
-        unsigned char *r5 = *(unsigned char **)((char *)p + 0x4000 + REGION_VALUE(0x214, 0x4c4));
-        func_0206ece8((int)r5, msg->p1, r5, 0x80);
-        func_0206ece8((int)r5, msg->p1, r5 + 0x80, 0x80);
+        void *var28 = GetGameResources();
+        unsigned char *var29 = *(unsigned char **)((char *)var28 + 0x4000 + REGION_VALUE(0x214, 0x4c4));
+        func_0206ece8((int)var29, arg1->unknown_2_, var29, 0x80);
+        func_0206ece8((int)var29, arg1->unknown_2_, var29 + 0x80, 0x80);
         return 1;
     }
     case 0x6b: {
-        void *ctx = func_0202ae18();
-        if (func_0202c508(ctx))
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113a, ((unsigned char *)msg)[2] == 0);
+        void *var30 = func_0202ae18();
+        if (func_0202c508(var30))
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113a, ((unsigned char *)arg1)[2] == 0);
         return 1;
     }
     case 0x6c: {
-        void *p0 = func_02012fe4();
-        void *node = func_0201e838((unsigned char *)((char *)p0 + REGION_VALUE(0x8c, 0x6c)), 2);
-        while (node) {
-            if (*((unsigned char *)node + 0x2c) == msg->p2 &&
-                *((unsigned char *)node + 0x2d) == msg->p3 &&
-                *(short *)((char *)node + 0x20) == (short)msg->p1) {
-                FlagsField0x2e *f = (FlagsField0x2e *)((char *)node + 0x2e);
-                if (!(f->flagsHi & 1))
-                    f->flagsHi |= 4;
+        void *var31 = func_02012fe4();
+        void *var32 = func_0201e838((unsigned char *)((char *)var31 + REGION_VALUE(0x8c, 0x6c)), 2);
+        while (var32) {
+            if (*((unsigned char *)var32 + 0x2c) == arg1->unknown_4_ &&
+                *((unsigned char *)var32 + 0x2d) == arg1->unknown_6_ &&
+                *(short *)((char *)var32 + 0x20) == (short)arg1->unknown_2_) {
+                Struct_02061c04_18 *var33 = (Struct_02061c04_18 *)((char *)var32 + 0x2e);
+                if (!(var33->unknown_0_4_ & 1))
+                    var33->unknown_0_4_ |= 4;
             }
-            node = *(void **)((char *)node + 0x70);
+            var32 = *(void **)((char *)var32 + 0x70);
         }
         return 1;
     }
     case 0x6d: {
-        Zone3D* p0 = (Zone3D*)func_02012fe4();
-        ZoneFeatures::Opcode6aEntry* node = (ZoneFeatures::Opcode6aEntry*)func_0201e838((unsigned char*)&p0->substruct_6c_, 2);
-        while (node) {
-            if (!(node->unk_2c.type2.unk_2_high & 1) &&
-                node->unk_2c.type2.unk_0 == msg->p2 &&
-                node->unk_2c.type2.unk_1 == msg->p3 &&
-                node->unk_20 == (short)msg->p1) {
-                func_02018300(p0, node, 1, 1, 1);
+        Zone3D* var34 = (Zone3D*)func_02012fe4();
+        Struct_020134e0::Struct_02018300* var35 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&var34->substruct_6c_, 2);
+        while (var35) {
+            if (!(var35->unknown_2c_.unknown1_0_.unknown_2_4_ & 1) &&
+                var35->unknown_2c_.unknown1_0_.unknown_0_ == arg1->unknown_4_ &&
+                var35->unknown_2c_.unknown1_0_.unknown_1_ == arg1->unknown_6_ &&
+                var35->unknown_20_ == (short)arg1->unknown_2_) {
+                func_02018300(var34, var35, 1, 1, 1);
             }
-            node = node->pNext;
+            var35 = var35->unknown_70_;
         }
         return 1;
     }
     case 0x99: {
-        Zone3D* p0 = (Zone3D*)func_02012fe4();
-        ZoneFeatures::Opcode6aEntry* node = (ZoneFeatures::Opcode6aEntry*)func_0201e838((unsigned char*)&p0->substruct_6c_, 2);
-        while (node) {
-            if (!(node->unk_2c.type2.unk_2_high & 1) &&
-                node->unk_2c.type2.unk_0 == msg->p2 &&
-                node->unk_2c.type2.unk_1 == msg->p3 &&
-                node->unk_20 == (short)msg->p1) {
-                node->unk_2c.type2.unk_2_high |= 0x100;
-                func_02018300(p0, node, 0, 1, 1);
+        Zone3D* var36 = (Zone3D*)func_02012fe4();
+        Struct_020134e0::Struct_02018300* var37 = (Struct_020134e0::Struct_02018300*)func_0201e838((unsigned char*)&var36->substruct_6c_, 2);
+        while (var37) {
+            if (!(var37->unknown_2c_.unknown1_0_.unknown_2_4_ & 1) &&
+                var37->unknown_2c_.unknown1_0_.unknown_0_ == arg1->unknown_4_ &&
+                var37->unknown_2c_.unknown1_0_.unknown_1_ == arg1->unknown_6_ &&
+                var37->unknown_20_ == (short)arg1->unknown_2_) {
+                var37->unknown_2c_.unknown1_0_.unknown_2_4_ |= 0x100;
+                func_02018300(var36, var37, 0, 1, 1);
             }
-            node = node->pNext;
+            var37 = var37->unknown_70_;
         }
         return 1;
     }
     case 0x6e: {
-        GameState *battle = GameState::GetInstance();
-        battle->SetTimeOfDay((TimeOfDay)msg->p1);
-        LightingManager *d = LightingManager::GetInstance();
-        d->dayNightTimer_ = battle->GetDayTimer();
-        d->timeOfDayIndex_ = battle->GetTimeOfDay();
-        void *ctx = func_0202ae18();
-        if (func_0202c508(ctx))
+        GameState *var38 = GameState::GetInstance();
+        var38->SetTimeOfDay((TimeOfDay)arg1->unknown_2_);
+        LightingManager *var39 = LightingManager::GetInstance();
+        var39->dayNightTimer_ = var38->GetDayTimer();
+        var39->timeOfDayIndex_ = var38->GetTimeOfDay();
+        void *var40 = func_0202ae18();
+        if (func_0202c508(var40))
             func_ov017_021cdaa0();
         return 1;
     }
     case 0x72:
-        msg->p2 = 1;
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        arg1->unknown_4_ = 1;
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x73:
-        msg->p2 = 1;
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        arg1->unknown_4_ = 1;
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x74:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x75:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x76:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x77:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x78:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x79: case 0x89: case 0xe1:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x7a:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x7b:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x7c:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x7d: {
-        if (func_020961b0(func_02094d6c(), msg->p1) == 0)
+        if (func_020961b0(func_02094d6c(), arg1->unknown_2_) == 0)
             return 0;
-        if (!func_0206dfb0((int)obj, (unsigned char *)obj + 0x8c, 0x119d)) {
-            void *p = GetGameResources();
-            void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x119d, 1);
-            void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x9a0, 0xbc0));
-            func_020d9ae8((Struct020d9ae8 *)node, 1);
-            func_020469b4((TailList020469b4 *)list, (TailNode020469b4 *)node);
+        if (!func_0206dfb0((int)arg0, (unsigned char *)arg0 + 0x8c, 0x119d)) {
+            void *var41 = GetGameResources();
+            void *var42 = *(void **)((char *)var41 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x119d, 1);
+            void *var43 = *(void **)((char *)var41 + 0x3000 + REGION_VALUE(0x9a0, 0xbc0));
+            func_020d9ae8((Struct_02061c04_7 *)var43, 1);
+            func_020469b4((Struct_0201bdac_2 *)var42, (Struct_0201bdac *)var43);
         }
         return 1;
     }
     case 0x7e: {
-        int isTwo = func_0206e120((PackedNibbleArray0206e120*)obj, msg->p1) == 2;
-        if (!isTwo)
+        int var44 = func_0206e120((Struct_0205faf4_3*)arg0, arg1->unknown_2_) == 2;
+        if (!var44)
             return 1;
-        void *p = GetGameResources();
-        void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x99c, 0xbbc));
-        func_020d9dec((Struct020d9dec*)node, 0);
-        func_020d9fb4((S020d9fb4*)node, 0);
-        *(int *)((char *)node + 0x10) = msg->p1;
-        if (*((unsigned char *)node + 2) == 0)
-            func_020469b4((TailList020469b4 *)list, (TailNode020469b4 *)node);
+        void *var45 = GetGameResources();
+        void *var46 = *(void **)((char *)var45 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        void *var47 = *(void **)((char *)var45 + 0x3000 + REGION_VALUE(0x99c, 0xbbc));
+        func_020d9dec((Struct_02061c04_15*)var47, 0);
+        func_020d9fb4((Struct_02061c04_16*)var47, 0);
+        *(int *)((char *)var47 + 0x10) = arg1->unknown_2_;
+        if (*((unsigned char *)var47 + 2) == 0)
+            func_020469b4((Struct_0201bdac_2 *)var46, (Struct_0201bdac *)var47);
         return 1;
     }
     case 0x7f: {
-        func_020cf0fc((int)&sa);
-        func_020cf1a8((int)&sb);
-        lr.packed.f0 = sa.a0;
-        lr.packed.f1 = sa.a1;
-        lr.packed.f2 = sa.a2;
-        lr.packed.f3 = sb.b0;
-        lr.packed.f4 = sb.b1;
-        void *g = func_02094d6c();
-        *(unsigned int *)((char *)g + msg->p1 * 4 + 0x178) = *(unsigned int *)&lr.packed;
-        func_02095cfc((int)g, msg->p1);
+        func_020cf0fc((int)&var1);
+        func_020cf1a8((int)&var2);
+        var17.unknown_24_.unknown_0_0_ = var1.unknown_0_;
+        var17.unknown_24_.unknown_0_7_ = var1.unknown_4_;
+        var17.unknown_24_.unknown_1_3_ = var1.unknown_8_;
+        var17.unknown_24_.unknown_2_0_ = var2.unknown_0_;
+        var17.unknown_24_.unknown_2_5_ = var2.unknown_4_;
+        void *var48 = func_02094d6c();
+        *(unsigned int *)((char *)var48 + arg1->unknown_2_ * 4 + 0x178) = *(unsigned int *)&var17.unknown_24_;
+        func_02095cfc((int)var48, arg1->unknown_2_);
         return 1;
     }
     case 0x80:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x81:
-        func_0206e164(obj, msg->p1, 1);
+        func_0206e164(arg0, arg1->unknown_2_, 1);
         return 1;
     case 0x82: {
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx)) {
-            func_02096134((FindEntryById02096134Table *)func_02094d6c(), msg->p1);
-            if (!func_0202c1a4((SearchStruct0202c1a4 *)ctx)) {
-                if (msg->p2 < 0x400)
-                    func_ov017_021d0924(0, 0, msg->p2, 1);
-                func_0206eb64((unsigned char *)obj, msg->p2, 1);
+        void *var49 = func_0202ae18();
+        if (func_0202b7d8((int *)var49)) {
+            func_02096134((Struct_0205faf4_7 *)func_02094d6c(), arg1->unknown_2_);
+            if (!func_0202c1a4((Struct_0202c1a4 *)var49)) {
+                if (arg1->unknown_4_ < 0x400)
+                    func_ov017_021d0924(0, 0, arg1->unknown_4_, 1);
+                func_0206eb64((unsigned char *)arg0, arg1->unknown_4_, 1);
             } else {
-                func_0206eb64((unsigned char *)obj, msg->p2, 1);
+                func_0206eb64((unsigned char *)arg0, arg1->unknown_4_, 1);
             }
         } else {
-            func_0206eb64((unsigned char *)obj, msg->p2, 1);
+            func_0206eb64((unsigned char *)arg0, arg1->unknown_4_, 1);
         }
         return 1;
     }
     case 0x83: {
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx)) {
-            void *entry = func_02096134((FindEntryById02096134Table *)func_02094d6c(), msg->p1);
-            if (!func_0202c1a4((SearchStruct0202c1a4 *)ctx)) {
-                if (!(entry != 0 && ((struct EntryFlags *)entry)->bit10 == 1) &&
-                    msg->p2 < 0x400)
-                    func_ov017_021d0924(0, 0, msg->p2, 0);
-                func_0206eb64((unsigned char *)obj, msg->p2, 0);
+        void *var50 = func_0202ae18();
+        if (func_0202b7d8((int *)var50)) {
+            void *var51 = func_02096134((Struct_0205faf4_7 *)func_02094d6c(), arg1->unknown_2_);
+            if (!func_0202c1a4((Struct_0202c1a4 *)var50)) {
+                if (!(var51 != 0 && ((struct Struct_02061c04_32 *)var51)->unknown_1_2_ == 1) &&
+                    arg1->unknown_4_ < 0x400)
+                    func_ov017_021d0924(0, 0, arg1->unknown_4_, 0);
+                func_0206eb64((unsigned char *)arg0, arg1->unknown_4_, 0);
             } else {
-                if (entry != 0 && ((struct EntryFlags *)entry)->bit10 == 1)
-                    func_0206eb64((unsigned char *)obj, msg->p2, 0);
+                if (var51 != 0 && ((struct Struct_02061c04_32 *)var51)->unknown_1_2_ == 1)
+                    func_0206eb64((unsigned char *)arg0, arg1->unknown_4_, 0);
             }
         } else {
-            func_0206eb64((unsigned char *)obj, msg->p2, 0);
+            func_0206eb64((unsigned char *)arg0, arg1->unknown_4_, 0);
         }
         return 1;
     }
     case 0x84: {
-        GameState *battle = GameState::GetInstance();
-        lr.fb.ha = func_0201079c((char*)battle);
-        lr.fb.hc = func_020107d0((char*)battle);
-        lr.fb.he = func_02010804((char*)battle);
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
-        if (lr.fb.ha != msg->p2)
-            func_0206e080((char*)obj, *((unsigned char *)obj + 0x332));
-        if (lr.fb.hc != msg->p3)
-            func_0206e0d0((char*)obj, *((unsigned char *)obj + 0x332));
+        GameState *var52 = GameState::GetInstance();
+        var17.unknown_14_.unknown_a_ = func_0201079c((char*)var52);
+        var17.unknown_14_.unknown_c_ = func_020107d0((char*)var52);
+        var17.unknown_14_.unknown_e_ = func_02010804((char*)var52);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
+        if (var17.unknown_14_.unknown_a_ != arg1->unknown_4_)
+            func_0206e080((char*)arg0, *((unsigned char *)arg0 + 0x332));
+        if (var17.unknown_14_.unknown_c_ != arg1->unknown_6_)
+            func_0206e0d0((char*)arg0, *((unsigned char *)arg0 + 0x332));
         return 1;
     }
     case 0x85: case 0x8a: case 0xe2:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x86: {
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx))
-            func_ov017_021ce110((unsigned char)msg->p2, 1, msg->p1, 1);
-        switch (msg->p2) {
+        void *var53 = func_0202ae18();
+        if (func_0202b7d8((int *)var53))
+            func_ov017_021ce110((unsigned char)arg1->unknown_4_, 1, arg1->unknown_2_, 1);
+        switch (arg1->unknown_4_) {
         case 3:
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 1);
-            func_ov017_021d0924(0, 0, msg->p1, 1);
-            if (func_0202c540(ctx))
-                func_0206e748(obj, 0, 0, msg->p1, 1);
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 1);
+            func_ov017_021d0924(0, 0, arg1->unknown_2_, 1);
+            if (func_0202c540(var53))
+                func_0206e748(arg0, 0, 0, arg1->unknown_2_, 1);
             break;
         case 4: {
-            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 3, msg->p1, 1);
-            func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 1);
-            if (func_0202c540(ctx)) {
-                int slot1 = GetSlot332(obj);
-                func_0206e748(obj, 3, slot1, msg->p1, 1);
+            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 3, arg1->unknown_2_, 1);
+            func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
+            if (func_0202c540(var53)) {
+                int var54 = inline_02061c04_3(arg0);
+                func_0206e748(arg0, 3, var54, arg1->unknown_2_, 1);
             }
             break;
         }
         case 5: {
-            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 0x10, msg->p1, 1);
-            func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 1);
-            if (func_0202c540(ctx)) {
-                int slot2 = GetSlot332(obj);
-                func_0206e748(obj, 5, slot2, msg->p1, 1);
+            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 0x10, arg1->unknown_2_, 1);
+            func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 1);
+            if (func_0202c540(var53)) {
+                int var55 = inline_02061c04_3(arg0);
+                func_0206e748(arg0, 5, var55, arg1->unknown_2_, 1);
             }
             break;
         }
@@ -543,31 +543,31 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0x87: {
-        void *ctx = func_0202ae18();
-        if (func_0202b7d8((int *)ctx))
-            func_ov017_021ce110((unsigned char)msg->p2, 0, msg->p1, 1);
-        switch (msg->p2) {
+        void *var56 = func_0202ae18();
+        if (func_0202b7d8((int *)var56))
+            func_ov017_021ce110((unsigned char)arg1->unknown_4_, 0, arg1->unknown_2_, 1);
+        switch (arg1->unknown_4_) {
         case 3:
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 0);
-            func_ov017_021d0924(0, 0, msg->p1, 0);
-            if (func_0202c540(ctx))
-                func_0206e748(obj, 0, 0, msg->p1, 0);
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_, 0);
+            func_ov017_021d0924(0, 0, arg1->unknown_2_, 0);
+            if (func_0202c540(var56))
+                func_0206e748(arg0, 0, 0, arg1->unknown_2_, 0);
             break;
         case 4: {
-            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 3, msg->p1, 0);
-            func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 0);
-            if (func_0202c540(ctx)) {
-                int slot3 = GetSlot332(obj);
-                func_0206e748(obj, 3, slot3, msg->p1, 0);
+            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 3, arg1->unknown_2_, 0);
+            func_ov017_021d0924(3, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
+            if (func_0202c540(var56)) {
+                int var57 = inline_02061c04_3(arg0);
+                func_0206e748(arg0, 3, var57, arg1->unknown_2_, 0);
             }
             break;
         }
         case 5: {
-            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 0x10, msg->p1, 0);
-            func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 0);
-            if (func_0202c540(ctx)) {
-                int slot4 = GetSlot332(obj);
-                func_0206e748(obj, 5, slot4, msg->p1, 0);
+            func_0206df6c(arg0, (unsigned char *)arg0 + *((unsigned char *)arg0 + 0x332) * 0x1c + 0x10, arg1->unknown_2_, 0);
+            func_ov017_021d0924(5, *((unsigned char *)arg0 + 0x332), arg1->unknown_2_, 0);
+            if (func_0202c540(var56)) {
+                int var58 = inline_02061c04_3(arg0);
+                func_0206e748(arg0, 5, var58, arg1->unknown_2_, 0);
             }
             break;
         }
@@ -577,275 +577,275 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0x88: {
-        void *p0 = func_02012fe4();
-        void *node = func_0201e838((unsigned char *)((char *)p0 + REGION_VALUE(0x8c, 0x6c)), 2);
-        while (node) {
-            if (*((unsigned char *)node + 0x2c) == msg->p2 &&
-                *((unsigned char *)node + 0x2d) == msg->p3 &&
-                *(short *)((char *)node + 0x20) == (short)msg->p1) {
-                FlagsField0x2e *f = (FlagsField0x2e *)((char *)node + 0x2e);
-                f->flagsHi &= ~4;
+        void *var59 = func_02012fe4();
+        void *var60 = func_0201e838((unsigned char *)((char *)var59 + REGION_VALUE(0x8c, 0x6c)), 2);
+        while (var60) {
+            if (*((unsigned char *)var60 + 0x2c) == arg1->unknown_4_ &&
+                *((unsigned char *)var60 + 0x2d) == arg1->unknown_6_ &&
+                *(short *)((char *)var60 + 0x20) == (short)arg1->unknown_2_) {
+                Struct_02061c04_18 *var61 = (Struct_02061c04_18 *)((char *)var60 + 0x2e);
+                var61->unknown_0_4_ &= ~4;
             }
-            node = *(void **)((char *)node + 0x70);
+            var60 = *(void **)((char *)var60 + 0x70);
         }
         return 1;
     }
     case 0x8b: {
-        GameState *battle = GameState::GetInstance();
-        void *p = func_02010828((GameState*)battle);
-        unsigned int v = *(unsigned int *)((char *)p + 0xf6c) + *(unsigned int *)((char *)msg + 4);
-        *(unsigned int *)((char *)p + 0xf6c) = v;
-        if (v > 9999999)
-            *(unsigned int *)((char *)p + 0xf6c) = 9999999;
+        GameState *var62 = GameState::GetInstance();
+        void *var63 = func_02010828((GameState*)var62);
+        unsigned int var64 = *(unsigned int *)((char *)var63 + 0xf6c) + *(unsigned int *)((char *)arg1 + 4);
+        *(unsigned int *)((char *)var63 + 0xf6c) = var64;
+        if (var64 > 9999999)
+            *(unsigned int *)((char *)var63 + 0xf6c) = 9999999;
         return 1;
     }
     case 0x8c: {
-        GameState *battle = GameState::GetInstance();
-        void *p = func_02010828((GameState*)battle);
-        unsigned int v = *(unsigned int *)((char *)p + 0xf6c);
-        unsigned int d = *(unsigned int *)((char *)msg + 4);
-        *(unsigned int *)((char *)p + 0xf6c) = (v < d) ? 0 : (v - d);
+        GameState *var65 = GameState::GetInstance();
+        void *var66 = func_02010828((GameState*)var65);
+        unsigned int var67 = *(unsigned int *)((char *)var66 + 0xf6c);
+        unsigned int var68 = *(unsigned int *)((char *)arg1 + 4);
+        *(unsigned int *)((char *)var66 + 0xf6c) = (var67 < var68) ? 0 : (var67 - var68);
         return 1;
     }
     case 0x8d:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x8e:
-        func_0206e348((unsigned char*)obj, msg->p1, 1);
+        func_0206e348((unsigned char*)arg0, arg1->unknown_2_, 1);
         return 1;
     case 0x8f: {
-        if (msg->p1 == 2)
+        if (arg1->unknown_2_ == 2)
             return 1;
-        void *base = GetGameResources();
-        void *mem = ((SafeAllocator *)((char *)base + 0x164))->Allocate(0x30);
-        if (mem) {
+        void *var69 = GetGameResources();
+        void *var70 = ((SafeAllocator *)((char *)var69 + 0x164))->Allocate(0x30);
+        if (var70) {
             func_02012fe4();
-            struct Msg8fExt { short cmd, pad2; int f4, f8, fc, f10; int *f14; } *m = (struct Msg8fExt *)msg;
-            char *n = (char *)mem;
-            *(short *)(n + 0) = (short)m->f4;
-            *(int *)(n + 0x14) = m->f8;
-            *(int *)(n + 0x1c) = m->f10;
-            *(int *)(n + 0x18) = m->fc;
-            int *p14 = m->f14;
-            *(int *)(n + 0x20) = p14[1];
-            *(int *)(n + 0x28) = p14[3];
-            *(int *)(n + 0x24) = p14[2];
-            *(short *)(n + 2) = (short)(4096.0f * (3.14159274f * (float)p14[4] / 180.0f));
-            short angle = *(short *)(n + 2);
-            int lim = 0x6488;
-            if (angle > lim)
-                *(short *)(n + 2) -= lim;
-            else if (angle < 0)
-                *(short *)(n + 2) = angle + 0x6488;
+            struct Struct_02061c04_9 { short unknown_0_, unknown_2_; int unknown_4_, unknown_8_, unknown_c_, unknown_10_; int *unknown_14_; } *var71 = (struct Struct_02061c04_9 *)arg1;
+            char *var72 = (char *)var70;
+            *(short *)(var72 + 0) = (short)var71->unknown_4_;
+            *(int *)(var72 + 0x14) = var71->unknown_8_;
+            *(int *)(var72 + 0x1c) = var71->unknown_10_;
+            *(int *)(var72 + 0x18) = var71->unknown_c_;
+            int *var73 = var71->unknown_14_;
+            *(int *)(var72 + 0x20) = var73[1];
+            *(int *)(var72 + 0x28) = var73[3];
+            *(int *)(var72 + 0x24) = var73[2];
+            *(short *)(var72 + 2) = (short)(4096.0f * (3.14159274f * (float)var73[4] / 180.0f));
+            short var74 = *(short *)(var72 + 2);
+            int var75 = 0x6488;
+            if (var74 > var75)
+                *(short *)(var72 + 2) -= var75;
+            else if (var74 < 0)
+                *(short *)(var72 + 2) = var74 + 0x6488;
 
-                mid.x = (*(int *)(n + 0x14) + *(int *)(n + 0x20)) >> 1;
-            mid.y = (*(int *)(n + 0x18) + *(int *)(n + 0x24)) >> 1;
-            mid.z = (*(int *)(n + 0x1c) + *(int *)(n + 0x28)) >> 1;
-            *(struct Vec3W *)&midOut = *(struct Vec3W *)&mid;
-            *(int *)(n + 4) = midOut.x;
-            *(int *)(n + 8) = midOut.y;
-            *(int *)(n + 0xc) = midOut.z;
+                var15.unknown_0_ = (*(int *)(var72 + 0x14) + *(int *)(var72 + 0x20)) >> 1;
+            var15.unknown_4_ = (*(int *)(var72 + 0x18) + *(int *)(var72 + 0x24)) >> 1;
+            var15.unknown_8_ = (*(int *)(var72 + 0x1c) + *(int *)(var72 + 0x28)) >> 1;
+            *(struct Struct_02061c04_29 *)&var13 = *(struct Struct_02061c04_29 *)&var15;
+            *(int *)(var72 + 4) = var13.unknown_0_;
+            *(int *)(var72 + 8) = var13.unknown_4_;
+            *(int *)(var72 + 0xc) = var13.unknown_8_;
 
-            diff.x = *(int *)(n + 0x14) - *(int *)(n + 0x20);
-            diff.y = *(int *)(n + 0x18) - *(int *)(n + 0x24);
-            diff.z = *(int *)(n + 0x1c) - *(int *)(n + 0x28);
-            *(struct Vec3W *)&half = *(struct Vec3W *)&diff;
-            *(struct Vec3W *)&halfOut = *(struct Vec3W *)&half;
-            int hx = halfOut.x / 2;
-            int hy = halfOut.y / 2;
-            int sqy = FxMul(hy, hy);
-            int sqx = FxMul(hx, hx);
-            *(int *)(n + 0x10) = sqx + sqy;
-            *(int *)(n + 0x2c) = 0;
+            var16.unknown_0_ = *(int *)(var72 + 0x14) - *(int *)(var72 + 0x20);
+            var16.unknown_4_ = *(int *)(var72 + 0x18) - *(int *)(var72 + 0x24);
+            var16.unknown_8_ = *(int *)(var72 + 0x1c) - *(int *)(var72 + 0x28);
+            *(struct Struct_02061c04_29 *)&var14 = *(struct Struct_02061c04_29 *)&var16;
+            *(struct Struct_02061c04_29 *)&var3 = *(struct Struct_02061c04_29 *)&var14;
+            int var76 = var3.unknown_0_ / 2;
+            int var77 = var3.unknown_4_ / 2;
+            int var78 = inline_02061c04_5(var77, var77);
+            int var79 = inline_02061c04_5(var76, var76);
+            *(int *)(var72 + 0x10) = var79 + var78;
+            *(int *)(var72 + 0x2c) = 0;
 
-            func_02064af8((Obj64af8*)obj, (Node64af8*)mem);
+            func_02064af8((Struct_02061c04_28*)arg0, (Struct_02061c04_27*)var70);
         }
         return 1;
     }
     case 0x90: {
-        void *ctx = func_0202ae18();
-        if (func_0202c540(ctx))
+        void *var80 = func_0202ae18();
+        if (func_0202c540(var80))
             return 1;
-        int isTwo = func_0206e120((PackedNibbleArray0206e120*)obj, msg->p1) == 2;
-        if (!isTwo)
+        int var81 = func_0206e120((Struct_0205faf4_3*)arg0, arg1->unknown_2_) == 2;
+        if (!var81)
             return 1;
-        unsigned int *p = (unsigned int *)((char *)func_02094d6c() + 4);
-        while (p) {
-            union SlotEntry *e = (union SlotEntry *)p;
-            if (e->b.id == (unsigned short)msg->p1) {
-                e->b.slot = msg->p2;
+        unsigned int *var82 = (unsigned int *)((char *)func_02094d6c() + 4);
+        while (var82) {
+            union Struct_02061c04_31 *var83 = (union Struct_02061c04_31 *)var82;
+            if (var83->unknown1_0_.unknown_0_0_ == (unsigned short)arg1->unknown_2_) {
+                var83->unknown1_0_.unknown_1_3_ = arg1->unknown_4_;
                 break;
             }
-            p = (unsigned int *)((char *)p + 0x10);
+            var82 = (unsigned int *)((char *)var82 + 0x10);
         }
         return 1;
     }
     case 0x91:
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     case 0x92:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x776, 1);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x776, 1);
         return 1;
     case 0x93:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x776, 0);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x776, 0);
         return 1;
     case 0x94: {
-        GameState *battle = GameState::GetInstance();
-        lr.fb.h4 = func_0201079c((char*)battle);
-        lr.fb.h6 = func_020107d0((char*)battle);
-        lr.fb.h8 = func_02010804((char*)battle);
-        msg->p1 = 5;
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        GameState *var84 = GameState::GetInstance();
+        var17.unknown_14_.unknown_4_ = func_0201079c((char*)var84);
+        var17.unknown_14_.unknown_6_ = func_020107d0((char*)var84);
+        var17.unknown_14_.unknown_8_ = func_02010804((char*)var84);
+        arg1->unknown_2_ = 5;
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     }
     case 0x95: {
-        void *p0 = func_02012fe4();
-        if (!p0)
+        void *var85 = func_02012fe4();
+        if (!var85)
             return 0;
-        void *entry = func_02019508((Base02019508*)p0, msg->p1, msg->p2);
-        if (!entry) {
-            func_0206ea8c(obj, (unsigned char)msg->p1, (short)(msg->p2 + 0x80), 1);
-            func_0206ea8c(obj, (unsigned char)msg->p1, (short)msg->p2, 0);
+        void *var86 = func_02019508((Struct_02019508_3*)var85, arg1->unknown_2_, arg1->unknown_4_);
+        if (!var86) {
+            func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)(arg1->unknown_4_ + 0x80), 1);
+            func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)arg1->unknown_4_, 0);
             return 1;
         }
-        func_02013380((Struct02013380*)entry, msg->p1, 0);
+        func_02013380((Struct_02013380*)var86, arg1->unknown_2_, 0);
         return 1;
     }
     case 0x96: {
-        void *p0 = func_02012fe4();
-        if (!p0)
+        void *var87 = func_02012fe4();
+        if (!var87)
             return 0;
-        void *entry = func_02019508((Base02019508*)p0, msg->p1, msg->p2);
-        if (!entry) {
-            func_0206ea8c(obj, (unsigned char)msg->p1, (short)(msg->p2 + 0x80), 0);
-            func_0206ea8c(obj, (unsigned char)msg->p1, (short)msg->p2, 1);
+        void *var88 = func_02019508((Struct_02019508_3*)var87, arg1->unknown_2_, arg1->unknown_4_);
+        if (!var88) {
+            func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)(arg1->unknown_4_ + 0x80), 0);
+            func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)arg1->unknown_4_, 1);
             return 1;
         }
-        func_02013380((Struct02013380*)entry, msg->p1, 1);
+        func_02013380((Struct_02013380*)var88, arg1->unknown_2_, 1);
         return 1;
     }
     case 0x97: {
-        void *p = GetGameResources();
-        void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x940, 0xb60));
-        func_ov017_021bdbf0((unsigned char*)node);
-        *((unsigned char *)node + 0x11) = msg->p1;
-        func_020469f8((HeadList020469f8*)list, (HeadNode020469f8*)node);
+        void *var89 = GetGameResources();
+        void *var90 = *(void **)((char *)var89 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        void *var91 = *(void **)((char *)var89 + 0x3000 + REGION_VALUE(0x940, 0xb60));
+        func_ov017_021bdbf0((unsigned char*)var91);
+        *((unsigned char *)var91 + 0x11) = arg1->unknown_2_;
+        func_020469f8((Struct_020469f8*)var90, (Struct_020469f8_2*)var91);
         return 1;
     }
     case 0x9b: {
-        m9b.cmd = 0x68;
-        m9b.p1 = msg->p2;
-        func_02061c04(obj, &m9b, param3);
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        var4.unknown_0_ = 0x68;
+        var4.unknown_2_ = arg1->unknown_4_;
+        func_02061c04(arg0, &var4, arg2);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     }
     case 0x9c: {
-        m9c.cmd = 0x7f;
-        m9c.p1 = msg->p1;
-        func_02061c04(obj, &m9c, param3);
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        var5.unknown_0_ = 0x7f;
+        var5.unknown_2_ = arg1->unknown_2_;
+        func_02061c04(arg0, &var5, arg2);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     }
     case 0x9d: {
-        switch ((short)msg->p2) {
-        case 0: m9d.cmd = 0x7d; break;
-        case 2: m9d.cmd = 0x7f; break;
-        case 3: m9d.cmd = 0x81; break;
+        switch ((short)arg1->unknown_4_) {
+        case 0: var6.unknown_0_ = 0x7d; break;
+        case 2: var6.unknown_0_ = 0x7f; break;
+        case 3: var6.unknown_0_ = 0x81; break;
         default: return 0;
         }
-        m9d.p1 = msg->p1;
-        func_02061c04(obj, &m9d, param3);
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        var6.unknown_2_ = arg1->unknown_2_;
+        func_02061c04(arg0, &var6, arg2);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     }
     case 0x9e: {
-        m9e.cmd = 0x75;
-        m9e.p1 = msg->p1;
-        m9e.p2 = msg->p2;
-        return func_02061c04(obj, &m9e, param3);
+        var7.unknown_0_ = 0x75;
+        var7.unknown_2_ = arg1->unknown_2_;
+        var7.unknown_4_ = arg1->unknown_4_;
+        return func_02061c04(arg0, &var7, arg2);
     }
     case 0x9f: {
-        m9f.cmd = 0x74;
-        m9f.p1 = msg->p1;
-        m9f.p2 = msg->p2;
-        return func_02061c04(obj, &m9f, param3);
+        var8.unknown_0_ = 0x74;
+        var8.unknown_2_ = arg1->unknown_2_;
+        var8.unknown_4_ = arg1->unknown_4_;
+        return func_02061c04(arg0, &var8, arg2);
     }
     case 0xa0:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x113f, 1);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x113f, 1);
         return 1;
     case 0xa1: {
-        lr.fb.flags &= ~1;
-        lr.fb.opt = -1;
-        lr.fb.flags &= ~2;
-        lr.fb.flags &= ~0xfffcu;
-        lr.p1 = msg->p1;
-        if (func_020ac2d4(0, &lr.p1, &lr.fb.opt, 1)) {
-            lr.fb.flags |= 2;
-            func_020ac104(&data_0211e33c, &lr.fb.opt, 1);
+        var17.unknown_14_.unknown_2_ &= ~1;
+        var17.unknown_14_.unknown_0_ = -1;
+        var17.unknown_14_.unknown_2_ &= ~2;
+        var17.unknown_14_.unknown_2_ &= ~0xfffcu;
+        var17.unknown_0_ = arg1->unknown_2_;
+        if (func_020ac2d4(0, &var17.unknown_0_, &var17.unknown_14_.unknown_0_, 1)) {
+            var17.unknown_14_.unknown_2_ |= 2;
+            func_020ac104(&data_0211e33c, &var17.unknown_14_.unknown_0_, 1);
         }
         return 1;
     }
     case 0xa2:
-        if (msg->p1 != 0)
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113b, 0);
+        if (arg1->unknown_2_ != 0)
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113b, 0);
         else
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113b, 1);
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113b, 1);
         return 1;
     case 0xc0: {
-        GameState *battle = GameState::GetInstance();
-        void *p0 = func_02012fe4();
+        GameState *var92 = GameState::GetInstance();
+        void *var93 = func_02012fe4();
         func_0202ae18();
-        c0Local.f0 = 0;
-        c0Local.f1 = 0;
-        c0Local.f2 = 0;
-        c0Local.f3 = 0;
-        c0Local.f4 = 0;
-        c0Local.f5 = 0;
-        c0Local.f7 = 0;
-        c0Local.f6 = -1;
-        c0Local.f0 = *(unsigned short *)p0;
-        c0Local.f1 = msg->p1;
-        c0Local.f2 = 0;
-        c0Local.f4 = 1;
-        c0Local.f3 = -1;
-        c0Local.f7 = battle->GetDayTimer();
-        func_ov017_021cd6d8(&c0Local);
+        var9.unknown_0_ = 0;
+        var9.unknown_2_ = 0;
+        var9.unknown_4_ = 0;
+        var9.unknown_6_ = 0;
+        var9.unknown_8_ = 0;
+        var9.unknown_a_ = 0;
+        var9.unknown_10_ = 0;
+        var9.unknown_c_ = -1;
+        var9.unknown_0_ = *(unsigned short *)var93;
+        var9.unknown_2_ = arg1->unknown_2_;
+        var9.unknown_4_ = 0;
+        var9.unknown_8_ = 1;
+        var9.unknown_6_ = -1;
+        var9.unknown_10_ = var92->GetDayTimer();
+        func_ov017_021cd6d8(&var9);
         return 1;
     }
     case 0xa4: {
-        void *p = GetGameResources();
-        func_ov017_021c1a98(p, 0);
+        void *var94 = GetGameResources();
+        func_ov017_021c1a98(var94, 0);
         return 1;
     }
     case 0xa5: {
-        GameState *battle = GameState::GetInstance();
-        void *combatant = battle->GetGameObjectByIndex(0);
-        func_02083acc((unsigned char*)(*(void **)((char *)combatant + REGION_VALUE(0x144, 0x150))), msg->p1);
+        GameState *var95 = GameState::GetInstance();
+        void *var96 = var95->GetGameObjectByIndex(0);
+        func_02083acc((unsigned char*)(*(void **)((char *)var96 + REGION_VALUE(0x144, 0x150))), arg1->unknown_2_);
         return 1;
     }
     case 0xa6: {
-        GameState *battle = GameState::GetInstance();
-        void *combatant = battle->GetGameObjectByIndex(0);
-        func_02083b60((unsigned char*)(*(void **)((char *)combatant + REGION_VALUE(0x144, 0x150))), msg->p1);
+        GameState *var97 = GameState::GetInstance();
+        void *var98 = var97->GetGameObjectByIndex(0);
+        func_02083b60((unsigned char*)(*(void **)((char *)var98 + REGION_VALUE(0x144, 0x150))), arg1->unknown_2_);
         return 1;
     }
     case 0xa7: {
-        unsigned char b = ((unsigned char *)msg)[2];
-        if (b == 0)
-            func_020ae6e8(((unsigned char *)msg)[4]);
-        else if (b == 6)
-            func_020ae730(((unsigned char *)msg)[4]);
+        unsigned char var99 = ((unsigned char *)arg1)[2];
+        if (var99 == 0)
+            func_020ae6e8(((unsigned char *)arg1)[4]);
+        else if (var99 == 6)
+            func_020ae730(((unsigned char *)arg1)[4]);
         return 1;
     }
     case 0xa8:
         return 1;
     case 0xa9:
-        if (((unsigned char *)msg)[2] == 0)
-            func_020ae7d4(((unsigned char *)msg)[4]);
+        if (((unsigned char *)arg1)[2] == 0)
+            func_020ae7d4(((unsigned char *)arg1)[4]);
         return 1;
     case 0xaa:
-        func_020ae880((unsigned char)msg->p1);
+        func_020ae880((unsigned char)arg1->unknown_2_);
         return 1;
     case 0xab:
         return 1;
@@ -856,60 +856,60 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0xae:
         return 1;
     case 0xaf:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x1136, 0);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x1136, 0);
         return 1;
     case 0xb0: {
-        void *global = func_02094d6c();
-        BitFlag17Entry *entry = (BitFlag17Entry *)func_02096134((FindEntryById02096134Table *)global, msg->p1);
-        if (entry)
-            entry->flag17 = msg->p2;
+        void *var100 = func_02094d6c();
+        Struct_02061c04_14 *var101 = (Struct_02061c04_14 *)func_02096134((Struct_0205faf4_7 *)var100, arg1->unknown_2_);
+        if (var101)
+            var101->unknown_2_1_ = arg1->unknown_4_;
         return 1;
     }
     case 0xb1: {
-        GameState *battle = GameState::GetInstance();
-        battle->SetTimeOfDay((TimeOfDay)msg->p2);
-        LightingManager *d = LightingManager::GetInstance();
-        d->dayNightTimer_ = battle->GetDayTimer();
-        d->timeOfDayIndex_ = battle->GetTimeOfDay();
-        battle->SetDayTimerRunning(msg->p1 == 0);
+        GameState *var102 = GameState::GetInstance();
+        var102->SetTimeOfDay((TimeOfDay)arg1->unknown_4_);
+        LightingManager *var103 = LightingManager::GetInstance();
+        var103->dayNightTimer_ = var102->GetDayTimer();
+        var103->timeOfDayIndex_ = var102->GetTimeOfDay();
+        var102->SetDayTimerRunning(arg1->unknown_2_ == 0);
         return 1;
     }
     case 0xb2: {
-        void *base = GetGameResources();
-        void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x948, 0xb68));
+        void *var104 = GetGameResources();
+        void *var105 = *(void **)((char *)var104 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        void *var106 = *(void **)((char *)var104 + 0x3000 + REGION_VALUE(0x948, 0xb68));
         func_020e1154((void *)0xbb8);
-        func_ov017_021a9bc4(node, ((unsigned char *)msg)[2]);
-        func_ov017_021a9a9c(node, ((unsigned char *)msg)[4], ((unsigned char *)msg)[5], msg->p3,
-                            ((unsigned char *)msg)[8]);
-        func_020469b4((TailList020469b4 *)list, (TailNode020469b4 *)node);
+        func_ov017_021a9bc4(var106, ((unsigned char *)arg1)[2]);
+        func_ov017_021a9a9c(var106, ((unsigned char *)arg1)[4], ((unsigned char *)arg1)[5], arg1->unknown_6_,
+                            ((unsigned char *)arg1)[8]);
+        func_020469b4((Struct_0201bdac_2 *)var105, (Struct_0201bdac *)var106);
         return 1;
     }
     case 0xb3: {
-        GameState *battle = GameState::GetInstance();
-        void *p = func_02010828((GameState*)battle);
-        if (msg->p1 != 0) {
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113c, 1);
-            *(unsigned int *)((char *)p + 0x2c94) = msg->p2;
+        GameState *var107 = GameState::GetInstance();
+        void *var108 = func_02010828((GameState*)var107);
+        if (arg1->unknown_2_ != 0) {
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113c, 1);
+            *(unsigned int *)((char *)var108 + 0x2c94) = arg1->unknown_4_;
         } else {
-            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113c, 0);
-            *(unsigned int *)((char *)p + 0x2c94) = *(unsigned int *)((char *)battle + REGION_VALUE(0x7c34, 0x7e74));
-            void *ctx = func_0202ae18();
-            if (func_0202b7d8((int *)ctx) && !func_0202c1a4((SearchStruct0202c1a4 *)ctx))
+            func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x113c, 0);
+            *(unsigned int *)((char *)var108 + 0x2c94) = *(unsigned int *)((char *)var107 + REGION_VALUE(0x7c34, 0x7e74));
+            void *var109 = func_0202ae18();
+            if (func_0202b7d8((int *)var109) && !func_0202c1a4((Struct_0202c1a4 *)var109))
                 func_ov017_021d0d58();
         }
         return 1;
     }
     case 0xb4: {
-        void *base = GetGameResources();
-        void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        if (!func_02046b60((ListHead02046b60*)list, 0xa))
+        void *var110 = GetGameResources();
+        void *var111 = *(void **)((char *)var110 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        if (!func_02046b60((Struct_02038598_5*)var111, 0xa))
             return 1;
-        void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x508, 0x718));
-        void *r = func_ov017_021b8478(node);
-        if (!func_020a3694((int*)r))
+        void *var112 = *(void **)((char *)var110 + 0x3000 + REGION_VALUE(0x508, 0x718));
+        void *var113 = func_ov017_021b8478(var112);
+        if (!func_020a3694((int*)var113))
             return 1;
-        *(short *)((char *)r + 0x22) = (*(int *)((char *)r + 0xc) == msg->p1) ? msg->p2 : 0;
+        *(short *)((char *)var113 + 0x22) = (*(int *)((char *)var113 + 0xc) == arg1->unknown_2_) ? arg1->unknown_4_ : 0;
         return 1;
     }
     case 0xb5:
@@ -919,45 +919,45 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0xb7:
         return 1;
     case 0xb8: {
-        void *base = GetGameResources();
-        void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x968, 0xb88));
-        func_ov017_021aa16c((Obj021aa16c*)node);
-        func_020469f8((HeadList020469f8*)list, (HeadNode020469f8*)node);
+        void *var114 = GetGameResources();
+        void *var115 = *(void **)((char *)var114 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        void *var116 = *(void **)((char *)var114 + 0x3000 + REGION_VALUE(0x968, 0xb88));
+        func_ov017_021aa16c((Struct_02061c04_8*)var116);
+        func_020469f8((Struct_020469f8*)var115, (Struct_020469f8_2*)var116);
         return 1;
     }
     case 0xb9: {
-        void *base = GetGameResources();
-        func_ov017_021a6b9c(base, 0);
+        void *var117 = GetGameResources();
+        func_ov017_021a6b9c(var117, 0);
         return 1;
     }
     case 0xba:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x1138, msg->p1);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x1138, arg1->unknown_2_);
         return 1;
     case 0xbb:
-        *(unsigned short *)((char *)obj + 0x2ca) = 0;
+        *(unsigned short *)((char *)arg0 + 0x2ca) = 0;
         return 1;
     case 0xbc: {
-        void *p = func_02064904(obj, msg->p1, msg->p2);
-        if (p) {
-            switch (msg->p4) {
+        void *var118 = func_02064904(arg0, arg1->unknown_2_, arg1->unknown_4_);
+        if (var118) {
+            switch (arg1->unknown_8_) {
             case 0:
-                *(unsigned short *)p = msg->p3;
+                *(unsigned short *)var118 = arg1->unknown_6_;
                 break;
             case 1: {
-                int v = *(unsigned short *)p + msg->p3;
-                if (v >= 0xffff)
-                    *(unsigned short *)p = 0xffff;
+                int var119 = *(unsigned short *)var118 + arg1->unknown_6_;
+                if (var119 >= 0xffff)
+                    *(unsigned short *)var118 = 0xffff;
                 else
-                    *(unsigned short *)p = v;
+                    *(unsigned short *)var118 = var119;
                 break;
             }
             case 2: {
-                int v = *(unsigned short *)p - msg->p3;
-                if (v < 0)
-                    *(unsigned short *)p = 0;
+                int var120 = *(unsigned short *)var118 - arg1->unknown_6_;
+                if (var120 < 0)
+                    *(unsigned short *)var118 = 0;
                 else
-                    *(unsigned short *)p = v;
+                    *(unsigned short *)var118 = var120;
                 break;
             }
             default:
@@ -967,63 +967,63 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xbd: {
-        void *base = GetGameResources();
-        void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x50c, 0x71c));
-        func_ov017_021a5568(node);
-        func_ov017_021a55a4((unsigned char*)node, 1, ((unsigned char *)msg)[2]);
-        *(unsigned char *)((char *)node + 0x24) = 0;
-        *(int *)((char *)node + 0x28) = 0;
-        *(int *)((char *)node + 0x2c) = -1;
-        func_020469b4((TailList020469b4 *)list, (TailNode020469b4 *)node);
+        void *var121 = GetGameResources();
+        void *var122 = *(void **)((char *)var121 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        void *var123 = *(void **)((char *)var121 + 0x3000 + REGION_VALUE(0x50c, 0x71c));
+        func_ov017_021a5568(var123);
+        func_ov017_021a55a4((unsigned char*)var123, 1, ((unsigned char *)arg1)[2]);
+        *(unsigned char *)((char *)var123 + 0x24) = 0;
+        *(int *)((char *)var123 + 0x28) = 0;
+        *(int *)((char *)var123 + 0x2c) = -1;
+        func_020469b4((Struct_0201bdac_2 *)var122, (Struct_0201bdac *)var123);
         return 1;
     }
     case 0xbe: {
-        if (!func_02096134((FindEntryById02096134Table *)func_02094d6c(), msg->p1))
+        if (!func_02096134((Struct_0205faf4_7 *)func_02094d6c(), arg1->unknown_2_))
             break;
-        void *p = func_02064904(obj, msg->p1, msg->p2);
-        if (!p)
+        void *var124 = func_02064904(arg0, arg1->unknown_2_, arg1->unknown_4_);
+        if (!var124)
             return 0;
-        *(unsigned short *)p = NextRandomBetween((Random*)GetBTRandom(), msg->p3, msg->p4);
+        *(unsigned short *)var124 = NextRandomBetween((Random*)GetBTRandom(), arg1->unknown_6_, arg1->unknown_8_);
         return 1;
     }
     case 0xbf: {
-        unsigned short count = 14;
-        int n = 14;
-        unsigned short *dst = deck;
-        unsigned short *src = (unsigned short *)data_020e7de8;
+        unsigned short var125 = 14;
+        int var126 = 14;
+        unsigned short *var127 = var10;
+        unsigned short *var128 = (unsigned short *)data_020e7de8;
         do {
-            *dst = *src;
-            ++src;
-            ++dst;
-        } while (--n);
-        void *entry = func_02096134((FindEntryById02096134Table *)func_02094d6c(), msg->p1);
-        if (!entry)
+            *var127 = *var128;
+            ++var128;
+            ++var127;
+        } while (--var126);
+        void *var129 = func_02096134((Struct_0205faf4_7 *)func_02094d6c(), arg1->unknown_2_);
+        if (!var129)
             break;
-        for (int j = 0; j < 5; j++) {
-            int idx = NextRandomMax((Random*)GetBTRandom(), count);
-            *(short *)((char *)entry + j * 2 + 4) = deck[idx];
-            if (idx < count - 1)
-                memmove(&deck[idx], &deck[idx + 1], count - (idx + 1));
-            count--;
-            deck[count] = 0;
+        for (int var130 = 0; var130 < 5; var130++) {
+            int var131 = NextRandomMax((Random*)GetBTRandom(), var125);
+            *(short *)((char *)var129 + var130 * 2 + 4) = var10[var131];
+            if (var131 < var125 - 1)
+                memmove(&var10[var131], &var10[var131 + 1], var125 - (var131 + 1));
+            var125--;
+            var10[var125] = 0;
         }
         return 1;
     }
     case 0xc1: {
-        GameState *battle = GameState::GetInstance();
-        void *rec = func_020100bc(battle);
-        if (msg->p1 != 0) {
-            func_0202ea10((unsigned char*)rec, 0x333, 1);
-            func_0202ea3c((unsigned char*)rec);
+        GameState *var132 = GameState::GetInstance();
+        void *var133 = func_020100bc(var132);
+        if (arg1->unknown_2_ != 0) {
+            func_0202ea10((unsigned char*)var133, 0x333, 1);
+            func_0202ea3c((unsigned char*)var133);
         } else {
-            func_0202ea20((FlagsAndWords0202ea20*)rec);
+            func_0202ea20((Struct_0202ea20*)var133);
         }
         return 1;
     }
     case 0xc2: {
-        void *d = func_0208a9b4();
-        *(unsigned char *)((char *)d + 0xa8) = msg->p1 * 10;
+        void *var134 = func_0208a9b4();
+        *(unsigned char *)((char *)var134 + 0xa8) = arg1->unknown_2_ * 10;
         return 1;
     }
     case 0xc3:
@@ -1032,119 +1032,119 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0xc4:
         return 1;
     case 0xc5: {
-        GameState *battle = GameState::GetInstance();
-        void *ctx = func_0202ae18();
-        int v = func_0202ba00((int *)ctx);
-        int byte = *((unsigned char *)ctx + 0x1000 + 0xd);
-        int flag = 0;
-        if ((v == 5 && byte > 1) || v == 6)
-            flag = 1;
-        func_020ac4f8(flag);
-        int cur = func_0201081c((char*)battle);
-        int newVal = msg->p1;
-        int a = cur;
-        if (cur >= 0xd && cur <= 0xd) a = cur;
-        else if (cur >= 0xe && cur <= 0xf) a = cur;
-        else if (cur >= 0x10 && cur <= 0x11) a = cur;
-        else if (cur >= 0x12 && cur <= 0x18) a = cur;
-        else if (cur >= 0x19 && cur <= 0x1b) a = cur;
-        else if (cur >= 0x1c && cur <= 0x21) a = cur;
-        else if (cur >= 0x22 && cur <= 0x26) a = cur;
-        else if (cur >= 0x28 && cur <= 0x5c) a = cur;
-        else if (cur >= 0x5d && cur <= 0x5d) a = cur;
-        else if (cur >= 0x5e && cur <= 0x64) a = cur;
-        else if (cur >= 0x65 && cur <= 0x68) a = cur;
-        else if (cur >= 0x69 && cur <= 0x6b) a = cur;
-        else if (cur >= 0x6c && cur <= 0x71) a = cur;
-        else if (cur >= 0x7b && cur <= 0x7c) a = cur;
-        else if (cur >= 0x7d && cur <= 0x80) a = cur;
-        else if (cur >= 0x81 && cur <= 0x85) a = cur;
-        else if (cur >= 0x86 && cur <= 0x89) a = cur;
-        else if (cur >= 0x8a && cur <= 0x8c) a = cur;
-        else if (cur >= 0x8d && cur <= 0x92) a = cur;
-        else if (cur >= 0x94 && cur <= 0x94) a = cur;
-        int b = newVal;
-        if (newVal >= 0xd && newVal <= 0xd) b = newVal;
-        else if (newVal >= 0xe && newVal <= 0xf) b = newVal;
-        else if (newVal >= 0x10 && newVal <= 0x11) b = newVal;
-        else if (newVal >= 0x12 && newVal <= 0x18) b = newVal;
-        else if (newVal >= 0x19 && newVal <= 0x1b) b = newVal;
-        else if (newVal >= 0x1c && newVal <= 0x21) b = newVal;
-        else if (newVal >= 0x22 && newVal <= 0x26) b = newVal;
-        else if (newVal >= 0x28 && newVal <= 0x5c) b = newVal;
-        else if (newVal >= 0x5d && newVal <= 0x5d) b = newVal;
-        else if (newVal >= 0x5e && newVal <= 0x64) b = newVal;
-        else if (newVal >= 0x65 && newVal <= 0x68) b = newVal;
-        else if (newVal >= 0x69 && newVal <= 0x6b) b = newVal;
-        else if (newVal >= 0x6c && newVal <= 0x71) b = newVal;
-        else if (newVal >= 0x7b && newVal <= 0x7c) b = newVal;
-        else if (newVal >= 0x7d && newVal <= 0x80) b = newVal;
-        else if (newVal >= 0x81 && newVal <= 0x85) b = newVal;
-        else if (newVal >= 0x86 && newVal <= 0x89) b = newVal;
-        else if (newVal >= 0x8a && newVal <= 0x8c) b = newVal;
-        else if (newVal >= 0x8d && newVal <= 0x92) b = newVal;
-        else if (newVal >= 0x94 && newVal <= 0x94) b = newVal;
-        if (a != b) {
-            memset(SubB(SubA(battle)) + 0xa4, 0, 0x28);
+        GameState *var135 = GameState::GetInstance();
+        void *var136 = func_0202ae18();
+        int var137 = func_0202ba00((int *)var136);
+        int var138 = *((unsigned char *)var136 + 0x1000 + 0xd);
+        int var139 = 0;
+        if ((var137 == 5 && var138 > 1) || var137 == 6)
+            var139 = 1;
+        func_020ac4f8(var139);
+        int var140 = func_0201081c((char*)var135);
+        int var141 = arg1->unknown_2_;
+        int var142 = var140;
+        if (var140 >= 0xd && var140 <= 0xd) var142 = var140;
+        else if (var140 >= 0xe && var140 <= 0xf) var142 = var140;
+        else if (var140 >= 0x10 && var140 <= 0x11) var142 = var140;
+        else if (var140 >= 0x12 && var140 <= 0x18) var142 = var140;
+        else if (var140 >= 0x19 && var140 <= 0x1b) var142 = var140;
+        else if (var140 >= 0x1c && var140 <= 0x21) var142 = var140;
+        else if (var140 >= 0x22 && var140 <= 0x26) var142 = var140;
+        else if (var140 >= 0x28 && var140 <= 0x5c) var142 = var140;
+        else if (var140 >= 0x5d && var140 <= 0x5d) var142 = var140;
+        else if (var140 >= 0x5e && var140 <= 0x64) var142 = var140;
+        else if (var140 >= 0x65 && var140 <= 0x68) var142 = var140;
+        else if (var140 >= 0x69 && var140 <= 0x6b) var142 = var140;
+        else if (var140 >= 0x6c && var140 <= 0x71) var142 = var140;
+        else if (var140 >= 0x7b && var140 <= 0x7c) var142 = var140;
+        else if (var140 >= 0x7d && var140 <= 0x80) var142 = var140;
+        else if (var140 >= 0x81 && var140 <= 0x85) var142 = var140;
+        else if (var140 >= 0x86 && var140 <= 0x89) var142 = var140;
+        else if (var140 >= 0x8a && var140 <= 0x8c) var142 = var140;
+        else if (var140 >= 0x8d && var140 <= 0x92) var142 = var140;
+        else if (var140 >= 0x94 && var140 <= 0x94) var142 = var140;
+        int var143 = var141;
+        if (var141 >= 0xd && var141 <= 0xd) var143 = var141;
+        else if (var141 >= 0xe && var141 <= 0xf) var143 = var141;
+        else if (var141 >= 0x10 && var141 <= 0x11) var143 = var141;
+        else if (var141 >= 0x12 && var141 <= 0x18) var143 = var141;
+        else if (var141 >= 0x19 && var141 <= 0x1b) var143 = var141;
+        else if (var141 >= 0x1c && var141 <= 0x21) var143 = var141;
+        else if (var141 >= 0x22 && var141 <= 0x26) var143 = var141;
+        else if (var141 >= 0x28 && var141 <= 0x5c) var143 = var141;
+        else if (var141 >= 0x5d && var141 <= 0x5d) var143 = var141;
+        else if (var141 >= 0x5e && var141 <= 0x64) var143 = var141;
+        else if (var141 >= 0x65 && var141 <= 0x68) var143 = var141;
+        else if (var141 >= 0x69 && var141 <= 0x6b) var143 = var141;
+        else if (var141 >= 0x6c && var141 <= 0x71) var143 = var141;
+        else if (var141 >= 0x7b && var141 <= 0x7c) var143 = var141;
+        else if (var141 >= 0x7d && var141 <= 0x80) var143 = var141;
+        else if (var141 >= 0x81 && var141 <= 0x85) var143 = var141;
+        else if (var141 >= 0x86 && var141 <= 0x89) var143 = var141;
+        else if (var141 >= 0x8a && var141 <= 0x8c) var143 = var141;
+        else if (var141 >= 0x8d && var141 <= 0x92) var143 = var141;
+        else if (var141 >= 0x94 && var141 <= 0x94) var143 = var141;
+        if (var142 != var143) {
+            memset(inline_02061c04_2(inline_02061c04(var135)) + 0xa4, 0, 0x28);
         }
-        func_02010810((char*)battle, msg->p1);
+        func_02010810((char*)var135, arg1->unknown_2_);
         return 1;
     }
     case 0xc6: {
-        void *ctx = func_0202ae18();
+        void *var144 = func_0202ae18();
         func_0202c288();
-        int lvl = *((unsigned char *)ctx + 0x100d);
-        if (lvl <= 1)
+        int var145 = *((unsigned char *)var144 + 0x100d);
+        if (var145 <= 1)
             return 0;
-        void *base = GetGameResources();
-        void *rec = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x500, 0x710));
-        func_ov017_021b994c((Obj_021b994c*)rec);
-        *((unsigned char *)rec + 0x130) = 1;
-        GameState *battle = GameState::GetInstance();
-        int v = *(int *)((char *)battle + 0x5000 + REGION_VALUE(0x4c4, 0x724));
-        func_ov017_021d079c(4, 0, (unsigned short)v);
-        *(int *)((char *)rec + 0x12c) = v;
+        void *var146 = GetGameResources();
+        void *var147 = *(void **)((char *)var146 + 0x3000 + REGION_VALUE(0x500, 0x710));
+        func_ov017_021b994c((Struct_02061c04_11*)var147);
+        *((unsigned char *)var147 + 0x130) = 1;
+        GameState *var148 = GameState::GetInstance();
+        int var149 = *(int *)((char *)var148 + 0x5000 + REGION_VALUE(0x4c4, 0x724));
+        func_ov017_021d079c(4, 0, (unsigned short)var149);
+        *(int *)((char *)var147 + 0x12c) = var149;
         return 1;
     }
     case 0xc7:
-        func_020ae990(msg->p1 & 0xff);
+        func_020ae990(arg1->unknown_2_ & 0xff);
         return 1;
     case 0xc8:
         return 1;
     case 0xc9: {
-        unsigned char b = ((unsigned char *)msg)[2];
-        if (b <= 7)
-            func_020aea40(b, ((unsigned char *)msg)[4]);
+        unsigned char var150 = ((unsigned char *)arg1)[2];
+        if (var150 <= 7)
+            func_020aea40(var150, ((unsigned char *)arg1)[4]);
         return 1;
     }
     case 0xca:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x1198, 1);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0x1198, 1);
         return 1;
     case 0xcb: {
-        GameState *battle = GameState::GetInstance();
-        void *base = GetGameResources();
-        for (int i = 0; i < 4; i++) {
-            GameObject *combatant = func_0200ff1c(battle, i);
-            if (!combatant)
+        GameState *var151 = GameState::GetInstance();
+        void *var152 = GetGameResources();
+        for (int var153 = 0; var153 < 4; var153++) {
+            GameObject *var154 = func_0200ff1c(var151, var153);
+            if (!var154)
                 continue;
-            if (!func_02061bd8((Obj02061bd8*)combatant))
+            if (!func_02061bd8((Struct_0205faf4_11*)var154))
                 continue;
-            int hp = *(unsigned short *)((char *)*(void **)((char *)combatant + 0x130) + 4);
-            if (hp > 0)
+            int var155 = *(unsigned short *)((char *)*(void **)((char *)var154 + 0x130) + 4);
+            if (var155 > 0)
                 continue;
-            if (msg->p1 == 0) {
-                unsigned short val = *(unsigned short *)((char *)combatant->baseStats_ + 0x30);
-                func_02053fe4(combatant, val, 1);
-            } else if (msg->p1 == 1) {
-                int val = Field134_30(combatant);
-                func_02053fe4(combatant, val / 2, 1);
+            if (arg1->unknown_2_ == 0) {
+                unsigned short var156 = *(unsigned short *)((char *)var154->baseStats_ + 0x30);
+                func_02053fe4(var154, var156, 1);
+            } else if (arg1->unknown_2_ == 1) {
+                int var157 = inline_02061c04_4(var154);
+                func_02053fe4(var154, var157 / 2, 1);
             } else {
-                func_02053fe4(combatant, 1, 1);
+                func_02053fe4(var154, 1, 1);
             }
-            func_02048418((unsigned char*)combatant, 1);
-            func_ov017_02191108(base, 1, 1, 1, 1);
-            func_02033b58((Foo02033b58*)combatant, 0);
-            *(short *)((char *)combatant + 0xb2) = 0;
+            func_02048418((unsigned char*)var154, 1);
+            func_ov017_02191108(var152, 1, 1, 1, 1);
+            func_02033b58((Struct_02033b58*)var154, 0);
+            *(short *)((char *)var154 + 0xb2) = 0;
         }
         return 1;
     }
@@ -1152,279 +1152,279 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         func_ov017_02191484(GetGameResources());
         return 1;
     case 0xcd: {
-        void *base = GetGameResources();
-        func_020d3c08((char*)cdLocal);
-        func_020d3c28((Obj020d3c28*)cdLocal);
-        void *elem = func_020d3d78((unsigned char*)cdLocal, msg->p1);
-        if (elem) {
-            ElemFlags3Bit0d3d78 *f = (ElemFlags3Bit0d3d78 *)((char *)elem + REGION_VALUE(0xb, 0x10));
-            func_ov017_021913d0(base, f->field3);
+        void *var158 = GetGameResources();
+        func_020d3c08((char*)var0);
+        func_020d3c28((Struct_02061c04_12*)var0);
+        void *var159 = func_020d3d78((unsigned char*)var0, arg1->unknown_2_);
+        if (var159) {
+            Struct_02061c04_13 *var160 = (Struct_02061c04_13 *)((char *)var159 + REGION_VALUE(0xb, 0x10));
+            func_ov017_021913d0(var158, var160->unknown_0_0_);
         }
         return 1;
     }
     case 0xce: {
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x79a, 1);
-        void *ctx = func_0202ae18();
-        if (func_0202c508(ctx)) {
-            int rowBase;
-            GameState *battle = GameState::GetInstance();
-            void *base = GetGameResources();
-            void *table = func_02027ca4();
-            for (int a = 0; a < 4; a++) {
-                void *elem = func_02028bac((Element0x318_02028bac*)table, a);
-                if (!((struct Elem2Flags *)((char *)elem + 2))->bit2)
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x79a, 1);
+        void *var161 = func_0202ae18();
+        if (func_0202c508(var161)) {
+            int var162;
+            GameState *var163 = GameState::GetInstance();
+            void *var164 = GetGameResources();
+            void *var165 = func_02027ca4();
+            for (int var166 = 0; var166 < 4; var166++) {
+                void *var167 = func_02028bac((Struct_02028bac*)var165, var166);
+                if (!((struct Struct_02061c04_33 *)((char *)var167 + 2))->unknown_0_2_)
                     continue;
-                unsigned short val = *(unsigned short *)elem;
-                if ((val / 100) * 100 != 400)
+                unsigned short var168 = *(unsigned short *)var167;
+                if ((var168 / 100) * 100 != 400)
                     continue;
-                rowBase = a * 0xc + 0x70;
-                for (int b = 0; b < 0xc; b++) {
-                    void *c2 = battle->GetMaybeFieldMonsterByIndex(b + rowBase);
-                    if (!c2)
+                var162 = var166 * 0xc + 0x70;
+                for (int var169 = 0; var169 < 0xc; var169++) {
+                    void *var170 = var163->GetMaybeFieldMonsterByIndex(var169 + var162);
+                    if (!var170)
                         continue;
-                    unsigned short v = *(unsigned short *)((char *)c2 + 0x100 + 0x6a);
-                    func_ov017_021a23b0(base, v);
-                    short p2 = *(short *)((char *)c2 + 2);
-                    unsigned short valElem = *(unsigned short *)elem;
-                    func_ov017_021c9544(valElem, b, p2, -1);
+                    unsigned short var171 = *(unsigned short *)((char *)var170 + 0x100 + 0x6a);
+                    func_ov017_021a23b0(var164, var171);
+                    short var172 = *(short *)((char *)var170 + 2);
+                    unsigned short var173 = *(unsigned short *)var167;
+                    func_ov017_021c9544(var173, var169, var172, -1);
                 }
             }
         }
         return 1;
     }
     case 0xcf: {
-        void *pool = &data_02108844;
-        if (pool)
-            func_0206df6c(pool, (unsigned char *)pool + 0x8c, 0x384, msg->p1);
-        void *base = GetGameResources();
-        for (int i = 0; i < 4; i++)
-            *(unsigned short *)((char *)base + REGION_VALUE(0x4100, 0x4400) + i * 2 + REGION_VALUE(0x9a, 0x4a)) =
-                *(unsigned short *)((char *)msg + i * 2 + 4);
+        void *var174 = &data_02108844;
+        if (var174)
+            func_0206df6c(var174, (unsigned char *)var174 + 0x8c, 0x384, arg1->unknown_2_);
+        void *var175 = GetGameResources();
+        for (int var176 = 0; var176 < 4; var176++)
+            *(unsigned short *)((char *)var175 + REGION_VALUE(0x4100, 0x4400) + var176 * 2 + REGION_VALUE(0x9a, 0x4a)) =
+                *(unsigned short *)((char *)arg1 + var176 * 2 + 4);
         return 1;
     }
     case 0xd0: {
-        void *ctx = func_0202ae18();
-        if (func_0202c508(ctx)) {
-            GameState *battle = GameState::GetInstance();
-            void *p = func_02010828((GameState*)battle);
-            *(unsigned int *)((char *)p + 0x2c94) = msg->p1;
-            *(unsigned int *)((char *)battle + REGION_VALUE(0x7c34, 0x7e74)) = msg->p1;
+        void *var177 = func_0202ae18();
+        if (func_0202c508(var177)) {
+            GameState *var178 = GameState::GetInstance();
+            void *var179 = func_02010828((GameState*)var178);
+            *(unsigned int *)((char *)var179 + 0x2c94) = arg1->unknown_2_;
+            *(unsigned int *)((char *)var178 + REGION_VALUE(0x7c34, 0x7e74)) = arg1->unknown_2_;
             func_ov017_021d0d58();
         }
         return 1;
     }
     case 0xd1: {
-        void *base = GetGameResources();
-        void *ctx = func_0202ae18();
+        void *var180 = GetGameResources();
+        void *var181 = func_0202ae18();
         func_0202c288();
-        int lvl = *((unsigned char *)ctx + 0x100d);
-        if (lvl <= 1)
+        int var182 = *((unsigned char *)var181 + 0x100d);
+        if (var182 <= 1)
             return 1;
-        func_ov017_0218b664((char*)base);
+        func_ov017_0218b664((char*)var180);
         GameState::GetInstance();
-        signed char b = *((signed char *)base + REGION_VALUE(0x4196, 0x4446));
-        func_ov017_021d0860(4, 0, b);
-        *((unsigned char *)base + REGION_VALUE(0x4198, 0x4448)) = 1;
-        b = *((signed char *)base + REGION_VALUE(0x4196, 0x4446));
-        *((unsigned char *)base + REGION_VALUE(0x4197, 0x4447)) = b;
+        signed char var183 = *((signed char *)var180 + REGION_VALUE(0x4196, 0x4446));
+        func_ov017_021d0860(4, 0, var183);
+        *((unsigned char *)var180 + REGION_VALUE(0x4198, 0x4448)) = 1;
+        var183 = *((signed char *)var180 + REGION_VALUE(0x4196, 0x4446));
+        *((unsigned char *)var180 + REGION_VALUE(0x4197, 0x4447)) = var183;
         return 0;
     }
     case 0xd2: {
-        void *base = GetGameResources();
-        func_ov017_02198f70(base, *((signed char *)base + REGION_VALUE(0x4196, 0x4446)));
+        void *var184 = GetGameResources();
+        func_ov017_02198f70(var184, *((signed char *)var184 + REGION_VALUE(0x4196, 0x4446)));
         return 1;
     }
     case 0xd3: {
 
-        struct Foo
+        struct Struct_02061c04_19
         {
-              char unk[0x1840];
-            struct Bar {
-                char unk[0xb4c];
-                unsigned int num;
-            } bar;
+              char unknown_0_[0x1840];
+            struct Struct_02061c04_20 {
+                char unknown_0_[0xb4c];
+                unsigned int unknown_b4c_;
+            } unknown_1840_;
         };
 
-        struct Sub {
-            char unk[0x1000];
-            Foo::Bar bar;
+        struct Struct_02061c04_21 {
+            char unknown_0_[0x1000];
+            Struct_02061c04_19::Struct_02061c04_20 unknown_1000_;
         };
-        unsigned int mask = 1 << msg->p1;
-        ((Sub *)((char *)func_02012fe4() + REGION_VALUE(0x860, 0x840)))->bar.num |= mask;
+        unsigned int var185 = 1 << arg1->unknown_2_;
+        ((Struct_02061c04_21 *)((char *)func_02012fe4() + REGION_VALUE(0x860, 0x840)))->unknown_1000_.unknown_b4c_ |= var185;
         return 1;
     }
     case 0xd4:
         func_ov017_0219c520();
         return 1;
     case 0xd5: {
-        lr.d0 = 0;
-        lr.d1 = 0;
-        lr.d2 = 0;
-        lr.d3 = 0;
-        lr.d4 = 0;
-        lr.d0 = (msg->p2 == 0);
-        lr.d1 = (msg->p3 == 0);
-        lr.d2 = msg->p4;
-        lr.d3 = (msg->p5 == 0);
-        void *base = GetGameResources();
-        func_ov017_0218d7b0((unsigned char*)base, (char*)&lr.d0);
+        var17.unknown_e_ = 0;
+        var17.unknown_f_ = 0;
+        var17.unknown_10_ = 0;
+        var17.unknown_12_ = 0;
+        var17.unknown_13_ = 0;
+        var17.unknown_e_ = (arg1->unknown_4_ == 0);
+        var17.unknown_f_ = (arg1->unknown_6_ == 0);
+        var17.unknown_10_ = arg1->unknown_8_;
+        var17.unknown_12_ = (arg1->unknown_a_ == 0);
+        void *var186 = GetGameResources();
+        func_ov017_0218d7b0((unsigned char*)var186, (char*)&var17.unknown_e_);
         return 1;
     }
     case 0xd6: {
-        GameState *battle = GameState::GetInstance();
-        lr.fh4 = func_0201079c((char*)battle);
-        lr.fh6 = func_020107d0((char*)battle);
-        lr.fh8 = func_02010804((char*)battle);
-        func_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
+        GameState *var187 = GameState::GetInstance();
+        var17.unknown_8_ = func_0201079c((char*)var187);
+        var17.unknown_a_ = func_020107d0((char*)var187);
+        var17.unknown_c_ = func_02010804((char*)var187);
+        func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     }
     case 0xd7: {
-        void *base = GetGameResources();
-        func_ov017_021a8614(base, (short)msg->p1, msg->p2, msg->p3, msg->p4, msg->p5);
+        void *var188 = GetGameResources();
+        func_ov017_021a8614(var188, (short)arg1->unknown_2_, arg1->unknown_4_, arg1->unknown_6_, arg1->unknown_8_, arg1->unknown_a_);
         return 1;
     }
     case 0xd8: {
-        int p1 = *(short *)((char *)msg + 2);
-        void *ctx = func_0202ae18();
-        if (func_0202c508(ctx)) {
-            void *p0 = func_02012fe4();
-            *(short *)((char *)p0 + 0x2700 + REGION_VALUE(0xf4, 0xb4)) = p1;
-            if (func_0202b7d8((int *)ctx)) {
-                func_ov017_021d1c2c(p1, 0);
-                func_ov017_021d1dc0((unsigned short)p1, 0, (int *)&d8Local, 0, 0);
+        int var189 = *(short *)((char *)arg1 + 2);
+        void *var190 = func_0202ae18();
+        if (func_0202c508(var190)) {
+            void *var191 = func_02012fe4();
+            *(short *)((char *)var191 + 0x2700 + REGION_VALUE(0xf4, 0xb4)) = var189;
+            if (func_0202b7d8((int *)var190)) {
+                func_ov017_021d1c2c(var189, 0);
+                func_ov017_021d1dc0((unsigned short)var189, 0, (int *)&var11, 0, 0);
             }
         }
         return 1;
     }
     case 0xd9: {
-        void *p = GetGameResources();
-        void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-        void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x94c, 0xb6c));
-        func_ov017_021beba4((char*)node);
-        func_020469b4((TailList020469b4 *)list, (TailNode020469b4 *)node);
+        void *var192 = GetGameResources();
+        void *var193 = *(void **)((char *)var192 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
+        void *var194 = *(void **)((char *)var192 + 0x3000 + REGION_VALUE(0x94c, 0xb6c));
+        func_ov017_021beba4((char*)var194);
+        func_020469b4((Struct_0201bdac_2 *)var193, (Struct_0201bdac *)var194);
         return 1;
     }
     case 0xda:
-        func_020732cc(msg->p1);
+        func_020732cc(arg1->unknown_2_);
         return 1;
     case 0xdb: {
-        dbAlloc.ResetAllocatorPointer();
-        dbAlloc.ResetAllocatorPointer();
-        void *mem = func_02012d88(&data_02114e20, 0x1000);
-        dbAlloc.CreateTypeA(mem, 0x1000);
-        dbAlloc.Reset();
-        GameState *battle = GameState::GetInstance();
-        void *p = func_02010828((GameState*)battle);
-        void *r = func_02086f24(p, (unsigned char)msg->p1, &dbAlloc);
-        void *signedAlloc = dbAlloc.GetSignedAllocator();
-        if (signedAlloc) {
-            dbAlloc.Destroy();
-            func_02012da4(&data_02114e20, signedAlloc);
+        var12.ResetAllocatorPointer();
+        var12.ResetAllocatorPointer();
+        void *var195 = func_02012d88(&data_02114e20, 0x1000);
+        var12.CreateTypeA(var195, 0x1000);
+        var12.Reset();
+        GameState *var196 = GameState::GetInstance();
+        void *var197 = func_02010828((GameState*)var196);
+        void *var198 = func_02086f24(var197, (unsigned char)arg1->unknown_2_, &var12);
+        void *var199 = var12.GetSignedAllocator();
+        if (var199) {
+            var12.Destroy();
+            func_02012da4(&data_02114e20, var199);
         }
-        return (int)r;
+        return (int)var198;
     }
     case 0xdc:
-        func_020aee04(msg->p1, ((unsigned char *)msg)[4]);
+        func_020aee04(arg1->unknown_2_, ((unsigned char *)arg1)[4]);
         return 1;
     case 0xdd: {
-        void *p = GetGameResources();
-        func_ov017_021c1a98(p, 1);
+        void *var200 = GetGameResources();
+        func_ov017_021c1a98(var200, 1);
         return 1;
     }
     case 0xde: {
-        void *p0 = func_02012fe4();
-        *((unsigned char *)p0 + 0x2000 + REGION_VALUE(0x810, 0x7d0)) = 0;
+        void *var201 = func_02012fe4();
+        *((unsigned char *)var201 + 0x2000 + REGION_VALUE(0x810, 0x7d0)) = 0;
         return 1;
     }
     case 0xdf:
-        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x799, msg->p1);
+        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x799, arg1->unknown_2_);
         return 1;
     case 0xe0:
-        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x798, msg->p1);
+        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x798, arg1->unknown_2_);
         return 1;
     case 0xe3: {
-        void *p = GetGameResources();
-        (void)p;
+        void *var202 = GetGameResources();
+        (void)var202;
         func_020dac40();
         return 1;
     }
     case 0xe4: {
-        struct BitfieldStruct {
-          char unk[0xc8];
-            unsigned char low : 2;
-            unsigned char foo : 1;
+        struct Struct_01ff91ac {
+          char unknown_0_[0xc8];
+            unsigned char unknown_c8_0_ : 2;
+            unsigned char unknown_c8_2_ : 1;
         };
-        data_02109bf4.foo = !msg->p1;
+        data_02109bf4.unknown_c8_2_ = !arg1->unknown_2_;
         return 1;
     }
     case 0xe5: {
-        GameState *battle = GameState::GetInstance();
-        unsigned short s5 = *(unsigned short *)((char *)battle + REGION_VALUE(0x6f00, 0x7100) + REGION_VALUE(0x9c, 0xdc));
-        short s6 = *(short *)((char *)battle + REGION_VALUE(0x6f00, 0x7100) + REGION_VALUE(0x9e, 0xde));
-        short s7 = *(short *)((char *)battle + REGION_VALUE(0x6f00, 0x7100) + REGION_VALUE(0xa0, 0xe0));
-        void *p = func_02010828((GameState*)battle);
-        if (s5 == 0)
+        GameState *var203 = GameState::GetInstance();
+        unsigned short var204 = *(unsigned short *)((char *)var203 + REGION_VALUE(0x6f00, 0x7100) + REGION_VALUE(0x9c, 0xdc));
+        short var205 = *(short *)((char *)var203 + REGION_VALUE(0x6f00, 0x7100) + REGION_VALUE(0x9e, 0xde));
+        short var206 = *(short *)((char *)var203 + REGION_VALUE(0x6f00, 0x7100) + REGION_VALUE(0xa0, 0xe0));
+        void *var207 = func_02010828((GameState*)var203);
+        if (var204 == 0)
             return 1;
-        if (s6 >= 0 && s6 <= 3) {
-            GameObject *combatant = func_0200ff1c(battle, s6);
-            if (!combatant)
+        if (var205 >= 0 && var205 <= 3) {
+            GameObject *var208 = func_0200ff1c(var203, var205);
+            if (!var208)
                 return 1;
-            void *field = func_02053c6c((unsigned char*)combatant);
-            func_0208386c((Slots0208386c*)field, (signed char)s7);
+            void *var209 = func_02053c6c((unsigned char*)var208);
+            func_0208386c((Struct_02061c04_22*)var209, (signed char)var206);
         } else {
-            func_020a0a08((KeyMap020a0a08*)p, (short)s5, 1);
+            func_020a0a08((Struct_02061c04_23*)var207, (short)var204, 1);
         }
         return 1;
     }
     case 0xe6:
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0xbea, msg->p2);
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, arg1->unknown_2_ + 0xbea, arg1->unknown_4_);
         return 1;
     case 0xe7: {
-        void *ctx = func_0202ae18();
-        if (func_0202c540(ctx))
+        void *var210 = func_0202ae18();
+        if (func_0202c540(var210))
             return 1;
-        func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x796, msg->p1);
-        char *battle = (char*)GameState::GetInstance();
-        BattleRecordSnapshot* st = (BattleRecordSnapshot*)((char *)&((struct Blk7400 *)SubA(battle))[1] + 0x3c);
-        BattleRecordCapture* snap = &st->capture;
-        if (!snap->captured) {
-            void *fields = func_02010828((GameState*)battle);
-            int level = 0;
-            void *comb = ((GameState*)battle)->GetProtagonist();
-            if (comb)
-                level = *(*(unsigned short **)((char *)comb + 0x134) + 0x18);
-            lr.fword0 = 0;
-            func_020ac0b4((void *)&lr.fword0);
-            func_020643e0((SmallRecord020643e0*)&snap->playClock, (SmallRecord020643e0*)&st->clocks.elapsed);
-            func_020643e0((SmallRecord020643e0*)&snap->committedPlayClock, (SmallRecord020643e0*)&st->clocks.committed);
-            snap->unknown08_0 = st->unknown08_0;
-            snap->unknown08_17 = func_020a0870(st);
-            snap->unknown08_24 = func_020a090c(st);
-            snap->unknown0c_0 = lr.fword0;
-            snap->unknown0c_17 = func_020a08a4(st);
-            snap->unknown0c_24 = func_020a08d8(st);
-            snap->unknown10_0 = st->unknown10_0;
-            snap->unknown10_9 = st->unknown0c_14;
-            snap->unknown14_0 = st->unknown08_24;
-            snap->unknown14_8 = st->unknown10_9;
-            snap->unknown14_22 = level;
-            snap->unknown18_0 = st->unknown40_0;
-            snap->unknown1c = *(unsigned int *)((char *)fields + 0xf6c) + *(unsigned int *)((char *)fields + 0xf68);
-            snap->captured = 1;
+        func_0206df6c(arg0, (unsigned char *)arg0 + 0x8c, 0x796, arg1->unknown_2_);
+        char *var211 = (char*)GameState::GetInstance();
+        Struct_02061c04* var212 = (Struct_02061c04*)((char *)&((struct Struct_02061c04_5 *)inline_02061c04(var211))[1] + 0x3c);
+        Struct_02061c04_3* var213 = &var212->unknown_90_;
+        if (!var213->unknown_1b_0_) {
+            void *var214 = func_02010828((GameState*)var211);
+            int var215 = 0;
+            void *var216 = ((GameState*)var211)->GetProtagonist();
+            if (var216)
+                var215 = *(*(unsigned short **)((char *)var216 + 0x134) + 0x18);
+            var17.unknown_4_ = 0;
+            func_020ac0b4((void *)&var17.unknown_4_);
+            func_020643e0((Struct_02061c04_24*)&var213->unknown_0_, (Struct_02061c04_24*)&var212->unknown_0_.unknown_0_);
+            func_020643e0((Struct_02061c04_24*)&var213->unknown_4_, (Struct_02061c04_24*)&var212->unknown_0_.unknown_4_);
+            var213->unknown_8_0_ = var212->unknown_8_0_;
+            var213->unknown_a_1_ = func_020a0870(var212);
+            var213->unknown_b_0_ = func_020a090c(var212);
+            var213->unknown_c_0_ = var17.unknown_4_;
+            var213->unknown_e_1_ = func_020a08a4(var212);
+            var213->unknown_f_0_ = func_020a08d8(var212);
+            var213->unknown_10_0_ = var212->unknown_10_0_;
+            var213->unknown_11_1_ = var212->unknown_d_6_;
+            var213->unknown_14_0_ = var212->unknown_b_0_;
+            var213->unknown_15_0_ = var212->unknown_11_1_;
+            var213->unknown_16_6_ = var215;
+            var213->unknown_18_0_ = var212->unknown_40_0_;
+            var213->unknown_1c_ = *(unsigned int *)((char *)var214 + 0xf6c) + *(unsigned int *)((char *)var214 + 0xf68);
+            var213->unknown_1b_0_ = 1;
         }
         return 1;
     }
     case 0xe8: {
-        void *g = func_0203cf4c();
-        void *entry = func_0203df78(g, msg->p1);
-        if (!entry)
+        void *var217 = func_0203cf4c();
+        void *var218 = func_0203df78(var217, arg1->unknown_2_);
+        if (!var218)
             return 1;
-        void *f = func_02040538((S02040538*)entry);
-        if (!f)
+        void *var219 = func_02040538((Struct_0203e0a0*)var218);
+        if (!var219)
             return 1;
-        unsigned char b = *((unsigned char *)f + 0xa);
-        b = (b & ~0x38) | (((unsigned char)msg->p2 & 7) << 3);
-        *((unsigned char *)f + 0xa) = b;
+        unsigned char var220 = *((unsigned char *)var219 + 0xa);
+        var220 = (var220 & ~0x38) | (((unsigned char)arg1->unknown_4_ & 7) << 3);
+        *((unsigned char *)var219 + 0xa) = var220;
         return 1;
     }
     case 0xe9:

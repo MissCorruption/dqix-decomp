@@ -7,91 +7,91 @@
 #define REG_POLYGON_ATTR (*(volatile unsigned int*)0x04000500)
 #define REG_TEXTURE_PARAM (*(volatile unsigned int*)0x04000504)
 
-struct StatusHealth { unsigned char padding0[4]; unsigned short hp; };
-struct StatusCharacter {
-    unsigned char padding0[0x16c];
-    short values[0x198];
-    unsigned char gender : 1;
-    unsigned char flags : 7;
+struct Struct_02000c9c_69 { unsigned char unknown_0_[4]; unsigned short unknown_4_; };
+struct Struct_ov023_021e3fc0_3 {
+    unsigned char unknown_0_[0x16c];
+    short unknown_16c_[0x198];
+    unsigned char unknown_49c_0_ : 1;
+    unsigned char unknown_49c_1_ : 7;
 #if defined(jpn)
-    unsigned char padding49d[0x8b8 - 0x49d];
+    unsigned char unknown_49d_[0x8b8 - 0x49d];
 #else
-    unsigned char padding49d[0x4b3];
+    unsigned char unknown1_49d_[0x4b3];
 #endif
 
-    int index;
+    int unknown_950_;
 };
-struct StatusCombatant {
-    unsigned char padding0[0x130];
-    StatusHealth* health;
+struct Struct_ov023_021e3fc0_4 {
+    unsigned char unknown_0_[0x130];
+    Struct_02000c9c_69* unknown_130_;
 #if defined(jpn)
-    unsigned char padding134[0x10];
+    unsigned char unknown_134_[0x10];
 #else
-    unsigned char padding134[0x1c];
+    unsigned char unknown1_134_[0x1c];
 #endif
 
-    StatusCharacter* character;
-    int GetHP() const { return health->hp; }
-    StatusCharacter* GetCharacter() const { return character; }
+    Struct_ov023_021e3fc0_3* unknown_150_;
+    int inline_ov023_021e3fc0_2() const { return unknown_130_->unknown_4_; }
+    Struct_ov023_021e3fc0_3* inline_ov023_021e3fc0() const { return unknown_150_; }
 };
-struct StatusSprite {
-    unsigned char padding0[0x14];
-    int x;
-    int y;
-    unsigned char padding1c[6];
-    unsigned char depth;
-    unsigned char padding23[3];
-    unsigned char mode;
-    unsigned char padding27;
+struct Struct_ov023_021e3fc0 {
+    unsigned char unknown_0_[0x14];
+    int unknown_14_;
+    int unknown_18_;
+    unsigned char unknown_1c_[6];
+    unsigned char unknown_22_;
+    unsigned char unknown_23_[3];
+    unsigned char unknown_26_;
+    unsigned char unknown_27_;
 };
-struct StatusSprites {
-    unsigned char padding0[0x258];
-    StatusSprite marker;
+struct Struct_ov023_021e3fc0_2 {
+    unsigned char unknown_0_[0x258];
+    Struct_ov023_021e3fc0 unknown_258_;
 };
 #if defined(jpn)
-struct NameText { char text[0xc]; };
+struct Struct_02000c9c_66 { char unknown_0_[0xc]; };
 #else
-struct NameText { char text[0x20]; };
+struct Struct_02000c9c_66 { char unknown_0_[0x20]; };
 #endif
 
 #if defined(jpn)
-struct ConditionText { char text[6]; };
+struct Struct_02000c9c_67 { char unknown_0_[6]; };
 #else
-struct ConditionText { char text[0x14]; };
+struct Struct_02000c9c_67 { char unknown_0_[0x14]; };
 #endif
 
 #if defined(jpn)
-struct ValueText { char text[4]; };
+struct Struct_02000c9c_68 { char unknown_0_[4]; };
 #else
-struct ValueText { char text[0x10]; };
+struct Struct_02000c9c_68 { char unknown_0_[0x10]; };
 #endif
 
-struct StatusPanel {
-    void* context;
-    unsigned char padding4[0xc4];
-    void* renderer;
-    StatusSprites* sprites;
+struct Struct_ov003_02165888 {
+    void* unknown_0_;
+    unsigned char unknown_4_[0xc4];
+    void* unknown_c8_;
+    Struct_ov023_021e3fc0_2* unknown_cc_;
 #if defined(jpn)
-    unsigned char paddingd0[0x428];
+    unsigned char unknown_d0_[0x428];
 #else
-    unsigned char paddingd0[0x42c];
+    unsigned char unknown1_d0_[0x42c];
 #endif
 
-    int selected;
-    NameText names[4];
-    int positions[4];
-    ConditionText conditions[4];
+    int unknown_4fc_;
+    Struct_02000c9c_66 unknown_500_[4];
+    int unknown_580_[4];
+    Struct_02000c9c_67 unknown_590_[4];
 #if defined(jpn)
-    char label[4];
+    char unknown_554_[4];
 #else
-    char label[0x10];
+    char unknown_5e0_[0x10];
 #endif
 
-    ValueText values[4];
-    unsigned char padding630[0x10];
-    char* conditionNames[2];
+    Struct_02000c9c_68 unknown_5f0_[4];
+    unsigned char unknown_630_[0x10];
+    char* unknown_640_[2];
 };
-struct Struct0200fb08;
+struct Struct_02000c9c_8;
 extern "C" void* func_020421a0();
 extern "C" void func_02045f3c(void*, void*, int, int, int, int, int, int, int, int);
 #if defined(jpn)
@@ -101,77 +101,77 @@ extern "C" int func_020420e8(const char*, int);
 extern "C" void func_0205ac40(void*, void*);
 extern "C" unsigned char func_ov023_021e4250(char*);
 extern "C" char* func_020e51cc(int);
-extern "C" unsigned char func_0200fb08(Struct0200fb08*);
+extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" void func_ov005_02155258(void*, int, int, int, int);
 
 // USA: func_ov023_021e3fc0
-extern "C" ARM void func_ov023_021e3fc0(StatusPanel* panel) {
-    int textColor;
-    GameState* game = GameState::GetInstance();
-    void* renderer = func_020421a0();
-    int drawValue = 0x7fff;
-    StatusCombatant* combatant = (StatusCombatant*)func_0200ff1c(game, panel->selected);
-    if (combatant->GetHP() <= 0) drawValue = 0x1f;
+extern "C" ARM void func_ov023_021e3fc0(Struct_ov003_02165888* arg0) {
+    int var0;
+    GameState* var1 = GameState::GetInstance();
+    void* var2 = func_020421a0();
+    int var3 = 0x7fff;
+    Struct_ov023_021e3fc0_4* var4 = (Struct_ov023_021e3fc0_4*)func_0200ff1c(var1, arg0->unknown_4fc_);
+    if (var4->inline_ov023_021e3fc0_2() <= 0) var3 = 0x1f;
     REG_MATRIX_PUSH = 0;
     REG_POLYGON_ATTR = 1;
     REG_MATRIX_SCALE = 0;
     REG_MATRIX_SCALE = 0;
     REG_MATRIX_SCALE = 0xffc01000;
 #if defined(jpn)
-    func_02046c78(renderer, &panel->names[panel->selected], panel->positions[panel->selected], 0xa3, drawValue, 10, 0, 0);
-    short x = 0x2f;
-    if (func_ov023_021e4250((char*)combatant)) x += 7;
-    if (combatant->GetHP() <= 0) x = 0x14;
-    x = ((0x3b - x) >> 1) + 0x40;
-    func_02046c78(renderer, &panel->conditions[panel->selected], x, 0xa3, drawValue, 10, 0, 0);
-    if (combatant->GetHP() > 0) {
-        x += 0x14;
-        if (func_ov023_021e4250((char*)combatant)) {
-            unsigned short valueColor = 0xf0a;
-            short y = 0xa4;
-            if (func_ov023_021e4250((char*)combatant) >= 10) {
-                y--;
-                valueColor = 0x31f;
+    func_02046c78(var2, &arg0->unknown_500_[arg0->unknown_4fc_], arg0->unknown_580_[arg0->unknown_4fc_], 0xa3, var3, 10, 0, 0);
+    short var5 = 0x2f;
+    if (func_ov023_021e4250((char*)var4)) var5 += 7;
+    if (var4->inline_ov023_021e3fc0_2() <= 0) var5 = 0x14;
+    var5 = ((0x3b - var5) >> 1) + 0x40;
+    func_02046c78(var2, &arg0->unknown_590_[arg0->unknown_4fc_], var5, 0xa3, var3, 10, 0, 0);
+    if (var4->inline_ov023_021e3fc0_2() > 0) {
+        var5 += 0x14;
+        if (func_ov023_021e4250((char*)var4)) {
+            unsigned short var6 = 0xf0a;
+            short var7 = 0xa4;
+            if (func_ov023_021e4250((char*)var4) >= 10) {
+                var7--;
+                var6 = 0x31f;
             }
-            func_02046c78(renderer, &panel->values[panel->selected], x, y, valueColor, 10, 0, 0);
-            x += 7;
+            func_02046c78(var2, &arg0->unknown_5f0_[arg0->unknown_4fc_], var5, var7, var6, 10, 0, 0);
+            var5 += 7;
         }
-        x += 2;
-        func_02046c78(renderer, panel->label, x, 0xa3, drawValue, 10, 0, 0);
-        if (panel->context) {
-            StatusCharacter* character = combatant->GetCharacter();
-            textColor = drawValue;
-            drawValue = character->values[character->index];
-            func_ov005_02155258(panel->context, drawValue, (short)(x + 9), 0xa5, textColor);
+        var5 += 2;
+        func_02046c78(var2, arg0->unknown_554_, var5, 0xa3, var3, 10, 0, 0);
+        if (arg0->unknown_0_) {
+            Struct_ov023_021e3fc0_3* var8 = var4->inline_ov023_021e3fc0();
+            var0 = var3;
+            var3 = var8->unknown_16c_[var8->unknown_950_];
+            func_ov005_02155258(arg0->unknown_0_, var3, (short)(var5 + 9), 0xa5, var0);
         }
     }
 
 #else
-    func_02045f3c(renderer, &panel->names[panel->selected], panel->positions[panel->selected], 0xa1, drawValue, 10, 0, 0, 0, 0x11);
-    if (combatant->GetHP() <= 0) {
-        short width = func_020420e8(panel->conditionNames[combatant->character->gender], 0);
-        short x = ((0x3b - width) >> 1) + 0x40;
-        func_02045f3c(renderer, &panel->conditions[panel->selected], x, 0xa1, drawValue, 10, 0, 0, 0, 0x11);
+    func_02045f3c(var2, &arg0->unknown_500_[arg0->unknown_4fc_], arg0->unknown_580_[arg0->unknown_4fc_], 0xa1, var3, 10, 0, 0, 0, 0x11);
+    if (var4->inline_ov023_021e3fc0_2() <= 0) {
+        short var9 = func_020420e8(arg0->unknown_640_[var4->unknown_150_->unknown_49c_0_], 0);
+        short var10 = ((0x3b - var9) >> 1) + 0x40;
+        func_02045f3c(var2, &arg0->unknown_590_[arg0->unknown_4fc_], var10, 0xa1, var3, 10, 0, 0, 0, 0x11);
     } else {
-        StatusSprites* sprites = panel->sprites;
-        sprites->marker.x = 0x44000;
-        sprites->marker.y = 0xa2000;
-        sprites->marker.depth = 0x70;
-        sprites->marker.mode = 2;
-        func_0205ac40(panel->renderer, &sprites->marker);
-        if (func_ov023_021e4250((char*)combatant)) {
-            unsigned short valueColor = 0xf0a;
-            if (func_ov023_021e4250((char*)combatant) >= 10)
-                valueColor = 0x31f;
-            func_02045f3c(renderer, &panel->values[panel->selected], 0x50, 0xa1, valueColor, 10, 0, 0, 0, 0x11);
+        Struct_ov023_021e3fc0_2* var11 = arg0->unknown_cc_;
+        var11->unknown_258_.unknown_14_ = 0x44000;
+        var11->unknown_258_.unknown_18_ = 0xa2000;
+        var11->unknown_258_.unknown_22_ = 0x70;
+        var11->unknown_258_.unknown_26_ = 2;
+        func_0205ac40(arg0->unknown_c8_, &var11->unknown_258_);
+        if (func_ov023_021e4250((char*)var4)) {
+            unsigned short var12 = 0xf0a;
+            if (func_ov023_021e4250((char*)var4) >= 10)
+                var12 = 0x31f;
+            func_02045f3c(var2, &arg0->unknown_5f0_[arg0->unknown_4fc_], 0x50, 0xa1, var12, 10, 0, 0, 0, 0x11);
         }
-        func_02045f3c(renderer, panel->label, 0x5c, 0xa1, drawValue, 10, 0, 0, 0, 0x11);
-        short x = func_020420e8(func_020e51cc(0x3f3), 0) + 0x5e;
-        if (func_0200fb08((Struct0200fb08*)game) == 1) x += 2;
-        StatusCharacter* character = combatant->GetCharacter();
-        textColor = drawValue;
-        drawValue = character->values[character->index];
-        func_ov005_02155258(panel->context, drawValue, x, 0xa1, textColor);
+        func_02045f3c(var2, arg0->unknown_5e0_, 0x5c, 0xa1, var3, 10, 0, 0, 0, 0x11);
+        short var13 = func_020420e8(func_020e51cc(0x3f3), 0) + 0x5e;
+        if (func_0200fb08((Struct_02000c9c_8*)var1) == 1) var13 += 2;
+        Struct_ov023_021e3fc0_3* var14 = var4->inline_ov023_021e3fc0();
+        var0 = var3;
+        var3 = var14->unknown_16c_[var14->unknown_950_];
+        func_ov005_02155258(arg0->unknown_0_, var3, var13, 0xa1, var0);
     }
 
 #endif

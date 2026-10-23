@@ -1,52 +1,52 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-typedef char* va_list;
+typedef char* Type_02001bdc;
 #define __va_align(size) ((((unsigned long)(size)) + 3U) & ~3U)
-#define va_start(ap, parm) ((ap) = (va_list)((char*)((unsigned long)&(parm) & ~3U) + __va_align(sizeof(parm))))
+#define va_start(ap, parm) ((ap) = (Type_02001bdc)((char*)((unsigned long)&(parm) & ~3U) + __va_align(sizeof(parm))))
 #define va_arg(ap, type) (*(type*)(((ap) += __va_align(sizeof(type))) - __va_align(sizeof(type))))
 #define va_end(ap) ((void)0)
 
 extern "C" int func_020d41e8();
 
-struct WMStatus
+struct Struct_020d424c
 {
-    unsigned short state;
+    unsigned short unknown_0_;
 };
 
-struct WMArm9Buf
+struct Struct_020d424c_2
 {
-    void* WM7;
-    WMStatus* status;
+    void* unknown_0_;
+    Struct_020d424c* unknown_4_;
 };
 
-struct WMSystemState
+struct Struct_021142e0_3
 {
-    unsigned short wmInitialized;
-    WMArm9Buf* wm9buf;
+    unsigned short unknown_0_;
+    Struct_020d424c_2* unknown_4_;
 };
 
-extern WMSystemState data_021142e0;
+extern Struct_021142e0_3 data_021142e0;
 
 // USA: func_020d424c
-extern "C" ARM int func_020d424c(int paramNum, ...)
+extern "C" ARM int func_020d424c(int arg0, ...)
 {
-    int result = func_020d41e8();
-    unsigned short state;
-    va_list args;
-    if (result != 0)
-        return result;
-    InvalidateDataCacheRange(&data_021142e0.wm9buf->status->state, sizeof(unsigned short));
-    state = data_021142e0.wm9buf->status->state;
-    va_start(args, paramNum);
-    result = 3;
-    if (paramNum == 0)
-        return result;
+    int var0 = func_020d41e8();
+    unsigned short var1;
+    Type_02001bdc var2;
+    if (var0 != 0)
+        return var0;
+    InvalidateDataCacheRange(&data_021142e0.unknown_4_->unknown_4_->unknown_0_, sizeof(unsigned short));
+    var1 = data_021142e0.unknown_4_->unknown_4_->unknown_0_;
+    va_start(var2, arg0);
+    var0 = 3;
+    if (arg0 == 0)
+        return var0;
     do
     {
-        if (va_arg(args, unsigned long) == state)
-            result = 0;
-    } while (--paramNum != 0);
-    va_end(args);
-    return result;
+        if (va_arg(var2, unsigned long) == var1)
+            var0 = 0;
+    } while (--arg0 != 0);
+    va_end(var2);
+    return var0;
 }

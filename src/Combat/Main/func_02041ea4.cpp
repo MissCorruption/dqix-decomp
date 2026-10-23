@@ -5,11 +5,11 @@
 #endif
 
 extern char data_020eff87;
-extern "C" int func_020d2ff0(const char* s);
-extern "C" int sprintf(char* dst, const char* fmt, ...);
+extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
 // USA: func_02041ea4
-extern "C" ARM int func_02041ea4(char* dst, int cursor) {
-    char* end = dst + func_020d2ff0(dst);
-    return (end + sprintf(end, &data_020eff87, cursor)) - dst;
+extern "C" ARM int func_02041ea4(char* arg0, int arg1) {
+    char* var0 = arg0 + func_020d2ff0(arg0);
+    return (var0 + sprintf(var0, &data_020eff87, arg1)) - arg0;
 }

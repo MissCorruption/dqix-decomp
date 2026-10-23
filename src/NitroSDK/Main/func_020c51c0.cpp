@@ -7,7 +7,7 @@
 extern "C" void func_020ca528(int cmd);
 
 // USA: func_020c51c0
-extern "C" ARM void func_020c51c0(int cmd) {
+extern "C" ARM void func_020c51c0(int arg0) {
     *(int*)0x4000400 = 0x1a;
-    func_020ca528(cmd);
+    func_020ca528(arg0);
 }

@@ -1,48 +1,48 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
-extern "C" int func_02053c6c(unsigned char* obj);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" int func_02053c6c(unsigned char* arg0);
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" int func_ov023_021f44d0(void* obj);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" int func_ov023_021f44d0(void* arg0);
 
 // USA: func_ov023_021f5150
-extern "C" ARM int func_ov023_021f5150(void* p0, unsigned char* p1, int* p2, int* p3) {
+extern "C" ARM int func_ov023_021f5150(void* arg0, unsigned char* arg1, int* arg2, int* arg3) {
 #if defined(jpn)
- enum {regionalOffset=0x8b8};
+ enum {Enum_ov023_021f5150_2384=0x8b8};
 #else
- enum {regionalOffset=0x950};
+ enum {Enum_ov023_021f5150_2384=0x950};
 #endif
-    GameState* bs = GameState::GetInstance();
-    char* g = (char*)func_02010828(bs);
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = (char*)func_02010828(var0);
     func_0202ae18();
 
-    int sum = 0;
-    int i;
-    for (i = 0; i < 4; i++) {
-        if (!func_020a35e0(p1, i)) continue;
-        sum += p2[i];
-        GameObject* c = func_0200ff1c(bs, i);
-        if (c == 0) continue;
-        int fVal = func_02053c6c((unsigned char*)c);
-        if (fVal == 0) continue;
-        int* f = (int*)fVal;
-        int idx = *(int*)((char*)f + regionalOffset);
-        int* arr = (int*)((char*)f + 0x138);
-        arr[idx] += p2[i];
+    int var2 = 0;
+    int var3;
+    for (var3 = 0; var3 < 4; var3++) {
+        if (!func_020a35e0(arg1, var3)) continue;
+        var2 += arg2[var3];
+        GameObject* var4 = func_0200ff1c(var0, var3);
+        if (var4 == 0) continue;
+        int var5 = func_02053c6c((unsigned char*)var4);
+        if (var5 == 0) continue;
+        int* var6 = (int*)var5;
+        int var7 = *(int*)((char*)var6 + Enum_ov023_021f5150_2384);
+        int* var8 = (int*)((char*)var6 + 0x138);
+        var8[var7] += arg2[var3];
     }
 
-    int ratio = func_ov023_021f44d0(p0);
-    *p3 = ratio;
+    int var9 = func_ov023_021f44d0(arg0);
+    *arg3 = var9;
 
-    unsigned int cap = 0x98967f;
-    if (cap - *(unsigned int*)(g + 0xf6c) < (unsigned int)ratio) {
-        *(unsigned int*)(g + 0xf6c) = cap;
+    unsigned int var10 = 0x98967f;
+    if (var10 - *(unsigned int*)(var1 + 0xf6c) < (unsigned int)var9) {
+        *(unsigned int*)(var1 + 0xf6c) = var10;
     } else {
-        *(unsigned int*)(g + 0xf6c) += ratio;
+        *(unsigned int*)(var1 + 0xf6c) += var9;
     }
 
-    return (sum == 0 && *p3 == 0) ? 1 : 0;
+    return (var2 == 0 && *arg3 == 0) ? 1 : 0;
 }

@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct FindEntryByKindEntry020d3d90 {
+struct Struct_020d3d90_2 {
 #if defined(jpn)
-    unsigned char pad[0xb];
+    unsigned char unknown_0_[0xb];
 #else
-    unsigned char pad[0x10];
+    unsigned char unknown1_0_[0x10];
 #endif
-    unsigned char kind : 3;
+    unsigned char unknown_10_0_ : 3;
     unsigned char : 5;
 #if defined(jpn)
-    unsigned char pad2[0x14];
+    unsigned char unknown_c_[0x14];
 #else
-    unsigned char pad2[0x13];
+    unsigned char unknown_11_[0x13];
 #endif
 };
 
-struct FindEntryByKindContainer020d3d90 {
-    struct FindEntryByKindEntry020d3d90 entries[5];
-    int count;
+struct Struct_020d3d90 {
+    struct Struct_020d3d90_2 unknown_0_[5];
+    int unknown_b4_;
 };
 
 // USA: func_020d3d90
-extern "C" ARM struct FindEntryByKindEntry020d3d90* func_020d3d90(struct FindEntryByKindContainer020d3d90* c, int kind) {
-    struct FindEntryByKindEntry020d3d90* e = c->entries;
-    int i;
-    for (i = 0; i < c->count; i++) {
-        if (e->kind == kind) return e;
-        e++;
+extern "C" ARM struct Struct_020d3d90_2* func_020d3d90(struct Struct_020d3d90* arg0, int arg1) {
+    struct Struct_020d3d90_2* var0 = arg0->unknown_0_;
+    int var1;
+    for (var1 = 0; var1 < arg0->unknown_b4_; var1++) {
+        if (var0->unknown_10_0_ == arg1) return var0;
+        var0++;
     }
     return NULL;
 }

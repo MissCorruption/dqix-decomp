@@ -19,139 +19,139 @@ void func_ov003_02158334(void *);
 
 extern char data_02108760[];
 
-struct Obj02156d40 {
+struct Struct_ov003_02156d40 {
 #if defined(jpn)
-    char pad0[0x2a];
+    char unknown_0_[0x2a];
 #else
-    char pad0[0x36];
+    char unknown1_0_[0x36];
 #endif
-    short f36;
+    short unknown_36_;
 };
 
-struct Q02156d40 {
-    char pad0[0xf7c];
-    unsigned char f7c;
+struct Struct_ov003_02156d40_2 {
+    char unknown_0_[0xf7c];
+    unsigned char unknown_f7c_;
 };
 
-struct Ctrl02156d40 {
-    char pad00[8];
-    void *f08;
-    char pad0c[0xc];
-    void *f18;
-    char pad1c[0x80 - 0x1c];
-    char sub80[0x80];
+struct Struct_ov003_02156d40_3 {
+    char unknown_0_[8];
+    void *unknown_8_;
+    char unknown_c_[0xc];
+    void *unknown_18_;
+    char unknown_1c_[0x80 - 0x1c];
+    char unknown_80_[0x80];
 #if defined(jpn)
-    char pad100[0x1de - 0x100];
+    char unknown_100_[0x1de - 0x100];
 #else
-    char pad100[0x1e2 - 0x100];
+    char unknown1_100_[0x1e2 - 0x100];
 #endif
-    short f1e2;
-    char pad1e4[2];
-    short f1e6;
-    short f1e8;
-    char pad1ea[2];
-    short cmd;
-    char pad1ee[4];
-    unsigned char f1f2[5];
-    char f1f7;
-    unsigned char mode;
-    unsigned char state;
-    char pad1fa;
-    unsigned char f1fb;
-    unsigned int flags;
+    short unknown_1e2_;
+    char unknown_1e4_[2];
+    short unknown_1e6_;
+    short unknown_1e8_;
+    char unknown_1ea_[2];
+    short unknown_1ec_;
+    char unknown_1ee_[4];
+    unsigned char unknown_1f2_[5];
+    char unknown_1f7_;
+    unsigned char unknown_1f8_;
+    unsigned char unknown_1f9_;
+    char unknown_1fa_;
+    unsigned char unknown_1fb_;
+    unsigned int unknown_1fc_;
 };
 
 // USA: func_ov003_02156d40
-extern "C" ARM void func_ov003_02156d40(struct Ctrl02156d40 *self) {
-    void *gs              = _ZN9GameState11GetInstanceEv();
-    struct Q02156d40 *q   = (struct Q02156d40 *) func_02010828(gs);
-    struct Obj02156d40 *p = (struct Obj02156d40 *) self->f18;
-    if (self->state == 0) {
-        func_ov003_02155580(self, 0);
-        self->state = self->state + 1;
+extern "C" ARM void func_ov003_02156d40(struct Struct_ov003_02156d40_3 *arg0) {
+    void *var0              = _ZN9GameState11GetInstanceEv();
+    struct Struct_ov003_02156d40_2 *var1   = (struct Struct_ov003_02156d40_2 *) func_02010828(var0);
+    struct Struct_ov003_02156d40 *var2 = (struct Struct_ov003_02156d40 *) arg0->unknown_18_;
+    if (arg0->unknown_1f9_ == 0) {
+        func_ov003_02155580(arg0, 0);
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         return;
     }
-    if (self->state == 1) {
-        int r = func_ov003_02155618(self);
-        if (r != -1) {
-            if (r == 1) {
-                if (self->f1fb == 0) {
-                    self->f1f7  = func_020100a8(gs);
-                    self->state = 0;
-                    if (func_ov003_02155f88(self, self->f1f7)) {
-                        self->cmd  = 8;
-                        self->mode = 7;
-                        func_0207fe44(p);
+    if (arg0->unknown_1f9_ == 1) {
+        int var3 = func_ov003_02155618(arg0);
+        if (var3 != -1) {
+            if (var3 == 1) {
+                if (arg0->unknown_1fb_ == 0) {
+                    arg0->unknown_1f7_  = func_020100a8(var0);
+                    arg0->unknown_1f9_ = 0;
+                    if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
+                        arg0->unknown_1ec_  = 8;
+                        arg0->unknown_1f8_ = 7;
+                        func_0207fe44(var2);
                         return;
                     }
-                    self->flags = self->flags | 2;
-                    self->cmd   = 9;
-                    self->mode  = 3;
-                    self->state = 0;
+                    arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
+                    arg0->unknown_1ec_   = 9;
+                    arg0->unknown_1f8_  = 3;
+                    arg0->unknown_1f9_ = 0;
                 } else {
-                    self->f1f7  = self->f1f2[0];
-                    self->cmd   = 6;
-                    self->mode  = 2;
-                    self->state = self->state + 1;
+                    arg0->unknown_1f7_  = arg0->unknown_1f2_[0];
+                    arg0->unknown_1ec_   = 6;
+                    arg0->unknown_1f8_  = 2;
+                    arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
                 }
             }
         } else {
-            self->cmd  = 3;
-            self->mode = 7;
+            arg0->unknown_1ec_  = 3;
+            arg0->unknown_1f8_ = 7;
         }
         return;
     }
-    if (self->state == 2) {
-        self->f1e6 = 3;
-        switch (q->f7c) {
-            case 3: self->f1e6 = 4; break;
-            case 4: self->f1e6 = 5; break;
+    if (arg0->unknown_1f9_ == 2) {
+        arg0->unknown_1e6_ = 3;
+        switch (var1->unknown_f7c_) {
+            case 3: arg0->unknown_1e6_ = 4; break;
+            case 4: arg0->unknown_1e6_ = 5; break;
         }
-        if (self->f1e2 < 0) {
-            self->f1e2 = func_02080468(p, self->f1e6);
-            self->f1e8 = self->f1e2;
+        if (arg0->unknown_1e2_ < 0) {
+            arg0->unknown_1e2_ = func_02080468(var2, arg0->unknown_1e6_);
+            arg0->unknown_1e8_ = arg0->unknown_1e2_;
         }
-        p->f36 = self->f1e2;
-        func_ov003_02158334(self);
-        func_0208203c(self->sub80);
-        self->f08   = 0;
-        self->state = self->state + 1;
+        var2->unknown_36_ = arg0->unknown_1e2_;
+        func_ov003_02158334(arg0);
+        func_0208203c(arg0->unknown_80_);
+        arg0->unknown_8_   = 0;
+        arg0->unknown_1f9_ = arg0->unknown_1f9_ + 1;
         return;
     }
-    if (self->state != 3) {
+    if (arg0->unknown_1f9_ != 3) {
         return;
     }
-    self->f08 = &self->f1e2;
-    if (func_ov003_021550dc(self) != 0) {
+    arg0->unknown_8_ = &arg0->unknown_1e2_;
+    if (func_ov003_021550dc(arg0) != 0) {
         func_0205eaa0(data_02108760, 1, 0);
-        func_0208203c(self->sub80);
-        self->f08  = 0;
-        short d    = (short) (self->f1e2 - func_02080468(p, self->f1e6));
-        self->f1f7 = self->f1f2[d];
-        if (func_ov003_02155fc0(self, self->f1f7) != 0) {
-            self->cmd  = 0x31;
-            self->mode = 7;
-            func_0207fe44(p);
+        func_0208203c(arg0->unknown_80_);
+        arg0->unknown_8_  = 0;
+        short var4    = (short) (arg0->unknown_1e2_ - func_02080468(var2, arg0->unknown_1e6_));
+        arg0->unknown_1f7_ = arg0->unknown_1f2_[var4];
+        if (func_ov003_02155fc0(arg0, arg0->unknown_1f7_) != 0) {
+            arg0->unknown_1ec_  = 0x31;
+            arg0->unknown_1f8_ = 7;
+            func_0207fe44(var2);
             return;
         }
-        if (func_ov003_02155f88(self, self->f1f7)) {
-            self->cmd  = 8;
-            self->mode = 7;
-            func_0207fe44(p);
+        if (func_ov003_02155f88(arg0, arg0->unknown_1f7_)) {
+            arg0->unknown_1ec_  = 8;
+            arg0->unknown_1f8_ = 7;
+            func_0207fe44(var2);
             return;
         }
-        self->flags = self->flags | 2;
-        self->cmd   = 9;
-        self->mode  = 3;
-        self->state = 0;
-        func_0207fe44(p);
+        arg0->unknown_1fc_ = arg0->unknown_1fc_ | 2;
+        arg0->unknown_1ec_   = 9;
+        arg0->unknown_1f8_  = 3;
+        arg0->unknown_1f9_ = 0;
+        func_0207fe44(var2);
         return;
     }
-    if (func_ov003_02155208(self) == 0) {
+    if (func_ov003_02155208(arg0) == 0) {
         return;
     }
-    self->f08  = 0;
-    self->cmd  = 7;
-    self->mode = 7;
-    func_0207fe44(p);
+    arg0->unknown_8_  = 0;
+    arg0->unknown_1ec_  = 7;
+    arg0->unknown_1f8_ = 7;
+    func_0207fe44(var2);
 }

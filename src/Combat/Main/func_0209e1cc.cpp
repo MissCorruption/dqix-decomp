@@ -3,75 +3,75 @@
 #include "Combat/Main/CandidateFilter.h"
 #include <std_library_functions.h>
 
-struct CandidateKindWord {
-    unsigned short unknown0 : 2;
-    unsigned short kind : 4;
-    unsigned short unknown6 : 10;
+struct Struct_0209e1cc {
+    unsigned short unknown_0_0_ : 2;
+    unsigned short unknown_0_2_ : 4;
+    unsigned short unknown_0_6_ : 10;
 };
 
-struct CandidateClassByte {
-    unsigned char classification : 4;
-    unsigned char unknown4 : 4;
+struct Struct_0209e1cc_2 {
+    unsigned char unknown_0_0_ : 4;
+    unsigned char unknown_0_4_ : 4;
 };
 
-struct CandidatePayloadWord {
-    unsigned char bytes[4];
+struct Struct_0209e1cc_3 {
+    unsigned char unknown_0_[4];
 };
 
-struct CandidateFilterPrefix {
-    unsigned int primaryFlags;
-    unsigned char unknown04[4];
-    unsigned int secondaryFlags;
-    unsigned char unknown0c[12];
-    CandidateKindWord primaryKind;
-    CandidateKindWord secondaryKind;
-    CandidateClassByte primaryClass;
-    CandidateClassByte secondaryClass;
-    unsigned char unknown1e[10];
-    CandidatePayloadWord primaryPayload;
-    CandidatePayloadWord secondaryPayload;
+struct Struct_0209e1cc_4 {
+    unsigned int unknown_0_;
+    unsigned char unknown_4_[4];
+    unsigned int unknown_8_;
+    unsigned char unknown_c_[12];
+    Struct_0209e1cc unknown_18_;
+    Struct_0209e1cc unknown_1a_;
+    Struct_0209e1cc_2 unknown_1c_;
+    Struct_0209e1cc_2 unknown_1d_;
+    unsigned char unknown_1e_[10];
+    Struct_0209e1cc_3 unknown_28_;
+    Struct_0209e1cc_3 unknown_2c_;
 };
 
 // USA: func_0209e1cc
-extern "C" ARM int func_0209e1cc(void *receiver, void *record, int mode, int parameter) {
-    unsigned int mask;
-    CandidateFilterPrefix *candidate;
-    unsigned int kind;
-    unsigned int classification;
-    CandidatePayloadWord payload;
-    unsigned int flags;
+extern "C" ARM int func_0209e1cc(void *arg0, void *arg1, int arg2, int arg3) {
+    unsigned int var0;
+    Struct_0209e1cc_4 *var1;
+    unsigned int var2;
+    unsigned int var3;
+    Struct_0209e1cc_3 var4;
+    unsigned int var5;
 
-    mask      = static_cast<unsigned int>(parameter);
-    candidate = static_cast<CandidateFilterPrefix *>(record);
+    var0      = static_cast<unsigned int>(arg3);
+    var1 = static_cast<Struct_0209e1cc_4 *>(arg1);
 
-    if (mode == 0) {
-        kind           = candidate->primaryKind.kind;
-        flags          = candidate->primaryFlags;
-        classification = candidate->primaryClass.classification;
-        memcpy(&payload, &candidate->primaryPayload, sizeof(payload));
+    if (arg2 == 0) {
+        var2           = var1->unknown_18_.unknown_0_2_;
+        var5          = var1->unknown_0_;
+        var3 = var1->unknown_1c_.unknown_0_0_;
+        memcpy(&var4, &var1->unknown_28_, sizeof(var4));
     } else {
-        kind           = candidate->secondaryKind.kind;
-        classification = candidate->secondaryClass.classification;
-        flags          = candidate->secondaryFlags;
-        memcpy(&payload, &candidate->secondaryPayload, sizeof(payload));
+        var2           = var1->unknown_1a_.unknown_0_2_;
+        var3 = var1->unknown_1d_.unknown_0_0_;
+        var5          = var1->unknown_8_;
+        memcpy(&var4, &var1->unknown_2c_, sizeof(var4));
     }
 
-    if ((mask & 0x1) && (flags & 0x80000) && kind == 2) return 1;
-    if ((mask & 0x2) && (flags & 0x80000) && kind == 3) return 1;
-    if ((mask & 0x4) && (flags & 0x80000) && kind == 5) return 1;
-    if ((mask & 0x8) && (flags & 0x80000) && kind == 4) return 1;
-    if ((mask & 0x10) && (flags & 0x80000) && kind == 7) return 1;
-    if ((mask & 0x20) && (flags & 0x80000) && kind == 6) return 1;
-    if ((mask & 0x40) && (flags & 0x80000) && kind == 8) return 1;
-    if ((mask & 0x80) && (flags & 0x80000) && kind == 10) return 1;
-    if ((mask & 0x100) && (flags & 0x80000) && kind == 9) return 1;
-    if ((mask & 0x200) && (flags & 0x80000) && kind == 1) return 1;
-    if ((mask & 0x400) && classification == 1) return 1;
-    if ((mask & 0x800) && classification == 2) return 1;
-    if ((mask & 0x1000) && classification == 4) return 1;
-    if ((mask & 0x2000) && classification == 5) return 1;
-    if ((mask & 0x4000) && classification == 6) return 1;
-    if ((mask & 0x8000) && classification == 7) return 1;
-    if ((mask & 0x10000) && classification == 8) return 1;
+    if ((var0 & 0x1) && (var5 & 0x80000) && var2 == 2) return 1;
+    if ((var0 & 0x2) && (var5 & 0x80000) && var2 == 3) return 1;
+    if ((var0 & 0x4) && (var5 & 0x80000) && var2 == 5) return 1;
+    if ((var0 & 0x8) && (var5 & 0x80000) && var2 == 4) return 1;
+    if ((var0 & 0x10) && (var5 & 0x80000) && var2 == 7) return 1;
+    if ((var0 & 0x20) && (var5 & 0x80000) && var2 == 6) return 1;
+    if ((var0 & 0x40) && (var5 & 0x80000) && var2 == 8) return 1;
+    if ((var0 & 0x80) && (var5 & 0x80000) && var2 == 10) return 1;
+    if ((var0 & 0x100) && (var5 & 0x80000) && var2 == 9) return 1;
+    if ((var0 & 0x200) && (var5 & 0x80000) && var2 == 1) return 1;
+    if ((var0 & 0x400) && var3 == 1) return 1;
+    if ((var0 & 0x800) && var3 == 2) return 1;
+    if ((var0 & 0x1000) && var3 == 4) return 1;
+    if ((var0 & 0x2000) && var3 == 5) return 1;
+    if ((var0 & 0x4000) && var3 == 6) return 1;
+    if ((var0 & 0x8000) && var3 == 7) return 1;
+    if ((var0 & 0x10000) && var3 == 8) return 1;
     return 0;
 }

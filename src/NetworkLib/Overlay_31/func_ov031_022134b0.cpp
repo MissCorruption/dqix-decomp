@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Struct022134b0
+struct Struct_ov031_022134b0
 {
-	unsigned char pad[9];
-	unsigned char field9;
+	unsigned char unknown_0_[9];
+	unsigned char unknown_9_;
 };
 
-struct Global0224e5c4
+struct Struct_ov031_0224e5c4_6
 {
-	unsigned char pad[0xc];
-	Struct022134b0* pField;
+	unsigned char unknown_0_[0xc];
+	Struct_ov031_022134b0* unknown_c_;
 };
 
-extern Global0224e5c4 data_ov031_0224e5c4;
+extern Struct_ov031_0224e5c4_6 data_ov031_0224e5c4;
 
 // USA: func_ov031_022134b0
 extern "C" ARM int func_ov031_022134b0(void) {
-	Struct022134b0* p = data_ov031_0224e5c4.pField;
-	if (p != NULL) {
-		return p->field9;
+	Struct_ov031_022134b0* var0 = data_ov031_0224e5c4.unknown_c_;
+	if (var0 != NULL) {
+		return var0->unknown_9_;
 	}
 	return 0;
 }

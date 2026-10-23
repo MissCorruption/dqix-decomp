@@ -1,30 +1,30 @@
 #include <globaldefs.h>
 
-struct BufferNode02241060 {
-    BufferNode02241060* next;
+struct Struct_ov031_02241060_2 {
+    Struct_ov031_02241060_2* unknown_0_;
 };
 
-struct TextBuffer02241060 {
-    char padding0[0x10];
-    void* firstBuffer;
-    void* secondBuffer;
-    char padding18[4];
-    BufferNode02241060* head;
+struct Struct_ov031_02241060 {
+    char unknown_0_[0x10];
+    void* unknown_10_;
+    void* unknown_14_;
+    char unknown_18_[4];
+    Struct_ov031_02241060_2* unknown_1c_;
 };
 
 extern "C" void (*data_ov031_02290fc8)(void*);
 
 // USA: func_ov031_02241060
-extern "C" ARM void func_ov031_02241060(TextBuffer02241060* buffer) {
-    BufferNode02241060* node = buffer->head;
-    if (node != NULL) {
+extern "C" ARM void func_ov031_02241060(Struct_ov031_02241060* arg0) {
+    Struct_ov031_02241060_2* var0 = arg0->unknown_1c_;
+    if (var0 != NULL) {
         do {
-            BufferNode02241060* next = node->next;
-            data_ov031_02290fc8(node);
-            buffer->head = next;
-        } while ((node = buffer->head) != NULL);
+            Struct_ov031_02241060_2* var1 = var0->unknown_0_;
+            data_ov031_02290fc8(var0);
+            arg0->unknown_1c_ = var1;
+        } while ((var0 = arg0->unknown_1c_) != NULL);
     }
-    if (buffer->firstBuffer != NULL) data_ov031_02290fc8(buffer->firstBuffer);
-    if (buffer->secondBuffer != NULL) data_ov031_02290fc8(buffer->secondBuffer);
-    data_ov031_02290fc8(buffer);
+    if (arg0->unknown_10_ != NULL) data_ov031_02290fc8(arg0->unknown_10_);
+    if (arg0->unknown_14_ != NULL) data_ov031_02290fc8(arg0->unknown_14_);
+    data_ov031_02290fc8(arg0);
 }

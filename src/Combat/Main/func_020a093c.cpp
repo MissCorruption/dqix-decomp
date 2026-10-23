@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-struct Fields020a093c { int a; int b; short c; };
+struct Struct_0208660c { int unknown_0_; int unknown_4_; short unknown_8_; };
 
 // USA: func_020a093c
-extern "C" ARM void func_020a093c(struct Fields020a093c* obj, int a, int b, short c) {
-    obj->a = a;
-    obj->b = b;
-    obj->c = c;
+extern "C" ARM void func_020a093c(struct Struct_0208660c* arg0, int arg1, int arg2, short arg3) {
+    arg0->unknown_0_ = arg1;
+    arg0->unknown_4_ = arg2;
+    arg0->unknown_8_ = arg3;
 }

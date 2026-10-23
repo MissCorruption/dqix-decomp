@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct S_a0af4;
-extern "C" short func_020a0af4(struct S_a0af4* p, int key);
-struct KeyMap020a0a60;
-extern "C" void func_020a0a60(struct KeyMap020a0a60* map, short i);
+struct Struct_020a095c;
+extern "C" short func_020a0af4(struct Struct_020a095c* arg0, int arg1);
+struct Struct_020a0a08;
+extern "C" void func_020a0a60(struct Struct_020a0a08* arg0, short arg1);
 
-struct KeyMap020a0a08 { short* keys; signed char* vals; short count; };
+struct Struct_02061c04_23 { short* unknown_0_; signed char* unknown_4_; short unknown_8_; };
 
 // USA: func_020a0a08
-extern "C" ARM int func_020a0a08(struct KeyMap020a0a08* map, int key, int amount) {
-    short* keys = map->keys;
-    signed char* vals = map->vals;
-    short idx = func_020a0af4((struct S_a0af4*)map, key);
-    int ret = 0;
-    if (idx >= 0) {
-        vals[idx] -= amount;
-        if (vals[idx] <= 0) {
-            keys[idx] = ret - 1;
-            vals[idx] = ret;
-            func_020a0a60((struct KeyMap020a0a60*)map, idx);
+extern "C" ARM int func_020a0a08(struct Struct_02061c04_23* arg0, int arg1, int arg2) {
+    short* var0 = arg0->unknown_0_;
+    signed char* var1 = arg0->unknown_4_;
+    short var2 = func_020a0af4((struct Struct_020a095c*)arg0, arg1);
+    int var3 = 0;
+    if (var2 >= 0) {
+        var1[var2] -= arg2;
+        if (var1[var2] <= 0) {
+            var0[var2] = var3 - 1;
+            var1[var2] = var3;
+            func_020a0a60((struct Struct_020a0a08*)arg0, var2);
         }
-        ret = 1;
+        var3 = 1;
     }
-    return ret;
+    return var3;
 }

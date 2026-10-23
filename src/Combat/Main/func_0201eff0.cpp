@@ -2,23 +2,23 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct StrTable0201f308;
-struct Struct02030b7c;
+struct Struct_0201f308;
+struct Struct_0201c3a4;
 
-extern "C" void func_0201f308(StrTable0201f308*, char*, SafeAllocator*);
+extern "C" void func_0201f308(Struct_0201f308*, char*, SafeAllocator*);
 
-struct Container0201eff0 {
-    int f0;
-    SafeAllocator* alloc;
-    StrTable0201f308* table;
+struct Struct_020fdc40_6 {
+    int unknown_0_;
+    SafeAllocator* unknown_4_;
+    Struct_0201f308* unknown_8_;
 };
-extern Container0201eff0 data_020fdc40;
+extern Struct_020fdc40_6 data_020fdc40;
 
 // USA: func_0201eff0
-extern "C" ARM int func_0201eff0(Struct02030b7c* p) {
-    char* str = (char*)(void*)((Script::Parameter*)p)->ToString();
-    if (str != NULL) {
-        func_0201f308(data_020fdc40.table, str, data_020fdc40.alloc);
+extern "C" ARM int func_0201eff0(Struct_0201c3a4* arg0) {
+    char* var0 = (char*)(void*)((Script::Parameter*)arg0)->ToString();
+    if (var0 != NULL) {
+        func_0201f308(data_020fdc40.unknown_8_, var0, data_020fdc40.unknown_4_);
     }
     return 1;
 }

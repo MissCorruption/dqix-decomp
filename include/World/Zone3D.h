@@ -22,32 +22,32 @@ struct Zone3D_StructPtr_8
     unsigned char unknown_c_high_ : 1;
 };
 
-struct ZoneChestRenderRecord
+struct Struct_020133fc
 {
-    Vector3i position;
-    short angleY;
-    short angleX;
-    unsigned short counter;
-    short taskID;
-    signed char owner;
-    unsigned char unknown15;
-    unsigned char active;
-    unsigned char secondPass;
-    unsigned char special;
-    unsigned char delay;
-    short recordIndex;
-    unsigned short uniqueID;
-    unsigned char unknown1e[2];
-    Foo02048004* object;
+    Vector3i unknown_0_;
+    short unknown_c_;
+    short unknown_e_;
+    unsigned short unknown_10_;
+    short unknown_12_;
+    signed char unknown_14_;
+    unsigned char unknown_15_;
+    unsigned char unknown_16_;
+    unsigned char unknown_17_;
+    unsigned char unknown_18_;
+    unsigned char unknown_19_;
+    short unknown_1a_;
+    unsigned short unknown_1c_;
+    unsigned char unknown_1e_[2];
+    Struct_02012fa4* unknown_20_;
 };
 
-struct ZoneSavedActorState
+struct Struct_020236dc_3
 {
-    Vector3i position;
-    int rotationY;
-    short nodeId;
-    unsigned short zoneId;
-    unsigned char active;
+    Vector3i unknown_0_;
+    int unknown_c_;
+    short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_;
 };
 
 // sizeof == 0x2824, as seen in the dynamic allocation of one
@@ -73,18 +73,18 @@ public:
     Zone3D_StructPtr_8* pUnknownStruct_8_;
     struct
     {
-        char buffer1[10];
-        char buffer2[16];
-        char buffer3[16];
+        char unknown_0_[10];
+        char unknown_a_[16];
+        char unknown_1a_[16];
 #if defined(jpn)
-        char jpbuffer[0x20];
+        char unknown1_2a_[0x20];
 #endif
         short unknown_2a_;
         short unknown_2c_;
-        char pad_2e[2];
+        char unknown_2e_[2];
         int unknown_30_;
         short unknown_34_;
-        char pad_36[2];
+        char unknown_36_[2];
         int unknown_38_;
         int unknown_3c_;
     } substruct_c_;
@@ -95,15 +95,15 @@ public:
 
     // Populated from BMBL and BPOS scripts, among other things holds data
     // about warps and placement of stairs/chests in grottos
-    ZoneFeatures substruct_6c_;
+    Struct_020134e0 substruct_6c_;
     AtmosphericEffectSet atmosphericEffects_;
     // populated by BATS files.
     // If you remove it, lighting goes weird outdoors, but I don't see any 
     // change in towns / battlefields
     LightingInfo lighting_;
     Model3DListNode* firstModel_418_;
-    BmdjScriptNode* firstBMDJStruct_41c_;
-    GrottoTileMapRecord* grottoTileMapData_420_;
+    Struct_02013454* firstBMDJStruct_41c_;
+    Struct_02013490* grottoTileMapData_420_;
     int unknown_424_;
     char unk_428[4];
     unsigned char unknown_42c_;
@@ -120,14 +120,14 @@ public:
     unsigned char unknown_476_;
     // this seems to include blue and red chests
     unsigned char numChests_;
-    ZoneLootableRecord* unknown_478_;
-    ZoneChestRenderRecord* unknown_47c_;
+    Struct_020133cc* unknown_478_;
+    Struct_020133fc* unknown_47c_;
 
-    Foo02048004* lootableTemplates_[6];
+    Struct_02012fa4* unknown_480_[6];
     Model3D models_498_[2];
-    int chestPaletteOffsets_5f0_[4];
-    char unk_600[0x824 - 0x600];
-    BmdjSceneElement** terrainElements_;
+    int unknown_5f0_[4];
+    char unknown_600_[0x824 - 0x600];
+    Struct_02016874_2** unknown_824_;
     int unknown_828_;
 
     int unknown_82c_;
@@ -158,17 +158,17 @@ public:
     char unk_2664[0x2724 - 0x2664];
     char unknown_struct_2724_[0xc];
     char unk_2730[0x274c - 0x2730];
-    int chestRenderingEnabled_274c_;
-    char unk_2750[0x2754 - 0x2750];
+    int unknown_274c_;
+    char unknown_2750_[0x2754 - 0x2750];
     char unknown_struct_2754_[0x18];
     union {
         char unk_276c[0x2820 - 0x276c];
         struct {
             char unknown_276c_[8];
-            ZoneSavedActorState savedActor_;
+            Struct_020236dc_3 unknown_2774_;
             char unknown_278c_[0x27d8 - 0x278c];
-            unsigned short pendingType2Mask_;
-            unsigned short pendingLootableMask_;
+            unsigned short unknown_27d8_;
+            unsigned short unknown_27da_;
             char unknown_27dc_[0x281e - 0x27dc];
             unsigned char unknown_281e_;
             char unknown_281f_;
@@ -180,34 +180,24 @@ public:
     // usa: _ZN6Zone3D10SwitchZoneEti
     void SwitchZone(unsigned short newID, int);
 
-    inline ActiveGrottoClass* GetActiveGrotto() { return &grotto_; }
+    inline ActiveGrottoClass* inline_02024518_2() { return &grotto_; }
 
-    inline ZoneSavedActorState* GetSavedActorState() { return &savedActor_; }
+    inline Struct_020236dc_3* inline_020a6728() { return &unknown_2774_; }
 
     // usa: _ZN6Zone3D13func_020146fcEv
     int func_020146fc();
 
     int func_02014108();
     int func_02014c04();
-    int func_02014390(const void* source, unsigned int sourceLength);
-    int func_020143d8(const void* source, unsigned int sourceLength);
-    int func_02014414(const void* source, unsigned int sourceLength);
-    bool func_0201445c(const void* source, unsigned int sourceLength, const char* name);
+    int func_02014390(const void* arg0, unsigned int arg1);
+    int func_020143d8(const void* arg0, unsigned int arg1);
+    int func_02014414(const void* arg0, unsigned int arg1);
+    bool func_0201445c(const void* arg0, unsigned int arg1, const char* arg2);
 
     void func_020145a8();
     void func_0201403c();
 };
 
 #if defined(jpn)
-typedef char ZoneSavedActorStateSizeCheck[sizeof(ZoneSavedActorState) == 0x18 ? 1 : -1];
-typedef char Zone3DSavedActorOffsetCheck[offsetof(Zone3D, savedActor_) == 0x27b4 ? 1 : -1];
-typedef char Zone3DNodeHeadOffsetCheck[offsetof(Zone3D, firstBMDJStruct_41c_) == 0x43c ? 1 : -1];
-typedef char Zone3DTerrainArrayOffsetCheck[offsetof(Zone3D, terrainElements_) == 0x844 ? 1 : -1];
-typedef char Zone3DStorageSizeCheck[sizeof(Zone3D) == 0x2864 ? 1 : -1];
 #else
-typedef char ZoneSavedActorStateSizeCheck[sizeof(ZoneSavedActorState) == 0x18 ? 1 : -1];
-typedef char Zone3DSavedActorOffsetCheck[offsetof(Zone3D, savedActor_) == 0x2774 ? 1 : -1];
-typedef char Zone3DNodeHeadOffsetCheck[offsetof(Zone3D, firstBMDJStruct_41c_) == 0x41c ? 1 : -1];
-typedef char Zone3DTerrainArrayOffsetCheck[offsetof(Zone3D, terrainElements_) == 0x824 ? 1 : -1];
-typedef char Zone3DStorageSizeCheck[sizeof(Zone3D) == 0x2824 ? 1 : -1];
 #endif

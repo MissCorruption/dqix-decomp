@@ -5,23 +5,23 @@
 #endif
 #include <globaldefs.h>
 
-struct TaggedNumber02184c30;
-extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
+struct Struct_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 extern "C" void* func_ov017_021b2164(void);
-extern "C" void* func_ov011_021849c8(void* ctx);
-extern "C" void* func_ov023_021f6880(void* list, int value);
-extern "C" unsigned int func_ov023_021f6f10(void* obj);
-struct S_b284;
-extern "C" void func_ov023_021fb284(S_b284*, int);
+extern "C" void* func_ov011_021849c8(void* arg0);
+extern "C" void* func_ov023_021f6880(void* arg0, int arg1);
+extern "C" unsigned int func_ov023_021f6f10(void* arg0);
+struct Struct_ov011_02187da8;
+extern "C" void func_ov023_021fb284(Struct_ov011_02187da8*, int);
 
 // USA: func_ov011_02187da8
-extern "C" ARM int func_ov011_02187da8(struct TaggedNumber02184c30* tagged) {
-    int key = func_ov011_02184c30(tagged);
-    int val = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 8));
-    void* node = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), key);
-    if (!node) return 0;
-    if (func_ov023_021f6f10(node) != 1) return 0;
-    func_ov023_021fb284((S_b284*)node, (char)val);
+extern "C" ARM int func_ov011_02187da8(struct Struct_ov011_02184c30* arg0) {
+    int var0 = func_ov011_02184c30(arg0);
+    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
+    void* var2 = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), var0);
+    if (!var2) return 0;
+    if (func_ov023_021f6f10(var2) != 1) return 0;
+    func_ov023_021fb284((Struct_ov011_02187da8*)var2, (char)var1);
     return 1;
 }

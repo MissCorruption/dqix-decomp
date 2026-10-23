@@ -3,74 +3,74 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-enum { tableOffset = 0x27c };
+enum { Enum_ov001_0215eb3c_716 = 0x27c };
 #else
-enum { tableOffset = 0x2cc };
+enum { Enum_ov001_0215eb3c_716 = 0x2cc };
 #endif
 
 extern "C" int func_ov017_021d60f4(void*);
-extern "C" int func_0200fb8c(int* obj);
-extern "C" void func_0207dfac(char* tables);
+extern "C" int func_0200fb8c(int* arg0);
+extern "C" void func_0207dfac(char* arg0);
 
-struct PairTables_0215eb3c {
-    int a[10];
-    int b[10];
-    int c;
-    int d;
-    int p1[2];
-    int p2[2];
+struct Struct_ov001_0215eb3c {
+    int unknown_0_[10];
+    int unknown_28_[10];
+    int unknown_50_;
+    int unknown_54_;
+    int unknown_58_[2];
+    int unknown_60_[2];
 };
 
 // USA: func_ov001_0215eb3c
-extern "C" ARM int func_ov001_0215eb3c(void* self, int mode) {
-    GameState* bs;
-    int base;
-    int addr;
-    PairTables_0215eb3c* tables;
-    int diff;
-    int i;
-    int j;
-    int index;
+extern "C" ARM int func_ov001_0215eb3c(void* arg0, int arg1) {
+    GameState* var0;
+    int var1;
+    int var2;
+    Struct_ov001_0215eb3c* var3;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
 
-    bs = GameState::GetInstance();
-    if (bs == NULL) {
+    var0 = GameState::GetInstance();
+    if (var0 == NULL) {
         return 0;
     }
-    base = func_0200fb8c((int*)bs);
-    if (base == 0) {
+    var1 = func_0200fb8c((int*)var0);
+    if (var1 == 0) {
         return 0;
     }
-    index = func_ov017_021d60f4(self);
-    if (index < 0) {
-        addr = base + tableOffset;
-        addr = addr + 0xbd0;
+    var7 = func_ov017_021d60f4(arg0);
+    if (var7 < 0) {
+        var2 = var1 + Enum_ov001_0215eb3c_716;
+        var2 = var2 + 0xbd0;
     } else {
-        addr = base + tableOffset + index * 0x70;
+        var2 = var1 + Enum_ov001_0215eb3c_716 + var7 * 0x70;
     }
-    if (addr == 0) {
+    if (var2 == 0) {
         return 0;
     }
-    func_0207dfac((char*)addr);
-    if (mode >= 2 && func_ov017_021d60f4((char*)self + 0x8) != 0) {
-        addr = base + tableOffset;
-        tables = (PairTables_0215eb3c*)(addr + 0xbd0);
-        diff = 0;
-        for (i = 0; i < 10; i++) {
-            diff += abs(tables->a[i] - tables->b[i]);
+    func_0207dfac((char*)var2);
+    if (arg1 >= 2 && func_ov017_021d60f4((char*)arg0 + 0x8) != 0) {
+        var2 = var1 + Enum_ov001_0215eb3c_716;
+        var3 = (Struct_ov001_0215eb3c*)(var2 + 0xbd0);
+        var4 = 0;
+        for (var5 = 0; var5 < 10; var5++) {
+            var4 += abs(var3->unknown_0_[var5] - var3->unknown_28_[var5]);
         }
-        diff = 0;
-        for (i = 0; i < 2; i++) {
-            diff += abs(tables->p1[i] - tables->p2[i]);
+        var4 = 0;
+        for (var5 = 0; var5 < 2; var5++) {
+            var4 += abs(var3->unknown_58_[var5] - var3->unknown_60_[var5]);
         }
-        if (index >= 0) {
-            tables = (PairTables_0215eb3c*)(base + tableOffset + index * 0x70);
-            diff = 0;
-            for (j = 0; j < 10; j++) {
-                diff += abs(tables->a[j] - tables->b[j]);
+        if (var7 >= 0) {
+            var3 = (Struct_ov001_0215eb3c*)(var1 + Enum_ov001_0215eb3c_716 + var7 * 0x70);
+            var4 = 0;
+            for (var6 = 0; var6 < 10; var6++) {
+                var4 += abs(var3->unknown_0_[var6] - var3->unknown_28_[var6]);
             }
-            diff = 0;
-            for (j = 0; j < 2; j++) {
-                diff += abs(tables->p1[j] - tables->p2[j]);
+            var4 = 0;
+            for (var6 = 0; var6 < 2; var6++) {
+                var4 += abs(var3->unknown_58_[var6] - var3->unknown_60_[var6]);
             }
         }
     }

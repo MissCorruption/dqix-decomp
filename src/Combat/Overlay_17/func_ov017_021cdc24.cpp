@@ -6,30 +6,30 @@
 #endif
 
 extern "C" void* func_0202ae24(void);
-extern "C" void* func_0205ec34(void* obj);
-extern "C" void func_0205e330(void* a, void* b, int c);
+extern "C" void* func_0205ec34(void* arg0);
+extern "C" void func_0205e330(void* arg0, void* arg1, int arg2);
 
-struct Bits021cdc24 {
-    unsigned short lo2 : 2;
-    unsigned short hi14 : 14;
+struct Struct_ov017_021cdc24 {
+    unsigned short unknown_0_0_ : 2;
+    unsigned short unknown_0_2_ : 14;
 };
 
 // USA: func_ov017_021cdc24
-extern "C" ARM void func_ov017_021cdc24(int a0, int a1) {
-    void* p = func_0202ae24();
-    unsigned char buf[0x14];
-    Bits021cdc24* bits = (Bits021cdc24*)(buf + 4);
-    bits->lo2 = a0;
-    buf[0] = 0x92;
-    bits->hi14 = a1;
+extern "C" ARM void func_ov017_021cdc24(int arg0, int arg1) {
+    void* var0 = func_0202ae24();
+    unsigned char var1[0x14];
+    Struct_ov017_021cdc24* var2 = (Struct_ov017_021cdc24*)(var1 + 4);
+    var2->unknown_0_0_ = arg0;
+    var1[0] = 0x92;
+    var2->unknown_0_2_ = arg1;
 
-    unsigned char* result = (unsigned char*)func_0205ec34(p);
-    int len = 0xe;
-    if ((unsigned int)(a1 + 0xe) > 0xfd) {
-        len = 0xfd - a1;
+    unsigned char* var3 = (unsigned char*)func_0205ec34(var0);
+    int var4 = 0xe;
+    if ((unsigned int)(arg1 + 0xe) > 0xfd) {
+        var4 = 0xfd - arg1;
     }
-    if (len >= 0) {
-        memcpy((unsigned char*)bits + 2, result + a1, len);
-        func_0205e330(p, buf, 0);
+    if (var4 >= 0) {
+        memcpy((unsigned char*)var2 + 2, var3 + arg1, var4);
+        func_0205e330(var0, var1, 0);
     }
 }

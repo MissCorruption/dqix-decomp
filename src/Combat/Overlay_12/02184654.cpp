@@ -3,237 +3,237 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct ProfileHeader02184654 {
-    unsigned int year : 12;
-    unsigned int month : 4;
-    unsigned int day : 5;
-    unsigned int design : 4;
-    unsigned int female : 1;
-    unsigned int initialized : 1;
-    unsigned int designChosen : 1;
-    unsigned int birthdayChosen : 1;
-    unsigned int accoladeChosen : 1;
-    unsigned int vocationAccolade : 1;
-    unsigned int showBirthday : 1;
-    unsigned int age : 9;
-    int title : 10;
-    int accolade : 11;
-    int edited : 1;
-    unsigned int unknown31 : 1;
-    signed char profileText[116];
+struct Struct_ov012_02184654 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 4;
+    unsigned int unknown_3_1_ : 1;
+    unsigned int unknown_3_2_ : 1;
+    unsigned int unknown_3_3_ : 1;
+    unsigned int unknown_3_4_ : 1;
+    unsigned int unknown_3_5_ : 1;
+    unsigned int unknown_3_6_ : 1;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 9;
+    int unknown_5_1_ : 10;
+    int unknown_6_3_ : 11;
+    int unknown_7_6_ : 1;
+    unsigned int unknown_7_7_ : 1;
+    signed char unknown_8_[116];
 };
-struct AppearanceFlags02184654 {
-    unsigned char female : 1;
-    unsigned char eyeColor : 3;
-    unsigned char skinColor : 4;
+struct Struct_ov012_02184654_8 {
+    unsigned char unknown_0_0_ : 1;
+    unsigned char unknown_0_1_ : 3;
+    unsigned char unknown_0_4_ : 4;
 };
-struct Appearance02184654 {
-    short models[10];
-    AppearanceFlags02184654 flags;
+struct Struct_ov012_02184654_9 {
+    short unknown_0_[10];
+    Struct_ov012_02184654_8 unknown_14_;
 };
-struct TableA68;
-struct Container020e0310;
+struct Struct_02072a68_2;
+struct Struct_0201099c_3;
 extern "C" void* func_0202ae18();
 extern "C" unsigned char* func_02053c6c(unsigned char*);
 extern "C" int func_02098f20(int, int, int);
-extern "C" void* func_02072a68(TableA68*, int);
-extern "C" int func_020e0434(Container020e0310*, int);
+extern "C" void* func_02072a68(Struct_02072a68_2*, int);
+extern "C" int func_020e0434(Struct_0201099c_3*, int);
 extern "C" void func_ov023_021e66ac(void*);
 
-static inline ProfileHeader02184654* GetProfile02184654(GameState* state) {
-    return (ProfileHeader02184654*)((char*)state + 0x543c);
+static inline Struct_ov012_02184654* inline_ov012_02184654(GameState* arg0) {
+    return (Struct_ov012_02184654*)((char*)arg0 + 0x543c);
 }
 
 // USA: func_ov012_02184654
-extern "C" ARM void func_ov012_02184654(char* editor) {
-    GameState* gameState = GameState::GetInstance();
-    ProfileHeader02184654* profile = GetProfile02184654(gameState);
-    signed char padding[3];
-    memcpy(padding, func_02072a68((TableA68*)(editor + 0x1314), 113), 3);
+extern "C" ARM void func_ov012_02184654(char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_ov012_02184654* var1 = inline_ov012_02184654(var0);
+    signed char var2[3];
+    memcpy(var2, func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), 113), 3);
     func_0202ae18();
-    unsigned char* characterData = 0;
-    GameObject* protagonist = gameState->GetProtagonist();
-    if (protagonist)
-        characterData = func_02053c6c((unsigned char*)protagonist);
-    if (!characterData) return;
-    *(void**)(editor + 0x1408) = characterData + 0x3c;
+    unsigned char* var3 = 0;
+    GameObject* var4 = var0->GetProtagonist();
+    if (var4)
+        var3 = func_02053c6c((unsigned char*)var4);
+    if (!var3) return;
+    *(void**)(arg0 + 0x1408) = var3 + 0x3c;
 
-    if (!profile->initialized) {
-        profile->year = 2000;
-        profile->month = 1;
-        profile->day = 1;
-        profile->showBirthday = 1;
-        Appearance02184654* appearance = (Appearance02184654*)(characterData + 0x488);
-        profile->female = appearance->flags.female;
-        profile->design = appearance->flags.female;
-        profile->title = 300;
-        char* partyData = *(char**)((char*)protagonist + 0x144);
-        profile->accolade = *(int*)(partyData + 0x8b8) + 700;
-        int i;
-        signed char* text = profile->profileText;
-        for (i = 0; i < 57; i++, text += 2) {
-            memcpy(text, padding, 2);
+    if (!var1->unknown_3_2_) {
+        var1->unknown_0_0_ = 2000;
+        var1->unknown_1_4_ = 1;
+        var1->unknown_2_0_ = 1;
+        var1->unknown_3_7_ = 1;
+        Struct_ov012_02184654_9* var5 = (Struct_ov012_02184654_9*)(var3 + 0x488);
+        var1->unknown_3_1_ = var5->unknown_14_.unknown_0_0_;
+        var1->unknown_2_5_ = var5->unknown_14_.unknown_0_0_;
+        var1->unknown_5_1_ = 300;
+        char* var6 = *(char**)((char*)var4 + 0x144);
+        var1->unknown_6_3_ = *(int*)(var6 + 0x8b8) + 700;
+        int var7;
+        signed char* var8 = var1->unknown_8_;
+        for (var7 = 0; var7 < 57; var7++, var8 += 2) {
+            memcpy(var8, var2, 2);
         }
-        profile->initialized = 1;
+        var1->unknown_3_2_ = 1;
     }
-    profile->age = func_02098f20(profile->year, profile->month, profile->day);
-    signed char* text = profile->profileText;
-    while (*(unsigned char*)(editor + 0x1375) < 114) {
-        if (text[0] == padding[0] && text[1] == padding[1]) break;
-        *(unsigned char*)(editor + 0x1375) += 2;
-        text += 2;
+    var1->unknown_4_0_ = func_02098f20(var1->unknown_0_0_, var1->unknown_1_4_, var1->unknown_2_0_);
+    signed char* var9 = var1->unknown_8_;
+    while (*(unsigned char*)(arg0 + 0x1375) < 114) {
+        if (var9[0] == var2[0] && var9[1] == var2[1]) break;
+        *(unsigned char*)(arg0 + 0x1375) += 2;
+        var9 += 2;
     }
-    const char* label = (const char*)func_02072a68((TableA68*)(editor + 0x1314), (short)(profile->title + 10000));
-    memcpy(editor + 0x1498, label, strlen(label));
-    if (profile->accolade < 700)
-        label = (const char*)func_020e0434((Container020e0310*)(editor + 0x131c), (short)profile->accolade);
+    const char* var10 = (const char*)func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var1->unknown_5_1_ + 10000));
+    memcpy(arg0 + 0x1498, var10, strlen(var10));
+    if (var1->unknown_6_3_ < 700)
+        var10 = (const char*)func_020e0434((Struct_0201099c_3*)(arg0 + 0x131c), (short)var1->unknown_6_3_);
     else
-        label = (const char*)func_02072a68((TableA68*)(editor + 0x1314), (short)(profile->accolade + 20000));
-    memcpy(editor + 0x1458, label, strlen(label));
-    func_ov023_021e66ac(editor);
+        var10 = (const char*)func_02072a68((Struct_02072a68_2*)(arg0 + 0x1314), (short)(var1->unknown_6_3_ + 20000));
+    memcpy(arg0 + 0x1458, var10, strlen(var10));
+    func_ov023_021e66ac(arg0);
 }
 #else
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-struct Profile02184654
+struct Struct_ov012_02184654_2
 {
-    unsigned int year_ : 12;
-    unsigned int month_ : 4;
-    unsigned int day_ : 5;
-    unsigned int unk_0_21 : 4;
-    unsigned int female_ : 1;
-    unsigned int initialized_ : 1;
-    unsigned int designChosen_ : 1;
-    unsigned int birthdayChosen_ : 1;
-    unsigned int accoladeChosen_ : 1;
-    unsigned int vocationAccolade_ : 1;
-    unsigned int showBirthday_ : 1;
-    unsigned int unk_4_0 : 9;
-    int title_ : 10;
-    int accolade_ : 11;
-    int edited_ : 1;
-    unsigned int unk_4_31 : 1;
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 4;
+    unsigned int unknown_2_0_ : 5;
+    unsigned int unknown_2_5_ : 4;
+    unsigned int unknown_3_1_ : 1;
+    unsigned int unknown_3_2_ : 1;
+    unsigned int unknown_3_3_ : 1;
+    unsigned int unknown_3_4_ : 1;
+    unsigned int unknown_3_5_ : 1;
+    unsigned int unknown_3_6_ : 1;
+    unsigned int unknown_3_7_ : 1;
+    unsigned int unknown_4_0_ : 9;
+    int unknown_5_1_ : 10;
+    int unknown_6_3_ : 11;
+    int unknown_7_6_ : 1;
+    unsigned int unknown_7_7_ : 1;
 };
 
-struct Save02184654
+struct Struct_01ff8b48_4
 {
-    char unk_0[0x5400];
-    Profile02184654 profile_;
+    char unknown_0_[0x5400];
+    Struct_ov012_02184654_2 unknown_5400_;
 };
 
-struct GameStateSave02184654
+struct Struct_01ff8b48_5
 {
-    char unk_0[0x29c];
-    Save02184654 save_;
+    char unknown_0_[0x29c];
+    Struct_01ff8b48_4 unknown_29c_;
 };
 
-struct FieldFlags02184654
+struct Struct_ov012_02184654_3
 {
-    char pad0[0x14];
-    unsigned char female_ : 1;
-    unsigned char eyeColor_ : 3;
-    unsigned char skinColor_ : 4;
-    char pad1[0x488 - 0x15];
+    char unknown_0_[0x14];
+    unsigned char unknown_14_0_ : 1;
+    unsigned char unknown_14_1_ : 3;
+    unsigned char unknown_14_4_ : 4;
+    char unknown_15_[0x488 - 0x15];
 };
 
-struct Field02184654
+struct Struct_ov012_02184654_4
 {
-    FieldFlags02184654 slots_[2];
+    Struct_ov012_02184654_3 unknown_0_[2];
 };
 
-struct Party02184654
+struct Struct_ov012_02184654_5
 {
-    char unk_0[0x49c];
-    unsigned char female_ : 1;
-    char unk_49d[0x950 - 0x49d];
-    int vocation_;
+    char unknown_0_[0x49c];
+    unsigned char unknown_49c_0_ : 1;
+    char unknown_49d_[0x950 - 0x49d];
+    int unknown_950_;
 };
 
-struct Member02184654
+struct Struct_ov012_02184654_6
 {
-    char unk_0[0x150];
-    Party02184654* partyData_;
+    char unknown_0_[0x150];
+    Struct_ov012_02184654_5* unknown_150_;
 };
 
-struct TableA68;
-struct Container020e0310;
+struct Struct_02072a68_2;
+struct Struct_0201099c_3;
 
-struct ProfileEditor02184654
+struct Struct_ov012_02184654_7
 {
-    char unk_0[0x133c];
-    char strings_[8];
-    char texts_[0x13b0 - 0x1344];
-    void* unk_13b0;
-    char unk_13b4[0x1400 - 0x13b4];
-    char nameText_[0x40];
-    char accoladeText_[0x40];
+    char unknown_0_[0x133c];
+    char unknown_133c_[8];
+    char unknown_1344_[0x13b0 - 0x1344];
+    void* unknown_13b0_;
+    char unknown_13b4_[0x1400 - 0x13b4];
+    char unknown_1400_[0x40];
+    char unknown_1440_[0x40];
 };
 
 extern "C" void* func_0202ae18();
-extern "C" unsigned char* func_02053c6c(unsigned char* obj);
-extern "C" int func_02098f20(int year, int month, int day);
-extern "C" void* func_02072a68(struct TableA68* table, int key);
-extern "C" int func_020e0434(struct Container020e0310* texts, int key);
-extern "C" void func_ov023_021e66ac(ProfileEditor02184654* self);
+extern "C" unsigned char* func_02053c6c(unsigned char* arg0);
+extern "C" int func_02098f20(int arg0, int arg1, int arg2);
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_ov023_021e66ac(Struct_ov012_02184654_7* arg0);
 
-static inline Profile02184654* GetProfile02184654(GameState* gameState)
+static inline Struct_ov012_02184654_2* inline_ov012_02184654(GameState* arg0)
 {
-    return &((GameStateSave02184654*)gameState)->save_.profile_;
+    return &((Struct_01ff8b48_5*)arg0)->unknown_29c_.unknown_5400_;
 }
 
-static inline FieldFlags02184654* GetFieldFlags02184654(Field02184654* field, int i)
+static inline Struct_ov012_02184654_3* inline_ov012_02184654_2(Struct_ov012_02184654_4* arg0, int arg1)
 {
-    return (FieldFlags02184654*)(void*)field->slots_ + i;
+    return (Struct_ov012_02184654_3*)(void*)arg0->unknown_0_ + arg1;
 }
 
 // USA: func_ov012_02184654
-extern "C" ARM void func_ov012_02184654(ProfileEditor02184654* self)
+extern "C" ARM void func_ov012_02184654(Struct_ov012_02184654_7* arg0)
 {
-    GameState* gameState = GameState::GetInstance();
-    Profile02184654* profile = GetProfile02184654(gameState);
+    GameState* var11 = GameState::GetInstance();
+    Struct_ov012_02184654_2* var12 = inline_ov012_02184654(var11);
     func_0202ae18();
-    Field02184654* field = 0;
-    Member02184654* protagonist = (Member02184654*)gameState->GetProtagonist();
-    if (protagonist != 0)
-        field = (Field02184654*)func_02053c6c((unsigned char*)protagonist);
-    if (field == 0)
+    Struct_ov012_02184654_4* var13 = 0;
+    Struct_ov012_02184654_6* var14 = (Struct_ov012_02184654_6*)var11->GetProtagonist();
+    if (var14 != 0)
+        var13 = (Struct_ov012_02184654_4*)func_02053c6c((unsigned char*)var14);
+    if (var13 == 0)
         return;
 
-    self->unk_13b0 = (char*)field + 0x3c;
+    arg0->unknown_13b0_ = (char*)var13 + 0x3c;
 
-    void* name2;
-    if (!profile->initialized_)
+    void* var15;
+    if (!var12->unknown_3_2_)
     {
-        profile->year_ = 2000;
-        profile->month_ = 1;
-        profile->day_ = 1;
-        profile->showBirthday_ = 1;
-        FieldFlags02184654* flags = GetFieldFlags02184654(field, 1);
-        int accolade = 0x50dc;
-        profile->female_ = flags->female_;
-        profile->unk_0_21 = flags->female_;
-        profile->title_ = 300;
-        Party02184654* party = protagonist->partyData_;
-        if (party->female_ == 1)
-            accolade += 0x32;
-        profile->accolade_ = accolade + party->vocation_ - 0x4e20;
-        memset((char*)profile + 8, 0, 0x74);
-        profile->initialized_ = 1;
+        var12->unknown_0_0_ = 2000;
+        var12->unknown_1_4_ = 1;
+        var12->unknown_2_0_ = 1;
+        var12->unknown_3_7_ = 1;
+        Struct_ov012_02184654_3* var16 = inline_ov012_02184654_2(var13, 1);
+        int var17 = 0x50dc;
+        var12->unknown_3_1_ = var16->unknown_14_0_;
+        var12->unknown_2_5_ = var16->unknown_14_0_;
+        var12->unknown_5_1_ = 300;
+        Struct_ov012_02184654_5* var18 = var14->unknown_150_;
+        if (var18->unknown_49c_0_ == 1)
+            var17 += 0x32;
+        var12->unknown_6_3_ = var17 + var18->unknown_950_ - 0x4e20;
+        memset((char*)var12 + 8, 0, 0x74);
+        var12->unknown_3_2_ = 1;
     }
 
-    profile->unk_4_0 = func_02098f20(profile->year_, profile->month_, profile->day_);
+    var12->unknown_4_0_ = func_02098f20(var12->unknown_0_0_, var12->unknown_1_4_, var12->unknown_2_0_);
 
-    name2 = func_02072a68((struct TableA68*)self->strings_, (short)(profile->title_ + 10000));
-    memcpy(self->accoladeText_, name2, strlen((char*)name2));
+    var15 = func_02072a68((struct Struct_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_5_1_ + 10000));
+    memcpy(arg0->unknown_1440_, var15, strlen((char*)var15));
 
-    if (profile->accolade_ < 700)
-        name2 = (void*)func_020e0434((struct Container020e0310*)self->texts_, (short)profile->accolade_);
+    if (var12->unknown_6_3_ < 700)
+        var15 = (void*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_1344_, (short)var12->unknown_6_3_);
     else
-        name2 = func_02072a68((struct TableA68*)self->strings_, (short)(profile->accolade_ + 20000));
-    memcpy(self->nameText_, name2, strlen((char*)name2));
+        var15 = func_02072a68((struct Struct_02072a68_2*)arg0->unknown_133c_, (short)(var12->unknown_6_3_ + 20000));
+    memcpy(arg0->unknown_1400_, var15, strlen((char*)var15));
 
-    func_ov023_021e66ac(self);
+    func_ov023_021e66ac(arg0);
 }
 #endif

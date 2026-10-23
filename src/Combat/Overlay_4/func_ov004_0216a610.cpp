@@ -5,121 +5,121 @@ extern "C" void* func_ov004_02168fa4(void*, int);
 extern "C" void func_ov023_021f809c(void*, void*);
 #endif
 
-struct Grid021f9b30 {
-    char pad[0x20];
-    short* cells;
-    unsigned short width;
-    unsigned short height;
-    char pad28[0x34];
-    short page;
-    short field_0x5e;
+struct Struct_ov004_02153e20 {
+    char unknown_0_[0x20];
+    short* unknown_20_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
+    char unknown_28_[0x34];
+    short unknown_5c_;
+    short unknown_5e_;
 };
 
-class Widget0216a610 {
+class Struct_ov004_0216a610_4 {
 public:
-    virtual void v00(); virtual void v01(); virtual void v02(); virtual void v03();
-    virtual void v04(); virtual void v05(); virtual void v06(); virtual void v07();
-    virtual void v08(); virtual void v09(); virtual void v10(); virtual void v11();
-    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
-    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
-    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
-    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
-    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
-    virtual void v32(); virtual void v33(); virtual void v34(); virtual void v35();
-    virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
-    virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
-    virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
-    virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
-    virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55();
-    virtual void SetValue(int value);
+    virtual void inline_ov004_0216a610_31(); virtual void inline_ov004_0216a610_32(); virtual void inline_ov004_0216a610_33(); virtual void inline_ov004_0216a610_34();
+    virtual void inline_ov004_0216a610_35(); virtual void inline_ov004_0216a610_36(); virtual void inline_ov004_0216a610_37(); virtual void inline_ov004_0216a610_38();
+    virtual void inline_ov004_0216a610_39(); virtual void inline_ov004_0216a610_40(); virtual void inline_ov004_0216a610_41(); virtual void inline_ov004_0216a610_42();
+    virtual void inline_ov004_0216a610_43(); virtual void inline_ov004_0216a610_44(); virtual void inline_ov004_0216a610_45(); virtual void inline_ov004_0216a610_46();
+    virtual void inline_ov004_0216a610_47(); virtual void inline_ov004_0216a610_48(); virtual void inline_ov004_0216a610_49(); virtual void inline_ov004_0216a610_50();
+    virtual void inline_ov004_0216a610_51(); virtual void inline_ov004_0216a610_52(); virtual void inline_ov004_0216a610_53(); virtual void inline_ov004_0216a610_54();
+    virtual void inline_ov004_0216a610_55(); virtual void inline_ov004_0216a610_56(); virtual void inline_ov004_0216a610_57(); virtual void inline_ov004_0216a610();
+    virtual void inline_ov004_0216a610_2(); virtual void inline_ov004_0216a610_3(); virtual void inline_ov004_0216a610_4(); virtual void inline_ov004_0216a610_5();
+    virtual void inline_ov004_0216a610_6(); virtual void inline_ov004_0216a610_7(); virtual void inline_ov004_0216a610_8(); virtual void inline_ov004_0216a610_9();
+    virtual void inline_ov004_0216a610_10(); virtual void inline_ov004_0216a610_11(); virtual void inline_ov004_0216a610_12(); virtual void inline_ov004_0216a610_13();
+    virtual void inline_ov004_0216a610_14(); virtual void inline_ov004_0216a610_15(); virtual void inline_ov004_0216a610_16(); virtual void inline_ov004_0216a610_17();
+    virtual void inline_ov004_0216a610_18(); virtual void inline_ov004_0216a610_19(); virtual void inline_ov004_0216a610_20(); virtual void inline_ov004_0216a610_21();
+    virtual void inline_ov004_0216a610_22(); virtual void inline_ov004_0216a610_23(); virtual void inline_ov004_0216a610_24(); virtual void inline_ov004_0216a610_25();
+    virtual void inline_ov004_0216a610_26(); virtual void inline_ov004_0216a610_27(); virtual void inline_ov004_0216a610_28(); virtual void inline_ov004_0216a610_29();
+    virtual void inline_ov004_0216a610_30(int arg0);
 
-    char pad4[8];
-    unsigned char flags;
-    char padd[0x13];
-    char* text;
+    char unknown_4_[8];
+    unsigned char unknown_c_;
+    char unknown_d_[0x13];
+    char* unknown_20_;
 };
 
-struct SaveEntry0216a610 {
-    char pad0[6];
-    char name[0xb];
-    unsigned char level;
-    unsigned short id : 14;
-    unsigned short used : 1;
-    unsigned short highBit : 1;
-    char pad14[0x18];
+struct Struct_ov004_0216a610 {
+    char unknown_0_[6];
+    char unknown_6_[0xb];
+    unsigned char unknown_11_;
+    unsigned short unknown_12_0_ : 14;
+    unsigned short unknown_13_6_ : 1;
+    unsigned short unknown_13_7_ : 1;
+    char unknown_14_[0x18];
 };
 
-struct SaveTable0216a610 {
-    unsigned char count;
-    char pad1[3];
-    struct SaveEntry0216a610 entries[1];
+struct Struct_ov004_0216a610_2 {
+    unsigned char unknown_0_;
+    char unknown_1_[3];
+    struct Struct_ov004_0216a610 unknown_4_[1];
 };
 
-struct Data0216a610 {
+struct Struct_ov004_0216a610_3 {
 #if !defined(jpn)
-    char names[8][0x30];
+    char unknown_0_[8][0x30];
 #endif
-    char pad180[0x10];
-    struct SaveTable0216a610* table;
+    char unknown_180_[0x10];
+    struct Struct_ov004_0216a610_2* unknown_190_;
 };
 
-extern "C" struct Grid021f9b30* func_ov023_021f6524(void* ctx, int value);
-extern "C" Widget0216a610* func_ov004_02168a6c(void* a, int id);
-extern "C" Widget0216a610* func_ov004_02168a38(void* a, int id);
-extern "C" void func_02042764(void* src, void* dst, int flag);
-extern "C" int func_ov023_021f9b30(struct Grid021f9b30* self, unsigned short val, unsigned int x, unsigned int y);
-extern "C" void func_ov023_021f6630(int a, int b, short c, short d);
+extern "C" struct Struct_ov004_02153e20* func_ov023_021f6524(void* arg0, int arg1);
+extern "C" Struct_ov004_0216a610_4* func_ov004_02168a6c(void* arg0, int arg1);
+extern "C" Struct_ov004_0216a610_4* func_ov004_02168a38(void* arg0, int arg1);
+extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
+extern "C" int func_ov023_021f9b30(struct Struct_ov004_02153e20* arg0, unsigned short arg1, unsigned int arg2, unsigned int arg3);
+extern "C" void func_ov023_021f6630(int arg0, int arg1, short arg2, short arg3);
 
-extern struct Data0216a610* data_ov004_02171030;
+extern struct Struct_ov004_0216a610_3* data_ov004_02171030;
 
 // USA: func_ov004_0216a610
-extern "C" ARM int func_ov004_0216a610(void* a) {
-    struct SaveTable0216a610* table = data_ov004_02171030->table;
-    if (table == 0) {
+extern "C" ARM int func_ov004_0216a610(void* arg0) {
+    struct Struct_ov004_0216a610_2* var0 = data_ov004_02171030->unknown_190_;
+    if (var0 == 0) {
         return 0;
     }
-    struct Grid021f9b30* grid = func_ov023_021f6524(a, 0x64);
-    short page = grid->page;
-    short field5e = grid->field_0x5e;
-    int i;
-    for (i = 0; i < 8; i++) {
-        Widget0216a610* label = func_ov004_02168a6c(a, i + 0xc8);
-        Widget0216a610* label2 = func_ov004_02168a6c(a, i + 0xd8);
-        Widget0216a610* num1 = func_ov004_02168a38(a, i + 0xd0);
-        Widget0216a610* num2 = func_ov004_02168a38(a, i + 0xe0);
-        struct SaveEntry0216a610* e = &table->entries[i + page * 8];
-        if (e->used) {
+    struct Struct_ov004_02153e20* var1 = func_ov023_021f6524(arg0, 0x64);
+    short var2 = var1->unknown_5c_;
+    short var3 = var1->unknown_5e_;
+    int var4;
+    for (var4 = 0; var4 < 8; var4++) {
+        Struct_ov004_0216a610_4* var5 = func_ov004_02168a6c(arg0, var4 + 0xc8);
+        Struct_ov004_0216a610_4* var6 = func_ov004_02168a6c(arg0, var4 + 0xd8);
+        Struct_ov004_0216a610_4* var7 = func_ov004_02168a38(arg0, var4 + 0xd0);
+        Struct_ov004_0216a610_4* var8 = func_ov004_02168a38(arg0, var4 + 0xe0);
+        struct Struct_ov004_0216a610* var9 = &var0->unknown_4_[var4 + var2 * 8];
+        if (var9->unknown_13_6_) {
 #if defined(jpn)
-            label->text = e->name;
+            var5->unknown_20_ = var9->unknown_6_;
 #else
-            char* name = data_ov004_02171030->names[i];
-            func_02042764(e->name, name, 1);
-            label->text = name;
+            char* var10 = data_ov004_02171030->unknown_0_[var4];
+            func_02042764(var9->unknown_6_, var10, 1);
+            var5->unknown_20_ = var10;
 #endif
-            num1->SetValue(e->id);
-            num2->SetValue(e->level);
-            label->flags &= ~8;
-            label2->flags &= ~8;
-            num1->flags &= ~8;
-            num2->flags &= ~8;
-            func_ov023_021f9b30(grid, i + 0xc8, (unsigned short)i, 0);
+            var7->inline_ov004_0216a610_30(var9->unknown_12_0_);
+            var8->inline_ov004_0216a610_30(var9->unknown_11_);
+            var5->unknown_c_ &= ~8;
+            var6->unknown_c_ &= ~8;
+            var7->unknown_c_ &= ~8;
+            var8->unknown_c_ &= ~8;
+            func_ov023_021f9b30(var1, var4 + 0xc8, (unsigned short)var4, 0);
         } else {
-            label->flags |= 8;
-            label2->flags |= 8;
-            num1->flags |= 8;
-            num2->flags |= 8;
-            func_ov023_021f9b30(grid, 0, (unsigned short)i, 0);
+            var5->unknown_c_ |= 8;
+            var6->unknown_c_ |= 8;
+            var7->unknown_c_ |= 8;
+            var8->unknown_c_ |= 8;
+            func_ov023_021f9b30(var1, 0, (unsigned short)var4, 0);
         }
     }
 #if defined(jpn)
-    void* selected = func_ov004_02168fa4(a, 0x14);
-    if(selected) {
-        *(short*)((char*)selected+0x104)=page;
-        *(short*)((char*)selected+0x106)=field5e;
-        func_ov023_021f809c(selected,a);
+    void* var11 = func_ov004_02168fa4(arg0, 0x14);
+    if(var11) {
+        *(short*)((char*)var11+0x104)=var2;
+        *(short*)((char*)var11+0x106)=var3;
+        func_ov023_021f809c(var11,arg0);
     }
 #else
-    func_ov023_021f6630((int)a, 0x14, page, field5e);
+    func_ov023_021f6630((int)arg0, 0x14, var2, var3);
 #endif
     return 0;
 }

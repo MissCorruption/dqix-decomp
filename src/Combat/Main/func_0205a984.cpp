@@ -1,97 +1,97 @@
 #include <globaldefs.h>
 #include <Memory/SafeAllocator.h>
 
-struct AnimFrame0205a984 {
-    unsigned short* content;
-    unsigned short frames;
-    unsigned short pad;
+struct Struct_0205a984_5 {
+    unsigned short* unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
 };
-struct AnimSequence0205a984 {
-    unsigned short frameCount;
-    unsigned short loopStart;
-    int animType;
-    int playMode;
-    AnimFrame0205a984* frames;
+struct Struct_0205a984 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    int unknown_4_;
+    int unknown_8_;
+    Struct_0205a984_5* unknown_c_;
 };
-struct Table02b005c {
-    unsigned short count;
-    unsigned short pad;
-    AnimSequence0205a984* entries;
+struct Struct_0205a984_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    Struct_0205a984* unknown_4_;
 };
-struct FrameInfo0205a984 {
-    unsigned short frames;
-    unsigned short index;
+struct Struct_0205a984_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
-struct Track0205a984 {
-    int playMode;
-    unsigned short field_4;
-    unsigned short field_6;
-    unsigned short index;
-    unsigned short frameCount;
-    FrameInfo0205a984* frames;
-    unsigned short field_10;
-    unsigned short field_12;
-    unsigned char field_14;
-    unsigned char field_15;
+struct Struct_0205a984_4 {
+    int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    Struct_0205a984_3* unknown_c_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_;
+    unsigned char unknown_15_;
 };
-struct TrackBank0205a984 {
-    Track0205a984* tracks;
-    unsigned short count;
+struct Struct_0205a984_6 {
+    Struct_0205a984_4* unknown_0_;
+    unsigned short unknown_4_;
 };
-struct AnimScript0205a984 {
-    char pad_0[0x3c];
-    TrackBank0205a984* bank;
+struct Struct_0205a984_7 {
+    char unknown_0_[0x3c];
+    Struct_0205a984_6* unknown_3c_;
 };
 
 extern "C" int func_020aff00(void*, void**);
-extern "C" AnimSequence0205a984* func_020b005c(Table02b005c*, unsigned int);
+extern "C" Struct_0205a984* func_020b005c(Struct_0205a984_2*, unsigned int);
 
 // USA: func_0205a984
-extern "C" ARM int func_0205a984(AnimScript0205a984* self, void* data, unsigned int length, SafeAllocator* allocator) {
-    void* buffer = data;
-    Table02b005c* header;
-    if (!buffer) buffer = 0;
-    else if (!length) buffer = 0;
-    else if (!func_020aff00(buffer, (void**)&header)) buffer = 0;
-    if (!buffer) return 1;
-    Track0205a984* track;
-    AnimSequence0205a984* sequence;
-    unsigned short i;
-    unsigned short count;
-    Track0205a984* tracks;
-    TrackBank0205a984* bank = self->bank;
-    if (bank && allocator) {
-        count = header->count;
-        tracks = (Track0205a984*)allocator->Allocate(count * sizeof(Track0205a984));
-        bank->tracks = tracks;
-        bank->count = count;
-        for (i = 0; i < count; ++i) {
-            sequence = func_020b005c(header, i);
-            if (sequence) {
-                track = &tracks[i];
-                track->playMode = 0;
-                track->field_6 = 0;
-                track->field_4 = 0;
-                track->index = 0;
-                track->frameCount = 0;
-                track->frames = 0;
-                track->field_10 = 0;
-                track->field_12 = 0;
-                track->field_14 = 0xff;
-                track->field_15 = 1;
-                track->playMode = sequence->playMode;
-                track->frameCount = sequence->frameCount;
-                track->index = i;
-                FrameInfo0205a984* frames = (FrameInfo0205a984*)allocator->Allocate(track->frameCount * sizeof(FrameInfo0205a984));
-                track->frames = frames;
-                for (unsigned short j = 0; j < track->frameCount; ++j) {
-                    AnimFrame0205a984* frame = &sequence->frames[j];
-                    if (frame) {
-                        FrameInfo0205a984* info = &frames[j];
-                        info->frames = 0;
-                        info->index = 0;
-                        info->frames = frame->frames;
-                        info->index = *frame->content;
+extern "C" ARM int func_0205a984(Struct_0205a984_7* arg0, void* arg1, unsigned int arg2, SafeAllocator* arg3) {
+    void* var0 = arg1;
+    Struct_0205a984_2* var1;
+    if (!var0) var0 = 0;
+    else if (!arg2) var0 = 0;
+    else if (!func_020aff00(var0, (void**)&var1)) var0 = 0;
+    if (!var0) return 1;
+    Struct_0205a984_4* var2;
+    Struct_0205a984* var3;
+    unsigned short var4;
+    unsigned short var5;
+    Struct_0205a984_4* var6;
+    Struct_0205a984_6* var7 = arg0->unknown_3c_;
+    if (var7 && arg3) {
+        var5 = var1->unknown_0_;
+        var6 = (Struct_0205a984_4*)arg3->Allocate(var5 * sizeof(Struct_0205a984_4));
+        var7->unknown_0_ = var6;
+        var7->unknown_4_ = var5;
+        for (var4 = 0; var4 < var5; ++var4) {
+            var3 = func_020b005c(var1, var4);
+            if (var3) {
+                var2 = &var6[var4];
+                var2->unknown_0_ = 0;
+                var2->unknown_6_ = 0;
+                var2->unknown_4_ = 0;
+                var2->unknown_8_ = 0;
+                var2->unknown_a_ = 0;
+                var2->unknown_c_ = 0;
+                var2->unknown_10_ = 0;
+                var2->unknown_12_ = 0;
+                var2->unknown_14_ = 0xff;
+                var2->unknown_15_ = 1;
+                var2->unknown_0_ = var3->unknown_8_;
+                var2->unknown_a_ = var3->unknown_0_;
+                var2->unknown_8_ = var4;
+                Struct_0205a984_3* var8 = (Struct_0205a984_3*)arg3->Allocate(var2->unknown_a_ * sizeof(Struct_0205a984_3));
+                var2->unknown_c_ = var8;
+                for (unsigned short var9 = 0; var9 < var2->unknown_a_; ++var9) {
+                    Struct_0205a984_5* var10 = &var3->unknown_c_[var9];
+                    if (var10) {
+                        Struct_0205a984_3* var11 = &var8[var9];
+                        var11->unknown_0_ = 0;
+                        var11->unknown_2_ = 0;
+                        var11->unknown_0_ = var10->unknown_4_;
+                        var11->unknown_2_ = *var10->unknown_0_;
                     }
                 }
             }

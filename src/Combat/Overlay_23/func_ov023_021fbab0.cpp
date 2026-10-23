@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 
-struct Pair021fbab0 { unsigned int a; unsigned int b; };
-extern struct Pair021fbab0 data_020e6d5c;
+struct Struct_020e6d5c_5 { unsigned int unknown_0_; unsigned int unknown_4_; };
+extern struct Struct_020e6d5c_5 data_020e6d5c;
 
-struct Block8Words_021fbab0 { unsigned int w[8]; };
-extern struct Block8Words_021fbab0 data_ov023_021fd984;
+struct Struct_ov023_021fd984 { unsigned int unknown_0_[8]; };
+extern struct Struct_ov023_021fd984 data_ov023_021fd984;
 
-struct DispatchEntry021fbab0 { unsigned int fn; unsigned int locator; };
+struct Struct_ov023_021fbab0 { unsigned int unknown_0_; unsigned int unknown_4_; };
 
 // USA: func_ov023_021fbab0
-extern "C" ARM int func_ov023_021fbab0(void* obj, void* param2) {
-    struct Block8Words_021fbab0 buf;
-    buf = data_ov023_021fd984;
-    unsigned int tmp1 = data_020e6d5c.b;
-    unsigned int tmp0 = data_020e6d5c.a;
-    buf.w[7] = tmp1;
-    buf.w[6] = tmp0;
-    struct DispatchEntry021fbab0* entries = (struct DispatchEntry021fbab0*)&buf;
+extern "C" ARM int func_ov023_021fbab0(void* arg0, void* arg1) {
+    struct Struct_ov023_021fd984 var0;
+    var0 = data_ov023_021fd984;
+    unsigned int var1 = data_020e6d5c.unknown_4_;
+    unsigned int var2 = data_020e6d5c.unknown_0_;
+    var0.unknown_0_[7] = var1;
+    var0.unknown_0_[6] = var2;
+    struct Struct_ov023_021fbab0* var3 = (struct Struct_ov023_021fbab0*)&var0;
 
-    int idx = *(int*)((char*)obj + 0x1c);
-    struct DispatchEntry021fbab0* d = &entries[idx];
-    void* base = (char*)obj + ((int)d->locator >> 1);
-    void* callback;
-    if (d->locator & 1) {
-        callback = *(void**)((char*)*(void**)base + d->fn);
+    int var4 = *(int*)((char*)arg0 + 0x1c);
+    struct Struct_ov023_021fbab0* var5 = &var3[var4];
+    void* var6 = (char*)arg0 + ((int)var5->unknown_4_ >> 1);
+    void* var7;
+    if (var5->unknown_4_ & 1) {
+        var7 = *(void**)((char*)*(void**)var6 + var5->unknown_0_);
     } else {
-        callback = (void*)d->fn;
+        var7 = (void*)var5->unknown_0_;
     }
-    int result = ((int(*)(void*, void*))callback)(base, param2);
-    *(int*)((char*)obj + 0x1c) = result;
-    return result;
+    int var8 = ((int(*)(void*, void*))var7)(var6, arg1);
+    *(int*)((char*)arg0 + 0x1c) = var8;
+    return var8;
 }

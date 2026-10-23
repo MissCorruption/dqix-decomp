@@ -2,89 +2,89 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/ProcessorContext.h"
 
-struct QueueNode021dd3f8 {
-	QueueNode021dd3f8* next;
+struct Struct_ov027_021dd3f8 {
+	Struct_ov027_021dd3f8* unknown_0_;
 	union {
-		unsigned int flags;
+		unsigned int unknown_4_;
 		struct {
-			unsigned int active : 1;
-			unsigned int priority : 31;
+			unsigned int unknown_4_0_ : 1;
+			unsigned int unknown_4_1_ : 31;
 		};
 	};
-	unsigned int f8;
-	unsigned int fc;
+	unsigned int unknown_8_;
+	unsigned int unknown_c_;
 };
 
-struct RootStruct021dd3f8 { void* field0; };
-extern RootStruct021dd3f8 data_ov027_021e3420;
+struct Struct_ov027_021e3420_3 { void* unknown_0_; };
+extern Struct_ov027_021e3420_3 data_ov027_021e3420;
 
 extern "C" int func_ov027_021dd3b0(void);
 
 // USA: func_ov027_021dd3f8
-extern "C" ARM void func_ov027_021dd3f8(void* a0, unsigned int a1, unsigned int a2, unsigned int a3) {
-	QueueNode021dd3f8* node = (QueueNode021dd3f8*)a0;
-	ProcessorContext* ctx = (ProcessorContext*)data_ov027_021e3420.field0;
+extern "C" ARM void func_ov027_021dd3f8(void* arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3) {
+	Struct_ov027_021dd3f8* var0 = (Struct_ov027_021dd3f8*)arg0;
+	ProcessorContext* var1 = (ProcessorContext*)data_ov027_021e3420.unknown_0_;
 	if (!func_ov027_021dd3b0()) return;
-	if (node->active) return;
+	if (var0->unknown_4_0_) return;
 
-	unsigned int pri = a3;
-	if (pri > 0x1f) {
-		unsigned int activePri = GetContextPriority(ctx);
-		if (pri == 0x20) {
-			pri = (activePri != 0) ? (activePri - 1) : 0;
-		} else if (pri == 0x21) {
-			pri = (activePri < 0x1f) ? (activePri + 1) : 0x1f;
-		} else if (pri == 0x22) {
-			pri = activePri;
+	unsigned int var2 = arg3;
+	if (var2 > 0x1f) {
+		unsigned int var3 = GetContextPriority(var1);
+		if (var2 == 0x20) {
+			var2 = (var3 != 0) ? (var3 - 1) : 0;
+		} else if (var2 == 0x21) {
+			var2 = (var3 < 0x1f) ? (var3 + 1) : 0x1f;
+		} else if (var2 == 0x22) {
+			var2 = var3;
 		} else {
-			pri = 0x1f;
+			var2 = 0x1f;
 		}
 	}
 
-	int state = DisableIRQInterrupts();
-	node->active = 1;
-	node->priority = pri;
-	node->f8 = a1;
-	node->fc = a2;
+	int var4 = DisableIRQInterrupts();
+	var0->unknown_4_0_ = 1;
+	var0->unknown_4_1_ = var2;
+	var0->unknown_8_ = arg1;
+	var0->unknown_c_ = arg2;
 
-	QueueNode021dd3f8** headSlot = (QueueNode021dd3f8**)((char*)ctx + 0xc0);
-	QueueNode021dd3f8* head = *headSlot;
-	if (head == 0) {
-		if (node == (QueueNode021dd3f8*)((char*)ctx + 0xc4)) {
-			data_ov027_021e3420.field0 = 0;
+	Struct_ov027_021dd3f8** var5 = (Struct_ov027_021dd3f8**)((char*)var1 + 0xc0);
+	Struct_ov027_021dd3f8* var6 = *var5;
+	if (var6 == 0) {
+		if (var0 == (Struct_ov027_021dd3f8*)((char*)var1 + 0xc4)) {
+			data_ov027_021e3420.unknown_0_ = 0;
 		}
-		*headSlot = node;
-		MarkContextReadyAndSwitch(ctx);
+		*var5 = var0;
+		MarkContextReadyAndSwitch(var1);
 	} else {
-		QueueNode021dd3f8* head2 = *(QueueNode021dd3f8* volatile*)headSlot;
-		if (node == (QueueNode021dd3f8*)((char*)ctx + 0xc4)) {
-			QueueNode021dd3f8* last = head2;
-			QueueNode021dd3f8* nxt = last->next;
-			if (nxt != 0) {
+		Struct_ov027_021dd3f8* var7 = *(Struct_ov027_021dd3f8* volatile*)var5;
+		if (var0 == (Struct_ov027_021dd3f8*)((char*)var1 + 0xc4)) {
+			Struct_ov027_021dd3f8* var8 = var7;
+			Struct_ov027_021dd3f8* var9 = var8->unknown_0_;
+			if (var9 != 0) {
 				do {
-					last = nxt;
-					nxt = last->next;
-				} while (nxt != 0);
+					var8 = var9;
+					var9 = var8->unknown_0_;
+				} while (var9 != 0);
 			}
-			last->next = node;
-			data_ov027_021e3420.field0 = 0;
+			var8->unknown_0_ = var0;
+			data_ov027_021e3420.unknown_0_ = 0;
 		} else {
-			if (pri < head2->priority) {
-				*headSlot = node;
-				node->next = head2;
+			if (var2 < var7->unknown_4_1_) {
+				*var5 = var0;
+				var0->unknown_0_ = var7;
 			} else {
-				QueueNode021dd3f8* prev = head2;
-				QueueNode021dd3f8* cur;
+				Struct_ov027_021dd3f8* var10 = var7;
+				Struct_ov027_021dd3f8* var11;
 				goto test_cur;
 				do {
-					prev = cur;
+					var10 = var11;
 				test_cur:
-					cur = prev->next;
-				} while (cur != 0 && pri >= cur->priority);
-				node->next = cur;
-				prev->next = node;
+					var11 = var10->unknown_0_;
+				} while (var11 != 0 && var2 >= var11->unknown_4_1_);
+				var0->unknown_0_ = var11;
+				var10->unknown_0_ = var0;
 			}
 		}
 	}
-	SetIRQInterruptState(state);
+	SetIRQInterruptState(var4);
 }

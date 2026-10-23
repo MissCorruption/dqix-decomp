@@ -3,78 +3,78 @@
 #include "GameState/GameState.h"
 
 extern "C" void __clear(void*, int);
-extern "C" char* func_020424ac(char* str);
-extern "C" int func_020d85dc(const char* str, const char* prefix);
-extern "C" char* func_02068e1c(char* dst, char* first, char* second, char* third);
-extern "C" ARM void func_02068ea0(signed char* ids, char* dest);
+extern "C" char* func_020424ac(char* arg0);
+extern "C" int func_020d85dc(const char* arg0, const char* arg1);
+extern "C" char* func_02068e1c(char* arg0, char* arg1, char* arg2, char* arg3);
+extern "C" ARM void func_02068ea0(signed char* arg0, char* arg1);
 
 extern char data_020e833c[];
 extern char data_020f08ff[];
 
-struct Entry02068f40 {
-    signed char ids0[4];
-    signed char ids1[4];
-    signed char ids2[4];
-    signed char ids3[4];
-    int (*fn)(void*, void*, int);
+struct Struct_02068f40 {
+    signed char unknown_0_[4];
+    signed char unknown_4_[4];
+    signed char unknown_8_[4];
+    signed char unknown_c_[4];
+    int (*unknown_10_)(void*, void*, int);
 };
 
 // USA: func_02068f40
-extern "C" ARM int func_02068f40(void* obj, char* p, char* out, int flag) {
-    char b0[0x30];
-    char b1[0x30];
-    char b2[0x30];
-    char b3[0x30];
-    void* gs = GameState::GetInstance();
+extern "C" ARM int func_02068f40(void* arg0, char* arg1, char* arg2, int arg3) {
+    char var0[0x30];
+    char var1[0x30];
+    char var2[0x30];
+    char var3[0x30];
+    void* var4 = GameState::GetInstance();
     for (;;) {
-        char c = *p;
-        if (c == 0) {
+        char var5 = *arg1;
+        if (var5 == 0) {
             break;
         }
-        if (c == '<' && func_020d85dc(p, data_020f08ff) != 0
-            && func_020424ac(p) != 0) {
-            char* start = p;
-            Entry02068f40* e = (Entry02068f40*)data_020e833c;
-            while (e->fn != 0) {
-                __clear(b0, 0x30);
-                func_02068ea0(e->ids0, b0);
-                if (func_020d85dc(p, b0) != 0) {
-                    int k = e->fn(gs, obj, flag);
-                    __clear(b1, 0x30);
-                    __clear(b2, 0x30);
-                    __clear(b3, 0x30);
-                    func_02068ea0(e->ids1, b1);
-                    func_02068ea0(e->ids2, b2);
-                    func_02068ea0(e->ids3, b3);
-                    switch (k) {
+        if (var5 == '<' && func_020d85dc(arg1, data_020f08ff) != 0
+            && func_020424ac(arg1) != 0) {
+            char* var6 = arg1;
+            Struct_02068f40* var7 = (Struct_02068f40*)data_020e833c;
+            while (var7->unknown_10_ != 0) {
+                __clear(var0, 0x30);
+                func_02068ea0(var7->unknown_0_, var0);
+                if (func_020d85dc(arg1, var0) != 0) {
+                    int var8 = var7->unknown_10_(var4, arg0, arg3);
+                    __clear(var1, 0x30);
+                    __clear(var2, 0x30);
+                    __clear(var3, 0x30);
+                    func_02068ea0(var7->unknown_4_, var1);
+                    func_02068ea0(var7->unknown_8_, var2);
+                    func_02068ea0(var7->unknown_c_, var3);
+                    switch (var8) {
                     case 0:
-                        p = func_02068e1c(p, b0, b1, b3);
+                        arg1 = func_02068e1c(arg1, var0, var1, var3);
                         break;
                     case 1:
-                        if (b2[0] != 0) {
-                            p = func_02068e1c(p, b1, b2, b3);
+                        if (var2[0] != 0) {
+                            arg1 = func_02068e1c(arg1, var1, var2, var3);
                         } else {
-                            p = func_02068e1c(p, b1, b3, b3);
+                            arg1 = func_02068e1c(arg1, var1, var3, var3);
                         }
                         break;
                     case 2:
-                        p = func_02068e1c(p, b2, b3, b3);
+                        arg1 = func_02068e1c(arg1, var2, var3, var3);
                         break;
                     default:
-                        p = func_02068e1c(p, b0, b1, b3);
+                        arg1 = func_02068e1c(arg1, var0, var1, var3);
                         break;
                     }
                     break;
                 }
-                ++e;
+                ++var7;
             }
-            if (p != start) {
+            if (arg1 != var6) {
                 continue;
             }
         }
-        *out++ = c;
-        ++p;
+        *arg2++ = var5;
+        ++arg1;
     }
-    *out = 0;
+    *arg2 = 0;
     return 0;
 }

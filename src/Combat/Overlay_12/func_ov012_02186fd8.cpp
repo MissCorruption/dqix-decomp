@@ -4,23 +4,23 @@
 #define func_ov012_0218930c func_ov012_02189be8
 #define func_ov012_0218adac func_ov012_0218bba0
 enum {
-    kStepOffset = 0x1340,
-    kActiveOffset = 0x1368,
-    kWindowOffset = 0x90,
-    kChoiceCOffset = 0x1438,
-    kStringsOffset = 0x1314,
-    kProfileOffset = 0x543c,
-    kTitleTextOffset = 0x1498
+    Enum_ov012_02186fd8_4976 = 0x1340,
+    Enum_ov012_02186fd8_5024 = 0x1368,
+    Enum_ov012_02186fd8_172 = 0x90,
+    Enum_ov012_02186fd8_5088 = 0x1438,
+    Enum_ov012_02186fd8_4924 = 0x1314,
+    Enum_ov012_02186fd8_22172 = 0x543c,
+    Enum_ov012_02186fd8_5184 = 0x1498
 };
 #else
 enum {
-    kStepOffset = 0x1370,
-    kActiveOffset = 0x13a0,
-    kWindowOffset = 0xac,
-    kChoiceCOffset = 0x13e0,
-    kStringsOffset = 0x133c,
-    kProfileOffset = 0x569c,
-    kTitleTextOffset = 0x1440
+    Enum_ov012_02186fd8_4976 = 0x1370,
+    Enum_ov012_02186fd8_5024 = 0x13a0,
+    Enum_ov012_02186fd8_172 = 0xac,
+    Enum_ov012_02186fd8_5088 = 0x13e0,
+    Enum_ov012_02186fd8_4924 = 0x133c,
+    Enum_ov012_02186fd8_22172 = 0x569c,
+    Enum_ov012_02186fd8_5184 = 0x1440
 };
 #endif
 
@@ -28,87 +28,87 @@ enum {
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct ProfileNameSelection {
-    unsigned int header;
-    unsigned int unknown : 9;
-    int title : 10;
-    int accolade : 11;
-    unsigned int edited : 1;
-    unsigned int unknownHigh : 1;
+struct Struct_ov012_02186e38 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_0_ : 9;
+    int unknown_5_1_ : 10;
+    int unknown_6_3_ : 11;
+    unsigned int unknown_7_6_ : 1;
+    unsigned int unknown_7_7_ : 1;
 };
 
-static inline ProfileNameSelection* GetProfileNameSelection(GameState* state) {
-    return (ProfileNameSelection*)((char*)state + kProfileOffset);
+static inline Struct_ov012_02186e38* inline_ov012_02186e38(GameState* arg0) {
+    return (Struct_ov012_02186e38*)((char*)arg0 + Enum_ov012_02186fd8_22172);
 }
 
-extern "C" int func_ov012_0218432c(int a);
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
-extern "C" void func_ov023_021e6e60(void* obj);
-extern "C" void func_ov012_02189c44(char* self);
+extern "C" int func_ov012_0218432c(int arg0);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
+extern "C" void func_ov023_021e6e60(void* arg0);
+extern "C" void func_ov012_02189c44(char* arg0);
 struct Struct_0205c570;
-extern "C" int func_0205d794(struct Struct_0205c570* s);
-extern "C" int func_ov023_021e6de4(char* obj);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
-struct TableA68;
-extern "C" void* func_02072a68(struct TableA68* table, int key);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" int func_ov023_021e6de4(char* arg0);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
+struct Struct_02072a68_2;
+extern "C" void* func_02072a68(struct Struct_02072a68_2* arg0, int arg1);
 #if defined(jpn)
 extern "C" void func_ov012_0218adac(void*, int, int);
 #else
-extern "C" void func_ov012_0218adac(void* obj, int a, int b, int c);
+extern "C" void func_ov012_0218adac(void* arg0, int arg1, int arg2, int arg3);
 #endif
-extern "C" void func_ov012_0218930c(void* obj, int a);
-struct Obj021e6e20;
-extern "C" int func_ov023_021e6e20(struct Obj021e6e20* obj);
+extern "C" void func_ov012_0218930c(void* arg0, int arg1);
+struct Struct_ov012_02186a7c;
+extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
 extern int data_02108760;
 
 // USA: func_ov012_02186fd8
-extern "C" ARM void func_ov012_02186fd8(char* base) {
-    unsigned char state = *(unsigned char*)(base + kStepOffset);
-    if (state == 0) {
-        *(unsigned char*)(base + kActiveOffset) = 0;
-        int ret = func_ov012_0218432c(1);
-        *(int*)(base + kChoiceCOffset) = ret;
-        if (ret < 0) {
-            *(int*)(base + kChoiceCOffset) = 0;
+extern "C" ARM void func_ov012_02186fd8(char* arg0) {
+    unsigned char var0 = *(unsigned char*)(arg0 + Enum_ov012_02186fd8_4976);
+    if (var0 == 0) {
+        *(unsigned char*)(arg0 + Enum_ov012_02186fd8_5024) = 0;
+        int var1 = func_ov012_0218432c(1);
+        *(int*)(arg0 + Enum_ov012_02186fd8_5088) = var1;
+        if (var1 < 0) {
+            *(int*)(arg0 + Enum_ov012_02186fd8_5088) = 0;
         }
 
-        func_0205de24((struct Struct0205de24*)(base + kWindowOffset), 0, 3);
-        func_ov023_021e6e60(base);
-        func_ov012_02189c44(base);
+        func_0205de24((struct Struct_0205de24_2*)(arg0 + Enum_ov012_02186fd8_172), 0, 3);
+        func_ov023_021e6e60(arg0);
+        func_ov012_02189c44(arg0);
 
-        (*(unsigned char*)(base + kStepOffset))++;
+        (*(unsigned char*)(arg0 + Enum_ov012_02186fd8_4976))++;
         return;
     }
-    if (state != 1) return;
+    if (var0 != 1) return;
 
-    *(unsigned char*)(base + kActiveOffset) = 1;
-    int sum = func_0205d794((struct Struct_0205c570*)(base + kWindowOffset));
-    *(int*)(base + kChoiceCOffset) = sum;
+    *(unsigned char*)(arg0 + Enum_ov012_02186fd8_5024) = 1;
+    int var2 = func_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186fd8_172));
+    *(int*)(arg0 + Enum_ov012_02186fd8_5088) = var2;
 
-    if (func_ov023_021e6de4(base) != 0) {
-        func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
+    if (func_ov023_021e6de4(arg0) != 0) {
+        func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
 
-        GameState* bs = GameState::GetInstance();
-        int key = (short)(*(int*)(base + kChoiceCOffset) + 0x27d8);
-        void* name = func_02072a68((struct TableA68*)(base + kStringsOffset), key);
-        ProfileNameSelection* profile = GetProfileNameSelection(bs);
+        GameState* var3 = GameState::GetInstance();
+        int var4 = (short)(*(int*)(arg0 + Enum_ov012_02186fd8_5088) + 0x27d8);
+        void* var5 = func_02072a68((struct Struct_02072a68_2*)(arg0 + Enum_ov012_02186fd8_4924), var4);
+        Struct_ov012_02186e38* var6 = inline_ov012_02186e38(var3);
 
-        memset(base + kTitleTextOffset, 0, 0x40);
-        memcpy(base + kTitleTextOffset, name, strlen((char*)name));
+        memset(arg0 + Enum_ov012_02186fd8_5184, 0, 0x40);
+        memcpy(arg0 + Enum_ov012_02186fd8_5184, var5, strlen((char*)var5));
 
-        profile->title = *(int*)(base + kChoiceCOffset) + 0xc8;
+        var6->unknown_5_1_ = *(int*)(arg0 + Enum_ov012_02186fd8_5088) + 0xc8;
 
 #if defined(jpn)
-        func_ov012_0218adac(base, 0, -1);
+        func_ov012_0218adac(arg0, 0, -1);
 #else
-        func_ov012_0218adac(base, 0, -1, 0);
+        func_ov012_0218adac(arg0, 0, -1, 0);
 #endif
-        func_ov012_0218930c(base, 0);
+        func_ov012_0218930c(arg0, 0);
     } else {
-        if (func_ov023_021e6e20((struct Obj021e6e20*)base) != 0) {
-            func_ov012_0218930c(base, 1);
+        if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) {
+            func_ov012_0218930c(arg0, 1);
         }
     }
 }

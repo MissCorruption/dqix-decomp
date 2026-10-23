@@ -17,34 +17,34 @@
 
 #include "GameState/GameState.h"
 
-extern "C" void* func_02079e2c(char* p, int key);
-extern "C" void* func_02010828(GameState* battleStruct);
-extern "C" void* func_ov000_02161318(void* obj, int id);
-extern "C" int func_ov000_02171210(void* a, void* b);
+extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" void* func_02010828(GameState* arg0);
+extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" int func_ov000_02171210(void* arg0, void* arg1);
 
 // USA: func_ov000_02175b54
-extern "C" ARM void func_ov000_02175b54(void* obj) {
-    ActionDataTables* data = func_020797dc();
-    if (data == 0) {
+extern "C" ARM void func_ov000_02175b54(void* arg0) {
+    Struct_02108e10* var0 = func_020797dc();
+    if (var0 == 0) {
         return;
     }
-    signed char idx = *((signed char*)obj + REGION_OFFSET_0 + REGION_OFFSET_1);
-    signed short val = *(signed short*)((char*)obj + idx * 2 + 0x10);
-    void* tableEntry = func_02079e2c((char*)data, val);
-    if (tableEntry == 0) {
+    signed char var1 = *((signed char*)arg0 + REGION_OFFSET_0 + REGION_OFFSET_1);
+    signed short var2 = *(signed short*)((char*)arg0 + var1 * 2 + 0x10);
+    void* var3 = func_02079e2c((char*)var0, var2);
+    if (var3 == 0) {
         return;
     }
-    GameState* battleStruct = GameState::GetInstance();
-    unsigned char* field2a04 = (unsigned char*)func_02010828(battleStruct);
-    signed char combIdx = *(signed char*)(field2a04 + 0xf00 + 0x78);
-    char* entry = (char*)func_ov000_02161318(obj, combIdx);
-    if (entry == 0) {
+    GameState* var4 = GameState::GetInstance();
+    unsigned char* var5 = (unsigned char*)func_02010828(var4);
+    signed char var6 = *(signed char*)(var5 + 0xf00 + 0x78);
+    char* var7 = (char*)func_ov000_02161318(arg0, var6);
+    if (var7 == 0) {
         return;
     }
-    signed char cnt = *((signed char*)obj + REGION_OFFSET_0 + REGION_OFFSET_2);
-    *((char*)obj + 0x1000 + REGION_OFFSET_3) = (char)(cnt + 1);
-    int result = func_ov000_02171210(tableEntry, entry);
-    signed char cnt2 = *((signed char*)obj + REGION_OFFSET_0 + REGION_OFFSET_2);
-    *((char*)obj + cnt2 + 0x1000 + REGION_OFFSET_4) = (char)result;
-    *((char*)obj + 0x1c) = entry[0x1d];
+    signed char var8 = *((signed char*)arg0 + REGION_OFFSET_0 + REGION_OFFSET_2);
+    *((char*)arg0 + 0x1000 + REGION_OFFSET_3) = (char)(var8 + 1);
+    int var9 = func_ov000_02171210(var3, var7);
+    signed char var10 = *((signed char*)arg0 + REGION_OFFSET_0 + REGION_OFFSET_2);
+    *((char*)arg0 + var10 + 0x1000 + REGION_OFFSET_4) = (char)var9;
+    *((char*)arg0 + 0x1c) = var7[0x1d];
 }

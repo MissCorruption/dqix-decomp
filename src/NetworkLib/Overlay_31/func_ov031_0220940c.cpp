@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory.h"
 
-struct Session0220940c {
-    unsigned char field_0[0x32];
-    unsigned short algorithm;
-    unsigned char field_34[0x1a0];
-    void* secret;
-    unsigned char field_1d8[0x10c];
-    unsigned char sequence[8];
-    unsigned char counter[8];
-    unsigned char field_2f4[0x54];
-    unsigned int sha1[45];
-    unsigned int md5[22];
-    unsigned char field_454;
-    unsigned char error;
+struct Struct_ov031_0220940c_3 {
+    unsigned char unknown_0_[0x32];
+    unsigned short unknown_32_;
+    unsigned char unknown_34_[0x1a0];
+    void* unknown_1d4_;
+    unsigned char unknown_1d8_[0x10c];
+    unsigned char unknown_2e4_[8];
+    unsigned char unknown_2ec_[8];
+    unsigned char unknown_2f4_[0x54];
+    unsigned int unknown_348_[45];
+    unsigned int unknown_3fc_[22];
+    unsigned char unknown_454_;
+    unsigned char unknown_455_;
 };
-struct Packet0220940c { unsigned char type; unsigned char field_1[2]; unsigned char lengthHigh; unsigned char lengthLow; unsigned char payload[1]; };
-struct Scratch0220940c { unsigned char padding[0x30]; unsigned char digest[0x14]; };
+struct Struct_ov031_0220940c { unsigned char unknown_0_; unsigned char unknown_1_[2]; unsigned char unknown_3_; unsigned char unknown_4_; unsigned char unknown_5_[1]; };
+struct Struct_ov031_0220940c_2 { unsigned char unknown_0_[0x30]; unsigned char unknown_30_[0x14]; };
 extern "C" int func_ov031_022093f4(void*, void*, int);
 extern "C" void func_ov031_0220afe0(void*);
 extern "C" void func_ov031_0220b0e0(void*, void*);
@@ -28,53 +28,53 @@ extern "C" void func_ov031_0220b8f4(void*, const void*, unsigned int);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 
 // USA: func_ov031_0220940c
-extern "C" ARM int func_ov031_0220940c(Session0220940c* session, Packet0220940c* packet) {
-    int size = func_ov031_022093f4(session, packet->payload, (packet->lengthHigh << 8) + packet->lengthLow);
-    Scratch0220940c scratch;
-    int digestSize;
-    switch (session->algorithm) {
+extern "C" ARM int func_ov031_0220940c(Struct_ov031_0220940c_3* arg0, Struct_ov031_0220940c* arg1) {
+    int var0 = func_ov031_022093f4(arg0, arg1->unknown_5_, (arg1->unknown_3_ << 8) + arg1->unknown_4_);
+    Struct_ov031_0220940c_2 var1;
+    int var2;
+    switch (arg0->unknown_32_) {
     case 4:
-        size -= 0x10;
-        packet->lengthHigh = size >> 8;
-        packet->lengthLow = size;
-        func_ov031_0220afe0(session->md5);
-        func_ov031_0220b028(session->md5, session->secret, 0x10);
-        VectorizedMemset(scratch.padding, 0x36, 0x30);
-        func_ov031_0220b028(session->md5, scratch.padding, 0x30);
-        func_ov031_0220b028(session->md5, session->sequence, 8);
-        func_ov031_0220b028(session->md5, packet, 1);
-        func_ov031_0220b028(session->md5, &packet->lengthHigh, size + 2);
-        func_ov031_0220b0e0(session->md5, scratch.digest);
-        func_ov031_0220afe0(session->md5);
-        func_ov031_0220b028(session->md5, session->secret, 0x10);
-        VectorizedMemset(scratch.padding, 0x5c, 0x30);
-        func_ov031_0220b028(session->md5, scratch.padding, 0x30);
-        func_ov031_0220b028(session->md5, scratch.digest, 0x10);
-        func_ov031_0220b0e0(session->md5, scratch.digest);
-        digestSize = 0x10;
+        var0 -= 0x10;
+        arg1->unknown_3_ = var0 >> 8;
+        arg1->unknown_4_ = var0;
+        func_ov031_0220afe0(arg0->unknown_3fc_);
+        func_ov031_0220b028(arg0->unknown_3fc_, arg0->unknown_1d4_, 0x10);
+        VectorizedMemset(var1.unknown_0_, 0x36, 0x30);
+        func_ov031_0220b028(arg0->unknown_3fc_, var1.unknown_0_, 0x30);
+        func_ov031_0220b028(arg0->unknown_3fc_, arg0->unknown_2e4_, 8);
+        func_ov031_0220b028(arg0->unknown_3fc_, arg1, 1);
+        func_ov031_0220b028(arg0->unknown_3fc_, &arg1->unknown_3_, var0 + 2);
+        func_ov031_0220b0e0(arg0->unknown_3fc_, var1.unknown_30_);
+        func_ov031_0220afe0(arg0->unknown_3fc_);
+        func_ov031_0220b028(arg0->unknown_3fc_, arg0->unknown_1d4_, 0x10);
+        VectorizedMemset(var1.unknown_0_, 0x5c, 0x30);
+        func_ov031_0220b028(arg0->unknown_3fc_, var1.unknown_0_, 0x30);
+        func_ov031_0220b028(arg0->unknown_3fc_, var1.unknown_30_, 0x10);
+        func_ov031_0220b0e0(arg0->unknown_3fc_, var1.unknown_30_);
+        var2 = 0x10;
         break;
     case 5:
-        size -= 0x14;
-        packet->lengthHigh = size >> 8;
-        packet->lengthLow = size;
-        func_ov031_0220b8a0(session->sha1);
-        func_ov031_0220b8f4(session->sha1, session->secret, 0x14);
-        VectorizedMemset(scratch.padding, 0x36, 0x28);
-        func_ov031_0220b8f4(session->sha1, scratch.padding, 0x28);
-        func_ov031_0220b8f4(session->sha1, session->sequence, 8);
-        func_ov031_0220b8f4(session->sha1, packet, 1);
-        func_ov031_0220b8f4(session->sha1, &packet->lengthHigh, size + 2);
-        func_ov031_0220b9ac(session->sha1, scratch.digest);
-        func_ov031_0220b8a0(session->sha1);
-        func_ov031_0220b8f4(session->sha1, session->secret, 0x14);
-        VectorizedMemset(scratch.padding, 0x5c, 0x28);
-        func_ov031_0220b8f4(session->sha1, scratch.padding, 0x28);
-        func_ov031_0220b8f4(session->sha1, scratch.digest, 0x14);
-        func_ov031_0220b9ac(session->sha1, scratch.digest);
-        digestSize = 0x14;
+        var0 -= 0x14;
+        arg1->unknown_3_ = var0 >> 8;
+        arg1->unknown_4_ = var0;
+        func_ov031_0220b8a0(arg0->unknown_348_);
+        func_ov031_0220b8f4(arg0->unknown_348_, arg0->unknown_1d4_, 0x14);
+        VectorizedMemset(var1.unknown_0_, 0x36, 0x28);
+        func_ov031_0220b8f4(arg0->unknown_348_, var1.unknown_0_, 0x28);
+        func_ov031_0220b8f4(arg0->unknown_348_, arg0->unknown_2e4_, 8);
+        func_ov031_0220b8f4(arg0->unknown_348_, arg1, 1);
+        func_ov031_0220b8f4(arg0->unknown_348_, &arg1->unknown_3_, var0 + 2);
+        func_ov031_0220b9ac(arg0->unknown_348_, var1.unknown_30_);
+        func_ov031_0220b8a0(arg0->unknown_348_);
+        func_ov031_0220b8f4(arg0->unknown_348_, arg0->unknown_1d4_, 0x14);
+        VectorizedMemset(var1.unknown_0_, 0x5c, 0x28);
+        func_ov031_0220b8f4(arg0->unknown_348_, var1.unknown_0_, 0x28);
+        func_ov031_0220b8f4(arg0->unknown_348_, var1.unknown_30_, 0x14);
+        func_ov031_0220b9ac(arg0->unknown_348_, var1.unknown_30_);
+        var2 = 0x14;
         break;
     }
-    if (func_02001aec(packet->payload + size, scratch.digest, digestSize)) session->error = 9;
-    func_ov031_022093d0(session->counter);
-    return size + 5;
+    if (func_02001aec(arg1->unknown_5_ + var0, var1.unknown_30_, var2)) arg0->unknown_455_ = 9;
+    func_ov031_022093d0(arg0->unknown_2ec_);
+    return var0 + 5;
 }

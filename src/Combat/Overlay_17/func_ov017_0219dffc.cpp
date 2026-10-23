@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kStateFieldOffset = 0x8f8 };
+enum { Enum_ov017_0219dffc_2824 = 0x8f8 };
 #else
-enum { kStateFieldOffset = 0xb08 };
+enum { Enum_ov017_0219dffc_2824 = 0xb08 };
 #endif
 
 // USA: func_ov017_0219dffc
-extern "C" ARM void func_ov017_0219dffc(void* obj, int val) {
-    *(int*)((char*)obj + 0x2000 + kStateFieldOffset) = val;
+extern "C" ARM void func_ov017_0219dffc(void* arg0, int arg1) {
+    *(int*)((char*)arg0 + 0x2000 + Enum_ov017_0219dffc_2824) = arg1;
 }

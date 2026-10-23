@@ -4,28 +4,28 @@
 #include <globaldefs.h>
 
 // USA: func_02014a24
-extern "C" ARM int func_02014a24(Zone3D *zone, void *data) {
-    ZoneResourceNode *node   = static_cast<ZoneResourceNode *>(data);
-    int count                = node->elementCount;
-    SafeAllocator *allocator = zone->pAllocator_68_;
-    node->trackers           = static_cast<Struct02012ff0 *>(allocator->Allocate(count * sizeof(Struct02012ff0)));
-    if (node->trackers == NULL) return 0;
+extern "C" ARM int func_02014a24(Zone3D *arg0, void *arg1) {
+    Struct_02014a24_2 *var0   = static_cast<Struct_02014a24_2 *>(arg1);
+    int var1                = var0->unknown_8_;
+    SafeAllocator *var2 = arg0->pAllocator_68_;
+    var0->unknown_40_           = static_cast<Struct_02012ff0 *>(var2->Allocate(var1 * sizeof(Struct_02012ff0)));
+    if (var0->unknown_40_ == NULL) return 0;
 
-    for (int index = 0; index < count; index++) {
-        Src02015134 *source =
-            static_cast<Src02015134 *>(func_0201f144(reinterpret_cast<unsigned char *>(&node->records), index));
-        Struct02012ff0 *trackers = node->trackers;
-        func_02012ff0(trackers + index);
-        if (source != NULL) {
-            if (reinterpret_cast<char *>(source->id)[3] == 'A') {
-                func_02015134(zone, trackers + index, source);
-            } else if (static_cast<unsigned char>(source->pad[2]) & 0x10) {
-                func_020151cc(zone, trackers + index, source);
+    for (int var3 = 0; var3 < var1; var3++) {
+        Struct_02014a24 *var4 =
+            static_cast<Struct_02014a24 *>(func_0201f144(reinterpret_cast<unsigned char *>(&var0->unknown_4_), var3));
+        Struct_02012ff0 *var5 = var0->unknown_40_;
+        func_02012ff0(var5 + var3);
+        if (var4 != NULL) {
+            if (reinterpret_cast<char *>(var4->unknown_4_)[3] == 'A') {
+                func_02015134(arg0, var5 + var3, var4);
+            } else if (static_cast<unsigned char>(var4->unknown_0_[2]) & 0x10) {
+                func_020151cc(arg0, var5 + var3, var4);
             } else {
-                func_02014d80(zone, node, trackers + index, source);
+                func_02014d80(arg0, var0, var5 + var3, var4);
             }
         }
     }
-    func_020177d4(zone, node, allocator);
+    func_020177d4(arg0, var0, var2);
     return 1;
 }

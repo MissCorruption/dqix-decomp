@@ -3,54 +3,54 @@
 #include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "NitroSDK/Filesystem/FileAccessor.h"
 
-struct ReadReq_021d989c {
-    unsigned int start;
-    unsigned int len;
-    void* dst;
-    int status;
+struct Struct_ov027_021d989c_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    void* unknown_8_;
+    int unknown_c_;
 };
 
-struct HandleInfo_021d989c {
-    char pad0[0x10];
-    char sig[4];
-    int sigLen;
-    unsigned int fallbackHandle;
+struct Struct_ov027_021d989c_3 {
+    char unknown_0_[0x10];
+    char unknown_10_[4];
+    int unknown_14_;
+    unsigned int unknown_18_;
 };
 
-struct Base_021d989c {
-    char pad0[0x10];
-    ReadReq_021d989c* req;
-    HandleInfo_021d989c* handleInfo;
+struct Struct_ov027_021d989c {
+    char unknown_0_[0x10];
+    Struct_ov027_021d989c_2* unknown_10_;
+    Struct_ov027_021d989c_3* unknown_14_;
 };
 
 #pragma optimize_for_size off
 
 // USA: func_ov027_021d989c
-extern "C" ARM void func_ov027_021d989c(Base_021d989c* p)
+extern "C" ARM void func_ov027_021d989c(Struct_ov027_021d989c* arg0)
 {
-    HandleInfo_021d989c* hi = p->handleInfo;
-    ReadReq_021d989c* req = p->req;
+    Struct_ov027_021d989c_3* var0 = arg0->unknown_14_;
+    Struct_ov027_021d989c_2* var1 = arg0->unknown_10_;
 
-    NitroHandle* handle = NitroHandle_FindBySignature(hi->sig, hi->sigLen);
-    if (handle == NULL)
-        handle = (NitroHandle*)hi->fallbackHandle;
+    NitroHandle* var2 = NitroHandle_FindBySignature(var0->unknown_10_, var0->unknown_14_);
+    if (var2 == NULL)
+        var2 = (NitroHandle*)var0->unknown_18_;
 
-    NitroVM vm;
-    NitroVM_Initialize(&vm);
+    NitroVM var3;
+    NitroVM_Initialize(&var3);
 
-    unsigned int start = req->start;
-    unsigned int end = start + req->len;
-    if (NitroVM_PrepareRead(&vm, handle, start, end, 0xFFFFFFFF))
+    unsigned int var4 = var1->unknown_0_;
+    unsigned int var5 = var4 + var1->unknown_4_;
+    if (NitroVM_PrepareRead(&var3, var2, var4, var5, 0xFFFFFFFF))
     {
-        int n = NitroVM_ReadSync(&vm, req->dst, req->len);
-        if (req->len == (unsigned int)n)
-            req->status = 2;
-        NitroVM_FinishRead(&vm);
+        int var6 = NitroVM_ReadSync(&var3, var1->unknown_8_, var1->unknown_4_);
+        if (var1->unknown_4_ == (unsigned int)var6)
+            var1->unknown_c_ = 2;
+        NitroVM_FinishRead(&var3);
     }
 
-    if (req->status != 2)
+    if (var1->unknown_c_ != 2)
     {
-        req->start = 0;
-        req->status = 2;
+        var1->unknown_0_ = 0;
+        var1->unknown_c_ = 2;
     }
 }

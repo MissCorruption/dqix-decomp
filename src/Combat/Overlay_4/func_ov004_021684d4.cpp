@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 
-struct Obj020415b0 {
-    char pad[0xd0];
-    int field_d0;
+struct Struct_0203d028_21 {
+    char unknown_0_[0xd0];
+    int unknown_d0_;
 };
 
-struct Obj02040b2c {
-    char pad[0x18];
-    struct Obj020415b0* field18;
+struct Struct_0203e2c4_2 {
+    char unknown_0_[0x18];
+    struct Struct_0203d028_21* unknown_18_;
 };
 
 extern "C" void* func_0203cf4c(void);
-extern "C" void* func_0203df78(void* base, int key);
-extern "C" void func_02040b2c(struct Obj02040b2c* self, int value);
-extern "C" int func_020415b0(Obj020415b0*, int, int);
+extern "C" void* func_0203df78(void* arg0, int arg1);
+extern "C" void func_02040b2c(struct Struct_0203e2c4_2* arg0, int arg1);
+extern "C" int func_020415b0(Struct_0203d028_21*, int, int);
 
 extern char data_ov004_021706f4[];
 
 // USA: func_ov004_021684d4
 extern "C" ARM int func_ov004_021684d4(void) {
-    struct Obj02040b2c* entry = (struct Obj02040b2c*)func_0203df78(func_0203cf4c(), 0x67);
-    if (!entry) {
+    struct Struct_0203e2c4_2* var0 = (struct Struct_0203e2c4_2*)func_0203df78(func_0203cf4c(), 0x67);
+    if (!var0) {
         return 0;
     }
-    if (entry->field18) {
-        func_02040b2c(entry, 0);
-        entry->field18->field_d0 = 1;
-        func_020415b0(entry->field18, (int)data_ov004_021706f4, 1);
+    if (var0->unknown_18_) {
+        func_02040b2c(var0, 0);
+        var0->unknown_18_->unknown_d0_ = 1;
+        func_020415b0(var0->unknown_18_, (int)data_ov004_021706f4, 1);
     }
     return 0;
 }

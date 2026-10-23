@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct TaggedNumber02184c30;
-extern "C" int func_ov011_02184c30(struct TaggedNumber02184c30* v);
+struct Struct_ov011_02184c30;
+extern "C" int func_ov011_02184c30(struct Struct_ov011_02184c30* arg0);
 
 extern "C" void* func_ov017_021b2164(void);
 extern "C" void* func_ov011_021849c8(void*);
 
-struct VTable02188108 {
-    char pad[0x7c];
-    void (*fn)(void*, int);
+struct Struct_ov011_02188108 {
+    char unknown_0_[0x7c];
+    void (*unknown_7c_)(void*, int);
 };
-struct Obj02188108 {
-    struct VTable02188108* vtable;
+struct Struct_ov011_02188108_2 {
+    struct Struct_ov011_02188108* unknown_0_;
 };
-extern "C" struct Obj02188108* func_ov023_021f6880(void*, int);
+extern "C" struct Struct_ov011_02188108_2* func_ov023_021f6880(void*, int);
 
 // USA: func_ov011_02188108
-extern "C" ARM int func_ov011_02188108(struct TaggedNumber02184c30* tagged) {
-    int key = func_ov011_02184c30(tagged);
-    int val = func_ov011_02184c30((struct TaggedNumber02184c30*)((char*)tagged + 8));
-    struct Obj02188108* node = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), key);
-    if (!node) return 0;
-    node->vtable->fn(node, val);
+extern "C" ARM int func_ov011_02188108(struct Struct_ov011_02184c30* arg0) {
+    int var0 = func_ov011_02184c30(arg0);
+    int var1 = func_ov011_02184c30((struct Struct_ov011_02184c30*)((char*)arg0 + 8));
+    struct Struct_ov011_02188108_2* var2 = func_ov023_021f6880(func_ov011_021849c8(func_ov017_021b2164()), var0);
+    if (!var2) return 0;
+    var2->unknown_0_->unknown_7c_(var2, var1);
     return 1;
 }

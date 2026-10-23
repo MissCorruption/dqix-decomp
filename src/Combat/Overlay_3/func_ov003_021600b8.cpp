@@ -2,27 +2,27 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue31C_204 = 0x204 };
+enum { Enum_ov003_021600b8_796 = 0x204 };
 #else
-enum { kRegionValue31C_204 = 0x31c };
+enum { Enum_ov003_021600b8_796 = 0x31c };
 #endif
 
-extern "C" int func_020100a8(GameState* battleStruct);
-extern "C" GameObject* func_0200ff1c(GameState* battleStruct, int combatantId);
+extern "C" int func_020100a8(GameState* arg0);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
 struct Vector3i;
-extern "C" void func_02032fdc(void* a, int b, int c);
+extern "C" void func_02032fdc(void* arg0, int arg1, int arg2);
 
-struct Struct31c_021600b8 { char pad[kRegionValue31C_204]; int field31c; void* field320; };
+struct Struct_ov003_021600b8 { char unknown_0_[Enum_ov003_021600b8_796]; int unknown_31c_; void* unknown_320_; };
 
 // USA: func_ov003_021600b8
-extern "C" ARM void func_ov003_021600b8(Struct31c_021600b8* obj) {
-    GameState* battleStruct = GameState::GetInstance();
-    if (obj->field31c == 0 || obj->field320 == 0) return;
-    int val = func_020100a8(battleStruct);
-    GameObject* combatant = func_0200ff1c(battleStruct, val);
-    if (combatant == 0) return;
-    *(Vector3i*)((int*)((char*)obj->field320 + 0x44)) = *(Vector3i const*)(&combatant->obj3D_.position_.x);
+extern "C" ARM void func_ov003_021600b8(Struct_ov003_021600b8* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    if (arg0->unknown_31c_ == 0 || arg0->unknown_320_ == 0) return;
+    int var1 = func_020100a8(var0);
+    GameObject* var2 = func_0200ff1c(var0, var1);
+    if (var2 == 0) return;
+    *(Vector3i*)((int*)((char*)arg0->unknown_320_ + 0x44)) = *(Vector3i const*)(&var2->obj3D_.position_.x);
     *(int*)0x4000444 = 0;
-    func_02032fdc(obj->field320, 0, 0);
+    func_02032fdc(arg0->unknown_320_, 0, 0);
     *(int*)0x4000448 = 1;
 }

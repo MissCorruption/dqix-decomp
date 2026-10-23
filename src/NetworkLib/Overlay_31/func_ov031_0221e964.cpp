@@ -1,64 +1,64 @@
 #include <globaldefs.h>
 #include "NitroSDK/Timing.h"
 
-struct ScanRecord0221e964 { unsigned char bytes[0xc0]; };
-struct ResultEntry0221e964 { unsigned char bytes[0x54]; };
-struct Results0221e964 { int count; ResultEntry0221e964 entries[1]; };
-struct Allocator0221e964 {
-    void* (*allocate)(unsigned int);
-    unsigned char pad4[8];
-    void (*release)(void*);
+struct Struct_ov031_0221e964_3 { unsigned char unknown_0_[0xc0]; };
+struct Struct_ov031_0221e964 { unsigned char unknown_0_[0x54]; };
+struct Struct_ov031_0221e964_2 { int unknown_0_; Struct_ov031_0221e964 unknown_4_[1]; };
+struct Struct_ov031_0224f4c0_3 {
+    void* (*unknown_0_)(unsigned int);
+    unsigned char unknown_4_[8];
+    void (*unknown_c_)(void*);
 };
-struct EventQueue0221e964;
-extern Allocator0221e964 data_ov031_0224f4c0;
-extern EventQueue0221e964 data_ov031_0224f4e0;
+struct Struct_ov031_0224f4e0;
+extern Struct_ov031_0224f4c0_3 data_ov031_0224f4c0;
+extern Struct_ov031_0224f4e0 data_ov031_0224f4e0;
 extern "C" int func_ov031_0221f02c(int, int, int, unsigned int);
-extern "C" ARM int func_020c7ea0(EventQueue0221e964*, int*, int);
-extern "C" int func_ov031_0221efe8(ScanRecord0221e964*, int);
+extern "C" ARM int func_020c7ea0(Struct_ov031_0224f4e0*, int*, int);
+extern "C" int func_ov031_0221efe8(Struct_ov031_0221e964_3*, int);
 extern "C" int func_ov031_0221f11c();
-extern "C" void func_ov031_0221e6e8(ScanRecord0221e964*, ResultEntry0221e964*);
+extern "C" void func_ov031_0221e6e8(Struct_ov031_0221e964_3*, Struct_ov031_0221e964*);
 extern "C" void func_ov031_0221e7bc(ProcessorContext**);
 
 // USA: func_ov031_0221e964
-extern "C" THUMB int func_ov031_0221e964(Results0221e964** output) {
-    int result = -1;
-    int running = 1;
-    int ready = 0;
-    int count = 0;
-    int attempts = 0;
-    if (!data_ov031_0224f4c0.allocate || !data_ov031_0224f4c0.release) return -1;
-    ScanRecord0221e964* records = (ScanRecord0221e964*)data_ov031_0224f4c0.allocate(0x3000);
-    if (!records) return -1;
-    void* allocation = records;
+extern "C" THUMB int func_ov031_0221e964(Struct_ov031_0221e964_2** arg0) {
+    int var0 = -1;
+    int var1 = 1;
+    int var2 = 0;
+    int var3 = 0;
+    int var4 = 0;
+    if (!data_ov031_0224f4c0.unknown_0_ || !data_ov031_0224f4c0.unknown_c_) return -1;
+    Struct_ov031_0221e964_3* var5 = (Struct_ov031_0221e964_3*)data_ov031_0224f4c0.unknown_0_(0x3000);
+    if (!var5) return -1;
+    void* var6 = var5;
     if (!func_ov031_0221f02c(0, 0, 0, 0x30bffe)) goto release;
     {
-        Alarm alarm;
-        int event;
-        ZeroInitializeAlarm(&alarm);
-        SetTimeout(&alarm, 0x003fec42ULL, func_ov031_0221e7bc, (ProcessorContext**)19);
+        Alarm var7;
+        int var8;
+        ZeroInitializeAlarm(&var7);
+        SetTimeout(&var7, 0x003fec42ULL, func_ov031_0221e7bc, (ProcessorContext**)19);
         do {
-            func_020c7ea0(&data_ov031_0224f4e0, &event, 1);
-            switch (event) {
+            func_020c7ea0(&data_ov031_0224f4e0, &var8, 1);
+            switch (var8) {
             case 19:
-                if (!ready) {
-                    if (attempts) count = func_ov031_0221efe8(records, 64);
+                if (!var2) {
+                    if (var4) var3 = func_ov031_0221efe8(var5, 64);
                     if (!func_ov031_0221f11c()) goto cancel;
-                    ready = 1;
+                    var2 = 1;
                 }
                 break;
             case 5:
-                if (!ready) {
-                    if (attempts < 8) ++attempts;
+                if (!var2) {
+                    if (var4 < 8) ++var4;
                     else {
-                        count = func_ov031_0221efe8(records, 64);
+                        var3 = func_ov031_0221efe8(var5, 64);
                         if (!func_ov031_0221f11c()) goto cancel;
-                        ready = 1;
+                        var2 = 1;
                     }
                 }
                 break;
             case 10:
-                running = 0;
-                result = 0;
+                var1 = 0;
+                var0 = 0;
                 break;
             case 4:
             case 8:
@@ -70,35 +70,35 @@ extern "C" THUMB int func_ov031_0221e964(Results0221e964** output) {
             default:
                 goto cancel;
             }
-        } while (running);
+        } while (var1);
         {
-            void* resultAllocation;
-            if (count) {
-                resultAllocation = data_ov031_0224f4c0.allocate((count - 1) * 0x54 + 0x58);
-                if (!resultAllocation) goto cancel;
+            void* var9;
+            if (var3) {
+                var9 = data_ov031_0224f4c0.unknown_0_((var3 - 1) * 0x54 + 0x58);
+                if (!var9) goto cancel;
             } else {
-                resultAllocation = data_ov031_0224f4c0.allocate(0x58);
-                if (!resultAllocation) goto cancel;
+                var9 = data_ov031_0224f4c0.unknown_0_(0x58);
+                if (!var9) goto cancel;
             }
-            Results0221e964* results = (Results0221e964*)resultAllocation;
-            *output = results;
-            results->count = count;
-            int i = 0;
-            if (count > 0) {
-            ResultEntry0221e964* entry = results->entries;
+            Struct_ov031_0221e964_2* var10 = (Struct_ov031_0221e964_2*)var9;
+            *arg0 = var10;
+            var10->unknown_0_ = var3;
+            int var11 = 0;
+            if (var3 > 0) {
+            Struct_ov031_0221e964* var12 = var10->unknown_4_;
             do {
-                func_ov031_0221e6e8(records, entry);
-                ++i;
-                ++records;
-                ++entry;
-            } while (i < count);
+                func_ov031_0221e6e8(var5, var12);
+                ++var11;
+                ++var5;
+                ++var12;
+            } while (var11 < var3);
             }
         }
 cancel:
-        CancelAlarm(&alarm);
-        while (func_020c7ea0(&data_ov031_0224f4e0, &event, 0) == 1) {}
+        CancelAlarm(&var7);
+        while (func_020c7ea0(&data_ov031_0224f4e0, &var8, 0) == 1) {}
     }
 release:
-    data_ov031_0224f4c0.release(allocation);
-    return result;
+    data_ov031_0224f4c0.unknown_c_(var6);
+    return var0;
 }

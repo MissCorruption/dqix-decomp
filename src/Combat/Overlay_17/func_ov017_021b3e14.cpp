@@ -4,98 +4,98 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-struct OffsetTable02072e34 {
-    int v[11];
+struct Struct_02072e34 {
+    int unknown_0_[11];
 };
-extern "C" void func_02072e34(int n, struct OffsetTable02072e34* out);
+extern "C" void func_02072e34(int arg0, struct Struct_02072e34* arg1);
 
-struct Foo0207df50;
-extern "C" void func_0207df50(struct Foo0207df50* p);
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
-extern "C" void func_020730e0(int id, int index);
+struct Struct_0203d028;
+extern "C" void func_0207df50(struct Struct_0203d028* arg0);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_020730e0(int arg0, int arg1);
 extern "C" int NSBXX_Model_GetMaterialPolygonID(NSBXXInternalModel* model, unsigned int materialIndex);
-extern "C" int func_ov017_021b8470(void* obj);
-extern "C" unsigned char* func_ov017_021b8478(void* obj);
-extern "C" int func_020a35e0(unsigned char* obj, unsigned char index);
+extern "C" int func_ov017_021b8470(void* arg0);
+extern "C" unsigned char* func_ov017_021b8478(void* arg0);
+extern "C" int func_020a35e0(unsigned char* arg0, unsigned char arg1);
 
-struct Struct_203dafc;
-extern "C" void func_0203dafc(struct Struct_203dafc* obj);
-struct StreamHeader;
-extern "C" void func_ov000_0216d1c4(int arg0, struct StreamHeader* buffer, int length, int* out);
+struct Struct_0203d028_11;
+extern "C" void func_0203dafc(struct Struct_0203d028_11* arg0);
+struct Struct_02013fb4;
+extern "C" void func_ov000_0216d1c4(int arg0, struct Struct_02013fb4* arg1, int arg2, int* arg3);
 
-struct Obj02053cf8;
-extern "C" void func_02053cf8(struct Obj02053cf8* obj);
-struct Obj02053e10;
-extern "C" void func_02053e10(struct Obj02053e10* self);
-extern "C" void func_ov017_021917f0(int id, int flag);
-extern "C" void func_02026bc8(unsigned char* obj, int index);
-struct Bytes02033b88;
-extern "C" int func_02033b88(struct Bytes02033b88* p, int val);
-struct SearchStruct;
-extern "C" struct SearchStruct* func_0202ae18(void);
-extern "C" GameObject* func_0200ff58(GameState* battleStruct, int combatantId);
-extern "C" int func_020546a8(void* obj);
-extern "C" int func_0202be08(struct SearchStruct* search, int id);
-struct Outer_02054000;
-extern "C" void* func_02054000(struct Outer_02054000* p);
-extern "C" int func_02053c6c(unsigned char* obj);
-extern "C" int func_020483f0(unsigned char* obj, unsigned short flag);
-extern "C" void func_02083e28(void* a, int arg2);
+struct Struct_02053cf8;
+extern "C" void func_02053cf8(struct Struct_02053cf8* arg0);
+struct Struct_02053e10;
+extern "C" void func_02053e10(struct Struct_02053e10* arg0);
+extern "C" void func_ov017_021917f0(int arg0, int arg1);
+extern "C" void func_02026bc8(unsigned char* arg0, int arg1);
+struct Struct_02010604;
+extern "C" int func_02033b88(struct Struct_02010604* arg0, int arg1);
+struct Struct_0202b2f0;
+extern "C" struct Struct_0202b2f0* func_0202ae18(void);
+extern "C" GameObject* func_0200ff58(GameState* arg0, int arg1);
+extern "C" int func_020546a8(void* arg0);
+extern "C" int func_0202be08(struct Struct_0202b2f0* arg0, int arg1);
+struct Struct_02054000;
+extern "C" void* func_02054000(struct Struct_02054000* arg0);
+extern "C" int func_02053c6c(unsigned char* arg0);
+extern "C" int func_020483f0(unsigned char* arg0, unsigned short arg1);
+extern "C" void func_02083e28(void* arg0, int arg1);
 void ApplyCombatantBuffs(int world, int id);
 extern "C" void func_ov017_021c6bc8(void);
-extern "C" void func_ov017_021cf078(int combatantId, int slot, int flag);
-struct StructDE234_020de234;
-extern "C" unsigned short func_020de234(struct StructDE234_020de234* p, int preferMid);
+extern "C" void func_ov017_021cf078(int arg0, int arg1, int arg2);
+struct Struct_02015ef4_4;
+extern "C" unsigned short func_020de234(struct Struct_02015ef4_4* arg0, int arg1);
 
-struct List021d6b34 {
-    int v[8];
+struct Struct_ov017_021d6b34 {
+    int unknown_0_[8];
 };
 #if defined(jpn)
 #define data_ov017_021d6b34 data_ov017_021d6f2c
 #define data_ov017_021d7add data_ov017_021d821f
 #define data_ov017_021d7ae3 data_ov017_021d8225
 #endif
-extern struct List021d6b34 data_ov017_021d6b34;
+extern struct Struct_ov017_021d6b34 data_ov017_021d6b34;
 extern char data_ov017_021d7add[];
 extern char data_ov017_021d7ae3[];
 
-struct LoadWork021b3e14 {
-    char pad0[8];
-    short id;
-    short pada;
-    int stagingMode;
-    int tasks[14];
+struct Struct_ov017_021b3e14 {
+    char unknown_0_[8];
+    short unknown_8_;
+    short unknown_a_;
+    int unknown_c_;
+    int unknown_10_[14];
 };
 
-typedef unsigned char PolygonIdRow[11];
+typedef unsigned char Type_ov017_021b3e14[11];
 
-struct Ext150 {
-    char pad0[0x274];
-    char sub274[0x49c - 0x274];
-    unsigned char preferMid : 1;
+struct Struct_ov017_021b3e14_2 {
+    char unknown_0_[0x274];
+    char unknown_274_[0x49c - 0x274];
+    unsigned char unknown_49c_0_ : 1;
 };
 
-struct Member021b3e14 {
-    Object3D obj3D_;
-    char padac[0x130 - 0xac];
-    int* flags130;
-    BaseCombatStats* baseStats134;
-    ModifiableCombatStats* currentStats138;
-    int* scriptState13c;
+struct Struct_ov017_021b3e14_3 {
+    Object3D unknown_0_;
+    char unknown_ac_[0x130 - 0xac];
+    int* unknown_130_;
+    BaseCombatStats* unknown_134_;
+    ModifiableCombatStats* unknown_138_;
+    int* unknown_13c_;
 #if defined(jpn)
-    char pad140[0x144 - 0x140];
+    char unknown_140_[0x144 - 0x140];
 #else
-    char pad140[0x150 - 0x140];
+    char unknown1_140_[0x150 - 0x140];
 #endif
-    struct Ext150* ext150;
-    GameResources::Substruct_12C8* models154;
+    struct Struct_ov017_021b3e14_2* unknown_150_;
+    GameResources::Substruct_12C8* unknown_154_;
 #if defined(jpn)
-    char pad158[0x180 - 0x14c];
+    char unknown_14c_[0x180 - 0x14c];
 #else
-    char pad158[0x18c - 0x158];
+    char unknown_158_[0x18c - 0x158];
 #endif
-    int flags18c;
+    int unknown_18c_;
 };
 
 #if defined(jpn)
@@ -106,292 +106,292 @@ struct Member021b3e14 {
 #define EXT150_WORD_021b3e14 0x950
 #endif
 
-struct Active02054000 {
-    char pad0[8];
-    unsigned int pad8_0 : 18;
-    unsigned int active : 1;
-    char padc[0x18 - 0xc];
-    short count;
+struct Struct_ov017_021b3e14_4 {
+    char unknown_0_[8];
+    unsigned int unknown_8_0_ : 18;
+    unsigned int unknown_a_2_ : 1;
+    char unknown_b_[0x18 - 0xc];
+    short unknown_18_;
 };
 
-static inline int SetScriptState(struct Member021b3e14* member, int value) {
-    return member->scriptState13c ? (*member->scriptState13c = value) : 0;
+static inline int inline_ov000_021682ec(struct Struct_ov017_021b3e14_3* arg0, int arg1) {
+    return arg0->unknown_13c_ ? (*arg0->unknown_13c_ = arg1) : 0;
 }
 
 // USA: func_ov017_021b3e14
-extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
-    GameResources* res;
-    int done;
-    GameObject* obj;
-    int world;
-    GameObject* head;
-    GameResources::Substruct_12C8* models;
-    Model3D* model;
-    int i;
+extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
+    GameResources* var0;
+    int var1;
+    GameObject* var2;
+    int var3;
+    GameObject* var4;
+    GameResources::Substruct_12C8* var5;
+    Model3D* var6;
+    int var7;
 
-    GameState* gs = GameState::GetInstance();
-    res = GetGameResources();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    struct Member021b3e14* member = (struct Member021b3e14*)gs->GetPartyMemberByIndex(self->id);
-    models = member->models154;
-    struct OffsetTable02072e34 table;
-    func_02072e34(self->id, &table);
+    GameState* var8 = GameState::GetInstance();
+    var0 = GetGameResources();
+    BackgroundLoader* var9 = BackgroundLoader::GetInstance();
+    struct Struct_ov017_021b3e14_3* var10 = (struct Struct_ov017_021b3e14_3*)var8->GetPartyMemberByIndex(arg0->unknown_8_);
+    var5 = var10->unknown_154_;
+    struct Struct_02072e34 var11;
+    func_02072e34(arg0->unknown_8_, &var11);
 
-    done = 1;
-    for (i = 0; i < 11; i++) {
-        if (self->tasks[i] < 0) {
+    var1 = 1;
+    for (var7 = 0; var7 < 11; var7++) {
+        if (arg0->unknown_10_[var7] < 0) {
             continue;
         }
-        if (loader->GetTaskStatus(self->tasks[i]) == 0) {
-            done = 0;
+        if (var9->GetTaskStatus(arg0->unknown_10_[var7]) == 0) {
+            var1 = 0;
             continue;
         }
-        if (loader->GetDetailedTaskStatus(self->tasks[i]) != 2) {
-            loader->RemoveTask(self->tasks[i]);
-            self->tasks[i] = -1;
+        if (var9->GetDetailedTaskStatus(arg0->unknown_10_[var7]) != 2) {
+            var9->RemoveTask(arg0->unknown_10_[var7]);
+            arg0->unknown_10_[var7] = -1;
             continue;
         }
-        obj = gs->GetGameObjectByIndex(table.v[i]);
-        if (obj == NULL) {
-            loader->RemoveTask(self->tasks[i]);
-            self->tasks[i] = -1;
+        var2 = var8->GetGameObjectByIndex(var11.unknown_0_[var7]);
+        if (var2 == NULL) {
+            var9->RemoveTask(arg0->unknown_10_[var7]);
+            arg0->unknown_10_[var7] = -1;
             continue;
         }
-        void* file;
-        unsigned int size;
-        loader->GetLoadedFileByID(self->tasks[i], &file, &size);
-        SafeAllocator* alloc = &models->allocator_array_4[i];
-        char* pairs = models->unknown_cc + i * 0x70;
-        func_0207df50((struct Foo0207df50*)pairs);
-        func_0207df90(pairs);
-        obj->obj3D_.SetModelFromFile(alloc, file, size, (Model3D::TextureStagingMode)self->stagingMode);
-        func_0207dfac(pairs);
-        model = obj->obj3D_.pModel_;
-        if (i == 0) {
-            model->CreateBoneMatrixAndMaterialArrays(alloc, 7);
-            model->StoreBoneMatrixAndMaterialArrayPointers();
-        } else if (!(i == 1 || i == 6 || i == 5 || i == 4)) {
-            model->CreateBoneMatrixAndMaterialArrays(alloc, 5);
-            model->StoreBoneMatrixAndMaterialArrayPointers();
+        void* var12;
+        unsigned int var13;
+        var9->GetLoadedFileByID(arg0->unknown_10_[var7], &var12, &var13);
+        SafeAllocator* var14 = &var5->allocator_array_4[var7];
+        char* var15 = var5->unknown_cc_ + var7 * 0x70;
+        func_0207df50((struct Struct_0203d028*)var15);
+        func_0207df90(var15);
+        var2->obj3D_.SetModelFromFile(var14, var12, var13, (Model3D::TextureStagingMode)arg0->unknown_c_);
+        func_0207dfac(var15);
+        var6 = var2->obj3D_.pModel_;
+        if (var7 == 0) {
+            var6->CreateBoneMatrixAndMaterialArrays(var14, 7);
+            var6->StoreBoneMatrixAndMaterialArrayPointers();
+        } else if (!(var7 == 1 || var7 == 6 || var7 == 5 || var7 == 4)) {
+            var6->CreateBoneMatrixAndMaterialArrays(var14, 5);
+            var6->StoreBoneMatrixAndMaterialArrayPointers();
         }
-        if (i == 9) {
-            obj->obj3D_.position_.x = 0x1000;
-            obj->obj3D_.position_.y = 0;
-            obj->obj3D_.position_.z = 0;
+        if (var7 == 9) {
+            var2->obj3D_.position_.x = 0x1000;
+            var2->obj3D_.position_.y = 0;
+            var2->obj3D_.position_.z = 0;
         }
-        if (i == 0 || i == 1 || i == 5 || i == 4 || i == 2 || i == 6 || i == 7) {
-            func_020730e0(self->id, i);
+        if (var7 == 0 || var7 == 1 || var7 == 5 || var7 == 4 || var7 == 2 || var7 == 6 || var7 == 7) {
+            func_020730e0(arg0->unknown_8_, var7);
         }
-        loader->RemoveTask(self->tasks[i]);
-        self->tasks[i] = -1;
+        var9->RemoveTask(arg0->unknown_10_[var7]);
+        arg0->unknown_10_[var7] = -1;
     }
 
-    int isParty = 0;
-    if (self->id >= 0 && self->id <= 3) {
-        isParty = 1;
+    int var16 = 0;
+    if (arg0->unknown_8_ >= 0 && arg0->unknown_8_ <= 3) {
+        var16 = 1;
     }
-    if (isParty) {
-        struct List021d6b34 list = data_ov017_021d6b34;
-        for (int j = 0; (i = list.v[j]) > -1; j++) {
-            GameObject* obj = gs->GetGameObjectByIndex(table.v[i]);
-            if (obj != NULL && obj->obj3D_.pModel_ != NULL && obj->obj3D_.pModel_->rawInternalModel_ != NULL) {
-                (*(PolygonIdRow*)((unsigned char*)res + self->id * 11 + POLYGON_ID_ROWS_021b3e14))[i] =
-                    NSBXX_Model_GetMaterialPolygonID(obj->obj3D_.pModel_->rawInternalModel_, 0);
+    if (var16) {
+        struct Struct_ov017_021d6b34 var17 = data_ov017_021d6b34;
+        for (int var18 = 0; (var7 = var17.unknown_0_[var18]) > -1; var18++) {
+            GameObject* var19 = var8->GetGameObjectByIndex(var11.unknown_0_[var7]);
+            if (var19 != NULL && var19->obj3D_.pModel_ != NULL && var19->obj3D_.pModel_->rawInternalModel_ != NULL) {
+                (*(Type_ov017_021b3e14*)((unsigned char*)var0 + arg0->unknown_8_ * 11 + POLYGON_ID_ROWS_021b3e14))[var7] =
+                    NSBXX_Model_GetMaterialPolygonID(var19->obj3D_.pModel_->rawInternalModel_, 0);
             }
         }
     }
 
-    int hasScript = 0;
-    void* p3718 = res->unknown_ptr_3718;
-    world = func_ov017_021b8470(p3718);
-    unsigned char* bits = func_ov017_021b8478(p3718);
-    if (((unsigned char*)p3718)[2] != 0 && bits != NULL) {
-        if (func_020a35e0(bits, self->id)) {
-            hasScript = 1;
+    int var20 = 0;
+    void* var21 = var0->unknown_ptr_3718;
+    var3 = func_ov017_021b8470(var21);
+    unsigned char* var22 = func_ov017_021b8478(var21);
+    if (((unsigned char*)var21)[2] != 0 && var22 != NULL) {
+        if (func_020a35e0(var22, arg0->unknown_8_)) {
+            var20 = 1;
         }
     }
 
-    GameObject* body = gs->GetGameObjectByIndex(table.v[0]);
-    head = gs->GetGameObjectByIndex(table.v[1]);
-    for (int k = 0; k < 3; k++) {
-        int slot = k + 11;
-        if (self->tasks[slot] < 0) {
+    GameObject* var23 = var8->GetGameObjectByIndex(var11.unknown_0_[0]);
+    var4 = var8->GetGameObjectByIndex(var11.unknown_0_[1]);
+    for (int var24 = 0; var24 < 3; var24++) {
+        int var25 = var24 + 11;
+        if (arg0->unknown_10_[var25] < 0) {
             continue;
         }
-        if (loader->GetTaskStatus(self->tasks[slot]) == 0) {
-            done = 0;
+        if (var9->GetTaskStatus(arg0->unknown_10_[var25]) == 0) {
+            var1 = 0;
             continue;
         }
-        if (loader->GetDetailedTaskStatus(self->tasks[slot]) != 2) {
-            loader->RemoveTask(self->tasks[slot]);
-            self->tasks[slot] = -1;
+        if (var9->GetDetailedTaskStatus(arg0->unknown_10_[var25]) != 2) {
+            var9->RemoveTask(arg0->unknown_10_[var25]);
+            arg0->unknown_10_[var25] = -1;
             continue;
         }
-        void* file;
-        unsigned int size;
-        loader->GetLoadedFileByID(self->tasks[slot], &file, &size);
-        if (file == NULL || size == 0) {
-            loader->RemoveTask(self->tasks[slot]);
-            self->tasks[slot] = -1;
+        void* var26;
+        unsigned int var27;
+        var9->GetLoadedFileByID(arg0->unknown_10_[var25], &var26, &var27);
+        if (var26 == NULL || var27 == 0) {
+            var9->RemoveTask(arg0->unknown_10_[var25]);
+            arg0->unknown_10_[var25] = -1;
             continue;
         }
-        switch (slot) {
+        switch (var25) {
         case 11: {
-            ObjectArchiveLoadInfo info;
-            func_0203dafc((struct Struct_203dafc*)&info);
-            info.allocator = &models->allocator_52c;
-            info.fileData = file;
-            info.unk_8 = size;
-            body->obj3D_.LoadFromCCHROrCMOTArchive(&info, NULL);
+            ObjectArchiveLoadInfo var28;
+            func_0203dafc((struct Struct_0203d028_11*)&var28);
+            var28.allocator = &var5->allocator_52c;
+            var28.fileData = var26;
+            var28.unk_8 = var27;
+            var23->obj3D_.LoadFromCCHROrCMOTArchive(&var28, NULL);
             break;
         }
         case 13: {
-            ObjectArchiveLoadInfo info2;
-            func_0203dafc((struct Struct_203dafc*)&info2);
-            info2.allocator = &models->allocator_540;
-            info2.fileData = file;
-            info2.packageID = 1;
-            info2.unk_10 = 1;
-            info2.unk_8 = size;
-            body->obj3D_.LoadFromCCHROrCMOTArchive(&info2, NULL);
-            if (hasScript) {
-                const void* script;
-                unsigned int scriptSize;
-                if (FindFilesInNarcBySubstring(file, data_ov017_021d7add, &script, &scriptSize, 1)) {
-                    int state;
-                    func_ov000_0216d1c4((int)&models->allocator_540, (struct StreamHeader*)script, scriptSize, &state);
-                    SetScriptState(member, state);
+            ObjectArchiveLoadInfo var29;
+            func_0203dafc((struct Struct_0203d028_11*)&var29);
+            var29.allocator = &var5->allocator_540;
+            var29.fileData = var26;
+            var29.packageID = 1;
+            var29.unk_10 = 1;
+            var29.unk_8 = var27;
+            var23->obj3D_.LoadFromCCHROrCMOTArchive(&var29, NULL);
+            if (var20) {
+                const void* var30;
+                unsigned int var31;
+                if (FindFilesInNarcBySubstring(var26, data_ov017_021d7add, &var30, &var31, 1)) {
+                    int var32;
+                    func_ov000_0216d1c4((int)&var5->allocator_540, (struct Struct_02013fb4*)var30, var31, &var32);
+                    inline_ov000_021682ec(var10, var32);
                 }
             }
             break;
         }
         }
-        loader->RemoveTask(self->tasks[slot]);
-        self->tasks[slot] = -1;
+        var9->RemoveTask(arg0->unknown_10_[var25]);
+        arg0->unknown_10_[var25] = -1;
     }
 
-    if (done) {
-        GameResources* res2 = GetGameResources();
-        func_02053cf8((struct Obj02053cf8*)member);
-        func_02053e10((struct Obj02053e10*)member);
-        int f = 0;
-        if (hasScript) {
-            f = 1;
+    if (var1) {
+        GameResources* var33 = GetGameResources();
+        func_02053cf8((struct Struct_02053cf8*)var10);
+        func_02053e10((struct Struct_02053e10*)var10);
+        int var34 = 0;
+        if (var20) {
+            var34 = 1;
         }
-        func_ov017_021917f0(self->id, f);
-        func_02026bc8((unsigned char*)res2->unknown_ptr_36d0, self->id);
+        func_ov017_021917f0(arg0->unknown_8_, var34);
+        func_02026bc8((unsigned char*)var33->unknown_ptr_36d0, arg0->unknown_8_);
 
-        GameObject* dst = gs->GetGameObjectByIndex(table.v[3]);
-        GameObject* src = gs->GetGameObjectByIndex(table.v[4]);
-        if (dst != NULL && src != NULL && dst->obj3D_.pModel_ != NULL && src->obj3D_.pModel_ != NULL) {
-            dst->obj3D_.pModel_->ApplyTexturesFromModel(src->obj3D_.pModel_);
+        GameObject* var35 = var8->GetGameObjectByIndex(var11.unknown_0_[3]);
+        GameObject* var36 = var8->GetGameObjectByIndex(var11.unknown_0_[4]);
+        if (var35 != NULL && var36 != NULL && var35->obj3D_.pModel_ != NULL && var36->obj3D_.pModel_ != NULL) {
+            var35->obj3D_.pModel_->ApplyTexturesFromModel(var36->obj3D_.pModel_);
         }
-        func_02033b88((struct Bytes02033b88*)member, 0);
-        member->obj3D_.EnableFlag(4);
+        func_02033b88((struct Struct_02010604*)var10, 0);
+        var10->unknown_0_.EnableFlag(4);
 
-        if (world == 0) {
-            struct SearchStruct* search = func_0202ae18();
-            int v = member->obj3D_.unknown_4_;
-            GameObject* c = func_0200ff58(gs, v);
-            if (c != NULL) {
-                v = func_020546a8(c);
+        if (var3 == 0) {
+            struct Struct_0202b2f0* var37 = func_0202ae18();
+            int var38 = var10->unknown_0_.unknown_4_;
+            GameObject* var39 = func_0200ff58(var8, var38);
+            if (var39 != NULL) {
+                var38 = func_020546a8(var39);
             }
-            int set = func_0202be08(search, v);
-            if (*member->flags130 & 1) {
-                if (set == 0) {
-                    member->flags18c |= 1;
+            int var40 = func_0202be08(var37, var38);
+            if (*var10->unknown_130_ & 1) {
+                if (var40 == 0) {
+                    var10->unknown_18c_ |= 1;
                 }
             }
         }
 
-        if (hasScript) {
-            body->obj3D_.MakeHidden();
-            ((unsigned char*)member)[0xc2] |= 0x20;
-            if (*(int*)((char*)member->currentStats138 + 0x14) & 1) {
-                func_02033b88((struct Bytes02033b88*)member, 4);
+        if (var20) {
+            var23->obj3D_.MakeHidden();
+            ((unsigned char*)var10)[0xc2] |= 0x20;
+            if (*(int*)((char*)var10->unknown_138_ + 0x14) & 1) {
+                func_02033b88((struct Struct_02010604*)var10, 4);
             } else {
-                member->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7ae3, 0);
+                var10->unknown_0_.MaybeSetRegularAnimation(data_ov017_021d7ae3, 0);
             }
-            if (world != 0) {
-                struct Member021b3e14* c = (struct Member021b3e14*)func_0200ff1c(gs, self->id);
-                if (c != NULL) {
-                    struct Active02054000* act = (struct Active02054000*)func_02054000((struct Outer_02054000*)c);
-                    if (act != NULL && act->count > 0 && act->active) {
-                        int* f = (int*)func_02053c6c((unsigned char*)c);
-                        if (f != NULL) {
-                            func_020483f0((unsigned char*)c, 4);
-                            f[0xa8 / 4] |= 4;
+            if (var3 != 0) {
+                struct Struct_ov017_021b3e14_3* var41 = (struct Struct_ov017_021b3e14_3*)func_0200ff1c(var8, arg0->unknown_8_);
+                if (var41 != NULL) {
+                    struct Struct_ov017_021b3e14_4* var42 = (struct Struct_ov017_021b3e14_4*)func_02054000((struct Struct_02054000*)var41);
+                    if (var42 != NULL && var42->unknown_18_ > 0 && var42->unknown_a_2_) {
+                        int* var43 = (int*)func_02053c6c((unsigned char*)var41);
+                        if (var43 != NULL) {
+                            func_020483f0((unsigned char*)var41, 4);
+                            var43[0xa8 / 4] |= 4;
                         }
                     }
-                    func_02083e28(c->ext150, 0);
-                    ModifiableCombatStats* cur = c->currentStats138;
-                    unsigned short maxMP = c->baseStats134->primaryStats.maxMP;
-                    cur->primaryStats.maxMP = maxMP;
-                    if (maxMP < cur->primaryStats.currMP) {
-                        cur->primaryStats.currMP = maxMP;
+                    func_02083e28(var41->unknown_150_, 0);
+                    ModifiableCombatStats* var44 = var41->unknown_138_;
+                    unsigned short var45 = var41->unknown_134_->primaryStats.maxMP;
+                    var44->primaryStats.maxMP = var45;
+                    if (var45 < var44->primaryStats.currMP) {
+                        var44->primaryStats.currMP = var45;
                     }
                 }
-                ApplyCombatantBuffs(world, self->id);
+                ApplyCombatantBuffs(var3, arg0->unknown_8_);
                 func_ov017_021c6bc8();
-                func_ov017_021cf078(self->id, (unsigned char)*(int*)((char*)c->ext150 + EXT150_WORD_021b3e14), 1);
+                func_ov017_021cf078(arg0->unknown_8_, (unsigned char)*(int*)((char*)var41->unknown_150_ + EXT150_WORD_021b3e14), 1);
             }
         } else {
-            member->obj3D_.MakeVisible();
+            var10->unknown_0_.MakeVisible();
         }
 
-        Model3D* bodyModel = NULL;
-        Model3D* headModel = NULL;
-        if (body != NULL) {
-            bodyModel = body->obj3D_.pModel_;
+        Model3D* var46 = NULL;
+        Model3D* var47 = NULL;
+        if (var23 != NULL) {
+            var46 = var23->obj3D_.pModel_;
         }
-        if (head != NULL) {
-            headModel = head->obj3D_.pModel_;
+        if (var4 != NULL) {
+            var47 = var4->obj3D_.pModel_;
         }
-        if (bodyModel != NULL && headModel != NULL) {
-            headModel->SetBoneMatrixRenderData(bodyModel->GetBoneMatrixRenderData());
-            headModel->CreateBoneMatrixAndMaterialArrays(NULL, 0);
+        if (var46 != NULL && var47 != NULL) {
+            var47->SetBoneMatrixRenderData(var46->GetBoneMatrixRenderData());
+            var47->CreateBoneMatrixAndMaterialArrays(NULL, 0);
         }
 
         {
-            int id = self->id;
-            GameState* state = GameState::GetInstance();
-            GameObject* obj = state->GetGameObjectByIndex(id);
-            Model3D* model;
-            if (obj != NULL && (model = obj->obj3D_.pModel_) != NULL) {
-                model->RemoveTextures();
-                GameObject* from = state->GetGameObjectByIndex(id * 12 + 0x17);
-                if (from != NULL && from->obj3D_.unknown_2_ >= 0 && from->obj3D_.pModel_ != NULL) {
-                    model->ApplyTexturesFromModel(from->obj3D_.pModel_);
+            int var48 = arg0->unknown_8_;
+            GameState* var49 = GameState::GetInstance();
+            GameObject* var50 = var49->GetGameObjectByIndex(var48);
+            Model3D* var51;
+            if (var50 != NULL && (var51 = var50->obj3D_.pModel_) != NULL) {
+                var51->RemoveTextures();
+                GameObject* var52 = var49->GetGameObjectByIndex(var48 * 12 + 0x17);
+                if (var52 != NULL && var52->obj3D_.unknown_2_ >= 0 && var52->obj3D_.pModel_ != NULL) {
+                    var51->ApplyTexturesFromModel(var52->obj3D_.pModel_);
                 }
-                model->ApplyTexturesFromModel(model);
+                var51->ApplyTexturesFromModel(var51);
             }
         }
         {
-            short id = self->id;
-            GameState* state = GameState::GetInstance();
-            GameObject* obj = state->GetGameObjectByIndex(id * 12 + 0x13);
-            Model3D* model;
-            if (obj != NULL && (model = obj->obj3D_.pModel_) != NULL) {
-                model->RemoveTextures();
-                GameObject* from = state->GetGameObjectByIndex(id * 12 + 0x19);
-                if (from != NULL && from->obj3D_.unknown_2_ >= 0 && from->obj3D_.pModel_ != NULL) {
-                    model->ApplyTexturesFromModel(from->obj3D_.pModel_);
+            short var53 = arg0->unknown_8_;
+            GameState* var54 = GameState::GetInstance();
+            GameObject* var55 = var54->GetGameObjectByIndex(var53 * 12 + 0x13);
+            Model3D* var56;
+            if (var55 != NULL && (var56 = var55->obj3D_.pModel_) != NULL) {
+                var56->RemoveTextures();
+                GameObject* var57 = var54->GetGameObjectByIndex(var53 * 12 + 0x19);
+                if (var57 != NULL && var57->obj3D_.unknown_2_ >= 0 && var57->obj3D_.pModel_ != NULL) {
+                    var56->ApplyTexturesFromModel(var57->obj3D_.pModel_);
                 }
-                model->ApplyTexturesFromModel(model);
+                var56->ApplyTexturesFromModel(var56);
             }
         }
 
-        GameObject* extra = gs->GetGameObjectByIndex(self->id * 12 + 0x14);
-        if (extra != NULL) {
-            extra->obj3D_.MakeVisible();
-            struct Ext150* ext = member->ext150;
-            struct StructDE234_020de234* packed = (struct StructDE234_020de234*)ext->sub274;
-            if (packed != NULL) {
-                if (func_020de234(packed, ext->preferMid) / 100 == 5) {
-                    extra->obj3D_.MakeHidden();
+        GameObject* var58 = var8->GetGameObjectByIndex(arg0->unknown_8_ * 12 + 0x14);
+        if (var58 != NULL) {
+            var58->obj3D_.MakeVisible();
+            struct Struct_ov017_021b3e14_2* var59 = var10->unknown_150_;
+            struct Struct_02015ef4_4* var60 = (struct Struct_02015ef4_4*)var59->unknown_274_;
+            if (var60 != NULL) {
+                if (func_020de234(var60, var59->unknown_49c_0_) / 100 == 5) {
+                    var58->obj3D_.MakeHidden();
                 }
             }
         }
     }
-    return done;
+    return var1;
 }

@@ -4,27 +4,27 @@ extern unsigned char data_ov031_02248998[];
 extern int* data_ov031_02250bf0;
 
 extern "C" void func_ov031_022238cc(void);
-extern "C" int func_ov031_0223be70(int a, int b, int c);
-extern "C" void func_ov031_0223bbd8(void* obj, int idx, int a, int b);
+extern "C" int func_ov031_0223be70(int arg0, int arg1, int arg2);
+extern "C" void func_ov031_0223bbd8(void* arg0, int arg1, int arg2, int arg3);
 
-struct Obj0223bcc8 { unsigned char pad0[8]; void* list; unsigned char count; };
-extern "C" void func_ov031_0223bcc8(Obj0223bcc8* obj, int idx, int val);
+struct Struct_ov031_02222ce4 { unsigned char unknown_0_[8]; void* unknown_8_; unsigned char unknown_c_; };
+extern "C" void func_ov031_0223bcc8(Struct_ov031_02222ce4* arg0, int arg1, int arg2);
 
 // USA: func_ov031_02223720
-extern "C" ARM void func_ov031_02223720(int group, int b, int c, int d) {
+extern "C" ARM void func_ov031_02223720(int arg0, int arg1, int arg2, int arg3) {
 	func_ov031_022238cc();
-	unsigned char* p = &data_ov031_02248998[group * 2];
-	int i = 0;
-	int zero = 0;
-	int one_a = 1;
-	int negOne = -1;
-	int one_b = one_a;
+	unsigned char* var0 = &data_ov031_02248998[arg0 * 2];
+	int var1 = 0;
+	int var2 = 0;
+	int var3 = 1;
+	int var4 = -1;
+	int var5 = var3;
 	do {
-		int val = func_ov031_0223be70(zero, *p++, one_a);
-		data_ov031_02250bf0[i] = val;
-		func_ov031_0223bcc8((Obj0223bcc8*)data_ov031_02250bf0[i], negOne, one_b);
-		i++;
-	} while (i < 2);
-	func_ov031_0223bbd8((void*)data_ov031_02250bf0[0], -1, b, d);
-	func_ov031_0223bbd8((void*)data_ov031_02250bf0[1], -1, c, d);
+		int var6 = func_ov031_0223be70(var2, *var0++, var3);
+		data_ov031_02250bf0[var1] = var6;
+		func_ov031_0223bcc8((Struct_ov031_02222ce4*)data_ov031_02250bf0[var1], var4, var5);
+		var1++;
+	} while (var1 < 2);
+	func_ov031_0223bbd8((void*)data_ov031_02250bf0[0], -1, arg1, arg3);
+	func_ov031_0223bbd8((void*)data_ov031_02250bf0[1], -1, arg2, arg3);
 }

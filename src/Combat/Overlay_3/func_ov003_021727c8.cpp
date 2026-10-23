@@ -2,49 +2,49 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValueEC_E8 = 0xe8 };
+enum { Enum_ov003_021727c8_236 = 0xe8 };
 #else
-enum { kRegionValueEC_E8 = 0xec };
+enum { Enum_ov003_021727c8_236 = 0xec };
 #endif
 
 
-struct Obj021727c8 {
-    char unk_0[kRegionValueEC_E8];
-    unsigned char state_;
-    unsigned char subState_;
+struct Struct_ov003_021727c8 {
+    char unknown_0_[Enum_ov003_021727c8_236];
+    unsigned char unknown_ec_;
+    unsigned char unknown_ed_;
 };
 
-typedef void (Obj021727c8::*StateFn021727c8)();
+typedef void (Struct_ov003_021727c8::*Type_ov003_021727c8)();
 
-struct StateTable021727c8 {
-    StateFn021727c8 functions[7];
+struct Struct_ov003_0217fa20 {
+    Type_ov003_021727c8 unknown_0_[7];
 };
 
-extern "C" const StateTable021727c8 data_ov003_0217fa20;
-extern "C" const StateTable021727c8 data_ov003_0217fa58;
-extern "C" StateFn021727c8 data_020e6d5c;
+extern "C" const Struct_ov003_0217fa20 data_ov003_0217fa20;
+extern "C" const Struct_ov003_0217fa20 data_ov003_0217fa58;
+extern "C" Type_ov003_021727c8 data_020e6d5c;
 
 // USA: func_ov003_021727c8
-extern "C" ARM bool func_ov003_021727c8(Obj021727c8* self) {
+extern "C" ARM bool func_ov003_021727c8(Struct_ov003_021727c8* arg0) {
     GameState::GetInstance()->GetTickCount();
-    bool done = false;
-    bool subDone = false;
-    StateTable021727c8 states = data_ov003_0217fa20;
-    StateFn021727c8 none = data_020e6d5c;
-    states.functions[6] = none;
-    StateTable021727c8 subStates = data_ov003_0217fa58;
-    subStates.functions[6] = none;
-    if (states.functions[self->state_] != 0) {
-        (self->*states.functions[self->state_])();
+    bool var0 = false;
+    bool var1 = false;
+    Struct_ov003_0217fa20 var2 = data_ov003_0217fa20;
+    Type_ov003_021727c8 var3 = data_020e6d5c;
+    var2.unknown_0_[6] = var3;
+    Struct_ov003_0217fa20 var4 = data_ov003_0217fa58;
+    var4.unknown_0_[6] = var3;
+    if (var2.unknown_0_[arg0->unknown_ec_] != 0) {
+        (arg0->*var2.unknown_0_[arg0->unknown_ec_])();
     } else {
-        done = true;
+        var0 = true;
     }
-    if (subStates.functions[self->subState_] != 0) {
-        (self->*subStates.functions[self->subState_])();
+    if (var4.unknown_0_[arg0->unknown_ed_] != 0) {
+        (arg0->*var4.unknown_0_[arg0->unknown_ed_])();
     } else {
-        subDone = true;
+        var1 = true;
     }
-    if (done && subDone) {
+    if (var0 && var1) {
         return false;
     }
     return true;

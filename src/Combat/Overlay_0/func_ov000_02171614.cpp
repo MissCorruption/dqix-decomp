@@ -11,18 +11,18 @@
 #endif
 
 
-struct Struct02171614 {
-	unsigned char pad0[REGION_OFFSET_0];
-	unsigned short f82;
-	unsigned char pad1[REGION_OFFSET_1 - REGION_OFFSET_2];
-	int arr9c[0x42];
+struct Struct_ov000_02171614 {
+	unsigned char unknown_0_[REGION_OFFSET_0];
+	unsigned short unknown_82_;
+	unsigned char unknown_84_[REGION_OFFSET_1 - REGION_OFFSET_2];
+	int unknown_9c_[0x42];
 };
 
 // USA: func_ov000_02171614
-extern "C" ARM void func_ov000_02171614(struct Struct02171614* obj) {
-	int i;
-	for (i = 0; i < 0x42; i++) {
-		obj->arr9c[i] = 0;
+extern "C" ARM void func_ov000_02171614(struct Struct_ov000_02171614* arg0) {
+	int var0;
+	for (var0 = 0; var0 < 0x42; var0++) {
+		arg0->unknown_9c_[var0] = 0;
 	}
-	obj->f82 = 0;
+	arg0->unknown_82_ = 0;
 }

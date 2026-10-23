@@ -10,60 +10,60 @@
 
 #include "std_library_functions.h"
 
-struct Elem_0205d81c {
-    char pad0[0xc2];
-    unsigned short fieldC2;
-    char pad1[0xe0 - 0xc4];
+struct Struct_0205d0e0 {
+    char unknown_0_[0xc2];
+    unsigned short unknown_c2_;
+    char unknown_c4_[0xe0 - 0xc4];
 };
 
 struct Struct_0205d81c;
 
-extern "C" void func_ov000_02179cdc(void* obj, void* ptr);
-extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
+extern "C" void func_ov000_02179cdc(void* arg0, void* arg1);
+extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
 extern "C" int func_020421a0(void);
-extern "C" void func_ov000_02179ed8(void* obj, void* entry, void* buf);
+extern "C" void func_ov000_02179ed8(void* arg0, void* arg1, void* arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
-extern "C" struct Elem_0205d81c* func_0205d81c(struct Struct_0205d81c* s, int key);
-extern "C" void func_ov000_02176210(void* obj, int a, int b);
+extern "C" struct Struct_0205d0e0* func_0205d81c(struct Struct_0205d81c* arg0, int arg1);
+extern "C" void func_ov000_02176210(void* arg0, int arg1, int arg2);
 
 // USA: func_ov000_02179b70
-extern "C" ARM void func_ov000_02179b70(char* obj, void* ptr, int val2, int val3) {
-    func_ov000_02179cdc(obj, ptr);
-    int f44 = *(int*)((char*)ptr + 0x44);
-    int f48 = *(int*)((char*)ptr + 0x48);
-    func_ov000_0217ab8c(ptr, val2, val3);
+extern "C" ARM void func_ov000_02179b70(char* arg0, void* arg1, int arg2, int arg3) {
+    func_ov000_02179cdc(arg0, arg1);
+    int var0 = *(int*)((char*)arg1 + 0x44);
+    int var1 = *(int*)((char*)arg1 + 0x48);
+    func_ov000_0217ab8c(arg1, arg2, arg3);
 
-    char* base = obj + 0x188;
+    char* var2 = arg0 + 0x188;
 #if defined(jpn)
-    *(short*)(base + 0xa0) = 0xd;
+    *(short*)(var2 + 0xa0) = 0xd;
 #else
-    *(short*)(base + 0xa0) = 0x10;
+    *(short*)(var2 + 0xa0) = 0x10;
 #endif
-    *(short*)(base + 0xa2) = 1;
-    *(short*)(base + 0xa4) = (f44 >> 3) + 0x10;
-    *(short*)(base + 0xa6) = (f48 >> 3);
-    *(short*)(base + 0xa8) = 0xc;
-    *(short*)(base + 0xaa) = 0xa;
-    *(short*)(base + 0xac) = 0xa;
-    *(short*)(base + 0xae) = 0xe;
-    *(unsigned char*)(base + 0xb1) = 0x15;
+    *(short*)(var2 + 0xa2) = 1;
+    *(short*)(var2 + 0xa4) = (var0 >> 3) + 0x10;
+    *(short*)(var2 + 0xa6) = (var1 >> 3);
+    *(short*)(var2 + 0xa8) = 0xc;
+    *(short*)(var2 + 0xaa) = 0xa;
+    *(short*)(var2 + 0xac) = 0xa;
+    *(short*)(var2 + 0xae) = 0xe;
+    *(unsigned char*)(var2 + 0xb1) = 0x15;
 
-    void* buf = *(void**)(func_020421a0() + REGION_OFFSET_0);
-    memset(buf, 0, REGION_OFFSET_1);
-    func_ov000_02179ed8(obj, ptr, buf);
+    void* var3 = *(void**)(func_020421a0() + REGION_OFFSET_0);
+    memset(var3, 0, REGION_OFFSET_1);
+    func_ov000_02179ed8(arg0, arg1, var3);
 #if defined(jpn)
-    func_0205d304(base, buf, 0, 1, 0, 1, 0);
+    func_0205d304(var2, var3, 0, 1, 0, 1, 0);
 #else
-    func_0205d304(base, buf, 0, 1, 0, 1, 0, 0);
+    func_0205d304(var2, var3, 0, 1, 0, 1, 0, 0);
 #endif
 
-    struct Elem_0205d81c* e = func_0205d81c((struct Struct_0205d81c*)base, 0x16);
-    if (e != NULL) {
-        e->fieldC2 = 0;
+    struct Struct_0205d0e0* var4 = func_0205d81c((struct Struct_0205d81c*)var2, 0x16);
+    if (var4 != NULL) {
+        var4->unknown_c2_ = 0;
     }
-    func_ov000_02176210(obj + 0x188, 0x15, 0x16);
+    func_ov000_02176210(arg0 + 0x188, 0x15, 0x16);
 }

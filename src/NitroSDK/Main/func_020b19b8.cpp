@@ -1,76 +1,76 @@
 #include <globaldefs.h>
 
-typedef unsigned char u8;
-typedef unsigned int u32;
+typedef unsigned char Type_020b1300;
+typedef unsigned int Type_020b11c8;
 
-struct NNSG2dCharCanvas {
-    u8 *charBase;
-    int areaWidth;
-    int areaHeight;
-    u8 dstBpp;
-    u8 reserved[3];
-    u32 param;
+struct Struct_020b1540_3 {
+    Type_020b1300 *unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    Type_020b1300 unknown_c_;
+    Type_020b1300 unknown_d_[3];
+    Type_020b11c8 unknown_10_;
 };
 
-extern "C" void func_020b11c8(void *pChar, int x, int y, int w, int h, u32 cl8, int bpp);
+extern "C" void func_020b11c8(void *arg0, int arg1, int arg2, int arg3, int arg4, Type_020b11c8 arg5, int arg6);
 
-static inline int GetCharacterSize(const NNSG2dCharCanvas *pCC) {
-    return 8 * 8 * pCC->dstBpp / 8;
+static inline int inline_020b1540(const Struct_020b1540_3 *arg0) {
+    return 8 * 8 * arg0->unknown_c_ / 8;
 }
 
-static inline u32 SpreadColor32(const NNSG2dCharCanvas *pCC, int cl) {
-    u32 val = (u32)cl;
+static inline Type_020b11c8 inline_020b19b8(const Struct_020b1540_3 *arg0, int arg1) {
+    Type_020b11c8 var0 = (Type_020b11c8)arg1;
 
-    if (pCC->dstBpp == 4) {
-        val = (val << 4) | val;
-        val |= val << 8;
-        val |= val << 16;
+    if (arg0->unknown_c_ == 4) {
+        var0 = (var0 << 4) | var0;
+        var0 |= var0 << 8;
+        var0 |= var0 << 16;
     } else {
-        val = (val << 8) | val;
-        val |= val << 16;
+        var0 = (var0 << 8) | var0;
+        var0 |= var0 << 16;
     }
 
-    return val;
+    return var0;
 }
 
 // USA: func_020b19b8
-extern "C" ARM void func_020b19b8(const NNSG2dCharCanvas *pCC, int cl, int x, int y, int w, int h) {
-    int ix, iy;
-    int cx, cy, cw, ch;
-    const int xw = x + w;
-    const int yh = y + h;
-    u32 cl8;
+extern "C" ARM void func_020b19b8(const Struct_020b1540_3 *arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+    int var0, var1;
+    int var2, var3, var4, var5;
+    const int var6 = arg2 + arg4;
+    const int var7 = arg3 + arg5;
+    Type_020b11c8 var8;
 
-    cl8 = SpreadColor32(pCC, cl);
+    var8 = inline_020b19b8(arg0, arg1);
 
     {
-        const int left = x & ~7;
-        const int top = y & ~7;
-        const int right = (xw + 7) & ~7;
-        const int bottom = (yh + 7) & ~7;
+        const int var9 = arg2 & ~7;
+        const int var10 = arg3 & ~7;
+        const int var11 = (var6 + 7) & ~7;
+        const int var12 = (var7 + 7) & ~7;
 
-        const int charSize = GetCharacterSize(pCC);
-        const int charBaseLineOffset = (int)(pCC->param * charSize);
-        const int bpp = pCC->dstBpp;
-        u8 *pCharBase;
-        u8 *pChar;
+        const int var13 = inline_020b1540(arg0);
+        const int var14 = (int)(arg0->unknown_10_ * var13);
+        const int var15 = arg0->unknown_c_;
+        Type_020b1300 *var16;
+        Type_020b1300 *var17;
 
-        pCharBase = pCC->charBase + ((top / 8) * pCC->param + (left / 8)) * charSize;
+        var16 = arg0->unknown_0_ + ((var10 / 8) * arg0->unknown_10_ + (var9 / 8)) * var13;
 
-        for (iy = top; iy < bottom; iy += 8) {
-            cy = (iy < y) ? y - iy : 0;
-            ch = ((yh - iy > 8) ? 8 : yh - iy) - cy;
-            pChar = pCharBase;
+        for (var1 = var10; var1 < var12; var1 += 8) {
+            var3 = (var1 < arg3) ? arg3 - var1 : 0;
+            var5 = ((var7 - var1 > 8) ? 8 : var7 - var1) - var3;
+            var17 = var16;
 
-            for (ix = left; ix < right; ix += 8) {
-                cx = (ix < x) ? x - ix : 0;
-                cw = ((xw - ix > 8) ? 8 : xw - ix) - cx;
+            for (var0 = var9; var0 < var11; var0 += 8) {
+                var2 = (var0 < arg2) ? arg2 - var0 : 0;
+                var4 = ((var6 - var0 > 8) ? 8 : var6 - var0) - var2;
 
-                func_020b11c8(pChar, cx, cy, cw, ch, cl8, bpp);
-                pChar += charSize;
+                func_020b11c8(var17, var2, var3, var4, var5, var8, var15);
+                var17 += var13;
             }
 
-            pCharBase += charBaseLineOffset;
+            var16 += var14;
         }
     }
 }

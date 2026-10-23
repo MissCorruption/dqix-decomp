@@ -7,73 +7,73 @@
 #include "Resource/ResourceMutex.h"
 #include "std_library_functions.h"
 
-struct Obj020553ac {
-    int field0;
-    int field4;
-    int field8;
-    int fieldc;
-    int field10;
-    Object3D object3d;
-    char subc0[0x1e8 - 0xc0];
-    int field1e8;
-    int field1ec;
+struct Struct_020553ac {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    Object3D unknown_14_;
+    char unknown_c0_[0x1e8 - 0xc0];
+    int unknown_1e8_;
+    int unknown_1ec_;
 };
 
-extern "C" void func_02054f80(void* obj);
-extern "C" ARM int func_02055180(void* obj, void* a1, void* a2, void* a3);
+extern "C" void func_02054f80(void* arg0);
+extern "C" ARM int func_02055180(void* arg0, void* arg1, void* arg2, void* arg3);
 
 extern const char data_020f04b4[];
 extern const char data_020f04b8[];
 
 // USA: func_020553ec
-extern "C" ARM int func_020553ec(void* objp, int a1, void* alloc, void* fileData, unsigned int fileSize) {
-    Obj020553ac* obj = (Obj020553ac*)objp;
+extern "C" ARM int func_020553ec(void* arg0, int arg1, void* arg2, void* arg3, unsigned int arg4) {
+    Struct_020553ac* var0 = (Struct_020553ac*)arg0;
 
-    ObjectArchiveLoadInfo li;
-    NarcHandle narc;
-    NitroVM machine;
-    char filename[0x50];
+    ObjectArchiveLoadInfo var1;
+    NarcHandle var2;
+    NitroVM var3;
+    char var4[0x50];
 
-    obj->field0 = a1;
-    obj->field1e8 = 0;
-    obj->object3d.Initialize();
-    func_02054f80(&obj->subc0);
-    if (alloc != 0) {
-        obj->field4 = (int)alloc;
+    var0->unknown_0_ = arg1;
+    var0->unknown_1e8_ = 0;
+    var0->unknown_14_.Initialize();
+    func_02054f80(&var0->unknown_c0_);
+    if (arg2 != 0) {
+        var0->unknown_4_ = (int)arg2;
     }
 
-    li.unk_0 = 0;
-    li.unk_10 = 0;
-    li.unk_14 = 0;
-    li.unk_18 = 0;
-    li.packageID = 0;
-    li.fileData = fileData;
-    li.unk_8 = (int)fileSize;
-    li.allocator = (SafeAllocator*)alloc;
-    obj->object3d.LoadFromCHRArchive(&li);
+    var1.unk_0 = 0;
+    var1.unk_10 = 0;
+    var1.unk_14 = 0;
+    var1.unk_18 = 0;
+    var1.packageID = 0;
+    var1.fileData = arg3;
+    var1.unk_8 = (int)arg4;
+    var1.allocator = (SafeAllocator*)arg2;
+    var0->unknown_14_.LoadFromCHRArchive(&var1);
 
     LockResourceMutex();
-    if (narc.Initialize(data_020f04b4, (const unsigned char*)fileData)) {
-        NitroVM_Initialize(&machine);
-        unsigned int fileID;
-        for (fileID = 0; PrepareReadFileInNARCByID(&machine, &narc, fileID); fileID++) {
-            NitroVM_WriteOutFilePath(&machine, filename, sizeof(filename));
-            if (strstr(filename, data_020f04b8)) {
-                const void* fileBytes = narc.GetFileByIndex(fileID);
-                unsigned int fileLength = machine.fileInfo.endOffset - machine.fileInfo.startOffset;
-                unsigned int len2 = fileLength;
-                func_02055180((void*)&obj->subc0, alloc, (void*)fileBytes, (void*)len2);
-                obj->field1e8 = 1;
-                NitroVM_FinishRead(&machine);
+    if (var2.Initialize(data_020f04b4, (const unsigned char*)arg3)) {
+        NitroVM_Initialize(&var3);
+        unsigned int var5;
+        for (var5 = 0; PrepareReadFileInNARCByID(&var3, &var2, var5); var5++) {
+            NitroVM_WriteOutFilePath(&var3, var4, sizeof(var4));
+            if (strstr(var4, data_020f04b8)) {
+                const void* var6 = var2.GetFileByIndex(var5);
+                unsigned int var7 = var3.fileInfo.unknown_8_ - var3.fileInfo.unknown_4_;
+                unsigned int var8 = var7;
+                func_02055180((void*)&var0->unknown_c0_, arg2, (void*)var6, (void*)var8);
+                var0->unknown_1e8_ = 1;
+                NitroVM_FinishRead(&var3);
                 break;
             }
-            NitroVM_FinishRead(&machine);
+            NitroVM_FinishRead(&var3);
         }
-        narc.Destroy();
+        var2.Destroy();
     }
     UnlockResourceMutex();
-    if (obj->field1e8 == 0) {
-        obj->object3d.MaybeSetBCFGAnimation(0, 0);
+    if (var0->unknown_1e8_ == 0) {
+        var0->unknown_14_.MaybeSetBCFGAnimation(0, 0);
     }
     return 1;
 }

@@ -1,47 +1,47 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void* func_ov000_02161318(void* obj, int id);
-extern "C" int func_020100a8(GameState* battleStruct);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void* func_ov000_02161318(void* arg0, int arg1);
+extern "C" int func_020100a8(GameState* arg0);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 extern int data_02108760;
-struct Obj02171d90;
-extern "C" void func_ov000_02171d90(struct Obj02171d90* obj, int key);
-extern "C" void func_ov000_02170db0(void* obj);
+struct Struct_ov000_02174428;
+extern "C" void func_ov000_02171d90(struct Struct_ov000_02174428* arg0, int arg1);
+extern "C" void func_ov000_02170db0(void* arg0);
 
 // USA: func_ov000_02174428
-extern "C" ARM void func_ov000_02174428(void* obj, int id, int val100, int param3,
-                                          signed char param4, short param5, signed char param6, unsigned short param7) {
-    void* r4 = func_ov000_02161318(obj, id);
-    if (!r4) return;
-    GameState* bs = GameState::GetInstance();
-    int f3ac = func_020100a8(bs);
-    if (id != f3ac && val100 == 0x64) {
-        signed char off = *(signed char*)((char*)r4 + 0x18);
-        signed char pval = *(signed char*)((char*)r4 + off + 0x10);
-        if (val100 != pval) {
-            func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x19, 0);
+extern "C" ARM void func_ov000_02174428(void* arg0, int arg1, int arg2, int arg3,
+                                          signed char arg4, short arg5, signed char arg6, unsigned short arg7) {
+    void* var0 = func_ov000_02161318(arg0, arg1);
+    if (!var0) return;
+    GameState* var1 = GameState::GetInstance();
+    int var2 = func_020100a8(var1);
+    if (arg1 != var2 && arg2 == 0x64) {
+        signed char var3 = *(signed char*)((char*)var0 + 0x18);
+        signed char var4 = *(signed char*)((char*)var0 + var3 + 0x10);
+        if (arg2 != var4) {
+            func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x19, 0);
         }
     }
 #if defined(jpn)
-    enum { guardOffset = 0x47e };
+    enum { Enum_ov000_02174428_1086 = 0x47e };
 #else
-    enum { guardOffset = 0x43e };
+    enum { Enum_ov000_02174428_1086 = 0x43e };
 #endif
-    if (*((unsigned char*)r4 + guardOffset)) return;
-    int valid = 0;
-    int val4c = *(int*)((char*)r4 + 0x4c);
-    if (val4c >= 0 && val4c <= 3) valid = 1;
-    if (!valid) return;
-    signed char off2 = *(signed char*)((char*)r4 + 0x18);
-    signed char* p10 = (signed char*)((char*)r4 + off2 + 0x10);
-    *p10 = (signed char)val100;
-    *((unsigned char*)r4 + 0x1c) = (unsigned char)param3;
-    *((unsigned char*)r4 + 0x1d) = (unsigned char)param4;
-    *(short*)((char*)r4 + 0x2c) = param5;
-    *((unsigned char*)r4 + 0x2e) = (unsigned char)param6;
-    *(unsigned short*)((char*)r4 + 0x26) = param7;
-    func_ov000_02171d90((struct Obj02171d90*)r4, param5);
-    func_ov000_02170db0(r4);
+    if (*((unsigned char*)var0 + Enum_ov000_02174428_1086)) return;
+    int var5 = 0;
+    int var6 = *(int*)((char*)var0 + 0x4c);
+    if (var6 >= 0 && var6 <= 3) var5 = 1;
+    if (!var5) return;
+    signed char var7 = *(signed char*)((char*)var0 + 0x18);
+    signed char* var8 = (signed char*)((char*)var0 + var7 + 0x10);
+    *var8 = (signed char)arg2;
+    *((unsigned char*)var0 + 0x1c) = (unsigned char)arg3;
+    *((unsigned char*)var0 + 0x1d) = (unsigned char)arg4;
+    *(short*)((char*)var0 + 0x2c) = arg5;
+    *((unsigned char*)var0 + 0x2e) = (unsigned char)arg6;
+    *(unsigned short*)((char*)var0 + 0x26) = arg7;
+    func_ov000_02171d90((struct Struct_ov000_02174428*)var0, arg5);
+    func_ov000_02170db0(var0);
 }

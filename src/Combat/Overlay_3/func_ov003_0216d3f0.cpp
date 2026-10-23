@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion998 = 0x868 };
-enum { kRegion9a0 = 0x870 };
+enum { Enum_ov003_0216d3f0_2456 = 0x868 };
+enum { Enum_ov003_0216d3f0_2464 = 0x870 };
 #else
-enum { kRegion998 = 0x998 };
-enum { kRegion9a0 = 0x9a0 };
+enum { Enum_ov003_0216d3f0_2456 = 0x998 };
+enum { Enum_ov003_0216d3f0_2464 = 0x9a0 };
 #endif
 
 #if defined(jpn)
@@ -13,31 +13,31 @@ extern "C" void func_ov003_0216d8d4(char*, int);
 
 extern "C" int func_020421a0();
 #if !defined(jpn)
-extern "C" void func_ov003_0216d8d4(char* obj, int keyA, int p3, int p4, int p5);
+extern "C" void func_ov003_0216d8d4(char* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
-extern "C" void func_02043204(char* obj);
+extern "C" void func_02043204(char* arg0);
 
 // USA: func_ov003_0216d3f0
-extern "C" ARM void func_ov003_0216d3f0(char* obj) {
-    char* g = (char*)func_020421a0();
-    short state = *(short*)(obj + 6);
-    if (state == 0) {
+extern "C" ARM void func_ov003_0216d3f0(char* arg0) {
+    char* var0 = (char*)func_020421a0();
+    short var1 = *(short*)(arg0 + 6);
+    if (var1 == 0) {
 #if defined(jpn)
-        func_ov003_0216d8d4(obj, 0x1c);
+        func_ov003_0216d8d4(arg0, 0x1c);
 #else
-        func_ov003_0216d8d4(obj, 0x1c, -1, -1, -1);
+        func_ov003_0216d8d4(arg0, 0x1c, -1, -1, -1);
 #endif
-        *(int*)(g + kRegion998) = 1;
-        *(short*)(obj + 6) = 1;
+        *(int*)(var0 + Enum_ov003_0216d3f0_2456) = 1;
+        *(short*)(arg0 + 6) = 1;
         return;
     }
-    switch (state) {
+    switch (var1) {
     case 1:
-        if (*(int*)(g + kRegion9a0) != 0) break;
-        if (*(int*)(g + kRegion998) != 0) break;
-        func_02043204(g);
-        *(short*)(obj + 4) = 7;
-        *(short*)(obj + 6) = 0;
+        if (*(int*)(var0 + Enum_ov003_0216d3f0_2464) != 0) break;
+        if (*(int*)(var0 + Enum_ov003_0216d3f0_2456) != 0) break;
+        func_02043204(var0);
+        *(short*)(arg0 + 4) = 7;
+        *(short*)(arg0 + 6) = 0;
         break;
     }
 }

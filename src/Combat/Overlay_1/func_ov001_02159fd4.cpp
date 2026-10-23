@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct AppendNode02159fd4 { char pad[0x3c]; void* next; };
+struct Struct_ov001_02159fd4 { char unknown_0_[0x3c]; void* unknown_3c_; };
 
-extern "C" void* func_ov001_02159eb0(void* obj);
+extern "C" void* func_ov001_02159eb0(void* arg0);
 
 // USA: func_ov001_02159fd4
-extern "C" ARM void* func_ov001_02159fd4(char* obj) {
-    AppendNode02159fd4* node = (AppendNode02159fd4*)func_ov001_02159eb0(obj);
-    if (node == NULL) return NULL;
-    AppendNode02159fd4** tail = (AppendNode02159fd4**)(obj + 0x34);
-    if (*tail != NULL) (*tail)->next = node;
-    *tail = node;
-    node->next = NULL;
-    AppendNode02159fd4** head = (AppendNode02159fd4**)(obj + 0x30);
-    if (*head == NULL) *head = node;
-    return node;
+extern "C" ARM void* func_ov001_02159fd4(char* arg0) {
+    Struct_ov001_02159fd4* var0 = (Struct_ov001_02159fd4*)func_ov001_02159eb0(arg0);
+    if (var0 == NULL) return NULL;
+    Struct_ov001_02159fd4** var1 = (Struct_ov001_02159fd4**)(arg0 + 0x34);
+    if (*var1 != NULL) (*var1)->unknown_3c_ = var0;
+    *var1 = var0;
+    var0->unknown_3c_ = NULL;
+    Struct_ov001_02159fd4** var2 = (Struct_ov001_02159fd4**)(arg0 + 0x30);
+    if (*var2 == NULL) *var2 = var0;
+    return var0;
 }

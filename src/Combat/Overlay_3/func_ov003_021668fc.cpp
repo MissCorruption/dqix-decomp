@@ -3,63 +3,63 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-enum { kRegionValue480_2A8 = 0x2a8 };
+enum { Enum_ov003_021668fc_1152 = 0x2a8 };
 #else
-enum { kRegionValue480_2A8 = 0x480 };
+enum { Enum_ov003_021668fc_1152 = 0x480 };
 #endif
 
-extern "C" void* func_ov003_02160bf8(void* obj, int key);
+extern "C" void* func_ov003_02160bf8(void* arg0, int arg1);
 
-struct KeyedList0207c378;
-extern "C" int func_0207c378(struct KeyedList0207c378* obj, int value, int amount, int key);
+struct Struct_020732cc;
+extern "C" int func_0207c378(struct Struct_020732cc* arg0, int arg1, int arg2, int arg3);
 
-struct FindEntryContainer02086a04;
-extern "C" int func_02086a04(struct FindEntryContainer02086a04* c, int id);
+struct Struct_02086a04;
+extern "C" int func_02086a04(struct Struct_02086a04* arg0, int arg1);
 
 extern unsigned short data_ov003_0217f494[9];
 extern unsigned short data_ov003_0217f4a6[9];
 
 // USA: func_ov003_021668fc
-extern "C" ARM void func_ov003_021668fc(char* self) {
-    if (*(short*)(self + kRegionValue480_2A8) < 0) return;
+extern "C" ARM void func_ov003_021668fc(char* arg0) {
+    if (*(short*)(arg0 + Enum_ov003_021668fc_1152) < 0) return;
 
-    GameState* bs = GameState::GetInstance();
-    void* p2a04 = func_02010828(bs);
-    void* found = func_ov003_02160bf8(self, *(short*)(self + kRegionValue480_2A8));
-    if (found == 0) return;
+    GameState* var0 = GameState::GetInstance();
+    void* var1 = func_02010828(var0);
+    void* var2 = func_ov003_02160bf8(arg0, *(short*)(arg0 + Enum_ov003_021668fc_1152));
+    if (var2 == 0) return;
 
-    char* base = (char*)found + 0x160;
+    char* var3 = (char*)var2 + 0x160;
 
-    short arrB[9];
-    short arrA[9];
+    short var4[9];
+    short var5[9];
 
-    unsigned int cntB = 9;
-    char* dstB = (char*)arrB;
-    char* srcB = (char*)data_ov003_0217f494;
+    unsigned int var6 = 9;
+    char* var7 = (char*)var4;
+    char* var8 = (char*)data_ov003_0217f494;
     do {
-        *(unsigned short*)dstB = *(unsigned short*)srcB;
-        dstB += 2;
-        srcB += 2;
-    } while (--cntB);
+        *(unsigned short*)var7 = *(unsigned short*)var8;
+        var7 += 2;
+        var8 += 2;
+    } while (--var6);
 
-    unsigned int cntA = 9;
-    char* dstA = (char*)arrA;
-    char* srcA = (char*)data_ov003_0217f4a6;
+    unsigned int var9 = 9;
+    char* var10 = (char*)var5;
+    char* var11 = (char*)data_ov003_0217f4a6;
     do {
-        *(unsigned short*)dstA = *(unsigned short*)srcA;
-        dstA += 2;
-        srcA += 2;
-    } while (--cntA);
+        *(unsigned short*)var10 = *(unsigned short*)var11;
+        var10 += 2;
+        var11 += 2;
+    } while (--var9);
 
-    unsigned char idx = 0;
-    short key;
-    while ((key = arrB[idx]) >= 0) {
-        short v = *(short*)(base + key * 2);
-        if (v >= 0) {
-            func_0207c378((struct KeyedList0207c378*)((char*)p2a04 + 0x1d4), v, 1, arrA[idx]);
+    unsigned char var12 = 0;
+    short var13;
+    while ((var13 = var4[var12]) >= 0) {
+        short var14 = *(short*)(var3 + var13 * 2);
+        if (var14 >= 0) {
+            func_0207c378((struct Struct_020732cc*)((char*)var1 + 0x1d4), var14, 1, var5[var12]);
         }
-        idx = (unsigned char)(idx + 1);
+        var12 = (unsigned char)(var12 + 1);
     }
 
-    func_02086a04((struct FindEntryContainer02086a04*)p2a04, (signed char)*(short*)(self + kRegionValue480_2A8));
+    func_02086a04((struct Struct_02086a04*)var1, (signed char)*(short*)(arg0 + Enum_ov003_021668fc_1152));
 }

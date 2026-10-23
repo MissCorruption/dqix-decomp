@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct EntryTable0209bd94;
-struct Entry0209be28 {
-    unsigned short key;
-    unsigned short count;
-    int field_4;
-    unsigned char sub[0x18];
+struct Struct_02073ec4_2;
+struct Struct_0209be28 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    int unknown_4_;
+    unsigned char unknown_8_[0x18];
 };
-extern "C" struct Entry0209be28* func_0209bd94(struct EntryTable0209bd94*, int);
+extern "C" struct Struct_0209be28* func_0209bd94(struct Struct_02073ec4_2*, int);
 
 // USA: func_0209be28
-extern "C" ARM void func_0209be28(struct EntryTable0209bd94* table, int key, int* value) {
-    struct Entry0209be28* p = func_0209bd94(table, key);
-    if (p != NULL) {
-        p->field_4 = *value;
+extern "C" ARM void func_0209be28(struct Struct_02073ec4_2* arg0, int arg1, int* arg2) {
+    struct Struct_0209be28* var0 = func_0209bd94(arg0, arg1);
+    if (var0 != NULL) {
+        var0->unknown_4_ = *arg2;
     }
 }

@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kCountOffset = 0x497 };
+enum { Enum_020159c0_1143 = 0x497 };
 #else
-enum { kCountOffset = 0x477 };
+enum { Enum_020159c0_1143 = 0x477 };
 #endif
 
 
-struct Entry020159c0 {
-    unsigned char pad0[0x14];
-    signed char f14;
-    unsigned char pad15[0xb];
-    int f20;
+struct Struct_020159c0 {
+    unsigned char unknown_0_[0x14];
+    signed char unknown_14_;
+    unsigned char unknown_15_[0xb];
+    int unknown_20_;
 };
 
-struct Holder020159c0 {
-    unsigned char pad0[kCountOffset];
-    unsigned char count;
-    unsigned char pad478[4];
-    struct Entry020159c0* arr;
-    unsigned char pad480[0x820 - 0x480];
-    int f820;
+struct Struct_020159c0_2 {
+    unsigned char unknown_0_[Enum_020159c0_1143];
+    unsigned char unknown_477_;
+    unsigned char unknown_478_[4];
+    struct Struct_020159c0* unknown_47c_;
+    unsigned char unknown_480_[0x820 - 0x480];
+    int unknown_820_;
 };
 
 // USA: func_020159c0
-extern "C" ARM void func_020159c0(struct Holder020159c0* holder, int key) {
-    int valid;
-    int i;
-    if (key >= 0 && key <= 3) {
-        valid = 1;
+extern "C" ARM void func_020159c0(struct Struct_020159c0_2* arg0, int arg1) {
+    int var0;
+    int var1;
+    if (arg1 >= 0 && arg1 <= 3) {
+        var0 = 1;
     } else {
-        valid = 0;
+        var0 = 0;
     }
-    if (valid == 0) {
+    if (var0 == 0) {
         return;
     }
-    for (i = 0; i < holder->count; i++) {
-        struct Entry020159c0* e = &holder->arr[i];
-        if (e->f20 != 0 && e->f14 == key) {
-            e->f20 = 0;
-            holder->f820 = 0;
+    for (var1 = 0; var1 < arg0->unknown_477_; var1++) {
+        struct Struct_020159c0* var2 = &arg0->unknown_47c_[var1];
+        if (var2->unknown_20_ != 0 && var2->unknown_14_ == arg1) {
+            var2->unknown_20_ = 0;
+            arg0->unknown_820_ = 0;
         }
     }
 }

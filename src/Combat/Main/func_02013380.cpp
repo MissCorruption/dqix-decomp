@@ -6,17 +6,17 @@
 
 extern "C" void* func_0205ec34(void);
 
-struct Struct02013380 {
-    unsigned short unk0;
-    unsigned short flags;
+struct Struct_02013380 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
 };
 
 // USA: func_02013380
-extern "C" ARM void func_02013380(Struct02013380* obj, int unused, int clear4) {
+extern "C" ARM void func_02013380(Struct_02013380* arg0, int arg1, int arg2) {
     func_0205ec34();
-    if (clear4 != 0)
-        obj->flags &= ~4;
+    if (arg2 != 0)
+        arg0->unknown_2_ &= ~4;
     else
-        obj->flags |= 4;
-    obj->flags |= 0x40;
+        arg0->unknown_2_ |= 4;
+    arg0->unknown_2_ |= 0x40;
 }

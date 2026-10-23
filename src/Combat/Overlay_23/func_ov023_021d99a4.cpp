@@ -2,68 +2,68 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct0200fb08;
-extern "C" unsigned char func_0200fb08(struct Struct0200fb08* obj);
+struct Struct_02000c9c_8;
+extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* arg0);
 
-struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310*, int);
+struct Struct_0201099c_3;
+extern "C" int func_020e0434(struct Struct_0201099c_3*, int);
 
 #if defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, int p6);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, int p6, int p7);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 
 // USA: func_ov023_021d99a4
-extern "C" ARM void func_ov023_021d99a4(void* objRaw) {
+extern "C" ARM void func_ov023_021d99a4(void* arg0) {
 #if defined(jpn)
- enum {regionalOffset0=0x1bc};
+ enum {Enum_ov023_021d99a4_444=0x1bc};
 #else
- enum {regionalOffset0=0x1f8};
+ enum {Enum_ov023_021d99a4_504=0x1f8};
 #endif
-    char* obj = (char*)objRaw;
+    char* var0 = (char*)arg0;
 #if defined(jpn)
-    int fieldA4 = 0x18;
+    int var2 = 0x18;
 
 #else
-    struct Struct0200fb08* bs = (struct Struct0200fb08*)GameState::GetInstance();
-    int fieldA4 = 0x18;
-    int norm = func_0200fb08(bs);
-    if (norm == 4) fieldA4 = 0x19;
+    struct Struct_02000c9c_8* var1 = (struct Struct_02000c9c_8*)GameState::GetInstance();
+    int var2 = 0x18;
+    int var3 = func_0200fb08(var1);
+    if (var3 == 4) var2 = 0x19;
 
 #endif
 #if defined(jpn)
-    char* tag = obj;
-    enum { tagBias=0x1bc };
+    char* var4 = var0;
+    enum { Enum_ov023_021d99a4_0=0x1bc };
 #else
-    char* tag = obj + regionalOffset0;
-    enum { tagBias=0 };
+    char* var4 = var0 + Enum_ov023_021d99a4_504;
+    enum { Enum_ov023_021d99a4_0=0 };
 #endif
-    *(unsigned short*)(tag + tagBias + 0xa0) = 7;
-    *(unsigned short*)(tag + tagBias + 0xa2) = 0x11;
-    *(unsigned short*)(tag + tagBias + 0xa4) = fieldA4;
-    *(unsigned short*)(tag + tagBias + 0xa6) = 5;
-    *(unsigned short*)(tag + tagBias + 0xa8) = 6;
-    *(unsigned short*)(tag + tagBias + 0xaa) = 6;
-    *(unsigned short*)(tag + tagBias + 0xac) = 0xa;
-    *(unsigned short*)(tag + tagBias + 0xae) = 0x10;
-    unsigned char zero = 0;
-    tag[tagBias + 0xb1] = zero;
-    tag[tagBias + 0xb5] = 1;
-    tag[tagBias + 0xb6] = 1;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xa0) = 7;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xa2) = 0x11;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xa4) = var2;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xa6) = 5;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xa8) = 6;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xaa) = 6;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xac) = 0xa;
+    *(unsigned short*)(var4 + Enum_ov023_021d99a4_0 + 0xae) = 0x10;
+    unsigned char var5 = 0;
+    var4[Enum_ov023_021d99a4_0 + 0xb1] = var5;
+    var4[Enum_ov023_021d99a4_0 + 0xb5] = 1;
+    var4[Enum_ov023_021d99a4_0 + 0xb6] = 1;
 #if defined(jpn)
-    memset(*(void**)(obj + 0xd8), zero, 0x800);
-    int fmt = func_020e0434((struct Container020e0310*)(obj + 0xc0), 0x4274);
-    sprintf(*(char**)(obj + 0xd8), (const char*)(long)fmt);
-    func_0205d304(obj + 0x1bc, *(void**)(obj + 0xd8), 0, 0, 0, 0, 0);
+    memset(*(void**)(var0 + 0xd8), var5, 0x800);
+    int var6 = func_020e0434((struct Struct_0201099c_3*)(var0 + 0xc0), 0x4274);
+    sprintf(*(char**)(var0 + 0xd8), (const char*)(long)var6);
+    func_0205d304(var0 + 0x1bc, *(void**)(var0 + 0xd8), 0, 0, 0, 0, 0);
 
 #else
-    void* buf = *(void**)(obj + 0xf8);
-    memset(buf, zero, 0x960);
-    int fmt = func_020e0434((struct Container020e0310*)(obj + 0xe0), 0x4274);
-    sprintf((char*)buf, (const char*)(long)fmt);
-    func_0205d304(tag, buf, 0, 0, 0, 0, 0, 0);
+    void* var7 = *(void**)(var0 + 0xf8);
+    memset(var7, var5, 0x960);
+    int var8 = func_020e0434((struct Struct_0201099c_3*)(var0 + 0xe0), 0x4274);
+    sprintf((char*)var7, (const char*)(long)var8);
+    func_0205d304(var4, var7, 0, 0, 0, 0, 0, 0);
 
 #endif
 }

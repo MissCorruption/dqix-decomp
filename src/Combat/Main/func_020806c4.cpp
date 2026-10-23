@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct List0207f6ac;
-extern "C" void func_0207f7cc(struct List0207f6ac* list, int id, int mask);
+struct Struct_0207f524;
+extern "C" void func_0207f7cc(struct Struct_0207f524* arg0, int arg1, int arg2);
 
 // USA: func_020806c4
-extern "C" ARM void func_020806c4(void* obj, int id) {
-    func_0207f7cc((struct List0207f6ac*)((char*)obj + 4), id, 2);
+extern "C" ARM void func_020806c4(void* arg0, int arg1) {
+    func_0207f7cc((struct Struct_0207f524*)((char*)arg0 + 4), arg1, 2);
 }

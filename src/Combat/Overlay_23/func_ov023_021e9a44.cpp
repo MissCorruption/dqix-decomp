@@ -1,17 +1,17 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include <globaldefs.h>
 
-extern "C" int func_020ac4c0(void* dst);
+extern "C" int func_020ac4c0(void* arg0);
 
-extern "C" int func_020a08d8(BattleRecordSnapshot* p);
+extern "C" int func_020a08d8(Struct_02061c04* arg0);
 
 extern "C" void func_ov017_021d6134(void*, unsigned int);
 
 // USA: func_ov023_021e9a44
-extern "C" ARM int func_ov023_021e9a44(void* obj) {
-	BattleRecordSnapshot record;
-	func_020ac4c0(&record);
-	int pct = func_020a08d8(&record);
-	func_ov017_021d6134(obj, pct);
+extern "C" ARM int func_ov023_021e9a44(void* arg0) {
+	Struct_02061c04 var0;
+	func_020ac4c0(&var0);
+	int var1 = func_020a08d8(&var0);
+	func_ov017_021d6134(arg0, var1);
 	return 1;
 }

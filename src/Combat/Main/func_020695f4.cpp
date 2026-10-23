@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Entry020695f4 {
-    int val;
-    char pad4;
-    signed char field5 : 6;
-    signed char pad5 : 1;
-    signed char flag5 : 1;
-    char pad6[2];
+struct Struct_020695f4 {
+    int unknown_0_;
+    char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 1;
+    signed char unknown_5_7_ : 1;
+    char unknown_6_[2];
 };
 
-extern "C" char* func_020424ac(char* str);
-extern "C" int func_02001aec(void* a, void* b, int n);
-extern "C" struct Entry020695f4* func_0204254c(int key, int tableIdx);
-extern "C" void func_02067f5c(signed char* s, int count);
+extern "C" char* func_020424ac(char* arg0);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
+extern "C" struct Struct_020695f4* func_0204254c(int arg0, int arg1);
+extern "C" void func_02067f5c(signed char* arg0, int arg1);
 
 extern char data_020f0916[];
 
 // USA: func_020695f4
-extern "C" ARM void func_020695f4(void* unused, char* src, char* dst, int id) {
+extern "C" ARM void func_020695f4(void* arg0, char* arg1, char* arg2, int arg3) {
     for (;;) {
-        char c = *src;
-        if (c == 0) {
+        char var0 = *arg1;
+        if (var0 == 0) {
             break;
         }
-        if (c == '<') {
-            char* gt = func_020424ac(src);
-            if (gt != 0 && func_02001aec(src + 1, data_020f0916, 4) == 0) {
-                src = gt + 1;
-                struct Entry020695f4* e = func_0204254c((int)src, id);
-                if (e != 0 && e->flag5) {
-                    int len = e->field5;
-                    memcpy(dst, src, len);
-                    func_02067f5c((signed char*)dst, len);
-                    src += len;
-                    dst += len;
+        if (var0 == '<') {
+            char* var1 = func_020424ac(arg1);
+            if (var1 != 0 && func_02001aec(arg1 + 1, data_020f0916, 4) == 0) {
+                arg1 = var1 + 1;
+                struct Struct_020695f4* var2 = func_0204254c((int)arg1, arg3);
+                if (var2 != 0 && var2->unknown_5_7_) {
+                    int var3 = var2->unknown_5_0_;
+                    memcpy(arg2, arg1, var3);
+                    func_02067f5c((signed char*)arg2, var3);
+                    arg1 += var3;
+                    arg2 += var3;
                 }
                 continue;
             }
         }
-        *dst++ = *src++;
+        *arg2++ = *arg1++;
     }
-    *dst = 0;
+    *arg2 = 0;
 }

@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-struct S0219a370 { char pad[0xe58]; int count; };
+struct Struct_ov017_0219a370 { char unknown_0_[0xe58]; int unknown_78_; };
 #else
-struct S0219a370 { char pad[0x78]; int count; };
+struct Struct_ov017_0219a370 { char unknown_0_[0x78]; int unknown_78_; };
 #endif
 
 // USA: func_ov017_0219a370
-extern "C" ARM int func_ov017_0219a370(unsigned char* base) {
+extern "C" ARM int func_ov017_0219a370(unsigned char* arg0) {
 #if defined(jpn)
-	S0219a370* s = (S0219a370*)(base + 0x3000);
+	Struct_ov017_0219a370* var0 = (Struct_ov017_0219a370*)(arg0 + 0x3000);
 #else
-	S0219a370* s = (S0219a370*)(base + 0x4000);
+	Struct_ov017_0219a370* var0 = (Struct_ov017_0219a370*)(arg0 + 0x4000);
 #endif
-	return s->count >= 4;
+	return var0->unknown_78_ >= 4;
 }

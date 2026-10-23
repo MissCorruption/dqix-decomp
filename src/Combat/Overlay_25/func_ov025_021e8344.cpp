@@ -4,40 +4,40 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-struct Ctx021e8344 { char pad[4]; void* target; };
+struct Struct_ov025_021ef988_36 { char unknown_0_[4]; void* unknown_c_; };
 #else
-struct Ctx021e8344 { char pad[0xc]; void* target; };
+struct Struct_ov025_021ef988_36 { char unknown_0_[0xc]; void* unknown_c_; };
 #endif
-extern struct Ctx021e8344 data_ov025_021ef988;
+extern struct Struct_ov025_021ef988_36 data_ov025_021ef988;
 extern char data_ov025_021ef87f;
 
-extern "C" void* func_ov025_021e8a54(char* obj);
-extern "C" int func_ov025_021e25a4(char* buf);
-extern "C" void func_ov025_021eb05c(void* ctx, int val);
+extern "C" void* func_ov025_021e8a54(char* arg0);
+extern "C" int func_ov025_021e25a4(char* arg0);
+extern "C" void func_ov025_021eb05c(void* arg0, int arg1);
 
-struct Param021e8344 { char pad[0x10]; void* field0x10; };
-struct Inner021e8344 { char pad[0x49c]; unsigned char flag : 1; };
+struct Struct_ov025_021e8344 { char unknown_0_[0x10]; void* unknown_10_; };
+struct Struct_ov025_021e8344_2 { char unknown_0_[0x49c]; unsigned char unknown_49c_0_ : 1; };
 
 // USA: func_ov025_021e8344
-extern "C" ARM int func_ov025_021e8344(void* unused0, struct Param021e8344* ctx) {
+extern "C" ARM int func_ov025_021e8344(void* arg0, struct Struct_ov025_021e8344* arg1) {
 #if defined(jpn)
- enum {regionalOffset0=0x144};
+ enum {Enum_ov025_021e8344_336=0x144};
 #else
- enum {regionalOffset0=0x150};
+ enum {Enum_ov025_021e8344_336=0x150};
 #endif
-    char buf[0x50];
+    char var0[0x50];
     (int)BackgroundLoader::GetInstance();
-    func_ov025_021e8a54((char*)data_ov025_021ef988.target);
-    GameState* bs = GameState::GetInstance();
-    int id = *(unsigned short*)((char*)ctx->field0x10 + 0x20);
-    GameObject* c = func_0200ff1c(bs, id);
-    struct Inner021e8344* c2 = *(struct Inner021e8344**)((char*)c + regionalOffset0);
-    char ch = 'm';
-    if (c2->flag == 1) {
-        ch = 'w';
+    func_ov025_021e8a54((char*)data_ov025_021ef988.unknown_c_);
+    GameState* var1 = GameState::GetInstance();
+    int var2 = *(unsigned short*)((char*)arg1->unknown_10_ + 0x20);
+    GameObject* var3 = func_0200ff1c(var1, var2);
+    struct Struct_ov025_021e8344_2* var4 = *(struct Struct_ov025_021e8344_2**)((char*)var3 + Enum_ov025_021e8344_336);
+    char var5 = 'm';
+    if (var4->unknown_49c_0_ == 1) {
+        var5 = 'w';
     }
-    sprintf(buf, &data_ov025_021ef87f, ch);
-    int r = func_ov025_021e25a4(buf);
-    func_ov025_021eb05c(data_ov025_021ef988.target, r);
+    sprintf(var0, &data_ov025_021ef87f, var5);
+    int var6 = func_ov025_021e25a4(var0);
+    func_ov025_021eb05c(data_ov025_021ef988.unknown_c_, var6);
     return 1;
 }

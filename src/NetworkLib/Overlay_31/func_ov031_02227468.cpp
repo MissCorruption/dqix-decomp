@@ -2,7 +2,7 @@
 
 extern "C" void func_020c3898(void);
 extern "C" int func_ov031_0223dffc(void);
-extern "C" int func_020cedc0(int a);
+extern "C" int func_020cedc0(int arg0);
 extern "C" void func_ov031_0223d06c(void);
 extern "C" void func_ov031_0223d7f4(void);
 extern "C" void func_ov031_0223684c(void);
@@ -18,8 +18,8 @@ extern "C" void func_ov031_0223de5c(void);
 // USA: func_ov031_02227468
 extern "C" ARM void func_ov031_02227468(void) {
 	func_020c3898();
-	volatile unsigned int* dispcntB = (volatile unsigned int*)0x4001000;
-	*dispcntB &= ~0x10000;
+	volatile unsigned int* var0 = (volatile unsigned int*)0x4001000;
+	*var0 &= ~0x10000;
 	func_ov031_0223dffc();
 	func_020cedc0(1);
 	func_ov031_0223d06c();

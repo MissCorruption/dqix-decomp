@@ -5,155 +5,155 @@
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-extern "C" void* func_020100f8(char* obj);
-struct PointerField330_ffd0;
-extern "C" void* func_0200ffd0(struct PointerField330_ffd0* obj);
+extern "C" void* func_020100f8(char* arg0);
+struct Struct_0200ffd0;
+extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 extern "C" void* func_0200fd0c(GameState*);
-extern "C" void func_020da77c(void* target, int type, void* msg);
-extern "C" void func_0205ebc0(void* obj, int arg1, int arg2);
-extern "C" void func_020a2770(void* obj, short value);
-extern "C" void func_ov017_021d1c2c(unsigned char a, unsigned short b);
-extern "C" int func_0201b868(void* obj, int id);
-struct Vec3Target020ad1f0;
-extern "C" void func_020ad1f0(struct Vec3Target020ad1f0* obj, int x, int y, int z);
-struct Obj02033874;
-extern "C" void func_02033874(struct Obj02033874* obj, int value);
-extern "C" void func_020da244(void* sb);
-extern "C" void func_0205ebec(void* obj);
+extern "C" void func_020da77c(void* arg0, int arg1, void* arg2);
+extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" void func_020a2770(void* arg0, short arg1);
+extern "C" void func_ov017_021d1c2c(unsigned char arg0, unsigned short arg1);
+extern "C" int func_0201b868(void* arg0, int arg1);
+struct Struct_020acecc_7;
+extern "C" void func_020ad1f0(struct Struct_020acecc_7* arg0, int arg1, int arg2, int arg3);
+struct Struct_02033834;
+extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void func_020da244(void* arg0);
+extern "C" void func_0205ebec(void* arg0);
 extern "C" unsigned char func_020100a8(GameState*);
-extern "C" int func_02018fbc(void* zone, Vector3i* v);
-extern "C" void func_ov017_0219c598(int* srcVec3, short* srcAngle, int forceFlag);
+extern "C" int func_02018fbc(void* arg0, Vector3i* arg1);
+extern "C" void func_ov017_0219c598(int* arg0, short* arg1, int arg2);
 
-struct SavedProp020acecc
+struct Struct_020acecc
 {
-    unsigned short state;
-    unsigned short sub;
-    Vector3i position;
-    int rotationY;
-    int x;
-    int z;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    Vector3i unknown_4_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
 };
 
-struct Zone020acecc
+struct Struct_020acecc_2
 {
 #if defined(jpn)
-    unsigned char pad0[0x27f4];
+    unsigned char unknown_0_[0x27f4];
 #else
-    unsigned char pad0[0x27b4];
+    unsigned char unknown1_0_[0x27b4];
 #endif
-    SavedProp020acecc saved;
+    Struct_020acecc unknown_27b4_;
 };
 
-struct Node020acecc
+struct Struct_020acecc_3
 {
-    unsigned char pad0[8];
-    Vector3i position;
-    unsigned char pad14[0x20 - 0x14];
-    short angle;
+    unsigned char unknown_0_[8];
+    Vector3i unknown_8_;
+    unsigned char unknown_14_[0x20 - 0x14];
+    short unknown_20_;
 };
 
-struct Movement020acecc
+struct Struct_020acecc_4
 {
-    unsigned char pad0[0x61];
-    unsigned char active;
+    unsigned char unknown_0_[0x61];
+    unsigned char unknown_61_;
 };
 
-struct Prop020acecc
+struct Struct_020acecc_5
 {
-    Object3D obj3D;
-    unsigned char padac[0x13c - 0xac];
-    int f13c;
-    unsigned char pad140[0x19c - 0x140];
-    unsigned char f19c;
+    Object3D unknown_0_;
+    unsigned char unknown_ac_[0x13c - 0xac];
+    int unknown_13c_;
+    unsigned char unknown_140_[0x19c - 0x140];
+    unsigned char unknown_19c_;
 };
 
-struct Dispatcher020acecc
+struct Struct_ov017_021d82fc_4
 {
-    unsigned char pad0[0xe];
-    unsigned char status;
+    unsigned char unknown_0_[0xe];
+    unsigned char unknown_e_;
 };
 
-struct LocalMsg020acecc
+struct Struct_020acecc_6
 {
-    int id;
-    unsigned char flag;
+    int unknown_0_;
+    unsigned char unknown_4_;
 };
 
-extern "C" void func_020ad1f8(Zone020acecc* zone, int eventCode, int previousCode);
-extern "C" Node020acecc* func_0201b78c(Zone020acecc* zone, Vector3i* pos);
-extern "C" void func_020adfa8(Prop020acecc* prop);
+extern "C" void func_020ad1f8(Struct_020acecc_2* arg0, int arg1, int arg2);
+extern "C" Struct_020acecc_3* func_0201b78c(Struct_020acecc_2* arg0, Vector3i* arg1);
+extern "C" void func_020adfa8(Struct_020acecc_5* arg0);
 
-extern Dispatcher020acecc data_ov017_021d82fc;
+extern Struct_ov017_021d82fc_4 data_ov017_021d82fc;
 extern int data_02108760;
 
 // USA: func_020acecc
-extern "C" ARM void func_020acecc(unsigned int* obj, int eventCode, int previousCode)
+extern "C" ARM void func_020acecc(unsigned int* arg0, int arg1, int arg2)
 {
-    GameState* state = GameState::GetInstance();
-    Zone020acecc* zone = (Zone020acecc*)func_02012fe4();
+    GameState* var0 = GameState::GetInstance();
+    Struct_020acecc_2* var1 = (Struct_020acecc_2*)func_02012fe4();
     func_0202ae18();
-    void* controller = func_020100f8((char*)state);
-    Prop020acecc* prop = (Prop020acecc*)func_0200ffd0((struct PointerField330_ffd0*)state);
-    Movement020acecc* movement = (Movement020acecc*)func_0200fd0c(state);
-    GameObject* unknown = state->GetUnknownGameObject();
-    state->GetPartyMemberByIndex(0);
-    func_020ad1f8(zone, eventCode, previousCode);
+    void* var2 = func_020100f8((char*)var0);
+    Struct_020acecc_5* var3 = (Struct_020acecc_5*)func_0200ffd0((struct Struct_0200ffd0*)var0);
+    Struct_020acecc_4* var4 = (Struct_020acecc_4*)func_0200fd0c(var0);
+    GameObject* var5 = var0->GetUnknownGameObject();
+    var0->GetPartyMemberByIndex(0);
+    func_020ad1f8(var1, arg1, arg2);
 
-    if (movement->active != 0) {
-        Node020acecc* node = func_0201b78c(zone, &zone->saved.position);
-        if (node != 0) {
-            Vector3i spawnPosition = node->position;
-            spawnPosition.y = func_02018fbc(zone, &spawnPosition);
-            unknown->obj3D_.position_ = spawnPosition;
-            func_ov017_0219c598(&spawnPosition.x, &node->angle, 0);
+    if (var4->unknown_61_ != 0) {
+        Struct_020acecc_3* var6 = func_0201b78c(var1, &var1->unknown_27b4_.unknown_4_);
+        if (var6 != 0) {
+            Vector3i var7 = var6->unknown_8_;
+            var7.y = func_02018fbc(var1, &var7);
+            var5->obj3D_.position_ = var7;
+            func_ov017_0219c598(&var7.x, &var6->unknown_20_, 0);
         }
     }
 
-    if (eventCode == 0x2774) {
-        LocalMsg020acecc local;
-        local.id = -1;
-        local.flag = 0;
-        local.id = prop->obj3D.unknown_4_;
-        func_020da77c(&data_ov017_021d82fc, 3, &local);
+    if (arg1 == 0x2774) {
+        Struct_020acecc_6 var8;
+        var8.unknown_0_ = -1;
+        var8.unknown_4_ = 0;
+        var8.unknown_0_ = var3->unknown_0_.unknown_4_;
+        func_020da77c(&data_ov017_021d82fc, 3, &var8);
         func_0205ebc0(&data_02108760, 0xa0, 0xa0);
-        func_020a2770(controller, 0xca);
-        prop->f19c = 1;
-        prop->f13c = 0;
+        func_020a2770(var2, 0xca);
+        var3->unknown_19c_ = 1;
+        var3->unknown_13c_ = 0;
         func_ov017_021d1c2c(0, 1);
-        if (func_0201b868(zone, previousCode) != 0) {
-            Vector3i position;
-            func_020ad1f0((struct Vec3Target020ad1f0*)&position, 0, 0, 0);
-            position.x = zone->saved.x;
-            position.z = zone->saved.z;
-            if (previousCode >= 0x4e20 && previousCode <= 0x752f) {
-                position.x = fix32_Divide(position.x, 0x6000);
-                position.y = fix32_Divide(position.y, 0x6000);
-                position.z = fix32_Divide(position.z, 0x6000);
+        if (func_0201b868(var1, arg2) != 0) {
+            Vector3i var9;
+            func_020ad1f0((struct Struct_020acecc_7*)&var9, 0, 0, 0);
+            var9.x = var1->unknown_27b4_.unknown_14_;
+            var9.z = var1->unknown_27b4_.unknown_18_;
+            if (arg2 >= 0x4e20 && arg2 <= 0x752f) {
+                var9.x = fix32_Divide(var9.x, 0x6000);
+                var9.y = fix32_Divide(var9.y, 0x6000);
+                var9.z = fix32_Divide(var9.z, 0x6000);
             }
-            prop->obj3D.position_ = position;
-            func_02033874((struct Obj02033874*)prop, 0x3244);
-            func_020adfa8(prop);
+            var3->unknown_0_.position_ = var9;
+            func_02033874((struct Struct_02033834*)var3, 0x3244);
+            func_020adfa8(var3);
         } else {
-            prop->obj3D.position_ = zone->saved.position;
-            func_02033874((struct Obj02033874*)prop, zone->saved.rotationY);
-            func_020adfa8(prop);
+            var3->unknown_0_.position_ = var1->unknown_27b4_.unknown_4_;
+            func_02033874((struct Struct_02033834*)var3, var1->unknown_27b4_.unknown_10_);
+            func_020adfa8(var3);
         }
-        SetFlags04((GameResources*)obj, 0x10044);
-        ClearFlags04((GameResources*)obj, 0x40000);
-    } else if (eventCode >= 0x4e20 && eventCode <= 0x752f && previousCode == 0x2774) {
-        func_ov017_021d1c2c(zone->saved.state, (unsigned char)zone->saved.sub);
-        short actorId = state->GetUnknownGameObject()->obj3D_.unknown_4_;
-        func_020a2770(controller, actorId);
-        ClearFlags04((GameResources*)obj, 0x10044);
-        SetFlags04((GameResources*)obj, 0x40000);
-    } else if (eventCode != 0x2774 && previousCode == 0x2774) {
-        if (data_ov017_021d82fc.status == 3) {
+        SetFlags04((GameResources*)arg0, 0x10044);
+        ClearFlags04((GameResources*)arg0, 0x40000);
+    } else if (arg1 >= 0x4e20 && arg1 <= 0x752f && arg2 == 0x2774) {
+        func_ov017_021d1c2c(var1->unknown_27b4_.unknown_0_, (unsigned char)var1->unknown_27b4_.unknown_2_);
+        short var10 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
+        func_020a2770(var2, var10);
+        ClearFlags04((GameResources*)arg0, 0x10044);
+        SetFlags04((GameResources*)arg0, 0x40000);
+    } else if (arg1 != 0x2774 && arg2 == 0x2774) {
+        if (data_ov017_021d82fc.unknown_e_ == 3) {
             func_020da244(&data_ov017_021d82fc);
         }
         func_0205ebec(&data_02108760);
-        func_ov017_021d1c2c(zone->saved.state, (unsigned char)zone->saved.sub);
-        func_020a2770(controller, func_020100a8(state));
-        ClearFlags04((GameResources*)obj, 0x10044);
-        SetFlags04((GameResources*)obj, 0x40000);
+        func_ov017_021d1c2c(var1->unknown_27b4_.unknown_0_, (unsigned char)var1->unknown_27b4_.unknown_2_);
+        func_020a2770(var2, func_020100a8(var0));
+        ClearFlags04((GameResources*)arg0, 0x10044);
+        SetFlags04((GameResources*)arg0, 0x40000);
     }
 }

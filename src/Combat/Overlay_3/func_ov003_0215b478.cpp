@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion960 = 0x800 };
-enum { kRows = 4 };
+enum { Enum_ov003_0215b478_2400 = 0x800 };
+enum { Enum_ov003_0215b478_2 = 4 };
 #else
-enum { kRegion960 = 0x960 };
-enum { kRows = 2 };
+enum { Enum_ov003_0215b478_2400 = 0x960 };
+enum { Enum_ov003_0215b478_2 = 2 };
 #endif
 
 #if defined(jpn)
@@ -16,64 +16,64 @@ extern char data_ov003_0217e68e[], data_ov003_0217e696[];
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24* obj, unsigned char keyLow, unsigned char keyHigh);
+struct Struct_0205de24_2;
+extern "C" void func_0205de24(struct Struct_0205de24_2* arg0, unsigned char arg1, unsigned char arg2);
 
 extern "C" int func_020421a0();
-extern "C" void func_02046380(void* obj);
-extern "C" int func_020e51cc(int value);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" void func_02046380(void* arg0);
+extern "C" int func_020e51cc(int arg0);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
-struct StoreStruct;
-extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
-extern "C" void func_020465f0(unsigned char* base, int index, unsigned char value);
-extern "C" void func_020465d8(unsigned char* base, int index, unsigned char value);
+struct Struct_020465c0;
+extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void func_020465d8(unsigned char* arg0, int arg1, unsigned char arg2);
 
 #if !defined(jpn)
-extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
+extern "C" void func_0205d304(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov003_0215b478
-extern "C" ARM void func_ov003_0215b478(unsigned char* self) {
-    GameState* battle = GameState::GetInstance();
-    int field = func_020421a0();
+extern "C" ARM void func_ov003_0215b478(unsigned char* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    int var1 = func_020421a0();
 
-    func_0205de24((struct Struct0205de24*)(self + 0xf4), 0, 2);
+    func_0205de24((struct Struct_0205de24_2*)(arg0 + 0xf4), 0, 2);
 
-    *(short*)(self + 0x100 + 0x94) = 0xb;
-    *(short*)(self + 0x100 + 0x96) = 2;
-    *(short*)(self + 0x100 + 0x98) = 0x14;
-    *(short*)(self + 0x100 + 0x9a) = 0;
-    *(short*)(self + 0x100 + 0x9c) = 0x10;
-    *(short*)(self + 0x100 + 0x9e) = kRows;
-    *(short*)(self + 0x100 + 0xa0) = 0xa;
-    *(short*)(self + 0x100 + 0xa2) = 0xe;
-    self[0x1a5] = 0;
-    self[0x1a9] = 1;
+    *(short*)(arg0 + 0x100 + 0x94) = 0xb;
+    *(short*)(arg0 + 0x100 + 0x96) = 2;
+    *(short*)(arg0 + 0x100 + 0x98) = 0x14;
+    *(short*)(arg0 + 0x100 + 0x9a) = 0;
+    *(short*)(arg0 + 0x100 + 0x9c) = 0x10;
+    *(short*)(arg0 + 0x100 + 0x9e) = Enum_ov003_0215b478_2;
+    *(short*)(arg0 + 0x100 + 0xa0) = 0xa;
+    *(short*)(arg0 + 0x100 + 0xa2) = 0xe;
+    arg0[0x1a5] = 0;
+    arg0[0x1a9] = 1;
 
-    memset(*(void**)(self + 0x7c), 0, kRegion960);
+    memset(*(void**)(arg0 + 0x7c), 0, Enum_ov003_0215b478_2400);
 
 #if defined(jpn)
-    func_02042428(*(void**)(self + 0x7c), 8);
-    func_02042058(*(char**)(self + 0x7c), data_ov003_0217e68e);
-    func_02042158(*(void**)(self + 0x7c), 2);
-    func_02042058(*(char**)(self + 0x7c), data_ov003_0217e696);
+    func_02042428(*(void**)(arg0 + 0x7c), 8);
+    func_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e68e);
+    func_02042158(*(void**)(arg0 + 0x7c), 2);
+    func_02042058(*(char**)(arg0 + 0x7c), data_ov003_0217e696);
 #else
-    int msg = func_020e51cc(0x3f1);
-    func_02042058((char*)*(void**)(self + 0x7c), (const char*)msg);
+    int var2 = func_020e51cc(0x3f1);
+    func_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var2);
 #endif
 
-    func_02046380((void*)field);
+    func_02046380((void*)var1);
 
-    void* ptr = func_02010828(battle);
-    int value = *(int*)((char*)ptr + 0xf6c);
-    func_020465c0((struct StoreStruct*)field, 0, value);
-    func_020465f0((unsigned char*)field, 0, 7);
-    func_020465d8((unsigned char*)field, 0, 1);
+    void* var3 = func_02010828(var0);
+    int var4 = *(int*)((char*)var3 + 0xf6c);
+    func_020465c0((struct Struct_020465c0*)var1, 0, var4);
+    func_020465f0((unsigned char*)var1, 0, 7);
+    func_020465d8((unsigned char*)var1, 0, 1);
 
 #if defined(jpn)
-    func_0205d304(self + 0xf4, *(void**)(self + 0x7c), 0, 0, 0, 1, 0);
+    func_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0);
 #else
-    func_0205d304(self + 0xf4, *(void**)(self + 0x7c), 0, 0, 0, 1, 0, 0);
+    func_0205d304(arg0 + 0xf4, *(void**)(arg0 + 0x7c), 0, 0, 0, 1, 0, 0);
 #endif
 }

@@ -1,28 +1,28 @@
 // USA: func_ov003_02167548
 #include <globaldefs.h>
 
-struct Obj0207fcb8;
-extern "C" void func_0207fcb8(Obj0207fcb8* obj);
-struct Obj0207fd00;
-extern "C" void func_0207fd00(Obj0207fd00* obj);
-struct Cont0207fd44;
-extern "C" void func_0207fd44(Cont0207fd44* obj);
+struct Struct_0207fcb8;
+extern "C" void func_0207fcb8(Struct_0207fcb8* arg0);
+struct Struct_0207fd00;
+extern "C" void func_0207fd00(Struct_0207fd00* arg0);
+struct Struct_0207fd44_2;
+extern "C" void func_0207fd44(Struct_0207fd44_2* arg0);
 
-struct Obj02167548 {
-    char pad0[0x10];
-    void* field10;
+struct Struct_ov003_02160134 {
+    char unknown_0_[0x10];
+    void* unknown_10_;
 #if defined(jpn)
-    char pad14[0x44 - 0x14];
+    char unknown_14_[0x44 - 0x14];
 #else
-    char pad14[0x74 - 0x14];
+    char unknown1_14_[0x74 - 0x14];
 #endif
-    unsigned char flag74;
+    unsigned char unknown_74_;
 };
 
-extern "C" ARM void func_ov003_02167548(Obj02167548* obj) {
-    if (obj->flag74 && obj->field10) {
-        func_0207fcb8((Obj0207fcb8*)obj->field10);
-        func_0207fd00((Obj0207fd00*)obj->field10);
-        func_0207fd44((Cont0207fd44*)obj->field10);
+extern "C" ARM void func_ov003_02167548(Struct_ov003_02160134* arg0) {
+    if (arg0->unknown_74_ && arg0->unknown_10_) {
+        func_0207fcb8((Struct_0207fcb8*)arg0->unknown_10_);
+        func_0207fd00((Struct_0207fd00*)arg0->unknown_10_);
+        func_0207fd44((Struct_0207fd44_2*)arg0->unknown_10_);
     }
 }

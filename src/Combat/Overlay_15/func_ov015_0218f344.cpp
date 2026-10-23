@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Sub0218f344 {
-	char pad[0xc];
-	int val;
+struct Struct_ov015_0218f344 {
+	char unknown_0_[0xc];
+	int unknown_c_;
 };
 
-struct Obj0218f344 {
-	char pad1c[0x1c];
-	unsigned char state;
-	char pad24[0x24 - 0x1d];
-	struct Sub0218f344* sub;
+struct Struct_ov015_0218f344_2 {
+	char unknown_0_[0x1c];
+	unsigned char unknown_1c_;
+	char unknown_1d_[0x24 - 0x1d];
+	struct Struct_ov015_0218f344* unknown_24_;
 };
 
 // USA: func_ov015_0218f344
-extern "C" ARM int func_ov015_0218f344(struct Obj0218f344* obj) {
-	unsigned char state = obj->state;
-	switch (state) {
+extern "C" ARM int func_ov015_0218f344(struct Struct_ov015_0218f344_2* arg0) {
+	unsigned char var0 = arg0->unknown_1c_;
+	switch (var0) {
 	case 0:
 	case 1:
-		return obj->sub->val;
+		return arg0->unknown_24_->unknown_c_;
 	default:
-		return obj->sub->val;
+		return arg0->unknown_24_->unknown_c_;
 	}
 }

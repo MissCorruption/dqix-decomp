@@ -1,51 +1,51 @@
 #include <globaldefs.h>
 
-extern "C" ARM double _dadd(double a, double b);
-extern "C" ARM double _ddiv(double a, double b);
-extern "C" ARM double func_02008f3c(double x);
-extern "C" ARM double func_02008848(double x);
+extern "C" ARM double _dadd(double arg0, double arg1);
+extern "C" ARM double _ddiv(double arg0, double arg1);
+extern "C" ARM double func_02008f3c(double arg0);
+extern "C" ARM double func_02008848(double arg0);
 
 // USA: func_02005ac4
 #pragma optimize_for_size off
-extern "C" ARM double func_02005ac4(double y, double x) {
-    int hx = ((int*)&x)[1];
-    int ix = hx & 0x7fffffff;
-    unsigned lx = ((unsigned*)&x)[0];
-    int hy = ((int*)&y)[1];
-    int iy = hy & 0x7fffffff;
-    unsigned ly = ((unsigned*)&y)[0];
+extern "C" ARM double func_02005ac4(double arg0, double arg1) {
+    int var0 = ((int*)&arg1)[1];
+    int var1 = var0 & 0x7fffffff;
+    unsigned var2 = ((unsigned*)&arg1)[0];
+    int var3 = ((int*)&arg0)[1];
+    int var4 = var3 & 0x7fffffff;
+    unsigned var5 = ((unsigned*)&arg0)[0];
 
-    if (((ix | ((lx | -lx) >> 31)) > 0x7ff00000) ||
-        ((iy | ((ly | -ly) >> 31)) > 0x7ff00000)) {
-        return _dadd(x, y);
+    if (((var1 | ((var2 | -var2) >> 31)) > 0x7ff00000) ||
+        ((var4 | ((var5 | -var5) >> 31)) > 0x7ff00000)) {
+        return _dadd(arg1, arg0);
     }
-    if (((hx - 0x3ff00000) | (int)lx) == 0) return func_02008848(y);
+    if (((var0 - 0x3ff00000) | (int)var2) == 0) return func_02008848(arg0);
 
-    int m = ((hy >> 31) & 1) | ((hx >> 30) & 2);
+    int var6 = ((var3 >> 31) & 1) | ((var0 >> 30) & 2);
 
-    if ((iy | ly) == 0) {
-        switch (m) {
+    if ((var4 | var5) == 0) {
+        switch (var6) {
             case 0:
-            case 1: return y;
+            case 1: return arg0;
             case 2: return 3.1415926535897931160e+00 + 1.0e-300;
             case 3: return -3.1415926535897931160e+00 - 1.0e-300;
         }
     }
-    if ((ix | lx) == 0) {
-        return (hy < 0) ? -1.5707963267948965580e+00 - 1.0e-300
+    if ((var1 | var2) == 0) {
+        return (var3 < 0) ? -1.5707963267948965580e+00 - 1.0e-300
                          : 1.5707963267948965580e+00 + 1.0e-300;
     }
 
-    if (ix == 0x7ff00000) {
-        if (iy == 0x7ff00000) {
-            switch (m) {
+    if (var1 == 0x7ff00000) {
+        if (var4 == 0x7ff00000) {
+            switch (var6) {
                 case 0: return 7.8539816339744827900e-01 + 1.0e-300;
                 case 1: return -7.8539816339744827900e-01 - 1.0e-300;
                 case 2: return 3.0 * 7.8539816339744827900e-01 + 1.0e-300;
                 case 3: return -3.0 * 7.8539816339744827900e-01 - 1.0e-300;
             }
         } else {
-            switch (m) {
+            switch (var6) {
                 case 0: return 0.0;
                 case 1: return -0.0;
                 case 2: return 3.1415926535897931160e+00 + 1.0e-300;
@@ -53,29 +53,29 @@ extern "C" ARM double func_02005ac4(double y, double x) {
             }
         }
     }
-    if (iy == 0x7ff00000) {
-        return (hy < 0) ? -1.5707963267948965580e+00 - 1.0e-300
+    if (var4 == 0x7ff00000) {
+        return (var3 < 0) ? -1.5707963267948965580e+00 - 1.0e-300
                          : 1.5707963267948965580e+00 + 1.0e-300;
     }
 
-    int k = (iy - ix) >> 20;
-    double z;
-    if (k > 60) {
-        z = 1.5707963267948965580e+00 + 0.5 * 1.2246467991473531772e-16;
-    } else if (hx < 0 && k < -60) {
-        z = 0.0;
+    int var7 = (var4 - var1) >> 20;
+    double var8;
+    if (var7 > 60) {
+        var8 = 1.5707963267948965580e+00 + 0.5 * 1.2246467991473531772e-16;
+    } else if (var0 < 0 && var7 < -60) {
+        var8 = 0.0;
     } else {
-        z = func_02008848(func_02008f3c(_ddiv(y, x)));
+        var8 = func_02008848(func_02008f3c(_ddiv(arg0, arg1)));
     }
 
-    switch (m) {
-        case 0: return z;
+    switch (var6) {
+        case 0: return var8;
         case 1: {
-            ((int*)&z)[1] = ((int*)&z)[1] ^ 0x80000000;
-            return z;
+            ((int*)&var8)[1] = ((int*)&var8)[1] ^ 0x80000000;
+            return var8;
         }
-        case 2: return ((3.1415926535897931160e+00) - (((z) - (1.2246467991473531772e-16))));
-        default: return ((((z) - (1.2246467991473531772e-16))) - (3.1415926535897931160e+00));
+        case 2: return ((3.1415926535897931160e+00) - (((var8) - (1.2246467991473531772e-16))));
+        default: return ((((var8) - (1.2246467991473531772e-16))) - (3.1415926535897931160e+00));
     }
 }
 #pragma optimize_for_size reset

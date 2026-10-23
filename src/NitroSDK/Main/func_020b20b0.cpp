@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-typedef unsigned int u32;
-typedef unsigned short u16;
-typedef unsigned char u8;
+typedef unsigned int Type_020b11c8;
+typedef unsigned short Type_020b0a1c;
+typedef unsigned char Type_020b1300;
 
 #define CHARACTER_WIDTH  8
 #define CHARACTER_HEIGHT 8
@@ -16,149 +16,149 @@ typedef unsigned char u8;
 #define GX_OAM_ATTR01_SIZE_MASK  0xc0000000
 #define GX_OAM_ATTR2_NAME_MASK   0x000003ff
 
-enum GXOamColorMode {
-    GX_OAM_COLORMODE_16 = 0,
-    GX_OAM_COLORMODE_256 = 1
+enum Enum_020b20b0 {
+    Enum_020b20b0_0 = 0,
+    Enum_020b20b0_1 = 1
 };
 
-typedef int GXOamShape;
-typedef int NNSG2dOBJVramMode;
+typedef int Type_020b20b0;
+typedef int Type_020b20b0_2;
 
-struct GXOamAttr {
+struct Struct_020b0a1c_2 {
     union {
-        u32 attr01;
+        Type_020b11c8 unknown_0_;
         struct {
-            u16 attr0;
-            u16 attr1;
+            Type_020b0a1c unknown1_0_;
+            Type_020b0a1c unknown_2_;
         };
     };
     union {
         struct {
-            u16 attr2;
-            u16 _3;
+            Type_020b0a1c unknown_4_;
+            Type_020b0a1c unknown_6_;
         };
-        u32 attr23;
+        Type_020b11c8 unknown1_4_;
     };
 };
 
-struct ObjectSize {
-    u8 widthShift;
-    u8 heightShift;
+struct Struct_020e91e0 {
+    Type_020b1300 unknown_0_;
+    Type_020b1300 unknown_1_;
 };
 
-extern ObjectSize data_020e91e0[4][4];
+extern Struct_020e91e0 data_020e91e0[4][4];
 
-extern "C" GXOamShape func_020b11ac(u8 *pSize);
+extern "C" Type_020b20b0 func_020b11ac(Type_020b1300 *arg0);
 
-static inline u32 MATH_CountLeadingZerosInline(u32 x) {
+static inline Type_020b11c8 inline_020b20b0(Type_020b11c8 arg0) {
     asm {
-        clz x, x
+        clz arg0, arg0
     }
-    return x;
+    return arg0;
 }
 
-static inline int MATH_ILog2(u32 x) {
-    return (int)(31 - MATH_CountLeadingZerosInline(x));
+static inline int inline_020b20b0_2(Type_020b11c8 arg0) {
+    return (int)(31 - inline_020b20b0(arg0));
 }
 
-static inline ObjectSize *GetMaxObjectSize(int w, int h) {
-    int log_w = (w >= 8) ? 3 : MATH_ILog2((unsigned long)w);
-    int log_h = (h >= 8) ? 3 : MATH_ILog2((unsigned long)h);
+static inline Struct_020e91e0 *inline_020b20b0_3(int arg0, int arg1) {
+    int var0 = (arg0 >= 8) ? 3 : inline_020b20b0_2((unsigned long)arg0);
+    int var1 = (arg1 >= 8) ? 3 : inline_020b20b0_2((unsigned long)arg1);
 
-    return &data_020e91e0[log_h][log_w];
+    return &data_020e91e0[var1][var0];
 }
 
-static inline void G2_SetOBJPosition(GXOamAttr *oam, int x, int y) {
-    oam->attr01 = ((oam->attr01 & ~(GX_OAM_ATTR01_Y_MASK | GX_OAM_ATTR01_X_MASK)) | (y & GX_OAM_ATTR01_Y_MASK)
-                   | ((x & (GX_OAM_ATTR01_X_MASK >> GX_OAM_ATTR01_X_SHIFT)) << GX_OAM_ATTR01_X_SHIFT));
+static inline void inline_020b0a1c_15(Struct_020b0a1c_2 *arg0, int arg1, int arg2) {
+    arg0->unknown_0_ = ((arg0->unknown_0_ & ~(GX_OAM_ATTR01_Y_MASK | GX_OAM_ATTR01_X_MASK)) | (arg2 & GX_OAM_ATTR01_Y_MASK)
+                   | ((arg1 & (GX_OAM_ATTR01_X_MASK >> GX_OAM_ATTR01_X_SHIFT)) << GX_OAM_ATTR01_X_SHIFT));
 }
 
-static inline void G2_SetOBJShape(GXOamAttr *oam, GXOamShape shape) {
-    oam->attr01 = ((oam->attr01 & ~(GX_OAM_ATTR01_SHAPE_MASK | GX_OAM_ATTR01_SIZE_MASK)) | shape);
+static inline void inline_020b20b0_4(Struct_020b0a1c_2 *arg0, Type_020b20b0 arg1) {
+    arg0->unknown_0_ = ((arg0->unknown_0_ & ~(GX_OAM_ATTR01_SHAPE_MASK | GX_OAM_ATTR01_SIZE_MASK)) | arg1);
 }
 
-static inline void G2_SetOBJCharName(GXOamAttr *oam, int name) {
-    oam->attr2 = (u16)((oam->attr2 & ~GX_OAM_ATTR2_NAME_MASK) | name);
+static inline void inline_020b20b0_5(Struct_020b0a1c_2 *arg0, int arg1) {
+    arg0->unknown_4_ = (Type_020b0a1c)((arg0->unknown_4_ & ~GX_OAM_ATTR2_NAME_MASK) | arg1);
 }
 
-static inline void G2_SetOBJColorMode(GXOamAttr *oam, GXOamColorMode color) {
-    oam->attr01 = ((oam->attr01 & ~GX_OAM_ATTR01_CM_MASK) | (color << GX_OAM_ATTR01_CM_SHIFT));
+static inline void inline_020b20b0_6(Struct_020b0a1c_2 *arg0, Enum_020b20b0 arg1) {
+    arg0->unknown_0_ = ((arg0->unknown_0_ & ~GX_OAM_ATTR01_CM_MASK) | (arg1 << GX_OAM_ATTR01_CM_SHIFT));
 }
 
 // USA: func_020b20b0
-extern "C" ARM int func_020b20b0(GXOamAttr *oam, int areaWidth, int areaHeight, int x, int y, GXOamColorMode color, int charName, NNSG2dOBJVramMode vramMode) {
-    ObjectSize *const pSize    = GetMaxObjectSize(areaWidth, areaHeight);
-    const int objWidthShift    = pSize->widthShift;
-    const int objHeightShift   = pSize->heightShift;
-    const u32 objWidthMaskInv  = (u32)(~0) << objWidthShift;
-    const u32 objHeightMaskInv = (u32)(~0) << objHeightShift;
-    const u32 areaAWidth       = areaWidth & objWidthMaskInv;
-    const u32 areaAHeight      = areaHeight & objHeightMaskInv;
-    const int charNameUnit     = (color == GX_OAM_COLORMODE_16) ? 1 : 2;
-    int usedObjs               = 0;
+extern "C" ARM int func_020b20b0(Struct_020b0a1c_2 *arg0, int arg1, int arg2, int arg3, int arg4, Enum_020b20b0 arg5, int arg6, Type_020b20b0_2 arg7) {
+    Struct_020e91e0 *const var0    = inline_020b20b0_3(arg1, arg2);
+    const int var1    = var0->unknown_0_;
+    const int var2   = var0->unknown_1_;
+    const Type_020b11c8 var3  = (Type_020b11c8)(~0) << var1;
+    const Type_020b11c8 var4 = (Type_020b11c8)(~0) << var2;
+    const Type_020b11c8 var5       = arg1 & var3;
+    const Type_020b11c8 var6      = arg2 & var4;
+    const int var7     = (arg5 == Enum_020b20b0_0) ? 1 : 2;
+    int var8               = 0;
 
     {
-        const GXOamShape shape = func_020b11ac(&pSize->widthShift);
-        const int xNum         = areaWidth >> objWidthShift;
-        const int yNum         = areaHeight >> objHeightShift;
-        const int charNameSize = ((charNameUnit << objWidthShift) << objHeightShift) >> vramMode;
-        int ox, oy;
+        const Type_020b20b0 var9 = func_020b11ac(&var0->unknown_0_);
+        const int var10         = arg1 >> var1;
+        const int var11         = arg2 >> var2;
+        const int var12 = ((var7 << var1) << var2) >> arg7;
+        int var13, var14;
 
-        for (oy = 0; oy < yNum; ++oy) {
-            const int py = y + (oy << objHeightShift) * CHARACTER_HEIGHT;
+        for (var14 = 0; var14 < var11; ++var14) {
+            const int var15 = arg4 + (var14 << var2) * CHARACTER_HEIGHT;
 
-            for (ox = 0; ox < xNum; ++ox) {
-                const int px = x + (ox << objWidthShift) * CHARACTER_WIDTH;
+            for (var13 = 0; var13 < var10; ++var13) {
+                const int var16 = arg3 + (var13 << var1) * CHARACTER_WIDTH;
 
-                G2_SetOBJPosition(oam, px, py);
-                G2_SetOBJShape(oam, shape);
-                G2_SetOBJCharName(oam, charName);
-                G2_SetOBJColorMode(oam, color);
+                inline_020b0a1c_15(arg0, var16, var15);
+                inline_020b20b0_4(arg0, var9);
+                inline_020b20b0_5(arg0, arg6);
+                inline_020b20b0_6(arg0, arg5);
 
-                oam++;
-                charName += charNameSize;
+                arg0++;
+                arg6 += var12;
             }
         }
 
-        usedObjs += xNum * yNum;
+        var8 += var10 * var11;
     }
 
-    if (areaAWidth < areaWidth) {
-        const unsigned int areaBWidth  = areaWidth - areaAWidth;
-        const unsigned int areaBHeight = areaAHeight;
-        const int px                   = x + (int)areaAWidth * CHARACTER_WIDTH;
-        const int py                   = y;
+    if (var5 < arg1) {
+        const unsigned int var17  = arg1 - var5;
+        const unsigned int var18 = var6;
+        const int var19                   = arg3 + (int)var5 * CHARACTER_WIDTH;
+        const int var20                   = arg4;
 
-        const int areaBObjs = func_020b20b0(oam, (int)areaBWidth, (int)areaBHeight, px, py, color, charName, vramMode);
+        const int var21 = func_020b20b0(arg0, (int)var17, (int)var18, var19, var20, arg5, arg6, arg7);
 
-        oam += areaBObjs;
-        usedObjs += areaBObjs;
-        charName += (charNameUnit * areaBWidth * areaBHeight) >> vramMode;
+        arg0 += var21;
+        var8 += var21;
+        arg6 += (var7 * var17 * var18) >> arg7;
     }
 
-    if (areaAHeight < areaHeight) {
-        const unsigned int areaCWidth  = areaAWidth;
-        const unsigned int areaCHeight = areaHeight - areaAHeight;
-        const int px                   = x;
-        const int py                   = y + (int)areaAHeight * CHARACTER_HEIGHT;
+    if (var6 < arg2) {
+        const unsigned int var22  = var5;
+        const unsigned int var23 = arg2 - var6;
+        const int var24                   = arg3;
+        const int var25                   = arg4 + (int)var6 * CHARACTER_HEIGHT;
 
-        const int areaCObjs = func_020b20b0(oam, (int)areaCWidth, (int)areaCHeight, px, py, color, charName, vramMode);
+        const int var26 = func_020b20b0(arg0, (int)var22, (int)var23, var24, var25, arg5, arg6, arg7);
 
-        oam += areaCObjs;
-        usedObjs += areaCObjs;
-        charName += (charNameUnit * areaCWidth * areaCHeight) >> vramMode;
+        arg0 += var26;
+        var8 += var26;
+        arg6 += (var7 * var22 * var23) >> arg7;
     }
 
-    if (areaAWidth < areaWidth && areaAHeight < areaHeight) {
-        const unsigned int areaDWidth  = areaWidth - areaAWidth;
-        const unsigned int areaDHeight = areaHeight - areaAHeight;
-        const int px                   = x + (int)areaAWidth * CHARACTER_WIDTH;
-        const int py                   = y + (int)areaAHeight * CHARACTER_HEIGHT;
+    if (var5 < arg1 && var6 < arg2) {
+        const unsigned int var27  = arg1 - var5;
+        const unsigned int var28 = arg2 - var6;
+        const int var29                   = arg3 + (int)var5 * CHARACTER_WIDTH;
+        const int var30                   = arg4 + (int)var6 * CHARACTER_HEIGHT;
 
-        const int areaDObjs = func_020b20b0(oam, (int)areaDWidth, (int)areaDHeight, px, py, color, charName, vramMode);
+        const int var31 = func_020b20b0(arg0, (int)var27, (int)var28, var29, var30, arg5, arg6, arg7);
 
-        usedObjs += areaDObjs;
+        var8 += var31;
     }
 
-    return usedObjs;
+    return var8;
 }

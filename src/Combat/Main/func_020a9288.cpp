@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-typedef int (*CmpFn020a9288)(void*);
+typedef int (*Type_020a8fd0)(void*);
 
-struct Obj020a9288 {
-    unsigned int count : 12;
-    char* arr;
+struct Struct_020a8fd0_2 {
+    unsigned int unknown_0_0_ : 12;
+    char* unknown_4_;
 };
 
 // USA: func_020a9288
-extern "C" ARM void* func_020a9288(struct Obj020a9288* obj, int key, CmpFn020a9288 cmp) {
-    char* arr = obj->arr;
-    int count;
-    int lo, hi, mid, r;
-    if (arr == 0 || cmp == 0) {
+extern "C" ARM void* func_020a9288(struct Struct_020a8fd0_2* arg0, int arg1, Type_020a8fd0 arg2) {
+    char* var0 = arg0->unknown_4_;
+    int var1;
+    int var2, var3, var4, var5;
+    if (var0 == 0 || arg2 == 0) {
         return 0;
     }
-    count = obj->count;
-    if (count == 0) {
+    var1 = arg0->unknown_0_0_;
+    if (var1 == 0) {
         return 0;
     }
-    lo = 0;
-    hi = count - 1;
-    while (lo <= hi) {
-        mid = lo + ((hi - lo + 1) >> 1);
-        r = cmp(arr + mid * 64);
-        if (r == key) {
-            return arr + mid * 64;
+    var2 = 0;
+    var3 = var1 - 1;
+    while (var2 <= var3) {
+        var4 = var2 + ((var3 - var2 + 1) >> 1);
+        var5 = arg2(var0 + var4 * 64);
+        if (var5 == arg1) {
+            return var0 + var4 * 64;
         }
-        if (r > key) {
-            hi = mid - 1;
+        if (var5 > arg1) {
+            var3 = var4 - 1;
         } else {
-            lo = mid + 1;
+            var2 = var4 + 1;
         }
     }
     return 0;

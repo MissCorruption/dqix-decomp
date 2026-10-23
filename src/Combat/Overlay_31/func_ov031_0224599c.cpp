@@ -7,119 +7,119 @@
 
 void SleepCurrentContext(unsigned int ticks);
 extern "C" int func_ov031_0220d540(void);
-extern "C" void* func_ov031_0220ec04(int index);
+extern "C" void* func_ov031_0220ec04(int arg0);
 extern "C" int func_ov031_0220ca88(void);
-extern "C" int func_ov031_0220c970(void* workspace, unsigned int size);
-extern "C" int func_ov031_02245c68(int mode);
+extern "C" int func_ov031_0220c970(void* arg0, unsigned int arg1);
+extern "C" int func_ov031_02245c68(int arg0);
 extern "C" void func_ov031_0220eadc(void);
-extern "C" int func_ov031_0220eb88(int newVal);
+extern "C" int func_ov031_0220eb88(int arg0);
 extern "C" int func_ov031_0220eb30(void);
-extern "C" int func_020c7ea0(void* queue, int* msg, int flags);
+extern "C" int func_020c7ea0(void* arg0, int* arg1, int arg2);
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" void func_020ca4b4(const void* src, void* dest, int count);
 
-struct Arena02291f50 {
-	int kind;
-	void* allocation;
-	unsigned int size;
-	int field_0xc;
+struct Struct_ov031_0224599c {
+	int unknown_0_;
+	void* unknown_4_;
+	unsigned int unknown_8_;
+	int unknown_c_;
 };
 
-struct State02291f24 {
-	unsigned char b0;
-	int field4;
-	int field8;
-	int fieldC;
-	int field10;
-	void* field14;
-	char field18[0x14];
-	struct Arena02291f50 arena;
+struct Struct_ov031_02291f24_3 {
+	unsigned char unknown_0_;
+	int unknown_4_;
+	int unknown_8_;
+	int unknown_c_;
+	int unknown_10_;
+	void* unknown_14_;
+	char unknown_18_[0x14];
+	struct Struct_ov031_0224599c unknown_2c_;
 };
 
-struct BssDesc02292040 {
-	unsigned short length;
-	char rest[0xbe];
+struct Struct_ov031_02292040 {
+	unsigned short unknown_0_;
+	char unknown_2_[0xbe];
 };
 
-extern struct State02291f24 data_ov031_02291f24;
-extern struct BssDesc02292040 data_ov031_02292040;
+extern struct Struct_ov031_02291f24_3 data_ov031_02291f24;
+extern struct Struct_ov031_02292040 data_ov031_02292040;
 extern int data_ov031_02291f60;
 
-static inline void CpuClear8(void* dest, int count) {
-	func_020ca458(0, dest, count);
+static inline void inline_ov031_0224599c(void* arg0, int arg1) {
+	func_020ca458(0, arg0, arg1);
 }
 
-static inline void CpuCopy8(const void* src, void* dest, int count) {
-	func_020ca4b4(src, dest, count);
+static inline void inline_ov031_0224599c_2(const void* arg0, void* arg1, int arg2) {
+	func_020ca4b4(arg0, arg1, arg2);
 }
 
-enum WcmcMsg { WCMC_MSG_FOUND = 1, WCMC_MSG_LOST = 4, WCMC_MSG_DONE = 5 };
+enum Enum_ov031_0224599c { Enum_ov031_0224599c_1 = 1, Enum_ov031_0224599c_4 = 4, Enum_ov031_0224599c_5 = 5 };
 
 // USA: func_ov031_0224599c
 extern "C" ARM void func_ov031_0224599c(void) {
-	void* buf = data_ov031_02291f24.field14;
-	unsigned int size;
-	char* heap;
-	int msg;
+	void* var0 = data_ov031_02291f24.unknown_14_;
+	unsigned int var1;
+	char* var2;
+	int var3;
 
-	if (buf == NULL) {
+	if (var0 == NULL) {
 		return;
 	}
-	if (data_ov031_02291f24.b0 != 0) {
-		size = data_ov031_02291f24.b0 * 0xd0 + 0xc;
+	if (data_ov031_02291f24.unknown_0_ != 0) {
+		var1 = data_ov031_02291f24.unknown_0_ * 0xd0 + 0xc;
 	} else {
-		size = 0x11ec;
+		var1 = 0x11ec;
 	}
-	memset(buf, 0, size + 0x2300);
-	if (buf == NULL) {
+	memset(var0, 0, var1 + 0x2300);
+	if (var0 == NULL) {
 		return;
 	}
-	heap = (char*)buf + 0x2300;
-	if (func_ov031_0220c970(buf, 0x2300) != 0) {
+	var2 = (char*)var0 + 0x2300;
+	if (func_ov031_0220c970(var0, 0x2300) != 0) {
 		return;
 	}
-	data_ov031_02291f24.arena.kind = 2;
-	data_ov031_02291f24.arena.allocation = heap;
-	data_ov031_02291f24.arena.size = size;
-	data_ov031_02291f24.arena.field_0xc = 0;
+	data_ov031_02291f24.unknown_2c_.unknown_0_ = 2;
+	data_ov031_02291f24.unknown_2c_.unknown_4_ = var2;
+	data_ov031_02291f24.unknown_2c_.unknown_8_ = var1;
+	data_ov031_02291f24.unknown_2c_.unknown_c_ = 0;
 
-	while (data_ov031_02291f24.field4 == 0) {
+	while (data_ov031_02291f24.unknown_4_ == 0) {
 		switch (func_ov031_0220d540()) {
 		case 1:
 			func_ov031_02245c68(1);
 			break;
 		case 3:
-			if (data_ov031_02292040.length == 0) {
+			if (data_ov031_02292040.unknown_0_ == 0) {
 				func_ov031_0220eadc();
 				func_ov031_02245c68(3);
 			} else if (func_ov031_02245c68(5) == 0) {
-				CpuClear8(&data_ov031_02292040, 0xc0);
+				inline_ov031_0224599c(&data_ov031_02292040, 0xc0);
 			}
 			break;
 		case 6:
-			func_020c7ea0(&data_ov031_02291f60, &msg, 1);
+			func_020c7ea0(&data_ov031_02291f60, &var3, 1);
 			{
-				WcmcMsg found = WCMC_MSG_FOUND;
-				WcmcMsg lost = WCMC_MSG_LOST;
-				if (msg == found) {
-					if (data_ov031_02291f24.fieldC == 0) {
+				Enum_ov031_0224599c var4 = Enum_ov031_0224599c_1;
+				Enum_ov031_0224599c var5 = Enum_ov031_0224599c_4;
+				if (var3 == var4) {
+					if (data_ov031_02291f24.unknown_c_ == 0) {
 						func_ov031_0220eb88(1);
 						if (func_ov031_0220eb30() >= 1) {
-							CpuCopy8(func_ov031_0220ec04(0), &data_ov031_02292040, 0xc0);
+							inline_ov031_0224599c_2(func_ov031_0220ec04(0), &data_ov031_02292040, 0xc0);
 						}
 						func_ov031_0220eb88(0);
 						func_ov031_02245c68(4);
 					}
-				} else if (msg == lost) {
+				} else if (var3 == var5) {
 					func_ov031_02245c68(4);
 				}
 			}
 			break;
 		case 9:
-			func_020c7ea0(&data_ov031_02291f60, &msg, 1);
+			func_020c7ea0(&data_ov031_02291f60, &var3, 1);
 			{
-				WcmcMsg done = WCMC_MSG_DONE;
-				if (msg == done) {
+				Enum_ov031_0224599c var6 = Enum_ov031_0224599c_5;
+				if (var3 == var6) {
 					func_ov031_02245c68(6);
 				}
 			}
@@ -135,10 +135,10 @@ extern "C" ARM void func_ov031_0224599c(void) {
 		}
 	}
 
-	while (data_ov031_02291f24.field4 != 0) {
+	while (data_ov031_02291f24.unknown_4_ != 0) {
 		switch (func_ov031_0220d540()) {
 		case 1:
-			data_ov031_02291f24.field4 = 0;
+			data_ov031_02291f24.unknown_4_ = 0;
 			break;
 		case 3:
 			func_ov031_02245c68(2);

@@ -2,10 +2,10 @@
 
 #pragma define_section initcode ".init" RX
 
-struct State02070508;
-extern "C" void func_020709b4(struct State02070508* obj);
+struct Struct_02108d5c;
+extern "C" void func_020709b4(struct Struct_02108d5c* arg0);
 
-extern struct State02070508 data_02108d5c;
+extern struct Struct_02108d5c data_02108d5c;
 
 // USA: func_020e6024
 extern "C" __declspec(initcode) ARM void __sinit_020e6024(void) {

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
 // USA: func_02039d7c
-extern "C" ARM unsigned char func_02039d7c(char* obj) {
+extern "C" ARM unsigned char func_02039d7c(char* arg0) {
 #if defined(jpn)
-    return obj[0x260];
+    return arg0[0x260];
 #else
-    return obj[0x26c];
+    return arg0[0x26c];
 #endif
 }

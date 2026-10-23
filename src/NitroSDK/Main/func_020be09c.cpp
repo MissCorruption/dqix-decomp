@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-extern "C" int func_020bd79c(unsigned int index);
-extern "C" int func_020bd7c4(unsigned int index, void* buf, int size, int flag);
-struct Obj020bda58;
-typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
-extern "C" void* func_020bda58(struct Obj020bda58* obj, unsigned int size, NNSSndHeapDisposeCallback callback, int a3, int a4);
+extern "C" int func_020bd79c(unsigned int arg0);
+extern "C" int func_020bd7c4(unsigned int arg0, void* arg1, int arg2, int arg3);
+struct Struct_020bbf84_2;
+typedef void (*Type_020bbf84)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern "C" void* func_020bda58(struct Struct_020bbf84_2* arg0, unsigned int arg1, Type_020bbf84 arg2, int arg3, int arg4);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 // USA: func_020be09c
-extern "C" ARM void* func_020be09c(unsigned int index, NNSSndHeapDisposeCallback callback, int a3, int a4, struct Obj020bda58* obj) {
-    unsigned int listEntry = func_020bd79c(index);
-    if (!listEntry) {
+extern "C" ARM void* func_020be09c(unsigned int arg0, Type_020bbf84 arg1, int arg2, int arg3, struct Struct_020bbf84_2* arg4) {
+    unsigned int var0 = func_020bd79c(arg0);
+    if (!var0) {
         return 0;
     }
-    if (!obj) {
+    if (!arg4) {
         return 0;
     }
-    void* newEntry = func_020bda58(obj, listEntry + 0x20, callback, a3, a4);
-    if (!newEntry) {
+    void* var1 = func_020bda58(arg4, var0 + 0x20, arg1, arg2, arg3);
+    if (!var1) {
         return 0;
     }
-    if (func_020bd7c4(index, newEntry, listEntry, 0) != (int)listEntry) {
+    if (func_020bd7c4(arg0, var1, var0, 0) != (int)var0) {
         return 0;
     }
-    CleanCacheRange(newEntry, listEntry);
-    return newEntry;
+    CleanCacheRange(var1, var0);
+    return var1;
 }

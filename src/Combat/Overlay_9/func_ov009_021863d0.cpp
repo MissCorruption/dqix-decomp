@@ -3,102 +3,102 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-struct CharacterModel {
-    char unk_0[0xc12];
-    unsigned char loading_;
+struct Struct_ov009_021863d0 {
+    char unknown_0_[0xc12];
+    unsigned char unknown_c12_;
 };
 
-extern "C" int func_0200fb8c(int* gameState);
-extern "C" void func_ov009_02188c2c(CharacterCreationUI* self);
-extern "C" void func_ov009_02188d9c(CharacterCreationUI* self);
-extern "C" void func_ov009_02188e70(CharacterCreationUI* self, int choice);
-extern "C" void func_ov009_02188944(CharacterCreationUI* self, int choice);
-extern "C" int func_ov009_02188ee8(CharacterCreationUI* self);
-extern "C" void func_ov023_021e6158(CharacterModel* character, int part);
+extern "C" int func_0200fb8c(int* arg0);
+extern "C" void func_ov009_02188c2c(Struct_ov009_021842a0* arg0);
+extern "C" void func_ov009_02188d9c(Struct_ov009_021842a0* arg0);
+extern "C" void func_ov009_02188e70(Struct_ov009_021842a0* arg0, int arg1);
+extern "C" void func_ov009_02188944(Struct_ov009_021842a0* arg0, int arg1);
+extern "C" int func_ov009_02188ee8(Struct_ov009_021842a0* arg0);
+extern "C" void func_ov023_021e6158(Struct_ov009_021863d0* arg0, int arg1);
 #if defined(jpn)
 extern "C" void func_ov009_021867bc(unsigned char*, int);
 #define func_ov009_021855dc func_ov009_021867bc
 #else
-extern "C" void func_ov009_021855dc(unsigned char* self, int state);
+extern "C" void func_ov009_021855dc(unsigned char* arg0, int arg1);
 #endif
 
 // USA: func_ov009_021863d0
-extern "C" ARM void func_ov009_021863d0(CharacterCreationUI* self)
+extern "C" ARM void func_ov009_021863d0(Struct_ov009_021842a0* arg0)
 {
-    GameState* gameState = GameState::GetInstance();
-    GameResources* resources = (GameResources*)func_0200fb8c((int*)gameState);
-    if (self->step == 0)
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = (GameResources*)func_0200fb8c((int*)var0);
+    if (arg0->unknown_c59_ == 0)
     {
-        if (GetBrightness((GameResources*)resources, false) == -16 &&
-            GetBrightness((GameResources*)resources, true) == -16)
+        if (GetBrightness((GameResources*)var1, false) == -16 &&
+            GetBrightness((GameResources*)var1, true) == -16)
         {
-            if (self->flags & 0x80)
+            if (arg0->unknown_d9c_ & 0x80)
                 return;
-            SetBrightness(resources, 0, 15);
+            SetBrightness(var1, 0, 15);
         }
-        func_ov009_02188c2c(self);
-        func_ov009_02188d9c(self);
-        func_ov009_02188e70(self, self->sex);
-        self->step++;
+        func_ov009_02188c2c(arg0);
+        func_ov009_02188d9c(arg0);
+        func_ov009_02188e70(arg0, arg0->unknown_da3_);
+        arg0->unknown_c59_++;
     }
-    if (self->step == 1)
+    if (arg0->unknown_c59_ == 1)
     {
-        if (IsBrightnessTransitionActive(resources))
+        if (IsBrightnessTransitionActive(var1))
             return;
-        self->flags |= 1;
-        self->step++;
+        arg0->unknown_d9c_ |= 1;
+        arg0->unknown_c59_++;
     }
-    else if (self->step == 2)
+    else if (arg0->unknown_c59_ == 2)
     {
-        if (self->flags & 0x80)
+        if (arg0->unknown_d9c_ & 0x80)
             return;
-        func_ov009_02188944(self, self->sex);
-        self->step++;
+        func_ov009_02188944(arg0, arg0->unknown_da3_);
+        arg0->unknown_c59_++;
     }
-    else if (self->step == 3)
+    else if (arg0->unknown_c59_ == 3)
     {
-        int result = func_ov009_02188ee8(self);
-        if (result != self->state)
+        int var2 = func_ov009_02188ee8(arg0);
+        if (var2 != arg0->unknown_c58_)
         {
-            CharacterModel* next = (CharacterModel*)self->nextCharacter;
-            if (next->loading_ == 0)
+            Struct_ov009_021863d0* var3 = (Struct_ov009_021863d0*)arg0->unknown_7fc_;
+            if (var3->unknown_c12_ == 0)
             {
 #if defined(jpn)
-                func_ov023_021e6158((CharacterModel*)self->nextCharacter, 0);
-                func_ov023_021e6158((CharacterModel*)self->nextCharacter, 2);
-                func_ov023_021e6158((CharacterModel*)self->nextCharacter, 3);
-                func_ov023_021e6158((CharacterModel*)self->nextCharacter, 4);
+                func_ov023_021e6158((Struct_ov009_021863d0*)arg0->unknown_7fc_, 0);
+                func_ov023_021e6158((Struct_ov009_021863d0*)arg0->unknown_7fc_, 2);
+                func_ov023_021e6158((Struct_ov009_021863d0*)arg0->unknown_7fc_, 3);
+                func_ov023_021e6158((Struct_ov009_021863d0*)arg0->unknown_7fc_, 4);
 #else
-                func_ov023_021e6158(next, 0);
-                func_ov023_021e6158(next, 2);
-                func_ov023_021e6158(next, 3);
-                func_ov023_021e6158(next, 4);
+                func_ov023_021e6158(var3, 0);
+                func_ov023_021e6158(var3, 2);
+                func_ov023_021e6158(var3, 3);
+                func_ov023_021e6158(var3, 4);
 #endif
             }
         }
-        if (result == -2)
+        if (var2 == -2)
         {
-            func_ov009_021855dc((unsigned char*)self, 2);
+            func_ov009_021855dc((unsigned char*)arg0, 2);
             return;
         }
-        if (result == -3)
+        if (var2 == -3)
         {
-            if (self->mode == 1)
-                self->flags &= ~0x400;
-            else if (self->mode == 0)
+            if (arg0->unknown_d95_ == 1)
+                arg0->unknown_d9c_ &= ~0x400;
+            else if (arg0->unknown_d95_ == 0)
                 #if defined(jpn)
-                *((unsigned char*)gameState + 0x6174) = 0;
+                *((unsigned char*)var0 + 0x6174) = 0;
 #else
-                *((unsigned char*)gameState + 0x63d4) = 0;
+                *((unsigned char*)var0 + 0x63d4) = 0;
 #endif
-            func_ov009_021855dc((unsigned char*)self, 11);
+            func_ov009_021855dc((unsigned char*)arg0, 11);
             return;
         }
-        if (result >= 101 && result <= 108)
+        if (var2 >= 101 && var2 <= 108)
         {
-            int state = result - 100;
-            if (state <= self->furthestState[self->sex] && state != self->state)
-                func_ov009_021855dc((unsigned char*)self, (unsigned char)state);
+            int var4 = var2 - 100;
+            if (var4 <= arg0->unknown_da0_[arg0->unknown_da3_] && var4 != arg0->unknown_c58_)
+                func_ov009_021855dc((unsigned char*)arg0, (unsigned char)var4);
         }
     }
 }

@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion45c = 0x284 };
-enum { kRegion4a0 = 0x2c8 };
+enum { Enum_ov003_0216664c_1116 = 0x284 };
+enum { Enum_ov003_0216664c_1184 = 0x2c8 };
 #else
-enum { kRegion45c = 0x45c };
-enum { kRegion4a0 = 0x4a0 };
+enum { Enum_ov003_0216664c_1116 = 0x45c };
+enum { Enum_ov003_0216664c_1184 = 0x4a0 };
 #endif
 
 
-extern "C" void func_ov003_021666c4(void* self);
+extern "C" void func_ov003_021666c4(void* arg0);
 
 // USA: func_ov003_0216664c
-extern "C" ARM void func_ov003_0216664c(void* self) {
-    int flags = *(int*)((char*)self + kRegion45c);
-    int changed = 0;
-    if (flags & 0x10) {
-        signed char v = *((signed char*)self + kRegion4a0);
-        changed = 1;
-        *((signed char*)self + kRegion4a0) = v + 1;
-    } else if (flags & 0x20) {
-        signed char v = *((signed char*)self + kRegion4a0);
-        changed = 1;
-        *((signed char*)self + kRegion4a0) = v - 1;
+extern "C" ARM void func_ov003_0216664c(void* arg0) {
+    int var0 = *(int*)((char*)arg0 + Enum_ov003_0216664c_1116);
+    int var1 = 0;
+    if (var0 & 0x10) {
+        signed char var2 = *((signed char*)arg0 + Enum_ov003_0216664c_1184);
+        var1 = 1;
+        *((signed char*)arg0 + Enum_ov003_0216664c_1184) = var2 + 1;
+    } else if (var0 & 0x20) {
+        signed char var3 = *((signed char*)arg0 + Enum_ov003_0216664c_1184);
+        var1 = 1;
+        *((signed char*)arg0 + Enum_ov003_0216664c_1184) = var3 - 1;
     }
-    signed char v = *((signed char*)self + kRegion4a0);
-    if (v >= 2) {
-        *((signed char*)self + kRegion4a0) = 0;
-    } else if (v < 0) {
-        *((signed char*)self + kRegion4a0) = 1;
+    signed char var4 = *((signed char*)arg0 + Enum_ov003_0216664c_1184);
+    if (var4 >= 2) {
+        *((signed char*)arg0 + Enum_ov003_0216664c_1184) = 0;
+    } else if (var4 < 0) {
+        *((signed char*)arg0 + Enum_ov003_0216664c_1184) = 1;
     }
-    if (changed) {
-        func_ov003_021666c4(self);
+    if (var1) {
+        func_ov003_021666c4(arg0);
     }
 }

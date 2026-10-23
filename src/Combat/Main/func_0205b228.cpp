@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 // USA: func_0205b228
-extern "C" ARM void func_0205b228(void* obj, int value, unsigned char flag) {
-    *(int*)((char*)obj + 0x4) = value;
-    *(unsigned char*)((char*)obj + 0x8) = flag;
+extern "C" ARM void func_0205b228(void* arg0, int arg1, unsigned char arg2) {
+    *(int*)((char*)arg0 + 0x4) = arg1;
+    *(unsigned char*)((char*)arg0 + 0x8) = arg2;
 }

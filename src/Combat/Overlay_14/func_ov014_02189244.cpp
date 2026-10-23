@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct S02189244 { int w0; int w1; int w2; int w3; int w4; };
+struct Struct_ov014_02188d48_4 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; int unknown_10_; };
 
-extern "C" int func_ov014_0218934c(S02189244* p0);
-extern "C" void func_ov014_021891f0(S02189244* p0, int p3);
+extern "C" int func_ov014_0218934c(Struct_ov014_02188d48_4* arg0);
+extern "C" void func_ov014_021891f0(Struct_ov014_02188d48_4* arg0, int arg1);
 
 // USA: func_ov014_02189244
-extern "C" ARM int func_ov014_02189244(S02189244* dst, S02189244* src, char* flagOut, int p3) {
-	*flagOut = 0;
-	if (src == NULL) return 0;
-	memcpy(dst, src, 0xc);
-	dst->w3 = (int)src + 0xc;
-	int r = func_ov014_0218934c(dst);
-	dst->w4 = (int)src + (r + 0xc);
-	if ((unsigned int)dst->w2 >> 31) {
-		*flagOut = 1;
+extern "C" ARM int func_ov014_02189244(Struct_ov014_02188d48_4* arg0, Struct_ov014_02188d48_4* arg1, char* arg2, int arg3) {
+	*arg2 = 0;
+	if (arg1 == NULL) return 0;
+	memcpy(arg0, arg1, 0xc);
+	arg0->unknown_c_ = (int)arg1 + 0xc;
+	int var0 = func_ov014_0218934c(arg0);
+	arg0->unknown_10_ = (int)arg1 + (var0 + 0xc);
+	if ((unsigned int)arg0->unknown_8_ >> 31) {
+		*arg2 = 1;
 		return 1;
 	}
-	func_ov014_021891f0(dst, p3);
-	dst->w2 = (dst->w2 & 0x7fffffff) | 0x80000000;
-	src->w2 = (src->w2 & 0x7fffffff) | 0x80000000;
+	func_ov014_021891f0(arg0, arg3);
+	arg0->unknown_8_ = (arg0->unknown_8_ & 0x7fffffff) | 0x80000000;
+	arg1->unknown_8_ = (arg1->unknown_8_ & 0x7fffffff) | 0x80000000;
 	return 1;
 }

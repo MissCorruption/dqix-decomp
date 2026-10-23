@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct FixedVec3_189c { int x; int y; int z; };
+struct Struct_020c189c { int unknown_0_; int unknown_4_; int unknown_8_; };
 
-struct FixedMtx43_189c {
-    struct FixedVec3_189c row0;
-    struct FixedVec3_189c row1;
-    struct FixedVec3_189c row2;
-    struct FixedVec3_189c row3;
+struct Struct_020c189c_2 {
+    struct Struct_020c189c unknown_0_;
+    struct Struct_020c189c unknown_c_;
+    struct Struct_020c189c unknown_18_;
+    struct Struct_020c189c unknown_24_;
 };
 
-extern "C" void func_020ca528(struct FixedMtx43_189c* src, struct FixedMtx43_189c* dst);
+extern "C" void func_020ca528(struct Struct_020c189c_2* src, struct Struct_020c189c_2* dst);
 
 // USA: func_020c189c
-extern "C" ARM void Mat4x3_ApplyTranslation(struct FixedMtx43_189c* src, struct FixedMtx43_189c* dst, int x, int y, int z) {
-    if (src != dst) func_020ca528(src, dst);
-    dst->row3.x = src->row3.x + (int)(((long long)x * src->row0.x + (long long)y * src->row1.x + (long long)z * src->row2.x) >> 12);
-    dst->row3.y = src->row3.y + (int)(((long long)x * src->row0.y + (long long)y * src->row1.y + (long long)z * src->row2.y) >> 12);
-    dst->row3.z = src->row3.z + (int)(((long long)x * src->row0.z + (long long)y * src->row1.z + (long long)z * src->row2.z) >> 12);
+extern "C" ARM void Mat4x3_ApplyTranslation(struct Struct_020c189c_2* arg0, struct Struct_020c189c_2* arg1, int arg2, int arg3, int arg4) {
+    if (arg0 != arg1) func_020ca528(arg0, arg1);
+    arg1->unknown_24_.unknown_0_ = arg0->unknown_24_.unknown_0_ + (int)(((long long)arg2 * arg0->unknown_0_.unknown_0_ + (long long)arg3 * arg0->unknown_c_.unknown_0_ + (long long)arg4 * arg0->unknown_18_.unknown_0_) >> 12);
+    arg1->unknown_24_.unknown_4_ = arg0->unknown_24_.unknown_4_ + (int)(((long long)arg2 * arg0->unknown_0_.unknown_4_ + (long long)arg3 * arg0->unknown_c_.unknown_4_ + (long long)arg4 * arg0->unknown_18_.unknown_4_) >> 12);
+    arg1->unknown_24_.unknown_8_ = arg0->unknown_24_.unknown_8_ + (int)(((long long)arg2 * arg0->unknown_0_.unknown_8_ + (long long)arg3 * arg0->unknown_c_.unknown_8_ + (long long)arg4 * arg0->unknown_18_.unknown_8_) >> 12);
 }

@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct Session0220f814 {
-    char padding_0[4];
-    int identifier;
-    char padding[8];
-    int unknown_10;
-    int unknown_14;
+struct Struct_ov031_0220f814_3 {
+    char unknown_0_[4];
+    int unknown_4_;
+    char unknown_8_[8];
+    int unknown_10_;
+    int unknown_14_;
 };
-struct NetworkContext0220f814 {
-    char padding[0x24];
-    Session0220f814* session;
+struct Struct_ov031_0220f814 {
+    char unknown_0_[0x24];
+    Struct_ov031_0220f814_3* unknown_24_;
 };
-struct SessionMessage0220f814 {
-    unsigned int length;
-    unsigned int magic;
-    unsigned int command;
-    int identifier;
-    int unknown_10;
-    int unknown_14;
+struct Struct_ov031_0220f814_2 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
 
 };
-extern NetworkContext0220f814* data_ov031_0224e580;
+extern Struct_ov031_0220f814* data_ov031_0224e580;
 extern "C" int func_ov031_0220fe44(int (*)(int*));
 extern "C" int func_ov031_0220f770(int*);
 extern "C" int func_ov031_0220ff18(void*);
@@ -29,17 +29,17 @@ extern "C" void func_ov031_0220fed8();
 
 // USA: func_ov031_0220f814
 extern "C" ARM void func_ov031_0220f814() {
-    char storage[0x414];
-    SessionMessage0220f814* message = (SessionMessage0220f814*)storage;
-    message->length = 0x18;
-    message->magic = 0x44535359;
-    NetworkContext0220f814* context = data_ov031_0224e580;
-    message->command = 0xdb;
-    message->identifier = context->session->identifier;
-    message->unknown_10 = context->session->unknown_10;
-    message->unknown_14 = context->session->unknown_14;
+    char var0[0x414];
+    Struct_ov031_0220f814_2* var1 = (Struct_ov031_0220f814_2*)var0;
+    var1->unknown_0_ = 0x18;
+    var1->unknown_4_ = 0x44535359;
+    Struct_ov031_0220f814* var2 = data_ov031_0224e580;
+    var1->unknown_8_ = 0xdb;
+    var1->unknown_c_ = var2->unknown_24_->unknown_4_;
+    var1->unknown_10_ = var2->unknown_24_->unknown_10_;
+    var1->unknown_14_ = var2->unknown_24_->unknown_14_;
     if (func_ov031_0220fe44(func_ov031_0220f770)) {
-        if (func_ov031_0220ff18(storage)) {
+        if (func_ov031_0220ff18(var0)) {
             func_ov031_0220fea0();
         }
     }

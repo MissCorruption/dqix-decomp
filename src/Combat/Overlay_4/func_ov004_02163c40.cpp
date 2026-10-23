@@ -6,30 +6,30 @@
 #include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
-struct MapList3C40 {
-    TreasureMapMetadata maps[99];
-    DetailedTreasureMapData details[8];
-    unsigned char count;
-    char field_18f5[5];
-    unsigned char sortMode;
-    char field_18fb[3];
-    unsigned char field_18fe;
+struct Struct_ov004_02163c40 {
+    TreasureMapMetadata unknown_0_[99];
+    DetailedTreasureMapData unknown_ad4_[8];
+    unsigned char unknown_18f4_;
+    char unknown_18f5_[5];
+    unsigned char unknown_18fa_;
+    char unknown_18fb_[3];
+    unsigned char unknown_18fe_;
 };
-struct Node3C40 { char field_0[0xc]; unsigned char flags; char field_d[0x38 - 0xd]; unsigned short selected; };
-struct Obj0205eaa0;
-extern MapList3C40* data_ov004_02171010;
-extern Obj0205eaa0 data_02108760;
+struct Struct_ov004_02163c40_2 { char unknown_0_[0xc]; unsigned char unknown_c_; char unknown_d_[0x38 - 0xd]; unsigned short unknown_38_; };
+struct Struct_02108760;
+extern Struct_ov004_02163c40* data_ov004_02171010;
+extern Struct_02108760 data_02108760;
 #if defined(jpn)
 extern unsigned short data_ov004_02170660[3];
 #else
 extern unsigned short data_ov004_0216fef8[3];
 #endif
 extern "C" void func_ov023_021f809c(void*, void*);
-extern "C" MessageSystem* func_020421a0();
-extern "C" int func_0205eaa0(Obj0205eaa0*, int, int);
-extern "C" void func_ov004_02163478(MapList3C40*);
+extern "C" Struct_02021b84* func_020421a0();
+extern "C" int func_0205eaa0(Struct_02108760*, int, int);
+extern "C" void func_ov004_02163478(Struct_ov004_02163c40*);
 extern "C" void* func_ov011_021849c8(void*);
-extern "C" Node3C40* func_ov023_021f6880(void*, int);
+extern "C" Struct_ov004_02163c40_2* func_ov023_021f6880(void*, int);
 extern "C" short func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021f6680(void*, int);
 extern "C" void func_ov023_021f6600(void*, int, int);
@@ -37,108 +37,108 @@ extern "C" void func_ov004_02164084(void*);
 
 // USA: func_ov004_02163c40
 // JPN: 0x02164150.
-extern "C" ARM int func_ov004_02163c40(void* self) {
-    TreasureMapMetadata maps[99];
-    unsigned short indices[99];
-    unsigned short scores[99];
-    DetailedTreasureMapData detail;
-    unsigned short modes[3];
-    int forward;
-    int backward;
-    int changed;
-    int last;
-    int first;
-    unsigned short selected;
-    int brightness = IsBrightnessTransitionActive(GetGameResources());
-    if (brightness && !data_ov004_02171010->field_18fe) return 0;
-    if (!data_ov004_02171010->count) return 0;
-    if (func_020421a0()->active) return 0;
-    if (!data_ov004_02171010->field_18fe) {
+extern "C" ARM int func_ov004_02163c40(void* arg0) {
+    TreasureMapMetadata var0[99];
+    unsigned short var1[99];
+    unsigned short var2[99];
+    DetailedTreasureMapData var3;
+    unsigned short var4[3];
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    unsigned short var10;
+    int var11 = IsBrightnessTransitionActive(GetGameResources());
+    if (var11 && !data_ov004_02171010->unknown_18fe_) return 0;
+    if (!data_ov004_02171010->unknown_18f4_) return 0;
+    if (func_020421a0()->unknown_998_) return 0;
+    if (!data_ov004_02171010->unknown_18fe_) {
         func_0205eaa0(&data_02108760, 1, 0);
     }
 #if defined(jpn)
-    COPY_ARRAY(modes, data_ov004_02170660);
+    COPY_ARRAY(var4, data_ov004_02170660);
 #else
-    COPY_ARRAY(modes, data_ov004_0216fef8);
+    COPY_ARRAY(var4, data_ov004_0216fef8);
 #endif
-    selected = modes[data_ov004_02171010->sortMode];
-    VectorizedInvertedMemcpy(data_ov004_02171010, maps, sizeof(maps));
-    for (int i = 0; i < 99; i++) indices[i] = i;
-    for (unsigned int i = 0; i < 99; i++) {
-        if (static_cast<int>(i) >= data_ov004_02171010->count) {
-            scores[i] = 0xffff;
+    var10 = var4[data_ov004_02171010->unknown_18fa_];
+    VectorizedInvertedMemcpy(data_ov004_02171010, var0, sizeof(var0));
+    for (int var12 = 0; var12 < 99; var12++) var1[var12] = var12;
+    for (unsigned int var13 = 0; var13 < 99; var13++) {
+        if (static_cast<int>(var13) >= data_ov004_02171010->unknown_18f4_) {
+            var2[var13] = 0xffff;
         } else {
-            scores[i] = 0;
-            detail.Clear();
-            ExportDetailedTreasureMapData(&data_ov004_02171010->maps[i], &detail, false, 0);
-            if (data_ov004_02171010->sortMode == 0) {
-                scores[i] += detail.discoveryState_ * 1000;
-                if (detail.mapType_ == 1) scores[i] += detail.regular_.level_ * 10;
-                else if (detail.mapType_ == 2) scores[i] += detail.legacy_.level_ * 10;
-                scores[i] += detail.mapType_;
-            } else if (data_ov004_02171010->sortMode == 1) {
-                if (detail.mapType_ == 1) scores[i] += detail.regular_.level_ * 10;
-                else if (detail.mapType_ == 2) scores[i] += detail.legacy_.level_ * 10;
-                scores[i] += detail.mapType_;
-            } else if (data_ov004_02171010->sortMode == 2) {
-                scores[i] += (2 - detail.mapType_) * 1000;
-                scores[i] += detail.discoveryState_ * 100;
-                if (detail.mapType_ == 1) scores[i] += detail.regular_.level_;
-                else if (detail.mapType_ == 2) scores[i] += detail.legacy_.level_;
+            var2[var13] = 0;
+            var3.Clear();
+            ExportDetailedTreasureMapData(&data_ov004_02171010->unknown_0_[var13], &var3, false, 0);
+            if (data_ov004_02171010->unknown_18fa_ == 0) {
+                var2[var13] += var3.discoveryState_ * 1000;
+                if (var3.mapType_ == 1) var2[var13] += var3.regular_.level_ * 10;
+                else if (var3.mapType_ == 2) var2[var13] += var3.legacy_.level_ * 10;
+                var2[var13] += var3.mapType_;
+            } else if (data_ov004_02171010->unknown_18fa_ == 1) {
+                if (var3.mapType_ == 1) var2[var13] += var3.regular_.level_ * 10;
+                else if (var3.mapType_ == 2) var2[var13] += var3.legacy_.level_ * 10;
+                var2[var13] += var3.mapType_;
+            } else if (data_ov004_02171010->unknown_18fa_ == 2) {
+                var2[var13] += (2 - var3.mapType_) * 1000;
+                var2[var13] += var3.discoveryState_ * 100;
+                if (var3.mapType_ == 1) var2[var13] += var3.regular_.level_;
+                else if (var3.mapType_ == 2) var2[var13] += var3.legacy_.level_;
             }
-            detail.BlankFunction();
+            var3.BlankFunction();
         }
     }
-    first = 0;
-    last = 98;
-    while (last > first) {
-        changed = 0;
-        for (forward = first; forward < last; forward++) {
-            unsigned short nextScore = scores[forward + 1];
-            unsigned short score = scores[forward];
-            if (score > nextScore) {
-                unsigned short index = indices[forward];
-                unsigned short nextIndex = indices[forward + 1];
-                scores[forward] = nextScore;
-                changed = forward;
-                indices[forward] = nextIndex;
-                scores[forward + 1] = score;
-                indices[forward + 1] = index;
+    var9 = 0;
+    var8 = 98;
+    while (var8 > var9) {
+        var7 = 0;
+        for (var5 = var9; var5 < var8; var5++) {
+            unsigned short var14 = var2[var5 + 1];
+            unsigned short var15 = var2[var5];
+            if (var15 > var14) {
+                unsigned short var16 = var1[var5];
+                unsigned short var17 = var1[var5 + 1];
+                var2[var5] = var14;
+                var7 = var5;
+                var1[var5] = var17;
+                var2[var5 + 1] = var15;
+                var1[var5 + 1] = var16;
             }
         }
-        last = changed;
-        first++;
-        for (backward = last; backward >= first; backward--) {
-            unsigned short score = scores[backward];
-            unsigned short previousScore = scores[backward - 1];
-            if (previousScore > score) {
-                unsigned short previousIndex = indices[backward - 1];
-                unsigned short index = indices[backward];
-                scores[backward - 1] = score;
-                changed = backward;
-                indices[backward - 1] = index;
-                scores[backward] = previousScore;
-                indices[backward] = previousIndex;
+        var8 = var7;
+        var9++;
+        for (var6 = var8; var6 >= var9; var6--) {
+            unsigned short var18 = var2[var6];
+            unsigned short var19 = var2[var6 - 1];
+            if (var19 > var18) {
+                unsigned short var20 = var1[var6 - 1];
+                unsigned short var21 = var1[var6];
+                var2[var6 - 1] = var18;
+                var7 = var6;
+                var1[var6 - 1] = var21;
+                var2[var6] = var19;
+                var1[var6] = var20;
             }
         }
-        first = changed;
+        var9 = var7;
     }
-    for (int i = 0; i < 99; i++) {
-        VectorizedInvertedMemcpy(&maps[indices[i]], &data_ov004_02171010->maps[i], sizeof(TreasureMapMetadata));
+    for (int var22 = 0; var22 < 99; var22++) {
+        VectorizedInvertedMemcpy(&var0[var1[var22]], &data_ov004_02171010->unknown_0_[var22], sizeof(TreasureMapMetadata));
     }
     func_ov004_02163478(data_ov004_02171010);
-    Node3C40* node = func_ov023_021f6880(func_ov011_021849c8(self), 0x35);
-    if (node && func_ov023_021f6f10(node) == 8) node->selected = selected;
+    Struct_ov004_02163c40_2* var23 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x35);
+    if (var23 && func_ov023_021f6f10(var23) == 8) var23->unknown_38_ = var10;
 #if defined(jpn)
-    Node3C40* refreshNode = func_ov023_021f6880(func_ov011_021849c8(self), 0x16);
-    if (!refreshNode) return 0;
-    if (func_ov023_021f6f10(refreshNode) != 6) return 0;
-    func_ov023_021f809c(refreshNode, self);
-    refreshNode->flags &= ~8;
+    Struct_ov004_02163c40_2* var24 = func_ov023_021f6880(func_ov011_021849c8(arg0), 0x16);
+    if (!var24) return 0;
+    if (func_ov023_021f6f10(var24) != 6) return 0;
+    func_ov023_021f809c(var24, arg0);
+    var24->unknown_c_ &= ~8;
 #else
-    func_ov023_021f6680(self, 0x16);
-    func_ov023_021f6600(self, 0x16, 8);
+    func_ov023_021f6680(arg0, 0x16);
+    func_ov023_021f6600(arg0, 0x16, 8);
 #endif
-    func_ov004_02164084(self);
+    func_ov004_02164084(arg0);
     return 0;
 }

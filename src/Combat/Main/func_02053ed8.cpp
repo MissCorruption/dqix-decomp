@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct U16Field0x6_020375f8;
+struct Struct_02039df4;
 struct Vector3i;
 
 // USA: func_02053ed8
-extern "C" ARM void func_02053ed8(void* obj) {
+extern "C" ARM void func_02053ed8(void* arg0) {
 #if defined(jpn)
-    enum { regionalOffset0 = 0x150 };
+    enum { Enum_02053ed8_348 = 0x150 };
 #else
-    enum { regionalOffset0 = 0x15c };
+    enum { Enum_02053ed8_348 = 0x15c };
 #endif
-    *(int*)((char*)obj + regionalOffset0) = ((Object3D*)((struct U16Field0x6_020375f8*)obj))->GetField06();
-    *(Vector3i*)((int*)((char*)obj + regionalOffset0 + 4)) = *(Vector3i const*)((int*)((char*)obj + 0x44));
-    *(Vector3i*)((int*)((char*)obj + regionalOffset0 + 0x10)) = *(Vector3i const*)((int*)((char*)obj + 0x50));
+    *(int*)((char*)arg0 + Enum_02053ed8_348) = ((Object3D*)((struct Struct_02039df4*)arg0))->GetField06();
+    *(Vector3i*)((int*)((char*)arg0 + Enum_02053ed8_348 + 4)) = *(Vector3i const*)((int*)((char*)arg0 + 0x44));
+    *(Vector3i*)((int*)((char*)arg0 + Enum_02053ed8_348 + 0x10)) = *(Vector3i const*)((int*)((char*)arg0 + 0x50));
 }

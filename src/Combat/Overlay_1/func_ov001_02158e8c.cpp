@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct InitStruct02158828;
-extern "C" void func_ov001_02158828(struct InitStruct02158828* obj);
+struct Struct_ov001_02158828;
+extern "C" void func_ov001_02158828(struct Struct_ov001_02158828* arg0);
 
-struct Obj0x30_02158e8c {
-    char pad[0x30];
-    int f30;
-    int f34;
+struct Struct_ov001_02158e8c {
+    char unknown_0_[0x30];
+    int unknown_30_;
+    int unknown_34_;
 };
 
 // USA: func_ov001_02158e8c
-extern "C" ARM void* func_ov001_02158e8c(struct Obj0x30_02158e8c* obj, struct InitStruct02158828* p1, int mode) {
-    if (p1 == NULL) {
+extern "C" ARM void* func_ov001_02158e8c(struct Struct_ov001_02158e8c* arg0, struct Struct_ov001_02158828* arg1, int arg2) {
+    if (arg1 == NULL) {
         return NULL;
     }
-    void* result = *(void**)((char*)p1 + 0x48);
-    switch (mode) {
+    void* var0 = *(void**)((char*)arg1 + 0x48);
+    switch (arg2) {
         case 0:
-            if (obj->f30 == 0) {
-                func_ov001_02158828(p1);
+            if (arg0->unknown_30_ == 0) {
+                func_ov001_02158828(arg1);
             }
             break;
         case 1:
-            if (obj->f34 == 0) {
-                func_ov001_02158828(p1);
+            if (arg0->unknown_34_ == 0) {
+                func_ov001_02158828(arg1);
             }
             break;
         case 2:
-            func_ov001_02158828(p1);
+            func_ov001_02158828(arg1);
             break;
         default:
             break;
     }
-    return result;
+    return var0;
 }

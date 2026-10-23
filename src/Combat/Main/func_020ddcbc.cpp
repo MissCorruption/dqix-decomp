@@ -1,63 +1,63 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kSlotsPointerOffset = 0x144 };
+enum { Enum_020ddcbc_336 = 0x144 };
 #else
-enum { kSlotsPointerOffset = 0x150 };
+enum { Enum_020ddcbc_336 = 0x150 };
 #endif
 #include "GameState/GameState.h"
 
-struct Element020de650 { unsigned int v[8]; };
-struct ElementFlagsWord020de650 {
-    unsigned int kind : 4;
+struct Struct_0201099c_9 { unsigned int unknown_0_[8]; };
+struct Struct_020ddcbc {
+    unsigned int unknown_0_0_ : 4;
     unsigned int : 27;
-    unsigned int topFlag : 1;
+    unsigned int unknown_3_7_ : 1;
 };
-struct Container020dedd0;
-struct Slots0208386c { unsigned char pad[0x454]; short slots[8]; };
-struct S_a0504;
+struct Struct_0201099c_10;
+struct Struct_02061c04_22 { unsigned char unknown_0_[0x454]; short unknown_454_[8]; };
+struct Struct_020a0504;
 
-extern "C" struct Element020de650* func_020dedd0(struct Container020dedd0* c, int key);
-extern "C" int func_020ddb20(unsigned int* obj);
-extern "C" void func_0208386c(struct Slots0208386c* s, int idx);
-extern "C" int func_020ac4c0(void* dst);
-extern "C" void func_020a0504(struct S_a0504* p, unsigned int amount);
-extern "C" int func_020ac494(void* src);
+extern "C" struct Struct_0201099c_9* func_020dedd0(struct Struct_0201099c_10* arg0, int arg1);
+extern "C" int func_020ddb20(unsigned int* arg0);
+extern "C" void func_0208386c(struct Struct_02061c04_22* arg0, int arg1);
+extern "C" int func_020ac4c0(void* arg0);
+extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
+extern "C" int func_020ac494(void* arg0);
 
 // USA: func_020ddcbc
-extern "C" ARM int func_020ddcbc(int n, int idx, struct Container020dedd0* container) {
-    GameObject* combatant;
-    short* slotsArr;
-    struct Element020de650* elem;
-    int inRange;
-    char localBuf[0xb0];
+extern "C" ARM int func_020ddcbc(int arg0, int arg1, struct Struct_0201099c_10* arg2) {
+    GameObject* var0;
+    short* var1;
+    struct Struct_0201099c_9* var2;
+    int var3;
+    char var4[0xb0];
 
-    inRange = (n >= 0 && n <= 3);
-    if (!inRange) return 0;
-    if (container == 0) return 0;
-    if (idx < 0 || idx >= 8) return 0;
+    var3 = (arg0 >= 0 && arg0 <= 3);
+    if (!var3) return 0;
+    if (arg2 == 0) return 0;
+    if (arg1 < 0 || arg1 >= 8) return 0;
 
-    combatant = func_0200ff1c(GameState::GetInstance(), n);
-    if (combatant == 0) return 0;
+    var0 = func_0200ff1c(GameState::GetInstance(), arg0);
+    if (var0 == 0) return 0;
 
-    slotsArr = (short*)((char*)(*(struct Slots0208386c**)((char*)combatant + kSlotsPointerOffset)) + 0x454);
-    if (slotsArr == 0) return 0;
+    var1 = (short*)((char*)(*(struct Struct_02061c04_22**)((char*)var0 + Enum_020ddcbc_336)) + 0x454);
+    if (var1 == 0) return 0;
 
-    elem = func_020dedd0(container, slotsArr[idx]);
-    if (elem == 0) return 0;
-    if (!func_020ddb20(elem->v)) return 0;
+    var2 = func_020dedd0(arg2, var1[arg1]);
+    if (var2 == 0) return 0;
+    if (!func_020ddb20(var2->unknown_0_)) return 0;
 
-    switch (((struct ElementFlagsWord020de650*)&elem->v[2])->kind) {
+    switch (((struct Struct_020ddcbc*)&var2->unknown_0_[2])->unknown_0_0_) {
         case 8:
         case 9:
         case 0xa:
-            func_0208386c(*(struct Slots0208386c**)((char*)combatant + kSlotsPointerOffset), (signed char)idx);
+            func_0208386c(*(struct Struct_02061c04_22**)((char*)var0 + Enum_020ddcbc_336), (signed char)arg1);
             break;
     }
 
-    if (((struct ElementFlagsWord020de650*)&elem->v[2])->topFlag) {
-        func_020ac4c0(localBuf);
-        func_020a0504((struct S_a0504*)localBuf, 1);
-        func_020ac494(localBuf);
+    if (((struct Struct_020ddcbc*)&var2->unknown_0_[2])->unknown_3_7_) {
+        func_020ac4c0(var4);
+        func_020a0504((struct Struct_020a0504*)var4, 1);
+        func_020ac494(var4);
     }
     return 1;
 }

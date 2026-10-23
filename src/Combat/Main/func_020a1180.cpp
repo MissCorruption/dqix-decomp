@@ -3,77 +3,77 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct BitfieldRecord020a1380 {
-    unsigned int f0 : 9;
-    unsigned int f1 : 9;
-    unsigned int f2 : 9;
-    unsigned int f3 : 3;
-    unsigned int f4 : 2;
-    int next;
-    int prev;
+struct Struct_020a1180 {
+    unsigned int unknown_0_0_ : 9;
+    unsigned int unknown_1_1_ : 9;
+    unsigned int unknown_2_2_ : 9;
+    unsigned int unknown_3_3_ : 3;
+    unsigned int unknown_3_6_ : 2;
+    int unknown_4_;
+    int unknown_8_;
 };
-extern "C" void func_020a1380(struct BitfieldRecord020a1380* rec);
+extern "C" void func_020a1380(struct Struct_020a1180* arg0);
 
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
-struct Elem020a1568;
-struct Array020a1568;
-extern "C" void func_020a1568(struct Array020a1568* arr, struct Elem020a1568* src);
+struct Struct_020a1180_2;
+struct Struct_020a1568;
+extern "C" void func_020a1568(struct Struct_020a1568* arg0, struct Struct_020a1180_2* arg1);
 
 unsigned char data_02109d94;
 unsigned short data_02109d96;
-struct Array020a1568* data_02109d98;
+struct Struct_020a1568* data_02109d98;
 SafeAllocator* data_02109d9c;
 short* data_02109da0;
 
 extern const char data_020f1914[];
 
 // USA: func_020a1180
-extern "C" ARM int func_020a1180(Script::Parameter* params, int numParams) {
-    struct BitfieldRecord020a1380 rec;
-    func_020a1380(&rec);
-    func_020a1380(&rec);
+extern "C" ARM int func_020a1180(Script::Parameter* arg0, int arg1) {
+    struct Struct_020a1180 var0;
+    func_020a1380(&var0);
+    func_020a1380(&var0);
 
-    rec.f0 = params[0].ToInt();
+    var0.unknown_0_0_ = arg0[0].ToInt();
 
     if (data_02109da0 != 0 && data_02109d96 != 0) {
-        bool found = false;
-        for (int i = 0; i < data_02109d96; i++) {
-            if (rec.f0 == data_02109da0[i]) {
-                found = true;
+        bool var1 = false;
+        for (int var2 = 0; var2 < data_02109d96; var2++) {
+            if (var0.unknown_0_0_ == data_02109da0[var2]) {
+                var1 = true;
                 break;
             }
         }
-        if (!found) {
+        if (!var1) {
             return 1;
         }
     }
 
-    rec.f1 = params[1].ToInt();
-    rec.f2 = params[2].ToInt();
-    rec.f3 = params[3].ToInt();
+    var0.unknown_1_1_ = arg0[1].ToInt();
+    var0.unknown_2_2_ = arg0[2].ToInt();
+    var0.unknown_3_3_ = arg0[3].ToInt();
 
     if (!(data_02109d94 & 1)) {
-        if (rec.f3 == 0 || rec.f3 == 1) return 1;
+        if (var0.unknown_3_3_ == 0 || var0.unknown_3_3_ == 1) return 1;
     }
     if (!(data_02109d94 & 2)) {
-        if (rec.f3 == 2) return 1;
+        if (var0.unknown_3_3_ == 2) return 1;
     }
     if (!(data_02109d94 & 4)) {
-        if (rec.f3 == 7) return 1;
+        if (var0.unknown_3_3_ == 7) return 1;
     }
     if (!(data_02109d94 & 8)) {
-        if (rec.f3 == 3 || rec.f3 == 4 || rec.f3 == 5 || rec.f3 == 6) return 1;
+        if (var0.unknown_3_3_ == 3 || var0.unknown_3_3_ == 4 || var0.unknown_3_3_ == 5 || var0.unknown_3_3_ == 6) return 1;
     }
 
-    rec.f4 = params[4].ToInt();
+    var0.unknown_3_6_ = arg0[4].ToInt();
 
-    const char* src = params[5].ToString();
-    int len = func_020d2ff0(src);
-    rec.next = (int)data_02109d9c->Allocate(len + 1);
-    sprintf((char*)rec.next, data_020f1914, src);
-    ((char*)rec.next)[len] = 0;
-    func_020a1568(data_02109d98, (struct Elem020a1568*)&rec);
+    const char* var3 = arg0[5].ToString();
+    int var4 = func_020d2ff0(var3);
+    var0.unknown_4_ = (int)data_02109d9c->Allocate(var4 + 1);
+    sprintf((char*)var0.unknown_4_, data_020f1914, var3);
+    ((char*)var0.unknown_4_)[var4] = 0;
+    func_020a1568(data_02109d98, (struct Struct_020a1180_2*)&var0);
 
     return 1;
 }

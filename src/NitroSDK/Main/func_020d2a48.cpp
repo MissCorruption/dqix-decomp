@@ -1,39 +1,39 @@
 #include <globaldefs.h>
 #include "NitroSDK/Cache.h"
 
-struct SNDSharedWork {
-    unsigned int finishCommandTag;
-    unsigned int playerStatus;
-    unsigned short channelStatus;
-    unsigned short captureStatus;
-    unsigned int padding[5];
+struct Struct_020d2a48 {
+    unsigned int unknown_0_;
+    unsigned int unknown_4_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned int unknown_c_[5];
     struct {
-        short variable[16];
-        unsigned int tickCounter;
-    } player[16];
-    short globalVariable[16];
+        short unknown_0_[16];
+        unsigned int unknown_20_;
+    } unknown_20_[16];
+    short unknown_260_[16];
 };
 
 // USA: func_020d2a48
-extern "C" ARM void func_020d2a48(void* p0) {
-    SNDSharedWork* work = (SNDSharedWork*)p0;
-    int playerNo, variableNo;
+extern "C" ARM void func_020d2a48(void* arg0) {
+    Struct_020d2a48* var0 = (Struct_020d2a48*)arg0;
+    int var1, var2;
 
-    work->playerStatus = 0;
-    work->channelStatus = 0;
-    work->captureStatus = 0;
-    work->finishCommandTag = 0;
+    var0->unknown_4_ = 0;
+    var0->unknown_8_ = 0;
+    var0->unknown_a_ = 0;
+    var0->unknown_0_ = 0;
 
-    for (playerNo = 0; playerNo < 16; playerNo++) {
-        work->player[playerNo].tickCounter = 0;
-        for (variableNo = 0; variableNo < 16; variableNo++) {
-            work->player[playerNo].variable[variableNo] = -1;
+    for (var1 = 0; var1 < 16; var1++) {
+        var0->unknown_20_[var1].unknown_20_ = 0;
+        for (var2 = 0; var2 < 16; var2++) {
+            var0->unknown_20_[var1].unknown_0_[var2] = -1;
         }
     }
 
-    for (variableNo = 0; variableNo < 16; variableNo++) {
-        work->globalVariable[variableNo] = -1;
+    for (var2 = 0; var2 < 16; var2++) {
+        var0->unknown_260_[var2] = -1;
     }
 
-    CleanInvalidateCacheRange(work, sizeof(SNDSharedWork));
+    CleanInvalidateCacheRange(var0, sizeof(Struct_020d2a48));
 }

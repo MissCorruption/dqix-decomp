@@ -4,30 +4,30 @@
 
 float CalculatePhysicalDamage(int attack, int defense, struct Random* random);
 
-struct DamageCtx_021d8ad8 {
-    struct Random* random;
+struct Struct_ov024_021d8ad8 {
+    struct Random* unknown_0_;
 
-    struct Random* GetRandom() { return random; }
+    struct Random* inline_ov024_021d8ad8() { return unknown_0_; }
 };
 
-static inline unsigned short GetAttack(GameObject* obj) {
-    return obj->currentStats_->primaryStats.attack;
+static inline unsigned short inline_ov024_021d8ad8_2(GameObject* arg0) {
+    return arg0->currentStats_->primaryStats.attack;
 }
 
-static inline unsigned short GetDefense(GameObject* obj) {
-    return obj->currentStats_->primaryStats.defense;
+static inline unsigned short inline_ov024_021d8ad8_3(GameObject* arg0) {
+    return arg0->currentStats_->primaryStats.defense;
 }
 
 // USA: func_ov024_021d8ad8
-extern "C" ARM int func_ov024_021d8ad8(struct DamageCtx_021d8ad8* ctx, int attackerIdx, int defenderIdx, int c, int d, int fallback) {
-    GameState* gameState = GameState::GetInstance();
-    GameObject* attacker = gameState->GetCombatantByIndex(attackerIdx);
-    GameObject* defender = gameState->GetCombatantByIndex(defenderIdx);
-    if (attacker == NULL || defender == NULL) {
-        return fallback;
+extern "C" ARM int func_ov024_021d8ad8(struct Struct_ov024_021d8ad8* arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+    GameState* var0 = GameState::GetInstance();
+    GameObject* var1 = var0->GetCombatantByIndex(arg1);
+    GameObject* var2 = var0->GetCombatantByIndex(arg2);
+    if (var1 == NULL || var2 == NULL) {
+        return arg5;
     }
-    struct Random* random = ctx->GetRandom();
-    unsigned short defense = GetDefense(defender);
-    unsigned short attack = GetAttack(attacker);
-    return (int)CalculatePhysicalDamage((int)(attack * 0.75f), (int)(float)defense, random);
+    struct Random* var3 = arg0->inline_ov024_021d8ad8();
+    unsigned short var4 = inline_ov024_021d8ad8_3(var2);
+    unsigned short var5 = inline_ov024_021d8ad8_2(var1);
+    return (int)CalculatePhysicalDamage((int)(var5 * 0.75f), (int)(float)var4, var3);
 }

@@ -11,82 +11,82 @@ extern "C" const unsigned int data_ov031_022460e8[10];
      ((unsigned int)(p)[2] << 8) ^ ((unsigned int)(p)[3]))
 
 // USA: func_ov031_022212c4
-extern "C" THUMB int func_ov031_022212c4(unsigned int *rk, const unsigned char *cipherKey,
-                                          int keyBits) {
-    int i = 0;
-    unsigned int temp;
+extern "C" THUMB int func_ov031_022212c4(unsigned int *arg0, const unsigned char *arg1,
+                                          int arg2) {
+    int var0 = 0;
+    unsigned int var1;
 
-    rk[0] = GETU32(cipherKey     );
-    rk[1] = GETU32(cipherKey +  4);
-    rk[2] = GETU32(cipherKey +  8);
-    rk[3] = GETU32(cipherKey + 12);
-    if (keyBits == 128) {
+    arg0[0] = GETU32(arg1     );
+    arg0[1] = GETU32(arg1 +  4);
+    arg0[2] = GETU32(arg1 +  8);
+    arg0[3] = GETU32(arg1 + 12);
+    if (arg2 == 128) {
         for (;;) {
-            temp  = rk[3];
-            rk[4] = rk[0] ^
-                (Te4[(temp >> 16) & 0xff] & 0xff000000) ^
-                (Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
-                (Te4[(temp      ) & 0xff] & 0x0000ff00) ^
-                (Te4[(temp >> 24)       ] & 0x000000ff) ^
-                rcon[i];
-            rk[5] = rk[1] ^ rk[4];
-            rk[6] = rk[2] ^ rk[5];
-            rk[7] = rk[3] ^ rk[6];
-            if (++i >= 10) {
+            var1  = arg0[3];
+            arg0[4] = arg0[0] ^
+                (Te4[(var1 >> 16) & 0xff] & 0xff000000) ^
+                (Te4[(var1 >>  8) & 0xff] & 0x00ff0000) ^
+                (Te4[(var1      ) & 0xff] & 0x0000ff00) ^
+                (Te4[(var1 >> 24)       ] & 0x000000ff) ^
+                rcon[var0];
+            arg0[5] = arg0[1] ^ arg0[4];
+            arg0[6] = arg0[2] ^ arg0[5];
+            arg0[7] = arg0[3] ^ arg0[6];
+            if (++var0 >= 10) {
                 return 10;
             }
-            rk += 4;
+            arg0 += 4;
         }
     }
-    rk[4] = GETU32(cipherKey + 16);
-    rk[5] = GETU32(cipherKey + 20);
-    if (keyBits == 192) {
+    arg0[4] = GETU32(arg1 + 16);
+    arg0[5] = GETU32(arg1 + 20);
+    if (arg2 == 192) {
         for (;;) {
-            temp = rk[ 5];
-            rk[ 6] = rk[ 0] ^
-                (Te4[(temp >> 16) & 0xff] & 0xff000000) ^
-                (Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
-                (Te4[(temp      ) & 0xff] & 0x0000ff00) ^
-                (Te4[(temp >> 24)       ] & 0x000000ff) ^
-                rcon[i];
-            rk[ 7] = rk[ 1] ^ rk[ 6];
-            rk[ 8] = rk[ 2] ^ rk[ 7];
-            rk[ 9] = rk[ 3] ^ rk[ 8];
-            if (++i >= 8) {
+            var1 = arg0[ 5];
+            arg0[ 6] = arg0[ 0] ^
+                (Te4[(var1 >> 16) & 0xff] & 0xff000000) ^
+                (Te4[(var1 >>  8) & 0xff] & 0x00ff0000) ^
+                (Te4[(var1      ) & 0xff] & 0x0000ff00) ^
+                (Te4[(var1 >> 24)       ] & 0x000000ff) ^
+                rcon[var0];
+            arg0[ 7] = arg0[ 1] ^ arg0[ 6];
+            arg0[ 8] = arg0[ 2] ^ arg0[ 7];
+            arg0[ 9] = arg0[ 3] ^ arg0[ 8];
+            if (++var0 >= 8) {
                 return 12;
             }
-            rk[10] = rk[ 4] ^ rk[ 9];
-            rk[11] = rk[ 5] ^ rk[10];
-            rk += 6;
+            arg0[10] = arg0[ 4] ^ arg0[ 9];
+            arg0[11] = arg0[ 5] ^ arg0[10];
+            arg0 += 6;
         }
     }
-    rk[6] = GETU32(cipherKey + 24);
-    rk[7] = GETU32(cipherKey + 28);
-    if (keyBits == 256) {
+    arg0[6] = GETU32(arg1 + 24);
+    arg0[7] = GETU32(arg1 + 28);
+    if (arg2 == 256) {
         for (;;) {
-            temp = rk[ 7];
-            rk[ 8] = rk[ 0] ^
-                (Te4[(temp >> 16) & 0xff] & 0xff000000) ^
-                (Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
-                (Te4[(temp      ) & 0xff] & 0x0000ff00) ^
-                (Te4[(temp >> 24)       ] & 0x000000ff) ^
-                rcon[i];
-            rk[ 9] = rk[ 1] ^ rk[ 8];
-            rk[10] = rk[ 2] ^ rk[ 9];
-            rk[11] = rk[ 3] ^ rk[10];
-            if (++i >= 7) {
+            var1 = arg0[ 7];
+            arg0[ 8] = arg0[ 0] ^
+                (Te4[(var1 >> 16) & 0xff] & 0xff000000) ^
+                (Te4[(var1 >>  8) & 0xff] & 0x00ff0000) ^
+                (Te4[(var1      ) & 0xff] & 0x0000ff00) ^
+                (Te4[(var1 >> 24)       ] & 0x000000ff) ^
+                rcon[var0];
+            arg0[ 9] = arg0[ 1] ^ arg0[ 8];
+            arg0[10] = arg0[ 2] ^ arg0[ 9];
+            arg0[11] = arg0[ 3] ^ arg0[10];
+            if (++var0 >= 7) {
                 return 14;
             }
-            temp = rk[11];
-            rk[12] = rk[ 4] ^
-                (Te4[(temp >> 24)       ] & 0xff000000) ^
-                (Te4[(temp >> 16) & 0xff] & 0x00ff0000) ^
-                (Te4[(temp >>  8) & 0xff] & 0x0000ff00) ^
-                (Te4[(temp      ) & 0xff] & 0x000000ff);
-            rk[13] = rk[ 5] ^ rk[12];
-            rk[14] = rk[ 6] ^ rk[13];
-            rk[15] = rk[ 7] ^ rk[14];
-            rk += 8;
+            var1 = arg0[11];
+            arg0[12] = arg0[ 4] ^
+                (Te4[(var1 >> 24)       ] & 0xff000000) ^
+                (Te4[(var1 >> 16) & 0xff] & 0x00ff0000) ^
+                (Te4[(var1 >>  8) & 0xff] & 0x0000ff00) ^
+                (Te4[(var1      ) & 0xff] & 0x000000ff);
+            arg0[13] = arg0[ 5] ^ arg0[12];
+            arg0[14] = arg0[ 6] ^ arg0[13];
+            arg0[15] = arg0[ 7] ^ arg0[14];
+            arg0 += 8;
         }
     }
     return 0;

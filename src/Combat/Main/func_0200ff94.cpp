@@ -2,17 +2,17 @@
 #include "GameState/GameState.h"
 
 // USA: func_0200ff94
-extern "C" ARM GameObject* func_0200ff94(GameState* battleStruct, int combatantId) {
-    GameObject* combatant;
-    if (combatantId < 0) {
+extern "C" ARM GameObject* func_0200ff94(GameState* arg0, int arg1) {
+    GameObject* var0;
+    if (arg1 < 0) {
         return 0;
     }
-    if (combatantId >= 0xE9) {
+    if (arg1 >= 0xE9) {
         return 0;
     }
-    combatant = battleStruct->objects_[combatantId];
-    if (combatant == 0) {
+    var0 = arg0->objects_[arg1];
+    if (var0 == 0) {
         return 0;
     }
-    return combatant;
+    return var0;
 }

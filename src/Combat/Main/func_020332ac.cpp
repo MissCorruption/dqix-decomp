@@ -2,83 +2,83 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
-struct Obj02033710;
-struct MovingObject : Object3D {
-    short field_ac, targetHeading, headingSpeed;
-    short speed, maximumSpeed, acceleration;
-    char paddingb8[6];
-    unsigned char state, previousState;
-    char paddingc0[3];
-    unsigned char delay;
-    unsigned short flagsc4;
-    short correctionSpeed;
-    Vector3fix correctionTarget;
-    Vector3fix target;
-    unsigned char reserved0 : 2;
-    unsigned char paused : 1;
-    unsigned char reserved3 : 1;
-    unsigned char moving : 1;
-    unsigned char teleport : 1;
-    unsigned char reserved6 : 2;
+struct Struct_020332ac_2;
+struct Struct_020332ac : Object3D {
+    short unknown_ac_, unknown_ae_, unknown_b0_;
+    short unknown_b2_, unknown_b4_, unknown_b6_;
+    char unknown_b8_[6];
+    unsigned char unknown_be_, unknown_bf_;
+    char unknown_c0_[3];
+    unsigned char unknown_c3_;
+    unsigned short unknown_c4_;
+    short unknown_c6_;
+    Vector3fix unknown_c8_;
+    Vector3fix unknown_d4_;
+    unsigned char unknown_e0_0_ : 2;
+    unsigned char unknown_e0_2_ : 1;
+    unsigned char unknown_e0_3_ : 1;
+    unsigned char unknown_e0_4_ : 1;
+    unsigned char unknown_e0_5_ : 1;
+    unsigned char unknown_e0_6_ : 2;
 };
-struct AnimationNext { signed char state; char padding1[12]; };
-extern AnimationNext data_020ef9d0[];
-extern "C" void func_02033710(Obj02033710*);
+struct Struct_020ef9d0 { signed char unknown_0_; char unknown_1_[12]; };
+extern Struct_020ef9d0 data_020ef9d0[];
+extern "C" void func_02033710(Struct_020332ac_2*);
 extern "C" void func_02033e38(void*);
-extern "C" void func_0203348c(MovingObject*);
-extern "C" void func_02033ce8(MovingObject*);
-extern "C" void func_020339c8(MovingObject*);
+extern "C" void func_0203348c(Struct_020332ac*);
+extern "C" void func_02033ce8(Struct_020332ac*);
+extern "C" void func_020339c8(Struct_020332ac*);
 
 // USA: func_020332ac
-extern "C" ARM void func_020332ac(MovingObject* object) {
-    if (!object->paused) {
-        func_02033710((Obj02033710*)object);
-        func_0203348c(object);
-        if (object->moving) {
-            object->moving = 0;
-            if (object->teleport) {
-                object->teleport = 0;
-                object->position_ = object->target;
+extern "C" ARM void func_020332ac(Struct_020332ac* arg0) {
+    if (!arg0->unknown_e0_2_) {
+        func_02033710((Struct_020332ac_2*)arg0);
+        func_0203348c(arg0);
+        if (arg0->unknown_e0_4_) {
+            arg0->unknown_e0_4_ = 0;
+            if (arg0->unknown_e0_5_) {
+                arg0->unknown_e0_5_ = 0;
+                arg0->position_ = arg0->unknown_d4_;
             } else {
-                Vector3fix difference;
-                Vector3fix_Subtract(&object->target, &object->position_, &difference);
-                int distance = Vector3fix_Length(&difference);
-                if (distance > 0) {
-                    GameState* game = GameState::GetInstance();
-                    int acceleration = object->acceleration * game->GetTickCount();
-                    Vector3fix direction;
-                    Vector3fixMultiplyScalar(&difference, fix32_Divide(0x1000, distance), &direction);
-                    if (object->speed <= distance) {
-                        object->speed += acceleration;
-                        if (object->maximumSpeed < object->speed) object->speed = object->maximumSpeed;
+                Vector3fix var0;
+                Vector3fix_Subtract(&arg0->unknown_d4_, &arg0->position_, &var0);
+                int var1 = Vector3fix_Length(&var0);
+                if (var1 > 0) {
+                    GameState* var2 = GameState::GetInstance();
+                    int var3 = arg0->unknown_b6_ * var2->GetTickCount();
+                    Vector3fix var4;
+                    Vector3fixMultiplyScalar(&var0, fix32_Divide(0x1000, var1), &var4);
+                    if (arg0->unknown_b2_ <= var1) {
+                        arg0->unknown_b2_ += var3;
+                        if (arg0->unknown_b4_ < arg0->unknown_b2_) arg0->unknown_b2_ = arg0->unknown_b4_;
                     } else {
-                        object->speed -= acceleration;
-                        if (object->speed < 0) object->speed = 0;
+                        arg0->unknown_b2_ -= var3;
+                        if (arg0->unknown_b2_ < 0) arg0->unknown_b2_ = 0;
                     }
-                    int speed = object->speed * game->GetTickCount();
-                    if (distance < speed) speed = distance;
-                    Vector3fix step;
-                    Vector3fixMultiplyScalar(&direction, speed, &step);
-                    Vector3fix position;
-                    Vector3fix_Add(&object->position_, &step, &position);
-                    object->position_ = position;
-                } else object->speed = 0;
+                    int var5 = arg0->unknown_b2_ * var2->GetTickCount();
+                    if (var1 < var5) var5 = var1;
+                    Vector3fix var6;
+                    Vector3fixMultiplyScalar(&var4, var5, &var6);
+                    Vector3fix var7;
+                    Vector3fix_Add(&arg0->position_, &var6, &var7);
+                    arg0->position_ = var7;
+                } else arg0->unknown_b2_ = 0;
             }
         }
-        func_02033e38(object);
-        if (object->HasAnimationStopped() || object->HasAnimationReachedEnd()) {
-            object->previousState = object->state;
-            int state = data_020ef9d0[(short)object->state].state;
-            if (state > -1) object->state = state;
-            func_02033ce8(object);
+        func_02033e38(arg0);
+        if (arg0->HasAnimationStopped() || arg0->HasAnimationReachedEnd()) {
+            arg0->unknown_bf_ = arg0->unknown_be_;
+            int var8 = data_020ef9d0[(short)arg0->unknown_be_].unknown_0_;
+            if (var8 > -1) arg0->unknown_be_ = var8;
+            func_02033ce8(arg0);
         }
     }
-    int delay = object->delay;
-    if (delay) {
-        delay -= GameState::GetInstance()->GetTickCount();
-        if (delay < 0) delay = 0;
-        object->delay = delay;
+    int var9 = arg0->unknown_c3_;
+    if (var9) {
+        var9 -= GameState::GetInstance()->GetTickCount();
+        if (var9 < 0) var9 = 0;
+        arg0->unknown_c3_ = var9;
     }
-    func_020339c8(object);
-    object->AdvanceEffects();
+    func_020339c8(arg0);
+    arg0->AdvanceEffects();
 }

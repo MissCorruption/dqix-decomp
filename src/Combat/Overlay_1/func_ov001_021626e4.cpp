@@ -3,80 +3,80 @@
 #include "NitroSDK/Graphics.h"
 #include "NitroSDK/VRAM.h"
 
-struct Background021626e4 {
-    char unk_0[0x1c];
-    unsigned char screen : 4;
-    unsigned char layer : 4;
-    char unk_1d[3];
+struct Struct_ov001_021626e4 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    char unknown_1d_[3];
 };
 
-extern "C" int func_ov017_021d612c(void* args);
-extern "C" int func_ov017_021d60f4(void* args);
-extern "C" unsigned int func_ov001_0215a750(const char* path, void** outPtr);
-struct ActiveEntry02046900;
-extern "C" int func_02046900(ActiveEntry02046900*);
-struct Rec020467f0;
-extern "C" void* func_020467f0(Rec020467f0*, int, void**, int*);
-extern "C" void func_ov001_02162678(int a, int b, int c, int d);
-extern "C" void func_020c3984(unsigned int mode);
-extern "C" void func_ov001_021628d4(int a, int b, int c, int d);
-struct List0204af64;
-extern "C" void func_0204af64(List0204af64*);
-extern "C" void func_0204b5b4(Background021626e4* background, int a);
+extern "C" int func_ov017_021d612c(void* arg0);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
+struct Struct_02020cb8_4;
+extern "C" int func_02046900(Struct_02020cb8_4*);
+struct Struct_02020aec;
+extern "C" void* func_020467f0(Struct_02020aec*, int, void**, int*);
+extern "C" void func_ov001_02162678(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void func_ov001_021628d4(int arg0, int arg1, int arg2, int arg3);
+struct Struct_02020cb8;
+extern "C" void func_0204af64(Struct_02020cb8*);
+extern "C" void func_0204b5b4(Struct_ov001_021626e4* arg0, int arg1);
 extern "C" void func_0204b11c(unsigned char*, int);
-struct Obj0204b5e8;
-extern "C" void func_0204b5e8(Obj0204b5e8*, int, int);
+struct Struct_02020cb8_5;
+extern "C" void func_0204b5e8(Struct_02020cb8_5*, int, int);
 extern "C" void func_020c9820();
 extern "C" void func_0204b2e0(void*, char*);
-struct SelfTag0204b3a0;
-extern "C" void func_0204b3a0(SelfTag0204b3a0*, char*);
-struct List0204b0e8;
-extern "C" void func_0204b0e8(List0204b0e8*, void*);
-struct List0204afb4;
-extern "C" void func_0204afb4(List0204afb4*);
+struct Struct_02020cb8_6;
+extern "C" void func_0204b3a0(Struct_02020cb8_6*, char*);
+struct Struct_02020cb8_2;
+extern "C" void func_0204b0e8(Struct_02020cb8_2*, void*);
+struct Struct_02020cb8_3;
+extern "C" void func_0204afb4(Struct_02020cb8_3*);
 
 extern char data_ov001_02165745[];
 
 // USA: func_ov001_021626e4
-extern "C" ARM int func_ov001_021626e4(void* args) {
-    char path[0x50];
-    void* records[3];
-    int recordSizes[3];
-    Background021626e4 background;
-    void* file;
-    unsigned int fileSize;
-    void* name;
-    BackgroundLoader* loader;
-    int fileId;
-    int locked;
-    int count;
-    int subScreen;
+extern "C" ARM int func_ov001_021626e4(void* arg0) {
+    char var0[0x50];
+    void* var1[3];
+    int var2[3];
+    Struct_ov001_021626e4 var3;
+    void* var4;
+    unsigned int var5;
+    void* var6;
+    BackgroundLoader* var7;
+    int var8;
+    int var9;
+    int var10;
+    int var11;
 
-    loader = BackgroundLoader::GetInstance();
-    fileId = func_ov017_021d612c(args);
-    subScreen = func_ov017_021d60f4((char*)args + 8);
-    sprintf(path, data_ov001_02165745, fileId);
+    var7 = BackgroundLoader::GetInstance();
+    var8 = func_ov017_021d612c(arg0);
+    var11 = func_ov017_021d60f4((char*)arg0 + 8);
+    sprintf(var0, data_ov001_02165745, var8);
 
-    locked = 0;
-    file = NULL;
-    fileSize = 0;
-    loader->GetLoadedFileByName(path, &file, &fileSize);
-    if (file == NULL) {
+    var9 = 0;
+    var4 = NULL;
+    var5 = 0;
+    var7->GetLoadedFileByName(var0, &var4, &var5);
+    if (var4 == NULL) {
         BackgroundLoader::AddLockGlobal();
-        locked = 1;
-        if (func_ov001_0215a750(path, &file) == 0) {
+        var9 = 1;
+        if (func_ov001_0215a750(var0, &var4) == 0) {
             BackgroundLoader::RemoveLockGlobal();
             return 0;
         }
     }
 
-    count = func_02046900((ActiveEntry02046900*)file);
-    for (int i = 0; i < count; i++) {
-        records[i] = func_020467f0((Rec020467f0*)file, i, &name, &recordSizes[i]);
+    var10 = func_02046900((Struct_02020cb8_4*)var4);
+    for (int var12 = 0; var12 < var10; var12++) {
+        var1[var12] = func_020467f0((Struct_02020aec*)var4, var12, &var6, &var2[var12]);
     }
 
     DISPCNT = (DISPCNT & ~0x1f00) | 0x800;
-    if (subScreen == 0) {
+    if (var11 == 0) {
         func_ov001_02162678(0, 0, 1, 1);
     } else {
         DisableSubBGVRAMBanks();
@@ -85,21 +85,21 @@ extern "C" ARM int func_ov001_021626e4(void* args) {
         func_ov001_021628d4(0, 0, 0xe, 0);
     }
 
-    func_0204af64((List0204af64*)&background);
-    background.screen = subScreen;
-    background.layer = 3;
-    func_0204b5b4(&background, 0);
-    func_0204b11c((unsigned char*)&background, 0);
-    func_0204b5e8((Obj0204b5e8*)&background, 0, 0);
+    func_0204af64((Struct_02020cb8*)&var3);
+    var3.unknown_1c_0_ = var11;
+    var3.unknown_1c_4_ = 3;
+    func_0204b5b4(&var3, 0);
+    func_0204b11c((unsigned char*)&var3, 0);
+    func_0204b5e8((Struct_02020cb8_5*)&var3, 0, 0);
     func_020c9820();
-    for (int i = 0; i < count; i++) {
-        func_0204b2e0(&background, (char*)records[i]);
-        func_0204b3a0((SelfTag0204b3a0*)&background, (char*)records[i]);
+    for (int var13 = 0; var13 < var10; var13++) {
+        func_0204b2e0(&var3, (char*)var1[var13]);
+        func_0204b3a0((Struct_02020cb8_6*)&var3, (char*)var1[var13]);
     }
-    func_0204b0e8((List0204b0e8*)&background, NULL);
-    func_0204afb4((List0204afb4*)&background);
+    func_0204b0e8((Struct_02020cb8_2*)&var3, NULL);
+    func_0204afb4((Struct_02020cb8_3*)&var3);
 
-    if (locked) {
+    if (var9) {
         BackgroundLoader::RemoveLockGlobal();
     }
     return 1;

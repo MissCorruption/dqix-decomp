@@ -5,23 +5,23 @@ extern "C" int func_0205bb84(struct Struct_0205bb84*);
 extern "C" void func_0205bb04(void*, int);
 
 struct Struct_0205c4a8 {
-    int field0;
-    int field4;
-    char pad8[0xc];
-    int field14;
+    int unknown_0_;
+    int unknown_4_;
+    char unknown_8_[0xc];
+    int unknown_14_;
 };
 
 // USA: func_0205c4a8
-extern "C" ARM void func_0205c4a8(struct Struct_0205c4a8* s, int delta) {
-    int base;
-    s->field14 += delta;
-    if (s->field4 <= s->field14) {
-        s->field14 -= s->field4;
-    } else if (s->field14 < 0) {
-        s->field14 += s->field4;
+extern "C" ARM void func_0205c4a8(struct Struct_0205c4a8* arg0, int arg1) {
+    int var0;
+    arg0->unknown_14_ += arg1;
+    if (arg0->unknown_4_ <= arg0->unknown_14_) {
+        arg0->unknown_14_ -= arg0->unknown_4_;
+    } else if (arg0->unknown_14_ < 0) {
+        arg0->unknown_14_ += arg0->unknown_4_;
     }
-    base = s->field0;
-    if (base <= func_0205bb84((struct Struct_0205bb84*)s)) {
-        func_0205bb04((void*)s, base - 1);
+    var0 = arg0->unknown_0_;
+    if (var0 <= func_0205bb84((struct Struct_0205bb84*)arg0)) {
+        func_0205bb04((void*)arg0, var0 - 1);
     }
 }

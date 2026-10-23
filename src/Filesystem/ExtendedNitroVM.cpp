@@ -222,7 +222,7 @@ unsigned int ExtendedNitroVM::GetFileSize()
     switch (status)
     {
     case Status_Open:
-        return machine.fileInfo.endOffset - machine.fileInfo.startOffset;
+        return machine.fileInfo.unknown_8_ - machine.fileInfo.unknown_4_;
     case Status_2_Unknown:
         return 0;
     }

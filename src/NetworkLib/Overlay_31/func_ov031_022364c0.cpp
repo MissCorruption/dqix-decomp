@@ -10,33 +10,33 @@ extern "C" void func_ov031_0221bfe8(void*);
 extern "C" void* func_ov031_0221b8e4(void*);
 extern "C" void func_ov031_02236570(int);
 
-struct SaveSlot { unsigned char pad[0xe7]; unsigned char valid; unsigned char padE8[8]; unsigned char key[14]; unsigned char padFE[2]; };
-struct SaveSlots { SaveSlot slots[4]; };
-extern SaveSlots* data_ov031_02290cfc;
+struct Struct_ov031_022364c0 { unsigned char unknown_0_[0xe7]; unsigned char unknown_e7_; unsigned char unknown_e8_[8]; unsigned char unknown_f0_[14]; unsigned char unknown_fe_[2]; };
+struct Struct_ov031_022364c0_2 { Struct_ov031_022364c0 unknown_0_[4]; };
+extern Struct_ov031_022364c0_2* data_ov031_02290cfc;
 
 // USA: func_ov031_022364c0
 extern "C" ARM void func_ov031_022364c0() {
     func_020ca390(0, data_ov031_02290cfc, 0x400);
-    int validIndex = 0;
+    int var0 = 0;
     do {
-        data_ov031_02290cfc->slots[validIndex].valid = 0xff;
-        validIndex++;
-    } while (validIndex < 3);
-    unsigned char buffer[20];
-    func_ov031_0221bfe8(buffer);
-    void* key = func_ov031_0221b8e4(buffer);
-    unsigned int offset;
-    int i = 0;
-    offset = 0;
+        data_ov031_02290cfc->unknown_0_[var0].unknown_e7_ = 0xff;
+        var0++;
+    } while (var0 < 3);
+    unsigned char var1[20];
+    func_ov031_0221bfe8(var1);
+    void* var2 = func_ov031_0221b8e4(var1);
+    unsigned int var3;
+    int var4 = 0;
+    var3 = 0;
     do {
-        SaveSlot* slot = (SaveSlot*)((char*)data_ov031_02290cfc + offset);
-        VectorizedInvertedMemcpy(key, slot->key, 14);
-        i++;
-        offset += 0x100;
-    } while (i < 2);
-    int j = 0;
+        Struct_ov031_022364c0* var5 = (Struct_ov031_022364c0*)((char*)data_ov031_02290cfc + var3);
+        VectorizedInvertedMemcpy(var2, var5->unknown_f0_, 14);
+        var4++;
+        var3 += 0x100;
+    } while (var4 < 2);
+    int var6 = 0;
     do {
-        func_ov031_02236570(j);
-        j++;
-    } while (j < 4);
+        func_ov031_02236570(var6);
+        var6++;
+    } while (var6 < 4);
 }

@@ -5,19 +5,19 @@
 #endif
 
 extern "C" void* func_0205ec34(void);
-extern "C" int func_ov017_021d60f4(void* a);
-extern "C" void func_ov017_021d6134(void* param, int val);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void func_ov017_021d6134(void* arg0, int arg1);
 extern "C" int func_0206eb98(unsigned char*, int);
 
 // USA: func_ov001_021633ec
-extern "C" ARM int func_ov001_021633ec(void* param) {
-	unsigned char* base = (unsigned char*)func_0205ec34();
-	int id = func_ov017_021d60f4(param);
-	int bit = func_0206eb98(base, id);
-	if (bit != 0) {
-		func_ov017_021d6134((char*)param + 8, 1);
+extern "C" ARM int func_ov001_021633ec(void* arg0) {
+	unsigned char* var0 = (unsigned char*)func_0205ec34();
+	int var1 = func_ov017_021d60f4(arg0);
+	int var2 = func_0206eb98(var0, var1);
+	if (var2 != 0) {
+		func_ov017_021d6134((char*)arg0 + 8, 1);
 	} else {
-		func_ov017_021d6134((char*)param + 8, 0);
+		func_ov017_021d6134((char*)arg0 + 8, 0);
 	}
 	return 1;
 }

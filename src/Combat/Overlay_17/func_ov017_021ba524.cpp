@@ -6,108 +6,108 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct PackedNibbleArray0206e120;
-struct PackedNibbleArray0206e260;
-struct PackedNibbleArray0206e2dc;
-extern "C" int func_0206e120(PackedNibbleArray0206e120* obj, int index);
-extern "C" int func_0206e260(PackedNibbleArray0206e260* obj, int index);
-extern "C" int func_0206e2dc(PackedNibbleArray0206e2dc* obj, int index);
+struct Struct_0205faf4_3;
+struct Struct_0205faf4_4;
+struct Struct_0205faf4_13;
+extern "C" int func_0206e120(Struct_0205faf4_3* arg0, int arg1);
+extern "C" int func_0206e260(Struct_0205faf4_4* arg0, int arg1);
+extern "C" int func_0206e2dc(Struct_0205faf4_13* arg0, int arg1);
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202c540(void* p);
+extern "C" int func_0202c540(void* arg0);
 extern "C" void* func_0205ec34(void);
-extern "C" int func_ov017_021b9bcc(int id, const char* name);
+extern "C" int func_ov017_021b9bcc(int arg0, const char* arg1);
 
-static inline int NibbleIs(PackedNibbleArray0206e120* nibbles, int slot, int value) {
-    return func_0206e120(nibbles, slot) == value;
+static inline int inline_ov017_021ba524(Struct_0205faf4_3* arg0, int arg1, int arg2) {
+    return func_0206e120(arg0, arg1) == arg2;
 }
 
-struct Struct0130_021ba524 {
-    char pad0[4];
-    unsigned short half4;
+struct Struct_ov017_021ba524 {
+    char unknown_0_[4];
+    unsigned short unknown_4_;
 };
 
-struct Data_ov017_021d8438 {
-    unsigned char byte0;
-    unsigned char byte1;
-    unsigned char byte2;
-    unsigned char pad3;
-    int field4;
-    unsigned char pad8[8];
-    int field10;
+struct Struct_ov017_021d8438 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned char unknown_2_;
+    unsigned char unknown_3_;
+    int unknown_4_;
+    unsigned char unknown_8_[8];
+    int unknown_10_;
 };
-extern struct Data_ov017_021d8438 data_ov017_021d8438;
+extern struct Struct_ov017_021d8438 data_ov017_021d8438;
 
-struct Data_ov017_021d7c54 {
-    signed char byte0;
-    signed char byte1;
+struct Struct_ov017_021d7c54_5 {
+    signed char unknown_0_;
+    signed char unknown_1_;
 };
-extern struct Data_ov017_021d7c54 data_ov017_021d7c54;
+extern struct Struct_ov017_021d7c54_5 data_ov017_021d7c54;
 
 // USA: func_ov017_021ba524
-extern "C" ARM int func_ov017_021ba524(Script::Parameter* params, int count) {
-    if (data_ov017_021d8438.field10 != 0) return 1;
+extern "C" ARM int func_ov017_021ba524(Script::Parameter* arg0, int arg1) {
+    if (data_ov017_021d8438.unknown_10_ != 0) return 1;
 
-    GameState* battle = GameState::GetInstance();
+    GameState* var0 = GameState::GetInstance();
     if (func_0202c540(func_0202ae18()) != 0) return 1;
 
-    GameObject* leader = battle->GetGameObjectByIndex(0);
-    struct Struct0130_021ba524* p = *(struct Struct0130_021ba524**)((char*)leader + 0x130);
-    int pending = p->half4;
-    if (pending > 0) return 1;
+    GameObject* var1 = var0->GetGameObjectByIndex(0);
+    struct Struct_ov017_021ba524* var2 = *(struct Struct_ov017_021ba524**)((char*)var1 + 0x130);
+    int var3 = var2->unknown_4_;
+    if (var3 > 0) return 1;
 
-    PackedNibbleArray0206e120* nibbles = (PackedNibbleArray0206e120*)func_0205ec34();
-    int slot = params[0].ToInt();
-    int cur = data_ov017_021d7c54.byte0;
-    if (cur != slot && cur > -1) {
-        if (NibbleIs(nibbles, slot, 1) || NibbleIs(nibbles, slot, 2) ||
-            (NibbleIs(nibbles, data_ov017_021d7c54.byte0, 3) && NibbleIs(nibbles, slot, 3) &&
-             data_ov017_021d7c54.byte0 <= slot)) {
+    Struct_0205faf4_3* var4 = (Struct_0205faf4_3*)func_0205ec34();
+    int var5 = arg0[0].ToInt();
+    int var6 = data_ov017_021d7c54.unknown_0_;
+    if (var6 != var5 && var6 > -1) {
+        if (inline_ov017_021ba524(var4, var5, 1) || inline_ov017_021ba524(var4, var5, 2) ||
+            (inline_ov017_021ba524(var4, data_ov017_021d7c54.unknown_0_, 3) && inline_ov017_021ba524(var4, var5, 3) &&
+             data_ov017_021d7c54.unknown_0_ <= var5)) {
         } else {
             return 1;
         }
     }
 
-    Script::Parameter* modeParam = &params[1];
-    params = &params[2];
-    switch (modeParam->ToInt()) {
+    Script::Parameter* var7 = &arg0[1];
+    arg0 = &arg0[2];
+    switch (var7->ToInt()) {
     case -1:
-        if (!NibbleIs(nibbles, slot, 0)) return 1;
+        if (!inline_ov017_021ba524(var4, var5, 0)) return 1;
         break;
     case 0:
-        if (!NibbleIs(nibbles, slot, 2)) return 1;
+        if (!inline_ov017_021ba524(var4, var5, 2)) return 1;
         break;
     case 1:
-        if (!func_0206e260((PackedNibbleArray0206e260*)nibbles, slot)) return 1;
+        if (!func_0206e260((Struct_0205faf4_4*)var4, var5)) return 1;
         break;
     case 2:
-        if (!NibbleIs(nibbles, slot, 3)) return 1;
+        if (!inline_ov017_021ba524(var4, var5, 3)) return 1;
         break;
     case 3:
-        if (!NibbleIs(nibbles, slot, 1)) return 1;
+        if (!inline_ov017_021ba524(var4, var5, 1)) return 1;
         break;
     case 4:
-        if (func_0206e2dc((PackedNibbleArray0206e2dc*)nibbles, slot) && NibbleIs(nibbles, slot, 0)) {
+        if (func_0206e2dc((Struct_0205faf4_13*)var4, var5) && inline_ov017_021ba524(var4, var5, 0)) {
         } else {
             return 1;
         }
         break;
     }
 
-    if (count >= 5) {
-        int daytimeOnly = params->ToInt();
-        params++;
-        if (daytimeOnly != 0) {
+    if (arg1 >= 5) {
+        int var8 = arg0->ToInt();
+        arg0++;
+        if (var8 != 0) {
             if (GameState::GetInstance()->IsMorningDayOrEvening()) return 1;
-            data_ov017_021d8438.byte2 = 1;
+            data_ov017_021d8438.unknown_2_ = 1;
         }
     } else {
-        if (data_ov017_021d8438.byte2 != 0) return 0;
+        if (data_ov017_021d8438.unknown_2_ != 0) return 0;
     }
 
-    int id = params[0].ToInt();
-    const char* name = params[1].ToString();
-    if (name == 0) return 0;
-    if (func_ov017_021b9bcc(id, name) != 0) data_ov017_021d7c54.byte0 = slot;
+    int var9 = arg0[0].ToInt();
+    const char* var10 = arg0[1].ToString();
+    if (var10 == 0) return 0;
+    if (func_ov017_021b9bcc(var9, var10) != 0) data_ov017_021d7c54.unknown_0_ = var5;
     return 1;
 }

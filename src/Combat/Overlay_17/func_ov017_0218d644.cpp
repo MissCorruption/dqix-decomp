@@ -1,77 +1,77 @@
 #if defined(jpn)
-enum { RegionOffset4498 = 0x41e8 };
+enum { Enum_ov017_0218d644_17560 = 0x41e8 };
 #else
-enum { RegionOffset4498 = 0x4498 };
+enum { Enum_ov017_0218d644_17560 = 0x4498 };
 #endif
 
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 #include "std_library_functions.h"
 
-extern "C" void func_ov017_0218cbcc(int* p, int a, int b, int c);
-struct Obj020dbfa4;
-extern "C" void func_020dbfa4(struct Obj020dbfa4* o, int arg1);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" void func_ov017_0218cbcc(int* arg0, int arg1, int arg2, int arg3);
+struct Struct_020dbfa4;
+extern "C" void func_020dbfa4(struct Struct_020dbfa4* arg0, int arg1);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
 extern int data_02108760;
 extern char data_ov017_021d739f;
 
-struct LocalEvt0218d644 {
-    char name[0x10];
-    unsigned char byte10;
-    unsigned char b0:1, b1:1, b2:1, b3:1, b4:1, b5:1, b6:1, b7:1;
-    short field12;
-    short f14, f16, f18, f1a;
-    short f1c;
-    int f20, f24, f28;
-    int words2c[3];
-    int f38, f3c, f40;
-    int f44, f48, f4c;
+struct Struct_ov017_0218d644 {
+    char unknown_0_[0x10];
+    unsigned char unknown_10_;
+    unsigned char unknown_11_0_:1, unknown_11_1_:1, unknown_11_2_:1, unknown_11_3_:1, unknown_11_4_:1, unknown_11_5_:1, unknown_11_6_:1, unknown_11_7_:1;
+    short unknown_12_;
+    short unknown_14_, unknown_16_, unknown_18_, unknown_1a_;
+    short unknown_1c_;
+    int unknown_20_, unknown_24_, unknown_28_;
+    int unknown_2c_[3];
+    int unknown_38_, unknown_3c_, unknown_40_;
+    int unknown_44_, unknown_48_, unknown_4c_;
 };
 
 // USA: func_ov017_0218d644
-extern "C" ARM void func_ov017_0218d644(GameResources* ov, void* a, int b) {
-    struct Obj020dbfa4* p = *(struct Obj020dbfa4**)((char*)ov + RegionOffset4498);
+extern "C" ARM void func_ov017_0218d644(GameResources* arg0, void* arg1, int arg2) {
+    struct Struct_020dbfa4* var0 = *(struct Struct_020dbfa4**)((char*)arg0 + Enum_ov017_0218d644_17560);
 
-    struct LocalEvt0218d644 buf;
-    buf.name[0] = 0;
-    buf.byte10 = 1;
-    buf.b0 = 0;
-    buf.b1 = 0;
-    buf.b2 = 1;
-    buf.b3 = 0;
-    buf.b4 = 0;
-    buf.b5 = 0;
-    buf.b6 = 0;
-    buf.b7 = 0;
-    buf.f14 = -1;
-    buf.f16 = -1;
-    buf.f18 = -1;
-    buf.f1a = -1;
-    buf.f1c = -0x1000;
-    buf.f20 = 0;
-    buf.f24 = 0;
-    buf.f28 = 0;
-    buf.words2c[0] = 0;
-    buf.words2c[1] = 0;
-    buf.words2c[2] = 0;
-    buf.f38 = 0;
-    buf.f3c = 0;
-    buf.f40 = 0;
-    buf.f44 = 0x1000;
-    buf.f48 = 0x1000;
-    buf.f4c = 0x1000;
-    buf.b2 = 0;
-    buf.field12 = (short)b;
-    strcpy(buf.name, &data_ov017_021d739f);
+    struct Struct_ov017_0218d644 var1;
+    var1.unknown_0_[0] = 0;
+    var1.unknown_10_ = 1;
+    var1.unknown_11_0_ = 0;
+    var1.unknown_11_1_ = 0;
+    var1.unknown_11_2_ = 1;
+    var1.unknown_11_3_ = 0;
+    var1.unknown_11_4_ = 0;
+    var1.unknown_11_5_ = 0;
+    var1.unknown_11_6_ = 0;
+    var1.unknown_11_7_ = 0;
+    var1.unknown_14_ = -1;
+    var1.unknown_16_ = -1;
+    var1.unknown_18_ = -1;
+    var1.unknown_1a_ = -1;
+    var1.unknown_1c_ = -0x1000;
+    var1.unknown_20_ = 0;
+    var1.unknown_24_ = 0;
+    var1.unknown_28_ = 0;
+    var1.unknown_2c_[0] = 0;
+    var1.unknown_2c_[1] = 0;
+    var1.unknown_2c_[2] = 0;
+    var1.unknown_38_ = 0;
+    var1.unknown_3c_ = 0;
+    var1.unknown_40_ = 0;
+    var1.unknown_44_ = 0x1000;
+    var1.unknown_48_ = 0x1000;
+    var1.unknown_4c_ = 0x1000;
+    var1.unknown_11_2_ = 0;
+    var1.unknown_12_ = (short)arg2;
+    strcpy(var1.unknown_0_, &data_ov017_021d739f);
 
-    buf.f44 = 0x10a;
-    buf.f48 = 0x10a;
-    buf.f4c = 0x10a;
+    var1.unknown_44_ = 0x10a;
+    var1.unknown_48_ = 0x10a;
+    var1.unknown_4c_ = 0x10a;
 
-    int* src = (int*)a;
-    func_ov017_0218cbcc(buf.words2c, src[0], src[1], src[2]);
-    func_020dbfa4(p, (int)&buf);
-    func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x5f, 0);
+    int* var2 = (int*)arg1;
+    func_ov017_0218cbcc(var1.unknown_2c_, var2[0], var2[1], var2[2]);
+    func_020dbfa4(var0, (int)&var1);
+    func_0205eaa0((struct Struct_02108760*)&data_02108760, 0x5f, 0);
 }

@@ -7,21 +7,21 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
-struct MapDisplayBuffer { TreasureMapMetadata maps[99]; DetailedTreasureMapData details[8]; unsigned char count; char pad18f5[9]; unsigned char busy; char name[17]; int state; };
-struct MapDisplayPointers { MapDisplayBuffer* buffer; void* scratch; void* file; };
-struct SavedMapList { unsigned char count; unsigned char padding; TreasureMapMetadata maps[99]; };
-struct ResourcePanel { char pad[0x14]; int state; };
-struct MapZone { char pad[0x26]; char name[17]; };
-struct MapController {
+struct Struct_ov004_021636b0 { TreasureMapMetadata unknown_0_[99]; DetailedTreasureMapData unknown_ad4_[8]; unsigned char unknown_18f4_; char unknown_18f5_[9]; unsigned char unknown_18fe_; char unknown_18ff_[17]; int unknown_1910_; };
+struct Struct_ov004_02171010_2 { Struct_ov004_021636b0* unknown_0_; void* unknown_4_; void* unknown_8_; };
+struct Struct_ov004_02163944 { unsigned char unknown_0_; unsigned char unknown_1_; TreasureMapMetadata unknown_2_[99]; };
+struct Struct_ov004_02163944_2 { char unknown_0_[0x14]; int unknown_14_; };
+struct Struct_ov004_02163944_3 { char unknown_0_[0x26]; char unknown_26_[17]; };
+struct Struct_ov004_02163944_4 {
 #if defined(jpn)
-    char pad[0x1790]; unsigned char active; char alignment[3];
+    char unknown_0_[0x1790]; unsigned char unknown_1962_; char unknown_1791_[3];
 #else
-    char pad[0x1962]; unsigned char active; char alignment;
+    char unknown1_0_[0x1962]; unsigned char unknown_1962_; char unknown_1963_;
 #endif
-    int first[9]; int second[3];
+    int unknown_1964_[9]; int unknown_1988_[3];
 };
-struct MapAllocatorNode { int field0; SafeAllocator allocator; };
-extern MapDisplayPointers data_ov004_02171010;
+struct Struct_ov004_02162dd8 { int unknown_0_; SafeAllocator unknown_4_; };
+extern Struct_ov004_02171010_2 data_ov004_02171010;
 extern char data_ov004_0217055c[];
 extern char data_ov004_02170572[];
 #if defined(jpn)
@@ -30,7 +30,7 @@ extern "C" {
 void func_ov004_02163a20(void*);
 }
 #endif
-extern "C" MapAllocatorNode* func_ov011_021845f8(void*, int);
+extern "C" Struct_ov004_02162dd8* func_ov011_021845f8(void*, int);
 extern "C" int func_020a3844(SafeAllocator*);
 extern "C" void func_ov004_0216342c(void*);
 extern "C" bool func_020ac760(void*);
@@ -40,7 +40,7 @@ extern "C" void func_ov004_02163c40(void*);
 extern "C" bool func_ov004_021635d0(int*, int*);
 extern "C" void func_020e526c(void*);
 extern "C" void func_020e5604(void*, SafeAllocator*, void*, unsigned int);
-extern "C" MapZone* func_02012fe4();
+extern "C" Struct_ov004_02163944_3* func_02012fe4();
 extern "C" void func_02026420(unsigned char*, unsigned char);
 extern "C" void func_020263dc(unsigned char*, void*);
 extern "C" void func_020dc3b8();
@@ -51,59 +51,59 @@ extern "C" void func_02043204(char*);
 extern "C" void func_020e2d24(int*, int, int);
 
 // JPN: 0x02163efc; USA/EUR: 0x02163944.
-extern "C" ARM int func_ov004_02163944(void* obj) {
-    MapAllocatorNode* heap = func_ov011_021845f8(obj, 0);
-    if (!heap) return 0;
-    SafeAllocator* allocator = &heap->allocator;
-    if (!allocator) return 0;
-    func_020a3844(allocator);
-    data_ov004_02171010.buffer = (MapDisplayBuffer*)allocator->Allocate(sizeof(MapDisplayBuffer));
-    if (!data_ov004_02171010.buffer) return 0;
-    func_ov004_0216342c(data_ov004_02171010.buffer);
-    data_ov004_02171010.buffer->busy = 1;
+extern "C" ARM int func_ov004_02163944(void* arg0) {
+    Struct_ov004_02162dd8* var0 = func_ov011_021845f8(arg0, 0);
+    if (!var0) return 0;
+    SafeAllocator* var1 = &var0->unknown_4_;
+    if (!var1) return 0;
+    func_020a3844(var1);
+    data_ov004_02171010.unknown_0_ = (Struct_ov004_021636b0*)var1->Allocate(sizeof(Struct_ov004_021636b0));
+    if (!data_ov004_02171010.unknown_0_) return 0;
+    func_ov004_0216342c(data_ov004_02171010.unknown_0_);
+    data_ov004_02171010.unknown_0_->unknown_18fe_ = 1;
 #if !defined(jpn)
-    data_ov004_02171010.scratch = func_ov011_021845f8(obj, 4)->allocator.Allocate(0x333);
-    memset(data_ov004_02171010.scratch, 0, 0x333);
+    data_ov004_02171010.unknown_4_ = func_ov011_021845f8(arg0, 4)->unknown_4_.Allocate(0x333);
+    memset(data_ov004_02171010.unknown_4_, 0, 0x333);
 #endif
-    SavedMapList saved;
-    if (func_020ac760(&saved)) {
-        data_ov004_02171010.buffer->count = saved.count;
-        for (int i = 0; i < 99; i++) VectorizedInvertedMemcpy(&saved.maps[i], &data_ov004_02171010.buffer->maps[i], 0x1c);
+    Struct_ov004_02163944 var2;
+    if (func_020ac760(&var2)) {
+        data_ov004_02171010.unknown_0_->unknown_18f4_ = var2.unknown_0_;
+        for (int var3 = 0; var3 < 99; var3++) VectorizedInvertedMemcpy(&var2.unknown_2_[var3], &data_ov004_02171010.unknown_0_->unknown_0_[var3], 0x1c);
     }
-    func_ov004_02163530(obj);
-    func_ov004_02163c40(obj);
-    int page = 0;
-    int selection = 0;
-    if (!func_ov004_021635d0(&page, &selection)) { page = 0; selection = 0; }
-    for (int i = 0; i < 8; i++) {
-        ExportDetailedTreasureMapData(&data_ov004_02171010.buffer->maps[i + page * 8], &data_ov004_02171010.buffer->details[i], true, 0);
+    func_ov004_02163530(arg0);
+    func_ov004_02163c40(arg0);
+    int var4 = 0;
+    int var5 = 0;
+    if (!func_ov004_021635d0(&var4, &var5)) { var4 = 0; var5 = 0; }
+    for (int var6 = 0; var6 < 8; var6++) {
+        ExportDetailedTreasureMapData(&data_ov004_02171010.unknown_0_->unknown_0_[var6 + var4 * 8], &data_ov004_02171010.unknown_0_->unknown_ad4_[var6], true, 0);
     }
 #if !defined(jpn)
-    MapAllocatorNode* fileHeap = func_ov011_021845f8(obj, 3);
-    if (!fileHeap) return 0;
-    data_ov004_02171010.file = fileHeap->allocator.Allocate(12);
-    func_020e526c(data_ov004_02171010.file);
+    Struct_ov004_02162dd8* var7 = func_ov011_021845f8(arg0, 3);
+    if (!var7) return 0;
+    data_ov004_02171010.unknown_8_ = var7->unknown_4_.Allocate(12);
+    func_020e526c(data_ov004_02171010.unknown_8_);
     BackgroundLoader::AddLockGlobal();
-    unsigned int length = 0;
-    void* file = ExtractFileFromGP2(data_ov004_0217055c, data_ov004_02170572, &length);
-    func_020e5604(data_ov004_02171010.file, &fileHeap->allocator, file, length);
+    unsigned int var8 = 0;
+    void* var9 = ExtractFileFromGP2(data_ov004_0217055c, data_ov004_02170572, &var8);
+    func_020e5604(data_ov004_02171010.unknown_8_, &var7->unknown_4_, var9, var8);
     BackgroundLoader::RemoveLockGlobal();
 #endif
-    MapZone* zone = func_02012fe4();
-    ResourcePanel* panel = (ResourcePanel*)GetGameResources()->unknown_ptr_36d0;
-    data_ov004_02171010.buffer->state = panel->state;
-    strcpy(data_ov004_02171010.buffer->name, zone->name);
-    func_02026420((unsigned char*)panel, 1);
-    func_020263dc((unsigned char*)panel, allocator);
+    Struct_ov004_02163944_3* var10 = func_02012fe4();
+    Struct_ov004_02163944_2* var11 = (Struct_ov004_02163944_2*)GetGameResources()->unknown_ptr_36d0;
+    data_ov004_02171010.unknown_0_->unknown_1910_ = var11->unknown_14_;
+    strcpy(data_ov004_02171010.unknown_0_->unknown_18ff_, var10->unknown_26_);
+    func_02026420((unsigned char*)var11, 1);
+    func_020263dc((unsigned char*)var11, var1);
     func_020dc3b8();
-    GameResources* resources = GetGameResources();
-    if (IsBrightnessWithinValidRange((GameResources*)resources, true)) SetSubBrightness(resources, -16, 0);
-    func_ov004_021636b0(obj, data_ov004_02171010.buffer->details[selection].mapImageName_);
-    MapController* controller = (MapController*)func_020421a0();
-    func_02043204((char*)controller);
-    controller->active = 1;
-    func_020e2d24(controller->first, 9, 1);
-    func_020e2d24(controller->second, 25, 1);
-    data_ov004_02171010.buffer->busy = 0;
+    GameResources* var12 = GetGameResources();
+    if (IsBrightnessWithinValidRange((GameResources*)var12, true)) SetSubBrightness(var12, -16, 0);
+    func_ov004_021636b0(arg0, data_ov004_02171010.unknown_0_->unknown_ad4_[var5].mapImageName_);
+    Struct_ov004_02163944_4* var13 = (Struct_ov004_02163944_4*)func_020421a0();
+    func_02043204((char*)var13);
+    var13->unknown_1962_ = 1;
+    func_020e2d24(var13->unknown_1964_, 9, 1);
+    func_020e2d24(var13->unknown_1988_, 25, 1);
+    data_ov004_02171010.unknown_0_->unknown_18fe_ = 0;
     return 0;
 }

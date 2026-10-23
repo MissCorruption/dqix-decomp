@@ -8,71 +8,71 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
-struct Obj0205eaa0;
+struct Struct_02108760;
 struct Struct_0205bb84;
 
-struct MemberScreen {
-    char unk_0[R(0x56c, 0x634)];
-    unsigned short flags_;
+struct Struct_ov005_02153ba4_2 {
+    char unknown_0_[R(0x56c, 0x634)];
+    unsigned short unknown_634_;
 };
 
-struct EquipmentMenu {
-    char unk_0[R(0x196c, 0x19f4)];
-    char cursor_[0x3db8 - 0x19f4];
-    unsigned char state_;
-    unsigned char lastState_;
-    unsigned char step_;
-    signed char slot_;
-    unsigned char kind_;
-    signed char page_;
-    unsigned char unk_3dbe;
-    signed char lastPage_;
-    signed char unk_3dc0;
-    char unk_3dc1[0x3dcc - 0x3dc1];
-    unsigned int flags_;
+struct Struct_ov005_02153954 {
+    char unknown_0_[R(0x196c, 0x19f4)];
+    char unknown_19f4_[0x3db8 - 0x19f4];
+    unsigned char unknown_3db8_;
+    unsigned char unknown_3db9_;
+    unsigned char unknown_3dba_;
+    signed char unknown_3dbb_;
+    unsigned char unknown_3dbc_;
+    signed char unknown_3dbd_;
+    unsigned char unknown_3dbe_;
+    signed char unknown_3dbf_;
+    signed char unknown_3dc0_;
+    char unknown_3dc1_[0x3dcc - 0x3dc1];
+    unsigned int unknown_3dcc_;
 };
 
 extern int data_02108760;
 
-extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
-extern "C" MemberScreen* func_ov017_021a193c(int* p);
-extern "C" void func_0205eaa0(Obj0205eaa0* obj, int a, int b);
-extern "C" int func_0205bf58(void* cursor, int ticks);
-extern "C" int func_0205bb84(Struct_0205bb84* s);
-extern "C" void func_ov005_0215742c(EquipmentMenu* self);
-extern "C" void func_ov005_0215751c(EquipmentMenu* self);
-extern "C" void func_ov005_0215771c(EquipmentMenu* self);
+extern "C" void func_ov005_0215792c(Struct_ov005_02153954* arg0, unsigned char arg1);
+extern "C" Struct_ov005_02153ba4_2* func_ov017_021a193c(int* arg0);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int arg1, int arg2);
+extern "C" int func_0205bf58(void* arg0, int arg1);
+extern "C" int func_0205bb84(Struct_0205bb84* arg0);
+extern "C" void func_ov005_0215742c(Struct_ov005_02153954* arg0);
+extern "C" void func_ov005_0215751c(Struct_ov005_02153954* arg0);
+extern "C" void func_ov005_0215771c(Struct_ov005_02153954* arg0);
 
 // USA: func_ov005_0215730c
-extern "C" ARM void func_ov005_0215730c(EquipmentMenu* self) {
+extern "C" ARM void func_ov005_0215730c(Struct_ov005_02153954* arg0) {
     if (g_keyManager.TestKeysPressed(2)) {
-        func_ov005_0215792c(self, 1);
-        MemberScreen* screen = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
-        screen->flags_ |= 0x800;
-        func_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1b, 0);
+        func_ov005_0215792c(arg0, 1);
+        Struct_ov005_02153ba4_2* var0 = func_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
+        var0->unknown_634_ |= 0x800;
+        func_0205eaa0((Struct_02108760*)&data_02108760, 0x1b, 0);
         return;
     }
     if (g_keyManager.TestKeysPressed(4)) {
-        if (self->state_ == 2 || self->state_ == 3 || self->state_ == 4) {
-            func_ov005_0215792c(self, 7);
-            self->flags_ |= 0x80000;
+        if (arg0->unknown_3db8_ == 2 || arg0->unknown_3db8_ == 3 || arg0->unknown_3db8_ == 4) {
+            func_ov005_0215792c(arg0, 7);
+            arg0->unknown_3dcc_ |= 0x80000;
             return;
         }
     }
-    int ticks = GameState::GetInstance()->GetTickCount();
-    if (ticks == 0)
-        ticks = 1;
-    func_0205bf58(self->cursor_, ticks);
-    func_0205bb84((Struct_0205bb84*)self->cursor_);
-    switch (self->state_) {
+    int var1 = GameState::GetInstance()->GetTickCount();
+    if (var1 == 0)
+        var1 = 1;
+    func_0205bf58(arg0->unknown_19f4_, var1);
+    func_0205bb84((Struct_0205bb84*)arg0->unknown_19f4_);
+    switch (arg0->unknown_3db8_) {
     case 2:
-        func_ov005_0215742c(self);
+        func_ov005_0215742c(arg0);
         return;
     case 3:
-        func_ov005_0215751c(self);
+        func_ov005_0215751c(arg0);
         return;
     case 4:
-        func_ov005_0215771c(self);
+        func_ov005_0215771c(arg0);
         return;
     }
 }

@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
+struct Struct_0201c1c8 {
+    int unknown_0_;
     union {
-        int i;
-        float f;
-    } u;
+        int unknown_0_;
+        float unknown1_0_;
+    } unknown_4_;
 };
 
-struct Global020fdc20_d4ec {
-    int pad0;
-    int pad4;
-    unsigned char* obj;
+struct Struct_020fdc20_7 {
+    int unknown_0_;
+    int unknown_4_;
+    unsigned char* unknown_8_;
 };
-extern struct Global020fdc20_d4ec data_020fdc20;
+extern struct Struct_020fdc20_7 data_020fdc20;
 
 // USA: func_0201d4ec
 extern "C" ARM int func_0201d4ec(Script::Parameter* arg0, int) {
-    struct Variant02030b0c* v = (struct Variant02030b0c*)arg0;
-    int a = ((Script::Parameter*)v)->ToInt();
-    int b = ((Script::Parameter*)(v + 1))->ToInt();
-    int c = ((Script::Parameter*)(v + 2))->ToInt();
-    *(unsigned short*)(data_020fdc20.obj + 0x7e) = a | (b << 5) | (c << 10);
+    struct Struct_0201c1c8* var0 = (struct Struct_0201c1c8*)arg0;
+    int var1 = ((Script::Parameter*)var0)->ToInt();
+    int var2 = ((Script::Parameter*)(var0 + 1))->ToInt();
+    int var3 = ((Script::Parameter*)(var0 + 2))->ToInt();
+    *(unsigned short*)(data_020fdc20.unknown_8_ + 0x7e) = var1 | (var2 << 5) | (var3 << 10);
     return 1;
 }

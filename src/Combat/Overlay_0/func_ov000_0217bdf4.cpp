@@ -8,122 +8,122 @@
 #endif
 struct Struct_0205c570;
 struct Struct_0205def8;
-struct Obj0205eaa0;
+struct Struct_02108760;
 
-extern "C" int func_0205d794(struct Struct_0205c570* s);
-extern "C" void func_0205def8(struct Struct_0205def8* s, int clear, int key);
-struct Obj_0205da38;
-extern "C" int func_0205da38(struct Obj_0205da38* obj, int key);
-extern "C" void* func_02053c6c(unsigned char* obj);
-extern "C" void func_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
+extern "C" int func_0205d794(struct Struct_0205c570* arg0);
+extern "C" void func_0205def8(struct Struct_0205def8* arg0, int arg1, int arg2);
+struct Struct_0205da38;
+extern "C" int func_0205da38(struct Struct_0205da38* arg0, int arg1);
+extern "C" void* func_02053c6c(unsigned char* arg0);
+extern "C" void func_0205eaa0(struct Struct_02108760* arg0, int arg1, int arg2);
 
-extern "C" void* func_02079e2c(char* p, int key);
-extern "C" int func_ov000_0217ab48(void* obj);
-extern "C" void func_ov000_021718a4(void* obj);
-extern "C" void func_ov000_0217629c(void* obj);
-extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
-extern "C" void func_ov000_02176e3c(void* ctx, void* obj, int sel, int a, int b, int c);
+extern "C" void* func_02079e2c(char* arg0, int arg1);
+extern "C" int func_ov000_0217ab48(void* arg0);
+extern "C" void func_ov000_021718a4(void* arg0);
+extern "C" void func_ov000_0217629c(void* arg0);
+extern "C" void func_ov000_0217ab8c(void* arg0, int arg1, int arg2);
+extern "C" void func_ov000_02176e3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
-struct MenuCtx_0217bdf4 {
-    char pad0[0x188];
+struct Struct_ov000_0217bdf4_4 {
+    char unknown_0_[0x188];
 #if defined(jpn)
-    char list[0x1faa - 0x188];
+    char unknown_188_[0x1faa - 0x188];
 #else
-    char list[0x1d72 - 0x188];
+    char unknown_188_[0x1d72 - 0x188];
 #endif
-    unsigned short flags;
+    unsigned short unknown_1d72_;
 };
 
-struct MenuGlobals_0217bdf4 {
+struct Struct_ov000_02184294_8 {
 #if defined(jpn)
-    MenuCtx_0217bdf4* ctx;
-    int field0;
-    int field4;
+    Struct_ov000_0217bdf4_4* unknown_8_;
+    int unknown_0_;
+    int unknown_4_;
 #else
-    int field0;
-    int field4;
-    MenuCtx_0217bdf4* ctx;
+    int unknown_0_;
+    int unknown_4_;
+    Struct_ov000_0217bdf4_4* unknown_8_;
 #endif
 };
 
-struct TableEntry_0217bdf4 {
-    int field0;
-    unsigned int id : 12;
+struct Struct_ov000_0217bdf4 {
+    int unknown_0_;
+    unsigned int unknown_4_0_ : 12;
 };
 
-struct MemberInfo_0217bdf4 {
+struct Struct_ov000_0217bdf4_2 {
 #if defined(jpn)
-    char pad0[0x8b8];
+    char unknown_0_[0x8b8];
 #else
-    char pad0[0x950];
+    char unknown1_0_[0x950];
 #endif
-    int spellKind;
+    int unknown_950_;
 };
 
-struct MenuObj_0217bdf4 {
-    char pad0[0x10];
-    signed char selections[8];
-    signed char depth;
-    char pad19[0x1d - 0x19];
-    signed char field1d;
-    char pad1e[0x23 - 0x1e];
-    signed char field23;
-    char pad24[0x26 - 0x24];
-    unsigned short field26;
-    char pad28[0x38 - 0x28];
-    void* field38;
-    char pad3c[0x4c - 0x3c];
-    int memberIndex;
+struct Struct_ov000_0217bdf4_3 {
+    char unknown_0_[0x10];
+    signed char unknown_10_[8];
+    signed char unknown_18_;
+    char unknown_19_[0x1d - 0x19];
+    signed char unknown_1d_;
+    char unknown_1e_[0x23 - 0x1e];
+    signed char unknown_23_;
+    char unknown_24_[0x26 - 0x24];
+    unsigned short unknown_26_;
+    char unknown_28_[0x38 - 0x28];
+    void* unknown_38_;
+    char unknown_3c_[0x4c - 0x3c];
+    int unknown_4c_;
 #if defined(jpn)
-    char pad50[0x484 - 0x50];
+    char unknown_50_[0x484 - 0x50];
 #else
-    char pad50[0x444 - 0x50];
+    char unknown1_50_[0x444 - 0x50];
 #endif
-    unsigned char field444;
+    unsigned char unknown_444_;
 };
 
-extern MenuGlobals_0217bdf4 data_ov000_02184294;
+extern Struct_ov000_02184294_8 data_ov000_02184294;
 extern char data_02108760;
 extern short data_ov000_02183658[];
 
 // USA: func_ov000_0217bdf4
-extern "C" ARM int func_ov000_0217bdf4(MenuObj_0217bdf4* obj, int arg1, int arg2) {
-    data_ov000_02184294.ctx->flags |= 0x100;
-    obj->field23 = func_0205d794((struct Struct_0205c570*)obj->field38);
-    MenuCtx_0217bdf4* ctx = data_ov000_02184294.ctx;
-    func_0205def8((struct Struct_0205def8*)ctx->list, 1, 0x16);
-    int t = g_keyManager.TestKeysPressed(0x601);
-    int active = (t | func_0205da38((struct Obj_0205da38*)obj->field38, 0x14)) != 0;
-    if (active || obj->field444 != 0) {
-        GameObject* member = GameState::GetInstance()->GetPartyMemberByIndex(obj->memberIndex);
-        if (member == NULL) {
+extern "C" ARM int func_ov000_0217bdf4(Struct_ov000_0217bdf4_3* arg0, int arg1, int arg2) {
+    data_ov000_02184294.unknown_8_->unknown_1d72_ |= 0x100;
+    arg0->unknown_23_ = func_0205d794((struct Struct_0205c570*)arg0->unknown_38_);
+    Struct_ov000_0217bdf4_4* var0 = data_ov000_02184294.unknown_8_;
+    func_0205def8((struct Struct_0205def8*)var0->unknown_188_, 1, 0x16);
+    int var1 = g_keyManager.TestKeysPressed(0x601);
+    int var2 = (var1 | func_0205da38((struct Struct_0205da38*)arg0->unknown_38_, 0x14)) != 0;
+    if (var2 || arg0->unknown_444_ != 0) {
+        GameObject* var3 = GameState::GetInstance()->GetPartyMemberByIndex(arg0->unknown_4c_);
+        if (var3 == NULL) {
             return -1;
         }
-        int kind = ((MemberInfo_0217bdf4*)func_02053c6c((unsigned char*)member))->spellKind;
-        func_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
-        obj->field1d = 0;
-        ActionDataTables* data = func_020797dc();
-        if (data == NULL) {
+        int var4 = ((Struct_ov000_0217bdf4_2*)func_02053c6c((unsigned char*)var3))->unknown_950_;
+        func_0205eaa0((struct Struct_02108760*)&data_02108760, 1, 0);
+        arg0->unknown_1d_ = 0;
+        Struct_02108e10* var5 = func_020797dc();
+        if (var5 == NULL) {
             return -1;
         }
-        TableEntry_0217bdf4* entry = (TableEntry_0217bdf4*)func_02079e2c((char*)data, data_ov000_02183658[kind]);
-        if (entry == NULL) {
+        Struct_ov000_0217bdf4* var6 = (Struct_ov000_0217bdf4*)func_02079e2c((char*)var5, data_ov000_02183658[var4]);
+        if (var6 == NULL) {
             return -1;
         }
-        obj->field26 = entry->id;
-        func_ov000_021718a4(obj);
-        func_0205def8((struct Struct_0205def8*)ctx->list, 0, 0x16);
-        return obj->selections[obj->depth];
+        arg0->unknown_26_ = var6->unknown_4_0_;
+        func_ov000_021718a4(arg0);
+        func_0205def8((struct Struct_0205def8*)var0->unknown_188_, 0, 0x16);
+        return arg0->unknown_10_[arg0->unknown_18_];
     }
-    if (func_ov000_0217ab48(obj)) {
-        func_ov000_0217629c(obj);
-        obj->selections[obj->depth] = 0;
-        obj->depth--;
-        obj->field23 = -1;
-        obj->field1d = -1;
-        obj->field26 = 0;
-        func_ov000_0217ab8c(obj, arg1, arg2);
-        func_ov000_02176e3c(data_ov000_02184294.ctx, obj, obj->selections[obj->depth], data_ov000_02184294.field4, data_ov000_02184294.field0, 0);
+    if (func_ov000_0217ab48(arg0)) {
+        func_ov000_0217629c(arg0);
+        arg0->unknown_10_[arg0->unknown_18_] = 0;
+        arg0->unknown_18_--;
+        arg0->unknown_23_ = -1;
+        arg0->unknown_1d_ = -1;
+        arg0->unknown_26_ = 0;
+        func_ov000_0217ab8c(arg0, arg1, arg2);
+        func_ov000_02176e3c(data_ov000_02184294.unknown_8_, arg0, arg0->unknown_10_[arg0->unknown_18_], data_ov000_02184294.unknown_4_, data_ov000_02184294.unknown_0_, 0);
     }
     return -1;
 }

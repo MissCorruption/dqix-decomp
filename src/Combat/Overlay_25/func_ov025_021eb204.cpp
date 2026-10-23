@@ -2,89 +2,89 @@
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
 
-struct Obj021eb3c0 {
-    int taskId;
-    unsigned short nodeId;
-    unsigned short fileNo;
-    unsigned char kind;
-    unsigned char state;
+struct Struct_ov025_021eb204 {
+    int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_;
 };
 
-struct Loader021eb204 {
-    char pad0[0x10];
-    SafeAllocator* allocators[4];
-    int params[4];
-    unsigned char slot;
+struct Struct_ov025_021e9778_2 {
+    char unknown_0_[0x10];
+    SafeAllocator* unknown_10_[4];
+    int unknown_20_[4];
+    unsigned char unknown_30_;
 };
 
-struct Codes021eb204 {
-    unsigned char c[4];
+struct Struct_ov025_021eeff0 {
+    unsigned char unknown_0_[4];
 };
 
-struct Names021eb204 {
-    const char* names[4];
+struct Struct_ov025_021eeff4 {
+    const char* unknown_0_[4];
 };
 
-extern "C" void func_ov025_021eb3c0(struct Obj021eb3c0* obj);
+extern "C" void func_ov025_021eb3c0(struct Struct_ov025_021eb204* arg0);
 extern "C" void* func_02057924(void);
-extern "C" int func_02057e6c(void* mgr, int id, SafeAllocator* alloc, void* data, unsigned int length, int param);
+extern "C" int func_02057e6c(void* arg0, int arg1, SafeAllocator* arg2, void* arg3, unsigned int arg4, int arg5);
 
-extern struct Names021eb204 data_ov025_021eeff4;
-extern struct Codes021eb204 data_ov025_021eeff0;
+extern struct Struct_ov025_021eeff4 data_ov025_021eeff4;
+extern struct Struct_ov025_021eeff0 data_ov025_021eeff0;
 extern char data_ov025_021ef8e0[];
 extern char data_ov025_021ef8e9[];
 
 // USA: func_ov025_021eb204
-extern "C" ARM int func_ov025_021eb204(struct Loader021eb204* self) {
-    int busy;
-    struct Obj021eb3c0* entry = (struct Obj021eb3c0*)((char*)self + 0x194 + 0x400);
-    busy = 0;
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    void* mgr = func_02057924();
-    SafeAllocator* alloc = self->allocators[self->slot];
-    int param = self->params[self->slot];
-    for (unsigned char i = 0; i < 4; i++, entry++) {
-        if (entry->state == 0) {
+extern "C" ARM int func_ov025_021eb204(struct Struct_ov025_021e9778_2* arg0) {
+    int var0;
+    struct Struct_ov025_021eb204* var1 = (struct Struct_ov025_021eb204*)((char*)arg0 + 0x194 + 0x400);
+    var0 = 0;
+    BackgroundLoader* var2 = BackgroundLoader::GetInstance();
+    void* var3 = func_02057924();
+    SafeAllocator* var4 = arg0->unknown_10_[arg0->unknown_30_];
+    int var5 = arg0->unknown_20_[arg0->unknown_30_];
+    for (unsigned char var6 = 0; var6 < 4; var6++, var1++) {
+        if (var1->unknown_9_ == 0) {
             continue;
         }
-        busy = 1;
-        switch (entry->state) {
+        var0 = 1;
+        switch (var1->unknown_9_) {
         case 1: {
-            struct Names021eb204 names = data_ov025_021eeff4;
-            struct Codes021eb204 codes = data_ov025_021eeff0;
-            char fmt[0x40];
-            char path[0x40];
-            sprintf(fmt, data_ov025_021ef8e0, names.names[entry->kind], codes.c[entry->kind]);
-            sprintf(path, fmt, entry->fileNo);
-            sprintf(fmt, data_ov025_021ef8e9, path);
-            entry->taskId = loader->QueueLoadFile(fmt, alloc);
-            if (entry->taskId != -1) {
-                entry->state = 2;
+            struct Struct_ov025_021eeff4 var7 = data_ov025_021eeff4;
+            struct Struct_ov025_021eeff0 var8 = data_ov025_021eeff0;
+            char var9[0x40];
+            char var10[0x40];
+            sprintf(var9, data_ov025_021ef8e0, var7.unknown_0_[var1->unknown_8_], var8.unknown_0_[var1->unknown_8_]);
+            sprintf(var10, var9, var1->unknown_6_);
+            sprintf(var9, data_ov025_021ef8e9, var10);
+            var1->unknown_0_ = var2->QueueLoadFile(var9, var4);
+            if (var1->unknown_0_ != -1) {
+                var1->unknown_9_ = 2;
             } else {
-                func_ov025_021eb3c0(entry);
+                func_ov025_021eb3c0(var1);
             }
             break;
         }
         case 2:
-            if (loader->GetTaskStatus(entry->taskId) != 0) {
-                entry->state = 3;
+            if (var2->GetTaskStatus(var1->unknown_0_) != 0) {
+                var1->unknown_9_ = 3;
             }
             break;
         case 3: {
-            void* data = NULL;
-            unsigned int length = 0;
-            loader->GetLoadedFileByID(entry->taskId, &data, &length);
-            if (data != NULL) {
-                func_02057e6c(mgr, entry->nodeId, alloc, data, length, param);
+            void* var11 = NULL;
+            unsigned int var12 = 0;
+            var2->GetLoadedFileByID(var1->unknown_0_, &var11, &var12);
+            if (var11 != NULL) {
+                func_02057e6c(var3, var1->unknown_4_, var4, var11, var12, var5);
             }
-            loader->RemoveTask(entry->taskId);
-            func_ov025_021eb3c0(entry);
+            var2->RemoveTask(var1->unknown_0_);
+            func_ov025_021eb3c0(var1);
             break;
         }
         default:
-            func_ov025_021eb3c0(entry);
+            func_ov025_021eb3c0(var1);
             break;
         }
     }
-    return busy;
+    return var0;
 }

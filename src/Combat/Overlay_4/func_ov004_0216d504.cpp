@@ -2,52 +2,52 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { flagOffset = 0xc9d };
+enum { Enum_ov004_0216d504_3953 = 0xc9d };
 #else
-enum { flagOffset = 0xf71 };
+enum { Enum_ov004_0216d504_3953 = 0xf71 };
 #endif
 
 extern "C" void func_020aaf84(void*, int, int, int);
-extern "C" unsigned char func_0209ca98(char* obj);
-extern "C" unsigned char func_0205ea18(unsigned char* obj);
-extern "C" void func_0209ca70(void* obj, int val);
-struct Obj0205e9f4;
-extern "C" void func_0205e9f4(struct Obj0205e9f4* obj, int state);
-extern "C" void func_02012028(void* obj, unsigned char value);
-extern "C" void func_0200fb94(char* obj, unsigned char value);
-extern "C" void func_02012010(void* obj, int value);
-extern "C" void func_ov011_021848a0(void* obj, int val);
+extern "C" unsigned char func_0209ca98(char* arg0);
+extern "C" unsigned char func_0205ea18(unsigned char* arg0);
+extern "C" void func_0209ca70(void* arg0, int arg1);
+struct Struct_02108760_2;
+extern "C" void func_0205e9f4(struct Struct_02108760_2* arg0, int arg1);
+extern "C" void func_02012028(void* arg0, unsigned char arg1);
+extern "C" void func_0200fb94(char* arg0, unsigned char arg1);
+extern "C" void func_02012010(void* arg0, int arg1);
+extern "C" void func_ov011_021848a0(void* arg0, int arg1);
 
 #if defined(jpn)
-struct FieldGroup02171034_0216d504 { unsigned char pad0[6]; unsigned char field1; unsigned char field4; unsigned char pad8[4]; unsigned char* ptr10; };
+struct Struct_ov004_02171034_4 { unsigned char unknown_0_[6]; unsigned char unknown_1_; unsigned char unknown_4_; unsigned char unknown_8_[4]; unsigned char* unknown_10_; };
 #else
-struct FieldGroup02171034_0216d504 {
-    unsigned char pad0[1];
-    unsigned char field1;
-    unsigned char pad2[2];
-    unsigned char field4;
-    unsigned char pad5[0xb];
-    unsigned char* ptr10;
+struct Struct_ov004_02171034_4 {
+    unsigned char unknown_0_[1];
+    unsigned char unknown_1_;
+    unsigned char unknown_2_[2];
+    unsigned char unknown_4_;
+    unsigned char unknown_5_[0xb];
+    unsigned char* unknown_10_;
 };
 #endif
-extern FieldGroup02171034_0216d504 data_ov004_02171034;
+extern Struct_ov004_02171034_4 data_ov004_02171034;
 extern char data_02109bf4;
 extern unsigned char data_02108760;
 
 // USA: func_ov004_0216d504
-extern "C" ARM int func_ov004_0216d504(void* self) {
-    func_020aaf84(data_ov004_02171034.ptr10, 0, 0, 0);
-    data_ov004_02171034.field4 = func_0209ca98(&data_02109bf4);
-    data_ov004_02171034.field1 = func_0205ea18(&data_02108760);
+extern "C" ARM int func_ov004_0216d504(void* arg0) {
+    func_020aaf84(data_ov004_02171034.unknown_10_, 0, 0, 0);
+    data_ov004_02171034.unknown_4_ = func_0209ca98(&data_02109bf4);
+    data_ov004_02171034.unknown_1_ = func_0205ea18(&data_02108760);
     func_0209ca70(&data_02109bf4, 3);
-    func_0205e9f4((struct Obj0205e9f4*)&data_02108760, 3);
+    func_0205e9f4((struct Struct_02108760_2*)&data_02108760, 3);
 
-    GameState* battle = GameState::GetInstance();
-    func_02012028(battle, 0);
-    ((unsigned char*)battle + 0x7000)[flagOffset] = 0;
-    func_0200fb94((char*)battle, 0);
-    func_02012010(battle, 5);
+    GameState* var0 = GameState::GetInstance();
+    func_02012028(var0, 0);
+    ((unsigned char*)var0 + 0x7000)[Enum_ov004_0216d504_3953] = 0;
+    func_0200fb94((char*)var0, 0);
+    func_02012010(var0, 5);
 
-    func_ov011_021848a0(self, 0x3e7);
+    func_ov011_021848a0(arg0, 0x3e7);
     return 0;
 }

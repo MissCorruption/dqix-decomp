@@ -1,124 +1,124 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegion10b = 0x107 };
-enum { kRegion36fc = 0x34ec };
-enum { kRegion9a0 = 0x870 };
-enum { kRegion3734 = 0x3524 };
-enum { kRegion370c = 0x34fc };
+enum { Enum_ov003_0217d53c_267 = 0x107 };
+enum { Enum_ov003_0217d53c_14076 = 0x34ec };
+enum { Enum_ov003_0217d53c_2464 = 0x870 };
+enum { Enum_ov003_0217d53c_14132 = 0x3524 };
+enum { Enum_ov003_0217d53c_14092 = 0x34fc };
 #else
-enum { kRegion10b = 0x10b };
-enum { kRegion36fc = 0x36fc };
-enum { kRegion9a0 = 0x9a0 };
-enum { kRegion3734 = 0x3734 };
-enum { kRegion370c = 0x370c };
+enum { Enum_ov003_0217d53c_267 = 0x10b };
+enum { Enum_ov003_0217d53c_14076 = 0x36fc };
+enum { Enum_ov003_0217d53c_2464 = 0x9a0 };
+enum { Enum_ov003_0217d53c_14132 = 0x3734 };
+enum { Enum_ov003_0217d53c_14092 = 0x370c };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
 extern "C" char* func_020421a0(void);
 extern "C" char* func_02012fe4(void);
-extern "C" int func_020457e0(char* obj);
-extern "C" void func_ov017_021baedc(void* self, int flag);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(struct TailList020469b4* list, struct TailNode020469b4* node);
-extern "C" void func_ov017_0219e310(unsigned char* obj, int arg);
-extern "C" void* func_0200fd0c(GameState* state);
-extern "C" void func_02070378(char* obj);
+extern "C" int func_020457e0(char* arg0);
+extern "C" void func_ov017_021baedc(void* arg0, int arg1);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(struct Struct_0201bdac_2* arg0, struct Struct_0201bdac* arg1);
+extern "C" void func_ov017_0219e310(unsigned char* arg0, int arg1);
+extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" void func_02070378(char* arg0);
 
-struct Progress02012fe4 {
+struct Struct_ov003_0217d53c_4 {
 #if defined(jpn)
-    unsigned char pad0[0x1b3c];
+    unsigned char unknown1_0_[0x1b3c];
 #else
-    unsigned char pad0[0xb3c];
+    unsigned char unknown_0_[0xb3c];
 #endif
-    int chapter;
+    int unknown_b3c_;
 };
 
 #if !defined(jpn)
-static inline struct Progress02012fe4* GetProgress(void* run) {
-    return (struct Progress02012fe4*)((int)run + 0x1840);
+static inline struct Struct_ov003_0217d53c_4* inline_ov003_0216e714_2(void* arg0) {
+    return (struct Struct_ov003_0217d53c_4*)((int)arg0 + 0x1840);
 }
 #endif
 
-struct BattleEvent_0217d53c {
-    unsigned char pad0[0x8];
-    unsigned short messageId;
-    unsigned char padA[kRegion10b - 0xa];
-    unsigned char active;
+struct Struct_ov003_0217d53c {
+    unsigned char unknown_0_[0x8];
+    unsigned short unknown_8_;
+    unsigned char unknown_a_[Enum_ov003_0217d53c_267 - 0xa];
+    unsigned char unknown_10b_;
 };
 
-struct EventRecord_0217d53c {
-    unsigned short id;
-    unsigned char pad2[0x7 - 0x2];
-    unsigned char field_0x7;
-    unsigned char pad8[0xc - 0x8];
-    unsigned char field_0xc;
-    unsigned char padD[0x14 - 0xd];
-    int field_0x14;
-    int field_0x18;
+struct Struct_ov003_0217d53c_2 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[0x7 - 0x2];
+    unsigned char unknown_7_;
+    unsigned char unknown_8_[0xc - 0x8];
+    unsigned char unknown_c_;
+    unsigned char unknown_d_[0x14 - 0xd];
+    int unknown_14_;
+    int unknown_18_;
 };
 
-struct State_0217d53c {
-    unsigned char pad0[0x4];
-    unsigned char state;
-    signed char busy;
+struct Struct_ov003_0217d53c_3 {
+    unsigned char unknown_0_[0x4];
+    unsigned char unknown_4_;
+    signed char unknown_5_;
 };
 
 // USA: func_ov003_0217d53c
-extern "C" ARM void func_ov003_0217d53c(State_0217d53c* self) {
-    GameState* gs = GameState::GetInstance();
-    char* global = func_020421a0();
-    char* res = (char*)GetGameResources();
-    struct TailList020469b4* list = *(struct TailList020469b4**)(res + kRegion36fc);
+extern "C" ARM void func_ov003_0217d53c(Struct_ov003_0217d53c_3* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    char* var1 = func_020421a0();
+    char* var2 = (char*)GetGameResources();
+    struct Struct_0201bdac_2* var3 = *(struct Struct_0201bdac_2**)(var2 + Enum_ov003_0217d53c_14076);
 #if defined(jpn)
-    Progress02012fe4* current = (Progress02012fe4*)(func_02012fe4() + 0x860);
+    Struct_ov003_0217d53c_4* var4 = (Struct_ov003_0217d53c_4*)(func_02012fe4() + 0x860);
 #else
-    char* current = func_02012fe4();
+    char* var5 = func_02012fe4();
 #endif
-    if (self->busy != 0 || *(int*)(global + kRegion9a0) != 0) return;
-    if (func_020457e0(global) == 0) {
-        BattleEvent_0217d53c* event = *(BattleEvent_0217d53c**)(res + kRegion3734);
-        func_ov017_021baedc(event, 1);
-        event->active = 1;
+    if (arg0->unknown_5_ != 0 || *(int*)(var1 + Enum_ov003_0217d53c_2464) != 0) return;
+    if (func_020457e0(var1) == 0) {
+        Struct_ov003_0217d53c* var6 = *(Struct_ov003_0217d53c**)(var2 + Enum_ov003_0217d53c_14132);
+        func_ov017_021baedc(var6, 1);
+        var6->unknown_10b_ = 1;
         switch (
 #if defined(jpn)
-            current->chapter
+            var4->unknown_b3c_
 #else
-            GetProgress(current)->chapter
+            inline_ov003_0216e714_2(var5)->unknown_b3c_
 #endif
         ) {
             case 0:
             case 1:
             case 2:
-                event->messageId = 0xd067;
+                var6->unknown_8_ = 0xd067;
                 break;
             case 3:
             case 4:
-                event->messageId = 0xd068;
+                var6->unknown_8_ = 0xd068;
                 break;
             case 5:
-                event->messageId = 0xd069;
+                var6->unknown_8_ = 0xd069;
                 break;
             case 6:
-                event->messageId = 0xd06a;
+                var6->unknown_8_ = 0xd06a;
                 break;
         }
-        func_020469b4(list, (struct TailNode020469b4*)event);
-        unsigned char* header = *(unsigned char**)(res + kRegion370c);
-        func_ov017_0219e310(header, 0);
-        EventRecord_0217d53c* record = (EventRecord_0217d53c*)func_0200fd0c(gs);
-        func_02070378((char*)record);
-        record->id = 0xc3bc;
-        record->field_0x7 = 1;
-        record->field_0x14 = 0x266;
-        record->field_0x18 = -0x7b33;
-        record->field_0xc = 1;
-        func_020469b4(list, (struct TailNode020469b4*)header);
-        self->state = 4;
-        self->busy = 0;
+        func_020469b4(var3, (struct Struct_0201bdac*)var6);
+        unsigned char* var7 = *(unsigned char**)(var2 + Enum_ov003_0217d53c_14092);
+        func_ov017_0219e310(var7, 0);
+        Struct_ov003_0217d53c_2* var8 = (Struct_ov003_0217d53c_2*)func_0200fd0c(var0);
+        func_02070378((char*)var8);
+        var8->unknown_0_ = 0xc3bc;
+        var8->unknown_7_ = 1;
+        var8->unknown_14_ = 0x266;
+        var8->unknown_18_ = -0x7b33;
+        var8->unknown_c_ = 1;
+        func_020469b4(var3, (struct Struct_0201bdac*)var7);
+        arg0->unknown_4_ = 4;
+        arg0->unknown_5_ = 0;
     } else {
-        self->state = 4;
-        self->busy = 0;
+        arg0->unknown_4_ = 4;
+        arg0->unknown_5_ = 0;
     }
 }

@@ -1,60 +1,60 @@
 #include <globaldefs.h>
 
-struct ExceptionContext {
-    const char* typeName;
-    void* exceptionObject;
-    unsigned int cleanup;
-    void* currentException;
-    unsigned int returnAddress;
-    void* savedStack;
-    void* frameBase;
+struct Struct_0200eca0_2 {
+    const char* unknown_0_;
+    void* unknown_4_;
+    unsigned int unknown_8_;
+    void* unknown_c_;
+    unsigned int unknown_10_;
+    void* unknown_14_;
+    void* unknown_18_;
 };
 
-struct ExceptionTableCursor {
-    unsigned int functionStart;
-    void* header;
-    void* cursor;
-    void* rangeStart;
-    void* rangeEnd;
-    unsigned int unknown14;
+struct Struct_0200eca0 {
+    unsigned int unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    void* unknown_10_;
+    unsigned int unknown_14_;
 };
 
-struct HandlerMatch {
-    int objectAdjustment;
-    const char* typeName;
-    int handlerOffset;
-    int exceptionSlotOffset;
+struct Struct_0200eca0_3 {
+    int unknown_0_;
+    const char* unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-extern "C" void* func_0200dad4(unsigned int, ExceptionTableCursor*);
+extern "C" void* func_0200dad4(unsigned int, Struct_0200eca0*);
 extern "C" void func_0200efb8();
-extern "C" void func_0200f1fc(ExceptionContext*, ExceptionTableCursor*);
-extern "C" void* func_0200e830(ExceptionContext*, ExceptionTableCursor*);
-extern "C" unsigned char* func_0200ea68(ExceptionContext*, ExceptionTableCursor*, HandlerMatch*);
+extern "C" void func_0200f1fc(Struct_0200eca0_2*, Struct_0200eca0*);
+extern "C" void* func_0200e830(Struct_0200eca0_2*, Struct_0200eca0*);
+extern "C" unsigned char* func_0200ea68(Struct_0200eca0_2*, Struct_0200eca0*, Struct_0200eca0_3*);
 extern "C" void* func_0200d9e4(void*, int*);
 extern "C" void* func_0200d958(void*, int*);
-extern "C" void func_0200df80(ExceptionContext*, ExceptionTableCursor*, unsigned char*);
-extern "C" void func_0200ec44(ExceptionContext*, int, int);
-extern "C" void func_0200f2ec(ExceptionContext*, ExceptionTableCursor*, unsigned int);
+extern "C" void func_0200df80(Struct_0200eca0_2*, Struct_0200eca0*, unsigned char*);
+extern "C" void func_0200ec44(Struct_0200eca0_2*, int, int);
+extern "C" void func_0200f2ec(Struct_0200eca0_2*, Struct_0200eca0*, unsigned int);
 
 // USA: func_0200eca0
 // KEEP-NAME
-extern "C" ARM void func_0200eca0(ExceptionContext* context) {
-    ExceptionTableCursor table;
-    HandlerMatch handler;
-    func_0200dad4(context->returnAddress, &table);
-    if (!table.header) func_0200efb8();
-    func_0200f1fc(context, &table);
-    if (context->typeName) context->currentException = 0;
+extern "C" ARM void func_0200eca0(Struct_0200eca0_2* arg0) {
+    Struct_0200eca0 var0;
+    Struct_0200eca0_3 var1;
+    func_0200dad4(arg0->unknown_10_, &var0);
+    if (!var0.unknown_4_) func_0200efb8();
+    func_0200f1fc(arg0, &var0);
+    if (arg0->unknown_0_) arg0->unknown_c_ = 0;
     else {
-        context->currentException = func_0200e830(context, &table);
-        if (!context->currentException) func_0200efb8();
+        arg0->unknown_c_ = func_0200e830(arg0, &var0);
+        if (!arg0->unknown_c_) func_0200efb8();
     }
-    unsigned char* record = func_0200ea68(context, &table, &handler);
-    handler.typeName = (const char*)(record[1] | record[2] << 8 | record[3] << 16 | record[4] << 24);
-    void* cursor = func_0200d9e4(record + 5, &handler.handlerOffset);
-    func_0200d958(cursor, &handler.exceptionSlotOffset);
-    func_0200df80(context, &table, record);
-    func_0200ec44(context, handler.exceptionSlotOffset, handler.objectAdjustment);
-    func_0200f2ec(context, &table, table.functionStart + handler.handlerOffset);
+    unsigned char* var2 = func_0200ea68(arg0, &var0, &var1);
+    var1.unknown_4_ = (const char*)(var2[1] | var2[2] << 8 | var2[3] << 16 | var2[4] << 24);
+    void* var3 = func_0200d9e4(var2 + 5, &var1.unknown_8_);
+    func_0200d958(var3, &var1.unknown_c_);
+    func_0200df80(arg0, &var0, var2);
+    func_0200ec44(arg0, var1.unknown_c_, var1.unknown_0_);
+    func_0200f2ec(arg0, &var0, var0.unknown_0_ + var1.unknown_8_);
 }

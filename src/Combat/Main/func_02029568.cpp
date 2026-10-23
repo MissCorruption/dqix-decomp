@@ -1,75 +1,75 @@
 #include <globaldefs.h>
 #include "Graphics/GlyphMetrics.h"
 
-struct Menu02029568 {
-    int type;
-    char pad04[0x3c];
-    int f40;
-    void* entries;
-    int f48;
-    int f4c;
-    short f50;
-    short f52;
-    short f54;
-    short f56;
-    short f58;
-    unsigned short count;
-    short f5c;
-    short f5e;
-    short f60;
-    unsigned short f62;
-    short f64;
-    short f66;
-    short f68;
-    short f6a;
-    unsigned char f6c;
-    unsigned char f6d;
-    unsigned char f6e;
-    unsigned char f6f;
-    unsigned char f70;
-    unsigned char f71;
-    unsigned char f72;
-    unsigned char f73;
-    unsigned char f74;
-    char pad75[3];
-    int arr[2];
+struct Struct_02029568 {
+    int unknown_0_;
+    char unknown_4_[0x3c];
+    int unknown_40_;
+    void* unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
+    short unknown_50_;
+    short unknown_52_;
+    short unknown_54_;
+    short unknown_56_;
+    short unknown_58_;
+    unsigned short unknown_5a_;
+    short unknown_5c_;
+    short unknown_5e_;
+    short unknown_60_;
+    unsigned short unknown_62_;
+    short unknown_64_;
+    short unknown_66_;
+    short unknown_68_;
+    short unknown_6a_;
+    unsigned char unknown_6c_;
+    unsigned char unknown_6d_;
+    unsigned char unknown_6e_;
+    unsigned char unknown_6f_;
+    unsigned char unknown_70_;
+    unsigned char unknown_71_;
+    unsigned char unknown_72_;
+    unsigned char unknown_73_;
+    unsigned char unknown_74_;
+    char unknown_75_[3];
+    int unknown_78_[2];
 };
 
-extern "C" void func_0202949c(char* obj);
+extern "C" void func_0202949c(char* arg0);
 
 // USA: func_02029568
-extern "C" ARM void func_02029568(struct Menu02029568* m) {
-    func_0202949c((char*)m);
-    m->type = 1;
-    m->f50 = 0;
-    m->f52 = 0;
-    m->f54 = 0;
-    m->f56 = 0;
-    m->f58 = 0;
-    m->f6c = 1;
-    m->count = 0;
-    m->f5c = -1;
-    m->f5e = -1;
-    m->f60 = -1;
-    m->f6d = 0;
-    m->f6e = 0;
-    m->entries = 0;
-    m->f48 = 0;
-    m->f62 = 10;
-    m->f64 = 0;
-    m->f66 = (short)(m->f62 + m->f64);
-    m->f6f = 0;
-    m->f6a = 0;
-    m->f68 = 0;
-    data_020ef74c.unknown0 = 0x7d40;
-    m->f71 = 0;
-    m->f72 = 0;
-    m->f73 = 0;
-    m->f74 = 0;
-    m->f40 = 0;
-    m->f70 = 0;
-    m->f4c = 8;
-    for (int i = 0; i < 2; i++) {
-        m->arr[i] = 0;
+extern "C" ARM void func_02029568(struct Struct_02029568* arg0) {
+    func_0202949c((char*)arg0);
+    arg0->unknown_0_ = 1;
+    arg0->unknown_50_ = 0;
+    arg0->unknown_52_ = 0;
+    arg0->unknown_54_ = 0;
+    arg0->unknown_56_ = 0;
+    arg0->unknown_58_ = 0;
+    arg0->unknown_6c_ = 1;
+    arg0->unknown_5a_ = 0;
+    arg0->unknown_5c_ = -1;
+    arg0->unknown_5e_ = -1;
+    arg0->unknown_60_ = -1;
+    arg0->unknown_6d_ = 0;
+    arg0->unknown_6e_ = 0;
+    arg0->unknown_44_ = 0;
+    arg0->unknown_48_ = 0;
+    arg0->unknown_62_ = 10;
+    arg0->unknown_64_ = 0;
+    arg0->unknown_66_ = (short)(arg0->unknown_62_ + arg0->unknown_64_);
+    arg0->unknown_6f_ = 0;
+    arg0->unknown_6a_ = 0;
+    arg0->unknown_68_ = 0;
+    data_020ef74c.unknown_0_ = 0x7d40;
+    arg0->unknown_71_ = 0;
+    arg0->unknown_72_ = 0;
+    arg0->unknown_73_ = 0;
+    arg0->unknown_74_ = 0;
+    arg0->unknown_40_ = 0;
+    arg0->unknown_70_ = 0;
+    arg0->unknown_4c_ = 8;
+    for (int var0 = 0; var0 < 2; var0++) {
+        arg0->unknown_78_[var0] = 0;
     }
 }

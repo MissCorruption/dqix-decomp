@@ -1,45 +1,45 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kRegionValue1F9_1F5 = 0x1f5 };
-enum { kRegionValue1F8_1F4 = 0x1f4 };
+enum { Enum_ov003_02158184_505 = 0x1f5 };
+enum { Enum_ov003_02158184_504 = 0x1f4 };
 #else
-enum { kRegionValue1F9_1F5 = 0x1f9 };
-enum { kRegionValue1F8_1F4 = 0x1f8 };
+enum { Enum_ov003_02158184_505 = 0x1f9 };
+enum { Enum_ov003_02158184_504 = 0x1f8 };
 #endif
 
 extern "C" int func_ov003_021538e0(void*);
 extern "C" void* func_020d6c00(void);
-struct FlagWord020466f4;
-extern "C" void func_020466f4(struct FlagWord020466f4* word, unsigned int mask);
+struct Struct_02038598_4;
+extern "C" void func_020466f4(struct Struct_02038598_4* arg0, unsigned int arg1);
 extern "C" void func_020dc2d0(int);
-extern "C" void func_ov003_02153874(void* obj);
+extern "C" void func_ov003_02153874(void* arg0);
 
 // USA: func_ov003_02158184
-extern "C" ARM void func_ov003_02158184(void* self) {
-    unsigned char* s = (unsigned char*)self;
-    unsigned char state = *(unsigned char*)(s + kRegionValue1F9_1F5);
-    void* p4 = *(void**)(s + 4);
+extern "C" ARM void func_ov003_02158184(void* arg0) {
+    unsigned char* var0 = (unsigned char*)arg0;
+    unsigned char var1 = *(unsigned char*)(var0 + Enum_ov003_02158184_505);
+    void* var2 = *(void**)(var0 + 4);
 
-    if (state == 0) {
-        signed char b = *(signed char*)((char*)p4 + 0x59);
-        int ok = 0;
-        if (b < 0) goto check;
-        if (b <= 3) ok = 1;
+    if (var1 == 0) {
+        signed char var3 = *(signed char*)((char*)var2 + 0x59);
+        int var4 = 0;
+        if (var3 < 0) goto check;
+        if (var3 <= 3) var4 = 1;
     check:
-        if (!ok) {
-            *(unsigned char*)(s + kRegionValue1F8_1F4) = 7;
+        if (!var4) {
+            *(unsigned char*)(var0 + Enum_ov003_02158184_504) = 7;
             return;
         }
-        *(signed char*)((char*)p4 + 0x59) = -1;
-        func_ov003_02153874(p4);
-        *(unsigned char*)(s + kRegionValue1F9_1F5) = *(unsigned char*)(s + kRegionValue1F9_1F5) + 1;
+        *(signed char*)((char*)var2 + 0x59) = -1;
+        func_ov003_02153874(var2);
+        *(unsigned char*)(var0 + Enum_ov003_02158184_505) = *(unsigned char*)(var0 + Enum_ov003_02158184_505) + 1;
         return;
     }
-    if (state != 1) return;
-    if (func_ov003_021538e0(p4) == 0) return;
+    if (var1 != 1) return;
+    if (func_ov003_021538e0(var2) == 0) return;
 
-    func_020466f4((struct FlagWord020466f4*)func_020d6c00(), 1);
+    func_020466f4((struct Struct_02038598_4*)func_020d6c00(), 1);
     func_020dc2d0(0);
-    *(unsigned char*)(s + kRegionValue1F8_1F4) = 7;
+    *(unsigned char*)(var0 + Enum_ov003_02158184_504) = 7;
 }

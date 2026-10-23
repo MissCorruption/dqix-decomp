@@ -3,84 +3,84 @@
 #include "World/Object3D.h"
 #include "NitroSDK/NSBXX/GeometryFifo.h"
 
-extern "C" void __clear(void* buffer, unsigned long size);
+extern "C" void __clear(void* arg0, unsigned long arg1);
 
-struct CharacterColors
+struct Struct_02099d34
 {
-    unsigned short hair_[10][2];
-    unsigned short colors2_[8][2];
-    unsigned short colors4_[8][4];
-    unsigned short colors8_[8][8];
-    unsigned short skin_[8][2];
-    unsigned short edge_;
+    unsigned short unknown_0_[10][2];
+    unsigned short unknown_28_[8][2];
+    unsigned short unknown_48_[8][4];
+    unsigned short unknown_88_[8][8];
+    unsigned short unknown_108_[8][2];
+    unsigned short unknown_128_;
 };
 
-struct ViewObject
+struct Struct_ov015_0218c03c_2
 {
-    char unk_0[0x24];
-    Object3D* objects_;
-    char unk_28[0x34 - 0x28];
-    unsigned short triangles_;
-    unsigned short quads_;
+    char unknown_0_[0x24];
+    Object3D* unknown_24_;
+    char unknown_28_[0x34 - 0x28];
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
 };
 
-struct DollAnimated
+struct Struct_ov015_02193d9c
 {
-    int animated_[9];
+    int unknown_0_[9];
 };
 
-struct DollBones
+struct Struct_ov015_02193ee8
 {
-    char names_[9][0x14];
+    char unknown_0_[9][0x14];
 };
 
-extern "C" CharacterColors* func_02099cac();
-extern "C" int func_020c555c(int a);
+extern "C" Struct_02099d34* func_02099cac();
+extern "C" int func_020c555c(int arg0);
 ModelRenderContext* GetModel3DContext(Model3D* model);
 
-extern const DollBones data_ov015_02193ee8;
-extern const DollAnimated data_ov015_02193d9c;
+extern const Struct_ov015_02193ee8 data_ov015_02193ee8;
+extern const Struct_ov015_02193d9c data_ov015_02193d9c;
 
 // USA: func_ov015_0218eb04
-extern "C" ARM void func_ov015_0218eb04(ViewObject* self)
+extern "C" ARM void func_ov015_0218eb04(Struct_ov015_0218c03c_2* arg0)
 {
-    unsigned short edge = func_02099cac()->edge_;
-    unsigned short edges[8] = {edge, edge, edge, edge, edge, edge, edge, edge};
-    func_020c555c((int)edges);
-    self->quads_ = 0;
-    self->triangles_ = 0;
-    Model3D* model = self->objects_->pModel_;
-    if (model == NULL)
+    unsigned short var0 = func_02099cac()->unknown_128_;
+    unsigned short var1[8] = {var0, var0, var0, var0, var0, var0, var0, var0};
+    func_020c555c((int)var1);
+    arg0->unknown_36_ = 0;
+    arg0->unknown_34_ = 0;
+    Model3D* var2 = arg0->unknown_24_->pModel_;
+    if (var2 == NULL)
         return;
-    ModelRenderContext* context = GetModel3DContext(model);
-    if (context == NULL)
+    ModelRenderContext* var3 = GetModel3DContext(var2);
+    if (var3 == NULL)
         return;
-    Object3D* parts[10];
-    __clear(parts, sizeof(parts));
-    parts[0] = &self->objects_[0];
-    parts[1] = &self->objects_[2];
-    parts[2] = &self->objects_[3];
-    parts[3] = &self->objects_[7];
-    parts[4] = &self->objects_[8];
-    parts[5] = &self->objects_[9];
-    parts[6] = &self->objects_[6];
-    parts[7] = &self->objects_[5];
-    parts[8] = &self->objects_[1];
-    DollBones bones = data_ov015_02193ee8;
-    DollAnimated animated = data_ov015_02193d9c;
-    for (int i = 0; parts[i] != NULL; i++)
+    Object3D* var4[10];
+    __clear(var4, sizeof(var4));
+    var4[0] = &arg0->unknown_24_[0];
+    var4[1] = &arg0->unknown_24_[2];
+    var4[2] = &arg0->unknown_24_[3];
+    var4[3] = &arg0->unknown_24_[7];
+    var4[4] = &arg0->unknown_24_[8];
+    var4[5] = &arg0->unknown_24_[9];
+    var4[6] = &arg0->unknown_24_[6];
+    var4[7] = &arg0->unknown_24_[5];
+    var4[8] = &arg0->unknown_24_[1];
+    Struct_ov015_02193ee8 var5 = data_ov015_02193ee8;
+    Struct_ov015_02193d9c var6 = data_ov015_02193d9c;
+    for (int var7 = 0; var4[var7] != NULL; var7++)
     {
-        Object3D* part = parts[i];
-        if (part->unknown_2_ >= 0)
+        Object3D* var8 = var4[var7];
+        if (var8->unknown_2_ >= 0)
         {
-            if (strlen(bones.names_[i]) != 0)
+            if (strlen(var5.unknown_0_[var7]) != 0)
             {
-                GetModelBonePositionAndDirectionMatrices(context, NULL, NULL, model->GetBoneIndex(bones.names_[i]));
-                part->EnableFlag(0x4000);
+                GetModelBonePositionAndDirectionMatrices(var3, NULL, NULL, var2->GetBoneIndex(var5.unknown_0_[var7]));
+                var8->EnableFlag(0x4000);
             }
-            if (animated.animated_[i])
-                self->objects_->ApplyAnimations(part);
-            part->Draw(true);
+            if (var6.unknown_0_[var7])
+                arg0->unknown_24_->ApplyAnimations(var8);
+            var8->Draw(true);
         }
     }
 }

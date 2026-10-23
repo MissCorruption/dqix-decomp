@@ -2,24 +2,24 @@
 
 #include "std_library_functions.h"
 
-struct Entry0204254c {
-    int val;
-    char pad4;
-    signed char field5 : 6;
-    signed char unused6 : 1;
-    signed char uppercase : 1;
-    char pad6[2];
+struct Struct_0204254c {
+    int unknown_0_;
+    char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 1;
+    signed char unknown_5_7_ : 1;
+    char unknown_6_[2];
 };
 
-extern "C" Entry0204254c *func_0204254c(int key, int tableIdx);
-extern "C" void func_02067f5c(signed char *text, int count);
+extern "C" Struct_0204254c *func_0204254c(int arg0, int arg1);
+extern "C" void func_02067f5c(signed char *arg0, int arg1);
 
 // USA: func_0206819c
-extern "C" ARM void func_0206819c(const char *source, char *destination, int tableIndex) {
-    if (source == NULL) return;
-    sprintf(destination, source);
-    if (*source == 0) return;
-    Entry0204254c *entry = func_0204254c(reinterpret_cast<int>(source), tableIndex);
-    if (entry == NULL || !entry->uppercase) return;
-    func_02067f5c(reinterpret_cast<signed char *>(destination), entry->field5);
+extern "C" ARM void func_0206819c(const char *arg0, char *arg1, int arg2) {
+    if (arg0 == NULL) return;
+    sprintf(arg1, arg0);
+    if (*arg0 == 0) return;
+    Struct_0204254c *var0 = func_0204254c(reinterpret_cast<int>(arg0), arg2);
+    if (var0 == NULL || !var0->unknown_5_7_) return;
+    func_02067f5c(reinterpret_cast<signed char *>(arg1), var0->unknown_5_0_);
 }

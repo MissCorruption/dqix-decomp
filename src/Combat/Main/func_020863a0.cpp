@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kBase = 0x8be };
+enum { Enum_020863a0_2390 = 0x8be };
 #else
-enum { kBase = 0x956 };
+enum { Enum_020863a0_2390 = 0x956 };
 #endif
 
 // USA: func_020863a0
-extern "C" ARM void func_020863a0(unsigned char* obj) {
-    *(short*)(obj + kBase + 0) = 0;
-    *(short*)(obj + kBase + 2) = -1;
-    *(short*)(obj + kBase + 4) = 0;
-    *(short*)(obj + kBase + 6) = 0;
-    *(short*)(obj + kBase + 8) = -1;
+extern "C" ARM void func_020863a0(unsigned char* arg0) {
+    *(short*)(arg0 + Enum_020863a0_2390 + 0) = 0;
+    *(short*)(arg0 + Enum_020863a0_2390 + 2) = -1;
+    *(short*)(arg0 + Enum_020863a0_2390 + 4) = 0;
+    *(short*)(arg0 + Enum_020863a0_2390 + 6) = 0;
+    *(short*)(arg0 + Enum_020863a0_2390 + 8) = -1;
 }

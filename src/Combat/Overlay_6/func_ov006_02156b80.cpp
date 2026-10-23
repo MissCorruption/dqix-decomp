@@ -6,14 +6,14 @@
 extern "C" void func_ov006_021557c0(void*);
 extern "C" void func_ov023_021dc488(void*);
 
-extern "C" ARM void func_ov006_02156b80(void* object) {
-    AlchemyPot* pot = (AlchemyPot*)object;
-    if (!(pot->flags_ & 8)) {
-        pot->protagonist_.AdvanceEffects();
-        pot->pot_.AdvanceEffects();
-        pot->lid_.AdvanceEffects();
-        pot->effect_.SetNormalizedAnimationTime(pot->pot_.normalizedAnimationTime_);
+extern "C" ARM void func_ov006_02156b80(void* arg0) {
+    Struct_ov006_02154614* var0 = (Struct_ov006_02154614*)arg0;
+    if (!(var0->unknown_ae2_ & 8)) {
+        var0->unknown_238_.AdvanceEffects();
+        var0->unknown_2e4_.AdvanceEffects();
+        var0->unknown_390_.AdvanceEffects();
+        var0->unknown_43c_.SetNormalizedAnimationTime(var0->unknown_2e4_.normalizedAnimationTime_);
     }
-    func_ov006_021557c0(pot);
-    func_ov023_021dc488(&pot->window_);
+    func_ov006_021557c0(var0);
+    func_ov023_021dc488(&var0->unknown_ae4_);
 }

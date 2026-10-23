@@ -1,61 +1,61 @@
 #include <globaldefs.h>
 
 // USA: func_020d1d1c
-extern "C" ARM void func_020d1d1c(unsigned short* context, const void* input, unsigned long length)
+extern "C" ARM void func_020d1d1c(unsigned short* arg0, const void* arg1, unsigned long arg2)
 {
-    int swapped = false;
-    unsigned long sum = 0;
-    const unsigned char* data = (const unsigned char*)input;
-    unsigned long n;
-    unsigned long blocks;
+    int var0 = false;
+    unsigned long var1 = 0;
+    const unsigned char* var2 = (const unsigned char*)arg1;
+    unsigned long var3;
+    unsigned long var4;
 
-    if ((unsigned long)data & 1)
+    if ((unsigned long)var2 & 1)
     {
-        sum += *data++ << 8;
-        length--;
-        swapped = true;
+        var1 += *var2++ << 8;
+        arg2--;
+        var0 = true;
     }
 
-    blocks = length >> 17;
-    if (blocks != 0)
+    var4 = arg2 >> 17;
+    if (var4 != 0)
     {
         do
         {
-            n = 0x10000;
-            blocks--;
-            length -= 0x20000;
+            var3 = 0x10000;
+            var4--;
+            arg2 -= 0x20000;
             do
             {
-                sum += *(const unsigned short*)data;
-                data += 2;
-            } while (--n != 0);
-            sum = (sum >> 16) + (sum & 0xffff);
-            sum = (unsigned short)(sum + (sum >> 16));
-        } while (blocks != 0);
+                var1 += *(const unsigned short*)var2;
+                var2 += 2;
+            } while (--var3 != 0);
+            var1 = (var1 >> 16) + (var1 & 0xffff);
+            var1 = (unsigned short)(var1 + (var1 >> 16));
+        } while (var4 != 0);
     }
 
-    n = length >> 1;
-    if (n != 0)
+    var3 = arg2 >> 1;
+    if (var3 != 0)
     {
         do
         {
-            sum += *(const unsigned short*)data;
-            data += 2;
-        } while (--n != 0);
+            var1 += *(const unsigned short*)var2;
+            var2 += 2;
+        } while (--var3 != 0);
     }
-    if (length & 1)
+    if (arg2 & 1)
     {
-        sum += *data;
+        var1 += *var2;
     }
 
-    sum = (sum >> 16) + (sum & 0xffff);
-    sum = (sum >> 16) + (sum & 0xffff);
-    if (swapped)
+    var1 = (var1 >> 16) + (var1 & 0xffff);
+    var1 = (var1 >> 16) + (var1 & 0xffff);
+    if (var0)
     {
-        sum = ((sum << 24) | (sum << 8)) >> 16;
+        var1 = ((var1 << 24) | (var1 << 8)) >> 16;
     }
 
-    sum += *context;
-    sum += sum >> 16;
-    *context = (unsigned short)sum;
+    var1 += *arg0;
+    var1 += var1 >> 16;
+    *arg0 = (unsigned short)var1;
 }

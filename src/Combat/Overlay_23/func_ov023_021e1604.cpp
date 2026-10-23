@@ -1,71 +1,71 @@
 #include <globaldefs.h>
 
 struct Struct_021e12cc {
-    int a;
-    int b;
-    short c;
-    unsigned short d;
-    unsigned short e;
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char rest : 6;
-    unsigned char f;
+    int unknown_0_;
+    int unknown_4_;
+    short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned char unknown_e_0_ : 1;
+    unsigned char unknown_e_1_ : 1;
+    unsigned char unknown_e_2_ : 6;
+    unsigned char unknown_f_;
 };
 
-struct List_021e1604 {
-    char pad0[4];
-    struct Struct_021e12cc* entries;
-    short count;
+struct Struct_ov023_021e1604 {
+    char unknown_0_[4];
+    struct Struct_021e12cc* unknown_4_;
+    short unknown_8_;
 };
 
 // USA: func_ov023_021e1604
-extern "C" ARM struct Struct_021e12cc* func_ov023_021e1604(struct List_021e1604* list, int filterMode, int arg2, int arg3) {
-    unsigned short bestVal = 0xffff;
-    struct Struct_021e12cc* e;
-    struct Struct_021e12cc* best = 0;
-    struct Struct_021e12cc* entries = list->entries;
-    short count = list->count;
-    for (short i = 0; i < count; i++) {
-        e = &entries[i];
-        if (e->bit0) {
+extern "C" ARM struct Struct_021e12cc* func_ov023_021e1604(struct Struct_ov023_021e1604* arg0, int arg1, int arg2, int arg3) {
+    unsigned short var0 = 0xffff;
+    struct Struct_021e12cc* var1;
+    struct Struct_021e12cc* var2 = 0;
+    struct Struct_021e12cc* var3 = arg0->unknown_4_;
+    short var4 = arg0->unknown_8_;
+    for (short var5 = 0; var5 < var4; var5++) {
+        var1 = &var3[var5];
+        if (var1->unknown_e_0_) {
             continue;
         }
-        unsigned short d = e->d;
-        if (bestVal < d) {
+        unsigned short var6 = var1->unknown_a_;
+        if (var0 < var6) {
             continue;
         }
-        if (!e->bit1) {
+        if (!var1->unknown_e_1_) {
             continue;
         }
-        if (filterMode == 0) {
-            int ok = (e->rest <= 7) ? 1 : 0;
-            if (!ok) {
+        if (arg1 == 0) {
+            int var7 = (var1->unknown_e_2_ <= 7) ? 1 : 0;
+            if (!var7) {
                 continue;
             }
         } else {
             if (arg2 >= 0 && arg3 >= 0) {
-                if (e->f == arg3) {
-                    if (e->rest != arg2) {
+                if (var1->unknown_f_ == arg3) {
+                    if (var1->unknown_e_2_ != arg2) {
                         continue;
                     }
                 } else {
                     continue;
                 }
             } else if (arg2 >= 0) {
-                if (e->rest != arg2) {
+                if (var1->unknown_e_2_ != arg2) {
                     continue;
                 }
             } else if (arg3 >= 0) {
-                if (e->f != arg3) {
+                if (var1->unknown_f_ != arg3) {
                     continue;
                 }
             }
         }
-        bestVal = d;
-        best = e;
+        var0 = var6;
+        var2 = var1;
     }
-    if (best != 0) {
-        best->bit0 = 1;
+    if (var2 != 0) {
+        var2->unknown_e_0_ = 1;
     }
-    return best;
+    return var2;
 }

@@ -2,58 +2,58 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-extern "C" int func_0200fb8c(int* obj);
+extern "C" int func_0200fb8c(int* arg0);
 int IsSubBrightnessTransitionActive(GameResources*);
 
-struct Struct02074bf4;
-extern "C" void func_02074bf4(struct Struct02074bf4*);
+struct Struct_02074bf4;
+extern "C" void func_02074bf4(struct Struct_02074bf4*);
 
-struct StructAllocGroup0208ba54;
-extern "C" void func_0208ba54(struct StructAllocGroup0208ba54*);
+struct Struct_0208ba54;
+extern "C" void func_0208ba54(struct Struct_0208ba54*);
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_020dc2d0(int);
 
-struct Obj0208d340 {
-    char pad0[0xb8];
-    int fb8;
-    char pad2[0xd5 - 0xbc];
-    unsigned char fd5;
-    char pad3[0xda - 0xd6];
-    unsigned short fda;
+struct Struct_0208d340 {
+    char unknown_0_[0xb8];
+    int unknown_b8_;
+    char unknown_bc_[0xd5 - 0xbc];
+    unsigned char unknown_d5_;
+    char unknown_d6_[0xda - 0xd6];
+    unsigned short unknown_da_;
 };
 
 // USA: func_0208d340
-extern "C" ARM void func_0208d340(struct Obj0208d340* obj) {
-    int val = func_0200fb8c((int*)GameState::GetInstance());
+extern "C" ARM void func_0208d340(struct Struct_0208d340* arg0) {
+    int var0 = func_0200fb8c((int*)GameState::GetInstance());
 
-    if (obj->fd5 == 0) {
-        if (!(obj->fda & 0x10)) {
-            SetSubBrightness((GameResources*)val, -16, 8);
+    if (arg0->unknown_d5_ == 0) {
+        if (!(arg0->unknown_da_ & 0x10)) {
+            SetSubBrightness((GameResources*)var0, -16, 8);
         }
-        obj->fd5 = obj->fd5 + 1;
+        arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
         return;
     }
-    if (obj->fd5 == 1) {
-        if (IsSubBrightnessTransitionActive((GameResources*)val) == 0) {
-            obj->fd5 = obj->fd5 + 1;
+    if (arg0->unknown_d5_ == 1) {
+        if (IsSubBrightnessTransitionActive((GameResources*)var0) == 0) {
+            arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
         }
         return;
     }
-    if (obj->fd5 == 2) {
-        obj->fda = obj->fda & ~4;
-        func_02074bf4((struct Struct02074bf4*)((char*)obj + 0x2c));
+    if (arg0->unknown_d5_ == 2) {
+        arg0->unknown_da_ = arg0->unknown_da_ & ~4;
+        func_02074bf4((struct Struct_02074bf4*)((char*)arg0 + 0x2c));
         func_020dc2d0(0);
-        obj->fd5 = obj->fd5 + 1;
+        arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
         return;
     }
-    if (obj->fd5 != 3) return;
+    if (arg0->unknown_d5_ != 3) return;
 
-    int* reg = (int*)0x4001000;
-    *reg = (*reg & ~0x1f00) | (obj->fb8 << 8);
-    *(short*)((char*)reg + 0x50) = 0;
-    obj->fd5 = obj->fd5 + 1;
-    func_0208ba54((struct StructAllocGroup0208ba54*)obj);
+    int* var1 = (int*)0x4001000;
+    *var1 = (*var1 & ~0x1f00) | (arg0->unknown_b8_ << 8);
+    *(short*)((char*)var1 + 0x50) = 0;
+    arg0->unknown_d5_ = arg0->unknown_d5_ + 1;
+    func_0208ba54((struct Struct_0208ba54*)arg0);
     ClearFlags00((GameResources*)(func_0200fb8c((int*)GameState::GetInstance())), 0x6000);
 }

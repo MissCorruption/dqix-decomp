@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-struct RangeParam_02232858 { unsigned short f0, f1, f2, f3; };
+struct Struct_ov031_0224909a { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 
-extern "C" int func_ov031_0223d49c(RangeParam_02232858*);
+extern "C" int func_ov031_0223d49c(Struct_ov031_0224909a*);
 extern "C" void func_ov031_02232ce8(void);
 extern "C" int func_ov031_0223d394(int);
 extern "C" void func_ov031_02232d64(int);
 extern "C" void func_ov031_02222e20(int);
 extern "C" int func_ov031_0223d354(int);
 
-extern RangeParam_02232858 data_ov031_0224909a[7];
+extern Struct_ov031_0224909a data_ov031_0224909a[7];
 extern unsigned char data_ov031_02290cc0;
 
 // USA: func_ov031_02232858
 extern "C" ARM void func_ov031_02232858(void) {
-    unsigned int i = 0;
-    RangeParam_02232858* p = data_ov031_0224909a;
+    unsigned int var0 = 0;
+    Struct_ov031_0224909a* var1 = data_ov031_0224909a;
     do {
-        if (func_ov031_0223d49c(p)) {
+        if (func_ov031_0223d49c(var1)) {
             func_ov031_02222e20(1);
-            data_ov031_02290cc0 = i;
+            data_ov031_02290cc0 = var0;
             func_ov031_02232ce8();
             return;
         }
-        i++;
-        p++;
-    } while (i < 7);
+        var0++;
+        var1++;
+    } while (var0 < 7);
     if (func_ov031_0223d354(1)) {
         func_ov031_02222e20(1);
         return;

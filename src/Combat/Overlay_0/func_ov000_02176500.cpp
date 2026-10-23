@@ -2,72 +2,72 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
 
-struct Container020e0310;
+struct Struct_0201099c_3;
 
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02041e70(char* dst, int palette);
-extern "C" int func_02041a28(char* dst, int x);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02042058(char* dst, const char* src);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02041e70(char* arg0, int arg1);
+extern "C" int func_02041a28(char* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" int func_02042058(char* arg0, const char* arg1);
 
-struct CombatStats_02176500 {
-    char pad0[0x3b];
-    unsigned char flag0 : 1;
-    unsigned char flag1 : 1;
-    unsigned char flag2 : 1;
-    unsigned char flag3 : 1;
+struct Struct_ov000_02176500 {
+    char unknown_0_[0x3b];
+    unsigned char unknown_3b_0_ : 1;
+    unsigned char unknown_3b_1_ : 1;
+    unsigned char unknown_3b_2_ : 1;
+    unsigned char unknown_3b_3_ : 1;
 };
 
-struct Combatant_02176500 {
-    char pad0[0x138];
-    struct CombatStats_02176500* stats;
+struct Struct_ov000_02176500_2 {
+    char unknown_0_[0x138];
+    struct Struct_ov000_02176500* unknown_138_;
 };
 
-struct Menu_02176500 {
-    char pad0[4];
-    struct Container020e0310* messages;
-    char pad8[0x1c - 0x8];
-    signed char cursor;
-    char pad1d[0x4c - 0x1d];
-    int combatantId;
+struct Struct_ov000_02176500_3 {
+    char unknown_0_[4];
+    struct Struct_0201099c_3* unknown_4_;
+    char unknown_8_[0x1c - 0x8];
+    signed char unknown_1c_;
+    char unknown_1d_[0x4c - 0x1d];
+    int unknown_4c_;
 };
 
 extern int data_ov000_021834f8[6];
 
 // USA: func_ov000_02176500
-extern "C" ARM void func_ov000_02176500(struct Menu_02176500* menu, char* dst, int framed) {
-    if (dst == NULL || menu->messages == NULL) {
+extern "C" ARM void func_ov000_02176500(struct Struct_ov000_02176500_3* arg0, char* arg1, int arg2) {
+    if (arg1 == NULL || arg0->unknown_4_ == NULL) {
         return;
     }
-    GameObject* c = func_0200ff1c(GameState::GetInstance(), menu->combatantId);
-    if (c == NULL) {
+    GameObject* var0 = func_0200ff1c(GameState::GetInstance(), arg0->unknown_4c_);
+    if (var0 == NULL) {
         return;
     }
-    int flag = 0;
-    if (((struct Combatant_02176500*)c)->stats->flag3) {
-        flag = 1;
+    int var1 = 0;
+    if (((struct Struct_ov000_02176500_2*)var0)->unknown_138_->unknown_3b_3_) {
+        var1 = 1;
     }
-    int cursor = menu->cursor;
-    if (framed) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    int var2 = arg0->unknown_1c_;
+    if (arg2) {
+        func_02041c08(arg1, var2, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
-    for (int i = 0; i < 6; i++) {
-        int item = data_ov000_021834f8[i];
-        if (flag == 0 && item == 5) {
-            func_02041e70(dst, 3);
+    func_02041ea4(arg1, var2);
+    for (int var3 = 0; var3 < 6; var3++) {
+        int var4 = data_ov000_021834f8[var3];
+        if (var1 == 0 && var4 == 5) {
+            func_02041e70(arg1, 3);
         }
-        func_02041b70(dst, item, (const char*)func_020e0434(menu->messages, (short)(item + 0x7534)));
-        if (i == 5) {
+        func_02041b70(arg1, var4, (const char*)func_020e0434(arg0->unknown_4_, (short)(var4 + 0x7534)));
+        if (var3 == 5) {
             return;
         }
-        if (i & 1) {
-            func_02042058(dst, (const char*)func_020e0434(menu->messages, 0));
+        if (var3 & 1) {
+            func_02042058(arg1, (const char*)func_020e0434(arg0->unknown_4_, 0));
         } else {
-            func_02041a28(dst, 0x45);
+            func_02041a28(arg1, 0x45);
         }
-        func_02041e70(dst, 0xf);
+        func_02041e70(arg1, 0xf);
     }
 }

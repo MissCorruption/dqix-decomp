@@ -3,17 +3,17 @@
 
 extern "C" unsigned int func_02029568(void*);
 
-struct Trans_0218b5a0
+struct Struct_ov016_0218b5a0
 {
-    SafeAllocator unk_0;
-    char menu[0x80];
-    unsigned int unk_94;
+    SafeAllocator unknown_0_;
+    char unknown_14_[0x80];
+    unsigned int unknown_94_;
 };
 
 // USA: func_ov016_0218b5a0
-extern "C" ARM unsigned int func_ov016_0218b5a0(Trans_0218b5a0* self) {
-    self->unk_0.ResetAllocatorPointer();
-    func_02029568(self->menu);
-    self->unk_94 = 1;
+extern "C" ARM unsigned int func_ov016_0218b5a0(Struct_ov016_0218b5a0* arg0) {
+    arg0->unknown_0_.ResetAllocatorPointer();
+    func_02029568(arg0->unknown_14_);
+    arg0->unknown_94_ = 1;
     return 1;
 }

@@ -2,66 +2,66 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct StoreStruct {
+struct Struct_020465c0 {
 #if defined(jpn)
-    char pad0[0x28];
+    char unknown_0_[0x28];
 #else
-    char pad0[0x5c];
+    char unknown1_0_[0x5c];
 #endif
-    char* textBuffer;
+    char* unknown_5c_;
 };
 
-struct ElemList {
-    char pad0[0xa0];
-    short field_0xa0;
-    short field_0xa2;
-    short x;
-    short y;
-    short field_0xa8;
-    short field_0xaa;
-    short field_0xac;
-    short field_0xae;
-    char padb0;
-    unsigned char field_0xb1;
+struct Struct_ov000_02179cdc {
+    char unknown_0_[0xa0];
+    short unknown_a0_;
+    short unknown_a2_;
+    short unknown_a4_;
+    short unknown_a6_;
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_;
+    unsigned char unknown_b1_;
 };
 
-struct BattleMenu {
-    char pad0[0x188];
-    ElemList elements;
+struct Struct_ov000_02176e3c {
+    char unknown_0_[0x188];
+    Struct_ov000_02179cdc unknown_188_;
 };
 
-struct MenuEntry {
-    char pad0[0xe];
-    short value;
-    char pad10[0x44 - 0x10];
-    int x;
-    int y;
-    int combatantId;
+struct Struct_ov000_02179cdc_2 {
+    char unknown_0_[0xe];
+    short unknown_e_;
+    char unknown_10_[0x44 - 0x10];
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
 };
 
-struct SkillEntry {
-    char pad0[4];
-    unsigned int nameId : 12;
-    unsigned int pad4 : 20;
-    unsigned int adjustFlag : 8;
+struct Struct_0209a678 {
+    char unknown_0_[4];
+    unsigned int unknown_4_0_ : 12;
+    unsigned int unknown_5_4_ : 20;
+    unsigned int unknown_8_0_ : 8;
 };
 
-struct PartyStats {
+struct Struct_ov000_02179cdc_3 {
 #if defined(jpn)
-    char pad0[0x8b8];
+    char unknown_0_[0x8b8];
 #else
-    char pad0[0x950];
+    char unknown1_0_[0x950];
 #endif
-    int vocation;
+    int unknown_950_;
 };
 
-struct PartyMember {
+struct Struct_ov000_02179cdc_4 {
 #if defined(jpn)
-    char pad0[0x144];
+    char unknown_0_[0x144];
 #else
-    char pad0[0x150];
+    char unknown1_0_[0x150];
 #endif
-    PartyStats* stats;
+    Struct_ov000_02179cdc_3* unknown_150_;
 };
 
 #if defined(jpn)
@@ -69,130 +69,130 @@ struct PartyMember {
 #endif
 extern unsigned short data_ov000_02183510[];
 
-extern "C" StoreStruct* func_020421a0(void);
-extern "C" void* memset(void* dst, int c, unsigned int n);
-extern "C" SkillEntry* func_ov000_02170cf8(MenuEntry* entry, int key);
-extern "C" GameObject* func_0200ff1c(GameState* gs, int idx);
-extern "C" void func_020dd040(int id, char* buf);
-extern "C" void func_02046608(StoreStruct* store, int kind, char* src, char* dst, int a, int b, int c);
-extern "C" void func_02046380(StoreStruct* store);
-extern "C" int func_ov000_02153a8c(GameObject* obj);
+extern "C" Struct_020465c0* func_020421a0(void);
+extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
+extern "C" Struct_0209a678* func_ov000_02170cf8(Struct_ov000_02179cdc_2* arg0, int arg1);
+extern "C" GameObject* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" void func_020dd040(int arg0, char* arg1);
+extern "C" void func_02046608(Struct_020465c0* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, int arg6);
+extern "C" void func_02046380(Struct_020465c0* arg0);
+extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" int func_020dd290(void*, unsigned int);
-extern "C" void func_020465c0(StoreStruct* store, int index, int value);
-extern "C" const char* func_020e51cc(int key);
-extern "C" void func_02042058(char* dst, const char* src);
+extern "C" void func_020465c0(Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" const char* func_020e51cc(int arg0);
+extern "C" void func_02042058(char* arg0, const char* arg1);
 struct Struct_0205d81c;
 extern "C" void* func_0205d81c(Struct_0205d81c*, int);
 #if defined(jpn)
-extern "C" void func_0205d304(ElemList* list, char* text, int a, int b, int c, int d, int e);
+extern "C" void func_0205d304(Struct_ov000_02179cdc* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 extern char data_ov000_02185169[];
 #else
-extern "C" void func_0205d304(ElemList* list, char* text, int a, int b, int c, int d, int e, int f);
+extern "C" void func_0205d304(Struct_ov000_02179cdc* arg0, char* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 
 // USA: func_ov000_02179cdc
-extern "C" ARM void func_ov000_02179cdc(BattleMenu* menu, MenuEntry* entry) {
-    char* msg;
-    StoreStruct* store;
-    if (entry == 0) {
+extern "C" ARM void func_ov000_02179cdc(Struct_ov000_02176e3c* arg0, Struct_ov000_02179cdc_2* arg1) {
+    char* var0;
+    Struct_020465c0* var1;
+    if (arg1 == 0) {
         return;
     }
-    char* buf = func_020421a0()->textBuffer;
+    char* var2 = func_020421a0()->unknown_5c_;
 #if defined(jpn)
-    memset(buf, 0, 0x800);
+    memset(var2, 0, 0x800);
 #else
-    memset(buf, 0, 0x960);
+    memset(var2, 0, 0x960);
 #endif
-    GameState* gs = GameState::GetInstance();
-    GameObject* combatant = gs->GetCombatantByIndex(entry->combatantId);
-    if (combatant == 0) {
+    GameState* var3 = GameState::GetInstance();
+    GameObject* var4 = var3->GetCombatantByIndex(arg1->unknown_4c_);
+    if (var4 == 0) {
         return;
     }
-    PartyMember* member = (PartyMember*)gs->GetPartyMemberByIndex(entry->combatantId);
-    if (member == 0) {
+    Struct_ov000_02179cdc_4* var5 = (Struct_ov000_02179cdc_4*)var3->GetPartyMemberByIndex(arg1->unknown_4c_);
+    if (var5 == 0) {
         return;
     }
-    SkillEntry* skill = func_ov000_02170cf8(entry, data_ov000_02183510[member->stats->vocation]);
-    GameObject* flagged = func_0200ff1c(gs, entry->combatantId);
-    if (flagged == 0) {
+    Struct_0209a678* var6 = func_ov000_02170cf8(arg1, data_ov000_02183510[var5->unknown_150_->unknown_950_]);
+    GameObject* var7 = func_0200ff1c(var3, arg1->unknown_4c_);
+    if (var7 == 0) {
         return;
     }
-    func_020dd040(skill->nameId, buf);
+    func_020dd040(var6->unknown_4_0_, var2);
 #if !defined(jpn)
-    char text[0x800];
+    char var8[0x800];
 #endif
 #if defined(jpn)
-    msg = buf;
+    var0 = var2;
 #else
-    func_02046608(func_020421a0(), 10, buf, text, 0x72, 0, 0);
-    msg = text;
+    func_02046608(func_020421a0(), 10, var2, var8, 0x72, 0, 0);
+    var0 = var8;
 #endif
-    store = func_020421a0();
-    func_02046380(store);
-    int value;
-    if (func_ov000_02153a8c(combatant) != 0) {
-        value = 0;
-    } else if (skill->adjustFlag >= 0xff) {
-        value = entry->value;
+    var1 = func_020421a0();
+    func_02046380(var1);
+    int var9;
+    if (func_ov000_02153a8c(var4) != 0) {
+        var9 = 0;
+    } else if (var6->unknown_8_0_ >= 0xff) {
+        var9 = arg1->unknown_e_;
     } else {
-        value = func_020dd290(flagged, skill->adjustFlag);
+        var9 = func_020dd290(var7, var6->unknown_8_0_);
     }
-    func_020465c0(store, 0, value);
-    func_020465c0(store, 1, entry->value);
+    func_020465c0(var1, 0, var9);
+    func_020465c0(var1, 1, arg1->unknown_e_);
 #if defined(jpn)
-    func_020465f0((unsigned char*)store, 0, 3);
-    func_020465f0((unsigned char*)store, 1, 3);
-    func_020465d8((unsigned char*)store, 0, 1);
-    func_020465d8((unsigned char*)store, 1, 1);
-    func_02042058(msg, data_ov000_02185169);
+    func_020465f0((unsigned char*)var1, 0, 3);
+    func_020465f0((unsigned char*)var1, 1, 3);
+    func_020465d8((unsigned char*)var1, 0, 1);
+    func_020465d8((unsigned char*)var1, 1, 1);
+    func_02042058(var0, data_ov000_02185169);
 #else
-    func_02042058(msg, func_020e51cc(0x3ec));
+    func_02042058(var0, func_020e51cc(0x3ec));
 #endif
-    ElemList* list = &menu->elements;
-    if (func_0205d81c((Struct_0205d81c*)list, 0x16) != 0) {
+    Struct_ov000_02179cdc* var10 = &arg0->unknown_188_;
+    if (func_0205d81c((Struct_0205d81c*)var10, 0x16) != 0) {
 #if defined(jpn)
-        func_0205d5d0((StructA0205d5d0*)list, 0x16, (int)msg, 1);
+        func_0205d5d0((Struct_0205d5d0*)var10, 0x16, (int)var0, 1);
 #else
-        func_0205d5d0((StructA0205d5d0*)list, 0x16, (int)msg, 1, 0);
+        func_0205d5d0((Struct_0205d5d0*)var10, 0x16, (int)var0, 1, 0);
 #endif
         return;
     }
-    int x = entry->x;
-    int y = entry->y;
+    int var11 = arg1->unknown_44_;
+    int var12 = arg1->unknown_48_;
 #if defined(jpn)
-    list->field_0xa0 = 0xc;
+    var10->unknown_a0_ = 0xc;
 #else
-    list->field_0xa0 = 0x10;
+    var10->unknown_a0_ = 0x10;
 #endif
 #if defined(jpn)
-    list->field_0xa2 = 6;
+    var10->unknown_a2_ = 6;
 #else
-    list->field_0xa2 = 0xa;
+    var10->unknown_a2_ = 0xa;
 #endif
 #if defined(jpn)
-    list->x = (x >> 3) + 0x16;
+    var10->unknown_a4_ = (var11 >> 3) + 0x16;
 #else
-    list->x = (x >> 3) + 0x10;
+    var10->unknown_a4_ = (var11 >> 3) + 0x10;
 #endif
 #if defined(jpn)
-    list->y = y >> 3;
+    var10->unknown_a6_ = var12 >> 3;
 #else
-    list->y = (short)(y >> 3) + 3;
+    var10->unknown_a6_ = (short)(var12 >> 3) + 3;
 #endif
-    list->field_0xa8 = 7;
+    var10->unknown_a8_ = 7;
 #if defined(jpn)
-    list->field_0xaa = 8;
+    var10->unknown_aa_ = 8;
 #else
-    list->field_0xaa = 6;
+    var10->unknown_aa_ = 6;
 #endif
-    list->field_0xac = 0xa;
-    list->field_0xae = 0xe;
-    list->field_0xb1 = 0x16;
+    var10->unknown_ac_ = 0xa;
+    var10->unknown_ae_ = 0xe;
+    var10->unknown_b1_ = 0x16;
 #if defined(jpn)
-    func_0205d304(list, msg, 1, 0, 0, 1, 0);
+    func_0205d304(var10, var0, 1, 0, 0, 1, 0);
 #else
-    func_0205d304(list, msg, 1, 0, 0, 1, 0, 0);
+    func_0205d304(var10, var0, 1, 0, 0, 1, 0, 0);
 #endif
 }

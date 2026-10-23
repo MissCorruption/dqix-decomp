@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Vec3_02157964 {
-	int x, y, z;
+struct Struct_ov001_02157964_2 {
+	int unknown_0_, unknown_4_, unknown_8_;
 };
 
-struct RingBuf02157964 {
-	struct Vec3_02157964 slots[16];
-	int pad0xc0;
-	int count;
+struct Struct_ov001_02157964 {
+	struct Struct_ov001_02157964_2 unknown_0_[16];
+	int unknown_c0_;
+	int unknown_c4_;
 };
 
 // USA: func_ov001_02157964
-extern "C" ARM int func_ov001_02157964(struct RingBuf02157964* buf, struct Vec3_02157964 v) {
-	if (buf->count >= 16) {
+extern "C" ARM int func_ov001_02157964(struct Struct_ov001_02157964* arg0, struct Struct_ov001_02157964_2 arg1) {
+	if (arg0->unknown_c4_ >= 16) {
 		return 1;
 	}
-	memcpy(&buf->slots[buf->count], &v, 0xc);
-	buf->count++;
+	memcpy(&arg0->unknown_0_[arg0->unknown_c4_], &arg1, 0xc);
+	arg0->unknown_c4_++;
 	return 0;
 }

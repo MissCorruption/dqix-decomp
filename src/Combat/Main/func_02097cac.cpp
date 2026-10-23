@@ -2,79 +2,79 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
-struct ZoneState { unsigned short zoneId; unsigned short previousZoneId; };
-struct ZoneState02097cac {
-    unsigned short zoneId;
-    char pad0[0x63];
-    unsigned char flag65;
+struct Struct_0208fa8c { unsigned short unknown_0_; unsigned short unknown_2_; };
+struct Struct_02097cac {
+    unsigned short unknown_0_;
+    char unknown_2_[0x63];
+    unsigned char unknown_65_;
 };
-struct Base020989cc {
-    char pad0[0x1b3c];
-    unsigned int progress;
+struct Struct_02097cac_2 {
+    char unknown_0_[0x1b3c];
+    unsigned int unknown_1b3c_;
 };
 
 extern "C" void* func_0202ae18();
-extern "C" ZoneState* func_02012fe4();
-extern "C" int func_0202c508(void* obj);
-extern "C" int func_0202c540(void* obj);
-extern "C" void* func_0200fd0c(GameState* battleStruct);
-extern "C" int func_020981e4(int a, int id);
-extern "C" int func_02098240(int a, int id);
-extern "C" int func_02098210(int a, int id);
-extern "C" void func_020989cc(Base020989cc* base);
-extern "C" void func_ov017_021d3e3c(unsigned char tag);
+extern "C" Struct_0208fa8c* func_02012fe4();
+extern "C" int func_0202c508(void* arg0);
+extern "C" int func_0202c540(void* arg0);
+extern "C" void* func_0200fd0c(GameState* arg0);
+extern "C" int func_020981e4(int arg0, int arg1);
+extern "C" int func_02098240(int arg0, int arg1);
+extern "C" int func_02098210(int arg0, int arg1);
+extern "C" void func_020989cc(Struct_02097cac_2* arg0);
+extern "C" void func_ov017_021d3e3c(unsigned char arg0);
 
 #define FLAG130(obj) (*(int*)(*(void**)((char*)(obj) + 0x130)))
 
 // USA: func_02097cac
-extern "C" ARM void func_02097cac(Base020989cc* state) {
-    void* search = func_0202ae18();
-    GameState* gameState = GameState::GetInstance();
-    ZoneState02097cac* zoneState = (ZoneState02097cac*)func_0200fd0c(gameState);
-    ZoneState* currentZone = func_02012fe4();
-    int zoneId = zoneState->zoneId;
-    GameObject* protagonist;
-    int previousZoneId = currentZone->zoneId;
+extern "C" ARM void func_02097cac(Struct_02097cac_2* arg0) {
+    void* var0 = func_0202ae18();
+    GameState* var1 = GameState::GetInstance();
+    Struct_02097cac* var2 = (Struct_02097cac*)func_0200fd0c(var1);
+    Struct_0208fa8c* var3 = func_02012fe4();
+    int var4 = var2->unknown_0_;
+    GameObject* var5;
+    int var6 = var3->unknown_0_;
 
-    if (!func_020981e4((int)state, zoneId) &&
-        !func_020981e4((int)state, previousZoneId)) return;
+    if (!func_020981e4((int)arg0, var4) &&
+        !func_020981e4((int)arg0, var6)) return;
 
-    protagonist = gameState->GetProtagonist();
+    var5 = var1->GetProtagonist();
 
-    if (func_02098210((int)state, zoneId) &&
-        (!func_02098210((int)state, previousZoneId) || zoneState->flag65 != 0)) {
-        if (func_0202c508(search) != 0 && (FLAG130(protagonist) & 1) == 0) {
-            func_020989cc(state);
+    if (func_02098210((int)arg0, var4) &&
+        (!func_02098210((int)arg0, var6) || var2->unknown_65_ != 0)) {
+        if (func_0202c508(var0) != 0 && (FLAG130(var5) & 1) == 0) {
+            func_020989cc(arg0);
         }
-        int progress = state->progress;
-        func_ov017_021d3e3c(progress);
-        switch (progress) {
+        int var7 = arg0->unknown_1b3c_;
+        func_ov017_021d3e3c(var7);
+        switch (var7) {
             case 1:
-            case 2: zoneState->zoneId = 0xc3b5; break;
+            case 2: var2->unknown_0_ = 0xc3b5; break;
             case 3:
-            case 4: zoneState->zoneId = 0xc419; break;
-            case 5: zoneState->zoneId = 0xc47d; break;
-            case 6: zoneState->zoneId = 0xc4e1; break;
+            case 4: var2->unknown_0_ = 0xc419; break;
+            case 5: var2->unknown_0_ = 0xc47d; break;
+            case 6: var2->unknown_0_ = 0xc4e1; break;
         }
-        func_0200fcfc(gameState, zoneState);
+        func_0200fcfc(var1, var2);
     } else {
-        if (func_0202c540(search) == 0 || zoneState->flag65 == 0) return;
-        int progress = state->progress;
-        if (!func_020981e4((int)state, zoneId)) return;
-        if (func_02098240((int)state, zoneId)) return;
-        if (zoneId == 0xc3bb) return;
-        if (zoneId == 0xc3bc) return;
-        if (zoneId == 0xc3bd) return;
-        if (zoneId == 0xc3be) return;
-        int rem = zoneState->zoneId % 100;
-        int base = rem + 0xc350;
-        switch (progress) {
+        if (func_0202c540(var0) == 0 || var2->unknown_65_ == 0) return;
+        int var8 = arg0->unknown_1b3c_;
+        if (!func_020981e4((int)arg0, var4)) return;
+        if (func_02098240((int)arg0, var4)) return;
+        if (var4 == 0xc3bb) return;
+        if (var4 == 0xc3bc) return;
+        if (var4 == 0xc3bd) return;
+        if (var4 == 0xc3be) return;
+        int var9 = var2->unknown_0_ % 100;
+        int var10 = var9 + 0xc350;
+        switch (var8) {
             case 1:
-            case 2: zoneState->zoneId = (unsigned short)(base + 0x64); break;
+            case 2: var2->unknown_0_ = (unsigned short)(var10 + 0x64); break;
             case 3:
-            case 4: zoneState->zoneId = (unsigned short)(base + 0xc8); break;
-            case 5: zoneState->zoneId = (unsigned short)(base + 0x12c); break;
-            case 6: zoneState->zoneId = (unsigned short)(base + 0x190); break;
+            case 4: var2->unknown_0_ = (unsigned short)(var10 + 0xc8); break;
+            case 5: var2->unknown_0_ = (unsigned short)(var10 + 0x12c); break;
+            case 6: var2->unknown_0_ = (unsigned short)(var10 + 0x190); break;
         }
     }
 }

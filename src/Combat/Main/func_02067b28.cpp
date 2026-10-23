@@ -1,120 +1,120 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
-struct Entry0204254c {
-    int value;
-    char pad_04;
-    signed char length : 6;
-    signed char flags : 2;
-    char pad_06[2];
+struct Struct_0204254c {
+    int unknown_0_;
+    char unknown_4_;
+    signed char unknown_5_0_ : 6;
+    signed char unknown_5_6_ : 2;
+    char unknown_6_[2];
 };
-struct Container02045c00;
-struct TextContext02067b28 {
-    char pad_00[0x4c];
-    unsigned short* output;
-    char* input;
-    void* field_54;
-    void* field_58;
-    char pad_5c[0x10];
-    unsigned int outputCursor;
-    unsigned int outputLimit;
-    char pad_74[8];
-    unsigned int inputCursor;
-    char pad_80[0x8b4];
-    short wrapX, wrapY;
-    char pad_938[0x7c];
-    unsigned int entryCursor;
-    char pad_9b8[0xe00];
-    unsigned char usage[0x80];
-    char pad_1838[0x4a];
-    unsigned short ring[64];
-    char pad_1902[0x40];
-    unsigned short ringIndex;
-    short positionX;
-    short available;
-    char pad_1948[0x7a];
-    unsigned char wrapped;
-    unsigned char wrapPending;
-    unsigned char canWrap;
-    char pad_19c5[0x17];
-    unsigned char table;
+struct Struct_02045c00_2;
+struct Struct_02067b28 {
+    char unknown_0_[0x4c];
+    unsigned short* unknown_4c_;
+    char* unknown_50_;
+    void* unknown_54_;
+    void* unknown_58_;
+    char unknown_5c_[0x10];
+    unsigned int unknown_6c_;
+    unsigned int unknown_70_;
+    char unknown_74_[8];
+    unsigned int unknown_7c_;
+    char unknown_80_[0x8b4];
+    short unknown_934_, unknown_936_;
+    char unknown_938_[0x7c];
+    unsigned int unknown_9b4_;
+    char unknown_9b8_[0xe00];
+    unsigned char unknown_17b8_[0x80];
+    char unknown_1838_[0x4a];
+    unsigned short unknown_1882_[64];
+    char unknown_1902_[0x40];
+    unsigned short unknown_1942_;
+    short unknown_1944_;
+    short unknown_1946_;
+    char unknown_1948_[0x7a];
+    unsigned char unknown_19c2_;
+    unsigned char unknown_19c3_;
+    unsigned char unknown_19c4_;
+    char unknown_19c5_[0x17];
+    unsigned char unknown_19dc_;
 };
 extern "C" int func_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
-extern "C" Entry0204254c* func_0204254c(int, int);
+extern "C" Struct_0204254c* func_0204254c(int, int);
 extern "C" int func_020424e4(int, int);
-extern "C" int func_02045c00(Container02045c00*, int);
-extern "C" int func_020459b8(TextContext02067b28*, unsigned char, Entry0204254c*, unsigned char);
+extern "C" int func_02045c00(Struct_02045c00_2*, int);
+extern "C" int func_020459b8(Struct_02067b28*, unsigned char, Struct_0204254c*, unsigned char);
 extern "C" int func_02001aec(const void*, const void*, int);
 extern char data_020f08dc[3];
 
 // USA: func_02067b28
-extern "C" ARM void func_02067b28(TextContext02067b28* state) {
-    if (!state->field_54 || !state->field_58) return;
-    if (state->outputLimit <= state->outputCursor) return;
-    while (state->outputCursor < state->outputLimit) {
-        char* source = state->input + state->inputCursor;
-        unsigned short* destination = state->output + state->outputCursor;
-        unsigned short token;
-        memcpy(&token, source, 2);
-        if (func_02044494(state, &token)) {
-            *destination = token;
-            state->inputCursor += 2;
-            ++state->outputCursor;
-            int length = func_02044420(state, &token);
-            memcpy(destination + 1, source + 2, length * 2);
-            state->inputCursor += length * 2;
-            state->outputCursor += length;
+extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
+    if (!arg0->unknown_54_ || !arg0->unknown_58_) return;
+    if (arg0->unknown_70_ <= arg0->unknown_6c_) return;
+    while (arg0->unknown_6c_ < arg0->unknown_70_) {
+        char* var0 = arg0->unknown_50_ + arg0->unknown_7c_;
+        unsigned short* var1 = arg0->unknown_4c_ + arg0->unknown_6c_;
+        unsigned short var2;
+        memcpy(&var2, var0, 2);
+        if (func_02044494(arg0, &var2)) {
+            *var1 = var2;
+            arg0->unknown_7c_ += 2;
+            ++arg0->unknown_6c_;
+            int var3 = func_02044420(arg0, &var2);
+            memcpy(var1 + 1, var0 + 2, var3 * 2);
+            arg0->unknown_7c_ += var3 * 2;
+            arg0->unknown_6c_ += var3;
             continue;
         }
-        if (!state->wrapped) {
-            state->canWrap = 1;
-            if (state->available <= 0) state->canWrap = 0;
-            if (!func_02001aec(source, data_020f08dc, 2)) {
-                if (state->ringIndex == 0) state->canWrap = 0;
+        if (!arg0->unknown_19c2_) {
+            arg0->unknown_19c4_ = 1;
+            if (arg0->unknown_1946_ <= 0) arg0->unknown_19c4_ = 0;
+            if (!func_02001aec(var0, data_020f08dc, 2)) {
+                if (arg0->unknown_1942_ == 0) arg0->unknown_19c4_ = 0;
                 else {
-                    state->wrapX = state->positionX + 18 + (short)(8 - (state->positionX & 7));
-                    state->wrapY = 22;
-                    state->wrapped = 1;
+                    arg0->unknown_934_ = arg0->unknown_1944_ + 18 + (short)(8 - (arg0->unknown_1944_ & 7));
+                    arg0->unknown_936_ = 22;
+                    arg0->unknown_19c2_ = 1;
                 }
-                state->wrapPending = 1;
+                arg0->unknown_19c3_ = 1;
             }
         }
-        Entry0204254c* entry = func_0204254c((int)source, state->table);
-        int tableIndex = func_020424e4((int)source, state->table);
-        if (entry && tableIndex >= 0) {
-            int index = func_02045c00((Container02045c00*)state, (int)entry);
-            state->inputCursor += entry->length;
-            if (index < 0) {
-                unsigned short inserted = func_020459b8(state, (unsigned char)tableIndex, entry, state->table);
-                if (!state->wrapped) state->ring[state->ringIndex] = inserted;
-                *destination = inserted;
-                ++state->outputCursor;
-                state->entryCursor = (state->entryCursor + 1) & 0x7f;
+        Struct_0204254c* var4 = func_0204254c((int)var0, arg0->unknown_19dc_);
+        int var5 = func_020424e4((int)var0, arg0->unknown_19dc_);
+        if (var4 && var5 >= 0) {
+            int var6 = func_02045c00((Struct_02045c00_2*)arg0, (int)var4);
+            arg0->unknown_7c_ += var4->unknown_5_0_;
+            if (var6 < 0) {
+                unsigned short var7 = func_020459b8(arg0, (unsigned char)var5, var4, arg0->unknown_19dc_);
+                if (!arg0->unknown_19c2_) arg0->unknown_1882_[arg0->unknown_1942_] = var7;
+                *var1 = var7;
+                ++arg0->unknown_6c_;
+                arg0->unknown_9b4_ = (arg0->unknown_9b4_ + 1) & 0x7f;
                 break;
             }
-            unsigned short selected = index;
-            if (!state->wrapped) {
-                state->ring[state->ringIndex] = selected;
-                ++state->ringIndex;
-                state->ringIndex &= 0x3f;
+            unsigned short var8 = var6;
+            if (!arg0->unknown_19c2_) {
+                arg0->unknown_1882_[arg0->unknown_1942_] = var8;
+                ++arg0->unknown_1942_;
+                arg0->unknown_1942_ &= 0x3f;
             }
-            *destination = selected;
-            if (state->usage[selected] < 255) ++state->usage[selected];
+            *var1 = var8;
+            if (arg0->unknown_17b8_[var8] < 255) ++arg0->unknown_17b8_[var8];
         } else {
-            signed char character = *source;
-            if (!state->wrapped && character == 32) {
-                state->ring[state->ringIndex] = 0xff19;
-                ++state->ringIndex;
-                state->ringIndex &= 0x3f;
+            signed char var9 = *var0;
+            if (!arg0->unknown_19c2_ && var9 == 32) {
+                arg0->unknown_1882_[arg0->unknown_1942_] = 0xff19;
+                ++arg0->unknown_1942_;
+                arg0->unknown_1942_ &= 0x3f;
             }
-            *destination = 0xff19;
-            ++state->inputCursor;
+            *var1 = 0xff19;
+            ++arg0->unknown_7c_;
         }
-        ++state->outputCursor;
+        ++arg0->unknown_6c_;
     }
-    if (!state->wrapped) {
-        ++state->ringIndex;
-        state->ringIndex &= 0x3f;
+    if (!arg0->unknown_19c2_) {
+        ++arg0->unknown_1942_;
+        arg0->unknown_1942_ &= 0x3f;
     }
 }

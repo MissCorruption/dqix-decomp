@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kRegionalFieldOffset = 0x5a68 };
+enum { Enum_020ac910_23752 = 0x5a68 };
 #else
-enum { kRegionalFieldOffset = 0x5cc8 };
+enum { Enum_020ac910_23752 = 0x5cc8 };
 #endif
 
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" int func_02075910(int a, void* p, unsigned int size, int c);
-extern "C" int func_02075acc(int a, void* p, unsigned int size, int c);
+extern "C" int func_02075910(int arg0, void* arg1, unsigned int arg2, int arg3);
+extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" void func_020abb64(void);
-struct StateBits5ccc_11544;
-extern "C" void func_02011544(StateBits5ccc_11544* state);
+struct Struct_02011544;
+extern "C" void func_02011544(Struct_02011544* arg0);
 extern char data_020f1bf8[];
 
 // USA: func_020ac910
 extern "C" ARM int func_020ac910() {
-    char buf[0x10];
-    memset(buf, 0, 0x10);
-    int result = func_02075910(0, buf, 0x10, 0);
-    if (result == 0) {
-        GameState* bs = GameState::GetInstance();
-        *(unsigned char*)((char*)bs + kRegionalFieldOffset) = 0;
-        func_02011544((StateBits5ccc_11544*)bs);
+    char var0[0x10];
+    memset(var0, 0, 0x10);
+    int var1 = func_02075910(0, var0, 0x10, 0);
+    if (var1 == 0) {
+        GameState* var2 = GameState::GetInstance();
+        *(unsigned char*)((char*)var2 + Enum_020ac910_23752) = 0;
+        func_02011544((Struct_02011544*)var2);
         return 0;
     }
-    if (strcmp(buf, data_020f1bf8) != 0) {
+    if (strcmp(var0, data_020f1bf8) != 0) {
         func_020abb64();
-        memcpy(buf, data_020f1bf8, 0x10);
-        func_02075acc(0, buf, 0x10, 0);
+        memcpy(var0, data_020f1bf8, 0x10);
+        func_02075acc(0, var0, 0x10, 0);
     }
     return 1;
 }

@@ -2,97 +2,97 @@
 #include "Graphics/LightingManager.h"
 
 extern "C" void* func_02012fe4(void);
-extern "C" int func_ov017_021d60f4(void* a);
-extern "C" void func_ov001_021601f8(void* a, void* b);
-extern "C" void func_02016874(void* big);
+extern "C" int func_ov017_021d60f4(void* arg0);
+extern "C" void func_ov001_021601f8(void* arg0, void* arg1);
+extern "C" void func_02016874(void* arg0);
 
-struct Node_021603d8 { char pad0[0x44]; int field44; char pad1[0x54 - 0x48]; struct Node_021603d8* next; };
-struct Big_021603d8 {
+struct Struct_ov001_021603d8 { char unknown_0_[0x44]; int unknown_44_; char unknown_48_[0x54 - 0x48]; struct Struct_ov001_021603d8* unknown_54_; };
+struct Struct_ov001_021603d8_2 {
 #if defined(jpn)
-    char pad0[0x430];
+    char unknown_0_[0x430];
 #else
-    char pad0[0x410];
+    char unknown1_0_[0x410];
 #endif
-    int field410;
+    int unknown_410_;
 #if defined(jpn)
-    char pad1[0x43c - 0x434];
+    char unknown_434_[0x43c - 0x434];
 #else
-    char pad1[0x41c - 0x414];
+    char unknown_414_[0x41c - 0x414];
 #endif
-    struct Node_021603d8* field41c;
+    struct Struct_ov001_021603d8* unknown_41c_;
 #if defined(jpn)
-    char pad2[0x852 - 0x440];
+    char unknown_440_[0x852 - 0x440];
 #else
-    char pad2[0x832 - 0x420];
+    char unknown_420_[0x832 - 0x420];
 #endif
-    unsigned char field832;
-    unsigned char field833;
-    unsigned char field834;
+    unsigned char unknown_832_;
+    unsigned char unknown_833_;
+    unsigned char unknown_834_;
 };
-struct DataStruct_021603d8 { char pad0[0x90]; int field90; int field94; int field98; };
+struct Struct_ov001_021603d8_3 { char unknown_0_[0x90]; int unknown_90_; int unknown_94_; int unknown_98_; };
 
-struct TableRow_021603d8 {
-    int field0;
-    unsigned char pad0[0x10 - 0x4];
-    int field10;
-    int field14;
-    unsigned char pad1[0x2c - 0x18];
-    int field2c;
-    int field30;
+struct Struct_ov001_02165880_41 {
+    int unknown_0_;
+    unsigned char unknown_4_[0x10 - 0x4];
+    int unknown_10_;
+    int unknown_14_;
+    unsigned char unknown_18_[0x2c - 0x18];
+    int unknown_2c_;
+    int unknown_30_;
 };
-extern TableRow_021603d8 data_ov001_02165880;
+extern Struct_ov001_02165880_41 data_ov001_02165880;
 
-struct Cache_021603d8 {
-    unsigned char pad0[0x10];
-    int field10;
-    int field14;
-    int field18;
-    int field1c;
+struct Struct_ov001_02164d14 {
+    unsigned char unknown_0_[0x10];
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
 };
-extern Cache_021603d8 data_ov001_02164d14;
+extern Struct_ov001_02164d14 data_ov001_02164d14;
 
 extern int data_ov001_02164d24[];
 
 // USA: func_ov001_021603d8
-extern "C" ARM int func_ov001_021603d8(void* obj) {
-    Big_021603d8* big = (Big_021603d8*)func_02012fe4();
-    DataStruct_021603d8* d = (DataStruct_021603d8*)LightingManager::GetInstance();
-    int idx = func_ov017_021d60f4(obj);
-    d->field98 = idx;
-    if (!(data_ov001_02165880.field14 & 1)) {
-        data_ov001_02164d14.field10 = data_ov001_02165880.field0;
-        data_ov001_02164d14.field14 = data_ov001_02165880.field10;
-        data_ov001_02164d14.field18 = data_ov001_02165880.field30;
-        data_ov001_02164d14.field1c = data_ov001_02165880.field2c;
-        data_ov001_02165880.field14 |= 1;
+extern "C" ARM int func_ov001_021603d8(void* arg0) {
+    Struct_ov001_021603d8_2* var0 = (Struct_ov001_021603d8_2*)func_02012fe4();
+    Struct_ov001_021603d8_3* var1 = (Struct_ov001_021603d8_3*)LightingManager::GetInstance();
+    int var2 = func_ov017_021d60f4(arg0);
+    var1->unknown_98_ = var2;
+    if (!(data_ov001_02165880.unknown_14_ & 1)) {
+        data_ov001_02164d14.unknown_10_ = data_ov001_02165880.unknown_0_;
+        data_ov001_02164d14.unknown_14_ = data_ov001_02165880.unknown_10_;
+        data_ov001_02164d14.unknown_18_ = data_ov001_02165880.unknown_30_;
+        data_ov001_02164d14.unknown_1c_ = data_ov001_02165880.unknown_2c_;
+        data_ov001_02165880.unknown_14_ |= 1;
     }
-    d->field94 = data_ov001_02164d24[idx];
+    var1->unknown_94_ = data_ov001_02164d24[var2];
 
-    if (big->field410 == 1) {
-        if (big->field834 != 0) {
+    if (var0->unknown_410_ == 1) {
+        if (var0->unknown_834_ != 0) {
             return 1;
         }
-        Node_021603d8* node = big->field41c;
-        while (node != NULL) {
-            if (node->field44 != 0) {
-                func_ov001_021601f8((void*)node->field44, (char*)node + 4);
+        Struct_ov001_021603d8* var3 = var0->unknown_41c_;
+        while (var3 != NULL) {
+            if (var3->unknown_44_ != 0) {
+                func_ov001_021601f8((void*)var3->unknown_44_, (char*)var3 + 4);
             }
-            node = node->next;
+            var3 = var3->unknown_54_;
         }
-        big->field834 = 1;
+        var0->unknown_834_ = 1;
     } else {
-        int local[4];
-        local[0] = data_ov001_02165880.field0;
-        local[1] = data_ov001_02165880.field10;
-        local[2] = data_ov001_02165880.field30;
-        local[3] = data_ov001_02165880.field2c;
-        d->field94 = local[idx];
-        d->field90 = 0;
-        ((LightingManager*)d)->RecomputeAdvancedLighting();
+        int var4[4];
+        var4[0] = data_ov001_02165880.unknown_0_;
+        var4[1] = data_ov001_02165880.unknown_10_;
+        var4[2] = data_ov001_02165880.unknown_30_;
+        var4[3] = data_ov001_02165880.unknown_2c_;
+        var1->unknown_94_ = var4[var2];
+        var1->unknown_90_ = 0;
+        ((LightingManager*)var1)->RecomputeAdvancedLighting();
     }
 
-    big->field832 = 1;
-    big->field833 = 1;
-    func_02016874(big);
+    var0->unknown_832_ = 1;
+    var0->unknown_833_ = 1;
+    func_02016874(var0);
     return 1;
 }

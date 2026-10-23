@@ -1,142 +1,142 @@
 #include <globaldefs.h>
 #include "NitroSDK/Memory/SignedAllocator.h"
 
-struct Tween020c0260
+struct Struct_020bc180_2
 {
-    int origin;
-    int target;
-    int counter;
-    int frame;
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
 };
 
-struct State020c0278;
-struct Obj020bc6fc;
+struct Struct_020bc2f0;
+struct Struct_020bc2f0_2;
 
-struct SoundPlayer020bc2f0
+struct Struct_020bc2f0_3
 {
-    SignedAllocatorList playerList;
-    SignedAllocatorList heapList;
-    unsigned long playableSeqCount;
-    unsigned long allocChBitFlag;
-    unsigned char volume;
-    unsigned char pad;
-    unsigned short pad2;
+    SignedAllocatorList unknown_0_;
+    SignedAllocatorList unknown_c_;
+    unsigned long unknown_18_;
+    unsigned long unknown_1c_;
+    unsigned char unknown_20_;
+    unsigned char unknown_21_;
+    unsigned short unknown_22_;
 };
 
-struct ListLink020bc2f0
+struct Struct_0201099c_24
 {
-    void* prevObject;
-    void* nextObject;
+    void* unknown_0_;
+    void* unknown_4_;
 };
 
-struct SequencePlayer020bc2f0
+struct Struct_020bc2f0_4
 {
-    void* handle;
-    SoundPlayer020bc2f0* player;
-    void* heap;
-    ListLink020bc2f0 playerLink;
-    ListLink020bc2f0 prioLink;
-    Tween020c0260 fader;
-    unsigned char status;
-    unsigned char startFlag;
-    unsigned char pauseFlag;
-    unsigned char prepareFlag;
-    unsigned long commandTag;
-    unsigned short seqType;
-    unsigned short pad2;
-    unsigned short seqNo;
-    unsigned short seqArcIndex;
-    unsigned char playerNo;
-    unsigned char prio;
-    short volume;
-    unsigned char initVolume;
-    unsigned char extVolume;
-    unsigned short pad3;
+    void* unknown_0_;
+    Struct_020bc2f0_3* unknown_4_;
+    void* unknown_8_;
+    Struct_0201099c_24 unknown_c_;
+    Struct_0201099c_24 unknown_14_;
+    Struct_020bc180_2 unknown_1c_;
+    unsigned char unknown_2c_;
+    unsigned char unknown_2d_;
+    unsigned char unknown_2e_;
+    unsigned char unknown_2f_;
+    unsigned long unknown_30_;
+    unsigned short unknown_34_;
+    unsigned short unknown_36_;
+    unsigned short unknown_38_;
+    unsigned short unknown_3a_;
+    unsigned char unknown_3c_;
+    unsigned char unknown_3d_;
+    short unknown_3e_;
+    unsigned char unknown_40_;
+    unsigned char unknown_41_;
+    unsigned short unknown_42_;
 };
 
 extern "C" unsigned long func_020d29f4();
-extern "C" int func_020d2718(unsigned int tag);
-extern "C" void func_020bc79c(SequencePlayer020bc2f0* seqPlayer);
-extern "C" void func_020c0260(Tween020c0260* fader);
-extern "C" int func_020c022c(Tween020c0260* fader);
-extern "C" void func_020d1e70(int playerNo, int volume);
-extern "C" int func_020c0278(State020c0278* fader);
-extern "C" void func_020bc6fc(Obj020bc6fc* seqPlayer);
-extern "C" void func_020d1e30(int playerNo);
+extern "C" int func_020d2718(unsigned int arg0);
+extern "C" void func_020bc79c(Struct_020bc2f0_4* arg0);
+extern "C" void func_020c0260(Struct_020bc180_2* arg0);
+extern "C" int func_020c022c(Struct_020bc180_2* arg0);
+extern "C" void func_020d1e70(int arg0, int arg1);
+extern "C" int func_020c0278(Struct_020bc2f0* arg0);
+extern "C" void func_020bc6fc(Struct_020bc2f0_2* arg0);
+extern "C" void func_020d1e30(int arg0);
 
 extern "C" SignedAllocatorList data_0210f3d8;
 extern "C" const short data_020ed82c[];
 
-static inline short CalculateDecibel(int scale)
+static inline short inline_020bc2f0(int arg0)
 {
-    return data_020ed82c[scale];
+    return data_020ed82c[arg0];
 }
 
-static inline SequencePlayer020bc2f0* NextSeqPlayer(SequencePlayer020bc2f0* seqPlayer)
+static inline Struct_020bc2f0_4* inline_020bc2f0_2(Struct_020bc2f0_4* arg0)
 {
-    return (SequencePlayer020bc2f0*)data_0210f3d8.ElementAfter((SignedAllocatorHeader*)seqPlayer);
+    return (Struct_020bc2f0_4*)data_0210f3d8.ElementAfter((SignedAllocatorHeader*)arg0);
 }
 
 // USA: func_020bc2f0
 extern "C" ARM void func_020bc2f0()
 {
-    SequencePlayer020bc2f0* seqPlayer;
-    SequencePlayer020bc2f0* next;
-    unsigned long status;
-    int fader;
+    Struct_020bc2f0_4* var0;
+    Struct_020bc2f0_4* var1;
+    unsigned long var2;
+    int var3;
 
-    status = func_020d29f4();
+    var2 = func_020d29f4();
 
-    seqPlayer = NextSeqPlayer(NULL);
-    if (seqPlayer == NULL)
+    var0 = inline_020bc2f0_2(NULL);
+    if (var0 == NULL)
         return;
 
     do
     {
-        next = NextSeqPlayer(seqPlayer);
+        var1 = inline_020bc2f0_2(var0);
 
-        if (!seqPlayer->startFlag)
+        if (!var0->unknown_2d_)
         {
-            if (func_020d2718(seqPlayer->commandTag))
-                seqPlayer->startFlag = 1;
+            if (func_020d2718(var0->unknown_30_))
+                var0->unknown_2d_ = 1;
         }
 
-        if (seqPlayer->startFlag)
+        if (var0->unknown_2d_)
         {
-            if ((status & (1 << seqPlayer->playerNo)) == 0)
+            if ((var2 & (1 << var0->unknown_3c_)) == 0)
             {
-                func_020bc79c(seqPlayer);
+                func_020bc79c(var0);
                 continue;
             }
         }
 
-        func_020c0260(&seqPlayer->fader);
+        func_020c0260(&var0->unknown_1c_);
 
-        fader = CalculateDecibel(seqPlayer->initVolume) + CalculateDecibel(seqPlayer->extVolume)
-            + CalculateDecibel(seqPlayer->player->volume)
-            + CalculateDecibel(func_020c022c(&seqPlayer->fader) >> 8);
+        var3 = inline_020bc2f0(var0->unknown_40_) + inline_020bc2f0(var0->unknown_41_)
+            + inline_020bc2f0(var0->unknown_4_->unknown_20_)
+            + inline_020bc2f0(func_020c022c(&var0->unknown_1c_) >> 8);
 
-        if (fader < -32768)
-            fader = -32768;
-        else if (fader > 32767)
-            fader = 32767;
+        if (var3 < -32768)
+            var3 = -32768;
+        else if (var3 > 32767)
+            var3 = 32767;
 
-        if (fader != seqPlayer->volume)
+        if (var3 != var0->unknown_3e_)
         {
-            func_020d1e70(seqPlayer->playerNo, fader);
-            seqPlayer->volume = (short)fader;
+            func_020d1e70(var0->unknown_3c_, var3);
+            var0->unknown_3e_ = (short)var3;
         }
 
-        if (seqPlayer->status == 2)
+        if (var0->unknown_2c_ == 2)
         {
-            if (func_020c0278((State020c0278*)&seqPlayer->fader))
-                func_020bc6fc((Obj020bc6fc*)seqPlayer);
+            if (func_020c0278((Struct_020bc2f0*)&var0->unknown_1c_))
+                func_020bc6fc((Struct_020bc2f0_2*)var0);
         }
 
-        if (seqPlayer->prepareFlag)
+        if (var0->unknown_2f_)
         {
-            func_020d1e30(seqPlayer->playerNo);
-            seqPlayer->prepareFlag = 0;
+            func_020d1e30(var0->unknown_3c_);
+            var0->unknown_2f_ = 0;
         }
-    } while ((seqPlayer = next) != NULL);
+    } while ((var0 = var1) != NULL);
 }

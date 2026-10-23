@@ -1,106 +1,106 @@
 #include <globaldefs.h>
 
-typedef void (*WMCallbackFunc)(void* arg);
+typedef void (*Type_020d42e0)(void* arg);
 
-struct WMArm9Buf
+struct Struct_020d424c_2
 {
-    void* WM7;
-    void* status;
-    unsigned long* indbuf;
-    unsigned long* fifo9to7;
-    unsigned long* fifo7to9;
-    unsigned short dmaNo;
-    unsigned short scanOnlyFlag;
-    WMCallbackFunc CallbackTable[0x2c];
-    WMCallbackFunc indCallback;
-    WMCallbackFunc portCallbackTable[16];
-    void* portCallbackArgument[16];
-    unsigned long connectedAidBitmap;
-    unsigned short myAid;
+    void* unknown_0_;
+    void* unknown_4_;
+    unsigned long* unknown_8_;
+    unsigned long* unknown_c_;
+    unsigned long* unknown_10_;
+    unsigned short unknown_14_;
+    unsigned short unknown_16_;
+    Type_020d42e0 unknown_18_[0x2c];
+    Type_020d42e0 unknown_c8_;
+    Type_020d42e0 unknown_cc_[16];
+    void* unknown_10c_[16];
+    unsigned long unknown_14c_;
+    unsigned short unknown_150_;
 };
 
-struct WMPortSendCallback
+struct Struct_020d42e0_2
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short wlCmdID;
-    unsigned short wlResult;
-    unsigned short state;
-    unsigned short port;
-    unsigned short destBitmap;
-    unsigned short restBitmap;
-    unsigned short sentBitmap;
-    unsigned short rsv;
-    const unsigned short* data;
-    unsigned short length;
-    unsigned short seqNo;
-    WMCallbackFunc callback;
-    void* arg;
-    unsigned short maxSendDataSize;
-    unsigned short maxRecvDataSize;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    const unsigned short* unknown_14_;
+    unsigned short unknown_18_;
+    unsigned short unknown_1a_;
+    Type_020d42e0 unknown_1c_;
+    void* unknown_20_;
+    unsigned short unknown_24_;
+    unsigned short unknown_26_;
 };
 
-struct WMDataSet
+struct Struct_020d5d34_2
 {
-    unsigned short aidBitmap;
-    unsigned short receivedBitmap;
-    unsigned short data[254];
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_[254];
 };
 
-struct WMDataSharingInfo
+struct Struct_020d5d34
 {
-    WMDataSet ds[4];
-    unsigned short seqNum[4];
-    unsigned short writeIndex;
-    unsigned short sendIndex;
-    unsigned short readIndex;
-    unsigned short aidBitmap;
-    unsigned short dataLength;
-    unsigned short stationNumber;
-    unsigned short dataSetLength;
-    unsigned short port;
-    unsigned short doubleMode;
-    unsigned short currentSeqNum;
-    unsigned short state;
-    unsigned short reserved[1];
+    Struct_020d5d34_2 unknown_0_[4];
+    unsigned short unknown_800_[4];
+    unsigned short unknown_808_;
+    unsigned short unknown_80a_;
+    unsigned short unknown_80c_;
+    unsigned short unknown_80e_;
+    unsigned short unknown_810_;
+    unsigned short unknown_812_;
+    unsigned short unknown_814_;
+    unsigned short unknown_816_;
+    unsigned short unknown_818_;
+    unsigned short unknown_81a_;
+    unsigned short unknown_81c_;
+    unsigned short unknown_81e_[1];
 };
 
-extern "C" void func_020d63f0(void* callback);
-extern "C" void func_020d651c(void* callback);
-extern "C" WMArm9Buf* func_020d41d8();
+extern "C" void func_020d63f0(void* arg0);
+extern "C" void func_020d651c(void* arg0);
+extern "C" Struct_020d424c_2* func_020d41d8();
 extern "C" unsigned short func_020d46cc();
 
 // USA: func_020d6318
-extern "C" ARM void func_020d6318(void* callback)
+extern "C" ARM void func_020d6318(void* arg0)
 {
-    WMArm9Buf* const p = func_020d41d8();
-    WMPortSendCallback* const cb = (WMPortSendCallback*)callback;
-    const WMCallbackFunc portCallback = p->portCallbackTable[cb->port];
-    WMDataSharingInfo* const dsInfo = (WMDataSharingInfo*)p->portCallbackArgument[cb->port];
-    unsigned short aid;
-    if (portCallback != func_020d63f0 && portCallback != func_020d651c)
+    Struct_020d424c_2* const var0 = func_020d41d8();
+    Struct_020d42e0_2* const var1 = (Struct_020d42e0_2*)arg0;
+    const Type_020d42e0 var2 = var0->unknown_cc_[var1->unknown_a_];
+    Struct_020d5d34* const var3 = (Struct_020d5d34*)var0->unknown_10c_[var1->unknown_a_];
+    unsigned short var4;
+    if (var2 != func_020d63f0 && var2 != func_020d651c)
         return;
-    if (dsInfo == NULL)
+    if (var3 == NULL)
         return;
-    if (dsInfo != cb->arg)
+    if (var3 != var1->unknown_20_)
         return;
-    aid = func_020d46cc();
-    if (cb->errcode == 0)
+    var4 = func_020d46cc();
+    if (var1->unknown_2_ == 0)
     {
-        if (aid == 0)
+        if (var4 == 0)
         {
-            dsInfo->seqNum[dsInfo->sendIndex] = cb->seqNo >> 1;
-            dsInfo->sendIndex = (dsInfo->sendIndex + 1) & 3;
+            var3->unknown_800_[var3->unknown_80a_] = var1->unknown_1a_ >> 1;
+            var3->unknown_80a_ = (var3->unknown_80a_ + 1) & 3;
         }
     }
-    else if (cb->errcode == 10)
+    else if (var1->unknown_2_ == 10)
     {
-        if (aid != 0)
-            dsInfo->sendIndex = (dsInfo->sendIndex + 4 - 1) & 3;
-        dsInfo->state = 4;
+        if (var4 != 0)
+            var3->unknown_80a_ = (var3->unknown_80a_ + 4 - 1) & 3;
+        var3->unknown_81c_ = 4;
     }
     else
     {
-        dsInfo->state = 5;
+        var3->unknown_81c_ = 5;
     }
 }

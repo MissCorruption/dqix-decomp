@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct IdentityReport02217604 {
-    char identifier[14];
-    char token[7];
-    char gameCode[4];
-    char gameCodeTerminator;
-    char makerCode[2];
-    char makerCodeTerminator;
-    char connectionType;
-    char connectionTypeTerminator;
-    char macAddress[13];
-    char language[3];
-    char birthday[5];
-    char timestamp[13];
-    char accessPointAddress[13];
-    char ssid[33];
-    char accessPointInfo[14];
-    unsigned short nickname[11];
+struct Struct_ov031_02217604_5 {
+    char unknown_0_[14];
+    char unknown_e_[7];
+    char unknown_15_[4];
+    char unknown_19_;
+    char unknown_1a_[2];
+    char unknown_1c_;
+    char unknown_1d_;
+    char unknown_1e_;
+    char unknown_1f_[13];
+    char unknown_2c_[3];
+    char unknown_2f_[5];
+    char unknown_34_[13];
+    char unknown_41_[13];
+    char unknown_4e_[33];
+    char unknown_6f_[14];
+    unsigned short unknown_7e_[11];
 };
 
-extern "C" int func_020c7170(char* destination, unsigned long capacity, const char* format, ...);
-extern "C" int func_ov031_02218604(void* obj, const char* key, void* val, int len);
-extern "C" int func_ov031_02218528(void* obj, const char* key, const char* val);
-extern "C" int func_02005aa8(void* s);
+extern "C" int func_020c7170(char* arg0, unsigned long arg1, const char* arg2, ...);
+extern "C" int func_ov031_02218604(void* arg0, const char* arg1, void* arg2, int arg3);
+extern "C" int func_ov031_02218528(void* arg0, const char* arg1, const char* arg2);
+extern "C" int func_02005aa8(void* arg0);
 
 extern const char data_ov031_02249cd4[];
 extern const char data_ov031_02249ce0[];
@@ -45,26 +45,26 @@ extern const char data_ov031_02249d68[];
 extern const char data_ov031_02249d74[];
 
 // USA: func_ov031_022178b4
-extern "C" ARM int func_ov031_022178b4(void* obj, IdentityReport02217604* report, int flag) {
-    char buf[0x24];
-    func_020c7170(buf, 0x21, data_ov031_02249cd4, 0x3, 1);
-    if (func_ov031_02218604(obj, data_ov031_02249ce0, buf, strlen(buf)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249ce8, report->identifier, strlen(report->identifier)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249cf0, report->token, strlen(report->token)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249cf8, report->accessPointAddress, strlen(report->accessPointAddress)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d00, report->accessPointInfo, strlen(report->accessPointInfo)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d08, report->gameCode, strlen(report->gameCode)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d10, report->makerCode, strlen(report->makerCode)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d18, &report->connectionType, strlen(&report->connectionType)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d20, report->macAddress, strlen(report->macAddress)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d28, report->language, strlen(report->language)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d30, report->birthday, strlen(report->birthday)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d38, report->timestamp, strlen(report->timestamp)) != 0) return 0;
-    if (func_ov031_02218604(obj, data_ov031_02249d40, report->nickname, func_02005aa8(report->nickname)*2) != 0) return 0;
-    if (flag == 1) {
-        if (func_ov031_02218604(obj, data_ov031_02249d48, report->ssid, strlen(report->ssid)) != 0) return 0;
+extern "C" ARM int func_ov031_022178b4(void* arg0, Struct_ov031_02217604_5* arg1, int arg2) {
+    char var0[0x24];
+    func_020c7170(var0, 0x21, data_ov031_02249cd4, 0x3, 1);
+    if (func_ov031_02218604(arg0, data_ov031_02249ce0, var0, strlen(var0)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249ce8, arg1->unknown_0_, strlen(arg1->unknown_0_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249cf0, arg1->unknown_e_, strlen(arg1->unknown_e_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249cf8, arg1->unknown_41_, strlen(arg1->unknown_41_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d00, arg1->unknown_6f_, strlen(arg1->unknown_6f_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d08, arg1->unknown_15_, strlen(arg1->unknown_15_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d10, arg1->unknown_1a_, strlen(arg1->unknown_1a_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d18, &arg1->unknown_1d_, strlen(&arg1->unknown_1d_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d20, arg1->unknown_1f_, strlen(arg1->unknown_1f_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d28, arg1->unknown_2c_, strlen(arg1->unknown_2c_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d30, arg1->unknown_2f_, strlen(arg1->unknown_2f_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d38, arg1->unknown_34_, strlen(arg1->unknown_34_)) != 0) return 0;
+    if (func_ov031_02218604(arg0, data_ov031_02249d40, arg1->unknown_7e_, func_02005aa8(arg1->unknown_7e_)*2) != 0) return 0;
+    if (arg2 == 1) {
+        if (func_ov031_02218604(arg0, data_ov031_02249d48, arg1->unknown_4e_, strlen(arg1->unknown_4e_)) != 0) return 0;
     }
-    func_020c7170(buf, 0x21, data_ov031_02249d50, 0x3, 1);
-    if (func_ov031_02218528(obj, data_ov031_02249d68, buf) != 0) return 0;
-    return func_ov031_02218528(obj, data_ov031_02249d74, report->gameCode) == 0;
+    func_020c7170(var0, 0x21, data_ov031_02249d50, 0x3, 1);
+    if (func_ov031_02218528(arg0, data_ov031_02249d68, var0) != 0) return 0;
+    return func_ov031_02218528(arg0, data_ov031_02249d74, arg1->unknown_15_) == 0;
 }

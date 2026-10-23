@@ -2,147 +2,147 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
-extern "C" int func_02049ee8(unsigned char* obj);
-extern "C" int func_ov000_021681f8(int id, int count);
-extern "C" int func_ov000_02167b5c(int a, int b);
-extern "C" void func_ov000_02167b54(int* obj, int a, int b, int c);
-extern "C" void func_02049b20(unsigned char* obj, int* src);
-extern "C" void func_02049bac(unsigned char* obj, int* src);
-extern "C" void func_ov000_0216f718(void* obj, int val);
-extern "C" void func_ov000_0216f720(void* obj, int val);
+extern "C" int func_02049ee8(unsigned char* arg0);
+extern "C" int func_ov000_021681f8(int arg0, int arg1);
+extern "C" int func_ov000_02167b5c(int arg0, int arg1);
+extern "C" void func_ov000_02167b54(int* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_02049b20(unsigned char* arg0, int* arg1);
+extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
+extern "C" void func_ov000_0216f718(void* arg0, int arg1);
+extern "C" void func_ov000_0216f720(void* arg0, int arg1);
 
-struct EnemyGroup_021677fc {
-    unsigned char field_0x0;
-    unsigned char lo : 4;
-    unsigned char groupCount : 2;
-    unsigned char hi : 2;
-    char pad_2[2];
-    unsigned short kind;
-    unsigned char ids[8];
-    unsigned char count : 4;
-    unsigned char rest : 4;
-    char pad_f[0x18 - 0xf];
+struct Struct_ov000_021677fc_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_0_ : 4;
+    unsigned char unknown_1_4_ : 2;
+    unsigned char unknown_1_6_ : 2;
+    char unknown_2_[2];
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[8];
+    unsigned char unknown_e_0_ : 4;
+    unsigned char unknown_e_4_ : 4;
+    char unknown_f_[0x18 - 0xf];
 };
 
-struct Formation_021677fc {
-    struct EnemyGroup_021677fc groups[3];
+struct Struct_ov000_021677fc_3 {
+    struct Struct_ov000_021677fc_2 unknown_0_[3];
 };
 
-struct BattleData_021677fc {
-    char pad_0[0x81b0];
-    struct Formation_021677fc formation;
-    char pad_81fc[0x8de0 - 0x81b0 - sizeof(struct Formation_021677fc)];
-    int slots[8];
+struct Struct_ov000_021677fc_4 {
+    char unknown_0_[0x81b0];
+    struct Struct_ov000_021677fc_3 unknown_81b0_;
+    char unknown_81f8_[0x8de0 - 0x81b0 - sizeof(struct Struct_ov000_021677fc_3)];
+    int unknown_8de0_[8];
 };
 
-struct Owner_021677fc {
+struct Struct_ov000_021677fc {
 #if defined(jpn)
-    char pad_0[0x218];
-    struct BattleData_021677fc* data;
-    char pad_21c[0x394 - 0x21c];
-    char sub[0x57cc - 0x394];
+    char unknown_0_[0x218];
+    struct Struct_ov000_021677fc_4* unknown_29c_;
+    char unknown_21c_[0x394 - 0x21c];
+    char unknown_394_[0x57cc - 0x394];
 #else
-    char pad_0[0x18];
-    char sub[0x284];
-    struct BattleData_021677fc* data;
-    char pad_2a0[0x55dc - 0x2a0];
+    char unknown1_0_[0x18];
+    char unknown_18_[0x284];
+    struct Struct_ov000_021677fc_4* unknown_29c_;
+    char unknown_2a0_[0x55dc - 0x2a0];
 #endif
-    int totalWidth;
-    int maxHeight;
+    int unknown_55dc_;
+    int unknown_55e0_;
 };
 
-static inline int MulFix(int a, int b) { return (int)(((long long)a * b + 0x800) >> 12); }
+static inline int inline_ov000_021677fc(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
 
 // USA: func_ov000_021677fc
-extern "C" ARM void func_ov000_021677fc(Owner_021677fc* obj) {
-    struct EnemyGroup_021677fc* group;
-    struct Formation_021677fc* formation;
-    int g;
-    char* sub;
-    GameState* battle = GameState::GetInstance();
+extern "C" ARM void func_ov000_021677fc(Struct_ov000_021677fc* arg0) {
+    struct Struct_ov000_021677fc_2* var0;
+    struct Struct_ov000_021677fc_3* var1;
+    int var2;
+    char* var3;
+    GameState* var4 = GameState::GetInstance();
     GetGameResources();
-    struct BattleData_021677fc* data = obj->data;
-    obj->totalWidth = 0;
-    obj->maxHeight = 0;
+    struct Struct_ov000_021677fc_4* var5 = arg0->unknown_29c_;
+    arg0->unknown_55dc_ = 0;
+    arg0->unknown_55e0_ = 0;
 #if defined(jpn)
-    sub = obj->sub + 0x800;
+    var3 = arg0->unknown_394_ + 0x800;
 #else
-    sub = obj->sub + 0xc00;
+    var3 = arg0->unknown_18_ + 0xc00;
 #endif
-    formation = &data->formation;
-    for (g = 0; g < formation->groups[0].groupCount; g++) {
-        group = &formation->groups[g];
-        for (int j = 0; j < group->count; j++) {
-            int id = group->ids[j] + 0xc0;
-            GameObject* c = battle->GetCombatantByIndex(id);
-            if (c != 0 && func_02049ee8((unsigned char*)c) != 0) {
-                int found;
-                struct BattleData_021677fc* d = obj->data;
-                int i = 0;
-                for (; i < 8; i++) {
-                    if (id == (d->slots[i] & 0xff)) {
-                        found = 1;
+    var1 = &var5->unknown_81b0_;
+    for (var2 = 0; var2 < var1->unknown_0_[0].unknown_1_4_; var2++) {
+        var0 = &var1->unknown_0_[var2];
+        for (int var6 = 0; var6 < var0->unknown_e_0_; var6++) {
+            int var7 = var0->unknown_6_[var6] + 0xc0;
+            GameObject* var8 = var4->GetCombatantByIndex(var7);
+            if (var8 != 0 && func_02049ee8((unsigned char*)var8) != 0) {
+                int var9;
+                struct Struct_ov000_021677fc_4* var10 = arg0->unknown_29c_;
+                int var11 = 0;
+                for (; var11 < 8; var11++) {
+                    if (var7 == (var10->unknown_8de0_[var11] & 0xff)) {
+                        var9 = 1;
                         goto done;
                     }
                 }
-                found = 0;
+                var9 = 0;
 done:
-                if (!found) {
-                    int free = -1;
-                    for (int i = 0; i < 8; i++) {
-                        GameObject* o = battle->GetCombatantByIndex(obj->data->slots[i] & 0xff);
-                        if (o == 0 || func_02049ee8((unsigned char*)o) == 0) {
-                            free = i;
+                if (!var9) {
+                    int var12 = -1;
+                    for (int var13 = 0; var13 < 8; var13++) {
+                        GameObject* var14 = var4->GetCombatantByIndex(arg0->unknown_29c_->unknown_8de0_[var13] & 0xff);
+                        if (var14 == 0 || func_02049ee8((unsigned char*)var14) == 0) {
+                            var12 = var13;
                             break;
                         }
                     }
-                    if (free != -1) {
-                        obj->data->slots[free] = id;
+                    if (var12 != -1) {
+                        arg0->unknown_29c_->unknown_8de0_[var12] = var7;
                     }
                 }
             }
         }
     }
-    int n = 0;
-    for (int i = 0; i < 8; i++) {
-        if (battle->GetCombatantByIndex(obj->data->slots[i] & 0xff) != 0) {
-            n++;
+    int var15 = 0;
+    for (int var16 = 0; var16 < 8; var16++) {
+        if (var4->GetCombatantByIndex(arg0->unknown_29c_->unknown_8de0_[var16] & 0xff) != 0) {
+            var15++;
         }
     }
-    for (int i = 0; i < 8; i++) {
-        GameObject* c = battle->GetCombatantByIndex(obj->data->slots[i] & 0xff);
-        if (c != 0) {
-            int radius = c->obj3D_.GetRadius();
-            int height = c->obj3D_.GetHeight();
-            int thr = func_ov000_021681f8(c->obj3D_.unknown_2_, n);
-            obj->totalWidth += MulFix(radius, thr);
-            if (obj->maxHeight < height) {
-                obj->maxHeight = height;
+    for (int var17 = 0; var17 < 8; var17++) {
+        GameObject* var18 = var4->GetCombatantByIndex(arg0->unknown_29c_->unknown_8de0_[var17] & 0xff);
+        if (var18 != 0) {
+            int var19 = var18->obj3D_.GetRadius();
+            int var20 = var18->obj3D_.GetHeight();
+            int var21 = func_ov000_021681f8(var18->obj3D_.unknown_2_, var15);
+            arg0->unknown_55dc_ += inline_ov000_021677fc(var19, var21);
+            if (arg0->unknown_55e0_ < var20) {
+                arg0->unknown_55e0_ = var20;
             }
         }
     }
-    obj->maxHeight += 0x800;
-    int ratio = func_ov000_02167b5c(obj->totalWidth, n & 0xff);
-    obj->totalWidth += ratio * (n - 1);
-    int x = -(obj->totalWidth / 2);
-    for (int i = 0; i < 8; i++) {
-        GameObject* c = battle->GetCombatantByIndex(obj->data->slots[i] & 0xff);
-        if (c != 0) {
-            int radius = c->obj3D_.GetRadius();
-            int thr = func_ov000_021681f8(c->obj3D_.unknown_2_, n);
-            int w = MulFix(radius, thr);
-            int half = w / 2;
-            int a[3];
-            int b[3];
-            x += half;
-            func_ov000_02167b54(a, x, 0xcc, -0x2800);
-            func_02049b20((unsigned char*)c, a);
-            func_ov000_02167b54(b, 0, 0, 0);
-            func_02049bac((unsigned char*)c, b);
-            x += half;
-            x += ratio;
+    arg0->unknown_55e0_ += 0x800;
+    int var22 = func_ov000_02167b5c(arg0->unknown_55dc_, var15 & 0xff);
+    arg0->unknown_55dc_ += var22 * (var15 - 1);
+    int var23 = -(arg0->unknown_55dc_ / 2);
+    for (int var24 = 0; var24 < 8; var24++) {
+        GameObject* var25 = var4->GetCombatantByIndex(arg0->unknown_29c_->unknown_8de0_[var24] & 0xff);
+        if (var25 != 0) {
+            int var26 = var25->obj3D_.GetRadius();
+            int var27 = func_ov000_021681f8(var25->obj3D_.unknown_2_, var15);
+            int var28 = inline_ov000_021677fc(var26, var27);
+            int var29 = var28 / 2;
+            int var30[3];
+            int var31[3];
+            var23 += var29;
+            func_ov000_02167b54(var30, var23, 0xcc, -0x2800);
+            func_02049b20((unsigned char*)var25, var30);
+            func_ov000_02167b54(var31, 0, 0, 0);
+            func_02049bac((unsigned char*)var25, var31);
+            var23 += var29;
+            var23 += var22;
         }
     }
-    func_ov000_0216f718(sub, obj->totalWidth);
-    func_ov000_0216f720(sub, obj->maxHeight);
+    func_ov000_0216f718(var3, arg0->unknown_55dc_);
+    func_ov000_0216f720(var3, arg0->unknown_55e0_);
 }

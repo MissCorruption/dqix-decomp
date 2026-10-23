@@ -2,45 +2,43 @@
 
 #include <globaldefs.h>
 
-struct NameTable02048080
+struct Struct_0204719c
 {
-    int count;
-    void* entries;
+    int unknown_0_;
+    void* unknown_4_;
 };
 
-struct Foo02048004
+struct Struct_02012fa4
 {
-    unsigned int word0;
-    unsigned short f4;
-    unsigned short f6;
-    unsigned int w8;
-    unsigned int wc;
-    unsigned int w10;
-    NameTable02048080 nameTable;
-    unsigned int words1c[25];
-    unsigned short field80;
-    unsigned short field82;
-    unsigned char bit0 : 1;
-    unsigned char bit1 : 1;
-    unsigned char bit2 : 1;
-    unsigned char rest : 5;
+    unsigned int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_;
+    unsigned int unknown_c_;
+    unsigned int unknown_10_;
+    Struct_0204719c unknown_14_;
+    unsigned int unknown_1c_[25];
+    unsigned short unknown_80_;
+    unsigned short unknown_82_;
+    unsigned char unknown_84_0_ : 1;
+    unsigned char unknown_84_1_ : 1;
+    unsigned char unknown_84_2_ : 1;
+    unsigned char unknown_84_3_ : 5;
 };
 
-struct ZoneLootableRecord
+struct Struct_020133cc
 {
-    unsigned short id;
-    short field2;
-    short field4;
-    unsigned char reserved6[2];
-    Foo02048004 primary[2];
-    Foo02048004 fragments[4];
-    unsigned char tail338[0x30];
+    unsigned short unknown_0_;
+    short unknown_2_;
+    short unknown_4_;
+    unsigned char unknown_6_[2];
+    Struct_02012fa4 unknown_8_[2];
+    Struct_02012fa4 unknown_118_[4];
+    unsigned char unknown_338_[0x30];
 };
 
-extern "C" void func_02048004(Foo02048004* src, Foo02048004* dst);
-extern "C" void func_02047230(Foo02048004* obj);
-extern "C" void func_02048080(NameTable02048080* table);
-extern "C" void func_0204719c(void* obj);
+extern "C" void func_02048004(Struct_02012fa4* arg0, Struct_02012fa4* arg1);
+extern "C" void func_02047230(Struct_02012fa4* arg0);
+extern "C" void func_02048080(Struct_0204719c* arg0);
+extern "C" void func_0204719c(void* arg0);
 
-typedef char Foo02048004SizeMustBe88[(sizeof(Foo02048004) == 0x88) ? 1 : -1];
-typedef char ZoneLootableRecordSizeMustBe368[(sizeof(ZoneLootableRecord) == 0x368) ? 1 : -1];

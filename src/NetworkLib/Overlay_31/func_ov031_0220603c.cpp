@@ -3,58 +3,58 @@
 #include "NitroSDK/ProcessorContext.h"
 #include "NitroSDK/Memory.h"
 
-struct Packet0220603c {
-    Packet0220603c* next;
-    unsigned short length, type;
-    unsigned int metadata;
-    unsigned char payload[1];
+struct Struct_ov031_0220603c {
+    Struct_ov031_0220603c* unknown_0_;
+    unsigned short unknown_4_, unknown_6_;
+    unsigned int unknown_8_;
+    unsigned char unknown_c_[1];
 };
-struct PacketQueue0220603c {
-    char pad_0[0x100];
-    union { Packet0220603c* last; signed int lastAddress; };
-    Packet0220603c* first;
-    unsigned short used, capacity;
-    BlockedContextList blocked;
+struct Struct_ov031_0220603c_2 {
+    char unknown_0_[0x100];
+    union { Struct_ov031_0220603c* unknown_100_; signed int unknown1_100_; };
+    Struct_ov031_0220603c* unknown_104_;
+    unsigned short unknown_108_, unknown_10a_;
+    BlockedContextList unknown_10c_;
 };
-struct PacketContext0220603c {
-    char pad_0[0xa]; unsigned short initialPending;
-    char pad_c[0xc]; unsigned short type, resetType;
-    unsigned int metadata, resetMetadata;
-    char pad_24[0x40]; PacketQueue0220603c* queue;
-    char pad_68[0xc]; unsigned short pending;
+struct Struct_ov031_0220603c_3 {
+    char unknown_0_[0xa]; unsigned short unknown_a_;
+    char unknown_c_[0xc]; unsigned short unknown_18_, unknown_1a_;
+    unsigned int unknown_1c_, unknown_20_;
+    char unknown_24_[0x40]; Struct_ov031_0220603c_2* unknown_64_;
+    char unknown_68_[0xc]; unsigned short unknown_74_;
 };
-struct PacketAllocator0220603c {
-    char pad_0[0x18]; void* (*allocate)(int);
+struct Struct_ov031_0220603c_4 {
+    char unknown_0_[0x18]; void* (*unknown_18_)(int);
 };
-struct PacketErrors0220603c { unsigned int allocation, capacity; };
-extern PacketAllocator0220603c* data_ov031_022496a4;
-extern PacketErrors0220603c data_ov031_0224e224;
+struct Struct_ov031_0224e224 { unsigned int unknown_0_, unknown_4_; };
+extern Struct_ov031_0220603c_4* data_ov031_022496a4;
+extern Struct_ov031_0224e224 data_ov031_0224e224;
 
 // USA: func_ov031_0220603c
-extern "C" ARM int func_ov031_0220603c(const void* source, unsigned int length, PacketContext0220603c* context) {
-    PacketQueue0220603c* queue = context->queue;
-    Packet0220603c* packet;
-    int interruptState = DisableIRQInterrupts();
-    if (queue->capacity >= queue->used + length) {
-        packet = (Packet0220603c*)data_ov031_022496a4->allocate(length + 0xc);
-        if (packet) {
-            queue->used += length;
-            packet->next = 0;
-            packet->length = length;
-            packet->type = context->type;
-            packet->metadata = context->metadata;
-            VectorizedInvertedMemcpy(source, packet->payload, length);
-            if (queue->lastAddress) queue->last->next = packet;
-            queue->last = packet;
-            if (!queue->first) queue->first = packet;
-        } else data_ov031_0224e224.allocation++;
+extern "C" ARM int func_ov031_0220603c(const void* arg0, unsigned int arg1, Struct_ov031_0220603c_3* arg2) {
+    Struct_ov031_0220603c_2* var0 = arg2->unknown_64_;
+    Struct_ov031_0220603c* var1;
+    int var2 = DisableIRQInterrupts();
+    if (var0->unknown_10a_ >= var0->unknown_108_ + arg1) {
+        var1 = (Struct_ov031_0220603c*)data_ov031_022496a4->unknown_18_(arg1 + 0xc);
+        if (var1) {
+            var0->unknown_108_ += arg1;
+            var1->unknown_0_ = 0;
+            var1->unknown_4_ = arg1;
+            var1->unknown_6_ = arg2->unknown_18_;
+            var1->unknown_8_ = arg2->unknown_1c_;
+            VectorizedInvertedMemcpy(arg0, var1->unknown_c_, arg1);
+            if (var0->unknown1_100_) var0->unknown_100_->unknown_0_ = var1;
+            var0->unknown_100_ = var1;
+            if (!var0->unknown_104_) var0->unknown_104_ = var1;
+        } else data_ov031_0224e224.unknown_0_++;
     } else {
-        data_ov031_0224e224.capacity++;
+        data_ov031_0224e224.unknown_4_++;
     }
-    if (!context->pending) context->pending = context->initialPending;
-    context->type = context->resetType;
-    context->metadata = context->resetMetadata;
-    UnblockContexts(&queue->blocked);
-    SetIRQInterruptState(interruptState);
+    if (!arg2->unknown_74_) arg2->unknown_74_ = arg2->unknown_a_;
+    arg2->unknown_18_ = arg2->unknown_1a_;
+    arg2->unknown_1c_ = arg2->unknown_20_;
+    UnblockContexts(&var0->unknown_10c_);
+    SetIRQInterruptState(var2);
     return 1;
 }

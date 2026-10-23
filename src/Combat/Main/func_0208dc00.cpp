@@ -1,46 +1,46 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct ResetStruct {
-    int w0;
-    int w4;
-    int w8;
-    int wc;
-    int w10;
-    int w14;
-    int w18;
-    int w1c;
-    int w20;
-    int w24;
-    int w28;
-    char pad[0x400];
-    unsigned char b42c;
+struct Struct_0201f040 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    int unknown_18_;
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
+    int unknown_28_;
+    char unknown_2c_[0x400];
+    unsigned char unknown_42c_;
 };
 
-struct StreamState;
-struct StreamHeader;
+struct Struct_0201f040_2;
+struct Struct_02013fb4;
 
-struct Struct02030774;
+struct Struct_0201f040_3;
 
 extern "C" void* func_02012fe4(void);
 
-struct Data02108fc8Type {
-    int field0;
-    int field4;
-    int field8;
+struct Struct_02108fc8_2 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
 };
-extern struct Data02108fc8Type data_02108fc8;
+extern struct Struct_02108fc8_2 data_02108fc8;
 extern int data_020f1248;
 
 // USA: func_0208dc00
-extern "C" ARM int func_0208dc00(struct StreamHeader* param0, int param1, int param2) {
-    data_02108fc8.field8 = param2;
-    data_02108fc8.field0 = 0;
-    data_02108fc8.field4 = *(int*)((char*)func_02012fe4() + 8);
-    struct ResetStruct local;
-    ((Script*)&local)->Initialize();
-    ((Script*)&local)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1248);
-    ((Script*)((struct StreamState*)&local))->Load(param0, param1);
-    ((Script*)((struct Struct02030774*)&local))->Execute();
-    return data_02108fc8.field0;
+extern "C" ARM int func_0208dc00(struct Struct_02013fb4* arg0, int arg1, int arg2) {
+    data_02108fc8.unknown_8_ = arg2;
+    data_02108fc8.unknown_0_ = 0;
+    data_02108fc8.unknown_4_ = *(int*)((char*)func_02012fe4() + 8);
+    struct Struct_0201f040 var0;
+    ((Script*)&var0)->Initialize();
+    ((Script*)&var0)->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f1248);
+    ((Script*)((struct Struct_0201f040_2*)&var0))->Load(arg0, arg1);
+    ((Script*)((struct Struct_0201f040_3*)&var0))->Execute();
+    return data_02108fc8.unknown_0_;
 }

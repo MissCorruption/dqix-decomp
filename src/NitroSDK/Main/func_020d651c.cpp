@@ -4,89 +4,89 @@
 #define func_020ca3b8 func_020cbe84
 #endif
 
-struct WMPortRecvCallback
+struct Struct_02114330
 {
-    unsigned short apiid;
-    unsigned short errcode;
-    unsigned short state;
-    unsigned short port;
-    void* recvBuf;
-    void* data;
-    unsigned short length;
-    unsigned short aid;
-    unsigned char macAddress[6];
-    unsigned short seqNo;
-    void* arg;
-    unsigned short myAid;
-    unsigned short connectedAidBitmap;
-    unsigned char ssid[24];
-    unsigned short reason;
-    unsigned short rssi;
-    unsigned short maxSendDataSize;
-    unsigned short maxRecvDataSize;
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    void* unknown_8_;
+    void* unknown_c_;
+    unsigned short unknown_10_;
+    unsigned short unknown_12_;
+    unsigned char unknown_14_[6];
+    unsigned short unknown_1a_;
+    void* unknown_1c_;
+    unsigned short unknown_20_;
+    unsigned short unknown_22_;
+    unsigned char unknown_24_[24];
+    unsigned short unknown_3c_;
+    unsigned short unknown_3e_;
+    unsigned short unknown_40_;
+    unsigned short unknown_42_;
 };
 
-struct WMDataSet
+struct Struct_020d5d34_2
 {
-    unsigned short aidBitmap;
-    unsigned short receivedBitmap;
-    unsigned short data[254];
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_[254];
 };
 
-struct WMDataSharingInfo
+struct Struct_020d5d34
 {
-    WMDataSet ds[4];
-    unsigned short seqNum[4];
-    unsigned short writeIndex;
-    unsigned short sendIndex;
-    unsigned short readIndex;
-    unsigned short aidBitmap;
-    unsigned short dataLength;
-    unsigned short stationNumber;
-    unsigned short dataSetLength;
-    unsigned short port;
-    unsigned short doubleMode;
-    unsigned short currentSeqNum;
-    unsigned short state;
-    unsigned short reserved[1];
+    Struct_020d5d34_2 unknown_0_[4];
+    unsigned short unknown_800_[4];
+    unsigned short unknown_808_;
+    unsigned short unknown_80a_;
+    unsigned short unknown_80c_;
+    unsigned short unknown_80e_;
+    unsigned short unknown_810_;
+    unsigned short unknown_812_;
+    unsigned short unknown_814_;
+    unsigned short unknown_816_;
+    unsigned short unknown_818_;
+    unsigned short unknown_81a_;
+    unsigned short unknown_81c_;
+    unsigned short unknown_81e_[1];
 };
 
 extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);
 extern "C" unsigned short func_020d46cc();
 
 // USA: func_020d651c
-extern "C" ARM void func_020d651c(void* callback)
+extern "C" ARM void func_020d651c(void* arg0)
 {
-    WMPortRecvCallback* const cb = (WMPortRecvCallback*)callback;
-    WMDataSharingInfo* const dsInfo = (WMDataSharingInfo*)cb->arg;
-    if (dsInfo == NULL)
+    Struct_02114330* const var0 = (Struct_02114330*)arg0;
+    Struct_020d5d34* const var1 = (Struct_020d5d34*)var0->unknown_1c_;
+    if (var1 == NULL)
         return;
-    if (cb->errcode == 0)
+    if (var0->unknown_2_ == 0)
     {
-        switch (cb->state)
+        switch (var0->unknown_4_)
         {
         case 21:
         {
-            unsigned short length;
-            unsigned short aidBitmap;
-            unsigned short aid;
-            WMDataSet* dataSet;
-            dataSet = (WMDataSet*)cb->data;
-            length = cb->length;
-            aidBitmap = dataSet->aidBitmap;
-            aid = func_020d46cc();
-            if (length != dsInfo->dataSetLength)
+            unsigned short var2;
+            unsigned short var3;
+            unsigned short var4;
+            Struct_020d5d34_2* var5;
+            var5 = (Struct_020d5d34_2*)var0->unknown_c_;
+            var2 = var0->unknown_10_;
+            var3 = var5->unknown_0_;
+            var4 = func_020d46cc();
+            if (var2 != var1->unknown_814_)
             {
-                if (length > sizeof(WMDataSet))
-                    length = sizeof(WMDataSet);
+                if (var2 > sizeof(Struct_020d5d34_2))
+                    var2 = sizeof(Struct_020d5d34_2);
             }
-            if (length < 4)
+            if (var2 < 4)
                 return;
-            if (!(aidBitmap & (1 << aid)))
+            if (!(var3 & (1 << var4)))
                 return;
-            func_020ca3b8(dataSet, &dsInfo->ds[dsInfo->writeIndex], length);
-            dsInfo->seqNum[dsInfo->writeIndex] = cb->seqNo >> 1;
-            dsInfo->writeIndex = (dsInfo->writeIndex + 1) & 3;
+            func_020ca3b8(var5, &var1->unknown_0_[var1->unknown_808_], var2);
+            var1->unknown_800_[var1->unknown_808_] = var0->unknown_1a_ >> 1;
+            var1->unknown_808_ = (var1->unknown_808_ + 1) & 3;
             break;
         }
         case 7:
@@ -98,6 +98,6 @@ extern "C" ARM void func_020d651c(void* callback)
     }
     else
     {
-        dsInfo->state = 5;
+        var1->unknown_81c_ = 5;
     }
 }

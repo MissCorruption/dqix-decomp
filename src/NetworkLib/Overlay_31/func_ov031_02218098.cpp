@@ -4,52 +4,52 @@
 #include "NitroSDK/Mutex.h"
 #include "NitroSDK/Timing.h"
 
-struct HttpRequest {
-    unsigned char payload[0x800];
-    int handle;
-    unsigned char padding804[0xc];
-    int (*callback)(int);
-    unsigned char padding814[0x1c];
+struct Struct_ov031_02218098_2 {
+    unsigned char unknown_0_[0x800];
+    int unknown_800_;
+    unsigned char unknown_804_[0xc];
+    int (*unknown_810_)(int);
+    unsigned char unknown_814_[0x1c];
 };
 
-struct HttpResponse {
-    char* start;
-    char* current;
-    char* limit;
-    int capacity;
-    Mutex mutex;
-    int contentLength;
-    int bodyOffset;
+struct Struct_ov031_02218098_3 {
+    char* unknown_0_;
+    char* unknown_4_;
+    char* unknown_8_;
+    int unknown_c_;
+    Mutex unknown_10_;
+    int unknown_28_;
+    int unknown_2c_;
 };
 
-struct HttpConfiguration {
-    unsigned char padding0[0xc];
-    HttpRequest* request;
-    unsigned char padding10[0x54];
+struct Struct_ov031_02218098_4 {
+    unsigned char unknown_0_[0xc];
+    Struct_ov031_02218098_2* unknown_c_;
+    unsigned char unknown_10_[0x54];
 };
 
-struct HttpFields {
-    unsigned char padding0[0x1c];
-    int timeout;
-    int status;
-    unsigned char padding24[0x100];
-    int handle;
-    unsigned char padding128[4];
-    unsigned int address;
-    int mode;
-    unsigned short port;
-    unsigned short padding136;
-    HttpConfiguration configuration;
-    HttpRequest request;
-    unsigned char padding9cc[0x2c];
-    char* url;
-    unsigned char padding9fc[0xc];
-    HttpResponse response;
+struct Struct_ov031_02218098_5 {
+    unsigned char unknown_0_[0x1c];
+    int unknown_1c_;
+    int unknown_20_;
+    unsigned char unknown_24_[0x100];
+    int unknown_124_;
+    unsigned char unknown_128_[4];
+    unsigned int unknown_12c_;
+    int unknown_130_;
+    unsigned short unknown_134_;
+    unsigned short unknown_136_;
+    Struct_ov031_02218098_4 unknown_138_;
+    Struct_ov031_02218098_2 unknown_19c_;
+    unsigned char unknown_9cc_[0x2c];
+    char* unknown_9f8_;
+    unsigned char unknown_9fc_[0xc];
+    Struct_ov031_02218098_3 unknown_a08_;
 };
 
-struct HttpState {
-    unsigned char prefix[0x1000];
-    HttpFields network;
+struct Struct_ov031_02218098 {
+    unsigned char unknown_0_[0x1000];
+    Struct_ov031_02218098_5 unknown_1000_;
 };
 
 extern "C" void func_ov031_02217f44(void*);
@@ -75,94 +75,94 @@ extern char data_ov031_02249d84[];
 extern int data_ov031_0224c9d0;
 
 // USA: func_ov031_02218098
-extern "C" ARM void func_ov031_02218098(HttpState* state) {
-    HttpResponse* response;
-    int timeout = state->network.timeout;
-    HttpConfiguration* configuration = &state->network.configuration;
-    HttpRequest* request = &state->network.request;
-    response = &state->network.response;
-    int headersParsed = 0;
-    if (timeout <= 0)
-        timeout = 60000;
-    func_ov031_02217f44(state);
-    unsigned int address = func_ov031_02217f9c(state);
-    if (!address) {
-        state->network.status = 2;
+extern "C" ARM void func_ov031_02218098(Struct_ov031_02218098* arg0) {
+    Struct_ov031_02218098_3* var0;
+    int var1 = arg0->unknown_1000_.unknown_1c_;
+    Struct_ov031_02218098_4* var2 = &arg0->unknown_1000_.unknown_138_;
+    Struct_ov031_02218098_2* var3 = &arg0->unknown_1000_.unknown_19c_;
+    var0 = &arg0->unknown_1000_.unknown_a08_;
+    int var4 = 0;
+    if (var1 <= 0)
+        var1 = 60000;
+    func_ov031_02217f44(arg0);
+    unsigned int var5 = func_ov031_02217f9c(arg0);
+    if (!var5) {
+        arg0->unknown_1000_.unknown_20_ = 2;
         return;
     }
-    state->network.address = address;
+    arg0->unknown_1000_.unknown_12c_ = var5;
     func_ov031_0220321c();
-    int received;
-    if (state->network.mode == 1) {
-        VectorizedMemset(request, 0, 0x830);
-        request->callback = func_ov031_02218798;
-        request->handle = state->network.handle;
-        configuration->request = request;
+    int var6;
+    if (arg0->unknown_1000_.unknown_130_ == 1) {
+        VectorizedMemset(var3, 0, 0x830);
+        var3->unknown_810_ = func_ov031_02218798;
+        var3->unknown_800_ = arg0->unknown_1000_.unknown_124_;
+        var2->unknown_c_ = var3;
         func_ov031_02207d60(data_ov031_02249d84, (void*)12);
         func_ov031_0220aa68(1);
     }
-    func_ov031_022031bc(0, state->network.port, address);
+    func_ov031_022031bc(0, arg0->unknown_1000_.unknown_134_, var5);
     if (func_ov031_02203358()) {
-        state->network.status = 3;
+        arg0->unknown_1000_.unknown_20_ = 3;
         func_ov031_02203250();
         func_ov031_02203178();
         return;
     }
-    char* url = state->network.url;
-    received = func_ov031_02203a84(url, strlen(url));
-    if (received <= 0) {
-        state->network.status = 5;
+    char* var7 = arg0->unknown_1000_.unknown_9f8_;
+    var6 = func_ov031_02203a84(var7, strlen(var7));
+    if (var6 <= 0) {
+        arg0->unknown_1000_.unknown_20_ = 5;
         goto cleanup;
     }
     func_ov031_02203b8c();
-    if (!func_ov031_02217ecc((char*)state)) {
-        state->network.status = 7;
+    if (!func_ov031_02217ecc((char*)arg0)) {
+        arg0->unknown_1000_.unknown_20_ = 7;
         goto cleanup;
     }
-    response->current = response->start;
-    response->limit = response->start + response->capacity;
-    unsigned long long lastActivity = GetCurrentTimestamp();
+    var0->unknown_4_ = var0->unknown_0_;
+    var0->unknown_8_ = var0->unknown_0_ + var0->unknown_c_;
+    unsigned long long var8 = GetCurrentTimestamp();
     while (true) {
         if (!data_ov031_0224c9d0) {
-            state->network.status = 5;
+            arg0->unknown_1000_.unknown_20_ = 5;
             goto cleanup;
         }
-        received = func_ov031_02203b1c();
-        if (received < 0)
+        var6 = func_ov031_02203b1c();
+        if (var6 < 0)
             break;
-        if (received > 0) {
-            lastActivity = GetCurrentTimestamp();
-            int payloadAddress = func_ov031_0220357c((unsigned int*)&received);
-            if (!payloadAddress)
+        if (var6 > 0) {
+            var8 = GetCurrentTimestamp();
+            int var9 = func_ov031_0220357c((unsigned int*)&var6);
+            if (!var9)
                 break;
-            int count = received;
-            int available = response->limit - 1 - response->current;
-            if (count >= available)
-                count = available;
-            VectorizedInvertedMemcpy((void*)payloadAddress, response->current, count);
-            response->current += count;
-            *response->current = 0;
-            if (headersParsed == 1) {
-                LockMutex(&state->network.response.mutex);
-                state->network.response.bodyOffset += count;
-                UnlockMutex(&state->network.response.mutex);
+            int var10 = var6;
+            int var11 = var0->unknown_8_ - 1 - var0->unknown_4_;
+            if (var10 >= var11)
+                var10 = var11;
+            VectorizedInvertedMemcpy((void*)var9, var0->unknown_4_, var10);
+            var0->unknown_4_ += var10;
+            *var0->unknown_4_ = 0;
+            if (var4 == 1) {
+                LockMutex(&arg0->unknown_1000_.unknown_a08_.unknown_10_);
+                arg0->unknown_1000_.unknown_a08_.unknown_2c_ += var10;
+                UnlockMutex(&arg0->unknown_1000_.unknown_a08_.unknown_10_);
             } else {
-                headersParsed = func_ov031_02217fb0(state);
+                var4 = func_ov031_02217fb0(arg0);
             }
-            if ((unsigned int)received > (unsigned int)count) {
-                func_ov031_02203670(received);
+            if ((unsigned int)var6 > (unsigned int)var10) {
+                func_ov031_02203670(var6);
                 break;
             }
-            func_ov031_02203670(count);
+            func_ov031_02203670(var10);
         }
-        if (state->network.response.contentLength >= 0 && state->network.response.bodyOffset >= state->network.response.contentLength)
+        if (arg0->unknown_1000_.unknown_a08_.unknown_28_ >= 0 && arg0->unknown_1000_.unknown_a08_.unknown_2c_ >= arg0->unknown_1000_.unknown_a08_.unknown_28_)
             break;
-        if (((GetCurrentTimestamp() - lastActivity) << 6) / 33514 > (unsigned long long)timeout) {
-            state->network.status = 6;
+        if (((GetCurrentTimestamp() - var8) << 6) / 33514 > (unsigned long long)var1) {
+            arg0->unknown_1000_.unknown_20_ = 6;
             goto cleanup;
         }
-        if (!func_ov031_02217ecc((char*)state)) {
-            state->network.status = 7;
+        if (!func_ov031_02217ecc((char*)arg0)) {
+            arg0->unknown_1000_.unknown_20_ = 7;
             goto cleanup;
         }
     }
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov031_02218098(HttpState* state) {
     func_ov031_02203424();
     func_ov031_02203250();
     func_ov031_02203178();
-    state->network.status = 8;
+    arg0->unknown_1000_.unknown_20_ = 8;
     return;
 cleanup:
     func_ov031_022033e8();

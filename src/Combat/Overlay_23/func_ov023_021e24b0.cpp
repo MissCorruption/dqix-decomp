@@ -2,28 +2,28 @@
 
 extern "C" void* func_ov023_021e2418(void*, int);
 
-struct Obj021e24b0 {
-    char pad0[3];
-    unsigned char lowNibble : 4;
-    unsigned char highNibble : 4;
-    char pad1[8];
-    int field0xc;
-    unsigned char nibbleLow : 4;
-    unsigned char bit4 : 1;
-    unsigned char bit5 : 1;
-    unsigned char bit6 : 1;
-    unsigned char bit7 : 1;
+struct Struct_ov023_021e24b0 {
+    char unknown_0_[3];
+    unsigned char unknown_3_0_ : 4;
+    unsigned char unknown_3_4_ : 4;
+    char unknown_4_[8];
+    int unknown_c_;
+    unsigned char unknown_10_0_ : 4;
+    unsigned char unknown_10_4_ : 1;
+    unsigned char unknown_10_5_ : 1;
+    unsigned char unknown_10_6_ : 1;
+    unsigned char unknown_10_7_ : 1;
 };
 
 // USA: func_ov023_021e24b0
-extern "C" ARM void func_ov023_021e24b0(void* obj, int val, int f0xc, unsigned char nibbleD, unsigned char p5, unsigned char p6, unsigned char p7, unsigned char p8, unsigned char p9) {
-    Obj021e24b0* e = (Obj021e24b0*)func_ov023_021e2418(obj, val);
-    if (!e) return;
-    e->field0xc = f0xc;
-    e->lowNibble = nibbleD;
-    e->highNibble = p5;
-    e->bit4 = p6;
-    e->nibbleLow = p7;
-    e->bit5 = p8;
-    e->bit6 = p9;
+extern "C" ARM void func_ov023_021e24b0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7, unsigned char arg8) {
+    Struct_ov023_021e24b0* var0 = (Struct_ov023_021e24b0*)func_ov023_021e2418(arg0, arg1);
+    if (!var0) return;
+    var0->unknown_c_ = arg2;
+    var0->unknown_3_0_ = arg3;
+    var0->unknown_3_4_ = arg4;
+    var0->unknown_10_4_ = arg5;
+    var0->unknown_10_0_ = arg6;
+    var0->unknown_10_5_ = arg7;
+    var0->unknown_10_6_ = arg8;
 }

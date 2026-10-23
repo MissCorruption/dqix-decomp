@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kClearOffset = 0x729e };
+enum { Enum_02012084_29918 = 0x729e };
 #else
-enum { kClearOffset = 0x74de };
+enum { Enum_02012084_29918 = 0x74de };
 #endif
 
 #include "std_library_functions.h"
 
 // USA: func_02012084
-extern "C" ARM void* func_02012084(unsigned char* obj) {
-    return memset(obj + kClearOffset, 0, 0x20);
+extern "C" ARM void* func_02012084(unsigned char* arg0) {
+    return memset(arg0 + Enum_02012084_29918, 0, 0x20);
 }

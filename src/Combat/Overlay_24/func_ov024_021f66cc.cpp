@@ -2,46 +2,46 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 
-extern "C" GameObject* func_0200fea4(GameState* gameState, int combatantId);
-extern "C" int func_ov000_02159d94(void* unused, int id);
+extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" int func_ov000_02159d94(void* arg0, int arg1);
 
-struct MoveData_021f66cc {
-	char pad0[0xc];
-	unsigned short handlerA;
-	unsigned short handlerB;
+struct Struct_ov024_021f66cc {
+	char unknown_0_[0xc];
+	unsigned short unknown_c_;
+	unsigned short unknown_e_;
 };
 
-extern "C" struct MoveData_021f66cc* func_02079e2c(char* table, int key);
+extern "C" struct Struct_ov024_021f66cc* func_02079e2c(char* arg0, int arg1);
 
-class AIHandler_021f66cc {
+class Struct_ov024_021f66cc_2 {
 public:
-	void* battle;
+	void* unknown_0_;
 };
 
-typedef int (AIHandler_021f66cc::*Handler_021f66cc)(unsigned char id, struct MoveData_021f66cc* move, int a3, int a4);
+typedef int (Struct_ov024_021f66cc_2::*Type_02000c9c_16)(unsigned char id, struct Struct_ov024_021f66cc* move, int a3, int a4);
 
-extern Handler_021f66cc data_ov024_021ff790[];
+extern Type_02000c9c_16 data_ov024_021ff790[];
 
 // USA: func_ov024_021f66cc
-extern "C" ARM int func_ov024_021f66cc(AIHandler_021f66cc* obj, void* battle, int moveId, int id, int a4, int a5) {
-	obj->battle = battle;
-	func_0200fea4(GameState::GetInstance(), id);
-	struct MoveData_021f66cc* move = func_02079e2c((char*)func_020797dc(), (short)moveId);
-	int handler = 0;
-	int kind = func_ov000_02159d94(obj->battle, (short)id);
-	switch (kind) {
+extern "C" ARM int func_ov024_021f66cc(Struct_ov024_021f66cc_2* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5) {
+	arg0->unknown_0_ = arg1;
+	func_0200fea4(GameState::GetInstance(), arg3);
+	struct Struct_ov024_021f66cc* var0 = func_02079e2c((char*)func_020797dc(), (short)arg2);
+	int var1 = 0;
+	int var2 = func_ov000_02159d94(arg0->unknown_0_, (short)arg3);
+	switch (var2) {
 	case 1:
-		handler = move->handlerA;
+		var1 = var0->unknown_c_;
 		break;
 	case 2:
-		handler = move->handlerB;
+		var1 = var0->unknown_e_;
 		break;
 	}
-	if (handler >= 0xa1) {
-		return (obj->*data_ov024_021ff790[0])(id, move, a4, a5);
+	if (var1 >= 0xa1) {
+		return (arg0->*data_ov024_021ff790[0])(arg3, var0, arg4, arg5);
 	}
-	if (data_ov024_021ff790[handler] == 0) {
-		return (obj->*data_ov024_021ff790[0])(id, move, a4, a5);
+	if (data_ov024_021ff790[var1] == 0) {
+		return (arg0->*data_ov024_021ff790[0])(arg3, var0, arg4, arg5);
 	}
-	return (obj->*data_ov024_021ff790[handler])(id, move, a4, a5);
+	return (arg0->*data_ov024_021ff790[var1])(arg3, var0, arg4, arg5);
 }

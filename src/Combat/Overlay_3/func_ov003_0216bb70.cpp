@@ -10,91 +10,91 @@
 #include <NitroSDK/Memory.h>
 #include <std_library_functions.h>
 
-struct GlobalField0x1c {
-    char pad0[REGION_LAYOUT(0x28, 0x5c)];
-    void* field_0x5c;
-    char pad60[REGION_LAYOUT(0x868, 0x998) - REGION_LAYOUT(0x2c, 0x60)];
-    int field_0x998;
+struct Struct_ov000_0217636c_2 {
+    char unknown_0_[REGION_LAYOUT(0x28, 0x5c)];
+    void* unknown_5c_;
+    char unknown_60_[REGION_LAYOUT(0x868, 0x998) - REGION_LAYOUT(0x2c, 0x60)];
+    int unknown_998_;
 };
 
-struct LoaderTask0215c650;
+struct Struct_02000c9c_87;
 
-struct Obj0216bb70 {
-    int field_0x0;
-    short mode;
-    short step;
-    short field_0x8;
-    short field_0xa;
-    char padc[0x14 - 0xc];
-    char loader[REGION_LAYOUT(0x41c, 0x404) - 0x14];
-    unsigned char field_0x404;
-    unsigned char loadSucceeded;
-    char pad406[REGION_LAYOUT(0x1164, 0x12d4) - REGION_LAYOUT(0x41e, 0x406)];
-    SafeAllocator allocator;
-    char pad12e8[REGION_LAYOUT(0x127c, 0x13ec) - REGION_LAYOUT(0x1178, 0x12e8)];
-    unsigned char flags;
+struct Struct_ov003_0216bb70 {
+    int unknown_0_;
+    short unknown_4_;
+    short unknown_6_;
+    short unknown_8_;
+    short unknown_a_;
+    char unknown_c_[0x14 - 0xc];
+    char unknown_14_[REGION_LAYOUT(0x41c, 0x404) - 0x14];
+    unsigned char unknown_404_;
+    unsigned char unknown_405_;
+    char unknown_406_[REGION_LAYOUT(0x1164, 0x12d4) - REGION_LAYOUT(0x41e, 0x406)];
+    SafeAllocator unknown_12d4_;
+    char unknown_12e8_[REGION_LAYOUT(0x127c, 0x13ec) - REGION_LAYOUT(0x1178, 0x12e8)];
+    unsigned char unknown_13ec_;
 };
 
-extern "C" GlobalField0x1c* func_020421a0();
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+extern "C" Struct_ov000_0217636c_2* func_020421a0();
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 extern AllocatorUnion data_02114e20;
 
-extern "C" void func_ov003_0215c650(void* loader);
-extern "C" void func_ov003_0215c568(void* loader, SafeAllocator* allocator);
-extern "C" int func_ov003_0215c924(void* loader, unsigned int tick);
-extern "C" void func_ov003_0215c800(void* loader);
+extern "C" void func_ov003_0215c650(void* arg0);
+extern "C" void func_ov003_0215c568(void* arg0, SafeAllocator* arg1);
+extern "C" int func_ov003_0215c924(void* arg0, unsigned int arg1);
+extern "C" void func_ov003_0215c800(void* arg0);
 #if defined(jpn)
-extern "C" void func_ov003_0216d8d4(Obj0216bb70* obj, int key);
+extern "C" void func_ov003_0216d8d4(Struct_ov003_0216bb70* arg0, int arg1);
 #else
-extern "C" void func_ov003_0216d8d4(Obj0216bb70* obj, int key, int p3, int p4, int p5);
+extern "C" void func_ov003_0216d8d4(Struct_ov003_0216bb70* arg0, int arg1, int arg2, int arg3, int arg4);
 #endif
 
 // USA: func_ov003_0216bb70
-extern "C" ARM void func_ov003_0216bb70(Obj0216bb70* self)
+extern "C" ARM void func_ov003_0216bb70(Struct_ov003_0216bb70* arg0)
 {
-    GameState* gameState = GameState::GetInstance();
+    GameState* var0 = GameState::GetInstance();
 
-    if (self->step == 0) {
-        memset(func_020421a0()->field_0x5c, 0, REGION_LAYOUT(0x800, 0x960));
-        void* buffer = func_02012d88(&data_02114e20, 0x10000);
-        VectorizedMemset(buffer, 0, 0x10000);
-        self->allocator.CreateTypeA(buffer, 0x10000);
-        self->allocator.Reset();
-        func_ov003_0215c650(self->loader);
-        func_ov003_0215c568(self->loader, &self->allocator);
-        self->field_0x404 = 1;
-        self->step = 1;
+    if (arg0->unknown_6_ == 0) {
+        memset(func_020421a0()->unknown_5c_, 0, REGION_LAYOUT(0x800, 0x960));
+        void* var1 = func_02012d88(&data_02114e20, 0x10000);
+        VectorizedMemset(var1, 0, 0x10000);
+        arg0->unknown_12d4_.CreateTypeA(var1, 0x10000);
+        arg0->unknown_12d4_.Reset();
+        func_ov003_0215c650(arg0->unknown_14_);
+        func_ov003_0215c568(arg0->unknown_14_, &arg0->unknown_12d4_);
+        arg0->unknown_404_ = 1;
+        arg0->unknown_6_ = 1;
     }
-    if (self->step == 1) {
-        if (func_ov003_0215c924(self->loader, gameState->GetTickCount())) {
-            self->step = 2;
+    if (arg0->unknown_6_ == 1) {
+        if (func_ov003_0215c924(arg0->unknown_14_, var0->GetTickCount())) {
+            arg0->unknown_6_ = 2;
         }
     }
-    if (self->step == 2) {
-        unsigned char succeeded = self->loadSucceeded;
-        func_ov003_0215c800(self->loader);
-        SignedAllocatorHeader* header = self->allocator.GetSignedAllocator();
-        if (header != NULL) {
-            self->allocator.Destroy();
-            func_02012da4(&data_02114e20, header);
+    if (arg0->unknown_6_ == 2) {
+        unsigned char var2 = arg0->unknown_405_;
+        func_ov003_0215c800(arg0->unknown_14_);
+        SignedAllocatorHeader* var3 = arg0->unknown_12d4_.GetSignedAllocator();
+        if (var3 != NULL) {
+            arg0->unknown_12d4_.Destroy();
+            func_02012da4(&data_02114e20, var3);
         }
-        if (succeeded == 0) {
-            self->mode = 7;
-            self->step = 0;
+        if (var2 == 0) {
+            arg0->unknown_4_ = 7;
+            arg0->unknown_6_ = 0;
             return;
         }
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
-        self->field_0xa = 3;
-        func_020421a0()->field_0x998 = 1;
+        arg0->unknown_a_ = 3;
+        func_020421a0()->unknown_998_ = 1;
 #if defined(jpn)
-        func_ov003_0216d8d4(self, 0x29);
+        func_ov003_0216d8d4(arg0, 0x29);
 #else
-        func_ov003_0216d8d4(self, 0x29, -1, -1, -1);
+        func_ov003_0216d8d4(arg0, 0x29, -1, -1, -1);
 #endif
-        self->mode = 1;
-        self->step = 0;
-        self->field_0x8 = 0;
-        self->flags |= 1;
+        arg0->unknown_4_ = 1;
+        arg0->unknown_6_ = 0;
+        arg0->unknown_8_ = 0;
+        arg0->unknown_13ec_ |= 1;
     }
 }

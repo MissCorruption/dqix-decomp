@@ -3,97 +3,97 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct Struct02030b7c {
-    int field0;
-    void* field4;
+struct Struct_0201c3a4 {
+    int unknown_0_;
+    void* unknown_4_;
 };
 
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
-struct Struct0215e498 {
-    short f0;
-    short f2;
-    int f4;
-    int f8;
-    unsigned char fc;
-    unsigned char fd;
-    unsigned char fe;
-    unsigned char ff;
-    short f10;
+struct Struct_ov003_0215e498 {
+    short unknown_0_;
+    short unknown_2_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    short unknown_10_;
 };
-extern "C" void func_ov003_0215e498(struct Struct0215e498* s);
+extern "C" void func_ov003_0215e498(struct Struct_ov003_0215e498* arg0);
 
-struct Entry0215e790 {
-    short f0;
-    short f2;
-    int f4;
-    int f8;
-    unsigned char fc;
-    unsigned char fd;
-    unsigned char fe;
-    unsigned char ff;
-    short f10;
-    unsigned char f12;
-    unsigned char f13;
+struct Struct_ov003_0215e510 {
+    short unknown_0_;
+    short unknown_2_;
+    int unknown_4_;
+    int unknown_8_;
+    unsigned char unknown_c_;
+    unsigned char unknown_d_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    short unknown_10_;
+    unsigned char unknown_12_;
+    unsigned char unknown_13_;
 };
-struct Self0215e790;
-extern "C" void func_ov003_0215e790(struct Self0215e790* self, struct Entry0215e790* src);
+struct Struct_ov003_0215e790;
+extern "C" void func_ov003_0215e790(struct Struct_ov003_0215e790* arg0, struct Struct_ov003_0215e510* arg1);
 
-struct Args0215e510 {
-    struct Variant02030b0c v0;
-    struct Variant02030b0c v1;
-    struct Variant02030b0c v2;
-    struct Struct02030b7c v3;
-    struct Struct02030b7c v4;
-    struct Variant02030b0c v5;
-    struct Variant02030b0c v6;
-    struct Variant02030b0c v7;
+struct Struct_ov003_0215e510_2 {
+    struct Struct_0201c1c8 unknown_0_;
+    struct Struct_0201c1c8 unknown_8_;
+    struct Struct_0201c1c8 unknown_10_;
+    struct Struct_0201c3a4 unknown_18_;
+    struct Struct_0201c3a4 unknown_20_;
+    struct Struct_0201c1c8 unknown_28_;
+    struct Struct_0201c1c8 unknown_30_;
+    struct Struct_0201c1c8 unknown_38_;
 };
 
-struct Globals02180cb8 {
-    void* allocator;
-    struct Self0215e790* target;
+struct Struct_ov003_02180cb8 {
+    void* unknown_0_;
+    struct Struct_ov003_0215e790* unknown_4_;
 };
-extern struct Globals02180cb8 data_ov003_02180cb8;
+extern struct Struct_ov003_02180cb8 data_ov003_02180cb8;
 
 // USA: func_ov003_0215e510
-extern "C" ARM int func_ov003_0215e510(struct Args0215e510* obj) {
-    struct Entry0215e790 local;
-    func_ov003_0215e498((struct Struct0215e498*)&local);
+extern "C" ARM int func_ov003_0215e510(struct Struct_ov003_0215e510_2* arg0) {
+    struct Struct_ov003_0215e510 var0;
+    func_ov003_0215e498((struct Struct_ov003_0215e498*)&var0);
 
-    local.f10 = (short)((Script::Parameter*)&obj->v0)->ToInt();
-    local.f0 = (short)((Script::Parameter*)&obj->v1)->ToInt();
-    local.f2 = (short)((Script::Parameter*)&obj->v2)->ToInt();
+    var0.unknown_10_ = (short)((Script::Parameter*)&arg0->unknown_0_)->ToInt();
+    var0.unknown_0_ = (short)((Script::Parameter*)&arg0->unknown_8_)->ToInt();
+    var0.unknown_2_ = (short)((Script::Parameter*)&arg0->unknown_10_)->ToInt();
 
-    char* text1 = (char*)(void*)((Script::Parameter*)&obj->v3)->ToString();
-    if (text1 != NULL) {
-        int len1 = func_020d2ff0(text1);
-        if (len1 != 0) {
-            char* buf1 = (char*)((SafeAllocator*)data_ov003_02180cb8.allocator)->Allocate(len1 + 1);
-            local.f4 = (int)buf1;
-            sprintf(buf1, text1);
+    char* var1 = (char*)(void*)((Script::Parameter*)&arg0->unknown_18_)->ToString();
+    if (var1 != NULL) {
+        int var2 = func_020d2ff0(var1);
+        if (var2 != 0) {
+            char* var3 = (char*)((SafeAllocator*)data_ov003_02180cb8.unknown_0_)->Allocate(var2 + 1);
+            var0.unknown_4_ = (int)var3;
+            sprintf(var3, var1);
         }
     }
 
-    char* text2 = (char*)(void*)((Script::Parameter*)&obj->v4)->ToString();
-    if (text2 != NULL) {
-        int len2 = func_020d2ff0(text2);
-        if (len2 != 0) {
-            char* buf2 = (char*)((SafeAllocator*)data_ov003_02180cb8.allocator)->Allocate(len2 + 1);
-            local.f8 = (int)buf2;
-            sprintf(buf2, text2);
+    char* var4 = (char*)(void*)((Script::Parameter*)&arg0->unknown_20_)->ToString();
+    if (var4 != NULL) {
+        int var5 = func_020d2ff0(var4);
+        if (var5 != 0) {
+            char* var6 = (char*)((SafeAllocator*)data_ov003_02180cb8.unknown_0_)->Allocate(var5 + 1);
+            var0.unknown_8_ = (int)var6;
+            sprintf(var6, var4);
         }
     }
 
-    local.fc = (unsigned char)((Script::Parameter*)&obj->v5)->ToInt();
-    local.fd = (unsigned char)((Script::Parameter*)&obj->v6)->ToInt();
-    local.fe = (unsigned char)((Script::Parameter*)&obj->v7)->ToInt();
+    var0.unknown_c_ = (unsigned char)((Script::Parameter*)&arg0->unknown_28_)->ToInt();
+    var0.unknown_d_ = (unsigned char)((Script::Parameter*)&arg0->unknown_30_)->ToInt();
+    var0.unknown_e_ = (unsigned char)((Script::Parameter*)&arg0->unknown_38_)->ToInt();
 
-    func_ov003_0215e790(data_ov003_02180cb8.target, &local);
+    func_ov003_0215e790(data_ov003_02180cb8.unknown_4_, &var0);
     return 1;
 }

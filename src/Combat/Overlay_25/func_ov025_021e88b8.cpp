@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kWorkFlagOffset = 0x71e9 };
+enum { Enum_ov025_021e88b8_28665 = 0x71e9 };
 #else
-enum { kWorkFlagOffset = 0x6ff9 };
+enum { Enum_ov025_021e88b8_28665 = 0x6ff9 };
 #endif
 
 extern "C" void* func_ov000_02160130(void);
 
 // USA: func_ov025_021e88b8
 extern "C" ARM int func_ov025_021e88b8(void) {
-    void* obj = func_ov000_02160130();
-    if (obj) {
-        *((char*)obj + kWorkFlagOffset) = 1;
+    void* var0 = func_ov000_02160130();
+    if (var0) {
+        *((char*)var0 + Enum_ov025_021e88b8_28665) = 1;
     }
     return 1;
 }

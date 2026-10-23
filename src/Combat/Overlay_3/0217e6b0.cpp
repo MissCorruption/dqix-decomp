@@ -11,214 +11,214 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-enum { kRegionValue6C_8C = 0x8c };
-enum { kRegionValue3A39C_37EDC = 0x37edc };
-enum { kRegionValueDB8_D90 = 0xd90 };
-enum { kRegionValue964_8CC = 0x8cc };
-enum { kRegionValueD88_D4C = 0xd4c };
-enum { kRegionValue508_608 = 0x608 };
-enum { kRegionValueD9C_D60 = 0xd60 };
-enum { kRegionValue424_444 = 0x444 };
+enum { Enum_ov003_0217e6b0_108 = 0x8c };
+enum { Enum_ov003_0217e6b0_238492 = 0x37edc };
+enum { Enum_ov003_0217e6b0_3512 = 0xd90 };
+enum { Enum_ov003_0217e6b0_2404 = 0x8cc };
+enum { Enum_ov003_0217e6b0_3464 = 0xd4c };
+enum { Enum_ov003_0217e6b0_1288 = 0x608 };
+enum { Enum_ov003_0217e6b0_3484 = 0xd60 };
+enum { Enum_ov003_0217e6b0_1060 = 0x444 };
 #else
-enum { kRegionValue6C_8C = 0x6c };
-enum { kRegionValue3A39C_37EDC = 0x3a39c };
-enum { kRegionValueDB8_D90 = 0xdb8 };
-enum { kRegionValue964_8CC = 0x964 };
-enum { kRegionValueD88_D4C = 0xd88 };
-enum { kRegionValue508_608 = 0x508 };
-enum { kRegionValueD9C_D60 = 0xd9c };
-enum { kRegionValue424_444 = 0x424 };
+enum { Enum_ov003_0217e6b0_108 = 0x6c };
+enum { Enum_ov003_0217e6b0_238492 = 0x3a39c };
+enum { Enum_ov003_0217e6b0_3512 = 0xdb8 };
+enum { Enum_ov003_0217e6b0_2404 = 0x964 };
+enum { Enum_ov003_0217e6b0_3464 = 0xd88 };
+enum { Enum_ov003_0217e6b0_1288 = 0x508 };
+enum { Enum_ov003_0217e6b0_3484 = 0xd9c };
+enum { Enum_ov003_0217e6b0_1060 = 0x424 };
 #endif
 
-struct Obj020397cc;
-struct ListHead02046b60;
-struct Foo0207df50;
-struct S_e830;
-struct SubBgControlBackup02074b64;
-struct Struct02074bd0;
-struct Struct02074bf4;
-struct NodeList02058564;
+struct Struct_02018300_3;
+struct Struct_02038598_5;
+struct Struct_0203d028;
+struct Struct_0201e830;
+struct Struct_02074b64;
+struct Struct_02074bd0;
+struct Struct_02074bf4;
+struct Struct_02058564_2;
 
-struct GXDispCnt {
-    unsigned int low : 24;
-    unsigned int bgCharBase : 3;
-    unsigned int bgScrBase : 3;
-    unsigned int extPltt : 2;
+struct Struct_ov003_0217e6b0 {
+    unsigned int unknown_0_0_ : 24;
+    unsigned int unknown_3_0_ : 3;
+    unsigned int unknown_3_3_ : 3;
+    unsigned int unknown_3_6_ : 2;
 };
 
-struct SceneSwap0217e6b0 {
-    char pad0;
-    unsigned char done;
-    char pad2[6];
-    SafeAllocator allocator;
-    void* scene;
-    int state;
-    char controlBackup[0x10];
-    unsigned char b34;
-    unsigned char b35;
-    char pad36[2];
-    int visiblePlanes;
-    int subVisiblePlanes;
-    int bgBanks;
-    int subBgBanks;
-    int objBanks;
-    int subObjBanks;
-    int textureBanks;
-    int paletteBanks;
-    int bgScrBase;
-    int bgCharBase;
-    int dispCntFlags;
-    int subDispCntFlags;
-    int pairTable[10];
-    int globalPair[2];
-    unsigned int textureSize;
-    unsigned int paletteSize;
-    unsigned short clearColor;
-    char padA2[2];
-    int word;
-    int field4;
-    int field8;
-    void* fieldB0;
-    unsigned char sceneArg;
+struct Struct_ov003_0217e6b0_2 {
+    char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[6];
+    SafeAllocator unknown_8_;
+    void* unknown_1c_;
+    int unknown_20_;
+    char unknown_24_[0x10];
+    unsigned char unknown_34_;
+    unsigned char unknown_35_;
+    char unknown_36_[2];
+    int unknown_38_;
+    int unknown_3c_;
+    int unknown_40_;
+    int unknown_44_;
+    int unknown_48_;
+    int unknown_4c_;
+    int unknown_50_;
+    int unknown_54_;
+    int unknown_58_;
+    int unknown_5c_;
+    int unknown_60_;
+    int unknown_64_;
+    int unknown_68_[10];
+    int unknown_90_[2];
+    unsigned int unknown_98_;
+    unsigned int unknown_9c_;
+    unsigned short unknown_a0_;
+    char unknown_a2_[2];
+    int unknown_a4_;
+    int unknown_a8_;
+    int unknown_ac_;
+    void* unknown_b0_;
+    unsigned char unknown_b4_;
 };
 
-extern "C" void func_020397cc(Obj020397cc* obj, int arg1);
-extern "C" int func_02046b08(void** obj);
+extern "C" void func_020397cc(Struct_02018300_3* arg0, int arg1);
+extern "C" int func_02046b08(void** arg0);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_02074af4(void* obj);
-extern "C" void func_02074b64(SubBgControlBackup02074b64* backup);
-extern "C" void func_020bb700(int* buffer);
-extern "C" void func_020bb740(int* buffer);
-extern "C" void func_020bb910(int* pair);
+extern "C" void func_02074af4(void* arg0);
+extern "C" void func_02074b64(Struct_02074b64* arg0);
+extern "C" void func_020bb700(int* arg0);
+extern "C" void func_020bb740(int* arg0);
+extern "C" void func_020bb910(int* arg0);
 extern "C" void* func_02012fe4(void);
-extern "C" unsigned short func_0201e830(S_e830* obj);
+extern "C" unsigned short func_0201e830(Struct_0201e830* arg0);
 extern "C" void func_ov017_0219bf74(void);
-extern "C" void func_0207df50(Foo0207df50* p);
-extern "C" void func_020a1940(unsigned int id);
-extern "C" void func_020a1ef0(int id);
-extern "C" void func_ov009_0218454c(void* scene, int a, int b);
-extern "C" void func_ov008_021842a0(void* scene, SafeAllocator* alloc);
-extern "C" void func_02082828(void* obj);
-extern "C" void func_020100c4(GameState* gs, int v);
-extern "C" void func_ov003_0217eea8(int enable);
+extern "C" void func_0207df50(Struct_0203d028* arg0);
+extern "C" void func_020a1940(unsigned int arg0);
+extern "C" void func_020a1ef0(int arg0);
+extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
+extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
+extern "C" void func_02082828(void* arg0);
+extern "C" void func_020100c4(GameState* arg0, int arg1);
+extern "C" void func_ov003_0217eea8(int arg0);
 void LockStagedTextureVRAMCopying(void);
 void UnlockStagedTextureVRAMCopying(void);
 void UpdateVRAMStagingVRAMBanks(void);
-extern "C" void func_020bb48c(unsigned int mode, int flag);
-extern "C" void func_020c391c(int a, int b, int c);
-extern "C" void func_020c3984(unsigned int mode);
-extern "C" void func_020c5588(int color, int alpha, int depth, int polygonId, int fog);
-extern "C" void func_020c54a4(int enable, unsigned int mode, unsigned int shift, unsigned short offset);
+extern "C" void func_020bb48c(unsigned int arg0, int arg1);
+extern "C" void func_020c391c(int arg0, int arg1, int arg2);
+extern "C" void func_020c3984(unsigned int arg0);
+extern "C" void func_020c5588(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void func_020c54a4(int arg0, unsigned int arg1, unsigned int arg2, unsigned short arg3);
 extern "C" void* func_0203bd08(void);
-extern "C" void func_0203bd24(char* ctx);
+extern "C" void func_0203bd24(char* arg0);
 extern "C" int* func_0203bd14(void);
-extern "C" int func_0203be4c(void* ctx);
-extern "C" void func_0203c35c(int* ptr);
-extern "C" int func_ov009_02184a18(void* scene);
-extern "C" void func_02074bd0(Struct02074bd0* obj);
-extern "C" void func_02074bf4(Struct02074bf4* obj);
-extern "C" void func_02053c6c(unsigned char* obj);
-extern "C" void func_ov017_0218f79c(void* res);
-extern "C" void func_ov017_021a2840(GameResources* res);
+extern "C" int func_0203be4c(void* arg0);
+extern "C" void func_0203c35c(int* arg0);
+extern "C" int func_ov009_02184a18(void* arg0);
+extern "C" void func_02074bd0(Struct_02074bd0* arg0);
+extern "C" void func_02074bf4(Struct_02074bf4* arg0);
+extern "C" void func_02053c6c(unsigned char* arg0);
+extern "C" void func_ov017_0218f79c(void* arg0);
+extern "C" void func_ov017_021a2840(GameResources* arg0);
 extern "C" void* func_02057924(void);
-extern "C" void func_02058564(NodeList02058564* list);
-extern "C" void func_ov017_0219b624(GameResources* res);
-extern "C" void func_ov017_0219ba0c(GameResources* res, int v);
+extern "C" void func_02058564(Struct_02058564_2* arg0);
+extern "C" void func_ov017_0219b624(GameResources* arg0);
+extern "C" void func_ov017_0219ba0c(GameResources* arg0, int arg1);
 extern "C" int func_020421a0(void);
-extern "C" void func_0207df90(char* obj);
-extern "C" void func_0207dfac(char* obj);
-extern "C" void func_020432c4(void* controller);
-extern "C" void func_ov017_021b66b8(char* obj);
-extern "C" void func_ov017_021b66f0(unsigned char* obj);
-extern "C" void func_ov003_0217e67c(void* self);
-extern "C" void func_ov017_0219bd1c(int a, int b, int c, int d);
-extern "C" void func_ov017_0218f758(void* res);
-extern "C" int func_02046b60(ListHead02046b60* list, int id);
-extern "C" void func_020397c0(void* obj);
+extern "C" void func_0207df90(char* arg0);
+extern "C" void func_0207dfac(char* arg0);
+extern "C" void func_020432c4(void* arg0);
+extern "C" void func_ov017_021b66b8(char* arg0);
+extern "C" void func_ov017_021b66f0(unsigned char* arg0);
+extern "C" void func_ov003_0217e67c(void* arg0);
+extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov017_0218f758(void* arg0);
+extern "C" int func_02046b60(Struct_02038598_5* arg0, int arg1);
+extern "C" void func_020397c0(void* arg0);
 
-enum GXOBJVRamMode {
-    GX_OBJVRAMMODE_DEFAULT = 0
+enum Enum_ov003_0217e6b0 {
+    Enum_ov003_0217e6b0_0 = 0
 };
 
-static inline void GX_SetOBJVRamMode(GXOBJVRamMode mode) {
-    DISPCNT = (unsigned int)((DISPCNT & ~0x300010) | mode);
+static inline void inline_ov003_0217e6b0_2(Enum_ov003_0217e6b0 arg0) {
+    DISPCNT = (unsigned int)((DISPCNT & ~0x300010) | arg0);
 }
 
-static inline void GXS_SetOBJVRamMode(GXOBJVRamMode mode) {
-    DISPCNTSUB = (unsigned int)((DISPCNTSUB & ~0x300010) | mode);
+static inline void inline_ov003_0217e6b0_3(Enum_ov003_0217e6b0 arg0) {
+    DISPCNTSUB = (unsigned int)((DISPCNTSUB & ~0x300010) | arg0);
 }
 
-static inline GXDispCnt GX_GetDispCnt(void) {
-    return *(volatile GXDispCnt*)&DISPCNT;
+static inline Struct_ov003_0217e6b0 inline_ov003_0217e6b0(void) {
+    return *(volatile Struct_ov003_0217e6b0*)&DISPCNT;
 }
 
 // USA: func_ov003_0217e6b0
-extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
-    GameState* gs = GameState::GetInstance();
-    GameResources* res = GetGameResources();
-    GameObject* leader = gs->GetUnknownGameObject();
-    func_020397cc((Obj020397cc*)leader, 1);
+extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    GameResources* var1 = GetGameResources();
+    GameObject* var2 = var0->GetUnknownGameObject();
+    func_020397cc((Struct_02018300_3*)var2, 1);
 
-    if (self->state == 0) {
-        if (!func_02046b08((void**)res->unknown_ptr_array_36fc[1])) {
+    if (arg0->unknown_20_ == 0) {
+        if (!func_02046b08((void**)var1->unknown_ptr_array_36fc[1])) {
             return;
         }
-        SetFlags00(res, 0x10);
-        SetFlags04(res, 0xc0);
-        SetBrightness(res, -0x10, 0xf);
-        self->state++;
-    } else if (self->state == 1) {
-        if (IsBrightnessTransitionActive(res)) {
+        SetFlags00(var1, 0x10);
+        SetFlags04(var1, 0xc0);
+        SetBrightness(var1, -0x10, 0xf);
+        arg0->unknown_20_++;
+    } else if (arg0->unknown_20_ == 1) {
+        if (IsBrightnessTransitionActive(var1)) {
             return;
         }
-        self->b34 = 0;
-        self->b35 = 0;
-        func_02074af4(self->controlBackup);
-        self->visiblePlanes = (DISPCNT & 0x1f00) >> 8;
-        func_02074b64((SubBgControlBackup02074b64*)self->controlBackup);
-        self->subVisiblePlanes = (DISPCNTSUB & 0x1f00) >> 8;
-        self->bgBanks = GetMainBGVRAMBanks();
-        self->subBgBanks = GetSubBGVRAMBanks();
-        self->objBanks = GetMainObjVRAMBanks();
-        self->subObjBanks = GetSubObjVRAMBanks();
-        self->textureBanks = GetTextureImageVRAMBanks();
-        self->paletteBanks = GetTexturePaletteVRAMBanks();
-        self->textureSize = GetTextureImageAssignedVRAMSize();
-        self->paletteSize = GetTexturePaletteAssignedVRAMSize();
-        func_020bb700(self->pairTable);
-        func_020bb910(self->globalPair);
-        GXDispCnt dispCnt = GX_GetDispCnt();
-        self->bgScrBase = dispCnt.bgScrBase;
-        self->bgCharBase = dispCnt.bgCharBase;
-        self->dispCntFlags = DISPCNT & 0x300010;
-        self->subDispCntFlags = DISPCNTSUB & 0x300010;
-        self->clearColor = func_0201e830((S_e830*)((char*)func_02012fe4() + kRegionValue6C_8C));
-        self->word = GetFlags00(res);
-        self->field4 = GetFlags04(res);
-        self->field8 = GetFlags08(res);
-        SetFlags00(res, 4);
-        SetFlags04(res, 0x8de);
+        arg0->unknown_34_ = 0;
+        arg0->unknown_35_ = 0;
+        func_02074af4(arg0->unknown_24_);
+        arg0->unknown_38_ = (DISPCNT & 0x1f00) >> 8;
+        func_02074b64((Struct_02074b64*)arg0->unknown_24_);
+        arg0->unknown_3c_ = (DISPCNTSUB & 0x1f00) >> 8;
+        arg0->unknown_40_ = GetMainBGVRAMBanks();
+        arg0->unknown_44_ = GetSubBGVRAMBanks();
+        arg0->unknown_48_ = GetMainObjVRAMBanks();
+        arg0->unknown_4c_ = GetSubObjVRAMBanks();
+        arg0->unknown_50_ = GetTextureImageVRAMBanks();
+        arg0->unknown_54_ = GetTexturePaletteVRAMBanks();
+        arg0->unknown_98_ = GetTextureImageAssignedVRAMSize();
+        arg0->unknown_9c_ = GetTexturePaletteAssignedVRAMSize();
+        func_020bb700(arg0->unknown_68_);
+        func_020bb910(arg0->unknown_90_);
+        Struct_ov003_0217e6b0 var3 = inline_ov003_0217e6b0();
+        arg0->unknown_58_ = var3.unknown_3_3_;
+        arg0->unknown_5c_ = var3.unknown_3_0_;
+        arg0->unknown_60_ = DISPCNT & 0x300010;
+        arg0->unknown_64_ = DISPCNTSUB & 0x300010;
+        arg0->unknown_a0_ = func_0201e830((Struct_0201e830*)((char*)func_02012fe4() + Enum_ov003_0217e6b0_108));
+        arg0->unknown_a4_ = GetFlags00(var1);
+        arg0->unknown_a8_ = GetFlags04(var1);
+        arg0->unknown_ac_ = GetFlags08(var1);
+        SetFlags00(var1, 4);
+        SetFlags04(var1, 0x8de);
         func_ov017_0219bf74();
-        res->allocator_array_38[0].Reset();
-        func_0207df50((Foo0207df50*)res->unknown_2cc);
-        self->allocator.CreateTypeA(res->allocator_array_38[0].Allocate(kRegionValue3A39C_37EDC), kRegionValue3A39C_37EDC);
-        self->allocator.Reset();
-        self->scene = self->allocator.Allocate(kRegionValueDB8_D90);
+        var1->allocator_array_38[0].Reset();
+        func_0207df50((Struct_0203d028*)var1->unknown_2cc_);
+        arg0->unknown_8_.CreateTypeA(var1->allocator_array_38[0].Allocate(Enum_ov003_0217e6b0_238492), Enum_ov003_0217e6b0_238492);
+        arg0->unknown_8_.Reset();
+        arg0->unknown_1c_ = arg0->unknown_8_.Allocate(Enum_ov003_0217e6b0_3512);
         func_020a1940(OVERLAY_ID(9));
         func_020a1ef0(1);
-        func_ov009_0218454c(self->scene, self->sceneArg, 1);
-        func_ov008_021842a0(self->scene, &self->allocator);
-        void* extra = self->allocator.Allocate(kRegionValue964_8CC);
-        if (extra) {
-            func_02082828(extra);
-            *(void**)((char*)self->scene + kRegionValueD88_D4C) = extra;
+        func_ov009_0218454c(arg0->unknown_1c_, arg0->unknown_b4_, 1);
+        func_ov008_021842a0(arg0->unknown_1c_, &arg0->unknown_8_);
+        void* var4 = arg0->unknown_8_.Allocate(Enum_ov003_0217e6b0_2404);
+        if (var4) {
+            func_02082828(var4);
+            *(void**)((char*)arg0->unknown_1c_ + Enum_ov003_0217e6b0_3464) = var4;
         }
-        self->fieldB0 = func_020100bc(gs);
+        arg0->unknown_b0_ = func_020100bc(var0);
         func_ov003_0217eea8(1);
-        self->state++;
-    } else if (self->state == 2) {
+        arg0->unknown_20_++;
+    } else if (arg0->unknown_20_ == 2) {
         LockStagedTextureVRAMCopying();
         DisableSubBGVRAMBanks();
         DisableMainObjVRAMBanks();
@@ -252,92 +252,92 @@ extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
         BG2CNTSUB = BG2CNTSUB & ~3;
         func_020c5588(0, 0, 0x7fff, 0, 0);
         func_020c54a4(0, 0, 0, 0);
-        char* context = (char*)func_0203bd08();
-        func_0203bd24(context);
-        *(int*)context = 0;
-        int* global = func_0203bd14();
-        *global = func_0203be4c(context) + 0x200;
-        func_0203c35c(global);
-        global[kRegionValue508_608 / 4] = 0x7000;
-        self->state++;
-    } else if (self->state == 3) {
-        if (func_ov009_02184a18(self->scene)) {
-            self->state++;
+        char* var5 = (char*)func_0203bd08();
+        func_0203bd24(var5);
+        *(int*)var5 = 0;
+        int* var6 = func_0203bd14();
+        *var6 = func_0203be4c(var5) + 0x200;
+        func_0203c35c(var6);
+        var6[Enum_ov003_0217e6b0_1288 / 4] = 0x7000;
+        arg0->unknown_20_++;
+    } else if (arg0->unknown_20_ == 3) {
+        if (func_ov009_02184a18(arg0->unknown_1c_)) {
+            arg0->unknown_20_++;
         }
-    } else if (self->state == 4) {
+    } else if (arg0->unknown_20_ == 4) {
         func_ov003_0217eea8(0);
         DisableSubBGVRAMBanks();
         DisableMainObjVRAMBanks();
         DisableSubObjVRAMBanks();
         DisableTextureImageVRAMBanks();
-        MapVRAMBanksToSubBG(self->subBgBanks);
-        MapVRAMBanksToMainObj(self->objBanks);
-        MapVRAMBanksToSubObj(self->subObjBanks);
-        MapVRAMBanksToTextureImage(self->textureBanks);
-        func_020bb48c((unsigned short)(self->textureSize >> 17), 1);
-        func_020bb740(self->pairTable);
-        GX_SetOBJVRamMode((GXOBJVRamMode)self->dispCntFlags);
-        GXS_SetOBJVRamMode((GXOBJVRamMode)self->subDispCntFlags);
-        DISPCNT = (DISPCNT & ~0x1f00) | (self->visiblePlanes << 8);
-        DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (self->subVisiblePlanes << 8);
-        func_02074bd0((Struct02074bd0*)self->controlBackup);
-        func_02074bf4((Struct02074bf4*)self->controlBackup);
-        func_020c5588(self->clearColor, 0x10, 0x7fff, 0, 0);
-        char blank[0x20];
-        memset(blank, 0, 0x20);
-        CleanInvalidateCacheRange(blank, 0x20);
-        LoadToMainBG1CharacterData(blank, 0, 0x20);
-        ClearFlags00(res, -1);
-        ClearFlags04(res, -1);
-        ClearFlags08(res, -1);
-        SetFlags00(res, self->word);
-        SetFlags04(res, self->field4);
-        SetFlags08(res, self->field8);
-        SetFlags00(res, 4);
-        SetFlags04(res, 2);
-        func_02053c6c((unsigned char*)gs->GetProtagonist());
-        func_ov017_0218f79c(res);
-        func_ov017_021a2840(res);
-        func_02058564((NodeList02058564*)func_02057924());
-        func_020100c4(gs, (int)self->fieldB0);
-        func_ov017_0219b624(res);
-        func_ov017_0219ba0c(res, 0);
-        char* fields = res->unknown_2cc;
-        void* controller = (void*)func_020421a0();
-        func_0207df50((Foo0207df50*)(fields + 0x5b0));
-        func_0207df90(fields + 0x5b0);
-        func_020432c4(controller);
-        func_0207dfac(fields + 0x5b0);
-        self->state++;
-    } else if (self->state == 5) {
-        if (*(int*)((char*)self->scene + kRegionValueD9C_D60) & 0x400) {
-            func_ov017_021b66b8((char*)res);
+        MapVRAMBanksToSubBG(arg0->unknown_44_);
+        MapVRAMBanksToMainObj(arg0->unknown_48_);
+        MapVRAMBanksToSubObj(arg0->unknown_4c_);
+        MapVRAMBanksToTextureImage(arg0->unknown_50_);
+        func_020bb48c((unsigned short)(arg0->unknown_98_ >> 17), 1);
+        func_020bb740(arg0->unknown_68_);
+        inline_ov003_0217e6b0_2((Enum_ov003_0217e6b0)arg0->unknown_60_);
+        inline_ov003_0217e6b0_3((Enum_ov003_0217e6b0)arg0->unknown_64_);
+        DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_38_ << 8);
+        DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (arg0->unknown_3c_ << 8);
+        func_02074bd0((Struct_02074bd0*)arg0->unknown_24_);
+        func_02074bf4((Struct_02074bf4*)arg0->unknown_24_);
+        func_020c5588(arg0->unknown_a0_, 0x10, 0x7fff, 0, 0);
+        char var7[0x20];
+        memset(var7, 0, 0x20);
+        CleanInvalidateCacheRange(var7, 0x20);
+        LoadToMainBG1CharacterData(var7, 0, 0x20);
+        ClearFlags00(var1, -1);
+        ClearFlags04(var1, -1);
+        ClearFlags08(var1, -1);
+        SetFlags00(var1, arg0->unknown_a4_);
+        SetFlags04(var1, arg0->unknown_a8_);
+        SetFlags08(var1, arg0->unknown_ac_);
+        SetFlags00(var1, 4);
+        SetFlags04(var1, 2);
+        func_02053c6c((unsigned char*)var0->GetProtagonist());
+        func_ov017_0218f79c(var1);
+        func_ov017_021a2840(var1);
+        func_02058564((Struct_02058564_2*)func_02057924());
+        func_020100c4(var0, (int)arg0->unknown_b0_);
+        func_ov017_0219b624(var1);
+        func_ov017_0219ba0c(var1, 0);
+        char* var8 = var1->unknown_2cc_;
+        void* var9 = (void*)func_020421a0();
+        func_0207df50((Struct_0203d028*)(var8 + 0x5b0));
+        func_0207df90(var8 + 0x5b0);
+        func_020432c4(var9);
+        func_0207dfac(var8 + 0x5b0);
+        arg0->unknown_20_++;
+    } else if (arg0->unknown_20_ == 5) {
+        if (*(int*)((char*)arg0->unknown_1c_ + Enum_ov003_0217e6b0_3484) & 0x400) {
+            func_ov017_021b66b8((char*)var1);
         } else {
-            func_ov017_021b66f0((unsigned char*)res);
+            func_ov017_021b66f0((unsigned char*)var1);
         }
-        func_ov003_0217e67c(self);
-        ClearFlags00(res, 0x10);
+        func_ov003_0217e67c(arg0);
+        ClearFlags00(var1, 0x10);
         func_ov017_0219bd1c(1, 0, 0, 0);
-        self->state++;
-    } else if (self->state == 6) {
-        if (*(int*)((char*)func_02012fe4() + kRegionValue424_444) != 0) {
+        arg0->unknown_20_++;
+    } else if (arg0->unknown_20_ == 6) {
+        if (*(int*)((char*)func_02012fe4() + Enum_ov003_0217e6b0_1060) != 0) {
             return;
         }
-        ClearFlags04(res, 2);
-        func_ov017_0218f758(res);
-        SetMainBrightness(res, 0, 0xf);
-        self->state++;
+        ClearFlags04(var1, 2);
+        func_ov017_0218f758(var1);
+        SetMainBrightness(var1, 0, 0xf);
+        arg0->unknown_20_++;
     } else {
-        if (IsBrightnessTransitionActive(res)) {
+        if (IsBrightnessTransitionActive(var1)) {
             return;
         }
-        self->done = 1;
-        if (func_02046b60((ListHead02046b60*)res->unknown_ptr_array_36fc[0], 0x17)) {
+        arg0->unknown_1_ = 1;
+        if (func_02046b60((Struct_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17)) {
             return;
         }
-        func_020397c0(leader);
-        ClearFlags04(res, 0xc0);
+        func_020397c0(var2);
+        ClearFlags04(var1, 0xc0);
         return;
     }
-    func_020397cc((Obj020397cc*)leader, 1);
+    func_020397cc((Struct_02018300_3*)var2, 1);
 }

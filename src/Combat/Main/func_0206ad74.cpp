@@ -11,203 +11,203 @@ extern const char data_020f07ce[];
 extern const char data_020f0aeb[];
 
 // JPN: func_0206c794
-extern "C" ARM void func_0206c794(void* context) {
-    MessageSystem* self = static_cast<MessageSystem*>(context);
-    unsigned short caption[16];
-    unsigned char length = 0;
-    __clear(caption, sizeof(caption));
-    unsigned short* cursor = static_cast<unsigned short*>(self->secondLineBuffer);
-    int changed = 0;
-    self->h1944 = 0;
-    unsigned char previousStatus = self->b19c2;
+extern "C" ARM void func_0206c794(void* arg0) {
+    Struct_02021b84* var0 = static_cast<Struct_02021b84*>(arg0);
+    unsigned short var1[16];
+    unsigned char var2 = 0;
+    __clear(var1, sizeof(var1));
+    unsigned short* var3 = static_cast<unsigned short*>(var0->unknown_1c_);
+    int var4 = 0;
+    var0->unknown_1774_ = 0;
+    unsigned char var5 = var0->unknown_17f3_;
     for (;;) {
-        if (func_02069408(self, *cursor)) {
-            length = 0;
-            self->h1944 = -1;
-            self->lineGlyphCount = 0;
-            self->b19c4 = 0;
-            changed = 1;
+        if (func_02069408(var0, *var3)) {
+            var2 = 0;
+            var0->unknown_1774_ = -1;
+            var0->unknown_1772_ = 0;
+            var0->unknown_19c4_ = 0;
+            var4 = 1;
             break;
         }
-        if (!func_02069430(self, *cursor)) {
-            if (func_02001aec(cursor, data_020f07ce, 2) == 0) {
-                self->b19c2 = 0;
+        if (!func_02069430(var0, *var3)) {
+            if (func_02001aec(var3, data_020f07ce, 2) == 0) {
+                var0->unknown_17f3_ = 0;
                 break;
             }
-            caption[length] = *cursor;
-            length = (unsigned char)(length + 1) & 15;
+            var1[var2] = *var3;
+            var2 = (unsigned char)(var2 + 1) & 15;
         }
-        self->h1944++;
-        cursor++;
+        var0->unknown_1774_++;
+        var3++;
     }
-    cursor++;
+    var3++;
     for (;;) {
-        if (func_02069408(self, *cursor)) break;
-        if (!func_02069430(self, *cursor)) {
-            if (func_02001aec(cursor, data_020f0aeb, 2) == 0) {
-                length = 0;
-                self->h1944 = -1;
-                self->lineGlyphCount = 0;
-                self->b19c4 = 0;
-                self->b19c2 = previousStatus;
-                changed = 1;
+        if (func_02069408(var0, *var3)) break;
+        if (!func_02069430(var0, *var3)) {
+            if (func_02001aec(var3, data_020f0aeb, 2) == 0) {
+                var2 = 0;
+                var0->unknown_1774_ = -1;
+                var0->unknown_1772_ = 0;
+                var0->unknown_19c4_ = 0;
+                var0->unknown_17f3_ = var5;
+                var4 = 1;
                 break;
             }
-            if (func_02001aec(cursor, data_020f07ce, 2) == 0) break;
+            if (func_02001aec(var3, data_020f07ce, 2) == 0) break;
         }
-        cursor++;
+        var3++;
     }
-    if (!self->b19c2 && length) {
-        unsigned short slot;
-        for (unsigned char i = 0; i < self->lineGlyphCount; i++) {
-            slot = self->lineGlyphSlots[i];
-            if (!func_02069430(self, slot)) {
-                MessageGlyphSlot* glyph = &self->glyphs[slot];
-                if (glyph->bitmapIndex >= 0 &&
-                    glyph->encodedCode != caption[i]) {
-                    changed = 1;
+    if (!var0->unknown_17f3_ && var2) {
+        unsigned short var6;
+        for (unsigned char var7 = 0; var7 < var0->unknown_1772_; var7++) {
+            var6 = var0->unknown_1752_[var7];
+            if (!func_02069430(var0, var6)) {
+                Struct_0204166c* var8 = &var0->unknown_9b8_[var6];
+                if (var8->unknown_8_ >= 0 &&
+                    var8->unknown1_18_ != var1[var7]) {
+                    var4 = 1;
                     break;
                 }
             }
         }
     }
-    if (changed) {
-        for (unsigned char i = 0; i < self->lineGlyphCount; i++)
-            func_0206cb14(self, 10, self->lineGlyphSlots[i]);
-        memset(self->lineGlyphSlots, 0xff01, sizeof(self->lineGlyphSlots));
-        self->b19c3 = 0;
-    } else if (self->lineGlyphCount) {
-        self->tokenCount = (short)self->h1944;
-        self->lineStart = self->h1944;
-        self->tokenIndex = (short)self->h1944;
+    if (var4) {
+        for (unsigned char var9 = 0; var9 < var0->unknown_1772_; var9++)
+            func_0206cb14(var0, 10, var0->unknown_1752_[var9]);
+        memset(var0->unknown_1752_, 0xff01, sizeof(var0->unknown_1752_));
+        var0->unknown_19c3_ = 0;
+    } else if (var0->unknown_1772_) {
+        var0->unknown_6c_ = (short)var0->unknown_1774_;
+        var0->unknown1_40_ = var0->unknown_1774_;
+        var0->unknown_78_ = (short)var0->unknown_1774_;
         return;
     }
-    self->lineGlyphCount = 0;
+    var0->unknown_1772_ = 0;
 }
 #else
 
-struct Entry0204254c { int value; signed char width; signed char advance : 6; signed char field5 : 2; unsigned char field6[2]; };
-extern "C" Entry0204254c* func_0204254c(int, int);
+struct Struct_0204254c { int unknown_0_; signed char unknown_4_; signed char unknown_5_0_ : 6; signed char unknown_5_6_ : 2; unsigned char unknown_6_[2]; };
+extern "C" Struct_0204254c* func_0204254c(int, int);
 extern "C" int func_02042648(int);
-struct CombatSlots0206b198;
-extern "C" void func_0206b198(CombatSlots0206b198*, unsigned short);
+struct Struct_0204500c_4;
+extern "C" void func_0206b198(Struct_0204500c_4*, unsigned short);
 extern char data_020f08dc[];
 extern char data_020f0979[];
 extern char data_020f097c[];
 extern "C" void __clear(void*, int);
-struct Caption0206ad74 {
-    unsigned char field0[0x50];
-    char* text;
-    unsigned char field54[0x74-0x54];
-    int start;
-    int end;
-    unsigned char field7c[8];
-    int specialStart;
-    int specialEnd;
-    unsigned char field8c[0x912-0x8c];
-    unsigned char mode;
-    unsigned char field913[0x934-0x913];
-    short boxWidth;
-    short boxHeight;
-    unsigned char field938[0x1882-0x938];
-    unsigned short slots[64];
-    char caption[64];
-    unsigned short count;
-    short width;
-    short specialLength;
-    unsigned char field1948[0x19c2-0x1948];
-    unsigned char status;
-    unsigned char changed;
-    unsigned char field19c4[0x19dc-0x19c4];
-    unsigned char font;
+struct Struct_0206ad74 {
+    unsigned char unknown_0_[0x50];
+    char* unknown_50_;
+    unsigned char unknown_54_[0x74-0x54];
+    int unknown_74_;
+    int unknown_78_;
+    unsigned char unknown_7c_[8];
+    int unknown_84_;
+    int unknown_88_;
+    unsigned char unknown_8c_[0x912-0x8c];
+    unsigned char unknown_912_;
+    unsigned char unknown_913_[0x934-0x913];
+    short unknown_934_;
+    short unknown_936_;
+    unsigned char unknown_938_[0x1882-0x938];
+    unsigned short unknown_1882_[64];
+    char unknown_1902_[64];
+    unsigned short unknown_1942_;
+    short unknown_1944_;
+    short unknown_1946_;
+    unsigned char unknown_1948_[0x19c2-0x1948];
+    unsigned char unknown_19c2_;
+    unsigned char unknown_19c3_;
+    unsigned char unknown_19c4_[0x19dc-0x19c4];
+    unsigned char unknown_19dc_;
 };
 
 // USA: func_0206ad74
-extern "C" ARM void func_0206ad74(Caption0206ad74* self) {
-    int defaultWidth;
-    int length = 0;
-    self->specialStart = 0;
-    self->specialEnd = 0;
-    self->width = 0;
-    self->count = 0;
-    self->specialLength = 0;
-    unsigned char previousStatus = self->status;
-    int changed = 1;
-    int prefixCount = 0;
-    char caption[64];
-    __clear(caption, sizeof(caption));
-    unsigned char fontWidth;
-    char* cursor;
-    char* text = self->text;
-    char* start = strstr(text, data_020f08dc);
-    char* middle = strstr(text, data_020f0979);
-    char* alternate = strstr(text, data_020f097c);
-    fontWidth = func_02042648(self->font);
-    if (start) {
+extern "C" ARM void func_0206ad74(Struct_0206ad74* arg0) {
+    int var0;
+    int var1 = 0;
+    arg0->unknown_84_ = 0;
+    arg0->unknown_88_ = 0;
+    arg0->unknown_1944_ = 0;
+    arg0->unknown_1942_ = 0;
+    arg0->unknown_1946_ = 0;
+    unsigned char var2 = arg0->unknown_19c2_;
+    int var3 = 1;
+    int var4 = 0;
+    char var5[64];
+    __clear(var5, sizeof(var5));
+    unsigned char var6;
+    char* var7;
+    char* var8 = arg0->unknown_50_;
+    char* var9 = strstr(var8, data_020f08dc);
+    char* var10 = strstr(var8, data_020f0979);
+    char* var11 = strstr(var8, data_020f097c);
+    var6 = func_02042648(arg0->unknown_19dc_);
+    if (var9) {
         for (;;) {
-            if (text == start) break;
-            unsigned short code;
-            memcpy(&code, text, 2);
-            prefixCount++;
-            if ((code & 0xff00) == 0xff00) text++;
-            text++;
+            if (var8 == var9) break;
+            unsigned short var12;
+            memcpy(&var12, var8, 2);
+            var4++;
+            if ((var12 & 0xff00) == 0xff00) var8++;
+            var8++;
         }
-        char* selected = start + 2;
-        char* finish = strstr(selected, data_020f08dc);
-        if (finish) {
-            length = finish - selected;
-            memcpy(caption, selected, length);
-            changed = 0;
-            self->status = changed;
-            cursor = caption;
+        char* var13 = var9 + 2;
+        char* var14 = strstr(var13, data_020f08dc);
+        if (var14) {
+            var1 = var14 - var13;
+            memcpy(var5, var13, var1);
+            var3 = 0;
+            arg0->unknown_19c2_ = var3;
+            var7 = var5;
             for (;;) {
-                defaultWidth = fontWidth + 1;
-                if (!*cursor) break;
-                Entry0204254c* entry = func_0204254c((int)cursor, self->font);
-                if (entry) {
-                    self->count++;
-                    int width = entry->width;
-                    int advance = entry->advance;
-                    self->width += width + 1;
-                    cursor += advance;
+                var0 = var6 + 1;
+                if (!*var7) break;
+                Struct_0204254c* var15 = func_0204254c((int)var7, arg0->unknown_19dc_);
+                if (var15) {
+                    arg0->unknown_1942_++;
+                    int var16 = var15->unknown_4_;
+                    int var17 = var15->unknown_5_0_;
+                    arg0->unknown_1944_ += var16 + 1;
+                    var7 += var17;
                 } else {
-                    self->count++;
-                    cursor++;
-                    self->width += defaultWidth;
+                    arg0->unknown_1942_++;
+                    var7++;
+                    arg0->unknown_1944_ += var0;
                 }
             }
-            self->specialLength = finish - start;
-            self->specialLength += 3;
-            self->specialLength += prefixCount - 2;
-            self->mode = 4;
-            short padding = 8 - (self->width & 7);
-            self->boxWidth = self->width + 18 + padding;
-            self->boxHeight = 22;
-        } else self->status = previousStatus;
+            arg0->unknown_1946_ = var14 - var9;
+            arg0->unknown_1946_ += 3;
+            arg0->unknown_1946_ += var4 - 2;
+            arg0->unknown_912_ = 4;
+            short var18 = 8 - (arg0->unknown_1944_ & 7);
+            arg0->unknown_934_ = arg0->unknown_1944_ + 18 + var18;
+            arg0->unknown_936_ = 22;
+        } else arg0->unknown_19c2_ = var2;
     } else {
-        if (middle || alternate) self->mode = 3;
-        else self->specialLength = -1;
+        if (var10 || var11) arg0->unknown_912_ = 3;
+        else arg0->unknown_1946_ = -1;
     }
-    if (!self->status && length) changed = strcmp(self->caption, caption);
-    if (changed) {
-        for (int i = 0; i < self->count; i++) func_0206b198((CombatSlots0206b198*)self, self->slots[i]);
-        memset(self->slots, 0xff01, sizeof(self->slots));
-        memset(self->caption, 0, sizeof(self->caption));
-        memcpy(self->caption, caption, length);
-        self->changed = 0;
-        if (self->count) {
-            self->specialStart = self->specialLength;
-            self->specialEnd = self->count + prefixCount + 3;
+    if (!arg0->unknown_19c2_ && var1) var3 = strcmp(arg0->unknown_1902_, var5);
+    if (var3) {
+        for (int var19 = 0; var19 < arg0->unknown_1942_; var19++) func_0206b198((Struct_0204500c_4*)arg0, arg0->unknown_1882_[var19]);
+        memset(arg0->unknown_1882_, 0xff01, sizeof(arg0->unknown_1882_));
+        memset(arg0->unknown_1902_, 0, sizeof(arg0->unknown_1902_));
+        memcpy(arg0->unknown_1902_, var5, var1);
+        arg0->unknown_19c3_ = 0;
+        if (arg0->unknown_1942_) {
+            arg0->unknown_84_ = arg0->unknown_1946_;
+            arg0->unknown_88_ = arg0->unknown_1942_ + var4 + 3;
         }
-    } else if (self->count) {
-        self->specialStart = self->specialLength;
-        self->specialEnd = self->count + prefixCount + 3;
-        self->start = self->count + prefixCount + 3;
-        self->end = self->count + prefixCount + 3;
-        self->count++;
+    } else if (arg0->unknown_1942_) {
+        arg0->unknown_84_ = arg0->unknown_1946_;
+        arg0->unknown_88_ = arg0->unknown_1942_ + var4 + 3;
+        arg0->unknown_74_ = arg0->unknown_1942_ + var4 + 3;
+        arg0->unknown_78_ = arg0->unknown_1942_ + var4 + 3;
+        arg0->unknown_1942_++;
         return;
     }
-    self->count = 0;
+    arg0->unknown_1942_ = 0;
 }
 
 #endif

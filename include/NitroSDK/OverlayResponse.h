@@ -3,41 +3,41 @@
 
 #include <globaldefs.h>
 
-struct ResponseIdentifier {
-    unsigned char prefix[6];
-    unsigned short sequence;
+struct Struct_ov031_0221d7e0 {
+    unsigned char unknown_0_[6];
+    unsigned short unknown_6_;
 };
 
-struct ResponseHeader {
-    unsigned short version;
-    unsigned short unknown02[2];
-    unsigned short type;
-    unsigned short unknown08;
-    unsigned short protocol;
-    unsigned short flags;
-    unsigned char unknown0e;
-    unsigned char transport;
-    ResponseIdentifier identifier;
-    ResponseIdentifier* GetIdentifier() { return &identifier; }
+struct Struct_ov031_0221d3b0 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_[2];
+    unsigned short unknown_6_;
+    unsigned short unknown_8_;
+    unsigned short unknown_a_;
+    unsigned short unknown_c_;
+    unsigned char unknown_e_;
+    unsigned char unknown_f_;
+    Struct_ov031_0221d7e0 unknown_10_;
+    Struct_ov031_0221d7e0* inline_ov031_0221c5ac() { return &unknown_10_; }
 };
 
-struct ResponseBody {
-    unsigned char type;
-    unsigned char unknown01;
-    unsigned short identifier;
-    unsigned int status;
+struct Struct_ov031_0221d450 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    unsigned short unknown_2_;
+    unsigned int unknown_4_;
 };
 
-struct ResponsePacket {
-    unsigned char unknown00[12];
-    ResponseHeader header;
-    ResponseBody body;
-    ResponseHeader* GetHeader() { return &header; }
+struct Struct_ov031_0221d3b0_2 {
+    unsigned char unknown_0_[12];
+    Struct_ov031_0221d3b0 unknown_c_;
+    Struct_ov031_0221d450 unknown_24_;
+    Struct_ov031_0221d3b0* inline_ov031_0221c5ac_2() { return &unknown_c_; }
 };
 
-struct ResponseIdentifiers {
-    ResponseIdentifier entries[3];
-    ResponseIdentifier* GetFinalIdentifier() { return &entries[2]; }
+struct Struct_ov031_0221d3b0_3 {
+    Struct_ov031_0221d7e0 unknown_0_[3];
+    Struct_ov031_0221d7e0* inline_ov031_0221c5ac_3() { return &unknown_0_[2]; }
 };
 
 #if defined(jpn)
@@ -47,10 +47,10 @@ struct ResponseIdentifiers {
 
 extern "C" {
 unsigned short func_ov031_0221e638(unsigned short);
-int func_ov031_0221d7e0(ResponseIdentifier*, ResponseIdentifier*);
-int func_ov031_0221d450(int, ResponsePacket*, int*, ResponseIdentifiers*);
-int func_ov031_0221d52c(int, ResponsePacket*, int*, ResponseIdentifiers*);
-int func_ov031_0221d604(int, ResponsePacket*, int*, ResponseIdentifiers*);
+int func_ov031_0221d7e0(Struct_ov031_0221d7e0*, Struct_ov031_0221d7e0*);
+int func_ov031_0221d450(int, Struct_ov031_0221d3b0_2*, int*, Struct_ov031_0221d3b0_3*);
+int func_ov031_0221d52c(int, Struct_ov031_0221d3b0_2*, int*, Struct_ov031_0221d3b0_3*);
+int func_ov031_0221d604(int, Struct_ov031_0221d3b0_2*, int*, Struct_ov031_0221d3b0_3*);
 }
 
 #endif

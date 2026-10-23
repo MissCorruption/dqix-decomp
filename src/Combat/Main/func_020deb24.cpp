@@ -1,22 +1,22 @@
 #include <globaldefs.h>
 
-struct Pair020deb08;
-extern "C" short func_020deb08(struct Pair020deb08* obj);
+struct Struct_020deb08;
+extern "C" short func_020deb08(struct Struct_020deb08* arg0);
 
-struct EntryList020deb24 {
-    unsigned short a;
-    unsigned short pad2;
-    unsigned short b;
-    unsigned short pad6;
-    int pad8;
-    void* entries;
+struct Struct_0205faf4_9 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    int unknown_8_;
+    void* unknown_c_;
 };
 
 // USA: func_020deb24
-extern "C" ARM void* func_020deb24(struct EntryList020deb24* list, int index) {
-    int count = func_020deb08((struct Pair020deb08*)list);
-    if (index < 0 || index >= count) {
+extern "C" ARM void* func_020deb24(struct Struct_0205faf4_9* arg0, int arg1) {
+    int var0 = func_020deb08((struct Struct_020deb08*)arg0);
+    if (arg1 < 0 || arg1 >= var0) {
         return NULL;
     }
-    return (char*)list->entries + index * 0x20;
+    return (char*)arg0->unknown_c_ + arg1 * 0x20;
 }

@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-enum AsciiCase02242e90 { AsciiOrdinary = 0, AsciiUppercase = 1 };
+enum Enum_ov031_02242e90 { Enum_ov031_02242e90_0 = 0, Enum_ov031_02242e90_1 = 1 };
 
 // USA: func_ov031_02242e90
-extern "C" ARM int func_ov031_02242e90(const signed char* first, const signed char* second) {
-    int folded;
-    AsciiCase02242e90 classification;
-    int left;
-    int right;
+extern "C" ARM int func_ov031_02242e90(const signed char* arg0, const signed char* arg1) {
+    int var0;
+    Enum_ov031_02242e90 var1;
+    int var2;
+    int var3;
     goto compare;
 advance:
-    if (left == 0 || left == ' ') return 0;
-    ++first;
-    ++second;
+    if (var2 == 0 || var2 == ' ') return 0;
+    ++arg0;
+    ++arg1;
 compare:
-    right = *second;
-    classification = AsciiOrdinary;
-    if (right >= 'A' && right <= 'Z') classification = AsciiUppercase;
-    left = *first;
-    if (classification) right += 32;
-    classification = AsciiOrdinary;
-    if (left >= 'A' && left <= 'Z') classification = AsciiUppercase;
-    folded = classification ? left + 32 : left;
-    if (folded == right) goto advance;
+    var3 = *arg1;
+    var1 = Enum_ov031_02242e90_0;
+    if (var3 >= 'A' && var3 <= 'Z') var1 = Enum_ov031_02242e90_1;
+    var2 = *arg0;
+    if (var1) var3 += 32;
+    var1 = Enum_ov031_02242e90_0;
+    if (var2 >= 'A' && var2 <= 'Z') var1 = Enum_ov031_02242e90_1;
+    var0 = var1 ? var2 + 32 : var2;
+    if (var0 == var3) goto advance;
     return -1;
 }

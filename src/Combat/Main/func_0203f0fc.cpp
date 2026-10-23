@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
-struct List02040468;
-struct Element02040468;
-struct Table02040184;
+struct Struct_02040468;
+struct Struct_0203f008_2;
+struct Struct_0203f0fc_2;
 
-extern "C" ARM struct Element02040468* func_02040468(struct List02040468* list, int index);
-extern "C" ARM int func_02040184(struct Table02040184* table, const char* name);
+extern "C" ARM struct Struct_0203f008_2* func_02040468(struct Struct_02040468* arg0, int arg1);
+extern "C" ARM int func_02040184(struct Struct_0203f0fc_2* arg0, const char* arg1);
 
-struct ElementObj0203f0fc {
-    struct List02040468* field0;
-    char pad[0x24];
-    short field28;
+struct Struct_0203f0fc {
+    struct Struct_02040468* unknown_0_;
+    char unknown_4_[0x24];
+    short unknown_28_;
 };
 
 // USA: func_0203f0fc
-extern "C" ARM int func_0203f0fc(struct ElementObj0203f0fc* obj, const char* name) {
-    struct Element02040468* element;
-    short index = obj->field28;
-    if (index < 0) {
+extern "C" ARM int func_0203f0fc(struct Struct_0203f0fc* arg0, const char* arg1) {
+    struct Struct_0203f008_2* var0;
+    short var1 = arg0->unknown_28_;
+    if (var1 < 0) {
         return -1;
     }
-    element = func_02040468(obj->field0, index);
-    if (element == NULL) {
+    var0 = func_02040468(arg0->unknown_0_, var1);
+    if (var0 == NULL) {
         return -1;
     }
-    return func_02040184((struct Table02040184*)((char*)element + 0x10), name);
+    return func_02040184((struct Struct_0203f0fc_2*)((char*)var0 + 0x10), arg1);
 }

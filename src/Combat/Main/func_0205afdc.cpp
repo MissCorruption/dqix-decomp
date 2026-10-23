@@ -4,9 +4,9 @@
 #define func_0205b008 func_0205c3a4
 #endif
 
-extern "C" int func_0205b008(int a, void* b, int c, int d, int e, int f);
+extern "C" int func_0205b008(int arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
 // USA: func_0205afdc
-extern "C" ARM void func_0205afdc(int a, void* b, int c) {
-    func_0205b008(a, b, 0, 0xc00, 0xa, (unsigned short)(c & 0x3));
+extern "C" ARM void func_0205afdc(int arg0, void* arg1, int arg2) {
+    func_0205b008(arg0, arg1, 0, 0xc00, 0xa, (unsigned short)(arg2 & 0x3));
 }

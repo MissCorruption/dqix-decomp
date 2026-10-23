@@ -2,31 +2,31 @@
 #include "World/ZoneLootableRecord.h"
 
 // USA: func_0204719c
-extern "C" ARM void func_0204719c(void* obj)
+extern "C" ARM void func_0204719c(void* arg0)
 {
-    Foo02048004* f = (Foo02048004*)obj;
+    Struct_02012fa4* var0 = (Struct_02012fa4*)arg0;
 
-    f->word0 = 0;
-    f->f6 = 0;
-    f->w8 = 0;
-    f->wc = 0;
-    f->nameTable.count = 0;
-    f->f4 = 3;
-    f->w10 = 0;
-    f->bit0 = 0;
-    f->words1c[23] = f->words1c[24] = 0;
-    f->words1c[21] = f->words1c[22] = 0;
-    f->words1c[0] = 0;
-    f->words1c[1] = 0;
-    f->words1c[2] = 0;
-    f->words1c[3] = 0;
-    f->words1c[4] = 0;
-    f->words1c[5] = 0;
-    f->words1c[6] = 0x1000;
-    f->words1c[7] = 0x1000;
-    f->words1c[8] = 0x1000;
-    f->field82 = 0x1f;
-    f->field80 = 0x7fff;
-    f->bit1 = 0;
-    f->bit2 = 0;
+    var0->unknown_0_ = 0;
+    var0->unknown_6_ = 0;
+    var0->unknown_8_ = 0;
+    var0->unknown_c_ = 0;
+    var0->unknown_14_.unknown_0_ = 0;
+    var0->unknown_4_ = 3;
+    var0->unknown_10_ = 0;
+    var0->unknown_84_0_ = 0;
+    var0->unknown_1c_[23] = var0->unknown_1c_[24] = 0;
+    var0->unknown_1c_[21] = var0->unknown_1c_[22] = 0;
+    var0->unknown_1c_[0] = 0;
+    var0->unknown_1c_[1] = 0;
+    var0->unknown_1c_[2] = 0;
+    var0->unknown_1c_[3] = 0;
+    var0->unknown_1c_[4] = 0;
+    var0->unknown_1c_[5] = 0;
+    var0->unknown_1c_[6] = 0x1000;
+    var0->unknown_1c_[7] = 0x1000;
+    var0->unknown_1c_[8] = 0x1000;
+    var0->unknown_82_ = 0x1f;
+    var0->unknown_80_ = 0x7fff;
+    var0->unknown_84_1_ = 0;
+    var0->unknown_84_2_ = 0;
 }

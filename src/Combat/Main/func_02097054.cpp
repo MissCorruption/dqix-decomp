@@ -2,78 +2,78 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-struct BufferNode02097054 {
-    char pad_0[0xc];
-    unsigned char stringCount;
-    char pad_d[0x1f];
+struct Struct_02097054 {
+    char unknown_0_[0xc];
+    unsigned char unknown_c_;
+    char unknown_d_[0x1f];
     union {
-        char** strings;
-        unsigned int stringIndex;
+        char** unknown_2c_;
+        unsigned int unknown1_2c_;
     };
 };
-struct BufferBlob02097054 {
-    unsigned short count;
-    unsigned short stringCount;
-    unsigned int byteCount : 31;
-    unsigned int ready : 1;
-    BufferNode02097054 nodes[1];
+struct Struct_02097054_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned int unknown_4_0_ : 31;
+    unsigned int unknown_7_7_ : 1;
+    Struct_02097054 unknown_8_[1];
 };
-struct BufferHeader02097054 {
-    unsigned short count;
-    unsigned short stringCount;
-    unsigned int byteCount : 31;
-    unsigned int ready : 1;
-    BufferNode02097054* nodes;
-    unsigned int* strings;
+struct Struct_02097054_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned int unknown_4_0_ : 31;
+    unsigned int unknown_7_7_ : 1;
+    Struct_02097054* unknown_8_;
+    unsigned int* unknown_c_;
 };
-struct BufferCopy02097054 {
-    unsigned short count;
-    char pad_2[6];
-    BufferNode02097054* node;
-    int field_c;
+struct Struct_02097054_4 {
+    unsigned short unknown_0_;
+    char unknown_2_[6];
+    Struct_02097054* unknown_8_;
+    int unknown_c_;
 };
-struct ComputeAlignedBufferSizeHeader;
-struct ForEachNode02097000Container;
-struct ForEachNode02097000Node;
-struct BinarySearch020971a8Container;
-struct BinarySearch020971a8Node;
-extern "C" int func_02096fd8(ComputeAlignedBufferSizeHeader*);
-extern "C" int func_02097000(ForEachNode02097000Container*, void (*)(ForEachNode02097000Container*, ForEachNode02097000Node*));
-extern "C" BinarySearch020971a8Node* func_020971a8(BinarySearch020971a8Container*, int, int (*)(BinarySearch020971a8Node*));
+struct Struct_02096fd8;
+struct Struct_02097000_2;
+struct Struct_02097000;
+struct Struct_02097054_5;
+struct Struct_02097054_6;
+extern "C" int func_02096fd8(Struct_02096fd8*);
+extern "C" int func_02097000(Struct_02097000_2*, void (*)(Struct_02097000_2*, Struct_02097000*));
+extern "C" Struct_02097054_6* func_020971a8(Struct_02097054_5*, int, int (*)(Struct_02097054_6*));
 extern "C" short func_02096f78(unsigned char*);
-extern "C" char* func_02096f80(BufferHeader02097054*, unsigned int, int);
+extern "C" char* func_02096f80(Struct_02097054_3*, unsigned int, int);
 extern "C" char* func_020da150(SafeAllocator*, const char*);
 
 // USA: func_02097054
-extern "C" ARM void func_02097054(BufferCopy02097054* dst, SafeAllocator* allocator, BufferBlob02097054* source, int unused, short key) {
-    BufferHeader02097054 header;
-    memset(dst, 0, 0x10);
-    if (key < 0) return;
-    if (source != 0) {
-        memcpy(&header, source, 8);
-        header.nodes = source->nodes;
-        header.strings = (unsigned int*)((char*)source + (8 + func_02096fd8((ComputeAlignedBufferSizeHeader*)&header)));
-        if (header.ready == 0) {
-            func_02097000((ForEachNode02097000Container*)&header, 0);
-            header.ready = 1;
-            source->ready = 1;
+extern "C" ARM void func_02097054(Struct_02097054_4* arg0, SafeAllocator* arg1, Struct_02097054_2* arg2, int arg3, short arg4) {
+    Struct_02097054_3 var0;
+    memset(arg0, 0, 0x10);
+    if (arg4 < 0) return;
+    if (arg2 != 0) {
+        memcpy(&var0, arg2, 8);
+        var0.unknown_8_ = arg2->unknown_8_;
+        var0.unknown_c_ = (unsigned int*)((char*)arg2 + (8 + func_02096fd8((Struct_02096fd8*)&var0)));
+        if (var0.unknown_7_7_ == 0) {
+            func_02097000((Struct_02097000_2*)&var0, 0);
+            var0.unknown_7_7_ = 1;
+            arg2->unknown_7_7_ = 1;
         }
     }
-    BufferNode02097054* found = (BufferNode02097054*)func_020971a8((BinarySearch020971a8Container*)&header, key, (int (*)(BinarySearch020971a8Node*))func_02096f78);
-    BufferNode02097054* copy = (BufferNode02097054*)allocator->Allocate(0x30);
-    if (found == 0 || copy == 0) return;
-    memcpy(copy, found, 0x30);
-    short stringCount = copy->stringCount;
-    char** output = (char**)allocator->Allocate(stringCount * 4);
-    unsigned int* input = (unsigned int*)(header.nodes + header.count) + found->stringIndex;
-    copy->strings = output;
-    for (int i = 0; i < stringCount; i++) {
-        unsigned int stringIndex = *input;
-        input++;
-        char* text = func_02096f80(&header, stringIndex, 0);
-        *output = func_020da150(allocator, text);
-        output++;
+    Struct_02097054* var1 = (Struct_02097054*)func_020971a8((Struct_02097054_5*)&var0, arg4, (int (*)(Struct_02097054_6*))func_02096f78);
+    Struct_02097054* var2 = (Struct_02097054*)arg1->Allocate(0x30);
+    if (var1 == 0 || var2 == 0) return;
+    memcpy(var2, var1, 0x30);
+    short var3 = var2->unknown_c_;
+    char** var4 = (char**)arg1->Allocate(var3 * 4);
+    unsigned int* var5 = (unsigned int*)(var0.unknown_8_ + var0.unknown_0_) + var1->unknown1_2c_;
+    var2->unknown_2c_ = var4;
+    for (int var6 = 0; var6 < var3; var6++) {
+        unsigned int var7 = *var5;
+        var5++;
+        char* var8 = func_02096f80(&var0, var7, 0);
+        *var4 = func_020da150(arg1, var8);
+        var4++;
     }
-    dst->count = 1;
-    dst->node = copy;
+    arg0->unknown_0_ = 1;
+    arg0->unknown_8_ = var2;
 }

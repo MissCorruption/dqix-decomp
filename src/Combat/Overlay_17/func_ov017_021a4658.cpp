@@ -1,40 +1,40 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov017_021b2f64(unsigned char* self);
+extern "C" void func_ov017_021b2f64(unsigned char* arg0);
 
 // USA: func_ov017_021a4658
-extern "C" ARM unsigned char* func_ov017_021a4658(unsigned char* base, int combatantId) {
-    int matchingSlotIndex;
-    for (matchingSlotIndex = 0; matchingSlotIndex < 0xc; matchingSlotIndex++) {
-        unsigned char* slotRelativeBase = base + matchingSlotIndex * 0x48;
+extern "C" ARM unsigned char* func_ov017_021a4658(unsigned char* arg0, int arg1) {
+    int var0;
+    for (var0 = 0; var0 < 0xc; var0++) {
+        unsigned char* var1 = arg0 + var0 * 0x48;
 #if defined(jpn)
-        if (slotRelativeBase[0x352e] != 0) {
-            if (slotRelativeBase[0x352f] == 0 && combatantId == *(short*)(slotRelativeBase + 0x3534)) {
-                return base + 0x352c + matchingSlotIndex * 0x48;
+        if (var1[0x352e] != 0) {
+            if (var1[0x352f] == 0 && arg1 == *(short*)(var1 + 0x3534)) {
+                return arg0 + 0x352c + var0 * 0x48;
 #else
-        if (slotRelativeBase[0x373e] != 0) {
-            if (slotRelativeBase[0x373f] == 0 && combatantId == *(short*)(slotRelativeBase + 0x3744)) {
-                return base + 0x373c + matchingSlotIndex * 0x48;
+        if (var1[0x373e] != 0) {
+            if (var1[0x373f] == 0 && arg1 == *(short*)(var1 + 0x3744)) {
+                return arg0 + 0x373c + var0 * 0x48;
 #endif
             }
         }
     }
 
-    int freeSlotIndex;
-    for (freeSlotIndex = 0; freeSlotIndex < 0xc; freeSlotIndex++) {
-        unsigned char* slotRelativeBase = base + freeSlotIndex * 0x48;
+    int var2;
+    for (var2 = 0; var2 < 0xc; var2++) {
+        unsigned char* var3 = arg0 + var2 * 0x48;
 #if defined(jpn)
-        if (slotRelativeBase[0x352e] == 0) {
-            unsigned char* freeSlot = base + 0x352c + freeSlotIndex * 0x48;
+        if (var3[0x352e] == 0) {
+            unsigned char* var4 = arg0 + 0x352c + var2 * 0x48;
 #else
-        if (slotRelativeBase[0x373e] == 0) {
-            unsigned char* freeSlot = base + 0x373c + freeSlotIndex * 0x48;
+        if (var3[0x373e] == 0) {
+            unsigned char* var4 = arg0 + 0x373c + var2 * 0x48;
 #endif
-            func_ov017_021b2f64(freeSlot);
+            func_ov017_021b2f64(var4);
 #if defined(jpn)
-            return base + 0x352c + freeSlotIndex * 0x48;
+            return arg0 + 0x352c + var2 * 0x48;
 #else
-            return base + 0x373c + freeSlotIndex * 0x48;
+            return arg0 + 0x373c + var2 * 0x48;
 #endif
         }
     }

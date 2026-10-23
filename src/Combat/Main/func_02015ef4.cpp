@@ -5,226 +5,226 @@
 #include <Resource/GameResources.h>
 #include <World/Zone3D.h>
 
-struct Foo02048004;
-struct StructAt020473c8;
-struct GetElement02094d5cList;
-struct Holder020159c0;
-struct Container020dedd0;
-struct StructDE234_020de234;
-struct HeadNode02046b24;
-struct State0207dfc8;
-struct Vec3copy0202ec84;
+struct Struct_02012fa4;
+struct Struct_02015ef4_2;
+struct Struct_02015ef4_3;
+struct Struct_020159c0_2;
+struct Struct_0201099c_10;
+struct Struct_02015ef4_4;
+struct Struct_02015438;
+struct Struct_02015ef4_5;
+struct Struct_02015ef4;
 
 #if defined(jpn)
 #define data_020e6e88 data_020e772c
 #define data_020ef20b data_020ef147
 #endif
 
-struct ChestRecord {
-    unsigned short id;
-    short key;
-    unsigned short unk4 : 2;
-    unsigned short lootType : 2;
-    unsigned short rest : 12;
+struct Struct_02015ef4_6 {
+    unsigned short unknown_0_;
+    short unknown_2_;
+    unsigned short unknown_4_0_ : 2;
+    unsigned short unknown_4_2_ : 2;
+    unsigned short unknown_4_4_ : 12;
 };
 
-struct PackedElement {
-    char pad0[0x10];
-    unsigned int low : 20;
-    unsigned int code : 8;
-    unsigned int high : 4;
-    short pad14;
-    short pad16;
-    short marker;
+struct Struct_02015ef4_7 {
+    char unknown_0_[0x10];
+    unsigned int unknown_10_0_ : 20;
+    unsigned int unknown_12_4_ : 8;
+    unsigned int unknown_13_4_ : 4;
+    short unknown_14_;
+    short unknown_16_;
+    short unknown_18_;
 };
 
-struct ChestDisplayState {
-    Vector3i position;
-    short angleY;
-    unsigned short angleX;
-    unsigned short counter;
-    short taskID;
-    signed char owner;
-    char pad15;
-    unsigned char state;
-    unsigned char kind;
-    unsigned char special;
-    unsigned char delay;
-    char pad1a[2];
-    unsigned short uniqueID;
-    char pad1e[2];
-    Foo02048004* object;
+struct Struct_02015ef4_8 {
+    Vector3i unknown_0_;
+    short unknown_c_;
+    unsigned short unknown_e_;
+    unsigned short unknown_10_;
+    short unknown_12_;
+    signed char unknown_14_;
+    char unknown_15_;
+    unsigned char unknown_16_;
+    unsigned char unknown_17_;
+    unsigned char unknown_18_;
+    unsigned char unknown_19_;
+    char unknown_1a_[2];
+    unsigned short unknown_1c_;
+    char unknown_1e_[2];
+    Struct_02012fa4* unknown_20_;
 };
 
-extern "C" void func_02047230(Foo02048004*);
-extern "C" int func_02015ae4(ChestDisplayState*);
-extern "C" int func_02015cd0(ChestDisplayState*);
-extern "C" void* func_02094d5c(GetElement02094d5cList*, int);
-extern "C" void func_020159c0(Holder020159c0*, int);
-extern "C" void* func_020dedd0(Container020dedd0*, int);
-extern "C" int func_020de234(StructDE234_020de234*, int);
+extern "C" void func_02047230(Struct_02012fa4*);
+extern "C" int func_02015ae4(Struct_02015ef4_8*);
+extern "C" int func_02015cd0(Struct_02015ef4_8*);
+extern "C" void* func_02094d5c(Struct_02015ef4_3*, int);
+extern "C" void func_020159c0(Struct_020159c0_2*, int);
+extern "C" void* func_020dedd0(Struct_0201099c_10*, int);
+extern "C" int func_020de234(Struct_02015ef4_4*, int);
 extern "C" int sprintf(char*, const char*, ...);
-extern "C" int func_02046b24(HeadNode02046b24**);
+extern "C" int func_02046b24(Struct_02015438**);
 extern "C" void func_0204719c(void*);
-extern "C" void func_0207dfc8(State0207dfc8*, State0207dfc8*);
+extern "C" void func_0207dfc8(Struct_02015ef4_5*, Struct_02015ef4_5*);
 extern "C" void func_0207df90(char*);
 extern "C" void func_02047b30(void*, int, int, int);
 extern "C" void func_0207dfac(char*);
 extern "C" void* func_020100bc(GameState*);
-extern "C" void func_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
-extern "C" void func_020473c8(StructAt020473c8*, int);
+extern "C" void func_0202ec84(void*, Struct_02015ef4*, int*, int*);
+extern "C" void func_020473c8(Struct_02015ef4_2*, int);
 
-struct NameBuf {
-    char s[0x20];
+struct Struct_020e6e88 {
+    char unknown_0_[0x20];
 };
-extern NameBuf data_020e6e88;
+extern Struct_020e6e88 data_020e6e88;
 extern char data_020ef20b[];
 
 // USA: func_02015ef4
-extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
-    GameState* gs = GameState::GetInstance();
-    ChestDisplayState* entry = &reinterpret_cast<ChestDisplayState*>(self->unknown_47c_)[index];
-    LootableContainerManager* containers = LootableContainerManager::GetMainInstance();
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    int protagonistId = gs->GetProtagonist()->obj3D_.unknown_4_;
-    int playerId = gs->GetUnknownGameObject()->obj3D_.unknown_4_;
-    int visible = 0;
-    self->unk_23bc[1] = 0;
-    if (entry->state == 0 || entry->state == 8) {
-        if (entry->object) {
-            func_02047230((Foo02048004*)entry->object);
-            entry->object = 0;
+extern "C" ARM int func_02015ef4(Zone3D* arg0, int arg1) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_02015ef4_8* var1 = &reinterpret_cast<Struct_02015ef4_8*>(arg0->unknown_47c_)[arg1];
+    LootableContainerManager* var2 = LootableContainerManager::GetMainInstance();
+    BackgroundLoader* var3 = BackgroundLoader::GetInstance();
+    int var4 = var0->GetProtagonist()->obj3D_.unknown_4_;
+    int var5 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
+    int var6 = 0;
+    arg0->unk_23bc[1] = 0;
+    if (var1->unknown_16_ == 0 || var1->unknown_16_ == 8) {
+        if (var1->unknown_20_) {
+            func_02047230((Struct_02012fa4*)var1->unknown_20_);
+            var1->unknown_20_ = 0;
         }
         return -1;
     }
-    unsigned int delta = gs->GetEffectiveDeltaTime();
-    int tick = gs->GetTickCount() + 1;
-    if (entry->state == 2) {
-        self->unk_23bc[1] = 1;
-        func_02015ae4(entry);
-        ChestRecord* rec = 0;
-        if (entry->kind == 0 || entry->kind == 1) {
-            rec = (ChestRecord*)containers->GetContainerByID(entry->uniqueID, 0);
-        } else if (entry->kind == 2) {
-            rec = (ChestRecord*)func_02094d5c((GetElement02094d5cList*)self->unknown_struct_2724_, entry->uniqueID);
+    unsigned int var7 = var0->GetEffectiveDeltaTime();
+    int var8 = var0->GetTickCount() + 1;
+    if (var1->unknown_16_ == 2) {
+        arg0->unk_23bc[1] = 1;
+        func_02015ae4(var1);
+        Struct_02015ef4_6* var9 = 0;
+        if (var1->unknown_17_ == 0 || var1->unknown_17_ == 1) {
+            var9 = (Struct_02015ef4_6*)var2->GetContainerByID(var1->unknown_1c_, 0);
+        } else if (var1->unknown_17_ == 2) {
+            var9 = (Struct_02015ef4_6*)func_02094d5c((Struct_02015ef4_3*)arg0->unknown_struct_2724_, var1->unknown_1c_);
         }
-        if (!rec) {
-            entry->state = 8;
+        if (!var9) {
+            var1->unknown_16_ = 8;
             return 0;
         }
-        func_020159c0((Holder020159c0*)self, (signed char)protagonistId);
-        if (entry->owner == playerId) {
-            if (rec->lootType == 1) {
-                NameBuf name = data_020e6e88;
-                entry->taskID = loader->QueueLoadFile(name.s, 0);
-                entry->state = 4;
+        func_020159c0((Struct_020159c0_2*)arg0, (signed char)var4);
+        if (var1->unknown_14_ == var5) {
+            if (var9->unknown_4_2_ == 1) {
+                Struct_020e6e88 var10 = data_020e6e88;
+                var1->unknown_12_ = var3->QueueLoadFile(var10.unknown_0_, 0);
+                var1->unknown_16_ = 4;
                 return 0;
-            } else if (rec->lootType == 2) {
-                PackedElement* packed = (PackedElement*)func_020dedd0((Container020dedd0*)self->unknown_struct_2754_, rec->key);
-                if (packed && packed->marker != 0x5617) {
-                    int field = func_020de234((StructDE234_020de234*)packed, 0);
-                    char path[0x50];
-                    sprintf(path, data_020ef20b, (signed char)packed->code, field);
-                    entry->taskID = loader->QueueLoadFile(path, 0);
-                    entry->state = 4;
+            } else if (var9->unknown_4_2_ == 2) {
+                Struct_02015ef4_7* var11 = (Struct_02015ef4_7*)func_020dedd0((Struct_0201099c_10*)arg0->unknown_struct_2754_, var9->unknown_2_);
+                if (var11 && var11->unknown_18_ != 0x5617) {
+                    int var12 = func_020de234((Struct_02015ef4_4*)var11, 0);
+                    char var13[0x50];
+                    sprintf(var13, data_020ef20b, (signed char)var11->unknown_12_4_, var12);
+                    var1->unknown_12_ = var3->QueueLoadFile(var13, 0);
+                    var1->unknown_16_ = 4;
                     return 0;
                 }
             }
         }
-        entry->object = 0;
-        entry->state = 5;
-    } else if (entry->state == 4) {
-        self->unk_23bc[1] = 1;
-        func_02015ae4(entry);
-        if (loader->GetTaskStatus(entry->taskID) == 0) return 0;
-        void* file = 0;
-        unsigned int size = 0;
-        loader->GetLoadedFileByID(entry->taskID, &file, &size);
-        GameResources* root = GetGameResources();
-        HeadNode02046b24** head = (HeadNode02046b24**)root->unknown_ptr_array_36fc[0];
-        if (file && func_02046b24(head) != 4) {
-            Foo02048004* slot = &reinterpret_cast<Foo02048004*>(self->unk_600)[entry->owner];
-            entry->object = slot;
-            func_0204719c(slot);
-            entry->object->bit2 = 1;
-            char saved[0x70];
-            func_0207dfc8((State0207dfc8*)self->unknown_ptr_50_, (State0207dfc8*)saved);
-            func_0207df90(saved);
-            func_02047b30(entry->object, (int)file, size, (int)self->pAllocator_68_);
-            func_0207dfac(saved);
-            *reinterpret_cast<int*>(self->unk_600 + 0x220) = 0x1f;
-            entry->delay = 0;
+        var1->unknown_20_ = 0;
+        var1->unknown_16_ = 5;
+    } else if (var1->unknown_16_ == 4) {
+        arg0->unk_23bc[1] = 1;
+        func_02015ae4(var1);
+        if (var3->GetTaskStatus(var1->unknown_12_) == 0) return 0;
+        void* var14 = 0;
+        unsigned int var15 = 0;
+        var3->GetLoadedFileByID(var1->unknown_12_, &var14, &var15);
+        GameResources* var16 = GetGameResources();
+        Struct_02015438** var17 = (Struct_02015438**)var16->unknown_ptr_array_36fc[0];
+        if (var14 && func_02046b24(var17) != 4) {
+            Struct_02012fa4* var18 = &reinterpret_cast<Struct_02012fa4*>(arg0->unknown_600_)[var1->unknown_14_];
+            var1->unknown_20_ = var18;
+            func_0204719c(var18);
+            var1->unknown_20_->unknown_84_2_ = 1;
+            char var19[0x70];
+            func_0207dfc8((Struct_02015ef4_5*)arg0->unknown_ptr_50_, (Struct_02015ef4_5*)var19);
+            func_0207df90(var19);
+            func_02047b30(var1->unknown_20_, (int)var14, var15, (int)arg0->pAllocator_68_);
+            func_0207dfac(var19);
+            *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) = 0x1f;
+            var1->unknown_19_ = 0;
         } else {
-            entry->object = 0;
+            var1->unknown_20_ = 0;
         }
-        loader->RemoveTask(entry->taskID);
-        entry->taskID = -1;
-        entry->state = 5;
-    } else if (entry->state == 5) {
-        self->unk_23bc[1] = 1;
-        if (entry->counter > 0xd) visible = 1;
-        if (func_02015ae4(entry)) {
-            entry->counter = 0;
-            entry->state = 6;
+        var3->RemoveTask(var1->unknown_12_);
+        var1->unknown_12_ = -1;
+        var1->unknown_16_ = 5;
+    } else if (var1->unknown_16_ == 5) {
+        arg0->unk_23bc[1] = 1;
+        if (var1->unknown_10_ > 0xd) var6 = 1;
+        if (func_02015ae4(var1)) {
+            var1->unknown_10_ = 0;
+            var1->unknown_16_ = 6;
         }
-    } else if (entry->state == 6) {
-        self->unk_23bc[1] = 1;
-        visible = 1;
-        entry->counter += delta;
-        if (entry->counter > 500) {
-            entry->state = 7;
-            entry->counter = 0;
+    } else if (var1->unknown_16_ == 6) {
+        arg0->unk_23bc[1] = 1;
+        var6 = 1;
+        var1->unknown_10_ += var7;
+        if (var1->unknown_10_ > 500) {
+            var1->unknown_16_ = 7;
+            var1->unknown_10_ = 0;
         }
-    } else if (entry->state == 7) {
-        self->unk_23bc[1] = 1;
-        visible = 1;
-        if (entry->special == 1) {
-            if (func_02015cd0(entry)) {
-                entry->angleX = 0x647a;
-                entry->state = 1;
-                if (entry->object) {
-                    func_02047230((Foo02048004*)entry->object);
-                    entry->object = 0;
+    } else if (var1->unknown_16_ == 7) {
+        arg0->unk_23bc[1] = 1;
+        var6 = 1;
+        if (var1->unknown_18_ == 1) {
+            if (func_02015cd0(var1)) {
+                var1->unknown_e_ = 0x647a;
+                var1->unknown_16_ = 1;
+                if (var1->unknown_20_) {
+                    func_02047230((Struct_02012fa4*)var1->unknown_20_);
+                    var1->unknown_20_ = 0;
                 }
             }
-        } else if (func_02015cd0(entry)) {
-            entry->angleX = 0x4000;
-            entry->state = 8;
-            if (entry->object) {
-                func_02047230((Foo02048004*)entry->object);
-                entry->object = 0;
+        } else if (func_02015cd0(var1)) {
+            var1->unknown_e_ = 0x4000;
+            var1->unknown_16_ = 8;
+            if (var1->unknown_20_) {
+                func_02047230((Struct_02012fa4*)var1->unknown_20_);
+                var1->unknown_20_ = 0;
             }
         }
     }
-    if (static_cast<unsigned char*>(GetGameResources()->unknown_ptr_array_3afc[0x22])[3] != 0) visible = 0;
-    if (entry->object && visible) {
-        self->unk_23bc[1] = 1;
-        int x = 0;
-        int y = 0;
-        void* camera = func_020100bc(gs);
-        if (camera) func_0202ec84(camera, (Vec3copy0202ec84*)entry, &x, &y);
-        x -= 12;
-        y -= 0x28;
-        if (entry->delay < 10) entry->delay++;
-        if (entry->state == 7 && entry->object) {
-            if (tick < *reinterpret_cast<int*>(self->unk_600 + 0x220)) {
-                *reinterpret_cast<int*>(self->unk_600 + 0x220) -= tick;
+    if (static_cast<unsigned char*>(GetGameResources()->unknown_ptr_array_3afc[0x22])[3] != 0) var6 = 0;
+    if (var1->unknown_20_ && var6) {
+        arg0->unk_23bc[1] = 1;
+        int var20 = 0;
+        int var21 = 0;
+        void* var22 = func_020100bc(var0);
+        if (var22) func_0202ec84(var22, (Struct_02015ef4*)var1, &var20, &var21);
+        var20 -= 12;
+        var21 -= 0x28;
+        if (var1->unknown_19_ < 10) var1->unknown_19_++;
+        if (var1->unknown_16_ == 7 && var1->unknown_20_) {
+            if (var8 < *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220)) {
+                *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) -= var8;
             } else {
-                *reinterpret_cast<int*>(self->unk_600 + 0x220) = 0;
-                entry->object = 0;
+                *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220) = 0;
+                var1->unknown_20_ = 0;
                 return 0;
             }
         }
-        if (x >= -24 && x < 256 && y >= -24 && y < 192) {
-            int timer = *reinterpret_cast<int*>(self->unk_600 + 0x220);
-            entry->object->field82 = timer;
-            int px = x;
-            int offsetY = y - entry->delay;
-            Foo02048004* obj = entry->object;
-            obj->words1c[0] = px << 12;
-            obj->words1c[1] = offsetY << 12;
-            obj->words1c[2] = 0;
-            func_020473c8((StructAt020473c8*)entry->object, 1);
+        if (var20 >= -24 && var20 < 256 && var21 >= -24 && var21 < 192) {
+            int var23 = *reinterpret_cast<int*>(arg0->unknown_600_ + 0x220);
+            var1->unknown_20_->unknown_82_ = var23;
+            int var24 = var20;
+            int var25 = var21 - var1->unknown_19_;
+            Struct_02012fa4* var26 = var1->unknown_20_;
+            var26->unknown_1c_[0] = var24 << 12;
+            var26->unknown_1c_[1] = var25 << 12;
+            var26->unknown_1c_[2] = 0;
+            func_020473c8((Struct_02015ef4_2*)var1->unknown_20_, 1);
         }
     }
     return 0;

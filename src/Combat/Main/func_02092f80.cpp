@@ -2,15 +2,15 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-struct Container020dffc8 {
-    unsigned int count : 12;
-    unsigned int stringBytes : 19;
-    unsigned int ownsStorage : 1;
-    void* elements;
-    void* strings;
+struct Struct_020dfec0 {
+    unsigned int unknown_0_0_ : 12;
+    unsigned int unknown_1_4_ : 19;
+    unsigned int unknown_3_7_ : 1;
+    void* unknown_4_;
+    void* unknown_8_;
 };
 
-extern "C" int func_020dfec0(Container020dffc8* dest, SafeAllocator* allocator, void* fileData, unsigned int size);
+extern "C" int func_020dfec0(Struct_020dfec0* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 
 #if defined(jpn)
 extern const char data_020f143c[];
@@ -18,46 +18,46 @@ extern const char data_020f143c[];
 extern const char data_020f1368[];
 extern const char data_020f1382[];
 
-struct Obj02092f80 {
-    SafeAllocator allocator;
-    Container020dffc8 container;
-    unsigned char unknown20[0xc];
-    int taskId;
-    unsigned char pad2c[0x34 - 0x30];
-    unsigned char field_34;
-    unsigned char field_35;
-    unsigned char field_36;
-    unsigned char field_37;
+struct Struct_02092f80 {
+    SafeAllocator unknown_0_;
+    Struct_020dfec0 unknown_14_;
+    unsigned char unknown_20_[0xc];
+    int unknown_2c_;
+    unsigned char unknown_30_[0x34 - 0x30];
+    unsigned char unknown_34_;
+    unsigned char unknown_35_;
+    unsigned char unknown_36_;
+    unsigned char unknown_37_;
 };
 
 // USA: func_02092f80
-extern "C" ARM void func_02092f80(Obj02092f80* obj) {
-    BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    unsigned char state = obj->field_35;
+extern "C" ARM void func_02092f80(Struct_02092f80* arg0) {
+    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    unsigned char var1 = arg0->unknown_35_;
 
-    if (state == 0) {
+    if (var1 == 0) {
 #if defined(jpn)
-        obj->taskId = loader->QueueLoadFile(data_020f143c, NULL);
+        arg0->unknown_2c_ = var0->QueueLoadFile(data_020f143c, NULL);
 #else
-        obj->taskId = loader->QueueLoadFileInGP2(data_020f1368, data_020f1382, NULL);
+        arg0->unknown_2c_ = var0->QueueLoadFileInGP2(data_020f1368, data_020f1382, NULL);
 #endif
-        obj->field_35++;
-    } else if (state == 1) {
-        if (loader->GetTaskStatus(obj->taskId)) {
-            void* fileData;
-            unsigned int fileSize;
-            loader->GetLoadedFileByID(obj->taskId, &fileData, &fileSize);
-            obj->allocator.Reset();
-            func_020dfec0(&obj->container, &obj->allocator, fileData, fileSize);
-            loader->RemoveTask(obj->taskId);
-            obj->taskId = -1;
-            obj->field_35++;
+        arg0->unknown_35_++;
+    } else if (var1 == 1) {
+        if (var0->GetTaskStatus(arg0->unknown_2c_)) {
+            void* var2;
+            unsigned int var3;
+            var0->GetLoadedFileByID(arg0->unknown_2c_, &var2, &var3);
+            arg0->unknown_0_.Reset();
+            func_020dfec0(&arg0->unknown_14_, &arg0->unknown_0_, var2, var3);
+            var0->RemoveTask(arg0->unknown_2c_);
+            arg0->unknown_2c_ = -1;
+            arg0->unknown_35_++;
         }
-    } else if (state == 2) {
-        obj->field_34 = 3;
-        obj->field_35 = 0;
-        if (obj->field_37 & 0x1) obj->field_34 = 1;
-        if (!(obj->field_37 & 0x8)) obj->field_37 |= 0x4;
-        obj->field_36 = 0;
+    } else if (var1 == 2) {
+        arg0->unknown_34_ = 3;
+        arg0->unknown_35_ = 0;
+        if (arg0->unknown_37_ & 0x1) arg0->unknown_34_ = 1;
+        if (!(arg0->unknown_37_ & 0x8)) arg0->unknown_37_ |= 0x4;
+        arg0->unknown_36_ = 0;
     }
 }

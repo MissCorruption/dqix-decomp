@@ -9,19 +9,19 @@
 #endif
 
 
-struct Struct021a942c;
-extern "C" void func_ov017_021a942c(Struct021a942c* p);
-struct TailList020469b4;
-struct TailNode020469b4;
-extern "C" void func_020469b4(TailList020469b4* list, TailNode020469b4* node);
+struct Struct_ov017_021a93f0;
+extern "C" void func_ov017_021a942c(Struct_ov017_021a93f0* arg0);
+struct Struct_0201bdac_2;
+struct Struct_0201bdac;
+extern "C" void func_020469b4(Struct_0201bdac_2* arg0, Struct_0201bdac* arg1);
 
 // USA: func_ov017_021a93f0
-extern "C" ARM void func_ov017_021a93f0(void* unused, int val0xc, int val0x10) {
-	char* base = (char*)GetGameResources() + 0x3000;
-	TailList020469b4* list = *(TailList020469b4**)(base + REGION_FIELD_0);
-	Struct021a942c* node = *(Struct021a942c**)(base + REGION_FIELD_1);
-	func_ov017_021a942c(node);
-	*(int*)((char*)node + 0xc) = val0xc;
-	*(int*)((char*)node + 0x10) = val0x10;
-	func_020469b4(list, (TailNode020469b4*)node);
+extern "C" ARM void func_ov017_021a93f0(void* arg0, int arg1, int arg2) {
+	char* var0 = (char*)GetGameResources() + 0x3000;
+	Struct_0201bdac_2* var1 = *(Struct_0201bdac_2**)(var0 + REGION_FIELD_0);
+	Struct_ov017_021a93f0* var2 = *(Struct_ov017_021a93f0**)(var0 + REGION_FIELD_1);
+	func_ov017_021a942c(var2);
+	*(int*)((char*)var2 + 0xc) = arg1;
+	*(int*)((char*)var2 + 0x10) = arg2;
+	func_020469b4(var1, (Struct_0201bdac*)var2);
 }

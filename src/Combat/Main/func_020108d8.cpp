@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kSlotStride = 0x8cc };
+enum { Enum_020108d8_2404 = 0x8cc };
 #else
-enum { kSlotStride = 0x964 };
+enum { Enum_020108d8_2404 = 0x964 };
 #endif
 
 // USA: func_020108d8
-extern "C" ARM void* func_020108d8(char* base, int index) {
-    return base + 0x474 + index * kSlotStride;
+extern "C" ARM void* func_020108d8(char* arg0, int arg1) {
+    return arg0 + 0x474 + arg1 * Enum_020108d8_2404;
 }

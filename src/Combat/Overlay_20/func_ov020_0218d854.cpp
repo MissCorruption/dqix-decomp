@@ -1,28 +1,28 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kTimerOffset = 0x474 };
+enum { Enum_ov020_0218d854_1252 = 0x474 };
 #else
-enum { kTimerOffset = 0x4e4 };
+enum { Enum_ov020_0218d854_1252 = 0x4e4 };
 #endif
 
 #include "GameState/GameState.h"
 
-struct FieldGroup4e4_0218d854 {
-    char pad[kTimerOffset];
-    int remainingMilliseconds;
+struct Struct_ov020_0218d854 {
+    char unknown_0_[Enum_ov020_0218d854_1252];
+    int unknown_4e4_;
 
-    int IsTimerActive() const { return remainingMilliseconds > 0; }
+    int inline_ov020_0218d854() const { return unknown_4e4_ > 0; }
 };
 
 // USA: func_ov020_0218d854
-extern "C" ARM void func_ov020_0218d854(struct FieldGroup4e4_0218d854* obj) {
-    int elapsedMilliseconds = GameState::GetInstance()->GetEffectiveDeltaTime();
-    if (!obj->IsTimerActive()) {
+extern "C" ARM void func_ov020_0218d854(struct Struct_ov020_0218d854* arg0) {
+    int var0 = GameState::GetInstance()->GetEffectiveDeltaTime();
+    if (!arg0->inline_ov020_0218d854()) {
         return;
     }
-    obj->remainingMilliseconds -= elapsedMilliseconds;
-    if (obj->remainingMilliseconds <= 0) {
-        obj->remainingMilliseconds = 0;
+    arg0->unknown_4e4_ -= var0;
+    if (arg0->unknown_4e4_ <= 0) {
+        arg0->unknown_4e4_ = 0;
     }
 }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct S020a3568 {
-    char pad[0x218];
-    int field0x218;
+struct Struct_020a3568 {
+    char unknown_0_[0x218];
+    int unknown_218_;
 };
 
 // USA: func_020a3568
-extern "C" ARM void func_020a3568(struct S020a3568* p, int v) {
-    p->field0x218 = v;
+extern "C" ARM void func_020a3568(struct Struct_020a3568* arg0, int arg1) {
+    arg0->unknown_218_ = arg1;
 }

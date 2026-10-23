@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { FIELD_OFFSET = 0x1c2 };
+enum { Enum_02039dd8_462 = 0x1c2 };
 #else
-enum { FIELD_OFFSET = 0x1ce };
+enum { Enum_02039dd8_462 = 0x1ce };
 #endif
 
 // USA: func_02039dd8
-extern "C" ARM void func_02039dd8(unsigned char* obj) {
-    obj[FIELD_OFFSET] |= 0x10;
+extern "C" ARM void func_02039dd8(unsigned char* arg0) {
+    arg0[Enum_02039dd8_462] |= 0x10;
 }

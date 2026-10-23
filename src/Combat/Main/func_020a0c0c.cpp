@@ -2,10 +2,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "NitroSDK/Memory/AllocatorUnion.h"
 
-struct Struct02012dd0;
-extern "C" unsigned int func_02012dd0(struct Struct02012dd0* self);
-extern "C" void* func_02012d88(AllocatorUnion* alloc, unsigned int size);
-extern "C" void func_02012da4(AllocatorUnion* alloc, void* data);
+struct Struct_02114e20;
+extern "C" unsigned int func_02012dd0(struct Struct_02114e20* arg0);
+extern "C" void* func_02012d88(AllocatorUnion* arg0, unsigned int arg1);
+extern "C" void func_02012da4(AllocatorUnion* arg0, void* arg1);
 unsigned int LoadROMFilesystemFileTables(void* where, unsigned int capacity);
 void CacheMainFileAccessors();
 
@@ -14,32 +14,32 @@ extern void* data_02109d90;
 
 // USA: func_020a0c0c
 extern "C" ARM void func_020a0c0c() {
-    unsigned int max;
-    void* tmp;
-    BackgroundLoader* loader;
-    unsigned int size;
+    unsigned int var0;
+    void* var1;
+    BackgroundLoader* var2;
+    unsigned int var3;
 
     if (data_02109d90 != NULL)
         return;
 
-    size = LoadROMFilesystemFileTables(NULL, 0);
-    max = func_02012dd0((Struct02012dd0*)&data_02114e20);
-    if (size + 0x10 > max)
+    var3 = LoadROMFilesystemFileTables(NULL, 0);
+    var0 = func_02012dd0((Struct_02114e20*)&data_02114e20);
+    if (var3 + 0x10 > var0)
         return;
 
-    loader = BackgroundLoader::GetInstance();
-    if (loader != NULL)
-        loader->AddLock();
+    var2 = BackgroundLoader::GetInstance();
+    if (var2 != NULL)
+        var2->AddLock();
 
-    tmp = func_02012d88(&data_02114e20, max - (size + 0x10));
-    data_02109d90 = func_02012d88(&data_02114e20, size);
-    func_02012da4(&data_02114e20, tmp);
+    var1 = func_02012d88(&data_02114e20, var0 - (var3 + 0x10));
+    data_02109d90 = func_02012d88(&data_02114e20, var3);
+    func_02012da4(&data_02114e20, var1);
 
     if (data_02109d90 != NULL)
-        LoadROMFilesystemFileTables(data_02109d90, size);
+        LoadROMFilesystemFileTables(data_02109d90, var3);
 
-    if (loader != NULL)
-        loader->RemoveLock();
+    if (var2 != NULL)
+        var2->RemoveLock();
 
     CacheMainFileAccessors();
 }

@@ -1,107 +1,107 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct List02169b04;
+struct Struct_ov000_02169b04;
 
-struct List021600f8 {
-    char pad0[9];
-    unsigned char count;
+struct Struct_ov000_0215440c {
+    char unknown_0_[9];
+    unsigned char unknown_9_;
 };
 
-struct ListNode021600f8 {
-    char pad0[0x18];
-    unsigned char depthCount;
+struct Struct_ov000_021600f8 {
+    char unknown_0_[0x18];
+    unsigned char unknown_18_;
 };
 
-struct DepthNode0215fff4 {
-    char pad0[8];
-    void* entry;
+struct Struct_ov025_021e9b2c {
+    char unknown_0_[8];
+    void* unknown_8_;
 };
 
-struct Obj021e9b2c {
-    struct List02169b04* keys;
-    char pad4[0x1c4 - 0x4];
-    unsigned int flags;
-    char pad1c8[0x53c - 0x1c8];
-    unsigned char active;
-    char pad53d[0x5c8 - 0x53d];
-    unsigned short targetIndex;
+struct Struct_ov025_021e9778_3 {
+    struct Struct_ov000_02169b04* unknown_0_;
+    char unknown_4_[0x1c4 - 0x4];
+    unsigned int unknown_1c4_;
+    char unknown_1c8_[0x53c - 0x1c8];
+    unsigned char unknown_53c_;
+    char unknown_53d_[0x5c8 - 0x53d];
+    unsigned short unknown_5c8_;
 };
 
 extern unsigned int data_ov025_021ef9a4;
 
 extern "C" void* func_ov000_02160130(void);
-extern "C" List021600f8* func_ov000_02160f20(void* work);
-extern "C" void func_ov025_021df9b0(void* fields);
-struct GatherObj02163a7c;
-extern "C" void func_ov000_02163a7c(GatherObj02163a7c*);
-extern "C" void* func_ov000_02169b04(struct List02169b04* list, int key);
-extern "C" ListNode021600f8* func_ov000_021600f8(List021600f8* list, int index);
-extern "C" DepthNode0215fff4* func_ov000_0215fff4(void* node, int index, int depth);
-extern "C" short func_ov000_0215ffa0(void* node);
-extern "C" void func_ov025_021eb6fc(Obj021e9b2c* self, int arg);
-extern "C" void func_ov025_021ea474(Obj021e9b2c* self);
-extern "C" void func_ov025_021eb7fc(Obj021e9b2c* self);
-extern "C" void func_ov025_021e9d14(Obj021e9b2c* self);
-extern "C" void func_ov025_021ea958(Obj021e9b2c* self, bool isParty, int a, int b);
+extern "C" Struct_ov000_0215440c* func_ov000_02160f20(void* arg0);
+extern "C" void func_ov025_021df9b0(void* arg0);
+struct Struct_ov000_02163a7c;
+extern "C" void func_ov000_02163a7c(Struct_ov000_02163a7c*);
+extern "C" void* func_ov000_02169b04(struct Struct_ov000_02169b04* arg0, int arg1);
+extern "C" Struct_ov000_021600f8* func_ov000_021600f8(Struct_ov000_0215440c* arg0, int arg1);
+extern "C" Struct_ov025_021e9b2c* func_ov000_0215fff4(void* arg0, int arg1, int arg2);
+extern "C" short func_ov000_0215ffa0(void* arg0);
+extern "C" void func_ov025_021eb6fc(Struct_ov025_021e9778_3* arg0, int arg1);
+extern "C" void func_ov025_021ea474(Struct_ov025_021e9778_3* arg0);
+extern "C" void func_ov025_021eb7fc(Struct_ov025_021e9778_3* arg0);
+extern "C" void func_ov025_021e9d14(Struct_ov025_021e9778_3* arg0);
+extern "C" void func_ov025_021ea958(Struct_ov025_021e9778_3* arg0, bool arg1, int arg2, int arg3);
 
 // USA: func_ov025_021e9b2c
-extern "C" ARM void func_ov025_021e9b2c(Obj021e9b2c* self) {
+extern "C" ARM void func_ov025_021e9b2c(Struct_ov025_021e9778_3* arg0) {
 #if defined(jpn)
- enum { regionalOffset = 0x5ca0 };
+ enum { Enum_ov025_021e9b2c_23216 = 0x5ca0 };
 #else
- enum { regionalOffset = 0x5ab0 };
+ enum { Enum_ov025_021e9b2c_23216 = 0x5ab0 };
 #endif
     GameState::GetInstance();
-    void* work = func_ov000_02160130();
-    List021600f8* slot = func_ov000_02160f20(work);
+    void* var0 = func_ov000_02160130();
+    Struct_ov000_0215440c* var1 = func_ov000_02160f20(var0);
     if (data_ov025_021ef9a4 & 8) {
-        func_ov025_021eb6fc(self, 0);
-        func_ov025_021ea474(self);
-        func_ov025_021eb7fc(self);
-        func_ov025_021df9b0((char*)work + regionalOffset);
-        func_ov000_02163a7c((GatherObj02163a7c*)work);
+        func_ov025_021eb6fc(arg0, 0);
+        func_ov025_021ea474(arg0);
+        func_ov025_021eb7fc(arg0);
+        func_ov025_021df9b0((char*)var0 + Enum_ov025_021e9b2c_23216);
+        func_ov000_02163a7c((Struct_ov000_02163a7c*)var0);
     }
-    if (self->flags & 0x10) {
-        self->flags &= ~0x10;
+    if (arg0->unknown_1c4_ & 0x10) {
+        arg0->unknown_1c4_ &= ~0x10;
         if (!(data_ov025_021ef9a4 & 0x20)) {
             data_ov025_021ef9a4 |= 0x20;
-            if (!((self->keys != NULL && func_ov000_02169b04(self->keys, 0x69) != NULL) ||
-                  func_ov000_02169b04(self->keys, 0x89) != NULL)) {
-                func_ov025_021e9d14(self);
+            if (!((arg0->unknown_0_ != NULL && func_ov000_02169b04(arg0->unknown_0_, 0x69) != NULL) ||
+                  func_ov000_02169b04(arg0->unknown_0_, 0x89) != NULL)) {
+                func_ov025_021e9d14(arg0);
             }
-            int allIdle = 1;
-            for (int i = 0; i < slot->count; i++) {
-                ListNode021600f8* node = func_ov000_021600f8(slot, i);
-                if (node == NULL) {
+            int var2 = 1;
+            for (int var3 = 0; var3 < var1->unknown_9_; var3++) {
+                Struct_ov000_021600f8* var4 = func_ov000_021600f8(var1, var3);
+                if (var4 == NULL) {
                     continue;
                 }
-                for (int j = 0; j < node->depthCount; j++) {
-                    DepthNode0215fff4* d = func_ov000_0215fff4(node, j, 0);
-                    if (d != NULL && d->entry != NULL) {
-                        allIdle = 0;
+                for (int var5 = 0; var5 < var4->unknown_18_; var5++) {
+                    Struct_ov025_021e9b2c* var6 = func_ov000_0215fff4(var4, var5, 0);
+                    if (var6 != NULL && var6->unknown_8_ != NULL) {
+                        var2 = 0;
                         break;
                     }
                 }
             }
-            if (allIdle) {
-                bool isParty = true;
-                ListNode021600f8* first = func_ov000_021600f8(slot, 0);
-                if (first != NULL) {
-                    int index = func_ov000_0215ffa0(first);
-                    isParty = (index >= 0 && index <= 3) ? 1 : 0;
+            if (var2) {
+                bool var7 = true;
+                Struct_ov000_021600f8* var8 = func_ov000_021600f8(var1, 0);
+                if (var8 != NULL) {
+                    int var9 = func_ov000_0215ffa0(var8);
+                    var7 = (var9 >= 0 && var9 <= 3) ? 1 : 0;
                 }
-                func_ov025_021ea958(self, isParty, 1, -1);
+                func_ov025_021ea958(arg0, var7, 1, -1);
             } else {
-                self->active = 0;
+                arg0->unknown_53c_ = 0;
             }
         }
     }
-    if (self->targetIndex >= 0xff) {
+    if (arg0->unknown_5c8_ >= 0xff) {
         return;
     }
-    if (self->active == 0) {
+    if (arg0->unknown_53c_ == 0) {
         return;
     }
-    func_ov025_021ea958(self, (self->targetIndex <= 3) ? 1 : 0, 1, -1);
+    func_ov025_021ea958(arg0, (arg0->unknown_5c8_ <= 3) ? 1 : 0, 1, -1);
 }

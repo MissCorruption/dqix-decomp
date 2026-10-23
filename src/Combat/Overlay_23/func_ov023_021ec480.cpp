@@ -20,317 +20,317 @@
 
 struct GameResources;
 struct Struct_0205d81c;
-struct Struct0209c830;
-struct Entry_0205d6a0;
-struct Container020e0310;
+struct Struct_02109bf4_2;
+struct Struct_0205d6a0;
+struct Struct_0201099c_3;
 
-struct BackgroundGraphics_021ec480 {
-    char unk_0[0x1c];
-    unsigned char unk_1c_0_ : 4;
-    unsigned char unk_1c_4_ : 4;
-    unsigned char unk_1d;
-    char unk_1e[2];
+struct Struct_ov023_021ec480_3 {
+    char unknown_0_[0x1c];
+    unsigned char unknown_1c_0_ : 4;
+    unsigned char unknown_1c_4_ : 4;
+    unsigned char unknown_1d_;
+    char unknown_1e_[2];
 };
 
-struct MessageSystem_021ec480 {
+struct Struct_ov023_021ec480_4 {
 #if defined(jpn)
-    char unk_0[0x868];
+    char unknown_0_[0x868];
 #else
-    char unk_0[0x998];
+    char unknown1_0_[0x998];
 #endif
-    int busy_;
+    int unknown_998_;
 #if defined(jpn)
-    char unk_99c[0x17de - 0x86c];
+    char unknown_86c_[0x17de - 0x86c];
 #else
-    char unk_99c[0x19ae - 0x99c];
+    char unknown_99c_[0x19ae - 0x99c];
 #endif
-    unsigned char unk_19ae;
-    char unk_19af[0x19b2 - 0x19af];
-    unsigned char unk_19b2;
+    unsigned char unknown_19ae_;
+    char unknown_19af_[0x19b2 - 0x19af];
+    unsigned char unknown_19b2_;
 #if defined(jpn)
-    char unk_19b3[0x17f9 - 0x17e3];
+    char unknown_17e3_[0x17f9 - 0x17e3];
 #else
-    char unk_19b3[0x19c8 - 0x19b3];
+    char unknown_19b3_[0x19c8 - 0x19b3];
 #endif
-    unsigned char unk_19c8;
+    unsigned char unknown_19c8_;
 };
 
-struct GuideWindow_021ec480 {
-    void* allocators_;
-    char texts_[0x18];
-    char* text_;
-    void* pages_;
-    int count_;
-    unsigned char page_;
-    char unk_29;
-    char unk_2a[0x10];
-    unsigned char unk_3a;
-    unsigned char unk_3b;
-    unsigned int mainLayers_;
-    unsigned int subLayers_;
-    BackgroundGraphics_021ec480 backgrounds_[2];
-    BackgroundGraphics_021ec480 subBackgrounds_[2];
-    char window_[0xbc];
-    char canvases_[3][0xe0];
-    void* pixels_;
-    void* renderer_;
-    void* sprites_;
-    void* animations_;
-    unsigned char type_;
-    unsigned char state_;
-    unsigned char step_;
-    unsigned char titleStep_;
-    int task_;
-    unsigned short flags_;
+struct Struct_ov023_021ec480 {
+    void* unknown_0_;
+    char unknown_4_[0x18];
+    char* unknown_1c_;
+    void* unknown_20_;
+    int unknown_24_;
+    unsigned char unknown_28_;
+    char unknown_29_;
+    char unknown_2a_[0x10];
+    unsigned char unknown_3a_;
+    unsigned char unknown_3b_;
+    unsigned int unknown_3c_;
+    unsigned int unknown_40_;
+    Struct_ov023_021ec480_3 unknown_44_[2];
+    Struct_ov023_021ec480_3 unknown_84_[2];
+    char unknown_c4_[0xbc];
+    char unknown_180_[3][0xe0];
+    void* unknown_420_;
+    void* unknown_424_;
+    void* unknown_428_;
+    void* unknown_42c_;
+    unsigned char unknown_430_;
+    unsigned char unknown_431_;
+    unsigned char unknown_432_;
+    unsigned char unknown_433_;
+    int unknown_434_;
+    unsigned short unknown_438_;
 };
 
-struct Bytes2_021ec480 {
-    unsigned char b[2];
+struct Struct_ov023_021ec480_2 {
+    unsigned char unknown_0_[2];
 };
 
 extern unsigned char data_ov023_021fd844[];
 extern char data_02108760[];
 extern char data_02109bf4[];
 
-extern "C" MessageSystem_021ec480* func_020421a0();
+extern "C" Struct_ov023_021ec480_4* func_020421a0();
 int IsBrightnessTransitionActive(GameResources* resources);
-extern "C" void func_0205ebc0(void* sound, int a, int b);
-extern "C" void func_0205ebfc(void* sound, int a, int b);
-extern "C" void func_0205deb4(Struct_0205d81c* window, int item, int value);
-extern "C" void func_0209c830(Struct0209c830* obj, int value);
-extern "C" int func_0206dfb0(int a, unsigned char* b, int flag);
-extern "C" int func_0209ca2c(void* obj);
-extern "C" int func_ov023_021ed014(struct GuideWindow_021ec480* window);
-extern "C" void func_0205d6a0(Entry_0205d6a0* window, int value);
-extern "C" void func_0205ebec(void* sound);
-extern "C" const char* func_020e0434(Container020e0310* texts, int id);
-extern "C" void func_02042058(char* text, const char* append);
-extern "C" void func_02043204(char* messages);
+extern "C" void func_0205ebc0(void* arg0, int arg1, int arg2);
+extern "C" void func_0205ebfc(void* arg0, int arg1, int arg2);
+extern "C" void func_0205deb4(Struct_0205d81c* arg0, int arg1, int arg2);
+extern "C" void func_0209c830(Struct_02109bf4_2* arg0, int arg1);
+extern "C" int func_0206dfb0(int arg0, unsigned char* arg1, int arg2);
+extern "C" int func_0209ca2c(void* arg0);
+extern "C" int func_ov023_021ed014(struct Struct_ov023_021ec480* arg0);
+extern "C" void func_0205d6a0(Struct_0205d6a0* arg0, int arg1);
+extern "C" void func_0205ebec(void* arg0);
+extern "C" const char* func_020e0434(Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_02042058(char* arg0, const char* arg1);
+extern "C" void func_02043204(char* arg0);
 
 extern "C" {
-int func_ov023_021ed064(GuideWindow_021ec480* self);
-void func_ov023_021ecbbc(GuideWindow_021ec480* self);
-void func_ov023_021ed194(GuideWindow_021ec480* self);
-void func_ov023_021ed354(GuideWindow_021ec480* self);
-void func_ov023_021ed4b8(GuideWindow_021ec480* self);
-void func_ov023_021ed600(GuideWindow_021ec480* self);
+int func_ov023_021ed064(Struct_ov023_021ec480* arg0);
+void func_ov023_021ecbbc(Struct_ov023_021ec480* arg0);
+void func_ov023_021ed194(Struct_ov023_021ec480* arg0);
+void func_ov023_021ed354(Struct_ov023_021ec480* arg0);
+void func_ov023_021ed4b8(Struct_ov023_021ec480* arg0);
+void func_ov023_021ed600(Struct_ov023_021ec480* arg0);
 void* func_0205ec34();
 #if defined(jpn)
-void func_0204500c(MessageSystem_021ec480* messages, const char* text, int a);
+void func_0204500c(Struct_ov023_021ec480_4* arg0, const char* arg1, int arg2);
 #else
-void func_0204500c(MessageSystem_021ec480* messages, const char* text, int a, int b);
+void func_0204500c(Struct_ov023_021ec480_4* arg0, const char* arg1, int arg2, int arg3);
 #endif
 }
 
-static inline int WasButtonPressed(GuideWindow_021ec480* self)
+static inline int inline_ov023_021ec480(Struct_ov023_021ec480* arg0)
 {
-    return func_ov023_021ed014(self);
+    return func_ov023_021ed014(arg0);
 }
 
 // USA: func_ov023_021ec480
-extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
+extern "C" ARM void func_ov023_021ec480(Struct_ov023_021ec480* arg0)
 {
 #if defined(jpn)
- enum {regionalOffset0=0x800};
+ enum {Enum_ov023_021ec480_2400=0x800};
 #else
- enum {regionalOffset0=0x960};
+ enum {Enum_ov023_021ec480_2400=0x960};
 #endif
-    GameResources* resources = GetGameResources();
-    MessageSystem_021ec480* messages = func_020421a0();
-    if (self->step_ >= 1 && self->step_ <= 3 && func_ov023_021ed064(self))
+    GameResources* var0 = GetGameResources();
+    Struct_ov023_021ec480_4* var1 = func_020421a0();
+    if (arg0->unknown_432_ >= 1 && arg0->unknown_432_ <= 3 && func_ov023_021ed064(arg0))
     {
-        self->step_ = 4;
+        arg0->unknown_432_ = 4;
         return;
     }
-    unsigned char step = self->step_;
-    if (step == 0)
+    unsigned char var2 = arg0->unknown_432_;
+    if (var2 == 0)
     {
-        if (IsBrightnessTransitionActive(resources))
+        if (IsBrightnessTransitionActive(var0))
             return;
-        if (!(self->flags_ & GUIDE_WINDOW_NO_DIMMING))
+        if (!(arg0->unknown_438_ & GUIDE_WINDOW_NO_DIMMING))
         {
-            if (self->subBackgrounds_[1].unk_1c_0_ == 0)
+            if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
                 ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x17, -8);
             else
                 ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x17, -8);
         }
-        int volume = 0x8c;
-        if (self->type_ == 2 || (self->type_ == 7 && (self->flags_ & GUIDE_WINDOW_MAIN_SCREEN)))
-            volume = 0x1b4;
-        func_0205ebc0(data_02108760, volume, volume);
-        func_ov023_021ecbbc(self);
-        self->step_++;
+        int var3 = 0x8c;
+        if (arg0->unknown_430_ == 2 || (arg0->unknown_430_ == 7 && (arg0->unknown_438_ & GUIDE_WINDOW_MAIN_SCREEN)))
+            var3 = 0x1b4;
+        func_0205ebc0(data_02108760, var3, var3);
+        func_ov023_021ecbbc(arg0);
+        arg0->unknown_432_++;
     }
-    if (step == 1)
+    if (var2 == 1)
     {
-        if (self->flags_ & GUIDE_WINDOW_OPENING)
+        if (arg0->unknown_438_ & GUIDE_WINDOW_OPENING)
             return;
-        func_ov023_021ed194(self);
-        self->flags_ |= GUIDE_WINDOW_TITLE_SCROLLING;
+        func_ov023_021ed194(arg0);
+        arg0->unknown_438_ |= GUIDE_WINDOW_TITLE_SCROLLING;
         func_0205ebfc(data_02108760, 0, 0);
-        self->step_++;
+        arg0->unknown_432_++;
     }
-    if (step == 2)
+    if (var2 == 2)
     {
-        if (self->flags_ & GUIDE_WINDOW_TITLE_SCROLLING)
+        if (arg0->unknown_438_ & GUIDE_WINDOW_TITLE_SCROLLING)
             return;
-        func_ov023_021ed354(self);
-        func_ov023_021ed4b8(self);
-        unsigned char items[2];
-        *(Bytes2_021ec480*)items = *(Bytes2_021ec480*)&data_ov023_021fd844[0xa];
-        for (int i = 0; i < 2; i++)
-            func_0205deb4((Struct_0205d81c*)self->window_, items[i], 0);
-        func_0209c830((Struct0209c830*)data_02109bf4, 0x40);
-        self->step_++;
+        func_ov023_021ed354(arg0);
+        func_ov023_021ed4b8(arg0);
+        unsigned char var4[2];
+        *(Struct_ov023_021ec480_2*)var4 = *(Struct_ov023_021ec480_2*)&data_ov023_021fd844[0xa];
+        for (int var5 = 0; var5 < 2; var5++)
+            func_0205deb4((Struct_0205d81c*)arg0->unknown_c4_, var4[var5], 0);
+        func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x40);
+        arg0->unknown_432_++;
     }
-    if (step == 3)
+    if (var2 == 3)
     {
-        self->flags_ |= GUIDE_WINDOW_SHOWN;
-        step++;
-        self->step_++;
+        arg0->unknown_438_ |= GUIDE_WINDOW_SHOWN;
+        var2++;
+        arg0->unknown_432_++;
     }
-    if (step == 4)
+    if (var2 == 4)
     {
-        if (!(self->flags_ & GUIDE_WINDOW_SHOWN))
+        if (!(arg0->unknown_438_ & GUIDE_WINDOW_SHOWN))
             return;
-        if (self->flags_ & GUIDE_WINDOW_UNK_400)
+        if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_400)
         {
-            void* unknown = func_0205ec34();
-            if (self->page_ == self->count_ - 1 && func_0206dfb0((int)unknown, (unsigned char*)unknown + 0x8c, 0x119a) &&
+            void* var6 = func_0205ec34();
+            if (arg0->unknown_28_ == arg0->unknown_24_ - 1 && func_0206dfb0((int)var6, (unsigned char*)var6 + 0x8c, 0x119a) &&
                 func_0209ca2c(data_02109bf4))
                 return;
         }
-        if (WasButtonPressed(self))
-            self->step_++;
+        if (inline_ov023_021ec480(arg0))
+            arg0->unknown_432_++;
     }
-    if (step == 5)
+    if (var2 == 5)
     {
-        int next = self->page_ + 1;
-        if (next < self->count_)
+        int var7 = arg0->unknown_28_ + 1;
+        if (var7 < arg0->unknown_24_)
         {
-            func_0205d6a0((Entry_0205d6a0*)self->window_, 1);
-            self->page_ = next;
-            self->step_ = 1;
-            func_ov023_021ecbbc(self);
+            func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 1);
+            arg0->unknown_28_ = var7;
+            arg0->unknown_432_ = 1;
+            func_ov023_021ecbbc(arg0);
             return;
         }
-        self->step_++;
+        arg0->unknown_432_++;
     }
-    if (step == 6)
+    if (var2 == 6)
     {
-        func_0205d6a0((Entry_0205d6a0*)self->window_, 0);
+        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 0);
         func_0205ebec(data_02108760);
-        if (!(self->flags_ & GUIDE_WINDOW_NO_DIMMING))
+        if (!(arg0->unknown_438_ & GUIDE_WINDOW_NO_DIMMING))
         {
-            if (self->subBackgrounds_[1].unk_1c_0_ == 0)
+            if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
                 ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x17, 0);
             else
                 ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x17, 0);
         }
-        if (self->type_ == 0 || self->type_ == 1)
+        if (arg0->unknown_430_ == 0 || arg0->unknown_430_ == 1)
             ColorEffect_ConfigureAlphaBlend(REG_BLDCNT, 1, 2, 0xf, 0x1f);
-        if (self->flags_ & GUIDE_WINDOW_UNK_400)
+        if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_400)
         {
-            void* unknown = func_0205ec34();
-            if (func_0206dfb0((int)unknown, (unsigned char*)unknown + 0x8c, 0x119a))
+            void* var8 = func_0205ec34();
+            if (func_0206dfb0((int)var8, (unsigned char*)var8 + 0x8c, 0x119a))
             {
-                self->step_++;
+                arg0->unknown_432_++;
                 return;
             }
         }
-        else if (self->flags_ & GUIDE_WINDOW_UNK_800)
+        else if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_800)
         {
-            self->step_ = 10;
+            arg0->unknown_432_ = 10;
             return;
         }
-        self->state_ = 2;
-        self->step_ = 0;
+        arg0->unknown_431_ = 2;
+        arg0->unknown_432_ = 0;
     }
-    if (step == 7)
+    if (var2 == 7)
     {
-        if (self->subBackgrounds_[1].unk_1c_0_ == 0)
+        if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
         {
-            memset(self->text_, 0, regionalOffset0);
-            func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1000));
-            func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1002));
-            messages->busy_ = 1;
+            memset(arg0->unknown_1c_, 0, Enum_ov023_021ec480_2400);
+            func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1000));
+            func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
+            var1->unknown_998_ = 1;
 #if defined(jpn)
-            func_0204500c(messages, self->text_, 0);
+            func_0204500c(var1, arg0->unknown_1c_, 0);
 #else
-            func_0204500c(messages, self->text_, 0, 0xe3);
+            func_0204500c(var1, arg0->unknown_1c_, 0, 0xe3);
 #endif
-            messages->unk_19b2 = 0;
-            messages->unk_19c8 = 0;
-            messages->unk_19ae = 0;
+            var1->unknown_19b2_ = 0;
+            var1->unknown_19c8_ = 0;
+            var1->unknown_19ae_ = 0;
         }
         else
         {
-            func_ov023_021ed600(self);
-            unsigned char items2[2];
-            *(Bytes2_021ec480*)items2 = *(Bytes2_021ec480*)&data_ov023_021fd844[4];
-            for (int i = 0; i < 2; i++)
-                func_0205deb4((Struct_0205d81c*)self->window_, items2[i], 0);
+            func_ov023_021ed600(arg0);
+            unsigned char var9[2];
+            *(Struct_ov023_021ec480_2*)var9 = *(Struct_ov023_021ec480_2*)&data_ov023_021fd844[4];
+            for (int var10 = 0; var10 < 2; var10++)
+                func_0205deb4((Struct_0205d81c*)arg0->unknown_c4_, var9[var10], 0);
         }
-        func_0209c830((Struct0209c830*)data_02109bf4, 0x40);
-        self->step_++;
+        func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x40);
+        arg0->unknown_432_++;
     }
-    if (step == 8)
+    if (var2 == 8)
     {
-        messages->unk_19ae = 0;
+        var1->unknown_19ae_ = 0;
         if (func_0209ca2c(data_02109bf4))
             return;
-        self->step_++;
-        step++;
+        arg0->unknown_432_++;
+        var2++;
     }
-    if (step == 9)
+    if (var2 == 9)
     {
-        if (self->flags_ & GUIDE_WINDOW_UNK_800)
+        if (arg0->unknown_438_ & GUIDE_WINDOW_UNK_800)
         {
-            if (WasButtonPressed(self))
+            if (inline_ov023_021ec480(arg0))
             {
-                self->step_++;
-                step++;
+                arg0->unknown_432_++;
+                var2++;
             }
         }
         else
         {
-            step = 11;
-            self->step_ = 11;
+            var2 = 11;
+            arg0->unknown_432_ = 11;
         }
     }
-    if (step == 10)
+    if (var2 == 10)
     {
-        memset(self->text_, 0, regionalOffset0);
-        func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1001));
-        func_02042058(self->text_, func_020e0434((Container020e0310*)self->texts_, 1002));
-        messages->busy_ = 1;
+        memset(arg0->unknown_1c_, 0, Enum_ov023_021ec480_2400);
+        func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1001));
+        func_02042058(arg0->unknown_1c_, func_020e0434((Struct_0201099c_3*)arg0->unknown_4_, 1002));
+        var1->unknown_998_ = 1;
 #if defined(jpn)
-        func_0204500c(messages, self->text_, 0);
+        func_0204500c(var1, arg0->unknown_1c_, 0);
 #else
-        func_0204500c(messages, self->text_, 0, 0xe3);
+        func_0204500c(var1, arg0->unknown_1c_, 0, 0xe3);
 #endif
-        messages->unk_19b2 = 0;
-        messages->unk_19c8 = 0;
-        messages->unk_19ae = 0;
-        func_0209c830((Struct0209c830*)data_02109bf4, 0x40);
-        self->step_++;
+        var1->unknown_19b2_ = 0;
+        var1->unknown_19c8_ = 0;
+        var1->unknown_19ae_ = 0;
+        func_0209c830((Struct_02109bf4_2*)data_02109bf4, 0x40);
+        arg0->unknown_432_++;
     }
-    if (step == 11)
+    if (var2 == 11)
     {
-        messages->unk_19ae = 0;
+        var1->unknown_19ae_ = 0;
         if (func_0209ca2c(data_02109bf4))
             return;
-        if (!WasButtonPressed(self))
+        if (!inline_ov023_021ec480(arg0))
             return;
-        if (self->subBackgrounds_[1].unk_1c_0_ == 0)
+        if (arg0->unknown_84_[1].unknown_1c_0_ == 0)
         {
-            func_02043204((char*)messages);
-            self->state_ = 2;
-            self->step_ = 0;
+            func_02043204((char*)var1);
+            arg0->unknown_431_ = 2;
+            arg0->unknown_432_ = 0;
             return;
         }
-        func_0205d6a0((Entry_0205d6a0*)self->window_, 0);
-        self->state_ = 2;
-        self->step_ = 0;
+        func_0205d6a0((Struct_0205d6a0*)arg0->unknown_c4_, 0);
+        arg0->unknown_431_ = 2;
+        arg0->unknown_432_ = 0;
     }
 }

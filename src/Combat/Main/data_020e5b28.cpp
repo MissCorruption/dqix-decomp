@@ -2,11 +2,11 @@
 
 #pragma define_section initcode ".init" RX
 
-extern "C" void __register_global_object(void* obj, void* func, void* node);
-extern "C" void* func_0202c794(void* obj);
-extern "C" ARM void* func_0202c7a8(void* obj);
-extern "C" ARM void* func_0202c7bc(void* obj);
-extern "C" ARM void* func_0202c814(void* obj);
+extern "C" void __register_global_object(void* arg0, void* arg1, void* arg2);
+extern "C" void* func_0202c794(void* arg0);
+extern "C" ARM void* func_0202c7a8(void* arg0);
+extern "C" ARM void* func_0202c7bc(void* arg0);
+extern "C" ARM void* func_0202c814(void* arg0);
 
 extern int data_020fefec;
 extern int data_020fefe0;

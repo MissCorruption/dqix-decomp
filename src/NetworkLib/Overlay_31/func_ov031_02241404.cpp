@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct Packet02207230;
-extern "C" int func_ov031_02207230(void* ctx, Packet02207230* pkt);
+struct Struct_ov031_02207230;
+extern "C" int func_ov031_02207230(void* arg0, Struct_ov031_02207230* arg1);
 
-struct Packet02241404 {
-	char pad0[2];
-	unsigned short half;
-	unsigned int word;
+struct Struct_ov031_02241404 {
+	char unknown_0_[2];
+	unsigned short unknown_2_;
+	unsigned int unknown_4_;
 };
 
-struct Ctx02241404 { char pad[4]; int flag; };
+struct Struct_ov031_02241404_2 { char unknown_0_[4]; int unknown_4_; };
 
 // USA: func_ov031_02241404
-extern "C" ARM int func_ov031_02241404(Ctx02241404* self, void* ctx, unsigned int word, unsigned int rawHalf) {
-	Packet02241404 pkt;
-	pkt.pad0[0] = 8;
-	pkt.pad0[1] = 2;
-	unsigned short v = (unsigned short)rawHalf;
-	pkt.half = (unsigned short)(((v >> 8) & 0xff) | ((v << 8) & 0xff00));
-	pkt.word = word;
-	int r = func_ov031_02207230(ctx, (Packet02207230*)&pkt);
-	if (r < 0) {
-		if (self->flag != 0) return (int)0xfffffc16;
+extern "C" ARM int func_ov031_02241404(Struct_ov031_02241404_2* arg0, void* arg1, unsigned int arg2, unsigned int arg3) {
+	Struct_ov031_02241404 var0;
+	var0.unknown_0_[0] = 8;
+	var0.unknown_0_[1] = 2;
+	unsigned short var1 = (unsigned short)arg3;
+	var0.unknown_2_ = (unsigned short)(((var1 >> 8) & 0xff) | ((var1 << 8) & 0xff00));
+	var0.unknown_4_ = arg2;
+	int var2 = func_ov031_02207230(arg1, (Struct_ov031_02207230*)&var0);
+	if (var2 < 0) {
+		if (arg0->unknown_4_ != 0) return (int)0xfffffc16;
 		return ~0x3e8;
 	}
 	return 0;

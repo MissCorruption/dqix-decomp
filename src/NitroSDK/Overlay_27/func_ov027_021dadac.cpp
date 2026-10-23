@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-struct ListNode021dadac {
-	char pad[0x4bc];
-	struct ListNode021dadac *next;
+struct Struct_ov027_021da38c {
+	char unknown_0_[0x4bc];
+	struct Struct_ov027_021da38c *unknown_4bc_;
 };
 
-struct ListRoot021dadac {
-	char pad[0x18];
-	struct ListNode021dadac *head;
+struct Struct_ov027_021dd940 {
+	char unknown_0_[0x18];
+	struct Struct_ov027_021da38c *unknown_18_;
 };
 
-extern struct ListRoot021dadac data_ov027_021dd940;
+extern struct Struct_ov027_021dd940 data_ov027_021dd940;
 
 // USA: func_ov027_021dadac
-extern "C" ARM void func_ov027_021dadac(struct ListNode021dadac *node) {
-	struct ListNode021dadac *cur = data_ov027_021dd940.head;
-	if (cur == NULL) {
-		data_ov027_021dd940.head = node;
+extern "C" ARM void func_ov027_021dadac(struct Struct_ov027_021da38c *arg0) {
+	struct Struct_ov027_021da38c *var0 = data_ov027_021dd940.unknown_18_;
+	if (var0 == NULL) {
+		data_ov027_021dd940.unknown_18_ = arg0;
 	} else {
-		struct ListNode021dadac *next = cur->next;
-		if (next != NULL) {
+		struct Struct_ov027_021da38c *var1 = var0->unknown_4bc_;
+		if (var1 != NULL) {
 			do {
-				cur = next;
-				next = cur->next;
-			} while (next != NULL);
+				var0 = var1;
+				var1 = var0->unknown_4bc_;
+			} while (var1 != NULL);
 		}
-		cur->next = node;
+		var0->unknown_4bc_ = arg0;
 	}
-	node->next = NULL;
+	arg0->unknown_4bc_ = NULL;
 }

@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 
-extern "C" ARM int func_ov031_022115a4(int *obj);
-extern "C" unsigned int func_ov031_02211720(void *a);
+extern "C" ARM int func_ov031_022115a4(int *arg0);
+extern "C" unsigned int func_ov031_02211720(void *arg0);
 
-struct S0221156c {
-	char pad[0x3c];
-	unsigned int field3c;
+struct Struct_ov031_0221156c {
+	char unknown_0_[0x3c];
+	unsigned int unknown_3c_;
 };
 
 // USA: func_ov031_0221156c
-extern "C" ARM int func_ov031_0221156c(S0221156c *p) {
-	if (!func_ov031_022115a4((int*)p)) return 0;
-	return p->field3c == func_ov031_02211720(p);
+extern "C" ARM int func_ov031_0221156c(Struct_ov031_0221156c *arg0) {
+	if (!func_ov031_022115a4((int*)arg0)) return 0;
+	return arg0->unknown_3c_ == func_ov031_02211720(arg0);
 }

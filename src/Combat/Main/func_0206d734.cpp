@@ -3,53 +3,53 @@
 #include "Combat/NodeLookup.h"
 #include "Resource/Script.h"
 
-struct Variant02030b0c;
-struct TaggedValue02030b44;
+struct Struct_0201c1c8;
+struct Struct_0201d530;
 
-struct Node0206d734;
+struct Struct_0206d734;
 
-struct Data02108cec {
-    unsigned char pad0[0xa];
-    unsigned short field0xa;
-    unsigned char pad1[0x10 - 0xc];
-    void* field0x10;
+struct Struct_02108cec {
+    unsigned char unknown_0_[0xa];
+    unsigned short unknown_a_;
+    unsigned char unknown_c_[0x10 - 0xc];
+    void* unknown_10_;
 };
-extern struct Data02108cec data_02108cec;
+extern struct Struct_02108cec data_02108cec;
 
-struct Node0206d734 {
-    unsigned char pad0[0xa];
-    unsigned char byteField0xa;
-    unsigned char pad1[0x44 - 0xb];
-    unsigned short id0x44;
-    unsigned char pad2[0x60 - 0x46];
-    int value0x60;
-    unsigned char pad3[0x70 - 0x64];
-    struct Node0206d734* next;
+struct Struct_0206d734 {
+    unsigned char unknown_0_[0xa];
+    unsigned char unknown_a_;
+    unsigned char unknown_b_[0x44 - 0xb];
+    unsigned short unknown_44_;
+    unsigned char unknown_46_[0x60 - 0x46];
+    int unknown_60_;
+    unsigned char unknown_64_[0x70 - 0x64];
+    struct Struct_0206d734* unknown_70_;
 };
 
 // USA: func_0206d734
-extern "C" ARM int func_0206d734(void* param0, int param1) {
-    struct Node0206d734* node;
-    int key = ((Script::Parameter*)((struct Variant02030b0c*)param0))->ToInt();
-    node = (Node0206d734*)func_0206db20(data_02108cec.field0x10, key);
-    if (node == 0) {
+extern "C" ARM int func_0206d734(void* arg0, int arg1) {
+    struct Struct_0206d734* var0;
+    int var1 = ((Script::Parameter*)((struct Struct_0201c1c8*)arg0))->ToInt();
+    var0 = (Struct_0206d734*)func_0206db20(data_02108cec.unknown_10_, var1);
+    if (var0 == 0) {
         return 0;
     }
-    while (node != 0) {
-        if (node->id0x44 == data_02108cec.field0xa) {
+    while (var0 != 0) {
+        if (var0->unknown_44_ == data_02108cec.unknown_a_) {
             break;
         }
-        node = node->next;
+        var0 = var0->unknown_70_;
     }
-    if (node == 0) {
+    if (var0 == 0) {
         return 0;
     }
     {
-        unsigned char v = (unsigned char)((Script::Parameter*)((struct Variant02030b0c*)((char*)param0 + 8)))->ToInt();
-        node->byteField0xa = (node->byteField0xa & ~0x38) | ((v & 7) << 3);
+        unsigned char var2 = (unsigned char)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 8)))->ToInt();
+        var0->unknown_a_ = (var0->unknown_a_ & ~0x38) | ((var2 & 7) << 3);
     }
-    if (param1 > 2) {
-        node->value0x60 = (int)(4096.0f * ((Script::Parameter*)((struct TaggedValue02030b44*)((char*)param0 + 0x10)))->ToFloat());
+    if (arg1 > 2) {
+        var0->unknown_60_ = (int)(4096.0f * ((Script::Parameter*)((struct Struct_0201d530*)((char*)arg0 + 0x10)))->ToFloat());
     }
     return 1;
 }

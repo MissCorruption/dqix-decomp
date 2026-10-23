@@ -1,25 +1,25 @@
 #include <globaldefs.h>
 
-struct Obj02033874;
+struct Struct_02033834;
 
-struct Obj02033834 {
-    char pad0[0xae];
-    short fae;
-    char pad1[0x0e];
-    unsigned char mode;
-    char pad2[0x05];
-    unsigned short fc4;
+struct Struct_02033834_2 {
+    char unknown_0_[0xae];
+    short unknown_ae_;
+    char unknown_b0_[0x0e];
+    unsigned char unknown_be_;
+    char unknown_bf_[0x05];
+    unsigned short unknown_c4_;
 };
 
 short fix32ReduceAngle0To2Pi(int);
-extern "C" void func_02033874(struct Obj02033874* obj, int arg);
+extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
 
 // USA: func_02033834
-extern "C" ARM void func_02033834(struct Obj02033834* obj, int arg) {
-    if (obj->mode == 4 || obj->mode == 3) {
-        func_02033874((struct Obj02033874*)obj, arg);
+extern "C" ARM void func_02033834(struct Struct_02033834_2* arg0, int arg1) {
+    if (arg0->unknown_be_ == 4 || arg0->unknown_be_ == 3) {
+        func_02033874((struct Struct_02033834*)arg0, arg1);
     } else {
-        obj->fae = fix32ReduceAngle0To2Pi(arg);
+        arg0->unknown_ae_ = fix32ReduceAngle0To2Pi(arg1);
     }
-    obj->fc4 &= ~0x8000;
+    arg0->unknown_c4_ &= ~0x8000;
 }

@@ -5,84 +5,77 @@
 
 class Zone3D;
 class Model3D;
-class ZoneFeatures;
+class Struct_020134e0;
 class FloorMap;
 
-struct BmdjElementResource {
-    unsigned short kind;
-    unsigned short unknown2;
+struct Struct_02016874 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
     union {
-        void* polygons;
-        Model3D* model;
+        void* unknown_4_;
+        Model3D* unknown1_4_;
     };
 };
 
-struct BmdjSceneElement {
-    unsigned short id;
-    unsigned short flags;
-    signed char state : 7;
-    signed char flag4 : 1;
-    char unknown5;
-    short angle;
-    Vector3i position;
-    unsigned char unknown14[0x10];
-    BmdjElementResource* resource;
-    BmdjSceneElement* parent;
-    BmdjSceneElement* linkedElement2c;
-    unsigned char unknown30[4];
-    short destinationAngle;
-    short rotationSpeed;
-    short copiedAngle;
-    short movementSpeed;
-    Vector3i destination;
-    Vector3i direction;
-    unsigned char unknown54[4];
-    Vector3i lowerMargins;
-    Vector3i upperMargins;
+struct Struct_02016874_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    signed char unknown_4_0_ : 7;
+    signed char unknown_4_7_ : 1;
+    char unknown_5_;
+    short unknown_6_;
+    Vector3i unknown_8_;
+    unsigned char unknown_14_[0x10];
+    Struct_02016874* unknown_24_;
+    Struct_02016874_2* unknown_28_;
+    Struct_02016874_2* unknown_2c_;
+    unsigned char unknown_30_[4];
+    short unknown_34_;
+    short unknown_36_;
+    short unknown_38_;
+    short unknown_3a_;
+    Vector3i unknown_3c_;
+    Vector3i unknown_48_;
+    unsigned char unknown_54_[4];
+    Vector3i unknown_58_;
+    Vector3i unknown_64_;
 };
 
-struct BmdjScriptState {
-    int unknown0;
-    int unknown4;
-    int unknown8;
-    int unknownC;
-    int elementCount;
-    int unknown14;
-    unsigned char unknown18[0x20];
-    unsigned char unknown38;
-    unsigned char unknown39[3];
+struct Struct_02018b34 {
+    int unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
+    unsigned char unknown_18_[0x20];
+    unsigned char unknown_38_;
+    unsigned char unknown_39_[3];
 };
 
-struct BmdjScriptNode {
-    int unknown0;
-    BmdjScriptState scriptState;
-    int unknown40;
-    BmdjSceneElement* elements;
-    Vector3i position;
-    BmdjScriptNode* next;
+struct Struct_02013454 {
+    int unknown_0_;
+    Struct_02018b34 unknown_4_;
+    int unknown_40_;
+    Struct_02016874_2* unknown_44_;
+    Vector3i unknown_48_;
+    Struct_02013454* unknown_54_;
 };
 
-struct GrottoTileMapRecord {
-    BmdjScriptNode* node;
-    TileFeaturePlacementData info;
-    Matrix3x3 rotation;
-    int angle;
-    Vector3i position;
+struct Struct_02013490 {
+    Struct_02013454* unknown_0_;
+    TileFeaturePlacementData unknown_4_;
+    Matrix3x3 unknown_14_;
+    int unknown_38_;
+    Vector3i unknown_3c_;
 };
 
-extern "C" BmdjScriptNode* func_020196fc(Zone3D* zone, int depth);
-extern "C" void func_02013490(GrottoTileMapRecord* record);
-extern "C" void func_02013454(BmdjScriptNode* node);
-extern "C" void func_0201f01c(BmdjScriptState* state);
-extern "C" void func_0201aedc(Zone3D* zone);
-extern "C" TileFeaturePlacementData* func_0201e434(ZoneFeatures* features, const char* name);
-extern "C" TileFeaturePlacementData* func_02019f24(TileFeaturePlacementData* destination, const TileFeaturePlacementData* source);
-extern "C" int func_02019728(Zone3D* zone, int unused, ZoneFeatures* features, TileFeaturePlacementData* grid, FloorMap* map);
+extern "C" Struct_02013454* func_020196fc(Zone3D* arg0, int arg1);
+extern "C" void func_02013490(Struct_02013490* arg0);
+extern "C" void func_02013454(Struct_02013454* arg0);
+extern "C" void func_0201f01c(Struct_02018b34* arg0);
+extern "C" void func_0201aedc(Zone3D* arg0);
+extern "C" TileFeaturePlacementData* func_0201e434(Struct_020134e0* arg0, const char* arg1);
+extern "C" TileFeaturePlacementData* func_02019f24(TileFeaturePlacementData* arg0, const TileFeaturePlacementData* arg1);
+extern "C" int func_02019728(Zone3D* arg0, int arg1, Struct_020134e0* arg2, TileFeaturePlacementData* arg3, FloorMap* arg4);
 
-typedef char BmdjSceneElementSizeCheck[sizeof(BmdjSceneElement) == 0x70 ? 1 : -1];
-typedef char BmdjScriptStateSizeCheck[sizeof(BmdjScriptState) == 0x3c ? 1 : -1];
-typedef char BmdjScriptNodeSizeCheck[sizeof(BmdjScriptNode) == 0x58 ? 1 : -1];
-typedef char BmdjScriptNodeElementsCheck[offsetof(BmdjScriptNode, elements) == 0x44 ? 1 : -1];
-typedef char BmdjScriptNodeNextCheck[offsetof(BmdjScriptNode, next) == 0x54 ? 1 : -1];
-typedef char GrottoTileInfoSizeCheck[sizeof(TileFeaturePlacementData) == 0x10 ? 1 : -1];
-typedef char GrottoTileMapRecordSizeCheck[sizeof(GrottoTileMapRecord) == 0x48 ? 1 : -1];

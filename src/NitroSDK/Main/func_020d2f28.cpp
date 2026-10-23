@@ -1,21 +1,21 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
 // USA: func_020d2f28
-extern "C" ARM int func_020d2f28(char* dst, const char* src, int n) {
-    int i = 0;
-    const char* p = src;
-    if (n - 1 > 0) {
+extern "C" ARM int func_020d2f28(char* arg0, const char* arg1, int arg2) {
+    int var0 = 0;
+    const char* var1 = arg1;
+    if (arg2 - 1 > 0) {
         do {
-            dst[i] = *p;
-            if (*p == 0) break;
-            i++;
-            p++;
-        } while (i < n - 1);
+            arg0[var0] = *var1;
+            if (*var1 == 0) break;
+            var0++;
+            var1++;
+        } while (var0 < arg2 - 1);
     }
-    if (i >= n - 1) {
-        if (n != 0) dst[i] = 0;
+    if (var0 >= arg2 - 1) {
+        if (arg2 != 0) arg0[var0] = 0;
     }
-    return func_020d2ff0(src);
+    return func_020d2ff0(arg1);
 }

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kOffset54 = 0x74, kOffset6c = 0x8c, kOffsetf4 = 0x114, kOffset10c = 0x12c, kOffset498 = 0x4b8, kOffset600 = 0x620, kOffset840 = 0x860, kOffset1c8 = 0x1e8, kOffset264 = 0x2a4, kOffset324 = 0x364, kOffset730 = 0x770, kOffset354 = 0x394, kGrottoLow = 0xc, kGrottoHigh = 0x2400 };
+enum { Enum_0201c014_84 = 0x74, Enum_0201c014_108 = 0x8c, Enum_0201c014_244 = 0x114, Enum_0201c014_268 = 0x12c, Enum_0201c014_1176 = 0x4b8, Enum_0201c014_1536 = 0x620, Enum_0201c014_2112 = 0x860, Enum_0201c014_456 = 0x1e8, Enum_0201c014_612 = 0x2a4, Enum_0201c014_804 = 0x364, Enum_0201c014_1840 = 0x770, Enum_0201c014_852 = 0x394, Enum_0201c014_1004 = 0xc, Enum_0201c014_8192 = 0x2400 };
 #else
-enum { kOffset54 = 0x54, kOffset6c = 0x6c, kOffsetf4 = 0xf4, kOffset10c = 0x10c, kOffset498 = 0x498, kOffset600 = 0x600, kOffset840 = 0x840, kOffset1c8 = 0x1c8, kOffset264 = 0x264, kOffset324 = 0x324, kOffset730 = 0x730, kOffset354 = 0x354, kGrottoLow = 0x3ec, kGrottoHigh = 0x2000 };
+enum { Enum_0201c014_84 = 0x54, Enum_0201c014_108 = 0x6c, Enum_0201c014_244 = 0xf4, Enum_0201c014_268 = 0x10c, Enum_0201c014_1176 = 0x498, Enum_0201c014_1536 = 0x600, Enum_0201c014_2112 = 0x840, Enum_0201c014_456 = 0x1c8, Enum_0201c014_612 = 0x264, Enum_0201c014_804 = 0x324, Enum_0201c014_1840 = 0x730, Enum_0201c014_852 = 0x354, Enum_0201c014_1004 = 0x3ec, Enum_0201c014_8192 = 0x2000 };
 #endif
 
 #include "Graphics/LightingInfo.h"
@@ -12,40 +12,40 @@ enum { kOffset54 = 0x54, kOffset6c = 0x6c, kOffsetf4 = 0xf4, kOffset10c = 0x10c,
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "World/ZoneFeatures.h"
 
-extern "C" void func_0200ee94(void* obj, int a, int b, void* cb1, void* cb2);
-extern "C" void* _ZN7Model3DC1Ev(void* obj);
-extern "C" void* _ZN7Model3DD1Ev(void* obj);
-extern "C" void* func_0201c108(void* obj);
-extern "C" void* func_0201c0e8(void* obj);
+extern "C" void func_0200ee94(void* arg0, int arg1, int arg2, void* arg3, void* arg4);
+extern "C" void* _ZN7Model3DC1Ev(void* arg0);
+extern "C" void* _ZN7Model3DD1Ev(void* arg0);
+extern "C" void* func_0201c108(void* arg0);
+extern "C" void* func_0201c0e8(void* arg0);
 
-extern "C" void func_020982b4(void* obj);
+extern "C" void func_020982b4(void* arg0);
 
-struct InitState0208f7ecStruct;
-extern "C" void func_0208f7ec(struct InitState0208f7ecStruct* s);
+struct Struct_0201c014;
+extern "C" void func_0208f7ec(struct Struct_0201c014* arg0);
 
-struct ClearThreeWords02094d00Struct;
-extern "C" void func_02094d00(struct ClearThreeWords02094d00Struct* s);
+struct Struct_020134e0_2;
+extern "C" void func_02094d00(struct Struct_020134e0_2* arg0);
 
-extern "C" void* func_020de824(void* obj);
+extern "C" void* func_020de824(void* arg0);
 
-extern "C" void func_020134e0(void* obj);
+extern "C" void func_020134e0(void* arg0);
 
 // USA: func_0201c014
-extern "C" ARM void* func_0201c014(void* obj) {
-    ((SafeAllocator*)((char*)obj + kOffset54))->ResetAllocatorPointer();
-    ((ZoneFeatures*)((char*)obj + kOffset6c))->func_0201e248();
-    *(int*)((char*)obj + kOffsetf4) = 0;
-    ((LightingInfo*)((char*)obj + kOffset10c))->Initialize();
-    func_0200ee94((char*)obj + kOffset498, 2, 0xac, (void*)_ZN7Model3DC1Ev, (void*)_ZN7Model3DD1Ev);
-    func_0200ee94((char*)obj + kOffset600, 4, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
-    func_020982b4((char*)obj + kOffset840);
-    ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)obj + kGrottoLow + kGrottoHigh);
-    ((FloorMap*)((char*)grotto + kOffset1c8))->Clear();
-    grotto->Clear();
-    func_0208f7ec((struct InitState0208f7ecStruct*)((char*)obj + kOffset264 + 0x2400));
-    func_02094d00((struct ClearThreeWords02094d00Struct*)((char*)obj + kOffset324 + 0x2400));
-    ((SafeAllocator*)((char*)obj + kOffset730 + 0x2000))->ResetAllocatorPointer();
-    func_020de824((char*)obj + kOffset354 + 0x2400);
-    func_020134e0(obj);
-    return obj;
+extern "C" ARM void* func_0201c014(void* arg0) {
+    ((SafeAllocator*)((char*)arg0 + Enum_0201c014_84))->ResetAllocatorPointer();
+    ((Struct_020134e0*)((char*)arg0 + Enum_0201c014_108))->func_0201e248();
+    *(int*)((char*)arg0 + Enum_0201c014_244) = 0;
+    ((LightingInfo*)((char*)arg0 + Enum_0201c014_268))->Initialize();
+    func_0200ee94((char*)arg0 + Enum_0201c014_1176, 2, 0xac, (void*)_ZN7Model3DC1Ev, (void*)_ZN7Model3DD1Ev);
+    func_0200ee94((char*)arg0 + Enum_0201c014_1536, 4, 0x88, (void*)func_0201c0e8, (void*)func_0201c108);
+    func_020982b4((char*)arg0 + Enum_0201c014_2112);
+    ActiveGrottoClass* var0 = (ActiveGrottoClass*)((char*)arg0 + Enum_0201c014_1004 + Enum_0201c014_8192);
+    ((FloorMap*)((char*)var0 + Enum_0201c014_456))->Clear();
+    var0->Clear();
+    func_0208f7ec((struct Struct_0201c014*)((char*)arg0 + Enum_0201c014_612 + 0x2400));
+    func_02094d00((struct Struct_020134e0_2*)((char*)arg0 + Enum_0201c014_804 + 0x2400));
+    ((SafeAllocator*)((char*)arg0 + Enum_0201c014_1840 + 0x2000))->ResetAllocatorPointer();
+    func_020de824((char*)arg0 + Enum_0201c014_852 + 0x2400);
+    func_020134e0(arg0);
+    return arg0;
 }

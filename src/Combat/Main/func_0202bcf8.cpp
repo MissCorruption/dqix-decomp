@@ -1,20 +1,20 @@
 #include <globaldefs.h>
 
-struct ByteSearchStruct {
-    char pad[0x1048];
-    signed char arr[16];
+struct Struct_0202bcf8 {
+    char unknown_0_[0x1048];
+    signed char unknown_1048_[16];
 };
 
 // USA: func_0202bcf8
-extern "C" ARM signed char func_0202bcf8(struct ByteSearchStruct* obj, int value) {
-    int i;
-    for (i = 0; i < 16; i++) {
-        if (obj->arr[i] == value) {
+extern "C" ARM signed char func_0202bcf8(struct Struct_0202bcf8* arg0, int arg1) {
+    int var0;
+    for (var0 = 0; var0 < 16; var0++) {
+        if (arg0->unknown_1048_[var0] == arg1) {
             break;
         }
     }
-    if (i == 16) {
+    if (var0 == 16) {
         return -1;
     }
-    return i;
+    return var0;
 }

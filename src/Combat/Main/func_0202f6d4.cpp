@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Field440Inner0202f6d4 {
-    char unk0[0x8];
-    int field8;
-    int fieldc;
-    int field10;
-    int field14;
+struct Struct_0202f6d4_2 {
+    char unknown_0_[0x8];
+    int unknown_8_;
+    int unknown_c_;
+    int unknown_10_;
+    int unknown_14_;
 };
 
-struct Field440Obj0202f6d4 {
-    char unk0[0x440];
-    struct Field440Inner0202f6d4* field440;
+struct Struct_0202f6d4 {
+    char unknown_0_[0x440];
+    struct Struct_0202f6d4_2* unknown_440_;
 };
 
 // USA: func_0202f6d4
-extern "C" ARM void func_0202f6d4(struct Field440Obj0202f6d4* obj) {
-    if (obj->field440 == 0) {
+extern "C" ARM void func_0202f6d4(struct Struct_0202f6d4* arg0) {
+    if (arg0->unknown_440_ == 0) {
         return;
     }
-    obj->field440->field10 = 0x1000;
-    obj->field440->field14 = 0x1000;
-    obj->field440->field8 = 3;
+    arg0->unknown_440_->unknown_10_ = 0x1000;
+    arg0->unknown_440_->unknown_14_ = 0x1000;
+    arg0->unknown_440_->unknown_8_ = 3;
 }

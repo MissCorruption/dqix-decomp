@@ -3,39 +3,39 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
-struct Struct02030b7c {
-    int field0;
-    void* field4;
+struct Struct_0201c3a4 {
+    int unknown_0_;
+    void* unknown_4_;
 };
-extern "C" int func_020d2ff0(const char* s);
+extern "C" int func_020d2ff0(const char* arg0);
 
-struct Pool02089ac0 {
-    char pad[0x14];
-    char** strings;
-    short count;
+struct Struct_02089ac0 {
+    char unknown_0_[0x14];
+    char** unknown_14_;
+    short unknown_18_;
 };
 
-struct Ctx02108efc02089ac0 {
-    struct Pool02089ac0* pool;
-    int unk4;
-    int unk8;
-    SafeAllocator* alloc;
+struct Struct_02108efc_2 {
+    struct Struct_02089ac0* unknown_0_;
+    int unknown_4_;
+    int unknown_8_;
+    SafeAllocator* unknown_c_;
 };
-extern struct Ctx02108efc02089ac0 data_02108efc;
+extern struct Struct_02108efc_2 data_02108efc;
 
 // USA: func_02089ac0
-extern "C" ARM int func_02089ac0(struct Struct02030b7c* items) {
-    char** strings;
-    short count = data_02108efc.pool->count;
-    strings = (char**)data_02108efc.alloc->Allocate(count * 4);
-    for (short i = 0; i < count; i++) {
-        char* text = (char*)(void*)((Script::Parameter*)items)->ToString();
-        items = (struct Struct02030b7c*)((char*)items + 8);
-        int len = func_020d2ff0(text);
-        strings[i] = (char*)data_02108efc.alloc->Allocate(len + 1);
-        memset(strings[i], 0, len + 1);
-        memcpy(strings[i], text, len);
+extern "C" ARM int func_02089ac0(struct Struct_0201c3a4* arg0) {
+    char** var0;
+    short var1 = data_02108efc.unknown_0_->unknown_18_;
+    var0 = (char**)data_02108efc.unknown_c_->Allocate(var1 * 4);
+    for (short var2 = 0; var2 < var1; var2++) {
+        char* var3 = (char*)(void*)((Script::Parameter*)arg0)->ToString();
+        arg0 = (struct Struct_0201c3a4*)((char*)arg0 + 8);
+        int var4 = func_020d2ff0(var3);
+        var0[var2] = (char*)data_02108efc.unknown_c_->Allocate(var4 + 1);
+        memset(var0[var2], 0, var4 + 1);
+        memcpy(var0[var2], var3, var4);
     }
-    data_02108efc.pool->strings = strings;
+    data_02108efc.unknown_0_->unknown_14_ = var0;
     return 1;
 }

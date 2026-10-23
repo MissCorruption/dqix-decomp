@@ -1,42 +1,42 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_0205bd78(void* p, int b, int c);
+extern "C" int func_0205bd78(void* arg0, int arg1, int arg2);
 
 struct Struct_0205bc2c {
-    int field0;
-    char pad0[0x30 - 0x4];
-    int field30;
-    char pad1[0x4c - 0x34];
-    unsigned char field4c;
-    unsigned char field4d;
-    unsigned char field4e;
+    int unknown_0_;
+    char unknown_4_[0x30 - 0x4];
+    int unknown_30_;
+    char unknown_34_[0x4c - 0x34];
+    unsigned char unknown_4c_;
+    unsigned char unknown_4d_;
+    unsigned char unknown_4e_;
 };
 
 // USA: func_0205bc2c
-extern "C" ARM int func_0205bc2c(Struct_0205bc2c* obj, int) {
-    int v1, v2;
+extern "C" ARM int func_0205bc2c(Struct_0205bc2c* arg0, int) {
+    int var0, var1;
 
-    if (obj->field0 == 0) return 0;
+    if (arg0->unknown_0_ == 0) return 0;
 
-    g_touchInput.GetTouchPoint(&v1, &v2);
+    g_touchInput.GetTouchPoint(&var0, &var1);
 
-    if (g_touchInput.pressed_ != 0 && obj->field4e == 0) {
-        int prevField30;
+    if (g_touchInput.pressed_ != 0 && arg0->unknown_4e_ == 0) {
+        int var2;
 
-        obj->field4e = 1;
-        prevField30 = obj->field30;
-        obj->field30 = func_0205bd78(obj, v1, v2);
-        if (obj->field30 < 0) {
-            obj->field4e = 0;
+        arg0->unknown_4e_ = 1;
+        var2 = arg0->unknown_30_;
+        arg0->unknown_30_ = func_0205bd78(arg0, var0, var1);
+        if (arg0->unknown_30_ < 0) {
+            arg0->unknown_4e_ = 0;
             return 0;
         }
-        obj->field4c = 1;
-        if (prevField30 != obj->field30) obj->field4c = 0;
+        arg0->unknown_4c_ = 1;
+        if (var2 != arg0->unknown_30_) arg0->unknown_4c_ = 0;
         return 1;
     }
 
-    obj->field4c = 0;
-    obj->field4e = 0;
+    arg0->unknown_4c_ = 0;
+    arg0->unknown_4e_ = 0;
     return 0;
 }

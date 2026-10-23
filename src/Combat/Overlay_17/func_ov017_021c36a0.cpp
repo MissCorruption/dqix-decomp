@@ -7,63 +7,63 @@ extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 extern "C" void* func_020e2ff8(void);
 extern "C" void* func_020e3580(void);
-extern "C" int func_0202b000(void* obj);
+extern "C" int func_0202b000(void* arg0);
 extern "C" void func_ov017_021c37a4(void);
-extern "C" void func_0202c778(unsigned char* obj);
-extern "C" int func_0202b800(int* p);
-extern "C" void func_0205e22c(void* p);
-struct SlotTable020e3004;
-extern "C" void func_020e3004(struct SlotTable020e3004* p);
-struct Bytes020e358c;
-extern "C" void func_020e358c(struct Bytes020e358c* s);
-extern "C" void func_ov017_02195748(unsigned char* base);
-extern "C" void func_02010890(GameState* bs, int* outList, int* outCount);
-extern "C" void __clear(void* buf, int len);
-extern "C" int func_020d2ff0(const char* s);
-extern "C" void func_0202c360(void* obj, char* name);
-extern "C" void func_ov017_021972cc(char* p);
-extern "C" void func_ov017_02195520(void* obj);
+extern "C" void func_0202c778(unsigned char* arg0);
+extern "C" int func_0202b800(int* arg0);
+extern "C" void func_0205e22c(void* arg0);
+struct Struct_020e3004;
+extern "C" void func_020e3004(struct Struct_020e3004* arg0);
+struct Struct_020e358c;
+extern "C" void func_020e358c(struct Struct_020e358c* arg0);
+extern "C" void func_ov017_02195748(unsigned char* arg0);
+extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int func_020d2ff0(const char* arg0);
+extern "C" void func_0202c360(void* arg0, char* arg1);
+extern "C" void func_ov017_021972cc(char* arg0);
+extern "C" void func_ov017_02195520(void* arg0);
 
 // USA: func_ov017_021c36a0
 extern "C" ARM void func_ov017_021c36a0(void) {
-	GameState* bs = GameState::GetInstance();
-	void* objA = (void*)(int)((int)GetGameResources());
-	void* objB = func_0202ae18();
-	GameObject* combatant = bs->GetProtagonist();
-	void* d100044 = func_0202ae24();
-	void* d153637 = func_020e2ff8();
-	void* d153634 = func_020e3580();
+	GameState* var0 = GameState::GetInstance();
+	void* var1 = (void*)(int)((int)GetGameResources());
+	void* var2 = func_0202ae18();
+	GameObject* var3 = var0->GetProtagonist();
+	void* var4 = func_0202ae24();
+	void* var5 = func_020e2ff8();
+	void* var6 = func_020e3580();
 
-	if (func_0202b000(objB) != 0) {
+	if (func_0202b000(var2) != 0) {
 		func_ov017_021c37a4();
 		return;
 	}
 
 #if !defined(jpn)
-	func_0202c778((unsigned char*)objB);
+	func_0202c778((unsigned char*)var2);
 #endif
-	func_0202b800((int*)objB);
-	func_0205e22c(d100044);
-	func_020e3004((struct SlotTable020e3004*)d153637);
-	func_020e358c((struct Bytes020e358c*)d153634);
-	func_ov017_02195748((unsigned char*)objA);
+	func_0202b800((int*)var2);
+	func_0205e22c(var4);
+	func_020e3004((struct Struct_020e3004*)var5);
+	func_020e358c((struct Struct_020e358c*)var6);
+	func_ov017_02195748((unsigned char*)var1);
 
-	int list[4];
-	int count;
-	func_02010890(bs, list, &count);
+	int var7[4];
+	int var8;
+	func_02010890(var0, var7, &var8);
 
-	char buf[20];
-	__clear(buf, 0x14);
+	char var9[20];
+	__clear(var9, 0x14);
 
-	int len = func_020d2ff0(*(char**)((char*)combatant + 0x134));
-	if (len > 0x14) {
-		len = 0x14;
+	int var10 = func_020d2ff0(*(char**)((char*)var3 + 0x134));
+	if (var10 > 0x14) {
+		var10 = 0x14;
 	}
-	memcpy(buf, *(char**)((char*)combatant + 0x134), len);
-	buf[len] = 0;
-	buf[0x13] = (char)count;
+	memcpy(var9, *(char**)((char*)var3 + 0x134), var10);
+	var9[var10] = 0;
+	var9[0x13] = (char)var8;
 
-	func_0202c360(objB, *(char**)((char*)combatant + 0x134));
-	func_ov017_021972cc((char*)objA);
-	func_ov017_02195520(objA);
+	func_0202c360(var2, *(char**)((char*)var3 + 0x134));
+	func_ov017_021972cc((char*)var1);
+	func_ov017_02195520(var1);
 }

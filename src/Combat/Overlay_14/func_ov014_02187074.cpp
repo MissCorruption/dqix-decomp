@@ -13,147 +13,147 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-struct MonsterListEntry {
-    MonsterListEntry* next_;
-    const char* modelName_;
-    const char* name_;
-    short monsterID_;
-    char unk_e[4];
-    signed char familyTextID_;
-    unsigned char unk_13_0_ : 1;
-    unsigned char known_ : 1;
-    unsigned char unk_13_2_ : 6;
-    char unk_14[6];
-    short number_;
-    char unk_1c[4];
+struct Struct_ov014_02184f78 {
+    Struct_ov014_02184f78* unknown_0_;
+    const char* unknown_4_;
+    const char* unknown_8_;
+    short unknown_c_;
+    char unknown_e_[4];
+    signed char unknown_12_;
+    unsigned char unknown_13_0_ : 1;
+    unsigned char unknown_13_1_ : 1;
+    unsigned char unknown_13_2_ : 6;
+    char unknown_14_[6];
+    short unknown_1a_;
+    char unknown_1c_[4];
 };
 
-struct Canvas {
-    Canvas* unk_0;
-    void* background_;
-    char unk_8[0xa0];
-    short width_;
-    short height_;
-    short x_;
-    short y_;
-    char unk_b0[0x30];
+struct Struct_ov006_02158478 {
+    Struct_ov006_02158478* unknown_0_;
+    void* unknown_4_;
+    char unknown_8_[0xa0];
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
+    char unknown_b0_[0x30];
 };
 
-struct MonsterList {
-    char unk_0[0x10];
+struct Struct_020974b0 {
+    char unknown_0_[0x10];
 };
 
-struct MonsterListScreen {
-    char unk_0[0xa4];
-    MonsterList list_;
-    void* listAllocators_;
-    MonsterListEntry* entries_;
-    MonsterListEntry* pageEntry_;
-    void* menu_;
-    void* backgrounds_;
-    Canvas* canvases_;
-    void* canvasBuffer_;
-    short* cursor_;
-    void* listSprites_;
-    void* animations_;
-    void* records_;
-    char textTable_[0x18];
-    char spriteRenderer_[0x54];
-    char repeat_[0xc];
-    unsigned short repeatButtons_;
-    unsigned char unk_15a;
-    char unk_15b;
-    int unk_15c;
-    int menuEvents_;
-    int ticks_;
-    int listTaskID_;
-    int listBackgroundTaskID_;
-    short group_;
-    short modeCursor_;
-    short familyCursor_;
-    short monsterCursor_;
-    short prevCursor_;
-    unsigned char listState_;
-    unsigned char listStep_;
-    unsigned char listBackgroundStep_;
-    signed char family_;
-    unsigned char listFlags_;
-    bool closing_;
-    short numMonsters_;
-    short variantIDs_[8];
+struct Struct_ov014_02186bc8 {
+    char unknown_0_[0xa4];
+    Struct_020974b0 unknown_a4_;
+    void* unknown_b4_;
+    Struct_ov014_02184f78* unknown_b8_;
+    Struct_ov014_02184f78* unknown_bc_;
+    void* unknown_c0_;
+    void* unknown_c4_;
+    Struct_ov006_02158478* unknown_c8_;
+    void* unknown_cc_;
+    short* unknown_d0_;
+    void* unknown_d4_;
+    void* unknown_d8_;
+    void* unknown_dc_;
+    char unknown_e0_[0x18];
+    char unknown_f8_[0x54];
+    char unknown_14c_[0xc];
+    unsigned short unknown_158_;
+    unsigned char unknown_15a_;
+    char unknown_15b_;
+    int unknown_15c_;
+    int unknown_160_;
+    int unknown_164_;
+    int unknown_168_;
+    int unknown_16c_;
+    short unknown_170_;
+    short unknown_172_;
+    short unknown_174_;
+    short unknown_176_;
+    short unknown_178_;
+    unsigned char unknown_17a_;
+    unsigned char unknown_17b_;
+    unsigned char unknown_17c_;
+    signed char unknown_17d_;
+    unsigned char unknown_17e_;
+    bool unknown_17f_;
+    short unknown_180_;
+    short unknown_182_[8];
 };
 
-struct Obj2081;
-struct Obj0205eaa0;
+struct Struct_0207fdcc_2;
+struct Struct_02108760;
 
-extern "C" Canvas* func_02081da8(Obj2081*, int);
+extern "C" Struct_ov006_02158478* func_02081da8(Struct_0207fdcc_2*, int);
 extern "C" bool func_0204c7e0(unsigned char*);
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
 extern "C" void func_020804fc(void*, int);
 
 extern "C" {
-MonsterListEntry* func_ov014_021873a0(MonsterListScreen* self);
-MonsterListEntry* func_020974b0(MonsterList* list, int family, int, bool sort, int, short* outCount);
-void func_ov014_02187228(MonsterListScreen* self, MonsterListEntry* entry);
-void func_ov014_0218854c(MonsterListScreen* self);
-void func_ov014_021885bc(MonsterListScreen* self);
+Struct_ov014_02184f78* func_ov014_021873a0(Struct_ov014_02186bc8* arg0);
+Struct_ov014_02184f78* func_020974b0(Struct_020974b0* arg0, int arg1, int, bool arg3, int, short* arg5);
+void func_ov014_02187228(Struct_ov014_02186bc8* arg0, Struct_ov014_02184f78* arg1);
+void func_ov014_0218854c(Struct_ov014_02186bc8* arg0);
+void func_ov014_021885bc(Struct_ov014_02186bc8* arg0);
 }
 
 extern char data_02108760[];
 
-inline short TilesToPixels(short tiles)
+inline short inline_ov014_02187074(short arg0)
 {
-    return tiles * 8;
+    return arg0 * 8;
 }
 
 // USA: func_ov014_02187074
-extern "C" ARM bool func_ov014_02187074(MonsterListScreen* self)
+extern "C" ARM bool func_ov014_02187074(Struct_ov014_02186bc8* arg0)
 {
-    bool toggle = false;
-    Canvas* canvas = func_02081da8((Obj2081*)self->menu_, 4);
-    if (canvas != NULL && func_0204c7e0((unsigned char*)canvas))
+    bool var0 = false;
+    Struct_ov006_02158478* var1 = func_02081da8((Struct_0207fdcc_2*)arg0->unknown_c0_, 4);
+    if (var1 != NULL && func_0204c7e0((unsigned char*)var1))
     {
-        short y = canvas->y_;
-        short height = canvas->height_;
-        y--;
-        height++;
-        short left = TilesToPixels(canvas->x_);
-        short top = TilesToPixels(y);
-        short right = left + TilesToPixels(canvas->width_);
-        short bottom = top + TilesToPixels(height);
+        short var2 = var1->unknown_ae_;
+        short var3 = var1->unknown_aa_;
+        var2--;
+        var3++;
+        short var4 = inline_ov014_02187074(var1->unknown_ac_);
+        short var5 = inline_ov014_02187074(var2);
+        short var6 = var4 + inline_ov014_02187074(var1->unknown_a8_);
+        short var7 = var5 + inline_ov014_02187074(var3);
         if (g_touchInput.pressed_)
         {
-            int x;
-            int y;
-            g_touchInput.GetTouchPoint(&x, &y);
-            if (left <= x && x < right && top <= y && y < bottom)
-                toggle = true;
+            int var8;
+            int var9;
+            g_touchInput.GetTouchPoint(&var8, &var9);
+            if (var4 <= var8 && var8 < var6 && var5 <= var9 && var9 < var7)
+                var0 = true;
         }
     }
     if (g_keyManager.TestKeysPressed(4))
-        toggle = true;
-    if (toggle)
+        var0 = true;
+    if (var0)
     {
-        MonsterListEntry* entry = func_ov014_021873a0(self);
-        if (entry == NULL)
+        Struct_ov014_02184f78* var10 = func_ov014_021873a0(arg0);
+        if (var10 == NULL)
             return false;
-        if (!entry->known_)
+        if (!var10->unknown_13_1_)
         {
-            self->monsterCursor_ = -1;
-            self->prevCursor_ = -1;
-            entry = NULL;
+            arg0->unknown_176_ = -1;
+            arg0->unknown_178_ = -1;
+            var10 = NULL;
         }
-        if (self->listFlags_ & 8)
-            self->listFlags_ &= ~8;
+        if (arg0->unknown_17e_ & 8)
+            arg0->unknown_17e_ &= ~8;
         else
-            self->listFlags_ |= 8;
-        short count = 0;
-        self->entries_ = func_020974b0(&self->list_, self->family_, -1, (self->listFlags_ & 8) != 0, 0x10, &count);
-        func_ov014_02187228(self, entry);
-        func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
-        func_020804fc(self->menu_, 5);
-        func_ov014_0218854c(self);
-        func_ov014_021885bc(self);
+            arg0->unknown_17e_ |= 8;
+        short var11 = 0;
+        arg0->unknown_b8_ = func_020974b0(&arg0->unknown_a4_, arg0->unknown_17d_, -1, (arg0->unknown_17e_ & 8) != 0, 0x10, &var11);
+        func_ov014_02187228(arg0, var10);
+        func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
+        func_020804fc(arg0->unknown_c0_, 5);
+        func_ov014_0218854c(arg0);
+        func_ov014_021885bc(arg0);
     }
-    return toggle;
+    return var0;
 }

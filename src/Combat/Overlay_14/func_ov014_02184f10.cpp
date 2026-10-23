@@ -1,35 +1,35 @@
 #include <globaldefs.h>
 
-struct SoundState02184f10 {
-    char pad0[0x48];
-    int f48;
-    int f4c;
-    int f50;
-    int f54;
-    char pad1[0x7c - 0x58];
-    unsigned char f7c;
-    char pad2[0x81 - 0x7d];
-    unsigned char f81;
+struct Struct_ov014_02184f10 {
+    char unknown_0_[0x48];
+    int unknown_48_;
+    int unknown_4c_;
+    int unknown_50_;
+    int unknown_54_;
+    char unknown_58_[0x7c - 0x58];
+    unsigned char unknown_7c_;
+    char unknown_7d_[0x81 - 0x7d];
+    unsigned char unknown_81_;
 };
 
-extern "C" void func_ov014_02184f78(struct SoundState02184f10* obj, int a, int b, int flag);
+extern "C" void func_ov014_02184f78(struct Struct_ov014_02184f10* arg0, int arg1, int arg2, int arg3);
 
 // USA: func_ov014_02184f10
-extern "C" ARM void func_ov014_02184f10(struct SoundState02184f10* o, int a, int b) {
-    if (!o->f7c) {
+extern "C" ARM void func_ov014_02184f10(struct Struct_ov014_02184f10* arg0, int arg1, int arg2) {
+    if (!arg0->unknown_7c_) {
         return;
     }
-    if (o->f4c != o->f48) {
-        o->f4c = o->f48;
-        o->f54 = o->f50;
-        o->f81 |= 0x20;
+    if (arg0->unknown_4c_ != arg0->unknown_48_) {
+        arg0->unknown_4c_ = arg0->unknown_48_;
+        arg0->unknown_54_ = arg0->unknown_50_;
+        arg0->unknown_81_ |= 0x20;
     }
-    if (a == 0 || b == 0) {
-        o->f48 = a;
+    if (arg1 == 0 || arg2 == 0) {
+        arg0->unknown_48_ = arg1;
         return;
     }
-    if (o->f48 == a || o->f50 == b) {
+    if (arg0->unknown_48_ == arg1 || arg0->unknown_50_ == arg2) {
         return;
     }
-    func_ov014_02184f78(o, a, b, 1);
+    func_ov014_02184f78(arg0, arg1, arg2, 1);
 }

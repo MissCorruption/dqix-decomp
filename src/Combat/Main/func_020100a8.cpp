@@ -2,6 +2,6 @@
 #include "GameState/GameState.h"
 
 // USA: func_020100a8
-extern "C" ARM int func_020100a8(GameState* battleStruct) {
-    return battleStruct->protagonistObjectIndex_;
+extern "C" ARM int func_020100a8(GameState* arg0) {
+    return arg0->protagonistObjectIndex_;
 }

@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Vec3 { int x; int y; int z; };
-extern "C" int func_ov017_0218db14(void* obj, int* vec, int c, int d, unsigned char e);
+struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" int func_ov017_0218db14(void* arg0, int* arg1, int arg2, int arg3, unsigned char arg4);
 
 // USA: func_ov017_0218daa8
-extern "C" ARM int func_ov017_0218daa8(void* obj, struct Vec3* otherVec, int c, int d, unsigned char e) {
-	struct Vec3 diff;
-	GameObject* combatant = GameState::GetInstance()->GetUnknownGameObject();
-	if (!otherVec) return 0;
-	if (!combatant) return 0;
-	Vector3fix_Subtract((const Vector3fix*)((struct Vec3*)((char*)combatant + 0x44)), (const Vector3fix*)otherVec, (Vector3fix*)&diff);
-	return func_ov017_0218db14(obj, (int*)&diff, c, d, e);
+extern "C" ARM int func_ov017_0218daa8(void* arg0, struct Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4) {
+	struct Struct_ov009_0218aa28 var0;
+	GameObject* var1 = GameState::GetInstance()->GetUnknownGameObject();
+	if (!arg1) return 0;
+	if (!var1) return 0;
+	Vector3fix_Subtract((const Vector3fix*)((struct Struct_ov009_0218aa28*)((char*)var1 + 0x44)), (const Vector3fix*)arg1, (Vector3fix*)&var0);
+	return func_ov017_0218db14(arg0, (int*)&var0, arg2, arg3, arg4);
 }

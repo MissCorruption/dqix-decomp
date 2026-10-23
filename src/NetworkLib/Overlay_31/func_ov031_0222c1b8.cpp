@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct Entry0222c1b8 {
-    unsigned char pad_0[0x28];
-    unsigned char kind;
-    unsigned char field_0x29;
+struct Struct_ov031_0222c1b8_2 {
+    unsigned char unknown_0_[0x28];
+    unsigned char unknown_28_;
+    unsigned char unknown_29_;
 };
-struct Manager0222c1b8 {
-    Entry0222c1b8* entries;
-    void* field_0x4;
-    void* field_0x8;
-    void* field_0xc;
-    void* first[5];
-    void* second[5];
-    unsigned char pad_0x38[4];
-    void* field_0x3c;
-    unsigned char pad_0x40[0x12];
-    unsigned char selected;
-    unsigned char pad_0x53;
-    unsigned char field_0x54;
+struct Struct_ov031_0222c1b8 {
+    Struct_ov031_0222c1b8_2* unknown_0_;
+    void* unknown_4_;
+    void* unknown_8_;
+    void* unknown_c_;
+    void* unknown_10_[5];
+    void* unknown_24_[5];
+    unsigned char unknown_38_[4];
+    void* unknown_3c_;
+    unsigned char unknown_40_[0x12];
+    unsigned char unknown_52_;
+    unsigned char unknown_53_;
+    unsigned char unknown_54_;
 };
-struct Context0222c1b8 {
-    unsigned char field_0;
-    unsigned char pad_1[3];
-    Manager0222c1b8* manager;
+struct Struct_ov031_02290c8c_9 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[3];
+    Struct_ov031_0222c1b8* unknown_4_;
 };
-struct Block0222c1b8 {
-    unsigned char pad_0[0xf4];
-    unsigned char field_0xf4;
+struct Struct_ov031_0222c1b8_3 {
+    unsigned char unknown_0_[0xf4];
+    unsigned char unknown_f4_;
 };
-extern Context0222c1b8 data_ov031_02290c8c;
+extern Struct_ov031_02290c8c_9 data_ov031_02290c8c;
 extern unsigned char data_ov031_02290c90;
 extern "C" int func_ov031_0223c054(int);
 extern "C" int func_ov031_02222e54();
@@ -61,36 +61,36 @@ extern "C" ARM void func_ov031_0222c1b8() {
     if (func_ov031_0223c054(1) != 0) return;
     if (func_ov031_0223c054(0) != 0) return;
     if (func_ov031_02222e54() == 0) return;
-    func_ov031_0223e2e0(1, data_ov031_02290c8c.manager->field_0x3c);
-    int i = 0;
+    func_ov031_0223e2e0(1, data_ov031_02290c8c.unknown_4_->unknown_3c_);
+    int var0 = 0;
     do {
-        if (data_ov031_02290c8c.manager->first[i]) func_ov031_0223da58(data_ov031_02290c8c.manager->first[i]);
-        if (data_ov031_02290c8c.manager->second[i]) func_ov031_0223da58(data_ov031_02290c8c.manager->second[i]);
-    } while (++i < 5);
-    func_ov031_0223c760(data_ov031_02290c8c.manager->field_0xc);
+        if (data_ov031_02290c8c.unknown_4_->unknown_10_[var0]) func_ov031_0223da58(data_ov031_02290c8c.unknown_4_->unknown_10_[var0]);
+        if (data_ov031_02290c8c.unknown_4_->unknown_24_[var0]) func_ov031_0223da58(data_ov031_02290c8c.unknown_4_->unknown_24_[var0]);
+    } while (++var0 < 5);
+    func_ov031_0223c760(data_ov031_02290c8c.unknown_4_->unknown_c_);
     func_ov031_02235194();
     func_ov031_022238cc();
     func_ov031_02223440();
     func_ov031_02234f08();
-    func_ov031_0223b710(data_ov031_02290c8c.manager->field_0x4);
-    func_ov031_0223b710(data_ov031_02290c8c.manager->field_0x8);
+    func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_4_);
+    func_ov031_0223b710(data_ov031_02290c8c.unknown_4_->unknown_8_);
     func_ov031_0223cbbc(1, 1);
     func_ov031_0223cbbc(0, 0x1d);
     REG_SCROLL = 0;
     REG_SCROLL_SUB = 0;
-    if (data_ov031_02290c8c.manager->field_0x54 == 0) {
+    if (data_ov031_02290c8c.unknown_4_->unknown_54_ == 0) {
         func_ov031_022357b4();
-        func_ov031_02236094(((Block0222c1b8*)func_ov031_02235c70())->field_0xf4);
+        func_ov031_02236094(((Struct_ov031_0222c1b8_3*)func_ov031_02235c70())->unknown_f4_);
         func_ov031_022274d0(2, 0);
         func_ov031_022274c0((int)func_ov031_02233248);
-    } else if (data_ov031_02290c8c.field_0 == 4) {
+    } else if (data_ov031_02290c8c.unknown_0_ == 4) {
         func_ov031_022357b4();
         func_ov031_022274d0(0, 1);
         func_ov031_022274c0((int)func_ov031_02232024);
     } else {
-        func_ov031_02235cac(&data_ov031_02290c8c.manager->entries[data_ov031_02290c8c.manager->selected]);
+        func_ov031_02235cac(&data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_]);
         func_ov031_022274d0(0, 0);
-        if (data_ov031_02290c8c.manager->entries[data_ov031_02290c8c.manager->selected].kind != 0) {
+        if (data_ov031_02290c8c.unknown_4_->unknown_0_[data_ov031_02290c8c.unknown_4_->unknown_52_].unknown_28_ != 0) {
             func_ov031_022274d0(0, 1);
             func_ov031_0222750c(1, 1);
             func_ov031_022274c0((int)func_ov031_0222cbe0);

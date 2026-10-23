@@ -1,42 +1,40 @@
 #ifndef GAMESTATE_OVERLAY17_DAY_CYCLE_H
 #define GAMESTATE_OVERLAY17_DAY_CYCLE_H
 
-struct Overlay17DayTiming {
+struct Struct_ov017_021d75b8 {
 #if defined(jpn)
-    float nightDuration;
-    int lootableLoadTask;
-    float dayDuration;
-    float boundaryStep;
-    float eveningDuration;
-    float morningDuration;
+    float unknown_8_;
+    int unknown_4_;
+    float unknown_14_;
+    float unknown_0_;
+    float unknown_10_;
+    float unknown_c_;
 #else
-    float boundaryStep;
-    int lootableLoadTask;
-    float nightDuration;
-    float morningDuration;
-    float eveningDuration;
-    float dayDuration;
+    float unknown_0_;
+    int unknown_4_;
+    float unknown_8_;
+    float unknown_c_;
+    float unknown_10_;
+    float unknown_14_;
 #endif
 };
 
-struct Overlay17DayBoundaries {
-    float unknown0;
+struct Struct_ov017_021d837c {
+    float unknown_0_;
 #if defined(jpn)
-    float cycleLength;
+    float unknown_14_;
 #endif
-    float dayStart;
-    float eveningStart;
-    float morningStart;
-    float nightStart;
+    float unknown_4_;
+    float unknown_8_;
+    float unknown_c_;
+    float unknown_10_;
 #if !defined(jpn)
-    float cycleLength;
+    float unknown_14_;
 #endif
 };
 
-typedef char Overlay17DayTimingSizeCheck[sizeof(Overlay17DayTiming) == 0x18 ? 1 : -1];
-typedef char Overlay17DayBoundariesSizeCheck[sizeof(Overlay17DayBoundaries) == 0x18 ? 1 : -1];
 
-extern Overlay17DayTiming data_ov017_021d75b8;
-extern Overlay17DayBoundaries data_ov017_021d837c;
+extern Struct_ov017_021d75b8 data_ov017_021d75b8;
+extern Struct_ov017_021d837c data_ov017_021d837c;
 
 #endif

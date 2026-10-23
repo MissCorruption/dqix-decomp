@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct S020d9fb4 { unsigned int w0; unsigned int w4; unsigned short flags; };
+struct Struct_02061c04_16 { unsigned int unknown_0_; unsigned int unknown_4_; unsigned short unknown_8_; };
 
 // USA: func_020d9fb4
-extern "C" ARM void func_020d9fb4(struct S020d9fb4* s, int bit) {
-    s->flags |= 1 << bit;
+extern "C" ARM void func_020d9fb4(struct Struct_02061c04_16* arg0, int arg1) {
+    arg0->unknown_8_ |= 1 << arg1;
 }

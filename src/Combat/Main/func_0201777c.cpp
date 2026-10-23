@@ -1,27 +1,27 @@
 #include <globaldefs.h>
 
-struct ActorEntry {
-    char unk[0x368];
+struct Struct_0201777c {
+    char unknown_0_[0x368];
 };
 
-struct ActorListManager {
+struct Struct_02017098 {
 #if defined(jpn)
-    char unk[0x496];
+    char unknown_0_[0x496];
 #else
-    char unk[0x476];
+    char unknown1_0_[0x476];
 #endif
-    unsigned char count;
-    char unk477[0x1];
-    struct ActorEntry* entries;
+    unsigned char unknown_476_;
+    char unknown_477_[0x1];
+    struct Struct_0201777c* unknown_478_;
 };
 
 // USA: func_0201777c
-extern "C" ARM struct ActorEntry* func_0201777c(struct ActorListManager* manager, int index) {
-    struct ActorEntry* entry;
-    if (index < 0 || manager->count <= index) {
-        entry = 0;
+extern "C" ARM struct Struct_0201777c* func_0201777c(struct Struct_02017098* arg0, int arg1) {
+    struct Struct_0201777c* var0;
+    if (arg1 < 0 || arg0->unknown_476_ <= arg1) {
+        var0 = 0;
     } else {
-        entry = &manager->entries[index];
+        var0 = &arg0->unknown_478_[arg1];
     }
-    return entry;
+    return var0;
 }

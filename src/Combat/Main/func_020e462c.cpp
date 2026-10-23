@@ -1,32 +1,32 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_020d2ff0(const char* s);
-extern "C" int func_02001aec(void* a, void* b, int n);
+extern "C" int func_020d2ff0(const char* arg0);
+extern "C" int func_02001aec(void* arg0, void* arg1, int arg2);
 
 extern char data_020f2dc8;
 extern char data_020f2dcb;
 extern char data_020f2dcf;
 
 // USA: func_020e462c
-extern "C" ARM char* func_020e462c(char* dst, char* str, char* fmt) {
-    if (str != 0 && *str != 0) {
-        dst += sprintf(dst, &data_020f2dc8, str);
-        int flag;
-        if (str == 0) goto setFlag1;
+extern "C" ARM char* func_020e462c(char* arg0, char* arg1, char* arg2) {
+    if (arg1 != 0 && *arg1 != 0) {
+        arg0 += sprintf(arg0, &data_020f2dc8, arg1);
+        int var0;
+        if (arg1 == 0) goto setFlag1;
         {
-            int len = func_020d2ff0(str);
-            if (len <= 3) goto setFlag1;
-            flag = func_02001aec(str + (len - 3), &data_020f2dcb, 3);
+            int var1 = func_020d2ff0(arg1);
+            if (var1 <= 3) goto setFlag1;
+            var0 = func_02001aec(arg1 + (var1 - 3), &data_020f2dcb, 3);
             goto flagDone;
         }
     setFlag1:
-        flag = 1;
+        var0 = 1;
     flagDone:
-        if (flag != 0) {
-            dst += sprintf(dst, &data_020f2dcf);
+        if (var0 != 0) {
+            arg0 += sprintf(arg0, &data_020f2dcf);
         }
     }
-    dst += sprintf(dst, fmt);
-    return dst;
+    arg0 += sprintf(arg0, arg2);
+    return arg0;
 }

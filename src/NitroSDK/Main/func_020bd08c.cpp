@@ -6,39 +6,39 @@
 
 extern "C" void func_020ca3ec(int value, void* dst, int size);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
-extern "C" int func_020d1ee4(int a, int b, int c, int d);
+extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
 
-struct Flag0210fd74 {
-    char pad[0x48];
-    int flag48;
+struct Struct_0210fd74_2 {
+    char unknown_0_[0x48];
+    int unknown_48_;
 };
 
-struct Ctx0210fdbc {
-    char pad0[0xc];
-    void* p0xc;
-    void* p0x10;
-    unsigned int size14;
-    char pad1[0x1c - 0x18];
-    int f1c;
-    char pad2[0x24 - 0x20];
-    int f24;
-    int f28;
-    int f2c;
+struct Struct_0210fdbc_2 {
+    char unknown_0_[0xc];
+    void* unknown_c_;
+    void* unknown_10_;
+    unsigned int unknown_14_;
+    char unknown_18_[0x1c - 0x18];
+    int unknown_1c_;
+    char unknown_20_[0x24 - 0x20];
+    int unknown_24_;
+    int unknown_28_;
+    int unknown_2c_;
 };
 
-extern Flag0210fd74 data_0210fd74;
-extern Ctx0210fdbc data_0210fdbc;
+extern Struct_0210fd74_2 data_0210fd74;
+extern Struct_0210fdbc_2 data_0210fdbc;
 
 // USA: func_020bd08c
 extern "C" ARM void func_020bd08c(void) {
-    Ctx0210fdbc* ctx = &data_0210fdbc;
-    if (data_0210fd74.flag48 == 0) return;
-    ctx->f1c = 0;
-    func_020ca3ec(0, ctx->p0xc, ctx->size14);
-    func_020ca3ec(0, ctx->p0x10, ctx->size14);
-    CleanInvalidateCacheRange(ctx->p0xc, ctx->size14);
-    CleanInvalidateCacheRange(ctx->p0x10, ctx->size14);
-    int shift = ctx->f2c;
-    int mask = (shift >= 0) ? (1 << shift) : 0;
-    func_020d1ee4(ctx->f24, ctx->f28, mask, 0);
+    Struct_0210fdbc_2* var0 = &data_0210fdbc;
+    if (data_0210fd74.unknown_48_ == 0) return;
+    var0->unknown_1c_ = 0;
+    func_020ca3ec(0, var0->unknown_c_, var0->unknown_14_);
+    func_020ca3ec(0, var0->unknown_10_, var0->unknown_14_);
+    CleanInvalidateCacheRange(var0->unknown_c_, var0->unknown_14_);
+    CleanInvalidateCacheRange(var0->unknown_10_, var0->unknown_14_);
+    int var1 = var0->unknown_2c_;
+    int var2 = (var1 >= 0) ? (1 << var1) : 0;
+    func_020d1ee4(var0->unknown_24_, var0->unknown_28_, var2, 0);
 }

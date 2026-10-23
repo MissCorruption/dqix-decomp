@@ -1,115 +1,115 @@
 #include <globaldefs.h>
 
-typedef struct decimal {
-    char sgn;
-    char unused;
-    short exp;
+typedef struct Struct_020026b4 {
+    char unknown_0_;
+    char unknown_1_;
+    short unknown_2_;
     struct {
-        unsigned char length;
-        unsigned char text[32];
-        unsigned char unused;
-    } sig;
-} decimal;
+        unsigned char unknown_0_;
+        unsigned char unknown_1_[32];
+        unsigned char unknown_21_;
+    } unknown_4_;
+} Struct_020026b4;
 
 // USA: func_02009edc
-ARM void func_02009edc(decimal* z, const decimal* x, const decimal* y) {
-    int zlen, dexp;
-    unsigned char *ib, *i, *ie;
-    const unsigned char *jb, *j, *jn;
+ARM void func_02009edc(Struct_020026b4* arg0, const Struct_020026b4* arg1, const Struct_020026b4* arg2) {
+    int var0, var1;
+    unsigned char *var2, *var3, *var4;
+    const unsigned char *var5, *var6, *var7;
 
-    *z = *x;
+    *arg0 = *arg1;
 
-    if (y->sig.text[0] == 0)
+    if (arg2->unknown_4_.unknown_1_[0] == 0)
         return;
 
-    zlen = z->sig.length;
-    if (zlen < y->sig.length)
-        zlen = y->sig.length;
+    var0 = arg0->unknown_4_.unknown_0_;
+    if (var0 < arg2->unknown_4_.unknown_0_)
+        var0 = arg2->unknown_4_.unknown_0_;
 
-    dexp = z->exp - y->exp;
-    zlen += dexp;
+    var1 = arg0->unknown_2_ - arg2->unknown_2_;
+    var0 += var1;
 
-    if (zlen > 32)
-        zlen = 32;
+    if (var0 > 32)
+        var0 = 32;
 
-    while (z->sig.length < zlen)
-        z->sig.text[z->sig.length++] = 0;
+    while (arg0->unknown_4_.unknown_0_ < var0)
+        arg0->unknown_4_.unknown_1_[arg0->unknown_4_.unknown_0_++] = 0;
 
-    ib = z->sig.text;
-    i = ib + zlen;
+    var2 = arg0->unknown_4_.unknown_1_;
+    var3 = var2 + var0;
 
-    if (y->sig.length + dexp < zlen)
-        i = ib + (y->sig.length + dexp);
+    if (arg2->unknown_4_.unknown_0_ + var1 < var0)
+        var3 = var2 + (arg2->unknown_4_.unknown_0_ + var1);
 
-    jb = y->sig.text;
-    j = jb + (i - ib - dexp);
-    jn = j;
+    var5 = arg2->unknown_4_.unknown_1_;
+    var6 = var5 + (var3 - var2 - var1);
+    var7 = var6;
 
-    while (i > ib && j > jb) {
-        --i;
-        --j;
-        if (*i < *j) {
-            unsigned char* k = i - 1;
-            while (*k == 0)
-                --k;
-            while (k != i) {
-                --*k;
-                ++k;
-                *k += 10;
+    while (var3 > var2 && var6 > var5) {
+        --var3;
+        --var6;
+        if (*var3 < *var6) {
+            unsigned char* var8 = var3 - 1;
+            while (*var8 == 0)
+                --var8;
+            while (var8 != var3) {
+                --*var8;
+                ++var8;
+                *var8 += 10;
             }
         }
-        *i -= *j;
+        *var3 -= *var6;
     }
 
-    if (jn - jb < y->sig.length) {
-        int roundDown = 0;
-        if (*jn < 5)
-            roundDown = 1;
-        else if (*jn == 5) {
-            const unsigned char* je = y->sig.text + y->sig.length;
+    if (var7 - var5 < arg2->unknown_4_.unknown_0_) {
+        int var9 = 0;
+        if (*var7 < 5)
+            var9 = 1;
+        else if (*var7 == 5) {
+            const unsigned char* var10 = arg2->unknown_4_.unknown_1_ + arg2->unknown_4_.unknown_0_;
 
-            for (j = jn + 1; j < je; ++j)
-                if (*j != 0)
+            for (var6 = var7 + 1; var6 < var10; ++var6)
+                if (*var6 != 0)
                     goto done;
 
-            i = ib + (jn - jb) + dexp - 1;
+            var3 = var2 + (var7 - var5) + var1 - 1;
 
-            if (*i & 1)
-                roundDown = 1;
+            if (*var3 & 1)
+                var9 = 1;
         }
-        if (roundDown) {
-            if (*i < 1) {
-                unsigned char* k = i - 1;
-                while (*k == 0)
-                    --k;
-                while (k != i) {
-                    --*k;
-                    ++k;
-                    *k += 10;
+        if (var9) {
+            if (*var3 < 1) {
+                unsigned char* var11 = var3 - 1;
+                while (*var11 == 0)
+                    --var11;
+                while (var11 != var3) {
+                    --*var11;
+                    ++var11;
+                    *var11 += 10;
                 }
             }
-            *i -= 1;
+            *var3 -= 1;
         }
     }
 
 done:
-    for (i = ib; *i == 0; ++i) {
+    for (var3 = var2; *var3 == 0; ++var3) {
     }
 
-    if (i > ib) {
-        unsigned char dl = (unsigned char)(i - ib);
-        z->exp -= dl;
-        ie = ib + z->sig.length;
-        for (; i < ie; ++i, ++ib)
-            *ib = *i;
-        z->sig.length -= dl;
+    if (var3 > var2) {
+        unsigned char var12 = (unsigned char)(var3 - var2);
+        arg0->unknown_2_ -= var12;
+        var4 = var2 + arg0->unknown_4_.unknown_0_;
+        for (; var3 < var4; ++var3, ++var2)
+            *var2 = *var3;
+        arg0->unknown_4_.unknown_0_ -= var12;
     }
 
-    ib = z->sig.text;
-    for (i = ib + z->sig.length; i > ib;) {
-        --i;
-        if (*i != 0)
+    var2 = arg0->unknown_4_.unknown_1_;
+    for (var3 = var2 + arg0->unknown_4_.unknown_0_; var3 > var2;) {
+        --var3;
+        if (*var3 != 0)
             break;
     }
-    z->sig.length = (unsigned char)(i - ib + 1);
+    arg0->unknown_4_.unknown_0_ = (unsigned char)(var3 - var2 + 1);
 }

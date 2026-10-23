@@ -3,77 +3,77 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_020d6c00(void);
-extern "C" int func_02046708(struct FlagWord02046708* word, unsigned int mask);
+extern "C" int func_02046708(struct Struct_02012de8* arg0, unsigned int arg1);
 
-struct Vec3copy0202ec84 { int x; int y; int z; };
-extern "C" ARM int func_0202ec84(void* obj, struct Vec3copy0202ec84* src, int* out1, int* out2);
+struct Struct_02015ef4 { int unknown_0_; int unknown_4_; int unknown_8_; };
+extern "C" ARM int func_0202ec84(void* arg0, struct Struct_02015ef4* arg1, int* arg2, int* arg3);
 
-struct StructAt020473c8;
-extern "C" ARM void func_020473c8(struct StructAt020473c8* obj, int param1);
+struct Struct_02015ef4_2;
+extern "C" ARM void func_020473c8(struct Struct_02015ef4_2* arg0, int arg1);
 
-struct Node0205337c {
-    unsigned char pad0[0x1c];
-    int screenX;
-    int screenY;
-    int depth;
+struct Struct_0205337c {
+    unsigned char unknown_0_[0x1c];
+    int unknown_1c_;
+    int unknown_20_;
+    int unknown_24_;
 };
 
-struct Anim0205337c {
-    signed char anim[5];
-    signed char animIdx;
-    signed char* GetTable() { return anim; }
-    int GetIndex() const { return animIdx; }
+struct Struct_02000c9c_22 {
+    signed char unknown_0_[5];
+    signed char unknown_5_;
+    signed char* inline_0205337c() { return unknown_0_; }
+    int inline_0205337c_2() const { return unknown_5_; }
 };
 
 #if defined(jpn)
-enum { regionalAnim = 0x16c, regionalNode = 0x184 };
+enum { Enum_0205337c_376 = 0x16c, Enum_0205337c_400 = 0x184 };
 #else
-enum { regionalAnim = 0x178, regionalNode = 0x190 };
+enum { Enum_0205337c_376 = 0x178, Enum_0205337c_400 = 0x190 };
 #endif
 
-struct Obj0205337c {
-    unsigned char pad0[0x44];
-    struct Vec3copy0202ec84 pose;
-    unsigned char pad1[regionalAnim - 0x50];
-    struct Anim0205337c anim;
-    unsigned char pad2[regionalNode - regionalAnim - 6];
-    struct Node0205337c* node;
+struct Struct_0205337c_2 {
+    unsigned char unknown_0_[0x44];
+    struct Struct_02015ef4 unknown_44_;
+    unsigned char unknown_50_[Enum_0205337c_376 - 0x50];
+    struct Struct_02000c9c_22 unknown_178_;
+    unsigned char unknown_17e_[Enum_0205337c_400 - Enum_0205337c_376 - 6];
+    struct Struct_0205337c* unknown_190_;
 };
 
 // USA: func_0205337c
-extern "C" ARM void func_0205337c(struct Obj0205337c* obj) {
-    if (func_02046708((struct FlagWord02046708*)func_020d6c00(), 2)) return;
-    if (obj->node == NULL) return;
+extern "C" ARM void func_0205337c(struct Struct_0205337c_2* arg0) {
+    if (func_02046708((struct Struct_02012de8*)func_020d6c00(), 2)) return;
+    if (arg0->unknown_190_ == NULL) return;
 
-    void* target = func_020100bc(GameState::GetInstance());
+    void* var0 = func_020100bc(GameState::GetInstance());
     *(volatile int*)0x4000444 = 0;
 
-    struct Vec3copy0202ec84 pose = obj->pose;
-    pose.y += 0x1b33;
+    struct Struct_02015ef4 var1 = arg0->unknown_44_;
+    var1.unknown_4_ += 0x1b33;
 
-    int outB, outA;
-    func_0202ec84(target, &pose, &outB, &outA);
-    outB -= 0xc;
-    outA -= 0xc;
+    int var2, var3;
+    func_0202ec84(var0, &var1, &var2, &var3);
+    var2 -= 0xc;
+    var3 -= 0xc;
 
-    int idx = obj->anim.GetIndex();
-    signed char* animations = obj->anim.GetTable();
-    int kind = animations[idx];
-    if (!(kind != 0xc && kind != 0xd && kind != 0xe)) {
-        outB -= 0xc;
-        outA -= 6;
-    } else if (kind == 0x1e) {
-        outA += 4;
-        outB += 4;
+    int var4 = arg0->unknown_178_.inline_0205337c_2();
+    signed char* var5 = arg0->unknown_178_.inline_0205337c();
+    int var6 = var5[var4];
+    if (!(var6 != 0xc && var6 != 0xd && var6 != 0xe)) {
+        var2 -= 0xc;
+        var3 -= 6;
+    } else if (var6 == 0x1e) {
+        var3 += 4;
+        var2 += 4;
     }
 
-    int sx = outB;
-    int sy = outA;
-    struct Node0205337c* node = obj->node;
-    node->screenX = sx << 12;
-    node->screenY = sy << 12;
-    node->depth = -0xa000;
+    int var7 = var2;
+    int var8 = var3;
+    struct Struct_0205337c* var9 = arg0->unknown_190_;
+    var9->unknown_1c_ = var7 << 12;
+    var9->unknown_20_ = var8 << 12;
+    var9->unknown_24_ = -0xa000;
 
-    func_020473c8((struct StructAt020473c8*)obj->node, 1);
+    func_020473c8((struct Struct_02015ef4_2*)arg0->unknown_190_, 1);
     *(volatile int*)0x4000448 = 1;
 }

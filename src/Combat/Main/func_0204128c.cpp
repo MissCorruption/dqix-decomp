@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct State02041244;
-extern "C" void func_02041244(struct State02041244* obj);
+struct Struct_0203d028_10;
+extern "C" void func_02041244(struct Struct_0203d028_10* arg0);
 
 // USA: func_0204128c
-extern "C" ARM void func_0204128c(struct State02041244* obj) {
-    func_02041244(obj);
+extern "C" ARM void func_0204128c(struct Struct_0203d028_10* arg0) {
+    func_02041244(arg0);
 }

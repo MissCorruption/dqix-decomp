@@ -2,37 +2,37 @@
 #include <globaldefs.h>
 
 // USA: func_0201c7c4
-extern "C" ARM int func_0201c7c4(Script::Parameter *arg0, int count) {
-    const char* extra1;
-    const char* extra2;
-    int id;
-    Vector3fix vec3;
-    Script::Parameter *ret;
-    const char* name;
+extern "C" ARM int func_0201c7c4(Script::Parameter *arg0, int arg1) {
+    const char* var0;
+    const char* var1;
+    int var2;
+    Vector3fix var3;
+    Script::Parameter *var4;
+    const char* var5;
 
-    id = arg0->ToInt();
-    ret = arg0[1].ToVec3fix(&vec3);
-    arg0 = ret + 1;
-    name = ret->ToString();
-    extra1 = NULL;
-    extra2 = NULL;
-    if (count >= 6) {
-        extra1 = arg0->ToString();
+    var2 = arg0->ToInt();
+    var4 = arg0[1].ToVec3fix(&var3);
+    arg0 = var4 + 1;
+    var5 = var4->ToString();
+    var0 = NULL;
+    var1 = NULL;
+    if (arg1 >= 6) {
+        var0 = arg0->ToString();
         arg0++;
     }
-    if (count >= 7) {
-        extra2 = arg0->ToString();
+    if (arg1 >= 7) {
+        var1 = arg0->ToString();
     }
-    if (name == NULL) return 0;
+    if (var5 == NULL) return 0;
 
     {
-        ZoneFeatures::Opcode64Entry entry;
-        entry.unk_0 = id;
-        entry.vector_4.vec = vec3;
-        strcpy(entry.string_10, name);
-        if (extra1 == NULL) entry.string_20[0] = 0; else strcpy(entry.string_20, extra1);
-        if (extra2 == NULL) entry.string_30[0] = 0; else strcpy(entry.string_30, extra2);
-        data_020fdc20.warp->func_0201e304(entry);
+        Struct_020134e0::Struct_020146fc var6;
+        var6.unknown_0_ = var2;
+        var6.unknown_4_.unknown1_0_ = var3;
+        strcpy(var6.unknown_10_, var5);
+        if (var0 == NULL) var6.unknown_20_[0] = 0; else strcpy(var6.unknown_20_, var0);
+        if (var1 == NULL) var6.unknown_30_[0] = 0; else strcpy(var6.unknown_30_, var1);
+        data_020fdc20.unknown_8_->func_0201e304(var6);
     }
     return 1;
 }

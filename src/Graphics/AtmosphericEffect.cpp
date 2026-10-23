@@ -360,7 +360,7 @@ void AtmosphericEffectSet::ProcessArchive(AtmosphericEffectSet *target, SafeAllo
                 fileID++;
                 continue;
             }
-            unsigned int innerFileLength = vm.fileInfo.endOffset - vm.fileInfo.startOffset;
+            unsigned int innerFileLength = vm.fileInfo.unknown_8_ - vm.fileInfo.unknown_4_;
             NitroVM_FinishRead(&vm);
             const void* innerFile = narc.GetFileByIndex(fileID);
             if (strcmp(".cmed", extension) == 0)
@@ -424,7 +424,7 @@ void AtmosphericEffectSet::ProcessArchive(AtmosphericEffectSet *target, SafeAllo
                     fileID++;
                     continue;
                 }
-                unsigned int innerFileLength = vm.fileInfo.endOffset - vm.fileInfo.startOffset;
+                unsigned int innerFileLength = vm.fileInfo.unknown_8_ - vm.fileInfo.unknown_4_;
                 NitroVM_FinishRead(&vm);
                 const void* innerFile = narc.GetFileByIndex(fileID);
                 if (strcmp(".chr", extension) == 0)

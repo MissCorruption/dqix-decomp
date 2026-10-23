@@ -10,8 +10,8 @@ static const int bankSelectionOffset = 0x18;
 
 // USA: func_ov016_0218be5c
 extern "C" ARM int func_ov016_0218be5c(void) {
-    int bankSelection = *(int*)(data_ov016_0219d0c0 + bankSelectionOffset);
-    if (bankSelection == 0) {
+    int var0 = *(int*)(data_ov016_0219d0c0 + bankSelectionOffset);
+    if (var0 == 0) {
         return 0x6820000;
     }
     return 0x6800000;

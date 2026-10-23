@@ -1,121 +1,121 @@
 #include <globaldefs.h>
 #if defined(jpn)
-enum { kVocationEnd = 0x8b8 };
+enum { Enum_ov003_021592d8_2384 = 0x8b8 };
 extern "C" void func_020474a8(void*, int, const char*, char*);
 #else
-enum { kVocationEnd = 0x950 };
+enum { Enum_ov003_021592d8_2384 = 0x950 };
 #endif
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 
-struct VocationData021592d8 {
-    char pad0[0x138];
-    int exp[0xd];
-    unsigned short levels[0xd];
-    char pad186[kVocationEnd - 0x186];
-    int vocation;
+struct Struct_ov003_021592d8 {
+    char unknown_0_[0x138];
+    int unknown_138_[0xd];
+    unsigned short unknown_16c_[0xd];
+    char unknown_186_[Enum_ov003_021592d8_2384 - 0x186];
+    int unknown_950_;
 };
 
-struct Combatant021592d8 {
-    char pad0[4];
-    short id;
+struct Struct_ov003_021592d8_2 {
+    char unknown_0_[4];
+    short unknown_4_;
 #if defined(jpn)
-    char pad6[0x134 - 6];
-    char* name;
+    char unknown_6_[0x134 - 6];
+    char* unknown_134_;
 #endif
 };
 
-struct MessageWork021592d8 {
-    char pad0[0x10];
-    void* subject;
+struct Struct_ov003_021592d8_3 {
+    char unknown_0_[0x10];
+    void* unknown_10_;
 };
 
-struct LevelEntry021592d8 {
-    int exp;
-    char pad4[0x54 - 4];
+struct Struct_ov003_021592d8_4 {
+    int unknown_0_;
+    char unknown_4_[0x54 - 4];
 };
 
-struct UnitObj021592d8 {
-    char data[0xc];
+struct Struct_ov003_021592d8_5 {
+    char unknown_0_[0xc];
 };
 
-struct Container020e0310;
-struct Obj02046574;
-struct StoreStruct;
+struct Struct_0201099c_3;
+struct Struct_02046574_2;
+struct Struct_020465c0;
 
-struct BattleMenu021592d8 {
-    char pad0[0x64];
-    char messages[0x18];
+struct Struct_ov003_021592d8_6 {
+    char unknown_0_[0x64];
+    char unknown_64_[0x18];
 };
 
-extern "C" struct MessageWork021592d8* func_020421a0();
-extern "C" struct VocationData021592d8* func_02053c6c(unsigned char* obj);
-extern "C" void func_02046380(void* obj);
-extern "C" void func_020e4bf4(void* obj, int combatantId);
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" void func_02046574(struct Obj02046574* obj, int index, char* str);
-extern "C" void* func_0208247c(void* obj);
-extern "C" int func_02082490(void* output, void* resource, unsigned int size, int selection, int extra);
-extern "C" void func_020465c0(struct StoreStruct* base, int index, int value);
-extern "C" void func_020465f0(unsigned char* base, int index, unsigned char value);
-extern "C" void func_02046608(void* messages, int a, const char* input, char* output, int b, int c, int d);
+extern "C" struct Struct_ov003_021592d8_3* func_020421a0();
+extern "C" struct Struct_ov003_021592d8* func_02053c6c(unsigned char* arg0);
+extern "C" void func_02046380(void* arg0);
+extern "C" void func_020e4bf4(void* arg0, int arg1);
+extern "C" int func_020e0434(struct Struct_0201099c_3* arg0, int arg1);
+extern "C" void func_02046574(struct Struct_02046574_2* arg0, int arg1, char* arg2);
+extern "C" void* func_0208247c(void* arg0);
+extern "C" int func_02082490(void* arg0, void* arg1, unsigned int arg2, int arg3, int arg4);
+extern "C" void func_020465c0(struct Struct_020465c0* arg0, int arg1, int arg2);
+extern "C" void func_020465f0(unsigned char* arg0, int arg1, unsigned char arg2);
+extern "C" void func_02046608(void* arg0, int arg1, const char* arg2, char* arg3, int arg4, int arg5, int arg6);
 
 extern char data_ov003_0217fe18[];
 extern unsigned char data_0211e33c[0x30000];
 
 // USA: func_ov003_021592d8
-extern "C" ARM void func_ov003_021592d8(struct BattleMenu021592d8* self, struct Combatant021592d8* combatant,
-                                        char* out) {
-    if (out == NULL || combatant == NULL) {
+extern "C" ARM void func_ov003_021592d8(struct Struct_ov003_021592d8_6* arg0, struct Struct_ov003_021592d8_2* arg1,
+                                        char* arg2) {
+    if (arg2 == NULL || arg1 == NULL) {
         return;
     }
-    struct MessageWork021592d8* work = func_020421a0();
-    struct VocationData021592d8* data = func_02053c6c((unsigned char*)combatant);
-    int vocation = data->vocation;
-    func_02046380(work);
+    struct Struct_ov003_021592d8_3* var0 = func_020421a0();
+    struct Struct_ov003_021592d8* var1 = func_02053c6c((unsigned char*)arg1);
+    int var2 = var1->unknown_950_;
+    func_02046380(var0);
 #if defined(jpn)
-    func_02046574((struct Obj02046574*)work, 0, combatant->name);
+    func_02046574((struct Struct_02046574_2*)var0, 0, arg1->unknown_134_);
 #else
-    struct UnitObj021592d8 unit;
-    func_020e4bf4(&unit, combatant->id);
-    work->subject = &unit;
+    struct Struct_ov003_021592d8_5 var3;
+    func_020e4bf4(&var3, arg1->unknown_4_);
+    var0->unknown_10_ = &var3;
 #endif
-    int key;
-    if (data->levels[vocation] == 99) {
-        func_02046574((struct Obj02046574*)work, 1,
-                               (char*)func_020e0434((struct Container020e0310*)self->messages,
-                                                            (short)(data->vocation + 0x1e)));
-        key = 0x3fe;
+    int var4;
+    if (var1->unknown_16c_[var2] == 99) {
+        func_02046574((struct Struct_02046574_2*)var0, 1,
+                               (char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_,
+                                                            (short)(var1->unknown_950_ + 0x1e)));
+        var4 = 0x3fe;
     } else {
-        char path[0x28];
-        unsigned int size;
-        sprintf(path, data_ov003_0217fe18, data->vocation);
+        char var5[0x28];
+        unsigned int var6;
+        sprintf(var5, data_ov003_0217fe18, var1->unknown_950_);
         BackgroundLoader::AddLockGlobal();
-        void* file = LoadFileIntoMemory(path, data_0211e33c, &size);
-        struct LevelEntry021592d8 next;
-        func_0208247c(&next);
-        if (file != NULL) {
-            func_02082490(&next, file, size, data->levels[vocation] + 1, 0);
+        void* var7 = LoadFileIntoMemory(var5, data_0211e33c, &var6);
+        struct Struct_ov003_021592d8_4 var8;
+        func_0208247c(&var8);
+        if (var7 != NULL) {
+            func_02082490(&var8, var7, var6, var1->unknown_16c_[var2] + 1, 0);
         }
-        struct LevelEntry021592d8* entry = &next;
-        int remaining = 0;
-        if (entry != NULL) {
-            remaining = entry->exp - data->exp[vocation];
+        struct Struct_ov003_021592d8_4* var9 = &var8;
+        int var10 = 0;
+        if (var9 != NULL) {
+            var10 = var9->unknown_0_ - var1->unknown_138_[var2];
         }
-        if (remaining > 0) {
-            func_020465c0((struct StoreStruct*)work, 0, remaining);
-            func_020465f0((unsigned char*)work, 0, 0);
-            key = 0x3fd;
+        if (var10 > 0) {
+            func_020465c0((struct Struct_020465c0*)var0, 0, var10);
+            func_020465f0((unsigned char*)var0, 0, 0);
+            var4 = 0x3fd;
         } else {
-            key = 0x3ff;
+            var4 = 0x3ff;
         }
         BackgroundLoader::RemoveLockGlobal();
     }
 #if defined(jpn)
-    func_020474a8(work, 0xc, (const char*)func_020e0434((struct Container020e0310*)self->messages, key), out);
+    func_020474a8(var0, 0xc, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2);
 #else
-    func_02046608(work, 0xc, (const char*)func_020e0434((struct Container020e0310*)self->messages, key), out,
+    func_02046608(var0, 0xc, (const char*)func_020e0434((struct Struct_0201099c_3*)arg0->unknown_64_, var4), arg2,
                   0xe3, 0, 1);
 #endif
 }

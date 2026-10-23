@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
-extern "C" int fix32_Divide(unsigned int numerHi, unsigned int denomLo);
+extern "C" int fix32_Divide(unsigned int arg0, unsigned int arg1);
 extern short data_020ed554[];
 
 // USA: func_020c3544
-extern "C" ARM int func_020c3544(int dx, int dy) {
-    int num, denom, base, add;
+extern "C" ARM int func_020c3544(int arg0, int arg1) {
+    int var0, var1, var2, var3;
 
-    if (dx > 0) {
-        if (dy > 0) {
-            if (dy > dx) {
-                num = dx; denom = dy; base = 0; add = 1;
+    if (arg0 > 0) {
+        if (arg1 > 0) {
+            if (arg1 > arg0) {
+                var0 = arg0; var1 = arg1; var2 = 0; var3 = 1;
             } else {
-                if (dy < dx) {
-                    num = dy; denom = dx; base = 0x4000; add = 0;
+                if (arg1 < arg0) {
+                    var0 = arg1; var1 = arg0; var2 = 0x4000; var3 = 0;
                 } else {
                     return 0x2000;
                 }
             }
         } else {
-            if (dy < 0) {
-                int ady = -dy;
-                if (ady < dx) {
-                    num = ady; denom = dx; base = 0x4000; add = 1;
+            if (arg1 < 0) {
+                int var4 = -arg1;
+                if (var4 < arg0) {
+                    var0 = var4; var1 = arg0; var2 = 0x4000; var3 = 1;
                 } else {
-                    if (ady > dx) {
-                        num = dx; denom = ady; base = 0x8000; add = 0;
+                    if (var4 > arg0) {
+                        var0 = arg0; var1 = var4; var2 = 0x8000; var3 = 0;
                     } else {
                         return 0x6000;
                     }
@@ -35,26 +35,26 @@ extern "C" ARM int func_020c3544(int dx, int dy) {
             }
         }
     } else {
-        if (dx < 0) {
-            int adx = -dx;
-            if (dy < 0) {
-                int ady = -dy;
-                if (ady > adx) {
-                    num = adx; denom = ady; base = -0x8000; add = 1;
+        if (arg0 < 0) {
+            int var5 = -arg0;
+            if (arg1 < 0) {
+                int var6 = -arg1;
+                if (var6 > var5) {
+                    var0 = var5; var1 = var6; var2 = -0x8000; var3 = 1;
                 } else {
-                    if (ady < adx) {
-                        num = ady; denom = adx; base = -0x4000; add = 0;
+                    if (var6 < var5) {
+                        var0 = var6; var1 = var5; var2 = -0x4000; var3 = 0;
                     } else {
                         return 0xa000;
                     }
                 }
             } else {
-                if (dy > 0) {
-                    if (dy < adx) {
-                        num = dy; denom = adx; base = -0x4000; add = 1;
+                if (arg1 > 0) {
+                    if (arg1 < var5) {
+                        var0 = arg1; var1 = var5; var2 = -0x4000; var3 = 1;
                     } else {
-                        if (dy > adx) {
-                            num = adx; denom = dy; base = 0; add = 0;
+                        if (arg1 > var5) {
+                            var0 = var5; var1 = arg1; var2 = 0; var3 = 0;
                         } else {
                             return 0xe000;
                         }
@@ -64,18 +64,18 @@ extern "C" ARM int func_020c3544(int dx, int dy) {
                 }
             }
         } else {
-            return (dy >= 0) ? 0 : 0x8000;
+            return (arg1 >= 0) ? 0 : 0x8000;
         }
     }
 
-    if (denom == 0) {
+    if (var1 == 0) {
         return 0;
     }
-    if (add) {
-        int val = data_020ed554[fix32_Divide(num, denom) >> 5];
-        return (unsigned short)(base + val);
+    if (var3) {
+        int var7 = data_020ed554[fix32_Divide(var0, var1) >> 5];
+        return (unsigned short)(var2 + var7);
     } else {
-        int val = data_020ed554[fix32_Divide(num, denom) >> 5];
-        return (unsigned short)(base - val);
+        int var8 = data_020ed554[fix32_Divide(var0, var1) >> 5];
+        return (unsigned short)(var2 - var8);
     }
 }

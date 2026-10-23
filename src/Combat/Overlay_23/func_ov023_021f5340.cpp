@@ -2,33 +2,33 @@
 #include "Filesystem/BackgroundLoader.h"
 
 
-struct List0202fec8;
+struct Struct_020534ac;
 
-extern "C" void func_ov023_021f5448(void* obj, int a, int b, int c);
-extern "C" int func_ov023_021f5410(void* obj);
-extern "C" int func_ov023_021f5340(void* obj);
+extern "C" void func_ov023_021f5448(void* arg0, int arg1, int arg2, int arg3);
+extern "C" int func_ov023_021f5410(void* arg0);
+extern "C" int func_ov023_021f5340(void* arg0);
 
 extern int data_ov023_021fe334;
 
 // USA: func_ov023_021f5340
-extern "C" ARM int func_ov023_021f5340(void* objRaw) {
-    char* obj = (char*)objRaw;
-    int dataResult = (int)BackgroundLoader::GetInstance();
-    short state = *(short*)(obj + 0xc);
-    switch (state) {
+extern "C" ARM int func_ov023_021f5340(void* arg0) {
+    char* var0 = (char*)arg0;
+    int var1 = (int)BackgroundLoader::GetInstance();
+    short var2 = *(short*)(var0 + 0xc);
+    switch (var2) {
     case 1:
-        *(int*)(obj + 0x10) = ((BackgroundLoader*)(dataResult))->QueueLoadFile((const char*)(data_ov023_021fe334), (SafeAllocator*)(0));
-        *(short*)(obj + 0xc) = 2;
-        return func_ov023_021f5340(obj);
+        *(int*)(var0 + 0x10) = ((BackgroundLoader*)(var1))->QueueLoadFile((const char*)(data_ov023_021fe334), (SafeAllocator*)(0));
+        *(short*)(var0 + 0xc) = 2;
+        return func_ov023_021f5340(var0);
     case 2:
-        if (((BackgroundLoader*)(dataResult))->GetTaskStatus((int)(*(int*)(obj + 0x10))) == 0) return 0;
-        *(short*)(obj + 0xc) = 3;
-        return func_ov023_021f5340(obj);
+        if (((BackgroundLoader*)(var1))->GetTaskStatus((int)(*(int*)(var0 + 0x10))) == 0) return 0;
+        *(short*)(var0 + 0xc) = 3;
+        return func_ov023_021f5340(var0);
     case 3: {
-        int out1 = 0, out2 = 0;
-        ((BackgroundLoader*)((struct List0202fec8*)dataResult))->GetLoadedFileByID((int)(*(int*)(obj + 0x10)), (void**)(&out1), (unsigned int*)(&out2));
-        func_ov023_021f5448(obj, *(int*)(obj + 0x14), out1, out2);
-        func_ov023_021f5410(obj);
+        int var3 = 0, var4 = 0;
+        ((BackgroundLoader*)((struct Struct_020534ac*)var1))->GetLoadedFileByID((int)(*(int*)(var0 + 0x10)), (void**)(&var3), (unsigned int*)(&var4));
+        func_ov023_021f5448(var0, *(int*)(var0 + 0x14), var3, var4);
+        func_ov023_021f5410(var0);
         return 1;
     }
     default:

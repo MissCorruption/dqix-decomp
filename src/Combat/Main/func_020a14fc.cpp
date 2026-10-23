@@ -1,29 +1,29 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
-struct Global02109d94 {
-    char pad[8];
-    SafeAllocator* alloc;
+struct Struct_02109d94_4 {
+    char unknown_0_[8];
+    SafeAllocator* unknown_8_;
 };
-extern struct Global02109d94 data_02109d94;
+extern struct Struct_02109d94_4 data_02109d94;
 
-struct Obj020a14fc {
-    void* items;              // 0x0
-    unsigned short capacity;  // 0x4
-    unsigned short used;      // 0x6
-    char pad[4];               // 0x8
-    void* bitmap;               // 0xc
+struct Struct_020a14fc {
+    void* unknown_0_;              // 0x0
+    unsigned short unknown_4_;  // 0x4
+    unsigned short unknown_6_;      // 0x6
+    char unknown_8_[4];               // 0x8
+    void* unknown_c_;               // 0xc
 };
 
 // USA: func_020a14fc
-extern "C" ARM void func_020a14fc(struct Obj020a14fc* obj, void* flag, int count) {
-    int bitmapSize;
-    if (flag == NULL || count == 0) return;
+extern "C" ARM void func_020a14fc(struct Struct_020a14fc* arg0, void* arg1, int arg2) {
+    int var0;
+    if (arg1 == NULL || arg2 == 0) return;
 
-    obj->items = data_02109d94.alloc->Allocate(count * 0xc);
-    obj->capacity = (unsigned short)count;
-    obj->used = 0;
+    arg0->unknown_0_ = data_02109d94.unknown_8_->Allocate(arg2 * 0xc);
+    arg0->unknown_4_ = (unsigned short)arg2;
+    arg0->unknown_6_ = 0;
 
-    bitmapSize = (obj->capacity - 1) / 8 + 1;
-    obj->bitmap = data_02109d94.alloc->Allocate(bitmapSize);
+    var0 = (arg0->unknown_4_ - 1) / 8 + 1;
+    arg0->unknown_c_ = data_02109d94.unknown_8_->Allocate(var0);
 }

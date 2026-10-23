@@ -23,9 +23,9 @@ CBool NitroVM_PrepareRead(NitroVM* vm, NitroHandle* handle,
     unsigned int start, unsigned int end, unsigned int fileID)
 {
     vm->linkedHandle = handle;
-    vm->args_SetFilePointers.fileID = fileID;
-    vm->args_SetFilePointers.startOffset = start;
-    vm->args_SetFilePointers.endOffset = end;
+    vm->args_SetFilePointers.unknown_8_ = fileID;
+    vm->args_SetFilePointers.unknown_0_ = start;
+    vm->args_SetFilePointers.unknown_4_ = end;
 
     // Operand 7 copies capacity into base_a,
     // start into base_b and base_d, end into base_c.
@@ -44,8 +44,8 @@ bool NitroVM_PrepareReadFileByID(NitroVM* vm, NitroFileAccessor volatile accesso
         return false;
 
     vm->linkedHandle = handle;
-    vm->args_GetFATEntry.accessor.handle = handle;
-    vm->args_GetFATEntry.accessor.fileID = accessor.fileID;
+    vm->args_GetFATEntry.unknown_0_.handle = handle;
+    vm->args_GetFATEntry.unknown_0_.fileID = accessor.fileID;
     if (!NitroVM_QueueCommand(vm, NITROVM_OPCODE_GET_FAT_ENTRY))
         return false;
 
@@ -82,12 +82,12 @@ CBool NitroVM_WriteOutFilePath(NitroVM* vm, char* buffer, unsigned int bufferLen
 {
     if (vm->pendingCommand != NITROVM_OPCODE_GET_FILE_OR_DIRECTORY_PATH)
     {
-        vm->args_GetPath.numBytesWritten = 0;
-        vm->args_GetPath.directoryID = 0;
+        vm->args_GetPath.unknown_8_ = 0;
+        vm->args_GetPath.unknown_a_ = 0;
     }
 
-    vm->args_GetPath.pathOutput = buffer;
-    vm->args_GetPath.outputCapacity = bufferLength;
+    vm->args_GetPath.unknown_0_ = buffer;
+    vm->args_GetPath.unknown_4_ = bufferLength;
 
     return NitroVM_QueueCommand(vm, NITROVM_OPCODE_GET_FILE_OR_DIRECTORY_PATH);
 }
@@ -154,24 +154,24 @@ CBool NitroVM_Seek(NitroVM* vm, int offset, int whence)
     switch (whence)
     {
     case 0: // SEEK_SET
-        offset += vm->fileInfo.startOffset;
+        offset += vm->fileInfo.unknown_4_;
         break;
     case 1: // SEEK_CUR
-        offset += vm->fileInfo.cursorPos;
+        offset += vm->fileInfo.unknown_c_;
         break;
     case 2: // SEEK_END
-        offset += vm->fileInfo.endOffset;
+        offset += vm->fileInfo.unknown_8_;
         break;
     default:
         return false;
     }
         
-    if (offset < vm->fileInfo.startOffset)
-        offset = vm->fileInfo.startOffset;
-    if (offset > vm->fileInfo.endOffset)
-        offset = vm->fileInfo.endOffset;
+    if (offset < vm->fileInfo.unknown_4_)
+        offset = vm->fileInfo.unknown_4_;
+    if (offset > vm->fileInfo.unknown_8_)
+        offset = vm->fileInfo.unknown_8_;
 
-    vm->fileInfo.cursorPos = offset;
+    vm->fileInfo.unknown_c_ = offset;
     return true;
 }
 

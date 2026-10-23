@@ -1,23 +1,23 @@
 #include <globaldefs.h>
 
 void CleanInvalidateCacheRange(const void* p, unsigned int size);
-typedef void (*CacheFn0204bc08)(void*, int, unsigned int);
-extern CacheFn0204bc08 data_020f01b0[];
+typedef void (*Type_0204bc08)(void*, int, unsigned int);
+extern Type_0204bc08 data_020f01b0[];
 
-struct Obj0204bc08 { char pad0[0xc]; unsigned char field0c; char pad_d[0x1c - 0xc - 1]; unsigned char lo : 4; unsigned char hi : 4; };
+struct Struct_0204bc08 { char unknown_0_[0xc]; unsigned char unknown_c_; char unknown_d_[0x1c - 0xc - 1]; unsigned char unknown_1c_0_ : 4; unsigned char unknown_1c_4_ : 4; };
 
 // USA: func_0204bc08
-extern "C" ARM void func_0204bc08(Obj0204bc08* obj, int idx, unsigned char mode, void* addr, unsigned int size) {
-    unsigned char sel = obj->lo;
-    CacheFn0204bc08 fn = obj->field0c ? data_020f01b0[sel] : data_020f01b0[sel];
-    int shift = 5;
-    if (obj->field0c != 0) {
-        mode = 0xff;
-        shift = 9;
+extern "C" ARM void func_0204bc08(Struct_0204bc08* arg0, int arg1, unsigned char arg2, void* arg3, unsigned int arg4) {
+    unsigned char var0 = arg0->unknown_1c_0_;
+    Type_0204bc08 var1 = arg0->unknown_c_ ? data_020f01b0[var0] : data_020f01b0[var0];
+    int var2 = 5;
+    if (arg0->unknown_c_ != 0) {
+        arg2 = 0xff;
+        var2 = 9;
     }
-    int val = (idx & 0xf) << shift;
-    val += (mode & 0xf) << 1;
-    size &= ~1u;
-    CleanInvalidateCacheRange(addr, size);
-    fn(addr, val, size);
+    int var3 = (arg1 & 0xf) << var2;
+    var3 += (arg2 & 0xf) << 1;
+    arg4 &= ~1u;
+    CleanInvalidateCacheRange(arg3, arg4);
+    var1(arg3, var3, arg4);
 }

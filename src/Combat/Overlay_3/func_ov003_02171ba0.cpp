@@ -2,68 +2,68 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
-enum { kRegionValue71C_618 = 0x618 };
-enum { kRegionValue72C_628 = 0x628 };
-enum { kRegionValue724_620 = 0x620 };
+enum { Enum_ov003_02171ba0_1820 = 0x618 };
+enum { Enum_ov003_02171ba0_1836 = 0x628 };
+enum { Enum_ov003_02171ba0_1828 = 0x620 };
 #else
-enum { kRegionValue71C_618 = 0x71c };
-enum { kRegionValue72C_628 = 0x72c };
-enum { kRegionValue724_620 = 0x724 };
+enum { Enum_ov003_02171ba0_1820 = 0x71c };
+enum { Enum_ov003_02171ba0_1836 = 0x72c };
+enum { Enum_ov003_02171ba0_1828 = 0x724 };
 #endif
 
-struct SearchStruct;
+struct Struct_0202b2f0;
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0202ae24(void);
-extern "C" int func_0202c578(struct SearchStruct*, int);
-extern "C" void func_0202c21c(struct SearchStruct*, int);
+extern "C" int func_0202c578(struct Struct_0202b2f0*, int);
+extern "C" void func_0202c21c(struct Struct_0202b2f0*, int);
 extern "C" void func_0202b0f4(void*);
 
-struct Element0202bad4;
-struct ElementArray0202bad4;
-extern "C" Element0202bad4* func_0202bad4(struct ElementArray0202bad4*, int);
+struct Struct_0202bad4;
+struct Struct_0202bad4_2;
+extern "C" Struct_0202bad4* func_0202bad4(struct Struct_0202bad4_2*, int);
 
 extern "C" void func_ov003_02171e1c(void*, void*);
 extern "C" int func_0205e488(void*);
 
-struct Obj02171ba0 {
-    unsigned char field0;
-    char pad1[0x199 - 1];
-    unsigned char field199;
-    char pad2[kRegionValue71C_618 - 0x19a];
-    int field71c;
-    int field720;
-    char pad3[kRegionValue72C_628 - kRegionValue724_620];
-    unsigned int field72c;
+struct Struct_ov003_02171ba0 {
+    unsigned char unknown_0_;
+    char unknown_1_[0x199 - 1];
+    unsigned char unknown_199_;
+    char unknown_19a_[Enum_ov003_02171ba0_1820 - 0x19a];
+    int unknown_71c_;
+    int unknown_720_;
+    char unknown_724_[Enum_ov003_02171ba0_1836 - Enum_ov003_02171ba0_1828];
+    unsigned int unknown_72c_;
 };
 
 // USA: func_ov003_02171ba0
-extern "C" ARM void func_ov003_02171ba0(struct Obj02171ba0* obj) {
-    GameState* battle = GameState::GetInstance();
-    struct SearchStruct* searchPtr = (struct SearchStruct*)func_0202ae18();
-    void* ptr2 = func_0202ae24();
+extern "C" ARM void func_ov003_02171ba0(struct Struct_ov003_02171ba0* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    struct Struct_0202b2f0* var1 = (struct Struct_0202b2f0*)func_0202ae18();
+    void* var2 = func_0202ae24();
 
-    if (func_0202c578(searchPtr, obj->field199)) {
-        func_0202c21c(searchPtr, obj->field199);
+    if (func_0202c578(var1, arg0->unknown_199_)) {
+        func_0202c21c(var1, arg0->unknown_199_);
     }
-    obj->field72c += battle->GetEffectiveDeltaTime();
-    if (obj->field72c > 0xbb8) {
-        func_0202b0f4(searchPtr);
-        obj->field0 = 0;
+    arg0->unknown_72c_ += var0->GetEffectiveDeltaTime();
+    if (arg0->unknown_72c_ > 0xbb8) {
+        func_0202b0f4(var1);
+        arg0->unknown_0_ = 0;
         return;
     }
-    if (func_0202c578(searchPtr, 0) && obj->field71c == 0) {
-        func_0202bad4((struct ElementArray0202bad4*)searchPtr, obj->field199);
-        func_0202b0f4(searchPtr);
-        obj->field0 = 0;
+    if (func_0202c578(var1, 0) && arg0->unknown_71c_ == 0) {
+        func_0202bad4((struct Struct_0202bad4_2*)var1, arg0->unknown_199_);
+        func_0202b0f4(var1);
+        arg0->unknown_0_ = 0;
         return;
     }
-    if (obj->field720 != 0 && obj->field71c != 0) {
-        struct Element0202bad4* elem = func_0202bad4((struct ElementArray0202bad4*)searchPtr, obj->field199);
-        func_ov003_02171e1c(obj, (char*)elem + 0x68);
-        func_0202b0f4(searchPtr);
-        obj->field0 = 0;
+    if (arg0->unknown_720_ != 0 && arg0->unknown_71c_ != 0) {
+        struct Struct_0202bad4* var3 = func_0202bad4((struct Struct_0202bad4_2*)var1, arg0->unknown_199_);
+        func_ov003_02171e1c(arg0, (char*)var3 + 0x68);
+        func_0202b0f4(var1);
+        arg0->unknown_0_ = 0;
     }
-    if (func_0205e488(ptr2) != 0) {
-        obj->field720 = 1;
+    if (func_0205e488(var2) != 0) {
+        arg0->unknown_720_ = 1;
     }
 }

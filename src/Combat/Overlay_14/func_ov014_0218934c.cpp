@@ -1,36 +1,36 @@
 #include <globaldefs.h>
 
-struct NatEntry {
-    unsigned short key_;
-    unsigned short groupIndex_ : 12;
-    unsigned short numGroups_ : 4;
+struct Struct_ov014_02188d48 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 12;
+    unsigned short unknown_3_4_ : 4;
 };
 
-struct NatGroup {
-    unsigned short pointerIndex_;
-    unsigned short flag_ : 1;
-    unsigned short firstIndex_ : 11;
-    unsigned short numIndices_ : 4;
+struct Struct_ov014_02188d48_2 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_0_ : 1;
+    unsigned short unknown_2_1_ : 11;
+    unsigned short unknown_3_4_ : 4;
 };
 
-struct NatTable {
-    unsigned short numEntries_;
-    unsigned short numGroups_;
-    unsigned short numIndices_;
-    unsigned short numPointers_;
-    unsigned int dataSize_ : 31;
-    unsigned int relocated_ : 1;
-    NatEntry* entries_;
-    char* data_;
+struct Struct_ov014_02188d48_3 {
+    unsigned short unknown_0_;
+    unsigned short unknown_2_;
+    unsigned short unknown_4_;
+    unsigned short unknown_6_;
+    unsigned int unknown_8_0_ : 31;
+    unsigned int unknown_b_7_ : 1;
+    Struct_ov014_02188d48* unknown_c_;
+    char* unknown_10_;
 };
 
-static inline unsigned int AlignTo4(unsigned int size) {
-    return (size + 3) & ~3;
+static inline unsigned int inline_ov014_0218934c(unsigned int arg0) {
+    return (arg0 + 3) & ~3;
 }
 
 // USA: func_ov014_0218934c
-extern "C" ARM unsigned int func_ov014_0218934c(NatTable* self) {
-    unsigned int entriesSize = self->numEntries_ * sizeof(NatEntry);
-    unsigned int size = self->numGroups_ * sizeof(NatGroup) + self->numIndices_ * sizeof(unsigned short) + entriesSize;
-    return AlignTo4(size) - entriesSize + self->numPointers_ * sizeof(char*) + entriesSize;
+extern "C" ARM unsigned int func_ov014_0218934c(Struct_ov014_02188d48_3* arg0) {
+    unsigned int var0 = arg0->unknown_0_ * sizeof(Struct_ov014_02188d48);
+    unsigned int var1 = arg0->unknown_2_ * sizeof(Struct_ov014_02188d48_2) + arg0->unknown_4_ * sizeof(unsigned short) + var0;
+    return inline_ov014_0218934c(var1) - var0 + arg0->unknown_6_ * sizeof(char*) + var0;
 }

@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 
-struct Cont0207fd88;
-extern "C" void func_0207fd88(struct Cont0207fd88* obj);
+struct Struct_0207fd88;
+extern "C" void func_0207fd88(struct Struct_0207fd88* arg0);
 
 // USA: func_ov003_0216757c
-extern "C" ARM void func_ov003_0216757c(char* obj) {
+extern "C" ARM void func_ov003_0216757c(char* arg0) {
 #if defined(jpn)
-    enum { flagOffset = 0x44 };
+    enum { Enum_ov003_0216757c_116 = 0x44 };
 #else
-    enum { flagOffset = 0x74 };
+    enum { Enum_ov003_0216757c_116 = 0x74 };
 #endif
-	if (*(unsigned char*)(obj + flagOffset) != 0) {
-		struct Cont0207fd88* p = *(struct Cont0207fd88**)(obj + 0x10);
-		if (p != 0) func_0207fd88(p);
+	if (*(unsigned char*)(arg0 + Enum_ov003_0216757c_116) != 0) {
+		struct Struct_0207fd88* var0 = *(struct Struct_0207fd88**)(arg0 + 0x10);
+		if (var0 != 0) func_0207fd88(var0);
 	}
 }

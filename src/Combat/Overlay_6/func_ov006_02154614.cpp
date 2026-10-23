@@ -8,139 +8,139 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
 
-struct Struct020dbd9c {
-    char unk_0[0x10];
-    int state_;
-    unsigned char unk_14;
+struct Struct_020dbd9c {
+    char unknown_0_[0x10];
+    int unknown_10_;
+    unsigned char unknown_14_;
 };
 
-struct ItemInfoWindow {
-    char unk_0[R(0x6f0,0x774)];
-    unsigned short flags_;
-    char unk_776[0x7];
-    signed char windowSprites_;
-    char unk_77e[0x1d];
-    unsigned char externalBuffer_ : 1;
-    unsigned char inMenu_ : 1;
+struct Struct_ov006_02154614_2 {
+    char unknown_0_[R(0x6f0,0x774)];
+    unsigned short unknown_774_;
+    char unknown_776_[0x7];
+    signed char unknown_77d_;
+    char unknown_77e_[0x1d];
+    unsigned char unknown_79b_0_ : 1;
+    unsigned char unknown_79b_1_ : 1;
 };
 
-struct IngredientSprite {
-    char unk_0[0x7c];
+struct Struct_ov006_02156e54 {
+    char unknown_0_[0x7c];
 };
 
-struct AlchemyPot {
+struct Struct_ov006_02154614 {
 #if !defined(jpn)
-    char names_[3][0x80];
+    char unknown_0_[3][0x80];
 #endif
-    SafeAllocator* allocators_;
-    SafeAllocator* itemAllocator_;
-    SafeAllocator* nextItemAllocator_;
-    SafeAllocator effectAllocator_;
-    void* previousCamera_;
-    void* canvasBuffer_;
-    unsigned char* amounts_;
-    void* itemNames_;
-    void* texts_;
-    void* recipe_;
-    void* nextRecipe_;
-    int unk_1bc;
-    void* record_;
-    unsigned char* unk_1c4;
-    void* layout_;
-    void* backgrounds_;
-    void* canvases_;
-    void* menu_;
-    void* item_;
-    void* nextItem_;
-    void* sprites_;
-    char renderer_[0x54];
-    Object3D protagonist_;
-    Object3D pot_;
-    Object3D lid_;
-    Object3D effect_;
-    Object3D steam_;
-    char unk_594[0x38];
-    char camera_[0x2c8];
-    IngredientSprite ingredients_[4];
-    SafeAllocator ingredientAllocators_[4];
-    int task_;
-    int backgroundTask_;
-    unsigned char state_;
-    unsigned char loadStep_;
-    unsigned char itemStep_;
-    unsigned char backgroundStep_;
-    unsigned char unk_ae0;
-    unsigned char animationStep_;
-    unsigned short flags_;
-    ItemInfoWindow window_;
-    SafeAllocator* windowAllocator_;
-    SafeAllocator* windowSpriteAllocator_;
-    char partNames_[0x18];
-    Struct020dbd9c subEffect_;
-    short itemId_;
-    signed char itemSprites_;
-    unsigned char numIngredients_;
-    unsigned char effectMode_;
-    unsigned char resetBlend_;
+    SafeAllocator* unknown_180_;
+    SafeAllocator* unknown_184_;
+    SafeAllocator* unknown_188_;
+    SafeAllocator unknown_18c_;
+    void* unknown_1a0_;
+    void* unknown_1a4_;
+    unsigned char* unknown_1a8_;
+    void* unknown_1ac_;
+    void* unknown_1b0_;
+    void* unknown_1b4_;
+    void* unknown_1b8_;
+    int unknown_1bc_;
+    void* unknown_1c0_;
+    unsigned char* unknown_1c4_;
+    void* unknown_1c8_;
+    void* unknown_1cc_;
+    void* unknown_1d0_;
+    void* unknown_1d4_;
+    void* unknown_1d8_;
+    void* unknown_1dc_;
+    void* unknown_1e0_;
+    char unknown_1e4_[0x54];
+    Object3D unknown_238_;
+    Object3D unknown_2e4_;
+    Object3D unknown_390_;
+    Object3D unknown_43c_;
+    Object3D unknown_4e8_;
+    char unknown_594_[0x38];
+    char unknown_5cc_[0x2c8];
+    Struct_ov006_02156e54 unknown_894_[4];
+    SafeAllocator unknown_a84_[4];
+    int unknown_ad4_;
+    int unknown_ad8_;
+    unsigned char unknown_adc_;
+    unsigned char unknown_add_;
+    unsigned char unknown_ade_;
+    unsigned char unknown_adf_;
+    unsigned char unknown_ae0_;
+    unsigned char unknown_ae1_;
+    unsigned short unknown_ae2_;
+    Struct_ov006_02154614_2 unknown_ae4_;
+    SafeAllocator* unknown_1280_;
+    SafeAllocator* unknown_1284_;
+    char unknown_1288_[0x18];
+    Struct_020dbd9c unknown_12a0_;
+    short unknown_12b8_;
+    signed char unknown_12ba_;
+    unsigned char unknown_12bb_;
+    unsigned char unknown_12bc_;
+    unsigned char unknown_12bd_;
 };
 
-extern "C" void func_ov023_021dc134(ItemInfoWindow* window, short item, signed char mode);
-extern "C" void func_0205a444(char* renderer);
-extern "C" void func_ov006_0215479c(IngredientSprite* sprite);
-extern "C" void func_020dbd9c(Struct020dbd9c* effect);
+extern "C" void func_ov023_021dc134(Struct_ov006_02154614_2* arg0, short arg1, signed char arg2);
+extern "C" void func_0205a444(char* arg0);
+extern "C" void func_ov006_0215479c(Struct_ov006_02156e54* arg0);
+extern "C" void func_020dbd9c(Struct_020dbd9c* arg0);
 
 // USA: func_ov006_02154614
-extern "C" ARM void func_ov006_02154614(AlchemyPot* self) {
+extern "C" ARM void func_ov006_02154614(Struct_ov006_02154614* arg0) {
 #if !defined(jpn)
-    memset(self->names_, 0, sizeof(self->names_));
+    memset(arg0->unknown_0_, 0, sizeof(arg0->unknown_0_));
 #endif
-    self->allocators_ = 0;
-    self->itemAllocator_ = 0;
-    self->nextItemAllocator_ = 0;
-    self->previousCamera_ = 0;
-    self->amounts_ = 0;
-    self->itemNames_ = 0;
-    self->texts_ = 0;
-    self->recipe_ = 0;
-    self->nextRecipe_ = 0;
-    self->unk_1bc = 0;
-    self->record_ = 0;
-    self->unk_1c4 = 0;
-    self->layout_ = 0;
-    self->backgrounds_ = 0;
-    self->canvases_ = 0;
-    self->menu_ = 0;
-    self->item_ = 0;
-    self->nextItem_ = 0;
-    self->sprites_ = 0;
-    self->windowSpriteAllocator_ = 0;
-    self->windowAllocator_ = 0;
-    func_ov023_021dc134(&self->window_, -1, 1);
-    self->window_.flags_ |= 0x10 | 0x200;
-    func_0205a444(self->renderer_);
-    self->protagonist_.Initialize();
-    self->pot_.Initialize();
-    self->lid_.Initialize();
-    self->effect_.Initialize();
-    self->steam_.Initialize();
-    memset(self->unk_594, 0, sizeof(self->unk_594));
-    self->effectAllocator_.ResetAllocatorPointer();
-    for (unsigned char i = 0; i < 4; i++) {
-        func_ov006_0215479c(&self->ingredients_[i]);
-        self->ingredientAllocators_[i].ResetAllocatorPointer();
+    arg0->unknown_180_ = 0;
+    arg0->unknown_184_ = 0;
+    arg0->unknown_188_ = 0;
+    arg0->unknown_1a0_ = 0;
+    arg0->unknown_1a8_ = 0;
+    arg0->unknown_1ac_ = 0;
+    arg0->unknown_1b0_ = 0;
+    arg0->unknown_1b4_ = 0;
+    arg0->unknown_1b8_ = 0;
+    arg0->unknown_1bc_ = 0;
+    arg0->unknown_1c0_ = 0;
+    arg0->unknown_1c4_ = 0;
+    arg0->unknown_1c8_ = 0;
+    arg0->unknown_1cc_ = 0;
+    arg0->unknown_1d0_ = 0;
+    arg0->unknown_1d4_ = 0;
+    arg0->unknown_1d8_ = 0;
+    arg0->unknown_1dc_ = 0;
+    arg0->unknown_1e0_ = 0;
+    arg0->unknown_1284_ = 0;
+    arg0->unknown_1280_ = 0;
+    func_ov023_021dc134(&arg0->unknown_ae4_, -1, 1);
+    arg0->unknown_ae4_.unknown_774_ |= 0x10 | 0x200;
+    func_0205a444(arg0->unknown_1e4_);
+    arg0->unknown_238_.Initialize();
+    arg0->unknown_2e4_.Initialize();
+    arg0->unknown_390_.Initialize();
+    arg0->unknown_43c_.Initialize();
+    arg0->unknown_4e8_.Initialize();
+    memset(arg0->unknown_594_, 0, sizeof(arg0->unknown_594_));
+    arg0->unknown_18c_.ResetAllocatorPointer();
+    for (unsigned char var0 = 0; var0 < 4; var0++) {
+        func_ov006_0215479c(&arg0->unknown_894_[var0]);
+        arg0->unknown_a84_[var0].ResetAllocatorPointer();
     }
-    self->task_ = -1;
-    self->backgroundTask_ = -1;
-    self->state_ = 0;
-    self->loadStep_ = 0;
-    self->itemStep_ = 0;
-    self->backgroundStep_ = 0;
-    self->unk_ae0 = 0;
-    self->flags_ = 0;
-    self->numIngredients_ = 0;
-    self->itemId_ = 0;
-    self->itemSprites_ = 0;
-    self->effectMode_ = 0;
-    func_020dbd9c(&self->subEffect_);
-    self->resetBlend_ = 0;
+    arg0->unknown_ad4_ = -1;
+    arg0->unknown_ad8_ = -1;
+    arg0->unknown_adc_ = 0;
+    arg0->unknown_add_ = 0;
+    arg0->unknown_ade_ = 0;
+    arg0->unknown_adf_ = 0;
+    arg0->unknown_ae0_ = 0;
+    arg0->unknown_ae2_ = 0;
+    arg0->unknown_12bb_ = 0;
+    arg0->unknown_12b8_ = 0;
+    arg0->unknown_12ba_ = 0;
+    arg0->unknown_12bc_ = 0;
+    func_020dbd9c(&arg0->unknown_12a0_);
+    arg0->unknown_12bd_ = 0;
 }

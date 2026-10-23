@@ -3,93 +3,93 @@
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
 
-struct Element020de650;
-struct Container020dedd0 {
-    unsigned short count;
-    unsigned char pad[10];
-    struct Element020de650* base;
-    unsigned char pad2[4];
-    unsigned char useBinarySearch;
+struct Struct_0201099c_9;
+struct Struct_0201099c_10 {
+    unsigned short unknown_0_;
+    unsigned char unknown_2_[10];
+    struct Struct_0201099c_9* unknown_c_;
+    unsigned char unknown_10_[4];
+    unsigned char unknown_14_;
 };
-struct Field150Holder02052e2c;
-struct Field150Holder02052df8;
+struct Struct_02052e2c;
+struct Struct_02052df8;
 
-struct ItemDef {
-    int field0;
-    unsigned int low : 27;
-    unsigned int bit27 : 1;
-    unsigned int bit28 : 1;
-    unsigned int bit29 : 1;
-    unsigned int high : 2;
+struct Struct_ov003_0217599c_3 {
+    int unknown_0_;
+    unsigned int unknown_4_0_ : 27;
+    unsigned int unknown_7_3_ : 1;
+    unsigned int unknown_7_4_ : 1;
+    unsigned int unknown_7_5_ : 1;
+    unsigned int unknown_7_6_ : 2;
 };
-struct EquipEntry {
-    ItemDef *def;
-    unsigned char unknown4[4];
-    unsigned int category : 4;
-    unsigned int unknownFlags : 28;
-    unsigned char unknownc[0xc];
-    short itemId;
-    unsigned char unknown1a[6];
+struct Struct_ov003_0217599c_4 {
+    Struct_ov003_0217599c_3 *unknown_0_;
+    unsigned char unknown_4_[4];
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 28;
+    unsigned char unknown_c_[0xc];
+    short unknown_18_;
+    unsigned char unknown_1a_[6];
 };
-struct EquipView {
-    unsigned char unknown0[0x194];
-    EquipEntry entries[8];
-    unsigned char unknown294[0x49c - 0x294];
-    unsigned char flag49c : 1;
+struct Struct_ov003_0217599c_5 {
+    unsigned char unknown_0_[0x194];
+    Struct_ov003_0217599c_4 unknown_194_[8];
+    unsigned char unknown_294_[0x49c - 0x294];
+    unsigned char unknown_49c_0_ : 1;
 };
-struct Combatant0217599c {
+struct Struct_ov003_0217599c {
     #if defined(jpn)
-    unsigned char unknown0[0x144];
+    unsigned char unknown_0_[0x144];
 #else
-    unsigned char unknown0[0x150];
+    unsigned char unknown1_0_[0x150];
 #endif
-    EquipView *view;
+    Struct_ov003_0217599c_5 *unknown_150_;
 };
-struct EquipOrder {
-    unsigned char v[8];
+struct Struct_ov003_0217e33c {
+    unsigned char unknown_0_[8];
 };
-struct TextContext {
-    SafeAllocator allocator;
-    char list[0x18];
-    Container020dedd0 *containerData;
-    int field30;
-    int field34;
+struct Struct_0206b37c {
+    SafeAllocator unknown_0_;
+    char unknown_14_[0x18];
+    Struct_0201099c_10 *unknown_2c_;
+    int unknown_30_;
+    int unknown_34_;
 };
-struct Menu0217599c {
-    char pad0[0x74];
-    char container[4];
-    char pad78[0x103a - 0x78 - 0x800];
+struct Struct_01ff91ac_34 {
+    char unknown_0_[0x74];
+    char unknown_74_[4];
+    char unknown_78_[0x103a - 0x78 - 0x800];
 };
-struct MenuB {
+struct Struct_ov003_0217599c_2 {
 #if defined(jpn)
-    char padding0[0x7f0];
+    char unknown_0_[0x7f0];
 #else
-    char padding0[0x874];
+    char unknown1_0_[0x874];
 #endif
-    Container020dedd0 entries;
-    char paddingAfterEntries[0x103a - 0x874 - sizeof(Container020dedd0)];
-    short selected;
-    unsigned char count;
-    char pad3d[6];
-    signed char character;
+    Struct_0201099c_10 unknown_874_;
+    char unknown_88c_[0x103a - 0x874 - sizeof(Struct_0201099c_10)];
+    short unknown_103a_;
+    unsigned char unknown_103c_;
+    char unknown_103d_[6];
+    signed char unknown_1043_;
 };
 
 extern "C" int *func_0202ae18();
 extern "C" int func_0202b7d8(int *);
-extern "C" short *func_02052e2c(Field150Holder02052e2c *);
-extern "C" EquipEntry *func_020dedd0(Container020dedd0 *, int);
+extern "C" short *func_02052e2c(Struct_02052e2c *);
+extern "C" Struct_ov003_0217599c_4 *func_020dedd0(Struct_0201099c_10 *, int);
 extern "C" void *func_020de824(void *);
 extern "C" void func_0207cbe8(char *);
-extern "C" void func_0207cc18(void *, EquipEntry *);
+extern "C" void func_0207cc18(void *, Struct_ov003_0217599c_4 *);
 extern "C" void func_0207cc0c(char *);
 extern "C" int func_020dd4c4(int, void *);
-extern "C" int func_02052df8(Field150Holder02052df8 *, int);
-extern "C" void func_02052d7c(Combatant0217599c *, int, short);
+extern "C" int func_02052df8(Struct_02052df8 *, int);
+extern "C" void func_02052d7c(Struct_ov003_0217599c *, int, short);
 extern "C" void *func_02053c6c(unsigned char *);
-extern "C" void func_0208358c(void *, EquipEntry *, int);
+extern "C" void func_0208358c(void *, Struct_ov003_0217599c_4 *, int);
 extern "C" void func_0207c378(char *, int, int, int);
-static inline int IsType0217599c(unsigned int type) {
-    return type <= 7;
+static inline int inline_ov003_0217599c(unsigned int arg0) {
+    return arg0 <= 7;
 }
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
@@ -98,84 +98,84 @@ extern "C" void func_ov017_0218f5a4(GameResources *, int, int, int, int);
 
 #if defined(jpn)
 extern int data_ov003_0217e388[9];
-extern EquipOrder data_ov003_0217e33c;
+extern Struct_ov003_0217e33c data_ov003_0217e33c;
 #else
 extern int data_ov003_0217faf4[9];
-extern EquipOrder data_ov003_0217faac;
+extern Struct_ov003_0217e33c data_ov003_0217faac;
 #endif
 
 // JPN: func_ov003_0217599c (021749d4)
 // USA: func_ov003_0217599c
-extern "C" ARM int func_ov003_0217599c(MenuB *menu) {
-    GameState *gs        = GameState::GetInstance();
-    int *search          = func_0202ae18();
-    Combatant0217599c *c = (Combatant0217599c *) func_0200ff1c(gs, menu->character);
-    if (!c) return 0;
-    if (!func_02052e2c((Field150Holder02052e2c *) c)) return 0;
-    EquipEntry *elem =
-        func_020dedd0(&menu->entries, menu->selected);
-    if (!elem) return 0;
-    unsigned int category = elem->category;
-    TextContext context;
-    context.allocator.ResetAllocatorPointer();
-    func_020de824(context.list);
-    func_0207cbe8((char *) &context);
-    func_0207cbe8((char *) &context);
-    context.containerData = &menu->entries;
-    func_0207cc18(&context, elem);
-    func_0207cc0c((char *) &context);
-    if (!IsType0217599c(category)) return 0;
-    if (func_020dd4c4(menu->character, elem)) return 0;
+extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
+    GameState *var0        = GameState::GetInstance();
+    int *var1          = func_0202ae18();
+    Struct_ov003_0217599c *var2 = (Struct_ov003_0217599c *) func_0200ff1c(var0, arg0->unknown_1043_);
+    if (!var2) return 0;
+    if (!func_02052e2c((Struct_02052e2c *) var2)) return 0;
+    Struct_ov003_0217599c_4 *var3 =
+        func_020dedd0(&arg0->unknown_874_, arg0->unknown_103a_);
+    if (!var3) return 0;
+    unsigned int var4 = var3->unknown_8_0_;
+    Struct_0206b37c var5;
+    var5.unknown_0_.ResetAllocatorPointer();
+    func_020de824(var5.unknown_14_);
+    func_0207cbe8((char *) &var5);
+    func_0207cbe8((char *) &var5);
+    var5.unknown_2c_ = &arg0->unknown_874_;
+    func_0207cc18(&var5, var3);
+    func_0207cc0c((char *) &var5);
+    if (!inline_ov003_0217599c(var4)) return 0;
+    if (func_020dd4c4(arg0->unknown_1043_, var3)) return 0;
 #if defined(jpn)
-    int slotId = data_ov003_0217e388[category];
+    int var6 = data_ov003_0217e388[var4];
 #else
-    int slotId = data_ov003_0217faf4[category];
+    int var6 = data_ov003_0217faf4[var4];
 #endif
-    if (slotId < 0) return 1;
-    char *bag      = (char *) func_02010828(gs);
-    int equippedId = func_02052df8((Field150Holder02052df8 *) c, slotId);
-    int same       = menu->selected == equippedId;
-    if (!same) {
-        func_02052d7c(c, slotId, menu->selected);
-        func_0208358c(func_02053c6c((unsigned char *) c), elem, -1);
+    if (var6 < 0) return 1;
+    char *var7      = (char *) func_02010828(var0);
+    int var8 = func_02052df8((Struct_02052df8 *) var2, var6);
+    int var9       = arg0->unknown_103a_ == var8;
+    if (!var9) {
+        func_02052d7c(var2, var6, arg0->unknown_103a_);
+        func_0208358c(func_02053c6c((unsigned char *) var2), var3, -1);
     }
-    if (func_020dedd0(&menu->entries, equippedId)) {
-        func_0207c378(bag + 0x1d4, equippedId, 1, category);
+    if (func_020dedd0(&arg0->unknown_874_, var8)) {
+        func_0207c378(var7 + 0x1d4, var8, 1, var4);
     }
-    menu->count--;
-    if (same) return 1;
-    if (equippedId == 0x4680) {
+    arg0->unknown_103c_--;
+    if (var9) return 1;
+    if (var8 == 0x4680) {
 #if defined(jpn)
-        EquipOrder order = data_ov003_0217e33c;
+        Struct_ov003_0217e33c var10 = data_ov003_0217e33c;
 #else
-        EquipOrder order = data_ov003_0217faac;
+        Struct_ov003_0217e33c var10 = data_ov003_0217faac;
 #endif
-        unsigned char flags[2];
-        for (unsigned char i = 0; i < 8; i++) {
-            if (order.v[i] == 0xff) break;
-            EquipView *view   = c->view;
-            EquipEntry *entry = &c->view->entries[order.v[i]];
-            if (!entry || entry->itemId < 0) continue;
-            ItemDef *def = entry->def;
-            if (!def || def->bit29) continue;
-            flags[0] = def->bit27 ? 1 : 0;
-            flags[1] = def->bit28 ? 1 : 0;
-            if (flags[view->flag49c]) continue;
+        unsigned char var11[2];
+        for (unsigned char var12 = 0; var12 < 8; var12++) {
+            if (var10.unknown_0_[var12] == 0xff) break;
+            Struct_ov003_0217599c_5 *var13   = var2->unknown_150_;
+            Struct_ov003_0217599c_4 *var14 = &var2->unknown_150_->unknown_194_[var10.unknown_0_[var12]];
+            if (!var14 || var14->unknown_18_ < 0) continue;
+            Struct_ov003_0217599c_3 *var15 = var14->unknown_0_;
+            if (!var15 || var15->unknown_7_5_) continue;
+            var11[0] = var15->unknown_7_3_ ? 1 : 0;
+            var11[1] = var15->unknown_7_4_ ? 1 : 0;
+            if (var11[var13->unknown_49c_0_]) continue;
 #if defined(jpn)
-            func_02052d7c(c, data_ov003_0217e388[i], -1);
+            func_02052d7c(var2, data_ov003_0217e388[var12], -1);
 #else
-            func_02052d7c(c, data_ov003_0217faf4[i], -1);
+            func_02052d7c(var2, data_ov003_0217faf4[var12], -1);
 #endif
-            if (!entry) continue;
-            func_0207c378(bag + 0x1d4, entry->itemId, 1, entry->category);
+            if (!var14) continue;
+            func_0207c378(var7 + 0x1d4, var14->unknown_18_, 1, var14->unknown_8_0_);
         }
     }
-    if (func_0202b7d8(search)) {
-        func_ov017_021c3fb4(menu->character, 1);
-        func_ov017_021c4418(menu->character, -1);
+    if (func_0202b7d8(var1)) {
+        func_ov017_021c3fb4(arg0->unknown_1043_, 1);
+        func_ov017_021c4418(arg0->unknown_1043_, -1);
     }
-    GameResources *resources = GetGameResources();
+    GameResources *var16 = GetGameResources();
     BackgroundLoader::GetInstance();
-    func_ov017_0218f5a4(resources, menu->character, 1, 0, 0);
+    func_ov017_0218f5a4(var16, arg0->unknown_1043_, 1, 0, 0);
     return 1;
 }

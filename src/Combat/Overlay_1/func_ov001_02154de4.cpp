@@ -2,35 +2,35 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_0202b7d8(int* obj);
-extern "C" unsigned char func_020100b0(GameState* battleStruct);
-extern "C" void func_ov017_021d035c(unsigned char a, unsigned char b, unsigned char c);
-extern "C" int func_ov001_02154c64(void* a);
-extern "C" void func_ov001_021539d8(void* a);
-extern "C" int func_ov001_02153948(unsigned short a);
+extern "C" int func_0202b7d8(int* arg0);
+extern "C" unsigned char func_020100b0(GameState* arg0);
+extern "C" void func_ov017_021d035c(unsigned char arg0, unsigned char arg1, unsigned char arg2);
+extern "C" int func_ov001_02154c64(void* arg0);
+extern "C" void func_ov001_021539d8(void* arg0);
+extern "C" int func_ov001_02153948(unsigned short arg0);
 
-struct Self02154de4 {
-	unsigned char pad0[0x4a];
-	unsigned short f4a;
+struct Struct_ov001_02154de4 {
+	unsigned char unknown_0_[0x4a];
+	unsigned short unknown_4a_;
 #if defined(jpn)
-	unsigned char pad1[0x104 - 0x4c];
+	unsigned char unknown_4c_[0x104 - 0x4c];
 #else
-	unsigned char pad1[0x108 - 0x4c];
+	unsigned char unknown1_4c_[0x108 - 0x4c];
 #endif
-	unsigned char f108;
+	unsigned char unknown_108_;
 };
 
 // USA: func_ov001_02154de4
-extern "C" ARM int func_ov001_02154de4(struct Self02154de4* self) {
+extern "C" ARM int func_ov001_02154de4(struct Struct_ov001_02154de4* arg0) {
 	if (func_0202b7d8((int*)func_0202ae18()) != 0) {
-		GameState* bs = GameState::GetInstance();
-		unsigned char v = func_020100b0(bs);
-		func_ov017_021d035c(1, v & 0xff, self->f108);
+		GameState* var0 = GameState::GetInstance();
+		unsigned char var1 = func_020100b0(var0);
+		func_ov017_021d035c(1, var1 & 0xff, arg0->unknown_108_);
 	}
-	if (func_ov001_02154c64(self) != 0) {
+	if (func_ov001_02154c64(arg0) != 0) {
 		return 0x11;
 	}
-	func_ov001_021539d8(self);
-	func_ov001_02153948(self->f4a);
+	func_ov001_021539d8(arg0);
+	func_ov001_02153948(arg0->unknown_4a_);
 	return 4;
 }

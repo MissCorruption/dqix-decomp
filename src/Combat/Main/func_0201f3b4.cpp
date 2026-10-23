@@ -1,61 +1,61 @@
 #if defined(jpn)
-enum { RegionalPad = 0xc };
+enum { Enum_0201f3b4_16 = 0xc };
 #else
-enum { RegionalPad = 0x10 };
+enum { Enum_0201f3b4_16 = 0x10 };
 #endif
 
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
-struct Variant02030b0c {
-    int tag;
-    union { int i; float f; } u;
+struct Struct_0201c1c8 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct TaggedValue02030b44 {
-    int type;
-    union { int i; float f; } value;
+struct Struct_0201d530 {
+    int unknown_0_;
+    union { int unknown_0_; float unknown1_0_; } unknown_4_;
 };
 
-struct Container02027b5c;
-extern "C" void func_02027b5c(struct Container02027b5c* c, unsigned short h, unsigned char b, int w4, int w8);
+struct Struct_0201f3b4;
+extern "C" void func_02027b5c(struct Struct_0201f3b4* arg0, unsigned short arg1, unsigned char arg2, int arg3, int arg4);
 
 extern "C" void func_02012fe4(void);
 
-struct Global020fdc4c_f3b4 {
-    char pad[RegionalPad];
-    void* field10;
+struct Struct_020fdc4c_2 {
+    char unknown_0_[Enum_0201f3b4_16];
+    void* unknown_10_;
 };
-extern struct Global020fdc4c_f3b4 data_020fdc4c;
+extern struct Struct_020fdc4c_2 data_020fdc4c;
 
-struct QuadArg0201f3b4 {
-    struct Variant02030b0c v0;
-    struct Variant02030b0c v1;
-    struct TaggedValue02030b44 v2;
-    struct TaggedValue02030b44 v3;
+struct Struct_0201f3b4_2 {
+    struct Struct_0201c1c8 unknown_0_;
+    struct Struct_0201c1c8 unknown_8_;
+    struct Struct_0201d530 unknown_10_;
+    struct Struct_0201d530 unknown_18_;
 };
 
 // USA: func_0201f3b4
-extern "C" ARM int func_0201f3b4(struct QuadArg0201f3b4* arg0) {
-    float c;
-    int a = ((Script::Parameter*)&arg0->v0)->ToInt();
-    int b = ((Script::Parameter*)&arg0->v1)->ToInt();
-    c = ((Script::Parameter*)&arg0->v2)->ToFloat();
-    float d = ((Script::Parameter*)&arg0->v3)->ToFloat();
+extern "C" ARM int func_0201f3b4(struct Struct_0201f3b4_2* arg0) {
+    float var0;
+    int var1 = ((Script::Parameter*)&arg0->unknown_0_)->ToInt();
+    int var2 = ((Script::Parameter*)&arg0->unknown_8_)->ToInt();
+    var0 = ((Script::Parameter*)&arg0->unknown_10_)->ToFloat();
+    float var3 = ((Script::Parameter*)&arg0->unknown_18_)->ToFloat();
     func_02012fe4();
-    if (b == 0) return 1;
-    float roundedD;
-    if (d > 0.0f) {
-        roundedD = 4096.0f * d + 0.5f;
+    if (var2 == 0) return 1;
+    float var4;
+    if (var3 > 0.0f) {
+        var4 = 4096.0f * var3 + 0.5f;
     } else {
-        roundedD = 4096.0f * d - 0.5f;
+        var4 = 4096.0f * var3 - 0.5f;
     }
-    float roundedC;
-    if (c > 0.0f) {
-        roundedC = 4096.0f * c + 0.5f;
+    float var5;
+    if (var0 > 0.0f) {
+        var5 = 4096.0f * var0 + 0.5f;
     } else {
-        roundedC = 4096.0f * c - 0.5f;
+        var5 = 4096.0f * var0 - 0.5f;
     }
-    func_02027b5c((struct Container02027b5c*)data_020fdc4c.field10, (unsigned short)(a / 100), (unsigned char)b, (int)roundedC, (int)roundedD);
+    func_02027b5c((struct Struct_0201f3b4*)data_020fdc4c.unknown_10_, (unsigned short)(var1 / 100), (unsigned char)var2, (int)var5, (int)var4);
     return 1;
 }

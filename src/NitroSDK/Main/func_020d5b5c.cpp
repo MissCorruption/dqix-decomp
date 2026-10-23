@@ -1,44 +1,44 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d424c(int a, int b);
-extern "C" int func_020d40bc(int a, int b, void* buf, int size);
-extern "C" void func_020d404c(int index, int value);
+extern "C" int func_020d424c(int arg0, int arg1);
+extern "C" int func_020d40bc(int arg0, int arg1, void* arg2, int arg3);
+extern "C" void func_020d404c(int arg0, int arg1);
 extern "C" void* func_020d41d8(void);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
-struct Inner020d5b5c {
-    char pad0[0x10];
-    int field10;
+struct Struct_020d5b5c {
+    char unknown_0_[0x10];
+    int unknown_10_;
 };
 
-struct BattleContext020d5b5c {
-    char pad0[4];
-    struct Inner020d5b5c* field4;
+struct Struct_020d5b5c_2 {
+    char unknown_0_[4];
+    struct Struct_020d5b5c* unknown_4_;
 };
 
 // USA: func_020d5b5c
-extern "C" ARM int func_020d5b5c(int index, void* buf, unsigned int size) {
-    struct BattleContext020d5b5c* ctx = (struct BattleContext020d5b5c*)func_020d41d8();
-    int r = func_020d424c(1, 8);
-    if (r != 0) {
-        return r;
+extern "C" ARM int func_020d5b5c(int arg0, void* arg1, unsigned int arg2) {
+    struct Struct_020d5b5c_2* var0 = (struct Struct_020d5b5c_2*)func_020d41d8();
+    int var1 = func_020d424c(1, 8);
+    if (var1 != 0) {
+        return var1;
     }
-    InvalidateDataCacheRange((char*)ctx->field4 + 0x10, 4);
-    if (ctx->field4->field10 == 1) {
+    InvalidateDataCacheRange((char*)var0->unknown_4_ + 0x10, 4);
+    if (var0->unknown_4_->unknown_10_ == 1) {
         return 3;
     }
-    if (size < 0x10) {
+    if (arg2 < 0x10) {
         return 6;
     }
-    if (buf == 0) {
+    if (arg1 == 0) {
         return 6;
     }
-    CleanCacheRange(buf, size);
-    func_020d404c(0x11, index);
-    r = func_020d40bc(0x11, 2, buf, size);
-    if (r == 0) {
-        r = 2;
+    CleanCacheRange(arg1, arg2);
+    func_020d404c(0x11, arg0);
+    var1 = func_020d40bc(0x11, 2, arg1, arg2);
+    if (var1 == 0) {
+        var1 = 2;
     }
-    return r;
+    return var1;
 }

@@ -13,114 +13,114 @@
 
 struct GameState;
 
-struct ItemDef02157b74 {
-    unsigned int pad0 : 27;
-    unsigned int sound : 2;
-    unsigned int pad1 : 3;
+struct Struct_ov005_02157b74_4 {
+    unsigned int unknown_0_0_ : 27;
+    unsigned int unknown_3_3_ : 2;
+    unsigned int unknown_3_5_ : 3;
 };
 
-struct Item02157b74 {
-    ItemDef02157b74* def;
-    int f4;
-    unsigned int equipType : 4;
-    unsigned int pad0 : 14;
-    unsigned int cursed : 1;
-    unsigned int pad1 : 13;
-    int fc;
-    unsigned int pad2 : 20;
-    unsigned int kind : 8;
-    unsigned int pad3 : 4;
+struct Struct_ov005_02157b74_5 {
+    Struct_ov005_02157b74_4* unknown_0_;
+    int unknown_4_;
+    unsigned int unknown_8_0_ : 4;
+    unsigned int unknown_8_4_ : 14;
+    unsigned int unknown_a_2_ : 1;
+    unsigned int unknown_a_3_ : 13;
+    int unknown_c_;
+    unsigned int unknown_10_0_ : 20;
+    unsigned int unknown_12_4_ : 8;
+    unsigned int unknown_13_4_ : 4;
 };
 
-struct Linked02157b74 {
-    char pad0[0x18];
-    short id;
+struct Struct_ov005_02157b74_6 {
+    char unknown_0_[0x18];
+    short unknown_18_;
 };
 
-struct Equip02157b74 {
-    char pad0[0x16];
-    short linkedId;
+struct Struct_ov005_02157b74_7 {
+    char unknown_0_[0x16];
+    short unknown_16_;
 };
 
-struct Combatant02157b74 {
-    char pad0[4];
-    short id;
-    char pad1[LOW_REGION(0x144 - 6, 0x150 - 6)];
-    void* model;
+struct Struct_ov005_02157b74_8 {
+    char unknown_0_[4];
+    short unknown_4_;
+    char unknown_6_[LOW_REGION(0x144 - 6, 0x150 - 6)];
+    void* unknown_150_;
 };
 
-struct Context02157b74 {
-    char pad0[LOW_REGION(0x4f8, 0x4fc)];
-    int actor;
-    char pad1[LOW_REGION(0x56c - 0x4fc, 0x634 - 0x500)];
-    unsigned short flags;
+struct Struct_ov005_02157b74_9 {
+    char unknown_0_[LOW_REGION(0x4f8, 0x4fc)];
+    int unknown_4fc_;
+    char unknown_500_[LOW_REGION(0x56c - 0x4fc, 0x634 - 0x500)];
+    unsigned short unknown_634_;
 };
 
-struct Entry02157b74 {
-    short id;
-    signed char state;
-    char pad[0x1c - 3];
+struct Struct_ov005_02157b74 {
+    short unknown_0_;
+    signed char unknown_2_;
+    char unknown_3_[0x1c - 3];
 };
 
-struct Menu02157b74 {
-    char pad0[0xdf4];
-    void* items;
-    char pad1[LOW_REGION(0x19ac - 0xdf8, 0x1a34 - 0xdf8)];
-    char cursor[0x2d90 - 0x1a34];
-    Entry02157b74 entries[0x18];
-    char pad2[0x3da8 - 0x3030];
-    unsigned char f3da8;
-    unsigned char f3da9;
-    unsigned char f3daa;
-    unsigned char f3dab;
-    unsigned short f3dac;
-    char pad3[0x3dbb - 0x3dae];
-    signed char selected;
-    unsigned char tab;
-    char pad4[0x3dcc - 0x3dbd];
-    unsigned int dirty;
-    unsigned char pad5;
-    unsigned char message;
-    unsigned char nextMessage;
+struct Struct_ov005_02157b74_2 {
+    char unknown_0_[0xdf4];
+    void* unknown_df4_;
+    char unknown_df8_[LOW_REGION(0x19ac - 0xdf8, 0x1a34 - 0xdf8)];
+    char unknown_1a34_[0x2d90 - 0x1a34];
+    Struct_ov005_02157b74 unknown_2d90_[0x18];
+    char unknown_3030_[0x3da8 - 0x3030];
+    unsigned char unknown_3da8_;
+    unsigned char unknown_3da9_;
+    unsigned char unknown_3daa_;
+    unsigned char unknown_3dab_;
+    unsigned short unknown_3dac_;
+    char unknown_3dae_[0x3dbb - 0x3dae];
+    signed char unknown_3dbb_;
+    unsigned char unknown_3dbc_;
+    char unknown_3dbd_[0x3dcc - 0x3dbd];
+    unsigned int unknown_3dcc_;
+    unsigned char unknown_3dd0_;
+    unsigned char unknown_3dd1_;
+    unsigned char unknown_3dd2_;
 };
 
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
-extern "C" Context02157b74* func_ov017_021a193c(int*);
-extern "C" Combatant02157b74* func_0200ff1c(GameState* gs, int idx);
-extern "C" char* func_02010828(GameState* gs);
-struct Field150Holder02052df8;
-extern "C" short func_02052df8(Field150Holder02052df8*, int);
-struct Container020dedd0;
-extern "C" Item02157b74* func_020dedd0(Container020dedd0*, int);
-extern "C" void func_02052d7c(Combatant02157b74* c, int slot, short id);
+extern "C" Struct_ov005_02157b74_9* func_ov017_021a193c(int*);
+extern "C" Struct_ov005_02157b74_8* func_0200ff1c(GameState* arg0, int arg1);
+extern "C" char* func_02010828(GameState* arg0);
+struct Struct_02052df8;
+extern "C" short func_02052df8(Struct_02052df8*, int);
+struct Struct_0201099c_10;
+extern "C" Struct_ov005_02157b74_5* func_020dedd0(Struct_0201099c_10*, int);
+extern "C" void func_02052d7c(Struct_ov005_02157b74_8* arg0, int arg1, short arg2);
 extern "C" void* func_02053c6c(unsigned char*);
-extern "C" void func_0208358c(void* model, Item02157b74* item, int arg);
-extern "C" void func_02083738(void* model, int type);
-struct Holder021583fc;
-extern "C" void func_ov005_021583fc(Holder021583fc*, char);
-struct Field150Holder02052e2c;
-extern "C" Equip02157b74* func_02052e2c(Field150Holder02052e2c*);
-extern "C" int func_ov005_0215840c(Menu02157b74* self, int id);
-extern "C" void func_02083e28(void* model, int arg);
-extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
-extern "C" void func_0207c378(char* list, short key, int amount, int category);
+extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
+extern "C" void func_02083738(void* arg0, int arg1);
+struct Struct_ov005_02157b74_3;
+extern "C" void func_ov005_021583fc(Struct_ov005_02157b74_3*, char);
+struct Struct_02052e2c;
+extern "C" Struct_ov005_02157b74_7* func_02052e2c(Struct_02052e2c*);
+extern "C" int func_ov005_0215840c(Struct_ov005_02157b74_2* arg0, int arg1);
+extern "C" void func_02083e28(void* arg0, int arg1);
+extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void func_0207c378(char* arg0, short arg1, int arg2, int arg3);
 extern "C" void func_ov005_021551fc(char*, int, int);
-extern "C" void func_ov005_02155544(Menu02157b74* self);
-extern "C" void func_ov005_021555c0(Menu02157b74* self);
-struct Obj0205eaa0;
-extern "C" void func_0205eaa0(Obj0205eaa0*, int, int);
-extern "C" int func_020dd4c4(signed char id, Item02157b74* item);
-struct Fields020deda4;
-extern "C" Linked02157b74* func_020deda4(int, int, Fields020deda4*);
+extern "C" void func_ov005_02155544(Struct_ov005_02157b74_2* arg0);
+extern "C" void func_ov005_021555c0(Struct_ov005_02157b74_2* arg0);
+struct Struct_02108760;
+extern "C" void func_0205eaa0(Struct_02108760*, int, int);
+extern "C" int func_020dd4c4(signed char arg0, Struct_ov005_02157b74_5* arg1);
+struct Struct_020deda4;
+extern "C" Struct_ov005_02157b74_6* func_020deda4(int, int, Struct_020deda4*);
 extern "C" void func_020483f0(unsigned char*, unsigned short);
-extern "C" int func_0207c7a0(char* list, short key, int category);
-extern "C" int func_0207caa4(char* list, short key, int category);
-extern "C" void func_0207c484(char* list, short key, int amount, int category);
-struct KeyedList0207cb38;
-extern "C" void func_0207cb38(KeyedList0207cb38*, int, int, int, char);
-extern "C" void func_ov023_021e4e1c(void* ctx, int actor, short key, int category);
-extern "C" void func_ov005_02154d18(void* obj, int a, int b);
-extern "C" void func_ov005_02154d50(void* obj, int a, int b);
+extern "C" int func_0207c7a0(char* arg0, short arg1, int arg2);
+extern "C" int func_0207caa4(char* arg0, short arg1, int arg2);
+extern "C" void func_0207c484(char* arg0, short arg1, int arg2, int arg3);
+struct Struct_0207cb38;
+extern "C" void func_0207cb38(Struct_0207cb38*, int, int, int, char);
+extern "C" void func_ov023_021e4e1c(void* arg0, int arg1, short arg2, int arg3);
+extern "C" void func_ov005_02154d18(void* arg0, int arg1, int arg2);
+extern "C" void func_ov005_02154d50(void* arg0, int arg1, int arg2);
 
 extern signed char data_ov005_0215cd40[];
 extern unsigned char data_ov005_0215cd38[];
@@ -128,218 +128,218 @@ extern char data_02108760[];
 extern unsigned char data_ov005_0215cd30[];
 
 // USA: func_ov005_02157b74
-extern "C" ARM void func_ov005_02157b74(Menu02157b74* self, int key, int keepStock) {
-    char* bag;
-    GameState* gs = _ZN9GameState11GetInstanceEv();
-    Context02157b74* ctx = func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))));
-    int bareArg;
-    int actor = ctx->actor;
-    Combatant02157b74* who = func_0200ff1c(gs, actor);
-    if (who == 0) return;
+extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1, int arg2) {
+    char* var0;
+    GameState* var1 = _ZN9GameState11GetInstanceEv();
+    Struct_ov005_02157b74_9* var2 = func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))));
+    int var3;
+    int var4 = var2->unknown_4fc_;
+    Struct_ov005_02157b74_8* var5 = func_0200ff1c(var1, var4);
+    if (var5 == 0) return;
 
-    bag = func_02010828(gs);
+    var0 = func_02010828(var1);
 
-    if (key == 0xffff) {
-        int slot = data_ov005_0215cd40[self->tab];
-        short cur = func_02052df8((Field150Holder02052df8*)who, slot);
-        Item02157b74* item = func_020dedd0((Container020dedd0*)self->items, (short)cur);
-        if (item == 0) return;
+    if (arg1 == 0xffff) {
+        int var6 = data_ov005_0215cd40[arg0->unknown_3dbc_];
+        short var7 = func_02052df8((Struct_02052df8*)var5, var6);
+        Struct_ov005_02157b74_5* var8 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var7);
+        if (var8 == 0) return;
 
-        if (item->cursed == 1) {
-            self->message = 0xc;
-            self->dirty |= 0x8000;
+        if (var8->unknown_a_2_ == 1) {
+            arg0->unknown_3dd1_ = 0xc;
+            arg0->unknown_3dcc_ |= 0x8000;
             return;
         }
 
-        short bareKey = -1;
-        bareArg = -1;
-        if (slot == 0) {
-            bareArg = 0;
-            bareKey = 0x3e8;
+        short var9 = -1;
+        var3 = -1;
+        if (var6 == 0) {
+            var3 = 0;
+            var9 = 0x3e8;
         }
-        func_02052d7c(who, slot, -1);
-        void* model = func_02053c6c((unsigned char*)who);
-        Item02157b74* bare = func_020dedd0((Container020dedd0*)self->items, (short)bareKey);
-        if (bare != 0) {
-            func_0208358c(model, bare, bareArg);
+        func_02052d7c(var5, var6, -1);
+        void* var10 = func_02053c6c((unsigned char*)var5);
+        Struct_ov005_02157b74_5* var11 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var9);
+        if (var11 != 0) {
+            func_0208358c(var10, var11, var3);
         } else {
-            func_02083738(model, item->equipType);
-            if (item->equipType == 7) {
-                func_ov005_021583fc((Holder021583fc*)who, 1);
+            func_02083738(var10, var8->unknown_8_0_);
+            if (var8->unknown_8_0_ == 7) {
+                func_ov005_021583fc((Struct_ov005_02157b74_3*)var5, 1);
             }
         }
-        if (slot == 0) {
-            func_02052e2c((Field150Holder02052e2c*)who)->linkedId = -1;
+        if (var6 == 0) {
+            func_02052e2c((Struct_02052e2c*)var5)->unknown_16_ = -1;
         }
-        if (cur == 0x4680) {
-            if (func_ov005_0215840c(self, who->id) != 0) {
-                if (self->message == 0xa && keepStock != 0) {
-                    self->nextMessage = 0xe;
+        if (var7 == 0x4680) {
+            if (func_ov005_0215840c(arg0, var5->unknown_4_) != 0) {
+                if (arg0->unknown_3dd1_ == 0xa && arg2 != 0) {
+                    arg0->unknown_3dd2_ = 0xe;
                 } else {
-                    self->message = 0xe;
+                    arg0->unknown_3dd1_ = 0xe;
                 }
             }
         }
-        func_02083e28(who->model, 0);
-        func_ov017_021c9e00(who->id, 0, 0, 1);
-        ctx->flags |= 4;
-        if (keepStock == 0) {
-            func_0207c378(bag + 0x1d4, cur, 1, data_ov005_0215cd38[self->tab]);
+        func_02083e28(var5->unknown_150_, 0);
+        func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
+        var2->unknown_634_ |= 4;
+        if (arg2 == 0) {
+            func_0207c378(var0 + 0x1d4, var7, 1, data_ov005_0215cd38[arg0->unknown_3dbc_]);
         }
-        self->entries[self->selected].id = -1;
-        func_ov005_021551fc((char*)self, func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->actor, 1);
-        func_ov005_02155544(self);
-        self->dirty |= 0x10;
-        self->f3da8 = 0;
-        self->f3dac = self->tab;
-        if (keepStock == 0) {
-            func_ov005_021555c0(self);
-            for (int i = 8; i < 0x18; i++) {
-                if (cur == self->entries[i].id && self->entries[i].state == 1) {
-                    self->dirty |= 0x40;
-                    self->f3daa = 0;
+        arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_ = -1;
+        func_ov005_021551fc((char*)arg0, func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->unknown_4fc_, 1);
+        func_ov005_02155544(arg0);
+        arg0->unknown_3dcc_ |= 0x10;
+        arg0->unknown_3da8_ = 0;
+        arg0->unknown_3dac_ = arg0->unknown_3dbc_;
+        if (arg2 == 0) {
+            func_ov005_021555c0(arg0);
+            for (int var12 = 8; var12 < 0x18; var12++) {
+                if (var7 == arg0->unknown_2d90_[var12].unknown_0_ && arg0->unknown_2d90_[var12].unknown_2_ == 1) {
+                    arg0->unknown_3dcc_ |= 0x40;
+                    arg0->unknown_3daa_ = 0;
                     break;
                 }
             }
         }
-        func_0205eaa0((Obj0205eaa0*)data_02108760, 0x5c, 0);
-        self->dirty |= 0x200;
-        self->dirty |= 1;
+        func_0205eaa0((Struct_02108760*)data_02108760, 0x5c, 0);
+        arg0->unknown_3dcc_ |= 0x200;
+        arg0->unknown_3dcc_ |= 1;
         return;
     }
 
-    Item02157b74* item = func_020dedd0((Container020dedd0*)self->items, (short)key);
-    if (item == 0) return;
+    Struct_ov005_02157b74_5* var13 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)arg1);
+    if (var13 == 0) return;
 
-    unsigned int kind = item->kind;
-    int slot = -1;
-    switch (kind) {
-    case 0x73: slot = 8; break;
-    case 0x62: slot = 0; break;
-    case 0x70: slot = 1; break;
-    case 0x61: slot = 4; break;
-    case 0x67: slot = 4; break;
-    case 0x72: slot = 5; break;
-    case 0x6d: slot = 6; break;
-    case 0x77: slot = 7; break;
-    case 0x63: slot = 9; break;
+    unsigned int var14 = var13->unknown_12_4_;
+    int var15 = -1;
+    switch (var14) {
+    case 0x73: var15 = 8; break;
+    case 0x62: var15 = 0; break;
+    case 0x70: var15 = 1; break;
+    case 0x61: var15 = 4; break;
+    case 0x67: var15 = 4; break;
+    case 0x72: var15 = 5; break;
+    case 0x6d: var15 = 6; break;
+    case 0x77: var15 = 7; break;
+    case 0x63: var15 = 9; break;
     }
 
-    int refusal = func_020dd4c4(who->id, item);
-    if (refusal != 0) {
-        if (refusal & 0x100) {
-            self->message = 5;
+    int var16 = func_020dd4c4(var5->unknown_4_, var13);
+    if (var16 != 0) {
+        if (var16 & 0x100) {
+            arg0->unknown_3dd1_ = 5;
             return;
         }
-        if (refusal & 0x80) {
-            self->message = 2;
-            if (func_02052df8((Field150Holder02052df8*)who, 9) == 0x4680) {
-                self->message = 7;
+        if (var16 & 0x80) {
+            arg0->unknown_3dd1_ = 2;
+            if (func_02052df8((Struct_02052df8*)var5, 9) == 0x4680) {
+                arg0->unknown_3dd1_ = 7;
             }
             return;
         }
-        if (refusal & 0x10) {
-            self->message = 6;
+        if (var16 & 0x10) {
+            arg0->unknown_3dd1_ = 6;
             return;
         }
-        if (refusal & 2) {
-            self->message = 4;
+        if (var16 & 2) {
+            arg0->unknown_3dd1_ = 4;
             return;
         }
-        if (refusal & 1) {
-            self->message = 3;
+        if (var16 & 1) {
+            arg0->unknown_3dd1_ = 3;
             return;
         }
-        if (refusal & 4) {
-            self->message = 1;
+        if (var16 & 4) {
+            arg0->unknown_3dd1_ = 1;
         }
         return;
     }
 
-    short old = func_02052df8((Field150Holder02052df8*)who, slot);
-    if (old == (short)key) return;
+    short var17 = func_02052df8((Struct_02052df8*)var5, var15);
+    if (var17 == (short)arg1) return;
 
-    Item02157b74* oldItem = func_020dedd0((Container020dedd0*)self->items, (short)old);
-    if (oldItem != 0 && oldItem->cursed == 1) {
-        self->message = 0xc;
-        self->dirty |= 0x8000;
+    Struct_ov005_02157b74_5* var18 = func_020dedd0((Struct_0201099c_10*)arg0->unknown_df4_, (short)var17);
+    if (var18 != 0 && var18->unknown_a_2_ == 1) {
+        arg0->unknown_3dd1_ = 0xc;
+        arg0->unknown_3dcc_ |= 0x8000;
         return;
     }
 
-    if (slot >= 0) {
-        if (old == 0x4680) {
-            if (func_ov005_0215840c(self, who->id) != 0) {
-                self->message = 0xe;
+    if (var15 >= 0) {
+        if (var17 == 0x4680) {
+            if (func_ov005_0215840c(arg0, var5->unknown_4_) != 0) {
+                arg0->unknown_3dd1_ = 0xe;
             }
         }
-        func_02052d7c(who, slot, (unsigned short)key);
-        void* model = func_02053c6c((unsigned char*)who);
-        func_0208358c(model, item, -1);
-        func_02083e28(model, 0);
-        func_ov017_021c9e00(who->id, 0, 0, 1);
-        if (item->equipType == 7) {
-            func_ov005_021583fc((Holder021583fc*)who, 1);
+        func_02052d7c(var5, var15, (unsigned short)arg1);
+        void* var19 = func_02053c6c((unsigned char*)var5);
+        func_0208358c(var19, var13, -1);
+        func_02083e28(var19, 0);
+        func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
+        if (var13->unknown_8_0_ == 7) {
+            func_ov005_021583fc((Struct_ov005_02157b74_3*)var5, 1);
         }
-        func_ov005_021551fc((char*)self, func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->actor, 1);
+        func_ov005_021551fc((char*)arg0, func_ov017_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->unknown_4fc_, 1);
     }
 
-    if (kind == 0x62) {
-        Linked02157b74* linked = func_020deda4((int)self->items, 0x61, (Fields020deda4*)item);
-        if (linked != 0) {
-            func_02052e2c((Field150Holder02052e2c*)who)->linkedId = linked->id;
+    if (var14 == 0x62) {
+        Struct_ov005_02157b74_6* var20 = func_020deda4((int)arg0->unknown_df4_, 0x61, (Struct_020deda4*)var13);
+        if (var20 != 0) {
+            func_02052e2c((Struct_02052e2c*)var5)->unknown_16_ = var20->unknown_18_;
         }
     }
 
-    if (item->cursed == 1) {
-        if (self->message == 0xe) {
-            self->nextMessage = 0xe;
+    if (var13->unknown_a_2_ == 1) {
+        if (arg0->unknown_3dd1_ == 0xe) {
+            arg0->unknown_3dd2_ = 0xe;
         }
-        self->message = 0xd;
-        self->dirty |= 0x8000;
-        func_020483f0((unsigned char*)who, 4);
-        func_ov017_021c9e00(actor, 0, 0, 1);
+        arg0->unknown_3dd1_ = 0xd;
+        arg0->unknown_3dcc_ |= 0x8000;
+        func_020483f0((unsigned char*)var5, 4);
+        func_ov017_021c9e00(var4, 0, 0, 1);
     }
 
-    if (item->def->sound == 1) {
-        func_0205eaa0((Obj0205eaa0*)data_02108760, 3, 0);
-    } else if (item->def->sound == 2) {
-        func_0205eaa0((Obj0205eaa0*)data_02108760, 4, 0);
+    if (var13->unknown_0_->unknown_3_3_ == 1) {
+        func_0205eaa0((Struct_02108760*)data_02108760, 3, 0);
+    } else if (var13->unknown_0_->unknown_3_3_ == 2) {
+        func_0205eaa0((Struct_02108760*)data_02108760, 4, 0);
     }
 
-    ctx->flags |= 4;
+    var2->unknown_634_ |= 4;
 
-    unsigned char category = data_ov005_0215cd30[self->tab];
-    signed char newCount = func_0207c7a0(bag + 0x1d4, key, category);
-    signed char oldCount = func_0207c7a0(bag + 0x1d4, old, category);
-    if (newCount == 1 && oldCount == 0) {
-        int index = func_0207caa4(bag + 0x1d4, key, category);
-        func_0207c484(bag + 0x1d4, key, 1, category);
-        if (index >= 0) {
-            func_0207cb38((KeyedList0207cb38*)(bag + 0x1d4), index, category, old, 1);
+    unsigned char var21 = data_ov005_0215cd30[arg0->unknown_3dbc_];
+    signed char var22 = func_0207c7a0(var0 + 0x1d4, arg1, var21);
+    signed char var23 = func_0207c7a0(var0 + 0x1d4, var17, var21);
+    if (var22 == 1 && var23 == 0) {
+        int var24 = func_0207caa4(var0 + 0x1d4, arg1, var21);
+        func_0207c484(var0 + 0x1d4, arg1, 1, var21);
+        if (var24 >= 0) {
+            func_0207cb38((Struct_0207cb38*)(var0 + 0x1d4), var24, var21, var17, 1);
         } else {
-            func_0207c378(bag + 0x1d4, old, 1, category);
+            func_0207c378(var0 + 0x1d4, var17, 1, var21);
         }
     } else {
-        func_0207c484(bag + 0x1d4, key, 1, category);
-        func_0207c378(bag + 0x1d4, old, 1, category);
+        func_0207c484(var0 + 0x1d4, arg1, 1, var21);
+        func_0207c378(var0 + 0x1d4, var17, 1, var21);
     }
 
-    func_ov023_021e4e1c(ctx, actor, key, data_ov005_0215cd30[self->tab]);
-    func_ov005_02155544(self);
-    self->dirty |= 0x10;
-    self->f3da8 = 0;
-    self->f3dac = self->tab;
-    self->selected = self->tab;
-    func_ov005_02154d18(self->cursor, 0x85000, 0x17000);
-    func_ov005_02154d50(self->cursor, 0x76000, 0x16000);
-    func_ov005_021555c0(self);
-    for (int i = 8; i < 0x18; i++) {
-        if (old == self->entries[i].id && self->entries[i].state == 1) {
-            self->dirty |= 0x40;
-            self->f3daa = 0;
+    func_ov023_021e4e1c(var2, var4, arg1, data_ov005_0215cd30[arg0->unknown_3dbc_]);
+    func_ov005_02155544(arg0);
+    arg0->unknown_3dcc_ |= 0x10;
+    arg0->unknown_3da8_ = 0;
+    arg0->unknown_3dac_ = arg0->unknown_3dbc_;
+    arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
+    func_ov005_02154d18(arg0->unknown_1a34_, 0x85000, 0x17000);
+    func_ov005_02154d50(arg0->unknown_1a34_, 0x76000, 0x16000);
+    func_ov005_021555c0(arg0);
+    for (int var25 = 8; var25 < 0x18; var25++) {
+        if (var17 == arg0->unknown_2d90_[var25].unknown_0_ && arg0->unknown_2d90_[var25].unknown_2_ == 1) {
+            arg0->unknown_3dcc_ |= 0x40;
+            arg0->unknown_3daa_ = 0;
             break;
         }
     }
-    self->dirty |= 0x200;
-    self->dirty |= 1;
+    arg0->unknown_3dcc_ |= 0x200;
+    arg0->unknown_3dcc_ |= 1;
 }

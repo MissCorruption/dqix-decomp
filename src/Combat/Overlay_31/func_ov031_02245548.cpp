@@ -1,56 +1,56 @@
 #include <globaldefs.h>
 
-struct ProgressStruct384_02245548 {
-	char pad[0x34];
-	unsigned char type34;
-	unsigned char type35;
-	char pad2[0x374 - 0x35 - 1];
-	unsigned char flags374;
-	char pad3[0x384 - 0x374 - 1];
-	int progress384;
+struct Struct_ov031_02245548 {
+	char unknown_0_[0x34];
+	unsigned char unknown_34_;
+	unsigned char unknown_35_;
+	char unknown_36_[0x374 - 0x35 - 1];
+	unsigned char unknown_374_;
+	char unknown_375_[0x384 - 0x374 - 1];
+	int unknown_384_;
 };
 
 // USA: func_ov031_02245548
-extern "C" ARM void func_ov031_02245548(ProgressStruct384_02245548* p) {
-	if (p->flags374 & 1) {
-		switch (p->type34) {
+extern "C" ARM void func_ov031_02245548(Struct_ov031_02245548* arg0) {
+	if (arg0->unknown_374_ & 1) {
+		switch (arg0->unknown_34_) {
 		case 2:
-			if (p->progress384 < 0x3c000) p->progress384 = p->progress384 + 0x28;
-			if (p->type35 == 6) p->progress384 = 0x3c000;
+			if (arg0->unknown_384_ < 0x3c000) arg0->unknown_384_ = arg0->unknown_384_ + 0x28;
+			if (arg0->unknown_35_ == 6) arg0->unknown_384_ = 0x3c000;
 			break;
 		case 3:
-			if (p->progress384 < 0x46000) p->progress384 = p->progress384 + 0x51;
-			if (p->type35 == 6) p->progress384 = 0x46000;
+			if (arg0->unknown_384_ < 0x46000) arg0->unknown_384_ = arg0->unknown_384_ + 0x51;
+			if (arg0->unknown_35_ == 6) arg0->unknown_384_ = 0x46000;
 			break;
 		case 4:
-			if (p->progress384 < 0x77f33) p->progress384 = p->progress384 + 0xcc;
-			if (p->type35 == 5) p->progress384 = 0x78000;
+			if (arg0->unknown_384_ < 0x77f33) arg0->unknown_384_ = arg0->unknown_384_ + 0xcc;
+			if (arg0->unknown_35_ == 5) arg0->unknown_384_ = 0x78000;
 			break;
 		}
-	} else if (p->flags374 & 4) {
-		switch (p->type34) {
+	} else if (arg0->unknown_374_ & 4) {
+		switch (arg0->unknown_34_) {
 		case 2:
-			if (p->progress384 < 0x64000) p->progress384 = p->progress384 + 0x51;
-			if (p->type35 == 6) p->progress384 = 0x64000;
+			if (arg0->unknown_384_ < 0x64000) arg0->unknown_384_ = arg0->unknown_384_ + 0x51;
+			if (arg0->unknown_35_ == 6) arg0->unknown_384_ = 0x64000;
 			break;
 		case 3:
-			if (p->progress384 < 0x77f85) p->progress384 = p->progress384 + 0x7a;
-			if (p->type35 == 6) p->progress384 = 0x78000;
+			if (arg0->unknown_384_ < 0x77f85) arg0->unknown_384_ = arg0->unknown_384_ + 0x7a;
+			if (arg0->unknown_35_ == 6) arg0->unknown_384_ = 0x78000;
 			break;
 		}
-	} else if (p->flags374 & 2) {
-		switch (p->type34) {
+	} else if (arg0->unknown_374_ & 2) {
+		switch (arg0->unknown_34_) {
 		case 2:
-			if (p->progress384 < 0x3c000) p->progress384 = p->progress384 + 0x28;
-			if (p->type35 == 6) p->progress384 = 0x3c000;
+			if (arg0->unknown_384_ < 0x3c000) arg0->unknown_384_ = arg0->unknown_384_ + 0x28;
+			if (arg0->unknown_35_ == 6) arg0->unknown_384_ = 0x3c000;
 			break;
 		case 3:
-			if (p->progress384 < 0x46000) p->progress384 = p->progress384 + 0x51;
-			if (p->type35 == 6) p->progress384 = 0x46000;
+			if (arg0->unknown_384_ < 0x46000) arg0->unknown_384_ = arg0->unknown_384_ + 0x51;
+			if (arg0->unknown_35_ == 6) arg0->unknown_384_ = 0x46000;
 			break;
 		case 5:
-			if (p->progress384 < 0x77f33) p->progress384 = p->progress384 + 0xcc;
-			if (p->type35 == 5) p->progress384 = 0x78000;
+			if (arg0->unknown_384_ < 0x77f33) arg0->unknown_384_ = arg0->unknown_384_ + 0xcc;
+			if (arg0->unknown_35_ == 5) arg0->unknown_384_ = 0x78000;
 			break;
 		}
 	}

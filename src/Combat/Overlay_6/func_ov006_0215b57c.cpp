@@ -1,239 +1,239 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-enum { kWindowFlags = 0x1054, kMenuCursor = 0x2a };
+enum { Enum_ov006_0215b57c_4696 = 0x1054, Enum_ov006_0215b57c_54 = 0x2a };
 #else
-enum { kWindowFlags = 0x1258, kMenuCursor = 0x36 };
+enum { Enum_ov006_0215b57c_4696 = 0x1258, Enum_ov006_0215b57c_54 = 0x36 };
 #endif
 
-struct Obj0208203c;
-struct ClearFlag40_02157184Struct;
-struct Obj0205eaa0;
-struct Obj2081;
-struct StructC28;
+struct Struct_02081f20_2;
+struct Struct_ov006_02157184;
+struct Struct_02108760;
+struct Struct_0207fdcc_2;
+struct Struct_ov006_02158c28;
 
-struct Recipe {
-    short id_;
-    short item_;
-    char unk_4[0x18];
-    Recipe* next_;
+struct Struct_ov006_021537d0 {
+    short unknown_0_;
+    short unknown_2_;
+    char unknown_4_[0x18];
+    Struct_ov006_021537d0* unknown_1c_;
 };
 
-struct RecipeRecord {
-    short id_;
-    unsigned short known_ : 1;
-    unsigned short made_ : 1;
-    unsigned short unk_2_2 : 14;
+struct Struct_ov006_021555b0 {
+    short unknown_0_;
+    unsigned short unknown_2_0_ : 1;
+    unsigned short unknown_2_1_ : 1;
+    unsigned short unknown_2_2_ : 14;
 };
 
-struct AlchemyPot {
-    char unk_0[kWindowFlags];
-    unsigned short windowFlags_;
+struct Struct_ov006_02154614 {
+    char unknown_0_[Enum_ov006_0215b57c_4696];
+    unsigned short unknown_1258_;
 };
 
-struct Menu {
-    char unk_0[kMenuCursor];
-    short cursor_;
+struct Struct_ov000_0217ab8c {
+    char unknown_0_[Enum_ov006_0215b57c_54];
+    short unknown_36_;
 };
 
-struct AlchemyMenu {
+struct Struct_ov006_02157a60 {
 #if !defined(jpn)
-    int textPosition_;
-    char** texts_;
+    int unknown_0_;
+    char** unknown_4_;
 #endif
-    void* canvasBuffer_;
-    void* allocators_;
-    AlchemyPot* pot_;
-    Menu* menu_;
-    void* choice_;
-    void* backgrounds_;
-    void* canvases_;
-    void* sprites_;
-    void* animations_;
-    Recipe* recipes_;
-    Recipe* pageStart_;
-    Recipe* recipe_;
-    void* records_;
-    char save_[8];
-    short* cursor_;
-    short** items_;
-    unsigned char** counts_;
-    unsigned short* sizes_;
-    int subBackground_[0x20 / 4];
-    int ingredients_[0x28 / 4];
-    int repeat_[0xc / 4];
-    unsigned short buttons_;
-    unsigned char unk_aa;
-    int renderer_[0x54 / 4];
-    int layout_[0x4c / 4];
-    int table_[0xc / 4];
-    int menuTexts_[0x18 / 4];
-    char itemNames_[0xc];
+    void* unknown_8_;
+    void* unknown_c_;
+    Struct_ov006_02154614* unknown_10_;
+    Struct_ov000_0217ab8c* unknown_14_;
+    void* unknown_18_;
+    void* unknown_1c_;
+    void* unknown_20_;
+    void* unknown_24_;
+    void* unknown_28_;
+    Struct_ov006_021537d0* unknown_2c_;
+    Struct_ov006_021537d0* unknown_30_;
+    Struct_ov006_021537d0* unknown_34_;
+    void* unknown_38_;
+    char unknown_3c_[8];
+    short* unknown_44_;
+    short** unknown_48_;
+    unsigned char** unknown_4c_;
+    unsigned short* unknown_50_;
+    int unknown_54_[0x20 / 4];
+    int unknown_74_[0x28 / 4];
+    int unknown_9c_[0xc / 4];
+    unsigned short unknown_a8_;
+    unsigned char unknown_aa_;
+    int unknown_ac_[0x54 / 4];
+    int unknown_100_[0x4c / 4];
+    int unknown_14c_[0xc / 4];
+    int unknown_158_[0x18 / 4];
+    char unknown_170_[0xc];
 #if defined(jpn)
-    char reservedBeforeResults_[8];
+    char unknown_174_[8];
 #endif
-    int results_[4][0x74 / 4];
-    int ticks_;
-    int menuResult_;
-    int task_;
-    int unk_358;
-    short unk_35c;
-    short previousCursor_;
-    short mainCursor_;
-    short categoryCursor_;
-    short itemCursor_;
-    short bookCursor_;
-    short filterCursor_;
-    short recipeCursor_;
-    short choiceCursor_;
-    short group_;
-    short item_;
-    unsigned short categories_[3];
-    short chosenItems_[3];
-    short message_;
-    unsigned short messageLength_;
-    short successRate_;
-    signed char filterCategory_;
-    signed char filterKind_;
-    unsigned char sort_;
-    unsigned char times_;
-    unsigned char page_;
-    unsigned char pages_;
-    unsigned char category_;
-    unsigned char count_;
-    unsigned char chosenCounts_[3];
-    unsigned char state_;
-    unsigned char step_;
-    unsigned char unk_391;
-    unsigned char messageStep_;
-    unsigned char repeatDelay_;
-    unsigned short flags_;
-    unsigned char female_;
-    unsigned char background_;
-    unsigned char amounts_[3];
-    int textSound_;
-    int unk_3a0;
-    int textSoundOn_;
-    unsigned int textSoundTimer_;
-    int textSoundPlaying_;
-    int textSoundState_;
-    int showResult_;
-    int resultSprite_[0x70 / 4];
-    int resultTask_;
-    signed char arrowTimer_;
-    unsigned char fadeTimer_;
-    unsigned char nextStep_;
-    unsigned char saved_;
-    unsigned char arrowUp_;
-    unsigned char arrowDown_;
-    unsigned char resetBlend_;
-    unsigned char closing_;
-    unsigned char closeRequested_;
+    int unknown_17c_[4][0x74 / 4];
+    int unknown_34c_;
+    int unknown_350_;
+    int unknown_354_;
+    int unknown_358_;
+    short unknown_35c_;
+    short unknown_35e_;
+    short unknown_360_;
+    short unknown_362_;
+    short unknown_364_;
+    short unknown_366_;
+    short unknown_368_;
+    short unknown_36a_;
+    short unknown_36c_;
+    short unknown_36e_;
+    short unknown_370_;
+    unsigned short unknown_372_[3];
+    short unknown_378_[3];
+    short unknown_37e_;
+    unsigned short unknown_380_;
+    short unknown_382_;
+    signed char unknown_384_;
+    signed char unknown_385_;
+    unsigned char unknown_386_;
+    unsigned char unknown_387_;
+    unsigned char unknown_388_;
+    unsigned char unknown_389_;
+    unsigned char unknown_38a_;
+    unsigned char unknown_38b_;
+    unsigned char unknown_38c_[3];
+    unsigned char unknown_38f_;
+    unsigned char unknown_390_;
+    unsigned char unknown_391_;
+    unsigned char unknown_392_;
+    unsigned char unknown_393_;
+    unsigned short unknown_394_;
+    unsigned char unknown_396_;
+    unsigned char unknown_397_;
+    unsigned char unknown_398_[3];
+    int unknown_39c_;
+    int unknown_3a0_;
+    int unknown_3a4_;
+    unsigned int unknown_3a8_;
+    int unknown_3ac_;
+    int unknown_3b0_;
+    int unknown_3b4_;
+    int unknown_3b8_[0x70 / 4];
+    int unknown_428_;
+    signed char unknown_42c_;
+    unsigned char unknown_42d_;
+    unsigned char unknown_42e_;
+    unsigned char unknown_42f_;
+    unsigned char unknown_430_;
+    unsigned char unknown_431_;
+    unsigned char unknown_432_;
+    unsigned char unknown_433_;
+    unsigned char unknown_434_;
 };
 
-extern "C" void func_ov006_0215fa1c(AlchemyMenu* self, int total);
-extern "C" void func_ov006_0215fb7c(AlchemyMenu* self);
-extern "C" void func_ov006_0215fcf0(AlchemyMenu* self);
-extern "C" void func_ov006_0215f7e8(AlchemyMenu* self);
-extern "C" void func_0208203c(Obj0208203c* repeat);
-extern "C" Recipe* func_ov006_02158d8c(void* self, short index);
-extern "C" RecipeRecord* func_ov006_02153c6c(void* ingredients, short id);
-extern "C" void func_ov006_02153b9c(void* ingredients, short id, unsigned char* amounts);
-extern "C" void func_ov006_02157184(ClearFlag40_02157184Struct* pot);
-extern "C" void func_ov006_021555b0(AlchemyPot* pot, Recipe* recipe, RecipeRecord* record, unsigned char* amounts);
-extern "C" unsigned char func_ov006_02159bb0(AlchemyMenu* self);
-extern "C" void func_ov006_02159c64(AlchemyMenu* self);
-extern "C" void func_ov006_021570fc(AlchemyPot* pot, int shown);
-extern "C" void func_0205eaa0(Obj0205eaa0* sound, int, int);
-extern "C" unsigned char func_ov006_02158a28(AlchemyMenu* self);
-extern "C" unsigned char func_ov006_02158b78(AlchemyMenu* self);
-extern "C" void func_0207fdcc(Obj2081* menu, int group);
-extern "C" void func_ov006_02158c28(StructC28* self);
+extern "C" void func_ov006_0215fa1c(Struct_ov006_02157a60* arg0, int arg1);
+extern "C" void func_ov006_0215fb7c(Struct_ov006_02157a60* arg0);
+extern "C" void func_ov006_0215fcf0(Struct_ov006_02157a60* arg0);
+extern "C" void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0);
+extern "C" void func_0208203c(Struct_02081f20_2* arg0);
+extern "C" Struct_ov006_021537d0* func_ov006_02158d8c(void* arg0, short arg1);
+extern "C" Struct_ov006_021555b0* func_ov006_02153c6c(void* arg0, short arg1);
+extern "C" void func_ov006_02153b9c(void* arg0, short arg1, unsigned char* arg2);
+extern "C" void func_ov006_02157184(Struct_ov006_02157184* arg0);
+extern "C" void func_ov006_021555b0(Struct_ov006_02154614* arg0, Struct_ov006_021537d0* arg1, Struct_ov006_021555b0* arg2, unsigned char* arg3);
+extern "C" unsigned char func_ov006_02159bb0(Struct_ov006_02157a60* arg0);
+extern "C" void func_ov006_02159c64(Struct_ov006_02157a60* arg0);
+extern "C" void func_ov006_021570fc(Struct_ov006_02154614* arg0, int arg1);
+extern "C" void func_0205eaa0(Struct_02108760* arg0, int, int);
+extern "C" unsigned char func_ov006_02158a28(Struct_ov006_02157a60* arg0);
+extern "C" unsigned char func_ov006_02158b78(Struct_ov006_02157a60* arg0);
+extern "C" void func_0207fdcc(Struct_0207fdcc_2* arg0, int arg1);
+extern "C" void func_ov006_02158c28(Struct_ov006_02158c28* arg0);
 
 extern "C" char data_02108760[];
 
 // USA: func_ov006_0215b57c
-extern "C" ARM void func_ov006_0215b57c(AlchemyMenu* self) {
-    AlchemyPot* pot = self->pot_;
-    if (self->step_ == 0)
+extern "C" ARM void func_ov006_0215b57c(Struct_ov006_02157a60* arg0) {
+    Struct_ov006_02154614* var0 = arg0->unknown_10_;
+    if (arg0->unknown_390_ == 0)
     {
-        self->background_ = 1;
-        func_ov006_0215fa1c(self, 0);
-        func_ov006_0215fb7c(self);
-        func_ov006_0215fcf0(self);
-        self->group_ = 9;
-        if (self->recipeCursor_ < 0)
-            self->recipeCursor_ = 0x29;
-        self->menu_->cursor_ = self->recipeCursor_;
-        func_ov006_0215f7e8(self);
-        func_0208203c((Obj0208203c*)self->repeat_);
-        self->cursor_ = 0;
-        self->step_++;
+        arg0->unknown_397_ = 1;
+        func_ov006_0215fa1c(arg0, 0);
+        func_ov006_0215fb7c(arg0);
+        func_ov006_0215fcf0(arg0);
+        arg0->unknown_36e_ = 9;
+        if (arg0->unknown_36a_ < 0)
+            arg0->unknown_36a_ = 0x29;
+        arg0->unknown_14_->unknown_36_ = arg0->unknown_36a_;
+        func_ov006_0215f7e8(arg0);
+        func_0208203c((Struct_02081f20_2*)arg0->unknown_9c_);
+        arg0->unknown_44_ = 0;
+        arg0->unknown_390_++;
     }
-    else if (self->step_ == 1)
+    else if (arg0->unknown_390_ == 1)
     {
-        self->cursor_ = &self->recipeCursor_;
-        int result = self->menuResult_;
-        int pageChanged = 0;
-        if (result & 0x10)
+        arg0->unknown_44_ = &arg0->unknown_36a_;
+        int var1 = arg0->unknown_350_;
+        int var2 = 0;
+        if (var1 & 0x10)
         {
-            pageChanged = 1;
-            self->page_++;
+            var2 = 1;
+            arg0->unknown_388_++;
         }
-        else if (result & 0x20)
+        else if (var1 & 0x20)
         {
-            pageChanged = 1;
-            self->page_--;
+            var2 = 1;
+            arg0->unknown_388_--;
         }
-        if (self->page_ == 0xff)
-            self->page_ = self->pages_ - 1;
-        if (self->pages_ <= self->page_)
-            self->page_ = 0;
-        Recipe* recipe = func_ov006_02158d8c(self, self->recipeCursor_ - 0x29);
-        RecipeRecord* record = 0;
-        if (recipe != 0)
+        if (arg0->unknown_388_ == 0xff)
+            arg0->unknown_388_ = arg0->unknown_389_ - 1;
+        if (arg0->unknown_389_ <= arg0->unknown_388_)
+            arg0->unknown_388_ = 0;
+        Struct_ov006_021537d0* var3 = func_ov006_02158d8c(arg0, arg0->unknown_36a_ - 0x29);
+        Struct_ov006_021555b0* var4 = 0;
+        if (var3 != 0)
         {
-            record = func_ov006_02153c6c(self->ingredients_, recipe->id_);
-            func_ov006_02153b9c(self->ingredients_, recipe->id_, self->amounts_);
+            var4 = func_ov006_02153c6c(arg0->unknown_74_, var3->unknown_0_);
+            func_ov006_02153b9c(arg0->unknown_74_, var3->unknown_0_, arg0->unknown_398_);
         }
         else
         {
-            func_ov006_02157184((ClearFlag40_02157184Struct*)pot);
+            func_ov006_02157184((Struct_ov006_02157184*)var0);
         }
-        func_ov006_021555b0(pot, recipe, record, self->amounts_);
-        if (pageChanged)
+        func_ov006_021555b0(var0, var3, var4, arg0->unknown_398_);
+        if (var2)
         {
-            func_ov006_0215f7e8(self);
+            func_ov006_0215f7e8(arg0);
             return;
         }
-        unsigned char button = func_ov006_02159bb0(self);
-        if (button == 1)
+        unsigned char var5 = func_ov006_02159bb0(arg0);
+        if (var5 == 1)
         {
-            func_ov006_02159c64(self);
+            func_ov006_02159c64(arg0);
             return;
         }
-        if (button == 4)
+        if (var5 == 4)
         {
-            if (recipe != 0 && record != 0)
+            if (var3 != 0 && var4 != 0)
             {
-                func_ov006_021570fc(pot, (pot->windowFlags_ & 0x800) ? 0 : 1);
-                func_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
+                func_ov006_021570fc(var0, (var0->unknown_1258_ & 0x800) ? 0 : 1);
+                func_0205eaa0((Struct_02108760*)data_02108760, 1, 0);
             }
             return;
         }
-        if (!func_ov006_02158a28(self) && func_ov006_02158b78(self))
+        if (!func_ov006_02158a28(arg0) && func_ov006_02158b78(arg0))
         {
-            self->flags_ &= ~0x80;
-            func_0207fdcc((Obj2081*)self->menu_, self->group_);
-            func_0207fdcc((Obj2081*)self->menu_, 0xe);
-            func_0207fdcc((Obj2081*)self->menu_, 0xf);
-            self->state_ = 2;
-            self->step_ = 0;
-            self->background_ = 2;
-            func_ov006_02157184((ClearFlag40_02157184Struct*)pot);
-            if (self->bookCursor_ == 0x25 || self->bookCursor_ == 0x26)
-                self->step_ = 2;
+            arg0->unknown_394_ &= ~0x80;
+            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, arg0->unknown_36e_);
+            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xe);
+            func_0207fdcc((Struct_0207fdcc_2*)arg0->unknown_14_, 0xf);
+            arg0->unknown_38f_ = 2;
+            arg0->unknown_390_ = 0;
+            arg0->unknown_397_ = 2;
+            func_ov006_02157184((Struct_ov006_02157184*)var0);
+            if (arg0->unknown_366_ == 0x25 || arg0->unknown_366_ == 0x26)
+                arg0->unknown_390_ = 2;
         }
-        func_ov006_02158c28((StructC28*)self);
+        func_ov006_02158c28((Struct_ov006_02158c28*)arg0);
     }
 }

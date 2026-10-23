@@ -1,18 +1,18 @@
 #include <globaldefs.h>
 
-struct Obj020415c4 {
-    char unk0[0x54];
-    int field54;
-    char unk58[0x54];
-    unsigned short flags;
-    char unkae[0x2];
-    int fieldb0;
+struct Struct_020415c4 {
+    char unknown_0_[0x54];
+    int unknown_54_;
+    char unknown_58_[0x54];
+    unsigned short unknown_ac_;
+    char unknown_ae_[0x2];
+    int unknown_b0_;
 };
 
 // USA: func_020415c4
-extern "C" ARM int func_020415c4(struct Obj020415c4* obj) {
-    if (obj->flags & 0x2) {
-        return obj->fieldb0;
+extern "C" ARM int func_020415c4(struct Struct_020415c4* arg0) {
+    if (arg0->unknown_ac_ & 0x2) {
+        return arg0->unknown_b0_;
     }
-    return obj->field54;
+    return arg0->unknown_54_;
 }

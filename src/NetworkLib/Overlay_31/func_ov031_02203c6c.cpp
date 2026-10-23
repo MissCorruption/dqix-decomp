@@ -2,52 +2,52 @@
 #include "NitroSDK/ProcessorContext.h"
 #include "NitroSDK/Memory.h"
 
-struct NetworkMaintenanceState {
-    unsigned char padding0[0xc];
-    int status;
-    unsigned int flags;
-    unsigned char padding14[0x18];
-    unsigned int probeAddress;
-    unsigned char padding30[0xc];
-    void (*tick)();
-    void (*release)(void*);
-    int stop;
-    int (*connected)();
-    unsigned char padding4c[0xd0];
-    int capacityA;
-    void* bufferA;
-    unsigned char padding124[4];
-    int capacityB;
-    void* bufferB;
+struct Struct_ov031_0224c980_12 {
+    unsigned char unknown_0_[0xc];
+    int unknown_c_;
+    unsigned int unknown_10_;
+    unsigned char unknown_14_[0x18];
+    unsigned int unknown_2c_;
+    unsigned char unknown_30_[0xc];
+    void (*unknown_3c_)();
+    void (*unknown_40_)(void*);
+    int unknown_44_;
+    int (*unknown_48_)();
+    unsigned char unknown_4c_[0xd0];
+    int unknown_11c_;
+    void* unknown_120_;
+    unsigned char unknown_124_[4];
+    int unknown_128_;
+    void* unknown_12c_;
 };
-struct TimedNetworkEntry {
-    int active;
-    unsigned char padding4[6];
-    unsigned short timestamp;
+struct Struct_ov031_0224ca00_2 {
+    int unknown_0_;
+    unsigned char unknown_4_[6];
+    unsigned short unknown_a_;
 };
-struct TimedNetworkAllocation {
-    int field0;
-    unsigned short active;
-    unsigned char padding6[0x26];
-    int timestamp;
-    int field30;
-    void* allocation;
+struct Struct_ov031_0224cca8_3 {
+    int unknown_0_;
+    unsigned short unknown_4_;
+    unsigned char unknown_6_[0x26];
+    int unknown_2c_;
+    int unknown_30_;
+    void* unknown_34_;
 };
-struct MaintenanceConnection {
-    ProcessorContext* context;
-    int pending;
-    unsigned char state;
-    unsigned char padding9[7];
-    int timestamp;
-    int field14;
-    unsigned short currentPort, savedPort;
-    unsigned int currentAddress, savedAddress;
+struct Struct_ov031_02203c6c {
+    ProcessorContext* unknown_0_;
+    int unknown_4_;
+    unsigned char unknown_8_;
+    unsigned char unknown_9_[7];
+    int unknown_10_;
+    int unknown_14_;
+    unsigned short unknown_18_, unknown_1a_;
+    unsigned int unknown_1c_, unknown_20_;
 };
-extern NetworkMaintenanceState data_ov031_0224c980;
+extern Struct_ov031_0224c980_12 data_ov031_0224c980;
 extern unsigned char data_ov031_0224ca60[0x64];
 extern unsigned char data_ov031_0224d02c[], data_ov031_0224ceac[];
-extern TimedNetworkEntry data_ov031_0224ca00[8];
-extern TimedNetworkAllocation data_ov031_0224cca8[8];
+extern Struct_ov031_0224ca00_2 data_ov031_0224ca00[8];
+extern Struct_ov031_0224cca8_3 data_ov031_0224cca8[8];
 extern "C" void func_ov031_02203164(int);
 extern "C" void func_ov031_02203178();
 extern "C" int func_ov031_02203bcc();
@@ -60,59 +60,59 @@ extern "C" void func_ov031_0220480c();
 
 // USA: func_ov031_02203c6c
 extern "C" ARM void func_ov031_02203c6c() {
-    int i;
-    int stage;
-    int timestamp;
-    TimedNetworkEntry* entry;
-    int watchdog;
-    int first;
-    data_ov031_0224c980.stop = 0;
+    int var0;
+    int var1;
+    int var2;
+    Struct_ov031_0224ca00_2* var3;
+    int var4;
+    int var5;
+    data_ov031_0224c980.unknown_44_ = 0;
     VectorizedMemset(data_ov031_0224ca60, 0, 0x64);
-    data_ov031_0224c980.capacityA = 0x180;
-    data_ov031_0224c980.bufferA = data_ov031_0224d02c;
-    data_ov031_0224c980.capacityB = 0x180;
-    data_ov031_0224c980.bufferB = data_ov031_0224ceac;
+    data_ov031_0224c980.unknown_11c_ = 0x180;
+    data_ov031_0224c980.unknown_120_ = data_ov031_0224d02c;
+    data_ov031_0224c980.unknown_128_ = 0x180;
+    data_ov031_0224c980.unknown_12c_ = data_ov031_0224ceac;
     func_ov031_02203164((int)data_ov031_0224ca60);
-    watchdog = 1;
-    first = 1;
-    unsigned int retry = 1;
-    data_ov031_0224c980.status = 1;
-    stage = 0;
+    var4 = 1;
+    var5 = 1;
+    unsigned int var6 = 1;
+    data_ov031_0224c980.unknown_c_ = 1;
+    var1 = 0;
     while (1) {
         SleepCurrentContext(1000);
-        if (data_ov031_0224c980.stop) break;
-        timestamp = (int)(GetCurrentTimestamp() >> 16);
-        if (data_ov031_0224c980.connected()) {
-            if (--retry == 0) {
-                if (data_ov031_0224c980.flags & 1) {
-                    if (stage == 0) {
+        if (data_ov031_0224c980.unknown_44_) break;
+        var2 = (int)(GetCurrentTimestamp() >> 16);
+        if (data_ov031_0224c980.unknown_48_()) {
+            if (--var6 == 0) {
+                if (data_ov031_0224c980.unknown_10_ & 1) {
+                    if (var1 == 0) {
                         func_ov031_02203bcc();
-                        stage = 1;
+                        var1 = 1;
                     }
                 } else {
-                    switch (stage) {
+                    switch (var1) {
                     case 0:
-                        if (first) {
-                            data_ov031_0224c980.status = 2;
-                            first = 0;
+                        if (var5) {
+                            data_ov031_0224c980.unknown_c_ = 2;
+                            var5 = 0;
                         }
-                        if (!func_ov031_022046b8() || func_ov031_02204710(&retry, 0) == 0) {
+                        if (!func_ov031_022046b8() || func_ov031_02204710(&var6, 0) == 0) {
                             func_ov031_02203bcc();
-                            stage = 3;
+                            var1 = 3;
                         } else {
-                            stage = 1;
+                            var1 = 1;
                         }
                         break;
                     case 1:
-                        if (func_ov031_02204710(&retry, 1) == 0 && retry < 60) stage = 2;
+                        if (func_ov031_02204710(&var6, 1) == 0 && var6 < 60) var1 = 2;
                         break;
                     case 2:
-                        if (func_ov031_02204710(&retry, 2)) stage = 1;
-                        else if (retry < 60) {
+                        if (func_ov031_02204710(&var6, 2)) var1 = 1;
+                        else if (var6 < 60) {
                             func_ov031_02200160(3);
-                            watchdog = 1;
-                            retry = 1;
-                            stage = 0;
+                            var4 = 1;
+                            var6 = 1;
+                            var1 = 0;
                         }
                         break;
                     case 3:
@@ -122,54 +122,54 @@ extern "C" ARM void func_ov031_02203c6c() {
             }
         } else {
             func_ov031_02200160(1);
-            watchdog = 1;
-            retry = 1;
-            stage = 0;
+            var4 = 1;
+            var6 = 1;
+            var1 = 0;
         }
-        entry = data_ov031_0224ca00;
-        i = 0;
+        var3 = data_ov031_0224ca00;
+        var0 = 0;
         do {
-            if (entry->active && (short)(timestamp - entry->timestamp) > 957) entry->active = 0;
-            entry++;
-        } while (++i < 8);
-        if (data_ov031_0224c980.probeAddress && --watchdog == 0) {
-            func_ov031_02200ccc(data_ov031_0224c980.probeAddress);
-            watchdog = 105;
+            if (var3->unknown_0_ && (short)(var2 - var3->unknown_a_) > 957) var3->unknown_0_ = 0;
+            var3++;
+        } while (++var0 < 8);
+        if (data_ov031_0224c980.unknown_2c_ && --var4 == 0) {
+            func_ov031_02200ccc(data_ov031_0224c980.unknown_2c_);
+            var4 = 105;
         }
-        ProcessorContext* context = data_02111304.firstContext;
-        if (context) do {
-            MaintenanceConnection* connection = (MaintenanceConnection*)context->unknown_A4;
-            if (connection && connection->context) {
-                int state = connection->state;
-                if (state == 3 && timestamp - connection->timestamp > 39) {
-                    connection->state = 1;
-                    connection->currentPort = connection->savedPort;
-                    connection->currentAddress = connection->savedAddress;
-                } else if (state == 2 && timestamp - connection->timestamp > 39) {
-                    if (connection->pending == 1) {
-                        connection->state = 0;
-                        connection->pending = 0;
-                        MarkContextReadyAndSwitch(connection->context);
+        ProcessorContext* var7 = data_02111304.firstContext;
+        if (var7) do {
+            Struct_ov031_02203c6c* var8 = (Struct_ov031_02203c6c*)var7->unknown_A4;
+            if (var8 && var8->unknown_0_) {
+                int var9 = var8->unknown_8_;
+                if (var9 == 3 && var2 - var8->unknown_10_ > 39) {
+                    var8->unknown_8_ = 1;
+                    var8->unknown_18_ = var8->unknown_1a_;
+                    var8->unknown_1c_ = var8->unknown_20_;
+                } else if (var9 == 2 && var2 - var8->unknown_10_ > 39) {
+                    if (var8->unknown_4_ == 1) {
+                        var8->unknown_8_ = 0;
+                        var8->unknown_4_ = 0;
+                        MarkContextReadyAndSwitch(var8->unknown_0_);
                     }
-                } else if (state != 4 && connection->pending == 2) {
-                    connection->pending = 0;
-                    MarkContextReadyAndSwitch(connection->context);
+                } else if (var9 != 4 && var8->unknown_4_ == 2) {
+                    var8->unknown_4_ = 0;
+                    MarkContextReadyAndSwitch(var8->unknown_0_);
                 }
             }
-            context = context->pNext;
-        } while (context);
-        TimedNetworkAllocation* allocation = data_ov031_0224cca8;
-        int allocationIndex = 0;
+            var7 = var7->pNext;
+        } while (var7);
+        Struct_ov031_0224cca8_3* var10 = data_ov031_0224cca8;
+        int var11 = 0;
         do {
-            if (allocation->active && timestamp - allocation->timestamp > 239) {
-                data_ov031_0224c980.release(allocation->allocation);
-                allocation->active = 0;
+            if (var10->unknown_4_ && var2 - var10->unknown_2c_ > 239) {
+                data_ov031_0224c980.unknown_40_(var10->unknown_34_);
+                var10->unknown_4_ = 0;
             }
-            allocation++;
-        } while (++allocationIndex < 8);
-        func_ov031_0220aa98(timestamp);
-        if (data_ov031_0224c980.tick) data_ov031_0224c980.tick();
+            var10++;
+        } while (++var11 < 8);
+        func_ov031_0220aa98(var2);
+        if (data_ov031_0224c980.unknown_3c_) data_ov031_0224c980.unknown_3c_();
     }
-    if (!(data_ov031_0224c980.flags & 1) && stage != 3) func_ov031_0220480c();
+    if (!(data_ov031_0224c980.unknown_10_ & 1) && var1 != 3) func_ov031_0220480c();
     func_ov031_02203178();
 }

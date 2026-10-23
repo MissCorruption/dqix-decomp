@@ -9,40 +9,40 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-struct Obj020397cc;
-struct ListHead02046b60;
-struct MenuData {
+struct Struct_02018300_3;
+struct Struct_02038598_5;
+struct Struct_ov017_021b688c {
 #if defined(jpn)
-    char pad_0[0x218];
+    char unknown_0_[0x218];
 #else
-    char pad_0[0x330];
+    char unknown1_0_[0x330];
 #endif
-    unsigned int displayMode;
+    unsigned int unknown_330_;
 #if defined(jpn)
-    char pad_334[0x2a8 - 0x21c];
+    char unknown_21c_[0x2a8 - 0x21c];
 #else
-    char pad_334[0x480 - 0x334];
+    char unknown_334_[0x480 - 0x334];
 #endif
-    short selection;
-    char pad_482[0x4a1 - 0x482];
-    unsigned char flags;
-    char pad_4a2[0x22];
+    short unknown_480_;
+    char unknown_482_[0x4a1 - 0x482];
+    unsigned char unknown_4a1_;
+    char unknown_4a2_[0x22];
 };
-struct MenuWork {
-    unsigned char field_0;
-    unsigned char complete;
-    char pad_2[6];
-    SafeAllocator allocator;
-    unsigned char mode;
-    unsigned char state;
-    unsigned char field_1e;
-    unsigned char flags;
-    signed char selection;
-    char pad_21[3];
-    MenuData* data;
+struct Struct_ov017_021b688c_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_;
+    char unknown_2_[6];
+    SafeAllocator unknown_8_;
+    unsigned char unknown_1c_;
+    unsigned char unknown_1d_;
+    unsigned char unknown_1e_;
+    unsigned char unknown_1f_;
+    signed char unknown_20_;
+    char unknown_21_[3];
+    Struct_ov017_021b688c* unknown_24_;
 };
-struct PartySlots { char pad_0[0xf78]; signed char slots[4]; unsigned char count; };
-extern "C" void func_020397cc(Obj020397cc*, int);
+struct Struct_ov000_02175808_4 { char unknown_0_[0xf78]; signed char unknown_f78_[4]; unsigned char unknown_f7c_; };
+extern "C" void func_020397cc(Struct_02018300_3*, int);
 extern "C" int func_0200fb8c(int*);
 extern "C" int func_020100f8(char*);
 extern "C" void func_020a28a0(unsigned char*, unsigned char);
@@ -51,13 +51,13 @@ extern "C" void* func_02012d88(AllocatorUnion*, unsigned int);
 extern AllocatorUnion data_02114e20;
 extern "C" void func_020a0c0c();
 extern "C" void func_020a1df8(int);
-extern "C" void func_ov003_0215f9c0(MenuData*, int);
-extern "C" void func_ov003_0215f8cc(MenuData*, SafeAllocator*);
+extern "C" void func_ov003_0215f9c0(Struct_ov017_021b688c*, int);
+extern "C" void func_ov003_0215f8cc(Struct_ov017_021b688c*, SafeAllocator*);
 extern "C" void func_020a27b8(unsigned char*);
-extern "C" int func_ov003_0215fce8(MenuData*, unsigned int);
-extern "C" void func_ov003_0215fb94(MenuData*);
-extern "C" void func_ov017_021b67d8(MenuWork*);
-extern "C" int func_02046b60(ListHead02046b60*, int);
+extern "C" int func_ov003_0215fce8(Struct_ov017_021b688c*, unsigned int);
+extern "C" void func_ov003_0215fb94(Struct_ov017_021b688c*);
+extern "C" void func_ov017_021b67d8(Struct_ov017_021b688c_2*);
+extern "C" int func_02046b60(Struct_02038598_5*, int);
 extern "C" void func_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_020a27ac(void*);
@@ -67,65 +67,65 @@ extern "C" void* func_02010828(GameState*);
 extern "C" void func_0206e424(void*, int);
 
 // USA: func_ov017_021b688c
-extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
-    GameState* game = GameState::GetInstance();
-    Obj020397cc* object = (Obj020397cc*)game->GetUnknownGameObject();
-    func_020397cc(object, 1);
-    GameResources* resources = (GameResources*)func_0200fb8c((int*)game);
-    SetFlags04(resources, 0xc0);
-    func_020a28a0((unsigned char*)func_020100f8((char*)game), 1);
-    if (work->state == 0) {
+extern "C" ARM void func_ov017_021b688c(Struct_ov017_021b688c_2* arg0) {
+    GameState* var0 = GameState::GetInstance();
+    Struct_02018300_3* var1 = (Struct_02018300_3*)var0->GetUnknownGameObject();
+    func_020397cc(var1, 1);
+    GameResources* var2 = (GameResources*)func_0200fb8c((int*)var0);
+    SetFlags04(var2, 0xc0);
+    func_020a28a0((unsigned char*)func_020100f8((char*)var0), 1);
+    if (arg0->unknown_1d_ == 0) {
         func_020a0cc4(0x1b800);
-        void* memory = func_02012d88(&data_02114e20, 0x1b800);
-        if (!memory) {
+        void* var3 = func_02012d88(&data_02114e20, 0x1b800);
+        if (!var3) {
             func_020a0c0c();
-            work->complete = 1;
+            arg0->unknown_1_ = 1;
             return;
         }
-        work->allocator.CreateTypeA(memory, 0x1b800);
-        work->allocator.Reset();
-        work->data = (MenuData*)work->allocator.Allocate(sizeof(MenuData));
-        if (!work->data) {
+        arg0->unknown_8_.CreateTypeA(var3, 0x1b800);
+        arg0->unknown_8_.Reset();
+        arg0->unknown_24_ = (Struct_ov017_021b688c*)arg0->unknown_8_.Allocate(sizeof(Struct_ov017_021b688c));
+        if (!arg0->unknown_24_) {
             func_020a0c0c();
-            work->complete = 1;
+            arg0->unknown_1_ = 1;
             return;
         }
         func_020a1df8(3);
-        func_ov003_0215f9c0(work->data, work->mode);
-        work->data->flags = work->flags;
-        work->data->selection = work->selection;
-        func_ov003_0215f8cc(work->data, &work->allocator);
-        func_020a27b8((unsigned char*)func_020100f8((char*)game));
-        work->state++;
-    } else if (work->state == 1) {
-        if (!func_ov003_0215fce8(work->data, game->GetTickCount())) return;
-        FontBankLoader* global = func_02094a00();
-        func_02094b40(global);
-        func_02094ab0(global);
-        func_02094b34(global, 0x6f, 0x1388, 1, 1);
-        work->state++;
-    } else if (work->state == 2) {
+        func_ov003_0215f9c0(arg0->unknown_24_, arg0->unknown_1c_);
+        arg0->unknown_24_->unknown_4a1_ = arg0->unknown_1f_;
+        arg0->unknown_24_->unknown_480_ = arg0->unknown_20_;
+        func_ov003_0215f8cc(arg0->unknown_24_, &arg0->unknown_8_);
+        func_020a27b8((unsigned char*)func_020100f8((char*)var0));
+        arg0->unknown_1d_++;
+    } else if (arg0->unknown_1d_ == 1) {
+        if (!func_ov003_0215fce8(arg0->unknown_24_, var0->GetTickCount())) return;
+        Struct_0208cb08* var4 = func_02094a00();
+        func_02094b40(var4);
+        func_02094ab0(var4);
+        func_02094b34(var4, 0x6f, 0x1388, 1, 1);
+        arg0->unknown_1d_++;
+    } else if (arg0->unknown_1d_ == 2) {
         if (!func_02094b4c(func_02094a00())) return;
-        func_ov003_0215fb94(work->data);
-        work->state++;
-    } else if (work->state == 3) {
-        DISPCNT = (work->data->displayMode << 8) | (DISPCNT & ~0x1f00);
-        work->state++;
-        func_ov017_021b67d8(work);
-        work->complete = 1;
-        ListHead02046b60* list = (ListHead02046b60*)resources->unknown_ptr_array_36fc[0];
-        if (func_02046b60(list, 4) || func_02046b60(list, 0x18)) {
-            func_020397cc(object, 1);
+        func_ov003_0215fb94(arg0->unknown_24_);
+        arg0->unknown_1d_++;
+    } else if (arg0->unknown_1d_ == 3) {
+        DISPCNT = (arg0->unknown_24_->unknown_330_ << 8) | (DISPCNT & ~0x1f00);
+        arg0->unknown_1d_++;
+        func_ov017_021b67d8(arg0);
+        arg0->unknown_1_ = 1;
+        Struct_02038598_5* var5 = (Struct_02038598_5*)var2->unknown_ptr_array_36fc[0];
+        if (func_02046b60(var5, 4) || func_02046b60(var5, 0x18)) {
+            func_020397cc(var1, 1);
             return;
         }
-        ClearFlags04(resources, 0xc0);
-        func_020397c0(object);
-        unsigned char* flags = (unsigned char*)func_020100f8((char*)game);
-        if (!func_ov017_021959b4()) func_020a27ac(flags);
-        func_020a28b0(flags, 2);
-        void* party = func_0205ec34();
-        func_02010828(game);
-        PartySlots* slots = (PartySlots*)func_02010828(game);
-        for (int i = 0; i < slots->count; i++) func_0206e424(party, slots->slots[i]);
+        ClearFlags04(var2, 0xc0);
+        func_020397c0(var1);
+        unsigned char* var6 = (unsigned char*)func_020100f8((char*)var0);
+        if (!func_ov017_021959b4()) func_020a27ac(var6);
+        func_020a28b0(var6, 2);
+        void* var7 = func_0205ec34();
+        func_02010828(var0);
+        Struct_ov000_02175808_4* var8 = (Struct_ov000_02175808_4*)func_02010828(var0);
+        for (int var9 = 0; var9 < var8->unknown_f7c_; var9++) func_0206e424(var7, var8->unknown_f78_[var9]);
     }
 }

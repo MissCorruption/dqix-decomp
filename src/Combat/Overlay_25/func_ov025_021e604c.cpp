@@ -1,87 +1,87 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Obj02049b54;
-struct Obj02033874;
+struct Struct_02049b54_2;
+struct Struct_02033834;
 
-struct Vec3 {
-    fix32_t v[3];
+struct Struct_ov009_0218aa28 {
+    fix32_t unknown_0_[3];
 };
 
 extern "C" void* func_ov000_02160130();
-extern "C" int func_ov000_021820bc(void* obj, int unused, int index, int arg);
-extern "C" void func_02049f28(unsigned char* obj);
-extern "C" int func_0200fb8c(int* obj);
-extern "C" GameObject* func_0200fea4(GameState* battleStruct, int combatantId);
-extern "C" void func_02049b54(struct Vec3* out, struct Obj02049b54* obj);
-extern "C" void func_02033874(struct Obj02033874* obj, int arg);
-extern "C" void func_02049bac(unsigned char* obj, int* src);
-extern "C" void func_ov000_02161c0c(void* work, int id);
-extern "C" void func_ov000_02167fb0(void* work, GameObject* obj);
-extern "C" void func_ov000_021677fc(void* work);
-extern "C" void* func_ov000_02160f14(void* work);
-extern "C" int func_ov000_0215eb1c(void* obj, short* ids, int count, int flag);
-extern "C" void __clear(void* dst, int size);
+extern "C" int func_ov000_021820bc(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void func_02049f28(unsigned char* arg0);
+extern "C" int func_0200fb8c(int* arg0);
+extern "C" GameObject* func_0200fea4(GameState* arg0, int arg1);
+extern "C" void func_02049b54(struct Struct_ov009_0218aa28* arg0, struct Struct_02049b54_2* arg1);
+extern "C" void func_02033874(struct Struct_02033834* arg0, int arg1);
+extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
+extern "C" void func_ov000_02161c0c(void* arg0, int arg1);
+extern "C" void func_ov000_02167fb0(void* arg0, GameObject* arg1);
+extern "C" void func_ov000_021677fc(void* arg0);
+extern "C" void* func_ov000_02160f14(void* arg0);
+extern "C" int func_ov000_0215eb1c(void* arg0, short* arg1, int arg2, int arg3);
+extern "C" void __clear(void* arg0, int arg1);
 
 extern char data_ov025_021ef802[];
 
-struct Formation021e604c {
-    char pad[0x240];
-    struct Vec3 center;
+struct Struct_ov025_021e604c {
+    char unknown_0_[0x240];
+    struct Struct_ov009_0218aa28 unknown_240_;
 };
 
 // USA: func_ov025_021e604c
-extern "C" ARM int func_ov025_021e604c(void* unused0, int b, int unused2, void* c) {
-    int ids[8];
-    struct Vec3 pos;
-    Vector3fix rot;
-    Vector3fix dir;
-    struct Vec3 from;
-    Vector3fix target;
-    struct Vec3 center;
-    short enemyIds[8];
-    int j;
-    int centerZ;
-    int enemyCount;
-    GameState* battle;
-    GameState* bs = GameState::GetInstance();
-    void* work = func_ov000_02160130();
-    if (work == NULL) {
+extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg3) {
+    int var0[8];
+    struct Struct_ov009_0218aa28 var1;
+    Vector3fix var2;
+    Vector3fix var3;
+    struct Struct_ov009_0218aa28 var4;
+    Vector3fix var5;
+    struct Struct_ov009_0218aa28 var6;
+    short var7[8];
+    int var8;
+    int var9;
+    int var10;
+    GameState* var11;
+    GameState* var12 = GameState::GetInstance();
+    void* var13 = func_ov000_02160130();
+    if (var13 == NULL) {
         return 1;
     }
-    int count = func_ov000_021820bc(c, b, 0x18, (int)ids);
-    for (int i = 0; i < count; i++) {
-        GameObject* obj = bs->GetCombatantByIndex(ids[i]);
-        if (obj != NULL) {
-            func_ov000_02161c0c(work, ids[i]);
-            func_02049f28((unsigned char*)obj);
-            func_ov000_02167fb0(work, obj);
-            obj->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef802, 1);
+    int var14 = func_ov000_021820bc(arg3, arg1, 0x18, (int)var0);
+    for (int var15 = 0; var15 < var14; var15++) {
+        GameObject* var16 = var12->GetCombatantByIndex(var0[var15]);
+        if (var16 != NULL) {
+            func_ov000_02161c0c(var13, var0[var15]);
+            func_02049f28((unsigned char*)var16);
+            func_ov000_02167fb0(var13, var16);
+            var16->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef802, 1);
         }
     }
-    func_ov000_021677fc(work);
-    struct Formation021e604c* formation = (struct Formation021e604c*)func_ov000_02160f14(work);
-    battle = GameState::GetInstance();
-    func_0200fb8c((int*)battle);
-    enemyCount = func_ov000_0215eb1c(c, enemyIds, 8, 0);
-    center = formation->center;
-    centerZ = center.v[2];
-    for (j = 0; j < enemyCount; j++) {
-        GameObject* enemy = func_0200fea4(battle, enemyIds[j]);
-        if (enemy != NULL) {
-            __clear(&target, 0xc);
-            target.z = centerZ;
-            func_02049b54(&pos, (struct Obj02049b54*)enemy);
-            from = pos;
-            from.v[1] = 0;
-            Vector3fix_Subtract(&target, (Vector3fix*)&from, &dir);
-            dir.y = 0;
-            Vector3fix_Normalize(&dir, &dir);
-            int angle = fix32_Atan2(dir.x, dir.z);
-            func_02033874((struct Obj02033874*)enemy, angle);
-            __clear(&rot, 0xc);
-            rot.y = angle;
-            func_02049bac((unsigned char*)enemy, (int*)&rot);
+    func_ov000_021677fc(var13);
+    struct Struct_ov025_021e604c* var17 = (struct Struct_ov025_021e604c*)func_ov000_02160f14(var13);
+    var11 = GameState::GetInstance();
+    func_0200fb8c((int*)var11);
+    var10 = func_ov000_0215eb1c(arg3, var7, 8, 0);
+    var6 = var17->unknown_240_;
+    var9 = var6.unknown_0_[2];
+    for (var8 = 0; var8 < var10; var8++) {
+        GameObject* var18 = func_0200fea4(var11, var7[var8]);
+        if (var18 != NULL) {
+            __clear(&var5, 0xc);
+            var5.z = var9;
+            func_02049b54(&var1, (struct Struct_02049b54_2*)var18);
+            var4 = var1;
+            var4.unknown_0_[1] = 0;
+            Vector3fix_Subtract(&var5, (Vector3fix*)&var4, &var3);
+            var3.y = 0;
+            Vector3fix_Normalize(&var3, &var3);
+            int var19 = fix32_Atan2(var3.x, var3.z);
+            func_02033874((struct Struct_02033834*)var18, var19);
+            __clear(&var2, 0xc);
+            var2.y = var19;
+            func_02049bac((unsigned char*)var18, (int*)&var2);
         }
     }
     return 1;

@@ -5,91 +5,91 @@ int fix32sin(int x);
 int fix32cos(int x);
 extern "C" int rand(void);
 
-struct Node020409b0 {
-    char pad[0x14];
-    void* f14;
-    void* f18;
+struct Struct_020409b0 {
+    char unknown_0_[0x14];
+    void* unknown_14_;
+    void* unknown_18_;
 };
-extern "C" int func_020409b0(struct Node020409b0* obj, int arg);
+extern "C" int func_020409b0(struct Struct_020409b0* arg0, int arg1);
 
-struct Table02040f48 {
-    Vector3i v[4];
-};
-
-extern struct Table02040f48 data_020e7a20;
-
-struct Container02040f48 {
-    char pad0[0x1f];
-    unsigned char mode;
-    char pad20[2];
-    short angle;
-    int xMax;
-    int zMax;
-    int xMin;
-    int zMin;
+struct Struct_020e7a20 {
+    Vector3i unknown_0_[4];
 };
 
-struct Obj02040f48 {
-    char pad0[0xc];
-    struct Container02040f48* cont;
+extern struct Struct_020e7a20 data_020e7a20;
+
+struct Struct_02040f48 {
+    char unknown_0_[0x1f];
+    unsigned char unknown_1f_;
+    char unknown_20_[2];
+    short unknown_22_;
+    int unknown_24_;
+    int unknown_28_;
+    int unknown_2c_;
+    int unknown_30_;
+};
+
+struct Struct_02040f48_2 {
+    char unknown_0_[0xc];
+    struct Struct_02040f48* unknown_c_;
 };
 
 // USA: func_02040f48
-extern "C" ARM void func_02040f48(struct Obj02040f48* self, Vector3i* ref) {
-    struct Table02040f48 table = data_020e7a20;
-    Vector3i pos = *ref;
-    Vector3i cand[4];
+extern "C" ARM void func_02040f48(struct Struct_02040f48_2* arg0, Vector3i* arg1) {
+    struct Struct_020e7a20 var0 = data_020e7a20;
+    Vector3i var1 = *arg1;
+    Vector3i var2[4];
 
-    if (self->cont->mode == 8) {
-        int sn = fix32sin(self->cont->angle);
-        int cs = fix32cos(self->cont->angle);
-        if (sn < 0) sn = -sn;
-        if (cs < 0) cs = -cs;
-        if (self->cont->angle < 0x191e || (self->cont->angle > 0x323d && self->cont->angle < 0x4b5c)) {
-            table.v[0].x = sn;
-            table.v[0].z = cs;
-            table.v[1].x = sn;
-            table.v[1].z = cs;
-            table.v[2].x = -sn;
-            table.v[2].z = -cs;
-            table.v[3].x = -sn;
-            table.v[3].z = -cs;
+    if (arg0->unknown_c_->unknown_1f_ == 8) {
+        int var3 = fix32sin(arg0->unknown_c_->unknown_22_);
+        int var4 = fix32cos(arg0->unknown_c_->unknown_22_);
+        if (var3 < 0) var3 = -var3;
+        if (var4 < 0) var4 = -var4;
+        if (arg0->unknown_c_->unknown_22_ < 0x191e || (arg0->unknown_c_->unknown_22_ > 0x323d && arg0->unknown_c_->unknown_22_ < 0x4b5c)) {
+            var0.unknown_0_[0].x = var3;
+            var0.unknown_0_[0].z = var4;
+            var0.unknown_0_[1].x = var3;
+            var0.unknown_0_[1].z = var4;
+            var0.unknown_0_[2].x = -var3;
+            var0.unknown_0_[2].z = -var4;
+            var0.unknown_0_[3].x = -var3;
+            var0.unknown_0_[3].z = -var4;
         } else {
-            table.v[0].x = sn;
-            table.v[0].z = -cs;
-            table.v[1].x = sn;
-            table.v[1].z = -cs;
-            table.v[2].x = -sn;
-            table.v[2].z = cs;
-            table.v[3].x = -sn;
-            table.v[3].z = cs;
+            var0.unknown_0_[0].x = var3;
+            var0.unknown_0_[0].z = -var4;
+            var0.unknown_0_[1].x = var3;
+            var0.unknown_0_[1].z = -var4;
+            var0.unknown_0_[2].x = -var3;
+            var0.unknown_0_[2].z = var4;
+            var0.unknown_0_[3].x = -var3;
+            var0.unknown_0_[3].z = var4;
         }
     }
 
-    int n = 0;
-    if (pos.x < self->cont->xMax) {
-        cand[n] = table.v[0];
-        n++;
+    int var5 = 0;
+    if (var1.x < arg0->unknown_c_->unknown_24_) {
+        var2[var5] = var0.unknown_0_[0];
+        var5++;
     }
-    if (pos.z < self->cont->zMax) {
-        cand[n] = table.v[1];
-        n++;
+    if (var1.z < arg0->unknown_c_->unknown_28_) {
+        var2[var5] = var0.unknown_0_[1];
+        var5++;
     }
-    if (pos.x > self->cont->xMin) {
-        cand[n] = table.v[2];
-        n++;
+    if (var1.x > arg0->unknown_c_->unknown_2c_) {
+        var2[var5] = var0.unknown_0_[2];
+        var5++;
     }
-    if (pos.z > self->cont->zMin) {
-        cand[n] = table.v[3];
-        n++;
+    if (var1.z > arg0->unknown_c_->unknown_30_) {
+        var2[var5] = var0.unknown_0_[3];
+        var5++;
     }
 
-    if (pos.x > self->cont->xMax) pos.x = self->cont->xMax;
-    if (pos.z > self->cont->zMax) pos.z = self->cont->zMax;
-    if (pos.x < self->cont->xMin) pos.x = self->cont->xMin;
-    if (pos.z < self->cont->zMin) pos.z = self->cont->zMin;
+    if (var1.x > arg0->unknown_c_->unknown_24_) var1.x = arg0->unknown_c_->unknown_24_;
+    if (var1.z > arg0->unknown_c_->unknown_28_) var1.z = arg0->unknown_c_->unknown_28_;
+    if (var1.x < arg0->unknown_c_->unknown_2c_) var1.x = arg0->unknown_c_->unknown_2c_;
+    if (var1.z < arg0->unknown_c_->unknown_30_) var1.z = arg0->unknown_c_->unknown_30_;
 
-    int idx = rand() % n;
-    Vector3fix_Add((const Vector3fix*)&pos, (const Vector3fix*)&cand[idx], (Vector3fix*)&pos);
-    func_020409b0((struct Node020409b0*)self, (int)&pos);
+    int var6 = rand() % var5;
+    Vector3fix_Add((const Vector3fix*)&var1, (const Vector3fix*)&var2[var6], (Vector3fix*)&var1);
+    func_020409b0((struct Struct_020409b0*)arg0, (int)&var1);
 }

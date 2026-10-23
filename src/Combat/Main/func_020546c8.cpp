@@ -2,215 +2,145 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/Memory/SignedAllocator.h"
 
-struct S02055080;
+struct Struct_020546c8;
 
-extern "C" void* func_02055090(struct S02055080* obj);
-extern "C" void* func_020550a8(struct S02055080* obj);
-extern "C" void* func_020550c0(struct S02055080* p);
-extern "C" void* func_020550d8(struct S02055080* p);
-extern "C" void* func_02055120(struct S02055080* p);
-extern "C" void* func_02055138(struct S02055080* obj);
-extern "C" void* func_02055150(struct S02055080* obj);
-extern "C" int func_02055168(struct S02055080* obj);
+extern "C" void* func_02055090(struct Struct_020546c8* arg0);
+extern "C" void* func_020550a8(struct Struct_020546c8* arg0);
+extern "C" void* func_020550c0(struct Struct_020546c8* arg0);
+extern "C" void* func_020550d8(struct Struct_020546c8* arg0);
+extern "C" void* func_02055120(struct Struct_020546c8* arg0);
+extern "C" void* func_02055138(struct Struct_020546c8* arg0);
+extern "C" void* func_02055150(struct Struct_020546c8* arg0);
+extern "C" int func_02055168(struct Struct_020546c8* arg0);
 
-struct Obj02054f3c;
-extern "C" bool func_02054f3c(struct Obj02054f3c** out, SafeAllocator* alloc);
-struct Obj02054ef8;
-extern "C" bool func_02054ef8(struct Obj02054ef8** out, SafeAllocator* alloc);
-struct Obj02054eb4;
-extern "C" bool func_02054eb4(struct Obj02054eb4** out, SafeAllocator* alloc);
-struct T02054e70;
-extern "C" int func_02054e70(struct T02054e70** out, SafeAllocator* alloc);
+struct Struct_020546c8_9;
+extern "C" bool func_02054f3c(struct Struct_020546c8_9** arg0, SafeAllocator* arg1);
+struct Struct_020546c8_10;
+extern "C" bool func_02054ef8(struct Struct_020546c8_10** arg0, SafeAllocator* arg1);
+struct Struct_020546c8_11;
+extern "C" bool func_02054eb4(struct Struct_020546c8_11** arg0, SafeAllocator* arg1);
+struct Struct_020546c8_12;
+extern "C" int func_02054e70(struct Struct_020546c8_12** arg0, SafeAllocator* arg1);
 
-struct S02055080 {
-    SafeAllocator* alloc;
-    void* fieldSub;
-    SignedAllocatorList listB[3];
-    SignedAllocatorList listC[3];
-    SignedAllocatorList listD[3];
-    SignedAllocatorList listE;
-    SignedAllocatorList listF[3];
-    SignedAllocatorList listG;
-    SignedAllocatorList listH[2];
-    SignedAllocatorList listI[2];
-    SignedAllocatorList listJ;
-    SignedAllocatorList listK[4];
-    SignedAllocatorList listA;
+struct Struct_020546c8 {
+    SafeAllocator* unknown_0_;
+    void* unknown_4_;
+    SignedAllocatorList unknown_8_[3];
+    SignedAllocatorList unknown_2c_[3];
+    SignedAllocatorList unknown_50_[3];
+    SignedAllocatorList unknown_74_;
+    SignedAllocatorList unknown_80_[3];
+    SignedAllocatorList unknown_a4_;
+    SignedAllocatorList unknown_b0_[2];
+    SignedAllocatorList unknown_c8_[2];
+    SignedAllocatorList unknown_e0_;
+    SignedAllocatorList unknown_ec_[4];
+    SignedAllocatorList unknown_11c_;
 };
 
-struct R1_020546c8 {
-    char pad0[4];
-    void* arr;
-    char pad8[4];
-    unsigned short count;
+struct Struct_020546c8_2 {
+    char unknown_0_[4];
+    void* unknown_4_;
+    char unknown_8_[4];
+    unsigned short unknown_c_;
 };
 
-struct R2_020546c8 {
-    void* arrB[3];
-    void* arrC[3];
-    void* arrD[3];
-    unsigned char countB[3];
-    unsigned char countC[3];
-    unsigned char countD[3];
+struct Struct_020546c8_3 {
+    void* unknown_0_[3];
+    void* unknown_c_[3];
+    void* unknown_18_[3];
+    unsigned char unknown_24_[3];
+    unsigned char unknown_27_[3];
+    unsigned char unknown_2a_[3];
 };
 
-struct R3_020546c8 {
-    void* arr;
-    unsigned char count;
+struct Struct_020546c8_4 {
+    void* unknown_0_;
+    unsigned char unknown_4_;
 };
 
-struct R4_020546c8 {
-    void* arr[3];
-    void* arrExtra;
-    unsigned char count[3];
-    unsigned char countExtra;
+struct Struct_020546c8_5 {
+    void* unknown_0_[3];
+    void* unknown_c_;
+    unsigned char unknown_10_[3];
+    unsigned char unknown_13_;
 };
 
-struct RArrCount2_020546c8 {
-    void* arr[2];
-    unsigned char count[2];
+struct Struct_020546c8_6 {
+    void* unknown_0_[2];
+    unsigned char unknown_8_[2];
 };
 
-struct R7_020546c8 {
-    char pad0[4];
-    void* arr;
-    unsigned char count;
+struct Struct_020546c8_7 {
+    char unknown_0_[4];
+    void* unknown_4_;
+    unsigned char unknown_8_;
 };
 
-struct R8_020546c8 {
-    void* arr[4];
-    unsigned char count[4];
+struct Struct_020546c8_8 {
+    void* unknown_0_[4];
+    unsigned char unknown_10_[4];
 };
 
 // USA: func_020546c8
-extern "C" ARM void func_020546c8(struct S02055080* sl) {
-    struct R1_020546c8* r1s = (struct R1_020546c8*)func_02055090(sl);
-    if (r1s != NULL && r1s->count != 0) {
-        struct Obj02054f3c* pA = NULL;
-        if (func_02054f3c(&pA, sl->alloc)) {
-            sl->listA.InsertAtEnd((SignedAllocatorHeader*)pA);
-            *(int*)pA = (int)r1s->arr;
-            for (int i = 1; i < r1s->count; i++) {
-                pA = NULL;
-                if (func_02054f3c(&pA, sl->alloc)) {
-                    sl->listA.InsertAtEnd((SignedAllocatorHeader*)pA);
-                    *(int*)pA = (int)((char*)r1s->arr + i * 0x1c);
+extern "C" ARM void func_020546c8(struct Struct_020546c8* arg0) {
+    struct Struct_020546c8_2* var0 = (struct Struct_020546c8_2*)func_02055090(arg0);
+    if (var0 != NULL && var0->unknown_c_ != 0) {
+        struct Struct_020546c8_9* var1 = NULL;
+        if (func_02054f3c(&var1, arg0->unknown_0_)) {
+            arg0->unknown_11c_.InsertAtEnd((SignedAllocatorHeader*)var1);
+            *(int*)var1 = (int)var0->unknown_4_;
+            for (int var2 = 1; var2 < var0->unknown_c_; var2++) {
+                var1 = NULL;
+                if (func_02054f3c(&var1, arg0->unknown_0_)) {
+                    arg0->unknown_11c_.InsertAtEnd((SignedAllocatorHeader*)var1);
+                    *(int*)var1 = (int)((char*)var0->unknown_4_ + var2 * 0x1c);
                 }
             }
         }
     }
 
-    struct R2_020546c8* r2s = (struct R2_020546c8*)func_020550a8(sl);
-    if (r2s != NULL) {
-        for (int sb = 0; sb < 3; sb++) {
-            if (r2s->countB[sb] != 0) {
-                struct Obj02054ef8* pB = NULL;
-                if (func_02054ef8(&pB, sl->alloc)) {
-                    sl->listB[sb].InsertAtEnd((SignedAllocatorHeader*)pB);
-                    *(int*)pB = (int)r2s->arrB[sb];
-                    for (int j = 1; j < r2s->countB[sb]; j++) {
-                        pB = NULL;
-                        if (func_02054ef8(&pB, sl->alloc)) {
-                            sl->listB[sb].InsertAtEnd((SignedAllocatorHeader*)pB);
-                            *(int*)pB = (int)((char*)r2s->arrB[sb] + j * 8);
+    struct Struct_020546c8_3* var3 = (struct Struct_020546c8_3*)func_020550a8(arg0);
+    if (var3 != NULL) {
+        for (int var4 = 0; var4 < 3; var4++) {
+            if (var3->unknown_24_[var4] != 0) {
+                struct Struct_020546c8_10* var5 = NULL;
+                if (func_02054ef8(&var5, arg0->unknown_0_)) {
+                    arg0->unknown_8_[var4].InsertAtEnd((SignedAllocatorHeader*)var5);
+                    *(int*)var5 = (int)var3->unknown_0_[var4];
+                    for (int var6 = 1; var6 < var3->unknown_24_[var4]; var6++) {
+                        var5 = NULL;
+                        if (func_02054ef8(&var5, arg0->unknown_0_)) {
+                            arg0->unknown_8_[var4].InsertAtEnd((SignedAllocatorHeader*)var5);
+                            *(int*)var5 = (int)((char*)var3->unknown_0_[var4] + var6 * 8);
                         }
                     }
                 }
             }
-            if (r2s->countC[sb] != 0) {
-                struct Obj02054ef8* pC = NULL;
-                if (func_02054ef8(&pC, sl->alloc)) {
-                    sl->listC[sb].InsertAtEnd((SignedAllocatorHeader*)pC);
-                    *(int*)pC = (int)r2s->arrC[sb];
-                    for (int j = 1; j < r2s->countC[sb]; j++) {
-                        pC = NULL;
-                        if (func_02054ef8(&pC, sl->alloc)) {
-                            sl->listC[sb].InsertAtEnd((SignedAllocatorHeader*)pC);
-                            *(int*)pC = (int)((char*)r2s->arrC[sb] + j * 8);
+            if (var3->unknown_27_[var4] != 0) {
+                struct Struct_020546c8_10* var7 = NULL;
+                if (func_02054ef8(&var7, arg0->unknown_0_)) {
+                    arg0->unknown_2c_[var4].InsertAtEnd((SignedAllocatorHeader*)var7);
+                    *(int*)var7 = (int)var3->unknown_c_[var4];
+                    for (int var8 = 1; var8 < var3->unknown_27_[var4]; var8++) {
+                        var7 = NULL;
+                        if (func_02054ef8(&var7, arg0->unknown_0_)) {
+                            arg0->unknown_2c_[var4].InsertAtEnd((SignedAllocatorHeader*)var7);
+                            *(int*)var7 = (int)((char*)var3->unknown_c_[var4] + var8 * 8);
                         }
                     }
                 }
             }
-            if (r2s->countD[sb] != 0) {
-                struct Obj02054ef8* pD = NULL;
-                if (func_02054ef8(&pD, sl->alloc)) {
-                    sl->listD[sb].InsertAtEnd((SignedAllocatorHeader*)pD);
-                    *(int*)pD = (int)r2s->arrD[sb];
-                    for (int j = 1; j < r2s->countD[sb]; j++) {
-                        pD = NULL;
-                        if (func_02054ef8(&pD, sl->alloc)) {
-                            sl->listD[sb].InsertAtEnd((SignedAllocatorHeader*)pD);
-                            *(int*)pD = (int)((char*)r2s->arrD[sb] + j * 8);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    struct R3_020546c8* r3s = (struct R3_020546c8*)func_020550c0(sl);
-    if (r3s != NULL && r3s->count != 0) {
-        struct Obj02054ef8* pE = NULL;
-        if (func_02054ef8(&pE, sl->alloc)) {
-            sl->listE.InsertAtEnd((SignedAllocatorHeader*)pE);
-            *(int*)pE = (int)r3s->arr;
-            for (int i = 1; i < r3s->count; i++) {
-                pE = NULL;
-                if (func_02054ef8(&pE, sl->alloc)) {
-                    sl->listE.InsertAtEnd((SignedAllocatorHeader*)pE);
-                    *(int*)pE = (int)((char*)r3s->arr + i * 8);
-                }
-            }
-        }
-    }
-
-    struct R4_020546c8* r4s = (struct R4_020546c8*)func_020550d8(sl);
-    if (r4s != NULL) {
-        for (int sb = 0; sb < 3; sb++) {
-            if (r4s->count[sb] != 0) {
-                struct Obj02054ef8* pF = NULL;
-                if (func_02054ef8(&pF, sl->alloc)) {
-                    sl->listF[sb].InsertAtEnd((SignedAllocatorHeader*)pF);
-                    *(int*)pF = (int)r4s->arr[sb];
-                    for (int j = 1; j < r4s->count[sb]; j++) {
-                        pF = NULL;
-                        if (func_02054ef8(&pF, sl->alloc)) {
-                            sl->listF[sb].InsertAtEnd((SignedAllocatorHeader*)pF);
-                            *(int*)pF = (int)((char*)r4s->arr[sb] + j * 8);
-                        }
-                    }
-                }
-            }
-        }
-        if (r4s->countExtra != 0) {
-            struct Obj02054eb4* pG = NULL;
-            if (func_02054eb4(&pG, sl->alloc)) {
-                sl->listG.InsertAtEnd((SignedAllocatorHeader*)pG);
-                *(int*)pG = (int)r4s->arrExtra;
-                for (int i = 1; i < r4s->countExtra; i++) {
-                    pG = NULL;
-                    if (func_02054eb4(&pG, sl->alloc)) {
-                        sl->listG.InsertAtEnd((SignedAllocatorHeader*)pG);
-                        *(int*)pG = (int)((char*)r4s->arrExtra + i * 0x10);
-                    }
-                }
-            }
-        }
-    }
-
-    struct RArrCount2_020546c8* r5s = (struct RArrCount2_020546c8*)func_02055120(sl);
-    if (r5s != NULL) {
-        for (int r8i = 0; r8i < 2; r8i++) {
-            if (r5s->count[r8i] != 0) {
-                struct Obj02054ef8* pH = NULL;
-                if (func_02054ef8(&pH, sl->alloc)) {
-                    sl->listH[r8i].InsertAtEnd((SignedAllocatorHeader*)pH);
-                    *(int*)pH = (int)r5s->arr[r8i];
-                    for (int j = 1; j < r5s->count[r8i]; j++) {
-                        pH = NULL;
-                        if (func_02054ef8(&pH, sl->alloc)) {
-                            sl->listH[r8i].InsertAtEnd((SignedAllocatorHeader*)pH);
-                            *(int*)pH = (int)((char*)r5s->arr[r8i] + j * 8);
+            if (var3->unknown_2a_[var4] != 0) {
+                struct Struct_020546c8_10* var9 = NULL;
+                if (func_02054ef8(&var9, arg0->unknown_0_)) {
+                    arg0->unknown_50_[var4].InsertAtEnd((SignedAllocatorHeader*)var9);
+                    *(int*)var9 = (int)var3->unknown_18_[var4];
+                    for (int var10 = 1; var10 < var3->unknown_2a_[var4]; var10++) {
+                        var9 = NULL;
+                        if (func_02054ef8(&var9, arg0->unknown_0_)) {
+                            arg0->unknown_50_[var4].InsertAtEnd((SignedAllocatorHeader*)var9);
+                            *(int*)var9 = (int)((char*)var3->unknown_18_[var4] + var10 * 8);
                         }
                     }
                 }
@@ -218,19 +148,69 @@ extern "C" ARM void func_020546c8(struct S02055080* sl) {
         }
     }
 
-    struct RArrCount2_020546c8* r6s = (struct RArrCount2_020546c8*)func_02055138(sl);
-    if (r6s != NULL) {
-        for (int r8i = 0; r8i < 2; r8i++) {
-            if (r6s->count[r8i] != 0) {
-                struct Obj02054eb4* pI = NULL;
-                if (func_02054eb4(&pI, sl->alloc)) {
-                    sl->listI[r8i].InsertAtEnd((SignedAllocatorHeader*)pI);
-                    *(int*)pI = (int)r6s->arr[r8i];
-                    for (int j = 1; j < r6s->count[r8i]; j++) {
-                        pI = NULL;
-                        if (func_02054eb4(&pI, sl->alloc)) {
-                            sl->listI[r8i].InsertAtEnd((SignedAllocatorHeader*)pI);
-                            *(int*)pI = (int)((char*)r6s->arr[r8i] + j * 0x10);
+    struct Struct_020546c8_4* var11 = (struct Struct_020546c8_4*)func_020550c0(arg0);
+    if (var11 != NULL && var11->unknown_4_ != 0) {
+        struct Struct_020546c8_10* var12 = NULL;
+        if (func_02054ef8(&var12, arg0->unknown_0_)) {
+            arg0->unknown_74_.InsertAtEnd((SignedAllocatorHeader*)var12);
+            *(int*)var12 = (int)var11->unknown_0_;
+            for (int var13 = 1; var13 < var11->unknown_4_; var13++) {
+                var12 = NULL;
+                if (func_02054ef8(&var12, arg0->unknown_0_)) {
+                    arg0->unknown_74_.InsertAtEnd((SignedAllocatorHeader*)var12);
+                    *(int*)var12 = (int)((char*)var11->unknown_0_ + var13 * 8);
+                }
+            }
+        }
+    }
+
+    struct Struct_020546c8_5* var14 = (struct Struct_020546c8_5*)func_020550d8(arg0);
+    if (var14 != NULL) {
+        for (int var15 = 0; var15 < 3; var15++) {
+            if (var14->unknown_10_[var15] != 0) {
+                struct Struct_020546c8_10* var16 = NULL;
+                if (func_02054ef8(&var16, arg0->unknown_0_)) {
+                    arg0->unknown_80_[var15].InsertAtEnd((SignedAllocatorHeader*)var16);
+                    *(int*)var16 = (int)var14->unknown_0_[var15];
+                    for (int var17 = 1; var17 < var14->unknown_10_[var15]; var17++) {
+                        var16 = NULL;
+                        if (func_02054ef8(&var16, arg0->unknown_0_)) {
+                            arg0->unknown_80_[var15].InsertAtEnd((SignedAllocatorHeader*)var16);
+                            *(int*)var16 = (int)((char*)var14->unknown_0_[var15] + var17 * 8);
+                        }
+                    }
+                }
+            }
+        }
+        if (var14->unknown_13_ != 0) {
+            struct Struct_020546c8_11* var18 = NULL;
+            if (func_02054eb4(&var18, arg0->unknown_0_)) {
+                arg0->unknown_a4_.InsertAtEnd((SignedAllocatorHeader*)var18);
+                *(int*)var18 = (int)var14->unknown_c_;
+                for (int var19 = 1; var19 < var14->unknown_13_; var19++) {
+                    var18 = NULL;
+                    if (func_02054eb4(&var18, arg0->unknown_0_)) {
+                        arg0->unknown_a4_.InsertAtEnd((SignedAllocatorHeader*)var18);
+                        *(int*)var18 = (int)((char*)var14->unknown_c_ + var19 * 0x10);
+                    }
+                }
+            }
+        }
+    }
+
+    struct Struct_020546c8_6* var20 = (struct Struct_020546c8_6*)func_02055120(arg0);
+    if (var20 != NULL) {
+        for (int var21 = 0; var21 < 2; var21++) {
+            if (var20->unknown_8_[var21] != 0) {
+                struct Struct_020546c8_10* var22 = NULL;
+                if (func_02054ef8(&var22, arg0->unknown_0_)) {
+                    arg0->unknown_b0_[var21].InsertAtEnd((SignedAllocatorHeader*)var22);
+                    *(int*)var22 = (int)var20->unknown_0_[var21];
+                    for (int var23 = 1; var23 < var20->unknown_8_[var21]; var23++) {
+                        var22 = NULL;
+                        if (func_02054ef8(&var22, arg0->unknown_0_)) {
+                            arg0->unknown_b0_[var21].InsertAtEnd((SignedAllocatorHeader*)var22);
+                            *(int*)var22 = (int)((char*)var20->unknown_0_[var21] + var23 * 8);
                         }
                     }
                 }
@@ -238,35 +218,55 @@ extern "C" ARM void func_020546c8(struct S02055080* sl) {
         }
     }
 
-    struct R7_020546c8* r7s = (struct R7_020546c8*)func_02055150(sl);
-    if (r7s != NULL && r7s->count != 0) {
-        struct T02054e70* pJ = NULL;
-        if (func_02054e70(&pJ, sl->alloc)) {
-            sl->listJ.InsertAtEnd((SignedAllocatorHeader*)pJ);
-            *(int*)pJ = (int)r7s->arr;
-            for (int i = 1; i < r7s->count; i++) {
-                pJ = NULL;
-                if (func_02054e70(&pJ, sl->alloc)) {
-                    sl->listJ.InsertAtEnd((SignedAllocatorHeader*)pJ);
-                    *(int*)pJ = (int)((char*)r7s->arr + i * 0xc);
+    struct Struct_020546c8_6* var24 = (struct Struct_020546c8_6*)func_02055138(arg0);
+    if (var24 != NULL) {
+        for (int var25 = 0; var25 < 2; var25++) {
+            if (var24->unknown_8_[var25] != 0) {
+                struct Struct_020546c8_11* var26 = NULL;
+                if (func_02054eb4(&var26, arg0->unknown_0_)) {
+                    arg0->unknown_c8_[var25].InsertAtEnd((SignedAllocatorHeader*)var26);
+                    *(int*)var26 = (int)var24->unknown_0_[var25];
+                    for (int var27 = 1; var27 < var24->unknown_8_[var25]; var27++) {
+                        var26 = NULL;
+                        if (func_02054eb4(&var26, arg0->unknown_0_)) {
+                            arg0->unknown_c8_[var25].InsertAtEnd((SignedAllocatorHeader*)var26);
+                            *(int*)var26 = (int)((char*)var24->unknown_0_[var25] + var27 * 0x10);
+                        }
+                    }
                 }
             }
         }
     }
 
-    struct R8_020546c8* r8s = (struct R8_020546c8*)func_02055168(sl);
-    if (r8s != NULL) {
-        for (int r8i = 0; r8i < 4; r8i++) {
-            if (r8s->count[r8i] != 0) {
-                struct Obj02054ef8* pK = NULL;
-                if (func_02054ef8(&pK, sl->alloc)) {
-                    sl->listK[r8i].InsertAtEnd((SignedAllocatorHeader*)pK);
-                    *(int*)pK = (int)r8s->arr[r8i];
-                    for (int j = 1; j < r8s->count[r8i]; j++) {
-                        pK = NULL;
-                        if (func_02054ef8(&pK, sl->alloc)) {
-                            sl->listK[r8i].InsertAtEnd((SignedAllocatorHeader*)pK);
-                            *(int*)pK = (int)((char*)r8s->arr[r8i] + j * 8);
+    struct Struct_020546c8_7* var28 = (struct Struct_020546c8_7*)func_02055150(arg0);
+    if (var28 != NULL && var28->unknown_8_ != 0) {
+        struct Struct_020546c8_12* var29 = NULL;
+        if (func_02054e70(&var29, arg0->unknown_0_)) {
+            arg0->unknown_e0_.InsertAtEnd((SignedAllocatorHeader*)var29);
+            *(int*)var29 = (int)var28->unknown_4_;
+            for (int var30 = 1; var30 < var28->unknown_8_; var30++) {
+                var29 = NULL;
+                if (func_02054e70(&var29, arg0->unknown_0_)) {
+                    arg0->unknown_e0_.InsertAtEnd((SignedAllocatorHeader*)var29);
+                    *(int*)var29 = (int)((char*)var28->unknown_4_ + var30 * 0xc);
+                }
+            }
+        }
+    }
+
+    struct Struct_020546c8_8* var31 = (struct Struct_020546c8_8*)func_02055168(arg0);
+    if (var31 != NULL) {
+        for (int var32 = 0; var32 < 4; var32++) {
+            if (var31->unknown_10_[var32] != 0) {
+                struct Struct_020546c8_10* var33 = NULL;
+                if (func_02054ef8(&var33, arg0->unknown_0_)) {
+                    arg0->unknown_ec_[var32].InsertAtEnd((SignedAllocatorHeader*)var33);
+                    *(int*)var33 = (int)var31->unknown_0_[var32];
+                    for (int var34 = 1; var34 < var31->unknown_10_[var32]; var34++) {
+                        var33 = NULL;
+                        if (func_02054ef8(&var33, arg0->unknown_0_)) {
+                            arg0->unknown_ec_[var32].InsertAtEnd((SignedAllocatorHeader*)var33);
+                            *(int*)var33 = (int)((char*)var31->unknown_0_[var32] + var34 * 8);
                         }
                     }
                 }

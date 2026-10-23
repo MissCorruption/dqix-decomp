@@ -9,29 +9,29 @@ static const double C5 = 2.08757232129817482790e-09;
 static const double C6 = -1.13596475577881948265e-11;
 
 // USA: func_020076f0
-extern "C" ARM double func_020076f0(double x, double y) {
-    double a, hz, z, r, qx;
-    int ix;
+extern "C" ARM double func_020076f0(double arg0, double arg1) {
+    double var0, var1, var2, var3, var4;
+    int var5;
 
-    ix = ((int*)&x)[1] & 0x7fffffff;
-    if (ix < 0x3e400000) {
-        if ((int)x == 0) {
+    var5 = ((int*)&arg0)[1] & 0x7fffffff;
+    if (var5 < 0x3e400000) {
+        if ((int)arg0 == 0) {
             return one;
         }
     }
-    z = x * x;
-    r = z * (C1 + z * (C2 + z * (C3 + z * (C4 + z * (C5 + z * C6)))));
-    if (ix < 0x3fd33333) {
-        return one - (0.5 * z - (z * r - x * y));
+    var2 = arg0 * arg0;
+    var3 = var2 * (C1 + var2 * (C2 + var2 * (C3 + var2 * (C4 + var2 * (C5 + var2 * C6)))));
+    if (var5 < 0x3fd33333) {
+        return one - (0.5 * var2 - (var2 * var3 - arg0 * arg1));
     } else {
-        if (ix > 0x3fe90000) {
-            qx = 0.28125;
+        if (var5 > 0x3fe90000) {
+            var4 = 0.28125;
         } else {
-            ((int*)&qx)[1] = ix - 0x00200000;
-            ((int*)&qx)[0] = 0;
+            ((int*)&var4)[1] = var5 - 0x00200000;
+            ((int*)&var4)[0] = 0;
         }
-        hz = 0.5 * z - qx;
-        a = one - qx;
-        return a - (hz - (z * r - x * y));
+        var1 = 0.5 * var2 - var4;
+        var0 = one - var4;
+        return var0 - (var1 - (var2 * var3 - arg0 * arg1));
     }
 }

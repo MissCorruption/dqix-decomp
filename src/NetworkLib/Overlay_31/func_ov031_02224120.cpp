@@ -1,34 +1,34 @@
 #include <globaldefs.h>
 
-struct GXOamAttr02224120 { unsigned int attr01; unsigned short attr2; unsigned short attr3; };
+struct Struct_ov031_02222ddc_4 { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
 
-struct Entity02224120 {
-    unsigned char pad0[0x90];
-    GXOamAttr02224120* field90;
-    unsigned char pad1[0x11d - 0x94];
-    unsigned char field11d;
+struct Struct_ov031_02224120 {
+    unsigned char unknown_0_[0x90];
+    Struct_ov031_02222ddc_4* unknown_90_;
+    unsigned char unknown_94_[0x11d - 0x94];
+    unsigned char unknown_11d_;
 };
 
-extern Entity02224120* data_ov031_02250bfc;
-extern "C" void func_ov031_02224ca4(int a, int idx, int y);
-extern "C" void func_ov031_0223e2b8(void* obj, int v);
-extern "C" void func_ov031_022241b4(void* obj);
+extern Struct_ov031_02224120* data_ov031_02250bfc;
+extern "C" void func_ov031_02224ca4(int arg0, int arg1, int arg2);
+extern "C" void func_ov031_0223e2b8(void* arg0, int arg1);
+extern "C" void func_ov031_022241b4(void* arg0);
 
-static inline void G2_GetOBJPosition(const GXOamAttr02224120* oam, unsigned int* x, unsigned int* y) {
-    *x = (oam->attr01 & 0x1ff0000) >> 16;
-    *y = oam->attr01 & 0xff;
+static inline void inline_ov031_02223ff8(const Struct_ov031_02222ddc_4* arg0, unsigned int* arg1, unsigned int* arg2) {
+    *arg1 = (arg0->unknown_0_ & 0x1ff0000) >> 16;
+    *arg2 = arg0->unknown_0_ & 0xff;
 }
 
 // USA: func_ov031_02224120
-extern "C" ARM void func_ov031_02224120(void* obj) {
-    int x, y;
-    G2_GetOBJPosition(data_ov031_02250bfc->field90, (unsigned int*)&x, (unsigned int*)&y);
-    y -= 0xc;
-    if (y > 0x7d) {
-        func_ov031_02224ca4(data_ov031_02250bfc->field11d, 2, y);
+extern "C" ARM void func_ov031_02224120(void* arg0) {
+    int var0, var1;
+    inline_ov031_02223ff8(data_ov031_02250bfc->unknown_90_, (unsigned int*)&var0, (unsigned int*)&var1);
+    var1 -= 0xc;
+    if (var1 > 0x7d) {
+        func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 2, var1);
         return;
     }
-    func_ov031_02224ca4(data_ov031_02250bfc->field11d, 2, 0x7d);
-    func_ov031_02224ca4(data_ov031_02250bfc->field11d, 3, 0xc0);
-    func_ov031_0223e2b8(obj, (int)func_ov031_022241b4);
+    func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 2, 0x7d);
+    func_ov031_02224ca4(data_ov031_02250bfc->unknown_11d_, 3, 0xc0);
+    func_ov031_0223e2b8(arg0, (int)func_ov031_022241b4);
 }
